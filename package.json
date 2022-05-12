@@ -1,11 +1,11 @@
 {
-  "name": "ucla-library-website-component",
+  "name": "ucla-library-website-components",
   "version": "0.0.0-development",
   "description": "",
-  "main": "dist/ucla-library-website-component.ssr.js",
-  "browser": "dist/ucla-library-website-component.esm.js",
-  "module": "dist/ucla-library-website-component.esm.js",
-  "unpkg": "dist/ucla-library-website-component.min.js",
+  "main": "dist/ucla-library-website-components.ssr.js",
+  "browser": "dist/ucla-library-website-components.esm.js",
+  "module": "dist/ucla-library-website-components.esm.js",
+  "unpkg": "dist/ucla-library-website-components.min.js",
   "files": [
     "dist/*",
     "src/**/*.vue"

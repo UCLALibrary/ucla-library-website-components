@@ -84,7 +84,7 @@ if (!argv.format || argv.format === 'es') {
     input: 'src/entry.esm.js',
     external,
     output: {
-      file: 'dist/ucla-library-website-component.esm.js',
+      file: 'dist/ucla-library-website-components.esm.js',
       format: 'esm',
       exports: 'named',
     },
@@ -116,9 +116,9 @@ if (!argv.format || argv.format === 'cjs') {
     external,
     output: {
       compact: true,
-      file: 'dist/ucla-library-website-component.ssr.js',
+      file: 'dist/ucla-library-website-components.ssr.js',
       format: 'cjs',
-      name: 'UclaLibraryWebsiteComponent',
+      name: 'UclaLibraryWebsiteComponents',
       exports: 'auto',
       globals,
     },
@@ -145,9 +145,9 @@ if (!argv.format || argv.format === 'iife') {
     external,
     output: {
       compact: true,
-      file: 'dist/ucla-library-website-component.min.js',
+      file: 'dist/ucla-library-website-components.min.js',
       format: 'iife',
-      name: 'UclaLibraryWebsiteComponent',
+      name: 'UclaLibraryWebsiteComponents',
       exports: 'auto',
       globals,
     },
