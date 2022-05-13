@@ -20,8 +20,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// @import '@/styles/variables-scss.scss';
-// @import '@/styles/variables-css.scss';
 .divider-general {
     border-bottom: 2px dotted $secondary-grey-02;
     height: 1px;
