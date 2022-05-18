@@ -15,19 +15,6 @@ jobs:
     - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
     - uses: ./.github/workflows/setup-workspace
     - run: npm run storybook:build
-    - name: Deploy to Netlify (merged)
-      if: github.ref_name=='main'
-      uses: nwtgck/actions-netlify@b7c1504e00c6b8a249d1848cc1b522a4865eed99 # v1.2.3
-      with:
-        production-deploy: true
-        deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/commit/${{ github.sha }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        publish-dir: './storybook-static'
-        fails-without-credentials: true
-        github-deployment-environment: production
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK }}
     - name: Deploy to Netlify (preview)
       if: github.ref_name!='main'
       uses: nwtgck/actions-netlify@b7c1504e00c6b8a249d1848cc1b522a4865eed99 # v1.2.3

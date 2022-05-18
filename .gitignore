@@ -2,6 +2,9 @@
 node_modules
 /dist
 storybook-static
+src/components
+src/stories/index.stories.js
+src/stories/index.stories.mdx
 
 
 # local env files
