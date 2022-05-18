@@ -1,0 +1,32 @@
+
+name: Run CI Suite
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  storybook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+    - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+    - uses: ./.github/workflows/setup-workspace
+    - run: npm run storybook:build
+    - name: Deploy to Netlify (preview)
+      if: github.ref_name!='main'
+      uses: nwtgck/actions-netlify@b7c1504e00c6b8a249d1848cc1b522a4865eed99 # v1.2.3
+      with:
+        production-deploy: false
+        deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/pull/${{ github.event.pull_request.number }}
+        alias: deploy-preview-${{ github.event.pull_request.number }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        overwrites-pull-request-comment: true
+        publish-dir: './storybook-static'
+        fails-without-credentials: true
+        github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK }}
