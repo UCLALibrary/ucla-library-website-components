@@ -1,4 +1,4 @@
-import DividerGeneral from "../lib-components/DividerGeneral";
+import DividerGeneral from "../lib-components/DividerGeneral"
 
 export default {
     title: "DIVIDER / General",
