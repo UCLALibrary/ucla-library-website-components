@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: 'DividerGeneral', // vue component name
+    name: "DividerGeneral", // vue component name
     props: {
         isBold: {
             type: Boolean,
