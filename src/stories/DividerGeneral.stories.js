@@ -10,7 +10,7 @@ export const Default = () => ({
     template: `<divider-general/>`,
 })
 
-export const isBold = () => ({
+export const IsBold = () => ({
     components: { DividerGeneral },
     template: `<divider-general :is-bold="true"/>`,
 })
