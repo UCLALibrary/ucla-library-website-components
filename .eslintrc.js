@@ -21,6 +21,7 @@ module.exports = {
     extends: [
         "eslint:recommended",
         "plugin:vue/essential",
+        "plugin:cypress/recommended",
         "plugin:prettier/recommended",
         "@vue/prettier",
     ],

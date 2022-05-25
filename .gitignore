@@ -6,6 +6,12 @@ src/components
 src/stories/index.stories.js
 src/stories/index.stories.mdx
 
+# Cypress
+cypress/fixtures
+cypress/screenshots
+cypress/integration/1-getting-started
+cypress/integration/2-advanced-examples
+
 
 # local env files
 .env.local
