@@ -7,6 +7,7 @@ module.exports = {
 
     rules: {
         semi: [2, "never"],
+        "no-unused-vars": "off",
         "no-multiple-empty-lines": "error",
         "prettier/prettier": [
             "error",
