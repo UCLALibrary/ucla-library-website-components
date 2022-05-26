@@ -5,10 +5,11 @@
 ### To test your setup locally only
 
 Clone https://github.com/UCLALibrary/ucla-library-website-components.git
-1. Run `$ npm install --legacy-peer-deps` from a terminal to install dependencies
+1. Run `$ npm install` from a terminal to install dependencies
 1. Run `$ npm run serve` to start a development server.
 1. Open the  browser and load  `http://localhost:8080` which will serve dev/serve.vue page
-1. Run `$ npm run storybook:serve` to start a storybook server.
+1. Run `$ npm run storybook` to start a storybook server.
+1. Run `$ npm run cypress` to open cypresss.
 
 ## npm script commands available
 
