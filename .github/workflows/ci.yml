@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
     - uses: ./.github/workflows/setup-workspace
-    - run: npm run storybook:build
+    - run: npm run build-storybook
     - name: Deploy to Netlify (preview)
       if: github.ref_name!='main'
       uses: nwtgck/actions-netlify@b7c1504e00c6b8a249d1848cc1b522a4865eed99 # v1.2.3
@@ -38,3 +38,11 @@ jobs:
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK }}
+    - name: Cypress test for Storybook Components
+      uses: cypress-io/github-action@2113e5bc19c45979ba123df6e07256d2aaba9a33
+      with:
+        start: npx http-server ./storybook-static -p 6006
+        command-prefix: 'npx'
+        wait-on: http://localhost:6006
+      env: 
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}

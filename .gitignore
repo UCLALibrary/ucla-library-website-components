@@ -5,6 +5,17 @@ storybook-static
 src/components
 src/stories/index.stories.js
 src/stories/index.stories.mdx
+src/stories/Page*
+src/stories/Button*
+src/stories/Header*
+src/stories/*.css
+src/stories/assets
+
+# Cypress
+cypress/fixtures
+cypress/screenshots
+cypress/integration/1-getting-started
+cypress/integration/2-advanced-examples
 
 
 # local env files
