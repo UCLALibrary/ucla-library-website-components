@@ -5,6 +5,11 @@ storybook-static
 src/components
 src/stories/index.stories.js
 src/stories/index.stories.mdx
+src/stories/Page*
+src/stories/Button*
+src/stories/Header*
+src/stories/*.css
+src/stories/assets
 
 # Cypress
 cypress/fixtures
