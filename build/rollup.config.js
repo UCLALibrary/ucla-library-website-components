@@ -44,6 +44,9 @@ const baseConfig = {
         },
         vue: {
             css: true,
+            template: {
+                isProduction: true,
+            },
         },
         postVue: [
             resolve({
@@ -81,7 +84,7 @@ if (!argv.format || argv.format === "es") {
     const esConfig = {
         ...baseConfig,
         input: "src/entry.esm.js",
-        external,
+        external: ["src/styles/variables-css.scss"],
         output: {
             file: "dist/ucla-library-website-components.esm.js",
             format: "esm",
