@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div :class="classes" />
 </template>
 
@@ -21,7 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 .divider-general {
-    border-bottom: 2px dotted $secondary-grey-02;
+    border-bottom: 2px dotted var(--color-secondary-grey-02);
     height: 1px;
 
     &.is-bold {
