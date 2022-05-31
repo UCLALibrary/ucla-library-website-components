@@ -1,5 +1,5 @@
 <template lang="html">
-    <div :class="classes">
+    <div class="alphabetical-browse-by">
         <h2 class="alphabetical-browse-by__title">Browse by Last Name</h2>
         <ul class="alphabetical-browse-by__alphabet" v-if="!isTablet">
             <li
@@ -76,9 +76,6 @@ export default {
     },
     props: {},
     computed: {
-        classes() {
-            return ["alphabetical-browse-by"]
-        },
         alphabet() {
             return this.alphabetFirstHalf.concat(this.alphabetSecondHalf)
         },
@@ -127,6 +124,7 @@ export default {
     }
 
     .alphabetical-browse-by__alphabet {
+        @include step-1;
         max-width: 928px;
         display: flex;
         flex-wrap: wrap;
@@ -134,22 +132,27 @@ export default {
         list-style-type: none;
         padding: 0;
         color: var(--color-primary-blue-03);
-        @include step-1;
 
         .alphabetical-browse-by__letter {
             margin-right: 19.5px;
             margin-bottom: 24px;
 
             &:hover {
+                @include link-hover;
                 cursor: pointer;
+                font-weight: $font-weight-semibold;
+                color: var(--color-primary-blue-03);
             }
         }
         @media #{$medium} {
             max-height: 140px;
             max-width: 640px;
             justify-content: space-between;
+            margin-top: 0;
+            margin-right: 0px;
             .alphabetical-browse-by__letter {
                 margin-right: 0px;
+                margin-bottom: 0;
             }
         }
         @media #{$small} {
@@ -160,6 +163,7 @@ export default {
             .alphabetical-browse-by__letter {
                 margin-left: 19.5px;
                 margin-right: 0px;
+                margin-bottom: 24px;
             }
         }
     }
