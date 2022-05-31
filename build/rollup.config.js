@@ -9,6 +9,10 @@ import replace from "@rollup/plugin-replace"
 import babel from "@rollup/plugin-babel"
 import { terser } from "rollup-plugin-terser"
 import minimist from "minimist"
+import postcss from "rollup-plugin-postcss"
+// import scss from "rollup-plugin-scss"
+// import dartSass from "sass"
+
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs
     .readFileSync("./.browserslistrc")
@@ -43,11 +47,39 @@ const baseConfig = {
             "process.env.NODE_ENV": JSON.stringify("production"),
         },
         vue: {
-            css: true,
+            template: {
+                isProduction: true,
+            },
+            preprocessStyles: true,
+            preprocessOptions: {
+                scss: {
+                    additionalData: `@import 'src/styles/variables-scss.scss';`,
+                },
+            },
+            /*style: {
+                preprocessOptions: {
+                    scss: {
+                        includePaths: ["node_modules/", "src/"],
+                        importer(path) {
+                            return {
+                                file: path[0] !== "~" ? path : path.slice(1),
+                            }
+                        },
+                    },
+                },
+            },*/
         },
         postVue: [
             resolve({
                 extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"],
+            }),
+            postcss({
+                include: /\.scss$/,
+                use: {
+                    sass: {
+                        data: `@import 'src/styles/variables-scss.scss';`,
+                    },
+                },
             }),
             commonjs(),
         ],
@@ -104,6 +136,8 @@ if (!argv.format || argv.format === "es") {
                     ],
                 ],
             }),
+            // scss({ include: /\.scss$/, sass: dartSass }),
+            // scss(),
         ],
     }
     buildFormats.push(esConfig)
@@ -133,6 +167,12 @@ if (!argv.format || argv.format === "cjs") {
             }),
             ...baseConfig.plugins.postVue,
             babel(baseConfig.plugins.babel),
+            /*scss({
+                includePaths: [
+                    path.join(__dirname, "../../node_modules/"),
+                    "node_modules/",
+                ],
+            }),*/
         ],
     }
     buildFormats.push(umdConfig)
@@ -161,6 +201,12 @@ if (!argv.format || argv.format === "iife") {
                     ecma: 5,
                 },
             }),
+            /*scss({
+                includePaths: [
+                    path.join(__dirname, "../../node_modules/"),
+                    "node_modules/",
+                ],
+            }),*/
         ],
     }
     buildFormats.push(unpkgConfig)

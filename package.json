@@ -1,5 +1,5 @@
 {
-  "name": "@ucla-library/ucla-library-website-components",
+  "name": "ucla-library-website-components",
   "version": "0.0.0-development",
   "description": "This is library of components that will be used on UCLA Library websites",
   "scripts": {
@@ -25,8 +25,7 @@
   "unpkg": "dist/ucla-library-website-components.min.js",
   "files": [
     "dist/*",
-    "src/lib-components/*",
-    "src/styles/*"
+    "src/**/*.vue"
   ],
   "repository": {
     "type": "git",
@@ -68,11 +67,13 @@
     "eslint-plugin-storybook": "^0.5.12",
     "eslint-plugin-vue": "^8.0.3",
     "minimist": "^1.2.5",
+    "postcss": "^8.4.14",
     "prettier": "2.6.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.52.8",
+    "rollup-plugin-postcss": "^3.1.8",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-vue": "^5.1.9",
     "sass": "^1.45.0",
