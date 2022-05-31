@@ -1,6 +1,4 @@
 // Import vue components
-// import "@/styles/variables-scss.scss"
-// import "@/styles/variables-css.scss"
 import * as components from "@/lib-components/index"
 
 // install function executed by Vue.use()

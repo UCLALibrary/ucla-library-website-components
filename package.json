@@ -1,5 +1,5 @@
 {
-  "name": "@ucla-library/ucla-library-website-components",
+  "name": "ucla-library-website-components",
   "version": "0.0.0-development",
   "description": "This is library of components that will be used on UCLA Library websites",
   "scripts": {
@@ -25,8 +25,7 @@
   "unpkg": "dist/ucla-library-website-components.min.js",
   "files": [
     "dist/*",
-    "src/lib-components/*",
-    "src/styles/*"
+    "src/**/*.vue"
   ],
   "repository": {
     "type": "git",
