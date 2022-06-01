@@ -1,7 +1,7 @@
 describe("GENERAL / AlphabeticalBrowseBy", () => {
     it("Default", () => {
         cy.visit(
-            "/iframe.html?id=search-alphabetical-browse-by--default&args=&viewMode=story"
+            "/iframe.html?id=search-alphabeticalbrowseby--default--default&args=&viewMode=story"
         )
         cy.get(".alphabetical-browse-by").should("exist")
 
