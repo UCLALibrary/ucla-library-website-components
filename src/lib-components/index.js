@@ -1,3 +1,4 @@
+import "@/styles/global.scss"
 import "@/styles/variables-css.scss"
 
 export { default as UclaLibraryWebsiteComponentSample } from "./ucla-library-website-component-sample.vue"
