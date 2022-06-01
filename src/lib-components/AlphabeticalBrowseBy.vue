@@ -2,7 +2,12 @@
     <div class="alphabetical-browse-by">
         <h2 class="title">Browse by Last Name</h2>
         <ul class="alphabet" v-if="!isTablet">
-            <li v-for="letter in alphabet" :key="letter" class="letter">
+            <li
+                v-for="letter in alphabet"
+                :key="letter"
+                class="letter"
+                @click="$emit('letterSelected', letter)"
+            >
                 {{ letter }}
             </li>
         </ul>
@@ -12,6 +17,7 @@
                     v-for="letter in alphabetFirstHalf"
                     :key="letter"
                     class="letter"
+                    @click="$emit('letterSelected', letter)"
                 >
                     {{ letter }}
                 </li>
@@ -21,6 +27,7 @@
                     v-for="letter in alphabetSecondHalf"
                     :key="letter"
                     class="letter"
+                    @click="$emit('letterSelected', letter)"
                 >
                     {{ letter }}
                 </li>
