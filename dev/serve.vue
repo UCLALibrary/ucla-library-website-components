@@ -1,11 +1,9 @@
 <script>
 import Vue from "vue"
-import AlphabeticalBrowseBy from "../src/lib-components/AlphabeticalBrowseBy.vue"
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { UclaLibraryWebsiteComponentSample } from '@/entry.esm';
 
 export default Vue.extend({
-    components: { AlphabeticalBrowseBy },
     name: "ServeDev",
     // components: {
     //  UclaLibraryWebsiteComponentSample,

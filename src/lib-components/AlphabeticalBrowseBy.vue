@@ -1,30 +1,26 @@
 <template lang="html">
     <div class="alphabetical-browse-by">
-        <h2 class="alphabetical-browse-by__title">Browse by Last Name</h2>
-        <ul class="alphabetical-browse-by__alphabet" v-if="!isTablet">
-            <li
-                v-for="letter in alphabet"
-                :key="letter"
-                class="alphabetical-browse-by__letter"
-            >
+        <h2 class="title">Browse by Last Name</h2>
+        <ul class="alphabet" v-if="!isTablet">
+            <li v-for="letter in alphabet" :key="letter" class="letter">
                 {{ letter }}
             </li>
         </ul>
         <div v-else>
-            <ul class="alphabetical-browse-by__alphabet">
+            <ul class="alphabet">
                 <li
                     v-for="letter in alphabetFirstHalf"
                     :key="letter"
-                    class="alphabetical-browse-by__letter"
+                    class="letter"
                 >
                     {{ letter }}
                 </li>
             </ul>
-            <ul class="alphabetical-browse-by__alphabet">
+            <ul class="alphabet">
                 <li
                     v-for="letter in alphabetSecondHalf"
                     :key="letter"
-                    class="alphabetical-browse-by__letter"
+                    class="letter"
                 >
                     {{ letter }}
                 </li>
@@ -116,14 +112,14 @@ export default {
     flex-direction: column;
     justify-content: center;
 
-    .alphabetical-browse-by__title {
+    .title {
         @include step-2;
         margin-bottom: 24px;
         font-family: var(--font-primary);
         color: var(--color-primary-blue-03);
     }
 
-    .alphabetical-browse-by__alphabet {
+    .alphabet {
         @include step-1;
         max-width: 928px;
         display: flex;
@@ -133,7 +129,7 @@ export default {
         padding: 0;
         color: var(--color-primary-blue-03);
 
-        .alphabetical-browse-by__letter {
+        .letter {
             margin-right: 19.5px;
             margin-bottom: 24px;
 
@@ -150,7 +146,7 @@ export default {
             justify-content: space-between;
             margin-top: 0;
             margin-right: 0px;
-            .alphabetical-browse-by__letter {
+            .letter {
                 margin-right: 0px;
                 margin-bottom: 0;
             }
@@ -160,7 +156,7 @@ export default {
             max-width: 327px;
             justify-content: space-between;
             margin-left: -19.5px;
-            .alphabetical-browse-by__letter {
+            .letter {
                 margin-left: 19.5px;
                 margin-right: 0px;
                 margin-bottom: 24px;
