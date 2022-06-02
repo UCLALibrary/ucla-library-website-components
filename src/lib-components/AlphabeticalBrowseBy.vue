@@ -5,10 +5,9 @@
             <li
                 v-for="letter in alphabet"
                 :key="`${letter.letter}`"
-                :class="['letter', { 'is-selected': letter.isSelected }]"
-                @click="handleSelectedLetter(letter)"
+                :class="letter.class"
             >
-                {{ letter.letter }}
+                <a @click="handleSelectedLetter(letter)">{{ letter.letter }}</a>
             </li>
         </ul>
         <div v-else>
@@ -16,20 +15,22 @@
                 <li
                     v-for="letter in alphabetFirstHalf"
                     :key="`${letter.letter}`"
-                    :class="['letter', { 'is-selected': letter.isSelected }]"
-                    @click="handleSelectedLetter(letter)"
+                    :class="letter.class"
                 >
-                    {{ letter.letter }}
+                    <a @click="handleSelectedLetter(letter)">{{
+                        letter.letter
+                    }}</a>
                 </li>
             </ul>
             <ul class="alphabet">
                 <li
                     v-for="letter in alphabetSecondHalf"
                     :key="`${letter.letter}`"
-                    :class="['letter', { 'is-selected': letter.isSelected }]"
-                    @click="handleSelectedLetter(letter)"
+                    :class="letter.class"
                 >
-                    {{ letter.letter }}
+                    <a @click="handleSelectedLetter(letter)">{{
+                        letter.letter
+                    }}</a>
                 </li>
             </ul>
         </div>
@@ -45,108 +46,134 @@ export default {
                 {
                     letter: "All",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "A",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "B",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "C",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "D",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "E",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "F",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "G",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "H",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "I",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "J",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "K",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "L",
                     isSelected: false,
+                    class: "letter",
                 },
             ],
             alphabetSecondHalf: [
                 {
                     letter: "M",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "N",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "O",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "P",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "Q",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "R",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "S",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "T",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "U",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "V",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "W",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "X",
                     isSelected: false,
+                    class: "letter",
                 },
                 {
                     letter: "Z",
                     isSelected: false,
+                    class: "letter",
                 },
             ],
             isTablet: false,
@@ -161,11 +188,7 @@ export default {
             default: "All",
         },
     },
-    computed: {
-        letterClass(letter) {
-            return ["letter"]
-        },
-    },
+    computed: {},
     created() {
         window.addEventListener("resize", this.getSize)
         this.alphabetConcat()
@@ -200,11 +223,47 @@ export default {
                     return {
                         letter: item.letter,
                         isSelected: !item.isSelected,
+                        class: !item.isSelected
+                            ? "letter is-selected"
+                            : "letter",
                     }
                 }
                 return {
                     letter: item.letter,
                     isSelected: false,
+                    class: "letter",
+                }
+            })
+            this.alphabetFirstHalf = this.alphabetFirstHalf.map((item) => {
+                if (letter.letter === item.letter) {
+                    return {
+                        letter: item.letter,
+                        isSelected: !item.isSelected,
+                        class: !item.isSelected
+                            ? "letter is-selected"
+                            : "letter",
+                    }
+                }
+                return {
+                    letter: item.letter,
+                    isSelected: false,
+                    class: "letter",
+                }
+            })
+            this.alphabetSecondHalf = this.alphabetSecondHalf.map((item) => {
+                if (letter.letter === item.letter) {
+                    return {
+                        letter: item.letter,
+                        isSelected: !item.isSelected,
+                        class: !item.isSelected
+                            ? "letter is-selected"
+                            : "letter",
+                    }
+                }
+                return {
+                    letter: item.letter,
+                    isSelected: false,
+                    class: "letter",
                 }
             })
             letter.isSelected = true
@@ -221,11 +280,15 @@ export default {
                     return {
                         letter: item.letter,
                         isSelected: !item.isSelected,
+                        class: item.isSelected
+                            ? "letter is-selected"
+                            : "letter",
                     }
                 }
                 return {
                     letter: item.letter,
                     isSelected: false,
+                    class: "letter",
                 }
             })
         },
