@@ -4,32 +4,32 @@
         <ul class="alphabet" v-if="!isTablet">
             <li
                 v-for="letter in alphabet"
-                :key="letter"
-                class="letter"
-                @click="$emit('letterSelected', letter)"
+                :key="`${letter.letter}`"
+                :class="['letter', { 'is-selected': letter.isSelected }]"
+                @click="handleSelectedLetter(letter)"
             >
-                {{ letter }}
+                {{ letter.letter }}
             </li>
         </ul>
         <div v-else>
             <ul class="alphabet">
                 <li
                     v-for="letter in alphabetFirstHalf"
-                    :key="letter"
-                    class="letter"
-                    @click="$emit('letterSelected', letter)"
+                    :key="`${letter.letter}`"
+                    :class="['letter', { 'is-selected': letter.isSelected }]"
+                    @click="handleSelectedLetter(letter)"
                 >
-                    {{ letter }}
+                    {{ letter.letter }}
                 </li>
             </ul>
             <ul class="alphabet">
                 <li
                     v-for="letter in alphabetSecondHalf"
-                    :key="letter"
-                    class="letter"
-                    @click="$emit('letterSelected', letter)"
+                    :key="`${letter.letter}`"
+                    :class="['letter', { 'is-selected': letter.isSelected }]"
+                    @click="handleSelectedLetter(letter)"
                 >
-                    {{ letter }}
+                    {{ letter.letter }}
                 </li>
             </ul>
         </div>
@@ -42,49 +42,134 @@ export default {
     data() {
         return {
             alphabetFirstHalf: [
-                "All",
-                "A",
-                "B",
-                "C",
-                "D",
-                "E",
-                "F",
-                "G",
-                "H",
-                "I",
-                "J",
-                "K",
-                "L",
+                {
+                    letter: "All",
+                    isSelected: false,
+                },
+                {
+                    letter: "A",
+                    isSelected: false,
+                },
+                {
+                    letter: "B",
+                    isSelected: false,
+                },
+                {
+                    letter: "C",
+                    isSelected: false,
+                },
+                {
+                    letter: "D",
+                    isSelected: false,
+                },
+                {
+                    letter: "E",
+                    isSelected: false,
+                },
+                {
+                    letter: "F",
+                    isSelected: false,
+                },
+                {
+                    letter: "G",
+                    isSelected: false,
+                },
+                {
+                    letter: "H",
+                    isSelected: false,
+                },
+                {
+                    letter: "I",
+                    isSelected: false,
+                },
+                {
+                    letter: "J",
+                    isSelected: false,
+                },
+                {
+                    letter: "K",
+                    isSelected: false,
+                },
+                {
+                    letter: "L",
+                    isSelected: false,
+                },
             ],
             alphabetSecondHalf: [
-                "M",
-                "N",
-                "O",
-                "P",
-                "Q",
-                "R",
-                "S",
-                "T",
-                "U",
-                "V",
-                "W",
-                "X",
-                "Y",
-                "Z",
+                {
+                    letter: "M",
+                    isSelected: false,
+                },
+                {
+                    letter: "N",
+                    isSelected: false,
+                },
+                {
+                    letter: "O",
+                    isSelected: false,
+                },
+                {
+                    letter: "P",
+                    isSelected: false,
+                },
+                {
+                    letter: "Q",
+                    isSelected: false,
+                },
+                {
+                    letter: "R",
+                    isSelected: false,
+                },
+                {
+                    letter: "S",
+                    isSelected: false,
+                },
+                {
+                    letter: "T",
+                    isSelected: false,
+                },
+                {
+                    letter: "U",
+                    isSelected: false,
+                },
+                {
+                    letter: "V",
+                    isSelected: false,
+                },
+                {
+                    letter: "W",
+                    isSelected: false,
+                },
+                {
+                    letter: "X",
+                    isSelected: false,
+                },
+                {
+                    letter: "Z",
+                    isSelected: false,
+                },
             ],
             isTablet: false,
             vw: window.innerWidth,
             vh: window.innerHeight,
+            alphabet: [],
         }
     },
-    props: {},
+    props: {
+        selectedLetter: {
+            type: String,
+            default: "All",
+        },
+    },
     computed: {
-        alphabet() {
-            return this.alphabetFirstHalf.concat(this.alphabetSecondHalf)
+        letterClass(letter) {
+            return ["letter"]
         },
     },
     created() {
         window.addEventListener("resize", this.getSize)
+        this.alphabetConcat()
+        this.setSelectedLetter()
     },
     destroyed() {
         window.removeEventListener("resize", this.getSize)
@@ -109,6 +194,41 @@ export default {
                 window.innerHeight || 0
             )
         },
+        handleSelectedLetter(letter) {
+            this.alphabet = this.alphabet.map((item) => {
+                if (letter.letter === item.letter) {
+                    return {
+                        letter: item.letter,
+                        isSelected: !item.isSelected,
+                    }
+                }
+                return {
+                    letter: item.letter,
+                    isSelected: false,
+                }
+            })
+            letter.isSelected = true
+            this.$emit("selectedLetter", letter)
+        },
+        alphabetConcat() {
+            this.alphabet = this.alphabetFirstHalf.concat(
+                this.alphabetSecondHalf
+            )
+        },
+        setSelectedLetter() {
+            this.alphabet = this.alphabet.map((item) => {
+                if (this.selectedLetter === item.letter) {
+                    return {
+                        letter: item.letter,
+                        isSelected: !item.isSelected,
+                    }
+                }
+                return {
+                    letter: item.letter,
+                    isSelected: false,
+                }
+            })
+        },
     },
 }
 </script>
@@ -123,6 +243,12 @@ export default {
         @include step-2;
         margin-bottom: 24px;
         font-family: var(--font-primary);
+        color: var(--color-primary-blue-03);
+    }
+
+    .is-selected {
+        @include link-hover;
+        font-weight: $font-weight-semibold;
         color: var(--color-primary-blue-03);
     }
 
