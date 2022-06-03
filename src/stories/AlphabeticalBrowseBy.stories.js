@@ -1,4 +1,3 @@
-import { action } from "@storybook/addon-actions"
 import AlphabeticalBrowseBy from "../lib-components/AlphabeticalBrowseBy"
 
 export default {
@@ -8,9 +7,5 @@ export default {
 
 export const Default = () => ({
     components: { AlphabeticalBrowseBy },
-    template: `
-        <alphabetical-browse-by/>`,
-    methods: {
-        handleSelectedLetter: action("handleSelectedLetter"),
-    },
+    template: `<alphabetical-browse-by/>`,
 })
