@@ -1,39 +1,16 @@
 <template lang="html">
     <div class="alphabetical-browse-by">
         <h2 class="title">Browse by Last Name</h2>
-        <ul class="alphabet" v-if="!isTablet">
+        <ul class="alphabet">
             <li
                 v-for="letter in alphabet"
-                :key="`${letter.letter}`"
+                :key="letter.letter"
                 :class="letter.class"
+                @click="handleSelectedLetter(letter)"
             >
-                <a @click="handleSelectedLetter(letter)">{{ letter.letter }}</a>
+                <a>{{ letter.letter }}</a>
             </li>
         </ul>
-        <div v-else>
-            <ul class="alphabet">
-                <li
-                    v-for="letter in alphabetFirstHalf"
-                    :key="`${letter.letter}`"
-                    :class="letter.class"
-                >
-                    <a @click="handleSelectedLetter(letter)">{{
-                        letter.letter
-                    }}</a>
-                </li>
-            </ul>
-            <ul class="alphabet">
-                <li
-                    v-for="letter in alphabetSecondHalf"
-                    :key="`${letter.letter}`"
-                    :class="letter.class"
-                >
-                    <a @click="handleSelectedLetter(letter)">{{
-                        letter.letter
-                    }}</a>
-                </li>
-            </ul>
-        </div>
     </div>
 </template>
 
@@ -42,144 +19,115 @@ export default {
     name: "AlphabeticalBrowseBy",
     data() {
         return {
-            alphabetFirstHalf: [
+            letterClass: "letter ",
+            alphabet: [
                 {
                     letter: "All",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "A",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "B",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "C",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "D",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "E",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "F",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "G",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "H",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "I",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "J",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "K",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "L",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
-            ],
-            alphabetSecondHalf: [
                 {
                     letter: "M",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "N",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "O",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "P",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "Q",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "R",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "S",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "T",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "U",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "V",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "W",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "X",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
                 {
                     letter: "Z",
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 },
             ],
-            isTablet: false,
             vw: window.innerWidth,
             vh: window.innerHeight,
-            alphabet: [],
         }
     },
     props: {
@@ -191,7 +139,6 @@ export default {
     computed: {},
     created() {
         window.addEventListener("resize", this.getSize)
-        this.alphabetConcat()
         this.handleSelectedLetter({ letter: this.selectedLetter })
     },
     destroyed() {
@@ -217,50 +164,22 @@ export default {
                 window.innerHeight || 0
             )
         },
-        handleSelectedLetter(letter) {
+        checkIfLetterIsSelected(letter) {
             this.alphabet = this.alphabet.map((item) => {
                 if (letter.letter === item.letter) {
                     return {
                         letter: item.letter,
-                        isSelected: !item.isSelected,
-                        class: "letter is-selected",
+                        class: this.letterClass + "is-selected",
                     }
                 }
                 return {
                     letter: item.letter,
-                    isSelected: false,
-                    class: "letter",
+                    class: this.letterClass,
                 }
             })
-            this.alphabetFirstHalf = this.alphabetFirstHalf.map((item) => {
-                if (letter.letter === item.letter) {
-                    return {
-                        letter: item.letter,
-                        isSelected: !item.isSelected,
-                        class: "letter is-selected",
-                    }
-                }
-                return {
-                    letter: item.letter,
-                    isSelected: false,
-                    class: "letter",
-                }
-            })
-            this.alphabetSecondHalf = this.alphabetSecondHalf.map((item) => {
-                if (letter.letter === item.letter) {
-                    return {
-                        letter: item.letter,
-                        isSelected: !item.isSelected,
-                        class: "letter is-selected",
-                    }
-                }
-                return {
-                    letter: item.letter,
-                    isSelected: false,
-                    class: "letter",
-                }
-            })
-            letter.isSelected = true
+        },
+        handleSelectedLetter(letter) {
+            this.checkIfLetterIsSelected(letter)
             this.$emit("selectedLetter", letter)
         },
         alphabetConcat() {
@@ -295,15 +214,18 @@ export default {
         @include step-1;
         max-width: 928px;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: row;
+        flex-wrap: nowrap;
         list-style: none;
         list-style-type: none;
         padding: 0;
         color: var(--color-primary-blue-03);
 
         .letter {
-            margin-right: 19.5px;
+            padding: 0 10px;
             margin-bottom: 24px;
+            width: 24px;
+            text-align: center;
 
             &:hover {
                 @include link-hover;
@@ -314,24 +236,17 @@ export default {
         }
         @media #{$medium} {
             max-height: 140px;
-            max-width: 640px;
-            justify-content: space-between;
+            justify-content: start;
+            flex-wrap: wrap;
             margin-top: 0;
             margin-right: 0px;
             .letter {
-                margin-right: 0px;
-                margin-bottom: 0;
+                width: 24px;
             }
         }
         @media #{$small} {
             max-height: 180px;
-            max-width: 327px;
-            justify-content: space-between;
-            margin-left: -19.5px;
             .letter {
-                margin-left: 19.5px;
-                margin-right: 0px;
-                margin-bottom: 24px;
             }
         }
     }
