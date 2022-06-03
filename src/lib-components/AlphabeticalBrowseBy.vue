@@ -192,7 +192,7 @@ export default {
     created() {
         window.addEventListener("resize", this.getSize)
         this.alphabetConcat()
-        this.setSelectedLetter()
+        this.handleSelectedLetter({ letter: this.selectedLetter })
     },
     destroyed() {
         window.removeEventListener("resize", this.getSize)
@@ -223,9 +223,7 @@ export default {
                     return {
                         letter: item.letter,
                         isSelected: !item.isSelected,
-                        class: !item.isSelected
-                            ? "letter is-selected"
-                            : "letter",
+                        class: "letter is-selected",
                     }
                 }
                 return {
@@ -239,9 +237,7 @@ export default {
                     return {
                         letter: item.letter,
                         isSelected: !item.isSelected,
-                        class: !item.isSelected
-                            ? "letter is-selected"
-                            : "letter",
+                        class: "letter is-selected",
                     }
                 }
                 return {
@@ -255,9 +251,7 @@ export default {
                     return {
                         letter: item.letter,
                         isSelected: !item.isSelected,
-                        class: !item.isSelected
-                            ? "letter is-selected"
-                            : "letter",
+                        class: "letter is-selected",
                     }
                 }
                 return {
@@ -273,24 +267,6 @@ export default {
             this.alphabet = this.alphabetFirstHalf.concat(
                 this.alphabetSecondHalf
             )
-        },
-        setSelectedLetter() {
-            this.alphabet = this.alphabet.map((item) => {
-                if (this.selectedLetter === item.letter) {
-                    return {
-                        letter: item.letter,
-                        isSelected: !item.isSelected,
-                        class: item.isSelected
-                            ? "letter is-selected"
-                            : "letter",
-                    }
-                }
-                return {
-                    letter: item.letter,
-                    isSelected: false,
-                    class: "letter",
-                }
-            })
         },
     },
 }
