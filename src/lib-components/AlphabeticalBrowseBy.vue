@@ -3,7 +3,7 @@
         <h2 class="title">Browse by Last Name</h2>
         <ul class="alphabet">
             <li
-                v-for="letter in alphabet"
+                v-for="letter in parsedAlphabet"
                 :key="letter.letter"
                 :class="letter.class"
                 @click="handleSelectedLetter(letter)"
@@ -19,173 +19,149 @@ export default {
     name: "AlphabeticalBrowseBy",
     data() {
         return {
-            letterClass: "letter ",
             alphabet: [
                 {
                     letter: "All",
-                    class: this.letterClass,
                 },
                 {
                     letter: "A",
-                    class: this.letterClass,
                 },
                 {
                     letter: "B",
-                    class: this.letterClass,
                 },
                 {
                     letter: "C",
-                    class: this.letterClass,
                 },
                 {
                     letter: "D",
-                    class: this.letterClass,
                 },
                 {
                     letter: "E",
-                    class: this.letterClass,
                 },
                 {
                     letter: "F",
-                    class: this.letterClass,
                 },
                 {
                     letter: "G",
-                    class: this.letterClass,
                 },
                 {
                     letter: "H",
-                    class: this.letterClass,
                 },
                 {
                     letter: "I",
-                    class: this.letterClass,
                 },
                 {
                     letter: "J",
-                    class: this.letterClass,
                 },
                 {
                     letter: "K",
-                    class: this.letterClass,
                 },
                 {
                     letter: "L",
-                    class: this.letterClass,
                 },
                 {
                     letter: "M",
-                    class: this.letterClass,
                 },
                 {
                     letter: "N",
-                    class: this.letterClass,
                 },
                 {
                     letter: "O",
-                    class: this.letterClass,
                 },
                 {
                     letter: "P",
-                    class: this.letterClass,
                 },
                 {
                     letter: "Q",
-                    class: this.letterClass,
                 },
                 {
                     letter: "R",
-                    class: this.letterClass,
                 },
                 {
                     letter: "S",
-                    class: this.letterClass,
                 },
                 {
                     letter: "T",
-                    class: this.letterClass,
                 },
                 {
                     letter: "U",
-                    class: this.letterClass,
                 },
                 {
                     letter: "V",
-                    class: this.letterClass,
                 },
                 {
                     letter: "W",
-                    class: this.letterClass,
                 },
                 {
                     letter: "X",
-                    class: this.letterClass,
                 },
                 {
                     letter: "Z",
-                    class: this.letterClass,
                 },
             ],
-            vw: window.innerWidth,
-            vh: window.innerHeight,
+            selectedLetter: "",
         }
     },
     props: {
-        selectedLetter: {
+        selectedLetterProp: {
             type: String,
             default: "All",
         },
     },
-    computed: {},
-    created() {
-        window.addEventListener("resize", this.getSize)
-        this.handleSelectedLetter({ letter: this.selectedLetter })
-    },
-    destroyed() {
-        window.removeEventListener("resize", this.getSize)
-    },
-    watch: {
-        vw(newValue, oldValue) {
-            if (newValue < 1024 && newValue >= 750) {
-                this.isTablet = true
-            } else {
-                this.isTablet = false
-            }
+    computed: {
+        parsedAlphabet: {
+            get() {
+                let letterClass = "letter "
+                return this.alphabet.map((item) => {
+                    // Set the class for the letter when initially loaded
+                    if (
+                        item.letter === this.selectedLetterProp &&
+                        this.selectedLetter === ""
+                    ) {
+                        return {
+                            ...item,
+                            class: letterClass + "is-selected",
+                        }
+                    }
+                    // Set the class for the letter when clicked
+                    if (item.letter === this.selectedLetter) {
+                        return {
+                            ...item,
+                            class: letterClass + "is-selected",
+                        }
+                    }
+                    // Set the class for the letter when not clicked
+                    return {
+                        ...item,
+                        class: letterClass,
+                    }
+                })
+            },
+            set(alphabet) {
+                this.alphabet = alphabet
+            },
         },
     },
     methods: {
-        getSize() {
-            this.vw = Math.max(
-                document.documentElement.clientWidth || 0,
-                window.innerWidth || 0
-            )
-            this.vh = Math.max(
-                document.documentElement.clientHeight || 0,
-                window.innerHeight || 0
-            )
-        },
-        checkIfLetterIsSelected(letter) {
-            this.alphabet = this.alphabet.map((item) => {
-                if (letter.letter === item.letter) {
+        checkIfLetterIsSelected() {
+            let letterClass = "letter "
+            this.parsedAlphabet = this.alphabet.map((item) => {
+                if (this.selectedLetter === item.letter) {
                     return {
-                        letter: item.letter,
-                        class: this.letterClass + "is-selected",
+                        ...item,
+                        class: letterClass + "is-selected",
                     }
                 }
                 return {
-                    letter: item.letter,
-                    class: this.letterClass,
+                    ...item,
+                    class: letterClass,
                 }
             })
         },
         handleSelectedLetter(letter) {
-            this.checkIfLetterIsSelected(letter)
-            this.$emit("selectedLetter", letter)
-        },
-        alphabetConcat() {
-            this.alphabet = this.alphabetFirstHalf.concat(
-                this.alphabetSecondHalf
-            )
+            this.selectedLetter = letter.letter
+            this.checkIfLetterIsSelected()
+            this.$emit("selectedLetter", this.selectedLetter)
         },
     },
 }
