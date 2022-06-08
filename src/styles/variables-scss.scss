@@ -9,10 +9,16 @@
 // $lte-phone: "only screen and (max-width: 750px)";
 // $lte-phone-landscape: "only screen and (max-width: 750px) and (orientation: landscape)";
 // $has-hover: "(hover: hover)";
-@import "~ucla-library-design-tokens/scss/variables.scss";
-@import "~ucla-library-design-tokens/scss/typography.scss";
-@import "~ucla-library-design-tokens/scss/spacing.scss";
-@import "~ucla-library-design-tokens/scss/helpers.scss";
+// Needed to comment because rollup is not able to read node_modules or the files from node_modules, we need to research more about this.
+// @import "~ucla-library-design-tokens/scss/variables.scss";
+// @import "~ucla-library-design-tokens/scss/typography.scss";
+// @import "~ucla-library-design-tokens/scss/spacing.scss";
+// @import "~ucla-library-design-tokens/scss/helpers.scss";
+
+@import "node_modules/ucla-library-design-tokens/scss/variables.scss";
+@import "node_modules/ucla-library-design-tokens/scss/typography.scss";
+@import "node_modules/ucla-library-design-tokens/scss/spacing.scss";
+@import "node_modules/ucla-library-design-tokens/scss/helpers.scss";
 
 $extra-large: "only screen and (min-width: 1681px)";
 $large: "only screen and (max-width: 1440px)";

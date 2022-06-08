@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="alphabetical-browse-by">
         <h2 class="title">Browse by Last Name</h2>
         <ul class="alphabet">
@@ -168,6 +168,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/variables-scss.scss";
+
 .alphabetical-browse-by {
     display: flex;
     flex-direction: column;
@@ -200,7 +202,7 @@ export default {
         .letter {
             padding: 0 10px;
             margin-bottom: 24px;
-            width: 24px;
+            width: 44px;
             text-align: center;
 
             &:hover {
@@ -211,19 +213,17 @@ export default {
             }
         }
         @media #{$medium} {
-            max-height: 140px;
+            // max-height: 140px;
             justify-content: start;
             flex-wrap: wrap;
             margin-top: 0;
             margin-right: 0px;
             .letter {
-                width: 24px;
+                width: 44px;
             }
         }
         @media #{$small} {
-            max-height: 180px;
-            .letter {
-            }
+            // max-height: 180px;
         }
     }
 }
