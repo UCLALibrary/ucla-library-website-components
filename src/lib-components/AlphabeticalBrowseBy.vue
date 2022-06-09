@@ -111,7 +111,6 @@ export default {
     computed: {
         parsedAlphabet: {
             get() {
-                let letterClass = "letter"
                 return this.alphabet.map((item) => {
                     let letterClass = "letter"
                     // Set the class for the letter when initially loaded
