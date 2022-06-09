@@ -16,6 +16,7 @@ export default Vue.extend({
         <ucla-library-website-component-sample />
         <divider-general class="divider" />
         <divider-general class="divider" :is-bold="true" />
+        <alphabetical-browse-by />
     </div>
 </template>
 <style lang="scss" scoped>
