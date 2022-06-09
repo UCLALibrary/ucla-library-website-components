@@ -1,7 +1,7 @@
 <template>
     <div class="alphabetical-browse-by">
         <h2 class="title">Browse by Last Name</h2>
-        <ul class="alphabet">
+        <ul class="alphabet-list">
             <li
                 v-for="letter in parsedAlphabet"
                 :key="letter.letter"
@@ -111,25 +111,21 @@ export default {
     computed: {
         parsedAlphabet: {
             get() {
-                let letterClass = "letter "
+                let letterClass = "letter"
                 return this.alphabet.map((item) => {
+                    let letterClass = "letter"
                     // Set the class for the letter when initially loaded
                     if (
                         item.letter === this.selectedLetterProp &&
                         this.selectedLetter === ""
                     ) {
-                        return {
-                            ...item,
-                            class: letterClass + "is-selected",
-                        }
+                        letterClass = letterClass + " is-selected"
                     }
                     // Set the class for the letter when clicked
                     if (item.letter === this.selectedLetter) {
-                        return {
-                            ...item,
-                            class: letterClass + "is-selected",
-                        }
+                        letterClass = letterClass + " is-selected"
                     }
+
                     // Set the class for the letter when not clicked
                     return {
                         ...item,
@@ -144,13 +140,10 @@ export default {
     },
     methods: {
         checkIfLetterIsSelected() {
-            let letterClass = "letter "
             this.parsedAlphabet = this.alphabet.map((item) => {
+                let letterClass = "letter"
                 if (this.selectedLetter === item.letter) {
-                    return {
-                        ...item,
-                        class: letterClass + "is-selected",
-                    }
+                    letterClass = letterClass + " is-selected"
                 }
                 return {
                     ...item,
@@ -186,7 +179,7 @@ export default {
         color: var(--color-primary-blue-03);
     }
 
-    .alphabet {
+    .alphabet-list {
         @include step-1;
         max-width: 928px;
         display: flex;

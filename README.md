@@ -11,6 +11,12 @@ Clone https://github.com/UCLALibrary/ucla-library-website-components.git
 1. Run `$ npm run storybook` to start a storybook server.
 1. Run `$ npm run cypress` to open cypresss.
 
+## App running at:
+  - Local:   http://localhost:8080/ 
+  
+  Note that the development build is not optimized.
+  To create a production build, run `npm run build`.
+
 ## npm script commands available
 
 | Command | Description |
