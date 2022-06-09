@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.0.0...v1.1.0) (2022-06-09)
+
+
+### Features
+
+* Apps-1558 create alphabetical browse by ([#9](https://github.com/UCLALibrary/ucla-library-website-components/issues/9)) ([733e170](https://github.com/UCLALibrary/ucla-library-website-components/commit/733e17025186f6e67d14884e55a82abd46a5c094))
+
 # 1.0.0 (2022-05-31)
 
 
