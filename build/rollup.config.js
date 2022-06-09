@@ -50,15 +50,13 @@ const baseConfig = {
             template: {
                 isProduction: true,
             },
-            preprocessStyles: true,
-            preprocessOptions: {
-                scss: {
-                    additionalData: `@import 'src/styles/variables-scss.scss';`,
-                },
-            },
-            /*style: {
+            style: {
+                preprocessStyles: true,
                 preprocessOptions: {
                     scss: {
+                        data: `
+                            @import 'src/styles/variables-scss.scss';
+                        `,
                         includePaths: ["node_modules/", "src/"],
                         importer(path) {
                             return {
@@ -67,7 +65,7 @@ const baseConfig = {
                         },
                     },
                 },
-            },*/
+            },
         },
         postVue: [
             resolve({
@@ -77,7 +75,9 @@ const baseConfig = {
                 include: /\.scss$/,
                 use: {
                     sass: {
-                        data: `@import 'src/styles/variables-scss.scss';`,
+                        data: `
+                            @import 'src/styles/variables-scss.scss';
+                        `,
                     },
                 },
             }),

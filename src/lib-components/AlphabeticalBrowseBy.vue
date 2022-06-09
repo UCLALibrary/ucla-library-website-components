@@ -168,8 +168,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/variables-scss.scss";
-
 .alphabetical-browse-by {
     display: flex;
     flex-direction: column;
