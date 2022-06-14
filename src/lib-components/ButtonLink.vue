@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <smart-link
         :to="to"
         :target="parsedTarget"

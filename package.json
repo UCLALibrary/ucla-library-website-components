@@ -92,5 +92,8 @@
   "engines": {
     "npm": "8.5.5",
     "node": "16.15.0"
+  },
+  "dependencies": {
+    "vue-router": "^3.5.4"
   }
 }
