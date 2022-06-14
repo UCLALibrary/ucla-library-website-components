@@ -1,7 +1,7 @@
 import AlphabeticalBrowseBy from "../lib-components/AlphabeticalBrowseBy"
 
 export default {
-    title: "Search / AlphabeticalBrowseBy",
+    title: "SEARCH / AlphabeticalBrowseBy",
     component: AlphabeticalBrowseBy,
 }
 
