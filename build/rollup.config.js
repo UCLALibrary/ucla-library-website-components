@@ -10,6 +10,7 @@ import babel from "@rollup/plugin-babel"
 import { terser } from "rollup-plugin-terser"
 import minimist from "minimist"
 import postcss from "rollup-plugin-postcss"
+import svg from "rollup-plugin-vue-inline-svg"
 // import scss from "rollup-plugin-scss"
 // import dartSass from "sass"
 
@@ -68,6 +69,7 @@ const baseConfig = {
             },
         },
         postVue: [
+            svg(),
             resolve({
                 extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"],
             }),
@@ -97,7 +99,6 @@ const external = [
     // list external dependencies, exactly the way it is written in the import statement.
     // eg. 'jquery'
     "vue",
-    "vue-router",
 ]
 
 // UMD/IIFE shared settings: output.globals

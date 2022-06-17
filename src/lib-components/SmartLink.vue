@@ -18,8 +18,8 @@
 
 <script>
 // Helper functions
-import isRelativeLink from "~/utils/isRelativeLink"
-import isInternalLink from "~/utils/isInternalLink"
+import isRelativeLink from "@/mixins/isRelativeLink"
+import isInternalLink from "@/mixins/isInternalLink"
 
 export default {
     name: "SmartLink",

@@ -13,23 +13,31 @@
 <script>
 // Helper functions
 import isInternalLink from "@/mixins/isInternalLink"
+import SmartLink from "@/lib-components/SmartLink.vue"
+// import SvgArrowRight from "~/node_modules/ucla-library-design-tokens/assets/svgs/svg-arrow-right.svg"
+// import SvgArrowDiagonal from "ucla-library-design-tokens/assets/svgs/svg-arrow-diagonal.svg"
+// import SvgArrowDownload from "../../node_modules/ucla-library-design-tokens/assets/svgs/svg-arrow-download.svg"
 
 export default {
     name: "ButtonLink",
     mixins: [isInternalLink],
     components: {
-        SvgArrowRight: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-arrow-right"
-            ),
-        SvgArrowDiagonal: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link"
-            ),
-        SvgArrowDownload: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-download"
-            ),
+        // SvgArrowRight: () =>
+        //     import(
+        //         "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-arrow-right"
+        //     ),
+        // SvgArrowDiagonal: () =>
+        //     import(
+        //         "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link"
+        //     ),
+        // SvgArrowDownload: () =>
+        //     import(
+        //         "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-download"
+        //     ),
+        SmartLink,
+        // SvgArrowRight,
+        // SvgArrowDiagonal,
+        // SvgArrowDownload,
     },
     props: {
         /**
