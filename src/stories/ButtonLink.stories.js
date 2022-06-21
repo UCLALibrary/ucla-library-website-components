@@ -9,7 +9,11 @@ export default {
         label: { type: "string" },
         iconName: {
             type: "select",
-            options: ["icon-arrow-right", "icon-download"],
+            options: [
+                "icon-arrow-right",
+                "icon-download",
+                "icon-external-link",
+            ],
         },
         isSecondary: { type: "boolean" },
     },

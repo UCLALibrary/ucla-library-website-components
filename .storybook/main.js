@@ -22,18 +22,27 @@ module.exports = {
 
     // THIS is the tricky stuff!
     config.module.rules.push({
-      test: /\.scss$/,
-      use: [
-        'style-loader',
-        'css-loader',
-        {
-          loader: 'sass-loader',
-          options: {
-            additionalData: "@import '@/styles/variables-scss.scss';",
-          },
-        },
-      ],
-      include: path.resolve(__dirname, '../'),
+        test: /\.scss$/,
+        use: [
+            "style-loader",
+            "css-loader",
+            {
+                loader: "sass-loader",
+                options: {
+                    additionalData: "@import '@/styles/variables-scss.scss';",
+                },
+            },
+        ],
+        include: path.resolve(__dirname, "../"),
+    })
+    const fileLoaderRule = config.module.rules.find((rule) =>
+        rule.test.test(".svg")
+    )
+    fileLoaderRule.exclude = /\.svg$/
+
+    config.module.rules.push({
+        test: /\.svg$/,
+        use: ["vue-svg-loader"],
     })
 
     // return the updated Storybook configuration

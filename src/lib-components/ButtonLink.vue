@@ -15,6 +15,7 @@
 import isInternalLink from "@/mixins/isInternalLink"
 import SmartLink from "@/lib-components/SmartLink.vue"
 import SvgArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
+import SvgExternalLink from "ucla-library-design-tokens/assets/svgs/icon-external-link.svg"
 import SvgDownload from "ucla-library-design-tokens/assets/svgs/icon-download.svg"
 
 export default {
@@ -23,6 +24,7 @@ export default {
     components: {
         SmartLink,
         SvgArrowRight,
+        SvgExternalLink,
         SvgDownload,
     },
     props: {
@@ -80,7 +82,7 @@ export default {
                 output = "svg-arrow-right"
             } else if (this.iconName == "none") {
                 output = ""
-            } else output = "svg-arrow-right"
+            } else output = "svg-external-link"
             return output
         },
     },
