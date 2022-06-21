@@ -17,6 +17,8 @@ export default Vue.extend({
         <divider-general class="divider" />
         <divider-general class="divider" :is-bold="true" />
         <alphabetical-browse-by />
+        <smart-link to="/"> This will render as a vue-router link </smart-link>
+        <button-link label="This is a button " to="/help/" />
     </div>
 </template>
 <style lang="scss" scoped>
