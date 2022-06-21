@@ -14,30 +14,16 @@
 // Helper functions
 import isInternalLink from "@/mixins/isInternalLink"
 import SmartLink from "@/lib-components/SmartLink.vue"
-// import SvgArrowRight from "~/node_modules/ucla-library-design-tokens/assets/svgs/svg-arrow-right.svg"
-// import SvgArrowDiagonal from "ucla-library-design-tokens/assets/svgs/svg-arrow-diagonal.svg"
-// import SvgArrowDownload from "../../node_modules/ucla-library-design-tokens/assets/svgs/svg-arrow-download.svg"
+import SvgArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
+import SvgDownload from "ucla-library-design-tokens/assets/svgs/icon-download.svg"
 
 export default {
     name: "ButtonLink",
     mixins: [isInternalLink],
     components: {
-        // SvgArrowRight: () =>
-        //     import(
-        //         "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-arrow-right"
-        //     ),
-        // SvgArrowDiagonal: () =>
-        //     import(
-        //         "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link"
-        //     ),
-        // SvgArrowDownload: () =>
-        //     import(
-        //         "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-download"
-        //     ),
         SmartLink,
-        // SvgArrowRight,
-        // SvgArrowDiagonal,
-        // SvgArrowDownload,
+        SvgArrowRight,
+        SvgDownload,
     },
     props: {
         /**
@@ -94,7 +80,7 @@ export default {
                 output = "svg-arrow-right"
             } else if (this.iconName == "none") {
                 output = ""
-            } else output = "svg-arrow-diagonal"
+            } else output = "svg-arrow-right"
             return output
         },
     },
