@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.1.0...v1.2.0) (2022-06-21)
+
+
+### Features
+
+* Apps-1586 - Add button components to vue component library repo ([#17](https://github.com/UCLALibrary/ucla-library-website-components/issues/17)) ([df57568](https://github.com/UCLALibrary/ucla-library-website-components/commit/df57568f9a2c8934864a33b82731053e46240b2c))
+
 # [1.1.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.0.0...v1.1.0) (2022-06-09)
 
 
