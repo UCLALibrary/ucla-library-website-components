@@ -89,7 +89,8 @@
     "vue-loader": "^15.9.8",
     "vue-router": "^3.5.4",
     "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.6.14"
+    "vue-template-compiler": "^2.6.14",
+    "vuex": "^3.6.2"
   },
   "peerDependencies": {
     "vue": "^2.6.14"
