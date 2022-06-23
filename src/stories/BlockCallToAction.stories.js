@@ -2,12 +2,24 @@
 import Vue from "vue"
 import Vuex from "vuex"
 import BlockCallToAction from "@/lib-components/BlockCallToAction"
+import StoryRouter from "storybook-vue-router"
 
 Vue.use(Vuex)
 
 export default {
     title: "BLOCK / Call to Action",
     component: BlockCallToAction,
+    decorators: [
+        StoryRouter(
+            {},
+            {
+                routes: [
+                    { path: "/", component: BlockCallToAction },
+                    { path: "/help/foo/bar/", component: BlockCallToAction },
+                ],
+            }
+        ),
+    ],
 }
 
 const mock = {
@@ -30,7 +42,7 @@ export const Default = () => ({
     components: { BlockCallToAction },
     template: `
         <block-call-to-action
-            :svgName= "svgName"
+            :svgName="svg-call-to-action-chat"
             :title="title"
             :text="text"
             :name="name"
