@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div :class="classes">
         <component :is="parsedContent.svgName" class="svg" />
         <div class="title" v-html="parsedContent.title" />
@@ -12,16 +12,20 @@
 </template>
 
 <script>
+import ButtonLink from "@/lib-components/ButtonLink.vue"
+import SvgCallToActionMoney from "ucla-library-design-tokens/assets/svgs/call-to-action-money.svg"
+import SvgCallToActionChat from "ucla-library-design-tokens/assets/svgs/call-to-action-chat.svg"
+import SvgCallToActionMail from "ucla-library-design-tokens/assets/svgs/call-to-action-mail.svg"
+import SvgCallToActionFind from "ucla-library-design-tokens/assets/svgs/call-to-action-find.svg"
+
 export default {
     name: "BlockCallToAction",
     components: {
-        SvgCallToActionMoney: () => import("~/assets/svg/call-to-action-money"),
-        SvgCallToActionChat: () => import("~/assets/svg/call-to-action-chat"),
-        SvgCallToActionMail: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/call-to-action-mail"
-            ),
-        SvgCallToActionFind: () => import("~/assets/svg/call-to-action-find"),
+        ButtonLink,
+        SvgCallToActionMoney,
+        SvgCallToActionChat,
+        SvgCallToActionMail,
+        SvgCallToActionFind,
     },
     props: {
         svgName: {
