@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <figure v-if="image && image.src" :class="classes">
         <img
             :src="image.src || src"
@@ -23,6 +23,7 @@
 
 <script>
 export default {
+    name: "ResponsiveImage",
     props: {
         src: {
             type: String,

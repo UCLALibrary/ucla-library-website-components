@@ -2,12 +2,12 @@ import BlockHighlight from "@/lib-components/BlockHighlight"
 import StoryRouter from "storybook-vue-router"
 
 // Import mock api data
-import * as API from "~/stories/mock-api.json"
+import * as API from "@/stories/mock-api.json"
 
 // Storybook default settings
 export default {
     title: "BLOCK / Highlight",
-    components: BlockHighlight,
+    component: BlockHighlight,
     decorators: [
         StoryRouter(
             {},

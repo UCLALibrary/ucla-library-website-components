@@ -54,26 +54,25 @@
 </template>
 
 <script>
-import formatEventTimes from "@/mixins/formatEventTimes"
-import formatEventDates from "@/mixins/formatEventDates"
-import formatEventDay from "@/mixins/formatEventDay"
-import formatEventMonth from "@/mixins/formatEventMonth"
+import formatTimes from "@/mixins/formatEventTimes"
+import formatDates from "@/mixins/formatEventDates"
+import formatDay from "@/mixins/formatEventDay"
+import formatMonth from "@/mixins/formatEventMonth"
 import getSectionName from "@/mixins/getSectionName"
 import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-location.svg"
 import SvgIconOnline from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
+import SmartLink from "@/lib-components/SmartLink"
+import ResponsiveImage from "@/lib-components/ResponsiveImage"
 
 export default {
     name: "BlockHighlight",
-    components: {},
-    mixins: [
-        formatEventTimes,
-        formatEventDates,
-        formatEventDay,
-        formatEventMonth,
-        getSectionName,
+    components: {
         SvgIconLocation,
         SvgIconOnline,
-    ],
+        SmartLink,
+        ResponsiveImage,
+    },
+    mixins: [formatTimes, formatDates, formatDay, formatMonth, getSectionName],
     props: {
         image: {
             type: Object,
@@ -140,25 +139,25 @@ export default {
         },
         parsedDate() {
             if (this.startDate) {
-                return this.formatEventDates(this.startDate, this.endDate)
+                return this.formatDates(this.startDate, this.endDate)
             }
             return ""
         },
         parsedDateDay() {
             if (this.startDate) {
-                return this.formatEventDay(this.startDate)
+                return this.formatDay(this.startDate)
             }
             return ""
         },
         parsedDateMonth() {
             if (this.startDate) {
-                return this.formatEventMonth(this.startDate)
+                return this.formatMonth(this.startDate)
             }
             return ""
         },
         parsedTime() {
             if (this.startDate) {
-                return this.formatEventTimes(this.startDate, this.endDate)
+                return this.formatTimes(this.startDate, this.endDate)
             }
             return ""
         },
