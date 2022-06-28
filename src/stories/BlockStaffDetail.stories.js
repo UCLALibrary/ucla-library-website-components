@@ -1,9 +1,12 @@
 // Import mock api data
-import * as API from "~/stories/mock-api.json"
+import * as API from "@/stories/mock-api.json"
+import BlockStaffDetail from "@/lib-components/BlockStaffDetail"
+import StoryRouter from "storybook-vue-router"
 
 // Storybook default settings
 export default {
     title: "BLOCK / Staff / Detail",
+    component: BlockStaffDetail,
 }
 
 const mock = {
@@ -52,11 +55,11 @@ const mock3 = {
     email: "ada@somewhere.com",
     phone: "555-555-5555",
     departments: ["DIIT", "Other Departments"],
-    topics:[
+    topics: [
         { title: "topic1", id: "bar1" },
         { title: "topic2", id: "baz2" },
     ],
-    academicDepartments:[
+    academicDepartments: [
         { title: "acadept1", id: "acbar1" },
         { title: "acadept2", id: "acbaz2" },
     ],
@@ -72,6 +75,7 @@ export const Default = () => ({
             },
         }
     },
+    components: { BlockStaffDetail },
     template: `
     <block-staff-detail
         v-bind="item"
@@ -87,6 +91,7 @@ export const NoImage = () => ({
             },
         }
     },
+    components: { BlockStaffDetail },
     template: `
     <block-staff-detail
     v-bind="item"
@@ -102,6 +107,7 @@ export const NoImageOrBio = () => ({
             },
         }
     },
+    components: { BlockStaffDetail },
     template: `
     <block-staff-detail
     v-bind="item"
@@ -118,6 +124,7 @@ export const AskMeAboutAndAcademicDeaprtments = () => ({
             },
         }
     },
+    components: { BlockStaffDetail },
     template: `
     <block-staff-detail
     v-bind="item"

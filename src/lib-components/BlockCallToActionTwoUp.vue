@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <section class="block-call-to-action-two-up">
         <block-call-to-action
             v-for="(item, index) in items"
@@ -16,6 +16,7 @@
 
 <script>
 import BlockCallToAction from "@/lib-components/BlockCallToAction"
+
 export default {
     name: "BlockCallToActionTwoUp",
     components: {
