@@ -12,14 +12,14 @@ export const Default = () => ({
     template: `<heading-arrow />`,
 })
 
-export const Visit = () => ({
-    components: { HeadingArrow },
-    template: `<heading-arrow text="Visit the Library" to="/visit/foo/bar/" section="visit"/>`,
-})
-
 export const About = () => ({
     components: { HeadingArrow },
     template: `<heading-arrow text="Staff Directory" to="/about/foo/bar/"/>`,
+})
+
+export const Visit = () => ({
+    components: { HeadingArrow },
+    template: `<heading-arrow text="Visit the Library" to="/visit/foo/bar/" section="visit"/>`,
 })
 
 export const Help = () => ({
