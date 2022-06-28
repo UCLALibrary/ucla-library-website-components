@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <component :is="componentType" :to="to" :class="classes">
         <svg-heading-arrow class="svg" />
         <h2 :class="textClasses">
