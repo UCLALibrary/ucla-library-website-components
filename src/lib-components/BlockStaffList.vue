@@ -6,33 +6,18 @@
             sizes="300px"
             class="image"
         />
-        <div
-            v-if="!image"
-            class="no-image"
-        >
+        <div v-if="!image" class="no-image">
             <svg-heading-arrow class="icon-heading-arrow" />
         </div>
 
         <div class="meta">
             <div class="name-title">
                 <h3 class="staff-name">
-                    <nuxt-link
-                        :to="to"
-                        v-html="staffName"
-                    />
+                    <nuxt-link :to="to" v-html="staffName" />
                 </h3>
-                <div
-                    class="job-title"
-                    v-html="jobTitle"
-                />
-                <ul
-                    v-if="departments.length"
-                    class="departments"
-                >
-                    <li
-                        class="department"
-                        v-html="lastDepartment"
-                    />
+                <div class="job-title" v-html="jobTitle" />
+                <ul v-if="departments.length" class="departments">
+                    <li class="department" v-html="lastDepartment" />
                 </ul>
             </div>
 
@@ -48,10 +33,7 @@
                     </smart-link>
                 </div>
 
-                <div
-                    v-if="phone"
-                    class="phone"
-                >
+                <div v-if="phone" class="phone">
                     <svg-icon-phone class="icon" />
                     <smart-link
                         :to="`tel:${phone}`"
@@ -62,10 +44,7 @@
                     </smart-link>
                 </div>
 
-                <div
-                    v-if="consultation"
-                    class="consultation"
-                >
+                <div v-if="consultation" class="consultation">
                     <svg-icon-consultation class="icon" />
                     <smart-link
                         :to="consultation"
@@ -88,6 +67,7 @@ import SvgIconPhone from "~/node_modules/ucla-library-design-tokens/assets/svgs/
 import SvgIconConsultation from "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-chat"
 
 export default {
+    name: "BlockStaffList",
     components: {
         SvgHeadingArrow,
         SvgIconEmail,
