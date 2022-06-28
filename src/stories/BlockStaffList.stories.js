@@ -1,9 +1,32 @@
 // Import mock api data
-import * as API from "~/stories/mock-api.json"
+import * as API from "@/stories/mock-api.json"
+import BlockStaffList from "@/lib-components/BlockStaffList"
+import StoryRouter from "storybook-vue-router"
 
 // Storybook default settings
 export default {
     title: "BLOCK / Staff / List",
+    decorators: [
+        StoryRouter(
+            {},
+            {
+                routes: [
+                    {
+                        path: "/staff/foo",
+                        component: BlockStaffList,
+                    },
+                    {
+                        path: "/location/baz",
+                        component: BlockStaffList,
+                    },
+                    {
+                        path: "/staff/id/",
+                        component: BlockStaffList,
+                    },
+                ],
+            }
+        ),
+    ],
 }
 
 const mock = {
@@ -34,6 +57,7 @@ export const Default = () => ({
             },
         }
     },
+    components: { BlockStaffList },
     template: `
       <block-staff-list
         v-bind="item"
@@ -60,6 +84,7 @@ export const NoImage = () => ({
             },
         }
     },
+    components: { BlockStaffList },
     template: `
       <block-staff-list
         v-bind="item"
@@ -83,6 +108,7 @@ export const OneLocation = () => ({
             },
         }
     },
+    components: { BlockStaffList },
     template: `
       <block-staff-list
         v-bind="item"

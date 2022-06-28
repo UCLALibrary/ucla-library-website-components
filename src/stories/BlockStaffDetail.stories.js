@@ -7,6 +7,27 @@ import StoryRouter from "storybook-vue-router"
 export default {
     title: "BLOCK / Staff / Detail",
     component: BlockStaffDetail,
+    decorators: [
+        StoryRouter(
+            {},
+            {
+                routes: [
+                    {
+                        path: "about/staff/id/",
+                        component: BlockStaffDetail,
+                    },
+                    {
+                        path: "/staff/id/",
+                        component: BlockStaffDetail,
+                    },
+                    {
+                        path: "/staff/id/",
+                        component: BlockStaffDetail,
+                    },
+                ],
+            }
+        ),
+    ],
 }
 
 const mock = {
@@ -128,7 +149,6 @@ export const AskMeAboutAndAcademicDeaprtments = () => ({
     template: `
     <block-staff-detail
     v-bind="item"
-
     />
   `,
 })

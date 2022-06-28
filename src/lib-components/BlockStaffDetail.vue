@@ -1,17 +1,11 @@
-<template lang="html">
+<template>
     <div class="block-staff-detail">
         <!-- HeadingStaff  -->
         <div class="heading-staff">
             <svg-heading-arrow />
 
-            <h1
-                class="staffName"
-                v-html="staffName"
-            />
-            <div
-                v-if="pronouns"
-                class="pronouns"
-            >
+            <h1 class="staffName" v-html="staffName" />
+            <div v-if="pronouns" class="pronouns">
                 {{ parsedPronouns }}
             </div>
         </div>
@@ -25,15 +19,9 @@
                     class="image"
                 />
                 <div class="staff-info">
-                    <div
-                        class="job-title"
-                        v-html="jobTitle"
-                    />
+                    <div class="job-title" v-html="jobTitle" />
 
-                    <ul
-                        v-if="departments.length"
-                        class="departments"
-                    >
+                    <ul v-if="departments.length" class="departments">
                         <li
                             v-for="(department, index) in departments"
                             :key="index"
@@ -41,16 +29,13 @@
                             v-html="department.title"
                         />
                     </ul>
-                    <ul
-                        v-if="locations.length"
-                        class="location-group"
-                    >
+                    <ul v-if="locations.length" class="location-group">
                         <li
                             v-for="location in locations"
                             :key="`location-${location.id}`"
                             class="location"
                         >
-                            <nuxt-link
+                            <router-link
                                 :to="location.to"
                                 class="location-link"
                             >
@@ -59,7 +44,7 @@
                                     class="location-title"
                                     v-html="location.title"
                                 />
-                            </nuxt-link>
+                            </router-link>
                         </li>
                     </ul>
                 </div>
@@ -74,10 +59,7 @@
                             {{ email }}
                         </smart-link>
                     </div>
-                    <div
-                        v-if="phone"
-                        class="contact-info"
-                    >
+                    <div v-if="phone" class="contact-info">
                         <svg-icon-phone class="svg" />
                         <smart-link
                             :to="`tel:${phone}`"
@@ -87,15 +69,9 @@
                             {{ phone }}
                         </smart-link>
                     </div>
-                    <div
-                        v-if="consultation"
-                        class="contact-info"
-                    >
+                    <div v-if="consultation" class="contact-info">
                         <svg-icon-consultation class="svg" />
-                        <smart-link
-                            :to="consultation"
-                            class="link-icon"
-                        >
+                        <smart-link :to="consultation" class="link-icon">
                             {{ "Book a consultation" }}
                         </smart-link>
                     </div>
@@ -115,9 +91,7 @@
                     v-if="topics.length || academicDepartments.length"
                     class="ask-me-about"
                 >
-                    <h2 class="secondary-header">
-                        Ask Me About
-                    </h2>
+                    <h2 class="secondary-header">Ask Me About</h2>
                     <rich-text>
                         <ul class="list topics">
                             <li
@@ -130,13 +104,8 @@
                 </div>
 
                 <!-- RICH TEXT-->
-                <div
-                    v-if="biography"
-                    class="biography"
-                >
-                    <h2 class="secondary-header">
-                        Biography
-                    </h2>
+                <div v-if="biography" class="biography">
+                    <h2 class="secondary-header">Biography</h2>
                     <rich-text :rich-text-content="biography" />
                 </div>
             </div>
@@ -145,19 +114,28 @@
 </template>
 
 <script>
-import SvgHeadingArrow from "~/node_modules/ucla-library-design-tokens/assets/svgs/graphic-chevron-right"
-import SvgIconLocation from "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-location"
-import SvgIconEmail from "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-email"
-import SvgIconPhone from "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-phone"
-import SvgIconConsultation from "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-chat"
+import SvgHeadingArrow from "ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg"
+import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-location.svg"
+import SvgIconEmail from "ucla-library-design-tokens/assets/svgs/icon-email.svg"
+import SvgIconPhone from "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
+import SvgIconConsultation from "ucla-library-design-tokens/assets/svgs/icon-chat.svg"
+import ResponsiveImage from "@/lib-components/ResponsiveImage"
+import SmartLink from "@/lib-components/SmartLink"
+import RichText from "@/lib-components/RichText"
+import DividerWayFinder from "@/lib-components/DividerWayFinder"
 
 export default {
+    name: "BlockStaffDetail",
     components: {
         SvgHeadingArrow,
         SvgIconLocation,
         SvgIconEmail,
         SvgIconPhone,
         SvgIconConsultation,
+        ResponsiveImage,
+        SmartLink,
+        RichText,
+        DividerWayFinder,
     },
     props: {
         image: {
@@ -226,8 +204,8 @@ export default {
                     a.title.toUpperCase() > b.title.toUpperCase()
                         ? 1
                         : b.title.toUpperCase() > a.title.toUpperCase()
-                            ? -1
-                            : 0
+                        ? -1
+                        : 0
                 )
         },
     },
