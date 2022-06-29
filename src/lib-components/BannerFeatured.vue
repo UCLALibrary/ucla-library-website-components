@@ -1,8 +1,14 @@
 <template lang="html">
     <div :class="classes">
-        <div v-if="category" class="category">
-            <svg-heading-vector class="heading-line" />
-            <div class="text" v-html="category" />
+        <div class="slot">
+            <slot>
+                <div v-if="breadcrumb" class="breadcrumb">
+                    <svg-heading-vector class="heading-line" />
+                    <h3 class="text">
+                        {{ breadcrumb }}
+                    </h3>
+                </div>
+            </slot>
         </div>
 
         <component
@@ -11,83 +17,55 @@
             :image="parsedMediaProp"
             :aspect-ratio="parsedRatio"
         >
-            <div v-if="image" :class="gradientClasses" />
+            <div v-if="image" class="gradient" />
 
             <svg-molecule-half-faceted class="molecule" />
         </component>
 
         <div class="hatch-box">
-            <div class="clipped-box" />
+            <div class="clipped-box">
+                <h3
+                    v-if="category"
+                    class="category category-mobile"
+                    v-html="category"
+                />
+            </div>
             <div class="hatch">
                 <svg-hatch-right class="svg" />
             </div>
         </div>
 
         <div class="meta">
-            <h1 class="title" v-html="title" />
-            <rich-text v-if="text" class="snippet" :rich-text-content="text" />
-            <div class="byline">
-                <div
-                    v-for="(item, index) in byline"
-                    v-if="byline"
-                    :key="index"
-                    class="byline-item"
-                >
-                    {{ item }}
-                </div>
-                <time
-                    v-if="dateCreated"
-                    class="date-created"
-                    v-html="parsedDateCreated"
-                />
+            <div class="category category-desktop" v-html="category" />
+            <!-- TODO make the id unique programmaticly -->
+            <h3 id="banner-featured" class="title" v-html="title">
+                <!--nuxt-link
+                    :to="to"
+                    v-html="title"
+                /-->
+            </h3>
+
+            <rich-text
+                v-if="description"
+                class="description"
+                :rich-text-content="description"
+            />
+
+            <div v-if="startDate || endDate" class="schedule">
                 <time
                     v-if="startDate"
                     class="schedule-item"
                     v-html="parsedDate"
                 />
                 <time
-                    v-if="startDate"
+                    v-if="endDate"
                     class="schedule-item"
                     v-html="parsedTime"
                 />
             </div>
-            <div v-if="email" class="contact-info">
-                <component :is="`svg-icon-email`" class="contact-svg" />
-                <smart-link
-                    :to="`mailto:${email}`"
-                    target="_blank"
-                    class="link-icon"
-                >
-                    {{ email }}
-                </smart-link>
-            </div>
-            <div v-if="phone" class="contact-info">
-                <component :is="`svg-icon-phone`" class="contact-svg" />
 
-                <smart-link
-                    :to="`tel:${phone}`"
-                    target="_blank"
-                    class="link-icon"
-                >
-                    {{ phone }}
-                </smart-link>
-            </div>
-            <div v-if="staffDirectoryLink" class="contact-info">
-                <component :is="`svg-icon-person`" class="contact-svg" />
-                <smart-link
-                    :to="staffDirectoryLink"
-                    class="link-icon"
-                    v-html="`View staff directory`"
-                />
-            </div>
-            <div v-if="addressLink" class="contact-info">
-                <component :is="`svg-icon-location`" class="contact-svg" />
-                <smart-link :to="addressLink" target="_blank" class="link-icon">
-                    {{ address }}
-                </smart-link>
-            </div>
             <div v-if="locations.length" class="location-group">
-                <smart-link
+                <nuxt-link
                     v-for="location in parsedLocations"
                     :key="`location-${location.id}`"
                     :to="location.to"
@@ -95,7 +73,7 @@
                 >
                     <component :is="location.svg" class="location-svg" />
                     <span class="location" v-html="location.title" />
-                </smart-link>
+                </nuxt-link>
                 <div
                     v-for="location in parsedIsOnline"
                     :key="`location-${location.id}`"
@@ -108,9 +86,9 @@
             <button-link
                 v-if="to"
                 :label="prompt"
-                :is-secondary="true"
-                class="button"
                 :to="to"
+                aria-labelledby="banner-featured"
+                class="button"
             />
         </div>
     </div>
@@ -140,7 +118,7 @@ import formatEventDates from "@/mixins/formatEventDates"
 import getSectionName from "@/mixins/getSectionName"
 
 export default {
-    name: "BannerHeader",
+    name: "BannerFeatured",
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
         SvgMoleculeHalfFaceted,
@@ -169,15 +147,11 @@ export default {
             type: String,
             required: true,
         },
-        text: {
+        description: {
             type: String,
             default: "",
         },
-        byline: {
-            type: Array,
-            default: () => [],
-        },
-        dateCreated: {
+        category: {
             type: String,
             default: "",
         },
@@ -198,7 +172,7 @@ export default {
             type: String,
             default: "",
         },
-        category: {
+        breadcrumb: {
             type: String,
             default: "",
         },
@@ -215,38 +189,14 @@ export default {
             type: Number,
             default: 56.25,
         },
-        //contact info for Location Detail Page
-        email: {
-            type: String,
-            default: "",
-        },
-        phone: {
-            type: String,
-            default: "",
-        },
-        address: {
-            type: String,
-            default: "",
-        },
-        addressLink: {
-            type: String,
-            default: "",
-        },
-        staffDirectoryLink: {
-            type: String,
-            default: "",
-        },
     },
     computed: {
         classes() {
             return [
-                "banner-header",
+                "banner-featured",
                 { "hatch-left": !this.alignRight },
                 `color-${this.sectionName}`,
             ]
-        },
-        parsedDateCreated() {
-            return format(new Date(this.dateCreated), "MMMM d, Y")
         },
         parsedDate() {
             return this.formatDates(this.startDate, this.endDate)
@@ -255,9 +205,13 @@ export default {
             return this.formatTimes(this.startDate, this.endDate)
         },
         sectionName() {
-            return this.to
-                ? this.getSectionName(this.to)
-                : this.getSectionName(this.$route.path)
+            return this.section || this.getSectionName(this.to)
+        },
+        parsedMediaComponent() {
+            return this.image ? "responsive-image" : "responsive-video"
+        },
+        parsedMediaProp() {
+            return this.image ? this.image : this.video
         },
         parsedRatio() {
             // If on mobile, change ratio of image
@@ -267,44 +221,39 @@ export default {
             // }
             return output
         },
-        parsedMediaComponent() {
-            return this.image ? "responsive-image" : "responsive-video"
-        },
-        parsedMediaProp() {
-            return this.image ? this.image : this.video
-        },
-        gradientClasses() {
-            return this.category ? "gradient" : "gradient-no-category"
-        },
         parsedLocations() {
-            return this.locations.reduce(function (filtered, location) {
-                if (location.title !== "Online") {
-                    location.svg = "svg-icon-location"
-                    filtered.push(location)
+            let parsedLocations = []
+            for (let location in this.locations) {
+                if (this.locations[location].title == "Online") {
+                    break
+                } else {
+                    this.locations[location].svg = "svg-icon-location"
+                    parsedLocations.push(this.locations[location])
                 }
-                return filtered
-            }, [])
+            }
+            return parsedLocations
         },
         parsedIsOnline() {
-            return this.locations.reduce(function (filtered, location) {
-                if (location.title === "Online") {
-                    location.svg = "svg-icon-online"
-                    filtered.push(location)
+            let parsedOnline = []
+            for (let location in this.locations) {
+                if (this.locations[location].title == "Online") {
+                    this.locations[location].svg = "svg-icon-online"
+                    parsedOnline.push(this.locations[location])
                 }
-                return filtered
-            }, [])
+            }
+            return parsedOnline
         },
     },
 }
 </script>
 
 <style lang="scss" scoped>
-.banner-header {
+.banner-featured {
     z-index: 0;
     position: relative;
     overflow: hidden;
     background-color: var(--color-white);
-    max-width: $container-xl-banner + px;
+    max-width: $container-xl-full-width + px;
 
     // Themes
     --color-theme: var(--color-primary-blue-03);
@@ -321,15 +270,16 @@ export default {
         stroke: var(--color-theme);
     }
 
-    .category {
+    .slot {
+        position: absolute;
+        z-index: 20;
+        padding-left: 50px;
+        margin-top: 40px;
+    }
+    .breadcrumb {
         color: var(--color-white);
         font-size: 26px;
         text-transform: capitalize;
-
-        position: absolute;
-        z-index: 20;
-        padding-left: 64px;
-        margin-top: 64px;
 
         display: flex;
         align-items: center;
@@ -347,20 +297,15 @@ export default {
             line-height: 1;
         }
     }
-    .media {
-        max-height: 66vh;
-    }
+    //TODO update with variables
     .gradient {
-        background: $overlay-01;
-        z-index: 10;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-    .gradient-no-category {
-        background: $overlay-02;
+        background: var(--gradient-image-01),
+            linear-gradient(
+                180deg,
+                rgba(15, 15, 15, 0) 0%,
+                rgba(15, 15, 15, 0.25) 67.57%,
+                #0f0f0f 100%
+            );
         z-index: 10;
         position: absolute;
         top: 0;
@@ -390,7 +335,7 @@ export default {
         overflow: hidden;
     }
     .clipped-box {
-        width: 75%;
+        width: 65%;
         background-color: var(--color-white);
         position: relative;
         z-index: 20;
@@ -412,12 +357,15 @@ export default {
         top: 0;
         left: calc(65% - 99px);
     }
+    .category-mobile {
+        display: none;
+    }
 
     .meta {
         margin: -60px auto 0;
         position: relative;
         z-index: 40;
-        padding-right: 300px;
+        padding-right: clamp(360px, 35%, 600px);
         max-width: $container-l-main + px;
 
         display: flex;
@@ -427,55 +375,28 @@ export default {
         align-content: flex-end;
     }
 
+    .category {
+        @include overline;
+        margin-bottom: $component-06 + px;
+    }
     .title {
+        line-height: 44px;
+        margin-bottom: 5px;
         color: var(--color-primary-blue-03);
-        @include step-4;
-        margin-bottom: var(--space-m);
+        @include step-2;
     }
-    .snippet {
-        @include step-0;
-        color: var(--color-secondary-grey-04);
-        font-weight: 400;
-        margin-bottom: var(--space-m);
-
-        ::v-deep p {
-            margin: 0;
-        }
-    }
-    .byline {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-
-        font-size: 20px;
-        margin-bottom: 24px;
-    }
-    .byline-item {
-        display: flex;
-        flex-direction: row;
-
-        font-size: 20px;
-        line-height: 24px;
-        text-align: left;
-        color: var(--color-primary-blue-03);
-    }
-    .date-created {
-        color: var(--color-primary-blue-03);
-    }
-
     .schedule {
+        font-size: 20px;
         line-height: 24px;
         text-align: left;
-        color: var(--color-primary-blue-03);
-        margin-top: 24px;
+        color: var(--color-secondary-grey-04);
+        margin: 10px 0 8px 0;
 
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
-    .schedule-item,
-    .byline-item {
+    .schedule-item {
         &:after {
             content: "";
             border-left: 1px solid var(--color-secondary-grey-02);
@@ -492,19 +413,6 @@ export default {
             display: none;
         }
     }
-
-    .contact-info {
-        color: var(--color-primary-blue-03);
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        gap: var(--space-xs);
-        margin-bottom: var(--space-xs);
-        @include button;
-    }
-
     .location-group {
         font-family: var(--font-secondary);
         font-size: 20px;
@@ -533,15 +441,11 @@ export default {
     .location {
         padding: 0 0 5px 5px;
     }
-    .location-svg,
-    .contact-svg {
-        flex-shrink: 0;
-    }
     .button {
         width: 180px;
         height: 50px;
         padding: 0px 0px;
-        margin: var(--space-m) 0 0 0;
+        margin-top: 16px;
     }
 
     // Variant
@@ -553,7 +457,7 @@ export default {
             clip-path: polygon(39px 0, 105% 0, 100% 102%, 0 102%, 0% 95px);
         }
         .hatch {
-            right: calc(75% - 99px);
+            right: calc(65% - 99px);
             left: auto;
 
             .svg {
@@ -561,50 +465,28 @@ export default {
             }
         }
         .meta {
-            padding-left: 300px;
+            padding-left: clamp(368px, 35%, 600px);
             padding-right: $whitespace-s-sides + px;
             margin-left: auto;
 
             align-content: flex-start;
-        }
-        .button {
-            width: 180px;
-            height: 50px;
-            padding: 0px 0px;
+            align-items: flex-start;
         }
     }
+
+    // Breakpoints
 
     @media #{$medium} {
         .meta {
             padding-left: $whitespace-m-sides + px;
             margin-left: 0;
         }
-        .byline,
-        .schedule {
-            display: flex;
-            flex-direction: column;
-            padding-left: 0;
-            align-items: flex-start;
-        }
-        .schedule-item,
-        .byline-item {
-            margin-top: 8px;
-            &:after {
-                display: none;
-            }
-        }
-        .date-created {
-            margin-top: 24px;
-        }
     }
 
     @media #{$small} {
-        .media {
-            max-height: 375px;
-        }
-        .category {
+        .slot {
             font-size: 28px;
-            padding-left: 16px;
+            padding-left: 20px;
             margin-top: 16px;
         }
         .molecule {
@@ -627,35 +509,38 @@ export default {
                 height: auto;
             }
         }
+        .category-mobile {
+            display: block;
+            padding-right: calc(40px + var(--unit-gutter));
+            padding-left: var(--unit-gutter);
+            height: 40px;
+            padding-top: 7px;
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: flex-start;
+            align-items: flex-start;
+        }
 
         .meta {
             width: 100%;
             margin-top: 0;
-            padding-left: var(--unit-gutter);
             padding-right: var(--unit-gutter);
+            padding-left: $whitespace-s-sides + px;
             position: static;
-            margin: 0 0 0 0;
+        }
+        .category-desktop {
+            display: none;
         }
         .title {
-            margin: 10px 0 5px 0px;
-        }
-        .byline,
-        .schedule {
-            display: flex;
-            flex-direction: column;
-            padding-left: 0;
-        }
-        .schedule-item,
-        .byline-item {
-            margin-top: 8px;
-            &:after {
-                display: none;
-            }
+            margin-top: 40px;
         }
         .button {
-            width: 324px;
+            width: 100%;
             height: 40px;
-            margin: 24px 0 0 0;
+            margin: 40px 0 0 0;
         }
 
         // Variant
@@ -667,17 +552,16 @@ export default {
             .hatch {
                 right: calc(65% - 44px);
             }
+            .category-mobile {
+                align-content: center;
+                align-items: center;
+            }
             .meta {
                 width: 100%;
-                margin: 0 0 0 0;
+                margin-top: 0;
                 padding-left: var(--unit-gutter);
                 padding-right: var(--unit-gutter);
                 position: static;
-            }
-            .button {
-                width: 324px;
-                height: 40px;
-                margin: 24px 0 10px 0;
             }
         }
     }
