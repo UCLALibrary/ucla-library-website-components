@@ -1,6 +1,6 @@
 <template>
     <div class="block-date">
-        <svg-arrow-down class="svg" />
+        <svg-arrow-down class="svg" viewBox="0 0 100 100" />
         <div class="date">
             {{ date }}
         </div>
@@ -50,6 +50,10 @@ export default {
     .svg {
         // height: 60px;
         transform: rotate(90deg) scale(0.9, 0.9);
+
+        .svg__stroke--wayfinder {
+            stroke: var(--color-visit-fushia-03);
+        }
     }
 
     .date {
