@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.2.0...v1.3.0) (2022-06-29)
+
+
+### Features
+
+* add HeadingArrow.vue ([#22](https://github.com/UCLALibrary/ucla-library-website-components/issues/22)) ([ed6a1e4](https://github.com/UCLALibrary/ucla-library-website-components/commit/ed6a1e4211595bfda5a7813f623d15ba1382d798))
+
 # [1.2.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.1.0...v1.2.0) (2022-06-21)
 
 
