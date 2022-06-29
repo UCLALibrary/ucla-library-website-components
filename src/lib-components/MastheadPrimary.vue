@@ -1,10 +1,10 @@
-<template lang="html">
+<template>
     <div class="masthead-primary">
         <div class="background" />
 
         <div class="container">
             <div class="logo">
-                <svg-logo-ucla-library-underline class="svg" />
+                <!-- <svg-logo-ucla-library-underline class="svg" /> -->
             </div>
 
             <search-home
@@ -16,14 +16,15 @@
 </template>
 
 <script>
-import SvgLogoUclaLibraryUnderline from "~/assets/svg/logo-ucla-library-underline"
+// import SvgLogoUclaLibraryUnderline from "ucla-library-design-tokens/assets/svgs/logo-ucla-library-underline.svg"
 
-// TODO Update this to not use mock data
-import * as API from "~/stories/mock-api.json"
+// This is not mock data they are the actual links
+import * as API from "@/stories/mock-api.json"
 
 export default {
+    name: "MastheadPrimary",
     components: {
-        SvgLogoUclaLibraryUnderline,
+        // SvgLogoUclaLibraryUnderline,
     },
     data() {
         return {
@@ -48,8 +49,7 @@ export default {
         height: 560px;
         overflow: hidden;
 
-        background: url(~/assets/svg/molecule-background.svg?url) center -100px,
-            var(--gradient-01);
+        background: url(ucla-library-design-tokens/assets/svgs/molecule-masthead.svg?url) center -100px, var(--gradient-01);
         background-size: cover;
     }
     .container {
