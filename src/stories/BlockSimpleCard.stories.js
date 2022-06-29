@@ -2,6 +2,7 @@ import BlockSimpleCard from "@/lib-components/BlockSimpleCard"
 
 export default {
     title: "BLOCK / Simple Card",
+    component: BlockSimpleCard,
 }
 
 const mockExternal = {
