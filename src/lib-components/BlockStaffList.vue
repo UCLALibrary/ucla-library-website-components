@@ -1,6 +1,6 @@
 <template lang="html">
     <li class="block-staff-list">
-        <responsive-image
+        <!-- <responsive-image
             :image="image"
             :aspect-ratio="100"
             sizes="300px"
@@ -55,12 +55,12 @@
                     </smart-link>
                 </div>
             </div>
-        </div>
+        </div> -->
     </li>
 </template>
 
 <script>
-import _isEmpty from "lodash/isEmpty"
+/*import _isEmpty from "lodash/isEmpty"
 import SvgHeadingArrow from "~/node_modules/ucla-library-design-tokens/assets/svgs/graphic-chevron-right"
 import SvgIconEmail from "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-email"
 import SvgIconPhone from "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-phone"
@@ -113,10 +113,11 @@ export default {
             return this.departments[this.departments.length - 1].title
         },
     },
-}
+} */
 </script>
 
 <style lang="scss" scoped>
+/*
 .block-staff-list {
     --image-size: 272px;
 
@@ -283,5 +284,5 @@ export default {
             width: 100%;
         }
     }
-}
+} */
 </style>
