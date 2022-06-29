@@ -13,7 +13,7 @@
         <div class="meta">
             <div class="name-title">
                 <h3 class="staff-name">
-                    <nuxt-link :to="to" v-html="staffName" />
+                    <router-link :to="to" v-html="staffName" />
                 </h3>
                 <div class="job-title" v-html="jobTitle" />
                 <ul v-if="departments.length" class="departments">
@@ -61,10 +61,12 @@
 
 <script>
 import _isEmpty from "lodash/isEmpty"
-import SvgHeadingArrow from "~/node_modules/ucla-library-design-tokens/assets/svgs/graphic-chevron-right"
-import SvgIconEmail from "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-email"
-import SvgIconPhone from "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-phone"
-import SvgIconConsultation from "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-chat"
+import SvgHeadingArrow from "ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg"
+import SvgIconEmail from "ucla-library-design-tokens/assets/svgs/icon-email.svg"
+import SvgIconPhone from "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
+import SvgIconConsultation from "ucla-library-design-tokens/assets/svgs/icon-chat.svg"
+import ResponsiveImage from "@/lib-components/ResponsiveImage"
+import SmartLink from "@/lib-components/SmartLink"
 
 export default {
     name: "BlockStaffList",
@@ -73,6 +75,8 @@ export default {
         SvgIconEmail,
         SvgIconPhone,
         SvgIconConsultation,
+        ResponsiveImage,
+        SmartLink,
     },
     props: {
         to: {

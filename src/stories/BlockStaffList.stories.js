@@ -16,11 +16,11 @@ export default {
                         component: BlockStaffList,
                     },
                     {
-                        path: "/location/baz",
+                        path: "/location/bar",
                         component: BlockStaffList,
                     },
                     {
-                        path: "/staff/id/",
+                        path: "/location/baz",
                         component: BlockStaffList,
                     },
                 ],
@@ -136,6 +136,7 @@ export const NoPhoneNumber = () => ({
             },
         }
     },
+    components: { BlockStaffList },
     template: `
       <block-staff-list
         v-bind="item"
@@ -152,6 +153,7 @@ export const NoLocation = () => ({
             },
         }
     },
+    components: { BlockStaffList },
     template: `
       <block-staff-list
         v-bind="item"
