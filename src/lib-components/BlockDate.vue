@@ -1,6 +1,6 @@
 <template>
     <div class="block-date">
-        <svg-arrow-down class="svg" viewBox="0 0 100 100" />
+        <svg-arrow-down class="svg" />
         <div class="date">
             {{ date }}
         </div>

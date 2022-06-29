@@ -8,7 +8,7 @@
                 id="the-iframe"
                 refs="hours_iframe"
                 class="iframe"
-                :src="`/blockHours.html?lid=${lid}`"
+                :src="`https://uclalibrary.library.ucla.edu/blockhours.html?lid=${lid}`"
                 frameBorder="0"
                 width="100%"
                 height="100%"
@@ -71,6 +71,7 @@ export default {
                 console.log(hours_iframe.height)
                 var eventName = e.data[0]
                 var data = e.data[1]
+                console.log("DATA: " + hours_iframe)
 
                 switch (eventName) {
                     case "setHeight":
@@ -94,6 +95,7 @@ export default {
     },
 }
 </script>
+
 <style lang="scss" scoped>
 .block-hours {
     max-width: 930px;

@@ -1,6 +1,7 @@
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
 import BlockLocationListItem from "@/lib-components/BlockLocationListItem"
+import StoryRouter from "storybook-vue-router"
 
 const mock = {
     isUclaLibrary: false,
@@ -25,10 +26,12 @@ const mock = {
 export default {
     title: "BLOCK / Location List Item",
     component: BlockLocationListItem,
+    decorators: [StoryRouter()],
 }
 
 const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
+    components: { BlockLocationListItem },
     template: `<block-location-list-item v-bind="$props"/>`,
 })
 
