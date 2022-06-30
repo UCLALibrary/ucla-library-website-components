@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="search-home">
         <div v-if="parsedTabs.length" class="tabs">
             <div
