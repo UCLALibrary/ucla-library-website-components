@@ -2,7 +2,7 @@ import BannerText from "@/lib-components/BannerText"
 import StoryRouter from "storybook-vue-router"
 
 export default {
-    title: "BANNER / Banner Text",
+    title: "Banner Text",
     component: BannerText,
     decorators: [StoryRouter()],
 }

@@ -4,7 +4,7 @@ import StoryRouter from "storybook-vue-router"
 import * as API from "@/stories/mock-api.json"
 
 export default {
-    title: "BANNER / Banner Header",
+    title: "Banner Header",
     component: BannerHeader,
     decorators: [StoryRouter()],
 }
