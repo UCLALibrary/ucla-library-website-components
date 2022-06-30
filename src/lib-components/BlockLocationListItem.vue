@@ -193,7 +193,7 @@ export default {
         }
 
         .affiliate {
-            // background: url(~/node_modules/ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg?url);
+            // background: url(ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg?url);
             background-size: 900px;
             width: 100%;
             height: 100%;

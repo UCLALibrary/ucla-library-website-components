@@ -159,7 +159,7 @@ export default {
     }
 
     ::v-deep ul li {
-        background-image: url(ucla-library-design-tokens/assets/svgs/icon-molecule-bullet.svg?url);
+        // background-image: url(ucla-library-design-tokens/assets/svgs/icon-molecule-bullet.svg?url);
         background-repeat: no-repeat;
         background-position-y: 5px; // This will shift the bullet down as needed
         background-size: 24px;

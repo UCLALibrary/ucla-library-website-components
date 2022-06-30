@@ -18,6 +18,11 @@ module.exports = {
                 {
                     test: /\.svg$/,
                     loader: "vue-svg-loader",
+                    options: {
+                        svgo: {
+                            plugins: [{ removeViewBox: false }],
+                        },
+                    },
                 },
             ],
         },
