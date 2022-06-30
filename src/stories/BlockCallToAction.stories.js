@@ -67,7 +67,7 @@ export const DarkBlue = () => ({
             :text="text"
             :name="name"
             :to="to"
-            is-dark=true
+            :is-dark=true
             :isSmallSize="isSmallSize"
         />
     `,
