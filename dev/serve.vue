@@ -1,9 +1,11 @@
 <script>
 import Vue from "vue"
+import MastheadPrimary from "../src/lib-components/MastheadPrimary.vue"
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { UclaLibraryWebsiteComponentSample } from '@/entry.esm';
 
 export default Vue.extend({
+    components: { MastheadPrimary },
     name: "ServeDev",
     // components: {
     //  UclaLibraryWebsiteComponentSample,
@@ -20,6 +22,7 @@ export default Vue.extend({
         <smart-link to="/"> This will render as a vue-router link </smart-link>
         <button-link label="This is a button " to="/help/" />
         <heading-arrow text="Featured " to="/visit/" />
+        <masthead-primary />
     </div>
 </template>
 <style lang="scss" scoped>
