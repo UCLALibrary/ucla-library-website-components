@@ -5,6 +5,7 @@ export { default as UclaLibraryWebsiteComponentSample } from "./ucla-library-web
 export { default as AlphabeticalBrowseBy } from "./AlphabeticalBrowseBy.vue"
 export { default as DividerGeneral } from "./DividerGeneral.vue"
 export { default as SmartLink } from "./SmartLink.vue"
+export { default as MastheadPrimary } from "./MastheadPrimary.vue"
 export { default as ButtonLink } from "./ButtonLink.vue"
 export { default as SearchHome } from "./SearchHome.vue"
 export { default as HeadingArrow } from "./HeadingArrow.vue"

@@ -1,9 +1,11 @@
 <script>
 import Vue from "vue"
+import MastheadPrimary from "../src/lib-components/MastheadPrimary.vue"
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { UclaLibraryWebsiteComponentSample } from '@/entry.esm';
 
 export default Vue.extend({
+    components: { MastheadPrimary },
     name: "ServeDev",
     computed: {
         parsedLinkItems() {
@@ -54,6 +56,7 @@ export default Vue.extend({
             @activeTabSet="action"
             @search="action"
         />
+        <masthead-primary />
     </div>
 </template>
 
