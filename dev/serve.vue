@@ -48,6 +48,14 @@ export default Vue.extend({
         <divider-general class="divider" :is-bold="true" />
         <alphabetical-browse-by />
         <smart-link to="/"> This will render as a vue-router link </smart-link>
+        <search-home
+            \
+            v-bind="$props"
+            \
+            @activeTabSet="action"
+            \
+            @search="action"
+        />
         <button-link label="This is a button " to="/help/" />
         <heading-arrow text="Featured " to="/visit/" />
         <search-home
