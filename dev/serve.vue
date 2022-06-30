@@ -19,6 +19,7 @@ export default Vue.extend({
         <alphabetical-browse-by />
         <smart-link to="/"> This will render as a vue-router link </smart-link>
         <button-link label="This is a button " to="/help/" />
+        <heading-arrow text="Featured " to="/visit/" />
     </div>
 </template>
 <style lang="scss" scoped>
