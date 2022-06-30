@@ -277,6 +277,15 @@ export default Vue.extend({
             @activeTabSet="action"
             @search="action"
         />
+        <banner-header
+            :image="bannerHeaderData.image"
+            :to="bannerHeaderData.to"
+            :title="bannerHeaderData.title"
+            :category="bannerHeaderData.category"
+            :start-date="bannerHeaderData.startDate"
+            :end-date="bannerHeaderData.endDate"
+            :prompt="bannerHeaderData.prompt"
+        />
         <!-- <banner-featured
             :image="bannerFeaturedData.image"
             :to="bannerFeaturedData.to"
@@ -287,15 +296,6 @@ export default Vue.extend({
             :end-date="bannerFeaturedData.endDate"
             :prompt="bannerFeaturedData.prompt"
         /> -->
-        <banner-header
-            :image="bannerHeaderData.image"
-            :to="bannerHeaderData.to"
-            :title="bannerHeaderData.title"
-            :category="bannerHeaderData.category"
-            :start-date="bannerHeaderData.startDate"
-            :end-date="bannerHeaderData.endDate"
-            :prompt="bannerHeaderData.prompt"
-        />
     </div>
 </template>
 
