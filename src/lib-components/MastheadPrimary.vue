@@ -1,11 +1,14 @@
 <template>
     <div class="masthead-primary">
         <div class="background" />
+
         <div class="container">
             <div class="logo">
                 <svg-logo-ucla-library-underline class="svg" />
             </div>
+
             {{ data }}
+
             <search-home
                 :link-items="linkItems"
                 :advanced-search-link="advancedSearchLink"
