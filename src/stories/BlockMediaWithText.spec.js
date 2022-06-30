@@ -3,7 +3,7 @@ describe("BLOCK / Block Media With Text", () => {
         cy.visit(
             "/iframe.html?id=block-media-with-text--default&args=&viewMode=story"
         )
-        cy.get(".block-media-with-text").should("exist")
+        cy.get(".media-with-text").should("exist")
 
         cy.percySnapshot("BLOCK / Block Media With Text: Default")
     })
