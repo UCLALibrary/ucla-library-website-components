@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div :class="classes">
         <div class="banner-text-content-container">
             <div v-if="category" class="meta">
