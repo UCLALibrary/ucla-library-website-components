@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <li class="block-staff-list">
         <responsive-image
             :image="image"

@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div :class="classes">
         <component :is="parsedSvgName" class="svg" />
 

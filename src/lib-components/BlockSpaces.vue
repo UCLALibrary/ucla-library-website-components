@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="block-spaces">
         <div class="container">
             <div class="arrow-and-title">
