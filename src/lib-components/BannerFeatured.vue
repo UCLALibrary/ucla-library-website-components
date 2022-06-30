@@ -103,6 +103,7 @@ import SmartLink from "@/lib-components/SmartLink.vue"
 import ButtonLink from "@/lib-components/ButtonLink.vue"
 import RichText from "@/lib-components/RichText.vue"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
+import ResponsiveVideo from "@/lib-components/ResponsiveVideo.vue"
 
 // Utility functions
 import formatEventTimes from "@/mixins/formatEventTimes"
@@ -125,6 +126,7 @@ export default {
         ButtonLink,
         RichText,
         ResponsiveImage,
+        ResponsiveVideo,
     },
     props: {
         image: {

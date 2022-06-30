@@ -1,4 +1,5 @@
 import BannerFeatured from "@/lib-components/BannerFeatured"
+import HeadingArrow from "@/lib-components/HeadingArrow"
 import StoryRouter from "storybook-vue-router"
 
 // Import mock api data
@@ -123,7 +124,7 @@ export const Slot = () => ({
             alignRight: false,
         }
     },
-    components: { BannerFeatured },
+    components: { BannerFeatured, HeadingArrow },
     template: `
         <banner-featured
             :image="image"
