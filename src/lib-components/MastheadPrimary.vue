@@ -1,6 +1,5 @@
 <template>
     <div class="masthead-primary">
-        HELLO
         <div class="background" />
         <div class="container">
             <div class="logo">
@@ -49,7 +48,8 @@ export default {
         height: 560px;
         overflow: hidden;
 
-        background: url(~/src/assets/molecule-background.svg?url) center -100px,
+        background: url(ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg?url)
+                center -100px,
             var(--gradient-01);
         background-size: cover;
     }
@@ -75,11 +75,7 @@ export default {
         display: flex;
         align-items: flex-end;
 
-        // width: 741;
-        // height: 247;
-
         .svg {
-            border: 2px solid aqua;
             max-width: 664px;
             width: 100%;
             height: auto;
