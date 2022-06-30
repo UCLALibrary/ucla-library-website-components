@@ -252,7 +252,9 @@ export default {
         --color-theme: var(--color-about-purple-03);
     }
     .hatch {
-        stroke: var(--color-theme);
+        path.svg__stroke--wayfinder {
+            stroke: var(--color-theme);
+        }
     }
 
     .slot {
