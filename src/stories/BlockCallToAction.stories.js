@@ -42,7 +42,7 @@ export const Default = () => ({
     components: { BlockCallToAction },
     template: `
         <block-call-to-action
-            :svgName="svg-call-to-action-chat"
+            :svgName="svgName"
             :title="title"
             :text="text"
             :name="name"
