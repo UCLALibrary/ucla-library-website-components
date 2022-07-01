@@ -1,3 +1,31 @@
+# [1.5.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.4.1...v1.5.0) (2022-07-01)
+
+
+### Features
+
+* APPS-1678 add search home component ([#26](https://github.com/UCLALibrary/ucla-library-website-components/issues/26)) ([83f585e](https://github.com/UCLALibrary/ucla-library-website-components/commit/83f585e62db3401388409d2cc0f6c1ecd9d3a995))
+
+## [1.4.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.4.0...v1.4.1) (2022-07-01)
+
+
+### Bug Fixes
+
+* add config to fix storybook svg viewbox clipping issue ([#27](https://github.com/UCLALibrary/ucla-library-website-components/issues/27)) ([18937f7](https://github.com/UCLALibrary/ucla-library-website-components/commit/18937f70be5792b57674910cb221088f3ff3c470))
+
+# [1.4.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.3.0...v1.4.0) (2022-06-29)
+
+
+### Features
+
+* update ucla-library-design-tokens ([#23](https://github.com/UCLALibrary/ucla-library-website-components/issues/23)) ([9321693](https://github.com/UCLALibrary/ucla-library-website-components/commit/9321693061028c46d5bd8b3ac194a48a3ff18b75))
+
+# [1.3.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.2.0...v1.3.0) (2022-06-29)
+
+
+### Features
+
+* add HeadingArrow.vue ([#22](https://github.com/UCLALibrary/ucla-library-website-components/issues/22)) ([ed6a1e4](https://github.com/UCLALibrary/ucla-library-website-components/commit/ed6a1e4211595bfda5a7813f623d15ba1382d798))
+
 # [1.2.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.1.0...v1.2.0) (2022-06-21)
 
 

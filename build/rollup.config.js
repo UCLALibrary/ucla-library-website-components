@@ -10,7 +10,7 @@ import babel from "@rollup/plugin-babel"
 import { terser } from "rollup-plugin-terser"
 import minimist from "minimist"
 import postcss from "rollup-plugin-postcss"
-import svgo from "rollup-plugin-svgo"
+import svg from "rollup-plugin-vue-inline-svg"
 // import scss from "rollup-plugin-scss"
 // import dartSass from "sass"
 
@@ -69,7 +69,7 @@ const baseConfig = {
             },
         },
         postVue: [
-            svgo(),
+            svg(),
             resolve({
                 extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"],
             }),
