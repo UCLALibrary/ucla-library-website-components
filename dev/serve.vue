@@ -46,7 +46,9 @@ export default Vue.extend({
         <divider-general class="divider" :is-bold="true" />
         <alphabetical-browse-by />
         <smart-link to="/"> This will render as a vue-router link </smart-link>
-        <button-link label="This is a button " to="/help/" />
+        <button-link label="This is a button " to="/help/" /><button-more
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        />
         <heading-arrow text="Featured " to="/visit/" />
         <search-home
             :linkItems="parsedLinkItems"
