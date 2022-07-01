@@ -6,6 +6,34 @@ import * as API from "@/stories/mock-api.json"
 
 export default Vue.extend({
     name: "ServeDev",
+    computed: {
+        parsedLinkItems() {
+            return [
+                {
+                    text: "Course Reserves",
+                    url: "https://catalog.library.ucla.edu/vwebv/enterCourseReserve.do",
+                    target: "_blank",
+                },
+                {
+                    text: "UCLA Research Guides",
+                    url: "https://guides.library.ucla.edu/",
+                    target: "",
+                },
+                {
+                    text: "Databases A-Z",
+                    url: "https://guides.library.ucla.edu/az.php",
+                    target: "_blank",
+                },
+            ]
+        },
+        parsedAdvancedSearchLink() {
+            return {
+                text: "Advanced Search",
+                url: "https://www.library.ucla.edu/search",
+                target: "_blank",
+            }
+        },
+    },
     // components: {
     //  UclaLibraryWebsiteComponentSample,
     // }
@@ -243,8 +271,15 @@ export default Vue.extend({
         <responsive-image :image="mockBlockHighlight.image" />
         <rich-text :rich-text-content="mockRichText.richText" />
         <smart-link to="/"> This will render as a vue-router link </smart-link>
+        <search-home
+            :linkItems="parsedLinkItems"
+            :advancedSearchLink="parsedAdvancedSearchLink"
+            @activeTabSet="action"
+            @search="action"
+        />
     </div>
 </template>
+
 <style lang="scss" scoped>
 .divider {
     margin: 10px 10px;

@@ -1,5 +1,4 @@
 const path = require('path')
-
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -19,7 +18,6 @@ module.exports = {
   // the @ alias points to the `src/` directory, a common alias
     // used in the Vue community
     config.resolve.alias['@'] = path.resolve(__dirname, '..', 'src')
-
     // THIS is the tricky stuff!
     config.module.rules.push({
         test: /\.scss$/,
@@ -39,7 +37,6 @@ module.exports = {
         rule.test.test(".svg")
     )
     fileLoaderRule.exclude = /\.svg$/
-
     config.module.rules.push({
         test: /\.svg$/,
         use: [
@@ -56,7 +53,6 @@ module.exports = {
         ]
         
     })
-
     // return the updated Storybook configuration
     return config
   },
