@@ -58,6 +58,7 @@ export const ImagePositionLeft = () => ({
             block: mockFour,
         }
     },
+    components: { RichText },
     template: `
          <rich-text
             :rich-text-content="block.richText"
@@ -77,6 +78,7 @@ export const AllRichText = () => ({
             block: mockFive,
         }
     },
+    components: { RichText },
     template: `
          <rich-text
             :rich-text-content="block.richText"
