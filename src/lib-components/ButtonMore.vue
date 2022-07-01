@@ -1,7 +1,7 @@
 <template>
     <div class="button-more">
         <div class="icon">
-            <!-- <molecule-border class="molecule-border" /> -->
+            <molecule-border class="molecule-border" />
             <icon-arrow-right class="arrow-right" />
         </div>
 
@@ -13,13 +13,13 @@
 
 <script>
 import IconArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
-// import MoleculeBorder from "ucla-library-design-tokens/assets/svgs/molecule-border"
+import MoleculeBorder from "ucla-library-design-tokens/assets/svgs/molecule-stroke.svg"
 
 export default {
     name: "ButtonMore",
     components: {
         IconArrowRight,
-        // MoleculeBorder,
+        MoleculeBorder,
     },
     props: {
         text: {
