@@ -33,6 +33,20 @@ export default Vue.extend({
                 target: "_blank",
             }
         },
+        flexibleBlocks() {
+            return [
+                {
+                    id: "22978",
+                    typeHandle: "pullQuote",
+                    pullQuote: [
+                        {
+                            text: "<p>Fashion is the best</p>",
+                            attribution: null,
+                        },
+                    ],
+                },
+            ]
+        },
     },
     // components: {
     //  UclaLibraryWebsiteComponentSample,
@@ -277,6 +291,7 @@ export default Vue.extend({
             @activeTabSet="action"
             @search="action"
         />
+        <flexible-blocks :blocks="flexibleBlocks" />
     </div>
 </template>
 

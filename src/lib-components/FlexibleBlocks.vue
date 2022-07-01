@@ -13,8 +13,10 @@
 <script>
 // Helpers
 import _kebabCase from "lodash/kebabCase"
+import FlexiblePullQuote from "@/lib-components/Flexible/PullQuote.vue"
 
 export default {
+    name: "FlexibleBlocks",
     components: {
         // TODO register all other block types
         // FlexibleCallToAction: () =>
@@ -27,7 +29,7 @@ export default {
         // FlexibleHighlight: () => import("~/components/Flexible/Highlight.vue"),
         // FlexibleSimpleCards: () =>
         //     import("~/components/Flexible/SimpleCards.vue"),
-        FlexiblePullQuote: () => import("~/components/Flexible/PullQuote.vue"),
+        FlexiblePullQuote,
         // FlexibleCardWithImage: () =>
         //     import("~/components/Flexible/CardWithImage.vue"),
         // FlexibleRichText: () => import("~/components/Flexible/RichText.vue"),
