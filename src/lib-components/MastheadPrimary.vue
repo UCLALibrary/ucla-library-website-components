@@ -7,8 +7,6 @@
                 <svg-logo-ucla-library-underline class="svg" />
             </div>
 
-            {{ data }}
-
             <search-home
                 :link-items="linkItems"
                 :advanced-search-link="advancedSearchLink"
@@ -18,20 +16,40 @@
 </template>
 
 <script>
-import SvgLogoUclaLibraryUnderline from "ucla-library-design-tokens/assets/svgs/logo-ucla-library-underline.svg"
+import SearchHome from "./SearchHome.vue"
 
-// This is not mock data, they are the actual links
-import API from "@/stories/mock-api.json"
+import SvgLogoUclaLibraryUnderline from "ucla-library-design-tokens/assets/svgs/logo-ucla-library-underline.svg"
 
 export default {
     name: "MastheadPrimary",
     components: {
         SvgLogoUclaLibraryUnderline,
+        "search-home": SearchHome,
     },
     data() {
         return {
-            linkItems: [...API.searchHomeLinks.linkItems],
-            advancedSearchLink: { ...API.searchHomeLinks.advancedSearchLink },
+            linkItems: [
+                {
+                    text: "Course Reserves",
+                    url: "https://catalog.library.ucla.edu/vwebv/enterCourseReserve.do",
+                    target: "_blank",
+                },
+                {
+                    text: "UCLA Research Guides",
+                    url: "https://guides.library.ucla.edu/",
+                    target: "",
+                },
+                {
+                    text: "Databases A-Z",
+                    url: "https://guides.library.ucla.edu/az.php",
+                    target: "_blank",
+                },
+            ],
+            advancedSearchLink: {
+                text: "Advanced Search",
+                url: "https://www.library.ucla.edu/search",
+                target: "_blank",
+            },
         }
     },
 }
