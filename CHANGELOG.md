@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.4.0...v1.4.1) (2022-07-01)
+
+
+### Bug Fixes
+
+* add config to fix storybook svg viewbox clipping issue ([#27](https://github.com/UCLALibrary/ucla-library-website-components/issues/27)) ([18937f7](https://github.com/UCLALibrary/ucla-library-website-components/commit/18937f70be5792b57674910cb221088f3ff3c470))
+
 # [1.4.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.3.0...v1.4.0) (2022-06-29)
 
 
