@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.4.1...v1.5.0) (2022-07-01)
+
+
+### Features
+
+* APPS-1678 add search home component ([#26](https://github.com/UCLALibrary/ucla-library-website-components/issues/26)) ([83f585e](https://github.com/UCLALibrary/ucla-library-website-components/commit/83f585e62db3401388409d2cc0f6c1ecd9d3a995))
+
 ## [1.4.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.4.0...v1.4.1) (2022-07-01)
 
 
