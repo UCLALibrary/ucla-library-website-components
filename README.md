@@ -22,3 +22,19 @@ Clone https://github.com/UCLALibrary/ucla-library-website-components.git
 | Command | Description |
 |---|---|
 | `npm run serve` | Starts a vue cli service server and serves dev/serve.vue page |
+
+## Connect the component to the [library-website-nuxt site](https://github.com/UCLALibrary/library-website-nuxt) by adding to the test page in Nuxt`pages/test_library/index.vue` 
+
+1. In the library-website-nuxt site Create a new branch of this branch,test-component-library-package
+2. Then in your terminal, in the `ucla-library-website-components` repo run:  
+$ ucla-library-website-components\🦖`npm run build`
+    + This gives us 3 dist files
+        + ssrc/entry.esm.js → dist/ucla-library-website-components.esm.js...clean: postcss.plugin was deprecated. Migration guide: https://evilmartians.com/chronicles/postcss-8-plugin-migration created dist/ucla-library-website-components.esm.js in 1.9s
+        + src/entry.js → dist/ucla-library-website-components.ssr.js... created dist/ucla-library-website-components.ssr.js in 1s
+        + src/entry.js → dist/ucla-library-website-components.min.js... created dist/ucla-library-website-components.min.js in 1.5s
+3. Then in your terminal, in the `ucla-library-website-components` repo run:  
+$ library-website-nuxt\🦖 `npm link`
+4. Then in your terminal, in the `library-website-nuxt` repo run: `npm link ucla-library-website-components`
+5. Add to `pages/test_library/index.vue`
+npm run dev
+6. Open http://192.168.86.202:3000/test_library
