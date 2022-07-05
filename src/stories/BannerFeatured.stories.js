@@ -160,7 +160,7 @@ export const LongHeading = () => ({
             alignRight: false,
         }
     },
-    components: { BannerFeatured },
+    components: { BannerFeatured, HeadingArrow },
     template: `
         <banner-featured
             :image="image"

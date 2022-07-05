@@ -85,7 +85,7 @@ export default {
         line-height: 100%;
         text-transform: capitalize;
 
-        &.color-nuxt-link {
+        &.color-smart-link {
             color: var(--color-white);
         }
         &.color-div {
