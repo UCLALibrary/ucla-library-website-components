@@ -16,13 +16,26 @@ module.exports = {
         module: {
             rules: [
                 {
-                    test: /\.svg$/,
-                    loader: "vue-svg-loader",
-                    options: {
-                        svgo: {
-                            plugins: [{ removeViewBox: false }],
+                    oneOf: [
+                        {
+                            test: /\.(jpg|png|svg|gif)$/,
+                            type: "asset/inline",
+                            resourceQuery: /url/,
                         },
-                    },
+                        {
+                            test: /\.svg$/,
+                            loader: "vue-svg-loader",
+                            options: {
+                                svgo: {
+                                    plugins: [
+                                        {
+                                            removeViewBox: false,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                    ],
                 },
             ],
         },
