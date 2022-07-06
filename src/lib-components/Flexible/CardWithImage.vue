@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="card-with-image">
         <block-highlight
             v-for="item in parsedContent"

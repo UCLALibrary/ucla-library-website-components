@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="flexible-blocks">
         <component
             :is="block.componentName"
