@@ -17,10 +17,6 @@ import SvgCallToActionMoney from "ucla-library-design-tokens/assets/svgs/call-to
 import SvgCallToActionChat from "ucla-library-design-tokens/assets/svgs/call-to-action-chat.svg"
 import SvgCallToActionMail from "ucla-library-design-tokens/assets/svgs/call-to-action-mail.svg"
 import SvgCallToActionFind from "ucla-library-design-tokens/assets/svgs/call-to-action-find.svg"
-<<<<<<< HEAD
-
-=======
->>>>>>> 9cee854 (feat: flexible blocks)
 export default {
     name: "BlockCallToAction",
     components: {
@@ -107,10 +103,6 @@ export default {
     background-color: var(--color-background);
     height: auto;
     margin: var(--unit-gutter) auto;
-<<<<<<< HEAD
-
-=======
->>>>>>> 9cee854 (feat: flexible blocks)
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -124,20 +116,12 @@ export default {
         --block-padding-title: 70px;
         --block-padding-text: 10px;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9cee854 (feat: flexible blocks)
     &.half-width {
         --block-width: calc((#{$container-l-cta} / 2) - 10px);
         --block-height: 566px;
         --block-padding-title: 114px;
         --block-padding-text: 112px;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9cee854 (feat: flexible blocks)
     // Color Themes
     &.theme-light {
         --color-background: var(--color-primary-blue-01);
@@ -151,10 +135,6 @@ export default {
         --button-link-bg-color-hover: var(--color-white);
         --button-link-color-hover: var(--color-black);
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9cee854 (feat: flexible blocks)
     &.theme-dark {
         --color-background: var(--color-primary-blue-03);
         --color-title: var(--color-white);
@@ -167,20 +147,6 @@ export default {
         --button-link-border-hover: 2px solid var(--color-white);
         --button-link-color-hover: var(--color-white);
     }
-<<<<<<< HEAD
-
-    .svg {
-        margin-bottom: 32px;
-        margin-top: 60px;
-
-        flex-grow: 0;
-        flex-shrink: 0;
-
-        .outline {
-            stroke: var(--color-svg-molecule-outline);
-        }
-
-=======
     .svg {
         margin-bottom: 32px;
         margin-top: 60px;
@@ -189,15 +155,10 @@ export default {
         .outline {
             stroke: var(--color-svg-molecule-outline);
         }
->>>>>>> 9cee854 (feat: flexible blocks)
         .color {
             stroke: var(--color-svg-molecule-inner-highlight);
         }
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9cee854 (feat: flexible blocks)
     .title {
         @include step-2;
         line-height: $line-height--1;
@@ -209,10 +170,6 @@ export default {
         margin-bottom: 16px;
         max-width: 640px;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9cee854 (feat: flexible blocks)
     .text {
         @include step-0;
         text-align: center;
@@ -222,10 +179,6 @@ export default {
         margin-bottom: 32px;
         max-width: 640px;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9cee854 (feat: flexible blocks)
     .button-link {
         width: 280px;
         font-size: 20px;
@@ -234,10 +187,6 @@ export default {
         margin-bottom: 60px;
         border: var(--color-button-border);
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9cee854 (feat: flexible blocks)
     // Hover
     @media #{$has-hover} {
         .button-link:hover {
@@ -246,50 +195,22 @@ export default {
             color: var(--button-link-color-hover);
         }
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9cee854 (feat: flexible blocks)
     // Breakpoints
     @media #{$medium} {
         &.full-width {
             --block-padding-title: 48px;
             --block-padding-text: 48px;
-<<<<<<< HEAD
-
             margin: var(--unit-gutter);
         }
-
-=======
-            margin: var(--unit-gutter);
-        }
->>>>>>> 9cee854 (feat: flexible blocks)
         &.half-width {
             --block-padding-title: 48px;
             --block-padding-text: 48px;
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> 9cee854 (feat: flexible blocks)
         .title,
         .text {
             padding: 0;
         }
     }
-<<<<<<< HEAD
-
-    @media #{$small} {
-        width: 100%;
-
-        &.full-width {
-            --block-padding-title: 48px;
-            --block-padding-text: 48px;
-
-            margin: 0;
-        }
-
-=======
     @media #{$small} {
         width: 100%;
         &.full-width {
@@ -297,7 +218,6 @@ export default {
             --block-padding-text: 48px;
             margin: 0;
         }
->>>>>>> 9cee854 (feat: flexible blocks)
         &.half-width {
             --block-padding-title: 48px;
             --block-padding-text: 48px;
