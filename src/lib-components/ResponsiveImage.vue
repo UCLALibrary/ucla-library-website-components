@@ -110,7 +110,10 @@ export default {
     z-index: 0;
     // opacity: 0; // TODO add this back when we resolve why onload is not firing on craft images in netlify, works locally
     transition: opacity 400ms ease-in-out;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
     .media {
         position: absolute;
         top: 0;
@@ -135,7 +138,10 @@ export default {
     .sizer {
         width: 100%;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
     // Variants
     &.object-fit-cover {
         .media {

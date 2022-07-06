@@ -63,7 +63,10 @@ import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-locatio
 import SvgIconOnline from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
 import SmartLink from "@/lib-components/SmartLink"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
 export default {
     name: "BlockHighlight",
     components: {
@@ -181,10 +184,15 @@ export default {
     background-color: var(--color-white);
     font-family: var(--font-primary);
     position: relative;
+<<<<<<< HEAD
 
     display: flex;
     flex-direction: row;
 
+=======
+    display: flex;
+    flex-direction: row;
+>>>>>>> 9cee854 (feat: flexible blocks)
     // Themes for floating highlight/ triangle
     --color-theme: var(--color-primary-blue-03);
     &.color-visit {
@@ -196,7 +204,10 @@ export default {
     &.color-about {
         --color-theme: var(--color-about-purple-03);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
     .clipped {
         width: 100%;
         height: 47px;
@@ -211,7 +222,10 @@ export default {
             left: 5px;
             height: 47px;
             background-color: var(--color-theme);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
             clip-path: polygon(
                 0 0,
                 calc(100% - 20px) 0,
@@ -239,7 +253,10 @@ export default {
             );
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
     .meta {
         z-index: 10;
         width: 100%;
@@ -267,7 +284,10 @@ export default {
         margin: 16px 0 0 0;
         line-height: $line-height--1;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
     .date-time {
         font-weight: 400;
         font-size: 20px;
@@ -303,7 +323,10 @@ export default {
         @include step-0;
         margin: 24px 0 0 0;
         color: var(--color-black);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
         display: -webkit-box;
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
@@ -324,11 +347,17 @@ export default {
         align-content: center;
         align-items: center;
     }
+<<<<<<< HEAD
 
     // Variations
     &.is-vertical {
         flex-direction: column;
 
+=======
+    // Variations
+    &.is-vertical {
+        flex-direction: column;
+>>>>>>> 9cee854 (feat: flexible blocks)
         &:not(.has-triangle) {
             .meta {
                 margin-top: 16px;
@@ -361,7 +390,10 @@ export default {
             left: 6px;
             height: 90px;
             background-color: var(--color-theme);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
             clip-path: polygon(
                 0 0,
                 calc(100% - 37px) 0,
@@ -388,11 +420,17 @@ export default {
                 0 84px,
                 0 1.5px
             );
+<<<<<<< HEAD
 
             display: flex;
             flex-direction: column;
             justify-content: center;
 
+=======
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+>>>>>>> 9cee854 (feat: flexible blocks)
             padding-left: 32px;
             color: var(--color-primary-blue-03);
             .month {
@@ -432,22 +470,34 @@ export default {
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
     // Breakpoints
     @media #{$medium} {
         .text {
             margin-top: 0;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
         &:not(&.is-vertical) {
             max-width: 95%;
             padding-left: 5px;
             padding-right: 5px;
+<<<<<<< HEAD
 
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
 
+=======
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+>>>>>>> 9cee854 (feat: flexible blocks)
             .floating-highlight {
                 display: none;
             }
@@ -456,7 +506,10 @@ export default {
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
     @media #{$small} {
         max-width: 100%;
         &.is-vertical {
@@ -469,18 +522,27 @@ export default {
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
             max-height: 550px;
             max-width: 100%;
             padding-left: 5px;
             padding-right: 5px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
             .image {
                 max-width: 100%;
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cee854 (feat: flexible blocks)
     // Hovers
     @media #{$has-hover} {
         &:hover {
