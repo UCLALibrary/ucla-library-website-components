@@ -378,7 +378,7 @@ export default {
             stroke: var(--location-icon-color);
         }
     }
-    ::v-deep .text p {
+    ::v-deep .text {
         margin-bottom: 24px;
         color: var(--text-color);
         @include step-0;

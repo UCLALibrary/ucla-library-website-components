@@ -76,7 +76,7 @@ export default {
         --color-theme: var(--color-about-purple-03);
     }
 
-    path.svg__stroke--wayfinder {
+    ::v-deep .svg__stroke--wayfinder {
         stroke: var(--color-theme);
     }
     .heading {
