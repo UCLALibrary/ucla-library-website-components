@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="button-more">
         <div class="icon">
             <molecule-stroke class="molecule-stroke" />
