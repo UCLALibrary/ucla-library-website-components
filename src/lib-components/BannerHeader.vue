@@ -117,11 +117,11 @@
 </template>
 
 <script>
-// import format from "date-fns/format"
+import format from "date-fns/format"
 
 // Components
-import SvgMoleculeHalfFaceted from "ucla-library-design-tokens/assets/svgs/molecule-half-overlay"
-import SvgHatchRight from "ucla-library-design-tokens/assets/svgs/graphic-hatch-lines"
+import SvgMoleculeHalfFaceted from "ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg"
+import SvgHatchRight from "ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg"
 
 import SvgHeadingVector from "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
 import SvgIconOnline from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
@@ -144,6 +144,7 @@ export default {
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
         SvgMoleculeHalfFaceted,
+        SvgHatchRight,
         SvgHeadingVector,
         SvgIconOnline,
         SvgIconEmail,
