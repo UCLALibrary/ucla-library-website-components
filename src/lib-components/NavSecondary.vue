@@ -1,7 +1,7 @@
 <template>
     <nav class="nav-secondary">
         <ul class="list">
-            <li v-for="item in parsedItems" class="list-item">
+            <li v-for="item in parsedItems" :key="item" class="list-item">
                 <smart-link
                     class="link underline-hover"
                     :to="item.to"

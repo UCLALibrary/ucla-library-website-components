@@ -12,7 +12,6 @@
         <ul class="menu">
             <nav-menu-item
                 v-for="(item, index) in parsedItems"
-                v-if="item.children"
                 :key="item.id"
                 :item="item"
                 :is-active="item.isActive"
@@ -24,7 +23,7 @@
         </ul>
 
         <div class="support-links">
-            <div v-for="item in supportLinks" class="item-top">
+            <div v-for="item in supportLinks" :key="item" class="item-top">
                 <smart-link class="support-link underline-hover" :to="item.to">
                     {{ item.name }}
                 </smart-link>
@@ -95,9 +94,11 @@ export default {
         parsedItems() {
             // Add an isActive property to all menu items
             const items = this.items.map((obj, index) => {
-                return {
-                    ...obj,
-                    isActive: index == this.activeMenuIndex,
+                if (obj.children) {
+                    return {
+                        ...obj,
+                        isActive: index == this.activeMenuIndex,
+                    }
                 }
             })
 
