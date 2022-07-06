@@ -14,6 +14,7 @@
 // Helpers
 import _kebabCase from "lodash/kebabCase"
 import FlexiblePullQuote from "@/lib-components/Flexible/PullQuote.vue"
+import FlexibleForm from "@/lib-components/Flexible/Form.vue"
 
 export default {
     name: "FlexibleBlocks",
@@ -37,7 +38,7 @@ export default {
         //     import("~/components/Flexible/MediaWithText.vue"),
         // FlexibleMediaGallery: () =>
         //     import("~/components/Flexible/MediaGallery.vue"),
-        // FlexibleForm: () => import("~/components/Flexible/Form.vue"),
+        FlexibleForm,
     },
     props: {
         blocks: {
