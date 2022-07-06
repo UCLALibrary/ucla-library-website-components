@@ -49,6 +49,7 @@ export default {
         @include step-0;
         margin: var(--space-l) 0;
     }
+<<<<<<< HEAD
 
     ::v-deep p:only-child {
         margin: 0;
@@ -58,13 +59,24 @@ export default {
         margin-bottom: 0;
     }
 
+=======
+    ::v-deep p:only-child {
+        margin: 0;
+    }
+    ::v-deep p:last-child {
+        margin-bottom: 0;
+    }
+>>>>>>> 85bd7ef (rebase)
     ::v-deep blockquote {
         border-left: 4px solid var(--color-default-cyan-03);
         border-radius: 2px;
         padding: 24px var(--spacing-text-left);
         --spacing-text-left: 64px;
         --container-width: $container-m-text + px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
         font-weight: 400;
         font-size: 20px;
         font-style: normal;
@@ -73,7 +85,10 @@ export default {
         text-transform: uppercase;
         color: var(--color-secondary-grey-05);
         margin-left: 50px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
         p {
             font-size: 24px;
             font-style: italic;
@@ -85,6 +100,7 @@ export default {
             text-transform: none;
         }
     }
+<<<<<<< HEAD
 
     ::v-deep .figure {
         width: 50%;
@@ -94,39 +110,65 @@ export default {
         flex-direction: column;
     }
 
+=======
+    ::v-deep .figure {
+        width: 50%;
+        margin: var(--space-s);
+        display: flex;
+        flex-direction: column;
+    }
+>>>>>>> 85bd7ef (rebase)
     ::v-deep .image-right {
         float: right;
         margin-left: var(--space-s);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
     ::v-deep .image-left {
         float: left;
         margin-right: var(--space-s);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
     ::v-deep figcaption {
         font-family: var(--font-secondary);
         @include step--1;
         color: var(--color-secondary-grey-05);
         padding: 16px 16px 26px 16px;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
     ::v-deep iframe {
         width: 100%;
         height: 400px;
         object-fit: cover;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
     ::v-deep img {
         height: auto;
         object-fit: cover;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
     ::v-deep a {
         @include link-default;
         @include step-0;
         word-wrap: break-word;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
         &:hover {
             @include link-hover;
         }
@@ -135,7 +177,10 @@ export default {
     ::v-deep ol {
         padding: 0 16px;
         margin: 0 0 32px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
         li {
             margin: var(--space-m) 0;
             padding-left: 16px;
@@ -144,7 +189,10 @@ export default {
     }
     ::v-deep ol {
         margin-left: 24px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
         ::marker {
             font-family: var(--font-secondary);
             font-size: 20px;
@@ -152,12 +200,18 @@ export default {
             color: var(--color-primary-blue-03);
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
     ::v-deep ul {
         list-style: none;
         list-style-position: outside;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
     ::v-deep ul li {
         background-image: url(ucla-library-design-tokens/assets/svgs/icon-molecule-bullet.svg?url);
         background-repeat: no-repeat;
@@ -165,13 +219,19 @@ export default {
         background-size: 24px;
         padding-left: 40px;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
     // Breakpoints
     @media #{$medium} {
         padding-right: 0;
         max-width: $container-l-main + px;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bd7ef (rebase)
     @media #{$small} {
         ::v-deep .figure {
             width: 100%;
