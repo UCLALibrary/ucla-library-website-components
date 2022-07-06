@@ -89,6 +89,20 @@ export default Vue.extend({
                 alignRight: false,
             }
         },
+        flexibleBlocks() {
+            return [
+                {
+                    id: "22978",
+                    typeHandle: "pullQuote",
+                    pullQuote: [
+                        {
+                            text: "<p>Fashion is the best</p>",
+                            attribution: null,
+                        },
+                    ],
+                },
+            ]
+        },
     },
 
     // components: {
@@ -442,6 +456,7 @@ export default Vue.extend({
             button-text="See More"
             to="/visit/exhibition"
         />
+        <flexible-blocks :blocks="flexibleBlocks" />
     </div>
 </template>
 
