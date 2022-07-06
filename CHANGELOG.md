@@ -1,3 +1,60 @@
+# [1.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.7.0...v1.8.0) (2022-07-06)
+
+
+### Features
+
+* add bannerfeatured ([c4ef174](https://github.com/UCLALibrary/ucla-library-website-components/commit/c4ef174427e9ae09e30d62754a1c8387a5666d01))
+* add BannerFeatured ([df92805](https://github.com/UCLALibrary/ucla-library-website-components/commit/df928051b2b29a0112ed98a53b9b627ce58204e0))
+* update heading arrow class color ([6666715](https://github.com/UCLALibrary/ucla-library-website-components/commit/66667151f187f9d0de7c2e6da7a16db41b716fc5))
+
+# [1.7.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.6.0...v1.7.0) (2022-07-06)
+
+
+### Features
+
+* APPS-1648 - Move Nav* components to Vuejs component package ([#31](https://github.com/UCLALibrary/ucla-library-website-components/issues/31)) ([1a99ff5](https://github.com/UCLALibrary/ucla-library-website-components/commit/1a99ff517905e350e230e87f4356b48583e16e50))
+
+# [1.6.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.5.0...v1.6.0) (2022-07-06)
+
+
+### Bug Fixes
+
+* block hours and blockLocationListItem ([5f58d67](https://github.com/UCLALibrary/ucla-library-website-components/commit/5f58d67d6b9d0675486b06d1e876b4df6bc3a706))
+* blockCallToAction svg problem ([3ccb296](https://github.com/UCLALibrary/ucla-library-website-components/commit/3ccb2969f12bd1b8043d79bb5bbcb1928c03a86c))
+* change config to use both inline and external svgs ([e4a3fc2](https://github.com/UCLALibrary/ucla-library-website-components/commit/e4a3fc23a5a059c32d492c35fd846c580e3e2f1f))
+* class in blockMediaWithText spec ([acf0b49](https://github.com/UCLALibrary/ucla-library-website-components/commit/acf0b4949a5661e2662d3b7e26cd00428a31f04d))
+* comment nuxt-link the entire component code for storybook to work ([2005809](https://github.com/UCLALibrary/ucla-library-website-components/commit/2005809cf5876a29b61904ababf52f2db5e9abe6))
+* fixed blockDate ([2b43a6e](https://github.com/UCLALibrary/ucla-library-website-components/commit/2b43a6e3debfd8136aefa3b674c787e46cf444be))
+* fixed isInternalLink file ([c8e2930](https://github.com/UCLALibrary/ucla-library-website-components/commit/c8e29305f26535c609a04b47a3145ca826054b5d))
+* richText last two stories ([e7879f6](https://github.com/UCLALibrary/ucla-library-website-components/commit/e7879f67fe604f7a1c3b2918129a4c96f021ebf0))
+* should fix blockCallToAction spec ([fc3a99b](https://github.com/UCLALibrary/ucla-library-website-components/commit/fc3a99b6e02f67158b681a35f27da20942dbcf41))
+* svg is now ok, not being cropped ([501ec48](https://github.com/UCLALibrary/ucla-library-website-components/commit/501ec4832b2d22629c8d24b9b8cb58b727d946d2))
+
+
+### Features
+
+* add block campus map, also added modalGeneric component ([a583f7f](https://github.com/UCLALibrary/ucla-library-website-components/commit/a583f7fa1af576d821d6d93bf7b20e28f786b3c7))
+* add blockCallToActionTwoUp ([f42c3cf](https://github.com/UCLALibrary/ucla-library-website-components/commit/f42c3cf8e3fa6515dce20647d918c16f07da4e49))
+* add blockMediaWithText component, story and spec file ([52d42bb](https://github.com/UCLALibrary/ucla-library-website-components/commit/52d42bbf236db5593e6d642dbac59ec8f4c90f80))
+* add blockSimpleCard, got a problem with internalLink icon ([aec7ade](https://github.com/UCLALibrary/ucla-library-website-components/commit/aec7ade704bc70fcce263c8aae6da29385e9dbcc))
+* add blockSpaces component ([2879ca3](https://github.com/UCLALibrary/ucla-library-website-components/commit/2879ca3ea431998bfaed203cc182c1ffe1bb37cf))
+* add BlockStaffArticleList ([6207bb2](https://github.com/UCLALibrary/ucla-library-website-components/commit/6207bb21f084164fe10ed15635b44492c292e680))
+* add blockStaffList ([24084a9](https://github.com/UCLALibrary/ucla-library-website-components/commit/24084a97fc1081056770e4ecd526c8251134bfb0))
+* add dividerWayFinder ([2b402bd](https://github.com/UCLALibrary/ucla-library-website-components/commit/2b402bd031fd883382ab0b0c4cedc5dbb883c6d3))
+* add lodash, richText and blockStaffList ([86bace6](https://github.com/UCLALibrary/ucla-library-website-components/commit/86bace6585f73dc247836687f27505d4152bec5c))
+* add serve components ([5a0c5f5](https://github.com/UCLALibrary/ucla-library-website-components/commit/5a0c5f5f862ee2db7cb018062e9933834be620e6))
+* added block call to action and vuex ([159b173](https://github.com/UCLALibrary/ucla-library-website-components/commit/159b173c8a04b44042eac296b3218e2274117d61))
+* added block call to action two up ([3418645](https://github.com/UCLALibrary/ucla-library-website-components/commit/34186457daee249e6b7bfeb55751b73275462405))
+* added block date ([66a934e](https://github.com/UCLALibrary/ucla-library-website-components/commit/66a934e528e485c2140c9bc102920e82918652f7))
+* added blockCardWithIllustration ([acfef05](https://github.com/UCLALibrary/ucla-library-website-components/commit/acfef059c1cb6fde222951e5282bb660acfad2e1))
+* added blockhighlight and its children components. Added a few mixins also ([8781f41](https://github.com/UCLALibrary/ucla-library-website-components/commit/8781f4120c84ae58d538b2d21f2bba687f0427de))
+* added blockHours ([2a650f7](https://github.com/UCLALibrary/ucla-library-website-components/commit/2a650f7e544f89e286cebd7aaaabffec1bda979e))
+* added blockLocationListItem and IconWithLink component, blockLocationListItem still has some problems ([579b6b5](https://github.com/UCLALibrary/ucla-library-website-components/commit/579b6b5bc78677e1ba85793fd7af573a5d87c626))
+* added the vue-router addon to the storybook component ([2ada8b4](https://github.com/UCLALibrary/ucla-library-website-components/commit/2ada8b4cace0c84768928a365f725a7568839120))
+* adding blockhighlight and its child components and also mixins ([7c7840d](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c7840dda673d53630ec24a14056bbb2b1234d1c))
+* remove html lang from some components ([194327a](https://github.com/UCLALibrary/ucla-library-website-components/commit/194327ad622abeda4bef2a82f676e710db54e385))
+* removed html lang from tag ([d82a965](https://github.com/UCLALibrary/ucla-library-website-components/commit/d82a9658e3ceeacdfc2c986276cf5379409574f0))
+
 # [1.5.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.4.1...v1.5.0) (2022-07-01)
 
 
