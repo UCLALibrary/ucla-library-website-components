@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.6.0...v1.7.0) (2022-07-06)
+
+
+### Features
+
+* APPS-1648 - Move Nav* components to Vuejs component package ([#31](https://github.com/UCLALibrary/ucla-library-website-components/issues/31)) ([1a99ff5](https://github.com/UCLALibrary/ucla-library-website-components/commit/1a99ff517905e350e230e87f4356b48583e16e50))
+
 # [1.6.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.5.0...v1.6.0) (2022-07-06)
 
 
