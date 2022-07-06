@@ -321,6 +321,9 @@ export default Vue.extend({
             to="/help/foo/bar"
             :isHorizontal="false"
         />
+        <button-link label="This is a button " to="/help/" /><button-more
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        />
         <masthead-primary />
         <br /><br />
     </div>
