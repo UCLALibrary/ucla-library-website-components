@@ -90,6 +90,7 @@ export default Vue.extend({
             }
         },
     },
+
     // components: {
     //  UclaLibraryWebsiteComponentSample,
     // }
@@ -229,6 +230,9 @@ export default Vue.extend({
         <ucla-library-website-component-sample />
         <alphabetical-browse-by />
         <heading-arrow text="Featured " to="/visit/" />
+        
+        <masthead-primary />
+
         <block-call-to-action
             svgName="svg-call-to-action-chat"
             title="Lorem ipsum dolor sit amet?"
@@ -333,6 +337,7 @@ export default Vue.extend({
             @activeTabSet="action"
             @search="action"
         />
+
         <banner-header
             :image="bannerHeaderData.image"
             :to="bannerHeaderData.to"
