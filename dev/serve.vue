@@ -286,7 +286,7 @@ export default Vue.extend({
             :end-date="bannerHeaderData.endDate"
             :prompt="bannerHeaderData.prompt"
         />
-        <!-- <banner-featured
+        <banner-featured
             :image="bannerFeaturedData.image"
             :to="bannerFeaturedData.to"
             :title="bannerFeaturedData.title"
@@ -295,7 +295,7 @@ export default Vue.extend({
             :start-date="bannerFeaturedData.startDate"
             :end-date="bannerFeaturedData.endDate"
             :prompt="bannerFeaturedData.prompt"
-        /> -->
+        />
     </div>
 </template>
 

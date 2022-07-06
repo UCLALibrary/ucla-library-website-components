@@ -69,19 +69,11 @@
                     v-for="location in parsedLocations"
                     :key="`location-${location.id}`"
                     :to="location.to"
-                    class="location-link"
+                    :class="location.class"
                 >
                     <component :is="location.svg" class="location-svg" />
                     <span class="location" v-html="location.title" />
                 </nuxt-link>
-                <div
-                    v-for="location in parsedIsOnline"
-                    :key="`location-${location.id}`"
-                    class="location-online"
-                >
-                    <component :is="location.svg" class="location-svg" />
-                    <span class="location" v-html="location.title" />
-                </div>
             </div>
             <button-link
                 v-if="to"
@@ -222,26 +214,19 @@ export default {
             return output
         },
         parsedLocations() {
-            let parsedLocations = []
-            for (let location in this.locations) {
-                if (this.locations[location].title == "Online") {
-                    break
-                } else {
-                    this.locations[location].svg = "svg-icon-location"
-                    parsedLocations.push(this.locations[location])
+            return this.locations.map((obj) => {
+                return {
+                    ...obj,
+                    svg:
+                        obj.title == "Online"
+                            ? "svg-icon-online"
+                            : "svg-icon-location",
+                    class:
+                        obj.title == "Online"
+                            ? "location-online"
+                            : "location-link",
                 }
-            }
-            return parsedLocations
-        },
-        parsedIsOnline() {
-            let parsedOnline = []
-            for (let location in this.locations) {
-                if (this.locations[location].title == "Online") {
-                    this.locations[location].svg = "svg-icon-online"
-                    parsedOnline.push(this.locations[location])
-                }
-            }
-            return parsedOnline
+            })
         },
     },
 }
