@@ -15,25 +15,27 @@
 import _kebabCase from "lodash/kebabCase"
 import FlexiblePullQuote from "@/lib-components/Flexible/PullQuote.vue"
 import FlexibleForm from "@/lib-components/Flexible/Form.vue"
+import FlexibleRichText from "@/lib-components/Flexible/RichText.vue"
+import FlexibleHighlight from "@/lib-components/Flexible/Highlight.vue"
+import FlexibleCallToAction from "@/lib-components/Flexible/CallToAction.vue"
 
 export default {
     name: "FlexibleBlocks",
     components: {
         // TODO register all other block types
-        // FlexibleCallToAction: () =>
-        //     import("~/components/Flexible/CtaBlockContentWidth"),
+        FlexibleCallToAction,
         // FlexibleCtaBlock2Up: () => import("~/components/Flexible/CtaBlock2Up"),
         // FlexibleHelpTopicCards: () =>
         //     import("~/components/Flexible/HelpTopicCards.vue"),
         // FlexibleBannerFeatured: () =>
         //     import("~/components/Flexible/BannerFeatured.vue"),
-        // FlexibleHighlight: () => import("~/components/Flexible/Highlight.vue"),
+        FlexibleHighlight,
         // FlexibleSimpleCards: () =>
         //     import("~/components/Flexible/SimpleCards.vue"),
         FlexiblePullQuote,
         // FlexibleCardWithImage: () =>
         //     import("~/components/Flexible/CardWithImage.vue"),
-        // FlexibleRichText: () => import("~/components/Flexible/RichText.vue"),
+        FlexibleRichText,
         // FlexibleMediaWithText: () =>
         //     import("~/components/Flexible/MediaWithText.vue"),
         // FlexibleMediaGallery: () =>
