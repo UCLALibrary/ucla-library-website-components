@@ -82,7 +82,7 @@
             </div>
         </div>
 
-        <svg-molecule-two-facets class="molecule" />
+        <!-- <svg-molecule-two-facets class="molecule" /> -->
     </div>
 </template>
 
@@ -90,7 +90,7 @@
 // import format from "date-fns/format"
 
 // Components
-import SvgMoleculeTwoFacets from "ucla-library-design-tokens/assets/svgs/molecule-half.svg"
+// import SvgMoleculeTwoFacets from "ucla-library-design-tokens/assets/svgs/molecule-half.svg"
 import SvgHeadingVector from "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
 import SvgIconOnline from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
 import SvgIconEmail from "ucla-library-design-tokens/assets/svgs/icon-email.svg"
@@ -110,7 +110,7 @@ export default {
     name: "BannerText",
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
-        SvgMoleculeTwoFacets,
+        // SvgMoleculeTwoFacets,
         SvgHeadingVector,
         SvgIconOnline,
         SvgIconEmail,
@@ -250,7 +250,7 @@ export default {
     background-color: var(--background-color);
     position: relative;
     z-index: 0;
-    background-image: url("ucla-library-design-tokens/assets/svgs/molecule-half.svg?url");
+    background-image: url("~/node_modules/ucla-library-design-tokens/assets/svgs/molecule-half.svg?url");
     background-position: 100% 50%;
     background-size: 144px;
     background-repeat: no-repeat;
