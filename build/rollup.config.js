@@ -69,11 +69,7 @@ const baseConfig = {
             },
         },
         postVue: [
-            svg({
-                svgoConfig: {
-                    plugins: [{ removeViewBox: false }],
-                },
-            }),
+            svg({ svgoConfig: { plugins: [{ removeViewBox: false }] } }),
             resolve({
                 extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"],
             }),
