@@ -6,34 +6,6 @@ import * as API from "@/stories/mock-api.json"
 
 export default Vue.extend({
     name: "ServeDev",
-    computed: {
-        parsedLinkItems() {
-            return [
-                {
-                    text: "Course Reserves",
-                    url: "https://catalog.library.ucla.edu/vwebv/enterCourseReserve.do",
-                    target: "_blank",
-                },
-                {
-                    text: "UCLA Research Guides",
-                    url: "https://guides.library.ucla.edu/",
-                    target: "",
-                },
-                {
-                    text: "Databases A-Z",
-                    url: "https://guides.library.ucla.edu/az.php",
-                    target: "_blank",
-                },
-            ]
-        },
-        parsedAdvancedSearchLink() {
-            return {
-                text: "Advanced Search",
-                url: "https://www.library.ucla.edu/search",
-                target: "_blank",
-            }
-        },
-    },
     // components: {
     //  UclaLibraryWebsiteComponentSample,
     // }
@@ -163,6 +135,71 @@ export default Vue.extend({
                 richText:
                     "<h3>Here is a title</h3><figure class='figure image-right'></h3>",
             },
+            mockSearchHomeLinks: {
+                linkItems: [
+                    {
+                        text: "Course Reserves",
+                        url: "https://catalog.library.ucla.edu/vwebv/enterCourseReserve.do",
+                        target: "_blank",
+                    },
+                    {
+                        text: "UCLA Research Guides",
+                        url: "https://guides.library.ucla.edu/",
+                        target: "",
+                    },
+                    {
+                        text: "Databases A-Z",
+                        url: "https://guides.library.ucla.edu/az.php",
+                        target: "_blank",
+                    },
+                ],
+            },
+            mockAdvancedSearchLink: {
+                advancedSearchLink: {
+                    text: "Advanced Search",
+                    url: "https://www.library.ucla.edu/search",
+                    target: "_blank",
+                },
+            },
+            mockSectionCardsWithIllustrations: {
+                items: [
+                    {
+                        iconName: "illustration-book-binding",
+                        to: "/help/foo/bar/",
+                        title: "Lacus Luctus",
+                        text: "Litora torquent per conubia nostra, per inceptos himenaeos.",
+                        isHorizontal: false,
+                    },
+                    {
+                        iconName: "illustration-find-space",
+                        to: "/visit/foo/baz/",
+                        title: "Ultrices Enim",
+                        text: "Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem.",
+                        isHorizontal: false,
+                    },
+                    {
+                        iconName: "illustration-digitized-resources",
+                        to: "/about/foo/fred/",
+                        title: "Egestas et Augue",
+                        text: "Suspendisse in justo eu magna luctus suscipit libero eget ante.",
+                        isHorizontal: false,
+                    },
+                    {
+                        iconName: "illustration-databases",
+                        to: "/about/foo/thud/",
+                        title: "Proin Sodales",
+                        text: "Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Morbi in dui quis est pulvinar ullamcorper.",
+                        isHorizontal: false,
+                    },
+                    {
+                        iconName: "illustration-remote-access",
+                        to: "/visit/foo/qux/",
+                        title: "Taciti sociosqu",
+                        text: "Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.",
+                        isHorizontal: false,
+                    },
+                ],
+            },
         }
     },
 })
@@ -272,11 +309,20 @@ export default Vue.extend({
         <rich-text :rich-text-content="mockRichText.richText" />
         <smart-link to="/"> This will render as a vue-router link </smart-link>
         <search-home
-            :linkItems="parsedLinkItems"
-            :advancedSearchLink="parsedAdvancedSearchLink"
+            :linkItems="mockSearchHomeLinks.linkItems"
+            :advancedSearchLink="mockAdvancedSearchLink.advancedSearchLink"
             @activeTabSet="action"
             @search="action"
         />
+        <section-cards-with-illustrations
+            :items="mockSectionCardsWithIllustrations.items"
+            title="Get Help with"
+            text="Curabitur aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
+            to="/help/foo/bar"
+            :isHorizontal="false"
+        />
+        <masthead-primary />
+        <br /><br />
     </div>
 </template>
 
