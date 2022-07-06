@@ -135,7 +135,10 @@ export default {
     .sizer {
         width: 100%;
     }
+    <<<<<<< HEAD
 
+=======
+>>>>>>> d532e75 (BannerHeader wip)
     // Variants
     &.object-fit-cover {
         .media {
