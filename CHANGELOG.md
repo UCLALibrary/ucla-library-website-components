@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.8.0...v1.9.0) (2022-07-06)
+
+
+### Features
+
+* APPS-1678 add search home component and masthead primary ([#32](https://github.com/UCLALibrary/ucla-library-website-components/issues/32)) ([954cf3e](https://github.com/UCLALibrary/ucla-library-website-components/commit/954cf3eaf6d4071cc07201b7d65f3d42bb52fc24))
+
 # [1.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.7.0...v1.8.0) (2022-07-06)
 
 
