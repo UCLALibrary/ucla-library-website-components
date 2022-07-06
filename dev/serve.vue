@@ -173,7 +173,6 @@ export default Vue.extend({
         <ucla-library-website-component-sample />
         <alphabetical-browse-by />
         <heading-arrow text="Featured " to="/visit/" />
-<<<<<<< HEAD
         <block-call-to-action
             svgName="svg-call-to-action-chat"
             title="Lorem ipsum dolor sit amet?"
@@ -277,14 +276,25 @@ export default Vue.extend({
             :advancedSearchLink="parsedAdvancedSearchLink"
             @activeTabSet="action"
             @search="action"
-=======
-        <banner-text
-            category="Featured"
-            title="New Exhibition"
-            text="This is a New Exhibition"
-            button-text="See More"
-            to="/visit/exhibition"
->>>>>>> 85bd7ef (rebase)
+        />
+        <!-- <banner-featured
+            :image="bannerFeaturedData.image"
+            :to="bannerFeaturedData.to"
+            :title="bannerFeaturedData.title"
+            :category="bannerFeaturedData.category"
+            :breadcrumb="bannerFeaturedData.breadcrumb"
+            :start-date="bannerFeaturedData.startDate"
+            :end-date="bannerFeaturedData.endDate"
+            :prompt="bannerFeaturedData.prompt"
+        /> -->
+        <banner-header
+            :image="bannerHeaderData.image"
+            :to="bannerHeaderData.to"
+            :title="bannerHeaderData.title"
+            :category="bannerHeaderData.category"
+            :start-date="bannerHeaderData.startDate"
+            :end-date="bannerHeaderData.endDate"
+            :prompt="bannerHeaderData.prompt"
         />
     </div>
 </template>
