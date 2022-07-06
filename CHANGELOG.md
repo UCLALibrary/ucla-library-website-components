@@ -1,3 +1,12 @@
+# [1.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.7.0...v1.8.0) (2022-07-06)
+
+
+### Features
+
+* add bannerfeatured ([c4ef174](https://github.com/UCLALibrary/ucla-library-website-components/commit/c4ef174427e9ae09e30d62754a1c8387a5666d01))
+* add BannerFeatured ([df92805](https://github.com/UCLALibrary/ucla-library-website-components/commit/df928051b2b29a0112ed98a53b9b627ce58204e0))
+* update heading arrow class color ([6666715](https://github.com/UCLALibrary/ucla-library-website-components/commit/66667151f187f9d0de7c2e6da7a16db41b716fc5))
+
 # [1.7.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.6.0...v1.7.0) (2022-07-06)
 
 

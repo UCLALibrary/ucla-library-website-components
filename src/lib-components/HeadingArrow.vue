@@ -76,7 +76,7 @@ export default {
         --color-theme: var(--color-about-purple-03);
     }
 
-    path.svg__stroke--wayfinder {
+    ::v-deep .svg__stroke--wayfinder {
         stroke: var(--color-theme);
     }
     .heading {
@@ -85,7 +85,7 @@ export default {
         line-height: 100%;
         text-transform: capitalize;
 
-        &.color-nuxt-link {
+        &.color-smart-link {
             color: var(--color-white);
         }
         &.color-div {
