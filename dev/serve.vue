@@ -1,13 +1,526 @@
+<template>
+    <div id="app" class="app">
+        <h1>
+            This page displays the components in the
+            <a
+                href="https://github.com/UCLALibrary/ucla-library-website-components"
+            >
+                ucla-library-website-components npm repo
+            </a>
+        </h1>
+        <hr />
+
+        <h2>AlphabeticalBrowseBy Component</h2>
+        <alphabetical-browse-by />
+        <hr />
+
+        <h2>BlockCallToAction Component</h2>
+        <block-call-to-action
+            svg-name="svg-call-to-action-chat"
+            title="Lorem ipsum dolor sit amet?"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            name="Lorem ipsum dolor"
+            to="/help/foo/bar/"
+            is-dark="false"
+            is-small-size="false"
+        />
+        <hr />
+
+        <h2>BlockCallToActionTwoUp Component</h2>
+        <block-call-to-action-two-up :items="items" />
+        <hr />
+
+        <h2>BlockCampusMap Component</h2>
+        <block-campus-map
+            campus-location-id="280"
+            location-name="YRL Library"
+            building-access="<p>Park at parking structure 2. You cannot park in the round about.
+            Powell is the second building in on the quad. Walk straight ahead
+            for about 15 minutes. Wear your walking shoes. Finally when you are
+            there walk up the stairs to the rotunda. You are at the library now.</p>"
+        />
+        <hr />
+
+        <h2>BlockCardWithIllustration Component</h2>
+        <block-card-with-illustration
+            to="/help/foo/bar/"
+            title="Quisque Volutpat"
+            text="Watch it, Goldie. No, it was The Enchantment Under The Sea Dance. Our first date."
+            icon-name="illustration-find-space"
+        />
+        <hr />
+
+        <h2>BlockDate Component</h2>
+        <block-date date="10" day="Digniss" />
+        <hr />
+
+        <h2>BlockEvent Component</h2>
+        <block-event
+            :category="mockBlockEvent.bricks[0].category"
+            :title="mockBlockEvent.bricks[0].title"
+            :prompt="mockBlockEvent.bricks[0].prompt"
+            :dates="mockBlockEvent.bricks[0].dates"
+            :to="mockBlockEvent.bricks[0].to"
+        />
+        <br /><br />
+        <block-event
+            :category="mockBlockEvent.bricks[1].category"
+            :title="mockBlockEvent.bricks[1].title"
+            :prompt="mockBlockEvent.bricks[1].prompt"
+            :dates="mockBlockEvent.bricks[1].dates"
+            :to="mockBlockEvent.bricks[1].to"
+        />
+        <hr />
+
+        <h2>BlockHighlight Component</h2>
+        <block-highlight
+            :image="mockBlockHighlight.image"
+            :to="mockBlockHighlight.to"
+            :category="mockBlockHighlight.category"
+            :title="mockBlockHighlight.title"
+            :start-date="mockBlockHighlight.startDate"
+            :end-date="mockBlockHighlight.endDate"
+            :text="mockBlockHighlight.text"
+            :has-triangle="true"
+            :is-vertical="true"
+            :image-aspect-ratio="60"
+            :locations="mockBlockHighlight.locations"
+        />
+        <hr />
+
+        <h2>BlockHours Component</h2>
+        <block-hours lid="2081" />
+        <hr />
+
+        <h2>BlockLocationListItem Component</h2>
+        <block-location-list-item
+            :title="mockBlockLocationListItem.title"
+            :to="mockBlockLocationListItem.to"
+            :image="mockBlockLocationListItem.image"
+            :day="mockBlockLocationListItem.day"
+            :hour="mockBlockLocationListItem.hour"
+            :address="mockBlockLocationListItem.address"
+            :address-link="mockBlockLocationListItem.addressLink"
+            :amenities="mockBlockLocationListItem.amenities"
+            :reserve-seat="mockBlockLocationListItem.reserveSeat"
+            :is-ucla-library="mockBlockLocationListItem.isUclaLibrary"
+        />
+        <hr />
+
+        <h2>BlockMediaWithText Component</h2>
+        <block-media-with-text
+            :section-header="mockMediaWithText.mediaWithText[0].titleLink"
+            :short-description="mockMediaWithText.mediaWithText[0].description"
+            :button-text="mockMediaWithText.mediaWithText[0].buttonText"
+            :button-url="mockMediaWithText.mediaWithText[0].buttonUrl"
+            :media-link="mockMediaWithText.mediaWithText[0].linkToMedia"
+            :is-video="false"
+            :is-audio="false"
+            :image="mockMediaWithText.mediaWithText[0].coverImage[0]"
+            :type-media="mockMediaWithText.mediaWithText[0].typeMedia"
+        />
+        <hr />
+
+        <h2>BlockSimpleCard Component</h2>
+        <block-simple-card
+            :title="mockBlockSimpleCard.title"
+            :text="mockBlockSimpleCard.summary"
+            :to="mockBlockSimpleCard.externalLink"
+        />
+        <hr />
+
+        <h2>BlockSpaces Component</h2>
+        <block-spaces
+            :to="mockBlockSpace.to"
+            :title="mockBlockSpace.title"
+            :location="mockBlockSpace.location"
+            :text="mockBlockSpace.text"
+        />
+        <hr />
+
+        <h2>BlockStaffArticleList Component</h2>
+        <block-staff-article-list
+            :image="mockBlockStaffArticleList.image"
+            :to="mockBlockStaffArticleList.to"
+            :category="mockBlockStaffArticleList.category"
+            :title="mockBlockStaffArticleList.title"
+            :date="mockBlockStaffArticleList.date"
+            :authors="mockBlockStaffArticleList.authors"
+            :description="mockBlockStaffArticleList.description"
+        />
+        <hr />
+
+        <h2>BlockStaffDetail Component</h2>
+        <block-staff-detail v-bind="{ ...mockBlockStaffDetail }" />
+        <hr />
+
+        <h2>BlockStaffList Component</h2>
+        <block-staff-list
+            v-bind="{ ...mockBlockStaffList }"
+            phone="(222) 444-5555"
+        />
+        <hr />
+
+        <h2>ButtonLink Component</h2>
+        <button-link label="Egest perl Conub" to="/help/more" />
+        <hr />
+
+        <h2>ButtonMore Component</h2>
+        <button-link label="This is a button " to="/help/" />
+        <hr />
+        <button-more
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        />
+        <hr />
+
+        <h2>DividerGeneral Component</h2>
+        <divider-general :is-bold="true" />
+        <hr />
+
+        <h2>DividerWayFinder Component</h2>
+        <divider-way-finder color="visit" />
+        <hr />
+
+        <h2>HeadingArrow Component</h2>
+        <heading-arrow text="Get Help With" to="/help/foo/bar/" />
+        <br /><br />
+        <heading-arrow text="Featured " to="/visit/" />
+        <hr />
+
+        <h2>IconWithLink Component</h2>
+        <icon-with-link
+            text="Powell"
+            icon-name="svg-icon-location"
+            to="/visit/library/powell"
+        />
+        <hr />
+
+        <h2>MastheadPrimary Component</h2>
+        <masthead-primary />
+        <hr />
+
+        <h2>ModalGeneric Component</h2>
+
+        <h2>NavBreadCrumb Component</h2>
+        <nav-breadcrumb title="jane-doe" />
+        <hr />
+
+        <h2>NavPrimary Component</h2>
+        <nav-primary :items="parsedNavPrimary" current-path="/about/foo/bar" />
+        <hr />
+
+        <h2>NavSecondary Component</h2>
+        <nav-secondary :items="parsedNavSecondary" />
+        <hr />
+
+        <h2>ResponsiveImage Component</h2>
+        <responsive-image :image="mockBlockHighlight.image" />
+        <hr />
+
+        <h2>RichText Component</h2>
+        <rich-text :rich-text-content="mockRichText.richText" />
+        <hr />
+
+        <h2>SearchHome Component</h2>
+        <search-home
+            :link-items="mockSearchHomeLinks.linkItems"
+            :advanced-search-link="mockAdvancedSearchLink.advancedSearchLink"
+            @activeTabSet="action"
+            @search="action"
+        />
+        <hr />
+
+        <h2>SectionCardsWithIllustrations Component</h2>
+        <section-cards-with-illustrations
+            :items="mockSectionCardsWithIllustrations.items"
+            title="Get Help with"
+            text="Curabitur aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
+            to="/help/foo/bar"
+            :is-horizontal="false"
+        />
+        <hr />
+
+        <h2>SectionDualMasonry Component</h2>
+        <section-dual-masonry
+            :items="mockSectionDualMasonry.bricks"
+            to="/visit/foo"
+        />
+        <hr />
+
+        <h2>SmartLink Component</h2>
+        <smart-link to="/"> This will render as a vue-router link </smart-link>
+        <hr />
+        <hr />
+
+        <h2>FlexibleBlock Components</h2>
+        <flexible-blocks :blocks="flexibleBlocks" />
+    </div>
+</template>
+
 <script>
 import Vue from "vue"
+import * as API from "@/stories/mock-api.json"
 import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
-import * as API from "@/stories/mock-api.json"
-// Uncomment import and local "components" registration if library is not registered globally.
-// import { UclaLibraryWebsiteComponentSample } from '@/entry.esm';
-import * as API from "@/stories/mock-api.json"
 
 export default Vue.extend({
     name: "ServeDev",
+    data() {
+        return {
+            mockBlockEvent: {
+                bricks: [
+                    {
+                        image: {
+                            src: "https://via.placeholder.com/1920x1920",
+                            srcset: "https://via.placeholder.com/960x960 960w, https://via.placeholder.com/1280x1280 1280w, https://via.placeholder.com/1920x1920 1920w",
+                            sizes: "100vw",
+                            alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            title: "Lorem ipsum",
+                        },
+                        category: "Fermentu",
+                        title: "Maecenas Leo Mauris",
+                        prompt: "Velit Exceptur",
+                        dates: "Datum 12 - Datum 23, 2021",
+                        to: "/llamacorn/uri/1",
+                    },
+                    {
+                        image: {
+                            src: "https://via.placeholder.com/1920x1920",
+                            srcset: "https://via.placeholder.com/960x960 960w, https://via.placeholder.com/1280x1280 1280w, https://via.placeholder.com/1920x1920 1920w",
+                            sizes: "100vw",
+                            alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            title: "Lorem ipsum",
+                        },
+                        category: "Fermentu",
+                        title: "Maecenas Leo Mauris Praesent finibus fermentum ligula, nec tristique",
+                        prompt: "Velit Exceptur",
+                        dates: "Datum 1 - Datum 18, 2021",
+                        to: "/visit/uri/2",
+                    },
+                ],
+            },
+            mockBlockHighlight: {
+                image: API.image,
+                to: "/visit/foo/bar/",
+                category: "Ullamco",
+                title: "Fames ac turpis egestas sed tempus",
+                startDate: "2022-03-31T07:00:00+00:00",
+                endDate: "2021-11-26T11:00:00-08:00",
+                text: "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
+                imageAspectRatio: 60,
+                locations: [
+                    { title: "Powellarium", to: "/location/bar" },
+                    {
+                        title: "Research Library (Charles E. Young)",
+                        to: "/location/baz",
+                    },
+                ],
+            },
+            mockBlockLocationListItem: {
+                isUclaLibrary: false,
+                title: "Arts Library",
+                image: API.image,
+                day: "Today",
+                hour: "8am - 5pm",
+                reserveSeat: "http://google.com/reserveSeat",
+                address:
+                    "1400 Public Affairs Building Los Angeles, CA 90095-1392",
+                addressLink: "http://google.com/address",
+                amenities: [
+                    "SvgIconEmail",
+                    "SvgIconPhone",
+                    "SvgIconVirtual",
+                    "SvgIconChair",
+                    "SvgIconSharePrinter",
+                    "SvgIconShareBook",
+                ],
+                to: "http://google.com/title",
+            },
+            mockMediaWithText: {
+                id: "13669",
+                typeHandle: "mediaWithText",
+                sectionTitle: "A section of media with text",
+                sectionSummary: "<p>A section of media with text</p>",
+                mediaWithText: [
+                    {
+                        id: "13670",
+                        titleLink: "A media Link",
+                        description: "Citation Integration",
+                        coverImage: [
+                            {
+                                id: "5115",
+                                src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
+                                height: 2151,
+                                width: 2560,
+                                srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 2560w",
+                                alt: "Screen Shot 2022 02 17 at 11 42 39 AM",
+                                focalPoint: [0.5, 0.5],
+                            },
+                        ],
+                        buttonText: "Download this",
+                        buttonUrl:
+                            "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
+                        linkToMedia:
+                            "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
+                        typeMedia: "other",
+                    },
+                ],
+            },
+            mockBlockSimpleCard: {
+                title: "Types of Sinkholes",
+                summary:
+                    "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
+                externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
+            },
+            mockBlockSpace: {
+                to: "https://calendar.library.ucla.edu",
+                title: "Bureaux de Garcons",
+                location: "Fast Lane Building",
+                text: "Eclectic sophisticated carefully curated lovely Baggu Muji sharp finest efficient perfect. Hub Boeing 787 lovely Melbourne flat white ryokan. Global iconic Gaggenau Muji bulletin premium espresso delightful destination vibrant remarkable elegant bureaux boutique. Sunspel exclusive first-class espresso, Fast Lane intricate Melbourne Airbus A380 pintxos Shinkansen Swiss vibrant the highest quality.",
+            },
+            mockBlockStaffArticleList: {
+                image: API.image,
+                to: "/about/foo/bar/",
+                category: "Ullamco",
+                title: "Fames ac turpis egestas sed tempus lorem ipsum",
+                date: "1995-12-17T03:24:00",
+                authors: [{ title: "Justo Magna", id: 123 }],
+                description:
+                    "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
+            },
+            mockBlockStaffDetail: {
+                image: API.image_people,
+                to: "about/staff/id/",
+                staffName: "Ada Lovelace",
+                jobTitle: "Librateria",
+                locations: [
+                    { title: "Powellarium", to: "/location/bar" },
+                    {
+                        title: "Research Library (Charles E. Young)",
+                        to: "/location/baz",
+                    },
+                ],
+                email: "ada@somewhere.com",
+                phone: "555-555-5555",
+                departments: ["DIIT", "Other Department"],
+                topics: [
+                    { title: "Quadrigis aedificium", id: "808" },
+                    { title: "Carpe vinum", id: "809" },
+                ],
+                biography:
+                    "<p>Creo quia absurdum est. Fusce metus ex, gravida at metus id, vestibulum aliquam ante. Vestibulum hendrerit ut augue id pulvinar. Nam id efficitur felis. Duis nisi dui, vulputate id cursus quis, facilisis sed est. Etiam consequat malesuada congue. Nullam sed nulla laoreet, e gestas felis in, sollicitudin lacus. Cras ultrices dolor at quam vestibulum, eget vestibulum diam congue. Nam at est cursus, cursus justo non, pharetra ipsum.</p><p>Morbi gravida, turpis ut luctus placerat, est mauris congue libero, sed tristique quam eros vel neque. Nunc lacinia mi a orci faucibus tincidunt. Praesent dapibus blandit eros eget auctor. Nullam orci ex, pharetra tempor nulla non, vulputate mattis nibh. Sed vel pharetra erat. Proin nec sapien a velit scelerisque interdum. Donec sagittis magna tincidunt, eleifend arcu id, elementum sapien.</p>",
+            },
+            mockBlockStaffList: {
+                to: "/staff/foo",
+                jobTitle: "Ullamco",
+                staffName: "Fames C. Turpis",
+                departments: [
+                    { id: 123, title: "Inceptos Himenaeos Inceptos" },
+                ],
+                email: "loreum@ipsum.foo",
+            },
+            mockRichText: {
+                richText:
+                    "<h3>The Best Libraries in the World</h3><ol><li>LIBRARY OF CONGRESS — WASHINGTON D.C., USA</li><li>BODLEIAN LIBRARY — OXFORD, UNITED KINGDOM</li><li>READING ROOM AT THE BRITISH MUSEUM — LONDON, ENGLAND</li><li>YALE UNIVERSITY BEINECKE RARE BOOK AND MANUSCRIPT LIBRARY — NEW HAVEN, CONNECTICUT, USA</li><li>VATICAN LIBRARY — VATICAN CITY, ROME</li></ul>",
+            },
+            mockSearchHomeLinks: {
+                linkItems: [
+                    {
+                        text: "Course Reserves",
+                        url: "https://catalog.library.ucla.edu/vwebv/enterCourseReserve.do",
+                        target: "_blank",
+                    },
+                    {
+                        text: "UCLA Research Guides",
+                        url: "https://guides.library.ucla.edu/",
+                        target: "",
+                    },
+                    {
+                        text: "Databases A-Z",
+                        url: "https://guides.library.ucla.edu/az.php",
+                        target: "_blank",
+                    },
+                ],
+            },
+            mockAdvancedSearchLink: {
+                advancedSearchLink: {
+                    text: "Advanced Search",
+                    url: "https://www.library.ucla.edu/search",
+                    target: "_blank",
+                },
+            },
+            mockSectionCardsWithIllustrations: {
+                items: [
+                    {
+                        iconName: "illustration-book-binding",
+                        to: "/help/foo/bar/",
+                        title: "Lacus Luctus",
+                        text: "Litora torquent per conubia nostra, per inceptos himenaeos.",
+                        isHorizontal: false,
+                    },
+                    {
+                        iconName: "illustration-find-space",
+                        to: "/visit/foo/baz/",
+                        title: "Ultrices Enim",
+                        text: "Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem.",
+                        isHorizontal: false,
+                    },
+                    {
+                        iconName: "illustration-digitized-resources",
+                        to: "/about/foo/fred/",
+                        title: "Egestas et Augue",
+                        text: "Suspendisse in justo eu magna luctus suscipit libero eget ante.",
+                        isHorizontal: false,
+                    },
+                    {
+                        iconName: "illustration-databases",
+                        to: "/about/foo/thud/",
+                        title: "Proin Sodales",
+                        text: "Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Morbi in dui quis est pulvinar ullamcorper.",
+                        isHorizontal: false,
+                    },
+                    {
+                        iconName: "illustration-remote-access",
+                        to: "/visit/foo/qux/",
+                        title: "Taciti sociosqu",
+                        text: "Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.",
+                        isHorizontal: false,
+                    },
+                ],
+            },
+            mockSectionDualMasonry: {
+                bricks: [
+                    {
+                        image: {
+                            src: "https://via.placeholder.com/1920x1920",
+                            srcset: "https://via.placeholder.com/960x960 960w, https://via.placeholder.com/1280x1280 1280w, https://via.placeholder.com/1920x1920 1920w",
+                            sizes: "100vw",
+                            alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            title: "Lorem ipsum",
+                        },
+                        category: "Fermentu",
+                        title: "Maecenas Leo Mauris",
+                        prompt: "Velit Exceptur",
+                        dates: "Datum 12 - Datum 23, 2021",
+                        to: "/llamacorn/uri/1",
+                    },
+                    {
+                        image: {
+                            src: "https://via.placeholder.com/1920x1920",
+                            srcset: "https://via.placeholder.com/960x960 960w, https://via.placeholder.com/1280x1280 1280w, https://via.placeholder.com/1920x1920 1920w",
+                            sizes: "100vw",
+                            alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            title: "Lorem ipsum",
+                        },
+                        category: "Fermentu",
+                        title: "Maecenas Leo Mauris Praesent finibus fermentum ligula, nec tristique",
+                        prompt: "Velit Exceptur",
+                        dates: "Datum 1 - Datum 18, 2021",
+                        to: "/visit/uri/2",
+                    },
+                ],
+            },
+        }
+    },
     computed: {
         parsedLinkItems() {
             return [
@@ -34,25 +547,6 @@ export default Vue.extend({
                 url: "https://www.library.ucla.edu/search",
                 target: "_blank",
             }
-        },
-        parsedNavPrimary() {
-            return [
-                { ...API.primaryNavlinks[0] },
-                {
-                    ...API.primaryNavlinks[0],
-                    name: "Visit",
-                    url: "/visit/",
-                },
-                {
-                    ...API.primaryNavlinks[0],
-                    name: "About",
-                    url: "/about/",
-                },
-                { ...API.primaryNavlinks[3] },
-            ]
-        },
-        parsedNavSecondary() {
-            return [...API.links, { ...API.links[0] }]
         },
         bannerHeaderData() {
             return {
@@ -366,367 +860,44 @@ export default Vue.extend({
                 },
             ]
         },
-    },
-
-    // components: {
-    //  UclaLibraryWebsiteComponentSample,
-    // }
-    data() {
-        return {
-            mockBlockHighlight: {
-                image: API.image,
-                to: "/visit/foo/bar/",
-                category: "Ullamco",
-                title: "Fames ac turpis egestas sed tempus",
-                startDate: "2022-03-31T07:00:00+00:00",
-                endDate: "2021-11-26T11:00:00-08:00",
-                text: "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
-                imageAspectRatio: 60,
-                locations: [
-                    { title: "Powellarium", to: "/location/bar" },
-                    {
-                        title: "Research Library (Charles E. Young)",
-                        to: "/location/baz",
-                    },
-                ],
-            },
-            mockBlockLocationListItem: {
-                isUclaLibrary: false,
-                title: "Arts Library",
-                image: API.image,
-                day: "Today",
-                hour: "8am - 5pm",
-                reserveSeat: "http://google.com/reserveSeat",
-                address:
-                    "1400 Public Affairs Building Los Angeles, CA 90095-1392",
-                addressLink: "http://google.com/address",
-                amenities: [
-                    "SvgIconEmail",
-                    "SvgIconPhone",
-                    "SvgIconVirtual",
-                    "SvgIconChair",
-                    "SvgIconSharePrinter",
-                    "SvgIconShareBook",
-                ],
-                to: "http://google.com/title",
-            },
-            mockMediaWithText: {
-                id: "13669",
-                typeHandle: "mediaWithText",
-                sectionTitle: "A section of media with text",
-                sectionSummary: "<p>A section of media with text</p>",
-                mediaWithText: [
-                    {
-                        id: "13670",
-                        titleLink: "A media Link",
-                        description: "Citation Integration",
-                        coverImage: [
-                            {
-                                id: "5115",
-                                src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
-                                height: 2151,
-                                width: 2560,
-                                srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 2560w",
-                                alt: "Screen Shot 2022 02 17 at 11 42 39 AM",
-                                focalPoint: [0.5, 0.5],
-                            },
-                        ],
-                        buttonText: "Download this",
-                        buttonUrl:
-                            "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
-                        linkToMedia:
-                            "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
-                        typeMedia: "other",
-                    },
-                ],
-            },
-            mockBlockSimpleCard: {
-                title: "Types of Sinkholes",
-                summary:
-                    "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-                externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
-            },
-            mockBlockSpace: {
-                to: "https://calendar.library.ucla.edu",
-                title: "Bureaux de Garcons",
-                location: "Fast Lane Building",
-                text: "Eclectic sophisticated carefully curated lovely Baggu Muji sharp finest efficient perfect. Hub Boeing 787 lovely Melbourne flat white ryokan. Global iconic Gaggenau Muji bulletin premium espresso delightful destination vibrant remarkable elegant bureaux boutique. Sunspel exclusive first-class espresso, Fast Lane intricate Melbourne Airbus A380 pintxos Shinkansen Swiss vibrant the highest quality.",
-            },
-            mockBlockStaffArticleList: {
-                image: API.image,
-                to: "/about/foo/bar/",
-                category: "Ullamco",
-                title: "Fames ac turpis egestas sed tempus lorem ipsum",
-                date: "1995-12-17T03:24:00",
-                authors: [{ title: "Justo Magna", id: 123 }],
-                description:
-                    "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
-            },
-            mockBlockStaffDetail: {
-                // image: API.image_people,
-                to: "about/staff/id/",
-                staffName: "Ada Lovelace",
-                jobTitle: "Librateria",
-                locations: [
-                    { title: "Powellarium", to: "/location/bar" },
-                    {
-                        title: "Research Library (Charles E. Young)",
-                        to: "/location/baz",
-                    },
-                ],
-                email: "ada@somewhere.com",
-                phone: "555-555-5555",
-                departments: ["DIIT", "Other Department"],
-                topics: [
-                    { title: "Quadrigis aedificium", id: "808" },
-                    { title: "Carpe vinum", id: "809" },
-                ],
-                biography:
-                    "<p>Creo quia absurdum est. Fusce metus ex, gravida at metus id, vestibulum aliquam ante. Vestibulum hendrerit ut augue id pulvinar. Nam id efficitur felis. Duis nisi dui, vulputate id cursus quis, facilisis sed est. Etiam consequat malesuada congue. Nullam sed nulla laoreet, e gestas felis in, sollicitudin lacus. Cras ultrices dolor at quam vestibulum, eget vestibulum diam congue. Nam at est cursus, cursus justo non, pharetra ipsum.</p><p>Morbi gravida, turpis ut luctus placerat, est mauris congue libero, sed tristique quam eros vel neque. Nunc lacinia mi a orci faucibus tincidunt. Praesent dapibus blandit eros eget auctor. Nullam orci ex, pharetra tempor nulla non, vulputate mattis nibh. Sed vel pharetra erat. Proin nec sapien a velit scelerisque interdum. Donec sagittis magna tincidunt, eleifend arcu id, elementum sapien.</p>",
-            },
-            mockBlockStaffList: {
-                to: "/staff/foo",
-                jobTitle: "Ullamco",
-                staffName: "Fames C. Turpis",
-                departments: [
-                    { id: 123, title: "Inceptos Himenaeos Inceptos" },
-                ],
-                email: "loreum@ipsum.foo",
-            },
-            mockRichText: {
-                richText:
-                    "<h3>Here is a title</h3><figure class='figure image-right'></h3>",
-            },
-            mockSearchHomeLinks: {
-                linkItems: [
-                    {
-                        text: "Course Reserves",
-                        url: "https://catalog.library.ucla.edu/vwebv/enterCourseReserve.do",
-                        target: "_blank",
-                    },
-                    {
-                        text: "UCLA Research Guides",
-                        url: "https://guides.library.ucla.edu/",
-                        target: "",
-                    },
-                    {
-                        text: "Databases A-Z",
-                        url: "https://guides.library.ucla.edu/az.php",
-                        target: "_blank",
-                    },
-                ],
-            },
-            mockAdvancedSearchLink: {
-                advancedSearchLink: {
-                    text: "Advanced Search",
-                    url: "https://www.library.ucla.edu/search",
-                    target: "_blank",
+        parsedNavPrimary() {
+            return [
+                { ...API.primaryNavlinks[0] },
+                {
+                    ...API.primaryNavlinks[0],
+                    name: "Visit",
+                    url: "/visit/",
                 },
-            },
-            mockSectionCardsWithIllustrations: {
-                items: [
-                    {
-                        iconName: "illustration-book-binding",
-                        to: "/help/foo/bar/",
-                        title: "Lacus Luctus",
-                        text: "Litora torquent per conubia nostra, per inceptos himenaeos.",
-                        isHorizontal: false,
-                    },
-                    {
-                        iconName: "illustration-find-space",
-                        to: "/visit/foo/baz/",
-                        title: "Ultrices Enim",
-                        text: "Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem.",
-                        isHorizontal: false,
-                    },
-                    {
-                        iconName: "illustration-digitized-resources",
-                        to: "/about/foo/fred/",
-                        title: "Egestas et Augue",
-                        text: "Suspendisse in justo eu magna luctus suscipit libero eget ante.",
-                        isHorizontal: false,
-                    },
-                    {
-                        iconName: "illustration-databases",
-                        to: "/about/foo/thud/",
-                        title: "Proin Sodales",
-                        text: "Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Morbi in dui quis est pulvinar ullamcorper.",
-                        isHorizontal: false,
-                    },
-                    {
-                        iconName: "illustration-remote-access",
-                        to: "/visit/foo/qux/",
-                        title: "Taciti sociosqu",
-                        text: "Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.",
-                        isHorizontal: false,
-                    },
-                ],
-            },
-        }
+                {
+                    ...API.primaryNavlinks[0],
+                    name: "About",
+                    url: "/about/",
+                },
+                { ...API.primaryNavlinks[3] },
+            ]
+        },
+        parsedNavSecondary() {
+            return [...API.links, { ...API.links[0] }]
+        },
     },
 })
 </script>
 
-<template>
-    <div id="app">
-        <ucla-library-website-component-sample />
-        <alphabetical-browse-by />
-        <heading-arrow text="Featured " to="/visit/" />
-
-        <masthead-primary />
-
-        <block-call-to-action
-            svgName="svg-call-to-action-chat"
-            title="Lorem ipsum dolor sit amet?"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            name="Lorem ipsum dolor"
-            to="/help/foo/bar/"
-            isDark="false"
-            isSmallSize="false"
-        />
-        <block-campus-map
-            campusLocationId="280"
-            locationName="YRL Library"
-            buildingAccess="<p>Park at parking structure 2. You cannot park in the round about.
-            Powell is the second building in on the quad. Walk straight ahead
-            for about 15 minutes. Wear your walking shoes. Finally when you are
-            there walk up the stairs to the rotunda. You are at the library now.</p>"
-        />
-        <block-card-with-illustration
-            to="/help/foo/bar/"
-            title="Quisque Volutpat"
-            text="Watch it, Goldie. No, it was The Enchantment Under The Sea Dance. Our first date."
-            icon-name="illustration-find-space"
-        />
-        <block-date date="10" day="Digniss" />
-        <block-highlight
-            :image="mockBlockHighlight.image"
-            :to="mockBlockHighlight.to"
-            :category="mockBlockHighlight.category"
-            :title="mockBlockHighlight.title"
-            :start-date="mockBlockHighlight.startDate"
-            :end-date="mockBlockHighlight.endDate"
-            :text="mockBlockHighlight.text"
-            :has-triangle="true"
-            :is-vertical="true"
-            :image-aspect-ratio="60"
-            :locations="mockBlockHighlight.locations"
-        />
-        <block-hours lid="2081" />
-        <block-location-list-item
-            :title="mockBlockLocationListItem.title"
-            :to="mockBlockLocationListItem.to"
-            :image="mockBlockLocationListItem.image"
-            :day="mockBlockLocationListItem.day"
-            :hour="mockBlockLocationListItem.hour"
-            :address="mockBlockLocationListItem.address"
-            :addressLink="mockBlockLocationListItem.addressLink"
-            :amenities="mockBlockLocationListItem.amenities"
-            :reserveSeat="mockBlockLocationListItem.reserveSeat"
-            :isUclaLibrary="mockBlockLocationListItem.isUclaLibrary"
-        />
-        <block-media-with-text
-            :section-header="mockMediaWithText.mediaWithText[0].titleLink"
-            :short-description="mockMediaWithText.mediaWithText[0].description"
-            :button-text="mockMediaWithText.mediaWithText[0].buttonText"
-            :button-url="mockMediaWithText.mediaWithText[0].buttonUrl"
-            :media-link="mockMediaWithText.mediaWithText[0].linkToMedia"
-            :is-video="false"
-            :is-audio="false"
-            :image="mockMediaWithText.mediaWithText[0].coverImage[0]"
-            :type-media="mockMediaWithText.mediaWithText[0].typeMedia"
-        />
-        <block-simple-card
-            :title="mockBlockSimpleCard.title"
-            :text="mockBlockSimpleCard.summary"
-            :to="mockBlockSimpleCard.externalLink"
-        />
-        <block-spaces
-            :to="mockBlockSpace.to"
-            :title="mockBlockSpace.title"
-            :location="mockBlockSpace.location"
-            :text="mockBlockSpace.text"
-        />
-        <block-staff-article-list
-            :image="mockBlockStaffArticleList.image"
-            :to="mockBlockStaffArticleList.to"
-            :category="mockBlockStaffArticleList.category"
-            :title="mockBlockStaffArticleList.title"
-            :date="mockBlockStaffArticleList.date"
-            :authors="mockBlockStaffArticleList.authors"
-            :description="mockBlockStaffArticleList.description"
-        />
-        <block-staff-detail v-bind="{ ...mockBlockStaffDetail }" />
-        <block-staff-list
-            v-bind="{ ...mockBlockStaffList }"
-            phone="(222) 444-5555"
-        />
-        <button-link label="Egest perl Conub" to="/help/more" />
-        <divider-general :is-bold="true" />
-        <divider-way-finder color="visit" />
-        <heading-arrow text="Get Help With" to="/help/foo/bar/" />
-        <icon-with-link
-            text="Powell"
-            icon-name="svg-icon-location"
-            to="/visit/library/powell"
-        />
-        <responsive-image :image="mockBlockHighlight.image" />
-        <rich-text :rich-text-content="mockRichText.richText" />
-        <smart-link to="/"> This will render as a vue-router link </smart-link>
-        <search-home
-            :linkItems="mockSearchHomeLinks.linkItems"
-            :advancedSearchLink="mockAdvancedSearchLink.advancedSearchLink"
-            @activeTabSet="action"
-            @search="action"
-        />
-        <nav-breadcrumb title="jane-doe" />
-        <nav-primary :items="parsedNavPrimary" current-path="/about/foo/bar" />
-        <nav-secondary :items="parsedNavSecondary" />
-        <section-cards-with-illustrations
-            :items="mockSectionCardsWithIllustrations.items"
-            title="Get Help with"
-            text="Curabitur aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
-            to="/help/foo/bar"
-            :isHorizontal="false"
-        />
-        <button-link label="This is a button " to="/help/" /><button-more
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        />
-        <masthead-primary />
-        <br /><br />
-
-        <banner-header
-            :image="bannerHeaderData.image"
-            :to="bannerHeaderData.to"
-            :title="bannerHeaderData.title"
-            :category="bannerHeaderData.category"
-            :start-date="bannerHeaderData.startDate"
-            :end-date="bannerHeaderData.endDate"
-            :prompt="bannerHeaderData.prompt"
-        />
-        <banner-featured
-            :image="bannerFeaturedData.image"
-            :to="bannerFeaturedData.to"
-            :title="bannerFeaturedData.title"
-            :category="bannerFeaturedData.category"
-            :breadcrumb="bannerFeaturedData.breadcrumb"
-            :start-date="bannerFeaturedData.startDate"
-            :end-date="bannerFeaturedData.endDate"
-            :prompt="bannerFeaturedData.prompt"
-        />
-        <banner-text
-            category="Featured"
-            title="New Exhibition"
-            text="This is a New Exhibition"
-            button-text="See More"
-            to="/visit/exhibition"
-        />
-        <flexible-blocks :blocks="flexibleBlocks" />
-    </div>
-</template>
-
 <style lang="scss" scoped>
-.divider {
-    margin: 10px 10px;
+.app {
+    margin: 50px 100px;
+
+    h1 {
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    h2 {
+        margin: 25px 0;
+    }
+    hr {
+        margin-top: 25px;
+        border-top: 2px dashed coral;
+    }
 }
 </style>
