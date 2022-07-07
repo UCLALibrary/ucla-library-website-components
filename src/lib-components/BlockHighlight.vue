@@ -38,8 +38,8 @@
 
             <div v-if="locations.length" class="location-group">
                 <router-link
-                    v-for="location in parsedLocations"
-                    :key="`location-${location.id}`"
+                    v-for="(location, index) in parsedLocations"
+                    :key="`location-${index}`"
                     :to="location.to"
                     class="location-link"
                 >

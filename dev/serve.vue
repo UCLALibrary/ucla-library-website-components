@@ -101,6 +101,150 @@ export default Vue.extend({
                         },
                     ],
                 },
+                {
+                    id: "15905",
+                    typeHandle: "richText",
+                    richText:
+                        "<p><strong>Item 5: Rich Text</strong><br /></p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis \nbibendum risus. Sed iaculis ullamcorper ligula, ac imperdiet ante. Etiam\n scelerisque vulputate neque ultrices suscipit. Integer pulvinar lectus a\n urna ultrices venenatis. Nullam finibus pellentesque quam, a consequat \nmassa venenatis ac. Integer at blandit nulla. Quisque ac arcu finibus, \nconsectetur magna quis, malesuada tortor. Nulla sit amet libero \nefficitur, semper tellus sed, tincidunt massa. In interdum tellus ac \nelit eleifend, eu tincidunt velit consequat. <em>Duis non arcu tristique, \nsollicitudin ex sit amet, ultrices urna. Maecenas non felis in augue \ntempus finibus.\n</em><br /></p>\n<ol><li>Sed fringilla sem in lorem efficitur, semper lobortis diam viverra. <br /></li><li>Vivamus nec est fermentum tellus venenatis dictum a ac elit. <br /><ol><li>Quisque \nodio turpis, ultricies eu diam sed, facilisis molestie justo. <br /></li></ol></li><li>Cras \nrutrum turpis in accumsan maximus. </li></ol><p>In hac habitasse platea dictumst. Nam\n mattis lorem lorem, sed elementum odio bibendum convallis. Ut rutrum, \nmauris vel tristique sollicitudin, enim dui tincidunt ex, quis dictum \nneque diam ut purus. Fusce sagittis, nisi in ornare condimentum, urna \njusto gravida diam, vitae tristique neque risus suscipit augue. \nCurabitur interdum malesuada rhoncus. Donec ut libero faucibus, \nscelerisque orci in, pulvinar felis. <br /></p><ul><li>Nam nibh ex, cursus nec leo cursus,\n rhoncus vulputate ipsum. <br /><ul><li>Donec quis sapien fermentum, ullamcorper \ntellus vestibulum, sodales ligula. <br /></li><li>In ultrices diam eget erat hendrerit \nimperdiet tincidunt et lacus. <br /><ul><li>Aenean fringilla pellentesque convallis. <br /></li></ul></li><li>Maecenas elementum quis massa imperdiet malesuada.\n</li></ul></li></ul>",
+                },
+                {
+                    id: "2789",
+                    typeHandle: "bannerFeatured",
+                    contentLink: [
+                        {
+                            url: "https://test-craft.library.ucla.edu/visit/events-exhibits/exhibit-to-test-card-with-image-content-link",
+                            to: "/visit/events-exhibits/exhibit-to-test-card-with-image-content-link",
+                            title: "Exhibit to test card with image content link",
+                            date: [
+                                {
+                                    startDate: "2021-09-03T08:00:00+00:00",
+                                    endDate: "2021-10-08T07:10:00+00:00",
+                                },
+                            ],
+                            associatedLocations: [
+                                {
+                                    id: "523",
+                                    title: "Powell Library",
+                                    to: "visit/locations/powell-library",
+                                },
+                                {
+                                    id: "801",
+                                    title: "YRL",
+                                    to: "visit/locations/yrl",
+                                },
+                            ],
+                            heroImage: [
+                                {
+                                    id: "2971",
+                                    image: [
+                                        {
+                                            id: "2536",
+                                            src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/hollywood.jpeg",
+                                            height: 1344,
+                                            width: 2560,
+                                            srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/hollywood.jpeg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/hollywood.jpeg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/hollywood.jpeg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/hollywood.jpeg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/hollywood.jpeg 2560w",
+                                            alt: "Hollywood",
+                                            focalPoint: [0.5, 0.5],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                    alignment: "left",
+                    buttonText: "See More",
+                },
+                {
+                    id: "16983",
+                    typeHandle: "callToAction",
+                    callToAction: [
+                        {
+                            id: "16984",
+                            titleCta: "Call to action",
+                            summary: "a call to action",
+                            icon: "svg-call-to-action-find",
+                            buttonText: "click me",
+                            buttonLink: "http://google.com",
+                            backgroundColor: "false",
+                        },
+                    ],
+                },
+                {
+                    id: "16982",
+                    typeHandle: "helpTopicCards",
+                    helpTopicCards: [
+                        {
+                            id: "2404",
+                            contentLink: [
+                                {
+                                    id: "537",
+                                    url: "https://test-craft.library.ucla.edu/help/services-resources/borrowing-books-and-equipment",
+                                    to: "/help/services-resources/borrowing-books-and-equipment",
+                                    title: "Borrowing Books and Equipment",
+                                    text: "Kogi ut austin snackwave try-hard. Labore excepteur activated charcoal trust fund. Gastropub in asymmetrical eu, thundercats flexitarian truffaut waistcoat aliquip. Pour-over irure ex, pinterest et taiyaki incididunt. Craft beer cronut knausgaard, biodiesel poke beard slow-carb ullamco umami semiotics prism taxidermy hoodie meh. Et ugh small batch food truck twee bespoke, laboris roof party knausgaard try-hard tumblr swag cupidatat kombucha eu. Semiotics vegan officia in, pork belly chillwave vape plaid ex affogato veniam shaman brooklyn artisan aliqua.",
+                                    iconName: "illustration-find-space",
+                                },
+                            ],
+                        },
+                        {
+                            id: "2405",
+                            contentLink: [
+                                {
+                                    id: "1033",
+                                    url: "https://test-craft.library.ucla.edu/help/services-resources/sample-service-page-with-faqs",
+                                    to: "/help/services-resources/sample-service-page-with-faqs",
+                                    title: "Sample Service Page with FAQ's",
+                                    text: "Learn how to use a VPN or proxy server to access Library resources with your UCLA Logon ID through a series of helpful videos.",
+                                    iconName: "illustration-find-space",
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    id: "3968",
+                    typeHandle: "cardWithImage",
+                    cardWithImage: [
+                        {
+                            id: "3969",
+                            image: [
+                                {
+                                    id: "2536",
+                                    src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/hollywood.jpeg",
+                                    height: 1344,
+                                    width: 2560,
+                                    srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/hollywood.jpeg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/hollywood.jpeg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/hollywood.jpeg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/hollywood.jpeg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/hollywood.jpeg 2560w",
+                                    alt: "Hollywood",
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                            imageAltText: "hollywood",
+                            contentLink: [
+                                {
+                                    id: "1686",
+                                    url: "https://test-craft.library.ucla.edu/visit/events-exhibits/a-new-exhibit",
+                                    uri: "visit/events-exhibits/a-new-exhibit",
+                                    title: "a new exhibit",
+                                    date: [
+                                        {
+                                            startDate:
+                                                "2021-09-08T07:00:00+00:00",
+                                            endDate: null,
+                                        },
+                                    ],
+                                    associatedLocations: [
+                                        {
+                                            id: "523",
+                                            title: "Powell Library",
+                                            to: "visit/locations/powell-library",
+                                        },
+                                    ],
+                                },
+                            ],
+                            shortDescription: null,
+                        },
+                    ],
+                },
             ]
         },
     },
