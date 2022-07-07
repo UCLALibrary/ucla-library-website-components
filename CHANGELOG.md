@@ -1,3 +1,11 @@
+# [1.11.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.10.0...v1.11.0) (2022-07-07)
+
+
+### Features
+
+* add help topic cards and specs ([400b31f](https://github.com/UCLALibrary/ucla-library-website-components/commit/400b31fd44f7fc7e08960e8a48ca50b1bec690f8))
+* bannerFeatured ([5485808](https://github.com/UCLALibrary/ucla-library-website-components/commit/5485808b4a7b5ce26f5ccf2e20040d1cfc4b3069))
+
 # [1.10.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.9.0...v1.10.0) (2022-07-07)
 
 
