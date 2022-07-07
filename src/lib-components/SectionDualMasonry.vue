@@ -28,7 +28,15 @@
 </template>
 
 <script>
+import ButtonMore from "@/lib-components/ButtonMore.vue"
+import BlockEvent from "@/lib-components/BlockEvent.vue"
+
 export default {
+    name: "SectionDualMasonry",
+    components: {
+        BlockEvent,
+        ButtonMore,
+    },
     props: {
         items: {
             type: Array,
