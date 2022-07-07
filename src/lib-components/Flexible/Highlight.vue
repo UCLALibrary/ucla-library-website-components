@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <section class="section-teaser-highlight">
         <block-highlight
             v-for="item in parsedItems"
