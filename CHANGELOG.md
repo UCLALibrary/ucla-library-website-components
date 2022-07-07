@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.9.0...v1.10.0) (2022-07-07)
+
+
+### Features
+
+* APPS-1585 add section cards with illustrations ([#34](https://github.com/UCLALibrary/ucla-library-website-components/issues/34)) ([47d3cc3](https://github.com/UCLALibrary/ucla-library-website-components/commit/47d3cc3010ba1b25fc4e7f3f39195d952d117c11))
+
 # [1.9.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.8.0...v1.9.0) (2022-07-06)
 
 
