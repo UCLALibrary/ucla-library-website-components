@@ -3,7 +3,7 @@ import BlockEvent from "@/lib-components/BlockEvent"
 import StoryRouter from "storybook-vue-router"
 
 // Import mock api data
-import * as API from "~/stories/mock-api.json"
+import * as API from "@/stories/mock-api.json"
 
 // Storybook default settings
 export default {

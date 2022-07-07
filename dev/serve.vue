@@ -4,8 +4,9 @@
             This page displays the components in the
             <a
                 href="https://github.com/UCLALibrary/ucla-library-website-components"
-                >ucla-library-website-components npm repo</a
             >
+                ucla-library-website-components npm repo
+            </a>
         </h1>
         <hr />
 
@@ -60,6 +61,14 @@
             :prompt="mockBlockEvent.bricks[0].prompt"
             :dates="mockBlockEvent.bricks[0].dates"
             :to="mockBlockEvent.bricks[0].to"
+        />
+        <br /><br />
+        <block-event
+            :category="mockBlockEvent.bricks[1].category"
+            :title="mockBlockEvent.bricks[1].title"
+            :prompt="mockBlockEvent.bricks[1].prompt"
+            :dates="mockBlockEvent.bricks[1].dates"
+            :to="mockBlockEvent.bricks[1].to"
         />
         <hr />
 
@@ -221,7 +230,7 @@
 
         <h2>SectionDualMasonry Component</h2>
         <section-dual-masonry
-            :items="mockSectionDualMasonry.items"
+            :items="mockSectionDualMasonry.bricks"
             to="/visit/foo"
         />
         <hr />
@@ -234,8 +243,6 @@
 <script>
 import Vue from "vue"
 import * as API from "@/stories/mock-api.json"
-
-const SectionDualMaonryItems = API.bricks
 
 export default Vue.extend({
     name: "ServeDev",
@@ -463,7 +470,7 @@ export default Vue.extend({
                 ],
             },
             mockSectionDualMasonry: {
-                items: [
+                bricks: [
                     {
                         image: {
                             src: "https://via.placeholder.com/1920x1920",

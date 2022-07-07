@@ -1,8 +1,8 @@
-<template lang="html">
+<template>
     <section class="section-dual-masonry">
         <div class="masonry">
             <block-event
-                v-for="(item, index) in items"
+                v-for="item in items"
                 :key="item.to"
                 :title="item.title"
                 :category="item.category"
@@ -13,7 +13,7 @@
             />
 
             <router-link
-                v-for="(item, index) in items"
+                v-for="item in items"
                 :key="`image-${item.to}`"
                 :to="item.to"
                 class="brick brick-image"
@@ -30,12 +30,14 @@
 <script>
 import ButtonMore from "@/lib-components/ButtonMore.vue"
 import BlockEvent from "@/lib-components/BlockEvent.vue"
+import ResponsiveImage from "@/lib-components/ResponsiveImage"
 
 export default {
     name: "SectionDualMasonry",
     components: {
         BlockEvent,
         ButtonMore,
+        ResponsiveImage,
     },
     props: {
         items: {
