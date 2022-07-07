@@ -1,0 +1,164 @@
+<template>
+    <div class="flexible-blocks">
+        <component
+            :is="block.componentName"
+            v-for="block in parsedBlocks"
+            :key="block.id"
+            :block="block"
+            class="flexible-block"
+        />
+    </div>
+</template>
+
+<script>
+// Helpers
+import _kebabCase from "lodash/kebabCase"
+import FlexiblePullQuote from "@/lib-components/Flexible/PullQuote.vue"
+import FlexibleForm from "@/lib-components/Flexible/Form.vue"
+import FlexibleRichText from "@/lib-components/Flexible/RichText.vue"
+import FlexibleHighlight from "@/lib-components/Flexible/Highlight.vue"
+import FlexibleCallToAction from "@/lib-components/Flexible/CallToAction.vue"
+import FlexibleBannerFeatured from "@/lib-components/Flexible/BannerFeatured.vue"
+import FlexibleHelpTopicCards from "@/lib-components/Flexible/HelpTopicCards.vue"
+import FlexibleCardWithImage from "@/lib-components/Flexible/CardWithImage.vue"
+
+export default {
+    name: "FlexibleBlocks",
+    components: {
+        // TODO register all other block types
+        FlexibleCallToAction,
+        // FlexibleCtaBlock2Up: () => import("~/components/Flexible/CtaBlock2Up"),
+        FlexibleHelpTopicCards,
+        FlexibleBannerFeatured,
+        FlexibleHighlight,
+        // FlexibleSimpleCards: () =>
+        //     import("~/components/Flexible/SimpleCards.vue"),
+        FlexiblePullQuote,
+        FlexibleCardWithImage,
+        FlexibleRichText,
+        // FlexibleMediaWithText: () =>
+        //     import("~/components/Flexible/MediaWithText.vue"),
+        // FlexibleMediaGallery: () =>
+        //     import("~/components/Flexible/MediaGallery.vue"),
+        FlexibleForm,
+    },
+    props: {
+        blocks: {
+            type: Array,
+            default: () => [],
+        },
+    },
+    computed: {
+        parsedBlocks() {
+            // Shape blocks to work with components
+            let output = this.blocks.map((obj) => {
+                console.log(convertName(obj.typeHandle))
+                return {
+                    ...obj,
+                    componentName: convertName(obj.typeHandle),
+                }
+            })
+            // Remove any un-registered blocks
+            output = output.filter((obj) => {
+                console.log(
+                    this.registeredComponents.includes(obj.componentName)
+                )
+                return this.registeredComponents.includes(obj.componentName)
+            })
+
+            return output
+        },
+        registeredComponents() {
+            // Get all local component names as kebabCase, used to check if component is registered above
+            let components = Object.keys(this.$options.components || {})
+            return components.map((str) => {
+                return _kebabCase(str)
+            })
+        },
+    },
+}
+
+function convertName(typeHandle) {
+    let output = `flexible-${typeHandle}`
+
+    return _kebabCase(output)
+}
+</script>
+
+<style lang="scss" scoped>
+.flexible-blocks {
+    .flexible-block {
+        margin-bottom: var(--space-3xl);
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &.divider-general {
+            padding: 0;
+            margin: var(--unit-gutter) auto;
+            max-width: $container-l-main + px;
+        }
+    }
+
+    .flexible-block:nth-child(even) {
+        background-color: var(--color-secondary-grey-01);
+        --color-theme: var(--color-secondary-grey-01);
+
+        &.forms,
+        &.flexible-simple-cards,
+        &.divider-general,
+        &.pull-quote {
+            background-color: var(--color-white);
+        }
+
+        &.divider-general {
+            padding: 0;
+        }
+        ::v-deep .flexible-media-with-text {
+            .clipped-play,
+            .clipped-play-mobile {
+                background-color: var(--color-secondary-grey-01);
+            }
+        }
+    }
+
+    .flexible-block:nth-child(even).flexible-simple-cards {
+        padding-top: 0;
+
+        ::v-deep > .simple-cards::before {
+            content: "";
+            display: block;
+            height: 1px;
+            width: 100%;
+            max-width: $container-l-main + px;
+            border-top: 2px dotted var(--color-secondary-grey-02);
+            margin-bottom: var(--space-2xl);
+        }
+    }
+
+    // .flexible-block:nth-child(even).pull-quote {
+    //     padding-top: 0;
+
+    //     ::v-deep > &::before {
+    //         content: "";
+    //         display: block;
+    //         height: 1px;
+    //         width: 100%;
+    //         max-width: $container-l-main + px;
+    //         border-top: 2px dotted var(--color-secondary-grey-02);
+    //         margin-bottom: var(--space-2xl);
+    //     }
+    // }
+
+    .flexible-block:last-child.flexible-simple-cards {
+        padding-bottom: 0;
+    }
+
+    @media #{$medium} {
+        .flexible-block {
+            padding: var(--space-2xl) var(--unit-gutter);
+        }
+    }
+}
+</style>

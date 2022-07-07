@@ -38,8 +38,8 @@
 
             <div v-if="locations.length" class="location-group">
                 <router-link
-                    v-for="location in parsedLocations"
-                    :key="`location-${location.id}`"
+                    v-for="(location, index) in parsedLocations"
+                    :key="`location-${index}`"
                     :to="location.to"
                     class="location-link"
                 >
@@ -63,7 +63,6 @@ import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-locatio
 import SvgIconOnline from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
 import SmartLink from "@/lib-components/SmartLink"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
-
 export default {
     name: "BlockHighlight",
     components: {
@@ -181,10 +180,8 @@ export default {
     background-color: var(--color-white);
     font-family: var(--font-primary);
     position: relative;
-
     display: flex;
     flex-direction: row;
-
     // Themes for floating highlight/ triangle
     --color-theme: var(--color-primary-blue-03);
     &.color-visit {
@@ -196,7 +193,6 @@ export default {
     &.color-about {
         --color-theme: var(--color-about-purple-03);
     }
-
     .clipped {
         width: 100%;
         height: 47px;
@@ -211,7 +207,6 @@ export default {
             left: 5px;
             height: 47px;
             background-color: var(--color-theme);
-
             clip-path: polygon(
                 0 0,
                 calc(100% - 20px) 0,
@@ -239,7 +234,6 @@ export default {
             );
         }
     }
-
     .meta {
         z-index: 10;
         width: 100%;
@@ -267,7 +261,6 @@ export default {
         margin: 16px 0 0 0;
         line-height: $line-height--1;
     }
-
     .date-time {
         font-weight: 400;
         font-size: 20px;
@@ -303,7 +296,6 @@ export default {
         @include step-0;
         margin: 24px 0 0 0;
         color: var(--color-black);
-
         display: -webkit-box;
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
@@ -324,11 +316,9 @@ export default {
         align-content: center;
         align-items: center;
     }
-
     // Variations
     &.is-vertical {
         flex-direction: column;
-
         &:not(.has-triangle) {
             .meta {
                 margin-top: 16px;
@@ -361,7 +351,6 @@ export default {
             left: 6px;
             height: 90px;
             background-color: var(--color-theme);
-
             clip-path: polygon(
                 0 0,
                 calc(100% - 37px) 0,
@@ -388,11 +377,9 @@ export default {
                 0 84px,
                 0 1.5px
             );
-
             display: flex;
             flex-direction: column;
             justify-content: center;
-
             padding-left: 32px;
             color: var(--color-primary-blue-03);
             .month {
@@ -432,22 +419,18 @@ export default {
             }
         }
     }
-
     // Breakpoints
     @media #{$medium} {
         .text {
             margin-top: 0;
         }
-
         &:not(&.is-vertical) {
             max-width: 95%;
             padding-left: 5px;
             padding-right: 5px;
-
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
-
             .floating-highlight {
                 display: none;
             }
@@ -456,7 +439,6 @@ export default {
             }
         }
     }
-
     @media #{$small} {
         max-width: 100%;
         &.is-vertical {
@@ -469,18 +451,15 @@ export default {
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
-
             max-height: 550px;
             max-width: 100%;
             padding-left: 5px;
             padding-right: 5px;
-
             .image {
                 max-width: 100%;
             }
         }
     }
-
     // Hovers
     @media #{$has-hover} {
         &:hover {
