@@ -1,3 +1,25 @@
+## [1.11.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.11.0...v1.11.1) (2022-07-07)
+
+
+### Bug Fixes
+
+* Apps-1648 - Move nav components to vuejs component package ([#37](https://github.com/UCLALibrary/ucla-library-website-components/issues/37)) ([8e730c2](https://github.com/UCLALibrary/ucla-library-website-components/commit/8e730c2e062aba91032ad39846c271a2cc9f7e96))
+
+# [1.11.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.10.0...v1.11.0) (2022-07-07)
+
+
+### Features
+
+* add help topic cards and specs ([400b31f](https://github.com/UCLALibrary/ucla-library-website-components/commit/400b31fd44f7fc7e08960e8a48ca50b1bec690f8))
+* bannerFeatured ([5485808](https://github.com/UCLALibrary/ucla-library-website-components/commit/5485808b4a7b5ce26f5ccf2e20040d1cfc4b3069))
+
+# [1.10.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.9.0...v1.10.0) (2022-07-07)
+
+
+### Features
+
+* APPS-1585 add section cards with illustrations ([#34](https://github.com/UCLALibrary/ucla-library-website-components/issues/34)) ([47d3cc3](https://github.com/UCLALibrary/ucla-library-website-components/commit/47d3cc3010ba1b25fc4e7f3f39195d952d117c11))
+
 # [1.9.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.8.0...v1.9.0) (2022-07-06)
 
 
