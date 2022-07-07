@@ -1,99 +1,234 @@
+<template>
+    <div id="app" class="app">
+        <h1>
+            This page displays the components in the
+            <a
+                href="https://github.com/UCLALibrary/ucla-library-website-components"
+                >ucla-library-website-components npm repo</a
+            >
+        </h1>
+        <hr />
+
+        <h2>AlphabeticalBrowseBy Component</h2>
+        <alphabetical-browse-by />
+        <hr />
+
+        <h2>BlockCallToAction Component</h2>
+        <block-call-to-action
+            svg-name="svg-call-to-action-chat"
+            title="Lorem ipsum dolor sit amet?"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            name="Lorem ipsum dolor"
+            to="/help/foo/bar/"
+            is-dark="false"
+            is-small-size="false"
+        />
+        <hr />
+
+        <h2>BlockCallToActionTwoUp Component</h2>
+        <block-call-to-action-two-up :items="items" />
+        <hr />
+
+        <h2>BlockCampusMap Component</h2>
+        <block-campus-map
+            campus-location-id="280"
+            location-name="YRL Library"
+            building-access="<p>Park at parking structure 2. You cannot park in the round about.
+            Powell is the second building in on the quad. Walk straight ahead
+            for about 15 minutes. Wear your walking shoes. Finally when you are
+            there walk up the stairs to the rotunda. You are at the library now.</p>"
+        />
+        <hr />
+
+        <h2>BlockCardWithIllustration Component</h2>
+        <block-card-with-illustration
+            to="/help/foo/bar/"
+            title="Quisque Volutpat"
+            text="Watch it, Goldie. No, it was The Enchantment Under The Sea Dance. Our first date."
+            icon-name="illustration-find-space"
+        />
+        <hr />
+
+        <h2>BlockDate Component</h2>
+        <block-date date="10" day="Digniss" />
+        <hr />
+
+        <h2>BlockHighlight Component</h2>
+        <block-highlight
+            :image="mockBlockHighlight.image"
+            :to="mockBlockHighlight.to"
+            :category="mockBlockHighlight.category"
+            :title="mockBlockHighlight.title"
+            :start-date="mockBlockHighlight.startDate"
+            :end-date="mockBlockHighlight.endDate"
+            :text="mockBlockHighlight.text"
+            :has-triangle="true"
+            :is-vertical="true"
+            :image-aspect-ratio="60"
+            :locations="mockBlockHighlight.locations"
+        />
+        <hr />
+
+        <h2>BlockHours Component</h2>
+        <block-hours lid="2081" />
+        <hr />
+
+        <h2>BlockLocationListItem Component</h2>
+        <block-location-list-item
+            :title="mockBlockLocationListItem.title"
+            :to="mockBlockLocationListItem.to"
+            :image="mockBlockLocationListItem.image"
+            :day="mockBlockLocationListItem.day"
+            :hour="mockBlockLocationListItem.hour"
+            :address="mockBlockLocationListItem.address"
+            :address-link="mockBlockLocationListItem.addressLink"
+            :amenities="mockBlockLocationListItem.amenities"
+            :reserve-seat="mockBlockLocationListItem.reserveSeat"
+            :is-ucla-library="mockBlockLocationListItem.isUclaLibrary"
+        />
+        <hr />
+
+        <h2>BlockMediaWithText Component</h2>
+        <block-media-with-text
+            :section-header="mockMediaWithText.mediaWithText[0].titleLink"
+            :short-description="mockMediaWithText.mediaWithText[0].description"
+            :button-text="mockMediaWithText.mediaWithText[0].buttonText"
+            :button-url="mockMediaWithText.mediaWithText[0].buttonUrl"
+            :media-link="mockMediaWithText.mediaWithText[0].linkToMedia"
+            :is-video="false"
+            :is-audio="false"
+            :image="mockMediaWithText.mediaWithText[0].coverImage[0]"
+            :type-media="mockMediaWithText.mediaWithText[0].typeMedia"
+        />
+        <hr />
+
+        <h2>BlockSimpleCard Component</h2>
+        <block-simple-card
+            :title="mockBlockSimpleCard.title"
+            :text="mockBlockSimpleCard.summary"
+            :to="mockBlockSimpleCard.externalLink"
+        />
+        <hr />
+
+        <h2>BlockSpaces Component</h2>
+        <block-spaces
+            :to="mockBlockSpace.to"
+            :title="mockBlockSpace.title"
+            :location="mockBlockSpace.location"
+            :text="mockBlockSpace.text"
+        />
+        <hr />
+
+        <h2>BlockStaffArticleList Component</h2>
+        <block-staff-article-list
+            :image="mockBlockStaffArticleList.image"
+            :to="mockBlockStaffArticleList.to"
+            :category="mockBlockStaffArticleList.category"
+            :title="mockBlockStaffArticleList.title"
+            :date="mockBlockStaffArticleList.date"
+            :authors="mockBlockStaffArticleList.authors"
+            :description="mockBlockStaffArticleList.description"
+        />
+        <hr />
+
+        <h2>BlockStaffDetail Component</h2>
+        <block-staff-detail v-bind="{ ...mockBlockStaffDetail }" />
+        <hr />
+
+        <h2>BlockStaffList Component</h2>
+        <block-staff-list
+            v-bind="{ ...mockBlockStaffList }"
+            phone="(222) 444-5555"
+        />
+        <hr />
+
+        <h2>ButtonLink Component</h2>
+        <button-link label="Egest perl Conub" to="/help/more" />
+        <hr />
+
+        <h2>ButtonMore Component</h2>
+        <button-link label="This is a button " to="/help/" />
+        <hr />
+        <button-more
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        />
+        <hr />
+
+        <h2>DividerGeneral Component</h2>
+        <divider-general :is-bold="true" />
+        <hr />
+
+        <h2>DividerWayFinder Component</h2>
+        <divider-way-finder color="visit" />
+        <hr />
+
+        <h2>HeadingArrow Component</h2>
+        <heading-arrow text="Get Help With" to="/help/foo/bar/" />
+        <br /><br />
+        <heading-arrow text="Featured " to="/visit/" />
+        <hr />
+
+        <h2>IconWithLink Component</h2>
+        <icon-with-link
+            text="Powell"
+            icon-name="svg-icon-location"
+            to="/visit/library/powell"
+        />
+        <hr />
+
+        <h2>MastheadPrimary Component</h2>
+        <masthead-primary />
+        <hr />
+
+        <h2>ModalGeneric Component</h2>
+
+        <h2>ResponsiveImage Component</h2>
+        <responsive-image :image="mockBlockHighlight.image" />
+        <hr />
+
+        <h2>RichText Component</h2>
+        <rich-text :rich-text-content="mockRichText.richText" />
+        <hr />
+
+        <h2>SearchHome Component</h2>
+        <search-home
+            :link-items="mockSearchHomeLinks.linkItems"
+            :advanced-search-link="mockAdvancedSearchLink.advancedSearchLink"
+            @activeTabSet="action"
+            @search="action"
+        />
+        <hr />
+
+        <h2>SectionCardsWithIllustrations Component</h2>
+        <section-cards-with-illustrations
+            :items="mockSectionCardsWithIllustrations.items"
+            title="Get Help with"
+            text="Curabitur aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
+            to="/help/foo/bar"
+            :is-horizontal="false"
+        />
+        <hr />
+
+        <h2>SectionDualMasonry Component</h2>
+        <section-dual-masonry
+            :items="mockSectionDualMasonry.items"
+            to="/visit/foo"
+        />
+        <hr />
+
+        <h2>SmartLink Component</h2>
+        <smart-link to="/"> This will render as a vue-router link </smart-link>
+    </div>
+</template>
+
 <script>
 import Vue from "vue"
-// Uncomment import and local "components" registration if library is not registered globally.
-// import { UclaLibraryWebsiteComponentSample } from '@/entry.esm';
 import * as API from "@/stories/mock-api.json"
+
+const SectionDualMaonryItems = API.bricks
 
 export default Vue.extend({
     name: "ServeDev",
-    computed: {
-        parsedLinkItems() {
-            return [
-                {
-                    text: "Course Reserves",
-                    url: "https://catalog.library.ucla.edu/vwebv/enterCourseReserve.do",
-                    target: "_blank",
-                },
-                {
-                    text: "UCLA Research Guides",
-                    url: "https://guides.library.ucla.edu/",
-                    target: "",
-                },
-                {
-                    text: "Databases A-Z",
-                    url: "https://guides.library.ucla.edu/az.php",
-                    target: "_blank",
-                },
-            ]
-        },
-        parsedAdvancedSearchLink() {
-            return {
-                text: "Advanced Search",
-                url: "https://www.library.ucla.edu/search",
-                target: "_blank",
-            }
-        },
-        bannerHeaderData() {
-            return {
-                image: {
-                    src: "https://via.placeholder.com/1920x1080",
-                    srcset: "https://via.placeholder.com/960x540 960w, https://via.placeholder.com/1280x720 1280w, https://via.placeholder.com/1920x1080 1920w",
-                    sizes: "100vw",
-                    alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    title: "Lorem ipsum",
-                    caption: "Lorem ipsum",
-                    height: 1080,
-                    width: 1920,
-                },
-                to: "/help/foo/bar/",
-                title: "Curabitur Tortor Pellentesque Nibh Aenean",
-                category: "Lectus",
-                startDate: "1995-12-17T03:24:00",
-                endDate: "1995-12-17T03:24:00",
-                byline: ["Cursus Quis"],
-                locations: [
-                    {
-                        id: "523",
-                        title: "Powell Library",
-                        to: "visit/locations/powell-library",
-                    },
-                    {
-                        id: "3062",
-                        title: "Online",
-                        to: "visit/locations/online",
-                    },
-                ],
-                prompt: "Cursus Quis",
-                alignRight: true,
-            }
-        },
-        bannerFeaturedData() {
-            return {
-                image: {
-                    src: "https://via.placeholder.com/1920x1080",
-                    srcset: "https://via.placeholder.com/960x540 960w, https://via.placeholder.com/1280x720 1280w, https://via.placeholder.com/1920x1080 1920w",
-                    sizes: "100vw",
-                    alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    title: "Lorem ipsum",
-                    caption: "Lorem ipsum",
-                    height: 1080,
-                    width: 1920,
-                },
-                to: "/visit/foo/bar/",
-                title: "Sed Lectus Inceptos: Suspendisse in Justo eu Magna Luctus Suscipit",
-                category: "Torquent",
-                breadcrumb: "Torquent",
-                startDate: "1995-12-17T03:24:00",
-                endDate: "1995-12-17T03:24:00",
-                prompt: "Cursus Quis",
-                alignRight: false,
-            }
-        },
-    },
-
-    // components: {
-    //  UclaLibraryWebsiteComponentSample,
-    // }
     data() {
         return {
             mockBlockHighlight: {
@@ -186,7 +321,7 @@ export default Vue.extend({
                     "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
             },
             mockBlockStaffDetail: {
-                // image: API.image_people,
+                image: API.image_people,
                 to: "about/staff/id/",
                 staffName: "Ada Lovelace",
                 jobTitle: "Librateria",
@@ -218,7 +353,7 @@ export default Vue.extend({
             },
             mockRichText: {
                 richText:
-                    "<h3>Here is a title</h3><figure class='figure image-right'></h3>",
+                    "<h3>The Best Libraries in the World</h3><ol><li>LIBRARY OF CONGRESS — WASHINGTON D.C., USA</li><li>BODLEIAN LIBRARY — OXFORD, UNITED KINGDOM</li><li>READING ROOM AT THE BRITISH MUSEUM — LONDON, ENGLAND</li><li>YALE UNIVERSITY BEINECKE RARE BOOK AND MANUSCRIPT LIBRARY — NEW HAVEN, CONNECTICUT, USA</li><li>VATICAN LIBRARY — VATICAN CITY, ROME</li></ul>",
             },
             mockSearchHomeLinks: {
                 linkItems: [
@@ -285,168 +420,58 @@ export default Vue.extend({
                     },
                 ],
             },
+            mockSectionDualMasonry: {
+                items: [
+                    {
+                        image: {
+                            src: "https://via.placeholder.com/1920x1920",
+                            srcset: "https://via.placeholder.com/960x960 960w, https://via.placeholder.com/1280x1280 1280w, https://via.placeholder.com/1920x1920 1920w",
+                            sizes: "100vw",
+                            alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            title: "Lorem ipsum",
+                        },
+                        category: "Fermentu",
+                        title: "Maecenas Leo Mauris",
+                        prompt: "Velit Exceptur",
+                        dates: "Datum 12 - Datum 23, 2021",
+                        to: "/llamacorn/uri/1",
+                    },
+                    {
+                        image: {
+                            src: "https://via.placeholder.com/1920x1920",
+                            srcset: "https://via.placeholder.com/960x960 960w, https://via.placeholder.com/1280x1280 1280w, https://via.placeholder.com/1920x1920 1920w",
+                            sizes: "100vw",
+                            alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            title: "Lorem ipsum",
+                        },
+                        category: "Fermentu",
+                        title: "Maecenas Leo Mauris Praesent finibus fermentum ligula, nec tristique",
+                        prompt: "Velit Exceptur",
+                        dates: "Datum 1 - Datum 18, 2021",
+                        to: "/visit/uri/2",
+                    },
+                ],
+            },
         }
     },
 })
 </script>
 
-<template>
-    <div id="app">
-        <ucla-library-website-component-sample />
-        <alphabetical-browse-by />
-        <heading-arrow text="Featured " to="/visit/" />
-        
-        <masthead-primary />
-
-        <block-call-to-action
-            svgName="svg-call-to-action-chat"
-            title="Lorem ipsum dolor sit amet?"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            name="Lorem ipsum dolor"
-            to="/help/foo/bar/"
-            isDark="false"
-            isSmallSize="false"
-        />
-        <block-campus-map
-            campusLocationId="280"
-            locationName="YRL Library"
-            buildingAccess="<p>Park at parking structure 2. You cannot park in the round about.
-            Powell is the second building in on the quad. Walk straight ahead
-            for about 15 minutes. Wear your walking shoes. Finally when you are
-            there walk up the stairs to the rotunda. You are at the library now.</p>"
-        />
-        <block-card-with-illustration
-            to="/help/foo/bar/"
-            title="Quisque Volutpat"
-            text="Watch it, Goldie. No, it was The Enchantment Under The Sea Dance. Our first date."
-            icon-name="illustration-find-space"
-        />
-        <block-date date="10" day="Digniss" />
-        <block-highlight
-            :image="mockBlockHighlight.image"
-            :to="mockBlockHighlight.to"
-            :category="mockBlockHighlight.category"
-            :title="mockBlockHighlight.title"
-            :start-date="mockBlockHighlight.startDate"
-            :end-date="mockBlockHighlight.endDate"
-            :text="mockBlockHighlight.text"
-            :has-triangle="true"
-            :is-vertical="true"
-            :image-aspect-ratio="60"
-            :locations="mockBlockHighlight.locations"
-        />
-        <block-hours lid="2081" />
-        <block-location-list-item
-            :title="mockBlockLocationListItem.title"
-            :to="mockBlockLocationListItem.to"
-            :image="mockBlockLocationListItem.image"
-            :day="mockBlockLocationListItem.day"
-            :hour="mockBlockLocationListItem.hour"
-            :address="mockBlockLocationListItem.address"
-            :addressLink="mockBlockLocationListItem.addressLink"
-            :amenities="mockBlockLocationListItem.amenities"
-            :reserveSeat="mockBlockLocationListItem.reserveSeat"
-            :isUclaLibrary="mockBlockLocationListItem.isUclaLibrary"
-        />
-        <block-media-with-text
-            :section-header="mockMediaWithText.mediaWithText[0].titleLink"
-            :short-description="mockMediaWithText.mediaWithText[0].description"
-            :button-text="mockMediaWithText.mediaWithText[0].buttonText"
-            :button-url="mockMediaWithText.mediaWithText[0].buttonUrl"
-            :media-link="mockMediaWithText.mediaWithText[0].linkToMedia"
-            :is-video="false"
-            :is-audio="false"
-            :image="mockMediaWithText.mediaWithText[0].coverImage[0]"
-            :type-media="mockMediaWithText.mediaWithText[0].typeMedia"
-        />
-        <block-simple-card
-            :title="mockBlockSimpleCard.title"
-            :text="mockBlockSimpleCard.summary"
-            :to="mockBlockSimpleCard.externalLink"
-        />
-        <block-spaces
-            :to="mockBlockSpace.to"
-            :title="mockBlockSpace.title"
-            :location="mockBlockSpace.location"
-            :text="mockBlockSpace.text"
-        />
-        <block-staff-article-list
-            :image="mockBlockStaffArticleList.image"
-            :to="mockBlockStaffArticleList.to"
-            :category="mockBlockStaffArticleList.category"
-            :title="mockBlockStaffArticleList.title"
-            :date="mockBlockStaffArticleList.date"
-            :authors="mockBlockStaffArticleList.authors"
-            :description="mockBlockStaffArticleList.description"
-        />
-        <block-staff-detail v-bind="{ ...mockBlockStaffDetail }" />
-        <block-staff-list
-            v-bind="{ ...mockBlockStaffList }"
-            phone="(222) 444-5555"
-        />
-        <button-link label="Egest perl Conub" to="/help/more" />
-        <divider-general :is-bold="true" />
-        <divider-way-finder color="visit" />
-        <heading-arrow text="Get Help With" to="/help/foo/bar/" />
-        <icon-with-link
-            text="Powell"
-            icon-name="svg-icon-location"
-            to="/visit/library/powell"
-        />
-        <responsive-image :image="mockBlockHighlight.image" />
-        <rich-text :rich-text-content="mockRichText.richText" />
-        <smart-link to="/"> This will render as a vue-router link </smart-link>
-        <search-home
-            :linkItems="mockSearchHomeLinks.linkItems"
-            :advancedSearchLink="mockAdvancedSearchLink.advancedSearchLink"
-            @activeTabSet="action"
-            @search="action"
-        />
-
-        <section-cards-with-illustrations
-            :items="mockSectionCardsWithIllustrations.items"
-            title="Get Help with"
-            text="Curabitur aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
-            to="/help/foo/bar"
-            :isHorizontal="false"
-        />
-        <button-link label="This is a button " to="/help/" /><button-more
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        />
-        <masthead-primary />
-        <br /><br />
-
-        <banner-header
-            :image="bannerHeaderData.image"
-            :to="bannerHeaderData.to"
-            :title="bannerHeaderData.title"
-            :category="bannerHeaderData.category"
-            :start-date="bannerHeaderData.startDate"
-            :end-date="bannerHeaderData.endDate"
-            :prompt="bannerHeaderData.prompt"
-        />
-        <banner-featured
-            :image="bannerFeaturedData.image"
-            :to="bannerFeaturedData.to"
-            :title="bannerFeaturedData.title"
-            :category="bannerFeaturedData.category"
-            :breadcrumb="bannerFeaturedData.breadcrumb"
-            :start-date="bannerFeaturedData.startDate"
-            :end-date="bannerFeaturedData.endDate"
-            :prompt="bannerFeaturedData.prompt"
-        />
-        <banner-text
-            category="Featured"
-            title="New Exhibition"
-            text="This is a New Exhibition"
-            button-text="See More"
-            to="/visit/exhibition"
-        />
-    </div>
-</template>
-
 <style lang="scss" scoped>
-.divider {
-    margin: 10px 10px;
+.app {
+    margin: 50px 100px;
+
+    h1 {
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    h2 {
+        margin: 25px 0;
+    }
+    hr {
+        margin-top: 25px;
+        border-top: 2px dashed coral;
+    }
 }
 </style>
