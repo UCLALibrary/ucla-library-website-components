@@ -65,7 +65,7 @@
             </div>
 
             <div v-if="locations.length" class="location-group">
-                <nuxt-link
+                <smart-link
                     v-for="location in parsedLocations"
                     :key="`location-${location.id}`"
                     :to="location.to"
@@ -73,7 +73,7 @@
                 >
                     <component :is="location.svg" class="location-svg" />
                     <span class="location" v-html="location.title" />
-                </nuxt-link>
+                </smart-link>
             </div>
             <button-link
                 v-if="to"
