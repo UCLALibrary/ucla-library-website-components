@@ -11,6 +11,7 @@ import { terser } from "rollup-plugin-terser"
 import minimist from "minimist"
 import postcss from "rollup-plugin-postcss"
 import svg from "rollup-plugin-vue-inline-svg"
+import svgBase64 from "postcss-base64"
 // import scss from "rollup-plugin-scss"
 // import dartSass from "sass"
 
@@ -66,6 +67,11 @@ const baseConfig = {
                         },
                     },
                 },
+                postcssPlugins: [
+                    svgBase64({
+                        extensions: ['.svg']
+                    }),
+                ]
             },
         },
         postVue: [

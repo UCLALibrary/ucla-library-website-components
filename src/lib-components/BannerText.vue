@@ -250,7 +250,7 @@ export default {
     background-color: var(--background-color);
     position: relative;
     z-index: 0;
-    background-image: url("~/node_modules/ucla-library-design-tokens/assets/svgs/molecule-half.svg?url");
+    background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half.svg");
     background-position: 100% 50%;
     background-size: 144px;
     background-repeat: no-repeat;
