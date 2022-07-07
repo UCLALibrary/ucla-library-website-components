@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.11.1...v1.12.0) (2022-07-07)
+
+
+### Features
+
+* APPS-1683 add section dual masonry ([#36](https://github.com/UCLALibrary/ucla-library-website-components/issues/36)) ([3e23499](https://github.com/UCLALibrary/ucla-library-website-components/commit/3e234990bf86dd232425c83d494c0b1cdbe2ddad))
+
 ## [1.11.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.11.0...v1.11.1) (2022-07-07)
 
 
