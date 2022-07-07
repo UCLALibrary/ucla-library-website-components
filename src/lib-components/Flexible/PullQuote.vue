@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <pull-quote
         v-if="block.pullQuote"
         :text="block.pullQuote[0].text"

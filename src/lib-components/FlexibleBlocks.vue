@@ -18,6 +18,8 @@ import FlexibleForm from "@/lib-components/Flexible/Form.vue"
 import FlexibleRichText from "@/lib-components/Flexible/RichText.vue"
 import FlexibleHighlight from "@/lib-components/Flexible/Highlight.vue"
 import FlexibleCallToAction from "@/lib-components/Flexible/CallToAction.vue"
+import FlexibleBannerFeatured from "@/lib-components/Flexible/BannerFeatured.vue"
+import FlexibleHelpTopicCards from "@/lib-components/Flexible/HelpTopicCards.vue"
 
 export default {
     name: "FlexibleBlocks",
@@ -25,10 +27,8 @@ export default {
         // TODO register all other block types
         FlexibleCallToAction,
         // FlexibleCtaBlock2Up: () => import("~/components/Flexible/CtaBlock2Up"),
-        // FlexibleHelpTopicCards: () =>
-        //     import("~/components/Flexible/HelpTopicCards.vue"),
-        // FlexibleBannerFeatured: () =>
-        //     import("~/components/Flexible/BannerFeatured.vue"),
+        FlexibleHelpTopicCards,
+        FlexibleBannerFeatured,
         FlexibleHighlight,
         // FlexibleSimpleCards: () =>
         //     import("~/components/Flexible/SimpleCards.vue"),

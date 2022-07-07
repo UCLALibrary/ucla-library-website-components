@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="pull-quote">
         <div v-if="text" class="quote" v-html="text" />
         <div v-if="attribution" class="attribution-block">

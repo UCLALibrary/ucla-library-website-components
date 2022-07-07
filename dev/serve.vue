@@ -101,16 +101,6 @@ export default Vue.extend({
                         },
                     ],
                 },
-                {
-                    id: "22978",
-                    typeHandle: "pullQuote",
-                    pullQuote: [
-                        {
-                            text: "<p>Fashion is the best</p>",
-                            attribution: null,
-                        },
-                    ],
-                },
             ]
         },
     },
@@ -319,7 +309,7 @@ export default Vue.extend({
         <ucla-library-website-component-sample />
         <alphabetical-browse-by />
         <heading-arrow text="Featured " to="/visit/" />
-        
+
         <masthead-primary />
 
         <block-call-to-action
