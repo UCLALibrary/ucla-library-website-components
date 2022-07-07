@@ -1,5 +1,7 @@
 <script>
 import Vue from "vue"
+import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
+import * as API from "@/stories/mock-api.json"
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { UclaLibraryWebsiteComponentSample } from '@/entry.esm';
 import * as API from "@/stories/mock-api.json"
@@ -32,6 +34,25 @@ export default Vue.extend({
                 url: "https://www.library.ucla.edu/search",
                 target: "_blank",
             }
+        },
+        parsedNavPrimary() {
+            return [
+                { ...API.primaryNavlinks[0] },
+                {
+                    ...API.primaryNavlinks[0],
+                    name: "Visit",
+                    url: "/visit/",
+                },
+                {
+                    ...API.primaryNavlinks[0],
+                    name: "About",
+                    url: "/about/",
+                },
+                { ...API.primaryNavlinks[3] },
+            ]
+        },
+        parsedNavSecondary() {
+            return [...API.links, { ...API.links[0] }]
         },
         bannerHeaderData() {
             return {
@@ -658,7 +679,9 @@ export default Vue.extend({
             @activeTabSet="action"
             @search="action"
         />
-
+        <nav-breadcrumb title="jane-doe" />
+        <nav-primary :items="parsedNavPrimary" current-path="/about/foo/bar" />
+        <nav-secondary :items="parsedNavSecondary" />
         <section-cards-with-illustrations
             :items="mockSectionCardsWithIllustrations.items"
             title="Get Help with"
