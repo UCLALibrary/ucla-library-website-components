@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.12.0...v1.12.1) (2022-07-07)
+
+
+### Bug Fixes
+
+* update form css ([#38](https://github.com/UCLALibrary/ucla-library-website-components/issues/38)) ([eab73af](https://github.com/UCLALibrary/ucla-library-website-components/commit/eab73affe7b46ff5c8f89a338844e9a414718587))
+
 # [1.12.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.11.1...v1.12.0) (2022-07-07)
 
 
