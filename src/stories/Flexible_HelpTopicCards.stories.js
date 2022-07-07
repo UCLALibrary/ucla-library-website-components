@@ -42,6 +42,7 @@ export const Default = () => ({
     data() {
         return { block: mock }
     },
+    components: { FlexibleHelpTopicCards },
     template: `
         <flexible-help-topic-cards
             :block="block"
