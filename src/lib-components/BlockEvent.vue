@@ -17,6 +17,7 @@
 </template>
 
 <script>
+// Utility functions
 import getSectionName from "@/mixins/getSectionName"
 
 export default {
@@ -79,30 +80,23 @@ export default {
     }
 
     .molecule {
-        // background-image: url("ucla-library-design-tokens/assets/svgs/molecule-background.svg?url");
+        background-image: url(ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg?url);
         background-size: auto 100%;
         height: 40%;
     }
 
     .category {
+        @include overline;
         color: var(--color-secondary-yellow-01);
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        margin-bottom: 15px;
-        font-weight: 500;
-        font-size: 16px;
+        margin-bottom: var(--space-s);
     }
     .title {
-        font-size: 34px;
-        line-height: 38px;
-        letter-spacing: 0.01em;
-        font-weight: 600;
-        margin-bottom: 5px;
+        @include step-2;
+        margin-bottom: var(--space-s);
     }
     .dates {
-        font-size: 20px;
-        line-height: 28px;
-        margin-bottom: 40px;
+        @include step-0;
+        margin-bottom: var(--space-m);
     }
     .text {
         bottom: 0;
@@ -116,10 +110,7 @@ export default {
         border: 1px solid var(--color-primary-blue-02);
         background-color: var(--color-primary-blue-03);
         padding: 16px 40px;
-        font-family: var(--font-secondary);
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 18px;
+        @include button;
         color: var(--color-theme);
         transition: color 400ms ease-in-out;
 
@@ -157,19 +148,9 @@ export default {
         }
     }
     @media #{$small} {
-        .category {
-            font-size: 14px;
-        }
-        .title {
-            font-size: 26px;
-        }
-        .dates {
-            font-size: 18px;
-        }
         .button {
             width: 100%;
             text-align: center;
-            font-size: 16px;
         }
     }
 }
