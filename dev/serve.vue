@@ -248,7 +248,7 @@
         <hr />
 
         <h2>SectionSpacesList Component</h2>
-        <section-spaces-list :items="items" />
+        <section-spaces-list :items="mockSectionSpacesList.items" />
         <hr />
 
         <h2>SmartLink Component</h2>
