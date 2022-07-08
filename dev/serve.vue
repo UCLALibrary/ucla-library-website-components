@@ -258,6 +258,16 @@
 
         <h2>FlexibleBlock Components</h2>
         <flexible-blocks :blocks="flexibleBlocks" />
+
+        <hr />
+        <hr />
+
+        <h2>Simple Cards</h2>
+        <simple-cards
+            :items="mockSimpleCards.cards"
+            :section-title="mockSimpleCards.sectionTitle"
+            :section-summary="mockSimpleCards.sectionSummary"
+        />
     </div>
 </template>
 
@@ -907,6 +917,33 @@ export default Vue.extend({
         },
         parsedNavSecondary() {
             return [...API.links, { ...API.links[0] }]
+        },
+        mockSimpleCards() {
+            return {
+                id: "13783",
+                sectionTitle: "Fix Potholes",
+                sectionSummary:
+                    "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+                cards: [
+                    {
+                        id: "6622",
+                        text: "<p>Learn how to use a VPN or proxy server to access Library resources with your UCLA Logon ID through a series of helpful videos.</p>",
+                        title: "Connecting from Off-Campus",
+                        slug: "connecting-from-off-campus",
+                        uri: "help/services-resources/connecting-from-off-campus",
+                        type: "resource",
+                    },
+                    {
+                        id: "6407",
+                        text: "<p>A research guide</p>",
+                        title: "A new research guide",
+                        slug: "a-new-research-guide",
+                        uri: null,
+                        externalResourceUrl:
+                            "http://libguides.library.ucla.edu",
+                    },
+                ],
+            }
         },
     },
 })

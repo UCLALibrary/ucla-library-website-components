@@ -42,6 +42,7 @@ export { default as SearchHome } from "./SearchHome.vue"
 export { default as SectionCardsWithIllustrations } from "./SectionCardsWithIllustrations.vue"
 export { default as SectionDualMasonry } from "./SectionDualMasonry.vue"
 export { default as SectionSpacesList } from "./SectionSpacesList.vue"
+export { default as SimpleCards } from "./SimpleCards.vue"
 export { default as SmartLink } from "./SmartLink.vue"
 
 export { default as FlexibleBannerFeatured } from "./Flexible/BannerFeatured.vue"
