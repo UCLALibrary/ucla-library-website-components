@@ -22,6 +22,7 @@ import FlexibleBannerFeatured from "@/lib-components/Flexible/BannerFeatured.vue
 import FlexibleHelpTopicCards from "@/lib-components/Flexible/HelpTopicCards.vue"
 import FlexibleCardWithImage from "@/lib-components/Flexible/CardWithImage.vue"
 import FlexibleSimpleCards from "@/lib-components/Flexible/SimpleCards.vue"
+import FlexibleMediaWithText from "@/lib-components/Flexible/MediaWithText.vue"
 
 export default {
     name: "FlexibleBlocks",
@@ -36,8 +37,7 @@ export default {
         FlexiblePullQuote,
         FlexibleCardWithImage,
         FlexibleRichText,
-        // FlexibleMediaWithText: () =>
-        //     import("~/components/Flexible/MediaWithText.vue"),
+        FlexibleMediaWithText,
         // FlexibleMediaGallery: () =>
         //     import("~/components/Flexible/MediaGallery.vue"),
         FlexibleForm,
