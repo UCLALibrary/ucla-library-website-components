@@ -18,6 +18,8 @@ module.exports = {
         // the @ alias points to the `src/` directory, a common alias
         // used in the Vue community
         config.resolve.alias["@"] = path.resolve(__dirname, "..", "src")
+        config.resolve.alias["node_modules/ucla-library-design-tokens"] =
+            path.join(__dirname, "../node_modules/ucla-library-design-tokens")
         // THIS is the tricky stuff!
         config.module.rules.push({
             test: /\.scss$/,
@@ -29,6 +31,22 @@ module.exports = {
                     options: {
                         additionalData:
                             "@import '@/styles/variables-scss.scss';",
+                    },
+                },
+                {
+                    loader: "postcss-loader",
+                    options: {
+                        postcssOptions: {
+                            syntax: require("postcss-scss"),
+                            plugins: [
+                                [
+                                    "postcss-base64",
+                                    {
+                                        extensions: [".svg"],
+                                    },
+                                ],
+                            ],
+                        },
                     },
                 },
             ],
