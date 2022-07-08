@@ -39,6 +39,7 @@ export { default as RichText } from "./RichText.vue"
 export { default as SearchHome } from "./SearchHome.vue"
 export { default as SectionCardsWithIllustrations } from "./SectionCardsWithIllustrations.vue"
 export { default as SectionDualMasonry } from "./SectionDualMasonry.vue"
+export { default as SimpleCards } from "./SimpleCards.vue"
 export { default as SmartLink } from "./SmartLink.vue"
 
 export { default as PullQuote } from "./PullQuote.vue"
