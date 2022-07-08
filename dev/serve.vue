@@ -209,6 +209,12 @@
         <masthead-primary />
         <hr />
 
+        <h2>MastheadSecondary Component</h2>
+        <masthead-secondary
+            title="Find and Reserve a Space"
+            text="Browse on-campus spaces for study, meetings, and group projects."
+        />
+
         <h2>ModalGeneric Component</h2>
 
         <h2>NavBreadCrumb Component</h2>
@@ -663,6 +669,62 @@ export default Vue.extend({
         flexibleBlocks() {
             return [
                 {
+                    id: "13668",
+                    typeHandle: "ctaBlock2Up",
+                    ctaBlock2Up: [
+                        {
+                            text: "Parking passes for Cats & Kittens only. Day use, weekly, monthly and annual passes are available now.",
+                            name: "Get Parking Passes",
+                            to: "http://cat-kitten-parking.com",
+                            title: "Cat & Kitten Parking Passes",
+                            svgName: "svg-call-to-action-find",
+                            backgroundColor: true,
+                            isDark: false,
+                            isSmallSize: true,
+                        },
+                        {
+                            text: "Advanced Ancient Greek for Dogs. Teach your dog the useful language of ancient Greek so you can communicate together more effectively.",
+                            name: "Sign Up for Class",
+                            to: "http://ancient-greek-for-dogs.com",
+                            title: "Ancient Greek for Dogs",
+                            svgName: "svg-call-to-action-money",
+                            backgroundColor: false,
+                            isDark: true,
+                            isSmallSize: true,
+                        },
+                    ],
+                },
+                {
+                    id: "13669",
+                    typeHandle: "mediaWithText",
+                    sectionTitle: "A section of media with text",
+                    sectionSummary: "<p>A section of media with text</p>",
+                    mediaWithText: [
+                        {
+                            id: "13670",
+                            titleLink: "A media Link",
+                            description: "Citation Integration",
+                            coverImage: [
+                                {
+                                    id: "5115",
+                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
+                                    height: 2151,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 2560w",
+                                    alt: "Screen Shot 2022 02 17 at 11 42 39 AM",
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                            buttonText: "Download this",
+                            buttonUrl:
+                                "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
+                            linkToMedia:
+                                "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
+                            typeMedia: "other",
+                        },
+                    ],
+                },
+                {
                     id: "22978",
                     typeHandle: "pullQuote",
                     pullQuote: [
@@ -769,6 +831,35 @@ export default Vue.extend({
                                     iconName: "illustration-find-space",
                                 },
                             ],
+                        },
+                    ],
+                },
+                {
+                    id: "13783",
+                    typeHandle: "simpleCards",
+                    sectionTitle: "Fix Potholes",
+                    sectionSummary:
+                        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+                    cards: [
+                        {
+                            id: "13899",
+                            contentLink: [
+                                {
+                                    slug: "road-work",
+                                    title: "Road Work Guide",
+                                    summary: "<p>A research guide</p>",
+                                    externalResourceUrl:
+                                        "http://libguides.library.ucla.edu",
+                                },
+                            ],
+                        },
+                        {
+                            id: "13900",
+                            title: "Types of Sinkholes",
+                            summary:
+                                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
+                            externalLink:
+                                "https://www.heliconusa.com/types-of-sinkholes/",
                         },
                     ],
                 },
