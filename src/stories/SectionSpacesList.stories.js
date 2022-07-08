@@ -1,9 +1,14 @@
+// Import component
 import SectionSpacesList from "@/lib-components/SectionSpacesList.vue"
+
+// A storybook decorator that allows you to use routing-aware components in your stories
+import StoryRouter from "storybook-vue-router"
 
 // Storybook default settings
 export default {
     title: "SECTION / Spaces / List",
     component: SectionSpacesList,
+    decorators: [StoryRouter()],
 }
 
 const mock = [

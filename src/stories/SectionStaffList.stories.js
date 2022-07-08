@@ -1,5 +1,8 @@
 // Import component
-import SectionStaffList from "@/lib-components/SectionStaffList.vue"
+import SectionStaffList from "@/lib-components/SectionStaffList"
+
+// Import mock api data
+import * as API from "@/stories/mock-api.json"
 
 // A storybook decorator that allows you to use routing-aware components in your stories
 import StoryRouter from "storybook-vue-router"

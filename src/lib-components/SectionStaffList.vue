@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import BlockStaffList from "@/lib-components/BlockSpaces.vue"
+import BlockStaffList from "@/lib-components/BlockStaffList.vue"
 
 export default {
     name: "SectionStaffList",
