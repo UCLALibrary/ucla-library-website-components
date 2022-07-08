@@ -163,6 +163,14 @@ export default Vue.extend({
                 richText:
                     "<h3>Here is a title</h3><figure class='figure image-right'></h3>",
             },
+            mockBlockEvent: { ...API.bricks[0] },
+            mockPostSmall: {
+                image: API.image,
+                to: "/visit/foo/bar/",
+                categoryName: "faucibus",
+                author: "Inceptos Himenaeos",
+                title: "Suspendisse in justo eu magna",
+            },
         }
     },
 })
@@ -276,6 +284,20 @@ export default Vue.extend({
             :advancedSearchLink="parsedAdvancedSearchLink"
             @activeTabSet="action"
             @search="action"
+        />
+        <block-event
+            :category="mockBlockEvent.category"
+            :title="mockBlockEvent.title"
+            :prompt="mockBlockEvent.prompt"
+            :dates="mockBlockEvent.dates"
+            :to="mockBlockEvent.to"
+        />
+        <block-post-small
+            :category-name="mockPostSmall.categoryName"
+            :author="mockPostSmall.author"
+            :title="mockPostSmall.title"
+            :image="mockPostSmall.image"
+            to="/legal/"
         />
     </div>
 </template>
