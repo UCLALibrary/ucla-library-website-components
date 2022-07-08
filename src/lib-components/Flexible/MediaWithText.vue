@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="section-media-with-text">
         <div class="flexible-page-block-container">
             <h2 class="visually-hidden">Resources</h2>

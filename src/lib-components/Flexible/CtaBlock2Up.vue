@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <section>
         <block-call-to-action-two-up :items="parsedItems" />
     </section>

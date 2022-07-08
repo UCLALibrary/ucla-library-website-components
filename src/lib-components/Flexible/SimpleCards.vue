@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="flexible-simple-cards">
         <simple-cards
             :section-title="block.sectionTitle"
