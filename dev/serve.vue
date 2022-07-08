@@ -756,6 +756,35 @@ export default Vue.extend({
                     ],
                 },
                 {
+                    id: "13783",
+                    typeHandle: "simpleCards",
+                    sectionTitle: "Fix Potholes",
+                    sectionSummary:
+                        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+                    cards: [
+                        {
+                            id: "13899",
+                            contentLink: [
+                                {
+                                    slug: "road-work",
+                                    title: "Road Work Guide",
+                                    summary: "<p>A research guide</p>",
+                                    externalResourceUrl:
+                                        "http://libguides.library.ucla.edu",
+                                },
+                            ],
+                        },
+                        {
+                            id: "13900",
+                            title: "Types of Sinkholes",
+                            summary:
+                                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
+                            externalLink:
+                                "https://www.heliconusa.com/types-of-sinkholes/",
+                        },
+                    ],
+                },
+                {
                     id: "3968",
                     typeHandle: "cardWithImage",
                     cardWithImage: [

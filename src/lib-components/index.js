@@ -53,3 +53,4 @@ export { default as FlexibleHelpTopicCards } from "./Flexible/HelpTopicCards.vue
 export { default as FlexibleHighlight } from "./Flexible/Highlight.vue"
 export { default as FlexiblePullQuote } from "./Flexible/PullQuote.vue"
 export { default as FlexibleRichText } from "./Flexible/RichText.vue"
+export { default as FlexibleSimpleCards } from "./Flexible/SimpleCards.vue"
