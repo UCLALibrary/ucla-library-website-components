@@ -1,3 +1,4 @@
+// Import component
 import SectionDualMasonry from "@/lib-components/SectionDualMasonry"
 
 // Import mock api data
