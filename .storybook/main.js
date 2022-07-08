@@ -57,26 +57,17 @@ module.exports = {
         )
         fileLoaderRule.exclude = /\.svg$/
         config.module.rules.push({
-            oneOf: [
-                {
-                    test: /\.(jpg|png|svg|gif)$/,
-                    type: "asset/inline",
-                    resourceQuery: /url/,
-                },
-                {
-                    test: /\.svg$/,
-                    loader: "vue-svg-loader",
-                    options: {
-                        svgo: {
-                            plugins: [
-                                {
-                                    removeViewBox: false,
-                                },
-                            ],
+            test: /\.svg$/,
+            loader: "vue-svg-loader",
+            options: {
+                svgo: {
+                    plugins: [
+                        {
+                            removeViewBox: false,
                         },
-                    },
+                    ],
                 },
-            ],
+            },
         })
         // return the updated Storybook configuration
         return config
