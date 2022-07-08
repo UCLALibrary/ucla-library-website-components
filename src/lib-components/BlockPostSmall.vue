@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <router-link :to="to" :class="classes">
         <responsive-image :image="image" :aspect-ratio="100" class="image" />
         <div class="meta">
