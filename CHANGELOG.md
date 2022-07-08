@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.15.0...v1.16.0) (2022-07-08)
+
+
+### Features
+
+* Move MastheadSecondary to components repo ([#44](https://github.com/UCLALibrary/ucla-library-website-components/issues/44)) ([75d1336](https://github.com/UCLALibrary/ucla-library-website-components/commit/75d1336d73c8618dfa777910ca42c4b31c34762e))
+
 # [1.15.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.14.1...v1.15.0) (2022-07-08)
 
 
