@@ -18,6 +18,8 @@ module.exports = {
         // the @ alias points to the `src/` directory, a common alias
         // used in the Vue community
         config.resolve.alias["@"] = path.resolve(__dirname, "..", "src")
+        config.resolve.alias["node_modules/ucla-library-design-tokens"] =
+            path.join(__dirname, "../node_modules/ucla-library-design-tokens")
         // THIS is the tricky stuff!
         config.module.rules.push({
             test: /\.scss$/,
@@ -31,6 +33,22 @@ module.exports = {
                             "@import '@/styles/variables-scss.scss';",
                     },
                 },
+                {
+                    loader: "postcss-loader",
+                    options: {
+                        postcssOptions: {
+                            syntax: require("postcss-scss"),
+                            plugins: [
+                                [
+                                    "postcss-base64",
+                                    {
+                                        extensions: [".svg"],
+                                    },
+                                ],
+                            ],
+                        },
+                    },
+                },
             ],
             include: path.resolve(__dirname, "../"),
         })
@@ -39,26 +57,17 @@ module.exports = {
         )
         fileLoaderRule.exclude = /\.svg$/
         config.module.rules.push({
-            oneOf: [
-                {
-                    test: /\.(jpg|png|svg|gif)$/,
-                    type: "asset/inline",
-                    resourceQuery: /url/,
-                },
-                {
-                    test: /\.svg$/,
-                    loader: "vue-svg-loader",
-                    options: {
-                        svgo: {
-                            plugins: [
-                                {
-                                    removeViewBox: false,
-                                },
-                            ],
+            test: /\.svg$/,
+            loader: "vue-svg-loader",
+            options: {
+                svgo: {
+                    plugins: [
+                        {
+                            removeViewBox: false,
                         },
-                    },
+                    ],
                 },
-            ],
+            },
         })
         // return the updated Storybook configuration
         return config
