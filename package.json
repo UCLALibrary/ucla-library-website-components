@@ -1,6 +1,6 @@
 {
     "name": "ucla-library-website-components",
-    "version": "1.14.0",
+    "version": "1.16.0",
     "description": "This is library of components that will be used on UCLA Library websites",
     "scripts": {
         "serve": "vue-cli-service serve dev/serve.js",
@@ -71,6 +71,9 @@
         "eslint-plugin-vue": "^8.0.3",
         "minimist": "^1.2.5",
         "postcss": "^8.4.14",
+        "postcss-base64": "^0.7.1",
+        "postcss-loader": "^7.0.0",
+        "postcss-scss": "^4.0.4",
         "prettier": "2.6.2",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",

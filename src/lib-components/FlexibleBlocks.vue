@@ -21,23 +21,24 @@ import FlexibleCallToAction from "@/lib-components/Flexible/CallToAction.vue"
 import FlexibleBannerFeatured from "@/lib-components/Flexible/BannerFeatured.vue"
 import FlexibleHelpTopicCards from "@/lib-components/Flexible/HelpTopicCards.vue"
 import FlexibleCardWithImage from "@/lib-components/Flexible/CardWithImage.vue"
+import FlexibleSimpleCards from "@/lib-components/Flexible/SimpleCards.vue"
+import FlexibleMediaWithText from "@/lib-components/Flexible/MediaWithText.vue"
+import FlexibleCtaBlock2Up from "@/lib-components/Flexible/CtaBlock2Up.vue"
 
 export default {
     name: "FlexibleBlocks",
     components: {
         // TODO register all other block types
         FlexibleCallToAction,
-        // FlexibleCtaBlock2Up: () => import("~/components/Flexible/CtaBlock2Up"),
+        FlexibleCtaBlock2Up,
         FlexibleHelpTopicCards,
         FlexibleBannerFeatured,
         FlexibleHighlight,
-        // FlexibleSimpleCards: () =>
-        //     import("~/components/Flexible/SimpleCards.vue"),
+        FlexibleSimpleCards,
         FlexiblePullQuote,
         FlexibleCardWithImage,
         FlexibleRichText,
-        // FlexibleMediaWithText: () =>
-        //     import("~/components/Flexible/MediaWithText.vue"),
+        FlexibleMediaWithText,
         // FlexibleMediaGallery: () =>
         //     import("~/components/Flexible/MediaGallery.vue"),
         FlexibleForm,

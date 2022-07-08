@@ -69,7 +69,7 @@ export default {
         height: 560px;
         overflow: hidden;
 
-        background: url(ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg?url)
+        background: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg")
                 center -100px,
             var(--gradient-01);
         background-size: cover;
