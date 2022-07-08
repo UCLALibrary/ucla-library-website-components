@@ -84,7 +84,7 @@ export default {
         left: 0;
         bottom: 0;
         right: 0;
-        background: url(ucla-library-design-tokens/assets/svgs/molecule-masthead.svg?url);
+        background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-masthead.svg");
         background-repeat: no-repeat;
         background-position: center 60%;
         filter: opacity(45%);
