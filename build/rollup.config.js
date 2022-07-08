@@ -69,9 +69,9 @@ const baseConfig = {
                 },
                 postcssPlugins: [
                     svgBase64({
-                        extensions: ['.svg']
+                        extensions: [".svg"],
                     }),
-                ]
+                ],
             },
         },
         postVue: [
