@@ -646,6 +646,32 @@ export default Vue.extend({
         flexibleBlocks() {
             return [
                 {
+                    id: "13668",
+                    typeHandle: "ctaBlock2Up",
+                    ctaBlock2Up: [
+                        {
+                            text: "Parking passes for Cats & Kittens only. Day use, weekly, monthly and annual passes are available now.",
+                            name: "Get Parking Passes",
+                            to: "http://cat-kitten-parking.com",
+                            title: "Cat & Kitten Parking Passes",
+                            icon: "svg-call-to-action-find",
+                            backgroundColor: true,
+                            isDark: false,
+                            isSmallSize: true,
+                        },
+                        {
+                            text: "Advanced Ancient Greek for Dogs. Teach your dog the useful language of ancient Greek so you can communicate together more effectively.",
+                            name: "Sign Up for Class",
+                            to: "http://ancient-greek-for-dogs.com",
+                            title: "Ancient Greek for Dogs",
+                            icon: "svg-call-to-action-money",
+                            backgroundColor: false,
+                            isDark: true,
+                            isSmallSize: true,
+                        },
+                    ],
+                },
+                {
                     id: "13669",
                     typeHandle: "mediaWithText",
                     sectionTitle: "A section of media with text",
