@@ -1,9 +1,9 @@
-import BSectionSpaceList from "@/lib-components/BSectionSpaceList.vue"
+import SectionSpacesList from "@/lib-components/SectionSpacesList.vue"
 
 // Storybook default settings
 export default {
     title: "SECTION / Spaces / List",
-    component: SectionDualMasonry,
+    component: SectionSpacesList,
 }
 
 const mock = [
@@ -35,7 +35,7 @@ export const Default = () => ({
     data() {
         return { items: mock }
     },
-    components: { SectionSpaceList },
+    components: { SectionSpacesList },
     template: `
       <section-spaces-list
         :items="items"

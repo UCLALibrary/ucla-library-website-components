@@ -20,7 +20,7 @@
 import BlockSpaces from "@/lib-components/BlockSpaces.vue"
 
 export default {
-    name: "SectionSpaceList",
+    name: "SectionSpacesList",
     components: {
         BlockSpaces,
     },
