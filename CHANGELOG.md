@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.13.0...v1.14.0) (2022-07-08)
+
+
+### Features
+
+* APPS-685 add section spaces component ([#39](https://github.com/UCLALibrary/ucla-library-website-components/issues/39)) ([f05df63](https://github.com/UCLALibrary/ucla-library-website-components/commit/f05df63a319377a1385c110d26339639649b9a2a))
+
 # [1.13.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.12.1...v1.13.0) (2022-07-08)
 
 
