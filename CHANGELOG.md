@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.14.1...v1.15.0) (2022-07-08)
+
+
+### Features
+
+* Flexible Media With Text, Simple Cards, Call ToAction Two Up ([#43](https://github.com/UCLALibrary/ucla-library-website-components/issues/43)) ([de4424c](https://github.com/UCLALibrary/ucla-library-website-components/commit/de4424c3ce39bf0087d4d1a99de86792c55e2ef4))
+
 ## [1.14.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.14.0...v1.14.1) (2022-07-08)
 
 
