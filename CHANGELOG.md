@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.12.1...v1.13.0) (2022-07-08)
+
+
+### Features
+
+* add simple cards ([#40](https://github.com/UCLALibrary/ucla-library-website-components/issues/40)) ([6c9ea00](https://github.com/UCLALibrary/ucla-library-website-components/commit/6c9ea005eb49cfa02e072020170b2e47806a89bf))
+
 ## [1.12.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.12.0...v1.12.1) (2022-07-07)
 
 
