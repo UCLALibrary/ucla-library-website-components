@@ -199,6 +199,12 @@
         <masthead-primary />
         <hr />
 
+        <h2>MastheadSecondary Component</h2>
+        <masthead-secondary
+            title="Find and Reserve a Space"
+            text="Browse on-campus spaces for study, meetings, and group projects."
+        />
+
         <h2>ModalGeneric Component</h2>
 
         <h2>NavBreadCrumb Component</h2>
