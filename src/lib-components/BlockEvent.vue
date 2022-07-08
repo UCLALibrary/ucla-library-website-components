@@ -80,7 +80,7 @@ export default {
     }
 
     .molecule {
-        background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-masthead.svg");
+        background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg");
         background-size: auto 100%;
         height: 40%;
     }

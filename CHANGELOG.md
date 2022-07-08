@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.14.0...v1.14.1) (2022-07-08)
+
+
+### Bug Fixes
+
+* update configs to use postcss ([#42](https://github.com/UCLALibrary/ucla-library-website-components/issues/42)) ([2850f93](https://github.com/UCLALibrary/ucla-library-website-components/commit/2850f934d331df0bdc8cf0d42c5519a2c2d4b27c))
+
 # [1.14.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.13.0...v1.14.0) (2022-07-08)
 
 

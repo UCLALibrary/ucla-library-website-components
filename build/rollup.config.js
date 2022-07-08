@@ -11,8 +11,7 @@ import { terser } from "rollup-plugin-terser"
 import minimist from "minimist"
 import postcss from "rollup-plugin-postcss"
 import svg from "rollup-plugin-vue-inline-svg"
-// import scss from "rollup-plugin-scss"
-// import dartSass from "sass"
+import svgBase64 from "postcss-base64"
 
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs
@@ -66,6 +65,11 @@ const baseConfig = {
                         },
                     },
                 },
+                postcssPlugins: [
+                    svgBase64({
+                        extensions: [".svg"],
+                    }),
+                ],
             },
         },
         postVue: [
@@ -138,8 +142,6 @@ if (!argv.format || argv.format === "es") {
                     ],
                 ],
             }),
-            // scss({ include: /\.scss$/, sass: dartSass }),
-            // scss(),
         ],
     }
     buildFormats.push(esConfig)
@@ -169,12 +171,6 @@ if (!argv.format || argv.format === "cjs") {
             }),
             ...baseConfig.plugins.postVue,
             babel(baseConfig.plugins.babel),
-            /*scss({
-                includePaths: [
-                    path.join(__dirname, "../../node_modules/"),
-                    "node_modules/",
-                ],
-            }),*/
         ],
     }
     buildFormats.push(umdConfig)
@@ -203,12 +199,6 @@ if (!argv.format || argv.format === "iife") {
                     ecma: 5,
                 },
             }),
-            /*scss({
-                includePaths: [
-                    path.join(__dirname, "../../node_modules/"),
-                    "node_modules/",
-                ],
-            }),*/
         ],
     }
     buildFormats.push(unpkgConfig)
