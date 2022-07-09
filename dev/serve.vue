@@ -199,10 +199,31 @@
         />
         <hr /> -->
 
+        <h2>FooterPrimary</h2>
+        <footer-primary
+            :social-items="mockFooterPrimary.socialItems[0]"
+            :press-items="mockFooterPrimary.pressItems[0]"
+            :form="false"
+        />
+        <hr />
+
+        <h2>FooterSock</h2>
+        <footer-sock :sock-items="mockFooterSock.items" />
+        <hr />
+        >>>>>>> feat: add footer-primary
+
         <h2>HeadingArrow Component</h2>
-        <heading-arrow text="Get Help With" to="/help/foo/bar/" />
+        <heading-arrow
+            text="Get Help With"
+            to="/help/foo/bar/"
+            class="heading-arrow"
+        />
+
         <br /><br />
-        <heading-arrow text="Featured " to="/visit/" />
+        <heading-arrow text="Featured " to="/visit/" class="heading-arrow" />
+
+        <br /><br />
+        <heading-arrow text="Featured " to="/about/" class="heading-arrow" />
         <hr />
 
         <h2>IconWithLink Component</h2>
@@ -317,13 +338,20 @@
 <script>
 import Vue from "vue"
 import * as API from "@/stories/mock-api.json"
-import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
-import HeaderSticky from "../src/lib-components/HeaderSticky.vue"
+// import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
+// import HeaderSticky from "../src/lib-components/HeaderSticky.vue"
 
 export default Vue.extend({
     name: "ServeDev",
     data() {
         return {
+            mockAdvancedSearchLink: {
+                advancedSearchLink: {
+                    text: "Advanced Search",
+                    url: "https://www.library.ucla.edu/search",
+                    target: "_blank",
+                },
+            },
             mockBlockEvent: {
                 bricks: [
                     {
@@ -392,7 +420,8 @@ export default Vue.extend({
                     "SvgIconShareBook",
                 ],
                 to: "http://google.com/title",
-            },            mockHeaderStickPrimaryItems: {
+            },
+            mockHeaderStickPrimaryItems: {
                 items: [
                     { ...API.primaryNavlinks[0] },
                     {
@@ -498,6 +527,109 @@ export default Vue.extend({
                 ],
                 email: "loreum@ipsum.foo",
             },
+            mockFooterPrimary: {
+                socialItems: [
+                    {
+                        id: "11777",
+                        name: "Twotter",
+                        to: "https://twitter.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                    {
+                        id: "11778",
+                        name: "Fatebook",
+                        to: "https://www.facebook.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                    {
+                        id: "11779",
+                        name: "Instagrim",
+                        to: "https://www.instagram.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                    {
+                        id: "11780",
+                        name: "FooTube",
+                        to: "https://www.youtube.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                ],
+                pressItems: [
+                    {
+                        id: "11781",
+                        name: "Dress Doom",
+                        to: "https://test-craft.library.ucla.edu/press-room",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "11782",
+                        name: "Careers at USC",
+                        to: "https://test-craft.library.ucla.edu/careers-at-ucla",
+                        classes: null,
+                        target: "",
+                    },
+                ],
+            },
+            mockFooterSock: {
+                items: [
+                    {
+                        id: "1628",
+                        name: "EEEmergency",
+                        to: "https://test-craft.library.ucla.edu/emergency",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "1627",
+                        name: "AAAccessibility",
+                        to: "https://test-craft.library.ucla.edu/accessibility",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "1629",
+                        name: "Privacy & Terms of Use",
+                        to: "https://test-craft.library.ucla.edu/privacy-terms-of-use",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "9511",
+                        name: "CCCreative Commons Attribution 4.0",
+                        to: "https://creativecommons.org/licenses/by/4.0/",
+                        classes: null,
+                        target: "1",
+                    },
+                ],
+            },
+            mockHeaderStickPrimaryItems: {
+                items: [
+                    { ...API.primaryNavlinks[0] },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "Visit",
+                        url: "/visit/",
+                    },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "About",
+                        url: "/about/",
+                    },
+                    { ...API.primaryNavlinks[3] },
+                ],
+            },
+            mockHeaderStickSecondaryItems: {
+                items: [
+                    { ...API.links[0] },
+                    { ...API.links[1] },
+                    { ...API.links[2] },
+                ],
+            },
             mockPostSmall: {
                 image: API.image,
                 to: "/visit/foo/bar/",
@@ -527,13 +659,6 @@ export default Vue.extend({
                         target: "_blank",
                     },
                 ],
-            },
-            mockAdvancedSearchLink: {
-                advancedSearchLink: {
-                    text: "Advanced Search",
-                    url: "https://www.library.ucla.edu/search",
-                    target: "_blank",
-                },
             },
             mockSectionCardsWithIllustrations: {
                 items: [
@@ -688,29 +813,6 @@ export default Vue.extend({
                         ],
                         phone: "(222) 444-5555",
                     },
-                ],
-            },
-            mockHeaderStickPrimaryItems: {
-                items: [
-                    { ...API.primaryNavlinks[0] },
-                    {
-                        ...API.primaryNavlinks[0],
-                        name: "Visit",
-                        url: "/visit/",
-                    },
-                    {
-                        ...API.primaryNavlinks[0],
-                        name: "About",
-                        url: "/about/",
-                    },
-                    { ...API.primaryNavlinks[3] },
-                ],
-            },
-            mockHeaderStickSecondaryItems: {
-                items: [
-                    { ...API.links[0] },
-                    { ...API.links[1] },
-                    { ...API.links[2] },
                 ],
             },
             mockSectionTeaserCard: {
@@ -1368,6 +1470,11 @@ export default Vue.extend({
     hr {
         margin-top: 25px;
         border-top: 2px dashed coral;
+    }
+
+    .heading-arrow {
+        padding: 15px 0;
+        background-color: var(--color-primary-blue-03);
     }
 }
 </style>
