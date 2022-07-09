@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.16.0...v1.17.0) (2022-07-09)
+
+
+### Features
+
+* APPS-686 add section staff component ([#46](https://github.com/UCLALibrary/ucla-library-website-components/issues/46)) ([9198981](https://github.com/UCLALibrary/ucla-library-website-components/commit/9198981030b753da67e162ca27f43ebe689a1045))
+
 # [1.16.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.15.0...v1.16.0) (2022-07-08)
 
 
