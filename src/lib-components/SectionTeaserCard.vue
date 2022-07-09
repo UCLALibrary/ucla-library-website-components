@@ -19,14 +19,13 @@
 </template>
 
 <script>
-import BlockHighlight from "@/lib-components/BlockBlockHighlight.vue"
+import BlockHighlight from "@/lib-components/BlockHighlight.vue"
 
 export default {
     name: "SectionTeaserCard",
     components: {
         BlockHighlight,
     },
-export default {
     props: {
         /**
          * Array of objects [{ image, to, category, title, dates, times, text }]

@@ -58,7 +58,6 @@ export { default as SectionCardsWithIllustrations } from "./SectionCardsWithIllu
 export { default as SectionDualMasonry } from "./SectionDualMasonry.vue"
 export { default as SectionSpacesList } from "./SectionSpacesList.vue"
 export { default as SectionStaffList } from "./SectionStaffList.vue"
-export { default as SectionStaffList } from "./SectionStaffList.vue"
 export { default as SectionTeaserCard } from "./SectionTeaserCard.vue"
 export { default as SectionTeaserHighlight } from "./SectionTeaserHighlight.vue"
 export { default as SectionTeaserList } from "./SectionTeaserList.vue"

@@ -263,15 +263,15 @@
         <hr />
 
         <h2>SectionTeaserCard Component</h2>
-        <section-teaser-card :items="items" />
+        <section-teaser-card :items="mockSectionTeaserCard.items" />
         <hr />
 
         <h2>SectionTeaserHighlight Component</h2>
-        <section-teaser-highlight :items="items" />
+        <section-teaser-highlight :items="mockSectionTeaserHighlight.items" />
         <hr />
 
         <h2>SectionTeaserList Component</h2>
-        <section-teaser-list :items="items" />
+        <section-teaser-list :items="mockSectionTeaserList.items" />
         <hr />
 
         <h2>SmartLink Component</h2>

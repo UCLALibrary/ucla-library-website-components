@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import BlockHighlight from "@/lib-components/BlockBlockHighlight.vue"
+import BlockHighlight from "@/lib-components/BlockHighlight.vue"
 
 export default {
     name: "SectionTeaserList",
