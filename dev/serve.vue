@@ -207,6 +207,13 @@
         <masthead-primary />
         <hr />
 
+        <h2>MastheadSecondary Component</h2>
+        <masthead-secondary
+            title="Find and Reserve a Space"
+            text="Browse on-campus spaces for study, meetings, and group projects."
+        />
+        <hr />
+
         <h2>ModalGeneric Component</h2>
 
         <h2>NavBreadCrumb Component</h2>
@@ -259,13 +266,22 @@
         />
         <hr />
 
+        <h2>SectionSpacesList Component</h2>
+        <section-spaces-list :items="mockSectionSpacesList.items" />
+        <hr />
+
+        <h2>SectionStaffList</h2>
+        <section-staff-list :items="mockSectionStaffList.items" />
+        <hr />
+
         <h2>SmartLink Component</h2>
         <smart-link to="/"> This will render as a vue-router link </smart-link>
         <hr />
         <hr />
 
-        <h2>FlexibleBlock Components</h2>
+        <h1>FlexibleBlock Components</h1>
         <flexible-blocks :blocks="flexibleBlocks" />
+        <hr />
     </div>
 </template>
 
@@ -532,6 +548,90 @@ export default Vue.extend({
                     },
                 ],
             },
+            mockSectionSpacesList: {
+                items: [
+                    {
+                        to: "https://calendar.library.ucla.edu",
+                        title: "Internal Portico",
+                        location: "Fames Turpis Building",
+                        text: "Etiam faucibus tellus quis magna finibus auctor. Fusce sagittis vel lectus sed ullamcorper. Proin faucibus nibh ut purus consequat lobortis. Aenean eu fermentum leo, vitae egestas eros. Vivamus urna nibh, porttitor in egestas eu, eleifend ac felis. Praesent sed tristique nibh. Nulla dignissim purus at metus consequat, vitae pharetra orci efficitur. Vivamus facilisis massa vel ipsum vestibulum, porta efficitur dolor aliquam.",
+                        buttonUrl: "http://google.com",
+                    },
+                    {
+                        to: "https://www.gettyimages.com/photos/cute-llamas",
+                        title: "External Von Junz",
+                        location: "Debordist Room",
+                        text: "If one examines Marxist class, one is faced with a choice: either reject Baudrillardist simulation or conclude that the significance of the artist is social comment. The premise of Debordist situation implies that the law is capable of significance. Therefore, any number of constructions concerning a self-sufficient reality may be found.",
+                        buttonUrl: "http://google.com",
+                    },
+                    {
+                        to: "",
+                        title: "Null Beefeater Numpty",
+                        location: "Pennyboy Cottage",
+                        text: "Gosh beefeater numpty scouser rambunctious a bottle of plonk know your onions, cornish pasty spend a penny cheerio down the local mush. What a mug one off blimey a comely wench nose rag ponce gobsmacked pennyboy cottage pie, ey up fake tan spam fritters marvelous chippy hedgehog chav.",
+                        buttonUrl: "http://google.com",
+                    },
+                ],
+            },
+            mockSectionStaffList: {
+                items: [
+                    {
+                        to: "/staff/foo",
+                        jobTitle: "Ullamco",
+                        staffName: "Fames ac turpis",
+                        department: "Inceptos Himenaeos",
+                        email: "loreum@ipsum.foo",
+                        locations: [
+                            {
+                                title: "cupidatat non proident",
+                                to: "/location/bar",
+                            },
+                            {
+                                title: "tristique",
+                                to: "/location/baz",
+                            },
+                        ],
+                        phone: "(222) 444-5555",
+                    },
+                    {
+                        to: "/staff/foo",
+                        jobTitle: "Ullamco",
+                        staffName: "Fames ac turpis",
+                        department: "Inceptos Himenaeos",
+                        email: "loreum@ipsum.foo",
+                        locations: [
+                            {
+                                title: "cupidatat non proident",
+                                to: "/location/bar",
+                            },
+                            {
+                                title: "tristique",
+                                to: "/location/baz",
+                            },
+                        ],
+                        phone: "(222) 444-5555",
+                    },
+                    {
+                        to: "/staff/foo",
+                        image: API.image,
+                        jobTitle: "Ullamco",
+                        staffName: "Fames ac turpis",
+                        department: "Inceptos Himenaeos",
+                        email: "loreum@ipsum.foo",
+                        locations: [
+                            {
+                                title: "cupidatat non proident",
+                                to: "/location/bar",
+                            },
+                            {
+                                title: "tristique",
+                                to: "/location/baz",
+                            },
+                        ],
+                        phone: "(222) 444-5555",
+                    },
+                ],
+            },
             mockHeaderStickPrimaryItems: {
                 items: [
                     { ...API.primaryNavlinks[0] },
@@ -553,8 +653,7 @@ export default Vue.extend({
                     { ...API.links[0] },
                     { ...API.links[1] },
                     { ...API.links[2] },
-                ],
-            },
+            }
         }
     },
     computed: {
@@ -642,6 +741,62 @@ export default Vue.extend({
         },
         flexibleBlocks() {
             return [
+                {
+                    id: "13668",
+                    typeHandle: "ctaBlock2Up",
+                    ctaBlock2Up: [
+                        {
+                            text: "Parking passes for Cats & Kittens only. Day use, weekly, monthly and annual passes are available now.",
+                            name: "Get Parking Passes",
+                            to: "http://cat-kitten-parking.com",
+                            title: "Cat & Kitten Parking Passes",
+                            svgName: "svg-call-to-action-find",
+                            backgroundColor: true,
+                            isDark: false,
+                            isSmallSize: true,
+                        },
+                        {
+                            text: "Advanced Ancient Greek for Dogs. Teach your dog the useful language of ancient Greek so you can communicate together more effectively.",
+                            name: "Sign Up for Class",
+                            to: "http://ancient-greek-for-dogs.com",
+                            title: "Ancient Greek for Dogs",
+                            svgName: "svg-call-to-action-money",
+                            backgroundColor: false,
+                            isDark: true,
+                            isSmallSize: true,
+                        },
+                    ],
+                },
+                {
+                    id: "13669",
+                    typeHandle: "mediaWithText",
+                    sectionTitle: "A section of media with text",
+                    sectionSummary: "<p>A section of media with text</p>",
+                    mediaWithText: [
+                        {
+                            id: "13670",
+                            titleLink: "A media Link",
+                            description: "Citation Integration",
+                            coverImage: [
+                                {
+                                    id: "5115",
+                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
+                                    height: 2151,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 2560w",
+                                    alt: "Screen Shot 2022 02 17 at 11 42 39 AM",
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                            buttonText: "Download this",
+                            buttonUrl:
+                                "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
+                            linkToMedia:
+                                "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
+                            typeMedia: "other",
+                        },
+                    ],
+                },
                 {
                     id: "22978",
                     typeHandle: "pullQuote",
@@ -749,6 +904,35 @@ export default Vue.extend({
                                     iconName: "illustration-find-space",
                                 },
                             ],
+                        },
+                    ],
+                },
+                {
+                    id: "13783",
+                    typeHandle: "simpleCards",
+                    sectionTitle: "Fix Potholes",
+                    sectionSummary:
+                        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+                    cards: [
+                        {
+                            id: "13899",
+                            contentLink: [
+                                {
+                                    slug: "road-work",
+                                    title: "Road Work Guide",
+                                    summary: "<p>A research guide</p>",
+                                    externalResourceUrl:
+                                        "http://libguides.library.ucla.edu",
+                                },
+                            ],
+                        },
+                        {
+                            id: "13900",
+                            title: "Types of Sinkholes",
+                            summary:
+                                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
+                            externalLink:
+                                "https://www.heliconusa.com/types-of-sinkholes/",
                         },
                     ],
                 },
@@ -914,6 +1098,33 @@ export default Vue.extend({
         },
         parsedNavSecondary() {
             return [...API.links, { ...API.links[0] }]
+        },
+        mockSimpleCards() {
+            return {
+                id: "13783",
+                sectionTitle: "Fix Potholes",
+                sectionSummary:
+                    "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+                cards: [
+                    {
+                        id: "6622",
+                        text: "<p>Learn how to use a VPN or proxy server to access Library resources with your UCLA Logon ID through a series of helpful videos.</p>",
+                        title: "Connecting from Off-Campus",
+                        slug: "connecting-from-off-campus",
+                        uri: "help/services-resources/connecting-from-off-campus",
+                        type: "resource",
+                    },
+                    {
+                        id: "6407",
+                        text: "<p>A research guide</p>",
+                        title: "A new research guide",
+                        slug: "a-new-research-guide",
+                        uri: null,
+                        externalResourceUrl:
+                            "http://libguides.library.ucla.edu",
+                    },
+                ],
+            }
         },
     },
 })

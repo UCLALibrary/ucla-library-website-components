@@ -7,6 +7,18 @@ module.exports = {
                 @import "@/styles/variables-scss.scss";
               `,
             },
+            postcss: {
+                postcssOptions: {
+                    plugins: [
+                        [
+                            "postcss-base64",
+                            {
+                                extensions: [".svg"],
+                            },
+                        ],
+                    ],
+                },
+            },
         },
     },
     chainWebpack: (config) => {
@@ -16,26 +28,17 @@ module.exports = {
         module: {
             rules: [
                 {
-                    oneOf: [
-                        {
-                            test: /\.(jpg|png|svg|gif)$/,
-                            type: "asset/inline",
-                            resourceQuery: /url/,
-                        },
-                        {
-                            test: /\.svg$/,
-                            loader: "vue-svg-loader",
-                            options: {
-                                svgo: {
-                                    plugins: [
-                                        {
-                                            removeViewBox: false,
-                                        },
-                                    ],
+                    test: /\.svg$/,
+                    loader: "vue-svg-loader",
+                    options: {
+                        svgo: {
+                            plugins: [
+                                {
+                                    removeViewBox: false,
                                 },
-                            },
+                            ],
                         },
-                    ],
+                    },
                 },
             ],
         },
