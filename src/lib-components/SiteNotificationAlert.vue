@@ -34,11 +34,11 @@ export default {
     props: {
         title: {
             type: String,
-            default: () => [],
+            default: "",
         },
         text: {
             type: String,
-            default: () => [],
+            default: "",
         },
         time: {
             type: Number,
