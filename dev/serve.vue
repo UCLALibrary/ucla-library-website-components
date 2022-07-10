@@ -214,6 +214,7 @@
             title="Find and Reserve a Space"
             text="Browse on-campus spaces for study, meetings, and group projects."
         />
+        <hr />
 
         <h2>ModalGeneric Component</h2>
 
@@ -267,23 +268,18 @@
         <section-spaces-list :items="mockSectionSpacesList.items" />
         <hr />
 
+        <h2>SectionStaffList</h2>
+        <section-staff-list :items="mockSectionStaffList.items" />
+        <hr />
+
         <h2>SmartLink Component</h2>
         <smart-link to="/"> This will render as a vue-router link </smart-link>
         <hr />
         <hr />
 
-        <h2>FlexibleBlock Components</h2>
+        <h1>FlexibleBlock Components</h1>
         <flexible-blocks :blocks="flexibleBlocks" />
-
         <hr />
-        <hr />
-
-        <h2>Simple Cards</h2>
-        <simple-cards
-            :items="mockSimpleCards.cards"
-            :section-title="mockSimpleCards.sectionTitle"
-            :section-summary="mockSimpleCards.sectionSummary"
-        />
     </div>
 </template>
 
@@ -448,6 +444,13 @@ export default Vue.extend({
                 ],
                 email: "loreum@ipsum.foo",
             },
+            mockPostSmall: {
+                image: API.image,
+                to: "/visit/foo/bar/",
+                categoryName: "faucibus",
+                author: "Inceptos Himenaeos",
+                title: "Suspendisse in justo eu magna",
+            },
             mockRichText: {
                 richText:
                     "<h3>The Best Libraries in the World</h3><ol><li>LIBRARY OF CONGRESS — WASHINGTON D.C., USA</li><li>BODLEIAN LIBRARY — OXFORD, UNITED KINGDOM</li><li>READING ROOM AT THE BRITISH MUSEUM — LONDON, ENGLAND</li><li>YALE UNIVERSITY BEINECKE RARE BOOK AND MANUSCRIPT LIBRARY — NEW HAVEN, CONNECTICUT, USA</li><li>VATICAN LIBRARY — VATICAN CITY, ROME</li></ul>",
@@ -574,12 +577,64 @@ export default Vue.extend({
                     },
                 ],
             },
-            mockPostSmall: {
-                image: API.image,
-                to: "/visit/foo/bar/",
-                categoryName: "faucibus",
-                author: "Inceptos Himenaeos",
-                title: "Suspendisse in justo eu magna",
+            mockSectionStaffList: {
+                items: [
+                    {
+                        to: "/staff/foo",
+                        jobTitle: "Ullamco",
+                        staffName: "Fames ac turpis",
+                        department: "Inceptos Himenaeos",
+                        email: "loreum@ipsum.foo",
+                        locations: [
+                            {
+                                title: "cupidatat non proident",
+                                to: "/location/bar",
+                            },
+                            {
+                                title: "tristique",
+                                to: "/location/baz",
+                            },
+                        ],
+                        phone: "(222) 444-5555",
+                    },
+                    {
+                        to: "/staff/foo",
+                        jobTitle: "Ullamco",
+                        staffName: "Fames ac turpis",
+                        department: "Inceptos Himenaeos",
+                        email: "loreum@ipsum.foo",
+                        locations: [
+                            {
+                                title: "cupidatat non proident",
+                                to: "/location/bar",
+                            },
+                            {
+                                title: "tristique",
+                                to: "/location/baz",
+                            },
+                        ],
+                        phone: "(222) 444-5555",
+                    },
+                    {
+                        to: "/staff/foo",
+                        image: API.image,
+                        jobTitle: "Ullamco",
+                        staffName: "Fames ac turpis",
+                        department: "Inceptos Himenaeos",
+                        email: "loreum@ipsum.foo",
+                        locations: [
+                            {
+                                title: "cupidatat non proident",
+                                to: "/location/bar",
+                            },
+                            {
+                                title: "tristique",
+                                to: "/location/baz",
+                            },
+                        ],
+                        phone: "(222) 444-5555",
+                    },
+                ],
             },
         }
     },
