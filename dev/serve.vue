@@ -233,6 +233,13 @@
         <site-brand-bar />
         <hr />
 
+        <h2>SiteNotificationAlert Component</h2>
+        <site-notification-alert
+            :title="mockSiteBrandBar.title"
+            :text="mockSiteBrandBar.text"
+        />
+        <hr />
+
         <h2>SearchHome Component</h2>
         <search-home
             :link-items="mockSearchHomeLinks.linkItems"
@@ -554,6 +561,10 @@ export default Vue.extend({
                     { ...API.links[1] },
                     { ...API.links[2] },
                 ],
+            },
+            mockSiteBrandBar: {
+                title: API.alert.title,
+                text: API.alert.text,
             },
         }
     },

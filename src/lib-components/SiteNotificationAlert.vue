@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import SvgGlyphClose from "ucla-library-design-tokens/assets/svgs/glyph-close.svg"
-import SvgAlertCircle from "ucla-library-design-tokens/assets/svgs/alert-circle.svg"
+import SvgGlyphClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg"
+import SvgAlertCircle from "ucla-library-design-tokens/assets/svgs/icon-alert.svg"
 
 export default {
     name: "SiteNotificationAlert",

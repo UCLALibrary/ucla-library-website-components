@@ -41,6 +41,7 @@ export { default as SearchHome } from "./SearchHome.vue"
 export { default as SectionCardsWithIllustrations } from "./SectionCardsWithIllustrations.vue"
 export { default as SectionDualMasonry } from "./SectionDualMasonry.vue"
 export { default as SiteBrandBar } from "./SiteBrandBar.vue"
+export { default as SiteNotificationAlert } from "./SiteNotificationAlert.vue"
 export { default as SmartLink } from "./SmartLink.vue"
 
 export { default as PullQuote } from "./PullQuote.vue"
