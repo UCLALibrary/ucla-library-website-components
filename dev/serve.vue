@@ -208,7 +208,7 @@
         <hr />
 
         <h2>FooterSock</h2>
-        <footer-sock :sock-items="mockFooterSock.items" />
+        <footer-sock :sock-items="mockFooterSock.items[0]" />
         <hr />
         >>>>>>> feat: add footer-primary
 
