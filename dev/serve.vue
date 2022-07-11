@@ -607,29 +607,29 @@ export default Vue.extend({
                     },
                 ],
             },
-            mockHeaderStickPrimaryItems: {
-                items: [
-                    { ...API.primaryNavlinks[0] },
-                    {
-                        ...API.primaryNavlinks[0],
-                        name: "Visit",
-                        url: "/visit/",
-                    },
-                    {
-                        ...API.primaryNavlinks[0],
-                        name: "About",
-                        url: "/about/",
-                    },
-                    { ...API.primaryNavlinks[3] },
-                ],
-            },
-            mockHeaderStickSecondaryItems: {
-                items: [
-                    { ...API.links[0] },
-                    { ...API.links[1] },
-                    { ...API.links[2] },
-                ],
-            },
+            // mockHeaderStickPrimaryItems: {
+            //     items: [
+            //         { ...API.primaryNavlinks[0] },
+            //         {
+            //             ...API.primaryNavlinks[0],
+            //             name: "Visit",
+            //             url: "/visit/",
+            //         },
+            //         {
+            //             ...API.primaryNavlinks[0],
+            //             name: "About",
+            //             url: "/about/",
+            //         },
+            //         { ...API.primaryNavlinks[3] },
+            //     ],
+            // },
+            // mockHeaderStickSecondaryItems: {
+            //     items: [
+            //         { ...API.links[0] },
+            //         { ...API.links[1] },
+            //         { ...API.links[2] },
+            //     ],
+            // },
             mockPostSmall: {
                 image: API.image,
                 to: "/visit/foo/bar/",
