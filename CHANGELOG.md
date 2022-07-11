@@ -1,3 +1,24 @@
+# [1.19.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.18.1...v1.19.0) (2022-07-11)
+
+
+### Features
+
+* add SiteBrandBar component ([#48](https://github.com/UCLALibrary/ucla-library-website-components/issues/48)) ([8868616](https://github.com/UCLALibrary/ucla-library-website-components/commit/88686167d9eb66fdf926d8ea8b4a6a7df8d32582))
+
+## [1.18.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.18.0...v1.18.1) (2022-07-11)
+
+
+### Bug Fixes
+
+* fix campusMap building-access-text, fix mediaWithText svg, add event and postSmall ([#45](https://github.com/UCLALibrary/ucla-library-website-components/issues/45)) ([a8335ef](https://github.com/UCLALibrary/ucla-library-website-components/commit/a8335ef35ee60c01f86ddbe1a04fe86101292ab7))
+
+# [1.18.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.17.0...v1.18.0) (2022-07-11)
+
+
+### Features
+
+* APPS-1687 add section teaser component ([#47](https://github.com/UCLALibrary/ucla-library-website-components/issues/47)) ([3cb5218](https://github.com/UCLALibrary/ucla-library-website-components/commit/3cb5218111d157a10ac2c331d9ef59dbfbae93d1))
+
 # [1.17.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.16.0...v1.17.0) (2022-07-09)
 
 

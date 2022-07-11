@@ -9,7 +9,7 @@
                 <iframe :src="parsedSrc" class="iframe-modal" allowfullscreen />
             </div>
         </modal-generic>
-        <button class="title" @click="showModal">Campus Map</button>
+        <button class="title" @click="showModal" />
         <div class="content">
             <div class="iframe-hover">
                 <div class="iframe-container">
@@ -30,11 +30,13 @@
 
 <script>
 import ModalGeneric from "@/lib-components/ModalGeneric"
+import RichText from "@/lib-components/RichText"
 
 export default {
     name: "BlockCampusMap",
     components: {
         ModalGeneric,
+        RichText,
     },
     props: {
         campusLocationId: {

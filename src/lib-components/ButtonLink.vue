@@ -16,7 +16,7 @@ import isInternalLink from "@/mixins/isInternalLink"
 import SmartLink from "@/lib-components/SmartLink.vue"
 import SvgArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
 import SvgExternalLink from "ucla-library-design-tokens/assets/svgs/icon-external-link.svg"
-import SvgDownload from "ucla-library-design-tokens/assets/svgs/icon-download.svg"
+import SvgArrowDownload from "ucla-library-design-tokens/assets/svgs/icon-download.svg"
 
 export default {
     name: "ButtonLink",
@@ -25,7 +25,7 @@ export default {
         SmartLink,
         SvgArrowRight,
         SvgExternalLink,
-        SvgDownload,
+        SvgArrowDownload,
     },
     props: {
         /**
