@@ -1,3 +1,10 @@
+## [1.21.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.21.0...v1.21.1) (2022-07-11)
+
+
+### Bug Fixes
+
+* serve fix for siteBrandBar ([#51](https://github.com/UCLALibrary/ucla-library-website-components/issues/51)) ([179236e](https://github.com/UCLALibrary/ucla-library-website-components/commit/179236e359be840b26e996a1d1044418b4c72451))
+
 # [1.21.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.20.0...v1.21.0) (2022-07-11)
 
 
