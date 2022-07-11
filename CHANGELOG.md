@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.18.1...v1.19.0) (2022-07-11)
+
+
+### Features
+
+* add SiteBrandBar component ([#48](https://github.com/UCLALibrary/ucla-library-website-components/issues/48)) ([8868616](https://github.com/UCLALibrary/ucla-library-website-components/commit/88686167d9eb66fdf926d8ea8b4a6a7df8d32582))
+
 ## [1.18.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.18.0...v1.18.1) (2022-07-11)
 
 
