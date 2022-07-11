@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.18.0...v1.18.1) (2022-07-11)
+
+
+### Bug Fixes
+
+* fix campusMap building-access-text, fix mediaWithText svg, add event and postSmall ([#45](https://github.com/UCLALibrary/ucla-library-website-components/issues/45)) ([a8335ef](https://github.com/UCLALibrary/ucla-library-website-components/commit/a8335ef35ee60c01f86ddbe1a04fe86101292ab7))
+
 # [1.18.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.17.0...v1.18.0) (2022-07-11)
 
 
