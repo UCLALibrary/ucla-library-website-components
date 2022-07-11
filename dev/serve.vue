@@ -121,6 +121,16 @@
         />
         <hr />
 
+        <h2>BlockPostSmall Component</h2>
+        <block-post-small
+            :category-name="mockPostSmall.categoryName"
+            :author="mockPostSmall.author"
+            :title="mockPostSmall.title"
+            :image="mockPostSmall.image"
+            to="/legal/"
+        />
+        <hr />
+
         <h2>BlockSimpleCard Component</h2>
         <block-simple-card
             :title="mockBlockSimpleCard.title"
@@ -445,6 +455,13 @@ export default Vue.extend({
                     { id: 123, title: "Inceptos Himenaeos Inceptos" },
                 ],
                 email: "loreum@ipsum.foo",
+            },
+            mockPostSmall: {
+                image: API.image,
+                to: "/visit/foo/bar/",
+                categoryName: "faucibus",
+                author: "Inceptos Himenaeos",
+                title: "Suspendisse in justo eu magna",
             },
             mockRichText: {
                 richText:
