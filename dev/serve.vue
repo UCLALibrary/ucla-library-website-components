@@ -661,6 +661,7 @@ export default Vue.extend({
                     },
                 ],
             },
+            mockHeaderStickPrimaryItems: {
                 items: [
                     { ...API.primaryNavlinks[0] },
                     {
@@ -681,6 +682,7 @@ export default Vue.extend({
                     { ...API.links[0] },
                     { ...API.links[1] },
                     { ...API.links[2] },
+                ],
             },
             mockSectionTeaserCard: {
                 items: [
