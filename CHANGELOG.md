@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.17.0...v1.18.0) (2022-07-11)
+
+
+### Features
+
+* APPS-1687 add section teaser component ([#47](https://github.com/UCLALibrary/ucla-library-website-components/issues/47)) ([3cb5218](https://github.com/UCLALibrary/ucla-library-website-components/commit/3cb5218111d157a10ac2c331d9ef59dbfbae93d1))
+
 # [1.17.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.16.0...v1.17.0) (2022-07-09)
 
 
