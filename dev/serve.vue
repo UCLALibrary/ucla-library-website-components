@@ -252,8 +252,8 @@
 
         <h2>SiteNotificationAlert Component</h2>
         <site-notification-alert
-            :title="mockSiteBrandBar.title"
-            :text="mockSiteBrandBar.text"
+            :title="mockSiteNotificationAlert.alert.title"
+            :text="mockSiteNotificationAlert.alert.text"
         />
         <hr />
 
@@ -392,7 +392,8 @@ export default Vue.extend({
                     "SvgIconShareBook",
                 ],
                 to: "http://google.com/title",
-            },            mockHeaderStickPrimaryItems: {
+            },
+            mockHeaderStickPrimaryItems: {
                 items: [
                     { ...API.primaryNavlinks[0] },
                     {
@@ -690,29 +691,6 @@ export default Vue.extend({
                     },
                 ],
             },
-            mockHeaderStickPrimaryItems: {
-                items: [
-                    { ...API.primaryNavlinks[0] },
-                    {
-                        ...API.primaryNavlinks[0],
-                        name: "Visit",
-                        url: "/visit/",
-                    },
-                    {
-                        ...API.primaryNavlinks[0],
-                        name: "About",
-                        url: "/about/",
-                    },
-                    { ...API.primaryNavlinks[3] },
-                ],
-            },
-            mockHeaderStickSecondaryItems: {
-                items: [
-                    { ...API.links[0] },
-                    { ...API.links[1] },
-                    { ...API.links[2] },
-                ],
-            },
             mockSectionTeaserCard: {
                 items: [
                     {
@@ -876,6 +854,14 @@ export default Vue.extend({
                         text: "Accumsan tortor posuere ac ut consequat semper viverra libero.",
                     },
                 ],
+            },
+            mockSiteNotificationAlert: {
+                alert: {
+                    title: "Dropio, heroku",
+                    text: "Napster mozy sococo orkut convore scribd napster, twones diigo joukuu weebly. Sclipo jibjab scribd.",
+                    textLong:
+                        "Greplin prezi zillow zoosk orkut, zoosk gooru. Kiko xobni joukuu ideeli bitly joukuu, squidoo heroku hulu sifteo, zooomr jumo dropio chumby. Qeyno wikia oooooc jajah, ebay qeyno lala, jajah lijit. Etsy wufoo flickr movity sclipo heroku, oooooc etsy oooooc. Vimeo foodzie zoosk ebay, wesabe. Ebay doostang vuvox, xobni. Mozy joyent dropio gooru kippt, greplin skype. Kiko napster geni dogster yoono yammer disqus, hipmunk xobni odeo zynga loopt. Groupon klout divvyshot zinch elgg yoono airbnb, orkut zinch chartly squidoo.",
+                },
             },
         }
     },
