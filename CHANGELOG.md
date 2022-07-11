@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.19.0...v1.20.0) (2022-07-11)
+
+
+### Features
+
+* Apps-1650 - move global components to vuejs component package header sticky ([#49](https://github.com/UCLALibrary/ucla-library-website-components/issues/49)) ([2a797b0](https://github.com/UCLALibrary/ucla-library-website-components/commit/2a797b0e336dd8f31135a13aa20545ed4e08879a))
+
 # [1.19.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.18.1...v1.19.0) (2022-07-11)
 
 
