@@ -268,8 +268,20 @@
         <section-spaces-list :items="mockSectionSpacesList.items" />
         <hr />
 
-        <h2>SectionStaffList</h2>
+        <h2>SectionStaffList Component</h2>
         <section-staff-list :items="mockSectionStaffList.items" />
+        <hr />
+
+        <h2>SectionTeaserCard Component</h2>
+        <section-teaser-card :items="mockSectionTeaserCard.items" />
+        <hr />
+
+        <h2>SectionTeaserHighlight Component</h2>
+        <section-teaser-highlight :items="mockSectionTeaserHighlight.items" />
+        <hr />
+
+        <h2>SectionTeaserList Component</h2>
+        <section-teaser-list :items="mockSectionTeaserList.items" />
         <hr />
 
         <h2>SmartLink Component</h2>
@@ -633,6 +645,170 @@ export default Vue.extend({
                             },
                         ],
                         phone: "(222) 444-5555",
+                    },
+                ],
+            },
+            mockSectionTeaserCard: {
+                items: [
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bar/",
+                        category: "Feugiat",
+                        title: "Vel Quam Elementum",
+                        startDate: "2021-02-05T11:00:00-08:00",
+                        endDate: "2021-02-05T11:00:00-08:00",
+                        isOnline: true,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/baz/",
+                        category: "Tincidunt",
+                        title: "Mauris pellentesque pulvinar pellentesque habitant morbi tristique",
+                        isOnline: true,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bat/",
+                        title: "Adipiscing Tristique",
+                        isOnline: false,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/ban/",
+                        category: "Ullamco",
+                        title: "Fames ac turpis egestas sed tempus lorem ipsum",
+                        startDate: "2021-02-05T11:00:00-08:00",
+                        endDate: "2021-02-05T11:00:00-08:00",
+                        isOnline: false,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/barf/",
+                        category: "Curabitur ",
+                        title: "Vel Quam Elementum",
+                        startDate: "2021-02-05T11:00:00-08:00",
+                        endDate: "2021-02-05T11:00:00-08:00",
+                        isOnline: true,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bad/",
+                        category: "Sagittis",
+                        title: "Aenean Lectus Elit",
+                        startDate: "2021-02-05T11:00:00-08:00",
+                        endDate: "2021-02-05T11:00:00-08:00",
+                        isOnline: true,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bag/",
+                        category: "Tortor",
+                        title: "Vivamus Consectetuer Risus et Tortor",
+                        startDate: "2021-02-05T11:00:00-08:00",
+                        endDate: "2021-02-05T11:00:00-08:00",
+                        isOnline: false,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bam/",
+                        category: "Maecenas",
+                        title: "Proin ut Ligula vel Nunc Egestas Porttitor",
+                        text: "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
+                        isOnline: false,
+                    },
+                ],
+            },
+            mockSectionTeaserHighlight: {
+                items: [
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bar/",
+                        category: "Ullamco",
+                        title: "Fames ac turpis egestas sed tempus lorem ipsum",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "Ultricies leo integer malesuada nunc vel risus commodo viverra.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bar/",
+                        category: "Aliquam Varius",
+                        title: "Pretium magna eget dignissim placerat arcu velit et metus",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        locations: [
+                            { title: "Powellarium", to: "/location/bar" },
+                            {
+                                title: "Research Library (Charles E. Young)",
+                                to: "/location/baz",
+                            },
+                        ],
+                        text: "Pellentesque molestie, est ut vestibulum convallis, velit ante auctor mauris, sed mattis dolor ante ac purus. Nullam egestas neque sed ullamcorper suscipit.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/baz/",
+                        category: "Sagittis",
+                        title: "Auctor Ligula",
+                        startDate: "2021-01-03T08:00:00+00:00",
+                        endDate: "2021-02-08T07:10:00+00:00",
+                        locations: [
+                            { title: "Online", to: "/location/bar" },
+                            {
+                                title: "Research Library (Charles E. Young)",
+                                to: "/location/baz",
+                            },
+                        ],
+                        text: "Proin sit amet leo eros. Pellentesque luctus tortor eu aliquet tristique. Proin fringilla enim eget sagittis mattis. Praesent faucibus libero ipsum.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/baz/",
+                        category: "Tristique",
+                        title: "Amet nisl suscipit adipiscing bibendum lectus sed",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "A diam maecenas sed enim. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis. Mi bibendum neque egestas congue. Placerat duis ultricies lacus sed turpis. Massa enim nec dui nunc mattis. Dolor morbi non arcu risus quis varius vestibulum sed.",
+                    },
+                ],
+            },
+            mockSectionTeaserList: {
+                items: [
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bar/",
+                        category: "Ullamco",
+                        title: "Fames ac turpis egestas sed tempus lorem ipsum",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "Ultricies leo integer malesuada nunc vel risus commodo viverra.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/baz/",
+                        category: "Sagittis",
+                        title: "Amet nisl suscipit adipiscing bibendum lectus sed",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "A diam maecenas sed enim. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis. Mi bibendum neque egestas congue. Placerat duis ultricies lacus sed turpis. Massa enim nec dui nunc mattis. Dolor morbi non arcu risus quis varius vestibulum sed.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bat/",
+                        category: "Tincidunt",
+                        title: "Scelerisque varius morbi enim nunc ornare quam",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "Eu ultrices vitae auctor eu augue. Dolor morbi non arcu risus quis varius quam. Augue lacus viverra vitae congue eu consequat.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/ban/",
+                        category: "Gravida",
+                        title: "At varius vel pharetra vel turpis. Quam vulputate dignissim suspendisse in est ante in. Sed cras ornare arcu. Non diam phasellus vestibulum.",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "Accumsan tortor posuere ac ut consequat semper viverra libero.",
                     },
                 ],
             },
