@@ -238,6 +238,10 @@
         <rich-text :rich-text-content="mockRichText.richText" />
         <hr />
 
+        <h2>SiteBrandBar Component</h2>
+        <site-brand-bar />
+        <hr />
+
         <h2>SearchHome Component</h2>
         <search-home
             :link-items="mockSearchHomeLinks.linkItems"
