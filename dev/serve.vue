@@ -191,6 +191,14 @@
         <divider-way-finder color="visit" />
         <hr />
 
+        <!-- Commented out because it will get in the way of others components, but it's working -->
+        <!-- <h2>HeaderSticky Component</h2>
+        <header-sticky
+            :primary-items="mockHeaderStickPrimaryItems.items"
+            :secondary-items="mockHeaderStickSecondaryItems.items"
+        />
+        <hr /> -->
+
         <h2>HeadingArrow Component</h2>
         <heading-arrow text="Get Help With" to="/help/foo/bar/" />
         <br /><br />
@@ -303,6 +311,7 @@
 import Vue from "vue"
 import * as API from "@/stories/mock-api.json"
 import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
+import HeaderSticky from "../src/lib-components/HeaderSticky.vue"
 
 export default Vue.extend({
     name: "ServeDev",
@@ -650,6 +659,29 @@ export default Vue.extend({
                         ],
                         phone: "(222) 444-5555",
                     },
+                ],
+            },
+            mockHeaderStickPrimaryItems: {
+                items: [
+                    { ...API.primaryNavlinks[0] },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "Visit",
+                        url: "/visit/",
+                    },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "About",
+                        url: "/about/",
+                    },
+                    { ...API.primaryNavlinks[3] },
+                ],
+            },
+            mockHeaderStickSecondaryItems: {
+                items: [
+                    { ...API.links[0] },
+                    { ...API.links[1] },
+                    { ...API.links[2] },
                 ],
             },
             mockSectionTeaserCard: {
