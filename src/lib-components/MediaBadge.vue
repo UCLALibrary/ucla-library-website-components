@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="media-badge">
         <div class="floating-highlight" />
         <div class="badge-content">
