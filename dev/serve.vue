@@ -181,6 +181,14 @@
         <divider-way-finder color="visit" />
         <hr />
 
+        <h2>HeaderMainResponsive Component</h2>
+        <header-main-responsive
+            :primary-nav="parsedNavPrimary"
+            :secondary-nav="parsedSecondary"
+            current-path="/about/foo/bar"
+        />
+        <hr />
+
         <h2>HeadingArrow Component</h2>
         <heading-arrow text="Get Help With" to="/help/foo/bar/" />
         <br /><br />
