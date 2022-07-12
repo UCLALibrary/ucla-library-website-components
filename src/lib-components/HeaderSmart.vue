@@ -20,10 +20,10 @@ export default {
     },
     computed: {
         primaryMenuItems() {
-            return this.$store.state.header.primary
+            return this.$store.state.primary
         },
         secondaryMenuItems() {
-            return this.$store.state.header.secondary
+            return this.$store.state.secondary
         },
         isMobile() {
             return this.$store.state.winWidth <= 1024 ? true : false

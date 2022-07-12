@@ -199,6 +199,11 @@
         />
         <hr />
 
+        <h2>HeaderSmart Component</h2>
+        <header-smart />
+        <br /><br />
+        <hr />
+
         <!-- Commented out because it will get in the way of others components, but it's working -->
         <!-- <h2>HeaderSticky Component</h2>
         <header-sticky

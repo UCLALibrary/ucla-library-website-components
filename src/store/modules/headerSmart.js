@@ -1,17 +1,3 @@
-// Storybook default settings
-import Vue from "vue"
-import Vuex from "vuex"
-import HeaderSmart from "@/lib-components/HeaderSmart"
-import StoryRouter from "storybook-vue-router"
-
-Vue.use(Vuex)
-
-export default {
-    title: "GLOBAL / Header Smart",
-    component: HeaderSmart,
-    decorators: [StoryRouter()],
-}
-
 const mock = {
     secondary: [
         {
@@ -117,43 +103,15 @@ const mock = {
     ],
 }
 
-// Variations of stories below
-export const Default = () => ({
-    store: new Vuex.Store({
-        state: {
-            header: {
-                primary: mock.primary,
-                secondary: mock.secondary,
-            },
-            winWidth: 824,
+export default {
+    state: {
+        header: {
+            primary: mock.primary,
+            secondary: mock.secondary,
         },
-    }),
-    components: { HeaderSmart },
-    data() {
-        return {
-            ...mock,
-        }
+        winWidth: 824,
     },
-
-    template: `<header-smart  />`,
-})
-
-export const DesktopWindowWidth = () => ({
-    store: new Vuex.Store({
-        state: {
-            header: {
-                primary: mock.primary,
-                secondary: mock.secondary,
-            },
-            winWidth: 1200,
-        },
-    }),
-    components: { HeaderSmart },
-    data() {
-        return {
-            ...mock,
-        }
-    },
-
-    template: `<header-smart  />`,
-})
+    getters: {},
+    mutations: {},
+    actions: {},
+}
