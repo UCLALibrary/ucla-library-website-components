@@ -1,12 +1,6 @@
 <template>
-    <div
-        ref="lightbox"
-        class="lightbox"
-    >
-        <button
-            class="button-close"
-            @click="$emit('closeModal')"
-        >
+    <div ref="lightbox" class="lightbox">
+        <button class="button-close" @click="$emit('closeModal')">
             <svg-icon-close />
         </button>
         <vue-glide
@@ -18,19 +12,14 @@
             type="carousel"
             @change="setCurrentSlide"
         >
-            <vue-glide-slide
-                v-for="(img, index) in images"
-                :key="index"
-            >
+            <vue-glide-slide v-for="(img, index) in images" :key="index">
                 <responsive-image
                     :key="index"
                     object-fit="contain"
                     :image="img"
                 />
             </vue-glide-slide>
-            <template
-                slot="control"
-            >
+            <template slot="control">
                 <button
                     v-if="nItems > 1"
                     class="button-prev"
@@ -50,10 +39,7 @@
             </template>
         </vue-glide>
         <div class="caption-block">
-            <div
-                class="media-counter" 
-                role="tablist"
-            >
+            <div class="media-counter" role="tablist">
                 <button
                     v-for="index in nItems"
                     :key="index"
@@ -81,30 +67,24 @@
 </template>
 
 <script>
-import { Glide, GlideSlide } from 'vue-glide-js'
-import 'vue-glide-js/dist/vue-glide.css'
+import { Glide, GlideSlide } from "vue-glide-js"
+import "vue-glide-js/dist/vue-glide.css"
+import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-left.svg"
+import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret-right.svg"
+import SvgIconClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg"
+import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet.svg"
+// import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 
 export default {
-    name: 'NewLightbox',
+    name: "FlexibleMediaGalleryNewLightbox",
     components: {
         [Glide.name]: Glide,
         [GlideSlide.name]: GlideSlide,
-        SvgIconCaretLeft: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-caret-left"
-            ),
-        SvgIconCaretRight: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-caret-right"
-            ),
-        SvgIconClose: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-close"
-            ),
-        SvgIconMoleculeBullet: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-molecule-bullet"
-            ),
+        SvgIconCaretLeft,
+        SvgIconCaretRight,
+        SvgIconClose,
+        SvgIconMoleculeBullet,
+        // ResponsiveImage,
     },
     props: {
         block: {
@@ -119,17 +99,17 @@ export default {
         selectedItem: {
             type: Number,
             default: 0,
-        }
+        },
     },
     data() {
         return {
-            selectionIndex: this.selectedItem
+            selectionIndex: this.selectedItem,
         }
     },
     computed: {
         images() {
             return this.block.map((item) => item.image[0])
-        }
+        },
     },
     mounted() {
         this.$refs.lightbox.focus()
@@ -137,21 +117,21 @@ export default {
     methods: {
         checkCurrentSlide(index) {
             if (index === this.currentSlide) {
-                return 'current-slide'
+                return "current-slide"
             }
         },
         setCurrentSlide(currentSlide) {
             this.selectionIndex = currentSlide
-        }
-    }
+        },
+    },
 }
 </script>
 
 <style lang="scss" scoped>
 .lightbox {
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     overflow-y: auto;
@@ -164,18 +144,19 @@ export default {
         992px
     );
     --media-height: calc(var(--media-width) * 9 / 16);
-    --side-column-width: calc((100vw - var(--media-width) - 2 * var(--gap-width)) / 2);
+    --side-column-width: calc(
+        (100vw - var(--media-width) - 2 * var(--gap-width)) / 2
+    );
 
     background: var(--color-primary-blue-05);
     z-index: 800;
 
     display: grid;
     grid-template-columns:
-        [col] var(--side-column-width) [col] var(--media-width) [col] var(--side-column-width);
-    grid-template-rows:
-        [row] auto [row] auto [row] auto;
+        [col] var(--side-column-width) [col] var(--media-width)
+        [col] var(--side-column-width);
+    grid-template-rows: [row] auto [row] auto [row] auto;
     grid-gap: var(--gap-width);
-
 
     .button-close {
         grid-row: row 1;
@@ -204,7 +185,7 @@ export default {
     @media #{$has-hover} {
         button:enabled {
             &:hover {
-            svg {
+                svg {
                     path {
                         stroke-width: 3px;
                     }
@@ -256,7 +237,7 @@ export default {
         align-self: center;
         color: white;
     }
-    
+
     @media #{$medium} {
         .button-prev {
             top: calc(var(--media-width) / 3);
@@ -272,9 +253,8 @@ export default {
         ::v-deep .glide__slides {
             align-items: center;
         }
-
     }
-        
+
     @media #{$small} {
         .button-prev {
             top: calc(var(--media-width) / 1.15);
@@ -290,7 +270,6 @@ export default {
         ::v-deep .glide__slides {
             align-items: center;
         }
-
     }
 
     .caption-block {
@@ -337,5 +316,4 @@ export default {
         }
     }
 }
-
 </style>

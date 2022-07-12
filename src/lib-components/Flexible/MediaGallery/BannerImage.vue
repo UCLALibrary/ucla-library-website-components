@@ -1,12 +1,6 @@
 <template>
-    <div
-        class="banner-image"
-        @click="$emit('toggleThumbnails')"
-    >
-        <responsive-image
-            :image="image"
-            :aspect-ratio="60"
-        >
+    <div class="banner-image" @click="$emit('toggleThumbnails')">
+        <responsive-image :image="image" :aspect-ratio="60">
             <div v-if="nItems > 1 && !expanded">
                 <div class="gradient" />
                 <svg-molecule-image-stack class="molecule-image-stack" />
@@ -41,16 +35,16 @@
 </template>
 
 <script>
-import MediaBadge from '../MediaBadge.vue'
+import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
+import MediaBadge from "@/lib-components/MediaBadge.vue"
+import SvgMoleculeImageStack from "ucla-library-design-tokens/assets/svgs/molecule-image-stack"
 
-export default 
-{
+export default {
+    name: "FlexibleMediaGalleryBannerImage",
     components: {
-        MediaBadge, 
-        SvgMoleculeImageStack: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/molecule-image-stack"
-            ),
+        ResponsiveImage,
+        MediaBadge,
+        SvgMoleculeImageStack,
     },
     props: {
         image: {
@@ -64,7 +58,7 @@ export default
         expanded: {
             type: Boolean,
             required: true,
-        }
+        },
     },
 }
 </script>
@@ -74,7 +68,7 @@ export default
     .gradient {
         display: none;
         background: var(--gradient-radial);
-        background-size: cover; 
+        background-size: cover;
         // z-index: 10;
         position: absolute;
         top: 0;
@@ -105,7 +99,7 @@ export default
         margin-left: 8px;
 
         border-radius: 12px;
-        background: #FFFFFF;
+        background: #ffffff;
     }
 }
 
@@ -116,11 +110,11 @@ export default
             display: block;
         }
 
-    .svg__molecule-image-stack {
-        .svg__fill--primary-blue-03 {
-            fill: var(--color-primary-blue-05);
+        .svg__molecule-image-stack {
+            .svg__fill--primary-blue-03 {
+                fill: var(--color-primary-blue-05);
+            }
         }
-    }
     }
 }
 </style>

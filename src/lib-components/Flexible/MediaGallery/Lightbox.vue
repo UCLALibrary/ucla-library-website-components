@@ -5,10 +5,7 @@
             object-fit="contain"
             :image="image"
         />
-        <button
-            class="button-close"
-            @click="$emit('closeModal')"
-        >
+        <button class="button-close" @click="$emit('closeModal')">
             <svg-icon-close />
         </button>
         <button
@@ -33,8 +30,8 @@
                     v-for="index in nItems"
                     :key="index"
                     class="media-counter-item"
-                    :disabled="index-1 == selectionIndex"
-                    @click="$emit('selectItem', index-1)"
+                    :disabled="index - 1 == selectionIndex"
+                    @click="$emit('selectItem', index - 1)"
                 >
                     <svg-icon-molecule-bullet
                         width="12px"
@@ -43,39 +40,27 @@
                     />
                 </button>
             </div>
-            <h4
-                class="media-object-title"
-                v-text="captionTitle"
-            />
-            <p
-                class="media-object-caption"
-                v-text="captionText"
-            />
+            <h4 class="media-object-title" v-text="captionTitle" />
+            <p class="media-object-caption" v-text="captionText" />
         </div>
     </div>
 </template>
 
 <script>
+import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-left"
+import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret-right"
+import SvgIconClose from "ucla-library-design-tokens/assets/svgs/icon-close"
+import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet"
+import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 
-export default 
-{
+export default {
+    name: "FlexibleMediaGalleryLightbox",
     components: {
-        SvgIconCaretLeft: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-caret-left"
-            ),
-        SvgIconCaretRight: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-caret-right"
-            ),
-        SvgIconClose: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-close"
-            ),
-        SvgIconMoleculeBullet: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-molecule-bullet"
-            ),
+        SvgIconCaretLeft,
+        SvgIconCaretRight,
+        SvgIconClose,
+        SvgIconMoleculeBullet,
+        ResponsiveImage,
     },
     props: {
         image: {
@@ -97,7 +82,7 @@ export default
         nItems: {
             type: Number,
             default: 1,
-        }
+        },
     },
 }
 </script>
@@ -105,8 +90,8 @@ export default
 <style lang="scss" scoped>
 .lightbox {
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     overflow-y: auto;
@@ -119,7 +104,9 @@ export default
         992px
     );
     --media-height: calc(var(--media-width) * 9 / 16);
-    --side-column-width: calc((100vw - var(--media-width) - 2 * var(--gap-width)) / 2);
+    --side-column-width: calc(
+        (100vw - var(--media-width) - 2 * var(--gap-width)) / 2
+    );
 
     background: var(--color-primary-blue-05);
     z-index: 800;
@@ -130,7 +117,7 @@ export default
         [middle-col] var(--media-width)
         [right-col] var(--side-column-width);
     grid-template-rows:
-        [top-row] var(--side-column-min-width) 
+        [top-row] var(--side-column-min-width)
         [middle-row] var(--media-height)
         [bottom-row] 1fr;
     grid-gap: var(--gap-width);
@@ -157,7 +144,7 @@ export default
     @media #{$has-hover} {
         button:enabled {
             &:hover {
-            svg {
+                svg {
                     path {
                         stroke-width: 3px;
                     }
