@@ -37,7 +37,7 @@
 <script>
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import MediaBadge from "@/lib-components/MediaBadge.vue"
-import SvgMoleculeImageStack from "ucla-library-design-tokens/assets/svgs/molecule-image-stack"
+import SvgMoleculeImageStack from "ucla-library-design-tokens/assets/svgs/molecule-image-stack.svg"
 
 export default {
     name: "FlexibleMediaGalleryBannerImage",
