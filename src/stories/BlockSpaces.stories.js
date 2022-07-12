@@ -1,9 +1,14 @@
+// Import component
 import BlockSpaces from "@/lib-components/BlockSpaces"
+
+// A storybook decorator that allows you to use routing-aware components in your stories
+import StoryRouter from "storybook-vue-router"
 
 // Storybook default settings
 export default {
     title: "BLOCK / Spaces",
     component: BlockSpaces,
+    decorators: [StoryRouter()],
 }
 
 const mock = {

@@ -1,3 +1,87 @@
+## [1.21.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.21.0...v1.21.1) (2022-07-11)
+
+
+### Bug Fixes
+
+* serve fix for siteBrandBar ([#51](https://github.com/UCLALibrary/ucla-library-website-components/issues/51)) ([179236e](https://github.com/UCLALibrary/ucla-library-website-components/commit/179236e359be840b26e996a1d1044418b4c72451))
+
+# [1.21.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.20.0...v1.21.0) (2022-07-11)
+
+
+### Features
+
+* Apps-1650 - move global components to vuejs component package site notification alert ([#50](https://github.com/UCLALibrary/ucla-library-website-components/issues/50)) ([9dc9016](https://github.com/UCLALibrary/ucla-library-website-components/commit/9dc90162323721b060dce35c00d22dae3c283b13))
+
+# [1.20.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.19.0...v1.20.0) (2022-07-11)
+
+
+### Features
+
+* Apps-1650 - move global components to vuejs component package header sticky ([#49](https://github.com/UCLALibrary/ucla-library-website-components/issues/49)) ([2a797b0](https://github.com/UCLALibrary/ucla-library-website-components/commit/2a797b0e336dd8f31135a13aa20545ed4e08879a))
+
+# [1.19.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.18.1...v1.19.0) (2022-07-11)
+
+
+### Features
+
+* add SiteBrandBar component ([#48](https://github.com/UCLALibrary/ucla-library-website-components/issues/48)) ([8868616](https://github.com/UCLALibrary/ucla-library-website-components/commit/88686167d9eb66fdf926d8ea8b4a6a7df8d32582))
+
+## [1.18.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.18.0...v1.18.1) (2022-07-11)
+
+
+### Bug Fixes
+
+* fix campusMap building-access-text, fix mediaWithText svg, add event and postSmall ([#45](https://github.com/UCLALibrary/ucla-library-website-components/issues/45)) ([a8335ef](https://github.com/UCLALibrary/ucla-library-website-components/commit/a8335ef35ee60c01f86ddbe1a04fe86101292ab7))
+
+# [1.18.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.17.0...v1.18.0) (2022-07-11)
+
+
+### Features
+
+* APPS-1687 add section teaser component ([#47](https://github.com/UCLALibrary/ucla-library-website-components/issues/47)) ([3cb5218](https://github.com/UCLALibrary/ucla-library-website-components/commit/3cb5218111d157a10ac2c331d9ef59dbfbae93d1))
+
+# [1.17.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.16.0...v1.17.0) (2022-07-09)
+
+
+### Features
+
+* APPS-686 add section staff component ([#46](https://github.com/UCLALibrary/ucla-library-website-components/issues/46)) ([9198981](https://github.com/UCLALibrary/ucla-library-website-components/commit/9198981030b753da67e162ca27f43ebe689a1045))
+
+# [1.16.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.15.0...v1.16.0) (2022-07-08)
+
+
+### Features
+
+* Move MastheadSecondary to components repo ([#44](https://github.com/UCLALibrary/ucla-library-website-components/issues/44)) ([75d1336](https://github.com/UCLALibrary/ucla-library-website-components/commit/75d1336d73c8618dfa777910ca42c4b31c34762e))
+
+# [1.15.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.14.1...v1.15.0) (2022-07-08)
+
+
+### Features
+
+* Flexible Media With Text, Simple Cards, Call ToAction Two Up ([#43](https://github.com/UCLALibrary/ucla-library-website-components/issues/43)) ([de4424c](https://github.com/UCLALibrary/ucla-library-website-components/commit/de4424c3ce39bf0087d4d1a99de86792c55e2ef4))
+
+## [1.14.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.14.0...v1.14.1) (2022-07-08)
+
+
+### Bug Fixes
+
+* update configs to use postcss ([#42](https://github.com/UCLALibrary/ucla-library-website-components/issues/42)) ([2850f93](https://github.com/UCLALibrary/ucla-library-website-components/commit/2850f934d331df0bdc8cf0d42c5519a2c2d4b27c))
+
+# [1.14.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.13.0...v1.14.0) (2022-07-08)
+
+
+### Features
+
+* APPS-685 add section spaces component ([#39](https://github.com/UCLALibrary/ucla-library-website-components/issues/39)) ([f05df63](https://github.com/UCLALibrary/ucla-library-website-components/commit/f05df63a319377a1385c110d26339639649b9a2a))
+
+# [1.13.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.12.1...v1.13.0) (2022-07-08)
+
+
+### Features
+
+* add simple cards ([#40](https://github.com/UCLALibrary/ucla-library-website-components/issues/40)) ([6c9ea00](https://github.com/UCLALibrary/ucla-library-website-components/commit/6c9ea005eb49cfa02e072020170b2e47806a89bf))
+
 ## [1.12.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.12.0...v1.12.1) (2022-07-07)
 
 

@@ -121,6 +121,16 @@
         />
         <hr />
 
+        <h2>BlockPostSmall Component</h2>
+        <block-post-small
+            :category-name="mockPostSmall.categoryName"
+            :author="mockPostSmall.author"
+            :title="mockPostSmall.title"
+            :image="mockPostSmall.image"
+            to="/legal/"
+        />
+        <hr />
+
         <h2>BlockSimpleCard Component</h2>
         <block-simple-card
             :title="mockBlockSimpleCard.title"
@@ -189,6 +199,14 @@
         />
         <hr />
 
+        <!-- Commented out because it will get in the way of others components, but it's working -->
+        <!-- <h2>HeaderSticky Component</h2>
+        <header-sticky
+            :primary-items="mockHeaderStickPrimaryItems.items"
+            :secondary-items="mockHeaderStickSecondaryItems.items"
+        />
+        <hr /> -->
+
         <h2>HeadingArrow Component</h2>
         <heading-arrow text="Get Help With" to="/help/foo/bar/" />
         <br /><br />
@@ -205,6 +223,13 @@
 
         <h2>MastheadPrimary Component</h2>
         <masthead-primary />
+        <hr />
+
+        <h2>MastheadSecondary Component</h2>
+        <masthead-secondary
+            title="Find and Reserve a Space"
+            text="Browse on-campus spaces for study, meetings, and group projects."
+        />
         <hr />
 
         <h2>ModalGeneric Component</h2>
@@ -259,13 +284,34 @@
         />
         <hr />
 
+        <h2>SectionSpacesList Component</h2>
+        <section-spaces-list :items="mockSectionSpacesList.items" />
+        <hr />
+
+        <h2>SectionStaffList Component</h2>
+        <section-staff-list :items="mockSectionStaffList.items" />
+        <hr />
+
+        <h2>SectionTeaserCard Component</h2>
+        <section-teaser-card :items="mockSectionTeaserCard.items" />
+        <hr />
+
+        <h2>SectionTeaserHighlight Component</h2>
+        <section-teaser-highlight :items="mockSectionTeaserHighlight.items" />
+        <hr />
+
+        <h2>SectionTeaserList Component</h2>
+        <section-teaser-list :items="mockSectionTeaserList.items" />
+        <hr />
+
         <h2>SmartLink Component</h2>
         <smart-link to="/"> This will render as a vue-router link </smart-link>
         <hr />
         <hr />
 
-        <h2>FlexibleBlock Components</h2>
+        <h1>FlexibleBlock Components</h1>
         <flexible-blocks :blocks="flexibleBlocks" />
+        <hr />
     </div>
 </template>
 
@@ -273,6 +319,7 @@
 import Vue from "vue"
 import * as API from "@/stories/mock-api.json"
 import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
+import HeaderSticky from "../src/lib-components/HeaderSticky.vue"
 
 export default Vue.extend({
     name: "ServeDev",
@@ -346,6 +393,29 @@ export default Vue.extend({
                     "SvgIconShareBook",
                 ],
                 to: "http://google.com/title",
+            },
+            mockHeaderStickPrimaryItems: {
+                items: [
+                    { ...API.primaryNavlinks[0] },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "Visit",
+                        url: "/visit/",
+                    },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "About",
+                        url: "/about/",
+                    },
+                    { ...API.primaryNavlinks[3] },
+                ],
+            },
+            mockHeaderStickSecondaryItems: {
+                items: [
+                    { ...API.links[0] },
+                    { ...API.links[1] },
+                    { ...API.links[2] },
+                ],
             },
             mockMediaWithText: {
                 id: "13669",
@@ -429,6 +499,13 @@ export default Vue.extend({
                     { id: 123, title: "Inceptos Himenaeos Inceptos" },
                 ],
                 email: "loreum@ipsum.foo",
+            },
+            mockPostSmall: {
+                image: API.image,
+                to: "/visit/foo/bar/",
+                categoryName: "faucibus",
+                author: "Inceptos Himenaeos",
+                title: "Suspendisse in justo eu magna",
             },
             mockRichText: {
                 richText:
@@ -531,6 +608,262 @@ export default Vue.extend({
                     },
                 ],
             },
+            mockSectionSpacesList: {
+                items: [
+                    {
+                        to: "https://calendar.library.ucla.edu",
+                        title: "Internal Portico",
+                        location: "Fames Turpis Building",
+                        text: "Etiam faucibus tellus quis magna finibus auctor. Fusce sagittis vel lectus sed ullamcorper. Proin faucibus nibh ut purus consequat lobortis. Aenean eu fermentum leo, vitae egestas eros. Vivamus urna nibh, porttitor in egestas eu, eleifend ac felis. Praesent sed tristique nibh. Nulla dignissim purus at metus consequat, vitae pharetra orci efficitur. Vivamus facilisis massa vel ipsum vestibulum, porta efficitur dolor aliquam.",
+                        buttonUrl: "http://google.com",
+                    },
+                    {
+                        to: "https://www.gettyimages.com/photos/cute-llamas",
+                        title: "External Von Junz",
+                        location: "Debordist Room",
+                        text: "If one examines Marxist class, one is faced with a choice: either reject Baudrillardist simulation or conclude that the significance of the artist is social comment. The premise of Debordist situation implies that the law is capable of significance. Therefore, any number of constructions concerning a self-sufficient reality may be found.",
+                        buttonUrl: "http://google.com",
+                    },
+                    {
+                        to: "",
+                        title: "Null Beefeater Numpty",
+                        location: "Pennyboy Cottage",
+                        text: "Gosh beefeater numpty scouser rambunctious a bottle of plonk know your onions, cornish pasty spend a penny cheerio down the local mush. What a mug one off blimey a comely wench nose rag ponce gobsmacked pennyboy cottage pie, ey up fake tan spam fritters marvelous chippy hedgehog chav.",
+                        buttonUrl: "http://google.com",
+                    },
+                ],
+            },
+            mockSectionStaffList: {
+                items: [
+                    {
+                        to: "/staff/foo",
+                        jobTitle: "Ullamco",
+                        staffName: "Fames ac turpis",
+                        department: "Inceptos Himenaeos",
+                        email: "loreum@ipsum.foo",
+                        locations: [
+                            {
+                                title: "cupidatat non proident",
+                                to: "/location/bar",
+                            },
+                            {
+                                title: "tristique",
+                                to: "/location/baz",
+                            },
+                        ],
+                        phone: "(222) 444-5555",
+                    },
+                    {
+                        to: "/staff/foo",
+                        jobTitle: "Ullamco",
+                        staffName: "Fames ac turpis",
+                        department: "Inceptos Himenaeos",
+                        email: "loreum@ipsum.foo",
+                        locations: [
+                            {
+                                title: "cupidatat non proident",
+                                to: "/location/bar",
+                            },
+                            {
+                                title: "tristique",
+                                to: "/location/baz",
+                            },
+                        ],
+                        phone: "(222) 444-5555",
+                    },
+                    {
+                        to: "/staff/foo",
+                        image: API.image,
+                        jobTitle: "Ullamco",
+                        staffName: "Fames ac turpis",
+                        department: "Inceptos Himenaeos",
+                        email: "loreum@ipsum.foo",
+                        locations: [
+                            {
+                                title: "cupidatat non proident",
+                                to: "/location/bar",
+                            },
+                            {
+                                title: "tristique",
+                                to: "/location/baz",
+                            },
+                        ],
+                        phone: "(222) 444-5555",
+                    },
+                ],
+            },
+            mockSectionTeaserCard: {
+                items: [
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bar/",
+                        category: "Feugiat",
+                        title: "Vel Quam Elementum",
+                        startDate: "2021-02-05T11:00:00-08:00",
+                        endDate: "2021-02-05T11:00:00-08:00",
+                        isOnline: true,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/baz/",
+                        category: "Tincidunt",
+                        title: "Mauris pellentesque pulvinar pellentesque habitant morbi tristique",
+                        isOnline: true,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bat/",
+                        title: "Adipiscing Tristique",
+                        isOnline: false,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/ban/",
+                        category: "Ullamco",
+                        title: "Fames ac turpis egestas sed tempus lorem ipsum",
+                        startDate: "2021-02-05T11:00:00-08:00",
+                        endDate: "2021-02-05T11:00:00-08:00",
+                        isOnline: false,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/barf/",
+                        category: "Curabitur ",
+                        title: "Vel Quam Elementum",
+                        startDate: "2021-02-05T11:00:00-08:00",
+                        endDate: "2021-02-05T11:00:00-08:00",
+                        isOnline: true,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bad/",
+                        category: "Sagittis",
+                        title: "Aenean Lectus Elit",
+                        startDate: "2021-02-05T11:00:00-08:00",
+                        endDate: "2021-02-05T11:00:00-08:00",
+                        isOnline: true,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bag/",
+                        category: "Tortor",
+                        title: "Vivamus Consectetuer Risus et Tortor",
+                        startDate: "2021-02-05T11:00:00-08:00",
+                        endDate: "2021-02-05T11:00:00-08:00",
+                        isOnline: false,
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bam/",
+                        category: "Maecenas",
+                        title: "Proin ut Ligula vel Nunc Egestas Porttitor",
+                        text: "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
+                        isOnline: false,
+                    },
+                ],
+            },
+            mockSectionTeaserHighlight: {
+                items: [
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bar/",
+                        category: "Ullamco",
+                        title: "Fames ac turpis egestas sed tempus lorem ipsum",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "Ultricies leo integer malesuada nunc vel risus commodo viverra.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bar/",
+                        category: "Aliquam Varius",
+                        title: "Pretium magna eget dignissim placerat arcu velit et metus",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        locations: [
+                            { title: "Powellarium", to: "/location/bar" },
+                            {
+                                title: "Research Library (Charles E. Young)",
+                                to: "/location/baz",
+                            },
+                        ],
+                        text: "Pellentesque molestie, est ut vestibulum convallis, velit ante auctor mauris, sed mattis dolor ante ac purus. Nullam egestas neque sed ullamcorper suscipit.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/baz/",
+                        category: "Sagittis",
+                        title: "Auctor Ligula",
+                        startDate: "2021-01-03T08:00:00+00:00",
+                        endDate: "2021-02-08T07:10:00+00:00",
+                        locations: [
+                            { title: "Online", to: "/location/bar" },
+                            {
+                                title: "Research Library (Charles E. Young)",
+                                to: "/location/baz",
+                            },
+                        ],
+                        text: "Proin sit amet leo eros. Pellentesque luctus tortor eu aliquet tristique. Proin fringilla enim eget sagittis mattis. Praesent faucibus libero ipsum.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/baz/",
+                        category: "Tristique",
+                        title: "Amet nisl suscipit adipiscing bibendum lectus sed",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "A diam maecenas sed enim. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis. Mi bibendum neque egestas congue. Placerat duis ultricies lacus sed turpis. Massa enim nec dui nunc mattis. Dolor morbi non arcu risus quis varius vestibulum sed.",
+                    },
+                ],
+            },
+            mockSectionTeaserList: {
+                items: [
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bar/",
+                        category: "Ullamco",
+                        title: "Fames ac turpis egestas sed tempus lorem ipsum",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "Ultricies leo integer malesuada nunc vel risus commodo viverra.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/baz/",
+                        category: "Sagittis",
+                        title: "Amet nisl suscipit adipiscing bibendum lectus sed",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "A diam maecenas sed enim. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis. Mi bibendum neque egestas congue. Placerat duis ultricies lacus sed turpis. Massa enim nec dui nunc mattis. Dolor morbi non arcu risus quis varius vestibulum sed.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bat/",
+                        category: "Tincidunt",
+                        title: "Scelerisque varius morbi enim nunc ornare quam",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "Eu ultrices vitae auctor eu augue. Dolor morbi non arcu risus quis varius quam. Augue lacus viverra vitae congue eu consequat.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/ban/",
+                        category: "Gravida",
+                        title: "At varius vel pharetra vel turpis. Quam vulputate dignissim suspendisse in est ante in. Sed cras ornare arcu. Non diam phasellus vestibulum.",
+                        startDate: "2021-09-03T08:00:00+00:00",
+                        endDate: "2021-10-08T07:10:00+00:00",
+                        text: "Accumsan tortor posuere ac ut consequat semper viverra libero.",
+                    },
+                ],
+            },
+            mockSiteNotificationAlert: {
+                alert: {
+                    title: "Dropio, heroku",
+                    text: "Napster mozy sococo orkut convore scribd napster, twones diigo joukuu weebly. Sclipo jibjab scribd.",
+                    textLong:
+                        "Greplin prezi zillow zoosk orkut, zoosk gooru. Kiko xobni joukuu ideeli bitly joukuu, squidoo heroku hulu sifteo, zooomr jumo dropio chumby. Qeyno wikia oooooc jajah, ebay qeyno lala, jajah lijit. Etsy wufoo flickr movity sclipo heroku, oooooc etsy oooooc. Vimeo foodzie zoosk ebay, wesabe. Ebay doostang vuvox, xobni. Mozy joyent dropio gooru kippt, greplin skype. Kiko napster geni dogster yoono yammer disqus, hipmunk xobni odeo zynga loopt. Groupon klout divvyshot zinch elgg yoono airbnb, orkut zinch chartly squidoo.",
+                },
+            },
         }
     },
     computed: {
@@ -618,6 +951,62 @@ export default Vue.extend({
         },
         flexibleBlocks() {
             return [
+                {
+                    id: "13668",
+                    typeHandle: "ctaBlock2Up",
+                    ctaBlock2Up: [
+                        {
+                            text: "Parking passes for Cats & Kittens only. Day use, weekly, monthly and annual passes are available now.",
+                            name: "Get Parking Passes",
+                            to: "http://cat-kitten-parking.com",
+                            title: "Cat & Kitten Parking Passes",
+                            svgName: "svg-call-to-action-find",
+                            backgroundColor: true,
+                            isDark: false,
+                            isSmallSize: true,
+                        },
+                        {
+                            text: "Advanced Ancient Greek for Dogs. Teach your dog the useful language of ancient Greek so you can communicate together more effectively.",
+                            name: "Sign Up for Class",
+                            to: "http://ancient-greek-for-dogs.com",
+                            title: "Ancient Greek for Dogs",
+                            svgName: "svg-call-to-action-money",
+                            backgroundColor: false,
+                            isDark: true,
+                            isSmallSize: true,
+                        },
+                    ],
+                },
+                {
+                    id: "13669",
+                    typeHandle: "mediaWithText",
+                    sectionTitle: "A section of media with text",
+                    sectionSummary: "<p>A section of media with text</p>",
+                    mediaWithText: [
+                        {
+                            id: "13670",
+                            titleLink: "A media Link",
+                            description: "Citation Integration",
+                            coverImage: [
+                                {
+                                    id: "5115",
+                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
+                                    height: 2151,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 2560w",
+                                    alt: "Screen Shot 2022 02 17 at 11 42 39 AM",
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                            buttonText: "Download this",
+                            buttonUrl:
+                                "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
+                            linkToMedia:
+                                "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
+                            typeMedia: "other",
+                        },
+                    ],
+                },
                 {
                     id: "22978",
                     typeHandle: "pullQuote",
@@ -725,6 +1114,35 @@ export default Vue.extend({
                                     iconName: "illustration-find-space",
                                 },
                             ],
+                        },
+                    ],
+                },
+                {
+                    id: "13783",
+                    typeHandle: "simpleCards",
+                    sectionTitle: "Fix Potholes",
+                    sectionSummary:
+                        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+                    cards: [
+                        {
+                            id: "13899",
+                            contentLink: [
+                                {
+                                    slug: "road-work",
+                                    title: "Road Work Guide",
+                                    summary: "<p>A research guide</p>",
+                                    externalResourceUrl:
+                                        "http://libguides.library.ucla.edu",
+                                },
+                            ],
+                        },
+                        {
+                            id: "13900",
+                            title: "Types of Sinkholes",
+                            summary:
+                                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
+                            externalLink:
+                                "https://www.heliconusa.com/types-of-sinkholes/",
                         },
                     ],
                 },
@@ -890,6 +1308,33 @@ export default Vue.extend({
         },
         parsedNavSecondary() {
             return [...API.links, { ...API.links[0] }]
+        },
+        mockSimpleCards() {
+            return {
+                id: "13783",
+                sectionTitle: "Fix Potholes",
+                sectionSummary:
+                    "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+                cards: [
+                    {
+                        id: "6622",
+                        text: "<p>Learn how to use a VPN or proxy server to access Library resources with your UCLA Logon ID through a series of helpful videos.</p>",
+                        title: "Connecting from Off-Campus",
+                        slug: "connecting-from-off-campus",
+                        uri: "help/services-resources/connecting-from-off-campus",
+                        type: "resource",
+                    },
+                    {
+                        id: "6407",
+                        text: "<p>A research guide</p>",
+                        title: "A new research guide",
+                        slug: "a-new-research-guide",
+                        uri: null,
+                        externalResourceUrl:
+                            "http://libguides.library.ucla.edu",
+                    },
+                ],
+            }
         },
     },
 })
