@@ -56,12 +56,14 @@
 <script>
 import SvgIconPlay from "ucla-library-design-tokens/assets/svgs/icon-play-filled.svg"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
+import SmartLink from "@/lib-components/SmartLink.vue"
 
 export default {
     name: "GridGallery",
     components: {
         SvgIconPlay,
         ResponsiveImage,
+        SmartLink,
     },
     props: {
         //  [{ image : Object, date: String, headlineText: String, to: URL,  featured: boolean, snippet:String }]
