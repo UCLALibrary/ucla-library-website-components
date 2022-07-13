@@ -1,4 +1,5 @@
 import Vue from "vue"
+import store from "@/store"
 import Vuex from "vuex"
 import Dev from "./serve.vue"
 import router from "@/router/index.js"
@@ -13,5 +14,6 @@ Vue.config.productionTip = false
 
 new Vue({
     router,
+    store,
     render: (h) => h(Dev),
 }).$mount("#app")
