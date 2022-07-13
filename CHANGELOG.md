@@ -1,3 +1,10 @@
+## [1.22.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.22.0...v1.22.1) (2022-07-13)
+
+
+### Bug Fixes
+
+* only import fonts once ([#56](https://github.com/UCLALibrary/ucla-library-website-components/issues/56)) ([770580a](https://github.com/UCLALibrary/ucla-library-website-components/commit/770580a85fd03bfc7991f7eb2804d13f368130cd))
+
 # [1.22.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.21.2...v1.22.0) (2022-07-13)
 
 
