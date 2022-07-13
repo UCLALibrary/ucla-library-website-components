@@ -12,11 +12,15 @@
 
 <script>
 import SiteBrandBar from "@/lib-components/SiteBrandBar"
+import HeaderMainResponsive from "@/lib-components/HeaderMainResponsive"
+import HeaderMain from "@/lib-components/HeaderMain"
 
 export default {
     name: "HeaderSmart",
     components: {
         SiteBrandBar,
+        HeaderMainResponsive,
+        HeaderMain,
     },
     computed: {
         primaryMenuItems() {
