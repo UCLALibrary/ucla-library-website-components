@@ -1,5 +1,5 @@
 // Import mock api data
-import * as API from "~/stories/mock-api.json"
+import * as API from "@/stories/mock-api.json"
 import FlexibleMediaGalleryBannerImage from "@/lib-components/Flexible/MediaGallery/BannerImage.vue"
 
 // Storybook default settings
