@@ -1,3 +1,10 @@
+## [1.21.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.21.1...v1.21.2) (2022-07-13)
+
+
+### Bug Fixes
+
+* add ButtonMore spec and story ([#55](https://github.com/UCLALibrary/ucla-library-website-components/issues/55)) ([7e137f5](https://github.com/UCLALibrary/ucla-library-website-components/commit/7e137f594229ad6486bb878084f8fb64aaa6caba))
+
 ## [1.21.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.21.0...v1.21.1) (2022-07-11)
 
 
