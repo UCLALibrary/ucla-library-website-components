@@ -18,7 +18,7 @@
                 <divider-general class="divider-general" />
                 <div class="calltoaction">
                     <span v-if="calltoaction" v-html="calltoaction" />
-                    <!-- <svg-arrow-diagonal class="svg" /> -->
+                    <svg-arrow-diagonal class="svg" />
                 </div>
             </div>
         </div>
@@ -27,13 +27,15 @@
 
 <script>
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
-// import SvgArrowDiagonal from "~/assets/svg/arrow-diagonal
+import DividerGeneral from "@/lib-components/DividerGeneral.vue"
+import SvgArrowDiagonal from "ucla-library-design-tokens/assets/svgs/icon-external-link.svg"
 
 export default {
     name: "StoryWithImage",
     components: {
         ResponsiveImage,
-        // SvgArrowDiagonal,
+        DividerGeneral,
+        SvgArrowDiagonal,
     },
     props: {
         image: {
