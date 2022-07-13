@@ -311,12 +311,28 @@
         <h1>FlexibleBlock Components</h1>
         <flexible-blocks :blocks="flexibleBlocks" />
         <hr />
+        <hr />
+
+        <h1>Imapct Report Components</h1>
+        <story-with-image
+            :image="mockStoryWithImage.image"
+            :caption="mockStoryWithImage.image.caption"
+            :title="mockStoryWithImage.title"
+            :text="mockStoryWithImage.text"
+            :footnote="mockStoryWithImage.footnote"
+            :calltoaction="mockStoryWithImage.calltoaction"
+        />
+        <hr />
+        <hr />
+
+        <grid-gallery :items="mockGridGallery" />
     </div>
 </template>
 
 <script>
 import Vue from "vue"
 import * as API from "@/stories/mock-api.json"
+import * as IMPACT_API from "@/stories/impact-report_index.json"
 import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
 import HeaderSticky from "../src/lib-components/HeaderSticky.vue"
 
@@ -866,6 +882,59 @@ export default Vue.extend({
         }
     },
     computed: {
+        mockStoryWithImage() {
+            return { ...IMPACT_API.story[0] }
+        },
+        mockGridGallery() {
+            return [
+                {
+                    image: API.image,
+                    monthYear: "March 2020",
+                    to: "/visit/foo/bar/",
+                    headlineText: "Vel Quam Elementum",
+                    snippet:
+                        "Vel eros donec ac odio tempor orci dapibus. Ante metus dictum at tempor. ",
+                },
+                {
+                    image: API.image,
+                    monthYear: "March 2020",
+                    to: "/visit/foo/baz/",
+                    headlineText:
+                        "Mauris pellentesque pulvinar pellentesque habitant morbi tristique",
+                    snippet:
+                        "Ante metus dictum at tempor. Pretium nibh ipsum consequat nisl vel pretium. Amet consectetur adipiscing elit ut aliquam purus sit. Diam quis enim lobortis scelerisque fermentum dui faucibus. Hac habitasse platea dictumst quisque.",
+                },
+                {
+                    image: API.image,
+                    monthYear: "March 2020",
+                    to: "/visit/foo/bat/",
+                    headlineText: "Adipiscing Tristique",
+                    snippet:
+                        "Vel eros donec ac odio  nisl vel pretium. Amet consectetur adipiscing elit ut aliquam purus sit. ",
+                },
+                {
+                    image: API.image,
+                    monthYear: "March 2020",
+                    to: "/visit/foo/ban/",
+                    headlineText:
+                        "Fames ac turpis egestas sed tempus lorem ipsum",
+                    snippet: "Vel eros donec ac .",
+                },
+                {
+                    image: API.image,
+                    monthYear: "March 2020",
+                    to: "/visit/foo/barf/",
+                    headlineText: "Vel Quam Elementum",
+                },
+                {
+                    image: API.image,
+                    to: "/visit/foo/bad/",
+                    headlineText: "Aenean Lectus Elit",
+                    snippet:
+                        "Vel eros donec ac odio tempor orci dapibus. Ante metus dictum at tempor. Pretium nibh ipsum consequat nisl vel pretium. Amet consectetur adipiscing elit ut aliquam purus sit. Diam quis enim lobortis scelerisque fermentum dui faucibus. Hac habitasse platea dictumst quisque.",
+                },
+            ]
+        },
         parsedLinkItems() {
             return [
                 {
