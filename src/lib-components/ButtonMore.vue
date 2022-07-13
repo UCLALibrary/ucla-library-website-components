@@ -65,7 +65,7 @@ export default {
         top: 50%;
         transform: translate(-50%, -50%);
 
-        .arrow {
+        .svg__stroke--primary-blue-03 {
             stroke: var(--color-primary-blue-03);
             stroke-width: 1.5px;
             transition: stroke 400ms ease-in-out;
@@ -88,7 +88,7 @@ export default {
     @media #{$has-hover} {
         &:hover {
             .arrow-right {
-                .arrow {
+                .svg__stroke--primary-blue-03 {
                     stroke: var(--color-default-cyan-03);
                 }
             }
