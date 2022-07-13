@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.21.2...v1.22.0) (2022-07-13)
+
+
+### Features
+
+* Add media gallery ([#53](https://github.com/UCLALibrary/ucla-library-website-components/issues/53)) ([c09dfaa](https://github.com/UCLALibrary/ucla-library-website-components/commit/c09dfaa93220a29be1b32baa72822b49a0c172ba))
+
 ## [1.21.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.21.1...v1.21.2) (2022-07-13)
 
 
