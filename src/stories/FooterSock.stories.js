@@ -60,15 +60,6 @@ export const Default = () => ({
         }
     },
     components: { FooterSock },
-    computed: {
-        parsedSockItems() {
-            return this.items.map((obj) => {
-                return {
-                    ...obj,
-                    target: formatLinkTarget(obj.target),
-                }
-            })
-        },
-    },
-    template: `<footer-sock :sock-items="parsedSockItems" />`,
+    computed: {},
+    template: `<footer-sock />`,
 })

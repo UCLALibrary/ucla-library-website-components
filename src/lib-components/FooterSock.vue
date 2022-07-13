@@ -32,10 +32,10 @@ export default {
         SmartLink,
     },
     props: {
-        /*sockItems: {
-            type: Array,
-            default: () => [],
-        },*/
+        // sockItems: {
+        //     type: Array,
+        //     default: () => [],
+        // },
     },
     computed: {
         year() {
@@ -43,8 +43,8 @@ export default {
             return current_year
         },
         parsedSockItems() {
-            if (Object.keys(this.$store.state.nodes).length !== 0) {
-                return this.$store.state.nodes.map((obj) => {
+            if (Object.keys(this.$store.state.footerSock.nodes).length !== 0) {
+                return this.$store.state.footerSock.nodes.map((obj) => {
                     console.log("url" + JSON.stringify(obj))
                     return {
                         ...obj,

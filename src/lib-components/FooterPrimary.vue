@@ -124,7 +124,7 @@ export default {
                     (obj) => {
                         return {
                             ...obj,
-                            target: formatLinkTarget(obj.target),
+                            target: this.formatLinkTarget(obj.target),
                         }
                     }
                 )
