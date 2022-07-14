@@ -1,7 +1,7 @@
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
-import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import MediaBadge from "@/lib-components/MediaBadge"
+import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 
 // Storybook default settings
 export default {
