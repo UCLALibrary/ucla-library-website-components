@@ -1,8 +1,8 @@
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
-// import SvgIconExpand from "ucla-library-design-tokens/assets/svgs/icon-expand"
+// import SvgIconExpand from "node-modules/ucla-library-design-tokens/assets/svgs/icon-expand"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
-import MediaBagde from "@/lib-components/MediaBadge.vue"
+import MediaBadge from "@/lib-components/MediaBadge"
 
 // Storybook default settings
 export default {
@@ -30,7 +30,7 @@ export const Default = () => ({
             :image="image"
             :image-aspect-ratio="60"
         >
-            5 Images
+            5 Images <svg-icon-expand />
         </media-badge>
       </responsive-image>
   `,
