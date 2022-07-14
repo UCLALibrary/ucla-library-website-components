@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div :class="classes" @click="toggleOpen">
         <button class="view-btn">
             <div class="selected">
@@ -11,7 +11,7 @@
             </div>
 
             <div class="chevron">
-                <svg-chevron-down class="svg" />
+                <icon-caret-down class="svg" />
             </div>
         </button>
 
@@ -30,14 +30,18 @@
 </template>
 
 <script>
-import SvgChevronDown from "~/assets/svg/chevron-down"
+import IconCaretDown from "ucla-library-design-tokens/icon-caret-down.svg"
+import SvgIconCalendar from "ucla-library-design-tokens/assets/svgs/icon-calendar.svg"
+import SvgIconCard from "ucla-library-design-tokens/assets/svgs/icon-card.svg"
+import SvgIconList from "ucla-library-design-tokens/assets/svgs/icon-list.svg"
 
 export default {
+    name: "SearchGenericViewModes",
     components: {
-        SvgChevronDown,
-        SvgIconCalendar: () => import("~/assets/svg/icon-calendar"),
-        SvgIconCard: () => import("~/assets/svg/icon-card"),
-        SvgIconList: () => import("~/assets/svg/icon-list"),
+        IconCaretDown,
+        SvgIconCalendar,
+        SvgIconCard,
+        SvgIconList,
     },
     props: {
         isOpened: {

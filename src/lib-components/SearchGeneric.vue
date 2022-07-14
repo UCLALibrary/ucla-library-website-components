@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <!-- TODO Need tick's next to radio dropdown  -->
     <!-- TODO Need count of items selected for checkbox -->
     <!-- TODO Need selected tags (sync'd to selected checkboxes) -->
@@ -48,6 +48,7 @@
 import SvgIconSearch from "~/assets/svg/icon-search"
 
 export default {
+    name: "SearchGeneric",
     components: {
         SvgIconSearch,
     },

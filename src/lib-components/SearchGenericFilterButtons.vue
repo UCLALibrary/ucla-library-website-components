@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="search-generic-filter-buttons">
         <button
             v-for="(filter, index) in parsedItems"
@@ -19,6 +19,7 @@
 import SvgChevronDown from "~/assets/svg/chevron-down"
 
 export default {
+    name: "SearchGenericFilterButtons",
     components: {
         SvgChevronDown,
     },

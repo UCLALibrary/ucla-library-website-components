@@ -1,3 +1,5 @@
+import SearchGeneric from "@/lib-components/SearchGeneric"
+
 // Storybook default settings
 export default {
     title: "SEARCH / Generic",
