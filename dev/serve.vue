@@ -64,7 +64,8 @@
             :dates="mockBlockEvent.bricks[0].dates"
             :to="mockBlockEvent.bricks[0].to"
         />
-        <br /><br />
+        <hr />
+
         <block-event
             :category="mockBlockEvent.bricks[1].category"
             :title="mockBlockEvent.bricks[1].title"
@@ -73,6 +74,7 @@
             :to="mockBlockEvent.bricks[1].to"
         />
         <hr />
+
         <h2>LibCal Events Form</h2>
         <block-form :block="mockBlockForm" event-id="9383207" />
         <hr />
@@ -275,6 +277,10 @@
 
         <h2>RichText Component</h2>
         <rich-text :rich-text-content="mockRichText.richText" />
+        <hr />
+
+        <h2>SearchGeneric</h2>
+        <search-generic :filters="filters" :views="views" />
         <hr />
 
         <h2>SiteBrandBar Component</h2>
@@ -622,6 +628,39 @@ export default Vue.extend({
                         label: "What would you like to get out of this course?",
                         type: "string",
                         required: false,
+                    },
+                ],
+            },
+            mockSearchgeneric: {
+                views: [
+                    {
+                        slug: "list",
+                        iconName: "icon-list",
+                        title: "List",
+                    },
+                    {
+                        slug: "card",
+                        iconName: "icon-card",
+                        title: "Card",
+                    },
+                    {
+                        slug: "calendar",
+                        iconName: "icon-calendar",
+                        title: "Calendar",
+                    },
+                ],
+                filters: [
+                    {
+                        label: "Location",
+                        slug: "location",
+                        inputType: "radio",
+                        items: items,
+                    },
+                    {
+                        label: "Department",
+                        slug: "department",
+                        inputType: "checkbox",
+                        items: items,
                     },
                 ],
             },
