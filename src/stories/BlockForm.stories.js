@@ -269,7 +269,7 @@ export const Default = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :block="mock"
+            :block="mock" event-id="9383207"
         />
     `,
 })
