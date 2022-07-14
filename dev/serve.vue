@@ -21,8 +21,8 @@
             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             name="Lorem ipsum dolor"
             to="/help/foo/bar/"
-            is-dark="false"
-            is-small-size="false"
+            :is-dark="false"
+            :is-small-size="false"
         />
         <hr />
 
