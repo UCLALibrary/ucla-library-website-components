@@ -405,7 +405,7 @@ export default Vue.extend({
                 ],
                 to: "http://google.com/title",
             },
-            mockHeaderStickPrimaryItems: {
+            mockHeaderStickyPrimaryItems: {
                 items: [
                     { ...API.primaryNavlinks[0] },
                     {
