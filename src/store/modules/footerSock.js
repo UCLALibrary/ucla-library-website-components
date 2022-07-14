@@ -33,9 +33,7 @@ const mock = {
 
 export default {
     state: {
-        footerSock: {
-            nodes: mock.nodes,
-        },
+        nodes: mock.nodes,
     },
     getters: {},
     mutations: {},

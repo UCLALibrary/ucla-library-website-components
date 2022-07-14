@@ -193,14 +193,14 @@
 
         <h2>FooterPrimary</h2>
         <footer-primary
-            :social-items="parsedSocialItems"
-            :press-items="parsedPressItems"
+            :social-items="socialItems"
+            :press-items="pressItems"
             :form="false"
         />
         <hr />
 
         <h2>FooterSock</h2>
-        <footer-sock :sock-items="parsedSockItems" />
+        <footer-sock />
         <hr />
 
         <!-- Commented out because it will get in the way of others components, but it's working -->

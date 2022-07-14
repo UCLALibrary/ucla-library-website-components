@@ -54,6 +54,14 @@ export default {
             primary: mock.primary,
             secondary: mock.secondary,
         },
+        nodes: [
+            {
+                children: mock.socialItems,
+            },
+            {
+                children: mock.pressItems,
+            },
+        ],
         winWidth: 824,
     },
     getters: {},

@@ -108,5 +108,5 @@ export const NoForm = () => ({
         }
     },
     components: { FooterPrimary },
-    template: `<footer-primary :social-items="parsedSocialItems" :press-items="parsedPressItems" :form="false" />`,
+    template: `<footer-primary :social-items="socialItems" :press-items="pressItems" :form="false" />`,
 })
