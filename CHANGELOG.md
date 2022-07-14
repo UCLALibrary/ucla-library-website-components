@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.23.1...v1.24.0) (2022-07-14)
+
+
+### Features
+
+* APPS-1649 add footer primary and sock ([#54](https://github.com/UCLALibrary/ucla-library-website-components/issues/54)) ([9d427f8](https://github.com/UCLALibrary/ucla-library-website-components/commit/9d427f84ccbb34a7702e729e3ebde1cb4f9b9653))
+
 ## [1.23.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.23.0...v1.23.1) (2022-07-14)
 
 
