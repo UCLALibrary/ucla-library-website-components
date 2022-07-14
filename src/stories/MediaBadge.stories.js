@@ -30,7 +30,7 @@ export const Default = () => ({
             :image="image"
             :image-aspect-ratio="60"
         >
-            5 Images <svg-icon-expand />
+            5 Images <svg-icon-expand/>
         </media-badge>
       </responsive-image>
   `,
