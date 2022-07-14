@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.24.0...v1.25.0) (2022-07-14)
+
+
+### Features
+
+* Apps-1650 - move global components to vuejs component package ([#52](https://github.com/UCLALibrary/ucla-library-website-components/issues/52)) ([06f6d26](https://github.com/UCLALibrary/ucla-library-website-components/commit/06f6d2603b537e4eb57b219dab55f0907e3e66c4))
+
 # [1.24.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.23.1...v1.24.0) (2022-07-14)
 
 
