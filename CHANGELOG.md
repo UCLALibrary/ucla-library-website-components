@@ -1,3 +1,10 @@
+## [1.26.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.26.0...v1.26.1) (2022-07-14)
+
+
+### Bug Fixes
+
+* typo on StickyHeader ([#63](https://github.com/UCLALibrary/ucla-library-website-components/issues/63)) ([07cb110](https://github.com/UCLALibrary/ucla-library-website-components/commit/07cb110621950ba98dd16444df42e607a636377d))
+
 # [1.26.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.25.0...v1.26.0) (2022-07-14)
 
 
