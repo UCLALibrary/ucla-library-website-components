@@ -5,7 +5,7 @@
 
     <form class="search-generic" name="searchHome" @submit.prevent="doSearch">
         <div class="input-container">
-            <svg-icon-search class="icon" />
+            <icon-search class="icon" />
             <input
                 v-model="searchWords"
                 type="text"
@@ -45,12 +45,14 @@
 </template>
 
 <script>
-import SvgIconSearch from "~/assets/svg/icon-search"
+import IconSearch from "ucla-library-design-tokens/assets/svgs/icon-search.svg"
+import SearchGenericFilterButtons from "./SearchGenericFilterButtons.vue"
 
 export default {
     name: "SearchGeneric",
     components: {
-        SvgIconSearch,
+        IconSearch,
+        SearchGenericFilterButtons,
     },
     props: {
         filters: {

@@ -3,6 +3,7 @@ import SearchGeneric from "@/lib-components/SearchGeneric"
 // Storybook default settings
 export default {
     title: "SEARCH / Generic",
+    component: SearchGeneric,
 }
 
 const items = [
@@ -62,6 +63,39 @@ const views = [
 ]
 
 // Variations of stories below
+export const Default = () => ({
+    data() {
+        return {
+            filters: [
+                {
+                    label: "Location",
+                    slug: "location",
+                    inputType: "radio",
+                    items: items,
+                },
+                {
+                    label: "Department",
+                    slug: "department",
+                    inputType: "checkbox",
+                    items: items,
+                },
+            ],
+            views,
+        }
+    },
+    components: { SearchGeneric },
+    template: `
+    <div>
+        <search-generic
+            :filters="filters"
+            :views="views"
+        />
+
+        This shouldn't move when search opened.
+    </div>
+    `,
+})
+
 // export const Default = () => ({
 //     data() {
 //         return {
@@ -115,38 +149,6 @@ const views = [
 //         />
 //     `,
 // })
-
-export const TwoFilter = () => ({
-    data() {
-        return {
-            filters: [
-                {
-                    label: "Location",
-                    slug: "location",
-                    inputType: "radio",
-                    items: items,
-                },
-                {
-                    label: "Department",
-                    slug: "department",
-                    inputType: "checkbox",
-                    items: items,
-                },
-            ],
-            views,
-        }
-    },
-    template: `
-    <div>
-        <search-generic
-            :filters="filters"
-            :views="views"
-        />
-
-        This shouldn't move when search opened.
-    </div>
-    `,
-})
 
 // export const TwoFilterWithViews = () => ({
 //     data() {
