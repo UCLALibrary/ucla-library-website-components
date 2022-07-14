@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.22.1...v1.23.0) (2022-07-14)
+
+
+### Features
+
+* add impact report components ([#58](https://github.com/UCLALibrary/ucla-library-website-components/issues/58)) ([74ec07a](https://github.com/UCLALibrary/ucla-library-website-components/commit/74ec07af56ac9a406b02a2e5e875af6c6e3921c6))
+
 ## [1.22.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.22.0...v1.22.1) (2022-07-13)
 
 
