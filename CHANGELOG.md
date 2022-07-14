@@ -1,3 +1,10 @@
+# [1.26.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.25.0...v1.26.0) (2022-07-14)
+
+
+### Features
+
+* Add forms component for Libcal Events ([#62](https://github.com/UCLALibrary/ucla-library-website-components/issues/62)) ([5b6d076](https://github.com/UCLALibrary/ucla-library-website-components/commit/5b6d076a792b522db6f236a99a6446388f50b6b8))
+
 # [1.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.24.0...v1.25.0) (2022-07-14)
 
 
