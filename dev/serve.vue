@@ -191,6 +191,18 @@
         <divider-way-finder color="visit" />
         <hr />
 
+        <h2>FooterPrimary</h2>
+        <footer-primary
+            :social-items="socialItems"
+            :press-items="pressItems"
+            :form="false"
+        />
+        <hr />
+
+        <h2>FooterSock</h2>
+        <footer-sock />
+        <hr />
+
         <!-- Commented out because it will get in the way of others components, but it's working -->
         <!-- <h2>HeaderSticky Component</h2>
         <header-sticky
@@ -417,7 +429,7 @@ export default Vue.extend({
                 ],
                 to: "http://google.com/title",
             },
-            mockHeaderStickPrimaryItems: {
+            mockHeaderStickyPrimaryItems: {
                 items: [
                     { ...API.primaryNavlinks[0] },
                     {
@@ -431,6 +443,86 @@ export default Vue.extend({
                         url: "/about/",
                     },
                     { ...API.primaryNavlinks[3] },
+                ],
+            },
+            mockFooterPrimary: {
+                socialItems: [
+                    {
+                        id: "11777",
+                        name: "Twotter",
+                        to: "https://twitter.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                    {
+                        id: "11778",
+                        name: "Fatebook",
+                        to: "https://www.facebook.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                    {
+                        id: "11779",
+                        name: "Instagrim",
+                        to: "https://www.instagram.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                    {
+                        id: "11780",
+                        name: "FooTube",
+                        to: "https://www.youtube.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                ],
+                pressItems: [
+                    {
+                        id: "11781",
+                        name: "Dress Doom",
+                        to: "https://test-craft.library.ucla.edu/press-room",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "11782",
+                        name: "Careers at USC",
+                        to: "https://test-craft.library.ucla.edu/careers-at-ucla",
+                        classes: null,
+                        target: "",
+                    },
+                ],
+            },
+            mockFooterSock: {
+                nodes: [
+                    {
+                        id: "1628",
+                        name: "EEEmergency",
+                        to: "https://test-craft.library.ucla.edu/emergency",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "1627",
+                        name: "AAAccessibility",
+                        to: "https://test-craft.library.ucla.edu/accessibility",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "1629",
+                        name: "Privacy & Terms of Use",
+                        to: "https://test-craft.library.ucla.edu/privacy-terms-of-use",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "9511",
+                        name: "CCCreative Commons Attribution 4.0",
+                        to: "https://creativecommons.org/licenses/by/4.0/",
+                        classes: null,
+                        target: "1",
+                    },
                 ],
             },
             mockHeaderStickSecondaryItems: {
@@ -1616,6 +1708,14 @@ export default Vue.extend({
                 ],
             }
         },
+        // parsedSockItems() {
+        //     return this.mockFooterSock.items.map((obj) => {
+        //         return {
+        //             ...obj,
+        //             target: this.formatLinkTarget(obj.target),
+        //         }
+        //     })
+        // },
     },
 })
 </script>
