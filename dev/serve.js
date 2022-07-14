@@ -1,6 +1,6 @@
 import Vue from "vue"
-// import Vuex from "vuex"
 import store from "@/store"
+
 import Dev from "./serve.vue"
 import router from "@/router/index.js"
 // To register individual components where they are used (serve.vue) instead of using the
