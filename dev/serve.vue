@@ -191,7 +191,6 @@
         <divider-way-finder color="visit" />
         <hr />
 
-
         <h2>HeaderMainResponsive Component</h2>
         <header-main-responsive
             :primary-nav="parsedNavPrimary"
@@ -209,11 +208,11 @@
         it's working
         <h2>HeaderSticky Component</h2>
         <header-sticky
-            :primary-items="mockHeaderStickPrimaryItems.items"
-            :secondary-items="mockHeaderStickSecondaryItems.items"
+            :primary-items="mockHeaderStickyPrimaryItems.items"
+            :secondary-items="mockHeaderStickySecondaryItems.items"
         />
         <hr />
-  
+
         <h2>FooterPrimary</h2>
         <footer-primary
             :social-items="socialItems"
@@ -368,8 +367,8 @@
 import Vue from "vue"
 import * as API from "@/stories/mock-api.json"
 import * as IMPACT_API from "@/stories/impact-report_index.json"
-import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
-import HeaderSticky from "../src/lib-components/HeaderSticky.vue"
+// import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
+// import HeaderSticky from "../src/lib-components/HeaderSticky.vue"
 
 export default Vue.extend({
     name: "ServeDev",
@@ -540,7 +539,7 @@ export default Vue.extend({
                     },
                 ],
             },
-            mockHeaderStickSecondaryItems: {
+            mockHeaderStickySecondaryItems: {
                 items: [
                     { ...API.links[0] },
                     { ...API.links[1] },
