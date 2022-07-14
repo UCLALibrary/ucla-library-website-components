@@ -204,13 +204,14 @@
         <br /><br />
         <hr />
 
-        <!-- Commented out because it will get in the way of others components, but it's working -->
-        <!-- <h2>HeaderSticky Component</h2>
+        Commented out because it will get in the way of others components, but
+        it's working
+        <h2>HeaderSticky Component</h2>
         <header-sticky
             :primary-items="mockHeaderStickPrimaryItems.items"
             :secondary-items="mockHeaderStickSecondaryItems.items"
         />
-        <hr /> -->
+        <hr />
 
         <h2>HeadingArrow Component</h2>
         <heading-arrow text="Get Help With" to="/help/foo/bar/" />
@@ -307,6 +308,13 @@
 
         <h2>SectionTeaserList Component</h2>
         <section-teaser-list :items="mockSectionTeaserList.items" />
+        <hr />
+
+        <h2>SiteNotificationAlert</h2>
+        <site-notification-alert
+            :title="mockSiteNotificationAlert.alert.title"
+            :text="mockSiteNotificationAlert.alert.textLong"
+        />
         <hr />
 
         <h2>SmartLink Component</h2>
