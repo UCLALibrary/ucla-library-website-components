@@ -50,6 +50,8 @@ export { default as FlexibleMediaGalleryThumbnailCard } from "./Flexible/MediaGa
 export { default as FlexibleMediaGallery } from "./Flexible/MediaGallery.vue"
 export { default as GridGallery } from "./GridGallery.vue"
 export { default as HeadingArrow } from "./HeadingArrow.vue"
+export { default as HeaderMainResponsive } from "./HeaderMainResponsive.vue"
+export { default as HeaderSmart } from "./HeaderSmart.vue"
 export { default as IconWithLink } from "./IconWithLink.vue"
 export { default as ImpactRichText } from "./ImpactRichText.vue"
 export { default as MastheadPrimary } from "./MastheadPrimary.vue"

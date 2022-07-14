@@ -191,6 +191,29 @@
         <divider-way-finder color="visit" />
         <hr />
 
+
+        <h2>HeaderMainResponsive Component</h2>
+        <header-main-responsive
+            :primary-nav="parsedNavPrimary"
+            :secondary-nav="parsedSecondary"
+            current-path="/about/foo/bar"
+        />
+        <hr />
+
+        <h2>HeaderSmart Component</h2>
+        <header-smart />
+        <br /><br />
+        <hr />
+
+        Commented out because it will get in the way of others components, but
+        it's working
+        <h2>HeaderSticky Component</h2>
+        <header-sticky
+            :primary-items="mockHeaderStickPrimaryItems.items"
+            :secondary-items="mockHeaderStickSecondaryItems.items"
+        />
+        <hr />
+  
         <h2>FooterPrimary</h2>
         <footer-primary
             :social-items="socialItems"
@@ -202,14 +225,6 @@
         <h2>FooterSock</h2>
         <footer-sock />
         <hr />
-
-        <!-- Commented out because it will get in the way of others components, but it's working -->
-        <!-- <h2>HeaderSticky Component</h2>
-        <header-sticky
-            :primary-items="mockHeaderStickPrimaryItems.items"
-            :secondary-items="mockHeaderStickSecondaryItems.items"
-        />
-        <hr /> -->
 
         <h2>HeadingArrow Component</h2>
         <heading-arrow text="Get Help With" to="/help/foo/bar/" />
@@ -262,13 +277,6 @@
         <site-brand-bar />
         <hr />
 
-        <h2>SiteNotificationAlert Component</h2>
-        <site-notification-alert
-            :title="mockSiteNotificationAlert.alert.title"
-            :text="mockSiteNotificationAlert.alert.text"
-        />
-        <hr />
-
         <h2>SearchHome Component</h2>
         <search-home
             :link-items="mockSearchHomeLinks.linkItems"
@@ -313,6 +321,13 @@
 
         <h2>SectionTeaserList Component</h2>
         <section-teaser-list :items="mockSectionTeaserList.items" />
+        <hr />
+
+        <h2>SiteNotificationAlert</h2>
+        <site-notification-alert
+            :title="mockSiteNotificationAlert.alert.title"
+            :text="mockSiteNotificationAlert.alert.textLong"
+        />
         <hr />
 
         <h2>SmartLink Component</h2>
@@ -1725,7 +1740,7 @@ export default Vue.extend({
     margin: 50px 100px;
 
     h1 {
-        margin: 10px 0;
+        margin: 50px 0 10px 0;
         font-weight: bold;
     }
 
