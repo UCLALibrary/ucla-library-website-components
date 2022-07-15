@@ -1,3 +1,10 @@
+# [1.27.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.26.2...v1.27.0) (2022-07-15)
+
+
+### Features
+
+* add impact number carousel ([#65](https://github.com/UCLALibrary/ucla-library-website-components/issues/65)) ([f238f28](https://github.com/UCLALibrary/ucla-library-website-components/commit/f238f287014e226519ecd9c874daa222c55c8945))
+
 ## [1.26.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.26.1...v1.26.2) (2022-07-15)
 
 
