@@ -9,7 +9,7 @@
             :title="item.contentLink[0].title"
             :text="item.text"
             :is-vertical="true"
-            image-aspect-ratio="60"
+            :image-aspect-ratio="60"
             class="block"
         />
     </div>
