@@ -1,3 +1,38 @@
+## [1.26.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.26.0...v1.26.1) (2022-07-14)
+
+
+### Bug Fixes
+
+* typo on StickyHeader ([#63](https://github.com/UCLALibrary/ucla-library-website-components/issues/63)) ([07cb110](https://github.com/UCLALibrary/ucla-library-website-components/commit/07cb110621950ba98dd16444df42e607a636377d))
+
+# [1.26.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.25.0...v1.26.0) (2022-07-14)
+
+
+### Features
+
+* Add forms component for Libcal Events ([#62](https://github.com/UCLALibrary/ucla-library-website-components/issues/62)) ([5b6d076](https://github.com/UCLALibrary/ucla-library-website-components/commit/5b6d076a792b522db6f236a99a6446388f50b6b8))
+
+# [1.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.24.0...v1.25.0) (2022-07-14)
+
+
+### Features
+
+* Apps-1650 - move global components to vuejs component package ([#52](https://github.com/UCLALibrary/ucla-library-website-components/issues/52)) ([06f6d26](https://github.com/UCLALibrary/ucla-library-website-components/commit/06f6d2603b537e4eb57b219dab55f0907e3e66c4))
+
+# [1.24.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.23.1...v1.24.0) (2022-07-14)
+
+
+### Features
+
+* APPS-1649 add footer primary and sock ([#54](https://github.com/UCLALibrary/ucla-library-website-components/issues/54)) ([9d427f8](https://github.com/UCLALibrary/ucla-library-website-components/commit/9d427f84ccbb34a7702e729e3ebde1cb4f9b9653))
+
+## [1.23.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.23.0...v1.23.1) (2022-07-14)
+
+
+### Bug Fixes
+
+* add media gallery stories ([#59](https://github.com/UCLALibrary/ucla-library-website-components/issues/59)) ([29d6461](https://github.com/UCLALibrary/ucla-library-website-components/commit/29d6461b6c5ccec7c802bd919528bd50e4c4ea26))
+
 # [1.23.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.22.1...v1.23.0) (2022-07-14)
 
 

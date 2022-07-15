@@ -73,6 +73,9 @@
             :to="mockBlockEvent.bricks[1].to"
         />
         <hr />
+        <h2>LibCal Events Form</h2>
+        <block-form :block="mockBlockForm" event-id="9383207" />
+        <hr />
 
         <h2>BlockHighlight Component</h2>
         <block-highlight
@@ -193,13 +196,39 @@
         <divider-way-finder color="visit" />
         <hr />
 
-        <!-- Commented out because it will get in the way of others components, but it's working -->
-        <!-- <h2>HeaderSticky Component</h2>
-        <header-sticky
-            :primary-items="mockHeaderStickPrimaryItems.items"
-            :secondary-items="mockHeaderStickSecondaryItems.items"
+        <h2>HeaderMainResponsive Component</h2>
+        <header-main-responsive
+            :primary-nav="parsedNavPrimary"
+            :secondary-nav="parsedSecondary"
+            current-path="/about/foo/bar"
         />
-        <hr /> -->
+        <hr />
+
+        <h2>HeaderSmart Component</h2>
+        <header-smart />
+        <br /><br />
+        <hr />
+
+        Commented out because it will get in the way of others components, but
+        it's working
+        <h2>HeaderSticky Component</h2>
+        <header-sticky
+            :primary-items="mockHeaderStickyPrimaryItems.items"
+            :secondary-items="mockHeaderStickySecondaryItems.items"
+        />
+        <hr />
+
+        <h2>FooterPrimary</h2>
+        <footer-primary
+            :social-items="socialItems"
+            :press-items="pressItems"
+            :form="false"
+        />
+        <hr />
+
+        <h2>FooterSock</h2>
+        <footer-sock />
+        <hr />
 
         <h2>HeadingArrow Component</h2>
         <heading-arrow text="Get Help With" to="/help/foo/bar/" />
@@ -252,13 +281,6 @@
         <site-brand-bar />
         <hr />
 
-        <h2>SiteNotificationAlert Component</h2>
-        <site-notification-alert
-            :title="mockSiteNotificationAlert.alert.title"
-            :text="mockSiteNotificationAlert.alert.text"
-        />
-        <hr />
-
         <h2>SearchHome Component</h2>
         <search-home
             :link-items="mockSearchHomeLinks.linkItems"
@@ -303,6 +325,13 @@
         <section-teaser-list :items="mockSectionTeaserList.items" />
         <hr />
 
+        <h2>SiteNotificationAlert</h2>
+        <site-notification-alert
+            :title="mockSiteNotificationAlert.alert.title"
+            :text="mockSiteNotificationAlert.alert.textLong"
+        />
+        <hr />
+
         <h2>SmartLink Component</h2>
         <smart-link to="/"> This will render as a vue-router link </smart-link>
         <hr />
@@ -341,13 +370,261 @@
 import Vue from "vue"
 import * as API from "@/stories/mock-api.json"
 import * as IMPACT_API from "@/stories/impact-report_index.json"
-import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
-import HeaderSticky from "../src/lib-components/HeaderSticky.vue"
+// import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
+// import HeaderSticky from "../src/lib-components/HeaderSticky.vue"
 
 export default Vue.extend({
     name: "ServeDev",
     data() {
         return {
+            mockBlockForm: {
+                id: 5481,
+                name: "Data Science Center Workshops",
+                identityHelp: "",
+                emailMethod: {
+                    status: "required",
+                    label: "Email",
+                    help: "",
+                },
+                phoneMethod: {
+                    status: "disabled",
+                    label: "Phone Number",
+                    help: "",
+                },
+                barcodeMethod: {
+                    status: "disabled",
+                    label: "Library Barcode",
+                    help: "",
+                },
+                questions: [
+                    {
+                        id: 32798,
+                        label: "UCLA Department (Use Other Below if Your Department not Listed)",
+                        type: "dropdown",
+                        required: false,
+                        options: [
+                            "African American Studies",
+                            "African Studies",
+                            "American Indian Studies",
+                            "Anderson School of Management",
+                            "Anthropology",
+                            "Archaeology",
+                            "Architecture",
+                            "Architecture - M.Arch.",
+                            "Architecture - M.S. in Architecture and Urban Design",
+                            "Architecture and Urban Design Department",
+                            "Art",
+                            "Art History",
+                            "Asian American Studies",
+                            "Asian Languages and Cultures",
+                            "Asian Languages and Cultures Department",
+                            "Astronomy and Astrophysics",
+                            "Astronomy and Astrophysics-MAT",
+                            "Atmospheric and Oceanic Sciences",
+                            "Biochemistry, Molecular and Structural Biology",
+                            "Bioengineering",
+                            "Bioinformatics",
+                            "Biology",
+                            "Biomathematics",
+                            "Bioscience Programs",
+                            "Biostatistics",
+                            "Chemical &amp; Biomolecular Engineering Department",
+                            "Chemical Engineering",
+                            "Chemistry",
+                            "Chemistry and Biochemistry Department",
+                            "Chicana &amp; Chicano Studies",
+                            "Chicana/o and Central American Studies Department",
+                            "Choreographic Inquiry",
+                            "Civil &amp; Environmental Engineering Department",
+                            "Civil Engineering",
+                            "Classics",
+                            "Classics Department",
+                            "Clinical Research",
+                            "Communication",
+                            "Community Health Sciences",
+                            "Community Health Sciences Department",
+                            "Comparative Literature",
+                            "Computational Medicine Department",
+                            "Computer Science",
+                            "Conservation of Archaeological &amp; Ethnographic Materials",
+                            "Conservation of Archaeological &amp; Ethnographic Materials Department",
+                            "Conservation of Material Culture",
+                            "Culture and Performance",
+                            "David Geffen School of Medicine",
+                            "Design | Media Arts",
+                            "Earth, Planetary, and Space Sciences Department",
+                            "East Asian Studies",
+                            "Ecology and Evolutionary Biology Department",
+                            "Economics",
+                            "Economics - Master of Applied Economics",
+                            "Economics Department",
+                            "Education",
+                            "Educational Leadership Program",
+                            "Electrical &amp; Computer Engineering",
+                            "Engineering - Master of Engineering",
+                            "Engineering - MS in Engineering, Online",
+                            "Engineering - MS in Engineering-Aerospace, Online",
+                            "Engineering - MS in Engineering-Computer Networking, Online",
+                            "Engineering - MS in Engineering-Electrical, Online",
+                            "Engineering - MS in Engineering-Electronic Materials, Online",
+                            "Engineering - MS in Engineering-Integrated Circuits, Online",
+                            "Engineering - MS in Engineering-Manufacturing and Design, Online",
+                            "Engineering - MS in Engineering-Materials Science, Online",
+                            "Engineering - MS in Engineering-Mechanical, Online",
+                            "Engineering - MS in Engineering-Signal Processing and Communications, Online",
+                            "Engineering - MS in Engineering-Structural Materials, Online",
+                            "English",
+                            "Environment and Sustainability",
+                            "Environmental Health Sciences",
+                            "Environmental Science &amp; Engineering",
+                            "Epidemiology",
+                            "Ethnomusicology",
+                            "Executive Master of Public Health",
+                            "Fielding School of Public Health",
+                            "Film &amp; Television",
+                            "Film, Television, &amp; Digital Media Department",
+                            "French &amp; Francophone Studies",
+                            "Gender Studies",
+                            "Genetic Counseling",
+                            "Geochemistry",
+                            "Geography",
+                            "Geography Department",
+                            "Geology",
+                            "Geophysics &amp; Space Physics",
+                            "Germanic Languages",
+                            "Germanic Languages Department",
+                            "Greek",
+                            "Health Policy &amp; Management",
+                            "Health Policy and Management Department",
+                            "Healthcare Administration",
+                            "Henry Samueli School of Engineering and Applied Science",
+                            "Herb Alpert School of Music",
+                            "Hispanic Languages &amp; Literatures",
+                            "History",
+                            "Human Genetics",
+                            "Human Genetics Department",
+                            "Humanities",
+                            "Indo-European Studies",
+                            "Information Studies",
+                            "Information Studies Department",
+                            "Institute of the Environment &amp; Sustainability",
+                            "Integrative Biology &amp; Physiology Department",
+                            "International Institute",
+                            "Islamic Studies",
+                            "Italian",
+                            "Latin",
+                            "Latin American Studies",
+                            "Library &amp; Information Science",
+                            "Library &amp; Information Science Certificate",
+                            "Life Sciences",
+                            "Linguistics",
+                            "Luskin School of Public Affairs",
+                            "Management - Business Analytics MS",
+                            "Management - Executive MBA",
+                            "Management - Fully Employed MBA (FEMBA)",
+                            "Management - Global Executive MBA for Asia Pacific",
+                            "Management - Master of Financial Engineering",
+                            "Management - MBA",
+                            "Management - MS, PHD",
+                            "Manufacturing Engineering",
+                            "Master of Applied Geospatial Information Systems &amp; Technologies",
+                            "Master of Legal Studies",
+                            "Master of Public Health for Health Professionals",
+                            "Master of Social Science",
+                            "Materials Science &amp; Engineering",
+                            "Mathematics",
+                            "Mechanical &amp; Aerospace Engineering Department",
+                            "Mechanical Engineering",
+                            "Microbiology, Immunology, &amp; Molecular Genetics",
+                            "Molecular &amp; Medical Pharmacology",
+                            "Molecular Biology",
+                            "Molecular Toxicology",
+                            "Molecular, Cell, &amp; Developmental Biology",
+                            "Molecular, Cellular, &amp; Integrative Physiology",
+                            "Music",
+                            "Musicology",
+                            "Near Eastern Languages &amp; Cultures",
+                            "Near Eastern Languages &amp; Cultures Department",
+                            "Neuroscience",
+                            "Nursing",
+                            "Nursing - Doctor of Nursing Practice",
+                            "Oral Biology",
+                            "Philosophy",
+                            "Physical Sciences",
+                            "Physics",
+                            "Physics &amp; Biology in Medicine",
+                            "Physics and Astronomy Department",
+                            "Physiological Science",
+                            "Political Science",
+                            "Portuguese",
+                            "Psychology",
+                            "Public Health",
+                            "Public Policy",
+                            "Scandinavian",
+                            "School of Dentistry",
+                            "School of Education and Information Studies",
+                            "School of Law",
+                            "School of Nursing",
+                            "School of the Arts and Architecture",
+                            "School of Theater, Film and Television",
+                            "Slavic, East European, and Eurasian Languages &amp; Cultures",
+                            "Social Sciences",
+                            "Social Welfare",
+                            "Sociology",
+                            "Spanish",
+                            "Spanish and Portuguese Department",
+                            "Special Education",
+                            "Statistics",
+                            "Statistics - Master of Applied Statistics",
+                            "Statistics Department",
+                            "Teaching Asian Languages",
+                            "Theater",
+                            "Theater and Performance Studies",
+                            "Theater Department",
+                            "Urban and Regional Planning",
+                            "Urban and Regional Planning - Institut d'Etudes de Paris",
+                            "Urban Planning",
+                            "Urban Planning Department",
+                            "World Arts and Cultures/Dance Department",
+                        ],
+                    },
+                    {
+                        id: 14994,
+                        label: "Other Department or Affiliation",
+                        type: "string",
+                        required: false,
+                    },
+                    {
+                        id: 14993,
+                        label: "Status",
+                        type: "checkbox",
+                        required: true,
+                        options: [
+                            "Undergrad",
+                            "Graduate",
+                            "PostDoc",
+                            "Faculty",
+                            "Staff",
+                            "Librarian",
+                            "Visiting Scholar",
+                            "Other",
+                        ],
+                    },
+                    {
+                        id: 19717,
+                        label: "Can we email you about future Data Science Center events & workshops?",
+                        type: "radio",
+                        required: false,
+                        options: ["Yes", "No"],
+                    },
+                    {
+                        id: 19772,
+                        label: "What would you like to get out of this course?",
+                        type: "string",
+                        required: false,
+                    },
+                ],
+            },
             mockBlockEvent: {
                 bricks: [
                     {
@@ -434,6 +711,109 @@ export default Vue.extend({
             //     ],
             // },
             // mockHeaderStickSecondaryItems: {
+            //     items: [
+            //         { ...API.links[0] },
+            //         { ...API.links[1] },
+            //         { ...API.links[2] },
+            //     ],
+            // },
+            // mockHeaderStickyPrimaryItems: {
+            //     items: [
+            //         { ...API.primaryNavlinks[0] },
+            //         {
+            //             ...API.primaryNavlinks[0],
+            //             name: "Visit",
+            //             url: "/visit/",
+            //         },
+            //         {
+            //             ...API.primaryNavlinks[0],
+            //             name: "About",
+            //             url: "/about/",
+            //         },
+            //         { ...API.primaryNavlinks[3] },
+            //     ],
+            // },
+            mockFooterPrimary: {
+                socialItems: [
+                    {
+                        id: "11777",
+                        name: "Twotter",
+                        to: "https://twitter.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                    {
+                        id: "11778",
+                        name: "Fatebook",
+                        to: "https://www.facebook.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                    {
+                        id: "11779",
+                        name: "Instagrim",
+                        to: "https://www.instagram.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                    {
+                        id: "11780",
+                        name: "FooTube",
+                        to: "https://www.youtube.com/",
+                        classes: null,
+                        target: "1",
+                    },
+                ],
+                pressItems: [
+                    {
+                        id: "11781",
+                        name: "Dress Doom",
+                        to: "https://test-craft.library.ucla.edu/press-room",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "11782",
+                        name: "Careers at USC",
+                        to: "https://test-craft.library.ucla.edu/careers-at-ucla",
+                        classes: null,
+                        target: "",
+                    },
+                ],
+            },
+            mockFooterSock: {
+                nodes: [
+                    {
+                        id: "1628",
+                        name: "EEEmergency",
+                        to: "https://test-craft.library.ucla.edu/emergency",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "1627",
+                        name: "AAAccessibility",
+                        to: "https://test-craft.library.ucla.edu/accessibility",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "1629",
+                        name: "Privacy & Terms of Use",
+                        to: "https://test-craft.library.ucla.edu/privacy-terms-of-use",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "9511",
+                        name: "CCCreative Commons Attribution 4.0",
+                        to: "https://creativecommons.org/licenses/by/4.0/",
+                        classes: null,
+                        target: "1",
+                    },
+                ],
+            },
+            // mockHeaderStickySecondaryItems: {
             //     items: [
             //         { ...API.links[0] },
             //         { ...API.links[1] },
@@ -1638,6 +2018,14 @@ export default Vue.extend({
                 ],
             }
         },
+        // parsedSockItems() {
+        //     return this.mockFooterSock.items.map((obj) => {
+        //         return {
+        //             ...obj,
+        //             target: this.formatLinkTarget(obj.target),
+        //         }
+        //     })
+        // },
     },
 })
 </script>
@@ -1647,7 +2035,7 @@ export default Vue.extend({
     margin: 50px 100px;
 
     h1 {
-        margin: 10px 0;
+        margin: 50px 0 10px 0;
         font-weight: bold;
     }
 
