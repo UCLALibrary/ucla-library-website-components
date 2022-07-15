@@ -390,6 +390,71 @@ export default Vue.extend({
     name: "ServeDev",
     data() {
         return {
+            mockSearchGeneric: {
+                views: [
+                    {
+                        slug: "list",
+                        iconName: "icon-list",
+                        title: "List",
+                    },
+                    {
+                        slug: "card",
+                        iconName: "icon-card",
+                        title: "Card",
+                    },
+                    {
+                        slug: "calendar",
+                        iconName: "icon-calendar",
+                        title: "Calendar",
+                    },
+                ],
+                filters: [
+                    {
+                        label: "Location",
+                        slug: "location",
+                        inputType: "radio",
+                        items: [
+                            {
+                                name: "Neque porro quisquam",
+                            },
+                            {
+                                name: "qui dolorem ipsum quia dolor",
+                            },
+                            {
+                                name: "consectetur, adipisci velit.",
+                            },
+                            {
+                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            },
+                            {
+                                name: "Excepteur sint occaecat cupidatat non proident",
+                            },
+                        ],
+                    },
+                    {
+                        label: "Department",
+                        slug: "department",
+                        inputType: "checkbox",
+                        items: [
+                            {
+                                name: "Neque porro quisquam",
+                            },
+                            {
+                                name: "qui dolorem ipsum quia dolor",
+                            },
+                            {
+                                name: "consectetur, adipisci velit.",
+                            },
+                            {
+                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            },
+                            {
+                                name: "Excepteur sint occaecat cupidatat non proident",
+                            },
+                        ],
+                    },
+                ],
+            },
             mockBlockForm: {
                 id: 5481,
                 name: "Data Science Center Workshops",
