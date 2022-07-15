@@ -9,14 +9,9 @@ export default {
 const Template = (args, { argTypes }) => ({
     components: { SearchHome },
     props: Object.keys(argTypes),
-    template:
-        '<search-home \
+    template: '<search-home \
         v-bind="$props" \
-        @activeTabSet="action" \
-        @search="action" />',
-    methods: {
-        action: action(),
-    },
+        />',
 })
 
 export const Default = Template.bind({})

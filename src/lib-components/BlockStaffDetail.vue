@@ -31,8 +31,8 @@
                     </ul>
                     <ul v-if="locations.length" class="location-group">
                         <li
-                            v-for="location in locations"
-                            :key="`location-${location.id}`"
+                            v-for="(location, index) in locations"
+                            :key="`location-${index}`"
                             class="location"
                         >
                             <router-link
