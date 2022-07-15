@@ -40,17 +40,16 @@
 import { Glide, GlideSlide } from "vue-glide-js"
 
 // SVGs
-import SvgArrowRight from "~/assets/svg/arrow-right"
+import SvgArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
+import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet.svg"
 
 export default {
+    name: "ImpactNumbersCarousel",
     components: {
         [Glide.name]: Glide,
         [GlideSlide.name]: GlideSlide,
         SvgArrowRight,
-        SvgIconMoleculeBullet: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-molecule-bullet"
-            ),
+        SvgIconMoleculeBullet,
     },
     props: {
         /**
