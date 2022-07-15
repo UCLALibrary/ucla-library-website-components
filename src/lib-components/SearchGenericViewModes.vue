@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import IconCaretDown from "ucla-library-design-tokens/icon-caret-down.svg"
+import SvgIconCaretDown from "ucla-library-design-tokens/icon-caret-down.svg"
 import SvgIconCalendar from "ucla-library-design-tokens/assets/svgs/icon-calendar.svg"
 import SvgIconCard from "ucla-library-design-tokens/assets/svgs/icon-card.svg"
 import SvgIconList from "ucla-library-design-tokens/assets/svgs/icon-list.svg"
@@ -38,7 +38,7 @@ import SvgIconList from "ucla-library-design-tokens/assets/svgs/icon-list.svg"
 export default {
     name: "SearchGenericViewModes",
     components: {
-        IconCaretDown,
+        SvgIconCaretDown,
         SvgIconCalendar,
         SvgIconCard,
         SvgIconList,

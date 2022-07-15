@@ -4,6 +4,8 @@
     <!-- TODO Need selected tags (sync'd to selected checkboxes) -->
 
     <form class="search-generic" name="searchHome" @submit.prevent="doSearch">
+        <h2>{{ parsedFilters }}</h2>
+        <!-- <h3>{{ group.componentName }}</h3> -->
         <div class="input-container">
             <icon-search class="icon" />
             <input
@@ -29,6 +31,8 @@
             />
         </div>
 
+        <!-- The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for -->
+
         <!-- This loops through avaible filter groups -->
         <transition name="slide-toggle" mode="out-in">
             <component
@@ -47,12 +51,14 @@
 <script>
 import IconSearch from "ucla-library-design-tokens/assets/svgs/icon-search.svg"
 import SearchGenericFilterButtons from "./SearchGenericFilterButtons.vue"
+// import SearchGenericViewModes from "./SearchGenericViewModes.vue"
 
 export default {
     name: "SearchGeneric",
     components: {
         IconSearch,
         SearchGenericFilterButtons,
+        // SearchGenericViewModes,
     },
     props: {
         filters: {
@@ -73,6 +79,7 @@ export default {
             selectedView: "list",
         }
     },
+    // The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for
     computed: {
         parsedFilters() {
             return this.filters.map((obj) => {

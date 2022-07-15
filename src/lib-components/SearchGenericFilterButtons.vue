@@ -9,19 +9,19 @@
             <span class="title" v-html="filter.label" />
 
             <div class="chevron">
-                <caret-down class="svg" />
+                <svg-icon-caret-down class="svg" />
             </div>
         </button>
     </div>
 </template>
 
 <script>
-import CaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
+import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
 
 export default {
     name: "SearchGenericFilterButtons",
     components: {
-        CaretDown,
+        SvgIconCaretDown,
     },
     props: {
         items: {

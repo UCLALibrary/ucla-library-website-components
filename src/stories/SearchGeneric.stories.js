@@ -44,23 +44,6 @@ const items = [
         name: "Quis autem vel eum iure reprehenderit1",
     },
 ]
-const views = [
-    {
-        slug: "list",
-        iconName: "icon-list",
-        title: "List",
-    },
-    {
-        slug: "card",
-        iconName: "icon-card",
-        title: "Card",
-    },
-    {
-        slug: "calendar",
-        iconName: "icon-calendar",
-        title: "Calendar",
-    },
-]
 
 // Variations of stories below
 export const Default = () => ({
@@ -80,19 +63,31 @@ export const Default = () => ({
                     items: items,
                 },
             ],
-            views,
+            views: [
+                {
+                    slug: "list",
+                    iconName: "icon-list",
+                    title: "List",
+                },
+                {
+                    slug: "card",
+                    iconName: "icon-card",
+                    title: "Card",
+                },
+                {
+                    slug: "calendar",
+                    iconName: "icon-calendar",
+                    title: "Calendar",
+                },
+            ],
         }
     },
     components: { SearchGeneric },
     template: `
-    <div>
         <search-generic
             :filters="filters"
             :views="views"
         />
-
-        This shouldn't move when search opened.
-    </div>
     `,
 })
 
