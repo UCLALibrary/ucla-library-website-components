@@ -1,3 +1,10 @@
+## [1.27.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.27.0...v1.27.1) (2022-07-15)
+
+
+### Bug Fixes
+
+* update richtext component and add table to stories ([#67](https://github.com/UCLALibrary/ucla-library-website-components/issues/67)) ([cb8a6ff](https://github.com/UCLALibrary/ucla-library-website-components/commit/cb8a6ffa80ca9877d911e65fd222336fc2c112bb))
+
 # [1.27.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.26.2...v1.27.0) (2022-07-15)
 
 
