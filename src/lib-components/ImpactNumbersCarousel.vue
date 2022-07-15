@@ -25,7 +25,6 @@
                 <button data-glide-dir="<" :class="prevIsDisabled">
                     <svg-arrow-right class="prev-control" />
                 </button>
-                <div class="separator"></div>
                 <button data-glide-dir=">" :class="nextIsDisabled">
                     <svg-arrow-right />
                 </button>
