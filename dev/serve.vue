@@ -198,8 +198,8 @@
 
         <h2>HeaderMainResponsive Component</h2>
         <header-main-responsive
-            :primary-nav="parsedNavPrimary"
-            :secondary-nav="parsedSecondary"
+            :primary-nav="mockHeaderStickyPrimaryItems.items"
+            :secondary-nav="mockHeaderStickySecondaryItems.items"
             current-path="/about/foo/bar"
         />
         <hr />
@@ -220,8 +220,8 @@
 
         <h2>FooterPrimary</h2>
         <footer-primary
-            :social-items="socialItems"
-            :press-items="pressItems"
+            :social-items="mockFooterPrimary.socialItems"
+            :press-items="mockFooterPrimary.pressItems"
             :form="false"
         />
         <hr />
@@ -694,45 +694,45 @@ export default Vue.extend({
                 ],
                 to: "http://google.com/title",
             },
-            // mockHeaderStickPrimaryItems: {
-            //     items: [
-            //         { ...API.primaryNavlinks[0] },
-            //         {
-            //             ...API.primaryNavlinks[0],
-            //             name: "Visit",
-            //             url: "/visit/",
-            //         },
-            //         {
-            //             ...API.primaryNavlinks[0],
-            //             name: "About",
-            //             url: "/about/",
-            //         },
-            //         { ...API.primaryNavlinks[3] },
-            //     ],
-            // },
-            // mockHeaderStickSecondaryItems: {
-            //     items: [
-            //         { ...API.links[0] },
-            //         { ...API.links[1] },
-            //         { ...API.links[2] },
-            //     ],
-            // },
-            // mockHeaderStickyPrimaryItems: {
-            //     items: [
-            //         { ...API.primaryNavlinks[0] },
-            //         {
-            //             ...API.primaryNavlinks[0],
-            //             name: "Visit",
-            //             url: "/visit/",
-            //         },
-            //         {
-            //             ...API.primaryNavlinks[0],
-            //             name: "About",
-            //             url: "/about/",
-            //         },
-            //         { ...API.primaryNavlinks[3] },
-            //     ],
-            // },
+            mockHeaderStickPrimaryItems: {
+                items: [
+                    { ...API.primaryNavlinks[0] },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "Visit",
+                        url: "/visit/",
+                    },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "About",
+                        url: "/about/",
+                    },
+                    { ...API.primaryNavlinks[3] },
+                ],
+            },
+            mockHeaderStickSecondaryItems: {
+                items: [
+                    { ...API.links[0] },
+                    { ...API.links[1] },
+                    { ...API.links[2] },
+                ],
+            },
+            mockHeaderStickyPrimaryItems: {
+                items: [
+                    { ...API.primaryNavlinks[0] },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "Visit",
+                        url: "/visit/",
+                    },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "About",
+                        url: "/about/",
+                    },
+                    { ...API.primaryNavlinks[3] },
+                ],
+            },
             mockFooterPrimary: {
                 socialItems: [
                     {
@@ -813,13 +813,13 @@ export default Vue.extend({
                     },
                 ],
             },
-            // mockHeaderStickySecondaryItems: {
-            //     items: [
-            //         { ...API.links[0] },
-            //         { ...API.links[1] },
-            //         { ...API.links[2] },
-            //     ],
-            // },
+            mockHeaderStickySecondaryItems: {
+                items: [
+                    { ...API.links[0] },
+                    { ...API.links[1] },
+                    { ...API.links[2] },
+                ],
+            },
             mockMediaWithText: {
                 id: "13669",
                 typeHandle: "mediaWithText",
