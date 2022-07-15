@@ -1,3 +1,10 @@
+## [1.26.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.26.1...v1.26.2) (2022-07-15)
+
+
+### Bug Fixes
+
+* APPS-1701 - console errors with the npm run serve ([#64](https://github.com/UCLALibrary/ucla-library-website-components/issues/64)) ([8f53eef](https://github.com/UCLALibrary/ucla-library-website-components/commit/8f53eefd479b50060a757e13871569598d1c4b1c))
+
 ## [1.26.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.26.0...v1.26.1) (2022-07-14)
 
 

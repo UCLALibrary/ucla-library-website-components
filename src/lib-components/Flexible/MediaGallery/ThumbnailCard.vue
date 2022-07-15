@@ -1,6 +1,6 @@
 <template>
     <div class="thumbnail-card">
-        <responsive-image :image="image" aspect-ratio="60" class="image" />
+        <responsive-image :image="image" :aspect-ratio="60" class="image" />
         <h3 class="caption-title" v-text="captionTitle" />
         <p class="caption-text" v-text="captionText" />
     </div>

@@ -23,7 +23,11 @@
         </ul>
 
         <div class="support-links">
-            <div v-for="item in supportLinks" :key="item" class="item-top">
+            <div
+                v-for="(item, index) in supportLinks"
+                :key="index"
+                class="item-top"
+            >
                 <smart-link class="support-link underline-hover" :to="item.to">
                     {{ item.name }}
                 </smart-link>

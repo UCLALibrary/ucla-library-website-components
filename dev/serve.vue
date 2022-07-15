@@ -21,13 +21,15 @@
             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             name="Lorem ipsum dolor"
             to="/help/foo/bar/"
-            is-dark="false"
-            is-small-size="false"
+            :is-dark="false"
+            :is-small-size="false"
         />
         <hr />
 
         <h2>BlockCallToActionTwoUp Component</h2>
-        <block-call-to-action-two-up :items="items" />
+        <block-call-to-action-two-up
+            :items="mockBlockCallToActionTwoUp.items"
+        />
         <hr />
 
         <h2>BlockCampusMap Component</h2>
@@ -196,8 +198,8 @@
 
         <h2>HeaderMainResponsive Component</h2>
         <header-main-responsive
-            :primary-nav="parsedNavPrimary"
-            :secondary-nav="parsedSecondary"
+            :primary-nav="mockHeaderStickyPrimaryItems.items"
+            :secondary-nav="mockHeaderStickySecondaryItems.items"
             current-path="/about/foo/bar"
         />
         <hr />
@@ -218,8 +220,8 @@
 
         <h2>FooterPrimary</h2>
         <footer-primary
-            :social-items="socialItems"
-            :press-items="pressItems"
+            :social-items="mockFooterPrimary.socialItems"
+            :press-items="mockFooterPrimary.pressItems"
             :form="false"
         />
         <hr />
@@ -283,8 +285,6 @@
         <search-home
             :link-items="mockSearchHomeLinks.linkItems"
             :advanced-search-link="mockAdvancedSearchLink.advancedSearchLink"
-            @activeTabSet="action"
-            @search="action"
         />
         <hr />
 
@@ -699,6 +699,29 @@ export default Vue.extend({
                 ],
                 to: "http://google.com/title",
             },
+            mockHeaderStickPrimaryItems: {
+                items: [
+                    { ...API.primaryNavlinks[0] },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "Visit",
+                        url: "/visit/",
+                    },
+                    {
+                        ...API.primaryNavlinks[0],
+                        name: "About",
+                        url: "/about/",
+                    },
+                    { ...API.primaryNavlinks[3] },
+                ],
+            },
+            mockHeaderStickSecondaryItems: {
+                items: [
+                    { ...API.links[0] },
+                    { ...API.links[1] },
+                    { ...API.links[2] },
+                ],
+            },
             mockHeaderStickyPrimaryItems: {
                 items: [
                     { ...API.primaryNavlinks[0] },
@@ -1021,7 +1044,7 @@ export default Vue.extend({
             mockSectionStaffList: {
                 items: [
                     {
-                        to: "/staff/foo",
+                        to: "/staff/foo/1",
                         jobTitle: "Ullamco",
                         staffName: "Fames ac turpis",
                         department: "Inceptos Himenaeos",
@@ -1039,7 +1062,7 @@ export default Vue.extend({
                         phone: "(222) 444-5555",
                     },
                     {
-                        to: "/staff/foo",
+                        to: "/staff/foo/2",
                         jobTitle: "Ullamco",
                         staffName: "Fames ac turpis",
                         department: "Inceptos Himenaeos",
@@ -1057,7 +1080,7 @@ export default Vue.extend({
                         phone: "(222) 444-5555",
                     },
                     {
-                        to: "/staff/foo",
+                        to: "/staff/foo/3",
                         image: API.image,
                         jobTitle: "Ullamco",
                         staffName: "Fames ac turpis",
@@ -1151,7 +1174,7 @@ export default Vue.extend({
                 items: [
                     {
                         image: API.image,
-                        to: "/visit/foo/bar/",
+                        to: "/visit/foo/bar/1",
                         category: "Ullamco",
                         title: "Fames ac turpis egestas sed tempus lorem ipsum",
                         startDate: "2021-09-03T08:00:00+00:00",
@@ -1160,7 +1183,7 @@ export default Vue.extend({
                     },
                     {
                         image: API.image,
-                        to: "/visit/foo/bar/",
+                        to: "/visit/foo/bar/2",
                         category: "Aliquam Varius",
                         title: "Pretium magna eget dignissim placerat arcu velit et metus",
                         startDate: "2021-09-03T08:00:00+00:00",
@@ -1176,7 +1199,7 @@ export default Vue.extend({
                     },
                     {
                         image: API.image,
-                        to: "/visit/foo/baz/",
+                        to: "/visit/foo/baz/3",
                         category: "Sagittis",
                         title: "Auctor Ligula",
                         startDate: "2021-01-03T08:00:00+00:00",
@@ -1192,7 +1215,7 @@ export default Vue.extend({
                     },
                     {
                         image: API.image,
-                        to: "/visit/foo/baz/",
+                        to: "/visit/foo/baz/4",
                         category: "Tristique",
                         title: "Amet nisl suscipit adipiscing bibendum lectus sed",
                         startDate: "2021-09-03T08:00:00+00:00",
@@ -1248,6 +1271,28 @@ export default Vue.extend({
                     textLong:
                         "Greplin prezi zillow zoosk orkut, zoosk gooru. Kiko xobni joukuu ideeli bitly joukuu, squidoo heroku hulu sifteo, zooomr jumo dropio chumby. Qeyno wikia oooooc jajah, ebay qeyno lala, jajah lijit. Etsy wufoo flickr movity sclipo heroku, oooooc etsy oooooc. Vimeo foodzie zoosk ebay, wesabe. Ebay doostang vuvox, xobni. Mozy joyent dropio gooru kippt, greplin skype. Kiko napster geni dogster yoono yammer disqus, hipmunk xobni odeo zynga loopt. Groupon klout divvyshot zinch elgg yoono airbnb, orkut zinch chartly squidoo.",
                 },
+            },
+            mockBlockCallToActionTwoUp: {
+                item: [
+                    {
+                        svgName: "svg-call-to-action-find",
+                        title: "Lorem ipsum dolor sit amet?",
+                        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                        name: "Lorem ipsum dolor",
+                        to: "/help/foo/bar/",
+                        isDark: false,
+                        isSmallSize: true,
+                    },
+                    {
+                        svgName: "svg-call-to-action-chat",
+                        title: "Dolor sit amet Ipsum",
+                        text: "Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                        name: "Ipsum dolor amet",
+                        to: "/help/foo/bar/",
+                        isDark: true,
+                        isSmallSize: true,
+                    },
+                ],
             },
         }
     },

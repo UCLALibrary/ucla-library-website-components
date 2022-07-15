@@ -5,11 +5,7 @@
                 <div class="gradient" />
                 <svg-molecule-image-stack class="molecule-image-stack" />
             </div>
-            <media-badge
-                v-if="nItems > 1"
-                :label="expand_toggle_text"
-                :is-expanded="expanded"
-            >
+            <media-badge v-if="nItems > 1" :is-expanded="expanded">
                 {{ nItems }}
                 images
                 <svg class="glyph-expand">
