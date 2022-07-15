@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <div class="impact-numbers-carousel">
         <div class="slide-indicator">
             <svg-icon-molecule-bullet
