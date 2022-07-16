@@ -73,7 +73,8 @@
             :to="mockBlockEvent.bricks[1].to"
         />
         <hr />
-        <h2>LibCal Events Form</h2>
+
+        <h2>LibCal Events Form Component</h2>
         <block-form :block="mockBlockForm" event-id="9383207" />
         <hr />
 
@@ -196,6 +197,22 @@
         <divider-way-finder color="visit" />
         <hr />
 
+        <h2>FooterPrimary Components</h2>
+        <footer-primary
+            :social-items="mockFooterPrimary.socialItems"
+            :press-items="mockFooterPrimary.pressItems"
+            :form="false"
+        />
+        <hr />
+
+        <h2>FooterSock Components</h2>
+        <footer-sock />
+        <hr />
+
+        <h2>GridGallery Components</h2>
+        <grid-gallery :items="mockGridGallery" />
+        <hr />
+
         <h2>HeaderMainResponsive Component</h2>
         <header-main-responsive
             :primary-nav="mockHeaderStickyPrimaryItems.items"
@@ -209,25 +226,11 @@
         <br /><br />
         <hr />
 
-        Commented out because it will get in the way of others components, but
-        it's working
         <h2>HeaderSticky Component</h2>
         <header-sticky
             :primary-items="mockHeaderStickyPrimaryItems.items"
             :secondary-items="mockHeaderStickySecondaryItems.items"
         />
-        <hr />
-
-        <h2>FooterPrimary</h2>
-        <footer-primary
-            :social-items="mockFooterPrimary.socialItems"
-            :press-items="mockFooterPrimary.pressItems"
-            :form="false"
-        />
-        <hr />
-
-        <h2>FooterSock</h2>
-        <footer-sock />
         <hr />
 
         <h2>HeadingArrow Component</h2>
@@ -244,6 +247,29 @@
         />
         <hr />
 
+        <h1>ImpactNumbersCarousel Components</h1>
+        <impact-numbers-carousel :blocks="mockImpactNumbersCarousel" />
+        <hr />
+
+        <h1>Imapct Report Components</h1>
+        <story-with-image
+            :image="mockStoryWithImage.image"
+            :caption="mockStoryWithImage.image.caption"
+            :title="mockStoryWithImage.title"
+            :text="mockStoryWithImage.text"
+            :footnote="mockStoryWithImage.footnote"
+            :calltoaction="mockStoryWithImage.calltoaction"
+        />
+        <hr />
+
+        <h1>ImpactRichText Components</h1>
+        <impact-rich-text
+            :text-blocks="mockImpactRichText.textBlocks"
+            :pull-quote="mockImpactRichText.pullQuote"
+            :images="mockImpactRichText.images"
+        />
+        <hr />
+
         <h2>MastheadPrimary Component</h2>
         <masthead-primary />
         <hr />
@@ -255,8 +281,6 @@
         />
         <hr />
 
-        <h2>ModalGeneric Component</h2>
-
         <h2>NavBreadCrumb Component</h2>
         <nav-breadcrumb title="jane-doe" />
         <hr />
@@ -267,6 +291,10 @@
 
         <h2>NavSecondary Component</h2>
         <nav-secondary :items="parsedNavSecondary" />
+        <hr />
+
+        <h2>PullQuote Component</h2>
+        <pull-quote :text="text" :attribution="attribution" />
         <hr />
 
         <h2>ResponsiveImage Component</h2>
@@ -305,12 +333,34 @@
         />
         <hr />
 
+        <h2>SectionPagination Component</h2>
+        <section-pagination previousTo="/page/1" nextTo="/page/3" />
+        <hr />
+        <section-pagination nextTo="/page/1" />
+        <hr />
+        <section-pagination previousTo="/page/10" />
+        <hr />
+
         <h2>SectionSpacesList Component</h2>
         <section-spaces-list :items="mockSectionSpacesList.items" />
         <hr />
 
+        <h2>SectionStaffArticleList Component</h2>
+        <section-staff-article-list
+            :items="mockSectionStaffArticleList.items"
+        />
+        <hr />
+
         <h2>SectionStaffList Component</h2>
         <section-staff-list :items="mockSectionStaffList.items" />
+        <hr />
+
+        <h2>SectionTeaserCard Component</h2>
+        <section-staff-orcid-publications
+            class="staff-orcid-publications"
+            :orcid="page.entry.orcid"
+            :publications="page.entry.publications"
+        />
         <hr />
 
         <h2>SectionTeaserCard Component</h2>
@@ -325,7 +375,7 @@
         <section-teaser-list :items="mockSectionTeaserList.items" />
         <hr />
 
-        <h2>SiteNotificationAlert</h2>
+        <h2>SiteNotificationAlert Component</h2>
         <site-notification-alert
             :title="mockSiteNotificationAlert.alert.title"
             :text="mockSiteNotificationAlert.alert.textLong"
@@ -335,39 +385,10 @@
         <h2>SmartLink Component</h2>
         <smart-link to="/"> This will render as a vue-router link </smart-link>
         <hr />
-        <hr />
 
         <h1>FlexibleBlock Components</h1>
         <flexible-blocks :blocks="flexibleBlocks" />
         <hr />
-        <hr />
-
-        <h1>Imapct Report Components</h1>
-        <story-with-image
-            :image="mockStoryWithImage.image"
-            :caption="mockStoryWithImage.image.caption"
-            :title="mockStoryWithImage.title"
-            :text="mockStoryWithImage.text"
-            :footnote="mockStoryWithImage.footnote"
-            :calltoaction="mockStoryWithImage.calltoaction"
-        />
-        <hr />
-        <hr />
-
-        <grid-gallery :items="mockGridGallery" />
-        <hr />
-        <hr />
-
-        <impact-rich-text
-            :text-blocks="mockImpactRichText.textBlocks"
-            :pull-quote="mockImpactRichText.pullQuote"
-            :images="mockImpactRichText.images"
-        />
-        <hr />
-        <hr />
-
-        <h1>Impact Numbers Carousel</h1>
-        <impact-numbers-carousel :blocks="mockImpactNumbersCarousel" />
     </div>
 </template>
 
@@ -1038,6 +1059,49 @@ export default Vue.extend({
                         location: "Pennyboy Cottage",
                         text: "Gosh beefeater numpty scouser rambunctious a bottle of plonk know your onions, cornish pasty spend a penny cheerio down the local mush. What a mug one off blimey a comely wench nose rag ponce gobsmacked pennyboy cottage pie, ey up fake tan spam fritters marvelous chippy hedgehog chav.",
                         buttonUrl: "http://google.com",
+                    },
+                ],
+            },
+            mockSectionStaffArticleList: {
+                items: [
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bar/",
+                        category: "Ullamco",
+                        title: "Fames ac turpis egestas sed tempus lorem ipsum",
+                        date: "1995-12-17T03:24:00",
+                        authors: [{ title: "Justo Magna", id: 123 }],
+                        description:
+                            "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bar/",
+                        category: "Ullamco",
+                        title: "Fames ac turpis egestas sed tempus lorem ipsum",
+                        date: "2020-12-17T03:24:00",
+                        authors: [
+                            { title: "Justo Magna", id: 123 },
+                            { title: "Luctus Suscipit", id: 124 },
+                            { title: "Morbi lacinia", id: 125 },
+                            { title: "Vestibulum Tincidunt", id: 126 },
+                            { title: "Ut Ultrices Malesuada Enim", id: 127 },
+                        ],
+                        description:
+                            "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
+                    },
+                    {
+                        image: API.image,
+                        to: "/visit/foo/bar/",
+                        category: "Ullamco",
+                        title: "Mauris Rhoncus Aenean Vel Elit Scelerisque Mauris Pellentesque Pulvinar Rhoncus Aenean Vel Elit Scelerisque",
+                        date: "1998-12-17T03:24:00",
+                        authors: [
+                            { title: "Justo Magna", id: 123 },
+                            { title: "Luctus Suscipit", id: 124 },
+                        ],
+                        description:
+                            "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
                     },
                 ],
             },
