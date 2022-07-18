@@ -4,7 +4,11 @@
         <fieldset class="base-radio-group">
             <ul class="list">
                 <li class="list-item">
-                    <label v-for="item in items" class="label">
+                    <label
+                        v-for="(item, index) in items"
+                        :key="`BaseRadioGroup${index}`"
+                        class="label"
+                    >
                         <input
                             v-model="parsedSelected"
                             type="radio"

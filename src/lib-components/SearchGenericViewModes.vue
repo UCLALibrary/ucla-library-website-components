@@ -11,7 +11,7 @@
             </div>
 
             <div class="chevron">
-                <icon-caret-down class="svg" />
+                <svg-icon-caret-down class="svg" />
             </div>
         </button>
 

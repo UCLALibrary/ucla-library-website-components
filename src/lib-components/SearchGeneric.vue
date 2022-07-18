@@ -35,11 +35,19 @@
         <!-- The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for -->
 
         <!-- This loops through avaible filter groups -->
-        <transition name="slide-toggle" mode="out-in">
-            <component :is="group.componentName" v-for="(group, index) in
-            parsedFilters" v-if=“index == openedFilterIndex” :key="group.slug"
-            :items="group.items" :selected.sync="parsedFilters[index].selected"
-            class="filter-group" />
+        <transition
+            name="slide-toggle"
+            mode="out-in"
+            :key="group.slug"
+            v-for="(group, index) in parsedFilters"
+        >
+            <component
+                :is="group.componentName"
+                v-if="index == openedFilterIndex"
+                :items="group.items"
+                :selected.sync="parsedFilters[index].selected"
+                class="filter-group"
+            />
         </transition>
     </form>
 </template>
@@ -71,10 +79,18 @@ export default {
             type: Array,
             default: () => [],
         },
+        searchGenericQuery: {
+            type: String,
+            default: "",
+        },
+        queryView: {
+            type: String,
+            default: "list",
+        },
     },
     data() {
         return {
-            searchWords: this.$route.query.q,
+            searchWords: this.searchGenericQuery, // this.$route.query.q,
             selectedFilters: {},
             openedFilterIndex: -1,
             isViewOpened: false,
@@ -135,19 +151,21 @@ export default {
         }
 
         // TODO probably want to validate agaisnt this.viewModes
-        this.selectedView = this.$route.query.view || "list"
+        this.selectedView = this.queryView // this.$route.query.view || "list"
     },
     methods: {
         async doSearch() {
             // TODO Get this pushing real values ot the URL
-            this.$router.push({
-                path: this.actionURL,
-                query: {
-                    q: this.searchWords,
-                    view: this.selectedView,
-                    filters: Object.keys(this.selectedFilters).length, // TODO get this encoding correctly
-                },
-            })
+            // TODO Make this work with vue router
+            // When we moved this cpmponent we needed to comment out this line
+            // this.$router.push({
+            //     path: this.actionURL,
+            //     query: {
+            //         q: this.searchWords,
+            //         view: this.selectedView,
+            //         filters: Object.keys(this.selectedFilters).length, // TODO get this encoding correctly
+            //     },
+            // })
         },
     },
 }

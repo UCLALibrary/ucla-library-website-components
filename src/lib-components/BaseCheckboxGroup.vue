@@ -4,7 +4,11 @@
         <fieldset class="base-checkbox-group">
             <ul class="list">
                 <li class="list-item">
-                    <label v-for="item in items" class="label">
+                    <label
+                        v-for="(item, index) in items"
+                        :key="`BaseCheckboxGroup${index}`"
+                        class="label"
+                    >
                         <input
                             v-model="parsedSelected"
                             type="checkbox"
