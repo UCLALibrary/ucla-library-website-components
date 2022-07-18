@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import SvgIconCaretDown from "ucla-library-design-tokens/icon-caret-down.svg"
+import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
 import SvgIconCalendar from "ucla-library-design-tokens/assets/svgs/icon-calendar.svg"
 import SvgIconCard from "ucla-library-design-tokens/assets/svgs/icon-card.svg"
 import SvgIconList from "ucla-library-design-tokens/assets/svgs/icon-list.svg"
@@ -133,6 +133,22 @@ export default {
         .svg {
             display: inline-block;
             transform: translateY(2px);
+            rect {
+                stroke: white;
+            }
+            .svg__stroke--default-cyan-03 {
+                stroke: white;
+            }
+            .svg__icon-list svg {
+                stroke: white;
+            }
+        }
+    }
+    .is-active {
+        .svg {
+            .svg__stroke--primary-blue-03 {
+                stroke: white;
+            }
         }
     }
     .chevron {

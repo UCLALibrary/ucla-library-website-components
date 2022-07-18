@@ -2,10 +2,11 @@
     <!-- TODO Need tick's next to radio dropdown  -->
     <!-- TODO Need count of items selected for checkbox -->
     <!-- TODO Need selected tags (sync'd to selected checkboxes) -->
+    <!-- TODO Need to get a BaseCheckboxGroup working -->
+    <!-- TODO Need to create a BaseCalendarGroup Component -->
+    <!-- TODO Need to style this for Mobile -->
 
     <form class="search-generic" name="searchHome" @submit.prevent="doSearch">
-        <h2>{{ parsedFilters }}</h2>
-        <!-- <h3>{{ group.componentName }}</h3> -->
         <div class="input-container">
             <icon-search class="icon" />
             <input
@@ -35,15 +36,10 @@
 
         <!-- This loops through avaible filter groups -->
         <transition name="slide-toggle" mode="out-in">
-            <component
-                :is="group.componentName"
-                v-for="(group, index) in parsedFilters"
-                v-if="index == openedFilterIndex"
-                :key="group.slug"
-                :items="group.items"
-                :selected.sync="parsedFilters[index].selected"
-                class="filter-group"
-            />
+            <component :is="group.componentName" v-for="(group, index) in
+            parsedFilters" v-if=“index == openedFilterIndex” :key="group.slug"
+            :items="group.items" :selected.sync="parsedFilters[index].selected"
+            class="filter-group" />
         </transition>
     </form>
 </template>
@@ -51,14 +47,20 @@
 <script>
 import IconSearch from "ucla-library-design-tokens/assets/svgs/icon-search.svg"
 import SearchGenericFilterButtons from "./SearchGenericFilterButtons.vue"
-// import SearchGenericViewModes from "./SearchGenericViewModes.vue"
+import SearchGenericViewModes from "./SearchGenericViewModes.vue"
+import BaseRadioGroup from "./BaseRadioGroup.vue"
+import BaseCheckboxGroup from "./BaseCheckboxGroup.vue"
+// import BaseCalendarGroup from "./BaseCalendarGroup.vue"
 
 export default {
     name: "SearchGeneric",
     components: {
         IconSearch,
         SearchGenericFilterButtons,
-        // SearchGenericViewModes,
+        SearchGenericViewModes,
+        BaseRadioGroup,
+        BaseCheckboxGroup,
+        // BaseCalendarGroup,
     },
     props: {
         filters: {

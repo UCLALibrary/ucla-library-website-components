@@ -11,22 +11,22 @@ const items = [
         name: "Neque porro quisquam",
     },
     {
-        name: "qui dolorem ipsum quia dolor",
+        name: "Qui dolorem ipsum quia dolor",
     },
     {
-        name: "consectetur, adipisci velit.",
+        name: "Consectetur, adipisci velit.",
     },
     {
-        name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+        name: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     },
     {
         name: "Excepteur sint occaecat cupidatat non proident",
     },
     {
-        name: "vel illum qui dolorem eum fugiat",
+        name: "Vel illum qui dolorem eum fugiat",
     },
     {
-        name: "quis nostrum exercitationem ullam",
+        name: "Quis nostrum exercitationem ullam",
     },
     {
         name: "Quis autem vel eum iure reprehenderit",
@@ -35,10 +35,10 @@ const items = [
         name: "Excepteur sint occaecat cupidatat non proident1",
     },
     {
-        name: "vel illum qui dolorem eum fugiat1",
+        name: "Vel illum qui dolorem eum fugiat1",
     },
     {
-        name: "quis nostrum exercitationem ullam1",
+        name: "Quis nostrum exercitationem ullam1",
     },
     {
         name: "Quis autem vel eum iure reprehenderit1",
