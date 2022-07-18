@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <section
         v-if="orcid || publications"
         class="section-staff-orcid-publications"
@@ -19,7 +19,15 @@
 </template>
 
 <script>
+import RichText from "@/lib-components/RichText"
+import SmartLink from "@/lib-components/SmartLink"
+
 export default {
+    name: "SectionStaffOrcidPublications",
+    components: {
+        RichText,
+        SmartLink,
+    },
     props: {
         orcid: {
             type: String,
