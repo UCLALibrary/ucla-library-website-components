@@ -355,11 +355,11 @@
         <section-staff-list :items="mockSectionStaffList.items" />
         <hr />
 
-        <h2>SectionTeaserCard Component</h2>
+        <h2>SectionStaffOrcidPublications Component</h2>
         <section-staff-orcid-publications
             class="staff-orcid-publications"
-            :orcid="page.entry.orcid"
-            :publications="page.entry.publications"
+            :orcid="mockSectionStaffOrcidPublications.orcid"
+            :publications="mockSectionStaffOrcidPublications.publications"
         />
         <hr />
 
@@ -1357,6 +1357,10 @@ export default Vue.extend({
                         isSmallSize: true,
                     },
                 ],
+            },
+            mockSectionStaffOrcidPublications: {
+                orcid: "123123",
+                publications: "test_url",
             },
         }
     },
