@@ -64,7 +64,8 @@
             :dates="mockBlockEvent.bricks[0].dates"
             :to="mockBlockEvent.bricks[0].to"
         />
-        <br /><br />
+        <hr />
+
         <block-event
             :category="mockBlockEvent.bricks[1].category"
             :title="mockBlockEvent.bricks[1].title"
@@ -73,6 +74,7 @@
             :to="mockBlockEvent.bricks[1].to"
         />
         <hr />
+
         <h2>LibCal Events Form</h2>
         <block-form :block="mockBlockForm" event-id="9383207" />
         <hr />
@@ -277,6 +279,10 @@
         <rich-text :rich-text-content="mockRichText.richText" />
         <hr />
 
+        <h2>SearchGeneric</h2>
+        <search-generic :filters="mockSearchGeneric.filters" />
+        <hr />
+
         <h2>SiteBrandBar Component</h2>
         <site-brand-bar />
         <hr />
@@ -382,6 +388,71 @@ export default Vue.extend({
     name: "ServeDev",
     data() {
         return {
+            mockSearchGeneric: {
+                views: [
+                    {
+                        slug: "list",
+                        iconName: "icon-list",
+                        title: "List",
+                    },
+                    {
+                        slug: "card",
+                        iconName: "icon-card",
+                        title: "Card",
+                    },
+                    {
+                        slug: "calendar",
+                        iconName: "icon-calendar",
+                        title: "Calendar",
+                    },
+                ],
+                filters: [
+                    {
+                        label: "Location",
+                        slug: "location",
+                        inputType: "radio",
+                        items: [
+                            {
+                                name: "Neque porro quisquam",
+                            },
+                            {
+                                name: "qui dolorem ipsum quia dolor",
+                            },
+                            {
+                                name: "consectetur, adipisci velit.",
+                            },
+                            {
+                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            },
+                            {
+                                name: "Excepteur sint occaecat cupidatat non proident",
+                            },
+                        ],
+                    },
+                    {
+                        label: "Department",
+                        slug: "department",
+                        inputType: "checkbox",
+                        items: [
+                            {
+                                name: "Neque porro quisquam",
+                            },
+                            {
+                                name: "qui dolorem ipsum quia dolor",
+                            },
+                            {
+                                name: "consectetur, adipisci velit.",
+                            },
+                            {
+                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            },
+                            {
+                                name: "Excepteur sint occaecat cupidatat non proident",
+                            },
+                        ],
+                    },
+                ],
+            },
             mockBlockForm: {
                 id: 5481,
                 name: "Data Science Center Workshops",
@@ -413,184 +484,6 @@ export default Vue.extend({
                             "American Indian Studies",
                             "Anderson School of Management",
                             "Anthropology",
-                            "Archaeology",
-                            "Architecture",
-                            "Architecture - M.Arch.",
-                            "Architecture - M.S. in Architecture and Urban Design",
-                            "Architecture and Urban Design Department",
-                            "Art",
-                            "Art History",
-                            "Asian American Studies",
-                            "Asian Languages and Cultures",
-                            "Asian Languages and Cultures Department",
-                            "Astronomy and Astrophysics",
-                            "Astronomy and Astrophysics-MAT",
-                            "Atmospheric and Oceanic Sciences",
-                            "Biochemistry, Molecular and Structural Biology",
-                            "Bioengineering",
-                            "Bioinformatics",
-                            "Biology",
-                            "Biomathematics",
-                            "Bioscience Programs",
-                            "Biostatistics",
-                            "Chemical &amp; Biomolecular Engineering Department",
-                            "Chemical Engineering",
-                            "Chemistry",
-                            "Chemistry and Biochemistry Department",
-                            "Chicana &amp; Chicano Studies",
-                            "Chicana/o and Central American Studies Department",
-                            "Choreographic Inquiry",
-                            "Civil &amp; Environmental Engineering Department",
-                            "Civil Engineering",
-                            "Classics",
-                            "Classics Department",
-                            "Clinical Research",
-                            "Communication",
-                            "Community Health Sciences",
-                            "Community Health Sciences Department",
-                            "Comparative Literature",
-                            "Computational Medicine Department",
-                            "Computer Science",
-                            "Conservation of Archaeological &amp; Ethnographic Materials",
-                            "Conservation of Archaeological &amp; Ethnographic Materials Department",
-                            "Conservation of Material Culture",
-                            "Culture and Performance",
-                            "David Geffen School of Medicine",
-                            "Design | Media Arts",
-                            "Earth, Planetary, and Space Sciences Department",
-                            "East Asian Studies",
-                            "Ecology and Evolutionary Biology Department",
-                            "Economics",
-                            "Economics - Master of Applied Economics",
-                            "Economics Department",
-                            "Education",
-                            "Educational Leadership Program",
-                            "Electrical &amp; Computer Engineering",
-                            "Engineering - Master of Engineering",
-                            "Engineering - MS in Engineering, Online",
-                            "Engineering - MS in Engineering-Aerospace, Online",
-                            "Engineering - MS in Engineering-Computer Networking, Online",
-                            "Engineering - MS in Engineering-Electrical, Online",
-                            "Engineering - MS in Engineering-Electronic Materials, Online",
-                            "Engineering - MS in Engineering-Integrated Circuits, Online",
-                            "Engineering - MS in Engineering-Manufacturing and Design, Online",
-                            "Engineering - MS in Engineering-Materials Science, Online",
-                            "Engineering - MS in Engineering-Mechanical, Online",
-                            "Engineering - MS in Engineering-Signal Processing and Communications, Online",
-                            "Engineering - MS in Engineering-Structural Materials, Online",
-                            "English",
-                            "Environment and Sustainability",
-                            "Environmental Health Sciences",
-                            "Environmental Science &amp; Engineering",
-                            "Epidemiology",
-                            "Ethnomusicology",
-                            "Executive Master of Public Health",
-                            "Fielding School of Public Health",
-                            "Film &amp; Television",
-                            "Film, Television, &amp; Digital Media Department",
-                            "French &amp; Francophone Studies",
-                            "Gender Studies",
-                            "Genetic Counseling",
-                            "Geochemistry",
-                            "Geography",
-                            "Geography Department",
-                            "Geology",
-                            "Geophysics &amp; Space Physics",
-                            "Germanic Languages",
-                            "Germanic Languages Department",
-                            "Greek",
-                            "Health Policy &amp; Management",
-                            "Health Policy and Management Department",
-                            "Healthcare Administration",
-                            "Henry Samueli School of Engineering and Applied Science",
-                            "Herb Alpert School of Music",
-                            "Hispanic Languages &amp; Literatures",
-                            "History",
-                            "Human Genetics",
-                            "Human Genetics Department",
-                            "Humanities",
-                            "Indo-European Studies",
-                            "Information Studies",
-                            "Information Studies Department",
-                            "Institute of the Environment &amp; Sustainability",
-                            "Integrative Biology &amp; Physiology Department",
-                            "International Institute",
-                            "Islamic Studies",
-                            "Italian",
-                            "Latin",
-                            "Latin American Studies",
-                            "Library &amp; Information Science",
-                            "Library &amp; Information Science Certificate",
-                            "Life Sciences",
-                            "Linguistics",
-                            "Luskin School of Public Affairs",
-                            "Management - Business Analytics MS",
-                            "Management - Executive MBA",
-                            "Management - Fully Employed MBA (FEMBA)",
-                            "Management - Global Executive MBA for Asia Pacific",
-                            "Management - Master of Financial Engineering",
-                            "Management - MBA",
-                            "Management - MS, PHD",
-                            "Manufacturing Engineering",
-                            "Master of Applied Geospatial Information Systems &amp; Technologies",
-                            "Master of Legal Studies",
-                            "Master of Public Health for Health Professionals",
-                            "Master of Social Science",
-                            "Materials Science &amp; Engineering",
-                            "Mathematics",
-                            "Mechanical &amp; Aerospace Engineering Department",
-                            "Mechanical Engineering",
-                            "Microbiology, Immunology, &amp; Molecular Genetics",
-                            "Molecular &amp; Medical Pharmacology",
-                            "Molecular Biology",
-                            "Molecular Toxicology",
-                            "Molecular, Cell, &amp; Developmental Biology",
-                            "Molecular, Cellular, &amp; Integrative Physiology",
-                            "Music",
-                            "Musicology",
-                            "Near Eastern Languages &amp; Cultures",
-                            "Near Eastern Languages &amp; Cultures Department",
-                            "Neuroscience",
-                            "Nursing",
-                            "Nursing - Doctor of Nursing Practice",
-                            "Oral Biology",
-                            "Philosophy",
-                            "Physical Sciences",
-                            "Physics",
-                            "Physics &amp; Biology in Medicine",
-                            "Physics and Astronomy Department",
-                            "Physiological Science",
-                            "Political Science",
-                            "Portuguese",
-                            "Psychology",
-                            "Public Health",
-                            "Public Policy",
-                            "Scandinavian",
-                            "School of Dentistry",
-                            "School of Education and Information Studies",
-                            "School of Law",
-                            "School of Nursing",
-                            "School of the Arts and Architecture",
-                            "School of Theater, Film and Television",
-                            "Slavic, East European, and Eurasian Languages &amp; Cultures",
-                            "Social Sciences",
-                            "Social Welfare",
-                            "Sociology",
-                            "Spanish",
-                            "Spanish and Portuguese Department",
-                            "Special Education",
-                            "Statistics",
-                            "Statistics - Master of Applied Statistics",
-                            "Statistics Department",
-                            "Teaching Asian Languages",
-                            "Theater",
-                            "Theater and Performance Studies",
-                            "Theater Department",
-                            "Urban and Regional Planning",
-                            "Urban and Regional Planning - Institut d'Etudes de Paris",
-                            "Urban Planning",
-                            "Urban Planning Department",
-                            "World Arts and Cultures/Dance Department",
                         ],
                     },
                     {
@@ -627,6 +520,71 @@ export default Vue.extend({
                         label: "What would you like to get out of this course?",
                         type: "string",
                         required: false,
+                    },
+                ],
+            },
+            mockSearchGeneric: {
+                views: [
+                    {
+                        slug: "list",
+                        iconName: "icon-list",
+                        title: "List",
+                    },
+                    {
+                        slug: "card",
+                        iconName: "icon-card",
+                        title: "Card",
+                    },
+                    {
+                        slug: "calendar",
+                        iconName: "icon-calendar",
+                        title: "Calendar",
+                    },
+                ],
+                filters: [
+                    {
+                        label: "Location",
+                        slug: "location",
+                        inputType: "radio",
+                        items: [
+                            {
+                                name: "Neque porro quisquam",
+                            },
+                            {
+                                name: "qui dolorem ipsum quia dolor",
+                            },
+                            {
+                                name: "consectetur, adipisci velit.",
+                            },
+                            {
+                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            },
+                            {
+                                name: "Excepteur sint occaecat cupidatat non proident",
+                            },
+                        ],
+                    },
+                    {
+                        label: "Department",
+                        slug: "department",
+                        inputType: "checkbox",
+                        items: [
+                            {
+                                name: "Neque porro quisquam",
+                            },
+                            {
+                                name: "qui dolorem ipsum quia dolor",
+                            },
+                            {
+                                name: "consectetur, adipisci velit.",
+                            },
+                            {
+                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            },
+                            {
+                                name: "Excepteur sint occaecat cupidatat non proident",
+                            },
+                        ],
                     },
                 ],
             },
@@ -865,7 +823,7 @@ export default Vue.extend({
                 to: "https://calendar.library.ucla.edu",
                 title: "Bureaux de Garcons",
                 location: "Fast Lane Building",
-                text: "Eclectic sophisticated carefully curated lovely Baggu Muji sharp finest efficient perfect. Hub Boeing 787 lovely Melbourne flat white ryokan. Global iconic Gaggenau Muji bulletin premium espresso delightful destination vibrant remarkable elegant bureaux boutique. Sunspel exclusive first-class espresso, Fast Lane intricate Melbourne Airbus A380 pintxos Shinkansen Swiss vibrant the highest quality.",
+                text: "Eclectic sophisticated carefully curated lovely Baggu Muji sharp finest efficient perfect. Hub Boeing 787 lovely Melbourne flat white ryokan. vibrant the highest quality.",
             },
             mockBlockStaffArticleList: {
                 image: API.image,
@@ -897,7 +855,7 @@ export default Vue.extend({
                     { title: "Carpe vinum", id: "809" },
                 ],
                 biography:
-                    "<p>Creo quia absurdum est. Fusce metus ex, gravida at metus id, vestibulum aliquam ante. Vestibulum hendrerit ut augue id pulvinar. Nam id efficitur felis. Duis nisi dui, vulputate id cursus quis, facilisis sed est. Etiam consequat malesuada congue. Nullam sed nulla laoreet, e gestas felis in, sollicitudin lacus. Cras ultrices dolor at quam vestibulum, eget vestibulum diam congue. Nam at est cursus, cursus justo non, pharetra ipsum.</p><p>Morbi gravida, turpis ut luctus placerat, est mauris congue libero, sed tristique quam eros vel neque. Nunc lacinia mi a orci faucibus tincidunt. Praesent dapibus blandit eros eget auctor. Nullam orci ex, pharetra tempor nulla non, vulputate mattis nibh. Sed vel pharetra erat. Proin nec sapien a velit scelerisque interdum. Donec sagittis magna tincidunt, eleifend arcu id, elementum sapien.</p>",
+                    "<p>Creo quia absurdum est. Fusce metus ex, gravida at metus id, vestibulum aliquam ante. Vestibulum hendrerit ut augue id pulvinar. Nam id efficitur felis. Duis nisi dui, vulputate id cursus quis, facilisis sed est. Etiam consequat malesuada congue. Nullam sed nulla laoreet, e sagittis magna tincidunt, eleifend arcu id, elementum sapien.</p>",
             },
             mockBlockStaffList: {
                 to: "/staff/foo",
@@ -1022,21 +980,21 @@ export default Vue.extend({
                         to: "https://calendar.library.ucla.edu",
                         title: "Internal Portico",
                         location: "Fames Turpis Building",
-                        text: "Etiam faucibus tellus quis magna finibus auctor. Fusce sagittis vel lectus sed ullamcorper. Proin faucibus nibh ut purus consequat lobortis. Aenean eu fermentum leo, vitae egestas eros. Vivamus urna nibh, porttitor in egestas eu, eleifend ac felis. Praesent sed tristique nibh. Nulla dignissim purus at metus consequat, vitae pharetra orci efficitur. Vivamus facilisis massa vel ipsum vestibulum, porta efficitur dolor aliquam.",
+                        text: "Etiam faucibus tellus quis magna finibus auctor. Fusce sagittis vel lectus sed ullamcorper. Proin faucibus nibh ut purus consequat lobortis. Aenean eu fermentum leo, vitae egestas eros. vel ipsum vestibulum, porta efficitur dolor aliquam.",
                         buttonUrl: "http://google.com",
                     },
                     {
                         to: "https://www.gettyimages.com/photos/cute-llamas",
                         title: "External Von Junz",
                         location: "Debordist Room",
-                        text: "If one examines Marxist class, one is faced with a choice: either reject Baudrillardist simulation or conclude that the significance of the artist is social comment. The premise of Debordist situation implies that the law is capable of significance. Therefore, any number of constructions concerning a self-sufficient reality may be found.",
+                        text: "If one examines Marxist class, one is faced with a choice: either reject Baudrillardist simulation or conclude that the significance of the artist is social comment. The premise of reality may be found.",
                         buttonUrl: "http://google.com",
                     },
                     {
                         to: "",
                         title: "Null Beefeater Numpty",
                         location: "Pennyboy Cottage",
-                        text: "Gosh beefeater numpty scouser rambunctious a bottle of plonk know your onions, cornish pasty spend a penny cheerio down the local mush. What a mug one off blimey a comely wench nose rag ponce gobsmacked pennyboy cottage pie, ey up fake tan spam fritters marvelous chippy hedgehog chav.",
+                        text: "Gosh beefeater numpty scouser rambunctious a bottle of plonk know your onions, cornish pasty spend a penny cheerio down the local marvelous chippy hedgehog chav.",
                         buttonUrl: "http://google.com",
                     },
                 ],
@@ -1220,7 +1178,7 @@ export default Vue.extend({
                         title: "Amet nisl suscipit adipiscing bibendum lectus sed",
                         startDate: "2021-09-03T08:00:00+00:00",
                         endDate: "2021-10-08T07:10:00+00:00",
-                        text: "A diam maecenas sed enim. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis. Mi bibendum neque egestas congue. Placerat duis ultricies lacus sed turpis. Massa enim nec dui nunc mattis. Dolor morbi non arcu risus quis varius vestibulum sed.",
+                        text: "A diam maecenas sed enim. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis. Mi bibendum varius vestibulum sed.",
                     },
                 ],
             },
@@ -1242,7 +1200,7 @@ export default Vue.extend({
                         title: "Amet nisl suscipit adipiscing bibendum lectus sed",
                         startDate: "2021-09-03T08:00:00+00:00",
                         endDate: "2021-10-08T07:10:00+00:00",
-                        text: "A diam maecenas sed enim. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis. Mi bibendum neque egestas congue. Placerat duis ultricies lacus sed turpis. Massa enim nec dui nunc mattis. Dolor morbi non arcu risus quis varius vestibulum sed.",
+                        text: "A diam maecenas sed enim. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis. Mi bibendum varius vestibulum sed.",
                     },
                     {
                         image: API.image,
@@ -1391,11 +1349,10 @@ export default Vue.extend({
         mockImpactRichText() {
             return {
                 textBlocks: [
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nulla urna, euismod at sagittis ac, aliquam ut sem. Phasellus varius lacinia nisl nec fermentum. Sed dignissim metus quis consequat pretium. In hac habitasse platea dictumst. Ut vel dignissim eros. Aliquam lacus tellus, molestie a nisi non, suscipit consectetur dolor. Donec sit amet venenatis ante. Nullam blandit rhoncus massa, ac consequat ante egestas in. Pellentesque lobortis sed ex ac viverra. Proin et semper mauris. Pellentesque pulvinar cursus ipsum sit amet scelerisque. Praesent mollis fringilla est, quis rutrum sapien viverra eu.<br><br> Sed vitae lectus tristique, consequat mauris sed, commodo metus. Sed sit amet turpis urna. Donec nisl felis, imperdiet a nisi et, commodo imperdiet magna. Phasellus sed nisi a nulla vehicula volutpat. Nulla est justo, gravida et dui laoreet, viverra suscipit odio. Sed blandit leo elit, at eleifend neque facilisis in. Fusce congue dapibus vestibulum. Aliquam eget erat sed magna elementum maximus vitae ac quam. Cras massa tellus, pulvinar non nibh a, gravida vulputate ante. Pellentesque pharetra luctus turpis, et rutrum leo. Pellentesque commodo, sem id placerat mattis, elit dui vehicula ipsum, in vulputate dui augue a metus. Proin nec mi ut orci laoreet gravida id non leo. Vestibulum sodales tincidunt libero, vitae bibendum urna gravida ullamcorper. Morbi sagittis id justo nec condimentum. Aenean at ex nec sapien semper viverra eget sed erat.",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nulla urna, euismod at sagittis ac, aliquam ut sem. Phasellus varius lacinia nisl nec fermentum. Sed dignissim metus quis consequat pretium. In hac habitasse platea dictumst. .<br><br>Ut vel dignissim eros. Aliquam lacus tellus, molestie a nisi non, suscipit consectetur dolor. Donec sit amet venenatis ante. Nullam blandit rhoncus massa, ac consequat ante egestas in. Pellentesque lobortis sed ex ac viverra. Proin et semper mauris. Pellentesque pulvinar cursus ipsum sit amet scelerisque. Praesent mollis fringilla est, quis rutrum sapien viverra eu. Sed vitae lectus tristique, consequat mauris sed, commodo metus. Sed sit amet turpis urna. Donec nisl felis, imperdiet a nisi et, commodo imperdiet magna. Phasellus sed nisi a nulla vehicula volutpat. Nulla est justo, gravida et dui laoreet, viverra suscipit odio. Sed blandit leo elit, at eleifend neque facilisis in. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.",
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nulla urna, euismod at sagittis ac, aliquam ut sem. Phasellus varius lacinia nisl nec fermentum. Sed dignissim metus quis consequat pretium. In hac habitasse platea dictumst. Ut vel dignissim eros. Aliquam lacus tellus, molestie a nisi non, suscipit consectetur dolor. Donec sit amet venenatis ante. Nullam blandit rhoncus massa, ac consequat ante egestas .",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nulla urna, euismod at sagittis ac, aliquam ut sem. Phasellus varius lacinia nisl nec fermentum. Sed dignissim metus quis consequat pretium. In hac habitasse platea dictumst. .<br><br>Ut vel dignissim eros. Aliquam lacus et neque.",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue iscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.Lorem ipsum dolor sit amet, consectetur gravida mi quam sit amet neque.",
                 ],
                 images: [
                     {
@@ -1403,7 +1360,7 @@ export default Vue.extend({
                         sizes: "100vw",
                         alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                         caption:
-                            "Device loans from the Campus Library Instructional Computing Commons (CLICC) provided a lifeline for many Bruins during remote teaching and learning. CLICC coordinated nearly 3,000 long-term loans of laptops, Chrombooks, iPads, and MiFi units, picked up on campus and shipped to users’ residences, between March 2020 and September 2021.",
+                            "Device loans from the Campus Library Instructional Computing Commons (CLICC) provided a lifeline for many Bruins during March 2020 and September 2021.",
                         height: 1080,
                         width: 1920,
                     },
@@ -1412,7 +1369,7 @@ export default Vue.extend({
                         sizes: "100vw",
                         alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                         caption:
-                            "Device loans from the Campus Library Instructional Computing Commons (CLICC) provided a lifeline for many Bruins during remote teaching and learning. CLICC coordinated nearly 3,000 long-term loans of laptops, Chrombooks, iPads, and MiFi units, picked up on campus and shipped to users’ residences, between March 2020 and September 2021.",
+                            "Device loans from the Campus Library Instructional Computing Commons (CLICC) provided a lifeline for many Bruins during remote teaching and learning. CLICC coordinated nearly 3,000 March 2020 and September 2021.",
                         height: 1080,
                         width: 1920,
                     },
@@ -1421,7 +1378,7 @@ export default Vue.extend({
                         sizes: "100vw",
                         alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                         caption:
-                            "Device loans from the Campus Library Instructional Computing Commons (CLICC) provided a lifeline for many Bruins during remote teaching and learning. CLICC coordinated nearly 3,000 long-term loans of laptops, Chrombooks, iPads, and MiFi units, picked up on campus and shipped to users’ residences, between March 2020 and September 2021.",
+                            "Device loans from the Campus Library Instructional Computing picked up on campus and shipped to users’ residences, between March 2020 and September 2021.",
                         height: 1080,
                         width: 1920,
                     },
@@ -1429,7 +1386,7 @@ export default Vue.extend({
 
                 pullQuote: [
                     {
-                        text: "Vestibulum sodales tincidunt libero, vitae bibendum urna gravida ullamcorper. Morbi sagittis id justo nec condimentum. Aenean at ex nec sapien semper viverra eget sed erat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nulla urna, euismod at sagittis ac, aliquam ut sem. Phasellus varius lacinia nisl nec fermentum.",
+                        text: "Vestibulum sodales tincidunt libero, vitae bibendum urna gravida ullamcorper. Morbi sagittis id justo nec condimentum. Aenean fermentum.",
                         attribution: "Ashton Prigge",
                     },
                 ],
