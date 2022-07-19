@@ -1359,8 +1359,8 @@ export default Vue.extend({
                 ],
             },
             mockSectionStaffOrcidPublications: {
-                orcid: "123123",
-                publications: "test_url",
+                orcid: `https://orcid.org/0000-0002-6391-2088`,
+                publications: `<ul><li><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. (2021). “Teaching in the Digital Library: A Partnership Between Teaching Librarians and Digital Library Staff.” College &amp; Research Libraries News. 82(7). <a href="https://crln.acrl.org/index.php/crlnews/article/view/25033/32921">https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></li><li><strong>Johnson, M. W.</strong> &amp; Lasher, M. (2021). “The Community Workshop Series: A Case Study for Community-Engaged Learning in LIS.” Library Trends. 69(4). <a href="https://doi.org/10.1353/lib.2020.0045">https://doi.org/10.1353/lib.2020.0045</a></li><li>Keralis, S. D. C., Jacobs, C. &amp; <strong>Johnson, M.W.</strong> (2021). “Collaborative Digital Projects in the Undergraduate Humanities Classroom: Case Studies with Timeline JS.” The Journal of Interactive Technology &amp; Pedagogy. 19. <a href="https://jitp.commons.gc.cuny.edu/classroom-timeline-projects/">https://jitp.commons.gc.cuny.edu/classroom-timeline-projects/</a></li></ul`,
             },
         }
     },
