@@ -9,7 +9,7 @@
             <span class="title" v-html="filter.label" />
 
             <div class="chevron">
-                <svg-icon-caret-down class="svg" />
+                <svg-icon-caret-down class="caret-down-svg" />
             </div>
         </button>
     </div>
@@ -120,15 +120,11 @@ export default {
         align-items: center;
     }
 
-    .svg path {
-        stroke: var(--color-white);
-    }
-
     // Open state
     .is-active {
         border: 1.5px solid var(--color-fushia-03);
         border-radius: var(--rounded-slightly-all);
-        .svg {
+        .caret-down-svg {
             transform: rotate(180deg);
         }
         .title,

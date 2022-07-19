@@ -126,6 +126,7 @@ export default {
         align-items: center;
         align-content: center;
     }
+
     .selected {
         width: 100%;
         text-align: center;
@@ -144,13 +145,7 @@ export default {
             }
         }
     }
-    .is-active {
-        .svg {
-            .svg__stroke--primary-blue-03 {
-                stroke: white;
-            }
-        }
-    }
+
     .chevron {
         font-size: 16px;
         color: var(--color-white);
@@ -166,8 +161,9 @@ export default {
         align-content: center;
         align-items: center;
     }
+
     .svg path {
-        stroke: var(--color-white);
+        stroke: var(--color-white); // default list
     }
 
     .view-list {
@@ -181,7 +177,6 @@ export default {
         text-align: center;
         border-radius: var(--rounded-slightly-all);
         border: 1.5px solid transparent;
-
         padding: 16px 8px;
 
         position: absolute;
@@ -202,6 +197,9 @@ export default {
         .svg {
             display: block;
             margin: 0 auto;
+            rect {
+                stroke: white; // card
+            }
         }
     }
 
