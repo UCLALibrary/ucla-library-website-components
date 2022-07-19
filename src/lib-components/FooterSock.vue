@@ -43,7 +43,7 @@ export default {
             return current_year
         },
         parsedSockItems() {
-            if (Object.keys(this.$store.state.footerSock.nodes).length !== 0) {
+            if (Object.keys(this.$store.state.footerSock).length !== 0) {
                 return this.$store.state.footerSock.nodes.map((obj) => {
                     console.log("url" + JSON.stringify(obj))
                     return {
@@ -51,6 +51,11 @@ export default {
                         target: this.formatLinkTarget(obj.target),
                     }
                 })
+            } else {
+                console.log(
+                    "Vuex state data for footer sock not present if navigation is not setup for the website: is it client side:" +
+                        process.client
+                )
             }
             return []
         },

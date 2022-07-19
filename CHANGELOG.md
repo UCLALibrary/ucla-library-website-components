@@ -1,3 +1,10 @@
+## [1.27.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.27.2...v1.27.3) (2022-07-19)
+
+
+### Bug Fixes
+
+* Add else condition for vuex state data and add ::v-deep to update svg path fill color in scss ([#71](https://github.com/UCLALibrary/ucla-library-website-components/issues/71)) ([35d9652](https://github.com/UCLALibrary/ucla-library-website-components/commit/35d9652e64f251772e5b7506678037c3f88d51c6))
+
 ## [1.27.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.27.1...v1.27.2) (2022-07-18)
 
 

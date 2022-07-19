@@ -8,7 +8,7 @@
                     class="section-title"
                     v-html="block.sectionTitle"
                 />
-                <p
+                <div
                     v-if="block.sectionSummary"
                     class="section-summary"
                     v-html="block.sectionSummary"

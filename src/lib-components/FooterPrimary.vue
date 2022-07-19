@@ -130,7 +130,7 @@ export default {
                 )
             } else {
                 console.log(
-                    "Vuex state data not present: is it client side:" +
+                    "Vuex state data for footer primary not present, it could be because navigation is not setup for the website: is it client side:" +
                         process.client
                 )
             }
@@ -209,7 +209,7 @@ export default {
                 width: 304px;
                 max-width: 100%;
 
-                path {
+                ::v-deep path {
                     fill: var(--color-white);
                 }
             }
