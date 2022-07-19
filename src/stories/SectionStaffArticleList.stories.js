@@ -1,5 +1,5 @@
-import SectionStaffArticleList from "@/lib-components/components/SectionStaffArticleList"
-import * as API from "~/stories/mock-api.json"
+import SectionStaffArticleList from "@/lib-components/SectionStaffArticleList"
+import * as API from "@/stories/mock-api.json"
 
 // Storybook default settings
 export default {
