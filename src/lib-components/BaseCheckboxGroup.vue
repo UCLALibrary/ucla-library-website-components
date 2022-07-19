@@ -19,7 +19,7 @@
                         />
 
                         <!-- TODO create a checkbox SVG for this -->
-                        <svg-icon-radio-button class="svg" />
+                        <svg-icon-checkbox class="svg" />
 
                         {{ item.name }}
                     </label>
@@ -34,12 +34,12 @@
 import _uniq from "lodash/uniq"
 
 // SVGs
-import SvgIconRadioButton from "ucla-library-design-tokens/assets/svgs/icon-radio-button.svg"
+import SvgIconCheckbox from "ucla-library-design-tokens/assets/svgs/icon-checkbox.svg"
 
 export default {
     name: "BaseCheckboxGroup",
     components: {
-        SvgIconRadioButton,
+        SvgIconCheckbox,
     },
     props: {
         items: {
@@ -116,10 +116,18 @@ export default {
             transition: opacity 200ms ease-in-out;
         }
     }
+    .svg__icon-checkbox {
+        .svg__stroke--default-cyan-03 {
+            stroke: transparent;
+        }
+        .svg__stroke--primary-blue-03 {
+            stroke: white;
+        }
+    }
 
     // Selected state
-    .input:checked + .svg .filler {
-        opacity: 1;
+    .input:checked + .svg__icon-checkbox .svg__stroke--default-cyan-03 {
+        stroke: white;
     }
 
     // Hovers

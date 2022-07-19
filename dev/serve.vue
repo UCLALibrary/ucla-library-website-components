@@ -280,10 +280,7 @@
         <hr />
 
         <h2>SearchGeneric</h2>
-        <search-generic
-            :filters="mockSearchGeneric.filters"
-            :views="mockSearchGeneric.views"
-        />
+        <search-generic :filters="mockSearchGeneric.filters" />
         <hr />
 
         <h2>SiteBrandBar Component</h2>

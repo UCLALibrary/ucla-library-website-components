@@ -119,6 +119,18 @@ export default {
         align-content: center;
         align-items: center;
     }
+    .svg__stroke--primary-blue-03 {
+        stroke: white;
+    } // chevron up & down
+
+    .svg__icon-radio-button {
+        .svg__fill--default-cyan-03 {
+            fill: transparent;
+        }
+        .svg__stroke--primary-blue-03 {
+            stroke: white;
+        }
+    }
 
     // Open state
     .is-active {

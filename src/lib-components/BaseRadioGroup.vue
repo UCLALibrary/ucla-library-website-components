@@ -111,10 +111,18 @@ export default {
             transition: opacity 200ms ease-in-out;
         }
     }
+    .svg__icon-radio-button {
+        .svg__fill--default-cyan-03 {
+            fill: transparent;
+        }
+        .svg__stroke--primary-blue-03 {
+            stroke: white;
+        }
+    }
 
     // Selected state
-    .input:checked + .svg .filler {
-        opacity: 1;
+    .input:checked + .svg__icon-radio-button .svg__fill--default-cyan-03 {
+        fill: white;
     }
 
     // Hovers

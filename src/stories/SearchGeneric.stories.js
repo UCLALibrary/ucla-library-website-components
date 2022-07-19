@@ -86,7 +86,6 @@ export const Default = () => ({
     template: `
         <search-generic
             :filters="filters"
-            :views="views"
         />
     `,
 })

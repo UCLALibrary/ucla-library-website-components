@@ -14,9 +14,14 @@
                 type="text"
                 placeholder="Search by keyword"
             />
+            <search-generic-filter-buttons
+                :items="filters"
+                :active-index.sync="openedFilterIndex"
+                class="search-generic-filter-buttons"
+            />
         </div>
 
-        <hr class="divider" />
+        <!-- <hr class="divider" />
 
         <div class="container">
             <search-generic-filter-buttons
@@ -30,7 +35,7 @@
                 :is-opened.sync="isViewOpened"
                 :selected.sync="selectedView"
             />
-        </div>
+        </div> -->
 
         <!-- The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for -->
 
@@ -191,8 +196,12 @@ export default {
         }
 
         input {
+            font-family: var(--font-primary);
+            font-style: normal;
+            font-weight: normal;
             font-size: 20px;
             line-height: 100%;
+            letter-spacing: 0.01em;
             background-color: var(--color-primary-blue-01);
             border-color: transparent;
             padding: 27px 95px;
@@ -200,9 +209,14 @@ export default {
 
             &::placeholder {
                 text-transform: uppercase;
+                font-family: var(--font-primary);
             }
         }
     }
+    .search-generic-filter-buttons {
+        margin-top: 25px;
+    }
+
     .divider {
         margin: 15px 0 24px;
         height: 2px;
