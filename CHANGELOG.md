@@ -1,3 +1,10 @@
+# [1.28.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.27.3...v1.28.0) (2022-07-19)
+
+
+### Features
+
+*  APPS-1695 add search generic ([#61](https://github.com/UCLALibrary/ucla-library-website-components/issues/61)) ([9b8115a](https://github.com/UCLALibrary/ucla-library-website-components/commit/9b8115a06ec89c3f683308a78378d2742b6f2079))
+
 ## [1.27.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.27.2...v1.27.3) (2022-07-19)
 
 
