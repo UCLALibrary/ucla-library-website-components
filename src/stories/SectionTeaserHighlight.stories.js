@@ -26,7 +26,7 @@ const mock = [
     },
     {
         image: API.image,
-        to: "/visit/foo/bar/",
+        to: "/visit/foo/bat/",
         category: "Aliquam Varius",
         title: "Pretium magna eget dignissim placerat arcu velit et metus",
         startDate: "2021-09-03T08:00:00+00:00",
@@ -42,7 +42,7 @@ const mock = [
     },
     {
         image: API.image,
-        to: "/visit/foo/baz/",
+        to: "/visit/foo/bar/",
         category: "Sagittis",
         title: "Auctor Ligula",
         startDate: "2021-01-03T08:00:00+00:00",
@@ -58,7 +58,7 @@ const mock = [
     },
     {
         image: API.image,
-        to: "/visit/foo/baz/",
+        to: "/visit/foo/buzz/",
         category: "Tristique",
         title: "Amet nisl suscipit adipiscing bibendum lectus sed",
         startDate: "2021-09-03T08:00:00+00:00",
