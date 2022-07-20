@@ -49,9 +49,10 @@ const mock = {
 export const Default = () => ({
     store: new Vuex.Store({
         state: {
-            footerSock: {
-                nodes: mock.nodes,
-            },
+            nodes: mock.nodes,
+        },
+        getters: {
+            getNodes: (state) => state.nodes,
         },
     }),
     data() {

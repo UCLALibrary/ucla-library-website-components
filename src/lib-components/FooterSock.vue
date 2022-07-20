@@ -24,6 +24,7 @@
 // Helpers
 import formatLinkTarget from "@/mixins/formatLinkTarget"
 import SmartLink from "@/lib-components/SmartLink"
+import { mapGetters } from "vuex"
 
 export default {
     name: "FooterSock",
@@ -38,13 +39,14 @@ export default {
         // },
     },
     computed: {
+        ...mapGetters(["getNodes"]),
         year() {
             const current_year = new Date().getFullYear()
             return current_year
         },
         parsedSockItems() {
-            if (Object.keys(this.$store.state.footerSock).length !== 0) {
-                return this.$store.state.footerSock.nodes.map((obj) => {
+            if (Object.keys(this.getNodes).length !== 0) {
+                return this.getNodes.map((obj) => {
                     console.log("url" + JSON.stringify(obj))
                     return {
                         ...obj,

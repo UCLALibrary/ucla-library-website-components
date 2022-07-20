@@ -35,7 +35,9 @@ export default {
     state: {
         nodes: mock.nodes,
     },
-    getters: {},
+    getters: {
+        getNodes: (state) => state.nodes,
+    },
     mutations: {},
     actions: {},
 }
