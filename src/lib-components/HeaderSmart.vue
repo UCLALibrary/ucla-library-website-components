@@ -14,6 +14,7 @@
 import SiteBrandBar from "@/lib-components/SiteBrandBar"
 import HeaderMainResponsive from "@/lib-components/HeaderMainResponsive"
 import HeaderMain from "@/lib-components/HeaderMain"
+import { mapGetters } from "vuex"
 
 export default {
     name: "HeaderSmart",
@@ -23,14 +24,15 @@ export default {
         HeaderMain,
     },
     computed: {
+        ...mapGetters(["getHeaderSmartData", "getHeaderSmartWinWidth"]),
         primaryMenuItems() {
-            return this.$store.state.header.primary
+            return this.getHeaderSmartData.primary
         },
         secondaryMenuItems() {
-            return this.$store.state.header.secondary
+            return this.getHeaderSmartData.secondary
         },
         isMobile() {
-            return this.$store.state.winWidth <= 1024 ? true : false
+            return this.getHeaderSmartWinWidth <= 1024 ? true : false
         },
         whichHeader() {
             return this.isMobile ? "header-main-responsive" : "header-main"

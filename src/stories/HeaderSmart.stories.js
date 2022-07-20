@@ -127,6 +127,10 @@ export const Default = () => ({
             },
             winWidth: 824,
         },
+        getters: {
+            getHeaderSmartData: (state) => state.header,
+            getHeaderSmartWinWidth: (state) => state.winWidth,
+        },
     }),
     components: { HeaderSmart },
     data() {
@@ -146,6 +150,10 @@ export const DesktopWindowWidth = () => ({
                 secondary: mock.secondary,
             },
             winWidth: 1200,
+        },
+        getters: {
+            getHeaderSmartData: (state) => state.header,
+            getHeaderSmartWinWidth: (state) => state.winWidth,
         },
     }),
     components: { HeaderSmart },

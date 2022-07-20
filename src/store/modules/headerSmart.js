@@ -111,7 +111,10 @@ export default {
         },
         winWidth: 824,
     },
-    getters: {},
+    getters: {
+        getHeaderSmartData: (state) => state.header,
+        getHeaderSmartWinWidth: (state) => state.winWidth,
+    },
     mutations: {},
     actions: {},
 }
