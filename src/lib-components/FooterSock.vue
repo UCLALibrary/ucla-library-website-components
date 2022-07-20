@@ -39,14 +39,14 @@ export default {
         // },
     },
     computed: {
-        ...mapGetters(["getNodes"]),
+        ...mapGetters(["getFooterSockNodes"]),
         year() {
             const current_year = new Date().getFullYear()
             return current_year
         },
         parsedSockItems() {
-            if (Object.keys(this.getNodes).length !== 0) {
-                return this.getNodes.map((obj) => {
+            if (Object.keys(this.getFooterSockNodes).length !== 0) {
+                return this.getFooterSockNodes.map((obj) => {
                     console.log("url" + JSON.stringify(obj))
                     return {
                         ...obj,

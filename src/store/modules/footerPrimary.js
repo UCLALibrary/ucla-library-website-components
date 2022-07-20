@@ -64,7 +64,9 @@ export default {
         ],
         winWidth: 824,
     },
-    getters: {},
+    getters: {
+        getFooterPrimaryNodes: (state) => state.nodes,
+    },
     mutations: {},
     actions: {},
 }

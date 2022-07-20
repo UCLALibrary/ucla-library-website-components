@@ -66,16 +66,17 @@ const mock = {
 export const Default = () => ({
     store: new Vuex.Store({
         state: {
-            footerPrimary: {
-                nodes: [
-                    {
-                        children: mock.socialItems,
-                    },
-                    {
-                        children: mock.pressItems,
-                    },
-                ],
-            },
+            nodes: [
+                {
+                    children: mock.socialItems,
+                },
+                {
+                    children: mock.pressItems,
+                },
+            ],
+        },
+        getters: {
+            getFooterPrimaryNodes: (state) => state.nodes,
         },
     }),
     data() {
@@ -90,16 +91,17 @@ export const Default = () => ({
 export const NoForm = () => ({
     store: new Vuex.Store({
         state: {
-            footerPrimary: {
-                nodes: [
-                    {
-                        children: mock.socialItems,
-                    },
-                    {
-                        children: mock.pressItems,
-                    },
-                ],
-            },
+            nodes: [
+                {
+                    children: mock.socialItems,
+                },
+                {
+                    children: mock.pressItems,
+                },
+            ],
+        },
+        getters: {
+            getFooterPrimaryNodes: (state) => state.nodes,
         },
     }),
     data() {

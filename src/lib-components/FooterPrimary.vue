@@ -72,6 +72,7 @@ import SmartLink from "@/lib-components/SmartLink"
 import SvgLogoUclaLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
 import SvgMoleculeHalf from "ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg"
 import SvgArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
+import { mapGetters } from "vuex"
 
 export default {
     name: "FooterPrimary",
@@ -97,19 +98,19 @@ export default {
         },
     },
     computed: {
+        ...mapGetters(["getFooterPrimaryNodes"]),
         classes() {
             return this.form ? ["container"] : ["container no-form"]
         },
         parsedSocialItems() {
-            if (Object.keys(this.$store.state.footerPrimary).length !== 0) {
-                return this.$store.state.footerPrimary.nodes[0].children.map(
-                    (obj) => {
-                        return {
-                            ...obj,
-                            target: this.formatLinkTarget(obj.target),
-                        }
+            console.log(this.getFooterPrimaryNodes)
+            if (Object.keys(this.getFooterPrimaryNodes).length !== 0) {
+                return this.getFooterPrimaryNodes[0].children.map((obj) => {
+                    return {
+                        ...obj,
+                        target: this.formatLinkTarget(obj.target),
                     }
-                )
+                })
             } else {
                 console.log(
                     "Vuex state data not present: is it client side:" +
@@ -119,15 +120,13 @@ export default {
             return []
         },
         parsedPressItems() {
-            if (Object.keys(this.$store.state.footerPrimary).length !== 0) {
-                return this.$store.state.footerPrimary.nodes[1].children.map(
-                    (obj) => {
-                        return {
-                            ...obj,
-                            target: this.formatLinkTarget(obj.target),
-                        }
+            if (Object.keys(this.getFooterPrimaryNodes).length !== 0) {
+                return this.getFooterPrimaryNodes[1].children.map((obj) => {
+                    return {
+                        ...obj,
+                        target: this.formatLinkTarget(obj.target),
                     }
-                )
+                })
             } else {
                 console.log(
                     "Vuex state data for footer primary not present, it could be because navigation is not setup for the website: is it client side:" +

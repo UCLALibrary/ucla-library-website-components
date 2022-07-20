@@ -52,7 +52,7 @@ export const Default = () => ({
             nodes: mock.nodes,
         },
         getters: {
-            getNodes: (state) => state.nodes,
+            getFooterSockNodes: (state) => state.nodes,
         },
     }),
     data() {
