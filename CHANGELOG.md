@@ -1,3 +1,10 @@
+# [1.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.28.0...v1.29.0) (2022-07-20)
+
+
+### Features
+
+* APPS-1684 section pagination, staff article list, & orcid pub ([#70](https://github.com/UCLALibrary/ucla-library-website-components/issues/70)) ([db9f4c5](https://github.com/UCLALibrary/ucla-library-website-components/commit/db9f4c50c837d8b04f3f8c6baa1ee8b83c973f8e))
+
 # [1.28.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.27.3...v1.28.0) (2022-07-19)
 
 
