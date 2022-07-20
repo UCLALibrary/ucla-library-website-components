@@ -17,6 +17,7 @@ import SvgCallToActionMoney from "ucla-library-design-tokens/assets/svgs/call-to
 import SvgCallToActionChat from "ucla-library-design-tokens/assets/svgs/call-to-action-chat.svg"
 import SvgCallToActionMail from "ucla-library-design-tokens/assets/svgs/call-to-action-mail.svg"
 import SvgCallToActionFind from "ucla-library-design-tokens/assets/svgs/call-to-action-find.svg"
+import { mapGetters } from "vuex"
 
 export default {
     name: "BlockCallToAction",
@@ -62,6 +63,7 @@ export default {
         },
     },
     computed: {
+        ...mapGetters(["getAskALibrarianData"]),
         classes() {
             return [
                 "block-call-to-action",
@@ -72,7 +74,7 @@ export default {
             ]
         },
         askALibrarian() {
-            return this.$store.state.globals.askALibrarian
+            return this.getAskALibrarianData
         },
         // Use Global Ask A Libarian data if isGlobal is true
         parsedContent() {
