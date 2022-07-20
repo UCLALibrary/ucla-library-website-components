@@ -1,5 +1,13 @@
 <template>
     <nav class="nav-secondary">
+        <!-- <div class="item-top">
+            <router-link to="/" aria-label="UCLA Library home page">
+                <svg-logo-ucla-library
+                    class="svg logo-ucla"
+                    alt="UCLA Library logo blue"
+                />
+            </router-link>
+        </div> -->
         <ul class="list">
             <li
                 v-for="(item, index) in parsedItems"
@@ -19,6 +27,7 @@
 </template>
 
 <script>
+import SvgLogoUclaLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
 // Helpers
 import formatLinkTarget from "@/mixins/formatLinkTarget"
 import SmartLink from "@/lib-components/SmartLink"
@@ -26,6 +35,7 @@ import SmartLink from "@/lib-components/SmartLink"
 export default {
     name: "NavSecondary",
     components: {
+        SvgLogoUclaLibrary,
         SmartLink,
     },
     mixins: [formatLinkTarget],

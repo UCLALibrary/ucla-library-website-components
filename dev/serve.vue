@@ -285,12 +285,12 @@
         <nav-breadcrumb title="jane-doe" />
         <hr />
 
-        <h2>NavPrimary Component</h2>
-        <nav-primary :items="parsedNavPrimary" current-path="/about/foo/bar" />
-        <hr />
-
         <h2>NavSecondary Component</h2>
         <nav-secondary :items="parsedNavSecondary" />
+        <hr />
+
+        <h2>NavPrimary Component</h2>
+        <nav-primary :items="parsedNavPrimary" current-path="/about/foo/bar" />
         <hr />
 
         <h2>PullQuote Component</h2>
@@ -2020,7 +2020,7 @@ export default Vue.extend({
     margin: 50px 100px;
 
     h1 {
-        margin: 50px 0 10px 0;
+        margin: 150px 0 10px 0;
         font-weight: bold;
     }
 
