@@ -2,10 +2,7 @@
     <nav :class="classes">
         <div class="item-top">
             <router-link to="/" aria-label="UCLA Library home page">
-                <svg-logo-ucla-library
-                    class="svg logo-ucla"
-                    alt="UCLA Library logo blue"
-                />
+                <h1 class="title">{{ title }}</h1>
             </router-link>
         </div>
 
@@ -42,7 +39,6 @@
 </template>
 
 <script>
-import SvgLogoUclaLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
 import SmartLink from "@/lib-components/SmartLink"
 import NavMenuItem from "@/lib-components/NavMenuItem"
 
@@ -52,7 +48,6 @@ import NavMenuItem from "@/lib-components/NavMenuItem"
 export default {
     name: "NavPrimary",
     components: {
-        SvgLogoUclaLibrary,
         SmartLink,
         NavMenuItem,
     },
@@ -65,6 +60,11 @@ export default {
         currentPath: {
             type: String,
             default: "",
+        },
+        title: {
+            type: String,
+            default: "",
+            required: true,
         },
     },
     data() {
@@ -167,9 +167,9 @@ export default {
         }
     }
 
-    .logo-ucla {
-        height: 23px;
-        width: auto;
+    .title {
+        @include step-1;
+        color: var(--color-primary-blue-03);
     }
 
     .menu {
@@ -183,15 +183,6 @@ export default {
     .support-links {
         position: relative;
         z-index: 10;
-        &::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 18px;
-            bottom: 18px;
-            width: 1px;
-            background-color: var(--color-secondary-grey-02);
-        }
         .item-top {
             display: inline-flex;
             margin-left: 30px;

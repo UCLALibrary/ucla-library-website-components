@@ -39,6 +39,7 @@ export const Default = () => ({
         <nav-primary
             :items="items"
             current-path="/about/foo/bar"
+            title="Modern Endangered Archives Program"
         />
     `,
 })
@@ -57,6 +58,7 @@ export const ExtraSupportLinks = () => ({
         <nav-primary
             :items="items"
             current-path="/about/foo/bar"
+            title="Modern Endangered Archives Program"
         />
     `,
 })
