@@ -1,28 +1,30 @@
 <template>
     <nav class="nav-secondary">
-        <!-- <div class="item-top">
+        <div v-if="isMeap" class="ucla-logo">
             <router-link to="/" aria-label="UCLA Library home page">
                 <svg-logo-ucla-library
                     class="svg logo-ucla"
                     alt="UCLA Library logo blue"
                 />
             </router-link>
-        </div> -->
-        <ul class="list">
-            <li
-                v-for="(item, index) in parsedItems"
-                :key="index"
-                class="list-item"
-            >
-                <smart-link
-                    class="link underline-hover"
-                    :to="item.to"
-                    :target="item.target"
+        </div>
+        <div class="parsed-items">
+            <ul class="list">
+                <li
+                    v-for="(item, index) in parsedItems"
+                    :key="index"
+                    class="list-item"
                 >
-                    {{ item.name }}
-                </smart-link>
-            </li>
-        </ul>
+                    <smart-link
+                        class="link underline-hover"
+                        :to="item.to"
+                        :target="item.target"
+                    >
+                        {{ item.name }}
+                    </smart-link>
+                </li>
+            </ul>
+        </div>
     </nav>
 </template>
 
@@ -43,6 +45,10 @@ export default {
         items: {
             type: Array,
             default: () => [],
+        },
+        isMeap: {
+            type: Boolean,
+            default: false,
         },
     },
     computed: {
@@ -67,30 +73,66 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: flex-start;
 
-    .list {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: center;
     }
 
-    .list-item {
-        display: inline-block;
-        margin-left: 50px;
-        font-size: 18px;
-        line-height: 1;
+    .ucla-logo {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        flex: 1 0 auto;
+        align-self: center;
 
-        &:first-child {
-            margin-left: 0;
+        margin-right: 50px;
+    }
+    .parsed-items {
+        margin-top: 3px;
+        align-content: right;
+        ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            align-content: center;
+            align-items: center;
+            flex: 4 0 auto;
+            align-self: center;
         }
-    }
 
-    .link {
-        color: var(--color-black);
-        text-decoration: none;
+        .list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .list-item {
+            display: inline-block;
+            margin-left: 50px;
+            font-size: 18px;
+            line-height: 1;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        .link {
+            color: var(--color-black);
+            text-decoration: none;
+        }
     }
 
     // Hover states

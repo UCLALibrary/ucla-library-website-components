@@ -293,6 +293,14 @@
         <nav-primary :items="parsedNavPrimary" current-path="/about/foo/bar" />
         <hr />
 
+        <h2>NavSecondary Component</h2>
+        <nav-secondary :items="parsedNavSecondary" />
+        <hr />
+
+        <h2>NavPrimary Component</h2>
+        <nav-primary :items="parsedNavPrimary" current-path="/about/foo/bar" />
+        <hr />
+
         <h2>PullQuote Component</h2>
         <pull-quote
             text="To invent, you need a good imagination and a pile of junk."

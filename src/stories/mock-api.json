@@ -190,6 +190,32 @@
             "children": []
         }
     ],
+    "secondaryLinksMeap": [
+        {
+            "name": "Get Help With...",
+            "text": "Lorem ipsum",
+            "to": "/example/uri/1",
+            "target": "_blank"
+        },
+        {
+            "name": "Visit",
+            "text": "Mauris finibus",
+            "to": "/example/uri/2",
+            "target": "_self"
+        },
+        {
+            "name": "About",
+            "text": "Curabitur ac odio vulputate",
+            "to": "/example/uri/3",
+            "target": "_self"
+        },
+        {
+            "name": "Support Us",
+            "text": "Morbi quis tellus vel turpis",
+            "to": "/example/uri/4",
+            "target": "_self"
+        }
+    ],
     "alert": {
         "title": "Dropio, heroku",
         "text": "Napster mozy sococo orkut convore scribd napster, twones diigo joukuu weebly. Sclipo jibjab scribd.",

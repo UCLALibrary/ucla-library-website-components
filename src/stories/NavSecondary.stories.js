@@ -29,5 +29,29 @@ export const Default = () => ({
             })
         },
     },
-    template: `<nav-secondary :items="parsedItems"/>`,
+    template: `<nav-secondary :items="parsedItems" :isMeap=false />`,
+})
+
+export const Meap = () => ({
+    data() {
+        return {
+            items: [
+                ...API.secondaryLinksMeap,
+                { ...API.secondaryLinksMeap[0] },
+            ],
+        }
+    },
+    components: { NavSecondary },
+    computed: {
+        parsedItems() {
+            // Restructuring item to support text key
+            return this.items.map((obj) => {
+                return {
+                    ...obj,
+                    text: obj.name,
+                }
+            })
+        },
+    },
+    template: `<nav-secondary :items="parsedItems" :isMeap=true />`,
 })
