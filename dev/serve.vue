@@ -394,6 +394,10 @@
         <h1>FlexibleBlock Components</h1>
         <flexible-blocks :blocks="flexibleBlocks" />
         <hr />
+
+        <h1>Footer Sponsor MEAP</h1>
+        <footer-sponsor />
+        <hr />
     </div>
 </template>
 
