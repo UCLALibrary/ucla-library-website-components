@@ -39,7 +39,6 @@ export const Default = () => ({
         <nav-primary
             :items="items"
             current-path="/about/foo/bar"
-            title="Modern Endangered Archives Program"
         />
     `,
 })
@@ -51,6 +50,21 @@ export const ExtraSupportLinks = () => ({
 
         return {
             items: newItems,
+        }
+    },
+    components: { NavPrimary },
+    template: `
+        <nav-primary
+            :items="items"
+            current-path="/about/foo/bar"
+        />
+    `,
+})
+
+export const WithMicrositeTitle = () => ({
+    data() {
+        return {
+            items,
         }
     },
     components: { NavPrimary },

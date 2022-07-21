@@ -1,8 +1,16 @@
 <template>
     <nav :class="classes">
         <div class="item-top">
-            <router-link to="/" aria-label="UCLA Library home page">
-                <h1 class="title">{{ title }}</h1>
+            <router-link
+                to="/"
+                :aria-label="title ? '' : `UCLA Library home page`"
+            >
+                <h1 v-if="title" class="title">{{ title }}</h1>
+                <svg-logo-ucla-library
+                    v-else
+                    class="svg logo-ucla"
+                    alt="UCLA Library logo blue"
+                />
             </router-link>
         </div>
 
@@ -39,6 +47,7 @@
 </template>
 
 <script>
+import SvgLogoUclaLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
 import SmartLink from "@/lib-components/SmartLink"
 import NavMenuItem from "@/lib-components/NavMenuItem"
 
@@ -48,6 +57,7 @@ import NavMenuItem from "@/lib-components/NavMenuItem"
 export default {
     name: "NavPrimary",
     components: {
+        SvgLogoUclaLibrary,
         SmartLink,
         NavMenuItem,
     },
@@ -64,7 +74,6 @@ export default {
         title: {
             type: String,
             default: "",
-            required: true,
         },
     },
     data() {
@@ -170,6 +179,7 @@ export default {
     .title {
         @include step-1;
         color: var(--color-primary-blue-03);
+        text-transform: inital;
     }
 
     .menu {
