@@ -1,7 +1,7 @@
 <template>
     <footer class="footer-sponsor">
         <div class="container">
-            <svg-logo-arcadia />
+            <svg-logo-arcadia class="svg-logo-arcadia" />
             <svg-logo-library class="svg-logo-library" />
         </div>
     </footer>
@@ -40,9 +40,13 @@ export default {
         gap: var(--space-l);
     }
 
+    .svg-logo-arcadia {
+        width: 300px;
+        height: 78px;
+    }
     .svg-logo-library {
-        width: 366px;
-        height: 82px;
+        width: 300px;
+        height: 78px;
 
         .svg__fill--primary-blue-03 {
             fill: var(--color-black);
@@ -59,7 +63,7 @@ export default {
             flex-direction: column;
             // align-content: flex-start;
             // align-items: flex-start;
-            // gap: 48px;
+            gap: 0px;
         }
     }
 }
