@@ -287,6 +287,8 @@
         <hr />
 
         <h2>NavPrimary Component</h2>
+        <nav-primary :items="parsedNavPrimary" current-path="/about/foo/bar" />
+        <hr />
         <nav-primary
             :items="parsedNavPrimary"
             current-path="/about/foo/bar"
