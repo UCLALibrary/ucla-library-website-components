@@ -31,7 +31,7 @@ export default {
 .footer-sponsor {
     max-width: $container-xl-banner + px;
     background-color: var(--color-secondary-grey-01);
-    padding: 24px 32px;
+    padding: 64px 64px;
 
     .container {
         display: flex;
@@ -51,15 +51,10 @@ export default {
 
     // Breakpoints
     @media #{$medium} {
-        .container {
-            // flex-direction: column;
-            // gap: 32px;
-        }
+        padding: 24px 32px;
     }
 
     @media #{$small} {
-        padding: var(--unit-gutter);
-
         .container {
             flex-direction: column;
             // align-content: flex-start;
