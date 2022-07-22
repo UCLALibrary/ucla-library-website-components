@@ -61,9 +61,6 @@ export default {
     @media #{$small} {
         .container {
             flex-direction: column;
-            // align-content: flex-start;
-            // align-items: flex-start;
-            gap: 0px;
         }
     }
 }
