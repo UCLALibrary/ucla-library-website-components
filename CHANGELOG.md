@@ -1,3 +1,10 @@
+# [1.30.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.29.0...v1.30.0) (2022-07-22)
+
+
+### Features
+
+* add MEAP footer sponsor ([#75](https://github.com/UCLALibrary/ucla-library-website-components/issues/75)) ([9ea9ff8](https://github.com/UCLALibrary/ucla-library-website-components/commit/9ea9ff8bfb6b13c4730ff1a8f67a7616f092d885))
+
 # [1.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.28.0...v1.29.0) (2022-07-20)
 
 
