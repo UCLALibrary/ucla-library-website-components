@@ -286,10 +286,6 @@
         <nav-breadcrumb title="jane-doe" />
         <hr />
 
-        <h2>NavSecondary Component</h2>
-        <nav-secondary :items="parsedNavSecondary" />
-        <hr />
-
         <h2>NavPrimary Component</h2>
         <nav-primary :items="parsedNavPrimary" current-path="/about/foo/bar" />
         <hr />
@@ -298,8 +294,11 @@
         <nav-secondary :items="parsedNavSecondary" />
         <hr />
 
-        <h2>NavPrimary Component</h2>
-        <nav-primary :items="parsedNavPrimary" current-path="/about/foo/bar" />
+        <h2>NavSecondary for Microsite Component</h2>
+        <nav-secondary
+            :items="mockNavSecondaryMicrosite.items"
+            :isMicrosite="true"
+        />
         <hr />
 
         <h2>PullQuote Component</h2>
@@ -706,6 +705,14 @@ export default Vue.extend({
                     { ...API.links[0] },
                     { ...API.links[1] },
                     { ...API.links[2] },
+                ],
+            },
+            mockNavSecondaryMicrosite: {
+                items: [
+                    { ...API.secondaryLinksMicrosite[0] },
+                    { ...API.secondaryLinksMicrosite[1] },
+                    { ...API.secondaryLinksMicrosite[2] },
+                    { ...API.secondaryLinksMicrosite[3] },
                 ],
             },
             mockHeaderStickyPrimaryItems: {
@@ -1302,7 +1309,7 @@ export default Vue.extend({
                 },
             },
             mockBlockCallToActionTwoUp: {
-                item: [
+                items: [
                     {
                         svgName: "svg-call-to-action-find",
                         title: "Lorem ipsum dolor sit amet?",
@@ -2110,7 +2117,7 @@ export default Vue.extend({
     margin: 50px 100px;
 
     h1 {
-        margin: 150px 0 10px 0;
+        margin: 50px 0 10px 0;
         font-weight: bold;
     }
 
