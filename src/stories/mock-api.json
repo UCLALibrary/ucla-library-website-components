@@ -190,6 +190,26 @@
             "children": []
         }
     ],
+    "secondaryNavLinks": [
+        {
+            "name": "Get Help With...",
+            "text": "Get Help With...",
+            "to": "/help",
+            "target": "_self"
+        },
+        {
+            "name": "Visit",
+            "text": "Visit",
+            "to": "/visit",
+            "target": "_self"
+        },
+        {
+            "name": "About",
+            "text": "About",
+            "to": "/about",
+            "target": "_self"
+        }
+    ],
     "alert": {
         "title": "Dropio, heroku",
         "text": "Napster mozy sococo orkut convore scribd napster, twones diigo joukuu weebly. Sclipo jibjab scribd.",

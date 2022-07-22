@@ -17,7 +17,15 @@
         <h2>HeaderSticky Component is showing at the top of this page</h2>
         <header-sticky
             :primary-items="mockHeaderStickyPrimaryItems.items"
-            :secondary-items="mockHeaderStickySecondaryItems.items"
+            :secondary-items="mockSecondaryNavLinks.items"
+        />
+        <hr />
+
+        <h2>HeaderMainResponsive Component</h2>
+        <header-main-responsive
+            :primary-nav="mockHeaderStickyPrimaryItems.items"
+            :secondary-nav="mockSecondaryNavLinks.items"
+            current-path="/about/foo/bar"
         />
         <hr />
 
@@ -225,14 +233,6 @@
         <grid-gallery :items="mockGridGallery" />
         <hr />
 
-        <h2>HeaderMainResponsive Component</h2>
-        <header-main-responsive
-            :primary-nav="mockHeaderStickyPrimaryItems.items"
-            :secondary-nav="mockHeaderStickySecondaryItems.items"
-            current-path="/about/foo/bar"
-        />
-        <hr />
-
         <h2>HeadingArrow Component</h2>
         <heading-arrow text="Get Help With" to="/help/foo/bar/" />
         <br /><br />
@@ -290,7 +290,14 @@
         <hr />
 
         <h2>NavSecondary Component</h2>
-        <nav-secondary :items="parsedNavSecondary" />
+        <nav-secondary :items="mockSecondaryNavLinks.items" />
+        <hr />
+
+        <h2>NavSecondary for Microsite Component</h2>
+        <nav-secondary
+            :items="mockSecondaryNavLinks.items"
+            isMicrosite="true"
+        />
         <hr />
 
         <h2>PullQuote Component</h2>
@@ -634,11 +641,11 @@ export default Vue.extend({
                     { ...API.primaryNavlinks[3] },
                 ],
             },
-            mockHeaderStickySecondaryItems: {
+            mockSecondaryNavLinks: {
                 items: [
-                    { ...API.links[0] },
-                    { ...API.links[1] },
-                    { ...API.links[2] },
+                    { ...API.secondaryNavLinks[0] },
+                    { ...API.secondaryNavLinks[1] },
+                    { ...API.secondaryNavLinks[2] },
                 ],
             },
             mockFooterPrimary: {
