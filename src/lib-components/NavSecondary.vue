@@ -1,6 +1,6 @@
 <template>
     <nav class="nav-secondary">
-        <div v-if="isMeap" class="ucla-logo">
+        <div v-if="isMicrosite" class="ucla-logo">
             <router-link to="/" aria-label="UCLA Library home page">
                 <svg-logo-ucla-library
                     class="svg logo-ucla"
@@ -24,6 +24,18 @@
                     </smart-link>
                 </li>
             </ul>
+
+            <div class="support-us-container">
+                <button-link
+                    v-if="supportLinks.length"
+                    :label="supportLinks[0].name"
+                    :is-secondary="true"
+                    class="button"
+                    :to="supportLinks[0].to"
+                    icon-name="none"
+                    @click="toggleMenu"
+                />
+            </div>
         </div>
     </nav>
 </template>
@@ -33,12 +45,14 @@ import SvgLogoUclaLibrary from "ucla-library-design-tokens/assets/svgs/logo-libr
 // Helpers
 import formatLinkTarget from "@/mixins/formatLinkTarget"
 import SmartLink from "@/lib-components/SmartLink"
+import ButtonLink from "@/lib-components/ButtonLink"
 
 export default {
     name: "NavSecondary",
     components: {
         SvgLogoUclaLibrary,
         SmartLink,
+        ButtonLink,
     },
     mixins: [formatLinkTarget],
     props: {
@@ -46,12 +60,21 @@ export default {
             type: Array,
             default: () => [],
         },
-        isMeap: {
+        isMicrosite: {
             type: Boolean,
             default: false,
         },
     },
     computed: {
+        classes() {
+            return [
+                // "block-call-to-action",
+                // { "full-width": !this.isSmallSize },
+                // { "half-width": this.isSmallSize },
+                // { "theme-light": !this.isDark },
+                // { "theme-dark": this.isDark },
+            ]
+        },
         parsedItems() {
             return this.items.map((obj) => {
                 return {
@@ -75,7 +98,7 @@ export default {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-content: space-between;
-    align-items: flex-start;
+    align-items: center;
 
     .flex-container {
         display: flex;
@@ -93,10 +116,7 @@ export default {
         justify-content: center;
         align-content: center;
         align-items: center;
-        flex: 1 0 auto;
         align-self: center;
-
-        margin-right: 50px;
     }
     .parsed-items {
         margin-top: 3px;
@@ -108,7 +128,6 @@ export default {
             justify-content: flex-end;
             align-content: center;
             align-items: center;
-            flex: 4 0 auto;
             align-self: center;
         }
 
@@ -132,6 +151,15 @@ export default {
         .link {
             color: var(--color-black);
             text-decoration: none;
+        }
+    }
+
+    .support-us-container {
+        margin: 64px var(--unit-gutter);
+
+        .button {
+            margin: 0px;
+            border: 1.5px solid var(--color-primary-blue-02);
         }
     }
 
