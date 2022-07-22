@@ -290,14 +290,7 @@
         <hr />
 
         <h2>NavSecondary Component</h2>
-        <nav-secondary :items="parsedNavSecondary.items" isMicrosite="false" />
-        <hr />
-
-        <h2>NavSecondary Component</h2>
-        <nav-secondary
-            :items="mockHeaderStickySecondaryItems.items"
-            isMicrosite="true"
-        />
+        <nav-secondary :items="parsedNavSecondary" />
         <hr />
 
         <h2>PullQuote Component</h2>
@@ -421,12 +414,70 @@ export default Vue.extend({
     name: "ServeDev",
     data() {
         return {
-            mockAdvancedSearchLink: {
-                advancedSearchLink: {
-                    text: "Advanced Search",
-                    url: "https://www.library.ucla.edu/search",
-                    target: "_blank",
-                },
+            mockSearchGeneric: {
+                views: [
+                    {
+                        slug: "list",
+                        iconName: "icon-list",
+                        title: "List",
+                    },
+                    {
+                        slug: "card",
+                        iconName: "icon-card",
+                        title: "Card",
+                    },
+                    {
+                        slug: "calendar",
+                        iconName: "icon-calendar",
+                        title: "Calendar",
+                    },
+                ],
+                filters: [
+                    {
+                        label: "Location",
+                        slug: "location",
+                        inputType: "radio",
+                        items: [
+                            {
+                                name: "Neque porro quisquam",
+                            },
+                            {
+                                name: "qui dolorem ipsum quia dolor",
+                            },
+                            {
+                                name: "consectetur, adipisci velit.",
+                            },
+                            {
+                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            },
+                            {
+                                name: "Excepteur sint occaecat cupidatat non proident",
+                            },
+                        ],
+                    },
+                    {
+                        label: "Department",
+                        slug: "department",
+                        inputType: "checkbox",
+                        items: [
+                            {
+                                name: "Neque porro quisquam",
+                            },
+                            {
+                                name: "qui dolorem ipsum quia dolor",
+                            },
+                            {
+                                name: "consectetur, adipisci velit.",
+                            },
+                            {
+                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            },
+                            {
+                                name: "Excepteur sint occaecat cupidatat non proident",
+                            },
+                        ],
+                    },
+                ],
             },
             mockBlockForm: {
                 id: 5481,
@@ -595,64 +646,9 @@ export default Vue.extend({
 =======
 >>>>>>> feat: data
                 items: [
-                    {
-                        name: "Get Help With...",
-                        text: "Lorem ipsum",
-                        to: "/example/uri/1",
-                        target: "_blank",
-                    },
-                    {
-                        name: "Visit",
-                        text: "Mauris finibus",
-                        to: "/example/uri/2",
-                        target: "_self",
-                    },
-                    {
-                        name: "About",
-                        text: "Curabitur ac odio vulputate",
-                        to: "/example/uri/3",
-                        target: "_self",
-                    },
-                    {
-                        name: "Support Us",
-                        text: "Morbi quis tellus vel turpis",
-                        to: "/example/uri/4",
-                        target: "_self",
-                    },
-                    {
-                        name: "Support Us",
-                        to: "http://www.google.com",
-                        target: "1",
-                        children: [],
-                    },
-                ],
-            },
-            mockSecondaryLinks: {
-                items: [
-                    {
-                        name: "Get Help With...",
-                        text: "Get Help With...",
-                        to: "/example/uri/1",
-                        target: "_blank",
-                    },
-                    {
-                        name: "Visit",
-                        text: "Visit",
-                        to: "/example/uri/2",
-                        target: "_self",
-                    },
-                    {
-                        name: "About",
-                        text: "About",
-                        to: "/example/uri/3",
-                        target: "_self",
-                    },
-                    {
-                        name: "Support Us",
-                        text: "Support Us",
-                        to: "/example/uri/4",
-                        target: "_self",
-                    },
+                    { ...API.links[0] },
+                    { ...API.links[1] },
+                    { ...API.links[2] },
                 ],
             },
             mockFooterPrimary: {
@@ -848,70 +844,12 @@ export default Vue.extend({
                     },
                 ],
             },
-            mockSearchGeneric: {
-                views: [
-                    {
-                        slug: "list",
-                        iconName: "icon-list",
-                        title: "List",
-                    },
-                    {
-                        slug: "card",
-                        iconName: "icon-card",
-                        title: "Card",
-                    },
-                    {
-                        slug: "calendar",
-                        iconName: "icon-calendar",
-                        title: "Calendar",
-                    },
-                ],
-                filters: [
-                    {
-                        label: "Location",
-                        slug: "location",
-                        inputType: "radio",
-                        items: [
-                            {
-                                name: "Neque porro quisquam",
-                            },
-                            {
-                                name: "qui dolorem ipsum quia dolor",
-                            },
-                            {
-                                name: "consectetur, adipisci velit.",
-                            },
-                            {
-                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            },
-                            {
-                                name: "Excepteur sint occaecat cupidatat non proident",
-                            },
-                        ],
-                    },
-                    {
-                        label: "Department",
-                        slug: "department",
-                        inputType: "checkbox",
-                        items: [
-                            {
-                                name: "Neque porro quisquam",
-                            },
-                            {
-                                name: "qui dolorem ipsum quia dolor",
-                            },
-                            {
-                                name: "consectetur, adipisci velit.",
-                            },
-                            {
-                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            },
-                            {
-                                name: "Excepteur sint occaecat cupidatat non proident",
-                            },
-                        ],
-                    },
-                ],
+            mockAdvancedSearchLink: {
+                advancedSearchLink: {
+                    text: "Advanced Search",
+                    url: "https://www.library.ucla.edu/search",
+                    target: "_blank",
+                },
             },
             mockSectionCardsWithIllustrations: {
                 items: [
