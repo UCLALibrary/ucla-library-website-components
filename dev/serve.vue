@@ -290,13 +290,13 @@
         <hr />
 
         <h2>NavSecondary Component</h2>
-        <nav-secondary :items="parsedNavSecondary" />
+        <nav-secondary :items="parsedNavSecondary.items" isMicrosite="false" />
         <hr />
 
-        <h2>NavSecondary for Microsite Component</h2>
+        <h2>NavSecondary Component</h2>
         <nav-secondary
-            :items="mockNavSecondaryMicrosite.items"
-            :isMicrosite="true"
+            :items="mockHeaderStickySecondaryItems.items"
+            isMicrosite="true"
         />
         <hr />
 
@@ -421,70 +421,12 @@ export default Vue.extend({
     name: "ServeDev",
     data() {
         return {
-            mockSearchGeneric: {
-                views: [
-                    {
-                        slug: "list",
-                        iconName: "icon-list",
-                        title: "List",
-                    },
-                    {
-                        slug: "card",
-                        iconName: "icon-card",
-                        title: "Card",
-                    },
-                    {
-                        slug: "calendar",
-                        iconName: "icon-calendar",
-                        title: "Calendar",
-                    },
-                ],
-                filters: [
-                    {
-                        label: "Location",
-                        slug: "location",
-                        inputType: "radio",
-                        items: [
-                            {
-                                name: "Neque porro quisquam",
-                            },
-                            {
-                                name: "qui dolorem ipsum quia dolor",
-                            },
-                            {
-                                name: "consectetur, adipisci velit.",
-                            },
-                            {
-                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            },
-                            {
-                                name: "Excepteur sint occaecat cupidatat non proident",
-                            },
-                        ],
-                    },
-                    {
-                        label: "Department",
-                        slug: "department",
-                        inputType: "checkbox",
-                        items: [
-                            {
-                                name: "Neque porro quisquam",
-                            },
-                            {
-                                name: "qui dolorem ipsum quia dolor",
-                            },
-                            {
-                                name: "consectetur, adipisci velit.",
-                            },
-                            {
-                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            },
-                            {
-                                name: "Excepteur sint occaecat cupidatat non proident",
-                            },
-                        ],
-                    },
-                ],
+            mockAdvancedSearchLink: {
+                advancedSearchLink: {
+                    text: "Advanced Search",
+                    url: "https://www.library.ucla.edu/search",
+                    target: "_blank",
+                },
             },
             mockBlockForm: {
                 id: 5481,
@@ -642,6 +584,7 @@ export default Vue.extend({
                 ],
             },
             mockHeaderStickySecondaryItems: {
+<<<<<<< HEAD
                 items: [
                     { ...API.links[0] },
                     { ...API.links[1] },
@@ -649,27 +592,67 @@ export default Vue.extend({
                 ],
             },
             mockNavSecondaryMicrosite: {
+=======
+>>>>>>> feat: data
                 items: [
-                    { ...API.secondaryLinksMicrosite[0] },
-                    { ...API.secondaryLinksMicrosite[1] },
-                    { ...API.secondaryLinksMicrosite[2] },
-                    { ...API.secondaryLinksMicrosite[3] },
+                    {
+                        name: "Get Help With...",
+                        text: "Lorem ipsum",
+                        to: "/example/uri/1",
+                        target: "_blank",
+                    },
+                    {
+                        name: "Visit",
+                        text: "Mauris finibus",
+                        to: "/example/uri/2",
+                        target: "_self",
+                    },
+                    {
+                        name: "About",
+                        text: "Curabitur ac odio vulputate",
+                        to: "/example/uri/3",
+                        target: "_self",
+                    },
+                    {
+                        name: "Support Us",
+                        text: "Morbi quis tellus vel turpis",
+                        to: "/example/uri/4",
+                        target: "_self",
+                    },
+                    {
+                        name: "Support Us",
+                        to: "http://www.google.com",
+                        target: "1",
+                        children: [],
+                    },
                 ],
             },
-            mockHeaderStickyPrimaryItems: {
+            mockSecondaryLinks: {
                 items: [
-                    { ...API.primaryNavlinks[0] },
                     {
-                        ...API.primaryNavlinks[0],
+                        name: "Get Help With...",
+                        text: "Get Help With...",
+                        to: "/example/uri/1",
+                        target: "_blank",
+                    },
+                    {
                         name: "Visit",
-                        url: "/visit/",
+                        text: "Visit",
+                        to: "/example/uri/2",
+                        target: "_self",
                     },
                     {
-                        ...API.primaryNavlinks[0],
                         name: "About",
-                        url: "/about/",
+                        text: "About",
+                        to: "/example/uri/3",
+                        target: "_self",
                     },
-                    { ...API.primaryNavlinks[3] },
+                    {
+                        name: "Support Us",
+                        text: "Support Us",
+                        to: "/example/uri/4",
+                        target: "_self",
+                    },
                 ],
             },
             mockFooterPrimary: {
@@ -865,12 +848,70 @@ export default Vue.extend({
                     },
                 ],
             },
-            mockAdvancedSearchLink: {
-                advancedSearchLink: {
-                    text: "Advanced Search",
-                    url: "https://www.library.ucla.edu/search",
-                    target: "_blank",
-                },
+            mockSearchGeneric: {
+                views: [
+                    {
+                        slug: "list",
+                        iconName: "icon-list",
+                        title: "List",
+                    },
+                    {
+                        slug: "card",
+                        iconName: "icon-card",
+                        title: "Card",
+                    },
+                    {
+                        slug: "calendar",
+                        iconName: "icon-calendar",
+                        title: "Calendar",
+                    },
+                ],
+                filters: [
+                    {
+                        label: "Location",
+                        slug: "location",
+                        inputType: "radio",
+                        items: [
+                            {
+                                name: "Neque porro quisquam",
+                            },
+                            {
+                                name: "qui dolorem ipsum quia dolor",
+                            },
+                            {
+                                name: "consectetur, adipisci velit.",
+                            },
+                            {
+                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            },
+                            {
+                                name: "Excepteur sint occaecat cupidatat non proident",
+                            },
+                        ],
+                    },
+                    {
+                        label: "Department",
+                        slug: "department",
+                        inputType: "checkbox",
+                        items: [
+                            {
+                                name: "Neque porro quisquam",
+                            },
+                            {
+                                name: "qui dolorem ipsum quia dolor",
+                            },
+                            {
+                                name: "consectetur, adipisci velit.",
+                            },
+                            {
+                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+                            },
+                            {
+                                name: "Excepteur sint occaecat cupidatat non proident",
+                            },
+                        ],
+                    },
+                ],
             },
             mockSectionCardsWithIllustrations: {
                 items: [
@@ -1243,7 +1284,7 @@ export default Vue.extend({
                 },
             },
             mockBlockCallToActionTwoUp: {
-                items: [
+                item: [
                     {
                         svgName: "svg-call-to-action-find",
                         title: "Lorem ipsum dolor sit amet?",
