@@ -66,15 +66,15 @@ export default {
         },
     },
     computed: {
-        classes() {
-            return [
-                // "block-call-to-action",
-                // { "full-width": !this.isSmallSize },
-                // { "half-width": this.isSmallSize },
-                // { "theme-light": !this.isDark },
-                // { "theme-dark": this.isDark },
-            ]
-        },
+        // classes() {
+        //     return [
+        //         "block-call-to-action",
+        //         { "full-width": !this.isSmallSize },
+        //         { "half-width": this.isSmallSize },
+        //         { "theme-light": !this.isDark },
+        //         { "theme-dark": this.isDark },
+        //     ]
+        // },
         parsedItems() {
             return this.items.map((obj) => {
                 return {

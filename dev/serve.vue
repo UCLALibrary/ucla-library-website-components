@@ -635,16 +635,6 @@ export default Vue.extend({
                 ],
             },
             mockHeaderStickySecondaryItems: {
-<<<<<<< HEAD
-                items: [
-                    { ...API.links[0] },
-                    { ...API.links[1] },
-                    { ...API.links[2] },
-                ],
-            },
-            mockNavSecondaryMicrosite: {
-=======
->>>>>>> feat: data
                 items: [
                     { ...API.links[0] },
                     { ...API.links[1] },
