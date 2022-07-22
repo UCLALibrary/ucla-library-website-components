@@ -49,13 +49,14 @@ export default {
     background: var(--gradient-03), var(--text-overlay);
 
     .container {
+        // match with library
         max-width: $container-l-cta + px;
 
         position: relative;
         z-index: 20;
         margin: 0 auto;
-        padding-top: var(--space-xl);
-        padding-bottom: var(--space-6xl);
+        padding-top: var(--space-2xl);
+        padding-bottom: var(--space-3xl);
     }
     .meta {
         color: var(--color-white);
