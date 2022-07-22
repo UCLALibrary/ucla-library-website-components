@@ -10,6 +10,17 @@
         </h1>
         <hr />
 
+        <h2>HeaderSmart Component is showing at the top of this page</h2>
+        <header-smart />
+        <hr />
+
+        <h2>HeaderSticky Component is showing at the top of this page</h2>
+        <header-sticky
+            :primary-items="mockHeaderStickyPrimaryItems.items"
+            :secondary-items="mockHeaderStickySecondaryItems.items"
+        />
+        <hr />
+
         <h2>AlphabeticalBrowseBy Component</h2>
         <alphabetical-browse-by />
         <hr />
@@ -222,18 +233,6 @@
         />
         <hr />
 
-        <h2>HeaderSmart Component</h2>
-        <header-smart />
-        <br /><br />
-        <hr />
-
-        <h2>HeaderSticky Component</h2>
-        <header-sticky
-            :primary-items="mockHeaderStickyPrimaryItems.items"
-            :secondary-items="mockHeaderStickySecondaryItems.items"
-        />
-        <hr />
-
         <h2>HeadingArrow Component</h2>
         <heading-arrow text="Get Help With" to="/help/foo/bar/" />
         <br /><br />
@@ -295,7 +294,10 @@
         <hr />
 
         <h2>PullQuote Component</h2>
-        <pull-quote :text="text" :attribution="attribution" />
+        <pull-quote
+            text="To invent, you need a good imagination and a pile of junk."
+            attribution="Thomas Edison"
+        />
         <hr />
 
         <h2>ResponsiveImage Component</h2>
@@ -547,71 +549,6 @@ export default Vue.extend({
                     },
                 ],
             },
-            mockSearchGeneric: {
-                views: [
-                    {
-                        slug: "list",
-                        iconName: "icon-list",
-                        title: "List",
-                    },
-                    {
-                        slug: "card",
-                        iconName: "icon-card",
-                        title: "Card",
-                    },
-                    {
-                        slug: "calendar",
-                        iconName: "icon-calendar",
-                        title: "Calendar",
-                    },
-                ],
-                filters: [
-                    {
-                        label: "Location",
-                        slug: "location",
-                        inputType: "radio",
-                        items: [
-                            {
-                                name: "Neque porro quisquam",
-                            },
-                            {
-                                name: "qui dolorem ipsum quia dolor",
-                            },
-                            {
-                                name: "consectetur, adipisci velit.",
-                            },
-                            {
-                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            },
-                            {
-                                name: "Excepteur sint occaecat cupidatat non proident",
-                            },
-                        ],
-                    },
-                    {
-                        label: "Department",
-                        slug: "department",
-                        inputType: "checkbox",
-                        items: [
-                            {
-                                name: "Neque porro quisquam",
-                            },
-                            {
-                                name: "qui dolorem ipsum quia dolor",
-                            },
-                            {
-                                name: "consectetur, adipisci velit.",
-                            },
-                            {
-                                name: "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-                            },
-                            {
-                                name: "Excepteur sint occaecat cupidatat non proident",
-                            },
-                        ],
-                    },
-                ],
-            },
             mockBlockEvent: {
                 bricks: [
                     {
@@ -681,29 +618,6 @@ export default Vue.extend({
                 ],
                 to: "http://google.com/title",
             },
-            mockHeaderStickPrimaryItems: {
-                items: [
-                    { ...API.primaryNavlinks[0] },
-                    {
-                        ...API.primaryNavlinks[0],
-                        name: "Visit",
-                        url: "/visit/",
-                    },
-                    {
-                        ...API.primaryNavlinks[0],
-                        name: "About",
-                        url: "/about/",
-                    },
-                    { ...API.primaryNavlinks[3] },
-                ],
-            },
-            mockHeaderStickSecondaryItems: {
-                items: [
-                    { ...API.links[0] },
-                    { ...API.links[1] },
-                    { ...API.links[2] },
-                ],
-            },
             mockHeaderStickyPrimaryItems: {
                 items: [
                     { ...API.primaryNavlinks[0] },
@@ -718,6 +632,13 @@ export default Vue.extend({
                         url: "/about/",
                     },
                     { ...API.primaryNavlinks[3] },
+                ],
+            },
+            mockHeaderStickySecondaryItems: {
+                items: [
+                    { ...API.links[0] },
+                    { ...API.links[1] },
+                    { ...API.links[2] },
                 ],
             },
             mockFooterPrimary: {
@@ -798,13 +719,6 @@ export default Vue.extend({
                         classes: null,
                         target: "1",
                     },
-                ],
-            },
-            mockHeaderStickySecondaryItems: {
-                items: [
-                    { ...API.links[0] },
-                    { ...API.links[1] },
-                    { ...API.links[2] },
                 ],
             },
             mockMediaWithText: {
