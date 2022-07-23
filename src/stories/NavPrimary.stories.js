@@ -60,3 +60,19 @@ export const ExtraSupportLinks = () => ({
         />
     `,
 })
+
+export const WithMicrositeTitle = () => ({
+    data() {
+        return {
+            items,
+        }
+    },
+    components: { NavPrimary },
+    template: `
+        <nav-primary
+            :items="items"
+            current-path="/about/foo/bar"
+            title="Modern Endangered Archives Program"
+        />
+    `,
+})

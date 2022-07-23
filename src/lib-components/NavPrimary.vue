@@ -1,8 +1,13 @@
 <template>
     <nav :class="classes">
         <div class="item-top">
-            <router-link to="/" aria-label="UCLA Library home page">
+            <router-link
+                to="/"
+                :aria-label="title ? '' : `UCLA Library home page`"
+            >
+                <h1 v-if="title" class="title">{{ title }}</h1>
                 <svg-logo-ucla-library
+                    v-else
                     class="svg logo-ucla"
                     alt="UCLA Library logo blue"
                 />
@@ -63,6 +68,10 @@ export default {
             default: () => [],
         },
         currentPath: {
+            type: String,
+            default: "",
+        },
+        title: {
             type: String,
             default: "",
         },
@@ -167,9 +176,10 @@ export default {
         }
     }
 
-    .logo-ucla {
-        height: 23px;
-        width: auto;
+    .title {
+        @include step-1;
+        color: var(--color-primary-blue-03);
+        text-transform: inital;
     }
 
     .menu {
@@ -183,15 +193,6 @@ export default {
     .support-links {
         position: relative;
         z-index: 10;
-        &::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 18px;
-            bottom: 18px;
-            width: 1px;
-            background-color: var(--color-secondary-grey-02);
-        }
         .item-top {
             display: inline-flex;
             margin-left: 30px;
