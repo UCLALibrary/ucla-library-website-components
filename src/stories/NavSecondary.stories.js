@@ -14,7 +14,7 @@ export default {
 export const Default = () => ({
     data() {
         return {
-            items: [...API.links, { ...API.links[0] }],
+            items: [...API.secondaryNavLinks],
         }
     },
     components: { NavSecondary },
@@ -30,4 +30,25 @@ export const Default = () => ({
         },
     },
     template: `<nav-secondary :items="parsedItems"/>`,
+})
+
+export const Microsite = () => ({
+    data() {
+        return {
+            items: [...API.secondaryNavLinks],
+        }
+    },
+    components: { NavSecondary },
+    computed: {
+        parsedItems() {
+            // Restructuring item to support text key
+            return this.items.map((obj) => {
+                return {
+                    ...obj,
+                    text: obj.name,
+                }
+            })
+        },
+    },
+    template: `<nav-secondary :items="parsedItems" isMicrosite="true" />`,
 })
