@@ -1,3 +1,10 @@
+## [1.30.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.2...v1.30.3) (2022-07-25)
+
+
+### Bug Fixes
+
+* remove reference to non-standard cypress conf ([8d32a04](https://github.com/UCLALibrary/ucla-library-website-components/commit/8d32a041ff6757d3ee61a0bc141f548628f5e21d))
+
 ## [1.30.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.1...v1.30.2) (2022-07-22)
 
 
