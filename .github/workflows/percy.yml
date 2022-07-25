@@ -7,7 +7,7 @@ on:
     inputs: {}
 
 jobs:
-  percy-components:
+  percy:
     name: Percy - Storybook Components
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -26,7 +26,6 @@ jobs:
       with:
         start: npx http-server ./storybook-static -p 3009
         command-prefix: 'percy exec -- npx'
-        config-file: cypress.storybook.json
         wait-on: http://localhost:3009
       env: 
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
