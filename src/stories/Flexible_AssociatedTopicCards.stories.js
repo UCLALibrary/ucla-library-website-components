@@ -1,8 +1,10 @@
 import FlexibleAssociatedTopicCards from "@/lib-components/Flexible/AssociatedTopicCards"
+import StoryRouter from "storybook-vue-router"
 
 export default {
     title: "FLEXIBLE / Associated Topic Cards",
     component: FlexibleAssociatedTopicCards,
+    decorators: [StoryRouter()],
 }
 
 const itemsVertical = {

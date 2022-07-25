@@ -9,31 +9,17 @@
 </template>
 
 <script>
+import SectionCardsWithIllustrations from "@/lib-components/SectionCardsWithIllustrations.vue"
+
 export default {
     name: "FlexibleAssociatedTopicCards",
+    components: {
+        SectionCardsWithIllustrations,
+    },
     props: {
         block: {
             type: Object,
             default: () => {},
-        },
-    },
-    computed: {
-        parsedContent() {
-            const mediaWithText = this.block.mediaWithText
-            return mediaWithText.map((obj) => {
-                return {
-                    ...obj,
-                    parsedTitle: obj.titleLink
-                        ? obj.titleLink
-                        : obj.titleUpload,
-                    parsedIsVideo: obj.typeMedia == "video" ? true : false,
-                    parsedIsAudio: obj.typeMedia == "audio" ? true : false,
-                    parsedButtonUrl:
-                        obj.upload && obj.typeMedia == "other"
-                            ? obj.upload[0].src
-                            : obj.buttonUrl,
-                }
-            })
         },
     },
 }
