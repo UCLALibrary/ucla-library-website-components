@@ -1,3 +1,10 @@
+## [1.31.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.0...v1.31.1) (2022-07-25)
+
+
+### Bug Fixes
+
+* storybook port for percy.yml ([cec57ab](https://github.com/UCLALibrary/ucla-library-website-components/commit/cec57ab949d4bd77d7e12dc074701598675e5823))
+
 # [1.31.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.3...v1.31.0) (2022-07-25)
 
 
