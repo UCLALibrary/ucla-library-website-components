@@ -1,3 +1,24 @@
+## [1.30.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.1...v1.30.2) (2022-07-22)
+
+
+### Bug Fixes
+
+* css changes to components ([#77](https://github.com/UCLALibrary/ucla-library-website-components/issues/77)) ([efdc3b9](https://github.com/UCLALibrary/ucla-library-website-components/commit/efdc3b905e3fee993efbcd406f5b5a633425091c))
+
+## [1.30.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.0...v1.30.1) (2022-07-22)
+
+
+### Bug Fixes
+
+* small errors ([#78](https://github.com/UCLALibrary/ucla-library-website-components/issues/78)) ([47a80b5](https://github.com/UCLALibrary/ucla-library-website-components/commit/47a80b594aaf3768aa7203f2e408578857f526e2))
+
+# [1.30.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.29.0...v1.30.0) (2022-07-22)
+
+
+### Features
+
+* add MEAP footer sponsor ([#75](https://github.com/UCLALibrary/ucla-library-website-components/issues/75)) ([9ea9ff8](https://github.com/UCLALibrary/ucla-library-website-components/commit/9ea9ff8bfb6b13c4730ff1a8f67a7616f092d885))
+
 # [1.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.28.0...v1.29.0) (2022-07-20)
 
 
