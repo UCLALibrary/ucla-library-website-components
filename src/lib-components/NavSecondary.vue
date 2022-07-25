@@ -1,30 +1,29 @@
 <template>
     <nav class="nav-secondary">
-        <div v-if="isMicrosite" class="ucla-logo">
-            <router-link to="/" aria-label="UCLA Library home page">
+        <div  :class="classes">
+            <router-link to="/" v-if="isMicrosite" aria-label="UCLA Library home page">
                 <svg-logo-ucla-library
                     class="svg logo-ucla"
                     alt="UCLA Library logo blue"
                 />
             </router-link>
-        </div>
-        <div class="parsed-items">
-            <ul class="list">
-                <li
-                    v-for="(item, index) in parsedItems"
-                    :key="index"
-                    class="list-item"
-                >
-                    <smart-link
-                        class="link underline-hover"
-                        :to="item.to"
-                        :target="item.target"
-                    >
-                        {{ item.name }}
-                    </smart-link>
-                </li>
-            </ul>
 
+                <ul class="list">
+                    <li
+                        v-for="(item, index) in parsedItems"
+                        :key="index"
+                        class="list-item"
+                    >
+                        <smart-link
+                            class="link underline-hover"
+                            :to="item.to"
+                            :target="item.target"
+                        >
+                            {{ item.name }}
+                        </smart-link>
+                    </li>
+                </ul>
+            </div>
             <!-- <div class="support-us-container">
                 <button-link
                     v-if="supportLinks.length"
@@ -35,6 +34,13 @@
                     icon-name="none"
                     @click="toggleMenu"
                 />
+
+        // {
+        //     "name": "Support Us",
+        //     "text": "Support Us",
+        //     "to": "https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463",
+        //     "target": "_self"
+        // }
             </div> -->
         </div>
     </nav>
@@ -66,15 +72,14 @@ export default {
         },
     },
     computed: {
-        // classes() {
-        //     return [
-        //         "block-call-to-action",
-        //         { "full-width": !this.isSmallSize },
-        //         { "half-width": this.isSmallSize },
-        //         { "theme-light": !this.isDark },
-        //         { "theme-dark": this.isDark },
-        //     ]
-        // },
+        classes() {
+            return [
+                "flex-container",
+                { "flex-container-not-microsite": !this.isMicrosite },
+                { "flex-container-microsite": this.isMicrosite },
+                { "ucla-logo": this.isMicrosite },
+            ]
+        },
         // supportLinks() {
         //     // Generally this is just the last "Support Us" link, but we are going to allow it to be more than 1
         //     return this.primaryNav.filter((obj) => {
@@ -100,35 +105,38 @@ export default {
     padding: 0 94px;
     border-bottom: 1px solid var(--color-secondary-grey-02);
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-content: space-between;
-    align-items: center;
-
     .flex-container {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: flex-start;
+    }
+
+    .flex-container-not-microsite {
+        justify-content: flex-end;
+        align-content: flex-end;
         align-items: center;
     }
 
-    .ucla-logo {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-content: center;
+    .flex-container-microsite {
+        justify-content: space-between;
+        align-content: flex-end;
         align-items: center;
-        align-self: center;
     }
-    .parsed-items {
-        margin-top: 3px;
-        align-content: right;
+
+    // .ucla-logo {
+    //     display: flex;
+    //     flex-direction: column;
+    //     flex-wrap: nowrap;
+    //     justify-content: center;
+    //     align-content: center;
+    //     align-items: center;
+    //     align-self: center;
+    // }
+
         ul {
+            margin-top: 3px;
+            align-content: right;
+
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -159,7 +167,7 @@ export default {
             color: var(--color-black);
             text-decoration: none;
         }
-    }
+
 
     .support-us-container {
         margin: 64px var(--unit-gutter);

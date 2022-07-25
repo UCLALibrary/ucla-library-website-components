@@ -35,7 +35,7 @@ export const Default = () => ({
 export const Microsite = () => ({
     data() {
         return {
-            items: [...API.secondaryNavLinks],
+            items: [...API.secondaryNavMicrositeLinks],
         }
     },
     components: { NavSecondary },

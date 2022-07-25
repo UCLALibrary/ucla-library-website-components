@@ -228,7 +228,7 @@
             "text": "About",
             "to": "/about",
             "target": "_self"
-        },
+        }
     ],
     "alert": {
         "title": "Dropio, heroku",
