@@ -1,3 +1,10 @@
+# [1.31.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.3...v1.31.0) (2022-07-25)
+
+
+### Features
+
+* Add MEAP theme to MastheadSecondary ([#76](https://github.com/UCLALibrary/ucla-library-website-components/issues/76)) ([8552ce4](https://github.com/UCLALibrary/ucla-library-website-components/commit/8552ce4f46a30b57503138fd5ba2ea83488bed7a))
+
 ## [1.30.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.2...v1.30.3) (2022-07-25)
 
 
