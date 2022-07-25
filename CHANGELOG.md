@@ -1,3 +1,10 @@
+## [1.31.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.1...v1.31.2) (2022-07-25)
+
+
+### Bug Fixes
+
+* port fix, part 2 ([6f19947](https://github.com/UCLALibrary/ucla-library-website-components/commit/6f19947490ed161c859a10e308ecaeb2f4535957))
+
 ## [1.31.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.0...v1.31.1) (2022-07-25)
 
 
