@@ -75,6 +75,13 @@ export default {
         //         { "theme-dark": this.isDark },
         //     ]
         // },
+        // supportLinks() {
+        //     // Generally this is just the last "Support Us" link, but we are going to allow it to be more than 1
+        //     return this.primaryNav.filter((obj) => {
+        //         // Return items that don't have sub-menu children
+        //         return !obj.children || !obj.children.length
+        //     })
+        // },
         parsedItems() {
             return this.items.map((obj) => {
                 return {
