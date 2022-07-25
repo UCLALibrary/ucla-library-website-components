@@ -228,6 +228,11 @@
             "text": "About",
             "to": "/about",
             "target": "_self"
+        },
+        {
+            "name": "Support Us",
+            "to": "https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463",
+            "target": "_self"
         }
     ],
     "alert": {

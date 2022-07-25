@@ -295,7 +295,7 @@
 
         <h2>NavSecondary for Microsite Component</h2>
         <nav-secondary
-            :items="mockSecondaryNavLinks.items"
+            :items="mockSecondaryNavMicrositeLinks.items"
             isMicrosite="true"
         />
         <hr />
@@ -646,6 +646,14 @@ export default Vue.extend({
                     { ...API.secondaryNavLinks[0] },
                     { ...API.secondaryNavLinks[1] },
                     { ...API.secondaryNavLinks[2] },
+                ],
+            },
+            mockSecondaryNavMicrositeLinks: {
+                items: [
+                    { ...API.secondaryNavMicrositeLinks[0] },
+                    { ...API.secondaryNavMicrositeLinks[1] },
+                    { ...API.secondaryNavMicrositeLinks[2] },
+                    { ...API.secondaryNavMicrositeLinks[3] },
                 ],
             },
             mockFooterPrimary: {
