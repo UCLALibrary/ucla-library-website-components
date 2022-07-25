@@ -27,7 +27,7 @@
             />
         </ul>
 
-        <div class="support-links">
+        <div v-if="!title" class="support-links">
             <div
                 v-for="(item, index) in supportLinks"
                 :key="index"
@@ -176,6 +176,11 @@ export default {
         }
     }
 
+    .logo-ucla {
+        height: 23px;
+        width: auto;
+    }
+
     .title {
         @include step-1;
         color: var(--color-primary-blue-03);
@@ -193,6 +198,17 @@ export default {
     .support-links {
         position: relative;
         z-index: 10;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 18px;
+            bottom: 18px;
+            width: 1px;
+            background-color: var(--color-secondary-grey-02);
+        }
+
         .item-top {
             display: inline-flex;
             margin-left: 30px;
