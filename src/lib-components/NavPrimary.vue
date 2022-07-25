@@ -184,7 +184,7 @@ export default {
     .title {
         @include step-1;
         color: var(--color-primary-blue-03);
-        text-transform: inital;
+        text-transform: initial;
     }
 
     .menu {
