@@ -1,3 +1,24 @@
+## [1.31.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.1...v1.31.2) (2022-07-25)
+
+
+### Bug Fixes
+
+* port fix, part 2 ([6f19947](https://github.com/UCLALibrary/ucla-library-website-components/commit/6f19947490ed161c859a10e308ecaeb2f4535957))
+
+## [1.31.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.0...v1.31.1) (2022-07-25)
+
+
+### Bug Fixes
+
+* storybook port for percy.yml ([cec57ab](https://github.com/UCLALibrary/ucla-library-website-components/commit/cec57ab949d4bd77d7e12dc074701598675e5823))
+
+# [1.31.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.3...v1.31.0) (2022-07-25)
+
+
+### Features
+
+* Add MEAP theme to MastheadSecondary ([#76](https://github.com/UCLALibrary/ucla-library-website-components/issues/76)) ([8552ce4](https://github.com/UCLALibrary/ucla-library-website-components/commit/8552ce4f46a30b57503138fd5ba2ea83488bed7a))
+
 ## [1.30.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.2...v1.30.3) (2022-07-25)
 
 

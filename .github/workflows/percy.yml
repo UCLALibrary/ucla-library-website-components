@@ -24,8 +24,8 @@ jobs:
       if: steps.cache-storybook.outputs.cache-hit != 'true'
     - uses: cypress-io/github-action@2113e5bc19c45979ba123df6e07256d2aaba9a33
       with:
-        start: npx http-server ./storybook-static -p 3009
+        start: npx http-server ./storybook-static -p 6006
         command-prefix: 'percy exec -- npx'
-        wait-on: http://localhost:3009
+        wait-on: http://localhost:6006
       env: 
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
