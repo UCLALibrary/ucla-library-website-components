@@ -20,7 +20,7 @@ jobs:
       with:
         path: storybook-static
         key: storybook-${{ github.sha }}
-    - run: npm run storybook-build
+    - run: npm run build-storybook
       if: steps.cache-storybook.outputs.cache-hit != 'true'
     - uses: cypress-io/github-action@2113e5bc19c45979ba123df6e07256d2aaba9a33
       with:
