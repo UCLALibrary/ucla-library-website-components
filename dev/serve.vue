@@ -200,10 +200,16 @@
         <h2>ButtonLink Component</h2>
         <button-link label="Egest perl Conub" to="/help/more" />
         <hr />
+        <button-link
+            label="Conub Pearl"
+            :is-secondary="true"
+            class="button"
+            to="/"
+            icon-name="none"
+        />
+        <hr />
 
         <h2>ButtonMore Component</h2>
-        <button-link label="This is a button " to="/help/" />
-        <hr />
         <button-more
             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         />
@@ -291,14 +297,14 @@
 
         <h2>NavSecondary Component</h2>
         <nav-secondary :items="mockSecondaryNavLinks.items" />
-        <hr />
+        <hr class="top-margin" />
 
         <h2>NavSecondary for Microsite Component</h2>
         <nav-secondary
             :items="mockSecondaryNavMicrositeLinks.items"
             isMicrosite="true"
         />
-        <hr />
+        <hr class="hr2" />
 
         <h2>PullQuote Component</h2>
         <pull-quote
@@ -654,6 +660,7 @@ export default Vue.extend({
                     { ...API.secondaryNavMicrositeLinks[1] },
                     { ...API.secondaryNavMicrositeLinks[2] },
                     { ...API.secondaryNavMicrositeLinks[3] },
+                    { ...API.secondaryNavMicrositeLinks[4] },
                 ],
             },
             mockFooterPrimary: {
@@ -2044,6 +2051,10 @@ export default Vue.extend({
     }
     hr {
         margin-top: 25px;
+        border-top: 2px dashed coral;
+    }
+    .hr2 {
+        margin-top: 50px;
         border-top: 2px dashed coral;
     }
 }

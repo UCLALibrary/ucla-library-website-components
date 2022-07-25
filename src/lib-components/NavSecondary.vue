@@ -12,47 +12,48 @@
                 />
             </router-link>
 
-            <ul class="list" v-if="!isMicrosite">
-                <li
-                    v-for="(item, index) in parsedItems"
-                    :key="index"
-                    class="list-item"
-                >
-                    <smart-link
-                        class="link underline-hover"
-                        :to="item.to"
-                        :target="item.target"
+            <div class="link-list">
+                <ul class="list" v-if="!isMicrosite">
+                    <li
+                        v-for="(item, index) in parsedItems"
+                        :key="index"
+                        class="list-item"
                     >
-                        {{ item.name }}
-                    </smart-link>
-                </li>
-            </ul>
+                        <smart-link
+                            class="link underline-hover"
+                            :to="item.to"
+                            :target="item.target"
+                        >
+                            {{ item.name }}
+                        </smart-link>
+                    </li>
+                </ul>
 
-            <ul class="list" v-if="isMicrosite">
-                <li
-                    v-for="(item, index) in parsedMicrositeItems"
-                    :key="index"
-                    class="list-item"
-                >
-                    <smart-link
-                        class="link underline-hover"
-                        :to="item.to"
-                        :target="item.target"
+                <ul class="list" v-if="isMicrosite">
+                    <li
+                        v-for="(item, index) in parsedMicrositeItems"
+                        :key="index"
+                        class="list-item-microsite"
                     >
-                        {{ item.name }}
-                    </smart-link>
-                </li>
-            </ul>
+                        <smart-link
+                            class="link underline-hover"
+                            :to="item.to"
+                            :target="item.target"
+                        >
+                            {{ item.name }}
+                        </smart-link>
+                    </li>
+                </ul>
 
-            <button-link
-                v-if="isMicrosite"
-                :label="supportLink.name"
-                :is-secondary="true"
-                class="support-button"
-                :to="supportLink.to"
-                icon-name="none"
-                @click="toggleMenu"
-            />
+                <button-link
+                    v-if="isMicrosite"
+                    :label="accountLink.text"
+                    class="account-button"
+                    :to="accountLink.to"
+                    :is-secondary="true"
+                    icon-name="none"
+                />
+            </div>
         </div>
     </nav>
 </template>
@@ -98,12 +99,20 @@ export default {
                 }
             })
         },
+        parsedAccount() {
+            return this.items.map((obj) => {
+                return {
+                    ...obj,
+                    target: this.formatLinkTarget(obj.target),
+                }
+            })
+        },
         parsedMicrositeItems() {
             return this.parsedItems.slice(0, -1)
         },
-        supportLink() {
+        accountLink() {
             return this.items.find((obj) => {
-                return obj.name == "Support Us"
+                return obj.name == "My Account"
             })
         },
     },
@@ -114,6 +123,7 @@ export default {
 .nav-secondary {
     height: 48px;
     padding: 24px 94px;
+    // border-bottom: 1px solid var(--color-secondary-grey-02);
 
     .flex-container {
         display: flex;
@@ -133,10 +143,7 @@ export default {
         align-items: center;
     }
 
-    ul {
-        margin-top: 3px;
-        align-content: right;
-
+    .link-list {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -144,6 +151,10 @@ export default {
         align-content: center;
         align-items: center;
         align-self: center;
+    }
+    ul {
+        margin-top: 3px;
+        align-content: right;
     }
 
     .list {
@@ -163,14 +174,29 @@ export default {
         }
     }
 
-    .link {
-        color: var(--color-black);
-        text-decoration: none;
+    .list-item-microsite {
+        display: inline-block;
+        margin-left: 50px;
+        font-size: 18px;
+        line-height: 1;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            font-weight: $font-weight-medium;
+            color: var(--color-primary-blue-04);
+        }
     }
 
-    .support-button {
-        margin: 0px;
-        border: 1.5px solid var(--color-primary-blue-02);
+    .account-button {
+        color: var(--color-white);
+        background-color: var(--color-primary-blue-04);
+        border-radius: 4px;
+        padding: 0 12px;
+        font-weight: $font-weight-medium;
+        margin-left: 48px;
     }
 
     // Hover states
