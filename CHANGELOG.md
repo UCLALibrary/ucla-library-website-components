@@ -1,3 +1,24 @@
+## [1.30.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.2...v1.30.3) (2022-07-25)
+
+
+### Bug Fixes
+
+* remove reference to non-standard cypress conf ([8d32a04](https://github.com/UCLALibrary/ucla-library-website-components/commit/8d32a041ff6757d3ee61a0bc141f548628f5e21d))
+
+## [1.30.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.1...v1.30.2) (2022-07-22)
+
+
+### Bug Fixes
+
+* css changes to components ([#77](https://github.com/UCLALibrary/ucla-library-website-components/issues/77)) ([efdc3b9](https://github.com/UCLALibrary/ucla-library-website-components/commit/efdc3b905e3fee993efbcd406f5b5a633425091c))
+
+## [1.30.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.30.0...v1.30.1) (2022-07-22)
+
+
+### Bug Fixes
+
+* small errors ([#78](https://github.com/UCLALibrary/ucla-library-website-components/issues/78)) ([47a80b5](https://github.com/UCLALibrary/ucla-library-website-components/commit/47a80b594aaf3768aa7203f2e408578857f526e2))
+
 # [1.30.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.29.0...v1.30.0) (2022-07-22)
 
 

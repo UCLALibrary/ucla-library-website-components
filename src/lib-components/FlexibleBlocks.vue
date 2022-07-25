@@ -1,5 +1,6 @@
 <template>
     <div class="flexible-blocks">
+        <h2 class="more-information">More Information</h2>
         <component
             :is="block.componentName"
             v-for="block in parsedBlocks"
@@ -88,6 +89,9 @@ function convertName(typeHandle) {
 
 <style lang="scss" scoped>
 .flexible-blocks {
+    .more-information {
+        @include visually-hidden;
+    }
     .flexible-block {
         margin-bottom: var(--space-3xl);
 
