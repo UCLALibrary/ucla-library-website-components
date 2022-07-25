@@ -1,5 +1,10 @@
 <template>
     <div :class="classes">
+        <responsive-image
+            v-if="hasHeroImage"
+            class="hero-image"
+            :image="this.heroImage"
+        />
         <div class="container">
             <div class="meta">
                 <h1 class="title" v-html="title" />
@@ -10,6 +15,9 @@
 </template>
 
 <script>
+import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
+import _isEmpty from "lodash/isEmpty"
+
 export default {
     props: {
         hasMolecules: {
@@ -24,18 +32,35 @@ export default {
             type: String,
             default: "",
         },
+        theme: {
+            type: String,
+            default: "",
+        },
+        heroImage: {
+            type: Object,
+            default: () => ({}),
+        },
+    },
+    components: {
+        ResponsiveImage,
     },
     computed: {
         classes() {
             return [
                 "masthead-secondary",
                 {
-                    "has-molecule": this.hasMolecules,
+                    "has-molecule": this.hasMolecules && !this.hasHeroImage,
                 },
                 {
                     "has-slot": this.$slots.default,
                 },
+                {
+                    "theme-meap": this.theme.toLowerCase() == "meap",
+                },
             ]
+        },
+        hasHeroImage() {
+            return !_isEmpty(this.heroImage)
         },
     },
 }
@@ -47,6 +72,13 @@ export default {
 
     position: relative;
     background: var(--gradient-03), var(--text-overlay);
+
+    .hero-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 
     .container {
         // match with library
@@ -89,6 +121,13 @@ export default {
         background-repeat: no-repeat;
         background-position: center 60%;
         filter: opacity(45%);
+    }
+
+    &.theme-meap {
+        .meta {
+            padding: var(--space-m);
+            background: var(--color-primary-blue-03);
+        }
     }
 
     // Breakpoints
