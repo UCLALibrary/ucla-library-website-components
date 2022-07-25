@@ -1,3 +1,10 @@
+## [1.31.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.2...v1.31.3) (2022-07-25)
+
+
+### Bug Fixes
+
+* update getparentpage logic ([#81](https://github.com/UCLALibrary/ucla-library-website-components/issues/81)) ([15a7ffe](https://github.com/UCLALibrary/ucla-library-website-components/commit/15a7ffe8ed2429968b58db8c70aea43dae669f2a))
+
 ## [1.31.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.1...v1.31.2) (2022-07-25)
 
 
