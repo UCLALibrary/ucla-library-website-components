@@ -26,6 +26,6 @@ jobs:
       with:
         start: npx http-server ./storybook-static -p 6006
         command-prefix: 'percy exec -- npx'
-        wait-on: http://localhost:3009
+        wait-on: http://localhost:6006
       env: 
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
