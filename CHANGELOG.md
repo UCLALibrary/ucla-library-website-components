@@ -1,3 +1,10 @@
+# [1.32.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.3...v1.32.0) (2022-07-26)
+
+
+### Features
+
+* Add FlexibleAssociatedTopicCards components ([#80](https://github.com/UCLALibrary/ucla-library-website-components/issues/80)) ([1cce952](https://github.com/UCLALibrary/ucla-library-website-components/commit/1cce9523b1d8eae0c34a5018d4cf227a2630fc18))
+
 ## [1.31.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.2...v1.31.3) (2022-07-25)
 
 
