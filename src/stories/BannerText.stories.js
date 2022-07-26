@@ -33,7 +33,6 @@ export const Default = () => ({
         :text="text"
         :button-text="buttonText"
         :to="to"
-
     />`,
 })
 

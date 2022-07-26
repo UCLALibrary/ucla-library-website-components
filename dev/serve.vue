@@ -25,6 +25,30 @@
         <alphabetical-browse-by />
         <hr />
 
+        <h2>BannerHeader Component</h2>
+        <banner-header
+            :image="mockBannerHeader.image"
+            :to="mockBannerHeader.to"
+            :title="mockBannerHeader.title"
+            :category="mockBannerHeader.category"
+            :start-date="mockBannerHeader.startDate"
+            :end-date="mockBannerHeader.endDate"
+            :byline="mockBannerHeader.byline"
+            :prompt="mockBannerHeader.prompt"
+            :locations="mockBannerHeader.locations"
+        />
+        <hr />
+
+        <h2>BannerText Component</h2>
+        <banner-text
+            :category="mockBannerText.category"
+            :title="mockBannerText.title"
+            :text="mockBannerText.text"
+            :button-text="mockBannerText.buttonText"
+            :to="mockBannerText.to"
+        />
+        <hr />
+
         <h2>BlockCallToAction Component</h2>
         <block-call-to-action
             svg-name="svg-call-to-action-chat"
@@ -251,25 +275,6 @@
         <impact-numbers-carousel :blocks="mockImpactNumbersCarousel" />
         <hr />
 
-        <h1>Imapct Report Components</h1>
-        <story-with-image
-            :image="mockStoryWithImage.image"
-            :caption="mockStoryWithImage.image.caption"
-            :title="mockStoryWithImage.title"
-            :text="mockStoryWithImage.text"
-            :footnote="mockStoryWithImage.footnote"
-            :calltoaction="mockStoryWithImage.calltoaction"
-        />
-        <hr />
-
-        <h1>ImpactRichText Components</h1>
-        <impact-rich-text
-            :text-blocks="mockImpactRichText.textBlocks"
-            :pull-quote="mockImpactRichText.pullQuote"
-            :images="mockImpactRichText.images"
-        />
-        <hr />
-
         <h2>MastheadPrimary Component</h2>
         <masthead-primary />
         <hr />
@@ -392,13 +397,38 @@
         <h2>SmartLink Component</h2>
         <smart-link to="/"> This will render as a vue-router link </smart-link>
         <hr />
+        <hr />
+
+        <h1>MEAP Specific Components</h1>
+        <h2>Footer Sponsor MEAP</h2>
+        <footer-sponsor />
+        <hr />
+        <hr />
 
         <h1>FlexibleBlock Components</h1>
         <flexible-blocks :blocks="flexibleBlocks" />
         <hr />
+        <hr />
 
-        <h1>Footer Sponsor MEAP</h1>
-        <footer-sponsor />
+        <h1>Impact Report Components</h1>
+
+        <h2>StoryWithImage Component</h2>
+        <story-with-image
+            :image="mockStoryWithImage.image"
+            :caption="mockStoryWithImage.image.caption"
+            :title="mockStoryWithImage.title"
+            :text="mockStoryWithImage.text"
+            :footnote="mockStoryWithImage.footnote"
+            :calltoaction="mockStoryWithImage.calltoaction"
+        />
+        <hr />
+
+        <h2>ImpactRichText Component</h2>
+        <impact-rich-text
+            :text-blocks="mockImpactRichText.textBlocks"
+            :pull-quote="mockImpactRichText.pullQuote"
+            :images="mockImpactRichText.images"
+        />
         <hr />
     </div>
 </template>
@@ -414,6 +444,45 @@ export default Vue.extend({
     name: "ServeDev",
     data() {
         return {
+            mockBannerHeader: {
+                image: API.image,
+                video: API.video,
+                to: "/help/foo/bar/",
+                title: "Curabitur Tortor Pellentesque Nibh Aenean",
+                category: "Lectus",
+                startDate: "1995-12-17T03:24:00",
+                endDate: "1995-12-17T03:24:00",
+                byline: ["Cursus Quis"],
+                locations: [
+                    {
+                        id: "523",
+                        title: "Powell Library",
+                        to: "visit/locations/powell-library",
+                    },
+                    {
+                        id: "3062",
+                        title: "Online",
+                        to: "visit/locations/online",
+                    },
+                ],
+                prompt: "Cursus Quis",
+                alignRight: true,
+            },
+            mockBannerText: {
+                category: "Event",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.",
+                title: "Curabitur Tortor Pellentesque",
+                locations: [
+                    { title: "Powellarium", to: "/location/bar" },
+                    {
+                        title: "Research Library (Charles E. Young)",
+                        to: "/location/baz",
+                    },
+                ],
+                date: "1995-12-17T03:24:00",
+                buttonText: "Curabitur",
+                to: "/visit/foo/bar/",
+            },
             mockSearchGeneric: {
                 views: [
                     {
@@ -2050,7 +2119,6 @@ export default Vue.extend({
 
     h1 {
         margin: 50px 0 10px 0;
-        font-weight: bold;
     }
 
     h2 {
