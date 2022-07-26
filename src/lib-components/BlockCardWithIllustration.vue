@@ -132,6 +132,9 @@ export default {
         padding-left: 40px;
         padding-right: 40px;
         margin-bottom: 24px;
+        ::v-deep p {
+            margin-bottom: 0;
+        }
     }
 
     // Variations
@@ -155,6 +158,7 @@ export default {
 
         .meta {
             background-color: var(--color-theme);
+            width: 100%;
             .title {
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
