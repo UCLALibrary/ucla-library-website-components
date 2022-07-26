@@ -7,29 +7,29 @@ export default {
 
     methods: {
         getParentPageTitle(uri = "") {
-            let output = "default"
+            let output = ""
 
             switch (true) {
-                case uri.includes("/about") && uri.includes("/news"):
+                case uri.includes("/about/") && uri.includes("/news/"):
                     output = "Library News"
                     break
 
-                case uri.includes("/about") && uri.includes("/staff"):
+                case uri.includes("/about/") && uri.includes("/staff/"):
                     output = "Staff Directory"
                     break
 
-                case uri.includes("/locations"):
+                case uri.includes("/locations/"):
                     output = "Locations"
                     break
-                case uri.includes("/events-exhibits"):
+                case uri.includes("/events-exhibits/"):
                     output = "Events & Exhibits"
                     break
 
-                case uri.includes("/help"):
+                case uri.includes("/help/"):
                 case uri.includes("/services-resources"):
                     output = "Services & Resources"
                     break
-                case uri.includes("/applications"):
+                case uri.includes("/applicants/"):
                     output = "For Applicants"
                     break
             }
