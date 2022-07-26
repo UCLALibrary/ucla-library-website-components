@@ -121,9 +121,8 @@ export default {
 
 <style lang="scss" scoped>
 .nav-secondary {
-    height: 48px;
-    padding: 24px 94px;
-    // border-bottom: 1px solid var(--color-secondary-grey-02);
+    padding: 12px 94px;
+    border-bottom: 1px solid var(--color-secondary-grey-02);
 
     .flex-container {
         display: flex;
@@ -174,21 +173,12 @@ export default {
         }
     }
 
-    .link-list {
-        // display: flex;
-        // flex-direction: row;
-        // flex-wrap: nowrap;
-        // justify-content: flex-end;
-        // align-content: center;
-        // align-items: center;
-        // align-self: center;
-    }
-
-    .account-button {
+    ::v-deep .account-button {
         color: var(--color-white);
         background-color: var(--color-primary-blue-04);
+        border-color: var(--color-primary-blue-04);
         border-radius: 4px;
-        padding: 0 12px;
+        padding: 6px 12px;
         font-weight: $font-weight-medium;
         margin-left: 48px;
     }
