@@ -185,6 +185,7 @@ export default {
         @include step-1;
         color: var(--color-primary-blue-03);
         text-transform: initial;
+        letter-spacing: normal;
     }
 
     .menu {
