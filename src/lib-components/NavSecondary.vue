@@ -12,10 +12,10 @@
                 />
             </router-link>
 
-            <div class="link-list">
+            <div class="navigation-list">
                 <ul class="list" v-if="!isMicrosite">
                     <li
-                        v-for="(item, index) in parsedItems"
+                        v-for="(item, index) in parsedItemsMinusAccount"
                         :key="index"
                         class="list-item"
                     >
@@ -29,11 +29,20 @@
                     </li>
                 </ul>
 
-                <ul class="list" v-if="isMicrosite">
+                <button-link
+                    v-if="!isMicrosite"
+                    :label="accountLink.text"
+                    class="account-button"
+                    :to="accountLink.to"
+                    :is-secondary="true"
+                    icon-name="none"
+                />
+
+                <ul class="link-list" v-if="isMicrosite">
                     <li
-                        v-for="(item, index) in parsedMicrositeItems"
+                        v-for="(item, index) in parsedItemsAll"
                         :key="index"
-                        class="list-item-microsite"
+                        class="list-item"
                     >
                         <smart-link
                             class="link underline-hover"
@@ -44,15 +53,6 @@
                         </smart-link>
                     </li>
                 </ul>
-
-                <button-link
-                    v-if="isMicrosite"
-                    :label="accountLink.text"
-                    class="account-button"
-                    :to="accountLink.to"
-                    :is-secondary="true"
-                    icon-name="none"
-                />
             </div>
         </div>
     </nav>
@@ -91,7 +91,7 @@ export default {
                 { "flex-container-microsite": this.isMicrosite },
             ]
         },
-        parsedItems() {
+        parsedItemsAll() {
             return this.items.map((obj) => {
                 return {
                     ...obj,
@@ -107,8 +107,8 @@ export default {
                 }
             })
         },
-        parsedMicrositeItems() {
-            return this.parsedItems.slice(0, -1)
+        parsedItemsMinusAccount() {
+            return this.parsedItemsAll.slice(0, -1)
         },
         accountLink() {
             return this.items.find((obj) => {
@@ -143,7 +143,13 @@ export default {
         align-items: center;
     }
 
-    .link-list {
+    .navigation-list {
+        margin-top: 3px;
+        align-content: right;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -151,16 +157,6 @@ export default {
         align-content: center;
         align-items: center;
         align-self: center;
-    }
-    ul {
-        margin-top: 3px;
-        align-content: right;
-    }
-
-    .list {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
     }
 
     .list-item {
@@ -172,22 +168,20 @@ export default {
         &:first-child {
             margin-left: 0;
         }
-    }
-
-    .list-item-microsite {
-        display: inline-block;
-        margin-left: 50px;
-        font-size: 18px;
-        line-height: 1;
-
-        &:first-child {
-            margin-left: 0;
-        }
-
         &:last-child {
             font-weight: $font-weight-medium;
             color: var(--color-primary-blue-04);
         }
+    }
+
+    .link-list {
+        // display: flex;
+        // flex-direction: row;
+        // flex-wrap: nowrap;
+        // justify-content: flex-end;
+        // align-content: center;
+        // align-items: center;
+        // align-self: center;
     }
 
     .account-button {

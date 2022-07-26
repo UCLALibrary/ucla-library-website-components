@@ -304,7 +304,7 @@
             :items="mockSecondaryNavMicrositeLinks.items"
             isMicrosite="true"
         />
-        <hr class="hr2" />
+        <hr />
 
         <h2>PullQuote Component</h2>
         <pull-quote
@@ -652,6 +652,8 @@ export default Vue.extend({
                     { ...API.secondaryNavLinks[0] },
                     { ...API.secondaryNavLinks[1] },
                     { ...API.secondaryNavLinks[2] },
+                    { ...API.secondaryNavLinks[3] },
+                    { ...API.secondaryNavLinks[4] },
                 ],
             },
             mockSecondaryNavMicrositeLinks: {
@@ -660,7 +662,6 @@ export default Vue.extend({
                     { ...API.secondaryNavMicrositeLinks[1] },
                     { ...API.secondaryNavMicrositeLinks[2] },
                     { ...API.secondaryNavMicrositeLinks[3] },
-                    { ...API.secondaryNavMicrositeLinks[4] },
                 ],
             },
             mockFooterPrimary: {
@@ -2051,10 +2052,6 @@ export default Vue.extend({
     }
     hr {
         margin-top: 25px;
-        border-top: 2px dashed coral;
-    }
-    .hr2 {
-        margin-top: 50px;
         border-top: 2px dashed coral;
     }
 }

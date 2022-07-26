@@ -208,6 +208,18 @@
             "text": "About",
             "to": "/about",
             "target": "_self"
+        },
+        {
+            "name": "Support Us",
+            "text": "Support Us",
+            "to": "https://catalog.library.ucla.edu/vwebv/login;js",
+            "target": "_self"
+        },
+        {
+            "name": "My Account",
+            "text": "My Account",
+            "to": "https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463",
+            "target": "_self"
         }
     ],
     "secondaryNavMicrositeLinks": [
@@ -233,12 +245,6 @@
             "name": "Support Us",
             "text": "Support Us",
             "to": "https://catalog.library.ucla.edu/vwebv/login;js",
-            "target": "_self"
-        },
-        {
-            "name": "My Account",
-            "text": "My Account",
-            "to": "https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463",
             "target": "_self"
         }
     ],
