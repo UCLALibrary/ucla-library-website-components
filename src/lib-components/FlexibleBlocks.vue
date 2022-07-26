@@ -26,6 +26,7 @@ import FlexibleSimpleCards from "@/lib-components/Flexible/SimpleCards.vue"
 import FlexibleMediaWithText from "@/lib-components/Flexible/MediaWithText.vue"
 import FlexibleCtaBlock2Up from "@/lib-components/Flexible/CtaBlock2Up.vue"
 import FlexibleMediaGallery from "@/lib-components/Flexible/MediaGallery.vue"
+import FlexibleAssociatedTopicCards from "@/lib-components/Flexible/AssociatedTopicCards.vue"
 
 export default {
     name: "FlexibleBlocks",
@@ -43,6 +44,7 @@ export default {
         FlexibleMediaWithText,
         FlexibleMediaGallery,
         FlexibleForm,
+        FlexibleAssociatedTopicCards,
     },
     props: {
         blocks: {
