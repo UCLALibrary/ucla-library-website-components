@@ -15,13 +15,14 @@
 </template>
 
 <script>
+// SVGs
+import SvgIconPhone from "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
+
 export default {
     // TO DO import all amenitites svgs
+    name: "BlockAmenities",
     components: {
-        SvgIconPhone: () =>
-            import(
-                "~/node_modules/ucla-library-design-tokens/assets/svgs/icon-phone"
-            ),
+        SvgIconPhone,
     },
     props: {
         items: {
