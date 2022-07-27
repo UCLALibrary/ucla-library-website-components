@@ -1,3 +1,10 @@
+## [1.32.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.32.0...v1.32.1) (2022-07-27)
+
+
+### Bug Fixes
+
+* Replace images with ones on test-craft ([#85](https://github.com/UCLALibrary/ucla-library-website-components/issues/85)) ([bd9998b](https://github.com/UCLALibrary/ucla-library-website-components/commit/bd9998b3185e9ac67af09d8fcb70587f575ed610))
+
 # [1.32.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.3...v1.32.0) (2022-07-26)
 
 
