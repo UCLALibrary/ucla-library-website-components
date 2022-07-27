@@ -49,6 +49,14 @@
         />
         <hr />
 
+        <h2>BlockAmenities Component</h2>
+        <block-amenities :amenities="mockBlockAmenitiesAll.amenities" />
+        <hr />
+        <block-amenities :amenities="mockBlockAmenitiesSeven.amenities" />
+        <hr />
+        <block-amenities :amenities="mockBlockAmenitiesFour.amenities" />
+        <hr />
+
         <h2>BlockCallToAction Component</h2>
         <block-call-to-action
             svg-name="svg-call-to-action-chat"
@@ -483,6 +491,38 @@ export default Vue.extend({
                 buttonText: "Curabitur",
                 to: "/visit/foo/bar/",
             },
+            mockBlockAmenitiesAll: {
+                amenities: [
+                    "SvgIconLight",
+                    "SvgIconClock",
+                    "SvgIconAccessible",
+                    "SvgIconChair",
+                    "SvgIconVirtual",
+                    "SvgIconLaptop",
+                    "SvgIconLocker",
+                    "SvgIconSharePrinter",
+                    "SvgIconBook",
+                ],
+            },
+            mockBlockAmenitiesSeven: {
+                amenities: [
+                    "SvgIconLight",
+                    "SvgIconClock",
+                    "SvgIconAccessible",
+                    "SvgIconChair",
+                    "SvgIconVirtual",
+                    "SvgIconLaptop",
+                    "SvgIconLocker",
+                ],
+            },
+            mockBlockAmenitiesFour: {
+                amenities: [
+                    "SvgIconLight",
+                    "SvgIconClock",
+                    "SvgIconAccessible",
+                    "SvgIconChair",
+                ],
+            },
             mockSearchGeneric: {
                 views: [
                     {
@@ -678,12 +718,15 @@ export default Vue.extend({
                     "1400 Public Affairs Building Los Angeles, CA 90095-1392",
                 addressLink: "http://google.com/address",
                 amenities: [
-                    "SvgIconEmail",
-                    "SvgIconPhone",
-                    "SvgIconVirtual",
+                    "SvgIconLight",
+                    "SvgIconClock",
+                    "SvgIconAccessible",
                     "SvgIconChair",
+                    "SvgIconVirtual",
+                    "SvgIconLaptop",
+                    "SvgIconLocker",
                     "SvgIconSharePrinter",
-                    "SvgIconShareBook",
+                    "SvgIconBook",
                 ],
                 to: "http://google.com/title",
             },
