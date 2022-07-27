@@ -1,3 +1,17 @@
+# [1.32.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.3...v1.32.0) (2022-07-26)
+
+
+### Features
+
+* Add FlexibleAssociatedTopicCards components ([#80](https://github.com/UCLALibrary/ucla-library-website-components/issues/80)) ([1cce952](https://github.com/UCLALibrary/ucla-library-website-components/commit/1cce9523b1d8eae0c34a5018d4cf227a2630fc18))
+
+## [1.31.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.2...v1.31.3) (2022-07-25)
+
+
+### Bug Fixes
+
+* update getparentpage logic ([#81](https://github.com/UCLALibrary/ucla-library-website-components/issues/81)) ([15a7ffe](https://github.com/UCLALibrary/ucla-library-website-components/commit/15a7ffe8ed2429968b58db8c70aea43dae669f2a))
+
 ## [1.31.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.1...v1.31.2) (2022-07-25)
 
 

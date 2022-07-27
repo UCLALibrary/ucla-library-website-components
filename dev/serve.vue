@@ -405,8 +405,8 @@
 
 <script>
 import Vue from "vue"
-import * as API from "@/stories/mock-api.json"
-import * as IMPACT_API from "@/stories/impact-report_index.json"
+import API from "@/stories/mock-api.json"
+import IMPACT_API from "@/stories/impact-report_index.json"
 // import NavMenuItem from "../src/lib-components/NavMenuItem.vue"
 // import HeaderSticky from "../src/lib-components/HeaderSticky.vue"
 
@@ -1461,6 +1461,35 @@ export default Vue.extend({
         },
         flexibleBlocks() {
             return [
+                {
+                    id: "13783",
+                    typeHandle: "associatedTopicCards",
+                    sectionTitle: "Fix Potholes",
+                    sectionSummary:
+                        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+                    associatedTopicsFlexiblePageBlock: [
+                        {
+                            id: "13899",
+                            topics: [
+                                {
+                                    to: "/help/road-work",
+                                    title: "Road Work Guide",
+                                    text: "<p>A research guide</p>",
+                                },
+                                {
+                                    title: "Types of Sinkholes",
+                                    text: "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
+                                    to: "/help/types-sinkholes",
+                                },
+                                {
+                                    to: "/help/animals",
+                                    title: "Animals eat food!",
+                                    text: "<p>Some animals eat plants and plant products like grass, leaves and fodder. Goat, cow, horse and sheep eat only plants.</p>",
+                                },
+                            ],
+                        },
+                    ],
+                },
                 {
                     typeHandle: "mediaGallery",
                     titleGeneral: "de Finibus Bonorum et Malorum",
