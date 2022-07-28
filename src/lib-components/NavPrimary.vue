@@ -1,8 +1,13 @@
 <template>
     <nav :class="classes">
         <div class="item-top">
-            <router-link to="/" aria-label="UCLA Library home page">
+            <router-link
+                to="/"
+                :aria-label="title ? '' : `UCLA Library home page`"
+            >
+                <h1 v-if="title" class="title">{{ title }}</h1>
                 <svg-logo-ucla-library
+                    v-else
                     class="svg logo-ucla"
                     alt="UCLA Library logo blue"
                 />
@@ -22,7 +27,7 @@
             />
         </ul>
 
-        <div class="support-links">
+        <div v-if="!title" class="support-links">
             <div
                 v-for="(item, index) in supportLinks"
                 :key="index"
@@ -63,6 +68,10 @@ export default {
             default: () => [],
         },
         currentPath: {
+            type: String,
+            default: "",
+        },
+        title: {
             type: String,
             default: "",
         },
@@ -172,6 +181,13 @@ export default {
         width: auto;
     }
 
+    .title {
+        @include step-1;
+        color: var(--color-primary-blue-03);
+        text-transform: initial;
+        letter-spacing: normal;
+    }
+
     .menu {
         margin: 0;
         padding: 0;
@@ -183,6 +199,7 @@ export default {
     .support-links {
         position: relative;
         z-index: 10;
+
         &::before {
             content: "";
             position: absolute;
@@ -192,6 +209,7 @@ export default {
             width: 1px;
             background-color: var(--color-secondary-grey-02);
         }
+
         .item-top {
             display: inline-flex;
             margin-left: 30px;

@@ -288,6 +288,12 @@
         <h2>NavPrimary Component</h2>
         <nav-primary :items="parsedNavPrimary" current-path="/about/foo/bar" />
         <hr />
+        <nav-primary
+            :items="parsedNavPrimary"
+            current-path="/about/foo/bar"
+            title="Modern Endangered Archives Program"
+        />
+        <hr />
 
         <h2>NavSecondary Component</h2>
         <nav-secondary :items="parsedNavSecondary" />
@@ -1579,7 +1585,7 @@ export default Vue.extend({
                                     height: 1920,
                                     width: 1080,
                                     id: "2536",
-                                    img: '<img src="$ASSET_VOLUME_BASE_URL/images/hollywood.jpeg" width="1200" height="630" alt="Hollywood">',
+                                    img: '<img src="$ASSET_VOLUME_BASE_URL/images/old-turtle.jpg" width="1200" height="630" alt="Hollywood">',
                                     kind: "image",
                                     size: "178185",
                                     slug: null,
@@ -1751,10 +1757,10 @@ export default Vue.extend({
                                     image: [
                                         {
                                             id: "2536",
-                                            src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/hollywood.jpeg",
+                                            src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/old-turtle.jpg",
                                             height: 1344,
                                             width: 2560,
-                                            srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/hollywood.jpeg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/hollywood.jpeg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/hollywood.jpeg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/hollywood.jpeg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/hollywood.jpeg 2560w",
+                                            srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/old-turtle.jpg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/old-turtle.jpg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/old-turtle.jpg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/old-turtle.jpg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/old-turtle.jpg 2560w",
                                             alt: "Hollywood",
                                             focalPoint: [0.5, 0.5],
                                         },
@@ -1851,10 +1857,10 @@ export default Vue.extend({
                             image: [
                                 {
                                     id: "2536",
-                                    src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/hollywood.jpeg",
+                                    src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/old-turtle.jpg",
                                     height: 1344,
                                     width: 2560,
-                                    srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/hollywood.jpeg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/hollywood.jpeg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/hollywood.jpeg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/hollywood.jpeg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/hollywood.jpeg 2560w",
+                                    srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/old-turtle.jpg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/old-turtle.jpg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/old-turtle.jpg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/old-turtle.jpg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/old-turtle.jpg 2560w",
                                     alt: "Hollywood",
                                     focalPoint: [0.5, 0.5],
                                 },
@@ -1920,10 +1926,10 @@ export default Vue.extend({
                                             image: [
                                                 {
                                                     id: "1214",
-                                                    src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/IMG_20210608_182730371.jpg",
+                                                    src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/sea-turtle.jpg",
                                                     height: 1920,
                                                     width: 2560,
-                                                    srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/IMG_20210608_182730371.jpg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/IMG_20210608_182730371.jpg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/IMG_20210608_182730371.jpg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/IMG_20210608_182730371.jpg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/IMG_20210608_182730371.jpg 2560w",
+                                                    srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/sea-turtle.jpg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/sea-turtle.jpg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/sea-turtle.jpg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/sea-turtle.jpg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/sea-turtle.jpg 2560w",
                                                     alt: "IMG 20210608 182730371",
                                                     focalPoint: [0.5, 0.5],
                                                 },
@@ -1968,10 +1974,10 @@ export default Vue.extend({
                                             image: [
                                                 {
                                                     id: "2536",
-                                                    src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/hollywood.jpeg",
+                                                    src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/old-turtle.jpg",
                                                     height: 1344,
                                                     width: 2560,
-                                                    srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/hollywood.jpeg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/hollywood.jpeg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/hollywood.jpeg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/hollywood.jpeg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/hollywood.jpeg 2560w",
+                                                    srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/old-turtle.jpg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/old-turtle.jpg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/old-turtle.jpg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/old-turtle.jpg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/old-turtle.jpg 2560w",
                                                     alt: "Hollywood",
                                                     focalPoint: [0.5, 0.5],
                                                 },
