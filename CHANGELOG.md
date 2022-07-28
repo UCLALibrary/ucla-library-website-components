@@ -1,3 +1,24 @@
+# [1.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.33.0...v1.34.0) (2022-07-28)
+
+
+### Features
+
+* change navPrimary to fit ux requirements ([#74](https://github.com/UCLALibrary/ucla-library-website-components/issues/74)) ([d8ccc9f](https://github.com/UCLALibrary/ucla-library-website-components/commit/d8ccc9f1a2c1c0556c137876fcec7cb55b38e97b))
+
+# [1.33.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.32.1...v1.33.0) (2022-07-27)
+
+
+### Features
+
+* add readMe with tips and insights ([#87](https://github.com/UCLALibrary/ucla-library-website-components/issues/87)) ([418203d](https://github.com/UCLALibrary/ucla-library-website-components/commit/418203dde8d43c609e145a5c0ce782b356878125))
+
+## [1.32.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.32.0...v1.32.1) (2022-07-27)
+
+
+### Bug Fixes
+
+* Replace images with ones on test-craft ([#85](https://github.com/UCLALibrary/ucla-library-website-components/issues/85)) ([bd9998b](https://github.com/UCLALibrary/ucla-library-website-components/commit/bd9998b3185e9ac67af09d8fcb70587f575ed610))
+
 # [1.32.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.31.3...v1.32.0) (2022-07-26)
 
 
