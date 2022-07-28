@@ -8,6 +8,15 @@
             <div class="content">
                 <h1 class="title" v-html="title" />
                 <rich-text v-if="text" class="text" :rich-text-content="text" />
+                <div class="byline" v-if="byline">
+                    <div
+                        v-for="(item, index) in byline"
+                        :key="index"
+                        class="byline-item"
+                    >
+                        {{ item }}
+                    </div>
+                </div>
                 <div v-if="date" class="schedule">
                     <time
                         v-if="date"
@@ -179,6 +188,10 @@ export default {
         staffDirectoryLink: {
             type: String,
             default: "",
+        },
+        byline: {
+            type: Array,
+            default: () => [],
         },
     },
     computed: {
@@ -377,6 +390,24 @@ export default {
         .location-icon-line {
             stroke: var(--location-icon-color);
         }
+    }
+    .byline {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        font-size: 20px;
+        margin-bottom: 24px;
+    }
+    .byline-item {
+        display: flex;
+        flex-direction: row;
+
+        font-size: 20px;
+        line-height: 24px;
+        text-align: left;
+        color: var(--color-primary-blue-03);
     }
     ::v-deep .text {
         margin-bottom: 24px;
