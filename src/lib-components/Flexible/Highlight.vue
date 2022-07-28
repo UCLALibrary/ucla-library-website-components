@@ -1,8 +1,5 @@
 <template>
-    <section
-        class="section-teaser-highlight"
-        v-if="block.highlight.contentLink"
-    >
+    <section class="section-teaser-highlight" v-if="block.highlight">
         <block-highlight
             v-for="item in parsedItems"
             :key="item.to"

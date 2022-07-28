@@ -34,7 +34,7 @@ export default {
         // TODO register all other block types
         // TODO register all other block types
         FlexibleCallToAction: () =>
-            import("@/lib-components/Flexible/CtaBlockContentWidth"),
+            import("@/lib-components/Flexible/CallToAction"),
         FlexibleCtaBlock2Up: () =>
             import("@/lib-components/Flexible/CtaBlock2Up"),
         FlexibleBannerFeatured: () =>
@@ -131,12 +131,18 @@ function convertName(typeHandle) {
         &.divider-general,
         &.pull-quote,
         &.section-cards-with-illustrations,
+        &.flexible-banner-featured,
+        &.section-teaser-highlight,
         &.impact-numbers-carousel {
             background-color: var(--color-white);
         }
 
         &.divider-general {
             padding: 0;
+        }
+
+        ::v-deep .block-call-to-action-two-up {
+            background-color: var(--color-white);
         }
         ::v-deep .flexible-media-with-text {
             .clipped-play,
