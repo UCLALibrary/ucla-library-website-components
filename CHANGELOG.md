@@ -1,3 +1,10 @@
+## [1.34.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.34.0...v1.34.1) (2022-07-28)
+
+
+### Bug Fixes
+
+* Footer sponsor change ([#88](https://github.com/UCLALibrary/ucla-library-website-components/issues/88)) ([2ac53a1](https://github.com/UCLALibrary/ucla-library-website-components/commit/2ac53a177ef66e2ac17e2256a9b27dc8754ea31d))
+
 # [1.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.33.0...v1.34.0) (2022-07-28)
 
 
