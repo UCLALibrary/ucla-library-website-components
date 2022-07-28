@@ -1,5 +1,13 @@
 <template>
     <nav class="nav-secondary">
+        <h3>parsedLinks: {{ parsedLinks }}</h3>
+        <br /><br />
+        <h3>accountLink:{{ accountLink }}</h3>
+        <br /><br />
+        <h3>parsedItemsMinusAccount: {{ parsedItemsMinusAccount }}</h3>
+        <br /><br />
+        <h3>linkClasses: {{ linkClasses }}</h3>
+        <br /><br />
         <div :class="classes">
             <router-link
                 to="/"
@@ -40,7 +48,7 @@
 
                 <ul class="link-list" v-if="isMicrosite">
                     <li
-                        v-for="(item, index) in parsedItemsAll"
+                        v-for="(item, index) in parsedLinks"
                         :key="index"
                         class="list-item"
                     >
@@ -91,15 +99,12 @@ export default {
                 { "flex-container-microsite": this.isMicrosite },
             ]
         },
-        parsedItemsAll() {
-            return this.items.map((obj) => {
-                return {
-                    ...obj,
-                    target: this.formatLinkTarget(obj.target),
-                }
-            })
+        linkClasses() {
+            parsedLinks.map((obj) => {
+
+            return ["list-item"]
         },
-        parsedAccount() {
+        parsedLinks() {
             return this.items.map((obj) => {
                 return {
                     ...obj,
@@ -108,11 +113,11 @@ export default {
             })
         },
         parsedItemsMinusAccount() {
-            return this.parsedItemsAll.slice(0, -1)
+            return this.parsedLinks.slice(0, -1)
         },
         accountLink() {
             return this.items.find((obj) => {
-                return obj.name == "My Account"
+                return obj.name ==  LAST
             })
         },
     },

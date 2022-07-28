@@ -664,10 +664,34 @@ export default Vue.extend({
             },
             mockSecondaryNavMicrositeLinks: {
                 items: [
-                    { ...API.secondaryNavMicrositeLinks[0] },
-                    { ...API.secondaryNavMicrositeLinks[1] },
-                    { ...API.secondaryNavMicrositeLinks[2] },
-                    { ...API.secondaryNavMicrositeLinks[3] },
+                    {
+                        id: "25328",
+                        name: "Get Help With",
+                        to: "http://dev-uclalib-craft.nitro/services-and-resources",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "25329",
+                        name: "Visit",
+                        to: "http://dev-uclalib-craft.nitro/locations-and-hours",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "25352",
+                        name: "About",
+                        to: "http://dev-uclalib-craft.nitro/about-the-ucla-libraries",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "25353",
+                        name: "Support Us",
+                        to: "https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463",
+                        classes: "support-link",
+                        target: "1",
+                    },
                 ],
             },
             mockFooterPrimary: {
