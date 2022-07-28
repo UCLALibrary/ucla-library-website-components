@@ -56,6 +56,10 @@
         <hr />
         <block-amenities :amenities="mockBlockAmenitiesFour.amenities" />
         <hr />
+        <block-amenities :amenities="mockBlockAmenitiesThree.amenities" />
+        <hr />
+        <block-amenities :amenities="mockBlockAmenitiesTwo.amenities" />
+        <hr />
 
         <h2>BlockCallToAction Component</h2>
         <block-call-to-action
@@ -528,6 +532,16 @@ export default Vue.extend({
                     "SvgIconAccessible",
                     "SvgIconChair",
                 ],
+            },
+            mockBlockAmenitiesThree: {
+                amenities: [
+                    "SvgIconLight",
+                    "SvgIconClock",
+                    "SvgIconAccessible",
+                ],
+            },
+            mockBlockAmenitiesTwo: {
+                amenities: ["SvgIconLight", "SvgIconClock"],
             },
             mockSearchGeneric: {
                 views: [

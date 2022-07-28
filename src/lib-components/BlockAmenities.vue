@@ -87,10 +87,12 @@ export default {
         margin-bottom: 16px;
         margin-left: 2px;
     }
+
     .amenity-column ul {
         display: flex;
         flex-wrap: wrap;
     }
+
     .amenity-column ul li {
         list-style: none;
         flex-basis: 32%;
@@ -116,6 +118,33 @@ export default {
     }
     .svg__fill--black {
         fill: var(--color-primary-blue-03);
+    }
+
+    // Breakpoints
+
+    @media #{$medium} {
+        .amenity-column ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .amenity-column ul li {
+            list-style: none;
+            flex-basis: 50%;
+        }
+    }
+
+    @media #{$small} {
+        .amenity-column ul {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        .amenity-column ul li {
+            list-style: none;
+            flex-basis: 20%;
+        }
     }
 }
 </style>
