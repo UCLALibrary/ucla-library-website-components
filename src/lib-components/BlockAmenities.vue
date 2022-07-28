@@ -1,5 +1,6 @@
 <template>
     <div class="block-amenities">
+        <h3>{{ parsedAmenities }}</h3>
         <h3 class="amenities-title">At This Location</h3>
         <div class="amenity-column">
             <ul class="amenities-list">
@@ -8,9 +9,9 @@
                     :key="index"
                     class="amenitiy-row"
                 >
-                    <component :is="item" v-if="item" />
+                    <component :is="item.svgIcon" v-if="item.svgIcon" />
 
-                    <span class="amenity-name" v-html="item" />
+                    <span class="amenity-name" v-html="item.svgLabel" />
                 </li>
             </ul>
         </div>
@@ -19,47 +20,48 @@
 
 <script>
 // SVGs
-// 3D Printing, Etching, etc. - icon-light
-import SvgIconLight from "ucla-library-design-tokens/assets/svgs/icon-light.svg"
 
 // 24 Hour Study Space - icon-clock
-import SvgIconClock from "ucla-library-design-tokens/assets/svgs/icon-clock.svg"
+import IconClock from "ucla-library-design-tokens/assets/svgs/icon-clock.svg"
 
 // ADA Stations - icon-accessible
-import SvgIconAccessible from "ucla-library-design-tokens/assets/svgs/icon-accessible.svg"
+import IconAccessible from "ucla-library-design-tokens/assets/svgs/icon-accessible.svg"
 
 // Cafe - icon-chair
-import SvgIconChair from "ucla-library-design-tokens/assets/svgs/icon-chair.svg"
+import IconChair from "ucla-library-design-tokens/assets/svgs/icon-chair.svg"
 
 // Computer/Laptop Access - icon-virtual
-import SvgIconVirtual from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
+import IconVirtual from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
 
 // Laptop Lending - icon-laptop
-import SvgIconLaptop from "ucla-library-design-tokens/assets/svgs/icon-laptop.svg"
+import IconLaptop from "ucla-library-design-tokens/assets/svgs/icon-laptop.svg"
 
 // Lockers - icon-locker
-import SvgIconLocker from "ucla-library-design-tokens/assets/svgs/icon-locker.svg"
+import IconLocker from "ucla-library-design-tokens/assets/svgs/icon-locker.svg"
+
+// Makerspace - icon-light
+import IconLight from "ucla-library-design-tokens/assets/svgs/icon-light.svg"
 
 // Printing, Scanning, and Copying - icon-share-printer
 // use svg class names to get rid of the circle background
-import SvgIconSharePrinter from "ucla-library-design-tokens/assets/svgs/icon-share-printer.svg"
+import IconSharePrinter from "ucla-library-design-tokens/assets/svgs/icon-share-printer.svg"
 
 // Research Help -  icon-book
-import SvgIconBook from "ucla-library-design-tokens/assets/svgs/icon-book.svg"
+import IconBook from "ucla-library-design-tokens/assets/svgs/icon-book.svg"
 
 export default {
     // TO DO import all amenitites svgs
     name: "BlockAmenities",
     components: {
-        SvgIconLight,
-        SvgIconClock,
-        SvgIconAccessible,
-        SvgIconChair,
-        SvgIconVirtual,
-        SvgIconLaptop,
-        SvgIconLocker,
-        SvgIconSharePrinter,
-        SvgIconBook,
+        IconClock,
+        IconAccessible,
+        IconChair,
+        IconVirtual,
+        IconLaptop,
+        IconLocker,
+        IconLight,
+        IconSharePrinter,
+        IconBook,
     },
     props: {
         amenities: {
@@ -67,9 +69,32 @@ export default {
             default: () => [],
         },
     },
+    data() {
+        return {
+            amenitiesMapping: {
+                "icon-clock": "24 Hour Study Space",
+                "icon-accessible": "ADA Stations",
+                "icon-chair": "Cafe",
+                "icon-virtual": "Computer/Laptop Access",
+                "icon-laptop": "Laptop Lending",
+                "icon-locker": "Lockers",
+                "icon-light": "Makerspace",
+                "icon-share-printer": "Printing, Scanning, and Copying",
+                "icon-book": "Research Help",
+            },
+        }
+    },
     computed: {
         parsedAmenities() {
-            return this.amenities
+            return this.amenities.map((obj) => {
+                let label = this.amenitiesMapping[obj]
+                console.log(obj)
+                console.log(label)
+                return {
+                    svgLabel: label,
+                    svgIcon: obj,
+                }
+            })
         },
     },
 }
@@ -99,7 +124,7 @@ export default {
     }
 
     .amenitiy-row {
-        margin: 3px 0;
+        margin-bottom: 16px;
         display: flex;
         align-content: center;
     }

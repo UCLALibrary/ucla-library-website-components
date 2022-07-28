@@ -14,12 +14,12 @@
         <header-smart />
         <hr />
 
-        <h2>HeaderSticky Component is showing at the top of this page</h2>
+        <!-- <h2>HeaderSticky Component is showing at the top of this page</h2>
         <header-sticky
             :primary-items="mockHeaderStickyPrimaryItems.items"
             :secondary-items="mockHeaderStickySecondaryItems.items"
         />
-        <hr />
+        <hr /> -->
 
         <h2>AlphabeticalBrowseBy Component</h2>
         <alphabetical-browse-by />
@@ -50,7 +50,9 @@
         <hr />
 
         <h2>BlockAmenities Component</h2>
-        <block-amenities :amenities="mockBlockAmenitiesAll.amenities" />
+        <block-amenities :amenities="mockBlockAmenitiesReal.amenities" />
+        <hr />
+        <!-- <block-amenities :amenities="mockBlockAmenitiesAll.amenities" />
         <hr />
         <block-amenities :amenities="mockBlockAmenitiesSeven.amenities" />
         <hr />
@@ -58,7 +60,7 @@
         <hr />
         <block-amenities :amenities="mockBlockAmenitiesThree.amenities" />
         <hr />
-        <block-amenities :amenities="mockBlockAmenitiesTwo.amenities" />
+        <block-amenities :amenities="mockBlockAmenitiesTwo.amenities" /> -->
         <hr />
 
         <h2>BlockCallToAction Component</h2>
@@ -500,6 +502,9 @@ export default Vue.extend({
                 date: "1995-12-17T03:24:00",
                 buttonText: "Curabitur",
                 to: "/visit/foo/bar/",
+            },
+            mockBlockAmenitiesReal: {
+                amenities: ["icon-accessible", "icon-chair", "icon-book"],
             },
             mockBlockAmenitiesAll: {
                 amenities: [
