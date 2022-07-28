@@ -1,3 +1,10 @@
+# [1.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.33.0...v1.34.0) (2022-07-28)
+
+
+### Features
+
+* change navPrimary to fit ux requirements ([#74](https://github.com/UCLALibrary/ucla-library-website-components/issues/74)) ([d8ccc9f](https://github.com/UCLALibrary/ucla-library-website-components/commit/d8ccc9f1a2c1c0556c137876fcec7cb55b38e97b))
+
 # [1.33.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.32.1...v1.33.0) (2022-07-27)
 
 
