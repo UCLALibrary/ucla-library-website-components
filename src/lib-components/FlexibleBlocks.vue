@@ -14,7 +14,7 @@
 <script>
 // Helpers
 import _kebabCase from "lodash/kebabCase"
-import FlexiblePullQuote from "@/lib-components/Flexible/PullQuote.vue"
+/*import FlexiblePullQuote from "@/lib-components/Flexible/PullQuote.vue"
 import FlexibleForm from "@/lib-components/Flexible/Form.vue"
 import FlexibleRichText from "@/lib-components/Flexible/RichText.vue"
 import FlexibleHighlight from "@/lib-components/Flexible/Highlight.vue"
@@ -27,25 +27,39 @@ import FlexibleMediaWithText from "@/lib-components/Flexible/MediaWithText.vue"
 import FlexibleCtaBlock2Up from "@/lib-components/Flexible/CtaBlock2Up.vue"
 import FlexibleMediaGallery from "@/lib-components/Flexible/MediaGallery.vue"
 import FlexibleAssociatedTopicCards from "@/lib-components/Flexible/AssociatedTopicCards.vue"
-
+*/
 export default {
     name: "FlexibleBlocks",
     components: {
         // TODO register all other block types
-        FlexibleCallToAction,
-        FlexibleCtaBlock2Up,
-        FlexibleHelpTopicCards,
-        FlexibleBannerFeatured,
-        FlexibleHighlight,
-        FlexibleSimpleCards,
-        FlexiblePullQuote,
-        FlexibleCardWithImage,
-        FlexibleRichText,
-        FlexibleMediaWithText,
-        FlexibleMediaGallery,
-        FlexibleForm,
-        FlexibleAssociatedTopicCards,
+        // TODO register all other block types
+        FlexibleCallToAction: () =>
+            import("@/lib-components/Flexible/CtaBlockContentWidth"),
+        FlexibleCtaBlock2Up: () =>
+            import("@/lib-components/Flexible/CtaBlock2Up"),
+        FlexibleBannerFeatured: () =>
+            import("@/lib-components/Flexible/BannerFeatured.vue"),
+        FlexibleHighlight: () =>
+            import("@/lib-components/Flexible/Highlight.vue"),
+        FlexibleSimpleCards: () =>
+            import("@/lib-components/Flexible/SimpleCards.vue"),
+        FlexiblePullQuote: () =>
+            import("@/lib-components/Flexible/PullQuote.vue"),
+        FlexibleCardWithImage: () =>
+            import("@/lib-components/Flexible/CardWithImage.vue"),
+        FlexibleRichText: () =>
+            import("@/lib-components/Flexible/RichText.vue"),
+        FlexibleMediaWithText: () =>
+            import("@/lib-components/Flexible/MediaWithText.vue"),
+        FlexibleMediaGallery: () =>
+            import("@/lib-components/Flexible/MediaGallery.vue"),
+        FlexibleForm: () => import("@/lib-components/Flexible/Form.vue"),
+        FlexibleImpactNumbersCarousel: () =>
+            import("@/lib-components/Flexible/ImpactNumbersCarousel.vue"),
+        FlexibleAssociatedTopicCards: () =>
+            import("@/lib-components/Flexible/AssociatedTopicCards.vue"),
     },
+
     props: {
         blocks: {
             type: Array,
@@ -115,7 +129,9 @@ function convertName(typeHandle) {
         &.forms,
         &.flexible-simple-cards,
         &.divider-general,
-        &.pull-quote {
+        &.pull-quote,
+        &.section-cards-with-illustrations,
+        &.impact-numbers-carousel {
             background-color: var(--color-white);
         }
 
