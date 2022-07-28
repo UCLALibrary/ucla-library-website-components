@@ -32,6 +32,9 @@ export default {
                 case uri.includes("/applicants/"):
                     output = "For Applicants"
                     break
+                case uri.includes("/projects/"):
+                    output = "Collections < Modern Endangered Archives Program"
+                    break
             }
 
             return output
