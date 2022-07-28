@@ -655,11 +655,34 @@ export default Vue.extend({
             },
             mockSecondaryNavLinks: {
                 items: [
-                    { ...API.secondaryNavLinks[0] },
-                    { ...API.secondaryNavLinks[1] },
-                    { ...API.secondaryNavLinks[2] },
-                    { ...API.secondaryNavLinks[3] },
-                    { ...API.secondaryNavLinks[4] },
+                    {
+                        id: "843",
+                        name: "Locations & Hours",
+                        to: "/locations",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "844",
+                        name: "Ask a Librarian",
+                        to: "/research-teaching-support/research-help",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "25315",
+                        name: "Support Us",
+                        to: "https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463",
+                        classes: "support-link",
+                        target: "1",
+                    },
+                    {
+                        id: "845",
+                        name: "My Account",
+                        to: "https://search.library.ucla.edu/discovery/login?vid=01UCS_LAL:UCLA",
+                        classes: "account-button",
+                        target: "1",
+                    },
                 ],
             },
             mockSecondaryNavMicrositeLinks: {

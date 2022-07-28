@@ -1,13 +1,5 @@
 <template>
     <nav class="nav-secondary">
-        <h3>parsedLinks: {{ parsedLinks }}</h3>
-        <br /><br />
-        <h3>accountLink:{{ accountLink }}</h3>
-        <br /><br />
-        <h3>parsedItemsMinusAccount: {{ parsedItemsMinusAccount }}</h3>
-        <br /><br />
-        <h3>linkClasses: {{ linkClasses }}</h3>
-        <br /><br />
         <div :class="classes">
             <router-link
                 to="/"
@@ -25,7 +17,7 @@
                     <li
                         v-for="(item, index) in parsedItemsMinusAccount"
                         :key="index"
-                        class="list-item"
+                        :class="item.classes"
                     >
                         <smart-link
                             class="link underline-hover"
@@ -39,7 +31,7 @@
 
                 <button-link
                     v-if="!isMicrosite"
-                    :label="accountLink.text"
+                    :label="accountLink.name"
                     class="account-button"
                     :to="accountLink.to"
                     :is-secondary="true"
@@ -50,7 +42,7 @@
                     <li
                         v-for="(item, index) in parsedLinks"
                         :key="index"
-                        class="list-item"
+                        :class="item.classes"
                     >
                         <smart-link
                             class="link underline-hover"
@@ -99,16 +91,14 @@ export default {
                 { "flex-container-microsite": this.isMicrosite },
             ]
         },
-        linkClasses() {
-            parsedLinks.map((obj) => {
-
-            return ["list-item"]
-        },
         parsedLinks() {
             return this.items.map((obj) => {
+                let support = "list-item"
+                if (obj.classes) support = `${support} ${obj.classes}`
                 return {
                     ...obj,
                     target: this.formatLinkTarget(obj.target),
+                    classes: support,
                 }
             })
         },
@@ -116,9 +106,7 @@ export default {
             return this.parsedLinks.slice(0, -1)
         },
         accountLink() {
-            return this.items.find((obj) => {
-                return obj.name ==  LAST
-            })
+            return this.parsedLinks[this.parsedLinks.length - 1]
         },
     },
 }
@@ -172,18 +160,20 @@ export default {
         &:first-child {
             margin-left: 0;
         }
-        &:last-child {
-            font-weight: $font-weight-medium;
-            color: var(--color-primary-blue-04);
-        }
+    }
+
+    .support-link {
+        font-weight: $font-weight-medium;
+        color: var(--color-primary-blue-04);
     }
 
     ::v-deep .account-button {
         color: var(--color-white);
+        color: [pink];
         background-color: var(--color-primary-blue-04);
         border-color: var(--color-primary-blue-04);
         border-radius: 4px;
-        padding: 6px 12px;
+        padding: 2px 12px;
         font-weight: $font-weight-medium;
         margin-left: 48px;
     }
