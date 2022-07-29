@@ -110,6 +110,7 @@ export default {
     justify-content: center;
     align-content: center;
     align-items: center;
+
     // Sizes
     &.full-width {
         --block-width: #{$container-l-cta}px;
@@ -117,12 +118,14 @@ export default {
         --block-padding-title: 70px;
         --block-padding-text: 10px;
     }
+
     &.half-width {
         --block-width: calc((#{$container-l-cta} / 2) - 10px);
         --block-height: 566px;
         --block-padding-title: 114px;
         --block-padding-text: 112px;
     }
+
     // Color Themes
     &.theme-light {
         --color-background: var(--color-primary-blue-01);
@@ -136,6 +139,7 @@ export default {
         --button-link-bg-color-hover: var(--color-white);
         --button-link-color-hover: var(--color-black);
     }
+
     &.theme-dark {
         --color-background: var(--color-primary-blue-03);
         --color-title: var(--color-white);
@@ -148,6 +152,7 @@ export default {
         --button-link-border-hover: 2px solid var(--color-white);
         --button-link-color-hover: var(--color-white);
     }
+
     .svg {
         margin-bottom: 32px;
         margin-top: 60px;
@@ -156,10 +161,12 @@ export default {
         .outline {
             stroke: var(--color-svg-molecule-outline);
         }
+
         .color {
             stroke: var(--color-svg-molecule-inner-highlight);
         }
     }
+
     .title {
         @include step-2;
         line-height: $line-height--1;
@@ -171,6 +178,7 @@ export default {
         margin-bottom: 16px;
         max-width: 640px;
     }
+
     .text {
         @include step-0;
         text-align: center;
@@ -180,6 +188,7 @@ export default {
         margin-bottom: 32px;
         max-width: 640px;
     }
+
     .button-link {
         width: 280px;
         font-size: 20px;
@@ -188,6 +197,7 @@ export default {
         margin-bottom: 60px;
         border: var(--color-button-border);
     }
+
     // Hover
     @media #{$has-hover} {
         .button-link:hover {
@@ -196,6 +206,7 @@ export default {
             color: var(--button-link-color-hover);
         }
     }
+
     // Breakpoints
     @media #{$medium} {
         &.full-width {
@@ -212,6 +223,7 @@ export default {
             padding: 0;
         }
     }
+
     @media #{$small} {
         width: 100%;
         &.full-width {

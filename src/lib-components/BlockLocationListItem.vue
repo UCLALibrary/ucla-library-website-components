@@ -34,6 +34,7 @@
                         :to="addressLink"
                         class="location"
                     />
+
                     <div v-if="amenities" class="amenities">
                         <div
                             v-for="amenity in amenities"
@@ -49,43 +50,60 @@
 </template>
 
 <script>
-import ResponsiveImage from "@/lib-components/ResponsiveImage"
-import SmartLink from "@/lib-components/SmartLink"
-import IconWithLink from "@/lib-components/IconWithLink"
-import SvgIconLight from "ucla-library-design-tokens/assets/svgs/icon-light.svg"
 import SvgIconClock from "ucla-library-design-tokens/assets/svgs/icon-clock.svg"
-import SvgIconAccessible from "ucla-library-design-tokens/assets/svgs/icon-accessible.svg"
-import SvgIconChair from "ucla-library-design-tokens/assets/svgs/icon-chair.svg"
-import SvgIconVirtual from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
-import SvgIconLaptop from "ucla-library-design-tokens/assets/svgs/icon-laptop.svg"
-import SvgIconLocker from "ucla-library-design-tokens/assets/svgs/icon-locker.svg"
-import SvgIconSharePrinter from "ucla-library-design-tokens/assets/svgs/icon-share-printer.svg"
-import SvgIconShareBook from "ucla-library-design-tokens/assets/svgs/icon-book.svg"
-import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-location.svg"
 import SvgIconCalendar from "ucla-library-design-tokens/assets/svgs/icon-calendar.svg"
-import SvgIconEmail from "ucla-library-design-tokens/assets/svgs/icon-email.svg"
-import SvgIconPhone from "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
+import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-location.svg"
+
+// AMENITIES
+import SvgIconLight from "ucla-library-design-tokens/assets/svgs/icon-light.svg"
+
+// 24 Hour Study Space - icon-clock
+// import SvgIconClock from "ucla-library-design-tokens/assets/svgs/icon-clock.svg"
+
+// ADA Stations - icon-accessible
+import SvgIconAccessible from "ucla-library-design-tokens/assets/svgs/icon-accessible.svg"
+
+// Cafe - icon-chair
+import SvgIconChair from "ucla-library-design-tokens/assets/svgs/icon-chair.svg"
+
+// Computer/Laptop Access - icon-virtual
+import SvgIconVirtual from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
+
+// Laptop Lending - icon-laptop
+import SvgIconLaptop from "ucla-library-design-tokens/assets/svgs/icon-laptop.svg"
+
+// Lockers - icon-locker
+import SvgIconLocker from "ucla-library-design-tokens/assets/svgs/icon-locker.svg"
+
+// Printing, Scanning, and Copying - icon-share-printer
+// use svg class names to get rid of the circle background
+import SvgIconSharePrinter from "ucla-library-design-tokens/assets/svgs/icon-share-printer.svg"
+
+// Research Help -  icon-book
+import SvgIconBook from "ucla-library-design-tokens/assets/svgs/icon-book.svg"
+
 import SvgMoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
-import IllustrationBookBinding from "ucla-library-design-tokens/assets/svgs/illustration-book-binding.svg"
+
+// Other Imports
+import IconWithLink from "@/lib-components/IconWithLink"
+import SmartLink from "@/lib-components/SmartLink"
+import ResponsiveImage from "@/lib-components/ResponsiveImage"
 
 export default {
     name: "BlockLocationListItem",
     components: {
-        SvgIconLight,
         SvgIconClock,
+        SvgIconCalendar,
+        SvgIconLocation,
+        SvgIconLight,
         SvgIconAccessible,
         SvgIconChair,
         SvgIconVirtual,
         SvgIconLaptop,
         SvgIconLocker,
         SvgIconSharePrinter,
-        SvgIconShareBook,
-        SvgIconLocation,
-        SvgIconCalendar,
-        SvgIconEmail,
-        SvgIconPhone,
+        SvgIconBook,
         SvgMoleculePlaceholder,
-        IllustrationBookBinding,
         IconWithLink,
         SmartLink,
         ResponsiveImage,
