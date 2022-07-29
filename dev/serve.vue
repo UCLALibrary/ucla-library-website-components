@@ -14,12 +14,12 @@
         <header-smart />
         <hr />
 
-        <!-- <h2>HeaderSticky Component is showing at the top of this page</h2>
+        <h2>HeaderSticky Component is showing at the top of this page</h2>
         <header-sticky
             :primary-items="mockHeaderStickyPrimaryItems.items"
             :secondary-items="mockHeaderStickySecondaryItems.items"
         />
-        <hr /> -->
+        <hr />
 
         <h2>AlphabeticalBrowseBy Component</h2>
         <alphabetical-browse-by />

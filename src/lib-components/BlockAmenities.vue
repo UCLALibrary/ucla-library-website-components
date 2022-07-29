@@ -1,6 +1,5 @@
 <template>
     <div class="block-amenities">
-        <h3>{{ parsedAmenities }}</h3>
         <h3 class="amenities-title">At This Location</h3>
         <div class="amenity-column">
             <ul class="amenities-list">
