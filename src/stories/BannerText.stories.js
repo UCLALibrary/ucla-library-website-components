@@ -17,6 +17,7 @@ const mock = {
     ],
     date: "1995-12-17T03:24:00",
     buttonText: "Curabitur",
+    byline: ["Cursus Quis"],
     to: "/visit/foo/bar/",
 }
 
@@ -33,6 +34,7 @@ export const Default = () => ({
         :text="text"
         :button-text="buttonText"
         :to="to"
+        :byline="byline"
 
     />`,
 })
