@@ -1,3 +1,10 @@
+# [1.36.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.35.1...v1.36.0) (2022-07-29)
+
+
+### Features
+
+* APPS-1635 create nav secondary for microsites ([#82](https://github.com/UCLALibrary/ucla-library-website-components/issues/82)) ([a310d33](https://github.com/UCLALibrary/ucla-library-website-components/commit/a310d330c07db5c471dcc673a210783d4ffaa92d))
+
 ## [1.35.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.35.0...v1.35.1) (2022-07-29)
 
 
