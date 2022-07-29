@@ -35,7 +35,6 @@ export const Default = () => ({
         :button-text="buttonText"
         :to="to"
         :byline="byline"
-
     />`,
 })
 

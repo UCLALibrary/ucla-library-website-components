@@ -505,8 +505,8 @@ export default {
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-items: center;
-        gap: var(--space-xs);
-        margin-bottom: var(--space-xs);
+        gap: 8px;
+        margin-bottom: var(--space-s);
         @include button;
     }
 
@@ -514,6 +514,7 @@ export default {
         font-family: var(--font-secondary);
         font-size: 20px;
         line-height: 1;
+        margin-top: var(--space-m);
     }
     .location-link {
         display: flex;
