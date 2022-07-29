@@ -23,12 +23,54 @@
         <h2>HeaderSticky Component is showing at the top of this page</h2>
         <header-sticky
             :primary-items="mockHeaderStickyPrimaryItems.items"
-            :secondary-items="mockHeaderStickySecondaryItems.items"
+            :secondary-items="mockSecondaryNavLinks.items"
+        />
+        <hr />
+
+        <h2>HeaderMainResponsive Component</h2>
+        <header-main-responsive
+            :primary-nav="mockHeaderStickyPrimaryItems.items"
+            :secondary-nav="mockSecondaryNavLinks.items"
+            current-path="/about/foo/bar"
         />
         <hr />
 
         <h2>AlphabeticalBrowseBy Component</h2>
         <alphabetical-browse-by />
+        <hr />
+
+        <h2>BannerHeader Component</h2>
+        <banner-header
+            :image="mockBannerHeader.image"
+            :to="mockBannerHeader.to"
+            :title="mockBannerHeader.title"
+            :category="mockBannerHeader.category"
+            :start-date="mockBannerHeader.startDate"
+            :end-date="mockBannerHeader.endDate"
+            :byline="mockBannerHeader.byline"
+            :prompt="mockBannerHeader.prompt"
+            :locations="mockBannerHeader.locations"
+        />
+        <hr />
+
+        <h2>BannerText Component</h2>
+        <banner-text
+            :category="mockBannerText.category"
+            :title="mockBannerText.title"
+            :text="mockBannerText.text"
+            :button-text="mockBannerText.buttonText"
+            :to="mockBannerText.to"
+        />
+        <hr />
+
+        <h2>BlockAmenities Component</h2>
+        <block-amenities :amenities="mockBlockAmenitiesAll.amenities" />
+        <hr />
+        <block-amenities :amenities="mockBlockAmenitiesFour.amenities" />
+        <hr />
+        <block-amenities :amenities="mockBlockAmenitiesThree.amenities" />
+        <hr />
+        <block-amenities :amenities="mockBlockAmenitiesTwo.amenities" />
         <hr />
 
         <h2>BlockCallToAction Component</h2>
@@ -198,10 +240,16 @@
         <h2>ButtonLink Component</h2>
         <button-link label="Egest perl Conub" to="/help/more" />
         <hr />
+        <button-link
+            label="Conub Pearl"
+            :is-secondary="true"
+            class="button"
+            to="/"
+            icon-name="none"
+        />
+        <hr />
 
         <h2>ButtonMore Component</h2>
-        <button-link label="This is a button " to="/help/" />
-        <hr />
         <button-more
             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         />
@@ -231,14 +279,6 @@
         <grid-gallery :items="mockGridGallery" />
         <hr />
 
-        <h2>HeaderMainResponsive Component</h2>
-        <header-main-responsive
-            :primary-nav="mockHeaderStickyPrimaryItems.items"
-            :secondary-nav="mockHeaderStickySecondaryItems.items"
-            current-path="/about/foo/bar"
-        />
-        <hr />
-
         <h2>HeadingArrow Component</h2>
         <heading-arrow text="Get Help With" to="/help/foo/bar/" />
         <br /><br />
@@ -255,25 +295,6 @@
 
         <h1>ImpactNumbersCarousel Components</h1>
         <impact-numbers-carousel :blocks="mockImpactNumbersCarousel" />
-        <hr />
-
-        <h1>Imapct Report Components</h1>
-        <story-with-image
-            :image="mockStoryWithImage.image"
-            :caption="mockStoryWithImage.image.caption"
-            :title="mockStoryWithImage.title"
-            :text="mockStoryWithImage.text"
-            :footnote="mockStoryWithImage.footnote"
-            :calltoaction="mockStoryWithImage.calltoaction"
-        />
-        <hr />
-
-        <h1>ImpactRichText Components</h1>
-        <impact-rich-text
-            :text-blocks="mockImpactRichText.textBlocks"
-            :pull-quote="mockImpactRichText.pullQuote"
-            :images="mockImpactRichText.images"
-        />
         <hr />
 
         <h2>MastheadPrimary Component</h2>
@@ -302,7 +323,14 @@
         <hr />
 
         <h2>NavSecondary Component</h2>
-        <nav-secondary :items="parsedNavSecondary" />
+        <nav-secondary :items="mockSecondaryNavLinks.items" />
+        <hr class="top-margin" />
+
+        <h2>NavSecondary for Microsite Component</h2>
+        <nav-secondary
+            :items="mockSecondaryNavMicrositeLinks.items"
+            isMicrosite="true"
+        />
         <hr />
 
         <h2>PullQuote Component</h2>
@@ -404,13 +432,38 @@
         <h2>SmartLink Component</h2>
         <smart-link to="/"> This will render as a vue-router link </smart-link>
         <hr />
+        <hr />
+
+        <h1>MEAP Specific Components</h1>
+        <h2>Footer Sponsor MEAP</h2>
+        <footer-sponsor />
+        <hr />
+        <hr />
 
         <h1>FlexibleBlock Components</h1>
         <flexible-blocks :blocks="flexibleBlocks" />
         <hr />
+        <hr />
 
-        <h1>Footer Sponsor MEAP</h1>
-        <footer-sponsor />
+        <h1>Impact Report Components</h1>
+
+        <h2>StoryWithImage Component</h2>
+        <story-with-image
+            :image="mockStoryWithImage.image"
+            :caption="mockStoryWithImage.image.caption"
+            :title="mockStoryWithImage.title"
+            :text="mockStoryWithImage.text"
+            :footnote="mockStoryWithImage.footnote"
+            :calltoaction="mockStoryWithImage.calltoaction"
+        />
+        <hr />
+
+        <h2>ImpactRichText Component</h2>
+        <impact-rich-text
+            :text-blocks="mockImpactRichText.textBlocks"
+            :pull-quote="mockImpactRichText.pullQuote"
+            :images="mockImpactRichText.images"
+        />
         <hr />
     </div>
 </template>
@@ -426,6 +479,72 @@ export default Vue.extend({
     name: "ServeDev",
     data() {
         return {
+            mockBannerHeader: {
+                image: API.image,
+                video: API.video,
+                to: "/help/foo/bar/",
+                title: "Curabitur Tortor Pellentesque Nibh Aenean",
+                category: "Lectus",
+                startDate: "1995-12-17T03:24:00",
+                endDate: "1995-12-17T03:24:00",
+                byline: ["Cursus Quis"],
+                locations: [
+                    {
+                        id: "523",
+                        title: "Powell Library",
+                        to: "visit/locations/powell-library",
+                    },
+                    {
+                        id: "3062",
+                        title: "Online",
+                        to: "visit/locations/online",
+                    },
+                ],
+                prompt: "Cursus Quis",
+                alignRight: true,
+            },
+            mockBannerText: {
+                category: "Event",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.",
+                title: "Curabitur Tortor Pellentesque",
+                locations: [
+                    { title: "Powellarium", to: "/location/bar" },
+                    {
+                        title: "Research Library (Charles E. Young)",
+                        to: "/location/baz",
+                    },
+                ],
+                date: "1995-12-17T03:24:00",
+                buttonText: "Curabitur",
+                to: "/visit/foo/bar/",
+            },
+            mockBlockAmenitiesAll: {
+                amenities: [
+                    "icon-clock",
+                    "icon-accessible",
+                    "icon-chair",
+                    "icon-virtual",
+                    "icon-laptop",
+                    "icon-locker",
+                    "icon-light",
+                    "icon-share-printer",
+                    "icon-book",
+                ],
+            },
+            mockBlockAmenitiesFour: {
+                amenities: [
+                    "icon-clock",
+                    "icon-accessible",
+                    "icon-chair",
+                    "icon-virtual",
+                ],
+            },
+            mockBlockAmenitiesThree: {
+                amenities: ["icon-clock", "icon-accessible", "icon-chair"],
+            },
+            mockBlockAmenitiesTwo: {
+                amenities: ["icon-clock", "icon-accessible"],
+            },
             mockSearchGeneric: {
                 views: [
                     {
@@ -621,12 +740,15 @@ export default Vue.extend({
                     "1400 Public Affairs Building Los Angeles, CA 90095-1392",
                 addressLink: "http://google.com/address",
                 amenities: [
-                    "SvgIconEmail",
-                    "SvgIconPhone",
-                    "SvgIconVirtual",
+                    "SvgIconLight",
+                    "SvgIconClock",
+                    "SvgIconAccessible",
                     "SvgIconChair",
+                    "SvgIconVirtual",
+                    "SvgIconLaptop",
+                    "SvgIconLocker",
                     "SvgIconSharePrinter",
-                    "SvgIconShareBook",
+                    "SvgIconBook",
                 ],
                 to: "http://google.com/title",
             },
@@ -646,11 +768,68 @@ export default Vue.extend({
                     { ...API.primaryNavlinks[3] },
                 ],
             },
-            mockHeaderStickySecondaryItems: {
+            mockSecondaryNavLinks: {
                 items: [
-                    { ...API.links[0] },
-                    { ...API.links[1] },
-                    { ...API.links[2] },
+                    {
+                        id: "843",
+                        name: "Locations & Hours",
+                        to: "/locations",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "844",
+                        name: "Ask a Librarian",
+                        to: "/research-teaching-support/research-help",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "25315",
+                        name: "Support Us",
+                        to: "https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463",
+                        classes: "support-link",
+                        target: "1",
+                    },
+                    {
+                        id: "845",
+                        name: "My Account",
+                        to: "https://search.library.ucla.edu/discovery/login?vid=01UCS_LAL:UCLA",
+                        classes: "account-button",
+                        target: "1",
+                    },
+                ],
+            },
+            mockSecondaryNavMicrositeLinks: {
+                items: [
+                    {
+                        id: "25328",
+                        name: "Get Help With",
+                        to: "http://dev-uclalib-craft.nitro/services-and-resources",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "25329",
+                        name: "Visit",
+                        to: "http://dev-uclalib-craft.nitro/locations-and-hours",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "25352",
+                        name: "About",
+                        to: "http://dev-uclalib-craft.nitro/about-the-ucla-libraries",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "25353",
+                        name: "Support Us",
+                        to: "https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463",
+                        classes: "support-link",
+                        target: "1",
+                    },
                 ],
             },
             mockFooterPrimary: {
@@ -2070,7 +2249,6 @@ export default Vue.extend({
 
     h1 {
         margin: 50px 0 10px 0;
-        font-weight: bold;
     }
 
     h2 {

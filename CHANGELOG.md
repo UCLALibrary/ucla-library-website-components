@@ -1,3 +1,17 @@
+## [1.35.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.35.0...v1.35.1) (2022-07-29)
+
+
+### Bug Fixes
+
+* APPS-1621 project page components fixes ([#91](https://github.com/UCLALibrary/ucla-library-website-components/issues/91)) ([ef05c7a](https://github.com/UCLALibrary/ucla-library-website-components/commit/ef05c7a9f365ebce3707020a95d5f85dd216ca5c))
+
+# [1.35.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.34.3...v1.35.0) (2022-07-29)
+
+
+### Features
+
+* APPS-1707 Update components in vue component library npm repo ([#83](https://github.com/UCLALibrary/ucla-library-website-components/issues/83)) ([81af0ae](https://github.com/UCLALibrary/ucla-library-website-components/commit/81af0aec1d5b79c6ea2d2175a7650e08d81bf884))
+
 ## [1.34.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.34.2...v1.34.3) (2022-07-29)
 
 
