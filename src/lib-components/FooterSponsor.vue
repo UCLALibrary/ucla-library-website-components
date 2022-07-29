@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer-sponsor {
-    max-width: $container-xl-banner + px;
+    max-width: 100%;
     background-color: var(--color-secondary-grey-01);
     padding: 64px 64px;
 

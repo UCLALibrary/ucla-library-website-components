@@ -14,38 +14,63 @@
 <script>
 // Helpers
 import _kebabCase from "lodash/kebabCase"
-import FlexiblePullQuote from "@/lib-components/Flexible/PullQuote.vue"
-import FlexibleForm from "@/lib-components/Flexible/Form.vue"
-import FlexibleRichText from "@/lib-components/Flexible/RichText.vue"
-import FlexibleHighlight from "@/lib-components/Flexible/Highlight.vue"
-import FlexibleCallToAction from "@/lib-components/Flexible/CallToAction.vue"
-import FlexibleBannerFeatured from "@/lib-components/Flexible/BannerFeatured.vue"
-import FlexibleHelpTopicCards from "@/lib-components/Flexible/HelpTopicCards.vue"
-import FlexibleCardWithImage from "@/lib-components/Flexible/CardWithImage.vue"
-import FlexibleSimpleCards from "@/lib-components/Flexible/SimpleCards.vue"
-import FlexibleMediaWithText from "@/lib-components/Flexible/MediaWithText.vue"
-import FlexibleCtaBlock2Up from "@/lib-components/Flexible/CtaBlock2Up.vue"
-import FlexibleMediaGallery from "@/lib-components/Flexible/MediaGallery.vue"
-import FlexibleAssociatedTopicCards from "@/lib-components/Flexible/AssociatedTopicCards.vue"
 
 export default {
     name: "FlexibleBlocks",
     components: {
         // TODO register all other block types
-        FlexibleCallToAction,
-        FlexibleCtaBlock2Up,
-        FlexibleHelpTopicCards,
-        FlexibleBannerFeatured,
-        FlexibleHighlight,
-        FlexibleSimpleCards,
-        FlexiblePullQuote,
-        FlexibleCardWithImage,
-        FlexibleRichText,
-        FlexibleMediaWithText,
-        FlexibleMediaGallery,
-        FlexibleForm,
-        FlexibleAssociatedTopicCards,
+        FlexibleCallToAction: () =>
+            import("@/lib-components/Flexible/CallToAction").then(
+                (d) => d.default
+            ),
+        FlexibleCtaBlock2Up: () =>
+            import("@/lib-components/Flexible/CtaBlock2Up").then(
+                (d) => d.default
+            ),
+        FlexibleBannerFeatured: () =>
+            import("@/lib-components/Flexible/BannerFeatured.vue").then(
+                (d) => d.default
+            ),
+        FlexibleHighlight: () =>
+            import("@/lib-components/Flexible/Highlight.vue").then(
+                (d) => d.default
+            ),
+        FlexibleSimpleCards: () =>
+            import("@/lib-components/Flexible/SimpleCards.vue").then(
+                (d) => d.default
+            ),
+        FlexiblePullQuote: () =>
+            import("@/lib-components/Flexible/PullQuote.vue").then(
+                (d) => d.default
+            ),
+        FlexibleCardWithImage: () =>
+            import("@/lib-components/Flexible/CardWithImage.vue").then(
+                (d) => d.default
+            ),
+        FlexibleRichText: () =>
+            import("@/lib-components/Flexible/RichText.vue").then(
+                (d) => d.default
+            ),
+        FlexibleMediaWithText: () =>
+            import("@/lib-components/Flexible/MediaWithText.vue").then(
+                (d) => d.default
+            ),
+        FlexibleMediaGallery: () =>
+            import("@/lib-components/Flexible/MediaGallery.vue").then(
+                (d) => d.default
+            ),
+        FlexibleForm: () =>
+            import("@/lib-components/Flexible/Form.vue").then((d) => d.default),
+        FlexibleImpactNumbersCarousel: () =>
+            import("@/lib-components/Flexible/ImpactNumbersCarousel.vue").then(
+                (d) => d.default
+            ),
+        FlexibleAssociatedTopicCards: () =>
+            import("@/lib-components/Flexible/AssociatedTopicCards.vue").then(
+                (d) => d.default
+            ),
     },
+
     props: {
         blocks: {
             type: Array,
@@ -115,12 +140,20 @@ function convertName(typeHandle) {
         &.form,
         &.flexible-simple-cards,
         &.divider-general,
-        &.pull-quote {
+        &.pull-quote,
+        &.section-cards-with-illustrations,
+        &.flexible-banner-featured,
+        &.section-teaser-highlight,
+        &.impact-numbers-carousel {
             background-color: var(--color-white);
         }
 
         &.divider-general {
             padding: 0;
+        }
+
+        ::v-deep .block-call-to-action-two-up {
+            background-color: var(--color-white);
         }
         ::v-deep .flexible-media-with-text {
             .clipped-play,
