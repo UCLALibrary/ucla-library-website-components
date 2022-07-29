@@ -425,7 +425,7 @@ export default {
         padding-right: 300px;
         max-width: $container-l-main + px;
 
-        display: flex;
+        // display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: flex-start;
@@ -543,10 +543,8 @@ export default {
         flex-shrink: 0;
     }
     .button {
-        width: 180px;
         height: 50px;
-        padding: 0px 0px;
-        margin: var(--space-m) 0 0 0;
+        margin-top: 16px;
     }
 
     // Variant
