@@ -17,7 +17,15 @@
         <h2>HeaderSticky Component is showing at the top of this page</h2>
         <header-sticky
             :primary-items="mockHeaderStickyPrimaryItems.items"
-            :secondary-items="mockHeaderStickySecondaryItems.items"
+            :secondary-items="mockSecondaryNavLinks.items"
+        />
+        <hr />
+
+        <h2>HeaderMainResponsive Component</h2>
+        <header-main-responsive
+            :primary-nav="mockHeaderStickyPrimaryItems.items"
+            :secondary-nav="mockSecondaryNavLinks.items"
+            current-path="/about/foo/bar"
         />
         <hr />
 
@@ -226,10 +234,16 @@
         <h2>ButtonLink Component</h2>
         <button-link label="Egest perl Conub" to="/help/more" />
         <hr />
+        <button-link
+            label="Conub Pearl"
+            :is-secondary="true"
+            class="button"
+            to="/"
+            icon-name="none"
+        />
+        <hr />
 
         <h2>ButtonMore Component</h2>
-        <button-link label="This is a button " to="/help/" />
-        <hr />
         <button-more
             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         />
@@ -257,14 +271,6 @@
 
         <h2>GridGallery Components</h2>
         <grid-gallery :items="mockGridGallery" />
-        <hr />
-
-        <h2>HeaderMainResponsive Component</h2>
-        <header-main-responsive
-            :primary-nav="mockHeaderStickyPrimaryItems.items"
-            :secondary-nav="mockHeaderStickySecondaryItems.items"
-            current-path="/about/foo/bar"
-        />
         <hr />
 
         <h2>HeadingArrow Component</h2>
@@ -311,7 +317,14 @@
         <hr />
 
         <h2>NavSecondary Component</h2>
-        <nav-secondary :items="parsedNavSecondary" />
+        <nav-secondary :items="mockSecondaryNavLinks.items" />
+        <hr class="top-margin" />
+
+        <h2>NavSecondary for Microsite Component</h2>
+        <nav-secondary
+            :items="mockSecondaryNavMicrositeLinks.items"
+            isMicrosite="true"
+        />
         <hr />
 
         <h2>PullQuote Component</h2>
@@ -749,11 +762,68 @@ export default Vue.extend({
                     { ...API.primaryNavlinks[3] },
                 ],
             },
-            mockHeaderStickySecondaryItems: {
+            mockSecondaryNavLinks: {
                 items: [
-                    { ...API.links[0] },
-                    { ...API.links[1] },
-                    { ...API.links[2] },
+                    {
+                        id: "843",
+                        name: "Locations & Hours",
+                        to: "/locations",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "844",
+                        name: "Ask a Librarian",
+                        to: "/research-teaching-support/research-help",
+                        classes: null,
+                        target: "",
+                    },
+                    {
+                        id: "25315",
+                        name: "Support Us",
+                        to: "https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463",
+                        classes: "support-link",
+                        target: "1",
+                    },
+                    {
+                        id: "845",
+                        name: "My Account",
+                        to: "https://search.library.ucla.edu/discovery/login?vid=01UCS_LAL:UCLA",
+                        classes: "account-button",
+                        target: "1",
+                    },
+                ],
+            },
+            mockSecondaryNavMicrositeLinks: {
+                items: [
+                    {
+                        id: "25328",
+                        name: "Get Help With",
+                        to: "http://dev-uclalib-craft.nitro/services-and-resources",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "25329",
+                        name: "Visit",
+                        to: "http://dev-uclalib-craft.nitro/locations-and-hours",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "25352",
+                        name: "About",
+                        to: "http://dev-uclalib-craft.nitro/about-the-ucla-libraries",
+                        classes: "",
+                        target: "",
+                    },
+                    {
+                        id: "25353",
+                        name: "Support Us",
+                        to: "https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463",
+                        classes: "support-link",
+                        target: "1",
+                    },
                 ],
             },
             mockFooterPrimary: {

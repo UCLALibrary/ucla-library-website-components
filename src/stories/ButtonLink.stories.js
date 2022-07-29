@@ -72,7 +72,13 @@ export const HasGlyph = () => ({
     components: { ButtonLink },
     template: `<button-link label="Aug id Dignissim" :isSecondary="true" iconName="svg-arrow-right" to='/help/more'/>`,
 })
+
 export const HasExternalGlyph = () => ({
     components: { ButtonLink },
     template: `<button-link label="Aug id Dignissim" :isSecondary="true" iconName="svg-arrow-diagonal" to='www.google.com'/>`,
+})
+
+export const HasNoGlyph = () => ({
+    components: { ButtonLink },
+    template: `<button-link label="Aug id Dignissim" :isSecondary="true" icon-name="none" to='www.google.com'/>`,
 })
