@@ -1,3 +1,10 @@
+## [1.35.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.35.0...v1.35.1) (2022-07-29)
+
+
+### Bug Fixes
+
+* APPS-1621 project page components fixes ([#91](https://github.com/UCLALibrary/ucla-library-website-components/issues/91)) ([ef05c7a](https://github.com/UCLALibrary/ucla-library-website-components/commit/ef05c7a9f365ebce3707020a95d5f85dd216ca5c))
+
 # [1.35.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.34.3...v1.35.0) (2022-07-29)
 
 
