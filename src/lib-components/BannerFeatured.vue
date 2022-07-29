@@ -357,7 +357,6 @@ export default {
         padding-right: clamp(360px, 35%, 600px);
         max-width: $container-l-main + px;
 
-        display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: flex-start;
@@ -431,9 +430,7 @@ export default {
         padding: 0 0 5px 5px;
     }
     .button {
-        width: 180px;
         height: 50px;
-        padding: 0px 0px;
         margin-top: 16px;
     }
 
