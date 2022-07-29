@@ -50,17 +50,13 @@
         <hr />
 
         <h2>BlockAmenities Component</h2>
-        <block-amenities :amenities="mockBlockAmenitiesReal.amenities" />
-        <hr />
-        <!-- <block-amenities :amenities="mockBlockAmenitiesAll.amenities" />
-        <hr />
-        <block-amenities :amenities="mockBlockAmenitiesSeven.amenities" />
+        <block-amenities :amenities="mockBlockAmenitiesAll.amenities" />
         <hr />
         <block-amenities :amenities="mockBlockAmenitiesFour.amenities" />
         <hr />
         <block-amenities :amenities="mockBlockAmenitiesThree.amenities" />
         <hr />
-        <block-amenities :amenities="mockBlockAmenitiesTwo.amenities" /> -->
+        <block-amenities :amenities="mockBlockAmenitiesTwo.amenities" />
         <hr />
 
         <h2>BlockCallToAction Component</h2>
@@ -503,50 +499,32 @@ export default Vue.extend({
                 buttonText: "Curabitur",
                 to: "/visit/foo/bar/",
             },
-            mockBlockAmenitiesReal: {
-                amenities: ["icon-accessible", "icon-chair", "icon-book"],
-            },
             mockBlockAmenitiesAll: {
                 amenities: [
-                    "SvgIconLight",
-                    "SvgIconClock",
-                    "SvgIconAccessible",
-                    "SvgIconChair",
-                    "SvgIconVirtual",
-                    "SvgIconLaptop",
-                    "SvgIconLocker",
-                    "SvgIconSharePrinter",
-                    "SvgIconBook",
-                ],
-            },
-            mockBlockAmenitiesSeven: {
-                amenities: [
-                    "SvgIconLight",
-                    "SvgIconClock",
-                    "SvgIconAccessible",
-                    "SvgIconChair",
-                    "SvgIconVirtual",
-                    "SvgIconLaptop",
-                    "SvgIconLocker",
+                    "icon-clock",
+                    "icon-accessible",
+                    "icon-chair",
+                    "icon-virtual",
+                    "icon-laptop",
+                    "icon-locker",
+                    "icon-light",
+                    "icon-share-printer",
+                    "icon-book",
                 ],
             },
             mockBlockAmenitiesFour: {
                 amenities: [
-                    "SvgIconLight",
-                    "SvgIconClock",
-                    "SvgIconAccessible",
-                    "SvgIconChair",
+                    "icon-clock",
+                    "icon-accessible",
+                    "icon-chair",
+                    "icon-virtual",
                 ],
             },
             mockBlockAmenitiesThree: {
-                amenities: [
-                    "SvgIconLight",
-                    "SvgIconClock",
-                    "SvgIconAccessible",
-                ],
+                amenities: ["icon-clock", "icon-accessible", "icon-chair"],
             },
             mockBlockAmenitiesTwo: {
-                amenities: ["SvgIconLight", "SvgIconClock"],
+                amenities: ["icon-clock", "icon-accessible"],
             },
             mockSearchGeneric: {
                 views: [
