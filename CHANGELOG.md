@@ -1,3 +1,10 @@
+## [1.34.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.34.1...v1.34.2) (2022-07-29)
+
+
+### Bug Fixes
+
+* Apps-1751 flexible components ([#89](https://github.com/UCLALibrary/ucla-library-website-components/issues/89)) ([ba4a631](https://github.com/UCLALibrary/ucla-library-website-components/commit/ba4a63135ffba442715fb408750cde5f9756ce5f))
+
 ## [1.34.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.34.0...v1.34.1) (2022-07-28)
 
 
