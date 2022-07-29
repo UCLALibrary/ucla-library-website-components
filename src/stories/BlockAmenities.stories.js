@@ -3,15 +3,15 @@ import BlockAmenities from "@/lib-components/BlockAmenities"
 
 const mock = {
     amenities: [
-        "SvgIconLight",
-        "SvgIconClock",
-        "SvgIconAccessible",
-        "SvgIconChair",
-        "SvgIconVirtual",
-        "SvgIconLaptop",
-        "SvgIconLocker",
-        "SvgIconSharePrinter",
-        "SvgIconBook",
+        "icon-clock",
+        "icon-accessible",
+        "icon-chair",
+        "icon-virtual",
+        "icon-laptop",
+        "icon-locker",
+        "icon-light",
+        "icon-share-printer",
+        "icon-book",
     ],
 }
 
