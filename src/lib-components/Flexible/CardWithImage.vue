@@ -1,5 +1,5 @@
 <template>
-    <div class="card-with-image">
+    <div class="card-with-image" v-if="block.cardWithImage">
         <block-highlight
             v-for="item in parsedContent"
             :key="item.contentLink[0].to"
@@ -32,11 +32,19 @@ export default {
     computed: {
         // Determines whether content link or new content is used for text
         parsedContent() {
-            return this.block.cardWithImage.map((obj) => {
-                return {
-                    ...obj,
-                }
-            })
+            //TO DO remove this once the gql is fixed for cardwith image
+            if (
+                this.block.cardWithImage &&
+                this.block.cardWithImage[0].contentLink
+            )
+                return this.block.cardWithImage.map((obj) => {
+                    if (!obj.contentLink) return
+                    return {
+                        ...obj,
+                    }
+                })
+
+            return []
         },
     },
 }
