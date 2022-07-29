@@ -1,3 +1,10 @@
+## [1.34.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.34.2...v1.34.3) (2022-07-29)
+
+
+### Bug Fixes
+
+* Fix for squashed button text in BannerFeatured ([#92](https://github.com/UCLALibrary/ucla-library-website-components/issues/92)) ([49c3723](https://github.com/UCLALibrary/ucla-library-website-components/commit/49c3723a4ec9d4b306c30e21fc122270c3c4cec7))
+
 ## [1.34.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.34.1...v1.34.2) (2022-07-29)
 
 
