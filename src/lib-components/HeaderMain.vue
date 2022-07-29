@@ -1,7 +1,7 @@
 <template>
     <header class="header-main">
         <nav-secondary :items="secondaryNav" />
-        <nav-primary class="primary" :items="primaryNav" />
+        <nav-primary class="primary" :items="primaryNav" :title="title" />
     </header>
 </template>
 
@@ -24,6 +24,10 @@ export default {
         secondaryNav: {
             type: Array,
             default: () => [],
+        },
+        title: {
+            type: String,
+            default: "",
         },
     },
 }

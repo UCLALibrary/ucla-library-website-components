@@ -155,5 +155,26 @@ export const DesktopWindowWidth = () => ({
         }
     },
 
-    template: `<header-smart  />`,
+    template: `<header-smart />`,
+})
+
+export const DesktopWindowWidthWithMeapTitle = () => ({
+    store: new Vuex.Store({
+        state: {
+            header: {
+                primary: mock.primary,
+                secondary: mock.secondary,
+            },
+            winWidth: 1200,
+        },
+    }),
+    components: { HeaderSmart },
+    data() {
+        return {
+            ...mock,
+        }
+    },
+
+    template: `<header-smart 
+            title="Modern Endangered Archives Program"/>`,
 })

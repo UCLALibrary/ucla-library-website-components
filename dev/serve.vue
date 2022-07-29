@@ -14,6 +14,12 @@
         <header-smart />
         <hr />
 
+        <h2>
+            HeaderSmart Component is showing at the top of this page with title
+        </h2>
+        <header-smart title="Modern Endangered Archives Program" />
+        <hr />
+
         <h2>HeaderSticky Component is showing at the top of this page</h2>
         <header-sticky
             :primary-items="mockHeaderStickyPrimaryItems.items"

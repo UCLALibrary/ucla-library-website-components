@@ -6,6 +6,7 @@
             :class="isMobile ? 'mobile-header' : 'desktop-header'"
             :primary-nav="primaryMenuItems"
             :secondary-nav="secondaryMenuItems"
+            :title="title"
         />
     </header>
 </template>
@@ -22,12 +23,18 @@ export default {
         HeaderMainResponsive,
         HeaderMain,
     },
+    props: {
+        title: {
+            type: String,
+            default: "",
+        },
+    },
     computed: {
         primaryMenuItems() {
-            return this.$store.state.header.primary
+            return this.$store.state.headerSmart.header.primary
         },
         secondaryMenuItems() {
-            return this.$store.state.header.secondary
+            return this.$store.state.headerSmart.header.secondary
         },
         isMobile() {
             return this.$store.state.winWidth <= 1024 ? true : false
