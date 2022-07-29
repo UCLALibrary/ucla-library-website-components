@@ -543,7 +543,7 @@ export default {
         flex-shrink: 0;
     }
     .button {
-        max-width: 180px;
+        width: 180px;
         height: 50px;
         padding: 0px 0px;
         margin: var(--space-m) 0 0 0;
