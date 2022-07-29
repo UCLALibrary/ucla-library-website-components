@@ -17,6 +17,7 @@ const mock = {
     ],
     date: "1995-12-17T03:24:00",
     buttonText: "Curabitur",
+    byline: ["Cursus Quis"],
     to: "/visit/foo/bar/",
 }
 
@@ -33,6 +34,7 @@ export const Default = () => ({
         :text="text"
         :button-text="buttonText"
         :to="to"
+        :byline="byline"
     />`,
 })
 
@@ -48,6 +50,7 @@ export const NoButton = () => ({
         :text="text"
         :title="title"
         :date="date"
+        :byline="byline"
     />`,
 })
 
@@ -61,6 +64,7 @@ export const NoText = () => ({
     template: `<banner-text
         :category="category"
         :title="title"
+
     />`,
 })
 
