@@ -51,6 +51,7 @@ export const NoButton = () => ({
         :text="text"
         :title="title"
         :date="date"
+        :byline="byline"
     />`,
 })
 
@@ -64,6 +65,7 @@ export const NoText = () => ({
     template: `<banner-text
         :category="category"
         :title="title"
+
     />`,
 })
 

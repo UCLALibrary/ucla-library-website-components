@@ -8,7 +8,7 @@
             <div class="content">
                 <h1 class="title" v-html="title" />
                 <rich-text v-if="text" class="text" :rich-text-content="text" />
-                <div class="byline" v-if="byline">
+                <div class="byline" v-if="byline.length">
                     <div
                         v-for="(item, index) in byline"
                         :key="index"
@@ -373,6 +373,7 @@ export default {
         font-family: var(--font-secondary);
         font-size: 20px;
         line-height: 1;
+        margin-bottom: 12px;
         // padding-left: 52px;
     }
     .location-link {
