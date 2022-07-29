@@ -121,11 +121,13 @@ const mock = {
 export const Default = () => ({
     store: new Vuex.Store({
         state: {
-            header: {
-                primary: mock.primary,
-                secondary: mock.secondary,
+            headerSmart: {
+                header: {
+                    primary: mock.primary,
+                    secondary: mock.secondary,
+                },
+                winWidth: 824,
             },
-            winWidth: 824,
         },
     }),
     components: { HeaderSmart },
@@ -141,11 +143,13 @@ export const Default = () => ({
 export const DesktopWindowWidth = () => ({
     store: new Vuex.Store({
         state: {
-            header: {
-                primary: mock.primary,
-                secondary: mock.secondary,
+            headerSmart: {
+                header: {
+                    primary: mock.primary,
+                    secondary: mock.secondary,
+                },
+                winWidth: 1200,
             },
-            winWidth: 1200,
         },
     }),
     components: { HeaderSmart },
@@ -161,11 +165,13 @@ export const DesktopWindowWidth = () => ({
 export const DesktopWindowWidthWithMeapTitle = () => ({
     store: new Vuex.Store({
         state: {
-            header: {
-                primary: mock.primary,
-                secondary: mock.secondary,
+            headerSmart: {
+                header: {
+                    primary: mock.primary,
+                    secondary: mock.secondary,
+                },
+                winWidth: 1200,
             },
-            winWidth: 1200,
         },
     }),
     components: { HeaderSmart },
