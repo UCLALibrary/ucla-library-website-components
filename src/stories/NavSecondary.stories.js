@@ -50,7 +50,7 @@ export const Default = () => ({
     computed: {
         parsedItems() {
             // Restructuring item to support text key
-            return this.items((obj) => {
+            return this.items.map((obj) => {
                 return {
                     ...obj,
                     text: obj.name,
