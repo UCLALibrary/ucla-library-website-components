@@ -319,8 +319,8 @@ export default {
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-items: center;
-        gap: var(--space-xs);
-        margin-bottom: var(--space-xs);
+        gap: 8px;
+        margin-bottom: var(--space-s);
         @include button;
     }
     .text {
@@ -432,7 +432,6 @@ export default {
 @media #{$medium} {
     .banner-text {
         background-size: 128px;
-        padding-top: var(--unit-gutter);
         .banner-text-content-container {
             padding-left: var(--unit-gutter);
         }
