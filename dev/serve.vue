@@ -1794,34 +1794,42 @@ export default Vue.extend({
                     ],
                 },
                 {
-                    id: "16982",
-                    typeHandle: "helpTopicCards",
-                    helpTopicCards: [
+                    id: "25435",
+                    typeHandle: "impactNumbersCarousel",
+                    blocks: [
                         {
-                            id: "2404",
-                            contentLink: [
-                                {
-                                    id: "537",
-                                    url: "https://test-craft.library.ucla.edu/help/services-resources/borrowing-books-and-equipment",
-                                    to: "/help/services-resources/borrowing-books-and-equipment",
-                                    title: "Borrowing Books and Equipment",
-                                    text: "Kogi ut austin snackwave try-hard. Labore excepteur activated charcoal trust fund. Gastropub in asymmetrical eu, thundercats flexitarian truffaut waistcoat aliquip. Pour-over irure ex, pinterest et taiyaki incididunt. Craft beer cronut knausgaard, biodiesel poke beard slow-carb ullamco umami semiotics prism taxidermy hoodie meh. Et ugh small batch food truck twee bespoke, laboris roof party knausgaard try-hard tumblr swag cupidatat kombucha eu. Semiotics vegan officia in, pork belly chillwave vape plaid ex affogato veniam shaman brooklyn artisan aliqua.",
-                                    iconName: "illustration-find-space",
-                                },
-                            ],
+                            largeText: "10",
+                            mediumText: "millon",
+                            smallDescriptor:
+                                "dollars in funding allocated for the procurement of digital and print material",
+                            imagePath:
+                                "https://i.pinimg.com/originals/02/4b/9f/024b9fee1d4fe6b6939110cc803dfefe.jpg",
+                            altImageText: "Image for slide 1",
                         },
                         {
-                            id: "2405",
-                            contentLink: [
-                                {
-                                    id: "1033",
-                                    url: "https://test-craft.library.ucla.edu/help/services-resources/sample-service-page-with-faqs",
-                                    to: "/help/services-resources/sample-service-page-with-faqs",
-                                    title: "Sample Service Page with FAQ's",
-                                    text: "Learn how to use a VPN or proxy server to access Library resources with your UCLA Logon ID through a series of helpful videos.",
-                                    iconName: "illustration-find-space",
-                                },
-                            ],
+                            largeText: "3.5",
+                            mediumText: "millon",
+                            smallDescriptor:
+                                "dollars in funding allocated for the procurement of digital and print material",
+                            imagePath:
+                                "http://mynewsla.com/wp-content/uploads/2014/08/MNLA_FilePhotos_UCLAWestwood_0014.jpg",
+                            altImageText: "Image for slide 2",
+                        },
+                        {
+                            largeText: "5",
+                            mediumText: "bajillion",
+                            smallDescriptor: "SMdes 0",
+                            imagePath:
+                                "https://www.p2sinc.com/uploads/UCLA-Powell-WH-1.jpg",
+                            altImageText: "Image for slide 3",
+                        },
+                        {
+                            largeText: "25",
+                            mediumText: "percent",
+                            smallDescriptor: "SMdes 1",
+                            imagePath:
+                                "https://farm7.staticflickr.com/6105/6263912377_bc0ab9d68a_z.jpg",
+                            altImageText: "Image for slide 4",
                         },
                     ],
                 },
