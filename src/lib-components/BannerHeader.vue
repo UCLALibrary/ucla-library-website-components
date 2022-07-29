@@ -26,7 +26,7 @@
         <div class="meta">
             <h1 class="title" v-html="title" />
             <rich-text v-if="text" class="snippet" :rich-text-content="text" />
-            <div class="byline" v-if="byline">
+            <div class="byline" v-if="byline.length">
                 <div
                     v-for="(item, index) in byline"
                     :key="index"
