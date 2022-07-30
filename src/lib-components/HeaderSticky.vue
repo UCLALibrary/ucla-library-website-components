@@ -1,6 +1,7 @@
 <template>
     <header class="header-sticky">
         <nav-primary :items="primaryItems" class="primary" />
+
         <nav-secondary :items="secondaryItems" class="secondary" />
     </header>
 </template>

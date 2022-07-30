@@ -95,12 +95,11 @@ export default {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
     background-color: var(--color-white);
     border: 1.5px solid var(--color-primary-blue-02);
     font-size: 18px;
     color: var(--color-black);
-    padding: 14px 40px;
+    padding: 12px 40px;
     transition-property: color, background-color;
     transition-duration: 400ms;
     transition-timing-function: ease-in-out;
@@ -113,7 +112,7 @@ export default {
     // the button bg starts blue with white icons
     &.is-secondary {
         background-color: var(--color-primary-blue-03);
-        border: unset;
+        border: 1.5px solid var(--color-primary-blue-03);
         color: var(--color-white);
         .arrow {
             .svg__stroke--primary-blue-03 {
