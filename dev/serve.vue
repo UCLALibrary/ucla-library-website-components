@@ -10,13 +10,11 @@
         </h1>
         <hr />
 
-        <h2>HeaderSmart Component is showing at the top of this page</h2>
+        <h2>HeaderSmart Component</h2>
         <header-smart />
         <hr />
 
-        <h2>
-            HeaderSmart Component is showing at the top of this page with title
-        </h2>
+        <h2>HeaderSmart Component for MEAP</h2>
         <header-smart title="Modern Endangered Archives Program" />
         <hr />
 
