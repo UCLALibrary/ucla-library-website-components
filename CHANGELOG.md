@@ -1,3 +1,10 @@
+# [1.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.37.0...v1.38.0) (2022-08-01)
+
+
+### Features
+
+* SectionWrapper component ([#93](https://github.com/UCLALibrary/ucla-library-website-components/issues/93)) ([c599a07](https://github.com/UCLALibrary/ucla-library-website-components/commit/c599a0796f57cc8245a928de807f0dde7e434ea8))
+
 # [1.37.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.36.0...v1.37.0) (2022-08-01)
 
 
