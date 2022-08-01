@@ -5,7 +5,7 @@ export default {
     component: BlockMediaWithText,
 }
 
-const mock = {
+export const mock = {
     id: "13669",
     typeHandle: "mediaWithText",
     sectionTitle: "A section of media with text",
