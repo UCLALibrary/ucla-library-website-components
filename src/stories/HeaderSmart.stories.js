@@ -124,8 +124,8 @@ export const Default = () => ({
             header: {
                 primary: mock.primary,
                 secondary: mock.secondary,
+                winWidth: 824,
             },
-            winWidth: 824,
         },
     }),
     components: { HeaderSmart },
@@ -135,7 +135,7 @@ export const Default = () => ({
         }
     },
 
-    template: `<header-smart  />`,
+    template: `<header-smart />`,
 })
 
 export const DesktopWindowWidth = () => ({
@@ -144,8 +144,8 @@ export const DesktopWindowWidth = () => ({
             header: {
                 primary: mock.primary,
                 secondary: mock.secondary,
+                winWidth: 1200,
             },
-            winWidth: 1200,
         },
     }),
     components: { HeaderSmart },
@@ -155,5 +155,26 @@ export const DesktopWindowWidth = () => ({
         }
     },
 
-    template: `<header-smart  />`,
+    template: `<header-smart />`,
+})
+
+export const DesktopWindowWidthWithMeapTitle = () => ({
+    store: new Vuex.Store({
+        state: {
+            header: {
+                primary: mock.primary,
+                secondary: mock.secondary,
+                winWidth: 1200,
+            },
+        },
+    }),
+    components: { HeaderSmart },
+    data() {
+        return {
+            ...mock,
+        }
+    },
+
+    template: `<header-smart 
+            title="Modern Endangered Archives Program"/>`,
 })
