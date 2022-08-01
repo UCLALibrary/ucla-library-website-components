@@ -1,3 +1,10 @@
+# [1.37.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.36.0...v1.37.0) (2022-08-01)
+
+
+### Features
+
+* add title prop to headerSmart ([#90](https://github.com/UCLALibrary/ucla-library-website-components/issues/90)) ([ac86384](https://github.com/UCLALibrary/ucla-library-website-components/commit/ac863846af27383da1426bb5f09a1e685f96fb10))
+
 # [1.36.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.35.1...v1.36.0) (2022-07-29)
 
 
