@@ -31,7 +31,6 @@ export default {
     },
     computed: {
         primaryMenuItems() {
-            console.log(this.$store.state)
             return this.$store.state.header.primary
         },
         secondaryMenuItems() {
