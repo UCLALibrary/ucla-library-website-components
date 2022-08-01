@@ -1,3 +1,45 @@
+# [1.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.37.0...v1.38.0) (2022-08-01)
+
+
+### Features
+
+* SectionWrapper component ([#93](https://github.com/UCLALibrary/ucla-library-website-components/issues/93)) ([c599a07](https://github.com/UCLALibrary/ucla-library-website-components/commit/c599a0796f57cc8245a928de807f0dde7e434ea8))
+
+# [1.37.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.36.0...v1.37.0) (2022-08-01)
+
+
+### Features
+
+* add title prop to headerSmart ([#90](https://github.com/UCLALibrary/ucla-library-website-components/issues/90)) ([ac86384](https://github.com/UCLALibrary/ucla-library-website-components/commit/ac863846af27383da1426bb5f09a1e685f96fb10))
+
+# [1.36.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.35.1...v1.36.0) (2022-07-29)
+
+
+### Features
+
+* APPS-1635 create nav secondary for microsites ([#82](https://github.com/UCLALibrary/ucla-library-website-components/issues/82)) ([a310d33](https://github.com/UCLALibrary/ucla-library-website-components/commit/a310d330c07db5c471dcc673a210783d4ffaa92d))
+
+## [1.35.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.35.0...v1.35.1) (2022-07-29)
+
+
+### Bug Fixes
+
+* APPS-1621 project page components fixes ([#91](https://github.com/UCLALibrary/ucla-library-website-components/issues/91)) ([ef05c7a](https://github.com/UCLALibrary/ucla-library-website-components/commit/ef05c7a9f365ebce3707020a95d5f85dd216ca5c))
+
+# [1.35.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.34.3...v1.35.0) (2022-07-29)
+
+
+### Features
+
+* APPS-1707 Update components in vue component library npm repo ([#83](https://github.com/UCLALibrary/ucla-library-website-components/issues/83)) ([81af0ae](https://github.com/UCLALibrary/ucla-library-website-components/commit/81af0aec1d5b79c6ea2d2175a7650e08d81bf884))
+
+## [1.34.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.34.2...v1.34.3) (2022-07-29)
+
+
+### Bug Fixes
+
+* Fix for squashed button text in BannerFeatured ([#92](https://github.com/UCLALibrary/ucla-library-website-components/issues/92)) ([49c3723](https://github.com/UCLALibrary/ucla-library-website-components/commit/49c3723a4ec9d4b306c30e21fc122270c3c4cec7))
+
 ## [1.34.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.34.1...v1.34.2) (2022-07-29)
 
 

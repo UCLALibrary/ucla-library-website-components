@@ -26,7 +26,7 @@
         <div class="meta">
             <h1 class="title" v-html="title" />
             <rich-text v-if="text" class="snippet" :rich-text-content="text" />
-            <div class="byline" v-if="byline">
+            <div class="byline" v-if="byline.length">
                 <div
                     v-for="(item, index) in byline"
                     :key="index"
@@ -425,7 +425,7 @@ export default {
         padding-right: 300px;
         max-width: $container-l-main + px;
 
-        display: flex;
+        // display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
         justify-content: flex-start;
@@ -505,8 +505,8 @@ export default {
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-items: center;
-        gap: var(--space-xs);
-        margin-bottom: var(--space-xs);
+        gap: 8px;
+        margin-bottom: var(--space-s);
         @include button;
     }
 
@@ -514,6 +514,7 @@ export default {
         font-family: var(--font-secondary);
         font-size: 20px;
         line-height: 1;
+        margin-top: var(--space-m);
     }
     .location-link {
         display: flex;
@@ -543,10 +544,8 @@ export default {
         flex-shrink: 0;
     }
     .button {
-        width: 180px;
         height: 50px;
-        padding: 0px 0px;
-        margin: var(--space-m) 0 0 0;
+        margin-top: 16px;
     }
 
     // Variant
