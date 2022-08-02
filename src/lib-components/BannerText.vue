@@ -8,6 +8,15 @@
             <div class="content">
                 <h1 class="title" v-html="title" />
                 <rich-text v-if="text" class="text" :rich-text-content="text" />
+                <div class="byline" v-if="byline.length">
+                    <div
+                        v-for="(item, index) in byline"
+                        :key="index"
+                        class="byline-item"
+                    >
+                        {{ item }}
+                    </div>
+                </div>
                 <div v-if="date" class="schedule">
                     <time
                         v-if="date"
@@ -180,6 +189,10 @@ export default {
             type: String,
             default: "",
         },
+        byline: {
+            type: Array,
+            default: () => [],
+        },
     },
     computed: {
         classes() {
@@ -319,8 +332,8 @@ export default {
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-items: center;
-        gap: var(--space-xs);
-        margin-bottom: var(--space-xs);
+        gap: 8px;
+        margin-bottom: var(--space-s);
         @include button;
     }
     .text {
@@ -360,6 +373,7 @@ export default {
         font-family: var(--font-secondary);
         font-size: 20px;
         line-height: 1;
+        margin-bottom: 12px;
         // padding-left: 52px;
     }
     .location-link {
@@ -377,6 +391,24 @@ export default {
         .location-icon-line {
             stroke: var(--location-icon-color);
         }
+    }
+    .byline {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+
+        font-size: 20px;
+        margin-bottom: 24px;
+    }
+    .byline-item {
+        display: flex;
+        flex-direction: row;
+
+        font-size: 20px;
+        line-height: 24px;
+        text-align: left;
+        color: var(--color-primary-blue-03);
     }
     ::v-deep .text {
         margin-bottom: 24px;
@@ -432,7 +464,6 @@ export default {
 @media #{$medium} {
     .banner-text {
         background-size: 128px;
-        padding-top: var(--unit-gutter);
         .banner-text-content-container {
             padding-left: var(--unit-gutter);
         }
