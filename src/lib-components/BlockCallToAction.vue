@@ -13,19 +13,27 @@
 
 <script>
 import ButtonLink from "@/lib-components/ButtonLink.vue"
-import SvgCallToActionMoney from "ucla-library-design-tokens/assets/svgs/call-to-action-money.svg"
-import SvgCallToActionChat from "ucla-library-design-tokens/assets/svgs/call-to-action-chat.svg"
-import SvgCallToActionMail from "ucla-library-design-tokens/assets/svgs/call-to-action-mail.svg"
-import SvgCallToActionFind from "ucla-library-design-tokens/assets/svgs/call-to-action-find.svg"
 
 export default {
     name: "BlockCallToAction",
     components: {
         ButtonLink,
-        SvgCallToActionMoney,
-        SvgCallToActionChat,
-        SvgCallToActionMail,
-        SvgCallToActionFind,
+        SvgCallToActionMoney: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/call-to-action-money.svg"
+            ).then((d) => d.default),
+        SvgCallToActionChat: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/call-to-action-chat.svg"
+            ).then((d) => d.default),
+        SvgCallToActionMail: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/call-to-action-mail.svg"
+            ).then((d) => d.default),
+        SvgCallToActionFind: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/call-to-action-find.svg"
+            ).then((d) => d.default),
     },
     props: {
         svgName: {
