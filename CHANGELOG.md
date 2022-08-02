@@ -1,3 +1,10 @@
+## [1.38.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.38.0...v1.38.1) (2022-08-02)
+
+
+### Bug Fixes
+
+* changed vuex store for headerSmart ([#96](https://github.com/UCLALibrary/ucla-library-website-components/issues/96)) ([f18570a](https://github.com/UCLALibrary/ucla-library-website-components/commit/f18570ad0bb0021de1b539236931f61329dc81b8))
+
 # [1.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.37.0...v1.38.0) (2022-08-01)
 
 
