@@ -79,14 +79,19 @@ import isInternalLink from "@/mixins/isInternalLink"
 import SmartLink from "@/lib-components/SmartLink"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
 import ButtonLink from "@/lib-components/ButtonLink"
-import SvgIconHeadphones from "ucla-library-design-tokens/assets/svgs/molecule-headphones.svg"
 import SvgIconPlayFilled from "ucla-library-design-tokens/assets/svgs/icon-play-filled.svg"
 
 export default {
     name: "BlockMediaWithText",
     components: {
-        SvgIconHeadphones,
-        SvgIconPlayFilled,
+        SvgIconHeadphones: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/molecule-headphones.svg"
+            ).then((d) => d.default),
+        SvgIconPlayFilled: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-play-filled.svg"
+            ).then((d) => d.default),
         SmartLink,
         ResponsiveImage,
         ButtonLink,
