@@ -23,6 +23,7 @@ export default {
 
                 case uri.includes("/visit/"):
                 case uri.includes("/events-exhibits/"):
+                case uri.includes("/who-we-are/"):
                     output = "visit"
                     break
             }
