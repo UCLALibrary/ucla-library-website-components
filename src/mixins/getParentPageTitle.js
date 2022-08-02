@@ -33,7 +33,7 @@ export default {
                     output = "For Applicants"
                     break
                 case uri.includes("/projects/"):
-                    output = "Collections < Modern Endangered Archives Program"
+                    output = "Funded Projects"
                     break
             }
 
