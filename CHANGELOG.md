@@ -1,3 +1,10 @@
+## [1.39.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.39.0...v1.39.1) (2022-08-02)
+
+
+### Bug Fixes
+
+* update isMobile ([#98](https://github.com/UCLALibrary/ucla-library-website-components/issues/98)) ([88cd254](https://github.com/UCLALibrary/ucla-library-website-components/commit/88cd254180bd68ffbd183b8d0e0456a6b3021f56))
+
 # [1.39.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.38.2...v1.39.0) (2022-08-02)
 
 
