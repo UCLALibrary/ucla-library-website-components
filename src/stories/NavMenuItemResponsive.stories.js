@@ -44,13 +44,14 @@ export const Default = () => ({
     },
     components: { NavMenuItemResponsive },
     template: `
-        <nav-menu-item-responsive
-            v-for="(item, index) in parsedPrimaryMenuItems"
-            :key="item.id"
-            :item="item"
-            :index="index"
-            :go-back="goBack"
-        />
+        <ul>
+            <nav-menu-item-responsive
+                v-for="(item, index) in parsedPrimaryMenuItems"
+                :key="item.id"
+                :item="item"
+                :index="index"
+            />
+        </ul>
     `,
 })
 

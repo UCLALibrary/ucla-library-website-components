@@ -28,11 +28,15 @@
 
 <script>
 // Helpers
+import SmartLink from "@/lib-components/SmartLink"
 import formatLinkTarget from "@/mixins/formatLinkTarget"
 
 export default {
     name: "NavMenuItemResponsive",
     mixins: [formatLinkTarget],
+    components: {
+        SmartLink,
+    },
     props: {
         item: {
             type: Object,
