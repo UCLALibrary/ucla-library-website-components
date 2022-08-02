@@ -1,3 +1,10 @@
+## [1.38.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.38.1...v1.38.2) (2022-08-02)
+
+
+### Bug Fixes
+
+* ux updates meap project page ([#97](https://github.com/UCLALibrary/ucla-library-website-components/issues/97)) ([91802c4](https://github.com/UCLALibrary/ucla-library-website-components/commit/91802c4f9f49b4e5d8904dc8800ae689e30a8b0e))
+
 ## [1.38.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.38.0...v1.38.1) (2022-08-02)
 
 
