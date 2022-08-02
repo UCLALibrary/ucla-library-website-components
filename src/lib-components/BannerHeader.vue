@@ -256,11 +256,8 @@ export default {
             return this.formatTimes(this.startDate, this.endDate)
         },
         sectionName() {
-            console.log("this is the to" + this.getSectionName(this.to))
-            console.log(this.getSectionName(this.$route.path))
-            return this.to
-                ? this.getSectionName(this.to)
-                : this.getSectionName(this.$route.path)
+            // Want the color for the current page
+            return this.getSectionName(this.$route.path)
         },
         parsedRatio() {
             // If on mobile, change ratio of image
