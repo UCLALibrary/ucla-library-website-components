@@ -1,3 +1,10 @@
+# [1.39.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.38.2...v1.39.0) (2022-08-02)
+
+
+### Features
+
+* add missing files to vue component library ([#95](https://github.com/UCLALibrary/ucla-library-website-components/issues/95)) ([2625691](https://github.com/UCLALibrary/ucla-library-website-components/commit/2625691cf50d63bf41a0a6ebc524d27e461c3246))
+
 ## [1.38.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.38.1...v1.38.2) (2022-08-02)
 
 
