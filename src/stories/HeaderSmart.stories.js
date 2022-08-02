@@ -164,8 +164,8 @@ export const DesktopWindowWidthWithMeapTitle = () => ({
             header: {
                 primary: mock.primary,
                 secondary: mock.secondary,
-                winWidth: 1200,
             },
+            winWidth: 1200,
         },
     }),
     components: { HeaderSmart },
