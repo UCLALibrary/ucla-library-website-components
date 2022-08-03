@@ -126,10 +126,6 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
             ).then((d) => d.default),
-        SvgIconPhone: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
-            ).then((d) => d.default),
         SvgIconLocation: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-location.svg"

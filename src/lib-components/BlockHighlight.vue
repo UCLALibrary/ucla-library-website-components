@@ -76,7 +76,6 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
             ).then((d) => d.default),
-        ,
         SmartLink,
         ResponsiveImage,
     },
