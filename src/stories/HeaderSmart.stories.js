@@ -124,8 +124,8 @@ export const Default = () => ({
             header: {
                 primary: mock.primary,
                 secondary: mock.secondary,
-                winWidth: 824,
             },
+            winWidth: 824,
         },
     }),
     components: { HeaderSmart },
@@ -144,8 +144,8 @@ export const DesktopWindowWidth = () => ({
             header: {
                 primary: mock.primary,
                 secondary: mock.secondary,
-                winWidth: 1200,
             },
+            winWidth: 1200,
         },
     }),
     components: { HeaderSmart },
