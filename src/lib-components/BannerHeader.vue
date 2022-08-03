@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div :class="classes">
         <div v-if="category" class="category">
             <svg-heading-vector class="heading-line" />
@@ -174,11 +174,6 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-person.svg"
             ).then((d) => d.default),
-        SmartLink,
-        ButtonLink,
-        RichText,
-        ResponsiveImage,
-        ResponsiveVideo,
     },
     props: {
         image: {
@@ -706,4 +701,4 @@ export default {
         }
     }
 }
-</style>
+</style> -->

@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div :class="classes">
         <component :is="parsedContent.svgName" class="svg" />
         <div class="title" v-html="parsedContent.title" />
@@ -244,4 +244,4 @@ export default {
         }
     }
 }
-</style>
+</style> -->

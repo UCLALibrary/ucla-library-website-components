@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div :class="classes">
         <div class="banner-text-content-container">
             <div v-if="category" class="meta">
@@ -28,7 +28,6 @@
                         class="schedule-item"
                         v-html="parsedTime"
                     />
-                    <!-- TODO this can be multiple locations, on own line with icon -->
                     <div v-if="isOnline" class="schedule-item">Online</div>
                 </div>
                 <div v-if="locations.length" class="location-group">
@@ -522,4 +521,4 @@ export default {
         }
     }
 }
-</style>
+</style> -->

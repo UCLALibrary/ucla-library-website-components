@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div :class="classes">
         <div class="slot">
             <slot>
@@ -37,12 +37,9 @@
 
         <div class="meta">
             <div class="category category-desktop" v-html="category" />
-            <!-- TODO make the id unique programmaticly -->
+
             <h3 id="banner-featured" class="title" v-html="title">
-                <!--nuxt-link
-                    :to="to"
-                    v-html="title"
-                /-->
+
             </h3>
 
             <rich-text
@@ -570,4 +567,4 @@ export default {
         }
     }
 }
-</style>
+</style> -->
