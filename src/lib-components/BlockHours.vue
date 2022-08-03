@@ -68,31 +68,33 @@ export default {
             "message",
             function (e) {
                 var hours_iframe = document.getElementById("the-iframe")
-                console.log(hours_iframe.height)
+                console.log("FIRST" + hours_iframe.height)
                 var eventName = e.data[0]
                 var data = e.data[1]
-                console.log("DATA: " + hours_iframe)
+                // console.log("DATA: " + hours_iframe)
+                console.log("TEST" + JSON.stringify(hours_iframe))
 
                 switch (eventName) {
                     case "setHeight":
                         hours_iframe.height = data + 20
+                        console.log("SECOND" + hours_iframe.height)
                         break
                 }
             },
             false
         )
     },
-    methods: {
-        resizeIframe(obj) {
-            // TODO why is this not working?
-            console.log(obj.target.contentWindow.document.body.scrollHeight)
+    // methods: {
+    //     resizeIframe(obj) {
+    //         // TODO why is this not working?
+    //         console.log(obj.target.contentWindow.document.body.scrollHeight)
 
-            obj.target.style.height = "524px"
-            console.log(obj.target.contentWindow.document.body.scrollHeight)
-            /*obj.style.height =
-                obj.contentWindow.document.body.scrollHeight + "px"*/
-        },
-    },
+    //         obj.target.style.height = "524px"
+    //         console.log(obj.target.contentWindow.document.body.scrollHeight)
+    //         /*obj.style.height =
+    //             obj.contentWindow.document.body.scrollHeight + "px"*/
+    //     },
+    // },
 }
 </script>
 
@@ -126,7 +128,12 @@ export default {
         .iframe {
             max-width: 928px;
             padding: 12px;
+            margin-bottom: 200px;
             // resize: both;
+        }
+
+        table {
+            height: 100%;
         }
 
         // .iframe-container {
@@ -144,6 +151,9 @@ export default {
         //     height: 100%;
         //     border: 0;
         // }
+    }
+    .s-lc-whw tr:last-child {
+        /*border-bottom: 0; */
     }
 }
 </style>
