@@ -12,12 +12,11 @@
 </template>
 
 <script>
-import ButtonLink from "@/lib-components/ButtonLink.vue"
-
 export default {
     name: "BlockCallToAction",
     components: {
-        ButtonLink,
+        ButtonLink: () =>
+            import("@/lib-components/ButtonLink.vue").then((d) => d.default),
         SvgCallToActionMoney: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/call-to-action-money.svg"

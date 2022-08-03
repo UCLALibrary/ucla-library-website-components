@@ -94,8 +94,6 @@
 </template>
 
 <script>
-// Components
-
 // Utility functions
 import formatEventTimes from "@/mixins/formatEventTimes"
 import formatEventDates from "@/mixins/formatEventDates"
@@ -138,10 +136,6 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-person.svg"
             ).then((d) => d.default),
-
-        SmartLink,
-        ButtonLink,
-        RichText,
     },
     props: {
         category: {
