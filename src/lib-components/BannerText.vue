@@ -95,9 +95,6 @@
 
 <script>
 // Components
-import SmartLink from "@/lib-components/SmartLink.vue"
-import ButtonLink from "@/lib-components/ButtonLink.vue"
-import RichText from "@/lib-components/RichText.vue"
 
 // Utility functions
 import formatEventTimes from "@/mixins/formatEventTimes"
@@ -108,6 +105,13 @@ export default {
     name: "BannerText",
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
+        SmartLink: () =>
+            import("@/lib-components/SmartLink.vue").then((d) => d.default),
+        ButtonLink: () =>
+            import("@/lib-components/ButtonLink.vue").then((d) => d.default),
+        RichText: () =>
+            import("@/lib-components/RichText.vue").then((d) => d.default),
+
         SvgHeadingVector: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"

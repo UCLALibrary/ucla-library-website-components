@@ -61,10 +61,6 @@ import formatDay from "@/mixins/formatEventDay"
 import formatMonth from "@/mixins/formatEventMonth"
 import getSectionName from "@/mixins/getSectionName"
 
-// Components
-import SmartLink from "@/lib-components/SmartLink"
-import ResponsiveImage from "@/lib-components/ResponsiveImage"
-
 export default {
     name: "BlockHighlight",
     components: {
@@ -76,8 +72,12 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-location.svg"
             ).then((d) => d.default),
-        SmartLink,
-        ResponsiveImage,
+        SmartLink: () =>
+            import("@/lib-components/SmartLink.vue").then((d) => d.default),
+        ResponsiveImage: () =>
+            import("@/lib-components/ResponsiveImage.vue").then(
+                (d) => d.default
+            ),
     },
     mixins: [formatTimes, formatDates, formatDay, formatMonth, getSectionName],
     props: {

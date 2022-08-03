@@ -76,10 +76,6 @@
 <script>
 // Helper functions
 import isInternalLink from "@/mixins/isInternalLink"
-import SmartLink from "@/lib-components/SmartLink"
-import ResponsiveImage from "@/lib-components/ResponsiveImage"
-import ButtonLink from "@/lib-components/ButtonLink"
-import SvgIconPlayFilled from "ucla-library-design-tokens/assets/svgs/icon-play-filled.svg"
 
 export default {
     name: "BlockMediaWithText",
@@ -92,9 +88,14 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-play-filled.svg"
             ).then((d) => d.default),
-        SmartLink,
-        ResponsiveImage,
-        ButtonLink,
+        SmartLink: () =>
+            import("@/lib-components/SmartLink.vue").then((d) => d.default),
+        ButtonLink: () =>
+            import("@/lib-components/ButtonLink.vue").then((d) => d.default),
+        ResponsiveVideo: () =>
+            import("@/lib-components/ResponsiveVideo.vue").then(
+                (d) => d.default
+            ),
     },
     mixins: [isInternalLink],
     props: {

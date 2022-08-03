@@ -118,17 +118,6 @@
 <script>
 import format from "date-fns/format"
 
-// SVGs
-import SvgMoleculeHalfFaceted from "ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg"
-import SvgHatchRight from "ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg"
-
-// Components
-import SmartLink from "@/lib-components/SmartLink.vue"
-import ButtonLink from "@/lib-components/ButtonLink.vue"
-import RichText from "@/lib-components/RichText.vue"
-import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
-import ResponsiveVideo from "@/lib-components/ResponsiveVideo.vue"
-
 // Utility functions
 import formatEventTimes from "@/mixins/formatEventTimes"
 import formatEventDates from "@/mixins/formatEventDates"
@@ -138,8 +127,28 @@ export default {
     name: "BannerHeader",
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
-        SvgMoleculeHalfFaceted,
-        SvgHatchRight,
+        SvgMoleculeHalfFaceted: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg"
+            ).then((d) => d.default),
+        SvgHatchRight: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg"
+            ).then((d) => d.default),
+        ResponsiveImage: () =>
+            import("@/lib-components/ResponsiveImage.vue").then(
+                (d) => d.default
+            ),
+        ResponsiveVideo: () =>
+            import("@/lib-components/ResponsiveVideo.vue").then(
+                (d) => d.default
+            ),
+        SmartLink: () =>
+            import("@/lib-components/SmartLink.vue").then((d) => d.default),
+        ButtonLink: () =>
+            import("@/lib-components/ButtonLink.vue").then((d) => d.default),
+        RichText: () =>
+            import("@/lib-components/RichText.vue").then((d) => d.default),
         SvgHeadingVector: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"

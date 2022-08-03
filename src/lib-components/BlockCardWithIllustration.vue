@@ -13,9 +13,6 @@
 </template>
 
 <script>
-// Components
-import SmartLink from "@/lib-components/SmartLink.vue"
-
 // Utility Functions
 import getSectionName from "@/mixins/getSectionName"
 
@@ -23,7 +20,8 @@ export default {
     name: "BlockCardWithIllustration",
     mixins: [getSectionName],
     components: {
-        SmartLink,
+        SmartLink: () =>
+            import("@/lib-components/SmartLink.vue").then((d) => d.default),
         IllustrationBookBinding: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/illustration-book-binding.svg"
