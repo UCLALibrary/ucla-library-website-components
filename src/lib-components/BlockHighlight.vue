@@ -72,7 +72,6 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-location.svg"
             ).then((d) => d.default),
-        ,
         SvgIconOnline: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
