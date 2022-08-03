@@ -54,20 +54,30 @@
 </template>
 
 <script>
+// Utility functions
 import formatTimes from "@/mixins/formatEventTimes"
 import formatDates from "@/mixins/formatEventDates"
 import formatDay from "@/mixins/formatEventDay"
 import formatMonth from "@/mixins/formatEventMonth"
 import getSectionName from "@/mixins/getSectionName"
-import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-location.svg"
-import SvgIconOnline from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
+
+// Components
 import SmartLink from "@/lib-components/SmartLink"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
+
 export default {
     name: "BlockHighlight",
     components: {
-        SvgIconLocation,
-        SvgIconOnline,
+        SvgIconLocation: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-location.svg"
+            ).then((d) => d.default),
+        ,
+        SvgIconOnline: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
+            ).then((d) => d.default),
+        ,
         SmartLink,
         ResponsiveImage,
     },
