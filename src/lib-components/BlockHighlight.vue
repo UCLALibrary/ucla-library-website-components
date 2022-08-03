@@ -68,13 +68,13 @@ import ResponsiveImage from "@/lib-components/ResponsiveImage"
 export default {
     name: "BlockHighlight",
     components: {
-        SvgIconLocation: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-location.svg"
-            ).then((d) => d.default),
         SvgIconOnline: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
+            ).then((d) => d.default),
+        SvgIconLocation: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-location.svg"
             ).then((d) => d.default),
         SmartLink,
         ResponsiveImage,
