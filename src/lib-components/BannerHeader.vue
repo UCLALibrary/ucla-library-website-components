@@ -451,7 +451,7 @@ export default {
         align-items: center;
 
         font-size: 20px;
-        margin-bottom: 24px;
+        margin-bottom: 16px;
     }
     .byline-item {
         display: flex;
@@ -511,7 +511,7 @@ export default {
         font-family: var(--font-secondary);
         font-size: 20px;
         line-height: 1;
-        margin-top: var(--space-m);
+        margin-bottom: 16px;
     }
     .location-link {
         display: flex;
@@ -542,7 +542,6 @@ export default {
     }
     .button {
         height: 50px;
-        margin-top: 16px;
     }
 
     // Variant
