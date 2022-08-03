@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div :class="classes">
         <div v-if="category" class="category">
             <svg-heading-vector class="heading-line" />
@@ -701,4 +701,4 @@ export default {
         }
     }
 }
-</style> -->
+</style>

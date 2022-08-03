@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div :class="classes">
         <div class="slot">
             <slot>
@@ -38,9 +38,7 @@
         <div class="meta">
             <div class="category category-desktop" v-html="category" />
 
-            <h3 id="banner-featured" class="title" v-html="title">
-
-            </h3>
+            <h3 id="banner-featured" class="title" v-html="title"></h3>
 
             <rich-text
                 v-if="description"
@@ -567,4 +565,4 @@ export default {
         }
     }
 }
-</style> -->
+</style>

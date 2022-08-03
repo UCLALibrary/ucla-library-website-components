@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div :class="classes">
         <component :is="parsedSvgName" class="svg" />
 
@@ -271,4 +271,4 @@ export default {
         }
     }
 }
-</style> -->
+</style>

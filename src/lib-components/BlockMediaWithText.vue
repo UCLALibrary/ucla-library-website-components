@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div class="media-with-text">
         <div class="text-grouping">
             <h3 class="section-header" v-html="sectionHeader" />
@@ -374,4 +374,4 @@ export default {
         }
     }
 }
-</style> -->
+</style>

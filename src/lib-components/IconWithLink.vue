@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div class="icon-with-link">
         <smart-link :to="to" class="link">
             <component :is="iconName" class="icon" />
@@ -198,4 +198,4 @@ export default {
         }
     }
 }
-</style> -->
+</style>
