@@ -90,22 +90,11 @@
                 />
             </div>
         </div>
-
-        <!-- <svg-molecule-two-facets class="molecule" /> -->
     </div>
 </template>
 
 <script>
-// import format from "date-fns/format"
-
 // Components
-// import SvgMoleculeTwoFacets from "ucla-library-design-tokens/assets/svgs/molecule-half.svg"
-import SvgHeadingVector from "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
-import SvgIconOnline from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
-import SvgIconEmail from "ucla-library-design-tokens/assets/svgs/icon-email.svg"
-import SvgIconPhone from "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
-import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-location.svg"
-import SvgIconPerson from "ucla-library-design-tokens/assets/svgs/icon-person.svg"
 import SmartLink from "@/lib-components/SmartLink.vue"
 import ButtonLink from "@/lib-components/ButtonLink.vue"
 import RichText from "@/lib-components/RichText.vue"
@@ -119,13 +108,37 @@ export default {
     name: "BannerText",
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
-        // SvgMoleculeTwoFacets,
-        SvgHeadingVector,
-        SvgIconOnline,
-        SvgIconEmail,
-        SvgIconPhone,
-        SvgIconLocation,
-        SvgIconPerson,
+        SvgHeadingVector: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
+            ).then((d) => d.default),
+
+        SvgIconOnline: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
+            ).then((d) => d.default),
+
+        SvgIconEmail: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-email.svg"
+            ).then((d) => d.default),
+        SvgIconPhone: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
+            ).then((d) => d.default),
+        SvgIconPhone: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
+            ).then((d) => d.default),
+        SvgIconLocation: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-location.svg"
+            ).then((d) => d.default),
+        SvgIconPerson: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-person.svg"
+            ).then((d) => d.default),
+
         SmartLink,
         ButtonLink,
         RichText,
