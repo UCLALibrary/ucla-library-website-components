@@ -44,7 +44,26 @@
                     v-html="title"
                 /-->
             </h3>
+            <div class="byline" v-if="">
 
+                <div
+                    v-for="(item, index) in byline["articleStaff"]"
+                    :key="index"
+                    class="byline-item"
+                >
+                    <icon-with-link
+            :text="item.title"
+            icon-name="svg-icon-person"
+            to= "item.to"
+        />
+                </div>
+                <div
+               
+                    class="byline-item"
+                >
+                {{byline["articlePostDate"]}}
+                </div>
+            </div>
             <rich-text
                 v-if="description"
                 class="description"

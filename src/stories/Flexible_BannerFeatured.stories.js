@@ -28,7 +28,7 @@ const mock = {
                     articleByline1: [
                         {
                             id: "11827",
-                            slug: "brigid-abreu",
+                            to: "about/staff/brigid-abreu",
                             title: "Brigid Abreu",
                         },
                         {
