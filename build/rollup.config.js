@@ -31,6 +31,7 @@ const projectRoot = path.resolve(__dirname, "..")
 
 const baseConfig = {
     input: "src/entry.js",
+    inlineDynamicImports: true,
     plugins: {
         preVue: [
             alias({
