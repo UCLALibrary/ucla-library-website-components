@@ -54,6 +54,10 @@
 </template>
 
 <script>
+// Components
+import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
+import SmartLink from "@/lib-components/SmartLink.vue"
+
 // Utility functions
 import formatTimes from "@/mixins/formatEventTimes"
 import formatDates from "@/mixins/formatEventDates"
@@ -72,12 +76,8 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-location.svg"
             ).then((d) => d.default),
-        SmartLink: () =>
-            import("@/lib-components/SmartLink.vue").then((d) => d.default),
-        ResponsiveImage: () =>
-            import("@/lib-components/ResponsiveImage.vue").then(
-                (d) => d.default
-            ),
+        SmartLink,
+        ResponsiveImage,
     },
     mixins: [formatTimes, formatDates, formatDay, formatMonth, getSectionName],
     props: {
