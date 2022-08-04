@@ -92,8 +92,8 @@ export default {
             import("@/lib-components/SmartLink.vue").then((d) => d.default),
         ButtonLink: () =>
             import("@/lib-components/ButtonLink.vue").then((d) => d.default),
-        ResponsiveVideo: () =>
-            import("@/lib-components/ResponsiveVideo.vue").then(
+        ResponsiveImage: () =>
+            import("@/lib-components/ResponsiveImage.vue").then(
                 (d) => d.default
             ),
     },

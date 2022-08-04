@@ -8,11 +8,12 @@
 </template>
 
 <script>
+import SmartLink from "@/lib-components/SmartLink.vue"
+
 export default {
     name: "IconWithLink",
     components: {
-        SmartLink: () =>
-            import("@/lib-components/SmartLink.vue").then((d) => d.default),
+        SmartLink,
         SvgIconConsultation: () =>
             import("ucla-library-design-tokens/assets/svgs/icon-chat.svg").then(
                 (d) => d.default

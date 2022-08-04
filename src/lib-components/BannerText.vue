@@ -108,17 +108,14 @@ export default {
             import("@/lib-components/ButtonLink.vue").then((d) => d.default),
         RichText: () =>
             import("@/lib-components/RichText.vue").then((d) => d.default),
-
         SvgHeadingVector: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
             ).then((d) => d.default),
-
         SvgIconOnline: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
             ).then((d) => d.default),
-
         SvgIconEmail: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-email.svg"
