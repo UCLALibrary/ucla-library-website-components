@@ -44,7 +44,7 @@
                     v-html="title"
                 /-->
             </h3>
-            <div class="byline" v-if="">
+            <div class="byline" v-if="byline.length && (byline["articleStaff"] || byline["articlePostDate"])">
 
                 <div
                     v-for="(item, index) in byline["articleStaff"]"
