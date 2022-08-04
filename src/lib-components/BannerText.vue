@@ -28,7 +28,6 @@
                         class="schedule-item"
                         v-html="parsedTime"
                     />
-                    <!-- TODO this can be multiple locations, on own line with icon -->
                     <div v-if="isOnline" class="schedule-item">Online</div>
                 </div>
                 <div v-if="locations.length" class="location-group">
@@ -90,26 +89,10 @@
                 />
             </div>
         </div>
-
-        <!-- <svg-molecule-two-facets class="molecule" /> -->
     </div>
 </template>
 
 <script>
-// import format from "date-fns/format"
-
-// Components
-// import SvgMoleculeTwoFacets from "ucla-library-design-tokens/assets/svgs/molecule-half.svg"
-import SvgHeadingVector from "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
-import SvgIconOnline from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
-import SvgIconEmail from "ucla-library-design-tokens/assets/svgs/icon-email.svg"
-import SvgIconPhone from "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
-import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-location.svg"
-import SvgIconPerson from "ucla-library-design-tokens/assets/svgs/icon-person.svg"
-import SmartLink from "@/lib-components/SmartLink.vue"
-import ButtonLink from "@/lib-components/ButtonLink.vue"
-import RichText from "@/lib-components/RichText.vue"
-
 // Utility functions
 import formatEventTimes from "@/mixins/formatEventTimes"
 import formatEventDates from "@/mixins/formatEventDates"
@@ -119,16 +102,36 @@ export default {
     name: "BannerText",
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
-        // SvgMoleculeTwoFacets,
-        SvgHeadingVector,
-        SvgIconOnline,
-        SvgIconEmail,
-        SvgIconPhone,
-        SvgIconLocation,
-        SvgIconPerson,
-        SmartLink,
-        ButtonLink,
-        RichText,
+        SmartLink: () =>
+            import("@/lib-components/SmartLink.vue").then((d) => d.default),
+        ButtonLink: () =>
+            import("@/lib-components/ButtonLink.vue").then((d) => d.default),
+        RichText: () =>
+            import("@/lib-components/RichText.vue").then((d) => d.default),
+        SvgHeadingVector: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
+            ).then((d) => d.default),
+        SvgIconOnline: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
+            ).then((d) => d.default),
+        SvgIconEmail: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-email.svg"
+            ).then((d) => d.default),
+        SvgIconPhone: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
+            ).then((d) => d.default),
+        SvgIconLocation: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-location.svg"
+            ).then((d) => d.default),
+        SvgIconPerson: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-person.svg"
+            ).then((d) => d.default),
     },
     props: {
         category: {

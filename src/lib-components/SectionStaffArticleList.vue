@@ -8,8 +8,8 @@
             />
             <div class="block-staff-article-list">
                 <block-staff-article-list
-                    v-for="item in items"
-                    :key="item.to"
+                    v-for="(item, index) in items"
+                    :key="index"
                     :image="item.image"
                     :to="item.to"
                     :category="item.category"

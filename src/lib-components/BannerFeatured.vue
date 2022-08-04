@@ -37,13 +37,8 @@
 
         <div class="meta">
             <div class="category category-desktop" v-html="category" />
-            <!-- TODO make the id unique programmaticly -->
-            <h3 id="banner-featured" class="title" v-html="title">
-                <!--nuxt-link
-                    :to="to"
-                    v-html="title"
-                /-->
-            </h3>
+
+            <h3 id="banner-featured" class="title" v-html="title"></h3>
 
             <rich-text
                 v-if="description"
@@ -92,18 +87,9 @@ import format from "date-fns/format"
 // Components
 import SvgMoleculeHalfFaceted from "ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg"
 import SvgHatchRight from "ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg"
-
-import SvgHeadingVector from "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
-import SvgIconOnline from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
-import SvgIconEmail from "ucla-library-design-tokens/assets/svgs/icon-email.svg"
-import SvgIconPhone from "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
-import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-location.svg"
-import SvgIconPerson from "ucla-library-design-tokens/assets/svgs/icon-person.svg"
-import SmartLink from "@/lib-components/SmartLink.vue"
-import ButtonLink from "@/lib-components/ButtonLink.vue"
-import RichText from "@/lib-components/RichText.vue"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import ResponsiveVideo from "@/lib-components/ResponsiveVideo.vue"
+import SmartLink from "@/lib-components/SmartLink.vue"
 
 // Utility functions
 import formatEventTimes from "@/mixins/formatEventTimes"
@@ -116,17 +102,38 @@ export default {
     components: {
         SvgMoleculeHalfFaceted,
         SvgHatchRight,
-        SvgHeadingVector,
-        SvgIconOnline,
-        SvgIconEmail,
-        SvgIconPhone,
-        SvgIconLocation,
-        SvgIconPerson,
-        SmartLink,
-        ButtonLink,
-        RichText,
         ResponsiveImage,
         ResponsiveVideo,
+        SmartLink,
+        ButtonLink: () =>
+            import("@/lib-components/ButtonLink.vue").then((d) => d.default),
+        RichText: () =>
+            import("@/lib-components/RichText.vue").then((d) => d.default),
+        SvgHeadingVector: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
+            ).then((d) => d.default),
+        SvgIconOnline: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
+            ).then((d) => d.default),
+
+        SvgIconEmail: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-email.svg"
+            ).then((d) => d.default),
+        SvgIconPhone: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
+            ).then((d) => d.default),
+        SvgIconLocation: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-location.svg"
+            ).then((d) => d.default),
+        SvgIconPerson: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-person.svg"
+            ).then((d) => d.default),
     },
     props: {
         image: {
