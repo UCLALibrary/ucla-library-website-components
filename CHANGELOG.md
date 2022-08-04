@@ -1,3 +1,10 @@
+## [1.39.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.39.2...v1.39.3) (2022-08-04)
+
+
+### Bug Fixes
+
+* APPS-1758 lazy load components ([#100](https://github.com/UCLALibrary/ucla-library-website-components/issues/100)) ([736d26a](https://github.com/UCLALibrary/ucla-library-website-components/commit/736d26ad5f322e4c5ae1a385c588eb2e2ef41e70))
+
 ## [1.39.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.39.1...v1.39.2) (2022-08-03)
 
 
