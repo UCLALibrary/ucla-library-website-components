@@ -161,6 +161,10 @@ export default {
             type: Array,
             default: () => [],
         },
+        byline: {
+            type: Array,
+            default: () => [],
+        },
         to: {
             // URL to link to, if blank won't link
             type: String,

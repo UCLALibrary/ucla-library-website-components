@@ -8,50 +8,101 @@ export default {
 }
 
 const mock = {
-    id: "2789",
-    contentLink: [
+    id: "26943",
+    titleGeneral: "Internal link",
+    content: [
         {
-            url: "https://test-craft.library.ucla.edu/visit/events-exhibits/exhibit-to-test-card-with-image-content-link",
-            to: "/visit/events-exhibits/exhibit-to-test-card-with-image-content-link",
-            title: "Exhibit to test card with image content link",
-            date: [
+            id: "26944",
+            contentLink: [
                 {
-                    startDate: "2021-09-03T08:00:00+00:00",
-                    endDate: "2021-10-08T07:10:00+00:00",
-                },
-            ],
-            associatedLocations: [
-                {
-                    id: "523",
-                    title: "Powell Library",
-                    to: "visit/locations/powell-library",
-                },
-                {
-                    id: "801",
-                    title: "YRL",
-                    to: "visit/locations/yrl",
-                },
-            ],
-            heroImage: [
-                {
-                    id: "2971",
-                    image: [
+                    contentType: "article",
+                    title: "La Niña",
+                    to: "about/news/la-niña",
+                    summary:
+                        "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
+                    articleCategory: [
                         {
-                            id: "2536",
-                            src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/sea-turtle.jpg",
-                            height: 1344,
-                            width: 2560,
-                            srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/sea-turtle.jpg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/sea-turtle.jpg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/sea-turtle.jpg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/sea-turtle.jpg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/sea-turtle.jpg 2560w",
-                            alt: "Hollywood",
-                            focalPoint: [0.5, 0.5],
+                            title: "Featured",
+                        },
+                    ],
+                    articleByline1: [
+                        {
+                            id: "11827",
+                            slug: "brigid-abreu",
+                            title: "Brigid Abreu",
+                        },
+                        {
+                            id: "11910",
+                            slug: "sylvia-page",
+                            title: "Sylvia Page",
+                        },
+                    ],
+                    articleByline2: "2022-06-21T12:39:00-07:00",
+                    articleLocations: [
+                        {
+                            id: "11709",
+                            title: "William Andrews Clark Memorial Library",
+                            to: "visit/locations/william-andrews-clark-memorial-library",
+                        },
+                        {
+                            id: "11497",
+                            title: "Richard C. Rudolph East Asian Library",
+                            to: "visit/locations/east-asian-library",
+                        },
+                    ],
+                    heroImage: [
+                        {
+                            image: [
+                                {
+                                    id: "20637",
+                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/LaNina-Jet-Wintertime-Pattern.jpg",
+                                    height: 1997,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 2560w",
+                                    alt: "La Nina Jet Wintertime Pattern",
+                                    focalPoint: [0.5, 0.5],
+                                    altText: "La Niña",
+                                },
+                            ],
                         },
                     ],
                 },
             ],
         },
     ],
-    alignment: "left",
-    buttonText: "See More",
+    typeHandle: "bannerFeatured",
+}
+
+const mock2 = {
+    id: "27050",
+    titleGeneral: "External Link",
+    content: [
+        {
+            id: "27051",
+            image: [
+                {
+                    id: "26089",
+                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/AlbinoFox.jpg",
+                    height: 2074,
+                    width: 2560,
+                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/AlbinoFox.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/AlbinoFox.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/AlbinoFox.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/AlbinoFox.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/AlbinoFox.jpg 2560w",
+                    alt: "Albino Fox",
+                    focalPoint: [0.5, 0.5],
+                    altText: null,
+                },
+            ],
+            title: "Halelua",
+            summary: "<p>White foxes are in Artic.</p>",
+            alignment: "right",
+            location: "Rain Forest",
+            byline1: "Feburary 2022",
+            byline2: "Dr ABC",
+            to: "www.foxes.com",
+            category: "foxes",
+            contentType: "project",
+        },
+    ],
+    typeHandle: "bannerFeatured",
 }
 
 export const Default = () => ({
@@ -68,18 +119,16 @@ export const Default = () => ({
     `,
 })
 
-export const WithTypeHandle = () => ({
+export const ExternalContent = () => ({
     data() {
         return {
-            block: mock,
-            typeHandle: "Event",
+            block: mock2,
         }
     },
     components: { FlexibleBannerFeatured },
     template: `
         <flexible-banner-featured
             :block="block"
-            :type-handle="typeHandle"
        />
     `,
 })
