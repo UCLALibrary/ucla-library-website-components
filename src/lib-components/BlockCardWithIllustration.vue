@@ -13,15 +13,10 @@
 </template>
 
 <script>
+// Componenets
+
 import SmartLink from "@/lib-components/SmartLink.vue"
-import IllustrationBookBinding from "ucla-library-design-tokens/assets/svgs/illustration-book-binding.svg"
-import IllustrationBorrowingBooks from "ucla-library-design-tokens/assets/svgs/illustration-borrowing-books.svg"
-import IllustrationDatabases from "ucla-library-design-tokens/assets/svgs/illustration-databases.svg"
-import IllustrationDigitizedResources from "ucla-library-design-tokens/assets/svgs/illustration-digitized-resources.svg"
-import IllustrationFindSpace from "ucla-library-design-tokens/assets/svgs/illustration-find-space.svg"
-import IllustrationRemoteAccess from "ucla-library-design-tokens/assets/svgs/illustration-remote-access.svg"
-import IllustrationResearch from "ucla-library-design-tokens/assets/svgs/illustration-research.svg"
-import IllustrationTeaching from "ucla-library-design-tokens/assets/svgs/illustration-teaching.svg"
+// Utility Functions
 import getSectionName from "@/mixins/getSectionName"
 
 export default {
@@ -29,14 +24,38 @@ export default {
     mixins: [getSectionName],
     components: {
         SmartLink,
-        IllustrationBookBinding,
-        IllustrationBorrowingBooks,
-        IllustrationDatabases,
-        IllustrationDigitizedResources,
-        IllustrationFindSpace,
-        IllustrationRemoteAccess,
-        IllustrationResearch,
-        IllustrationTeaching,
+        IllustrationBookBinding: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/illustration-book-binding.svg"
+            ).then((d) => d.default),
+        IllustrationBorrowingBooks: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/illustration-borrowing-books.svg"
+            ).then((d) => d.default),
+        IllustrationDatabases: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/illustration-databases.svg"
+            ).then((d) => d.default),
+        IllustrationDigitizedResources: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/illustration-digitized-resources.svg"
+            ).then((d) => d.default),
+        IllustrationFindSpace: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/illustration-find-space.svg"
+            ).then((d) => d.default),
+        IllustrationRemoteAccess: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/illustration-remote-access.svg"
+            ).then((d) => d.default),
+        IllustrationResearch: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/illustration-research.svg"
+            ).then((d) => d.default),
+        IllustrationTeaching: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/illustration-teaching.svg"
+            ).then((d) => d.default),
     },
     props: {
         iconName: {

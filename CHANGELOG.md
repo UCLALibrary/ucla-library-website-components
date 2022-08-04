@@ -1,3 +1,10 @@
+## [1.39.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.39.1...v1.39.2) (2022-08-03)
+
+
+### Bug Fixes
+
+* state store for winWidth ([#99](https://github.com/UCLALibrary/ucla-library-website-components/issues/99)) ([91cdaf7](https://github.com/UCLALibrary/ucla-library-website-components/commit/91cdaf746a10c71d933a9b71acad25e360dd6b43))
+
 ## [1.39.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.39.0...v1.39.1) (2022-08-02)
 
 
