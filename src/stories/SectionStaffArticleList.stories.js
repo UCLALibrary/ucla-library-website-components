@@ -1,10 +1,13 @@
 import SectionStaffArticleList from "@/lib-components/SectionStaffArticleList"
 import * as API from "@/stories/mock-api.json"
+// A storybook decorator that allows you to use routing-aware components in your stories
+import StoryRouter from "storybook-vue-router"
 
 // Storybook default settings
 export default {
     title: "SECTION / Staff / Article / List",
     component: SectionStaffArticleList,
+    decorators: [StoryRouter()],
 }
 
 const mock = [
