@@ -43,12 +43,10 @@ export default {
                     items.push(this.block.highlight[item])
                 }
             }
-            console.log(items)
             return items
         },
         parsedItems() {
             return this.parsedList.map((obj) => {
-                console.log(obj)
                 return {
                     ...obj,
                     parsedImage:
@@ -57,7 +55,7 @@ export default {
                             : _get(obj, "heroImage[0].image[0]", {}),
                     parsedLocation:
                         obj.typeHandle != "externalContent"
-                            ? obj.associatedLocations
+                            ? _get(obj, "associatedLocations", [])
                             : [],
                 }
             })
