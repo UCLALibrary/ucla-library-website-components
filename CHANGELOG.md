@@ -1,3 +1,10 @@
+# [1.40.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.39.3...v1.40.0) (2022-08-05)
+
+
+### Features
+
+* Flexible Banner Featured supports the new craft structure ([#102](https://github.com/UCLALibrary/ucla-library-website-components/issues/102)) ([cfe3639](https://github.com/UCLALibrary/ucla-library-website-components/commit/cfe36397b0cd3a2d8a00a11007addb60e53a687b))
+
 ## [1.39.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.39.2...v1.39.3) (2022-08-04)
 
 
