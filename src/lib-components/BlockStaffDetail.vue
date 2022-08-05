@@ -386,11 +386,6 @@ export default {
                 margin-bottom: 0;
             }
 
-            ::v-deep .divider-way-finder {
-                margin: var(--space-xl) auto;
-                padding: 0;
-            }
-
             .ask-me-about {
                 margin-bottom: var(--space-2xl);
                 ul {

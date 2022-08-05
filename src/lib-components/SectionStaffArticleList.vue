@@ -53,10 +53,6 @@ export default {
     .container {
         max-width: $container-l-main + px;
         margin: auto;
-
-        > .block-staff-article-list:last-child .divider-general {
-            display: none;
-        }
     }
 
     .divider-wayfinder {
@@ -91,10 +87,6 @@ export default {
                 margin: 0;
             }
         }
-    }
-
-    .divider-general {
-        width: 100%;
     }
 }
 
