@@ -50,41 +50,7 @@
 </template>
 
 <script>
-import SvgIconClock from "ucla-library-design-tokens/assets/svgs/icon-clock.svg"
-import SvgIconCalendar from "ucla-library-design-tokens/assets/svgs/icon-calendar.svg"
-import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-location.svg"
-
-// AMENITIES
-import SvgIconLight from "ucla-library-design-tokens/assets/svgs/icon-light.svg"
-
-// 24 Hour Study Space - icon-clock
-// import SvgIconClock from "ucla-library-design-tokens/assets/svgs/icon-clock.svg"
-
-// ADA Stations - icon-accessible
-import SvgIconAccessible from "ucla-library-design-tokens/assets/svgs/icon-accessible.svg"
-
-// Cafe - icon-chair
-import SvgIconChair from "ucla-library-design-tokens/assets/svgs/icon-chair.svg"
-
-// Computer/Laptop Access - icon-virtual
-import SvgIconVirtual from "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
-
-// Laptop Lending - icon-laptop
-import SvgIconLaptop from "ucla-library-design-tokens/assets/svgs/icon-laptop.svg"
-
-// Lockers - icon-locker
-import SvgIconLocker from "ucla-library-design-tokens/assets/svgs/icon-locker.svg"
-
-// Printing, Scanning, and Copying - icon-share-printer
-// use svg class names to get rid of the circle background
-import SvgIconSharePrinter from "ucla-library-design-tokens/assets/svgs/icon-share-printer.svg"
-
-// Research Help -  icon-book
-import SvgIconBook from "ucla-library-design-tokens/assets/svgs/icon-book.svg"
-
-import SvgMoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
-
-// Other Imports
+// Components
 import IconWithLink from "@/lib-components/IconWithLink"
 import SmartLink from "@/lib-components/SmartLink"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
@@ -92,21 +58,57 @@ import ResponsiveImage from "@/lib-components/ResponsiveImage"
 export default {
     name: "BlockLocationListItem",
     components: {
-        SvgIconClock,
-        SvgIconCalendar,
-        SvgIconLocation,
-        SvgIconLight,
-        SvgIconAccessible,
-        SvgIconChair,
-        SvgIconVirtual,
-        SvgIconLaptop,
-        SvgIconLocker,
-        SvgIconSharePrinter,
-        SvgIconBook,
-        SvgMoleculePlaceholder,
         IconWithLink,
         SmartLink,
         ResponsiveImage,
+        SvgIconClock: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-clock.svg"
+            ).then((d) => d.default),
+        SvgIconAccessible: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-accessible.svg"
+            ).then((d) => d.default),
+        SvgIconChair: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-chair.svg"
+            ).then((d) => d.default),
+        SvgIconVirtual: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
+            ).then((d) => d.default),
+        SvgIconCalendar: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-calendar.svg"
+            ).then((d) => d.default),
+        SvgIconLocation: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-location.svg"
+            ).then((d) => d.default),
+        SvgIconLight: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-light.svg"
+            ).then((d) => d.default),
+        SvgIconLaptop: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-laptop.svg"
+            ).then((d) => d.default),
+        SvgIconLocker: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-locker.svg"
+            ).then((d) => d.default),
+        SvgIconSharePrinter: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-share-printer.svg"
+            ).then((d) => d.default),
+        SvgIconBook: () =>
+            import("ucla-library-design-tokens/assets/svgs/icon-book.svg").then(
+                (d) => d.default
+            ),
+        SvgMoleculePlaceholder: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
+            ).then((d) => d.default),
     },
     props: {
         image: {

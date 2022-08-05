@@ -68,7 +68,7 @@ export default {
     max-width: $container-l-main + px;
 
     .content {
-        height: 375px;
+        //height: 375px;
         border: 1px var(--color-primary-blue-01) solid;
         border-radius: 4px;
     }
