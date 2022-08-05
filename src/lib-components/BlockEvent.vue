@@ -10,6 +10,7 @@
             <h3 class="dates" v-html="dates" />
 
             <router-link :class="classes" :to="to" v-html="prompt" />
+            <!-- TO DO: Use button-link component instead -->
         </div>
 
         <div class="sizer" />
