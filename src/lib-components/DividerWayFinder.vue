@@ -69,8 +69,5 @@ export default {
     @media #{$medium} {
         padding: 0 var(--unit-gutter);
     }
-    // @media #{$small} {
-    //     padding: 0 var(--unit-gutter);
-    // }
 }
 </style>
