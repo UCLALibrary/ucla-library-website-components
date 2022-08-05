@@ -3,7 +3,7 @@
         <banner-featured
             v-if="block && block.content && block.content[0].contentLink"
             class="flexible-banner-featured"
-            :image="block.content[0].contentLink[0].heroImage[0].image[0]"
+            :image="parseImage"
             :to="block.content[0].contentLink[0].to"
             :title="block.content[0].contentLink[0].title"
             :breadcrumb="parsedTypeHandle"
@@ -16,7 +16,7 @@
         <banner-featured
             v-if="block && block.content && !block.content[0].contentLink"
             class="flexible-banner-featured"
-            :image="block.content[0].image[0]"
+            :image="parseImage"
             :to="block.content[0].to"
             :title="block.content[0].title"
             :breadcrumb="parsedTypeHandle"
@@ -47,6 +47,18 @@ export default {
     },
     mixins: [getPrompt],
     computed: {
+        parseImage() {
+            let imageObj = {}
+            if (
+                this.block.content[0].contentLink &&
+                this.block.content[0].contentLink[0].heroImage
+            )
+                imageObj =
+                    this.block.content[0].contentLink[0].heroImage[0].image[0]
+            else if (this.block.content[0].image)
+                imageObj = this.block.content[0].image[0]
+            return imageObj
+        },
         parsedAlignment() {
             return this.block.content[0].alignment === "right" ? true : false
         },

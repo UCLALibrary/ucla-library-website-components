@@ -155,7 +155,6 @@ import ResponsiveVideo from "@/lib-components/ResponsiveVideo.vue"
 import IconWithLink from "@/lib-components/IconWithLink.vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
 
-
 // Utility functions
 import formatEventTimes from "@/mixins/formatEventTimes"
 import formatEventDates from "@/mixins/formatEventDates"
