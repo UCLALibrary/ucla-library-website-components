@@ -17,7 +17,9 @@
 </template>
 
 <script>
+import _get from "lodash/get"
 import BlockHighlight from "@/lib-components/BlockHighlight"
+
 export default {
     name: "FlexibleHighlight",
     components: {
@@ -51,8 +53,8 @@ export default {
                     ...obj,
                     parsedImage:
                         obj.typeHandle === "externalContent"
-                            ? obj.image[0]
-                            : obj.heroImage[0].image[0],
+                            ? _get(obj, "image[0]", {})
+                            : _get(obj, "heroImage[0].image[0]", {}),
                     parsedLocation:
                         obj.typeHandle != "externalContent"
                             ? obj.associatedLocations
