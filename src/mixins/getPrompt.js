@@ -8,23 +8,24 @@ export default {
     methods: {
         getPrompt(contentType = "") {
             let output = ""
+            let lowerCaseContentType = contentType.toLowerCase()
 
             switch (true) {
-                case contentType.includes("article"):
+                case lowerCaseContentType.includes("article"):
                     output = "Read more"
                     break
 
-                case contentType.includes("project"):
+                case lowerCaseContentType.includes("project"):
                     output = "View project"
                     break
 
-                case contentType.includes("event"):
+                case lowerCaseContentType.includes("event"):
                     output = "View event"
                     break
-                case contentType.includes("exhibition"):
+                case lowerCaseContentType.includes("exhibition"):
                     output = "View exhibition"
                     break
-                case contentType.includes("collection"):
+                case lowerCaseContentType.includes("collection"):
                     output = "View collection"
                     break
             }

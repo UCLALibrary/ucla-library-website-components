@@ -1,9 +1,13 @@
 <template>
     <div class="icon-with-link">
-        <smart-link :to="to" class="link">
+        <smart-link :to="to" class="link" v-if="to">
             <component :is="iconName" class="icon" />
             <span class="text" v-html="text" />
         </smart-link>
+        <div v-else>
+            <component :is="iconName" class="icon" />
+            <span class="text" v-html="text" />
+        </div>
     </div>
 </template>
 

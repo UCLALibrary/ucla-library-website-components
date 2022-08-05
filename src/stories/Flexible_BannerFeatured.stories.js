@@ -9,7 +9,7 @@ export default {
 
 const mock = {
     id: "26943",
-    titleGeneral: "Internal link",
+    sectionTitle: "Internal link",
     content: [
         {
             id: "26944",
@@ -22,7 +22,7 @@ const mock = {
                         "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
                     articleCategory: [
                         {
-                            title: "Featured",
+                            title: "Featured Category",
                         },
                     ],
                     articleByline1: [
@@ -33,7 +33,7 @@ const mock = {
                         },
                         {
                             id: "11910",
-                            slug: "sylvia-page",
+                            to: "about/staff/sylvia-page",
                             title: "Sylvia Page",
                         },
                     ],
@@ -105,6 +105,57 @@ const mock2 = {
     typeHandle: "bannerFeatured",
 }
 
+const mock3 = {
+    id: "27175",
+    typeHandle: "bannerFeatured",
+    sectionTitle: "Use this for breadcrumb",
+    content: [
+        {
+            id: "27176",
+            contentLink: [
+                {
+                    contentType: "meapProject",
+                    title: "Argentinean Human Rights Digital Library of Periodical and Non-periodical Publications",
+                    to: "meap/projects/argentinean-human-rights-digital-library-of-periodical-and-non-periodical-publications",
+                    summary:
+                        "<p><span>Memoria Abierta is an alliance of nine Argentinean human rights organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed. </span><br /></p>",
+                    projectCategory: "Publications",
+                    projectByline1: [
+                        {
+                            id: "25325",
+                            title: "Memoria Abierta",
+                        },
+                    ],
+                    articleByline2: "2022-07-26T10:49:00-07:00",
+                    projectLocations: [
+                        {
+                            id: "25324",
+                            title: "South America",
+                        },
+                    ],
+                    heroImage: [
+                        {
+                            image: [
+                                {
+                                    id: "24878",
+                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/toni-g-rbregi1jeo-unsplash.jpg",
+                                    height: 4552,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 2560w",
+                                    alt: "Toni g rbregi1jeo unsplash",
+                                    focalPoint: [0.5, 0.5],
+                                    altText: null,
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+    componentName: "flexible-banner-featured",
+}
+
 export const Default = () => ({
     data() {
         return {
@@ -123,6 +174,20 @@ export const ExternalContent = () => ({
     data() {
         return {
             block: mock2,
+        }
+    },
+    components: { FlexibleBannerFeatured },
+    template: `
+        <flexible-banner-featured
+            :block="block"
+       />
+    `,
+})
+
+export const InternalContentProject = () => ({
+    data() {
+        return {
+            block: mock3,
         }
     },
     components: { FlexibleBannerFeatured },
