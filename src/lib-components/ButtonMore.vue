@@ -34,7 +34,7 @@ export default {
 .button-more {
     background-color: var(--color-white);
     width: fit-content;
-    max-width: 120px;
+    max-width: 80px;
 
     display: flex;
     flex-direction: column;
@@ -46,6 +46,7 @@ export default {
 
     .icon {
         position: relative;
+        margin-bottom: 16px;
     }
     .molecule-border {
         width: 83px;
@@ -64,33 +65,33 @@ export default {
         // Center this way so button can be streched and it still centers
         top: 50%;
         transform: translate(-50%, -50%);
+        transition-property: left;
+        @include animate-normal;
 
-        .svg__stroke--primary-blue-03 {
+        ::v-deep .svg__stroke--primary-blue-03 {
             stroke: var(--color-primary-blue-03);
-            stroke-width: 1.5px;
-            transition: stroke 400ms ease-in-out;
+            stroke-width: 1.25px;
+            transition-property: stroke;
+            @include animate-normal;
         }
     }
 
     .text {
-        margin-top: 16px;
         color: var(--color-primary-blue-05);
-        font-family: var(--font-primary);
-        font-size: 16px;
-        font-weight: 500;
+        @include overline;
         letter-spacing: 0.01em;
-        line-height: 16px;
-        text-transform: uppercase;
-        transition: color 400ms ease-in-out;
+        transition: color;
     }
 
     // Hover states
     @media #{$has-hover} {
         &:hover {
+            cursor: pointer;
             .arrow-right {
-                .svg__stroke--primary-blue-03 {
+                ::v-deep .svg__stroke--primary-blue-03 {
                     stroke: var(--color-default-cyan-03);
                 }
+                left: calc(50% + 4px);
             }
             .text {
                 color: var(--color-primary-blue-03);

@@ -192,14 +192,6 @@ export default {
                 margin-bottom: var(--space-m);
             }
         }
-
-        ::v-deep .button-link {
-            margin: 0;
-        }
-
-        ::v-deep .button {
-            width: 100%;
-        }
     }
 }
 </style>

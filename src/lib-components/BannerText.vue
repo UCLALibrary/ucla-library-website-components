@@ -82,10 +82,17 @@
                 </div>
 
                 <button-link
-                    v-if="to"
+                    v-if="to && !isDarkBlue"
                     :label="buttonText"
                     :to="to"
                     :is-secondary="true"
+                />
+
+                <button-link
+                    v-if="to && isDarkBlue"
+                    :label="buttonText"
+                    :to="to"
+                    :is-tertiary="true"
                 />
             </div>
         </div>
@@ -418,9 +425,6 @@ export default {
         color: var(--text-color);
         @include step-0;
         font-weight: $font-weight-regular;
-    }
-    .button-link {
-        border: 1px solid var(--button-border-color);
     }
     .molecule {
         right: 0;

@@ -54,6 +54,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        isTertiary: {
+            type: Boolean,
+            default: false,
+        },
         isDownload: {
             type: Boolean,
             default: false,
@@ -65,6 +69,7 @@ export default {
                 "button-link",
                 {
                     "is-secondary": this.isSecondary,
+                    "is-tertiary": this.isTertiary,
                 },
             ]
         },
@@ -90,37 +95,88 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// the button bg starts white with blue icons
 .button-link {
+    box-sizing: border-box;
+    position: relative;
+    @include button;
+    min-height: 48px;
+    padding: 4px 40px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-white);
+    gap: 4px;
     border: 1.5px solid var(--color-primary-blue-02);
-    font-size: 18px;
     color: var(--color-black);
-    padding: 12px 40px;
-    transition-property: color, background-color;
-    transition-duration: 400ms;
-    transition-timing-function: ease-in-out;
-    .arrow {
-        stroke: var(--color-default-cyan-03);
-        padding-top: 5px;
-        padding-left: 5px;
+    background-color: var(--color-white);
+    --button-background-slide: var(--color-primary-blue-03);
+    transition-property: all;
+    @include animate-normal;
+    overflow: hidden;
+    z-index: 0;
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: var(--button-background-slide);
+        position: absolute;
+        top: 0;
+        left: -100%;
+        transition-property: all;
+        @include animate-normal;
+        z-index: -10;
     }
 
-    // the button bg starts blue with white icons
+    ::v-deep .arrow .svg__stroke--primary-blue-03 {
+        stroke: var(--color-default-cyan-03);
+    }
+
+    ::v-deep .svg__icon-external-link,
+    ::v-deep .svg__icon-download {
+        .svg__stroke--primary-blue-03 {
+            stroke: var(--color-white);
+        }
+        .svg__fill--primary-blue-03 {
+            fill: var(--color-white);
+            stroke: transparent;
+        }
+    }
+
+    *:not(:only-child):first-child {
+        padding-left: 8px;
+    }
+
     &.is-secondary {
         background-color: var(--color-primary-blue-03);
-        border: 1.5px solid var(--color-primary-blue-03);
+        --button-background-slide: var(--color-white);
+        border-color: var(--color-primary-blue-03);
         color: var(--color-white);
-        .arrow {
+
+        ::v-deep .arrow .svg__stroke--primary-blue-03 {
+            stroke: var(--color-white);
+        }
+        ::v-deep .svg__icon-external-link,
+        ::v-deep .svg__icon-download {
             .svg__stroke--primary-blue-03 {
                 stroke: var(--color-white);
             }
+            .svg__fill--primary-blue-03 {
+                fill: var(--color-white);
+                stroke: transparent;
+            }
         }
-        .svg__icon-external-link,
-        .svg__icon-download {
+    }
+
+    &.is-tertiary {
+        background: var(--color-primary-blue-03);
+        border-color: var(--color-default-cyan-02);
+        color: var(--color-white);
+
+        ::v-deep .arrow .svg__stroke--primary-blue-03 {
+            stroke: var(--color-white);
+        }
+        ::v-deep .svg__icon-external-link,
+        ::v-deep .svg__icon-download {
             .svg__stroke--primary-blue-03 {
                 stroke: var(--color-white);
             }
@@ -133,45 +189,55 @@ export default {
 
     // Hover states
     @media #{$has-hover} {
-        &:hover {
-            background-color: var(--color-primary-blue-03);
-            border: unset;
+        &:hover,
+        &:focus,
+        &:focus-visible {
+            border-color: var(--color-primary-blue-03);
             color: var(--color-white);
             cursor: pointer;
-            .arrow {
+
+            &::before {
+                left: 0;
+            }
+
+            ::v-deep .arrow .svg__stroke--primary-blue-03 {
                 stroke: var(--color-white);
             }
 
             &.is-secondary {
-                background-color: var(--color-white);
-                border: 1.5px solid var(--color-primary-blue-02);
+                border-color: var(--color-primary-blue-02);
                 color: var(--color-black);
-                .arrow {
-                    .svg__stroke--primary-blue-03 {
-                        stroke: var(--color-default-cyan-03);
-                    }
+
+                ::v-deep .arrow .svg__stroke--primary-blue-03 {
+                    stroke: var(--color-default-cyan-03);
                 }
-                .svg__icon-external-link,
-                .svg__icon-download {
+                ::v-deep .svg__icon-external-link,
+                ::v-deep .svg__icon-download {
                     .svg__stroke--primary-blue-03 {
-                        stroke: var(--color-default-cyan-03);
+                        stroke: var(--color-primary-blue-03);
                     }
                     .svg__fill--primary-blue-03 {
-                        fill: var(--color-default-cyan-03);
+                        fill: var(--color-primary-blue-03);
                         stroke: transparent;
                     }
                 }
-                .line {
-                    stroke: var(--color-default-cyan-03);
-                }
             }
+
+            &.is-tertiary {
+                border-color: var(--color-white);
+                background: var(--color-primary-blue-03);
+            }
+        }
+
+        &:focus,
+        &:focus-visible {
+            outline: none;
+            border-radius: 0;
         }
     }
     // Breakpoints
     @media #{$small} {
-        width: auto;
-        height: 44px;
-        margin: 0 var(--unit-gutter);
+        display: flex;
     }
 }
 </style>
