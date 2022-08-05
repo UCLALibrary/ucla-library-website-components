@@ -120,26 +120,20 @@ function convertName(typeHandle) {
         @include visually-hidden;
     }
     .flexible-block {
-        margin-bottom: var(--space-3xl);
+        margin-bottom: var(--space-2xl);
 
         &:first-child {
             padding-top: 0;
-        }
-
-        &.divider-general {
-            padding: 0;
-            margin: var(--unit-gutter) auto;
-            max-width: $container-l-main + px;
         }
     }
 
     .flexible-block:nth-child(even) {
         background-color: var(--color-secondary-grey-01);
         --color-theme: var(--color-secondary-grey-01);
+        padding: var(--space-2xl) 0;
 
         &.form,
         &.flexible-simple-cards,
-        &.divider-general,
         &.pull-quote,
         &.section-cards-with-illustrations,
         &.flexible-banner-featured,
@@ -148,8 +142,17 @@ function convertName(typeHandle) {
             background-color: var(--color-white);
         }
 
-        &.divider-general {
+        &.form,
+        &.flexible-simple-cards,
+        &.section-cards-with-illustrations,
+        &.flexible-banner-featured,
+        &.section-teaser-highlight,
+        &.impact-numbers-carousel {
             padding: 0;
+        }
+
+        &.pull-quote {
+            padding: 0 var(--unit-gutter);
         }
 
         ::v-deep .block-call-to-action-two-up {
@@ -196,7 +199,8 @@ function convertName(typeHandle) {
     }
 
     @media #{$medium} {
-        .flexible-block {
+        .flexible-block,
+        .flexible-block:nth-child(even) {
             padding: var(--space-2xl) var(--unit-gutter);
         }
     }
