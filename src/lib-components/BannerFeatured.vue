@@ -40,6 +40,48 @@
 
             <h3 id="banner-featured" class="title" v-html="title"></h3>
 
+            <div class="byline" v-if="bylineArticleExists">
+                <div
+                    v-for="(item, index) in parseByLineStaff"
+                    :key="`staff-${index}`"
+                    class="byline-item"
+                >
+                    <icon-with-link
+                        :text="item.title"
+                        icon-name="svg-icon-person"
+                        :to="`/${item.to}`"
+                    />
+                </div>
+                <br />
+
+                <div class="byline-item">
+                    {{ byline["articlePostDate"] }}
+                </div>
+                <br />
+            </div>
+            <div class="byline" v-if="bylineProjectExists">
+                <div
+                    v-for="(item, index) in parseByLineProject"
+                    :key="`project-topics-${index}`"
+                    class="byline-item"
+                    v-html="item.title"
+                ></div>
+            </div>
+            <div
+                class="byline"
+                v-if="
+                    byline.length &&
+                    !bylineArticleExists &&
+                    !bylineProjectExists
+                "
+            >
+                <div
+                    v-for="(item, index) in byline"
+                    :key="`external-${index}`"
+                    class="byline-item"
+                    v-html="item"
+                ></div>
+            </div>
             <rich-text
                 v-if="description"
                 class="description"
@@ -59,7 +101,28 @@
                 />
             </div>
 
-            <div v-if="locations.length" class="location-group">
+            <div v-if="locationLinksExists" class="location-group">
+                <icon-with-link
+                    v-for="location in parsedLocationsLinks"
+                    :key="`location-${location.id}`"
+                    :text="location.title"
+                    icon-name="svg-icon-location"
+                    :to="location.to"
+                />
+            </div>
+
+            <div v-if="locationExternalExists" class="location-group">
+                <component :is="`svg-icon-location`" class="location-svg" />
+                <span class="location"> {{ parsedLocationsExternal }} </span>
+            </div>
+            <div
+                v-if="
+                    locations.length &&
+                    !locationLinksExists &&
+                    !locationForExternalExists
+                "
+                class="location-group"
+            >
                 <smart-link
                     v-for="location in parsedLocations"
                     :key="`location-${location.id}`"
@@ -89,6 +152,7 @@ import SvgMoleculeHalfFaceted from "ucla-library-design-tokens/assets/svgs/molec
 import SvgHatchRight from "ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import ResponsiveVideo from "@/lib-components/ResponsiveVideo.vue"
+import IconWithLink from "@/lib-components/IconWithLink.vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
 
 // Utility functions
@@ -104,6 +168,7 @@ export default {
         SvgHatchRight,
         ResponsiveImage,
         ResponsiveVideo,
+        IconWithLink,
         SmartLink,
         ButtonLink: () =>
             import("@/lib-components/ButtonLink.vue").then((d) => d.default),
@@ -168,6 +233,10 @@ export default {
             type: Array,
             default: () => [],
         },
+        byline: {
+            type: Array,
+            default: () => [],
+        },
         to: {
             // URL to link to, if blank won't link
             type: String,
@@ -198,6 +267,33 @@ export default {
                 { "hatch-left": !this.alignRight },
                 `color-${this.sectionName}`,
             ]
+        },
+        bylineArticleExists() {
+            return (
+                this.byline &&
+                (this.byline["articleStaff"] || this.byline["articlePostDate"])
+            )
+        },
+        bylineProjectExists() {
+            return this.byline && this.byline["project"]
+        },
+        locationLinksExists() {
+            return this.locations && this.locations["location_links"]
+        },
+        locationExternalExists() {
+            return this.locations && this.locations["location_external"]
+        },
+        parseByLineStaff() {
+            return this.byline["articleStaff"]
+        },
+        parseByLineProject() {
+            return this.byline["project"]
+        },
+        parsedLocationsLinks() {
+            return this.locations["location_links"]
+        },
+        parsedLocationsExternal() {
+            return this.locations["location_external"]
         },
         parsedDate() {
             return this.formatDates(this.startDate, this.endDate)

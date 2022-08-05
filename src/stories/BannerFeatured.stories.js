@@ -22,6 +22,7 @@ const mock = {
     breadcrumb: "Lectus",
     startDate: "1995-12-17T03:24:00",
     endDate: "1995-12-17T03:24:00",
+    byline: ["Excepteur sint occaecat", "non proident, sunt in culpa qui"],
     locations: [
         {
             id: "523",
@@ -57,8 +58,7 @@ export const Default = () => ({
             :title="title"
             :category="category"
             :breadcrumb="breadcrumb"
-            :start-date="startDate"
-            :end-date="endDate"
+            :byline="byline"
             :prompt="prompt"
             :locations="locations"
         />

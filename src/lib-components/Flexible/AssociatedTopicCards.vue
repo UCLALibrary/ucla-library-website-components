@@ -1,5 +1,6 @@
 <template>
     <section-cards-with-illustrations
+        v-if="block && block.associatedTopicsFlexiblePageBlock"
         :items="block.associatedTopicsFlexiblePageBlock[0].topics"
         :title="block.sectionTitle"
         :text="block.sectionText"
