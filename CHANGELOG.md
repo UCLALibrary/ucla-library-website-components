@@ -1,3 +1,10 @@
+# [1.41.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.40.0...v1.41.0) (2022-08-05)
+
+
+### Features
+
+* qa button-link and button-more component ([#103](https://github.com/UCLALibrary/ucla-library-website-components/issues/103)) ([77b7daa](https://github.com/UCLALibrary/ucla-library-website-components/commit/77b7daa2e409748762cf3801ec42089ca602da0a))
+
 # [1.40.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.39.3...v1.40.0) (2022-08-05)
 
 
