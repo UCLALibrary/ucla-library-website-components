@@ -37,15 +37,24 @@
             </div>
 
             <div v-if="locations.length" class="location-group">
-                <router-link
-                    v-for="(location, index) in parsedLocations"
-                    :key="`location-${index}`"
-                    :to="location.to"
+                <div
                     class="location-link"
+                    v-for="(location, index) in parsedLocations"
                 >
-                    <component :is="location.svg" class="location-svg" />
-                    <span class="location" v-html="location.title" />
-                </router-link>
+                    <router-link
+                        v-if="location.to"
+                        :key="`location-${index}`"
+                        :to="location.to"
+                        class="location-link"
+                    >
+                        <component :is="location.svg" class="location-svg" />
+                        <span class="location" v-html="location.title" />
+                    </router-link>
+                    <div class="location-text" v-else>
+                        <component :is="location.svg" class="location-svg" />
+                        <div v-html="locations[0]" class="location" />
+                    </div>
+                </div>
             </div>
             <!-- changing p tag to div fixes nodemismatch errors -->
             <p v-if="text" class="text" v-html="text" />
@@ -122,6 +131,14 @@ export default {
             default: () => [],
         },
         text: {
+            type: String,
+            default: "",
+        },
+        bylineOne: {
+            type: String,
+            default: "",
+        },
+        bylineTwo: {
             type: String,
             default: "",
         },
@@ -316,7 +333,8 @@ export default {
         line-height: 1;
         margin-top: 24px;
     }
-    .location-link {
+    .location-link,
+    .location-text {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;

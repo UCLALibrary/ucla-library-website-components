@@ -1,5 +1,6 @@
 <template>
     <section class="section-teaser-highlight">
+        {{ parsedItems }}
         <block-highlight
             v-for="(item, index) in parsedItems"
             :key="`FlexibleHighlight${index}`"
@@ -56,6 +57,8 @@ export default {
                     parsedLocation:
                         obj.typeHandle != "externalContent"
                             ? _get(obj, "associatedLocations", [])
+                            : obj.location != null
+                            ? [obj.location]
                             : [],
                 }
             })
