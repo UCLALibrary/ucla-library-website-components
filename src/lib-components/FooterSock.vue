@@ -113,7 +113,8 @@ export default {
     // Hover states
     @media #{$has-hover} {
         &:hover {
-            .link:hover {
+            .link:hover,
+            .link:focus {
                 color: var(--color-primary-blue-03);
             }
         }
