@@ -47,7 +47,7 @@ export const Default = () => ({
             :text="text"
             :name="name"
             :to="to"
-            :isDark="isDark"
+            :isDark=false
             :isSmallSize="isSmallSize"
         />
     `,
@@ -107,8 +107,8 @@ export const SmallCTADarkBlue = () => ({
             :text="text"
             :name="name"
             :to="to"
-            is-small-size=true
-            is-dark=true
+            :is-small-size=true
+            :is-dark=true
         />
     `,
 })

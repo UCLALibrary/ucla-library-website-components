@@ -35,12 +35,31 @@ export default {
 .block-call-to-action-two-up {
     display: flex;
     flex-direction: row;
-    column-gap: 48px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 28px;
+    margin: var(--space-3xl) auto; // When sectionWrapper component is available this can be removed and handled by sectionWrapper
+    max-width: #{$container-l-cta}px;
+
+    ::v-deep .block-call-to-action {
+        width: calc(50% - 14px);
+    }
 
     @media #{$medium} {
-        display: flex;
-        flex-direction: column;
-        row-gap: 48px;
+        margin: calc(var(--unit-gutter) / 2); // When sectionWrapper component is available this can be removed and handled by sectionWrapper
+
+        ::v-deep .button-link {
+            width: 100%;
+        }
+    }
+
+    @media #{$small} {
+        margin: 0; // When sectionWrapper component is available this can be removed and handled by sectionWrapper
+        gap: 0;
+
+        ::v-deep .block-call-to-action {
+            width: 100%;
+        }
     }
 }
 </style>
