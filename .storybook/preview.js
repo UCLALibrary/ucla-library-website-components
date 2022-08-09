@@ -1,5 +1,5 @@
-import "@/styles/variables-css.scss";
-import "@/styles/global.scss";
+import "ucla-library-design-tokens/scss/app-global.scss";
+import "@/styles/global.scss"
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

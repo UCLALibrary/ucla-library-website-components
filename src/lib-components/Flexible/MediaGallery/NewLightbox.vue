@@ -71,7 +71,7 @@ import { Glide, GlideSlide } from "vue-glide-js"
 import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-left.svg"
 import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret-right.svg"
 import SvgIconClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg"
-import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet.svg"
+import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 
 export default {

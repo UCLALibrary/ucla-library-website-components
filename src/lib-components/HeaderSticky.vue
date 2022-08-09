@@ -31,6 +31,8 @@ export default {
 
 <style lang="scss" scoped>
 .header-sticky {
+    z-index: 100;
+
     top: 0;
     left: 0;
     width: 100%;

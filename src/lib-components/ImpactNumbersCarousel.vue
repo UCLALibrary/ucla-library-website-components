@@ -40,7 +40,7 @@ import { Glide, GlideSlide } from "vue-glide-js"
 
 // SVGs
 import SvgArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
-import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet.svg"
+import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg"
 
 export default {
     name: "ImpactNumbersCarousel",
@@ -99,8 +99,11 @@ export default {
     max-width: 680px;
 
     .slide-indicator {
-        .current-slide path.bullet-fill {
+        .svg__fill--primary-blue-03 {
             fill: transparent;
+        }
+        .current-slide path.svg__fill--primary-blue-03 {
+            fill: var(--color-primary-blue-03);
         }
     }
 

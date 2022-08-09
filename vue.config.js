@@ -4,9 +4,8 @@ module.exports = {
         loaderOptions: {
             sass: {
                 additionalData: `
-                @import "@/styles/variables-scss.scss";
-                @import "~ucla-library-design-tokens/scss/fonts.scss";
-              `,
+                    @import "~ucla-library-design-tokens/scss/app.scss";
+                `,
             },
             postcss: {
                 postcssOptions: {
