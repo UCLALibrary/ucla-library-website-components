@@ -29,9 +29,9 @@ module.exports = {
                 {
                     loader: "sass-loader",
                     options: {
-                        additionalData:
-                            `@import "@/styles/variables-scss.scss";
-                             @import "~ucla-library-design-tokens/scss/fonts.scss";`
+                        additionalData: `
+                            @import "~ucla-library-design-tokens/scss/app.scss";
+                        `,
                     },
                 },
                 {

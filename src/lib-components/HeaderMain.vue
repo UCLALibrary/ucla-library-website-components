@@ -35,6 +35,8 @@ export default {
 
 <style lang="scss" scoped>
 .header-main {
+    z-index: 200;
+
     position: relative;
     height: 128px;
 
