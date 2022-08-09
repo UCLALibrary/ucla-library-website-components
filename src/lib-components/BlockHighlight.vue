@@ -53,10 +53,10 @@
                 <div
                     class="location-link"
                     v-for="(location, index) in parsedLocations"
+                    :key="`location-${index}`"
                 >
                     <router-link
                         v-if="location.to"
-                        :key="`location-${index}`"
                         :to="location.to"
                         class="location-link"
                     >

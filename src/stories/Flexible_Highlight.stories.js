@@ -135,7 +135,7 @@ const mock = {
     ],
 }
 
-export const ThreeCards = () => ({
+export const Default = () => ({
     data() {
         return {
             block: mock,
