@@ -70,7 +70,7 @@ import SmartLink from "@/lib-components/SmartLink"
 
 // SVGs
 import SvgLogoUclaLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
-import SvgMoleculeHalf from "ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg"
+import SvgMoleculeHalf from "ucla-library-design-tokens/assets/svgs/molecule-half.svg"
 import SvgArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
 
 export default {
@@ -400,11 +400,13 @@ export default {
     // Hover states
     @media #{$has-hover} {
         &:hover {
-            .social-item:hover {
+            .social-item a:hover,
+            .social-item a:focus {
                 color: var(--color-primary-yellow-01);
             }
 
-            .press-item:hover {
+            .press-item a:hover,
+            .press-item a:focus {
                 color: var(--color-primary-yellow-01);
                 text-decoration: none;
             }
