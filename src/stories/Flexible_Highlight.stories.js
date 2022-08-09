@@ -127,7 +127,7 @@ const mock = {
                 },
             ],
             byline1: "Ashton Prigge",
-            byline2: null,
+            byline2: "Second Byline",
             category: "Kids",
             location: null,
             text: "Here is some text",

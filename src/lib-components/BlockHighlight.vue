@@ -23,7 +23,7 @@
             </smart-link>
             <h3 v-else class="title-no-link" v-html="title" />
 
-            <div class="date-time">
+            <div class="date-time" v-if="startDate">
                 <time
                     v-if="startDate"
                     class="schedule-item"
@@ -36,7 +36,7 @@
                 />
             </div>
 
-            <div class="byline-group">
+            <div class="byline-group" v-if="bylineOne || bylineTwo">
                 <div
                     v-if="bylineOne"
                     class="schedule-item"
@@ -299,7 +299,10 @@ export default {
         margin: 16px 0 0 0;
         line-height: $line-height--1;
     }
-    .date-time {
+    .date-time,
+    .byline-group {
+        display: flex;
+        flex-direction: row;
         font-weight: 400;
         font-size: 20px;
         line-height: 30px;
