@@ -56,7 +56,7 @@ const baseConfig = {
                 preprocessOptions: {
                     scss: {
                         data: `
-                            @import 'src/styles/variables-scss.scss';
+                            @import '~ucla-library-design-tokens/scss/app.scss';
                         `,
                         includePaths: ["node_modules/", "src/"],
                         importer(path) {
@@ -83,7 +83,7 @@ const baseConfig = {
                 use: {
                     sass: {
                         data: `
-                            @import 'src/styles/variables-scss.scss';
+                            @import '~ucla-library-design-tokens/scss/app.scss';
                         `,
                     },
                 },

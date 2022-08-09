@@ -366,7 +366,7 @@ export default {
         max-height: 66vh;
     }
     .gradient {
-        background: $overlay-01;
+        background: $overlays-overlay-01;
         z-index: 10;
         position: absolute;
         top: 0;
@@ -375,7 +375,7 @@ export default {
         height: 100%;
     }
     .gradient-no-category {
-        background: $overlay-02;
+        background: $overlays-overlay-02;
         z-index: 10;
         position: absolute;
         top: 0;
