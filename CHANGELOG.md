@@ -1,3 +1,10 @@
+# [1.42.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.41.0...v1.42.0) (2022-08-09)
+
+
+### Features
+
+* update design tokens ([#105](https://github.com/UCLALibrary/ucla-library-website-components/issues/105)) ([6a9c942](https://github.com/UCLALibrary/ucla-library-website-components/commit/6a9c942b88e79879d988e2a3fc1e233a8d7b676c))
+
 # [1.41.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.40.0...v1.41.0) (2022-08-05)
 
 
