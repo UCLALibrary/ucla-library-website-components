@@ -1,12 +1,15 @@
 <template>
     <section class="section-teaser-highlight">
-        {{ parsedItems }}
         <block-highlight
             v-for="(item, index) in parsedItems"
             :key="`FlexibleHighlight${index}`"
             :to="item.to"
             :image="item.parsedImage"
             :category="item.category"
+            :start-date="item.parsedStartDate"
+            :end-date="item.parsedEndDate"
+            :bylineOne="item.byline1"
+            :bylineTwo="item.byline2"
             :title="item.title"
             :text="item.text"
             :locations="item.parsedLocation"
@@ -60,6 +63,14 @@ export default {
                             : obj.location != null
                             ? [obj.location]
                             : [],
+                    parsedStartDate:
+                        obj.typeHandle != "externalContent"
+                            ? _get(obj, "date[0].startDate", "")
+                            : "",
+                    parsedEndDate:
+                        obj.typeHandle != "externalContent"
+                            ? _get(obj, "date[0].endDate", "")
+                            : "",
                 }
             })
         },

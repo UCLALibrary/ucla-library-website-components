@@ -36,6 +36,19 @@
                 />
             </div>
 
+            <div class="byline-group">
+                <div
+                    v-if="bylineOne"
+                    class="schedule-item"
+                    v-html="bylineOne"
+                />
+                <div
+                    v-if="bylineTwo"
+                    class="schedule-item"
+                    v-html="bylineTwo"
+                />
+            </div>
+
             <div v-if="locations.length" class="location-group">
                 <div
                     class="location-link"
