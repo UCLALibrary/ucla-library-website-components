@@ -1,3 +1,10 @@
+# [1.44.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.43.3...v1.44.0) (2022-08-10)
+
+
+### Features
+
+* qa call to action components ([#108](https://github.com/UCLALibrary/ucla-library-website-components/issues/108)) ([b20b82f](https://github.com/UCLALibrary/ucla-library-website-components/commit/b20b82fdcc289c768b111c0e119d957a40edddfe))
+
 ## [1.43.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.43.2...v1.43.3) (2022-08-10)
 
 
