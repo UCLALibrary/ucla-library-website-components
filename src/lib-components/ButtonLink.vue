@@ -6,7 +6,7 @@
         :is-download="isDownload"
     >
         <span class="label">{{ label }}</span>
-        <component :is="parsedIconName" class="arrow" />
+        <component :is="parsedIconName" class="arrow" aria-hidden="true" />
     </smart-link>
 </template>
 

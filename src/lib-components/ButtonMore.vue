@@ -1,6 +1,6 @@
 <template>
     <div class="button-more">
-        <div class="icon">
+        <div class="icon" aria-hidden="true">
             <molecule-stroke class="molecule-stroke" />
             <arrow-right class="arrow-right" />
         </div>

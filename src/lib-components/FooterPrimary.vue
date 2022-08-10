@@ -1,6 +1,6 @@
 <template>
     <footer class="footer-primary">
-        <svg-molecule-half class="molecule-half-svg" />
+        <svg-molecule-half class="molecule-half-svg" aria-hidden="true" />
         <div :class="classes">
             <div class="footer-links">
                 <router-link to="/" class="logo-ucla">
