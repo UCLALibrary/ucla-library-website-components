@@ -1,3 +1,10 @@
+## [1.43.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.43.1...v1.43.2) (2022-08-10)
+
+
+### Bug Fixes
+
+* add null checks ([#109](https://github.com/UCLALibrary/ucla-library-website-components/issues/109)) ([11f8932](https://github.com/UCLALibrary/ucla-library-website-components/commit/11f8932c8eb21d5f5267b323cb0b9676037d0114))
+
 ## [1.43.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.43.0...v1.43.1) (2022-08-10)
 
 
