@@ -35,6 +35,7 @@ export default {
     background-color: var(--color-white);
     width: fit-content;
     max-width: 80px;
+    line-height: #{$line-height--2};
 
     display: flex;
     flex-direction: column;
