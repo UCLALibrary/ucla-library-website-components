@@ -92,6 +92,7 @@ export default {
 
     .flexible-page-block-container {
         max-width: $container-l-main + px;
+        width: 100%;
     }
 
     > .meta {
