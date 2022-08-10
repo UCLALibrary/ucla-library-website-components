@@ -1,28 +1,45 @@
 <template>
     <footer class="footer-sponsor">
         <div class="container">
-            <svg-logo-arcadia class="svg-logo-arcadia" />
-            <svg-logo-library class="svg-logo-library" />
+            <!-- <router-link
+                to="/"
+                :aria-label="title ? '' : `UCLA Library home page`"
+            >
+                <h1 v-if="title" class="title">{{ title }}</h1>
+                <svg-logo-ucla-library
+                    v-else
+                    class="svg logo-ucla"
+                    alt="UCLA Library logo blue"
+                />
+            </router-link> -->
+
+            <h3>{{ parsedFunders }}</h3>
+            <sponsor>{{ parsedFunders }}</sponsor>
+
+            <!-- funderName - Alt text for img funderLogo - img source funderUrl -
+            link from image. open in new window -->
         </div>
     </footer>
 </template>
 
 <script>
-import SvgLogoArcadia from "ucla-library-design-tokens/assets/svgs/logo-arcadia.svg"
-import SvgLogoLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
+import Sponsor from "@/lib-components/Sponsor"
 
 export default {
     name: "FooterSponsor",
-    // mixins: [formatLinkTarget],
     components: {
-        SvgLogoArcadia,
-        SvgLogoLibrary,
+        Sponsor,
     },
     props: {
-        // sockItems: {
-        //     type: Array,
-        //     default: () => [],
-        // },
+        funders: {
+            type: Array,
+            default: () => [],
+        },
+    },
+    computed: {
+        parsedFunders() {
+            return this.funders
+        },
     },
 }
 </script>
