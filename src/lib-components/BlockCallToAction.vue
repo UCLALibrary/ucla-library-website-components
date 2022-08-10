@@ -122,7 +122,7 @@ export default {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
     align-items: center;
 
@@ -135,7 +135,7 @@ export default {
     }
 
     &.half-width {
-        --block-width: calc((#{$container-l-cta}px / 2) - 10px);
+        --block-width: calc(#{$container-l-cta}px / 2);
         --block-padding-title: 114px;
         --block-padding-text: 112px;
     }
@@ -227,7 +227,8 @@ export default {
         &.full-width {
             --block-padding-title: 48px;
             --block-padding-text: 48px;
-            margin: var(--unit-gutter); // When sectionWrapper component is available this can be removed and handled by sectionWrapper
+            margin-left: calc(var(--unit-gutter) / 2); // When sectionWrapper component is available this can be removed and handled by sectionWrapper
+            margin-right: calc(var(--unit-gutter) / 2); // When sectionWrapper component is available this can be removed and handled by sectionWrapper
         }
         &.half-width {
             --block-padding-title: 48px;
@@ -241,13 +242,9 @@ export default {
     }
 
     @media #{$small} {
-        width: 100%;
-        margin: 0; // When sectionWrapper component is available this can be removed and handled by sectionWrapper
-
         &.full-width {
             --block-padding-title: 48px;
             --block-padding-text: 48px;
-            margin: 0;
             
         }
         &.half-width {

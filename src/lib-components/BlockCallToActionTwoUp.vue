@@ -47,15 +47,14 @@ export default {
 
     @media #{$medium} {
         margin: calc(var(--unit-gutter) / 2); // When sectionWrapper component is available this can be removed and handled by sectionWrapper
-
+        
         ::v-deep .button-link {
             width: 100%;
         }
     }
 
     @media #{$small} {
-        margin: 0; // When sectionWrapper component is available this can be removed and handled by sectionWrapper
-        gap: 0;
+        gap: calc(var(--unit-gutter) / 2);
 
         ::v-deep .block-call-to-action {
             width: 100%;
