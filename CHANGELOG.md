@@ -1,3 +1,10 @@
+## [1.43.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.43.0...v1.43.1) (2022-08-10)
+
+
+### Bug Fixes
+
+* highlight update to match craft structure ([#107](https://github.com/UCLALibrary/ucla-library-website-components/issues/107)) ([21e4f53](https://github.com/UCLALibrary/ucla-library-website-components/commit/21e4f5308dba4c844f148979f1b9494363a4c0c7))
+
 # [1.43.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.42.0...v1.43.0) (2022-08-09)
 
 
