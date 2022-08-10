@@ -23,7 +23,7 @@
             </smart-link>
             <h3 v-else class="title-no-link" v-html="title" />
 
-            <div class="date-time">
+            <div class="date-time" v-if="startDate">
                 <time
                     v-if="startDate"
                     class="schedule-item"
@@ -36,16 +36,38 @@
                 />
             </div>
 
+            <div class="byline-group" v-if="bylineOne || bylineTwo">
+                <div
+                    v-if="bylineOne"
+                    class="schedule-item"
+                    v-html="bylineOne"
+                />
+                <div
+                    v-if="bylineTwo"
+                    class="schedule-item"
+                    v-html="bylineTwo"
+                />
+            </div>
+
             <div v-if="locations.length" class="location-group">
-                <router-link
+                <div
+                    class="location-link"
                     v-for="(location, index) in parsedLocations"
                     :key="`location-${index}`"
-                    :to="location.to"
-                    class="location-link"
                 >
-                    <component :is="location.svg" class="location-svg" />
-                    <span class="location" v-html="location.title" />
-                </router-link>
+                    <router-link
+                        v-if="location.to"
+                        :to="location.to"
+                        class="location-link"
+                    >
+                        <component :is="location.svg" class="location-svg" />
+                        <span class="location" v-html="location.title" />
+                    </router-link>
+                    <div class="location-text" v-else>
+                        <component :is="location.svg" class="location-svg" />
+                        <div v-html="locations[0]" class="location" />
+                    </div>
+                </div>
             </div>
             <!-- changing p tag to div fixes nodemismatch errors -->
             <p v-if="text" class="text" v-html="text" />
@@ -122,6 +144,14 @@ export default {
             default: () => [],
         },
         text: {
+            type: String,
+            default: "",
+        },
+        bylineOne: {
+            type: String,
+            default: "",
+        },
+        bylineTwo: {
             type: String,
             default: "",
         },
@@ -283,6 +313,17 @@ export default {
             border-left: 1px solid var(--color-secondary-grey-02);
         }
     }
+    .byline-group {
+        display: flex;
+        flex-direction: row;
+
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 1%;
+        color: var(--color-black);
+        margin-top: 10px;
+    }
     .schedule-item {
         &:after {
             content: "";
@@ -316,7 +357,8 @@ export default {
         line-height: 1;
         margin-top: 24px;
     }
-    .location-link {
+    .location-link,
+    .location-text {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
