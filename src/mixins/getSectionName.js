@@ -8,7 +8,9 @@ export default {
     methods: {
         getSectionName(uri = "") {
             let output = "default"
-
+            if (uri == null) {
+                return output // don't try string method .includes
+            }
             switch (true) {
                 case uri.includes("/help/"):
                 case uri.includes("/projects/"):

@@ -13,7 +13,11 @@
             @closeModal="hideLightboxModal"
             @keydown.native.esc="hideLightboxModal"
         />
+
         <flexible-media-gallery-banner-image
+            v-if="
+                block.mediaGallery && block.mediaGallery[selectionIndex].image
+            "
             :image="block.mediaGallery[selectionIndex].image[0]"
             :n-items="nItems"
             :expanded="expandThumbnails"
