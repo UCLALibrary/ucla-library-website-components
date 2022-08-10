@@ -299,10 +299,7 @@ export default {
         margin: 16px 0 0 0;
         line-height: $line-height--1;
     }
-    .date-time,
-    .byline-group {
-        display: flex;
-        flex-direction: row;
+    .date-time {
         font-weight: 400;
         font-size: 20px;
         line-height: 30px;
@@ -315,6 +312,17 @@ export default {
             padding-left: 10px;
             border-left: 1px solid var(--color-secondary-grey-02);
         }
+    }
+    .byline-group {
+        display: flex;
+        flex-direction: row;
+
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 1%;
+        color: var(--color-black);
+        margin-top: 10px;
     }
     .schedule-item {
         &:after {
