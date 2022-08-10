@@ -6,7 +6,7 @@
         :is-download="isDownload"
     >
         <span class="label">{{ label }}</span>
-        <component :is="parsedIconName" class="arrow" />
+        <component :is="parsedIconName" class="arrow" aria-hidden="true" />
     </smart-link>
 </template>
 
@@ -114,6 +114,10 @@ export default {
     overflow: hidden;
     z-index: 0;
 
+    .label {
+        white-space: nowrap;
+    }
+
     &::before {
         content: "";
         width: 100%;
@@ -125,6 +129,10 @@ export default {
         transition-property: all;
         @include animate-normal;
         z-index: -10;
+    }
+
+    ::v-deep .arrow {
+        flex-shrink: 0;
     }
 
     ::v-deep .arrow .svg__stroke--primary-blue-03 {
@@ -236,8 +244,13 @@ export default {
         }
     }
     // Breakpoints
-    @media #{$small} {
+    @media #{$medium} {
+        padding: 4px 16px;
         display: flex;
+    }
+
+    @media #{$small} {
+        width: 100%;
     }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="button-more">
-        <div class="icon">
+        <div class="icon" aria-hidden="true">
             <molecule-stroke class="molecule-stroke" />
             <arrow-right class="arrow-right" />
         </div>
@@ -35,6 +35,7 @@ export default {
     background-color: var(--color-white);
     width: fit-content;
     max-width: 80px;
+    line-height: #{$line-height--2};
 
     display: flex;
     flex-direction: column;

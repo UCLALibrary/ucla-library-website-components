@@ -127,7 +127,7 @@ function convertName(typeHandle) {
         }
     }
 
-    .flexible-block:nth-child(even) {
+    .flexible-block:nth-child(even):not(.block-call-to-action) {
         background-color: var(--color-secondary-grey-01);
         --color-theme: var(--color-secondary-grey-01);
         padding: var(--space-2xl) 0;
