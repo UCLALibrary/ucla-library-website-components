@@ -1,3 +1,10 @@
+# [1.43.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.42.0...v1.43.0) (2022-08-09)
+
+
+### Features
+
+* qa footer components ([#106](https://github.com/UCLALibrary/ucla-library-website-components/issues/106)) ([c64e551](https://github.com/UCLALibrary/ucla-library-website-components/commit/c64e5518acb4d3b0747b7f6ab296598fb587dcc6))
+
 # [1.42.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.41.0...v1.42.0) (2022-08-09)
 
 
