@@ -309,7 +309,10 @@ export default {
         margin: 16px 0 0 0;
         line-height: $line-height--1;
     }
-    .date-time {
+    .date-time,
+    .byline-group {
+        display: flex;
+        flex-direction: row;
         font-weight: 400;
         font-size: 20px;
         line-height: 30px;
