@@ -164,13 +164,13 @@ export default {
         height: 287px;
         transform: rotate(180deg);
 
-        .svg__fill-bottom,
-        .svg__fill-top {
+        ::v-deep .svg__fill-bottom,
+        ::v-deep .svg__fill-top {
             fill: var(--color-primary-blue-02);
             opacity: 0.25;
         }
 
-        .svg__fill-accent {
+        ::v-deep .svg__fill-accent {
             fill: var(--color-primary-blue-02);
             opacity: 0.55;
         }
