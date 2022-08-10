@@ -1,3 +1,10 @@
+## [1.43.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.43.2...v1.43.3) (2022-08-10)
+
+
+### Bug Fixes
+
+* block and flexible highlight update ([#110](https://github.com/UCLALibrary/ucla-library-website-components/issues/110)) ([88987a4](https://github.com/UCLALibrary/ucla-library-website-components/commit/88987a450aa98881cca78a4ce1f814f2d15cf4fe))
+
 ## [1.43.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.43.1...v1.43.2) (2022-08-10)
 
 
