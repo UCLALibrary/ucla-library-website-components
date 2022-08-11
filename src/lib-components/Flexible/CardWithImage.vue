@@ -22,6 +22,11 @@
                 :category="item.category"
                 :title="item.title"
                 :text="item.text"
+                :start-date="item.parsedStartDate"
+                :end-date="item.parsedEndDate"
+                :bylineOne="item.byline1"
+                :bylineTwo="item.byline2"
+                :locations="item.parsedLocation"
                 :image-aspect-ratio="60"
                 :is-vertical="true"
                 class="block"
@@ -68,6 +73,20 @@ export default {
                         obj.typeHandle === "externalContent"
                             ? _get(obj, "image[0]", {})
                             : _get(obj, "heroImage[0].image[0]", {}),
+                    parsedLocation:
+                        obj.typeHandle != "externalContent"
+                            ? _get(obj, "associatedLocations", [])
+                            : obj.location != null
+                            ? [obj.location]
+                            : [],
+                    parsedStartDate:
+                        obj.typeHandle != "externalContent"
+                            ? _get(obj, "date[0].startDate", "")
+                            : "",
+                    parsedEndDate:
+                        obj.typeHandle != "externalContent"
+                            ? _get(obj, "date[0].endDate", "")
+                            : "",
                 }
             })
         },
