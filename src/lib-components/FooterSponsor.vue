@@ -1,44 +1,24 @@
 <template>
     <footer class="footer-sponsor">
+        <h3>FOOTER-SPONSOR{{ funders }}</h3>
         <div class="container">
-            <!-- <router-link
-                to="/"
-                :aria-label="title ? '' : `UCLA Library home page`"
-            >
-                <h1 v-if="title" class="title">{{ title }}</h1>
-                <svg-logo-ucla-library
-                    v-else
-                    class="svg logo-ucla"
-                    alt="UCLA Library logo blue"
-                />
-            </router-link> -->
-
-            <h3>{{ parsedFunders }}</h3>
-            <sponsor>{{ parsedFunders }}</sponsor>
-
-            <!-- funderName - Alt text for img funderLogo - img source funderUrl -
-            link from image. open in new window -->
+            <block-sponsor :funders="funders" />
         </div>
     </footer>
 </template>
 
 <script>
-import Sponsor from "@/lib-components/Sponsor"
+import BlockSponsor from "@/lib-components/BlockSponsor"
 
 export default {
     name: "FooterSponsor",
     components: {
-        Sponsor,
+        BlockSponsor,
     },
     props: {
         funders: {
             type: Array,
             default: () => [],
-        },
-    },
-    computed: {
-        parsedFunders() {
-            return this.funders
         },
     },
 }
@@ -49,6 +29,7 @@ export default {
     max-width: 100%;
     background-color: var(--color-secondary-grey-01);
     padding: 64px 64px;
+    // center the logos
 
     .container {
         display: flex;
