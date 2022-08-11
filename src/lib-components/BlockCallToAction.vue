@@ -227,8 +227,10 @@ export default {
         &.full-width {
             --block-padding-title: 48px;
             --block-padding-text: 48px;
-            margin-left: calc(var(--unit-gutter) / 2); // When sectionWrapper component is available this can be removed and handled by sectionWrapper
-            margin-right: calc(var(--unit-gutter) / 2); // When sectionWrapper component is available this can be removed and handled by sectionWrapper
+            margin-left: calc(var(--unit-gutter) / 2);
+            // When sectionWrapper component is available this can be removed and handled by sectionWrapper
+            margin-right: calc(var(--unit-gutter) / 2);
+            // When sectionWrapper component is available this can be removed and handled by sectionWrapper
         }
         &.half-width {
             --block-padding-title: 48px;
@@ -245,7 +247,6 @@ export default {
         &.full-width {
             --block-padding-title: 48px;
             --block-padding-text: 48px;
-            
         }
         &.half-width {
             --block-padding-title: 48px;
