@@ -1,13 +1,10 @@
 <template>
-    <header class="header-sticky">
-        <!-- <footer-primary
-            :form="true"
-        />
-        <footer-sock /> -->
+    <footer class="footer">
+        make these booleans true or false like iconLink
+        <footer-sponser />
         <footer-primary :items="primaryItems" class="primary" />
-
-        <footer-secondary :items="secondaryItems" class="secondary" />
-    </header>
+        <footer-sock :items="secondaryItems" class="secondary" />
+    </footer>
 </template>
 
 <script>
@@ -21,6 +18,18 @@ export default {
         FooterSecondary,
     },
     props: {
+        sponser: {
+            tyoe: Boolean,
+            default: false,
+        }
+        primary: {
+            tyoe: Boolean,
+            default: false,
+        }
+        sock: {
+            tyoe: Boolean,
+            default: false,
+        }
         primaryItems: {
             type: Array,
             default: () => [],
