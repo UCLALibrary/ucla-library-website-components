@@ -21,6 +21,25 @@ const mock = {
                     id: "20628",
                     to: "about/news/la-niña",
                     title: "La Niña",
+                    text: "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
+                    category: "article",
+                    heroImage: [
+                        {
+                            id: "20639",
+                            image: [
+                                {
+                                    id: "20637",
+                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/LaNina-Jet-Wintertime-Pattern.jpg",
+                                    height: 1997,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 2560w",
+                                    alt: "La Nina Jet Wintertime Pattern",
+                                    focalPoint: [0.5, 0.5],
+                                    altText: "La Niña",
+                                },
+                            ],
+                        },
+                    ],
                     associatedLocations: [
                         {
                             id: "11709",
@@ -44,6 +63,25 @@ const mock = {
                     id: "16484",
                     to: "about/news/this-is-the-newest-article",
                     title: "This is the newest article",
+                    text: "<p>Revlon, a cosmetics maker that broke racial barriers and dictated beauty trends for much of the last century, is filing for Chapter 11 bankruptcy protection</p>",
+                    category: "article",
+                    heroImage: [
+                        {
+                            id: "16537",
+                            image: [
+                                {
+                                    id: "2442",
+                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/shortbread-cookies.jpg",
+                                    height: 1421,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/shortbread-cookies.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/shortbread-cookies.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/shortbread-cookies.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/shortbread-cookies.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/shortbread-cookies.jpg 2560w",
+                                    alt: "Shortbread cookies",
+                                    focalPoint: [0.5, 0.5],
+                                    altText: null,
+                                },
+                            ],
+                        },
+                    ],
                     associatedLocations: [
                         {
                             id: "4695",
@@ -57,7 +95,7 @@ const mock = {
         {
             id: "28287",
             typeHandle: "externalContent",
-            title: null,
+            title: "About External Content",
             image: [
                 {
                     id: "28251",
@@ -67,13 +105,14 @@ const mock = {
                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/etch-a-sketch.jpeg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/etch-a-sketch.jpeg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/etch-a-sketch.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/etch-a-sketch.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/etch-a-sketch.jpeg 2560w",
                     alt: "Etch a sketch",
                     focalPoint: [0.5, 0.5],
+                    altText: null,
                 },
             ],
             byline1: "By External Content",
             byline2: null,
             category: "About",
             location: null,
-            summary: "<p>About text found here.</p>",
+            text: "<p>About text found here.</p>",
         },
     ],
 }
