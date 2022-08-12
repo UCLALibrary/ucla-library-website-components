@@ -1,5 +1,6 @@
 <template>
     <div class="media-with-text">
+        <h2>{{ image }}</h2>
         <div class="text-grouping">
             <h3 class="section-header" v-html="sectionHeader" />
             <div class="meta-mobile">

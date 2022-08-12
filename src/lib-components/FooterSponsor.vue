@@ -1,9 +1,12 @@
 <template>
     <footer class="footer-sponsor">
-        <h3>FOOTER-SPONSOR{{ funders }}</h3>
-        <div class="container">
-            <block-sponsor :funders="funders" />
-        </div>
+        <h3>FOOTER-SPONSOR</h3>
+        <h3>parsedFunder -- {{ parsedFunders }}</h3>
+        <block-sponsor
+            v-for="(item, index) in funders"
+            :key="index"
+            class="sponsor-item"
+        />
     </footer>
 </template>
 
@@ -21,6 +24,11 @@ export default {
             default: () => [],
         },
     },
+    computed: {
+        parsedFunders() {
+            return this.funders
+        },
+    },
 }
 </script>
 
@@ -28,8 +36,24 @@ export default {
 .footer-sponsor {
     max-width: 100%;
     background-color: var(--color-secondary-grey-01);
+    border: 2px dotted red;
     padding: 64px 64px;
     // center the logos
+
+    .sponsor-item {
+        background-color: white;
+        // min-width: 500px;
+        // max-height: 250px;
+        border: 2px dotted gold;
+        margin-bottom: 24px;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
 
     .container {
         display: flex;

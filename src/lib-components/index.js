@@ -31,6 +31,7 @@ export { default as DividerGeneral } from "./DividerGeneral.vue"
 export { default as DividerWayFinder } from "./DividerWayFinder.vue"
 export { default as HeaderSticky } from "./HeaderSticky.vue"
 export { default as FooterPrimary } from "./FooterPrimary.vue"
+export { default as BlockSponsor } from "./BlockSponsor.vue"
 export { default as FooterSponsor } from "./FooterSponsor.vue"
 export { default as FooterSock } from "./FooterSock.vue"
 
