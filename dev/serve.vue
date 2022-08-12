@@ -433,14 +433,8 @@
         <hr />
 
         <h1>MEAP Specific Components</h1>
-        <h2>BlockSponsor MEAP</h2>
-        <block-sponsor :funders="mockBlockSponsor.funders" />
-        <hr />
-        <hr />
-
-        <h1>MEAP Specific Components</h1>
         <h2>Footer Sponsor MEAP</h2>
-        <footer-sponsor :funders="mockFooterSponsor.funders" />
+        <footer-sponsor />
         <hr />
         <hr />
 
@@ -483,62 +477,6 @@ export default Vue.extend({
     name: "ServeDev",
     data() {
         return {
-            mockBlockSponsor: {
-                funders: [
-                    {
-                        id: "28231",
-                        funderLogo: [
-                            {
-                                id: "28230",
-                                img: '<img src="https://static.library.ucla.edu/craftassetstest/cupcake.png" width="372" height="323" alt="Cupcake">',
-                            },
-                        ],
-                        funderName: "Hostess Cuopcages",
-                        funderUrl:
-                            "https://www.hostesscakes.com/products/cupcakes/chocolate/",
-                    },
-                    {
-                        id: "28259",
-                        funderLogo: [
-                            {
-                                id: "28251",
-                                img: '<img src="https://static.library.ucla.edu/craftassetstest/etch-a-sketch.jpeg" width="252" height="200" alt="Etch a sketch">',
-                            },
-                        ],
-                        funderName: "Etch A Sketch",
-                        funderUrl:
-                            "https://en.wikipedia.org/wiki/Etch_A_Sketch",
-                    },
-                ],
-            },
-            mockFooterSponsor: {
-                funders: [
-                    {
-                        id: "28231",
-                        funderLogo: [
-                            {
-                                id: "28230",
-                                img: '<img src="https://static.library.ucla.edu/craftassetstest/cupcake.png" width="372" height="323" alt="Cupcake">',
-                            },
-                        ],
-                        funderName: "Hostess Cuopcages",
-                        funderUrl:
-                            "https://www.hostesscakes.com/products/cupcakes/chocolate/",
-                    },
-                    {
-                        id: "28259",
-                        funderLogo: [
-                            {
-                                id: "28251",
-                                img: '<img src="https://static.library.ucla.edu/craftassetstest/etch-a-sketch.jpeg" width="252" height="200" alt="Etch a sketch">',
-                            },
-                        ],
-                        funderName: "Etch A Sketch",
-                        funderUrl:
-                            "https://en.wikipedia.org/wiki/Etch_A_Sketch",
-                    },
-                ],
-            },
             mockBannerHeader: {
                 image: API.image,
                 video: API.video,

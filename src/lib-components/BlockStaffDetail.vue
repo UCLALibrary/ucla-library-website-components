@@ -1,6 +1,7 @@
 <template>
     <div class="block-staff-detail">
         <!-- HeadingStaff  -->
+        <h2>{{ image }}</h2>
         <div class="heading-staff">
             <svg-heading-arrow />
 
