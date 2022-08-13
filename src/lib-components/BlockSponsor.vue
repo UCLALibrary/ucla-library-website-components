@@ -33,9 +33,6 @@ export default {
         },
     },
     computed: {
-        // parsedAltTag() {
-        //     return (this.funderLogo[0].alt = this.funderName)
-        // },
         parsedFunderLogo() {
             return this.funderLogo[0]
         },
@@ -45,24 +42,11 @@ export default {
 
 <style lang="scss" scoped>
 .block-sponsor {
-    max-width: 100%;
-    background-color: var(--color-secondary-grey-01);
-    padding: 64px 64px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     .container {
-        width: 300px;
-        height: 78px;
+        width: 100%;
+        max-height: 150px;
     }
-    .svg-logo-library {
-        width: 300px;
-        height: 78px;
-        .svg__fill--primary-blue-03 {
-            fill: var(--color-black);
-        }
-    }
+
     // Breakpoints
     @media #{$medium} {
         padding: 24px 32px;

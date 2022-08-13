@@ -1,11 +1,12 @@
 <template>
     <footer class="footer-sponsor">
-        <h3>FOOTER-SPONSOR</h3>
-        <h3>parsedFunder -- {{ parsedFunders }}</h3>
         <block-sponsor
             v-for="(item, index) in funders"
             :key="index"
             class="sponsor-item"
+            :funderLogo="item.funderLogo"
+            :funderName="item.funderName"
+            :funderUrl="item.funderUrl"
         />
     </footer>
 </template>
@@ -36,44 +37,36 @@ export default {
 .footer-sponsor {
     max-width: 100%;
     background-color: var(--color-secondary-grey-01);
-    border: 2px dotted red;
-    padding: 64px 64px;
-    // center the logos
+    padding: 64px;
 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: space-between;
+    gap: var(--space-l);
     .sponsor-item {
-        background-color: white;
-        // min-width: 500px;
-        // max-height: 250px;
-        border: 2px dotted gold;
-        margin-bottom: 24px;
-
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
+        width: 100%;
     }
 
-    .container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: var(--space-l);
-    }
+    // .container {
+    //     width: 50%;
+    //     width: 300px;
+    //     height: 78px;
+    // }
 
-    .svg-logo-arcadia {
-        width: 300px;
-        height: 78px;
-    }
-    .svg-logo-library {
-        width: 300px;
-        height: 78px;
+    // .svg-logo-arcadia {
+    //     width: 350px;
+    //     height: 78px;
+    // }
+    // .svg-logo-library {
+    //     width: 350px;
+    //     height: 78px;
 
-        .svg__fill--primary-blue-03 {
-            fill: var(--color-black);
-        }
-    }
+    //     .svg__fill--primary-blue-03 {
+    //         fill: var(--color-black);
+    //     }
+    // }
 
     // Breakpoints
     @media #{$medium} {
