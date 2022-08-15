@@ -2371,5 +2371,13 @@ export default Vue.extend({
         margin-top: 25px;
         border-top: 2px dashed coral;
     }
+
+    .svg-logo-library {
+        width: 300px;
+        height: 78px;
+        .svg__fill--primary-blue-03 {
+            fill: var(--color-black);
+        }
+    }
 }
 </style>
