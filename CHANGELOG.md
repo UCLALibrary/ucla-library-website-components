@@ -1,3 +1,10 @@
+## [1.44.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.44.0...v1.44.1) (2022-08-15)
+
+
+### Bug Fixes
+
+* resolve font 404 errors ([#114](https://github.com/UCLALibrary/ucla-library-website-components/issues/114)) ([b8180d3](https://github.com/UCLALibrary/ucla-library-website-components/commit/b8180d3ab7a6ef140126b33ea19d0f46e24c3d94))
+
 # [1.44.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.43.3...v1.44.0) (2022-08-10)
 
 
