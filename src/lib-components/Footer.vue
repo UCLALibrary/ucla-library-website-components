@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-        make these booleans true or false like iconLink
+        <!-- make these booleans true or false like iconLink -->
         <footer-sponser />
         <footer-primary :items="primaryItems" class="primary" />
         <footer-sock :items="secondaryItems" class="secondary" />
@@ -21,15 +21,15 @@ export default {
         sponser: {
             tyoe: Boolean,
             default: false,
-        }
+        },
         primary: {
             tyoe: Boolean,
             default: false,
-        }
+        },
         sock: {
             tyoe: Boolean,
             default: false,
-        }
+        },
         primaryItems: {
             type: Array,
             default: () => [],

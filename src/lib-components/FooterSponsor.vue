@@ -49,6 +49,14 @@ export default {
         width: 100%;
     }
 
+    // .svg-logo-library {
+    //     width: 300px;
+    //     height: 78px;
+    //     .svg__fill--primary-blue-03 {
+    //         fill: var(--color-black);
+    //     }
+    // }
+
     // Breakpoints
     @media #{$medium} {
         display: flex;
