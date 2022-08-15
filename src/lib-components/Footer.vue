@@ -9,13 +9,13 @@
 
 <script>
 import FooterPrimary from "@/lib-components/FooterPrimary"
-import FooterSecondary from "@/lib-components/FooterSecondary"
+import FooterSock from "@/lib-components/FooterSock"
 
 export default {
     name: "HeaderSticky",
     components: {
         FooterPrimary,
-        FooterSecondary,
+        FooterSock,
     },
     props: {
         sponser: {
