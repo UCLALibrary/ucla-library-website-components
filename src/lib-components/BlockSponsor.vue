@@ -4,6 +4,7 @@
             <responsive-image
                 :image="parsedFunderLogo"
                 :aspect-ratio="100"
+                object-fit="contain"
                 class="container"
             />
         </smart-link>
@@ -43,18 +44,7 @@ export default {
 <style lang="scss" scoped>
 .block-sponsor {
     .container {
-        width: 100%;
         max-height: 150px;
-    }
-
-    // Breakpoints
-    @media #{$medium} {
-        padding: 24px 32px;
-    }
-    @media #{$small} {
-        .container {
-            flex-direction: column;
-        }
     }
 }
 </style>
