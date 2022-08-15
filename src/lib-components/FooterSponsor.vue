@@ -49,34 +49,18 @@ export default {
         width: 100%;
     }
 
-    // .container {
-    //     width: 50%;
-    //     width: 300px;
-    //     height: 78px;
-    // }
-
-    // .svg-logo-arcadia {
-    //     width: 350px;
-    //     height: 78px;
-    // }
-    // .svg-logo-library {
-    //     width: 350px;
-    //     height: 78px;
-
-    //     .svg__fill--primary-blue-03 {
-    //         fill: var(--color-black);
-    //     }
-    // }
-
     // Breakpoints
     @media #{$medium} {
+        display: flex;
+        flex-direction: column;
         padding: 24px 32px;
     }
 
     @media #{$small} {
-        .container {
-            flex-direction: column;
-        }
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        gap: var(--space-l);
     }
 }
 </style>

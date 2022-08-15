@@ -7,6 +7,7 @@
             :alt="image.alt || alt"
             :srcset="image.srcset || srcset"
             :sizes="image.sizes || sizes"
+            :object-fit="objectFit"
             class="media"
             @load="onLoad"
             @error="onError"
@@ -59,7 +60,7 @@ export default {
         },
         objectFit: {
             type: String,
-            default: "cover",
+            default: "",
         },
         image: {
             type: Object,
