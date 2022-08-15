@@ -1,3 +1,4 @@
+import "ucla-library-design-tokens/scss/fonts.scss";
 import "ucla-library-design-tokens/scss/app-global.scss";
 import "@/styles/global.scss"
 

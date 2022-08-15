@@ -46,8 +46,9 @@ export default {
     }
 
     @media #{$medium} {
-        margin: calc(var(--unit-gutter) / 2); // When sectionWrapper component is available this can be removed and handled by sectionWrapper
-        
+        margin: calc(var(--unit-gutter) / 2);
+        // When sectionWrapper component is available this can be removed and handled by sectionWrapper
+
         ::v-deep .button-link {
             width: 100%;
         }
