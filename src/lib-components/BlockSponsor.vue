@@ -44,7 +44,7 @@ export default {
 <style lang="scss" scoped>
 .block-sponsor {
     .container {
-        max-height: 150px;
+        max-height: 80px;
     }
 }
 </style>
