@@ -18,7 +18,7 @@
                 :key="`FlexibleHighlight${index}`"
                 :to="item.to"
                 :image="item.parsedImage"
-                :category="item.category"
+                :category="item.parsedCategory"
                 :start-date="item.parsedStartDate"
                 :end-date="item.parsedEndDate"
                 :bylineOne="item.byline1"
@@ -64,27 +64,52 @@ export default {
             return items
         },
         parsedItems() {
+            // Maps values based on content type and external or internal content
             return this.parsedList.map((obj) => {
-                return {
-                    ...obj,
-                    parsedImage:
-                        obj.typeHandle === "externalContent"
-                            ? _get(obj, "image[0]", {})
-                            : _get(obj, "heroImage[0].image[0]", {}),
-                    parsedLocation:
-                        obj.typeHandle != "externalContent"
-                            ? _get(obj, "associatedLocations", [])
-                            : obj.location != null
-                            ? [obj.location]
-                            : [],
-                    parsedStartDate:
-                        obj.typeHandle != "externalContent"
-                            ? _get(obj, "date[0].startDate", "")
-                            : "",
-                    parsedEndDate:
-                        obj.typeHandle != "externalContent"
-                            ? _get(obj, "date[0].endDate", "")
-                            : "",
+                switch (true) {
+                    // Article
+                    case obj.typeHandle != "externalContent" &&
+                        obj.contentType.includes("article"):
+                        return {
+                            ...obj,
+                            parsedImage: _get(obj, "heroImage[0].image[0]", {}),
+                            parsedLocation: _get(
+                                obj,
+                                "associatedLocations",
+                                []
+                            ),
+                            parsedCategory: _get(
+                                obj,
+                                "articleCategory[0].title",
+                                {}
+                            ),
+                            byline1: _get(obj, "articleByline1[0].title", ""),
+                            byline2: _get(obj, "articleByline2", ""),
+                        }
+                        break
+
+                    // Project
+                    case obj.typeHandle != "externalContent" &&
+                        obj.contentType.includes("meapProject"):
+                        return {
+                            ...obj,
+                            parsedImage: _get(obj, "heroImage[0].image[0]", {}),
+                            parsedLocation: _get(obj, "projectLocations", []),
+                            parsedCategory: _get(obj, "projectCategory", {}),
+                            byline1: _get(obj, "projectByline1[0].title", ""),
+                        }
+                        break
+
+                    case obj.typeHandle === "externalContent":
+                        return {
+                            ...obj,
+                            to: "",
+                            parsedImage: _get(obj, "image[0]", {}),
+                            parsedLocation:
+                                obj.location != null ? [obj.location] : [],
+                            parsedCategory: _get(obj, "category", {}),
+                        }
+                        break
                 }
             })
         },
