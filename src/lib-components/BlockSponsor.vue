@@ -1,14 +1,12 @@
 <template>
-    <div class="block-sponsor">
-        <smart-link :to="funderUrl" target="_blank">
-            <responsive-image
-                :image="parsedFunderLogo"
-                :aspect-ratio="100"
-                object-fit="contain"
-                class="container"
-            />
-        </smart-link>
-    </div>
+    <smart-link :to="funderUrl" target="_blank">
+        <responsive-image
+            :image="parsedFunderLogo"
+            :aspect-ratio="100"
+            object-fit="contain"
+            class="block-sponsor"
+        />
+    </smart-link>
 </template>
 
 <script>
@@ -43,8 +41,6 @@ export default {
 
 <style lang="scss" scoped>
 .block-sponsor {
-    .container {
-        max-height: 80px;
-    }
+    max-height: 80px;
 }
 </style>

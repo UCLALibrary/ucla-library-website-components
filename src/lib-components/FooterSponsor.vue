@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer-sponsor">
+    <div class="footer-sponsor">
         <block-sponsor
             v-for="(item, index) in funders"
             :key="index"
@@ -8,7 +8,7 @@
             :funderName="item.funderName"
             :funderUrl="item.funderUrl"
         />
-    </footer>
+    </div>
 </template>
 
 <script>
@@ -48,14 +48,6 @@ export default {
     .sponsor-item {
         width: 100%;
     }
-
-    // .svg-logo-library {
-    //     width: 300px;
-    //     height: 78px;
-    //     .svg__fill--primary-blue-03 {
-    //         fill: var(--color-black);
-    //     }
-    // }
 
     // Breakpoints
     @media #{$medium} {
