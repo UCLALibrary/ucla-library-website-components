@@ -5,11 +5,31 @@ export default {
     component: BlockSponsor,
 }
 
+const mock = {
+    funderLogo: [
+        {
+            id: "28636",
+            src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/logo-arcadia1.svg",
+            height: 569,
+            width: 2560,
+            srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/logo-arcadia1.svg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/logo-arcadia1.svg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/logo-arcadia1.svg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/logo-arcadia1.svg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/logo-arcadia1.svg 2560w",
+            alt: "Logo arcadia1",
+            focalPoint: [0.5, 0.5],
+            altText: null,
+        },
+    ],
+}
+
 export const Default = () => ({
+    data() {
+        return {
+            ...mock,
+        }
+    },
     components: { BlockSponsor },
     template: `
     <block-sponsor 
-        funderLogo="https://www.hostesscakes.com/wp-content/uploads/2020/03/CC_Hero_Chocolate_Cut.png"
+        :funderLogo= "funderLogo"
         funderName="Hostess Cupcakes"
         funderUrl="https://www.hostesscakes.com/products/cupcakes/chocolate/"
     />
