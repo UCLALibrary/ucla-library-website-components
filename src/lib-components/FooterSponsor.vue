@@ -1,28 +1,34 @@
 <template>
-    <footer class="footer-sponsor">
-        <div class="container">
-            <svg-logo-arcadia class="svg-logo-arcadia" />
-            <svg-logo-library class="svg-logo-library" />
-        </div>
-    </footer>
+    <div class="footer-sponsor">
+        <block-sponsor
+            v-for="(item, index) in funders"
+            :key="index"
+            class="sponsor-item"
+            :funderLogo="item.funderLogo"
+            :funderName="item.funderName"
+            :funderUrl="item.funderUrl"
+        />
+    </div>
 </template>
 
 <script>
-import SvgLogoArcadia from "ucla-library-design-tokens/assets/svgs/logo-arcadia.svg"
-import SvgLogoLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
+import BlockSponsor from "@/lib-components/BlockSponsor"
 
 export default {
     name: "FooterSponsor",
-    // mixins: [formatLinkTarget],
     components: {
-        SvgLogoArcadia,
-        SvgLogoLibrary,
+        BlockSponsor,
     },
     props: {
-        // sockItems: {
-        //     type: Array,
-        //     default: () => [],
-        // },
+        funders: {
+            type: Array,
+            default: () => [],
+        },
+    },
+    computed: {
+        parsedFunders() {
+            return this.funders
+        },
     },
 }
 </script>
@@ -31,37 +37,30 @@ export default {
 .footer-sponsor {
     max-width: 100%;
     background-color: var(--color-secondary-grey-01);
-    padding: 64px 64px;
+    padding: 64px;
 
-    .container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: var(--space-l);
-    }
-
-    .svg-logo-arcadia {
-        width: 300px;
-        height: 78px;
-    }
-    .svg-logo-library {
-        width: 300px;
-        height: 78px;
-
-        .svg__fill--primary-blue-03 {
-            fill: var(--color-black);
-        }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: space-between;
+    gap: var(--space-l);
+    .sponsor-item {
+        width: 100%;
     }
 
     // Breakpoints
     @media #{$medium} {
+        display: flex;
+        flex-direction: column;
         padding: 24px 32px;
     }
 
     @media #{$small} {
-        .container {
-            flex-direction: column;
-        }
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        gap: var(--space-l);
     }
 }
 </style>

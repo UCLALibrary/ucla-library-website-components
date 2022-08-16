@@ -433,9 +433,17 @@
         <hr />
 
         <h1>MEAP Specific Components</h1>
-        <h2>Footer Sponsor MEAP</h2>
-        <footer-sponsor />
+
+        <h2>BlockSponsor MEAP</h2>
+        <block-sponsor
+            :funderLogo="mockBlockSponsor.funderLogo"
+            :funderName="mockBlockSponsor.funderName"
+            :funderUrl="mockBlockSponsor.funderUrl"
+        />
         <hr />
+
+        <h2>Footer Sponsor MEAP</h2>
+        <footer-sponsor :funders="mockFooterSponsor.funders" />
         <hr />
 
         <h1>FlexibleBlock Components</h1>
@@ -477,6 +485,64 @@ export default Vue.extend({
     name: "ServeDev",
     data() {
         return {
+            mockBlockSponsor: {
+                id: "28231",
+                funderLogo: [
+                    {
+                        id: "28636",
+                        src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/logo-arcadia1.svg",
+                        height: 569,
+                        width: 2560,
+                        srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/logo-arcadia1.svg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/logo-arcadia1.svg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/logo-arcadia1.svg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/logo-arcadia1.svg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/logo-arcadia1.svg 2560w",
+                        alt: "Logo arcadia1",
+                        focalPoint: [0.5, 0.5],
+                        altText: null,
+                    },
+                ],
+                funderName: "Arcadia Sponsor Footer",
+                funderUrl:
+                    "https://www.hostesscakes.com/products/cupcakes/chocolate/",
+            },
+            mockFooterSponsor: {
+                funders: [
+                    {
+                        id: "28231",
+                        funderLogo: [
+                            {
+                                id: "28636",
+                                src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/logo-arcadia1.svg",
+                                height: 569,
+                                width: 2560,
+                                srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/logo-arcadia1.svg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/logo-arcadia1.svg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/logo-arcadia1.svg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/logo-arcadia1.svg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/logo-arcadia1.svg 2560w",
+                                alt: "Logo arcadia1",
+                                focalPoint: [0.5, 0.5],
+                                altText: null,
+                            },
+                        ],
+                        funderName: "Arcadiaaaaaa",
+                        funderUrl:
+                            "https://www.hostesscakes.com/products/cupcakes/chocolate/",
+                    },
+                    {
+                        id: "28259",
+                        funderLogo: [
+                            {
+                                id: "28637",
+                                src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/logo-library.svg",
+                                height: 490,
+                                width: 2560,
+                                srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/logo-library.svg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/logo-library.svg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/logo-library.svg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/logo-library.svg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/logo-library.svg 2560w",
+                                alt: "Logo library",
+                                focalPoint: [0.5, 0.5],
+                                altText: null,
+                            },
+                        ],
+                        funderName: "Etch A Sketch",
+                        funderUrl:
+                            "https://en.wikipedia.org/wiki/Etch_A_Sketch",
+                    },
+                ],
+            },
             mockBannerHeader: {
                 image: API.image,
                 video: API.video,
@@ -913,8 +979,8 @@ export default Vue.extend({
             mockMediaWithText: {
                 id: "13669",
                 typeHandle: "mediaWithText",
-                sectionTitle: "A section of media with text",
-                sectionSummary: "<p>A section of media with text</p>",
+                sectionTitle: "Section title  of media with text",
+                sectionSummary: "<p>Section summaryof media with text</p>",
                 mediaWithText: [
                     {
                         id: "13670",
@@ -2304,6 +2370,14 @@ export default Vue.extend({
     hr {
         margin-top: 25px;
         border-top: 2px dashed coral;
+    }
+
+    .svg-logo-library {
+        width: 300px;
+        height: 78px;
+        .svg__fill--primary-blue-03 {
+            fill: var(--color-black);
+        }
     }
 }
 </style>
