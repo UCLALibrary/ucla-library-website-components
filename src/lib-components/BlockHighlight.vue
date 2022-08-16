@@ -63,9 +63,19 @@
                         <component :is="location.svg" class="location-svg" />
                         <span class="location" v-html="location.title" />
                     </router-link>
-                    <div class="location-text" v-else>
+                    <div
+                        class="location-text"
+                        v-if="!location.to && !location.id"
+                    >
                         <component :is="location.svg" class="location-svg" />
                         <div v-html="locations[0]" class="location" />
+                    </div>
+                    <div
+                        class="location-text"
+                        v-if="!location.to && location.id"
+                    >
+                        <component :is="location.svg" class="location-svg" />
+                        <div v-html="locations[0].title" class="location" />
                     </div>
                 </div>
             </div>
