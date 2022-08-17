@@ -1,3 +1,10 @@
+## [1.46.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.46.0...v1.46.1) (2022-08-17)
+
+
+### Bug Fixes
+
+* update highlight component ([#119](https://github.com/UCLALibrary/ucla-library-website-components/issues/119)) ([a09ed78](https://github.com/UCLALibrary/ucla-library-website-components/commit/a09ed78d8194c186a144bf976aed799d87ac48fb))
+
 # [1.46.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.45.0...v1.46.0) (2022-08-17)
 
 
