@@ -92,7 +92,7 @@ export default {
                 }
 
                 // Project
-                if (
+                else if (
                     obj.typeHandle != "externalContent" &&
                     obj.contentType.includes("meapProject")
                 ) {
@@ -103,9 +103,7 @@ export default {
                         parsedCategory: _get(obj, "projectCategory", {}),
                         byline1: _get(obj, "projectByline1[0].title", ""),
                     }
-                }
-
-                if (obj.typeHandle === "externalContent") {
+                } else if (obj.typeHandle === "externalContent") {
                     return {
                         ...obj,
                         to: "",
