@@ -23,19 +23,6 @@
             </smart-link>
             <h3 v-else class="title-no-link" v-html="title" />
 
-            <div class="date-time" v-if="startDate">
-                <time
-                    v-if="startDate"
-                    class="schedule-item"
-                    v-html="parsedDate"
-                />
-                <time
-                    v-if="startDate"
-                    class="schedule-item"
-                    v-html="parsedTime"
-                />
-            </div>
-
             <div class="byline-group" v-if="bylineOne || bylineTwo">
                 <div
                     v-if="bylineOne"
@@ -46,6 +33,19 @@
                     v-if="bylineTwo"
                     class="schedule-item"
                     v-html="bylineTwo"
+                />
+            </div>
+
+            <div class="date-time" v-if="startDate">
+                <time
+                    v-if="startDate"
+                    class="schedule-item"
+                    v-html="parsedDate"
+                />
+                <time
+                    v-if="startDate"
+                    class="schedule-item"
+                    v-html="parsedTime"
                 />
             </div>
 

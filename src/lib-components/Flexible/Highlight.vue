@@ -19,9 +19,8 @@
                 :to="item.to"
                 :image="item.parsedImage"
                 :category="item.parsedCategory"
-                :start-date="item.byline2"
-                :end-date="item.byline2"
                 :bylineOne="item.byline1"
+                :bylineTwo="item.byline2"
                 :title="item.title"
                 :text="item.text"
                 :locations="item.parsedLocation"
@@ -36,9 +35,11 @@
 <script>
 import _get from "lodash/get"
 import BlockHighlight from "@/lib-components/BlockHighlight"
+import formatDates from "@/mixins/formatEventDates"
 
 export default {
     name: "FlexibleHighlight",
+    mixins: [formatDates],
     components: {
         BlockHighlight,
     },
@@ -83,7 +84,14 @@ export default {
                                 {}
                             ),
                             byline1: _get(obj, "articleByline1[0].title", ""),
-                            byline2: _get(obj, "articleByline2", ""),
+                            // TO DO want to parse this date here?
+                            byline2:
+                                obj.articleByline2 != null
+                                    ? this.formatDates(
+                                          obj.articleByline2,
+                                          obj.articleByline2
+                                      )
+                                    : "",
                         }
                         break
 
