@@ -1,3 +1,10 @@
+# [1.47.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.46.1...v1.47.0) (2022-08-17)
+
+
+### Features
+
+* card with image updates to match craft structure ([#111](https://github.com/UCLALibrary/ucla-library-website-components/issues/111)) ([aa60926](https://github.com/UCLALibrary/ucla-library-website-components/commit/aa609268e77c8fce100260656bfbc0b4754bf8d0))
+
 ## [1.46.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.46.0...v1.46.1) (2022-08-17)
 
 
