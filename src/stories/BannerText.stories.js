@@ -12,8 +12,8 @@ const mock = {
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.",
     title: "Curabitur Tortor Pellentesque",
     locations: [
-        { title: "Powellarium", to: "/location/bar" },
-        { title: "Research Library (Charles E. Young)", to: "/location/baz" },
+        { id: "523", title: "Powellarium", to: "/location/bar" },
+        { id: "801", title: "Research Library (Charles E. Young)", to: "/location/baz" },
     ],
     date: "1995-12-17T03:24:00",
     buttonText: "Curabitur",

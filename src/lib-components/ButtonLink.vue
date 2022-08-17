@@ -142,10 +142,10 @@ export default {
     ::v-deep .svg__icon-external-link,
     ::v-deep .svg__icon-download {
         .svg__stroke--primary-blue-03 {
-            stroke: var(--color-white);
+            stroke: var(--color-primary-blue-03);
         }
         .svg__fill--primary-blue-03 {
-            fill: var(--color-white);
+            fill: var(--color-primary-blue-03);
             stroke: transparent;
         }
     }
@@ -212,6 +212,17 @@ export default {
                 stroke: var(--color-white);
             }
 
+            ::v-deep .svg__icon-external-link,
+            ::v-deep .svg__icon-download {
+                .svg__stroke--primary-blue-03 {
+                    stroke: var(--color-white);
+                }
+                .svg__fill--primary-blue-03 {
+                    fill: var(--color-white);
+                    stroke: transparent;
+                }
+            }
+
             &.is-secondary {
                 border-color: var(--color-primary-blue-02);
                 color: var(--color-black);
@@ -246,7 +257,7 @@ export default {
     // Breakpoints
     @media #{$medium} {
         padding: 4px 16px;
-        display: flex;
+        display: inline-flex;
     }
 
     @media #{$small} {

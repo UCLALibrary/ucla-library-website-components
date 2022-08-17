@@ -58,6 +58,7 @@
             :text="mockBannerText.text"
             :button-text="mockBannerText.buttonText"
             :to="mockBannerText.to"
+            :locations="mockBannerText.locations"
         />
         <hr />
 

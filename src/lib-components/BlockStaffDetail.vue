@@ -35,45 +35,35 @@
                             :key="`location-${index}`"
                             class="location"
                         >
-                            <router-link
+                            <icon-with-link
+                                :text="location.title"
+                                icon-name="svg-icon-location"
                                 :to="location.to"
-                                class="location-link"
-                            >
-                                <svg-icon-location class="svg" />
-                                <span
-                                    class="location-title"
-                                    v-html="location.title"
-                                />
-                            </router-link>
+                            />
                         </li>
                     </ul>
                 </div>
                 <div class="contact-info-list">
                     <div class="contact-info">
-                        <svg-icon-email class="svg" />
-                        <smart-link
-                            :to="`mailto:${email}`"
-                            target="_blank"
-                            class="link-icon"
-                        >
-                            {{ email }}
-                        </smart-link>
+                        <icon-with-link
+                            :text="email"
+                            icon-name="svg-icon-email"
+                            :to="`mailto:/${email}`"
+                        />
                     </div>
                     <div v-if="phone" class="contact-info">
-                        <svg-icon-phone class="svg" />
-                        <smart-link
-                            :to="`tel:${phone}`"
-                            target="_blank"
-                            class="link-icon"
-                        >
-                            {{ phone }}
-                        </smart-link>
+                        <icon-with-link
+                            :text="email"
+                            icon-name="svg-icon-email"
+                            :to="`mailto:/${email}`"
+                        />
                     </div>
                     <div v-if="consultation" class="contact-info">
-                        <svg-icon-consultation class="svg" />
-                        <smart-link :to="consultation" class="link-icon">
-                            {{ "Book a consultation" }}
-                        </smart-link>
+                        <icon-with-link
+                            :text="`Book a consultation`"
+                            icon-name="svg-icon-consultation"
+                            :to="consultation"
+                        />
                     </div>
                 </div>
             </div>
@@ -115,12 +105,7 @@
 
 <script>
 import SvgHeadingArrow from "ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg"
-import SvgIconLocation from "ucla-library-design-tokens/assets/svgs/icon-location.svg"
-import SvgIconEmail from "ucla-library-design-tokens/assets/svgs/icon-email.svg"
-import SvgIconPhone from "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
-import SvgIconConsultation from "ucla-library-design-tokens/assets/svgs/icon-chat.svg"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
-import SmartLink from "@/lib-components/SmartLink"
 import RichText from "@/lib-components/RichText"
 import DividerWayFinder from "@/lib-components/DividerWayFinder"
 
@@ -128,14 +113,11 @@ export default {
     name: "BlockStaffDetail",
     components: {
         SvgHeadingArrow,
-        SvgIconLocation,
-        SvgIconEmail,
-        SvgIconPhone,
-        SvgIconConsultation,
         ResponsiveImage,
-        SmartLink,
         RichText,
         DividerWayFinder,
+        IconWithLink: () =>
+            import("@/lib-components/IconWithLink.vue").then((d) => d.default),
     },
     props: {
         image: {
