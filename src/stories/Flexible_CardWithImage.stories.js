@@ -19,10 +19,40 @@ const mock = {
             contentLink: [
                 {
                     id: "20628",
+                    contentType: "article",
                     to: "about/news/la-niña",
                     title: "La Niña",
                     text: "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
-                    category: "article",
+                    articleCategory: [
+                        {
+                            title: "Featured",
+                        },
+                    ],
+                    articleByline1: [
+                        {
+                            id: "11827",
+                            to: "about/staff/brigid-abreu",
+                            title: "Brigid Abreu",
+                        },
+                        {
+                            id: "11910",
+                            to: "about/staff/sylvia-page",
+                            title: "Sylvia Page",
+                        },
+                    ],
+                    articleByline2: "2022-06-21T12:39:00-07:00",
+                    associatedLocations: [
+                        {
+                            id: "11709",
+                            title: "William Andrews Clark Memorial Library",
+                            to: "visit/locations/william-andrews-clark-memorial-library",
+                        },
+                        {
+                            id: "11497",
+                            title: "Richard C. Rudolph East Asian Library",
+                            to: "visit/locations/east-asian-library",
+                        },
+                    ],
                     heroImage: [
                         {
                             id: "20639",
@@ -40,18 +70,6 @@ const mock = {
                             ],
                         },
                     ],
-                    associatedLocations: [
-                        {
-                            id: "11709",
-                            title: "William Andrews Clark Memorial Library",
-                            to: "visit/locations/william-andrews-clark-memorial-library",
-                        },
-                        {
-                            id: "11497",
-                            title: "Richard C. Rudolph East Asian Library",
-                            to: "visit/locations/east-asian-library",
-                        },
-                    ],
                 },
             ],
         },
@@ -61,10 +79,30 @@ const mock = {
             contentLink: [
                 {
                     id: "16484",
+                    contentType: "article",
                     to: "about/news/this-is-the-newest-article",
                     title: "This is the newest article",
-                    text: "<p>Revlon, a cosmetics maker that broke racial barriers and dictated beauty trends for much of the last century, is filing for Chapter 11 bankruptcy protection</p>",
-                    category: "article",
+                    text: '<p>Add "MEAP" to show article in the MEAP website</p>',
+                    articleCategory: [
+                        {
+                            title: "Featured",
+                        },
+                    ],
+                    articleByline1: [
+                        {
+                            id: "3522",
+                            to: "about/staff/dianne",
+                            title: "Dianne Weinthal",
+                        },
+                    ],
+                    articleByline2: "2022-05-19T13:59:00-07:00",
+                    associatedLocations: [
+                        {
+                            id: "4695",
+                            title: "Louise M. Darling Biomedical Library",
+                            to: "visit/locations/biomed",
+                        },
+                    ],
                     heroImage: [
                         {
                             id: "16537",
@@ -82,20 +120,13 @@ const mock = {
                             ],
                         },
                     ],
-                    associatedLocations: [
-                        {
-                            id: "4695",
-                            title: "Louise M. Darling Biomedical Library",
-                            to: "visit/locations/biomed",
-                        },
-                    ],
                 },
             ],
         },
         {
             id: "28287",
             typeHandle: "externalContent",
-            title: "About External Content",
+            title: null,
             image: [
                 {
                     id: "28251",
