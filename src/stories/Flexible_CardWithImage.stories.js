@@ -92,7 +92,7 @@ const mock = {
                         {
                             id: "3522",
                             to: "about/staff/dianne",
-                            title: "Dianne Weinthal",
+                            title: "D. Weinthal",
                         },
                     ],
                     articleByline2: "2022-05-19T13:59:00-07:00",
@@ -142,7 +142,7 @@ const mock = {
             byline1: "By External Content",
             byline2: null,
             category: "About",
-            location: null,
+            location: "France",
             text: "<p>About text found here.</p>",
         },
     ],
