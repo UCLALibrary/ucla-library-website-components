@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer-sock">
+    <div class="footer-sock">
         <div class="container">
             <div class="regents">
                 &#169; {{ year }} Regents of the University of California
@@ -17,7 +17,7 @@
                 </li>
             </ul>
         </div>
-    </footer>
+    </div>
 </template>
 
 <script>

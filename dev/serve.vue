@@ -442,8 +442,16 @@
         />
         <hr />
 
-        <h2>Footer Sponsor MEAP</h2>
+        <h2>FooterSponsor MEAP</h2>
         <footer-sponsor :funders="mockFooterSponsor.funders" />
+        <hr />
+
+        <h2>FooterMain MEAP</h2>
+        <footer-main
+            :funders="mockFooterSponsor.funders"
+            :social-items="mockFooterPrimary.socialItems"
+            :press-items="mockFooterPrimary.pressItems"
+        />
         <hr />
 
         <h1>FlexibleBlock Components</h1>

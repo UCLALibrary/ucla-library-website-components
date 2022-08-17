@@ -34,6 +34,7 @@ export { default as FooterPrimary } from "./FooterPrimary.vue"
 export { default as BlockSponsor } from "./BlockSponsor.vue"
 export { default as FooterSponsor } from "./FooterSponsor.vue"
 export { default as FooterSock } from "./FooterSock.vue"
+export { default as FooterMain } from "./FooterMain.vue"
 
 export { default as FlexibleBlocks } from "./FlexibleBlocks.vue"
 export { default as FlexibleAssociatedTopicCards } from "./Flexible/AssociatedTopicCards.vue"
