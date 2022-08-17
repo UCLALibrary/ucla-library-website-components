@@ -18,9 +18,7 @@
                 :key="`FlexibleHighlight${index}`"
                 :to="item.to"
                 :image="item.parsedImage"
-                :category="item.category"
-                :start-date="item.parsedStartDate"
-                :end-date="item.parsedEndDate"
+                :category="item.parsedCategory"
                 :bylineOne="item.byline1"
                 :bylineTwo="item.byline2"
                 :title="item.title"
@@ -37,9 +35,11 @@
 <script>
 import _get from "lodash/get"
 import BlockHighlight from "@/lib-components/BlockHighlight"
+import formatDates from "@/mixins/formatEventDates"
 
 export default {
     name: "FlexibleHighlight",
+    mixins: [formatDates],
     components: {
         BlockHighlight,
     },
@@ -64,27 +64,54 @@ export default {
             return items
         },
         parsedItems() {
+            // Maps values based on content type and external or internal content
             return this.parsedList.map((obj) => {
-                return {
-                    ...obj,
-                    parsedImage:
-                        obj.typeHandle === "externalContent"
-                            ? _get(obj, "image[0]", {})
-                            : _get(obj, "heroImage[0].image[0]", {}),
-                    parsedLocation:
-                        obj.typeHandle != "externalContent"
-                            ? _get(obj, "associatedLocations", [])
-                            : obj.location != null
-                            ? [obj.location]
-                            : [],
-                    parsedStartDate:
-                        obj.typeHandle != "externalContent"
-                            ? _get(obj, "date[0].startDate", "")
-                            : "",
-                    parsedEndDate:
-                        obj.typeHandle != "externalContent"
-                            ? _get(obj, "date[0].endDate", "")
-                            : "",
+                // Article
+                if (
+                    obj.typeHandle != "externalContent" &&
+                    obj.contentType.includes("article")
+                ) {
+                    return {
+                        ...obj,
+                        parsedImage: _get(obj, "heroImage[0].image[0]", {}),
+                        parsedLocation: _get(obj, "associatedLocations", []),
+                        parsedCategory: _get(
+                            obj,
+                            "articleCategory[0].title",
+                            {}
+                        ),
+                        byline1: _get(obj, "articleByline1[0].title", ""),
+                        byline2:
+                            obj.articleByline2 != null
+                                ? this.formatDates(
+                                      obj.articleByline2,
+                                      obj.articleByline2
+                                  )
+                                : "",
+                    }
+                }
+
+                // Project
+                else if (
+                    obj.typeHandle != "externalContent" &&
+                    obj.contentType.includes("meapProject")
+                ) {
+                    return {
+                        ...obj,
+                        parsedImage: _get(obj, "heroImage[0].image[0]", {}),
+                        parsedLocation: _get(obj, "projectLocations", []),
+                        parsedCategory: _get(obj, "projectCategory", {}),
+                        byline1: _get(obj, "projectByline1[0].title", ""),
+                    }
+                } else if (obj.typeHandle === "externalContent") {
+                    return {
+                        ...obj,
+                        to: "",
+                        parsedImage: _get(obj, "image[0]", {}),
+                        parsedLocation:
+                            obj.location != null ? [obj.location] : [],
+                        parsedCategory: _get(obj, "category", {}),
+                    }
                 }
             })
         },
