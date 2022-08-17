@@ -1,3 +1,10 @@
+# [1.46.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.45.0...v1.46.0) (2022-08-17)
+
+
+### Features
+
+* Flexible Highlight update fields ([#117](https://github.com/UCLALibrary/ucla-library-website-components/issues/117)) ([d196ba3](https://github.com/UCLALibrary/ucla-library-website-components/commit/d196ba3c6e12d8beaf401fde82c5a18ed940ced3))
+
 # [1.45.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.44.1...v1.45.0) (2022-08-17)
 
 
