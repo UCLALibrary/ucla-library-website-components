@@ -114,6 +114,8 @@ export default {
                             obj.location != null ? [obj.location] : [],
                         parsedCategory: _get(obj, "category", {}),
                     }
+                } else {
+                    return { ...obj }
                 }
             })
         },
