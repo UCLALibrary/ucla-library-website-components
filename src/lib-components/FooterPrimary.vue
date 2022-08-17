@@ -83,14 +83,6 @@ export default {
         SvgArrowRight,
     },
     props: {
-        socialItems: {
-            type: Array,
-            default: () => [],
-        },
-        pressItems: {
-            type: Array,
-            default: () => [],
-        },
         form: {
             type: Boolean,
             default: true,

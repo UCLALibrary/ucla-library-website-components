@@ -1,3 +1,24 @@
+# [1.48.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.47.0...v1.48.0) (2022-08-17)
+
+
+### Features
+
+* refactor the footer elements ([#120](https://github.com/UCLALibrary/ucla-library-website-components/issues/120)) ([2ff8b08](https://github.com/UCLALibrary/ucla-library-website-components/commit/2ff8b084f7449f06a023afd3bb82fb8b7a4c8a66))
+
+# [1.47.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.46.1...v1.47.0) (2022-08-17)
+
+
+### Features
+
+* card with image updates to match craft structure ([#111](https://github.com/UCLALibrary/ucla-library-website-components/issues/111)) ([aa60926](https://github.com/UCLALibrary/ucla-library-website-components/commit/aa609268e77c8fce100260656bfbc0b4754bf8d0))
+
+## [1.46.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.46.0...v1.46.1) (2022-08-17)
+
+
+### Bug Fixes
+
+* update highlight component ([#119](https://github.com/UCLALibrary/ucla-library-website-components/issues/119)) ([a09ed78](https://github.com/UCLALibrary/ucla-library-website-components/commit/a09ed78d8194c186a144bf976aed799d87ac48fb))
+
 # [1.46.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.45.0...v1.46.0) (2022-08-17)
 
 
