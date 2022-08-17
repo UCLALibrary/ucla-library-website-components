@@ -11,11 +11,13 @@
 
 <script>
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
+import SmartLink from "@/lib-components/SmartLink.vue"
 
 export default {
     name: "BlockSponsor",
     components: {
         ResponsiveImage,
+        SmartLink,
     },
     props: {
         funderLogo: {

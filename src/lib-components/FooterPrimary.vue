@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer-primary">
+    <div class="footer-primary">
         <svg-molecule-half class="molecule-half-svg" aria-hidden="true" />
         <div :class="classes">
             <div class="footer-links">
@@ -19,7 +19,7 @@
                     </li>
                 </ul>
 
-                <ul class="press-links">
+                <ul class="press-links" v-if="parsedPressItems">
                     <li
                         v-for="item in parsedPressItems"
                         :key="item.id"
@@ -60,7 +60,7 @@
                 </div>
             </form>
         </div>
-    </footer>
+    </div>
 </template>
 
 <script>
