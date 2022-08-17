@@ -66,56 +66,54 @@ export default {
         parsedItems() {
             // Maps values based on content type and external or internal content
             return this.parsedList.map((obj) => {
-                switch (true) {
-                    // Article
-                    case obj.typeHandle != "externalContent" &&
-                        obj.contentType.includes("article"):
-                        return {
-                            ...obj,
-                            parsedImage: _get(obj, "heroImage[0].image[0]", {}),
-                            parsedLocation: _get(
-                                obj,
-                                "associatedLocations",
-                                []
-                            ),
-                            parsedCategory: _get(
-                                obj,
-                                "articleCategory[0].title",
-                                {}
-                            ),
-                            byline1: _get(obj, "articleByline1[0].title", ""),
-                            byline2:
-                                obj.articleByline2 != null
-                                    ? this.formatDates(
-                                          obj.articleByline2,
-                                          obj.articleByline2
-                                      )
-                                    : "",
-                        }
-                        break
+                // Article
+                if (
+                    obj.typeHandle != "externalContent" &&
+                    obj.contentType.includes("article")
+                ) {
+                    return {
+                        ...obj,
+                        parsedImage: _get(obj, "heroImage[0].image[0]", {}),
+                        parsedLocation: _get(obj, "associatedLocations", []),
+                        parsedCategory: _get(
+                            obj,
+                            "articleCategory[0].title",
+                            {}
+                        ),
+                        byline1: _get(obj, "articleByline1[0].title", ""),
+                        byline2:
+                            obj.articleByline2 != null
+                                ? this.formatDates(
+                                      obj.articleByline2,
+                                      obj.articleByline2
+                                  )
+                                : "",
+                    }
+                }
 
-                    // Project
-                    case obj.typeHandle != "externalContent" &&
-                        obj.contentType.includes("meapProject"):
-                        return {
-                            ...obj,
-                            parsedImage: _get(obj, "heroImage[0].image[0]", {}),
-                            parsedLocation: _get(obj, "projectLocations", []),
-                            parsedCategory: _get(obj, "projectCategory", {}),
-                            byline1: _get(obj, "projectByline1[0].title", ""),
-                        }
-                        break
+                // Project
+                if (
+                    obj.typeHandle != "externalContent" &&
+                    obj.contentType.includes("meapProject")
+                ) {
+                    return {
+                        ...obj,
+                        parsedImage: _get(obj, "heroImage[0].image[0]", {}),
+                        parsedLocation: _get(obj, "projectLocations", []),
+                        parsedCategory: _get(obj, "projectCategory", {}),
+                        byline1: _get(obj, "projectByline1[0].title", ""),
+                    }
+                }
 
-                    case obj.typeHandle === "externalContent":
-                        return {
-                            ...obj,
-                            to: "",
-                            parsedImage: _get(obj, "image[0]", {}),
-                            parsedLocation:
-                                obj.location != null ? [obj.location] : [],
-                            parsedCategory: _get(obj, "category", {}),
-                        }
-                        break
+                if (obj.typeHandle === "externalContent") {
+                    return {
+                        ...obj,
+                        to: "",
+                        parsedImage: _get(obj, "image[0]", {}),
+                        parsedLocation:
+                            obj.location != null ? [obj.location] : [],
+                        parsedCategory: _get(obj, "category", {}),
+                    }
                 }
             })
         },
