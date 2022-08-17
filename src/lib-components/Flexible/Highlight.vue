@@ -84,7 +84,6 @@ export default {
                                 {}
                             ),
                             byline1: _get(obj, "articleByline1[0].title", ""),
-                            // TO DO want to parse this date here?
                             byline2:
                                 obj.articleByline2 != null
                                     ? this.formatDates(
