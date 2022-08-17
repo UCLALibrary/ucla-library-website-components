@@ -1,18 +1,4 @@
-import Vue from "vue"
-import Vuex from "vuex"
-import FooterSponsor from "@/lib-components/FooterSponsor"
-import StoryRouter from "storybook-vue-router"
-
-Vue.use(Vuex)
-
-// Storybook default settings
-export default {
-    title: "FOOTER / Sponsor",
-    component: FooterSponsor,
-    decorators: [StoryRouter()],
-}
-
-const mockFooterSponsor = {
+const mock = {
     funders: [
         {
             id: "28231",
@@ -52,20 +38,11 @@ const mockFooterSponsor = {
     ],
 }
 
-// Variations of stories below
-export const Default = () => ({
-    store: new Vuex.Store({
-        state: {
-            footerSponsor: {
-                funders: mockFooterSponsor.funders,
-            },
-        },
-    }),
-    data() {
-        return { ...mockFooterSponsor }
+export default {
+    state: {
+        funders: mock.funders,
     },
-    components: { FooterSponsor },
-    template: `
-        <footer-sponsor />
-    `,
-})
+    getters: {},
+    mutations: {},
+    actions: {},
+}
