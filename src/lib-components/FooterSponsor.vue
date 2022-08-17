@@ -1,7 +1,7 @@
 <template>
     <div class="footer-sponsor">
         <block-sponsor
-            v-for="(item, index) in funders"
+            v-for="(item, index) in parsedFunders"
             :key="index"
             class="sponsor-item"
             :funderLogo="item.funderLogo"
@@ -19,15 +19,20 @@ export default {
     components: {
         BlockSponsor,
     },
-    props: {
-        funders: {
-            type: Array,
-            default: () => [],
-        },
-    },
     computed: {
         parsedFunders() {
-            return this.funders
+            console.log(
+                "PUPPIES!! " + JSON.stringify(this.$store.state.footerSponsor)
+            )
+            if (Object.keys(this.$store.state.footerSponsor).length !== 0) {
+                return this.$store.state.footerSponsor.funders
+            } else {
+                console.log(
+                    "Vuex state data for footer sock not present if navigation is not setup for the website: is it client side:" +
+                        process.client
+                )
+            }
+            return []
         },
     },
 }

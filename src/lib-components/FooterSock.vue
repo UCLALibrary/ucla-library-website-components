@@ -31,12 +31,6 @@ export default {
     components: {
         SmartLink,
     },
-    props: {
-        // sockItems: {
-        //     type: Array,
-        //     default: () => [],
-        // },
-    },
     computed: {
         year() {
             const current_year = new Date().getFullYear()

@@ -262,11 +262,7 @@
         <hr />
 
         <h2>FooterPrimary Components</h2>
-        <footer-primary
-            :social-items="mockFooterPrimary.socialItems"
-            :press-items="mockFooterPrimary.pressItems"
-            :form="false"
-        />
+        <footer-primary :form="false" />
         <hr />
 
         <h2>FooterSock Components</h2>
@@ -443,15 +439,11 @@
         <hr />
 
         <h2>FooterSponsor MEAP</h2>
-        <footer-sponsor :funders="mockFooterSponsor.funders" />
+        <footer-sponsor />
         <hr />
 
         <h2>FooterMain MEAP</h2>
-        <footer-main
-            :funders="mockFooterSponsor.funders"
-            :social-items="mockFooterPrimary.socialItems"
-            :press-items="mockFooterPrimary.pressItems"
-        />
+        <footer-main />
         <hr />
 
         <h1>FlexibleBlock Components</h1>
