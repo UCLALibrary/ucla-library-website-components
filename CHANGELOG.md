@@ -1,3 +1,10 @@
+# [1.45.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.44.1...v1.45.0) (2022-08-17)
+
+
+### Features
+
+* add footerMain ([#116](https://github.com/UCLALibrary/ucla-library-website-components/issues/116)) ([0073cbc](https://github.com/UCLALibrary/ucla-library-website-components/commit/0073cbc398615744dd6e0f0049a0777627d29a28))
+
 ## [1.44.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.44.0...v1.44.1) (2022-08-15)
 
 
