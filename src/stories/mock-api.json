@@ -7,7 +7,8 @@
         "title": "Lorem ipsum",
         "caption": "Lorem ipsum",
         "height": 1080,
-        "width": 1920
+        "width": 1920,
+        "focalPoint":[0.5,0.5]
     },
     "images": [
         {
