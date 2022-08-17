@@ -314,7 +314,7 @@ export default {
         font-size: 20px;
         line-height: 30px;
         letter-spacing: 1%;
-        color: var(--color-black);
+        color: var(--color-secondary-grey-05);
         margin-top: 10px;
         .svg-online {
             margin-bottom: -5px;
@@ -331,7 +331,7 @@ export default {
         font-size: 20px;
         line-height: 30px;
         letter-spacing: 1%;
-        color: var(--color-black);
+        color: var(--color-secondary-grey-05);
         margin-top: 10px;
     }
     .schedule-item {

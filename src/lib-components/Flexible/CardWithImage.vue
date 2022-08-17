@@ -1,25 +1,46 @@
 <template>
     <div class="card-with-image" v-if="block.cardWithImage">
-        <block-highlight
-            v-for="item in parsedContent"
-            :key="item.contentLink[0].to"
-            :to="item.contentLink[0].to"
-            :image="item.image[0]"
-            :category="item.contentLink[0].category"
-            :title="item.contentLink[0].title"
-            :text="item.text"
-            :is-vertical="true"
-            :image-aspect-ratio="60"
-            class="block"
-        />
+        <div class="section-header">
+            <h2
+                v-if="block.titleGeneral"
+                class="section-title"
+                v-html="block.titleGeneral"
+            />
+            <div
+                v-if="block.summary"
+                class="section-summary"
+                v-html="block.summary"
+            />
+        </div>
+
+        <div class="block-group">
+            <block-highlight
+                v-for="(item, index) in parsedItems"
+                :key="`FlexibleCardWithImage${index}`"
+                :to="item.to"
+                :image="item.parsedImage"
+                :category="item.parsedCategory"
+                :bylineOne="item.byline1"
+                :bylineTwo="item.byline2"
+                :title="item.title"
+                :text="item.text"
+                :locations="item.parsedLocation"
+                :image-aspect-ratio="60"
+                :is-vertical="true"
+                class="block"
+            />
+        </div>
     </div>
 </template>
 
 <script>
+import _get from "lodash/get"
+import formatDates from "@/mixins/formatEventDates"
 import BlockHighlight from "@/lib-components/BlockHighlight.vue"
 
 export default {
     name: "FlexibleCardWithImage",
+    mixins: [formatDates],
     components: {
         BlockHighlight,
     },
@@ -30,21 +51,71 @@ export default {
         },
     },
     computed: {
-        // Determines whether content link or new content is used for text
-        parsedContent() {
-            //TO DO remove this once the gql is fixed for cardwith image
-            if (
-                this.block.cardWithImage &&
-                this.block.cardWithImage[0].contentLink
-            )
-                return this.block.cardWithImage.map((obj) => {
-                    if (!obj.contentLink) return
+        parsedList() {
+            let items = []
+            for (let item in this.block.cardWithImage) {
+                if (
+                    this.block.cardWithImage[item].typeHandle ===
+                    "internalContent"
+                ) {
+                    items.push(this.block.cardWithImage[item].contentLink[0])
+                } else {
+                    items.push(this.block.cardWithImage[item])
+                }
+            }
+            return items
+        },
+        parsedItems() {
+            // Maps values based on content type and external or internal content
+            return this.parsedList.map((obj) => {
+                // Article
+                if (
+                    obj.typeHandle != "externalContent" &&
+                    obj.contentType.includes("article")
+                ) {
                     return {
                         ...obj,
+                        parsedImage: _get(obj, "heroImage[0].image[0]", {}),
+                        parsedLocation: _get(obj, "associatedLocations", []),
+                        parsedCategory: _get(
+                            obj,
+                            "articleCategory[0].title",
+                            {}
+                        ),
+                        byline1: _get(obj, "articleByline1[0].title", ""),
+                        byline2:
+                            obj.articleByline2 != null
+                                ? this.formatDates(
+                                      obj.articleByline2,
+                                      obj.articleByline2
+                                  )
+                                : "",
                     }
-                })
+                }
 
-            return []
+                // Project
+                else if (
+                    obj.typeHandle != "externalContent" &&
+                    obj.contentType.includes("meapProject")
+                ) {
+                    return {
+                        ...obj,
+                        parsedImage: _get(obj, "heroImage[0].image[0]", {}),
+                        parsedLocation: _get(obj, "projectLocations", []),
+                        parsedCategory: _get(obj, "projectCategory", {}),
+                        byline1: _get(obj, "projectByline1[0].title", ""),
+                    }
+                } else if (obj.typeHandle === "externalContent") {
+                    return {
+                        ...obj,
+                        to: "",
+                        parsedImage: _get(obj, "image[0]", {}),
+                        parsedLocation:
+                            obj.location != null ? [obj.location] : [],
+                        parsedCategory: _get(obj, "category", {}),
+                    }
+                }
+            })
         },
     },
 }
@@ -57,13 +128,29 @@ export default {
     background-color: var(--color-white);
     margin: 0 auto;
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: flex-start;
-    align-items: flex-start;
+    .section-header {
+        margin-bottom: var(--space-xl);
+    }
+    .section-title {
+        @include step-4;
+        color: var(--color-primary-blue-03);
+    }
+    .section-summary {
+        @include step-0;
+        margin-top: var(--space-m);
 
+        ::v-deep p {
+            margin: 0;
+        }
+    }
+    .block-group {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: flex-start;
+    }
     .block {
         margin: 0 8px 50px 8px;
     }

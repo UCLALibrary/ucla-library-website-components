@@ -8,131 +8,142 @@ export default {
 }
 
 const mock = {
-    id: "3968",
-    sectionSummary: "<p>My favorite sea is Arabian Sea!</p>",
-    sectionTitle: "Sea animals are cute",
+    id: "28284",
     typeHandle: "cardWithImage",
+    titleGeneral: "Card with image",
+    summary: "<p>card with image</p>",
     cardWithImage: [
         {
-            id: "3969",
-            image: [
-                {
-                    id: "2536",
-                    src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/sea-turtle.jpg",
-                    height: 1344,
-                    width: 2560,
-                    srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/sea-turtle.jpg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/sea-turtle.jpg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/sea-turtle.jpg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/sea-turtle.jpg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/sea-turtle.jpg 2560w",
-                    alt: "Hollywood",
-                    focalPoint: [0.5, 0.5],
-                },
-            ],
-            imageAltText: "hollywood",
+            id: "28285",
+            typeHandle: "internalContent",
             contentLink: [
                 {
-                    id: "1686",
-                    url: "https://test-craft.library.ucla.edu/visit/events-exhibits/a-new-exhibit",
-                    uri: "visit/events-exhibits/a-new-exhibit",
-                    title: "a new exhibit",
-                    date: [
+                    id: "20628",
+                    contentType: "article",
+                    to: "about/news/la-niña",
+                    title: "La Niña",
+                    text: "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
+                    articleCategory: [
                         {
-                            startDate: "2021-09-08T07:00:00+00:00",
-                            endDate: null,
+                            title: "Featured",
                         },
                     ],
+                    articleByline1: [
+                        {
+                            id: "11827",
+                            to: "about/staff/brigid-abreu",
+                            title: "Brigid Abreu",
+                        },
+                        {
+                            id: "11910",
+                            to: "about/staff/sylvia-page",
+                            title: "Sylvia Page",
+                        },
+                    ],
+                    articleByline2: "2022-06-21T12:39:00-07:00",
                     associatedLocations: [
                         {
-                            id: "523",
-                            title: "Powell Library",
-                            to: "visit/locations/powell-library",
+                            id: "11709",
+                            title: "William Andrews Clark Memorial Library",
+                            to: "visit/locations/william-andrews-clark-memorial-library",
+                        },
+                        {
+                            id: "11497",
+                            title: "Richard C. Rudolph East Asian Library",
+                            to: "visit/locations/east-asian-library",
+                        },
+                    ],
+                    heroImage: [
+                        {
+                            id: "20639",
+                            image: [
+                                {
+                                    id: "20637",
+                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/LaNina-Jet-Wintertime-Pattern.jpg",
+                                    height: 1997,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 2560w",
+                                    alt: "La Nina Jet Wintertime Pattern",
+                                    focalPoint: [0.5, 0.5],
+                                    altText: "La Niña",
+                                },
+                            ],
                         },
                     ],
                 },
             ],
-            shortDescription: null,
         },
         {
-            id: "3970",
-            image: [
-                {
-                    id: "2338",
-                    src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/wedding-dress-jean-paul-gaultier_2022-05-31-170317_vyzh.jpg",
-                    height: 2113,
-                    width: 2560,
-                    srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/wedding-dress-jean-paul-gaultier_2022-05-31-170317_vyzh.jpg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/wedding-dress-jean-paul-gaultier_2022-05-31-170317_vyzh.jpg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/wedding-dress-jean-paul-gaultier_2022-05-31-170317_vyzh.jpg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/wedding-dress-jean-paul-gaultier_2022-05-31-170317_vyzh.jpg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/wedding-dress-jean-paul-gaultier_2022-05-31-170317_vyzh.jpg 2560w",
-                    alt: "Long llama",
-                    focalPoint: [0.5, 0.5],
-                },
-            ],
-            imageAltText: "llama",
+            id: "28286",
+            typeHandle: "internalContent",
             contentLink: [
                 {
-                    id: "1542",
-                    url: "https://test-craft.library.ucla.edu/visit/events-exhibits/exhibit-to-test-card-with-image-content-link",
-                    uri: "visit/events-exhibits/exhibit-to-test-card-with-image-content-link",
-                    title: "Exhibit to test card with image content link",
-                    date: [
+                    id: "16484",
+                    contentType: "article",
+                    to: "about/news/this-is-the-newest-article",
+                    title: "This is the newest article",
+                    text: '<p>Add "MEAP" to show article in the MEAP website</p>',
+                    articleCategory: [
                         {
-                            startDate: "2021-09-03T08:00:00+00:00",
-                            endDate: null,
+                            title: "Featured",
                         },
                     ],
+                    articleByline1: [
+                        {
+                            id: "3522",
+                            to: "about/staff/dianne",
+                            title: "D. Weinthal",
+                        },
+                    ],
+                    articleByline2: "2022-05-19T13:59:00-07:00",
                     associatedLocations: [
                         {
-                            id: "523",
-                            title: "Powell Library",
-                            to: "visit/locations/powell-library",
+                            id: "4695",
+                            title: "Louise M. Darling Biomedical Library",
+                            to: "visit/locations/biomed",
                         },
+                    ],
+                    heroImage: [
                         {
-                            id: "801",
-                            title: "YRL",
-                            to: "visit/locations/yrl",
-                        },
-                        {
-                            id: "3062",
-                            title: "Online",
-                            to: "visit/locations/online",
+                            id: "16537",
+                            image: [
+                                {
+                                    id: "2442",
+                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/shortbread-cookies.jpg",
+                                    height: 1421,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/shortbread-cookies.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/shortbread-cookies.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/shortbread-cookies.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/shortbread-cookies.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/shortbread-cookies.jpg 2560w",
+                                    alt: "Shortbread cookies",
+                                    focalPoint: [0.5, 0.5],
+                                    altText: null,
+                                },
+                            ],
                         },
                     ],
                 },
             ],
-            shortDescription: null,
         },
         {
-            id: "3971",
+            id: "28287",
+            typeHandle: "externalContent",
+            title: null,
             image: [
                 {
-                    id: "314",
-                    src: "https://test-craft.library.ucla.edu/assets/images/_fullscreen/old-turtle.jpg",
-                    height: 1768,
+                    id: "28251",
+                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/etch-a-sketch.jpeg",
+                    height: 2032,
                     width: 2560,
-                    srcset: "https://test-craft.library.ucla.edu/assets/images/_375xAUTO_crop_center-center_none/old-turtle.jpg 375w, https://test-craft.library.ucla.edu/assets/images/_960xAUTO_crop_center-center_none/old-turtle.jpg 960w, https://test-craft.library.ucla.edu/assets/images/_1280xAUTO_crop_center-center_none/old-turtle.jpg 1280w, https://test-craft.library.ucla.edu/assets/images/_1920xAUTO_crop_center-center_none/old-turtle.jpg 1920w, https://test-craft.library.ucla.edu/assets/images/_2560xAUTO_crop_center-center_none/old-turtle.jpg 2560w",
-                    alt: "Galactic Core Spitzer Schmidt 960",
+                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/etch-a-sketch.jpeg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/etch-a-sketch.jpeg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/etch-a-sketch.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/etch-a-sketch.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/etch-a-sketch.jpeg 2560w",
+                    alt: "Etch a sketch",
                     focalPoint: [0.5, 0.5],
+                    altText: null,
                 },
             ],
-            imageAltText: "galactic",
-            contentLink: [
-                {
-                    id: "1686",
-                    url: "https://test-craft.library.ucla.edu/visit/events-exhibits/a-new-exhibit",
-                    uri: "visit/events-exhibits/a-new-exhibit",
-                    title: "a new exhibit",
-                    date: [
-                        {
-                            startDate: "2021-09-08T07:00:00+00:00",
-                            endDate: null,
-                        },
-                    ],
-                    associatedLocations: [
-                        {
-                            id: "523",
-                            title: "Powell Library",
-                            to: "visit/locations/powell-library",
-                        },
-                    ],
-                },
-            ],
-            shortDescription: "Here is a short description",
+            byline1: "By External Content",
+            byline2: null,
+            category: "About",
+            location: "France",
+            text: "<p>About text found here.</p>",
         },
     ],
 }
