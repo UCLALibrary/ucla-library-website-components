@@ -1,3 +1,10 @@
+## [1.48.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.3...v1.48.4) (2022-08-18)
+
+
+### Bug Fixes
+
+* pass wayfinder color from banner-featured to heading-arrow ([#124](https://github.com/UCLALibrary/ucla-library-website-components/issues/124)) ([07c5c1e](https://github.com/UCLALibrary/ucla-library-website-components/commit/07c5c1ef8826323a141487381cac5123db56ad7f))
+
 ## [1.48.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.2...v1.48.3) (2022-08-18)
 
 
