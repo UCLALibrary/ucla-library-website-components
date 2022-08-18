@@ -1,6 +1,6 @@
 <template>
     <div class="banner-image" @click="$emit('toggleThumbnails')">
-        <responsive-image :image="image" :aspect-ratio="60">
+        <responsive-image :image="image" :aspect-ratio="60" object-fit="cover">
             <div v-if="nItems > 1 && !expanded">
                 <div class="gradient" />
                 <svg-molecule-image-stack class="molecule-image-stack" />
