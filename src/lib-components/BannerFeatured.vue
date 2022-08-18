@@ -629,7 +629,6 @@ export default {
         }
         .category-mobile {
             display: block;
-            // padding-right: calc(40px + var(--unit-gutter));
             padding-left: var(--unit-gutter);
             height: 36px;
             padding-top: 7px;
@@ -647,7 +646,6 @@ export default {
             margin-top: 0;
             padding-right: var(--unit-gutter);
             padding-left: var(--unit-gutter);
-            // position: static;
         }
         .category-desktop {
             display: none;
@@ -674,7 +672,6 @@ export default {
                 margin-top: 0;
                 padding-left: var(--unit-gutter);
                 padding-right: var(--unit-gutter);
-                // position: static;
             }
         }
     }

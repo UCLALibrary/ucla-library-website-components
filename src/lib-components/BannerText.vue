@@ -484,7 +484,6 @@ export default {
         }
         .banner-text-content-container {
             padding: 32px;
-            // padding-right: 96px;
         }
         .banner-text-content-container .content {
             max-width: 100%;
