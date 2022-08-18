@@ -65,6 +65,7 @@ export default {
     text-decoration: none;
 
     // themes
+    --color-theme: var(--color-primary-blue-03);
     &.color-visit {
         --color-theme: var(--color-visit-fushia-03);
     }
