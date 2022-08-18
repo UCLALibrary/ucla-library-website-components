@@ -345,21 +345,21 @@ export default {
     max-width: $container-xl-full-width + px;
 
     // Themes
-    --color-theme: var(--color-primary-blue-03);
+    --banner-color-theme: var(--color-primary-blue-03);
     &.color-visit {
-        --color-theme: var(--color-visit-fushia-03);
+        --banner-color-theme: var(--color-visit-fushia-03);
     }
     &.color-help {
-        --color-theme: var(--color-help-green-03);
+        --banner-color-theme: var(--color-help-green-03);
     }
     &.color-about {
-        --color-theme: var(--color-about-purple-03);
+        --banner-color-theme: var(--color-about-purple-03);
     }
 
     .hatch,
     .heading-arrow {
         ::v-deep .svg__stroke--wayfinder {
-            stroke: var(--color-theme);
+            stroke: var(--banner-color-theme);
         }
     }
 
