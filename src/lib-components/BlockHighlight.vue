@@ -224,7 +224,7 @@ export default {
 
 <style lang="scss" scoped>
 .block-highlight {
-    max-width: calc((100% - 32px) / 2);
+    max-width: calc((100% - 32px) / 3);
     background-color: var(--color-white);
     font-family: var(--font-primary);
     position: relative;
