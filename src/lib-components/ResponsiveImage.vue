@@ -8,6 +8,7 @@
             :srcset="image.srcset || srcset"
             :sizes="image.sizes || sizes"
             :object-fit="objectFit"
+            :style="parsedFocalPoint"
             class="media"
             @load="onLoad"
             @error="onError"
@@ -74,6 +75,16 @@ export default {
         }
     },
     computed: {
+        parsedFocalPoint() {
+            let objectPosition = ""
+            if (this.image.focalPoint && this.image.focalPoint.length > 0) {
+                let points = this.image.focalPoint.map((obj) => {
+                    return obj * 100 + "%"
+                })
+                objectPosition = `object-position:${points.join(" ")}`
+            }
+            return objectPosition
+        },
         parsedAspectRatio() {
             const height = this.image.height || this.height
             const width = this.image.width || this.width

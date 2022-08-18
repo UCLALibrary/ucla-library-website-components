@@ -1,3 +1,10 @@
+## [1.48.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.0...v1.48.1) (2022-08-18)
+
+
+### Bug Fixes
+
+* Add focal point to responsive image ([#122](https://github.com/UCLALibrary/ucla-library-website-components/issues/122)) ([7506555](https://github.com/UCLALibrary/ucla-library-website-components/commit/7506555cece29672568a6a25c9a30292395fb881))
+
 # [1.48.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.47.0...v1.48.0) (2022-08-17)
 
 
