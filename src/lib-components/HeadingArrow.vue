@@ -1,6 +1,6 @@
 <template>
     <component :is="componentType" :to="to" :class="classes">
-        <svg-heading-arrow class="svg" />
+        <svg-heading-arrow class="svg" aria-hidden="true" />
         <h2 :class="textClasses">
             {{ text }}
         </h2>
@@ -81,7 +81,7 @@ export default {
     }
     .heading {
         margin-left: 30px;
-        font-size: 44px;
+        @include step-3;
         line-height: 100%;
         text-transform: capitalize;
 
@@ -89,18 +89,19 @@ export default {
             color: var(--color-white);
         }
         &.color-div {
-            color: var(--color-primary-blue-03);
+            color: var(--color-white);
         }
     }
 
-    @media #{$small} {
+    @media #{$medium} {
         .svg {
             height: 40px;
+            width: auto;
             margin-right: 0;
         }
         .heading {
             font-size: 28px;
-            margin-left: -10px;
+            margin-left: 8px;
         }
     }
 }

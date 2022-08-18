@@ -3,7 +3,7 @@
         <div class="slot">
             <slot>
                 <div v-if="breadcrumb" class="breadcrumb">
-                    <svg-heading-vector class="heading-line" />
+                    <svg-heading-vector class="heading-line" aria-hidden="true" />
                     <h3 class="text">
                         {{ breadcrumb }}
                     </h3>
@@ -19,7 +19,7 @@
         >
             <div v-if="image" class="gradient" />
 
-            <svg-molecule-half-faceted class="molecule" />
+            <svg-molecule-half-faceted class="molecule" aria-hidden="true" />
         </component>
 
         <div class="hatch-box">
@@ -31,7 +31,7 @@
                 />
             </div>
             <div class="hatch">
-                <svg-hatch-right class="svg" />
+                <svg-hatch-right class="svg" aria-hidden="true" />
             </div>
         </div>
 
@@ -46,18 +46,15 @@
                     :key="`staff-${index}`"
                     class="byline-item"
                 >
-                    <icon-with-link
-                        :text="item.title"
-                        icon-name="svg-icon-person"
+                    <smart-link
                         :to="`/${item.to}`"
-                    />
+                    > {{ item.title }} </smart-link>
                 </div>
-                <br />
 
+                <!-- TODO: Convert date format to Month DD, YYYY -->
                 <div class="byline-item">
                     {{ byline["articlePostDate"] }}
                 </div>
-                <br />
             </div>
             <div class="byline" v-if="bylineProjectExists">
                 <div
@@ -112,8 +109,10 @@
             </div>
 
             <div v-if="locationExternalExists" class="location-group">
-                <component :is="`svg-icon-location`" class="location-svg" />
-                <span class="location"> {{ parsedLocationsExternal }} </span>
+                <icon-with-link
+                    :text="parsedLocationsExternal"
+                    icon-name="svg-icon-location"
+                />
             </div>
             <div
                 v-if="
@@ -123,22 +122,22 @@
                 "
                 class="location-group"
             >
-                <smart-link
+                <icon-with-link
                     v-for="location in parsedLocations"
                     :key="`location-${location.id}`"
-                    :to="location.to"
+                    :text="location.title"
+                    :icon-name="location.svg"
+                    :to="`/${location.to}`"
                     :class="location.class"
-                >
-                    <component :is="location.svg" class="location-svg" />
-                    <span class="location" v-html="location.title" />
-                </smart-link>
+                />
             </div>
             <button-link
                 v-if="to"
                 :label="prompt"
                 :to="to"
-                aria-labelledby="banner-featured"
+                aria-labelledby="banner-featured-button banner-featured"
                 class="button"
+                id="banner-featured-button"
             />
         </div>
     </div>
@@ -324,7 +323,7 @@ export default {
                     ...obj,
                     svg:
                         obj.title == "Online"
-                            ? "svg-icon-online"
+                            ? "svg-icon-virtual"
                             : "svg-icon-location",
                     class:
                         obj.title == "Online"
@@ -356,7 +355,9 @@ export default {
     &.color-about {
         --color-theme: var(--color-about-purple-03);
     }
-    .hatch {
+
+    .hatch,
+    .heading-arrow {
         ::v-deep .svg__stroke--wayfinder {
             stroke: var(--color-theme);
         }
@@ -365,8 +366,8 @@ export default {
     .slot {
         position: absolute;
         z-index: 20;
-        padding-left: 50px;
-        margin-top: 40px;
+        padding-left: 64px;
+        margin-top: 64px;
     }
     .breadcrumb {
         color: var(--color-white);
@@ -380,13 +381,22 @@ export default {
         .heading-line {
             flex-shrink: 0;
             padding-right: 0;
+            height: 96px;
         }
-        .text {
+        ::v-deep .text {
             border: 1px solid var(--color-white);
-            padding: 15px 20px 13px 22px;
+            padding: 14px 24px;
             margin-left: -10px;
             clip-path: polygon(17px 0, 100% 0, 100% 100%, 1px 100%);
             line-height: 1;
+            font-weight: #{$font-weight-regular};
+            font-size: 26px;
+        }
+    }
+    ::v-deep .responsive-image {
+        max-height: 728px;
+        .media {
+            object-fit: cover;
         }
     }
     //TODO update with variables
@@ -418,20 +428,23 @@ export default {
         height: 70%;
         width: auto;
     }
-
+    --hatch-height: 96px;
+    --hatch-width: 35%;
+    --hatch-density: 818px;
     .hatch-box {
         width: 100%;
         position: relative;
         z-index: 30;
-        margin-top: -95px;
         overflow: hidden;
+
+        margin-top: calc(-1 * var(--hatch-height));
     }
     .clipped-box {
-        width: 65%;
+        max-width: calc(100% - var(--hatch-width));
         background-color: var(--color-white);
         position: relative;
         z-index: 20;
-        height: 100px;
+        height: calc(var(--hatch-height) + 2px);
 
         clip-path: polygon(
             0 0,
@@ -442,99 +455,19 @@ export default {
         );
     }
     .hatch {
-        height: 95px;
+        height: var(--hatch-height);
         overflow: hidden;
         z-index: 10;
         position: absolute;
         top: 0;
         left: calc(65% - 99px);
-    }
-    .category-mobile {
-        display: none;
-    }
 
-    .meta {
-        margin: -60px auto 0;
-        position: relative;
-        z-index: 40;
-        padding-right: clamp(360px, 35%, 600px);
-        max-width: $container-l-main + px;
-
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: flex-end;
-    }
-
-    .category {
-        @include overline;
-        margin-bottom: $component-06 + px;
-    }
-    .title {
-        line-height: 44px;
-        margin-bottom: 5px;
-        color: var(--color-primary-blue-03);
-        @include step-2;
-    }
-    .schedule {
-        font-size: 20px;
-        line-height: 24px;
-        text-align: left;
-        color: var(--color-secondary-grey-04);
-        margin: 10px 0 8px 0;
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    .schedule-item {
-        &:after {
-            content: "";
-            border-left: 1px solid var(--color-secondary-grey-02);
-            margin: 0 10px;
-            height: 18px;
-            display: inline-block;
-            vertical-align: middle;
+        .svg {
             position: relative;
+            bottom: 8px;
+            width: var(--hatch-density);
+            height: auto;
         }
-        &:last-child {
-            margin-right: 0;
-        }
-        &:last-child:after {
-            display: none;
-        }
-    }
-    .location-group {
-        font-family: var(--font-secondary);
-        font-size: 20px;
-        line-height: 1;
-    }
-    .location-link {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: center;
-        align-items: center;
-
-        color: var(--color-primary-blue-03);
-    }
-    .location-online {
-        color: var(--color-secondary-grey-05);
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: center;
-        align-items: center;
-    }
-    .location {
-        padding: 0 0 5px 5px;
-    }
-    .button {
-        height: 50px;
-        margin-top: 16px;
     }
 
     // Variant
@@ -554,8 +487,8 @@ export default {
             }
         }
         .meta {
-            padding-left: clamp(368px, 35%, 600px);
-            padding-right: $whitespace-s-sides + px;
+            padding-left: 376px;
+            padding-right: 0;
             margin-left: auto;
 
             align-content: flex-start;
@@ -563,46 +496,142 @@ export default {
         }
     }
 
+
+    .category-mobile {
+        display: none;
+    }
+
+    .meta {
+        margin: -60px auto 0;
+        position: relative;
+        z-index: 40;
+        padding-right: clamp(360px, 35%, 400px);
+        max-width: $container-l-main + px;
+
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: flex-end;
+    }
+
+    .category {
+        @include overline;
+        color: var(--color-primary-blue-05);
+        margin-bottom: var(--space-m);
+    }
+    .title {
+        @include step-2;
+        color: var(--color-primary-blue-03);
+        margin-bottom: var(--space-m);
+    }
+    .byline,
+    .description,
+    .schedule {
+        @include step-0;
+        margin-bottom: var(--space-m);
+    }
+    .byline {
+        color: var(--color-secondary-grey-04);
+    }
+    .description {
+        color: var(--color-black);
+    }
+    .schedule {
+        color: var(--color-secondary-grey-04);
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .schedule-item {
+        &:after {
+            content: "|";
+            color: var(--color-secondary-grey-02);
+            margin: 0 10px;
+            height: 18px;
+            display: inline-block;
+            position: relative;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        &:last-child:after {
+            display: none;
+        }
+    }
+    .location-group {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: var(--space-m);
+    }
+
     // Breakpoints
 
     @media #{$medium} {
+        --hatch-height: 74px;
+        --hatch-density: 632px;
+        .slot {
+            padding-left: 32px;
+            margin-top: 32px;
+        }
+        .breadcrumb .text {
+            font-size: 20px;
+        }
+        .breadcrumb .heading-line {
+            height: 80px;
+        }
+        .hatch {
+            left: calc(65% - 44px);
+        }
         .meta {
-            padding-left: $whitespace-m-sides + px;
+            padding-left: var(--unit-gutter);
+            padding-right: clamp(360px, 42%, 400px);
             margin-left: 0;
+        }
+        &.hatch-left .meta {
+            padding-left: clamp(340px, 42%, 400px);
+            padding-right: var(--unit-gutter);
+        }
+        .schedule {
+            flex-direction: column;
+        }
+
+        .schedule-item:after {
+            display: none;
         }
     }
 
     @media #{$small} {
+        --hatch-height: 36px;
+        --hatch-density: 338px;
+        .media {
+            height: 375px;
+        }
         .slot {
             font-size: 28px;
-            padding-left: 20px;
+            padding-left: 16px;
             margin-top: 16px;
+        }
+        .breadcrumb {
+            font-size: 20px;
+            .text {
+                padding: 12px 16px;
+            }
         }
         .molecule {
             margin-bottom: -45px;
             height: 215px;
             width: auto;
         }
-        .hatch-box {
-            margin-top: -40px;
-        }
-        .clipped-box {
-            height: 40px;
-        }
         .hatch {
             left: calc(65% - 44px);
-            height: 40px;
-
-            .svg {
-                width: 70vw;
-                height: auto;
-            }
         }
         .category-mobile {
             display: block;
-            padding-right: calc(40px + var(--unit-gutter));
+            // padding-right: calc(40px + var(--unit-gutter));
             padding-left: var(--unit-gutter);
-            height: 40px;
+            height: 36px;
             padding-top: 7px;
 
             display: flex;
@@ -617,19 +646,14 @@ export default {
             width: 100%;
             margin-top: 0;
             padding-right: var(--unit-gutter);
-            padding-left: $whitespace-s-sides + px;
-            position: static;
+            padding-left: var(--unit-gutter);
+            // position: static;
         }
         .category-desktop {
             display: none;
         }
         .title {
-            margin-top: 40px;
-        }
-        .button {
-            width: 100%;
-            height: 40px;
-            margin: 40px 0 0 0;
+            margin-top: 24px;
         }
 
         // Variant
@@ -650,7 +674,7 @@ export default {
                 margin-top: 0;
                 padding-left: var(--unit-gutter);
                 padding-right: var(--unit-gutter);
-                position: static;
+                // position: static;
             }
         }
     }

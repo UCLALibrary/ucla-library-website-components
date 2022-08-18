@@ -1,7 +1,7 @@
 <template>
     <div :class="classes">
         <div v-if="category" class="category">
-            <svg-heading-vector class="heading-line" />
+            <svg-heading-vector class="heading-line" aria-hidden="true" />
             <div class="text" v-html="category" />
         </div>
 
@@ -13,95 +13,85 @@
         >
             <div v-if="image" :class="gradientClasses" />
 
-            <svg-molecule-half-faceted class="molecule" />
+            <svg-molecule-half-faceted class="molecule" aria-hidden="true" />
         </component>
 
         <div class="hatch-box">
             <div class="clipped-box" />
             <div class="hatch">
-                <svg-hatch-right class="svg" />
+                <svg-hatch-right class="svg" aria-hidden="true" />
             </div>
         </div>
 
         <div class="meta">
             <h1 class="title" v-html="title" />
-            <rich-text v-if="text" class="snippet" :rich-text-content="text" />
-            <div class="byline" v-if="byline.length">
-                <div
-                    v-for="(item, index) in byline"
-                    :key="index"
-                    class="byline-item"
-                >
-                    {{ item }}
+            <div class="meta-text">
+                <rich-text v-if="text" class="snippet" :rich-text-content="text" />
+                <div class="byline" v-if="byline.length">
+                    <div
+                        v-for="(item, index) in byline"
+                        :key="index"
+                        class="byline-item"
+                    >
+                        {{ item }}
+                    </div>
+                    <time
+                        v-if="dateCreated"
+                        class="date-created"
+                        v-html="parsedDateCreated"
+                    />
+                    <time
+                        v-if="startDate"
+                        class="schedule-item"
+                        v-html="parsedDate"
+                    />
+                    <time
+                        v-if="startDate"
+                        class="schedule-item"
+                        v-html="parsedTime"
+                    />
                 </div>
-                <time
-                    v-if="dateCreated"
-                    class="date-created"
-                    v-html="parsedDateCreated"
-                />
-                <time
-                    v-if="startDate"
-                    class="schedule-item"
-                    v-html="parsedDate"
-                />
-                <time
-                    v-if="startDate"
-                    class="schedule-item"
-                    v-html="parsedTime"
-                />
-            </div>
-            <div v-if="email" class="contact-info">
-                <component :is="`svg-icon-email`" class="contact-svg" />
-                <smart-link
-                    :to="`mailto:${email}`"
-                    target="_blank"
-                    class="link-icon"
-                >
-                    {{ email }}
-                </smart-link>
-            </div>
-            <div v-if="phone" class="contact-info">
-                <component :is="`svg-icon-phone`" class="contact-svg" />
-
-                <smart-link
-                    :to="`tel:${phone}`"
-                    target="_blank"
-                    class="link-icon"
-                >
-                    {{ phone }}
-                </smart-link>
-            </div>
-            <div v-if="staffDirectoryLink" class="contact-info">
-                <component :is="`svg-icon-person`" class="contact-svg" />
-                <smart-link
-                    :to="staffDirectoryLink"
-                    class="link-icon"
-                    v-html="`View staff directory`"
-                />
-            </div>
-            <div v-if="addressLink" class="contact-info">
-                <component :is="`svg-icon-location`" class="contact-svg" />
-                <smart-link :to="addressLink" target="_blank" class="link-icon">
-                    {{ address }}
-                </smart-link>
-            </div>
-            <div v-if="locations.length" class="location-group">
-                <smart-link
-                    v-for="location in parsedLocations"
-                    :key="`location-${location.id}`"
-                    :to="location.to"
-                    class="location-link"
-                >
-                    <component :is="location.svg" class="location-svg" />
-                    <span class="location" v-html="location.title" />
-                </smart-link>
-                <div
-                    v-for="location in parsedIsOnline"
-                    :key="`location-${location.id}`"
-                    class="location-online"
-                >
-                    <component :is="location.svg" class="location-svg" />
-                    <span class="location" v-html="location.title" />
+                <div v-if="email || phone || staffDirectoryLink || addressLink" class="contact-info-group">
+                    <icon-with-link
+                        v-if="email"
+                        :text="email"
+                        icon-name="svg-icon-email"
+                        :to="`mailto:${email}`"
+                    />
+                    <icon-with-link
+                        v-if="phone"
+                        :text="phone"
+                        icon-name="svg-icon-phone"
+                        :to="`tel:${phone}`"
+                    />
+                    <icon-with-link
+                        v-if="staffDirectoryLink" 
+                        :text="`View staff directory`"
+                        icon-name="svg-icon-person"
+                        :to="staffDirectoryLink"
+                    />
+                    <icon-with-link
+                        v-if="addressLink" 
+                        :text="address"
+                        icon-name="svg-icon-location"
+                        :to="addressLink"
+                    />
+                </div>
+                <div v-if="locations.length" class="location-group">
+                    <icon-with-link
+                        v-for="location in parsedLocations"
+                        :key="`location-${location.id}`"
+                        :text="location.title"
+                        icon-name="svg-icon-location"
+                        :to="`/${location.to}`"
+                    />
+                    <icon-with-link
+                        v-for="location in parsedIsOnline"
+                        :key="`location-${location.id}`"
+                        :text="location.title"
+                        icon-name="svg-icon-virtual"
+                        :to="`/${location.to}`"
+                    />
                 </div>
             </div>
             <button-link
@@ -144,6 +134,8 @@ export default {
             import("@/lib-components/ButtonLink.vue").then((d) => d.default),
         RichText: () =>
             import("@/lib-components/RichText.vue").then((d) => d.default),
+        IconWithLink: () =>
+            import("@/lib-components/IconWithLink.vue").then((d) => d.default),
         SvgHeadingVector: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
@@ -301,7 +293,7 @@ export default {
         parsedIsOnline() {
             return this.locations.reduce(function (filtered, location) {
                 if (location.title === "Online") {
-                    location.svg = "svg-icon-online"
+                    location.svg = "svg-icon-virtual"
                     filtered.push(location)
                 }
                 return filtered
@@ -353,18 +345,25 @@ export default {
         .heading-line {
             flex-shrink: 0;
             padding-right: 0;
+            height: 96px;
         }
         .text {
             border: 1px solid var(--color-white);
-            padding: 15px 20px 13px 22px;
+            padding: 14px 24px;
             margin-left: -10px;
             clip-path: polygon(17px 0, 100% 0, 100% 100%, 1px 100%);
             line-height: 1;
+            font-weight: #{$font-weight-regular};
+            font-size: 26px;
         }
     }
-    .media {
-        max-height: 66vh;
+    ::v-deep .responsive-image {
+        max-height: 576px;
+        .media {
+            object-fit: cover;
+        }
     }
+
     .gradient {
         background: $overlays-overlay-01;
         z-index: 10;
@@ -386,7 +385,7 @@ export default {
     .molecule {
         right: 0;
         top: 0;
-        bottom: 95px;
+        bottom: 96px;
         margin: auto;
         position: absolute;
         z-index: 20;
@@ -397,19 +396,23 @@ export default {
         width: auto;
     }
 
+    --hatch-height: 96px;
+    --hatch-width: 28%;
+    --hatch-density: 818px;
     .hatch-box {
         width: 100%;
         position: relative;
         z-index: 30;
-        margin-top: -95px;
         overflow: hidden;
+
+        margin-top: calc(-1 * var(--hatch-height));
     }
     .clipped-box {
-        width: 75%;
+        max-width: calc(100% - var(--hatch-width));
         background-color: var(--color-white);
         position: relative;
         z-index: 20;
-        height: 100px;
+        height: calc(var(--hatch-height) + 2px);
 
         clip-path: polygon(
             0 0,
@@ -420,141 +423,19 @@ export default {
         );
     }
     .hatch {
-        height: 95px;
+        height: var(--hatch-height);
         overflow: hidden;
         z-index: 10;
         position: absolute;
         top: 0;
-        left: calc(65% - 99px);
-    }
+        left: calc(72% - 68px);
 
-    .meta {
-        margin: -60px auto 0;
-        position: relative;
-        z-index: 40;
-        padding-right: 300px;
-        max-width: $container-l-main + px;
-
-        // display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: flex-end;
-    }
-
-    .title {
-        color: var(--color-primary-blue-03);
-        @include step-4;
-        margin-bottom: var(--space-m);
-    }
-    .snippet {
-        @include step-0;
-        color: var(--color-secondary-grey-04);
-        font-weight: 400;
-        margin-bottom: var(--space-m);
-
-        ::v-deep p {
-            margin: 0;
-        }
-    }
-    .byline {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-
-        font-size: 20px;
-        margin-bottom: 16px;
-    }
-    .byline-item {
-        display: flex;
-        flex-direction: row;
-
-        font-size: 20px;
-        line-height: 24px;
-        text-align: left;
-        color: var(--color-primary-blue-03);
-    }
-    .date-created {
-        color: var(--color-primary-blue-03);
-    }
-
-    .schedule {
-        line-height: 24px;
-        text-align: left;
-        color: var(--color-primary-blue-03);
-        margin-top: 24px;
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    .schedule-item,
-    .byline-item {
-        &:after {
-            content: "";
-            border-left: 1px solid var(--color-secondary-grey-02);
-            margin: 0 10px;
-            height: 18px;
-            display: inline-block;
-            vertical-align: middle;
+        .svg {
             position: relative;
+            bottom: 8px;
+            width: var(--hatch-density);
+            height: auto;
         }
-        &:last-child {
-            margin-right: 0;
-        }
-        &:last-child:after {
-            display: none;
-        }
-    }
-
-    .contact-info {
-        color: var(--color-primary-blue-03);
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: var(--space-s);
-        @include button;
-    }
-
-    .location-group {
-        font-family: var(--font-secondary);
-        font-size: 20px;
-        line-height: 1;
-        margin-bottom: 16px;
-    }
-    .location-link {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: center;
-        align-items: center;
-
-        color: var(--color-primary-blue-03);
-    }
-    .location-online {
-        color: var(--color-secondary-grey-05);
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: center;
-        align-items: center;
-    }
-    .location {
-        padding: 0 0 5px 5px;
-    }
-    .location-svg,
-    .contact-svg {
-        flex-shrink: 0;
-    }
-    .button {
-        height: 50px;
     }
 
     // Variant
@@ -566,7 +447,7 @@ export default {
             clip-path: polygon(39px 0, 105% 0, 100% 102%, 0 102%, 0% 95px);
         }
         .hatch {
-            right: calc(75% - 99px);
+            right: calc(72% - 68px);
             left: auto;
 
             .svg {
@@ -574,23 +455,135 @@ export default {
             }
         }
         .meta {
-            padding-left: 300px;
-            padding-right: $whitespace-s-sides + px;
+            padding-right: 0;
+            padding-left: clamp(184px, 35%, 280px);
             margin-left: auto;
 
             align-content: flex-start;
         }
-        .button {
-            width: 180px;
-            height: 50px;
-            padding: 0px 0px;
+    }
+
+    .meta {
+        padding-right: clamp(184px, 35%, 280px);
+        margin-top: -36px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        z-index: 40;
+        max-width: $container-l-main + px;
+
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: flex-end;
+    }
+
+    .meta-text {
+        margin-bottom: var(--space-m);
+    }
+
+    .title {
+        @include step-4;
+        color: var(--color-primary-blue-03);
+        margin-bottom: var(--space-m);
+    }
+    .snippet {
+        @include step-0;
+        color: var(--color-black);
+        margin-bottom: var(--space-m);
+
+        ::v-deep p {
+            margin: 0;
+        }
+    }
+    .byline {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-bottom: var(--space-m);
+    }
+    .byline-item,
+    .schedule-item,
+    .date-created {
+        display: flex;
+        flex-direction: row;
+
+        @include step-0;
+        color: var(--color-secondary-grey-04);
+    }
+
+    .schedule {
+        line-height: 24px;
+        text-align: left;
+        color: var(--color-primary-blue-03);
+        margin-top: var(--space-m);
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .schedule-item,
+    .byline-item {
+        &:after {
+            content: "|";
+            color: var(--color-secondary-grey-02);
+            margin: 0 10px;
+            height: 18px;
+            display: inline-block;
+            position: relative;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        &:last-child:after {
+            display: none;
         }
     }
 
+    .contact-info-group {
+        color: var(--color-primary-blue-03);
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: var(--space-m);
+    }
+
+    .location-group {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: var(--space-m);
+    }
+
     @media #{$medium} {
+        --hatch-height: 74px;
+        --hatch-density: 632px;
+        .category {
+            padding-left: 32px;
+            margin-top: 32px;
+        }
+        .category .text {
+            font-size: 20px;
+        }
+        .category .heading-line {
+            height: 80px;
+        }
+        .hatch {
+            left: calc(72% - 84px);
+        }
+        &.hatch-left .hatch {
+            right: calc(72% - 84px);
+            left: auto;
+        }
         .meta {
-            padding-left: $whitespace-m-sides + px;
-            margin-left: 0;
+            padding-right: clamp(184px,35%,300px);
+            padding-left: var(--unit-gutter);
+            margin-top: -36px;
+        }
+        &.hatch-left .meta {
+            padding-right: var(--unit-gutter);
+            margin-top: -36px;
         }
         .byline,
         .schedule {
@@ -601,97 +594,53 @@ export default {
         }
         .schedule-item,
         .byline-item {
-            margin-top: 8px;
             &:after {
                 display: none;
             }
-        }
-        .date-created {
-            margin-top: 24px;
         }
     }
 
     @media #{$small} {
         .media {
+            height: 375px;
             max-height: 375px;
         }
         .category {
-            font-size: 28px;
             padding-left: 16px;
             margin-top: 16px;
+            .text {
+                padding: 12px 16px;
+            }
         }
         .molecule {
-            margin-bottom: -45px;
+            bottom: 10%;
             height: 215px;
             width: auto;
         }
-        .hatch-box {
-            margin-top: -40px;
-        }
-        .clipped-box {
-            height: 40px;
-        }
+        --hatch-height: 36px;
+        --hatch-density: 338px;
         .hatch {
-            left: calc(65% - 44px);
-            height: 40px;
-
-            .svg {
-                width: 70vw;
-                height: auto;
-            }
+            left: calc(72% - 46px);
         }
-
+        &.hatch-left .hatch {
+            right: calc(72% - 46px);
+            left: auto;
+        }
         .meta {
             width: 100%;
+            max-width: 100%;
             margin-top: 0;
             padding-left: var(--unit-gutter);
             padding-right: var(--unit-gutter);
             position: static;
-            margin: 0 0 0 0;
         }
-        .title {
-            margin: 10px 0 5px 0px;
-        }
-        .byline,
-        .schedule {
-            display: flex;
-            flex-direction: column;
-            padding-left: 0;
-        }
-        .schedule-item,
-        .byline-item {
-            margin-top: 8px;
-            &:after {
-                display: none;
-            }
-        }
-        .button {
-            width: 324px;
-            height: 40px;
-            margin: 24px 0 0 0;
-        }
-
-        // Variant
-        &.hatch-left {
-            .clipped-box {
-                padding-left: var(--unit-gutter);
-                padding-right: var(--unit-gutter);
-            }
-            .hatch {
-                right: calc(65% - 44px);
-            }
-            .meta {
-                width: 100%;
-                margin: 0 0 0 0;
-                padding-left: var(--unit-gutter);
-                padding-right: var(--unit-gutter);
-                position: static;
-            }
-            .button {
-                width: 324px;
-                height: 40px;
-                margin: 24px 0 10px 0;
-            }
+        &.hatch-left .meta {
+            padding-top: 24px;
+            padding-right: var(--unit-gutter);
+            padding-left: var(--unit-gutter);
+            width: 100%;
+            max-width: 100%;
+            margin-top: 0;
         }
     }
 }

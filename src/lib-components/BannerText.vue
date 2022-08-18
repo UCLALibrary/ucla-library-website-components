@@ -1,8 +1,8 @@
 <template>
     <div :class="classes">
         <div class="banner-text-content-container">
-            <div v-if="category" class="meta">
-                <svg-heading-vector class="heading-line" />
+            <div v-if="category" class="category">
+                <svg-heading-vector class="heading-line" aria-hidden="true" />
                 <div :class="categoryClasses" v-html="category" />
             </div>
             <div class="content">
@@ -16,69 +16,56 @@
                     >
                         {{ item }}
                     </div>
-                </div>
-                <div v-if="date" class="schedule">
-                    <time
-                        v-if="date"
-                        class="schedule-item"
-                        v-html="parsedDate"
-                    />
-                    <time
-                        v-if="date"
-                        class="schedule-item"
-                        v-html="parsedTime"
-                    />
-                    <div v-if="isOnline" class="schedule-item">Online</div>
+                    <div v-if="date" class="schedule">
+                        <time
+                            v-if="date"
+                            class="schedule-item"
+                            v-html="parsedDate"
+                        />
+                        <time
+                            v-if="date"
+                            class="schedule-item"
+                            v-html="parsedTime"
+                        />
+                        <div v-if="isOnline" class="schedule-item">Online</div>
+                    </div>
                 </div>
                 <div v-if="locations.length" class="location-group">
-                    <smart-link
+                    <icon-with-link
                         v-for="location in locations"
                         :key="`location-${location.id}`"
-                        :to="location.to"
-                        class="location-link"
-                    >
-                        <svg-icon-location class="location-svg" />
-                        <span class="location" v-html="location.title" />
-                    </smart-link>
+                        :text="location.title"
+                        icon-name="svg-icon-location"
+                        :to="`/${location.to}`"
+                    />
                 </div>
                 <div v-if="email" class="contact-info">
-                    <component :is="`svg-icon-email`" class="contact-svg" />
-                    <smart-link
-                        :to="`mailto:${email}`"
-                        target="_blank"
-                        class="link-icon"
-                    >
-                        {{ email }}
-                    </smart-link>
+                    <icon-with-link
+                        :text="email"
+                        icon-name="svg-icon-email"
+                        :to="`mailto:/${email}`"
+                    />
                 </div>
                 <div v-if="phone" class="contact-info">
-                    <component :is="`svg-icon-phone`" class="contact-svg" />
-
-                    <smart-link
-                        :to="`tel:${phone}`"
-                        target="_blank"
-                        class="link-icon"
-                    >
-                        {{ phone }}
-                    </smart-link>
+                    <icon-with-link
+                        :text="phone"
+                        icon-name="svg-icon-phone"
+                        :to="`tel:/${phone}`"
+                    />
                 </div>
                 <div v-if="staffDirectoryLink" class="contact-info">
-                    <component :is="`svg-icon-person`" class="contact-svg" />
-                    <smart-link
+                    <icon-with-link
+                        :text="`View staff directory`"
+                        icon-name="svg-icon-person"
                         :to="staffDirectoryLink"
-                        class="link-icon"
-                        v-html="`View staff directory`"
                     />
                 </div>
                 <div v-if="addressLink" class="contact-info">
-                    <component :is="`svg-icon-location`" class="contact-svg" />
-                    <smart-link
+                    <icon-with-link
+                        :text="address"
+                        icon-name="svg-icon-location"
                         :to="addressLink"
-                        target="_blank"
-                        class="link-icon"
-                    >
-                        {{ address }}
-                    </smart-link>
+                    />
                 </div>
 
                 <button-link
@@ -109,35 +96,15 @@ export default {
     name: "BannerText",
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
-        SmartLink: () =>
-            import("@/lib-components/SmartLink.vue").then((d) => d.default),
         ButtonLink: () =>
             import("@/lib-components/ButtonLink.vue").then((d) => d.default),
+        IconWithLink: () =>
+            import("@/lib-components/IconWithLink.vue").then((d) => d.default),
         RichText: () =>
             import("@/lib-components/RichText.vue").then((d) => d.default),
         SvgHeadingVector: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
-            ).then((d) => d.default),
-        SvgIconOnline: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
-            ).then((d) => d.default),
-        SvgIconEmail: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-email.svg"
-            ).then((d) => d.default),
-        SvgIconPhone: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
-            ).then((d) => d.default),
-        SvgIconLocation: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-location.svg"
-            ).then((d) => d.default),
-        SvgIconPerson: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-person.svg"
             ).then((d) => d.default),
     },
     props: {
@@ -223,7 +190,7 @@ export default {
             return this.getSectionName(this.to)
         },
         categoryClasses() {
-            return ["category", `color-${this.sectionName}`]
+            return ["text", `color-${this.sectionName}`]
         },
         parsedDate() {
             return this.formatDates(this.date, this.date)
@@ -251,7 +218,9 @@ export default {
     --location-icon-color: var(--color-primary-blue-03);
     --hover-border-color: var(--color-primary-blue-02);
     --hover-background-color: var(--color-white);
+    background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half-faceted-light.svg");
 }
+
 .theme-dark {
     --background-color: var(--color-primary-blue-03);
     --category-title-color: var(--color-white);
@@ -266,23 +235,58 @@ export default {
     --location-icon-color: var(--color-white);
     --hover-border-color: var(--color-white);
     --hover-background-color: var(--color-primary-blue-03);
+    background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half-faceted-dark.svg");
+
+    ::v-deep .icon-with-link {
+        .link {
+            --link-color: var(--color-white);
+
+            &:hover,
+            &:focus {
+                color: var(--link-color);
+                text-decoration-color: var(--color-default-cyan-02);
+            }
+        }
+
+        .icon {
+            --icon-color: var(--color-white);
+            --icon-color-highlight: var(--color-white);
+        }
+    }
+
+    .text {
+        color: var(--color-white);
+    }
 }
 .banner-text {
-    padding: calc(var(--space-2xl) - 22px) 0 var(--space-2xl);
     margin: 0 auto;
     background-color: var(--background-color);
     position: relative;
     z-index: 0;
-    background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half.svg");
     background-position: 100% 50%;
     background-size: 144px;
     background-repeat: no-repeat;
-    max-width: 1680px;
-    .meta {
+    .category {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         margin-left: -52px;
+        .heading-line {
+            flex-shrink: 0;
+            padding-right: 0;
+        }
+        .text {
+            border: 1px solid var(--color-theme);
+            padding: 14px 24px;
+            margin-left: -10px;
+            clip-path: polygon(17px 0, 100% 0, 100% 100%, 1px 100%);
+            line-height: 1;
+            font-weight: #{$font-weight-regular};
+            font-size: 26px;
+
+            color: var(--category-title-color);
+            text-transform: capitalize;
+        }
     }
     // Themes for category outline
     --color-theme: var(--color-primary-blue-03);
@@ -295,27 +299,14 @@ export default {
     .color-about {
         --color-theme: var(--color-about-purple-03);
     }
-    .category {
-        color: var(--category-title-color);
-        @include step-0;
-        line-height: 1;
-        text-transform: capitalize;
-        border: 1px solid var(--color-theme);
-        padding: 12px 20px;
-        margin-left: -10px;
-        clip-path: polygon(17px 0, 100% 0, 100% 100%, 1px 100%);
-    }
-    .heading-line {
-        flex-shrink: 0;
-        padding-right: 0;
-        height: 96px;
-    }
+    
     .banner-text-content-container {
+        padding: 40px 40px var(--space-2xl) 40px;
         max-width: $container-l-main + px;
         margin: auto;
 
-        .meta {
-            margin-bottom: var(--space-l);
+        .category {
+            margin-bottom: var(--space-m);
         }
 
         .content {
@@ -325,15 +316,11 @@ export default {
                 margin-bottom: 0;
             }
         }
-
-        ::v-deep .text p {
-            margin: 0;
-        }
     }
     .title {
-        color: var(--title-color);
         @include step-5;
-        margin-bottom: var(--space-s);
+        color: var(--title-color);
+        margin-bottom: var(--space-m);
     }
     .contact-info {
         color: var(--color-primary-blue-03);
@@ -342,33 +329,29 @@ export default {
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-items: center;
-        gap: 8px;
-        margin-bottom: var(--space-s);
-        @include button;
+        gap: 4px;
+        margin-bottom: var(--space-m);
     }
-    .text {
+    .content .text {
+        @include step-0;
         margin-bottom: var(--space-m);
     }
     .schedule {
-        font-size: 20px;
-        line-height: 24px;
+        @include step-0;
         text-align: left;
-        font-family: var(--font-secondary);
         color: var(--schedule-item-color);
-        margin: 24px 0 8px 0;
-        // padding-left: 52px;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
     }
+    .byline-item,
     .schedule-item {
         &:after {
-            content: "";
-            border-left: 1px solid var(--schedule-item-border);
+            content: "|";
+            color: var(--color-secondary-grey-02);
             margin: 0 10px;
             height: 18px;
             display: inline-block;
-            vertical-align: middle;
             position: relative;
         }
         &:last-child {
@@ -378,21 +361,16 @@ export default {
             display: none;
         }
     }
+    .byline:has(.schedule) .byline-item:after {
+        display: none;
+    }
     .location-group {
         color: var(--location-color);
-        font-family: var(--font-secondary);
-        font-size: 20px;
-        line-height: 1;
-        margin-bottom: 12px;
-        // padding-left: 52px;
-    }
-    .location-link {
+        margin-bottom: var(--space-m);
+
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: center;
-        align-items: center;
+        flex-direction: column;
+        gap: 4px;
     }
     .location-svg {
         .location-icon {
@@ -408,23 +386,14 @@ export default {
         flex-wrap: nowrap;
         align-items: center;
 
-        font-size: 20px;
-        margin-bottom: 24px;
+        margin-bottom: var(--space-m);
     }
     .byline-item {
         display: flex;
         flex-direction: row;
 
-        font-size: 20px;
-        line-height: 24px;
-        text-align: left;
-        color: var(--color-primary-blue-03);
-    }
-    ::v-deep .text {
-        margin-bottom: 24px;
-        color: var(--text-color);
         @include step-0;
-        font-weight: $font-weight-regular;
+        color: var(--color-secondary-grey-04);
     }
     .molecule {
         right: 0;
@@ -452,7 +421,6 @@ export default {
     @media #{$has-hover} {
         &.theme-dark {
             .button-link:hover {
-                // border: 1px solid var(--hover-border-color);
                 background-color: var(--hover-background-color);
                 color: var(--text-color);
             }
@@ -462,7 +430,6 @@ export default {
 // Breakpoints
 @media #{$extra-large} {
     .banner-text {
-        // margin-top: 72px;
         .text {
             max-width: 788px;
         }
@@ -471,14 +438,35 @@ export default {
 @media #{$medium} {
     .banner-text {
         background-size: 128px;
+        .category .text {
+            font-size: 20px;
+        }
+        .category .heading-line {
+            height: 80px;
+        }
+        .category {
+            margin-left: 0;
+        }
         .banner-text-content-container {
-            padding-left: var(--unit-gutter);
+            padding-left: 40px;
+            padding-top: 40px;
+            padding-bottom: 60px;
         }
         .text {
             padding-right: 120px;
         }
-        .button-link {
-            margin-top: 32px;
+        .byline {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .byline-item,
+        .schedule-item {
+            &:after {
+                display: none;
+            }
+        }
+        .schedule {
+            flex-direction: column;
         }
     }
 }
@@ -486,22 +474,27 @@ export default {
     .banner-text {
         background-size: 96px;
         background-position-y: 40px;
-        .meta {
+        background-image: none;
+        
+        .category {
             margin-left: 0;
+            .text {
+                padding: 12px 16px;
+            }
+        }
+        .banner-text-content-container {
+            padding: 32px;
+            // padding-right: 96px;
         }
         .banner-text-content-container .content {
-            max-width: calc(100% - 96px);
+            max-width: 100%;
         }
         .schedule {
             display: flex;
             flex-direction: column;
             padding-left: 0;
         }
-        .schedule-item {
-            &:after {
-                display: none;
-            }
-        }
+        
         .location-group {
             padding-left: 0;
         }
@@ -515,10 +508,6 @@ export default {
             width: auto;
             top: 32px;
             transform: none;
-        }
-        .button-link {
-            max-width: 100%;
-            margin: 32px 0 0 0;
         }
     }
 }

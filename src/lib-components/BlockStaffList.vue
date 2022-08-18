@@ -23,36 +23,27 @@
 
             <div class="contact-info">
                 <div class="email">
-                    <svg-icon-email class="icon" />
-                    <smart-link
-                        :to="`mailto:${email}`"
-                        target="_blank"
-                        class="text-link"
-                    >
-                        {{ email }}
-                    </smart-link>
+                    <icon-with-link
+                        :text="email"
+                        icon-name="svg-icon-email"
+                        :to="`mailto:/${email}`"
+                    />
                 </div>
 
                 <div v-if="phone" class="phone">
-                    <svg-icon-phone class="icon" />
-                    <smart-link
-                        :to="`tel:${phone}`"
-                        target="_blank"
-                        class="text-link"
-                    >
-                        {{ phone }}
-                    </smart-link>
+                    <icon-with-link
+                        :text="phone"
+                        icon-name="svg-icon-phone"
+                        :to="`mailto:/${phone}`"
+                    />
                 </div>
 
                 <div v-if="consultation" class="consultation">
-                    <svg-icon-consultation class="icon" />
-                    <smart-link
+                    <icon-with-link
+                        :text="`Book a consultation`"
+                        icon-name="svg-icon-consultation"
                         :to="consultation"
-                        target="_blank"
-                        class="text-link"
-                    >
-                        {{ "Book a consultation" }}
-                    </smart-link>
+                    />
                 </div>
             </div>
         </div>
@@ -62,21 +53,15 @@
 <script>
 import _isEmpty from "lodash/isEmpty"
 import SvgHeadingArrow from "ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg"
-import SvgIconEmail from "ucla-library-design-tokens/assets/svgs/icon-email.svg"
-import SvgIconPhone from "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
-import SvgIconConsultation from "ucla-library-design-tokens/assets/svgs/icon-chat.svg"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
-import SmartLink from "@/lib-components/SmartLink"
 
 export default {
     name: "BlockStaffList",
     components: {
         SvgHeadingArrow,
-        SvgIconEmail,
-        SvgIconPhone,
-        SvgIconConsultation,
         ResponsiveImage,
-        SmartLink,
+        IconWithLink: () =>
+            import("@/lib-components/IconWithLink.vue").then((d) => d.default),
     },
     props: {
         to: {

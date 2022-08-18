@@ -140,7 +140,6 @@ export const Slot = () => ({
             <heading-arrow
                 v-if="breadcrumb"
                 :text="breadcrumb"
-                :to="to"
             />
         </banner-featured>
     `,
@@ -176,7 +175,6 @@ export const LongHeading = () => ({
             <heading-arrow
                 v-if="breadcrumb"
                 :text="breadcrumb"
-                :to="to"
             />
         </banner-featured>
     `,

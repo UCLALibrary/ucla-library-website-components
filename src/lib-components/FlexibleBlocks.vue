@@ -1,6 +1,5 @@
 <template>
     <div class="flexible-blocks">
-        <h2 class="more-information">More Information</h2>
         <component
             :is="block.componentName"
             v-for="block in parsedBlocks"

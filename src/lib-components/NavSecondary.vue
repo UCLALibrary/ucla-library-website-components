@@ -169,13 +169,13 @@ export default {
 
     ::v-deep .account-button {
         color: var(--color-white);
-        color: [pink];
         background-color: var(--color-primary-blue-04);
         border-color: var(--color-primary-blue-04);
         border-radius: 4px;
         padding: 2px 12px;
         font-weight: $font-weight-medium;
         margin-left: 48px;
+        min-height: unset;
     }
 
     // Hover states
