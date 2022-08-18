@@ -18,14 +18,14 @@ export default {
     --badge-width: 268.57px;
     --badge-height: 61.16px;
     --accent-slope: 2.35;
-    --background-color: var(--color-white);
+    --background-color: var(--color-theme, var(--color-white));
     --accent-color: var(--color-visit-fushia-03);
 
     position: absolute;
     width: var(--badge-width);
     height: var(--badge-height);
     right: 0px;
-    bottom: 0px;
+    bottom: -1px;
     cursor: pointer;
 
     .badge-content {
