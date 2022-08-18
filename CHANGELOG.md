@@ -1,3 +1,10 @@
+## [1.48.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.2...v1.48.3) (2022-08-18)
+
+
+### Bug Fixes
+
+* undo change to blockhighlight max-width ([#123](https://github.com/UCLALibrary/ucla-library-website-components/issues/123)) ([b20928d](https://github.com/UCLALibrary/ucla-library-website-components/commit/b20928d14cf2dab46540f8554ed9d66859852ee1))
+
 ## [1.48.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.1...v1.48.2) (2022-08-18)
 
 
