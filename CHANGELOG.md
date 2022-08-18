@@ -1,3 +1,10 @@
+## [1.48.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.1...v1.48.2) (2022-08-18)
+
+
+### Bug Fixes
+
+* add else statement to CardWithImage and Highlight ([#121](https://github.com/UCLALibrary/ucla-library-website-components/issues/121)) ([440cc04](https://github.com/UCLALibrary/ucla-library-website-components/commit/440cc0446a7ada771b7d9e02860be882ea279fed))
+
 ## [1.48.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.0...v1.48.1) (2022-08-18)
 
 
