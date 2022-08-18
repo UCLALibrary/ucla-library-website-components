@@ -345,21 +345,21 @@ export default {
     max-width: $container-xl-full-width + px;
 
     // Themes
-    --color-theme: var(--color-primary-blue-03);
+    --banner-color-theme: var(--color-primary-blue-03);
     &.color-visit {
-        --color-theme: var(--color-visit-fushia-03);
+        --banner-color-theme: var(--color-visit-fushia-03);
     }
     &.color-help {
-        --color-theme: var(--color-help-green-03);
+        --banner-color-theme: var(--color-help-green-03);
     }
     &.color-about {
-        --color-theme: var(--color-about-purple-03);
+        --banner-color-theme: var(--color-about-purple-03);
     }
 
     .hatch,
     .heading-arrow {
         ::v-deep .svg__stroke--wayfinder {
-            stroke: var(--color-theme);
+            stroke: var(--banner-color-theme);
         }
     }
 
@@ -629,7 +629,6 @@ export default {
         }
         .category-mobile {
             display: block;
-            // padding-right: calc(40px + var(--unit-gutter));
             padding-left: var(--unit-gutter);
             height: 36px;
             padding-top: 7px;
@@ -647,7 +646,6 @@ export default {
             margin-top: 0;
             padding-right: var(--unit-gutter);
             padding-left: var(--unit-gutter);
-            // position: static;
         }
         .category-desktop {
             display: none;
@@ -674,7 +672,6 @@ export default {
                 margin-top: 0;
                 padding-left: var(--unit-gutter);
                 padding-right: var(--unit-gutter);
-                // position: static;
             }
         }
     }
