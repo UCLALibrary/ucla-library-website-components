@@ -144,6 +144,9 @@ export const Default = () => ({
             footerSock: {
                 nodes: mock.sock,
             },
+            footerSponsor: {
+                funders: mock.funders,
+            },
         },
     }),
     components: { FooterMain },
@@ -154,9 +157,5 @@ export const Default = () => ({
     },
 
     template: `
-        <footer-main
-            :funders="funders"
-            :social-items="socialItems"
-            :press-items="pressItems"
-        />`,
+        <footer-main />`,
 })

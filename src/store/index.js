@@ -2,6 +2,7 @@ import Vue from "vue"
 import Vuex from "vuex"
 import FooterPrimary from "./modules/footerPrimary.js"
 import FooterSock from "./modules/footerSock.js"
+import FooterSponsor from "./modules/footerSponsor.js"
 
 Vue.use(Vuex)
 
@@ -114,6 +115,7 @@ export default new Vuex.Store({
     modules: {
         footerPrimary: FooterPrimary,
         footerSock: FooterSock,
+        footerSponsor: FooterSponsor,
     },
     state: {
         header: {

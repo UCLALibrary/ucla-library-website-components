@@ -1,3 +1,10 @@
+# [1.48.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.47.0...v1.48.0) (2022-08-17)
+
+
+### Features
+
+* refactor the footer elements ([#120](https://github.com/UCLALibrary/ucla-library-website-components/issues/120)) ([2ff8b08](https://github.com/UCLALibrary/ucla-library-website-components/commit/2ff8b084f7449f06a023afd3bb82fb8b7a4c8a66))
+
 # [1.47.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.46.1...v1.47.0) (2022-08-17)
 
 
