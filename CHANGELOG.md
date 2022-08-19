@@ -1,3 +1,10 @@
+## [1.49.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.49.0...v1.49.1) (2022-08-19)
+
+
+### Bug Fixes
+
+* divider margins ([#128](https://github.com/UCLALibrary/ucla-library-website-components/issues/128)) ([e04491c](https://github.com/UCLALibrary/ucla-library-website-components/commit/e04491c1dcad3ea14763d0842d4d7bca0e301e06))
+
 # [1.49.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.4...v1.49.0) (2022-08-19)
 
 
