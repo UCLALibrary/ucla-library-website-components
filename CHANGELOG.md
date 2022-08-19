@@ -1,3 +1,10 @@
+# [1.49.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.4...v1.49.0) (2022-08-19)
+
+
+### Features
+
+* Refactor FlexibleBlocks ([#112](https://github.com/UCLALibrary/ucla-library-website-components/issues/112)) ([ac3b6c1](https://github.com/UCLALibrary/ucla-library-website-components/commit/ac3b6c179384a8777ece4e0a57846b531bb39f40))
+
 ## [1.48.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.3...v1.48.4) (2022-08-18)
 
 
