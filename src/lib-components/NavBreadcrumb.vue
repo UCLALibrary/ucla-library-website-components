@@ -5,7 +5,7 @@
             class="parent-page-url"
             v-html="getParentPage"
         />
-        <svg-icon-caret-left />
+        <svg-icon-caret-left aria-hidden="true" />
         <span class="current-page-title" v-html="title" />
     </div>
 </template>
@@ -54,7 +54,7 @@ export default {
     align-items: center;
 
     max-width: $container-xl-full-width + px;
-    margin: var(--space-l) 0;
+    margin: var(--space-m) 0;
     padding: 0 var(--unit-gutter);
 
     .parent-page-url {

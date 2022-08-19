@@ -176,6 +176,13 @@ export default {
         font-weight: $font-weight-medium;
         margin-left: 48px;
         min-height: unset;
+
+        :not(:only-child):first-child {
+            padding: 0;
+        }
+        .arrow {
+            display: none;
+        }
     }
 
     // Hover states
