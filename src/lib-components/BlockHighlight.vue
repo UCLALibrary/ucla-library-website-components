@@ -287,12 +287,9 @@ export default {
         width: 100%;
     }
     .category {
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 100%;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
+        @include overline;
         color: var(--color-primary-blue-05);
+        margin-bottom: var(--space-s);
     }
     .title::after {
         content: "";
@@ -306,16 +303,13 @@ export default {
     .title-no-link {
         @include step-1;
         color: var(--color-primary-blue-03);
-        margin: 16px 0 0 0;
+        margin: var(--space-s) 0;
         line-height: $line-height--1;
     }
     .date-time {
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 30px;
-        letter-spacing: 1%;
+        @include step-0;
         color: var(--color-secondary-grey-05);
-        margin-top: 10px;
+        margin: var(--space-s) 0;
         .svg-online {
             margin-bottom: -5px;
             margin-left: 10px;
@@ -326,13 +320,9 @@ export default {
     .byline-group {
         display: flex;
         flex-direction: row;
-
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 30px;
-        letter-spacing: 1%;
+        @include step-0;
         color: var(--color-secondary-grey-05);
-        margin-top: 10px;
+        margin-top: var(--space-s);
     }
     .schedule-item {
         &:after {
@@ -353,19 +343,19 @@ export default {
     }
     .text {
         @include step-0;
-        margin: 24px 0 0 0;
         color: var(--color-black);
         display: -webkit-box;
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        margin-top: var(--space-s);
     }
     .location-group {
         color: var(--color-primary-blue-03);
         font-family: var(--font-secondary);
         font-size: 20px;
         line-height: 1;
-        margin-top: 24px;
+        margin-bottom: var(--space-s);
     }
     .location-link,
     .location-text {
@@ -393,6 +383,7 @@ export default {
                 margin-top: -25px;
                 padding: 0 60px 0 17px;
             }
+            max-width: calc((100% - 32px)/ 2);;
         }
     }
     &:not(&.is-vertical) {
@@ -497,6 +488,13 @@ export default {
             .clipped-date {
                 display: none;
             }
+        }
+        .schedule {
+            flex-direction: column;
+        }
+
+        .schedule-item:after {
+            display: none;
         }
     }
     @media #{$small} {

@@ -55,7 +55,7 @@ export default {
 
     .block {
         width: calc(50% - 16px);
-        margin: 0 8px 50px 8px;
+        margin: 0 8px var(--space-xl) 8px;
     }
 
     // Breakpoints
@@ -64,7 +64,7 @@ export default {
 
         .block {
             width: 100%;
-            margin: 0 0 50px;
+            margin: 0 0 var(--space-xl);
         }
     }
 }
