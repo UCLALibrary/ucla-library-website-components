@@ -1,15 +1,15 @@
 <template>
-    <div :class="classes">
-        <component :is="parsedSvgName" class="svg" />
+    <li :class="classes">
+        <component :is="parsedSvgName" class="svg" aria-hidden="true" />
 
         <div class="meta">
+            <div v-if="category" class="category" v-html="category" />
             <smart-link v-if="to" :to="to" :target="parsedTarget">
-                <div v-if="category" class="category" v-html="category" />
                 <h3 class="title" v-html="title" />
             </smart-link>
             <div class="text" v-html="text" />
         </div>
-    </div>
+    </li>
 </template>
 
 <script>
@@ -110,15 +110,14 @@ export default {
 <style lang="scss" scoped>
 .block-card-with-illustration {
     overflow: hidden;
-    border: 2px solid var(--color-primary-blue-01);
+    border: 2px solid var(--color-theme);
     border-radius: var(--rounded-slightly-all);
 
     transition-property: box-shadow, transform;
-    transition-duration: 400ms;
-    transition-timing-function: ease-in-out;
+    @include animate-normal;
 
     // Themes
-    --color-theme: var(--color-primary-blue-02);
+    --color-theme: var(--color-primary-blue-01);
     &.color-visit {
         --color-theme: var(--color-visit-fushia-01);
     }
@@ -131,29 +130,22 @@ export default {
 
     .meta {
         background-color: var(--color-theme);
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
     }
 
     .title {
-        font-family: var(--font-primary);
         @include step-1;
-        font-weight: 500;
-        margin-top: 35px;
-        margin-bottom: 10px;
         color: var(--color-primary-blue-05);
-        padding-right: 40px;
-        padding-left: 40px;
     }
 
     .text {
         @include step--1;
         font-family: var(--font-secondary);
         color: var(--color-primary-blue-05);
-        padding-left: 40px;
-        padding-right: 40px;
-        margin-bottom: 24px;
-        ::v-deep p {
-            margin-bottom: 0;
-        }
     }
 
     // Variations
@@ -161,16 +153,10 @@ export default {
     &:not(&.is-horizontal) {
         display: flex;
         flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        align-content: center;
         align-items: center;
-
-        width: 281px;
-        height: 400px;
+        width: calc((100% / 3) - 22px);
 
         .svg {
-            flex-grow: 1;
             flex-shrink: 0;
             padding: 20px 0;
         }
@@ -178,19 +164,26 @@ export default {
         .meta {
             background-color: var(--color-theme);
             width: 100%;
+            height: 100%;
             .title {
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
                 justify-content: flex-end;
+                text-align: center;
             }
             .text {
                 display: -webkit-box;
                 -webkit-line-clamp: 4;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
+                text-align: center;
             }
+        }
+
+        @media #{$medium} {
+            min-width: 288px;
         }
     }
 
@@ -201,7 +194,7 @@ export default {
         align-items: center;
 
         width: 100%;
-        max-width: 990px;
+        // max-width: 990px;
 
         .svg {
             flex-grow: 0;
@@ -212,25 +205,25 @@ export default {
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
-            justify-content: center;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 0;
 
             width: 100%;
-            height: 271px;
 
             .category {
                 @include overline;
-                color: var(--color-secondary-grey-05);
-                padding-bottom: var(--space-s);
-                padding-right: 40px;
-                padding-left: 40px;
+                color: var(--color-primary-blue-05);
+                margin-bottom: var(--space-s);
             }
             .title {
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
+                text-align: left;
 
-                margin-bottom: 24px;
+                margin-bottom: var(--space-m);
                 margin-top: 0;
             }
             .text {
@@ -238,20 +231,16 @@ export default {
                 -webkit-line-clamp: 4;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
-
-                margin: 0;
+                text-align: left;
             }
         }
 
-        // BREAKPOINTS
-        @media #{$medium} {
-            max-width: 640px;
-        }
-
         @media #{$small} {
-            max-width: 320px;
             .svg {
                 display: none;
+            }
+            .meta {
+                padding: 24px;
             }
         }
     }
@@ -259,16 +248,14 @@ export default {
     // Hovers
     @media #{$has-hover} {
         &:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 10px 17px rgba(0, 0, 0, 0.04);
+            @include card-horizontal-hover;
+            cursor: pointer;
 
             .meta {
                 background-color: var(--color-theme);
             }
             .title {
-                text-decoration: underline;
-                text-decoration-color: var(--color-default-cyan-03);
-                text-decoration-thickness: 1.5px;
+                @include link-hover;
             }
         }
     }

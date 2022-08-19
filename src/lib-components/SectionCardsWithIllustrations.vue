@@ -1,11 +1,11 @@
 <template>
     <div :class="classes" :data-cy="cypressSelector">
-        <div class="meta">
-            <h3 v-if="title" class="title" v-html="title" />
+        <div v-if="title || text" class="meta">
+            <h3 v-if="title" id="cards-with-illustration-title" class="title" v-html="title" />
             <div v-if="text" class="text" v-html="text" />
         </div>
 
-        <div class="cards">
+        <ul class="cards">
             <block-card-with-illustration
                 v-for="item in items"
                 :key="item.to"
@@ -18,9 +18,9 @@
                 :is-horizontal="item.isHorizontal"
             />
             <router-link v-if="to" class="card card-more" :to="to">
-                <button-more class="button" :text="buttonText" />
+                <button-more id="card-more-button" class="button" :text="buttonText" aria-labelledby="card-more-button cards-with-illustration-title" />
             </router-link>
-        </div>
+        </ul>
     </div>
 </template>
 
@@ -80,51 +80,33 @@ export default {
 <style lang="scss" scoped>
 .section-cards-with-illustrations {
     max-width: $container-l-main + px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
+
+    .meta {
+        margin-bottom: var(--space-xl);
+
+        .title {
+            @include step-5;
+            color: var(--color-primary-blue-03);
+            margin-bottom: var(--space-m);
+        }
+        .text {
+            @include step-0;
+            color: var(--color-black);
+        }
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 32px;
+    }
 
     // Variations
     // Vertical
     &:not(&.is-horizontal) {
-        .meta {
-            margin-bottom: 90px;
-            .title {
-                font-weight: 400;
-                font-size: 44px;
-                line-height: 100%;
-                text-transform: capitalize;
-                color: var(--color-primary-blue-03);
-            }
-            .text {
-                max-width: 730px;
-                font-size: 24px;
-                line-height: 130%;
-                letter-spacing: 0.01em;
-                color: var(--color-black);
-                margin-top: 24px;
-            }
-        }
-
         .cards {
-            display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            align-content: flex-start;
-            align-items: flex-start;
-        }
-
-        .card {
-            margin: 0 30px 0 0;
-            width: 281px;
-
-            &:nth-child(3n) {
-                margin-right: 0;
-            }
-            &:nth-child(n + 4) {
-                margin-top: 40px;
-            }
         }
 
         .card-more {
@@ -136,60 +118,34 @@ export default {
             align-items: center;
 
             border: 2px solid var(--color-primary-blue-01);
-            width: 281px;
-            height: 400px;
+            width: calc((100% / 3) - 22px);
             border-radius: var(--rounded-slightly-all);
 
             transition-property: box-shadow, transform;
-            transition-duration: 400ms;
-            transition-timing-function: ease-in-out;
-
-            .button {
-                width: 100%;
-                max-width: 100%;
-                height: 100%;
-            }
+            @include animate-normal;
         }
 
         // Hovers
         .card-more {
             @media #{$has-hover} {
                 &:hover {
-                    transform: scale(1.1);
-                    box-shadow: 0px 10px 17px rgba(0, 0, 0, 0.04);
+                    @include card-vertical-hover;
+                    cursor: pointer;
                 }
             }
         }
 
         // Breakpoints
         @media #{$medium} {
-            .meta {
-                padding: 0 var(--unit-gutter);
-                margin-bottom: 40px;
-                .title {
-                    font-size: 40px;
-                }
-                .text {
-                    max-width: $container-m-text + px;
-                    font-size: 22px;
-                }
-            }
             .cards {
-                width: auto;
+                gap: var(--space-m);
                 overflow-x: auto;
                 overflow-y: visible;
                 flex-wrap: nowrap;
-                min-height: 420px;
-                margin-right: var(--unit-gutter);
-                .card {
-                    margin-top: 0;
-                    margin-right: 0;
-                    margin-left: 30px;
+                .card,
+                .card-more {
+                    width: 280px;
                     flex-shrink: 0;
-
-                    &:first-child {
-                        margin-left: var(--unit-gutter);
-                    }
                 }
             }
         }
@@ -197,11 +153,9 @@ export default {
 
     // Horizontal
     &.is-horizontal {
-        .card {
-            margin-bottom: 40px;
-            &:last-child {
-                margin-bottom: 0;
-            }
+        .cards {
+            flex-direction: column;
+            gap: var(--space-m);
         }
     }
 }
