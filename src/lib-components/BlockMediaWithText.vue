@@ -155,9 +155,9 @@ export default {
 
     max-width: $container-l-main + px;
     // Themes
-    --color-theme: var(--color-white);
+    --background-color: var(--color-theme, var(--color-white));
     &.color-grey {
-        --color-theme: var(--color-secondary-grey-02);
+        --background-color: var(--color-secondary-grey-02);
     }
 
     .text-grouping {
@@ -231,7 +231,7 @@ export default {
         position: absolute;
         width: 112px;
         height: 72px;
-        background-color: var(--color-theme);
+        background-color: var(--background-color);
 
         clip-path: polygon(
             0 0,
@@ -341,7 +341,7 @@ export default {
                 position: absolute;
                 width: 112px;
                 height: 72px;
-                background-color: var(--color-theme);
+                background-color: var(--background-color);
 
                 clip-path: polygon(
                     0 0,

@@ -117,7 +117,7 @@ export default {
     max-width: 960px;
     margin: 0 calc(var(--unit-gutter) - 16px);
     padding: 0;
-    background-color: var(--color-white);
+    background-color: var(--color-theme, var(--color-white));
     margin: 0 auto;
 
     h2.gallery-section-heading {
