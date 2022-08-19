@@ -68,20 +68,20 @@ export default {
 
 <style lang="scss" scoped>
 .masthead-secondary {
-    --unit-height: 320px;
-
     position: relative;
     background: var(--gradient-03), var(--text-overlay);
-
     .hero-image {
         position: absolute;
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        filter: brightness(0.75);
+
+        ::v-deep .media {
+            object-fit: cover;
+        }
     }
 
     .container {
-        // match with library
         max-width: $container-l-cta + px;
 
         position: relative;
@@ -97,6 +97,7 @@ export default {
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
+        gap: var(--space-s);
 
         .title {
             @include step-5;
@@ -104,14 +105,13 @@ export default {
         }
         .text {
             @include step-0;
-            margin-top: var(--space-s);
             text-shadow: 0px 2px 8px rgba(113, 113, 113, 0.08);
         }
     }
 
     // Variants
     &.has-molecule:before {
-        content: " ";
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -120,26 +120,46 @@ export default {
         background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-masthead.svg");
         background-repeat: no-repeat;
         background-position: center 60%;
-        filter: opacity(45%);
+        mix-blend-mode: soft-light;
     }
 
     &.theme-meap {
+        .container {
+            padding: var(--space-2xl) 0;
+        }
         .meta {
-            padding: var(--space-m);
+            gap: var(--space-s);
+            padding: var(--space-l) var(--space-xl) var(--space-xl) var(--space-xl);
             background: var(--color-primary-blue-03);
+
+            .title {
+                @include step-4;
+            }
         }
     }
 
     // Breakpoints
+    @media (max-width: 1200px) {
+        &.theme-meap .container {
+            margin-left: var(--unit-gutter);
+            margin-right: var(--unit-gutter);
+        }
+        .container {
+            margin-left: var(--unit-gutter);
+            margin-right: var(--unit-gutter);
+        }
+    }
     @media #{$medium} {
+        &.theme-meap .container {
+            padding-left: var(--unit-gutter);
+            padding-right: var(--unit-gutter);
+            margin: 0;
+        }
         .container {
             padding-left: var(--unit-gutter);
             padding-right: var(--unit-gutter);
+            margin: 0;
         }
-    }
-
-    @media #{$small} {
-        --unit-height: 230px;
     }
 }
 </style>
