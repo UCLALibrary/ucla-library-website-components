@@ -379,11 +379,11 @@ export default {
         }
         // for clipped version
         &.has-triangle {
+            max-width: calc((100% - 16px)/ 2);
             .meta {
                 margin-top: -25px;
                 padding: 0 60px 0 17px;
             }
-            max-width: calc((100% - 32px)/ 2);;
         }
     }
     &:not(&.is-vertical) {

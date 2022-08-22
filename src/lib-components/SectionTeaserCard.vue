@@ -42,7 +42,7 @@ export default {
 .section-teaser-card {
     max-width: $container-l-main + px;
     background-color: var(--color-white);
-
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

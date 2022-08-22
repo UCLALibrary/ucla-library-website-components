@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 .section-teaser-highlight {
-    padding: 0 calc(var(--unit-gutter) - 16px);
+    // padding: 0 calc(var(--unit-gutter) - 16px);
     background-color: var(--color-white);
     margin: 0 auto;
 
@@ -52,6 +52,7 @@ export default {
     justify-content: flex-start;
     align-content: flex-start;
     align-items: flex-start;
+    max-width: 928px;
 
     .block {
         width: calc(50% - 16px);
