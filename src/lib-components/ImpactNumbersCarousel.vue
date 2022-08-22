@@ -5,9 +5,15 @@
                 v-for="(block, index) in blocks"
                 :key="index"
                 :class="checkCurrentSlide(index)"
+                @click="setCurrentSlide(index)"
             />
         </div>
-        <vue-glide :per-view="1" :rewind="false" @change="setCurrentSlide">
+        <vue-glide
+            :per-view="1"
+            :rewind="false"
+            :active="currentSlide"
+            @change="setCurrentSlide"
+        >
             <vue-glide-slide v-for="(block, index) in blocks" :key="index">
                 <div class="slide-image">
                     <!-- <img :src="block.imagePath" :alt="block.altImageText" /> -->
