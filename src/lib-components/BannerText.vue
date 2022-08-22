@@ -299,7 +299,7 @@ export default {
     .color-about {
         --color-theme: var(--color-about-purple-03);
     }
-    
+
     .banner-text-content-container {
         padding: 40px 40px var(--space-2xl) 40px;
         max-width: $container-l-main + px;
@@ -475,7 +475,7 @@ export default {
         background-size: 96px;
         background-position-y: 40px;
         background-image: none;
-        
+
         .category {
             margin-left: 0;
             .text {
@@ -493,7 +493,7 @@ export default {
             flex-direction: column;
             padding-left: 0;
         }
-        
+
         .location-group {
             padding-left: 0;
         }

@@ -1,3 +1,10 @@
+## [1.50.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.0...v1.50.1) (2022-08-22)
+
+
+### Bug Fixes
+
+* Apps 1752 fix update impactnumberscarousel with responsive image and fix molecule interaction ([#130](https://github.com/UCLALibrary/ucla-library-website-components/issues/130)) ([f8159ea](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8159ea426305124bc83933170555e87e1e99b77))
+
 # [1.50.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.49.1...v1.50.0) (2022-08-22)
 
 
