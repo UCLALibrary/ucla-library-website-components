@@ -26,7 +26,7 @@ const itemsVertical = [
     {
         iconName: "illustration-digitized-resources",
         to: "/about/foo/fred/",
-        title: "Egestas et Augue",
+        title: "Egestas et Augue Justo eu Magna Luctus",
         text: "Suspendisse in justo eu magna luctus suscipit libero eget ante.",
         isHorizontal: false,
     },
@@ -56,10 +56,11 @@ export const Default = () => ({
     template: `
         <section-cards-with-illustrations
             :items="itemsVertical"
-            title="Get Help with"
+            title="Get Help With"
             text="Curabitur aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
             to="/help/foo/bar"
             :isHorizontal="false"
+            button-text="See More"
         />
     `,
 })
@@ -71,7 +72,6 @@ const itemsHorizontal = [
         to: "/help/foo/bar/",
         title: "Lacus Luctus",
         text: "Litora torquent per conubia nostra, per inceptos himenaeos.",
-        isHorizontal: true,
     },
     {
         iconName: "illustration-find-space",
@@ -79,7 +79,6 @@ const itemsHorizontal = [
         to: "/visit/foo/baz/",
         title: "Ultrices Enim",
         text: "Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem.",
-        isHorizontal: true,
     },
     {
         iconName: "illustration-digitized-resources",
@@ -87,7 +86,6 @@ const itemsHorizontal = [
         to: "/about/foo/fred/",
         title: "Egestas et Augue",
         text: "Suspendisse in justo eu magna luctus suscipit libero eget ante.",
-        isHorizontal: true,
     },
     {
         iconName: "illustration-databases",
@@ -95,7 +93,6 @@ const itemsHorizontal = [
         to: "/about/foo/thud/",
         title: "Proin Sodales",
         text: "Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Morbi in dui quis est pulvinar ullamcorper.",
-        isHorizontal: true,
     },
     {
         iconName: "illustration-remote-access",
@@ -103,7 +100,6 @@ const itemsHorizontal = [
         to: "/visit/foo/qux/",
         title: "Taciti sociosqu",
         text: "Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.",
-        isHorizontal: true,
     },
 ]
 
@@ -117,7 +113,7 @@ export const NoText = () => ({
     template: `
         <section-cards-with-illustrations
             :items="itemsVertical"
-            title="Get Help with"
+            title="Get Help With"
             to="/help/foo/bar"
             :isHorizontal="false"
         />
@@ -139,7 +135,7 @@ export const OneCard = () => ({
     template: `
         <section-cards-with-illustrations
             :items="parsedItems"
-            title="Get Help with"
+            title="Get Help With"
             to="/help/foo/bar"
             :isHorizontal="false"
         />
@@ -161,7 +157,7 @@ export const TwoCards = () => ({
     template: `
         <section-cards-with-illustrations
             :items="parsedItems"
-            title="Get Help with"
+            title="Get Help With"
             to="/help/foo/bar"
             :isHorizontal="false"
         />
