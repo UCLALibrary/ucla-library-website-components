@@ -1,5 +1,5 @@
 <template>
-    <div :class="classes" :data-cy="cypressSelector">
+    <section :class="classes" :data-cy="cypressSelector">
         <div v-if="title || text" class="meta">
             <h3 v-if="title" id="cards-with-illustration-title" class="title" v-html="title" />
             <div v-if="text" class="text" v-html="text" />
@@ -15,13 +15,13 @@
                 :title="item.title"
                 :text="item.text"
                 :category="item.category"
-                :is-horizontal="item.isHorizontal"
+                :is-horizontal="isHorizontal"
             />
             <router-link v-if="to" class="card card-more" :to="to">
                 <button-more id="card-more-button" class="button" :text="buttonText" aria-labelledby="card-more-button cards-with-illustration-title" />
             </router-link>
         </ul>
-    </div>
+    </section>
 </template>
 
 <script>

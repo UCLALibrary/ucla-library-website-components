@@ -194,7 +194,6 @@ export default {
         align-items: center;
 
         width: 100%;
-        // max-width: 990px;
 
         .svg {
             flex-grow: 0;

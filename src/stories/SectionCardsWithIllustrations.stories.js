@@ -72,7 +72,6 @@ const itemsHorizontal = [
         to: "/help/foo/bar/",
         title: "Lacus Luctus",
         text: "Litora torquent per conubia nostra, per inceptos himenaeos.",
-        isHorizontal: true,
     },
     {
         iconName: "illustration-find-space",
@@ -80,7 +79,6 @@ const itemsHorizontal = [
         to: "/visit/foo/baz/",
         title: "Ultrices Enim",
         text: "Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem.",
-        isHorizontal: true,
     },
     {
         iconName: "illustration-digitized-resources",
@@ -88,7 +86,6 @@ const itemsHorizontal = [
         to: "/about/foo/fred/",
         title: "Egestas et Augue",
         text: "Suspendisse in justo eu magna luctus suscipit libero eget ante.",
-        isHorizontal: true,
     },
     {
         iconName: "illustration-databases",
@@ -96,7 +93,6 @@ const itemsHorizontal = [
         to: "/about/foo/thud/",
         title: "Proin Sodales",
         text: "Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Morbi in dui quis est pulvinar ullamcorper.",
-        isHorizontal: true,
     },
     {
         iconName: "illustration-remote-access",
@@ -104,7 +100,6 @@ const itemsHorizontal = [
         to: "/visit/foo/qux/",
         title: "Taciti sociosqu",
         text: "Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.",
-        isHorizontal: true,
     },
 ]
 
