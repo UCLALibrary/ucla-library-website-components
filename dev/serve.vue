@@ -358,13 +358,24 @@
         />
         <hr />
 
-        <h2>SectionCardsWithIllustrations Component</h2>
+        <h2>SectionCardsWithIllustrations Vertical Component</h2>
         <section-cards-with-illustrations
             :items="mockSectionCardsWithIllustrations.items"
             title="Get Help with"
             text="Curabitur aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
             to="/help/foo/bar"
             :is-horizontal="false"
+            buttonText=""
+        />
+        <hr />
+
+        <h2>SectionCardsWithIllustrations Vertical Component</h2>
+        <section-cards-with-illustrations
+            :items="mockSectionCardsWithIllustrations.items"
+            title="Get Help with"
+            text="Curabitur aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
+            to="/help/foo/bar"
+            :is-horizontal="true"
         />
         <hr />
 
