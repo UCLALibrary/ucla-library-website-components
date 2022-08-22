@@ -26,7 +26,11 @@
         <div class="meta">
             <h1 class="title" v-html="title" />
             <div class="meta-text">
-                <rich-text v-if="text" class="snippet" :rich-text-content="text" />
+                <rich-text
+                    v-if="text"
+                    class="snippet"
+                    :rich-text-content="text"
+                />
                 <div class="byline" v-if="byline.length">
                     <div
                         v-for="(item, index) in byline"
@@ -51,7 +55,10 @@
                         v-html="parsedTime"
                     />
                 </div>
-                <div v-if="email || phone || staffDirectoryLink || addressLink" class="contact-info-group">
+                <div
+                    v-if="email || phone || staffDirectoryLink || addressLink"
+                    class="contact-info-group"
+                >
                     <icon-with-link
                         v-if="email"
                         :text="email"
@@ -65,13 +72,13 @@
                         :to="`tel:${phone}`"
                     />
                     <icon-with-link
-                        v-if="staffDirectoryLink" 
+                        v-if="staffDirectoryLink"
                         :text="`View staff directory`"
                         icon-name="svg-icon-person"
                         :to="staffDirectoryLink"
                     />
                     <icon-with-link
-                        v-if="addressLink" 
+                        v-if="addressLink"
                         :text="address"
                         icon-name="svg-icon-location"
                         :to="addressLink"
@@ -577,7 +584,7 @@ export default {
             left: auto;
         }
         .meta {
-            padding-right: clamp(184px,35%,300px);
+            padding-right: clamp(184px, 35%, 300px);
             padding-left: var(--unit-gutter);
             margin-top: -36px;
         }
