@@ -16,8 +16,6 @@
         >
             <vue-glide-slide v-for="(block, index) in blocks" :key="index">
                 <div class="slide-image">
-                    <!-- <img :src="block.imagePath" :alt="block.altImageText" /> -->
-
                     <responsive-image :image="block.image" />
                 </div>
                 <div class="impact-numbers-text-container">
