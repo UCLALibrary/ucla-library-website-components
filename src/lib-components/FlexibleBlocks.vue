@@ -1,22 +1,43 @@
 <template>
     <div class="flexible-blocks">
-        <component
-            :is="block.componentName"
-            v-for="block in parsedBlocks"
-            :key="block.id"
-            :block="block"
-            class="flexible-block"
-        />
+        <h2 class="more-information">More Information</h2>
+        <div v-for="(block, index) in parsedBlocks" :key="index">
+            <section-wrapper v-if="block.needsDivider" theme="divider"
+                ><DividerGeneral
+            /></section-wrapper>
+            <section-wrapper :theme="block.theme">
+                <component
+                    :is="block.componentName"
+                    :block="block"
+                    class="flexible-block"
+                />
+            </section-wrapper>
+        </div>
     </div>
 </template>
 
 <script>
 // Helpers
 import _kebabCase from "lodash/kebabCase"
+import SectionWrapper from "./SectionWrapper.vue"
+import DividerGeneral from "./DividerGeneral.vue"
+
+const NEVER_GRAY = [
+    "flexible-associated-topic-cards",
+    "flexible-banner-featured",
+    "flexible-divider-general",
+    "flexible-form",
+    "flexible-impact-numbers-carousel",
+    "flexible-pull-quote",
+    "flexible-simple-cards",
+    "flexible-call-to-action",
+    "flexible-cta-block2-up",
+]
 
 export default {
     name: "FlexibleBlocks",
     components: {
+        SectionWrapper,
         // TODO register all other block types
         FlexibleCallToAction: () =>
             import("@/lib-components/Flexible/CallToAction").then(
@@ -68,6 +89,7 @@ export default {
             import("@/lib-components/Flexible/AssociatedTopicCards.vue").then(
                 (d) => d.default
             ),
+        DividerGeneral,
     },
 
     props: {
@@ -79,21 +101,37 @@ export default {
     computed: {
         parsedBlocks() {
             // Shape blocks to work with components
-            let output = this.blocks.map((obj) => {
-                console.log(convertName(obj.typeHandle))
-                return {
-                    ...obj,
-                    componentName: convertName(obj.typeHandle),
+            let output = this.blocks
+                .map((obj) => {
+                    // Normalize componentName
+                    console.log(obj)
+                    return {
+                        ...obj,
+                        componentName: convertName(obj.typeHandle),
+                    }
+                })
+                .filter((obj) => {
+                    // Remove any un-registered blocks
+                    return this.registeredComponents.includes(obj.componentName)
+                })
+            for (let index = 0; index < output.length; index++) {
+                if (
+                    index > 0 &&
+                    output[index - 1].theme == "white" &&
+                    !NEVER_GRAY.includes(output[index].componentName)
+                ) {
+                    output[index].theme = "gray"
+                } else {
+                    output[index].theme = "white"
                 }
-            })
-            // Remove any un-registered blocks
-            output = output.filter((obj) => {
-                console.log(
-                    this.registeredComponents.includes(obj.componentName)
-                )
-                return this.registeredComponents.includes(obj.componentName)
-            })
 
+                output[index].needsDivider =
+                    index > 0 &&
+                    output[index].theme == "white" &&
+                    output[index - 1].theme == "white"
+                        ? true
+                        : false
+            }
             return output
         },
         registeredComponents() {

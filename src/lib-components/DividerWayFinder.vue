@@ -48,7 +48,6 @@ export default {
     align-content: space-between;
     align-items: center;
 
-    margin: var(--space-3xl) auto;
     max-width: $container-l-main + px;
 
     .solid {
@@ -64,10 +63,6 @@ export default {
         height: 1px;
 
         flex: 1 1 auto;
-    }
-
-    @media #{$medium} {
-        padding: 0 var(--unit-gutter);
     }
 }
 </style>

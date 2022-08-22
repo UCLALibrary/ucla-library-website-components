@@ -5,7 +5,7 @@
             class="parent-page-url"
             v-html="getParentPage"
         />
-        <svg-icon-caret-left />
+        <svg-icon-caret-left aria-hidden="true" />
         <span class="current-page-title" v-html="title" />
     </div>
 </template>
@@ -53,12 +53,15 @@ export default {
     justify-content: flex-start;
     align-items: center;
 
-    max-width: 990px;
-    margin: var(--space-l) 0;
+    max-width: $container-xl-full-width + px;
+    margin: var(--space-m) 0;
     padding: 0 var(--unit-gutter);
 
-    @include step-1;
-    color: var(--color-primary-blue-03);
+    .parent-page-url {
+        @include step-1;
+        color: var(--color-primary-blue-03);
+        flex-shrink: 0;
+    }
 
     .svg__icon-caret-left {
         flex-shrink: 0;
@@ -70,6 +73,19 @@ export default {
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
+    }
+
+    @media #{$small} {
+        padding-left: calc(var(--unit-gutter) - 8px);
+        .current-page-title {
+            display: none;
+        }
+        .svg__icon-caret-left {
+            order: 1;
+        }
+        .parent-page-url {
+            order: 2;
+        }
     }
 }
 

@@ -127,7 +127,7 @@ export default {
 .card-with-image {
     max-width: 960px;
     padding: 0 calc(var(--unit-gutter) - 16px);
-    background-color: var(--color-white);
+    background-color: var(--color-theme, var(--color-white));
     margin: 0 auto;
 
     .section-header {
