@@ -5,12 +5,18 @@
                 v-for="(block, index) in blocks"
                 :key="index"
                 :class="checkCurrentSlide(index)"
+                @click="setCurrentSlide(index)"
             />
         </div>
-        <vue-glide :per-view="1" :rewind="false" @change="setCurrentSlide">
+        <vue-glide
+            :per-view="1"
+            :rewind="false"
+            :active="currentSlide"
+            @change="setCurrentSlide"
+        >
             <vue-glide-slide v-for="(block, index) in blocks" :key="index">
                 <div class="slide-image">
-                    <img :src="block.imagePath" :alt="block.altImageText" />
+                    <responsive-image :image="block.image" />
                 </div>
                 <div class="impact-numbers-text-container">
                     <span class="impactNumber">{{ block.largeText }}</span>
@@ -41,6 +47,7 @@ import { Glide, GlideSlide } from "vue-glide-js"
 // SVGs
 import SvgArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
 import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg"
+import ResponsiveImage from "@/lib-components/ResponsiveImage"
 
 export default {
     name: "ImpactNumbersCarousel",
@@ -49,6 +56,7 @@ export default {
         [GlideSlide.name]: GlideSlide,
         SvgArrowRight,
         SvgIconMoleculeBullet,
+        ResponsiveImage,
     },
     props: {
         /**
