@@ -1,3 +1,10 @@
+# [1.50.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.49.1...v1.50.0) (2022-08-22)
+
+
+### Features
+
+* meap cta variant ([#133](https://github.com/UCLALibrary/ucla-library-website-components/issues/133)) ([86d5652](https://github.com/UCLALibrary/ucla-library-website-components/commit/86d565202c854ad65944b3eeaeda2d6b78469dc7))
+
 ## [1.49.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.49.0...v1.49.1) (2022-08-19)
 
 
