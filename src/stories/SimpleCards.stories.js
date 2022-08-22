@@ -57,7 +57,7 @@ const mockThreeCards = {
     cards: [
         {
             id: "8203",
-            text: "<h3>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT.</h3>",
+            text: "<p>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT.</p>",
             title: "Library Prize for Undergraduate Research",
             slug: "library-prize-for-undergraduate-research",
             uri: "about/awards-grants/library-prize-for-undergraduate-research",
@@ -105,7 +105,7 @@ const mockFourCards = {
     cards: [
         {
             id: "8203",
-            text: "<h3>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT.</h3>",
+            text: "<p>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT.</p>",
             title: "Library Prize for Undergraduate Research",
             slug: "library-prize-for-undergraduate-research",
             uri: "about/awards-grants/library-prize-for-undergraduate-research",
@@ -161,7 +161,7 @@ const mockFiveCards = {
     cards: [
         {
             id: "8203",
-            text: "<h3>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT.</h3>",
+            text: "<p>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT.</p>",
             title: "Library Prize for Undergraduate Research",
             slug: "library-prize-for-undergraduate-research",
             uri: "about/awards-grants/library-prize-for-undergraduate-research",
@@ -221,7 +221,7 @@ const mockSixCards = {
     cards: [
         {
             id: "8203",
-            text: "<h3>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT.</h3>",
+            text: "<p>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT.</p>",
             title: "Library Prize for Undergraduate Research",
             slug: "library-prize-for-undergraduate-research",
             uri: "about/awards-grants/library-prize-for-undergraduate-research",

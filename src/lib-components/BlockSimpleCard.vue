@@ -1,21 +1,19 @@
 <template>
     <li tabindex="1" :class="classes">
-        <div class="meta">
-            <span class="section" v-html="sectionName" />
-            <h3 class="title2">
-                <smart-link
-                    v-if="title"
-                    :to="to"
-                    :target="parsedTarget"
-                    class="title"
-                >
-                    {{ title }}
-                </smart-link>
-            </h3>
-            <div v-if="text" class="text" v-html="text" />
-            <div class="svg-meta" aria-hidden="true">
-                <component :is="parsedIconName" class="svg" />
-            </div>
+        <span class="section" v-html="sectionName" />
+        <h3 class="title2">
+            <smart-link
+                v-if="title"
+                :to="to"
+                :target="parsedTarget"
+                class="title"
+            >
+                {{ title }}
+            </smart-link>
+        </h3>
+        <div v-if="text" class="text" v-html="text" />
+        <div class="svg-meta" aria-hidden="true">
+            <component :is="parsedIconName" class="svg" />
         </div>
     </li>
 </template>
@@ -74,7 +72,7 @@ export default {
 <style lang="scss" scoped>
 .block-simple-card {
     width: 100%;
-    min-height: 300px;
+    min-height: 288px;
     border-radius: var(--rounded-slightly-all);
     overflow: hidden;
     background-color: var(--color-primary-blue-01);
@@ -85,6 +83,8 @@ export default {
 
     display: flex;
     flex-direction: column;
+
+    padding: 40px;
 
     // Themes
     --color-theme: var(--color-default-cyan-01);
@@ -98,9 +98,6 @@ export default {
         --color-theme: var(--color-about-purple-01);
     }
 
-    .meta {
-        margin: 56px 48px 20px 48px;
-    }
     .section {
         display: none;
     }
@@ -120,8 +117,7 @@ export default {
 
     .text {
         @include step--1;
-        max-height: 175px;
-        margin-bottom: 24px;
+        margin-bottom: var(--space-m);
 
         display: -webkit-box;
         -webkit-line-clamp: 4;
@@ -129,18 +125,9 @@ export default {
         overflow: hidden;
     }
 
-    .svg-meta {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        align-content: flex-end;
-        align-items: center;
-    }
-
     .svg {
-        right: 44px;
-        bottom: 20px;
+        right: 32px;
+        bottom: 32px;
         position: absolute;
         z-index: 20;
 
@@ -153,8 +140,13 @@ export default {
         }
     }
     // Breakpoints
-    @media #{$medium} {
-        width: 300px;
+    @media #{$small} {
+        padding: var(--unit-gutter);
+
+        .svg {
+            right: var(--unit-gutter);
+            bottom: var(--unit-gutter);
+        }
     }
 
     // Hovers
