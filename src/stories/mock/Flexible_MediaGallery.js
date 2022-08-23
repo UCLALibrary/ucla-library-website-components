@@ -2,11 +2,11 @@ import * as API from "@/stories/mock-api.json"
 
 export const mock = {
     typeHandle: "mediaGallery",
-    titleGeneral: "de Finibus Bonorum et Malorum",
+    titleGeneral: "Section Title de Finibus Bonorum et Malorum",
+    sectionSummary:
+        "Section Summary accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione ",
     title: null,
     slug: null,
-    shortDescription:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
     mediaGallery: [
         {
             id: "4602",
@@ -25,7 +25,7 @@ export const mock = {
             id: "4603",
             altText: "parking",
             captionText:
-                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+                "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
             captionTitle: "Image two",
             image: [API.image],
             slug: null,
@@ -38,7 +38,9 @@ export const mock = {
             altText: "abcd",
             captionText: null,
             captionTitle:
-                "For number three we're going to see what it looks like with a very long title",
+                "For number three we're going to see what it looks like with a very long title & text",
+            captionText:
+                "Sed quia non numquam eius modi tempora incidunt ut labore et neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Incidunt ut labore et neque porro quisquam est, qui dolorem ipsum qui. Consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
             image: [API.image],
             slug: null,
             sortOrder: 3,
@@ -49,7 +51,9 @@ export const mock = {
             id: "4605",
             altText: "abcd",
             captionText: null,
-            captionTitle: "Four",
+            captionTitle: "Four in a Row",
+            captionText:
+                "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
             image: [
                 {
                     src: "https://via.placeholder.com/1080x1920",
@@ -72,7 +76,9 @@ export const mock = {
             id: "4607",
             altText: "abcd",
             captionText: null,
-            captionTitle: "Five",
+            captionTitle: "Five for a Dollar",
+            captionText:
+                "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
             image: [API.image],
             slug: null,
             sortOrder: 6,
@@ -83,7 +89,7 @@ export const mock = {
             id: "4606",
             altText: "abcd",
             captionText: null,
-            captionTitle: "Six",
+            captionTitle: "Six with no captionText",
             image: [API.image],
             slug: null,
             sortOrder: 5,
