@@ -12,7 +12,6 @@
                 v-for="child in parsedChildren"
                 :key="child.id"
                 class="sub-menu-item"
-                @click="closeMenu"
             >
                 <smart-link
                     :class="child.classes"
@@ -65,7 +64,8 @@ export default {
     },
     watch: {
         goBack: function (newVal) {
-            newVal ? this.resetAccordion() : null
+            console.log("goback value updated " + newVal)
+            this.resetAccordion()
         },
     },
     methods: {
@@ -73,15 +73,18 @@ export default {
             const subMenuItemInfoElement = document.querySelectorAll(
                 '[data-sub-menu-item-id="' + itemIndex + '"]'
             )[0]
+            const subMenuItemInfoElementReset = document.querySelectorAll(
+                'ul:not([data-sub-menu-item-id="' + itemIndex + '"])'
+            )
             const subMenuTitleElement = document.querySelectorAll(
-                'li span:not([data-sub-menu-title-id="' + itemIndex + '"]'
+                'li span:not([data-sub-menu-title-id="' + itemIndex + '"])'
             )
             if (subMenuItemInfoElement.classList.contains("block")) {
                 subMenuItemInfoElement.classList.remove("block")
                 subMenuItemInfoElement.classList.add("hidden")
 
                 for (let title of subMenuTitleElement) {
-                    title.classList.remove("hidden")
+                    // title.classList.remove("hidden")
                     title.classList.add("block")
                 }
             } else {
@@ -90,6 +93,11 @@ export default {
 
                 for (let title of subMenuTitleElement) {
                     title.classList.remove("block")
+                    //title.classList.add("hidden")
+                }
+                for (let title of subMenuItemInfoElementReset) {
+                    // title.classList.remove("hidden")
+                    title.classList.remove("block")
                     title.classList.add("hidden")
                 }
             }
@@ -97,7 +105,7 @@ export default {
             this.$emit("itemOpenedColor", itemIndex)
         },
         resetAccordion() {
-            this.$emit("shouldOpen")
+            // this.$emit("shouldOpen")
             const subMenuTitleElement = document.querySelectorAll(
                 "[data-sub-menu-title-id]"
             )
@@ -112,10 +120,6 @@ export default {
                 item.classList.remove("block")
                 item.classList.add("hidden")
             }
-        },
-        closeMenu() {
-            this.$emit("closeMainMenu")
-            this.$emit("closeMenuItem")
         },
     },
 }

@@ -13,7 +13,11 @@ const mock = {
     title: "Curabitur Tortor Pellentesque",
     locations: [
         { id: "523", title: "Powellarium", to: "/location/bar" },
-        { id: "801", title: "Research Library (Charles E. Young)", to: "/location/baz" },
+        {
+            id: "801",
+            title: "Research Library (Charles E. Young)",
+            to: "/location/baz",
+        },
     ],
     date: "1995-12-17T03:24:00",
     buttonText: "Curabitur",
