@@ -1,3 +1,10 @@
+## [1.50.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.3...v1.50.4) (2022-08-23)
+
+
+### Bug Fixes
+
+* copy vue-glide css into new lightbox ([#141](https://github.com/UCLALibrary/ucla-library-website-components/issues/141)) ([d2cc234](https://github.com/UCLALibrary/ucla-library-website-components/commit/d2cc234ac33f0749bb7be21ec9893c35d680d8b1))
+
 ## [1.50.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.2...v1.50.3) (2022-08-23)
 
 
