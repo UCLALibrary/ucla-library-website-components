@@ -68,6 +68,7 @@
 
 <script>
 import { Glide, GlideSlide } from "vue-glide-js"
+import "vue-glide-js/dist/vue-glide.css"
 import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-left.svg"
 import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret-right.svg"
 import SvgIconClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg"
