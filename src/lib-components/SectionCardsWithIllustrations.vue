@@ -90,6 +90,7 @@ export default {
 <style lang="scss" scoped>
 .section-cards-with-illustrations {
     max-width: $container-l-main + px;
+    margin: 0 auto;
 
     .meta {
         margin-bottom: var(--space-xl);
@@ -163,7 +164,6 @@ export default {
 
     // Horizontal
     &.is-horizontal {
-        margin: 0 auto;
         .cards {
             flex-direction: column;
             gap: var(--space-m);
