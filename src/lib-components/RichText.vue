@@ -47,7 +47,7 @@ export default {
         font-family: var(--font-primary);
         color: var(--color-black);
         @include step-0;
-        margin: var(--space-l) 0;
+        margin: 0 0 var(--space-l) 0;
     }
 
     ::v-deep p:only-child {

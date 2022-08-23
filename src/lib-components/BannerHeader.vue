@@ -610,6 +610,11 @@ export default {
             }
         }
     }
+    @media #{$medium} and (min-width: 928px) {
+        .meta {
+            max-width: 100%;
+        }
+    }
 
     @media #{$small} {
         .media {

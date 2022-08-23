@@ -260,6 +260,7 @@ export default {
 }
 .banner-text {
     margin: 0 auto;
+    min-height: 312px;
     background-color: var(--background-color);
     position: relative;
     z-index: 0;
@@ -301,7 +302,7 @@ export default {
     }
 
     .banner-text-content-container {
-        padding: 40px 40px var(--space-2xl) 40px;
+        padding: 40px 0 0;
         max-width: $container-l-main + px;
         margin: auto;
 
@@ -438,6 +439,7 @@ export default {
 @media #{$medium} {
     .banner-text {
         background-size: 128px;
+        min-height: 264px;
         .category .text {
             font-size: 20px;
         }
@@ -448,7 +450,7 @@ export default {
             margin-left: 0;
         }
         .banner-text-content-container {
-            padding-left: 40px;
+            padding-left: var(--unit-gutter);
             padding-top: 40px;
             padding-bottom: 60px;
         }
@@ -470,11 +472,18 @@ export default {
         }
     }
 }
+
+@media #{$medium} and (min-width: 928px) {
+    .banner-text .banner-text-content-container {
+        max-width: 100%;
+    }
+}
 @media #{$small} {
     .banner-text {
         background-size: 96px;
         background-position-y: 40px;
         background-image: none;
+        min-height: unset;
 
         .category {
             margin-left: 0;
