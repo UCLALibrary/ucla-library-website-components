@@ -6,6 +6,7 @@
                 class="section-title"
                 v-html="block.titleGeneral"
             />
+
             <div
                 v-if="block.summary"
                 class="section-summary"

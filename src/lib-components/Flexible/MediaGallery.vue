@@ -1,8 +1,14 @@
 <template>
     <section class="media-gallery">
-        <h2 class="gallery-section-heading">
+        <h2 class="section-title">
             {{ block.titleGeneral }}
         </h2>
+
+        <div
+            v-if="block.sectionSummary"
+            class="section-summary"
+            v-html="block.sectionSummary"
+        />
 
         <flexible-media-gallery-new-lightbox
             v-if="showLightboxModal"
@@ -120,8 +126,17 @@ export default {
 
     h2.gallery-section-heading {
         @include step-4;
-        margin-bottom: var(--space-xl);
+        margin-bottom: var(--space-m);
         color: var(--color-primary-blue-03);
+    }
+
+    .section-summary {
+        @include step-0;
+        margin-bottom: var(--space-xl);
+
+        // ::v-deep p {
+        //     margin: 0;
+        // }
     }
 
     .thumbnails {
