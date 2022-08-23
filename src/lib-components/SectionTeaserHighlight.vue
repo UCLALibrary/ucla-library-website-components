@@ -1,7 +1,5 @@
 <template>
     <section class="section-teaser-highlight">
-        <!-- TODO I don't think you need this div -->
-
         <block-highlight
             v-for="item in items"
             :key="item.to"
@@ -9,6 +7,8 @@
             :image="item.image"
             :category="item.category"
             :title="item.title"
+            :byline-one="item.bylineOne"
+            :byline-two="item.bylineTwo"
             :start-date="item.startDate"
             :end-date="item.endDate"
             :text="item.text"

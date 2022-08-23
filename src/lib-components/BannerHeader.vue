@@ -37,7 +37,7 @@
                         :key="index"
                         class="byline-item"
                     >
-                        {{ item }}
+                        {{ item.title }}
                     </div>
                     <time
                         v-if="dateCreated"
@@ -50,7 +50,7 @@
                         v-html="parsedDate"
                     />
                     <time
-                        v-if="startDate"
+                        v-if="startDate && isEvent"
                         class="schedule-item"
                         v-html="parsedTime"
                     />
@@ -248,6 +248,10 @@ export default {
         staffDirectoryLink: {
             type: String,
             default: "",
+        },
+        isEvent: {
+            type: Boolean,
+            default: false,
         },
     },
     computed: {
