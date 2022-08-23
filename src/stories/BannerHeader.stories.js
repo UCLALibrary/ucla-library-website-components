@@ -17,7 +17,13 @@ const mock = {
     category: "Lectus",
     startDate: "1995-12-17T03:24:00",
     endDate: "1995-12-17T03:24:00",
-    byline: ["Cursus Quis"],
+    byline: [
+        {
+            id: "3062",
+            title: "Jen Diamond",
+            to: "",
+        },
+    ],
     locations: [
         {
             id: "523",
@@ -182,7 +188,18 @@ const article = {
     title: "I Like Turtles",
     category: "Library News",
     dateCreated: "2022-02-09T10:57:46-08:00",
-    byline: ["Jen Diamond", "Courtney Hoffner"],
+    byline: [
+        {
+            id: "3062",
+            title: "Jen Diamond",
+            to: "",
+        },
+        {
+            id: "3062",
+            title: "Courtney Hoffner",
+            to: "",
+        },
+    ],
     locations: [
         {
             id: "523",
