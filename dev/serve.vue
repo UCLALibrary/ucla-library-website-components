@@ -2326,8 +2326,9 @@ export default Vue.extend({
                 {
                     id: "28284",
                     typeHandle: "cardWithImage",
-                    titleGeneral: "Card with image",
-                    summary: "<p>card with image</p>",
+                    titleGeneral: "Section Title Card with image",
+                    summary:
+                        "<p>Section Summary for Card with Image. Tarot cards are an old genre of playing card still very popular in France and Eastern Europe.</p>",
                     cardWithImage: [
                         {
                             id: "28285",
@@ -2455,8 +2456,9 @@ export default Vue.extend({
                                     altText: null,
                                 },
                             ],
-                            byline1: "By External Content",
+                            byline1: "Byline 1: External Content",
                             byline2: null,
+                            title: "Etch-a-Sketch",
                             category: "About",
                             location: "France",
                             text: "<p>About text found here.</p>",

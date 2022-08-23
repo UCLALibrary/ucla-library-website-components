@@ -1,8 +1,9 @@
 export const mock = {
     id: "28284",
     typeHandle: "cardWithImage",
-    titleGeneral: "Card with image",
-    summary: "<p>card with image</p>",
+    titleGeneral: "Section Title Card with Image",
+    summary:
+        "<p>Sextion Summary for the Card with Image. ix and match multiple content types to create the card you need, or throw everything in there. Shown below are image styles, blocks, text.</p>",
     cardWithImage: [
         {
             id: "28285",
