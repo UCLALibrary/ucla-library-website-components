@@ -1,5 +1,6 @@
 <template>
-    <li tabindex="1" :class="classes">
+    <li :class="classes">
+        <!-- TODO: Fix sectionName to use "to" value to determine section -->
         <span class="section" v-html="sectionName" />
         <h3 class="title2">
             <smart-link
@@ -72,7 +73,7 @@ export default {
 <style lang="scss" scoped>
 .block-simple-card {
     width: 100%;
-    min-height: 288px;
+    min-height: 296px;
     border-radius: var(--rounded-slightly-all);
     overflow: hidden;
     background-color: var(--color-primary-blue-01);
@@ -83,8 +84,9 @@ export default {
 
     display: flex;
     flex-direction: column;
+    gap: 16px;
 
-    padding: 40px;
+    padding: 40px 40px 32px;
 
     // Themes
     --color-theme: var(--color-default-cyan-01);
@@ -100,24 +102,17 @@ export default {
 
     .section {
         display: none;
+        @include overline;
     }
-    .title::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-    }
-    .title2 {
+    .title {
         @include step-1;
         color: var(--color-primary-blue-03);
-        margin-bottom: 16px;
+        @include clickable-area;
     }
 
     .text {
         @include step--1;
-        margin-bottom: var(--space-m);
+        flex: 1;
 
         display: -webkit-box;
         -webkit-line-clamp: 4;
@@ -125,28 +120,17 @@ export default {
         overflow: hidden;
     }
 
-    .svg {
-        right: 32px;
-        bottom: 32px;
-        position: absolute;
-        z-index: 20;
+    .svg-meta {
+        align-self: flex-end;
+    }
 
-        .arrow-right,
-        .line {
-            stroke: var(--color-primary-blue-03);
-        }
-        .arrow-diagonal {
-            fill: var(--color-primary-blue-03);
-        }
+    .svg {
+        z-index: 20;
+        display: block;
     }
     // Breakpoints
     @media #{$small} {
         padding: var(--unit-gutter);
-
-        .svg {
-            right: var(--unit-gutter);
-            bottom: var(--unit-gutter);
-        }
     }
 
     // Hovers
@@ -156,21 +140,20 @@ export default {
             @include card-horizontal-hover;
             background-color: var(--color-theme);
             z-index: 30;
+            cursor: pointer;
 
             .title {
-                text-decoration-color: var(--color-default-cyan-03);
                 text-decoration-thickness: 1.5px;
                 color: var(--color-primary-blue-05);
             }
             .text {
                 color: var(--color-primary-blue-05);
             }
-            .svg {
-                .arrow-right,
-                .line {
+            ::v-deep .svg {
+                .svg__stroke--primary-blue-03 {
                     stroke: var(--color-primary-blue-05);
                 }
-                .arrow-diagonal {
+                .svg__fill--primary-blue-03 {
                     fill: var(--color-primary-blue-05);
                 }
             }
