@@ -75,7 +75,6 @@ export default {
 
 <style lang="scss" scoped>
 .simple-cards {
-    margin: 0 auto;
     max-width: $container-l-main + px;
 
     .section-header {
@@ -84,10 +83,11 @@ export default {
     .section-title {
         @include step-4;
         color: var(--color-primary-blue-03);
+        margin-bottom: var(--space-m);
     }
     .section-summary {
         @include step-0;
-        margin-top: var(--space-m);
+        color: var(--color-black);
 
         ::v-deep p {
             margin: 0;
@@ -99,46 +99,48 @@ export default {
         flex-wrap: wrap;
         justify-content: flex-start;
         align-content: flex-start;
-        align-items: flex-start;
-        gap: var(--space-s);
+        align-items: stretch;
+        gap: 16px;
     }
-    .card {
-    }
+
     .card-large {
-        width: calc(50% - 16px);
+        width: calc((100% - 16px) / 2);
     }
     .card-small {
-        width: calc(33.33% - 16px);
+        width: calc((100% / 3) - 11px);
     }
     .card-five {
         &:nth-child(-n + 2) {
-            width: calc(50% - 16px);
+            width: calc((100% - 16px) / 2);
         }
         &:nth-last-child(-n + 3) {
-            width: calc(33.33% - 16px);
+            width: calc((100% / 3) - 11px);
         }
     }
     // Breakpoints
     @media #{$medium} {
-        &.flexible-block {
-            padding: var(--unit-gutter);
-        }
-        // .card {
-        //     width: 50%;
-        // }
         .card-small {
-            width: calc(50% - 16px);
+            width: calc((100% - 16px) / 2);
         }
         .card-five {
+            width: calc((100% - 16px) / 2);
             &:nth-child(-n + 2) {
-                width: 300px;
+                width: calc((100% - 16px) / 2);
+            }
+            &:nth-last-child(-n + 3) {
+                width: calc((100% - 16px) / 2);
+            }
+            &:last-child {
+                flex-grow: 1;
+                width: 100%;
             }
         }
     }
     @media #{$small} {
         display: flex;
         flex-direction: column;
-        .card {
+        .card,
+        .card.card-five {
             width: 100%;
         }
     }
