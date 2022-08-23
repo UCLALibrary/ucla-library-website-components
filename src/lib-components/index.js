@@ -1,6 +1,5 @@
 import "ucla-library-design-tokens/scss/app-global.scss"
 import "@/styles/global.scss"
-import "vue-glide-js/dist/vue-glide.css"
 
 export { default as UclaLibraryWebsiteComponentSample } from "./ucla-library-website-component-sample.vue"
 export { default as AlphabeticalBrowseBy } from "./AlphabeticalBrowseBy.vue"
