@@ -3,7 +3,7 @@
         <responsive-image :image="image" :aspect-ratio="60" object-fit="cover">
             <div v-if="nItems > 1 && !expanded">
                 <div class="gradient" />
-                <svg-molecule-image-stack class="molecule-image-stack" />
+                <svg-molecule-image-stack class="molecule-image-stack" aria-hidden="true" />
             </div>
             <media-badge v-if="nItems > 1" :is-expanded="expanded">
                 {{ nItems }}
@@ -61,11 +61,12 @@ export default {
 
 <style lang="scss" scoped>
 .banner-image {
+    cursor: pointer;
+
     .gradient {
         display: none;
         background: var(--gradient-radial);
         background-size: cover;
-        // z-index: 10;
         position: absolute;
         top: 0;
         left: 0;
@@ -74,13 +75,12 @@ export default {
     }
 
     .svg__molecule-image-stack {
-        --width: calc(min(128px, 45%));
+        --width: calc(min(128px, 30%));
         width: var(--width);
         height: var(--width);
-        // z-index: 400;
         position: absolute;
         left: calc(50% - var(--width) / 2);
-        top: calc(50% - var(--width) / 2);
+        top: calc((50% - var(--width) / 2) - 16px);
 
         .svg__fill--primary-blue-03 {
             fill: var(--color-primary-blue-03);
@@ -88,7 +88,6 @@ export default {
     }
 
     .glyph-expand {
-        // z-index: 15;
         display: inline-block;
         width: 24px;
         height: 24px;

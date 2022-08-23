@@ -114,27 +114,24 @@ export default {
 
 <style lang="scss" scoped>
 .media-gallery {
-    max-width: 960px;
-    margin: 0 calc(var(--unit-gutter) - 16px);
-    padding: 0;
-    background-color: var(--color-theme, var(--color-white));
+    max-width: $container-l-main + px;
     margin: 0 auto;
+    background-color: var(--color-theme, var(--color-white));
 
     h2.gallery-section-heading {
-        @include step-3;
+        @include step-4;
         margin-bottom: var(--space-xl);
         color: var(--color-primary-blue-03);
     }
 
     .thumbnails {
+        $gap: var(--space-m);
         width: 100%;
-        margin-top: var(--space-xl);
-
         display: grid;
-        $column-gap: 32px;
-        grid-template-columns: repeat(3, calc((100% - 2 * $column-gap) / 3));
-        column-gap: $column-gap;
-        row-gap: var(--space-xl);
+        grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
+        column-gap: $gap;
+        row-gap: $gap;
+        padding-top: $gap;
     }
 }
 </style>

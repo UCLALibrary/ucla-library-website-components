@@ -1,3 +1,10 @@
+## [1.50.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.1...v1.50.2) (2022-08-23)
+
+
+### Bug Fixes
+
+* media gallery component ([#137](https://github.com/UCLALibrary/ucla-library-website-components/issues/137)) ([333adf2](https://github.com/UCLALibrary/ucla-library-website-components/commit/333adf2dcd7e010effc3a7c6e3d880ee0925b65f))
+
 ## [1.50.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.0...v1.50.1) (2022-08-22)
 
 
