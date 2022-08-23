@@ -15,8 +15,8 @@ export default {
 
 <style lang="scss" scoped>
 .media-badge {
-    --badge-width: 268.57px;
-    --badge-height: 61.16px;
+    --badge-width: 264px;
+    --badge-height: 64px;
     --accent-slope: 2.35;
     --background-color: var(--color-theme, var(--color-white));
     --accent-color: var(--color-visit-fushia-03);
@@ -81,7 +81,7 @@ export default {
 @media #{$small} {
     .media-badge {
         --badge-width: 212px;
-        --badge-height: 48px;
+        --badge-height: 44px;
     }
 }
 </style>
