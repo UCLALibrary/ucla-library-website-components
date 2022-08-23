@@ -1,3 +1,10 @@
+## [1.50.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.2...v1.50.3) (2022-08-23)
+
+
+### Bug Fixes
+
+* move vue-glide css to global ([#140](https://github.com/UCLALibrary/ucla-library-website-components/issues/140)) ([bc4df62](https://github.com/UCLALibrary/ucla-library-website-components/commit/bc4df62455e331eeb88be503a7444bf64e96d903))
+
 ## [1.50.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.1...v1.50.2) (2022-08-23)
 
 
