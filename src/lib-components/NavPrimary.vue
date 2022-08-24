@@ -25,6 +25,18 @@
                 @mouseover.native="setActive(index)"
                 @mouseleave.native="clearActive"
             />
+            <li
+                v-for="(item, index) in noChildren"
+                class="nochildren-links"
+                :key="index"
+            >
+                <smart-link
+                    class="nochildren-link underline-hover"
+                    :to="item.to"
+                >
+                    {{ item.name }}
+                </smart-link>
+            </li>
         </ul>
 
         <div v-if="!title" class="support-links">
@@ -40,7 +52,7 @@
         </div>
 
         <div class="background-white" />
-        <div class="background-blue" @click="toggleMenu" />
+        <div v-if="isOpened" class="background-blue" @click="toggleMenu" />
 
         <div v-if="isOpened" class="click-blocker" @click="toggleMenu" />
     </nav>
@@ -88,7 +100,18 @@ export default {
                 "nav-primary",
                 { "is-opened": this.isOpened },
                 { "not-hovered": this.activeMenuIndex == -1 },
+                { "has-title": this.title },
             ]
+        },
+        noChildren() {
+            if (!this.title) {
+                return []
+            }
+
+            return this.items.filter((obj) => {
+                // Return items that don't have sub-menu children
+                return !obj.children || !obj.children.length
+            })
         },
         supportLinks() {
             // Generally this is just the last "Support Us" link, but we are going to allwo it to be more than 1
@@ -195,7 +218,6 @@ export default {
         position: relative;
         z-index: 10;
     }
-
     .support-links {
         position: relative;
         z-index: 10;
@@ -247,6 +269,34 @@ export default {
         height: 100%;
         width: 100%;
         z-index: -10;
+    }
+    &.has-title {
+        .background-blue {
+            height: 110%;
+        }
+        .nochildren-links {
+            margin: 0 5px;
+            padding: 0;
+            position: relative;
+            min-width: 128px;
+            max-width: 300px;
+            margin-left: 25px;
+            display: inline-block;
+            vertical-align: top;
+
+            .nochildren-link {
+                height: var(--unit-height);
+                line-height: var(--unit-height);
+                text-align: center;
+
+                font-size: 18px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                cursor: pointer;
+                position: relative;
+            }
+        }
     }
 
     // States
