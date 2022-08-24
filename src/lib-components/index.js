@@ -2,6 +2,7 @@ import "ucla-library-design-tokens/scss/app-global.scss"
 import "@/styles/global.scss"
 
 export { default as UclaLibraryWebsiteComponentSample } from "./ucla-library-website-component-sample.vue"
+export { default as ExampleMeapNavMastHead } from "./ExampleMeapNavMastHead.vue"
 export { default as AlphabeticalBrowseBy } from "./AlphabeticalBrowseBy.vue"
 export { default as BannerFeatured } from "./BannerFeatured.vue"
 export { default as BannerHeader } from "./BannerHeader.vue"

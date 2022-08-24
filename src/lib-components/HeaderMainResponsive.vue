@@ -64,7 +64,7 @@
                     </smart-link>
                 </li>
             </ul>
-            <div v-if="isOpened" class="nav-menu-secondary">
+            <div v-if="isOpened && !title" class="nav-menu-secondary">
                 <ul class="list">
                     <li
                         v-for="item in parsedSecondaryMenuItems"

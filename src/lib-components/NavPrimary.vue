@@ -30,7 +30,10 @@
                 class="nochildren-links"
                 :key="index"
             >
-                <smart-link class="nochildren-link" :to="item.to">
+                <smart-link
+                    class="nochildren-link underline-hover"
+                    :to="item.to"
+                >
                     {{ item.name }}
                 </smart-link>
             </li>
@@ -268,6 +271,9 @@ export default {
         z-index: -10;
     }
     &.has-title {
+        .background-blue {
+            height: 110%;
+        }
         .nochildren-links {
             margin: 0 5px;
             padding: 0;
@@ -282,7 +288,7 @@ export default {
                 height: var(--unit-height);
                 line-height: var(--unit-height);
                 text-align: center;
-                display: block;
+
                 font-size: 18px;
                 font-weight: 600;
                 text-transform: uppercase;
