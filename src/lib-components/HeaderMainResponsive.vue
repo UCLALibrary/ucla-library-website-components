@@ -1,13 +1,10 @@
 <template>
-    <nav
-        role="navigation"
-        aria-label="Menu"
-        class="header-main-responsive"
-        :class="isOpened ? 'fullHeight' : 'collapsedHeight'"
-    >
+    <nav role="navigation" aria-label="Menu" :class="classes">
         <div v-if="!isOpened" class="collapsed-menu">
-            <router-link to="/" aria-label="UCLA Library home page">
+            <router-link to="/" :aria-label="parseAriaLabel">
+                <h1 v-if="title" class="title">{{ title }}</h1>
                 <component
+                    v-else
                     :is="`LogoLibrary`"
                     width="155"
                     height="55"
@@ -15,19 +12,21 @@
                     role="button"
                 />
             </router-link>
-            <component
-                :is="`IconMenu`"
-                class="hamburguer"
+            <button
                 role="button"
                 aria-label="Hamburguer button"
                 :is-opened="isOpened"
                 @click="toggleMenu"
-            />
+            >
+                <component :is="`IconMenu`" class="hamburguer" />
+            </button>
         </div>
         <div v-else class="expanded-menu-container">
             <div class="expanded-menu">
-                <router-link to="/" aria-label="UCLA Library home page">
+                <router-link to="/" :aria-label="parseAriaLabel">
+                    <h1 v-if="title" class="title opened-title">{{ title }}</h1>
                     <component
+                        v-else
                         :is="`LogoLibrary`"
                         width="155"
                         height="55"
@@ -35,14 +34,15 @@
                         @click="toggleMenu"
                     />
                 </router-link>
-                <component
-                    :is="parsedSvgName"
-                    :class="isItemOpened ? 'go-back-svg' : 'close-svg'"
-                    :aria-label="
-                        isItemOpened ? 'Go back button' : 'Close button'
+                <button
+                    role="button"
+                    aria-label="
+                        Close button
                     "
                     @click="handleCloseOrReturn"
-                />
+                >
+                    <component :is="parsedSvgName" class="close-svg" />
+                </button>
             </div>
             <ul class="nav-menu-primary">
                 <nav-menu-item-responsive
@@ -53,11 +53,18 @@
                     :go-back="goBack"
                     @shouldOpen="shouldOpen"
                     @itemOpenedColor="itemOpenedColor"
-                    @closeMainMenu="toggleMenu"
-                    @closeMenuItem="closeItem"
                 />
+                <li
+                    v-for="(item, index) in noChildren"
+                    class="nochildren-links"
+                    :key="index"
+                >
+                    <smart-link class="nochildren-link" :to="item.to">
+                        {{ item.name }}
+                    </smart-link>
+                </li>
             </ul>
-            <div v-if="isOpened" class="nav-menu-secondary">
+            <div v-if="isOpened && !title" class="nav-menu-secondary">
                 <ul class="list">
                     <li
                         v-for="item in parsedSecondaryMenuItems"
@@ -75,7 +82,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="support-us-container">
+            <div v-if="!title" class="support-us-container">
                 <button-link
                     v-if="supportLinks.length"
                     :label="supportLinks[0].name"
@@ -141,6 +148,10 @@ export default {
             type: Array,
             default: () => [],
         },
+        title: {
+            type: String,
+            default: "",
+        },
     },
     data() {
         return {
@@ -151,10 +162,18 @@ export default {
         }
     },
     computed: {
+        classes() {
+            return [
+                "header-main-responsive",
+                this.isOpened ? "fullHeight" : "collapsedHeight",
+                { "has-title": this.title },
+            ]
+        },
+        parseAriaLabel() {
+            return this.title ? this.title : `UCLA Library home page`
+        },
         parsedSvgName() {
-            return this.isItemOpened
-                ? `${this.iconGoBackName}`
-                : `${this.iconCloseName}`
+            return `${this.iconCloseName}`
         },
         parsedPrimaryMenuItems() {
             // Return only items that have children (assume these are dropdowns)
@@ -170,7 +189,16 @@ export default {
                 }
             })
         },
+        noChildren() {
+            if (!this.title) {
+                return []
+            }
 
+            return this.primaryNav.filter((obj) => {
+                // Return items that don't have sub-menu children
+                return !obj.children || !obj.children.length
+            })
+        },
         supportLinks() {
             // Generally this is just the last "Support Us" link, but we are going to allow it to be more than 1
             return this.primaryNav.filter((obj) => {
@@ -185,12 +213,12 @@ export default {
             this.goBack = false
         },
         handleCloseOrReturn() {
-            if (this.isItemOpened) {
-                this.goBack = !this.goBack
-                this.moleculeColor = "cyan"
-            } else {
-                this.isOpened = false
-            }
+            console.log("Close clicked")
+
+            this.goBack = !this.goBack
+            this.moleculeColor = "cyan"
+
+            this.isOpened = false
         },
         itemOpenedColor(itemIndex) {
             if (itemIndex === 0) {
@@ -207,6 +235,7 @@ export default {
         },
         toggleMenu() {
             this.isOpened = !this.isOpened
+            this.goBack = !this.goBack
         },
         closeItem() {
             this.isItemOpened = false
@@ -300,6 +329,33 @@ export default {
 
     .nav-menu-primary {
         margin: 64px var(--unit-gutter);
+    }
+    &.has-title {
+        .title {
+            font-family: "Karbon", Helvetica, Arial, sans-serif;
+            font-size: var(--step-1);
+            font-weight: 500;
+            line-height: 1.2;
+            color: var(--color-primary-blue-03);
+            text-transform: initial;
+            letter-spacing: normal;
+            &.opened-title {
+                color: white;
+            }
+        }
+        .nochildren-link {
+            margin-bottom: 24px;
+            line-height: 28px;
+            font-size: 28px;
+            font-weight: 600;
+            text-align: left;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            color: white;
+            cursor: pointer;
+        }
     }
 
     .nav-menu-secondary {

@@ -1,6 +1,6 @@
 <template>
     <header class="header-main">
-        <nav-secondary :items="secondaryNav" />
+        <nav-secondary :items="secondaryNav" :isMicrosite="parseTitle" />
         <nav-primary class="primary" :items="primaryNav" :title="title" />
     </header>
 </template>
@@ -10,7 +10,7 @@ import NavPrimary from "@/lib-components/NavPrimary"
 import NavSecondary from "@/lib-components/NavSecondary"
 
 export default {
-    name: "NavMain",
+    name: "HeaderMain",
     components: {
         NavPrimary,
         NavSecondary,
@@ -28,6 +28,11 @@ export default {
         title: {
             type: String,
             default: "",
+        },
+    },
+    computed: {
+        parseTitle() {
+            return this.title ? true : false
         },
     },
 }

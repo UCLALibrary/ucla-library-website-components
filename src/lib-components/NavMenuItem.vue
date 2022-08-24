@@ -146,7 +146,7 @@ export default {
     }
     &.is-opened {
         .sub-menu {
-            max-height: 200px; // TODO Change this number once you know what max menu height is
+            max-height: 400px; // TODO Change this number once you know what max menu height is
             opacity: 0.45;
         }
     }
