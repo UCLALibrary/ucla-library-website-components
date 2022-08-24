@@ -13,7 +13,7 @@
             />
         </div>
 
-        <div class="block-group">
+        <ul class="block-group">
             <block-highlight
                 v-for="(item, index) in parsedItems"
                 :key="`FlexibleCardWithImage${index}`"
@@ -29,7 +29,7 @@
                 :is-vertical="true"
                 class="block"
             />
-        </div>
+        </ul>
     </div>
 </template>
 
