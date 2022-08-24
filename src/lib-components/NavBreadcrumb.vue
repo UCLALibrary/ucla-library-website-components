@@ -54,7 +54,7 @@ export default {
     align-items: center;
 
     max-width: $container-xl-full-width + px;
-    margin: var(--space-m) 0;
+    margin: var(--space-m) auto;
     padding: 0 var(--unit-gutter);
 
     .parent-page-url {
@@ -73,6 +73,14 @@ export default {
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
+    }
+
+    @media #{$extra-large} {
+        padding: 0;
+    }
+
+    @media #{$medium} {
+        padding: 0 $whitespace-s-sides + px;
     }
 
     @media #{$small} {
