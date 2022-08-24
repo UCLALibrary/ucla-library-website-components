@@ -57,7 +57,7 @@ export default {
         align-items: flex-start;
 
         ::v-deep .block-highlight {
-            max-width: calc(50% - 32px);
+            max-width: calc(50% - 24px);
         }
     }
     @media #{$small} {

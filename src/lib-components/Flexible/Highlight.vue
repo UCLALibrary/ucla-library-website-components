@@ -124,7 +124,7 @@ export default {
 
 <style lang="scss" scoped>
 .section-teaser-highlight {
-    padding: 0 calc(var(--unit-gutter) - 16px);
+    // padding: 0 calc(var(--unit-gutter) - 16px);
     background-color: var(--color-theme, var(--color-white));
     margin: 0 auto;
     max-width: $container-l-main + px;
@@ -133,12 +133,12 @@ export default {
         margin-bottom: var(--space-xl);
     }
     .section-title {
-        @include step-4;
+        @include step-3;
         color: var(--color-primary-blue-03);
+        margin-bottom: var(--space-m);
     }
     .section-summary {
         @include step-0;
-        margin-top: var(--space-m);
 
         ::v-deep p {
             margin: 0;
@@ -152,6 +152,7 @@ export default {
         justify-content: space-between;
         align-content: flex-start;
         align-items: flex-start;
+        gap: 24px;
     }
     .block {
         width: calc(50% - 16px);
@@ -159,7 +160,7 @@ export default {
     }
 
     ::v-deep .block-highlight {
-        max-width: calc(50% - 16px);
+        max-width: calc(50% - 24px);
     }
     // Breakpoints
     @media #{$small} {

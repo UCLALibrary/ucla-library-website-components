@@ -501,7 +501,7 @@ export default {
     .snippet {
         @include step-0;
         color: var(--color-black);
-        margin-bottom: var(--space-l);
+        margin-bottom: var(--space-m);
 
         ::v-deep p {
             margin: 0;

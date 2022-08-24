@@ -1,11 +1,13 @@
 <template>
     <section :class="classes">
-        <h2 v-if="sectionTitle" class="section-title" v-text="sectionTitle" />
-        <p
-            v-if="sectionSummary"
-            class="section-summary"
-            v-text="sectionSummary"
-        />
+        <div v-if="sectionTitle" class="section-header">
+            <h2 v-if="sectionTitle" class="section-title" v-text="sectionTitle" />
+            <p
+                v-if="sectionSummary"
+                class="section-summary"
+                v-text="sectionSummary"
+            />
+        </div>
         <slot />
     </section>
 </template>
@@ -54,17 +56,20 @@ export default {
     }
 
     padding: var(--space-3xl) var(--unit-gutter);
-    margin: 0;
+    margin: 0 auto;
     background-color: var(--color-theme);
+
+    .section-header {
+        margin-bottom: var(--space-xl);
+    }
 
     .section-title {
         @include step-3;
         color: var(--color-primary-blue-03);
-        margin-bottom: var(--space-xl);
+        margin-bottom: var(--space-m);
     }
     .section-summary {
         @include step-0;
-        margin-bottom: var(--space-m);
 
         ::v-deep p {
             margin: 0;
