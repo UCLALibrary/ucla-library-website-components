@@ -64,7 +64,7 @@ export default {
     }
     .section-summary {
         @include step-0;
-        margin-top: var(--space-m);
+        margin-bottom: var(--space-m);
 
         ::v-deep p {
             margin: 0;
@@ -72,10 +72,19 @@ export default {
     }
 
     // Configure spacing of child components (individual components might override things like max-width)
-    * {
+    > * {
         max-width: #{$container-l-main}px;
         padding: 0;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
     }
 }
 </style>
