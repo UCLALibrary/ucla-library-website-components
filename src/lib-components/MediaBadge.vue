@@ -24,7 +24,7 @@ export default {
     position: absolute;
     width: var(--badge-width);
     height: var(--badge-height);
-    right: 0px;
+    right: -1px;
     bottom: -1px;
     cursor: pointer;
 
