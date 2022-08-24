@@ -1,5 +1,5 @@
 <template>
-    <div :class="classes">
+    <li :class="classes">
         <div class="floating-highlight" />
         <div v-if="!isVertical" class="clipped-date">
             <time v-if="startDate" class="month" v-html="parsedDateMonth" />
@@ -8,6 +8,7 @@
         <responsive-image
             :image="image"
             :aspect-ratio="imageAspectRatio"
+            :object-fit="cover"
             class="image"
         />
 
@@ -82,7 +83,7 @@
             <!-- changing p tag to div fixes nodemismatch errors -->
             <p v-if="text" class="text" v-html="text" />
         </div>
-    </div>
+    </li>
 </template>
 
 <script>
@@ -165,6 +166,10 @@ export default {
             type: String,
             default: "",
         },
+        color: {
+            type: String,
+            default: "", // This will be "visit", "about", "help".
+        },
     },
     computed: {
         classes() {
@@ -176,7 +181,7 @@ export default {
             ]
         },
         sectionName() {
-            return this.getSectionName(this.to)
+            return this.color || this.getSectionName(this.$route.path)
         },
         isImpactReport() {
             return this.$route.path.includes("impact") ? "true" : "false"
@@ -310,6 +315,8 @@ export default {
         @include step-0;
         color: var(--color-secondary-grey-05);
         margin: var(--space-s) 0;
+        display: flex;
+        flex-direction: column;
         .svg-online {
             margin-bottom: -5px;
             margin-left: 10px;
@@ -319,28 +326,15 @@ export default {
     }
     .byline-group {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         @include step-0;
         color: var(--color-secondary-grey-05);
-        margin-top: var(--space-s);
+        margin: var(--space-s) 0;
     }
-    .schedule-item {
-        &:after {
-            content: "";
-            border-left: 1px solid var(--color-secondary-grey-02);
-            margin: 0 10px;
-            height: 18px;
-            display: inline-block;
-            vertical-align: middle;
-            position: relative;
-        }
-        &:last-child {
-            margin-right: 0;
-        }
-        &:last-child:after {
-            display: none;
-        }
-    }
+    // .schedule-item {
+    //     margin-bottom: 4px;
+    // }
+    
     .text {
         @include step-0;
         color: var(--color-black);
@@ -365,6 +359,7 @@ export default {
         justify-content: flex-start;
         align-content: center;
         align-items: center;
+        margin-bottom: 4px;
     }
     // Variations
     &.is-vertical {
@@ -373,16 +368,26 @@ export default {
             .meta {
                 margin-top: 16px;
             }
-            .image {
+            ::v-deep .image {
                 width: 100%;
+                 .media {
+                    object-fit: cover;
+                }
             }
+
         }
         // for clipped version
         &.has-triangle {
             max-width: calc((100% - 16px)/ 2);
             .meta {
-                margin-top: -25px;
-                padding: 0 60px 0 17px;
+                margin-top: -24px;
+                padding: 0 64px 0 16px;
+            }
+            ::v-deep .image {
+                height: 272px;
+                .media {
+                    object-fit: cover;
+                }
             }
         }
     }
@@ -446,9 +451,10 @@ export default {
                 letter-spacing: 0.25%;
             }
         }
-        .image {
+        ::v-deep .image {
             width: 456px;
-            max-height: 274px;
+            //min-height: 180px;
+            max-height: 272px;
             margin-right: 56px;
             .clipped-date {
                 margin-top: 54px;
@@ -474,6 +480,18 @@ export default {
     @media #{$medium} {
         .text {
             margin-top: 0;
+        }
+        &.is-vertical {
+            &:not(.has-triangle) {
+            max-width: calc((100% - 32px)/ 2);
+            }
+        }
+        &.is-vertical {
+            &.has-triangle {
+                 ::v-deep .image {
+                    height: 200px;
+            } 
+            }
         }
         &:not(&.is-vertical) {
             max-width: 95%;
@@ -502,7 +520,7 @@ export default {
         &.is-vertical {
             // for clipped version
             &.has-triangle {
-                //no changes for mobile
+                max-width: 100%;
             }
         }
         &:not(&.is-vertical) {

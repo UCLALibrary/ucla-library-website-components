@@ -12,7 +12,7 @@
                 v-html="block.summary"
             />
         </div>
-        <div class="block-group">
+        <ul class="block-group">
             <block-highlight
                 v-for="(item, index) in parsedItems"
                 :key="`FlexibleHighlight${index}`"
@@ -28,7 +28,7 @@
                 :is-vertical="true"
                 class="block"
             />
-        </div>
+        </ul>
     </section>
 </template>
 
@@ -148,13 +148,13 @@ export default {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-content: flex-start;
         align-items: flex-start;
     }
     .block {
         width: calc(50% - 16px);
-        margin: 0 8px 50px 8px;
+        margin: 0 0 var(--space-xl);
     }
 
     ::v-deep .block-highlight {

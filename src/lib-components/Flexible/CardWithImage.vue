@@ -125,8 +125,7 @@ export default {
 
 <style lang="scss" scoped>
 .card-with-image {
-    max-width: 960px;
-    padding: 0 calc(var(--unit-gutter) - 16px);
+    max-width: $container-l-main + px;
     background-color: var(--color-white);
     margin: 0 auto;
 
@@ -152,9 +151,10 @@ export default {
         justify-content: flex-start;
         align-content: flex-start;
         align-items: flex-start;
+        gap: 16px;
     }
     .block {
-        margin: 0 8px 50px 8px;
+        margin: 0 0 var(--space-xl);
     }
 
     // Breakpoints
