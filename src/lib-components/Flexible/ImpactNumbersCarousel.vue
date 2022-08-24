@@ -1,5 +1,13 @@
 <template>
-    <impact-numbers-carousel :blocks="block.blocks" />
+    <div class="impact-numbers-carousel" v-if="block">
+        <h2
+            v-if="block.sectionTitle"
+            class="section-title"
+            v-html="block.sectionTitle"
+        />
+
+        <impact-numbers-carousel :blocks="block.blocks" />
+    </div>
 </template>
 
 <script>
@@ -19,4 +27,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.impact-numbers-carousel {
+    .section-title {
+        @include step-4;
+        color: var(--color-primary-blue-03);
+        margin-bottom: var(--space-xl);
+    }
+}
+</style>

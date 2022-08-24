@@ -16,6 +16,7 @@ export const Default = Template.bind({})
 
 Default.args = {
     block: {
+        sectionTitle: "Section Title",
         blocks: [
             {
                 largeText: "10",
