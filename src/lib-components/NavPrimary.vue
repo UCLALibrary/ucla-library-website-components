@@ -52,7 +52,7 @@
         </div>
 
         <div class="background-white" />
-        <div class="background-blue" @click="toggleMenu" />
+        <div v-if="isOpened" class="background-blue" @click="toggleMenu" />
 
         <div v-if="isOpened" class="click-blocker" @click="toggleMenu" />
     </nav>
