@@ -12,6 +12,7 @@
                 v-for="child in parsedChildren"
                 :key="child.id"
                 class="sub-menu-item"
+                @click="closeMenu"
             >
                 <smart-link
                     :class="child.classes"
@@ -64,7 +65,7 @@ export default {
     },
     watch: {
         goBack: function (newVal) {
-            console.log("goback value updated " + newVal)
+            // console.log("goback value updated " + newVal)
             this.resetAccordion()
         },
     },
@@ -120,6 +121,9 @@ export default {
                 item.classList.remove("block")
                 item.classList.add("hidden")
             }
+        },
+        closeMenu() {
+            this.$emit("closeMainMenu")
         },
     },
 }

@@ -73,7 +73,7 @@ export default {
     padding: 0;
     position: relative;
     min-width: 128px;
-    max-width: 192px;
+    max-width: 172px;
 
     display: inline-block;
     vertical-align: top;

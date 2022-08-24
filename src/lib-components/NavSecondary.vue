@@ -114,7 +114,7 @@ export default {
 
 <style lang="scss" scoped>
 .nav-secondary {
-    padding: 12px 94px;
+    padding: 12px var(--unit-gutter);
     border-bottom: 1px solid var(--color-secondary-grey-02);
 
     .flex-container {
