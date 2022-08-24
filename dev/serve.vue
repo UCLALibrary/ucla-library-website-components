@@ -1911,9 +1911,11 @@ export default Vue.extend({
                 },
                 {
                     typeHandle: "mediaGallery",
-                    titleGeneral: "de Finibus Bonorum et Malorum",
-                    title: null,
+                    titleGeneral: "TitleGeneral de Finibus Bonorum et Malorum",
+                    title: "Media Gallery Section Title de Finibus Bonorum et Malorum",
                     slug: null,
+                    sectionSummary:
+                        "Section summary - Nemo enim ipsam voluptatem quia voluptas sit aspernatur.",
                     shortDescription:
                         "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
                     mediaGallery: [
@@ -2095,13 +2097,15 @@ export default Vue.extend({
                 {
                     id: "13669",
                     typeHandle: "mediaWithText",
-                    sectionTitle: "A section of media with text",
-                    sectionSummary: "<p>A section of media with text</p>",
+                    sectionTitle: "Media with Text Section Title",
+                    sectionSummary:
+                        "<p>Media with Text Section Summary - The main means of mass communication (broadcasting, publishing, and the internet) regarded collectively.</p>",
                     mediaWithText: [
                         {
                             id: "13670",
                             titleLink: "A media Link",
-                            description: "Citation Integration",
+                            description:
+                                "Description: Integrating a source means using another author's writing to help build your credibility and argument.",
                             coverImage: [
                                 {
                                     id: "5115",
@@ -2127,20 +2131,22 @@ export default Vue.extend({
                     typeHandle: "pullQuote",
                     pullQuote: [
                         {
-                            text: "<p>Fashion is the best</p>",
-                            attribution: null,
+                            text: "<p>Candy on the beach, there's nothing better. I like candy when it's wrapped in a sweater.</p>",
+                            attribution: "Bow Wow Wow",
                         },
                     ],
                 },
                 {
                     id: "15905",
                     typeHandle: "richText",
+                    sectionTitle: "Rich Text Section Title - Albino Foxes",
                     richText:
                         "<p><strong>Item 5: Rich Text</strong><br /></p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis \nbibendum risus. Sed iaculis ullamcorper ligula, ac imperdiet ante. Etiam\n scelerisque vulputate neque ultrices suscipit. Integer pulvinar lectus a\n urna ultrices venenatis. Nullam finibus pellentesque quam, a consequat \nmassa venenatis ac. Integer at blandit nulla. Quisque ac arcu finibus, \nconsectetur magna quis, malesuada tortor. Nulla sit amet libero \nefficitur, semper tellus sed, tincidunt massa. In interdum tellus ac \nelit eleifend, eu tincidunt velit consequat. <em>Duis non arcu tristique, \nsollicitudin ex sit amet, ultrices urna. Maecenas non felis in augue \ntempus finibus.\n</em><br /></p>\n<ol><li>Sed fringilla sem in lorem efficitur, semper lobortis diam viverra. <br /></li><li>Vivamus nec est fermentum tellus venenatis dictum a ac elit. <br /><ol><li>Quisque \nodio turpis, ultricies eu diam sed, facilisis molestie justo. <br /></li></ol></li><li>Cras \nrutrum turpis in accumsan maximus. </li></ol><p>In hac habitasse platea dictumst. Nam\n mattis lorem lorem, sed elementum odio bibendum convallis. Ut rutrum, \nmauris vel tristique sollicitudin, enim dui tincidunt ex, quis dictum \nneque diam ut purus. Fusce sagittis, nisi in ornare condimentum, urna \njusto gravida diam, vitae tristique neque risus suscipit augue. \nCurabitur interdum malesuada rhoncus. Donec ut libero faucibus, \nscelerisque orci in, pulvinar felis. <br /></p><ul><li>Nam nibh ex, cursus nec leo cursus,\n rhoncus vulputate ipsum. <br /><ul><li>Donec quis sapien fermentum, ullamcorper \ntellus vestibulum, sodales ligula. <br /></li><li>In ultrices diam eget erat hendrerit \nimperdiet tincidunt et lacus. <br /><ul><li>Aenean fringilla pellentesque convallis. <br /></li></ul></li><li>Maecenas elementum quis massa imperdiet malesuada.\n</li></ul></li></ul>",
                 },
                 {
                     id: "26943",
-                    sectionTitle: "Internal link",
+                    sectionTitle: "Section Title Banner Featured Internal Link",
+                    typeHandle: "bannerFeatured",
                     content: [
                         {
                             id: "26944",
@@ -2201,11 +2207,11 @@ export default Vue.extend({
                             ],
                         },
                     ],
-                    typeHandle: "bannerFeatured",
                 },
                 {
                     id: "27050",
-                    titleGeneral: "External Link",
+                    sectionTitle: "Section Title External Link",
+                    typeHandle: "bannerFeatured",
                     content: [
                         {
                             id: "27051",
@@ -2227,12 +2233,11 @@ export default Vue.extend({
                             location: "Rain Forest",
                             byline1: "Feburary 2022",
                             byline2: "Dr ABC",
-                            to: "www.foxes.com",
+                            to: "https://www.britannica.com/animal/Arctic-fox",
                             category: "foxes",
                             contentType: "project",
                         },
                     ],
-                    typeHandle: "bannerFeatured",
                 },
                 {
                     id: "16983",
@@ -2241,9 +2246,9 @@ export default Vue.extend({
                         {
                             id: "16984",
                             titleCta: "Call to action",
-                            summary: "a call to action",
+                            summary: "Summary for a call to action",
                             icon: "svg-call-to-action-find",
-                            buttonText: "click me",
+                            buttonText: "Click me",
                             buttonLink: "http://google.com",
                             backgroundColor: "false",
                         },
@@ -2252,6 +2257,7 @@ export default Vue.extend({
                 {
                     id: "25435",
                     typeHandle: "impactNumbersCarousel",
+                    sectionTitle: "Section Title Impact Number Carousel",
                     blocks: [
                         {
                             largeText: "10",
@@ -2433,7 +2439,7 @@ export default Vue.extend({
                         {
                             id: "28287",
                             typeHandle: "externalContent",
-                            title: null,
+                            title: "Etch-a-Sketch",
                             image: [
                                 {
                                     id: "28251",
