@@ -1,3 +1,10 @@
+## [1.51.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.2...v1.51.3) (2022-08-24)
+
+
+### Bug Fixes
+
+* qa of highlight and card with image ([#143](https://github.com/UCLALibrary/ucla-library-website-components/issues/143)) ([7558dcc](https://github.com/UCLALibrary/ucla-library-website-components/commit/7558dcc81227ac5a5ac58d52625d9ba429cc5803))
+
 ## [1.51.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.1...v1.51.2) (2022-08-24)
 
 
