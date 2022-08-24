@@ -1,5 +1,5 @@
 <template>
-    <section class="section-teaser-highlight">
+    <ul class="section-teaser-highlight">
         <block-highlight
             v-for="item in items"
             :key="item.to"
@@ -17,7 +17,7 @@
             :locations="item.locations"
             class="block"
         />
-    </section>
+    </ul>
 </template>
 
 <script>
@@ -42,18 +42,18 @@ export default {
 
 <style lang="scss" scoped>
 .section-teaser-highlight {
-    padding: 0 calc(var(--unit-gutter) - 16px);
+    max-width: $container-l-main + px;
     background-color: var(--color-white);
     margin: 0 auto;
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: flex-start;
     .block {
         width: calc(50% - 16px);
-        margin: 0 8px 50px 8px;
+        margin: 0 0 var(--space-xl);
     }
 
     // Breakpoints
@@ -62,7 +62,7 @@ export default {
 
         .block {
             width: 100%;
-            margin: 0 0 50px;
+            margin: 0 0 var(--space-xl);
         }
     }
 }
