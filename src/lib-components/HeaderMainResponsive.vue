@@ -1,6 +1,6 @@
 <template>
     <nav role="navigation" aria-label="Menu" :class="classes">
-        <div v-show="!isOpened" class="collapsed-menu">
+        <div v-if="!isOpened" class="collapsed-menu">
             <router-link to="/" :aria-label="parseAriaLabel">
                 <h1 v-if="title" class="title">{{ title }}</h1>
                 <component
@@ -21,7 +21,7 @@
                 <component :is="`IconMenu`" class="hamburguer" />
             </button>
         </div>
-        <div v-show="isOpened" class="expanded-menu-container">
+        <div v-else class="expanded-menu-container">
             <div class="expanded-menu">
                 <router-link to="/" :aria-label="parseAriaLabel">
                     <h1 v-if="title" class="title opened-title">{{ title }}</h1>
