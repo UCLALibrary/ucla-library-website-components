@@ -1,27 +1,26 @@
 <template>
-    <header class="header-smart">
-        <site-brand-bar class="brand-bar" />
-        <component
-            :is="whichHeader"
-            :class="isMobile ? 'mobile-header' : 'desktop-header'"
-            :primary-nav="primaryMenuItems"
-            :secondary-nav="secondaryMenuItems"
-            :title="title"
-        />
-    </header>
+    <div class="test-meap-nav-masthead">
+        <header-smart title="Modern Endangered Archives Program" />
+
+        <main id="main">
+            <masthead-secondary
+                title="Modern Endangered Archives Program"
+                text="Our grants enable digitization and access to at-risk cultural heritage collections from around the world. Explore our projects and learn more about available grant opportunities."
+                theme="meap"
+            />
+        </main>
+    </div>
 </template>
 
 <script>
-import SiteBrandBar from "@/lib-components/SiteBrandBar"
-import HeaderMainResponsive from "@/lib-components/HeaderMainResponsive"
-import HeaderMain from "@/lib-components/HeaderMain"
+import MastheadSecondary from "@/lib-components/MastheadSecondary"
+import HeaderSmart from "@/lib-components/HeaderSmart"
 
 export default {
-    name: "HeaderSmart",
+    name: "ExampleMeapNavMastHead",
     components: {
-        SiteBrandBar,
-        HeaderMainResponsive,
-        HeaderMain,
+        MastheadSecondary,
+        HeaderSmart,
     },
     props: {
         title: {
