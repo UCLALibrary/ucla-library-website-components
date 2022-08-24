@@ -37,7 +37,7 @@ export default {
 <style lang="scss" scoped>
 .thumbnail-card {
     width: 100%;
-    
+
     .image {
         margin-bottom: var(--space-s);
     }
