@@ -1,21 +1,20 @@
 <template>
-    <li tabindex="1" :class="classes">
-        <div class="meta">
-            <span class="section" v-html="sectionName" />
-            <h3 class="title2">
-                <smart-link
-                    v-if="title"
-                    :to="to"
-                    :target="parsedTarget"
-                    class="title"
-                >
-                    {{ title }}
-                </smart-link>
-            </h3>
-            <div v-if="text" class="text" v-html="text" />
-            <div class="svg-meta" aria-hidden="true">
-                <component :is="parsedIconName" class="svg" />
-            </div>
+    <li :class="classes">
+        <!-- TODO: Fix sectionName to use "to" value to determine section -->
+        <span class="section" v-html="sectionName" />
+        <h3 class="title2">
+            <smart-link
+                v-if="title"
+                :to="to"
+                :target="parsedTarget"
+                class="title"
+            >
+                {{ title }}
+            </smart-link>
+        </h3>
+        <div v-if="text" class="text" v-html="text" />
+        <div class="svg-meta" aria-hidden="true">
+            <component :is="parsedIconName" class="svg" />
         </div>
     </li>
 </template>
@@ -74,7 +73,7 @@ export default {
 <style lang="scss" scoped>
 .block-simple-card {
     width: 100%;
-    min-height: 300px;
+    min-height: 296px;
     border-radius: var(--rounded-slightly-all);
     overflow: hidden;
     background-color: var(--color-primary-blue-01);
@@ -85,6 +84,9 @@ export default {
 
     display: flex;
     flex-direction: column;
+    gap: 16px;
+
+    padding: 40px 40px 32px;
 
     // Themes
     --color-theme: var(--color-default-cyan-01);
@@ -98,30 +100,19 @@ export default {
         --color-theme: var(--color-about-purple-01);
     }
 
-    .meta {
-        margin: 56px 48px 20px 48px;
-    }
     .section {
         display: none;
+        @include overline;
     }
-    .title::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-    }
-    .title2 {
+    .title {
         @include step-1;
         color: var(--color-primary-blue-03);
-        margin-bottom: 16px;
+        @include clickable-area;
     }
 
     .text {
         @include step--1;
-        max-height: 175px;
-        margin-bottom: 24px;
+        flex: 1;
 
         display: -webkit-box;
         -webkit-line-clamp: 4;
@@ -130,31 +121,16 @@ export default {
     }
 
     .svg-meta {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        align-content: flex-end;
-        align-items: center;
+        align-self: flex-end;
     }
 
     .svg {
-        right: 44px;
-        bottom: 20px;
-        position: absolute;
         z-index: 20;
-
-        .arrow-right,
-        .line {
-            stroke: var(--color-primary-blue-03);
-        }
-        .arrow-diagonal {
-            fill: var(--color-primary-blue-03);
-        }
+        display: block;
     }
     // Breakpoints
-    @media #{$medium} {
-        width: 300px;
+    @media #{$small} {
+        padding: var(--unit-gutter);
     }
 
     // Hovers
@@ -164,21 +140,20 @@ export default {
             @include card-horizontal-hover;
             background-color: var(--color-theme);
             z-index: 30;
+            cursor: pointer;
 
             .title {
-                text-decoration-color: var(--color-default-cyan-03);
                 text-decoration-thickness: 1.5px;
                 color: var(--color-primary-blue-05);
             }
             .text {
                 color: var(--color-primary-blue-05);
             }
-            .svg {
-                .arrow-right,
-                .line {
+            ::v-deep .svg {
+                .svg__stroke--primary-blue-03 {
                     stroke: var(--color-primary-blue-05);
                 }
-                .arrow-diagonal {
+                .svg__fill--primary-blue-03 {
                     fill: var(--color-primary-blue-05);
                 }
             }
