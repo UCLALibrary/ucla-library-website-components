@@ -25,26 +25,23 @@ export default {
     padding-right: 96px;
 
     ::v-deep h3 {
-        font-family: var(--font-primary);
         color: var(--color-primary-blue-03);
-        @include step-3;
+        @include step-2;
+        font-weight: 400;
         margin-bottom: var(--space-l);
         margin-top: var(--space-xl);
     }
     ::v-deep h4 {
-        font-family: var(--font-primary);
         color: var(--color-primary-blue-03);
-        @include step-2;
+        @include step-1;
         margin-bottom: 24px;
     }
     ::v-deep h5 {
-        font-family: var(--font-primary);
         color: var(--color-black);
-        @include step-1;
+        @include step-0;
     }
     ::v-deep p,
     ::v-deep li {
-        font-family: var(--font-primary);
         color: var(--color-black);
         @include step-0;
         margin: 0 0 var(--space-l) 0;

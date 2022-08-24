@@ -29,7 +29,7 @@
             :expanded="expandThumbnails"
             @click.native="toggleThumbnails"
         />
-        <div v-if="expandThumbnails" class="thumbnails">
+        <ul v-if="expandThumbnails" class="thumbnails">
             <flexible-media-gallery-thumbnail-card
                 v-for="(item, index) in block.mediaGallery"
                 :key="item.id"
@@ -38,7 +38,7 @@
                 :caption-text="item.captionText"
                 @click.native="selectItem(index)"
             />
-        </div>
+        </ul>
     </section>
 </template>
 
@@ -125,8 +125,8 @@ export default {
     background-color: var(--color-theme, var(--color-white));
 
     .section-title {
-        @include step-4;
-        margin-bottom: var(--space-m);
+        @include step-3;
+        margin-bottom: var(--space-xl);
         color: var(--color-primary-blue-03);
     }
 
@@ -146,6 +146,7 @@ export default {
         column-gap: $gap;
         row-gap: $gap;
         padding-top: $gap;
+        list-style-type: none;
     }
 }
 </style>

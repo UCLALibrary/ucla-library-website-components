@@ -1,5 +1,5 @@
 <template>
-    <div class="thumbnail-card">
+    <li class="thumbnail-card">
         <responsive-image
             :image="image"
             :aspect-ratio="60"
@@ -8,7 +8,7 @@
         />
         <h3 class="caption-title" v-text="captionTitle" />
         <p class="caption-text" v-text="captionText" />
-    </div>
+    </li>
 </template>
 
 <script>

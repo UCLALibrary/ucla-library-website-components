@@ -335,7 +335,7 @@ export default {
     }
     .content .text {
         @include step-0;
-        margin-bottom: var(--space-m);
+        margin-bottom: var(--space-l);
     }
     .schedule {
         @include step-0;
