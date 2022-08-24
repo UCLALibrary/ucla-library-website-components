@@ -501,7 +501,7 @@ export default {
     .snippet {
         @include step-0;
         color: var(--color-black);
-        margin-bottom: var(--space-m);
+        margin-bottom: var(--space-l);
 
         ::v-deep p {
             margin: 0;
@@ -608,6 +608,11 @@ export default {
             &:after {
                 display: none;
             }
+        }
+    }
+    @media #{$medium} and (min-width: 928px) {
+        .meta {
+            max-width: 100%;
         }
     }
 

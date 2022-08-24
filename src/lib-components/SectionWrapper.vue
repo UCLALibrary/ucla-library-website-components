@@ -41,6 +41,12 @@ export default {
 
     &.theme-gray {
         --color-theme: var(--color-secondary-grey-01);
+        padding: var(--space-3xl) var(--unit-gutter);
+    }
+
+    &.theme-white {
+        padding: 0 var(--unit-gutter);
+        margin: var(--space-3xl) auto;
     }
 
     &.theme-divider {
@@ -52,8 +58,9 @@ export default {
     background-color: var(--color-theme);
 
     .section-title {
-        @include step-4;
+        @include step-3;
         color: var(--color-primary-blue-03);
+        margin-bottom: var(--space-xl);
     }
     .section-summary {
         @include step-0;
