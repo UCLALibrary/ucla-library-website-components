@@ -1,3 +1,10 @@
+## [1.51.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.0...v1.51.1) (2022-08-24)
+
+
+### Bug Fixes
+
+* APPS-1772 fix section title and section summary ([#144](https://github.com/UCLALibrary/ucla-library-website-components/issues/144)) ([328912d](https://github.com/UCLALibrary/ucla-library-website-components/commit/328912db9fd04eaf984f6566ce368a31f0be4acb))
+
 # [1.51.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.4...v1.51.0) (2022-08-24)
 
 
