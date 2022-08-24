@@ -1,5 +1,5 @@
 <template>
-    <section class="section-teaser-card">
+    <ul class="section-teaser-card">
         <block-highlight
             v-for="(card, index) in items"
             :key="`Card${index}`"
@@ -15,7 +15,7 @@
             :is-vertical="true"
             :is-online="card.isOnline"
         />
-    </section>
+    </ul>
 </template>
 
 <script>
@@ -42,7 +42,7 @@ export default {
 .section-teaser-card {
     max-width: $container-l-main + px;
     background-color: var(--color-white);
-
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

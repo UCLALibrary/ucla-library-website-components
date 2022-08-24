@@ -1,3 +1,17 @@
+## [1.51.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.3...v1.51.4) (2022-08-24)
+
+
+### Bug Fixes
+
+* SectionWrapper child component margins ([#147](https://github.com/UCLALibrary/ucla-library-website-components/issues/147)) ([6b1b7da](https://github.com/UCLALibrary/ucla-library-website-components/commit/6b1b7da73d1c8c4df707a2dca67960f7d4c9ae96))
+
+## [1.51.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.2...v1.51.3) (2022-08-24)
+
+
+### Bug Fixes
+
+* qa of highlight and card with image ([#143](https://github.com/UCLALibrary/ucla-library-website-components/issues/143)) ([7558dcc](https://github.com/UCLALibrary/ucla-library-website-components/commit/7558dcc81227ac5a5ac58d52625d9ba429cc5803))
+
 ## [1.51.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.1...v1.51.2) (2022-08-24)
 
 
