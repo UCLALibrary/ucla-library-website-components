@@ -22,6 +22,7 @@
                 :category="item.category"
                 :is-horizontal="isHorizontal"
             />
+
             <router-link v-if="to" class="card card-more" :to="to">
                 <button-more
                     id="card-more-button"

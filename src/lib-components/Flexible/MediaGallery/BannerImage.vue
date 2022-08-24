@@ -3,7 +3,10 @@
         <responsive-image :image="image" :aspect-ratio="60" object-fit="cover">
             <div v-if="nItems > 1 && !expanded">
                 <div class="gradient" />
-                <svg-molecule-image-stack class="molecule-image-stack" aria-hidden="true" />
+                <svg-molecule-image-stack
+                    class="molecule-image-stack"
+                    aria-hidden="true"
+                />
             </div>
             <media-badge v-if="nItems > 1" :is-expanded="expanded">
                 {{ nItems }}

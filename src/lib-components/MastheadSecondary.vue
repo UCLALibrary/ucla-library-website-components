@@ -129,8 +129,8 @@ export default {
         }
         .meta {
             gap: var(--space-s);
-            padding: var(--space-l) var(--space-xl) var(--space-xl)
-                var(--space-xl);
+
+            padding: var(--space-l) var(--space-xl) var(--space-xl);
             background: var(--color-primary-blue-03);
 
             .title {
