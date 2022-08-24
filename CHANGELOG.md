@@ -1,3 +1,10 @@
+# [1.51.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.4...v1.51.0) (2022-08-24)
+
+
+### Features
+
+* Update Meap Nav components ([#142](https://github.com/UCLALibrary/ucla-library-website-components/issues/142)) ([1ea6010](https://github.com/UCLALibrary/ucla-library-website-components/commit/1ea6010c570837668d96fed5ec876b78b0e73397))
+
 ## [1.50.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.3...v1.50.4) (2022-08-23)
 
 
