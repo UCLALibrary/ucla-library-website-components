@@ -4,7 +4,7 @@ import SectionWrapper from "@/lib-components/SectionWrapper"
 import BlockMediaWithText from "@/lib-components/BlockMediaWithText"
 import DividerWayFinder from "@/lib-components/DividerWayFinder"
 
-import { mock as mockMediaWithText } from "./BlockMediaWithText.stories"
+import { mock as mockMediaWithText } from "./mock/BlockMediaWithText"
 
 const propsForMediaWithText = {
     sectionHeader: mockMediaWithText.mediaWithText[0].titleLink,

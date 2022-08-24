@@ -1,7 +1,7 @@
 <template>
     <div ref="lightbox" class="lightbox">
         <button class="button-close" @click="$emit('closeModal')">
-            <svg-icon-close />
+            <svg-icon-close aria-label="Close" />
         </button>
         <vue-glide
             ref="slider"
@@ -26,7 +26,7 @@
                     :disabled="selectionIndex <= 0"
                     data-glide-dir="<"
                 >
-                    <svg-icon-caret-left />
+                    <svg-icon-caret-left aria-label="Show previous image" />
                 </button>
                 <button
                     v-if="nItems > 1"
@@ -34,7 +34,7 @@
                     :disabled="selectionIndex >= nItems - 1"
                     data-glide-dir=">"
                 >
-                    <svg-icon-caret-right />
+                    <svg-icon-caret-right aria-label="Show next image" />
                 </button>
             </template>
         </vue-glide>
@@ -47,11 +47,7 @@
                     :disabled="index - 1 == selectionIndex"
                     @click="setCurrentSlide(index - 1)"
                 >
-                    <svg-icon-molecule-bullet
-                        width="12px"
-                        height="12px"
-                        viewBox="8 8 16 16"
-                    />
+                    <svg-icon-molecule-bullet />
                 </button>
             </div>
             <h4
@@ -68,9 +64,9 @@
 
 <script>
 import { Glide, GlideSlide } from "vue-glide-js"
-import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-left.svg"
-import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret-right.svg"
-import SvgIconClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg"
+import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-circle-left.svg"
+import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret-circle-right.svg"
+import SvgIconClose from "ucla-library-design-tokens/assets/svgs/icon-close-large.svg"
 import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 
@@ -127,7 +123,75 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "vue-glide-js/dist/vue-glide.css";
+// TODO: Make this less horrible
+::v-deep .glide {
+    position: relative;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+::v-deep .glide * {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+::v-deep .glide__slides,
+::v-deep .glide__track {
+    overflow: hidden;
+}
+::v-deep .glide__slides {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -ms-touch-action: pan-Y;
+    touch-action: pan-Y;
+    padding: 0;
+    white-space: nowrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    will-change: transform;
+}
+::v-deep .glide__slide,
+::v-deep .glide__slides--dragging {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+::v-deep .glide__slide {
+    width: 100%;
+    height: 100%;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    white-space: normal;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+::v-deep .glide__slide a {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+::v-deep .glide__arrows,
+::v-deep .glide__bullets {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+::v-deep .glide--rtl {
+    direction: rtl;
+}
+
 .lightbox {
     position: fixed;
     top: 0;
@@ -137,10 +201,12 @@ export default {
     overflow-y: auto;
     overscroll-behavior: contain;
 
-    --side-column-min-width: 48px;
-    --gap-width: var(--space-l);
+    --side-column-min-width: 72px;
+    --gap-width: var(--space-m);
     --media-width: min(
-        calc(100vw - 2 * var(--side-column-min-width) - 2 * var(--gap-width)),
+        calc(
+            100vw - (2 * var(--side-column-min-width)) - (2 * var(--gap-width))
+        ),
         992px
     );
     --media-height: calc(var(--media-width) * 9 / 16);
@@ -155,7 +221,7 @@ export default {
     grid-template-columns:
         [col] var(--side-column-width) [col] var(--media-width)
         [col] var(--side-column-width);
-    grid-template-rows: [row] auto [row] auto [row] auto;
+    grid-template-rows: [row] auto [row] min-content [row] auto;
     grid-gap: var(--gap-width);
 
     .button-close {
@@ -163,6 +229,17 @@ export default {
         grid-column: col 3 / span 1;
         justify-self: start;
         align-self: end;
+
+        width: auto;
+        padding: 0;
+
+        ::v-deep .svg__fill--primary-blue-01 {
+            fill: none;
+        }
+
+        ::v-deep .svg__stroke--default-cyan-02 {
+            stroke: var(--color-white);
+        }
     }
 
     .media-container {
@@ -172,23 +249,23 @@ export default {
     }
 
     // Override colors of all the SVG icons
-    svg {
-        circle {
+    ::v-deep svg {
+        display: block;
+
+        .svg__fill--primary-blue-03 {
             fill: none;
         }
 
-        path {
+        .svg__stroke--primary-blue-03 {
             stroke: white;
         }
     }
 
     @media #{$has-hover} {
         button:enabled {
-            &:hover {
-                svg {
-                    path {
-                        stroke-width: 3px;
-                    }
+            .media-counter-item:hover {
+                ::v-deep .svg__fill--primary-blue-03 {
+                    fill: var(--color-white);
                 }
             }
         }
@@ -199,9 +276,9 @@ export default {
     }
 
     button:disabled {
-        svg {
-            path {
-                stroke: var(--color-secondary-grey-03);
+        ::v-deep svg {
+            .svg__fill--primary-blue-03 {
+                fill: var(--color-white);
             }
         }
     }
@@ -223,22 +300,37 @@ export default {
     .button-prev {
         position: absolute;
         top: var(--media-height-half);
-        left: -40px;
+        left: calc(-1 * var(--side-column-min-width));
         justify-self: end;
         align-self: center;
         color: white;
+
+        ::v-deep .svg__fill--primary-blue-01 {
+            fill: none;
+        }
+        ::v-deep .svg__fill--primary-blue-03 {
+            fill: var(--color-white);
+        }
     }
 
     .button-next {
         position: absolute;
         top: var(--media-height-half);
-        right: -40px;
+        right: calc(-1 * var(--side-column-min-width));
         justify-self: start;
         align-self: center;
         color: white;
+
+        ::v-deep .svg__fill--primary-blue-01 {
+            fill: none;
+        }
+        ::v-deep .svg__fill--primary-blue-03 {
+            fill: var(--color-white);
+        }
     }
 
     @media #{$medium} {
+        --side-column-min-width: 64px;
         .button-prev {
             top: calc(var(--media-width) / 3);
         }
@@ -256,6 +348,7 @@ export default {
     }
 
     @media #{$small} {
+        --side-column-min-width: 48px;
         .button-prev {
             top: calc(var(--media-width) / 1.15);
         }
@@ -280,27 +373,26 @@ export default {
         .media-counter {
             display: flex;
             flex-direction: row;
-            width: 100%;
             justify-content: center;
-            margin-top: 0px;
             margin-bottom: 24px;
 
             .media-counter-item {
-                margin: 0px 3px;
-                padding: 0px;
-                height: 12px;
-                width: 12px;
+                padding: 0;
 
-                .svg__fill--primary-blue-03 {
+                .svg {
+                    display: block;
+                }
+
+                ::v-deep .svg__fill--primary-blue-03 {
                     fill: none;
                 }
 
                 &:disabled {
-                    .svg__stroke--primary-blue-03 {
+                    ::v-deep .svg__stroke--primary-blue-03 {
                         stroke: white;
                     }
 
-                    .svg__fill--primary-blue-03 {
+                    ::v-deep .svg__fill--primary-blue-03 {
                         fill: white;
                     }
                 }
@@ -309,6 +401,7 @@ export default {
 
         .media-object-title {
             @include step-0;
+            margin-bottom: var(--space-s);
         }
 
         .media-object-caption {

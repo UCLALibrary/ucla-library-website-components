@@ -3,7 +3,10 @@
         <div class="slot">
             <slot>
                 <div v-if="breadcrumb" class="breadcrumb">
-                    <svg-heading-vector class="heading-line" aria-hidden="true" />
+                    <svg-heading-vector
+                        class="heading-line"
+                        aria-hidden="true"
+                    />
                     <h3 class="text">
                         {{ breadcrumb }}
                     </h3>
@@ -46,9 +49,9 @@
                     :key="`staff-${index}`"
                     class="byline-item"
                 >
-                    <smart-link
-                        :to="`/${item.to}`"
-                    > {{ item.title }} </smart-link>
+                    <smart-link :to="`/${item.to}`">
+                        {{ item.title }}
+                    </smart-link>
                 </div>
 
                 <!-- TODO: Convert date format to Month DD, YYYY -->
@@ -495,7 +498,6 @@ export default {
             align-items: flex-start;
         }
     }
-
 
     .category-mobile {
         display: none;

@@ -76,6 +76,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        isMeapGlobal: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         classes() {
@@ -90,6 +94,9 @@ export default {
         askALibrarian() {
             return this.$store.state.globals.askALibrarian
         },
+        meapCallToAction() {
+            return this.$store.state.globals.meapCallToAction
+        },
         // Use Global Ask A Libarian data if isGlobal is true
         parsedContent() {
             if (this.isGlobal) {
@@ -98,6 +105,14 @@ export default {
                     title: this.askALibrarian.askALibrarianTitle,
                     text: this.askALibrarian.askALibrarianText,
                     label: this.askALibrarian.buttonUrl[0].buttonText,
+                    svgName: "svg-call-to-action-chat",
+                }
+            } else if (this.isMeapGlobal) {
+                return {
+                    to: this.meapCallToAction.button[0].buttonUrl,
+                    title: this.meapCallToAction.titleGeneral,
+                    text: this.meapCallToAction.summary,
+                    label: this.meapCallToAction.button[0].buttonText,
                     svgName: "svg-call-to-action-chat",
                 }
             } else {

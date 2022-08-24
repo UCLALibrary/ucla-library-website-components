@@ -66,6 +66,7 @@ export default {
         parsedItems() {
             // Maps values based on content type and external or internal content
             return this.parsedList.map((obj) => {
+                console.log(obj)
                 // Article
                 if (
                     obj.typeHandle != "externalContent" &&
@@ -124,7 +125,7 @@ export default {
 <style lang="scss" scoped>
 .section-teaser-highlight {
     padding: 0 calc(var(--unit-gutter) - 16px);
-    background-color: var(--color-white);
+    background-color: var(--color-theme, var(--color-white));
     margin: 0 auto;
     max-width: $container-l-main + px;
 

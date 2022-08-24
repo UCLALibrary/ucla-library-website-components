@@ -144,3 +144,35 @@ export const GlobalAskALibrarian = () => ({
         />
     `,
 })
+
+export const GlobalMeapCTA = () => ({
+    store: new Vuex.Store({
+        state: {
+            globals: {
+                meapCallToAction: {
+                    id: "28646",
+                    name: "MEAP Call to Action",
+                    titleGeneral: "Get in Touch",
+                    summary: "<p>Have further questions?</p>",
+                    button: [
+                        {
+                            buttonText: "Contact Us",
+                            buttonUrl: "http://mailto:meap@library.ucla.edu",
+                        },
+                    ],
+                },
+            },
+        },
+    }),
+    data() {
+        return {
+            ...mock,
+        }
+    },
+    components: { BlockCallToAction },
+    template: `
+        <block-call-to-action
+            :is-meap-global="true"
+        />
+    `,
+})

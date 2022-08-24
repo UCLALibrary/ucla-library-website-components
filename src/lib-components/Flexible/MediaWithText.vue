@@ -75,9 +75,9 @@ export default {
 <style lang="scss" scoped>
 .section-media-with-text {
     // Themes
-    --color-theme: var(--color-white);
+    --background-color: var(--color-theme, var(--color-white));
     &.color-grey {
-        --color-theme: var(--color-secondary-grey-02);
+        --background-color: var(--color-theme, var(--color-secondary-grey-02));
     }
 
     display: flex;
@@ -86,7 +86,7 @@ export default {
     align-content: center;
     align-items: center;
     justify-content: flex-end;
-    background-color: var(--color-theme);
+    background-color: var(--background-color);
 
     width: 100%;
 
@@ -121,7 +121,7 @@ export default {
         margin-bottom: 56px;
     }
     ::v-deep .clipped-play {
-        background-color: var(--color-theme);
+        background-color: var(--background-color);
     }
     .divider {
         max-width: $container-xl-full-width + px;
@@ -165,7 +165,7 @@ export default {
                 margin-bottom: 24px;
             }
             ::v-deep .clipped-play-mobile {
-                background-color: var(--color-theme);
+                background-color: var(--background-color);
             }
         }
     }

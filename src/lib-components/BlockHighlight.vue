@@ -230,21 +230,21 @@ export default {
 <style lang="scss" scoped>
 .block-highlight {
     max-width: calc((100% - 32px) / 3);
-    background-color: var(--color-white);
+    background-color: var(--color-theme, var(--color-white));
     font-family: var(--font-primary);
     position: relative;
     display: flex;
     flex-direction: row;
     // Themes for floating highlight/ triangle
-    --color-theme: var(--color-primary-blue-03);
+    --floating-highlight-color-theme: var(--color-primary-blue-03);
     &.color-visit {
-        --color-theme: var(--color-visit-fushia-03);
+        --floating-highlight-color-theme: var(--color-visit-fushia-03);
     }
     &.color-help {
-        --color-theme: var(--color-help-green-03);
+        --floating-highlight-color-theme: var(--color-help-green-03);
     }
     &.color-about {
-        --color-theme: var(--color-about-purple-03);
+        --floating-highlight-color-theme: var(--color-about-purple-03);
     }
     .clipped {
         width: 100%;
@@ -259,7 +259,7 @@ export default {
             top: 0;
             left: 5px;
             height: 47px;
-            background-color: var(--color-theme);
+            background-color: var(--floating-highlight-color-theme);
             clip-path: polygon(
                 0 0,
                 calc(100% - 20px) 0,
@@ -276,7 +276,7 @@ export default {
             left: 0px;
             width: calc(100% - 57px);
             height: 47px;
-            background-color: var(--color-white);
+            background-color: var(--color-theme, var(--color-white));
             clip-path: polygon(
                 0 0,
                 calc(100% - 20px) 0,
@@ -406,7 +406,7 @@ export default {
             top: 191px;
             left: 6px;
             height: 90px;
-            background-color: var(--color-theme);
+            background-color: var(--floating-highlight-color-theme);
             clip-path: polygon(
                 0 0,
                 calc(100% - 37px) 0,

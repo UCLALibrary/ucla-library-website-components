@@ -1,3 +1,52 @@
+## [1.50.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.3...v1.50.4) (2022-08-23)
+
+
+### Bug Fixes
+
+* copy vue-glide css into new lightbox ([#141](https://github.com/UCLALibrary/ucla-library-website-components/issues/141)) ([d2cc234](https://github.com/UCLALibrary/ucla-library-website-components/commit/d2cc234ac33f0749bb7be21ec9893c35d680d8b1))
+
+## [1.50.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.2...v1.50.3) (2022-08-23)
+
+
+### Bug Fixes
+
+* move vue-glide css to global ([#140](https://github.com/UCLALibrary/ucla-library-website-components/issues/140)) ([bc4df62](https://github.com/UCLALibrary/ucla-library-website-components/commit/bc4df62455e331eeb88be503a7444bf64e96d903))
+
+## [1.50.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.1...v1.50.2) (2022-08-23)
+
+
+### Bug Fixes
+
+* media gallery component ([#137](https://github.com/UCLALibrary/ucla-library-website-components/issues/137)) ([333adf2](https://github.com/UCLALibrary/ucla-library-website-components/commit/333adf2dcd7e010effc3a7c6e3d880ee0925b65f))
+
+## [1.50.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.50.0...v1.50.1) (2022-08-22)
+
+
+### Bug Fixes
+
+* Apps 1752 fix update impactnumberscarousel with responsive image and fix molecule interaction ([#130](https://github.com/UCLALibrary/ucla-library-website-components/issues/130)) ([f8159ea](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8159ea426305124bc83933170555e87e1e99b77))
+
+# [1.50.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.49.1...v1.50.0) (2022-08-22)
+
+
+### Features
+
+* meap cta variant ([#133](https://github.com/UCLALibrary/ucla-library-website-components/issues/133)) ([86d5652](https://github.com/UCLALibrary/ucla-library-website-components/commit/86d565202c854ad65944b3eeaeda2d6b78469dc7))
+
+## [1.49.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.49.0...v1.49.1) (2022-08-19)
+
+
+### Bug Fixes
+
+* divider margins ([#128](https://github.com/UCLALibrary/ucla-library-website-components/issues/128)) ([e04491c](https://github.com/UCLALibrary/ucla-library-website-components/commit/e04491c1dcad3ea14763d0842d4d7bca0e301e06))
+
+# [1.49.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.4...v1.49.0) (2022-08-19)
+
+
+### Features
+
+* Refactor FlexibleBlocks ([#112](https://github.com/UCLALibrary/ucla-library-website-components/issues/112)) ([ac3b6c1](https://github.com/UCLALibrary/ucla-library-website-components/commit/ac3b6c179384a8777ece4e0a57846b531bb39f40))
+
 ## [1.48.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.48.3...v1.48.4) (2022-08-18)
 
 
