@@ -1,3 +1,10 @@
+## [1.51.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.1...v1.51.2) (2022-08-24)
+
+
+### Bug Fixes
+
+* add margins back to dividers ([#146](https://github.com/UCLALibrary/ucla-library-website-components/issues/146)) ([59876fd](https://github.com/UCLALibrary/ucla-library-website-components/commit/59876fdab0e7c40f4af9bd8a9d40681856c8b2fd))
+
 ## [1.51.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.0...v1.51.1) (2022-08-24)
 
 
