@@ -81,9 +81,9 @@ export default {
         margin-bottom: var(--space-xl);
     }
     .section-title {
-        @include step-4;
+        @include step-3;
         color: var(--color-primary-blue-03);
-        margin-bottom: var(--space-m);
+        margin-bottom: var(--space-xl);
     }
     .section-summary {
         @include step-0;
