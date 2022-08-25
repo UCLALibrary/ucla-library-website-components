@@ -1,3 +1,10 @@
+## [1.51.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.8...v1.51.9) (2022-08-25)
+
+
+### Bug Fixes
+
+* associated topics fpb paths ([#152](https://github.com/UCLALibrary/ucla-library-website-components/issues/152)) ([ac58daf](https://github.com/UCLALibrary/ucla-library-website-components/commit/ac58daf3d0b6843731bc97fab892080031546b30))
+
 ## [1.51.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.7...v1.51.8) (2022-08-25)
 
 
