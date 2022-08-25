@@ -133,12 +133,12 @@ export default {
         margin-bottom: var(--space-xl);
     }
     .section-title {
-        @include step-4;
+        @include step-3;
         color: var(--color-primary-blue-03);
+        margin-bottom: var(--space-m);
     }
     .section-summary {
         @include step-0;
-        margin-top: var(--space-m);
 
         ::v-deep p {
             margin: 0;

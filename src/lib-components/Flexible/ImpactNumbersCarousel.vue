@@ -30,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 .impact-numbers-carousel {
     .section-title {
-        @include step-4;
+        @include step-3;
         color: var(--color-primary-blue-03);
         margin-bottom: var(--space-xl);
     }
