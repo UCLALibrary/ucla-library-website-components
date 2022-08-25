@@ -40,13 +40,13 @@ export default {
                 // LINK -----------------
                 let internalLink = "/"
                 if (card.contentLink && card.contentLink.length != 0) {
-                    if (card.contentLink[0].slug.indexOf("/") === 0) {
-                        internalLink = card.contentLink[0].slug
+                    if (card.contentLink[0].uri.indexOf("/") === 0) {
+                        internalLink = card.contentLink[0].uri
                         // console.log(internalLink)
                     } else if (card.contentLink[0].externalResourceUrl) {
                         internalLink = card.contentLink[0].externalResourceUrl
                     } else {
-                        internalLink = "/" + card.contentLink[0].slug
+                        internalLink = "/" + card.contentLink[0].uri
                         // console.log(internalLink)
                     }
                 }
