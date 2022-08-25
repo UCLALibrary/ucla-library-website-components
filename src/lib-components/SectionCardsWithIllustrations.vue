@@ -1,13 +1,13 @@
 <template>
     <section :class="classes" :data-cy="cypressSelector">
-        <div v-if="title || text" class="meta">
-            <h3
+        <div v-if="title || text" class="section-header">
+            <h2
                 v-if="title"
                 id="cards-with-illustration-title"
-                class="title"
+                class="section-title"
                 v-html="title"
             />
-            <div v-if="text" class="text" v-html="text" />
+            <div v-if="text" class="section-summary" v-html="text" />
         </div>
 
         <ul class="cards">
@@ -92,15 +92,15 @@ export default {
 .section-cards-with-illustrations {
     max-width: $container-l-main + px;
 
-    .meta {
+    .section-header {
         margin-bottom: var(--space-xl);
 
-        .title {
-            @include step-5;
+        .section-title {
+            @include step-3;
             color: var(--color-primary-blue-03);
             margin-bottom: var(--space-m);
         }
-        .text {
+        .section-summary {
             @include step-0;
             color: var(--color-black);
         }

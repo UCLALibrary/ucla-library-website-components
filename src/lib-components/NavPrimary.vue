@@ -312,5 +312,17 @@ export default {
             opacity: 1;
         }
     }
+
+    // Hover states
+    @media (max-width: 1330px) {
+        &.has-title {
+            .title {
+                width: 98px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
 }
 </style>

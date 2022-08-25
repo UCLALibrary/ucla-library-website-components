@@ -53,6 +53,7 @@
                     :go-back="goBack"
                     @shouldOpen="shouldOpen"
                     @itemOpenedColor="itemOpenedColor"
+                    @closeMainMenu="toggleMenu"
                 />
                 <li
                     v-for="(item, index) in noChildren"
@@ -213,7 +214,7 @@ export default {
             this.goBack = false
         },
         handleCloseOrReturn() {
-            console.log("Close clicked")
+            // console.log("Close clicked")
 
             this.goBack = !this.goBack
             this.moleculeColor = "cyan"

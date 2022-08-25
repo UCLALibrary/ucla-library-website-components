@@ -1,3 +1,31 @@
+## [1.51.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.7...v1.51.8) (2022-08-25)
+
+
+### Bug Fixes
+
+* standardize section header ([#151](https://github.com/UCLALibrary/ucla-library-website-components/issues/151)) ([22fe7ef](https://github.com/UCLALibrary/ucla-library-website-components/commit/22fe7ef93e579c309b8e5f6943d3a85c59c4c47e))
+
+## [1.51.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.6...v1.51.7) (2022-08-25)
+
+
+### Bug Fixes
+
+* standardize section titles ([#150](https://github.com/UCLALibrary/ucla-library-website-components/issues/150)) ([0b87d4e](https://github.com/UCLALibrary/ucla-library-website-components/commit/0b87d4edb95820bb88fa4e1be66cfeb48e1a46d1))
+
+## [1.51.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.5...v1.51.6) (2022-08-25)
+
+
+### Bug Fixes
+
+* APPS-1830 pull caption title and caption text into media gallery lightbox ([#149](https://github.com/UCLALibrary/ucla-library-website-components/issues/149)) ([e1eda7c](https://github.com/UCLALibrary/ucla-library-website-components/commit/e1eda7c12c82c8209721eec93ed9714d84358f61))
+
+## [1.51.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.4...v1.51.5) (2022-08-25)
+
+
+### Bug Fixes
+
+* Fix nav ([#148](https://github.com/UCLALibrary/ucla-library-website-components/issues/148)) ([60212ae](https://github.com/UCLALibrary/ucla-library-website-components/commit/60212ae7ba73513c28ac192f50c2ce2b74e2649f))
+
 ## [1.51.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.3...v1.51.4) (2022-08-24)
 
 
