@@ -50,14 +50,26 @@
                     <svg-icon-molecule-bullet />
                 </button>
             </div>
+            <!-- <h4
+                class="media-object-title"
+                v-text="images[selectionIndex].captionTitle"
+            /> -->
             <h4
                 class="media-object-title"
                 v-text="images[selectionIndex].title"
             />
+            <!-- 
+                media-object-title - captionTitle
+                media-object-caption - captionText
+            -->
             <p
                 class="media-object-caption"
-                v-text="images[selectionIndex].alt"
+                v-text="images[selectionIndex].CaptionText"
             />
+            <!-- <p
+                class="media-object-caption"
+                v-text="images[selectionIndex].alt"
+            /> -->
         </div>
     </div>
 </template>
