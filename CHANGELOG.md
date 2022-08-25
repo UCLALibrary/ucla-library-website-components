@@ -1,3 +1,10 @@
+## [1.51.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.5...v1.51.6) (2022-08-25)
+
+
+### Bug Fixes
+
+* APPS-1830 pull caption title and caption text into media gallery lightbox ([#149](https://github.com/UCLALibrary/ucla-library-website-components/issues/149)) ([e1eda7c](https://github.com/UCLALibrary/ucla-library-website-components/commit/e1eda7c12c82c8209721eec93ed9714d84358f61))
+
 ## [1.51.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.4...v1.51.5) (2022-08-25)
 
 
