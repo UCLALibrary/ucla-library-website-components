@@ -96,7 +96,7 @@ export default {
             color: var(--color-black);
 
             position: relative;
-            @include clickable-area;
+            @include min-clickable-area;
         }
         .regents {
             color: var(--color-secondary-grey-04);

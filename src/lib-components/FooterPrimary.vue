@@ -255,7 +255,7 @@ export default {
                 .is-link {
                     position: relative;
 
-                    @include clickable-area;
+                    @include min-clickable-area;
                 }
             }
         } // footer-links

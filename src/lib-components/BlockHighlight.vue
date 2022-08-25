@@ -296,13 +296,8 @@ export default {
         color: var(--color-primary-blue-05);
         margin-bottom: var(--space-s);
     }
-    .title::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
+    .title {
+        @include card-clickable-area;
     }
     .title,
     .title-no-link {
@@ -360,6 +355,9 @@ export default {
         align-content: center;
         align-items: center;
         margin-bottom: 4px;
+    }
+    .location-link {
+        z-index: 20;
     }
     // Variations
     &.is-vertical {

@@ -189,7 +189,7 @@ export default {
         display: block;
         position: relative;
 
-        @include clickable-area;
+        @include min-clickable-area;
     }
 }
 </style>
