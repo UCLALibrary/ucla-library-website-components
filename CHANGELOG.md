@@ -1,3 +1,10 @@
+## [1.51.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.7...v1.51.8) (2022-08-25)
+
+
+### Bug Fixes
+
+* standardize section header ([#151](https://github.com/UCLALibrary/ucla-library-website-components/issues/151)) ([22fe7ef](https://github.com/UCLALibrary/ucla-library-website-components/commit/22fe7ef93e579c309b8e5f6943d3a85c59c4c47e))
+
 ## [1.51.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.6...v1.51.7) (2022-08-25)
 
 
