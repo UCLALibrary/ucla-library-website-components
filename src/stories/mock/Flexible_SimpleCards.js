@@ -9,7 +9,7 @@ export const mockTwoCards = {
             id: "13899",
             contentLink: [
                 {
-                    slug: "road-work",
+                    uri: "help/road-work",
                     title: "Road Work Guide",
                     summary: "<p>A research guide</p>",
                     externalResourceUrl: "http://libguides.library.ucla.edu",
@@ -37,7 +37,7 @@ export const mockThreeCards = {
             id: "13899",
             contentLink: [
                 {
-                    slug: "road-work",
+                    uri: "road-work",
                     title: "Road Work Guide",
                     summary: "<p>A research guide</p>",
                     externalResourceUrl: "http://libguides.library.ucla.edu",
@@ -55,7 +55,7 @@ export const mockThreeCards = {
             id: "13899",
             contentLink: [
                 {
-                    slug: "road-work",
+                    uri: "road-work",
                     title: "Road Work Guide",
                     summary: "<p>A research guide</p>",
                     externalResourceUrl: "http://libguides.library.ucla.edu",
@@ -76,7 +76,7 @@ export const mockFourCards = {
             id: "13899",
             contentLink: [
                 {
-                    slug: "road-work",
+                    uri: "road-work",
                     title: "Road Work Guide",
                     summary: "<p>A research guide</p>",
                     externalResourceUrl: "http://libguides.library.ucla.edu",
@@ -94,7 +94,7 @@ export const mockFourCards = {
             id: "13899",
             contentLink: [
                 {
-                    slug: "road-work",
+                    uri: "road-work",
                     title: "Road Work Guide",
                     summary: "<p>A research guide</p>",
                     externalResourceUrl: "http://libguides.library.ucla.edu",
@@ -122,7 +122,7 @@ export const mockFiveCards = {
             id: "13899",
             contentLink: [
                 {
-                    slug: "road-work",
+                    uri: "road-work",
                     title: "Road Work Guide",
                     summary: "<p>A research guide</p>",
                     externalResourceUrl: "http://libguides.library.ucla.edu",
@@ -140,7 +140,7 @@ export const mockFiveCards = {
             id: "13899",
             contentLink: [
                 {
-                    slug: "road-work",
+                    uri: "road-work",
                     title: "Road Work Guide",
                     summary: "<p>A research guide</p>",
                     externalResourceUrl: "http://libguides.library.ucla.edu",
@@ -158,7 +158,7 @@ export const mockFiveCards = {
             id: "13958",
             contentLink: [
                 {
-                    slug: "frost-heave",
+                    uri: "frost-heave",
                     title: "Frost Heave",
                     summary:
                         "<p>Frost heave refers to <strong>the upward or outward movement of the ground surface (or objects on, or in, ground) caused by formation of ice in soil</strong>.</p>",
@@ -179,7 +179,7 @@ export const mockSixCards = {
             id: "13899",
             contentLink: [
                 {
-                    slug: "road-work",
+                    uri: "road-work",
                     title: "Road Work Guide",
                     summary: "<p>A research guide</p>",
                     externalResourceUrl: "http://libguides.library.ucla.edu",
@@ -197,7 +197,7 @@ export const mockSixCards = {
             id: "13899",
             contentLink: [
                 {
-                    slug: "road-work",
+                    uri: "road-work",
                     title: "Road Work Guide",
                     summary: "<p>A research guide</p>",
                     externalResourceUrl: "http://libguides.library.ucla.edu",
@@ -215,7 +215,7 @@ export const mockSixCards = {
             id: "13958",
             contentLink: [
                 {
-                    slug: "frost-heave",
+                    uri: "frost-heave",
                     title: "Frost Heave",
                     summary:
                         "<p>Frost heave refers to <strong>the upward or outward movement of the ground surface (or objects on, or in, ground) caused by formation of ice in soil</strong>.</p>",
@@ -226,7 +226,7 @@ export const mockSixCards = {
             id: "13784",
             contentLink: [
                 {
-                    slug: "foxes",
+                    uri: "foxes",
                     title: "Foxes - Guides",
                     summary:
                         "<p>Foxes are small to medium-sized, omnivorous mammals belonging to several genera of the family Canidae.</p>",
