@@ -1,3 +1,10 @@
+## [1.51.11](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.10...v1.51.11) (2022-08-25)
+
+
+### Bug Fixes
+
+* updates tokens and clickable area on cards ([#154](https://github.com/UCLALibrary/ucla-library-website-components/issues/154)) ([3465cb8](https://github.com/UCLALibrary/ucla-library-website-components/commit/3465cb8a977bbbea26caec6051614f8e302c1b3d))
+
 ## [1.51.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.9...v1.51.10) (2022-08-25)
 
 
