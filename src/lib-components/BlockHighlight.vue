@@ -229,7 +229,7 @@ export default {
 
 <style lang="scss" scoped>
 .block-highlight {
-    width: calc((100% - 48px) / 3);
+    max-width: calc((100% - 32px) / 3);
     background-color: var(--color-theme, var(--color-white));
     font-family: var(--font-primary);
     position: relative;
@@ -334,7 +334,7 @@ export default {
     // .schedule-item {
     //     margin-bottom: 4px;
     // }
-    
+
     .text {
         @include step-0;
         color: var(--color-black);
@@ -370,15 +370,14 @@ export default {
             }
             ::v-deep .image {
                 width: 100%;
-                 .media {
+                .media {
                     object-fit: cover;
                 }
             }
-
         }
         // for clipped version
         &.has-triangle {
-            max-width: calc((100% - 16px)/ 2);
+            max-width: calc((100% - 16px) / 2);
             .meta {
                 margin-top: -24px;
                 padding: 0 64px 0 16px;
@@ -483,14 +482,14 @@ export default {
         }
         &.is-vertical {
             &:not(.has-triangle) {
-            max-width: calc((100% - 32px)/ 2);
+                max-width: calc((100% - 32px) / 2);
             }
         }
         &.is-vertical {
             &.has-triangle {
-                 ::v-deep .image {
+                ::v-deep .image {
                     height: 200px;
-            } 
+                }
             }
         }
         &:not(&.is-vertical) {

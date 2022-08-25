@@ -124,7 +124,7 @@ export default {
 
 <style lang="scss" scoped>
 .section-teaser-highlight {
-    // padding: 0 calc(var(--unit-gutter) - 16px);
+    padding: 0 calc(var(--unit-gutter) - 16px);
     background-color: var(--color-theme, var(--color-white));
     margin: 0 auto;
     max-width: $container-l-main + px;
@@ -152,7 +152,6 @@ export default {
         justify-content: space-between;
         align-content: flex-start;
         align-items: flex-start;
-        gap: 24px;
     }
     .block {
         width: calc(50% - 16px);
@@ -160,7 +159,7 @@ export default {
     }
 
     ::v-deep .block-highlight {
-        max-width: calc(50% - 24px);
+        max-width: calc(50% - 16px);
     }
     // Breakpoints
     @media #{$small} {

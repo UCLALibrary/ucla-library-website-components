@@ -84,11 +84,11 @@ export default {
         margin-right: auto;
     }
 
-    > :first-child {
+    > :first-child:not(.divider-way-finder) {
         margin-top: 0;
     }
 
-    > :last-child {
+    > :last-child:not(.divider-way-finder) {
         margin-bottom: 0;
     }
 }

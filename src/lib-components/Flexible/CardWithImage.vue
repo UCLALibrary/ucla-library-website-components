@@ -151,7 +151,7 @@ export default {
         justify-content: flex-start;
         align-content: flex-start;
         align-items: flex-start;
-        gap: 24px;
+        gap: 16px;
     }
 
     // Breakpoints
