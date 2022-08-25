@@ -3,7 +3,7 @@
         <h2 class="more-information">More Information</h2>
         <div v-for="(block, index) in parsedBlocks" :key="index">
             <section-wrapper v-if="block.needsDivider" theme="divider"
-                ><DividerGeneral
+                ><DividerWayFinder
             /></section-wrapper>
             <section-wrapper :theme="block.theme">
                 <component
@@ -20,7 +20,7 @@
 // Helpers
 import _kebabCase from "lodash/kebabCase"
 import SectionWrapper from "./SectionWrapper.vue"
-import DividerGeneral from "./DividerGeneral.vue"
+import DividerWayFinder from "./DividerWayFinder.vue"
 
 const NEVER_GRAY = [
     "flexible-associated-topic-cards",
@@ -89,7 +89,7 @@ export default {
             import("@/lib-components/Flexible/AssociatedTopicCards.vue").then(
                 (d) => d.default
             ),
-        DividerGeneral,
+        DividerWayFinder,
     },
 
     props: {
