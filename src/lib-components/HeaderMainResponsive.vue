@@ -373,7 +373,7 @@ export default {
                 line-height: 1;
 
                 .link {
-                    @include clickable-area;
+                    @include min-clickable-area;
                 }
             }
         }
