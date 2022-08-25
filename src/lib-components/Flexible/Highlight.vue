@@ -66,7 +66,6 @@ export default {
         parsedItems() {
             // Maps values based on content type and external or internal content
             return this.parsedList.map((obj) => {
-                console.log(obj)
                 // Article
                 if (
                     obj.typeHandle != "externalContent" &&

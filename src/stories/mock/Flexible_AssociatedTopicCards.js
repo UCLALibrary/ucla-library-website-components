@@ -9,17 +9,17 @@ export const itemsVertical = {
             id: "13899",
             topics: [
                 {
-                    to: "/help/road-work",
+                    to: "help/road-work",
                     title: "Road Work Guide",
                     text: "<p>A research guide</p>",
                 },
                 {
                     title: "Types of Sinkholes",
                     text: "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-                    to: "/help/types-sinkholes",
+                    to: "help/types-sinkholes",
                 },
                 {
-                    to: "/help/animals",
+                    to: "help/animals",
                     title: "Animals eat food!",
                     text: "<p>Some animals eat plants and plant products like grass, leaves and fodder. Goat, cow, horse and sheep eat only plants.</p>",
                 },
