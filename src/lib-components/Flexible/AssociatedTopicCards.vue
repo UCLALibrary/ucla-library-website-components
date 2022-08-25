@@ -1,7 +1,7 @@
 <template>
     <section-cards-with-illustrations
         v-if="block && block.associatedTopicsFlexiblePageBlock"
-        :items="block.associatedTopicsFlexiblePageBlock[0].topics"
+        :items="parseditems"
         :title="block.sectionTitle"
         :text="block.sectionText"
         :is-horizontal="false"
@@ -21,6 +21,20 @@ export default {
         block: {
             type: Object,
             default: () => {},
+        },
+    },
+    computed: {
+        parseditems() {
+            return this.block.associatedTopicsFlexiblePageBlock[0].topics.map(
+                (obj) => {
+                    return {
+                        ...obj,
+                        to: obj.externalResourceUrl
+                            ? obj.externalResourceUrl
+                            : `/${obj.uri}`,
+                    }
+                }
+            )
         },
     },
 }
