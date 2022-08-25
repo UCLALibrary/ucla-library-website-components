@@ -1922,10 +1922,10 @@ export default Vue.extend({
                         {
                             id: "4602",
                             altText:
-                                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+                                "AltText Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
                             captionText:
-                                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-                            captionTitle: "Zooland",
+                                "CaptionText: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+                            captionTitle: "CaptionTitle: Zooland",
                             image: [
                                 {
                                     src: "https://via.placeholder.com/1920x1080",

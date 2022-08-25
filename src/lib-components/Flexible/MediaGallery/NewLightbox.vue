@@ -50,26 +50,15 @@
                     <svg-icon-molecule-bullet />
                 </button>
             </div>
-            <!-- <h4
-                class="media-object-title"
-                v-text="images[selectionIndex].captionTitle"
-            /> -->
+
             <h4
                 class="media-object-title"
-                v-text="images[selectionIndex].title"
+                v-text="captionTitle[selectionIndex]"
             />
-            <!-- 
-                media-object-title - captionTitle
-                media-object-caption - captionText
-            -->
             <p
                 class="media-object-caption"
-                v-text="images[selectionIndex].CaptionText"
+                v-text="captionText[selectionIndex]"
             />
-            <!-- <p
-                class="media-object-caption"
-                v-text="images[selectionIndex].alt"
-            /> -->
         </div>
     </div>
 </template>
@@ -116,6 +105,12 @@ export default {
     computed: {
         images() {
             return this.block.map((item) => item.image[0])
+        },
+        captionTitle() {
+            return this.block.map((item) => item.captionTitle)
+        },
+        captionText() {
+            return this.block.map((item) => item.captionText)
         },
     },
     mounted() {
