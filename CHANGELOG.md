@@ -1,3 +1,10 @@
+## [1.51.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.9...v1.51.10) (2022-08-25)
+
+
+### Bug Fixes
+
+* update flexible simple cards path ([#153](https://github.com/UCLALibrary/ucla-library-website-components/issues/153)) ([bd14e31](https://github.com/UCLALibrary/ucla-library-website-components/commit/bd14e313104727409ed6970cd08f5dec2b094d20))
+
 ## [1.51.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.8...v1.51.9) (2022-08-25)
 
 
