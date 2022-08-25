@@ -1,3 +1,10 @@
+## [1.51.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.4...v1.51.5) (2022-08-25)
+
+
+### Bug Fixes
+
+* Fix nav ([#148](https://github.com/UCLALibrary/ucla-library-website-components/issues/148)) ([60212ae](https://github.com/UCLALibrary/ucla-library-website-components/commit/60212ae7ba73513c28ac192f50c2ce2b74e2649f))
+
 ## [1.51.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.3...v1.51.4) (2022-08-24)
 
 
