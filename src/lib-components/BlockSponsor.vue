@@ -1,22 +1,15 @@
 <template>
     <smart-link :to="funderUrl" target="_blank">
-        <responsive-image
-            :image="parsedFunderLogo"
-            :aspect-ratio="100"
-            object-fit="contain"
-            class="block-sponsor"
-        />
+        <img :src="parsedFunderLogo.src" class="block-sponsor" />
     </smart-link>
 </template>
 
 <script>
-import ResponsiveImage from "@/lib-components/ResponsiveImage"
 import SmartLink from "@/lib-components/SmartLink.vue"
 
 export default {
     name: "BlockSponsor",
     components: {
-        ResponsiveImage,
         SmartLink,
     },
     props: {

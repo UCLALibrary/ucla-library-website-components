@@ -25,9 +25,6 @@ export default {
     },
     computed: {
         parsedFunders() {
-            console.log(
-                "PUPPIES!! " + JSON.stringify(this.$store.state.footerSponsor)
-            )
             if (Object.keys(this.$store.state.footerSponsor).length !== 0) {
                 return this.$store.state.footerSponsor.funders
             } else {
@@ -64,12 +61,9 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
-    align-content: space-between;
-    gap: var(--space-xl);
-    .sponsor-item {
-        width: 100%;
-    }
+    align-items: center;
+    justify-content: space-evenly;
+    gap: var(--space-l);
 }
 
 // Breakpoints
@@ -80,13 +74,6 @@ export default {
     }
     .sponsor-text {
         padding-top: 32px;
-    }
-}
-
-@media #{$small} {
-    .sponsor-logos {
-        flex-direction: column;
-        align-content: space-between;
     }
 }
 </style>
