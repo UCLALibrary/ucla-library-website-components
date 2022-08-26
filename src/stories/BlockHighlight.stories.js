@@ -28,7 +28,7 @@ const mock = {
     title: "Fames ac turpis egestas sed tempus",
     startDate: "2022-03-31T07:00:00+00:00",
     endDate: "2021-11-26T11:00:00-08:00",
-    text: "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
+    text: "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
     imageAspectRatio: 60,
     locations: [
         { title: "Powellarium", to: "/location/bar" },
