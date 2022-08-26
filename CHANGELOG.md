@@ -1,3 +1,10 @@
+## [1.52.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.2...v1.52.3) (2022-08-26)
+
+
+### Bug Fixes
+
+* Sponsor footer layout ([#158](https://github.com/UCLALibrary/ucla-library-website-components/issues/158)) ([9cf8a7f](https://github.com/UCLALibrary/ucla-library-website-components/commit/9cf8a7f91a364947adb578a6016d193985349db5))
+
 ## [1.52.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.1...v1.52.2) (2022-08-26)
 
 
