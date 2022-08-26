@@ -2,11 +2,11 @@
     <div class="icon-with-link">
         <smart-link :to="to" class="icon-with-link-container link" v-if="to">
             <component :is="iconName" class="icon" aria-hidden="true" />
-            <span class="text" v-html="text" />
+            <div class="text" v-text="text" />
         </smart-link>
         <div v-else class="icon-with-link-container">
             <component :is="iconName" class="icon" aria-hidden="true" />
-            <span class="text" v-html="text" />
+            <div class="text" v-text="text" />
         </div>
     </div>
 </template>

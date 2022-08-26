@@ -13,7 +13,7 @@
                 <h3 v-else class="space-title-no-link" v-html="title" />
             </div>
             <div class="meta">
-                <p class="text" v-html="text" />
+                <div class="text" v-text="text" />
                 <!-- if no buttonUrl -  do not display button -->
                 <button-link
                     v-if="to"
