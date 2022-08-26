@@ -1,3 +1,10 @@
+## [1.51.12](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.11...v1.51.12) (2022-08-26)
+
+
+### Bug Fixes
+
+* make entire card with illustration clickable ([#156](https://github.com/UCLALibrary/ucla-library-website-components/issues/156)) ([8a83a6b](https://github.com/UCLALibrary/ucla-library-website-components/commit/8a83a6b783267ff84072ae97515285c245d70928))
+
 ## [1.51.11](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.10...v1.51.11) (2022-08-25)
 
 
