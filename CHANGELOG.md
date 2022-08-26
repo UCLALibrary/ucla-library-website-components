@@ -1,3 +1,10 @@
+## [1.52.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.0...v1.52.1) (2022-08-26)
+
+
+### Bug Fixes
+
+* update FlexibleCardWithImage url logic ([#159](https://github.com/UCLALibrary/ucla-library-website-components/issues/159)) ([fa615c0](https://github.com/UCLALibrary/ucla-library-website-components/commit/fa615c01f9abf89166ef6022d69273e80595e044))
+
 # [1.52.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.51.12...v1.52.0) (2022-08-26)
 
 

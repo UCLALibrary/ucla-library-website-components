@@ -1,7 +1,11 @@
 <template>
     <section :class="classes">
         <div v-if="sectionTitle" class="section-header">
-            <h2 v-if="sectionTitle" class="section-title" v-text="sectionTitle" />
+            <h2
+                v-if="sectionTitle"
+                class="section-title"
+                v-text="sectionTitle"
+            />
             <p
                 v-if="sectionSummary"
                 class="section-summary"

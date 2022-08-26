@@ -81,7 +81,7 @@
                 </div>
             </div>
             <!-- changing p tag to div fixes nodemismatch errors -->
-            <p v-if="text" class="text" v-html="text" />
+            <div v-if="text" class="text" v-text="text" />
         </div>
     </li>
 </template>
