@@ -75,6 +75,7 @@ export default {
                 ) {
                     return {
                         ...obj,
+                        to: `/${obj.to}`,
                         parsedImage: _get(obj, "heroImage[0].image[0]", {}),
                         parsedLocation: _get(obj, "associatedLocations", []),
                         parsedCategory: _get(
@@ -100,6 +101,7 @@ export default {
                 ) {
                     return {
                         ...obj,
+                        to: `/${obj.to}`,
                         parsedImage: _get(obj, "heroImage[0].image[0]", {}),
                         parsedLocation: _get(obj, "projectLocations", []),
                         parsedCategory: _get(obj, "projectCategory", {}),
@@ -115,7 +117,7 @@ export default {
                         parsedCategory: _get(obj, "category", {}),
                     }
                 } else {
-                    return { ...obj }
+                    return { ...obj, to: `/${obj.to}` }
                 }
             })
         },
