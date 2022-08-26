@@ -109,6 +109,7 @@ export default {
 
 <style lang="scss" scoped>
 .block-card-with-illustration {
+    position: relative;
     overflow: hidden;
     border: 2px solid var(--color-theme);
     border-radius: var(--rounded-slightly-all);
@@ -135,6 +136,10 @@ export default {
         flex-direction: column;
         align-items: center;
         gap: 8px;
+    }
+
+    .smart-link {
+        @include card-clickable-area;
     }
 
     .title {
