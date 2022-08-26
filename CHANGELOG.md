@@ -1,3 +1,10 @@
+## [1.52.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.1...v1.52.2) (2022-08-26)
+
+
+### Bug Fixes
+
+* replace p tag with div and replace v-html to v-text in some cases ([#160](https://github.com/UCLALibrary/ucla-library-website-components/issues/160)) ([de8114d](https://github.com/UCLALibrary/ucla-library-website-components/commit/de8114d6642d0e1e29d65a43f311ca9521ff008f))
+
 ## [1.52.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.0...v1.52.1) (2022-08-26)
 
 
