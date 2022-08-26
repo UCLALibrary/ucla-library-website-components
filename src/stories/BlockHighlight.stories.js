@@ -28,7 +28,7 @@ const mock = {
     title: "Fames ac turpis egestas sed tempus",
     startDate: "2022-03-31T07:00:00+00:00",
     endDate: "2021-11-26T11:00:00-08:00",
-    text: "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
+    text: "<p>Mauris rhoncus <b>aenean vel elit scelerisque</b> mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien.</p>",
     imageAspectRatio: 60,
     locations: [
         { title: "Powellarium", to: "/location/bar" },
@@ -43,7 +43,7 @@ const mock2 = {
     title: "Orci Dapibus",
     startDate: "2021-02-05T11:00:00-08:00",
     endDate: "2021-02-05T11:00:00-08:00",
-    text: "Vel eros donec ac odio tempor orci dapibus. Ante metus dictum at tempor. Pretium nibh ipsum consequat nisl vel pretium. Amet consectetur adipiscing elit ut aliquam purus sit. Diam quis enim lobortis scelerisque fermentum dui faucibus. Hac habitasse platea dictumst quisque.",
+    text: "<p>Vel eros donec ac odio tempor orci dapibus. Ante metus dictum at tempor. Pretium nibh ipsum consequat nisl vel pretium. Amet consectetur adipiscing elit ut aliquam purus sit. Diam quis enim lobortis scelerisque fermentum dui faucibus. Hac habitasse platea dictumst quisque.</p>",
     imageAspectRatio: 60,
     locations: [
         { title: "Powellarium", to: "/location/bar" },
@@ -131,7 +131,7 @@ export const LongTitle = () => ({
           :image="image"
           :to="to"
           :category="category"
-          title="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+          title="<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>"
           :start-date="startDate"
           :end-date="endDate"
           :text="text"
