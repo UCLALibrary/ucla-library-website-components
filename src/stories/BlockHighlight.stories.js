@@ -131,7 +131,7 @@ export const LongTitle = () => ({
           :image="image"
           :to="to"
           :category="category"
-          title="<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>"
+          title="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
           :start-date="startDate"
           :end-date="endDate"
           :text="text"
