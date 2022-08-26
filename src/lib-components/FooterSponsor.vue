@@ -1,14 +1,18 @@
 <template>
     <div class="footer-sponsor">
-        <block-sponsor
-            v-for="(item, index) in parsedFunders"
-            :key="index"
-            class="sponsor-item"
-            :funderLogo="item.funderLogo"
-            :funderName="item.funderName"
-            :funderUrl="item.funderUrl"
-        />
-    </div>
+        <div class="sponsor-text"> Text TK from Development, program generously supported by
+            </div>
+        <div class="sponsor-logos">
+            <block-sponsor
+                v-for="(item, index) in parsedFunders"
+                :key="index"
+                class="sponsor-item"
+                :funderLogo="item.funderLogo"
+                :funderName="item.funderName"
+                :funderUrl="item.funderUrl"
+            />
+            </div>
+   </div>
 </template>
 
 <script>
@@ -40,32 +44,49 @@ export default {
 
 <style lang="scss" scoped>
 .footer-sponsor {
-    max-width: 100%;
     background-color: var(--color-secondary-grey-01);
-    padding: 64px;
-
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+    justify-content: center;
+    padding: 0 var(--unit-gutter);
+}
+.sponsor-text {
+    @include overline;
+    line-height: $line-height-0;
+    color: var(--color-secondary-grey-05);
+    padding-top: 64px;
+    text-align: center;
+}
+.sponsor-logos {
+    max-width: 100%;
+    padding-bottom: 64px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-content: space-between;
-    gap: var(--space-l);
+    gap: var(--space-xl);
     .sponsor-item {
         width: 100%;
     }
+}
 
-    // Breakpoints
-    @media #{$medium} {
-        display: flex;
+// Breakpoints
+@media #{$medium} {
+    .sponsor-logos {
         flex-direction: column;
-        padding: 24px 32px;
+        padding-bottom: 32px;
     }
+    .sponsor-text {
+        padding-top: 32px;
+    }
+}
 
-    @media #{$small} {
-        display: flex;
+@media #{$small} {
+    .sponsor-logos {
         flex-direction: column;
         align-content: space-between;
-        gap: var(--space-l);
     }
 }
 </style>
