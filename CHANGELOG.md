@@ -1,3 +1,10 @@
+## [1.52.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.3...v1.52.4) (2022-08-26)
+
+
+### Bug Fixes
+
+* v-text to v-html ([#161](https://github.com/UCLALibrary/ucla-library-website-components/issues/161)) ([ac471d4](https://github.com/UCLALibrary/ucla-library-website-components/commit/ac471d4b11a8b6aa247d331ab920e05ba872f563))
+
 ## [1.52.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.2...v1.52.3) (2022-08-26)
 
 
