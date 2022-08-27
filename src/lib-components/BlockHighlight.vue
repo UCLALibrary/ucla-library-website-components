@@ -515,6 +515,11 @@ export default {
     @media #{$small} {
         max-width: 100%;
         &.is-vertical {
+            &:not(.has-triangle) {
+                max-width: 100%;
+            }
+        }
+        &.is-vertical {
             // for clipped version
             &.has-triangle {
                 max-width: 100%;
