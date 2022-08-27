@@ -1,3 +1,10 @@
+## [1.52.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.4...v1.52.5) (2022-08-27)
+
+
+### Bug Fixes
+
+* block-highlight & spaces ([#162](https://github.com/UCLALibrary/ucla-library-website-components/issues/162)) ([20cb065](https://github.com/UCLALibrary/ucla-library-website-components/commit/20cb0657e6ae6bb9f8951465841c81608834f7d3))
+
 ## [1.52.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.3...v1.52.4) (2022-08-26)
 
 
