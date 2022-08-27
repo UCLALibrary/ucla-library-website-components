@@ -1,3 +1,10 @@
+## [1.52.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.5...v1.52.6) (2022-08-27)
+
+
+### Bug Fixes
+
+* updates responsive width of BlockHighlight for card variation ([#163](https://github.com/UCLALibrary/ucla-library-website-components/issues/163)) ([0a2d89b](https://github.com/UCLALibrary/ucla-library-website-components/commit/0a2d89b8afc78031af06f9c78c9a56519adaf590))
+
 ## [1.52.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.4...v1.52.5) (2022-08-27)
 
 
