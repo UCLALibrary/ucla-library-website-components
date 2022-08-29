@@ -1,6 +1,10 @@
 <template>
     <smart-link :to="funderUrl" target="_blank">
-        <img :src="parsedFunderLogo.src" class="block-sponsor" />
+        <img
+            :src="parsedFunderLogo.src"
+            :alt="funderName"
+            class="block-sponsor"
+        />
     </smart-link>
 </template>
 
