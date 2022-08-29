@@ -48,33 +48,41 @@ export default {
     gap: var(--space-2xl);
     justify-content: center;
     padding: 0 var(--unit-gutter);
+    --unit-content-width: 1040px;
 }
 .sponsor-text {
     @include overline;
+    display: flex;
     line-height: $line-height-0;
     color: var(--color-secondary-grey-05);
-    padding-top: 64px;
-    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: var(--unit-content-width);
+    padding-top: var(--space-3xl);
 }
 .sponsor-logos {
-    max-width: 100%;
-    padding-bottom: 64px;
+    padding-bottom: var(--space-3xl); 
+    margin: 0 auto; 
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: var(--space-l);
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--unit-content-width);
 }
 
 // Breakpoints
 @media #{$medium} {
     .sponsor-logos {
         flex-direction: column;
-        padding-bottom: 32px;
+        align-items: flex-end;
+        gap: var(--space-2xl);
     }
     .sponsor-text {
-        padding-top: 32px;
+        align-self: flex-end;
+        width: unset;
+        margin: unset;
     }
 }
 </style>
