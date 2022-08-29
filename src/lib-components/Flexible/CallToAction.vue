@@ -30,10 +30,4 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
-.cta-block-content-width {
-    max-width: 924px;
-    margin-left: auto;
-    margin-right: auto;
-}
-</style>
+<style lang="css" scoped></style>
