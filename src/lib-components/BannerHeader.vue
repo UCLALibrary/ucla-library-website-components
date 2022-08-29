@@ -490,7 +490,7 @@ export default {
     }
 
     .meta-text {
-        margin-bottom: var(--space-m);
+        margin-bottom: var(--space-l);
     }
 
     .title {
