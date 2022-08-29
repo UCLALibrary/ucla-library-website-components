@@ -1,11 +1,12 @@
 <template>
     <li class="nav-menu-item">
-        <span
+        <button
             class="section-name block"
             :data-sub-menu-title-id="index"
             @click="toggleItem(index)"
-            >{{ item.name }}</span
         >
+            {{ item.name }}
+        </button>
 
         <ul :data-sub-menu-item-id="index" class="sub-menu hidden">
             <li
@@ -66,7 +67,7 @@ export default {
     watch: {
         goBack: function (newVal) {
             // console.log("goback value updated " + newVal)
-            this.resetAccordion()
+            if (newVal) this.resetAccordion()
         },
     },
     methods: {
@@ -107,6 +108,7 @@ export default {
         },
         resetAccordion() {
             // this.$emit("shouldOpen")
+
             const subMenuTitleElement = document.querySelectorAll(
                 "[data-sub-menu-title-id]"
             )
@@ -133,6 +135,7 @@ export default {
 .nav-menu-item {
     margin: 0;
     padding: 0;
+    position: relative;
 
     // Top level menu
     .section-name {
@@ -147,6 +150,7 @@ export default {
         position: relative;
         color: white;
         cursor: pointer;
+        @include min-clickable-area;
 
         &.block {
             display: block;

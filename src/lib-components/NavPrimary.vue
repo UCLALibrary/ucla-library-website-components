@@ -1,11 +1,14 @@
 <template>
-    <nav :class="classes">
+    <nav aria-label="Primary  Navigation" :class="classes">
         <div class="item-top">
             <router-link
                 to="/"
                 :aria-label="title ? '' : `UCLA Library home page`"
             >
-                <h1 v-if="title" class="title">{{ title }}</h1>
+                <h1 v-if="title" class="title">
+                    <span class="full-title"> {{ title }} </span>
+                    <span class="acronym" v-if="acronym"> {{ acronym }} </span>
+                </h1>
                 <svg-logo-ucla-library
                     v-else
                     class="svg logo-ucla"
@@ -87,6 +90,10 @@ export default {
             type: String,
             default: "",
         },
+        acronym: {
+            type: String,
+            default: "",
+        },
     },
     data() {
         return {
@@ -101,6 +108,7 @@ export default {
                 { "is-opened": this.isOpened },
                 { "not-hovered": this.activeMenuIndex == -1 },
                 { "has-title": this.title },
+                { "has-acronym": this.acronym },
             ]
         },
         noChildren() {
@@ -270,10 +278,10 @@ export default {
         width: 100%;
         z-index: -10;
     }
+    &.has-acronym .acronym {
+        display: none;
+    }
     &.has-title {
-        .background-blue {
-            height: 110%;
-        }
         .nochildren-links {
             margin: 0 5px;
             padding: 0;
@@ -315,12 +323,12 @@ export default {
 
     // Hover states
     @media (max-width: 1330px) {
-        &.has-title {
-            .title {
-                width: 98px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+        &.has-acronym {
+            .full-title {
+                display: none;
+            }
+            .acronym {
+                display: block;
             }
         }
     }
