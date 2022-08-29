@@ -89,10 +89,4 @@ export default {
         }
     }
 }
-
-@media #{$medium} {
-    .section-staff-article-list {
-        padding: 0 var(--unit-gutter);
-    }
-}
 </style>
