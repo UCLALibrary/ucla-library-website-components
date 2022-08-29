@@ -426,6 +426,12 @@ export default {
         -ms-filter: "FlipV";
     }
 
+    @media #{$medium} {
+        .collapsed-menu {
+            --unit-gutter: 24px;
+        }
+    }
+
     @media #{$small} {
         .support-us-container {
             padding-top: 0px;
