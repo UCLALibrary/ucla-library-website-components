@@ -128,7 +128,6 @@ export default {
 <style lang="scss" scoped>
 .card-with-image {
     max-width: $container-l-main + px;
-    background-color: var(--color-white);
     margin: 0 auto;
 
     .section-header {
