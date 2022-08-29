@@ -1,6 +1,6 @@
 <template>
     <li :class="classes">
-        <span class="section-name" v-html="item.name" />
+        <button class="section-name" v-html="item.name" />
 
         <ul class="sub-menu">
             <li
@@ -90,6 +90,7 @@ export default {
         letter-spacing: 0.1em;
         cursor: pointer;
         position: relative;
+        width: 100%;
 
         &::after {
             content: "";
@@ -136,6 +137,9 @@ export default {
     .sub-menu-link {
         padding: 12px 32px;
         display: block;
+    }
+    .sub-menu-link:focus {
+        border: 1px solid white;
     }
 
     // States

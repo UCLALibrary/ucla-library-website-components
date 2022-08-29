@@ -251,6 +251,7 @@ export const Microsite = () => ({
         :secondary-nav="parsedSecondaryItems"
         current-path="/about/foo/bar"
         title="Modern Endangered Archives Program"
+        acronym="MEAP"
     />
     `,
 })

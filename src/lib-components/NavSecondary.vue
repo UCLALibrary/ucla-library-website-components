@@ -1,5 +1,5 @@
 <template>
-    <nav class="nav-secondary">
+    <nav aria-label="Secondary Navigation" class="nav-secondary">
         <div :class="classes">
             <router-link
                 to="/"
