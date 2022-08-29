@@ -1,5 +1,5 @@
 <template>
-    <div class="block-staff-article-item">
+    <li class="block-staff-article-item">
         <responsive-image :image="image" :aspect-ratio="60" class="image" />
         <div class="meta">
             <div class="category" v-html="category" />
@@ -19,7 +19,7 @@
             <!-- TODO strip html tags coming out of WYSIWYG -->
             <div v-if="description" class="description" v-html="description" />
         </div>
-    </div>
+    </li>
 </template>
 
 <script>
@@ -125,7 +125,7 @@ export default {
             content: "";
         }
     }
-    .date {
+    .date:not(:only-child) {
         padding-left: 20px;
     }
     .description {

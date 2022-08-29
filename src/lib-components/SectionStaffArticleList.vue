@@ -6,7 +6,7 @@
                 class="section-title"
                 v-html="sectionTitle"
             />
-            <div class="block-staff-article-list">
+            <ul class="block-staff-article-list">
                 <block-staff-article-list
                     v-for="(item, index) in items"
                     :key="index"
@@ -18,7 +18,7 @@
                     :authors="item.authors"
                     :description="item.description"
                 />
-            </div>
+            </ul>
         </div>
     </section>
 </template>
@@ -87,12 +87,6 @@ export default {
                 margin: 0;
             }
         }
-    }
-}
-
-@media #{$medium} {
-    .section-staff-article-list {
-        padding: 0 var(--unit-gutter);
     }
 }
 </style>

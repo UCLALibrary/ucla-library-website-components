@@ -1,6 +1,6 @@
 <template>
     <section class="section-teaser-list">
-        <div v-for="item in items" :key="item.to" class="meta">
+        <ul v-for="item in items" :key="item.to" class="meta">
             <block-highlight
                 :image="item.image"
                 :to="item.to"
@@ -12,7 +12,7 @@
                 :locations="item.locations"
                 class="block"
             />
-        </div>
+        </ul>
     </section>
 </template>
 

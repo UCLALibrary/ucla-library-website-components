@@ -42,97 +42,98 @@
             <div class="category category-desktop" v-html="category" />
 
             <h3 id="banner-featured" class="title" v-html="title"></h3>
+            <div class="meta-text">
+                <div class="byline" v-if="bylineArticleExists">
+                    <div
+                        v-for="(item, index) in parseByLineStaff"
+                        :key="`staff-${index}`"
+                        class="byline-item"
+                    >
+                        <smart-link :to="`/${item.to}`">
+                            {{ item.title }}
+                        </smart-link>
+                    </div>
 
-            <div class="byline" v-if="bylineArticleExists">
+                    <!-- TODO: Convert date format to Month DD, YYYY -->
+                    <div class="byline-item">
+                        {{ byline["articlePostDate"] }}
+                    </div>
+                </div>
+                <div class="byline" v-if="bylineProjectExists">
+                    <div
+                        v-for="(item, index) in parseByLineProject"
+                        :key="`project-topics-${index}`"
+                        class="byline-item"
+                        v-html="item.title"
+                    ></div>
+                </div>
                 <div
-                    v-for="(item, index) in parseByLineStaff"
-                    :key="`staff-${index}`"
-                    class="byline-item"
+                    class="byline"
+                    v-if="
+                        byline.length &&
+                        !bylineArticleExists &&
+                        !bylineProjectExists
+                    "
                 >
-                    <smart-link :to="`/${item.to}`">
-                        {{ item.title }}
-                    </smart-link>
+                    <div
+                        v-for="(item, index) in byline"
+                        :key="`external-${index}`"
+                        class="byline-item"
+                        v-html="item"
+                    ></div>
+                </div>
+                <rich-text
+                    v-if="description"
+                    class="description"
+                    :rich-text-content="description"
+                />
+
+                <div v-if="startDate || endDate" class="schedule">
+                    <time
+                        v-if="startDate"
+                        class="schedule-item"
+                        v-html="parsedDate"
+                    />
+                    <time
+                        v-if="endDate"
+                        class="schedule-item"
+                        v-html="parsedTime"
+                    />
                 </div>
 
-                <!-- TODO: Convert date format to Month DD, YYYY -->
-                <div class="byline-item">
-                    {{ byline["articlePostDate"] }}
+                <div v-if="locationLinksExists" class="location-group">
+                    <icon-with-link
+                        v-for="location in parsedLocationsLinks"
+                        :key="`location-${location.id}`"
+                        :text="location.title"
+                        icon-name="svg-icon-location"
+                        :to="location.to"
+                    />
                 </div>
-            </div>
-            <div class="byline" v-if="bylineProjectExists">
+
+                <div v-if="locationExternalExists" class="location-group">
+                    <icon-with-link
+                        :text="parsedLocationsExternal"
+                        icon-name="svg-icon-location"
+                    />
+                </div>
                 <div
-                    v-for="(item, index) in parseByLineProject"
-                    :key="`project-topics-${index}`"
-                    class="byline-item"
-                    v-html="item.title"
-                ></div>
-            </div>
-            <div
-                class="byline"
-                v-if="
-                    byline.length &&
-                    !bylineArticleExists &&
-                    !bylineProjectExists
-                "
-            >
-                <div
-                    v-for="(item, index) in byline"
-                    :key="`external-${index}`"
-                    class="byline-item"
-                    v-html="item"
-                ></div>
-            </div>
-            <rich-text
-                v-if="description"
-                class="description"
-                :rich-text-content="description"
-            />
-
-            <div v-if="startDate || endDate" class="schedule">
-                <time
-                    v-if="startDate"
-                    class="schedule-item"
-                    v-html="parsedDate"
-                />
-                <time
-                    v-if="endDate"
-                    class="schedule-item"
-                    v-html="parsedTime"
-                />
-            </div>
-
-            <div v-if="locationLinksExists" class="location-group">
-                <icon-with-link
-                    v-for="location in parsedLocationsLinks"
-                    :key="`location-${location.id}`"
-                    :text="location.title"
-                    icon-name="svg-icon-location"
-                    :to="location.to"
-                />
-            </div>
-
-            <div v-if="locationExternalExists" class="location-group">
-                <icon-with-link
-                    :text="parsedLocationsExternal"
-                    icon-name="svg-icon-location"
-                />
-            </div>
-            <div
-                v-if="
-                    locations.length &&
-                    !locationLinksExists &&
-                    !locationForExternalExists
-                "
-                class="location-group"
-            >
-                <icon-with-link
-                    v-for="location in parsedLocations"
-                    :key="`location-${location.id}`"
-                    :text="location.title"
-                    :icon-name="location.svg"
-                    :to="`/${location.to}`"
-                    :class="location.class"
-                />
+                    v-if="
+                        locations.length &&
+                        !locationLinksExists &&
+                        !locationForExternalExists
+                    "
+                    class="location-group"
+                >
+                    <icon-with-link
+                        v-for="location in parsedLocations"
+                        :key="`location-${location.id}`"
+                        :text="location.title"
+                        :icon-name="location.svg"
+                        :to="`/${location.to}`"
+                        :class="location.class"
+                    />
+                </div>
             </div>
             <button-link
                 v-if="to"
@@ -514,6 +515,10 @@ export default {
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-content: flex-end;
+    }
+
+    .meta-text {
+        margin-bottom: var(--space-l);
     }
 
     .category {

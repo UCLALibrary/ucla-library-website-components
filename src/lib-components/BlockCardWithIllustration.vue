@@ -196,11 +196,12 @@ export default {
     &.is-horizontal {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: stretch;
 
         width: 100%;
 
         .svg {
+            align-self: center;
             flex-grow: 0;
             flex-shrink: 0;
             padding: 0 20px;

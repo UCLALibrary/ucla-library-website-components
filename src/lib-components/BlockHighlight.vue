@@ -229,7 +229,6 @@ export default {
 
 <style lang="scss" scoped>
 .block-highlight {
-    max-width: calc((100% - 32px) / 3);
     background-color: var(--color-theme, var(--color-white));
     font-family: var(--font-primary);
     position: relative;
@@ -273,7 +272,7 @@ export default {
             position: absolute;
             z-index: 30;
             top: 8px;
-            left: 0px;
+            left: -1px;
             width: calc(100% - 57px);
             height: 47px;
             background-color: var(--color-theme, var(--color-white));
@@ -326,9 +325,6 @@ export default {
         color: var(--color-secondary-grey-05);
         margin: var(--space-s) 0;
     }
-    // .schedule-item {
-    //     margin-bottom: 4px;
-    // }
 
     .text {
         @include step-0;
@@ -375,10 +371,9 @@ export default {
         }
         // for clipped version
         &.has-triangle {
-            max-width: calc((100% - 16px) / 2);
             .meta {
                 margin-top: -24px;
-                padding: 0 64px 0 16px;
+                padding: 0 72px 0 16px;
             }
             ::v-deep .image {
                 height: 272px;
@@ -390,7 +385,6 @@ export default {
     }
     &:not(&.is-vertical) {
         max-width: 990px;
-        // position: relative;
         .meta {
             max-width: 412px;
             padding-bottom: 16px;
@@ -450,7 +444,6 @@ export default {
         }
         ::v-deep .image {
             width: 456px;
-            //min-height: 180px;
             max-height: 272px;
             margin-right: 56px;
             .clipped-date {
@@ -479,11 +472,6 @@ export default {
             margin-top: 0;
         }
         &.is-vertical {
-            &:not(.has-triangle) {
-                max-width: calc((100% - 32px) / 2);
-            }
-        }
-        &.is-vertical {
             &.has-triangle {
                 ::v-deep .image {
                     height: 200px;
@@ -491,7 +479,6 @@ export default {
             }
         }
         &:not(&.is-vertical) {
-            max-width: 95%;
             padding-left: 5px;
             padding-right: 5px;
             display: flex;
@@ -513,24 +500,11 @@ export default {
         }
     }
     @media #{$small} {
-        max-width: 100%;
-        &.is-vertical {
-            &:not(.has-triangle) {
-                max-width: 100%;
-            }
-        }
-        &.is-vertical {
-            // for clipped version
-            &.has-triangle {
-                max-width: 100%;
-            }
-        }
         &:not(&.is-vertical) {
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
             max-height: 550px;
-            max-width: 100%;
             padding-left: 5px;
             padding-right: 5px;
             .image {

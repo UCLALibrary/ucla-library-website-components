@@ -38,6 +38,7 @@ export default {
     }
 
     @media #{$medium} {
+        --unit-gutter: 24px;
         height: 32px;
     }
 }

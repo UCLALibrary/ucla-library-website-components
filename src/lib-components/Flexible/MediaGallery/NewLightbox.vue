@@ -355,13 +355,16 @@ export default {
     }
 
     @media #{$small} {
-        --side-column-min-width: 48px;
-        .button-prev {
-            top: calc(var(--media-width) / 1.15);
+        --side-column-min-width: var(--unit-gutter);
+
+        .button-close {
+            grid-column: col 2;
+            justify-self: end;
         }
 
+        .button-prev,
         .button-next {
-            top: calc(var(--media-width) / 1.15);
+            display: none;
         }
 
         ::v-deep .responsive-image {

@@ -72,7 +72,6 @@ export default {
 
 <style lang="scss" scoped>
 .block-simple-card {
-    width: 100%;
     min-height: 296px;
     border-radius: var(--rounded-slightly-all);
     overflow: hidden;

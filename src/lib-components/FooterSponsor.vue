@@ -1,7 +1,8 @@
 <template>
     <div class="footer-sponsor">
-        <div class="sponsor-text"> Text TK from Development, program generously supported by
-            </div>
+        <div class="sponsor-text">
+            Text TK from Development, program generously supported by
+        </div>
         <div class="sponsor-logos">
             <block-sponsor
                 v-for="(item, index) in parsedFunders"
@@ -11,8 +12,8 @@
                 :funderName="item.funderName"
                 :funderUrl="item.funderUrl"
             />
-            </div>
-   </div>
+        </div>
+    </div>
 </template>
 
 <script>
