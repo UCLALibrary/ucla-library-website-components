@@ -107,14 +107,14 @@ export default {
         width: calc((100% - 16px) / 2);
     }
     .card-small {
-        width: calc((100% / 3) - 11px);
+        width: calc((100% - 32px) / 3);
     }
     .card-five {
         &:nth-child(-n + 2) {
             width: calc((100% - 16px) / 2);
         }
         &:nth-last-child(-n + 3) {
-            width: calc((100% / 3) - 11px);
+            width: calc((100% - 32px) / 3);
         }
     }
     // Breakpoints
@@ -129,10 +129,6 @@ export default {
             }
             &:nth-last-child(-n + 3) {
                 width: calc((100% - 16px) / 2);
-            }
-            &:last-child {
-                flex-grow: 1;
-                width: 100%;
             }
         }
     }

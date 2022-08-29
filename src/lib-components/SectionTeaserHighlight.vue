@@ -48,12 +48,13 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-content: flex-start;
     align-items: flex-start;
+    gap: 32px;
+
     .block {
-        width: calc(50% - 16px);
-        margin: 0 0 var(--space-xl);
+        width: calc((100% - 32px) / 2);
     }
 
     // Breakpoints
@@ -62,7 +63,6 @@ export default {
 
         .block {
             width: 100%;
-            margin: 0 0 var(--space-xl);
         }
     }
 }

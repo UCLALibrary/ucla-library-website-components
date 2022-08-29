@@ -46,28 +46,26 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: flex-start;
     gap: 32px 16px;
+
+    .card {
+        width: calc((100% - 32px) / 3);
+    }
 
     // Breakpoints
     @media #{$medium} {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
         align-items: flex-start;
 
-        ::v-deep .block-highlight {
-            max-width: calc(50% - 32px);
+        .card {
+            width: calc((100% - 16px) / 2);
         }
     }
     @media #{$small} {
         align-items: center;
-        flex-direction: column;
 
-        margin-left: 0px;
-
-        ::v-deep .block-highlight {
-            max-width: 100%;
+        .card {
+            width: 100%;
         }
     }
 }
