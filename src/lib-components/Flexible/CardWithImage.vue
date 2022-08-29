@@ -151,18 +151,26 @@ export default {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start;
-        align-content: flex-start;
-        align-items: flex-start;
-        gap: 16px;
+        gap: 32px 16px;
+
+        .block {
+            width: calc((100% - 32px) / 3);
+        }
     }
 
     // Breakpoints
-    @media #{$small} {
-        padding: 0 var(--unit-gutter);
+    @media #{$medium} {
+        align-items: flex-start;
 
-        .block {
+        .card {
+            width: calc((100% - 16px) / 2);
+        }
+    }
+    @media #{$small} {
+        align-items: center;
+
+        .card {
             width: 100%;
-            margin: 0 0 50px;
         }
     }
 }
