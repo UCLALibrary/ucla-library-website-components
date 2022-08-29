@@ -151,10 +151,10 @@ export default {
         position: absolute;
         z-index: 10;
         opacity: 0.5;
-        top: 30px;
+        top: 50%;
         left: -55px;
         height: 287px;
-        transform: rotate(180deg);
+        transform: rotate(180deg) translateY(50%);
 
         ::v-deep .svg__fill-bottom,
         ::v-deep .svg__fill-top {
