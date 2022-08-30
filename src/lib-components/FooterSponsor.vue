@@ -45,7 +45,7 @@ export default {
     background-color: var(--color-secondary-grey-01);
     display: flex;
     flex-direction: column;
-    gap: var(--space-2xl);
+    gap: var(--space-m);
     justify-content: center;
     padding: 0 var(--unit-gutter);
     --unit-content-width: 1040px;
@@ -58,10 +58,10 @@ export default {
     margin: 0 auto;
     width: 100%;
     max-width: var(--unit-content-width);
-    padding-top: var(--space-3xl);
+    padding-top: var(--space-l);
 }
 .sponsor-logos {
-    padding-bottom: var(--space-3xl); 
+    padding-bottom: var(--space-l); 
     margin: 0 auto; 
     display: flex;
     flex-direction: row;
@@ -77,12 +77,18 @@ export default {
     .sponsor-logos {
         flex-direction: column;
         align-items: flex-end;
-        gap: var(--space-2xl);
+        gap: var(--space-l);
     }
     .sponsor-text {
         align-self: flex-end;
         width: unset;
         margin: unset;
+    }
+}
+
+@media #{$small} {
+    .sponsor-text {
+        align-self: center;
     }
 }
 </style>
