@@ -27,38 +27,54 @@ export const mockTwoCards = {
 }
 
 export const mockThreeCards = {
-    id: "13783",
+    id: "41101",
     typeHandle: "simpleCards",
-    sectionTitle: "Fix Potholes",
+    sectionTitle: "Digitization Project Resources",
     sectionSummary:
-        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+        "<p>These guides provide detailed information for project planning, including recommended hardware and software and best practices to meet MEAP standards.</p>",
     cards: [
         {
-            id: "13899",
+            id: "41102",
+            typeHandle: "internalResource",
             contentLink: [
                 {
-                    uri: "road-work",
-                    title: "Road Work Guide",
-                    summary: "<p>A research guide</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
+                    id: "40403",
+                    uri: null,
+                    title: "Print Digitization",
+                    summary:
+                        "<p>Guide to planning a print/image (flat object) digitization project.</p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/document/d/1BHQsZlef8YhUBohdCJsS23Ua1LWyaILIHLt_406lF_A/edit",
                 },
             ],
         },
         {
-            id: "13900",
-            title: "Types of Sinkholes",
-            summary:
-                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-            externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
-        },
-        {
-            id: "13899",
+            id: "41103",
+            typeHandle: "internalResource",
             contentLink: [
                 {
-                    uri: "road-work",
-                    title: "Road Work Guide",
-                    summary: "<p>A research guide</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
+                    id: "40405",
+                    uri: null,
+                    title: "Audio Digitization",
+                    summary:
+                        "<p>Guide to planning an audio digitization project.</p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/document/d/1C0Ek9T3x5r2hCyU4_lVX5RZmmVdFWhKWu5ng1MRM1f0/edit",
+                },
+            ],
+        },
+        {
+            id: "41104",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "40409",
+                    uri: null,
+                    title: "Video Digitization",
+                    summary:
+                        "<p>Guide to planning a video digitization project. </p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/document/d/1PoQvFqVDZ-kBXl0sWXQIcCd-zd_Ry6DXLwUdmzf1fu0/edit",
                 },
             ],
         },
