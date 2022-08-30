@@ -636,7 +636,7 @@ export default {
         }
         .category-mobile {
             display: block;
-            padding-left: var(--unit-gutter);
+            padding-left: 0;
             height: 36px;
             padding-top: 7px;
 
@@ -651,8 +651,8 @@ export default {
         .meta {
             width: 100%;
             margin-top: 0;
-            padding-right: var(--unit-gutter);
-            padding-left: var(--unit-gutter);
+            padding-left: 0;
+            padding-right: 0;
         }
         .category-desktop {
             display: none;
@@ -677,8 +677,8 @@ export default {
             .meta {
                 width: 100%;
                 margin-top: 0;
-                padding-left: var(--unit-gutter);
-                padding-right: var(--unit-gutter);
+                padding-left: 0;
+                padding-right: 0;
             }
         }
     }
