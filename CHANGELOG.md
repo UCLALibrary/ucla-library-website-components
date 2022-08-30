@@ -1,3 +1,10 @@
+## [1.52.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.9...v1.52.10) (2022-08-30)
+
+
+### Bug Fixes
+
+* mobile spacing for banner featured and header ([#171](https://github.com/UCLALibrary/ucla-library-website-components/issues/171)) ([f013139](https://github.com/UCLALibrary/ucla-library-website-components/commit/f01313911c25280a1f5a1ec75fc236bede2af15c))
+
 ## [1.52.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.8...v1.52.9) (2022-08-30)
 
 
