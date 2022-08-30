@@ -69,7 +69,6 @@ export default {
 
 <style lang="scss" scoped>
 .nav-menu-item {
-    margin: 0 5px;
     padding: 0;
     position: relative;
     min-width: 128px;
@@ -91,6 +90,7 @@ export default {
         cursor: pointer;
         position: relative;
         width: 100%;
+        padding: 0;
 
         &::after {
             content: "";
@@ -139,7 +139,14 @@ export default {
         display: block;
     }
     .sub-menu-link:focus {
-        border: 1px solid white;
+        background-color: rgba(#ffffff, 0.1);
+        text-decoration: underline;
+        text-decoration-color: var(--color-primary-yellow-01);
+
+        outline-color: white;
+        outline-offset: -2px;
+        outline-width: 2px;
+        outline-style: solid;
     }
 
     // States

@@ -5,10 +5,10 @@
                 to="/"
                 :aria-label="title ? '' : `UCLA Library home page`"
             >
-                <h1 v-if="title" class="title">
+                <div v-if="title" class="title">
                     <span class="full-title"> {{ title }} </span>
                     <span class="acronym" v-if="acronym"> {{ acronym }} </span>
-                </h1>
+                </div>
                 <svg-logo-ucla-library
                     v-else
                     class="svg logo-ucla"
@@ -217,6 +217,8 @@ export default {
         color: var(--color-primary-blue-03);
         text-transform: initial;
         letter-spacing: normal;
+        position: relative;
+        @include min-clickable-area;
     }
 
     .menu {
@@ -283,12 +285,10 @@ export default {
     }
     &.has-title {
         .nochildren-links {
-            margin: 0 5px;
             padding: 0;
             position: relative;
             min-width: 128px;
             max-width: 300px;
-            margin-left: 25px;
             display: inline-block;
             vertical-align: top;
 
@@ -303,6 +303,8 @@ export default {
                 letter-spacing: 0.1em;
                 cursor: pointer;
                 position: relative;
+
+                @include min-clickable-area;
             }
         }
     }
