@@ -1,3 +1,13 @@
+## [1.52.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.7...v1.52.8) (2022-08-30)
+
+
+### Bug Fixes
+
+* adjust focus styling, spacing, remove h1 from site name ([#166](https://github.com/UCLALibrary/ucla-library-website-components/issues/166)) ([c9b91ff](https://github.com/UCLALibrary/ucla-library-website-components/commit/c9b91ff0c12373e661d86b1e2223ade1a0bc9972))
+* adjust spacing to banners ([#167](https://github.com/UCLALibrary/ucla-library-website-components/issues/167)) ([7938212](https://github.com/UCLALibrary/ucla-library-website-components/commit/793821230bbf67e7e5be88aeabeb78b2668ca53b))
+* keyboard tab key use and acronym ([#165](https://github.com/UCLALibrary/ucla-library-website-components/issues/165)) ([738b91f](https://github.com/UCLALibrary/ucla-library-website-components/commit/738b91f267de6bbc3dac2859486380d431ab3731))
+* Simple cards data manipulation ([#168](https://github.com/UCLALibrary/ucla-library-website-components/issues/168)) ([fe608ae](https://github.com/UCLALibrary/ucla-library-website-components/commit/fe608aec7ba750aa5c11e323ada840da4b9cea78))
+
 ## [1.52.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.6...v1.52.7) (2022-08-29)
 
 
