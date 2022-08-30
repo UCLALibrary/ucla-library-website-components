@@ -1,3 +1,10 @@
+## [1.52.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.8...v1.52.9) (2022-08-30)
+
+
+### Bug Fixes
+
+* refactor text truncation to use tokens ([#170](https://github.com/UCLALibrary/ucla-library-website-components/issues/170)) ([e3185e7](https://github.com/UCLALibrary/ucla-library-website-components/commit/e3185e74a28c3c1213a9881f0ef952c1619c5d4a))
+
 ## [1.52.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.7...v1.52.8) (2022-08-30)
 
 
