@@ -13,8 +13,7 @@ export const mockTwoCards = {
                     id: "40999",
                     uri: null,
                     title: "Template for Survey Planning",
-                    summary:
-                        "<p>This template provides guidance related to documentation and survey projects. </p>",
+                    summary: null,
                     externalResourceUrl:
                         "https://docs.google.com/document/d/1TU4ogqEiwWfSN7dyDkdYBm3gQYFvPCnYsV1jjMC2_6U/edit",
                 },

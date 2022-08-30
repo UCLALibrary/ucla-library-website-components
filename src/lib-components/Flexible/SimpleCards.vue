@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import _get from "lodash/get"
 import SimpleCards from "@/lib-components/SimpleCards.vue"
 
 export default {
@@ -23,11 +24,13 @@ export default {
     computed: {
         parsedContent() {
             return this.block.cards.map((card) => {
-                console.log(card)
-                if (card.typeHandle === "internalResource") {
+                if (
+                    card.typeHandle === "internalResource" &&
+                    card.contentLink[0]
+                ) {
                     return {
-                        title: card.contentLink[0].title,
-                        text: card.contentLink[0].summary,
+                        title: _get(card, "contentLink[0].title", ""),
+                        text: _get(card, "contentLink[0].summary", ""),
                         to: card.contentLink[0].externalResourceUrl
                             ? card.contentLink[0].externalResourceUrl
                             : `/${card.contentLink[0].uri}`,
