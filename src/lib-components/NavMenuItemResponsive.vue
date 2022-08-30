@@ -151,6 +151,7 @@ export default {
         color: white;
         cursor: pointer;
         @include min-clickable-area;
+        padding: 0;
 
         &.block {
             display: block;
@@ -190,7 +191,7 @@ export default {
     }
     .sub-menu-link {
         margin-bottom: 24px;
-        display: block;
+        display: inline-block;
         position: relative;
 
         @include min-clickable-area;

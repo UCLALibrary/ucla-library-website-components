@@ -6,10 +6,10 @@
                 to="/"
                 :aria-label="parseAriaLabel"
             >
-                <h1 v-if="title" class="title">
+                <div v-if="title" class="title">
                     <span class="full-title"> {{ title }} </span>
                     <span class="acronym" v-if="acronym"> {{ acronym }} </span>
-                </h1>
+                </div>
                 <component
                     v-else
                     :is="`LogoLibrary`"
@@ -36,12 +36,12 @@
                     :aria-label="parseAriaLabel"
                     @click.native="toggleMenu"
                 >
-                    <h1 v-if="title" class="title opened-title">
+                    <div v-if="title" class="title opened-title">
                         <span class="full-title"> {{ title }} </span>
                         <span class="acronym" v-if="acronym">
                             {{ acronym }}
                         </span>
-                    </h1>
+                    </div>
                     <component
                         v-else
                         :is="`LogoLibrary`"
@@ -388,6 +388,7 @@ export default {
             position: relative;
             color: white;
             cursor: pointer;
+            @include min-clickable-area;
         }
     }
 
