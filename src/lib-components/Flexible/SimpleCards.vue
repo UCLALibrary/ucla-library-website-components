@@ -23,18 +23,17 @@ export default {
     computed: {
         parsedContent() {
             return this.block.cards.map((card) => {
-                if (card.typeHandle === "internalContent") {
+                console.log(card)
+                if (card.typeHandle === "internalResource") {
                     return {
-                        ...card,
                         title: card.contentLink[0].title,
                         text: card.contentLink[0].summary,
                         to: card.contentLink[0].externalResourceUrl
                             ? card.contentLink[0].externalResourceUrl
                             : `/${card.contentLink[0].uri}`,
                     }
-                } else if (card.typeHandle === "externalContent") {
+                } else if (card.typeHandle === "externalResource") {
                     return {
-                        ...card,
                         title: card.title,
                         text: card.summary,
                         to: card.externalLink,
