@@ -59,7 +59,7 @@ export default {
 
     // Breakpoints
     @media #{$small} {
-        padding: 0 var(--unit-gutter);
+        padding: 0;
 
         .block {
             width: 100%;

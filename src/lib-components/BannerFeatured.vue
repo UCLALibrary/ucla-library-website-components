@@ -651,8 +651,8 @@ export default {
         .meta {
             width: 100%;
             margin-top: 0;
-            padding-right: var(--unit-gutter);
-            padding-left: var(--unit-gutter);
+            padding-left: 0;
+            padding-right: 0;
         }
         .category-desktop {
             display: none;

@@ -47,20 +47,13 @@ export default {
 
 <style lang="scss" scoped>
 .section-staff-article-list {
+    --divider-color: var(--color-secondary-grey-03);
     max-width: 100%;
     margin: auto;
 
     .container {
         max-width: $container-l-main + px;
         margin: auto;
-    }
-
-    .divider-wayfinder {
-        width: 100%;
-        padding-top: 100px;
-        ::v-deep .dotted {
-            border-bottom-color: var(--color-secondary-grey-03);
-        }
     }
 
     .section-title {
@@ -79,7 +72,7 @@ export default {
         align-items: center;
 
         .block-staff-article-item {
-            border-bottom: 2px dotted var(--color-secondary-grey-03);
+            border-bottom: 2px dotted var(--divider-color);
 
             &:last-child {
                 border-bottom: 0;
