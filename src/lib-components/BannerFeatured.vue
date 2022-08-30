@@ -592,8 +592,8 @@ export default {
             left: calc(65% - 44px);
         }
         .meta {
-            padding-left: var(--unit-gutter);
-            padding-right: clamp(360px, 42%, 400px);
+            padding-left: 16px;
+            padding-right: clamp(280px, 42%, 400px);
             margin-left: 0;
         }
         &.hatch-left .meta {
@@ -658,7 +658,7 @@ export default {
             display: none;
         }
         .title {
-            margin-top: 24px;
+            margin-top: var(--space-m);
         }
 
         // Variant

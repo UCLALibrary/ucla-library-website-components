@@ -596,6 +596,9 @@ export default {
             padding-right: var(--unit-gutter);
             margin-top: -36px;
         }
+        .title {
+            margin-top: var(--space-m);
+        }
         .byline,
         .schedule {
             display: flex;
