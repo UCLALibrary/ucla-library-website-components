@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import _get from "lodash/get"
 import SimpleCards from "@/lib-components/SimpleCards.vue"
 
 export default {
@@ -23,41 +24,27 @@ export default {
     computed: {
         parsedContent() {
             return this.block.cards.map((card) => {
-                // TITLE -----------------
-                let cardTitle = ""
-                if (card.contentLink && card.contentLink.length != 0) {
-                    cardTitle = card.contentLink[0].title
-                }
-                let simpleCardTitle = card.title ? card.title : cardTitle
-                // SUMMARY -----------------
-                let cardSummary = ""
-                if (card.contentLink && card.contentLink.length != 0) {
-                    cardSummary = card.contentLink[0].summary
-                }
-                let simpleCardSummary = card.summary
-                    ? card.summary
-                    : cardSummary
-                // LINK -----------------
-                let internalLink = "/"
-                if (card.contentLink && card.contentLink.length != 0) {
-                    if (card.contentLink[0].uri.indexOf("/") === 0) {
-                        internalLink = card.contentLink[0].uri
-                        // console.log(internalLink)
-                    } else if (card.contentLink[0].externalResourceUrl) {
-                        internalLink = card.contentLink[0].externalResourceUrl
-                    } else {
-                        internalLink = "/" + card.contentLink[0].uri
-                        // console.log(internalLink)
+                if (
+                    card.typeHandle === "internalResource" &&
+                    card.contentLink[0]
+                ) {
+                    return {
+                        title: _get(card, "contentLink[0].title", ""),
+                        text: _get(card, "contentLink[0].summary", ""),
+                        to: card.contentLink[0].externalResourceUrl
+                            ? card.contentLink[0].externalResourceUrl
+                            : `/${card.contentLink[0].uri}`,
                     }
-                }
-                let simpleCardLink = card.externalLink
-                    ? card.externalLink
-                    : internalLink
-                return {
-                    ...card,
-                    title: simpleCardTitle,
-                    text: simpleCardSummary,
-                    to: simpleCardLink,
+                } else if (card.typeHandle === "externalResource") {
+                    return {
+                        title: card.title,
+                        text: card.summary,
+                        to: card.externalLink,
+                    }
+                } else {
+                    return {
+                        ...card,
+                    }
                 }
             })
         },
