@@ -100,11 +100,7 @@ export default {
         @include step-1;
         color: var(--color-primary-blue-03);
         margin-bottom: 4px;
-        overflow: hidden;
-
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
+        @include truncate(2);
     }
 
     .byline {
@@ -131,10 +127,7 @@ export default {
     .description {
         @include step--1;
         color: var(--color-black);
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        @include truncate(4);
     }
 }
 // Hovers

@@ -649,14 +649,13 @@ export default {
             width: 100%;
             max-width: 100%;
             margin-top: 0;
-            padding-left: var(--unit-gutter);
-            padding-right: var(--unit-gutter);
+            padding-left: 0;
+            padding-right: 0;
             position: static;
         }
         &.hatch-left .meta {
-            padding-top: 24px;
-            padding-right: var(--unit-gutter);
-            padding-left: var(--unit-gutter);
+            padding-right: 0;
+            padding-left: 0;
             width: 100%;
             max-width: 100%;
             margin-top: 0;

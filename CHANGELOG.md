@@ -1,3 +1,27 @@
+## [1.52.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.9...v1.52.10) (2022-08-30)
+
+
+### Bug Fixes
+
+* mobile spacing for banner featured and header ([#171](https://github.com/UCLALibrary/ucla-library-website-components/issues/171)) ([f013139](https://github.com/UCLALibrary/ucla-library-website-components/commit/f01313911c25280a1f5a1ec75fc236bede2af15c))
+
+## [1.52.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.8...v1.52.9) (2022-08-30)
+
+
+### Bug Fixes
+
+* refactor text truncation to use tokens ([#170](https://github.com/UCLALibrary/ucla-library-website-components/issues/170)) ([e3185e7](https://github.com/UCLALibrary/ucla-library-website-components/commit/e3185e74a28c3c1213a9881f0ef952c1619c5d4a))
+
+## [1.52.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.7...v1.52.8) (2022-08-30)
+
+
+### Bug Fixes
+
+* adjust focus styling, spacing, remove h1 from site name ([#166](https://github.com/UCLALibrary/ucla-library-website-components/issues/166)) ([c9b91ff](https://github.com/UCLALibrary/ucla-library-website-components/commit/c9b91ff0c12373e661d86b1e2223ade1a0bc9972))
+* adjust spacing to banners ([#167](https://github.com/UCLALibrary/ucla-library-website-components/issues/167)) ([7938212](https://github.com/UCLALibrary/ucla-library-website-components/commit/793821230bbf67e7e5be88aeabeb78b2668ca53b))
+* keyboard tab key use and acronym ([#165](https://github.com/UCLALibrary/ucla-library-website-components/issues/165)) ([738b91f](https://github.com/UCLALibrary/ucla-library-website-components/commit/738b91f267de6bbc3dac2859486380d431ab3731))
+* Simple cards data manipulation ([#168](https://github.com/UCLALibrary/ucla-library-website-components/issues/168)) ([fe608ae](https://github.com/UCLALibrary/ucla-library-website-components/commit/fe608aec7ba750aa5c11e323ada840da4b9cea78))
+
 ## [1.52.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.6...v1.52.7) (2022-08-29)
 
 

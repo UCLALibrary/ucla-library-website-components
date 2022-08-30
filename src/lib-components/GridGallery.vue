@@ -162,11 +162,6 @@ export default {
         color: var(--color-primary-blue-03);
         margin: 16px 0 0 0;
         line-height: $line-height--1;
-
-        /* display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;*/
     }
     .link::after {
         content: "";

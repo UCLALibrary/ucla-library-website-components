@@ -297,6 +297,7 @@ export default {
     }
     .title {
         @include card-clickable-area;
+        display: block;
     }
     .title,
     .title-no-link {
@@ -329,10 +330,7 @@ export default {
     .text {
         @include step-0;
         color: var(--color-black);
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        @include truncate(4);
         margin-top: var(--space-s);
     }
     .location-group {
@@ -510,6 +508,10 @@ export default {
             .image {
                 max-width: 100%;
             }
+        }
+
+        &.is-vertical.has-triangle .meta {
+            padding-left: 0;
         }
     }
     // Hovers
