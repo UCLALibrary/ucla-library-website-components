@@ -1,3 +1,5 @@
+import isInternalLink from "@/mixins/isInternalLink"
+
 export default {
     /**
      * Mainly used to convert the Craft CMS "newWindow: 1" field to a "_blank" string
@@ -6,13 +8,20 @@ export default {
      * @returns {String} Either empty string or a "_blank"
      */
 
+    mixins: [isInternalLink],
     methods: {
-        formatLinkTarget(string = "") {
+        formatLinkTarget(string = "", url = "") {
             let output = ""
 
-            // Craft uses "1" to mean open in new window
-            if (string === "1" || string == "_blank") {
+            if (
+                string == "_blank" ||
+                string == "1" ||
+                (string == null && !this.isInternalLink(url)) ||
+                (string == "" && !this.isInternalLink(url))
+            ) {
                 output = "_blank"
+            } else {
+                output = ""
             }
 
             return output
