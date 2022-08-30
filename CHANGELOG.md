@@ -1,3 +1,10 @@
+## [1.52.11](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.10...v1.52.11) (2022-08-30)
+
+
+### Bug Fixes
+
+* udpates BannerText spacing ([#172](https://github.com/UCLALibrary/ucla-library-website-components/issues/172)) ([5a39f30](https://github.com/UCLALibrary/ucla-library-website-components/commit/5a39f308a6d041d6740eb8b14e88785e753b15c9))
+
 ## [1.52.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.9...v1.52.10) (2022-08-30)
 
 
