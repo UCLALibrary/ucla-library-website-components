@@ -7,7 +7,7 @@ describe("BUTTON / Link", () => {
     })
 
     it("Opens internal links in same tab", () => {
-        cy.visit("/iframe.html?id=button-link--secondary-library-internal&args=&viewMode=story")
+        cy.visit("/iframe.html?id=button-link--secondary-internal&args=&viewMode=story")
         cy.get("a.button-link").should("have.attr", "target", "")
     })
 
