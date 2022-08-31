@@ -161,15 +161,18 @@ export default {
     @media #{$medium} {
         align-items: flex-start;
 
-        .card {
+        .block-group {
+            .block {
             width: calc((100% - 16px) / 2);
+            }
         }
     }
     @media #{$small} {
-        align-items: center;
-
-        .card {
+        //align-items: center;
+        .block-group {
+            .block {
             width: 100%;
+        }
         }
     }
 }
