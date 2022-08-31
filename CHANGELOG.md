@@ -1,3 +1,10 @@
+## [1.52.12](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.11...v1.52.12) (2022-08-31)
+
+
+### Bug Fixes
+
+* QA navbreadcrumb ([#174](https://github.com/UCLALibrary/ucla-library-website-components/issues/174)) ([c7cc13d](https://github.com/UCLALibrary/ucla-library-website-components/commit/c7cc13d28066001679d908097e8e565da47551e6))
+
 ## [1.52.11](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.10...v1.52.11) (2022-08-30)
 
 
