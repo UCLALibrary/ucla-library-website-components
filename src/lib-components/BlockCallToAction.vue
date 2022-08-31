@@ -254,9 +254,6 @@ export default {
     }
 
     @media #{$small} {
-        .block-call-to-action {
-            
-        }
         &.full-width {
             --block-padding-title: 48px;
             --block-padding-text: 48px;
