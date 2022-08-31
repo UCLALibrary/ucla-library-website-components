@@ -41,13 +41,9 @@ export default {
     },
     computed: {
         getUrl() {
-            console.log(this.getParentPageUrl(this.$route.fullPath))
-            console.log(this.$route.fullPath)
             return this.getParentPageUrl(this.$route.fullPath)
         },
         getParentPage() {
-            console.log(this.getParentPageTitle(this.$route.path))
-            console.log(this.$route.path)
             return this.isMeap
                 ? this.getMeapParentPageTitle(this.$route.path)
                 : this.getParentPageTitle(this.$route.path)
