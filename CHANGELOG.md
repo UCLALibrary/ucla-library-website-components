@@ -1,3 +1,17 @@
+## [1.52.14](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.13...v1.52.14) (2022-08-31)
+
+
+### Bug Fixes
+
+* responsive styling for BlockHiglight, CTA, CardWithImage,  ([#176](https://github.com/UCLALibrary/ucla-library-website-components/issues/176)) ([2944bb8](https://github.com/UCLALibrary/ucla-library-website-components/commit/2944bb804b00ab4d638b7d52f907170a6254be3d))
+
+## [1.52.13](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.12...v1.52.13) (2022-08-31)
+
+
+### Bug Fixes
+
+* show submenu items on focus ([#175](https://github.com/UCLALibrary/ucla-library-website-components/issues/175)) ([6a157f6](https://github.com/UCLALibrary/ucla-library-website-components/commit/6a157f69654fab2030c39560f4aaf100a2ea147a))
+
 ## [1.52.12](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.11...v1.52.12) (2022-08-31)
 
 
