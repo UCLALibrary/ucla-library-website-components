@@ -29,12 +29,6 @@ export default {
                 case uri.includes("/services-resources"):
                     output = "Services & Resources"
                     break
-                case uri.includes("/applicants/"):
-                    output = "For Applicants"
-                    break
-                case uri.includes("/projects/"):
-                    output = "Funded Projects"
-                    break
             }
 
             return output
