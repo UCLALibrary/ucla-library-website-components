@@ -133,7 +133,7 @@ export default {
 .block-call-to-action {
     max-width: var(--block-width);
     background-color: var(--color-background);
-    padding: 60px;
+    padding: var(--space-2xl);
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
