@@ -76,10 +76,7 @@ export default {
     .current-page-title {
         @include step-0;
         color: var(--color-black);
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        @include truncate(1);
     }
 
     @media #{$extra-large} {

@@ -1,3 +1,24 @@
+## [1.52.11](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.10...v1.52.11) (2022-08-30)
+
+
+### Bug Fixes
+
+* udpates BannerText spacing ([#172](https://github.com/UCLALibrary/ucla-library-website-components/issues/172)) ([5a39f30](https://github.com/UCLALibrary/ucla-library-website-components/commit/5a39f308a6d041d6740eb8b14e88785e753b15c9))
+
+## [1.52.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.9...v1.52.10) (2022-08-30)
+
+
+### Bug Fixes
+
+* mobile spacing for banner featured and header ([#171](https://github.com/UCLALibrary/ucla-library-website-components/issues/171)) ([f013139](https://github.com/UCLALibrary/ucla-library-website-components/commit/f01313911c25280a1f5a1ec75fc236bede2af15c))
+
+## [1.52.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.8...v1.52.9) (2022-08-30)
+
+
+### Bug Fixes
+
+* refactor text truncation to use tokens ([#170](https://github.com/UCLALibrary/ucla-library-website-components/issues/170)) ([e3185e7](https://github.com/UCLALibrary/ucla-library-website-components/commit/e3185e74a28c3c1213a9881f0ef952c1619c5d4a))
+
 ## [1.52.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.7...v1.52.8) (2022-08-30)
 
 
