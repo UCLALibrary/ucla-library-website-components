@@ -1,3 +1,10 @@
+## [1.52.13](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.12...v1.52.13) (2022-08-31)
+
+
+### Bug Fixes
+
+* show submenu items on focus ([#175](https://github.com/UCLALibrary/ucla-library-website-components/issues/175)) ([6a157f6](https://github.com/UCLALibrary/ucla-library-website-components/commit/6a157f69654fab2030c39560f4aaf100a2ea147a))
+
 ## [1.52.12](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.11...v1.52.12) (2022-08-31)
 
 
