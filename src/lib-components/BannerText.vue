@@ -220,7 +220,6 @@ export default {
     --hover-background-color: var(--color-white);
     background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half-faceted-light.svg");
     //background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-faceted-light.svg");
-
 }
 
 .theme-dark {

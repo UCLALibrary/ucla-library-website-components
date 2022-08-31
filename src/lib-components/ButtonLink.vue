@@ -1,9 +1,9 @@
 <template>
     <smart-link
         :to="to"
-        :target="parsedTarget"
         :class="classes"
         :is-download="isDownload"
+        :target="target"
     >
         <span class="label">{{ label }}</span>
         <component :is="parsedIconName" class="arrow" aria-hidden="true" />
@@ -62,6 +62,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        target: {
+            type: String,
+            default: "",
+        }
     },
     computed: {
         classes() {
@@ -72,9 +76,6 @@ export default {
                     "is-tertiary": this.isTertiary,
                 },
             ]
-        },
-        parsedTarget() {
-            return this.isInternalLink(this.to) ? "_self" : "blank"
         },
         // if -> the iconName is svg-download then the download icon will display
         // else if -> if there is no iconName prop given & it is an internal link then the svg-arrow-right will display

@@ -1,5 +1,8 @@
 import isInternalLink from "@/mixins/isInternalLink"
 
+const NEW_TAB = ["1", "_blank", "blank"]
+const UNSPECIFIED = ["", null]
+
 export default {
     /**
      * Mainly used to convert the Craft CMS "newWindow: 1" field to a "_blank" string
@@ -14,10 +17,8 @@ export default {
             let output = ""
 
             if (
-                string == "_blank" ||
-                string == "1" ||
-                (string == null && !this.isInternalLink(url)) ||
-                (string == "" && !this.isInternalLink(url))
+                NEW_TAB.includes(string) ||
+                (UNSPECIFIED.includes(string) && !this.isInternalLink(url))
             ) {
                 output = "_blank"
             } else {

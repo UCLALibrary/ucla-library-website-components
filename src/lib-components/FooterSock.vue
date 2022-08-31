@@ -22,12 +22,10 @@
 
 <script>
 // Helpers
-import formatLinkTarget from "@/mixins/formatLinkTarget"
 import SmartLink from "@/lib-components/SmartLink"
 
 export default {
     name: "FooterSock",
-    mixins: [formatLinkTarget],
     components: {
         SmartLink,
     },
@@ -38,13 +36,7 @@ export default {
         },
         parsedSockItems() {
             if (Object.keys(this.$store.state.footerSock).length !== 0) {
-                return this.$store.state.footerSock.nodes.map((obj) => {
-                    console.log("url" + JSON.stringify(obj))
-                    return {
-                        ...obj,
-                        target: this.formatLinkTarget(obj.target),
-                    }
-                })
+                return this.$store.state.footerSock.nodes
             } else {
                 console.log(
                     "Vuex state data for footer sock not present if navigation is not setup for the website: is it client side:" +

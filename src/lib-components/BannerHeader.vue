@@ -107,7 +107,6 @@
                 :is-secondary="true"
                 class="button"
                 :to="to"
-                :target="formatLinkTarget(null, to)"
             />
         </div>
     </div>
@@ -127,17 +126,11 @@ import SmartLink from "@/lib-components/SmartLink.vue"
 // Utility functions
 import formatEventTimes from "@/mixins/formatEventTimes"
 import formatEventDates from "@/mixins/formatEventDates"
-import formatLinkTarget from "@/mixins/formatLinkTarget"
 import getSectionName from "@/mixins/getSectionName"
 
 export default {
     name: "BannerHeader",
-    mixins: [
-        getSectionName,
-        formatEventTimes,
-        formatLinkTarget,
-        formatEventDates,
-    ],
+    mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
         SvgMoleculeHalfFaceted,
         SvgHatchRight,

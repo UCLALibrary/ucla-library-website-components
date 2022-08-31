@@ -30,11 +30,9 @@
 <script>
 // Helpers
 import SmartLink from "@/lib-components/SmartLink"
-import formatLinkTarget from "@/mixins/formatLinkTarget"
 
 export default {
     name: "NavMenuItemResponsive",
-    mixins: [formatLinkTarget],
     components: {
         SmartLink,
     },
@@ -58,7 +56,6 @@ export default {
             return this.item.children.map((obj) => {
                 return {
                     ...obj,
-                    target: this.formatLinkTarget(obj.target),
                     classes: `sub-menu-link ${obj.classes || ""}`,
                 }
             })
