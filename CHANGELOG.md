@@ -1,3 +1,10 @@
+## [1.52.16](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.15...v1.52.16) (2022-08-31)
+
+
+### Bug Fixes
+
+* updates FooterSponsor spacing ([#169](https://github.com/UCLALibrary/ucla-library-website-components/issues/169)) ([21f738f](https://github.com/UCLALibrary/ucla-library-website-components/commit/21f738f5b2fb0cc3199267a5b2dc8fc710243398))
+
 ## [1.52.15](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.14...v1.52.15) (2022-08-31)
 
 
