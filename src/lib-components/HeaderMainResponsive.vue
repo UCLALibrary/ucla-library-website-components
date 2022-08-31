@@ -1,8 +1,15 @@
 <template>
     <nav role="navigation" aria-label="Menu" :class="classes">
         <div v-if="!isOpened" class="collapsed-menu">
-            <router-link to="/" :aria-label="parseAriaLabel">
-                <h1 v-if="title" class="title">{{ title }}</h1>
+            <router-link
+                class="clickable-parent"
+                to="/"
+                :aria-label="parseAriaLabel"
+            >
+                <div v-if="title" class="title">
+                    <span class="full-title"> {{ title }} </span>
+                    <span class="acronym" v-if="acronym"> {{ acronym }} </span>
+                </div>
                 <component
                     v-else
                     :is="`LogoLibrary`"
@@ -23,8 +30,18 @@
         </div>
         <div v-else class="expanded-menu-container">
             <div class="expanded-menu">
-                <router-link to="/" :aria-label="parseAriaLabel">
-                    <h1 v-if="title" class="title opened-title">{{ title }}</h1>
+                <router-link
+                    class="clickable-parent"
+                    to="/"
+                    :aria-label="parseAriaLabel"
+                    @click.native="toggleMenu"
+                >
+                    <div v-if="title" class="title opened-title">
+                        <span class="full-title"> {{ title }} </span>
+                        <span class="acronym" v-if="acronym">
+                            {{ acronym }}
+                        </span>
+                    </div>
                     <component
                         v-else
                         :is="`LogoLibrary`"
@@ -153,6 +170,10 @@ export default {
             type: String,
             default: "",
         },
+        acronym: {
+            type: String,
+            default: "",
+        },
     },
     data() {
         return {
@@ -168,6 +189,7 @@ export default {
                 "header-main-responsive",
                 this.isOpened ? "fullHeight" : "collapsedHeight",
                 { "has-title": this.title },
+                { "has-acronym": this.acronym },
             ]
         },
         parseAriaLabel() {
@@ -330,8 +352,16 @@ export default {
 
     .nav-menu-primary {
         margin: 64px var(--unit-gutter);
+        z-index: 10;
+        position: relative;
+    }
+    &.has-acronym .acronym {
+        display: none;
     }
     &.has-title {
+        .clickable-parent {
+            position: relative;
+        }
         .title {
             font-family: "Karbon", Helvetica, Arial, sans-serif;
             font-size: var(--step-1);
@@ -340,6 +370,8 @@ export default {
             color: var(--color-primary-blue-03);
             text-transform: initial;
             letter-spacing: normal;
+            @include min-clickable-area;
+
             &.opened-title {
                 color: white;
             }
@@ -356,6 +388,7 @@ export default {
             position: relative;
             color: white;
             cursor: pointer;
+            @include min-clickable-area;
         }
     }
 
@@ -427,6 +460,14 @@ export default {
     }
 
     @media #{$medium} {
+        &.has-acronym {
+            .full-title {
+                display: none;
+            }
+            .acronym {
+                display: block;
+            }
+        }
         .collapsed-menu {
             --unit-gutter: 24px;
         }

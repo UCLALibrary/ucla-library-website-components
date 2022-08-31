@@ -171,18 +171,12 @@ export default {
             width: 100%;
             height: 100%;
             .title {
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
+                @include truncate(2);
                 justify-content: flex-end;
                 text-align: center;
             }
             .text {
-                display: -webkit-box;
-                -webkit-line-clamp: 4;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
+                @include truncate(4);
                 text-align: center;
             }
         }
@@ -222,20 +216,14 @@ export default {
                 margin-bottom: var(--space-s);
             }
             .title {
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
+                @include truncate(2);
                 text-align: left;
 
                 margin-bottom: var(--space-m);
                 margin-top: 0;
             }
             .text {
-                display: -webkit-box;
-                -webkit-line-clamp: 4;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
+                @include truncate(4);
                 text-align: left;
             }
         }

@@ -1,64 +1,91 @@
 export const mockTwoCards = {
-    id: "13783",
+    id: "41058",
     typeHandle: "simpleCards",
-    sectionTitle: "Fix Potholes",
+    sectionTitle: "Planning Grant Resources",
     sectionSummary:
-        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+        "<p>These resources provide guidance related to documentation and survey projects.</p>",
     cards: [
         {
-            id: "13899",
+            id: "41059",
+            typeHandle: "internalResource",
             contentLink: [
                 {
-                    uri: "help/road-work",
-                    title: "Road Work Guide",
-                    summary: "<p>A research guide</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
+                    id: "40999",
+                    uri: null,
+                    title: "Template for Survey Planning",
+                    summary: null,
+                    externalResourceUrl:
+                        "https://docs.google.com/document/d/1TU4ogqEiwWfSN7dyDkdYBm3gQYFvPCnYsV1jjMC2_6U/edit",
                 },
             ],
         },
         {
-            id: "13900",
-            title: "Types of Sinkholes",
-            summary:
-                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-            externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
+            id: "41060",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "41001",
+                    uri: null,
+                    title: "Template for Item-Level Inventory",
+                    summary:
+                        "<p>This template provides guidance related to documentation and survey projects.</p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/spreadsheets/d/1v3_fPBQSNXEPqRdMf0OQeQ3NB9tBwb_jTnPqcWtZYgg/edit#gid=15338334",
+                },
+            ],
         },
     ],
 }
 
 export const mockThreeCards = {
-    id: "13783",
+    id: "41058",
     typeHandle: "simpleCards",
-    sectionTitle: "Fix Potholes",
+    sectionTitle: "Planning Grant Resources",
     sectionSummary:
-        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+        "<p>These resources provide guidance related to documentation and survey projects.</p>",
     cards: [
         {
-            id: "13899",
+            id: "41059",
+            typeHandle: "internalResource",
             contentLink: [
                 {
-                    uri: "road-work",
-                    title: "Road Work Guide",
-                    summary: "<p>A research guide</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
+                    id: "40999",
+                    uri: null,
+                    title: "Template for Survey Planning",
+                    summary:
+                        "<p>This template provides guidance related to documentation and survey projects. </p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/document/d/1TU4ogqEiwWfSN7dyDkdYBm3gQYFvPCnYsV1jjMC2_6U/edit",
                 },
             ],
         },
         {
-            id: "13900",
-            title: "Types of Sinkholes",
-            summary:
-                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-            externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
-        },
-        {
-            id: "13899",
+            id: "41060",
+            typeHandle: "internalResource",
             contentLink: [
                 {
-                    uri: "road-work",
-                    title: "Road Work Guide",
-                    summary: "<p>A research guide</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
+                    id: "41001",
+                    uri: null,
+                    title: "Template for Item-Level Inventory",
+                    summary:
+                        "<p>This template provides guidance related to documentation and survey projects.</p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/spreadsheets/d/1v3_fPBQSNXEPqRdMf0OQeQ3NB9tBwb_jTnPqcWtZYgg/edit#gid=15338334",
+                },
+            ],
+        },
+        {
+            id: "42484",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "41851",
+                    uri: null,
+                    title: "Guide for Archival Processing",
+                    summary:
+                        "<p>A guide to processing archival collections from the University of Florida.<br /></p>",
+                    externalResourceUrl:
+                        "https://guides.uflib.ufl.edu/archivalprocessing/surveying",
                 },
             ],
         },
@@ -66,102 +93,154 @@ export const mockThreeCards = {
 }
 
 export const mockFourCards = {
-    id: "13783",
+    id: "41058",
     typeHandle: "simpleCards",
-    sectionTitle: "Fix Potholes",
+    sectionTitle: "Planning Grant Resources",
     sectionSummary:
-        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+        "<p>These resources provide guidance related to documentation and survey projects.</p>",
     cards: [
         {
-            id: "13899",
+            id: "41059",
+            typeHandle: "internalResource",
             contentLink: [
                 {
-                    uri: "road-work",
-                    title: "Road Work Guide",
-                    summary: "<p>A research guide</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
+                    id: "40999",
+                    uri: null,
+                    title: "Template for Survey Planning",
+                    summary:
+                        "<p>This template provides guidance related to documentation and survey projects. </p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/document/d/1TU4ogqEiwWfSN7dyDkdYBm3gQYFvPCnYsV1jjMC2_6U/edit",
                 },
             ],
         },
         {
-            id: "13900",
-            title: "Types of Sinkholes",
-            summary:
-                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-            externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
-        },
-        {
-            id: "13899",
+            id: "41060",
+            typeHandle: "internalResource",
             contentLink: [
                 {
-                    uri: "road-work",
-                    title: "Road Work Guide",
-                    summary: "<p>A research guide</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
+                    id: "41001",
+                    uri: null,
+                    title: "Template for Item-Level Inventory",
+                    summary:
+                        "<p>This template provides guidance related to documentation and survey projects.</p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/spreadsheets/d/1v3_fPBQSNXEPqRdMf0OQeQ3NB9tBwb_jTnPqcWtZYgg/edit#gid=15338334",
                 },
             ],
         },
         {
-            id: "13900",
-            title: "Types of Sinkholes",
-            summary:
-                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-            externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
+            id: "42484",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "41851",
+                    uri: null,
+                    title: "Guide for Archival Processing",
+                    summary:
+                        "<p>A guide to processing archival collections from the University of Florida.<br /></p>",
+                    externalResourceUrl:
+                        "https://guides.uflib.ufl.edu/archivalprocessing/surveying",
+                },
+            ],
+        },
+        {
+            id: "42484",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "41851",
+                    uri: null,
+                    title: "Guide for Archival Processing",
+                    summary:
+                        "<p>A guide to processing archival collections from the University of Florida.<br /></p>",
+                    externalResourceUrl:
+                        "https://guides.uflib.ufl.edu/archivalprocessing/surveying",
+                },
+            ],
         },
     ],
 }
 
 export const mockFiveCards = {
-    id: "13783",
+    id: "41058",
     typeHandle: "simpleCards",
-    sectionTitle: "Fix Potholes",
+    sectionTitle: "Planning Grant Resources",
     sectionSummary:
-        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+        "<p>These resources provide guidance related to documentation and survey projects.</p>",
     cards: [
         {
-            id: "13899",
+            id: "41059",
+            typeHandle: "internalResource",
             contentLink: [
                 {
-                    uri: "road-work",
-                    title: "Road Work Guide",
-                    summary: "<p>A research guide</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
-                },
-            ],
-        },
-        {
-            id: "13900",
-            title: "Types of Sinkholes",
-            summary:
-                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-            externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
-        },
-        {
-            id: "13899",
-            contentLink: [
-                {
-                    uri: "road-work",
-                    title: "Road Work Guide",
-                    summary: "<p>A research guide</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
-                },
-            ],
-        },
-        {
-            id: "13900",
-            title: "Types of Sinkholes",
-            summary:
-                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-            externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
-        },
-        {
-            id: "13958",
-            contentLink: [
-                {
-                    uri: "frost-heave",
-                    title: "Frost Heave",
+                    id: "40999",
+                    uri: null,
+                    title: "Template for Survey Planning",
                     summary:
-                        "<p>Frost heave refers to <strong>the upward or outward movement of the ground surface (or objects on, or in, ground) caused by formation of ice in soil</strong>.</p>",
+                        "<p>This template provides guidance related to documentation and survey projects. </p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/document/d/1TU4ogqEiwWfSN7dyDkdYBm3gQYFvPCnYsV1jjMC2_6U/edit",
+                },
+            ],
+        },
+        {
+            id: "41060",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "41001",
+                    uri: null,
+                    title: "Template for Item-Level Inventory",
+                    summary:
+                        "<p>This template provides guidance related to documentation and survey projects.</p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/spreadsheets/d/1v3_fPBQSNXEPqRdMf0OQeQ3NB9tBwb_jTnPqcWtZYgg/edit#gid=15338334",
+                },
+            ],
+        },
+        {
+            id: "42484",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "41851",
+                    uri: null,
+                    title: "Guide for Archival Processing",
+                    summary:
+                        "<p>A guide to processing archival collections from the University of Florida.<br /></p>",
+                    externalResourceUrl:
+                        "https://guides.uflib.ufl.edu/archivalprocessing/surveying",
+                },
+            ],
+        },
+        {
+            id: "42484",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "41851",
+                    uri: null,
+                    title: "Guide for Archival Processing",
+                    summary:
+                        "<p>A guide to processing archival collections from the University of Florida.<br /></p>",
+                    externalResourceUrl:
+                        "https://guides.uflib.ufl.edu/archivalprocessing/surveying",
+                },
+            ],
+        },
+        {
+            id: "42484",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "41851",
+                    uri: null,
+                    title: "Guide for Archival Processing",
+                    summary:
+                        "<p>A guide to processing archival collections from the University of Florida.<br /></p>",
+                    externalResourceUrl:
+                        "https://guides.uflib.ufl.edu/archivalprocessing/surveying",
                 },
             ],
         },
@@ -169,68 +248,99 @@ export const mockFiveCards = {
 }
 
 export const mockSixCards = {
-    id: "13783",
+    id: "41058",
     typeHandle: "simpleCards",
-    sectionTitle: "Fix Potholes",
+    sectionTitle: "Planning Grant Resources",
     sectionSummary:
-        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+        "<p>These resources provide guidance related to documentation and survey projects.</p>",
     cards: [
         {
-            id: "13899",
+            id: "41059",
+            typeHandle: "internalResource",
             contentLink: [
                 {
-                    uri: "road-work",
-                    title: "Road Work Guide",
-                    summary: "<p>A research guide</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
-                },
-            ],
-        },
-        {
-            id: "13900",
-            title: "Types of Sinkholes",
-            summary:
-                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-            externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
-        },
-        {
-            id: "13899",
-            contentLink: [
-                {
-                    uri: "road-work",
-                    title: "Road Work Guide",
-                    summary: "<p>A research guide</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
-                },
-            ],
-        },
-        {
-            id: "13900",
-            title: "Types of Sinkholes",
-            summary:
-                "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-            externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
-        },
-        {
-            id: "13958",
-            contentLink: [
-                {
-                    uri: "frost-heave",
-                    title: "Frost Heave",
+                    id: "40999",
+                    uri: null,
+                    title: "Template for Survey Planning",
                     summary:
-                        "<p>Frost heave refers to <strong>the upward or outward movement of the ground surface (or objects on, or in, ground) caused by formation of ice in soil</strong>.</p>",
+                        "<p>This template provides guidance related to documentation and survey projects. </p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/document/d/1TU4ogqEiwWfSN7dyDkdYBm3gQYFvPCnYsV1jjMC2_6U/edit",
                 },
             ],
         },
         {
-            id: "13784",
+            id: "41060",
+            typeHandle: "internalResource",
             contentLink: [
                 {
-                    uri: "foxes",
-                    title: "Foxes - Guides",
+                    id: "41001",
+                    uri: null,
+                    title: "Template for Item-Level Inventory",
                     summary:
-                        "<p>Foxes are small to medium-sized, omnivorous mammals belonging to several genera of the family Canidae.</p>",
-                    externalResourceUrl: "http://libguides.library.ucla.edu",
+                        "<p>This template provides guidance related to documentation and survey projects.</p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/spreadsheets/d/1v3_fPBQSNXEPqRdMf0OQeQ3NB9tBwb_jTnPqcWtZYgg/edit#gid=15338334",
+                },
+            ],
+        },
+        {
+            id: "42484",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "41851",
+                    uri: null,
+                    title: "Guide for Archival Processing",
+                    summary:
+                        "<p>A guide to processing archival collections from the University of Florida.<br /></p>",
+                    externalResourceUrl:
+                        "https://guides.uflib.ufl.edu/archivalprocessing/surveying",
+                },
+            ],
+        },
+        {
+            id: "41059",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "40999",
+                    uri: null,
+                    title: "Template for Survey Planning",
+                    summary:
+                        "<p>This template provides guidance related to documentation and survey projects. </p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/document/d/1TU4ogqEiwWfSN7dyDkdYBm3gQYFvPCnYsV1jjMC2_6U/edit",
+                },
+            ],
+        },
+        {
+            id: "41060",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "41001",
+                    uri: null,
+                    title: "Template for Item-Level Inventory",
+                    summary:
+                        "<p>This template provides guidance related to documentation and survey projects.</p>",
+                    externalResourceUrl:
+                        "https://docs.google.com/spreadsheets/d/1v3_fPBQSNXEPqRdMf0OQeQ3NB9tBwb_jTnPqcWtZYgg/edit#gid=15338334",
+                },
+            ],
+        },
+        {
+            id: "42484",
+            typeHandle: "internalResource",
+            contentLink: [
+                {
+                    id: "41851",
+                    uri: null,
+                    title: "Guide for Archival Processing",
+                    summary:
+                        "<p>A guide to processing archival collections from the University of Florida.<br /></p>",
+                    externalResourceUrl:
+                        "https://guides.uflib.ufl.edu/archivalprocessing/surveying",
                 },
             ],
         },

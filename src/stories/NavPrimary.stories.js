@@ -116,7 +116,7 @@ const micrositeItems = [
     },
     {
         id: "25359",
-        name: "Funded Projects",
+        name: "Projects",
         to: null,
         classes: "",
         target: "",
@@ -188,6 +188,7 @@ export const WithMicrositeTitle = () => ({
             :items="micrositeItems"
             current-path="/about/foo/bar"
             title="Modern Endangered Archives Program"
+            acronym="MEAP"
         />
     `,
 })

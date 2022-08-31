@@ -1,11 +1,14 @@
 <template>
-    <nav :class="classes">
+    <nav aria-label="Primary  Navigation" :class="classes">
         <div class="item-top">
             <router-link
                 to="/"
                 :aria-label="title ? '' : `UCLA Library home page`"
             >
-                <h1 v-if="title" class="title">{{ title }}</h1>
+                <div v-if="title" class="title">
+                    <span class="full-title"> {{ title }} </span>
+                    <span class="acronym" v-if="acronym"> {{ acronym }} </span>
+                </div>
                 <svg-logo-ucla-library
                     v-else
                     class="svg logo-ucla"
@@ -87,6 +90,10 @@ export default {
             type: String,
             default: "",
         },
+        acronym: {
+            type: String,
+            default: "",
+        },
     },
     data() {
         return {
@@ -101,6 +108,7 @@ export default {
                 { "is-opened": this.isOpened },
                 { "not-hovered": this.activeMenuIndex == -1 },
                 { "has-title": this.title },
+                { "has-acronym": this.acronym },
             ]
         },
         noChildren() {
@@ -170,6 +178,7 @@ export default {
     position: relative;
     width: 100%;
     z-index: 10;
+    overflow: hidden;
 
     display: flex;
     flex-direction: row;
@@ -209,6 +218,8 @@ export default {
         color: var(--color-primary-blue-03);
         text-transform: initial;
         letter-spacing: normal;
+        position: relative;
+        @include min-clickable-area;
     }
 
     .menu {
@@ -252,7 +263,7 @@ export default {
     .background-blue {
         background-color: var(--color-primary-blue-03);
         position: absolute;
-        top: calc(var(--unit-height) + 1px);
+        top: var(--unit-height);
         bottom: 0;
         width: 100%;
         left: 0;
@@ -270,17 +281,15 @@ export default {
         width: 100%;
         z-index: -10;
     }
+    &.has-acronym .acronym {
+        display: none;
+    }
     &.has-title {
-        .background-blue {
-            height: 110%;
-        }
         .nochildren-links {
-            margin: 0 5px;
             padding: 0;
             position: relative;
             min-width: 128px;
             max-width: 300px;
-            margin-left: 25px;
             display: inline-block;
             vertical-align: top;
 
@@ -295,6 +304,8 @@ export default {
                 letter-spacing: 0.1em;
                 cursor: pointer;
                 position: relative;
+
+                @include min-clickable-area;
             }
         }
     }
@@ -315,12 +326,12 @@ export default {
 
     // Hover states
     @media (max-width: 1330px) {
-        &.has-title {
-            .title {
-                width: 98px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+        &.has-acronym {
+            .full-title {
+                display: none;
+            }
+            .acronym {
+                display: block;
             }
         }
     }

@@ -1,3 +1,62 @@
+## [1.52.15](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.14...v1.52.15) (2022-08-31)
+
+
+### Bug Fixes
+
+* update mixin ([#177](https://github.com/UCLALibrary/ucla-library-website-components/issues/177)) ([1b08ea7](https://github.com/UCLALibrary/ucla-library-website-components/commit/1b08ea74a441765a730bc8d8e5f48ca60aac36f8))
+
+## [1.52.14](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.13...v1.52.14) (2022-08-31)
+
+
+### Bug Fixes
+
+* responsive styling for BlockHiglight, CTA, CardWithImage,  ([#176](https://github.com/UCLALibrary/ucla-library-website-components/issues/176)) ([2944bb8](https://github.com/UCLALibrary/ucla-library-website-components/commit/2944bb804b00ab4d638b7d52f907170a6254be3d))
+
+## [1.52.13](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.12...v1.52.13) (2022-08-31)
+
+
+### Bug Fixes
+
+* show submenu items on focus ([#175](https://github.com/UCLALibrary/ucla-library-website-components/issues/175)) ([6a157f6](https://github.com/UCLALibrary/ucla-library-website-components/commit/6a157f69654fab2030c39560f4aaf100a2ea147a))
+
+## [1.52.12](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.11...v1.52.12) (2022-08-31)
+
+
+### Bug Fixes
+
+* QA navbreadcrumb ([#174](https://github.com/UCLALibrary/ucla-library-website-components/issues/174)) ([c7cc13d](https://github.com/UCLALibrary/ucla-library-website-components/commit/c7cc13d28066001679d908097e8e565da47551e6))
+
+## [1.52.11](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.10...v1.52.11) (2022-08-30)
+
+
+### Bug Fixes
+
+* udpates BannerText spacing ([#172](https://github.com/UCLALibrary/ucla-library-website-components/issues/172)) ([5a39f30](https://github.com/UCLALibrary/ucla-library-website-components/commit/5a39f308a6d041d6740eb8b14e88785e753b15c9))
+
+## [1.52.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.9...v1.52.10) (2022-08-30)
+
+
+### Bug Fixes
+
+* mobile spacing for banner featured and header ([#171](https://github.com/UCLALibrary/ucla-library-website-components/issues/171)) ([f013139](https://github.com/UCLALibrary/ucla-library-website-components/commit/f01313911c25280a1f5a1ec75fc236bede2af15c))
+
+## [1.52.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.8...v1.52.9) (2022-08-30)
+
+
+### Bug Fixes
+
+* refactor text truncation to use tokens ([#170](https://github.com/UCLALibrary/ucla-library-website-components/issues/170)) ([e3185e7](https://github.com/UCLALibrary/ucla-library-website-components/commit/e3185e74a28c3c1213a9881f0ef952c1619c5d4a))
+
+## [1.52.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.7...v1.52.8) (2022-08-30)
+
+
+### Bug Fixes
+
+* adjust focus styling, spacing, remove h1 from site name ([#166](https://github.com/UCLALibrary/ucla-library-website-components/issues/166)) ([c9b91ff](https://github.com/UCLALibrary/ucla-library-website-components/commit/c9b91ff0c12373e661d86b1e2223ade1a0bc9972))
+* adjust spacing to banners ([#167](https://github.com/UCLALibrary/ucla-library-website-components/issues/167)) ([7938212](https://github.com/UCLALibrary/ucla-library-website-components/commit/793821230bbf67e7e5be88aeabeb78b2668ca53b))
+* keyboard tab key use and acronym ([#165](https://github.com/UCLALibrary/ucla-library-website-components/issues/165)) ([738b91f](https://github.com/UCLALibrary/ucla-library-website-components/commit/738b91f267de6bbc3dac2859486380d431ab3731))
+* Simple cards data manipulation ([#168](https://github.com/UCLALibrary/ucla-library-website-components/issues/168)) ([fe608ae](https://github.com/UCLALibrary/ucla-library-website-components/commit/fe608aec7ba750aa5c11e323ada840da4b9cea78))
+
 ## [1.52.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.6...v1.52.7) (2022-08-29)
 
 

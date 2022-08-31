@@ -16,6 +16,7 @@ import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-
 
 // Helpers
 import getParentPageTitle from "@/mixins/getParentPageTitle"
+import getMeapParentPageTitle from "@/mixins/getMeapParentPageTitle"
 import getParentPageUrl from "@/mixins/getParentPageUrl"
 
 export default {
@@ -23,7 +24,7 @@ export default {
     components: {
         SvgIconCaretLeft,
     },
-    mixins: [getParentPageTitle, getParentPageUrl],
+    mixins: [getParentPageTitle, getParentPageUrl, getMeapParentPageTitle],
     props: {
         to: {
             type: String,
@@ -33,13 +34,19 @@ export default {
             type: String,
             default: "",
         },
+        isMeap: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         getUrl() {
             return this.getParentPageUrl(this.$route.fullPath)
         },
         getParentPage() {
-            return this.getParentPageTitle(this.$route.path)
+            return this.isMeap
+                ? this.getMeapParentPageTitle(this.$route.path)
+                : this.getParentPageTitle(this.$route.path)
         },
     },
 }
@@ -69,10 +76,7 @@ export default {
     .current-page-title {
         @include step-0;
         color: var(--color-black);
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        @include truncate(1);
     }
 
     @media #{$extra-large} {

@@ -1,6 +1,6 @@
 <template>
     <li :class="classes">
-        <span class="section-name" v-html="item.name" />
+        <button class="section-name" v-html="item.name" />
 
         <ul class="sub-menu">
             <li
@@ -69,7 +69,6 @@ export default {
 
 <style lang="scss" scoped>
 .nav-menu-item {
-    margin: 0 5px;
     padding: 0;
     position: relative;
     min-width: 128px;
@@ -77,6 +76,41 @@ export default {
 
     display: inline-block;
     vertical-align: top;
+
+    &:focus-within:not(.is-opened) > .section-name::after {
+        opacity: 1;
+    }
+
+    &:focus-within:not(.is-opened) > .sub-menu {
+        opacity: 0.9;
+        max-height: 100vh;
+        background: var(--color-primary-blue-03);
+        overflow: unset;
+
+        display: flex;
+        flex-direction: column;
+
+        transition-property: none;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100%;
+            background-color: var(--color-primary-blue-03);
+        }
+
+        &::before {
+            right: 100%;
+        }
+
+        &::after {
+            left: 100%;
+        }
+    }
 
     // Top level menu
     .section-name {
@@ -90,6 +124,8 @@ export default {
         letter-spacing: 0.1em;
         cursor: pointer;
         position: relative;
+        width: 100%;
+        padding: 0;
 
         &::after {
             content: "";
@@ -120,11 +156,11 @@ export default {
         opacity: 0;
 
         transition-property: max-height, opacity;
-        transition-duration: 400ms, 400ms;
+        transition-duration: $transition-timing-slow;
         transition-timing-function: ease-in-out;
     }
     .sub-menu-item {
-        transition: background-color 400ms ease-in-out;
+        transition: background-color $transition-timing-normal ease-in-out;
 
         &:first-child {
             margin-top: 36px;
@@ -137,6 +173,16 @@ export default {
         padding: 12px 32px;
         display: block;
     }
+    .sub-menu-link:focus {
+        background-color: rgba(#ffffff, 0.1);
+        text-decoration: underline;
+        text-decoration-color: var(--color-primary-yellow-01);
+
+        outline-color: white;
+        outline-offset: -2px;
+        outline-width: 2px;
+        outline-style: solid;
+    }
 
     // States
     &.is-active {
@@ -146,7 +192,7 @@ export default {
     }
     &.is-opened {
         .sub-menu {
-            max-height: 400px; // TODO Change this number once you know what max menu height is
+            max-height: 100vh;
             opacity: 0.45;
         }
     }

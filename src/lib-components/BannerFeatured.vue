@@ -592,8 +592,8 @@ export default {
             left: calc(65% - 44px);
         }
         .meta {
-            padding-left: var(--unit-gutter);
-            padding-right: clamp(360px, 42%, 400px);
+            padding-left: 16px;
+            padding-right: clamp(280px, 42%, 400px);
             margin-left: 0;
         }
         &.hatch-left .meta {
@@ -636,7 +636,7 @@ export default {
         }
         .category-mobile {
             display: block;
-            padding-left: var(--unit-gutter);
+            padding-left: 0;
             height: 36px;
             padding-top: 7px;
 
@@ -651,14 +651,14 @@ export default {
         .meta {
             width: 100%;
             margin-top: 0;
-            padding-right: var(--unit-gutter);
-            padding-left: var(--unit-gutter);
+            padding-left: 0;
+            padding-right: 0;
         }
         .category-desktop {
             display: none;
         }
         .title {
-            margin-top: 24px;
+            margin-top: var(--space-m);
         }
 
         // Variant
@@ -677,8 +677,8 @@ export default {
             .meta {
                 width: 100%;
                 margin-top: 0;
-                padding-left: var(--unit-gutter);
-                padding-right: var(--unit-gutter);
+                padding-left: 0;
+                padding-right: 0;
             }
         }
     }

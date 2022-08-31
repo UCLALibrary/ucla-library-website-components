@@ -219,6 +219,8 @@ export default {
     --hover-border-color: var(--color-primary-blue-02);
     --hover-background-color: var(--color-white);
     background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half-faceted-light.svg");
+    //background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-faceted-light.svg");
+
 }
 
 .theme-dark {
@@ -236,6 +238,7 @@ export default {
     --hover-border-color: var(--color-white);
     --hover-background-color: var(--color-primary-blue-03);
     background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half-faceted-dark.svg");
+    //background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-faceted-dark.svg");
 
     ::v-deep .icon-with-link {
         .link {
@@ -260,12 +263,11 @@ export default {
 }
 .banner-text {
     margin: 0 auto;
-    min-height: 312px;
     background-color: var(--background-color);
     position: relative;
     z-index: 0;
     background-position: 100% 50%;
-    background-size: 144px;
+    background-size: contain;
     background-repeat: no-repeat;
     .category {
         display: flex;
@@ -396,28 +398,6 @@ export default {
         @include step-0;
         color: var(--color-secondary-grey-04);
     }
-    .molecule {
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        margin: auto;
-        position: absolute;
-        z-index: 20;
-        width: auto;
-        .facet-outside {
-            fill: var(--facet-outside-color);
-        }
-        .facet-inside {
-            fill: var(--facet-inside-color);
-        }
-        &.theme-dark {
-            .button-link {
-                background-color: var(--color-primary-blue-03);
-                color: var(--color-white);
-            }
-        }
-    }
-
     // Hovers
     @media #{$has-hover} {
         &.theme-dark {
@@ -438,8 +418,7 @@ export default {
 }
 @media #{$medium} {
     .banner-text {
-        background-size: 128px;
-        min-height: 264px;
+        background-size: contain;
         .category .text {
             font-size: 20px;
         }
@@ -452,7 +431,6 @@ export default {
         .banner-text-content-container {
             padding-left: var(--unit-gutter);
             padding-top: 40px;
-            padding-bottom: 60px;
         }
         .text {
             padding-right: 120px;
@@ -480,10 +458,7 @@ export default {
 }
 @media #{$small} {
     .banner-text {
-        background-size: 96px;
-        background-position-y: 40px;
         background-image: none;
-        min-height: unset;
 
         .category {
             margin-left: 0;
@@ -510,12 +485,6 @@ export default {
             padding-left: 0;
             padding-right: 0;
             max-width: 100%;
-        }
-        .molecule {
-            height: 215px;
-            width: auto;
-            top: 32px;
-            transform: none;
         }
     }
 }
