@@ -1,7 +1,7 @@
 <template>
     <div class="footer-sponsor">
         <div class="sponsor-text">
-            Text TK from Development, program generously supported by
+            The UCLA Library Modern Endangered Archives Program is supported by Arcadia.
         </div>
         <div class="sponsor-logos">
             <block-sponsor
