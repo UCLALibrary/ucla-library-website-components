@@ -58,37 +58,42 @@ export default {
     margin: 0 auto;
     width: 100%;
     max-width: var(--unit-content-width);
-    padding-top: var(--space-l);
+    padding-top: var(--unit-gutter);
 }
 .sponsor-logos {
-    padding-bottom: var(--space-l); 
+    padding-bottom: var(--unit-gutter); 
     margin: 0 auto; 
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: flex-start;
     justify-content: space-between;
-    width: 100%;
     max-width: var(--unit-content-width);
+    width: 100%;
 }
 
 // Breakpoints
 @media #{$medium} {
     .sponsor-logos {
         flex-direction: column;
-        align-items: flex-end;
+        //align-items: flex-end;
         gap: var(--space-l);
     }
     .sponsor-text {
-        align-self: flex-end;
+        //align-self: flex-end;
         width: unset;
         margin: unset;
+        //text-align: right;
     }
 }
 
 @media #{$small} {
     .sponsor-text {
         align-self: center;
+        text-align: center;
+    }
+    .sponsor-logos {
+        align-items: center;
     }
 }
 </style>
