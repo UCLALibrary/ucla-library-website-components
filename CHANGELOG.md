@@ -1,3 +1,10 @@
+## [1.52.15](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.14...v1.52.15) (2022-08-31)
+
+
+### Bug Fixes
+
+* update mixin ([#177](https://github.com/UCLALibrary/ucla-library-website-components/issues/177)) ([1b08ea7](https://github.com/UCLALibrary/ucla-library-website-components/commit/1b08ea74a441765a730bc8d8e5f48ca60aac36f8))
+
 ## [1.52.14](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.13...v1.52.14) (2022-08-31)
 
 
