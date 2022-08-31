@@ -184,7 +184,7 @@ export default {
             return this.color || this.getSectionName(this.$route.path)
         },
         isImpactReport() {
-            return this.$route.path.includes("impact") ? "true" : "false"
+            return this.$route.path.includes("impact") ? true : false
         },
         parsedTarget() {
             return this.isImpactReport ? "_blank" : ""
