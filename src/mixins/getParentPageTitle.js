@@ -7,24 +7,14 @@ export default {
 
     methods: {
         getParentPageTitle(uri = "") {
-            let output = "Modern Endangered Archives Program"
+            let output = ""
 
             switch (true) {
-                case uri.includes("/about/news/") && uri.includes("meap"):
-                    output = "News"
-                    break
-
-                case uri.includes("/about/news/") &&
-                    !uri.includes("/news/") &&
-                    uri.includes("meap"):
-                    output = "About"
-                    break
-
-                case uri.includes("/about/news/") && !uri.includes("meap"):
+                case uri.includes("/about/") && uri.includes("/news/"):
                     output = "Library News"
                     break
 
-                case uri.includes("/about/staff/"):
+                case uri.includes("/about/") && uri.includes("/staff/"):
                     output = "Staff Directory"
                     break
 
@@ -38,18 +28,6 @@ export default {
                 case uri.includes("/help/"):
                 case uri.includes("/services-resources"):
                     output = "Services & Resources"
-                    break
-
-                case uri.includes("/applicants/resources/"):
-                    output = "Resources"
-                    break
-
-                case uri.includes("/applicants/"):
-                    output = "For Applicants"
-                    break
-
-                case uri.includes("/projects/"):
-                    output = "Funded Projects"
                     break
             }
 
