@@ -8,7 +8,8 @@ export default {
     methods: {
         getParentPageUrl(uri = "") {
             let output = uri.split("/")
-            if (output[0] === "") {
+            console.log(output)
+            if (output.length === 2) {
                 return "/"
             } else {
                 output.pop()
