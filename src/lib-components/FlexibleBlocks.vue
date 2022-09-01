@@ -114,17 +114,19 @@ export default {
                     return this.registeredComponents.includes(obj.componentName)
                 })
             for (let index = 0; index < output.length; index++) {
+                // Set theme color
                 if (
                     index > 0 &&
                     output[index - 1].theme == "white" &&
-                    !NEVER_GRAY.includes(output[index].componentName)
+                    !NEVER_GRAY.includes(output[index].componentName) &&
+                    index < output.length - 1 // Last flexible block will always be white
                 ) {
                     output[index].theme = "gray"
                 } else {
                     output[index].theme = "white"
                 }
-                // Last flexible block will always be white
-                output[output.length - 1].theme = "white"
+
+                // Add divider if one white block follows another
                 output[index].needsDivider =
                     index > 0 &&
                     output[index].theme == "white" &&
