@@ -104,7 +104,6 @@ export default {
             let output = this.blocks
                 .map((obj) => {
                     // Normalize componentName
-                    // console.log(obj)
                     return {
                         ...obj,
                         componentName: convertName(obj.typeHandle),

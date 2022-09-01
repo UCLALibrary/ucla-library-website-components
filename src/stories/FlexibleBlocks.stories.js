@@ -65,6 +65,7 @@ export const GrayBackgrounds = () => ({
                 },
                 mockRichText,
                 mockRichText,
+                mockCardWithImage,
             ],
         }
     },
