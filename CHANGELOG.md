@@ -1,3 +1,10 @@
+# [1.53.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.18...v1.53.0) (2022-09-01)
+
+
+### Features
+
+* requested changes for PR 179 ([#181](https://github.com/UCLALibrary/ucla-library-website-components/issues/181)) ([7c7f140](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c7f140cfb8d79f5aecb841ac65b739f68de8827))
+
 ## [1.52.18](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.17...v1.52.18) (2022-09-01)
 
 
