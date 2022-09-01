@@ -85,6 +85,7 @@ export default {
     .image {
         width: 50%;
         margin-right: var(--space-xl);
+        object-fit: cover;
     }
 
     .meta {
