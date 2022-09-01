@@ -1,6 +1,11 @@
 <template>
     <li class="block-staff-article-item">
-        <responsive-image :image="image" :aspect-ratio="60" class="image" />
+        <responsive-image
+            :image="image"
+            :aspect-ratio="imageAspectRatio"
+            :object-fit="cover"
+            class="image"
+        />
         <div class="meta">
             <div class="category" v-html="category" />
             <router-link class="title" :to="to" v-html="title" />
@@ -60,6 +65,10 @@ export default {
             type: String,
             default: "",
         },
+        imageAspectRatio: {
+            type: Number,
+            default: 0,
+        },
     },
     computed: {
         parsedDate() {
@@ -85,7 +94,6 @@ export default {
     .image {
         width: 50%;
         margin-right: var(--space-xl);
-        object-fit: cover;
     }
 
     .meta {
@@ -129,6 +137,12 @@ export default {
         @include step--1;
         color: var(--color-black);
         @include truncate(4);
+    }
+    ::v-deep .image {
+        height: 272px;
+        .media {
+            object-fit: cover;
+        }
     }
 }
 // Hovers
