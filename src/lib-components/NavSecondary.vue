@@ -22,7 +22,7 @@
                         <smart-link
                             class="link underline-hover"
                             :to="item.to"
-                            :target="item.target"
+                            :linkTarget="item.target"
                         >
                             {{ item.name }}
                         </smart-link>
@@ -33,7 +33,7 @@
                     v-if="!isMicrosite"
                     :label="accountLink.name"
                     class="account-button"
-                    :target="accountLink.target"
+                    :linkTarget="accountLink.target"
                     :to="accountLink.to"
                     :is-secondary="true"
                     icon-name="none"
@@ -48,7 +48,7 @@
                         <smart-link
                             class="link underline-hover"
                             :to="item.to"
-                            :target="item.target"
+                            :linkTarget="item.target"
                         >
                             {{ item.name }}
                         </smart-link>

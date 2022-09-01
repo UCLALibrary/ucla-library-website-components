@@ -93,7 +93,7 @@
                         <smart-link
                             class="link underline-hover"
                             :to="item.to"
-                            :target="item.target"
+                            :linkTarget="item.target"
                         >
                             {{ item.name }}
                         </smart-link>

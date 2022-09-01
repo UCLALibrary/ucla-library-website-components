@@ -11,7 +11,7 @@
                 <smart-link
                     :class="child.classes"
                     :to="child.to"
-                    :target="child.target"
+                    :linkTarget="child.target"
                 >
                     {{ child.name }}
                 </smart-link>

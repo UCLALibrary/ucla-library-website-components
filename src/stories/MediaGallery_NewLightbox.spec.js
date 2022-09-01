@@ -5,6 +5,6 @@ describe("MEDIA GALLERY / New Lightbox", () => {
         )
         cy.get(".lightbox").should("exist")
 
-        cy.percySnapshot("")
+        cy.percySnapshot()
     })
 })

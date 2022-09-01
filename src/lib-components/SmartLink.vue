@@ -1,9 +1,8 @@
 <template>
     <router-link
-        v-if="isRelative && !isDownload"
+        v-if="isRelative && !isDownload && !parsedTarget"
         class="smart-link is-router-link"
         :to="to"
-        :target="parsedTarget"
     >
         <slot />
     </router-link>
@@ -30,7 +29,7 @@ export default {
             type: String,
             default: "",
         },
-        target: {
+        linkTarget: {
             type: String,
             default: "",
         },
@@ -41,7 +40,7 @@ export default {
     },
     computed: {
         parsedTarget() {
-            return this.formatLinkTarget(this.target, this.to)
+            return this.formatLinkTarget(this.linkTarget, this.to)
         },
         isRelative() {
             return this.isRelativeLink(this.to) ? true : false

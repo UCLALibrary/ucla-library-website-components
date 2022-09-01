@@ -10,7 +10,7 @@
                     <smart-link
                         class="link"
                         :to="item.to"
-                        :target="item.target"
+                        :link-target="item.target"
                     >
                         {{ item.name }}
                     </smart-link>

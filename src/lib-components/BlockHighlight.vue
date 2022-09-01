@@ -19,7 +19,12 @@
 
         <div class="meta">
             <div v-if="category" class="category" v-html="category" />
-            <smart-link v-if="to" :target="parsedTarget" :to="to" class="title">
+            <smart-link
+                v-if="to"
+                :linkTarget="parsedTarget"
+                :to="to"
+                class="title"
+            >
                 {{ title }}
             </smart-link>
             <h3 v-else class="title-no-link" v-html="title" />

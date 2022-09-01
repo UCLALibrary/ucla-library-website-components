@@ -22,7 +22,7 @@
                     :label="buttonText"
                     :is-secondary="true"
                     :to="to"
-                    target="_blank"
+                    link-target="_blank"
                 />
             </div>
         </div>

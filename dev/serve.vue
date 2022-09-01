@@ -2512,7 +2512,7 @@ export default Vue.extend({
         //     return this.mockFooterSock.items.map((obj) => {
         //         return {
         //             ...obj,
-        //             target: this.formatLinkTarget(obj.target),
+        //             target: this.formattarget(obj.target),
         //         }
         //     })
         // },

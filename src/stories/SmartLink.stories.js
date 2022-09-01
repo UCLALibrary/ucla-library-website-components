@@ -25,7 +25,7 @@ export const ExternalLink = () => ({
     template: `
     <smart-link
       to="http://www.ucla.edu"
-      target="_blank"
+      linkTarget="_blank"
     >
       This will render as a external link
     </smart-link>

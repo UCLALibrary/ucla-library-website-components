@@ -7,12 +7,16 @@ describe("BUTTON / Link", () => {
     })
 
     it("Opens internal links in same tab", () => {
-        cy.visit("/iframe.html?id=button-link--secondary-internal&args=&viewMode=story")
-        cy.get("a.button-link").should("have.attr", "target", "")
+        cy.visit(
+            "/iframe.html?id=button-link--secondary-internal&args=&viewMode=story"
+        )
+        cy.get("a.button-link").should("not.have.attr", "target", "_blank")
     })
 
     it("Opens external links in a new tab", () => {
-        cy.visit("/iframe.html?id=button-link--secondary-external&args=&viewMode=story")
+        cy.visit(
+            "/iframe.html?id=button-link--secondary-external&args=&viewMode=story"
+        )
         cy.get("a.button-link").should("have.attr", "target", "_blank")
     })
 })

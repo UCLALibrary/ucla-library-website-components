@@ -10,13 +10,13 @@ describe("GLOBAL / Smart Link", () => {
 
     // TODO cypress is really inefficient at testing multiple examples like this. We should add a basic javascript test framework (jest???)
     const targetMappings = [
-        // Parse 'target' prop
+        // Parse 'linkTarget' prop
         { target_in: "0", target_out: "" },
         { target_in: "_self", target_out: "" },
         { target_in: "1", target_out: "_blank" },
         { target_in: "_blank", target_out: "_blank" },
 
-        // if no "target" prop, base target on link local/remote
+        // if no "linkTarget" prop, base target on link local/remote
         { target_in: null, target_out: "" },
         { target_in: "", target_out: "" },
         { target_in: null, target_out: "", to: null },
@@ -33,14 +33,22 @@ describe("GLOBAL / Smart Link", () => {
         _blank: "new tab",
     }
     for (let { target_in, target_out, to = "/" } of targetMappings) {
-        it(`Target ${target_in} opens ${to} in ${tabLabels[target_out]} for link to `, () => {
+        it(`linkTarget ${target_in} opens ${to} in ${tabLabels[target_out]} for link to `, () => {
             cy.visit(
-                `/iframe.html?id=global-smart-link--default&args=target:${encodeURI(
+                `/iframe.html?id=global-smart-link--default&args=linkTarget:${encodeURI(
                     target_in
                 )};to:${encodeURI(to)}&viewMode=story`
             )
 
-            cy.get(".smart-link").should("have.attr", "target", target_out)
+            if ([null, ""].includes(target_out)) {
+                cy.get(".smart-link").should(
+                    "not.have.attr",
+                    "target",
+                    "_blank"
+                )
+            } else {
+                cy.get(".smart-link").should("have.attr", "target", target_out)
+            }
         })
     }
 })

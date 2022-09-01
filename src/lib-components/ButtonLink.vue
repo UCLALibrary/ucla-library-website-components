@@ -3,7 +3,7 @@
         :to="to"
         :class="classes"
         :is-download="isDownload"
-        :target="target"
+        :link-target="target"
     >
         <span class="label">{{ label }}</span>
         <component :is="parsedIconName" class="arrow" aria-hidden="true" />
@@ -62,10 +62,10 @@ export default {
             type: Boolean,
             default: false,
         },
-        target: {
+        linkTarget: {
             type: String,
             default: "",
-        }
+        },
     },
     computed: {
         classes() {
