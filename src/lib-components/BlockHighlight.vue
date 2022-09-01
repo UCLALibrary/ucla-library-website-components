@@ -353,7 +353,7 @@ export default {
         justify-content: flex-start;
         align-content: center;
         align-items: center;
-        margin-bottom: 4px;
+        margin-bottom: 8px;
     }
     .location-link {
         z-index: 20;

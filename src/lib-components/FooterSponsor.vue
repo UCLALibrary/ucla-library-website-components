@@ -1,7 +1,7 @@
 <template>
     <div class="footer-sponsor">
         <div class="sponsor-text">
-            Text TK from Development, program generously supported by
+            The UCLA Library Modern Endangered Archives Program is supported by Arcadia.
         </div>
         <div class="sponsor-logos">
             <block-sponsor
@@ -45,36 +45,55 @@ export default {
     background-color: var(--color-secondary-grey-01);
     display: flex;
     flex-direction: column;
-    gap: var(--space-2xl);
+    gap: var(--space-m);
     justify-content: center;
     padding: 0 var(--unit-gutter);
+    --unit-content-width: 1040px;
 }
 .sponsor-text {
     @include overline;
+    display: flex;
     line-height: $line-height-0;
     color: var(--color-secondary-grey-05);
-    padding-top: 64px;
-    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: var(--unit-content-width);
+    padding-top: var(--unit-gutter);
 }
 .sponsor-logos {
-    max-width: 100%;
-    padding-bottom: 64px;
+    padding-bottom: var(--unit-gutter); 
+    margin: 0 auto; 
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: var(--space-l);
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: var(--unit-content-width);
+    width: 100%;
 }
 
 // Breakpoints
 @media #{$medium} {
     .sponsor-logos {
         flex-direction: column;
-        padding-bottom: 32px;
+        //align-items: flex-end;
+        gap: var(--space-l);
     }
     .sponsor-text {
-        padding-top: 32px;
+        //align-self: flex-end;
+        width: unset;
+        margin: unset;
+        //text-align: right;
+    }
+}
+
+@media #{$small} {
+    .sponsor-text {
+        align-self: center;
+        text-align: center;
+    }
+    .sponsor-logos {
+        align-items: center;
     }
 }
 </style>

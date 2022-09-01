@@ -179,6 +179,7 @@ export default {
     position: relative;
     width: 100%;
     z-index: 10;
+    overflow: hidden;
 
     display: flex;
     flex-direction: row;
@@ -263,7 +264,7 @@ export default {
     .background-blue {
         background-color: var(--color-primary-blue-03);
         position: absolute;
-        top: calc(var(--unit-height) + 1px);
+        top: var(--unit-height);
         bottom: 0;
         width: 100%;
         left: 0;
