@@ -1,3 +1,10 @@
+## [1.52.18](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.17...v1.52.18) (2022-09-01)
+
+
+### Bug Fixes
+
+* APPS-1877 update block staff article item ([#180](https://github.com/UCLALibrary/ucla-library-website-components/issues/180)) ([f8b714a](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8b714a226de093f9b1c539a278904161018a661))
+
 ## [1.52.17](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.16...v1.52.17) (2022-09-01)
 
 
