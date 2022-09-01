@@ -1,6 +1,6 @@
 <template>
     <router-link
-        v-if="isRelative && !isDownload"
+        v-if="isRelative && !isDownload && !parsedTarget"
         class="smart-link is-router-link"
         :to="to"
     >
@@ -18,20 +18,20 @@
 
 <script>
 // Helper functions
+import formatLinkTarget from "@/mixins/formatLinkTarget"
 import isRelativeLink from "@/mixins/isRelativeLink"
-import isInternalLink from "@/mixins/isInternalLink"
 
 export default {
     name: "SmartLink",
-    mixins: [isRelativeLink, isInternalLink],
+    mixins: [isRelativeLink, formatLinkTarget],
     props: {
         to: {
             type: String,
             default: "",
         },
-        target: {
+        linkTarget: {
             type: String,
-            default: "_self",
+            default: "",
         },
         isDownload: {
             type: Boolean,
@@ -40,14 +40,7 @@ export default {
     },
     computed: {
         parsedTarget() {
-            let output = "blank"
-
-            switch (true) {
-                case this.isInternalLink(this.to):
-                    output = "_self"
-                    break
-            }
-            return output
+            return this.formatLinkTarget(this.linkTarget, this.to)
         },
         isRelative() {
             return this.isRelativeLink(this.to) ? true : false

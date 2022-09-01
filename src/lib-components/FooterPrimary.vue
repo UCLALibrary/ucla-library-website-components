@@ -13,7 +13,11 @@
                         :key="item.id"
                         class="social-item"
                     >
-                        <a :href="item.to" :target="item.target" a>
+                        <a
+                            :href="item.to"
+                            :target="formatLinkTarget(item.target)"
+                            a
+                        >
                             {{ item.name }}
                         </a>
                     </li>
@@ -25,7 +29,7 @@
                         :key="item.id"
                         class="press-item"
                     >
-                        <smart-link :to="item.to" :target="item.target">
+                        <smart-link :to="item.to" :linkTarget="item.target">
                             {{ item.name }}
                         </smart-link>
                     </li>
@@ -94,14 +98,7 @@ export default {
         },
         parsedSocialItems() {
             if (Object.keys(this.$store.state.footerPrimary).length !== 0) {
-                return this.$store.state.footerPrimary.nodes[0].children.map(
-                    (obj) => {
-                        return {
-                            ...obj,
-                            target: this.formatLinkTarget(obj.target),
-                        }
-                    }
-                )
+                return this.$store.state.footerPrimary.nodes[0].children
             } else {
                 console.log(
                     "Vuex state data not present: is it client side:" +
@@ -112,14 +109,7 @@ export default {
         },
         parsedPressItems() {
             if (Object.keys(this.$store.state.footerPrimary).length !== 0) {
-                return this.$store.state.footerPrimary.nodes[1].children.map(
-                    (obj) => {
-                        return {
-                            ...obj,
-                            target: this.formatLinkTarget(obj.target),
-                        }
-                    }
-                )
+                return this.$store.state.footerPrimary.nodes[1].children
             } else {
                 console.log(
                     "Vuex state data for footer primary not present, it could be because navigation is not setup for the website: is it client side:" +

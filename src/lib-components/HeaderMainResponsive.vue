@@ -21,7 +21,8 @@
             </router-link>
             <button
                 role="button"
-                aria-label="Hamburguer button"
+                class="open-menu"
+                aria-label="Open menu"
                 :is-opened="isOpened"
                 @click="toggleMenu"
             >
@@ -53,9 +54,8 @@
                 </router-link>
                 <button
                     role="button"
-                    aria-label="
-                        Close button
-                    "
+                    class="close-menu"
+                    aria-label="Close menu"
                     @click="handleCloseOrReturn"
                 >
                     <component :is="parsedSvgName" class="close-svg" />
@@ -93,7 +93,7 @@
                         <smart-link
                             class="link underline-hover"
                             :to="item.to"
-                            :target="item.target"
+                            :linkTarget="item.target"
                         >
                             {{ item.name }}
                         </smart-link>
@@ -125,7 +125,6 @@
 
 <script>
 // Helpers
-import formatLinkTarget from "@/mixins/formatLinkTarget"
 import IconCloseLarge from "ucla-library-design-tokens/assets/svgs/icon-close-large.svg"
 import IconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-circle-left.svg"
 import Molecule3d from "ucla-library-design-tokens/assets/svgs/molecule-3d.svg"
@@ -137,7 +136,6 @@ import ButtonLink from "@/lib-components/ButtonLink"
 
 export default {
     name: "HeaderMainResponsive",
-    mixins: [formatLinkTarget],
     components: {
         IconCloseLarge,
         IconCaretLeft,
@@ -205,12 +203,7 @@ export default {
             })
         },
         parsedSecondaryMenuItems() {
-            return this.secondaryNav.map((obj) => {
-                return {
-                    ...obj,
-                    target: this.formatLinkTarget(obj.target),
-                }
-            })
+            return this.secondaryNav
         },
         noChildren() {
             if (!this.title) {

@@ -127,3 +127,21 @@ export const LocationInfoDarkBlue = () => ({
         :isDarkBlue="true"
     />`,
 })
+
+export const ExternalLink = () => ({
+    data() {
+        return {
+            ...mock,
+            to: "https://an.external.url/",
+        }
+    },
+    components: { BannerText },
+    template: `<banner-text
+        :category="category"
+        :title="title"
+        :text="text"
+        :button-text="buttonText"
+        :to="to"
+        :byline="byline"
+    />`,
+})

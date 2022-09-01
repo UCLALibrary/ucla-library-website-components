@@ -22,7 +22,7 @@
                         <smart-link
                             class="link underline-hover"
                             :to="item.to"
-                            :target="item.target"
+                            :linkTarget="item.target"
                         >
                             {{ item.name }}
                         </smart-link>
@@ -33,6 +33,7 @@
                     v-if="!isMicrosite"
                     :label="accountLink.name"
                     class="account-button"
+                    :linkTarget="accountLink.target"
                     :to="accountLink.to"
                     :is-secondary="true"
                     icon-name="none"
@@ -47,7 +48,7 @@
                         <smart-link
                             class="link underline-hover"
                             :to="item.to"
-                            :target="item.target"
+                            :linkTarget="item.target"
                         >
                             {{ item.name }}
                         </smart-link>
@@ -61,7 +62,6 @@
 <script>
 import SvgLogoUclaLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
 // Helpers
-import formatLinkTarget from "@/mixins/formatLinkTarget"
 import SmartLink from "@/lib-components/SmartLink"
 import ButtonLink from "@/lib-components/ButtonLink"
 
@@ -72,7 +72,6 @@ export default {
         SmartLink,
         ButtonLink,
     },
-    mixins: [formatLinkTarget],
     props: {
         items: {
             type: Array,
@@ -97,7 +96,6 @@ export default {
                 if (obj.classes) support = `${support} ${obj.classes}`
                 return {
                     ...obj,
-                    target: this.formatLinkTarget(obj.target),
                     classes: support,
                 }
             })

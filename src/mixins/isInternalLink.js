@@ -9,17 +9,16 @@ export default {
         isInternalLink(uri = "") {
             let output = false
 
-            if (uri == null) {
-                return output // don't try string method .includes
-            }
-
-            switch (true) {
-                case uri.includes("library.ucla.edu") &&
-                    !uri.includes("mailto:"):
-                case String(uri).indexOf("/") === 0:
-                case !uri.includes("."):
-                    output = true
-                    break
+            if (
+                uri == null ||
+                // // TODO: Add support for non-router links to be local based on domain name
+                // // This is disabled for now because it'll need to be customizable for microsites
+                // (uri.includes("library.ucla.edu") &&
+                //     !uri.includes("mailto:")) ||
+                String(uri).indexOf("/") === 0 ||
+                !uri.includes(".")
+            ) {
+                output = true
             }
 
             return output

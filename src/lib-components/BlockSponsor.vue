@@ -1,5 +1,5 @@
 <template>
-    <smart-link :to="funderUrl" target="_blank">
+    <smart-link :to="funderUrl" link-target="_blank">
         <img
             :src="parsedFunderLogo.src"
             :alt="funderName"

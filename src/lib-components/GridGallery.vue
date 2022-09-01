@@ -21,7 +21,7 @@
                 >
                     <smart-link
                         :to="card.to"
-                        target="_blank"
+                        linkTarget="_blank"
                         class="link"
                         v-html="card.headlineText"
                     >
@@ -39,7 +39,7 @@
                         <h5 v-if="card.headlineText" class="title">
                             <smart-link
                                 :to="card.to"
-                                target="_blank"
+                                linkTarget="_blank"
                                 class="link"
                             >
                                 {{ card.headlineText }}

@@ -36,6 +36,7 @@
                 <smart-link
                     class="nochildren-link underline-hover"
                     :to="item.to"
+                    :linkTarget="item.target"
                 >
                     {{ item.name }}
                 </smart-link>

@@ -4,7 +4,7 @@
 
         <div class="meta">
             <div v-if="category" class="category" v-html="category" />
-            <smart-link v-if="to" :to="to" :target="parsedTarget">
+            <smart-link v-if="to" :to="to">
                 <h3 class="title" v-html="title" />
             </smart-link>
             <div class="text" v-html="text" />
@@ -99,9 +99,6 @@ export default {
         },
         isExternalLink() {
             return this.to.includes("http") ? true : false
-        },
-        parsedTarget() {
-            return this.isExternalLink ? "blank" : "_self"
         },
     },
 }

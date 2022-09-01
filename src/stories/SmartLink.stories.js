@@ -8,24 +8,24 @@ export default {
     decorators: [StoryRouter()],
 }
 
-// Variations of stories below
-export const Default = () => ({
+const Template = (args, { argTypes }) => ({
     components: { SmartLink },
-    template: `
-    <smart-link
-      to="/"
-    >
-      This will render as a vue-router link
-    </smart-link>
-  `,
+    props: Object.keys(argTypes),
+    template: `<smart-link v-bind="$props">Link goes here</smart-link>`,
 })
+
+// Variations of stories below
+export const Default = Template.bind({})
+Default.args = {
+    to: "/",
+}
 
 export const ExternalLink = () => ({
     components: { SmartLink },
     template: `
     <smart-link
       to="http://www.ucla.edu"
-      target="_blank"
+      linkTarget="_blank"
     >
       This will render as a external link
     </smart-link>

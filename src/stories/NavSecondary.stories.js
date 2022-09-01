@@ -20,21 +20,19 @@ export const Default = () => ({
                     name: "Locations & Hours",
                     to: "/locations",
                     classes: "",
-                    target: "",
                 },
                 {
                     id: "844",
                     name: "Ask a Librarian",
-                    to: "/research-teaching-support/research-help",
+                    to: "https://external.url/research-teaching-support/research-help",
                     classes: null,
-                    target: "",
                 },
                 {
                     id: "25315",
                     name: "Support Us",
                     to: "https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463",
                     classes: "support-link",
-                    target: "1",
+                    target: "0",
                 },
                 {
                     id: "845",

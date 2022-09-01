@@ -3,12 +3,7 @@
         <!-- TODO: Fix sectionName to use "to" value to determine section -->
         <span class="section" v-html="sectionName" />
         <h3 class="title2">
-            <smart-link
-                v-if="title"
-                :to="to"
-                :target="parsedTarget"
-                class="title"
-            >
+            <smart-link v-if="title" :to="to" class="title">
                 {{ title }}
             </smart-link>
         </h3>
@@ -57,9 +52,6 @@ export default {
         },
         sectionName() {
             return this.getSectionName(this.to)
-        },
-        parsedTarget() {
-            return this.isInternalLink(this.to) ? "_self" : "blank"
         },
         parsedIconName() {
             return this.isInternalLink(this.to)

@@ -11,7 +11,7 @@
                 <smart-link
                     :class="child.classes"
                     :to="child.to"
-                    :target="child.target"
+                    :linkTarget="child.target"
                 >
                     {{ child.name }}
                 </smart-link>
@@ -22,7 +22,6 @@
 
 <script>
 // Helpers
-import formatLinkTarget from "@/mixins/formatLinkTarget"
 import SmartLink from "@/lib-components/SmartLink"
 
 export default {
@@ -30,7 +29,6 @@ export default {
     components: {
         SmartLink,
     },
-    mixins: [formatLinkTarget],
     props: {
         item: {
             type: Object,
@@ -58,7 +56,6 @@ export default {
             return this.item.children.map((obj) => {
                 return {
                     ...obj,
-                    target: this.formatLinkTarget(obj.target),
                     classes: `sub-menu-link ${obj.classes || ""}`,
                 }
             })

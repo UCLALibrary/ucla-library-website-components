@@ -17,23 +17,21 @@ const mock = {
         {
             id: "1628",
             name: "EEEmergency",
-            to: "https://test-craft.library.ucla.edu/emergency",
+            to: "/emergency",
             classes: null,
-            target: "",
         },
         {
             id: "1627",
             name: "AAAccessibility",
-            to: "https://test-craft.library.ucla.edu/accessibility",
+            to: "https://external.url/accessibility",
             classes: null,
-            target: "",
         },
         {
             id: "1629",
             name: "PPPrivacy & Terms of Use",
             to: "https://test-craft.library.ucla.edu/privacy-terms-of-use",
             classes: null,
-            target: "",
+            target: "0",
         },
         {
             id: "9511",

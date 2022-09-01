@@ -232,3 +232,26 @@ export const ArticleDetail = () => ({
        />
     `,
 })
+
+export const ExternalLink = () => ({
+    data() {
+        return {
+            ...mock,
+            to: "https://an.external.url/",
+        }
+    },
+    components: { BannerHeader },
+    template: `
+        <banner-header
+           :image="image"
+           :to="to"
+           :title="title"
+           :category="category"
+           :start-date="startDate"
+           :end-date="endDate"
+           :byline="byline"
+           :prompt="prompt"
+           :locations="locations"
+       />
+    `,
+})

@@ -5,4 +5,16 @@ describe("NAV / Primary", () => {
 
         cy.percySnapshot("NAV / Primary: Default")
     })
+
+    it("Microsite", () => {
+        cy.visit(
+            "/iframe.html?id=nav-primary--with-microsite-title&args=&viewMode=story"
+        )
+        cy.get(".nav-primary").should("exist")
+        cy.contains("a", "Browse Collections").should(
+            "have.attr",
+            "target",
+            "_blank"
+        )
+    })
 })
