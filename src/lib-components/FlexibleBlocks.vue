@@ -104,7 +104,6 @@ export default {
             let output = this.blocks
                 .map((obj) => {
                     // Normalize componentName
-                    console.log(obj)
                     return {
                         ...obj,
                         componentName: convertName(obj.typeHandle),
@@ -124,7 +123,8 @@ export default {
                 } else {
                     output[index].theme = "white"
                 }
-
+                // Last flexible block will always be white
+                output[output.length - 1].theme = "white"
                 output[index].needsDivider =
                     index > 0 &&
                     output[index].theme == "white" &&
@@ -132,6 +132,7 @@ export default {
                         ? true
                         : false
             }
+
             return output
         },
         registeredComponents() {
