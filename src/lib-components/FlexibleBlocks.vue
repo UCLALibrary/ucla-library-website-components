@@ -123,6 +123,7 @@ export default {
                 } else {
                     output[index].theme = "white"
                 }
+                // Last flexible block will always be white
                 output[output.length - 1].theme = "white"
                 output[index].needsDivider =
                     index > 0 &&
@@ -131,11 +132,7 @@ export default {
                         ? true
                         : false
             }
-            // Last flexible block will always be white
 
-            console.log(
-                "this is last item" + JSON.stringify(output[output.length - 1])
-            )
             return output
         },
         registeredComponents() {
