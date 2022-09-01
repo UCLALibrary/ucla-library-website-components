@@ -59,7 +59,13 @@ export const GrayBackgrounds = () => ({
                     typeHandle: "rich-text",
                     richText: "<h4>FlexibleRichText</h4>",
                 },
+                {
+                    typeHandle: "rich-text",
+                    richText: "<h4>FlexibleRichText</h4>",
+                },
                 mockRichText,
+                mockRichText,
+                mockCardWithImage,
             ],
         }
     },

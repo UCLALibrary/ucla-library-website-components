@@ -1,3 +1,10 @@
+## [1.52.17](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.16...v1.52.17) (2022-09-01)
+
+
+### Bug Fixes
+
+* flexible blocks' last item is always white ([#179](https://github.com/UCLALibrary/ucla-library-website-components/issues/179)) ([5bec602](https://github.com/UCLALibrary/ucla-library-website-components/commit/5bec6025b8031cc161ef4958100aee757e01b887))
+
 ## [1.52.16](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.15...v1.52.16) (2022-08-31)
 
 
