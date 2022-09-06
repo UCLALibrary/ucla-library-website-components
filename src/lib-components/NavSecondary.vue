@@ -1,16 +1,17 @@
 <template>
     <nav aria-label="Secondary Navigation" class="nav-secondary">
         <div :class="classes">
-            <router-link
-                to="/"
+            <a
+                href="https://www.library.ucla.edu"
                 v-if="isMicrosite"
+                target="_blank"
                 aria-label="UCLA Library home page"
             >
                 <svg-logo-ucla-library
                     class="svg logo-ucla"
                     alt="UCLA Library logo blue"
                 />
-            </router-link>
+            </a>
 
             <div class="navigation-list">
                 <ul class="list" v-if="!isMicrosite">
