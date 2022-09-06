@@ -3,7 +3,16 @@
         <svg-molecule-half class="molecule-half-svg" aria-hidden="true" />
         <div :class="classes">
             <div class="footer-links">
-                <router-link to="/" class="logo-ucla">
+                <a
+                    href="https://www.library.ucla.edu"
+                    v-if="isMicrosite"
+                    target="_blank"
+                    class="logo-ucla"
+                >
+                    <svg-logo-ucla-library class="logo-svg" />
+                    <span class="visually-hidden">UCLA Library Home</span>
+                </a>
+                <router-link to="/" class="logo-ucla" v-else>
                     <svg-logo-ucla-library class="logo-svg" />
                     <span class="visually-hidden">UCLA Library Home</span>
                 </router-link>
@@ -90,6 +99,10 @@ export default {
         form: {
             type: Boolean,
             default: true,
+        },
+        isMicrosite: {
+            type: Boolean,
+            default: false,
         },
     },
     computed: {
