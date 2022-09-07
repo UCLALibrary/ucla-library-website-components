@@ -38,7 +38,7 @@ export default {
     name: "BlockStaffArticleList",
     components: {
         ResponsiveImage,
-        MolecuePlaceholder,
+        MoleculePlaceholder,
     },
     props: {
         image: {
