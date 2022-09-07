@@ -1,3 +1,10 @@
+## [1.53.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.0...v1.53.1) (2022-09-06)
+
+
+### Bug Fixes
+
+* APPS-1890 ucla library logo bug fixed ([#182](https://github.com/UCLALibrary/ucla-library-website-components/issues/182)) ([a20c6bc](https://github.com/UCLALibrary/ucla-library-website-components/commit/a20c6bcbe7885f22692db49d4945fbb1e95c9994))
+
 # [1.53.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.52.18...v1.53.0) (2022-09-01)
 
 

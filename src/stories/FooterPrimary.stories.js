@@ -110,3 +110,28 @@ export const NoForm = () => ({
     components: { FooterPrimary },
     template: `<footer-primary :social-items="socialItems" :press-items="pressItems" :form="false" />`,
 })
+
+// Variations of stories below
+export const MicroSite = () => ({
+    store: new Vuex.Store({
+        state: {
+            footerPrimary: {
+                nodes: [
+                    {
+                        children: mock.socialItems,
+                    },
+                    {
+                        children: mock.pressItems,
+                    },
+                ],
+            },
+        },
+    }),
+    data() {
+        return {
+            ...mock,
+        }
+    },
+    components: { FooterPrimary },
+    template: `<footer-primary :social-items="socialItems" :press-items="pressItems" :form="false" :is-microsite="true"/>`,
+})

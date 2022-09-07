@@ -1,7 +1,7 @@
 <template>
     <footer class="footer-main">
         <footer-sponsor class="sponsor" />
-        <footer-primary :form="false" class="primary" />
+        <footer-primary :form="false" class="primary" :is-microsite="true" />
         <footer-sock class="sock" />
     </footer>
 </template>
