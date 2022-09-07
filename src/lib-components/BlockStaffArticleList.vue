@@ -8,7 +8,7 @@
             class="image"
         />
         <div v-else class="molecule-no-image">
-            <molecue-placeholder class="molecule" aria-hidden="true" />
+            <molecule-placeholder class="molecule" aria-hidden="true" />
         </div>
         <div class="meta">
             <div class="category" v-html="category" />
@@ -32,7 +32,7 @@
 <script>
 import format from "date-fns/format"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
-import MolecuePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
+import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
 
 export default {
     name: "BlockStaffArticleList",
