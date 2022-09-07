@@ -105,7 +105,7 @@ export default {
 
     .molecule-no-image {
         width: 50%;
-        height: 240px;
+        height: 272px;
         margin-right: var(--space-xl);
         background: var(--gradient-01);
         overflow: hidden;
@@ -174,11 +174,13 @@ export default {
         flex-direction: column;
         flex-wrap: wrap;
 
-        .image {
+        .image,
+        .molecule-no-image {
             width: 100%;
             margin-right: 0;
             margin-bottom: var(--space-l);
         }
+
         .meta {
             width: 100%;
 
