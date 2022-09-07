@@ -142,3 +142,21 @@ export const LongDescription = () => ({
       />
   `,
 })
+
+export const NoImage = () => ({
+    data() {
+        return { ...mock, image: {} }
+    },
+    components: { BlockStaffArticleList },
+    template: `
+      <block-staff-article-list
+          :image="image"
+          :to="to"
+          :category="category"
+          :title="title"
+          :date="date"
+          :authors="authors"
+          :description="description"
+      />
+  `,
+})

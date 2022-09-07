@@ -1,19 +1,21 @@
 <template>
     <li class="block-staff-article-item">
         <responsive-image
+            v-if="imageExists"
             :image="image"
             :aspect-ratio="imageAspectRatio"
             :object-fit="cover"
             class="image"
         />
+        <div v-else class="molecule-no-image">
+            <molecule-placeholder class="molecule" aria-hidden="true" />
+        </div>
         <div class="meta">
             <div class="category" v-html="category" />
             <router-link class="title" :to="to" v-html="title" />
-            <!--eslint-disable vue/no-use-v-if-with-v-for-->
-            <div class="byline">
+            <div class="byline" v-if="authors || date">
                 <div
                     v-for="author in authors"
-                    v-if="authors"
                     :key="author.id"
                     class="author"
                     v-html="author.title"
@@ -30,11 +32,13 @@
 <script>
 import format from "date-fns/format"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
+import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
 
 export default {
     name: "BlockStaffArticleList",
     components: {
         ResponsiveImage,
+        MoleculePlaceholder,
     },
     props: {
         image: {
@@ -74,6 +78,9 @@ export default {
         parsedDate() {
             return format(new Date(this.date), "MMMM d, Y")
         },
+        imageExists() {
+            return this.image && Object.keys(this.image) != 0 ? true : false
+        },
     },
 }
 </script>
@@ -94,6 +101,14 @@ export default {
     .image {
         width: 50%;
         margin-right: var(--space-xl);
+    }
+
+    .molecule-no-image {
+        width: 50%;
+        height: 272px;
+        margin-right: var(--space-xl);
+        background: var(--gradient-01);
+        overflow: hidden;
     }
 
     .meta {
@@ -159,11 +174,13 @@ export default {
         flex-direction: column;
         flex-wrap: wrap;
 
-        .image {
+        .image,
+        .molecule-no-image {
             width: 100%;
             margin-right: 0;
             margin-bottom: var(--space-l);
         }
+
         .meta {
             width: 100%;
 
