@@ -1,3 +1,10 @@
+## [1.53.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.1...v1.53.2) (2022-09-07)
+
+
+### Bug Fixes
+
+* add default image to BlockStaffArticleList ([#183](https://github.com/UCLALibrary/ucla-library-website-components/issues/183)) ([0eec8c9](https://github.com/UCLALibrary/ucla-library-website-components/commit/0eec8c9ec323c89839277238e841927c55517cdc))
+
 ## [1.53.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.0...v1.53.1) (2022-09-06)
 
 
