@@ -7,7 +7,7 @@ export const mockTwoCards = {
     cards: [
         {
             id: "41059",
-            typeHandle: "internalServiceOrResource",
+            typeHandle: "internalResource",
             contentLink: [
                 {
                     id: "40999",
@@ -21,7 +21,7 @@ export const mockTwoCards = {
         },
         {
             id: "41060",
-            typeHandle: "internalServiceOrResource",
+            typeHandle: "internalResource",
             contentLink: [
                 {
                     id: "41001",
