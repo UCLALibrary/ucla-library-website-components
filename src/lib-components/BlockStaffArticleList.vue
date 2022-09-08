@@ -113,6 +113,7 @@ export default {
 
     .meta {
         width: calc(50% - var(--space-xl));
+        height: 272px;
     }
 
     .category {
@@ -159,11 +160,11 @@ export default {
             object-fit: cover;
         }
     }
-}
-// Hovers
-@media #{$has-hover} {
-    .title:hover {
-        @include link-hover;
+    // Hovers
+    @media #{$has-hover} {
+        .title:hover {
+            @include link-hover;
+        }
     }
 }
 
