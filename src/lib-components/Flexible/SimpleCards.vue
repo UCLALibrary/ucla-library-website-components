@@ -25,7 +25,8 @@ export default {
         parsedContent() {
             return this.block.cards.map((card) => {
                 if (
-                    card.typeHandle === "internalResource" &&
+                    (card.typeHandle === "internalResource" ||
+                        card.typeHandle === "internalServiceOrResource") &&
                     card.contentLink[0]
                 ) {
                     return {
@@ -35,7 +36,10 @@ export default {
                             ? card.contentLink[0].externalResourceUrl
                             : `/${card.contentLink[0].uri}`,
                     }
-                } else if (card.typeHandle === "externalResource") {
+                } else if (
+                    card.typeHandle === "externalResource" ||
+                    card.typeHandle === "externalServiceOrResource"
+                ) {
                     return {
                         title: card.title,
                         text: card.summary,
