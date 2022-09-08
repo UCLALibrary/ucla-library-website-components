@@ -115,6 +115,7 @@ export const LongDescription = () => ({
     data() {
         return {
             ...mock,
+
             authors: [
                 {
                     title: "Justo Magna",
