@@ -1,3 +1,10 @@
+## [1.53.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.3...v1.53.4) (2022-09-08)
+
+
+### Bug Fixes
+
+* use the desktop Header in static build ([#185](https://github.com/UCLALibrary/ucla-library-website-components/issues/185)) ([4fdf39e](https://github.com/UCLALibrary/ucla-library-website-components/commit/4fdf39e17cc4612955b4ab23fc29185178904a3f))
+
 ## [1.53.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.2...v1.53.3) (2022-09-08)
 
 
