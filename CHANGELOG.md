@@ -1,3 +1,10 @@
+## [1.53.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.2...v1.53.3) (2022-09-08)
+
+
+### Bug Fixes
+
+* Apps 1849 update simple cards ([#184](https://github.com/UCLALibrary/ucla-library-website-components/issues/184)) ([e973dfe](https://github.com/UCLALibrary/ucla-library-website-components/commit/e973dfecc27b71a03db7f7ef89e9fc7294e1bd20))
+
 ## [1.53.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.1...v1.53.2) (2022-09-07)
 
 

@@ -7,6 +7,7 @@ import {
     mockFourCards,
     mockFiveCards,
     mockSixCards,
+    mockLibraryFlexibleSimpleCards,
 } from "./mock/Flexible_SimpleCards"
 
 export default {
@@ -62,6 +63,16 @@ export const FiveCards = () => ({
 export const SixCards = () => ({
     data() {
         return { block: mockSixCards }
+    },
+    components: { FlexibleSimpleCards },
+    template: `
+      <flexible-simple-cards :block="block" />
+  `,
+})
+
+export const LibrarySimpleCards = () => ({
+    data() {
+        return { block: mockLibraryFlexibleSimpleCards }
     },
     components: { FlexibleSimpleCards },
     template: `
