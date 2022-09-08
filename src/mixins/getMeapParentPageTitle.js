@@ -14,7 +14,9 @@ export default {
                     output = "News"
                     break
 
-                case uri.includes("/about/") && !uri.includes("/news/"):
+                case uri.includes("/about/") &&
+                    !uri.includes("/news/") &&
+                    uri != "/about/":
                     output = "About"
                     break
 
