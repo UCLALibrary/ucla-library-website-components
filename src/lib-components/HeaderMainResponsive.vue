@@ -1,6 +1,6 @@
 <template>
     <nav role="navigation" aria-label="Menu" :class="classes">
-        <div v-if="!isOpened" class="collapsed-menu">
+        <div v-show="!isOpened" class="collapsed-menu">
             <router-link
                 class="clickable-parent"
                 to="/"
@@ -29,7 +29,7 @@
                 <component :is="`IconMenu`" class="hamburguer" />
             </button>
         </div>
-        <div v-else class="expanded-menu-container">
+        <div v-show="isOpened" class="expanded-menu-container">
             <div class="expanded-menu">
                 <router-link
                     class="clickable-parent"
