@@ -40,9 +40,7 @@ export default {
             return this.$store.state.winWidth <= 1024
         },
         whichHeader() {
-            return process.client && this.isMobile
-                ? "header-main-responsive"
-                : "header-main"
+            return this.isMobile ? "header-main-responsive" : "header-main"
         },
     },
 }
