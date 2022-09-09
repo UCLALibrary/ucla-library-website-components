@@ -1,3 +1,10 @@
+## [1.53.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.5...v1.53.6) (2022-09-09)
+
+
+### Bug Fixes
+
+* disappearing menus, part 2 ([#187](https://github.com/UCLALibrary/ucla-library-website-components/issues/187)) ([cc6a2f5](https://github.com/UCLALibrary/ucla-library-website-components/commit/cc6a2f5dd2e0976d44f2283838eb51f966b8ee3b))
+
 ## [1.53.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.4...v1.53.5) (2022-09-09)
 
 
