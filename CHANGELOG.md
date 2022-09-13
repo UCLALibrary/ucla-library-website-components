@@ -1,3 +1,10 @@
+## [1.54.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.0...v1.54.1) (2022-09-13)
+
+
+### Bug Fixes
+
+* add blog to breadcrumb ([#189](https://github.com/UCLALibrary/ucla-library-website-components/issues/189)) ([c8063ab](https://github.com/UCLALibrary/ucla-library-website-components/commit/c8063ab648f4b255f09d2ed033b4135fc5096fd6))
+
 # [1.54.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.6...v1.54.0) (2022-09-13)
 
 
