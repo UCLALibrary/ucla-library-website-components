@@ -53,6 +53,9 @@ export default {
     &.theme-white {
         padding: 0 var(--unit-gutter);
         margin: var(--space-3xl) auto;
+        &.section-banner {
+            margin-top: 0;
+        }
     }
 
     &.theme-divider {
