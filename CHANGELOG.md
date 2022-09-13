@@ -1,3 +1,10 @@
+# [1.54.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.6...v1.54.0) (2022-09-13)
+
+
+### Features
+
+* updates section-banner spacing ([#188](https://github.com/UCLALibrary/ucla-library-website-components/issues/188)) ([7c84c7c](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c84c7c1bcf1fa2784547f16fcef190adbcaac53))
+
 ## [1.53.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.53.5...v1.53.6) (2022-09-09)
 
 
