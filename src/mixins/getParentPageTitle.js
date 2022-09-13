@@ -14,6 +14,10 @@ export default {
                     output = "Library News"
                     break
 
+                case uri.includes("/about/") && uri.includes("/blog/"):
+                    output = "Library News"
+                    break
+
                 case uri.includes("/about/") && uri.includes("/staff/"):
                     output = "Staff Directory"
                     break
