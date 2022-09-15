@@ -509,10 +509,11 @@ export default {
     }
     .byline {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: nowrap;
-        align-items: center;
+        align-items: flex-start;
         margin-bottom: var(--space-m);
+        justify-content: space-evenly;
     }
     .byline-item,
     .schedule-item,
@@ -533,23 +534,6 @@ export default {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-    }
-    .schedule-item,
-    .byline-item {
-        &:after {
-            content: "|";
-            color: var(--color-secondary-grey-02);
-            margin: 0 10px;
-            height: 18px;
-            display: inline-block;
-            position: relative;
-        }
-        &:last-child {
-            margin-right: 0;
-        }
-        &:last-child:after {
-            display: none;
-        }
     }
 
     .contact-info-group {
@@ -598,19 +582,6 @@ export default {
         }
         .title {
             margin-top: var(--space-m);
-        }
-        .byline,
-        .schedule {
-            display: flex;
-            flex-direction: column;
-            padding-left: 0;
-            align-items: flex-start;
-        }
-        .schedule-item,
-        .byline-item {
-            &:after {
-                display: none;
-            }
         }
     }
     @media #{$medium} and (min-width: 928px) {
