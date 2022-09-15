@@ -1,5 +1,7 @@
 <template>
     <div :class="classes">
+        <rich-text v-if="text" class="snippet" :rich-text-content="text" />
+
         <div v-if="category" class="category">
             <svg-heading-vector class="heading-line" aria-hidden="true" />
             <div class="text" v-html="category" />
