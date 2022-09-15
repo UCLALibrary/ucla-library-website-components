@@ -26,11 +26,6 @@
         <div class="meta">
             <h1 class="title" v-html="title" />
             <div class="meta-text">
-                <rich-text
-                    v-if="text"
-                    class="snippet"
-                    :rich-text-content="text"
-                />
                 <div class="byline" v-if="byline.length">
                     <div
                         v-for="(item, index) in byline"
@@ -109,6 +104,8 @@
                 :to="to"
             />
         </div>
+
+        <rich-text v-if="text" class="snippet" :rich-text-content="text" />
     </div>
 </template>
 
