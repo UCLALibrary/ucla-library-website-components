@@ -1,3 +1,10 @@
+## [1.54.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.1...v1.54.2) (2022-09-15)
+
+
+### Bug Fixes
+
+* APPS-1912 Update Byline in BannerHeader ([#190](https://github.com/UCLALibrary/ucla-library-website-components/issues/190)) ([17fb84d](https://github.com/UCLALibrary/ucla-library-website-components/commit/17fb84d049d9f9f4cc48af8de81e3d815a6d596e))
+
 ## [1.54.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.0...v1.54.1) (2022-09-13)
 
 
