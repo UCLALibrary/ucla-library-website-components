@@ -26,11 +26,6 @@
         <div class="meta">
             <h1 class="title" v-html="title" />
             <div class="meta-text">
-                <rich-text
-                    v-if="text"
-                    class="snippet"
-                    :rich-text-content="text"
-                />
                 <div class="byline" v-if="byline.length">
                     <div
                         v-for="(item, index) in byline"
@@ -109,6 +104,8 @@
                 :to="to"
             />
         </div>
+
+        <rich-text v-if="text" class="snippet" :rich-text-content="text" />
     </div>
 </template>
 
@@ -509,10 +506,11 @@ export default {
     }
     .byline {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: nowrap;
-        align-items: center;
+        align-items: flex-start;
         margin-bottom: var(--space-m);
+        justify-content: space-evenly;
     }
     .byline-item,
     .schedule-item,
@@ -533,23 +531,6 @@ export default {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-    }
-    .schedule-item,
-    .byline-item {
-        &:after {
-            content: "|";
-            color: var(--color-secondary-grey-02);
-            margin: 0 10px;
-            height: 18px;
-            display: inline-block;
-            position: relative;
-        }
-        &:last-child {
-            margin-right: 0;
-        }
-        &:last-child:after {
-            display: none;
-        }
     }
 
     .contact-info-group {
@@ -598,19 +579,6 @@ export default {
         }
         .title {
             margin-top: var(--space-m);
-        }
-        .byline,
-        .schedule {
-            display: flex;
-            flex-direction: column;
-            padding-left: 0;
-            align-items: flex-start;
-        }
-        .schedule-item,
-        .byline-item {
-            &:after {
-                display: none;
-            }
         }
     }
     @media #{$medium} and (min-width: 928px) {

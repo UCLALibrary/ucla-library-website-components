@@ -190,14 +190,10 @@ const article = {
     dateCreated: "2022-02-09T10:57:46-08:00",
     byline: [
         {
-            id: "3062",
-            title: "Jen Diamond",
-            to: "",
+            title: " Written by Courtney Hoffner",
         },
         {
-            id: "3062",
-            title: "Courtney Hoffner",
-            to: "",
+            title: "Illustrations by Jen Diamond",
         },
     ],
     locations: [
@@ -213,6 +209,7 @@ const article = {
         },
     ],
     alignRight: true,
+    text: "Turtles are an order of reptiles known as Testudines, characterized by a shell developed mainly from their ribs. Turtles are groups, big ones and small ones.",
 }
 
 export const ArticleDetail = () => ({
@@ -229,6 +226,7 @@ export const ArticleDetail = () => ({
            :byline="byline"
            :dateCreated="dateCreated"
            :locations="locations"
+           :text="text"
        />
     `,
 })
