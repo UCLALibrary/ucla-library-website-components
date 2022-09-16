@@ -6,7 +6,7 @@
                 <li
                     v-for="(item, index) in parsedAmenities"
                     :key="index"
-                    class="amenitiy-row"
+                    class="amenity-row"
                 >
                     <component :is="item.svgIcon" v-if="item.svgIcon" />
 
@@ -129,7 +129,7 @@ export default {
         flex-basis: 32%;
     }
 
-    .amenitiy-row {
+    .amenity-row {
         margin-bottom: 16px;
         display: flex;
         align-content: center;

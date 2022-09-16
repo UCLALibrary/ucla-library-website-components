@@ -54,6 +54,11 @@
                         class="schedule-item"
                         v-html="parsedTime"
                     />
+                    <!-- <social-share
+                        v-if="socialShare"
+                        class="social-share"
+                        v-html="socialShare"
+                    ></social-share> -->
                 </div>
                 <div
                     v-if="email || phone || staffDirectoryLink || addressLink"
