@@ -1,3 +1,10 @@
+## [1.54.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.2...v1.54.3) (2022-09-16)
+
+
+### Bug Fixes
+
+* removes svg and updates featured layout ([#193](https://github.com/UCLALibrary/ucla-library-website-components/issues/193)) ([f0b043d](https://github.com/UCLALibrary/ucla-library-website-components/commit/f0b043da906551b7f43f2b6398e45216e499bac1))
+
 ## [1.54.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.1...v1.54.2) (2022-09-15)
 
 
