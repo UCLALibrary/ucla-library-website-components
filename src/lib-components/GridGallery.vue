@@ -1,6 +1,6 @@
 <template>
     <div class="grid-gallery">
-        <h4 class="month-year" v-html="monthYear" />
+        <h4 class="section-summary" v-html="sectionSummary" />
         <ul class="cards">
             <li
                 v-for="card in parsedItems"
@@ -34,7 +34,6 @@
                     v-html="card.snippet"
                 />
                 <div v-if="card.featured && card.snippet" class="section-text">
-                    <component :is="'svg-icon-play'" class="svg" />
                     <div class="text">
                         <h5 v-if="card.headlineText" class="title">
                             <smart-link
@@ -54,20 +53,18 @@
 </template>
 
 <script>
-import SvgIconPlay from "ucla-library-design-tokens/assets/svgs/icon-play-filled.svg"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
 
 export default {
     name: "GridGallery",
     components: {
-        SvgIconPlay,
         ResponsiveImage,
         SmartLink,
     },
     props: {
         //  [{ image : Object, date: String, headlineText: String, to: URL,  featured: boolean, snippet:String }]
-        monthYear: {
+        sectionSummary: {
             type: String,
             default: "",
         },
@@ -102,13 +99,13 @@ export default {
 
 <style lang="scss" scoped>
 .grid-gallery {
-    max-width: 932px;
+    max-width: $container-l-main + px;
     padding: 0;
     margin: 0;
     background-color: var(--color-white);
     position: relative;
 
-    .month-year {
+    .section-summary {
         @include step-2;
         color: var(--color-black);
         position: sticky;
@@ -124,10 +121,10 @@ export default {
         grid-gap: 16px;
         grid-template-columns: repeat(6, 1fr);
         grid-auto-flow: dense;
-        margin-top: 25px;
+        margin-top: var(--space-m);
     }
     .card {
-        margin-bottom: 32px;
+        margin-bottom: var(--space-l);
         list-style: none;
         padding: 0;
         position: relative;
@@ -141,8 +138,9 @@ export default {
         position: relative;
 
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 16px;
+        grid-template-columns: 1fr;
+            gap: 0;
+            grid-column: span 6;
 
         .two-librarians {
             ::v-deep {
@@ -172,28 +170,9 @@ export default {
         left: 0;
     }
     .snippet {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 160%;
-        margin: 24px 0 0 0;
-        color: var(--color-black);
-    }
-    .section-text {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-evenly;
-        margin-left: -24px;
-    }
-    .svg {
-        transform: rotate(180deg) scale(0.75);
-        flex-shrink: 0;
+        @include step-0;
     }
 
-    .text {
-        .title {
-            margin-top: unset;
-        }
-    }
     // Hovers
     @media #{$has-hover} {
         .title a:hover {
@@ -211,10 +190,6 @@ export default {
             gap: 0;
             grid-column: span 6;
 
-            .section-text svg {
-                display: none;
-            }
-
             .text {
                 margin: 16px 0 0;
             }
@@ -222,7 +197,7 @@ export default {
         .card-4up {
             grid-column: span 6;
         }
-        .month-year {
+        .section-summary {
             padding-top: 20px;
         }
         .section-text {
@@ -233,7 +208,7 @@ export default {
     @media #{$small} {
         padding: 0 $whitespace-s-sides + px;
 
-        .month-year {
+        .section-summary {
             top: 74px;
         }
         .card {
@@ -242,14 +217,14 @@ export default {
     }
 
     @media (min-width: 400px) {
-        .month-year {
+        .section-summary {
             top: 60px;
             padding-top: 16px;
         }
     }
 
     @media (min-width: 860px) {
-        .month-year {
+        .section-summary {
             top: 40px;
         }
     }
