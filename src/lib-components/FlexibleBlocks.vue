@@ -89,6 +89,10 @@ export default {
             import("@/lib-components/Flexible/AssociatedTopicCards.vue").then(
                 (d) => d.default
             ),
+        FlexibleImpactNumberCards: () =>
+            import("@/lib-components/Flexible/ImpactNumberCards.vue").then(
+                (d) => d.default
+            ),
         DividerWayFinder,
     },
 
