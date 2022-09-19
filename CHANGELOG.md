@@ -1,3 +1,10 @@
+## [1.54.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.3...v1.54.4) (2022-09-19)
+
+
+### Bug Fixes
+
+* clear focus when closing Nav menu ([#192](https://github.com/UCLALibrary/ucla-library-website-components/issues/192)) ([1893f5b](https://github.com/UCLALibrary/ucla-library-website-components/commit/1893f5b5bea4ba2b3d4dcb32f76d26a51a8abad9))
+
 ## [1.54.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.2...v1.54.3) (2022-09-16)
 
 
