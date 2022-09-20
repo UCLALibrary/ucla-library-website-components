@@ -1,3 +1,10 @@
+## [1.54.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.4...v1.54.5) (2022-09-20)
+
+
+### Bug Fixes
+
+* move text ([#196](https://github.com/UCLALibrary/ucla-library-website-components/issues/196)) ([1389b9a](https://github.com/UCLALibrary/ucla-library-website-components/commit/1389b9a16446cc2a67058f571715f953fd25fbb7))
+
 ## [1.54.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.3...v1.54.4) (2022-09-19)
 
 
