@@ -70,5 +70,15 @@ export default {
         align-items: stretch;
         gap: 16px;
     }
+
+    @media #{$small} {
+        .impact-number-cards-list {
+            display: flex;
+            flex-direction: column;
+            .flexible-impact-number-card {
+                width: 100%;
+            }
+        }
+    }
 }
 </style>
