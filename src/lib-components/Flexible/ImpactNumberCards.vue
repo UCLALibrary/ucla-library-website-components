@@ -83,7 +83,7 @@ export default {
         .impact-number-cards-list {
             display: flex;
             flex-direction: column;
-            .card {
+            .flexible-impact-number-card {
                 width: 100%;
             }
         }
