@@ -2,7 +2,7 @@ import * as API from "@/stories/mock-api.json"
 
 export const mock = {
     typeHandle: "mediaGallery",
-    titleGeneral: "de Finibus Bonorum et Malorum",
+    sectionTitle: "de Finibus Bonorum et Malorum",
     sectionSummary:
         "<p>Media Gallery Section Summary -<span>Media Gallery</span><span> is perfect for showcasing your product photos. tutorial videos, creating a lookbook, showcasing customer testimonials.</span></p>",
     title: null,

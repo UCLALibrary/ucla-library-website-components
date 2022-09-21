@@ -1,8 +1,8 @@
 export const mock = {
     id: "27359",
     typeHandle: "highlight",
-    titleGeneral: "BlockHighlight",
-    summary: "<p>BlockHighlight</p>",
+    sectionTitle: "BlockHighlight",
+    sectionSummary: "<p>BlockHighlight</p>",
     highlight: [
         {
             id: "27360",

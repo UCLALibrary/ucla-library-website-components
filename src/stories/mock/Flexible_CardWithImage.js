@@ -1,8 +1,8 @@
 export const mock = {
     id: "28284",
     typeHandle: "cardWithImage",
-    titleGeneral: "Card with image",
-    summary: "<p>card with image</p>",
+    sectionTitle: "Card with image",
+    sectionSummary: "<p>card with image</p>",
     cardWithImage: [
         {
             id: "28285",

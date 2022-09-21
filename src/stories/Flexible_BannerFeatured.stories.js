@@ -75,7 +75,7 @@ const mock = {
 
 const mock2 = {
     id: "27050",
-    titleGeneral: "External Link",
+    sectionTitle: "External Link",
     content: [
         {
             id: "27051",

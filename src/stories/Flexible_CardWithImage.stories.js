@@ -19,7 +19,6 @@ export const Default = () => ({
     template: `
         <flexible-card-with-image
             :block="block"
-            :sectionTitle="Section Title"
        />
     `,
 })
