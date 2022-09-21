@@ -64,12 +64,20 @@ export default {
         @include step-1;
         color: var(--color-primary-blue-05);
         text-align: center;
+        padding: 0 4px;
     }
 
     .text {
         padding-top: 16px;
         @include step-0;
         color: var(--color-primary-blue-05);
+        padding: 0 4px;
+    }
+}
+
+@media #{$medium} {
+    .impact-number-card {
+        gap: 0;
     }
 }
 </style>

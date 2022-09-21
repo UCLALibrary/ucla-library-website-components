@@ -1,6 +1,5 @@
 <template>
     <div class="impact-number-cards">
-        <h2 class="visually-hidden">Resources</h2>
         <div class="section-header">
             <h3
                 v-if="block.sectionTitle"
@@ -44,6 +43,7 @@ export default {
 <style lang="scss" scoped>
 .impact-number-cards {
     max-width: $container-l-main + px;
+    margin: 0 auto;
 
     .section-header {
         margin-bottom: var(--space-xl);
@@ -67,15 +67,23 @@ export default {
         flex-wrap: wrap;
         justify-content: flex-start;
         align-content: flex-start;
-        align-items: stretch;
-        gap: 16px;
+        gap: 32px 16px;
+    }
+
+    @media #{$medium} {
+        .impact-number-cards-list {
+            align-items: flex-start;
+            .flexible-impact-number-card {
+                width: calc((100% - 16px) / 2);
+            }
+        }
     }
 
     @media #{$small} {
         .impact-number-cards-list {
             display: flex;
             flex-direction: column;
-            .flexible-impact-number-card {
+            .card {
                 width: 100%;
             }
         }
