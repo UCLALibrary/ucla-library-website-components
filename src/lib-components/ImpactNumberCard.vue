@@ -74,10 +74,4 @@ export default {
         padding: 0 4px;
     }
 }
-
-@media #{$medium} {
-    .impact-number-card {
-        gap: 0;
-    }
-}
 </style>
