@@ -10,7 +10,6 @@ const mock = {
     title: "HathiTrust Partnership",
     text: "Pages Viewed Through HathiTrust Digital Library to Support Collections Access",
     impactNumber: "3,958,321",
-    icon: [],
 }
 
 export const Default = () => ({
