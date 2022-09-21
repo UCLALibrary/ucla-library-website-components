@@ -163,7 +163,7 @@ export default {
 
         .block-group {
             .block {
-            width: calc((100% - 16px) / 2);
+                width: calc((100% - 16px) / 2);
             }
         }
     }
@@ -171,8 +171,8 @@ export default {
         //align-items: center;
         .block-group {
             .block {
-            width: 100%;
-        }
+                width: 100%;
+            }
         }
     }
 }

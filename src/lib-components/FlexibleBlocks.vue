@@ -89,6 +89,10 @@ export default {
             import("@/lib-components/Flexible/AssociatedTopicCards.vue").then(
                 (d) => d.default
             ),
+        FlexibleGridGalleryCards: () =>
+            import("@/lib-components/Flexible/GridGalleryCards.vue").then(
+                (d) => d.default
+            ),
         DividerWayFinder,
     },
 
