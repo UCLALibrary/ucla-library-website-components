@@ -64,7 +64,7 @@ export default {
         @include step-1;
         color: var(--color-primary-blue-05);
         text-align: center;
-        padding: 0 4px;
+        padding: 0 8px;
     }
 
     .text {
