@@ -41,7 +41,7 @@ export default {
     gap: 16px;
 
     .card {
-        min-height: 296px;
+        min-height: 300px;
         border-radius: var(--rounded-slightly-all);
         overflow: hidden;
         background-color: var(--color-primary-blue-01);
@@ -55,8 +55,10 @@ export default {
     }
     .impact-number {
         @include step-5;
+        font-weight: 500;
         color: var(--color-primary-blue-05);
         font-size: 80px;
+        text-align: center;
     }
     .title {
         @include step-1;
