@@ -1,13 +1,17 @@
 <template>
     <section :class="classes" :data-cy="cypressSelector">
-        <div v-if="title || text" class="section-header">
+        <div v-if="sectionTitle || sectionSummary" class="section-header">
             <h2
-                v-if="title"
+                v-if="sectionTitle"
                 id="cards-with-illustration-title"
                 class="section-title"
-                v-html="title"
+                v-html="sectionTitle"
             />
-            <div v-if="text" class="section-summary" v-html="text" />
+            <div
+                v-if="sectionSummary"
+                class="section-summary"
+                v-html="sectionSummary"
+            />
         </div>
 
         <ul class="cards">
@@ -47,11 +51,11 @@ export default {
         ButtonMore,
     },
     props: {
-        title: {
+        sectionTitle: {
             type: String,
             default: "",
         },
-        text: {
+        sectionSummary: {
             type: String,
             default: "",
         },
