@@ -139,8 +139,8 @@ export default {
 
         display: grid;
         grid-template-columns: 1fr;
-            gap: 0;
-            grid-column: span 6;
+        gap: 0;
+        grid-column: span 6;
 
         .two-librarians {
             ::v-deep {
