@@ -24,7 +24,7 @@ export const Default = () => ({
         <impact-number-card
             :text="text"
             :title="title"
-            :impact-number="impact-number"
+            :impact-number="impactNumber"
         />
     `,
 })
