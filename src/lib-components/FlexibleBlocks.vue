@@ -32,6 +32,7 @@ const NEVER_GRAY = [
     "flexible-simple-cards",
     "flexible-call-to-action",
     "flexible-cta-block2-up",
+    "flexible-number-cards",
 ]
 
 export default {
@@ -87,6 +88,10 @@ export default {
             ),
         FlexibleAssociatedTopicCards: () =>
             import("@/lib-components/Flexible/AssociatedTopicCards.vue").then(
+                (d) => d.default
+            ),
+        FlexibleImpactNumberCards: () =>
+            import("@/lib-components/Flexible/ImpactNumberCards.vue").then(
                 (d) => d.default
             ),
         FlexibleGridGalleryCards: () =>
