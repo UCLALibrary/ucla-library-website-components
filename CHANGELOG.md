@@ -1,3 +1,10 @@
+# [1.56.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.55.0...v1.56.0) (2022-09-22)
+
+
+### Features
+
+* Add FlexibleImpactNumberCards ([#197](https://github.com/UCLALibrary/ucla-library-website-components/issues/197)) ([f257acf](https://github.com/UCLALibrary/ucla-library-website-components/commit/f257acf63f2f14fee0c6f98cea1e4f366ffba579))
+
 # [1.55.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.5...v1.55.0) (2022-09-22)
 
 
