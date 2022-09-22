@@ -1,3 +1,10 @@
+## [1.56.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.0...v1.56.1) (2022-09-22)
+
+
+### Bug Fixes
+
+* update spacing and text-size on gridgallerycards  ([#200](https://github.com/UCLALibrary/ucla-library-website-components/issues/200)) ([ea03c30](https://github.com/UCLALibrary/ucla-library-website-components/commit/ea03c307e7d8231535957ceb03ef5a637650d44a))
+
 # [1.56.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.55.0...v1.56.0) (2022-09-22)
 
 
