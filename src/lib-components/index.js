@@ -54,6 +54,7 @@ export { default as FlexibleMediaGalleryBannerImage } from "./Flexible/MediaGall
 export { default as FlexibleMediaGalleryNewLightbox } from "./Flexible/MediaGallery/NewLightbox.vue"
 export { default as FlexibleMediaGalleryThumbnailCard } from "./Flexible/MediaGallery/ThumbnailCard.vue"
 export { default as FlexibleMediaGallery } from "./Flexible/MediaGallery.vue"
+export { default as FlexibleGridGalleryCards } from "./Flexible/GridGalleryCards.vue"
 export { default as GridGallery } from "./GridGallery.vue"
 export { default as HeadingArrow } from "./HeadingArrow.vue"
 export { default as HeaderMain } from "./HeaderMain.vue"
