@@ -56,8 +56,8 @@ export const Default = () => ({
     template: `
         <section-cards-with-illustrations
             :items="itemsVertical"
-            title="Get Help With"
-            text="Curabitur aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
+            sectionTitle="Get Help With"
+            sectionSummary="Curabitur aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
             to="/help/foo/bar"
             :isHorizontal="false"
             button-text="See More"
@@ -135,7 +135,7 @@ export const OneCard = () => ({
     template: `
         <section-cards-with-illustrations
             :items="parsedItems"
-            title="Get Help With"
+            sectionTitle="Get Help With"
             to="/help/foo/bar"
             :isHorizontal="false"
         />
@@ -157,7 +157,7 @@ export const TwoCards = () => ({
     template: `
         <section-cards-with-illustrations
             :items="parsedItems"
-            title="Get Help With"
+            sectionTitle="Get Help With"
             to="/help/foo/bar"
             :isHorizontal="false"
         />
