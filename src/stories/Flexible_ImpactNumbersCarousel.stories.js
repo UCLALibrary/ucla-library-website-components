@@ -16,7 +16,7 @@ export const Default = Template.bind({})
 
 Default.args = {
     block: {
-        sectionTitle: "Section Title",
+        sectionTitle: "Section Title: Impact Number Carousel",
         blocks: [
             {
                 largeText: "10",
