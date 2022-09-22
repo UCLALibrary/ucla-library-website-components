@@ -156,6 +156,41 @@ const mock3 = {
     componentName: "flexible-banner-featured",
 }
 
+const mock4 = {
+    id: "36699",
+    typeHandle: "bannerFeatured",
+    content: [
+        {
+            id: "36700",
+            contentLink: [
+                {
+                    contentType: "impactReportStory",
+                    title: "After Covid Triggered a Campus Closure, UCLA Library Reimagined Its Services for Students and Faculty Scattered Across the Country and Globe",
+                    to: "impact/2021/ucla-library-reimagined",
+                    summary:
+                        "<p>Undergraduates reflect on successfully completing their research projects while learning remotely.</p>",
+                    articleByline2: "2021-09-09T10:03:00-07:00",
+                    heroImage: [
+                        {
+                            image: [
+                                {
+                                    id: "36778",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/open-sourced-video-ucla-library.jpeg",
+                                    height: 1440,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/open-sourced-video-ucla-library.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/open-sourced-video-ucla-library.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/open-sourced-video-ucla-library.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/open-sourced-video-ucla-library.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/open-sourced-video-ucla-library.jpeg 2560w",
+                                    alt: "Open sourced video ucla library",
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+}
+
 export const Default = () => ({
     data() {
         return {
@@ -188,6 +223,20 @@ export const InternalContentProject = () => ({
     data() {
         return {
             block: mock3,
+        }
+    },
+    components: { FlexibleBannerFeatured },
+    template: `
+        <flexible-banner-featured
+            :block="block"
+       />
+    `,
+})
+
+export const ImpactStory = () => ({
+    data() {
+        return {
+            block: mock4,
         }
     },
     components: { FlexibleBannerFeatured },

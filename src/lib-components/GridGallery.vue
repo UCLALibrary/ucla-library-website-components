@@ -11,6 +11,7 @@
                     :image="card.image"
                     :aspect-ratio="parsedAspectRatio"
                     :class="card.imgclasses"
+                    object-fit="cover"
                 />
                 <h5
                     v-if="
