@@ -92,7 +92,7 @@ export default {
             ),
         FlexibleImpactNumberCards: () =>
             import("@/lib-components/Flexible/ImpactNumberCards.vue").then(
-            d) => d.default
+                (d) => d.default
             ),
         FlexibleGridGalleryCards: () =>
             import("@/lib-components/Flexible/GridGalleryCards.vue").then(
