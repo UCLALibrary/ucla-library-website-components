@@ -1,8 +1,18 @@
 <template>
-    <div class="grid-gallery-cards">
-        <h3 class="grid-gallery-subtitle" v-html="block.subtitle" />
+    <div
+        v-if="
+            (block.gridGalleryCards && block.gridGalleryCards.length > 0) ||
+            block.subtitle
+        "
+        class="grid-gallery-cards"
+    >
+        <h3
+            v-if="block.subtitle"
+            class="grid-gallery-subtitle"
+            v-html="block.subtitle"
+        />
         <grid-gallery
-            v-if="block.gridGalleryCards"
+            v-if="block.gridGalleryCards && block.gridGalleryCards.length > 0"
             :section-summary="block.summary"
             :items="parseGalleryCards"
         />
