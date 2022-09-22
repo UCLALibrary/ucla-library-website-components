@@ -161,9 +161,9 @@ export default {
             this.isOpened = !this.isOpened
             if (!this.isOpened) {
                 // clear focus after clicking to allow menu to close
-                document.body.setAttribute("tabindex", "-1");
-                document.body.focus();
-                document.body.removeAttribute("tabindex");
+                document.body.setAttribute("tabindex", "-1")
+                document.body.focus()
+                document.body.removeAttribute("tabindex")
             }
         },
         setActive(index) {

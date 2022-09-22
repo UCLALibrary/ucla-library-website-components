@@ -1,7 +1,8 @@
 <template>
     <div class="footer-sponsor">
         <div class="sponsor-text">
-            The UCLA Library Modern Endangered Archives Program is supported by Arcadia.
+            The UCLA Library Modern Endangered Archives Program is supported by
+            Arcadia.
         </div>
         <div class="sponsor-logos">
             <block-sponsor
@@ -61,8 +62,8 @@ export default {
     padding-top: var(--unit-gutter);
 }
 .sponsor-logos {
-    padding-bottom: var(--unit-gutter); 
-    margin: 0 auto; 
+    padding-bottom: var(--unit-gutter);
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

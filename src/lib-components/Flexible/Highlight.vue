@@ -166,8 +166,8 @@ export default {
     @media #{$small} {
         //padding: 0 var(--unit-gutter);
         ::v-deep .block-highlight {
-        max-width: 100%;
-    }
+            max-width: 100%;
+        }
         .block {
             width: 100%;
             margin: 0 0 50px;

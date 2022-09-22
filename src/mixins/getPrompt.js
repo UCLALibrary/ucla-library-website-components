@@ -28,6 +28,9 @@ export default {
                 case lowerCaseContentType.includes("collection"):
                     output = "View collection"
                     break
+                case lowerCaseContentType.includes("impactreportstory"):
+                    output = "Read full story"
+                    break
             }
 
             return output

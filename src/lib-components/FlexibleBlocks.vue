@@ -92,6 +92,10 @@ export default {
             ),
         FlexibleImpactNumberCards: () =>
             import("@/lib-components/Flexible/ImpactNumberCards.vue").then(
+            d) => d.default
+            ),
+        FlexibleGridGalleryCards: () =>
+            import("@/lib-components/Flexible/GridGalleryCards.vue").then(
                 (d) => d.default
             ),
         DividerWayFinder,
