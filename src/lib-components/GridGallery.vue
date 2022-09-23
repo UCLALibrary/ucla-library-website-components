@@ -11,6 +11,7 @@
                     :image="card.image"
                     :aspect-ratio="parsedAspectRatio"
                     :class="card.imgclasses"
+                    object-fit="cover"
                 />
                 <h5
                     v-if="
@@ -106,7 +107,7 @@ export default {
     position: relative;
 
     .section-summary {
-        @include step-2;
+        @include step-1;
         color: var(--color-black);
         position: sticky;
         top: 48px;
@@ -128,6 +129,9 @@ export default {
         list-style: none;
         padding: 0;
         position: relative;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
     .card-small {
         grid-column: span 2;
@@ -139,8 +143,8 @@ export default {
 
         display: grid;
         grid-template-columns: 1fr;
-            gap: 0;
-            grid-column: span 6;
+        gap: 0;
+        grid-column: span 6;
 
         .two-librarians {
             ::v-deep {

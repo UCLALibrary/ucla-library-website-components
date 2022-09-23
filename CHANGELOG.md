@@ -1,3 +1,31 @@
+## [1.56.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.0...v1.56.1) (2022-09-22)
+
+
+### Bug Fixes
+
+* update spacing and text-size on gridgallerycards  ([#200](https://github.com/UCLALibrary/ucla-library-website-components/issues/200)) ([ea03c30](https://github.com/UCLALibrary/ucla-library-website-components/commit/ea03c307e7d8231535957ceb03ef5a637650d44a))
+
+# [1.56.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.55.0...v1.56.0) (2022-09-22)
+
+
+### Features
+
+* Add FlexibleImpactNumberCards ([#197](https://github.com/UCLALibrary/ucla-library-website-components/issues/197)) ([f257acf](https://github.com/UCLALibrary/ucla-library-website-components/commit/f257acf63f2f14fee0c6f98cea1e4f366ffba579))
+
+# [1.55.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.5...v1.55.0) (2022-09-22)
+
+
+### Features
+
+* Update prompt mixin and Create Flexible_GridGalleryCards component ([#199](https://github.com/UCLALibrary/ucla-library-website-components/issues/199)) ([e61f926](https://github.com/UCLALibrary/ucla-library-website-components/commit/e61f9260977be531666f67527517406f550b32cc))
+
+## [1.54.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.4...v1.54.5) (2022-09-20)
+
+
+### Bug Fixes
+
+* move text ([#196](https://github.com/UCLALibrary/ucla-library-website-components/issues/196)) ([1389b9a](https://github.com/UCLALibrary/ucla-library-website-components/commit/1389b9a16446cc2a67058f571715f953fd25fbb7))
+
 ## [1.54.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.54.3...v1.54.4) (2022-09-19)
 
 
