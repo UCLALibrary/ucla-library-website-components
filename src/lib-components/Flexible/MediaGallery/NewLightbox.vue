@@ -130,74 +130,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// TODO: Make this less horrible
-::v-deep .glide {
-    position: relative;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-::v-deep .glide * {
-    -webkit-box-sizing: inherit;
-    box-sizing: inherit;
-}
-::v-deep .glide__slides,
-::v-deep .glide__track {
-    overflow: hidden;
-}
-::v-deep .glide__slides {
-    position: relative;
-    width: 100%;
-    list-style: none;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -ms-touch-action: pan-Y;
-    touch-action: pan-Y;
-    padding: 0;
-    white-space: nowrap;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    will-change: transform;
-}
-::v-deep .glide__slide,
-::v-deep .glide__slides--dragging {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-::v-deep .glide__slide {
-    width: 100%;
-    height: 100%;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    white-space: normal;
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent;
-}
-::v-deep .glide__slide a {
-    -webkit-user-select: none;
-    user-select: none;
-    -webkit-user-drag: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-::v-deep .glide__arrows,
-::v-deep .glide__bullets {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-::v-deep .glide--rtl {
-    direction: rtl;
-}
+@import "src/styles/vue-glide.scss";
 
 .lightbox {
     position: fixed;

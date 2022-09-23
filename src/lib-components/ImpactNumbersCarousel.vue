@@ -5,7 +5,7 @@
                 v-for="(block, index) in blocks"
                 :key="index"
                 :class="checkCurrentSlide(index)"
-                @click="setCurrentSlide(index)"
+                @click.native="setCurrentSlide(index)"
             />
         </div>
         <vue-glide
@@ -101,16 +101,17 @@ export default {
 
 <style lang="scss" scoped>
 @import "vue-glide-js/dist/vue-glide.css";
+@import "src/styles/vue-glide.scss";
 
 .impact-numbers-carousel {
     display: flex;
     max-width: 680px;
 
     .slide-indicator {
-        .svg__fill--primary-blue-03 {
+        ::v-deep .svg__fill--primary-blue-03 {
             fill: transparent;
         }
-        .current-slide path.svg__fill--primary-blue-03 {
+        ::v-deep .current-slide path.svg__fill--primary-blue-03 {
             fill: var(--color-primary-blue-03);
         }
     }
