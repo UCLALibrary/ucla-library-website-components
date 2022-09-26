@@ -157,9 +157,7 @@ export default {
             }
 
             .impactText {
-                font-family: var(--font-primary);
-                font-weight: regular;
-                font-size: 64px;
+                @include step-5;
                 line-height: 85%;
                 letter-spacing: -0.005em;
                 color: var(--color-black);
