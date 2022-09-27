@@ -1,3 +1,10 @@
+## [1.56.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.1...v1.56.2) (2022-09-27)
+
+
+### Bug Fixes
+
+* APPS-1713 Add sectionTitle & sectionSummary to FPB collections ([#198](https://github.com/UCLALibrary/ucla-library-website-components/issues/198)) ([459b9cf](https://github.com/UCLALibrary/ucla-library-website-components/commit/459b9cfe4019a10b485473886a2170307b895928))
+
 ## [1.56.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.0...v1.56.1) (2022-09-22)
 
 
