@@ -1,9 +1,9 @@
 export const itemsVertical = {
     id: "13783",
     typeHandle: "associatedTopicCards",
-    sectionTitle: "Fix Potholes",
+    sectionTitle: "Section Title: Fix Potholes",
     sectionSummary:
-        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+        "<p>Section Summary: Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
     associatedTopicsFlexiblePageBlock: [
         {
             id: "13899",

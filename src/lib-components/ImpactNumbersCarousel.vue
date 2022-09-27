@@ -106,6 +106,7 @@ export default {
 .impact-numbers-carousel {
     display: flex;
     max-width: 680px;
+    margin-top: var(--space-xl);
 
     .slide-indicator {
         ::v-deep .svg__fill--primary-blue-03 {

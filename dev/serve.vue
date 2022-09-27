@@ -780,8 +780,8 @@ export default Vue.extend({
             mockBlockHighlight: {
                 id: "27359",
                 typeHandle: "highlight",
-                titleGeneral: "BlockHighlight",
-                summary: "<p>BlockHighlight</p>",
+                sectionTitle: "BlockHighlight",
+                sectionSummary: "<p>BlockHighlight</p>",
                 highlight: [
                     {
                         id: "27360",
@@ -1965,7 +1965,7 @@ export default Vue.extend({
                 },
                 {
                     typeHandle: "mediaGallery",
-                    titleGeneral: "TitleGeneral de Finibus Bonorum et Malorum",
+                    sectionTitle: "Section Title de Finibus Bonorum et Malorum",
                     title: "Media Gallery Section Title de Finibus Bonorum et Malorum",
                     slug: null,
                     sectionSummary:
@@ -2377,8 +2377,8 @@ export default Vue.extend({
                 {
                     id: "28284",
                     typeHandle: "cardWithImage",
-                    titleGeneral: "Card with image",
-                    summary: "<p>card with image</p>",
+                    sectionTitle: "Card with image",
+                    sectionSummary: "<p>card with image</p>",
                     cardWithImage: [
                         {
                             id: "28285",

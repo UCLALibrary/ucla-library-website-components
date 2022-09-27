@@ -2,8 +2,8 @@
     <section-cards-with-illustrations
         v-if="block && block.associatedTopicsFlexiblePageBlock"
         :items="parseditems"
-        :title="block.sectionTitle"
-        :text="block.sectionText"
+        :sectionTitle="block.sectionTitle"
+        :sectionSummary="block.sectionSummary"
         :is-horizontal="false"
         class="associated-topic-cards"
     />

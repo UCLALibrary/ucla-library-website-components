@@ -1,9 +1,9 @@
 export const mockTwoCards = {
     id: "41058",
     typeHandle: "simpleCards",
-    sectionTitle: "Planning Grant Resources",
+    sectionTitle: "Section Title: Planning Grant Resources",
     sectionSummary:
-        "<p>These resources provide guidance related to documentation and survey projects.</p>",
+        "<p>Section Summary: These resources provide guidance related to documentation and survey projects.</p>",
     cards: [
         {
             id: "41059",

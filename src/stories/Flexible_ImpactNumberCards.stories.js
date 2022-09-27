@@ -7,9 +7,9 @@ export default {
 
 const mock = {
     id: "37071",
-    sectionSummary: null,
-    sectionTitle:
-        "Remote Learning by the Numbers: Data from March 2020 through September 2021",
+    sectionTitle: "Section Title: Impact Number Cards",
+    sectionSummary:
+        "<p>Section Summary: Impact Number Cards - Remote Learning by the Numbers: Data from March 2020 through September 2021</p>",
     impactNumberCards: [
         {
             id: "37072",
