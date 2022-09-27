@@ -1,3 +1,10 @@
+## [1.56.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.2...v1.56.3) (2022-09-27)
+
+
+### Bug Fixes
+
+* fixed impactNumbersCarousel image ([#195](https://github.com/UCLALibrary/ucla-library-website-components/issues/195)) ([22002f2](https://github.com/UCLALibrary/ucla-library-website-components/commit/22002f25dff58d3e5d67ec9f3069dcb4f2bd22ec))
+
 ## [1.56.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.1...v1.56.2) (2022-09-27)
 
 
