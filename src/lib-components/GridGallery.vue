@@ -107,7 +107,7 @@ export default {
     position: relative;
 
     .section-summary {
-        @include step-2;
+        @include step-1;
         color: var(--color-black);
         position: sticky;
         top: 48px;
@@ -129,6 +129,9 @@ export default {
         list-style: none;
         padding: 0;
         position: relative;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
     .card-small {
         grid-column: span 2;
