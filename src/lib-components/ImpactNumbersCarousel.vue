@@ -5,7 +5,7 @@
                 v-for="(block, index) in blocks"
                 :key="index"
                 :class="checkCurrentSlide(index)"
-                @click="setCurrentSlide(index)"
+                @click.native="setCurrentSlide(index)"
             />
         </div>
         <vue-glide
@@ -16,7 +16,7 @@
         >
             <vue-glide-slide v-for="(block, index) in blocks" :key="index">
                 <div class="slide-image">
-                    <responsive-image :image="block.image" />
+                    <responsive-image :image="block.image[0]" />
                 </div>
                 <div class="impact-numbers-text-container">
                     <span class="impactNumber">{{ block.largeText }}</span>
@@ -101,6 +101,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "vue-glide-js/dist/vue-glide.css";
+@import "src/styles/vue-glide.scss";
 
 .impact-numbers-carousel {
     display: flex;
@@ -108,10 +109,10 @@ export default {
     margin-top: var(--space-xl);
 
     .slide-indicator {
-        .svg__fill--primary-blue-03 {
+        ::v-deep .svg__fill--primary-blue-03 {
             fill: transparent;
         }
-        .current-slide path.svg__fill--primary-blue-03 {
+        ::v-deep .current-slide path.svg__fill--primary-blue-03 {
             fill: var(--color-primary-blue-03);
         }
     }
@@ -157,9 +158,7 @@ export default {
             }
 
             .impactText {
-                font-family: var(--font-primary);
-                font-weight: regular;
-                font-size: 64px;
+                @include step-5;
                 line-height: 85%;
                 letter-spacing: -0.005em;
                 color: var(--color-black);
