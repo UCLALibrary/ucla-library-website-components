@@ -14,6 +14,7 @@
                     v-html="block.sectionSummary"
                 />
             </div>
+
             <div
                 v-for="(item, index) in parsedContent"
                 :key="`MediaWithTextKey${index}`"

@@ -2,14 +2,14 @@
     <section class="section-teaser-highlight">
         <div class="section-header">
             <h2
-                v-if="block.titleGeneral"
+                v-if="block.sectionTitle"
                 class="section-title"
-                v-html="block.titleGeneral"
+                v-html="block.sectionTitle"
             />
             <div
-                v-if="block.summary"
+                v-if="block.sectionSummary"
                 class="section-summary"
-                v-html="block.summary"
+                v-html="block.sectionSummary"
             />
         </div>
         <ul class="block-group">

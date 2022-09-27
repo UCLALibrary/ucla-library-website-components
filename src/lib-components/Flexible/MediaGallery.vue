@@ -1,9 +1,11 @@
 <template>
     <section class="media-gallery">
         <div class="section-header">
-            <h2 class="section-title">
-                {{ block.titleGeneral }}
-            </h2>
+            <h2
+                v-if="block.sectionTitle"
+                class="section-title"
+                v-html="block.sectionTitle"
+            />
 
             <div
                 v-if="block.sectionSummary"

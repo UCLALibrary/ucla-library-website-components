@@ -1,8 +1,8 @@
 export const mock = {
     id: "13669",
     typeHandle: "mediaWithText",
-    sectionTitle: "A section of media with text",
-    sectionSummary: "<p>A section of media with text</p>",
+    sectionTitle: "Section Title: A section of media with text",
+    sectionSummary: "<p>Section Summary: A section of media with text</p>",
     mediaWithText: [
         {
             id: "13670",
