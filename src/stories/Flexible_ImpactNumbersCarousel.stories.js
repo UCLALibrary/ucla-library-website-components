@@ -23,7 +23,7 @@ Default.args = {
                 mediumText: "millon",
                 smallDescriptor:
                     "dollars in funding allocated for the procurement of digital and print material",
-                image: API.image,
+                image: [API.image],
                 altImageText: "Image for slide 1",
             },
             {
@@ -31,21 +31,21 @@ Default.args = {
                 mediumText: "millon",
                 smallDescriptor:
                     "dollars in funding allocated for the procurement of digital and print material",
-                image: API.image,
+                image: [API.image],
                 altImageText: "Image for slide 2",
             },
             {
                 largeText: "5",
                 mediumText: "bajillion",
                 smallDescriptor: "SMdes 0",
-                image: API.image,
+                image: [API.image],
                 altImageText: "Image for slide 3",
             },
             {
                 largeText: "25",
                 mediumText: "percent",
                 smallDescriptor: "SMdes 1",
-                image: API.image,
+                image: [API.image],
                 altImageText: "Image for slide 4",
             },
         ],
