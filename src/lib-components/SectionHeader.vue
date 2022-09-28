@@ -1,8 +1,5 @@
 <template>
-    <component
-        :is="titleTag"
-        :class="classes"
-    >
+    <component :is="titleTag" :class="classes">
         <slot />
     </component>
 </template>
@@ -31,7 +28,9 @@ export default {
             return Number(this.level || this.levelInjected)
         },
         titleTag() {
-            return (this.levelComputed >= 1 && this.levelComputed <= 6) ? `h${this.levelComputed}` : "h6"
+            return this.levelComputed >= 1 && this.levelComputed <= 6
+                ? `h${this.levelComputed}`
+                : "h6"
         },
     },
 }

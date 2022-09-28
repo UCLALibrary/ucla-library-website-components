@@ -52,10 +52,15 @@ export default {
     },
     computed: {
         classes() {
-            return ["section-wrapper", `section-wrapper${this.levelComputed}`, `theme-${this.theme}`, {"top-level": this.noParentSection}]
+            return [
+                "section-wrapper",
+                `section-wrapper${this.levelComputed}`,
+                `theme-${this.theme}`,
+                { "top-level": this.noParentSection },
+            ]
         },
         levelComputed() {
-            return Number(this.level || (this.levelInjected + 1))
+            return Number(this.level || this.levelInjected + 1)
         },
     },
 }
