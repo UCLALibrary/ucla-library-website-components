@@ -12,7 +12,6 @@ const mock = {
         "icon-share-medium",
         "icon-share-whatsapp",
         "icon-close",
-        "icon-ellipsis",
     ],
 }
 

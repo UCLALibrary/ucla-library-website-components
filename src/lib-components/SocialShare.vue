@@ -1,18 +1,19 @@
 <template>
     <div class="social-share">
+        hello
         <div class="social-share-column">
             <ul class="social-share-list">
                 <li
                     v-for="(item, index) in parsedSocialShare"
                     :key="index"
-                    class="amenitiy-row"
+                    class="social-share-row"
                 >
                     <component :is="item.svgIcon" v-if="item.svgIcon" />
 
-                    <span class="amenity-name" v-html="item.svgLabel" />
+                    <span class="social-share-name" v-html="item.svgLabel" />
                 </li>
-
-                <icon-with-link
+            </ul>
+            <!-- <icon-with-link
                     v-if="reserveSeat"
                     text="Reserve a Seat"
                     icon-name="svg-icon-calendar"
@@ -25,7 +26,7 @@
                     :to="addressLink"
                     class="location"
                 />
-            </ul>
+             -->
         </div>
     </div>
 </template>
@@ -34,33 +35,33 @@
 export default {
     name: "SocialShare",
     components: {
-        IconTwittek: () =>
+        IconTwitter: () =>
             import(
-                "ucla-library-design-tokens/assets/svgs/icon-twitter.svg"
+                "ucla-library-design-tokens/assets/svgs/icon-share-twitter.svg"
             ).then((d) => d.default),
         IconInstagram: () =>
             import(
-                "ucla-library-design-tokens/assets/svgs/icon-instagram.svg"
+                "ucla-library-design-tokens/assets/svgs/icon-share-instagram.svg"
             ).then((d) => d.default),
         IconFacebook: () =>
             import(
-                "ucla-library-design-tokens/assets/svgs/icon-facebook.svg"
+                "ucla-library-design-tokens/assets/svgs/icon-share-facebook.svg"
             ).then((d) => d.default),
         IconVirtual: () =>
             import(
-                "ucla-library-design-tokens/assets/svgs/icon-printer.svg"
+                "ucla-library-design-tokens/assets/svgs/icon-share-printer.svg"
             ).then((d) => d.default),
         IconPrinter: () =>
-            import("ucla-library-design-tokens/assets/svgs/email.svg").then(
-                (d) => d.default
-            ),
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-share-email.svg"
+            ).then((d) => d.default),
         IconLinkedin: () =>
             import(
-                "ucla-library-design-tokens/assets/svgs/icon-linkedin.svg"
+                "ucla-library-design-tokens/assets/svgs/icon-share-linkedin.svg"
             ).then((d) => d.default),
         IconMedium: () =>
             import(
-                "ucla-library-design-tokens/assets/svgs/icon-medium.svg"
+                "ucla-library-design-tokens/assets/svgs/icon-share-medium.svg"
             ).then((d) => d.default),
         IconWhatsapp: () =>
             import(
@@ -70,10 +71,10 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-close.svg"
             ).then((d) => d.default),
-        IconEllipsis: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-ellipsis.svg"
-            ).then((d) => d.default),
+        // IconEllipsis: () =>
+        //     import(
+        //         "ucla-library-design-tokens/assets/svgs/icon-ellipsis.svg"
+        //     ).then((d) => d.default),
     },
     props: {
         socialShare: {
@@ -93,14 +94,14 @@ export default {
                 "icon-share-medium": "Medium",
                 "icon-share-whatsapp": "Whatsapp",
                 "icon-close": "Close",
-                "icon-ellipsis": "Ellipsis",
+                // "icon-ellipsis": "Ellipsis",
             },
         }
     },
     computed: {
         parsedSocialShare() {
-            return this.amenities.map((obj) => {
-                let label = this.amenitiesMapping[obj]
+            return this.socialShare.map((obj) => {
+                let label = this.socialShareMapping[obj]
                 console.log(obj)
                 console.log(label)
                 return {
