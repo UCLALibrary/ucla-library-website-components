@@ -304,7 +304,11 @@
         <hr />
 
         <h2>NavBreadCrumb Component</h2>
-        <nav-breadcrumb title="jane-doe" />
+        <nav-breadcrumb
+            title="jane-doe"
+            to="/about/staff"
+            parent-title="Staff Directory"
+        />
         <hr />
 
         <h2>NavPrimary Component</h2>
