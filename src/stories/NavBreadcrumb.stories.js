@@ -8,17 +8,8 @@ export default {
     decorators: [StoryRouter()],
 }
 
-const mock = {
-    title: "jane-doe",
-}
-
 // Variations of stories below
 export const Default = () => ({
-    data() {
-        return {
-            ...mock,
-        }
-    },
     components: { NavBreadcrumb },
-    template: `<nav-breadcrumb :title="title"/>`,
+    template: `<nav-breadcrumb title="jane-doe" to="/about/news" parent-title="parent"/>`,
 })

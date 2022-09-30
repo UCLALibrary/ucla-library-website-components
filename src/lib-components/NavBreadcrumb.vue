@@ -1,10 +1,6 @@
 <template>
     <div class="nav-breadcrumb subtitle">
-        <router-link
-            :to="getUrl"
-            class="parent-page-url"
-            v-html="getParentPage"
-        />
+        <router-link :to="to" class="parent-page-url" v-html="parentTitle" />
         <svg-icon-caret-left aria-hidden="true" />
         <span class="current-page-title" v-html="title" />
     </div>
@@ -13,40 +9,23 @@
 <script>
 // SVGs
 import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-left.svg"
-
-// Helpers
-import getParentPageTitle from "@/mixins/getParentPageTitle"
-import getMeapParentPageTitle from "@/mixins/getMeapParentPageTitle"
-import getParentPageUrl from "@/mixins/getParentPageUrl"
-
 export default {
     name: "NavBreadcrumb",
     components: {
         SvgIconCaretLeft,
     },
-    mixins: [getParentPageTitle, getParentPageUrl, getMeapParentPageTitle],
     props: {
         to: {
+            type: String,
+            default: "",
+        },
+        parentTitle: {
             type: String,
             default: "",
         },
         title: {
             type: String,
             default: "",
-        },
-        isMeap: {
-            type: Boolean,
-            default: false,
-        },
-    },
-    computed: {
-        getUrl() {
-            return this.getParentPageUrl(this.$route.fullPath)
-        },
-        getParentPage() {
-            return this.isMeap
-                ? this.getMeapParentPageTitle(this.$route.path)
-                : this.getParentPageTitle(this.$route.path)
         },
     },
 }
