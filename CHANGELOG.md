@@ -1,3 +1,10 @@
+## [1.56.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.3...v1.56.4) (2022-09-30)
+
+
+### Bug Fixes
+
+* refactor NavBreadcrumb ([#202](https://github.com/UCLALibrary/ucla-library-website-components/issues/202)) ([85795ce](https://github.com/UCLALibrary/ucla-library-website-components/commit/85795ce4fdcd9ebcfc7cd09cb61180208a99aed7))
+
 ## [1.56.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.2...v1.56.3) (2022-09-27)
 
 
