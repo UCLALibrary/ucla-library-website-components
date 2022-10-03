@@ -39,7 +39,7 @@
                 <br />
                 <br />
             </div>
-            <p>Full Name</p>
+            <p class="formTitle">Full Name</p>
             <p>
                 <label for="firstName">First Name *</label>
                 <input
@@ -48,6 +48,7 @@
                     type="text"
                     name="firstName"
                     required
+                    aria-required="true"
                 />
             </p>
 
@@ -59,6 +60,7 @@
                     type="text"
                     name="lastName"
                     required
+                    aria-required="true"
                 />
             </p>
 
@@ -74,6 +76,8 @@
                     v-model="email"
                     type="email"
                     name="email"
+                    :required="block.emailMethod.status"
+                    :aria-required="block.emailMethod.status == 'required'"
                     v-bind="{}"
                 />
             </p>
@@ -368,6 +372,40 @@ export default {
 
 <style lang="scss" scoped>
 .block-form {
+    border-radius: var(--rounded-slighty) + px;
+    border-color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-l);
+    max-width: $container-l-text + px;
+    padding: var(--space-xl) + px;
+
+    @media #{$medium} {
+        max-width: 100%;
+        min-width: 600px;
+    }
+
+    @media #{$small} {
+        max-width: 100%;
+        min-width: 320px;
+    }
+
+    .formTitle {
+        @include step-1;
+    }
+
+    label {
+        @include step-0;
+    }
+
+    .labelsRequired {
+        @include step-0;
+        font-weight: $font-weight-medium;
+    }
+
+    .placeholder {
+        @include step--1;
+        color: var(--color-secondary-grey-04);
+    }
+
     .success-message {
         background-color: yellow;
         position: fixed;
@@ -400,6 +438,19 @@ export default {
     }
     .form-errors {
         background-color: cyan;
+    }
+
+    input {
+        border: 1px solid;
+        border-color: var(--color-secondary-grey-03);
+        font: {
+            color: var(--color-secondary-grey-04);
+        }
+        @include shadow-state-change;
+
+        &:hover {
+            border-color: var(--color-default-cyan-03);
+        }
     }
 }
 </style>
