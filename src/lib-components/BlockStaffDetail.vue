@@ -208,7 +208,7 @@ export default {
     .heading-staff {
         width: 100%;
         margin-left: -64px;
-        margin-bottom: var(--space-l);
+        margin-bottom: var(--space-m);
 
         display: flex;
         //align-items: center;
@@ -247,23 +247,20 @@ export default {
         flex-flow: column wrap;
         justify-content: center;
         height: 352px;
-        gap: var(--space-s) var(--space-xl);
+        gap: var(--space-l) var(--space-xl);
         @include step-0;
 
         .image {
             width: 100%;
             max-width: 352px;
             height: auto;
+            margin: var(--space-m) 0;
         }
 
         .staff-info {
             border-bottom: 2px dotted var(--color-secondary-grey-02);
             padding-bottom: var(--space-m);
             width: calc(100% - 400px);
-        }
-
-        .contact-info-list {
-            margin-top: var(--space-m);
         }
 
         .contact-info {
@@ -374,10 +371,6 @@ export default {
         justify-content: flex-start;
 
         // SectionStaffBio
-        .image {
-                margin-bottom: var(--space-m);
-            }
-
         .body-bio {
             width: 100%;
             .divider {
@@ -432,6 +425,7 @@ export default {
             height: 40px;
             flex-basis: 40px;
             margin-top: 6px;
+            margin-left: -40px;
         }
 
         .location-link .svg,
@@ -494,7 +488,12 @@ export default {
                 flex-grow: 0;
 
                 .image {
-                    max-width: 327px;
+                    max-width: 328px;
+                    margin-top: 0px;
+                }
+
+                .contact-info-list {
+                    margin-top: var(--space-m);
                 }
             }
         }
