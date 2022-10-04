@@ -71,9 +71,7 @@
             <div class="body-bio">
                 <!-- SectionStaffBio -->
                 <divider-way-finder
-                    v-if="
-                        topics.length || academicDepartments.length
-                    "
+                    v-if="topics.length || academicDepartments.length"
                     class="divider divider-first"
                     color="about"
                 />
@@ -95,9 +93,7 @@
 
                 <!-- RICH TEXT-->
                 <divider-way-finder
-                    v-if="
-                        biography
-                    "
+                    v-if="biography"
                     class="divider divider-first"
                     color="about"
                 />
@@ -437,7 +433,6 @@ export default {
         .location-group .location-title {
             line-height: 1;
         }
-
     }
 
     @media #{$medium} {
@@ -477,7 +472,6 @@ export default {
         }
 
         .section-staff-bio {
-
             .staff-info {
                 width: 100%;
             }
@@ -517,7 +511,6 @@ export default {
         }
 
         .section-staff-bio {
-
             .body-contact {
                 flex-basis: 100%;
                 width: 100%;
