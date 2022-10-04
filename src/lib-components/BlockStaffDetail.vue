@@ -3,10 +3,11 @@
         <!-- HeadingStaff  -->
         <div class="heading-staff">
             <svg-heading-arrow />
-
-            <h1 class="staffName" v-html="staffName" />
-            <div v-if="pronouns" class="pronouns">
-                {{ parsedPronouns }}
+            <div class="header">
+                <h1 class="staffName" v-html="staffName" />
+                <div v-if="pronouns" class="pronouns">
+                    {{ parsedPronouns }}
+                </div>
             </div>
         </div>
 
@@ -72,7 +73,7 @@
                 <!-- SectionStaffBio -->
                 <divider-way-finder
                     v-if="
-                        topics.length || academicDepartments.length || biography
+                        topics.length || academicDepartments.length
                     "
                     class="divider divider-first"
                     color="about"
@@ -81,7 +82,7 @@
                     v-if="topics.length || academicDepartments.length"
                     class="ask-me-about"
                 >
-                    <h2 class="secondary-header">Ask Me About</h2>
+                    <h2 class="section-title">Ask Me About</h2>
                     <rich-text>
                         <ul class="list topics">
                             <li
@@ -94,8 +95,15 @@
                 </div>
 
                 <!-- RICH TEXT-->
+                <divider-way-finder
+                    v-if="
+                        biography
+                    "
+                    class="divider divider-first"
+                    color="about"
+                />
                 <div v-if="biography" class="biography">
-                    <h2 class="secondary-header">Biography</h2>
+                    <h2 class="section-title">Biography</h2>
                     <rich-text :rich-text-content="biography" />
                 </div>
             </div>
@@ -203,10 +211,10 @@ export default {
         margin-bottom: var(--space-l);
 
         display: flex;
-        align-items: center;
-        flex-flow: column wrap;
-        justify-content: center;
-        align-items: normal;
+        //align-items: center;
+        flex-flow: row;
+        //justify-content: center;
+        //align-items: normal;
         height: 80px;
         gap: var(--space-xs) var(--space-xl);
     }
@@ -230,6 +238,7 @@ export default {
         @include step-0;
         line-height: 1;
         color: var(--color-secondary-grey-05);
+        display: inline;
     }
 
     // CONTACT
@@ -249,8 +258,12 @@ export default {
 
         .staff-info {
             border-bottom: 2px dotted var(--color-secondary-grey-02);
-            padding-bottom: var(--space-s);
+            padding-bottom: var(--space-m);
             width: calc(100% - 400px);
+        }
+
+        .contact-info-list {
+            margin-top: var(--space-m);
         }
 
         .contact-info {
@@ -361,8 +374,15 @@ export default {
         justify-content: flex-start;
 
         // SectionStaffBio
+        .image {
+                margin-bottom: var(--space-m);
+            }
+
         .body-bio {
             width: 100%;
+            .divider {
+                padding: 0;
+            }
 
             > div:last-child {
                 margin-bottom: 0;
@@ -375,8 +395,8 @@ export default {
                 }
             }
 
-            .secondary-header {
-                margin-bottom: var(--space-l);
+            .section-title {
+                margin-bottom: var(--space-m);
                 @include step-3;
                 color: var(--color-primary-blue-03);
             }
@@ -425,9 +445,6 @@ export default {
             line-height: 1;
         }
 
-        .section-staff-bio {
-            padding: 0 calc(40px + var(--space-xs));
-        }
     }
 
     @media #{$medium} {
@@ -456,6 +473,7 @@ export default {
             .department {
                 border: 0;
                 padding: 0;
+                margin-bottom: 8px;
             }
         }
 
@@ -466,7 +484,6 @@ export default {
         }
 
         .section-staff-bio {
-            padding: 0 calc(40px + var(--space-xs));
 
             .staff-info {
                 width: 100%;
@@ -502,7 +519,6 @@ export default {
         }
 
         .section-staff-bio {
-            padding: 0;
 
             .body-contact {
                 flex-basis: 100%;
