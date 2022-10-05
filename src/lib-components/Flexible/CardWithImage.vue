@@ -110,7 +110,6 @@ export default {
                 } else if (obj.typeHandle === "externalContent") {
                     return {
                         ...obj,
-                        to: "",
                         parsedImage: _get(obj, "image[0]", {}),
                         parsedLocation:
                             obj.location != null ? [obj.location] : [],

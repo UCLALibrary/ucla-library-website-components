@@ -115,6 +115,27 @@ export const mock = {
             ],
         },
         {
+            id: "39508",
+            typeHandle: "externalContent",
+            title: "Pandemic Spurs Virtual Screening Room, Bringing Moving Images to a Global Audience",
+            image: [
+                {
+                    id: "36751",
+                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/virtual-screening-room-toll-sea.jpeg",
+                    height: 1869,
+                    width: 2560,
+                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 2560w",
+                    alt: "Virtual screening room toll sea",
+                    focalPoint: [0.5, 0.5],
+                },
+            ],
+            byline1: null,
+            byline2: null,
+            category: null,
+            text: "When its theatrical home closed its doors in March 2020 due to COVID-19 the UCLA Film & Television Archive shifted public programming to an ambitious new online screening",
+            to: "https://www.cinema.ucla.edu/blogs/archive-blog/2022/01/31/pandemic-spurs-virtual-screening-room",
+        },
+        {
             id: "28287",
             typeHandle: "externalContent",
             title: null,

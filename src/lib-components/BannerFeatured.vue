@@ -308,6 +308,8 @@ export default {
             return this.section || this.getSectionName(this.to)
         },
         parsedMediaComponent() {
+            console.log("Image: " + JSON.stringify(this.image))
+            console.log("Video: " + JSON.stringify(this.video))
             return this.image ? "responsive-image" : "responsive-video"
         },
         parsedMediaProp() {

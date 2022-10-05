@@ -1,9 +1,13 @@
 <template>
     <div>
         <banner-featured
-            v-if="block && block.content && block.content[0].contentLink"
+            v-if="
+                block &&
+                block.content &&
+                block.content[0].contentLink &&
+                isVideo
+            "
             class="flexible-banner-featured"
-            :image="parseImage"
             :to="`/${block.content[0].contentLink[0].to}`"
             :title="block.content[0].contentLink[0].title"
             :breadcrumb="parsedTypeHandle"
@@ -12,11 +16,16 @@
             :prompt="parsePrompt"
             :locations="parsedLocations"
             :category="parsedCategory"
+            :video="parseVideo"
         />
         <banner-featured
-            v-if="block && block.content && !block.content[0].contentLink"
+            v-if="
+                block &&
+                block.content &&
+                !block.content[0].contentLink &&
+                isVideo
+            "
             class="flexible-banner-featured"
-            :image="parseImage"
             :to="block.content[0].to"
             :title="block.content[0].title"
             :breadcrumb="parsedTypeHandle"
@@ -26,6 +35,44 @@
             :locations="parsedLocations"
             :category="parsedCategory"
             :alignment="parsedAlignment"
+            :video="parseVideo"
+        />
+        <banner-featured
+            v-if="
+                block &&
+                block.content &&
+                block.content[0].contentLink &&
+                !isVideo
+            "
+            class="flexible-banner-featured"
+            :to="`/${block.content[0].contentLink[0].to}`"
+            :title="block.content[0].contentLink[0].title"
+            :breadcrumb="parsedTypeHandle"
+            :byline="parseByLine"
+            :description="block.content[0].contentLink[0].summary"
+            :prompt="parsePrompt"
+            :locations="parsedLocations"
+            :category="parsedCategory"
+            :image="parseImage"
+        />
+        <banner-featured
+            v-if="
+                block &&
+                block.content &&
+                !block.content[0].contentLink &&
+                !isVideo
+            "
+            class="flexible-banner-featured"
+            :to="block.content[0].to"
+            :title="block.content[0].title"
+            :breadcrumb="parsedTypeHandle"
+            :byline="parseByLine"
+            :description="block.content[0].summary"
+            :prompt="parsePrompt"
+            :locations="parsedLocations"
+            :category="parsedCategory"
+            :alignment="parsedAlignment"
+            :image="parseImage"
         />
     </div>
 </template>
@@ -47,6 +94,38 @@ export default {
     },
     mixins: [getPrompt],
     computed: {
+        isVideo() {
+            let fileName = ""
+            if (
+                this.block.content[0].contentLink &&
+                this.block.content[0].contentLink[0].heroImage
+            ) {
+                console.log(
+                    "Internal video: " +
+                        JSON.stringify(
+                            this.block.content[0].contentLink[0].heroImage[0]
+                        )
+                )
+                fileName =
+                    this.block.content[0].contentLink[0].heroImage[0].image[0].src.toLowerCase()
+            } else if (this.block.content[0].image) {
+                console.log("External video")
+                fileName = this.block.content[0].image[0].src.toLowerCase()
+            }
+
+            let extension = fileName.split(".").pop()
+
+            if (
+                extension == "mp4" ||
+                extension == "m4a" ||
+                extension == "f4v" ||
+                extension == "m4b" ||
+                extension == "mov"
+            ) {
+                return true
+            }
+            return false
+        },
         parseImage() {
             let imageObj = {}
             if (
@@ -57,7 +136,40 @@ export default {
                     this.block.content[0].contentLink[0].heroImage[0].image[0]
             else if (this.block.content[0].image)
                 imageObj = this.block.content[0].image[0]
+            console.log("Image obj: " + JSON.stringify(imageObj))
             return imageObj
+        },
+        parseVideo() {
+            let videoObj = {}
+            if (
+                this.block.content[0].contentLink &&
+                this.block.content[0].contentLink[0].heroImage
+            ) {
+                let mainVideo =
+                    this.block.content[0].contentLink[0].heroImage[0].image[0]
+                videoObj = {
+                    videoUrl: mainVideo.src,
+                    sizes: mainVideo.sizes,
+                    height: mainVideo.height,
+                    width: mainVideo.width,
+                    altText: mainVideo.alt,
+                    caption: mainVideo.caption,
+                    poster: mainVideo.poster,
+                }
+            } else if (this.block.content[0].image) {
+                let mainVideo = this.block.content[0].image[0]
+                videoObj = {
+                    videoUrl: mainVideo.src,
+                    sizes: mainVideo.sizes,
+                    height: mainVideo.height,
+                    width: mainVideo.width,
+                    altText: mainVideo.alt,
+                    caption: mainVideo.caption,
+                    poster: mainVideo.poster,
+                }
+            }
+            console.log("video obj: " + JSON.stringify(videoObj))
+            return videoObj
         },
         parsedAlignment() {
             return this.block.content[0].alignment === "right" ? true : false

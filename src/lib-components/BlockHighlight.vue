@@ -19,6 +19,7 @@
 
         <div class="meta">
             <div v-if="category" class="category" v-html="category" />
+            <!-- TODO need to refactor to support external links CardwithImage or Blockhighlight flexible component has external url in Craft, instead of checking for if the route has impact , can smart link check if its a relative or external link-->
             <smart-link
                 v-if="to"
                 :linkTarget="parsedTarget"
