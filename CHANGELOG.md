@@ -1,3 +1,10 @@
+## [1.56.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.4...v1.56.5) (2022-10-05)
+
+
+### Bug Fixes
+
+* updates BlockStaffDetail spacing ([#203](https://github.com/UCLALibrary/ucla-library-website-components/issues/203)) ([de598ff](https://github.com/UCLALibrary/ucla-library-website-components/commit/de598ff8ed61c112c8d418295a9cddd873df0c91))
+
 ## [1.56.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.3...v1.56.4) (2022-09-30)
 
 
