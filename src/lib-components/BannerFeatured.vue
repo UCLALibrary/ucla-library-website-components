@@ -14,8 +14,8 @@
             </slot>
         </div>
 
-        <component
-            :is="parsedMediaComponent"
+        <responsive-image
+            v-if="image"
             class="media"
             :image="parsedMediaProp"
             :aspect-ratio="parsedRatio"
@@ -23,7 +23,17 @@
             <div v-if="image" class="gradient" />
 
             <svg-molecule-half-faceted class="molecule" aria-hidden="true" />
-        </component>
+        </responsive-image>
+        <responsive-video
+            v-if="video"
+            class="media"
+            :image="parsedMediaProp"
+            :aspect-ratio="parsedRatio"
+        >
+            <div v-if="image" class="gradient" />
+
+            <svg-molecule-half-faceted class="molecule" aria-hidden="true" />
+        </responsive-video>
 
         <div class="hatch-box">
             <div class="clipped-box">
@@ -181,7 +191,7 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
             ).then((d) => d.default),
-        SvgIconOnline: () =>
+        /* SvgIconOnline: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
             ).then((d) => d.default),
@@ -201,7 +211,7 @@ export default {
         SvgIconPerson: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-person.svg"
-            ).then((d) => d.default),
+            ).then((d) => d.default),*/
     },
     props: {
         image: {
@@ -307,11 +317,7 @@ export default {
         sectionName() {
             return this.section || this.getSectionName(this.to)
         },
-        parsedMediaComponent() {
-            console.log("Image: " + JSON.stringify(this.image))
-            console.log("Video: " + JSON.stringify(this.video))
-            return this.image ? "responsive-image" : "responsive-video"
-        },
+
         parsedMediaProp() {
             return this.image ? this.image : this.video
         },

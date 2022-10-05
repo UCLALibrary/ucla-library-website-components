@@ -1,13 +1,9 @@
 <template>
     <div>
         <banner-featured
-            v-if="
-                block &&
-                block.content &&
-                block.content[0].contentLink &&
-                isVideo
-            "
+            v-if="block && block.content && block.content[0].contentLink"
             class="flexible-banner-featured"
+            :image="parseImage"
             :to="`/${block.content[0].contentLink[0].to}`"
             :title="block.content[0].contentLink[0].title"
             :breadcrumb="parsedTypeHandle"
@@ -19,13 +15,9 @@
             :video="parseVideo"
         />
         <banner-featured
-            v-if="
-                block &&
-                block.content &&
-                !block.content[0].contentLink &&
-                isVideo
-            "
+            v-if="block && block.content && !block.content[0].contentLink"
             class="flexible-banner-featured"
+            :image="parseImage"
             :to="block.content[0].to"
             :title="block.content[0].title"
             :breadcrumb="parsedTypeHandle"
@@ -36,43 +28,6 @@
             :category="parsedCategory"
             :alignment="parsedAlignment"
             :video="parseVideo"
-        />
-        <banner-featured
-            v-if="
-                block &&
-                block.content &&
-                block.content[0].contentLink &&
-                !isVideo
-            "
-            class="flexible-banner-featured"
-            :to="`/${block.content[0].contentLink[0].to}`"
-            :title="block.content[0].contentLink[0].title"
-            :breadcrumb="parsedTypeHandle"
-            :byline="parseByLine"
-            :description="block.content[0].contentLink[0].summary"
-            :prompt="parsePrompt"
-            :locations="parsedLocations"
-            :category="parsedCategory"
-            :image="parseImage"
-        />
-        <banner-featured
-            v-if="
-                block &&
-                block.content &&
-                !block.content[0].contentLink &&
-                !isVideo
-            "
-            class="flexible-banner-featured"
-            :to="block.content[0].to"
-            :title="block.content[0].title"
-            :breadcrumb="parsedTypeHandle"
-            :byline="parseByLine"
-            :description="block.content[0].summary"
-            :prompt="parsePrompt"
-            :locations="parsedLocations"
-            :category="parsedCategory"
-            :alignment="parsedAlignment"
-            :image="parseImage"
         />
     </div>
 </template>
@@ -127,6 +82,7 @@ export default {
             return false
         },
         parseImage() {
+            if (this.isVideo) return null
             let imageObj = {}
             if (
                 this.block.content[0].contentLink &&
@@ -136,10 +92,10 @@ export default {
                     this.block.content[0].contentLink[0].heroImage[0].image[0]
             else if (this.block.content[0].image)
                 imageObj = this.block.content[0].image[0]
-            console.log("Image obj: " + JSON.stringify(imageObj))
             return imageObj
         },
         parseVideo() {
+            if (!this.isVideo) return null
             let videoObj = {}
             if (
                 this.block.content[0].contentLink &&
