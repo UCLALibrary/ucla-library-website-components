@@ -155,6 +155,8 @@
 
 <script>
 import SvgGlyphClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg"
+import SvgIconCheckbox from "ucla-library-design-tokens/assets/svgs/icon-checkbox.svg"
+
 export default {
     name: "BlockForm",
     components: {
@@ -372,7 +374,7 @@ export default {
 
 <style lang="scss" scoped>
 .block-form {
-    border-radius: var(--rounded-slighty) + px;
+    border-radius: var(--rounded-slightly-all) + px;
     border-color: var(--color-primary-blue-03);
     margin-bottom: var(--space-l);
     max-width: $container-l-text + px;
@@ -392,8 +394,25 @@ export default {
         @include step-1;
     }
 
+    // label {
+    //     @include step-0;
+    // }
+
     label {
         @include step-0;
+        display: flex;
+        flex-direction: row;
+        width: 148px;
+        gap: var(--space-s) + px;
+
+        @media #{$medium} {
+            flex-direction: column;
+            max-width: 100%;
+        }
+    }
+
+    input[type="checkbox"] {
+        margin-bottom: 16px;
     }
 
     .labelsRequired {
