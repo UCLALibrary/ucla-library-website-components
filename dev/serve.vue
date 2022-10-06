@@ -304,7 +304,11 @@
         <hr />
 
         <h2>NavBreadCrumb Component</h2>
-        <nav-breadcrumb title="jane-doe" />
+        <nav-breadcrumb
+            title="jane-doe"
+            to="/about/staff"
+            parent-title="Staff Directory"
+        />
         <hr />
 
         <h2>NavPrimary Component</h2>
@@ -1880,6 +1884,69 @@ export default Vue.extend({
         },
         flexibleBlocks() {
             return [
+                {
+                    id: "42757",
+                    typeHandle: "bannerFeatured",
+                    content: [
+                        {
+                            id: "42758",
+                            image: [
+                                {
+                                    id: "42732",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/sample-5s.mp4",
+                                    height: null,
+                                    width: null,
+                                    srcset: "",
+                                    alt: "Sample 5s",
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                            title: "External Video",
+                            summary:
+                                "<p>This is sample test video which has few seconds of video</p>",
+                            alignment: "left",
+                            byline1: null,
+                            byline2: null,
+                            to: "www.samplevideos.com",
+                            category: null,
+                            contentType: "article",
+                        },
+                    ],
+                },
+                {
+                    id: "36699",
+                    typeHandle: "bannerFeatured",
+                    content: [
+                        {
+                            id: "36700",
+                            contentLink: [
+                                {
+                                    contentType: "impactReportStory",
+                                    title: "After Covid Triggered a Campus Closure, UCLA Library Reimagined Its Services",
+                                    to: "impact/2021/ucla-library-reimagined",
+                                    summary:
+                                        "<p>Undergraduates reflect on successfully completing their research projects while learning remotely.</p>",
+                                    articleByline2: "2021-09-09T10:03:00-07:00",
+                                    heroImage: [
+                                        {
+                                            image: [
+                                                {
+                                                    id: "42094",
+                                                    src: "https://static.library.ucla.edu/craftassetstest/images/ucla-impact-report-animation.mp4",
+                                                    height: null,
+                                                    width: null,
+                                                    srcset: "",
+                                                    alt: "Ucla impact report animation",
+                                                    focalPoint: [0.5, 0.5],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                            ],
+                        },
+                    ],
+                },
                 {
                     id: "40361",
                     subtitle: "Flexible Grid Gallery Cards",

@@ -3,10 +3,11 @@
         <!-- HeadingStaff  -->
         <div class="heading-staff">
             <svg-heading-arrow />
-
-            <h1 class="staffName" v-html="staffName" />
-            <div v-if="pronouns" class="pronouns">
-                {{ parsedPronouns }}
+            <div class="header">
+                <h1 class="staffName" v-html="staffName" />
+                <div v-if="pronouns" class="pronouns">
+                    {{ parsedPronouns }}
+                </div>
             </div>
         </div>
 
@@ -53,9 +54,8 @@
                     </div>
                     <div v-if="phone" class="contact-info">
                         <icon-with-link
-                            :text="email"
-                            icon-name="svg-icon-email"
-                            :to="`mailto:/${email}`"
+                            :text="phone"
+                            icon-name="svg-icon-phone"
                         />
                     </div>
                     <div v-if="consultation" class="contact-info">
@@ -71,9 +71,7 @@
             <div class="body-bio">
                 <!-- SectionStaffBio -->
                 <divider-way-finder
-                    v-if="
-                        topics.length || academicDepartments.length || biography
-                    "
+                    v-if="topics.length || academicDepartments.length"
                     class="divider divider-first"
                     color="about"
                 />
@@ -81,7 +79,7 @@
                     v-if="topics.length || academicDepartments.length"
                     class="ask-me-about"
                 >
-                    <h2 class="secondary-header">Ask Me About</h2>
+                    <h2 class="section-title">Ask Me About</h2>
                     <rich-text>
                         <ul class="list topics">
                             <li
@@ -94,8 +92,13 @@
                 </div>
 
                 <!-- RICH TEXT-->
+                <divider-way-finder
+                    v-if="biography"
+                    class="divider divider-first"
+                    color="about"
+                />
                 <div v-if="biography" class="biography">
-                    <h2 class="secondary-header">Biography</h2>
+                    <h2 class="section-title">Biography</h2>
                     <rich-text :rich-text-content="biography" />
                 </div>
             </div>
@@ -200,13 +203,13 @@ export default {
     .heading-staff {
         width: 100%;
         margin-left: -64px;
-        margin-bottom: var(--space-l);
+        margin-bottom: var(--space-m);
 
         display: flex;
-        align-items: center;
-        flex-flow: column wrap;
-        justify-content: center;
-        align-items: normal;
+        //align-items: center;
+        flex-flow: row;
+        //justify-content: center;
+        //align-items: normal;
         height: 80px;
         gap: var(--space-xs) var(--space-xl);
     }
@@ -230,6 +233,7 @@ export default {
         @include step-0;
         line-height: 1;
         color: var(--color-secondary-grey-05);
+        display: inline;
     }
 
     // CONTACT
@@ -238,18 +242,19 @@ export default {
         flex-flow: column wrap;
         justify-content: center;
         height: 352px;
-        gap: var(--space-s) var(--space-xl);
+        gap: var(--space-l) var(--space-xl);
         @include step-0;
 
         .image {
             width: 100%;
             max-width: 352px;
             height: auto;
+            margin: var(--space-m) 0;
         }
 
         .staff-info {
             border-bottom: 2px dotted var(--color-secondary-grey-02);
-            padding-bottom: var(--space-s);
+            padding-bottom: var(--space-m);
             width: calc(100% - 400px);
         }
 
@@ -363,6 +368,9 @@ export default {
         // SectionStaffBio
         .body-bio {
             width: 100%;
+            .divider {
+                padding: 0;
+            }
 
             > div:last-child {
                 margin-bottom: 0;
@@ -375,8 +383,8 @@ export default {
                 }
             }
 
-            .secondary-header {
-                margin-bottom: var(--space-l);
+            .section-title {
+                margin-bottom: var(--space-m);
                 @include step-3;
                 color: var(--color-primary-blue-03);
             }
@@ -412,6 +420,7 @@ export default {
             height: 40px;
             flex-basis: 40px;
             margin-top: 6px;
+            margin-left: -40px;
         }
 
         .location-link .svg,
@@ -423,10 +432,6 @@ export default {
         .department,
         .location-group .location-title {
             line-height: 1;
-        }
-
-        .section-staff-bio {
-            padding: 0 calc(40px + var(--space-xs));
         }
     }
 
@@ -456,6 +461,7 @@ export default {
             .department {
                 border: 0;
                 padding: 0;
+                margin-bottom: 8px;
             }
         }
 
@@ -466,8 +472,6 @@ export default {
         }
 
         .section-staff-bio {
-            padding: 0 calc(40px + var(--space-xs));
-
             .staff-info {
                 width: 100%;
             }
@@ -477,7 +481,12 @@ export default {
                 flex-grow: 0;
 
                 .image {
-                    max-width: 327px;
+                    max-width: 328px;
+                    margin-top: 0px;
+                }
+
+                .contact-info-list {
+                    margin-top: var(--space-m);
                 }
             }
         }
@@ -502,8 +511,6 @@ export default {
         }
 
         .section-staff-bio {
-            padding: 0;
-
             .body-contact {
                 flex-basis: 100%;
                 width: 100%;
