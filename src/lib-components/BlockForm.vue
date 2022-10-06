@@ -394,10 +394,6 @@ export default {
         @include step-1;
     }
 
-    // label {
-    //     @include step-0;
-    // }
-
     label {
         @include step-0;
         display: flex;
@@ -467,8 +463,34 @@ export default {
         }
         @include shadow-state-change;
 
+        @include step--1;
+        color: var(--color-secondary-grey-05);
+
         &:hover {
             border-color: var(--color-default-cyan-03);
+        }
+
+        &:focus {
+            border-color: var(--color-default-cyan-03);
+            font {
+                color: var(--color-secondary-grey-04);
+                @include shadow-state-change;
+            }
+        }
+
+        &:active {
+            border-color: var(--color-default-cyan-03);
+            font {
+                color: var(--color-secondary-grey-05);
+            }
+            background-color: var(--color-primary-blue-01);
+        }
+
+        &:invalid {
+            border-color: var(--color-status-error-02);
+            font {
+                color: var(--color-secondary-grey-05);
+            }
         }
     }
 }
