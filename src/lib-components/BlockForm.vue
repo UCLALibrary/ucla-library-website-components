@@ -39,8 +39,8 @@
                 <br />
                 <br />
             </div>
-            <p class="formTitle">Full Name</p>
-            <p>
+            <p class="formTitle">Registration (8 seats left)</p>
+            <p class="input-wrapper">
                 <label for="firstName">First Name *</label>
                 <input
                     id="firstName"
@@ -52,7 +52,7 @@
                 />
             </p>
 
-            <p>
+            <p class="input-wrapper">
                 <label for="lastName">Last Name *</label>
                 <input
                     id="lastName"
@@ -64,7 +64,7 @@
                 />
             </p>
 
-            <p v-if="block.emailMethod">
+            <p v-if="block.emailMethod" class="input-wrapper">
                 <label for="email">
                     Email
                     <span v-if="block.emailMethod.status == 'required'"
@@ -392,6 +392,8 @@ export default {
 
     .formTitle {
         @include step-1;
+        padding-bottom: 9px;
+        border-bottom: 1px solid var(--color-secondary-grey-01);
     }
 
     label {
@@ -411,14 +413,35 @@ export default {
         margin-bottom: 16px;
     }
 
-    .labelsRequired {
+    label:required {
         @include step-0;
         font-weight: $font-weight-medium;
     }
 
-    .placeholder {
+    ::placeholder {
         @include step--1;
         color: var(--color-secondary-grey-04);
+    }
+
+    select {
+        color: var(--color-secondary-grey-04);
+
+        &:focus {
+            border-color: var(--color-default-cyan-03);
+            color: var(--color-secondary-grey-05);
+        }
+
+        &:hover {
+            background-color: var(--color-primary-blue-01);
+        }
+        option:checked {
+            color: var(--color-secondary-grey-05);
+        }
+    }
+
+    .input-wrapper {
+        display: flex;
+        flex-direction: row;
     }
 
     .success-message {
