@@ -218,26 +218,16 @@ export default {
         },
         parseQuestions() {
             return this.block.questions.map((obj) => {
-                // console.log(obj.id)
-                switch (obj.type) {
-                    case "string":
-                        this.formQuestions[obj.id] = ""
-                        this.questionsRequired[obj.id] = obj.required
-                        break
-                    case "radio":
-                        this.formQuestions[obj.id] = ""
-                        this.questionsRequired[obj.id] = obj.required
-                        break
-                    case "dropdown":
-                        this.formQuestions[obj.id] = ""
-                        this.questionsRequired[obj.id] = obj.required
-                        break
-                    case "checkbox":
-                        this.formQuestions[obj.id] = []
-                        this.questionsRequired[obj.id] = obj.required
-                        break
+                if (
+                    obj.type === "string" ||
+                    obj.type === "radio" ||
+                    obj.type === "dropdown"
+                ) {
+                    this.formQuestions[obj.id] = ""
+                } else {
+                    this.formQuestions[obj.id] = []
                 }
-                // console.log(this.questionsRequired)
+                this.questionsRequired[obj.id] = obj.required
                 return {
                     ...obj,
                     classes: `input-${obj.type}`,
@@ -266,9 +256,6 @@ export default {
                     first_name: this.firstName,
                     last_name: this.lastName,
                     email: this.email,
-                    // phone: "",
-                    // barcode: "2348238709662234",
-
                     questions: [],
                 },
                 registration_type: this.registrationType,
@@ -279,8 +266,6 @@ export default {
                     answer: this.formQuestions[obj.id],
                 }
             })
-            //console.log(data.form.questions)
-            // console.log(this.encode(data))
             console.log(JSON.stringify(data))
             let url = `https://test.proxy.calendar.library.ucla.edu/api/1.1/events/${this.eventId}/register`
             fetch(url, {
@@ -295,7 +280,7 @@ export default {
                     this.sent = true
                     this.status = {
                         code: "success",
-                        text: "One seat is sent to LibCal to be registered or will be on waitlist",
+                        text: "One seat is sent to LibCal to be registered or will be on wait list",
                     }
                 })
                 .catch((err) => {
@@ -325,42 +310,16 @@ export default {
                 this.errors.push("Email required.")
             }
             for (let question of this.block.questions) {
-                // TODO refactor this into a switch case statement
-                /* console.log(
-                    this.questionsRequired[question.id] +
-                        " is the question required" +
-                        question.id
-                )
-                console.log(
-                    question.type + " what is the type" + question.required
-                )
-                console.log(
-                    this.formQuestions[question.id] +
-                        " what is the value in the form field" +
-                        question.label
-                )*/
                 if (
                     this.questionsRequired[question.id] &&
-                    question.type == "string" &&
                     !this.formQuestions[question.id]
                 ) {
-                    this.errors.push(this.block.questions.label + " required.")
-                }
-                if (
-                    this.questionsRequired[question.id] &&
-                    question.type == "radio" &&
-                    !this.formQuestions[question.id]
-                ) {
-                    this.errors.push(question.label + " required.")
-                }
-                if (
-                    this.questionsRequired[question.id] &&
-                    question.type == "dropdown" &&
-                    !this.formQuestions[question.id]
-                ) {
-                    this.errors.push(question.label + " required.")
-                }
-                if (
+                    question.type === "string"
+                        ? this.errors.push(
+                              this.block.questions.label + " required."
+                          )
+                        : this.errors.push(question.label + " required.")
+                } else if (
                     this.questionsRequired[question.id] &&
                     question.type == "checkbox" &&
                     this.formQuestions[question.id].length == 0
@@ -476,6 +435,7 @@ export default {
     textarea {
         padding: 8px 16px;
         border-radius: var(--rounded-slightly-all);
+        flex: auto;
     }
 
     input {
