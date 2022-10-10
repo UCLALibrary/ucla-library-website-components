@@ -1,3 +1,17 @@
+## [1.56.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.5...v1.56.6) (2022-10-05)
+
+
+### Bug Fixes
+
+* impact report video, card with image and highlight ([#205](https://github.com/UCLALibrary/ucla-library-website-components/issues/205)) ([c640252](https://github.com/UCLALibrary/ucla-library-website-components/commit/c6402529789d2ec97cf8029904435b1bf607c3c2))
+
+## [1.56.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.4...v1.56.5) (2022-10-05)
+
+
+### Bug Fixes
+
+* updates BlockStaffDetail spacing ([#203](https://github.com/UCLALibrary/ucla-library-website-components/issues/203)) ([de598ff](https://github.com/UCLALibrary/ucla-library-website-components/commit/de598ff8ed61c112c8d418295a9cddd873df0c91))
+
 ## [1.56.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.3...v1.56.4) (2022-09-30)
 
 
