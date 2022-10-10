@@ -9,7 +9,7 @@
             <p
                 v-if="sectionSummary"
                 class="section-summary"
-                v-text="sectionSummary"
+                v-html="sectionSummary"
             />
         </div>
         <slot />
@@ -39,16 +39,20 @@ export default {
             type: Number,
             default: 0,
         },
+        noMargins: {
+            type: Boolean,
+            default: false,
+        }
     },
     provide() {
         return {
             sectionLevel: this.levelComputed,
-            noParentSection: false,
+            ancestorSetMargins: this.ancestorSetMargins || this.setMargins,
         }
     },
     inject: {
         levelInjected: { from: "sectionLevel", default: 1 },
-        noParentSection: { default: true },
+        ancestorSetMargins: { default: false },
     },
     computed: {
         classes() {
@@ -56,12 +60,18 @@ export default {
                 "section-wrapper",
                 `section-wrapper${this.levelComputed}`,
                 `theme-${this.theme}`,
-                { "top-level": this.noParentSection },
+                { "top-level": this.setMargins },
             ]
         },
         levelComputed() {
             return Number(this.level || this.levelInjected + 1)
         },
+        setMargins() {
+            if (this.noMargins || this.ancestorSetMargins) {
+                return false
+            }
+            return true
+        }
     },
 }
 </script>
