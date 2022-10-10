@@ -40,31 +40,33 @@
                 <br />
             </div>
             <p class="formTitle">Registration (8 seats left)</p>
-            <p class="input-wrapper">
-                <label for="firstName">First Name *</label>
-                <input
-                    id="firstName"
-                    v-model="firstName"
-                    type="text"
-                    name="firstName"
-                    required
-                    aria-required="true"
-                />
-            </p>
+            <div class="labelInputWrapper">
+                <label>Full Name *</label>
+                <div>
+                    <input
+                        id="firstName"
+                        v-model="firstName"
+                        type="text"
+                        name="firstName"
+                        required
+                        aria-required="true"
+                        placeholder="First Name"
+                    />
+                    <input
+                        id="lastName"
+                        v-model="lastName"
+                        type="text"
+                        name="lastName"
+                        required
+                        aria-required="true"
+                        placeholder="Last Name"
+                    />
+                </div>
+            </div>
 
-            <p class="input-wrapper">
-                <label for="lastName">Last Name *</label>
-                <input
-                    id="lastName"
-                    v-model="lastName"
-                    type="text"
-                    name="lastName"
-                    required
-                    aria-required="true"
-                />
-            </p>
+            <br />
 
-            <p v-if="block.emailMethod" class="input-wrapper">
+            <div v-if="block.emailMethod" class="emailLabelWrapper">
                 <label for="email">
                     Email
                     <span v-if="block.emailMethod.status == 'required'"
@@ -80,10 +82,15 @@
                     :aria-required="block.emailMethod.status == 'required'"
                     v-bind="{}"
                 />
-            </p>
+            </div>
 
-            <div :key="question.id" v-for="question in parseQuestions">
-                <br />
+            <br />
+
+            <div
+                :key="question.id"
+                v-for="question in parseQuestions"
+                class="parsedQuestionsLabelWrapper"
+            >
                 <label :for="question.id">
                     {{ question.label }}
                     <span v-if="question.required">*</span>
@@ -92,7 +99,7 @@
                 <textarea
                     v-if="question.type == 'string'"
                     v-model="formQuestions[question.id]"
-                    placeholder="add multiple lines"
+                    placeholder="Add multiple lines"
                 />
 
                 <!-- TODO  do we need to add required to checkbox and radio and select inout elements -->
@@ -374,11 +381,11 @@ export default {
 
 <style lang="scss" scoped>
 .block-form {
-    border-radius: var(--rounded-slightly-all) + px;
+    border-radius: var(--rounded-slightly-all);
     border-color: var(--color-primary-blue-03);
     margin-bottom: var(--space-l);
     max-width: $container-l-text + px;
-    padding: var(--space-xl) + px;
+    padding: var(--space-xl);
 
     @media #{$medium} {
         max-width: 100%;
@@ -401,16 +408,13 @@ export default {
         display: flex;
         flex-direction: row;
         width: 148px;
-        gap: var(--space-s) + px;
+        gap: var(--space-s);
+        margin-right: 16px;
 
         @media #{$medium} {
             flex-direction: column;
             max-width: 100%;
         }
-    }
-
-    input[type="checkbox"] {
-        margin-bottom: 16px;
     }
 
     label:required {
@@ -423,64 +427,61 @@ export default {
         color: var(--color-secondary-grey-04);
     }
 
-    select {
-        color: var(--color-secondary-grey-04);
-
-        &:focus {
-            border-color: var(--color-default-cyan-03);
-            color: var(--color-secondary-grey-05);
-        }
-
-        &:hover {
-            background-color: var(--color-primary-blue-01);
-        }
-        option:checked {
-            color: var(--color-secondary-grey-05);
-        }
-    }
-
-    .input-wrapper {
+    .labelInputWrapper {
         display: flex;
         flex-direction: row;
-    }
+        align-items: center;
 
-    .success-message {
-        background-color: yellow;
-        position: fixed;
-        z-index: 5;
-        box-sizing: border-box;
-        top: 10px;
-        right: 10px;
-        width: 179px;
-        padding: 20px;
-        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-        border-radius: 3px;
+        label {
+            font-weight: $font-weight-semibold;
+            text-align: end;
+        }
 
-        color: #64b587;
-        border-bottom: 5px solid #64b587;
+        div {
+            display: flex;
+            flex: auto;
+            justify-content: space-between;
 
-        .notification--remove {
-            position: absolute;
-            top: 0;
-            right: 0;
-            font-size: 15px;
-            &:hover {
-                cursor: pointer;
+            input {
+                padding: 8px 16px;
             }
         }
     }
 
-    button {
-        border: none;
+    .emailLabelWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // margin: 32px 0;
+        label {
+            font-weight: $font-weight-semibold;
+        }
+        input {
+            padding: 8px 16px;
+            flex: auto;
+        }
     }
-    .form-errors {
-        background-color: cyan;
+
+    .parsedQuestionsLabelWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 1em;
+
+        input {
+            flex: auto;
+        }
+    }
+
+    textarea {
+        padding: 8px 16px;
+        border-radius: var(--rounded-slightly-all);
     }
 
     input {
         border: 1px solid;
         border-color: var(--color-secondary-grey-03);
+        border-radius: var(--rounded-slightly-all);
         font: {
             color: var(--color-secondary-grey-04);
         }
@@ -515,6 +516,52 @@ export default {
                 color: var(--color-secondary-grey-05);
             }
         }
+    }
+
+    input[type="checkbox"] {
+        margin-bottom: 16px;
+    }
+
+    select {
+        padding: 11.5px 16px;
+        flex: auto;
+        border-radius: var(--rounded-slightly-all);
+
+        background: white;
+    }
+
+    .success-message {
+        background-color: yellow;
+        position: fixed;
+        z-index: 5;
+        box-sizing: border-box;
+        top: 10px;
+        right: 10px;
+        width: 179px;
+        padding: 20px;
+        box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        border-radius: 3px;
+
+        color: #64b587;
+        border-bottom: 5px solid #64b587;
+
+        .notification--remove {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 15px;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    button {
+        border: none;
+    }
+    .form-errors {
+        background-color: cyan;
     }
 }
 </style>

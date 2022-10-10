@@ -32,7 +32,7 @@ const mock = {
     questions: [
         {
             id: 32798,
-            label: "UCLA Department (Use Other Below if Your Department not Listed)",
+            label: "UCLA Department Affiliation",
             type: "dropdown",
             required: false,
             options: [
