@@ -27,7 +27,7 @@
 
             <br />
 
-            <div v-if="errors.length" class="form-errors">
+            <div v-if="!errors.length" class="form-errors">
                 <!-- <p>Please correct the following error(s):</p> -->
                 <!-- <ul>
                     <li
@@ -41,7 +41,7 @@
                 </p>
             </div>
 
-            <br />
+            <br v-if="!errors.length" />
 
             <div class="registrationInfo">
                 <p>Registration is required for this event.</p>
@@ -101,13 +101,20 @@
                 v-for="question in parseQuestions"
                 class="parsedQuestionsLabelWrapper"
             >
-                <label :for="question.id" v-if="question.type !== 'string'">
+                <label
+                    :for="question.id"
+                    v-if="question.type !== 'string'"
+                    :class="question.required ? 'questionRequired' : ''"
+                >
                     {{ question.label }}
                     <span v-if="question.required">*</span>
                 </label>
 
                 <div v-if="question.type == 'string'" class="textareaWrapper">
-                    <label :for="question.id">
+                    <label
+                        :for="question.id"
+                        :class="question.required ? 'questionRequired' : ''"
+                    >
                         {{ question.label }}
                         <span v-if="question.required">*</span>
                     </label>
@@ -579,6 +586,14 @@ export default {
                 width: 100%;
             }
         }
+
+        input {
+            margin-right: 16px;
+        }
+    }
+
+    .questionRequired {
+        font-weight: $font-weight-semibold;
     }
 
     .success-message {
