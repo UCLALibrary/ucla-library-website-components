@@ -1,6 +1,8 @@
 <template>
-    <section-wrapper class="flexible-blocks" noMargins=true>
-        <section-header class="more-information">More Information</section-header>
+    <section-wrapper class="flexible-blocks" noMargins="true">
+        <section-header class="more-information"
+            >More Information</section-header
+        >
         <div v-for="(block, index) in parsedBlocks" :key="index">
             <section-wrapper v-if="block.needsDivider" theme="divider"
                 ><DividerWayFinder

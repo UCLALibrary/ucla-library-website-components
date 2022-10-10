@@ -42,7 +42,7 @@ export default {
         noMargins: {
             type: Boolean,
             default: false,
-        }
+        },
     },
     provide() {
         return {
@@ -71,7 +71,7 @@ export default {
                 return false
             }
             return true
-        }
+        },
     },
 }
 </script>
