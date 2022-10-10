@@ -23,20 +23,23 @@
             class="form"
             v-else
         >
-            <div v-if="errors.length" class="form-errors">
-                <b>Please correct the following error(s):</b>
-                <ul>
+            <p class="formTitle">Registration (8 seats left)</p>
+
+            <br />
+
+            <div v-if="!errors.length" class="form-errors">
+                <!-- <p>Please correct the following error(s):</p> -->
+                <!-- <ul>
                     <li
                         :key="index"
                         v-for="(error, index) in errors"
                         v-html="error"
                     />
-                </ul>
-                <br />
-                <br />
+                </ul> -->
+                <p>
+                    Please complete the required fields to complete registration
+                </p>
             </div>
-
-            <p class="formTitle">Registration (8 seats left)</p>
 
             <br />
 
@@ -680,7 +683,10 @@ export default {
     }
 
     .form-errors {
-        background-color: cyan;
+        background-color: var(--color-status-error-01);
+        box-sizing: border-box;
+        padding: 20px;
+        border-radius: var(--rounded-slightly-all);
     }
 }
 </style>
