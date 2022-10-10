@@ -39,7 +39,11 @@
                 <br />
                 <br />
             </div>
+
             <p class="formTitle">Registration (8 seats left)</p>
+
+            <br />
+
             <div class="labelInputWrapper">
                 <label>Full Name *</label>
                 <div>
@@ -153,9 +157,11 @@
                 </select>
             </div>
 
-            <p>
+            <!-- <p>
                 <input type="submit" value="Register" />
-            </p>
+            </p> -->
+
+            <button type="submit" class="submitButton">Register</button>
         </form>
     </div>
 </template>
@@ -524,9 +530,75 @@ export default {
         }
     }
 
-    button {
-        border: none;
+    .submitButton {
+        box-sizing: border-box;
+        position: relative;
+        @include button;
+        min-height: 48px;
+        padding: 4px 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        border: 1.5px solid var(--color-primary-blue-02);
+        transition-property: all;
+        @include animate-normal;
+        overflow: hidden;
+        z-index: 0;
+
+        background-color: var(--color-primary-blue-03);
+        --button-background-slide: var(--color-white);
+        border-color: var(--color-primary-blue-03);
+        color: var(--color-white);
+
+        .label {
+            white-space: nowrap;
+        }
+
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: var(--button-background-slide);
+            position: absolute;
+            top: 0;
+            left: -100%;
+            transition-property: all;
+            @include animate-normal;
+            z-index: -10;
+        }
+
+        // Hover states
+        @media #{$has-hover} {
+            &:hover,
+            &:focus,
+            &:focus-visible {
+                cursor: pointer;
+                border-color: var(--color-primary-blue-02);
+                color: var(--color-black);
+
+                &::before {
+                    left: 0;
+                }
+            }
+
+            &:focus,
+            &:focus-visible {
+                outline: none;
+                border-radius: 0;
+            }
+        }
+        // Breakpoints
+        @media #{$medium} {
+            padding: 4px 16px;
+            display: inline-flex;
+        }
+
+        @media #{$small} {
+            width: 100%;
+        }
     }
+
     .form-errors {
         background-color: cyan;
     }
