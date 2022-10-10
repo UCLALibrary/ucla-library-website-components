@@ -119,10 +119,10 @@
                     </div>
                 </div>
                 <div v-if="question.type == 'checkbox'">
-                    checked names: {{ formQuestions[question.id] }}
                     <div
                         :key="index"
                         v-for="(option, index) in question.options"
+                        class="checkboxWrapper"
                     >
                         <input
                             type="checkbox"
@@ -432,6 +432,17 @@ export default {
         }
     }
 
+    .checkboxWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 16px;
+
+        input {
+            margin-right: 14px;
+        }
+    }
+
     textarea {
         padding: 8px 16px;
         border-radius: var(--rounded-slightly-all);
@@ -476,10 +487,6 @@ export default {
                 color: var(--color-secondary-grey-05);
             }
         }
-    }
-
-    input[type="checkbox"] {
-        margin-bottom: 16px;
     }
 
     select {
