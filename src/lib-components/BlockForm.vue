@@ -95,16 +95,21 @@
                 v-for="question in parseQuestions"
                 class="parsedQuestionsLabelWrapper"
             >
-                <label :for="question.id">
+                <label :for="question.id" v-if="question.type !== 'string'">
                     {{ question.label }}
                     <span v-if="question.required">*</span>
                 </label>
 
-                <textarea
-                    v-if="question.type == 'string'"
-                    v-model="formQuestions[question.id]"
-                    placeholder="Add multiple lines"
-                />
+                <div v-if="question.type == 'string'" class="textareaWrapper">
+                    <label :for="question.id">
+                        {{ question.label }}
+                        <span v-if="question.required">*</span>
+                    </label>
+                    <textarea
+                        v-model="formQuestions[question.id]"
+                        placeholder="Add multiple lines"
+                    />
+                </div>
 
                 <!-- TODO  do we need to add required to checkbox and radio and select inout elements -->
                 <div v-if="question.type == 'radio'">
@@ -452,7 +457,6 @@ export default {
     textarea {
         padding: 8px 16px;
         border-radius: var(--rounded-slightly-all);
-        flex: auto;
     }
 
     input {
@@ -501,6 +505,16 @@ export default {
         border-radius: var(--rounded-slightly-all);
 
         background: white;
+    }
+
+    .textareaWrapper {
+        display: flex;
+        flex-direction: column;
+        flex: auto;
+
+        label {
+            width: auto;
+        }
     }
 
     .success-message {
