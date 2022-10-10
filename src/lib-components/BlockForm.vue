@@ -1,5 +1,6 @@
 <template>
     <div class="block-form">
+        <!-- <div class="success-message" v-if="hasNotifications"> -->
         <div class="success-message" v-if="hasNotifications">
             <h3>Registration complete</h3>
             <p>
@@ -7,7 +8,6 @@
                 your email.
             </p>
 
-            <div><p v-text="status.text"></p></div>
             <button
                 type="button"
                 class="notification--remove"
@@ -15,18 +15,9 @@
             >
                 <svg-glyph-close class="svg-glyph-close" />
             </button>
-
-            <br />
-            <br />
         </div>
 
-        <form
-            id="app"
-            @submit.prevent="checkForm"
-            method="post"
-            class="form"
-            v-else
-        >
+        <form id="app" @submit.prevent="checkForm" method="post" class="form">
             <div v-if="errors.length" class="form-errors">
                 <b>Please correct the following error(s):</b>
                 <ul>
@@ -44,7 +35,7 @@
 
             <br />
 
-            <div class="labelInputWrapper">
+            <div class="fullNameWrapper">
                 <label>Full Name *</label>
                 <div>
                     <input
@@ -72,10 +63,10 @@
 
             <div v-if="block.emailMethod" class="emailLabelWrapper">
                 <label for="email">
-                    Email
-                    <span v-if="block.emailMethod.status == 'required'"
-                        >*
+                    <span v-if="block.emailMethod.status == 'required'">
+                        Email *
                     </span>
+                    <span v-else> Email </span>
                 </label>
                 <input
                     id="email"
@@ -162,9 +153,7 @@
                 </select>
             </div>
 
-            <!-- <p>
-                <input type="submit" value="Register" />
-            </p> -->
+            <br />
 
             <button type="submit" class="submitButton">Register</button>
         </form>
@@ -307,12 +296,14 @@ export default {
         checkForm(e) {
             let fullNameValid = false
             let emailValid = false
+
             if (this.firstName && this.lastName) {
                 fullNameValid = true
             }
             if (this.emailRequired && this.email) {
                 emailValid = true
             }
+
             this.errors = []
             if (!fullNameValid) {
                 this.errors.push("Full Name required.")
@@ -320,6 +311,7 @@ export default {
             if (!emailValid) {
                 this.errors.push("Email required.")
             }
+
             for (let question of this.block.questions) {
                 if (
                     this.questionsRequired[question.id] &&
@@ -382,8 +374,8 @@ export default {
         margin-right: 16px;
 
         @media #{$medium} {
-            flex-direction: column;
-            max-width: 100%;
+            width: 100%;
+            align-items: flex-start;
         }
     }
 
@@ -397,7 +389,7 @@ export default {
         color: var(--color-secondary-grey-04);
     }
 
-    .labelInputWrapper {
+    .fullNameWrapper {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -417,19 +409,37 @@ export default {
                 width: 49%;
             }
         }
+
+        @media #{$medium} {
+            flex-direction: column;
+            max-width: 100%;
+            align-items: flex-start;
+            div {
+                width: 100%;
+            }
+        }
     }
 
     .emailLabelWrapper {
         display: flex;
         flex-direction: row;
         align-items: center;
-        // margin: 32px 0;
         label {
             font-weight: $font-weight-semibold;
         }
         input {
             padding: 8px 16px;
             flex: auto;
+        }
+
+        @media #{$medium} {
+            flex-direction: column;
+            max-width: 100%;
+            align-items: flex-start;
+
+            input {
+                width: 100%;
+            }
         }
     }
 
@@ -445,6 +455,12 @@ export default {
 
         input {
             flex: auto;
+        }
+
+        @media #{$medium} {
+            flex-direction: column;
+            width: 100%;
+            align-items: flex-start;
         }
     }
 
@@ -496,12 +512,12 @@ export default {
             background-color: var(--color-primary-blue-01);
         }
 
-        &:invalid {
-            border-color: var(--color-status-error-02);
-            font {
-                color: var(--color-secondary-grey-05);
-            }
-        }
+        // &:invalid {
+        //     border-color: var(--color-status-error-02);
+        //     font {
+        //         color: var(--color-secondary-grey-05);
+        //     }
+        // }
     }
 
     select {
@@ -521,6 +537,9 @@ export default {
             width: auto;
             margin-bottom: 10px;
         }
+        @media #{$medium} {
+            width: 100%;
+        }
     }
 
     .radioWrappper {
@@ -530,24 +549,33 @@ export default {
 
         label {
             align-self: flex-start;
+            @media #{$medium} {
+                align-self: flex-start;
+                width: 100%;
+            }
         }
     }
 
     .success-message {
-        background-color: yellow;
         position: fixed;
         z-index: 5;
         box-sizing: border-box;
         top: 10px;
-        right: 10px;
-        width: 179px;
+        right: 1%;
+        width: 98%;
         padding: 20px;
         box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
         overflow: hidden;
-        border-radius: 3px;
+        border-radius: var(--rounded-slightly-all);
+        background: white;
 
-        color: #64b587;
-        border-bottom: 5px solid #64b587;
+        border: 2px solid #64b587;
+
+        h3 {
+            @include step-1;
+            padding-bottom: 9px;
+            border-bottom: 1px solid var(--color-secondary-grey-01);
+        }
 
         .notification--remove {
             position: absolute;
