@@ -1,5 +1,5 @@
 <template>
-    <div class="block-form">
+    <div class="block-form" v-if="!isClosed">
         <div class="success-message" v-if="hasNotifications">
             <h3>Registration complete</h3>
             <p>
@@ -23,11 +23,17 @@
             class="form"
             v-else
         >
-            <p class="formTitle">Registration (8 seats left)</p>
+            <div class="formTitleWrapper">
+                <p class="formTitle">Registration (8 seats left)</p>
+
+                <button type="button" @click="closeBlockForm()">
+                    <svg-glyph-close class="svg-glyph-close" />
+                </button>
+            </div>
 
             <br />
 
-            <div v-if="!errors.length" class="form-errors">
+            <div v-if="errors.length" class="form-errors">
                 <!-- <p>Please correct the following error(s):</p> -->
                 <!-- <ul>
                     <li
@@ -41,7 +47,7 @@
                 </p>
             </div>
 
-            <br v-if="!errors.length" />
+            <br v-if="errors.length" />
 
             <div class="registrationInfo">
                 <p>Registration is required for this event.</p>
@@ -180,6 +186,9 @@
             <button type="submit" class="submitButton">Register</button>
         </form>
     </div>
+    <button class="submitButton" @click="closeBlockForm()" v-else>
+        Register
+    </button>
 </template>
 
 <script>
@@ -220,6 +229,7 @@ export default {
             hasNotifications: false,
             sent: false,
             status: {},
+            isClosed: false,
         }
     },
     watch: {
@@ -359,6 +369,9 @@ export default {
                 window.scrollTo(0, 0)
             }
         },
+        closeBlockForm() {
+            this.isClosed = !this.isClosed
+        },
     },
 }
 </script>
@@ -409,6 +422,12 @@ export default {
     ::placeholder {
         @include step--1;
         color: var(--color-secondary-grey-04);
+    }
+
+    .formTitleWrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .registrationInfo {
@@ -627,81 +646,80 @@ export default {
             }
         }
     }
-
-    .submitButton {
-        box-sizing: border-box;
-        position: relative;
-        @include button;
-        min-height: 48px;
-        padding: 4px 40px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
-        border: 1.5px solid var(--color-primary-blue-02);
-        transition-property: all;
-        @include animate-normal;
-        overflow: hidden;
-        z-index: 0;
-
-        background-color: var(--color-primary-blue-03);
-        --button-background-slide: var(--color-white);
-        border-color: var(--color-primary-blue-03);
-        color: var(--color-white);
-
-        .label {
-            white-space: nowrap;
-        }
-
-        &::before {
-            content: "";
-            width: 100%;
-            height: 100%;
-            background-color: var(--button-background-slide);
-            position: absolute;
-            top: 0;
-            left: -100%;
-            transition-property: all;
-            @include animate-normal;
-            z-index: -10;
-        }
-
-        // Hover states
-        @media #{$has-hover} {
-            &:hover,
-            &:focus,
-            &:focus-visible {
-                cursor: pointer;
-                border-color: var(--color-primary-blue-02);
-                color: var(--color-black);
-
-                &::before {
-                    left: 0;
-                }
-            }
-
-            &:focus,
-            &:focus-visible {
-                outline: none;
-                border-radius: 0;
-            }
-        }
-        // Breakpoints
-        @media #{$medium} {
-            padding: 4px 16px;
-            display: inline-flex;
-        }
-
-        @media #{$small} {
-            width: 100%;
-        }
-    }
-
     .form-errors {
         background-color: var(--color-status-error-01);
         box-sizing: border-box;
         padding: 20px;
         border-radius: var(--rounded-slightly-all);
+    }
+}
+
+.submitButton {
+    box-sizing: border-box;
+    position: relative;
+    @include button;
+    min-height: 48px;
+    padding: 4px 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 1.5px solid var(--color-primary-blue-02);
+    transition-property: all;
+    @include animate-normal;
+    overflow: hidden;
+    z-index: 0;
+
+    background-color: var(--color-primary-blue-03);
+    --button-background-slide: var(--color-white);
+    border-color: var(--color-primary-blue-03);
+    color: var(--color-white);
+
+    .label {
+        white-space: nowrap;
+    }
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: var(--button-background-slide);
+        position: absolute;
+        top: 0;
+        left: -100%;
+        transition-property: all;
+        @include animate-normal;
+        z-index: -10;
+    }
+
+    // Hover states
+    @media #{$has-hover} {
+        &:hover,
+        &:focus,
+        &:focus-visible {
+            cursor: pointer;
+            border-color: var(--color-primary-blue-02);
+            color: var(--color-black);
+
+            &::before {
+                left: 0;
+            }
+        }
+
+        &:focus,
+        &:focus-visible {
+            outline: none;
+            border-radius: 0;
+        }
+    }
+    // Breakpoints
+    @media #{$medium} {
+        padding: 4px 16px;
+        display: inline-flex;
+    }
+
+    @media #{$small} {
+        width: 100%;
     }
 }
 </style>
