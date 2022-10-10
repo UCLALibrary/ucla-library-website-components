@@ -27,7 +27,7 @@
 
             <br />
 
-            <div v-if="!errors.length" class="form-errors">
+            <div v-if="errors.length" class="form-errors">
                 <!-- <p>Please correct the following error(s):</p> -->
                 <!-- <ul>
                     <li
