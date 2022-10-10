@@ -1,6 +1,5 @@
 <template>
     <div class="block-form">
-        <!-- <div class="success-message" v-if="hasNotifications"> -->
         <div class="success-message" v-if="hasNotifications">
             <h3>Registration complete</h3>
             <p>
@@ -17,7 +16,13 @@
             </button>
         </div>
 
-        <form id="app" @submit.prevent="checkForm" method="post" class="form">
+        <form
+            id="app"
+            @submit.prevent="checkForm"
+            method="post"
+            class="form"
+            v-else
+        >
             <div v-if="errors.length" class="form-errors">
                 <b>Please correct the following error(s):</b>
                 <ul>
@@ -32,6 +37,13 @@
             </div>
 
             <p class="formTitle">Registration (8 seats left)</p>
+
+            <br />
+
+            <div class="registrationInfo">
+                <p>Registration is required for this event.</p>
+                <p class="requiredField">* Required Field</p>
+            </div>
 
             <br />
 
@@ -387,6 +399,16 @@ export default {
     ::placeholder {
         @include step--1;
         color: var(--color-secondary-grey-04);
+    }
+
+    .registrationInfo {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .requiredField {
+            font-weight: $font-weight-medium;
+        }
     }
 
     .fullNameWrapper {
