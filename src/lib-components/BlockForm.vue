@@ -113,10 +113,10 @@
 
                 <!-- TODO  do we need to add required to checkbox and radio and select inout elements -->
                 <div v-if="question.type == 'radio'">
-                    Picked: {{ formQuestions[question.id] }}
                     <div
                         :key="index"
                         v-for="(option, index) in question.options"
+                        class="radioWrappper"
                     >
                         <input
                             type="radio"
@@ -414,6 +414,7 @@ export default {
 
             input {
                 padding: 8px 16px;
+                width: 49%;
             }
         }
     }
@@ -437,6 +438,10 @@ export default {
         flex-direction: row;
         align-items: center;
         margin-bottom: 1em;
+
+        label {
+            align-self: flex-start;
+        }
 
         input {
             flex: auto;
@@ -514,6 +519,17 @@ export default {
 
         label {
             width: auto;
+            margin-bottom: 10px;
+        }
+    }
+
+    .radioWrappper {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 16px;
+
+        label {
+            align-self: flex-start;
         }
     }
 
