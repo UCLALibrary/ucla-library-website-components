@@ -57,7 +57,7 @@
             <br />
 
             <div class="fullNameWrapper">
-                <label>Full Name *</label>
+                <label>Full Name*</label>
                 <div>
                     <input
                         id="firstName"
@@ -85,9 +85,9 @@
             <div v-if="block.emailMethod" class="emailLabelWrapper">
                 <label for="email">
                     <span v-if="block.emailMethod.status == 'required'">
-                        Email *
+                        Email*
                     </span>
-                    <span v-else> Email </span>
+                    <span v-else>Email</span>
                 </label>
                 <input
                     id="email"
@@ -112,8 +112,8 @@
                     v-if="question.type !== 'string'"
                     :class="question.required ? 'questionRequired' : ''"
                 >
-                    {{ question.label }}
-                    <span v-if="question.required">*</span>
+                    <span v-if="question.required">{{ question.label }}*</span>
+                    <span v-else>{{ question.label }}</span>
                 </label>
 
                 <div v-if="question.type == 'string'" class="textareaWrapper">
@@ -121,8 +121,10 @@
                         :for="question.id"
                         :class="question.required ? 'questionRequired' : ''"
                     >
-                        {{ question.label }}
-                        <span v-if="question.required">*</span>
+                        <span v-if="question.required"
+                            >{{ question.label }}*</span
+                        >
+                        <span v-else>{{ question.label }}</span>
                     </label>
                     <textarea
                         v-model="formQuestions[question.id]"
@@ -394,10 +396,15 @@ export default {
         min-width: 320px;
     }
 
+    .formTitleWrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--color-secondary-grey-02);
+    }
+
     .formTitle {
         @include step-1;
-        padding-bottom: 9px;
-        border-bottom: 1px solid var(--color-secondary-grey-01);
     }
 
     label {
@@ -424,16 +431,15 @@ export default {
         color: var(--color-secondary-grey-04);
     }
 
-    .formTitleWrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
     .registrationInfo {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        @media #{$small} {
+            flex-direction: column;
+            gap: 8px;
+        }
 
         .requiredField {
             font-weight: $font-weight-medium;
