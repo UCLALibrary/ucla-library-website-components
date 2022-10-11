@@ -11,12 +11,8 @@ export default {
 
             if (
                 uri == null ||
-                // // TODO: Add support for non-router links to be local based on domain name
-                // // This is disabled for now because it'll need to be customizable for microsites
-                // (uri.includes("library.ucla.edu") &&
-                //     !uri.includes("mailto:")) ||
                 String(uri).indexOf("/") === 0 ||
-                !uri.includes(".")
+                (!uri.includes(".") && uri.length !== 0)
             ) {
                 output = true
             }
