@@ -1,5 +1,5 @@
 <template>
-    <div class="block-form">
+    <div class="block-form" v-if="!isClosed">
         <div class="success-message" v-if="hasNotifications">
             <h3>Registration complete</h3>
             <p>
@@ -7,7 +7,6 @@
                 your email.
             </p>
 
-            <div><p v-text="status.text"></p></div>
             <button
                 type="button"
                 class="notification--remove"
@@ -15,9 +14,6 @@
             >
                 <svg-glyph-close class="svg-glyph-close" />
             </button>
-
-            <br />
-            <br />
         </div>
 
         <form
@@ -27,76 +23,121 @@
             class="form"
             v-else
         >
+            <div class="formTitleWrapper">
+                <p class="formTitle">Registration (8 seats left)</p>
+
+                <button type="button" @click="closeBlockForm()">
+                    <svg-glyph-close class="svg-glyph-close" />
+                </button>
+            </div>
+
+            <br />
+
             <div v-if="errors.length" class="form-errors">
-                <b>Please correct the following error(s):</b>
-                <ul>
+                <!-- <p>Please correct the following error(s):</p> -->
+                <!-- <ul>
                     <li
                         :key="index"
                         v-for="(error, index) in errors"
                         v-html="error"
                     />
-                </ul>
-                <br />
-                <br />
+                </ul> -->
+                <p>
+                    Please complete the required fields to complete registration
+                </p>
             </div>
-            <p>Full Name</p>
-            <p>
-                <label for="firstName">First Name *</label>
-                <input
-                    id="firstName"
-                    v-model="firstName"
-                    type="text"
-                    name="firstName"
-                    required
-                />
-            </p>
 
-            <p>
-                <label for="lastName">Last Name *</label>
-                <input
-                    id="lastName"
-                    v-model="lastName"
-                    type="text"
-                    name="lastName"
-                    required
-                />
-            </p>
+            <br v-if="errors.length" />
 
-            <p v-if="block.emailMethod">
+            <div class="registrationInfo">
+                <p>Registration is required for this event.</p>
+                <p class="requiredField">* Required Field</p>
+            </div>
+
+            <br />
+
+            <div class="fullNameWrapper">
+                <label>Full Name*</label>
+                <div>
+                    <input
+                        id="firstName"
+                        v-model="firstName"
+                        type="text"
+                        name="firstName"
+                        required
+                        aria-required="true"
+                        placeholder="First Name"
+                    />
+                    <input
+                        id="lastName"
+                        v-model="lastName"
+                        type="text"
+                        name="lastName"
+                        required
+                        aria-required="true"
+                        placeholder="Last Name"
+                    />
+                </div>
+            </div>
+
+            <br />
+
+            <div v-if="block.emailMethod" class="emailLabelWrapper">
                 <label for="email">
-                    Email
-                    <span v-if="block.emailMethod.status == 'required'"
-                        >*
+                    <span v-if="block.emailMethod.status == 'required'">
+                        Email*
                     </span>
+                    <span v-else>Email</span>
                 </label>
                 <input
                     id="email"
                     v-model="email"
                     type="email"
                     name="email"
+                    :required="block.emailMethod.status"
+                    :aria-required="block.emailMethod.status == 'required'"
                     v-bind="{}"
                 />
-            </p>
+            </div>
 
-            <div :key="question.id" v-for="question in parseQuestions">
-                <br />
-                <label :for="question.id">
-                    {{ question.label }}
-                    <span v-if="question.required">*</span>
+            <br />
+
+            <div
+                :key="question.id"
+                v-for="question in parseQuestions"
+                class="parsedQuestionsLabelWrapper"
+            >
+                <label
+                    :for="question.id"
+                    v-if="question.type !== 'string'"
+                    :class="question.required ? 'questionRequired' : ''"
+                >
+                    <span v-if="question.required">{{ question.label }}*</span>
+                    <span v-else>{{ question.label }}</span>
                 </label>
 
-                <textarea
-                    v-if="question.type == 'string'"
-                    v-model="formQuestions[question.id]"
-                    placeholder="add multiple lines"
-                />
+                <div v-if="question.type == 'string'" class="textareaWrapper">
+                    <label
+                        :for="question.id"
+                        :class="question.required ? 'questionRequired' : ''"
+                    >
+                        <span v-if="question.required"
+                            >{{ question.label }}*</span
+                        >
+                        <span v-else>{{ question.label }}</span>
+                    </label>
+                    <textarea
+                        v-model="formQuestions[question.id]"
+                        placeholder="Add multiple lines"
+                    />
+                </div>
 
                 <!-- TODO  do we need to add required to checkbox and radio and select inout elements -->
                 <div v-if="question.type == 'radio'">
-                    Picked: {{ formQuestions[question.id] }}
                     <div
                         :key="index"
                         v-for="(option, index) in question.options"
+                        class="radioWrappper"
                     >
                         <input
                             type="radio"
@@ -108,10 +149,10 @@
                     </div>
                 </div>
                 <div v-if="question.type == 'checkbox'">
-                    checked names: {{ formQuestions[question.id] }}
                     <div
                         :key="index"
                         v-for="(option, index) in question.options"
+                        class="checkboxWrapper"
                     >
                         <input
                             type="checkbox"
@@ -142,15 +183,20 @@
                 </select>
             </div>
 
-            <p>
-                <input type="submit" value="Register" />
-            </p>
+            <br />
+
+            <button type="submit" class="submitButton">Register</button>
         </form>
     </div>
+    <button class="submitButton" @click="closeBlockForm()" v-else>
+        Register
+    </button>
 </template>
 
 <script>
 import SvgGlyphClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg"
+import SvgIconCheckbox from "ucla-library-design-tokens/assets/svgs/icon-checkbox.svg"
+
 export default {
     name: "BlockForm",
     components: {
@@ -185,6 +231,7 @@ export default {
             hasNotifications: false,
             sent: false,
             status: {},
+            isClosed: false,
         }
     },
     watch: {
@@ -205,26 +252,16 @@ export default {
         },
         parseQuestions() {
             return this.block.questions.map((obj) => {
-                // console.log(obj.id)
-                switch (obj.type) {
-                    case "string":
-                        this.formQuestions[obj.id] = ""
-                        this.questionsRequired[obj.id] = obj.required
-                        break
-                    case "radio":
-                        this.formQuestions[obj.id] = ""
-                        this.questionsRequired[obj.id] = obj.required
-                        break
-                    case "dropdown":
-                        this.formQuestions[obj.id] = ""
-                        this.questionsRequired[obj.id] = obj.required
-                        break
-                    case "checkbox":
-                        this.formQuestions[obj.id] = []
-                        this.questionsRequired[obj.id] = obj.required
-                        break
+                if (
+                    obj.type === "string" ||
+                    obj.type === "radio" ||
+                    obj.type === "dropdown"
+                ) {
+                    this.formQuestions[obj.id] = ""
+                } else {
+                    this.formQuestions[obj.id] = []
                 }
-                // console.log(this.questionsRequired)
+                this.questionsRequired[obj.id] = obj.required
                 return {
                     ...obj,
                     classes: `input-${obj.type}`,
@@ -253,9 +290,6 @@ export default {
                     first_name: this.firstName,
                     last_name: this.lastName,
                     email: this.email,
-                    // phone: "",
-                    // barcode: "2348238709662234",
-
                     questions: [],
                 },
                 registration_type: this.registrationType,
@@ -266,8 +300,6 @@ export default {
                     answer: this.formQuestions[obj.id],
                 }
             })
-            //console.log(data.form.questions)
-            // console.log(this.encode(data))
             console.log(JSON.stringify(data))
             let url = `https://test.proxy.calendar.library.ucla.edu/api/1.1/events/${this.eventId}/register`
             fetch(url, {
@@ -282,7 +314,7 @@ export default {
                     this.sent = true
                     this.status = {
                         code: "success",
-                        text: "One seat is sent to LibCal to be registered or will be on waitlist",
+                        text: "One seat is sent to LibCal to be registered or will be on wait list",
                     }
                 })
                 .catch((err) => {
@@ -298,12 +330,14 @@ export default {
         checkForm(e) {
             let fullNameValid = false
             let emailValid = false
+
             if (this.firstName && this.lastName) {
                 fullNameValid = true
             }
             if (this.emailRequired && this.email) {
                 emailValid = true
             }
+
             this.errors = []
             if (!fullNameValid) {
                 this.errors.push("Full Name required.")
@@ -311,43 +345,18 @@ export default {
             if (!emailValid) {
                 this.errors.push("Email required.")
             }
+
             for (let question of this.block.questions) {
-                // TODO refactor this into a switch case statement
-                /* console.log(
-                    this.questionsRequired[question.id] +
-                        " is the question required" +
-                        question.id
-                )
-                console.log(
-                    question.type + " what is the type" + question.required
-                )
-                console.log(
-                    this.formQuestions[question.id] +
-                        " what is the value in the form field" +
-                        question.label
-                )*/
                 if (
                     this.questionsRequired[question.id] &&
-                    question.type == "string" &&
                     !this.formQuestions[question.id]
                 ) {
-                    this.errors.push(this.block.questions.label + " required.")
-                }
-                if (
-                    this.questionsRequired[question.id] &&
-                    question.type == "radio" &&
-                    !this.formQuestions[question.id]
-                ) {
-                    this.errors.push(question.label + " required.")
-                }
-                if (
-                    this.questionsRequired[question.id] &&
-                    question.type == "dropdown" &&
-                    !this.formQuestions[question.id]
-                ) {
-                    this.errors.push(question.label + " required.")
-                }
-                if (
+                    question.type === "string"
+                        ? this.errors.push(
+                              this.block.questions.label + " required."
+                          )
+                        : this.errors.push(question.label + " required.")
+                } else if (
                     this.questionsRequired[question.id] &&
                     question.type == "checkbox" &&
                     this.formQuestions[question.id].length == 0
@@ -362,27 +371,276 @@ export default {
                 window.scrollTo(0, 0)
             }
         },
+        closeBlockForm() {
+            this.isClosed = !this.isClosed
+        },
     },
 }
 </script>
 
 <style lang="scss" scoped>
 .block-form {
+    border-radius: var(--rounded-slightly-all);
+    border-color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-l);
+    max-width: $container-l-text + px;
+    padding: var(--space-xl);
+
+    @media #{$medium} {
+        max-width: 100%;
+        min-width: 600px;
+    }
+
+    @media #{$small} {
+        max-width: 100%;
+        min-width: 320px;
+    }
+
+    .formTitleWrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--color-secondary-grey-02);
+    }
+
+    .formTitle {
+        @include step-1;
+    }
+
+    label {
+        @include step-0;
+        display: flex;
+        flex-direction: row;
+        width: 148px;
+        gap: var(--space-s);
+        margin-right: 16px;
+
+        @media #{$medium} {
+            width: 100%;
+            align-items: flex-start;
+        }
+    }
+
+    label:required {
+        @include step-0;
+        font-weight: $font-weight-medium;
+    }
+
+    ::placeholder {
+        @include step--1;
+        color: var(--color-secondary-grey-04);
+    }
+
+    .registrationInfo {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        @media #{$small} {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .requiredField {
+            font-weight: $font-weight-medium;
+        }
+    }
+
+    .fullNameWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        label {
+            font-weight: $font-weight-semibold;
+            text-align: end;
+        }
+
+        div {
+            display: flex;
+            flex: auto;
+            justify-content: space-between;
+
+            input {
+                padding: 8px 16px;
+                width: 49%;
+            }
+        }
+
+        @media #{$medium} {
+            flex-direction: column;
+            max-width: 100%;
+            align-items: flex-start;
+            div {
+                width: 100%;
+            }
+        }
+    }
+
+    .emailLabelWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        label {
+            font-weight: $font-weight-semibold;
+        }
+        input {
+            padding: 8px 16px;
+            flex: auto;
+        }
+
+        @media #{$medium} {
+            flex-direction: column;
+            max-width: 100%;
+            align-items: flex-start;
+
+            input {
+                width: 100%;
+            }
+        }
+    }
+
+    .parsedQuestionsLabelWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 1em;
+
+        label {
+            align-self: flex-start;
+        }
+
+        input {
+            flex: auto;
+        }
+
+        @media #{$medium} {
+            flex-direction: column;
+            width: 100%;
+            align-items: flex-start;
+        }
+    }
+
+    .checkboxWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 16px;
+
+        input {
+            margin-right: 14px;
+        }
+    }
+
+    textarea {
+        padding: 8px 16px;
+        border-radius: var(--rounded-slightly-all);
+    }
+
+    input {
+        border: 1px solid;
+        border-color: var(--color-secondary-grey-03);
+        border-radius: var(--rounded-slightly-all);
+        font: {
+            color: var(--color-secondary-grey-04);
+        }
+        @include shadow-state-change;
+
+        @include step--1;
+        color: var(--color-secondary-grey-05);
+
+        &:hover {
+            border-color: var(--color-default-cyan-03);
+        }
+
+        &:focus {
+            border-color: var(--color-default-cyan-03);
+            font {
+                color: var(--color-secondary-grey-04);
+                @include shadow-state-change;
+            }
+        }
+
+        &:active {
+            border-color: var(--color-default-cyan-03);
+            font {
+                color: var(--color-secondary-grey-05);
+            }
+            background-color: var(--color-primary-blue-01);
+        }
+
+        // &:invalid {
+        //     border-color: var(--color-status-error-02);
+        //     font {
+        //         color: var(--color-secondary-grey-05);
+        //     }
+        // }
+    }
+
+    select {
+        padding: 11.5px 16px;
+        flex: auto;
+        border-radius: var(--rounded-slightly-all);
+        width: 100%;
+        background: white;
+    }
+
+    .textareaWrapper {
+        display: flex;
+        flex-direction: column;
+        flex: auto;
+
+        label {
+            width: auto;
+            margin-bottom: 10px;
+        }
+        @media #{$medium} {
+            width: 100%;
+        }
+    }
+
+    .radioWrappper {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 16px;
+
+        label {
+            align-self: flex-start;
+            @media #{$medium} {
+                align-self: flex-start;
+                width: 100%;
+            }
+        }
+
+        input {
+            margin-right: 16px;
+        }
+    }
+
+    .questionRequired {
+        font-weight: $font-weight-semibold;
+    }
+
     .success-message {
-        background-color: yellow;
         position: fixed;
         z-index: 5;
         box-sizing: border-box;
         top: 10px;
-        right: 10px;
-        width: 179px;
+        right: 1%;
+        width: 98%;
         padding: 20px;
         box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
         overflow: hidden;
-        border-radius: 3px;
+        border-radius: var(--rounded-slightly-all);
+        background: white;
 
-        color: #64b587;
-        border-bottom: 5px solid #64b587;
+        border: 2px solid #64b587;
+
+        h3 {
+            @include step-1;
+            padding-bottom: 9px;
+            border-bottom: 1px solid var(--color-secondary-grey-01);
+        }
 
         .notification--remove {
             position: absolute;
@@ -394,12 +652,80 @@ export default {
             }
         }
     }
-
-    button {
-        border: none;
-    }
     .form-errors {
-        background-color: cyan;
+        background-color: var(--color-status-error-01);
+        box-sizing: border-box;
+        padding: 20px;
+        border-radius: var(--rounded-slightly-all);
+    }
+}
+
+.submitButton {
+    box-sizing: border-box;
+    position: relative;
+    @include button;
+    min-height: 48px;
+    padding: 4px 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border: 1.5px solid var(--color-primary-blue-02);
+    transition-property: all;
+    @include animate-normal;
+    overflow: hidden;
+    z-index: 0;
+
+    background-color: var(--color-primary-blue-03);
+    --button-background-slide: var(--color-white);
+    border-color: var(--color-primary-blue-03);
+    color: var(--color-white);
+
+    .label {
+        white-space: nowrap;
+    }
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: var(--button-background-slide);
+        position: absolute;
+        top: 0;
+        left: -100%;
+        transition-property: all;
+        @include animate-normal;
+        z-index: -10;
+    }
+
+    // Hover states
+    @media #{$has-hover} {
+        &:hover,
+        &:focus,
+        &:focus-visible {
+            cursor: pointer;
+            border-color: var(--color-primary-blue-02);
+            color: var(--color-black);
+
+            &::before {
+                left: 0;
+            }
+        }
+
+        &:focus,
+        &:focus-visible {
+            outline: none;
+            border-radius: 0;
+        }
+    }
+    // Breakpoints
+    @media #{$medium} {
+        padding: 4px 16px;
+        display: inline-flex;
+    }
+
+    @media #{$small} {
+        width: 100%;
     }
 }
 </style>
