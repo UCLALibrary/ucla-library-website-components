@@ -10,7 +10,7 @@ export default {
     decorators: [StoryRouter()],
 }
 
-const mock = {
+const mock0 = {
     id: 5481,
     name: "Data Science Center Workshops",
     identityHelp: "",
@@ -259,17 +259,293 @@ const mock = {
     ],
 }
 
+const mock1 = {
+    id: 5906,
+    name: "Advanced Research Workshop Series",
+    identityHelp: "",
+    emailMethod: {
+        status: "required",
+        label: "Email",
+        help: "",
+    },
+    phoneMethod: {
+        status: "disabled",
+        label: "Phone Number",
+        help: "",
+    },
+    barcodeMethod: {
+        status: "disabled",
+        label: "Library Barcode",
+        help: "",
+    },
+    questions: [
+        {
+            id: 15929,
+            label: "UCLA Department Affiliation",
+            type: "string",
+            required: true,
+        },
+        {
+            id: 16763,
+            label: "Status",
+            type: "radio",
+            required: true,
+            options: [
+                "Graduate Student",
+                "Faculty",
+                "Undergraduate Student",
+                "Staff",
+                "Library Staff",
+                "Visiting Scholar",
+            ],
+        },
+        {
+            id: 16764,
+            label: "Please provide a brief description of your experience with this topic.",
+            type: "string",
+            required: true,
+        },
+        {
+            id: 16765,
+            label: "How did you hear about this event?",
+            type: "string",
+            required: false,
+        },
+    ],
+}
+
+const mock2 = {
+    id: 2317,
+    name: "CLICC Instructional Use Form",
+    identityHelp: "",
+    emailMethod: {
+        status: "required",
+        label: "Email",
+        help: "",
+    },
+    phoneMethod: {
+        status: "disabled",
+        label: "Phone Number",
+        help: "",
+    },
+    barcodeMethod: {
+        status: "disabled",
+        label: "Library Barcode",
+        help: "",
+    },
+    questions: [],
+}
+
+const mock3 = {
+    id: 5907,
+    name: "Terry Allen",
+    identityHelp: "",
+    emailMethod: {
+        status: "required",
+        label: "Email",
+        help: "",
+    },
+    phoneMethod: {
+        status: "disabled",
+        label: "Phone Number",
+        help: "",
+    },
+    barcodeMethod: {
+        status: "disabled",
+        label: "Library Barcode",
+        help: "",
+    },
+    questions: [
+        {
+            id: 15930,
+            label: "What's your previous experience with this topic?",
+            type: "string",
+            required: false,
+        },
+    ],
+}
+
+const mock4 = {
+    id: 14719,
+    name: "Test Form - FTVA",
+    identityHelp: "",
+    emailMethod: {
+        status: "required",
+        label: "Email",
+        help: "",
+    },
+    phoneMethod: {
+        status: "disabled",
+        label: "Phone Number",
+        help: "",
+    },
+    barcodeMethod: {
+        status: "disabled",
+        label: "Library Barcode",
+        help: "",
+    },
+    questions: [
+        {
+            id: 44084,
+            label: "multiline text",
+            type: "string",
+            required: false,
+        },
+    ],
+}
+
+const mock5 = {
+    id: 10193,
+    name: "Text/Ballot",
+    identityHelp: "",
+    emailMethod: {
+        status: "required",
+        label: "Email",
+        help: "",
+    },
+    phoneMethod: {
+        status: "disabled",
+        label: "Phone Number",
+        help: "",
+    },
+    barcodeMethod: {
+        status: "disabled",
+        label: "Library Barcode",
+        help: "",
+    },
+    questions: [
+        {
+            id: 26603,
+            label: "President",
+            type: "radio",
+            required: true,
+            options: ["Zoe", "Diane"],
+        },
+        {
+            id: 26604,
+            label: "Vice President",
+            type: "radio",
+            required: true,
+            options: ["Zoe", "Diane", "Gabi"],
+        },
+    ],
+}
+
+const mock6 = {
+    id: 1486,
+    name: "UCLA Library Event Registration",
+    identityHelp: "",
+    emailMethod: {
+        status: "required",
+        label: "Email",
+        help: "",
+    },
+    phoneMethod: {
+        status: "disabled",
+        label: "Phone Number",
+        help: "",
+    },
+    barcodeMethod: {
+        status: "disabled",
+        label: "Library Barcode",
+        help: "",
+    },
+    questions: [
+        {
+            id: 4325,
+            label: "Favorite Animal",
+            type: "radio",
+            required: false,
+            options: ["Lion", "Tiger", "Liger"],
+        },
+    ],
+}
+
 // Variations of stories below
 export const Default = () => ({
     data() {
         return {
-            mock,
+            mock0,
         }
     },
     components: { BlockForm },
     template: `
         <block-form
-            :block="mock" event-id="9383207"
+            :block="mock0" event-id="9383207"
+        />
+    `,
+})
+
+export const DefaultType2 = () => ({
+    data() {
+        return {
+            mock1,
+        }
+    },
+    components: { BlockForm },
+    template: `
+        <block-form
+            :block="mock1" event-id="9383207"
+        />
+    `,
+})
+
+export const CLICCInstructionalUseForm = () => ({
+    data() {
+        return { mock2 }
+    },
+    components: { BlockForm },
+    template: `
+        <block-form
+            :block="mock2" event-id="9383207"
+        />
+    `,
+})
+
+export const TestFormTerryAllen = () => ({
+    data() {
+        return { mock3 }
+    },
+    components: { BlockForm },
+    template: `
+        <block-form
+            :block="mock3" event-id="9383207"
+        />
+    `,
+})
+
+export const TestFormFTVA = () => ({
+    data() {
+        return { mock4 }
+    },
+    components: { BlockForm },
+    template: `
+        <block-form
+            :block="mock4" event-id="9383207"
+        />
+    `,
+})
+
+export const TextBallot = () => ({
+    data() {
+        return { mock5 }
+    },
+    components: { BlockForm },
+    template: `
+        <block-form
+            :block="mock5" event-id="9383207"
+        />
+    `,
+})
+
+export const UCLALibraryEventRegistration = () => ({
+    data() {
+        return { mock6 }
+    },
+    components: { BlockForm },
+    template: `
+        <block-form
+            :block="mock6" event-id="9383207"
         />
     `,
 })
