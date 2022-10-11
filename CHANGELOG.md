@@ -1,3 +1,10 @@
+# [1.57.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.6...v1.57.0) (2022-10-11)
+
+
+### Features
+
+* Apps 1907 block form style ([#206](https://github.com/UCLALibrary/ucla-library-website-components/issues/206)) ([d0b024f](https://github.com/UCLALibrary/ucla-library-website-components/commit/d0b024f2a46bf2ec20a3af71c26a12e393b78b92))
+
 ## [1.56.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.5...v1.56.6) (2022-10-05)
 
 
