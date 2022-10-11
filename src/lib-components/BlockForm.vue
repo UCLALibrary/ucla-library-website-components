@@ -575,7 +575,7 @@ export default {
         padding: 11.5px 16px;
         flex: auto;
         border-radius: var(--rounded-slightly-all);
-
+        width: 100%;
         background: white;
     }
 
