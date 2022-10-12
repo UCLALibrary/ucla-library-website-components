@@ -285,3 +285,21 @@ export const Video = () => ({
         />
     `,
 })
+
+export const WithBlockForm = () => ({
+    data() {
+        return {
+            ...mock,
+        }
+    },
+    components: { BannerFeatured },
+    template: `
+        <banner-featured
+            :video="video"
+            :category="category"
+            :title="title"
+            :description="description"
+            :prompt="prompt"
+        />
+    `,
+})

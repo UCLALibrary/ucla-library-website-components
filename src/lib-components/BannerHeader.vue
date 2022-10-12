@@ -107,9 +107,9 @@
                 :to="to"
             />
             <button
+                v-if="!to && !registerEvent"
                 @click="showBlockEvent()"
                 class="submitButton"
-                v-if="!to && !registerEvent"
             >
                 Register
             </button>
