@@ -14,7 +14,7 @@
                         :key="index"
                         class="byline-item"
                     >
-                        {{ item }}
+                        {{ item.title }}
                     </div>
                     <div v-if="date" class="schedule">
                         <time
