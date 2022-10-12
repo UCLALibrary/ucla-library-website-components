@@ -253,3 +253,24 @@ export const ExternalLink = () => ({
        />
     `,
 })
+
+export const WithBlockForm = () => ({
+    data() {
+        return {
+            ...mock,
+        }
+    },
+    components: { BannerHeader },
+    template: `
+        <banner-header
+           :image="image"
+           :title="title"
+           :category="category"
+           :start-date="startDate"
+           :end-date="endDate"
+           :byline="byline"
+           :prompt="prompt"
+           :locations="locations"
+       />
+    `,
+})

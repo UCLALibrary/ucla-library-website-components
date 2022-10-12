@@ -1,5 +1,5 @@
 <template>
-    <div class="block-form" v-if="!isClosed">
+    <div class="block-form" v-if="registerEvent">
         <div class="success-message" v-if="hasNotifications">
             <h3>Registration complete</h3>
             <p>
@@ -26,7 +26,7 @@
             <div class="formTitleWrapper">
                 <p class="formTitle">Registration (8 seats left)</p>
 
-                <button type="button" @click="closeBlockForm()">
+                <button type="button" @click="$emit('closeBlockForm')">
                     <svg-glyph-close class="svg-glyph-close" />
                 </button>
             </div>
@@ -188,9 +188,6 @@
             <button type="submit" class="submitButton">Register</button>
         </form>
     </div>
-    <button class="submitButton" @click="closeBlockForm()" v-else>
-        Register
-    </button>
 </template>
 
 <script>
@@ -216,6 +213,10 @@ export default {
             default: "9383207",
             required: true,
         },
+        registerEvent: {
+            type: Boolean,
+            required: true,
+        },
     },
     data() {
         return {
@@ -231,7 +232,6 @@ export default {
             hasNotifications: false,
             sent: false,
             status: {},
-            isClosed: false,
         }
     },
     watch: {
@@ -300,7 +300,6 @@ export default {
                     answer: this.formQuestions[obj.id],
                 }
             })
-            console.log(JSON.stringify(data))
             let url = `https://test.proxy.calendar.library.ucla.edu/api/1.1/events/${this.eventId}/register`
             fetch(url, {
                 method: "POST",
@@ -370,9 +369,6 @@ export default {
             } else {
                 window.scrollTo(0, 0)
             }
-        },
-        closeBlockForm() {
-            this.isClosed = !this.isClosed
         },
     },
 }
