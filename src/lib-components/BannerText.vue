@@ -10,11 +10,20 @@
                 <rich-text v-if="text" class="text" :rich-text-content="text" />
                 <div class="byline" v-if="byline.length">
                     <div
+                        v-if="articleType"
                         v-for="(item, index) in byline"
                         :key="index"
                         class="byline-item"
                     >
                         {{ item.title }}
+                    </div>
+                    <div
+                        v-if="!articleType"
+                        v-for="(item, index) in byline"
+                        :key="index"
+                        class="byline-item"
+                    >
+                        {{ item }}
                     </div>
                     <div v-if="date" class="schedule">
                         <time
@@ -163,6 +172,10 @@ export default {
             default: "",
         },
         staffDirectoryLink: {
+            type: String,
+            default: "",
+        },
+        articleType: {
             type: String,
             default: "",
         },

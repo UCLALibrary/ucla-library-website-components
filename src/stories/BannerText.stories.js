@@ -151,6 +151,7 @@ export const ExternalLink = () => ({
 const article = {
     title: "I Like Turtles",
     category: "Library News",
+    articleType: "news",
     dateCreated: "2022-02-09T10:57:46-08:00",
     byline: [
         {
@@ -190,6 +191,7 @@ export const ArticleDetail = () => ({
            :dateCreated="dateCreated"
            :locations="locations"
            :text="text"
+           articleType="news"
        />
     `,
 })
