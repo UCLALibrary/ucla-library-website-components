@@ -51,7 +51,7 @@ export default {
         }
     },
     inject: {
-        levelInjected: { from: "sectionLevel", default: 1 },
+        parentLevel: { from: "sectionLevel", default: 1 },
         ancestorSetMargins: { default: false },
     },
     computed: {
@@ -64,7 +64,7 @@ export default {
             ]
         },
         levelComputed() {
-            return Number(this.level || this.levelInjected + 1)
+            return Number(this.level || this.parentLevel + 1)
         },
         setMargins() {
             if (this.noMargins || this.ancestorSetMargins) {
