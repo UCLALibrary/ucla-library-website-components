@@ -346,26 +346,24 @@ export default {
         flex-direction: row;
         flex-wrap: nowrap;
     }
+    .byline {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        margin-bottom: var(--space-m);
+        justify-content: space-evenly;
+    }
     .byline-item,
-    .schedule-item {
-        &:after {
-            content: "|";
-            color: var(--color-secondary-grey-02);
-            margin: 0 10px;
-            height: 18px;
-            display: inline-block;
-            position: relative;
-        }
-        &:last-child {
-            margin-right: 0;
-        }
-        &:last-child:after {
-            display: none;
-        }
+    .schedule-item,
+    .date-created {
+        display: flex;
+        flex-direction: row;
+
+        @include step-0;
+        color: var(--color-secondary-grey-04);
     }
-    .byline:has(.schedule) .byline-item:after {
-        display: none;
-    }
+
     .location-group {
         color: var(--location-color);
         margin-bottom: var(--space-m);
@@ -383,20 +381,23 @@ export default {
         }
     }
     .byline {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-
-        margin-bottom: var(--space-m);
+        flex-direction: column;
+        align-items: flex-start;
     }
     .byline-item {
-        display: flex;
-        flex-direction: row;
-
         @include step-0;
         color: var(--color-secondary-grey-04);
     }
+    .byline-item,
+    .schedule-item {
+        &:after {
+            display: none;
+        }
+    }
+    .schedule {
+        flex-direction: column;
+    }
+
     // Hovers
     @media #{$has-hover} {
         &.theme-dark {
@@ -433,19 +434,6 @@ export default {
         }
         .text {
             padding-right: 120px;
-        }
-        .byline {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .byline-item,
-        .schedule-item {
-            &:after {
-                display: none;
-            }
-        }
-        .schedule {
-            flex-direction: column;
         }
     }
 }
