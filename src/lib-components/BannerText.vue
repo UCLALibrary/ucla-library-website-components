@@ -5,25 +5,26 @@
                 <svg-heading-vector class="heading-line" aria-hidden="true" />
                 <div :class="categoryClasses" v-html="category" />
             </div>
+
             <div class="content">
                 <h1 class="title" v-html="title" />
                 <rich-text v-if="text" class="text" :rich-text-content="text" />
                 <div class="byline" v-if="byline.length">
-                    <div
-                        v-if="articleType"
-                        v-for="(item, index) in byline"
-                        :key="index"
-                        class="byline-item"
-                    >
-                        {{ item.title }}
+                    <div v-if="articleType">
+                        <div
+                            v-for="(item, index) in byline"
+                            :key="index"
+                            v-html="item.title"
+                            class="byline-item"
+                        />
                     </div>
-                    <div
-                        v-if="!articleType"
-                        v-for="(item, index) in byline"
-                        :key="index"
-                        class="byline-item"
-                    >
-                        {{ item }}
+                    <div v-if="!articleType">
+                        <div
+                            v-for="(item, index) in byline"
+                            :key="index"
+                            v-html="item"
+                            class="byline-item"
+                        />
                     </div>
                     <div v-if="date" class="schedule">
                         <time
@@ -39,6 +40,7 @@
                         <div v-if="isOnline" class="schedule-item">Online</div>
                     </div>
                 </div>
+
                 <div v-if="locations.length" class="location-group">
                     <icon-with-link
                         v-for="location in locations"
@@ -48,6 +50,7 @@
                         :to="`/${location.to}`"
                     />
                 </div>
+
                 <div v-if="email" class="contact-info">
                     <icon-with-link
                         :text="email"
@@ -55,6 +58,7 @@
                         :to="`mailto:/${email}`"
                     />
                 </div>
+
                 <div v-if="phone" class="contact-info">
                     <icon-with-link
                         :text="phone"
@@ -62,6 +66,7 @@
                         :to="`tel:/${phone}`"
                     />
                 </div>
+
                 <div v-if="staffDirectoryLink" class="contact-info">
                     <icon-with-link
                         :text="`View staff directory`"
@@ -69,6 +74,7 @@
                         :to="staffDirectoryLink"
                     />
                 </div>
+
                 <div v-if="addressLink" class="contact-info">
                     <icon-with-link
                         :text="address"
