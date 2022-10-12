@@ -145,3 +145,19 @@ export const ExternalLink = () => ({
         :byline="byline"
     />`,
 })
+
+export const WithBlockForm = () => ({
+    data() {
+        return {
+            ...mock,
+        }
+    },
+    components: { BannerText },
+    template: `<banner-text
+        :category="category"
+        :title="title"
+        :text="text"
+        :button-text="buttonText"
+        :byline="byline"
+    />`,
+})
