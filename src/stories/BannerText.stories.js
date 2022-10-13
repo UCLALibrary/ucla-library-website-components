@@ -1,5 +1,6 @@
 import BannerText from "@/lib-components/BannerText"
 import StoryRouter from "storybook-vue-router"
+import BlockFormData from "@/stories/BlockFormData.json"
 
 export default {
     title: "Banner Text",
@@ -150,6 +151,7 @@ export const WithBlockForm = () => ({
     data() {
         return {
             ...mock,
+            ...BlockFormData,
         }
     },
     components: { BannerText },
@@ -159,6 +161,7 @@ export const WithBlockForm = () => ({
         :text="text"
         :button-text="buttonText"
         :byline="byline"
+        :blockFormData="mock0"
     />`,
 })
 

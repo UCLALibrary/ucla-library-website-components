@@ -82,9 +82,9 @@
 
             <br />
 
-            <div v-if="block.emailMethod" class="emailLabelWrapper">
+            <div v-if="blockFormData.emailMethod" class="emailLabelWrapper">
                 <label for="email">
-                    <span v-if="block.emailMethod.status == 'required'">
+                    <span v-if="blockFormData.emailMethod.status == 'required'">
                         Email*
                     </span>
                     <span v-else>Email</span>
@@ -94,8 +94,10 @@
                     v-model="email"
                     type="email"
                     name="email"
-                    :required="block.emailMethod.status"
-                    :aria-required="block.emailMethod.status == 'required'"
+                    :required="blockFormData.emailMethod.status"
+                    :aria-required="
+                        blockFormData.emailMethod.status == 'required'
+                    "
                     v-bind="{}"
                 />
             </div>
@@ -216,6 +218,10 @@ export default {
         registerEvent: {
             type: Boolean,
         },
+        blockFormData: {
+            type: Object,
+            default: () => {},
+        },
     },
     data() {
         return {
@@ -224,7 +230,9 @@ export default {
             lastName: "",
             email: "",
             emailRequired:
-                this.block.emailMethod.status == "required" ? true : false,
+                this.blockFormData.emailMethod.status === "required"
+                    ? true
+                    : false,
             questionsRequired: {},
             formQuestions: {},
             countdown: null,
@@ -250,7 +258,7 @@ export default {
             return ""
         },
         parseQuestions() {
-            return this.block.questions.map((obj) => {
+            return this.blockFormData.questions.map((obj) => {
                 if (
                     obj.type === "string" ||
                     obj.type === "radio" ||
@@ -293,7 +301,7 @@ export default {
                 },
                 registration_type: this.registrationType,
             }
-            data.form.questions = this.block.questions.map((obj) => {
+            data.form.questions = this.blockFormData.questions.map((obj) => {
                 return {
                     id: obj.id,
                     answer: this.formQuestions[obj.id],
@@ -353,14 +361,14 @@ export default {
                 this.errors.push("Email required.")
             }
 
-            for (let question of this.block.questions) {
+            for (let question of this.blockFormData.questions) {
                 if (
                     this.questionsRequired[question.id] &&
                     !this.formQuestions[question.id]
                 ) {
                     question.type === "string"
                         ? this.errors.push(
-                              this.block.questions.label + " required."
+                              this.blockFormData.questions.label + " required."
                           )
                         : this.errors.push(question.label + " required.")
                 } else if (
