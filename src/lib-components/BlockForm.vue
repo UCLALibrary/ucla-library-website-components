@@ -24,7 +24,7 @@
             v-else
         >
             <div class="formTitleWrapper">
-                <p class="formTitle">Registration (8 seats left)</p>
+                <p class="formTitle">Registration</p>
 
                 <button type="button" @click="$emit('closeBlockForm')">
                     <svg-glyph-close class="svg-glyph-close" />
@@ -300,7 +300,16 @@ export default {
                     answer: this.formQuestions[obj.id],
                 }
             })
-            let url = `https://test.proxy.calendar.library.ucla.edu/api/1.1/events/${this.eventId}/register`
+
+            let url = ""
+            if (!process.env.VUE_APP_CALENDAR_LIBRARY_URL) {
+                url =
+                    process.env.VUE_APP_CALENDAR_LIBRARY_URL +
+                    `${this.eventId}/register`
+            } else {
+                url = `https://test.proxy.calendar.library.ucla.edu/api/1.1/events/${this.eventId}/register`
+            }
+
             fetch(url, {
                 method: "POST",
                 headers: {

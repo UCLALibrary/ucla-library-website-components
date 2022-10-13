@@ -4,7 +4,11 @@
             v-if="block && block.content && block.content[0].contentLink"
             class="flexible-banner-featured"
             :image="parseImage"
-            :to="`/${block.content[0].contentLink[0].to}`"
+            :to="
+                block.content[0].contentLink[0].to
+                    ? `/${block.content[0].contentLink[0].to}`
+                    : null
+            "
             :title="block.content[0].contentLink[0].title"
             :breadcrumb="parsedTypeHandle"
             :byline="parseByLine"
