@@ -215,7 +215,6 @@ export default {
         },
         registerEvent: {
             type: Boolean,
-            required: true,
         },
     },
     data() {
