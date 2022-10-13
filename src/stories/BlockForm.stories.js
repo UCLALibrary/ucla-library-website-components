@@ -471,7 +471,7 @@ export const Default = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :block="mock0" event-id="9383207"
+            :block="mock0" event-id="9383207" :registerEvent="true"
         />
     `,
 })
@@ -485,7 +485,7 @@ export const DefaultType2 = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :block="mock1" event-id="9383207"
+            :block="mock1" event-id="9383207" :registerEvent="true"
         />
     `,
 })
@@ -497,7 +497,7 @@ export const CLICCInstructionalUseForm = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :block="mock2" event-id="9383207"
+            :block="mock2" event-id="9383207" :registerEvent="true"
         />
     `,
 })
@@ -509,7 +509,7 @@ export const TestFormTerryAllen = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :block="mock3" event-id="9383207"
+            :block="mock3" event-id="9383207" :registerEvent="true"
         />
     `,
 })
@@ -521,7 +521,7 @@ export const TestFormFTVA = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :block="mock4" event-id="9383207"
+            :block="mock4" event-id="9383207" :registerEvent="true"
         />
     `,
 })
@@ -533,7 +533,7 @@ export const TextBallot = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :block="mock5" event-id="9383207"
+            :block="mock5" event-id="9383207" :registerEvent="true"
         />
     `,
 })
@@ -545,7 +545,7 @@ export const UCLALibraryEventRegistration = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :block="mock6" event-id="9383207"
+            :block="mock6" event-id="9383207" :registerEvent="true"
         />
     `,
 })
