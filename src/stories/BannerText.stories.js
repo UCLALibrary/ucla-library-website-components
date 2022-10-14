@@ -153,14 +153,7 @@ const article = {
     category: "Library News",
     articleType: "news",
     dateCreated: "2022-02-09T10:57:46-08:00",
-    byline: [
-        {
-            title: " Written by Courtney Hoffner",
-        },
-        {
-            title: "Illustrations by Jen Diamond",
-        },
-    ],
+    byline: ["Written by Brigid Abreu", "Illustrations by Edward Gorey"],
     locations: [
         {
             id: "523",
