@@ -119,38 +119,37 @@ export default {
     .category {
         @include overline;
         color: var(--color-secondary-grey-05);
-        padding-bottom: var(--space-s);
+        margin-bottom: var(--space-s);
     }
     .title {
         @include step-1;
         color: var(--color-primary-blue-03);
-        margin-bottom: 4px;
+        margin: var(--space-s) 0;
         @include truncate(2);
     }
 
     .byline {
-        @include step--1;
-        margin-bottom: var(--space-m);
-        color: #434343;
-
+        @include step-0;
+        margin: var(--space-s) 0;
+        color: var(--color-secondary-grey-05);
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
     }
-    .author {
-        &:after {
-            content: ",";
-            padding-right: 5px;
-        }
-        &:nth-last-child(2):after {
-            content: "";
-        }
-    }
-    .date:not(:only-child) {
-        padding-left: 20px;
-    }
+    // .author {
+    //     &:after {
+    //         content: ",";
+    //         padding-right: 5px;
+    //     }
+    //     &:nth-last-child(2):after {
+    //         content: "";
+    //     }
+    // }
+    // .date:not(:only-child) {
+    //     padding-left: 20px;
+    // }
     .description {
-        @include step--1;
+        @include step-0;
         color: var(--color-black);
         @include truncate(4);
     }
