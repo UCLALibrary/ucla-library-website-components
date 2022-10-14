@@ -43,7 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 .section-staff-orcid-publications {
-    max-width: $container-l-main + px;
+    max-width: $container-l-text + px;
     margin: 0 auto;
 
     .secondary-header {
