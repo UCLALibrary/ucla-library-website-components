@@ -43,7 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 .section-staff-orcid-publications {
-    max-width: $container-l-text + px;
+    max-width: $container-l-main + px;
     margin: 0 auto;
 
     .secondary-header {
@@ -68,6 +68,7 @@ export default {
 
     .publications {
         padding-right: 0;
+        max-width: $container-l-text + px;
     }
 
     @media #{$has-hover} {
