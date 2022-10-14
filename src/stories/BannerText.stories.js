@@ -21,7 +21,7 @@ const mock = {
     ],
     date: "1995-12-17T03:24:00",
     buttonText: "Curabitur",
-    byline: ["Cursus Quis"],
+    byline: ["Cursus Quis", "Charles E. Young"],
     to: "/visit/foo/bar/",
 }
 
@@ -144,4 +144,54 @@ export const ExternalLink = () => ({
         :to="to"
         :byline="byline"
     />`,
+})
+
+// --------- ARTICLE --------------
+
+const article = {
+    title: "I Like Turtles",
+    category: "Library News",
+    articleType: "news",
+    dateCreated: "2022-02-09T10:57:46-08:00",
+    byline: [
+        {
+            title: " Written by Courtney Hoffner",
+        },
+        {
+            title: "Illustrations by Jen Diamond",
+        },
+    ],
+    locations: [
+        {
+            id: "523",
+            title: "Powell Library",
+            to: "visit/locations/powell-library",
+        },
+        {
+            id: "3062",
+            title: "Online",
+            to: "visit/locations/online",
+        },
+    ],
+    alignRight: true,
+    text: "Turtles are an order of reptiles known as Testudines, characterized by a shell developed mainly from their ribs. Turtles are groups, big ones and small ones.",
+}
+
+export const ArticleDetail = () => ({
+    data() {
+        return {
+            ...article,
+        }
+    },
+    components: { BannerText },
+    template: `
+        <banner-text
+           :title="title"
+           :byline="byline"
+           :dateCreated="dateCreated"
+           :locations="locations"
+           :text="text"
+           articleType="news"
+       />
+    `,
 })

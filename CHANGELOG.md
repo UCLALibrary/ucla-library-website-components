@@ -1,3 +1,10 @@
+## [1.57.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.57.0...v1.57.1) (2022-10-12)
+
+
+### Bug Fixes
+
+* byline on banner text ([#207](https://github.com/UCLALibrary/ucla-library-website-components/issues/207)) ([1de31eb](https://github.com/UCLALibrary/ucla-library-website-components/commit/1de31eb8e497be62edc96135a6fe4297fac559ee))
+
 # [1.57.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.56.6...v1.57.0) (2022-10-11)
 
 
