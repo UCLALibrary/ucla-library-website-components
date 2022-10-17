@@ -274,6 +274,7 @@ export const WithBlockForm = () => ({
            :prompt="prompt"
            :locations="locations"
            :blockFormData="mock1"
+           :registerEvent="true"
        />
     `,
 })

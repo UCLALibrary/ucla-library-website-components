@@ -107,11 +107,10 @@
                 :to="to"
             />
             <block-form
-                v-if="!to && blockFormData"
+                v-if="!to && registerEvent && blockFormData"
                 :blockFormData="blockFormData"
                 event-id="9383207"
                 :registerEvent="registerEvent"
-                @closeBlockForm="closeBlockForm"
             />
         </div>
     </div>
@@ -121,7 +120,6 @@
 import format from "date-fns/format"
 
 // Components
-
 import SvgMoleculeHalfFaceted from "ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg"
 import SvgHatchRight from "ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
@@ -264,10 +262,13 @@ export default {
             type: Object,
             default: () => {},
         },
+        registerEvent: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         classes() {
-            console.log(this.blockFormData)
             return [
                 "banner-header",
                 { "hatch-left": !this.alignRight },
@@ -322,11 +323,6 @@ export default {
                 return filtered
             }, [])
         },
-    },
-    data() {
-        return {
-            registerEvent: false,
-        }
     },
 }
 </script>

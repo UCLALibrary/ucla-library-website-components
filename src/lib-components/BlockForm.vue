@@ -1,6 +1,6 @@
 <template>
     <button-link
-        v-if="!showBlockForm"
+        v-if="!showForm"
         @click.native.prevent="showBlockEvent()"
         label="Register"
         iconName="none"
@@ -243,7 +243,7 @@ export default {
             hasNotifications: false,
             sent: false,
             status: {},
-            showBlockForm: false,
+            showForm: false,
         }
     },
     watch: {
@@ -392,10 +392,10 @@ export default {
         },
 
         closeBlockForm() {
-            this.showBlockForm = false
+            this.showForm = false
         },
         showBlockEvent() {
-            this.showBlockForm = true
+            this.showForm = true
         },
     },
 }
