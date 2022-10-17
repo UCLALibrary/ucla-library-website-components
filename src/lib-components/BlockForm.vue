@@ -1,5 +1,13 @@
 <template>
-    <div class="block-form" v-if="registerEvent">
+    <button-link
+        v-if="!showBlockForm"
+        @click.native.prevent="showBlockEvent()"
+        label="Register"
+        iconName="none"
+        :is-secondary="true"
+    >
+    </button-link>
+    <div class="block-form" v-else>
         <div class="success-message" v-if="hasNotifications">
             <h3>Registration complete</h3>
             <p>
@@ -26,7 +34,7 @@
             <div class="formTitleWrapper">
                 <p class="formTitle">Registration</p>
 
-                <button type="button" @click="$emit('closeBlockForm')">
+                <button type="button" @click="closeBlockForm()">
                     <svg-glyph-close class="svg-glyph-close" />
                 </button>
             </div>
@@ -34,14 +42,6 @@
             <br />
 
             <div v-if="errors.length" class="form-errors">
-                <!-- <p>Please correct the following error(s):</p> -->
-                <!-- <ul>
-                    <li
-                        :key="index"
-                        v-for="(error, index) in errors"
-                        v-html="error"
-                    />
-                </ul> -->
                 <p>
                     Please complete the required fields to complete registration
                 </p>
@@ -187,7 +187,12 @@
 
             <br />
 
-            <button type="submit" class="submitButton">Register</button>
+            <button-link
+                type="submit"
+                label="Register"
+                iconName="none"
+                :is-secondary="true"
+            />
         </form>
     </div>
 </template>
@@ -200,6 +205,8 @@ export default {
     name: "BlockForm",
     components: {
         SvgGlyphClose,
+        ButtonLink: () =>
+            import("@/lib-components/ButtonLink.vue").then((d) => d.default),
     },
     props: {
         block: {
@@ -214,9 +221,6 @@ export default {
             type: String,
             default: "9383207",
             required: true,
-        },
-        registerEvent: {
-            type: Boolean,
         },
         blockFormData: {
             type: Object,
@@ -239,6 +243,7 @@ export default {
             hasNotifications: false,
             sent: false,
             status: {},
+            showBlockForm: false,
         }
     },
     watch: {
@@ -325,7 +330,6 @@ export default {
                 body: JSON.stringify(data),
             })
                 .then((data) => {
-                    console.log(data)
                     this.sent = true
                     this.status = {
                         code: "success",
@@ -385,6 +389,13 @@ export default {
             } else {
                 window.scrollTo(0, 0)
             }
+        },
+
+        closeBlockForm() {
+            this.showBlockForm = false
+        },
+        showBlockEvent() {
+            this.showBlockForm = true
         },
     },
 }
@@ -669,75 +680,6 @@ export default {
         box-sizing: border-box;
         padding: 20px;
         border-radius: var(--rounded-slightly-all);
-    }
-}
-
-.submitButton {
-    box-sizing: border-box;
-    position: relative;
-    @include button;
-    min-height: 48px;
-    padding: 4px 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    border: 1.5px solid var(--color-primary-blue-02);
-    transition-property: all;
-    @include animate-normal;
-    overflow: hidden;
-    z-index: 0;
-
-    background-color: var(--color-primary-blue-03);
-    --button-background-slide: var(--color-white);
-    border-color: var(--color-primary-blue-03);
-    color: var(--color-white);
-
-    .label {
-        white-space: nowrap;
-    }
-
-    &::before {
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color: var(--button-background-slide);
-        position: absolute;
-        top: 0;
-        left: -100%;
-        transition-property: all;
-        @include animate-normal;
-        z-index: -10;
-    }
-
-    // Hover states
-    @media #{$has-hover} {
-        &:hover,
-        &:focus,
-        &:focus-visible {
-            cursor: pointer;
-            border-color: var(--color-primary-blue-02);
-            color: var(--color-black);
-
-            &::before {
-                left: 0;
-            }
-        }
-
-        &:focus,
-        &:focus-visible {
-            outline: none;
-            border-radius: 0;
-        }
-    }
-    // Breakpoints
-    @media #{$medium} {
-        padding: 4px 16px;
-        display: inline-flex;
-    }
-
-    @media #{$small} {
-        width: 100%;
     }
 }
 </style>

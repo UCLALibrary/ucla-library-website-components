@@ -106,15 +106,6 @@
                 class="button"
                 :to="to"
             />
-            <button-link
-                v-if="!to && !registerEvent && blockFormData"
-                @click.native.prevent="showBlockEvent()"
-                class="submitButton"
-                label="Register"
-                iconName="none"
-                :is-secondary="true"
-            >
-            </button-link>
             <block-form
                 v-if="!to && blockFormData"
                 :blockFormData="blockFormData"
@@ -336,14 +327,6 @@ export default {
         return {
             registerEvent: false,
         }
-    },
-    methods: {
-        closeBlockForm() {
-            this.registerEvent = false
-        },
-        showBlockEvent() {
-            this.registerEvent = true
-        },
     },
 }
 </script>
