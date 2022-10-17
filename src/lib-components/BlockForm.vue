@@ -5,6 +5,7 @@
         label="Register"
         iconName="none"
         :is-secondary="true"
+        class="register-button"
     >
     </button-link>
     <div class="block-form" v-else>
