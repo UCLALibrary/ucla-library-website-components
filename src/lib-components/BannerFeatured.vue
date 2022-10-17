@@ -143,21 +143,10 @@
                 class="button"
                 id="banner-featured-button"
             />
-            <button-link
-                v-if="!to && !registerEvent"
-                @click.native.prevent="showBlockEvent()"
-                class="submitButton"
-                label="Register"
-                iconName="none"
-                :is-secondary="true"
-            >
-            </button-link>
             <block-form
-                v-if="!to && blockFormData"
+                v-if="!to && registerEvent && blockFormData"
                 :blockFormData="blockFormData"
                 event-id="9383207"
-                :registerEvent="registerEvent"
-                @closeBlockForm="closeBlockForm"
             />
         </div>
     </div>
@@ -284,6 +273,10 @@ export default {
             type: Object,
             default: () => {},
         },
+        registerEvent: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         classes() {
@@ -357,19 +350,6 @@ export default {
                             : "location-link",
                 }
             })
-        },
-    },
-    data: function () {
-        return {
-            registerEvent: false,
-        }
-    },
-    methods: {
-        closeBlockForm() {
-            this.registerEvent = false
-        },
-        showBlockEvent() {
-            this.registerEvent = true
         },
     },
 }

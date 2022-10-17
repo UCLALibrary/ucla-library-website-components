@@ -2,7 +2,7 @@
 import * as API from "@/stories/mock-api.json"
 import BlockForm from "@/lib-components/BlockForm"
 import StoryRouter from "storybook-vue-router"
-import BlockFormData from "@/stories/BlockFormData.json"
+import BlockFormData from "@/stories/mock/BlockFormData.json"
 
 // Storybook default settings
 export default {
@@ -19,7 +19,7 @@ export const Default = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :blockFormData="BlockFormData.mock0" event-id="9383207" :registerEvent="true"
+            :blockFormData="BlockFormData.mock0" event-id="9383207"
         />
     `,
 })
@@ -31,7 +31,7 @@ export const DefaultType2 = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :blockFormData="BlockFormData.mock1" event-id="9383207" :registerEvent="true"
+            :blockFormData="BlockFormData.mock1" event-id="9383207"
         />
     `,
 })
@@ -43,7 +43,7 @@ export const CLICCInstructionalUseForm = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :blockFormData="BlockFormData.mock2" event-id="9383207" :registerEvent="true"
+            :blockFormData="BlockFormData.mock2" event-id="9383207"
         />
     `,
 })
@@ -55,7 +55,7 @@ export const TestFormTerryAllen = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :blockFormData="BlockFormData.mock3" event-id="9383207" :registerEvent="true"
+            :blockFormData="BlockFormData.mock3" event-id="9383207"
         />
     `,
 })
@@ -67,7 +67,7 @@ export const TestFormFTVA = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :blockFormData="BlockFormData.mock4" event-id="9383207" :registerEvent="true"
+            :blockFormData="BlockFormData.mock4" event-id="9383207"
         />
     `,
 })
@@ -79,7 +79,7 @@ export const TextBallot = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :blockFormData="BlockFormData.mock5" event-id="9383207" :registerEvent="true"
+            :blockFormData="BlockFormData.mock5" event-id="9383207"
         />
     `,
 })
@@ -91,7 +91,7 @@ export const UCLALibraryEventRegistration = () => ({
     components: { BlockForm },
     template: `
         <block-form
-            :blockFormData="BlockFormData.mock6" event-id="9383207" :registerEvent="true"
+            :blockFormData="BlockFormData.mock6" event-id="9383207"
         />
     `,
 })

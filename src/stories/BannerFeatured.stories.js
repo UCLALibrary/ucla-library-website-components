@@ -1,6 +1,7 @@
 import BannerFeatured from "@/lib-components/BannerFeatured"
 import HeadingArrow from "@/lib-components/HeadingArrow"
 import StoryRouter from "storybook-vue-router"
+import BlockFormData from "@/stories/mock/BlockFormData.json"
 
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
@@ -290,6 +291,7 @@ export const WithBlockForm = () => ({
     data() {
         return {
             ...mock,
+            ...BlockFormData,
         }
     },
     components: { BannerFeatured },
@@ -300,6 +302,8 @@ export const WithBlockForm = () => ({
             :title="title"
             :description="description"
             :prompt="prompt"
+            :blockFormData="mock0"
+            :registerEvent="true"
         />
     `,
 })

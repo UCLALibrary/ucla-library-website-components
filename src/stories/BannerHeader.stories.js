@@ -2,7 +2,7 @@ import BannerHeader from "@/lib-components/BannerHeader"
 import StoryRouter from "storybook-vue-router"
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
-import BlockFormData from "@/stories/BlockFormData.json"
+import BlockFormData from "@/stories/mock/BlockFormData.json"
 
 export default {
     title: "Banner Header",
