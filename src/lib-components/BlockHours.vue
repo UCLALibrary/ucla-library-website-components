@@ -6,8 +6,9 @@
             <!--div class="iframe-container"-->
             <iframe
                 id="the-iframe"
+                :isClicc="isClicc"
                 refs="hours_iframe"
-                class="iframe"
+                class="iframe block-hours"
                 :src="`https://uclalibrary.library.ucla.edu/blockhours.html?lid=${lid}`"
                 frameBorder="0"
                 width="100%"
@@ -43,6 +44,10 @@ export default {
             type: String,
             default: "",
         },
+        isClicc: {
+            type: Boolean,
+            default: false,
+        },
     },
     /* data() {
         return {
@@ -63,6 +68,16 @@ export default {
     fetchKey(getCounter) {
         return `block-hours-${getCounter("block-hours")}`
     },*/
+    computed: {
+        classes() {
+            return [
+                "block-hours",
+                {
+                    "is-clicc": this.isClicc,
+                },
+            ]
+        },
+    },
     mounted() {
         window.addEventListener(
             "message",

@@ -1,3 +1,10 @@
+## [1.57.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.57.1...v1.57.2) (2022-10-14)
+
+
+### Bug Fixes
+
+*  Revert byline on banner text ([#209](https://github.com/UCLALibrary/ucla-library-website-components/issues/209)) ([60172fd](https://github.com/UCLALibrary/ucla-library-website-components/commit/60172fd89054939077fbc7cf42c74d4dad7c2392))
+
 ## [1.57.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.57.0...v1.57.1) (2022-10-12)
 
 

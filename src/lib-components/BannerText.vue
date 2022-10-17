@@ -11,11 +11,15 @@
                 <rich-text v-if="text" class="text" :rich-text-content="text" />
                 <div class="byline" v-if="byline.length">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a9b473a65b793def3e2d77f656ba9698f66eb405
                     <div
                         v-for="(item, index) in byline"
                         :key="index"
                         class="byline-item"
                     >
+<<<<<<< HEAD
                         {{ item.title }}
 =======
                     <div v-if="articleType">
@@ -34,6 +38,9 @@
                             class="byline-item"
                         />
 >>>>>>> 04fb9d984e0d0b275f65fefe5894266dcc59a7c7
+=======
+                        {{ item }}
+>>>>>>> a9b473a65b793def3e2d77f656ba9698f66eb405
                     </div>
                     <div v-if="date" class="schedule">
                         <time
