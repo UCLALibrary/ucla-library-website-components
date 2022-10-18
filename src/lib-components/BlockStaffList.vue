@@ -121,11 +121,6 @@ export default {
 
     padding: var(--space-xl);
     position: relative;
-
-    transition-property: box-shadow, transform;
-    transition-duration: 300ms;
-    transition-timing-function: ease-in-out;
-
     .image {
         flex-shrink: 0;
         width: var(--image-size);
@@ -218,8 +213,8 @@ export default {
         }
 
         &:hover {
-            transform: scale(1.01);
-            @include shadow-state-change;
+            @include card-horizontal-hover;
+            @include animate-normal;
         }
     }
 
