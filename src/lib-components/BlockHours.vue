@@ -8,11 +8,11 @@
                 id="the-iframe"
                 :isClicc="isClicc"
                 refs="hours_iframe"
-                class="iframe block-hours"
                 :src="`https://uclalibrary.library.ucla.edu/blockhours.html?lid=${lid}`"
                 frameBorder="0"
                 width="100%"
                 height="100%"
+                :class="classes"
             />
             <!-- @load="resizeIframe"
                 @resize="resizeIframe" -->
@@ -71,9 +71,9 @@ export default {
     computed: {
         classes() {
             return [
-                "block-hours",
+                "i-frame block-hours",
                 {
-                    "is-clicc": this.isClicc,
+                    "i-frame block-hours is-clicc": this.isClicc,
                 },
             ]
         },
