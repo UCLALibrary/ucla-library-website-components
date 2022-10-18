@@ -109,7 +109,6 @@
             <block-form
                 v-if="!to && registerEvent && blockFormData"
                 :blockFormData="blockFormData"
-                event-id="9383207"
             />
         </div>
     </div>
