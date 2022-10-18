@@ -90,6 +90,7 @@
                 <block-form
                     v-if="!to && registerEvent && blockFormData"
                     :blockFormData="blockFormData"
+                    :event-id="eventId"
                 />
             </div>
         </div>
@@ -193,6 +194,10 @@ export default {
         registerEvent: {
             type: Boolean,
             default: false,
+        },
+        eventId: {
+            type: String,
+            default: "",
         },
     },
     computed: {

@@ -275,6 +275,7 @@ export const WithBlockForm = () => ({
            :locations="locations"
            :blockFormData="mock1"
            :registerEvent="true"
+           :eventId="9383207"
        />
     `,
 })

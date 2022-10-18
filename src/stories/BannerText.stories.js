@@ -163,6 +163,7 @@ export const WithBlockForm = () => ({
         :byline="byline"
         :blockFormData="mock0"
         :registerEvent="true"
+        :eventId="9383207"
     />`,
 })
 

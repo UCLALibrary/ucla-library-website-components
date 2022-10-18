@@ -304,6 +304,7 @@ export const WithBlockForm = () => ({
             :prompt="prompt"
             :blockFormData="mock0"
             :registerEvent="true"
+            :eventId="9383207"
         />
     `,
 })
