@@ -220,7 +220,6 @@ export default {
         },
         eventId: {
             type: String,
-            default: "9383207",
             required: true,
         },
         blockFormData: {

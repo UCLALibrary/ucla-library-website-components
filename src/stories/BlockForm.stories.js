@@ -20,6 +20,7 @@ export const Default = () => ({
     template: `
         <block-form
             :blockFormData="BlockFormData.mock0"
+            :eventId="9383207"
         />
     `,
 })
@@ -32,6 +33,7 @@ export const DefaultType2 = () => ({
     template: `
         <block-form
             :blockFormData="BlockFormData.mock1"
+            :eventId="9383207"
         />
     `,
 })
@@ -44,6 +46,7 @@ export const CLICCInstructionalUseForm = () => ({
     template: `
         <block-form
             :blockFormData="BlockFormData.mock2"
+            :eventId="9383207"
         />
     `,
 })
@@ -56,6 +59,7 @@ export const TestFormTerryAllen = () => ({
     template: `
         <block-form
             :blockFormData="BlockFormData.mock3"
+            :eventId="9383207"
         />
     `,
 })
@@ -68,6 +72,7 @@ export const TestFormFTVA = () => ({
     template: `
         <block-form
             :blockFormData="BlockFormData.mock4"
+            :eventId="9383207"
         />
     `,
 })
@@ -80,6 +85,7 @@ export const TextBallot = () => ({
     template: `
         <block-form
             :blockFormData="BlockFormData.mock5"
+            :eventId="9383207"
         />
     `,
 })
@@ -92,6 +98,7 @@ export const UCLALibraryEventRegistration = () => ({
     template: `
         <block-form
             :blockFormData="BlockFormData.mock6"
+            :eventId="9383207"
         />
     `,
 })
