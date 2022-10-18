@@ -214,7 +214,6 @@ export default {
         }
 
         &:hover {
-            // @include animate-normal;
             @include card-horizontal-hover;
         }
     }
