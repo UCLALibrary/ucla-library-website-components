@@ -121,6 +121,7 @@ export default {
 
     padding: var(--space-xl);
     position: relative;
+    @include animate-normal;
     .image {
         flex-shrink: 0;
         width: var(--image-size);
@@ -213,8 +214,8 @@ export default {
         }
 
         &:hover {
+            // @include animate-normal;
             @include card-horizontal-hover;
-            @include animate-normal;
         }
     }
 
