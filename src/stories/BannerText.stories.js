@@ -1,6 +1,7 @@
 import BannerText from "@/lib-components/BannerText"
 import StoryRouter from "storybook-vue-router"
 import BlockFormData from "@/stories/mock/BlockFormData.json"
+import { computed } from "vue"
 
 export default {
     title: "Banner Text",
@@ -154,6 +155,11 @@ export const WithBlockForm = () => ({
             ...BlockFormData,
         }
     },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock0,
+    },
     components: { BannerText },
     template: `<banner-text
         :category="category"
@@ -161,9 +167,7 @@ export const WithBlockForm = () => ({
         :text="text"
         :button-text="buttonText"
         :byline="byline"
-        :blockFormData="mock0"
         :registerEvent="true"
-        :eventId="9383207"
     />`,
 })
 

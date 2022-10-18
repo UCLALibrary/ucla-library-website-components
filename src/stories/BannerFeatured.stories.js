@@ -294,6 +294,11 @@ export const WithBlockForm = () => ({
             ...BlockFormData,
         }
     },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock0,
+    },
     components: { BannerFeatured },
     template: `
         <banner-featured
@@ -302,9 +307,7 @@ export const WithBlockForm = () => ({
             :title="title"
             :description="description"
             :prompt="prompt"
-            :blockFormData="mock0"
             :registerEvent="true"
-            :eventId="9383207"
         />
     `,
 })

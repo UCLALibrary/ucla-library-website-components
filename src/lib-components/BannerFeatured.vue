@@ -170,6 +170,7 @@ import getSectionName from "@/mixins/getSectionName"
 
 export default {
     name: "BannerFeatured",
+    inject: ["eventId", "blockFormData"],
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
         SvgMoleculeHalfFaceted,
@@ -269,17 +270,9 @@ export default {
             type: Number,
             default: 56.25,
         },
-        blockFormData: {
-            type: Object,
-            default: () => {},
-        },
         registerEvent: {
             type: Boolean,
             default: false,
-        },
-        eventId: {
-            type: String,
-            default: "",
         },
     },
     computed: {

@@ -105,6 +105,7 @@ import getSectionName from "@/mixins/getSectionName"
 
 export default {
     name: "BannerText",
+    inject: ["eventId", "blockFormData"],
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
         ButtonLink: () =>
@@ -187,17 +188,9 @@ export default {
             type: Array,
             default: () => [],
         },
-        blockFormData: {
-            type: Object,
-            default: () => {},
-        },
         registerEvent: {
             type: Boolean,
             default: false,
-        },
-        eventId: {
-            type: String,
-            default: "",
         },
     },
     computed: {
