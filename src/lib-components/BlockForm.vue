@@ -204,6 +204,7 @@ import SvgIconCheckbox from "ucla-library-design-tokens/assets/svgs/icon-checkbo
 
 export default {
     name: "BlockForm",
+    inject: ["eventId", "blockFormData"],
     components: {
         SvgGlyphClose,
         ButtonLink: () =>
@@ -217,14 +218,6 @@ export default {
         registrationType: {
             type: String,
             default: "online",
-        },
-        eventId: {
-            type: String,
-            required: true,
-        },
-        blockFormData: {
-            type: Object,
-            default: () => {},
         },
     },
     data() {
@@ -254,6 +247,7 @@ export default {
     },
     computed: {
         iconClass() {
+            console.log(this.eventId)
             switch (this.status.code) {
                 case "success":
                     return "fa-check"

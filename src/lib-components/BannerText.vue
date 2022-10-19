@@ -87,11 +87,7 @@
                     :to="to"
                     :is-tertiary="true"
                 />
-                <block-form
-                    v-if="!to && registerEvent && blockFormData"
-                    :blockFormData="blockFormData"
-                    :event-id="eventId"
-                />
+                <block-form v-if="!to && registerEvent" />
             </div>
         </div>
     </div>
@@ -105,7 +101,6 @@ import getSectionName from "@/mixins/getSectionName"
 
 export default {
     name: "BannerText",
-    inject: ["eventId", "blockFormData"],
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
         ButtonLink: () =>
@@ -189,8 +184,8 @@ export default {
             default: () => [],
         },
         registerEvent: {
-            type: Boolean,
-            default: false,
+            type: String,
+            default: "false",
         },
     },
     computed: {

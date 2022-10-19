@@ -278,7 +278,7 @@ export const WithBlockForm = () => ({
            :byline="byline"
            :prompt="prompt"
            :locations="locations"
-           :registerEvent="true"
+           registerEvent="true"
        />
     `,
 })

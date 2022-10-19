@@ -143,11 +143,7 @@
                 class="button"
                 id="banner-featured-button"
             />
-            <block-form
-                v-if="!to && registerEvent && blockFormData"
-                :blockFormData="blockFormData"
-                :event-id="eventId"
-            />
+            <block-form v-if="!to && registerEvent" />
         </div>
     </div>
 </template>
@@ -170,7 +166,6 @@ import getSectionName from "@/mixins/getSectionName"
 
 export default {
     name: "BannerFeatured",
-    inject: ["eventId", "blockFormData"],
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
         SvgMoleculeHalfFaceted,
@@ -271,8 +266,8 @@ export default {
             default: 56.25,
         },
         registerEvent: {
-            type: Boolean,
-            default: false,
+            type: String,
+            default: "false",
         },
     },
     computed: {
