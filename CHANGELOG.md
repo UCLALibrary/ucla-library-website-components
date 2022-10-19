@@ -1,3 +1,10 @@
+# [1.58.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.57.3...v1.58.0) (2022-10-19)
+
+
+### Features
+
+* compute smart header levels ([#201](https://github.com/UCLALibrary/ucla-library-website-components/issues/201)) ([27599af](https://github.com/UCLALibrary/ucla-library-website-components/commit/27599afe931a4423b65bfd2ec4b238c6f776f537))
+
 ## [1.57.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.57.2...v1.57.3) (2022-10-19)
 
 
