@@ -21,7 +21,7 @@ const mock = {
     ],
     date: "1995-12-17T03:24:00",
     buttonText: "Curabitur",
-    byline: ["Cursus Quis"],
+    byline: ["Cursus Quis", "Charles E. Young"],
     to: "/visit/foo/bar/",
 }
 
