@@ -635,12 +635,12 @@ export default {
     }
 
     .success-message {
-        position: fixed;
+        position: relative;
         z-index: 5;
         box-sizing: border-box;
-        top: 10px;
-        right: 1%;
-        width: 98%;
+        // top: 10px;
+        // right: 1%;
+        width: 100%;
         padding: 20px;
         box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
         overflow: hidden;
