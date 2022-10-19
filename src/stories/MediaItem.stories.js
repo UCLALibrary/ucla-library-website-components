@@ -13,10 +13,10 @@ export default {
     title: "GLOBAL / Media Item",
     component: MediaItem,
     argTypes: {
-      type: {
-        options: [null, 'image', 'video'],
-        control: { type: 'radio' },
-      },
+        type: {
+            options: [null, "image", "video"],
+            control: { type: "radio" },
+        },
     },
 }
 
@@ -40,7 +40,6 @@ ImageObjectFitContain.args = {
     mediaItem: API.image,
     aspectRatio: 100,
     objectFit: "contain",
-
 }
 
 export const Video = Template.bind({})

@@ -1,8 +1,5 @@
 <template>
-    <component
-        :is="mediaComponent"
-        v-bind="mediaComponentProps"
-    />
+    <component :is="mediaComponent" v-bind="mediaComponentProps" />
 </template>
 
 <script>
@@ -12,36 +9,32 @@ export default {
     name: "ResponsiveMedia",
     components: {
         ResponsiveImage: () =>
-            import("@/lib-components/ResponsiveImage").then(
-                (d) => d.default
-            ),
+            import("@/lib-components/ResponsiveImage").then((d) => d.default),
         ResponsiveVideo: () =>
-            import("@/lib-components/ResponsiveVideo").then(
-                (d) => d.default
-            ),
+            import("@/lib-components/ResponsiveVideo").then((d) => d.default),
     },
     props: {
-        type: {type: String, default: ""},
-        
+        type: { type: String, default: "" },
+
         // the image / video / audio / embed
-        mediaItem: {type: Object, default: () => ({})},
-        
+        mediaItem: { type: Object, default: () => ({}) },
+
         // sizing for the container (not the media item itself)
-        height: {type: Number, default: 0},
-        width: {type: Number, default: 0},
-        aspectRatio: {type: Number, default: 0},
-        
+        height: { type: Number, default: 0 },
+        width: { type: Number, default: 0 },
+        aspectRatio: { type: Number, default: 0 },
+
         // Layout options
-        backgroundColor: {type: String, default: ""},
-        focalPoint: {type: Object, default: () => ({})},
-        mode: {type: String, default: "intrinsic-ratio"},
-        objectFit: {type: String, default: ""},
-        
+        backgroundColor: { type: String, default: "" },
+        focalPoint: { type: Object, default: () => ({}) },
+        mode: { type: String, default: "intrinsic-ratio" },
+        objectFit: { type: String, default: "" },
+
         // video options
-        controls: {type: Boolean, default: false},
-        loop: {type: Boolean, default: false},
-        muted: {type: Boolean, default: true},
-        playsinline: {type: Boolean, default: true},
+        controls: { type: Boolean, default: false },
+        loop: { type: Boolean, default: false },
+        muted: { type: Boolean, default: true },
+        playsinline: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -85,5 +78,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
