@@ -128,7 +128,6 @@ import getSectionName from "@/mixins/getSectionName"
 
 export default {
     name: "BannerHeader",
-    inject: ["eventId", "blockFormData"],
     mixins: [getSectionName, formatEventTimes, formatEventDates],
     components: {
         SvgMoleculeHalfFaceted,
