@@ -2,6 +2,7 @@ import BannerHeader from "@/lib-components/BannerHeader"
 import StoryRouter from "storybook-vue-router"
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
+import BlockFormData from "@/stories/mock/BlockFormData.json"
 
 export default {
     title: "Banner Header",
@@ -250,6 +251,34 @@ export const ExternalLink = () => ({
            :byline="byline"
            :prompt="prompt"
            :locations="locations"
+       />
+    `,
+})
+
+export const WithBlockForm = () => ({
+    data() {
+        return {
+            ...mock,
+            ...BlockFormData,
+        }
+    },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock1,
+    },
+    components: { BannerHeader },
+    template: `
+        <banner-header
+           :image="image"
+           :title="title"
+           :category="category"
+           :start-date="startDate"
+           :end-date="endDate"
+           :byline="byline"
+           :prompt="prompt"
+           :locations="locations"
+           :registerEvent="true"
        />
     `,
 })

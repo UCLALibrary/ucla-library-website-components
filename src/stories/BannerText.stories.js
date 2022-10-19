@@ -1,5 +1,6 @@
 import BannerText from "@/lib-components/BannerText"
 import StoryRouter from "storybook-vue-router"
+import BlockFormData from "@/stories/mock/BlockFormData.json"
 
 export default {
     title: "Banner Text",
@@ -144,4 +145,77 @@ export const ExternalLink = () => ({
         :to="to"
         :byline="byline"
     />`,
+})
+
+export const WithBlockForm = () => ({
+    data() {
+        return {
+            ...mock,
+            ...BlockFormData,
+        }
+    },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock0,
+    },
+    components: { BannerText },
+    template: `<banner-text
+        :category="category"
+        :title="title"
+        :text="text"
+        :button-text="buttonText"
+        :byline="byline"
+        :registerEvent="true"
+    />`,
+})
+
+// --------- ARTICLE --------------
+
+const article = {
+    title: "I Like Turtles",
+    category: "Library News",
+    articleType: "news",
+    dateCreated: "2022-02-09T10:57:46-08:00",
+    byline: [
+        {
+            title: " Written by Courtney Hoffner",
+        },
+        {
+            title: "Illustrations by Jen Diamond",
+        },
+    ],
+    locations: [
+        {
+            id: "523",
+            title: "Powell Library",
+            to: "visit/locations/powell-library",
+        },
+        {
+            id: "3062",
+            title: "Online",
+            to: "visit/locations/online",
+        },
+    ],
+    alignRight: true,
+    text: "Turtles are an order of reptiles known as Testudines, characterized by a shell developed mainly from their ribs. Turtles are groups, big ones and small ones.",
+}
+
+export const ArticleDetail = () => ({
+    data() {
+        return {
+            ...article,
+        }
+    },
+    components: { BannerText },
+    template: `
+        <banner-text
+           :title="title"
+           :byline="byline"
+           :dateCreated="dateCreated"
+           :locations="locations"
+           :text="text"
+           articleType="news"
+       />
+    `,
 })

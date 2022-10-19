@@ -1,3 +1,10 @@
+# [1.59.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.58.0...v1.59.0) (2022-10-19)
+
+
+### Features
+
+* Apps 1710 libcal events block form ([#208](https://github.com/UCLALibrary/ucla-library-website-components/issues/208)) ([b18edf3](https://github.com/UCLALibrary/ucla-library-website-components/commit/b18edf321eefd7c0443c1482f20920db3b7dce9b))
+
 # [1.58.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.57.3...v1.58.0) (2022-10-19)
 
 
