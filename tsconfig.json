@@ -1,9 +1,0 @@
-{
-    // "compilerOptions": {
-    //   // ...
-    // },
-    "vueCompilerOptions": {
-      "target": 2.7,
-      // "target": 2, // For Vue version <= 2.6.14
-    }
-  }
