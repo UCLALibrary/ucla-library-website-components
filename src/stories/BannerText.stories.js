@@ -1,7 +1,6 @@
 import BannerText from "@/lib-components/BannerText"
 import StoryRouter from "storybook-vue-router"
 import BlockFormData from "@/stories/mock/BlockFormData.json"
-import { computed } from "vue"
 
 export default {
     title: "Banner Text",
