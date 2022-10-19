@@ -166,7 +166,7 @@ export const WithBlockForm = () => ({
         :text="text"
         :button-text="buttonText"
         :byline="byline"
-        registerEvent="true"
+        :registerEvent="true"
     />`,
 })
 

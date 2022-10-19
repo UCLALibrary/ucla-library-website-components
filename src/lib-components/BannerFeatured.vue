@@ -266,8 +266,8 @@ export default {
             default: 56.25,
         },
         registerEvent: {
-            type: String,
-            default: "false",
+            type: Boolean,
+            default: false,
         },
     },
     computed: {

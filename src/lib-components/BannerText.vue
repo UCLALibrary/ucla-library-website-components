@@ -184,8 +184,8 @@ export default {
             default: () => [],
         },
         registerEvent: {
-            type: String,
-            default: "false",
+            type: Boolean,
+            default: false,
         },
     },
     computed: {

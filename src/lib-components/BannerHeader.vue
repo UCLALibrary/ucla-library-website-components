@@ -106,7 +106,7 @@
                 class="button"
                 :to="to"
             />
-            <block-form v-if="!to && registerEvent && blockFormData" />
+            <block-form v-if="!to && registerEvent" />
         </div>
     </div>
 </template>
@@ -255,8 +255,8 @@ export default {
             default: false,
         },
         registerEvent: {
-            type: String,
-            default: "false",
+            type: Boolean,
+            default: false,
         },
     },
     computed: {
