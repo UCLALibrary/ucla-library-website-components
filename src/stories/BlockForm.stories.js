@@ -16,12 +16,14 @@ export const Default = () => ({
     data() {
         return { BlockFormData }
     },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock0,
+    },
     components: { BlockForm },
     template: `
-        <block-form
-            :blockFormData="BlockFormData.mock0"
-            :eventId="9383207"
-        />
+        <block-form />
     `,
 })
 
@@ -29,12 +31,14 @@ export const DefaultType2 = () => ({
     data() {
         return { BlockFormData }
     },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock1,
+    },
     components: { BlockForm },
     template: `
-        <block-form
-            :blockFormData="BlockFormData.mock1"
-            :eventId="9383207"
-        />
+        <block-form />
     `,
 })
 
@@ -42,12 +46,14 @@ export const CLICCInstructionalUseForm = () => ({
     data() {
         return { BlockFormData }
     },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock2,
+    },
     components: { BlockForm },
     template: `
-        <block-form
-            :blockFormData="BlockFormData.mock2"
-            :eventId="9383207"
-        />
+        <block-form />
     `,
 })
 
@@ -55,12 +61,14 @@ export const TestFormTerryAllen = () => ({
     data() {
         return { BlockFormData }
     },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock3,
+    },
     components: { BlockForm },
     template: `
-        <block-form
-            :blockFormData="BlockFormData.mock3"
-            :eventId="9383207"
-        />
+        <block-form />
     `,
 })
 
@@ -68,12 +76,14 @@ export const TestFormFTVA = () => ({
     data() {
         return { BlockFormData }
     },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock4,
+    },
     components: { BlockForm },
     template: `
-        <block-form
-            :blockFormData="BlockFormData.mock4"
-            :eventId="9383207"
-        />
+        <block-form />
     `,
 })
 
@@ -81,12 +91,14 @@ export const TextBallot = () => ({
     data() {
         return { BlockFormData }
     },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock5,
+    },
     components: { BlockForm },
     template: `
-        <block-form
-            :blockFormData="BlockFormData.mock5"
-            :eventId="9383207"
-        />
+        <block-form />
     `,
 })
 
@@ -94,11 +106,13 @@ export const UCLALibraryEventRegistration = () => ({
     data() {
         return { BlockFormData }
     },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock6,
+    },
     components: { BlockForm },
     template: `
-        <block-form
-            :blockFormData="BlockFormData.mock6"
-            :eventId="9383207"
-        />
+        <block-form />
     `,
 })

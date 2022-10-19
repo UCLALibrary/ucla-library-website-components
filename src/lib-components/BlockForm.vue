@@ -25,13 +25,7 @@
             </button>
         </div>
 
-        <form
-            id="app"
-            @submit.prevent="checkForm"
-            method="post"
-            class="form"
-            v-else
-        >
+        <form id="app" method="post" class="form" v-else>
             <div class="formTitleWrapper">
                 <p class="formTitle">Registration</p>
 
@@ -193,6 +187,7 @@
                 label="Register"
                 iconName="none"
                 :is-secondary="true"
+                @click.native.prevent="checkForm"
             />
         </form>
     </div>
