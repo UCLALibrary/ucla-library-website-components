@@ -45,6 +45,7 @@ export default {
 .section-staff-orcid-publications {
     max-width: $container-l-main + px;
     margin: 0 auto;
+    
 
     .secondary-header {
         margin-bottom: var(--space-l);
@@ -75,6 +76,10 @@ export default {
         .orcid-value:hover {
             @include link-hover;
         }
+    }
+
+    @media (min-width: 1025px) and (max-width: 1300px) {
+        padding: 0 var(--unit-gutter);
     }
 
     @media #{$medium} {
