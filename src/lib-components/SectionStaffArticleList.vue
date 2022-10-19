@@ -81,5 +81,14 @@ export default {
             }
         }
     }
+
+    @media (min-width: 1025px) and (max-width: 1300px) {
+        padding: 0 var(--unit-gutter);
+    }
+
+    @media #{$medium} {
+        margin-left: var(--unit-gutter);
+        margin-right: var(--unit-gutter);
+    }
 }
 </style>

@@ -42,10 +42,5 @@ export default {
 
     max-width: $container-l-main + px;
     margin: 0 auto var(--space-3xl);
-
-    @media #{$medium} {
-        padding-left: var(--unit-gutter);
-        padding-right: var(--unit-gutter);
-    }
 }
 </style>

@@ -68,12 +68,17 @@ export default {
 
     .publications {
         padding-right: 0;
+        max-width: $container-l-text + px;
     }
 
     @media #{$has-hover} {
         .orcid-value:hover {
             @include link-hover;
         }
+    }
+
+    @media (min-width: 1025px) and (max-width: 1300px) {
+        padding: 0 var(--unit-gutter);
     }
 
     @media #{$medium} {
