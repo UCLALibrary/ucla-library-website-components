@@ -81,5 +81,10 @@ export default {
             }
         }
     }
+
+    @media #{$medium} {
+        margin-left: var(--unit-gutter);
+        margin-right: var(--unit-gutter);
+    }
 }
 </style>
