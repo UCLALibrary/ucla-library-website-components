@@ -274,6 +274,7 @@ export default {
         removeNotification() {
             clearTimeout(this.countdown)
             this.hasNotifications = false
+            this.showForm = false
         },
         /*encode(data) {
             return Object.keys(data)
