@@ -106,6 +106,7 @@
                 class="button"
                 :to="to"
             />
+            <block-form v-if="!to && registerEvent" />
         </div>
     </div>
 </template>
@@ -114,7 +115,6 @@
 import format from "date-fns/format"
 
 // Components
-
 import SvgMoleculeHalfFaceted from "ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg"
 import SvgHatchRight from "ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
@@ -141,6 +141,8 @@ export default {
             import("@/lib-components/RichText.vue").then((d) => d.default),
         IconWithLink: () =>
             import("@/lib-components/IconWithLink.vue").then((d) => d.default),
+        BlockForm: () =>
+            import("@/lib-components/BlockForm.vue").then((d) => d.default),
         SvgHeadingVector: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
@@ -248,6 +250,10 @@ export default {
             default: "",
         },
         isEvent: {
+            type: Boolean,
+            default: false,
+        },
+        registerEvent: {
             type: Boolean,
             default: false,
         },

@@ -143,6 +143,7 @@
                 class="button"
                 id="banner-featured-button"
             />
+            <block-form v-if="!to && registerEvent" />
         </div>
     </div>
 </template>
@@ -202,6 +203,8 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-person.svg"
             ).then((d) => d.default),
+        BlockForm: () =>
+            import("@/lib-components/BlockForm.vue").then((d) => d.default),
     },
     props: {
         image: {
@@ -261,6 +264,10 @@ export default {
         ratio: {
             type: Number,
             default: 56.25,
+        },
+        registerEvent: {
+            type: Boolean,
+            default: false,
         },
     },
     computed: {

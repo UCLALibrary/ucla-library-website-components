@@ -1,6 +1,7 @@
 import BannerFeatured from "@/lib-components/BannerFeatured"
 import HeadingArrow from "@/lib-components/HeadingArrow"
 import StoryRouter from "storybook-vue-router"
+import BlockFormData from "@/stories/mock/BlockFormData.json"
 
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
@@ -282,6 +283,31 @@ export const Video = () => ({
             :title="title"
             :description="description"
             :prompt="prompt"
+        />
+    `,
+})
+
+export const WithBlockForm = () => ({
+    data() {
+        return {
+            ...mock,
+            ...BlockFormData,
+        }
+    },
+    provide: {
+        // explicitly provide a computed property
+        eventId: "9383207",
+        blockFormData: BlockFormData.mock0,
+    },
+    components: { BannerFeatured },
+    template: `
+        <banner-featured
+            :video="video"
+            :category="category"
+            :title="title"
+            :description="description"
+            :prompt="prompt"
+            :registerEvent="true"
         />
     `,
 })

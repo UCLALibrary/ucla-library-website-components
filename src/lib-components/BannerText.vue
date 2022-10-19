@@ -87,6 +87,7 @@
                     :to="to"
                     :is-tertiary="true"
                 />
+                <block-form v-if="!to && registerEvent" />
             </div>
         </div>
     </div>
@@ -112,6 +113,8 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg"
             ).then((d) => d.default),
+        BlockForm: () =>
+            import("@/lib-components/BlockForm.vue").then((d) => d.default),
     },
     props: {
         category: {
@@ -179,6 +182,10 @@ export default {
         byline: {
             type: Array,
             default: () => [],
+        },
+        registerEvent: {
+            type: Boolean,
+            default: false,
         },
     },
     computed: {

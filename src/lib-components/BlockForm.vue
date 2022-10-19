@@ -1,5 +1,14 @@
 <template>
-    <div class="block-form" v-if="!isClosed">
+    <button-link
+        v-if="!showForm"
+        @click.native.prevent="showBlockEvent()"
+        label="Register"
+        iconName="none"
+        :is-secondary="true"
+        class="register-button"
+    >
+    </button-link>
+    <div class="block-form" v-else>
         <div class="success-message" v-if="hasNotifications">
             <h3>Registration complete</h3>
             <p>
@@ -16,15 +25,9 @@
             </button>
         </div>
 
-        <form
-            id="app"
-            @submit.prevent="checkForm"
-            method="post"
-            class="form"
-            v-else
-        >
+        <form id="app" method="post" class="form" v-else>
             <div class="formTitleWrapper">
-                <p class="formTitle">Registration (8 seats left)</p>
+                <p class="formTitle">Registration</p>
 
                 <button type="button" @click="closeBlockForm()">
                     <svg-glyph-close class="svg-glyph-close" />
@@ -34,14 +37,6 @@
             <br />
 
             <div v-if="errors.length" class="form-errors">
-                <!-- <p>Please correct the following error(s):</p> -->
-                <!-- <ul>
-                    <li
-                        :key="index"
-                        v-for="(error, index) in errors"
-                        v-html="error"
-                    />
-                </ul> -->
                 <p>
                     Please complete the required fields to complete registration
                 </p>
@@ -82,9 +77,9 @@
 
             <br />
 
-            <div v-if="block.emailMethod" class="emailLabelWrapper">
+            <div v-if="blockFormData.emailMethod" class="emailLabelWrapper">
                 <label for="email">
-                    <span v-if="block.emailMethod.status == 'required'">
+                    <span v-if="blockFormData.emailMethod.status == 'required'">
                         Email*
                     </span>
                     <span v-else>Email</span>
@@ -94,8 +89,10 @@
                     v-model="email"
                     type="email"
                     name="email"
-                    :required="block.emailMethod.status"
-                    :aria-required="block.emailMethod.status == 'required'"
+                    :required="blockFormData.emailMethod.status"
+                    :aria-required="
+                        blockFormData.emailMethod.status == 'required'
+                    "
                     v-bind="{}"
                 />
             </div>
@@ -185,12 +182,15 @@
 
             <br />
 
-            <button type="submit" class="submitButton">Register</button>
+            <button-link
+                type="submit"
+                label="Register"
+                iconName="none"
+                :is-secondary="true"
+                @click.native.prevent="checkForm"
+            />
         </form>
     </div>
-    <button class="submitButton" @click="closeBlockForm()" v-else>
-        Register
-    </button>
 </template>
 
 <script>
@@ -199,8 +199,11 @@ import SvgIconCheckbox from "ucla-library-design-tokens/assets/svgs/icon-checkbo
 
 export default {
     name: "BlockForm",
+    inject: ["eventId", "blockFormData"],
     components: {
         SvgGlyphClose,
+        ButtonLink: () =>
+            import("@/lib-components/ButtonLink.vue").then((d) => d.default),
     },
     props: {
         block: {
@@ -211,11 +214,6 @@ export default {
             type: String,
             default: "online",
         },
-        eventId: {
-            type: String,
-            default: "9383207",
-            required: true,
-        },
     },
     data() {
         return {
@@ -224,14 +222,16 @@ export default {
             lastName: "",
             email: "",
             emailRequired:
-                this.block.emailMethod.status == "required" ? true : false,
+                this.blockFormData.emailMethod.status === "required"
+                    ? true
+                    : false,
             questionsRequired: {},
             formQuestions: {},
             countdown: null,
             hasNotifications: false,
             sent: false,
             status: {},
-            isClosed: false,
+            showForm: false,
         }
     },
     watch: {
@@ -242,6 +242,7 @@ export default {
     },
     computed: {
         iconClass() {
+            console.log(this.eventId)
             switch (this.status.code) {
                 case "success":
                     return "fa-check"
@@ -251,7 +252,7 @@ export default {
             return ""
         },
         parseQuestions() {
-            return this.block.questions.map((obj) => {
+            return this.blockFormData.questions.map((obj) => {
                 if (
                     obj.type === "string" ||
                     obj.type === "radio" ||
@@ -273,6 +274,7 @@ export default {
         removeNotification() {
             clearTimeout(this.countdown)
             this.hasNotifications = false
+            this.showForm = false
         },
         /*encode(data) {
             return Object.keys(data)
@@ -294,14 +296,22 @@ export default {
                 },
                 registration_type: this.registrationType,
             }
-            data.form.questions = this.block.questions.map((obj) => {
+            data.form.questions = this.blockFormData.questions.map((obj) => {
                 return {
                     id: obj.id,
                     answer: this.formQuestions[obj.id],
                 }
             })
-            console.log(JSON.stringify(data))
-            let url = `https://test.proxy.calendar.library.ucla.edu/api/1.1/events/${this.eventId}/register`
+
+            let url = ""
+            if (!process.env.VUE_APP_CALENDAR_LIBRARY_URL) {
+                url =
+                    process.env.VUE_APP_CALENDAR_LIBRARY_URL +
+                    `${this.eventId}/register`
+            } else {
+                url = `https://test.proxy.calendar.library.ucla.edu/api/1.1/events/${this.eventId}/register`
+            }
+
             fetch(url, {
                 method: "POST",
                 headers: {
@@ -310,7 +320,6 @@ export default {
                 body: JSON.stringify(data),
             })
                 .then((data) => {
-                    console.log(data)
                     this.sent = true
                     this.status = {
                         code: "success",
@@ -346,14 +355,14 @@ export default {
                 this.errors.push("Email required.")
             }
 
-            for (let question of this.block.questions) {
+            for (let question of this.blockFormData.questions) {
                 if (
                     this.questionsRequired[question.id] &&
                     !this.formQuestions[question.id]
                 ) {
                     question.type === "string"
                         ? this.errors.push(
-                              this.block.questions.label + " required."
+                              this.blockFormData.questions.label + " required."
                           )
                         : this.errors.push(question.label + " required.")
                 } else if (
@@ -371,8 +380,12 @@ export default {
                 window.scrollTo(0, 0)
             }
         },
+
         closeBlockForm() {
-            this.isClosed = !this.isClosed
+            this.showForm = false
+        },
+        showBlockEvent() {
+            this.showForm = true
         },
     },
 }
@@ -622,12 +635,12 @@ export default {
     }
 
     .success-message {
-        position: fixed;
+        position: relative;
         z-index: 5;
         box-sizing: border-box;
-        top: 10px;
-        right: 1%;
-        width: 98%;
+        // top: 10px;
+        // right: 1%;
+        width: 100%;
         padding: 20px;
         box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3);
         overflow: hidden;
@@ -657,75 +670,6 @@ export default {
         box-sizing: border-box;
         padding: 20px;
         border-radius: var(--rounded-slightly-all);
-    }
-}
-
-.submitButton {
-    box-sizing: border-box;
-    position: relative;
-    @include button;
-    min-height: 48px;
-    padding: 4px 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    border: 1.5px solid var(--color-primary-blue-02);
-    transition-property: all;
-    @include animate-normal;
-    overflow: hidden;
-    z-index: 0;
-
-    background-color: var(--color-primary-blue-03);
-    --button-background-slide: var(--color-white);
-    border-color: var(--color-primary-blue-03);
-    color: var(--color-white);
-
-    .label {
-        white-space: nowrap;
-    }
-
-    &::before {
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color: var(--button-background-slide);
-        position: absolute;
-        top: 0;
-        left: -100%;
-        transition-property: all;
-        @include animate-normal;
-        z-index: -10;
-    }
-
-    // Hover states
-    @media #{$has-hover} {
-        &:hover,
-        &:focus,
-        &:focus-visible {
-            cursor: pointer;
-            border-color: var(--color-primary-blue-02);
-            color: var(--color-black);
-
-            &::before {
-                left: 0;
-            }
-        }
-
-        &:focus,
-        &:focus-visible {
-            outline: none;
-            border-radius: 0;
-        }
-    }
-    // Breakpoints
-    @media #{$medium} {
-        padding: 4px 16px;
-        display: inline-flex;
-    }
-
-    @media #{$small} {
-        width: 100%;
     }
 }
 </style>

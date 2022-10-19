@@ -190,6 +190,7 @@ const mock4 = {
         },
     ],
 }
+
 const externalVideo = {
     id: "42757",
     typeHandle: "bannerFeatured",
@@ -219,6 +220,7 @@ const externalVideo = {
         },
     ],
 }
+
 const internalVideo = {
     id: "36699",
     typeHandle: "bannerFeatured",
