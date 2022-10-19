@@ -72,6 +72,23 @@ export const GrayTheme = () => ({
   `,
 })
 
+export const Nested = () => ({
+    components: { SectionWrapper },
+    template: `
+    <section-wrapper sectionTitle="level 2 (auto)">
+        <section-wrapper sectionTitle="level 3 (auto)">
+        </section-wrapper>
+        <section-wrapper sectionTitle="level 3 (auto)">
+            <section-wrapper sectionTitle="level 4 (auto)" />
+        </section-wrapper>
+        <section-wrapper sectionTitle="level 3 (auto)" />
+        <section-wrapper level=6 sectionTitle="level 6 (via prop)">
+            <section-wrapper sectionTitle="level 7 (auto)" />
+        </section-wrapper>
+    </section-wrapper>
+  `,
+})
+
 export const Divider = () => ({
     data() {
         return {

@@ -1,24 +1,31 @@
 <template>
-    <div class="flexible-blocks">
-        <h2 class="more-information">More Information</h2>
+    <section-wrapper class="flexible-blocks" noMargins="true">
+        <section-header class="more-information"
+            >More Information</section-header
+        >
         <div v-for="(block, index) in parsedBlocks" :key="index">
             <section-wrapper v-if="block.needsDivider" theme="divider"
                 ><DividerWayFinder
             /></section-wrapper>
-            <section-wrapper :theme="block.theme">
+            <section-wrapper
+                :theme="block.theme"
+                :section-title="block.sectionTitle"
+                :section-summary="block.sectionSummary"
+            >
                 <component
                     :is="block.componentName"
-                    :block="block"
+                    :block="omit(block, ['sectionTitle', 'sectionSummary'])"
                     class="flexible-block"
                 />
             </section-wrapper>
         </div>
-    </div>
+    </section-wrapper>
 </template>
 
 <script>
 // Helpers
 import _kebabCase from "lodash/kebabCase"
+import omit from "lodash/omit"
 import SectionWrapper from "./SectionWrapper.vue"
 import DividerWayFinder from "./DividerWayFinder.vue"
 
@@ -153,6 +160,9 @@ export default {
                 return _kebabCase(str)
             })
         },
+    },
+    methods: {
+        omit,
     },
 }
 
