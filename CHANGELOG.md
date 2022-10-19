@@ -1,3 +1,10 @@
+## [1.57.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.57.2...v1.57.3) (2022-10-19)
+
+
+### Bug Fixes
+
+* updates *Staff block and section ([#211](https://github.com/UCLALibrary/ucla-library-website-components/issues/211)) ([4381ebb](https://github.com/UCLALibrary/ucla-library-website-components/commit/4381ebb81fa11a10b8d35c6a686e3d8679f616b7))
+
 ## [1.57.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.57.1...v1.57.2) (2022-10-14)
 
 
