@@ -8,7 +8,7 @@
                 id="the-iframe"
                 :isClicc="isClicc"
                 refs="hours_iframe"
-                :src="`https://uclalibrary.library.ucla.edu/blockhours.html?lid=${lid}`"
+                :src="parsedSrc"
                 frameBorder="0"
                 width="100%"
                 height="100%"
@@ -69,13 +69,20 @@ export default {
         return `block-hours-${getCounter("block-hours")}`
     },*/
     computed: {
-        classes() {
-            return [
-                "i-frame block-hours",
-                {
-                    "i-frame block-hours is-clicc": this.isClicc,
-                },
-            ]
+        // classes() {
+        //     return [
+        //         "i-frame",
+        //         {
+        //             "is-clicc": this.isClicc,
+        //         },
+        //     ]
+        // },
+        parsedSrc() {
+            if (!this.isClicc) {
+                return `https://uclalibrary.library.ucla.edu/blockHours.html?lid=${this.lid}`
+            } else {
+                return `/blockCliccHours.html?lid=0`
+            }
         },
     },
     mounted() {
