@@ -8,7 +8,7 @@
                 id="the-iframe"
                 refs="hours_iframe"
                 class="iframe"
-                :src="`https://uclalibrary.library.ucla.edu/blockhours.html?lid=${lid}`"
+                :src="parsedSrc"
                 frameBorder="0"
                 width="100%"
                 height="100%"
@@ -43,26 +43,20 @@ export default {
             type: String,
             default: "",
         },
+        isClicc: {
+            type: Boolean,
+            default: false,
+        },
     },
-    /* data() {
-        return {
-            hoursData: "",
-        }
+    computed: {
+        parsedSrc() {
+            if (!this.isClicc) {
+                return `https://uclalibrary.library.ucla.edu/blockHours.html?lid=${this.lid}`
+            } else {
+                return `/blockCliccHours.html?lid=0`
+            }
+        },
     },
-    async fetch() {
-        const response = await fetch("/blockHours.html")
-        const html = await response.text()
-        var parser = new DOMParser()
-        var doc = parser.parseFromString(html, "text/html")
-        // this.hoursData = doc.body.innerHTML
-        // Get the image file
-
-        console.log(doc.body)
-        this.hoursData = doc.body.innerHTML
-    },
-    fetchKey(getCounter) {
-        return `block-hours-${getCounter("block-hours")}`
-    },*/
     mounted() {
         window.addEventListener(
             "message",
@@ -84,6 +78,25 @@ export default {
             false
         )
     },
+    /* data() {
+        return {
+            hoursData: "",
+        }
+    },
+    async fetch() {
+        const response = await fetch("/blockHours.html")
+        const html = await response.text()
+        var parser = new DOMParser()
+        var doc = parser.parseFromString(html, "text/html")
+        // this.hoursData = doc.body.innerHTML
+        // Get the image file
+
+        console.log(doc.body)
+        this.hoursData = doc.body.innerHTML
+    },
+    fetchKey(getCounter) {
+        return `block-hours-${getCounter("block-hours")}`
+    },*/
 }
 </script>
 
