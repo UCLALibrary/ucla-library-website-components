@@ -1,3 +1,10 @@
+# [1.60.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.59.0...v1.60.0) (2022-10-20)
+
+
+### Features
+
+* MediaItem component ([#212](https://github.com/UCLALibrary/ucla-library-website-components/issues/212)) ([6c86784](https://github.com/UCLALibrary/ucla-library-website-components/commit/6c86784f3a1ee10d7538f9218f9de28c4f50bd51))
+
 # [1.59.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.58.0...v1.59.0) (2022-10-19)
 
 
