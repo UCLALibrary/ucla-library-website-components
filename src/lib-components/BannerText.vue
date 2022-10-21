@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="banner-text">
         <div :class="classes">
             <div class="banner-text-content-container">
                 <div v-if="category" class="category">
@@ -90,17 +90,18 @@
                         :to="to"
                         :is-secondary="true"
                     />
+
+                    <button-link
+                        v-if="to && isDarkBlue"
+                        :label="buttonText"
+                        :to="to"
+                        :is-tertiary="true"
+                    />
                 </div>
             </div>
         </div>
 
         <div class="block-form-container">
-            <button-link
-                v-if="to && isDarkBlue"
-                :label="buttonText"
-                :to="to"
-                :is-tertiary="true"
-            />
             <block-form v-if="!to && registerEvent" />
         </div>
     </div>
@@ -203,9 +204,9 @@ export default {
     },
     computed: {
         classes() {
-            let output = ["banner-text", "theme-light"]
+            let output = ["banner-text-container", "theme-light"]
             if (this.isDarkBlue) {
-                output = ["banner-text", "theme-dark"]
+                output = ["banner-text-container", "theme-dark"]
             }
             return output
         },
@@ -290,7 +291,7 @@ export default {
         color: var(--color-white);
     }
 }
-.banner-text {
+.banner-text-container {
     margin: 0 auto;
     background-color: var(--background-color);
     position: relative;
