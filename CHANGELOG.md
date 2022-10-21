@@ -1,3 +1,10 @@
+# [1.61.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.60.0...v1.61.0) (2022-10-20)
+
+
+### Features
+
+* Apps 1895 anchor link nuxt id update ([#213](https://github.com/UCLALibrary/ucla-library-website-components/issues/213)) ([95246ac](https://github.com/UCLALibrary/ucla-library-website-components/commit/95246ac6b44df68bfe110db6b6a3fe30afba211c))
+
 # [1.60.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.59.0...v1.60.0) (2022-10-20)
 
 
