@@ -43,7 +43,7 @@
         <transition
             name="slide-toggle"
             mode="out-in"
-            :key="group.slug"
+            :key="group.esFieldName"
             v-for="(group, index) in parsedFilters"
         >
             <component
@@ -106,7 +106,7 @@ export default {
     computed: {
         parsedFilters() {
             return this.filters.map((obj) => {
-                let selected = this.selectedFilters[obj.slug] || []
+                let selected = this.selectedFilters[obj.esFieldName] || []
                 let componentName = "base-checkbox-group"
 
                 // If none selected, then make sure radio's default is empty string

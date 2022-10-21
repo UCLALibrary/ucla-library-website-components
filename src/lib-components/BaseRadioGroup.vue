@@ -112,16 +112,19 @@ export default {
         }
     }
     .svg__icon-radio-button {
-        .svg__fill--default-cyan-03 {
+        ::v-deep .svg__fill--default-cyan-03 {
             fill: transparent;
         }
-        .svg__stroke--primary-blue-03 {
+        ::v-deep .svg__stroke--primary-blue-03 {
             stroke: white;
         }
     }
 
     // Selected state
-    .input:checked + .svg__icon-radio-button .svg__fill--default-cyan-03 {
+    .input:checked
+        + .svg__icon-radio-button
+        ::v-deep
+        .svg__fill--default-cyan-03 {
         fill: white;
     }
 

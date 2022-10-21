@@ -635,7 +635,7 @@ export default Vue.extend({
                 filters: [
                     {
                         label: "Location",
-                        slug: "location",
+                        esFieldName: "location",
                         inputType: "radio",
                         items: [
                             {
@@ -657,7 +657,7 @@ export default Vue.extend({
                     },
                     {
                         label: "Department",
-                        slug: "department",
+                        esFieldName: "department",
                         inputType: "checkbox",
                         items: [
                             {
