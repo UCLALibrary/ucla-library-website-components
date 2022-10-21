@@ -20,6 +20,7 @@ export const Default = () => ({
         // explicitly provide a computed property
         eventId: "9383207",
         blockFormData: BlockFormData.mock0,
+        libcalEndpoint: "https://test.proxy.calendar.library.ucla.edu/",
     },
     components: { BlockForm },
     template: `
@@ -35,6 +36,7 @@ export const DefaultType2 = () => ({
         // explicitly provide a computed property
         eventId: "9383207",
         blockFormData: BlockFormData.mock1,
+        libcalEndpoint: "https://test.proxy.calendar.library.ucla.edu/",
     },
     components: { BlockForm },
     template: `
@@ -50,6 +52,7 @@ export const CLICCInstructionalUseForm = () => ({
         // explicitly provide a computed property
         eventId: "9383207",
         blockFormData: BlockFormData.mock2,
+        libcalEndpoint: "https://test.proxy.calendar.library.ucla.edu/",
     },
     components: { BlockForm },
     template: `
@@ -65,6 +68,7 @@ export const TestFormTerryAllen = () => ({
         // explicitly provide a computed property
         eventId: "9383207",
         blockFormData: BlockFormData.mock3,
+        libcalEndpoint: "https://test.proxy.calendar.library.ucla.edu/",
     },
     components: { BlockForm },
     template: `
@@ -80,6 +84,7 @@ export const TestFormFTVA = () => ({
         // explicitly provide a computed property
         eventId: "9383207",
         blockFormData: BlockFormData.mock4,
+        libcalEndpoint: "https://test.proxy.calendar.library.ucla.edu/",
     },
     components: { BlockForm },
     template: `
@@ -95,6 +100,7 @@ export const TextBallot = () => ({
         // explicitly provide a computed property
         eventId: "9383207",
         blockFormData: BlockFormData.mock5,
+        libcalEndpoint: "https://test.proxy.calendar.library.ucla.edu/",
     },
     components: { BlockForm },
     template: `
@@ -110,6 +116,7 @@ export const UCLALibraryEventRegistration = () => ({
         // explicitly provide a computed property
         eventId: "9383207",
         blockFormData: BlockFormData.mock6,
+        libcalEndpoint: "https://test.proxy.calendar.library.ucla.edu/",
     },
     components: { BlockForm },
     template: `
