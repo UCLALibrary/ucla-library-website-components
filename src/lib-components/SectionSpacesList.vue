@@ -1,6 +1,6 @@
 <template>
     <section class="section-spaces-list">
-        <h3 class="spaces-title">Spaces</h3>
+        <h3 id="spaces" class="spaces-title">Spaces</h3>
         <block-spaces
             v-for="(item, index) in items"
             :key="`BlockSpace${index}`"
