@@ -304,12 +304,12 @@ export default {
             })
 
             let url = ""
-            if (!process.env.VUE_APP_CALENDAR_LIBRARY_URL) {
+            if (this.libcalEndpoint) {
+                url = `${this.libcalEndpoint} + api/1.1/events/${this.eventId}/register`
+            } else {
                 url =
                     process.env.VUE_APP_CALENDAR_LIBRARY_URL +
                     `${this.eventId}/register`
-            } else {
-                url = `${this.libcalEndpoint} + api/1.1/events/${this.eventId}/register`
             }
 
             fetch(url, {
