@@ -53,7 +53,7 @@ export default {
             if (!this.isClicc) {
                 return `https://uclalibrary.library.ucla.edu/blockHours.html?lid=${this.lid}`
             } else {
-                return `/blockCliccHours.html?lid=0`
+                return `https://uclalibrary.library.ucla.edu/blockCliccHours.html?lid=0`
             }
         },
     },
