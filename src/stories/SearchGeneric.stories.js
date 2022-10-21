@@ -52,18 +52,18 @@ export const Default = () => ({
             filters: [
                 {
                     label: "Location",
-                    slug: "location",
+                    esFieldName: "location",
                     inputType: "radio",
                     items: items,
                 },
                 {
                     label: "Department",
-                    slug: "department",
+                    esFieldName: "department",
                     inputType: "checkbox",
                     items: items,
                 },
             ],
-            views: [
+            /* views: [
                 {
                     slug: "list",
                     iconName: "icon-list",
@@ -79,7 +79,7 @@ export const Default = () => ({
                     iconName: "icon-calendar",
                     title: "Calendar",
                 },
-            ],
+            ],*/
         }
     },
     components: { SearchGeneric },
