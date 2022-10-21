@@ -448,14 +448,14 @@ export default {
 
 // Breakpoints
 @media #{$extra-large} {
-    .banner-text {
+    .banner-text-container {
         .text {
             max-width: 788px;
         }
     }
 }
 @media #{$medium} {
-    .banner-text {
+    .banner-text-container {
         background-size: contain;
         .category .text {
             font-size: 20px;
@@ -482,7 +482,7 @@ export default {
 }
 
 @media #{$medium} and (min-width: 928px) {
-    .banner-text .banner-text-content-container {
+    .banner-text-container .banner-text-content-container {
         max-width: 100%;
     }
 
@@ -491,7 +491,7 @@ export default {
     }
 }
 @media #{$small} {
-    .banner-text {
+    .banner-text-container {
         background-image: none;
 
         .category {
