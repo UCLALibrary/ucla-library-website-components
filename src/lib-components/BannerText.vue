@@ -1,95 +1,107 @@
 <template>
-    <div :class="classes">
-        <div class="background-image"></div>
-        <div class="banner-text-content-container">
-            <div v-if="category" class="category">
-                <svg-heading-vector class="heading-line" aria-hidden="true" />
-                <div :class="categoryClasses" v-html="category" />
-            </div>
+    <div>
+        <div :class="classes">
+            <div class="banner-text-content-container">
+                <div v-if="category" class="category">
+                    <svg-heading-vector
+                        class="heading-line"
+                        aria-hidden="true"
+                    />
+                    <div :class="categoryClasses" v-html="category" />
+                </div>
 
-            <div class="content">
-                <h1 class="title" v-html="title" />
-                <rich-text v-if="text" class="text" :rich-text-content="text" />
-                <div class="byline" v-if="byline.length">
-                    <div
-                        v-for="(item, index) in byline"
-                        :key="index"
-                        class="byline-item"
-                    >
-                        {{ item }}
+                <div class="content">
+                    <h1 class="title" v-html="title" />
+                    <rich-text
+                        v-if="text"
+                        class="text"
+                        :rich-text-content="text"
+                    />
+                    <div class="byline" v-if="byline.length">
+                        <div
+                            v-for="(item, index) in byline"
+                            :key="index"
+                            class="byline-item"
+                        >
+                            {{ item }}
+                        </div>
+                        <div v-if="date" class="schedule">
+                            <time
+                                v-if="date"
+                                class="schedule-item"
+                                v-html="parsedDate"
+                            />
+                            <time
+                                v-if="date"
+                                class="schedule-item"
+                                v-html="parsedTime"
+                            />
+                            <div v-if="isOnline" class="schedule-item">
+                                Online
+                            </div>
+                        </div>
                     </div>
-                    <div v-if="date" class="schedule">
-                        <time
-                            v-if="date"
-                            class="schedule-item"
-                            v-html="parsedDate"
+
+                    <div v-if="locations.length" class="location-group">
+                        <icon-with-link
+                            v-for="location in locations"
+                            :key="`location-${location.id}`"
+                            :text="location.title"
+                            icon-name="svg-icon-location"
+                            :to="`/${location.to}`"
                         />
-                        <time
-                            v-if="date"
-                            class="schedule-item"
-                            v-html="parsedTime"
-                        />
-                        <div v-if="isOnline" class="schedule-item">Online</div>
                     </div>
-                </div>
 
-                <div v-if="locations.length" class="location-group">
-                    <icon-with-link
-                        v-for="location in locations"
-                        :key="`location-${location.id}`"
-                        :text="location.title"
-                        icon-name="svg-icon-location"
-                        :to="`/${location.to}`"
+                    <div v-if="email" class="contact-info">
+                        <icon-with-link
+                            :text="email"
+                            icon-name="svg-icon-email"
+                            :to="`mailto:/${email}`"
+                        />
+                    </div>
+
+                    <div v-if="phone" class="contact-info">
+                        <icon-with-link
+                            :text="phone"
+                            icon-name="svg-icon-phone"
+                            :to="`tel:/${phone}`"
+                        />
+                    </div>
+
+                    <div v-if="staffDirectoryLink" class="contact-info">
+                        <icon-with-link
+                            :text="`View staff directory`"
+                            icon-name="svg-icon-person"
+                            :to="staffDirectoryLink"
+                        />
+                    </div>
+
+                    <div v-if="addressLink" class="contact-info">
+                        <icon-with-link
+                            :text="address"
+                            icon-name="svg-icon-location"
+                            :to="addressLink"
+                        />
+                    </div>
+
+                    <button-link
+                        v-if="to && !isDarkBlue"
+                        :label="buttonText"
+                        :to="to"
+                        :is-secondary="true"
                     />
                 </div>
-
-                <div v-if="email" class="contact-info">
-                    <icon-with-link
-                        :text="email"
-                        icon-name="svg-icon-email"
-                        :to="`mailto:/${email}`"
-                    />
-                </div>
-
-                <div v-if="phone" class="contact-info">
-                    <icon-with-link
-                        :text="phone"
-                        icon-name="svg-icon-phone"
-                        :to="`tel:/${phone}`"
-                    />
-                </div>
-
-                <div v-if="staffDirectoryLink" class="contact-info">
-                    <icon-with-link
-                        :text="`View staff directory`"
-                        icon-name="svg-icon-person"
-                        :to="staffDirectoryLink"
-                    />
-                </div>
-
-                <div v-if="addressLink" class="contact-info">
-                    <icon-with-link
-                        :text="address"
-                        icon-name="svg-icon-location"
-                        :to="addressLink"
-                    />
-                </div>
-
-                <button-link
-                    v-if="to && !isDarkBlue"
-                    :label="buttonText"
-                    :to="to"
-                    :is-secondary="true"
-                />
-
-                <button-link
-                    v-if="to && isDarkBlue"
-                    :label="buttonText"
-                    :to="to"
-                    :is-tertiary="true"
-                />
-                <block-form v-if="!to && registerEvent" />
             </div>
+        </div>
+
+        <div class="block-form-container">
+            <button-link
+                v-if="to && isDarkBlue"
+                :label="buttonText"
+                :to="to"
+                :is-tertiary="true"
+            />
+            <block-form v-if="!to && registerEvent" />
         </div>
     </div>
 </template>
@@ -221,16 +233,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.background-image {
-    width: 225px;
-    height: 490px;
-
-    background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half-faceted-light.svg");
-
-    right: 0;
-    position: absolute;
-    z-index: -1;
-}
 // Variations for dark blue and white backgrounds
 .theme-light {
     --background-color: var(--color-white);
@@ -246,7 +248,7 @@ export default {
     --location-icon-color: var(--color-primary-blue-03);
     --hover-border-color: var(--color-primary-blue-02);
     --hover-background-color: var(--color-white);
-    // background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half-faceted-light.svg");
+    background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half-faceted-light.svg");
     //background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-faceted-light.svg");
 }
 
@@ -436,6 +438,13 @@ export default {
         }
     }
 }
+
+.block-form-container {
+    padding: 40px 0 0;
+    max-width: 928px;
+    margin: auto;
+}
+
 // Breakpoints
 @media #{$extra-large} {
     .banner-text {
@@ -464,10 +473,19 @@ export default {
             padding-right: 120px;
         }
     }
+
+    .block-form-container {
+        padding-left: var(--unit-gutter);
+        padding-top: 40px;
+    }
 }
 
 @media #{$medium} and (min-width: 928px) {
     .banner-text .banner-text-content-container {
+        max-width: 100%;
+    }
+
+    .block-form-container {
         max-width: 100%;
     }
 }
@@ -487,6 +505,7 @@ export default {
         .banner-text-content-container .content {
             max-width: 100%;
         }
+
         .schedule {
             display: flex;
             flex-direction: column;
@@ -501,6 +520,11 @@ export default {
             padding-right: 0;
             max-width: 100%;
         }
+    }
+
+    .block-form-container {
+        max-width: 100%;
+        padding: 32px;
     }
 }
 </style>
