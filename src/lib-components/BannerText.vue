@@ -1,5 +1,6 @@
 <template>
     <div :class="classes">
+        <div class="background-image"></div>
         <div class="banner-text-content-container">
             <div v-if="category" class="category">
                 <svg-heading-vector class="heading-line" aria-hidden="true" />
@@ -220,6 +221,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.background-image {
+    width: 225px;
+    height: 490px;
+
+    background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half-faceted-light.svg");
+
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
 // Variations for dark blue and white backgrounds
 .theme-light {
     --background-color: var(--color-white);
@@ -235,7 +246,7 @@ export default {
     --location-icon-color: var(--color-primary-blue-03);
     --hover-border-color: var(--color-primary-blue-02);
     --hover-background-color: var(--color-white);
-    background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half-faceted-light.svg");
+    // background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-half-faceted-light.svg");
     //background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-faceted-light.svg");
 }
 
