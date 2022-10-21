@@ -1,3 +1,10 @@
+# [1.62.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.61.0...v1.62.0) (2022-10-21)
+
+
+### Features
+
+* Apps 1985 update block form ([#216](https://github.com/UCLALibrary/ucla-library-website-components/issues/216)) ([64dd820](https://github.com/UCLALibrary/ucla-library-website-components/commit/64dd820ea9e8fd5569ea25b041ce0f9ee38aa63b))
+
 # [1.61.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.60.0...v1.61.0) (2022-10-20)
 
 
