@@ -1,3 +1,10 @@
+# [1.63.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.62.2...v1.63.0) (2022-10-24)
+
+
+### Features
+
+* APPS-1922 display all CLICC hours ([#214](https://github.com/UCLALibrary/ucla-library-website-components/issues/214)) ([a393942](https://github.com/UCLALibrary/ucla-library-website-components/commit/a3939428eca492bd9bcc427564df3f4a79b15cbf))
+
 ## [1.62.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.62.1...v1.62.2) (2022-10-24)
 
 
