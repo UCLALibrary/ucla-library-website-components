@@ -363,7 +363,7 @@ export default {
         justify-content: flex-start;
         align-items: center;
         gap: 4px;
-        margin-bottom: var(--space-m);
+        margin-bottom: 4px;
     }
     .content .text {
         @include step-0;
