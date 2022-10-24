@@ -1,3 +1,10 @@
+## [1.62.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.62.0...v1.62.1) (2022-10-21)
+
+
+### Bug Fixes
+
+* Apps 1989 update molecule ([#215](https://github.com/UCLALibrary/ucla-library-website-components/issues/215)) ([9846467](https://github.com/UCLALibrary/ucla-library-website-components/commit/9846467a59173dbfb16510b4332d07921ff4e1e8))
+
 # [1.62.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.61.0...v1.62.0) (2022-10-21)
 
 
