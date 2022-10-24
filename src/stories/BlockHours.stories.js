@@ -41,6 +41,9 @@ export const WithZeroLid = () => ({
     },
     components: { BlockHours },
     template: `
-        <block-hours lid="0"/>
+        <block-hours
+            lid="0"
+            :is-clicc="true"
+        />
     `,
 })
