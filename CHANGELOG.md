@@ -1,3 +1,10 @@
+## [1.62.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.62.1...v1.62.2) (2022-10-24)
+
+
+### Bug Fixes
+
+* fixed libcalEndpoint url function ([#218](https://github.com/UCLALibrary/ucla-library-website-components/issues/218)) ([1d67347](https://github.com/UCLALibrary/ucla-library-website-components/commit/1d6734740e209faf4e25670c1342dcd1210e89da))
+
 ## [1.62.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.62.0...v1.62.1) (2022-10-21)
 
 
