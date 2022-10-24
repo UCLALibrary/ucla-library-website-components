@@ -305,7 +305,7 @@ export default {
 
             let url = ""
             if (this.libcalEndpoint) {
-                url = `${this.libcalEndpoint} + api/1.1/events/${this.eventId}/register`
+                url = `${this.libcalEndpoint}api/1.1/events/${this.eventId}/register`
             } else {
                 url =
                     process.env.VUE_APP_CALENDAR_LIBRARY_URL +
