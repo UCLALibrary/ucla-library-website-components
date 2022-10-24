@@ -34,3 +34,16 @@ export const MoreInternalLocations = () => ({
         <block-hours lid="2081"/>
     `,
 })
+
+export const WithZeroLid = () => ({
+    data() {
+        return {}
+    },
+    components: { BlockHours },
+    template: `
+        <block-hours
+            lid="0"
+            :is-clicc="true"
+        />
+    `,
+})
