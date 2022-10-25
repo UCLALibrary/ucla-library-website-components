@@ -1,3 +1,10 @@
+## [1.64.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.64.0...v1.64.1) (2022-10-25)
+
+
+### Bug Fixes
+
+* APPS-1996 banner featured image video logic ([#220](https://github.com/UCLALibrary/ucla-library-website-components/issues/220)) ([ce74f46](https://github.com/UCLALibrary/ucla-library-website-components/commit/ce74f4649bb7a4c88cfd6133e0578807cc71f79f))
+
 # [1.64.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.63.0...v1.64.0) (2022-10-25)
 
 
