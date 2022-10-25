@@ -12,7 +12,7 @@ export default {
 
 const mock = {
     image: API.image,
-    video: API.video,
+    video: API.videoVideoUrl,
     to: "/applicants/foo/bar/",
     title: "Curabitur Tortor Pellentesque Nibh Aenean",
     category: "Lectus",
