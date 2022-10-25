@@ -237,6 +237,8 @@ export default {
         z-index: 10;
     }
     .support-links {
+        // removing support-link from nav-primary with display
+        display: none;
         position: relative;
         z-index: 10;
 
