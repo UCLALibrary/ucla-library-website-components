@@ -302,7 +302,7 @@ export const WithBlockForm = () => ({
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :video="video"
+            :image="image"
             :category="category"
             :title="title"
             :description="description"
