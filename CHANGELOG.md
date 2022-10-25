@@ -1,3 +1,10 @@
+# [1.64.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.63.0...v1.64.0) (2022-10-25)
+
+
+### Features
+
+* updates NavPrimary and BannerText spacing ([#219](https://github.com/UCLALibrary/ucla-library-website-components/issues/219)) ([90280b1](https://github.com/UCLALibrary/ucla-library-website-components/commit/90280b1eb296929694c1df1a2142c208774cd9d6))
+
 # [1.63.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.62.2...v1.63.0) (2022-10-24)
 
 
