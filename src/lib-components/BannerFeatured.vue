@@ -211,10 +211,6 @@ export default {
             type: Object,
             default: () => {},
         },
-        video: {
-            type: Object,
-            default: () => {},
-        },
         title: {
             type: String,
             required: true,
