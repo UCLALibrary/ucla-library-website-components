@@ -20,7 +20,7 @@
             :image="parsedMediaProp"
             :aspect-ratio="parsedRatio"
         >
-            <div v-if="image" class="gradient" />
+            <div v-if="!isVideo" class="gradient" />
 
             <svg-molecule-half-faceted class="molecule" aria-hidden="true" />
         </component>
@@ -310,7 +310,6 @@ export default {
                 poster: mainVideo.poster,
             }
 
-            console.log("video obj: " + JSON.stringify(videoObj))
             return videoObj
         },
         parsedMediaComponent() {

@@ -12,7 +12,6 @@ export default {
 
 const mock = {
     image: API.image,
-    video: API.videoVideoUrl,
     to: "/applicants/foo/bar/",
     title: "Curabitur Tortor Pellentesque Nibh Aenean",
     category: "Lectus",
@@ -147,12 +146,13 @@ export const Video = () => ({
     data() {
         return {
             ...mock,
+            video: API.video,
         }
     },
     components: { BannerHeader },
     template: `
         <banner-header
-           :video="video"
+           :image="video"
            :title="title"
            :align-right="false"
        />
