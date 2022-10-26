@@ -66,7 +66,9 @@ export default {
     },
     methods: {
         onChange(value) {
+            console.log("checkbox updates: " + this.parsedSelected)
             this.$emit("update:selected", this.parsedSelected)
+            this.$emit("input-selected")
         },
     },
 }

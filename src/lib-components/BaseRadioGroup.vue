@@ -61,6 +61,7 @@ export default {
     methods: {
         onChange(value) {
             this.$emit("update:selected", value)
+            this.$emit("input-selected")
         },
     },
 }
