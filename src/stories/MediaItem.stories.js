@@ -45,14 +45,14 @@ ImageObjectFitContain.args = {
 export const Video = Template.bind({})
 Video.args = {
     type: null,
-    mediaItem: API.video,
+    mediaItem: API.videoVideoUrl,
     objectFit: "cover",
 }
 
 export const VideoWithControls = Template.bind({})
 VideoWithControls.args = {
     type: null,
-    mediaItem: API.video,
+    mediaItem: API.videoVideoUrl,
     controls: true,
     objectFit: "cover",
 }

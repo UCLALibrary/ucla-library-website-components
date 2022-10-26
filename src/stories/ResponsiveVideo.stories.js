@@ -11,7 +11,7 @@ export default {
 export const ImageWithVideo = () => ({
     data() {
         return {
-            image: API.video,
+            image: API.videoVideoUrl,
         }
     },
     components: { ResponsiveVideo },
@@ -21,7 +21,7 @@ export const ImageWithVideo = () => ({
 export const VideoWithControls = () => ({
     data() {
         return {
-            image: API.video,
+            image: API.videoVideoUrl,
         }
     },
     components: { ResponsiveVideo },

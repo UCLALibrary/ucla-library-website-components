@@ -9,7 +9,7 @@
         "caption": "Lorem ipsum",
         "height": 1080,
         "width": 1920,
-        "focalPoint":[0.5,0.5]
+        "focalPoint": [0.5, 0.5]
     },
     "images": [
         {
@@ -35,6 +35,15 @@
         "title": "Lorem ipsum"
     },
     "video": {
+        "id": "42094",
+        "src": "https://static.library.ucla.edu/craftassetstest/images/ucla-impact-report-animation.mp4",
+        "height": null,
+        "width": null,
+        "srcset": "",
+        "alt": "Ucla impact report animation",
+        "focalPoint": [0.5, 0.5]
+    },
+    "videoVideoUrl": {
         "height": 1892,
         "width": 3360,
         "videoUrl": "https://static.library.ucla.edu/ucla-impact-report-animation.mp4"

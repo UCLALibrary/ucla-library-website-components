@@ -14,7 +14,6 @@ export default {
 
 const mock = {
     image: API.image,
-    video: API.video,
     to: "/help/foo/bar/",
     title: "Curabitur Tortor Pellentesque Nibh Aenean",
     category: "Ullamcorper",
@@ -272,12 +271,13 @@ export const Video = () => ({
     data() {
         return {
             ...mock,
+            image: API.video,
         }
     },
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :video="video"
+            :image="image"
             :category="category"
             :to="to"
             :title="title"
@@ -302,7 +302,7 @@ export const WithBlockForm = () => ({
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :video="video"
+            :image="image"
             :category="category"
             :title="title"
             :description="description"

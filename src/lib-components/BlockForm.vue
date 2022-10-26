@@ -199,7 +199,7 @@ import SvgIconCheckbox from "ucla-library-design-tokens/assets/svgs/icon-checkbo
 
 export default {
     name: "BlockForm",
-    inject: ["eventId", "blockFormData"],
+    inject: ["eventId", "blockFormData", "libcalEndpoint"],
     components: {
         SvgGlyphClose,
         ButtonLink: () =>
@@ -304,12 +304,12 @@ export default {
             })
 
             let url = ""
-            if (!process.env.VUE_APP_CALENDAR_LIBRARY_URL) {
+            if (this.libcalEndpoint) {
+                url = `${this.libcalEndpoint}api/1.1/events/${this.eventId}/register`
+            } else {
                 url =
                     process.env.VUE_APP_CALENDAR_LIBRARY_URL +
                     `${this.eventId}/register`
-            } else {
-                url = `https://test.proxy.calendar.library.ucla.edu/api/1.1/events/${this.eventId}/register`
             }
 
             fetch(url, {

@@ -108,6 +108,9 @@ export default {
             margin: var(--space-3xl) auto;
             &.section-banner {
                 margin-top: 0;
+                > * {
+                    max-width: $container-xl-banner + px;
+                }
             }
         }
 

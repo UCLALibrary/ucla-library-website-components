@@ -12,7 +12,6 @@
             :prompt="parsePrompt"
             :locations="parsedLocations"
             :category="parsedCategory"
-            :video="parseVideo"
         />
         <banner-featured
             v-if="block && block.content && !block.content[0].contentLink"
@@ -27,7 +26,6 @@
             :locations="parsedLocations"
             :category="parsedCategory"
             :alignment="parsedAlignment"
-            :video="parseVideo"
         />
     </div>
 </template>
@@ -49,38 +47,7 @@ export default {
     },
     mixins: [getPrompt],
     computed: {
-        isVideo() {
-            let fileName = ""
-            if (
-                this.block.content[0].contentLink &&
-                this.block.content[0].contentLink[0].heroImage
-            ) {
-                console.log(
-                    "Internal video: " +
-                        JSON.stringify(
-                            this.block.content[0].contentLink[0].heroImage[0]
-                        )
-                )
-                fileName =
-                    this.block.content[0].contentLink[0].heroImage[0].image[0].src.toLowerCase()
-            } else if (this.block.content[0].image) {
-                console.log("External video")
-                fileName = this.block.content[0].image[0].src.toLowerCase()
-            }
-            let extension = fileName.split(".").pop()
-            if (
-                extension == "mp4" ||
-                extension == "m4a" ||
-                extension == "f4v" ||
-                extension == "m4b" ||
-                extension == "mov"
-            ) {
-                return true
-            }
-            return false
-        },
         parseImage() {
-            if (this.isVideo) return null
             let imageObj = {}
             if (
                 this.block.content[0].contentLink &&
@@ -93,39 +60,6 @@ export default {
 
             console.log("image obj: " + JSON.stringify(imageObj))
             return imageObj
-        },
-        parseVideo() {
-            if (!this.isVideo) return null
-            let videoObj = {}
-            if (
-                this.block.content[0].contentLink &&
-                this.block.content[0].contentLink[0].heroImage
-            ) {
-                let mainVideo =
-                    this.block.content[0].contentLink[0].heroImage[0].image[0]
-                videoObj = {
-                    videoUrl: mainVideo.src,
-                    sizes: mainVideo.sizes,
-                    height: mainVideo.height,
-                    width: mainVideo.width,
-                    altText: mainVideo.alt,
-                    caption: mainVideo.caption,
-                    poster: mainVideo.poster,
-                }
-            } else if (this.block.content[0].image) {
-                let mainVideo = this.block.content[0].image[0]
-                videoObj = {
-                    videoUrl: mainVideo.src,
-                    sizes: mainVideo.sizes,
-                    height: mainVideo.height,
-                    width: mainVideo.width,
-                    altText: mainVideo.alt,
-                    caption: mainVideo.caption,
-                    poster: mainVideo.poster,
-                }
-            }
-            console.log("video obj: " + JSON.stringify(videoObj))
-            return videoObj
         },
         parsedAlignment() {
             return this.block.content[0].alignment === "right" ? true : false

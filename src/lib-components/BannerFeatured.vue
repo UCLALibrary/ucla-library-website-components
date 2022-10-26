@@ -211,10 +211,6 @@ export default {
             type: Object,
             default: () => {},
         },
-        video: {
-            type: Object,
-            default: () => {},
-        },
         title: {
             type: String,
             required: true,
@@ -278,6 +274,51 @@ export default {
                 `color-${this.sectionName}`,
             ]
         },
+
+        isVideo() {
+            let fileName = this.image.src.toLowerCase()
+            let extension = fileName.split(".").pop()
+            if (
+                extension == "mp4" ||
+                extension == "m4a" ||
+                extension == "f4v" ||
+                extension == "m4b" ||
+                extension == "mov"
+            ) {
+                return true
+            } else {
+                return false
+            }
+        },
+        parseImage() {
+            if (this.isVideo) return null
+            let imageObj = this.image
+            console.log("image obj: " + JSON.stringify(imageObj))
+            return imageObj
+        },
+        parseVideo() {
+            if (!this.isVideo) return null
+            let videoObj = {}
+            let mainVideo = this.image
+            videoObj = {
+                videoUrl: mainVideo.src,
+                sizes: mainVideo.sizes,
+                height: mainVideo.height,
+                width: mainVideo.width,
+                altText: mainVideo.alt,
+                caption: mainVideo.caption,
+                poster: mainVideo.poster,
+            }
+
+            console.log("video obj: " + JSON.stringify(videoObj))
+            return videoObj
+        },
+        parsedMediaComponent() {
+            return this.isVideo ? "responsive-video" : "responsive-image"
+        },
+        parsedMediaProp() {
+            return this.isVideo ? this.parseVideo : this.parseImage
+        },
         bylineArticleExists() {
             return (
                 this.byline &&
@@ -314,12 +355,7 @@ export default {
         sectionName() {
             return this.section || this.getSectionName(this.to)
         },
-        parsedMediaComponent() {
-            return this.image ? "responsive-image" : "responsive-video"
-        },
-        parsedMediaProp() {
-            return this.image ? this.image : this.video
-        },
+
         parsedRatio() {
             // If on mobile, change ratio of image
             let output = this.ratio
