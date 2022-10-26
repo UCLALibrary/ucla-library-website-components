@@ -11,7 +11,7 @@
             :image="parsedMediaProp"
             :aspect-ratio="parsedRatio"
         >
-            <div v-if="image" :class="gradientClasses" />
+            <div v-if="!isVideo" :class="gradientClasses" />
 
             <svg-molecule-half-faceted class="molecule" aria-hidden="true" />
         </component>
@@ -174,10 +174,6 @@ export default {
             type: Object,
             default: () => {},
         },
-        video: {
-            type: Object,
-            default: () => {},
-        },
         title: {
             type: String,
             required: true,
@@ -266,6 +262,50 @@ export default {
                 `color-${this.sectionName}`,
             ]
         },
+
+        isVideo() {
+            let fileName = this.image.src.toLowerCase()
+            let extension = fileName.split(".").pop()
+            if (
+                extension == "mp4" ||
+                extension == "m4a" ||
+                extension == "f4v" ||
+                extension == "m4b" ||
+                extension == "mov"
+            ) {
+                return true
+            } else {
+                return false
+            }
+        },
+        parseImage() {
+            if (this.isVideo) return null
+            let imageObj = this.image
+            console.log("image obj: " + JSON.stringify(imageObj))
+            return imageObj
+        },
+        parseVideo() {
+            if (!this.isVideo) return null
+            let videoObj = {}
+            let mainVideo = this.image
+            videoObj = {
+                videoUrl: mainVideo.src,
+                sizes: mainVideo.sizes,
+                height: mainVideo.height,
+                width: mainVideo.width,
+                altText: mainVideo.alt,
+                caption: mainVideo.caption,
+                poster: mainVideo.poster,
+            }
+
+            return videoObj
+        },
+        parsedMediaComponent() {
+            return this.isVideo ? "responsive-video" : "responsive-image"
+        },
+        parsedMediaProp() {
+            return this.isVideo ? this.parseVideo : this.parseImage
+        },
         parsedDateCreated() {
             return format(new Date(this.dateCreated), "MMMM d, Y")
         },
@@ -286,12 +326,6 @@ export default {
             //     output = 100
             // }
             return output
-        },
-        parsedMediaComponent() {
-            return this.image ? "responsive-image" : "responsive-video"
-        },
-        parsedMediaProp() {
-            return this.image ? this.image : this.video
         },
         gradientClasses() {
             return this.category ? "gradient" : "gradient-no-category"
