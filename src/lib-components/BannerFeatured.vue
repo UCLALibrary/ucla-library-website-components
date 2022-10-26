@@ -309,7 +309,6 @@ export default {
                 caption: mainVideo.caption,
                 poster: mainVideo.poster,
             }
-
             return videoObj
         },
         parsedMediaComponent() {
