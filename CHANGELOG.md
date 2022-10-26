@@ -1,3 +1,10 @@
+## [1.64.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.64.1...v1.64.2) (2022-10-26)
+
+
+### Bug Fixes
+
+* banner header image video logic ([#221](https://github.com/UCLALibrary/ucla-library-website-components/issues/221)) ([5b19378](https://github.com/UCLALibrary/ucla-library-website-components/commit/5b19378fb9b0da04fa1bbc5a8664f8c6e9d6d2d1))
+
 ## [1.64.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.64.0...v1.64.1) (2022-10-25)
 
 
