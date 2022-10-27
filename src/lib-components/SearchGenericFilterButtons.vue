@@ -118,10 +118,10 @@ export default {
         justify-content: center;
         align-content: center;
         align-items: center;
+        ::v-deep .svg__stroke--primary-blue-03 {
+            stroke: white;
+        } // chevron up & down
     }
-    .svg__stroke--primary-blue-03 {
-        stroke: white;
-    } // chevron up & down
 
     .svg__icon-radio-button {
         .svg__fill--default-cyan-03 {

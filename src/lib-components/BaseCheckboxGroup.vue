@@ -66,7 +66,9 @@ export default {
     },
     methods: {
         onChange(value) {
+            console.log("checkbox updates: " + this.parsedSelected)
             this.$emit("update:selected", this.parsedSelected)
+            this.$emit("input-selected")
         },
     },
 }
@@ -117,16 +119,19 @@ export default {
         }
     }
     .svg__icon-checkbox {
-        .svg__stroke--default-cyan-03 {
+        ::v-deep .svg__stroke--default-cyan-03 {
             stroke: transparent;
         }
-        .svg__stroke--primary-blue-03 {
+        ::v-deep .svg__stroke--primary-blue-03 {
             stroke: white;
         }
     }
 
     // Selected state
-    .input:checked + .svg__icon-checkbox .svg__stroke--default-cyan-03 {
+    .input:checked
+        + .svg__icon-checkbox
+        ::v-deep
+        .svg__stroke--default-cyan-03 {
         stroke: white;
     }
 

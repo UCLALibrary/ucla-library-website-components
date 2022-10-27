@@ -13,13 +13,14 @@
                 v-model="searchWords"
                 type="text"
                 placeholder="Search by keyword"
-            />
-            <search-generic-filter-buttons
-                :items="filters"
-                :active-index.sync="openedFilterIndex"
-                class="search-generic-filter-buttons"
+                @change="someHandler"
             />
         </div>
+        <search-generic-filter-buttons
+            :items="filters"
+            :active-index.sync="openedFilterIndex"
+            class="search-generic-filter-buttons"
+        />
 
         <!-- <hr class="divider" />
 
@@ -43,15 +44,16 @@
         <transition
             name="slide-toggle"
             mode="out-in"
-            :key="group.slug"
+            :key="group.esFieldName"
             v-for="(group, index) in parsedFilters"
         >
             <component
                 :is="group.componentName"
                 v-if="index == openedFilterIndex"
                 :items="group.items"
-                :selected.sync="parsedFilters[index].selected"
+                :selected.sync="selectedFilters[group.esFieldName]"
                 class="filter-group"
+                @input-selected="doSearch"
             />
         </transition>
     </form>
@@ -80,18 +82,18 @@ export default {
             type: Array, // array of objects that contain the filter objects
             default: () => [],
         },
-        views: {
+        /* views: {
             type: Array,
             default: () => [],
-        },
+        },*/
         searchGenericQuery: {
             type: String,
             default: "",
         },
-        queryView: {
+        /*queryView: {
             type: String,
             default: "list",
-        },
+        },*/
     },
     data() {
         return {
@@ -105,13 +107,16 @@ export default {
     // The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for
     computed: {
         parsedFilters() {
+            console.log(JSON.stringify(this.selectedFilters))
             return this.filters.map((obj) => {
-                let selected = this.selectedFilters[obj.slug] || []
+                let selected = this.selectedFilters[obj.esFieldName] || []
+                console.log("In parseselected: " + selected)
                 let componentName = "base-checkbox-group"
 
                 // If none selected, then make sure radio's default is empty string
                 if (!selected.length && obj.inputType == "radio") {
                     selected = ""
+                    this.selectedFilters[obj.esFieldName] = ""
                 }
 
                 // Figure out Vue component name
@@ -147,19 +152,13 @@ export default {
     mounted() {
         // TODO Figure out how to get these intial values from the URL.
         // Probably want to use this: https://www.npmjs.com/package/qs
-        this.selectedFilters = {
-            location: "Neque porro quisquam",
-            department: [
-                "quis nostrum exercitationem ullam1",
-                "Quis autem vel eum iure reprehenderit",
-            ],
+        for (const filterObj of this.filters) {
+            this.selectedFilters[filterObj.esFieldName] =
+                filterObj.inputType == "radio" ? "" : []
         }
-
-        // TODO probably want to validate agaisnt this.viewModes
-        this.selectedView = this.queryView // this.$route.query.view || "list"
     },
     methods: {
-        async doSearch() {
+        doSearch() {
             // TODO Get this pushing real values ot the URL
             // TODO Make this work with vue router
             // When we moved this cpmponent we needed to comment out this line
@@ -171,6 +170,15 @@ export default {
             //         filters: Object.keys(this.selectedFilters).length, // TODO get this encoding correctly
             //     },
             // })
+            console.log("dosearch called")
+            console.log(
+                "selected fileters in component are: " +
+                    JSON.stringify(this.selectedFilters)
+            )
+            this.$emit("search-ready", this.selectedFilters)
+        },
+        someHandler() {
+            console.log("text is updated")
         },
     },
 }
