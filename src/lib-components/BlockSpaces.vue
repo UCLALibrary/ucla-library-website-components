@@ -70,27 +70,34 @@ export default {
 
 <style lang="scss" scoped>
 .block-spaces {
-    max-width: $container-l-main + px;
+    max-width: 452px;
     border: 2px solid var(--color-primary-blue-01);
     border-radius: $rounded-slightly + px;
 
     .container {
-        padding: var(--space-2xl);
-
+        padding: var(--space-xl) var(--space-l);
         display: flex;
         flex-direction: column;
+        .heading-arrow {
+                width: 32px;
+                height: 32px;
+                flex-basis: 32px;
+            }
 
         .arrow-and-title {
+            // width: 90%;
             display: flex;
             flex-direction: row;
-            gap: var(--space-l);
-
-            width: 90%;
+            flex-wrap: nowrap;
+            gap: 8px;
+            justify-content: flex-start;
+            align-content: stretch;
+            align-items: center;
 
             .space-title {
                 @include step-2;
                 color: var(--color-primary-blue-03);
-                margin-bottom: var(--space-m);
+                //margin-bottom: 8px;
             }
         }
 
@@ -101,8 +108,8 @@ export default {
         }
 
         .svg__graphic-chevron-right {
-            flex-shrink: 0;
-            flex-basis: 80px;
+            // flex-shrink: 0;
+            // flex-basis: 80px;
 
             .svg__stroke--wayfinder {
                 stroke: var(--color-visit-fushia-03);
@@ -117,7 +124,7 @@ export default {
             align-content: flex-start;
             align-items: flex-start;
 
-            margin-left: calc(80px + var(--space-l));
+            //margin-left: calc(80px + var(--space-l));
 
             .location {
                 @include step-0;
@@ -132,8 +139,10 @@ export default {
             }
             .text {
                 @include step-0;
-                margin-top: 0;
-                margin-bottom: var(--space-m);
+                margin: 0 24px var(--space-m) 40px;
+            }
+            .button {
+                margin-left: 40px;
             }
         }
     }
@@ -163,7 +172,7 @@ export default {
                 flex-direction: row;
                 flex-wrap: nowrap;
                 justify-content: flex-start;
-                align-content: stretch;
+                //align-content: stretch;
                 align-items: center;
 
                 .space-title {
@@ -175,12 +184,6 @@ export default {
             }
             .meta {
                 margin-left: 0px;
-            }
-
-            .heading-arrow {
-                width: 40px;
-                height: 40px;
-                flex-basis: 40px;
             }
         }
     }
