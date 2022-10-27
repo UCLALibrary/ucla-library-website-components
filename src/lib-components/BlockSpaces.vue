@@ -79,10 +79,10 @@ export default {
         display: flex;
         flex-direction: column;
         .heading-arrow {
-                width: 32px;
-                height: 32px;
-                flex-basis: 32px;
-            }
+            width: 32px;
+            height: 32px;
+            flex-basis: 32px;
+        }
 
         .arrow-and-title {
             // width: 90%;
