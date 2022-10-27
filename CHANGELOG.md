@@ -1,3 +1,10 @@
+## [1.64.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.64.2...v1.64.3) (2022-10-27)
+
+
+### Bug Fixes
+
+* APPS-877 update search-generic component to sync filters ([#222](https://github.com/UCLALibrary/ucla-library-website-components/issues/222)) ([9dca3c8](https://github.com/UCLALibrary/ucla-library-website-components/commit/9dca3c8dbc1b136cfd3d2b8debe649c739d3a12b))
+
 ## [1.64.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.64.1...v1.64.2) (2022-10-26)
 
 
