@@ -1,7 +1,7 @@
 import MediaItem from "@/lib-components/Media/Item"
 
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
+import * as API from "@/stories/mock/Media.js"
 
 const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
@@ -12,47 +12,63 @@ const Template = (args, { argTypes }) => ({
 export default {
     title: "GLOBAL / Media Item",
     component: MediaItem,
-    argTypes: {
-        type: {
-            options: [null, "image", "video"],
-            control: { type: "radio" },
-        },
-    },
 }
 
-// Variations of stories below
 export const Default = Template.bind({})
 Default.args = {
-    type: null,
-    mediaItem: API.image,
+    imageFile: API.Image,
+    videoFile: API.Video,
+    audioFile: API.Audio,
+    embedCode: API.VideoEmbed,
 }
 
-export const ImageSquareRatio = Template.bind({})
-ImageSquareRatio.args = {
-    type: null,
-    mediaItem: API.image,
-    aspectRatio: 100,
-}
+export const Image = () => ({
+    data() {
+        return {
+            item: API.Image,
+        }
+    },
+    components: { MediaItem },
+    template: `<media-item v-bind="item" />`,
+})
 
-export const ImageObjectFitContain = Template.bind({})
-ImageObjectFitContain.args = {
-    type: null,
-    mediaItem: API.image,
-    aspectRatio: 100,
-    objectFit: "contain",
-}
+export const Video = () => ({
+    data() {
+        return {
+            item: API.Video,
+        }
+    },
+    components: { MediaItem },
+    template: `<media-item v-bind="item" />`,
+})
 
-export const Video = Template.bind({})
-Video.args = {
-    type: null,
-    mediaItem: API.videoVideoUrl,
-    objectFit: "cover",
-}
+export const VideoEmbed = () => ({
+    data() {
+        return {
+            item: API.VideoEmbed,
+        }
+    },
+    components: { MediaItem },
+    template: `<media-item v-bind="item" />`,
+})
 
-export const VideoWithControls = Template.bind({})
-VideoWithControls.args = {
-    type: null,
-    mediaItem: API.videoVideoUrl,
-    controls: true,
-    objectFit: "cover",
-}
+// export const Audio = () => ({
+//     data() {
+//         return {
+//             item: API.Audio,
+//             controls: true,
+//         }
+//     },
+//     components: { MediaItem },
+//     template: `<media-item v-bind="item" />`,
+// })
+
+export const AudioEmbed = () => ({
+    data() {
+        return {
+            item: API.AudioEmbed,
+        }
+    },
+    components: { MediaItem },
+    template: `<media-item v-bind="item" />`,
+})
