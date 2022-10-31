@@ -1,3 +1,10 @@
+## [1.64.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.64.3...v1.64.4) (2022-10-27)
+
+
+### Bug Fixes
+
+* add check for email required later in the lifecycle ([#223](https://github.com/UCLALibrary/ucla-library-website-components/issues/223)) ([974ef68](https://github.com/UCLALibrary/ucla-library-website-components/commit/974ef685dc22514f9cce226a58b3e19015211cfb))
+
 ## [1.64.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.64.2...v1.64.3) (2022-10-27)
 
 
