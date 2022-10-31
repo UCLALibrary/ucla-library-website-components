@@ -1,4 +1,8 @@
 <template>
+    <!--div-->
+    <!--h4>Got fORM dATA</h4>
+        {{ blockFormData }}
+        <br /-->
     <button-link
         v-if="!showForm"
         @click.native.prevent="showBlockEvent()"
@@ -9,6 +13,8 @@
     >
     </button-link>
     <div class="block-form" v-else>
+        <!--h4>Hello form data again</h4>
+            {{ blockFormData }} -->
         <div class="success-message" v-if="hasNotifications">
             <h3>Registration complete</h3>
             <p>
@@ -24,7 +30,6 @@
                 <svg-glyph-close class="svg-glyph-close" />
             </button>
         </div>
-
         <form id="app" method="post" class="form" v-else>
             <div class="formTitleWrapper">
                 <p class="formTitle">Registration</p>
@@ -35,7 +40,6 @@
             </div>
 
             <br />
-
             <div v-if="errors.length" class="form-errors">
                 <p>
                     Please complete the required fields to complete registration
@@ -76,7 +80,6 @@
             </div>
 
             <br />
-
             <div v-if="blockFormData.emailMethod" class="emailLabelWrapper">
                 <label for="email">
                     <span v-if="blockFormData.emailMethod.status == 'required'">
@@ -98,7 +101,6 @@
             </div>
 
             <br />
-
             <div
                 :key="question.id"
                 v-for="question in parseQuestions"
@@ -129,7 +131,6 @@
                     />
                 </div>
 
-                <!-- TODO  do we need to add required to checkbox and radio and select inout elements -->
                 <div v-if="question.type == 'radio'">
                     <div
                         :key="index"
@@ -191,6 +192,9 @@
             />
         </form>
     </div>
+    <!--/div-->
+
+    <!-- TODO  do we need to add required to checkbox and radio and select inout elements -->
 </template>
 
 <script>
@@ -221,10 +225,7 @@ export default {
             firstName: "",
             lastName: "",
             email: "",
-            emailRequired:
-                this.blockFormData.emailMethod.status === "required"
-                    ? true
-                    : false,
+            emailRequired: false,
             questionsRequired: {},
             formQuestions: {},
             countdown: null,
@@ -252,6 +253,10 @@ export default {
             return ""
         },
         parseQuestions() {
+            console.log(
+                "what is the value :" + JSON.stringify(this.blockFormData)
+            )
+            if (!this.blockFormData.questions) return []
             return this.blockFormData.questions.map((obj) => {
                 if (
                     obj.type === "string" ||
@@ -343,7 +348,10 @@ export default {
             if (this.firstName && this.lastName) {
                 fullNameValid = true
             }
-            if (this.emailRequired && this.email) {
+            if (
+                this.blockFormData.emailMethod.status === "required" &&
+                this.email
+            ) {
                 emailValid = true
             }
 
