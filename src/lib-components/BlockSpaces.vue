@@ -186,14 +186,14 @@ export default {
     }
 
     @media #{$small} {
-        .container{
+        .container {
             .meta {
                 .text {
                     margin-left: 0;
                 }
                 .button {
-                        margin-left: 0;
-                    }
+                    margin-left: 0;
+                }
             }
         }
     }
