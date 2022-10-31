@@ -1,5 +1,5 @@
 <template>
-    <div class="block-spaces">
+    <li class="block-spaces">
         <div class="container">
             <div class="arrow-and-title">
                 <svg-heading-arrow class="heading-arrow" />
@@ -26,7 +26,7 @@
                 />
             </div>
         </div>
-    </div>
+    </li>
 </template>
 
 <script>
@@ -70,7 +70,7 @@ export default {
 
 <style lang="scss" scoped>
 .block-spaces {
-    max-width: 452px;
+    // width: calc((100% - 16px) / 2);
     border: 2px solid var(--color-primary-blue-01);
     border-radius: $rounded-slightly + px;
 
@@ -85,7 +85,6 @@ export default {
             }
 
         .arrow-and-title {
-            // width: 90%;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -93,6 +92,7 @@ export default {
             justify-content: flex-start;
             align-content: stretch;
             align-items: center;
+            margin-bottom: var(--space-m);
 
             .space-title {
                 @include step-2;
@@ -103,8 +103,8 @@ export default {
 
         .space-title-no-link {
             @include step-2;
-            color: var(--color-primary-blue-03);
-            margin-bottom: var(--space-m);
+            //color: var(--color-primary-blue-03);
+            //margin-bottom: var(--space-m);
         }
 
         .svg__graphic-chevron-right {
@@ -123,8 +123,6 @@ export default {
             justify-content: center;
             align-content: flex-start;
             align-items: flex-start;
-
-            //margin-left: calc(80px + var(--space-l));
 
             .location {
                 @include step-0;
@@ -150,14 +148,20 @@ export default {
     // Hover states
     @media #{$has-hover} {
         .space-title:hover {
-            text-decoration: underline;
-            text-decoration-color: var(--color-primary-blue-03);
-            text-decoration-thickness: 1.5px;
+            // text-decoration: underline;
+            // text-decoration-color: var(--color-primary-blue-03);
+            // text-decoration-thickness: 1.5px;
+            @include link-hover;
+            color: var(--color-black);
         }
         .location-title:hover {
-            text-decoration: underline;
-            text-decoration-color: var(--color-primary-blue-03);
-            text-decoration-thickness: 1.5px;
+            // text-decoration: underline;
+            // text-decoration-color: var(--color-primary-blue-03);
+            // text-decoration-thickness: 1.5px;
+            @include link-hover;
+        }
+        &:hover {
+            @include card-horizontal-hover;
         }
     }
 
@@ -172,27 +176,24 @@ export default {
                 flex-direction: row;
                 flex-wrap: nowrap;
                 justify-content: flex-start;
-                //align-content: stretch;
                 align-items: center;
 
                 .space-title {
                     margin-left: 0;
                 }
             }
-            .svg__graphic-chevron-right {
-                margin-bottom: var(--space-m);
-            }
-            .meta {
-                margin-left: 0px;
-            }
         }
     }
 
     @media #{$small} {
-        .container {
-            width: 90%;
-            .heading-arrow {
-                margin-bottom: var(--space-m);
+        .container{
+            .meta {
+                .text {
+                    margin-left: 0;
+                }
+                .button {
+                        margin-left: 0;
+                    }
             }
         }
     }
