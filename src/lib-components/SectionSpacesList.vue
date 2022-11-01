@@ -1,20 +1,20 @@
 <template>
     <div class="section-spaces">
         <h3 id="spaces" class="spaces-title">Spaces</h3>
-    <ul class="section-spaces-list">
-        <block-spaces
-            v-for="(item, index) in items"
-            :key="`BlockSpace${index}`"
-            :to="item.to"
-            :title="item.title"
-            :is-online="item.isOnline"
-            :location="item.location"
-            :text="item.text"
-            :button-text="item.buttonText"
-            :button-url="item.buttonUrl"
-            class="block"
-        />
-    </ul>
+        <ul class="section-spaces-list">
+            <block-spaces
+                v-for="(item, index) in items"
+                :key="`BlockSpace${index}`"
+                :to="item.to"
+                :title="item.title"
+                :is-online="item.isOnline"
+                :location="item.location"
+                :text="item.text"
+                :button-text="item.buttonText"
+                :button-url="item.buttonUrl"
+                class="block"
+            />
+        </ul>
     </div>
 </template>
 
@@ -51,7 +51,7 @@ export default {
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 16px;
-    
+
     .block {
         //margin-bottom: var(--space-m);
         display: flex;
@@ -63,7 +63,7 @@ export default {
     }
     // Breakpoints
     @media #{$medium} {
-        .block { 
+        .block {
             width: 100%;
         }
     }
