@@ -1,3 +1,10 @@
+# [1.65.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.64.4...v1.65.0) (2022-11-01)
+
+
+### Features
+
+* adds max-height to responsive-video in BannerHeader and BannerF… ([#227](https://github.com/UCLALibrary/ucla-library-website-components/issues/227)) ([e6c8fee](https://github.com/UCLALibrary/ucla-library-website-components/commit/e6c8feed5e0972b73dc30a828a0c4f13fe13b848))
+
 ## [1.64.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.64.3...v1.64.4) (2022-10-27)
 
 
