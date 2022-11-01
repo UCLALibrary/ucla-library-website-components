@@ -70,7 +70,6 @@ export default {
 
 <style lang="scss" scoped>
 .block-spaces {
-    // width: calc((100% - 16px) / 2);
     border: 2px solid var(--color-primary-blue-01);
     border-radius: $rounded-slightly + px;
     @include animate-normal;
@@ -107,20 +106,14 @@ export default {
                     right: 0;
                     bottom: 0;
                 }
-                //margin-bottom: 8px;
             }
         }
 
         .space-title-no-link {
             @include step-2;
-            //color: var(--color-primary-blue-03);
-            //margin-bottom: var(--space-m);
         }
 
         .svg__graphic-chevron-right {
-            // flex-shrink: 0;
-            // flex-basis: 80px;
-
             .svg__stroke--wayfinder {
                 stroke: var(--color-visit-fushia-03);
             }
@@ -161,16 +154,7 @@ export default {
         .is-link:hover {
             @include link-hover;
         }
-        // .space-title:hover {
-        //     // text-decoration: underline;
-        //     // text-decoration-color: var(--color-primary-blue-03);
-        //     // text-decoration-thickness: 1.5px;
-        //     @include link-hover;
-        // }
         .location-title:hover {
-            // text-decoration: underline;
-            // text-decoration-color: var(--color-primary-blue-03);
-            // text-decoration-thickness: 1.5px;
             @include link-hover;
         }
         &:hover {
