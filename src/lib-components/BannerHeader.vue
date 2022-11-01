@@ -406,7 +406,8 @@ export default {
             font-size: 26px;
         }
     }
-    ::v-deep .responsive-image, .responsive-video {
+    ::v-deep .responsive-image,
+    .responsive-video {
         max-height: 576px;
         .media {
             object-fit: cover;
