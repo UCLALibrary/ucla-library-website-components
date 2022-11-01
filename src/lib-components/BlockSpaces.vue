@@ -73,6 +73,8 @@ export default {
     // width: calc((100% - 16px) / 2);
     border: 2px solid var(--color-primary-blue-01);
     border-radius: $rounded-slightly + px;
+    @include animate-normal;
+    position: relative;
 
     .container {
         padding: var(--space-xl) var(--space-l);
@@ -97,6 +99,14 @@ export default {
             .space-title {
                 @include step-2;
                 color: var(--color-primary-blue-03);
+                a::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                }
                 //margin-bottom: 8px;
             }
         }
@@ -147,12 +157,16 @@ export default {
 
     // Hover states
     @media #{$has-hover} {
-        .space-title:hover {
-            // text-decoration: underline;
-            // text-decoration-color: var(--color-primary-blue-03);
-            // text-decoration-thickness: 1.5px;
+        .space-title a:hover,
+        .is-link:hover {
             @include link-hover;
         }
+        // .space-title:hover {
+        //     // text-decoration: underline;
+        //     // text-decoration-color: var(--color-primary-blue-03);
+        //     // text-decoration-thickness: 1.5px;
+        //     @include link-hover;
+        // }
         .location-title:hover {
             // text-decoration: underline;
             // text-decoration-color: var(--color-primary-blue-03);
