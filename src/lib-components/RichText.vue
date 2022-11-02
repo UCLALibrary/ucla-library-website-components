@@ -198,7 +198,7 @@ export default {
             @include step-0;
             color: var(--color-black);
             border-bottom: 2px dotted var(--color-secondary-grey-03);
-            padding:16px;
+            padding: 16px;
             vertical-align: top;
         }
         td:first-child {
