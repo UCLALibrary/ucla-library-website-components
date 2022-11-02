@@ -175,6 +175,12 @@ export default {
             color: var(--color-primary-blue-05);
             text-align: left;
             padding: 16px;
+            border-bottom: 2px dotted var(--color-secondary-grey-03);
+        }
+        strong {
+            @include step-0;
+            font-weight: $font-weight-medium;
+            color: var(--color-primary-blue-05);
         }
         th:first-child {
             padding-left: 0;
