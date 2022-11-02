@@ -1,5 +1,5 @@
 <template>
-    <section-wrapper class="flexible-blocks" noMargins="true">
+    <section-wrapper class="flexible-blocks" :no-margins="true">
         <section-header class="more-information"
             >More Information</section-header
         >
