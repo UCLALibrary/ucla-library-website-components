@@ -108,7 +108,7 @@ export default {
 .block-card-with-illustration {
     position: relative;
     overflow: hidden;
-    border: 2px solid var(--color-theme);
+    border: 2px solid var(--color-primary-blue-01);
     border-radius: var(--rounded-slightly-all);
 
     transition-property: box-shadow, transform;
@@ -127,7 +127,7 @@ export default {
     }
 
     .meta {
-        background-color: var(--color-theme);
+        background-color: var(--color-primary-blue-01);
         padding: 40px;
         display: flex;
         flex-direction: column;
@@ -164,7 +164,7 @@ export default {
         }
 
         .meta {
-            background-color: var(--color-theme);
+            background-color: var(--color-primary-blue-01);
             width: 100%;
             height: 100%;
             .title {
@@ -239,6 +239,7 @@ export default {
     @media #{$has-hover} {
         &:hover {
             @include card-horizontal-hover;
+            border: 2px solid var(--color-theme);
             cursor: pointer;
 
             .meta {
