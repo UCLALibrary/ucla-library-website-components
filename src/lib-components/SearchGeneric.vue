@@ -5,23 +5,25 @@
     <!-- TODO Need to get a BaseCheckboxGroup working -->
     <!-- TODO Need to create a BaseCalendarGroup Component -->
     <!-- TODO Need to style this for Mobile -->
-
-    <form class="search-generic" name="searchHome" @submit.prevent="doSearch">
-        <div class="input-container">
-            <icon-search class="icon" />
-            <input
-                v-model="searchWords"
-                type="text"
-                placeholder="Search by keyword"
-                @change="someHandler"
+    <div class="search-generic">
+        <form name="searchHome" @submit.prevent="doSearch">
+            <div class="input-container">
+                <icon-search class="icon" />
+                <input
+                    v-model="searchWords"
+                    type="text"
+                    placeholder="Search by keyword"
+                    @keyup="doSearch"
+                />
+            </div>
+        </form>
+        <div class="container">
+            <search-generic-filter-buttons
+                :items="filters"
+                :active-index.sync="openedFilterIndex"
+                class="search-generic-filter-buttons"
             />
         </div>
-        <search-generic-filter-buttons
-            :items="filters"
-            :active-index.sync="openedFilterIndex"
-            class="search-generic-filter-buttons"
-        />
-
         <!-- <hr class="divider" />
 
         <div class="container">
@@ -56,7 +58,7 @@
                 @input-selected="doSearch"
             />
         </transition>
-    </form>
+    </div>
 </template>
 
 <script>
@@ -77,6 +79,7 @@ export default {
         BaseCheckboxGroup,
         // BaseCalendarGroup,
     },
+
     props: {
         filters: {
             type: Array, // array of objects that contain the filter objects
@@ -139,11 +142,13 @@ export default {
     },
     watch: {
         isViewOpened(newVal, oldVal) {
+            console.log("in is viewOpened")
             if (newVal) {
                 this.openedFilterIndex = -1
             }
         },
         openedFilterIndex(newVal, oldVal) {
+            console.log("in is openedFilterIndex" + newVal)
             if (newVal !== -1) {
                 this.isViewOpened = false
             }
@@ -159,6 +164,8 @@ export default {
     },
     methods: {
         doSearch() {
+            /*this.isViewOpened = false
+            this.openedFilterIndex = -1*/
             // TODO Get this pushing real values ot the URL
             // TODO Make this work with vue router
             // When we moved this cpmponent we needed to comment out this line
@@ -175,10 +182,14 @@ export default {
                 "selected fileters in component are: " +
                     JSON.stringify(this.selectedFilters)
             )
-            this.$emit("search-ready", this.selectedFilters)
-        },
-        someHandler() {
-            console.log("text is updated")
+            console.log(
+                "search text in component are: " +
+                    JSON.stringify(this.searchWords)
+            )
+            this.$emit("search-ready", {
+                filters: this.selectedFilters,
+                text: this.searchWords,
+            })
         },
     },
 }
@@ -234,7 +245,7 @@ export default {
     .container {
         list-style: none;
         cursor: pointer;
-        width: 890px;
+        // width: 890px;
 
         display: flex;
         flex-direction: row;
@@ -249,6 +260,7 @@ export default {
         right: 50px;
 
         margin-top: 8px;
+        z-index: 100;
     }
 }
 
