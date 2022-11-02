@@ -202,16 +202,16 @@ export default {
     max-width: calc($container-l-main + 128) + px;
     .heading-staff {
         width: 100%;
-        margin-left: -64px;
+        margin-left: -96px;
         margin-bottom: var(--space-m);
 
         display: flex;
-        //align-items: center;
+        align-items: center;
         flex-flow: row;
         //justify-content: center;
         //align-items: normal;
         height: 80px;
-        gap: var(--space-xs) var(--space-xl);
+        gap: 12px;
     }
 
     .svg__graphic-chevron-right {

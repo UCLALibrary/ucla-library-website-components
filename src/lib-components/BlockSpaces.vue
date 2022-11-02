@@ -1,5 +1,5 @@
 <template>
-    <div class="block-spaces">
+    <li class="block-spaces">
         <div class="container">
             <div class="arrow-and-title">
                 <svg-heading-arrow class="heading-arrow" />
@@ -26,7 +26,7 @@
                 />
             </div>
         </div>
-    </div>
+    </li>
 </template>
 
 <script>
@@ -70,40 +70,52 @@ export default {
 
 <style lang="scss" scoped>
 .block-spaces {
-    max-width: $container-l-main + px;
     border: 2px solid var(--color-primary-blue-01);
     border-radius: $rounded-slightly + px;
+    @include animate-normal;
+    position: relative;
+    list-style-type: none;
 
     .container {
-        padding: var(--space-2xl);
-
+        padding: var(--space-xl) var(--space-l);
         display: flex;
         flex-direction: column;
+        .heading-arrow {
+            width: 32px;
+            height: 32px;
+            flex-basis: 32px;
+        }
 
         .arrow-and-title {
             display: flex;
             flex-direction: row;
-            gap: var(--space-l);
-
-            width: 90%;
+            flex-wrap: nowrap;
+            gap: 8px;
+            justify-content: flex-start;
+            align-content: stretch;
+            align-items: center;
+            margin-bottom: var(--space-m);
 
             .space-title {
                 @include step-2;
                 color: var(--color-primary-blue-03);
-                margin-bottom: var(--space-m);
+                a::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                }
             }
         }
 
         .space-title-no-link {
             @include step-2;
-            color: var(--color-primary-blue-03);
-            margin-bottom: var(--space-m);
+            color: var(--color-primary-blue-05);
         }
 
         .svg__graphic-chevron-right {
-            flex-shrink: 0;
-            flex-basis: 80px;
-
             .svg__stroke--wayfinder {
                 stroke: var(--color-visit-fushia-03);
             }
@@ -116,8 +128,6 @@ export default {
             justify-content: center;
             align-content: flex-start;
             align-items: flex-start;
-
-            margin-left: calc(80px + var(--space-l));
 
             .location {
                 @include step-0;
@@ -132,23 +142,25 @@ export default {
             }
             .text {
                 @include step-0;
-                margin-top: 0;
-                margin-bottom: var(--space-m);
+                margin: 0 24px var(--space-m) 40px;
+            }
+            .button {
+                margin-left: 40px;
             }
         }
     }
 
     // Hover states
     @media #{$has-hover} {
-        .space-title:hover {
-            text-decoration: underline;
-            text-decoration-color: var(--color-primary-blue-03);
-            text-decoration-thickness: 1.5px;
+        .space-title a:hover,
+        .is-link:hover {
+            @include link-hover;
         }
         .location-title:hover {
-            text-decoration: underline;
-            text-decoration-color: var(--color-primary-blue-03);
-            text-decoration-thickness: 1.5px;
+            @include link-hover;
+        }
+        &:hover {
+            @include card-horizontal-hover;
         }
     }
 
@@ -163,33 +175,24 @@ export default {
                 flex-direction: row;
                 flex-wrap: nowrap;
                 justify-content: flex-start;
-                align-content: stretch;
                 align-items: center;
 
                 .space-title {
                     margin-left: 0;
                 }
             }
-            .svg__graphic-chevron-right {
-                margin-bottom: var(--space-m);
-            }
-            .meta {
-                margin-left: 0px;
-            }
-
-            .heading-arrow {
-                width: 40px;
-                height: 40px;
-                flex-basis: 40px;
-            }
         }
     }
 
     @media #{$small} {
         .container {
-            width: 90%;
-            .heading-arrow {
-                margin-bottom: var(--space-m);
+            .meta {
+                .text {
+                    margin-left: 0;
+                }
+                .button {
+                    margin-left: 0;
+                }
             }
         }
     }

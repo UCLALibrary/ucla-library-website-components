@@ -165,15 +165,28 @@ export default {
 
     ::v-deep table {
         padding: var(--space-xl);
-        border: 2px solid var(--color-primary-blue-01);
+        border: 1px solid var(--color-primary-blue-05);
         border-radius: 4px;
         width: 100%;
 
-        th,
+        th {
+            @include step-0;
+            font-weight: $font-weight-medium;
+            color: var(--color-primary-blue-05);
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px dotted var(--color-secondary-grey-03);
+        }
         strong {
             @include step-0;
             font-weight: $font-weight-medium;
             color: var(--color-primary-blue-05);
+        }
+        th:first-child {
+            padding-left: 0;
+        }
+        th:last-child {
+            padding-right: 0;
         }
 
         // no border on last row
@@ -185,8 +198,14 @@ export default {
             @include step-0;
             color: var(--color-black);
             border-bottom: 2px dotted var(--color-secondary-grey-03);
-            padding-top: 16px;
-            padding-bottom: 16px;
+            padding: 16px;
+            vertical-align: top;
+        }
+        td:first-child {
+            padding-left: 0;
+        }
+        td:last-child {
+            padding-right: 0;
         }
     }
 
