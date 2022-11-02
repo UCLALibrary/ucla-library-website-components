@@ -128,6 +128,11 @@ export default {
             padding: 0;
             margin-left: auto;
             margin-right: auto;
+
+            &.block-call-to-action {
+                max-width: var(--block-width);
+                padding: var(--space-2xl);
+            }
         }
 
         > :first-child:not(.divider-way-finder) {
