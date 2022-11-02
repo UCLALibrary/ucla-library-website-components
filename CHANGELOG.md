@@ -1,3 +1,10 @@
+# [1.67.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.66.1...v1.67.0) (2022-11-02)
+
+
+### Features
+
+* update table styling ([#228](https://github.com/UCLALibrary/ucla-library-website-components/issues/228)) ([bea7a54](https://github.com/UCLALibrary/ucla-library-website-components/commit/bea7a5430a79592dae3bcb3d31259b09737ad0af))
+
 ## [1.66.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.66.0...v1.66.1) (2022-11-02)
 
 
