@@ -1,3 +1,10 @@
+# [1.66.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.65.1...v1.66.0) (2022-11-02)
+
+
+### Features
+
+* SearchResult component ([#225](https://github.com/UCLALibrary/ucla-library-website-components/issues/225)) ([10a7d03](https://github.com/UCLALibrary/ucla-library-website-components/commit/10a7d03163bdba2d73b91d224327c418fed4e82b))
+
 ## [1.65.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.65.0...v1.65.1) (2022-11-02)
 
 
