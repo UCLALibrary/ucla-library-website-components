@@ -1,3 +1,31 @@
+## [1.66.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.66.0...v1.66.1) (2022-11-02)
+
+
+### Bug Fixes
+
+* section wrapper cta styling and color theme of cards with illustrations ([#230](https://github.com/UCLALibrary/ucla-library-website-components/issues/230)) ([a23bdbe](https://github.com/UCLALibrary/ucla-library-website-components/commit/a23bdbefd757a87e2f3089e520b53f09086309f7))
+
+# [1.66.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.65.1...v1.66.0) (2022-11-02)
+
+
+### Features
+
+* SearchResult component ([#225](https://github.com/UCLALibrary/ucla-library-website-components/issues/225)) ([10a7d03](https://github.com/UCLALibrary/ucla-library-website-components/commit/10a7d03163bdba2d73b91d224327c418fed4e82b))
+
+## [1.65.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.65.0...v1.65.1) (2022-11-02)
+
+
+### Bug Fixes
+
+* APPS-2010 ([#229](https://github.com/UCLALibrary/ucla-library-website-components/issues/229)) ([ef38ed6](https://github.com/UCLALibrary/ucla-library-website-components/commit/ef38ed6b4bd549625e0d0101124fd41eb85cc48b))
+
+# [1.65.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.64.4...v1.65.0) (2022-11-01)
+
+
+### Features
+
+* adds max-height to responsive-video in BannerHeader and BannerF… ([#227](https://github.com/UCLALibrary/ucla-library-website-components/issues/227)) ([e6c8fee](https://github.com/UCLALibrary/ucla-library-website-components/commit/e6c8feed5e0972b73dc30a828a0c4f13fe13b848))
+
 ## [1.64.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.64.3...v1.64.4) (2022-10-27)
 
 
