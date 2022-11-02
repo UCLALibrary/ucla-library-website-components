@@ -74,6 +74,7 @@ export default {
     border-radius: $rounded-slightly + px;
     @include animate-normal;
     position: relative;
+    list-style-type: none;
 
     .container {
         padding: var(--space-xl) var(--space-l);
