@@ -1,3 +1,10 @@
+## [1.66.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.66.0...v1.66.1) (2022-11-02)
+
+
+### Bug Fixes
+
+* section wrapper cta styling and color theme of cards with illustrations ([#230](https://github.com/UCLALibrary/ucla-library-website-components/issues/230)) ([a23bdbe](https://github.com/UCLALibrary/ucla-library-website-components/commit/a23bdbefd757a87e2f3089e520b53f09086309f7))
+
 # [1.66.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.65.1...v1.66.0) (2022-11-02)
 
 
