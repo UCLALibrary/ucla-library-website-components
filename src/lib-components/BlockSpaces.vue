@@ -111,6 +111,7 @@ export default {
 
         .space-title-no-link {
             @include step-2;
+            color: var(--color-primary-blue-05);
         }
 
         .svg__graphic-chevron-right {
