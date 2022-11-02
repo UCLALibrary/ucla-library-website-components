@@ -406,13 +406,13 @@ export default {
             font-size: 26px;
         }
     }
-    ::v-deep .responsive-image {
+    ::v-deep .responsive-image,
+    .responsive-video {
         max-height: 576px;
         .media {
             object-fit: cover;
         }
     }
-
     .gradient {
         background: $overlays-overlay-01;
         z-index: 10;
