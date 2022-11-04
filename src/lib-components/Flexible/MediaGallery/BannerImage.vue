@@ -1,6 +1,6 @@
 <template>
     <div class="banner-image" @click="$emit('toggleThumbnails')">
-        <responsive-image :image="image" :aspect-ratio="60" object-fit="cover">
+        <MediaItem :item="item" :aspect-ratio="60" object-fit="cover">
             <div v-if="nItems > 1 && !expanded">
                 <div class="gradient" />
                 <svg-molecule-image-stack
@@ -29,25 +29,26 @@
                     />
                 </svg>
             </media-badge>
-        </responsive-image>
+        </MediaItem>
     </div>
 </template>
+f5rtfdrc
 
 <script>
-import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
+import MediaItem from "@/lib-components/Media/Item.vue"
 import MediaBadge from "@/lib-components/MediaBadge.vue"
 import SvgMoleculeImageStack from "ucla-library-design-tokens/assets/svgs/molecule-image-stack.svg"
 
 export default {
     name: "FlexibleMediaGalleryBannerImage",
     components: {
-        ResponsiveImage,
+        MediaItem,
         MediaBadge,
         SvgMoleculeImageStack,
     },
     props: {
-        image: {
-            type: Object,
+        item: {
+            type: Array,
             required: true,
         },
         nItems: {

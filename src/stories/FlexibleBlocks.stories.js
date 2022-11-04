@@ -6,7 +6,7 @@ import DividerGeneral from "@/lib-components/DividerGeneral"
 
 import { mock as mockCardWithImage } from "@/stories/mock/Flexible_CardWithImage.js"
 import { mock as mockHighlight } from "@/stories/mock/Flexible_Highlight.js"
-import { mock as mockMediaGallery } from "@/stories/mock/Flexible_MediaGallery.js"
+import { Gallery as mockMediaGallery } from "@/stories/mock/Media.js"
 import { mockSingle as mockMediaWithText } from "@/stories/mock/Flexible_MediaWithText.js"
 import { mock as mockRichText } from "@/stories/mock/Flexible_RichText.js"
 import { mockTwoCards as mockSimpleCards } from "@/stories/mock/Flexible_SimpleCards.js"

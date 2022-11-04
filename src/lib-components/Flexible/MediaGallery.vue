@@ -1,23 +1,8 @@
 <template>
     <section class="media-gallery">
-        <div class="section-header">
-            <h2
-                v-if="block.sectionTitle"
-                class="section-title"
-                v-html="block.sectionTitle"
-            />
-
-            <div
-                v-if="block.sectionSummary"
-                class="section-summary"
-                v-html="block.sectionSummary"
-            />
-        </div>
-
         <flexible-media-gallery-new-lightbox
             v-if="showLightboxModal"
-            :block="block.mediaGallery"
-            :n-items="nItems"
+            :items="block.mediaGallery"
             :selected-item="selectionIndex"
             tabindex="0"
             @closeModal="hideLightboxModal"
@@ -25,24 +10,23 @@
         />
 
         <flexible-media-gallery-banner-image
-            v-if="
-                block.mediaGallery && block.mediaGallery[selectionIndex].image
-            "
-            :image="block.mediaGallery[selectionIndex].image[0]"
+            v-if="block.mediaGallery && block.mediaGallery[selectionIndex].item"
+            :item="block.mediaGallery[selectionIndex].item"
             :n-items="nItems"
             :expanded="expandThumbnails"
             @click.native="toggleThumbnails"
         />
-        <ul v-if="expandThumbnails" class="thumbnails">
+        <div v-if="expandThumbnails" class="thumbnails">
             <flexible-media-gallery-thumbnail-card
                 v-for="(item, index) in block.mediaGallery"
                 :key="item.id"
-                :image="item.image[0]"
+                :item="item.item"
+                :coverImage="item.coverImage"
                 :caption-title="item.captionTitle"
                 :caption-text="item.captionText"
                 @click.native="selectItem(index)"
             />
-        </ul>
+        </div>
     </section>
 </template>
 
@@ -124,23 +108,7 @@ export default {
 
 <style lang="scss" scoped>
 .media-gallery {
-    max-width: $container-l-main + px;
-    margin: 0 auto;
     background-color: var(--color-theme, var(--color-white));
-
-    .section-header {
-        margin-bottom: var(--space-xl);
-    }
-
-    .section-title {
-        @include step-3;
-        margin-bottom: var(--space-m);
-        color: var(--color-primary-blue-03);
-    }
-
-    .section-summary {
-        @include step-0;
-    }
 
     .thumbnails {
         $gap: var(--space-m);

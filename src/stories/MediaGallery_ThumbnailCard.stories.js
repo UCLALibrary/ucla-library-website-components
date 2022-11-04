@@ -1,6 +1,8 @@
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
+import * as API from "@/stories/mock/Media"
 import FlexibleMediaGalleryThumbnailCard from "@/lib-components/Flexible/MediaGallery/ThumbnailCard.vue"
+
+import _pick from "lodash/pick"
 
 // Storybook default settings
 export default {
@@ -8,9 +10,12 @@ export default {
     component: FlexibleMediaGalleryThumbnailCard,
 }
 
-const mock = {
-    image: API.image,
-}
+const mock = _pick(API.Gallery.mediaGallery[0], [
+    "item",
+    "coverImage",
+    "captionTitle",
+    "captionText",
+])
 
 const mockFocalPoint = {
     id: "43141",
@@ -18,44 +23,43 @@ const mockFocalPoint = {
     captionText:
         "Man standing with foot on stool wearing a panama hat and sandals with coat in hand, photographed in Mr. M.T. Ramakatane's City Centre Studio",
     sortOrder: 5,
-    image: {
-        id: "42883",
-        src: "https://static.library.ucla.edu/craftassetsprod/images/_fullscreen/Ramakatane-archive-15.jpeg",
-        height: 2547,
-        width: 2560,
-        srcset: "https://static.library.ucla.edu/craftassetsprod/images/_375xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 375w, https://static.library.ucla.edu/craftassetsprod/images/_960xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 960w, https://static.library.ucla.edu/craftassetsprod/images/_1280xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 1280w, https://static.library.ucla.edu/craftassetsprod/images/_1920xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 1920w, https://static.library.ucla.edu/craftassetsprod/images/_2560xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 2560w",
-        alt: "Ramakatane archive 15",
-        focalPoint: [0.5599, 0.3008],
-        altText: "Ramakatane archive 15",
-    },
+    item: [
+        {
+            id: "42883",
+            src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Ramakatane-archive-15.jpeg",
+            height: 2547,
+            width: 2560,
+            srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 2560w",
+            alt: "Ramakatane archive 15",
+            focalPoint: [0.5599, 0.3008],
+            altText: "Ramakatane archive 15",
+            kind: "image",
+        },
+    ],
 }
 // Variations of stories below
 export const Default = () => ({
     data() {
-        return { ...mock }
+        return {
+            mock: mock,
+        }
     },
     components: { FlexibleMediaGalleryThumbnailCard },
     template: `
-      <flexible-media-gallery-thumbnail-card
-        style="max-width: 400px"
-        :image="image"
-        :caption-title="image.title"
-        :caption-text="image.alt"
-      />
+    <div style="max-width: 400px">
+      <flexible-media-gallery-thumbnail-card v-bind=mock level=3 />
+    </div>
   `,
 })
 
 export const FocalPoint = () => ({
     data() {
-        return { ...mockFocalPoint }
+        return { mock: mockFocalPoint }
     },
     components: { FlexibleMediaGalleryThumbnailCard },
     template: `
-    <flexible-media-gallery-thumbnail-card
-      style="max-width: 400px"
-      :image="image"
-      :caption-title="captionTitle"
-      :caption-text="captionText"
-    />
+    <div style="max-width: 400px">
+      <flexible-media-gallery-thumbnail-card v-bind=mock level=3 />
+    </div>
 `,
 })

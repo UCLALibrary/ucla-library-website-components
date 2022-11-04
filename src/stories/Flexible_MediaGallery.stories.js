@@ -1,6 +1,6 @@
 import FlexibleMediaGallery from "@/lib-components/Flexible/MediaGallery"
 
-import { mock } from "./mock/Flexible_MediaGallery"
+import * as API from "./mock/Media"
 
 export default {
     title: "FLEXIBLE / Media Gallery",
@@ -9,7 +9,7 @@ export default {
 
 export const Default = () => ({
     data() {
-        return { block: mock }
+        return { block: API.Gallery }
     },
     components: { FlexibleMediaGallery },
     template: `<flexible-media-gallery :block="block"/>`,

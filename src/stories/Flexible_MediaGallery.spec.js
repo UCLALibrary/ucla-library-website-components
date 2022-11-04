@@ -6,7 +6,7 @@ describe("FLEXIBLE / Media Gallery", () => {
         cy.get(".media-gallery").should("exist")
 
         cy.get(".banner-image").click()
-        cy.contains("Zooland").click()
+        cy.contains("Embedded Video").click()
         cy.get(".button-close").click()
         cy.get(".banner-image").click()
     })
