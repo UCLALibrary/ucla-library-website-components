@@ -1,7 +1,7 @@
 import MediaItem from "@/lib-components/Media/Item"
 
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
+import * as MEDIA from "@/stories/mock/Media"
 
 const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
@@ -12,47 +12,60 @@ const Template = (args, { argTypes }) => ({
 export default {
     title: "GLOBAL / Media Item",
     component: MediaItem,
-    argTypes: {
-        type: {
-            options: [null, "image", "video"],
-            control: { type: "radio" },
-        },
-    },
 }
 
-// Variations of stories below
 export const Default = Template.bind({})
 Default.args = {
-    type: null,
-    mediaItem: API.image,
+    item: MEDIA.ImageFile,
 }
 
-export const ImageSquareRatio = Template.bind({})
-ImageSquareRatio.args = {
-    type: null,
-    mediaItem: API.image,
-    aspectRatio: 100,
-}
+export const Image = () => ({
+    data() {
+        return {
+            item: MEDIA.ImageFile,
+        }
+    },
+    components: { MediaItem },
+    template: `<media-item :item="item" />`,
+})
 
-export const ImageObjectFitContain = Template.bind({})
-ImageObjectFitContain.args = {
-    type: null,
-    mediaItem: API.image,
-    aspectRatio: 100,
-    objectFit: "contain",
-}
+export const Video = () => ({
+    data() {
+        return {
+            item: MEDIA.VideoFile,
+        }
+    },
+    components: { MediaItem },
+    template: `<media-item :item="item" />`,
+})
 
-export const Video = Template.bind({})
-Video.args = {
-    type: null,
-    mediaItem: API.videoVideoUrl,
-    objectFit: "cover",
-}
+export const VideoEmbed = () => ({
+    data() {
+        return {
+            embedCode: MEDIA.VideoEmbed,
+        }
+    },
+    components: { MediaItem },
+    template: `<media-item :embedCode="embedCode" />`,
+})
 
-export const VideoWithControls = Template.bind({})
-VideoWithControls.args = {
-    type: null,
-    mediaItem: API.videoVideoUrl,
-    controls: true,
-    objectFit: "cover",
-}
+export const Audio = () => ({
+    data() {
+        return {
+            item: MEDIA.Audio,
+            controls: true,
+        }
+    },
+    components: { MediaItem },
+    template: `<media-item :item="item" />`,
+})
+
+export const AudioEmbed = () => ({
+    data() {
+        return {
+            embedCode: MEDIA.AudioEmbed,
+        }
+    },
+    components: { MediaItem },
+    template: `<media-item :embedCode="embedCode" />`,
+})
