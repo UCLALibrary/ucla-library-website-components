@@ -37,7 +37,7 @@ const mock = {
 }
 
 const mock2 = {
-    image: API.image,
+    //image: API.image,
     to: "/about/foo/bar/",
     category: "Lerisque",
     title: "Orci Dapibus",
