@@ -225,7 +225,6 @@ export const ArticleDetail = () => ({
            :byline="byline"
            :dateCreated="dateCreated"
            :locations="locations"
-           :subjectAreas="subjectAreas"
            :text="text"
            articleType="news"
        />
