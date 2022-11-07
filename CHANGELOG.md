@@ -1,3 +1,10 @@
+## [1.67.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.67.0...v1.67.1) (2022-11-07)
+
+
+### Bug Fixes
+
+* add molecule svg with blue background when there is no event image prop for blockhighlight ([#232](https://github.com/UCLALibrary/ucla-library-website-components/issues/232)) ([5261c78](https://github.com/UCLALibrary/ucla-library-website-components/commit/5261c78ed5d28e0d1c3a2c614bb6c658ecf6fd06))
+
 # [1.67.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.66.1...v1.67.0) (2022-11-02)
 
 
