@@ -29,13 +29,18 @@
             <rich-text v-if="text" class="snippet" :rich-text-content="text" />
 
             <div class="meta-text">
-                <div class="byline" v-if="byline.length">
-                    <div
-                        v-for="(item, index) in byline"
-                        :key="index"
-                        class="byline-item"
-                    >
-                        {{ item }}
+                <div
+                    class="meta-block"
+                    v-if="byline || subjectAreas || dateCreated || startDate"
+                >
+                    <div v-if="byline" class="byline-item">
+                        <div
+                            v-for="(item, index) in byline"
+                            :key="index"
+                            class="byline-item"
+                        >
+                            {{ item }}
+                        </div>
                     </div>
 
                     <div v-if="subjectAreas" class="subject-areas">
@@ -90,6 +95,7 @@
                         :to="addressLink"
                     />
                 </div>
+
                 <div v-if="locations.length" class="location-group">
                     <icon-with-link
                         v-for="location in parsedLocations"
@@ -106,15 +112,17 @@
                         :to="`/${location.to}`"
                     />
                 </div>
+
+                <button-link
+                    v-if="to"
+                    :label="prompt"
+                    :is-secondary="true"
+                    class="button"
+                    :to="to"
+                />
+
+                <block-form v-if="!to && registerEvent" />
             </div>
-            <button-link
-                v-if="to"
-                :label="prompt"
-                :is-secondary="true"
-                class="button"
-                :to="to"
-            />
-            <block-form v-if="!to && registerEvent" />
         </div>
     </div>
 </template>
@@ -191,6 +199,10 @@ export default {
             default: "",
         },
         byline: {
+            type: Array,
+            default: () => [],
+        },
+        contributors: {
             type: Array,
             default: () => [],
         },
@@ -557,7 +569,7 @@ export default {
             margin: 0;
         }
     }
-    .byline {
+    .meta-block {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;

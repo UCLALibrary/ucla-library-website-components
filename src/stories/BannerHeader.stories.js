@@ -167,7 +167,6 @@ export const WithContactInfo = () => ({
            :image="image"
            :to="to"
            :title="title"
-           :subjectArea=["ghosts","clowns"]
            text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
            email="ada@somewhere.com"
            phone="555-555-5555"
