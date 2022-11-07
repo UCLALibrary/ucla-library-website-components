@@ -35,7 +35,7 @@
                         :key="index"
                         class="byline-item"
                     >
-                        {{ item.title }}
+                        {{ item }}
                     </div>
 
                     <div v-if="subjectAreas" class="subject-areas">
@@ -60,6 +60,7 @@
                         v-html="parsedTime"
                     />
                 </div>
+
                 <div
                     v-if="email || phone || staffDirectoryLink || addressLink"
                     class="contact-info-group"
