@@ -17,18 +17,7 @@ const mock = {
     category: "Lectus",
     startDate: "1995-12-17T03:24:00",
     endDate: "1995-12-17T03:24:00",
-    byline: [
-        {
-            id: "3062",
-            title: "Jen Diamond",
-            to: "",
-        },
-        {
-            id: "3063",
-            title: "Pikku Lehtonen",
-            to: "",
-        },
-    ],
+    byline: ["Jen Diamond", "Pikku Lehtonen"],
     subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
     locations: [
         {
@@ -197,14 +186,7 @@ const article = {
     title: "I Like Turtles",
     category: "Library News",
     dateCreated: "2022-02-09T10:57:46-08:00",
-    byline: [
-        {
-            title: " Written by Courtney Hoffner",
-        },
-        {
-            title: "Illustrations by Jen Diamond",
-        },
-    ],
+    byline: [" Written by Courtney Hoffner", "Illustrations by Jen Diamond"],
     subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
     locations: [
         {
