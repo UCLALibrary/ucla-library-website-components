@@ -23,7 +23,13 @@ const mock = {
             title: "Jen Diamond",
             to: "",
         },
+        {
+            id: "3063",
+            title: "Pikku Lehtonen",
+            to: "",
+        },
     ],
+    subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
     locations: [
         {
             id: "523",
@@ -105,7 +111,7 @@ export const NoCategory = () => ({
     `,
 })
 
-export const WithByline = () => ({
+export const WithBylineAndSubjectAreas = () => ({
     data() {
         return {
             ...mock,
@@ -120,6 +126,7 @@ export const WithByline = () => ({
            :start-date="startDate"
            :end-date="endDate"
            :byline="byline"
+           :subjectAreas="subjectAreas"
            :prompt="prompt"
            :align-right="false"
        />

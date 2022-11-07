@@ -23,6 +23,7 @@ const mock = {
     date: "1995-12-17T03:24:00",
     buttonText: "Curabitur",
     byline: ["Cursus Quis", "Charles E. Young"],
+    subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
     to: "/visit/foo/bar/",
 }
 
@@ -40,6 +41,23 @@ export const Default = () => ({
         :button-text="buttonText"
         :to="to"
         :byline="byline"
+    />`,
+})
+
+export const WithSubjectAreas = () => ({
+    data() {
+        return {
+            ...mock,
+        }
+    },
+    components: { BannerText },
+    template: `<banner-text
+        :category="category"
+        :title="title"
+        :text="text"
+        :button-text="buttonText"
+        :to="to"
+        :subjectAreas="subjectAreas"
     />`,
 })
 
@@ -185,7 +203,6 @@ const article = {
             title: "Illustrations by Jen Diamond",
         },
     ],
-    subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
     locations: [
         {
             id: "523",
@@ -213,7 +230,6 @@ export const ArticleDetail = () => ({
         <banner-text
            :title="title"
            :byline="byline"
-           :subjectAreas="subjectAreas"
            :dateCreated="dateCreated"
            :locations="locations"
            :text="text"
