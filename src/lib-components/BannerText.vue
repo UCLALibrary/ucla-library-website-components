@@ -17,7 +17,10 @@
                         class="text"
                         :rich-text-content="text"
                     />
-                    <div class="byline" v-if="byline.length">
+                    <div
+                        class="meta-block"
+                        v-if="byline || subjectAreas || date"
+                    >
                         <div
                             v-for="(item, index) in byline"
                             :key="index"
@@ -391,7 +394,7 @@ export default {
         flex-direction: row;
         flex-wrap: nowrap;
     }
-    .byline {
+    .meta-block {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;

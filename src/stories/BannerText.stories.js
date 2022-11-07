@@ -22,8 +22,8 @@ const mock = {
     ],
     date: "1995-12-17T03:24:00",
     buttonText: "Curabitur",
-    byline: ["Cursus Quis", "Charles E. Young"],
     subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
+    byline: ["Cursus Quis", "Charles E. Young"],
     to: "/visit/foo/bar/",
 }
 
@@ -54,10 +54,10 @@ export const WithSubjectAreas = () => ({
     template: `<banner-text
         :category="category"
         :title="title"
+        :subjectAreas="subjectAreas"
         :text="text"
         :button-text="buttonText"
         :to="to"
-        :subjectAreas="subjectAreas"
     />`,
 })
 
@@ -215,6 +215,7 @@ const article = {
             to: "visit/locations/online",
         },
     ],
+    subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
     alignRight: true,
     text: "Turtles are an order of reptiles known as Testudines, characterized by a shell developed mainly from their ribs. Turtles are groups, big ones and small ones.",
 }
@@ -232,6 +233,7 @@ export const ArticleDetail = () => ({
            :byline="byline"
            :dateCreated="dateCreated"
            :locations="locations"
+           :subjectAreas="subjectAreas"
            :text="text"
            articleType="news"
        />
