@@ -1,3 +1,10 @@
+# [1.68.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.67.1...v1.68.0) (2022-11-07)
+
+
+### Features
+
+* Add subject area to banner text and header ([#233](https://github.com/UCLALibrary/ucla-library-website-components/issues/233)) ([479f458](https://github.com/UCLALibrary/ucla-library-website-components/commit/479f45888e3c1c1b4f181712e464af6c338f6b4d))
+
 ## [1.67.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.67.0...v1.67.1) (2022-11-07)
 
 
