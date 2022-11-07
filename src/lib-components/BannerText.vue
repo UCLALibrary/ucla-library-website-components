@@ -12,19 +12,32 @@
 
                 <div class="content">
                     <h1 class="title" v-html="title" />
+
                     <rich-text
                         v-if="text"
                         class="text"
                         :rich-text-content="text"
                     />
-                    <div class="byline" v-if="byline.length">
-                        <div
-                            v-for="(item, index) in byline"
-                            :key="index"
-                            class="byline-item"
-                        >
-                            {{ item }}
+
+                    <div
+                        class="meta-block"
+                        v-if="byline || subjectAreas || date"
+                    >
+                        <div v-if="byline" class="byline-item">
+                            <div v-for="(item, index) in byline" :key="index">
+                                {{ item }}
+                            </div>
                         </div>
+
+                        <div v-if="subjectAreas" class="subject-areas">
+                            <div
+                                v-for="(item, index) in subjectAreas"
+                                :key="index"
+                            >
+                                {{ item.title }}
+                            </div>
+                        </div>
+
                         <div v-if="date" class="schedule">
                             <time
                                 v-if="date"
@@ -197,6 +210,10 @@ export default {
             type: Array,
             default: () => [],
         },
+        subjectAreas: {
+            type: Array,
+            default: () => [],
+        },
         registerEvent: {
             type: Boolean,
             default: false,
@@ -245,6 +262,9 @@ export default {
     --button-border-color: var(--color-primary-blue-03);
     --facet-inside-color: var(--color-primary-blue-02);
     --facet-outside-color: var(--color-primary-blue-03);
+
+    --meta-block-color: var(--color-secondary-grey-04);
+
     --location-color: var(--color-primary-blue-03);
     --location-icon-color: var(--color-primary-blue-03);
     --hover-border-color: var(--color-primary-blue-02);
@@ -263,6 +283,9 @@ export default {
     --button-border-color: var(--color-default-cyan-02);
     --facet-inside-color: var(--color-default-cyan-02);
     --facet-outside-color: var(--color-default-cyan-03);
+
+    --meta-block-color: var(--color-white);
+
     --location-color: var(--color-white);
     --location-icon-color: var(--color-white);
     --hover-border-color: var(--color-white);
@@ -377,22 +400,19 @@ export default {
         flex-direction: row;
         flex-wrap: nowrap;
     }
-    .byline {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-        margin-bottom: var(--space-m);
-        justify-content: space-evenly;
-    }
-    .byline-item,
-    .schedule-item,
-    .date-created {
+    .meta-block {
         display: flex;
         flex-direction: row;
 
+        margin-bottom: var(--space-m);
+    }
+
+    .byline-item,
+    .schedule-item,
+    .subject-areas,
+    .date-created {
         @include step-0;
-        color: var(--color-secondary-grey-04);
+        color: var(--meta-block-color);
     }
 
     .location-group {
@@ -411,7 +431,7 @@ export default {
             stroke: var(--location-icon-color);
         }
     }
-    .byline {
+    .meta-block {
         flex-direction: column;
         align-items: flex-start;
     }

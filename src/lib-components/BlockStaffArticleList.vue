@@ -118,7 +118,7 @@ export default {
 
     .category {
         @include overline;
-        color: var(--color-secondary-grey-05);
+        color: var(--color-primary-blue-05);
         margin-bottom: var(--space-s);
     }
     .title {

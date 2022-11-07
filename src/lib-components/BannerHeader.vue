@@ -29,14 +29,26 @@
             <rich-text v-if="text" class="snippet" :rich-text-content="text" />
 
             <div class="meta-text">
-                <div class="byline" v-if="byline.length">
-                    <div
-                        v-for="(item, index) in byline"
-                        :key="index"
-                        class="byline-item"
-                    >
-                        {{ item.title }}
+                <div
+                    class="meta-block"
+                    v-if="byline || subjectAreas || dateCreated || startDate"
+                >
+                    <div v-if="byline" class="byline-item">
+                        <div
+                            v-for="(item, index) in byline"
+                            :key="index"
+                            class="byline-item"
+                        >
+                            {{ item }}
+                        </div>
                     </div>
+
+                    <div v-if="subjectAreas" class="subject-areas">
+                        <div v-for="(item, index) in subjectAreas" :key="index">
+                            {{ item.title }}
+                        </div>
+                    </div>
+
                     <time
                         v-if="dateCreated"
                         class="date-created"
@@ -53,6 +65,7 @@
                         v-html="parsedTime"
                     />
                 </div>
+
                 <div
                     v-if="email || phone || staffDirectoryLink || addressLink"
                     class="contact-info-group"
@@ -82,6 +95,7 @@
                         :to="addressLink"
                     />
                 </div>
+
                 <div v-if="locations.length" class="location-group">
                     <icon-with-link
                         v-for="location in parsedLocations"
@@ -98,15 +112,17 @@
                         :to="`/${location.to}`"
                     />
                 </div>
+
+                <button-link
+                    v-if="to"
+                    :label="prompt"
+                    :is-secondary="true"
+                    class="button"
+                    :to="to"
+                />
+
+                <block-form v-if="!to && registerEvent" />
             </div>
-            <button-link
-                v-if="to"
-                :label="prompt"
-                :is-secondary="true"
-                class="button"
-                :to="to"
-            />
-            <block-form v-if="!to && registerEvent" />
         </div>
     </div>
 </template>
@@ -183,6 +199,14 @@ export default {
             default: "",
         },
         byline: {
+            type: Array,
+            default: () => [],
+        },
+        contributors: {
+            type: Array,
+            default: () => [],
+        },
+        subjectAreas: {
             type: Array,
             default: () => [],
         },
@@ -545,7 +569,7 @@ export default {
             margin: 0;
         }
     }
-    .byline {
+    .meta-block {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
@@ -553,7 +577,7 @@ export default {
         margin-bottom: var(--space-m);
         justify-content: space-evenly;
     }
-    .byline-item,
+
     .schedule-item,
     .date-created {
         display: flex;
@@ -563,6 +587,14 @@ export default {
         color: var(--color-secondary-grey-04);
     }
 
+    .byline-item,
+    .subject-areas {
+        display: flex;
+        flex-direction: column;
+
+        @include step-0;
+        color: var(--color-secondary-grey-04);
+    }
     .schedule {
         line-height: 24px;
         text-align: left;
