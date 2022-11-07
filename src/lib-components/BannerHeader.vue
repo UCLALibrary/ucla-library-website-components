@@ -37,6 +37,13 @@
                     >
                         {{ item.title }}
                     </div>
+
+                    <div v-if="subjectAreas" class="subject-areas">
+                        <div v-for="(item, index) in subjectAreas" :key="index">
+                            {{ item.title }}
+                        </div>
+                    </div>
+
                     <time
                         v-if="dateCreated"
                         class="date-created"
@@ -183,6 +190,10 @@ export default {
             default: "",
         },
         byline: {
+            type: Array,
+            default: () => [],
+        },
+        subjectAreas: {
             type: Array,
             default: () => [],
         },
@@ -553,7 +564,7 @@ export default {
         margin-bottom: var(--space-m);
         justify-content: space-evenly;
     }
-    .byline-item,
+
     .schedule-item,
     .date-created {
         display: flex;
@@ -563,6 +574,14 @@ export default {
         color: var(--color-secondary-grey-04);
     }
 
+    .byline-item,
+    .subject-areas {
+        display: flex;
+        flex-direction: column;
+
+        @include step-0;
+        color: var(--color-secondary-grey-04);
+    }
     .schedule {
         line-height: 24px;
         text-align: left;

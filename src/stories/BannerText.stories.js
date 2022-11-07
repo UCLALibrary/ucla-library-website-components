@@ -185,6 +185,7 @@ const article = {
             title: "Illustrations by Jen Diamond",
         },
     ],
+    subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
     locations: [
         {
             id: "523",
@@ -212,6 +213,7 @@ export const ArticleDetail = () => ({
         <banner-text
            :title="title"
            :byline="byline"
+           :subjectAreas="subjectAreas"
            :dateCreated="dateCreated"
            :locations="locations"
            :text="text"

@@ -171,6 +171,7 @@ export const WithContactInfo = () => ({
            :image="image"
            :to="to"
            :title="title"
+           :subjectArea=["ghosts","clowns"]
            text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
            email="ada@somewhere.com"
            phone="555-555-5555"
@@ -197,6 +198,7 @@ const article = {
             title: "Illustrations by Jen Diamond",
         },
     ],
+    subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
     locations: [
         {
             id: "523",
@@ -225,6 +227,7 @@ export const ArticleDetail = () => ({
            :image="image"
            :title="title"
            :byline="byline"
+           :subjectAreas="subjectAreas"
            :dateCreated="dateCreated"
            :locations="locations"
            :text="text"

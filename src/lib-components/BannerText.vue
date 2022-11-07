@@ -23,8 +23,18 @@
                             :key="index"
                             class="byline-item"
                         >
-                            {{ item }}
+                            {{ item.title }}
                         </div>
+
+                        <div v-if="subjectAreas" class="subject-areas">
+                            <div
+                                v-for="(item, index) in subjectAreas"
+                                :key="index"
+                            >
+                                {{ item.title }}
+                            </div>
+                        </div>
+
                         <div v-if="date" class="schedule">
                             <time
                                 v-if="date"
@@ -194,6 +204,10 @@ export default {
             default: "",
         },
         byline: {
+            type: Array,
+            default: () => [],
+        },
+        subjectAreas: {
             type: Array,
             default: () => [],
         },
@@ -385,8 +399,24 @@ export default {
         margin-bottom: var(--space-m);
         justify-content: space-evenly;
     }
-    .byline-item,
+
     .schedule-item,
+    .date-created {
+        display: flex;
+        flex-direction: row;
+
+        @include step-0;
+        color: var(--color-secondary-grey-04);
+    }
+
+    .byline-item,
+    .subject-areas {
+        display: flex;
+        flex-direction: column;
+
+        @include step-0;
+        color: var(--color-secondary-grey-04);
+    }
     .date-created {
         display: flex;
         flex-direction: row;
