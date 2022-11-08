@@ -4,6 +4,7 @@
             <router-link
                 to="/"
                 :aria-label="title ? '' : `UCLA Library home page`"
+                v-if="items && items.length > 0"
             >
                 <div v-if="title" class="title">
                     <span class="full-title"> {{ title }} </span>
@@ -15,6 +16,21 @@
                     alt="UCLA Library logo blue"
                 />
             </router-link>
+            <a
+                href="/"
+                :aria-label="title ? '' : `UCLA Library home page`"
+                v-else
+            >
+                <div v-if="title" class="title">
+                    <span class="full-title"> {{ title }} </span>
+                    <span class="acronym" v-if="acronym"> {{ acronym }} </span>
+                </div>
+                <svg-logo-ucla-library
+                    v-else
+                    class="svg logo-ucla"
+                    alt="UCLA Library logo blue"
+                />
+            </a>
         </div>
 
         <ul class="menu">
