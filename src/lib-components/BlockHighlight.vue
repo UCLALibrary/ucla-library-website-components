@@ -6,11 +6,15 @@
             <time v-if="startDate" class="day" v-html="parsedDateDay" />
         </div>
         <responsive-image
+            v-if="image"
             :image="image"
             :aspect-ratio="imageAspectRatio"
             :object-fit="cover"
             class="image"
         />
+        <div v-else class="molecule-no-image">
+            <molecule-placeholder class="molecule" aria-hidden="true" />
+        </div>
 
         <div v-if="hasTriangle" class="clipped">
             <div class="floating-highlight" />
@@ -95,6 +99,7 @@
 // Components
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
+import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
 
 // Utility functions
 import formatTimes from "@/mixins/formatEventTimes"
@@ -116,6 +121,7 @@ export default {
             ).then((d) => d.default),
         SmartLink,
         ResponsiveImage,
+        MoleculePlaceholder,
     },
     mixins: [formatTimes, formatDates, formatDay, formatMonth, getSectionName],
     props: {
@@ -331,7 +337,13 @@ export default {
         color: var(--color-secondary-grey-05);
         margin: var(--space-s) 0;
     }
-
+    .molecule-no-image {
+        width: 50%;
+        height: 272px;
+        margin-right: var(--space-xl);
+        background: var(--gradient-01);
+        overflow: hidden;
+    }
     .text {
         @include step-0;
         color: var(--color-black);
@@ -361,6 +373,9 @@ export default {
     // Variations
     &.is-vertical {
         flex-direction: column;
+        .molecule-no-image {
+            width: 100%;
+        }
         &:not(.has-triangle) {
             .meta {
                 margin-top: 16px;

@@ -157,6 +157,13 @@ export const Default = () => ({
         />
     `,
 })
+export const ImpactReport = () => ({
+    components: { NavPrimary },
+    template: `
+        <nav-primary
+        />
+    `,
+})
 
 export const ExtraSupportLinks = () => ({
     data() {
