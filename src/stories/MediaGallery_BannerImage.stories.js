@@ -1,6 +1,7 @@
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
 import FlexibleMediaGalleryBannerImage from "@/lib-components/Flexible/MediaGallery/BannerImage.vue"
+
+import * as MEDIA from "@/stories/mock/Media"
 
 // Storybook default settings
 export default {
@@ -8,23 +9,20 @@ export default {
     component: FlexibleMediaGalleryBannerImage,
 }
 
-const mock = {
-    image: API.image,
-}
-
 export const Default = () => ({
     data() {
         return {
-            ...mock,
+            item: MEDIA.ImageFile,
+            nItems: 5,
             expanded: false,
         }
     },
     components: { FlexibleMediaGalleryBannerImage },
     template: `
       <flexible-media-gallery-banner-image
-        :image="image"
-        n-items=5
-        :expanded=false
+        :item="item"
+        :n-items="nItems"
+        :expanded="expanded"
     />
   `,
 })
@@ -32,14 +30,14 @@ export const Default = () => ({
 export const Expanded = () => ({
     data() {
         return {
-            ...mock,
+            item: MEDIA.ImageFile,
             expanded: true,
         }
     },
     components: { FlexibleMediaGalleryBannerImage },
     template: `
       <flexible-media-gallery-banner-image
-        :image="image"
+        :item="item"
         n-items=5
         :expanded="expanded"
     />
@@ -48,12 +46,12 @@ export const Expanded = () => ({
 
 export const SingleItem = () => ({
     data() {
-        return { ...mock }
+        return { item: MEDIA.ImageFile }
     },
     components: { FlexibleMediaGalleryBannerImage },
     template: `
       <flexible-media-gallery-banner-image
-        :image="image"
+        :item="item"
         n-items=1
         expanded=false
     />

@@ -1,12 +1,12 @@
 describe("GLOBAL / Media", () => {
     describe("Image", () => {
         before(() => {
-            cy.visit("/iframe.html?id=global-media-item--default")
+            cy.visit("/iframe.html?id=global-media-item--image")
         })
 
-        it("uses ResponsiveImage", () => {
-            cy.get(".responsive-image").should("exist")
-            cy.get(".responsive-video").should("not.exist")
+        it("loads", () => {
+            cy.get(".media-item").should("exist")
+            cy.get(".media-image").should("exist")
         })
     })
 
@@ -15,9 +15,20 @@ describe("GLOBAL / Media", () => {
             cy.visit("/iframe.html?id=global-media-item--video")
         })
 
-        it("uses ResponsiveVideo", () => {
-            cy.get(".responsive-image").should("not.exist")
-            cy.get(".responsive-video").should("exist")
+        it("loads", () => {
+            cy.get(".media-item").should("exist")
+            cy.get(".media-video").should("exist")
+        })
+    })
+
+    describe("Embed", () => {
+        before(() => {
+            cy.visit("/iframe.html?id=global-media-item--video-embed")
+        })
+
+        it("loads", () => {
+            cy.get(".media-item").should("exist")
+            cy.get(".media-embed").should("exist")
         })
     })
 })

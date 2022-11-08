@@ -1,26 +1,36 @@
 <template>
-    <li class="thumbnail-card">
-        <responsive-image
-            :image="image"
+    <SectionWrapper class="thumbnail-card" :noMargins="true">
+        <MediaItem
+            :item="thumbnailImage"
             :aspect-ratio="60"
             class="image"
             object-fit="cover"
         />
-        <h3 class="caption-title" v-text="captionTitle" />
+        <SectionHeader class="caption-title" v-text="captionTitle" />
         <p class="caption-text" v-text="captionText" />
-    </li>
+    </SectionWrapper>
 </template>
 
 <script>
-import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
+import SectionWrapper from "@/lib-components/SectionWrapper.vue"
+import SectionHeader from "@/lib-components/SectionHeader.vue"
+import MediaItem from "@/lib-components/Media/Item.vue"
 
 export default {
     name: "FlexibleMediaGalleryThumbnailCard",
-    components: { ResponsiveImage },
+    components: { MediaItem, SectionWrapper, SectionHeader },
     props: {
-        image: {
-            type: Object,
-            required: true,
+        item: {
+            type: Array,
+            default: () => [],
+        },
+        coverImage: {
+            type: Array,
+            default: () => [],
+        },
+        embedCode: {
+            type: Array,
+            default: () => [],
         },
         captionTitle: {
             type: String,
@@ -29,6 +39,14 @@ export default {
         captionText: {
             type: String,
             default: "",
+        },
+    },
+    computed: {
+        thumbnailImage() {
+            // returns an array of objects that can be v-bound to <img> tags. Currently MediaItem only uses the first but in the future we might combine them all with <picture> and <source>, allowing the browser to chooose among versions
+            return (this.coverImage || []) // replace null & undefined with empty array
+                .concat(this.item || []) // add item to use if there's no coverImage
+                .filter((item) => item.kind == "image") // only keep "image" items
         },
     },
 }

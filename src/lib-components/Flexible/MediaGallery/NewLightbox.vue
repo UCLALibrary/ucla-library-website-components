@@ -12,16 +12,18 @@
             type="carousel"
             @change="setCurrentSlide"
         >
-            <vue-glide-slide v-for="(img, index) in images" :key="index">
-                <responsive-image
+            <vue-glide-slide v-for="(item, index) in items" :key="index">
+                <MediaItem
                     :key="index"
                     object-fit="contain"
-                    :image="img"
+                    :item="item.item"
+                    :coverImage="item.coverImage"
+                    :embedCode="item.embedCode"
                 />
             </vue-glide-slide>
             <template slot="control">
                 <button
-                    v-if="nItems > 1"
+                    v-if="items.length > 1"
                     class="button-prev"
                     :disabled="selectionIndex <= 0"
                     data-glide-dir="<"
@@ -29,9 +31,9 @@
                     <svg-icon-caret-left aria-label="Show previous image" />
                 </button>
                 <button
-                    v-if="nItems > 1"
+                    v-if="items.length > 1"
                     class="button-next"
-                    :disabled="selectionIndex >= nItems - 1"
+                    :disabled="selectionIndex >= items.length - 1"
                     data-glide-dir=">"
                 >
                     <svg-icon-caret-right aria-label="Show next image" />
@@ -41,7 +43,7 @@
         <div class="caption-block">
             <div class="media-counter" role="tablist">
                 <button
-                    v-for="index in nItems"
+                    v-for="index in items.length"
                     :key="index"
                     class="media-counter-item"
                     :disabled="index - 1 == selectionIndex"
@@ -69,7 +71,7 @@ import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-
 import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret-circle-right.svg"
 import SvgIconClose from "ucla-library-design-tokens/assets/svgs/icon-close-large.svg"
 import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg"
-import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
+import MediaItem from "@/lib-components/Media/Item.vue"
 
 export default {
     name: "FlexibleMediaGalleryNewLightbox",
@@ -80,17 +82,13 @@ export default {
         SvgIconCaretRight,
         SvgIconClose,
         SvgIconMoleculeBullet,
-        ResponsiveImage,
+        MediaItem,
     },
     props: {
-        block: {
+        items: {
             type: Array,
             default: () => [],
             required: true,
-        },
-        nItems: {
-            type: Number,
-            default: 0,
         },
         selectedItem: {
             type: Number,
@@ -103,14 +101,11 @@ export default {
         }
     },
     computed: {
-        images() {
-            return this.block.map((item) => item.image[0])
-        },
         captionTitle() {
-            return this.block.map((item) => item.captionTitle)
+            return this.items.map((item) => item.captionTitle)
         },
         captionText() {
-            return this.block.map((item) => item.captionText)
+            return this.items.map((item) => item.captionText)
         },
     },
     mounted() {
@@ -223,7 +218,7 @@ export default {
         }
     }
 
-    ::v-deep .responsive-image {
+    ::v-deep .media-item {
         height: var(--media-height);
     }
 
@@ -279,7 +274,7 @@ export default {
             top: calc(var(--media-width) / 3);
         }
 
-        ::v-deep .responsive-image {
+        ::v-deep .media-item {
             height: calc(var(--media-height) * 1.2);
         }
         ::v-deep .glide__slides {
@@ -300,7 +295,7 @@ export default {
             display: none;
         }
 
-        ::v-deep .responsive-image {
+        ::v-deep .media-item {
             height: 100%;
         }
         ::v-deep .glide__slides {
