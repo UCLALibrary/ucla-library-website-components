@@ -1,3 +1,10 @@
+## [1.68.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.68.0...v1.68.1) (2022-11-08)
+
+
+### Bug Fixes
+
+* Impact Report home page cannot be a nuxt link on drupal environment ([#234](https://github.com/UCLALibrary/ucla-library-website-components/issues/234)) ([ba5efcd](https://github.com/UCLALibrary/ucla-library-website-components/commit/ba5efcd1086c1a002e18107e1878be66208737b0))
+
 # [1.68.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.67.1...v1.68.0) (2022-11-07)
 
 
