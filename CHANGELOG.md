@@ -1,3 +1,19 @@
+# [2.0.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.68.1...v2.0.0) (2022-11-08)
+
+
+* feat!: MediaItem refactor and use in Media Gallery (#231) ([63fffa2](https://github.com/UCLALibrary/ucla-library-website-components/commit/63fffa2deb24905dfa775b1307860190e75c6206)), closes [#231](https://github.com/UCLALibrary/ucla-library-website-components/issues/231)
+
+
+### BREAKING CHANGES
+
+* updated data format for MediaItem, will require gql changes
+
+* feat: use MediaItem in MediaGallery
+
+Allows it to support Video and Embedded content, plus Audio once that's working in MediaItem.
+
+Co-authored-by: Parinita Mulak <pghorpade@library.ucla.edu>
+
 ## [1.68.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.68.0...v1.68.1) (2022-11-08)
 
 
