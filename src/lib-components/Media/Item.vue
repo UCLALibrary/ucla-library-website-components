@@ -24,8 +24,16 @@
             />
             Your browser does not support the video tag.
         </video>
-        <p v-else-if="isAudio" class="media">Audio uploads not supported yet</p>
-        <p v-else class="media">Could not identify media type</p>
+        <p
+            v-else
+            class="media"
+            style="background-color: white; padding: 10px"
+            v-text="
+                isAudio
+                    ? 'Audio uploads not supported yet'
+                    : 'Could not identify media type'
+            "
+        />
         <div class="sizer" :style="sizerStyles" />
         <slot />
     </div>
@@ -38,9 +46,7 @@ export default {
         // the image / video / audio / embed
         item: { type: Array, default: () => [] },
         embedCode: { type: String, default: "" },
-        // extra metadata
         coverImage: { type: Array, default: () => [] },
-        altText: { type: String, default: "" },
         // sizing for the container (not the media item itself)
         height: { type: Number, default: 0 },
         width: { type: Number, default: 0 },
@@ -59,35 +65,41 @@ export default {
     },
     computed: {
         isAudio() {
-            return this.item?.[0]?.kind == "audio"
+            return this.item[0] && this.item[0].kind == "audio"
         },
         isEmbed() {
-            return !!this?.embedCode?.length > 0
+            return !!(this.embedCode && this.embedCode.length) > 0
         },
         isImage() {
-            return this.item?.[0]?.kind == "image"
+            return this.item[0] && this.item[0].kind == "image"
         },
         isVideo() {
-            return this.item?.[0]?.kind == "video"
+            return this.item[0] && this.item[0].kind == "video"
         },
         coverImageUrl() {
-            return this.coverImage?.[0]?.url
+            return this.coverImage[0] && this.coverImage[0].url
         },
         mediaStyles() {
             return {
                 objectFit: this.objectFit,
-                objectPosition: this.item?.[0]?.focalPoint
-                    ?.map((obj) => obj * 100 + "%")
-                    ?.join(" "),
+                objectPosition:
+                    this.item[0] &&
+                    this.item[0].focalPoint &&
+                    this.item[0].focalPoint
+                        .map((obj) => obj * 100 + "%")
+                        .join(" "),
             }
         },
         parsedAspectRatio() {
             return (
                 this.aspectRatio ||
                 (this.height / this.width) * 100 ||
-                (this.item?.[0]?.height / this.item?.[0]?.width) * 100 ||
-                (this.coverImage?.[0]?.height / this.coverImage?.[0]?.width) *
-                    100 ||
+                (this.item[0] &&
+                    this.item[0].height / this.item[0] &&
+                    this.item[0].width) * 100 ||
+                (this.coverImage[0] &&
+                    this.coverImage[0].height / this.coverImage[0] &&
+                    this.coverImage[0].width) * 100 ||
                 (9 / 16) * 100
             )
         },
