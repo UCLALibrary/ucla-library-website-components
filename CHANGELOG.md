@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.0.0...v2.0.1) (2022-11-09)
+
+
+### Bug Fixes
+
+* don't use `?.` operator in MediaItem ([#235](https://github.com/UCLALibrary/ucla-library-website-components/issues/235)) ([c8c0daf](https://github.com/UCLALibrary/ucla-library-website-components/commit/c8c0daf6a267ed8d815b10567f82ef44828f293a))
+
 # [2.0.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v1.68.1...v2.0.0) (2022-11-08)
 
 
