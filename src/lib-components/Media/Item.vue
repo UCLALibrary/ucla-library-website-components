@@ -24,7 +24,16 @@
             />
             Your browser does not support the video tag.
         </video>
-        <p v-else class="media" style="background-color: white; padding: 10px;" v-text="isAudio ? 'Audio uploads not supported yet' : 'Could not identify media type'" />
+        <p
+            v-else
+            class="media"
+            style="background-color: white; padding: 10px"
+            v-text="
+                isAudio
+                    ? 'Audio uploads not supported yet'
+                    : 'Could not identify media type'
+            "
+        />
         <div class="sizer" :style="sizerStyles" />
         <slot />
     </div>
