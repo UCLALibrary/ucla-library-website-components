@@ -69,6 +69,7 @@ export default {
     .caption-text {
         @include step-0;
         color: var(--color-secondary-grey-05);
+        @include truncate($lines: 4);
     }
 
     @media #{$has-hover} {
