@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.0.1...v2.0.2) (2022-11-14)
+
+
+### Bug Fixes
+
+* updates responsive image and gallery caption ([#236](https://github.com/UCLALibrary/ucla-library-website-components/issues/236)) ([5ed030f](https://github.com/UCLALibrary/ucla-library-website-components/commit/5ed030f3607066531531279d91e2363fc3ec43fd))
+
 ## [2.0.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.0.0...v2.0.1) (2022-11-09)
 
 
