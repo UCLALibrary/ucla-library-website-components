@@ -4,7 +4,14 @@
         <div class="heading-staff">
             <svg-heading-arrow />
             <div class="header">
-                <h1 class="staffName" v-html="staffName" />
+                <h1 class="staffName">
+                    {{ staffName }}
+                    <span
+                        v-if="alternativeFullName"
+                        :lang="language"
+                        v-html="alternativeFullName"
+                    />
+                </h1>
                 <div v-if="pronouns" class="pronouns">
                     {{ parsedPronouns }}
                 </div>
@@ -132,6 +139,14 @@ export default {
             default: "",
         },
         staffName: {
+            type: String,
+            default: "",
+        },
+        alternativeFullName: {
+            type: String,
+            default: "",
+        },
+        language: {
             type: String,
             default: "",
         },
