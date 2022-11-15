@@ -551,10 +551,6 @@ export default {
         align-content: flex-end;
     }
 
-    .meta-text {
-        margin-bottom: var(--space-l);
-    }
-
     .title {
         @include step-4;
         color: var(--color-primary-blue-03);
