@@ -115,7 +115,7 @@
         </div>
 
         <div v-if="!to && registerEvent" class="block-form-container">
-            <block-form/>
+            <block-form />
         </div>
     </div>
 </template>

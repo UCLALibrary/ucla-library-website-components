@@ -5,13 +5,13 @@
             <svg-heading-arrow />
             <div class="header">
                 <h1 class="staffName">
-                {{ staffName }}
-                <span
-                    v-if="alternativeFullName"
-                    :lang="language"
-                    v-html="alternativeFullName"
-                />
-            </h1>
+                    {{ staffName }}
+                    <span
+                        v-if="alternativeFullName"
+                        :lang="language"
+                        v-html="alternativeFullName"
+                    />
+                </h1>
                 <div v-if="pronouns" class="pronouns">
                     {{ parsedPronouns }}
                 </div>
