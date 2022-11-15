@@ -27,14 +27,14 @@
                 :is-horizontal="isHorizontal"
             />
 
-            <router-link v-if="to" class="card card-more" :to="to">
+            <smart-link v-if="to" class="card card-more" :to="to">
                 <button-more
                     id="card-more-button"
                     class="button"
                     :text="buttonText"
                     aria-labelledby="card-more-button cards-with-illustration-title"
                 />
-            </router-link>
+            </smart-link>
         </ul>
     </section>
 </template>

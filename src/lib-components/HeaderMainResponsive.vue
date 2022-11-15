@@ -1,7 +1,7 @@
 <template>
     <nav role="navigation" aria-label="Menu" :class="classes">
         <div v-show="!isOpened" class="collapsed-menu">
-            <router-link
+            <smart-link
                 class="clickable-parent"
                 to="/"
                 :aria-label="parseAriaLabel"
@@ -18,7 +18,7 @@
                     class="logo-ucla"
                     role="button"
                 />
-            </router-link>
+            </smart-link>
             <button
                 role="button"
                 class="open-menu"
@@ -31,7 +31,7 @@
         </div>
         <div v-show="isOpened" class="expanded-menu-container">
             <div class="expanded-menu">
-                <router-link
+                <smart-link
                     class="clickable-parent"
                     to="/"
                     :aria-label="parseAriaLabel"
@@ -51,7 +51,7 @@
                         class="expanded-logo"
                         @click="toggleMenu"
                     />
-                </router-link>
+                </smart-link>
                 <button
                     role="button"
                     class="close-menu"

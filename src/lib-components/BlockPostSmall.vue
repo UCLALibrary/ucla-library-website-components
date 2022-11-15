@@ -1,12 +1,12 @@
 <template>
-    <router-link :to="to" :class="classes">
+    <smart-link :to="to" :class="classes">
         <responsive-image :image="image" :aspect-ratio="100" class="image" />
         <div class="meta">
             <div class="category" v-html="categoryName" />
             <h3 class="title" v-html="title" />
             <div class="author" v-html="parsedAuthor" />
         </div>
-    </router-link>
+    </smart-link>
 </template>
 
 <script>

@@ -65,14 +65,14 @@
                     v-for="(location, index) in parsedLocations"
                     :key="`location-${index}`"
                 >
-                    <router-link
+                    <smart-link
                         v-if="location.to"
                         :to="location.to"
                         class="location-link"
                     >
                         <component :is="location.svg" class="location-svg" />
                         <span class="location" v-html="location.title" />
-                    </router-link>
+                    </smart-link>
                     <div
                         class="location-text"
                         v-if="!location.to && !location.id"
