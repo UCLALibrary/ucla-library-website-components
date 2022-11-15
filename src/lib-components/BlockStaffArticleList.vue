@@ -12,7 +12,9 @@
         </div>
         <div class="meta">
             <div class="category" v-html="category" />
-            <router-link class="title" :to="to" v-html="title" />
+
+            <smart-link class="title" :to="to" v-html="title" />
+
             <div class="byline" v-if="authors || date">
                 <div
                     v-for="author in authors"
