@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.0.2...v2.0.3) (2022-11-15)
+
+
+### Bug Fixes
+
+* update searchhome ([#237](https://github.com/UCLALibrary/ucla-library-website-components/issues/237)) ([420b531](https://github.com/UCLALibrary/ucla-library-website-components/commit/420b5318fcdc89c7457b49ce3e28d3b6a032974e))
+
 ## [2.0.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.0.1...v2.0.2) (2022-11-14)
 
 
