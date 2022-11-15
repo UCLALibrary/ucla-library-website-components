@@ -246,7 +246,7 @@ export default {
     display: flex;
     flex-direction: row;
     // Themes for floating highlight/ triangle
-    --floating-highlight-color-theme: var(--color-primary-blue-03);
+    --floating-highlight-color-theme: var(--color-default-cyan-03);
     &.color-visit {
         --floating-highlight-color-theme: var(--color-visit-fushia-03);
     }

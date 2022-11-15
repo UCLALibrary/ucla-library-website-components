@@ -385,7 +385,7 @@ export default {
     max-width: $container-xl-banner + px;
 
     // Themes
-    --color-theme: var(--color-primary-blue-03);
+    --color-theme: var(--color-default-cyan-03);
     &.color-visit {
         --color-theme: var(--color-visit-fushia-03);
     }

@@ -40,6 +40,9 @@ export default {
     &.color-about {
         --color-border: var(--color-about-purple-03);
     }
+    &.color-default {
+        --color-border: var(--color-default-cyan-03);
+    }
 
     display: flex;
     flex-direction: row;
