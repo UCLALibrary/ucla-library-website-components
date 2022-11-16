@@ -1,13 +1,13 @@
 <template>
     <div :class="classes">
-        <router-link v-if="previousTo" :to="previousTo" class="previous">
+        <smart-link v-if="previousTo" :to="previousTo" class="previous">
             <svg-icon-arrow-right class="previous-svg" />
             <div class="underline-hover">Previous</div>
-        </router-link>
-        <router-link v-if="nextTo" :to="nextTo" class="next">
+        </smart-link>
+        <smart-link v-if="nextTo" :to="nextTo" class="next">
             <div class="underline-hover">Next</div>
             <svg-icon-arrow-right class="next-svg" />
-        </router-link>
+        </smart-link>
     </div>
 </template>
 
