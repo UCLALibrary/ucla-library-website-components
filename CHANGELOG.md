@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.1.0...v2.1.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* update all router-links  to smart-links ([#239](https://github.com/UCLALibrary/ucla-library-website-components/issues/239)) ([9b8d164](https://github.com/UCLALibrary/ucla-library-website-components/commit/9b8d1648339390bf6ec6f3ec6d2e2b9ff3226004))
+
 # [2.1.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.0.3...v2.1.0) (2022-11-15)
 
 
