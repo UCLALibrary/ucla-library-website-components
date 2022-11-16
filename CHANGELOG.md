@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.1.1...v2.1.2) (2022-11-16)
+
+
+### Bug Fixes
+
+* support embeds in MediaGalleryBannerImage ([#240](https://github.com/UCLALibrary/ucla-library-website-components/issues/240)) ([68e199d](https://github.com/UCLALibrary/ucla-library-website-components/commit/68e199d7848ee918bb75df7a2c3011a20719dc76))
+
 ## [2.1.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.1.0...v2.1.1) (2022-11-16)
 
 
