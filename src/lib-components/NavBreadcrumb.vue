@@ -1,6 +1,6 @@
 <template>
     <div class="nav-breadcrumb subtitle">
-        <router-link :to="to" class="parent-page-url" v-html="parentTitle" />
+        <smart-link :to="to" class="parent-page-url" v-html="parentTitle" />
         <svg-icon-caret-left aria-hidden="true" />
         <span class="current-page-title" v-html="title" />
     </div>

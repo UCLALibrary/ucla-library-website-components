@@ -12,10 +12,10 @@
                     <svg-logo-ucla-library class="logo-svg" />
                     <span class="visually-hidden">UCLA Library Home</span>
                 </a>
-                <router-link to="/" class="logo-ucla" v-else>
+                <smart-link to="/" class="logo-ucla" v-else>
                     <svg-logo-ucla-library class="logo-svg" />
                     <span class="visually-hidden">UCLA Library Home</span>
-                </router-link>
+                </smart-link>
                 <ul class="socials">
                     <li
                         v-for="item in parsedSocialItems"
