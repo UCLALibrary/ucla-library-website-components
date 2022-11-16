@@ -1,6 +1,12 @@
 <template>
     <div class="banner-image" @click="$emit('toggleThumbnails')">
-        <MediaItem :item="item" :aspect-ratio="60" object-fit="cover">
+        <MediaItem
+            :item="item"
+            :embed-code="embedCode"
+            :cover-image="coverImage"
+            :aspect-ratio="60"
+            object-fit="cover"
+        >
             <div v-if="nItems > 1 && !expanded">
                 <div class="gradient" />
                 <svg-molecule-image-stack
@@ -49,7 +55,15 @@ export default {
     props: {
         item: {
             type: Array,
-            required: true,
+            default: () => [],
+        },
+        coverImage: {
+            type: Array,
+            default: () => [],
+        },
+        embedCode: {
+            type: String,
+            default: "",
         },
         nItems: {
             type: Number,
