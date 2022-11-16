@@ -6,6 +6,10 @@
     <!-- TODO Need to create a BaseCalendarGroup Component -->
     <!-- TODO Need to style this for Mobile -->
     <div class="search-generic">
+        <h4>router query</h4>
+        {{ searchGenericQuery }}
+        <h4>filters for the page</h4>
+        {{ filters }}
         <form name="searchHome" @submit.prevent="doSearch">
             <div class="input-container">
                 <icon-search class="icon" />
@@ -90,8 +94,8 @@ export default {
             default: () => [],
         },*/
         searchGenericQuery: {
-            type: String,
-            default: "",
+            type: Object,
+            default: () => {},
         },
         /*queryView: {
             type: String,
@@ -100,8 +104,12 @@ export default {
     },
     data() {
         return {
-            searchWords: this.searchGenericQuery, // this.$route.query.q,
-            selectedFilters: {},
+            searchWords: this.searchGenericQuery
+                ? this.searchGenericQuery.queryText
+                : "", // this.$route.query.q,
+            selectedFilters: this.searchGenericQuery
+                ? this.searchGenericQuery.queryFilters
+                : {},
             openedFilterIndex: -1,
             isViewOpened: false,
             selectedView: "list",
@@ -154,14 +162,14 @@ export default {
             }
         },
     },
-    mounted() {
+    /* mounted() {
         // TODO Figure out how to get these intial values from the URL.
         // Probably want to use this: https://www.npmjs.com/package/qs
         for (const filterObj of this.filters) {
             this.selectedFilters[filterObj.esFieldName] =
                 filterObj.inputType == "radio" ? "" : []
         }
-    },
+    },*/
     methods: {
         doSearch() {
             /*this.isViewOpened = false
