@@ -13,7 +13,7 @@
         <div class="meta">
             <div class="name-title">
                 <h3 class="staff-name">
-                    <router-link :to="to" v-html="staffName" />
+                    <smart-link :to="to" v-html="staffName" />
                 </h3>
                 <div class="job-title" v-html="jobTitle" />
                 <ul v-if="departments.length" class="departments">

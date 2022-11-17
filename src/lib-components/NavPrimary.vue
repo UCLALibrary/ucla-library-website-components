@@ -1,7 +1,7 @@
 <template>
     <nav aria-label="Primary  Navigation" :class="classes">
         <div class="item-top">
-            <router-link
+            <smart-link
                 to="/"
                 :aria-label="title ? '' : `UCLA Library home page`"
                 v-if="items && items.length > 0"
@@ -15,7 +15,7 @@
                     class="svg logo-ucla"
                     alt="UCLA Library logo blue"
                 />
-            </router-link>
+            </smart-link>
             <a
                 href="/"
                 :aria-label="title ? '' : `UCLA Library home page`"

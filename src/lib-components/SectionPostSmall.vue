@@ -13,9 +13,9 @@
             />
         </div>
 
-        <router-link class="more" :to="to">
+        <smart-link class="more" :to="to">
             <button-more />
-        </router-link>
+        </smart-link>
     </section>
 </template>
 

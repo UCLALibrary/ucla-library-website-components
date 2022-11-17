@@ -12,18 +12,18 @@
                 class="brick"
             />
 
-            <router-link
+            <smart-link
                 v-for="item in items"
                 :key="`image-${item.to}`"
                 :to="item.to"
                 class="brick brick-image"
             >
                 <responsive-image :image="item.image" :aspect-ratio="100" />
-            </router-link>
+            </smart-link>
         </div>
-        <router-link class="more" :to="to">
+        <smart-link class="more" :to="to">
             <button-more />
-        </router-link>
+        </smart-link>
     </section>
 </template>
 
