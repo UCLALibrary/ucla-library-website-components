@@ -6,10 +6,10 @@
     <!-- TODO Need to create a BaseCalendarGroup Component -->
     <!-- TODO Need to style this for Mobile -->
     <div class="search-generic">
-        <h4>router query</h4>
+        <!-- <h4>router query</h4>
         {{ searchGenericQuery }}
         <h4>filters for the page</h4>
-        {{ filters }}
+        {{ filters }}-->
         <form name="searchHome" @submit.prevent="doSearch">
             <div class="input-container">
                 <icon-search class="icon" />
