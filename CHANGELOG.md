@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.1.2...v2.2.0) (2022-11-17)
+
+
+### Features
+
+* APSS-2040 Sync route queries ([#241](https://github.com/UCLALibrary/ucla-library-website-components/issues/241)) ([279be79](https://github.com/UCLALibrary/ucla-library-website-components/commit/279be7946341bd94b54a473648363ae3c2ee031f))
+
 ## [2.1.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.1.1...v2.1.2) (2022-11-16)
 
 
