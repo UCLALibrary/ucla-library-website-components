@@ -1,13 +1,13 @@
 <template>
     <div :class="classes">
         <div class="card-container">
-            <router-link class="image-container" :to="to">
+            <smart-link class="image-container" :to="to">
                 <responsive-image v-if="image" class="image" :image="image" />
                 <div v-else class="placeholder-container">
                     <div class="image" />
                     <div class="affiliate" />
                 </div>
-            </router-link>
+            </smart-link>
 
             <div class="library">
                 <smart-link v-if="to" :to="to" class="title">

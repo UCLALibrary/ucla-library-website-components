@@ -12,6 +12,8 @@
         <flexible-media-gallery-banner-image
             v-if="block.mediaGallery && block.mediaGallery[selectionIndex].item"
             :item="block.mediaGallery[selectionIndex].item"
+            :cover-image="block.mediaGallery[selectionIndex].coverImage"
+            :embed-code="block.mediaGallery[selectionIndex].embedCode"
             :n-items="nItems"
             :expanded="expandThumbnails"
             @click.native="toggleThumbnails"
