@@ -177,7 +177,7 @@ export default {
                 "in search-genric component searchGenericQuery.queryFilters watch: " +
                     newVal
             )
-            this.filters = newVal
+            this.selectedFilters = newVal
         },
     },
     /* mounted() {
