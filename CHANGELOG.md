@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.2.0...v2.2.1) (2022-11-17)
+
+
+### Bug Fixes
+
+* update fpbs for images ([#242](https://github.com/UCLALibrary/ucla-library-website-components/issues/242)) ([2b2774f](https://github.com/UCLALibrary/ucla-library-website-components/commit/2b2774f82b210d9a942d7c58a65b66769471e56a))
+
 # [2.2.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.1.2...v2.2.0) (2022-11-17)
 
 
