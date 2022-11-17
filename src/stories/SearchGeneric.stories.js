@@ -51,7 +51,7 @@ export const Default = () => ({
         return {
             routerQueryData: {
                 queryText: "",
-                queryFilters: [],
+                queryFilters: {},
             },
             filters: [
                 {
@@ -62,7 +62,7 @@ export const Default = () => ({
                 },
                 {
                     label: "Department",
-                    esFieldName: "department",
+                    esFieldName: "departments.title.keyword",
                     inputType: "checkbox",
                     items: items,
                 },
@@ -98,8 +98,11 @@ export const RouterQuery = () => ({
     data() {
         return {
             routerQueryData: {
-                queryText: "",
-                queryFilters: [],
+                queryText: "suzy lee",
+                queryFilters: {
+                    "subjectLibrarian.keyword": "",
+                    "departments.title.keyword": ["Neque porro quisquam"],
+                },
             },
             filters: [
                 {
@@ -110,7 +113,7 @@ export const RouterQuery = () => ({
                 },
                 {
                     label: "Department",
-                    esFieldName: "department",
+                    esFieldName: "departments.title.keyword",
                     inputType: "checkbox",
                     items: items,
                 },

@@ -89,6 +89,10 @@ export default {
             type: Array, // array of objects that contain the filter objects
             default: () => [],
         },
+        searchType: {
+            type: String,
+            default: "",
+        },
         /* views: {
             type: Array,
             default: () => [],
@@ -160,6 +164,20 @@ export default {
             if (newVal !== -1) {
                 this.isViewOpened = false
             }
+        },
+        "searchGenericQuery.queryText"(newVal, oldVal) {
+            console.log(
+                "in search-genric component searchGenericQuery.queryText watch: " +
+                    newVal
+            )
+            this.searchWords = newVal
+        },
+        "searchGenericQuery.queryFilters"(newVal, oldVal) {
+            console.log(
+                "in search-genric component searchGenericQuery.queryFilters watch: " +
+                    newVal
+            )
+            this.filters = newVal
         },
     },
     /* mounted() {
