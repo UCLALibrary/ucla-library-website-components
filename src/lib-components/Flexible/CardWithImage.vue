@@ -102,7 +102,7 @@ export default {
                     return {
                         ...obj,
                         to: `/${obj.to}`,
-                        parsedImage: _get(obj, "heroImage[0].image[0]", {}),
+                        parsedImage: _get(obj, "heroImage[0].image[0]", null),
                         parsedLocation: _get(obj, "projectLocations", []),
                         parsedCategory: _get(obj, "projectCategory", {}),
                         byline1: _get(obj, "projectByline1[0].title", ""),
@@ -110,13 +110,17 @@ export default {
                 } else if (obj.typeHandle === "externalContent") {
                     return {
                         ...obj,
-                        parsedImage: _get(obj, "image[0]", {}),
+                        parsedImage: _get(obj, "image[0]", null),
                         parsedLocation:
                             obj.location != null ? [obj.location] : [],
                         parsedCategory: _get(obj, "category", {}),
                     }
                 } else {
-                    return { ...obj, to: `/${obj.to}` }
+                    return {
+                        ...obj,
+                        parsedImage: _get(obj, "heroImage[0].image[0]", null),
+                        to: `/${obj.to}`,
+                    }
                 }
             })
         },
