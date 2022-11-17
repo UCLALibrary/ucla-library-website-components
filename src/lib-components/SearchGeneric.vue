@@ -175,7 +175,7 @@ export default {
         "searchGenericQuery.queryFilters"(newVal, oldVal) {
             console.log(
                 "in search-genric component searchGenericQuery.queryFilters watch: " +
-                    newVal
+                    JSON.stringify(newVal)
             )
             this.selectedFilters = newVal
         },
