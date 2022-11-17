@@ -49,6 +49,10 @@ const items = [
 export const Default = () => ({
     data() {
         return {
+            routerQueryData: {
+                queryText: "",
+                queryFilters: {},
+            },
             filters: [
                 {
                     label: "Location",
@@ -58,7 +62,7 @@ export const Default = () => ({
                 },
                 {
                     label: "Department",
-                    esFieldName: "department",
+                    esFieldName: "departments.title.keyword",
                     inputType: "checkbox",
                     items: items,
                 },
@@ -86,6 +90,58 @@ export const Default = () => ({
     template: `
         <search-generic
             :filters="filters"
+            :search-generic-query="routerQueryData"
+        />
+    `,
+})
+export const RouterQuery = () => ({
+    data() {
+        return {
+            routerQueryData: {
+                queryText: "suzy lee",
+                queryFilters: {
+                    "subjectLibrarian.keyword": "",
+                    "departments.title.keyword": ["Neque porro quisquam"],
+                },
+            },
+            filters: [
+                {
+                    label: "Location",
+                    esFieldName: "location",
+                    inputType: "radio",
+                    items: items,
+                },
+                {
+                    label: "Department",
+                    esFieldName: "departments.title.keyword",
+                    inputType: "checkbox",
+                    items: items,
+                },
+            ],
+            /* views: [
+                {
+                    slug: "list",
+                    iconName: "icon-list",
+                    title: "List",
+                },
+                {
+                    slug: "card",
+                    iconName: "icon-card",
+                    title: "Card",
+                },
+                {
+                    slug: "calendar",
+                    iconName: "icon-calendar",
+                    title: "Calendar",
+                },
+            ],*/
+        }
+    },
+    components: { SearchGeneric },
+    template: `
+        <search-generic
+            :filters="filters"
+            :search-generic-query="routerQueryData"
         />
     `,
 })
