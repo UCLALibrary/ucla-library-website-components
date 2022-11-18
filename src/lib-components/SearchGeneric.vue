@@ -12,13 +12,15 @@
         {{ filters }}-->
         <form name="searchHome" @submit.prevent="doSearch">
             <div class="input-container">
-                <icon-search class="icon" />
                 <input
                     v-model="searchWords"
                     type="text"
                     placeholder="Search by keyword"
                     @keyup="doSearch"
                 />
+                <button class="button-submit" @click="doSearch">
+                    <icon-search class="icon" />
+                </button>
             </div>
         </form>
         <div class="container">
@@ -232,12 +234,15 @@ export default {
     border-top-left-radius: 4px;
 
     .input-container {
+        display: flex;
+        background-color: var(--color-primary-blue-01);
+        border-color: transparent;
         .icon {
-            padding: 25px 40px 25px 32px;
-            position: absolute;
-            z-index: 10;
-            width: 28px;
-            height: 27px;
+            &:hover {
+                ::v-deep .svg__fill--primary-blue-03 {
+                    fill: var(--color-default-cyan-03);
+                }
+            }
         }
 
         input {
