@@ -28,6 +28,7 @@ import _kebabCase from "lodash/kebabCase"
 import omit from "lodash/omit"
 import SectionWrapper from "./SectionWrapper.vue"
 import DividerWayFinder from "./DividerWayFinder.vue"
+import SectionHeader from "./SectionHeader.vue"
 
 const NEVER_GRAY = [
     "flexible-associated-topic-cards",
@@ -106,6 +107,7 @@ export default {
                 (d) => d.default
             ),
         DividerWayFinder,
+        SectionHeader,
     },
 
     props: {
