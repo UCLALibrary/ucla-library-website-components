@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.3.0...v2.4.0) (2022-11-18)
+
+
+### Features
+
+* APPS-2073 added spec file storybook file and component file ([#244](https://github.com/UCLALibrary/ucla-library-website-components/issues/244)) ([e3f29cf](https://github.com/UCLALibrary/ucla-library-website-components/commit/e3f29cf9bcc8193111e518d98e2b6cb227cc65ed))
+
 # [2.3.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.2.1...v2.3.0) (2022-11-18)
 
 
