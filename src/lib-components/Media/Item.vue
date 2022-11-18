@@ -7,23 +7,19 @@
             :style="mediaStyles"
             v-bind="item[0]"
         />
-        <video
-            v-else-if="isVideo"
+        <VideoJs
+            v-else-if="isVideo || isAudio"
             class="media media-video"
             :style="mediaStyles"
-            :poster="coverImageUrl"
-            :autoplay="autoplay"
+            :sources="item"
+            :poster="coverImageSrc"
             :controls="controls"
+            :autoplay="autoplay"
+            :loop="loop"
             :muted="muted"
             :playsinline="playsinline"
-        >
-            <source
-                v-for="videoSource in item"
-                :key="videoSource.id"
-                v-bind="videoSource"
-            />
-            Your browser does not support the video tag.
-        </video>
+            :audioPosterMode="isAudio"
+        />
         <p
             v-else
             class="media"
@@ -40,8 +36,11 @@
 </template>
 
 <script>
+import VideoJs from "./VideoJs.vue"
+
 export default {
     name: "MediaItem",
+    components: { VideoJs },
     props: {
         // the image / video / audio / embed
         item: { type: Array, default: () => [] },
@@ -60,7 +59,7 @@ export default {
         controls: { type: Boolean, default: true },
         autoplay: { type: Boolean, default: false },
         loop: { type: Boolean, default: false },
-        muted: { type: Boolean, default: true },
+        muted: { type: Boolean, default: false },
         playsinline: { type: Boolean, default: true },
     },
     computed: {
@@ -76,8 +75,8 @@ export default {
         isVideo() {
             return this.item[0] && this.item[0].kind == "video"
         },
-        coverImageUrl() {
-            return this.coverImage[0] && this.coverImage[0].url
+        coverImageSrc() {
+            return this.coverImage[0] && this.coverImage[0].src
         },
         mediaStyles() {
             return {
