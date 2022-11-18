@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.2.1...v2.3.0) (2022-11-18)
+
+
+### Features
+
+* ModalLightbox component ([#243](https://github.com/UCLALibrary/ucla-library-website-components/issues/243)) ([2517e7d](https://github.com/UCLALibrary/ucla-library-website-components/commit/2517e7d4510ecba7937cffa913bf351a1ce3ef05))
+
 ## [2.2.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.2.0...v2.2.1) (2022-11-17)
 
 
