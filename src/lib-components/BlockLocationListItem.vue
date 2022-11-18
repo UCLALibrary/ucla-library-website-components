@@ -73,6 +73,14 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-chair.svg"
             ).then((d) => d.default),
+        SvgIconEmail: () =>
+            import("ucla-library-design-tokens/asses/svgs/icon-email.svg").then(
+                (d) => d.default
+            ),
+        SvgIconPhone: () =>
+            import("ucla-library-design-tokens/asses/svgs/icon-phone.svg").then(
+                (d) => d.default
+            ),
         SvgIconVirtual: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
@@ -111,17 +119,37 @@ export default {
             ).then((d) => d.default),
     },
     props: {
-        image: {
-            type: Object,
-            default: () => {},
+        affiliateLibraryUrl: {
+            type: String,
+            default: "",
+        },
+        locationType: {
+            type: String,
+            default: "",
+        },
+        campusMapId: {
+            type: String,
+            default: "",
+        },
+        libcalSpacesUrl: {
+            type: String,
+            default: "",
         },
         title: {
+            type: String,
+            default: "",
+        },
+        text: {
             type: String,
             default: "",
         },
         to: {
             type: String,
             default: "",
+        },
+        image: {
+            type: Object,
+            default: () => {},
         },
         day: {
             type: String,
@@ -136,10 +164,14 @@ export default {
             default: "",
         },
         addressLink: {
-            type: String,
-            default: "",
+            type: Array,
+            default: () => [],
         },
         amenities: {
+            type: Array,
+            default: () => [],
+        },
+        amenitiesIcons: {
             type: Array,
             default: () => [],
         },
