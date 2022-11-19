@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.4.0...v2.4.1) (2022-11-19)
+
+
+### Bug Fixes
+
+* Move search icon to right of the input text and add hover behavior ([#246](https://github.com/UCLALibrary/ucla-library-website-components/issues/246)) ([ea0ca99](https://github.com/UCLALibrary/ucla-library-website-components/commit/ea0ca9940ec8b33f1e62cac2ac7f4431aa1e3d25))
+
 # [2.4.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.3.0...v2.4.0) (2022-11-18)
 
 
