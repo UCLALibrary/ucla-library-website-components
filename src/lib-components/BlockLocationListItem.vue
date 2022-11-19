@@ -119,6 +119,46 @@ export default {
             ).then((d) => d.default),
     },
     props: {
+        image: {
+            type: Object,
+            default: () => {},
+        },
+        title: {
+            type: String,
+            default: "",
+        },
+        to: {
+            type: String,
+            default: "",
+        },
+        day: {
+            type: String,
+            default: "",
+        },
+        hour: {
+            type: String,
+            default: "",
+        },
+        address: {
+            type: String,
+            default: "",
+        },
+        addressLink: {
+            type: String,
+            default: "",
+        },
+        amenities: {
+            type: Array,
+            default: () => [],
+        },
+        reserveSeat: {
+            type: String,
+            default: "",
+        },
+        isUclaLibrary: {
+            type: Boolean,
+            default: true,
+        },
         affiliateLibraryUrl: {
             type: String,
             default: "",
@@ -135,53 +175,9 @@ export default {
             type: String,
             default: "",
         },
-        title: {
-            type: String,
-            default: "",
-        },
-        text: {
-            type: String,
-            default: "",
-        },
-        to: {
-            type: String,
-            default: "",
-        },
-        image: {
-            type: Object,
-            default: () => {},
-        },
-        day: {
-            type: String,
-            default: "",
-        },
-        hour: {
-            type: String,
-            default: "",
-        },
-        address: {
-            type: String,
-            default: "",
-        },
-        addressLink: {
-            type: Array,
-            default: () => [],
-        },
-        amenities: {
-            type: Array,
-            default: () => [],
-        },
         amenitiesIcons: {
             type: Array,
             default: () => [],
-        },
-        reserveSeat: {
-            type: String,
-            default: "",
-        },
-        isUclaLibrary: {
-            type: Boolean,
-            default: true,
         },
     },
     computed: {

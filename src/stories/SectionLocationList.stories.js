@@ -33,9 +33,8 @@ const mock = [
         //         addressZipCode: "90095-1798",
         //     },
         // ],
-        address: [
+        address:
             "12-077 Center for the Health Sciences Los Angeles, CA 9009-1798",
-        ],
         amenities: ["ADA Stations", "Cafe", "Research Help"],
         amenitiesIcons: ["icon-accessible", "icon-chair", "icon-book"],
         uri: "visit/locations/biomed",
@@ -50,7 +49,7 @@ const mock = [
         summary:
             "<p>This holds rare books and manuscripts with particular strengths in English literature and history (1641–1800), Oscar Wilde and the fin de siècle, and fine press printing.</p>",
         image: API.image,
-        address: ["2520 Cimarron St. BOX 951575 Los Angeles, CA 90018"],
+        address: "2520 Cimarron St. BOX 951575 Los Angeles, CA 90018",
         amenities: [
             "Lockers",
             "Makerspace",
@@ -75,7 +74,7 @@ const mock = [
         summary:
             "<p>The Archive is the second-largest repository of motion pictures and broadcast programming in the United States, after the Library of Congress, and the world's largest university-held collection.</p>",
         image: API.image,
-        address: ["26155 Rockwell Canyon Rd. Santa Clarita, CA 91355"],
+        address: "26155 Rockwell Canyon Rd. Santa Clarita, CA 91355",
         amenities: [
             "Cafe",
             "Computer/Laptop Access",
