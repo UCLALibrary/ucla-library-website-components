@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import BlockSearchFilter from "ucla-library-website-components/src/lib-components/BlockSearchFilter"
+import BlockSearchFilter from "@/lib-components/BlockSearchFilter"
 export default {
     name: "SectionSearchFilter",
     data() {
