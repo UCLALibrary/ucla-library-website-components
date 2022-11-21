@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.4.1...v2.5.0) (2022-11-21)
+
+
+### Features
+
+* APPS-2074 create a section location list component ([#247](https://github.com/UCLALibrary/ucla-library-website-components/issues/247)) ([59c64c6](https://github.com/UCLALibrary/ucla-library-website-components/commit/59c64c62190343a00ca328f90cf74a44a838154e))
+
 ## [2.4.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.4.0...v2.4.1) (2022-11-19)
 
 
