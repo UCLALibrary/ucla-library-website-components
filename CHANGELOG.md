@@ -1,3 +1,24 @@
+## [2.4.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.4.0...v2.4.1) (2022-11-19)
+
+
+### Bug Fixes
+
+* Move search icon to right of the input text and add hover behavior ([#246](https://github.com/UCLALibrary/ucla-library-website-components/issues/246)) ([ea0ca99](https://github.com/UCLALibrary/ucla-library-website-components/commit/ea0ca9940ec8b33f1e62cac2ac7f4431aa1e3d25))
+
+# [2.4.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.3.0...v2.4.0) (2022-11-18)
+
+
+### Features
+
+* APPS-2073 added spec file storybook file and component file ([#244](https://github.com/UCLALibrary/ucla-library-website-components/issues/244)) ([e3f29cf](https://github.com/UCLALibrary/ucla-library-website-components/commit/e3f29cf9bcc8193111e518d98e2b6cb227cc65ed))
+
+# [2.3.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.2.1...v2.3.0) (2022-11-18)
+
+
+### Features
+
+* ModalLightbox component ([#243](https://github.com/UCLALibrary/ucla-library-website-components/issues/243)) ([2517e7d](https://github.com/UCLALibrary/ucla-library-website-components/commit/2517e7d4510ecba7937cffa913bf351a1ce3ef05))
+
 ## [2.2.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.2.0...v2.2.1) (2022-11-17)
 
 
