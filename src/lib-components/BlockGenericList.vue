@@ -1,6 +1,6 @@
 <template>
     <div class="block-generic-list">
-        <h2 class="section-title">{{ sectionTitle }}</h2>
+        <h2 class="section-title">{{ jobType[0].title }}</h2>
         <div class="meta">
             <div v-if="jobRequisitionNumber" class="category">
                 JOB #{{ jobRequisitionNumber }}
@@ -12,7 +12,10 @@
                 {{ title }}
             </h3>
 
-            <div class="byline-group" v-if="department || associatedLocations">
+            <div
+                class="byline-group"
+                v-if="department || associatedLocations || payRate"
+            >
                 <div v-if="department" class="schedule-item">
                     <div
                         v-for="(item, index) in department"
@@ -20,6 +23,9 @@
                         class="schedule-item"
                     >
                         {{ item.title }}
+                    </div>
+                    <div class="schedule-item">
+                        {{ payRate }}
                     </div>
                 </div>
             </div>
@@ -64,10 +70,6 @@ export default {
         return {}
     },
     props: {
-        sectionTitle: {
-            type: String,
-            default: "",
-        },
         title: {
             type: String,
             default: "",
@@ -95,6 +97,10 @@ export default {
         associatedLocations: {
             type: Array,
             default: () => [],
+        },
+        payRate: {
+            type: String,
+            default: "",
         },
     },
     computed: {
