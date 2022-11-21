@@ -86,6 +86,7 @@ export { default as SectionCardsWithIllustrations } from "./SectionCardsWithIllu
 export { default as SectionDualMasonry } from "./SectionDualMasonry.vue"
 export { default as SiteBrandBar } from "./SiteBrandBar.vue"
 export { default as SiteNotificationAlert } from "./SiteNotificationAlert.vue"
+export { default as SectionLocationList } from "./SectionLocationList.vue"
 export { default as SectionPagination } from "./SectionPagination.vue"
 export { default as SectionSpacesList } from "./SectionSpacesList.vue"
 export { default as SectionStaffArticleList } from "./SectionStaffArticleList.vue"
