@@ -1,6 +1,6 @@
 <template>
     <ul class="section-location-list">
-        <block-location-list
+        <block-location-list-item
             v-for="item in items"
             :key="item.to"
             :image="item.image"

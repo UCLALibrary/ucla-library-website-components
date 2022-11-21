@@ -10,9 +10,14 @@
             </smart-link>
 
             <div class="library">
-                <smart-link v-if="to" :to="to" class="title">
-                    {{ title }}
-                </smart-link>
+                <div>
+                    <smart-link v-if="to" :to="to" class="title">
+                        {{ title }}
+                    </smart-link>
+                    <smart-link v-else :to="affiliateLibraryUrl" class="title">
+                        {{ title }}
+                    </smart-link>
+                </div>
                 <div class="text">
                     <div v-if="day || hour" class="time">
                         <SvgIconClock />
@@ -74,13 +79,13 @@ export default {
                 "ucla-library-design-tokens/assets/svgs/icon-chair.svg"
             ).then((d) => d.default),
         SvgIconEmail: () =>
-            import("ucla-library-design-tokens/asses/svgs/icon-email.svg").then(
-                (d) => d.default
-            ),
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-email.svg"
+            ).then((d) => d.default),
         SvgIconPhone: () =>
-            import("ucla-library-design-tokens/asses/svgs/icon-phone.svg").then(
-                (d) => d.default
-            ),
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
+            ).then((d) => d.default),
         SvgIconVirtual: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
