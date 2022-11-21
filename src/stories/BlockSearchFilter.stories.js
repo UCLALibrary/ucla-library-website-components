@@ -6,7 +6,7 @@ export default {
 }
 
 const mock = {
-    title: "",
+    title: "Amenities",
     filterType: "location || departments || subjects ||categories",
 }
 
