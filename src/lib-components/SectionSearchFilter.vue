@@ -1,10 +1,11 @@
 <template>
     <div class="section-search-filter">
         <block-search-filter
-            v-for="(filter, index) in filters"
+            v-for="(filter, index) in filteredFilters"
             :title="filter.title"
-            filterType="filter.filterType"
+            :filterType="filter.filterType"
             :key="`filter-${index}`"
+            @removeBlockFilter="closeBlockFilter(index)"
         />
     </div>
 </template>
@@ -14,18 +15,26 @@ import BlockSearchFilter from "ucla-library-website-components/src/lib-component
 export default {
     name: "SectionSearchFilter",
     data() {
-        return {}
+        return {
+            filteredFilters: this.filters,
+        }
     },
     components: {
         BlockSearchFilter,
     },
     props: {
         filters: {
-            type: String,
-            default: "",
+            type: Array,
+            default: () => [],
         },
     },
-    methods: {},
+    methods: {
+        closeBlockFilter(indexVal) {
+            this.filteredFilters = this.filteredFilters.filter((el, index) => {
+                return index != indexVal
+            })
+        },
+    },
 }
 </script>
 
@@ -34,5 +43,6 @@ export default {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    flex-wrap: wrap;
 }
 </style>

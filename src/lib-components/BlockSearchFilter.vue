@@ -3,7 +3,7 @@
         <a>
             {{ title }}
         </a>
-        <button type="button" @click="closeBlockForm()">
+        <button type="button" @click="closeBlockFilter()">
             <svg-glyph-close class="svg-glyph-close" />
         </button>
     </div>
@@ -28,8 +28,16 @@ export default {
             type: String,
             default: "",
         },
+        index: {
+            type: Number,
+            default: 0,
+        },
     },
-    methods: {},
+    methods: {
+        closeBlockFilter() {
+            this.$emit("removeBlockFilter", this.index)
+        },
+    },
 }
 </script>
 
