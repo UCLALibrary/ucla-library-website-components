@@ -47,8 +47,6 @@
             </div>
 
             <rich-text v-if="text" :rich-text-content="text" />
-
-            <divider-general class="divider-general" />
         </div>
     </div>
 </template>
