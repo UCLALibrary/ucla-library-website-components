@@ -54,7 +54,6 @@ export const Default = () => ({
     components: { BlockGenericList },
     template: `
       <block-generic-list
-        sectionTitle="Academic Librarian Jobs"
         :title="title"
         :text="summary"
         :jobType="jobType"

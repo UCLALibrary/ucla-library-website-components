@@ -1,6 +1,5 @@
 <template>
     <div class="block-generic-list">
-        <h2 class="section-title">{{ jobType[0].title }}</h2>
         <div class="meta">
             <div v-if="jobRequisitionNumber" class="category">
                 JOB #{{ jobRequisitionNumber }}
@@ -12,10 +11,7 @@
                 {{ title }}
             </h3>
 
-            <div
-                class="byline-group"
-                v-if="department || associatedLocations || payRate"
-            >
+            <div class="byline-group" v-if="department || payRate">
                 <div v-if="department" class="schedule-item">
                     <div
                         v-for="(item, index) in department"
@@ -24,7 +20,7 @@
                     >
                         {{ item.title }}
                     </div>
-                    <div class="schedule-item">
+                    <div v-if="payRate" class="schedule-item">
                         {{ payRate }}
                     </div>
                 </div>
@@ -47,7 +43,7 @@
                 </div>
             </div>
 
-            <rich-text v-if="text" :rich-text-content="text" />
+            <!-- <divider-way-finder /> -->
         </div>
     </div>
 </template>
@@ -55,12 +51,14 @@
 <script>
 import SmartLink from "@/lib-components/SmartLink.vue"
 import RichText from "@/lib-components/RichText.vue"
+import DividerWayFinder from "@/lib-components/DividerWayFinder.vue"
 
 export default {
     name: "BlockGenericList",
     components: {
         SmartLink,
         RichText,
+        DividerWayFinder,
         SvgIconLocation: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-location.svg"
@@ -166,26 +164,7 @@ export default {
         @include truncate(4);
         margin-top: var(--space-s);
     }
-    .location-group {
-        color: var(--color-primary-blue-03);
-        font-family: var(--font-secondary);
-        font-size: 20px;
-        line-height: 1;
-        margin-bottom: var(--space-s);
-    }
-    .location-link,
-    .location-text {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: center;
-        align-items: center;
-        margin-bottom: 8px;
-    }
-    .location-link {
-        z-index: 20;
-    }
+
     &:not(&.is-vertical) {
         max-width: 990px;
         .meta {
@@ -193,24 +172,8 @@ export default {
             padding-bottom: 16px;
             overflow: hidden;
         }
-        .floating-highlight {
-            z-index: 30;
-            position: absolute;
-            width: 123px;
-            top: 191px;
-            left: 6px;
-            height: 90px;
-            background-color: var(--floating-highlight-color-theme);
-            clip-path: polygon(
-                0 0,
-                calc(100% - 37px) 0,
-                100% 75px,
-                calc(100% - 1.5px) 75px,
-                calc(100% - 38px) 1.5px,
-                0 1.5px
-            );
-        }
     }
+
     // Breakpoints
     @media #{$medium} {
         .text {

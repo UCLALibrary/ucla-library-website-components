@@ -6,7 +6,7 @@
                 class="section-title"
                 v-html="sectionTitle"
             />
-            <ul class="block-generic-list">
+            <ul class="block-staff-article-list">
                 <block-staff-article-list
                     v-for="(item, index) in items"
                     :key="index"

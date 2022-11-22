@@ -7,12 +7,12 @@
                     sectionTitle="Academic Librarian Jobs"
                     :key="index"
                     :title="item.title"
-                    :text="item.text"
-                    :jobType="item.jobType[0].title"
-                    :jobRequisitionNumber="jobRequisitionNumber"
-                    :jobPostingURL="jobPostingURL"
-                    :department="department"
-                    :associatedLocations="associatedLocations"
+                    :text="item.summary"
+                    :jobType="item.jobType"
+                    :jobRequisitionNumber="item.jobRequisitionNumber"
+                    :jobPostingURL="item.jobPostingURL"
+                    :department="item.department"
+                    :associatedLocations="item.associatedLocations"
                 />
             </ul>
         </div>
