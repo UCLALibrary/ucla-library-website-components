@@ -48,7 +48,7 @@
 
             <rich-text v-if="text" :rich-text-content="text" />
 
-            <divider-way-finder class="divider divider-first" color="default" />
+            <divider-general class="divider-general" />
         </div>
     </div>
 </template>
@@ -56,14 +56,14 @@
 <script>
 import SmartLink from "@/lib-components/SmartLink.vue"
 import RichText from "@/lib-components/RichText.vue"
-import DividerWayFinder from "@/lib-components/DividerWayFinder"
+import DividerGeneral from "@/lib-components/DividerGeneral.vue"
 
 export default {
     name: "BlockGenericList",
     components: {
         SmartLink,
         RichText,
-        DividerWayFinder,
+        DividerGeneral,
         SvgIconLocation: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-location.svg"
