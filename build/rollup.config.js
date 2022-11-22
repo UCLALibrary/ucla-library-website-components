@@ -79,7 +79,7 @@ const baseConfig = {
                 extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"],
             }),
             postcss({
-                include: /\.scss$/,
+                include: /\.s?css$/,
                 use: {
                     sass: {
                         data: `
