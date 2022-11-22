@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.5.0...v2.6.0) (2022-11-22)
+
+
+### Features
+
+* VideoJS and Audio ([#245](https://github.com/UCLALibrary/ucla-library-website-components/issues/245)) ([be64100](https://github.com/UCLALibrary/ucla-library-website-components/commit/be64100b497ab07e3520b9aa573ce066c589744a))
+
 # [2.5.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.4.1...v2.5.0) (2022-11-21)
 
 
