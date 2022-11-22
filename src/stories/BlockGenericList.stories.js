@@ -25,6 +25,16 @@ const mock = {
             title: "Human Resources",
         },
     ],
+    associatedLocations: [
+        {
+            title: "UCLA Film & Television Archive",
+            uri: "visit/locations/film-television-archive",
+        },
+        {
+            title: "Powell Library",
+            uri: "visit/locations/powell-library",
+        },
+    ],
 }
 
 const mock2 = {
@@ -42,6 +52,16 @@ const mock2 = {
     department: [
         {
             title: "Business Services",
+        },
+    ],
+    associatedLocations: [
+        {
+            title: "UCLA Film & Television Archive",
+            uri: "visit/locations/film-television-archive",
+        },
+        {
+            title: "Powell Library",
+            uri: "visit/locations/powell-library",
         },
     ],
 }
