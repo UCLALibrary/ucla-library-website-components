@@ -37,10 +37,57 @@ const mock = {
     ],
 }
 
+const mock2 = {
+    title: "Maintain chessboard tables",
+    summary:
+        "<p>Maintain the chess tables in all outdoor areas. Keep the tables clean and free from debris.</p>",
+    jobType: [
+        {
+            title: "Student",
+        },
+    ],
+    jobRequisitionNumber: "176834",
+    jobPostingURL: "https://www.studio-job.com/news/chess",
+    payRate: "$5.45/hour",
+    department: [
+        {
+            title: "Business Services",
+        },
+    ],
+    associatedLocations: [
+        {
+            title: "UCLA Film & Television Archive",
+            uri: "visit/locations/film-television-archive",
+        },
+        {
+            title: "Powell Library",
+            uri: "visit/locations/powell-library",
+        },
+    ],
+}
+
 // Variations of stories below
 export const Default = () => ({
     data() {
         return { ...mock }
+    },
+    components: { BlockGenericList },
+    template: `
+      <block-generic-list
+        :title="title"
+        :text="summary"
+        :jobType="jobType"
+        :jobRequisitionNumber="jobRequisitionNumber"
+        :jobPostingURL="jobPostingURL"
+        :department="department"
+        :associatedLocations="associatedLocations"
+      />
+  `,
+})
+
+export const PayRate = () => ({
+    data() {
+        return { ...mock2 }
     },
     components: { BlockGenericList },
     template: `
@@ -53,6 +100,7 @@ export const Default = () => ({
         :jobPostingURL="jobPostingURL"
         :department="department"
         :associatedLocations="associatedLocations"
+        :payRate="payRate"
       />
   `,
 })
