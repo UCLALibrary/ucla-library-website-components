@@ -1,5 +1,5 @@
 <template>
-    <div class="block-search-filter">
+    <div :class="classes">
         <a>
             {{ title }}
         </a>
@@ -33,6 +33,11 @@ export default {
             default: 0,
         },
     },
+    computed: {
+        classes() {
+            return ["block-search-filter", `color-${this.color}`]
+        },
+    },
     methods: {
         closeBlockFilter() {
             this.$emit("removeBlockFilter", this.index)
@@ -63,6 +68,19 @@ export default {
     a {
         margin-right: 8px;
         color: #032d5b;
+    }
+
+    &.color-help {
+        --color-border: var(--color-help-green-03);
+    }
+    &.color-visit {
+        --color-border: var(--color-visit-fushia-03);
+    }
+    &.color-about {
+        --color-border: var(--color-about-purple-03);
+    }
+    &.color-default {
+        --color-border: var(--color-default-cyan-03);
     }
 }
 </style>
