@@ -10,9 +10,14 @@
 </template>
 
 <script>
+// Helpers
+import getSectionName from "@/mixins/getSectionName"
+
 import SvgGlyphClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg"
+
 export default {
     name: "BlockSearchFilter",
+    mixins: [getSectionName],
     data() {
         return {}
     },
@@ -32,10 +37,17 @@ export default {
             type: Number,
             default: 0,
         },
+        color: {
+            type: String,
+            default: "", // This will be "visit", "about", "help".
+        },
     },
     computed: {
         classes() {
-            return ["block-search-filter", `color-${this.color}`]
+            return ["block-search-filter", `color-${this.sectionName}`]
+        },
+        sectionName() {
+            return this.color || this.getSectionName(this.$route.path)
         },
     },
     methods: {
