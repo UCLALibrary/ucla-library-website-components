@@ -18,7 +18,7 @@ const mock = [
     {
         title: "Real Job",
         summary:
-            "<p><span>This job is a real job that will satisfy your artistic needs. </span><span>Note: Two positions are being filled.</span><br /></p>",
+            "<p><span>This job is a real job that will satisfy your artistic needs. </span><span>Note: Two positions are being filled.</span></p>",
         jobType: [
             {
                 title: "Artist Assistant",

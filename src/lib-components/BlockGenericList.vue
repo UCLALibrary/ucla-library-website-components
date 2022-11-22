@@ -1,54 +1,52 @@
 <template>
-    <div class="block-generic-list">
-        <div class="meta">
-            <div v-if="jobRequisitionNumber" class="category">
-                JOB #{{ jobRequisitionNumber }}
-            </div>
-            <smart-link v-if="jobPostingURL" :to="jobPostingURL" class="title">
-                {{ title }}
-            </smart-link>
-            <h3 v-else class="title-no-link">
-                {{ title }}
-            </h3>
-
-            <div
-                class="byline-group"
-                v-if="department || associatedLocations || payRate"
-            >
-                <div v-if="department" class="schedule-item">
-                    <div
-                        v-for="(item, index) in department"
-                        :key="index"
-                        class="schedule-item"
-                    >
-                        {{ item.title }}
-                    </div>
-                    <div v-if="payRate" class="schedule-item">
-                        {{ payRate }}
-                    </div>
-                </div>
-            </div>
-
-            <div v-if="associatedLocations" class="location-group">
-                <div
-                    class="location-link"
-                    v-for="(location, index) in parsedLocations"
-                    :key="`location-${index}`"
-                >
-                    <smart-link
-                        v-if="location.uri"
-                        :to="location.uri"
-                        class="location-link"
-                    >
-                        <component :is="location.svg" class="location-svg" />
-                        <span class="location">{{ location.title }}</span>
-                    </smart-link>
-                </div>
-            </div>
-
-            <rich-text v-if="text" :rich-text-content="text" />
+    <li class="block-generic-list">
+        <div v-if="jobRequisitionNumber" class="category">
+            JOB #{{ jobRequisitionNumber }}
         </div>
-    </div>
+        <smart-link v-if="jobPostingURL" :to="jobPostingURL" class="title">
+            {{ title }}
+        </smart-link>
+        <h3 v-else class="title-no-link">
+            {{ title }}
+        </h3>
+
+        <div
+            class="byline-group"
+            v-if="department || associatedLocations || payRate"
+        >
+            <div v-if="department" class="schedule-item">
+                <div
+                    v-for="(item, index) in department"
+                    :key="index"
+                    class="schedule-item"
+                >
+                    {{ item.title }}
+                </div>
+                <div v-if="payRate" class="schedule-item">
+                    {{ payRate }}
+                </div>
+            </div>
+        </div>
+
+        <div v-if="associatedLocations" class="location-group">
+            <div
+                class="location-link"
+                v-for="(location, index) in parsedLocations"
+                :key="`location-${index}`"
+            >
+                <smart-link
+                    v-if="location.uri"
+                    :to="location.uri"
+                    class="location-link"
+                >
+                    <component :is="location.svg" class="location-svg" />
+                    <span class="location">{{ location.title }}</span>
+                </smart-link>
+            </div>
+        </div>
+
+        <rich-text v-if="text" :rich-text-content="text" class="rich-text" />
+    </li>
 </template>
 
 <script>
@@ -123,6 +121,7 @@ export default {
     background-color: var(--color-theme, var(--color-white));
     font-family: var(--font-primary);
     position: relative;
+
     display: flex;
     flex-direction: column;
 
@@ -132,10 +131,6 @@ export default {
         color: var(--color-primary-blue-03);
     }
 
-    .meta {
-        z-index: 10;
-        width: 100%;
-    }
     .category {
         @include overline;
         color: var(--color-primary-blue-05);
@@ -161,7 +156,7 @@ export default {
         margin: var(--space-s) 0;
     }
 
-    .text {
+    .rich-text {
         @include step-0;
         color: var(--color-black);
         @include truncate(4);
@@ -253,10 +248,8 @@ export default {
     }
     // Hovers
     @media #{$has-hover} {
-        &:hover {
-            .title {
-                @include link-hover;
-            }
+        .title:hover {
+            @include link-hover;
         }
     }
 }
