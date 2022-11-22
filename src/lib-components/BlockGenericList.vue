@@ -161,6 +161,8 @@ export default {
         color: var(--color-black);
         @include truncate(4);
         margin-top: var(--space-s);
+        margin-left: initial;
+        margin-right: initial;
     }
     .location-group {
         color: var(--color-primary-blue-03);
