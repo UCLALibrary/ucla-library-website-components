@@ -33,10 +33,11 @@ export const Video = () => ({
     data() {
         return {
             item: MEDIA.VideoFile,
+            coverImage: MEDIA.VideoFileCoverImage,
         }
     },
     components: { MediaItem },
-    template: `<media-item :item="item" />`,
+    template: `<media-item v-bind="$data" />`,
 })
 
 export const VideoEmbed = () => ({
@@ -52,12 +53,12 @@ export const VideoEmbed = () => ({
 export const Audio = () => ({
     data() {
         return {
-            item: MEDIA.Audio,
-            controls: true,
+            item: MEDIA.AudioFile,
+            coverImage: MEDIA.AudioFileCoverImage,
         }
     },
     components: { MediaItem },
-    template: `<media-item :item="item" />`,
+    template: `<media-item v-bind="$data" />`,
 })
 
 export const AudioEmbed = () => ({
