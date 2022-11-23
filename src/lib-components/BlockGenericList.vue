@@ -28,21 +28,14 @@
             </div>
         </div>
 
-        <div v-if="associatedLocations" class="location-group">
-            <div
-                class="location-link"
-                v-for="(location, index) in parsedLocations"
-                :key="`location-${index}`"
-            >
-                <smart-link
-                    v-if="location.uri"
-                    :to="`/${location.uri}`"
-                    class="location-link"
-                >
-                    <component :is="location.svg" class="location-svg" />
-                    <span class="location">{{ location.title }}</span>
-                </smart-link>
-            </div>
+        <div v-if="associatedLocations.length > 0" class="location-group">
+            <icon-with-link
+                v-for="(location, index) in associatedLocations"
+                :key="`${index}`"
+                :text="location.title"
+                icon-name="svg-icon-location"
+                :to="location.uri"
+            />
         </div>
 
         <rich-text v-if="text" :rich-text-content="text" class="rich-text" />
@@ -52,18 +45,14 @@
 <script>
 import SmartLink from "@/lib-components/SmartLink.vue"
 import RichText from "@/lib-components/RichText.vue"
-import DividerGeneral from "@/lib-components/DividerGeneral.vue"
+import IconWithLink from "@/lib-components/IconWithLink.vue"
 
 export default {
     name: "BlockGenericList",
     components: {
         SmartLink,
         RichText,
-        DividerGeneral,
-        SvgIconLocation: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-location.svg"
-            ).then((d) => d.default),
+        IconWithLink,
     },
     data() {
         return {}
@@ -100,17 +89,6 @@ export default {
         payRate: {
             type: String,
             default: "",
-        },
-    },
-    computed: {
-        parsedLocations() {
-            return this.associatedLocations.map((obj) => {
-                let svg = "svg-icon-location"
-                return {
-                    ...obj,
-                    svg: svg,
-                }
-            })
         },
     },
 }
@@ -170,6 +148,10 @@ export default {
         font-size: 20px;
         line-height: 1;
         margin-bottom: var(--space-s);
+        z-index: 10;
+
+        display: flex;
+        flex-direction: column;
     }
     .location-link,
     .location-text {
