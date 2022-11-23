@@ -58,7 +58,7 @@ import IconSearch from "ucla-library-design-tokens/assets/svgs/icon-search.svg"
 const tabs = [
     {
         title: "Search the Library Site",
-        actionURL: "/search_site",
+        actionURL: "/search-site",
         queryParam: "q",
     },
     {
