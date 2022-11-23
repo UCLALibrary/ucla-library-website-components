@@ -16,8 +16,9 @@
                     v-model="searchWords"
                     type="text"
                     placeholder="Search by keyword"
-                    @keyup="doSearch"
+                    @change="doSearch"
                 />
+                <!-- @keyup changed to @change -->
                 <button class="button-submit" @click="doSearch">
                     <icon-search class="icon" />
                 </button>
