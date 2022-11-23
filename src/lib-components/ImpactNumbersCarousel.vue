@@ -120,7 +120,7 @@ export default {
     .glide {
         width: $container-l-text + px;
 
-// to do: fix image height issue
+        // to do: fix image height issue
         .slide-image {
             .responsive-image {
                 .media {

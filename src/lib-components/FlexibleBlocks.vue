@@ -41,7 +41,7 @@ const NEVER_GRAY = [
     "flexible-call-to-action",
     "flexible-cta-block2-up",
     "flexible-impact-number-cards",
-    "flexible-grid-gallery-cards"
+    "flexible-grid-gallery-cards",
 ]
 
 export default {
