@@ -8,11 +8,20 @@ export default {
     component: FlexibleMediaGalleryNewLightbox,
 }
 
-// Variations of stories below
 export const Default = () => ({
     data() {
         return {
             items: MEDIA_GALLERY_MOCK.mediaGallery,
+        }
+    },
+    components: { FlexibleMediaGalleryNewLightbox },
+    template: `<flexible-media-gallery-new-lightbox :items="items" />`,
+})
+
+export const singleItem = () => ({
+    data() {
+        return {
+            items: [MEDIA_GALLERY_MOCK.mediaGallery[2]],
         }
     },
     components: { FlexibleMediaGalleryNewLightbox },
