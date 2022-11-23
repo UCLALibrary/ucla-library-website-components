@@ -1,3 +1,10 @@
+## [2.7.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.2...v2.7.3) (2022-11-23)
+
+
+### Bug Fixes
+
+* prefix location link with forward slash ([#252](https://github.com/UCLALibrary/ucla-library-website-components/issues/252)) ([04a8011](https://github.com/UCLALibrary/ucla-library-website-components/commit/04a8011a6f59045cd45ac5096f245b46dc17fd97))
+
 ## [2.7.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.1...v2.7.2) (2022-11-23)
 
 
