@@ -83,13 +83,25 @@ import isInternalLink from "@/mixins/isInternalLink"
 export default {
     name: "BlockMediaWithText",
     components: {
-    SvgIconHeadphones: () => import("ucla-library-design-tokens/assets/svgs/molecule-headphones.svg").then((d) => d.default),
-    SvgIconPlayFilled: () => import("ucla-library-design-tokens/assets/svgs/icon-play-filled.svg").then((d) => d.default),
-    SmartLink: () => import("@/lib-components/SmartLink.vue").then((d) => d.default),
-    ButtonLink: () => import("@/lib-components/ButtonLink.vue").then((d) => d.default),
-    MediaItem: () => import("@/lib-components/Media/Item.vue").then((d) => d.default),
-    NewLightbox: () => import("@/lib-components/Flexible/MediaGallery/NewLightbox.vue").then((d) => d.default),
-},
+        SvgIconHeadphones: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/molecule-headphones.svg"
+            ).then((d) => d.default),
+        SvgIconPlayFilled: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-play-filled.svg"
+            ).then((d) => d.default),
+        SmartLink: () =>
+            import("@/lib-components/SmartLink.vue").then((d) => d.default),
+        ButtonLink: () =>
+            import("@/lib-components/ButtonLink.vue").then((d) => d.default),
+        MediaItem: () =>
+            import("@/lib-components/Media/Item.vue").then((d) => d.default),
+        NewLightbox: () =>
+            import(
+                "@/lib-components/Flexible/MediaGallery/NewLightbox.vue"
+            ).then((d) => d.default),
+    },
     mixins: [isInternalLink],
     props: {
         sectionHeader: {
@@ -132,10 +144,16 @@ export default {
     },
     computed: {
         isAudio() {
-            return this.typeMedia == "audio" || (this.item[0] && this.item[0].kind == "audio")
+            return (
+                this.typeMedia == "audio" ||
+                (this.item[0] && this.item[0].kind == "audio")
+            )
         },
         isVideo() {
-            return this.typeMedia == "video" || (this.item[0] && this.item[0].kind == "video")
+            return (
+                this.typeMedia == "video" ||
+                (this.item[0] && this.item[0].kind == "video")
+            )
         },
         lightboxItems() {
             return [
@@ -145,7 +163,7 @@ export default {
                     embedCode: this.embedCode,
                     captionTitle: this.sectionHeader,
                     captionText: this.shortDescription,
-                }
+                },
             ]
         },
         parsedIsDownload() {

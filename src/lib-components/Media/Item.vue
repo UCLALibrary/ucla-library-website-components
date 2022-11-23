@@ -100,10 +100,12 @@ export default {
             return (
                 this.aspectRatio ||
                 (this.height / this.width) * 100 ||
-                ((!this.coverOnly) && this.item[0] &&
+                (!this.coverOnly &&
+                    this.item[0] &&
                     this.item[0].height / this.item[0].width) * 100 ||
                 (this.coverImage[0] &&
-                    this.coverImage[0].height / this.coverImage[0].width) * 100 ||
+                    this.coverImage[0].height / this.coverImage[0].width) *
+                    100 ||
                 (9 / 16) * 100
             )
         },

@@ -1,8 +1,7 @@
 import BlockMediaWithText from "@/lib-components/BlockMediaWithText"
 
 import { mock } from "./mock/BlockMediaWithText"
-import * as MEDIA  from "./mock/Media"
-
+import * as MEDIA from "./mock/Media"
 
 export default {
     title: "BLOCK / Media with Text",
@@ -72,7 +71,7 @@ export const Audio = () => ({
             ...mock,
             item: MEDIA.AudioFile,
             coverImage: MEDIA.AudioFileCoverImage,
-         }
+        }
     },
     components: { BlockMediaWithText },
     template: `
@@ -94,7 +93,7 @@ export const Embed = () => ({
             ...mock,
             embedCode: MEDIA.AudioEmbed,
             coverImage: MEDIA.AudioEmbedCoverImage,
-         }
+        }
     },
     components: { BlockMediaWithText },
     template: `
