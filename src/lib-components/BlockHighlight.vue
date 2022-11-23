@@ -67,7 +67,7 @@
                 >
                     <smart-link
                         v-if="location.to"
-                        :to="location.to"
+                        :to="`/${location.to}`"
                         class="location-link"
                     >
                         <component :is="location.svg" class="location-svg" />

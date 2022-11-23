@@ -107,7 +107,7 @@
                         :key="`location-${location.id}`"
                         :text="location.title"
                         icon-name="svg-icon-location"
-                        :to="location.to"
+                        :to="`/${location.to}`"
                     />
                 </div>
 
