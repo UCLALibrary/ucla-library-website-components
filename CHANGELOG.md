@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.0...v2.7.1) (2022-11-23)
+
+
+### Bug Fixes
+
+* rename search_site to search-site ([#250](https://github.com/UCLALibrary/ucla-library-website-components/issues/250)) ([175778b](https://github.com/UCLALibrary/ucla-library-website-components/commit/175778b6bd8f47e667036d4b165e25be9665352c))
+
 # [2.7.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.6.0...v2.7.0) (2022-11-22)
 
 
