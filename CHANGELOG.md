@@ -1,3 +1,10 @@
+## [2.7.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.1...v2.7.2) (2022-11-23)
+
+
+### Bug Fixes
+
+* keyup has a jarring effect so switching to change ([#251](https://github.com/UCLALibrary/ucla-library-website-components/issues/251)) ([7e5ec43](https://github.com/UCLALibrary/ucla-library-website-components/commit/7e5ec431262bee8845c211509804577dea0a4d98))
+
 ## [2.7.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.0...v2.7.1) (2022-11-23)
 
 
