@@ -118,18 +118,23 @@ export default {
     }
 
     .glide {
-        width: calc(100% - 32px);
+        width: $container-l-text + px;
 
-        .slide-image img {
-            max-height: 360px;
-            max-width: 608px;
-            width: 100%;
-            object-fit: cover;
+// to do: fix image height issue
+        .slide-image {
+            .responsive-image {
+                .media {
+                    height: 500px;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
         }
 
         .impact-numbers-text-container {
             background: white;
             margin-top: -64px;
+            margin-bottom: 8px;
             padding-left: 25px;
             position: relative;
             width: 431px;
