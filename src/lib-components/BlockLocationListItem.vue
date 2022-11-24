@@ -44,8 +44,9 @@
                         <div
                             v-for="amenity in amenities"
                             :key="`amenity-${amenity}`"
+                            :title="amenity.title"
                         >
-                            <component :is="amenity" class="svg" />
+                            <component :is="amenity.icon" class="svg" />
                         </div>
                     </div>
                 </div>
@@ -179,10 +180,6 @@ export default {
         libcalSpacesUrl: {
             type: String,
             default: "",
-        },
-        amenitiesIcons: {
-            type: Array,
-            default: () => [],
         },
     },
     computed: {
