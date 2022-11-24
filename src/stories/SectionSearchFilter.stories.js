@@ -1,8 +1,20 @@
 import SectionSearchFilter from "@/lib-components/SectionSearchFilter"
+import StoryRouter from "storybook-vue-router"
 
 export default {
     title: "SECTION / Search Filter",
     component: SectionSearchFilter,
+    decorators: [
+        StoryRouter(
+            {},
+            {
+                routes: [
+                    { path: "/visit/foo/bar/", component: SectionSearchFilter },
+                    { path: "/about/foo/bar/", component: SectionSearchFilter },
+                ],
+            }
+        ),
+    ],
 }
 
 const mock = [
