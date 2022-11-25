@@ -44,8 +44,9 @@
                         <div
                             v-for="amenity in amenities"
                             :key="`amenity-${amenity}`"
-                            :title="amenity.title"
+                            class="tooltip"
                         >
+                            <span class="tooltiptext">{{ amenity.title }}</span>
                             <component :is="amenity.icon" class="svg" />
                         </div>
                     </div>
@@ -326,6 +327,47 @@ export default {
         .svg__fill--black {
             fill: var(--color-primary-blue-03);
         }
+    }
+
+    /* Tooltip container */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        background: var(--color-primary-blue-03);
+        color: #fff;
+        text-align: center;
+        padding: 5px 10px;
+
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        z-index: 1;
+
+        width: 120px;
+        bottom: 100%;
+        left: 28%;
+        margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+
+    .tooltip .tooltiptext::after {
+        content: " ";
+        position: absolute;
+        top: 99%; /* At the bottom of the tooltip */
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: var(--color-primary-blue-03) transparent transparent
+            transparent;
     }
 
     // BREAKPOINTS
