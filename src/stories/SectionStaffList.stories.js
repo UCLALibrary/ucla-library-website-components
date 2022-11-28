@@ -37,6 +37,7 @@ const mock = [
         to: "/staff/foo",
         jobTitle: "Ullamco",
         staffName: "Fames ac turpis",
+        alternativeName: "てきました",
         department: "Inceptos Himenaeos",
         email: "loreum@ipsum.foo",
         locations: [
@@ -72,8 +73,9 @@ const mock = [
     {
         to: "/staff/foo",
         image: API.image,
-        jobTitle: "Ullamco",
-        staffName: "Fames ac turpis",
+        jobTitle: "Arrow Launcher",
+        staffName: "Cupido Stupido",
+        alternativeName: "不亦説乎",
         department: "Inceptos Himenaeos",
         email: "loreum@ipsum.foo",
         locations: [

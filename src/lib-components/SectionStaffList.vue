@@ -6,6 +6,7 @@
             :image="item.image"
             :to="item.to"
             :staff-name="item.staffName"
+            :alternativeName="item.alternativeName"
             :job-title="item.jobTitle"
             :locations="item.locations"
             :email="item.email"

@@ -33,7 +33,7 @@ const mock = {
     to: "/staff/foo",
     jobTitle: "Ullamco",
     staffName: "Fames C. Turpis",
-    alternativeName: "きました",
+    alternativeName: "",
     departments: [{ id: 123, title: "Inceptos Himenaeos Inceptos" }],
     email: "loreum@ipsum.foo",
 }
@@ -94,6 +94,30 @@ export const NoImage = () => ({
   `,
 })
 
+export const AlternativeName = () => ({
+    data() {
+        return {
+            item: {
+                ...mock,
+                image: API.image_people,
+                locations: [
+                    {
+                        title: "Cupidatat non proident",
+                        to: "/location/bar",
+                    },
+                ],
+            },
+        }
+    },
+    components: { BlockStaffList },
+    template: `
+      <block-staff-list
+        v-bind="item"
+        alternativeName="てきました"
+      />
+  `,
+})
+
 export const OneLocation = () => ({
     data() {
         return {
@@ -102,7 +126,7 @@ export const OneLocation = () => ({
                 image: API.image_people,
                 locations: [
                     {
-                        title: "cupidatat non proident",
+                        title: "Cupidatat non proident",
                         to: "/location/bar",
                     },
                 ],
