@@ -19,16 +19,14 @@
                     </smart-link>
                 </div>
                 <div class="text">
-                    <div
-                        v-if="todayHours.day || todayHours.times.hours[0]"
-                        class="time"
-                    >
-                        <SvgIconClock /> <span>{{ todayHours.day }}</span>
+                    <div v-if="libcalHoursData" class="time">
+                        <SvgIconClock />
+                        <span>{{ libcalHoursData.day }}</span>
                         <div class="hour">
                             <span>{{
-                                todayHours.times.hours[0].from +
+                                libcalHoursData.times.hours[0].from +
                                 " - " +
-                                todayHours.times.hours[0].to
+                                libcalHoursData.times.hours[0].to
                             }}</span>
                         </div>
                     </div>
@@ -216,15 +214,6 @@ export default {
         cardTheme() {
             return this.isUclaLibrary ? "ucla" : "affiliate"
         },
-        todayHoursParsed() {
-            return this.libcalHoursData.locations.map((item) => {
-                if (!item.parent_lid) {
-                    return {
-                        day: item.day,
-                        times: item.times,
-                    }
-            })
-        },
     },
     methods: {
         fetchLibcalHours() {
@@ -234,7 +223,8 @@ export default {
                     return response.json()
                 })
                 .then((data) => {
-                    this.libcalHoursData = data
+                    this.libcalHoursData = data.locations[0]
+                    console.log(this.libcalHoursData)
                 })
                 .catch((err) => {
                     console.error(err)
