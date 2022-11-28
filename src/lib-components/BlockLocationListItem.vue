@@ -188,23 +188,15 @@ export default {
         },
         libcalLocationIdForHours: {
             type: String,
-            default: "2081",
+            default: "",
         },
     },
     data() {
         return {
-            todayHours: {
-                day: "Thursday",
-                times: {
-                    status: "open",
-                    hours: [{ from: "7:30am", to: "9pm" }],
-                    currently_open: true,
-                },
-            },
             libcalHoursData: null,
         }
     },
-    created() {
+    mounted() {
         this.fetchLibcalHours()
     },
     computed: {
@@ -224,7 +216,6 @@ export default {
                 })
                 .then((data) => {
                     this.libcalHoursData = data.locations[0]
-                    console.log(this.libcalHoursData)
                 })
                 .catch((err) => {
                     console.error(err)
