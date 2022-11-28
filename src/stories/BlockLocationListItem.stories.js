@@ -24,7 +24,7 @@ const mock = {
         { title: "Laptop", icon: "SvgIconLaptop" },
         { title: "Locker", icon: "SvgIconLocker" },
         { title: "Chair", icon: "SvgIconChair" },
-        { title: "SharePrinter", icon: "SvgIconSharePrinter" },
+        { title: "Share Printer", icon: "SvgIconSharePrinter" },
         { title: "Book", icon: "SvgIconBook" },
     ],
     to: "http://google.com/title",

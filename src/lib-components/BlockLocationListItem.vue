@@ -19,11 +19,17 @@
                     </smart-link>
                 </div>
                 <div class="text">
-                    <div v-if="day || hour" class="time">
-                        <SvgIconClock />
-                        <span>{{ day }}</span>
+                    <div
+                        v-if="todayHours.day || todayHours.times.hours[0]"
+                        class="time"
+                    >
+                        <SvgIconClock /> <span>{{ todayHours.day }}</span>
                         <div class="hour">
-                            <span>{{ hour }}</span>
+                            <span>{{
+                                todayHours.times.hours[0].from +
+                                " - " +
+                                todayHours.times.hours[0].to
+                            }}</span>
                         </div>
                     </div>
                     <icon-with-link
@@ -42,8 +48,8 @@
 
                     <div v-if="amenities" class="amenities">
                         <div
-                            v-for="amenity in amenities"
-                            :key="`amenity-${amenity}`"
+                            v-for="(amenity, index) in amenities"
+                            :key="`amenity-${index}`"
                             class="tooltip"
                         >
                             <span class="tooltiptext">{{ amenity.title }}</span>
@@ -182,6 +188,26 @@ export default {
             type: String,
             default: "",
         },
+        libcalLocationIdForHours: {
+            type: String,
+            default: "2081",
+        },
+    },
+    data() {
+        return {
+            todayHours: {
+                day: "Thursday",
+                times: {
+                    status: "open",
+                    hours: [{ from: "7:30am", to: "9pm" }],
+                    currently_open: true,
+                },
+            },
+            libcalHoursData: null,
+        }
+    },
+    created() {
+        this.fetchLibcalHours()
     },
     computed: {
         classes() {
@@ -189,6 +215,30 @@ export default {
         },
         cardTheme() {
             return this.isUclaLibrary ? "ucla" : "affiliate"
+        },
+        todayHoursParsed() {
+            return this.libcalHoursData.locations.map((item) => {
+                if (!item.parent_lid) {
+                    return {
+                        day: item.day,
+                        times: item.times,
+                    }
+            })
+        },
+    },
+    methods: {
+        fetchLibcalHours() {
+            let url = `https://calendar.library.ucla.edu/api_hours_today.php?iid=3244&lid=${this.libcalLocationIdForHours}&format=json&systemTime=0`
+            fetch(url)
+                .then((response) => {
+                    return response.json()
+                })
+                .then((data) => {
+                    this.libcalHoursData = data
+                })
+                .catch((err) => {
+                    console.error(err)
+                })
         },
     },
 }
