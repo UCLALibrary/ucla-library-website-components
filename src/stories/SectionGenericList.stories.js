@@ -50,7 +50,7 @@ const mock = [
         ],
         jobRequisitionNumber: "JPF08053",
         jobPostingURL: "https://recruit.apo.ucla.edu/JPF08053",
-        payRate: "$5.45/hour",
+        payRate: "$15.45/hour",
         department: [
             {
                 title: "User Engagement",
