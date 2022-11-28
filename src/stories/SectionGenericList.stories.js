@@ -16,7 +16,7 @@ export default {
 
 const mock = [
     {
-        title: "Real Job",
+        title: "Real Jobby Job",
         summary:
             "<p><span>This job is a real job that will satisfy your artistic needs. </span><span>Note: Two positions are being filled.</span></p>",
         jobType: [
@@ -25,7 +25,8 @@ const mock = [
             },
         ],
         jobRequisitionNumber: "JPF08053",
-        jobPostingURL: "https://recruit.apo.ucla.edu/JPF08053",
+        jobPostingURL: "https://www.studio-job.com/news/chess",
+        payRate: "$65.45 per hour",
         department: [
             {
                 title: "Artistic Needs",
@@ -49,6 +50,7 @@ const mock = [
         ],
         jobRequisitionNumber: "JPF08053",
         jobPostingURL: "https://recruit.apo.ucla.edu/JPF08053",
+        payRate: "$5.45/hour",
         department: [
             {
                 title: "User Engagement",
