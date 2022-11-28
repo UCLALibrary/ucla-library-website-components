@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.3...v2.8.0) (2022-11-28)
+
+
+### Features
+
+* Apps-2013 selected search filters ([#248](https://github.com/UCLALibrary/ucla-library-website-components/issues/248)) ([c03dd66](https://github.com/UCLALibrary/ucla-library-website-components/commit/c03dd66ded91277fde7a3a9a44799e5d53260e27))
+
 ## [2.7.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.2...v2.7.3) (2022-11-23)
 
 
