@@ -31,21 +31,6 @@
                 class="search-generic-filter-buttons"
             />
         </div>
-        <!-- <hr class="divider" />
-
-        <div class="container">
-            <search-generic-filter-buttons
-                :items="filters"
-                :active-index.sync="openedFilterIndex"
-            />
-
-            <search-generic-view-modes
-                v-if="views.length"
-                :items="views"
-                :is-opened.sync="isViewOpened"
-                :selected.sync="selectedView"
-            />
-        </div> -->
 
         <!-- The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for -->
 
