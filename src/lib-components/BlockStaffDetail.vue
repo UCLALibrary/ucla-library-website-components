@@ -46,7 +46,7 @@
                             <icon-with-link
                                 :text="location.title"
                                 icon-name="svg-icon-location"
-                                :to="location.to"
+                                :to="`/${location.to}`"
                             />
                         </li>
                     </ul>

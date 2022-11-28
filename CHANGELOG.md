@@ -1,3 +1,24 @@
+# [2.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.3...v2.8.0) (2022-11-28)
+
+
+### Features
+
+* Apps-2013 selected search filters ([#248](https://github.com/UCLALibrary/ucla-library-website-components/issues/248)) ([c03dd66](https://github.com/UCLALibrary/ucla-library-website-components/commit/c03dd66ded91277fde7a3a9a44799e5d53260e27))
+
+## [2.7.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.2...v2.7.3) (2022-11-23)
+
+
+### Bug Fixes
+
+* prefix location link with forward slash ([#252](https://github.com/UCLALibrary/ucla-library-website-components/issues/252)) ([04a8011](https://github.com/UCLALibrary/ucla-library-website-components/commit/04a8011a6f59045cd45ac5096f245b46dc17fd97))
+
+## [2.7.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.1...v2.7.2) (2022-11-23)
+
+
+### Bug Fixes
+
+* keyup has a jarring effect so switching to change ([#251](https://github.com/UCLALibrary/ucla-library-website-components/issues/251)) ([7e5ec43](https://github.com/UCLALibrary/ucla-library-website-components/commit/7e5ec431262bee8845c211509804577dea0a4d98))
+
 ## [2.7.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.0...v2.7.1) (2022-11-23)
 
 
