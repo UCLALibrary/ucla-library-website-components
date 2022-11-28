@@ -378,10 +378,10 @@ export default {
         position: absolute;
         z-index: 1;
 
-        width: 120px;
+        width: 150px;
         bottom: 100%;
         left: 28%;
-        margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+        margin-left: -75px; /* Use half of the width (120/2 = 60), to center the tooltip */
     }
 
     /* Show the tooltip text when you mouse over the tooltip container */
