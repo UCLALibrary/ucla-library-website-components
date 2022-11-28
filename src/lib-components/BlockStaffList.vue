@@ -12,9 +12,13 @@
 
         <div class="meta">
             <div class="name-title">
-                <h3 class="staff-name">
+                <h3 v-if="alternativeName.length > 0" class="staff-name">
+                    <smart-link :to="to" v-html="parsedStaffName" />
+                </h3>
+                <h3 v-else class="staff-name">
                     <smart-link :to="to" v-html="staffName" />
                 </h3>
+
                 <div class="job-title" v-html="jobTitle" />
                 <ul v-if="departments.length" class="departments">
                     <li class="department" v-html="lastDepartment" />
@@ -76,6 +80,10 @@ export default {
             type: String,
             default: "",
         },
+        alternativeName: {
+            type: String,
+            default: "",
+        },
         jobTitle: {
             type: String,
             default: "",
@@ -100,6 +108,9 @@ export default {
     computed: {
         lastDepartment() {
             return this.departments[this.departments.length - 1].title
+        },
+        parsedStaffName() {
+            return `${this.staffName} ${this.alternativeName}`
         },
     },
 }
