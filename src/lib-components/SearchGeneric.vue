@@ -16,14 +16,14 @@
                     v-model="searchWords"
                     type="text"
                     placeholder="Search by keyword"
-                    @change="doSearch"
                 />
-                <!-- @keyup changed to @change -->
-                <button class="button-submit" @click="doSearch">
+
+                <button class="button-submit">
                     <icon-search class="icon" />
                 </button>
             </div>
         </form>
+        <hr class="divider" />
         <div class="container">
             <search-generic-filter-buttons
                 :items="filters"
@@ -31,21 +31,6 @@
                 class="search-generic-filter-buttons"
             />
         </div>
-        <!-- <hr class="divider" />
-
-        <div class="container">
-            <search-generic-filter-buttons
-                :items="filters"
-                :active-index.sync="openedFilterIndex"
-            />
-
-            <search-generic-view-modes
-                v-if="views.length"
-                :items="views"
-                :is-opened.sync="isViewOpened"
-                :selected.sync="selectedView"
-            />
-        </div> -->
 
         <!-- The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for -->
 
@@ -193,8 +178,8 @@ export default {
     },*/
     methods: {
         doSearch() {
-            /*this.isViewOpened = false
-            this.openedFilterIndex = -1*/
+            this.isViewOpened = false
+            this.openedFilterIndex = -1
             // TODO Get this pushing real values ot the URL
             // TODO Make this work with vue router
             // When we moved this cpmponent we needed to comment out this line
@@ -271,8 +256,7 @@ export default {
     .divider {
         margin: 15px 0 24px;
         height: 2px;
-        border: none;
-        background-color: var(--color-cyan-01);
+        background-color: var(--color-default-cyan-01);
     }
     .container {
         list-style: none;
