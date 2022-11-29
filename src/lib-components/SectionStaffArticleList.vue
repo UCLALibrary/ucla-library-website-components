@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .section-staff-article-list {
-    --divider-color: var(--color-secondary-grey-03);
+    --divider-color: var(--color-secondary-grey-02);
     max-width: 100%;
     margin: auto;
 
@@ -78,6 +78,12 @@ export default {
                 border-bottom: 0;
                 padding: 0;
                 margin: 0;
+            }
+        }
+
+        @for $i from 1 through 30 {
+            ::v-deep .block-staff-article-item:nth-child(#{$i}) .molecule {
+                left: calc(random(500) * -1) + px;
             }
         }
     }

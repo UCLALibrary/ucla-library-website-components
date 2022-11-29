@@ -68,6 +68,7 @@ export default {
 
 <style lang="scss" scoped>
 .masthead-secondary {
+    z-index: 0;
     position: relative;
     background: var(--gradient-03), var(--text-overlay);
     .hero-image {
@@ -87,8 +88,8 @@ export default {
         position: relative;
         z-index: 20;
         margin: 0 auto;
-        padding-top: var(--space-2xl);
-        padding-bottom: var(--space-3xl);
+        padding-top: var(--space-xl);
+        padding-bottom: var(--space-4xl);
     }
     .meta {
         color: var(--color-white);

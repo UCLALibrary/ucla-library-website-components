@@ -24,13 +24,14 @@
                 </button>
             </div>
         </form>
-        <div class="container">
+        <div v-if="filters.length > 0" class="container">
             <search-generic-filter-buttons
                 :items="filters"
                 :active-index.sync="openedFilterIndex"
                 class="search-generic-filter-buttons"
             />
         </div>
+        <divider-way-finder />
         <!-- <hr class="divider" />
 
         <div class="container">
@@ -75,6 +76,7 @@ import SearchGenericViewModes from "./SearchGenericViewModes.vue"
 import BaseRadioGroup from "./BaseRadioGroup.vue"
 import BaseCheckboxGroup from "./BaseCheckboxGroup.vue"
 // import BaseCalendarGroup from "./BaseCalendarGroup.vue"
+import DividerWayFinder from "./DividerWayFinder.vue"
 
 export default {
     name: "SearchGeneric",
@@ -85,6 +87,7 @@ export default {
         BaseRadioGroup,
         BaseCheckboxGroup,
         // BaseCalendarGroup,
+        DividerWayFinder,
     },
 
     props: {
@@ -225,14 +228,26 @@ export default {
 </script>
 <style lang="scss" scoped>
 .search-generic {
+    z-index: 10;
     position: relative;
-
-    padding: 0 50px;
-    margin: 30px auto;
     background-color: var(--color-white);
-    max-width: 890px;
     border: 1px solid transparent;
-    border-top-left-radius: 4px;
+    border-radius: 4px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -72px;
+    max-width: $container-l-cta + px;
+    padding: 32px 48px 0;
+
+    form {
+        max-width: $container-l-main + px;
+        margin: 0 auto;
+
+        + .container {
+            border-bottom: 2px solid var(--color-default-cyan-03);
+            padding-bottom: 16px;
+        }
+    }
 
     .input-container {
         display: flex;
@@ -255,13 +270,18 @@ export default {
             letter-spacing: 0.01em;
             background-color: var(--color-primary-blue-01);
             border-color: transparent;
-            padding: 27px 95px;
+            padding: 24px;
             width: 100%;
 
             &::placeholder {
                 text-transform: uppercase;
                 font-family: var(--font-primary);
             }
+        }
+        .button-submit {
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
         }
     }
     .search-generic-filter-buttons {
@@ -293,6 +313,10 @@ export default {
 
         margin-top: 8px;
         z-index: 100;
+    }
+
+    .divider-way-finder {
+        margin: var(--space-2xl) 0;
     }
 }
 

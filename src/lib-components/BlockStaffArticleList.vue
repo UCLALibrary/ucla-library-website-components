@@ -11,7 +11,7 @@
             <molecule-placeholder class="molecule" aria-hidden="true" />
         </div>
         <div class="meta">
-            <div class="category" v-html="category" />
+            <div v-if="category" class="category" v-html="category" />
 
             <smart-link class="title" :to="to" v-html="title" />
 
@@ -111,6 +111,14 @@ export default {
         margin-right: var(--space-xl);
         background: var(--gradient-01);
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .molecule {
+            flex-shrink: 0;
+            position: absolute;
+        }
     }
 
     .meta {
@@ -126,14 +134,14 @@ export default {
     .title {
         @include step-1;
         color: var(--color-primary-blue-03);
-        margin: var(--space-s) 0;
-        @include truncate(2);
+        margin-bottom: var(--space-s);
+        @include truncate(3);
     }
 
     .byline {
         @include step-0;
         margin: var(--space-s) 0;
-        color: var(--color-secondary-grey-05);
+        color: var(--color-secondary-grey-04);
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
