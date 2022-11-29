@@ -21,13 +21,21 @@
                 <div class="text">
                     <div v-if="libcalHoursData" class="time">
                         <SvgIconClock />
-                        <span>{{ libcalHoursData.day }}</span>
+                        <span v-if="libcalHoursDataParsed.day">{{
+                            libcalHoursDataParsed.day
+                        }}</span>
                         <div class="hour">
-                            <span>{{
-                                libcalHoursData.times.hours[0].from +
-                                " - " +
-                                libcalHoursData.times.hours[0].to
-                            }}</span>
+                            <span
+                                v-if="
+                                    libcalHoursDataParsed.from ||
+                                    libcalHoursDataParsed.to
+                                "
+                                >{{
+                                    libcalHoursDataParsed.from +
+                                    " - " +
+                                    libcalHoursDataParsed.to
+                                }}</span
+                            >
                         </div>
                     </div>
                     <icon-with-link
@@ -205,6 +213,13 @@ export default {
         },
         cardTheme() {
             return this.isUclaLibrary ? "ucla" : "affiliate"
+        },
+        libcalHoursDataParsed() {
+            return {
+                day: this.libcalHoursData.day,
+                to: this.libcalHoursData.times.hours[0].to,
+                from: this.libcalHoursData.times.hours[0].from,
+            }
         },
     },
     methods: {
