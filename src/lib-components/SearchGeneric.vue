@@ -5,12 +5,12 @@
     <!-- TODO Need to get a BaseCheckboxGroup working -->
     <!-- TODO Need to create a BaseCalendarGroup Component -->
     <!-- TODO Need to style this for Mobile -->
-    <div class="search-generic">
+    <div class="search-generic" @focusout="handleFocusOut" tabindex="0">
         <!-- <h4>router query</h4>
         {{ searchGenericQuery }}
         <h4>filters for the page</h4>
         {{ filters }}-->
-        <form name="searchHome" @submit.prevent="doSearch">
+        <form name="searchHome" @submit.prevent="doSearchText">
             <div class="input-container">
                 <input
                     v-model="searchWords"
@@ -47,7 +47,7 @@
                 :items="group.items"
                 :selected.sync="selectedFilters[group.esFieldName]"
                 class="filter-group"
-                @input-selected="doSearch"
+                @input-selected="doSearchFilters"
             />
         </transition>
     </div>
@@ -177,20 +177,29 @@ export default {
         }
     },*/
     methods: {
-        doSearch() {
+        handleFocusOut() {
             this.isViewOpened = false
             this.openedFilterIndex = -1
-            // TODO Get this pushing real values ot the URL
-            // TODO Make this work with vue router
-            // When we moved this cpmponent we needed to comment out this line
-            // this.$router.push({
-            //     path: this.actionURL,
-            //     query: {
-            //         q: this.searchWords,
-            //         view: this.selectedView,
-            //         filters: Object.keys(this.selectedFilters).length, // TODO get this encoding correctly
-            //     },
-            // })
+        },
+        doSearchText() {
+            this.isViewOpened = false
+            this.openedFilterIndex = -1
+
+            console.log("dosearch called")
+            console.log(
+                "selected fileters in component are: " +
+                    JSON.stringify(this.selectedFilters)
+            )
+            console.log(
+                "search text in component are: " +
+                    JSON.stringify(this.searchWords)
+            )
+            this.$emit("search-ready", {
+                filters: this.selectedFilters,
+                text: this.searchWords,
+            })
+        },
+        doSearchFilters() {
             console.log("dosearch called")
             console.log(
                 "selected fileters in component are: " +
@@ -211,7 +220,7 @@ export default {
 <style lang="scss" scoped>
 .search-generic {
     position: relative;
-
+    outline: none;
     padding: 0 50px;
     margin: 30px auto;
     background-color: var(--color-white);

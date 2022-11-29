@@ -19,11 +19,16 @@
                     </smart-link>
                 </div>
                 <div class="text">
-                    <div v-if="day || hour" class="time">
+                    <div v-if="libcalHoursData" class="time">
                         <SvgIconClock />
-                        <span>{{ day }}</span>
-                        <div class="hour">
-                            <span>{{ hour }}</span>
+                        <span v-if="libcalHoursData.day">{{
+                            libcalHoursData.day
+                        }}</span>
+                        <div
+                            class="hour"
+                            v-if="libcalHoursData.status !== 'not-set'"
+                        >
+                            <span v-html="parseLibCalHours" />
                         </div>
                     </div>
                     <icon-with-link
@@ -42,10 +47,12 @@
 
                     <div v-if="amenities" class="amenities">
                         <div
-                            v-for="amenity in amenities"
-                            :key="`amenity-${amenity}`"
+                            v-for="(amenity, index) in amenities"
+                            :key="`amenity-${index}`"
+                            class="tooltip"
                         >
-                            <component :is="amenity" class="svg" />
+                            <span class="tooltiptext">{{ amenity.title }}</span>
+                            <component :is="amenity.icon" class="svg" />
                         </div>
                     </div>
                 </div>
@@ -180,10 +187,18 @@ export default {
             type: String,
             default: "",
         },
-        amenitiesIcons: {
-            type: Array,
-            default: () => [],
+        libcalLocationIdForHours: {
+            type: String,
+            default: "",
         },
+    },
+    data() {
+        return {
+            libcalHoursData: null,
+        }
+    },
+    mounted() {
+        this.fetchLibcalHours()
     },
     computed: {
         classes() {
@@ -191,6 +206,33 @@ export default {
         },
         cardTheme() {
             return this.isUclaLibrary ? "ucla" : "affiliate"
+        },
+        parseLibCalHours() {
+            if (this.libcalHoursData.status === "open") {
+                return `${this.libcalHoursData.hours[0].from} -  ${this.libcalHoursData.hours[0].to}`
+            } else if (this.libcalHoursData.status === "text") {
+                return this.libcalHoursData.text
+            } else {
+                return this.libcalHoursData.status
+            }
+        },
+    },
+    methods: {
+        fetchLibcalHours() {
+            let url = `https://calendar.library.ucla.edu/api_hours_today.php?iid=3244&lid=${this.libcalLocationIdForHours}&format=json&systemTime=0`
+            fetch(url)
+                .then((response) => {
+                    return response.json()
+                })
+                .then((data) => {
+                    this.libcalHoursData = {
+                        ...data.locations[0],
+                        ...data.locations[0].times,
+                    }
+                })
+                .catch((err) => {
+                    console.error(err)
+                })
         },
     },
 }
@@ -300,13 +342,14 @@ export default {
             color: var(--color-primary-blue-05);
         }
 
-        .time > span:first-of-type {
+        .time > span:last-of-type {
             padding-right: 10px;
-            border-right: 2px solid var(--color-secondary-grey-02);
+            // border-right: 2px solid var(--color-secondary-grey-02);
         }
 
         .hour {
             padding: 0 10px;
+            border-left: 2px solid var(--color-secondary-grey-02);
         }
 
         .amenities {
@@ -329,6 +372,47 @@ export default {
         .svg__fill--black {
             fill: var(--color-primary-blue-03);
         }
+    }
+
+    /* Tooltip container */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        background: var(--color-primary-blue-03);
+        color: #fff;
+        text-align: center;
+        padding: 5px 10px;
+
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        z-index: 1;
+
+        width: 150px;
+        bottom: 100%;
+        left: 28%;
+        margin-left: -75px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+
+    .tooltip .tooltiptext::after {
+        content: " ";
+        position: absolute;
+        top: 99%; /* At the bottom of the tooltip */
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: var(--color-primary-blue-03) transparent transparent
+            transparent;
     }
 
     // BREAKPOINTS
