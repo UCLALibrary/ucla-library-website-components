@@ -19,7 +19,6 @@ export const Default = () => ({
             :short-description="mediaWithText[0].description"
             :button-text="mediaWithText[0].buttonText"
             :button-url="mediaWithText[0].buttonUrl"
-            :media-link="mediaWithText[0].linkToMedia"
             :item="mediaWithText[0].coverImage"
             :type-media="mediaWithText[0].typeMedia"
         />
@@ -102,7 +101,7 @@ export const Embed = () => ({
             :short-description="mediaWithText[0].description"
             :button-text="mediaWithText[0].buttonText"
             :button-url="mediaWithText[0].buttonUrl"
-            :embedCode="item"
+            :embedCode="embedCode"
             :coverImage="coverImage"
             type-media="audio"
         />

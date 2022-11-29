@@ -146,13 +146,13 @@ export default {
         isAudio() {
             return (
                 this.typeMedia == "audio" ||
-                (this.item[0] && this.item[0].kind == "audio")
+                (this.item && this.item[0] && this.item[0].kind == "audio")
             )
         },
         isVideo() {
             return (
                 this.typeMedia == "video" ||
-                (this.item[0] && this.item[0].kind == "video")
+                (this.item && this.item[0] && this.item[0].kind == "video")
             )
         },
         lightboxItems() {
