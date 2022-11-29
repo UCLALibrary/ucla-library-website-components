@@ -105,7 +105,7 @@ export default {
 
 .impact-numbers-carousel {
     display: flex;
-    max-width: 680px;
+    max-width: $container-l-main + px;
     margin-top: var(--space-xl);
 
     .slide-indicator {
@@ -118,18 +118,10 @@ export default {
     }
 
     .glide {
-        width: $container-l-text + px;
-
-        // to do: fix image height issue
-        .slide-image {
-            .responsive-image {
-                .media {
-                    height: 500px;
-                    width: 100%;
-                    object-fit: cover;
-                }
+        width: calc(100% - 32px);
+        .responsive-image {
+            max-height: 544px;
             }
-        }
 
         .impact-numbers-text-container {
             background: white;
@@ -216,7 +208,6 @@ export default {
         }
     }
 }
-
 @media #{$small} {
     .impact-numbers-carousel {
         flex-direction: column-reverse;
@@ -227,9 +218,9 @@ export default {
             margin: 12px 0;
         }
 
-        .glide {
-            width: 100%;
-        }
+        // .glide {
+        //     width: 100%;
+        // }
 
         [data-glide-el="controls"] button,
         [data-glide-el="controls"] .separator {
