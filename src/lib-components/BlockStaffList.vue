@@ -76,6 +76,10 @@ export default {
             type: String,
             default: "",
         },
+        language: {
+            type: String,
+            default: "",
+        },
         jobTitle: {
             type: String,
             default: "",
