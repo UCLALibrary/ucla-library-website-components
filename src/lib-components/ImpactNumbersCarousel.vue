@@ -121,7 +121,7 @@ export default {
         width: calc(100% - 32px);
         .responsive-image {
             max-height: 544px;
-            }
+        }
 
         .impact-numbers-text-container {
             background: white;

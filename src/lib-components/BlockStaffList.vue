@@ -76,10 +76,6 @@ export default {
             type: String,
             default: "",
         },
-        alternativeFullName: {
-            type: String,
-            default: "",
-        },
         language: {
             type: String,
             default: "",
