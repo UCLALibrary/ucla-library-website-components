@@ -18,7 +18,7 @@ export const Default = () => ({
     template: `<flexible-media-gallery-new-lightbox :items="items" />`,
 })
 
-export const singleItem = () => ({
+export const SingleItem = () => ({
     data() {
         return {
             items: [MEDIA_GALLERY_MOCK.mediaGallery[2]],
