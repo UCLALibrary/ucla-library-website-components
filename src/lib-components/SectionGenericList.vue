@@ -11,6 +11,7 @@
                 :jobRequisitionNumber="item.jobRequisitionNumber"
                 :jobPostingURL="item.jobPostingURL"
                 :department="item.department"
+                :payRate="item.payRate"
                 :associatedLocations="item.associatedLocations"
             />
         </ul>
