@@ -21,8 +21,8 @@
 
                     <div
                         class="meta-block"
-                        v-if="byline || subjectAreas || date || email || phone ||
-                        staffDirectoryLink || addressLink"
+                        v-if="byline || subjectAreas || date || phone || email ||
+                        addressLink || staffDirectoryLink "
                     >
                         <div v-if="byline" class="byline-item">
                             <div v-for="(item, index) in byline" :key="index">
@@ -39,21 +39,6 @@
                             </div>
                         </div>
 
-                        <div v-if="date" class="schedule">
-                            <time
-                                v-if="date"
-                                class="schedule-item"
-                                v-html="parsedDate"
-                            />
-                            <time
-                                v-if="date"
-                                class="schedule-item"
-                                v-html="parsedTime"
-                            />
-                            <div v-if="isOnline" class="schedule-item">
-                                Online
-                            </div>
-                        </div>
                         <div v-if="email" class="contact-info">
                             <icon-with-link
                                 :text="email"
@@ -84,6 +69,22 @@
                                 icon-name="svg-icon-location"
                                 :to="addressLink"
                             />
+                        </div>
+
+                        <div v-if="date" class="schedule">
+                            <time
+                                v-if="date"
+                                class="schedule-item"
+                                v-html="parsedDate"
+                            />
+                            <time
+                                v-if="date"
+                                class="schedule-item"
+                                v-html="parsedTime"
+                            />
+                            <div v-if="isOnline" class="schedule-item">
+                                Online
+                            </div>
                         </div>
                     </div>
 
