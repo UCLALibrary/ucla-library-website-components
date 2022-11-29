@@ -24,8 +24,7 @@
             </div>
         </form>
         <div v-if="filters.length > 0" class="container">
-
-        <hr class="divider" />
+            <hr class="divider" />
             <search-generic-filter-buttons
                 :items="filters"
                 :active-index.sync="openedFilterIndex"
