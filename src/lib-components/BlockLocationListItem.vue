@@ -21,19 +21,18 @@
                 <div class="text">
                     <div v-if="libcalHoursData" class="time">
                         <SvgIconClock />
-                        <span v-if="libcalHoursDataParsed.day">{{
-                            libcalHoursDataParsed.day
+                        <span v-if="libcalHoursData.day">{{
+                            libcalHoursData.day
                         }}</span>
                         <div class="hour">
                             <span
                                 v-if="
-                                    libcalHoursDataParsed.from ||
-                                    libcalHoursDataParsed.to
+                                    libcalHoursData.from || libcalHoursData.to
                                 "
                                 >{{
-                                    libcalHoursDataParsed.from +
+                                    libcalHoursData.from +
                                     " - " +
-                                    libcalHoursDataParsed.to
+                                    libcalHoursData.to
                                 }}</span
                             >
                         </div>
@@ -214,13 +213,6 @@ export default {
         cardTheme() {
             return this.isUclaLibrary ? "ucla" : "affiliate"
         },
-        libcalHoursDataParsed() {
-            return {
-                day: this.libcalHoursData.day,
-                to: this.libcalHoursData.times.hours[0].to,
-                from: this.libcalHoursData.times.hours[0].from,
-            }
-        },
     },
     methods: {
         fetchLibcalHours() {
@@ -230,7 +222,10 @@ export default {
                     return response.json()
                 })
                 .then((data) => {
-                    this.libcalHoursData = data.locations[0]
+                    this.libcalHoursData = {
+                        ...data.locations[0],
+                        ...data.locations[0].times.hours[0],
+                    }
                 })
                 .catch((err) => {
                     console.error(err)
