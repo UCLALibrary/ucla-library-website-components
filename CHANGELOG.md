@@ -1,3 +1,17 @@
+## [2.8.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.8.1...v2.8.2) (2022-11-28)
+
+
+### Bug Fixes
+
+* add payRate to GenericList ([#257](https://github.com/UCLALibrary/ucla-library-website-components/issues/257)) ([d41551f](https://github.com/UCLALibrary/ucla-library-website-components/commit/d41551f08a70881fffaae7019bfb5d90d4ef263f))
+
+## [2.8.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.8.0...v2.8.1) (2022-11-28)
+
+
+### Bug Fixes
+
+* Fix search generic ([#256](https://github.com/UCLALibrary/ucla-library-website-components/issues/256)) ([c011839](https://github.com/UCLALibrary/ucla-library-website-components/commit/c0118395b6b910adaa5835028f9e7106bebcef82))
+
 # [2.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.3...v2.8.0) (2022-11-28)
 
 
