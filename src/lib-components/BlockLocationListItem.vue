@@ -24,17 +24,11 @@
                         <span v-if="libcalHoursData.day">{{
                             libcalHoursData.day
                         }}</span>
-                        <div class="hour">
-                            <span
-                                v-if="
-                                    libcalHoursData.from || libcalHoursData.to
-                                "
-                                >{{
-                                    libcalHoursData.from +
-                                    " - " +
-                                    libcalHoursData.to
-                                }}</span
-                            >
+                        <div
+                            class="hour"
+                            v-if="libcalHoursData.status !== 'not-set'"
+                        >
+                            <span v-html="parseLibCalHours" />
                         </div>
                     </div>
                     <icon-with-link
@@ -213,6 +207,15 @@ export default {
         cardTheme() {
             return this.isUclaLibrary ? "ucla" : "affiliate"
         },
+        parseLibCalHours() {
+            if (this.libcalHoursData.status === "open") {
+                return `${this.libcalHoursData.hours[0].from} -  ${this.libcalHoursData.hours[0].to}`
+            } else if (this.libcalHoursData.status === "text") {
+                return this.libcalHoursData.text
+            } else {
+                return this.libcalHoursData.status
+            }
+        },
     },
     methods: {
         fetchLibcalHours() {
@@ -224,7 +227,7 @@ export default {
                 .then((data) => {
                     this.libcalHoursData = {
                         ...data.locations[0],
-                        ...data.locations[0].times.hours[0],
+                        ...data.locations[0].times,
                     }
                 })
                 .catch((err) => {
@@ -339,13 +342,14 @@ export default {
             color: var(--color-primary-blue-05);
         }
 
-        .time > span:first-of-type {
+        .time > span:last-of-type {
             padding-right: 10px;
-            border-right: 2px solid var(--color-secondary-grey-02);
+            // border-right: 2px solid var(--color-secondary-grey-02);
         }
 
         .hour {
             padding: 0 10px;
+            border-left: 2px solid var(--color-secondary-grey-02);
         }
 
         .amenities {

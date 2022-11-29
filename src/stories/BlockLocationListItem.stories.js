@@ -59,6 +59,49 @@ export const Default = () => ({
             :amenities="amenities"
             :reserveSeat="reserveSeat"
             :isUclaLibrary="isUclaLibrary"
+            libcalLocationIdForHours="4690"
+        />
+    `,
+})
+export const NoHours = () => ({
+    data() {
+        return { ...mock }
+    },
+    components: { BlockLocationListItem },
+    template: `
+        <block-location-list-item
+            :title="title"
+            :to="to"
+            :image="image"
+            :day="day"
+            :hour="hour"
+            :address="address"
+            :addressLink="addressLink"
+            :amenities="amenities"
+            :reserveSeat="reserveSeat"
+            :isUclaLibrary="isUclaLibrary"
+            libcalLocationIdForHours="4691"
+        />
+    `,
+})
+export const TextHours = () => ({
+    data() {
+        return { ...mock }
+    },
+    components: { BlockLocationListItem },
+    template: `
+        <block-location-list-item
+            :title="title"
+            :to="to"
+            :image="image"
+            :day="day"
+            :hour="hour"
+            :address="address"
+            :addressLink="addressLink"
+            :amenities="amenities"
+            :reserveSeat="reserveSeat"
+            :isUclaLibrary="isUclaLibrary"
+            libcalLocationIdForHours="4695"
         />
     `,
 })
