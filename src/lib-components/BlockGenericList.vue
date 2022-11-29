@@ -119,36 +119,36 @@ export default {
     .title-no-link {
         @include step-1;
         color: var(--color-primary-blue-03);
-        margin: var(--space-s) 0;
+        margin-bottom: var(--space-s);
         line-height: $line-height--1;
     }
 
     .byline-group {
         display: flex;
         flex-direction: column;
+
         @include step-0;
         color: var(--color-secondary-grey-05);
-        margin: var(--space-s) 0;
+        margin-bottom: var(--space-s);
     }
 
     .rich-text {
         @include step-0;
         color: var(--color-black);
         @include truncate(4);
-        margin-top: var(--space-s);
         margin-left: initial;
         margin-right: initial;
     }
     .location-group {
+        display: flex;
+        flex-direction: column;
+
         color: var(--color-primary-blue-03);
         font-family: var(--font-secondary);
         font-size: 20px;
         line-height: 1;
         margin-bottom: var(--space-s);
         z-index: 10;
-
-        display: flex;
-        flex-direction: column;
     }
     .location-link,
     .location-text {
@@ -158,75 +158,13 @@ export default {
         justify-content: flex-start;
         align-content: center;
         align-items: center;
+
         margin-bottom: 8px;
     }
     .location-link {
         z-index: 20;
     }
-    &:not(&.is-vertical) {
-        max-width: 990px;
-        .meta {
-            max-width: 900px;
-            padding-bottom: 16px;
-            overflow: hidden;
-        }
-        .floating-highlight {
-            z-index: 30;
-            position: absolute;
-            width: 123px;
-            top: 191px;
-            left: 6px;
-            height: 90px;
-            background-color: var(--floating-highlight-color-theme);
-            clip-path: polygon(
-                0 0,
-                calc(100% - 37px) 0,
-                100% 75px,
-                calc(100% - 1.5px) 75px,
-                calc(100% - 38px) 1.5px,
-                0 1.5px
-            );
-        }
-    }
-    // Breakpoints
-    @media #{$medium} {
-        .text {
-            margin-top: 0;
-        }
-        &:not(&.is-vertical) {
-            padding-left: 5px;
-            padding-right: 5px;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            .floating-highlight {
-                display: none;
-            }
-            .clipped-date {
-                display: none;
-            }
-        }
-        .schedule {
-            flex-direction: column;
-        }
 
-        .schedule-item:after {
-            display: none;
-        }
-    }
-    @media #{$small} {
-        &:not(&.is-vertical) {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            max-height: 550px;
-            padding-left: 5px;
-            padding-right: 5px;
-            .image {
-                max-width: 100%;
-            }
-        }
-    }
     // Hovers
     @media #{$has-hover} {
         .title:hover {
