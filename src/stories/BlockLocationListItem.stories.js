@@ -13,19 +13,19 @@ const mock = {
     address: "1400 Public Affairs Building Los Angeles, CA 90095-1392",
     addressLink: "http://google.com/address",
     amenities: [
-        "SvgIconClock",
-        "SvgIconAccessible",
-        "SvgIconEmail",
-        "SvgIconPhone",
-        "SvgIconVirtual",
-        "SvgIconCalendar",
-        "SvgIconLocation",
-        "SvgIconLight",
-        "SvgIconLaptop",
-        "SvgIconLocker",
-        "SvgIconChair",
-        "SvgIconSharePrinter",
-        "SvgIconBook",
+        { title: "Clock", icon: "SvgIconClock" },
+        { title: "Acccessible", icon: "SvgIconAccessible" },
+        { title: "Email", icon: "SvgIconEmail" },
+        { title: "Phone", icon: "SvgIconPhone" },
+        { title: "Virtual", icon: "SvgIconVirtual" },
+        { title: "Calendar", icon: "SvgIconCalendar" },
+        { title: "Location", icon: "SvgIconLocation" },
+        { title: "Light", icon: "SvgIconLight" },
+        { title: "Laptop", icon: "SvgIconLaptop" },
+        { title: "Locker", icon: "SvgIconLocker" },
+        { title: "Chair", icon: "SvgIconChair" },
+        { title: "Share Printer", icon: "SvgIconSharePrinter" },
+        { title: "Book", icon: "SvgIconBook" },
     ],
     to: "http://google.com/title",
 }
@@ -59,6 +59,49 @@ export const Default = () => ({
             :amenities="amenities"
             :reserveSeat="reserveSeat"
             :isUclaLibrary="isUclaLibrary"
+            libcalLocationIdForHours="4690"
+        />
+    `,
+})
+export const NoHours = () => ({
+    data() {
+        return { ...mock }
+    },
+    components: { BlockLocationListItem },
+    template: `
+        <block-location-list-item
+            :title="title"
+            :to="to"
+            :image="image"
+            :day="day"
+            :hour="hour"
+            :address="address"
+            :addressLink="addressLink"
+            :amenities="amenities"
+            :reserveSeat="reserveSeat"
+            :isUclaLibrary="isUclaLibrary"
+            libcalLocationIdForHours="4691"
+        />
+    `,
+})
+export const TextHours = () => ({
+    data() {
+        return { ...mock }
+    },
+    components: { BlockLocationListItem },
+    template: `
+        <block-location-list-item
+            :title="title"
+            :to="to"
+            :image="image"
+            :day="day"
+            :hour="hour"
+            :address="address"
+            :addressLink="addressLink"
+            :amenities="amenities"
+            :reserveSeat="reserveSeat"
+            :isUclaLibrary="isUclaLibrary"
+            libcalLocationIdForHours="4695"
         />
     `,
 })
