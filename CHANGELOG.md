@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.8.3...v2.9.0) (2022-11-29)
+
+
+### Features
+
+* APPS-1597 block location list update ([#255](https://github.com/UCLALibrary/ucla-library-website-components/issues/255)) ([8d985ca](https://github.com/UCLALibrary/ucla-library-website-components/commit/8d985ca6820bcc62f10fb305bff2dc12a55c58d4))
+
 ## [2.8.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.8.2...v2.8.3) (2022-11-29)
 
 
