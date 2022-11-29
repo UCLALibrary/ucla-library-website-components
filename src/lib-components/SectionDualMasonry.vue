@@ -62,7 +62,7 @@ export default {
         align-content: flex-start;
         align-items: flex-start;
 
-        max-width: 1280px;
+        max-width: $container-l-main + px;
         margin: 0 auto;
     }
 

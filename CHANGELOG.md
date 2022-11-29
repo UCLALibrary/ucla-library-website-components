@@ -1,3 +1,31 @@
+## [2.8.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.8.2...v2.8.3) (2022-11-29)
+
+
+### Bug Fixes
+
+* ux component qa ([#253](https://github.com/UCLALibrary/ucla-library-website-components/issues/253)) ([093d67d](https://github.com/UCLALibrary/ucla-library-website-components/commit/093d67d0b8f718ca70df1c280c790ec9f8272d5e))
+
+## [2.8.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.8.1...v2.8.2) (2022-11-28)
+
+
+### Bug Fixes
+
+* add payRate to GenericList ([#257](https://github.com/UCLALibrary/ucla-library-website-components/issues/257)) ([d41551f](https://github.com/UCLALibrary/ucla-library-website-components/commit/d41551f08a70881fffaae7019bfb5d90d4ef263f))
+
+## [2.8.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.8.0...v2.8.1) (2022-11-28)
+
+
+### Bug Fixes
+
+* Fix search generic ([#256](https://github.com/UCLALibrary/ucla-library-website-components/issues/256)) ([c011839](https://github.com/UCLALibrary/ucla-library-website-components/commit/c0118395b6b910adaa5835028f9e7106bebcef82))
+
+# [2.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.3...v2.8.0) (2022-11-28)
+
+
+### Features
+
+* Apps-2013 selected search filters ([#248](https://github.com/UCLALibrary/ucla-library-website-components/issues/248)) ([c03dd66](https://github.com/UCLALibrary/ucla-library-website-components/commit/c03dd66ded91277fde7a3a9a44799e5d53260e27))
+
 ## [2.7.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.7.2...v2.7.3) (2022-11-23)
 
 
