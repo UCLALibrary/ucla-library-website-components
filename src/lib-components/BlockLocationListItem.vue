@@ -21,13 +21,20 @@
                 <div class="text">
                     <div v-if="libcalHoursData" class="time">
                         <SvgIconClock />
-                        <span>{{ libcalHoursData.day }}</span>
+                        <span v-if="libcalHoursData.day">{{
+                            libcalHoursData.day
+                        }}</span>
                         <div class="hour">
-                            <span>{{
-                                libcalHoursData.times.hours[0].from +
-                                " - " +
-                                libcalHoursData.times.hours[0].to
-                            }}</span>
+                            <span
+                                v-if="
+                                    libcalHoursData.from || libcalHoursData.to
+                                "
+                                >{{
+                                    libcalHoursData.from +
+                                    " - " +
+                                    libcalHoursData.to
+                                }}</span
+                            >
                         </div>
                     </div>
                     <icon-with-link
@@ -215,7 +222,10 @@ export default {
                     return response.json()
                 })
                 .then((data) => {
-                    this.libcalHoursData = data.locations[0]
+                    this.libcalHoursData = {
+                        ...data.locations[0],
+                        ...data.locations[0].times.hours[0],
+                    }
                 })
                 .catch((err) => {
                     console.error(err)
