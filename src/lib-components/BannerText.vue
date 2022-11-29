@@ -21,8 +21,15 @@
 
                     <div
                         class="meta-block"
-                        v-if="byline || subjectAreas || date || phone || email ||
-                        addressLink || staffDirectoryLink "
+                        v-if="
+                            byline ||
+                            subjectAreas ||
+                            date ||
+                            phone ||
+                            email ||
+                            addressLink ||
+                            staffDirectoryLink
+                        "
                     >
                         <div v-if="byline" class="byline-item">
                             <div v-for="(item, index) in byline" :key="index">
