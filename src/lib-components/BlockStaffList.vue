@@ -14,12 +14,6 @@
             <div class="name-title">
                 <h3 class="staff-name">
                     <smart-link :to="to" v-html="staffName" />
-                    <!-- to do: get alt name to display -->
-                    <span
-                        v-if="alternativeFullName"
-                        :lang="language"
-                        v-html="alternativeFullName"
-                    />
                 </h3>
                 <div class="job-title" v-html="jobTitle" />
                 <ul v-if="departments.length" class="departments">
