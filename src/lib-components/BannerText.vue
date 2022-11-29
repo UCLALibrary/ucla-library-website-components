@@ -21,7 +21,8 @@
 
                     <div
                         class="meta-block"
-                        v-if="byline || subjectAreas || date"
+                        v-if="byline || subjectAreas || date || email || phone ||
+                        staffDirectoryLink || addressLink"
                     >
                         <div v-if="byline" class="byline-item">
                             <div v-for="(item, index) in byline" :key="index">
@@ -53,6 +54,37 @@
                                 Online
                             </div>
                         </div>
+                        <div v-if="email" class="contact-info">
+                            <icon-with-link
+                                :text="email"
+                                icon-name="svg-icon-email"
+                                :to="`mailto:/${email}`"
+                            />
+                        </div>
+
+                        <div v-if="phone" class="contact-info">
+                            <icon-with-link
+                                :text="phone"
+                                icon-name="svg-icon-phone"
+                                :to="`tel:/${phone}`"
+                            />
+                        </div>
+
+                        <div v-if="staffDirectoryLink" class="contact-info">
+                            <icon-with-link
+                                :text="`View staff directory`"
+                                icon-name="svg-icon-person"
+                                :to="staffDirectoryLink"
+                            />
+                        </div>
+
+                        <div v-if="addressLink" class="contact-info">
+                            <icon-with-link
+                                :text="address"
+                                icon-name="svg-icon-location"
+                                :to="addressLink"
+                            />
+                        </div>
                     </div>
 
                     <div v-if="locations.length" class="location-group">
@@ -62,38 +94,6 @@
                             :text="location.title"
                             icon-name="svg-icon-location"
                             :to="`/${location.to}`"
-                        />
-                    </div>
-
-                    <div v-if="email" class="contact-info">
-                        <icon-with-link
-                            :text="email"
-                            icon-name="svg-icon-email"
-                            :to="`mailto:/${email}`"
-                        />
-                    </div>
-
-                    <div v-if="phone" class="contact-info">
-                        <icon-with-link
-                            :text="phone"
-                            icon-name="svg-icon-phone"
-                            :to="`tel:/${phone}`"
-                        />
-                    </div>
-
-                    <div v-if="staffDirectoryLink" class="contact-info">
-                        <icon-with-link
-                            :text="`View staff directory`"
-                            icon-name="svg-icon-person"
-                            :to="staffDirectoryLink"
-                        />
-                    </div>
-
-                    <div v-if="addressLink" class="contact-info">
-                        <icon-with-link
-                            :text="address"
-                            icon-name="svg-icon-location"
-                            :to="addressLink"
                         />
                     </div>
 
