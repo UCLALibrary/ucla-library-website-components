@@ -105,7 +105,7 @@ export default {
 
 .impact-numbers-carousel {
     display: flex;
-    max-width: 680px;
+    max-width: $container-l-main + px;
     margin-top: var(--space-xl);
 
     .slide-indicator {
@@ -119,17 +119,14 @@ export default {
 
     .glide {
         width: calc(100% - 32px);
-
-        .slide-image img {
-            max-height: 360px;
-            max-width: 608px;
-            width: 100%;
-            object-fit: cover;
+        .responsive-image {
+            max-height: 544px;
         }
 
         .impact-numbers-text-container {
             background: white;
             margin-top: -64px;
+            margin-bottom: 8px;
             padding-left: 25px;
             position: relative;
             width: 431px;
@@ -211,7 +208,6 @@ export default {
         }
     }
 }
-
 @media #{$small} {
     .impact-numbers-carousel {
         flex-direction: column-reverse;
@@ -222,9 +218,9 @@ export default {
             margin: 12px 0;
         }
 
-        .glide {
-            width: 100%;
-        }
+        // .glide {
+        //     width: 100%;
+        // }
 
         [data-glide-el="controls"] button,
         [data-glide-el="controls"] .separator {
