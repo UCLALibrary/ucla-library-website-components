@@ -181,19 +181,6 @@ export default {
     },*/
     methods: {
         doSearch() {
-            this.isViewOpened = false
-            this.openedFilterIndex = -1
-            // TODO Get this pushing real values ot the URL
-            // TODO Make this work with vue router
-            // When we moved this cpmponent we needed to comment out this line
-            // this.$router.push({
-            //     path: this.actionURL,
-            //     query: {
-            //         q: this.searchWords,
-            //         view: this.selectedView,
-            //         filters: Object.keys(this.selectedFilters).length, // TODO get this encoding correctly
-            //     },
-            // })
             console.log("dosearch called")
             console.log(
                 "selected fileters in component are: " +

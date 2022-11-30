@@ -23,12 +23,11 @@
                 <block-media-with-text
                     :section-header="item.parsedTitle"
                     :short-description="item.description"
-                    :image="item.coverImage[0]"
+                    :item="item.item"
+                    :coverImage="item.coverImage"
                     :button-text="item.buttonText"
                     :button-url="item.parsedButtonUrl"
-                    :media-link="item.linkToMedia"
-                    :is-audio="item.parsedIsAudio"
-                    :is-video="item.parsedIsVideo"
+                    :embed-code="item.embedCode"
                     :type-media="item.typeMedia"
                     class="flexible-media-with-text"
                 />
@@ -60,8 +59,6 @@ export default {
                     parsedTitle: obj.titleLink
                         ? obj.titleLink
                         : obj.titleUpload,
-                    parsedIsVideo: obj.typeMedia == "video" ? true : false,
-                    parsedIsAudio: obj.typeMedia == "audio" ? true : false,
                     parsedButtonUrl:
                         obj.upload && obj.typeMedia == "other"
                             ? obj.upload[0].src

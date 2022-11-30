@@ -10,11 +10,8 @@
             {{ title }}
         </h3>
 
-        <div
-            class="byline-group"
-            v-if="department || associatedLocations || payRate"
-        >
-            <div v-if="department || payRate" class="schedule-item">
+        <div class="byline-group" v-if="department || payRate">
+            <div v-if="department" class="schedule-item">
                 <div
                     v-for="(item, index) in department"
                     :key="index"
