@@ -112,6 +112,12 @@ export default {
                     max-width: $container-xl-banner + px;
                 }
             }
+            &.section-no-top-margin {
+                margin-top: 0;
+            }
+            .section-featured-banner {
+                max-width: $container-l-cta + px;
+            }
         }
 
         &.theme-divider {
