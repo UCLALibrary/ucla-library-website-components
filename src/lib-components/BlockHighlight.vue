@@ -304,6 +304,7 @@ export default {
     .category {
         @include overline;
         color: var(--color-primary-blue-05);
+        margin-top: var(--space-xs);
         margin-bottom: var(--space-s);
     }
     .title {
@@ -334,7 +335,7 @@ export default {
         display: flex;
         flex-direction: column;
         @include step-0;
-        color: var(--color-secondary-grey-05);
+        color: var(--color-secondary-grey-04);
         margin: var(--space-s) 0;
     }
     .molecule-no-image {
@@ -509,6 +510,13 @@ export default {
                 display: none;
             }
         }
+        &.is-vertical.has-triangle .meta {
+            padding: 0;
+
+            .category {
+                padding-right: 72px;
+            }
+        }
         .schedule {
             flex-direction: column;
         }
@@ -528,10 +536,6 @@ export default {
             .image {
                 max-width: 100%;
             }
-        }
-
-        &.is-vertical.has-triangle .meta {
-            padding-left: 0;
         }
     }
     // Hovers

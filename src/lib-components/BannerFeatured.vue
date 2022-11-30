@@ -7,9 +7,9 @@
                         class="heading-line"
                         aria-hidden="true"
                     />
-                    <h3 class="text">
+                    <h2 class="text">
                         {{ breadcrumb }}
-                    </h3>
+                    </h2>
                 </div>
             </slot>
         </div>
@@ -27,7 +27,7 @@
 
         <div class="hatch-box">
             <div class="clipped-box">
-                <h3
+                <h2
                     v-if="category"
                     class="category category-mobile"
                     v-html="category"
@@ -39,7 +39,11 @@
         </div>
 
         <div class="meta">
-            <div class="category category-desktop" v-html="category" />
+            <div
+                v-if="category"
+                class="category category-desktop"
+                v-html="category"
+            />
 
             <h3 id="banner-featured" class="title" v-html="title"></h3>
             <div class="meta-text">
@@ -58,6 +62,13 @@
                     <div class="byline-item">
                         {{ byline["articlePostDate"] }}
                     </div>
+                </div>
+                <div class="date-created" v-if="dateCreated">
+                    <time
+                        v-if="dateCreated"
+                        class="date-created"
+                        v-html="parsedDateCreated"
+                    />
                 </div>
                 <div class="byline" v-if="bylineProjectExists">
                     <div
@@ -223,6 +234,10 @@ export default {
             type: String,
             default: "",
         },
+        dateCreated: {
+            type: String,
+            default: "",
+        },
         startDate: {
             type: String,
             default: "",
@@ -344,6 +359,9 @@ export default {
         parsedLocationsExternal() {
             return this.locations["location_external"]
         },
+        parsedDateCreated() {
+            return format(new Date(this.dateCreated), "MMMM d, Y")
+        },
         parsedDate() {
             return this.formatDates(this.startDate, this.endDate)
         },
@@ -387,7 +405,7 @@ export default {
     position: relative;
     overflow: hidden;
     background-color: var(--color-white);
-    max-width: $container-xl-full-width + px;
+    max-width: $container-l-cta + px;
 
     // Themes
     --banner-color-theme: var(--color-default-cyan-03);
@@ -411,8 +429,8 @@ export default {
     .slot {
         position: absolute;
         z-index: 20;
-        padding-left: 64px;
-        margin-top: 64px;
+        padding-left: $component-09 + px;
+        margin-top: $component-08 + px;
     }
     .breadcrumb {
         color: var(--color-white);
@@ -579,6 +597,12 @@ export default {
         @include step-0;
         margin-bottom: var(--space-m);
     }
+    .date-created {
+        margin: var(--space-s) 0;
+        @include step-0;
+        color: var(--color-secondary-grey-04);
+    }
+
     .byline {
         color: var(--color-secondary-grey-04);
     }

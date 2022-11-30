@@ -1,3 +1,31 @@
+## [2.9.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.2...v2.9.3) (2022-11-30)
+
+
+### Bug Fixes
+
+* updates from qa of news listing template ([#260](https://github.com/UCLALibrary/ucla-library-website-components/issues/260)) ([83f4e6e](https://github.com/UCLALibrary/ucla-library-website-components/commit/83f4e6e255c9d5270da6301e3dac4c550e2f7b63))
+
+## [2.9.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.1...v2.9.2) (2022-11-30)
+
+
+### Bug Fixes
+
+* Update README.md ([#263](https://github.com/UCLALibrary/ucla-library-website-components/issues/263)) ([f313c75](https://github.com/UCLALibrary/ucla-library-website-components/commit/f313c759461b18dd9cad1d3f9968b0580b63531b))
+
+## [2.9.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.0...v2.9.1) (2022-11-30)
+
+
+### Bug Fixes
+
+* revert outside click using focusout ([#261](https://github.com/UCLALibrary/ucla-library-website-components/issues/261)) ([3e99ca6](https://github.com/UCLALibrary/ucla-library-website-components/commit/3e99ca6a66c3373844c21d125e4fce528c4d3617))
+
+# [2.9.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.8.3...v2.9.0) (2022-11-29)
+
+
+### Features
+
+* APPS-1597 block location list update ([#255](https://github.com/UCLALibrary/ucla-library-website-components/issues/255)) ([8d985ca](https://github.com/UCLALibrary/ucla-library-website-components/commit/8d985ca6820bcc62f10fb305bff2dc12a55c58d4))
+
 ## [2.8.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.8.2...v2.8.3) (2022-11-29)
 
 

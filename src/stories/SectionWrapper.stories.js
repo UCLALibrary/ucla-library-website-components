@@ -12,9 +12,7 @@ const propsForMediaWithText = {
     buttonText: mockMediaWithText.mediaWithText[0].buttonText,
     buttonUrl: mockMediaWithText.mediaWithText[0].buttonUrl,
     mediaLink: mockMediaWithText.mediaWithText[0].linkToMedia,
-    isVideo: false,
-    isAudio: false,
-    image: mockMediaWithText.mediaWithText[0].coverImage[0],
+    item: mockMediaWithText.mediaWithText[0].coverImage,
     typeMedia: mockMediaWithText.mediaWithText[0].typeMedia,
 }
 

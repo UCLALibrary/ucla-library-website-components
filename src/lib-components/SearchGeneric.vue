@@ -23,8 +23,7 @@
                 </button>
             </div>
         </form>
-        <hr class="divider" />
-        <div class="container">
+        <div v-if="filters.length > 0" class="container">
             <search-generic-filter-buttons
                 :items="filters"
                 :active-index.sync="openedFilterIndex"
@@ -178,19 +177,6 @@ export default {
     },*/
     methods: {
         doSearch() {
-            this.isViewOpened = false
-            this.openedFilterIndex = -1
-            // TODO Get this pushing real values ot the URL
-            // TODO Make this work with vue router
-            // When we moved this cpmponent we needed to comment out this line
-            // this.$router.push({
-            //     path: this.actionURL,
-            //     query: {
-            //         q: this.searchWords,
-            //         view: this.selectedView,
-            //         filters: Object.keys(this.selectedFilters).length, // TODO get this encoding correctly
-            //     },
-            // })
             console.log("dosearch called")
             console.log(
                 "selected fileters in component are: " +
@@ -210,14 +196,26 @@ export default {
 </script>
 <style lang="scss" scoped>
 .search-generic {
+    z-index: 10;
     position: relative;
-
-    padding: 0 50px;
-    margin: 30px auto;
     background-color: var(--color-white);
-    max-width: 890px;
     border: 1px solid transparent;
-    border-top-left-radius: 4px;
+    border-radius: 4px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: -72px;
+    max-width: $container-l-cta + px;
+    padding: 32px 32px 0;
+
+    form {
+        max-width: $container-l-main + px;
+        margin: 0 auto;
+
+        + .container {
+            border-top: 2px solid var(--color-default-cyan-03);
+            margin-top: 16px;
+        }
+    }
 
     .input-container {
         display: flex;
@@ -240,7 +238,7 @@ export default {
             letter-spacing: 0.01em;
             background-color: var(--color-primary-blue-01);
             border-color: transparent;
-            padding: 27px 95px;
+            padding: 24px;
             width: 100%;
 
             &::placeholder {
@@ -248,9 +246,14 @@ export default {
                 font-family: var(--font-primary);
             }
         }
+        .button-submit {
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
     }
     .search-generic-filter-buttons {
-        margin-top: 25px;
+        margin-top: 16px;
     }
 
     .divider {
@@ -261,7 +264,9 @@ export default {
     .container {
         list-style: none;
         cursor: pointer;
-        // width: 890px;
+        max-width: $container-l-main + px;
+        margin-left: auto;
+        margin-right: auto;
 
         display: flex;
         flex-direction: row;
@@ -277,6 +282,14 @@ export default {
 
         margin-top: 8px;
         z-index: 100;
+    }
+
+    @media #{$medium} {
+        padding-left: var(--unit-gutter);
+        padding-right: var(--unit-gutter);
+        padding-top: var(--space-xl);
+        border-radius: 0;
+        margin-top: 0;
     }
 }
 

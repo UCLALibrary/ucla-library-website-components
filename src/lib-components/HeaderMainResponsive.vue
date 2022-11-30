@@ -294,6 +294,14 @@ export default {
         .hamburguer {
             cursor: pointer;
         }
+        .clickable-parent,
+        .hamburguer {
+            display: inherit;
+        }
+
+        .open-menu {
+            padding: 0;
+        }
     }
 
     .expanded-menu-container {
@@ -311,11 +319,15 @@ export default {
         margin: 32px 0;
         background-color: var(--color-primary-blue-03);
 
-        .svg__logo-library {
+        ::v-deep .svg__logo-library {
             .svg__fill--primary-blue-03,
             .svg__fill--black {
                 fill: var(--color-white);
             }
+        }
+
+        .close-menu {
+            padding: 0;
         }
 
         .close-svg {
@@ -460,9 +472,6 @@ export default {
             .acronym {
                 display: block;
             }
-        }
-        .collapsed-menu {
-            --unit-gutter: 24px;
         }
     }
 
