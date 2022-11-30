@@ -20,7 +20,7 @@
                 </div>
                 <div class="text">
                     <div v-if="libcalHoursData" class="time">
-                        <SvgIconClock />
+                        <IconClock />
                         <span v-if="libcalHoursData.day">{{
                             libcalHoursData.day
                         }}</span>
