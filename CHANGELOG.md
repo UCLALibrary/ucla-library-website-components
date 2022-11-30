@@ -1,3 +1,10 @@
+## [2.9.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.2...v2.9.3) (2022-11-30)
+
+
+### Bug Fixes
+
+* updates from qa of news listing template ([#260](https://github.com/UCLALibrary/ucla-library-website-components/issues/260)) ([83f4e6e](https://github.com/UCLALibrary/ucla-library-website-components/commit/83f4e6e255c9d5270da6301e3dac4c550e2f7b63))
+
 ## [2.9.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.1...v2.9.2) (2022-11-30)
 
 
