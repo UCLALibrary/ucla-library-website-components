@@ -5,12 +5,12 @@
     <!-- TODO Need to get a BaseCheckboxGroup working -->
     <!-- TODO Need to create a BaseCalendarGroup Component -->
     <!-- TODO Need to style this for Mobile -->
-    <div class="search-generic" @focusout="handleFocusOut" tabindex="0">
+    <div class="search-generic">
         <!-- <h4>router query</h4>
         {{ searchGenericQuery }}
         <h4>filters for the page</h4>
         {{ filters }}-->
-        <form name="searchHome" @submit.prevent="doSearchText">
+        <form name="searchHome" @submit.prevent="doSearch">
             <div class="input-container">
                 <input
                     v-model="searchWords"
@@ -47,7 +47,7 @@
                 :items="group.items"
                 :selected.sync="selectedFilters[group.esFieldName]"
                 class="filter-group"
-                @input-selected="doSearchFilters"
+                @input-selected="doSearch"
             />
         </transition>
     </div>
@@ -177,29 +177,7 @@ export default {
         }
     },*/
     methods: {
-        handleFocusOut() {
-            this.isViewOpened = false
-            this.openedFilterIndex = -1
-        },
-        doSearchText() {
-            this.isViewOpened = false
-            this.openedFilterIndex = -1
-
-            console.log("dosearch called")
-            console.log(
-                "selected fileters in component are: " +
-                    JSON.stringify(this.selectedFilters)
-            )
-            console.log(
-                "search text in component are: " +
-                    JSON.stringify(this.searchWords)
-            )
-            this.$emit("search-ready", {
-                filters: this.selectedFilters,
-                text: this.searchWords,
-            })
-        },
-        doSearchFilters() {
+        doSearch() {
             console.log("dosearch called")
             console.log(
                 "selected fileters in component are: " +
