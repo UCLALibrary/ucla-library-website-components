@@ -113,13 +113,12 @@ export default {
     background-color: var(--color-theme, var(--color-white));
 
     .thumbnails {
-        $gap: var(--space-m);
         width: 100%;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
-        column-gap: $gap;
-        row-gap: $gap;
-        padding-top: $gap;
+        column-gap: var(--space-m);
+        row-gap: var(--space-xl);
+        padding-top: var(--space-xl);
         list-style-type: none;
     }
 }
