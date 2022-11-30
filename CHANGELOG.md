@@ -1,3 +1,10 @@
+## [2.9.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.1...v2.9.2) (2022-11-30)
+
+
+### Bug Fixes
+
+* Update README.md ([#263](https://github.com/UCLALibrary/ucla-library-website-components/issues/263)) ([f313c75](https://github.com/UCLALibrary/ucla-library-website-components/commit/f313c759461b18dd9cad1d3f9968b0580b63531b))
+
 ## [2.9.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.0...v2.9.1) (2022-11-30)
 
 
