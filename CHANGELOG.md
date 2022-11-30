@@ -1,3 +1,10 @@
+## [2.9.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.0...v2.9.1) (2022-11-30)
+
+
+### Bug Fixes
+
+* revert outside click using focusout ([#261](https://github.com/UCLALibrary/ucla-library-website-components/issues/261)) ([3e99ca6](https://github.com/UCLALibrary/ucla-library-website-components/commit/3e99ca6a66c3373844c21d125e4fce528c4d3617))
+
 # [2.9.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.8.3...v2.9.0) (2022-11-29)
 
 
