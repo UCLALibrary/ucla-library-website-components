@@ -7,6 +7,12 @@
             :style="mediaStyles"
             v-bind="item[0]"
         />
+        <img
+            v-else-if="coverOnly"
+            class="media media-image"
+            :style="mediaStyles"
+            v-bind="coverImage[0]"
+        />
         <VideoJs
             v-else-if="isVideo || isAudio"
             class="media media-video"
@@ -46,6 +52,7 @@ export default {
         item: { type: Array, default: () => [] },
         embedCode: { type: String, default: "" },
         coverImage: { type: Array, default: () => [] },
+        coverOnly: { type: Boolean, default: false },
         // sizing for the container (not the media item itself)
         height: { type: Number, default: 0 },
         width: { type: Number, default: 0 },
@@ -93,12 +100,12 @@ export default {
             return (
                 this.aspectRatio ||
                 (this.height / this.width) * 100 ||
-                (this.item[0] &&
-                    this.item[0].height / this.item[0] &&
-                    this.item[0].width) * 100 ||
+                (!this.coverOnly &&
+                    this.item[0] &&
+                    this.item[0].height / this.item[0].width) * 100 ||
                 (this.coverImage[0] &&
-                    this.coverImage[0].height / this.coverImage[0] &&
-                    this.coverImage[0].width) * 100 ||
+                    this.coverImage[0].height / this.coverImage[0].width) *
+                    100 ||
                 (9 / 16) * 100
             )
         },
