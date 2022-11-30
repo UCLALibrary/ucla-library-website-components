@@ -39,7 +39,7 @@ To create a production build, run `npm run build`.
 
 ---
 
-# How to move library-website-nuxt (nuxt project) components to ucla-library-website-components (vue 2 project)
+## How to move library-website-nuxt (nuxt project) components to ucla-library-website-components (vue 2 project)
 
 Hi!
 
@@ -361,7 +361,7 @@ Next we see the `postVue` part, this part will be loaded after vue is loaded, th
             decorators: [StoryRouter()],
         }
         ```
--   Another thing that you might want to use is vuex store, in that case you need to add the following to storybook:
+- Another thing that you might want to use is vuex store, in that case you need to add the following to storybook:
     -   First, import vuex:
         ```jsx
         // Storybook default settings
@@ -407,21 +407,31 @@ Next we see the `postVue` part, this part will be loaded after vue is loaded, th
         ```
 -   Always remember to add `this` when refering to a function or mixin.
 -   Mixins have almost the same functionality as global functions, so use it wisely and refer to them accordingly.
-    ## Tips about using vuex
-    Vuex is a **state management pattern + library** for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion.
-    So when dealing with store date, we need to understand some basic concepts, like:
-    -   The **state**, the source of truth that drives our app;
-    -   The **view**, a declarative mapping of the **state**;
-    -   The **actions**, the possible ways the state could change in reaction to user inputs from the **view**.
-    ![Untitled](<How%20to%20move%20library-website-nuxt%20(nuxt%20project)%20co%20516894d52bb149aeb08ffaca2f6fdbcd/Untitled.png>)
-    Let's understand better some core concepts.
-    **State** : This is the data that will be shared in the application. so instead passing it via props. we can simply have it in our store and have our components access them directly.
-    **Getters**: [According to the Vuex documentation](https://dev.tourl/), we think of getters as the computed property for store and it has an helper , which is the `mapGetters Helper` that simply takes out store getters to out component computed property.
-    **Mutations**: State can only be changed in a vuex store by commiting a mutation. A mutation cannot be called directly. Inorder to do so, you need to use `store.commit`. Instead of committing a mutation in a component methods, we simply dispatch an action on the mutation.
-    **Actions** : Action commits a mutation using the `contex.comit`and dispatch the action using `store.dispatch`. We also have the `mapAction helpers`.
-    Our implementation of vuex uses modules. Due to using a single state tree, all states of our application are contained inside one big object. However, as our application grows in scale, the store can get really bloated.
-    To help with that, Vuex allows us to divide our store into **modules**. Each module can contain its own state, mutations, actions, getters, and even nested modules - it's fractal all the way down:
-    ```jsx
+
+## Tips about using vuex
+
+Vuex is a **state management pattern + library** for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion.
+
+When dealing with store data, we need to understand some basic concepts
+- The **state**, the source of truth that drives our app
+- The **view**, a declarative mapping of the **state**
+- The **actions**, the possible ways the state could change in reaction to user inputs from the **view**.
+    
+### Let's better understand some core concepts.
+    
+**State** : This is the data that will be shared in the application. so instead passing it via props. we can simply have it in our store and have our components access them directly.
+    
+**Getters**: [According to the Vuex documentation](https://dev.tourl/), we think of getters as the computed property for store and it has an helper , which is the `mapGetters Helper` that simply takes out store getters to out component computed property.
+    
+**Mutations**: State can only be changed in a vuex store by commiting a mutation. A mutation cannot be called directly. Inorder to do so, you need to use `store.commit`. Instead of committing a mutation in a component methods, we simply dispatch an action on the mutation.
+    
+**Actions** : Action commits a mutation using the `contex.comit`and dispatch the action using `store.dispatch`. We also have the `mapAction helpers`.
+    
+    Our implementation of vuex uses modules. Due to using a single state tree, all states of our application are contained inside one big object. As our application grows in scale, the store can get really bloated.
+
+    To help with that, Vuex allows us to divide our store into **modules**. Each module can contain its own `state`, `mutations`, `actions`, `getters`, and even nested modules - it's turtles all the way down:
+
+```jsx
     const moduleA = {
       state: () => ({ ... }),
       mutations: { ... },
@@ -444,10 +454,13 @@ Next we see the `postVue` part, this part will be loaded after vue is loaded, th
 
     store.state.a // -> `moduleA`'s state
     store.state.b // -> `moduleB`'s state
-    ```
-    ## Our usage of vuex
-    Our index inside the store folder is importing all modules:
-    ```jsx
+```
+
+## Our usage of vuex
+    
+Our index inside the store folder is importing all modules:
+    
+```jsx
     import Vue from "vue"
     import Vuex from "vuex"
     import HeaderSmart from "./modules/headerSmart.js"
@@ -463,9 +476,11 @@ Next we see the `postVue` part, this part will be loaded after vue is loaded, th
             footerSock: FooterSock,
         },
     })
-    ```
-    Then, inside each module we see something like this:
-    ```jsx
+```
+    
+Then, inside each module we see something like this:
+    
+```jsx
     const mock = {
         socialItems: [
             {
@@ -501,9 +516,13 @@ Next we see the `postVue` part, this part will be loaded after vue is loaded, th
         mutations: {},
         actions: {},
     }
-    ```
-    To call the information we need from the state, we need to use `mapGetters`. To use it, we call mapGetters inside the vue component, destructing it and also using it inside the computed property. Like this:
-    ```jsx
+```
+    
+To call the information we need from the state, we need to use `mapGetters`.  
+To use it, we call `mapGetters` inside the vue component, destructing it and also using it inside the computed property.  
+Like this:
+    
+```jsx
     <script>
     import SiteBrandBar from "@/lib-components/SiteBrandBar"
     import HeaderMainResponsive from "@/lib-components/HeaderMainResponsive"
@@ -534,5 +553,6 @@ Next we see the `postVue` part, this part will be loaded after vue is loaded, th
         },
     }
     </script>
-    ```
-    You can see that we import `mapGetters` from vuex, then we add it to `computed` section and then we call every getter inside the array. To use it we just place `this.<name_of_getter>` .
+```
+    
+You can see that we import `mapGetters` from vuex, then we add it to `computed` section and then we call every getter inside the array. To use it we just place `this.<name_of_getter>` .
