@@ -179,9 +179,7 @@
             :button-text="mockMediaWithText.mediaWithText[0].buttonText"
             :button-url="mockMediaWithText.mediaWithText[0].buttonUrl"
             :media-link="mockMediaWithText.mediaWithText[0].linkToMedia"
-            :is-video="false"
-            :is-audio="false"
-            :image="mockMediaWithText.mediaWithText[0].coverImage[0]"
+            :item="mockMediaWithText.mediaWithText[0].coverImage"
             :type-media="mockMediaWithText.mediaWithText[0].typeMedia"
         />
         <hr />

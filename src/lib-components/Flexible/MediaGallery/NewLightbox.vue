@@ -41,7 +41,7 @@
             </template>
         </vue-glide>
         <div class="caption-block">
-            <div class="media-counter" role="tablist">
+            <div v-if="items.length > 1" class="media-counter" role="tablist">
                 <button
                     v-for="index in items.length"
                     :key="index"

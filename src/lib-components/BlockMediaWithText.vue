@@ -4,18 +4,16 @@
             <h3 class="section-header" v-html="sectionHeader" />
             <div class="meta-mobile">
                 <smart-link v-if="mediaLink" :to="mediaLink" class="media-link">
-                    <responsive-image
-                        v-if="image"
-                        :image="image"
-                        class="image-mobile"
+                    <media-item
+                        v-if="item || coverImage"
+                        :item="item"
+                        :coverImage="coverImage"
+                        coverOnly="true"
+                        @click.native="showLightbox = true"
+                        class="media-mobile"
                     />
                 </smart-link>
-                <responsive-image
-                    v-if="image && !mediaLink"
-                    :image="image"
-                    class="image-mobile"
-                />
-                <div v-if="!image" class="no-image-mobile" />
+                <div v-if="!(item || coverImage)" class="no-media-mobile" />
                 <div class="clippy">
                     <div
                         v-if="isVideo || isAudio"
@@ -49,7 +47,14 @@
                 :is-download="parsedIsDownload"
             />
         </div>
-        <div class="meta">
+        <media-item
+            v-if="item || coverImage"
+            :item="item"
+            :coverImage="coverImage"
+            coverOnly="true"
+            class="meta media"
+            @click.native="showLightbox = true"
+        >
             <div class="clippy">
                 <div v-if="isVideo || isAudio" class="floating-highlight" />
                 <div v-if="isVideo || isAudio" class="clipped-play" />
@@ -60,16 +65,14 @@
             </div>
             <svg-icon-headphones v-if="isAudio" class="icon-headphones" />
             <svg-icon-headphones v-if="isAudio" class="icon-headphones" />
-            <smart-link v-if="mediaLink" :to="mediaLink" class="media-link">
-                <responsive-image v-if="image" :image="image" class="image" />
-            </smart-link>
-            <responsive-image
-                v-if="image && !mediaLink"
-                :image="image"
-                class="image"
-            />
-            <div v-if="!image" class="no-image" />
-        </div>
+        </media-item>
+        <div v-if="!(item || coverImage)" class="no-media" />
+        <NewLightbox
+            v-if="showLightbox"
+            :items="lightboxItems"
+            @closeModal="showLightbox = false"
+            @keydown.native.esc="showLightbox = false"
+        />
     </div>
 </template>
 
@@ -92,10 +95,12 @@ export default {
             import("@/lib-components/SmartLink.vue").then((d) => d.default),
         ButtonLink: () =>
             import("@/lib-components/ButtonLink.vue").then((d) => d.default),
-        ResponsiveImage: () =>
-            import("@/lib-components/ResponsiveImage.vue").then(
-                (d) => d.default
-            ),
+        MediaItem: () =>
+            import("@/lib-components/Media/Item.vue").then((d) => d.default),
+        NewLightbox: () =>
+            import(
+                "@/lib-components/Flexible/MediaGallery/NewLightbox.vue"
+            ).then((d) => d.default),
     },
     mixins: [isInternalLink],
     props: {
@@ -115,7 +120,7 @@ export default {
             type: String,
             default: "",
         },
-        mediaLink: {
+        embedCode: {
             type: String,
             default: "",
         },
@@ -123,20 +128,44 @@ export default {
             type: String,
             default: "",
         },
-        image: {
-            type: Object,
-            default: () => {},
+        item: {
+            type: Array,
+            default: () => [],
         },
-        isVideo: {
-            type: Boolean,
-            default: false,
-        },
-        isAudio: {
-            type: Boolean,
-            default: false,
+        coverImage: {
+            type: Array,
+            default: () => [],
         },
     },
+    data() {
+        return {
+            showLightbox: false,
+        }
+    },
     computed: {
+        isAudio() {
+            return (
+                this.typeMedia == "audio" ||
+                (this.item && this.item[0] && this.item[0].kind == "audio")
+            )
+        },
+        isVideo() {
+            return (
+                this.typeMedia == "video" ||
+                (this.item && this.item[0] && this.item[0].kind == "video")
+            )
+        },
+        lightboxItems() {
+            return [
+                {
+                    item: this.item,
+                    coverImage: this.coverImage,
+                    embedCode: this.embedCode,
+                    captionTitle: this.sectionHeader,
+                    captionText: this.shortDescription,
+                },
+            ]
+        },
         parsedIsDownload() {
             return this.buttonUrl && this.typeMedia === "other" ? true : false
         },
@@ -149,7 +178,6 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-content: center;
     align-items: center;
     justify-content: space-between;
 
@@ -183,14 +211,14 @@ export default {
         z-index: 0;
         position: relative;
     }
-    .image {
+    .media {
         z-index: 0;
         position: relative;
         max-width: 100%;
         min-width: 426px;
         height: auto;
     }
-    .no-image {
+    .no-media {
         z-index: 0;
         position: relative;
         width: 426px;
@@ -263,13 +291,13 @@ export default {
     // Breakpoints
 
     @media #{$medium} {
-        .image {
+        .media {
             width: calc(50% - 48px);
             height: auto;
             max-width: 100%;
             min-width: 296px;
         }
-        .no-image {
+        .no-media {
             width: calc(50% - 48px);
             max-width: 100%;
             min-width: 296px;
@@ -303,13 +331,13 @@ export default {
                 z-index: 0;
                 position: relative;
             }
-            .image-mobile {
+            .media-mobile {
                 width: 100%;
                 height: auto;
                 z-index: 10;
                 position: relative;
             }
-            .no-image-mobile {
+            .no-media-mobile {
                 width: 100%;
                 height: 200px;
                 z-index: 10;
