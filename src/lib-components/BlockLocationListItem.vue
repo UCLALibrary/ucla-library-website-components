@@ -77,10 +77,6 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
             ).then((d) => d.default),
-        SvgIconEmail: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-email.svg"
-            ).then((d) => d.default),
         SvgIconPhone: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
