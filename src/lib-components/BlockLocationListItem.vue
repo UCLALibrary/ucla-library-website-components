@@ -365,14 +365,14 @@ export default {
         }
 
         // Adjusts: Svg shareprinter to white bg and blue stroke
-        .svg__fill--secondary-grey-01 {
-            fill: var(--color-white);
+        ::v-deep .svg__fill--secondary-grey-01 {
+            fill: var(--color-white) !important;
         }
-        .svg__stroke--black {
-            stroke: var(--color-primary-blue-03);
+        ::v-deep .svg__stroke--black {
+            stroke: var(--color-primary-blue-03) !important;
         }
-        .svg__fill--black {
-            fill: var(--color-primary-blue-03);
+        ::v-deep .svg__fill--black {
+            fill: var(--color-primary-blue-03) !important;
         }
     }
 
