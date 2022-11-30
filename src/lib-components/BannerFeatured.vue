@@ -45,7 +45,7 @@
                 v-html="category"
             />
 
-            <a id="banner-featured" class="title" v-html="title"></a>
+            <h3 id="banner-featured" class="title" v-html="title"></h3>
             <div class="meta-text">
                 <div class="byline" v-if="bylineArticleExists">
                     <div

@@ -160,6 +160,7 @@ export default {
         .container {
             padding-left: var(--unit-gutter);
             padding-right: var(--unit-gutter);
+            padding-bottom: var(--space-xl);
             margin: 0;
         }
     }

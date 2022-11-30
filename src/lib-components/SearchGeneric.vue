@@ -24,14 +24,12 @@
             </div>
         </form>
         <div v-if="filters.length > 0" class="container">
-            <hr class="divider" />
             <search-generic-filter-buttons
                 :items="filters"
                 :active-index.sync="openedFilterIndex"
                 class="search-generic-filter-buttons"
             />
         </div>
-        <divider-way-finder />
 
         <!-- The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for -->
 
@@ -61,7 +59,6 @@ import SearchGenericViewModes from "./SearchGenericViewModes.vue"
 import BaseRadioGroup from "./BaseRadioGroup.vue"
 import BaseCheckboxGroup from "./BaseCheckboxGroup.vue"
 // import BaseCalendarGroup from "./BaseCalendarGroup.vue"
-import DividerWayFinder from "./DividerWayFinder.vue"
 
 export default {
     name: "SearchGeneric",
@@ -72,7 +69,6 @@ export default {
         BaseRadioGroup,
         BaseCheckboxGroup,
         // BaseCalendarGroup,
-        DividerWayFinder,
     },
 
     props: {
@@ -209,15 +205,15 @@ export default {
     margin-left: auto;
     margin-top: -72px;
     max-width: $container-l-cta + px;
-    padding: 32px 48px 0;
+    padding: 32px 32px 0;
 
     form {
         max-width: $container-l-main + px;
         margin: 0 auto;
 
         + .container {
-            border-bottom: 2px solid var(--color-default-cyan-03);
-            padding-bottom: 16px;
+            border-top: 2px solid var(--color-default-cyan-03);
+            margin-top: 16px;
         }
     }
 
@@ -257,7 +253,7 @@ export default {
         }
     }
     .search-generic-filter-buttons {
-        margin-top: 25px;
+        margin-top: 16px;
     }
 
     .divider {
@@ -268,7 +264,9 @@ export default {
     .container {
         list-style: none;
         cursor: pointer;
-        // width: 890px;
+        max-width: $container-l-main + px;
+        margin-left: auto;
+        margin-right: auto;
 
         display: flex;
         flex-direction: row;
@@ -286,8 +284,12 @@ export default {
         z-index: 100;
     }
 
-    .divider-way-finder {
-        margin: var(--space-2xl) 0;
+    @media #{$medium} {
+        padding-left: var(--unit-gutter);
+        padding-right: var(--unit-gutter);
+        padding-top: var(--space-xl);
+        border-radius: 0;
+        margin-top: 0;
     }
 }
 

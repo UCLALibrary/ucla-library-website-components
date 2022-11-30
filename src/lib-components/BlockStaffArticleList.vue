@@ -96,6 +96,7 @@ export default {
     align-content: center;
     align-items: center;
     width: 100%;
+    position: relative;
 
     margin-bottom: var(--space-xl);
     padding-bottom: var(--space-xl);
@@ -118,6 +119,7 @@ export default {
         .molecule {
             flex-shrink: 0;
             position: absolute;
+            opacity: 0.7;
         }
     }
 
@@ -136,6 +138,7 @@ export default {
         color: var(--color-primary-blue-03);
         margin-bottom: var(--space-s);
         @include truncate(3);
+        @include card-clickable-area;
     }
 
     .byline {
