@@ -20,7 +20,7 @@
                 </div>
                 <div class="text">
                     <div v-if="libcalHoursData" class="time">
-                        <SvgIconClock />
+                        <IconClock />
                         <span v-if="libcalHoursData.day">{{
                             libcalHoursData.day
                         }}</span>
@@ -73,29 +73,13 @@ export default {
         IconWithLink,
         SmartLink,
         ResponsiveImage,
-        SvgIconClock: () =>
+        SvgMoleculePlaceholder: () =>
             import(
-                "ucla-library-design-tokens/assets/svgs/icon-clock.svg"
-            ).then((d) => d.default),
-        SvgIconAccessible: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-accessible.svg"
-            ).then((d) => d.default),
-        SvgIconChair: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-chair.svg"
-            ).then((d) => d.default),
-        SvgIconEmail: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-email.svg"
+                "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
             ).then((d) => d.default),
         SvgIconPhone: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
-            ).then((d) => d.default),
-        SvgIconVirtual: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
             ).then((d) => d.default),
         SvgIconCalendar: () =>
             import(
@@ -105,30 +89,44 @@ export default {
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-location.svg"
             ).then((d) => d.default),
-        SvgIconLight: () =>
+
+        // AMENITIES
+        IconClock: () =>
             import(
-                "ucla-library-design-tokens/assets/svgs/icon-light.svg"
+                "ucla-library-design-tokens/assets/svgs/icon-clock.svg"
             ).then((d) => d.default),
-        SvgIconLaptop: () =>
+        IconAccessible: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-accessible.svg"
+            ).then((d) => d.default),
+        IconChair: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-chair.svg"
+            ).then((d) => d.default),
+        IconVirtual: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
+            ).then((d) => d.default),
+        IconLaptop: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-laptop.svg"
             ).then((d) => d.default),
-        SvgIconLocker: () =>
+        IconLocker: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-locker.svg"
             ).then((d) => d.default),
-        SvgIconSharePrinter: () =>
+        IconLight: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-light.svg"
+            ).then((d) => d.default),
+        IconShare: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-share-printer.svg"
             ).then((d) => d.default),
-        SvgIconBook: () =>
+        IconBook: () =>
             import("ucla-library-design-tokens/assets/svgs/icon-book.svg").then(
                 (d) => d.default
             ),
-        SvgMoleculePlaceholder: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
-            ).then((d) => d.default),
     },
     props: {
         image: {
@@ -363,13 +361,13 @@ export default {
         }
 
         // Adjusts: Svg shareprinter to white bg and blue stroke
-        .svg__fill--secondary-grey-01 {
+        ::v-deep .svg__fill--secondary-grey-01 {
             fill: var(--color-white);
         }
-        .svg__stroke--black {
+        ::v-deep .svg__stroke--black {
             stroke: var(--color-primary-blue-03);
         }
-        .svg__fill--black {
+        ::v-deep .svg__fill--black {
             fill: var(--color-primary-blue-03);
         }
     }
