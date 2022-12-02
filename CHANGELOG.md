@@ -1,3 +1,10 @@
+## [2.9.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.4...v2.9.5) (2022-12-02)
+
+
+### Bug Fixes
+
+* APPS-2080 Link title on the bannerFeatured component ([#264](https://github.com/UCLALibrary/ucla-library-website-components/issues/264)) ([7554f7e](https://github.com/UCLALibrary/ucla-library-website-components/commit/7554f7e06faf9753bd23bbdee76d95c18114cc40))
+
 ## [2.9.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.3...v2.9.4) (2022-11-30)
 
 
