@@ -221,7 +221,7 @@ export default {
             .impact-numbers-text-container {
                 width: unset;
                 //clip-path: none;
-            }         
+            }
         }
 
         [data-glide-el="controls"] button,
