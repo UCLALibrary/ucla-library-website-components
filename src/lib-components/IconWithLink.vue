@@ -188,6 +188,7 @@ export default {
 
     .text {
         @include button;
+        white-space: pre-wrap;
     }
 
     .link {

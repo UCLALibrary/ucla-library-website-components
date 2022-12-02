@@ -1,3 +1,17 @@
+## [2.9.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.4...v2.9.5) (2022-12-02)
+
+
+### Bug Fixes
+
+* APPS-2080 Link title on the bannerFeatured component ([#264](https://github.com/UCLALibrary/ucla-library-website-components/issues/264)) ([7554f7e](https://github.com/UCLALibrary/ucla-library-website-components/commit/7554f7e06faf9753bd23bbdee76d95c18114cc40))
+
+## [2.9.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.3...v2.9.4) (2022-11-30)
+
+
+### Bug Fixes
+
+* Update Amenities on LocationLists ([#262](https://github.com/UCLALibrary/ucla-library-website-components/issues/262)) ([eed2249](https://github.com/UCLALibrary/ucla-library-website-components/commit/eed22495628f59d1045dc00d713be60e4e060cf3))
+
 ## [2.9.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.2...v2.9.3) (2022-11-30)
 
 
