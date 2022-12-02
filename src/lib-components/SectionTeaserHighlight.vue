@@ -51,7 +51,7 @@ export default {
     justify-content: flex-start;
     align-content: flex-start;
     align-items: flex-start;
-    gap: 32px;
+    gap: var(--space-xl) 32px;
 
     .block {
         width: calc((100% - 32px) / 2);
