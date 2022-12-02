@@ -45,9 +45,19 @@
                 v-html="category"
             />
 
-            <smart-link id="banner-featured" v-if="to" :to="to" class="title">
-                {{ title }}
-            </smart-link>
+            <div v-if="titleLink.length > 0">
+                <smart-link
+                    id="banner-featured"
+                    :to="titleLink"
+                    class="title title-linked"
+                >
+                    {{ title }}
+                </smart-link>
+            </div>
+
+            <div v-else>
+                <h3 id="banner-featured" class="title" v-html="title"></h3>
+            </div>
 
             <div class="meta-text">
                 <div class="byline" v-if="bylineArticleExists">
@@ -286,6 +296,10 @@ export default {
         registerEvent: {
             type: Boolean,
             default: false,
+        },
+        titleLink: {
+            type: String,
+            default: "",
         },
     },
     computed: {
@@ -756,7 +770,7 @@ export default {
         }
     }
     // Hover
-    .title:hover {
+    .title-linked:hover {
         @include link-hover;
     }
 }
