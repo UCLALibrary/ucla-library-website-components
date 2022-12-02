@@ -23,7 +23,6 @@ const mock = {
     advancedSearchLink: {
         text: "Advanced Search",
         url: "https://www.library.ucla.edu/search",
-        target: "_blank",
     },
 }
 export const Default = () => ({
