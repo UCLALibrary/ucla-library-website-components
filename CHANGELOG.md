@@ -1,3 +1,17 @@
+# [2.10.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.5...v2.10.0) (2022-12-02)
+
+
+### Features
+
+* updates media gallery, impact carousel, and card spacing for collections ([#265](https://github.com/UCLALibrary/ucla-library-website-components/issues/265)) ([441ee51](https://github.com/UCLALibrary/ucla-library-website-components/commit/441ee5103dc2ff9b2e505b3a2bfc8c2b35be81bd))
+
+## [2.9.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.4...v2.9.5) (2022-12-02)
+
+
+### Bug Fixes
+
+* APPS-2080 Link title on the bannerFeatured component ([#264](https://github.com/UCLALibrary/ucla-library-website-components/issues/264)) ([7554f7e](https://github.com/UCLALibrary/ucla-library-website-components/commit/7554f7e06faf9753bd23bbdee76d95c18114cc40))
+
 ## [2.9.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.3...v2.9.4) (2022-11-30)
 
 

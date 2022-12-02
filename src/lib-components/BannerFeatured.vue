@@ -45,7 +45,10 @@
                 v-html="category"
             />
 
-            <h3 id="banner-featured" class="title" v-html="title"></h3>
+            <smart-link id="banner-featured" v-if="to" :to="to" class="title">
+                {{ title }}
+            </smart-link>
+
             <div class="meta-text">
                 <div class="byline" v-if="bylineArticleExists">
                     <div
@@ -63,6 +66,7 @@
                         {{ byline["articlePostDate"] }}
                     </div>
                 </div>
+
                 <div class="date-created" v-if="dateCreated">
                     <time
                         v-if="dateCreated"
@@ -70,6 +74,7 @@
                         v-html="parsedDateCreated"
                     />
                 </div>
+
                 <div class="byline" v-if="bylineProjectExists">
                     <div
                         v-for="(item, index) in parseByLineProject"
@@ -78,6 +83,7 @@
                         v-html="item.title"
                     ></div>
                 </div>
+
                 <div
                     class="byline"
                     v-if="
@@ -93,6 +99,7 @@
                         v-html="item"
                     ></div>
                 </div>
+
                 <rich-text
                     v-if="description"
                     class="description"
@@ -747,6 +754,10 @@ export default {
                 padding-right: 0;
             }
         }
+    }
+    // Hover
+    .title:hover {
+        @include link-hover;
     }
 }
 </style>
