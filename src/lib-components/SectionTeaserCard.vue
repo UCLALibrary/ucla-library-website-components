@@ -46,7 +46,7 @@ export default {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 32px 16px;
+    gap: var(--space-xl) 16px;
 
     .card {
         width: calc((100% - 32px) / 3);
