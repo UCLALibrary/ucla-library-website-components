@@ -36,14 +36,12 @@
                         :key="link.url"
                         class="link"
                         :href="link.url"
-                        :target="link.target"
                         v-text="link.text"
                     />
                 </div>
                 <div v-if="advancedSearchLink" class="advanced-links">
                     <a
                         :href="advancedSearchLink.url"
-                        :target="advancedSearchLink.target"
                         v-text="advancedSearchLink.text"
                     />
                 </div>

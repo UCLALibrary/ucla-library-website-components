@@ -10,17 +10,14 @@ const mock = {
         {
             text: "Course Reserves",
             url: "https://catalog.library.ucla.edu/vwebv/enterCourseReserve.do",
-            target: "_blank",
         },
         {
             text: "UCLA Research Guides",
             url: "https://guides.library.ucla.edu/",
-            target: "",
         },
         {
             text: "Databases A-Z",
             url: "https://guides.library.ucla.edu/az.php",
-            target: "_blank",
         },
     ],
     advancedSearchLink: {
