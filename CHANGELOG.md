@@ -1,3 +1,10 @@
+## [2.11.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.11.0...v2.11.1) (2022-12-03)
+
+
+### Bug Fixes
+
+* update masthead primary story and add smart-link to search home ([#268](https://github.com/UCLALibrary/ucla-library-website-components/issues/268)) ([ba427c9](https://github.com/UCLALibrary/ucla-library-website-components/commit/ba427c9e72e5736e461b23231bfbaee00af0654e))
+
 # [2.11.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.10.0...v2.11.0) (2022-12-02)
 
 
