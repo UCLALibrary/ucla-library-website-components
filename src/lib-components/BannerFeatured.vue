@@ -310,7 +310,6 @@ export default {
                 `color-${this.sectionName}`,
             ]
         },
-
         isVideo() {
             let fileName = this.image.src.toLowerCase()
             let extension = fileName.split(".").pop()
