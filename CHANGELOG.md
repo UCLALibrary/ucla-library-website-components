@@ -1,3 +1,10 @@
+## [2.11.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.11.1...v2.11.2) (2022-12-05)
+
+
+### Bug Fixes
+
+* bannerFeatured - choose to link to title ([#267](https://github.com/UCLALibrary/ucla-library-website-components/issues/267)) ([0d2b283](https://github.com/UCLALibrary/ucla-library-website-components/commit/0d2b2831b7198b7f2f2a39f1eaa32cf97466f6e9))
+
 ## [2.11.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.11.0...v2.11.1) (2022-12-03)
 
 

@@ -311,3 +311,48 @@ export const WithBlockForm = () => ({
         />
     `,
 })
+
+const mock2 = {
+    image: API.image,
+    to: "/help/foo/bar/",
+    titleLink: "/confections/explore",
+    title: "The Curious Case of the Siamese Cats",
+    category: "Ullamcorper",
+    description:
+        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    breadcrumb: "Lectus",
+    startDate: "1995-12-17T03:24:00",
+    endDate: "1995-12-17T03:24:00",
+    byline: ["Excepteur sint occaecat", "non proident, sunt in culpa qui"],
+    locations: [
+        {
+            id: "523",
+            title: "Powell Library",
+            to: "visit/locations/powell-library",
+        },
+    ],
+    prompt: "Cursus Quis",
+    alignRight: true,
+}
+
+export const LinkedTitle = () => ({
+    data() {
+        return {
+            ...mock2,
+        }
+    },
+    components: { BannerFeatured },
+    template: `
+        <banner-featured
+            :image="image"
+            :to="to"
+            :title="title"
+            :titleLink= "titleLink"
+            :category="category"
+            :breadcrumb="breadcrumb"
+            :byline="byline"
+            :prompt="prompt"
+            :locations="locations"
+        />
+    `,
+})
