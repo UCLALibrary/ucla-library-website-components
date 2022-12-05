@@ -45,7 +45,20 @@
                 v-html="category"
             />
 
-            <h3 id="banner-featured" class="title" v-html="title"></h3>
+            <div v-if="titleLink.length > 0">
+                <smart-link
+                    id="banner-featured"
+                    :to="titleLink"
+                    class="title title-linked"
+                >
+                    {{ title }}
+                </smart-link>
+            </div>
+
+            <div v-else>
+                <h3 id="banner-featured" class="title" v-html="title"></h3>
+            </div>
+
             <div class="meta-text">
                 <div class="byline" v-if="bylineArticleExists">
                     <div
@@ -63,6 +76,7 @@
                         {{ byline["articlePostDate"] }}
                     </div>
                 </div>
+
                 <div class="date-created" v-if="dateCreated">
                     <time
                         v-if="dateCreated"
@@ -70,6 +84,7 @@
                         v-html="parsedDateCreated"
                     />
                 </div>
+
                 <div class="byline" v-if="bylineProjectExists">
                     <div
                         v-for="(item, index) in parseByLineProject"
@@ -78,6 +93,7 @@
                         v-html="item.title"
                     ></div>
                 </div>
+
                 <div
                     class="byline"
                     v-if="
@@ -93,6 +109,7 @@
                         v-html="item"
                     ></div>
                 </div>
+
                 <rich-text
                     v-if="description"
                     class="description"
@@ -280,6 +297,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        titleLink: {
+            type: String,
+            default: "",
+        },
     },
     computed: {
         classes() {
@@ -289,7 +310,6 @@ export default {
                 `color-${this.sectionName}`,
             ]
         },
-
         isVideo() {
             let fileName = this.image.src.toLowerCase()
             let extension = fileName.split(".").pop()
@@ -747,6 +767,10 @@ export default {
                 padding-right: 0;
             }
         }
+    }
+    // Hover
+    .title-linked:hover {
+        @include link-hover;
     }
 }
 </style>

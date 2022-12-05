@@ -126,7 +126,7 @@ export default {
         .impact-numbers-text-container {
             background: white;
             margin-top: -64px;
-            margin-bottom: 8px;
+            margin-bottom: var(--space-m);
             padding-left: 25px;
             position: relative;
             width: 431px;
@@ -217,10 +217,12 @@ export default {
             justify-content: center;
             margin: 12px 0;
         }
-
-        // .glide {
-        //     width: 100%;
-        // }
+        .glide {
+            .impact-numbers-text-container {
+                width: unset;
+                //clip-path: none;
+            }
+        }
 
         [data-glide-el="controls"] button,
         [data-glide-el="controls"] .separator {
