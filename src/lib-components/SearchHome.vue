@@ -31,19 +31,17 @@
 
             <nav v-if="linkItems.length || advancedSearchLink" class="links">
                 <div v-if="linkItems.length" class="regular-links">
-                    <a
+                    <smart-link
                         v-for="link in linkItems"
                         :key="link.url"
                         class="link"
-                        :href="link.url"
-                        :target="link.target"
+                        :to="link.url"
                         v-text="link.text"
                     />
                 </div>
                 <div v-if="advancedSearchLink" class="advanced-links">
-                    <a
-                        :href="advancedSearchLink.url"
-                        :target="advancedSearchLink.target"
+                    <smart-link
+                        :to="advancedSearchLink.url"
                         v-text="advancedSearchLink.text"
                     />
                 </div>
@@ -54,6 +52,7 @@
 
 <script>
 import IconSearch from "ucla-library-design-tokens/assets/svgs/icon-search.svg"
+import SmartLink from "@/lib-components/SmartLink.vue"
 
 const tabs = [
     {
@@ -71,6 +70,7 @@ const tabs = [
 export default {
     components: {
         IconSearch,
+        SmartLink,
     },
     props: {
         /**

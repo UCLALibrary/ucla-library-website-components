@@ -1,3 +1,31 @@
+## [2.11.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.11.2...v2.11.3) (2022-12-06)
+
+
+### Bug Fixes
+
+* apply consistent padding to tablet sized navbreadcrumb ([#270](https://github.com/UCLALibrary/ucla-library-website-components/issues/270)) ([95eadad](https://github.com/UCLALibrary/ucla-library-website-components/commit/95eadad9757549d95b187ab3dcd473828f443eff))
+
+## [2.11.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.11.1...v2.11.2) (2022-12-05)
+
+
+### Bug Fixes
+
+* bannerFeatured - choose to link to title ([#267](https://github.com/UCLALibrary/ucla-library-website-components/issues/267)) ([0d2b283](https://github.com/UCLALibrary/ucla-library-website-components/commit/0d2b2831b7198b7f2f2a39f1eaa32cf97466f6e9))
+
+## [2.11.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.11.0...v2.11.1) (2022-12-03)
+
+
+### Bug Fixes
+
+* update masthead primary story and add smart-link to search home ([#268](https://github.com/UCLALibrary/ucla-library-website-components/issues/268)) ([ba427c9](https://github.com/UCLALibrary/ucla-library-website-components/commit/ba427c9e72e5736e461b23231bfbaee00af0654e))
+
+# [2.11.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.10.0...v2.11.0) (2022-12-02)
+
+
+### Features
+
+* APPS-2043 add checkbox component ([#259](https://github.com/UCLALibrary/ucla-library-website-components/issues/259)) ([2e3dbc4](https://github.com/UCLALibrary/ucla-library-website-components/commit/2e3dbc44c959ab22237608b9518a7fbb5f4d87df))
+
 # [2.10.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.9.5...v2.10.0) (2022-12-02)
 
 
