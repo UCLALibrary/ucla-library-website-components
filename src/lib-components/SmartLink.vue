@@ -11,7 +11,16 @@
         <slot />
     </a>
 
-    <a v-else :href="to" :target="parsedTarget" class="smart-link is-link">
+    <a
+        v-else-if="to"
+        :href="to"
+        :target="parsedTarget"
+        class="smart-link is-link"
+    >
+        <slot />
+    </a>
+
+    <a v-else class="smart-link is-link">
         <slot />
     </a>
 </template>
