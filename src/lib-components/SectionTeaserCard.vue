@@ -14,6 +14,8 @@
             :image-aspect-ratio="60"
             :is-vertical="true"
             :is-online="card.isOnline"
+            :byline-one="card.bylineOne"
+            :byline-two="card.bylineTwo"
         />
     </ul>
 </template>
