@@ -1,3 +1,10 @@
+# [2.12.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.11.3...v2.12.0) (2022-12-06)
+
+
+### Features
+
+* add byline props to SectionTeaserCard ([#271](https://github.com/UCLALibrary/ucla-library-website-components/issues/271)) ([084bf87](https://github.com/UCLALibrary/ucla-library-website-components/commit/084bf87f3fd1f0a7284ff58acde2d503f1f0cb95))
+
 ## [2.11.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.11.2...v2.11.3) (2022-12-06)
 
 
