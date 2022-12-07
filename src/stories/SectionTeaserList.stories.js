@@ -61,6 +61,19 @@ export const Default = () => ({
     template: `
       <section-teaser-list
         :items="items"
+        nItems=4
+      />
+  `,
+})
+
+export const Expandable = () => ({
+    data() {
+        return { items: mock }
+    },
+    components: { SectionTeaserList },
+    template: `
+      <section-teaser-list
+        :items="items"
       />
   `,
 })

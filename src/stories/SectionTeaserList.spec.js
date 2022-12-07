@@ -7,4 +7,16 @@ describe("SECTION / Teaser / List", () => {
 
         cy.percySnapshot("SECTION / Teaser / List: Default")
     })
+
+    it("Expandable", () => {
+        cy.visit(
+            "/iframe.html?id=section-teaser-list--expandable&args=&viewMode=story"
+        )
+        cy.get(".section-teaser-list").should("exist")
+        cy.contains("At varius vel pharetra vel turpis").should(
+            "not.be.visible"
+        )
+        cy.get(".button-toggle").should("be.visible").click()
+        cy.contains("At varius vel pharetra vel turpis").should("be.visible")
+    })
 })
