@@ -62,10 +62,6 @@ export default {
         padding: 0;
     }
 
-    @media #{$medium} {
-        padding: 0 $whitespace-s-sides + px;
-    }
-
     @media #{$small} {
         padding-left: calc(var(--unit-gutter) - 8px);
         .current-page-title {
