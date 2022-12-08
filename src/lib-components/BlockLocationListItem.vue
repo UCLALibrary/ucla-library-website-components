@@ -246,15 +246,19 @@ export default {
     max-width: 928px;
     padding: 48px 64px;
 
-    transition-property: box-shadow;
+   //transition-property: box-shadow;
+    position: relative;
     @include animate-normal;
 
     // Themes
     &.color-ucla {
         --color-theme: var(--color-visit-fushia-02);
+        @include animate-normal;
     }
     &.color-affiliate {
         --color-theme: var(--color-primary-blue-02);
+        @include animate-normal;
+
     }
 
     $large-width: 352px;
@@ -385,6 +389,7 @@ export default {
         color: #fff;
         text-align: center;
         padding: 5px 10px;
+        border-radius: 4px;
 
         /* Position the tooltip text - see examples below! */
         position: absolute;
