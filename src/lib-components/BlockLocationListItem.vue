@@ -479,9 +479,16 @@ export default {
 
     // Hovers
     @media #{$has-hover} {
+        &.color-affiliate:hover {
+            background-color: var(--color-primary-blue-01);
+        }
+        &.color-ucla:hover {
+            background-color: var(--color-visit-fushia-01);
+        }
         &:hover {
             @include card-horizontal-hover;
         }
+
     }
 }
 </style>
