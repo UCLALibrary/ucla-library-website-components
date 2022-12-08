@@ -35,7 +35,6 @@ const mock = [
     },
 ]
 
-// Variations of stories below
 export const Default = () => ({
     data() {
         return { items: mock }
@@ -44,6 +43,19 @@ export const Default = () => ({
     template: `
       <section-spaces-list
         :items="items"
+      />
+  `,
+})
+
+export const Expandable = () => ({
+    data() {
+        return { items: mock }
+    },
+    components: { SectionSpacesList },
+    template: `
+      <section-spaces-list
+        :items="items"
+        nShown="2"
       />
   `,
 })
