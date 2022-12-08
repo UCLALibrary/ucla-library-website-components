@@ -246,7 +246,7 @@ export default {
     max-width: 928px;
     padding: 48px 64px;
 
-   //transition-property: box-shadow;
+    //transition-property: box-shadow;
     position: relative;
     @include animate-normal;
 
@@ -258,7 +258,6 @@ export default {
     &.color-affiliate {
         --color-theme: var(--color-primary-blue-02);
         @include animate-normal;
-
     }
 
     $large-width: 352px;
@@ -488,7 +487,6 @@ export default {
         &:hover {
             @include card-horizontal-hover;
         }
-
     }
 }
 </style>
