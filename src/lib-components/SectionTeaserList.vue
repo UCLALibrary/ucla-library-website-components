@@ -1,34 +1,43 @@
 <template>
     <section class="section-teaser-list">
-        <ul v-for="item in items" :key="item.to" class="meta">
-            <block-highlight
-                :image="item.image"
-                :to="item.to"
-                :category="item.category"
-                :title="item.title"
-                :start-date="item.startDate"
-                :end-date="item.endDate"
-                :text="item.text"
-                :locations="item.locations"
-                class="block"
-            />
-        </ul>
+        <block-show-hide :disable="items.length <= nShown">
+            <ul v-for="(item, index) in items" :key="index" class="meta">
+                <block-highlight
+                    :class="index >= nShown ? 'show-hide-hideable' : null"
+                    :image="item.image"
+                    :to="item.to"
+                    :category="item.category"
+                    :title="item.title"
+                    :start-date="item.startDate"
+                    :end-date="item.endDate"
+                    :text="item.text"
+                    :locations="item.locations"
+                    class="block"
+                />
+            </ul>
+        </block-show-hide>
     </section>
 </template>
 
 <script>
 import BlockHighlight from "@/lib-components/BlockHighlight.vue"
+import BlockShowHide from "@/lib-components/BlockShowHide.vue"
 
 export default {
     name: "SectionTeaserList",
     components: {
         BlockHighlight,
+        BlockShowHide,
     },
     props: {
         items: {
             //Array of objects {image, to, category, title, dates, times, text}
             type: Array,
             default: () => [],
+        },
+        nShown: {
+            type: Number,
+            default: 3,
         },
     },
 }
