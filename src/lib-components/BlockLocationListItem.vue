@@ -389,7 +389,7 @@ export default {
         color: #fff;
         text-align: center;
         padding: 5px 10px;
-        border-radius: 4px;
+        border-radius: var(--rounded-slightly-all);
 
         /* Position the tooltip text - see examples below! */
         position: absolute;
