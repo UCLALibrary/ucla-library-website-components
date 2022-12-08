@@ -1,3 +1,10 @@
+# [2.13.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.12.0...v2.13.0) (2022-12-08)
+
+
+### Features
+
+* ShowHide component ([#272](https://github.com/UCLALibrary/ucla-library-website-components/issues/272)) ([48e909e](https://github.com/UCLALibrary/ucla-library-website-components/commit/48e909e55716a04053265b0974b239605b43d8b4))
+
 # [2.12.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.11.3...v2.12.0) (2022-12-06)
 
 
