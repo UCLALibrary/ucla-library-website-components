@@ -8,7 +8,7 @@
         <div class="container">
             <div class="meta">
                 <h1 class="title" v-html="title" />
-                <div v-if="text" class="text" v-html="text" />
+                <rich-text v-if="text" class="text" v-html="text" />
             </div>
         </div>
     </div>
