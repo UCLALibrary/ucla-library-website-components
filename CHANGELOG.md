@@ -1,3 +1,10 @@
+# [2.15.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.14.0...v2.15.0) (2022-12-09)
+
+
+### Features
+
+* location listing component qa ([#273](https://github.com/UCLALibrary/ucla-library-website-components/issues/273)) ([c8061fc](https://github.com/UCLALibrary/ucla-library-website-components/commit/c8061fc51e782ef415ac5acdd96e73e5d2b87930))
+
 # [2.14.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.13.0...v2.14.0) (2022-12-09)
 
 
