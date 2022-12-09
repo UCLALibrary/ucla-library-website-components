@@ -8,7 +8,6 @@
         <div class="container">
             <div class="meta">
                 <h1 class="title" v-html="title" />
-
                 <rich-text v-if="text" class="text" :rich-text-content="text" />
             </div>
         </div>
@@ -110,7 +109,16 @@ export default {
         .text {
             @include step-0;
             text-shadow: 0px 2px 8px rgba(113, 113, 113, 0.08);
+            margin: 0;
         }
+    }
+    ::v-deep h3,
+    ::v-deep h4,
+    ::v-deep h5,
+    ::v-deep p,
+    ::v-deep li {
+        color: var(--color-white);
+        margin: 0;
     }
 
     // Variants

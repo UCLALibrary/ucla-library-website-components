@@ -36,7 +36,7 @@ export const Default = () => ({
 const mock2 = {
     title: "Find and Reserve a Space",
     summary:
-        "<p>Schedule a research consultation, chat with a librarian, email us, and find tutorials & workshops to support your research journey.</p>",
+        "<p>Schedule a research consultation, chat with a librarian, email us, and find tutorials & workshops to support your research journey.</p> <h3>Learn how to</h3><ul><li>Find the Cafeteria</li><li>Create a Study Group</li><li>Navigate the Libraries</li></ul>",
 }
 
 export const LongText = () => ({
@@ -58,7 +58,7 @@ export const NoSearch = () => ({
     template: `
         <masthead-secondary
             title="Find and Reserve a Space"
-            text="<p>Browse on-campusspaces for study, meetings, and group projects.</p>
+            text="<p>Browse on-campus spaces for study, meetings, and group projects.</p>
         "/>
     `,
 })
@@ -78,7 +78,7 @@ export const MeapTheme = () => ({
     components: { MastheadSecondary },
     data: () => ({
         heroImage: {
-            src: "https://meap.library.ucla.edu/sites/default/files/featured/meap-homepage-header.jpg",
+            src: "https://static.library.ucla.edu/craftassetsprod/MEAP/MEAP-images/_2560xAUTO_crop_center-center_none/meap-homepage-header.jpeg",
             sizes: "100vw",
             alt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             title: "Lorem ipsum",
@@ -86,11 +86,14 @@ export const MeapTheme = () => ({
             height: 338,
             width: 1440,
         },
+        title: "Modern Endangered Archives Program",
+        summary:
+            "<p>Our grants enable digitization and access to at-risk cultural heritage collections from around the world. Explore our projects and learn more about the available grant opportunities.</p>",
     }),
     template: `
         <masthead-secondary
-            title="Modern Endangered Archives Program"
-            text="Our grants enable digitization and access to at-risk cultural heritage collections from around the world. Explore our projects and learn more about the available grant opportunities."
+            :title="title"
+            :text="summary"
             theme="meap"
             :hero-image="heroImage"
         />
