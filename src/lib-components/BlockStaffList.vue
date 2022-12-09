@@ -219,6 +219,7 @@ export default {
 
         &:hover {
             @include card-horizontal-hover;
+            border-color: var(--color-about-purple-01);
         }
     }
 
