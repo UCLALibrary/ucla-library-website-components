@@ -1,11 +1,13 @@
 <template>
-    <div class="banner-image" @click="$emit('toggleThumbnails')">
+    <div :class="classes">
         <MediaItem
             :item="item"
             :embed-code="embedCode"
             :cover-image="coverImage"
             :aspect-ratio="60"
             object-fit="cover"
+            class="media-item"
+            @click.native="$emit('toggleThumbnails')"
         >
             <div v-if="nItems > 1 && !expanded">
                 <div class="gradient" />
@@ -36,6 +38,12 @@
                 </svg>
             </media-badge>
         </MediaItem>
+        <div v-if="isHalfWidth" class="text-wrapper">
+            <h3 class="title">{{ title }}</h3>
+            <p class="summary">
+                {{ summary }}
+            </p>
+        </div>
     </div>
 </template>
 f5rtfdrc
@@ -73,13 +81,32 @@ export default {
             type: Boolean,
             required: true,
         },
+        isHalfWidth: {
+            type: Boolean,
+        },
+        title: {
+            type: String,
+            default: "",
+        },
+        summary: {
+            type: String,
+            default: "",
+        },
+    },
+    computed: {
+        classes() {
+            return [
+                "banner-image",
+                this.isHalfWidth ? "half-width-media-item" : "",
+            ]
+        },
     },
 }
 </script>
 
 <style lang="scss" scoped>
 .banner-image {
-    cursor: pointer;
+    // cursor: pointer;
 
     .gradient {
         display: none;
@@ -90,6 +117,7 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
+        cursor: pointer;
     }
 
     .svg__molecule-image-stack {
@@ -116,9 +144,42 @@ export default {
     }
 }
 
+.half-width-media-item {
+    display: flex;
+    flex-direction: row;
+    gap: 120px;
+
+    .media-item {
+        width: 456px;
+        height: 456px;
+        cursor: pointer;
+    }
+
+    .text-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 352px;
+
+        .title {
+            @include step-3;
+            color: var(--color-primary-blue-03);
+            margin-bottom: 16px;
+            text-align: left;
+            width: 100%;
+        }
+        .summary {
+            align-items: center;
+            text-align: left;
+            width: 100%;
+        }
+    }
+}
+
 // Hovers
 @media #{$has-hover} {
-    .banner-image:hover {
+    .media-item:hover {
         .gradient {
             display: block;
         }
