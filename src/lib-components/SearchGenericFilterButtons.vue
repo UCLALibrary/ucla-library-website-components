@@ -12,16 +12,30 @@
                 <svg-icon-caret-down class="caret-down-svg" />
             </div>
         </button>
+
+        <single-checkbox
+            @input-selected="doUpdate"
+            v-if="isSingleCheckBox"
+            :label="getLabel"
+            :selected.sync="selectedFilter"
+        />
     </div>
 </template>
 
 <script>
 import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
+import SingleCheckbox from "./SingleCheckbox.vue"
 
 export default {
     name: "SearchGenericFilterButtons",
     components: {
         SvgIconCaretDown,
+        SingleCheckbox,
+    },
+    data() {
+        return {
+            selectedFilter: false,
+        }
     },
     props: {
         items: {
@@ -34,18 +48,37 @@ export default {
         },
     },
     computed: {
+        isSingleCheckBox() {
+            let isSingleCheckBox = false
+            this.items.map((obj) => {
+                console.log("in issingle checkbox for loop")
+                if (obj.inputType === "single-checkbox") isSingleCheckBox = true
+            })
+            return isSingleCheckBox
+        },
+        getLabel() {
+            let label = ""
+            this.items.map((obj) => {
+                if (obj.inputType === "single-checkbox") label = obj.label
+            })
+            return label
+        },
         parsedItems() {
-            return this.items.map((obj, index) => {
-                let btnClass = "button"
-                if (this.activeIndex == index) {
-                    btnClass = "button is-active"
-                }
-
-                return {
-                    ...obj,
-                    class: btnClass,
+            let parsedItems = []
+            this.items.map((obj, index) => {
+                if (obj.inputType !== "single-checkbox") {
+                    console.log(obj.label)
+                    let btnClass = "button"
+                    if (this.activeIndex == index) {
+                        btnClass = "button is-active"
+                    }
+                    parsedItems.push({
+                        ...obj,
+                        class: btnClass,
+                    })
                 }
             })
+            return parsedItems
         },
     },
     methods: {
@@ -55,6 +88,10 @@ export default {
             } else {
                 this.$emit("update:activeIndex", index)
             }
+        },
+        doUpdate() {
+            this.$emit("update:selected", this.selectedFilter)
+            this.$emit("single-checkbox-selected")
         },
     },
 }

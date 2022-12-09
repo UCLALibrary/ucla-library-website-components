@@ -1,11 +1,11 @@
 // Storybook default settings
-import BlockDropdownCheckbox from "@/lib-components/BlockDropdownCheckbox"
+import SingleCheckbox from "@/lib-components/SingleCheckbox"
 import StoryRouter from "storybook-vue-router"
 
 // Storybook default settings
 export default {
-    title: "BLOCK / Dropdown Checkbox",
-    component: BlockDropdownCheckbox,
+    title: "SEARCH / Single Checkbox",
+    component: SingleCheckbox,
     decorators: [StoryRouter()],
 }
 
@@ -13,9 +13,9 @@ export const Default = () => ({
     data() {
         return {}
     },
-    components: { BlockDropdownCheckbox },
+    components: { SingleCheckbox },
     template: `
-        <block-dropdown-checkbox
+        <single-checkbox
         />
     `,
 })

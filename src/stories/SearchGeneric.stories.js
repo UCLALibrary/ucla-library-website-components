@@ -66,6 +66,11 @@ export const Default = () => ({
                     inputType: "checkbox",
                     items: items,
                 },
+                {
+                    label: "AcademicDepartment",
+                    esFieldName: "academicDepartments.title.keyword",
+                    inputType: "single-checkbox",
+                },
             ],
             /* views: [
                 {
