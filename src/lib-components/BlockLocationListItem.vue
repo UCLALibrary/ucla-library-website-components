@@ -2,10 +2,9 @@
     <div :class="classes">
         <div class="card-container">
             <smart-link class="image-container" :to="to">
-                <responsive-image v-if="image" class="image" :image="image" />
-                <div v-else class="placeholder-container">
-                    <div class="image" />
-                    <div class="affiliate" />
+                <responsive-image v-if="imageExists" class="image" :image="image" />
+                <div v-else class="molecule-no-image">
+                    <molecule-placeholder class="molecule" aria-hidden="true" />
                 </div>
             </smart-link>
 
@@ -66,6 +65,8 @@
 import IconWithLink from "@/lib-components/IconWithLink"
 import SmartLink from "@/lib-components/SmartLink"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
+import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
+
 
 export default {
     name: "BlockLocationListItem",
@@ -73,10 +74,11 @@ export default {
         IconWithLink,
         SmartLink,
         ResponsiveImage,
-        SvgMoleculePlaceholder: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
-            ).then((d) => d.default),
+        MoleculePlaceholder,
+        // SvgMoleculePlaceholder: () =>
+        //     import(
+        //         "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
+        //     ).then((d) => d.default),
         SvgIconPhone: () =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-phone.svg"
@@ -214,6 +216,9 @@ export default {
                 return this.libcalHoursData.status
             }
         },
+        imageExists() {
+            return this.image && Object.keys(this.image) != 0 ? true : false
+        },
     },
     methods: {
         fetchLibcalHours() {
@@ -243,8 +248,8 @@ export default {
     border-radius: var(--rounded-slightly-all);
 
     width: 100%;
-    max-width: 928px;
-    padding: 48px 64px;
+    max-width: $container-l-main + px;
+    padding: var(--space-xl);
 
     //transition-property: box-shadow;
     position: relative;
@@ -252,23 +257,23 @@ export default {
 
     // Themes
     &.color-ucla {
-        --color-theme: var(--color-visit-fushia-02);
+        --color-theme: var(--color-primary-blue-01);
         @include animate-normal;
     }
     &.color-affiliate {
-        --color-theme: var(--color-primary-blue-02);
+        --color-theme: var(--color-primary-blue-01);
         @include animate-normal;
     }
 
-    $large-width: 352px;
-    $large-height: 352px;
+    $large-width: 272px;
+    $large-height: 272px;
 
     .card-container {
         display: flex;
         flex-direction: row;
         align-items: center;
         width: 100%;
-        max-width: 800px;
+        max-width: $container-l-text + px;
 
         .image-container {
             width: $large-width;
@@ -283,8 +288,8 @@ export default {
         }
 
         .image {
-            width: 100%;
-            height: 100%;
+            width: $large-width;
+            height: $large-height;
             background: var(--gradient-01);
         }
 
@@ -296,6 +301,11 @@ export default {
             position: absolute;
             top: 0;
             left: 0;
+        }
+        .molecule-no-image {
+            height: 272px;
+            background: var(--gradient-01);
+            overflow: hidden;
         }
 
         .library {
@@ -478,14 +488,15 @@ export default {
 
     // Hovers
     @media #{$has-hover} {
-        &.color-affiliate:hover {
-            background-color: var(--color-primary-blue-01);
-        }
-        &.color-ucla:hover {
-            background-color: var(--color-visit-fushia-01);
-        }
+        // &.color-affiliate:hover {
+        //     background-color: var(--color-primary-blue-01);
+        // }
+        // &.color-ucla:hover {
+        //     background-color: var(--color-visit-fushia-01);
+        // }
         &:hover {
             @include card-horizontal-hover;
+            border-color: var(--color-visit-fushia-02);
         }
     }
 }
