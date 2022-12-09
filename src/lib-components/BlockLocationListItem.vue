@@ -437,6 +437,10 @@ export default {
             width: 100%;
             max-width: 592px;
 
+        .amenities {
+            @include visually-hidden;
+        }
+
             .image-container {
                 width: $medium-width;
                 height: $medium-height;
