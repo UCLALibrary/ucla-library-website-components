@@ -26,8 +26,11 @@
         <div v-if="filters.length > 0" class="container">
             <search-generic-filter-buttons
                 :items="filters"
+                :single-checkbox-selected="selectedFilters"
                 :active-index.sync="openedFilterIndex"
                 class="search-generic-filter-buttons"
+                :selected.sync="parseSingleChexboxSelection"
+                @single-checkbox-selected="doSearch"
             />
         </div>
 
@@ -108,6 +111,26 @@ export default {
     },
     // The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for
     computed: {
+        parseSingleChexboxSelection: {
+            set(selectedFilter) {
+                let esfieldName = ""
+                this.filters.map((obj) => {
+                    console.log("in issingle checkbox for loop")
+                    if (obj.inputType === "single-checkbox")
+                        esfieldName = obj.esFieldName
+                })
+                this.selectedFilters[esfieldName] = selectedFilter
+            },
+            get() {
+                let esfieldName = ""
+                this.filters.map((obj) => {
+                    console.log("in issingle checkbox for loop")
+                    if (obj.inputType === "single-checkbox")
+                        esfieldName = obj.esFieldName
+                })
+                return this.selectedFilters[esfieldName]
+            },
+        },
         parsedFilters() {
             console.log(JSON.stringify(this.selectedFilters))
             return this.filters.map((obj) => {

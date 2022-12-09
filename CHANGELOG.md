@@ -1,3 +1,17 @@
+# [2.16.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.15.0...v2.16.0) (2022-12-09)
+
+
+### Features
+
+* APPS-2044 Add SinglCheckbox component for staff subject areas on search generic component ([#275](https://github.com/UCLALibrary/ucla-library-website-components/issues/275)) ([0dd8f12](https://github.com/UCLALibrary/ucla-library-website-components/commit/0dd8f122c02b035c6665b915a032a9cd9c63af33))
+
+# [2.15.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.14.0...v2.15.0) (2022-12-09)
+
+
+### Features
+
+* location listing component qa ([#273](https://github.com/UCLALibrary/ucla-library-website-components/issues/273)) ([c8061fc](https://github.com/UCLALibrary/ucla-library-website-components/commit/c8061fc51e782ef415ac5acdd96e73e5d2b87930))
+
 # [2.14.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.13.0...v2.14.0) (2022-12-09)
 
 
