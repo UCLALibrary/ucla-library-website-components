@@ -2,7 +2,11 @@
     <div :class="classes">
         <div class="card-container">
             <smart-link class="image-container" :to="to">
-                <responsive-image v-if="imageExists" class="image" :image="image" />
+                <responsive-image
+                    v-if="imageExists"
+                    class="image"
+                    :image="image"
+                />
                 <div v-else class="molecule-no-image">
                     <molecule-placeholder class="molecule" aria-hidden="true" />
                 </div>
@@ -66,7 +70,6 @@ import IconWithLink from "@/lib-components/IconWithLink"
 import SmartLink from "@/lib-components/SmartLink"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
 import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
-
 
 export default {
     name: "BlockLocationListItem",
@@ -437,9 +440,9 @@ export default {
             width: 100%;
             max-width: 592px;
 
-        .amenities {
-            @include visually-hidden;
-        }
+            .amenities {
+                @include visually-hidden;
+            }
 
             .image-container {
                 width: $medium-width;
