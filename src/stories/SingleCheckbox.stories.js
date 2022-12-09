@@ -4,7 +4,7 @@ import StoryRouter from "storybook-vue-router"
 
 // Storybook default settings
 export default {
-    title: "SEARCH / Single Checkbox",
+    title: "SEARCH / SingleCheckbox",
     component: SingleCheckbox,
     decorators: [StoryRouter()],
 }
