@@ -1,3 +1,10 @@
+# [2.14.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.13.0...v2.14.0) (2022-12-09)
+
+
+### Features
+
+* APPS-1881 use rich-text in masthead component ([#274](https://github.com/UCLALibrary/ucla-library-website-components/issues/274)) ([12782d9](https://github.com/UCLALibrary/ucla-library-website-components/commit/12782d9bde1f060b26e4972f38def90a7eff1c65))
+
 # [2.13.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.12.0...v2.13.0) (2022-12-08)
 
 
