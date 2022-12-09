@@ -8,7 +8,7 @@
         <div class="container">
             <div class="meta">
                 <h1 class="title" v-html="title" />
-                <div v-if="text" class="text" v-html="text" />
+                <rich-text v-if="text" class="text" :rich-text-content="text" />
             </div>
         </div>
     </div>
@@ -16,9 +16,14 @@
 
 <script>
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
+import RichText from "@/lib-components/RichText"
 import _isEmpty from "lodash/isEmpty"
 
 export default {
+    components: {
+        ResponsiveImage,
+        RichText,
+    },
     props: {
         hasMolecules: {
             type: Boolean,
@@ -40,9 +45,6 @@ export default {
             type: Object,
             default: () => ({}),
         },
-    },
-    components: {
-        ResponsiveImage,
     },
     computed: {
         classes() {
@@ -107,7 +109,16 @@ export default {
         .text {
             @include step-0;
             text-shadow: 0px 2px 8px rgba(113, 113, 113, 0.08);
+            margin: 0;
         }
+    }
+    ::v-deep h3,
+    ::v-deep h4,
+    ::v-deep h5,
+    ::v-deep p,
+    ::v-deep li {
+        color: var(--color-white);
+        margin: 0;
     }
 
     // Variants
