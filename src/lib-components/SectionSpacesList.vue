@@ -1,35 +1,49 @@
 <template>
     <div class="section-spaces">
         <h3 id="spaces" class="spaces-title">Spaces</h3>
-        <ul class="section-spaces-list">
-            <block-spaces
-                v-for="(item, index) in items"
-                :key="`BlockSpace${index}`"
-                :to="item.to"
-                :title="item.title"
-                :is-online="item.isOnline"
-                :location="item.location"
-                :text="item.text"
-                :button-text="item.buttonText"
-                :button-url="item.buttonUrl"
-                class="block"
-            />
-        </ul>
+        <block-show-hide :disable="items.length <= nShown">
+            <ul class="section-spaces-list">
+                <block-spaces
+                    v-for="(item, index) in items"
+                    :class="index >= nShown ? 'show-hide-hideable' : null"
+                    :key="`BlockSpace${index}`"
+                    :to="item.to"
+                    :title="item.title"
+                    :is-online="item.isOnline"
+                    :location="item.location"
+                    :text="item.text"
+                    :button-text="item.buttonText"
+                    :button-url="item.buttonUrl"
+                    class="block"
+                />
+            </ul>
+        </block-show-hide>
     </div>
 </template>
 
 <script>
+import BlockShowHide from "@/lib-components/BlockShowHide.vue"
 import BlockSpaces from "@/lib-components/BlockSpaces.vue"
 
 export default {
     name: "SectionSpacesList",
     components: {
+        BlockShowHide,
         BlockSpaces,
+    },
+    data() {
+        return {
+            collapsed: true,
+        }
     },
     props: {
         items: {
             type: Array,
             default: () => [],
+        },
+        nShown: {
+            type: Number,
+            default: 4,
         },
     },
 }
