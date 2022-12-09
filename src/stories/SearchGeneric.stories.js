@@ -67,8 +67,8 @@ export const Default = () => ({
                     items: items,
                 },
                 {
-                    label: "AcademicDepartment",
-                    esFieldName: "academicDepartments.title.keyword",
+                    label: "Subject Liabrarian",
+                    esFieldName: "subjectLibrarian.keyword",
                     inputType: "single-checkbox",
                 },
             ],
@@ -121,6 +121,62 @@ export const RouterQuery = () => ({
                     esFieldName: "departments.title.keyword",
                     inputType: "checkbox",
                     items: items,
+                },
+            ],
+            /* views: [
+                {
+                    slug: "list",
+                    iconName: "icon-list",
+                    title: "List",
+                },
+                {
+                    slug: "card",
+                    iconName: "icon-card",
+                    title: "Card",
+                },
+                {
+                    slug: "calendar",
+                    iconName: "icon-calendar",
+                    title: "Calendar",
+                },
+            ],*/
+        }
+    },
+    components: { SearchGeneric },
+    template: `
+        <search-generic
+            :filters="filters"
+            :search-generic-query="routerQueryData"
+        />
+    `,
+})
+export const RouterQueryWithSinglCheckBoxSelected = () => ({
+    data() {
+        return {
+            routerQueryData: {
+                queryText: "suzy lee",
+                queryFilters: {
+                    "subjectLibrarian.keyword": "yes",
+                    "departments.title.keyword": ["Neque porro quisquam"],
+                },
+            },
+            filters: [
+                {
+                    label: "Location",
+                    esFieldName: "location",
+                    inputType: "radio",
+                    items: items,
+                },
+                {
+                    label: "Department",
+                    esFieldName: "departments.title.keyword",
+                    inputType: "checkbox",
+                    items: items,
+                },
+                {
+                    label: "Subject Liabrarian",
+                    esFieldName: "subjectLibrarian.keyword",
+                    inputType: "single-checkbox",
                 },
             ],
             /* views: [

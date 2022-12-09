@@ -17,6 +17,8 @@
             @input-selected="doUpdate"
             v-if="isSingleCheckBox"
             :label="getLabel"
+            :querySelection="selectedFilter"
+            value="yes"
             :selected.sync="selectedFilter"
         />
     </div>
@@ -34,7 +36,7 @@ export default {
     },
     data() {
         return {
-            selectedFilter: false,
+            selectedFilter: "",
         }
     },
     props: {
@@ -45,6 +47,10 @@ export default {
         activeIndex: {
             type: Number,
             default: -1,
+        },
+        singleCheckboxSelected: {
+            type: Object,
+            default: () => {},
         },
     },
     computed: {
@@ -64,6 +70,10 @@ export default {
             return label
         },
         parsedItems() {
+            console.log(
+                "what is singlecheckbox selection from query:" +
+                    JSON.stringify(this.singleCheckboxSelected)
+            )
             let parsedItems = []
             this.items.map((obj, index) => {
                 if (obj.inputType !== "single-checkbox") {
@@ -76,6 +86,11 @@ export default {
                         ...obj,
                         class: btnClass,
                     })
+                } else {
+                    console.log(this.singleCheckboxSelected[obj.esFieldName])
+                    this.selectedFilter =
+                        this.singleCheckboxSelected[obj.esFieldName]
+                    console.log(this.selectedFilter)
                 }
             })
             return parsedItems

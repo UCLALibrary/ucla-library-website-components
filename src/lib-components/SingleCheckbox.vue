@@ -5,8 +5,10 @@
             <input
                 type="checkbox"
                 class="input"
-                v-model="parsedSelected"
-                @change="onChange(true)"
+                v-model="parseSelected"
+                :true-value="value"
+                :value="value"
+                @change="onChange(value)"
             />
 
             <!-- TODO create a checkbox SVG for this -->
@@ -23,31 +25,67 @@ export default {
     name: "SingleCheckbox",
     data() {
         return {
-            parsedSelected: false,
+            isSelected: "",
         }
     },
     components: {
         SvgIconCheckbox,
     },
+    watch: {
+        selected: {
+            handler(newVal) {
+                console.log(
+                    "what is the new value of singlecheckobox in watch handler:" +
+                        newVal
+                )
+                this.isSelected = newVal
+            },
+        },
+    },
     props: {
+        value: {
+            type: String,
+            default: "",
+        },
         label: {
             type: String,
             default: "[LABEL]",
         },
+        querySelection: {
+            type: String,
+            default: "",
+        },
         selected: {
-            type: Boolean,
-            default: false,
+            type: String,
+            default: "",
         },
     },
+    mounted() {
+        console.log("In mounted:" + this.isSelected)
+    },
     computed: {
+        parseSelected: {
+            get() {
+                return this.isSelected == this.querySelection
+                    ? this.isSelected
+                    : this.querySelection
+            },
+            set(value) {
+                this.isSelected = value
+            },
+        },
         labelClass() {
-            return ["label", this.isSelected ? "checked" : ""]
+            console.log("In labelClass:" + this.isSelected)
+            return ["label", this.isSelected === "yes" ? "checked" : ""]
         },
     },
     methods: {
         onChange(value) {
-            console.log("checkbox updates: " + this.parsedSelected)
-            this.$emit("update:selected", this.parsedSelected)
+            console.log("checkbox updates: " + this.isSelected)
+            this.$emit(
+                "update:selected",
+                !this.isSelected ? "" : this.isSelected
+            )
             this.$emit("input-selected")
         },
     },

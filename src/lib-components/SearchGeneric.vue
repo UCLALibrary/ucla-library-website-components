@@ -26,6 +26,7 @@
         <div v-if="filters.length > 0" class="container">
             <search-generic-filter-buttons
                 :items="filters"
+                :single-checkbox-selected="selectedFilters"
                 :active-index.sync="openedFilterIndex"
                 class="search-generic-filter-buttons"
                 :selected.sync="parseSingleChexboxSelection"
