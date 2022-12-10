@@ -1,5 +1,5 @@
 <template>
-    <div class="button-more">
+    <smart-link :to="to" class="button-more">
         <div class="icon" aria-hidden="true">
             <molecule-stroke class="molecule-stroke" />
             <arrow-right class="arrow-right" />
@@ -8,23 +8,29 @@
         <div class="text">
             {{ text }}
         </div>
-    </div>
+    </smart-link>
 </template>
 
 <script>
 import ArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
 import MoleculeStroke from "ucla-library-design-tokens/assets/svgs/molecule-stroke.svg"
+import SmartLink from "@/lib-components/SmartLink.vue"
 
 export default {
     name: "ButtonMore",
     components: {
         ArrowRight,
         MoleculeStroke,
+        SmartLink,
     },
     props: {
         text: {
             type: String,
             default: "See More",
+        },
+        to: {
+            type: String,
+            default: "",
         },
     },
 }
