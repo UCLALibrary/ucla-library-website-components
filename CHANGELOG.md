@@ -1,3 +1,10 @@
+## [2.17.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.17.0...v2.17.1) (2022-12-10)
+
+
+### Bug Fixes
+
+* update masthead text color to white ([#276](https://github.com/UCLALibrary/ucla-library-website-components/issues/276)) ([ded750e](https://github.com/UCLALibrary/ucla-library-website-components/commit/ded750ef2b81d3d9c79ab61684cb5efac6982c56))
+
 # [2.17.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.16.0...v2.17.0) (2022-12-09)
 
 
