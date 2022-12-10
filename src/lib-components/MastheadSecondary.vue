@@ -83,6 +83,11 @@ export default {
             object-fit: cover;
         }
     }
+    .rich-text {
+        ::v-deep p {
+            color: var(--color-white);
+        }
+    }
 
     .container {
         max-width: $container-l-cta + px;
