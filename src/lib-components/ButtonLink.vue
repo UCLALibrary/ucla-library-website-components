@@ -7,6 +7,10 @@
     >
         <span class="label">{{ label }}</span>
         <component :is="parsedIconName" class="arrow" aria-hidden="true" />
+        <div class="hover">
+            <span class="label">{{ label }}</span>
+            <component :is="parsedIconName" class="arrow" aria-hidden="true" />
+        </div>
     </smart-link>
 </template>
 
@@ -14,27 +18,37 @@
 // Helper functions
 import isInternalLink from "@/mixins/isInternalLink"
 import SmartLink from "@/lib-components/SmartLink.vue"
-import SvgArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
-import SvgExternalLink from "ucla-library-design-tokens/assets/svgs/icon-external-link.svg"
-import SvgArrowDownload from "ucla-library-design-tokens/assets/svgs/icon-download.svg"
 
 export default {
     name: "ButtonLink",
     mixins: [isInternalLink],
     components: {
         SmartLink,
-        SvgArrowRight,
-        SvgExternalLink,
-        SvgArrowDownload,
+        SvgArrowRight: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
+            ).then((d) => d.default),
+        SvgExternalLink: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-external-link.svg"
+            ).then((d) => d.default),
+        SvgArrowDownload: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-download.svg"
+            ).then((d) => d.default),
+        IconClose: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-close.svg"
+            ).then((d) => d.default),
     },
     props: {
-        /**
-         * Determines what text the button should have.
-         */
         to: {
             type: String,
             default: "",
         },
+        /**
+         * Determines what text the button should have.
+         */
         label: {
             type: String,
             default: "",
@@ -58,6 +72,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        isQuaternary: {
+            type: Boolean,
+            default: false,
+        },
         isDownload: {
             type: Boolean,
             default: false,
@@ -74,6 +92,7 @@ export default {
                 {
                     "is-secondary": this.isSecondary,
                     "is-tertiary": this.isTertiary,
+                    "is-quaternary": this.isQuaternary,
                 },
             ]
         },
@@ -88,6 +107,8 @@ export default {
                 output = "svg-arrow-right"
             } else if (this.iconName == "none") {
                 output = ""
+            } else if (this.iconName) {
+                output = this.iconName
             } else output = "svg-external-link"
             return output
         },
@@ -97,6 +118,69 @@ export default {
 
 <style lang="scss" scoped>
 .button-link {
+    --button-background-color: #{$white};
+    --button-text-color: #{$black};
+    --button-icon-color: #{$default-cyan-03};
+    --button-icon-bolder-color: #{$primary-blue-03};
+    --button-border-color: #{$primary-blue-02};
+
+    .hover {
+        --button-background-color: #{$primary-blue-03};
+        --button-text-color: #{$white};
+        --button-icon-color: #{$white};
+        --button-icon-bolder-color: #{$white};
+        --button-border-color: #{$primary-blue-03};
+    }
+
+    &.is-secondary {
+        --button-background-color: #{$primary-blue-03};
+        --button-text-color: #{$white};
+        --button-icon-color: #{$white};
+        --button-icon-bolder-color: #{$white};
+        --button-border-color: #{$primary-blue-03};
+
+        .hover {
+            --button-background-color: #{$white};
+            --button-text-color: #{$black};
+            --button-icon-color: #{$default-cyan-03};
+            --button-icon-bolder-color: #{$primary-blue-03};
+            --button-border-color: #{$primary-blue-02};
+        }
+    }
+
+    &.is-tertiary {
+        --button-background-color: #{$primary-blue-03};
+        --button-text-color: #{$white};
+        --button-icon-color: #{$white};
+        --button-icon-bolder-color: #{$white};
+        --button-border-color: #{$default-cyan-02};
+
+        .hover {
+            --button-background-color: #{$primary-blue-03};
+            --button-text-color: #{$white};
+            --button-icon-color: #{$white};
+            --button-icon-bolder-color: #{$white};
+            --button-border-color: #{$white};
+        }
+    }
+
+    &.is-quaternary {
+        --button-background-color: #{$secondary-grey-01};
+        --button-text-color: #{$black};
+        --button-icon-color: #{$black};
+        --button-icon-bolder-color: #{$black};
+        --button-border-color: #{$secondary-grey-01};
+
+        .hover {
+            --button-background-color: #{$white};
+            --button-text-color: #{$black};
+            --button-icon-color: #{$black};
+            --button-icon-bolder-color: #{$black};
+            --button-border-color: #{$secondary-grey-01};
+        }
+    }
+
+    // General Styling
     box-sizing: border-box;
     position: relative;
     @include button;
@@ -106,47 +190,59 @@ export default {
     align-items: center;
     justify-content: center;
     gap: 4px;
-    border: 1.5px solid var(--color-primary-blue-02);
-    color: var(--color-black);
-    background-color: var(--color-white);
-    --button-background-slide: var(--color-primary-blue-03);
-    transition-property: all;
-    @include animate-normal;
+    border: 1.5px solid var(--button-border-color);
+    color: var(--button-text-color);
+    background-color: var(--button-background-color);
     overflow: hidden;
     z-index: 0;
+
+    .hover {
+        position: absolute;
+        inset: 0 0 0 0;
+        clip-path: inset(0% 100% 0% 0%);
+
+        transition-property: clip-path;
+        @include animate-normal;
+
+        @include button;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        color: var(--button-text-color);
+        background-color: var(--button-background-color);
+        overflow: hidden;
+        z-index: 0;
+    }
 
     .label {
         white-space: nowrap;
     }
 
-    &::before {
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color: var(--button-background-slide);
-        position: absolute;
-        top: 0;
-        left: -100%;
-        transition-property: all;
-        @include animate-normal;
-        z-index: -10;
-    }
-
     ::v-deep .arrow {
         flex-shrink: 0;
-    }
 
-    ::v-deep .arrow .svg__stroke--primary-blue-03 {
-        stroke: var(--color-default-cyan-03);
+        .svg__stroke--primary-blue-03,
+        .svg__stroke--default-cyan-03 {
+            stroke: var(--button-icon-color);
+        }
+
+        &.svg__icon-close {
+            circle {
+                stroke: transparent;
+                fill: transparent;
+            }
+        }
     }
 
     ::v-deep .svg__icon-external-link,
     ::v-deep .svg__icon-download {
-        .svg__stroke--primary-blue-03 {
-            stroke: var(--color-primary-blue-03);
+        .svg__stroke--primary-blue-03,
+        .svg__stroke--default-cyan-03 {
+            stroke: var(--button-icon-bolder-color);
         }
         .svg__fill--primary-blue-03 {
-            fill: var(--color-primary-blue-03);
+            fill: var(--button-icon-bolder-color);
             stroke: transparent;
         }
     }
@@ -155,106 +251,16 @@ export default {
         padding-left: 8px;
     }
 
-    &.is-secondary {
-        background-color: var(--color-primary-blue-03);
-        --button-background-slide: var(--color-white);
-        border-color: var(--color-primary-blue-03);
-        color: var(--color-white);
-
-        ::v-deep .arrow .svg__stroke--primary-blue-03 {
-            stroke: var(--color-white);
-        }
-        ::v-deep .svg__icon-external-link,
-        ::v-deep .svg__icon-download {
-            .svg__stroke--primary-blue-03 {
-                stroke: var(--color-white);
-            }
-            .svg__fill--primary-blue-03 {
-                fill: var(--color-white);
-                stroke: transparent;
-            }
-        }
-    }
-
-    &.is-tertiary {
-        background: var(--color-primary-blue-03);
-        border-color: var(--color-default-cyan-02);
-        color: var(--color-white);
-
-        ::v-deep .arrow .svg__stroke--primary-blue-03 {
-            stroke: var(--color-white);
-        }
-        ::v-deep .svg__icon-external-link,
-        ::v-deep .svg__icon-download {
-            .svg__stroke--primary-blue-03 {
-                stroke: var(--color-white);
-            }
-            .svg__fill--primary-blue-03 {
-                fill: var(--color-white);
-                stroke: transparent;
-            }
-        }
-    }
-
-    // Hover states
     @media #{$has-hover} {
         &:hover,
         &:focus,
         &:focus-visible {
-            border-color: var(--color-primary-blue-03);
-            color: var(--color-white);
-            cursor: pointer;
-
-            &::before {
-                left: 0;
+            .hover {
+                clip-path: inset(0% 0% 0% 0%);
             }
-
-            ::v-deep .arrow .svg__stroke--primary-blue-03 {
-                stroke: var(--color-white);
-            }
-
-            ::v-deep .svg__icon-external-link,
-            ::v-deep .svg__icon-download {
-                .svg__stroke--primary-blue-03 {
-                    stroke: var(--color-white);
-                }
-                .svg__fill--primary-blue-03 {
-                    fill: var(--color-white);
-                    stroke: transparent;
-                }
-            }
-
-            &.is-secondary {
-                border-color: var(--color-primary-blue-02);
-                color: var(--color-black);
-
-                ::v-deep .arrow .svg__stroke--primary-blue-03 {
-                    stroke: var(--color-default-cyan-03);
-                }
-                ::v-deep .svg__icon-external-link,
-                ::v-deep .svg__icon-download {
-                    .svg__stroke--primary-blue-03 {
-                        stroke: var(--color-primary-blue-03);
-                    }
-                    .svg__fill--primary-blue-03 {
-                        fill: var(--color-primary-blue-03);
-                        stroke: transparent;
-                    }
-                }
-            }
-
-            &.is-tertiary {
-                border-color: var(--color-white);
-                background: var(--color-primary-blue-03);
-            }
-        }
-
-        &:focus,
-        &:focus-visible {
-            outline: none;
-            border-radius: 0;
         }
     }
+
     // Breakpoints
     @media #{$medium} {
         padding: 4px 16px;
