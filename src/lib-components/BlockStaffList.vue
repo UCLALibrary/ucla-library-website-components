@@ -13,7 +13,14 @@
         <div class="meta">
             <div class="name-title">
                 <h3 class="staff-name">
-                    <smart-link :to="to" v-html="staffName" />
+                    <smart-link :to="to">
+                        {{ staffName }}
+                        <span
+                            v-if="alternativeFullName"
+                            :lang="language"
+                            v-html="alternativeFullName"
+                        />
+                    </smart-link>
                 </h3>
                 <div class="job-title" v-html="jobTitle" />
                 <ul v-if="departments.length" class="departments">
@@ -73,6 +80,10 @@ export default {
             default: () => {},
         },
         staffName: {
+            type: String,
+            default: "",
+        },
+        alternativeFullName: {
             type: String,
             default: "",
         },

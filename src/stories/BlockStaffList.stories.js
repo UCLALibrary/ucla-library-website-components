@@ -66,6 +66,25 @@ export const Default = () => ({
   `,
 })
 
+export const AlternativeName = () => ({
+    data() {
+        return {
+            item: {
+                ...mock,
+                image: API.image_people,
+                alternativeFullName: "生懸命",
+            },
+        }
+    },
+    components: { BlockStaffList },
+    template: `
+      <block-staff-list
+        v-bind="item"
+        phone="(222) 444-5555"
+      />
+  `,
+})
+
 export const NoImage = () => ({
     data() {
         return {
