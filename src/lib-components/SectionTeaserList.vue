@@ -59,7 +59,8 @@ export default {
 
         border-bottom: 2px dotted var(--color-secondary-grey-02);
 
-        &:last-child {
+        // TODO fix border so that it doesn't appear when show-hide is collapsed
+        &:nth-child(n+4) {
             border: 0;
         }
     }
