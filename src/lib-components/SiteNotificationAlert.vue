@@ -1,11 +1,11 @@
 <template>
-    <section :class="classes">
-        <div class="alert" @click="toggleAlert()">
+    <section :class="classes" role="alert">
+        <button class="alert" @click="toggleAlert()">
             <div class="alert-box-icon">
                 <svg-alert-circle class="svg-alert-circle" />
             </div>
             <div class="alert-text" v-html="title" />
-        </div>
+        </button>
 
         <div class="message">
             <div class="message-text" v-html="text" />
@@ -155,7 +155,6 @@ export default {
 
         .button-dismiss {
             margin: 0 24px 24px;
-            padding: 13px 32px;
             width: min-content;
         }
     }

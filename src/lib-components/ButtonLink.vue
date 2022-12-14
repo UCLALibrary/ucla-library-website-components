@@ -237,8 +237,7 @@ export default {
 
     ::v-deep .svg__icon-external-link,
     ::v-deep .svg__icon-download {
-        .svg__stroke--primary-blue-03,
-        .svg__stroke--default-cyan-03 {
+        .svg__stroke--primary-blue-03 {
             stroke: var(--button-icon-bolder-color);
         }
         .svg__fill--primary-blue-03 {
@@ -255,6 +254,7 @@ export default {
         &:hover,
         &:focus,
         &:focus-visible {
+            cursor: hover;
             .hover {
                 clip-path: inset(0% 0% 0% 0%);
             }
