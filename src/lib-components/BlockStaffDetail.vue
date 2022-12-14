@@ -318,8 +318,8 @@ export default {
     .department {
         line-height: $line-height--1;
 
-        border-right: 1px solid var(--color-secondary-grey-02);
-        padding: 0 var(--space-xs);
+        // border-right: 1px solid var(--color-secondary-grey-02);
+        // padding: 0 var(--space-xs);
 
         &:first-child {
             padding-left: 0;
