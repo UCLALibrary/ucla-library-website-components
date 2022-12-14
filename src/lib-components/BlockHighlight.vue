@@ -1,26 +1,27 @@
 <template>
     <li :class="classes">
-        <div class="floating-highlight" />
-        <div v-if="!isVertical" class="clipped-date">
-            <time v-if="startDate" class="month" v-html="parsedDateMonth" />
-            <time v-if="startDate" class="day" v-html="parsedDateDay" />
-        </div>
-        <responsive-image
-            v-if="image"
-            :image="image"
-            :aspect-ratio="imageAspectRatio"
-            :object-fit="cover"
-            class="image"
-        />
-        <div v-else class="molecule-no-image">
-            <molecule-placeholder class="molecule" aria-hidden="true" />
-        </div>
+        <div class="image-container">
+            <div v-if="!isVertical && startDate" class="floating-highlight" />
+            <div v-if="!isVertical && startDate" class="clipped-date">
+                <time v-if="startDate" class="month" v-html="parsedDateMonth" />
+                <time v-if="startDate" class="day" v-html="parsedDateDay" />
+            </div>
+            <responsive-image
+                v-if="image"
+                :image="image"
+                :aspect-ratio="imageAspectRatio"
+                :object-fit="cover"
+                class="image"
+            />
+            <div v-else class="molecule-no-image">
+                <molecule-placeholder class="molecule" aria-hidden="true" />
+            </div>
 
-        <div v-if="hasTriangle" class="clipped">
-            <div class="floating-highlight" />
-            <div class="clipped-box" />
+            <div v-if="hasTriangle" class="clipped">
+                <div class="floating-highlight" />
+                <div class="clipped-box" />
+            </div>
         </div>
-
         <div class="meta">
             <div v-if="category" class="category" v-html="category" />
             <smart-link
@@ -60,34 +61,13 @@
             </div>
 
             <div v-if="locations.length" class="location-group">
-                <div
-                    class="location-link"
+                <icon-with-link
                     v-for="(location, index) in parsedLocations"
                     :key="`location-${index}`"
-                >
-                    <smart-link
-                        v-if="location.to"
-                        :to="`/${location.to}`"
-                        class="location-link"
-                    >
-                        <component :is="location.svg" class="location-svg" />
-                        <span class="location" v-html="location.title" />
-                    </smart-link>
-                    <div
-                        class="location-text"
-                        v-if="!location.to && !location.id"
-                    >
-                        <component :is="location.svg" class="location-svg" />
-                        <div v-html="locations[0]" class="location" />
-                    </div>
-                    <div
-                        class="location-text"
-                        v-if="!location.to && location.id"
-                    >
-                        <component :is="location.svg" class="location-svg" />
-                        <div v-html="locations[0].title" class="location" />
-                    </div>
-                </div>
+                    :text="location.title"
+                    :icon-name="location.svg"
+                    :to="`/${location.to}`"
+                />
             </div>
             <!-- changing p tag to div fixes nodemismatch errors -->
             <div v-if="text" class="text" v-html="text" />
@@ -99,6 +79,7 @@
 // Components
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
+import IconWithLink from "@/lib-components/IconWithLink.vue"
 import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
 
 // Utility functions
@@ -111,15 +92,8 @@ import getSectionName from "@/mixins/getSectionName"
 export default {
     name: "BlockHighlight",
     components: {
-        SvgIconOnline: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-virtual.svg"
-            ).then((d) => d.default),
-        SvgIconLocation: () =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/icon-location.svg"
-            ).then((d) => d.default),
         SmartLink,
+        IconWithLink,
         ResponsiveImage,
         MoleculePlaceholder,
     },
@@ -227,7 +201,7 @@ export default {
         parsedLocations() {
             return this.locations.map((obj) => {
                 let input = "svg-icon-location"
-                if (obj.title == "Online") input = "svg-icon-online"
+                if (obj.title == "Online") input = "svg-icon-virtual"
                 return {
                     ...obj,
                     svg: input,
@@ -318,10 +292,13 @@ export default {
         margin: var(--space-s) 0;
         line-height: $line-height--1;
     }
+    // .title:has(+ .date-time) {
+    //     margin-bottom: $component-02 + px;
+    // }
     .date-time {
         @include step-0;
         color: var(--color-secondary-grey-05);
-        margin: var(--space-s) 0;
+        margin: $component-02 + px 0 var(--space-s);
         display: flex;
         flex-direction: column;
         .svg-online {
@@ -339,36 +316,41 @@ export default {
         margin: var(--space-s) 0;
     }
     .molecule-no-image {
-        width: 50%;
+        width: 100%;
         height: 272px;
         margin-right: var(--space-xl);
         background: var(--gradient-01);
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .molecule {
+            flex-shrink: 0;
+            position: absolute;
+            opacity: 0.7;
+        }
     }
     .text {
         @include step-0;
         color: var(--color-black);
         @include truncate(4);
         margin-top: var(--space-s);
+
+        ::v-deep strong {
+            font-weight: normal;
+        }
     }
     .location-group {
         color: var(--color-primary-blue-03);
         font-family: var(--font-secondary);
-        font-size: 20px;
         line-height: 1;
         margin-bottom: var(--space-s);
-    }
-    .location-link,
-    .location-text {
         display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: center;
-        align-items: center;
-        margin-bottom: 8px;
+        flex-direction: column;
     }
-    .location-link {
+    .icon-with-link {
+        position: relative;
         z-index: 20;
     }
     // Variations
@@ -403,11 +385,36 @@ export default {
         }
     }
     &:not(&.is-vertical) {
-        max-width: 990px;
+        // flex-wrap: nowrap;
+        // justify-content: flex-start;
+        // align-content: center;
+        // align-items: center;
+        width: 100%;
+        // max-width: $container-l-main + px;
+        // gap: $component-09 + px;
+
+        .image-container {
+            width: 50%;
+            max-height: 272px;
+            flex-shrink: 0;
+            margin-right: var(--space-xl);
+
+            .image {
+                width: 100%;
+            }
+        }
         .meta {
-            max-width: 412px;
+            max-width: calc(50% - var(--space-xl));
             padding-bottom: 16px;
             overflow: hidden;
+
+            > *:last-child {
+                margin-bottom: 0;
+            }
+
+            .category {
+                margin-top: 0;
+            }
         }
         .floating-highlight {
             z-index: 30;
@@ -462,6 +469,7 @@ export default {
                 line-height: 1;
             }
         }
+
         ::v-deep .image {
             width: 456px;
             max-height: 272px;
@@ -499,16 +507,22 @@ export default {
             }
         }
         &:not(&.is-vertical) {
-            padding-left: 5px;
-            padding-right: 5px;
-            display: flex;
             flex-direction: column;
-            flex-wrap: nowrap;
-            .floating-highlight {
-                display: none;
-            }
+            padding-left: 0;
+            padding-right: 0;
+            .floating-highlight,
             .clipped-date {
                 display: none;
+            }
+
+            .image-container,
+            .meta {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .image-container {
+                margin-bottom: var(--space-l);
             }
         }
         &.is-vertical.has-triangle .meta {
@@ -528,12 +542,12 @@ export default {
     }
     @media #{$small} {
         &:not(&.is-vertical) {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            max-height: 550px;
-            padding-left: 5px;
-            padding-right: 5px;
+            // display: flex;
+            // flex-direction: column;
+            // flex-wrap: nowrap;
+            // max-height: 550px;
+            // padding-left: 5px;
+            // padding-right: 5px;
             .image {
                 max-width: 100%;
             }

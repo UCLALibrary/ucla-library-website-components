@@ -604,18 +604,18 @@ export default {
     .category {
         @include overline;
         color: var(--color-primary-blue-05);
-        margin-bottom: var(--space-m);
+        margin-bottom: var(--space-s);
     }
     .title {
         @include step-2;
         color: var(--color-primary-blue-03);
-        margin-bottom: var(--space-m);
+        margin-bottom: var(--space-s);
     }
     .byline,
     .description,
     .schedule {
         @include step-0;
-        margin-bottom: var(--space-m);
+        margin-bottom: var(--space-s);
     }
     .date-created {
         margin: var(--space-s) 0;
