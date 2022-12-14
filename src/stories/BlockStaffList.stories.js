@@ -73,6 +73,7 @@ export const AlternativeName = () => ({
                 ...mock,
                 image: API.image_people,
                 alternativeFullName: "生懸命",
+                language: "ja",
             },
         }
     },
