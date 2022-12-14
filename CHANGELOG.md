@@ -1,3 +1,10 @@
+# [2.18.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.17.1...v2.18.0) (2022-12-14)
+
+
+### Features
+
+* APPS-2087 include lang attribute in block staff list detail ([#279](https://github.com/UCLALibrary/ucla-library-website-components/issues/279)) ([032436e](https://github.com/UCLALibrary/ucla-library-website-components/commit/032436edad3b20865436da3ce5cc9b8713a9ffea))
+
 ## [2.17.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.17.0...v2.17.1) (2022-12-10)
 
 

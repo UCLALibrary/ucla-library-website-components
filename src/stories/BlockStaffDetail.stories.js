@@ -34,7 +34,7 @@ const mock = {
     // image: API.image_people,
     to: "about/staff/id/",
     staffName: "Ada Lovelace",
-    jobTitle: "Librateria",
+    jobTitle: "Library Supervisor",
     locations: [
         { title: "Powellarium", to: "/location/bar" },
         { title: "Research Library (Charles E. Young)", to: "/location/baz" },
@@ -54,7 +54,9 @@ const mock2 = {
     // image: API.image_people,
     to: "/staff/id/",
     staffName: "Ada Lovelace",
-    jobTitle: "Librateria",
+    alternativeFullName: "生懸命",
+    language: "ja",
+    jobTitle: "Library Supervisor",
     locations: [
         { title: "Powellarium", to: "/location/bar" },
         { title: "Research Library (Charles E. Young)", to: "/location/baz" },
@@ -68,7 +70,21 @@ const mock3 = {
     // image: API.image_people,
     to: "/staff/id/",
     staffName: "Ada Lovelace",
-    jobTitle: "Librateria",
+    jobTitle: "Library Supervisor",
+    locations: [
+        { title: "Powellarium", to: "/location/bar" },
+        { title: "Research Library (Charles E. Young)", to: "/location/baz" },
+    ],
+    email: "ada@somewhere.com",
+    phone: "555-555-5555",
+    departments: ["DIIT", "Other Departments"],
+}
+
+const mock4 = {
+    // image: API.image_people,
+    to: "/staff/id/",
+    staffName: "Ada Lovelace",
+    jobTitle: "Library Supervisor",
     locations: [
         { title: "Powellarium", to: "/location/bar" },
         { title: "Research Library (Charles E. Young)", to: "/location/baz" },
@@ -104,6 +120,23 @@ export const Default = () => ({
   `,
 })
 
+export const AlternativeName = () => ({
+    data() {
+        return {
+            item: {
+                ...mock2,
+                image: API.image_people,
+            },
+        }
+    },
+    components: { BlockStaffDetail },
+    template: `
+    <block-staff-detail
+        v-bind="item"
+    />
+  `,
+})
+
 export const NoImage = () => ({
     data() {
         return {
@@ -124,7 +157,7 @@ export const NoImageOrBio = () => ({
     data() {
         return {
             item: {
-                ...mock2,
+                ...mock3,
             },
         }
     },
@@ -141,7 +174,7 @@ export const AskMeAboutAndAcademicDeaprtments = () => ({
     data() {
         return {
             item: {
-                ...mock3,
+                ...mock4,
             },
         }
     },
