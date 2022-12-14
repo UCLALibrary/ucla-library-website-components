@@ -17,6 +17,7 @@ export default {
 const mock = [
     {
         to: "/staff/foo",
+        image: API.image_people,
         jobTitle: "Ullamco",
         staffName: "Fames ac turpis",
         department: "Inceptos Himenaeos",
@@ -34,22 +35,22 @@ const mock = [
         phone: "(222) 444-5555",
     },
     {
-        to: "/staff/foo",
-        jobTitle: "Ullamco",
-        staffName: "Fames ac turpis",
-        department: "Inceptos Himenaeos",
-        email: "loreum@ipsum.foo",
+        image: API.image_people,
+        to: "/staff/id/",
+        staffName: "Ada Lovelace",
+        alternativeFullName: "生懸命",
+        language: "ja",
+        jobTitle: "Library Supervisor",
         locations: [
+            { title: "Powellarium", to: "/location/bar" },
             {
-                title: "cupidatat non proident",
-                to: "/location/bar",
-            },
-            {
-                title: "tristique",
+                title: "Research Library (Charles E. Young)",
                 to: "/location/baz",
             },
         ],
-        phone: "(222) 444-5555",
+        email: "ada@somewhere.com",
+        phone: "555-555-5555",
+        departments: ["DIIT", "Other Departments"],
     },
     {
         to: "/staff/foo",
@@ -57,6 +58,8 @@ const mock = [
         staffName: "Fames ac turpis",
         department: "Inceptos Himenaeos",
         email: "loreum@ipsum.foo",
+        alternativeFullName: "生懸命",
+        language: "ja",
         locations: [
             {
                 title: "cupidatat non proident",
@@ -74,6 +77,8 @@ const mock = [
         image: API.image,
         jobTitle: "Ullamco",
         staffName: "Fames ac turpis",
+        alternativeFullName: "生懸命",
+        language: "ja",
         department: "Inceptos Himenaeos",
         email: "loreum@ipsum.foo",
         locations: [
