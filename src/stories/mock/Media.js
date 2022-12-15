@@ -113,8 +113,8 @@ export const Gallery = {
     id: "46450",
     typeHandle: "mediaGallery",
     sectionTitle: "Media Gallery with all types",
-    sectionSummary:
-        "<p>Trying a Media Gallery with all the media types now</p>",
+    richTextSimplified:
+        "<p>RichTextSimplified Trying a Media Gallery with all the media types now</p>",
     mediaGallery: [
         {
             id: "46451",
