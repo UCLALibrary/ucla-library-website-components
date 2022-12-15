@@ -459,6 +459,7 @@ export default {
                 font-family: var(--font-primary);
                 font-size: 36px;
                 letter-spacing: 0.25%;
+                line-height: 1;
             }
         }
         ::v-deep .image {
