@@ -18,6 +18,8 @@
             :expanded="expandThumbnails"
             @toggleThumbnails="toggleThumbnails"
             :isHalfWidth="block.isHalfWidth"
+            :title="block.title"
+            :summary="block.summary"
         />
         <div v-if="expandThumbnails" class="thumbnails">
             <flexible-media-gallery-thumbnail-card

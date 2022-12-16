@@ -17,7 +17,14 @@ export const Default = () => ({
 
 export const WithHalfWidth = () => ({
     data() {
-        return { block: { ...API.Gallery, isHalfWidth: "true" } }
+        return {
+            block: {
+                ...API.Gallery,
+                isHalfWidth: "true",
+                title: "Title",
+                summary: "Summary description",
+            },
+        }
     },
     components: { FlexibleMediaGallery },
     template: `<flexible-media-gallery :block="block"/>`,

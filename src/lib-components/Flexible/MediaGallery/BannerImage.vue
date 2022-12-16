@@ -150,8 +150,8 @@ export default {
     gap: 120px;
 
     .media-item {
-        width: 456px;
-        height: 456px;
+        min-width: 456px;
+        min-height: 456px;
         cursor: pointer;
     }
 
