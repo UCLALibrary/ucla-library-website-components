@@ -17,13 +17,16 @@
                 @submit.prevent="doSearch"
             >
                 <div class="input-container">
-                    <icon-search class="icon" />
                     <input
                         v-model="searchWords"
                         type="text"
                         class="input-search"
-                        placeholder="Search by keyword"
+                        placeholder="Search Articles, books, and more"
                     />
+
+                    <button class="button-submit">
+                    <icon-search class="icon" />
+                </button>
                 </div>
             </form>
 
@@ -56,12 +59,12 @@ import SmartLink from "@/lib-components/SmartLink.vue"
 
 const tabs = [
     {
-        title: "Search the Library Site",
+        title: "Library Website",
         actionURL: "/search-site",
         queryParam: "q",
     },
     {
-        title: "Search Materials",
+        title: "UC Library Search Catalog",
         actionURL: "https://www.google.com/search",
         queryParam: "q",
     },
@@ -177,15 +180,38 @@ export default {
     }
 
     .input-container {
-        position: relative;
-    }
+        display: flex;
+        background-color: var(--color-primary-blue-01);
+        border-color: transparent;
+        .icon {
+            &:hover {
+                ::v-deep .svg__fill--primary-blue-03 {
+                    fill: var(--color-default-cyan-03);
+                }
+            }
+        }
+        input {
+            font-family: var(--font-primary);
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 100%;
+            letter-spacing: 0.01em;
+            background-color: var(--color-primary-blue-01);
+            border-color: transparent;
+            padding: 24px;
+            width: 100%;
 
-    .icon {
-        padding: 25px 40px 25px 32px;
-        position: absolute;
-        z-index: 10;
-        height: 27px;
-        width: auto;
+            &::placeholder {
+                text-transform: uppercase;
+                font-family: var(--font-primary);
+            }
+        }
+        .button-submit {
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
     }
 
     .input-search {
