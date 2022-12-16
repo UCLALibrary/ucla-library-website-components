@@ -10,7 +10,9 @@
             <section-wrapper
                 :theme="block.theme"
                 :section-title="block.sectionTitle"
-                :section-summary="block.sectionSummary"
+                :section-summary="
+                    block.sectionSummary || block.richTextSimplified
+                "
             >
                 <component
                     :is="block.componentName"
