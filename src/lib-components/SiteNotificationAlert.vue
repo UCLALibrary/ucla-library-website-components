@@ -131,6 +131,7 @@ export default {
         flex-direction: column;
         align-items: flex-end;
 
+        background-color: #{$white};
         box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.04),
             0px 6px 32px rgba(0, 0, 0, 0.08);
         border-radius: var(--rounded-slightly-all);
