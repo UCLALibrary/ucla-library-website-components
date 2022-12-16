@@ -10,9 +10,9 @@ export default {
         iconName: {
             type: "select",
             options: [
-                "icon-arrow-right",
-                "icon-download",
-                "icon-external-link",
+                "svg-arrow-right",
+                "svg-arrow-download",
+                "svg-external-link",
                 "icon-close",
             ],
         },

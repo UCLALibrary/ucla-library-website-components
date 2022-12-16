@@ -120,30 +120,34 @@ export default {
 .button-link {
     --button-background-color: #{$white};
     --button-text-color: #{$black};
-    --button-icon-color: #{$default-cyan-03};
-    --button-icon-bolder-color: #{$primary-blue-03};
+    --button-icon-single-color: #{$default-cyan-03};
+    --button-icon-withaccent-color: #{$primary-blue-03};
+    --button-icon-accent-color: #{$default-cyan-03};
     --button-border-color: #{$primary-blue-02};
 
     .hover {
         --button-background-color: #{$primary-blue-03};
         --button-text-color: #{$white};
-        --button-icon-color: #{$white};
-        --button-icon-bolder-color: #{$white};
+        --button-icon-single-color: #{$white};
+        --button-icon-withaccent-color: #{$white};
+        --button-icon-accent-color: #{$default-cyan-03};
         --button-border-color: #{$primary-blue-03};
     }
 
     &.is-secondary {
         --button-background-color: #{$primary-blue-03};
         --button-text-color: #{$white};
-        --button-icon-color: #{$white};
-        --button-icon-bolder-color: #{$white};
+        --button-icon-single-color: #{$white};
+        --button-icon-withaccent-color: #{$white};
+        --button-icon-accent-color: #{$default-cyan-03};
         --button-border-color: #{$primary-blue-03};
 
         .hover {
             --button-background-color: #{$white};
             --button-text-color: #{$black};
-            --button-icon-color: #{$default-cyan-03};
-            --button-icon-bolder-color: #{$primary-blue-03};
+            --button-icon-single-color: #{$default-cyan-03};
+            --button-icon-withaccent-color: #{$primary-blue-03};
+            --button-icon-accent-color: #{$default-cyan-03};
             --button-border-color: #{$primary-blue-02};
         }
     }
@@ -151,15 +155,17 @@ export default {
     &.is-tertiary {
         --button-background-color: #{$primary-blue-03};
         --button-text-color: #{$white};
-        --button-icon-color: #{$white};
-        --button-icon-bolder-color: #{$white};
+        --button-icon-single-color: #{$white};
+        --button-icon-withaccent-color: #{$white};
+        --button-icon-accent-color: #{$white};
         --button-border-color: #{$default-cyan-02};
 
         .hover {
             --button-background-color: #{$primary-blue-03};
             --button-text-color: #{$white};
-            --button-icon-color: #{$white};
-            --button-icon-bolder-color: #{$white};
+            --button-icon-single-color: #{$white};
+            --button-icon-withaccent-color: #{$white};
+            --button-icon-accent-color: #{$white};
             --button-border-color: #{$white};
         }
     }
@@ -167,15 +173,17 @@ export default {
     &.is-quaternary {
         --button-background-color: #{$secondary-grey-01};
         --button-text-color: #{$black};
-        --button-icon-color: #{$black};
-        --button-icon-bolder-color: #{$black};
+        --button-icon-single-color: #{$black};
+        --button-icon-withaccent-color: #{$black};
+        --button-icon-accent-color: #{$black};
         --button-border-color: #{$secondary-grey-01};
 
         .hover {
             --button-background-color: #{$white};
             --button-text-color: #{$black};
-            --button-icon-color: #{$black};
-            --button-icon-bolder-color: #{$black};
+            --button-icon-single-color: #{$black};
+            --button-icon-withaccent-color: #{$black};
+            --button-icon-accent-color: #{$black};
             --button-border-color: #{$secondary-grey-01};
         }
     }
@@ -224,7 +232,7 @@ export default {
 
         .svg__stroke--primary-blue-03,
         .svg__stroke--default-cyan-03 {
-            stroke: var(--button-icon-color);
+            stroke: var(--button-icon-single-color);
         }
 
         &.svg__icon-close {
@@ -238,10 +246,13 @@ export default {
     ::v-deep .svg__icon-external-link,
     ::v-deep .svg__icon-download {
         .svg__stroke--primary-blue-03 {
-            stroke: var(--button-icon-bolder-color);
+            stroke: var(--button-icon-withaccent-color);
+        }
+        .svg__stroke--default-cyan-03 {
+            stroke: var(--button-icon-accent-color);
         }
         .svg__fill--primary-blue-03 {
-            fill: var(--button-icon-bolder-color);
+            fill: var(--button-icon-withaccent-color);
             stroke: transparent;
         }
     }
