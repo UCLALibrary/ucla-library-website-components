@@ -333,4 +333,17 @@ export default {
     transition-property: opacity, max-height;
     transition-timing-function: ease-in-out;
 }
+@media #{$small} {
+    .search-generic-filter-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .search-generic {
+        .filter-group {
+
+            margin-top: 8px;
+            z-index: 100;
+        }
+    }
+}
 </style>

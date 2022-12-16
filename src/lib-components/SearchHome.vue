@@ -21,7 +21,7 @@
                         v-model="searchWords"
                         type="text"
                         class="input-search"
-                        placeholder="Search Articles, books, and more"
+                        placeholder="Search articles, books, and more"
                     />
 
                     <button class="button-submit">
@@ -265,20 +265,19 @@ export default {
     // Breakpoints
     @media #{$small} {
         .tabs {
-            font-size: 13px;
+            font-size: 14px;
         }
         .box {
             padding: 18px 24px;
         }
         .input-container {
-            .icon {
-                height: 21px;
-                padding: 18px 24px 18px 18px;
-                width: 22px;
-            }
             .input-search {
-                font-size: 15px;
-                padding: 20px 60px;
+                font-size: 16px;
+                padding: 20px 0 20px 12px;
+            }
+            .button-submit {
+                padding-right: 12px;
+                padding-left: 0;
             }
         }
         .links {
