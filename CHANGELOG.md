@@ -1,3 +1,17 @@
+## [2.19.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.19.0...v2.19.1) (2022-12-16)
+
+
+### Bug Fixes
+
+* APPS-2108 Update sectionSummary in BlockMediaGalleryExtraFieldsFragment query ([#281](https://github.com/UCLALibrary/ucla-library-website-components/issues/281)) ([947339a](https://github.com/UCLALibrary/ucla-library-website-components/commit/947339a3f0076d1ece176eccbdf29c32c5bb46a5))
+
+# [2.19.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.18.0...v2.19.0) (2022-12-14)
+
+
+### Features
+
+* location detail component QA ([#278](https://github.com/UCLALibrary/ucla-library-website-components/issues/278)) ([62a3db6](https://github.com/UCLALibrary/ucla-library-website-components/commit/62a3db61a771ad6f3cadcf10c8f4067bc880f09b))
+
 # [2.18.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.17.1...v2.18.0) (2022-12-14)
 
 
