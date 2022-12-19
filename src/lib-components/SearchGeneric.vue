@@ -24,42 +24,42 @@
                 </button>
             </div>
         </form>
-        <div>
-            <div v-if="filters.length > 0" class="container">
-                <search-generic-filter-buttons
-                    :items="filters"
-                    :single-checkbox-selected="selectedFilters"
-                    :active-index.sync="openedFilterIndex"
-                    class="search-generic-filter-buttons"
-                    :selected.sync="parseSingleChexboxSelection"
-                    @single-checkbox-selected="doSearch"
-                />
-            </div>
 
-            <!-- This loops through avaible filter groups -->
-            <transition
-                name="slide-toggle"
-                mode="out-in"
-                :key="group.esFieldName"
-                v-for="(group, index) in parsedFilters"
-            >
-                <component
-                    :is="group.componentName"
-                    v-if="index == openedFilterIndex"
-                    :items="group.items"
-                    :selected.sync="selectedFilters[group.esFieldName]"
-                    class="filter-group"
-                    @input-selected="doSearch"
-                />
-            </transition>
+        <div v-if="filters.length > 0" class="container">
+            <search-generic-filter-buttons
+                v-click-outside="hide"
+                :items="filters"
+                :single-checkbox-selected="selectedFilters"
+                :active-index.sync="openedFilterIndex"
+                class="search-generic-filter-buttons"
+                :selected.sync="parseSingleChexboxSelection"
+                @single-checkbox-selected="doSearch"
+            />
         </div>
+
+        <!-- This loops through avaible filter groups -->
+        <transition
+            name="slide-toggle"
+            mode="out-in"
+            :key="group.esFieldName"
+            v-for="(group, index) in parsedFilters"
+        >
+            <component
+                :is="group.componentName"
+                v-if="index == openedFilterIndex"
+                :items="group.items"
+                :selected.sync="selectedFilters[group.esFieldName]"
+                class="filter-group"
+                @input-selected="doSearch"
+            />
+        </transition>
+
         <section-remove-search-filter
             :filters="selectedFilters"
             class="section-remove-container"
             :selected.sync="parseSelection"
             @remove-selected="doSearch"
         />
-        <!--  -->
     </div>
 </template>
 
@@ -72,6 +72,7 @@ import BaseCheckboxGroup from "./BaseCheckboxGroup.vue"
 import SectionRemoveSearchFilter from "./SectionRemoveSearchFilter.vue"
 // import BaseCalendarGroup from "./BaseCalendarGroup.vue"
 
+import ClickOutside from "vue-click-outside"
 export default {
     name: "SearchGeneric",
     components: {
@@ -81,6 +82,7 @@ export default {
         BaseRadioGroup,
         BaseCheckboxGroup,
         SectionRemoveSearchFilter,
+
         // BaseCalendarGroup,
     },
 
@@ -117,6 +119,7 @@ export default {
             openedFilterIndex: -1,
             isViewOpened: false,
             selectedView: "list",
+            opened: false,
         }
     },
     // The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for
@@ -216,7 +219,20 @@ export default {
                 filterObj.inputType == "radio" ? "" : []
         }
     },*/
+
+    mounted() {
+        // prevent click outside event with popupItem.
+        this.popupItem = this.$el
+    },
+
+    // do not forget this section
+    directives: {
+        ClickOutside,
+    },
     methods: {
+        hide() {
+            this.openedFilterIndex = -1
+        },
         doSearch() {
             console.log("dosearch called")
             console.log(
