@@ -1,12 +1,12 @@
 <template>
-    <div :class="classes">
+    <span :class="classes">
         <a>
             {{ title }}
         </a>
         <button type="button" @click="closeBlockFilter()">
             <svg-glyph-close class="svg-glyph-close" />
         </button>
-    </div>
+    </span>
 </template>
 
 <script>
@@ -47,7 +47,12 @@ export default {
             return ["block-remove-search-filter", `color-${this.sectionName}`]
         },
         sectionName() {
-            return this.color || this.getSectionName(this.$route.path)
+            return (
+                this.color ||
+                (this.$route
+                    ? this.getSectionName(this.$route.path)
+                    : "color-default")
+            )
         },
     },
     methods: {

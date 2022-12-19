@@ -10,6 +10,7 @@
         {{ searchGenericQuery }}
         <h4>filters for the page</h4>
         {{ filters }}-->
+
         <form name="searchHome" @submit.prevent="doSearch">
             <div class="input-container">
                 <input
@@ -23,33 +24,42 @@
                 </button>
             </div>
         </form>
-        <div v-if="filters.length > 0" class="container">
-            <search-generic-filter-buttons
-                :items="filters"
-                :single-checkbox-selected="selectedFilters"
-                :active-index.sync="openedFilterIndex"
-                class="search-generic-filter-buttons"
-                :selected.sync="parseSingleChexboxSelection"
-                @single-checkbox-selected="doSearch"
-            />
+        <div>
+            <div v-if="filters.length > 0" class="container">
+                <search-generic-filter-buttons
+                    :items="filters"
+                    :single-checkbox-selected="selectedFilters"
+                    :active-index.sync="openedFilterIndex"
+                    class="search-generic-filter-buttons"
+                    :selected.sync="parseSingleChexboxSelection"
+                    @single-checkbox-selected="doSearch"
+                />
+            </div>
+
+            <!-- This loops through avaible filter groups -->
+            <transition
+                name="slide-toggle"
+                mode="out-in"
+                :key="group.esFieldName"
+                v-for="(group, index) in parsedFilters"
+            >
+                <component
+                    :is="group.componentName"
+                    v-if="index == openedFilterIndex"
+                    :items="group.items"
+                    :selected.sync="selectedFilters[group.esFieldName]"
+                    class="filter-group"
+                    @input-selected="doSearch"
+                />
+            </transition>
         </div>
-        <section-remove-search-filter />
-        <!-- This loops through avaible filter groups -->
-        <transition
-            name="slide-toggle"
-            mode="out-in"
-            :key="group.esFieldName"
-            v-for="(group, index) in parsedFilters"
-        >
-            <component
-                :is="group.componentName"
-                v-if="index == openedFilterIndex"
-                :items="group.items"
-                :selected.sync="selectedFilters[group.esFieldName]"
-                class="filter-group"
-                @input-selected="doSearch"
-            />
-        </transition>
+        <section-remove-search-filter
+            :filters="selectedFilters"
+            class="section-remove-container"
+            :selected.sync="parseSelection"
+            @remove-selected="doSearch"
+        />
+        <!--  -->
     </div>
 </template>
 
@@ -70,11 +80,11 @@ export default {
         SearchGenericViewModes,
         BaseRadioGroup,
         BaseCheckboxGroup,
+        SectionRemoveSearchFilter,
         // BaseCalendarGroup,
     },
 
-    props,
-    SectionRemoveSearchFilter: {
+    props: {
         filters: {
             type: Array, // array of objects that contain the filter objects
             default: () => [],
@@ -129,6 +139,14 @@ export default {
                         esfieldName = obj.esFieldName
                 })
                 return this.selectedFilters[esfieldName]
+            },
+        },
+        parseSelection: {
+            set(selectedFilters) {
+                this.selectedFilters = selectedFilters
+            },
+            get() {
+                return this.selectedFilters
             },
         },
         parsedFilters() {
@@ -295,11 +313,14 @@ export default {
         flex-direction: row;
         justify-content: flex-start;
     }
+    .section-remove-container {
+        margin: 15px 25px;
+    }
     .filter-group {
         transition-duration: 400ms;
 
         position: absolute;
-        top: 100%;
+        /* top: 100%;*/
         left: 50px;
         right: 50px;
 

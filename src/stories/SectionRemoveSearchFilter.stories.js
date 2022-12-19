@@ -4,86 +4,30 @@ import StoryRouter from "storybook-vue-router"
 export default {
     title: "SEARCH / Section Remove Search Filter",
     component: SectionRemoveSearchFilter,
-    decorators: [
-        StoryRouter(
-            {},
-            {
-                routes: [
-                    {
-                        path: "/visit/foo/bar/",
-                        component: SectionRemoveSearchFilter,
-                    },
-                    {
-                        path: "/about/foo/bar/",
-                        component: SectionRemoveSearchFilter,
-                    },
-                ],
-            }
-        ),
+    decorators: [StoryRouter()],
+}
+const mock = {
+    location: "Neque porro quisquam",
+    departments: [
+        "DIIT",
+        "Digital Library Program",
+        "Arts Library",
+        "Special Collections",
+        "CLICC",
     ],
 }
-
-const mock = [
-    {
-        title: "Amenities",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "Snkrs",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "Panda",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "Chicago",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "Brazil 1x7 Germany",
-        filterType: "location || departments || subjects ||categories",
-    },
-]
-
-const mockBigger = [
-    {
-        title: "Amenities",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "Snkrs",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "Panda",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "Chicago",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "Brazil 1x7 Germany",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "Jurassic Park",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "UCLA",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "Garfield",
-        filterType: "location || departments || subjects ||categories",
-    },
-    {
-        title: "Scooby doo",
-        filterType: "location || departments || subjects ||categories",
-    },
-]
+const mockBigger = {
+    location: "Neque porro quisquam",
+    departments: [
+        "DIIT",
+        "Digital Library Program",
+        "Arts Library",
+        "Special Collections",
+        "CLICC",
+    ],
+    "subjectLibrarian.keyword": "yes",
+    areas: ["English", "History", "Geography", "Science", "Math"],
+}
 
 // Variations of stories below
 export const Default = () => ({
