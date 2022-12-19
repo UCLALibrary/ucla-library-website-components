@@ -33,9 +33,7 @@
                 @single-checkbox-selected="doSearch"
             />
         </div>
-
-        <!-- The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for -->
-
+        <section-remove-search-filter />
         <!-- This loops through avaible filter groups -->
         <transition
             name="slide-toggle"
@@ -61,6 +59,7 @@ import SearchGenericFilterButtons from "./SearchGenericFilterButtons.vue"
 import SearchGenericViewModes from "./SearchGenericViewModes.vue"
 import BaseRadioGroup from "./BaseRadioGroup.vue"
 import BaseCheckboxGroup from "./BaseCheckboxGroup.vue"
+import SectionRemoveSearchFilter from "./SectionRemoveSearchFilter.vue"
 // import BaseCalendarGroup from "./BaseCalendarGroup.vue"
 
 export default {
@@ -74,7 +73,8 @@ export default {
         // BaseCalendarGroup,
     },
 
-    props: {
+    props,
+    SectionRemoveSearchFilter: {
         filters: {
             type: Array, // array of objects that contain the filter objects
             default: () => [],

@@ -1,6 +1,6 @@
 <template>
-    <div class="section-search-filter">
-        <block-search-filter
+    <div class="section-remove-search-filter">
+        <block-remove-search-filter
             v-for="(filter, index) in filteredFilters"
             :title="filter.title"
             :filterType="filter.filterType"
@@ -11,16 +11,16 @@
 </template>
 
 <script>
-import BlockSearchFilter from "@/lib-components/BlockSearchFilter"
+import BlockRemoveSearchFilter from "@/lib-components/BlockRemoveSearchFilter"
 export default {
-    name: "SectionSearchFilter",
+    name: "SectionRemoveSearchFilter",
     data() {
         return {
             filteredFilters: this.filters,
         }
     },
     components: {
-        BlockSearchFilter,
+        BlockRemoveSearchFilter,
     },
     props: {
         filters: {
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.section-search-filter {
+.section-remove-search-filter {
     display: flex;
     flex-direction: row;
     gap: 10px;

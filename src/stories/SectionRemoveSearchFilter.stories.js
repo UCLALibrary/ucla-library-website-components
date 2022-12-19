@@ -1,16 +1,22 @@
-import SectionSearchFilter from "@/lib-components/SectionSearchFilter"
+import SectionRemoveSearchFilter from "@/lib-components/SectionRemoveSearchFilter"
 import StoryRouter from "storybook-vue-router"
 
 export default {
-    title: "SECTION / Search Filter",
-    component: SectionSearchFilter,
+    title: "SEARCH / Section Remove Search Filter",
+    component: SectionRemoveSearchFilter,
     decorators: [
         StoryRouter(
             {},
             {
                 routes: [
-                    { path: "/visit/foo/bar/", component: SectionSearchFilter },
-                    { path: "/about/foo/bar/", component: SectionSearchFilter },
+                    {
+                        path: "/visit/foo/bar/",
+                        component: SectionRemoveSearchFilter,
+                    },
+                    {
+                        path: "/about/foo/bar/",
+                        component: SectionRemoveSearchFilter,
+                    },
                 ],
             }
         ),
@@ -84,9 +90,9 @@ export const Default = () => ({
     data() {
         return { mock }
     },
-    components: { SectionSearchFilter },
+    components: { SectionRemoveSearchFilter },
     template: `
-        <section-search-filter
+        <section-remove-search-filter
             :filters="mock"
         />
     `,
@@ -95,9 +101,9 @@ export const WithMoreFilters = () => ({
     data() {
         return { mockBigger }
     },
-    components: { SectionSearchFilter },
+    components: { SectionRemoveSearchFilter },
     template: `
-        <section-search-filter
+        <section-remove-search-filter
             :filters="mockBigger"
         />
     `,
