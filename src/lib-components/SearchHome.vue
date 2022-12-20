@@ -59,12 +59,12 @@ import SmartLink from "@/lib-components/SmartLink.vue"
 
 const tabs = [
     {
-        title: "Library Website",
+        title: "UCLA Library Website",
         actionURL: "/search-site",
         queryParam: "q",
     },
     {
-        title: "UC Library Search Catalog",
+        title: "UC Library Search",
         actionURL: "https://www.google.com/search",
         queryParam: "q",
     },
