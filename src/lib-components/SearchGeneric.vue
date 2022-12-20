@@ -340,7 +340,6 @@ export default {
     }
     .search-generic {
         .filter-group {
-
             margin-top: 8px;
             z-index: 100;
         }

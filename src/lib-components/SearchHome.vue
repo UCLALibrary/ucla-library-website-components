@@ -25,8 +25,8 @@
                     />
 
                     <button class="button-submit">
-                    <icon-search class="icon" />
-                </button>
+                        <icon-search class="icon" />
+                    </button>
                 </div>
             </form>
 
