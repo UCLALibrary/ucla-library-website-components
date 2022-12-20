@@ -231,14 +231,14 @@ export default {
     }
 
     .divider {
-        margin-top: 15px;
+        margin-top: 16px;
         border-bottom: 2px solid var(--color-default-cyan-03);
         height: 1px;
     }
 
     .links {
         display: flex;
-        margin: 25px 0;
+        margin: 24px 0;
     }
 
     .regular-links {
@@ -248,7 +248,7 @@ export default {
             &:after {
                 content: "";
                 border-right: 2px solid #efefef;
-                margin: 0 25px;
+                margin: 0 24px;
             }
             &:last-child:after {
                 display: none;
@@ -282,16 +282,17 @@ export default {
         }
         .links {
             display: unset;
-            font-size: 12px;
+            font-size: 14px;
         }
         .regular-links {
             margin-top: 20px;
+            margin-right: 12px;
             .vertical-divider {
                 margin: 0 4px;
             }
         }
         .advanced-links {
-            margin-top: 30px;
+            margin-top: 24px;
         }
     }
 }
