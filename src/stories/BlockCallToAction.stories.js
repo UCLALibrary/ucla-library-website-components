@@ -10,15 +10,12 @@ export default {
     title: "BLOCK / Call to Action",
     component: BlockCallToAction,
     decorators: [
-        StoryRouter(
-            {},
-            {
-                routes: [
-                    { path: "/", component: BlockCallToAction },
-                    { path: "/help/foo/bar/", component: BlockCallToAction },
-                ],
-            }
-        ),
+        StoryRouter({
+            routes: [
+                { path: "/", component: BlockCallToAction },
+                { path: "/help/foo/bar/", component: BlockCallToAction },
+            ],
+        }),
     ],
 }
 

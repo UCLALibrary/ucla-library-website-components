@@ -1,12 +1,12 @@
 <template>
-    <div :class="classes">
+    <span :class="classes">
         <a>
             {{ title }}
         </a>
         <button type="button" @click="closeBlockFilter()">
             <svg-glyph-close class="svg-glyph-close" />
         </button>
-    </div>
+    </span>
 </template>
 
 <script>
@@ -16,7 +16,7 @@ import getSectionName from "@/mixins/getSectionName"
 import SvgGlyphClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg"
 
 export default {
-    name: "BlockSearchFilter",
+    name: "BlockRemoveSearchFilter",
     mixins: [getSectionName],
     data() {
         return {}
@@ -44,10 +44,15 @@ export default {
     },
     computed: {
         classes() {
-            return ["block-search-filter", `color-${this.sectionName}`]
+            return ["block-remove-search-filter", `color-${this.sectionName}`]
         },
         sectionName() {
-            return this.color || this.getSectionName(this.$route.path)
+            return (
+                this.color ||
+                (this.$route
+                    ? this.getSectionName(this.$route.path)
+                    : "color-default")
+            )
         },
     },
     methods: {
@@ -59,7 +64,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.block-search-filter {
+.block-remove-search-filter {
     padding: 12px;
     display: flex;
     flex-direction: row;
