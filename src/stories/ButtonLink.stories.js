@@ -10,12 +10,16 @@ export default {
         iconName: {
             type: "select",
             options: [
-                "icon-arrow-right",
-                "icon-download",
-                "icon-external-link",
+                "svg-arrow-right",
+                "svg-arrow-download",
+                "svg-external-link",
+                "icon-close",
             ],
         },
         isSecondary: { type: "boolean" },
+        isTertiary: { type: "boolean" },
+        isQuaternary: { type: "boolean" },
+        to: { type: "string" },
     },
     decorators: [
         StoryRouter(
@@ -39,7 +43,6 @@ const Template = (args, { argTypes }) => ({
 export const WithControls = Template.bind({})
 WithControls.args = {
     label: "Ibus orci Luctus",
-    isSecondary: false,
 }
 
 // Variations of stories below
