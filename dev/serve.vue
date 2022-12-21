@@ -613,23 +613,6 @@ export default Vue.extend({
                 amenities: ["icon-clock", "icon-accessible"],
             },
             mockSearchGeneric: {
-                views: [
-                    {
-                        slug: "list",
-                        iconName: "icon-list",
-                        title: "List",
-                    },
-                    {
-                        slug: "card",
-                        iconName: "icon-card",
-                        title: "Card",
-                    },
-                    {
-                        slug: "calendar",
-                        iconName: "icon-calendar",
-                        title: "Calendar",
-                    },
-                ],
                 filters: [
                     {
                         label: "Location",
