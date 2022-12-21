@@ -11,7 +11,14 @@
                 </div>
 
                 <div class="content">
-                    <h1 class="title" v-html="title" />
+                    <h1 class="title">
+                        {{ title }}
+                        <span
+                            v-if="alternativeFullName"
+                            :lang="language"
+                            v-html="alternativeFullName"
+                        />
+                    </h1>
 
                     <rich-text
                         v-if="text"
@@ -160,6 +167,14 @@ export default {
             type: String,
             default: "",
             required: true,
+        },
+        alternativeFullName: {
+            type: String,
+            default: "",
+        },
+        language: {
+            type: String,
+            default: "",
         },
         date: {
             type: String,

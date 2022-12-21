@@ -5,6 +5,11 @@
         </div>
         <smart-link v-if="jobPostingURL" :to="jobPostingURL" class="title">
             {{ title }}
+            <span
+                v-if="alternativeFullName"
+                :lang="language"
+                v-html="alternativeFullName"
+            />
         </smart-link>
         <h3 v-else class="title-no-link">
             {{ title }}
@@ -56,6 +61,14 @@ export default {
     },
     props: {
         title: {
+            type: String,
+            default: "",
+        },
+        alternativeFullName: {
+            type: String,
+            default: "",
+        },
+        language: {
             type: String,
             default: "",
         },
