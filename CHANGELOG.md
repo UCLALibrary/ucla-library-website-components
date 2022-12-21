@@ -1,3 +1,10 @@
+## [2.21.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.21.0...v2.21.1) (2022-12-21)
+
+
+### Bug Fixes
+
+* events qa ([#280](https://github.com/UCLALibrary/ucla-library-website-components/issues/280)) ([063a73e](https://github.com/UCLALibrary/ucla-library-website-components/commit/063a73e5d794f6bb240552c342c21e64d8254d95))
+
 # [2.21.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.20.0...v2.21.0) (2022-12-20)
 
 
