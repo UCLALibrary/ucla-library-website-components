@@ -94,7 +94,7 @@ export default {
 
 <style lang="scss" scoped>
 .single-checkbox {
-    width: 300px;
+    min-width: 300px;
     // padding: 18px 16px 18px 16px;
     background: var(--color-primary-blue-03);
     color: white;
@@ -156,6 +156,11 @@ export default {
         .label:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
+    }
+
+    //Breakpoints
+    @media #{$small} {
+        margin-right: 8px;
     }
 }
 </style>

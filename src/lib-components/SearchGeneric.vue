@@ -10,6 +10,7 @@
         {{ searchGenericQuery }}
         <h4>filters for the page</h4>
         {{ filters }}-->
+
         <form name="searchHome" @submit.prevent="doSearch">
             <div class="input-container">
                 <input
@@ -23,8 +24,10 @@
                 </button>
             </div>
         </form>
+
         <div v-if="filters.length > 0" class="container">
             <search-generic-filter-buttons
+                v-click-outside="hide"
                 :items="filters"
                 :single-checkbox-selected="selectedFilters"
                 :active-index.sync="openedFilterIndex"
@@ -33,8 +36,6 @@
                 @single-checkbox-selected="doSearch"
             />
         </div>
-
-        <!-- The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for -->
 
         <!-- This loops through avaible filter groups -->
         <transition
@@ -52,6 +53,13 @@
                 @input-selected="doSearch"
             />
         </transition>
+
+        <section-remove-search-filter
+            :filters="selectedFilters"
+            class="section-remove-container"
+            :selected.sync="parseSelection"
+            @remove-selected="doSearch"
+        />
     </div>
 </template>
 
@@ -61,8 +69,10 @@ import SearchGenericFilterButtons from "./SearchGenericFilterButtons.vue"
 import SearchGenericViewModes from "./SearchGenericViewModes.vue"
 import BaseRadioGroup from "./BaseRadioGroup.vue"
 import BaseCheckboxGroup from "./BaseCheckboxGroup.vue"
+import SectionRemoveSearchFilter from "./SectionRemoveSearchFilter.vue"
 // import BaseCalendarGroup from "./BaseCalendarGroup.vue"
 
+import ClickOutside from "vue-click-outside"
 export default {
     name: "SearchGeneric",
     components: {
@@ -71,6 +81,8 @@ export default {
         SearchGenericViewModes,
         BaseRadioGroup,
         BaseCheckboxGroup,
+        SectionRemoveSearchFilter,
+
         // BaseCalendarGroup,
     },
 
@@ -107,6 +119,7 @@ export default {
             openedFilterIndex: -1,
             isViewOpened: false,
             selectedView: "list",
+            opened: false,
         }
     },
     // The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for
@@ -129,6 +142,14 @@ export default {
                         esfieldName = obj.esFieldName
                 })
                 return this.selectedFilters[esfieldName]
+            },
+        },
+        parseSelection: {
+            set(selectedFilters) {
+                this.selectedFilters = selectedFilters
+            },
+            get() {
+                return this.selectedFilters
             },
         },
         parsedFilters() {
@@ -198,7 +219,20 @@ export default {
                 filterObj.inputType == "radio" ? "" : []
         }
     },*/
+
+    mounted() {
+        // prevent click outside event with popupItem.
+        this.popupItem = this.$el
+    },
+
+    // do not forget this section
+    directives: {
+        ClickOutside,
+    },
     methods: {
+        hide() {
+            this.openedFilterIndex = -1
+        },
         doSearch() {
             console.log("dosearch called")
             console.log(
@@ -295,11 +329,14 @@ export default {
         flex-direction: row;
         justify-content: flex-start;
     }
+    .section-remove-container {
+        margin: 15px 25px;
+    }
     .filter-group {
         transition-duration: 400ms;
 
         position: absolute;
-        top: 100%;
+        /* top: 100%;*/
         left: 50px;
         right: 50px;
 
@@ -332,5 +369,17 @@ export default {
     overflow: hidden;
     transition-property: opacity, max-height;
     transition-timing-function: ease-in-out;
+}
+@media #{$small} {
+    .search-generic-filter-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .search-generic {
+        .filter-group {
+            margin-top: 8px;
+            z-index: 100;
+        }
+    }
 }
 </style>

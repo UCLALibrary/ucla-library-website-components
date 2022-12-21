@@ -67,7 +67,7 @@ export const Default = () => ({
                     items: items,
                 },
                 {
-                    label: "Subject Liabrarian",
+                    label: "Subject Librarian",
                     esFieldName: "subjectLibrarian.keyword",
                     inputType: "single-checkbox",
                 },
@@ -174,7 +174,7 @@ export const RouterQueryWithSinglCheckBoxSelected = () => ({
                     items: items,
                 },
                 {
-                    label: "Subject Liabrarian",
+                    label: "Subject Librarian",
                     esFieldName: "subjectLibrarian.keyword",
                     inputType: "single-checkbox",
                 },
