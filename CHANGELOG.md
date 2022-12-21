@@ -1,3 +1,10 @@
+# [2.22.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.21.1...v2.22.0) (2022-12-21)
+
+
+### Features
+
+* updates homepage component spacing and opacity ([#284](https://github.com/UCLALibrary/ucla-library-website-components/issues/284)) ([7553d45](https://github.com/UCLALibrary/ucla-library-website-components/commit/7553d45df249572402c4a6e6de65ab4da7126b22))
+
 ## [2.21.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.21.0...v2.21.1) (2022-12-21)
 
 
