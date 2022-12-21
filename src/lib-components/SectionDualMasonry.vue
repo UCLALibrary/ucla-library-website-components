@@ -61,6 +61,9 @@ export default {
 
 <style lang="scss" scoped>
 .section-dual-masonry {
+    .more {
+        padding: 0;
+    }
     .masonry {
         display: flex;
         flex-direction: row;
@@ -114,8 +117,7 @@ export default {
 
     .more {
         display: block;
-        padding: 30px 0px;
-        margin: 75px auto 0 auto;
+        margin: var(--space-2xl) auto 0 auto;
         width: max-content;
     }
 
