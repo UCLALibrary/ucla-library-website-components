@@ -402,9 +402,9 @@ export default {
 <style lang="scss" scoped>
 .block-form {
     border-radius: var(--rounded-slightly-all);
-    border-color: var(--color-primary-blue-03);
+    border: 2px solid var(--color-primary-blue-03);
     margin-bottom: var(--space-l);
-    max-width: $container-l-text + px;
+    width: $container-l-main + px;
     padding: var(--space-xl);
 
     @media #{$medium} {
