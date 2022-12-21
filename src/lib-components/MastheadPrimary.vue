@@ -1,6 +1,5 @@
 <template>
     <div class="masthead-primary">
-
         <div class="container">
             <div class="logo">
                 <svg-logo-ucla-library-underline class="svg" />
@@ -39,9 +38,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.masthead-primary::after {    
+.masthead-primary::after {
     content: "";
-    background: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"), center -100px;
+    background: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"),
+        center -100px;
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -49,7 +49,7 @@ export default {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: .5;
+    opacity: 0.5;
     z-index: -10;
 }
 .masthead-primary {
