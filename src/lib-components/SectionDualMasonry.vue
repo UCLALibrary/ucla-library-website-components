@@ -22,7 +22,7 @@
             </smart-link>
         </div>
         <smart-link class="more" :to="to">
-            <button-more text="See all Events & Exhibitions" />
+            <button-more />
         </smart-link>
     </section>
 </template>
