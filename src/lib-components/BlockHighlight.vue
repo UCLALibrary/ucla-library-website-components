@@ -385,13 +385,7 @@ export default {
         }
     }
     &:not(&.is-vertical) {
-        // flex-wrap: nowrap;
-        // justify-content: flex-start;
-        // align-content: center;
-        // align-items: center;
         width: 100%;
-        // max-width: $container-l-main + px;
-        // gap: $component-09 + px;
 
         .image-container {
             width: 50%;
@@ -542,12 +536,6 @@ export default {
     }
     @media #{$small} {
         &:not(&.is-vertical) {
-            // display: flex;
-            // flex-direction: column;
-            // flex-wrap: nowrap;
-            // max-height: 550px;
-            // padding-left: 5px;
-            // padding-right: 5px;
             .image {
                 max-width: 100%;
             }
