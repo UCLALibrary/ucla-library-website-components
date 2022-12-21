@@ -1,7 +1,7 @@
 <template>
     <div :class="classes">
         <component :is="parsedContent.svgName" class="svg" aria-hidden="true" />
-        <div class="title" v-html="parsedContent.title" />
+        <h2 class="title" v-html="parsedContent.title" />
         <div class="text" v-html="parsedContent.text" />
         <button-link
             v-if="!isDark"
