@@ -25,6 +25,7 @@ export const Default = () => ({
         <section-dual-masonry
             :items="items"
             to="/visit/foo"
+            text="See All Events"
         />
     `,
 })

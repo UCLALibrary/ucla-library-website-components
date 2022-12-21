@@ -7,7 +7,7 @@
 
             <h2 class="title" v-html="title" />
 
-            <h3 class="dates" v-html="dates" />
+            <h3 class="dates" v-html="parsedDate" v-if="startDate" />
 
             <smart-link :class="classes" :to="to" v-html="prompt" />
             <!-- TO DO: Use button-link component instead -->
@@ -18,12 +18,18 @@
 </template>
 
 <script>
+import format from "date-fns/format"
+
+import SmartLink from "@/lib-components/SmartLink"
+
 // Utility functions
 import getSectionName from "@/mixins/getSectionName"
+import formatEventDates from "@/mixins/formatEventDates"
 
 export default {
     name: "BlockEvent",
-    mixins: [getSectionName],
+    components: { SmartLink },
+    mixins: [getSectionName, formatEventDates],
     props: {
         title: {
             type: String,
@@ -33,7 +39,11 @@ export default {
             type: String,
             default: "",
         },
-        dates: {
+        startDate: {
+            type: String,
+            default: "",
+        },
+        endDate: {
             type: String,
             default: "",
         },
@@ -52,6 +62,15 @@ export default {
         },
         sectionName() {
             return this.getSectionName(this.to)
+        },
+        parsedMultiDate() {
+            return this.formatDates(this.startDate, this.endDate)
+        },
+        parsedSingledDate() {
+            return format(new Date(this.startDate), "MMMM d, Y")
+        },
+        parsedDate() {
+            return this.endDate ? this.parsedMultiDate : this.parsedSingledDate
         },
     },
 }
