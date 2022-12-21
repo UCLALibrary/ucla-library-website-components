@@ -171,7 +171,7 @@ export default {
 
     .box {
         background-color: var(--color-white);
-        padding: 30px 50px;
+        padding: 30px 50px 0 50px;
         border: 1px solid transparent;
         border-top-left-radius: 4px;
     }

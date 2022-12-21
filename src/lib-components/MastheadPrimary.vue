@@ -1,6 +1,5 @@
 <template>
     <div class="masthead-primary">
-        <div class="background" />
 
         <div class="container">
             <div class="logo">
@@ -40,27 +39,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.masthead-primary::after {    
+    content: "";
+    background: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"), center -100px;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: .5;
+    z-index: -10;
+}
 .masthead-primary {
     position: relative;
     z-index: 0;
-
-    .background {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 560px;
-        overflow: hidden;
-
-        background: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg")
-                center -100px,
-            var(--gradient-01);
-        background-size: cover;
-    }
+    background: var(--gradient-01);
     .container {
-        max-width: 990px;
-        height: 100%;
+        max-width: $container-l-main + px;
+        height: 560px;
 
         position: relative;
         z-index: 20;
