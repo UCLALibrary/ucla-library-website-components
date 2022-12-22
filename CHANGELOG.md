@@ -1,3 +1,10 @@
+## [2.23.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.23.0...v2.23.1) (2022-12-22)
+
+
+### Bug Fixes
+
+* add alternativeName and language to sections ([#288](https://github.com/UCLALibrary/ucla-library-website-components/issues/288)) ([152d259](https://github.com/UCLALibrary/ucla-library-website-components/commit/152d25962e970463b86b841241f5d4988b61b4fc))
+
 # [2.23.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.22.2...v2.23.0) (2022-12-22)
 
 
