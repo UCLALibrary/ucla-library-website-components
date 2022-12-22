@@ -1,3 +1,38 @@
+## [2.22.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.22.0...v2.22.1) (2022-12-22)
+
+
+### Bug Fixes
+
+* sectionDualMasonary date format and button text ([#285](https://github.com/UCLALibrary/ucla-library-website-components/issues/285)) ([a56cdfc](https://github.com/UCLALibrary/ucla-library-website-components/commit/a56cdfc6e2406d51901405c254412ca931263010))
+
+# [2.22.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.21.1...v2.22.0) (2022-12-21)
+
+
+### Features
+
+* updates homepage component spacing and opacity ([#284](https://github.com/UCLALibrary/ucla-library-website-components/issues/284)) ([7553d45](https://github.com/UCLALibrary/ucla-library-website-components/commit/7553d45df249572402c4a6e6de65ab4da7126b22))
+
+## [2.21.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.21.0...v2.21.1) (2022-12-21)
+
+
+### Bug Fixes
+
+* events qa ([#280](https://github.com/UCLALibrary/ucla-library-website-components/issues/280)) ([063a73e](https://github.com/UCLALibrary/ucla-library-website-components/commit/063a73e5d794f6bb240552c342c21e64d8254d95))
+
+# [2.21.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.20.0...v2.21.0) (2022-12-20)
+
+
+### Features
+
+* search components QA ([#283](https://github.com/UCLALibrary/ucla-library-website-components/issues/283)) ([db35999](https://github.com/UCLALibrary/ucla-library-website-components/commit/db35999de75558bc4111f11019e99de6cbde428a))
+
+# [2.20.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.19.1...v2.20.0) (2022-12-20)
+
+
+### Features
+
+* APPS-2106 Add Remove filters to search-generic ([#282](https://github.com/UCLALibrary/ucla-library-website-components/issues/282)) ([3588f20](https://github.com/UCLALibrary/ucla-library-website-components/commit/3588f20534962e83ffacf5243e4d74940e84dec9))
+
 ## [2.19.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.19.0...v2.19.1) (2022-12-16)
 
 

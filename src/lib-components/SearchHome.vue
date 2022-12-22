@@ -17,13 +17,16 @@
                 @submit.prevent="doSearch"
             >
                 <div class="input-container">
-                    <icon-search class="icon" />
                     <input
                         v-model="searchWords"
                         type="text"
                         class="input-search"
-                        placeholder="Search by keyword"
+                        placeholder="Search articles, books, and more"
                     />
+
+                    <button class="button-submit">
+                        <icon-search class="icon" />
+                    </button>
                 </div>
             </form>
 
@@ -56,12 +59,12 @@ import SmartLink from "@/lib-components/SmartLink.vue"
 
 const tabs = [
     {
-        title: "Search the Library Site",
+        title: "UCLA Library Website",
         actionURL: "/search-site",
         queryParam: "q",
     },
     {
-        title: "Search Materials",
+        title: "UC Library Search",
         actionURL: "https://www.google.com/search",
         queryParam: "q",
     },
@@ -171,21 +174,44 @@ export default {
 
     .box {
         background-color: var(--color-white);
-        padding: 30px 50px;
+        padding: 30px 50px 0 50px;
         border: 1px solid transparent;
         border-top-left-radius: 4px;
     }
 
     .input-container {
-        position: relative;
-    }
+        display: flex;
+        background-color: var(--color-primary-blue-01);
+        border-color: transparent;
+        .icon {
+            &:hover {
+                ::v-deep .svg__fill--primary-blue-03 {
+                    fill: var(--color-default-cyan-03);
+                }
+            }
+        }
+        input {
+            font-family: var(--font-primary);
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 100%;
+            letter-spacing: 0.01em;
+            background-color: var(--color-primary-blue-01);
+            border-color: transparent;
+            padding: 24px;
+            width: 100%;
 
-    .icon {
-        padding: 25px 40px 25px 32px;
-        position: absolute;
-        z-index: 10;
-        height: 27px;
-        width: auto;
+            &::placeholder {
+                text-transform: uppercase;
+                font-family: var(--font-primary);
+            }
+        }
+        .button-submit {
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
     }
 
     .input-search {
@@ -205,14 +231,14 @@ export default {
     }
 
     .divider {
-        margin-top: 15px;
+        margin-top: 16px;
         border-bottom: 2px solid var(--color-default-cyan-03);
         height: 1px;
     }
 
     .links {
         display: flex;
-        margin: 25px 0;
+        margin: 24px 0;
     }
 
     .regular-links {
@@ -222,7 +248,7 @@ export default {
             &:after {
                 content: "";
                 border-right: 2px solid #efefef;
-                margin: 0 25px;
+                margin: 0 24px;
             }
             &:last-child:after {
                 display: none;
@@ -239,34 +265,34 @@ export default {
     // Breakpoints
     @media #{$small} {
         .tabs {
-            font-size: 13px;
+            font-size: 14px;
         }
         .box {
             padding: 18px 24px;
         }
         .input-container {
-            .icon {
-                height: 21px;
-                padding: 18px 24px 18px 18px;
-                width: 22px;
-            }
             .input-search {
-                font-size: 15px;
-                padding: 20px 60px;
+                font-size: 16px;
+                padding: 20px 0 20px 12px;
+            }
+            .button-submit {
+                padding-right: 12px;
+                padding-left: 0;
             }
         }
         .links {
             display: unset;
-            font-size: 12px;
+            font-size: 14px;
         }
         .regular-links {
             margin-top: 20px;
+            margin-right: 12px;
             .vertical-divider {
                 margin: 0 4px;
             }
         }
         .advanced-links {
-            margin-top: 30px;
+            margin-top: 24px;
         }
     }
 }

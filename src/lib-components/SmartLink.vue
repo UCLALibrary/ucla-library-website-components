@@ -20,9 +20,9 @@
         <slot />
     </a>
 
-    <a v-else class="smart-link is-link">
+    <button v-else class="smart-link is-link">
         <slot />
-    </a>
+    </button>
 </template>
 
 <script>

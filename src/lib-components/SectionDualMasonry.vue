@@ -6,7 +6,8 @@
                 :key="item.to"
                 :title="item.title"
                 :category="item.category"
-                :dates="item.dates"
+                :startDate="item.startDate"
+                :endDate="item.endDate"
                 :prompt="item.prompt"
                 :to="item.to"
                 class="brick"
@@ -22,7 +23,7 @@
             </smart-link>
         </div>
         <smart-link class="more" :to="to">
-            <button-more />
+            <button-more :text="text" />
         </smart-link>
     </section>
 </template>
@@ -31,6 +32,7 @@
 import ButtonMore from "@/lib-components/ButtonMore.vue"
 import BlockEvent from "@/lib-components/BlockEvent.vue"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
+import SmartLink from "@/lib-components/SmartLink"
 
 export default {
     name: "SectionDualMasonry",
@@ -38,6 +40,7 @@ export default {
         BlockEvent,
         ButtonMore,
         ResponsiveImage,
+        SmartLink,
     },
     props: {
         items: {
@@ -48,12 +51,19 @@ export default {
             type: String,
             default: "",
         },
+        text: {
+            type: String,
+            default: "See More",
+        },
     },
 }
 </script>
 
 <style lang="scss" scoped>
 .section-dual-masonry {
+    .more {
+        padding: 0;
+    }
     .masonry {
         display: flex;
         flex-direction: row;
@@ -107,8 +117,7 @@ export default {
 
     .more {
         display: block;
-        padding: 30px 0px;
-        margin: 75px auto 0 auto;
+        margin: var(--space-2xl) auto 0 auto;
         width: max-content;
     }
 
