@@ -1,3 +1,10 @@
+## [2.22.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.22.0...v2.22.1) (2022-12-22)
+
+
+### Bug Fixes
+
+* sectionDualMasonary date format and button text ([#285](https://github.com/UCLALibrary/ucla-library-website-components/issues/285)) ([a56cdfc](https://github.com/UCLALibrary/ucla-library-website-components/commit/a56cdfc6e2406d51901405c254412ca931263010))
+
 # [2.22.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.21.1...v2.22.0) (2022-12-21)
 
 
