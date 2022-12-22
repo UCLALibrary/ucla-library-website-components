@@ -112,7 +112,8 @@
             "category": "Fermentu",
             "title": "Maecenas Leo Mauris",
             "prompt": "Velit Exceptur",
-            "dates": "Datum 12 - Datum 23, 2021",
+            "startDate": "2022-12-09T00:00",
+            "endDate": "2022-12-11T00:00",
             "to": "/llamacorn/uri/1"
         },
         {
@@ -126,7 +127,7 @@
             "category": "Fermentu",
             "title": "Maecenas Leo Mauris Praesent finibus fermentum ligula, nec tristique",
             "prompt": "Velit Exceptur",
-            "dates": "Datum 1 - Datum 18, 2021",
+            "startDate": "2022-12-09T00:00",
             "to": "/visit/uri/2"
         }
     ],
