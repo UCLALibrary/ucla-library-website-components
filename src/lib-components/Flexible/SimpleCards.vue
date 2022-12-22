@@ -11,10 +11,12 @@
 <script>
 import _get from "lodash/get"
 import SimpleCards from "@/lib-components/SimpleCards.vue"
+import stripMeapFromURI from "@/mixins/stripMeapFromURI"
 
 export default {
     name: "FlexibleSimpleCards",
     components: { SimpleCards },
+    mixins: [stripMeapFromURI],
     props: {
         block: {
             type: Object,
@@ -34,7 +36,9 @@ export default {
                         text: _get(card, "contentLink[0].summary", ""),
                         to: card.contentLink[0].externalResourceUrl
                             ? card.contentLink[0].externalResourceUrl
-                            : `/${card.contentLink[0].uri}`,
+                            : `/${this.stripMeapFromURI(
+                                  card.contentLink[0].uri
+                              )}`,
                     }
                 } else if (
                     card.typeHandle === "externalResource" ||

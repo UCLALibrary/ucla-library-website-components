@@ -11,12 +11,14 @@
 
 <script>
 import SectionCardsWithIllustrations from "@/lib-components/SectionCardsWithIllustrations.vue"
+import stripMeapFromURI from "@/mixins/stripMeapFromURI"
 
 export default {
     name: "FlexibleAssociatedTopicCards",
     components: {
         SectionCardsWithIllustrations,
     },
+    mixins: [stripMeapFromURI],
     props: {
         block: {
             type: Object,
@@ -31,7 +33,7 @@ export default {
                         ...obj,
                         to: obj.externalResourceUrl
                             ? obj.externalResourceUrl
-                            : `/${obj.uri}`,
+                            : `/${this.stripMeapFromURI(obj.uri)}`,
                     }
                 }
             )
