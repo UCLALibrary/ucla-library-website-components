@@ -7,6 +7,8 @@
             :image="item.image"
             :category="item.category"
             :title="item.title"
+            :alternativeFullName="item.alternativeFullName"
+            :language="item.language"
             :byline-one="item.bylineOne"
             :byline-two="item.bylineTwo"
             :start-date="item.startDate"
