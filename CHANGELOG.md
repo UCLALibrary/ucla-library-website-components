@@ -1,3 +1,10 @@
+## [2.22.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.22.1...v2.22.2) (2022-12-22)
+
+
+### Bug Fixes
+
+* strip meap/ from uri to allow duplicate general content pages like about in meap and library website ([#287](https://github.com/UCLALibrary/ucla-library-website-components/issues/287)) ([4fd3e19](https://github.com/UCLALibrary/ucla-library-website-components/commit/4fd3e19e08e4f8af200274605337ac6b291318aa))
+
 ## [2.22.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.22.0...v2.22.1) (2022-12-22)
 
 
