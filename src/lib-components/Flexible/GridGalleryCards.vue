@@ -21,12 +21,14 @@
 
 <script>
 import GridGallery from "@/lib-components/GridGallery"
+import stripMeapFromURI from "@/mixins/stripMeapFromURI"
 
 export default {
     name: "FlexibleGridGalleryCards",
     components: {
         GridGallery,
     },
+    mixins: [stripMeapFromURI],
     props: {
         block: {
             type: Object,
@@ -57,10 +59,11 @@ export default {
                         ? subitem.contentLink[0].snippet
                         : subitem.snippet
                 obj.featured = subitem.featured === "true" ? true : false
-                obj.to =
+                obj.to = this.stripMeapFromURI(
                     subitem.contentLink && subitem.contentLink[0]
                         ? subitem.contentLink[0].to
                         : subitem.to
+                )
                 obj.image =
                     subitem.contentLink &&
                     subitem.contentLink[0] &&

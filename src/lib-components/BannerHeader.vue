@@ -288,19 +288,21 @@ export default {
         },
 
         isVideo() {
-            let fileName = this.image.src.toLowerCase()
-            let extension = fileName.split(".").pop()
-            if (
-                extension == "mp4" ||
-                extension == "m4a" ||
-                extension == "f4v" ||
-                extension == "m4b" ||
-                extension == "mov"
-            ) {
-                return true
-            } else {
-                return false
-            }
+            if (this.image && this.image.src) {
+                let fileName = this.image.src.toLowerCase()
+                let extension = fileName.split(".").pop()
+                if (
+                    extension == "mp4" ||
+                    extension == "m4a" ||
+                    extension == "f4v" ||
+                    extension == "m4b" ||
+                    extension == "mov"
+                ) {
+                    return true
+                } else {
+                    return false
+                }
+            } else return false
         },
         parseImage() {
             if (this.isVideo) return null
