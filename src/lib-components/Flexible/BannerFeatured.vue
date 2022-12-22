@@ -4,7 +4,7 @@
             v-if="block && block.content && block.content[0].contentLink"
             class="flexible-banner-featured"
             :image="parseImage"
-            :to="`/${block.content[0].contentLink[0].to}`"
+            :to="`/${stripMeapFromURI(block.content[0].contentLink[0].to)}`"
             :title="block.content[0].contentLink[0].title"
             :breadcrumb="parsedTypeHandle"
             :byline="parseByLine"
@@ -17,7 +17,7 @@
             v-if="block && block.content && !block.content[0].contentLink"
             class="flexible-banner-featured"
             :image="parseImage"
-            :to="block.content[0].to"
+            :to="stripMeapFromURI(block.content[0].to)"
             :title="block.content[0].title"
             :breadcrumb="parsedTypeHandle"
             :byline="parseByLine"
@@ -35,6 +35,7 @@ import BannerFeatured from "@/lib-components/BannerFeatured.vue"
 
 // Helpers
 import getPrompt from "@/mixins/getPrompt"
+import stripMeapFromURI from "@/mixins/stripMeapFromURI"
 
 export default {
     name: "FlexibleBannerFeatured",
@@ -45,7 +46,7 @@ export default {
             default: () => {},
         },
     },
-    mixins: [getPrompt],
+    mixins: [getPrompt, stripMeapFromURI],
     computed: {
         parseImage() {
             let imageObj = {}

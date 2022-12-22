@@ -36,10 +36,11 @@
 import _get from "lodash/get"
 import BlockHighlight from "@/lib-components/BlockHighlight"
 import formatDates from "@/mixins/formatEventDates"
+import stripMeapFromURI from "@/mixins/stripMeapFromURI"
 
 export default {
     name: "FlexibleHighlight",
-    mixins: [formatDates],
+    mixins: [formatDates, stripMeapFromURI],
     components: {
         BlockHighlight,
     },
@@ -73,7 +74,7 @@ export default {
                 ) {
                     return {
                         ...obj,
-                        to: `/${obj.to}`,
+                        to: `/${this.stripMeapFromURI(obj.to)}`,
                         parsedImage: _get(obj, "heroImage[0].image[0]", null),
                         parsedLocation: _get(obj, "associatedLocations", []),
                         parsedCategory: _get(
@@ -99,7 +100,7 @@ export default {
                 ) {
                     return {
                         ...obj,
-                        to: `/${obj.to}`,
+                        to: `/${this.stripMeapFromURI(obj.to)}`,
                         parsedImage: _get(obj, "heroImage[0].image[0]", null),
                         parsedLocation: _get(obj, "projectLocations", []),
                         parsedCategory: _get(obj, "projectCategory", {}),
@@ -117,7 +118,7 @@ export default {
                     return {
                         ...obj,
                         parsedImage: _get(obj, "heroImage[0].image[0]", null),
-                        to: `/${obj.to}`,
+                        to: `/${this.stripMeapFromURI(obj.to)}`,
                     }
                 }
             })
