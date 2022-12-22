@@ -1,3 +1,10 @@
+# [2.23.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.22.2...v2.23.0) (2022-12-22)
+
+
+### Features
+
+* add alternativeName to generic list and highlight components ([#286](https://github.com/UCLALibrary/ucla-library-website-components/issues/286)) ([75e9da5](https://github.com/UCLALibrary/ucla-library-website-components/commit/75e9da56419c5b100e2875075d5fb018044f5227))
+
 ## [2.22.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.22.1...v2.22.2) (2022-12-22)
 
 
