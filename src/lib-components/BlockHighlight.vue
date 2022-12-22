@@ -35,6 +35,7 @@
                     v-if="alternativeFullName"
                     :lang="language"
                     v-html="alternativeFullName"
+                    class="translation"
                 />
             </smart-link>
             <h3 v-else class="title-no-link" v-html="title" />
@@ -297,6 +298,10 @@ export default {
     .title {
         @include card-clickable-area;
         display: block;
+
+        .translation {
+            display: block;
+        }
     }
     .title,
     .title-no-link {

@@ -17,6 +17,7 @@
                             v-if="alternativeFullName"
                             :lang="language"
                             v-html="alternativeFullName"
+                            class="translation"
                         />
                     </h1>
 
@@ -400,6 +401,11 @@ export default {
         @include step-5;
         color: var(--title-color);
         margin-bottom: var(--space-m);
+
+        .translation {
+            @include step-4;
+            display: block;
+        }
     }
     .contact-info {
         color: var(--color-primary-blue-03);
