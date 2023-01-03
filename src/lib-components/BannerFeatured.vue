@@ -311,16 +311,20 @@ export default {
             ]
         },
         isVideo() {
-            let fileName = this.image.src.toLowerCase()
-            let extension = fileName.split(".").pop()
-            if (
-                extension == "mp4" ||
-                extension == "m4a" ||
-                extension == "f4v" ||
-                extension == "m4b" ||
-                extension == "mov"
-            ) {
-                return true
+            if (this.image && this.image.src) {
+                let fileName = this.image.src.toLowerCase()
+                let extension = fileName.split(".").pop()
+                if (
+                    extension == "mp4" ||
+                    extension == "m4a" ||
+                    extension == "f4v" ||
+                    extension == "m4b" ||
+                    extension == "mov"
+                ) {
+                    return true
+                } else {
+                    return false
+                }
             } else {
                 return false
             }
@@ -604,18 +608,18 @@ export default {
     .category {
         @include overline;
         color: var(--color-primary-blue-05);
-        margin-bottom: var(--space-m);
+        margin-bottom: var(--space-s);
     }
     .title {
         @include step-2;
         color: var(--color-primary-blue-03);
-        margin-bottom: var(--space-m);
+        margin-bottom: var(--space-s);
     }
     .byline,
     .description,
     .schedule {
         @include step-0;
-        margin-bottom: var(--space-m);
+        margin-bottom: var(--space-s);
     }
     .date-created {
         margin: var(--space-s) 0;

@@ -12,6 +12,8 @@ const mock = {
     category: "Event",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.",
     title: "Curabitur Tortor Pellentesque",
+    alternativeFullName: "陳餘敏卿纪念基金",
+    language: "zh",
     locations: [
         { id: "523", title: "Powellarium", to: "/location/bar" },
         {
@@ -41,6 +43,8 @@ export const Default = () => ({
         :button-text="buttonText"
         :to="to"
         :byline="byline"
+        :alternativeFullName="alternativeFullName"
+        :language="language"
     />`,
 })
 

@@ -1,3 +1,45 @@
+## [2.23.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.23.0...v2.23.1) (2022-12-22)
+
+
+### Bug Fixes
+
+* add alternativeName and language to sections ([#288](https://github.com/UCLALibrary/ucla-library-website-components/issues/288)) ([152d259](https://github.com/UCLALibrary/ucla-library-website-components/commit/152d25962e970463b86b841241f5d4988b61b4fc))
+
+# [2.23.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.22.2...v2.23.0) (2022-12-22)
+
+
+### Features
+
+* add alternativeName to generic list and highlight components ([#286](https://github.com/UCLALibrary/ucla-library-website-components/issues/286)) ([75e9da5](https://github.com/UCLALibrary/ucla-library-website-components/commit/75e9da56419c5b100e2875075d5fb018044f5227))
+
+## [2.22.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.22.1...v2.22.2) (2022-12-22)
+
+
+### Bug Fixes
+
+* strip meap/ from uri to allow duplicate general content pages like about in meap and library website ([#287](https://github.com/UCLALibrary/ucla-library-website-components/issues/287)) ([4fd3e19](https://github.com/UCLALibrary/ucla-library-website-components/commit/4fd3e19e08e4f8af200274605337ac6b291318aa))
+
+## [2.22.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.22.0...v2.22.1) (2022-12-22)
+
+
+### Bug Fixes
+
+* sectionDualMasonary date format and button text ([#285](https://github.com/UCLALibrary/ucla-library-website-components/issues/285)) ([a56cdfc](https://github.com/UCLALibrary/ucla-library-website-components/commit/a56cdfc6e2406d51901405c254412ca931263010))
+
+# [2.22.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.21.1...v2.22.0) (2022-12-21)
+
+
+### Features
+
+* updates homepage component spacing and opacity ([#284](https://github.com/UCLALibrary/ucla-library-website-components/issues/284)) ([7553d45](https://github.com/UCLALibrary/ucla-library-website-components/commit/7553d45df249572402c4a6e6de65ab4da7126b22))
+
+## [2.21.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.21.0...v2.21.1) (2022-12-21)
+
+
+### Bug Fixes
+
+* events qa ([#280](https://github.com/UCLALibrary/ucla-library-website-components/issues/280)) ([063a73e](https://github.com/UCLALibrary/ucla-library-website-components/commit/063a73e5d794f6bb240552c342c21e64d8254d95))
+
 # [2.21.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.20.0...v2.21.0) (2022-12-20)
 
 

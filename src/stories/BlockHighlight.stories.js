@@ -26,6 +26,8 @@ const mock = {
     to: "/visit/foo/bar/",
     category: "Ullamco",
     title: "Fames ac turpis egestas sed tempus",
+    alternativeFullName: "陳餘敏卿纪念基金",
+    language: "zh",
     startDate: "2022-03-31T07:00:00+00:00",
     endDate: "2021-11-26T11:00:00-08:00",
     text: "<p>Mauris rhoncus <b>aenean vel elit scelerisque</b> mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien.</p>",
@@ -70,6 +72,8 @@ export const Default = () => ({
           :is-vertical="true"
           :image-aspect-ratio="60"
           :locations="locations"
+          :alternativeFullName="alternativeFullName"
+          :language="language"
       />
   `,
 })

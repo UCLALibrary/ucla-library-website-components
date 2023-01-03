@@ -6,6 +6,8 @@
                 sectionTitle="Academic Librarian Jobs"
                 :key="index"
                 :title="item.title"
+                :alternativeFullName="item.alternativeFullName"
+                :language="item.language"
                 :text="item.summary"
                 :jobType="item.jobType"
                 :jobRequisitionNumber="item.jobRequisitionNumber"

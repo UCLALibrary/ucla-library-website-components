@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-    - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+    - uses: actions/checkout@v3
       with:
         ref: ${{ github.event.pull_request.head.ref }}
         repository: ${{ github.event.pull_request.head.repo.full_name }}
@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-    - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+    - uses: actions/checkout@v3
     - uses: ./.github/workflows/setup-workspace
     - run: npm run build
     
@@ -59,11 +59,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-    - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+    - uses: actions/checkout@v3
     - uses: ./.github/workflows/setup-workspace
     - name: Cache Storybook Build
       id: cache-storybook
-      uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+      uses: actions/cache@v3
       with:
         path: storybook-static
         key: storybook-${{ github.sha }}
@@ -97,7 +97,7 @@ jobs:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK }}
     - name: Cypress test for Storybook Components
-      uses: cypress-io/github-action@2113e5bc19c45979ba123df6e07256d2aaba9a33
+      uses: cypress-io/github-action@v3
       with:
         start: npx http-server ./storybook-static -p 6006
         command-prefix: 'npx'

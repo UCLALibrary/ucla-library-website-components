@@ -8,6 +8,8 @@ export default {
 
 const mock = {
     title: "Humanities and Social Sciences Librarian",
+    alternativeFullName: "陳餘敏卿纪念基金",
+    language: "zh",
     summary:
         "<p><span>The UCLA Library seeks a highly collaborative, user-focused professional for the position of Humanities and Social Sciences Librarian. The incumbent will join a multi-location, cross disciplinary team that supports teaching and all levels of research in the humanities and social sciences. </span><span>Note: Two positions are being filled.</span><br /></p>",
     jobType: [
@@ -81,6 +83,8 @@ export const Default = () => ({
         :jobPostingURL="jobPostingURL"
         :department="department"
         :associatedLocations="associatedLocations"
+        :alternativeFullName="alternativeFullName"
+        :language="language"
       />
   `,
 })

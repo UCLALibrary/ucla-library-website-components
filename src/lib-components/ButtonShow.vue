@@ -1,5 +1,5 @@
 <template>
-    <div class="button-show">
+    <button class="button-show">
         <div class="icon" aria-hidden="true">
             <molecule-stroke class="molecule-stroke" />
             <icon-expand class="icon-expand" />
@@ -8,7 +8,7 @@
         <div class="text">
             {{ text }}
         </div>
-    </div>
+    </button>
 </template>
 
 <script>
