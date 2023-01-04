@@ -10,6 +10,7 @@
                 :endDate="item.endDate"
                 :prompt="item.prompt"
                 :to="item.to"
+                :section-handle="item.sectionHandle"
                 class="brick"
             />
 

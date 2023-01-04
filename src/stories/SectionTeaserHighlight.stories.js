@@ -22,6 +22,7 @@ const mock = [
         title: "Fames ac turpis egestas sed tempus lorem ipsum",
         startDate: "2021-09-03T08:00:00+00:00",
         endDate: "2021-10-08T07:10:00+00:00",
+        sectionHandle: "event",
         text: "Ultricies leo integer malesuada nunc vel risus commodo viverra.",
     },
     {
@@ -31,6 +32,7 @@ const mock = [
         title: "Pretium magna eget dignissim placerat arcu velit et metus",
         startDate: "2021-09-03T08:00:00+00:00",
         endDate: "2021-10-08T07:10:00+00:00",
+        sectionHandle: "workshopOrEventSeries",
         locations: [
             { title: "Powellarium", to: "/location/bar" },
             {
@@ -47,6 +49,7 @@ const mock = [
         title: "Auctor Ligula",
         startDate: "2021-01-03T08:00:00+00:00",
         endDate: "2021-02-08T07:10:00+00:00",
+        sectionHandle: "event",
         locations: [
             { title: "Online", to: "/location/bar" },
             {
@@ -63,6 +66,7 @@ const mock = [
         title: "Amet nisl suscipit adipiscing bibendum lectus sed",
         startDate: "2021-09-03T08:00:00+00:00",
         endDate: "2021-10-08T07:10:00+00:00",
+        sectionHandle: "event",
         text: "A diam maecenas sed enim. Tristique senectus et netus et malesuada fames. Nibh nisl condimentum id venenatis. Mi bibendum neque egestas congue. Placerat duis ultricies lacus sed turpis. Massa enim nec dui nunc mattis. Dolor morbi non arcu risus quis varius vestibulum sed.",
     },
 ]

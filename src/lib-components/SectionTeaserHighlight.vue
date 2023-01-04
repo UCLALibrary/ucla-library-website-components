@@ -17,6 +17,7 @@
             :has-triangle="true"
             :is-vertical="true"
             :locations="item.locations"
+            :section-handle="item.sectionHandle"
             class="block"
         />
     </ul>
