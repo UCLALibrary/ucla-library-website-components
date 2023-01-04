@@ -32,7 +32,7 @@
                         v-if="
                             byline ||
                             subjectAreas ||
-                            date ||
+                            startDate ||
                             phone ||
                             email ||
                             addressLink ||
@@ -86,14 +86,19 @@
                             />
                         </div>
 
-                        <div v-if="date" class="schedule">
+                        <div v-if="startDate || dateCreated" class="schedule">
                             <time
-                                v-if="date"
+                                v-if="dateCreated"
+                                class="date-created"
+                                v-html="parsedDateCreated"
+                            />
+                            <time
+                                v-if="startDate"
                                 class="schedule-item"
                                 v-html="parsedDate"
                             />
                             <time
-                                v-if="date"
+                                v-if="parsedTime"
                                 class="schedule-item"
                                 v-html="parsedTime"
                             />
@@ -137,6 +142,7 @@
 </template>
 
 <script>
+import format from "date-fns/format"
 // Utility functions
 import formatEventTimes from "@/mixins/formatEventTimes"
 import formatEventDates from "@/mixins/formatEventDates"
@@ -177,7 +183,15 @@ export default {
             type: String,
             default: "",
         },
-        date: {
+        startDate: {
+            type: String,
+            default: "",
+        },
+        endDate: {
+            type: String,
+            default: "",
+        },
+        dateCreated: {
             type: String,
             default: "",
         },
@@ -242,6 +256,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        sectionHandle: {
+            type: String,
+            default: "",
+        },
     },
     computed: {
         classes() {
@@ -264,11 +282,17 @@ export default {
         categoryClasses() {
             return ["text", `color-${this.sectionName}`]
         },
+        parsedDateCreated() {
+            return format(new Date(this.dateCreated), "MMMM d, Y")
+        },
         parsedDate() {
-            return this.formatDates(this.date, this.date)
+            return this.formatDates(this.startDate, this.endDate)
         },
         parsedTime() {
-            return this.formatTimes(this.date, this.date)
+            if (this.startDate && this.sectionHandle == "event") {
+                return this.formatTimes(this.startDate, this.endDate)
+            }
+            return ""
         },
     },
 }
