@@ -7,7 +7,8 @@
 
             <h2 class="title" v-html="title" />
 
-            <h3 class="dates" v-html="parsedDate" v-if="startDate" />
+            <time v-if="startDate" class="dates" v-html="parsedDate" />
+            <time v-if="parsedTime" class="dates" v-html="parsedTime" />
 
             <smart-link :class="classes" :to="to" v-html="prompt" />
             <!-- TO DO: Use button-link component instead -->
@@ -24,6 +25,7 @@ import SmartLink from "@/lib-components/SmartLink"
 
 // Utility functions
 import getSectionName from "@/mixins/getSectionName"
+import formatEventTimes from "@/mixins/formatEventTimes"
 import formatEventDates from "@/mixins/formatEventDates"
 
 export default {
@@ -55,6 +57,10 @@ export default {
             type: String,
             default: "",
         },
+        sectionHandle: {
+            type: String,
+            default: "",
+        },
     },
     computed: {
         classes() {
@@ -63,15 +69,21 @@ export default {
         sectionName() {
             return this.getSectionName(this.to)
         },
-        parsedMultiDate() {
+        parsedDate() {
             return this.formatDates(this.startDate, this.endDate)
         },
         parsedSingledDate() {
             return format(new Date(this.startDate), "MMMM d, Y")
         },
-        parsedDate() {
-            return this.endDate ? this.parsedMultiDate : this.parsedSingledDate
+        parsedTime() {
+            if (this.startDate && this.sectionHandle == "event") {
+                return this.formatTimes(this.startDate, this.endDate)
+            }
+            return ""
         },
+        // parsedDate() {
+        //     return this.endDate ? this.parsedMultiDate : this.parsedSingledDate
+        // },
     },
 }
 </script>

@@ -112,9 +112,10 @@
             "category": "Fermentu",
             "title": "Maecenas Leo Mauris",
             "prompt": "Velit Exceptur",
-            "startDate": "2022-12-09T00:00",
-            "endDate": "2022-12-11T00:00",
-            "to": "/llamacorn/uri/1"
+            "startDate": "1995-12-17T03:24:00",
+            "endDate": "1995-12-17T03:24:00",
+            "to": "/llamacorn/uri/1",
+            "sectionHandle": "event"
         },
         {
             "image": {
@@ -128,7 +129,9 @@
             "title": "Maecenas Leo Mauris Praesent finibus fermentum ligula, nec tristique",
             "prompt": "Velit Exceptur",
             "startDate": "2022-12-09T00:00",
-            "to": "/visit/uri/2"
+            "endDate": "2022-12-11T00:00",
+            "to": "/visit/uri/2",
+            "sectionHandle": "workshopOrEventSeries"
         }
     ],
     "primaryNavlinks": [
