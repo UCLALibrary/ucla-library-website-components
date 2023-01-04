@@ -36,6 +36,7 @@ const mock = {
         { title: "Powellarium", to: "/location/bar" },
         { title: "Research Library (Charles E. Young)", to: "/location/baz" },
     ],
+    sectionHandle: "event",
 }
 
 const mock2 = {
@@ -51,6 +52,7 @@ const mock2 = {
         { title: "Powellarium", to: "/location/bar" },
         { title: "Research Library (Charles E. Young)", to: "/location/baz" },
     ],
+    sectionHandle: "workshopOrEventSeries",
 }
 
 // Variations of stories below
@@ -74,6 +76,7 @@ export const Default = () => ({
           :locations="locations"
           :alternativeFullName="alternativeFullName"
           :language="language"
+          :section-handle="sectionHandle"
       />
   `,
 })
@@ -96,6 +99,7 @@ export const About = () => ({
           :is-vertical="true"
           :image-aspect-ratio="60"
           :locations="locations"
+          :section-handle="sectionHandle"
       />
   `,
 })
@@ -119,6 +123,7 @@ export const ShortTitle = () => ({
           :has-triangle="true"
           :is-vertical="true"
           :image-aspect-ratio="60"
+          :section-handle="sectionHandle"
       />
   `,
 })
@@ -143,6 +148,7 @@ export const LongTitle = () => ({
           :is-vertical="true"
           :image-aspect-ratio="60"
           :locations="locations"
+          :section-handle="sectionHandle"
       />
   `,
 })
@@ -163,6 +169,7 @@ export const Card = () => ({
       :is-vertical="true"
       :image-aspect-ratio="60"
       :locations="locations"
+      :section-handle="sectionHandle"
       />
   `,
 })
@@ -183,6 +190,7 @@ export const CardShortTitle = () => ({
       :is-vertical="true"
       :image-aspect-ratio="60"
       :locations="locations"
+      :section-handle="sectionHandle"
       />
   `,
 })
@@ -203,6 +211,7 @@ export const CardLongTitle = () => ({
       :is-vertical="true"
       :image-aspect-ratio="60"
       :locations="locations"
+      :section-handle="sectionHandle"
       />
   `,
 })
@@ -223,6 +232,7 @@ export const List = () => ({
       :end-date="endDate"
       :locations="locations"
       :image-aspect-ratio="60"
+      :section-handle="sectionHandle"
       />
   `,
 })
@@ -245,6 +255,7 @@ export const ListShortTitle = () => ({
           :text="text"
           :image-aspect-ratio="60"
           :locations="locations"
+          :section-handle="sectionHandle"
       />
   `,
 })
@@ -267,6 +278,7 @@ export const ListLongTitle = () => ({
           :text="text"
           :image-aspect-ratio="60"
           :locations="locations"
+          :section-handle="sectionHandle"
       />
   `,
 })

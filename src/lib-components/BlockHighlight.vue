@@ -169,6 +169,10 @@ export default {
             type: String,
             default: "", // This will be "visit", "about", "help".
         },
+        sectionHandle: {
+            type: String,
+            default: "",
+        },
     },
     computed: {
         classes() {
@@ -206,8 +210,9 @@ export default {
             }
             return ""
         },
+
         parsedTime() {
-            if (this.startDate) {
+            if (this.startDate && this.sectionHandle == "event") {
                 return this.formatTimes(this.startDate, this.endDate)
             }
             return ""
