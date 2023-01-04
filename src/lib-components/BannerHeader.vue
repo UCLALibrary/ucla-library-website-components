@@ -60,7 +60,7 @@
                         v-html="parsedDate"
                     />
                     <time
-                        v-if="startDate && isEvent"
+                        v-if="parsedTime"
                         class="schedule-item"
                         v-html="parsedTime"
                     />
@@ -277,6 +277,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        sectionHandle: {
+            type: String,
+            default: "",
+        },
     },
     computed: {
         classes() {
@@ -339,7 +343,10 @@ export default {
             return this.formatDates(this.startDate, this.endDate)
         },
         parsedTime() {
-            return this.formatTimes(this.startDate, this.endDate)
+            if (this.startDate && this.sectionHandle == "event") {
+                return this.formatTimes(this.startDate, this.endDate)
+            }
+            return ""
         },
         sectionName() {
             // Want the color for the current page
