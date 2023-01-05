@@ -5,8 +5,10 @@
         <div class="text row">
             <span class="category" v-html="category" />
             <h2 class="title" v-html="title" />
-            <time v-if="startDate" class="dates" v-html="parsedDate" />
-            <time v-if="parsedTime" class="time" v-html="parsedTime" />
+            <div class="date-time">
+                <time v-if="startDate" class="dates" v-html="parsedDate" />
+                <time v-if="parsedTime" class="time" v-html="parsedTime" />
+            </div>
             <smart-link :class="classes" :to="to" v-html="prompt" />
             <!-- TO DO: Use button-link component instead -->
         </div>
@@ -123,9 +125,13 @@ export default {
         @include step-2;
         margin-bottom: var(--space-s);
     }
+    .date-time {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: var(--space-m);
+    }
     .dates {
         @include step-0;
-        margin-bottom: var(--space-m);
     }
     .time {
         @include step-0;
