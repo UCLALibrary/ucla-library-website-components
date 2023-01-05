@@ -8,7 +8,7 @@
             <h2 class="title" v-html="title" />
 
             <time v-if="startDate" class="dates" v-html="parsedDate" />
-            <time v-if="parsedTime" class="dates" v-html="parsedTime" />
+            <time v-if="parsedTime" class="time" v-html="parsedTime" />
 
             <smart-link :class="classes" :to="to" v-html="prompt" />
             <!-- TO DO: Use button-link component instead -->
@@ -31,7 +31,7 @@ import formatEventDates from "@/mixins/formatEventDates"
 export default {
     name: "BlockEvent",
     components: { SmartLink },
-    mixins: [getSectionName, formatEventDates],
+    mixins: [getSectionName, formatEventDates, formatEventTimes],
     props: {
         title: {
             type: String,
@@ -129,6 +129,9 @@ export default {
     .dates {
         @include step-0;
         margin-bottom: var(--space-m);
+    }
+    .time {
+        @include step-0;
     }
     .text {
         bottom: 0;
