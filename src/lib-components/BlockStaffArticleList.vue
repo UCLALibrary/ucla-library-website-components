@@ -32,12 +32,19 @@
 </template>
 
 <script>
-import format from "date-fns/format"
+// COMPONENTS
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
+
+// UTILITY FUNCTIONS
+import removeHtmlTruncate from "@/mixins/removeHtmlTruncate"
+import format from "date-fns/format"
+
+// SVGs
 import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
 
 export default {
     name: "BlockStaffArticleList",
+    mixins: [format, removeHtmlTruncate],
     components: {
         ResponsiveImage,
         MoleculePlaceholder,
@@ -82,6 +89,9 @@ export default {
         },
         imageExists() {
             return this.image && Object.keys(this.image) != 0 ? true : false
+        },
+        parsedText() {
+            return this.removeHtmlTruncate(this.description, 250)
         },
     },
 }

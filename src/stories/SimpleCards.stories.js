@@ -161,7 +161,7 @@ const mockFiveCards = {
     cards: [
         {
             id: "8203",
-            text: "<p>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT.</p>",
+            text: "<p>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT. Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
             title: "Library Prize for Undergraduate Research",
             slug: "library-prize-for-undergraduate-research",
             to: "about/awards-grants/library-prize-for-undergraduate-research",

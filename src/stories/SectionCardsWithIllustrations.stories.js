@@ -13,35 +13,35 @@ const itemsVertical = [
         iconName: "illustration-book-binding",
         to: "/help/foo/bar/",
         title: "Lacus Luctus",
-        text: "Litora torquent per conubia nostra, per inceptos himenaeos.",
+        text: "There are lots of things to climb on and huge space to run around. There's a large sitting area for us to bring our snacks/lunch or for me to read a book while they play well, at least for a few minutes until they come up and want to interact with me again. :) The place has been very clean every time we've been there.",
         isHorizontal: false,
     },
     {
         iconName: "illustration-find-space",
         to: "/visit/foo/baz/",
         title: "Ultrices Enim",
-        text: "Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem.",
+        text: "Under the Sea is the newest, fun, unique, exciting, most talked about children's entertainment center. Beautiful floor-to-ceiling murals depict the world under the sea, with pirates, mermaids, and other sea life. As different as all kids are, they all enjoy one thing: fun,fun, and tons of fun!",
         isHorizontal: false,
     },
     {
         iconName: "illustration-digitized-resources",
         to: "/about/foo/fred/",
         title: "Egestas et Augue Justo eu Magna Luctus",
-        text: "Suspendisse in justo eu magna luctus suscipit libero eget ante.",
+        text: "Unleash your child's imagination in a world Under the Sea. Through play, children develop the self esteem, coordination, and social skills necessary to grow. Children will bounce in the Moon Bouncer, go down the Turbo Slide, crawl through the climbing structure, or climb up to the top of a sea castle.",
         isHorizontal: false,
     },
     {
         iconName: "illustration-databases",
         to: "/about/foo/thud/",
         title: "Proin Sodales",
-        text: "Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Morbi in dui quis est pulvinar ullamcorper.",
+        text: "Under the Sea is the newest, fun, unique, exciting, most talked about children's entertainment center. Beautiful floor-to-ceiling murals depict the world under the sea, with pirates, mermaids, and other sea life. As different as all kids are, they all enjoy one thing: fun, fun and tons of fun!",
         isHorizontal: false,
     },
     {
         iconName: "illustration-remote-access",
         to: "/visit/foo/qux/",
         title: "Taciti sociosqu",
-        text: "Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.",
+        text: "Our Live Characters Make each event an unforgettable celebration. Each performance is unique, and includes music, games, magic, and interaction with the guests.",
         isHorizontal: false,
     },
 ]
@@ -57,7 +57,7 @@ export const Default = () => ({
         <section-cards-with-illustrations
             :items="itemsVertical"
             sectionTitle="Get Help With"
-            sectionSummary="Curabitur aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh."
+            sectionSummary="Our facility is equipped to accommodate children of various ages. For the younger ones, we offer a soft Baby Corner, a toddler swing, a slide, a carousel, and other educational play equipment."
             to="/help/foo/bar"
             :isHorizontal="false"
             button-text="See More"
@@ -71,21 +71,21 @@ const itemsHorizontal = [
         category: "Malvina",
         to: "/help/foo/bar/",
         title: "Lacus Luctus",
-        text: "Litora torquent per conubia nostra, per inceptos himenaeos.",
+        text: "There are lots of things to climb on and huge space to run around. There's a large sitting area for us to bring our snacks/lunch or for me to read a book while they play well, at least for a few minutes until they come up and want to interact with me again. :) The place has been very clean every time we've been there.",
     },
     {
         iconName: "illustration-find-space",
         category: "Malvina",
         to: "/visit/foo/baz/",
         title: "Ultrices Enim",
-        text: "Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem.",
+        text: "They are very organized with the birthday parties and have a well-planned out timeline to get play, pizza, cake, and any activities done with plenty of time to spare. Regarding the comment below about the food: I think they recently switched to Papa John's. We got a few compliments on the pizza this time around. I usually don't order cake through them and instead they throw in an extra pizza for the adults.",
     },
     {
         iconName: "illustration-digitized-resources",
         category: "Malvina",
         to: "/about/foo/fred/",
         title: "Egestas et Augue",
-        text: "Suspendisse in justo eu magna luctus suscipit libero eget ante.",
+        text: "Under the Sea is the newest, fun, unique, exciting, most talked about children's entertainment center. Beautiful floor-to-ceiling murals depict the world under the sea, with pirates, mermaids, and other sea life. As different as all kids are, they all enjoy one thing: fun, fun and tons of fun!",
     },
     {
         iconName: "illustration-databases",
