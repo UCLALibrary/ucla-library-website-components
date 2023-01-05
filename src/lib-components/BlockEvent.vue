@@ -130,12 +130,11 @@ export default {
         flex-direction: column;
         margin-bottom: var(--space-m);
     }
-    .dates {
-        @include step-0;
-    }
+    .dates,
     .time {
         @include step-0;
     }
+
     .text {
         bottom: 0;
         top: auto;
