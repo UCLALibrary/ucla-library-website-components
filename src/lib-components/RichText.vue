@@ -1,6 +1,6 @@
 <template>
     <div class="rich-text">
-        <div class="parsed-content" v-html="richTextContent" />
+        <div class="parsed-content" v-html="parsedContent" />
         <slot />
     </div>
 </template>
@@ -13,6 +13,11 @@ export default {
         richTextContent: {
             type: String,
             default: "",
+        },
+    },
+    computed: {
+        parsedContent() {
+            return this.richTextContent
         },
     },
 }
