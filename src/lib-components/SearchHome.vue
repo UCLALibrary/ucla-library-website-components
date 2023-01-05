@@ -66,7 +66,7 @@ const tabs = [
     {
         title: "UC Library Search",
         actionURL:
-            "https://search.library.ucla.edu/discovery/search?vid=01UCS_LAL:UCLA ",
+            "https://search.library.ucla.edu/discovery/search?vid=01UCS_LAL:UCLA",
         queryParam: "q",
     },
 ]
