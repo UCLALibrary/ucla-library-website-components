@@ -4,12 +4,9 @@
 
         <div class="text row">
             <span class="category" v-html="category" />
-
             <h2 class="title" v-html="title" />
-
             <time v-if="startDate" class="dates" v-html="parsedDate" />
             <time v-if="parsedTime" class="time" v-html="parsedTime" />
-
             <smart-link :class="classes" :to="to" v-html="prompt" />
             <!-- TO DO: Use button-link component instead -->
         </div>
