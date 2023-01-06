@@ -40,21 +40,23 @@
                 :to="location.uri"
             />
         </div>
-
-        <rich-text v-if="text" :rich-text-content="text" class="rich-text" />
+        <div v-if="text" class="text">{{ parsedText }}</div>
     </li>
 </template>
 
 <script>
+// COMPONENTS
 import SmartLink from "@/lib-components/SmartLink.vue"
-import RichText from "@/lib-components/RichText.vue"
 import IconWithLink from "@/lib-components/IconWithLink.vue"
+
+// UTILITY FUNCTIONS
+import removeHtmlTruncate from "@/mixins/removeHtmlTruncate"
 
 export default {
     name: "BlockGenericList",
+    mixins: [removeHtmlTruncate],
     components: {
         SmartLink,
-        RichText,
         IconWithLink,
     },
     data() {
@@ -100,6 +102,11 @@ export default {
         payRate: {
             type: String,
             default: "",
+        },
+    },
+    computed: {
+        parsedText() {
+            return this.removeHtmlTruncate(this.text, 250)
         },
     },
 }
@@ -150,7 +157,7 @@ export default {
         margin-bottom: var(--space-s);
     }
 
-    .rich-text {
+    .text {
         @include step-0;
         color: var(--color-black);
         @include truncate(4);
