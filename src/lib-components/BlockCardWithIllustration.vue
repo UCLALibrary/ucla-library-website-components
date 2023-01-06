@@ -4,12 +4,15 @@
 
         <div class="meta">
             <div v-if="category" class="category" v-html="category" />
+
             <smart-link v-if="to" :to="to">
                 <h3 class="title" v-html="title" />
             </smart-link>
+
             <div class="text" v-if="isHorizontal">
                 {{ text }}
             </div>
+
             <div class="text" v-if="!isHorizontal">
                 {{ parsedTextVertical }}
             </div>
