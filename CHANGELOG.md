@@ -1,3 +1,10 @@
+## [2.23.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.23.1...v2.23.2) (2023-01-06)
+
+
+### Bug Fixes
+
+* remove margin in block hours component ([#292](https://github.com/UCLALibrary/ucla-library-website-components/issues/292)) ([b8cab38](https://github.com/UCLALibrary/ucla-library-website-components/commit/b8cab380068de1e1ef5338665a6bd7a64c6d63aa))
+
 ## [2.23.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.23.0...v2.23.1) (2022-12-22)
 
 
