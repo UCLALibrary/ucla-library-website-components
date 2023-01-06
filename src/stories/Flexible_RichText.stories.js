@@ -1,6 +1,12 @@
 import FlexibleRichText from "@/lib-components/Flexible/RichText"
 
-import { mock, mockTwo, mockFour, mockFive } from "./mock/Flexible_RichText"
+import {
+    mock,
+    mockTwo,
+    mockFour,
+    mockFive,
+    mockWithCraftEntries,
+} from "./mock/Flexible_RichText"
 
 export default {
     title: "FLEXIBLE / Rich Text",
@@ -60,5 +66,19 @@ export const AllRichText = () => ({
          <flexible-rich-text
             :block="block"
          />
+    `,
+})
+
+export const CraftEntriesInRichText = () => ({
+    data() {
+        return {
+            block: mockWithCraftEntries,
+        }
+    },
+    components: { FlexibleRichText },
+    template: `
+        <flexible-rich-text
+            :block="block"
+        />
     `,
 })

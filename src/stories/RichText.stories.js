@@ -85,3 +85,22 @@ export const AllRichText = () => ({
          />
     `,
 })
+
+const mockWithCraftEntries = {
+    richText:
+        '<p>Testing a <a href="/visit/events-exhibitions/family-flicks">Family Flicks</a></p><p>Testing an entry in redactor: <a href="https://test-craft.library.ucla.edu/visit/events-exhibitions/https-calendar-library-ucla-edu-event-8956122">mediTEST Exhibition Title: Jellyfish</a></p>',
+}
+
+export const CraftEntriesInRichText = () => ({
+    data() {
+        return {
+            block: mockWithCraftEntries,
+        }
+    },
+    components: { RichText },
+    template: `
+         <rich-text
+            :rich-text-content="block.richText"
+         />
+    `,
+})

@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import stripCraftURLFromText from "@/mixins/stripCraftURLFromText"
 export default {
     name: "RichText",
     components: {},
@@ -15,9 +16,10 @@ export default {
             default: "",
         },
     },
+    mixins: [stripCraftURLFromText],
     computed: {
         parsedContent() {
-            return this.richTextContent
+            return this.stripCraftURLFromText(this.richTextContent)
         },
     },
 }
