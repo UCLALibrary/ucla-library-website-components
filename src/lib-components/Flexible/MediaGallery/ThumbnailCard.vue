@@ -7,17 +7,22 @@
             object-fit="cover"
         />
         <SectionHeader class="caption-title" v-text="captionTitle" />
-        <p class="caption-text" v-text="captionText" />
+        <p class="caption-text">{{ parsedText }}</p>
     </SectionWrapper>
 </template>
 
 <script>
+// COMPONENTS
 import SectionWrapper from "@/lib-components/SectionWrapper.vue"
 import SectionHeader from "@/lib-components/SectionHeader.vue"
 import MediaItem from "@/lib-components/Media/Item.vue"
 
+// UTILITY FUNCTIONS
+import removeHtmlTruncate from "@/mixins/removeHtmlTruncate"
+
 export default {
     name: "FlexibleMediaGalleryThumbnailCard",
+    mixins: [removeHtmlTruncate],
     components: { MediaItem, SectionWrapper, SectionHeader },
     props: {
         item: {
@@ -47,6 +52,9 @@ export default {
             return (this.coverImage || []) // replace null & undefined with empty array
                 .concat(this.item || []) // add item to use if there's no coverImage
                 .filter((item) => item.kind == "image") // only keep "image" items
+        },
+        parsedText() {
+            return this.removeHtmlTruncate(this.captionText, 100)
         },
     },
 }

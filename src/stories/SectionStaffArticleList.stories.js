@@ -19,7 +19,7 @@ const mock = [
         date: "1995-12-17T03:24:00",
         authors: [{ title: "Justo Magna", id: 123 }],
         description:
-            "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
+            "<p>We love re-creating restaurant-quality sandwiches like <a href='https://natashaskitchen.com/french-dip-pastrami-sandwich-recipe/'>French Dip</a> and <a href='https://natashaskitchen.com/perfect-burger-recipe/'>Burgers</a>! This Cheesesteak recipe is easier than you think. Watch the <strong>video tutorial below</strong> and you’ll know why everyone is talking about it.</p>",
     },
     {
         image: API.image,
@@ -30,12 +30,9 @@ const mock = [
         authors: [
             { title: "Justo Magna", id: 123 },
             { title: "Luctus Suscipit", id: 124 },
-            { title: "Morbi lacinia", id: 125 },
-            { title: "Vestibulum Tincidunt", id: 126 },
-            { title: "Ut Ultrices Malesuada Enim", id: 127 },
         ],
         description:
-            "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
+            "The lamb morsels in this Lamb Stew just melt in your mouth and so do the potatoes. This recipe is uncomplicated (a one-pot meal!) and it simmers in the oven for awhile so every bite is completely delicious. The lengthy (and care free) baking time creates a most satisfying broth consistency. Even if you have no clue what the old days were like, this lamb stew will take you there!",
     },
     {
         image: API.image,
@@ -48,7 +45,7 @@ const mock = [
             { title: "Luctus Suscipit", id: 124 },
         ],
         description:
-            "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
+            "<p>Homemade Marinara Sauce doesn’t get any easier! This requires just a handful of ingredients and 20 minutes on the stove for a memorable Italian Marinara. Everyone needs a great pasta sauce in their recipe collection and this one is a keeper.</p>",
     },
 ]
 

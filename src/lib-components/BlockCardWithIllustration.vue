@@ -4,24 +4,33 @@
 
         <div class="meta">
             <div v-if="category" class="category" v-html="category" />
+
             <smart-link v-if="to" :to="to">
                 <h3 class="title" v-html="title" />
             </smart-link>
-            <div class="text" v-html="text" />
+
+            <div class="text" v-if="isHorizontal">
+                {{ text }}
+            </div>
+
+            <div class="text" v-if="!isHorizontal">
+                {{ parsedTextVertical }}
+            </div>
         </div>
     </li>
 </template>
 
 <script>
-// Componenets
-
+// COMPONENTS
 import SmartLink from "@/lib-components/SmartLink.vue"
-// Utility Functions
+
+// UTILITY FUNCTIONS
 import getSectionName from "@/mixins/getSectionName"
+import removeHtmlTruncate from "@/mixins/removeHtmlTruncate"
 
 export default {
     name: "BlockCardWithIllustration",
-    mixins: [getSectionName],
+    mixins: [getSectionName, removeHtmlTruncate],
     components: {
         SmartLink,
         IllustrationBookBinding: () =>
@@ -100,6 +109,12 @@ export default {
         isExternalLink() {
             return this.to.includes("http") ? true : false
         },
+        parsedTextVertical() {
+            return this.removeHtmlTruncate(this.text)
+        },
+        parsedTextHorizontal() {
+            return this.removeHtmlTruncate(this.text, 250)
+        },
     },
 }
 </script>
@@ -150,7 +165,7 @@ export default {
         color: var(--color-primary-blue-05);
     }
 
-    // Variations
+    // VARIATIONS
     // Vertical
     &:not(&.is-horizontal) {
         display: flex;

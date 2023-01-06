@@ -67,9 +67,6 @@ export const MultipleAuthors = () => ({
             authors: [
                 { title: "Justo Magna", id: "article-1" },
                 { title: "Luctus Suscipit", id: "article-2" },
-                { title: "Morbi lacinia", id: "article-3" },
-                { title: "Vestibulum Tincidunt", id: "article-4" },
-                { title: "Ut Ultrices Malesuada Enim", id: "article-5" },
             ],
         }
     },
