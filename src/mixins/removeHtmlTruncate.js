@@ -3,9 +3,6 @@ export default {
      * Takes a String, Removes HTML tags and truncates to a given parameter
      * @param {String, Number} Text/Summary & maximum length needed for the blurb
      * @returns {String} with no HTML tags
-     * Inconsistent truncation on the SectionSimpleCards
-     * We are currently using this to strip the html
-     * TODO figure out the issue with SimpleCards
      */
 
     methods: {
