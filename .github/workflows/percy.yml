@@ -16,7 +16,7 @@ jobs:
     - uses: ./.github/workflows/setup-workspace
     - name: Use cached storybook build
       id: cache-storybook
-      uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+      uses: actions/cache@v3
       with:
         path: storybook-static
         key: storybook-${{ github.sha }}

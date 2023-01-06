@@ -5,5 +5,7 @@
     "defaultCommandTimeout": 60000,
     "video": false,
     "viewportWidth": 1440,
-    "viewportHeight": 1024
+    "viewportHeight": 1024,
+    "retries": 1,
+    "pageLoadTimeout":1000000
 }
