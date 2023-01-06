@@ -27,6 +27,7 @@
                 :locations="item.parsedLocation"
                 :image-aspect-ratio="60"
                 :is-vertical="true"
+                :section-handle="item.sectionHandle"
                 class="block"
             />
         </ul>

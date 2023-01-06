@@ -12,6 +12,7 @@
             :prompt="parsePrompt"
             :locations="parsedLocations"
             :category="parsedCategory"
+            :section-handle="block.content[0].contentLink[0].sectionHandle"
         />
         <banner-featured
             v-if="block && block.content && !block.content[0].contentLink"
@@ -26,6 +27,7 @@
             :locations="parsedLocations"
             :category="parsedCategory"
             :alignment="parsedAlignment"
+            :section-handle="block.content[0].sectionHandle"
         />
     </div>
 </template>

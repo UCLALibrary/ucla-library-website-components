@@ -1,18 +1,18 @@
-
 name: Run CI Suite
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 
 # Cancel this run if a newer commit is pushed
-concurrency: 
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
 
 jobs:
+<<<<<<< HEAD
   percy-instructions:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
@@ -104,3 +104,96 @@ jobs:
         wait-on: http://localhost:6006
       env: 
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
+=======
+    percy-instructions:
+        if: github.event_name == 'pull_request'
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        steps:
+            - name: Comment with percy instructions
+              uses: bubkoo/auto-comment@v1
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  pullRequestOpened: >
+                      # Percy Screenshots
+
+                      In order to conserve our percy screenshot allowance, percy is not configured to run automatically. Please make sure the PR is ready and all other checks are passing, then start it manually:
+
+                      1. Visit https://github.com/UCLALibrary/ucla-library-website-components/actions/workflows/percy.yml
+                      2. Click the 'Run workflow' button in the blue bar.
+                      3. Select the correct branch for this PR and click 'Run workflow' again to confirm.
+
+    eslint:
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  ref: ${{ github.event.pull_request.head.ref }}
+                  repository: ${{ github.event.pull_request.head.repo.full_name }}
+                  token: ${{ secrets.GH_TOKEN }} # non-github token so pushing auto-fies will trigger a new CI run
+            - uses: ./.github/workflows/setup-workspace
+            - run: npm run lint
+            - uses: EndBug/add-and-commit@v9
+              with:
+                  message: "chore: linter autofixes"
+                  default_author: github_actions
+
+    rollup:
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        steps:
+            - uses: actions/checkout@v3
+            - uses: ./.github/workflows/setup-workspace
+            - run: npm run build
+
+    storybook:
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        steps:
+            - uses: actions/checkout@v3
+            - uses: ./.github/workflows/setup-workspace
+            - name: Cache Storybook Build
+              id: cache-storybook
+              uses: actions/cache@v3
+              with:
+                  path: storybook-static
+                  key: storybook-${{ github.sha }}
+            - run: npm run build-storybook
+            - name: Deploy to Netlify (merged)
+              if: github.ref_name=='main'
+              uses: nwtgck/actions-netlify@v2 # v1.2.3
+              with:
+                  production-deploy: true
+                  deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/commit/${{ github.sha }}
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  publish-dir: "./storybook-static"
+                  fails-without-credentials: true
+                  github-deployment-environment: test
+              env:
+                  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+                  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK }}
+            - name: Deploy to Netlify (preview)
+              if: github.ref_name!='main'
+              uses: nwtgck/actions-netlify@v2 # v1.2.3
+              with:
+                  production-deploy: false
+                  deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/pull/${{ github.event.pull_request.number }}
+                  alias: deploy-preview-${{ github.event.pull_request.number }}
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  overwrites-pull-request-comment: true
+                  publish-dir: "./storybook-static"
+                  fails-without-credentials: true
+                  github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
+              env:
+                  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+                  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK }}
+            - name: Cypress test for Storybook Components
+              uses: cypress-io/github-action@v3
+              with:
+                  start: npx http-server ./storybook-static -p 6006
+                  command-prefix: "npx"
+                  wait-on: http://localhost:6006
+              env:
+                  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
+>>>>>>> b73376267896abc24f86ef4b65c66fce3153a3cf
