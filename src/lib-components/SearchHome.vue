@@ -42,6 +42,7 @@
                         v-text="link.text"
                     />
                 </div>
+
                 <div v-if="advancedSearchLink" class="advanced-links">
                     <smart-link
                         :to="advancedSearchLink.url"
