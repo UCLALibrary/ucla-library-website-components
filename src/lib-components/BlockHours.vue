@@ -130,7 +130,6 @@ export default {
         .iframe {
             max-width: 928px;
             padding: 12px;
-            margin-bottom: 200px;
             // resize: both;
         }
 
