@@ -116,7 +116,6 @@ const mock3 = {
             contentLink: [
                 {
                     contentType: "meapProject",
-                    sectionHandle: "article",
                     title: "Argentinean Human Rights Digital Library of Periodical and Non-periodical Publications",
                     to: "meap/projects/argentinean-human-rights-digital-library-of-periodical-and-non-periodical-publications",
                     summary:
@@ -129,6 +128,7 @@ const mock3 = {
                         },
                     ],
                     articleByline2: "2022-07-26T10:49:00-07:00",
+                    sectionHandle: "article",
                     projectLocations: [
                         {
                             id: "25324",
