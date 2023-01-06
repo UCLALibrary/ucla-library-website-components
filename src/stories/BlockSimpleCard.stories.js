@@ -30,7 +30,8 @@ const mockInternalGuide = {
         {
             slug: "road-work",
             title: "Road Work Guide",
-            summary: "<p>A research guide</p>",
+            summary:
+                "It is a frightening thought to imagine the ground below your feet or house suddenly collapsing and forming a big hole in the ground.",
             researchGuideUrl: "http://libguides.library.ucla.edu",
         },
     ],

@@ -78,7 +78,7 @@ const itemsHorizontal = [
         category: "Malvina",
         to: "/visit/foo/baz/",
         title: "Ultrices Enim",
-        text: "They are very organized with the birthday parties and have a well-planned out timeline to get play, pizza, cake, and any activities done with plenty of time to spare. Regarding the comment below about the food: I think they recently switched to Papa John's. We got a few compliments on the pizza this time around. I usually don't order cake through them and instead they throw in an extra pizza for the adults.",
+        text: "There are lots of things to climb on and huge space to run around. There's a large sitting area for us to bring our snacks/lunch or for me to read a book while they play well, at least for a few minutes until they come up and want to interact with me again. :) The place has been very clean every time we've been there.",
     },
     {
         iconName: "illustration-digitized-resources",

@@ -7,7 +7,9 @@
                 {{ title }}
             </smart-link>
         </h3>
+
         <div v-if="text" class="text">{{ parsedText }}</div>
+
         <div class="svg-meta" aria-hidden="true">
             <component :is="parsedIconName" class="svg" />
         </div>

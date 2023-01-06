@@ -7,9 +7,11 @@
             :object-fit="cover"
             class="image"
         />
+
         <div v-else class="molecule-no-image">
             <molecule-placeholder class="molecule" aria-hidden="true" />
         </div>
+
         <div class="meta">
             <div v-if="category" class="category" v-html="category" />
 
@@ -26,7 +28,7 @@
             </div>
 
             <!-- TODO strip html tags coming out of WYSIWYG -->
-            <div v-if="description" class="description" v-html="description" />
+            <div v-if="description" class="description">{{ parsedText }}</div>
         </div>
     </li>
 </template>
@@ -44,7 +46,7 @@ import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule
 
 export default {
     name: "BlockStaffArticleList",
-    mixins: [format, removeHtmlTruncate],
+    mixins: [removeHtmlTruncate],
     components: {
         ResponsiveImage,
         MoleculePlaceholder,
@@ -91,7 +93,7 @@ export default {
             return this.image && Object.keys(this.image) != 0 ? true : false
         },
         parsedText() {
-            return this.removeHtmlTruncate(this.description, 250)
+            return this.removeHtmlTruncate(this.description, 130)
         },
     },
 }

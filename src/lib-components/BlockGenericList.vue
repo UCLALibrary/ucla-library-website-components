@@ -40,19 +40,13 @@
                 :to="location.uri"
             />
         </div>
-        <div v-if="text" class="rich-text">{{ parsedText }}</div>
-        <!-- <rich-text
-            v-if="text"
-            :rich-text-content="parsedText"
-            class="rich-text"
-        /> -->
+        <div v-if="text" class="text">{{ parsedText }}</div>
     </li>
 </template>
 
 <script>
 // COMPONENTS
 import SmartLink from "@/lib-components/SmartLink.vue"
-import RichText from "@/lib-components/RichText.vue"
 import IconWithLink from "@/lib-components/IconWithLink.vue"
 
 // UTILITY FUNCTIONS
@@ -63,7 +57,6 @@ export default {
     mixins: [removeHtmlTruncate],
     components: {
         SmartLink,
-        RichText,
         IconWithLink,
     },
     data() {
@@ -164,7 +157,7 @@ export default {
         margin-bottom: var(--space-s);
     }
 
-    .rich-text {
+    .text {
         @include step-0;
         color: var(--color-black);
         @include truncate(4);
