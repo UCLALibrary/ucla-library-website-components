@@ -11,7 +11,7 @@ const mockTwoCards = {
     id: "13783",
     sectionTitle: "Fix Potholes",
     sectionSummary:
-        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
+        "<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote. It is a frightening thought to imagine the ground below your feet or house suddenly collapsing and forming a big hole in the ground.</p>",
     cards: [
         {
             id: "6622",
@@ -105,7 +105,7 @@ const mockFourCards = {
     cards: [
         {
             id: "8203",
-            text: "<p>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT.</p>",
+            text: "<p>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT. It is a frightening thought to imagine the ground below your feet or house suddenly collapsing and forming a big hole in the ground.</p>",
             title: "Library Prize for Undergraduate Research",
             slug: "library-prize-for-undergraduate-research",
             to: "about/awards-grants/library-prize-for-undergraduate-research",
@@ -128,8 +128,8 @@ const mockFourCards = {
         },
         {
             id: "6407",
-            text: "<p>A research guide</p>",
-            title: "A new research guide",
+            text: "<p>Donec lacus nunc, viverra nec, blandit vel, egestas et, augue.</p>",
+            title: "A new research guide ",
             slug: "a-new-research-guide",
             to: null,
             externalResourceUrl: "http://libguides.library.ucla.edu",
@@ -161,7 +161,7 @@ const mockFiveCards = {
     cards: [
         {
             id: "8203",
-            text: "<p>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT.</p>",
+            text: "<p>The Library Prize for Undergraduate Research recognizes and honors excellence in undergraduate research at UCLA. The application period for the 2022 Library Prize for Undergraduate Research closes on March 30, 2022 at 11:59 p.m. PT. Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
             title: "Library Prize for Undergraduate Research",
             slug: "library-prize-for-undergraduate-research",
             to: "about/awards-grants/library-prize-for-undergraduate-research",

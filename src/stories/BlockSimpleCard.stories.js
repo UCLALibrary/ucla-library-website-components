@@ -8,7 +8,7 @@ export default {
 const mockExternal = {
     title: "Types of Sinkholes",
     summary:
-        "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
+        "It is a frightening thought to imagine the ground below your feet or house suddenly collapsing and forming a big hole in the ground. Sinkholes rarely happen, but when they strike, tragedy can occur. Sinkholes happen when the ground below the land surface cannot support the land surface. They happen for many reasons; read on to educate yourself about sinkholes.",
     externalLink: "https://www.heliconusa.com/types-of-sinkholes/",
 }
 
@@ -30,7 +30,8 @@ const mockInternalGuide = {
         {
             slug: "road-work",
             title: "Road Work Guide",
-            summary: "<p>A research guide</p>",
+            summary:
+                "It is a frightening thought to imagine the ground below your feet or house suddenly collapsing and forming a big hole in the ground.",
             researchGuideUrl: "http://libguides.library.ucla.edu",
         },
     ],

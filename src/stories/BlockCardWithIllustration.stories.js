@@ -82,7 +82,8 @@ export const LongTextAbout = () => ({
             icon-name="illustration-digitized-resources"
             to="/about/foo/bar"
             title="The Enchantment Under The Sea"
-            text="Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Morbi in dui quis est pulvinar ullamcorper."
+            text="Under the Sea is the newest, fun, unique, exciting, most talked about children's entertainment center. Beautiful floor-to-ceiling murals depict the world under the sea, with pirates, mermaids, and other sea life. As different as all kids are, they all enjoy one thing: FUN, FUN, and tons of FUN!
+            "
         />
     `,
 })
