@@ -33,7 +33,9 @@ export default {
     },
     computed: {
         parsedText() {
-            return this.removeHtmlTruncate(this.summary)
+            return this.summary
+                ? this.removeHtmlTruncate(this.summary, 250)
+                : ""
         },
     },
 }

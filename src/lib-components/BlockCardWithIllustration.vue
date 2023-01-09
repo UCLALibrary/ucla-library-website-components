@@ -110,10 +110,12 @@ export default {
             return this.to.includes("http") ? true : false
         },
         parsedTextVertical() {
-            return this.removeHtmlTruncate(this.text)
+            if (this.text) {
+                return this.removeHtmlTruncate(this.text)
+            }
         },
         parsedTextHorizontal() {
-            return this.removeHtmlTruncate(this.text, 250)
+            return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
         },
     },
 }
