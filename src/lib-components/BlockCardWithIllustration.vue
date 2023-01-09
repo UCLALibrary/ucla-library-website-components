@@ -111,7 +111,7 @@ export default {
         },
         parsedTextVertical() {
             if (this.text) {
-                return this.removeHtmlTruncate(this.text)
+                return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
             }
         },
         parsedTextHorizontal() {

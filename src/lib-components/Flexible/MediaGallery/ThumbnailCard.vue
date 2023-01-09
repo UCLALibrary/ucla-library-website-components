@@ -54,7 +54,9 @@ export default {
                 .filter((item) => item.kind == "image") // only keep "image" items
         },
         parsedText() {
-            return this.text ? this.removeHtmlTruncate(this.text, 100) : ""
+            return this.captionText
+                ? this.removeHtmlTruncate(this.captionText, 100)
+                : ""
         },
     },
 }
