@@ -1,3 +1,10 @@
+# [2.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.24.0...v2.25.0) (2023-01-07)
+
+
+### Features
+
+* APPS-2111 update search home to search primo ([#291](https://github.com/UCLALibrary/ucla-library-website-components/issues/291)) ([38551ea](https://github.com/UCLALibrary/ucla-library-website-components/commit/38551ea1c03bd3be74fb64432adc8b9d5daabf7d))
+
 # [2.24.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.23.2...v2.24.0) (2023-01-06)
 
 
