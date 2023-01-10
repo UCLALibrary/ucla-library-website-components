@@ -120,7 +120,7 @@ export const Gallery = {
             id: "46451",
             captionTitle: "Image",
             captionText:
-                "Pine needles. This one is an image uploaded to craft.",
+                "Pine needles. It’s not because the gangly-limbed tree is particularly beautiful. The pine doesn’t have a magnolia’s flowers or an oak’s shade. And it has nothing to do with the endangered red-cockaded woodpecker that calls the tree home. The longleaf pine’s most obvious attribute is its strong, straight timber — perfect for utility poles.",
             sortOrder: 1,
             item: ImageFile,
         },

@@ -2,14 +2,17 @@
     <li class="search-result-item">
         <div class="category" v-html="category" />
         <smart-link class="title" :to="to" v-html="title" />
-        <div v-if="summary" class="summary" v-html="summary" />
+        <div v-if="summary" class="summary">{{ parsedText }}</div>
     </li>
 </template>
 
 <script>
+// UTILITY FUNCTIONS
+import removeHtmlTruncate from "@/mixins/removeHtmlTruncate"
+
 export default {
     name: "SearchResult",
-
+    mixins: [removeHtmlTruncate],
     props: {
         to: {
             type: String,
@@ -26,6 +29,13 @@ export default {
         summary: {
             type: String,
             default: "",
+        },
+    },
+    computed: {
+        parsedText() {
+            return this.summary
+                ? this.removeHtmlTruncate(this.summary, 250)
+                : ""
         },
     },
 }

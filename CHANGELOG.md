@@ -1,3 +1,24 @@
+## [2.25.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.0...v2.25.1) (2023-01-10)
+
+
+### Bug Fixes
+
+* update computed properties ([#294](https://github.com/UCLALibrary/ucla-library-website-components/issues/294)) ([0524271](https://github.com/UCLALibrary/ucla-library-website-components/commit/0524271374621b3ec99d532c904a1307c2c8036d))
+
+# [2.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.24.0...v2.25.0) (2023-01-07)
+
+
+### Features
+
+* APPS-2111 update search home to search primo ([#291](https://github.com/UCLALibrary/ucla-library-website-components/issues/291)) ([38551ea](https://github.com/UCLALibrary/ucla-library-website-components/commit/38551ea1c03bd3be74fb64432adc8b9d5daabf7d))
+
+# [2.24.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.23.2...v2.24.0) (2023-01-06)
+
+
+### Features
+
+* APPS-2510 Strip html tags and truncate summary text on various components ([#290](https://github.com/UCLALibrary/ucla-library-website-components/issues/290)) ([450de94](https://github.com/UCLALibrary/ucla-library-website-components/commit/450de9434fda6941eec4a2b9d48c43aa0c32a73d))
+
 ## [2.23.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.23.1...v2.23.2) (2023-01-06)
 
 

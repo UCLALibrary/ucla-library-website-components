@@ -42,6 +42,7 @@
                         v-text="link.text"
                     />
                 </div>
+
                 <div v-if="advancedSearchLink" class="advanced-links">
                     <smart-link
                         :to="advancedSearchLink.url"
@@ -65,8 +66,8 @@ const tabs = [
     },
     {
         title: "UC Library Search",
-        actionURL: "https://www.google.com/search",
-        queryParam: "q",
+        actionURL:
+            "https://search.library.ucla.edu/discovery/search?vid=01UCS_LAL:UCLA&tab=Articles_books_more_slot&search_scope=ArticlesBooksMore&lang=en&query=any,contains,",
     },
 ]
 
@@ -135,7 +136,7 @@ export default {
                     query: { [this.queryParam]: this.searchWords },
                 })
             } else {
-                window.location = `${this.actionUrl}?${this.queryParam}=${this.queryifySearchWords}`
+                window.location = `${this.actionUrl}${this.queryifySearchWords}`
             }
         },
         setActiveTab(index) {

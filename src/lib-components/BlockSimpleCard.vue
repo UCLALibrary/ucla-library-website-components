@@ -7,7 +7,9 @@
                 {{ title }}
             </smart-link>
         </h3>
-        <div v-if="text" class="text" v-html="text" />
+
+        <div v-if="text" class="text">{{ parsedText }}</div>
+
         <div class="svg-meta" aria-hidden="true">
             <component :is="parsedIconName" class="svg" />
         </div>
@@ -15,18 +17,21 @@
 </template>
 
 <script>
-// Helper functions
-import getSectionName from "@/mixins/getSectionName"
-import isInternalLink from "@/mixins/isInternalLink"
+// COMPONENTS
 import SmartLink from "@/lib-components/SmartLink"
 
+// UTILITY FUNCTIONS
+import getSectionName from "@/mixins/getSectionName"
+import isInternalLink from "@/mixins/isInternalLink"
+import removeHtmlTruncate from "@/mixins/removeHtmlTruncate"
+
 // SVGs
-import SvgArrowRightSmall from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
 import SvgArrowDiagonal from "ucla-library-design-tokens/assets/svgs/icon-external-link.svg"
+import SvgArrowRightSmall from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
 
 export default {
     name: "BlockSimpleCard",
-    mixins: [getSectionName, isInternalLink],
+    mixins: [getSectionName, isInternalLink, removeHtmlTruncate],
     components: {
         SvgArrowRightSmall,
         SvgArrowDiagonal,
@@ -57,6 +62,9 @@ export default {
             return this.isInternalLink(this.to)
                 ? "svg-arrow-right-small"
                 : "svg-arrow-diagonal"
+        },
+        parsedText() {
+            return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
         },
     },
 }
@@ -104,7 +112,6 @@ export default {
     .text {
         @include step--1;
         flex: 1;
-
         @include truncate(5);
     }
 

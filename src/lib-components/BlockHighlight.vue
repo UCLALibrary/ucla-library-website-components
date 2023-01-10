@@ -76,24 +76,27 @@
                 />
             </div>
             <!-- changing p tag to div fixes nodemismatch errors -->
-            <div v-if="text" class="text" v-html="text" />
+            <div v-if="text" class="text">{{ parsedText }}</div>
         </div>
     </li>
 </template>
 
 <script>
-// Components
+// COMPONENTS
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
 import IconWithLink from "@/lib-components/IconWithLink.vue"
-import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
 
-// Utility functions
+// UTILITY FUNCTIONS
 import formatTimes from "@/mixins/formatEventTimes"
 import formatDates from "@/mixins/formatEventDates"
 import formatDay from "@/mixins/formatEventDay"
 import formatMonth from "@/mixins/formatEventMonth"
 import getSectionName from "@/mixins/getSectionName"
+import removeHtmlTruncate from "@/mixins/removeHtmlTruncate"
+
+// SVGs
+import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
 
 export default {
     name: "BlockHighlight",
@@ -103,7 +106,14 @@ export default {
         ResponsiveImage,
         MoleculePlaceholder,
     },
-    mixins: [formatTimes, formatDates, formatDay, formatMonth, getSectionName],
+    mixins: [
+        formatTimes,
+        formatDates,
+        formatDay,
+        formatMonth,
+        getSectionName,
+        removeHtmlTruncate,
+    ],
     props: {
         image: {
             type: Object,
@@ -226,6 +236,9 @@ export default {
                     svg: input,
                 }
             })
+        },
+        parsedText() {
+            return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
         },
     },
 }
