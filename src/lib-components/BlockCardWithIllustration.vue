@@ -109,13 +109,13 @@ export default {
         isExternalLink() {
             return this.to.includes("http") ? true : false
         },
+        parsedTextHorizontal() {
+            return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
+        },
         parsedTextVertical() {
             if (this.text) {
                 return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
             }
-        },
-        parsedTextHorizontal() {
-            return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
         },
     },
 }
