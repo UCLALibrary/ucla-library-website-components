@@ -113,9 +113,7 @@ export default {
             return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
         },
         parsedTextVertical() {
-            if (this.text) {
-                return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
-            }
+            return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
         },
     },
 }
