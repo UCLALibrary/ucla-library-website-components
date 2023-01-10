@@ -1,3 +1,10 @@
+## [2.25.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.0...v2.25.1) (2023-01-10)
+
+
+### Bug Fixes
+
+* update computed properties ([#294](https://github.com/UCLALibrary/ucla-library-website-components/issues/294)) ([0524271](https://github.com/UCLALibrary/ucla-library-website-components/commit/0524271374621b3ec99d532c904a1307c2c8036d))
+
 # [2.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.24.0...v2.25.0) (2023-01-07)
 
 
