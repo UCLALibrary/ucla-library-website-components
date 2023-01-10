@@ -55,7 +55,7 @@ const mock = {
                             image: [
                                 {
                                     id: "20637",
-                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/LaNina-Jet-Wintertime-Pattern.jpg",
+                                    src: "https://static.library.ucla.edu/craftassetstest/LaNina-Jet-Wintertime-Pattern.jpg",
                                     height: 1997,
                                     width: 2560,
                                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 2560w",
@@ -82,7 +82,7 @@ const mock2 = {
             image: [
                 {
                     id: "26089",
-                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/AlbinoFox.jpg",
+                    src: "https://static.library.ucla.edu/craftassetstest/AlbinoFox.jpg",
                     height: 2074,
                     width: 2560,
                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/AlbinoFox.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/AlbinoFox.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/AlbinoFox.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/AlbinoFox.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/AlbinoFox.jpg 2560w",
@@ -138,7 +138,7 @@ const mock3 = {
                             image: [
                                 {
                                     id: "24878",
-                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/toni-g-rbregi1jeo-unsplash.jpg",
+                                    src: "https://static.library.ucla.edu/craftassetstest/toni-g-rbregi1jeo-unsplash.jpg",
                                     height: 4552,
                                     width: 2560,
                                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 2560w",
@@ -175,7 +175,7 @@ const mock4 = {
                             image: [
                                 {
                                     id: "36778",
-                                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/open-sourced-video-ucla-library.jpeg",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/open-sourced-video-ucla-library.jpeg",
                                     height: 1440,
                                     width: 2560,
                                     srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/open-sourced-video-ucla-library.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/open-sourced-video-ucla-library.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/open-sourced-video-ucla-library.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/open-sourced-video-ucla-library.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/open-sourced-video-ucla-library.jpeg 2560w",

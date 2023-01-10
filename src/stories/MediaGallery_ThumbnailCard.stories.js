@@ -26,7 +26,7 @@ const mockFocalPoint = {
     item: [
         {
             id: "42883",
-            src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Ramakatane-archive-15.jpeg",
+            src: "https://static.library.ucla.edu/craftassetstest/images/Ramakatane-archive-15.jpeg",
             height: 2547,
             width: 2560,
             srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Ramakatane-archive-15.jpeg 2560w",

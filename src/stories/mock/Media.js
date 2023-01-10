@@ -1,7 +1,7 @@
 export const ImageFile = [
     {
         id: "46054",
-        src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/pine-needles_2022-10-18-005212_jcjf.jpg",
+        src: "https://static.library.ucla.edu/craftassetstest/images/pine-needles_2022-10-18-005212_jcjf.jpg",
         srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 2560w",
         height: 1918,
         width: 2560,
@@ -52,7 +52,7 @@ export const AudioEmbed =
 export const AudioFileCoverImage = [
     {
         id: "46605",
-        src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Queen-of-Sandcastles.jpg",
+        src: "https://static.library.ucla.edu/craftassetstest/images/Queen-of-Sandcastles.jpg",
         srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Queen-of-Sandcastles.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Queen-of-Sandcastles.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Queen-of-Sandcastles.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Queen-of-Sandcastles.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Queen-of-Sandcastles.jpg 2560w",
         height: 2560,
         width: 2560,
@@ -67,7 +67,7 @@ export const AudioFileCoverImage = [
 export const VideoEmbedCoverImage = [
     {
         id: "46509",
-        src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/dougie.jpg",
+        src: "https://static.library.ucla.edu/craftassetstest/images/dougie.jpg",
         srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/dougie.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/dougie.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/dougie.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/dougie.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/dougie.jpg 2560w",
         height: 1436,
         width: 2560,
@@ -82,7 +82,7 @@ export const VideoEmbedCoverImage = [
 export const VideoFileCoverImage = [
     {
         id: "55786",
-        src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/sandow.jpg",
+        src: "https://static.library.ucla.edu/craftassetstest/images/sandow.jpg",
         srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/sandow.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/sandow.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/sandow.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/sandow.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/sandow.jpg 2560w",
         height: 3227,
         width: 2560,
@@ -97,7 +97,7 @@ export const VideoFileCoverImage = [
 export const AudioEmbedCoverImage = [
     {
         id: "46510",
-        src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/the-line-of-time-and-the-plane-of-now.jpg",
+        src: "https://static.library.ucla.edu/craftassetstest/images/the-line-of-time-and-the-plane-of-now.jpg",
         srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/the-line-of-time-and-the-plane-of-now.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/the-line-of-time-and-the-plane-of-now.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/the-line-of-time-and-the-plane-of-now.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/the-line-of-time-and-the-plane-of-now.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/the-line-of-time-and-the-plane-of-now.jpg 2560w",
         height: 2560,
         width: 2560,
