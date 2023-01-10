@@ -173,7 +173,6 @@ export default {
         }
     }
     @media #{$small} {
-        //align-items: center;
         .block-group {
             .block {
                 width: 100%;
