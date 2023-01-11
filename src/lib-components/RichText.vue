@@ -1,11 +1,12 @@
 <template>
     <div class="rich-text">
-        <div class="parsed-content" v-html="richTextContent" />
+        <div class="parsed-content" v-html="parsedContent" />
         <slot />
     </div>
 </template>
 
 <script>
+import stripCraftURLFromText from "@/mixins/stripCraftURLFromText"
 export default {
     name: "RichText",
     components: {},
@@ -13,6 +14,12 @@ export default {
         richTextContent: {
             type: String,
             default: "",
+        },
+    },
+    mixins: [stripCraftURLFromText],
+    computed: {
+        parsedContent() {
+            return this.stripCraftURLFromText(this.richTextContent)
         },
     },
 }

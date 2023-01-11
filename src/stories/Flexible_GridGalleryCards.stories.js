@@ -26,7 +26,7 @@ const mock = {
                             image: [
                                 {
                                     id: "20637",
-                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/LaNina-Jet-Wintertime-Pattern.jpg",
+                                    src: "https://static.library.ucla.edu/craftassetstest/LaNina-Jet-Wintertime-Pattern.jpg",
                                     height: 1997,
                                     width: 2560,
                                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 2560w",
@@ -48,7 +48,7 @@ const mock = {
             image: [
                 {
                     id: "40342",
-                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/virtual-screening-room-toll-sea_2022-09-21-214436_bnja.jpeg",
+                    src: "https://static.library.ucla.edu/craftassetstest/images/virtual-screening-room-toll-sea_2022-09-21-214436_bnja.jpeg",
                     height: 1870,
                     width: 2560,
                     srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/virtual-screening-room-toll-sea_2022-09-21-214436_bnja.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/virtual-screening-room-toll-sea_2022-09-21-214436_bnja.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/virtual-screening-room-toll-sea_2022-09-21-214436_bnja.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/virtual-screening-room-toll-sea_2022-09-21-214436_bnja.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/virtual-screening-room-toll-sea_2022-09-21-214436_bnja.jpeg 2560w",
