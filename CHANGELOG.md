@@ -1,3 +1,10 @@
+## [2.25.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.1...v2.25.2) (2023-01-11)
+
+
+### Bug Fixes
+
+* APPS-2123 strip craft url ([#293](https://github.com/UCLALibrary/ucla-library-website-components/issues/293)) ([8a4777c](https://github.com/UCLALibrary/ucla-library-website-components/commit/8a4777c1e994e3b4d6bca2e0404dd511cf70cf70))
+
 ## [2.25.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.0...v2.25.1) (2023-01-10)
 
 
