@@ -6,10 +6,5 @@
     "video": false,
     "viewportWidth": 1440,
     "viewportHeight": 1024,
-<<<<<<< HEAD
-    "retries": 2
-=======
-    "retries": 1,
-    "pageLoadTimeout": 1000000
->>>>>>> b73376267896abc24f86ef4b65c66fce3153a3cf
+    "retries": 1
 }
