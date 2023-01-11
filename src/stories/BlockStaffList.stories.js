@@ -31,9 +31,12 @@ export default {
 
 const mock = {
     to: "/staff/foo",
-    jobTitle: "Ullamco",
-    staffName: "Fames C. Turpis",
-    departments: [{ id: 123, title: "Inceptos Himenaeos Inceptos" }],
+    jobTitle: "Pirate",
+    staffName: "Anne Bonny",
+    departments: [
+        { id: 123, title: "Pillaging" },
+        { id: 123, title: "Plundering" },
+    ],
     email: "loreum@ipsum.foo",
 }
 
