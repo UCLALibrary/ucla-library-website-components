@@ -28,7 +28,7 @@ export default {
 const mock = {
     to: "/help/foo/bar/",
     title: "Quisque Volutpat",
-    text: "",
+    text: "<p>Need help figuring out what topic you want to explore for your project?</p>",
 }
 
 const mock2 = {
@@ -247,6 +247,25 @@ export const HorizontalCardShortDigitizedResources = () => ({
             :title="title"
             text="<p>Need help figuring out what topic you want to explore for your project?</p>"
             :is-horizontal="true"
+        />
+    `,
+})
+
+export const NoText = () => ({
+    data() {
+        return {
+            ...mock,
+            text: "",
+        }
+    },
+    components: { BlockCardWithIllustration },
+    template: `
+        <block-card-with-illustration
+            icon-name="illustration-digitized-resources"
+            to="/about/foo/bar"
+            :title="title"
+            :text="text"
+
         />
     `,
 })
