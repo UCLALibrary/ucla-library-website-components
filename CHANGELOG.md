@@ -1,3 +1,10 @@
+## [2.25.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.2...v2.25.3) (2023-01-11)
+
+
+### Bug Fixes
+
+* Fix html tag display on cards-with-illustration ([#295](https://github.com/UCLALibrary/ucla-library-website-components/issues/295)) ([f64f097](https://github.com/UCLALibrary/ucla-library-website-components/commit/f64f097b62a9805349e8bdfdf5f140cbf4fa94f4))
+
 ## [2.25.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.1...v2.25.2) (2023-01-11)
 
 
