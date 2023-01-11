@@ -11,7 +11,7 @@ export const mock = {
             coverImage: [
                 {
                     id: "5115",
-                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
+                    src: "https://static.library.ucla.edu/craftassetstest/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
                     height: 2151,
                     width: 2560,
                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 2560w",
@@ -33,7 +33,7 @@ export const mock = {
             coverImage: [
                 {
                     id: "5115",
-                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
+                    src: "https://static.library.ucla.edu/craftassetstest/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
                     height: 2151,
                     width: 2560,
                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 2560w",
@@ -53,7 +53,7 @@ export const mock = {
             coverImage: [
                 {
                     id: "5115",
-                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
+                    src: "https://static.library.ucla.edu/craftassetstest/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
                     height: 2151,
                     width: 2560,
                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 2560w",
@@ -71,7 +71,7 @@ export const mock = {
             coverImage: [
                 {
                     id: "5115",
-                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
+                    src: "https://static.library.ucla.edu/craftassetstest/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
                     height: 2151,
                     width: 2560,
                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 2560w",
@@ -91,7 +91,7 @@ export const mock = {
             coverImage: [
                 {
                     id: "4436",
-                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/EAL-70th-Anniversary.jpg",
+                    src: "https://static.library.ucla.edu/craftassetstest/EAL-70th-Anniversary.jpg",
                     height: 3713,
                     width: 2560,
                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/EAL-70th-Anniversary.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/EAL-70th-Anniversary.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/EAL-70th-Anniversary.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/EAL-70th-Anniversary.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/EAL-70th-Anniversary.jpg 2560w",
@@ -102,7 +102,7 @@ export const mock = {
             upload: [
                 {
                     id: "4436",
-                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/EAL-70th-Anniversary.jpg",
+                    src: "https://static.library.ucla.edu/craftassetstest/EAL-70th-Anniversary.jpg",
                     height: 3713,
                     width: 2560,
                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/EAL-70th-Anniversary.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/EAL-70th-Anniversary.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/EAL-70th-Anniversary.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/EAL-70th-Anniversary.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/EAL-70th-Anniversary.jpg 2560w",
@@ -128,7 +128,7 @@ export const mockSingle = {
             coverImage: [
                 {
                     id: "5115",
-                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
+                    src: "https://static.library.ucla.edu/craftassetstest/Screen-Shot-2022-02-17-at-11.42.39-AM.png",
                     height: 2151,
                     width: 2560,
                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/Screen-Shot-2022-02-17-at-11.42.39-AM.png 2560w",
