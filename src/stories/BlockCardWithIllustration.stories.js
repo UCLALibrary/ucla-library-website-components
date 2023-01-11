@@ -34,7 +34,7 @@ const mock = {
 const mock2 = {
     to: "/visit/foo/bar/",
     title: "Quisque Volutpat",
-    text: "<p>Need help figuring out what topic you want to explore for your project? Having trouble turning a general idea into something more specific? Learn how to develop a research question through synchronous and asynchronous events and resources.</p>",
+    text: "<p>Need help figuring out what topic you want to explore for your project? Having trouble turning a general idea into something more specific? Learn how to develop a research question through synchronous.</p>",
 }
 
 export const Default = () => ({
