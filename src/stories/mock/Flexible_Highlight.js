@@ -50,7 +50,7 @@ export const mock = {
                             image: [
                                 {
                                     id: "20637",
-                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/LaNina-Jet-Wintertime-Pattern.jpg",
+                                    src: "https://static.library.ucla.edu/craftassetstest/LaNina-Jet-Wintertime-Pattern.jpg",
                                     height: 1997,
                                     width: 2560,
                                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 2560w",
@@ -100,7 +100,7 @@ export const mock = {
                             image: [
                                 {
                                     id: "2442",
-                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/shortbread-cookies.jpg",
+                                    src: "https://static.library.ucla.edu/craftassetstest/shortbread-cookies.jpg",
                                     height: 1421,
                                     width: 2560,
                                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/shortbread-cookies.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/shortbread-cookies.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/shortbread-cookies.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/shortbread-cookies.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/shortbread-cookies.jpg 2560w",
@@ -121,7 +121,7 @@ export const mock = {
             image: [
                 {
                     id: "36751",
-                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/virtual-screening-room-toll-sea.jpeg",
+                    src: "https://static.library.ucla.edu/craftassetstest/images/virtual-screening-room-toll-sea.jpeg",
                     height: 1869,
                     width: 2560,
                     srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/virtual-screening-room-toll-sea.jpeg 2560w",
@@ -142,7 +142,7 @@ export const mock = {
             image: [
                 {
                     id: "26803",
-                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/kids_2022-08-03-003133_ybnd.jpg",
+                    src: "https://static.library.ucla.edu/craftassetstest/kids_2022-08-03-003133_ybnd.jpg",
                     height: 1704,
                     width: 2560,
                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 2560w",
@@ -187,7 +187,7 @@ export const mock = {
                             image: [
                                 {
                                     id: "24878",
-                                    src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/toni-g-rbregi1jeo-unsplash.jpg",
+                                    src: "https://static.library.ucla.edu/craftassetstest/toni-g-rbregi1jeo-unsplash.jpg",
                                     height: 4552,
                                     width: 2560,
                                     srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/toni-g-rbregi1jeo-unsplash.jpg 2560w",

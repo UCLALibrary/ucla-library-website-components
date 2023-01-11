@@ -33,6 +33,7 @@
 </template>
 
 <script>
+// Components
 import BannerFeatured from "@/lib-components/BannerFeatured.vue"
 
 // Helpers

@@ -1,3 +1,24 @@
+## [2.25.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.1...v2.25.2) (2023-01-11)
+
+
+### Bug Fixes
+
+* APPS-2123 strip craft url ([#293](https://github.com/UCLALibrary/ucla-library-website-components/issues/293)) ([8a4777c](https://github.com/UCLALibrary/ucla-library-website-components/commit/8a4777c1e994e3b4d6bca2e0404dd511cf70cf70))
+
+## [2.25.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.0...v2.25.1) (2023-01-10)
+
+
+### Bug Fixes
+
+* update computed properties ([#294](https://github.com/UCLALibrary/ucla-library-website-components/issues/294)) ([0524271](https://github.com/UCLALibrary/ucla-library-website-components/commit/0524271374621b3ec99d532c904a1307c2c8036d))
+
+# [2.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.24.0...v2.25.0) (2023-01-07)
+
+
+### Features
+
+* APPS-2111 update search home to search primo ([#291](https://github.com/UCLALibrary/ucla-library-website-components/issues/291)) ([38551ea](https://github.com/UCLALibrary/ucla-library-website-components/commit/38551ea1c03bd3be74fb64432adc8b9d5daabf7d))
+
 # [2.24.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.23.2...v2.24.0) (2023-01-06)
 
 
