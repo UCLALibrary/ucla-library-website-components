@@ -28,7 +28,7 @@ export default {
 const mock = {
     to: "/help/foo/bar/",
     title: "Quisque Volutpat",
-    text: "Watch it, Goldie. No, it was The Enchantment Under The Sea Dance. Our first date.",
+    text: "",
 }
 
 const mock2 = {
