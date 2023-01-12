@@ -33,6 +33,7 @@ const mock = {
     ],
     prompt: "Cursus Quis",
     alignRight: true,
+    sectionHandle: "event",
 }
 
 export const Default = () => ({
@@ -53,6 +54,7 @@ export const Default = () => ({
            :byline="byline"
            :prompt="prompt"
            :locations="locations"
+           :section-handle="sectionHandle"
        />
     `,
 })
@@ -75,6 +77,7 @@ export const LeftAligned = () => ({
            :prompt="prompt"
            :align-right="false"
            :locations="locations"
+           :section-handle="sectionHandle"
        />
     `,
 })
@@ -96,6 +99,7 @@ export const NoCategory = () => ({
            :prompt="prompt"
            :align-right="false"
            :locations="locations"
+           :section-handle="sectionHandle"
        />
     `,
 })
@@ -118,6 +122,7 @@ export const WithBylineAndSubjectAreas = () => ({
            :subjectAreas="subjectAreas"
            :prompt="prompt"
            :align-right="false"
+           :section-handle="sectionHandle"
        />
     `,
 })
@@ -185,6 +190,7 @@ const article = {
     title: "I Like Turtles",
     category: "Library News",
     dateCreated: "2022-02-09T10:57:46-08:00",
+    sectionHandle: "article",
     byline: [" Written by Courtney Hoffner", "Illustrations by Jen Diamond"],
     subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
     locations: [
@@ -219,6 +225,7 @@ export const ArticleDetail = () => ({
            :dateCreated="dateCreated"
            :locations="locations"
            :text="text"
+           :section-handle="sectionHandle"
        />
     `,
 })
@@ -242,6 +249,7 @@ export const ExternalLink = () => ({
            :byline="byline"
            :prompt="prompt"
            :locations="locations"
+           :section-handle="sectionHandle"
        />
     `,
 })
@@ -270,6 +278,7 @@ export const WithBlockForm = () => ({
            :prompt="prompt"
            :locations="locations"
            :registerEvent="true"
+           :section-handle="sectionHandle"
        />
     `,
 })

@@ -24,8 +24,10 @@ export const ShortText = () => ({
             :category="item.category"
             :title="item.title"
             :prompt="item.prompt"
-            :dates="item.dates"
+            :start-date="item.startDate"
+            :end-date="item.endDate"
             :to="item.to"
+            :sectionHandle="item.sectionHandle"
         />
     `,
 })
