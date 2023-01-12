@@ -1,48 +1,33 @@
 <template>
-    <div>
-        <!-- <block-staff-subject-librarian
-                v-for="item in items"
-                :key="item.to"
-                :subject-area="item.subjectArea"
-                :staff-name="item.staffName"
-                :to="item.to"
-                :alternativeFullName="item.alternativeFullName"
-                :language="item.language"
-                :job-title="item.jobTitle"
-                :departments="item.departments"
-                :locations="item.locations"
-                :email="item.email"
-                :phone="item.phone"
-                :consultation="item.consultation"
-                class="section-staff-subject-librarian"
-            /> -->
         <table>
-        <tbody>
-            <tr>
-                <th>Academic Department</th>
-                <th>Name</th>
-                <th>Contact Information</th>
-            </tr>
+            <thead  class="testy">
+                <tr>
+                    <th>Academic Department</th>
+                    <th>Name</th>
+                    <th>Contact Information</th>
+                </tr>
+            </thead>
 
-            <block-staff-subject-librarian
-                v-for="item in items"
-                :key="item.to"
-                :subject-area="item.subjectArea"
-                :staff-name="item.staffName"
-                :to="item.to"
-                :alternativeName="item.alternativeName"
-                :language="item.language"
-                :job-title="item.jobTitle"
-                :departments="item.departments"
-                :locations="item.locations"
-                :email="item.email"
-                :phone="item.phone"
-                :consultation="item.consultation"
-                class="subject-librarian-item"
-            />
+            <tbody>
+                <block-staff-subject-librarian
+                    v-for="item in items"
+                    :key="item.to"
+                    :subject-area="item.subjectArea"
+                    :staff-name="item.staffName"
+                    :to="item.to"
+                    :alternativeName="item.alternativeName"
+                    :language="item.language"
+                    :job-title="item.jobTitle"
+                    :departments="item.departments"
+                    :locations="item.locations"
+                    :email="item.email"
+                    :phone="item.phone"
+                    :consultation="item.consultation"
+                    class="subject-librarian-item"
+                />
         </tbody>
     </table>
-    </div>
+
 </template>
 
 <script>
@@ -77,9 +62,22 @@ export default {
 
     border-bottom: 2px dotted var(--color-secondary-grey-02);
 
-    .subject-librarian-item {
+    table {
+        background-color: reset;
+ 
+        }
+    th {
+        background-color: #d7d9f2;
+    }
+    tr {
+    th {
+    border: 1px solid green;
+    padding: 10px;
+}}
+    tr {.subject-librarian-item {
+        border: 4px solid red;
         background-color: pink;
         border-bottom: 2px dotted var(--color-secondary-grey-02);
-    }
+    }}
 }
 </style>

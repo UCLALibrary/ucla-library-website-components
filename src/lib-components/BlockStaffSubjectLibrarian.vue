@@ -153,7 +153,7 @@ export default {
     gap: var(--space-xl);
 
     line-height: $line-height--1;
-    //border-bottom: 2px dotted var(--color-secondary-grey-02);
+    padding: 10px 0;
 
     .academic-department {
         color: var(--color-primary-blue-05);
@@ -242,6 +242,16 @@ export default {
         }
     }
 
+    &.subject-librarian-item {
+        border-bottom: 2px dotted var(--color-secondary-grey-02);
+        padding-left: 0;
+        padding-right: 0;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+
     // Hover states
     @media #{$has-hover} {
         .staff-name:hover,
@@ -286,7 +296,7 @@ export default {
             margin-bottom: 4px;
         }
 
-        &.block-staff-list-item {
+        &.subject-librarian-item {
             border-bottom: 2px dotted var(--color-secondary-grey-02);
             padding-left: 0;
             padding-right: 0;
