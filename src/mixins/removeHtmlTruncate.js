@@ -1,3 +1,6 @@
+import _truncate from "lodash/truncate"
+import _unescape from "lodash/unescape"
+
 export default {
     /**
      * Takes a String, Removes HTML tags and truncates to a given parameter
@@ -6,20 +9,17 @@ export default {
      */
 
     methods: {
-        removeHtmlTruncate(str = "", maxlength = "") {
+        removeHtmlTruncate(str = "", maxlength = Infinity) {
             // Remove HTML
-            let stripHtml = str.replace(/(<([^>]+)>)/gi, "")
-            let removeQuotes = stripHtml.replace(/"/gi, "")
-            console.log("this is maxlength" + maxlength)
-            if (str.length < maxlength || maxlength == "") {
-                return removeQuotes
-            } else {
-                // Truncate
-                let limitCharacter = removeQuotes.substring(0, maxlength)
-                let words = limitCharacter.split(" ")
+            let stripHtml = _unescape(
+                str.replace(/(<([^>]+)>)/gi, "").replace(/"/gi, "")
+            )
 
-                return words.slice(0, -1).join(" ") + "..."
-            }
+            return _truncate(stripHtml, {
+                length: maxlength,
+                omission: "…",
+                separator: /\s/,
+            })
         },
     },
 }
