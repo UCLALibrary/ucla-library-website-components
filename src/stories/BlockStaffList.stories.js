@@ -30,7 +30,7 @@ export default {
 }
 
 const mock = {
-    to: "/staff/foo",
+    to: "/staff/anne-bonny",
     jobTitle: "Pirate",
     staffName: "Anne Bonny",
     departments: [

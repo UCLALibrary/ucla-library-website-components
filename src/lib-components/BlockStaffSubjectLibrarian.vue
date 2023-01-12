@@ -1,32 +1,43 @@
 <template>
-    <li class="block-staff-subject-librarian">
+    <tr class="block-staff-subject-librarian">
         <!-- SUBJECT AREA -->
-        <div class="academic-department">
-            <h3 class="staff-name" v-html="subjectArea" />
-        </div>
+        <td class="academic-department" v-html="subjectArea" />
 
         <!-- NAME -->
-        <div class="librarian-block">
-            <h3 class="staff-name">
-                <smart-link :to="to">
-                    {{ staffName }}
-                    <span
-                        v-if="alternativeFullName"
-                        :lang="language"
-                        v-html="alternativeFullName"
-                    />
-                </smart-link>
-            </h3>
+        <td class="librarian-block">
+
+            <smart-link 
+                id="block-staff-subject-librarian"
+                :to="to"
+                class="staff-name"
+            >
+                {{ staffName }}
+                <span
+                    v-if="alternativeFullName"
+                    :lang="language"
+                    v-html="alternativeFullName"
+                />
+            </smart-link>
 
             <div class="job-title" v-html="jobTitle" />
 
             <ul v-if="departments.length" class="departments">
                 <li class="department" v-html="lastDepartment" />
             </ul>
-        </div>
+
+            <div v-if="locations.length" class="locations">
+                <icon-with-link
+                    v-for="(location, index) in locations"
+                    :key="`${index}`"
+                    :text="location.title"
+                    icon-name="svg-icon-location"
+                    :to="location.uri"
+                />
+            </div>
+        </td>
 
         <!-- CONTACT INFO -->
-        <div class="contact-info">
+        <td class="contact-info">
             <div class="email">
                 <icon-with-link
                     :text="email"
@@ -50,18 +61,23 @@
                     :to="consultation"
                 />
             </div>
-        </div>
-    </li>
+        </td>
+    </tr>
 </template>
 
 <script>
+// UTILITY FUNCTIONS
 import _isEmpty from "lodash/isEmpty"
+
+// COMPONENTS
+import SmartLink from "@/lib-components/SmartLink.vue"
+import IconWithLink from "@/lib-components/IconWithLink.vue"
 
 export default {
     name: "BlockStaffList",
     components: {
-        IconWithLink: () =>
-            import("@/lib-components/IconWithLink.vue").then((d) => d.default),
+        SmartLink,
+        IconWithLink
     },
     props: {
         subjectArea: {
@@ -100,9 +116,9 @@ export default {
             type: Array,
             default: () => [],
         },
-        alternativeName: {
-            type: Array,
-            default: () => [],
+        alternativeFullName: {
+            ttype: String,
+            default: "",
         },
         uri: {
             type: String,
@@ -137,15 +153,12 @@ export default {
     gap: var(--space-xl);
 
     line-height: $line-height--1;
-    border: 1px solid var(--color-white);
-
-    padding: var(--space-xl);
+    //border-bottom: 2px dotted var(--color-secondary-grey-02);
 
     .academic-department {
-        border: 1px solid aqua;
-        @include step-1;
-        padding: var(--space-s);
-        color: var(--color-primary-blue-0);
+        color: var(--color-primary-blue-05);
+        @include step-0;
+        font-weight: 500;
 
         display: flex;
         flex: 1 1 0px;
@@ -157,9 +170,7 @@ export default {
     }
 
     .librarian-block {
-        border: 1px solid coral;
-        @include step-1;
-        padding: var(--space-s);
+        @include step-0;
 
         display: flex;
         flex: 1 1 0px;
@@ -176,8 +187,8 @@ export default {
         }
 
         .staff-name {
-            @include step-1;
             color: var(--color-primary-blue-03);
+            font-weight: 500;
 
             a::after {
                 content: "";
@@ -203,9 +214,6 @@ export default {
     }
 
     .contact-info {
-        border: 1px solid darkgoldenrod;
-        padding: var(--space-s);
-
         display: flex;
         flex: 1 1 0px;
         flex-direction: column;
@@ -236,14 +244,9 @@ export default {
 
     // Hover states
     @media #{$has-hover} {
-        .staff-name a:hover,
+        .staff-name:hover,
         .is-link:hover {
             @include link-hover;
-        }
-
-        &:hover {
-            @include card-horizontal-hover;
-            border-color: var(--color-about-purple-01);
         }
     }
 
@@ -274,8 +277,14 @@ export default {
         justify-content: flex-start;
         align-content: flex-start;
         align-items: flex-start;
+        gap: 0px;
 
         border: 0;
+        margin: unset;
+
+        .academic-department {
+            margin-bottom: 4px;
+        }
 
         &.block-staff-list-item {
             border-bottom: 2px dotted var(--color-secondary-grey-02);

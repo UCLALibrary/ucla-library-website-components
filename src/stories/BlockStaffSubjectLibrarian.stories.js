@@ -1,11 +1,13 @@
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
 import BlockStaffSubjectLibrarian from "@/lib-components/BlockStaffSubjectLibrarian"
+
+// A storybook decorator that allows you to use routing-aware components in your stories
 import StoryRouter from "storybook-vue-router"
 
 // Storybook default settings
 export default {
     title: "BLOCK / Staff / SubjectLibrarian",
+    component: BlockStaffSubjectLibrarian,
     decorators: [
         StoryRouter(
             {},
@@ -31,10 +33,12 @@ export default {
 
 const mock = {
     subjectArea: "African American Studies",
-    nameLast: "Bicho",
-    image: null,
     nameFirst: "Ariane",
-    phone: null,
+    nameLast: "Bicho",
+    to: "/about/staff/ariane-bicho",
+    staffName: "Ariane Bicho 娘の洋子より",
+    image: null,
+
     jobTitle: "Director of Communications and Marketing",
     departments: [
         {
@@ -42,7 +46,6 @@ const mock = {
             title: "Communications",
         },
     ],
-    consultation: "https://calendar.library.ucla.edu/appointments/aogarcia",
     alternativeName: [
         {
             fullName: "娘の洋子より",
@@ -50,7 +53,9 @@ const mock = {
         },
     ],
     uri: "about/staff/ariane-bicho",
+    phone: "(222) 444-5555",
     email: "abicho@library.ucla.edu",
+    consultation: "https://calendar.library.ucla.edu/appointments/aogarcia",
     academicDepartments: [
         {
             id: "11947",
@@ -61,8 +66,12 @@ const mock = {
             title: "Cluster 60: America in Sixties: Politics, Society, and Culture, 1954 to 1974",
         },
     ],
-    to: "/about/staff/ariane-bicho",
-    staffName: "Ariane Bicho 娘の洋子より",
+    locations: [
+        {
+            title: "DIIT",
+            to: "/location/bar",
+        },
+    ],
 }
 
 // Variations of stories below
@@ -71,17 +80,6 @@ export const Default = () => ({
         return {
             item: {
                 ...mock,
-                image: API.image_people,
-                locations: [
-                    {
-                        title: "Cupidatat non Proident",
-                        to: "/location/bar",
-                    },
-                    {
-                        title: "tristique",
-                        to: "/location/baz",
-                    },
-                ],
             },
         }
     },
@@ -89,7 +87,6 @@ export const Default = () => ({
     template: `
       <block-staff-subject-librarian
         v-bind="item"
-        phone="(222) 444-5555"
       />
   `,
 })

@@ -3,7 +3,7 @@ describe("SECTION / Staff / SubjectLibrarian", () => {
         cy.visit(
             "/iframe.html?id=section-staff-subjectlibrarian--default&args=&viewMode=story"
         )
-        cy.get(".section-staff-subjectlibrarian").should("exist")
+        cy.get(".section-staff-subject-librarian").should("exist")
 
         cy.percySnapshot("SECTION / Staff / SubjectLibrarian: Default")
     })

@@ -111,7 +111,7 @@ const mock = [
         ],
         to: "/about/staff/ariane-bicho",
         staffName: "Ariane Bicho のより娘",
-    }
+    },
 ]
 
 // Variations of stories below
@@ -123,6 +123,9 @@ export const Default = () => ({
     template: `
       <section-staff-subject-librarian
         :items="items"
+
       />
   `,
 })
+
+// columnTitles= ["Academic Departments", "Name", "Contact Information"]
