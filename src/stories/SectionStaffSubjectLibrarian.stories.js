@@ -114,16 +114,18 @@ const mock = [
     },
 ]
 
+const tableH = ["Academic Departments", "Name", "Contact Information"]
+
 // Variations of stories below
 export const Default = () => ({
     data() {
-        return { items: mock }
+        return { items: mock, tableHeaders: tableH }
     },
     components: { SectionStaffSubjectLibrarian },
     template: `
       <section-staff-subject-librarian
         :items="items"
-        
+        :tableHeaders="tableHeaders"
       />
   `,
 })

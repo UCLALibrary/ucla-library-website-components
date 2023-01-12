@@ -1,38 +1,30 @@
 <template>
-        <table>
-            <thead  class="testy">
-                <tr>
-                    <th style="background-color: green" class="column-headers">Academic Department</th>
-                    <th>Name</th>
-                    <th>Contact Information</th>
-                </tr>
+    <table class="section-staff-subject-librarian">
+        <thead>
+            <th v-for="(header, index) in tableHeaders" :key="index">
+                {{ header }}
+            </th>
+        </thead>
 
-                <!-- <tr v-for="header in tableHeaders"
-                    :key="item.to">
-                    <th>{{ header}}</th>
-                </tr> -->
-            </thead>
-
-            <tbody>
-                <block-staff-subject-librarian
-                    v-for="item in items"
-                    :key="item.to"
-                    :subject-area="item.subjectArea"
-                    :staff-name="item.staffName"
-                    :to="item.to"
-                    :alternativeName="item.alternativeName"
-                    :language="item.language"
-                    :job-title="item.jobTitle"
-                    :departments="item.departments"
-                    :locations="item.locations"
-                    :email="item.email"
-                    :phone="item.phone"
-                    :consultation="item.consultation"
-                    class="subject-librarian-item"
-                />
+        <tbody>
+            <block-staff-subject-librarian
+                v-for="item in items"
+                :key="item.to"
+                :subject-area="item.subjectArea"
+                :staff-name="item.staffName"
+                :to="item.to"
+                :alternativeName="item.alternativeName"
+                :language="item.language"
+                :job-title="item.jobTitle"
+                :departments="item.departments"
+                :locations="item.locations"
+                :email="item.email"
+                :phone="item.phone"
+                :consultation="item.consultation"
+                class="subject-librarian-item"
+            />
         </tbody>
     </table>
-
 </template>
 
 <script>
@@ -65,33 +57,39 @@ export default {
     max-width: $container-l-main + px;
     margin: 0 auto var(--space-3xl);
 
-    border-bottom: 2px dotted var(--color-secondary-grey-02);
+    thead {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: var(--space-xl);
 
-    .testy {
-        background-color: powderblue;
-    }
-    table {
-        background-color: reset;
-        }
-    th {
-        background-color: #d7d9f2;
-    }
-    tr {
-        th
-        .column-header {
-            background-color: pink;
-        }
+        width: 100%;
+        color: var(--color-primary-blue-05);
+        @include step-0;
+        font-weight: normal;
+        border-bottom: 2px dotted var(--color-secondary-grey-02);
+        padding-bottom: 10px;
     }
     th {
-        border: 1px solid green;
-        padding: 10px;
+        display: flex;
+        flex: 1 1 0px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: flex-start;
     }
-    tr {
-        background-color: blueviolet;
-        .subject-librarian-item {
-            border: 4px solid red;
-            background-color: yellow;
-            border-bottom: 2px dotted var(--color-secondary-grey-02);
+    .subject-librarian-item {
+        border-bottom: 2px dotted var(--color-secondary-grey-02);
+    }
+
+    @media #{$small} {
+        thead {
+            height: 1px;
+            width: 1px;
+            position: absolute;
+            overflow: hidden;
+            top: -10px;
         }
     }
 }
