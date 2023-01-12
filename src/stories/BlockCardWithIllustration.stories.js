@@ -28,13 +28,13 @@ export default {
 const mock = {
     to: "/help/foo/bar/",
     title: "Quisque Volutpat",
-    text: "",
+    text: "<p>Need help figuring out what topic you want to explore for your project?</p>",
 }
 
 const mock2 = {
     to: "/visit/foo/bar/",
     title: "Quisque Volutpat",
-    text: "Watch it, Goldie. No, it was The Enchantment Under The Sea Dance. Our first date. It was the night of that terrible thunderstorm, remember George? Your father kissed me for the very first time on that dance floor. It was then I realized I was going to spend the rest of my life with him.",
+    text: "<p>Need help figuring out what topic you want to explore for your project? Having trouble turning a general idea into something more specific? Learn how to develop a research question through synchronous.</p>",
 }
 
 export const Default = () => ({
@@ -245,8 +245,27 @@ export const HorizontalCardShortDigitizedResources = () => ({
             to="/about/foo/bar"
             category="Malesuada"
             :title="title"
-            text="Watch it, Goldie. No, it was The Enchantment Under The Sea Dance."
+            text="<p>Need help figuring out what topic you want to explore for your project?</p>"
             :is-horizontal="true"
+        />
+    `,
+})
+
+export const NoText = () => ({
+    data() {
+        return {
+            ...mock,
+            text: "",
+        }
+    },
+    components: { BlockCardWithIllustration },
+    template: `
+        <block-card-with-illustration
+            icon-name="illustration-digitized-resources"
+            to="/about/foo/bar"
+            :title="title"
+            :text="text"
+
         />
     `,
 })
