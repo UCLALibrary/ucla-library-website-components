@@ -123,7 +123,7 @@
                         v-html="parsedDate"
                     />
                     <time
-                        v-if="endDate"
+                        v-if="parsedTime"
                         class="schedule-item"
                         v-html="parsedTime"
                     />
@@ -301,6 +301,10 @@ export default {
             type: String,
             default: "",
         },
+        sectionHandle: {
+            type: String,
+            default: "",
+        },
     },
     computed: {
         classes() {
@@ -390,7 +394,10 @@ export default {
             return this.formatDates(this.startDate, this.endDate)
         },
         parsedTime() {
-            return this.formatTimes(this.startDate, this.endDate)
+            if (this.startDate && this.sectionHandle == "event") {
+                return this.formatTimes(this.startDate, this.endDate)
+            }
+            return ""
         },
         sectionName() {
             return this.section || this.getSectionName(this.to)

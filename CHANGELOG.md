@@ -1,3 +1,17 @@
+## [2.25.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.3...v2.25.4) (2023-01-12)
+
+
+### Bug Fixes
+
+* APPS 2084 Allow components to only display dates and not show time ([#289](https://github.com/UCLALibrary/ucla-library-website-components/issues/289)) ([1567aea](https://github.com/UCLALibrary/ucla-library-website-components/commit/1567aea01f5a51bb061540964caaabf400d586b5))
+
+## [2.25.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.2...v2.25.3) (2023-01-11)
+
+
+### Bug Fixes
+
+* Fix html tag display on cards-with-illustration ([#295](https://github.com/UCLALibrary/ucla-library-website-components/issues/295)) ([f64f097](https://github.com/UCLALibrary/ucla-library-website-components/commit/f64f097b62a9805349e8bdfdf5f140cbf4fa94f4))
+
 ## [2.25.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.1...v2.25.2) (2023-01-11)
 
 

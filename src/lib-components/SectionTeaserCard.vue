@@ -16,6 +16,7 @@
             :is-online="card.isOnline"
             :byline-one="card.bylineOne"
             :byline-two="card.bylineTwo"
+            :section-handle="card.sectionHandle"
         />
     </ul>
 </template>

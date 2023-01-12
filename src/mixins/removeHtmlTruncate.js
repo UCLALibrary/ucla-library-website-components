@@ -6,12 +6,12 @@ export default {
      */
 
     methods: {
-        removeHtmlTruncate(str, maxlength) {
+        removeHtmlTruncate(str = "", maxlength = "") {
             // Remove HTML
             let stripHtml = str.replace(/(<([^>]+)>)/gi, "")
             let removeQuotes = stripHtml.replace(/"/gi, "")
-
-            if (str.length < maxlength) {
+            console.log("this is maxlength" + maxlength)
+            if (str.length < maxlength || maxlength == "") {
                 return removeQuotes
             } else {
                 // Truncate

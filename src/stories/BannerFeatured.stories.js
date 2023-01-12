@@ -42,6 +42,7 @@ const mock = {
     ],
     prompt: "Cursus Quis",
     alignRight: true,
+    sectionHandle: "event",
 }
 
 export const Default = () => ({
@@ -61,6 +62,7 @@ export const Default = () => ({
             :byline="byline"
             :prompt="prompt"
             :locations="locations"
+            :section-handle="sectionHandle"
         />
     `,
 })
@@ -84,6 +86,7 @@ export const LeftAligned = () => ({
             :prompt="prompt"
             :align-right="false"
             :locations="locations"
+            :section-handle="sectionHandle"
         />
     `,
 })
@@ -106,6 +109,7 @@ export const NotOnline = () => ({
             :end-date="endDate"
             :prompt="prompt"
             :align-right="alignRight"
+            :section-handle="sectionHandle"
         />
     `,
 })
@@ -122,6 +126,7 @@ export const Slot = () => ({
             endDate: "1995-12-17T03:24:00",
             prompt: "Cursus Quis",
             alignRight: false,
+            sectionHandle: "workshopOrEventSeries",
         }
     },
     components: { BannerFeatured, HeadingArrow },
@@ -136,6 +141,7 @@ export const Slot = () => ({
             :end-date="endDate"
             :prompt="prompt"
             :align-right="alignRight"
+            :section-handle="sectionHandle"
         >
             <heading-arrow
                 v-if="breadcrumb"
@@ -157,6 +163,7 @@ export const LongHeading = () => ({
             endDate: "1997-12-17T03:24:00",
             prompt: "Amet Mauris",
             alignRight: false,
+            sectionHandle: "workshopOrEventSeries",
         }
     },
     components: { BannerFeatured, HeadingArrow },
@@ -171,6 +178,7 @@ export const LongHeading = () => ({
             :end-date="endDate"
             :prompt="prompt"
             :align-right="alignRight"
+            :section-handle="sectionHandle"
         >
             <heading-arrow
                 v-if="breadcrumb"
@@ -199,6 +207,7 @@ export const WideImage = () => ({
             :prompt="prompt"
             :ratio="42"
             :locations="locations"
+            :section-handle="sectionHandle"
         />
     `,
 })
@@ -223,6 +232,7 @@ export const WideImageLeftAligned = () => ({
             :ratio="42"
             :align-right="false"
             :locations="locations"
+            :section-handle="sectionHandle"
         />
     `,
 })
@@ -244,6 +254,7 @@ export const NoButton = () => ({
             :end-date="endDate"
             :ratio="42"
             :align-right="false"
+            :section-handle="sectionHandle"
         />
     `,
 })

@@ -4,11 +4,11 @@
 
         <div class="text row">
             <span class="category" v-html="category" />
-
             <h2 class="title" v-html="title" />
-
-            <h3 class="dates" v-html="parsedDate" v-if="startDate" />
-
+            <div class="date-time">
+                <time v-if="startDate" class="dates" v-html="parsedDate" />
+                <time v-if="parsedTime" class="time" v-html="parsedTime" />
+            </div>
             <smart-link :class="classes" :to="to" v-html="prompt" />
             <!-- TO DO: Use button-link component instead -->
         </div>
@@ -24,12 +24,13 @@ import SmartLink from "@/lib-components/SmartLink"
 
 // Utility functions
 import getSectionName from "@/mixins/getSectionName"
+import formatEventTimes from "@/mixins/formatEventTimes"
 import formatEventDates from "@/mixins/formatEventDates"
 
 export default {
     name: "BlockEvent",
     components: { SmartLink },
-    mixins: [getSectionName, formatEventDates],
+    mixins: [getSectionName, formatEventDates, formatEventTimes],
     props: {
         title: {
             type: String,
@@ -55,6 +56,10 @@ export default {
             type: String,
             default: "",
         },
+        sectionHandle: {
+            type: String,
+            default: "",
+        },
     },
     computed: {
         classes() {
@@ -63,15 +68,21 @@ export default {
         sectionName() {
             return this.getSectionName(this.to)
         },
-        parsedMultiDate() {
+        parsedDate() {
             return this.formatDates(this.startDate, this.endDate)
         },
         parsedSingledDate() {
             return format(new Date(this.startDate), "MMMM d, Y")
         },
-        parsedDate() {
-            return this.endDate ? this.parsedMultiDate : this.parsedSingledDate
+        parsedTime() {
+            if (this.startDate && this.sectionHandle == "event") {
+                return this.formatTimes(this.startDate, this.endDate)
+            }
+            return ""
         },
+        // parsedDate() {
+        //     return this.endDate ? this.parsedMultiDate : this.parsedSingledDate
+        // },
     },
 }
 </script>
@@ -114,10 +125,16 @@ export default {
         @include step-2;
         margin-bottom: var(--space-s);
     }
-    .dates {
-        @include step-0;
+    .date-time {
+        display: flex;
+        flex-direction: column;
         margin-bottom: var(--space-m);
     }
+    .dates,
+    .time {
+        @include step-0;
+    }
+
     .text {
         bottom: 0;
         top: auto;
