@@ -27,6 +27,7 @@
                 :locations="item.parsedLocation"
                 :image-aspect-ratio="60"
                 :is-vertical="true"
+                :section-handle="item.sectionHandle"
                 class="block"
             />
         </ul>
@@ -172,7 +173,6 @@ export default {
         }
     }
     @media #{$small} {
-        //align-items: center;
         .block-group {
             .block {
                 width: 100%;

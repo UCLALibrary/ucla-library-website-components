@@ -18,6 +18,7 @@ const mock = {
                     contentType: "article",
                     title: "La Niña",
                     to: "about/news/la-niña",
+                    sectionHandle: "article",
                     summary:
                         "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
                     articleCategory: [
@@ -127,6 +128,7 @@ const mock3 = {
                         },
                     ],
                     articleByline2: "2022-07-26T10:49:00-07:00",
+                    sectionHandle: "article",
                     projectLocations: [
                         {
                             id: "25324",
@@ -165,6 +167,7 @@ const mock4 = {
             contentLink: [
                 {
                     contentType: "impactReportStory",
+                    sectionHandle: "article",
                     title: "After Covid Triggered a Campus Closure, UCLA Library Reimagined Its Services for Students and Faculty Scattered Across the Country and Globe",
                     to: "impact/2021/ucla-library-reimagined",
                     summary:
@@ -217,6 +220,7 @@ const externalVideo = {
             to: "www.samplevideos.com",
             category: null,
             contentType: "article",
+            sectionHandle: "article",
         },
     ],
 }
@@ -232,6 +236,7 @@ const internalVideo = {
                     contentType: "impactReportStory",
                     title: "After Covid Triggered a Campus Closure, UCLA Library Reimagined Its Services",
                     to: "impact/2021/ucla-library-reimagined",
+                    sectionHandle: "article",
                     summary:
                         "<p>Undergraduates reflect on successfully completing their research projects while learning remotely.</p>",
                     articleByline2: "2021-09-09T10:03:00-07:00",

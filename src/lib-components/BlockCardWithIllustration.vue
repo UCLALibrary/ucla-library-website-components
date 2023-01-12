@@ -10,7 +10,7 @@
             </smart-link>
 
             <div class="text" v-if="isHorizontal">
-                {{ text }}
+                {{ parsedTextHorizontal }}
             </div>
 
             <div class="text" v-if="!isHorizontal">

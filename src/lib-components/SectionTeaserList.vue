@@ -14,6 +14,7 @@
                     :end-date="item.endDate"
                     :text="item.text"
                     :locations="item.locations"
+                    :section-handle="item.sectionHandle"
                     class="list-item block"
                 />
             </ul>

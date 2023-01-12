@@ -21,7 +21,7 @@
                         v-model="searchWords"
                         type="text"
                         class="input-search"
-                        placeholder="Search articles, books, and more"
+                        placeholder="Search articles, books and more"
                     />
 
                     <button class="button-submit">

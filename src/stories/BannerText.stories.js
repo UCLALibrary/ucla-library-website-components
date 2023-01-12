@@ -22,11 +22,13 @@ const mock = {
             to: "/location/baz",
         },
     ],
-    date: "1995-12-17T03:24:00",
+    startDate: "1995-12-17T03:24:00",
+    endDate: "1995-12-17T03:24:00",
     buttonText: "Curabitur",
     subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
     byline: ["Cursus Quis", "Charles E. Young"],
     to: "/visit/foo/bar/",
+    sectionHandle: "event",
 }
 
 export const Default = () => ({
@@ -77,8 +79,10 @@ export const NoButton = () => ({
         :category="category"
         :text="text"
         :title="title"
-        :date="date"
+        :start-date="startDate"
+        :end-date="endDate"
         :byline="byline"
+        :section-handle="sectionHandle"
     />`,
 })
 
@@ -107,9 +111,11 @@ export const DarkBlueBackground = () => ({
         :category="category"
         :title="title"
         :button-text="buttonText"
-        :date="date"
+        :start-date="startDate"
+        :end-date="endDate"
         :to="to"
         :isDarkBlue="true"
+        :section-handle="sectionHandle"
     />`,
 })
 
@@ -118,17 +124,20 @@ export const LocationInfo = () => ({
         return {
             ...mock,
             to: "/help/foo/bar/",
+            sectionHandle: "workshopOrEventSeries",
         }
     },
     components: { BannerText },
     template: `<banner-text
         :category="category"
         :title="title"
-        :date="date"
+        :start-date="startDate"
+        :end-date="endDate"
         :locations="locations"
         :text="text"
         :button-text="buttonText"
         :to="to"
+        :section-handle="sectionHandle"
     />`,
 })
 
@@ -137,18 +146,21 @@ export const LocationInfoDarkBlue = () => ({
         return {
             ...mock,
             to: "/help/foo/bar/",
+            sectionHandle: "location",
         }
     },
     components: { BannerText },
     template: `<banner-text
         :category="category"
         :title="title"
-        :date="date"
+        :start-date="startDate"
+        :end-date="endDate"
         :locations="locations"
         :text="text"
         :button-text="buttonText"
         :to="to"
         :isDarkBlue="true"
+        :section-handle="sectionHandle"
     />`,
 })
 
@@ -200,6 +212,7 @@ const article = {
     category: "Library News",
     articleType: "news",
     dateCreated: "2022-02-09T10:57:46-08:00",
+    sectionHandle: "article",
     byline: [" Written by Courtney Hoffner", "Illustrations by Jen Diamond"],
     locations: [
         {
@@ -231,6 +244,7 @@ export const ArticleDetail = () => ({
            :dateCreated="dateCreated"
            :locations="locations"
            :text="text"
+           :section-handle="sectionHandle"
            articleType="news"
        />
     `,

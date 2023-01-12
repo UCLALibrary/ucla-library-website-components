@@ -13,6 +13,7 @@ export const mock = {
                     contentType: "article",
                     to: "about/news/la-niña",
                     title: "La Niña",
+                    sectionHandle: "article",
                     text: "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
                     articleCategory: [
                         {
@@ -73,6 +74,7 @@ export const mock = {
                     contentType: "article",
                     to: "about/news/this-is-the-newest-article",
                     title: "This is the newest article",
+                    sectionHandle: "article",
                     text: '<p>Add "MEAP" to show article in the MEAP website</p>',
                     articleCategory: [
                         {
@@ -117,6 +119,7 @@ export const mock = {
         {
             id: "39508",
             typeHandle: "externalContent",
+            sectionHandle: "article",
             title: "Pandemic Spurs Virtual Screening Room, Bringing Moving Images to a Global Audience",
             image: [
                 {
@@ -139,6 +142,7 @@ export const mock = {
             id: "28287",
             typeHandle: "externalContent",
             title: null,
+            sectionHandle: "article",
             image: [
                 {
                     id: "28251",
