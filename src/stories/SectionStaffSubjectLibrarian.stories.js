@@ -123,9 +123,9 @@ export const Default = () => ({
     template: `
       <section-staff-subject-librarian
         :items="items"
-
+        
       />
   `,
 })
 
-// columnTitles= ["Academic Departments", "Name", "Contact Information"]
+// tableHeaders= ["Academic Departments", "Name", "Contact Information"]

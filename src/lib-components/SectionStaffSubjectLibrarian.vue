@@ -2,10 +2,15 @@
         <table>
             <thead  class="testy">
                 <tr>
-                    <th>Academic Department</th>
+                    <th style="background-color: green" class="column-headers">Academic Department</th>
                     <th>Name</th>
                     <th>Contact Information</th>
                 </tr>
+
+                <!-- <tr v-for="header in tableHeaders"
+                    :key="item.to">
+                    <th>{{ header}}</th>
+                </tr> -->
             </thead>
 
             <tbody>
@@ -43,7 +48,7 @@ export default {
             type: Array,
             default: () => [],
         },
-        columnTitles: {
+        tableHeaders: {
             type: Array,
             default: () => [],
         },
@@ -62,22 +67,32 @@ export default {
 
     border-bottom: 2px dotted var(--color-secondary-grey-02);
 
+    .testy {
+        background-color: powderblue;
+    }
     table {
         background-color: reset;
- 
         }
     th {
         background-color: #d7d9f2;
     }
     tr {
+        th
+        .column-header {
+            background-color: pink;
+        }
+    }
     th {
-    border: 1px solid green;
-    padding: 10px;
-}}
-    tr {.subject-librarian-item {
-        border: 4px solid red;
-        background-color: pink;
-        border-bottom: 2px dotted var(--color-secondary-grey-02);
-    }}
+        border: 1px solid green;
+        padding: 10px;
+    }
+    tr {
+        background-color: blueviolet;
+        .subject-librarian-item {
+            border: 4px solid red;
+            background-color: yellow;
+            border-bottom: 2px dotted var(--color-secondary-grey-02);
+        }
+    }
 }
 </style>
