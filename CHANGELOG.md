@@ -1,3 +1,10 @@
+## [2.25.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.4...v2.25.5) (2023-01-12)
+
+
+### Bug Fixes
+
+* removeHtmlTruncate unescape HTML entities ([#297](https://github.com/UCLALibrary/ucla-library-website-components/issues/297)) ([3399d0b](https://github.com/UCLALibrary/ucla-library-website-components/commit/3399d0b01435ec31f04c2f7ba7bb62256a1e0b28))
+
 ## [2.25.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.25.3...v2.25.4) (2023-01-12)
 
 
