@@ -5,8 +5,7 @@
 
         <!-- NAME -->
         <td class="librarian-block">
-
-            <smart-link 
+            <smart-link
                 id="block-staff-subject-librarian"
                 :to="to"
                 class="staff-name"
@@ -25,13 +24,13 @@
                 <li class="department" v-html="lastDepartment" />
             </ul>
 
-            <div v-if="locations.length" class="locations">
+            <div v-if="locations.length">
                 <icon-with-link
-                    v-for="(location, index) in locations"
-                    :key="`${index}`"
+                    v-for="location in locations"
+                    :key="`location-${location.id}`"
                     :text="location.title"
                     icon-name="svg-icon-location"
-                    :to="location.uri"
+                    :to="`/${location.to}`"
                 />
             </div>
         </td>
@@ -77,7 +76,7 @@ export default {
     name: "BlockStaffList",
     components: {
         SmartLink,
-        IconWithLink
+        IconWithLink,
     },
     props: {
         subjectArea: {

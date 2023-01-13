@@ -78,6 +78,8 @@ export default {
         justify-content: flex-start;
         align-content: flex-start;
         align-items: flex-start;
+
+        font-weight: 500;
     }
     .subject-librarian-item {
         border-bottom: 2px dotted var(--color-secondary-grey-02);

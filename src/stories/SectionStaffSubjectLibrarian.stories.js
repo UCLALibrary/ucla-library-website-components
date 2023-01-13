@@ -90,6 +90,16 @@ const mock = [
                 title: "Communications",
             },
         ],
+        locations: [
+            {
+                title: "cupidatat non proident",
+                to: "/location/bar",
+            },
+            {
+                title: "tristique",
+                to: "/location/baz",
+            },
+        ],
         consultation: "https://calendar.library.ucla.edu/appointments/aogarcia",
         alternativeName: [
             {
@@ -129,5 +139,3 @@ export const Default = () => ({
       />
   `,
 })
-
-// tableHeaders= ["Academic Departments", "Name", "Contact Information"]
