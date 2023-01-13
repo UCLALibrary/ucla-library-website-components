@@ -96,6 +96,7 @@ export { default as SectionRemoveSearchFilter } from "./SectionRemoveSearchFilte
 export { default as SectionSpacesList } from "./SectionSpacesList.vue"
 export { default as SectionStaffArticleList } from "./SectionStaffArticleList.vue"
 export { default as SectionStaffList } from "./SectionStaffList.vue"
+export { default as SectionStaffSubjectLibrarian } from "./SectionStaffSubjectLibrarian.vue"
 export { default as SectionStaffOrcidPublications } from "./SectionStaffOrcidPublications.vue"
 export { default as SectionTeaserCard } from "./SectionTeaserCard.vue"
 export { default as SectionTeaserHighlight } from "./SectionTeaserHighlight.vue"
