@@ -52,6 +52,16 @@
                         :to="consultation"
                     />
                 </div>
+
+                <div v-if="locations.length" class="locations">
+                    <icon-with-link
+                        v-for="(location, index) in locations"
+                        :key="`${index}`"
+                        :text="location.title"
+                        icon-name="svg-icon-location"
+                        :to="location.uri"
+                    />
+                </div>
             </div>
         </div>
     </li>
@@ -110,6 +120,10 @@ export default {
         consultation: {
             type: String,
             default: "",
+        },
+        locations: {
+            type: Array,
+            default: () => [],
         },
     },
     computed: {
@@ -219,6 +233,12 @@ export default {
         .icon {
             flex-shrink: 0;
         }
+    }
+
+    .locations {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     // Hover states
