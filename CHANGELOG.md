@@ -1,3 +1,10 @@
+## [2.26.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.26.1...v2.26.2) (2023-01-18)
+
+
+### Bug Fixes
+
+* SectionTeaserCard alternativeName ([#298](https://github.com/UCLALibrary/ucla-library-website-components/issues/298)) ([7bf5205](https://github.com/UCLALibrary/ucla-library-website-components/commit/7bf52050217aa5d35586458a93bf18ddb4633807))
+
 ## [2.26.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.26.0...v2.26.1) (2023-01-18)
 
 
