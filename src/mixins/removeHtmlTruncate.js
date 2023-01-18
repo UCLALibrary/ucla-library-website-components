@@ -10,7 +10,7 @@ export default {
 
     methods: {
         removeHtmlTruncate(str = "", maxlength = Infinity) {
-            if (str == null) {
+            if (str == "") {
                 return str
             }
             // Remove HTML
