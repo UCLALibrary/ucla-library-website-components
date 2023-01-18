@@ -8,6 +8,8 @@
             :to="card.to"
             :category="card.category"
             :title="card.title"
+            :alternativeFullName="card.alternativeFullName"
+            :language="card.language"
             :start-date="card.startDate"
             :end-date="card.endDate"
             :text="card.text"
