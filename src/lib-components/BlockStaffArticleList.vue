@@ -93,9 +93,7 @@ export default {
             return this.image && Object.keys(this.image) != 0 ? true : false
         },
         parsedText() {
-            return this.description
-                ? this.removeHtmlTruncate(this.description, 130)
-                : ""
+            return this.removeHtmlTruncate(this.description, 130)
         },
     },
 }

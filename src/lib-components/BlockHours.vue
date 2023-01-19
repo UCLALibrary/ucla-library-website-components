@@ -1,6 +1,6 @@
 <template>
     <div class="block-hours">
-        <h3 class="title">Hours</h3>
+        <h3 class="title">Hours for {{ location.title }}</h3>
 
         <div class="content">
             <!--div class="iframe-container"-->
@@ -46,6 +46,10 @@ export default {
         isClicc: {
             type: Boolean,
             default: false,
+        },
+        location: {
+            type: Array,
+            default: () => [],
         },
     },
     computed: {
