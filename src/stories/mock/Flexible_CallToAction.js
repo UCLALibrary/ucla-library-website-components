@@ -8,7 +8,7 @@ export const mock = {
             summary: "a call to action",
             icon: "svg-call-to-action-find",
             buttonText: "click me",
-            buttonLink: "http://google.com",
+            buttonUrl: "http://google.com",
             backgroundColor: "false",
         },
     ],
