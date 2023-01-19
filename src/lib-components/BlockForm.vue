@@ -1,126 +1,122 @@
 <template>
-    <!--div-->
-    <!--h4>Got fORM dATA</h4>
+    <div class="block-form">
+        <!--h4>Got fORM dATA</h4>
         {{ blockFormData }}
         <br /-->
-    <h3 class="title">Hours for {{ formName }}</h3>
+        <h3 class="title">Hours for {{ formName }}</h3>
 
-    <button-link
-        v-if="!showForm"
-        @click.native.prevent="showBlockEvent()"
-        label="Register"
-        iconName="none"
-        :is-secondary="true"
-        class="register-button"
-    >
-    </button-link>
+        <button-link
+            v-if="!showForm"
+            @click.native.prevent="showBlockEvent()"
+            label="Register"
+            iconName="none"
+            :is-secondary="true"
+            class="register-button"
+        >
+        </button-link>
 
-    <div class="block-form" v-else id="the-form">
-        <!--h4>Hello form data again</h4>
+        <div class="block-form" v-else id="the-form">
+            <!--h4>Hello form data again</h4>
             {{ blockFormData }} -->
-        <div class="success-message" v-if="hasNotifications">
-            <h3>Registration complete</h3>
-            <p>
-                You can view your booking at calendar.library.ucla.edu or check
-                your email.
-            </p>
+            <div class="success-message" v-if="hasNotifications">
+                <h3>Registration complete</h3>
+                <p>
+                    You can view your booking at calendar.library.ucla.edu or
+                    check your email.
+                </p>
 
-            <button
-                type="button"
-                class="notification--remove"
-                @click="removeNotification()"
-            >
-                <svg-glyph-close class="svg-glyph-close" />
-            </button>
-        </div>
-        <form id="app" method="post" class="form" v-else>
-            <div class="formTitleWrapper">
-                <p class="formTitle">Registration</p>
-
-                <button type="button" @click="closeBlockForm()">
+                <button
+                    type="button"
+                    class="notification--remove"
+                    @click="removeNotification()"
+                >
                     <svg-glyph-close class="svg-glyph-close" />
                 </button>
             </div>
+            <form id="app" method="post" class="form" v-else>
+                <div class="formTitleWrapper">
+                    <p class="formTitle">Registration</p>
 
-            <br />
-            <div v-if="errors.length" class="form-errors">
-                <p>
-                    Please complete the required fields to complete registration
-                </p>
-            </div>
+                    <button type="button" @click="closeBlockForm()">
+                        <svg-glyph-close class="svg-glyph-close" />
+                    </button>
+                </div>
 
-            <br v-if="errors.length" />
+                <br />
+                <div v-if="errors.length" class="form-errors">
+                    <p>
+                        Please complete the required fields to complete
+                        registration
+                    </p>
+                </div>
 
-            <div class="registrationInfo">
-                <p>Registration is required for this event.</p>
-                <p class="requiredField">* Required Field</p>
-            </div>
+                <br v-if="errors.length" />
 
-            <br />
+                <div class="registrationInfo">
+                    <p>Registration is required for this event.</p>
+                    <p class="requiredField">* Required Field</p>
+                </div>
 
-            <div class="fullNameWrapper">
-                <label>Full Name*</label>
-                <div>
+                <br />
+
+                <div class="fullNameWrapper">
+                    <label>Full Name*</label>
+                    <div>
+                        <input
+                            id="firstName"
+                            v-model="firstName"
+                            type="text"
+                            name="firstName"
+                            required
+                            aria-required="true"
+                            placeholder="First Name"
+                        />
+                        <input
+                            id="lastName"
+                            v-model="lastName"
+                            type="text"
+                            name="lastName"
+                            required
+                            aria-required="true"
+                            placeholder="Last Name"
+                        />
+                    </div>
+                </div>
+
+                <br />
+                <div v-if="blockFormData.emailMethod" class="emailLabelWrapper">
+                    <label for="email">
+                        <span
+                            v-if="
+                                blockFormData.emailMethod.status == 'required'
+                            "
+                        >
+                            Email*
+                        </span>
+                        <span v-else>Email</span>
+                    </label>
                     <input
-                        id="firstName"
-                        v-model="firstName"
-                        type="text"
-                        name="firstName"
-                        required
-                        aria-required="true"
-                        placeholder="First Name"
-                    />
-                    <input
-                        id="lastName"
-                        v-model="lastName"
-                        type="text"
-                        name="lastName"
-                        required
-                        aria-required="true"
-                        placeholder="Last Name"
+                        id="email"
+                        v-model="email"
+                        type="email"
+                        name="email"
+                        :required="blockFormData.emailMethod.status"
+                        :aria-required="
+                            blockFormData.emailMethod.status == 'required'
+                        "
+                        v-bind="{}"
                     />
                 </div>
-            </div>
 
-            <br />
-            <div v-if="blockFormData.emailMethod" class="emailLabelWrapper">
-                <label for="email">
-                    <span v-if="blockFormData.emailMethod.status == 'required'">
-                        Email*
-                    </span>
-                    <span v-else>Email</span>
-                </label>
-                <input
-                    id="email"
-                    v-model="email"
-                    type="email"
-                    name="email"
-                    :required="blockFormData.emailMethod.status"
-                    :aria-required="
-                        blockFormData.emailMethod.status == 'required'
-                    "
-                    v-bind="{}"
-                />
-            </div>
-
-            <br />
-            <div
-                :key="question.id"
-                v-for="question in parseQuestions"
-                class="parsedQuestionsLabelWrapper"
-            >
-                <label
-                    :for="question.id"
-                    v-if="question.type !== 'string'"
-                    :class="question.required ? 'questionRequired' : ''"
+                <br />
+                <div
+                    :key="question.id"
+                    v-for="question in parseQuestions"
+                    class="parsedQuestionsLabelWrapper"
                 >
-                    <span v-if="question.required">{{ question.label }}*</span>
-                    <span v-else>{{ question.label }}</span>
-                </label>
-
-                <div v-if="question.type == 'string'" class="textareaWrapper">
                     <label
                         :for="question.id"
+                        v-if="question.type !== 'string'"
                         :class="question.required ? 'questionRequired' : ''"
                     >
                         <span v-if="question.required"
@@ -128,74 +124,88 @@
                         >
                         <span v-else>{{ question.label }}</span>
                     </label>
-                    <textarea
+
+                    <div
+                        v-if="question.type == 'string'"
+                        class="textareaWrapper"
+                    >
+                        <label
+                            :for="question.id"
+                            :class="question.required ? 'questionRequired' : ''"
+                        >
+                            <span v-if="question.required"
+                                >{{ question.label }}*</span
+                            >
+                            <span v-else>{{ question.label }}</span>
+                        </label>
+                        <textarea
+                            v-model="formQuestions[question.id]"
+                            placeholder="Add multiple lines"
+                        />
+                    </div>
+
+                    <div v-if="question.type == 'radio'">
+                        <div
+                            :key="index"
+                            v-for="(option, index) in question.options"
+                            class="radioWrappper"
+                        >
+                            <input
+                                type="radio"
+                                :value="option"
+                                v-model="formQuestions[question.id]"
+                                :name="question.id"
+                            />
+                            <label :for="option">{{ option }}</label>
+                        </div>
+                    </div>
+                    <div v-if="question.type == 'checkbox'">
+                        <div
+                            :key="index"
+                            v-for="(option, index) in question.options"
+                            class="checkboxWrapper"
+                        >
+                            <input
+                                type="checkbox"
+                                :id="option"
+                                v-model="formQuestions[question.id]"
+                                :true-value="option"
+                                :value="option"
+                            />
+                            <label :for="option">{{ option }}</label>
+                        </div>
+                    </div>
+
+                    <select
+                        v-if="question.type == 'dropdown'"
+                        :id="question.id"
                         v-model="formQuestions[question.id]"
-                        placeholder="Add multiple lines"
-                    />
+                        :name="question.id"
+                        :class="question.classes"
+                    >
+                        <option disabled value="">Please select one</option>
+                        <option
+                            :key="index"
+                            v-for="(option, index) in question.options"
+                            v-bind:value="option"
+                        >
+                            {{ option }}
+                        </option>
+                    </select>
                 </div>
 
-                <div v-if="question.type == 'radio'">
-                    <div
-                        :key="index"
-                        v-for="(option, index) in question.options"
-                        class="radioWrappper"
-                    >
-                        <input
-                            type="radio"
-                            :value="option"
-                            v-model="formQuestions[question.id]"
-                            :name="question.id"
-                        />
-                        <label :for="option">{{ option }}</label>
-                    </div>
-                </div>
-                <div v-if="question.type == 'checkbox'">
-                    <div
-                        :key="index"
-                        v-for="(option, index) in question.options"
-                        class="checkboxWrapper"
-                    >
-                        <input
-                            type="checkbox"
-                            :id="option"
-                            v-model="formQuestions[question.id]"
-                            :true-value="option"
-                            :value="option"
-                        />
-                        <label :for="option">{{ option }}</label>
-                    </div>
-                </div>
+                <br />
 
-                <select
-                    v-if="question.type == 'dropdown'"
-                    :id="question.id"
-                    v-model="formQuestions[question.id]"
-                    :name="question.id"
-                    :class="question.classes"
-                >
-                    <option disabled value="">Please select one</option>
-                    <option
-                        :key="index"
-                        v-for="(option, index) in question.options"
-                        v-bind:value="option"
-                    >
-                        {{ option }}
-                    </option>
-                </select>
-            </div>
-
-            <br />
-
-            <button-link
-                type="submit"
-                label="Register"
-                iconName="none"
-                :is-secondary="true"
-                @click.native.prevent="checkForm"
-            />
-        </form>
+                <button-link
+                    type="submit"
+                    label="Register"
+                    iconName="none"
+                    :is-secondary="true"
+                    @click.native.prevent="checkForm"
+                />
+            </form>
+        </div>
     </div>
-    <!--/div-->
 
     <!-- TODO  do we need to add required to checkbox and radio and select inout elements -->
 </template>
