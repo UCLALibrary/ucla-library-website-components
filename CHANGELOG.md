@@ -1,3 +1,10 @@
+## [2.26.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.26.3...v2.26.4) (2023-01-19)
+
+
+### Bug Fixes
+
+* revert null check ([#302](https://github.com/UCLALibrary/ucla-library-website-components/issues/302)) ([09b5e4c](https://github.com/UCLALibrary/ucla-library-website-components/commit/09b5e4cb86261ebb94e8d705b640fd1ad3ed9ea3))
+
 ## [2.26.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.26.2...v2.26.3) (2023-01-19)
 
 
