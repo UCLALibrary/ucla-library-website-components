@@ -1,3 +1,10 @@
+## [2.26.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.26.2...v2.26.3) (2023-01-19)
+
+
+### Bug Fixes
+
+* link URL in BlockCallToAction ([#299](https://github.com/UCLALibrary/ucla-library-website-components/issues/299)) ([8a7178e](https://github.com/UCLALibrary/ucla-library-website-components/commit/8a7178e4125995356198de0f84a3be03541bf306))
+
 ## [2.26.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.26.1...v2.26.2) (2023-01-18)
 
 
