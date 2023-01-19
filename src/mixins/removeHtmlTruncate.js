@@ -10,9 +10,6 @@ export default {
 
     methods: {
         removeHtmlTruncate(str = "", maxlength = Infinity) {
-            if (str == "") {
-                return str
-            }
             // Remove HTML
             let stripHtml = _unescape(
                 str.replace(/(<([^>]+)>)/gi, "").replace(/"/gi, "")
