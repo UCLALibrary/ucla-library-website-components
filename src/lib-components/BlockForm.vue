@@ -1,10 +1,8 @@
 <template>
     <!--div-->
-    <!--h4>Got FORM DATA</h4>
+    <!--h4>Got fORM dATA</h4>
         {{ blockFormData }}
         <br /-->
-    <h3 class="title">Hours for {{ formName }}</h3>
-
     <button-link
         v-if="!showForm"
         @click.native.prevent="showBlockEvent()"
@@ -14,8 +12,7 @@
         class="register-button"
     >
     </button-link>
-
-    <div class="block-form" v-else id="the-form">
+    <div class="block-form" v-else>
         <!--h4>Hello form data again</h4>
             {{ blockFormData }} -->
         <div class="success-message" v-if="hasNotifications">
@@ -221,10 +218,6 @@ export default {
             type: String,
             default: "online",
         },
-        formName: {
-            type: String,
-            default: "online",
-        },
     },
     data() {
         return {
@@ -402,27 +395,6 @@ export default {
         showBlockEvent() {
             this.showForm = true
         },
-    },
-    mounted() {
-        window.addEventListener(
-            "message",
-            function (e) {
-                var the_form = document.getElementById("the-form")
-                console.log("FIRST" + the_form.height)
-                var eventName = e.data[0]
-                var data = e.data[1]
-                // console.log("DATA: " + the_form)
-                console.log("TEST" + JSON.stringify(the_form))
-
-                switch (eventName) {
-                    case "setHeight":
-                        the_form.height = data + 20
-                        console.log("SECOND" + the_form.height)
-                        break
-                }
-            },
-            false
-        )
     },
 }
 </script>

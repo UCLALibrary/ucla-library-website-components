@@ -238,7 +238,7 @@ export default {
             })
         },
         parsedText() {
-            return this.removeHtmlTruncate(this.text, 250)
+            return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
         },
     },
 }
