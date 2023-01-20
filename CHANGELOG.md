@@ -1,3 +1,10 @@
+## [2.27.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.1...v2.27.2) (2023-01-20)
+
+
+### Bug Fixes
+
+* hydration errors ([#306](https://github.com/UCLALibrary/ucla-library-website-components/issues/306)) ([40ffbc7](https://github.com/UCLALibrary/ucla-library-website-components/commit/40ffbc7b21f8e98c0820fdeefcad0b1a7155f6cb))
+
 ## [2.27.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.0...v2.27.1) (2023-01-20)
 
 
