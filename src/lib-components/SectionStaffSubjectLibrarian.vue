@@ -1,15 +1,17 @@
 <template>
     <table class="section-staff-subject-librarian">
         <thead>
-            <th v-for="(header, index) in tableHeaders" :key="index">
-                {{ header }}
-            </th>
+            <tr>
+                <th v-for="(header, index) in tableHeaders" :key="index">
+                    {{ header }}
+                </th>
+            </tr>
         </thead>
 
         <tbody>
             <block-staff-subject-librarian
-                v-for="item in items"
-                :key="item.to"
+                v-for="(item, index) in items"
+                :key="`${index}-${item.subjectArea}`"
                 :subject-area="item.subjectArea"
                 :staff-name="item.staffName"
                 :to="item.to"

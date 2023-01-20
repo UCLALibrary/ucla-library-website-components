@@ -19,7 +19,7 @@
                     placeholder="Search by keyword"
                 />
 
-                <button class="button-submit">
+                <button class="button-submit" type="submit">
                     <icon-search class="icon" />
                 </button>
             </div>

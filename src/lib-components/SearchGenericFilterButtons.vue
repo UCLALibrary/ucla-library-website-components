@@ -5,6 +5,7 @@
             :key="filter.label"
             :class="filter.class"
             @click="toggleOpen(index)"
+            type="button"
         >
             <span class="title">
                 {{ filter.label }}

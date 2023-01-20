@@ -1,15 +1,11 @@
 <template>
     <tr class="block-staff-subject-librarian">
         <!-- SUBJECT AREA -->
-        <td class="academic-department" v-html="subjectArea" />
+        <td class="academic-department">{{ subjectArea }}</td>
 
         <!-- NAME -->
         <td class="librarian-block">
-            <smart-link
-                id="block-staff-subject-librarian"
-                :to="to"
-                class="staff-name"
-            >
+            <smart-link :to="to" class="staff-name">
                 <span v-if="language" :lang="language">
                     {{ staffName }}
                 </span>

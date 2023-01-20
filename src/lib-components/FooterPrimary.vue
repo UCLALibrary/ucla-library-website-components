@@ -60,6 +60,7 @@
                         <input
                             name="email"
                             id="email"
+                            type="email"
                             placeholder="email@ucla.edu"
                             class="input-email"
                         />
