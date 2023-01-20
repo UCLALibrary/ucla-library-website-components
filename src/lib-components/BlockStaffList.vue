@@ -14,17 +14,25 @@
             <div class="name-title">
                 <h3 class="staff-name">
                     <smart-link :to="to">
-                        {{ staffName }}
-                        <span
+                        <span v-if="language" :lang="language">
+                            {{ staffName }}
+                        </span>
+                        <span v-else>
+                            {{ staffName }}
+                        </span>
+                        <!-- following code is causing mulitple alternative names on the page -->
+                        <!--span
                             v-if="alternativeFullName"
                             :lang="language"
                             v-html="alternativeFullName"
-                        />
+                        /-->
                     </smart-link>
                 </h3>
                 <div class="job-title" v-html="jobTitle" />
                 <ul v-if="departments.length" class="departments">
-                    <li class="department" v-html="lastDepartment" />
+                    <li class="department">
+                        {{ lastDepartment }}
+                    </li>
                 </ul>
             </div>
 

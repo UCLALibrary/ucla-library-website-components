@@ -6,7 +6,9 @@
             :class="filter.class"
             @click="toggleOpen(index)"
         >
-            <span class="title" v-html="filter.label" />
+            <span class="title">
+                {{ filter.label }}
+            </span>
 
             <div class="chevron">
                 <svg-icon-caret-down class="caret-down-svg" />
