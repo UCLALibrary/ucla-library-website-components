@@ -1,27 +1,28 @@
 <template>
     <tr class="block-staff-subject-librarian">
         <!-- SUBJECT AREA -->
-        <td class="academic-department" v-html="subjectArea" />
+        <td class="academic-department">{{ subjectArea }}</td>
 
         <!-- NAME -->
         <td class="librarian-block">
-            <smart-link
-                id="block-staff-subject-librarian"
-                :to="to"
-                class="staff-name"
-            >
-                {{ staffName }}
-                <span
+            <smart-link :to="to" class="staff-name">
+                <span v-if="language" :lang="language">
+                    {{ staffName }} {{ alternativeFullName }}
+                </span>
+                <span v-else>
+                    {{ staffName }}
+                </span>
+                <!--span
                     v-if="alternativeFullName"
                     :lang="language"
                     v-html="alternativeFullName"
-                />
+                /-->
             </smart-link>
 
             <div class="job-title" v-html="jobTitle" />
 
             <ul v-if="departments.length" class="departments">
-                <li class="department" v-html="lastDepartment" />
+                <li class="department">{{ lastDepartment }}</li>
             </ul>
 
             <div v-if="locations.length">
