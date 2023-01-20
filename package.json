@@ -1,6 +1,6 @@
 {
     "name": "ucla-library-website-components",
-    "version": "2.27.0",
+    "version": "2.27.1",
     "description": "This is library of components that will be used on UCLA Library websites",
     "scripts": {
         "serve": "vue-cli-service serve dev/serve.js",

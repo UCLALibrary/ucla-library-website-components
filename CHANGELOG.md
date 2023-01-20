@@ -1,3 +1,10 @@
+## [2.27.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.0...v2.27.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* APPS-2141 Fix print svg and text in Block Amenities ([#305](https://github.com/UCLALibrary/ucla-library-website-components/issues/305)) ([b13c669](https://github.com/UCLALibrary/ucla-library-website-components/commit/b13c669bc3b30d339ae72b59ee9dd69735269c17))
+
 # [2.27.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.26.4...v2.27.0) (2023-01-20)
 
 
