@@ -1,3 +1,10 @@
+# [2.27.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.26.4...v2.27.0) (2023-01-20)
+
+
+### Features
+
+* APPS-2121 add title to iframes labeling the content in the iframe ([#303](https://github.com/UCLALibrary/ucla-library-website-components/issues/303)) ([cfed040](https://github.com/UCLALibrary/ucla-library-website-components/commit/cfed04002ca19fcd7f4a267f4f3ab34c582893f3))
+
 ## [2.26.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.26.3...v2.26.4) (2023-01-19)
 
 
