@@ -6,6 +6,7 @@
             <!--div class="iframe-container"-->
             <iframe
                 id="the-iframe"
+                title="Hours for location"
                 refs="hours_iframe"
                 class="iframe"
                 :src="parsedSrc"
