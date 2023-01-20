@@ -15,8 +15,8 @@
 
         <div class="content">
             <iframe
-                id="form-iframe"
-                refs="form_iframe"
+                id="the_form"
+                refs="the_form"
                 class="iframe"
                 :srcdoc="parsedFormContent"
                 frameBorder="0"
@@ -47,22 +47,28 @@ export default {
         window.addEventListener(
             "message",
             function (e) {
-                // var form_iframe = document.getElementById("form-iframe")
-                var form_iframe = document.getElementById("form-iframe").height
+                var the_form = document.getElementById("the_form")
+                console.log("FIRST" + the_form)
+                console.log("HEIGHT" + the_form.height)
                 var eventName = e.data[0]
+                console.log("EDATA: " + e)
                 var data = e.data[1]
+                // console.log("DATA: " + the_form)
+                console.log("TEST" + JSON.stringify(the_form))
 
-                let testiframe = document.querySelector("#form-iframe")
+                let testiframe = document.querySelector("#the_form").innerHTML
 
                 testiframe.addEventListener("load", function () {
                     testiframe.style.height =
                         testiframe.contentDocument.body.scrollHeight +
-                        form_iframe.height
+                        the_form.height
+                    console.log("TEST iFRAME: " + testiframe)
                 })
 
                 switch (eventName) {
                     case "setHeight":
-                        form_iframe.height = testiframe.style.height
+                        the_form.height = data + 20
+                        console.log("SECOND" + the_form.height)
                         break
                 }
             },
