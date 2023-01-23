@@ -107,5 +107,19 @@ export default {
             margin: 0;
         }
     }
+    .iframe {
+        width: 1000px;
+        height: 2000px;
+        border: 3px solid red;
+    }
+    iframe {
+        zoom: 0.75;
+        -moz-transform: scale(0.75);
+        -moz-transform-origin: 0 0;
+        -o-transform: scale(0.75);
+        -o-transform-origin: 0 0;
+        -webkit-transform: scale(0.75);
+        -webkit-transform-origin: 0 0;
+    }
 }
 </style>
