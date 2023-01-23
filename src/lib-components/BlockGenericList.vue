@@ -8,9 +8,10 @@
             <span
                 v-if="alternativeFullName"
                 :lang="language"
-                v-html="alternativeFullName"
                 class="translation"
-            />
+            >
+                {{ alternativeFullName }}</span
+            >
         </smart-link>
         <h3 v-else class="title-no-link">
             {{ title }}

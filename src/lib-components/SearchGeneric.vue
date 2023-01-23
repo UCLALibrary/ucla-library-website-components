@@ -220,7 +220,7 @@ export default {
         }
     },*/
 
-    mounted() {
+    updated() {
         // prevent click outside event with popupItem.
         this.popupItem = this.$el
     },

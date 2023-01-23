@@ -3,7 +3,7 @@
         <div class="molecule row" />
 
         <div class="text row">
-            <span class="category" v-html="category" />
+            <span class="category">{{ category }}</span>
             <h2 class="title" v-html="title" />
             <div class="date-time">
                 <time v-if="startDate" class="dates" v-html="parsedDate" />

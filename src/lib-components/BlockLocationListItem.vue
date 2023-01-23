@@ -31,7 +31,7 @@
                             class="hour"
                             v-if="libcalHoursData.status !== 'not-set'"
                         >
-                            <span v-html="parseLibCalHours" />
+                            <span> {{ parseLibCalHours }} </span>
                         </div>
                     </div>
                     <icon-with-link
