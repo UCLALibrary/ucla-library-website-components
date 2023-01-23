@@ -6,7 +6,7 @@
                 class="section-title"
                 v-text="sectionTitle"
             />
-            <p
+            <div
                 v-if="sectionSummary"
                 class="section-summary"
                 v-html="sectionSummary"

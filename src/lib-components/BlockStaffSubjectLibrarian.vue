@@ -6,17 +6,10 @@
         <!-- NAME -->
         <td class="librarian-block">
             <smart-link :to="to" class="staff-name">
-                <span v-if="language" :lang="language">
-                    {{ staffName }} {{ alternativeFullName }}
-                </span>
-                <span v-else>
-                    {{ staffName }}
-                </span>
-                <!--span
-                    v-if="alternativeFullName"
-                    :lang="language"
-                    v-html="alternativeFullName"
-                /-->
+                {{ title }}
+                <span v-if="alternativeFullName" :lang="language">
+                    {{ alternativeFullName }}</span
+                >
             </smart-link>
 
             <div class="job-title" v-html="jobTitle" />
