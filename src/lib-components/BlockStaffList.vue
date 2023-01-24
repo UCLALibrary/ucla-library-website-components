@@ -14,7 +14,7 @@
             <div class="name-title">
                 <h3 class="staff-name">
                     <smart-link :to="to">
-                        {{ title }}
+                        {{ staffName }}
 
                         <span v-if="alternativeFullName" :lang="language">
                             {{ alternativeFullName }}</span

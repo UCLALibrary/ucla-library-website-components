@@ -6,7 +6,7 @@
         <!-- NAME -->
         <td class="librarian-block">
             <smart-link :to="to" class="staff-name">
-                {{ title }}
+                {{ staffName }}
                 <span v-if="alternativeFullName" :lang="language">
                     {{ alternativeFullName }}</span
                 >
