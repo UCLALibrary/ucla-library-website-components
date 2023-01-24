@@ -1,3 +1,10 @@
+## [2.27.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.5...v2.27.6) (2023-01-24)
+
+
+### Bug Fixes
+
+* Add click-outside directive back ([#310](https://github.com/UCLALibrary/ucla-library-website-components/issues/310)) ([ee22ca4](https://github.com/UCLALibrary/ucla-library-website-components/commit/ee22ca4e1beb43519655644a89721ea8841a776c))
+
 ## [2.27.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.4...v2.27.5) (2023-01-24)
 
 
