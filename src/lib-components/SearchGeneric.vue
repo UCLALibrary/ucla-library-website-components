@@ -54,12 +54,12 @@
             />
         </transition>
 
-        <section-remove-search-filter
+        <!--section-remove-search-filter
             :filters="selectedFilters"
             class="section-remove-container"
             :selected.sync="parseSelection"
             @remove-selected="doSearch"
-        />
+        /-->
     </div>
 </template>
 
@@ -69,7 +69,7 @@ import SearchGenericFilterButtons from "./SearchGenericFilterButtons.vue"
 import SearchGenericViewModes from "./SearchGenericViewModes.vue"
 import BaseRadioGroup from "./BaseRadioGroup.vue"
 import BaseCheckboxGroup from "./BaseCheckboxGroup.vue"
-import SectionRemoveSearchFilter from "./SectionRemoveSearchFilter.vue"
+// import SectionRemoveSearchFilter from "./SectionRemoveSearchFilter.vue"
 // import BaseCalendarGroup from "./BaseCalendarGroup.vue"
 
 export default {
@@ -80,7 +80,7 @@ export default {
         SearchGenericViewModes,
         BaseRadioGroup,
         BaseCheckboxGroup,
-        SectionRemoveSearchFilter,
+        // SectionRemoveSearchFilter,
 
         // BaseCalendarGroup,
     },
