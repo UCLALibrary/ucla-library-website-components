@@ -14,18 +14,11 @@
             <div class="name-title">
                 <h3 class="staff-name">
                     <smart-link :to="to">
-                        <span v-if="language" :lang="language">
-                            {{ staffName }}
-                        </span>
-                        <span v-else>
-                            {{ staffName }}
-                        </span>
-                        <!-- following code is causing mulitple alternative names on the page -->
-                        <!--span
-                            v-if="alternativeFullName"
-                            :lang="language"
-                            v-html="alternativeFullName"
-                        /-->
+                        {{ staffName }}
+
+                        <span v-if="alternativeFullName" :lang="language">
+                            {{ alternativeFullName }}</span
+                        >
                     </smart-link>
                 </h3>
                 <div class="job-title" v-html="jobTitle" />

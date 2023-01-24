@@ -29,7 +29,7 @@
                         {{ card.headlineText }}
                     </smart-link>
                 </h5>
-                <p
+                <div
                     v-if="!card.featured && card.snippet"
                     class="snippet"
                     v-html="card.snippet"
@@ -45,7 +45,7 @@
                                 {{ card.headlineText }}
                             </smart-link>
                         </h5>
-                        <p class="snippet" v-html="card.snippet" />
+                        <div class="snippet" v-html="card.snippet" />
                     </div>
                 </div>
             </li>

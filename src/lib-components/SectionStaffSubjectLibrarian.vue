@@ -59,7 +59,7 @@ export default {
     max-width: $container-l-main + px;
     margin: 0 auto var(--space-3xl);
 
-    thead {
+    thead tr {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -71,18 +71,19 @@ export default {
         font-weight: normal;
         border-bottom: 2px dotted var(--color-secondary-grey-02);
         padding-bottom: 10px;
-    }
-    th {
-        display: flex;
-        flex: 1 1 0px;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: flex-start;
-        align-items: flex-start;
+        th {
+            display: flex;
+            flex: 1 1 0px;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-content: flex-start;
+            align-items: flex-start;
 
-        font-weight: 500;
+            font-weight: 500;
+        }
     }
+
     .subject-librarian-item {
         border-bottom: 2px dotted var(--color-secondary-grey-02);
     }
