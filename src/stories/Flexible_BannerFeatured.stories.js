@@ -260,6 +260,87 @@ const internalVideo = {
         },
     ],
 }
+const event = {
+    id: "695718",
+    typeHandle: "bannerFeatured",
+    sectionTitle: "Flexible Banner featured with dates",
+    content: [
+        {
+            id: "695719",
+            contentLink: [
+                {
+                    contentType: "event",
+                    title: "TEST - The White Balloon",
+                    to: "visit/events-exhibitions/test-the-white-balloon",
+                    summary: null,
+                    startDateWithTime: "2022-12-19T11:00",
+                    endDateWithTime: "2022-12-19T12:30",
+                    articleByline2: "2022-12-19T07:48:00-08:00",
+                    articleLocations: [
+                        {
+                            id: "11612",
+                            title: "UCLA Film & Television Archive",
+                            to: "visit/locations/film-television-archive",
+                        },
+                    ],
+                    heroImage: [
+                        {
+                            image: [
+                                {
+                                    id: "86612",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/1670615203.jpg",
+                                    height: 1846,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/1670615203.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/1670615203.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/1670615203.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/1670615203.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/1670615203.jpg 2560w",
+                                    alt: "placeholder",
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+}
+
+const exhibition = {
+    id: "696007",
+    typeHandle: "bannerFeatured",
+    sectionTitle: "Flexible banner featured with exhibiton",
+    content: [
+        {
+            id: "696008",
+            contentLink: [
+                {
+                    contentType: "exhibition",
+                    title: "Fante Asafo Flags",
+                    to: "visit/events-exhibitions/fante-asafo-flags",
+                    summary:
+                        "<p>Prior to the colonial era, asafo companies were charged with the safety and protection of the region. Surviving a century of violence and upheaval, they remain one of the core local institutions.</p>",
+                    startDate: "2023-01-04T00:00",
+                    endDate: "2023-03-05T00:00",
+                    articleByline2: "2022-03-09T15:17:00-08:00",
+                    heroImage: [
+                        {
+                            image: [
+                                {
+                                    id: "63048",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/flag_2022-11-23-012414_fjms.jpg",
+                                    height: 1703,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 2560w",
+                                    alt: null,
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+}
 
 export const Default = () => ({
     data() {
@@ -334,6 +415,34 @@ export const ExternalVideo = () => ({
     data() {
         return {
             block: externalVideo,
+        }
+    },
+    components: { FlexibleBannerFeatured },
+    template: `
+        <flexible-banner-featured
+            :block="block"
+       />
+    `,
+})
+
+export const Event = () => ({
+    data() {
+        return {
+            block: event,
+        }
+    },
+    components: { FlexibleBannerFeatured },
+    template: `
+        <flexible-banner-featured
+            :block="block"
+       />
+    `,
+})
+
+export const Exhibition = () => ({
+    data() {
+        return {
+            block: exhibition,
         }
     },
     components: { FlexibleBannerFeatured },
