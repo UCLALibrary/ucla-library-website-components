@@ -1,3 +1,10 @@
+## [2.27.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.3...v2.27.4) (2023-01-24)
+
+
+### Bug Fixes
+
+* Add remove filters back ([#308](https://github.com/UCLALibrary/ucla-library-website-components/issues/308)) ([8796f99](https://github.com/UCLALibrary/ucla-library-website-components/commit/8796f994115be01e648c38174374028797856e75))
+
 ## [2.27.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.2...v2.27.3) (2023-01-24)
 
 
