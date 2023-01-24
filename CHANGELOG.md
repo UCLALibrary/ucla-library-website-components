@@ -1,3 +1,10 @@
+## [2.27.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.4...v2.27.5) (2023-01-24)
+
+
+### Reverts
+
+* Revert "fix: Add remove filters back" (#309) ([86a1a9f](https://github.com/UCLALibrary/ucla-library-website-components/commit/86a1a9f621dfa873c642b69d3539f11643a92751)), closes [#309](https://github.com/UCLALibrary/ucla-library-website-components/issues/309) [#308](https://github.com/UCLALibrary/ucla-library-website-components/issues/308)
+
 ## [2.27.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.3...v2.27.4) (2023-01-24)
 
 
