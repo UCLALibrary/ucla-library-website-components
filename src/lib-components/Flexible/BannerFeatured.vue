@@ -42,6 +42,7 @@ import BannerFeatured from "@/lib-components/BannerFeatured.vue"
 // Helpers
 import getPrompt from "@/mixins/getPrompt"
 import stripMeapFromURI from "@/mixins/stripMeapFromURI"
+import format from "date-fns/format"
 
 export default {
     name: "FlexibleBannerFeatured",
@@ -196,8 +197,12 @@ export default {
                     case entry_type.includes("article"):
                         output["articleStaff"] =
                             this.block.content[0].contentLink[0].articleByline1
-                        output["articlePostDate"] =
-                            this.block.content[0].contentLink[0].articleByline2
+                        output["articlePostDate"] = format(
+                            new Date(
+                                this.block.content[0].contentLink[0].articleByline2
+                            ),
+                            "MMMM d, Y"
+                        )
 
                         break
                     case entry_type.includes("project"):
