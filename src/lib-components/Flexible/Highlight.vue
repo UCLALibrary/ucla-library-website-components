@@ -131,7 +131,6 @@ export default {
                         to: `/${this.stripMeapFromURI(obj.to)}`,
                         parsedImage: _get(obj, "heroImage[0].image[0]", null),
                         parsedLocation: _get(obj, "associatedLocations", []),
-                        parsedCategory: _get(obj, "eventType.title", ""),
                         startDate: _get(obj, "startDate", ""),
                         endDate: _get(obj, "endDate", ""),
                     }
@@ -141,7 +140,7 @@ export default {
                         parsedImage: _get(obj, "image[0]", null),
                         parsedLocation:
                             obj.location != null ? [obj.location] : [],
-                        parsedCategory: _get(obj, "category", {}),
+                        parsedCategory: _get(obj, "category", ""),
                     }
                 } else {
                     return {
