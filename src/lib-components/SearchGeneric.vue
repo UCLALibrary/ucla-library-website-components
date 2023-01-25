@@ -5,7 +5,7 @@
     <!-- TODO Need to get a BaseCheckboxGroup working -->
     <!-- TODO Need to create a BaseCalendarGroup Component -->
     <!-- TODO Need to style this for Mobile -->
-    <div class="search-generic">
+    <div class="search-generic" v-click-outside="hide">
         <!-- <h4>router query</h4>
         {{ searchGenericQuery }}
         <h4>filters for the page</h4>
@@ -27,7 +27,6 @@
 
         <div v-if="filters.length > 0" class="container">
             <search-generic-filter-buttons
-                v-click-outside="hide"
                 :items="filters"
                 :single-checkbox-selected="selectedFilters"
                 :active-index.sync="openedFilterIndex"
@@ -54,12 +53,12 @@
             />
         </transition>
 
-        <section-remove-search-filter
+        <!--section-remove-search-filter
             :filters="selectedFilters"
             class="section-remove-container"
             :selected.sync="parseSelection"
             @remove-selected="doSearch"
-        />
+        /-->
     </div>
 </template>
 
@@ -69,7 +68,7 @@ import SearchGenericFilterButtons from "./SearchGenericFilterButtons.vue"
 import SearchGenericViewModes from "./SearchGenericViewModes.vue"
 import BaseRadioGroup from "./BaseRadioGroup.vue"
 import BaseCheckboxGroup from "./BaseCheckboxGroup.vue"
-import SectionRemoveSearchFilter from "./SectionRemoveSearchFilter.vue"
+// import SectionRemoveSearchFilter from "./SectionRemoveSearchFilter.vue"
 // import BaseCalendarGroup from "./BaseCalendarGroup.vue"
 
 import ClickOutside from "vue-click-outside"
@@ -81,7 +80,7 @@ export default {
         SearchGenericViewModes,
         BaseRadioGroup,
         BaseCheckboxGroup,
-        SectionRemoveSearchFilter,
+        // SectionRemoveSearchFilter,
 
         // BaseCalendarGroup,
     },
@@ -219,11 +218,6 @@ export default {
                 filterObj.inputType == "radio" ? "" : []
         }
     },*/
-
-    mounted() {
-        // prevent click outside event with popupItem.
-        this.popupItem = this.$el
-    },
 
     // do not forget this section
     directives: {

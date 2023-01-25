@@ -1,3 +1,31 @@
+## [2.27.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.5...v2.27.6) (2023-01-24)
+
+
+### Bug Fixes
+
+* Add click-outside directive back ([#310](https://github.com/UCLALibrary/ucla-library-website-components/issues/310)) ([ee22ca4](https://github.com/UCLALibrary/ucla-library-website-components/commit/ee22ca4e1beb43519655644a89721ea8841a776c))
+
+## [2.27.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.4...v2.27.5) (2023-01-24)
+
+
+### Reverts
+
+* Revert "fix: Add remove filters back" (#309) ([86a1a9f](https://github.com/UCLALibrary/ucla-library-website-components/commit/86a1a9f621dfa873c642b69d3539f11643a92751)), closes [#309](https://github.com/UCLALibrary/ucla-library-website-components/issues/309) [#308](https://github.com/UCLALibrary/ucla-library-website-components/issues/308)
+
+## [2.27.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.3...v2.27.4) (2023-01-24)
+
+
+### Bug Fixes
+
+* Add remove filters back ([#308](https://github.com/UCLALibrary/ucla-library-website-components/issues/308)) ([8796f99](https://github.com/UCLALibrary/ucla-library-website-components/commit/8796f994115be01e648c38174374028797856e75))
+
+## [2.27.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.2...v2.27.3) (2023-01-24)
+
+
+### Bug Fixes
+
+* Fix hydration part2 ([#307](https://github.com/UCLALibrary/ucla-library-website-components/issues/307)) ([505d7d1](https://github.com/UCLALibrary/ucla-library-website-components/commit/505d7d11632948cbdd9bac868fee58e426c8dab2))
+
 ## [2.27.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.1...v2.27.2) (2023-01-20)
 
 

@@ -6,11 +6,9 @@
             <div class="header">
                 <h1 class="staffName">
                     {{ staffName }}
-                    <span
-                        v-if="alternativeFullName"
-                        :lang="language"
-                        v-html="alternativeFullName"
-                    />
+                    <span v-if="alternativeFullName" :lang="language">
+                        {{ alternativeFullName }}
+                    </span>
                 </h1>
                 <div v-if="pronouns" class="pronouns">
                     {{ parsedPronouns }}

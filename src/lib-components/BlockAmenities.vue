@@ -10,7 +10,7 @@
                 >
                     <component :is="item.svgIcon" v-if="item.svgIcon" />
 
-                    <span class="amenity-name" v-html="item.svgLabel" />
+                    <span class="amenity-name">{{ item.svgLabel }}</span>
                 </li>
             </ul>
         </div>
