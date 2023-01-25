@@ -1,3 +1,10 @@
+# [2.28.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.7...v2.28.0) (2023-01-25)
+
+
+### Features
+
+* add ongoing prop to block highlight ([#311](https://github.com/UCLALibrary/ucla-library-website-components/issues/311)) ([0f3505f](https://github.com/UCLALibrary/ucla-library-website-components/commit/0f3505f17cd411e0db38a8852c67a309bd86b49e))
+
 ## [2.27.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.6...v2.27.7) (2023-01-25)
 
 
