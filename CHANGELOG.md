@@ -1,3 +1,10 @@
+## [2.27.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.6...v2.27.7) (2023-01-25)
+
+
+### Bug Fixes
+
+* Refactor date time for flexible_Banner* components and Fix category null display in BlockHighlight ([#312](https://github.com/UCLALibrary/ucla-library-website-components/issues/312)) ([86e5432](https://github.com/UCLALibrary/ucla-library-website-components/commit/86e543231ae105a1930d8241dc8f1f9f18967e68))
+
 ## [2.27.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.5...v2.27.6) (2023-01-24)
 
 
