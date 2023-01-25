@@ -224,6 +224,7 @@ export const eventExhibitonArticle = {
                     articleByline2: "2022-12-19T07:48:00-08:00",
                     startDateWithTime: "2022-12-19T11:00",
                     endDateWithTime: "2022-12-19T12:30",
+                    eventType: [],
                     associatedLocations: [
                         {
                             id: "11612",
@@ -306,6 +307,45 @@ export const eventExhibitonArticle = {
                                     width: 2560,
                                     srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Casper.png 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Casper.png 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Casper.png 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Casper.png 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Casper.png 2560w",
                                     alt: null,
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            id: "707393",
+            typeHandle: "internalContent",
+            contentLink: [
+                {
+                    id: "50864",
+                    contentType: "workshopOrEventSeries",
+                    to: "visit/events-exhibitions/test-event-series",
+                    title: "Test Event Series: Side Pie",
+                    text: "<p>Started in a Side Yard in a Pandemic. Our goals are simple: to bring the best pizza to the neighborhood and give back to the community. We love Altadena, we love pizza. <br /></p>",
+                    articleByline2: "2022-10-31T16:11:00-07:00",
+                    startDate: "2022-11-17T00:00",
+                    endDate: "2022-11-30T00:00",
+                    associatedLocations: [
+                        {
+                            id: "801",
+                            title: "Charles E. Young Research Library",
+                            to: "visit/locations/young-research-library",
+                        },
+                    ],
+                    heroImage: [
+                        {
+                            id: "60178",
+                            image: [
+                                {
+                                    id: "59935",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/SidePie20220278_470x.webp",
+                                    height: 1026,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/SidePie20220278_470x.webp 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/SidePie20220278_470x.webp 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/SidePie20220278_470x.webp 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/SidePie20220278_470x.webp 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/SidePie20220278_470x.webp 2560w",
+                                    alt: "color photograph of beige tshirt with side pie text",
                                     focalPoint: [0.5, 0.5],
                                 },
                             ],

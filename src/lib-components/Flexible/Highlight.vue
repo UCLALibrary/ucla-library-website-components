@@ -122,21 +122,20 @@ export default {
                         startDate: _get(obj, "startDateWithTime", ""),
                         endDate: _get(obj, "endDateWithTime", ""),
                     }
-                }
-            } else if (
-                obj.typeHandle != "externalContent" &&
-                obj.contentType == "exhibition"
-            ) {
-                return {
-                    ...obj,
-                    to: `/${this.stripMeapFromURI(obj.to)}`,
-                    parsedImage: _get(obj, "heroImage[0].image[0]", null),
-                    parsedLocation: _get(obj, "associatedLocations", []),
-                    parsedCategory: _get(obj, "eventType.title", ""),
-                    startDate: _get(obj, "startDate", ""),
-                    endDate: _get(obj, "endDate", ""),
-                }
-            } else if (obj.typeHandle === "externalContent") {
+                } else if (
+                    obj.typeHandle != "externalContent" &&
+                    (obj.contentType == "exhibition" || "workshopOrEventSeries")
+                ) {
+                    return {
+                        ...obj,
+                        to: `/${this.stripMeapFromURI(obj.to)}`,
+                        parsedImage: _get(obj, "heroImage[0].image[0]", null),
+                        parsedLocation: _get(obj, "associatedLocations", []),
+                        parsedCategory: _get(obj, "eventType.title", ""),
+                        startDate: _get(obj, "startDate", ""),
+                        endDate: _get(obj, "endDate", ""),
+                    }
+                } else if (obj.typeHandle === "externalContent") {
                     return {
                         ...obj,
                         parsedImage: _get(obj, "image[0]", null),
