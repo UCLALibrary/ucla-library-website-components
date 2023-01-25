@@ -17,7 +17,7 @@
                 <molecule-placeholder class="molecule" aria-hidden="true" />
             </div>
 
-            <div v-if="hasTriangle" class="clipped">
+            <div v-if="hasTriangle && startDate" class="clipped">
                 <div class="floating-highlight" />
                 <div class="clipped-box" />
             </div>
@@ -53,7 +53,10 @@
                 />
             </div>
 
-            <div class="date-time" v-if="startDate">
+            <div class="date-time" v-if="startDate || ongoing">
+                <div v-if="ongoing">
+                    Ongoing
+                </div>
                 <time
                     v-if="startDate"
                     class="schedule-item"
@@ -146,6 +149,10 @@ export default {
         endDate: {
             type: String,
             default: "",
+        },
+        ongoing: {
+            type: Boolean,
+            default: false,
         },
         hasTriangle: {
             type: Boolean,

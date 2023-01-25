@@ -282,3 +282,25 @@ export const ListLongTitle = () => ({
       />
   `,
 })
+
+export const ListOngoing = () => ({
+    data() {
+        return {
+            ...mock,
+        }
+    },
+    components: { BlockHighlight },
+    template: `
+      <block-highlight
+          :image="image"
+          to="/help/foo/bar/"
+          :category="category"
+          :ongoing=true
+          title="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+          :text="text"
+          :image-aspect-ratio="60"
+          :locations="locations"
+          :section-handle="sectionHandle"
+      />
+  `,
+})
