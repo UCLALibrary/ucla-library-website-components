@@ -27,6 +27,7 @@
                 :start-date="item.startDate"
                 :end-date="item.endDate"
                 :section-handle="item.contentType"
+                :ongoing="item.ongoing"
                 :has-triangle="true"
                 :is-vertical="true"
                 class="block"

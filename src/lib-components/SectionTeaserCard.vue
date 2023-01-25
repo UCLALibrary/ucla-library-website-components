@@ -19,6 +19,7 @@
             :byline-one="card.bylineOne"
             :byline-two="card.bylineTwo"
             :section-handle="card.sectionHandle"
+            :ongoing="card.ongoing"
         />
     </ul>
 </template>

@@ -53,7 +53,8 @@
                 />
             </div>
 
-            <div class="date-time" v-if="startDate">
+            <div class="date-time" v-if="startDate || ongoing">
+                <div v-if="ongoing">Ongoing</div>
                 <time
                     v-if="startDate"
                     class="schedule-item"
@@ -146,6 +147,10 @@ export default {
         endDate: {
             type: String,
             default: "",
+        },
+        ongoing: {
+            type: Boolean,
+            default: false,
         },
         hasTriangle: {
             type: Boolean,
