@@ -8,7 +8,7 @@
             :title="block.content[0].contentLink[0].title"
             :breadcrumb="parsedTypeHandle"
             :byline="parseByLine"
-            :description="block.content[0].contentLink[0].summary"
+            :description="parsedDescription"
             :prompt="parsePrompt"
             :locations="parsedLocations"
             :category="parsedCategory"
@@ -227,6 +227,19 @@ export default {
                 output.push(this.block.content[0].byline2)
             }
 
+            return output
+        },
+        parsedDescription() {
+            let output = ""
+            if (
+                this.block.content &&
+                this.block.content[0].contentLink &&
+                this.block.content[0].contentLink[0].contentType == "event"
+            ) {
+                output = this.block.content[0].contentLink[0].eventDescription
+            } else {
+                output = this.block.content[0].contentLink[0].summary
+            }
             return output
         },
     },
