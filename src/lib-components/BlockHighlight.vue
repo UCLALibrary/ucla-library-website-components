@@ -17,7 +17,10 @@
                 <molecule-placeholder class="molecule" aria-hidden="true" />
             </div>
 
-            <div v-if="isVertical || hasTriangle && startDate" class="clipped">
+            <div
+                v-if="isVertical || (hasTriangle && startDate)"
+                class="clipped"
+            >
                 <div class="floating-highlight" />
                 <div class="clipped-box" />
             </div>
@@ -54,9 +57,7 @@
             </div>
 
             <div class="date-time" v-if="startDate || ongoing">
-                <div v-if="ongoing">
-                    Ongoing
-                </div>
+                <div v-if="ongoing">Ongoing</div>
                 <time
                     v-if="startDate"
                     class="schedule-item"
