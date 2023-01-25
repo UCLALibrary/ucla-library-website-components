@@ -17,7 +17,7 @@
                 <molecule-placeholder class="molecule" aria-hidden="true" />
             </div>
 
-            <div v-if="hasTriangle && startDate" class="clipped">
+            <div v-if="hasTriangle" class="clipped">
                 <div class="floating-highlight" />
                 <div class="clipped-box" />
             </div>
