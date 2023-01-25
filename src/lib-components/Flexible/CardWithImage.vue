@@ -27,7 +27,9 @@
                 :locations="item.parsedLocation"
                 :image-aspect-ratio="60"
                 :is-vertical="true"
-                :section-handle="item.sectionHandle"
+                :start-date="item.startDate"
+                :end-date="item.endDate"
+                :section-handle="item.contentType"
                 class="block"
             />
         </ul>
@@ -78,12 +80,12 @@ export default {
                     return {
                         ...obj,
                         to: `/${this.stripMeapFromURI(obj.to)}`,
-                        parsedImage: _get(obj, "heroImage[0].image[0]", {}),
+                        parsedImage: _get(obj, "heroImage[0].image[0]", null),
                         parsedLocation: _get(obj, "associatedLocations", []),
                         parsedCategory: _get(
                             obj,
                             "articleCategory[0].title",
-                            {}
+                            ""
                         ),
                         byline1: _get(obj, "articleByline1[0].title", ""),
                         byline2:
@@ -106,8 +108,34 @@ export default {
                         to: `/${this.stripMeapFromURI(obj.to)}`,
                         parsedImage: _get(obj, "heroImage[0].image[0]", null),
                         parsedLocation: _get(obj, "projectLocations", []),
-                        parsedCategory: _get(obj, "projectCategory", {}),
+                        parsedCategory: _get(obj, "projectCategory", ""),
                         byline1: _get(obj, "projectByline1[0].title", ""),
+                    }
+                } else if (
+                    obj.typeHandle != "externalContent" &&
+                    obj.contentType == "event"
+                ) {
+                    return {
+                        ...obj,
+                        to: `/${this.stripMeapFromURI(obj.to)}`,
+                        parsedImage: _get(obj, "heroImage[0].image[0]", null),
+                        parsedLocation: _get(obj, "associatedLocations", []),
+                        parsedCategory: _get(obj, "eventType.title", ""),
+                        startDate: _get(obj, "startDateWithTime", ""),
+                        endDate: _get(obj, "endDateWithTime", ""),
+                        text: _get(obj, "eventDescription", ""),
+                    }
+                } else if (
+                    obj.typeHandle != "externalContent" &&
+                    (obj.contentType == "exhibition" || "workshopOrEventSeries")
+                ) {
+                    return {
+                        ...obj,
+                        to: `/${this.stripMeapFromURI(obj.to)}`,
+                        parsedImage: _get(obj, "heroImage[0].image[0]", null),
+                        parsedLocation: _get(obj, "associatedLocations", []),
+                        startDate: _get(obj, "startDate", ""),
+                        endDate: _get(obj, "endDate", ""),
                     }
                 } else if (obj.typeHandle === "externalContent") {
                     return {
@@ -115,7 +143,7 @@ export default {
                         parsedImage: _get(obj, "image[0]", null),
                         parsedLocation:
                             obj.location != null ? [obj.location] : [],
-                        parsedCategory: _get(obj, "category", {}),
+                        parsedCategory: _get(obj, "category", ""),
                     }
                 } else {
                     return {

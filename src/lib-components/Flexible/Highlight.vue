@@ -121,6 +121,7 @@ export default {
                         parsedCategory: _get(obj, "eventType.title", ""),
                         startDate: _get(obj, "startDateWithTime", ""),
                         endDate: _get(obj, "endDateWithTime", ""),
+                        text: _get(obj, "eventDescription", ""),
                     }
                 } else if (
                     obj.typeHandle != "externalContent" &&
