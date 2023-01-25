@@ -18,6 +18,7 @@
             :is-vertical="true"
             :locations="item.locations"
             :section-handle="item.sectionHandle"
+            :ongoing="item.ongoing"
             class="block"
         />
     </ul>

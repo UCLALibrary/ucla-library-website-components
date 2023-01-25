@@ -128,7 +128,7 @@ export const ShortTitle = () => ({
   `,
 })
 
-export const LongTitle = () => ({
+export const LongTitleNoDate = () => ({
     data() {
         return {
             ...mock,
@@ -141,8 +141,6 @@ export const LongTitle = () => ({
           :to="to"
           :category="category"
           title="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-          :start-date="startDate"
-          :end-date="endDate"
           :text="text"
           :has-triangle="true"
           :is-vertical="true"
@@ -275,6 +273,28 @@ export const ListLongTitle = () => ({
           title="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
           :start-date="startDate"
           :end-date="endDate"
+          :text="text"
+          :image-aspect-ratio="60"
+          :locations="locations"
+          :section-handle="sectionHandle"
+      />
+  `,
+})
+
+export const ListOngoing = () => ({
+    data() {
+        return {
+            ...mock,
+        }
+    },
+    components: { BlockHighlight },
+    template: `
+      <block-highlight
+          :image="image"
+          to="/help/foo/bar/"
+          :category="category"
+          :ongoing=true
+          title="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
           :text="text"
           :image-aspect-ratio="60"
           :locations="locations"

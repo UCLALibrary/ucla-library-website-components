@@ -30,6 +30,7 @@
                 :start-date="item.startDate"
                 :end-date="item.endDate"
                 :section-handle="item.contentType"
+                :ongoing="item.ongoing"
                 class="block"
             />
         </ul>
