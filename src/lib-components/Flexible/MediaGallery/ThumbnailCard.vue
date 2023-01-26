@@ -8,7 +8,11 @@
         />
         <SectionHeader class="caption-title" v-text="captionTitle" />
         <p v-if="captionText" class="caption-text">{{ parsedText }}</p>
-        <SmartLink v-if="linkUrl && linkText" :to="linkUrl" class="caption-link">
+        <SmartLink
+            v-if="linkUrl && linkText"
+            :to="linkUrl"
+            class="caption-link"
+        >
             {{ linkText }}
             <SvgExternalLink />
         </SmartLink>

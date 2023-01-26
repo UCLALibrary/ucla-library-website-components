@@ -62,8 +62,17 @@
                 class="media-object-caption"
                 v-text="captionText[selectionIndex]"
             />
-            <p v-if="items[selectionIndex].credit" class="media-object-credit">{{ items[selectionIndex].credit }}</p>
-            <smart-link v-if="items[selectionIndex].linkUrl && items[selectionIndex].linkText" class="media-object-caption-link" :to="items[selectionIndex].linkUrl">
+            <p v-if="items[selectionIndex].credit" class="media-object-credit">
+                {{ items[selectionIndex].credit }}
+            </p>
+            <smart-link
+                v-if="
+                    items[selectionIndex].linkUrl &&
+                    items[selectionIndex].linkText
+                "
+                class="media-object-caption-link"
+                :to="items[selectionIndex].linkUrl"
+            >
                 {{ items[selectionIndex].linkText }}
                 <SvgExternalLink />
             </smart-link>
@@ -78,7 +87,7 @@ import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret
 import SvgIconClose from "ucla-library-design-tokens/assets/svgs/icon-close-large.svg"
 import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg"
 import MediaItem from "@/lib-components/Media/Item.vue"
-import SmartLink from '../../SmartLink.vue'
+import SmartLink from "../../SmartLink.vue"
 
 export default {
     name: "FlexibleMediaGalleryNewLightbox",
@@ -380,7 +389,7 @@ export default {
                     fill: $white;
                     stroke: transparent;
                 }
-                
+
                 .svg__stroke--primary-blue-03 {
                     stroke: $white;
                 }
