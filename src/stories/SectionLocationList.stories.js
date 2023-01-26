@@ -49,6 +49,7 @@ const mock = [
         locationType: "uclaLibrary",
         isUclaLibrary: true,
         title: "Arts Library",
+        libcalLocationIdForHours: "4690",
         image: API.image,
         reserveSeat: "http://google.com/reserveSeat",
         address: "1400 Public Affairs Building Los Angeles, CA 90095-1392",
