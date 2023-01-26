@@ -1,3 +1,10 @@
+## [2.28.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.1...v2.28.2) (2023-01-26)
+
+
+### Bug Fixes
+
+* update location list hours ([#314](https://github.com/UCLALibrary/ucla-library-website-components/issues/314)) ([5dbf81b](https://github.com/UCLALibrary/ucla-library-website-components/commit/5dbf81b573ff03aad2ddcb461d3077938986b427))
+
 ## [2.28.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.0...v2.28.1) (2023-01-26)
 
 
