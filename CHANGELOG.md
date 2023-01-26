@@ -1,3 +1,10 @@
+## [2.28.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.0...v2.28.1) (2023-01-26)
+
+
+### Bug Fixes
+
+* remove v-if to v-show and add null check and use replace all ([#313](https://github.com/UCLALibrary/ucla-library-website-components/issues/313)) ([9507def](https://github.com/UCLALibrary/ucla-library-website-components/commit/9507def3467d009696fd33b71a391ad662083884))
+
 # [2.28.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.7...v2.28.0) (2023-01-25)
 
 
