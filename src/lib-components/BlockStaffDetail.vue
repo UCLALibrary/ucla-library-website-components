@@ -371,7 +371,7 @@ export default {
     // BODY
     .section-staff-bio {
         max-width: $container-l-main + px;
-        margin: 0 auto var(--space-3xl);
+        margin: 0 auto var(--space-2xl);
         width: 100%;
 
         display: flex;

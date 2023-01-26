@@ -52,7 +52,7 @@ export default {
     align-items: center;
 
     max-width: $container-l-main + px;
-    margin: var(--space-3xl) auto;
+    margin: var(--space-2xl) auto;
 
     .solid {
         height: 1px;

@@ -79,7 +79,7 @@ export default {
 <style lang="scss" scoped>
 .section-wrapper {
     > .section-header {
-        margin-bottom: var(--space-xl);
+        margin-bottom: var(--space-l);
 
         > .section-title {
             color: var(--color-primary-blue-03);
@@ -100,12 +100,12 @@ export default {
 
         &.theme-gray {
             --color-theme: var(--color-secondary-grey-01);
-            padding: var(--space-3xl) var(--unit-gutter);
+            padding: var(--space-2xl) var(--unit-gutter);
         }
 
         &.theme-white {
             padding: 0 var(--unit-gutter);
-            margin: var(--space-3xl) auto;
+            margin: var(--space-2xl) auto;
             &.section-banner {
                 margin-top: 0;
                 > * {
@@ -124,7 +124,7 @@ export default {
             padding: 0 var(--unit-gutter);
         }
 
-        padding: var(--space-3xl) var(--unit-gutter);
+        padding: var(--space-2xl) var(--unit-gutter);
         margin: 0 auto;
         background-color: var(--color-theme);
 

@@ -38,7 +38,7 @@ export default {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 28px;
-    margin: var(--space-3xl) auto; // When sectionWrapper component is available this can be removed and handled by sectionWrapper
+    margin: var(--space-2xl) auto; // When sectionWrapper component is available this can be removed and handled by sectionWrapper
     max-width: #{$container-l-cta}px;
 
     ::v-deep .block-call-to-action {
