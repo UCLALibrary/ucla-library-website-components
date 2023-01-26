@@ -65,6 +65,10 @@ export default {
         padding-bottom: var(--space-xl);
 
         border-bottom: 2px dotted var(--color-secondary-grey-02);
+        &:last-child {
+            border: 0;
+            padding-bottom: 0;
+        }
     }
 
     .hidden .list-item:has(+ .show-hide-hideable) {
