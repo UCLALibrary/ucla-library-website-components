@@ -135,6 +135,15 @@ export default {
             @include link-hover;
         }
     }
+
+    ::v-deep a[target="_blank"]::after {
+        content: url(path/to/icon-external-link.svg);
+        display: inline-block;
+        margin-left: 0.2em;
+        width: 1em;
+        height: 1em;
+    }
+
     ::v-deep ul,
     ::v-deep ol {
         padding: 0 16px;
