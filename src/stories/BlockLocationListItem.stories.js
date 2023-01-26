@@ -4,7 +4,7 @@ import BlockLocationListItem from "@/lib-components/BlockLocationListItem"
 import StoryRouter from "storybook-vue-router"
 
 const mock = {
-    isUclaLibrary: false,
+    isUclaLibrary: true,
     title: "Arts Library",
     image: API.image,
     libcalLocationIdForHours: "2081",
