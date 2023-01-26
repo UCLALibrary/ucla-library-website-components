@@ -11,7 +11,6 @@
                     <molecule-placeholder class="molecule" aria-hidden="true" />
                 </div>
             </smart-link>
-
             <div class="library">
                 <div>
                     <smart-link v-if="to" :to="to" class="title">
@@ -22,7 +21,7 @@
                     </smart-link>
                 </div>
                 <div class="text">
-                    <div v-if="libcalHoursData" class="time">
+                    <div v-if="libcalHoursData && isUclaLibrary" class="time">
                         <IconClock />
                         <span v-if="libcalHoursData.day">{{
                             libcalHoursData.day
@@ -143,14 +142,6 @@ export default {
             default: "",
         },
         to: {
-            type: String,
-            default: "",
-        },
-        day: {
-            type: String,
-            default: "",
-        },
-        hour: {
             type: String,
             default: "",
         },
