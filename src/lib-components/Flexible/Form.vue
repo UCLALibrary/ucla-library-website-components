@@ -15,13 +15,14 @@
 
         <div class="content">
             <iframe
-                id="the_form"
-                refs="the_form"
+                id="the-iframe"
+                refs="form_iframe"
                 class="iframe"
                 :srcdoc="parsedFormContent"
                 frameBorder="0"
                 width="100%"
                 height="100%"
+                onload="this.width=screen.width;this.height=screen.height;"
             />
         </div>
     </div>
@@ -42,38 +43,6 @@ export default {
         parsedFormContent() {
             return this.block.form
         },
-    },
-    mounted() {
-        window.addEventListener(
-            "message",
-            function (e) {
-                var the_form = document.getElementById("the_form")
-                console.log("FIRST" + the_form)
-                console.log("HEIGHT" + the_form.height)
-                var eventName = e.data[0]
-                console.log("EDATA: " + e)
-                var data = e.data[1]
-                // console.log("DATA: " + the_form)
-                console.log("TEST" + JSON.stringify(the_form))
-
-                let testiframe = document.querySelector("#the_form").innerHTML
-
-                testiframe.addEventListener("load", function () {
-                    testiframe.style.height =
-                        testiframe.contentDocument.body.scrollHeight +
-                        the_form.height
-                    console.log("TEST iFRAME: " + testiframe)
-                })
-
-                switch (eventName) {
-                    case "setHeight":
-                        the_form.height = data + 20
-                        console.log("SECOND" + the_form.height)
-                        break
-                }
-            },
-            false
-        )
     },
 }
 </script>
@@ -107,19 +76,10 @@ export default {
             margin: 0;
         }
     }
+
     .iframe {
-        width: 1000px;
-        height: 2000px;
-        border: 3px solid red;
-    }
-    iframe {
-        zoom: 0.75;
-        -moz-transform: scale(0.75);
-        -moz-transform-origin: 0 0;
-        -o-transform: scale(0.75);
-        -o-transform-origin: 0 0;
-        -webkit-transform: scale(0.75);
-        -webkit-transform-origin: 0 0;
+        max-width: 928px;
+        padding: 12px;
     }
 }
 </style>
