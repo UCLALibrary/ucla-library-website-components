@@ -15,6 +15,7 @@
                     :text="item.text"
                     :locations="item.locations"
                     :section-handle="item.sectionHandle"
+                    :ongoing="item.ongoing"
                     class="list-item block"
                 />
             </ul>

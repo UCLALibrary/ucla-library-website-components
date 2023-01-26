@@ -17,7 +17,7 @@
                 <div v-if="footnote" class="footnote" v-html="footnote" />
                 <divider-general class="divider-general" />
                 <div class="calltoaction">
-                    <span v-if="calltoaction" v-html="calltoaction" />
+                    <span v-if="calltoaction"> {{ calltoaction }}</span>
                     <svg-arrow-diagonal class="svg" />
                 </div>
             </div>

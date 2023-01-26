@@ -10,7 +10,7 @@
                 >
                     <component :is="item.svgIcon" v-if="item.svgIcon" />
 
-                    <span class="amenity-name" v-html="item.svgLabel" />
+                    <span class="amenity-name">{{ item.svgLabel }}</span>
                 </li>
             </ul>
         </div>
@@ -85,7 +85,7 @@ export default {
                 "icon-laptop": "Laptop Lending",
                 "icon-locker": "Lockers",
                 "icon-light": "Makerspace",
-                "icon-share-printer": "Printing, Scanning, and Copying",
+                "icon-share-printer": "Print, Copy and Scan",
                 "icon-book": "Research Help",
             },
         }
@@ -141,13 +141,13 @@ export default {
     }
 
     // Adjusts: Svg shareprinter to white bg and blue stroke
-    .svg__fill--secondary-grey-01 {
+    ::v-deep .svg__fill--secondary-grey-01 {
         fill: var(--color-white);
     }
-    .svg__stroke--black {
+    ::v-deep .svg__stroke--black {
         stroke: var(--color-primary-blue-03);
     }
-    .svg__fill--black {
+    ::v-deep .svg__fill--black {
         fill: var(--color-primary-blue-03);
     }
 

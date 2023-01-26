@@ -15,16 +15,17 @@
                 <h3 class="staff-name">
                     <smart-link :to="to">
                         {{ staffName }}
-                        <span
-                            v-if="alternativeFullName"
-                            :lang="language"
-                            v-html="alternativeFullName"
-                        />
+
+                        <span v-if="alternativeFullName" :lang="language">
+                            {{ alternativeFullName }}</span
+                        >
                     </smart-link>
                 </h3>
                 <div class="job-title" v-html="jobTitle" />
                 <ul v-if="departments.length" class="departments">
-                    <li class="department" v-html="lastDepartment" />
+                    <li class="department">
+                        {{ lastDepartment }}
+                    </li>
                 </ul>
             </div>
 

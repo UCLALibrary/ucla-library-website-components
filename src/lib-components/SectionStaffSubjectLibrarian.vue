@@ -1,15 +1,17 @@
 <template>
     <table class="section-staff-subject-librarian">
         <thead>
-            <th v-for="(header, index) in tableHeaders" :key="index">
-                {{ header }}
-            </th>
+            <tr>
+                <th v-for="(header, index) in tableHeaders" :key="index">
+                    {{ header }}
+                </th>
+            </tr>
         </thead>
 
         <tbody>
             <block-staff-subject-librarian
-                v-for="item in items"
-                :key="item.to"
+                v-for="(item, index) in items"
+                :key="`${index}-${item.subjectArea}`"
                 :subject-area="item.subjectArea"
                 :staff-name="item.staffName"
                 :to="item.to"
@@ -57,7 +59,7 @@ export default {
     max-width: $container-l-main + px;
     margin: 0 auto var(--space-3xl);
 
-    thead {
+    thead tr {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -69,18 +71,19 @@ export default {
         font-weight: normal;
         border-bottom: 2px dotted var(--color-secondary-grey-02);
         padding-bottom: 10px;
-    }
-    th {
-        display: flex;
-        flex: 1 1 0px;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: flex-start;
-        align-items: flex-start;
+        th {
+            display: flex;
+            flex: 1 1 0px;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-content: flex-start;
+            align-items: flex-start;
 
-        font-weight: 500;
+            font-weight: 500;
+        }
     }
+
     .subject-librarian-item {
         border-bottom: 2px dotted var(--color-secondary-grey-02);
     }

@@ -1,7 +1,7 @@
 <template>
     <li :class="classes">
         <!-- TODO: Fix sectionName to use "to" value to determine section -->
-        <span class="section" v-html="sectionName" />
+        <span class="section">{{ sectionName }}</span>
         <h3 class="title2">
             <smart-link v-if="title" :to="to" class="title">
                 {{ title }}

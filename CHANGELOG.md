@@ -1,3 +1,73 @@
+## [2.28.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.0...v2.28.1) (2023-01-26)
+
+
+### Bug Fixes
+
+* remove v-if to v-show and add null check and use replace all ([#313](https://github.com/UCLALibrary/ucla-library-website-components/issues/313)) ([9507def](https://github.com/UCLALibrary/ucla-library-website-components/commit/9507def3467d009696fd33b71a391ad662083884))
+
+# [2.28.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.7...v2.28.0) (2023-01-25)
+
+
+### Features
+
+* add ongoing prop to block highlight ([#311](https://github.com/UCLALibrary/ucla-library-website-components/issues/311)) ([0f3505f](https://github.com/UCLALibrary/ucla-library-website-components/commit/0f3505f17cd411e0db38a8852c67a309bd86b49e))
+
+## [2.27.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.6...v2.27.7) (2023-01-25)
+
+
+### Bug Fixes
+
+* Refactor date time for flexible_Banner* components and Fix category null display in BlockHighlight ([#312](https://github.com/UCLALibrary/ucla-library-website-components/issues/312)) ([86e5432](https://github.com/UCLALibrary/ucla-library-website-components/commit/86e543231ae105a1930d8241dc8f1f9f18967e68))
+
+## [2.27.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.5...v2.27.6) (2023-01-24)
+
+
+### Bug Fixes
+
+* Add click-outside directive back ([#310](https://github.com/UCLALibrary/ucla-library-website-components/issues/310)) ([ee22ca4](https://github.com/UCLALibrary/ucla-library-website-components/commit/ee22ca4e1beb43519655644a89721ea8841a776c))
+
+## [2.27.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.4...v2.27.5) (2023-01-24)
+
+
+### Reverts
+
+* Revert "fix: Add remove filters back" (#309) ([86a1a9f](https://github.com/UCLALibrary/ucla-library-website-components/commit/86a1a9f621dfa873c642b69d3539f11643a92751)), closes [#309](https://github.com/UCLALibrary/ucla-library-website-components/issues/309) [#308](https://github.com/UCLALibrary/ucla-library-website-components/issues/308)
+
+## [2.27.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.3...v2.27.4) (2023-01-24)
+
+
+### Bug Fixes
+
+* Add remove filters back ([#308](https://github.com/UCLALibrary/ucla-library-website-components/issues/308)) ([8796f99](https://github.com/UCLALibrary/ucla-library-website-components/commit/8796f994115be01e648c38174374028797856e75))
+
+## [2.27.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.2...v2.27.3) (2023-01-24)
+
+
+### Bug Fixes
+
+* Fix hydration part2 ([#307](https://github.com/UCLALibrary/ucla-library-website-components/issues/307)) ([505d7d1](https://github.com/UCLALibrary/ucla-library-website-components/commit/505d7d11632948cbdd9bac868fee58e426c8dab2))
+
+## [2.27.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.1...v2.27.2) (2023-01-20)
+
+
+### Bug Fixes
+
+* hydration errors ([#306](https://github.com/UCLALibrary/ucla-library-website-components/issues/306)) ([40ffbc7](https://github.com/UCLALibrary/ucla-library-website-components/commit/40ffbc7b21f8e98c0820fdeefcad0b1a7155f6cb))
+
+## [2.27.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.0...v2.27.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* APPS-2141 Fix print svg and text in Block Amenities ([#305](https://github.com/UCLALibrary/ucla-library-website-components/issues/305)) ([b13c669](https://github.com/UCLALibrary/ucla-library-website-components/commit/b13c669bc3b30d339ae72b59ee9dd69735269c17))
+
+# [2.27.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.26.4...v2.27.0) (2023-01-20)
+
+
+### Features
+
+* APPS-2121 add title to iframes labeling the content in the iframe ([#303](https://github.com/UCLALibrary/ucla-library-website-components/issues/303)) ([cfed040](https://github.com/UCLALibrary/ucla-library-website-components/commit/cfed04002ca19fcd7f4a267f4f3ab34c582893f3))
+
 ## [2.26.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.26.3...v2.26.4) (2023-01-19)
 
 

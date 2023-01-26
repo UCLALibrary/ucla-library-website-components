@@ -8,12 +8,15 @@
             :title="block.content[0].contentLink[0].title"
             :breadcrumb="parsedTypeHandle"
             :byline="parseByLine"
-            :description="block.content[0].contentLink[0].summary"
+            :description="parsedDescription"
             :prompt="parsePrompt"
             :locations="parsedLocations"
             :category="parsedCategory"
-            :section-handle="block.content[0].contentLink[0].sectionHandle"
+            :start-date="parsedStartDate"
+            :end-date="parsedEndDate"
+            :section-handle="block.content[0].contentLink[0].contentType"
         />
+
         <banner-featured
             v-if="block && block.content && !block.content[0].contentLink"
             class="flexible-banner-featured"
@@ -39,6 +42,7 @@ import BannerFeatured from "@/lib-components/BannerFeatured.vue"
 // Helpers
 import getPrompt from "@/mixins/getPrompt"
 import stripMeapFromURI from "@/mixins/stripMeapFromURI"
+import format from "date-fns/format"
 
 export default {
     name: "FlexibleBannerFeatured",
@@ -62,7 +66,7 @@ export default {
             else if (this.block.content[0].image)
                 imageObj = this.block.content[0].image[0]
 
-            console.log("image obj: " + JSON.stringify(imageObj))
+            // console.log("image obj: " + JSON.stringify(imageObj))
             return imageObj
         },
         parsedAlignment() {
@@ -98,11 +102,10 @@ export default {
 
                         break
 
-                    /*case contentType.includes("event"):
+                    case contentType.includes("event"):
                         locations["location_links"] =
-                            this.block.content[0].contentLink[0]
-                                .eventLocations
-                        break*/
+                            this.block.content[0].contentLink[0].articleLocations
+                        break
                 }
             }
             if (this.block.content && this.block.content[0].location) {
@@ -143,11 +146,46 @@ export default {
             return category
         },
         parsedTypeHandle() {
-            // This will be pased on the page level
+            // This will be passed on the page level
 
             return this.block.sectionTitle
                 ? this.block.sectionTitle
                 : this.parsedCategory
+        },
+        parsedStartDate() {
+            let startDate = ""
+            if (
+                this.block.content &&
+                this.block.content[0].contentLink &&
+                this.block.content[0].contentLink[0].startDateWithTime
+            ) {
+                startDate =
+                    this.block.content[0].contentLink[0].startDateWithTime
+            } else if (
+                this.block.content &&
+                this.block.content[0].contentLink &&
+                this.block.content[0].contentLink[0].startDate
+            ) {
+                startDate = this.block.content[0].contentLink[0].startDate
+            }
+            return startDate
+        },
+        parsedEndDate() {
+            let endDate = ""
+            if (
+                this.block.content &&
+                this.block.content[0].contentLink &&
+                this.block.content[0].contentLink[0].endDateWithTime
+            ) {
+                endDate = this.block.content[0].contentLink[0].endDateWithTime
+            } else if (
+                this.block.content &&
+                this.block.content[0].contentLink &&
+                this.block.content[0].contentLink[0].endDate
+            ) {
+                endDate = this.block.content[0].contentLink[0].endDate
+            }
+            return endDate
         },
         parseByLine() {
             let output = []
@@ -159,8 +197,12 @@ export default {
                     case entry_type.includes("article"):
                         output["articleStaff"] =
                             this.block.content[0].contentLink[0].articleByline1
-                        output["articlePostDate"] =
-                            this.block.content[0].contentLink[0].articleByline2
+                        output["articlePostDate"] = format(
+                            new Date(
+                                this.block.content[0].contentLink[0].articleByline2
+                            ),
+                            "MMMM d, Y"
+                        )
 
                         break
                     case entry_type.includes("project"):
@@ -185,6 +227,19 @@ export default {
                 output.push(this.block.content[0].byline2)
             }
 
+            return output
+        },
+        parsedDescription() {
+            let output = ""
+            if (
+                this.block.content &&
+                this.block.content[0].contentLink &&
+                this.block.content[0].contentLink[0].contentType == "event"
+            ) {
+                output = this.block.content[0].contentLink[0].eventDescription
+            } else {
+                output = this.block.content[0].contentLink[0].summary
+            }
             return output
         },
     },

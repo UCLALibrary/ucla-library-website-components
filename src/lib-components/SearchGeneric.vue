@@ -5,7 +5,7 @@
     <!-- TODO Need to get a BaseCheckboxGroup working -->
     <!-- TODO Need to create a BaseCalendarGroup Component -->
     <!-- TODO Need to style this for Mobile -->
-    <div class="search-generic">
+    <div class="search-generic" v-click-outside="hide">
         <!-- <h4>router query</h4>
         {{ searchGenericQuery }}
         <h4>filters for the page</h4>
@@ -19,7 +19,7 @@
                     placeholder="Search by keyword"
                 />
 
-                <button class="button-submit">
+                <button class="button-submit" type="submit">
                     <icon-search class="icon" />
                 </button>
             </div>
@@ -27,7 +27,6 @@
 
         <div v-if="filters.length > 0" class="container">
             <search-generic-filter-buttons
-                v-click-outside="hide"
                 :items="filters"
                 :single-checkbox-selected="selectedFilters"
                 :active-index.sync="openedFilterIndex"
@@ -219,11 +218,6 @@ export default {
                 filterObj.inputType == "radio" ? "" : []
         }
     },*/
-
-    mounted() {
-        // prevent click outside event with popupItem.
-        this.popupItem = this.$el
-    },
 
     // do not forget this section
     directives: {
