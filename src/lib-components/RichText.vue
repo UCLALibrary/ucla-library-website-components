@@ -1,6 +1,5 @@
 <template>
     <div class="rich-text">
-        <h3>{{ parsedContent }}</h3>
         <div class="parsed-content" v-html="parsedContent" />
         <slot />
     </div>
@@ -139,10 +138,8 @@ export default {
         }
     }
 
-    ::v-deep a[target="_blank"]::after {
-        // content: url(https://github.com/UCLALibrary/design-tokens/blob/main/assets/svgs/icon-external-link.svg);
-        //content: "EXTERNAL LINK";
-        background-color: aqua;
+    ::v-deep a[target="_blank"]:after {
+        content: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
         display: inline-block;
         margin-left: 0.2em;
         width: 1em;
