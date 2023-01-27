@@ -22,7 +22,7 @@ export default {
 <style lang="scss" scoped>
 .divider-general {
     max-width: $container-l-main + px;
-    margin: var(--space-2xl) auto;
+    margin: var(--space-xl) auto;
     border-bottom: 2px dotted var(--color-secondary-grey-02);
     height: 1px;
 
