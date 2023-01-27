@@ -1,12 +1,15 @@
 <template>
     <div class="rich-text">
+        <h3>{{ parsedContent }}</h3>
         <div class="parsed-content" v-html="parsedContent" />
         <slot />
     </div>
 </template>
 
 <script>
+// UTILITY FUNCTIONS
 import stripCraftURLFromText from "@/mixins/stripCraftURLFromText"
+
 export default {
     name: "RichText",
     components: {},
@@ -137,7 +140,9 @@ export default {
     }
 
     ::v-deep a[target="_blank"]::after {
-        content: url(path/to/icon-external-link.svg);
+        // content: url(https://github.com/UCLALibrary/design-tokens/blob/main/assets/svgs/icon-external-link.svg);
+        //content: "EXTERNAL LINK";
+        background-color: aqua;
         display: inline-block;
         margin-left: 0.2em;
         width: 1em;
