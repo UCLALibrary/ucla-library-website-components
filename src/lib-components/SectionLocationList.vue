@@ -9,13 +9,12 @@
                 :title="item.title"
                 :to="item.to"
                 :affiliateLibraryUrl="item.affiliateLibraryUrl"
-                :day="item.day"
-                :hour="item.hour"
                 :address="item.address"
                 :addressLink="item.addressLink"
                 :amenities="item.amenities"
                 :reserveSeat="item.reserveSeat"
                 :isUclaLibrary="item.isUclaLibrary"
+                :libcal-location-id-for-hours="item.libcalLocationIdForHours"
                 class="block-location-list-item"
             />
         </ul>
