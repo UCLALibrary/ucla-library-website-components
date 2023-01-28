@@ -7,6 +7,7 @@ export default {
      * ie: <a target="_blank">Blah Blah Text<span class="visually-hidden">(opens in a new tab)</span></a>
      * @param {String} text
      * @returns {String} text with span tag
+     * '<a target="_blank">Afternoon delight.<span class="visually-hidden">(opens in a new tab)</span> </a>'
      */
 
     methods: {

@@ -7,10 +7,9 @@
 </template>
 
 <script>
-// UTILITY FUNCTIONS
 import stripCraftURLFromText from "@/mixins/stripCraftURLFromText"
 
-import modifyRichTextExternalLinks from "A/mixins/modifyRichTextExternalLinks"
+import modifyRichTextExternalLinks from "@/mixins/modifyRichTextExternalLinks"
 
 export default {
     name: "RichText",
@@ -24,7 +23,11 @@ export default {
     mixins: [stripCraftURLFromText, modifyRichTextExternalLinks],
     computed: {
         parsedContent() {
-            return this.stripCraftURLFromText(this.richTextContent)
+            // return this.stripCraftURLFromText(this.richTextContent)
+
+            let x = this.stripCraftURLFromText(this.richTextContent)
+
+            return x
         },
     },
 }
@@ -140,22 +143,6 @@ export default {
             @include link-hover;
         }
     }
-
-    ::v-deep a[target="_blank"] {
-        position: relative;
-        margin-right: 25px;
-    }
-    ::v-deep a[target="_blank"]:after {
-        content: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
-        display: inline-block;
-        margin-left: 0.2em;
-        width: 1em;
-        height: 1em;
-        position: absolute;
-        top: -5.5px;
-        right: -15px;
-    }
-
     ::v-deep ul,
     ::v-deep ol {
         padding: 0 16px;
