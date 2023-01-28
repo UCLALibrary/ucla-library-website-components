@@ -1,3 +1,10 @@
+# [2.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.3...v2.29.0) (2023-01-28)
+
+
+### Features
+
+* media gallery credit and link ([#315](https://github.com/UCLALibrary/ucla-library-website-components/issues/315)) ([7c38924](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c389245f5f0bd5bcc504067bbcf45480bbb6981))
+
 ## [2.28.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.2...v2.28.3) (2023-01-26)
 
 
