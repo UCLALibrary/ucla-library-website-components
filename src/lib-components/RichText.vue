@@ -1,5 +1,6 @@
 <template>
     <div class="rich-text">
+        <h3>{{ parsedContent }}</h3>
         <div class="parsed-content" v-html="parsedContent" />
         <slot />
     </div>
@@ -8,6 +9,8 @@
 <script>
 // UTILITY FUNCTIONS
 import stripCraftURLFromText from "@/mixins/stripCraftURLFromText"
+
+import modifyRichTextExternalLinks from "A/mixins/modifyRichTextExternalLinks"
 
 export default {
     name: "RichText",
@@ -18,7 +21,7 @@ export default {
             default: "",
         },
     },
-    mixins: [stripCraftURLFromText],
+    mixins: [stripCraftURLFromText, modifyRichTextExternalLinks],
     computed: {
         parsedContent() {
             return this.stripCraftURLFromText(this.richTextContent)
