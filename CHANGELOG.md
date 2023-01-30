@@ -1,3 +1,10 @@
+## [2.29.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.0...v2.29.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* use consistent border and spacing for blockHours ([#318](https://github.com/UCLALibrary/ucla-library-website-components/issues/318)) ([67ac874](https://github.com/UCLALibrary/ucla-library-website-components/commit/67ac874ed106d7d04b3c75797588d13afa080f51))
+
 # [2.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.3...v2.29.0) (2023-01-28)
 
 
