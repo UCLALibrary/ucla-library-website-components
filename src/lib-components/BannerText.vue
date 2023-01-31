@@ -58,7 +58,7 @@
                             <icon-with-link
                                 :text="email"
                                 icon-name="svg-icon-email"
-                                :to="`mailto:/${email}`"
+                                :to="`mailto:${email}`"
                             />
                         </div>
 
@@ -66,7 +66,7 @@
                             <icon-with-link
                                 :text="phone"
                                 icon-name="svg-icon-phone"
-                                :to="`tel:/${phone}`"
+                                :to="`tel:${phone}`"
                             />
                         </div>
 
