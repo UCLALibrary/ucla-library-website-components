@@ -54,13 +54,14 @@
                         <icon-with-link
                             :text="email"
                             icon-name="svg-icon-email"
-                            :to="`mailto:/${email}`"
+                            :to="`mailto:${email}`"
                         />
                     </div>
                     <div v-if="phone" class="contact-info">
                         <icon-with-link
                             :text="phone"
                             icon-name="svg-icon-phone"
+                            :to="`tel:${phone}`"
                         />
                     </div>
                     <div v-if="consultation" class="contact-info">
