@@ -203,3 +203,158 @@ export const mock = {
         },
     ],
 }
+
+export const eventExhibitonArticle = {
+    id: "696267",
+    typeHandle: "highlight",
+    sectionTitle: "Flexible Highlight with events and exhibitions",
+    sectionSummary:
+        "<p>Flexible Highlight with events and exhibitions so that we can test</p>",
+    highlight: [
+        {
+            id: "696268",
+            typeHandle: "internalContent",
+            contentLink: [
+                {
+                    id: "197177",
+                    contentType: "event",
+                    to: "visit/events-exhibitions/test-the-white-balloon",
+                    title: "TEST - The White Balloon",
+                    text: null,
+                    eventDescription:
+                        '<p><strong>All <em>Family Flicks</em> screenings are free admission. Seating is first come, first served. The Billy Wilder Theater opens 15 minutes before each <em>Family Flicks</em> program.</strong></p>\n\n<p>Director Jafar Panahi’s debut feature, <em>The White Balloon</em>, won the Camera d’Or at the Cannes Film Festival and announced the arrival of a major new voice on the international film scene. A simply presented but powerful moving fable of perseverance, it follows a young girl as she overcomes the obstacles of the big city on her way to buy a goldfish for Nowruz, the Iranian New Year. Among The Guardian newspaper’s top 50 family films of all time, <em>The White Balloon</em> is also on the British Film Institute’s list of 50 films you should see by the age of 14.</p>\n\n<p>35mm, color, in Persian with English subtitles, 85 min. Director: Jafar Panahi. Screenwriter: Abbas Kiarostami. With: Aida Mohammadkhani, Mohsen Kafili, Fereshteh Sadre Orafaiy.</p>\n\n<p>Part of: <a href="https://www.cinema.ucla.edu/events/family-flicks" target="_blank" rel="noreferrer noopener">Family Flicks</a><br /><a href="https://www.cinema.ucla.edu/events/2023/01/22/the-white-balloon" target="_blank" rel="noreferrer noopener">Learn more</a> </p>',
+                    articleByline2: "2022-12-19T07:48:00-08:00",
+                    startDateWithTime: "2022-12-19T11:00",
+                    endDateWithTime: "2022-12-19T12:30",
+                    eventType: [],
+                    associatedLocations: [
+                        {
+                            id: "11612",
+                            title: "UCLA Film & Television Archive",
+                            to: "visit/locations/film-television-archive",
+                        },
+                    ],
+                    heroImage: [
+                        {
+                            id: "197178",
+                            image: [
+                                {
+                                    id: "86612",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/1670615203.jpg",
+                                    height: 1846,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/1670615203.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/1670615203.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/1670615203.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/1670615203.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/1670615203.jpg 2560w",
+                                    alt: "placeholder",
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            id: "696269",
+            typeHandle: "internalContent",
+            contentLink: [
+                {
+                    id: "8901",
+                    contentType: "exhibition",
+                    to: "visit/events-exhibitions/fante-asafo-flags",
+                    title: "Fante Asafo Flags",
+                    text: "<p>Prior to the colonial era, asafo companies were charged with the safety and protection of the region. Surviving a century of violence and upheaval, they remain one of the core local institutions.</p>",
+                    articleByline2: "2022-03-09T15:17:00-08:00",
+                    startDate: "2023-01-04T00:00",
+                    endDate: "2023-03-05T00:00",
+                    heroImage: [
+                        {
+                            id: "9068",
+                            image: [
+                                {
+                                    id: "63048",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/flag_2022-11-23-012414_fjms.jpg",
+                                    height: 1703,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 2560w",
+                                    alt: null,
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            id: "696270",
+            typeHandle: "internalContent",
+            contentLink: [
+                {
+                    id: "36092",
+                    contentType: "article",
+                    to: "about/news/casper-the-ghost",
+                    title: "Casper the Ghost",
+                    text: '<p>He is a pleasant, personable and translucent <a href="https://en.wikipedia.org/wiki/Ghost" title="Ghost" target="_blank" rel="noreferrer noopener">ghost</a>, but often criticized by his three wicked uncles, <a href="https://en.wikipedia.org/wiki/The_Ghostly_Trio" class="mw-redirect" title="The Ghostly Trio" target="_blank" rel="noreferrer noopener">the Ghostly Trio</a>.<br /></p>',
+                    articleCategory: [],
+                    articleByline2: "2022-09-13T15:06:00-07:00",
+                    associatedLocations: [],
+                    heroImage: [
+                        {
+                            id: "49470",
+                            image: [
+                                {
+                                    id: "49469",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Casper.png",
+                                    height: 2225,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Casper.png 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Casper.png 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Casper.png 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Casper.png 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Casper.png 2560w",
+                                    alt: null,
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            id: "707393",
+            typeHandle: "internalContent",
+            contentLink: [
+                {
+                    id: "50864",
+                    contentType: "workshopOrEventSeries",
+                    to: "visit/events-exhibitions/test-event-series",
+                    title: "Test Event Series: Side Pie",
+                    text: "<p>Started in a Side Yard in a Pandemic. Our goals are simple: to bring the best pizza to the neighborhood and give back to the community. We love Altadena, we love pizza. <br /></p>",
+                    articleByline2: "2022-10-31T16:11:00-07:00",
+                    startDate: "2022-11-17T00:00",
+                    endDate: "2022-11-30T00:00",
+                    associatedLocations: [
+                        {
+                            id: "801",
+                            title: "Charles E. Young Research Library",
+                            to: "visit/locations/young-research-library",
+                        },
+                    ],
+                    heroImage: [
+                        {
+                            id: "60178",
+                            image: [
+                                {
+                                    id: "59935",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/SidePie20220278_470x.webp",
+                                    height: 1026,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/SidePie20220278_470x.webp 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/SidePie20220278_470x.webp 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/SidePie20220278_470x.webp 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/SidePie20220278_470x.webp 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/SidePie20220278_470x.webp 2560w",
+                                    alt: "color photograph of beige tshirt with side pie text",
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+}

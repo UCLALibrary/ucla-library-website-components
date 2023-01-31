@@ -1,3 +1,52 @@
+## [2.29.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.0...v2.29.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* use consistent border and spacing for blockHours ([#318](https://github.com/UCLALibrary/ucla-library-website-components/issues/318)) ([67ac874](https://github.com/UCLALibrary/ucla-library-website-components/commit/67ac874ed106d7d04b3c75797588d13afa080f51))
+
+# [2.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.3...v2.29.0) (2023-01-28)
+
+
+### Features
+
+* media gallery credit and link ([#315](https://github.com/UCLALibrary/ucla-library-website-components/issues/315)) ([7c38924](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c389245f5f0bd5bcc504067bbcf45480bbb6981))
+
+## [2.28.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.2...v2.28.3) (2023-01-26)
+
+
+### Bug Fixes
+
+* APPS-1757 fix auto height of form ([#304](https://github.com/UCLALibrary/ucla-library-website-components/issues/304)) ([e01fb0f](https://github.com/UCLALibrary/ucla-library-website-components/commit/e01fb0f94b18258345f0e800ba4d9cc01153a7cf))
+
+## [2.28.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.1...v2.28.2) (2023-01-26)
+
+
+### Bug Fixes
+
+* update location list hours ([#314](https://github.com/UCLALibrary/ucla-library-website-components/issues/314)) ([5dbf81b](https://github.com/UCLALibrary/ucla-library-website-components/commit/5dbf81b573ff03aad2ddcb461d3077938986b427))
+
+## [2.28.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.0...v2.28.1) (2023-01-26)
+
+
+### Bug Fixes
+
+* remove v-if to v-show and add null check and use replace all ([#313](https://github.com/UCLALibrary/ucla-library-website-components/issues/313)) ([9507def](https://github.com/UCLALibrary/ucla-library-website-components/commit/9507def3467d009696fd33b71a391ad662083884))
+
+# [2.28.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.7...v2.28.0) (2023-01-25)
+
+
+### Features
+
+* add ongoing prop to block highlight ([#311](https://github.com/UCLALibrary/ucla-library-website-components/issues/311)) ([0f3505f](https://github.com/UCLALibrary/ucla-library-website-components/commit/0f3505f17cd411e0db38a8852c67a309bd86b49e))
+
+## [2.27.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.6...v2.27.7) (2023-01-25)
+
+
+### Bug Fixes
+
+* Refactor date time for flexible_Banner* components and Fix category null display in BlockHighlight ([#312](https://github.com/UCLALibrary/ucla-library-website-components/issues/312)) ([86e5432](https://github.com/UCLALibrary/ucla-library-website-components/commit/86e543231ae105a1930d8241dc8f1f9f18967e68))
+
 ## [2.27.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.27.5...v2.27.6) (2023-01-24)
 
 

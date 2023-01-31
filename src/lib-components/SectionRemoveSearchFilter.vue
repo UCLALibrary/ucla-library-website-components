@@ -1,5 +1,5 @@
 <template>
-    <div class="section-remove-search-filter" v-if="hasFilters">
+    <div class="section-remove-search-filter" v-show="hasFilters">
         <div
             v-for="(filter, index) in parsedFilters"
             :key="`filter-${Object.keys(filter)[0]}-${index}`"

@@ -7,7 +7,15 @@
             object-fit="cover"
         />
         <SectionHeader class="caption-title" v-text="captionTitle" />
-        <p class="caption-text">{{ parsedText }}</p>
+        <p v-if="captionText" class="caption-text">{{ parsedText }}</p>
+        <SmartLink
+            v-if="linkUrl && linkText"
+            :to="linkUrl"
+            class="caption-link"
+        >
+            {{ linkText }}
+            <SvgExternalLink />
+        </SmartLink>
     </SectionWrapper>
 </template>
 
@@ -19,11 +27,21 @@ import MediaItem from "@/lib-components/Media/Item.vue"
 
 // UTILITY FUNCTIONS
 import removeHtmlTruncate from "@/mixins/removeHtmlTruncate"
+import SmartLink from "../../SmartLink.vue"
 
 export default {
     name: "FlexibleMediaGalleryThumbnailCard",
     mixins: [removeHtmlTruncate],
-    components: { MediaItem, SectionWrapper, SectionHeader },
+    components: {
+        MediaItem,
+        SectionWrapper,
+        SectionHeader,
+        SmartLink,
+        SvgExternalLink: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-external-link.svg"
+            ).then((d) => d.default),
+    },
     props: {
         item: {
             type: Array,
@@ -45,6 +63,18 @@ export default {
             type: String,
             default: "",
         },
+        credit: {
+            type: String,
+            default: "",
+        },
+        linkUrl: {
+            type: String,
+            default: "",
+        },
+        linkText: {
+            type: String,
+            default: "",
+        },
     },
     computed: {
         thumbnailImage() {
@@ -55,7 +85,7 @@ export default {
         },
         parsedText() {
             return this.captionText
-                ? this.removeHtmlTruncate(this.captionText, 100)
+                ? this.removeHtmlTruncate(this.captionText || this.credit)
                 : ""
         },
     },
@@ -72,18 +102,27 @@ export default {
 
     .caption-title {
         @include step-1;
-        color: var(--color-black);
+        color: #{$black};
         margin-bottom: var(--space-xs);
     }
 
     .caption-text {
         @include step-0;
-        color: var(--color-secondary-grey-05);
+        color: #{$secondary-grey-05};
         @include truncate($lines: 4);
     }
 
-    @media #{$has-hover} {
-        cursor: pointer;
+    .caption-link {
+        @include button;
+        margin-top: 10px;
+        padding: 0;
+
+        // /* identical to box height, or 22px */
+        display: flex;
+        align-items: center;
+
+        // /* primary/blue-03 */
+        color: $primary-blue-03;
     }
 }
 </style>

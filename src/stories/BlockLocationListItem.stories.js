@@ -4,11 +4,10 @@ import BlockLocationListItem from "@/lib-components/BlockLocationListItem"
 import StoryRouter from "storybook-vue-router"
 
 const mock = {
-    isUclaLibrary: false,
+    isUclaLibrary: true,
     title: "Arts Library",
     image: API.image,
-    day: "Today",
-    hour: "8am - 5pm",
+    libcalLocationIdForHours: "2081",
     reserveSeat: "http://google.com/reserveSeat",
     address: "1400 Public Affairs Building Los Angeles, CA 90095-1392",
     addressLink: "http://google.com/address",
@@ -48,8 +47,7 @@ export const Default = () => ({
             :title="title"
             :to="to"
             :image="image"
-            :day="day"
-            :hour="hour"
+
             :address="address"
             :addressLink="addressLink"
             :amenities="amenities"
@@ -69,8 +67,7 @@ export const NoHours = () => ({
             :title="title"
             :to="to"
             :image="image"
-            :day="day"
-            :hour="hour"
+
             :address="address"
             :addressLink="addressLink"
             :amenities="amenities"
@@ -90,14 +87,12 @@ export const TextHours = () => ({
             :title="title"
             :to="to"
             :image="image"
-            :day="day"
-            :hour="hour"
             :address="address"
             :addressLink="addressLink"
             :amenities="amenities"
             :reserveSeat="reserveSeat"
             :isUclaLibrary="isUclaLibrary"
-            libcalLocationIdForHours="4695"
+            libcalLocationIdForHours="2081"
         />
     `,
 })

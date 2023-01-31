@@ -260,6 +260,89 @@ const internalVideo = {
         },
     ],
 }
+const event = {
+    id: "695718",
+    typeHandle: "bannerFeatured",
+    sectionTitle: "Flexible Banner featured with dates",
+    content: [
+        {
+            id: "695719",
+            contentLink: [
+                {
+                    contentType: "event",
+                    title: "TEST - The White Balloon",
+                    to: "visit/events-exhibitions/test-the-white-balloon",
+                    summary: null,
+                    eventDescription:
+                        '<p><strong>All <em>Family Flicks</em> screenings are free admission. Seating is first come, first served. The Billy Wilder Theater opens 15 minutes before each <em>Family Flicks</em> program.</strong></p>\n\n<p>Director Jafar Panahi’s debut feature, <em>The White Balloon</em>, won the Camera d’Or at the Cannes Film Festival and announced the arrival of a major new voice on the international film scene. A simply presented but powerful moving fable of perseverance, it follows a young girl as she overcomes the obstacles of the big city on her way to buy a goldfish for Nowruz, the Iranian New Year. Among The Guardian newspaper’s top 50 family films of all time, <em>The White Balloon</em> is also on the British Film Institute’s list of 50 films you should see by the age of 14.</p>\n\n<p>35mm, color, in Persian with English subtitles, 85 min. Director: Jafar Panahi. Screenwriter: Abbas Kiarostami. With: Aida Mohammadkhani, Mohsen Kafili, Fereshteh Sadre Orafaiy.</p>\n\n<p>Part of: <a href="https://www.cinema.ucla.edu/events/family-flicks" target="_blank" rel="noreferrer noopener">Family Flicks</a><br /><a href="https://www.cinema.ucla.edu/events/2023/01/22/the-white-balloon" target="_blank" rel="noreferrer noopener">Learn more</a> </p>',
+                    startDateWithTime: "2022-12-19T11:00",
+                    endDateWithTime: "2022-12-19T12:30",
+                    articleByline2: "2022-12-19T07:48:00-08:00",
+                    articleLocations: [
+                        {
+                            id: "11612",
+                            title: "UCLA Film & Television Archive",
+                            to: "visit/locations/film-television-archive",
+                        },
+                    ],
+                    heroImage: [
+                        {
+                            image: [
+                                {
+                                    id: "86612",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/1670615203.jpg",
+                                    height: 1846,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/1670615203.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/1670615203.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/1670615203.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/1670615203.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/1670615203.jpg 2560w",
+                                    alt: "placeholder",
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+}
+
+const exhibition = {
+    id: "696007",
+    typeHandle: "bannerFeatured",
+    sectionTitle: "Flexible banner featured with exhibiton",
+    content: [
+        {
+            id: "696008",
+            contentLink: [
+                {
+                    contentType: "exhibition",
+                    title: "Fante Asafo Flags",
+                    to: "visit/events-exhibitions/fante-asafo-flags",
+                    summary:
+                        "<p>Prior to the colonial era, asafo companies were charged with the safety and protection of the region. Surviving a century of violence and upheaval, they remain one of the core local institutions.</p>",
+                    startDate: "2023-01-04T00:00",
+                    endDate: "2023-03-05T00:00",
+                    articleByline2: "2022-03-09T15:17:00-08:00",
+                    heroImage: [
+                        {
+                            image: [
+                                {
+                                    id: "63048",
+                                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/flag_2022-11-23-012414_fjms.jpg",
+                                    height: 1703,
+                                    width: 2560,
+                                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/flag_2022-11-23-012414_fjms.jpg 2560w",
+                                    alt: null,
+                                    focalPoint: [0.5, 0.5],
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+}
 
 export const Default = () => ({
     data() {
@@ -334,6 +417,34 @@ export const ExternalVideo = () => ({
     data() {
         return {
             block: externalVideo,
+        }
+    },
+    components: { FlexibleBannerFeatured },
+    template: `
+        <flexible-banner-featured
+            :block="block"
+       />
+    `,
+})
+
+export const Event = () => ({
+    data() {
+        return {
+            block: event,
+        }
+    },
+    components: { FlexibleBannerFeatured },
+    template: `
+        <flexible-banner-featured
+            :block="block"
+       />
+    `,
+})
+
+export const Exhibition = () => ({
+    data() {
+        return {
+            block: exhibition,
         }
     },
     components: { FlexibleBannerFeatured },
