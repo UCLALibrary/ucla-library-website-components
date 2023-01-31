@@ -1,3 +1,10 @@
+## [2.29.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.2...v2.29.3) (2023-01-31)
+
+
+### Bug Fixes
+
+* video embed display ([#319](https://github.com/UCLALibrary/ucla-library-website-components/issues/319)) ([2c33f7d](https://github.com/UCLALibrary/ucla-library-website-components/commit/2c33f7ddcf7688274420cf4502e1d7acf9a6f356))
+
 ## [2.29.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.1...v2.29.2) (2023-01-31)
 
 
