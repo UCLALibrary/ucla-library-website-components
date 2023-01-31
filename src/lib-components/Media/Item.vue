@@ -132,6 +132,11 @@ export default {
         width: 100%;
         height: 100%;
         z-index: 0;
+
+        ::v-deep figure, ::v-deep iframe {
+            width: 100%;
+            height: 100%;
+        }
     }
     .sizer {
         width: 100%;
