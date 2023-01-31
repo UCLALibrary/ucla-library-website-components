@@ -1,3 +1,24 @@
+## [2.29.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.0...v2.29.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* use consistent border and spacing for blockHours ([#318](https://github.com/UCLALibrary/ucla-library-website-components/issues/318)) ([67ac874](https://github.com/UCLALibrary/ucla-library-website-components/commit/67ac874ed106d7d04b3c75797588d13afa080f51))
+
+# [2.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.3...v2.29.0) (2023-01-28)
+
+
+### Features
+
+* media gallery credit and link ([#315](https://github.com/UCLALibrary/ucla-library-website-components/issues/315)) ([7c38924](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c389245f5f0bd5bcc504067bbcf45480bbb6981))
+
+## [2.28.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.2...v2.28.3) (2023-01-26)
+
+
+### Bug Fixes
+
+* APPS-1757 fix auto height of form ([#304](https://github.com/UCLALibrary/ucla-library-website-components/issues/304)) ([e01fb0f](https://github.com/UCLALibrary/ucla-library-website-components/commit/e01fb0f94b18258345f0e800ba4d9cc01153a7cf))
+
 ## [2.28.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.28.1...v2.28.2) (2023-01-26)
 
 
