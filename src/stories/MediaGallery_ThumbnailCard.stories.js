@@ -10,12 +10,7 @@ export default {
     component: FlexibleMediaGalleryThumbnailCard,
 }
 
-const mock = _pick(API.Gallery.mediaGallery[0], [
-    "item",
-    "coverImage",
-    "captionTitle",
-    "captionText",
-])
+const mock = API.Gallery.mediaGallery[0]
 
 const mockFocalPoint = {
     id: "43141",

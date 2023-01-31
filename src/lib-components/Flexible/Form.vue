@@ -15,13 +15,14 @@
 
         <div class="content">
             <iframe
-                id="form-iframe"
+                id="the-iframe"
                 refs="form_iframe"
                 class="iframe"
                 :srcdoc="parsedFormContent"
                 frameBorder="0"
                 width="100%"
                 height="100%"
+                onload="this.width=screen.width;this.height=screen.height;"
             />
         </div>
     </div>
@@ -42,32 +43,6 @@ export default {
         parsedFormContent() {
             return this.block.form
         },
-    },
-    mounted() {
-        window.addEventListener(
-            "message",
-            function (e) {
-                // var form_iframe = document.getElementById("form-iframe")
-                var form_iframe = document.getElementById("form-iframe").height
-                var eventName = e.data[0]
-                var data = e.data[1]
-
-                let testiframe = document.querySelector("#form-iframe")
-
-                testiframe.addEventListener("load", function () {
-                    testiframe.style.height =
-                        testiframe.contentDocument.body.scrollHeight +
-                        form_iframe.height
-                })
-
-                switch (eventName) {
-                    case "setHeight":
-                        form_iframe.height = testiframe.style.height
-                        break
-                }
-            },
-            false
-        )
     },
 }
 </script>
@@ -100,6 +75,11 @@ export default {
         ::v-deep p {
             margin: 0;
         }
+    }
+
+    .iframe {
+        max-width: 928px;
+        padding: 12px;
     }
 }
 </style>

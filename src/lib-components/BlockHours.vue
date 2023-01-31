@@ -114,7 +114,7 @@ export default {
 
     .content {
         border-radius: var(--rounded-slightly-all);
-        border: 1.5px solid var(--color-primary-blue-01);
+        border: 2px solid var(--color-primary-blue-01);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -124,7 +124,7 @@ export default {
         .btn-lnk {
             max-width: 300px;
             margin-left: 10px;
-            margin-top: 20px;
+            margin-top: 8px;
             margin-bottom: 20px;
         }
 

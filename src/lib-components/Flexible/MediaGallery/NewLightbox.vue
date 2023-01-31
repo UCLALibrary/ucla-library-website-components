@@ -58,9 +58,24 @@
                 v-text="captionTitle[selectionIndex]"
             />
             <p
+                v-if="captionText[selectionIndex]"
                 class="media-object-caption"
                 v-text="captionText[selectionIndex]"
             />
+            <p v-if="items[selectionIndex].credit" class="media-object-credit">
+                {{ items[selectionIndex].credit }}
+            </p>
+            <smart-link
+                v-if="
+                    items[selectionIndex].linkUrl &&
+                    items[selectionIndex].linkText
+                "
+                class="media-object-caption-link"
+                :to="items[selectionIndex].linkUrl"
+            >
+                {{ items[selectionIndex].linkText }}
+                <SvgExternalLink />
+            </smart-link>
         </div>
     </div>
 </template>
@@ -72,6 +87,7 @@ import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret
 import SvgIconClose from "ucla-library-design-tokens/assets/svgs/icon-close-large.svg"
 import SvgIconMoleculeBullet from "ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg"
 import MediaItem from "@/lib-components/Media/Item.vue"
+import SmartLink from "../../SmartLink.vue"
 
 export default {
     name: "FlexibleMediaGalleryNewLightbox",
@@ -83,6 +99,11 @@ export default {
         SvgIconClose,
         SvgIconMoleculeBullet,
         MediaItem,
+        SmartLink,
+        SvgExternalLink: () =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-external-link.svg"
+            ).then((d) => d.default),
     },
     props: {
         items: {
@@ -344,6 +365,35 @@ export default {
 
         .media-object-caption {
             @include step--1;
+        }
+
+        .media-object-credit {
+            margin-top: 4px;
+
+            @include step--1;
+            font-style: italic;
+        }
+
+        .media-object-caption-link {
+            @include step--1;
+
+            margin-top: 4px;
+            padding: 0;
+
+            display: flex;
+            align-items: center;
+
+            color: $white;
+            ::v-deep .svg__icon-external-link {
+                .svg__fill--primary-blue-03 {
+                    fill: $white;
+                    stroke: transparent;
+                }
+
+                .svg__stroke--primary-blue-03 {
+                    stroke: $white;
+                }
+            }
         }
     }
 }
