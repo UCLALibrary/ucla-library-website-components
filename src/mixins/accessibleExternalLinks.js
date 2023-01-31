@@ -11,17 +11,17 @@ export default {
      */
 
     methods: {
-        modifyRichTextExternalLinks(text = "") {
-            if (text == null) {
-                return text // don't try string method
-            }
-            if (text.includes("_blank")) {
-                text = text.substring(0, text.lastIndexOf(" "))
+        accessibleExternalLinks(text = "") {
+            let regex =
+                /<a\s+(?:[^>]*?\s+)?target=(["_blank'])(.*?)\1*>(.*?)<\/a>/g
 
-                return `${text} <span class="visually-hidden">(opens in a new tab)</span> </a>`
-            } else {
-                return text
-            }
+            return text.replace(regex, function (match) {
+                let xmatch = match.replace("</a>", "")
+                return (
+                    xmatch +
+                    '<span class="visually-hidden">(opens in a new tab)</span></a>'
+                )
+            })
         },
     },
 }

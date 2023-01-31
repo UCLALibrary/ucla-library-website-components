@@ -1,15 +1,14 @@
 <template>
     <div class="rich-text">
-        <h3>{{ parsedContent }}</h3>
         <div class="parsed-content" v-html="parsedContent" />
         <slot />
     </div>
 </template>
 
 <script>
+// UTILITY FUNCTIONS
 import stripCraftURLFromText from "@/mixins/stripCraftURLFromText"
-
-import modifyRichTextExternalLinks from "@/mixins/modifyRichTextExternalLinks"
+import accessibleExternalLinks from "@/mixins/accessibleExternalLinks"
 
 export default {
     name: "RichText",
@@ -20,14 +19,12 @@ export default {
             default: "",
         },
     },
-    mixins: [stripCraftURLFromText, modifyRichTextExternalLinks],
+    mixins: [stripCraftURLFromText, accessibleExternalLinks],
     computed: {
         parsedContent() {
-            // return this.stripCraftURLFromText(this.richTextContent)
+            let content = this.stripCraftURLFromText(this.richTextContent)
 
-            let x = this.stripCraftURLFromText(this.richTextContent)
-
-            return x
+            return this.accessibleExternalLinks(content)
         },
     },
 }
@@ -143,6 +140,22 @@ export default {
             @include link-hover;
         }
     }
+
+    ::v-deep a[target="_blank"] {
+        position: relative;
+        margin-right: 25px;
+    }
+
+    ::v-deep a[target="_blank"]:after {
+        content: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
+        display: inline-block;
+        margin-left: 0.2em;
+        position: absolute;
+        bottom: 7.3px;
+        width: 1em;
+        height: 1em;
+    }
+
     ::v-deep ul,
     ::v-deep ol {
         padding: 0 16px;
