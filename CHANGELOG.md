@@ -1,3 +1,10 @@
+## [2.29.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.1...v2.29.2) (2023-01-31)
+
+
+### Bug Fixes
+
+* remove slash in mailto links and update phones to use tel ([#320](https://github.com/UCLALibrary/ucla-library-website-components/issues/320)) ([b133027](https://github.com/UCLALibrary/ucla-library-website-components/commit/b133027ea4bf334052bba698262a262a9880279f))
+
 ## [2.29.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.0...v2.29.1) (2023-01-30)
 
 
