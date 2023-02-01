@@ -161,7 +161,7 @@ export default {
                         font-weight: 400;
                         letter-spacing: 0.01em;
                         line-height: 22px;
-                    } 
+                    }
                 }
             }
         }
