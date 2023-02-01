@@ -159,13 +159,13 @@ export default {
                 font-weight: 400;
                 letter-spacing: 0.01em;
                 line-height: 22px;
-                a {
+            }
+            ::v-deep a {
                     font-size: 16px;
                     font-weight: 400;
                     letter-spacing: 0.01em;
                     line-height: 22px;
                 }
-            }
         }
 
         .button-dismiss {
