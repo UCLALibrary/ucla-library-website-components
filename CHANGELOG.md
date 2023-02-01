@@ -1,3 +1,10 @@
+# [2.30.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.3...v2.30.0) (2023-02-01)
+
+
+### Features
+
+* add registration type logic ([#321](https://github.com/UCLALibrary/ucla-library-website-components/issues/321)) ([3322164](https://github.com/UCLALibrary/ucla-library-website-components/commit/3322164ad6bcae129238a71b140314c1de83beee))
+
 ## [2.29.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.2...v2.29.3) (2023-01-31)
 
 
