@@ -1,6 +1,6 @@
 <template>
     <li class="block-spaces">
-        <div class="container">
+        <component :is="to ? 'SmartLink' : 'div'" :to="to" class="container">
             <div class="arrow-and-title">
                 <svg-heading-arrow class="heading-arrow" />
                 <!-- if the is a link (:to) - display as a link -->
@@ -25,7 +25,7 @@
                     link-target="_blank"
                 />
             </div>
-        </div>
+        </component>
     </li>
 </template>
 
@@ -101,14 +101,6 @@ export default {
             .space-title {
                 @include step-2;
                 color: var(--color-primary-blue-03);
-                a::after {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                }
             }
         }
 
@@ -164,6 +156,12 @@ export default {
         }
         &:hover {
             @include card-horizontal-hover;
+
+            text-decoration: none !important;
+
+            ::v-deep a.smart-link, ::v-deep button.smart-link {
+                text-decoration: none !important;
+            }
         }
     }
 
