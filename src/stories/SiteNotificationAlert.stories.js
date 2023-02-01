@@ -7,7 +7,7 @@ export default {
     title: "Global / SiteNotificationAlert",
     component: SiteNotificationAlert,
 }
-
+//TODO update message text as rich text
 export const Default = () => ({
     data() {
         return {

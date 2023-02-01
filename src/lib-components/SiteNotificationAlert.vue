@@ -8,7 +8,9 @@
         </button>
 
         <div class="message">
-            <div class="message-text" v-html="text" />
+            <div class="message-text">
+                <rich-text v-if="text" class="text" :rich-text-content="text" />
+            </div>
             <button-link
                 class="button-dismiss"
                 label="Dismiss"
@@ -39,7 +41,7 @@ export default {
         },
         time: {
             type: Number,
-            default: 10000,
+            default: 13500,
         },
     },
     data() {
@@ -125,7 +127,6 @@ export default {
             white-space: nowrap;
         }
     }
-
     .message {
         display: flex;
         flex-direction: column;
@@ -148,10 +149,15 @@ export default {
 
             color: var(--color-black);
             font-family: var(--font-primary);
-            font-size: 16px;
-            font-weight: 400;
-            letter-spacing: 0.01em;
-            line-height: 22px;
+            .text {
+                padding: 0;
+                ::v-deep p {
+                    font-size: 16px;
+                    font-weight: 400;
+                    letter-spacing: 0.01em;
+                    line-height: 22px; 
+                }
+            }
         }
 
         .button-dismiss {
