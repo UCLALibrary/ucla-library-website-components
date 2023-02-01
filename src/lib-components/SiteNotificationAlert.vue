@@ -8,7 +8,11 @@
         </button>
 
         <div class="message">
-            <rich-text v-if="text" class="message-text" :rich-text-content="text" />
+            <rich-text
+                v-if="text"
+                class="message-text"
+                :rich-text-content="text"
+            />
             <button-link
                 class="button-dismiss"
                 label="Dismiss"
