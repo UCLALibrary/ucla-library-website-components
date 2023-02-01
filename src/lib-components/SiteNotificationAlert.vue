@@ -155,7 +155,13 @@ export default {
                     font-size: 16px;
                     font-weight: 400;
                     letter-spacing: 0.01em;
-                    line-height: 22px; 
+                    line-height: 22px;
+                    a {
+                        font-size: 16px;
+                        font-weight: 400;
+                        letter-spacing: 0.01em;
+                        line-height: 22px;
+                    } 
                 }
             }
         }
