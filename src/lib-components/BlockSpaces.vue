@@ -13,7 +13,7 @@
                 <h3 v-else class="space-title-no-link" v-html="title" />
             </div>
             <div class="meta">
-                <div class="text" v-html="text" />
+                <rich-text v-if="text" class="text" :rich-text-content="text" />
                 <!-- if no buttonUrl -  do not display button -->
                 <button-link
                     v-if="to"
@@ -143,6 +143,7 @@ export default {
             .text {
                 @include step-0;
                 margin: 0 24px var(--space-m) 40px;
+                padding: 0;
             }
             .button {
                 margin-left: 40px;

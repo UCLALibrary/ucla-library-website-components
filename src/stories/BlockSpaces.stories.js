@@ -5,6 +5,7 @@ import BlockSpaces from "@/lib-components/BlockSpaces"
 import StoryRouter from "storybook-vue-router"
 
 // Storybook default settings
+//TODO update stories with rich-text
 export default {
     title: "BLOCK / Spaces",
     component: BlockSpaces,
