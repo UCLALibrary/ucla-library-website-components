@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="block && block.content">
         <banner-featured
             v-if="block && block.content && block.content[0].contentLink"
             class="flexible-banner-featured"
@@ -57,16 +57,19 @@ export default {
     computed: {
         parseImage() {
             let imageObj = {}
+            console.log("FROM BANNERFEATURED:" + this.block.content[0])
             if (
                 this.block.content[0].contentLink &&
-                this.block.content[0].contentLink[0].heroImage
+                this.block.content[0].contentLink.length > 0 &&
+                this.block.content[0].contentLink[0].heroImage &&
+                this.block.content[0].contentLink[0].heroImage.length > 0
             )
                 imageObj =
                     this.block.content[0].contentLink[0].heroImage[0].image[0]
             else if (this.block.content[0].image)
                 imageObj = this.block.content[0].image[0]
 
-            // console.log("image obj: " + JSON.stringify(imageObj))
+            console.log("image obj: " + JSON.stringify(imageObj))
             return imageObj
         },
         parsedAlignment() {
