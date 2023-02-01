@@ -159,7 +159,8 @@ export default {
 
             text-decoration: none !important;
 
-            ::v-deep a.smart-link, ::v-deep button.smart-link {
+            ::v-deep a.smart-link,
+            ::v-deep button.smart-link {
                 text-decoration: none !important;
             }
         }
