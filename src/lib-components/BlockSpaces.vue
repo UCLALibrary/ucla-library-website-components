@@ -33,6 +33,7 @@
 // https://calendar.library.ucla.edu/admin/api/1.1/endpoint/space_locations
 import SmartLink from "@/lib-components/SmartLink"
 import ButtonLink from "@/lib-components/ButtonLink"
+import RichText from "@/lib-components/RichText"
 
 import SvgHeadingArrow from "ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg"
 
@@ -42,6 +43,7 @@ export default {
         SvgHeadingArrow,
         SmartLink,
         ButtonLink,
+        RichText,
     },
     props: {
         to: {

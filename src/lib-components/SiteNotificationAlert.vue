@@ -8,9 +8,7 @@
         </button>
 
         <div class="message">
-            <div class="message-text">
-                <rich-text v-if="text" class="text" :rich-text-content="text" />
-            </div>
+            <rich-text v-if="text" class="message-text" :rich-text-content="text" />
             <button-link
                 class="button-dismiss"
                 label="Dismiss"
@@ -24,11 +22,13 @@
 
 <script>
 import ButtonLink from "./ButtonLink.vue"
+import RichText from "./RichText.vue"
 
 export default {
     name: "SiteNotificationAlert",
     components: {
         ButtonLink,
+        RichText,
     },
     props: {
         title: {
@@ -149,19 +149,17 @@ export default {
 
             color: var(--color-black);
             font-family: var(--font-primary);
-            .text {
-                padding: 0;
-                ::v-deep p {
+            padding: 0;
+            ::v-deep p {
+                font-size: 16px;
+                font-weight: 400;
+                letter-spacing: 0.01em;
+                line-height: 22px;
+                a {
                     font-size: 16px;
                     font-weight: 400;
                     letter-spacing: 0.01em;
                     line-height: 22px;
-                    a {
-                        font-size: 16px;
-                        font-weight: 400;
-                        letter-spacing: 0.01em;
-                        line-height: 22px;
-                    }
                 }
             }
         }
