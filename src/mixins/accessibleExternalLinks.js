@@ -12,6 +12,10 @@ export default {
 
     methods: {
         accessibleExternalLinks(text = "") {
+            if (text == null) {
+                return text // don't try string method .replace
+            }
+
             let regex =
                 /<a\s+(?:[^>]*?\s+)?target=(["_blank'])(.*?)\1*>(.*?)<\/a>/g
 
