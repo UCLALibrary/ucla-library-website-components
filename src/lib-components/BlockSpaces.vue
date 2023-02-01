@@ -157,11 +157,11 @@ export default {
         &:hover {
             @include card-horizontal-hover;
 
-            text-decoration: none !important;
+            text-decoration: none;
 
             ::v-deep a.smart-link,
             ::v-deep button.smart-link {
-                text-decoration: none !important;
+                text-decoration: none;
             }
         }
     }
