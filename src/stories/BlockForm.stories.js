@@ -21,6 +21,8 @@ export const Default = () => ({
         eventId: "9383207",
         blockFormData: BlockFormData.mock0,
         libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
+        libcalWaitlist: "",
+        registrationType: "both",
     },
     components: { BlockForm },
     template: `
@@ -37,6 +39,8 @@ export const DefaultType2 = () => ({
         eventId: "9383207",
         blockFormData: BlockFormData.mock1,
         libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
+        registrationType: "both",
+        libcalWaitlist: null,
     },
     components: { BlockForm },
     template: `
@@ -53,6 +57,8 @@ export const CLICCInstructionalUseForm = () => ({
         eventId: "9383207",
         blockFormData: BlockFormData.mock2,
         libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
+        registrationType: "online",
+        libcalWaitlist: "0",
     },
     components: { BlockForm },
     template: `
@@ -69,6 +75,8 @@ export const TestFormTerryAllen = () => ({
         eventId: "9383207",
         blockFormData: BlockFormData.mock3,
         libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
+        registrationType: "in-person",
+        libcalWaitlist: "1",
     },
     components: { BlockForm },
     template: `
@@ -85,6 +93,8 @@ export const TestFormFTVA = () => ({
         eventId: "9383207",
         blockFormData: BlockFormData.mock4,
         libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
+        registrationType: "in-person",
+        libcalWaitlist: "",
     },
     components: { BlockForm },
     template: `
@@ -101,6 +111,8 @@ export const TextBallot = () => ({
         eventId: "9383207",
         blockFormData: BlockFormData.mock5,
         libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
+        registrationType: "in-person",
+        libcalWaitlist: null,
     },
     components: { BlockForm },
     template: `
@@ -117,6 +129,8 @@ export const UCLALibraryEventRegistration = () => ({
         eventId: "9383207",
         blockFormData: BlockFormData.mock6,
         libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
+        registrationType: "in-person",
+        libcalWaitlist: "1",
     },
     components: { BlockForm },
     template: `
