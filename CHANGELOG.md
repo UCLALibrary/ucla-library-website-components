@@ -1,3 +1,10 @@
+# [2.33.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.32.0...v2.33.0) (2023-02-02)
+
+
+### Features
+
+* updates BlockStaffDetail styling ([#325](https://github.com/UCLALibrary/ucla-library-website-components/issues/325)) ([760a61c](https://github.com/UCLALibrary/ucla-library-website-components/commit/760a61c7836e6f06eb592fe10b20614bbb71f2f3))
+
 # [2.32.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.31.0...v2.32.0) (2023-02-02)
 
 
