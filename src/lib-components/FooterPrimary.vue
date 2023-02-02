@@ -45,8 +45,17 @@
                 </ul>
             </div>
 
-            <form v-if="form" class="form">
-                <div class="form-header">
+            <form
+                v-if="form"
+                action="https://ucla.us7.list-manage.com/subscribe/post?u=31248d1f341b8eede1b46cb33&amp;id=40fdd1db46&amp;f_id=0034f7e4f0"
+                method="post"
+                id="mc-embedded-subscribe-form"
+                name="mc-embedded-subscribe-form"
+                class="validate form"
+                target="_blank"
+                novalidate
+            >
+                <div class="form-header" id="mc_embed_signup_scroll">
                     <h2 class="title">Stay updated</h2>
 
                     <p class="statement">
@@ -56,19 +65,29 @@
                 </div>
 
                 <div class="input-block">
-                    <div class="field">
+                    <div class="field mc-field-group">
                         <input
-                            name="email"
-                            id="email"
+                            name="EMAIL"
+                            id="mce-EMAIL"
                             type="email"
+                            value=""
                             placeholder="email@ucla.edu"
                             class="input-email"
+                            required
                         />
-                        <label for="email" class="label">Email Address</label>
+                        <label for="mce-EMAIL" class="label">
+                            Email Address
+                        </label>
                     </div>
 
-                    <button class="button-submit" type="submit">
-                        Submit
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_31248d1f341b8eede1b46cb33_40fdd1db46" tabindex="-1" value=""></div>
+
+                    <button class="button-submit" name="subscribe" id="mc-embedded-subscribe" type="submit">
+                        Subscribe
                         <svg-arrow-right class="arrow-svg" />
                     </button>
                 </div>
