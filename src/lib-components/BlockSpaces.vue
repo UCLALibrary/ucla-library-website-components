@@ -1,6 +1,6 @@
 <template>
     <li class="block-spaces">
-        <div class="container">
+        <component :is="to ? 'SmartLink' : 'div'" :to="to" class="container">
             <div class="arrow-and-title">
                 <svg-heading-arrow class="heading-arrow" />
                 <!-- if the is a link (:to) - display as a link -->
@@ -13,7 +13,7 @@
                 <h3 v-else class="space-title-no-link" v-html="title" />
             </div>
             <div class="meta">
-                <div class="text" v-html="text" />
+                <rich-text v-if="text" class="text" :rich-text-content="text" />
                 <!-- if no buttonUrl -  do not display button -->
                 <button-link
                     v-if="to"
@@ -25,7 +25,7 @@
                     link-target="_blank"
                 />
             </div>
-        </div>
+        </component>
     </li>
 </template>
 
@@ -33,6 +33,7 @@
 // https://calendar.library.ucla.edu/admin/api/1.1/endpoint/space_locations
 import SmartLink from "@/lib-components/SmartLink"
 import ButtonLink from "@/lib-components/ButtonLink"
+import RichText from "@/lib-components/RichText"
 
 import SvgHeadingArrow from "ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg"
 
@@ -42,6 +43,7 @@ export default {
         SvgHeadingArrow,
         SmartLink,
         ButtonLink,
+        RichText,
     },
     props: {
         to: {
@@ -99,14 +101,6 @@ export default {
             .space-title {
                 @include step-2;
                 color: var(--color-primary-blue-03);
-                a::after {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                }
             }
         }
 
@@ -143,6 +137,7 @@ export default {
             .text {
                 @include step-0;
                 margin: 0 24px var(--space-m) 40px;
+                padding: 0;
             }
             .button {
                 margin-left: 40px;
@@ -161,6 +156,13 @@ export default {
         }
         &:hover {
             @include card-horizontal-hover;
+
+            text-decoration: none;
+
+            ::v-deep a.smart-link,
+            ::v-deep button.smart-link {
+                text-decoration: none;
+            }
         }
     }
 

@@ -1,3 +1,17 @@
+# [2.31.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.30.1...v2.31.0) (2023-02-02)
+
+
+### Features
+
+* use rich-text in site alert and spaces, increase alert display time ([#322](https://github.com/UCLALibrary/ucla-library-website-components/issues/322)) ([022e45f](https://github.com/UCLALibrary/ucla-library-website-components/commit/022e45f20e22a6e1cfbed2d855fb03b7cb24902d))
+
+## [2.30.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.30.0...v2.30.1) (2023-02-01)
+
+
+### Bug Fixes
+
+* add null check ([#323](https://github.com/UCLALibrary/ucla-library-website-components/issues/323)) ([0967cb4](https://github.com/UCLALibrary/ucla-library-website-components/commit/0967cb45d06d0289f416cf5041d3c0768573a701))
+
 # [2.30.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.3...v2.30.0) (2023-02-01)
 
 
