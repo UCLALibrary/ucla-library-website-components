@@ -30,7 +30,7 @@
 
                         <ul v-if="departments.length" class="departments">
                             <li
-                                v-for="department in departments"
+                                v-for="(department, index) in departments"
                                 :key="index"
                                 class="department"
                                 v-html="department"
