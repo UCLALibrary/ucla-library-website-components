@@ -16,7 +16,7 @@ export default {
 
 const mock = [
     {
-        image: API.image,
+        image: null,
         to: "/visit/foo/bar/",
         category: "Feugiat",
         title: "Vel Quam Elementum",

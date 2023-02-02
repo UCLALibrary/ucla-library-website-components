@@ -356,20 +356,22 @@ export default {
         color: var(--color-secondary-grey-04);
         margin: var(--space-s) 0;
     }
-    .molecule-no-image {
-        width: 100%;
-        height: 272px;
-        margin-right: var(--space-xl);
-        background: var(--gradient-01);
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        position: relative;
+    .image-container {
+        .molecule-no-image {
+            width: 100%;
+            height: 179.2px;
+            margin-right: var(--space-xl);
+            background: var(--gradient-01);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            position: relative;
 
-        .molecule {
-            flex-shrink: 0;
-            position: absolute;
-            opacity: 0.7;
+            .molecule {
+                flex-shrink: 0;
+                position: absolute;
+                opacity: 0.7;
+            }
         }
     }
     .text {
@@ -549,7 +551,7 @@ export default {
             .clipped-date {
                 display: none;
             }
-
+            
             .image-container,
             .meta {
                 width: 100%;
