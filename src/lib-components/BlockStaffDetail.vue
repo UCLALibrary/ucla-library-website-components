@@ -270,7 +270,6 @@ export default {
         .info-container {
             flex-flow: row;
             width: calc(100% - 400px);
-
         }
         .staff-info {
             border-bottom: 2px dotted var(--color-secondary-grey-02);
@@ -310,7 +309,6 @@ export default {
 
     .department {
         display: block;
-        
     }
 
     .location {
