@@ -22,10 +22,7 @@
             <flexible-media-gallery-thumbnail-card
                 v-for="(item, index) in block.mediaGallery"
                 :key="item.id"
-                :item="item.item"
-                :coverImage="item.coverImage"
-                :caption-title="item.captionTitle"
-                :caption-text="item.captionText"
+                v-bind="item"
                 @click.native="selectItem(index)"
             />
         </div>
