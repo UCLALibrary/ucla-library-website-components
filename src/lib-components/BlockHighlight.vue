@@ -356,20 +356,21 @@ export default {
         color: var(--color-secondary-grey-04);
         margin: var(--space-s) 0;
     }
-    .molecule-no-image {
-        width: 100%;
-        height: 272px;
-        margin-right: var(--space-xl);
-        background: var(--gradient-01);
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        position: relative;
+    .image-container {
+        .molecule-no-image {
+            width: 100%;
+            margin-right: var(--space-xl);
+            background: var(--gradient-01);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            position: relative;
 
-        .molecule {
-            flex-shrink: 0;
-            position: absolute;
-            opacity: 0.7;
+            .molecule {
+                flex-shrink: 0;
+                position: absolute;
+                opacity: 0.7;
+            }
         }
     }
     .text {
@@ -399,6 +400,7 @@ export default {
         flex-direction: column;
         .molecule-no-image {
             width: 100%;
+            height: 179.2px;
         }
         &:not(.has-triangle) {
             .meta {
@@ -423,6 +425,9 @@ export default {
                     object-fit: cover;
                 }
             }
+            .molecule-no-image {
+                height: 272px;
+            }
         }
     }
     &:not(&.is-vertical) {
@@ -436,6 +441,9 @@ export default {
 
             .image {
                 width: 100%;
+            }
+            .molecule-no-image {
+                height: 261px;
             }
         }
         .meta {
@@ -535,8 +543,14 @@ export default {
             margin-top: 0;
         }
         &.is-vertical {
+            .molecule-no-image {
+                height: 226px;
+            }
             &.has-triangle {
                 ::v-deep .image {
+                    height: 200px;
+                }
+                .molecule-no-image {
                     height: 200px;
                 }
             }
@@ -579,6 +593,11 @@ export default {
         &:not(&.is-vertical) {
             .image {
                 max-width: 100%;
+            }
+            .image-container {
+                .molecule-no-image {
+                    height: 200px;
+                }
             }
         }
     }
