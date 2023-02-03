@@ -1,3 +1,10 @@
+## [2.33.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.33.1...v2.33.2) (2023-02-03)
+
+
+### Bug Fixes
+
+* update placeholder image height ([#326](https://github.com/UCLALibrary/ucla-library-website-components/issues/326)) ([cf66ce7](https://github.com/UCLALibrary/ucla-library-website-components/commit/cf66ce7bd621ecc188a385653c6e7afd9d063f0d))
+
 ## [2.33.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.33.0...v2.33.1) (2023-02-03)
 
 
