@@ -7,7 +7,7 @@
             object-fit="cover"
         />
         <SectionHeader class="caption-title" v-text="captionTitle" />
-        <p v-if="captionText" class="caption-text">{{ parsedText }}</p>
+        <p v-if="parsedText" class="caption-text">{{ parsedText }}</p>
         <SmartLink
             v-if="linkUrl && linkText"
             :to="linkUrl"
@@ -84,9 +84,9 @@ export default {
                 .filter((item) => item.kind == "image") // only keep "image" items
         },
         parsedText() {
-            return this.captionText
-                ? this.removeHtmlTruncate(this.captionText || this.credit)
-                : ""
+            return this.removeHtmlTruncate(
+                this.captionText || this.credit || ""
+            )
         },
     },
 }

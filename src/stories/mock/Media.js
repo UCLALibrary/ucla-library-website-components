@@ -130,7 +130,7 @@ export const Gallery = {
         {
             id: "46452",
             captionTitle: "Video",
-            captionText: "Sandow, strongest man in the world.",
+            credit: "Edison Studios in credit field",
             sortOrder: 2,
             item: VideoFile,
             coverImage: VideoFileCoverImage,
