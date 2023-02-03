@@ -359,7 +359,6 @@ export default {
     .image-container {
         .molecule-no-image {
             width: 100%;
-            height: 179.2px;
             margin-right: var(--space-xl);
             background: var(--gradient-01);
             overflow: hidden;
@@ -401,6 +400,7 @@ export default {
         flex-direction: column;
         .molecule-no-image {
             width: 100%;
+            height: 179.2px;
         }
         &:not(.has-triangle) {
             .meta {
@@ -425,6 +425,9 @@ export default {
                     object-fit: cover;
                 }
             }
+            .molecule-no-image {
+                height: 272px;
+            }
         }
     }
     &:not(&.is-vertical) {
@@ -438,6 +441,9 @@ export default {
 
             .image {
                 width: 100%;
+            }
+            .molecule-no-image {
+                height: 261px;
             }
         }
         .meta {
@@ -537,8 +543,14 @@ export default {
             margin-top: 0;
         }
         &.is-vertical {
+            .molecule-no-image {
+                height: 220px;
+            }
             &.has-triangle {
                 ::v-deep .image {
+                    height: 200px;
+                }
+                .molecule-no-image {
                     height: 200px;
                 }
             }
@@ -581,6 +593,11 @@ export default {
         &:not(&.is-vertical) {
             .image {
                 max-width: 100%;
+            }
+            .image-container {
+                .molecule-no-image {
+                    height: 200px;
+                } 
             }
         }
     }
