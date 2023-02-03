@@ -1,3 +1,10 @@
+## [2.33.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.33.0...v2.33.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* ThumbnailCard link, and credit if no caption ([#327](https://github.com/UCLALibrary/ucla-library-website-components/issues/327)) ([7d2ac7a](https://github.com/UCLALibrary/ucla-library-website-components/commit/7d2ac7a0f97e77b2dd61f39f2a6d9b7a5827bc9a))
+
 # [2.33.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.32.0...v2.33.0) (2023-02-02)
 
 
