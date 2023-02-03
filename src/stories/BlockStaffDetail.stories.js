@@ -34,14 +34,18 @@ const mock = {
     // image: API.image_people,
     to: "about/staff/id/",
     staffName: "Ada Lovelace",
-    jobTitle: "Library Supervisor",
+    jobTitle:
+        "Associate University Librarian for User Engagement (interim) and Director of Arts, Music and Powell Libraries",
     locations: [
         { title: "Powellarium", to: "/location/bar" },
         { title: "Research Library (Charles E. Young)", to: "/location/baz" },
     ],
     email: "ada@somewhere.com",
     phone: "555-555-5555",
-    departments: ["DIIT", "Other Department"],
+    departments: [
+        "Digital Initiatives & Information Technology",
+        "Software Development & Library Systems",
+    ],
     topics: [
         { title: "Quadrigis aedificium", id: "808" },
         { title: "Carpe vinum", id: "809" },
