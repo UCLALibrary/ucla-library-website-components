@@ -597,7 +597,7 @@ export default {
             .image-container {
                 .molecule-no-image {
                     height: 200px;
-                } 
+                }
             }
         }
     }
