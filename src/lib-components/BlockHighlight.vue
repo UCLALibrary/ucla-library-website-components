@@ -551,7 +551,7 @@ export default {
             .clipped-date {
                 display: none;
             }
-            
+
             .image-container,
             .meta {
                 width: 100%;
