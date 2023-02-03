@@ -16,7 +16,9 @@ describe("FLEXIBLE / Media Gallery", () => {
             .and("contain", "photo by someone")
         cy.get(".button-close").click()
 
-        cy.contains(".thumbnail-card", "Edison Studios in credit field").should("be.visible")
+        cy.contains(".thumbnail-card", "Edison Studios in credit field").should(
+            "be.visible"
+        )
 
         cy.contains("Embedded Video").click()
         cy.get(".button-close").click()
