@@ -544,7 +544,7 @@ export default {
         }
         &.is-vertical {
             .molecule-no-image {
-                height: 220px;
+                height: 226px;
             }
             &.has-triangle {
                 ::v-deep .image {
