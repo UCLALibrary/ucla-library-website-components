@@ -24,52 +24,54 @@
                     :aspect-ratio="100"
                     class="image"
                 />
-                <div class="staff-info">
-                    <div class="job-title" v-html="jobTitle" />
+                <div class="info-container">
+                    <div class="staff-info">
+                        <div class="job-title" v-html="jobTitle" />
 
-                    <ul v-if="departments.length" class="departments">
-                        <li
-                            v-for="(department, index) in departments"
-                            :key="index"
-                            class="department"
-                            v-html="department.title"
-                        />
-                    </ul>
-                    <ul v-if="locations.length" class="location-group">
-                        <li
-                            v-for="(location, index) in locations"
-                            :key="`location-${index}`"
-                            class="location"
-                        >
-                            <icon-with-link
-                                :text="location.title"
-                                icon-name="svg-icon-location"
-                                :to="`/${location.to}`"
+                        <ul v-if="departments.length" class="departments">
+                            <li
+                                v-for="(department, index) in departments"
+                                :key="index"
+                                class="department"
+                                v-html="department"
                             />
-                        </li>
-                    </ul>
-                </div>
-                <div class="contact-info-list">
-                    <div class="contact-info">
-                        <icon-with-link
-                            :text="email"
-                            icon-name="svg-icon-email"
-                            :to="`mailto:${email}`"
-                        />
+                        </ul>
+                        <ul v-if="locations.length" class="location-group">
+                            <li
+                                v-for="(location, index) in locations"
+                                :key="`location-${index}`"
+                                class="location"
+                            >
+                                <icon-with-link
+                                    :text="location.title"
+                                    icon-name="svg-icon-location"
+                                    :to="`/${location.to}`"
+                                />
+                            </li>
+                        </ul>
                     </div>
-                    <div v-if="phone" class="contact-info">
-                        <icon-with-link
-                            :text="phone"
-                            icon-name="svg-icon-phone"
-                            :to="`tel:${phone}`"
-                        />
-                    </div>
-                    <div v-if="consultation" class="contact-info">
-                        <icon-with-link
-                            :text="`Book a consultation`"
-                            icon-name="svg-icon-consultation"
-                            :to="consultation"
-                        />
+                    <div class="contact-info-list">
+                        <div class="contact-info">
+                            <icon-with-link
+                                :text="email"
+                                icon-name="svg-icon-email"
+                                :to="`mailto:${email}`"
+                            />
+                        </div>
+                        <div v-if="phone" class="contact-info">
+                            <icon-with-link
+                                :text="phone"
+                                icon-name="svg-icon-phone"
+                                :to="`tel:${phone}`"
+                            />
+                        </div>
+                        <div v-if="consultation" class="contact-info">
+                            <icon-with-link
+                                :text="`Book a consultation`"
+                                icon-name="svg-icon-consultation"
+                                :to="consultation"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -265,13 +267,17 @@ export default {
             height: auto;
             margin: var(--space-m) 0;
         }
-
+        .info-container {
+            flex-flow: row;
+            width: calc(100% - 400px);
+        }
         .staff-info {
             border-bottom: 2px dotted var(--color-secondary-grey-02);
             padding-bottom: var(--space-m);
-            width: calc(100% - 400px);
         }
-
+        .contact-info-list {
+            padding-top: var(--space-m);
+        }
         .contact-info {
             color: var(--color-primary-blue-03);
             display: flex;
@@ -292,41 +298,25 @@ export default {
     .department,
     .location-link {
         @include step-0;
-        line-height: $line-height--2;
     }
 
     .location-group,
     .departments {
         margin: 6px 0 calc(var(--space-xs) + 6px);
         list-style: none;
-        line-height: $line-height--1;
-    }
-
-    .department {
-        display: inline;
-    }
-
-    .location {
-        display: inline-block;
-    }
-
-    .departments {
         color: var(--color-secondary-grey-05);
     }
 
     .department {
-        line-height: $line-height--1;
+        display: block;
+    }
 
-        // border-right: 1px solid var(--color-secondary-grey-02);
-        // padding: 0 var(--space-xs);
+    .location {
+        display: block;
+    }
 
-        &:first-child {
-            padding-left: 0;
-        }
-
-        &:last-child {
-            border-right: 0;
-        }
+    .department {
+        padding-bottom: 12px;
     }
 
     .location-group {
@@ -415,7 +405,7 @@ export default {
 
     .body-contact.no-image {
         height: unset;
-        .staff-info {
+        .info-container {
             width: 100%;
         }
     }
@@ -486,7 +476,7 @@ export default {
         }
 
         .section-staff-bio {
-            .staff-info {
+            .info-container {
                 width: 100%;
             }
 
@@ -521,7 +511,7 @@ export default {
             margin-bottom: 8px;
         }
         .job-title {
-            line-height: $line-height--1;
+            // line-height: $line-height--1;
         }
 
         .section-staff-bio {
