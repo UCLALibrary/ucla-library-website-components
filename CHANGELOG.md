@@ -1,3 +1,10 @@
+## [2.34.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.34.0...v2.34.1) (2023-02-06)
+
+
+### Bug Fixes
+
+* SimpleCard truncaton ([#329](https://github.com/UCLALibrary/ucla-library-website-components/issues/329)) ([bebd84a](https://github.com/UCLALibrary/ucla-library-website-components/commit/bebd84a02040c66e64b0edd900c407575e3ffa97))
+
 # [2.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.33.2...v2.34.0) (2023-02-06)
 
 
