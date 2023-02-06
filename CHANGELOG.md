@@ -1,3 +1,10 @@
+# [2.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.33.2...v2.34.0) (2023-02-06)
+
+
+### Features
+
+* add search-margin styling to divider ([#328](https://github.com/UCLALibrary/ucla-library-website-components/issues/328)) ([af188b6](https://github.com/UCLALibrary/ucla-library-website-components/commit/af188b65b5bfba18c7c033b825accc1c2c0c0d36))
+
 ## [2.33.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.33.1...v2.33.2) (2023-02-03)
 
 
