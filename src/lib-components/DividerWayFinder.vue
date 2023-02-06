@@ -43,6 +43,9 @@ export default {
     &.color-default {
         --color-border: var(--color-default-cyan-03);
     }
+    &.search-margin {
+        margin: var(--space-2xl) auto;
+    }
 
     display: flex;
     flex-direction: row;
