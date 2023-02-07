@@ -16,7 +16,7 @@
                 <input
                     v-model="searchWords"
                     type="text"
-                    placeholder="Search by keyword"
+                    :placeholder="placeholder"
                 />
 
                 <button class="button-submit" type="submit">
@@ -101,6 +101,10 @@ export default {
         searchGenericQuery: {
             type: Object,
             default: () => {},
+        },
+        placeholder: {
+            type: String,
+            default: "",
         },
         /*queryView: {
             type: String,

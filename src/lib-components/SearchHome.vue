@@ -1,12 +1,13 @@
 <template>
     <div class="search-home">
         <div v-if="parsedTabs.length" class="tabs">
-            <div
+            <button
                 v-for="(tab, index) in parsedTabs"
                 :key="tab.title"
                 :class="tab.classes"
                 @click="setActiveTab(index)"
                 v-text="tab.title"
+                ref="searchtab"
             />
         </div>
 
@@ -21,7 +22,7 @@
                         v-model="searchWords"
                         type="text"
                         class="input-search"
-                        placeholder="Search articles, books and more"
+                        :placeholder="placeholder"
                     />
 
                     <button class="button-submit">
@@ -63,11 +64,13 @@ const tabs = [
         title: "UCLA Library Website",
         actionURL: "/search-site",
         queryParam: "q",
+        placeholder: "Search library website",
     },
     {
         title: "UC Library Search",
         actionURL:
             "https://search.library.ucla.edu/discovery/search?vid=01UCS_LAL:UCLA&tab=Articles_books_more_slot&search_scope=ArticlesBooksMore&lang=en&query=any,contains,",
+        placeholder: "Search articles, books and more",
     },
 ]
 
@@ -120,6 +123,9 @@ export default {
         actionUrl() {
             return tabs[this.activeTabIndex].actionURL
         },
+        placeholder() {
+            return tabs[this.activeTabIndex].placeholder
+        },
         queryParam() {
             return tabs[this.activeTabIndex].queryParam
         },
@@ -127,6 +133,10 @@ export default {
             // Replaces spaces with '+' for search words.
             return this.searchWords.split(" ").join("+")
         },
+    },
+    mounted() {
+        this.$refs.searchtab.innerHTML = "UC Library Search"
+        console.log("Now its mounted")
     },
     methods: {
         doSearch() {
