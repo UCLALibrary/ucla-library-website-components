@@ -134,10 +134,6 @@ export default {
             return this.searchWords.split(" ").join("+")
         },
     },
-    mounted() {
-        this.$refs.searchtab.innerHTML = "UC Library Search"
-        console.log("Now its mounted")
-    },
     methods: {
         doSearch() {
             if (this.isSiteSearch) {
