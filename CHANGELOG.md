@@ -1,3 +1,10 @@
+## [2.34.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.34.1...v2.34.2) (2023-02-07)
+
+
+### Bug Fixes
+
+* raw json in staff detail > department field ([#331](https://github.com/UCLALibrary/ucla-library-website-components/issues/331)) ([a2bfc18](https://github.com/UCLALibrary/ucla-library-website-components/commit/a2bfc18b4d1111606a5d44ee49a65b22e4cbdf6a))
+
 ## [2.34.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.34.0...v2.34.1) (2023-02-06)
 
 
