@@ -63,11 +63,7 @@ export default {
     margin: 0 auto var(--space-3xl);
 
     caption {
-        @include step-1;
-        font-weight: 500;
-        text-align: left;
-        width: 100%;
-        color: var(--color-primary-blue-05);
+        @include visually-hidden;
     }
 
     thead tr {
