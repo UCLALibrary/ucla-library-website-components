@@ -1,5 +1,8 @@
 <template>
     <table class="section-staff-subject-librarian">
+        <caption>
+            Subject Librarians
+        </caption>
         <thead>
             <tr>
                 <th v-for="(header, index) in tableHeaders" :key="index">
@@ -58,6 +61,14 @@ export default {
 
     max-width: $container-l-main + px;
     margin: 0 auto var(--space-3xl);
+
+    caption {
+        @include step-1;
+        font-weight: 500;
+        text-align: left;
+        width: 100%;
+        color: var(--color-primary-blue-05);
+    }
 
     thead tr {
         display: flex;
