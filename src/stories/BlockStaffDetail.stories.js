@@ -43,8 +43,8 @@ const mock = {
     email: "ada@somewhere.com",
     phone: "555-555-5555",
     departments: [
-        "Digital Initiatives & Information Technology",
-        "Software Development & Library Systems",
+        { id: "6361", title: "Digital Initiatives & Information Technology" },
+        { id: "6361", title: "Software Development & Library Systems" },
     ],
     topics: [
         { title: "Quadrigis aedificium", id: "808" },
@@ -67,7 +67,10 @@ const mock2 = {
     ],
     email: "ada@somewhere.com",
     phone: "555-555-5555",
-    departments: ["DIIT", "Other Departments"],
+    departments: [
+        { id: "6361", title: "DIIT" },
+        { id: "6361", title: "Other Departments" },
+    ],
 }
 
 const mock3 = {
@@ -81,7 +84,10 @@ const mock3 = {
     ],
     email: "ada@somewhere.com",
     phone: "555-555-5555",
-    departments: ["DIIT", "Other Departments"],
+    departments: [
+        { id: "6361", title: "DIIT" },
+        { id: "6361", title: "Other Departments" },
+    ],
 }
 
 const mock4 = {
@@ -95,7 +101,10 @@ const mock4 = {
     ],
     email: "ada@somewhere.com",
     phone: "555-555-5555",
-    departments: ["DIIT", "Other Departments"],
+    departments: [
+        { id: "6361", title: "DIIT" },
+        { id: "6361", title: "Other Departments" },
+    ],
     topics: [
         { title: "topic1", id: "bar1" },
         { title: "topic2", id: "baz2" },

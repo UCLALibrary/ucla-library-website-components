@@ -1,3 +1,17 @@
+# [2.35.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.34.2...v2.35.0) (2023-02-07)
+
+
+### Features
+
+* APPS-2142 Update Search components placeholders ([#332](https://github.com/UCLALibrary/ucla-library-website-components/issues/332)) ([8c4addf](https://github.com/UCLALibrary/ucla-library-website-components/commit/8c4addf685dc8e9af688b71ddd1a7fd066d63c0b))
+
+## [2.34.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.34.1...v2.34.2) (2023-02-07)
+
+
+### Bug Fixes
+
+* raw json in staff detail > department field ([#331](https://github.com/UCLALibrary/ucla-library-website-components/issues/331)) ([a2bfc18](https://github.com/UCLALibrary/ucla-library-website-components/commit/a2bfc18b4d1111606a5d44ee49a65b22e4cbdf6a))
+
 ## [2.34.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.34.0...v2.34.1) (2023-02-06)
 
 

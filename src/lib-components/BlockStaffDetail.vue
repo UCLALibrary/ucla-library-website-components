@@ -33,8 +33,9 @@
                                 v-for="(department, index) in departments"
                                 :key="index"
                                 class="department"
-                                v-html="department"
-                            />
+                            >
+                                {{ department.title }}
+                            </li>
                         </ul>
                         <ul v-if="locations.length" class="location-group">
                             <li
