@@ -166,7 +166,7 @@ export default {
     justify-content: center;
 
     .title {
-        @include step-2;
+        @include step-3;
         margin-bottom: 24px;
         font-family: var(--font-primary);
         color: var(--color-primary-blue-03);
