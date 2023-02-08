@@ -149,9 +149,10 @@ export default {
     ::v-deep a[target="_blank"]:after {
         content: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
         display: inline-block;
-        margin-left: 0.2em;
+        scale: .7;
+        margin-left: -0.3em;
         position: absolute;
-        bottom: 7.3px;
+        bottom: 3.3px;
         width: 1em;
         height: 1em;
     }
