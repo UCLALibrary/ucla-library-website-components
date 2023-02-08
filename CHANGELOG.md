@@ -1,3 +1,10 @@
+## [2.35.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.1...v2.35.2) (2023-02-08)
+
+
+### Bug Fixes
+
+* APPS-2165 Update Contact a Subject Librarian section to include caption in table ([#334](https://github.com/UCLALibrary/ucla-library-website-components/issues/334)) ([95fdcb8](https://github.com/UCLALibrary/ucla-library-website-components/commit/95fdcb81fd634be8283037696d32b83baf035ff9))
+
 ## [2.35.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.0...v2.35.1) (2023-02-08)
 
 
