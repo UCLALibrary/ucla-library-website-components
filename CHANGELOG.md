@@ -1,3 +1,10 @@
+## [2.35.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.0...v2.35.1) (2023-02-08)
+
+
+### Bug Fixes
+
+* allow locations with no links ([#330](https://github.com/UCLALibrary/ucla-library-website-components/issues/330)) ([03924f6](https://github.com/UCLALibrary/ucla-library-website-components/commit/03924f6540a72fd08dd986fd7adfac6b046f5d9a))
+
 # [2.35.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.34.2...v2.35.0) (2023-02-07)
 
 
