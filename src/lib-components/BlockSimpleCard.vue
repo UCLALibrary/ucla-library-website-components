@@ -10,6 +10,8 @@
 
         <div v-if="text" class="text">{{ parsedText }}</div>
 
+        <div class="spacer" />
+
         <div class="svg-meta" aria-hidden="true">
             <component :is="parsedIconName" class="svg" />
         </div>
@@ -111,8 +113,12 @@ export default {
 
     .text {
         @include step--1;
-        flex: 1;
         @include truncate(5);
+    }
+
+    .spacer {
+        flex-basis: 0;
+        flex-grow: 1;
     }
 
     .svg-meta {

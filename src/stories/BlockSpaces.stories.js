@@ -5,6 +5,7 @@ import BlockSpaces from "@/lib-components/BlockSpaces"
 import StoryRouter from "storybook-vue-router"
 
 // Storybook default settings
+//TODO update stories with rich-text
 export default {
     title: "BLOCK / Spaces",
     component: BlockSpaces,
@@ -15,7 +16,7 @@ const mock = {
     to: "https://calendar.library.ucla.edu",
     title: "Bureaux de Garcons",
     location: "Fast Lane Building",
-    text: "<h4>Cat</h4><p>Eclectic sophisticated carefully curated lovely Baggu Muji sharp finest efficient perfect. Hub Boeing 787 lovely Melbourne flat white ryokan. Global iconic Gaggenau Muji bulletin premium espresso delightful destination vibrant remarkable elegant bureaux boutique. Sunspel exclusive first-class espresso, Fast Lane intricate Melbourne Airbus A380 pintxos Shinkansen Swiss vibrant the highest quality.</p>",
+    text: "<p>Eclectic sophisticated carefully curated lovely Baggu Muji sharp finest efficient perfect. Hub <a href='https://www.boeing.com/commercial/787'>Boeing 787</a> lovely Melbourne flat white ryokan. Global iconic Gaggenau Muji bulletin premium espresso delightful destination vibrant remarkable elegant bureaux boutique. Sunspel exclusive first-class espresso, Fast Lane intricate Melbourne Airbus A380 pintxos Shinkansen Swiss vibrant the highest quality.</p>",
 }
 
 const mock2 = {

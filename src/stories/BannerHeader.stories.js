@@ -265,6 +265,8 @@ export const WithBlockForm = () => ({
         // explicitly provide a computed property
         eventId: "9383207",
         blockFormData: BlockFormData.mock1,
+        libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
+        registrationType: "both",
     },
     components: { BannerHeader },
     template: `

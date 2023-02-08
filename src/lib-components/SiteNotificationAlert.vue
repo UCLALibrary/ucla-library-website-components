@@ -8,7 +8,11 @@
         </button>
 
         <div class="message">
-            <div class="message-text" v-html="text" />
+            <rich-text
+                v-if="text"
+                class="message-text"
+                :rich-text-content="text"
+            />
             <button-link
                 class="button-dismiss"
                 label="Dismiss"
@@ -22,11 +26,13 @@
 
 <script>
 import ButtonLink from "./ButtonLink.vue"
+import RichText from "./RichText.vue"
 
 export default {
     name: "SiteNotificationAlert",
     components: {
         ButtonLink,
+        RichText,
     },
     props: {
         title: {
@@ -39,7 +45,7 @@ export default {
         },
         time: {
             type: Number,
-            default: 10000,
+            default: 13500,
         },
     },
     data() {
@@ -125,7 +131,6 @@ export default {
             white-space: nowrap;
         }
     }
-
     .message {
         display: flex;
         flex-direction: column;
@@ -148,10 +153,19 @@ export default {
 
             color: var(--color-black);
             font-family: var(--font-primary);
-            font-size: 16px;
-            font-weight: 400;
-            letter-spacing: 0.01em;
-            line-height: 22px;
+            padding: 0;
+            ::v-deep p {
+                font-size: 16px;
+                font-weight: 400;
+                letter-spacing: 0.01em;
+                line-height: 22px;
+            }
+            ::v-deep a {
+                font-size: 16px;
+                font-weight: 400;
+                letter-spacing: 0.01em;
+                line-height: 22px;
+            }
         }
 
         .button-dismiss {

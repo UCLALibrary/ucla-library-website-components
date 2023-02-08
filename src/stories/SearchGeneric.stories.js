@@ -96,6 +96,7 @@ export const Default = () => ({
         <search-generic
             :filters="filters"
             :search-generic-query="routerQueryData"
+            placeholder="FIND ALL THE  LLAMAS THAT TOTALLY RULE"
         />
     `,
 })

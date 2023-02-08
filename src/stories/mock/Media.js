@@ -29,7 +29,7 @@ export const VideoFile = [
 ]
 
 export const VideoEmbed =
-    '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/3sQ9k4yvvPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+    '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/3sQ9k4yvvPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure>'
 
 export const AudioFile = [
     {
@@ -130,7 +130,7 @@ export const Gallery = {
         {
             id: "46452",
             captionTitle: "Video",
-            captionText: "Sandow, strongest man in the world.",
+            credit: "Edison Studios in credit field",
             sortOrder: 2,
             item: VideoFile,
             coverImage: VideoFileCoverImage,

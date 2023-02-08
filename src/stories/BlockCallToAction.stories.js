@@ -154,7 +154,7 @@ export const GlobalMeapCTA = () => ({
                     button: [
                         {
                             buttonText: "Contact Us",
-                            buttonUrl: "http://mailto:meap@library.ucla.edu",
+                            buttonUrl: "mailto:meap@library.ucla.edu",
                         },
                     ],
                 },

@@ -72,88 +72,124 @@ export default {
         },
         parsedItems() {
             // Maps values based on content type and external or internal content
-            return this.parsedList.map((obj) => {
-                // Article
-                if (
-                    obj.typeHandle != "externalContent" &&
-                    obj.contentType.includes("article")
-                ) {
-                    return {
-                        ...obj,
-                        to: `/${this.stripMeapFromURI(obj.to)}`,
-                        parsedImage: _get(obj, "heroImage[0].image[0]", null),
-                        parsedLocation: _get(obj, "associatedLocations", []),
-                        parsedCategory: _get(
-                            obj,
-                            "articleCategory[0].title",
-                            ""
-                        ),
-                        byline1: _get(obj, "articleByline1[0].title", ""),
-                        byline2:
-                            obj.articleByline2 != null
-                                ? this.formatDates(
-                                      obj.articleByline2,
-                                      obj.articleByline2
-                                  )
-                                : "",
+            // filter out null objects
+            return this.parsedList
+                .filter((e) => e != null)
+                .map((obj) => {
+                    // Article
+                    if (
+                        obj.typeHandle != "externalContent" &&
+                        obj.contentType.includes("article")
+                    ) {
+                        return {
+                            ...obj,
+                            to: `/${this.stripMeapFromURI(obj.to)}`,
+                            parsedImage: _get(
+                                obj,
+                                "heroImage[0].image[0]",
+                                null
+                            ),
+                            parsedLocation: _get(
+                                obj,
+                                "associatedLocations",
+                                []
+                            ),
+                            parsedCategory: _get(
+                                obj,
+                                "articleCategory[0].title",
+                                ""
+                            ),
+                            byline1: _get(obj, "articleByline1[0].title", ""),
+                            byline2:
+                                obj.articleByline2 != null
+                                    ? this.formatDates(
+                                          obj.articleByline2,
+                                          obj.articleByline2
+                                      )
+                                    : "",
+                        }
                     }
-                }
 
-                // Project
-                else if (
-                    obj.typeHandle != "externalContent" &&
-                    obj.contentType.includes("meapProject")
-                ) {
-                    return {
-                        ...obj,
-                        to: `/${this.stripMeapFromURI(obj.to)}`,
-                        parsedImage: _get(obj, "heroImage[0].image[0]", null),
-                        parsedLocation: _get(obj, "projectLocations", []),
-                        parsedCategory: _get(obj, "projectCategory", ""),
-                        byline1: _get(obj, "projectByline1[0].title", ""),
+                    // Project
+                    else if (
+                        obj.typeHandle != "externalContent" &&
+                        obj.contentType.includes("meapProject")
+                    ) {
+                        return {
+                            ...obj,
+                            to: `/${this.stripMeapFromURI(obj.to)}`,
+                            parsedImage: _get(
+                                obj,
+                                "heroImage[0].image[0]",
+                                null
+                            ),
+                            parsedLocation: _get(obj, "projectLocations", []),
+                            parsedCategory: _get(obj, "projectCategory", ""),
+                            byline1: _get(obj, "projectByline1[0].title", ""),
+                        }
+                    } else if (
+                        obj.typeHandle != "externalContent" &&
+                        obj.contentType == "event"
+                    ) {
+                        return {
+                            ...obj,
+                            to: `/${this.stripMeapFromURI(obj.to)}`,
+                            parsedImage: _get(
+                                obj,
+                                "heroImage[0].image[0]",
+                                null
+                            ),
+                            parsedLocation: _get(
+                                obj,
+                                "associatedLocations",
+                                []
+                            ),
+                            parsedCategory: _get(obj, "eventType.title", ""),
+                            startDate: _get(obj, "startDateWithTime", ""),
+                            endDate: _get(obj, "endDateWithTime", ""),
+                            text: _get(obj, "eventDescription", ""),
+                        }
+                    } else if (
+                        obj.typeHandle != "externalContent" &&
+                        (obj.contentType == "exhibition" ||
+                            "workshopOrEventSeries")
+                    ) {
+                        return {
+                            ...obj,
+                            to: `/${this.stripMeapFromURI(obj.to)}`,
+                            parsedImage: _get(
+                                obj,
+                                "heroImage[0].image[0]",
+                                null
+                            ),
+                            parsedLocation: _get(
+                                obj,
+                                "associatedLocations",
+                                []
+                            ),
+                            startDate: _get(obj, "startDate", ""),
+                            endDate: _get(obj, "endDate", ""),
+                        }
+                    } else if (obj.typeHandle === "externalContent") {
+                        return {
+                            ...obj,
+                            parsedImage: _get(obj, "image[0]", null),
+                            parsedLocation:
+                                obj.location != null ? [obj.location] : [],
+                            parsedCategory: _get(obj, "category", ""),
+                        }
+                    } else {
+                        return {
+                            ...obj,
+                            parsedImage: _get(
+                                obj,
+                                "heroImage[0].image[0]",
+                                null
+                            ),
+                            to: `/${this.stripMeapFromURI(obj.to)}`,
+                        }
                     }
-                } else if (
-                    obj.typeHandle != "externalContent" &&
-                    obj.contentType == "event"
-                ) {
-                    return {
-                        ...obj,
-                        to: `/${this.stripMeapFromURI(obj.to)}`,
-                        parsedImage: _get(obj, "heroImage[0].image[0]", null),
-                        parsedLocation: _get(obj, "associatedLocations", []),
-                        parsedCategory: _get(obj, "eventType.title", ""),
-                        startDate: _get(obj, "startDateWithTime", ""),
-                        endDate: _get(obj, "endDateWithTime", ""),
-                        text: _get(obj, "eventDescription", ""),
-                    }
-                } else if (
-                    obj.typeHandle != "externalContent" &&
-                    (obj.contentType == "exhibition" || "workshopOrEventSeries")
-                ) {
-                    return {
-                        ...obj,
-                        to: `/${this.stripMeapFromURI(obj.to)}`,
-                        parsedImage: _get(obj, "heroImage[0].image[0]", null),
-                        parsedLocation: _get(obj, "associatedLocations", []),
-                        startDate: _get(obj, "startDate", ""),
-                        endDate: _get(obj, "endDate", ""),
-                    }
-                } else if (obj.typeHandle === "externalContent") {
-                    return {
-                        ...obj,
-                        parsedImage: _get(obj, "image[0]", null),
-                        parsedLocation:
-                            obj.location != null ? [obj.location] : [],
-                        parsedCategory: _get(obj, "category", ""),
-                    }
-                } else {
-                    return {
-                        ...obj,
-                        parsedImage: _get(obj, "heroImage[0].image[0]", null),
-                        to: `/${this.stripMeapFromURI(obj.to)}`,
-                    }
-                }
-            })
+                })
         },
     },
 }

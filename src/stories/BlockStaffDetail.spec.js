@@ -5,6 +5,8 @@ describe("BLOCK / Staff / Detail", () => {
         )
         cy.get(".block-staff-detail").should("exist")
 
+        cy.get(".department").should("not.contain", ":") // not showing raw json
+
         cy.percySnapshot("BLOCK / Staff / Detail: Default")
     })
 })

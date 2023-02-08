@@ -1,3 +1,101 @@
+## [2.35.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.0...v2.35.1) (2023-02-08)
+
+
+### Bug Fixes
+
+* allow locations with no links ([#330](https://github.com/UCLALibrary/ucla-library-website-components/issues/330)) ([03924f6](https://github.com/UCLALibrary/ucla-library-website-components/commit/03924f6540a72fd08dd986fd7adfac6b046f5d9a))
+
+# [2.35.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.34.2...v2.35.0) (2023-02-07)
+
+
+### Features
+
+* APPS-2142 Update Search components placeholders ([#332](https://github.com/UCLALibrary/ucla-library-website-components/issues/332)) ([8c4addf](https://github.com/UCLALibrary/ucla-library-website-components/commit/8c4addf685dc8e9af688b71ddd1a7fd066d63c0b))
+
+## [2.34.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.34.1...v2.34.2) (2023-02-07)
+
+
+### Bug Fixes
+
+* raw json in staff detail > department field ([#331](https://github.com/UCLALibrary/ucla-library-website-components/issues/331)) ([a2bfc18](https://github.com/UCLALibrary/ucla-library-website-components/commit/a2bfc18b4d1111606a5d44ee49a65b22e4cbdf6a))
+
+## [2.34.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.34.0...v2.34.1) (2023-02-06)
+
+
+### Bug Fixes
+
+* SimpleCard truncaton ([#329](https://github.com/UCLALibrary/ucla-library-website-components/issues/329)) ([bebd84a](https://github.com/UCLALibrary/ucla-library-website-components/commit/bebd84a02040c66e64b0edd900c407575e3ffa97))
+
+# [2.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.33.2...v2.34.0) (2023-02-06)
+
+
+### Features
+
+* add search-margin styling to divider ([#328](https://github.com/UCLALibrary/ucla-library-website-components/issues/328)) ([af188b6](https://github.com/UCLALibrary/ucla-library-website-components/commit/af188b65b5bfba18c7c033b825accc1c2c0c0d36))
+
+## [2.33.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.33.1...v2.33.2) (2023-02-03)
+
+
+### Bug Fixes
+
+* update placeholder image height ([#326](https://github.com/UCLALibrary/ucla-library-website-components/issues/326)) ([cf66ce7](https://github.com/UCLALibrary/ucla-library-website-components/commit/cf66ce7bd621ecc188a385653c6e7afd9d063f0d))
+
+## [2.33.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.33.0...v2.33.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* ThumbnailCard link, and credit if no caption ([#327](https://github.com/UCLALibrary/ucla-library-website-components/issues/327)) ([7d2ac7a](https://github.com/UCLALibrary/ucla-library-website-components/commit/7d2ac7a0f97e77b2dd61f39f2a6d9b7a5827bc9a))
+
+# [2.33.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.32.0...v2.33.0) (2023-02-02)
+
+
+### Features
+
+* updates BlockStaffDetail styling ([#325](https://github.com/UCLALibrary/ucla-library-website-components/issues/325)) ([760a61c](https://github.com/UCLALibrary/ucla-library-website-components/commit/760a61c7836e6f06eb592fe10b20614bbb71f2f3))
+
+# [2.32.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.31.0...v2.32.0) (2023-02-02)
+
+
+### Features
+
+* add subscription code for mailing list in footer ([#324](https://github.com/UCLALibrary/ucla-library-website-components/issues/324)) ([2a7c867](https://github.com/UCLALibrary/ucla-library-website-components/commit/2a7c867d6a5dda8f67f1c6bc96be52048dd05502))
+
+# [2.31.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.30.1...v2.31.0) (2023-02-02)
+
+
+### Features
+
+* use rich-text in site alert and spaces, increase alert display time ([#322](https://github.com/UCLALibrary/ucla-library-website-components/issues/322)) ([022e45f](https://github.com/UCLALibrary/ucla-library-website-components/commit/022e45f20e22a6e1cfbed2d855fb03b7cb24902d))
+
+## [2.30.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.30.0...v2.30.1) (2023-02-01)
+
+
+### Bug Fixes
+
+* add null check ([#323](https://github.com/UCLALibrary/ucla-library-website-components/issues/323)) ([0967cb4](https://github.com/UCLALibrary/ucla-library-website-components/commit/0967cb45d06d0289f416cf5041d3c0768573a701))
+
+# [2.30.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.3...v2.30.0) (2023-02-01)
+
+
+### Features
+
+* add registration type logic ([#321](https://github.com/UCLALibrary/ucla-library-website-components/issues/321)) ([3322164](https://github.com/UCLALibrary/ucla-library-website-components/commit/3322164ad6bcae129238a71b140314c1de83beee))
+
+## [2.29.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.2...v2.29.3) (2023-01-31)
+
+
+### Bug Fixes
+
+* video embed display ([#319](https://github.com/UCLALibrary/ucla-library-website-components/issues/319)) ([2c33f7d](https://github.com/UCLALibrary/ucla-library-website-components/commit/2c33f7ddcf7688274420cf4502e1d7acf9a6f356))
+
+## [2.29.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.1...v2.29.2) (2023-01-31)
+
+
+### Bug Fixes
+
+* remove slash in mailto links and update phones to use tel ([#320](https://github.com/UCLALibrary/ucla-library-website-components/issues/320)) ([b133027](https://github.com/UCLALibrary/ucla-library-website-components/commit/b133027ea4bf334052bba698262a262a9880279f))
+
 ## [2.29.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.29.0...v2.29.1) (2023-01-30)
 
 

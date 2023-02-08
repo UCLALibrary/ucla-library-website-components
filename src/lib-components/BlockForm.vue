@@ -54,6 +54,33 @@
             </div>
 
             <br />
+            <div
+                class="registration-type"
+                v-if="this.registrationType === 'both'"
+            >
+                <div>Registration Type*</div>
+
+                <label for="in-person">
+                    <input
+                        type="radio"
+                        v-model="registrationTypeInput"
+                        value="in-person"
+                        required
+                        id="in-person"
+                    />in-person</label
+                >
+
+                <label for="online">
+                    <input
+                        type="radio"
+                        v-model="registrationTypeInput"
+                        value="online"
+                        id="online"
+                    />
+                    online</label
+                >
+            </div>
+            <br />
 
             <div class="fullNameWrapper">
                 <label>Full Name*</label>
@@ -203,7 +230,13 @@ import SvgIconCheckbox from "ucla-library-design-tokens/assets/svgs/icon-checkbo
 
 export default {
     name: "BlockForm",
-    inject: ["eventId", "blockFormData", "libcalEndpoint"],
+    inject: [
+        "eventId",
+        "blockFormData",
+        "registrationType",
+        "libcalWaitlist",
+        "libcalEndpoint",
+    ],
     components: {
         SvgGlyphClose,
         ButtonLink: () =>
@@ -213,10 +246,6 @@ export default {
         block: {
             type: Object,
             default: () => {},
-        },
-        registrationType: {
-            type: String,
-            default: "online",
         },
     },
     data() {
@@ -233,6 +262,7 @@ export default {
             sent: false,
             status: {},
             showForm: false,
+            registrationTypeInput: "",
         }
     },
     watch: {
@@ -299,8 +329,21 @@ export default {
                     email: this.email,
                     questions: [],
                 },
-                registration_type: this.registrationType,
+                registration_type:
+                    this.registrationType &&
+                    this.registrationType !== "both" &&
+                    this.registrationType !== ""
+                        ? this.registrationType
+                        : this.registrationType &&
+                          this.registrationType === "both"
+                        ? this.registrationTypeInput
+                        : "",
+                is_waitlist:
+                    this.libcalWaitlist && this.libcalWaitlist !== ""
+                        ? this.libcalWaitlist
+                        : "0",
             }
+
             data.form.questions = this.blockFormData.questions.map((obj) => {
                 return {
                     id: obj.id,
@@ -344,6 +387,7 @@ export default {
         checkForm(e) {
             let fullNameValid = false
             let emailValid = false
+            let registrationTypeValid = false
 
             if (this.firstName && this.lastName) {
                 fullNameValid = true
@@ -355,12 +399,30 @@ export default {
                 emailValid = true
             }
 
+            if (
+                this.registrationType &&
+                this.registrationType === "both" &&
+                this.registrationTypeInput === ""
+            ) {
+                registrationTypeValid = false
+            } else if (
+                this.registrationType &&
+                this.registrationType !== "both"
+            ) {
+                registrationTypeValid = true
+            } else {
+                registrationTypeValid = true
+            }
+
             this.errors = []
             if (!fullNameValid) {
                 this.errors.push("Full Name required.")
             }
             if (!emailValid) {
                 this.errors.push("Email required.")
+            }
+            if (!registrationTypeValid) {
+                this.errors.push("Registration Type required.")
             }
 
             for (let question of this.blockFormData.questions) {
@@ -465,6 +527,9 @@ export default {
         .requiredField {
             font-weight: $font-weight-medium;
         }
+    }
+    .registration-type {
+        font-weight: 600;
     }
 
     .fullNameWrapper {
