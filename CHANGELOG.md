@@ -1,3 +1,10 @@
+## [2.35.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.2...v2.35.3) (2023-02-08)
+
+
+### Bug Fixes
+
+* APPS-2100_update-browse-by-default-state ([#333](https://github.com/UCLALibrary/ucla-library-website-components/issues/333)) ([7783735](https://github.com/UCLALibrary/ucla-library-website-components/commit/77837351b0bf3f72b96812b5de69f48da3fa3cd8))
+
 ## [2.35.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.1...v2.35.2) (2023-02-08)
 
 
