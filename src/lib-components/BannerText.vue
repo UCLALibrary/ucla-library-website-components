@@ -110,11 +110,11 @@
 
                     <div v-if="locations.length" class="location-group">
                         <icon-with-link
-                            v-for="location in locations"
+                            v-for="location in parsedLocations"
                             :key="`location-${location.id}`"
                             :text="location.title"
-                            icon-name="svg-icon-location"
-                            :to="`/${location.to}`"
+                            :icon-name="location.svg"
+                            :to="location.to"
                         />
                     </div>
 
@@ -293,6 +293,17 @@ export default {
                 return this.formatTimes(this.startDate, this.endDate)
             }
             return ""
+        },
+        parsedLocations() {
+            return this.locations.map((obj) => {
+                let input = "svg-icon-location"
+                if (obj.title == "Online") input = "svg-icon-virtual"
+                return {
+                    ...obj,
+                    svg: input,
+                    to: obj.to != null ? obj.to : "",
+                }
+            })
         },
     },
 }

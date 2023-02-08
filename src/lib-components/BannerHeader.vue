@@ -101,15 +101,8 @@
                         v-for="location in parsedLocations"
                         :key="`location-${location.id}`"
                         :text="location.title"
-                        icon-name="svg-icon-location"
-                        :to="`/${location.to}`"
-                    />
-                    <icon-with-link
-                        v-for="location in parsedIsOnline"
-                        :key="`location-${location.id}`"
-                        :text="location.title"
-                        icon-name="svg-icon-virtual"
-                        :to="`/${location.to}`"
+                        :icon-name="location.svg"
+                        :to="location.to"
                     />
                 </div>
 
@@ -364,22 +357,15 @@ export default {
             return this.category ? "gradient" : "gradient-no-category"
         },
         parsedLocations() {
-            return this.locations.reduce(function (filtered, location) {
-                if (location.title !== "Online") {
-                    location.svg = "svg-icon-location"
-                    filtered.push(location)
+            return this.locations.map((obj) => {
+                let input = "svg-icon-location"
+                if (obj.title == "Online") input = "svg-icon-virtual"
+                return {
+                    ...obj,
+                    svg: input,
+                    to: obj.to != null ? obj.to : "",
                 }
-                return filtered
-            }, [])
-        },
-        parsedIsOnline() {
-            return this.locations.reduce(function (filtered, location) {
-                if (location.title === "Online") {
-                    location.svg = "svg-icon-virtual"
-                    filtered.push(location)
-                }
-                return filtered
-            }, [])
+            })
         },
     },
 }

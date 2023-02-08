@@ -158,7 +158,7 @@
                         :key="`location-${location.id}`"
                         :text="location.title"
                         :icon-name="location.svg"
-                        :to="`/${location.to}`"
+                        :to="location.to"
                         :class="location.class"
                     />
                 </div>
@@ -423,6 +423,7 @@ export default {
                         obj.title == "Online"
                             ? "location-online"
                             : "location-link",
+                    to: obj.to != null ? `/${obj.to}` : "",
                 }
             })
         },
@@ -668,6 +669,7 @@ export default {
         flex-direction: column;
         gap: 4px;
         margin-bottom: var(--space-m);
+        color: var(--color-primary-blue-03);
     }
 
     // Breakpoints

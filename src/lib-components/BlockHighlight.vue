@@ -73,7 +73,7 @@
                     :key="`location-${index}`"
                     :text="location.title"
                     :icon-name="location.svg"
-                    :to="`/${location.to}`"
+                    :to="location.to"
                 />
             </div>
             <!-- changing p tag to div fixes nodemismatch errors -->
@@ -239,6 +239,7 @@ export default {
                 return {
                     ...obj,
                     svg: input,
+                    to: obj.to != null ? `/${obj.to}` : "",
                 }
             })
         },
