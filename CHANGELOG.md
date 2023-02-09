@@ -1,3 +1,10 @@
+## [2.35.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.3...v2.35.4) (2023-02-09)
+
+
+### Bug Fixes
+
+* external link styling ([#335](https://github.com/UCLALibrary/ucla-library-website-components/issues/335)) ([4b0bbbf](https://github.com/UCLALibrary/ucla-library-website-components/commit/4b0bbbfdbc34993589225d4e14bfd3504f8b1c0e))
+
 ## [2.35.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.2...v2.35.3) (2023-02-08)
 
 
