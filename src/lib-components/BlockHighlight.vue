@@ -442,9 +442,10 @@ export default {
 
             .image {
                 width: 100%;
+                height: 272px;
             }
             .molecule-no-image {
-                height: 261px;
+                height: 272px;
             }
         }
         .meta {
