@@ -72,12 +72,14 @@
 import _isEmpty from "lodash/isEmpty"
 import SvgHeadingArrow from "ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
+import SmartLink from "@/lib-components/SmartLink.vue"
 
 export default {
     name: "BlockStaffList",
     components: {
         SvgHeadingArrow,
         ResponsiveImage,
+        SmartLink,
         IconWithLink: () =>
             import("@/lib-components/IconWithLink.vue").then((d) => d.default),
     },
