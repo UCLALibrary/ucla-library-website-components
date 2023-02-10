@@ -193,13 +193,11 @@ export default {
             @include step-2;
             color: var(--color-primary-blue-03);
 
-            a::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                top: 0;
-                right: 0;
-                bottom: 0;
+            a {
+                @include card-clickable-area;
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
         .job-title {
@@ -216,9 +214,11 @@ export default {
         }
     }
 
+    .contact-info {
+        z-index: 10;
+    }
     .contact-info a {
         @include button;
-        z-index: 10;
     }
 
     .email,
