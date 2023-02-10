@@ -1,3 +1,10 @@
+## [2.35.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.6...v2.35.7) (2023-02-10)
+
+
+### Bug Fixes
+
+* height of block highlight used in section teaser list ([#338](https://github.com/UCLALibrary/ucla-library-website-components/issues/338)) ([454e34b](https://github.com/UCLALibrary/ucla-library-website-components/commit/454e34b0ac5915e958e16ce53d968486ed241056))
+
 ## [2.35.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.5...v2.35.6) (2023-02-10)
 
 
