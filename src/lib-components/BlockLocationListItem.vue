@@ -428,7 +428,6 @@ export default {
         $medium-height: 256px;
         padding: 24px;
         .card-container {
-
             .amenities {
                 @include visually-hidden;
             }
