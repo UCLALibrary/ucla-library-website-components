@@ -143,18 +143,17 @@ export default {
 
     ::v-deep a[target="_blank"] {
         position: relative;
-        margin-right: 16px;
     }
 
     ::v-deep a[target="_blank"]:after {
         content: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
         display: inline-block;
+        background-size: contain;
         scale: 0.6;
         margin-left: -0.3em;
-        position: absolute;
-        bottom: 2.3px;
         width: 1em;
         height: 1em;
+        vertical-align: text-top;
     }
 
     ::v-deep ul,
