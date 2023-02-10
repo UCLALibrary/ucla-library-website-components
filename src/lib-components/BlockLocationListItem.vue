@@ -1,7 +1,7 @@
 <template>
     <div :class="classes">
         <div class="card-container">
-            <smart-link class="image-container" :to="to">
+            <div class="image-container">
                 <responsive-image
                     v-if="imageExists"
                     class="image"
@@ -10,7 +10,7 @@
                 <div v-else class="molecule-no-image">
                     <molecule-placeholder class="molecule" aria-hidden="true" />
                 </div>
-            </smart-link>
+            </div>
             <div class="library">
                 <div>
                     <smart-link v-if="to" :to="to" class="title">
@@ -267,7 +267,6 @@ export default {
         flex-direction: row;
         align-items: center;
         width: 100%;
-        max-width: $container-l-text + px;
 
         .image-container {
             width: $large-width;
@@ -312,21 +311,22 @@ export default {
             color: var(--color-primary-blue-03);
             margin: 0px 0 12px 0;
             line-height: $line-height--1;
+            @include card-clickable-area;
 
             &:hover {
                 text-decoration: underline;
                 text-decoration-color: var(--color-primary-blue-03);
                 text-decoration-thickness: 1.5px;
                 @include link-hover;
-                color: var(--color-primary-blue-03);
+                cursor: pointer;
             }
         }
 
         .text {
-            max-width: 392px;
             @include step--1;
             font-family: var(--font-secondary);
             color: var(--color-primary-blue-03);
+            z-index: 10;
         }
 
         .time,
@@ -425,12 +425,8 @@ export default {
     @media #{$medium} {
         $medium-width: 256px;
         $medium-height: 256px;
-        max-width: 640px;
         padding: 24px;
         .card-container {
-            width: 100%;
-            max-width: 592px;
-
             .amenities {
                 @include visually-hidden;
             }
@@ -468,18 +464,12 @@ export default {
     }
 
     @media #{$small} {
-        max-width: 320px;
         padding: 24px;
-        .card-container {
-            width: 100%;
-            max-width: 320px;
-        }
         .image-container {
             display: none;
         }
         .text {
             width: 100%;
-            max-width: 272px;
             padding: 12px 0;
         }
     }
