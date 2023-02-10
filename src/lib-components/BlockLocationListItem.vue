@@ -318,7 +318,6 @@ export default {
                 text-decoration-color: var(--color-primary-blue-03);
                 text-decoration-thickness: 1.5px;
                 @include link-hover;
-                color: var(--color-primary-blue-03);
                 cursor: pointer;
             }
         }
