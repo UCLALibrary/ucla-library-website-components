@@ -1,3 +1,10 @@
+## [2.35.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.5...v2.35.6) (2023-02-10)
+
+
+### Bug Fixes
+
+* block staff list clickable area and clickable links; block location list responsiveness ([#337](https://github.com/UCLALibrary/ucla-library-website-components/issues/337)) ([0e660c0](https://github.com/UCLALibrary/ucla-library-website-components/commit/0e660c018784ebd9c7de615d7e4082f9892a8761))
+
 ## [2.35.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.4...v2.35.5) (2023-02-10)
 
 
