@@ -599,7 +599,7 @@ export default {
     @media #{$small} {
         &.is-vertical.has-triangle {
             .title {
-                max-width: 300px;
+                max-width: 320px;
             }
         }
         &:not(&.is-vertical) {
