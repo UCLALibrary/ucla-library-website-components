@@ -576,8 +576,13 @@ export default {
                 margin-bottom: var(--space-l);
             }
         }
-        &.is-vertical.has-triangle .meta {
-            padding: 0;
+        &.is-vertical.has-triangle 
+            .title {
+                max-width: 680px;
+            }
+            .meta {
+                padding: 0;
+            
 
             .category {
                 padding-right: 72px;
@@ -592,6 +597,11 @@ export default {
         }
     }
     @media #{$small} {
+        &.is-vertical.has-triangle {
+            .title {
+                max-width: 300px;
+            }
+        }
         &:not(&.is-vertical) {
             .image {
                 max-width: 100%;
