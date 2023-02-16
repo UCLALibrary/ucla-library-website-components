@@ -576,13 +576,11 @@ export default {
                 margin-bottom: var(--space-l);
             }
         }
-        &.is-vertical.has-triangle 
-            .title {
-                max-width: 680px;
-            }
-            .meta {
-                padding: 0;
-            
+        &.is-vertical.has-triangle .title {
+            max-width: 680px;
+        }
+        .meta {
+            padding: 0;
 
             .category {
                 padding-right: 72px;
