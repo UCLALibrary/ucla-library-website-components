@@ -157,3 +157,20 @@ export const NoImage = () => ({
       />
   `,
 })
+
+export const NoAuthorOrDate = () => ({
+    data() {
+        return { ...mock }
+    },
+    components: { BlockStaffArticleList },
+    template: `
+      <block-staff-article-list
+          :image="image"
+          :to="to"
+          :category="category"
+          title="Mauris Rhoncus Aenean Vel Elit Scelerisque MaurisP"
+
+          description="Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien."
+      />
+  `,
+})

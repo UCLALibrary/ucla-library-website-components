@@ -17,18 +17,30 @@
 
             <smart-link class="title" :to="to" v-html="title" />
 
-            <div class="byline" v-if="authors || date">
-                <div
-                    v-for="author in authors"
-                    :key="author.id"
-                    class="author"
-                    v-html="author.title"
-                />
-                <div v-if="date" class="date" v-html="parsedDate" />
+            <!-- SUMMARY ONLY -->
+            <div v-if="authors.length < 1 || !date">
+                <!-- If there is no author or date - increase max-length for truncation -->
+                <div v-if="description" class="description-summary-only">
+                    {{ parsedTextAll }}
+                </div>
             </div>
 
-            <!-- TODO strip html tags coming out of WYSIWYG -->
-            <div v-if="description" class="description">{{ parsedText }}</div>
+            <!-- AUTHOR(S) - DATE - SUMMARY -->
+            <div v-else>
+                <div class="byline" v-if="authors || date">
+                    <div
+                        v-for="author in authors"
+                        :key="author.id"
+                        class="author"
+                        v-html="author.title"
+                    />
+                    <div v-if="date" class="date" v-html="parsedDate" />
+                </div>
+
+                <div v-if="description" class="description">
+                    {{ parsedTextTruncated }}
+                </div>
+            </div>
         </div>
     </li>
 </template>
@@ -92,9 +104,14 @@ export default {
         imageExists() {
             return this.image && Object.keys(this.image) != 0 ? true : false
         },
-        parsedText() {
+        parsedTextTruncated() {
             return this.description
                 ? this.removeHtmlTruncate(this.description, 130)
+                : ""
+        },
+        parsedTextAll() {
+            return this.description
+                ? this.removeHtmlTruncate(this.description, 250)
                 : ""
         },
     },
@@ -180,6 +197,11 @@ export default {
         color: var(--color-black);
         @include truncate(4);
     }
+    .description-summary-only {
+        @include step-0;
+        color: var(--color-black);
+        @include truncate(5);
+    }
     ::v-deep .image {
         height: 272px;
         .media {
@@ -218,4 +240,5 @@ export default {
         }
     }
 }
+// injectto pass data and provide
 </style>
