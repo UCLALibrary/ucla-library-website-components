@@ -1,3 +1,10 @@
+## [2.35.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.7...v2.35.8) (2023-02-16)
+
+
+### Bug Fixes
+
+* APPS-2161 Update maxlength for block-staff-article-list on Program index ([#339](https://github.com/UCLALibrary/ucla-library-website-components/issues/339)) ([8b96bec](https://github.com/UCLALibrary/ucla-library-website-components/commit/8b96becd22349fa2601e4325e5a02ac0062ab7d3))
+
 ## [2.35.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.6...v2.35.7) (2023-02-10)
 
 
