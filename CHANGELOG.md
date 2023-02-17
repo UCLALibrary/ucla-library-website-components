@@ -1,3 +1,10 @@
+## [2.35.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.9...v2.35.10) (2023-02-17)
+
+
+### Bug Fixes
+
+* BlockHighlight responsive title max-width ([#340](https://github.com/UCLALibrary/ucla-library-website-components/issues/340)) ([e19b280](https://github.com/UCLALibrary/ucla-library-website-components/commit/e19b28015e4ac5661071c4778e07e24dad952bda))
+
 ## [2.35.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.8...v2.35.9) (2023-02-17)
 
 
