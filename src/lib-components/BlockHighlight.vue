@@ -576,7 +576,7 @@ export default {
                 margin-bottom: var(--space-l);
             }
         }
-        &.is-vertical.has-triangle{
+        &.is-vertical.has-triangle {
             .meta {
                 padding: 0;
                 .title {
