@@ -52,9 +52,9 @@ export default {
     computed: {
         parsedSrc() {
             if (!this.isClicc) {
-                return `https://uclalibrary.library.ucla.edu/blockHours.html?lid=${this.lid}`
+                return `https://www.library.ucla.edu/blockHours.html?lid=${this.lid}`
             } else {
-                return `https://uclalibrary.library.ucla.edu/blockCliccHours.html?lid=0`
+                return `https://www.library.ucla.edu/blockCliccHours.html?lid=0`
             }
         },
     },

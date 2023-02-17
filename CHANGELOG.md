@@ -1,3 +1,10 @@
+## [2.35.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.8...v2.35.9) (2023-02-17)
+
+
+### Bug Fixes
+
+* fix blockhours url ([#342](https://github.com/UCLALibrary/ucla-library-website-components/issues/342)) ([2b0980e](https://github.com/UCLALibrary/ucla-library-website-components/commit/2b0980e84d1ed003519b9eb8de2bfb39e2c4144c))
+
 ## [2.35.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.7...v2.35.8) (2023-02-16)
 
 
