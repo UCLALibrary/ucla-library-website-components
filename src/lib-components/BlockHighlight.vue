@@ -600,7 +600,7 @@ export default {
         &.is-vertical.has-triangle {
             .meta {
                 .title {
-                    max-width: 320px;
+                    max-width: 312px;
                 }
             }
         }
