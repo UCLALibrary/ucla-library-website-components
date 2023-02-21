@@ -151,6 +151,28 @@ export const LongTitleNoDate = () => ({
   `,
 })
 
+export const LongTitleNoDateNoEyebrow = () => ({
+    data() {
+        return {
+            ...mock,
+        }
+    },
+    components: { BlockHighlight },
+    template: `
+      <block-highlight
+          :image="image"
+          :to="to"
+          title="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+          :text="text"
+          :has-triangle="true"
+          :is-vertical="true"
+          :image-aspect-ratio="60"
+          :locations="locations"
+          :section-handle="sectionHandle"
+      />
+  `,
+})
+
 export const Card = () => ({
     data() {
         return { ...mock }

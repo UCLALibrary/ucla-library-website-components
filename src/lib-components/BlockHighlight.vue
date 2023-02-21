@@ -576,22 +576,34 @@ export default {
                 margin-bottom: var(--space-l);
             }
         }
-        &.is-vertical.has-triangle .meta {
-            padding: 0;
+        &.is-vertical.has-triangle {
+            .meta {
+                padding: 0;
+                .title {
+                    max-width: 680px;
+                }
 
-            .category {
-                padding-right: 72px;
+                .category {
+                    padding-right: 72px;
+                }
             }
-        }
-        .schedule {
-            flex-direction: column;
-        }
+            .schedule {
+                flex-direction: column;
+            }
 
-        .schedule-item:after {
-            display: none;
+            .schedule-item:after {
+                display: none;
+            }
         }
     }
     @media #{$small} {
+        &.is-vertical.has-triangle {
+            .meta {
+                .title {
+                    max-width: 312px;
+                }
+            }
+        }
         &:not(&.is-vertical) {
             .image {
                 max-width: 100%;
