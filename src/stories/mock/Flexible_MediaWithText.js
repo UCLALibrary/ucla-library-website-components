@@ -30,6 +30,8 @@ export const mock = {
             id: "13670",
             titleLink: "A video to watch",
             description: "You'll like this video",
+            embedCode:
+                '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/3sQ9k4yvvPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure>',
             coverImage: [
                 {
                     id: "5115",
@@ -50,6 +52,8 @@ export const mock = {
             id: "13670",
             titleLink: "A video to watch but no button",
             description: "You'll like this video",
+            embedCode:
+                '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/3sQ9k4yvvPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure>',
             coverImage: [
                 {
                     id: "5115",
@@ -68,6 +72,8 @@ export const mock = {
             id: "13670",
             titleLink: "A song to listen to",
             description: "You'll like this song",
+            embedCode:
+                '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2LSKvAsHw4SUaCx932SsAo?utm_source=generator" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>',
             coverImage: [
                 {
                     id: "5115",
