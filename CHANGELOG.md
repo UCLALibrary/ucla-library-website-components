@@ -1,3 +1,10 @@
+## [2.35.11](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.10...v2.35.11) (2023-02-22)
+
+
+### Bug Fixes
+
+* Add audio and vidoe embed code to flexible media with text stories mock data. ([#341](https://github.com/UCLALibrary/ucla-library-website-components/issues/341)) ([cd2ef4a](https://github.com/UCLALibrary/ucla-library-website-components/commit/cd2ef4aec675a6b84258230a9218c6afefb6da67))
+
 ## [2.35.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.9...v2.35.10) (2023-02-17)
 
 
