@@ -93,7 +93,7 @@ export default {
         display: inline-block;
         width: 100%;
         margin: 4px 0;
-        padding: 6px 14px 8px 45px;
+        padding: 8px 14px 8px 48px;
         cursor: pointer;
         position: relative;
         border-radius: var(--rounded-slightly-all);
@@ -111,7 +111,7 @@ export default {
     }
     .svg {
         position: absolute;
-        left: 14px;
+        left: 8px;
         top: 5px;
         .filler {
             opacity: 0;
@@ -134,7 +134,17 @@ export default {
         .svg__stroke--default-cyan-03 {
         stroke: white;
     }
-
+    //Breakpoints
+    @media #{$medium} {
+        .list {
+            column-count: 2;
+        }
+    }
+    @media #{$small} {
+        .list {
+            column-count: 1;
+        }
+    }
     // Hovers
     @media #{$has-hover} {
         .label:hover {

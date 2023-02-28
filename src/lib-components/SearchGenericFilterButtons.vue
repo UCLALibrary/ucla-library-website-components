@@ -199,7 +199,12 @@ export default {
             background-color: var(--color-primary-blue-03);
         }
     }
-
+    //Breakpoints
+    @media #{$small} {
+        .button, .single-checkbox {
+            margin-right: 0;
+        }
+    }
     // Hovers
     @media #{$has-hover} {
         .title:hover,

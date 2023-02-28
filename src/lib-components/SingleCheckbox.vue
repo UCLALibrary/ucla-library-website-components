@@ -160,7 +160,7 @@ export default {
 
     //Breakpoints
     @media #{$small} {
-        margin-right: 8px;
+        min-width: unset;
     }
 }
 </style>

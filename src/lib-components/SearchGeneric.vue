@@ -328,15 +328,15 @@ export default {
         justify-content: flex-start;
     }
     .section-remove-container {
-        margin: 15px 25px;
+        margin: 12px 24px;
     }
     .filter-group {
         transition-duration: 400ms;
 
         position: absolute;
         /* top: 100%;*/
-        left: 50px;
-        right: 50px;
+        left: 54px;
+        right: 54px;
 
         margin-top: 8px;
         z-index: 100;
@@ -348,6 +348,10 @@ export default {
         padding-top: var(--space-xl);
         border-radius: 0;
         margin-top: 0;
+        .filter-group {
+            left: 64px;
+            right: 64px;
+        }
     }
 }
 
@@ -368,15 +372,24 @@ export default {
     transition-property: opacity, max-height;
     transition-timing-function: ease-in-out;
 }
+//Breakpoints
+@media #{$medium} {
+    .section-remove-container {
+        margin: 12px 0;
+    }
+}
 @media #{$small} {
     .search-generic-filter-buttons {
         flex-direction: column;
         gap: 8px;
     }
     .search-generic {
+        
         .filter-group {
             margin-top: 8px;
             z-index: 100;
+            left: 24px;
+            right: 24px;
         }
     }
 }
