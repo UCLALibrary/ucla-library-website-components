@@ -299,6 +299,7 @@ export default {
             &::placeholder {
                 text-transform: uppercase;
                 font-family: var(--font-primary);
+                text-overflow: ellipsis;
             }
         }
         .button-submit {
