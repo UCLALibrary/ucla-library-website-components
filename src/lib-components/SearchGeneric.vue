@@ -293,7 +293,7 @@ export default {
             letter-spacing: 0.01em;
             background-color: var(--color-primary-blue-01);
             border-color: transparent;
-            padding: 24px;
+            padding: 24px 24px 24px 16px;
             width: 100%;
 
             &::placeholder {
@@ -341,18 +341,6 @@ export default {
         margin-top: 8px;
         z-index: 100;
     }
-
-    @media #{$medium} {
-        padding-left: var(--unit-gutter);
-        padding-right: var(--unit-gutter);
-        padding-top: var(--space-xl);
-        border-radius: 0;
-        margin-top: 0;
-        .filter-group {
-            left: 64px;
-            right: 64px;
-        }
-    }
 }
 
 // Transitions
@@ -374,8 +362,27 @@ export default {
 }
 //Breakpoints
 @media #{$medium} {
-    .section-remove-container {
-        margin: 12px 0;
+    .search-generic{
+        padding-left: var(--unit-gutter);
+        padding-right: var(--unit-gutter);
+        padding-top: var(--space-xl);
+        border-radius: 0;
+        margin-top: 0;
+        .filter-group {
+            left: 64px;
+            right: 64px;
+        }
+        .input-container {
+            .button-submit {
+                    padding: 0 12px;
+                }
+            input {
+                padding: 24px 0 24px 16px;
+            }
+        }
+        .section-remove-container {
+            margin: 12px 0;
+        }
     }
 }
 @media #{$small} {
