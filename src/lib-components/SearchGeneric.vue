@@ -387,12 +387,11 @@ export default {
     }
 }
 @media #{$small} {
-    .search-generic-filter-buttons {
-        flex-direction: column;
-        gap: 8px;
-    }
     .search-generic {
-        
+        .search-generic-filter-buttons {
+            flex-direction: column;
+            gap: 8px;
+        }
         .filter-group {
             margin-top: 8px;
             z-index: 100;

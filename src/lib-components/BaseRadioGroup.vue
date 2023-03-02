@@ -71,9 +71,8 @@ export default {
 .base-radio-group {
     font-size: 18px;
     color: var(--color-white);
-    background-color: var(--color-primary-blue-03);
-    border-radius: var(--rounded-slightly-all);
-    border: 1.5px solid var(--color-visit-fushia-01);
+    background-color: var(--color-primary-blue-04);
+    border: 1.5px solid var(--color-default-cyan-03);
     margin: 0;
     padding: 22px 16px;
 
