@@ -1,3 +1,10 @@
+# [2.36.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.11...v2.36.0) (2023-03-03)
+
+
+### Features
+
+* update search filter responsive styling ([#343](https://github.com/UCLALibrary/ucla-library-website-components/issues/343)) ([b7eaaed](https://github.com/UCLALibrary/ucla-library-website-components/commit/b7eaaedd618f0d110a2e925907a77c22f98175ab))
+
 ## [2.35.11](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.10...v2.35.11) (2023-02-22)
 
 
