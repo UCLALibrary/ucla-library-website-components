@@ -363,7 +363,7 @@ export default {
 }
 //Breakpoints
 @media #{$medium} {
-    .search-generic{
+    .search-generic {
         padding-left: var(--unit-gutter);
         padding-right: var(--unit-gutter);
         padding-top: var(--space-xl);
@@ -375,8 +375,8 @@ export default {
         }
         .input-container {
             .button-submit {
-                    padding: 0 12px;
-                }
+                padding: 0 12px;
+            }
             input {
                 padding: 24px 0 24px 16px;
             }

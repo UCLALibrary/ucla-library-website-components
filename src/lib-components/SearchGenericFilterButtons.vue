@@ -199,13 +199,13 @@ export default {
     }
     //Breakpoints
     @media #{$small} {
-        .button, .single-checkbox {
+        .button,
+        .single-checkbox {
             margin-right: 0;
         }
     }
     // Hovers
     @media #{$has-hover} {
-
     }
 }
 </style>
