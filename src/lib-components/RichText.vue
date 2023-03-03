@@ -189,6 +189,7 @@ export default {
         background-position-y: 5px; // This will shift the bullet down as needed
         background-size: 24px;
         padding-left: 40px;
+        overflow: hidden;
     }
 
     ::v-deep table {
