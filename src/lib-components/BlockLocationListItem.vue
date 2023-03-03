@@ -24,7 +24,7 @@
                     <div v-if="libcalHoursData && isUclaLibrary" class="time">
                         <IconClock />
                         <span v-if="libcalHoursData.day">{{
-                            libcalHoursData.day
+                            'Today'
                         }}</span>
                         <div
                             class="hour"
