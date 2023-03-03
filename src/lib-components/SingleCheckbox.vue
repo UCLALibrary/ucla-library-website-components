@@ -109,6 +109,8 @@ export default {
         cursor: pointer;
         position: relative;
         border: 1.5px solid var(--color-primary-blue-03);
+        transition-duration: 400ms;
+        transition-timing-function: ease-in-out;
     }
 
     .input {
@@ -141,7 +143,7 @@ export default {
     }
 
     .checked {
-        border: 1.5px solid var(--color-visit-fushia-03);
+        border: 1.5px solid var(--color-default-cyan-03);
     }
 
     // Selected state
@@ -154,13 +156,14 @@ export default {
     // Hovers
     @media #{$has-hover} {
         .label:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            //background-color: rgba(255, 255, 255, 0.1);
+            background-color: var(--color-primary-blue-04);
         }
     }
 
     //Breakpoints
     @media #{$small} {
-        margin-right: 8px;
+        min-width: unset;
     }
 }
 </style>

@@ -293,12 +293,13 @@ export default {
             letter-spacing: 0.01em;
             background-color: var(--color-primary-blue-01);
             border-color: transparent;
-            padding: 24px;
+            padding: 24px 24px 24px 16px;
             width: 100%;
 
             &::placeholder {
                 text-transform: uppercase;
                 font-family: var(--font-primary);
+                text-overflow: ellipsis;
             }
         }
         .button-submit {
@@ -328,26 +329,18 @@ export default {
         justify-content: flex-start;
     }
     .section-remove-container {
-        margin: 15px 25px;
+        margin: 12px 24px;
     }
     .filter-group {
         transition-duration: 400ms;
 
         position: absolute;
         /* top: 100%;*/
-        left: 50px;
-        right: 50px;
+        left: 54px;
+        right: 54px;
 
         margin-top: 8px;
         z-index: 100;
-    }
-
-    @media #{$medium} {
-        padding-left: var(--unit-gutter);
-        padding-right: var(--unit-gutter);
-        padding-top: var(--space-xl);
-        border-radius: 0;
-        margin-top: 0;
     }
 }
 
@@ -368,15 +361,42 @@ export default {
     transition-property: opacity, max-height;
     transition-timing-function: ease-in-out;
 }
-@media #{$small} {
-    .search-generic-filter-buttons {
-        flex-direction: column;
-        gap: 8px;
-    }
+//Breakpoints
+@media #{$medium} {
     .search-generic {
+        padding-left: var(--unit-gutter);
+        padding-right: var(--unit-gutter);
+        padding-top: var(--space-xl);
+        border-radius: 0;
+        margin-top: 0;
+        .filter-group {
+            left: 64px;
+            right: 64px;
+        }
+        .input-container {
+            .button-submit {
+                padding: 0 12px;
+            }
+            input {
+                padding: 24px 0 24px 16px;
+            }
+        }
+        .section-remove-container {
+            margin: 12px 0;
+        }
+    }
+}
+@media #{$small} {
+    .search-generic {
+        .search-generic-filter-buttons {
+            flex-direction: column;
+            gap: 8px;
+        }
         .filter-group {
             margin-top: 8px;
             z-index: 100;
+            left: 24px;
+            right: 24px;
         }
     }
 }
