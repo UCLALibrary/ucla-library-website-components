@@ -1,3 +1,10 @@
+## [2.36.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.36.0...v2.36.1) (2023-03-06)
+
+
+### Bug Fixes
+
+* hide disc list marker ([#344](https://github.com/UCLALibrary/ucla-library-website-components/issues/344)) ([e7b2031](https://github.com/UCLALibrary/ucla-library-website-components/commit/e7b2031c1e34d8c70829d2bb4d1744952dedd474))
+
 # [2.36.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.35.11...v2.36.0) (2023-03-03)
 
 
