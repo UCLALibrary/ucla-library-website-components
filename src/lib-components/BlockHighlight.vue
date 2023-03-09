@@ -76,7 +76,6 @@
                     :to="location.to"
                 />
             </div>
-            <!-- changing p tag to div fixes nodemismatch errors -->
             <div v-if="text" class="text">{{ parsedText }}</div>
         </div>
     </li>
