@@ -1,4 +1,4 @@
-import Vue from "vue"
+import Vue  from "vue-demi"
 import Vuex from "vuex"
 import FooterPrimary from "./modules/footerPrimary.js"
 import FooterSock from "./modules/footerSock.js"

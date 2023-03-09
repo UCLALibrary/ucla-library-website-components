@@ -1,5 +1,5 @@
 // Storybook default settings
-import Vue from "vue"
+import Vue  from "vue-demi"
 import Vuex from "vuex"
 import BlockCallToAction from "@/lib-components/BlockCallToAction"
 import StoryRouter from "storybook-vue-router"

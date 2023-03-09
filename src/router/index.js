@@ -1,4 +1,4 @@
-import Vue from "vue"
+import Vue  from "vue-demi"
 import VueRouter from "vue-router"
 
 Vue.use(VueRouter)

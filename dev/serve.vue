@@ -478,7 +478,7 @@
 </template>
 
 <script>
-import Vue from "vue"
+import Vue  from "vue-demi"
 import API from "@/stories/mock-api.json"
 import IMPACT_API from "@/stories/impact-report_index.json"
 // import NavMenuItem from "../src/lib-components/NavMenuItem.vue"

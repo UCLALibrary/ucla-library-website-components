@@ -1,4 +1,4 @@
-import Vue from "vue"
+import Vue  from "vue-demi"
 import Vuex from "vuex"
 import { ExampleMeapNavMastHead } from "../lib-components"
 import StoryRouter from "storybook-vue-router"

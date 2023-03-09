@@ -58,6 +58,7 @@
         "@vue/cli-plugin-babel": "~5.0.4",
         "@vue/cli-plugin-eslint": "~5.0.0",
         "@vue/cli-service": "~5.0.4",
+        "@vue/composition-api": "^1.7.1",
         "babel-loader": "^8.2.5",
         "core-js": "^3.6.5",
         "cross-env": "^7.0.3",
@@ -96,7 +97,13 @@
         "vuex": "^3.6.2"
     },
     "peerDependencies": {
-        "vue": "^2.6.14"
+        "@vue/composition-api": "^1.0.0-rc.1",
+        "vue": "^2.0.0 || >=3.0.0"
+    },
+    "peerDependenciesMeta": {
+        "@vue/composition-api": {
+            "optional": true
+        }
     },
     "engines": {
         "npm": "8.5.5",
@@ -107,6 +114,7 @@
         "lodash": "^4.17.21",
         "video.js": "^7.20.3",
         "vue-click-outside": "^1.1.0",
+        "vue-demi": "^0.13.11",
         "vue-glide-js": "^1.3.14"
     }
 }

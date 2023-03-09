@@ -1,4 +1,4 @@
-import Vue from "vue"
+import Vue  from "vue-demi"
 import Vuex from "vuex"
 import FooterSponsor from "@/lib-components/FooterSponsor"
 import StoryRouter from "storybook-vue-router"

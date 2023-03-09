@@ -1,4 +1,4 @@
-import Vue from "vue"
+import Vue from "vue-demi"
 import store from "@/store"
 
 import Dev from "./serve.vue"
