@@ -18,6 +18,18 @@
                 <molecule-placeholder class="molecule" aria-hidden="true" />
             </div>
         </div>
+        <card-meta
+            :to="to"
+            :category="category"
+            :title="title"
+            :start-date="startDate"
+            :end-date="endDate"
+            :text="text"
+            :locations="locations"
+            :alternativeFullName="alternativeFullName"
+            :language="language"
+            :section-handle="sectionHandle"
+        />
     </li>
 </template>
 
@@ -26,6 +38,7 @@
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
 import IconWithLink from "@/lib-components/IconWithLink.vue"
+import CardMeta from "@/lib-components/CardMeta.vue"
 
 import getSectionName from "@/mixins/getSectionName"
 import formatDay from "@/mixins/formatEventDay"
@@ -41,6 +54,7 @@ export default {
         IconWithLink,
         ResponsiveImage,
         MoleculePlaceholder,
+        CardMeta,
     },
     mixins: [getSectionName, formatDay, formatMonth],
     props: {
