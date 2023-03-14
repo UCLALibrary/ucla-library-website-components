@@ -1,59 +1,40 @@
-<div class="meta">
-    <div v-if="category" class="category" v-html="category" />
-    <smart-link
-        v-if="to"
-        :linkTarget="parsedTarget"
-        :to="to"
-        class="title"
-    >
-        {{ title }}
-        <span
-            v-if="alternativeFullName"
-            :lang="language"
-            v-html="alternativeFullName"
-            class="translation"
-        />
-    </smart-link>
-    <h3 v-else class="title-no-link" v-html="title" />
+<template>
+    <div class="card-meta">
+        <div v-if="category" class="category" v-html="category" />
+        <smart-link v-if="to" :linkTarget="parsedTarget" :to="to" class="title">
+            {{ title }}
+            <span
+                v-if="alternativeFullName"
+                :lang="language"
+                v-html="alternativeFullName"
+                class="translation"
+            />
+        </smart-link>
+        <h3 v-else class="title-no-link" v-html="title" />
 
-    <div class="byline-group" v-if="bylineOne || bylineTwo">
-        <div
-            v-if="bylineOne"
-            class="schedule-item"
-            v-html="bylineOne"
-        />
-        <div
-            v-if="bylineTwo"
-            class="schedule-item"
-            v-html="bylineTwo"
-        />
-    </div>
+        <div class="byline-group" v-if="bylineOne || bylineTwo">
+            <div v-if="bylineOne" class="schedule-item" v-html="bylineOne" />
+            <div v-if="bylineTwo" class="schedule-item" v-html="bylineTwo" />
+        </div>
 
-    <div class="date-time" v-if="startDate || ongoing">
-        <div v-if="ongoing">Ongoing</div>
-        <time
-            v-if="startDate"
-            class="schedule-item"
-            v-html="parsedDate"
-        />
-        <time
-            v-if="startDate"
-            class="schedule-item"
-            v-html="parsedTime"
-        />
-    </div>
+        <div class="date-time" v-if="startDate || ongoing">
+            <div v-if="ongoing">Ongoing</div>
+            <time v-if="startDate" class="schedule-item" v-html="parsedDate" />
+            <time v-if="startDate" class="schedule-item" v-html="parsedTime" />
+        </div>
 
-    <div v-if="locations.length" class="location-group">
-        <icon-with-link
-            v-for="(location, index) in parsedLocations"
-            :key="`location-${index}`"
-            :text="location.title"
-            :icon-name="location.svg"
-            :to="location.to"
-        />
+        <div v-if="locations.length" class="location-group">
+            <icon-with-link
+                v-for="(location, index) in parsedLocations"
+                :key="`location-${index}`"
+                :text="location.title"
+                :icon-name="location.svg"
+                :to="location.to"
+            />
+        </div>
+        <div v-if="text" class="text">{{ parsedText }}</div>
     </div>
-    <div v-if="text" class="text">{{ parsedText }}</div>
-</div>
+</template>
 
 <script>
 // COMPONENTS
@@ -67,7 +48,6 @@ import formatDay from "@/mixins/formatEventDay"
 import formatMonth from "@/mixins/formatEventMonth"
 import getSectionName from "@/mixins/getSectionName"
 import removeHtmlTruncate from "@/mixins/removeHtmlTruncate"
-
 
 export default {
     name: "BlockHighlight",
@@ -84,7 +64,6 @@ export default {
         removeHtmlTruncate,
     ],
     props: {
-
         to: {
             type: String,
             default: "",
@@ -200,7 +179,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.card-meta {
     .meta {
         z-index: 10;
         width: 100%;
@@ -269,50 +248,48 @@ export default {
         position: relative;
         z-index: 20;
     }
-    // Variations
-    &.is-vertical {
-        flex-direction: column;
-        .molecule-no-image {
-            width: 100%;
-            height: 179.2px;
-        }
-        &:not(.has-triangle) {
-            .meta {
-                margin-top: 16px;
-            }
-            ::v-deep .image {
-                width: 100%;
-                .media {
-                    object-fit: cover;
-                }
-            }
-        }
-        // for clipped version
-        &.has-triangle {
-            .meta {
-                margin-top: -24px;
-                padding: 0 72px 0 16px;
-            }
-        }
-    }
-    &:not(&.is-vertical) {
-        width: 100%;
-        }
-        .meta {
-            max-width: calc(50% - var(--space-xl));
-            padding-bottom: 16px;
-            overflow: hidden;
-
-            > *:last-child {
-                margin-bottom: 0;
-            }
-
-            .category {
-                margin-top: 0;
-            }
-        }
-
-    }
+    // // Variations
+    // &.is-vertical {
+    //     flex-direction: column;
+    //     .molecule-no-image {
+    //         width: 100%;
+    //         height: 179.2px;
+    //     }
+    //     &:not(.has-triangle) {
+    //         .meta {
+    //             margin-top: 16px;
+    //         }
+    //         ::v-deep .image {
+    //             width: 100%;
+    //             .media {
+    //                 object-fit: cover;
+    //             }
+    //         }
+    //     }
+    //     // for clipped version
+    //     &.has-triangle {
+    //         .meta {
+    //             margin-top: -24px;
+    //             padding: 0 72px 0 16px;
+    //         }
+    //     }
+    // }
+    // &:not(&.is-vertical) {
+    //     width: 100%;
+    //     }
+    //     .meta {
+    //         max-width: calc(50% - var(--space-xl));
+    //         padding-bottom: 16px;
+    //         overflow: hidden;
+    //
+    //         > *:last-child {
+    //             margin-bottom: 0;
+    //         }
+    //
+    //         .category {
+    //             margin-top: 0;
+    //         }
+    //     }
     // Breakpoints
     // @media #{$medium} {
     //     .text {
@@ -397,5 +374,5 @@ export default {
             }
         }
     }
-
+}
 </style>
