@@ -117,18 +117,6 @@ export default {
             }
             return ""
         },
-        // parsedDateDay() {
-        //     if (this.startDate) {
-        //         return this.formatDay(this.startDate)
-        //     }
-        //     return ""
-        // },
-        // parsedDateMonth() {
-        //     if (this.startDate) {
-        //         return this.formatMonth(this.startDate)
-        //     }
-        //     return ""
-        // },
 
         parsedTime() {
             if (this.startDate && this.sectionHandle == "event") {
@@ -224,124 +212,14 @@ export default {
         position: relative;
         z-index: 20;
     }
-    // // Variations
-    // &.is-vertical {
-    //     flex-direction: column;
-    //     .molecule-no-image {
-    //         width: 100%;
-    //         height: 179.2px;
-    //     }
-    //     &:not(.has-triangle) {
-    //         .meta {
-    //             margin-top: 16px;
-    //         }
-    //         ::v-deep .image {
-    //             width: 100%;
-    //             .media {
-    //                 object-fit: cover;
-    //             }
-    //         }
-    //     }
-    //     // for clipped version
-    //     &.has-triangle {
-    //         .meta {
-    //             margin-top: -24px;
-    //             padding: 0 72px 0 16px;
-    //         }
-    //     }
-    // }
-    // &:not(&.is-vertical) {
-    //     width: 100%;
-    //     }
-    //     .meta {
-    //         max-width: calc(50% - var(--space-xl));
-    //         padding-bottom: 16px;
-    //         overflow: hidden;
-    //
-    //         > *:last-child {
-    //             margin-bottom: 0;
-    //         }
-    //
-    //         .category {
-    //             margin-top: 0;
-    //         }
-    //     }
+
     // Breakpoints
-    // @media #{$medium} {
-    //     .text {
-    //         margin-top: 0;
-    //     }
-    //     &.is-vertical {
-    //         .molecule-no-image {
-    //             height: 226px;
-    //         }
-    //         &.has-triangle {
-    //             ::v-deep .image {
-    //                 height: 200px;
-    //             }
-    //             .molecule-no-image {
-    //                 height: 200px;
-    //             }
-    //         }
-    //     }
-    //     &:not(&.is-vertical) {
-    //         flex-direction: column;
-    //         padding-left: 0;
-    //         padding-right: 0;
-    //         .floating-highlight,
-    //         .clipped-date {
-    //             display: none;
-    //         }
-    //
-    //         .image-container,
-    //         .meta {
-    //             width: 100%;
-    //             max-width: 100%;
-    //         }
-    //
-    //         .image-container {
-    //             margin-bottom: var(--space-l);
-    //         }
-    //     }
-    //     &.is-vertical.has-triangle {
-    //         .meta {
-    //             padding: 0;
-    //             .title {
-    //                 max-width: 680px;
-    //             }
-    //
-    //             .category {
-    //                 padding-right: 72px;
-    //             }
-    //         }
-    //         .schedule {
-    //             flex-direction: column;
-    //         }
-    //
-    //         .schedule-item:after {
-    //             display: none;
-    //         }
-    //     }
-    // }
-    // @media #{$small} {
-    //     &.is-vertical.has-triangle {
-    //         .meta {
-    //             .title {
-    //                 max-width: 312px;
-    //             }
-    //         }
-    //     }
-    //     &:not(&.is-vertical) {
-    //         .image {
-    //             max-width: 100%;
-    //         }
-    //         .image-container {
-    //             .molecule-no-image {
-    //                 height: 200px;
-    //             }
-    //         }
-    //     }
-    // }
+    @media #{$medium} {
+        .text {
+            margin-top: 0;
+        }
+    }
+
     // Hovers
     @media #{$has-hover} {
         &:hover {
