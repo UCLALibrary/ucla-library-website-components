@@ -1,3 +1,4 @@
+<!-- Equivalent to section teaser highlight -->
 <template>
     <li :class="classes">
         <div class="image-container">
