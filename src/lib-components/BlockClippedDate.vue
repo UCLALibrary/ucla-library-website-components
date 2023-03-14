@@ -27,6 +27,10 @@ import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
 import IconWithLink from "@/lib-components/IconWithLink.vue"
 
+import getSectionName from "@/mixins/getSectionName"
+import formatDay from "@/mixins/formatEventDay"
+import formatMonth from "@/mixins/formatEventMonth"
+
 // SVGs
 import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
 
@@ -38,7 +42,7 @@ export default {
         ResponsiveImage,
         MoleculePlaceholder,
     },
-
+    mixins: [getSectionName, formatDay, formatMonth],
     props: {
         image: {
             type: Object,
@@ -48,20 +52,61 @@ export default {
             type: String,
             default: "",
         },
-
-        hasTriangle: {
+        category: {
+            type: String,
+            default: "",
+        },
+        title: {
+            type: String,
+            default: "",
+        },
+        alternativeFullName: {
+            type: String,
+            default: "",
+        },
+        language: {
+            type: String,
+            default: "",
+        },
+        startDate: {
+            type: String,
+            default: "",
+        },
+        endDate: {
+            type: String,
+            default: "",
+        },
+        ongoing: {
             type: Boolean,
             default: false,
         },
-
         imageAspectRatio: {
             type: Number,
             default: 0,
         },
-
+        locations: {
+            type: Array,
+            default: () => [],
+        },
+        text: {
+            type: String,
+            default: "",
+        },
+        bylineOne: {
+            type: String,
+            default: "",
+        },
+        bylineTwo: {
+            type: String,
+            default: "",
+        },
         color: {
             type: String,
             default: "", // This will be "visit", "about", "help".
+        },
+        sectionHandle: {
+            type: String,
+            default: "",
         },
     },
     computed: {
@@ -241,14 +286,14 @@ export default {
             }
         }
     }
-    @media #{$small}
-
-            .image {
-        max-width: 100%;
-    }
-    .image-container {
-        .molecule-no-image {
-            height: 200px;
+    @media #{$small} {
+        .image {
+            max-width: 100%;
+        }
+        .image-container {
+            .molecule-no-image {
+                height: 200px;
+            }
         }
     }
 }

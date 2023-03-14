@@ -44,9 +44,6 @@ import IconWithLink from "@/lib-components/IconWithLink.vue"
 // UTILITY FUNCTIONS
 import formatTimes from "@/mixins/formatEventTimes"
 import formatDates from "@/mixins/formatEventDates"
-import formatDay from "@/mixins/formatEventDay"
-import formatMonth from "@/mixins/formatEventMonth"
-import getSectionName from "@/mixins/getSectionName"
 import removeHtmlTruncate from "@/mixins/removeHtmlTruncate"
 
 export default {
@@ -55,14 +52,7 @@ export default {
         SmartLink,
         IconWithLink,
     },
-    mixins: [
-        formatTimes,
-        formatDates,
-        formatDay,
-        formatMonth,
-        getSectionName,
-        removeHtmlTruncate,
-    ],
+    mixins: [formatTimes, formatDates, removeHtmlTruncate],
     props: {
         to: {
             type: String,
@@ -118,20 +108,6 @@ export default {
         },
     },
     computed: {
-        // classes() {
-        //     return [
-        //         "block-highlight",
-        //         { "is-vertical": this.isVertical },
-        //         { "has-triangle": this.hasTriangle },
-        //         `color-${this.sectionName}`,
-        //     ]
-        // },
-        // sectionName() {
-        //     return this.color || this.getSectionName(this.$route.path)
-        // },
-        // isImpactReport() {
-        //     return this.$route.path.includes("impact") ? true : false
-        // },
         parsedTarget() {
             return this.isImpactReport ? "_blank" : ""
         },
@@ -141,18 +117,18 @@ export default {
             }
             return ""
         },
-        parsedDateDay() {
-            if (this.startDate) {
-                return this.formatDay(this.startDate)
-            }
-            return ""
-        },
-        parsedDateMonth() {
-            if (this.startDate) {
-                return this.formatMonth(this.startDate)
-            }
-            return ""
-        },
+        // parsedDateDay() {
+        //     if (this.startDate) {
+        //         return this.formatDay(this.startDate)
+        //     }
+        //     return ""
+        // },
+        // parsedDateMonth() {
+        //     if (this.startDate) {
+        //         return this.formatMonth(this.startDate)
+        //     }
+        //     return ""
+        // },
 
         parsedTime() {
             if (this.startDate && this.sectionHandle == "event") {
