@@ -16,6 +16,7 @@ export { default as BlockCardWithIllustration } from "./BlockCardWithIllustratio
 export { default as BlockClippedDate } from "./BlockClippedDate.vue"
 export { default as BlockDate } from "./BlockDate.vue"
 export { default as BlockEvent } from "./BlockEvent.vue"
+export { default as BlockFloatingHighlight } from "./BlockFloatingHighlight.vue"
 export { default as BlockForm } from "./BlockForm.vue"
 export { default as BlockGenericList } from "./BlockGenericList.vue"
 export { default as BlockHighlight } from "./BlockHighlight.vue"

@@ -1,4 +1,4 @@
-import BlockClippedDate from "@/lib-components/BlockClippedDate"
+import BlockFloatingHighlight from "@/lib-components/BlockFloatingHighlight"
 import StoryRouter from "storybook-vue-router"
 
 // Import mock api data
@@ -6,15 +6,21 @@ import * as API from "@/stories/mock-api.json"
 
 // Storybook default settings
 export default {
-    title: "BLOCK / Clipped Date",
-    component: BlockClippedDate,
+    title: "BLOCK / Floating Highlight",
+    component: BlockFloatingHighlight,
     decorators: [
         StoryRouter(
             {},
             {
                 routes: [
-                    { path: "/visit/foo/bar/", component: BlockClippedDate },
-                    { path: "/about/foo/bar/", component: BlockClippedDate },
+                    {
+                        path: "/visit/foo/bar/",
+                        component: BlockFloatingHighlight,
+                    },
+                    {
+                        path: "/about/foo/bar/",
+                        component: BlockFloatingHighlight,
+                    },
                 ],
             }
         ),
@@ -43,9 +49,9 @@ export const Default = () => ({
     data() {
         return { ...mock }
     },
-    components: { BlockClippedDate },
+    components: { BlockFloatingHighlight },
     template: `
-      <block-clipped-date
+      <block-floating-highlight
           :image="image"
           :to="to"
           :category="category"
