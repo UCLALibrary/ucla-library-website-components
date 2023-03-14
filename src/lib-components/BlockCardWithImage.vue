@@ -1,4 +1,3 @@
-<!-- Equivalent to section teaser highlight -->
 <template>
     <li :class="classes">
         <div class="image-container">
@@ -11,11 +10,6 @@
             />
             <div v-else class="molecule-no-image">
                 <molecule-placeholder class="molecule" aria-hidden="true" />
-            </div>
-
-            <div v-if="hasTriangle" class="clipped">
-                <div class="floating-highlight" />
-                <div class="clipped-box" />
             </div>
         </div>
         <card-meta
@@ -46,7 +40,7 @@ import getSectionName from "@/mixins/getSectionName"
 import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
 
 export default {
-    name: "BlockFloatingHighlight",
+    name: "BlockCardWithImage",
     components: {
         ResponsiveImage,
         MoleculePlaceholder,
@@ -90,10 +84,7 @@ export default {
             type: Boolean,
             default: false,
         },
-        hasTriangle: {
-            type: Boolean,
-            default: true,
-        },
+
         isVertical: {
             type: Boolean,
             default: true,
@@ -130,9 +121,8 @@ export default {
     computed: {
         classes() {
             return [
-                "block-floating-highlight",
+                "block-card-with-image",
                 { "is-vertical": this.isVertical },
-                { "has-triangle": this.hasTriangle },
                 `color-${this.sectionName}`,
             ]
         },
@@ -150,7 +140,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.block-floating-highlight {
+.block-card-with-image {
     background-color: var(--color-theme, var(--color-white));
     font-family: var(--font-primary);
     position: relative;
@@ -166,47 +156,6 @@ export default {
     }
     &.color-about {
         --floating-highlight-color-theme: var(--color-about-purple-03);
-    }
-    .clipped {
-        width: 100%;
-        height: 47px;
-        margin-top: -54px;
-        position: relative;
-        z-index: 0;
-        .floating-highlight {
-            z-index: 30;
-            position: absolute;
-            width: calc(100% - 55px);
-            top: 0;
-            left: 5px;
-            height: 47px;
-            background-color: var(--floating-highlight-color-theme);
-            clip-path: polygon(
-                0 0,
-                calc(100% - 20px) 0,
-                100% 47px,
-                calc(100% - 1.5px) 47px,
-                calc(100% - 21px) 1.5px,
-                0 1.5px
-            );
-        }
-        .clipped-box {
-            position: absolute;
-            z-index: 30;
-            top: 8px;
-            left: -1px;
-            width: calc(100% - 57px);
-            height: 47px;
-            background-color: var(--color-theme, var(--color-white));
-            clip-path: polygon(
-                0 0,
-                calc(100% - 20px) 0,
-                100% 47px,
-                calc(100% - 1.5px) 47px,
-                0 47px,
-                0 1.5px
-            );
-        }
     }
 
     .image-container {
@@ -234,35 +183,17 @@ export default {
             width: 100%;
             height: 179.2px;
         }
-        &:not(.has-triangle) {
-            .meta {
-                margin-top: 16px;
-            }
-            ::v-deep .image {
-                width: 100%;
-                .media {
-                    object-fit: cover;
-                }
-            }
+
+        .meta {
+            margin-top: 16px;
         }
-        // for clipped version
-        &.has-triangle {
-            .meta {
-                margin-top: -24px;
-                padding: 0 72px 0 16px;
-            }
-            ::v-deep .image {
-                height: 272px;
-                .media {
-                    object-fit: cover;
-                }
-            }
-            .molecule-no-image {
-                height: 272px;
+        ::v-deep .image {
+            width: 100%;
+            .media {
+                object-fit: cover;
             }
         }
     }
-
     // Breakpoints
     @media #{$medium} {
         .text {
@@ -271,43 +202,6 @@ export default {
         &.is-vertical {
             .molecule-no-image {
                 height: 226px;
-            }
-            &.has-triangle {
-                ::v-deep .image {
-                    height: 200px;
-                }
-                .molecule-no-image {
-                    height: 200px;
-                }
-            }
-        }
-
-        &.is-vertical.has-triangle {
-            .card-meta {
-                padding: 0;
-                .title {
-                    max-width: 680px;
-                }
-
-                .category {
-                    padding-right: 72px;
-                }
-            }
-            .schedule {
-                flex-direction: column;
-            }
-
-            .schedule-item:after {
-                display: none;
-            }
-        }
-    }
-    @media #{$small} {
-        &.is-vertical.has-triangle {
-            .meta {
-                .title {
-                    max-width: 312px;
-                }
             }
         }
     }

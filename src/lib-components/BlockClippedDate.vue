@@ -121,12 +121,7 @@ export default {
     },
     computed: {
         classes() {
-            return [
-                "block-highlight",
-
-                { "has-triangle": this.hasTriangle },
-                `color-${this.sectionName}`,
-            ]
+            return ["block-clipped-date", `color-${this.sectionName}`]
         },
         sectionName() {
             return this.color || this.getSectionName(this.$route.path)
@@ -160,7 +155,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.block-highlight {
+.block-clipped-date {
     background-color: var(--color-theme, var(--color-white));
     font-family: var(--font-primary);
     position: relative;
