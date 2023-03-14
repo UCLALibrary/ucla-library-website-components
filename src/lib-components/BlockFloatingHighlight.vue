@@ -36,8 +36,6 @@
 <script>
 // COMPONENTS
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
-import SmartLink from "@/lib-components/SmartLink.vue"
-import IconWithLink from "@/lib-components/IconWithLink.vue"
 import CardMeta from "@/lib-components/CardMeta.vue"
 
 // UTILITY FUNCTIONS
@@ -50,8 +48,6 @@ import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule
 export default {
     name: "BlockHighlight",
     components: {
-        SmartLink,
-        IconWithLink,
         ResponsiveImage,
         MoleculePlaceholder,
         CardMeta,
