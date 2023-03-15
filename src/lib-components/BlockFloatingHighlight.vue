@@ -234,20 +234,9 @@ export default {
             width: 100%;
             height: 179.2px;
         }
-        &:not(.has-triangle) {
-            .meta {
-                margin-top: 16px;
-            }
-            ::v-deep .image {
-                width: 100%;
-                .media {
-                    object-fit: cover;
-                }
-            }
-        }
         // for clipped version
         &.has-triangle {
-            .meta {
+            ::v-deep .card-meta {
                 margin-top: -24px;
                 padding: 0 72px 0 16px;
             }
@@ -265,9 +254,6 @@ export default {
 
     // Breakpoints
     @media #{$medium} {
-        .text {
-            margin-top: 0;
-        }
         &.is-vertical {
             .molecule-no-image {
                 height: 226px;

@@ -184,7 +184,7 @@ export default {
             height: 179.2px;
         }
 
-        .meta {
+        ::v-deep .card-meta {
             margin-top: 16px;
         }
         ::v-deep .image {
@@ -196,9 +196,6 @@ export default {
     }
     // Breakpoints
     @media #{$medium} {
-        .text {
-            margin-top: 0;
-        }
         &.is-vertical {
             .molecule-no-image {
                 height: 226px;

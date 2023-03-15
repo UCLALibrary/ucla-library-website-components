@@ -269,10 +269,6 @@ export default {
     }
     // Breakpoints
     @media #{$medium} {
-        // .text {
-        //     margin-top: 0;
-        // }
-
         flex-direction: column;
         padding-left: 0;
         padding-right: 0;
@@ -282,7 +278,7 @@ export default {
         }
 
         .image-container,
-        .meta {
+        ::v-deep .card-meta {
             width: 100%;
             max-width: 100%;
 
