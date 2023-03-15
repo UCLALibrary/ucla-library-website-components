@@ -108,6 +108,9 @@ export default {
         },
     },
     computed: {
+        isImpactReport() {
+            return this.$route.path.includes("impact") ? true : false
+        },
         parsedTarget() {
             return this.isImpactReport ? "_blank" : ""
         },
