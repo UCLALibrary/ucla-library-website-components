@@ -55,3 +55,23 @@ export const Default = () => ({
       />
   `,
 })
+
+export const Ongoing = () => ({
+    data() {
+        return { ...mock }
+    },
+    components: { CardMeta },
+    template: `
+      <card-meta
+          :to="to"
+          :category="category"
+          :title="title"
+          :ongoing=true
+          :text="text"
+          :locations="locations"
+          :alternativeFullName="alternativeFullName"
+          :language="language"
+          :section-handle="sectionHandle"
+      />
+  `,
+})
