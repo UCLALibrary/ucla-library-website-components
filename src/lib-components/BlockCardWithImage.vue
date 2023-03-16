@@ -18,6 +18,7 @@
             :title="title"
             :start-date="startDate"
             :end-date="endDate"
+            :ongoing="ongoing"
             :text="text"
             :locations="locations"
             :alternativeFullName="alternativeFullName"
