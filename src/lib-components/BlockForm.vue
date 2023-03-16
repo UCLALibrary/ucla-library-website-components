@@ -12,7 +12,7 @@
         class="register-button"
     >
     </button-link>
-    <div 
+    <div
         class="block-form"
         :class="{
             'form-error': errors.length,
@@ -59,7 +59,9 @@
                 class="input-wrapper input-radio"
                 v-if="this.registrationType === 'both'"
             >
-                <legend>Registration Type <span class="required">(required)</span></legend>
+                <legend>
+                    Registration Type <span class="required">(required)</span>
+                </legend>
 
                 <label for="in-person">
                     <input
@@ -83,7 +85,9 @@
             </div>
 
             <div class="input-wrapper">
-                <label>Full Name <span class="required">(required)</span></label>
+                <label
+                    >Full Name <span class="required">(required)</span></label
+                >
                 <div class="input-container">
                     <input
                         id="firstName"
@@ -143,7 +147,9 @@
                         :class="question.required ? 'questionRequired' : ''"
                     >
                         {{ question.label }}
-                        <span class="required" v-if="question.required">(required)</span>
+                        <span class="required" v-if="question.required"
+                            >(required)</span
+                        >
                     </label>
                     <textarea
                         v-model="formQuestions[question.id]"
@@ -169,7 +175,10 @@
                         </label>
                     </div>
                 </div>
-                <div class="checkbox-wrapper" v-if="question.type == 'checkbox'">
+                <div
+                    class="checkbox-wrapper"
+                    v-if="question.type == 'checkbox'"
+                >
                     <div
                         :key="index"
                         v-for="(option, index) in question.options"
@@ -523,7 +532,7 @@ export default {
                 width: 100%;
             }
 
-            &:has(:nth-child(n+1)) input:first-child {
+            &:has(:nth-child(n + 1)) input:first-child {
                 margin-right: 8px;
             }
         }
@@ -692,7 +701,7 @@ export default {
         background-image: url("data:image/svg+xml,%3Csvg width='32' height='33' viewBox='0 0 32 33' fill='none' xmlns='http://www.w3.org/2000/svg' class='svg__icon-caret-down'%3E%3Cpath d='m10 14.729 6 6 6-6' stroke='%23999999' stroke-width='1.5' stroke-linecap='square' stroke-linejoin='round' class='svg__stroke--primary-blue-03' /%3E%3C/svg%3E") !important;
         background-size: initial !important;
         background-repeat: no-repeat;
-        background-position: center right calc(.375em + .1875rem);
+        background-position: center right calc(0.375em + 0.1875rem);
         @include step--1;
     }
 
