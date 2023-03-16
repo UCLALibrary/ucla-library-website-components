@@ -189,23 +189,23 @@ export default {
 
     // Open state
     .is-active {
-        border: 1.5px solid var(--color-fushia-03);
-        border-radius: var(--rounded-slightly-all);
         .caret-down-svg {
             transform: rotate(180deg);
         }
         .title,
         .chevron {
-            background-color: var(--color-primary-blue-03);
+            background-color: var(--color-primary-blue-04);
         }
     }
-
+    //Breakpoints
+    @media #{$small} {
+        .button,
+        .single-checkbox {
+            margin-right: 0;
+        }
+    }
     // Hovers
     @media #{$has-hover} {
-        .title:hover,
-        .chevron:hover {
-            background-color: var(--color-primary-blue-03);
-        }
     }
 }
 </style>
