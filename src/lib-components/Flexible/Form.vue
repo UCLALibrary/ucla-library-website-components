@@ -49,15 +49,13 @@ export default {
 
 <style lang="scss" scoped>
 .form {
-    max-width: 930px;
     width: 100%;
     height: auto;
     margin: var(--space-3xl) auto;
     max-width: $container-l-main + px;
 
     .content {
-        //height: 375px;
-        border: 1px var(--color-primary-blue-01) solid;
+        border: 2px var(--color-primary-blue-01) solid;
         border-radius: 4px;
     }
 
@@ -79,7 +77,7 @@ export default {
 
     .iframe {
         max-width: 928px;
-        padding: 12px;
+        padding: 4px;
     }
 }
 </style>

@@ -171,7 +171,9 @@
                 class="button"
                 id="banner-featured-button"
             />
-            <block-form v-if="!to && registerEvent" />
+        </div>
+        <div v-if="!to && registerEvent" class="block-form-container">
+            <block-form />
         </div>
     </div>
 </template>
@@ -670,6 +672,12 @@ export default {
         gap: 4px;
         margin-bottom: var(--space-m);
         color: var(--color-primary-blue-03);
+    }
+
+    .block-form-container {
+        padding: 0;
+        max-width: 928px;
+        margin: auto;
     }
 
     // Breakpoints

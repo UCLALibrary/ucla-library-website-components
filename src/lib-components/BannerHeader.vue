@@ -113,9 +113,10 @@
                     class="button"
                     :to="to"
                 />
-
-                <block-form v-if="!to && registerEvent" />
             </div>
+        </div>
+        <div v-if="!to && registerEvent" class="block-form-container">
+            <block-form />
         </div>
     </div>
 </template>
@@ -610,6 +611,12 @@ export default {
         flex-direction: column;
         gap: 4px;
         margin-bottom: var(--space-m);
+    }
+
+    .block-form-container {
+        padding: 0;
+        max-width: 928px;
+        margin: auto;
     }
 
     @media #{$medium} {

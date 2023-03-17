@@ -525,7 +525,7 @@ export default {
 }
 
 .block-form-container {
-    padding: 40px 0 0;
+    padding: 0;
     max-width: 928px;
     margin: auto;
 }
@@ -559,7 +559,7 @@ export default {
         }
     }
 
-    .block-form-container {
+    .-container {
         padding-left: var(--unit-gutter);
         padding-top: 40px;
     }
