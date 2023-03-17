@@ -772,6 +772,7 @@ export default {
         box-sizing: border-box;
         padding: 20px;
         border-radius: var(--rounded-slightly-all);
+        @include step-0;
     }
 }
 </style>
