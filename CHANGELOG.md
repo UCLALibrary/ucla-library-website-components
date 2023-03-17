@@ -1,3 +1,10 @@
+## [2.36.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.36.1...v2.36.2) (2023-03-17)
+
+
+### Bug Fixes
+
+* Block highlight refactor ([#345](https://github.com/UCLALibrary/ucla-library-website-components/issues/345)) ([718a3cf](https://github.com/UCLALibrary/ucla-library-website-components/commit/718a3cf8a7512ad936af581cf4689be91e6243c2))
+
 ## [2.36.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.36.0...v2.36.1) (2023-03-06)
 
 
