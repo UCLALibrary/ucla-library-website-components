@@ -673,7 +673,7 @@ export default {
         margin-bottom: var(--space-m);
         color: var(--color-primary-blue-03);
     }
-    
+
     .block-form-container {
         padding: 0;
         max-width: 928px;

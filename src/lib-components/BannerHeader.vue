@@ -612,7 +612,7 @@ export default {
         gap: 4px;
         margin-bottom: var(--space-m);
     }
-    
+
     .block-form-container {
         padding: 0;
         max-width: 928px;
