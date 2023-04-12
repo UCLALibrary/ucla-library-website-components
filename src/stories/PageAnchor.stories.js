@@ -29,3 +29,8 @@ export const Basic = Template.bind({});
 Basic.args = {
   sectionTitles: ['Section 1', 'Section 2', 'Section 3'],
 };
+
+export const extra = Template.bind({});
+Basic.args = {
+  sectionTitles: ['Section 1', 'Section 2', 'Section 3', 'Section 3'],
+};
