@@ -3,6 +3,7 @@
         <li v-for="(title, index) in sectionTitles" :key="index">
             <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
         </li>
+        <li><a href="#">Back to Top</a></li>
     </ul>
 </template>
 
@@ -18,11 +19,9 @@ export default {
     computed: {
         kebabCaseTitles() {
             return this.sectionTitles.map((title) => {
-                return title.toLowerCase().replace(/ /g, "-")
+                let titleWithNoSpecialChars = title.replace('&', '').replace(/\s+/g, ' ').trim()
+                return titleWithNoSpecialChars.toLowerCase().replace(/ /g, "-")
             })
-        },
-        isSticky() {
-            return this.$el.getBoundingClientRect().top <= 0
         },
     },
 }
@@ -30,35 +29,44 @@ export default {
 
 <style scoped>
 .page-anchor {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
-    position: absolute;
+
+    list-style-type: none;
+    position: -webkit-sticky; /* Required for Safari */
+    position: sticky;
     top: 0;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
+    z-index: 200;
+    margin-top: 50px; /* should be based on the height of the bannerHeader or bannerText */
+    margin-bottom: var(--space-s);
+    @include overline;
+    font-weight:500;
     text-transform: uppercase;
+    padding: var(--space-l) var(--space-l) var(--space-s) var(--space-l);
 }
 
-.page-anchor--sticky {
-    position: fixed;
-}
+    .page-anchor li {
+        margin-bottom: 10px;
+        text-align: right;
+        text-decoration: none;
+    }
 
-.page-anchor li {
-    margin-bottom: 10px;
-    text-align: right;
-}
+    .page-anchor a {
+        @include overline;
+        color: var(--color-primary-blue-05);
+        text-decoration: none;
+    }
 
-.page-anchor a {
-    text-decoration: none;
-    color: #666;
-}
+    .page-anchor a:hover {
+        color: coral;
+    }
 
-.page-anchor a:hover {
-    color: #000;
-}
+    /* BREAKPOINTS */
+    /* @media #{$medium} {
+        background-color: aqua;
+    }
+
+    @media #{$small} {
+        background-color: gray;
+    } */
 </style>

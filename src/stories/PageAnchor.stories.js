@@ -9,7 +9,7 @@ export default {
         type: 'array',
         separator: ', ',
       },
-      description: 'An array of section titles to create anchor links for',
+      description: 'A sticky list/menu on the right side of the page. It displays section-titles from the current page that create anchor links to those section-titles. It also always has a Back to Top link as the final element.',
       table: {
         type: {
           summary: 'Array<string>',
@@ -25,12 +25,7 @@ const Template = (args, { argTypes }) => ({
   template: '<page-anchor v-bind="$props" />',
 });
 
-export const Basic = Template.bind({});
-Basic.args = {
-  sectionTitles: ['Section 1', 'Section 2', 'Section 3'],
-};
-
-export const extra = Template.bind({});
-Basic.args = {
-  sectionTitles: ['Section 1', 'Section 2', 'Section 3', 'Section 3'],
+export const Default = Template.bind({});
+Default.args = {
+  sectionTitles: ['Using the Library', 'Services & Resources', 'Events & Exhibitions', 'About', 'News'],
 };

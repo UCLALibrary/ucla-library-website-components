@@ -1,5 +1,7 @@
 <template>
     <section :class="classes">
+        <a :id="`${kebabCase(sectionTitle)}`" v-if="sectionTitle" />
+
         <div v-if="sectionTitle" class="section-header">
             <SectionHeader
                 v-if="sectionTitle"
@@ -17,7 +19,11 @@
 </template>
 
 <script>
+// Components
 import SectionHeader from "@/lib-components/SectionHeader.vue"
+
+// Helpers
+import kebabCase from "@/mixins/kebabCase"
 
 export default {
     name: "SectionWrapper",
@@ -44,6 +50,7 @@ export default {
             default: false,
         },
     },
+    mixins: [kebabCase],
     provide() {
         return {
             sectionLevel: this.levelComputed,
@@ -72,7 +79,7 @@ export default {
             }
             return true
         },
-    },
+    }
 }
 </script>
 
