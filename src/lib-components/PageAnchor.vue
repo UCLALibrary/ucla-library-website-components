@@ -49,6 +49,7 @@ export default {
         margin-bottom: 10px;
         text-align: right;
         text-decoration: none;
+        z-index: 20;
     }
 
     .page-anchor a {
