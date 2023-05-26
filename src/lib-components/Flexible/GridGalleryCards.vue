@@ -1,18 +1,27 @@
 <template>
-    <div
-        v-if="
+    <div class="grid-gallery-cards">
+        <div
+            v-if="
             (block.gridGalleryCards && block.gridGalleryCards.length > 0) ||
-            block.subtitle
-        "
-        class="grid-gallery-cards"
-    >
-        <h3
-            v-if="block.subtitle"
-            class="grid-gallery-subtitle"
-            v-html="block.subtitle"
-        />
+            block.sectionTitle
+            "
+            class="section-header"
+        >
+            <h2
+                v-if="block.sectionTitle"
+                class="section-title"
+                v-html="block.sectionTitle"
+            />
+            <div
+                v-if="block.sectionSummary"
+                class="section-summary"
+                v-html="block.sectionSummary"
+            />
+        </div>
+
         <grid-gallery
             v-if="block.gridGalleryCards && block.gridGalleryCards.length > 0"
+            class="section-summary"
             :section-summary="block.summary"
             :items="parseGalleryCards"
         />
@@ -48,7 +57,7 @@ export default {
             let flattenedValues = []
             for (let subitem of galleryData.gridGalleryCards) {
                 let obj = {}
-                obj.subtitle = galleryData.subtitle || ""
+                obj.sectionTitle = galleryData.sectionTitle || ""
                 obj.sectionSummary = galleryData.summary || ""
                 obj.headlineText =
                     subitem.contentLink && subitem.contentLink[0]
@@ -84,17 +93,23 @@ export default {
 .grid-gallery-cards {
     margin: 12px auto;
     position: relative;
-    .grid-gallery-subtitle {
+
+    .section-header {
+        margin-bottom: var(--space-xl);
+    }
+
+    .section-title {
+        @include step-3;
         color: var(--color-primary-blue-03);
-        font-size: 35.538px;
-        line-height: 43px;
-        @include step-2;
-        position: sticky;
-        top: 0;
-        background-color: var(--color-white);
-        padding-top: 8px;
-        z-index: 30;
-        min-height: 46px;
+        margin-bottom: var(--space-m);
+    }
+    .section-summary {
+        @include step-0;
+        color: var(--color-black);
+
+        ::v-deep p {
+            margin: 0;
+        }
     }
 }
 </style>
