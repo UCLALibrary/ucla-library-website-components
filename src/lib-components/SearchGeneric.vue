@@ -13,12 +13,26 @@
 
         <form name="searchHome" @submit.prevent="doSearch">
             <div class="input-container">
-                <input
-                    v-model="searchWords"
-                    type="text"
-                    :placeholder="placeholder"
-                />
+                <div class="search-input">
+                    <input
+                        v-model="searchWords"
+                        :placeholder="placeholder"
+                        ref="inputRef"
+                        type="search"
+                        data-search-input="true"
+                        @input="onInput"
+                        @focus="hasFocus = true"
+                        @blur="hasFocus = false"
+                        @keydown="onKeydown"
+                    />
 
+                    <button
+                        class="search-icon clear"
+                        aria-label="Clear"
+                        @mousedown="clear"
+                        @keydown.space.enter="clear"
+                    ></button>
+                </div>
                 <button class="button-submit" type="submit">
                     <icon-search class="icon" />
                 </button>
@@ -113,6 +127,8 @@ export default {
     },
     data() {
         return {
+            hasFocus: false,
+            inputRef: null,
             searchWords: this.searchGenericQuery
                 ? this.searchGenericQuery.queryText
                 : "", // this.$route.query.q,
@@ -124,6 +140,9 @@ export default {
             selectedView: "list",
             opened: false,
         }
+    },
+    beforeUnmount() {
+        window.document.removeEventListener("keydown", this.onDocumentKeydown)
     },
     // The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for
     computed: {
@@ -222,12 +241,59 @@ export default {
                 filterObj.inputType == "radio" ? "" : []
         }
     },*/
+    mounted() {
+        this.inputRef = this.$refs.inputRef
+        window.document.addEventListener("keydown", this.onDocumentKeydown)
+    },
 
     // do not forget this section
     directives: {
         ClickOutside,
     },
     methods: {
+        clear() {
+            this.searchWords = ""
+        },
+        onInput(e) {
+            this.searchWords = e.target.value
+        },
+        onKeydown(e) {
+            if (e.key === "Escape") {
+                this.clear()
+                this.inputRef.blur()
+            }
+        },
+        onDocumentKeydown(e) {
+            if (
+                e.target !== this.inputRef &&
+                window.document.activeElement !== this.inputRef &&
+                !(e.target instanceof HTMLInputElement) &&
+                !(e.target instanceof HTMLSelectElement) &&
+                !(e.target instanceof HTMLTextAreaElement)
+            ) {
+                e.preventDefault()
+                const allVisibleSearchInputs = [].slice
+                    .call(
+                        document.querySelectorAll(
+                            '[data-search-input="true"]:not([data-shortcut-enabled="false"])'
+                        )
+                    )
+                    .filter((el) => {
+                        return !!(
+                            el.offsetWidth ||
+                            el.offsetHeight ||
+                            el.getClientRects().length
+                        )
+                    })
+                const elToFocus =
+                    allVisibleSearchInputs.length > 1
+                        ? allVisibleSearchInputs[0]
+                        : this.inputRef
+
+                elToFocus?.focus()
+                if (this.selectOnFocus) elToFocus?.select()
+            }
+        },
         hide() {
             this.openedFilterIndex = -1
         },
@@ -258,7 +324,7 @@ export default {
     border-radius: 4px;
     margin-right: auto;
     margin-left: auto;
-    margin-top: -72px;
+    margin-top: -32px;
     max-width: $container-l-cta + px;
     padding: 32px 32px 0;
 
@@ -283,7 +349,11 @@ export default {
                 }
             }
         }
-
+        .search-input {
+            display: flex;
+            width: 100%;
+            flex-grow: 1;
+        }
         input {
             font-family: var(--font-primary);
             font-style: normal;
@@ -293,7 +363,7 @@ export default {
             letter-spacing: 0.01em;
             background-color: var(--color-primary-blue-01);
             border-color: transparent;
-            padding: 24px 24px 24px 16px;
+            padding: 10px 10px;
             width: 100%;
 
             &::placeholder {
