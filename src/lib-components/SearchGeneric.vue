@@ -11,29 +11,21 @@
         <h4>filters for the page</h4>
         {{ filters }}-->
 
-        <form name="searchHome" @submit.prevent="doSearch">
+        <form name="searchHome" @submit.prevent="">
             <div class="input-container">
-                <div class="search-input">
-                    <input
-                        v-model="searchWords"
-                        :placeholder="placeholder"
-                        ref="inputRef"
-                        type="search"
-                        data-search-input="true"
-                        @input="onInput"
-                        @focus="hasFocus = true"
-                        @blur="hasFocus = false"
-                        @keydown="onKeydown"
-                    />
-
-                    <button
-                        class="search-icon clear"
-                        aria-label="Clear"
-                        @mousedown="clear"
-                        @keydown.space.enter="clear"
-                    ></button>
-                </div>
-                <button class="button-submit" type="submit">
+                <!--input
+                    v-model="searchWords"
+                    type="search"
+                    :placeholder="placeholder"
+                /-->
+                <search-input
+                    class="search-input"
+                    :model-value.sync="searchWords"
+                    :search-icon="false"
+                    :shortcut-icon="false"
+                    :placeholder="placeholder"
+                />
+                <button class="button-submit" type="submit" @click="doSearch">
                     <icon-search class="icon" />
                 </button>
             </div>
@@ -83,9 +75,12 @@ import SearchGenericViewModes from "./SearchGenericViewModes.vue"
 import BaseRadioGroup from "./BaseRadioGroup.vue"
 import BaseCheckboxGroup from "./BaseCheckboxGroup.vue"
 import SectionRemoveSearchFilter from "./SectionRemoveSearchFilter.vue"
+
 // import BaseCalendarGroup from "./BaseCalendarGroup.vue"
 
 import ClickOutside from "vue-click-outside"
+import SearchInput from "./SearchInput.vue"
+
 export default {
     name: "SearchGeneric",
     components: {
@@ -95,6 +90,7 @@ export default {
         BaseRadioGroup,
         BaseCheckboxGroup,
         SectionRemoveSearchFilter,
+        SearchInput,
 
         // BaseCalendarGroup,
     },
@@ -127,8 +123,6 @@ export default {
     },
     data() {
         return {
-            hasFocus: false,
-            inputRef: null,
             searchWords: this.searchGenericQuery
                 ? this.searchGenericQuery.queryText
                 : "", // this.$route.query.q,
@@ -141,16 +135,13 @@ export default {
             opened: false,
         }
     },
-    beforeUnmount() {
-        window.document.removeEventListener("keydown", this.onDocumentKeydown)
-    },
     // The 'parsedFilters' variable inside 'v-for' directive should be replaced with a computed property that returns filtered array instead. You should not mix 'v-for' with 'v-if'  vue/no-use-v-if-with-v-for
     computed: {
         parseSingleChexboxSelection: {
             set(selectedFilter) {
                 let esfieldName = ""
                 this.filters.map((obj) => {
-                    console.log("in issingle checkbox for loop")
+                    // console.log("in issingle checkbox for loop")
                     if (obj.inputType === "single-checkbox")
                         esfieldName = obj.esFieldName
                 })
@@ -159,7 +150,7 @@ export default {
             get() {
                 let esfieldName = ""
                 this.filters.map((obj) => {
-                    console.log("in issingle checkbox for loop")
+                    // console.log("in issingle checkbox for loop")
                     if (obj.inputType === "single-checkbox")
                         esfieldName = obj.esFieldName
                 })
@@ -175,10 +166,10 @@ export default {
             },
         },
         parsedFilters() {
-            console.log(JSON.stringify(this.selectedFilters))
+            // console.log(JSON.stringify(this.selectedFilters))
             return this.filters.map((obj) => {
                 let selected = this.selectedFilters[obj.esFieldName] || []
-                console.log("In parseselected: " + selected)
+                // console.log("In parseselected: " + selected)
                 let componentName = "base-checkbox-group"
 
                 // If none selected, then make sure radio's default is empty string
@@ -207,29 +198,29 @@ export default {
     },
     watch: {
         isViewOpened(newVal, oldVal) {
-            console.log("in is viewOpened")
+            // console.log("in is viewOpened")
             if (newVal) {
                 this.openedFilterIndex = -1
             }
         },
         openedFilterIndex(newVal, oldVal) {
-            console.log("in is openedFilterIndex" + newVal)
+            //console.log("in is openedFilterIndex" + newVal)
             if (newVal !== -1) {
                 this.isViewOpened = false
             }
         },
         "searchGenericQuery.queryText"(newVal, oldVal) {
-            console.log(
+            /*console.log(
                 "in search-genric component searchGenericQuery.queryText watch: " +
                     newVal
-            )
+            )*/
             this.searchWords = newVal
         },
         "searchGenericQuery.queryFilters"(newVal, oldVal) {
-            console.log(
+            /* console.log(
                 "in search-genric component searchGenericQuery.queryFilters watch: " +
                     JSON.stringify(newVal)
-            )
+            )*/
             this.selectedFilters = newVal
         },
     },
@@ -241,59 +232,12 @@ export default {
                 filterObj.inputType == "radio" ? "" : []
         }
     },*/
-    mounted() {
-        this.inputRef = this.$refs.inputRef
-        window.document.addEventListener("keydown", this.onDocumentKeydown)
-    },
 
     // do not forget this section
     directives: {
         ClickOutside,
     },
     methods: {
-        clear() {
-            this.searchWords = ""
-        },
-        onInput(e) {
-            this.searchWords = e.target.value
-        },
-        onKeydown(e) {
-            if (e.key === "Escape") {
-                this.clear()
-                this.inputRef.blur()
-            }
-        },
-        onDocumentKeydown(e) {
-            if (
-                e.target !== this.inputRef &&
-                window.document.activeElement !== this.inputRef &&
-                !(e.target instanceof HTMLInputElement) &&
-                !(e.target instanceof HTMLSelectElement) &&
-                !(e.target instanceof HTMLTextAreaElement)
-            ) {
-                e.preventDefault()
-                const allVisibleSearchInputs = [].slice
-                    .call(
-                        document.querySelectorAll(
-                            '[data-search-input="true"]:not([data-shortcut-enabled="false"])'
-                        )
-                    )
-                    .filter((el) => {
-                        return !!(
-                            el.offsetWidth ||
-                            el.offsetHeight ||
-                            el.getClientRects().length
-                        )
-                    })
-                const elToFocus =
-                    allVisibleSearchInputs.length > 1
-                        ? allVisibleSearchInputs[0]
-                        : this.inputRef
-
-                elToFocus?.focus()
-                if (this.selectOnFocus) elToFocus?.select()
-            }
-        },
         hide() {
             this.openedFilterIndex = -1
         },
@@ -349,11 +293,7 @@ export default {
                 }
             }
         }
-        .search-input {
-            display: flex;
-            width: 100%;
-            flex-grow: 1;
-        }
+
         input {
             font-family: var(--font-primary);
             font-style: normal;
@@ -363,7 +303,7 @@ export default {
             letter-spacing: 0.01em;
             background-color: var(--color-primary-blue-01);
             border-color: transparent;
-            padding: 10px 10px;
+            padding: 24px 24px 24px 16px;
             width: 100%;
 
             &::placeholder {
@@ -371,6 +311,9 @@ export default {
                 font-family: var(--font-primary);
                 text-overflow: ellipsis;
             }
+        }
+        .search-input {
+            flex-grow: 1;
         }
         .button-submit {
             display: flex;

@@ -12,20 +12,22 @@
         </div>
 
         <div class="box">
-            <form
-                name="searchHome"
-                :action="actionUrl"
-                @submit.prevent="doSearch"
-            >
+            <form name="searchHome" :action="actionUrl" @submit.prevent="">
                 <div class="input-container">
-                    <input
+                    <!--input
                         v-model="searchWords"
-                        type="text"
+                        type="search"
                         class="input-search"
                         :placeholder="placeholder"
+                    /-->
+                    <search-input
+                        class="search-input"
+                        :model-value.sync="searchWords"
+                        :search-icon="false"
+                        :shortcut-icon="false"
+                        :placeholder="placeholder"
                     />
-
-                    <button class="button-submit">
+                    <button class="button-submit" @click="doSearch">
                         <icon-search class="icon" />
                     </button>
                 </div>
