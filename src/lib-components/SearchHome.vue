@@ -60,6 +60,7 @@
 <script>
 import IconSearch from "ucla-library-design-tokens/assets/svgs/icon-search.svg"
 import SmartLink from "@/lib-components/SmartLink.vue"
+import SearchInput from "./SearchInput.vue"
 
 const tabs = [
     {
@@ -80,6 +81,7 @@ export default {
     components: {
         IconSearch,
         SmartLink,
+        SearchInput,
     },
     props: {
         /**
@@ -215,6 +217,9 @@ export default {
                 text-transform: uppercase;
                 font-family: var(--font-primary);
             }
+        }
+        .search-input {
+            flex-grow: 1;
         }
         .button-submit {
             display: flex;
