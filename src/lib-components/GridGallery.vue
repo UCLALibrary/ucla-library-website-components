@@ -1,6 +1,5 @@
 <template>
     <div class="grid-gallery">
-        <!-- <h4 class="section-summary" v-html="sectionSummary" /> -->
         <ul class="cards">
             <li
                 v-for="card in parsedItems"

@@ -1,16 +1,16 @@
 <template>
-
-        <ul class="page-anchor">
+    <div class="page-anchor-container">
+        <ul class="page-anchor link">
             <li v-for="(title, index) in sectionTitles" :key="index">
                 <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
             </li>
             <li><a href="#">Back to Top</a></li>
         </ul>
-
+    </div>
 </template>
 
 <script>
-import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
+/* import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg" */
 
 export default {
     name: "PageAnchor",
@@ -52,7 +52,7 @@ export default {
     position: -webkit-sticky; /* Required for Safari */
     position: sticky;
     /* background-color: rgba(255, 255,255, 0.9); */
-    background: linear-gradient(to left, white, transparent 98%);
+    background: linear-gradient(to left, white, transparent 99.99%);
     width: auto;
     height: 100vh;
     list-style-type: none;
@@ -65,9 +65,22 @@ export default {
     font-weight: 500;
     text-transform: uppercase;
     padding: var(--space-l) var(--space-l) var(--space-s) var(--space-l);
+
+    --link-color: var(--color-primary-blue-03);
+    --icon-color: var(--color-primary-blue-03);
+    --icon-color-highlight: var(--color-default-cyan-03);
+
+        color: var(--link-color);
+    }
+
+    @media #{$has-hover} {
+        .link:hover {
+            @include link-hover;
+        }
+    }
 }
 
-.page-anchor li {
+/* .page-anchor li {
     margin-bottom: 10px;
     text-align: right;
     text-decoration: none;
@@ -81,5 +94,5 @@ export default {
 
 .page-anchor a:hover {
     color: coral;
-}
+} */
 </style>
