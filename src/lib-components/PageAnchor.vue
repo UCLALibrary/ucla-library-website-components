@@ -1,6 +1,10 @@
 <template>
     <div class="page-anchor-container">
-        <ul class="page-anchor link">
+        <button class="dropdown-button" @click="toggleDropdown">
+            Dropdown <span class="caret" :class="{ 'caret-open': isDropdownOpen }"></span>
+        </button>
+
+        <ul v-if="isDropdownOpen" class="dropdown-menu page-anchor">
             <li v-for="(title, index) in sectionTitles" :key="index">
                 <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
             </li>
@@ -10,12 +14,17 @@
 </template>
 
 <script>
-/* import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg" */
+// import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
 
 export default {
     name: "PageAnchor",
     components: {
         SvgIconCaretDown
+    },
+    data() {
+        return {
+        isDropdownOpen: false
+        };
     },
     props: {
         sectionTitles: {
@@ -35,6 +44,11 @@ export default {
             })
         },
     },
+    methods: {
+        toggleDropdown() {
+            this.isDropdownOpen = !this.isDropdownOpen;
+        }
+    }
 }
 </script>
 
@@ -42,6 +56,24 @@ export default {
 .page-anchor-container {
     /*position: -webkit-sticky; /* Required for Safari */
     /*position: sticky; */
+    background-color: pink;
+}
+
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.caret {
+  margin-left: 5px;
+}
+
+.caret-open {
+  transform: rotate(180deg);
 }
 
 .page-anchor {
@@ -70,17 +102,14 @@ export default {
     --icon-color: var(--color-primary-blue-03);
     --icon-color-highlight: var(--color-default-cyan-03);
 
-        color: var(--link-color);
-    }
-
-    @media #{$has-hover} {
+    /* @media #{$has-hover} {
         .link:hover {
             @include link-hover;
         }
-    }
+    } */
 }
 
-/* .page-anchor li {
+.page-anchor li {
     margin-bottom: 10px;
     text-align: right;
     text-decoration: none;
@@ -94,5 +123,5 @@ export default {
 
 .page-anchor a:hover {
     color: coral;
-} */
+}
 </style>
