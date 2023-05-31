@@ -22,7 +22,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { PageAnchor },
-  template: '<page-anchor v-bind="$props" />',
+  template: '<page-anchor v-bind="$props" color="help" />',
 });
 
 export const Default = Template.bind({});
