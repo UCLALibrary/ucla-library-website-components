@@ -1,9 +1,11 @@
 import { action } from "@storybook/addon-actions"
 import SearchHome from "@/lib-components/SearchHome"
+import StoryRouter from "storybook-vue-router"
 
 export default {
     title: "Search / Search Home",
     component: SearchHome,
+    decorators: [StoryRouter()],
 }
 
 const Template = (args, { argTypes }) => ({

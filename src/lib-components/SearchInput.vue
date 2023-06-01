@@ -237,7 +237,7 @@ $active-color: #1ea7fd;
             text-overflow: ellipsis;
         }
         &:focus {
-            background-color: lighten($input-background, 25%);
+            background-color: var(--color-primary-blue-01);
             border-color: $active-color;
             outline: 0;
             box-shadow: none;
