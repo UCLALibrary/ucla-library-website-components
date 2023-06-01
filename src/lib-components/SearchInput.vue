@@ -1,15 +1,9 @@
 <template>
     <div v-bind="attrsStyles">
-        <slot name="prepend"></slot>
-        <slot v-if="searchIcon" name="search-icon">
-            <i class="search-icon search"></i>
-        </slot>
-        <slot name="prepend-inner"></slot>
         <input
             ref="inputRef"
             type="search"
             data-search-input="true"
-            :data-shortcut-enabled="shortcutListenerEnabled"
             v-model="searchInputModelValue"
             v-bind="attrsWithoutStyles"
             @input="onInput"
@@ -17,22 +11,14 @@
             @blur="hasFocus = false"
             @keydown="onKeydown"
         />
-        <slot name="append"></slot>
-        <slot v-if="showShortcutIcon" name="shortcut-icon">
-            <i
-                class="search-icon shortcut"
-                :title="'Press &quot;/&quot; to search'"
-            ></i>
-        </slot>
         <slot v-if="showClearIcon" name="clear-icon" :clear="clear">
             <button
-                class="search-icon clear"
+                class="clear-icon clear"
                 aria-label="Clear"
                 @mousedown="clear"
                 @keydown.space.enter="clear"
             ></button>
         </slot>
-        <slot name="append-outer"></slot>
     </div>
 </template>
 
@@ -70,22 +56,12 @@ export default {
             type: String,
             default: "search-input-wrapper",
         },
-        searchIcon: defaultBoolean(),
-        shortcutIcon: defaultBoolean(),
+
         clearIcon: defaultBoolean(),
-        hideShortcutIconOnBlur: defaultBoolean(),
+
         clearOnEsc: defaultBoolean(),
         blurOnEsc: defaultBoolean(),
         selectOnFocus: defaultBoolean(),
-        shortcutListenerEnabled: defaultBoolean(),
-        placeHolder: {
-            type: String,
-            default: "search-input-wrapper",
-        },
-        shortcutKey: {
-            type: String,
-            default: "/",
-        },
     },
 
     data() {
@@ -114,22 +90,6 @@ export default {
             )*/
             return this.clearIcon && this.searchInputModelValue.length > 0
         },
-        showShortcutIcon() {
-            if (
-                this.shortcutIcon &&
-                !this.hasFocus &&
-                !this.hideShortcutIconOnBlur
-            )
-                return true
-            if (
-                this.shortcutIcon &&
-                !this.hasFocus &&
-                this.modelValue.length === 0
-            )
-                return true
-
-            return false
-        },
     },
     mounted() {
         this.inputRef = this.$refs.inputRef
@@ -137,21 +97,6 @@ export default {
     },
     beforeDestroy() {
         window.document.removeEventListener("keydown", this.onDocumentKeydown)
-    },
-    watch: {
-        shortcutListenerEnabled(newValue) {
-            if (newValue) {
-                window.document.addEventListener(
-                    "keydown",
-                    this.onDocumentKeydown
-                )
-            } else {
-                window.document.removeEventListener(
-                    "keydown",
-                    this.onDocumentKeydown
-                )
-            }
-        },
     },
 
     methods: {
@@ -236,66 +181,18 @@ $active-color: #1ea7fd;
             font-family: var(--font-primary);
             text-overflow: ellipsis;
         }
+        /*
         &:focus {
             background-color: var(--color-primary-blue-01);
             border-color: $active-color;
             outline: 0;
             box-shadow: none;
-        }
+        }*/
     }
 
-    .search-icon {
+    .clear-icon {
         color: $icon-color;
         position: absolute;
-        &.search {
-            left: 12px;
-            bottom: 12px;
-            box-sizing: border-box;
-            display: block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid;
-            border-radius: 100%;
-            margin-left: -4px;
-            margin-top: -4px;
-        }
-        &.search::after {
-            content: "";
-            display: block;
-            box-sizing: border-box;
-            position: absolute;
-            border-radius: 3px;
-            width: 2px;
-            height: 7px;
-            background: $icon-color;
-            transform: rotate(-45deg);
-            top: 11px;
-            left: 12px;
-        }
-        &.shortcut {
-            width: 22px;
-            height: 24px;
-            cursor: text;
-            right: 8px;
-            bottom: 7px;
-            background-color: darken($input-background, 4%);
-            border-radius: 3px;
-            z-index: 50;
-        }
-        &.shortcut::after {
-            content: "";
-            display: block;
-            box-sizing: border-box;
-            position: absolute;
-            border-radius: 2px;
-            transform: rotate(25deg);
-            width: 2px;
-            height: 16px;
-            top: 4px;
-            left: 10px;
-            z-index: 51;
-            background-color: lighten($icon-color, 5%);
-        }
         &.clear {
             right: 15px;
             bottom: 22px;

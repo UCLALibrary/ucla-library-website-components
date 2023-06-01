@@ -23,8 +23,6 @@
                     <search-input
                         class="search-input"
                         :model-value.sync="searchWords"
-                        :search-icon="false"
-                        :shortcut-icon="false"
                         :placeholder="placeholder"
                     />
                     <button class="button-submit" @click="doSearch">
