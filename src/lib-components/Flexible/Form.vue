@@ -51,7 +51,7 @@ export default {
 .form {
     width: 100%;
     height: auto;
-    margin: var(--space-3xl) auto;
+    margin: var(--space-2xl) auto;
     max-width: $container-l-main + px;
 
     .content {

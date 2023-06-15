@@ -17,8 +17,8 @@
             {{ title }}
         </h3>
 
-        <div class="byline-group" v-if="department || payRate">
-            <div v-if="department" class="schedule-item">
+        <div class="byline-group" v-if="department.length || payRate">
+            <div v-if="department.length" class="schedule-item">
                 <div
                     v-for="(item, index) in department"
                     :key="index"
@@ -156,6 +156,10 @@ export default {
         @include step-0;
         color: var(--color-secondary-grey-05);
         margin-bottom: var(--space-s);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     .text {
@@ -175,6 +179,10 @@ export default {
         line-height: 1;
         margin-bottom: var(--space-s);
         z-index: 10;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
     .location-link,
     .location-text {

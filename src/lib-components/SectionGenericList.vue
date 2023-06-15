@@ -40,7 +40,7 @@ export default {
 .section-block-generic-list {
     .block-generic-list {
         border-bottom: 2px dotted var(--color-secondary-grey-02);
-        padding: var(--space-2xl) 0;
+        padding: var(--space-xl) 0;
         &:first-child {
             padding-top: 0;
         }
