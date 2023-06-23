@@ -83,6 +83,7 @@ export default {
 
         > .section-title {
             color: var(--color-primary-blue-03);
+            line-height: 1.2;
             margin-bottom: var(--space-m);
         }
 
@@ -100,12 +101,12 @@ export default {
 
         &.theme-gray {
             --color-theme: var(--color-secondary-grey-01);
-            padding: var(--space-3xl) var(--unit-gutter);
+            padding: var(--space-2xl) var(--unit-gutter);
         }
 
         &.theme-white {
             padding: 0 var(--unit-gutter);
-            margin: var(--space-3xl) auto;
+            margin: var(--space-2xl) auto;
             &.section-banner {
                 margin-top: 0;
                 > * {
@@ -124,7 +125,7 @@ export default {
             padding: 0 var(--unit-gutter);
         }
 
-        padding: var(--space-3xl) var(--unit-gutter);
+        padding: var(--space-2xl) var(--unit-gutter);
         margin: 0 auto;
         background-color: var(--color-theme);
 

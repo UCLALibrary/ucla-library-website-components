@@ -60,7 +60,7 @@ export default {
     gap: var(--space-m);
 
     max-width: $container-l-main + px;
-    margin: 0 auto var(--space-3xl);
+    margin: 0 auto var(--space-2xl);
 
     caption {
         @include visually-hidden;

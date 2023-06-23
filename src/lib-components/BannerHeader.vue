@@ -28,12 +28,29 @@
 
             <rich-text v-if="text" class="snippet" :rich-text-content="text" />
 
-            <div class="meta-text">
+            <div
+                class="meta-text"
+                v-if="
+                    byline.length ||
+                    subjectAreas.length ||
+                    dateCreated ||
+                    startDate ||
+                    email ||
+                    phone ||
+                    staffDirectoryLink ||
+                    addressLink
+                "
+            >
                 <div
                     class="meta-block"
-                    v-if="byline || subjectAreas || dateCreated || startDate"
+                    v-if="
+                        byline.length ||
+                        subjectAreas.length ||
+                        dateCreated ||
+                        startDate
+                    "
                 >
-                    <div v-if="byline" class="byline-item">
+                    <div v-if="byline.length" class="byline-item">
                         <div
                             v-for="(item, index) in byline"
                             :key="index"
@@ -43,7 +60,7 @@
                         </div>
                     </div>
 
-                    <div v-if="subjectAreas" class="subject-areas">
+                    <div v-if="subjectAreas.length" class="subject-areas">
                         <div v-for="(item, index) in subjectAreas" :key="index">
                             {{ item.title }}
                         </div>
@@ -557,8 +574,9 @@ export default {
         color: var(--color-black);
         margin-bottom: var(--space-m);
 
+        &:last-child,
         ::v-deep p {
-            margin: 0;
+            margin-bottom: 0;
         }
     }
     .meta-block {
@@ -568,6 +586,10 @@ export default {
         align-items: flex-start;
         margin-bottom: var(--space-m);
         justify-content: space-evenly;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     .schedule-item,
