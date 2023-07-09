@@ -1,3 +1,10 @@
+## [2.36.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.36.2...v2.36.3) (2023-06-23)
+
+
+### Bug Fixes
+
+* reduce white space ([#349](https://github.com/UCLALibrary/ucla-library-website-components/issues/349)) ([bca3b94](https://github.com/UCLALibrary/ucla-library-website-components/commit/bca3b9481689967bd8471a09e34154ef6645b5f9))
+
 ## [2.36.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.36.1...v2.36.2) (2023-03-17)
 
 
