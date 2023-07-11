@@ -1,3 +1,10 @@
+## [2.37.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.0...v2.37.1) (2023-07-11)
+
+
+### Bug Fixes
+
+* add "Y" to alphabetical browseby component ([#350](https://github.com/UCLALibrary/ucla-library-website-components/issues/350)) ([90ea209](https://github.com/UCLALibrary/ucla-library-website-components/commit/90ea209a4365175b726446504a9100e38cc5a1c7))
+
 # [2.37.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.36.3...v2.37.0) (2023-07-11)
 
 
