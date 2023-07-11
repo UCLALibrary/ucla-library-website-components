@@ -11,15 +11,19 @@
         <h4>filters for the page</h4>
         {{ filters }}-->
 
-        <form name="searchHome" @submit.prevent="doSearch">
+        <form name="searchHome" @submit.prevent="">
             <div class="input-container">
-                <input
+                <!--input
                     v-model="searchWords"
-                    type="text"
+                    type="search"
+                    :placeholder="placeholder"
+                /-->
+                <search-input
+                    class="search-input"
+                    :model-value.sync="searchWords"
                     :placeholder="placeholder"
                 />
-
-                <button class="button-submit" type="submit">
+                <button class="button-submit" type="submit" @click="doSearch">
                     <icon-search class="icon" />
                 </button>
             </div>
@@ -69,9 +73,12 @@ import SearchGenericViewModes from "./SearchGenericViewModes.vue"
 import BaseRadioGroup from "./BaseRadioGroup.vue"
 import BaseCheckboxGroup from "./BaseCheckboxGroup.vue"
 import SectionRemoveSearchFilter from "./SectionRemoveSearchFilter.vue"
+
 // import BaseCalendarGroup from "./BaseCalendarGroup.vue"
 
 import ClickOutside from "vue-click-outside"
+import SearchInput from "./SearchInput.vue"
+
 export default {
     name: "SearchGeneric",
     components: {
@@ -81,6 +88,7 @@ export default {
         BaseRadioGroup,
         BaseCheckboxGroup,
         SectionRemoveSearchFilter,
+        SearchInput,
 
         // BaseCalendarGroup,
     },
@@ -131,7 +139,7 @@ export default {
             set(selectedFilter) {
                 let esfieldName = ""
                 this.filters.map((obj) => {
-                    console.log("in issingle checkbox for loop")
+                    // console.log("in issingle checkbox for loop")
                     if (obj.inputType === "single-checkbox")
                         esfieldName = obj.esFieldName
                 })
@@ -140,7 +148,7 @@ export default {
             get() {
                 let esfieldName = ""
                 this.filters.map((obj) => {
-                    console.log("in issingle checkbox for loop")
+                    // console.log("in issingle checkbox for loop")
                     if (obj.inputType === "single-checkbox")
                         esfieldName = obj.esFieldName
                 })
@@ -156,10 +164,10 @@ export default {
             },
         },
         parsedFilters() {
-            console.log(JSON.stringify(this.selectedFilters))
+            // console.log(JSON.stringify(this.selectedFilters))
             return this.filters.map((obj) => {
                 let selected = this.selectedFilters[obj.esFieldName] || []
-                console.log("In parseselected: " + selected)
+                // console.log("In parseselected: " + selected)
                 let componentName = "base-checkbox-group"
 
                 // If none selected, then make sure radio's default is empty string
@@ -188,29 +196,29 @@ export default {
     },
     watch: {
         isViewOpened(newVal, oldVal) {
-            console.log("in is viewOpened")
+            // console.log("in is viewOpened")
             if (newVal) {
                 this.openedFilterIndex = -1
             }
         },
         openedFilterIndex(newVal, oldVal) {
-            console.log("in is openedFilterIndex" + newVal)
+            //console.log("in is openedFilterIndex" + newVal)
             if (newVal !== -1) {
                 this.isViewOpened = false
             }
         },
         "searchGenericQuery.queryText"(newVal, oldVal) {
-            console.log(
+            /*console.log(
                 "in search-genric component searchGenericQuery.queryText watch: " +
                     newVal
-            )
+            )*/
             this.searchWords = newVal
         },
         "searchGenericQuery.queryFilters"(newVal, oldVal) {
-            console.log(
+            /* console.log(
                 "in search-genric component searchGenericQuery.queryFilters watch: " +
                     JSON.stringify(newVal)
-            )
+            )*/
             this.selectedFilters = newVal
         },
     },
@@ -258,7 +266,7 @@ export default {
     border-radius: 4px;
     margin-right: auto;
     margin-left: auto;
-    margin-top: -72px;
+    margin-top: -32px;
     max-width: $container-l-cta + px;
     padding: 32px 32px 0;
 
@@ -301,6 +309,9 @@ export default {
                 font-family: var(--font-primary);
                 text-overflow: ellipsis;
             }
+        }
+        .search-input {
+            flex-grow: 1;
         }
         .button-submit {
             display: flex;

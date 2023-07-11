@@ -60,7 +60,7 @@ export default {
         isSingleCheckBox() {
             let isSingleCheckBox = false
             this.items.map((obj) => {
-                console.log("in issingle checkbox for loop")
+                // console.log("in issingle checkbox for loop")
                 if (obj.inputType === "single-checkbox") isSingleCheckBox = true
             })
             return isSingleCheckBox

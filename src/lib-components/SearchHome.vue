@@ -12,20 +12,20 @@
         </div>
 
         <div class="box">
-            <form
-                name="searchHome"
-                :action="actionUrl"
-                @submit.prevent="doSearch"
-            >
+            <form name="searchHome" :action="actionUrl" @submit.prevent="">
                 <div class="input-container">
-                    <input
+                    <!--input
                         v-model="searchWords"
-                        type="text"
+                        type="search"
                         class="input-search"
                         :placeholder="placeholder"
+                    /-->
+                    <search-input
+                        class="search-input"
+                        :model-value.sync="searchWords"
+                        :placeholder="placeholder"
                     />
-
-                    <button class="button-submit">
+                    <button class="button-submit" @click="doSearch">
                         <icon-search class="icon" />
                     </button>
                 </div>
@@ -58,6 +58,7 @@
 <script>
 import IconSearch from "ucla-library-design-tokens/assets/svgs/icon-search.svg"
 import SmartLink from "@/lib-components/SmartLink.vue"
+import SearchInput from "./SearchInput.vue"
 
 const tabs = [
     {
@@ -78,6 +79,7 @@ export default {
     components: {
         IconSearch,
         SmartLink,
+        SearchInput,
     },
     props: {
         /**
@@ -213,6 +215,9 @@ export default {
                 text-transform: uppercase;
                 font-family: var(--font-primary);
             }
+        }
+        .search-input {
+            flex-grow: 1;
         }
         .button-submit {
             display: flex;

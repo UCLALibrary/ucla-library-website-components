@@ -1,3 +1,10 @@
+# [2.37.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.36.3...v2.37.0) (2023-07-11)
+
+
+### Features
+
+* APPS-2212 clear search text ([#348](https://github.com/UCLALibrary/ucla-library-website-components/issues/348)) ([2f419ba](https://github.com/UCLALibrary/ucla-library-website-components/commit/2f419ba3e1b4c2986f9c3f64e06091fffa30e51c))
+
 ## [2.36.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.36.2...v2.36.3) (2023-06-23)
 
 
