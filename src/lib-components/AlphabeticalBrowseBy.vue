@@ -96,6 +96,9 @@ export default {
                     letter: "X",
                 },
                 {
+                    letter: "Y",
+                },
+                {
                     letter: "Z",
                 },
             ],
