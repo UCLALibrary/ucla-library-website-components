@@ -146,8 +146,12 @@ export default {
                         ? allVisibleSearchInputs[0]
                         : this.inputRef
 
-                elToFocus?.focus()
-                if (this.selectOnFocus) elToFocus?.select()
+                if (elToFocus) {
+                    elToFocus.focus()
+                    if (this.selectOnFocus) {
+                        elToFocus.select()
+                    }
+                }
             }
         },
     },
