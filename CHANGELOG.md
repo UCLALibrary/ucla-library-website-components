@@ -1,3 +1,10 @@
+## [2.37.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.1...v2.37.2) (2023-07-12)
+
+
+### Bug Fixes
+
+* replace chaining operator that is not supported in nuxt2 yet it is es2020 syntax ([#351](https://github.com/UCLALibrary/ucla-library-website-components/issues/351)) ([5471328](https://github.com/UCLALibrary/ucla-library-website-components/commit/5471328baaea0859bbd9eaf59ac2c6e76923eedc))
+
 ## [2.37.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.0...v2.37.1) (2023-07-11)
 
 
