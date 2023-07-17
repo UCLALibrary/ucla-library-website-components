@@ -1,3 +1,10 @@
+## [2.37.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.2...v2.37.3) (2023-07-17)
+
+
+### Bug Fixes
+
+* remove search-input scoped slots not supported by nuxt2 ([#352](https://github.com/UCLALibrary/ucla-library-website-components/issues/352)) ([62ddf04](https://github.com/UCLALibrary/ucla-library-website-components/commit/62ddf049c5a682b7a5b21c826828298105f51930))
+
 ## [2.37.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.1...v2.37.2) (2023-07-12)
 
 
