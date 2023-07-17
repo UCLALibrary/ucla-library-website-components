@@ -11,30 +11,32 @@
             @blur="hasFocus = false"
             @keydown="onKeydown"
         />
-        <slot v-if="showClearIcon" name="clear-icon" :clear="clear">
-            <button
-                class="clear-icon clear"
-                aria-label="Clear"
-                @mousedown="clear"
-                @keydown.space.enter="clear"
-            ></button>
-        </slot>
+        <button
+            v-if="showClearIcon"
+            class="clear-icon clear"
+            aria-label="Clear"
+            @mousedown="clear"
+            @keydown.space.enter="clear"
+        ></button>
     </div>
 </template>
 
 <script>
 const filterObject = (obj, properties, remove = true) => {
+    // console.log(obj)
+    // console.log(properties)
     const res = {}
+    if (properties && properties.length > 0) {
+        Object.keys(obj).forEach((objAttr) => {
+            const condition = remove
+                ? properties.indexOf(objAttr) === -1
+                : properties.indexOf(objAttr) >= 0
 
-    Object.keys(obj).forEach((objAttr) => {
-        const condition = remove
-            ? properties.indexOf(objAttr) === -1
-            : properties.indexOf(objAttr) >= 0
-
-        if (condition) {
-            res[objAttr] = obj[objAttr]
-        }
-    })
+            if (condition) {
+                res[objAttr] = obj[objAttr]
+            }
+        })
+    }
 
     return res
 }
@@ -83,7 +85,7 @@ export default {
             return res
         },
         showClearIcon() {
-            /*console.log(
+            /* console.log(
                 "in show clear icon",
                 this.clearIcon,
                 this.searchInputModelValue.length
