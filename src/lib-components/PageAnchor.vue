@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="page-anchor">
         <button class="dropdown-button" @click="toggleDropdown">
-            CONTENTS <span class="caret" :class="{ 'caret-open': isDropdownOpen }"></span>
+            TABLE OF CONTENTS <span class="caret" :class="{ 'caret-open': isDropdownOpen }"></span>
         </button>
 
         <ul v-if="isDropdownOpen" class="dropdown-menu page-anchor-list">
@@ -61,6 +61,8 @@ export default {
 
 <style scoped>
 .page-anchor {
+    max-width: 1060px;
+    background-color: var(--color-secondary-grey-01);
     display: flex;
     flex-direction: column;
     align-self: flex-end;
@@ -71,7 +73,7 @@ export default {
     position: -webkit-sticky; /* Required for Safari */
     position: sticky;
     /* background-color: rgba(255, 255,255, 0.9); */
-    background: linear-gradient(to left, white, transparent 99.99%);
+    /* background: linear-gradient(to left, pink, transparent 99.99%); */
     width: auto;
     height: 0;
     list-style-type: none;
@@ -93,20 +95,21 @@ export default {
   display: flex;
   align-self: flex-end;
   cursor: help;
-  padding-right: var(--space-xl);
+  /* padding-right: var(--space-xl); */
+  margin-top: -20px;
 }
 
 .page-anchor-list {
+    background-color: var(--color-secondary-grey-01);
+    max-width: 1060px;
     display: flex;
     flex-direction: column;
     align-self: flex-end;
 
     position: -webkit-sticky; /* Required for Safari */
     position: sticky;
-    /* background-color: rgba(255, 255,255, 0.9); */
-    background: linear-gradient(to left, white, transparent 99.99%);
-    width: auto;
-    height: 0;
+    width: 100%;
+    height: auto;
     list-style-type: none;
     top: 0;
     right: 0;
@@ -115,7 +118,7 @@ export default {
     @include overline;
     font-weight: 500;
     text-transform: uppercase;
-    padding: var(--space-l) var(--space-xl) var(--space-s) var(--space-l);
+    padding: var(--space-l) 0 var(--space-s) var(--space-l);
 }
 
     .link {
