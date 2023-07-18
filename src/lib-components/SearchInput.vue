@@ -12,7 +12,7 @@
             @keydown="onKeydown"
         />
         <button
-            v-if="showClearIcon"
+            v-show="showClearIcon"
             class="clear-icon clear"
             aria-label="Clear"
             @mousedown="clear"
@@ -85,11 +85,11 @@ export default {
             return res
         },
         showClearIcon() {
-            /* console.log(
+            console.log(
                 "in show clear icon",
                 this.clearIcon,
                 this.searchInputModelValue.length
-            )*/
+            )
             return this.clearIcon && this.searchInputModelValue.length > 0
         },
     },
