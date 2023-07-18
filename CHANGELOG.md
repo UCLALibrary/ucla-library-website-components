@@ -1,3 +1,10 @@
+## [2.37.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.3...v2.37.4) (2023-07-18)
+
+
+### Bug Fixes
+
+* replace v-if with v-show for hydration issues in nuxt2 ([#353](https://github.com/UCLALibrary/ucla-library-website-components/issues/353)) ([e776d57](https://github.com/UCLALibrary/ucla-library-website-components/commit/e776d57c12e30732b4181b4ae47101a2674b5520))
+
 ## [2.37.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.2...v2.37.3) (2023-07-17)
 
 
