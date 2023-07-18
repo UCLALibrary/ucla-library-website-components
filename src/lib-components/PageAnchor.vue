@@ -17,7 +17,7 @@
 // Helpers
 import getSectionName from "@/mixins/getSectionName"
 
-// import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
+import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
 
 export default {
     name: "PageAnchor",
