@@ -63,10 +63,9 @@ export default {
 
 <style scoped>
 .page-anchor {
-        display: block;
     position: sticky;
     position: -webkit-sticky; /* Required for Safari */
-    height: auto;
+    height: 100%;
     background-color: var(--color-secondary-grey-01);
     background-color: #F2F2F280;
     /* max-width: 1060px; */
@@ -75,7 +74,6 @@ export default {
         display: flex;
         flex-direction: column;
         align-self: flex-end;
-        flex-wrap: nowrap;
         justify-content: flex-end;
         align-items: flex-end;
 
@@ -90,26 +88,27 @@ export default {
     }
 
     .dropdown-button {
-
-            /* padding: var(--space-s) 0;*/
-            cursor: help;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        cursor: help;
     }
 
-        .page-anchor-list, .link {
-            display: flex;
-            flex-direction: column;
-            align-self: flex-end;
+    .page-anchor-list, .link {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
 
-            list-style-type: none;
-            /* top: 0;
-            right: 0;
-            z-index: 200;
-            margin-bottom: var(--space-s);
-            @include overline;
+        list-style-type: none;
+
+        &:hover {
             font-weight: 500;
-            text-transform: uppercase;
-            padding: var(--space-l) 0 var(--space-s) var(--space-l); */
+            text-decoration: underline;
+            text-decoration-color: var(--color-primary-blue-03);
+            text-decoration-thickness: 1.5px;
+            @include link-hover;
         }
+    }
 
 
     /* .link {
