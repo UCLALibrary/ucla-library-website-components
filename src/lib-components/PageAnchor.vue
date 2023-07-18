@@ -1,15 +1,17 @@
 <template>
     <div class="page-anchor">
-        <button class="dropdown-button" @click="toggleDropdown">
-            TABLE OF CONTENTS <span class="caret" :class="{ 'caret-open': isDropdownOpen }"></span>
-        </button>
+        <div class="page-anchor-content">
+            <button class="dropdown-button" @click="toggleDropdown">
+                TABLE OF CONTENTS <span class="caret" :class="{ 'caret-open': isDropdownOpen }"></span>
+            </button>
 
-        <ul v-if="isDropdownOpen" class="dropdown-menu page-anchor-list">
-            <li v-for="(title, index) in sectionTitles" :key="index" :class="classes">
-                <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
-            </li>
-            <li :class="classes"><a href="#">Back to Top</a></li>
-        </ul>
+            <ul v-if="isDropdownOpen" class="dropdown-menu page-anchor-list">
+                <li v-for="(title, index) in sectionTitles" :key="index" :class="classes">
+                    <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
+                </li>
+                <li :class="classes"><a href="#">Back to Top</a></li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -61,71 +63,60 @@ export default {
 
 <style scoped>
 .page-anchor {
-    max-width: 1060px;
-    background-color: var(--color-secondary-grey-01);
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-end;
-
-    position: -webkit-sticky; /* Required for Safari */
+        display: block;
     position: sticky;
-    /* background-color: rgba(255, 255,255, 0.9); */
-    /* background: linear-gradient(to left, pink, transparent 99.99%); */
-    width: auto;
-    height: 0;
-    list-style-type: none;
-    top: 0;
-    right: 0;
-    z-index: 200;
-    margin-bottom: var(--space-s);
-    @include overline;
-    font-weight: 500;
-    text-transform: uppercase;
-    padding: var(--space-l) var(--space-l) var(--space-s) var(--space-l);
-
-    --link-color: var(--color-primary-blue-03);
-    --icon-color: var(--color-primary-blue-03);
-    --icon-color-highlight: var(--color-default-cyan-03);
-}
-
-.dropdown-button {
-  display: flex;
-  align-self: flex-end;
-  cursor: help;
-  /* padding-right: var(--space-xl); */
-  margin-top: -20px;
-}
-
-.page-anchor-list {
-    background-color: var(--color-secondary-grey-01);
-    max-width: 1060px;
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-
     position: -webkit-sticky; /* Required for Safari */
-    position: sticky;
-    width: 100%;
     height: auto;
-    list-style-type: none;
-    top: 0;
-    right: 0;
-    z-index: 200;
-    margin-bottom: var(--space-s);
-    @include overline;
-    font-weight: 500;
-    text-transform: uppercase;
-    padding: var(--space-l) 0 var(--space-s) var(--space-l);
-}
+    background-color: var(--color-secondary-grey-01);
+    background-color: #F2F2F280;
+    /* max-width: 1060px; */
 
-    .link {
+    .page-anchor-content {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        /* @include overline; */
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: var(--space-l) var(--space-l) var(--space-s) var(--space-l);
+
+        --link-color: var(--color-primary-blue-03);
+        --icon-color: var(--color-primary-blue-03);
+        --icon-color-highlight: var(--color-default-cyan-03);
+    }
+
+    .dropdown-button {
+
+            /* padding: var(--space-s) 0;*/
+            cursor: help;
+    }
+
+        .page-anchor-list, .link {
+            display: flex;
+            flex-direction: column;
+            align-self: flex-end;
+
+            list-style-type: none;
+            /* top: 0;
+            right: 0;
+            z-index: 200;
+            margin-bottom: var(--space-s);
+            @include overline;
+            font-weight: 500;
+            text-transform: uppercase;
+            padding: var(--space-l) 0 var(--space-s) var(--space-l); */
+        }
+
+
+    /* .link {
         margin-bottom: 10px;
         text-align: right;
         text-decoration: none;
-    }
+    } */
 
     .link:hover {
         @include link-hover;
@@ -144,6 +135,9 @@ export default {
             --color-border: var(--color-default-cyan-03);
         }
     }
+
+}
+
 
 /* .page-anchor a {
     @include overline;
