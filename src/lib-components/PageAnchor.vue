@@ -70,8 +70,6 @@ export default {
     position: -webkit-sticky; /* Required for Safari */
     height: 100%;
     background-color: var(--color-secondary-grey-01);
-    background-color: #F2F2F280;
-    /* max-width: 1060px; */
 
     .page-anchor-content {
         display: flex;
@@ -79,20 +77,14 @@ export default {
         align-self: flex-end;
         justify-content: flex-end;
         align-items: flex-end;
-
-        /* @include overline; */
-        /* font-weight: 500; */
         text-transform: uppercase;
         padding: var(--space-l) var(--space-l) var(--space-s) var(--space-l);
-
-        --link-color: var(--color-primary-blue-03);
-        --icon-color: var(--color-primary-blue-03);
-        --icon-color-highlight: var(--color-default-cyan-03);
     }
 
     .dropdown-button {
         display: flex;
         flex-direction: column;
+        align-items: flex-end;
         align-self: flex-end;
         cursor: help;
     }
@@ -122,24 +114,6 @@ export default {
         text-decoration-color: var(--color-primary-blue-03);
         text-decoration-color: var(--color-border);
         text-decoration-thickness: 1.5px;
-        /* @include link-hover; */
     }
 }
-
-
-/* .page-anchor a {
-    @include overline;
-    color: var(--color-primary-blue-05);
-    text-decoration: none;
-}
-
-.page-anchor a:hover {
-    color: coral;
-} */
-
-/* @media #{$has-hover} {
-    .page-anchor a:hover {
-        @include link-hover;
-    }
-} */
 </style>
