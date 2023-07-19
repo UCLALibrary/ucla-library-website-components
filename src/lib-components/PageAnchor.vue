@@ -98,29 +98,10 @@ export default {
         display: flex;
         flex-direction: column;
         align-self: flex-end;
-
         list-style-type: none;
-
-        &:hover {
-            font-weight: 500;
-            text-decoration: underline;
-            text-decoration-color: var(--color-primary-blue-03);
-            text-decoration-thickness: 1.5px;
-            @include link-hover;
-        }
     }
 
-
-    /* .link {
-        margin-bottom: 10px;
-        text-align: right;
-        text-decoration: none;
-    } */
-
     .link:hover {
-        @include link-hover;
-        /* color: var(--color-primary-blue-03); */
-        margin-bottom: var(--space-s);
         &.color-help {
             --color-border: var(--color-help-green-03);
         }
@@ -133,8 +114,13 @@ export default {
         &.color-default {
             --color-border: var(--color-default-cyan-03);
         }
+        font-weight: 500;
+        text-decoration: underline;
+        text-decoration-color: var(--color-primary-blue-03);
+        text-decoration-color: red;
+        text-decoration-thickness: 1.5px;
+        /* @include link-hover; */
     }
-
 }
 
 
