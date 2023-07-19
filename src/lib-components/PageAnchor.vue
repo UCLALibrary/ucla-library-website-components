@@ -46,6 +46,9 @@ export default {
         classes() {
             return ["link", `color-${this.sectionName}`]
         },
+        sectionName() {
+            return this.color || this.getSectionName(this.$route.path)
+        },
         kebabCaseTitles() {
             return this.sectionTitles.map((title) => {
                 let titleWithNoSpecialChars = title.replace('&', '').replace(/\s+/g, ' ').trim()
@@ -78,7 +81,7 @@ export default {
         align-items: flex-end;
 
         /* @include overline; */
-        font-weight: 500;
+        /* font-weight: 500; */
         text-transform: uppercase;
         padding: var(--space-l) var(--space-l) var(--space-s) var(--space-l);
 
@@ -117,7 +120,7 @@ export default {
         font-weight: 500;
         text-decoration: underline;
         text-decoration-color: var(--color-primary-blue-03);
-        text-decoration-color: red;
+        text-decoration-color: var(--color-border);
         text-decoration-thickness: 1.5px;
         /* @include link-hover; */
     }

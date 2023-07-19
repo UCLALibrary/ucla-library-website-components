@@ -25,7 +25,14 @@ const Template = (args, { argTypes }) => ({
   template: '<page-anchor v-bind="$props" color="help" />',
 });
 
+
 export const Default = Template.bind({});
 Default.args = {
   sectionTitles: ['Using the Library', 'Services & Resources', 'Events & Exhibitions', 'About', 'News'],
 };
+
+export const Visit = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { PageAnchor },
+  template: '<page-anchor v-bind="$props" color="visit" />',
+})
