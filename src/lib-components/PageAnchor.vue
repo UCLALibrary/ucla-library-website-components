@@ -3,6 +3,9 @@
         <div class="page-anchor-content">
             <button class="dropdown-button" @click="toggleDropdown">
                 TABLE OF CONTENTS <span class="caret" :class="{ 'caret-open': isDropdownOpen }"></span>
+                <span class="chevron">
+                    <svg-icon-caret-down class="caret-down-svg" />
+                </span>
             </button>
 
             <ul v-if="isDropdownOpen" class="dropdown-menu page-anchor-list">
