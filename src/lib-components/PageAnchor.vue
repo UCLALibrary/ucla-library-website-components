@@ -1,26 +1,29 @@
 <template>
     <div class="page-anchor">
-        <button class="dropdown-button" @click="toggleDropdown">
-            TABLE OF CONTENTS
-            <span
-                class="caret"
-                :class="{ 'caret-open': isDropdownOpen }"
-            ></span>
-            <span class="chevron">
-                <svg-icon-caret-down class="caret-down-svg" />
-            </span>
-        </button>
+        <div class="page-anchor-content">
+            {{ this.sectionName }}
+            <button class="dropdown-button" @click="toggleDropdown">
+                On this page
+                <span
+                    class="caret"
+                    :class="{ 'caret-open': isDropdownOpen }"
+                ></span>
+                <span class="chevron">
+                    <svg-icon-caret-down class="caret-down-svg" />
+                </span>
+            </button>
 
-        <ul v-if="isDropdownOpen" class="dropdown-menu page-anchor-list">
-            <li
-                v-for="(title, index) in sectionTitles"
-                :key="index"
-                :class="classes"
-            >
-                <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
-            </li>
-            <li :class="classes"><a href="#">Back to Top</a></li>
-        </ul>
+            <ul v-if="isDropdownOpen" class="dropdown-menu page-anchor-list">
+                <li
+                    v-for="(title, index) in sectionTitles"
+                    :key="index"
+                    :class="classes"
+                >
+                    <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
+                </li>
+                <li :class="classes"><a href="#">Back to Top</a></li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -76,19 +79,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .page-anchor {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    /* background-color: var(--color-white); */
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
+    background-color: var(--color-white);
     z-index: 30;
+    float: right;
 
-    .rando {
-        display: none;
+    .page-anchor-content {
+        display: inline-flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        min-height: 48px;
+        padding: 4px 40px;
+        position: relative;
     }
 
     .dropdown-button {
@@ -96,39 +102,58 @@ export default {
         flex-direction: row;
         align-items: center;
         align-self: flex-end;
-        cursor: help;
         justify-content: flex-end;
         flex-wrap: nowrap;
+        min-width: 250px;
+        max-width: 100%;
+        @include overline;
+    }
+
+    .page-anchor-list {
+        position: absolute;
+        top: 48px;
+        right: 0;
+        width: 100%;
+        padding: 4px 40px;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
         background-color: var(--color-white);
+
+        li {
+            padding: $component-04 + px $component-05 + px;
+        }
     }
 
     .page-anchor-list,
-    .link {
-        display: flex;
-        flex-direction: column;
-        align-self: flex-end;
-        list-style-type: none;
-        background-color: var(--color-white);
+    .link a {
+        --color-border: var(--color-primary-blue-03);
+        @include overline;
+        text-align: right;
+        text-decoration-thickness: 2px;
+        text-decoration-color: var(--color-border);
+        text-underline-offset: 1px;
     }
 
-    .link:hover {
-        --color-border: var(--color-primary-blue-03);
-        &.color-help {
+    .link a:hover {
+        text-decoration-line: underline;
+    }
+
+    .link {
+        &.color-help a:hover {
             --color-border: var(--color-help-green-03);
         }
-        &.color-visit {
+        &.color-visit a:hover {
             --color-border: var(--color-visit-fushia-03);
         }
-        &.color-about {
+        &.color-about a:hover {
             --color-border: var(--color-about-purple-03);
         }
-        &.color-default {
+        &.color-default a:hover {
             --color-border: var(--color-default-cyan-03);
         }
-        font-weight: 500;
-        text-decoration: underline;
-        text-decoration-color: var(--color-border);
-        text-decoration-thickness: 1.5px;
     }
 }
 </style>
