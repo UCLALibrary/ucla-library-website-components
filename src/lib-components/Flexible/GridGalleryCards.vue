@@ -2,8 +2,8 @@
     <div class="grid-gallery-cards">
         <div
             v-if="
-            (block.gridGalleryCards && block.gridGalleryCards.length > 0) ||
-            block.sectionTitle
+                (block.gridGalleryCards && block.gridGalleryCards.length > 0) ||
+                block.sectionTitle
             "
             class="section-header"
         >

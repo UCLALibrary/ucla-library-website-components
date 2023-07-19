@@ -2,14 +2,22 @@
     <div class="page-anchor">
         <div class="page-anchor-content">
             <button class="dropdown-button" @click="toggleDropdown">
-                TABLE OF CONTENTS <span class="caret" :class="{ 'caret-open': isDropdownOpen }"></span>
+                TABLE OF CONTENTS
+                <span
+                    class="caret"
+                    :class="{ 'caret-open': isDropdownOpen }"
+                ></span>
                 <span class="chevron">
                     <svg-icon-caret-down class="caret-down-svg" />
                 </span>
             </button>
 
             <ul v-if="isDropdownOpen" class="dropdown-menu page-anchor-list">
-                <li v-for="(title, index) in sectionTitles" :key="index" :class="classes">
+                <li
+                    v-for="(title, index) in sectionTitles"
+                    :key="index"
+                    :class="classes"
+                >
                     <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
                 </li>
                 <li :class="classes"><a href="#">Back to Top</a></li>
@@ -28,12 +36,12 @@ export default {
     name: "PageAnchor",
     mixins: [getSectionName],
     components: {
-        SvgIconCaretDown
+        SvgIconCaretDown,
     },
     data() {
         return {
-        isDropdownOpen: false
-        };
+            isDropdownOpen: false,
+        }
     },
     props: {
         sectionTitles: {
@@ -54,16 +62,19 @@ export default {
         },
         kebabCaseTitles() {
             return this.sectionTitles.map((title) => {
-                let titleWithNoSpecialChars = title.replace('&', '').replace(/\s+/g, ' ').trim()
+                let titleWithNoSpecialChars = title
+                    .replace("&", "")
+                    .replace(/\s+/g, " ")
+                    .trim()
                 return titleWithNoSpecialChars.toLowerCase().replace(/ /g, "-")
             })
         },
     },
     methods: {
         toggleDropdown() {
-            this.isDropdownOpen = !this.isDropdownOpen;
-        }
-    }
+            this.isDropdownOpen = !this.isDropdownOpen
+        },
+    },
 }
 </script>
 
@@ -92,7 +103,8 @@ export default {
         cursor: help;
     }
 
-    .page-anchor-list, .link {
+    .page-anchor-list,
+    .link {
         display: flex;
         flex-direction: column;
         align-self: flex-end;
