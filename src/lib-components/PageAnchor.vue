@@ -1,7 +1,6 @@
 <template>
     <div class="page-anchor">
         <div class="page-anchor-content">
-            {{ this.sectionName }}
             <button class="dropdown-button" @click="toggleDropdown">
                 On this page
                 <span
@@ -13,7 +12,20 @@
                 </span>
             </button>
 
-            <ul v-if="isDropdownOpen" class="dropdown-menu page-anchor-list">
+            <!-- if Desktop -->
+            <ul v-if="isDropdownOpen && isDesktop" class="dropdown-menu page-anchor-list" @click="toggleDropdown">
+                <li
+                    v-for="(title, index) in sectionTitles"
+                    :key="index"
+                    :class="classes"
+                >
+                    <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
+                </li>
+                <li :class="classes"><a href="#">Back to Top</a></li>
+            </ul>
+
+            <!-- if tablet or mobile -->
+            <ul v-if="isDropdownOpen" class="dropdown-menu page-anchor-list" @click="toggleDropdown">
                 <li
                     v-for="(title, index) in sectionTitles"
                     :key="index"
@@ -70,12 +82,25 @@ export default {
                 return titleWithNoSpecialChars.toLowerCase().replace(/ /g, "-")
             })
         },
+        isDesktop() {
+            if (this.windowWidth > 768) {
+            return true;
+            } return false;
+        }
     },
     methods: {
         toggleDropdown() {
             this.isDropdownOpen = !this.isDropdownOpen
         },
     },
+    // Trigger function
+    watch: {
+        windowWidth: function() {
+            if (windowWidth === 768) {
+                console.log('The window width is 768px');
+            }
+        }
+    }
 }
 </script>
 
@@ -153,6 +178,32 @@ export default {
         }
         &.color-default a:hover {
             --color-border: var(--color-default-cyan-03);
+        }
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+        display: block;
+        background-color: var(--color-white);
+        float: none;
+        width: 100%;
+        .page-anchor-content {
+            width: 100%;
+        }
+        .dropdown-button {
+            width: 100%;
+            background-color: var(--color-white);
+        }
+        .page-anchor-list {
+            background-color: var(--color-white);
+            width: 100%;
+        }
+    }
+
+    @media #{$small} {
+        .dropdown-button {
+            width: 100%;
+            background-color: var(--color-white);
         }
     }
 }
