@@ -1,3 +1,10 @@
+## [2.37.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.4...v2.37.5) (2023-07-21)
+
+
+### Bug Fixes
+
+* add support for enter key for searching ([#354](https://github.com/UCLALibrary/ucla-library-website-components/issues/354)) ([161c95b](https://github.com/UCLALibrary/ucla-library-website-components/commit/161c95b7643e53b9802f154fbf78f4cf55f46d74))
+
 ## [2.37.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.3...v2.37.4) (2023-07-18)
 
 
