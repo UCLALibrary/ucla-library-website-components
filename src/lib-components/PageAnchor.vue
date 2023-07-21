@@ -5,15 +5,16 @@
                 On this page
                 <span
                     class="caret"
-                    :class="{ 'caret-open': isDropdownOpen }"
-                ></span>
-                <span class="chevron">
-                    <svg-icon-caret-down class="caret-down-svg" />
+                    :class="{ 'is-active': isDropdownOpen }"
+                >
+                    <span class="chevron">
+                        <svg-icon-caret-down class="caret-down-svg" />
+                    </span>
                 </span>
             </button>
 
-            <!-- if Desktop -->
-            <ul v-if="isDropdownOpen && isDesktop" class="dropdown-menu page-anchor-list" @click="toggleDropdown">
+            <!-- Desktop - Page Anchor remains open when link is clicked -->
+            <ul v-if="isDropdownOpen && isDesktop" class="dropdown-menu page-anchor-list">
                 <li
                     v-for="(title, index) in sectionTitles"
                     :key="index"
@@ -24,8 +25,8 @@
                 <li :class="classes"><a href="#">Back to Top</a></li>
             </ul>
 
-            <!-- if tablet or mobile -->
-            <ul v-if="isDropdownOpen" class="dropdown-menu page-anchor-list" @click="toggleDropdown">
+            <!-- Tablet or Mobile - Page Anchor closes when link is clicked -->
+            <ul v-if="isDropdownOpen && !isDesktop" class="dropdown-menu page-anchor-list" @click="toggleDropdown">
                 <li
                     v-for="(title, index) in sectionTitles"
                     :key="index"
@@ -54,6 +55,7 @@ export default {
     data() {
         return {
             isDropdownOpen: false,
+            windowWidth: window.innerWidth,
         }
     },
     props: {
@@ -83,7 +85,7 @@ export default {
             })
         },
         isDesktop() {
-            if (this.windowWidth > 768) {
+            if (this.windowWidth > 1024) {
             return true;
             } return false;
         }
@@ -96,8 +98,8 @@ export default {
     // Trigger function
     watch: {
         windowWidth: function() {
-            if (windowWidth === 768) {
-                console.log('The window width is 768px');
+            if (windowWidth === 1024) {
+                console.log('The window width is 1024px');
             }
         }
     }
@@ -181,6 +183,13 @@ export default {
         }
     }
 
+    // Open state
+    .is-active {
+        .caret-down-svg {
+            transform: rotate(180deg);
+        }
+    }
+
     // Breakpoints
     @media #{$medium} {
         display: block;
@@ -189,14 +198,21 @@ export default {
         width: 100%;
         .page-anchor-content {
             width: 100%;
+            padding: 4px var(--unit-gutter);
         }
         .dropdown-button {
             width: 100%;
             background-color: var(--color-white);
+            padding: 0;
         }
         .page-anchor-list {
-            background-color: var(--color-white);
             width: 100%;
+            background-color: var(--color-white);
+            padding: 4px var(--unit-gutter);
+
+            .link {
+                padding-right: 0;
+            }
         }
     }
 
