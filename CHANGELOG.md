@@ -1,3 +1,10 @@
+# [2.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.5...v2.38.0) (2023-07-25)
+
+
+### Features
+
+* APPS-2292 Create PageAnchor component ([#347](https://github.com/UCLALibrary/ucla-library-website-components/issues/347)) ([a82a934](https://github.com/UCLALibrary/ucla-library-website-components/commit/a82a934e2fdac39831d46e087f704d051bfd1df9))
+
 ## [2.37.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.4...v2.37.5) (2023-07-21)
 
 
