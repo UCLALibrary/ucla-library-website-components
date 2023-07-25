@@ -111,7 +111,7 @@ export default {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    background-color: var(--color-white);
+    background: linear-gradient(to left, white, transparent 99.99%);
     z-index: 30;
     float: right;
 
@@ -147,7 +147,7 @@ export default {
         flex-direction: column;
         align-items: flex-end;
         justify-content: flex-end;
-        background-color: var(--color-white);
+        background: linear-gradient(to left, white, transparent 99.99%);
 
         li {
             padding: $component-04 + px $component-05 + px;
@@ -213,13 +213,6 @@ export default {
             .link {
                 padding-right: 0;
             }
-        }
-    }
-
-    @media #{$small} {
-        .dropdown-button {
-            width: 100%;
-            background-color: var(--color-white);
         }
     }
 }
