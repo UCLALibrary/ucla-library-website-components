@@ -330,6 +330,12 @@
         />
         <hr />
 
+        <h2>PageAnchor</h2>
+        <page-anchor
+            v-if="h2Array.length >=3"
+            :section-titles= ["Using the Library","Services & Resources","Events & Exhibitions","About","News"]
+        />
+
         <h2>PullQuote Component</h2>
         <pull-quote
             text="To invent, you need a good imagination and a pile of junk."
