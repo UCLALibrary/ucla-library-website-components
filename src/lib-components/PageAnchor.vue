@@ -3,10 +3,7 @@
         <div class="page-anchor-content">
             <button class="dropdown-button" @click="toggleDropdown">
                 On this page
-                <span
-                    class="caret"
-                    :class="{ 'is-active': isDropdownOpen }"
-                >
+                <span class="caret" :class="{ 'is-active': isDropdownOpen }">
                     <span class="chevron">
                         <svg-icon-caret-down class="caret-down-svg" />
                     </span>
@@ -14,7 +11,10 @@
             </button>
 
             <!-- Desktop - Page Anchor remains open when link is clicked -->
-            <ul v-if="isDropdownOpen && isDesktop" class="dropdown-menu page-anchor-list">
+            <ul
+                v-if="isDropdownOpen && isDesktop"
+                class="dropdown-menu page-anchor-list"
+            >
                 <li
                     v-for="(title, index) in sectionTitles"
                     :key="index"
@@ -26,7 +26,11 @@
             </ul>
 
             <!-- Tablet or Mobile - Page Anchor closes when link is clicked -->
-            <ul v-if="isDropdownOpen && !isDesktop" class="dropdown-menu page-anchor-list" @click="toggleDropdown">
+            <ul
+                v-if="isDropdownOpen && !isDesktop"
+                class="dropdown-menu page-anchor-list"
+                @click="toggleDropdown"
+            >
                 <li
                     v-for="(title, index) in sectionTitles"
                     :key="index"
@@ -86,9 +90,10 @@ export default {
         },
         isDesktop() {
             if (this.windowWidth > 1024) {
-            return true;
-            } return false;
-        }
+                return true
+            }
+            return false
+        },
     },
     methods: {
         toggleDropdown() {
