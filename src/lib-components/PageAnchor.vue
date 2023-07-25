@@ -95,14 +95,6 @@ export default {
             this.isDropdownOpen = !this.isDropdownOpen
         },
     },
-    // Trigger function
-    watch: {
-        windowWidth: function() {
-            if (windowWidth === 1024) {
-                console.log('The window width is 1024px');
-            }
-        }
-    }
 }
 </script>
 
