@@ -6,14 +6,21 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-cypress": "^2.13.3",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vue": "^9.15.1",
+    "prettier": "^3.0.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
-    "vue-tsc": "^1.8.5",
-    "vue": "^3.3.4"
+    "vue-tsc": "^1.8.5"
   },
   "peerDependencies": {
     "vue": "^3.3.4"
