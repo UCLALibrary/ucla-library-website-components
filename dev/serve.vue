@@ -330,6 +330,12 @@
         />
         <hr />
 
+        <h2>PageAnchor</h2>
+        <page-anchor
+            v-if="h2Array.length >=3"
+            :section-titles= ["Using the Library","Services & Resources","Events & Exhibitions","About","News"]
+        />
+
         <h2>PullQuote Component</h2>
         <pull-quote
             text="To invent, you need a good imagination and a pile of junk."
@@ -474,6 +480,10 @@
             :images="mockImpactRichText.images"
         />
         <hr />
+
+        <h2>Page Anchor</h2>
+        <page-anchor :section-titles="sectionTitles"/>
+        <hr />
     </div>
 </template>
 
@@ -488,6 +498,7 @@ export default Vue.extend({
     name: "ServeDev",
     data() {
         return {
+            sectionTitles: ['Section Title de Finibus Bonorum et Malorum', 'Services & Resources', 'BlockHighlight', 'Section title of media with text', 'Fix Potholes', 'ection Title External Link'],
             mockBlockSponsor: {
                 id: "28231",
                 funderLogo: [

@@ -37,8 +37,8 @@ export const NoAttribution = () => ({
     },
     components: { PullQuote },
     template: `
-    <pull-quote
-        :text="text"
-    />
-        `,
+        <pull-quote
+            :text="text"
+        />
+    `,
 })
