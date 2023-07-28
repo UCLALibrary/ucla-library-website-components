@@ -7,6 +7,7 @@ module.exports = {
         "airbnb",
         "airbnb-typescript",
         "airbnb/hooks",
+        "plugin:cypress/recommended",
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:vue/vue3-essential"
