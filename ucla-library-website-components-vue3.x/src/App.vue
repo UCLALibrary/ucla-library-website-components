@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
+import DividerGeneral from '@/components/DividerGeneral.vue';
 </script>
 
 <template>
@@ -12,6 +13,9 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <divider-general />
+  <br />
+  <br />
 </template>
 
 <style scoped>
