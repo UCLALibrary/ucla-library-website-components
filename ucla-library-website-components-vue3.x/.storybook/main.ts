@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/vue3-vite"
+const { mergeConfig } = require("vite")
 
 const config: StorybookConfig = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -13,6 +14,20 @@ const config: StorybookConfig = {
     },
     docs: {
         autodocs: "tag",
+    },
+    async viteFinal(config) {
+        return mergeConfig(config, {
+            css: {
+                preprocessorOptions: {
+                    scss: {
+                        additionalData: `
+                            @import "ucla-library-design-tokens/scss/fonts.scss";
+                            @import "ucla-library-design-tokens/scss/app.scss";
+                        `,
+                    },
+                },
+            },
+        })
     },
 }
 export default config
