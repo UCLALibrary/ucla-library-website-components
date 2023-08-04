@@ -1,3 +1,10 @@
+## [2.38.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.0...v2.38.1) (2023-08-04)
+
+
+### Bug Fixes
+
+* button in banner-header component ([#367](https://github.com/UCLALibrary/ucla-library-website-components/issues/367)) ([1119bd8](https://github.com/UCLALibrary/ucla-library-website-components/commit/1119bd8c4ce3a16316b9311ec4f0ce3158b3ccaf))
+
 # [2.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.5...v2.38.0) (2023-07-25)
 
 
