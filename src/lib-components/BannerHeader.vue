@@ -30,7 +30,7 @@
 
             <div
                 class="meta-text"
-                v-if="
+                v-show="
                     byline.length ||
                     subjectAreas.length ||
                     dateCreated ||
@@ -43,7 +43,7 @@
             >
                 <div
                     class="meta-block"
-                    v-if="
+                    v-show="
                         byline.length ||
                         subjectAreas.length ||
                         dateCreated ||
@@ -122,16 +122,17 @@
                         :to="location.to"
                     />
                 </div>
-
-                <button-link
-                    v-if="to"
-                    :label="prompt"
-                    :is-secondary="true"
-                    class="button"
-                    :to="to"
-                />
             </div>
+
+            <button-link
+                v-if="to"
+                :label="prompt"
+                :is-secondary="true"
+                class="button"
+                :to="to"
+            />
         </div>
+
         <div v-if="!to && registerEvent" class="block-form-container">
             <block-form />
         </div>
@@ -586,10 +587,6 @@ export default {
         align-items: flex-start;
         margin-bottom: var(--space-m);
         justify-content: space-evenly;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
     }
 
     .schedule-item,
