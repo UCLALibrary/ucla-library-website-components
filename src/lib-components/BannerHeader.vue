@@ -295,7 +295,7 @@ const parsedLocations = computed(() => {
           || phone
           || staffDirectoryLink
           || addressLink
-        "
+          "
         class="meta-text"
       >
         <div
@@ -303,7 +303,7 @@ const parsedLocations = computed(() => {
             || subjectAreas.length
             || dateCreated
             || startDate
-          "
+            "
           class="meta-block"
         >
           <div
