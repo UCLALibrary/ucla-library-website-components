@@ -1,3 +1,10 @@
+## [2.38.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.1...v2.38.2) (2023-08-07)
+
+
+### Bug Fixes
+
+* add keyup event handler to search home ([#368](https://github.com/UCLALibrary/ucla-library-website-components/issues/368)) ([a7daac9](https://github.com/UCLALibrary/ucla-library-website-components/commit/a7daac93bd1d7a1d5e133e30620aa3b0918b2c31))
+
 ## [2.38.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.0...v2.38.1) (2023-08-04)
 
 
