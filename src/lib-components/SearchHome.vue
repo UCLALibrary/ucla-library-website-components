@@ -19,7 +19,7 @@ const { linkItems, advancedSearchLink } = defineProps({
 
   advancedSearchLink: {
     type: Object as PropType<SearchLinkItemType>,
-    default: () => {},
+    default: () => { },
   },
 })
 
@@ -33,7 +33,7 @@ const tabs = [
   {
     title: 'UC Library Search',
     actionURL:
-          'https://search.library.ucla.edu/discovery/search?vid=01UCS_LAL:UCLA&tab=Articles_books_more_slot&search_scope=ArticlesBooksMore&lang=en&query=any,contains,',
+      'https://search.library.ucla.edu/discovery/search?vid=01UCS_LAL:UCLA&tab=Articles_books_more_slot&search_scope=ArticlesBooksMore&lang=en&query=any,contains,',
     placeholder: 'Search articles, books and more',
   },
 ]
@@ -101,7 +101,10 @@ function setActiveTab(index: number) {
 
 <template>
   <div class="search-home">
-    <div v-if="parsedTabs.length" class="tabs">
+    <div
+      v-if="parsedTabs.length"
+      class="tabs"
+    >
       <button
         v-for="(tab, index) in parsedTabs"
         :key="tab.title"
@@ -113,7 +116,11 @@ function setActiveTab(index: number) {
     </div>
 
     <div class="box">
-      <form name="searchHome" :action="actionUrl" @submit.prevent="">
+      <form
+        name="searchHome"
+        :action="actionUrl"
+        @submit.prevent=""
+      >
         <div class="input-container">
           <!-- input
                       v-model="searchWords"
@@ -127,7 +134,10 @@ function setActiveTab(index: number) {
             :placeholder="placeholder"
             @keyup.enter="doSearch"
           />
-          <button class="button-submit" @click="doSearch">
+          <button
+            class="button-submit"
+            @click="doSearch"
+          >
             <IconSearch class="icon" />
           </button>
         </div>
@@ -135,8 +145,14 @@ function setActiveTab(index: number) {
 
       <div class="divider" />
 
-      <nav v-if="linkItems.length || advancedSearchLink" class="links">
-        <div v-if="linkItems.length" class="regular-links">
+      <nav
+        v-if="linkItems.length || advancedSearchLink"
+        class="links"
+      >
+        <div
+          v-if="linkItems.length"
+          class="regular-links"
+        >
           <SmartLink
             v-for="link in linkItems"
             :key="link.url"
@@ -146,7 +162,10 @@ function setActiveTab(index: number) {
           />
         </div>
 
-        <div v-if="advancedSearchLink" class="advanced-links">
+        <div
+          v-if="advancedSearchLink"
+          class="advanced-links"
+        >
           <SmartLink
             :to="advancedSearchLink.url"
             v-text="advancedSearchLink.text"
@@ -160,83 +179,54 @@ function setActiveTab(index: number) {
 <style lang="scss" scoped>
 .search-home {
   .tabs {
-      display: flex;
-      justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 
-      cursor: pointer;
+    cursor: pointer;
   }
 
   .tab {
-      padding: 20px 25px;
-      background-color: var(--color-primary-blue-01);
-      border: 1px solid transparent;
-      border-radius: var(--rounded-slightly-top);
-      transition: background-color 400ms ease-in-out;
+    padding: 20px 25px;
+    background-color: var(--color-primary-blue-01);
+    border: 1px solid transparent;
+    border-radius: var(--rounded-slightly-top);
+    transition: background-color 400ms ease-in-out;
 
-      &.is-active {
-          background-color: var(--color-white);
-          margin-right: 0;
-      }
+    &.is-active {
+      background-color: var(--color-white);
+      margin-right: 0;
+    }
 
-      &:not(.is-active) {
-          margin: 0 4px 4px 4px;
-      }
+    &:not(.is-active) {
+      margin: 0 4px 4px 4px;
+    }
 
-      &:last-child {
-          margin-right: 0;
-      }
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   .box {
-      background-color: var(--color-white);
-      padding: 30px 50px 0 50px;
-      border: 1px solid transparent;
-      border-top-left-radius: 4px;
+    background-color: var(--color-white);
+    padding: 30px 50px 0 50px;
+    border: 1px solid transparent;
+    border-top-left-radius: 4px;
   }
 
   .input-container {
-      display: flex;
-      background-color: var(--color-primary-blue-01);
-      border-color: transparent;
+    display: flex;
+    background-color: var(--color-primary-blue-01);
+    border-color: transparent;
 
-      .icon {
-          &:hover {
-              :deep(.svg__fill--primary-blue-03) {
-                  fill: var(--color-default-cyan-03);
-              }
-          }
+    .icon {
+      &:hover {
+        :deep(.svg__fill--primary-blue-03) {
+          fill: var(--color-default-cyan-03);
+        }
       }
+    }
 
-      input {
-          font-family: var(--font-primary);
-          font-style: normal;
-          font-weight: normal;
-          font-size: 20px;
-          line-height: 100%;
-          letter-spacing: 0.01em;
-          background-color: var(--color-primary-blue-01);
-          border-color: transparent;
-          padding: 24px;
-          width: 100%;
-
-          &::placeholder {
-              text-transform: uppercase;
-              font-family: var(--font-primary);
-          }
-      }
-
-      .search-input {
-          flex-grow: 1;
-      }
-
-      .button-submit {
-          display: flex;
-          align-items: center;
-          padding: 0 24px;
-      }
-  }
-
-  .input-search {
+    input {
       font-family: var(--font-primary);
       font-style: normal;
       font-weight: normal;
@@ -245,88 +235,117 @@ function setActiveTab(index: number) {
       letter-spacing: 0.01em;
       background-color: var(--color-primary-blue-01);
       border-color: transparent;
-      padding: 27px 37px 27px 95px;
+      padding: 24px;
       width: 100%;
 
       &::placeholder {
-          text-transform: uppercase;
+        text-transform: uppercase;
+        font-family: var(--font-primary);
       }
+    }
+
+    .search-input {
+      flex-grow: 1;
+    }
+
+    .button-submit {
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+    }
+  }
+
+  .input-search {
+    font-family: var(--font-primary);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0.01em;
+    background-color: var(--color-primary-blue-01);
+    border-color: transparent;
+    padding: 27px 37px 27px 95px;
+    width: 100%;
+
+    &::placeholder {
+      text-transform: uppercase;
+    }
   }
 
   .divider {
-      margin-top: 16px;
-      border-bottom: 2px solid var(--color-default-cyan-03);
-      height: 1px;
+    margin-top: 16px;
+    border-bottom: 2px solid var(--color-default-cyan-03);
+    height: 1px;
   }
 
   .links {
-      display: flex;
-      margin: 24px 0;
+    display: flex;
+    margin: 24px 0;
   }
 
   .regular-links {
+    display: flex;
+
+    .link {
       display: flex;
 
-      .link {
-          display: flex;
-
-          &:after {
-              content: "";
-              border-right: 2px solid #efefef;
-              margin: 0 24px;
-          }
-
-          &:last-child:after {
-              display: none;
-          }
+      &:after {
+        content: "";
+        border-right: 2px solid #efefef;
+        margin: 0 24px;
       }
+
+      &:last-child:after {
+        display: none;
+      }
+    }
   }
 
   .advanced-links {
-      color: var(--color-primary-blue-03);
-      margin-left: auto;
-      text-transform: uppercase;
+    color: var(--color-primary-blue-03);
+    margin-left: auto;
+    text-transform: uppercase;
   }
 
   // Breakpoints
   @media #{$small} {
-      .tabs {
-          font-size: 14px;
+    .tabs {
+      font-size: 14px;
+    }
+
+    .box {
+      padding: 18px 24px;
+    }
+
+    .input-container {
+      .input-search {
+        font-size: 16px;
+        padding: 20px 0 20px 12px;
       }
 
-      .box {
-          padding: 18px 24px;
+      .button-submit {
+        padding-right: 12px;
+        padding-left: 0;
       }
+    }
 
-      .input-container {
-          .input-search {
-              font-size: 16px;
-              padding: 20px 0 20px 12px;
-          }
+    .links {
+      display: unset;
+      font-size: 14px;
+    }
 
-          .button-submit {
-              padding-right: 12px;
-              padding-left: 0;
-          }
+    .regular-links {
+      margin-top: 20px;
+      margin-right: 12px;
+
+      .vertical-divider {
+        margin: 0 4px;
       }
+    }
 
-      .links {
-          display: unset;
-          font-size: 14px;
-      }
-
-      .regular-links {
-          margin-top: 20px;
-          margin-right: 12px;
-
-          .vertical-divider {
-              margin: 0 4px;
-          }
-      }
-
-      .advanced-links {
-          margin-top: 24px;
-      }
+    .advanced-links {
+      margin-top: 24px;
+    }
   }
 }
 </style>
