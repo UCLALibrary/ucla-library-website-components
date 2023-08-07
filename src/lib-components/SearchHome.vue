@@ -24,6 +24,7 @@
                         class="search-input"
                         :model-value.sync="searchWords"
                         :placeholder="placeholder"
+                        @keyup.native.enter="doSearch"
                     />
                     <button class="button-submit" @click="doSearch">
                         <icon-search class="icon" />
@@ -169,13 +170,16 @@ export default {
         border: 1px solid transparent;
         border-radius: var(--rounded-slightly-top);
         transition: background-color 400ms ease-in-out;
+
         &.is-active {
             background-color: var(--color-white);
             margin-right: 0;
         }
+
         &:not(.is-active) {
             margin: 0 4px 4px 4px;
         }
+
         &:last-child {
             margin-right: 0;
         }
@@ -192,6 +196,7 @@ export default {
         display: flex;
         background-color: var(--color-primary-blue-01);
         border-color: transparent;
+
         .icon {
             &:hover {
                 ::v-deep .svg__fill--primary-blue-03 {
@@ -199,6 +204,7 @@ export default {
                 }
             }
         }
+
         input {
             font-family: var(--font-primary);
             font-style: normal;
@@ -216,9 +222,11 @@ export default {
                 font-family: var(--font-primary);
             }
         }
+
         .search-input {
             flex-grow: 1;
         }
+
         .button-submit {
             display: flex;
             align-items: center;
@@ -237,6 +245,7 @@ export default {
         border-color: transparent;
         padding: 27px 37px 27px 95px;
         width: 100%;
+
         &::placeholder {
             text-transform: uppercase;
         }
@@ -255,13 +264,16 @@ export default {
 
     .regular-links {
         display: flex;
+
         .link {
             display: flex;
+
             &:after {
                 content: "";
                 border-right: 2px solid #efefef;
                 margin: 0 24px;
             }
+
             &:last-child:after {
                 display: none;
             }
@@ -279,30 +291,37 @@ export default {
         .tabs {
             font-size: 14px;
         }
+
         .box {
             padding: 18px 24px;
         }
+
         .input-container {
             .input-search {
                 font-size: 16px;
                 padding: 20px 0 20px 12px;
             }
+
             .button-submit {
                 padding-right: 12px;
                 padding-left: 0;
             }
         }
+
         .links {
             display: unset;
             font-size: 14px;
         }
+
         .regular-links {
             margin-top: 20px;
             margin-right: 12px;
+
             .vertical-divider {
                 margin: 0 4px;
             }
         }
+
         .advanced-links {
             margin-top: 24px;
         }
