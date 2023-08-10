@@ -8,12 +8,14 @@
                 class="section-title"
                 v-text="sectionTitle"
             />
-            <div
+
+            <RichText
                 v-if="sectionSummary"
                 class="section-summary"
                 v-html="sectionSummary"
             />
         </div>
+
         <slot />
     </section>
 </template>
