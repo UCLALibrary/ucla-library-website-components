@@ -1,3 +1,10 @@
+## [2.38.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.2...v2.38.3) (2023-08-10)
+
+
+### Bug Fixes
+
+* change section summary to richtext in section wrapper ([#369](https://github.com/UCLALibrary/ucla-library-website-components/issues/369)) ([d817f5a](https://github.com/UCLALibrary/ucla-library-website-components/commit/d817f5aa3498460ca6a5a3a3d5ad4c4c2fe43ebf))
+
 ## [2.38.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.1...v2.38.2) (2023-08-07)
 
 
