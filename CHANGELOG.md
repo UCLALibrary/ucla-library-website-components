@@ -1,3 +1,10 @@
+## [2.38.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.3...v2.38.4) (2023-08-11)
+
+
+### Bug Fixes
+
+* APPS-2367 Lighten shadow overlay ([#372](https://github.com/UCLALibrary/ucla-library-website-components/issues/372)) ([67ba258](https://github.com/UCLALibrary/ucla-library-website-components/commit/67ba258ed3a290aef9c47d9b19fce247b0451718))
+
 ## [2.38.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.2...v2.38.3) (2023-08-10)
 
 
