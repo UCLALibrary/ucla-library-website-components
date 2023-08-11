@@ -1,53 +1,53 @@
 body {
-  font-family: var(--font-primary);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: color;
-  @include animate-normal;
-}
-
-// Animations
-.underline-hover {
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    height: 2px;
-    width: 0;
-    opacity: 0;
-    background-color: var(--color-primary-blue-03);
-    transition-property: width, opacity;
+    font-family: var(--font-primary);
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: color;
     @include animate-normal;
   }
-
-  &:hover,
-  &:focus {
+  
+  // Animations
+  .underline-hover {
+    position: relative;
+  
     &::before {
-      width: 100%;
-      opacity: 1;
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      opacity: 0;
+      background-color: var(--color-primary-blue-03);
+      transition-property: width, opacity;
+      @include animate-normal;
+    }
+  
+    &:hover,
+    &:focus {
+      &::before {
+        width: 100%;
+        opacity: 1;
+      }
     }
   }
-}
-
-// Generic Vue transitions
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity;
-  @include animate-normal;
-}
-
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
-}
-
-// Helper classes
-.visually-hidden {
-  @include visually-hidden;
-}
+  
+  // Generic Vue transitions
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity;
+    @include animate-normal;
+  }
+  
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0;
+  }
+  
+  // Helper classes
+  .visually-hidden {
+    @include visually-hidden;
+  }
