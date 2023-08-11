@@ -25,26 +25,9 @@ export default {
 export const Default = () => ({
     data() {
         return {
-            sectionTitle: "Whatever content.",
-            sectionSummary:
-                'Lorem ipsum dolor <p><strong>Section Summary</strong> - <a href="https://fonts.google.com/featured" target="_blank" rel="noreferrer noopener">Featured Collections</a> <em>Section Summary</em> - Featured Collections Section Summary - Featured Collections Section Summary - Featured Collections </p>',
-            propsForMediaWithText: propsForMediaWithText,
-        }
-    },
-    components: { SectionWrapper, BlockMediaWithText },
-    template: `
-    <section-wrapper :sectionTitle="sectionTitle" :sectionSummary="sectionSummary">
-      <block-media-with-text v-bind="propsForMediaWithText" />
-    </section-wrapper>
-  `,
-})
-
-export const RichTextSectionSummary = () => ({
-    data() {
-        return {
             sectionTitle: "Section Title",
             sectionSummary:
-                'Lorem ipsum dolor <p><strong>Section Summary</strong> - <a href="https://fonts.google.com/featured" target="_blank" rel="noreferrer noopener">Featured Collections</a> <em>Section Summary</em> - Featured Collections Section Summary - Featured Collections Section Summary - Featured Collections </p>',
+            '<p><strong>Section Summary with Rich Text</strong> Lorem ipsum dolor <a href="https://fonts.google.com/featured" target="_blank" rel="noreferrer noopener">reprehenderit in voluptate.</a> <em>Ut enim ad minim veniam.</em> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>',
             propsForMediaWithText: propsForMediaWithText,
         }
     },
@@ -73,9 +56,9 @@ export const NoMeta = () => ({
 export const GrayTheme = () => ({
     data() {
         return {
-            sectionTitle: "Whatever content.",
+            sectionTitle: "Section Title",
             sectionSummary:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor eros in luctus tincidunt. Cras a magna volutpat, hendrerit leo at, posuere ex. Vivamus enim enim, euismod eu elit sed, pulvinar dignissim odio.",
+            '<p><strong>Section Summary with Rich Text</strong> Lorem ipsum dolor <a href="https://fonts.google.com/featured" target="_blank" rel="noreferrer noopener">reprehenderit in voluptate.</a> <em>Ut enim ad minim veniam.</em> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>',
             propsForMediaWithText: propsForMediaWithText,
         }
     },
@@ -107,9 +90,9 @@ export const Nested = () => ({
 export const Divider = () => ({
     data() {
         return {
-            sectionTitle: "Whatever content.",
+            sectionTitle: "Section Title",
             sectionSummary:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor eros in luctus tincidunt. Cras a magna volutpat, hendrerit leo at, posuere ex. Vivamus enim enim, euismod eu elit sed, pulvinar dignissim odio.",
+            '<p><strong>Section Summary with Rich Text</strong> Lorem ipsum dolor <a href="https://fonts.google.com/featured" target="_blank" rel="noreferrer noopener">reprehenderit in voluptate.</a> <em>Ut enim ad minim veniam.</em> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>',
             propsForMediaWithText: propsForMediaWithText,
         }
     },
