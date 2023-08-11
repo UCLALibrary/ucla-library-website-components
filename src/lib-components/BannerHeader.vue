@@ -461,7 +461,12 @@ export default {
         height: 100%;
     }
     .gradient-no-category {
-        background: $overlays-overlay-02;
+        background: linear-gradient(
+            120deg,
+            rgba(15, 15, 15, 0) 0,
+            rgba(15, 15, 15, 0.2509803922) 67.57%,
+            #0f0f0f 120%
+        );
         z-index: 10;
         position: absolute;
         top: 0;
