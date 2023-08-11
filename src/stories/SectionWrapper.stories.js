@@ -27,7 +27,24 @@ export const Default = () => ({
         return {
             sectionTitle: "Whatever content.",
             sectionSummary:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor eros in luctus tincidunt. Cras a magna volutpat, hendrerit leo at, posuere ex. Vivamus enim enim, euismod eu elit sed, pulvinar dignissim odio.",
+                'Lorem ipsum dolor <p><strong>Section Summary</strong> - <a href="https://fonts.google.com/featured" target="_blank" rel="noreferrer noopener">Featured Collections</a> <em>Section Summary</em> - Featured Collections Section Summary - Featured Collections Section Summary - Featured Collections </p>',
+            propsForMediaWithText: propsForMediaWithText,
+        }
+    },
+    components: { SectionWrapper, BlockMediaWithText },
+    template: `
+    <section-wrapper :sectionTitle="sectionTitle" :sectionSummary="sectionSummary">
+      <block-media-with-text v-bind="propsForMediaWithText" />
+    </section-wrapper>
+  `,
+})
+
+export const RichTextSectionSummary = () => ({
+    data() {
+        return {
+            sectionTitle: "Section Title",
+            sectionSummary:
+                'Lorem ipsum dolor <p><strong>Section Summary</strong> - <a href="https://fonts.google.com/featured" target="_blank" rel="noreferrer noopener">Featured Collections</a> <em>Section Summary</em> - Featured Collections Section Summary - Featured Collections Section Summary - Featured Collections </p>',
             propsForMediaWithText: propsForMediaWithText,
         }
     },
