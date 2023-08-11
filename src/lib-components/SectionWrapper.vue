@@ -3,13 +3,13 @@
         <a :id="`${kebabCase(sectionTitle)}`" v-if="sectionTitle" />
 
         <div v-if="sectionTitle" class="section-header">
-            <SectionHeader
+            <section-header
                 v-if="sectionTitle"
                 class="section-title"
                 v-text="sectionTitle"
             />
 
-            <RichText
+            <rich-text
                 v-if="sectionSummary"
                 class="section-summary"
                 v-html="sectionSummary"
@@ -23,13 +23,14 @@
 <script>
 // Components
 import SectionHeader from "@/lib-components/SectionHeader.vue"
+import RichText from "@/lib-components/RichText.vue"
 
 // Helpers
 import kebabCase from "@/mixins/kebabCase"
 
 export default {
     name: "SectionWrapper",
-    components: { SectionHeader },
+    components: { SectionHeader, RichText },
     props: {
         sectionTitle: {
             type: String,

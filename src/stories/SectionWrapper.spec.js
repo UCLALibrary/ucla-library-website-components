@@ -4,8 +4,8 @@ describe("SectionWrapper", () => {
             "/iframe.html?id=section-wrapper--default&args=&viewMode=story"
         )
         cy.get(".section-wrapper").should("exist")
-        cy.get("h2.section-title").should("contain", "Whatever content.")
-        cy.get(".section-summary").should("contain", "Lorem ipsum dolor")
+        cy.get("h2.section-title").should("contain", "Section Title")
+        cy.get(".section-summary").should("contain", "Section Summary")
         cy.get(".media-with-text")
             .should("exist")
             .and("contain", "A media Link")
