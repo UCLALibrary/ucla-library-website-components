@@ -15,7 +15,7 @@ import DividerWayFinder from '@/components/DividerWayFinder.vue';
   </div>
   <HelloWorld msg="Vite + Vue" />
   <divider-general />
-  <divider-way-finder />
+  <divider-way-finder color="help" />
   <br />
   <br />
 </template>

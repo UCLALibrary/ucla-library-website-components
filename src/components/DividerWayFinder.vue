@@ -13,15 +13,15 @@ import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
 
-defineProps({
+const { color } = defineProps({
     color: {
         type: String,
         default: "", // This will be "visit", "about", "help".
     },
 })
 
-const classes = computed(() => ["divider-way-finder", `color-${sectionName}`])
-const sectionName = computed(() => this.color || this.getSectionName(route.path))
+const classes = computed(() => ["divider-way-finder", `color-${sectionName.value}`])
+const sectionName = computed(() => color || getSectionName(route.path))
 
 
 </script>

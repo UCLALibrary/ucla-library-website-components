@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/vue3-vite"
+import path from "path"
 const { mergeConfig } = require("vite")
 
 const config: StorybookConfig = {
@@ -17,6 +18,14 @@ const config: StorybookConfig = {
     },
     async viteFinal(config) {
         return mergeConfig(config, {
+            resolve: {
+                alias: {
+                    "vue-router": path.resolve(
+                        __dirname,
+                        "../src/stories/mocks/vue-router.mock.js"
+                    ),
+                },
+            },
             css: {
                 preprocessorOptions: {
                     scss: {
