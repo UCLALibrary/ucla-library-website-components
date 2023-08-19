@@ -1,3 +1,10 @@
+## [2.38.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.5...v2.38.6) (2023-08-19)
+
+
+### Bug Fixes
+
+* APPS-2392 update design token ([#375](https://github.com/UCLALibrary/ucla-library-website-components/issues/375)) ([addfcdf](https://github.com/UCLALibrary/ucla-library-website-components/commit/addfcdf22e1d24e151b809e4af980b0f7496f126))
+
 ## [2.38.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.4...v2.38.5) (2023-08-11)
 
 
