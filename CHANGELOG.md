@@ -1,3 +1,10 @@
+# [2.39.0-vue3.x.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.0...v2.39.0-vue3.x.1) (2023-08-25)
+
+
+### Features
+
+* APPS-2381 add divider components ([#366](https://github.com/UCLALibrary/ucla-library-website-components/issues/366)) ([4544e6c](https://github.com/UCLALibrary/ucla-library-website-components/commit/4544e6c35508705fec5a03a36079f8af4cf68632))
+
 # [2.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.5...v2.38.0) (2023-07-25)
 
 
