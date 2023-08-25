@@ -1,5 +1,12 @@
 module.exports = {
-    branches: ["main"],
+    branches: [
+        "main",
+        {
+            name: "vue3.x",
+            prerelease: true,
+            channel: "next",
+        },
+    ],
     plugins: [
         "@semantic-release/commit-analyzer",
         "@semantic-release/release-notes-generator",
@@ -17,10 +24,10 @@ module.exports = {
                 assets: [
                     "CHANGELOG.md",
                     "dist/*",
-                    "src/lib-components/*",
+                    "src/components/*",
                     "src/styles/*",
                     "package.json",
-                    "package-lock.json",
+                    "pnpm-lock.yaml",
                 ],
                 message:
                     "chore(release): set `package.json` to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
