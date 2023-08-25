@@ -7,6 +7,9 @@ import svgLoader from "vite-svg-loader"
 // https://vitejs.dev/config/
 export default defineConfig({
     root: "./dev",
+    server: {
+        port: 5174,
+    },
     plugins: [vue(), svgLoader()],
     css: {
         preprocessorOptions: {
