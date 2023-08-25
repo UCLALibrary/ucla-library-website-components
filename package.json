@@ -2,7 +2,6 @@
   "name": "ucla-library-website-components-vue3.x",
   "private": false,
   "version": "3.0.0-development",
-  "type": "module",
   "main": "dist/ucla-library-website-components.cjs.js",
   "module": "dist/ucla-library-website-components.es.js",
   "files": [
@@ -16,7 +15,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "serve": "vite --config vite.config.serve.js ",
+    "serve": "vite --config vite.config.serve.ts",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
