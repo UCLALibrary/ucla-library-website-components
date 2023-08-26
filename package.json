@@ -1,7 +1,7 @@
 {
-  "name": "ucla-library-website-components-vue3.x",
+  "name": "ucla-library-website-components",
   "private": false,
-  "version": "2.39.0-vue3.x.1",
+  "version": "2.38.6",
   "main": "dist/ucla-library-website-components.cjs.js",
   "module": "dist/ucla-library-website-components.es.js",
   "files": [
@@ -37,8 +37,6 @@
   },
   "devDependencies": {
     "@percy/cypress": "^3.1.2",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
     "@storybook/addon-essentials": "^7.1.1",
     "@storybook/addon-interactions": "^7.1.1",
     "@storybook/addon-links": "^7.1.1",
