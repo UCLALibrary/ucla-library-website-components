@@ -20,12 +20,12 @@ jobs:
       with:
         path: storybook-static
         key: storybook-${{ github.sha }}
-    - run: npm run build-storybook
+    - run: pnpm run build-storybook
       if: steps.cache-storybook.outputs.cache-hit != 'true'
     - uses: cypress-io/github-action@v3
       with:
-        start: npx http-server ./storybook-static -p 6006
+        start: pnpm dlx http-server ./storybook-static -p 6006
         command-prefix: 'percy exec -- npx'
         wait-on: http://localhost:6006
       env:
-        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
