@@ -97,10 +97,10 @@ jobs:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
     - name: Cypress test for Storybook Components
-      uses: cypress-io/github-action@v3
+      uses: cypress-io/github-action@v5
       with:
         start: pnpm dlx http-server ./storybook-static -p 6006
-        command-prefix: 'npx'
+        command-prefix: 'pnpm dlx'
         wait-on: http://localhost:6006
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
