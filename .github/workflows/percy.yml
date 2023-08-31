@@ -14,6 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: ./.github/workflows/setup-workspace
+    - name: Debug pnpm version
+      run: pnpm --version
+    - name: Debug STORE_PATH contents
+      run: ls -al $STORE_PATH
+    - name: Debug PNPM_HOME contents
+      run: ls -al $PNPM_HOME
     - name: Use cached storybook build
       id: cache-storybook
       uses: actions/cache@v3
@@ -31,5 +37,12 @@ jobs:
         start: pnpm dlx http-server ./storybook-static -p 6006
         command: 'percy exec -- pnpm dlx cypress run'
         wait-on: http://localhost:6006
+    - name: Debug list files
+      run: ls -al
+    - name: Debug Environment Variables
+      run: env
+    - name: Debug Percy Token Existence
+      run: echo "Is PERCY_TOKEN set? $([[ ! -z "$PERCY_TOKEN" ]] && echo "Yes" || echo "No")"
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
+    
