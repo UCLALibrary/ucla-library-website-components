@@ -8,10 +8,10 @@
 <script setup>
 // Helpers
 import getSectionName from "@/utils/getSectionName"
-import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router';
+import { computed } from "vue"
+import { useRoute } from "vue-router"
 
-const route = useRoute();
+const route = useRoute()
 
 const { color } = defineProps({
     color: {
@@ -20,10 +20,11 @@ const { color } = defineProps({
     },
 })
 
-const classes = computed(() => ["divider-way-finder", `color-${sectionName.value}`])
+const classes = computed(() => [
+    "divider-way-finder",
+    `color-${sectionName.value}`,
+])
 const sectionName = computed(() => color || getSectionName(route.path))
-
-
 </script>
 
 <style lang="scss" scoped>
@@ -55,7 +56,7 @@ const sectionName = computed(() => color || getSectionName(route.path))
     align-content: space-between;
     align-items: center;
 
-    max-width: $container-l-main (+px);
+    max-width: $container-l-main (+ px);
     margin: var(--space-2xl) auto;
 
     .solid {

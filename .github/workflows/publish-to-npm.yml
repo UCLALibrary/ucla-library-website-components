@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
         with:
@@ -26,6 +26,6 @@ jobs:
         run: pnpm install --save-dev @semantic-release/changelog @semantic-release/git
       - name: Release
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm dlx semantic-release

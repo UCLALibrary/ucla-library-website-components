@@ -3,9 +3,9 @@ name: Run CI Suite
 
 on:
   push:
-    branches: [ main ]
+    branches: [ vue3.x ]
   pull_request:
-    branches: [ main ]
+    branches: [ vue3.x ]
 
 # Cancel this run if a newer commit is pushed
 concurrency:
@@ -39,21 +39,21 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.ref }}
         repository: ${{ github.event.pull_request.head.repo.full_name }}
-        token: ${{ secrets.GH_TOKEN }} # non-github token so pushing auto-fies will trigger a new CI run will expire ever 4 months
+        token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }} # non-github token so pushing auto-fies will trigger a new CI run will expire ever 4 months
     - uses: ./.github/workflows/setup-workspace
-    - run: npm run lint
+    - run: pnpm run lint
     - uses: EndBug/add-and-commit@v9
       with:
         message: "chore: linter autofixes"
         default_author: github_actions
 
-  rollup:
+  vite:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
     - uses: actions/checkout@v3
     - uses: ./.github/workflows/setup-workspace
-    - run: npm run build
+    - run: pnpm run build
 
   storybook:
     runs-on: ubuntu-latest
@@ -67,7 +67,7 @@ jobs:
       with:
         path: storybook-static
         key: storybook-${{ github.sha }}
-    - run: npm run build-storybook
+    - run: pnpm run build-storybook
     - name: Deploy to Netlify (merged)
       if: github.ref_name=='main'
       uses: nwtgck/actions-netlify@v2 # v1.2.3
@@ -80,7 +80,7 @@ jobs:
         github-deployment-environment: test
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
     - name: Deploy to Netlify (preview)
       if: github.ref_name!='main'
       uses: nwtgck/actions-netlify@v2 # v1.2.3
@@ -95,12 +95,11 @@ jobs:
         github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
     - name: Cypress test for Storybook Components
-      uses: cypress-io/github-action@v3
+      uses: cypress-io/github-action@v5
       with:
-        start: npx http-server ./storybook-static -p 6006
-        command-prefix: 'npx'
+        start: pnpm dlx http-server ./storybook-static -p 6006
         wait-on: http://localhost:6006
       env:
-        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
