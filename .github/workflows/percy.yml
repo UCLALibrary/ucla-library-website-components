@@ -25,7 +25,7 @@ jobs:
     - uses: cypress-io/github-action@v3
       with:
         start: pnpm dlx http-server ./storybook-static -p 6006
-        command-prefix: 'percy exec -- pnpm dlx'
+        command: 'percy exec -- pnpm dlx cypress run'
         wait-on: http://localhost:6006
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
