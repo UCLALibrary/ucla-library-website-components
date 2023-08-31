@@ -8,7 +8,7 @@ on:
 
 jobs:
   percy:
-    name: Percy - Storybook Components
+    name: Percy - Storybook Components3.x
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
