@@ -22,6 +22,10 @@ jobs:
         key: storybook-${{ github.sha }}
     - run: pnpm run build-storybook
       if: steps.cache-storybook.outputs.cache-hit != 'true'
+    - name: Debug list files
+      run: ls -al
+    - name: Debug Environment Variables
+      run: env
     - uses: cypress-io/github-action@v3
       with:
         start: pnpm dlx http-server ./storybook-static -p 6006
