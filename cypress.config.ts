@@ -6,6 +6,7 @@ export default defineConfig({
     viewportWidth: 1440,
     viewportHeight: 1024,
     retries: 1,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     setupNodeEvents(on, config) {
         // implement node event listeners here
     },

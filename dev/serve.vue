@@ -1,13 +1,14 @@
 <script setup lang="ts">
-
-import DividerGeneral from '../src/components/DividerGeneral.vue';
-import DividerWayFinder from '../src/components/DividerWayFinder.vue';
+import DividerGeneral from "../src/components/DividerGeneral.vue"
+import DividerWayFinder from "../src/components/DividerWayFinder.vue"
 </script>
 <template>
     <div id="app" class="app">
         <h1>
             This page displays the components in the
-            <a href="https://github.com/UCLALibrary/ucla-library-website-components">
+            <a
+                href="https://github.com/UCLALibrary/ucla-library-website-components"
+            >
                 ucla-library-website-components npm repo
             </a>
         </h1>
