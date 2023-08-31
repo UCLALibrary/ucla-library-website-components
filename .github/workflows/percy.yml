@@ -35,14 +35,8 @@ jobs:
     - uses: cypress-io/github-action@v3
       with:
         start: pnpm dlx http-server ./storybook-static -p 6006
-        command: 'percy exec -- pnpm dlx cypress run'
+        # command: 'percy exec -- pnpm dlx cypress run'
         wait-on: http://localhost:6006
-    - name: Debug list files
-      run: ls -al
-    - name: Debug Environment Variables
-      run: env
-    - name: Debug Percy Token Existence
-      run: echo "Is PERCY_TOKEN set? $([[ ! -z "$PERCY_TOKEN" ]] && echo "Yes" || echo "No")"
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
     
