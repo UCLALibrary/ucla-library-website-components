@@ -23,8 +23,8 @@ jobs:
     - run: pnpm run build-storybook
       if: steps.cache-storybook.outputs.cache-hit != 'true'
     - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
+      uses: pnpm/action-setup@v2
+      with:
           version: 8
     - uses: cypress-io/github-action@v3
       with:
