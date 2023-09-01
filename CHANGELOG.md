@@ -1,3 +1,10 @@
+# [2.39.0-alpha.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.1...v2.39.0-alpha.2) (2023-09-01)
+
+
+### Features
+
+* test minor bump with semantic pre release alpha ([#391](https://github.com/UCLALibrary/ucla-library-website-components/issues/391)) ([260436e](https://github.com/UCLALibrary/ucla-library-website-components/commit/260436efcb01a1a6285a6d33b1eb97aa9d04766f))
+
 # [2.39.0-alpha.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.0...v2.39.0-alpha.1) (2023-09-01)
 
 
