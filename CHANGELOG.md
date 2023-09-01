@@ -1,18 +1,3 @@
-# [2.39.0-vue3.x.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.0...v2.39.0-vue3.x.1) (2023-09-01)
-
-
-### Bug Fixes
-
-* build a new version for next release candidate ([#381](https://github.com/UCLALibrary/ucla-library-website-components/issues/381)) ([0ed3dc1](https://github.com/UCLALibrary/ucla-library-website-components/commit/0ed3dc18dd22a0133026d094b99919ea1b93fc9e))
-* changelog and unpublish the next tag ([#384](https://github.com/UCLALibrary/ucla-library-website-components/issues/384)) ([a15b35a](https://github.com/UCLALibrary/ucla-library-website-components/commit/a15b35a5c6f6d7272e15b407cb8d30784ed052b6))
-* ci workflows, test npm release ([#383](https://github.com/UCLALibrary/ucla-library-website-components/issues/383)) ([4cd7030](https://github.com/UCLALibrary/ucla-library-website-components/commit/4cd7030d139badcd4ac4548429a5f4802b556b4b))
-* if package.json changes run pnpm install ([#380](https://github.com/UCLALibrary/ucla-library-website-components/issues/380)) ([2300b3d](https://github.com/UCLALibrary/ucla-library-website-components/commit/2300b3d08dc2f7f318e14a80b78fdfd8ab664c17))
-* release vue3.x to next channel ([#386](https://github.com/UCLALibrary/ucla-library-website-components/issues/386)) ([3b55e04](https://github.com/UCLALibrary/ucla-library-website-components/commit/3b55e04257f59f85111ee85784d12e1e5752c200))
-
-
-### Features
-
-* APPS-2381 add divider components ([#366](https://github.com/UCLALibrary/ucla-library-website-components/issues/366)) ([4544e6c](https://github.com/UCLALibrary/ucla-library-website-components/commit/4544e6c35508705fec5a03a36079f8af4cf68632))
 
 # [2.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.37.5...v2.38.0) (2023-07-25)
 
