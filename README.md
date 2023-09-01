@@ -41,6 +41,14 @@ Start the vite server on `http://localhost:5174`:
 pnpm run serve
 ```
 
+## Test component library package Server
+Start the storybook on `http://localhost:6006`:
+
+```bash
+# pnpm
+pnpm run storybook
+```
+
 
 
 
