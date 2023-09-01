@@ -3,8 +3,8 @@ module.exports = {
         "main",
         {
             name: "vue3.x",
-            prerelease: true,
-            channel: "next",
+            prerelease: "alpha",
+            channel: "alpha",
         },
     ],
     plugins: [
