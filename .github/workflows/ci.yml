@@ -69,7 +69,7 @@ jobs:
         key: storybook-${{ github.sha }}
     - run: pnpm run build-storybook
     - name: Deploy to Netlify (merged)
-      if: github.ref_name=='main'
+      if: github.ref_name=='vue3.x'
       uses: nwtgck/actions-netlify@v2 # v1.2.3
       with:
         production-deploy: true
