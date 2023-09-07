@@ -243,7 +243,7 @@ export default {
         doSearch() {
             console.log("dosearch called")
             console.log(
-                "selected fileters in component are: " +
+                "selected filters in component are: " +
                     JSON.stringify(this.selectedFilters)
             )
             console.log(

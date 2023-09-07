@@ -1,11 +1,13 @@
 <template>
-    <div class="banner-image" @click="$emit('toggleThumbnails')">
+    <div :class="classes">
         <MediaItem
             :item="item"
             :embed-code="embedCode"
             :cover-image="coverImage"
             :aspect-ratio="60"
             object-fit="cover"
+            class="media-item"
+            @click.native="$emit('toggleThumbnails')"
         >
             <div v-if="nItems > 1 && !expanded">
                 <div class="gradient" />
@@ -14,6 +16,7 @@
                     aria-hidden="true"
                 />
             </div>
+
             <media-badge v-if="nItems > 1" :is-expanded="expanded">
                 {{ nItems }}
                 images
@@ -36,9 +39,15 @@
                 </svg>
             </media-badge>
         </MediaItem>
+
+        <div v-if="isHalfWidth" class="text-wrapper">
+            <h3 class="title">{{ title }}</h3>
+            <p class="summary">
+                {{ summary }}
+            </p>
+        </div>
     </div>
 </template>
-f5rtfdrc
 
 <script>
 import MediaItem from "@/lib-components/Media/Item.vue"
@@ -73,13 +82,32 @@ export default {
             type: Boolean,
             required: true,
         },
+        isHalfWidth: {
+            type: Boolean,
+        },
+        title: {
+            type: String,
+            default: "",
+        },
+        summary: {
+            type: String,
+            default: "",
+        },
+    },
+    computed: {
+        classes() {
+            return [
+                "banner-image",
+                this.isHalfWidth ? "half-width-media-item" : "",
+            ]
+        },
     },
 }
 </script>
 
 <style lang="scss" scoped>
 .banner-image {
-    cursor: pointer;
+    // cursor: pointer;
 
     .gradient {
         display: none;
@@ -90,6 +118,7 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
+        cursor: pointer;
     }
 
     .svg__molecule-image-stack {
@@ -116,9 +145,66 @@ export default {
     }
 }
 
+.half-width-media-item {
+    display: flex;
+    flex-direction: row;
+    gap: 120px;
+    .media-item {
+        min-width: 456px;
+        min-height: 456px;
+        cursor: pointer;
+    }
+    .text-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 352px;
+        .title {
+            @include step-1;
+            color: var(--color-primary-blue-03);
+            margin-bottom: 16px;
+            text-align: left;
+            width: 100%;
+        }
+        .summary {
+            align-items: center;
+            text-align: left;
+            @include step-0;
+            color: #{$secondary-grey-05};
+            width: 100%;
+        }
+
+        .caption-title {
+            @include step-1;
+            color: #{$black};
+            margin-bottom: var(--space-xs);
+        }
+
+        .caption-text {
+            @include step-0;
+            color: #{$secondary-grey-05};
+            @include truncate($lines: 4);
+        }
+
+        .caption-link {
+            @include button;
+            margin-top: 10px;
+            padding: 0;
+
+            // /* identical to box height, or 22px */
+            display: flex;
+            align-items: center;
+
+            // /* primary/blue-03 */
+            color: $primary-blue-03;
+        }
+    }
+}
+
 // Hovers
 @media #{$has-hover} {
-    .banner-image:hover {
+    .media-item:hover {
         .gradient {
             display: block;
         }

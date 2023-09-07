@@ -16,8 +16,12 @@
             :embed-code="block.mediaGallery[selectionIndex].embedCode"
             :n-items="nItems"
             :expanded="expandThumbnails"
-            @click.native="toggleThumbnails"
+            @toggleThumbnails="toggleThumbnails"
+            :isHalfWidth="block.isHalfWidth"
+            :title="block.title"
+            :summary="block.summary"
         />
+
         <div v-if="expandThumbnails" class="thumbnails">
             <flexible-media-gallery-thumbnail-card
                 v-for="(item, index) in block.mediaGallery"
