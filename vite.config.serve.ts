@@ -20,6 +20,18 @@ export default defineConfig({
                   @import "ucla-library-design-tokens/scss/app.scss";
                 `,
             },
+            postcss: {
+                postcssOptions: {
+                    plugins: [
+                        [
+                            "postcss-base64",
+                            {
+                                extensions: [".svg"],
+                            },
+                        ],
+                    ],
+                },
+            },
         },
     },
     resolve: {
@@ -30,5 +42,6 @@ export default defineConfig({
                 "node_modules/ucla-library-design-tokens"
             ),
         },
+        extensions: [".vue", ".js", ".json"],
     },
 })

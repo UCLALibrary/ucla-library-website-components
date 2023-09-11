@@ -1,5 +1,6 @@
 import { createApp } from "vue"
 // import store from '@/store';
+import "./serve.css"
 import Dev from "./serve.vue"
 import router from "../src/router"
 import UclaLibraryWebsiteComponent from "../src/entry.js"
