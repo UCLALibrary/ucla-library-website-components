@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import ButtonLink from "./ButtonLink.vue"
+import ButtonLink from "./ButtonLink"
 import RichText from "./RichText.vue"
 
 import SvgAlertCircle from "ucla-library-design-tokens/assets/svgs/icon-alert.svg"

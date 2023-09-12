@@ -1,4 +1,4 @@
-import ButtonLink from "@/lib-components/ButtonLink.vue"
+import ButtonLink from "@/lib-components/ButtonLink"
 
 // Storybook default settings
 export default {

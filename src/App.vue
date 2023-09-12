@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from "@/lib-components/HelloWorld"
+import HelloWorld from "@/lib-components/HelloWorld.vue"
 import DividerGeneral from "@/lib-components/DividerGeneral.vue"
 import DividerWayFinder from "@/lib-components/DividerWayFinder.vue"
 import RichText from "@/lib-components/RichText.vue"
-import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert"
+import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert.vue"
 
 import ButtonLink from "@/lib-components/ButtonLink.vue"
 
