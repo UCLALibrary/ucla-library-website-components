@@ -16,7 +16,6 @@
                     aria-hidden="true"
                 />
             </div>
-
             <media-badge v-if="nItems > 1" :is-expanded="expanded">
                 {{ nItems }}
                 images
@@ -39,7 +38,6 @@
                 </svg>
             </media-badge>
         </MediaItem>
-
         <div v-if="isHalfWidth" class="text-wrapper">
             <h3 class="title">{{ title }}</h3>
             <p class="summary">
@@ -48,6 +46,7 @@
         </div>
     </div>
 </template>
+f5rtfdrc
 
 <script>
 import MediaItem from "@/lib-components/Media/Item.vue"
@@ -149,19 +148,22 @@ export default {
     display: flex;
     flex-direction: row;
     gap: 120px;
+
     .media-item {
         min-width: 456px;
         min-height: 456px;
         cursor: pointer;
     }
+
     .text-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 352px;
+
         .title {
-            @include step-1;
+            @include step-3;
             color: var(--color-primary-blue-03);
             margin-bottom: 16px;
             text-align: left;
@@ -170,34 +172,7 @@ export default {
         .summary {
             align-items: center;
             text-align: left;
-            @include step-0;
-            color: #{$secondary-grey-05};
             width: 100%;
-        }
-
-        .caption-title {
-            @include step-1;
-            color: #{$black};
-            margin-bottom: var(--space-xs);
-        }
-
-        .caption-text {
-            @include step-0;
-            color: #{$secondary-grey-05};
-            @include truncate($lines: 4);
-        }
-
-        .caption-link {
-            @include button;
-            margin-top: 10px;
-            padding: 0;
-
-            // /* identical to box height, or 22px */
-            display: flex;
-            align-items: center;
-
-            // /* primary/blue-03 */
-            color: $primary-blue-03;
         }
     }
 }
