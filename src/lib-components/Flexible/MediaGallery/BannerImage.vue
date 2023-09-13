@@ -105,7 +105,6 @@ export default {
 <style lang="scss" scoped>
 .banner-image {
     // cursor: pointer;
-
     .gradient {
         display: none;
         background: var(--gradient-radial);
@@ -148,8 +147,8 @@ export default {
     gap: 100px;
 
     .media-item {
-        min-width: 456px;
-        min-height: 456px;
+        width: calc((100% - 16px) / 2);
+        height: width;
         cursor: pointer;
     }
 
@@ -158,7 +157,7 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        max-width: 500px;
+        max-width: calc((100% - 16px) / 2);
 
         .title {
             @include step-1;
@@ -172,7 +171,7 @@ export default {
             align-items: center;
             text-align: left;
             width: 100%;
-            @include truncate($lines: 8);
+            @include truncate($lines: 9);
         }
     }
 
@@ -181,9 +180,15 @@ export default {
         flex-direction: row;
         gap: 50px;
         .media-item {
-            min-width: 350px;
-            min-height: 350px;
+            width: calc((100% - 16px) / 2);
+            height: width;
             cursor: pointer;
+        }
+        .text-wrapper {
+            width: calc((100% - 16px) / 2);
+            .summary {
+                @include truncate($lines: 8);
+            }
         }
     }
 
@@ -191,11 +196,16 @@ export default {
         flex-direction: column;
         flex-wrap: wrap;
         .media-item {
+            width: 100%;
         }
         .text-wrapper {
-            // min-width: 456px;
+            min-width: 100%;
             display: flex;
             flex-direction: column;
+            margin-bottom: 15px;
+            .summary {
+                @include truncate($lines: 6);
+            }
         }
     }
 }
