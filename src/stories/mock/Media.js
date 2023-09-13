@@ -130,8 +130,7 @@ export const Gallery = {
         {
             id: "46452",
             captionTitle: "Video",
-            captionText:
-                "This Sporting Life is a 1963 British kitchen sink drama film directed by Lindsay Anderson. Based on the 1960 novel of the same name by David Storey, which won the 1960 Macmillan Fiction Award, it recounts the story of a rugby league footballer, Frank Machin, in Wakefield, a mining city in Yorkshire, whose romantic life is not as successful as his sporting life. Storey, a former professional rugby league footballer, also wrote the screenplay.",
+            captionText: "",
             credit: "Edison Studios in credit field",
             sortOrder: 2,
             item: VideoFile,
