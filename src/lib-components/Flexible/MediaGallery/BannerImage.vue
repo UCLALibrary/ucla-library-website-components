@@ -187,15 +187,17 @@ export default {
         }
     }
 
-    /*
     @media #{$small} {
+        flex-direction: column;
+        flex-wrap: wrap;
+        .media-item {
+        }
         .text-wrapper {
             // min-width: 456px;
             display: flex;
             flex-direction: column;
         }
     }
-    */
 }
 
 // Hovers
