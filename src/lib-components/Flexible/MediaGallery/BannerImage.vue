@@ -38,15 +38,13 @@
                 </svg>
             </media-badge>
         </MediaItem>
+
         <div v-if="isHalfWidth" class="text-wrapper">
             <h3 class="title">{{ title }}</h3>
-            <p class="summary">
-                {{ summary }}
-            </p>
+            <p class="summary">{{ summary }}</p>
         </div>
     </div>
 </template>
-f5rtfdrc
 
 <script>
 import MediaItem from "@/lib-components/Media/Item.vue"
@@ -147,7 +145,7 @@ export default {
 .half-width-media-item {
     display: flex;
     flex-direction: row;
-    gap: 120px;
+    gap: 100px;
 
     .media-item {
         min-width: 456px;
@@ -160,21 +158,44 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 352px;
+        max-width: 500px;
 
         .title {
-            @include step-3;
+            @include step-1;
             color: var(--color-primary-blue-03);
             margin-bottom: 16px;
             text-align: left;
             width: 100%;
         }
         .summary {
+            @include step-0;
             align-items: center;
             text-align: left;
             width: 100%;
+            @include truncate($lines: 8);
         }
     }
+
+    // Breakpoints
+    @media #{$medium} {
+        flex-direction: row;
+        gap: 50px;
+        .media-item {
+            min-width: 350px;
+            min-height: 350px;
+            cursor: pointer;
+        }
+    }
+
+    /*
+    @media #{$small} {
+        .text-wrapper {
+            // min-width: 456px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    */
 }
 
 // Hovers

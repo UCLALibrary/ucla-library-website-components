@@ -21,6 +21,7 @@
             :title="block.title"
             :summary="block.summary"
         />
+
         <div v-if="expandThumbnails" class="thumbnails">
             <flexible-media-gallery-thumbnail-card
                 v-for="(item, index) in block.mediaGallery"
