@@ -18,14 +18,6 @@ const config: StorybookConfig = {
     },
     async viteFinal(config) {
         return mergeConfig(config, {
-            resolve: {
-                alias: {
-                    "vue-router": path.resolve(
-                        __dirname,
-                        "../src/stories/mocks/vue-router.mock.js"
-                    ),
-                },
-            },
             css: {
                 preprocessorOptions: {
                     scss: {
@@ -35,6 +27,12 @@ const config: StorybookConfig = {
                         `,
                     },
                 },
+            },
+            resolve: {
+                alias: {
+                    "@": path.resolve(__dirname, "../src/"),
+                },
+                extensions: [".vue", ".js", ".json"],
             },
         })
     },

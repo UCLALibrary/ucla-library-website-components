@@ -1,4 +1,4 @@
-import DividerGeneral from "@/components/DividerGeneral.vue"
+import DividerGeneral from "@/lib-components/DividerGeneral.vue"
 
 export default {
     title: "DIVIDER / General",
