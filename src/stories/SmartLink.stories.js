@@ -4,12 +4,15 @@ import SmartLink from "@/lib-components/SmartLink.vue"
 export default {
     title: "GLOBAL / Smart Link",
     component: SmartLink,
+    tags: ["autodocs"],
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
     components: { SmartLink },
-    props: Object.keys(argTypes),
-    template: `<smart-link v-bind="$props">Link goes here</smart-link>`,
+    setup() {
+        return { args }
+    },
+    template: `<smart-link v-bind="args">Link goes here</smart-link>`,
 })
 
 // Variations of stories below

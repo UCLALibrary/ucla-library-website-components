@@ -32,7 +32,7 @@ import { isRelativeLink } from "@/composables/isRelativeLink"
 
 export default {
     name: "SmartLink",
-    mixins: [isRelativeLink, formatLinkTarget],
+
     props: {
         to: {
             type: String,

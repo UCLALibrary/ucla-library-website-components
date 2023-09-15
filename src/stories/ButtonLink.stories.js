@@ -4,6 +4,7 @@ import ButtonLink from "@/lib-components/ButtonLink"
 export default {
     title: "BUTTON / Link",
     component: ButtonLink,
+    tags: ["autodocs"],
     argTypes: {
         label: { type: "string" },
         iconName: {
@@ -22,10 +23,12 @@ export default {
     },
 }
 
-const Template = (args, { argTypes }) => ({
+const Template = (args) => ({
     components: { ButtonLink },
-    props: Object.keys(argTypes),
-    template: '<button-link v-bind="$props" />',
+    setup() {
+        return { args }
+    },
+    template: '<button-link v-bind="args" />',
 })
 
 export const WithControls = Template.bind({})
