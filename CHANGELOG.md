@@ -1,3 +1,10 @@
+# [2.39.0-alpha.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.3...v2.39.0-alpha.4) (2023-09-15)
+
+
+### Features
+
+* Add SiteNotificationAlert, RichText, ButtonLink, and Smart Link  components ([#395](https://github.com/UCLALibrary/ucla-library-website-components/issues/395)) ([a740d4e](https://github.com/UCLALibrary/ucla-library-website-components/commit/a740d4ed3d937d47e52369ecfda74122104f4181))
+
 # [2.39.0-alpha.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.2...v2.39.0-alpha.3) (2023-09-01)
 
 
