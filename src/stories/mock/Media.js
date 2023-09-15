@@ -112,13 +112,13 @@ export const AudioEmbedCoverImage = [
 export const Gallery = {
     id: "46450",
     typeHandle: "mediaGallery",
-    sectionTitle: "Media Gallery with all types",
+    sectionTitle: "Pine Needles are Awesome",
     richTextSimplified:
-        "<p>RichTextSimplified Trying a Media Gallery with all the media types now</p>",
+        "<p>Pine needles. It’s not because the gangly-limbed tree is particularly beautiful. The pine doesn’t have a magnolia’s flowers or an oak’s shade. <strong>East Coast Pine Needles live up to their reputation of excellence.</strong></p>",
     mediaGallery: [
         {
             id: "46451",
-            captionTitle: "Image",
+            captionTitle: "Image Pine Needles",
             captionText:
                 "Pine needles. It’s not because the gangly-limbed tree is particularly beautiful. The pine doesn’t have a magnolia’s flowers or an oak’s shade. And it has nothing to do with the endangered red-cockaded woodpecker that calls the tree home. The longleaf pine’s most obvious attribute is its strong, straight timber — perfect for utility poles.",
             sortOrder: 1,
@@ -129,7 +129,7 @@ export const Gallery = {
         },
         {
             id: "46452",
-            captionTitle: "Video",
+            captionTitle: "Video Body Builder",
             captionText: "",
             credit: "Edison Studios in credit field",
             sortOrder: 2,

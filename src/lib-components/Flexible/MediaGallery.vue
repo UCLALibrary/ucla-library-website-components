@@ -17,9 +17,9 @@
             :n-items="nItems"
             :expanded="expandThumbnails"
             @toggleThumbnails="toggleThumbnails"
-            :isHalfWidth="block.isHalfWidth"
-            :title="block.title"
-            :summary="block.summary"
+            :isHalfWidth="block.mediaGalleryStyle"
+            :title="halfWidthTitle"
+            :summary="halfWidthSummary"
         />
 
         <div v-if="expandThumbnails" class="thumbnails">
@@ -82,6 +82,20 @@ export default {
         plusMinusIcon() {
             // These are the "fullwidth" unicode plus (U+FF0B) & minus (U+FF0D)
             return this.expandThumbnails ? "－" : "＋"
+        },
+        getMediaGalleryStyle() {
+            //return this.block.mediaGallery.mediaGalleryStyle == "halfWidth"
+            return this.block.mediaGallery ? true : false
+        },
+        halfWidthTitle() {
+            return this.block.mediaGalleryStyle == "halfWidth"
+                ? this.block.sectionTitle
+                : ""
+        },
+        halfWidthSummary() {
+            return this.block.mediaGalleryStyle == "halfWidth"
+                ? this.block.richTextSimplified
+                : ""
         },
     },
     methods: {

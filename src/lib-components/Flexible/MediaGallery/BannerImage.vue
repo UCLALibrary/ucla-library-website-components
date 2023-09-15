@@ -80,7 +80,8 @@ export default {
             required: true,
         },
         isHalfWidth: {
-            type: Boolean,
+            type: String,
+            default: "",
         },
         title: {
             type: String,
@@ -95,7 +96,7 @@ export default {
         classes() {
             return [
                 "banner-image",
-                this.isHalfWidth ? "half-width-media-item" : "",
+                this.isHalfWidth == "halfWidth" ? "half-width-media-item" : "",
             ]
         },
     },
@@ -148,7 +149,6 @@ export default {
 
     .media-item {
         width: calc((100% - 16px) / 2);
-        height: width;
         cursor: pointer;
     }
 
@@ -171,7 +171,6 @@ export default {
             align-items: center;
             text-align: left;
             width: 100%;
-            @include truncate($lines: 9);
         }
     }
 
@@ -181,14 +180,10 @@ export default {
         gap: 50px;
         .media-item {
             width: calc((100% - 16px) / 2);
-            height: width;
             cursor: pointer;
         }
         .text-wrapper {
             width: calc((100% - 16px) / 2);
-            .summary {
-                @include truncate($lines: 8);
-            }
         }
     }
 
@@ -203,9 +198,6 @@ export default {
             display: flex;
             flex-direction: column;
             margin-bottom: 15px;
-            .summary {
-                @include truncate($lines: 6);
-            }
         }
     }
 }

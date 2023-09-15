@@ -13,6 +13,7 @@
                 :section-summary="
                     block.sectionSummary || block.richTextSimplified
                 "
+                :half-width="block.mediaGalleryStyle"
             >
                 <component
                     :is="block.componentName"
@@ -118,6 +119,10 @@ export default {
             type: Array,
             default: () => [],
         },
+        halfWidth: {
+            type: String,
+            default: "",
+        },
     },
     computed: {
         parsedBlocks() {
@@ -128,6 +133,7 @@ export default {
                     return {
                         ...obj,
                         componentName: convertName(obj.typeHandle),
+                        mediaGalleryStyle: obj.mediaGalleryStyle,
                     }
                 })
                 .filter((obj) => {
