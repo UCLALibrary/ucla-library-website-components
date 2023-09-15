@@ -17,9 +17,9 @@
             :n-items="nItems"
             :expanded="expandThumbnails"
             @toggleThumbnails="toggleThumbnails"
-            :isHalfWidth="block.mediaGalleryStyle"
-            :title="halfWidthTitle"
-            :summary="halfWidthSummary"
+            :is-half-width="block.mediaGalleryStyle"
+            :section-title="halfWidthTitle"
+            :section-summary="halfWidthSummary"
         />
 
         <div v-if="expandThumbnails" class="thumbnails">

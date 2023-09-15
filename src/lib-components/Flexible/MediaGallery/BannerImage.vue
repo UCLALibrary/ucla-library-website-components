@@ -40,8 +40,13 @@
         </MediaItem>
 
         <div v-if="isHalfWidth" class="text-wrapper">
-            <h3 class="title">{{ title }}</h3>
-            <p class="summary">{{ summary }}</p>
+            <h3 v-if="sectionTitle" class="title" v-text="sectionTitle" />
+
+            <rich-text
+                v-if="sectionSummary"
+                class="summary"
+                v-html="sectionSummary"
+            />
         </div>
     </div>
 </template>
@@ -83,11 +88,11 @@ export default {
             type: String,
             default: "",
         },
-        title: {
+        sectionTitle: {
             type: String,
             default: "",
         },
-        summary: {
+        sectionSummary: {
             type: String,
             default: "",
         },
@@ -145,7 +150,7 @@ export default {
 .half-width-media-item {
     display: flex;
     flex-direction: row;
-    gap: 100px;
+    gap: var(--space-xl);
 
     .media-item {
         width: calc((100% - 16px) / 2);
@@ -160,9 +165,9 @@ export default {
         max-width: calc((100% - 16px) / 2);
 
         .title {
-            @include step-1;
+            @include step-3;
             color: var(--color-primary-blue-03);
-            margin-bottom: 16px;
+            margin-bottom: var(--space-l);
             text-align: left;
             width: 100%;
         }
@@ -172,12 +177,18 @@ export default {
             text-align: left;
             width: 100%;
         }
+        .rich-text {
+            padding-right: 0;
+            ::v-deep p:not(:last-child) {
+                margin-bottom: var(--space-m);
+            }
+        }
     }
 
     // Breakpoints
     @media #{$medium} {
         flex-direction: row;
-        gap: 50px;
+        gap: var(--space-xl);
         .media-item {
             width: calc((100% - 16px) / 2);
             cursor: pointer;

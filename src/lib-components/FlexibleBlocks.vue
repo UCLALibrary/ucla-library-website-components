@@ -7,7 +7,28 @@
             <section-wrapper v-if="block.needsDivider" theme="divider"
                 ><DividerWayFinder
             /></section-wrapper>
+
             <section-wrapper
+                v-if="block.mediaGalleryStyle == 'halfWidth'"
+                :theme="block.theme"
+                :half-width="block.mediaGalleryStyle"
+            >
+                <component
+                    v-if="block.mediaGalleryStyle == 'halfWidth'"
+                    :is="block.componentName"
+                    :block="block"
+                    class="flexible-block"
+                />
+                <component
+                    v-else
+                    :is="block.componentName"
+                    :block="omit(block, ['sectionTitle', 'sectionSummary'])"
+                    class="flexible-block"
+                />
+            </section-wrapper>
+
+            <section-wrapper
+                v-else
                 :theme="block.theme"
                 :section-title="block.sectionTitle"
                 :section-summary="
@@ -16,6 +37,13 @@
                 :half-width="block.mediaGalleryStyle"
             >
                 <component
+                    v-if="block.mediaGalleryStyle == 'halfWidth'"
+                    :is="block.componentName"
+                    :block="block"
+                    class="flexible-block"
+                />
+                <component
+                    v-else
                     :is="block.componentName"
                     :block="omit(block, ['sectionTitle', 'sectionSummary'])"
                     class="flexible-block"
