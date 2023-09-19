@@ -1,3 +1,10 @@
+# [2.39.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.6...v2.39.0) (2023-09-19)
+
+
+### Features
+
+* APPS-1932 create media gallery half width ([#394](https://github.com/UCLALibrary/ucla-library-website-components/issues/394)) ([f90419b](https://github.com/UCLALibrary/ucla-library-website-components/commit/f90419b98f36b52cf4ad75cb76c77dc90422539e))
+
 ## [2.38.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.5...v2.38.6) (2023-08-19)
 
 
