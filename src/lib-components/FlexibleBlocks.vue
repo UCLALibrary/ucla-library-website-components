@@ -4,14 +4,13 @@
             >More Information</section-header
         >
         <div v-for="(block, index) in parsedBlocks" :key="index">
-            <section-wrapper v-if="block.needsDivider" theme="divider"
-                ><DividerWayFinder
-            /></section-wrapper>
+            <section-wrapper v-if="block.needsDivider" theme="divider">
+                <DividerWayFinder />
+            </section-wrapper>
 
             <section-wrapper
                 v-if="block.mediaGalleryStyle == 'halfWidth'"
                 :theme="block.theme"
-                :half-width="block.mediaGalleryStyle"
             >
                 <component
                     v-if="block.mediaGalleryStyle == 'halfWidth'"
@@ -27,6 +26,8 @@
                 />
             </section-wrapper>
 
+            <!-- -------- else -------- -->
+
             <section-wrapper
                 v-else
                 :theme="block.theme"
@@ -34,7 +35,6 @@
                 :section-summary="
                     block.sectionSummary || block.richTextSimplified
                 "
-                :half-width="block.mediaGalleryStyle"
             >
                 <component
                     v-if="block.mediaGalleryStyle == 'halfWidth'"
@@ -147,10 +147,6 @@ export default {
             type: Array,
             default: () => [],
         },
-        halfWidth: {
-            type: String,
-            default: "",
-        },
     },
     computed: {
         parsedBlocks() {
@@ -161,7 +157,6 @@ export default {
                     return {
                         ...obj,
                         componentName: convertName(obj.typeHandle),
-                        mediaGalleryStyle: obj.mediaGalleryStyle,
                     }
                 })
                 .filter((obj) => {
@@ -200,6 +195,10 @@ export default {
             })
         },
     },
+    parsedSectionTitle() {
+        return "block.sectionTitle"
+    },
+    parsedSectionSummary() {},
     methods: {
         omit,
     },
