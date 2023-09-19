@@ -16,8 +16,12 @@
             :embed-code="block.mediaGallery[selectionIndex].embedCode"
             :n-items="nItems"
             :expanded="expandThumbnails"
-            @click.native="toggleThumbnails"
+            @toggleThumbnails="toggleThumbnails"
+            :is-half-width="block.mediaGalleryStyle"
+            :section-title="halfWidthTitle"
+            :section-summary="halfWidthSummary"
         />
+
         <div v-if="expandThumbnails" class="thumbnails">
             <flexible-media-gallery-thumbnail-card
                 v-for="(item, index) in block.mediaGallery"
@@ -78,6 +82,20 @@ export default {
         plusMinusIcon() {
             // These are the "fullwidth" unicode plus (U+FF0B) & minus (U+FF0D)
             return this.expandThumbnails ? "－" : "＋"
+        },
+        getMediaGalleryStyle() {
+            //return this.block.mediaGallery.mediaGalleryStyle == "halfWidth"
+            return this.block.mediaGallery ? true : false
+        },
+        halfWidthTitle() {
+            return this.block.mediaGalleryStyle == "halfWidth"
+                ? this.block.sectionTitle
+                : ""
+        },
+        halfWidthSummary() {
+            return this.block.mediaGalleryStyle == "halfWidth"
+                ? this.block.richTextSimplified
+                : ""
         },
     },
     methods: {

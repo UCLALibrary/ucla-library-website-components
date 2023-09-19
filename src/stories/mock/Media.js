@@ -112,13 +112,14 @@ export const AudioEmbedCoverImage = [
 export const Gallery = {
     id: "46450",
     typeHandle: "mediaGallery",
-    sectionTitle: "Media Gallery with all types",
+    sectionTitle: "Pine Needles are Awesome",
     richTextSimplified:
-        "<p>RichTextSimplified Trying a Media Gallery with all the media types now</p>",
+        "<p>Pine needles. It’s not because the gangly-limbed tree is particularly beautiful. The pine doesn’t have a magnolia’s flowers or an oak’s shade. <strong>East Coast Pine Needles live up to their reputation of excellence.</strong></p>",
+    mediaGalleryStyle: "fullWidth",
     mediaGallery: [
         {
             id: "46451",
-            captionTitle: "Image",
+            captionTitle: "Image Pine Needles",
             captionText:
                 "Pine needles. It’s not because the gangly-limbed tree is particularly beautiful. The pine doesn’t have a magnolia’s flowers or an oak’s shade. And it has nothing to do with the endangered red-cockaded woodpecker that calls the tree home. The longleaf pine’s most obvious attribute is its strong, straight timber — perfect for utility poles.",
             sortOrder: 1,
@@ -129,12 +130,78 @@ export const Gallery = {
         },
         {
             id: "46452",
-            captionTitle: "Video",
+            captionTitle: "Video Body Builder",
+            captionText: "",
             credit: "Edison Studios in credit field",
             sortOrder: 2,
             item: VideoFile,
             coverImage: VideoFileCoverImage,
             embedCode: null,
+            linkUrl: "https://digital.library.ucla.edu/",
+            linkText: "View catalog record",
+        },
+        {
+            id: "46453",
+            captionTitle: "Embedded Video",
+            captionText: "Some Dougie Poole for this, I hope you like.",
+            sortOrder: 3,
+            item: [],
+            coverImage: VideoEmbedCoverImage,
+            embedCode: VideoEmbed,
+        },
+        {
+            id: "46576",
+            captionTitle: "Audio",
+            captionText:
+                'The Sporting Life, "Queen of Sandcastles". Portland, 2000ish.',
+            sortOrder: 4,
+            item: AudioFile,
+            coverImage: AudioFileCoverImage,
+            embedCode: null,
+        },
+        {
+            id: "46454",
+            captionTitle: "Audio Embed",
+            captionText:
+                "Shira Small! Embeds shouldn't really care if they're audio of video",
+            sortOrder: 5,
+            item: [],
+            embedCode: AudioEmbed,
+            coverImage: AudioEmbedCoverImage,
+        },
+    ],
+}
+
+export const GalleryHalfWidth = {
+    id: "46450",
+    typeHandle: "mediaGallery",
+    sectionTitle: "Pine Needles are Awesome",
+    richTextSimplified:
+        "<p>Pine needles. It’s not because the gangly-limbed tree is particularly beautiful. The pine doesn’t have a magnolia’s flowers or an oak’s shade. <strong>East Coast Pine Needles live up to their reputation of excellence.</strong></p>",
+    mediaGalleryStyle: "halfWidth",
+    mediaGallery: [
+        {
+            id: "46451",
+            captionTitle: "Image Pine Needles",
+            captionText:
+                "Pine needles. It’s not because the gangly-limbed tree is particularly beautiful. The pine doesn’t have a magnolia’s flowers or an oak’s shade. And it has nothing to do with the endangered red-cockaded woodpecker that calls the tree home. The longleaf pine’s most obvious attribute is its strong, straight timber — perfect for utility poles.",
+            sortOrder: 1,
+            item: ImageFile,
+            credit: "photo by someone",
+            linkUrl: "https://digital.library.ucla.edu/",
+            linkText: "View catalog record",
+        },
+        {
+            id: "46452",
+            captionTitle: "Video Body Builder",
+            captionText: "",
+            credit: "Edison Studios in credit field",
+            sortOrder: 2,
+            item: VideoFile,
+            coverImage: VideoFileCoverImage,
+            embedCode: null,
+            linkUrl: "https://digital.library.ucla.edu/",
+            linkText: "View catalog record",
         },
         {
             id: "46453",

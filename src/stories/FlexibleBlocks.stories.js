@@ -7,6 +7,7 @@ import DividerGeneral from "@/lib-components/DividerGeneral"
 import { mock as mockCardWithImage } from "@/stories/mock/Flexible_CardWithImage.js"
 import { mock as mockHighlight } from "@/stories/mock/Flexible_Highlight.js"
 import { Gallery as mockMediaGallery } from "@/stories/mock/Media.js"
+import { GalleryHalfWidth as mockMediaGalleryHalfWidth } from "@/stories/mock/Media.js"
 import { mockSingle as mockMediaWithText } from "@/stories/mock/Flexible_MediaWithText.js"
 import { mock as mockRichText } from "@/stories/mock/Flexible_RichText.js"
 import { mockTwoCards as mockSimpleCards } from "@/stories/mock/Flexible_SimpleCards.js"
@@ -20,7 +21,12 @@ export default {
 export const Default = () => ({
     data() {
         return {
-            blocks: [mockSimpleCards, mockMediaGallery, mockMediaWithText],
+            blocks: [
+                mockSimpleCards,
+                mockMediaGallery,
+                mockMediaWithText,
+                mockMediaGalleryHalfWidth,
+            ],
         }
     },
     components: { FlexibleBlocks, SectionWrapper, DividerGeneral },
@@ -52,7 +58,16 @@ export const GrayBackgrounds = () => ({
                 mockMediaGallery,
                 {
                     typeHandle: "rich-text",
+                    richText: "<h4>FlexibleMediaGalleryHalfWidth</h4>",
+                },
+                mockMediaGalleryHalfWidth,
+                {
+                    typeHandle: "rich-text",
                     richText: "<h4>FlexibleMediaWithText</h4>",
+                    mediaGalleryStyle: "halfWidth",
+                    sectionTitle: "Pine Needles Half Width",
+                    richTextSimplified:
+                        "Pine needles range in size from 3 to 5 inches and are a deep forest green color. The long, thin needles vary slightly from variety to variety, depending on the region in which they grow. Pine needles have a strong pine scent, and a biting resinous flavor.  They are leaves. They do the same job that broad leaves do—capture sunlight, “inhale” carbon dioxide, and “exhale” oxygen—providing the tree with food and air for us to breath.",
                 },
                 mockMediaWithText,
                 {

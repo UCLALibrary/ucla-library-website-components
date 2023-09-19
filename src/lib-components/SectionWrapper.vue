@@ -99,8 +99,11 @@ export default {
 
         .section-summary {
             @include step-0;
-
-            ::v-deep p {
+            padding-right: 0;
+            ::v-deep p:not(:last-child) {
+                margin-bottom: var(--space-m);
+            }
+            ::v-deep p:last-child {
                 margin: 0;
             }
         }
