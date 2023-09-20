@@ -12,7 +12,7 @@ import { computed } from "vue"
 import { useRoute } from "vue-router"
 
 const route = useRoute()
-console.log("is this storybook route", route)
+console.log("does this route exist?", route)
 
 const { color } = defineProps({
     color: {
