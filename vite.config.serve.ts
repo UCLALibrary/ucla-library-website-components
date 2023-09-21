@@ -10,12 +10,7 @@ export default defineConfig({
     server: {
         port: 5174,
     },
-    plugins: [
-        vue(),
-        svgLoader({
-            svgo: false,
-        }),
-    ],
+    plugins: [vue(), svgLoader({ svgo: false })],
     css: {
         preprocessorOptions: {
             // Additional Sass options go here

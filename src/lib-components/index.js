@@ -3,6 +3,7 @@ import "@/styles/global.scss"
 
 export { default as ButtonLink } from "./ButtonLink.vue"
 export { default as ButtonHide } from "./ButtonHide.vue"
+export { default as ButtonShow } from "./ButtonShow.vue"
 export { default as DividerGeneral } from "./DividerGeneral.vue"
 export { default as DividerWayFinder } from "./DividerWayFinder.vue"
 export { default as RichText } from "./RichText.vue"
