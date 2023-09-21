@@ -146,7 +146,7 @@ export default {
     }
 
     :deep a[target="_blank"]:after {
-        content: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
+        content: url("~ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
         display: inline-block;
         background-size: contain;
         scale: 0.6;

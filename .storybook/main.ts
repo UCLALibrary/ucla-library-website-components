@@ -1,3 +1,4 @@
+import SvgLoader from "vite-svg-loader"
 import type { StorybookConfig } from "@storybook/vue3-vite"
 import path from "path"
 const { mergeConfig } = require("vite")
@@ -14,7 +15,7 @@ const config: StorybookConfig = {
         options: {},
     },
     docs: {
-        autodocs: "tag",
+        autodocs: true,
     },
     async viteFinal(config) {
         return mergeConfig(config, {
