@@ -95,39 +95,31 @@ export default {
         }
     }
 
-    ::v-deep .figure {
+    ::v-deep img {
+        height: auto;
+        object-fit: cover;
+        display: inline-block;
+    }
+
+    ::v-deep figure {
         width: 100%;
-        margin: var(--space-s);
+        margin: var(--space-s) !important;
 
-        display: flex;
-        flex-direction: column;
-    }
-
-    ::v-deep .image-right {
-        float: right;
-        margin-left: var(--space-s);
-    }
-
-    ::v-deep .image-left {
-        float: left;
-        margin-right: var(--space-s);
+        a[target="_blank"]:after {
+            display: none;
+        }
     }
 
     ::v-deep figcaption {
         font-family: var(--font-secondary);
         @include step--1;
         color: var(--color-secondary-grey-05);
-        padding: 16px 16px 26px 16px;
+        padding: var(--space-s) var(--space-s) 0 var(--space-s);
     }
 
     ::v-deep iframe {
         width: 100%;
         height: 400px;
-        object-fit: cover;
-    }
-
-    ::v-deep img {
-        height: auto;
         object-fit: cover;
     }
 
@@ -242,11 +234,18 @@ export default {
     @media #{$medium} {
         padding-right: 0;
         max-width: $container-l-main + px;
+
+        ::v-deep figure {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto;
+        }
     }
 
     @media #{$small} {
-        ::v-deep .figure {
-            width: 100%;
+        ::v-deep figure {
+            width: 100% !important;
+            max-width: 100% !important;
             height: auto;
         }
         ::v-deep iframe {
