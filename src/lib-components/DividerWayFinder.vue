@@ -14,8 +14,8 @@ import { useRoute } from "vue-router"
 const route = useRoute()
 console.log("does this route exist?", route)
 
-const { label } = defineProps({
-    label: {
+const { color } = defineProps({
+    color: {
         type: String,
         default: "", // This will be "visit", "about", "help".
     },
@@ -25,9 +25,9 @@ const classes = computed(() => [
     "divider-way-finder",
     `color-${sectionName.value}`,
 ])
-const sectionName = computed(() => label || getSectionName(route.path))
-console.log("section name computed", sectionName.value)
-console.log("color prop", label)
+const sectionName = computed(() => color || getSectionName(route.path))
+/*console.log("section name computed", sectionName.value)
+console.log("color prop", color)*/
 </script>
 
 <style lang="scss" scoped>
