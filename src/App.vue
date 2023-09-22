@@ -99,10 +99,10 @@ const textLong =
     />
     <br />
     <br />
-    <button-show />
-    <br />
-    <br />
     <button-hide />
+    <br />
+    <br />
+    <button-show />
     <br />
     <br />
     <button-more />

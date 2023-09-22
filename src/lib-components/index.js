@@ -1,7 +1,6 @@
 import "ucla-library-design-tokens/scss/app-global.scss"
 import "@/styles/global.scss"
 
-export { default as ButtonHide } from "./ButtonHide.vue"
 export { default as ButtonLink } from "./ButtonLink.vue"
 export { default as ButtonMore } from "./ButtonMore.vue"
 export { default as ButtonShow } from "./ButtonShow.vue"
