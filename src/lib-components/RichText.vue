@@ -146,7 +146,7 @@ export default {
     }
 
     :deep a[target="_blank"]:after {
-        content: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
+        content: url("ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
         display: inline-block;
         background-size: contain;
         scale: 0.6;
@@ -184,7 +184,7 @@ export default {
     }
 
     :deep ul li {
-        background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-stroke.svg");
+        background-image: url("ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-stroke.svg");
         background-repeat: no-repeat;
         background-position-y: 5px; // This will shift the bullet down as needed
         background-size: 24px;

@@ -4,7 +4,7 @@ import ButtonLink from "@/lib-components/ButtonLink"
 export default {
     title: "BUTTON / Link",
     component: ButtonLink,
-    tags: ["autodocs"],
+
     argTypes: {
         label: { type: "string" },
         iconName: {
@@ -31,9 +31,16 @@ const Template = (args) => ({
     template: '<button-link v-bind="args" />',
 })
 
-export const WithControls = Template.bind({})
-WithControls.args = {
+export const WithControls = {
+    args: {
+        label: "Ibus orci Luctus no template",
+    },
+}
+
+export const WithControlsIconClose = Template.bind({})
+WithControlsIconClose.args = {
     label: "Ibus orci Luctus",
+    iconName: "icon-close",
 }
 
 // Variations of stories below
@@ -64,7 +71,7 @@ export const LongLabel = () => ({
 
 export const HasGlyph = () => ({
     components: { ButtonLink },
-    template: `<button-link label="Aug id Dignissim" :isSecondary="true" iconName="svg-arrow-right" to='/help/more'/>`,
+    template: `<button-link label="Aug id Dignissim" :isSecondary="true"  :is-download="true" to='/help/more'/>`,
 })
 
 export const HasExternalGlyph = () => ({

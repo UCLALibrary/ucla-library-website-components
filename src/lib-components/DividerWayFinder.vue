@@ -12,7 +12,7 @@ import { computed } from "vue"
 import { useRoute } from "vue-router"
 
 const route = useRoute()
-console.log("is this storybook route", route)
+console.log("does this route exist?", route)
 
 const { color } = defineProps({
     color: {
@@ -26,6 +26,8 @@ const classes = computed(() => [
     `color-${sectionName.value}`,
 ])
 const sectionName = computed(() => color || getSectionName(route.path))
+/*console.log("section name computed", sectionName.value)
+console.log("color prop", color)*/
 </script>
 
 <style lang="scss" scoped>

@@ -6,7 +6,12 @@ import svgLoader from "vite-svg-loader"
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [vue(), svgLoader()],
+    plugins: [
+        vue(),
+        svgLoader({
+            svgo: false,
+        }),
+    ],
     build: {
         lib: {
             entry: resolve(__dirname, "src/entry.js"),
@@ -16,7 +21,7 @@ export default defineConfig({
                 `ucla-library-website-components.${format}.js`,
         },
         rollupOptions: {
-            external: ["vue"],
+            external: ["vue", "vue-router"],
             output: {
                 // preserveModules: true,
                 exports: "named",

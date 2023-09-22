@@ -5,6 +5,7 @@ import RichText from "@/lib-components/RichText"
 import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert"
 
 import ButtonLink from "@/lib-components/ButtonLink"
+import ButtonHide from "@/lib-components/ButtonHide"
 
 import { computed } from "vue"
 
@@ -95,6 +96,8 @@ const textLong =
             to="www.google.com"
         />
         <br />
+        <br />
+        <button-hide />
         <br />
         <hr />
     </div>

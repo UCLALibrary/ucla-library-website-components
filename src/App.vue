@@ -6,6 +6,7 @@ import RichText from "@/lib-components/RichText.vue"
 import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert.vue"
 
 import ButtonLink from "@/lib-components/ButtonLink.vue"
+import ButtonHide from "@/lib-components/ButtonHide.vue"
 
 import { computed } from "vue"
 
@@ -94,6 +95,9 @@ const textLong =
         icon-name="none"
         to="www.google.com"
     />
+    <br />
+    <br />
+    <button-hide />
     <br />
     <br />
 </template>
