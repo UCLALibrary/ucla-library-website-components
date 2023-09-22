@@ -4,7 +4,6 @@ import RichText from "@/lib-components/RichText.vue"
 export default {
     title: "GLOBAL / Rich Text",
     component: RichText,
-    tags: ["autodocs"],
 }
 
 const mock = {

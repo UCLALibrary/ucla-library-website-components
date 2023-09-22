@@ -89,7 +89,7 @@ export default {
         &:hover {
             cursor: pointer;
             .icon- {
-                ::v-deep .svg__stroke--primary-blue-03 {
+                :deep .svg__stroke--primary-blue-03 {
                     stroke: var(--color-default-cyan-03);
                 }
                 left: calc(50% + 4px);

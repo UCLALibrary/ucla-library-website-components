@@ -4,7 +4,6 @@ import SmartLink from "@/lib-components/SmartLink.vue"
 export default {
     title: "GLOBAL / Smart Link",
     component: SmartLink,
-    tags: ["autodocs"],
 }
 
 const Template = (args) => ({

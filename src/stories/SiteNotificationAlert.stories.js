@@ -6,7 +6,6 @@ import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert.vue"
 export default {
     title: "Global / SiteNotificationAlert",
     component: SiteNotificationAlert,
-    tags: ["autodocs"],
 }
 //TODO update message text as rich text
 export const Default = () => ({
