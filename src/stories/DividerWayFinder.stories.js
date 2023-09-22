@@ -11,18 +11,18 @@ export const Default = {
 
 export const Visit = {
     args: {
-        label: "visit",
+        color: "visit",
     },
 }
 
 export const About = {
     args: {
-        label: "about",
+        color: "about",
     },
 }
 
 export const Help = {
     args: {
-        label: "help",
+        color: "help",
     },
 }
