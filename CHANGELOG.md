@@ -1,3 +1,10 @@
+# [2.39.0-alpha.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.4...v2.39.0-alpha.5) (2023-09-22)
+
+
+### Features
+
+* ButtonHide ([#396](https://github.com/UCLALibrary/ucla-library-website-components/issues/396)) ([bdc6d08](https://github.com/UCLALibrary/ucla-library-website-components/commit/bdc6d08f24e9165a4281704ff0d42bb0ff634831))
+
 # [2.39.0-alpha.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.3...v2.39.0-alpha.4) (2023-09-15)
 
 
