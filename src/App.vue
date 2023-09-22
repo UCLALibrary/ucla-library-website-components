@@ -7,6 +7,7 @@ import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert.vue"
 
 import ButtonLink from "@/lib-components/ButtonLink.vue"
 import ButtonHide from "@/lib-components/ButtonHide.vue"
+import ButtonShow from "@/lib-components/ButtonShow.vue"
 
 import { computed } from "vue"
 
@@ -98,6 +99,7 @@ const textLong =
     <br />
     <br />
     <button-hide />
+    <button-show />
     <br />
     <br />
 </template>
