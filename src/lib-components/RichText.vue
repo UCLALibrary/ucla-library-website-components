@@ -103,11 +103,29 @@ export default {
 
     ::v-deep figure {
         width: 100%;
-        margin: var(--space-s) !important;
-
+        margin: var(--space-s);
+        display: flex;
+        flex-direction: column;
         a[target="_blank"]:after {
             display: none;
         }
+    }
+
+    ::v-deep .image--right {
+        float: right;
+        margin-left: var(--space-s);
+    }
+
+    ::v-deep .image--left {
+        float: left;
+        margin-right: var(--space-s);
+    }
+
+    ::v-deep .image--center {
+        margin: 0 auto;
+    }
+    ::v-deep .image--half {
+        width: 50%;
     }
 
     ::v-deep figcaption {
@@ -234,19 +252,15 @@ export default {
     @media #{$medium} {
         padding-right: 0;
         max-width: $container-l-main + px;
-
-        ::v-deep figure {
-            width: 100% !important;
-            max-width: 100% !important;
-            height: auto;
-        }
     }
 
     @media #{$small} {
         ::v-deep figure {
-            width: 100% !important;
-            max-width: 100% !important;
+            width: 100%;
             height: auto;
+        }
+        ::v-deep .image--half {
+            width: 100%;
         }
         ::v-deep iframe {
             width: 100%;
