@@ -258,6 +258,18 @@ export default {
         ::v-deep figure {
             width: 100%;
             height: auto;
+            margin: 0;
+        }
+        ::v-deep .image--right {
+            margin-left: 0;
+        }
+
+        ::v-deep figcaption {
+            padding-bottom: var(--space-s);
+        }
+
+        ::v-deep .image--left {
+            margin-right: 0;
         }
         ::v-deep .image--half {
             width: 100%;
