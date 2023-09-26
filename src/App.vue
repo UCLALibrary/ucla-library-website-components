@@ -9,6 +9,7 @@ import ButtonLink from "@/lib-components/ButtonLink.vue"
 import ButtonHide from "@/lib-components/ButtonHide.vue"
 import ButtonShow from "@/lib-components/ButtonShow.vue"
 import ButtonMore from "@/lib-components/ButtonMore.vue"
+import HeadingArrow from "@/lib-components/HeadingArrow.vue"
 
 import { computed } from "vue"
 
@@ -98,6 +99,7 @@ const textLong =
         to="www.google.com"
     />
     <br />
+    <hr>
     <br />
     <button-hide />
     <br />
@@ -107,6 +109,23 @@ const textLong =
     <br />
     <button-more />
     <br />
+    <hr>
+    <br />
+    Default <heading-arrow/>
+    <br />
+    <br />
+    About <heading-arrow color="about"/>
+    <br />
+    <br />
+    Visit <heading-arrow color="visit"/>
+    <br />
+    <br />
+    Help <heading-arrow color="help"/>
+    <br />
+    <br />
+    Section <heading-arrow color="section"/>
+    <br />
+    <hr>
     <br />
 </template>
 
