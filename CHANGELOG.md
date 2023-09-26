@@ -1,3 +1,10 @@
+# [2.40.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0...v2.40.0) (2023-09-26)
+
+
+### Features
+
+* update styles to work with halfWidth option in redactor ([#397](https://github.com/UCLALibrary/ucla-library-website-components/issues/397)) ([6ce2e3f](https://github.com/UCLALibrary/ucla-library-website-components/commit/6ce2e3f6e17456bfbd1a0dfd599a080b93da0af6))
+
 # [2.39.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.6...v2.39.0) (2023-09-19)
 
 
