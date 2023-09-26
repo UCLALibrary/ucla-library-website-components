@@ -95,39 +95,49 @@ export default {
         }
     }
 
-    ::v-deep .figure {
-        width: 100%;
-        margin: var(--space-s);
-
-        display: flex;
-        flex-direction: column;
+    ::v-deep img {
+        height: auto;
+        object-fit: cover;
+        display: inline-block;
     }
 
-    ::v-deep .image-right {
+    ::v-deep figure {
+        width: 100%;
+        margin: var(--space-s);
+        display: flex;
+        flex-direction: column;
+        a[target="_blank"]:after {
+            display: none;
+        }
+    }
+
+    ::v-deep .image--right {
         float: right;
         margin-left: var(--space-s);
     }
 
-    ::v-deep .image-left {
+    ::v-deep .image--left {
         float: left;
         margin-right: var(--space-s);
+    }
+
+    ::v-deep .image--center {
+        margin: 0 auto;
+    }
+    ::v-deep .image--half {
+        width: 50%;
     }
 
     ::v-deep figcaption {
         font-family: var(--font-secondary);
         @include step--1;
         color: var(--color-secondary-grey-05);
-        padding: 16px 16px 26px 16px;
+        padding: var(--space-s) var(--space-s) 0 var(--space-s);
     }
 
     ::v-deep iframe {
         width: 100%;
         height: 400px;
-        object-fit: cover;
-    }
-
-    ::v-deep img {
-        height: auto;
         object-fit: cover;
     }
 
@@ -245,9 +255,24 @@ export default {
     }
 
     @media #{$small} {
-        ::v-deep .figure {
+        ::v-deep figure {
             width: 100%;
             height: auto;
+            margin: 0;
+        }
+        ::v-deep .image--right {
+            margin-left: 0;
+        }
+
+        ::v-deep figcaption {
+            padding-bottom: var(--space-s);
+        }
+
+        ::v-deep .image--left {
+            margin-right: 0;
+        }
+        ::v-deep .image--half {
+            width: 100%;
         }
         ::v-deep iframe {
             width: 100%;
