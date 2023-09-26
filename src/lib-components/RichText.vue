@@ -4,33 +4,33 @@ import stripCraftURLFromText from '@/utils/stripCraftURLFromText'
 import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 
 export default {
-  name: 'RichText',
-  components: {},
+    name: 'RichText',
+    components: {},
 
-  props: {
-    richTextContent: {
-      type: String,
-      default: '',
+    props: {
+        richTextContent: {
+            type: String,
+            default: '',
+        },
     },
-  },
-  computed: {
-    parsedContent() {
-      const content = stripCraftURLFromText(this.richTextContent)
+    computed: {
+        parsedContent() {
+            const content = stripCraftURLFromText(this.richTextContent)
 
-      return accessibleExternalLinks(content)
+            return accessibleExternalLinks(content)
+        },
     },
-  },
 }
 </script>
 
 <template>
-  <div class="rich-text">
-    <div
-      class="parsed-content"
-      v-html="parsedContent"
-    />
-    <slot />
-  </div>
+    <div class="rich-text">
+        <div
+            class="parsed-content"
+            v-html="parsedContent"
+        />
+        <slot />
+    </div>
 </template>
 
 <style lang="scss" scoped>
