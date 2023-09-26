@@ -1,3 +1,10 @@
+# [2.39.0-alpha.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.5...v2.39.0-alpha.6) (2023-09-26)
+
+
+### Features
+
+* ButtonShow, ButtonMore ([#398](https://github.com/UCLALibrary/ucla-library-website-components/issues/398)) ([11ade14](https://github.com/UCLALibrary/ucla-library-website-components/commit/11ade146ea05c4b2259fdccd14ad84976dabc10f))
+
 # [2.39.0-alpha.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.4...v2.39.0-alpha.5) (2023-09-22)
 
 
