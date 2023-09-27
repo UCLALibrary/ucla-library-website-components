@@ -1,15 +1,14 @@
 <script setup lang="ts">
+import ButtonHide from "@/lib-components/ButtonHide.vue"
+import ButtonLink from "@/lib-components/ButtonLink.vue"
+import ButtonMore from "@/lib-components/ButtonMore.vue"
+import ButtonShow from "@/lib-components/ButtonShow.vue"
+import HeadingArrow from "@/lib-components/HeadingArrow.vue"
 import HelloWorld from "@/lib-components/HelloWorld.vue"
 import DividerGeneral from "@/lib-components/DividerGeneral.vue"
 import DividerWayFinder from "@/lib-components/DividerWayFinder.vue"
 import RichText from "@/lib-components/RichText.vue"
 import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert.vue"
-
-import ButtonLink from "@/lib-components/ButtonLink.vue"
-import ButtonHide from "@/lib-components/ButtonHide.vue"
-import ButtonShow from "@/lib-components/ButtonShow.vue"
-import ButtonMore from "@/lib-components/ButtonMore.vue"
-import HeadingArrow from "@/lib-components/HeadingArrow.vue"
 
 import { computed } from "vue"
 
@@ -99,7 +98,7 @@ const textLong =
         to="www.google.com"
     />
     <br />
-    <hr>
+    <hr />
     <br />
     <button-hide />
     <br />
@@ -109,23 +108,20 @@ const textLong =
     <br />
     <button-more />
     <br />
-    <hr>
+    <hr />
     <br />
-    Default <heading-arrow/>
-    <br />
-    <br />
-    About <heading-arrow color="about"/>
+    <heading-arrow text="Default" />
     <br />
     <br />
-    Visit <heading-arrow color="visit"/>
+    <heading-arrow text="About Us" section="about" />
     <br />
     <br />
-    Help <heading-arrow color="help"/>
+    <heading-arrow text="Visit Us" section="visit" />
     <br />
     <br />
-    Section <heading-arrow color="section"/>
+    <heading-arrow text="Get Help" section="help" />
     <br />
-    <hr>
+    <hr />
     <br />
 </template>
 
