@@ -1,13 +1,12 @@
 <script setup lang="ts">
+import ButtonHide from "@/lib-components/ButtonHide"
+import ButtonLink from "@/lib-components/ButtonLink"
+import ButtonMore from "@/lib-components/ButtonMore"
+import ButtonShow from "@/lib-components/ButtonShow"
 import DividerGeneral from "@/lib-components/DividerGeneral"
 import DividerWayFinder from "@/lib-components/DividerWayFinder"
 import RichText from "@/lib-components/RichText"
 import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert"
-
-import ButtonLink from "@/lib-components/ButtonLink"
-import ButtonHide from "@/lib-components/ButtonHide"
-import ButtonShow from "@/lib-components/ButtonShow"
-import ButtonMore from "@/lib-components/ButtonMore"
 
 import { computed } from "vue"
 
@@ -98,6 +97,7 @@ const textLong =
             to="www.google.com"
         />
         <br />
+        <hr />
         <br />
         <button-hide />
         <br />
@@ -107,7 +107,20 @@ const textLong =
         <br />
         <button-more />
         <br />
+        <hr />
+        <br />
+        <heading-arrow text="Default" />
+        <br />
+        <br />
+        <heading-arrow text="About Us" to="/about/" />
+        <br />
+        <br />
+        <heading-arrow text="Visit Us" to="/visit/" />
+        <br />
+        <br />
+        <heading-arrow text="Get Help" to="/help/" />
         <br />
         <hr />
+        <br />
     </div>
 </template>
