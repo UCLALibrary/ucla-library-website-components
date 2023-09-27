@@ -1,3 +1,10 @@
+# [2.39.0-alpha.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.6...v2.39.0-alpha.7) (2023-09-27)
+
+
+### Features
+
+* Add heading-arrow component ([#399](https://github.com/UCLALibrary/ucla-library-website-components/issues/399)) ([85fc752](https://github.com/UCLALibrary/ucla-library-website-components/commit/85fc75234c6b8fa7c0265f453cb9aba88fe28648))
+
 # [2.39.0-alpha.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.5...v2.39.0-alpha.6) (2023-09-26)
 
 
