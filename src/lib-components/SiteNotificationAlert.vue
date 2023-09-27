@@ -1,84 +1,83 @@
-<template>
-    <section :class="classes" role="alert">
-        <button class="alert" @click="toggleAlert()">
-            <div class="alert-box-icon">
-                <svg-alert-circle class="svg-alert-circle" />
-            </div>
-            <div class="alert-text" v-html="title" />
-        </button>
-
-        <div class="message">
-            <rich-text
-                v-if="text"
-                class="message-text"
-                :rich-text-content="text"
-            />
-            <button-link
-                class="button-dismiss"
-                label="Dismiss"
-                icon-name="icon-close"
-                is-quaternary
-                @click="toggleAlert"
-            />
-        </div>
-    </section>
-</template>
-
 <script>
-import ButtonLink from "./ButtonLink"
-import RichText from "./RichText.vue"
-
-import SvgAlertCircle from "ucla-library-design-tokens/assets/svgs/icon-alert.svg"
+import SvgAlertCircle from 'ucla-library-design-tokens/assets/svgs/icon-alert.svg'
+import ButtonLink from './ButtonLink'
+import RichText from './RichText.vue'
 
 export default {
-    name: "SiteNotificationAlert",
-    components: {
-        ButtonLink,
-        RichText,
-        SvgAlertCircle,
+  name: 'SiteNotificationAlert',
+  components: {
+    ButtonLink,
+    RichText,
+    SvgAlertCircle,
+  },
+  props: {
+    title: {
+      type: String,
+      default: '',
     },
-    props: {
-        title: {
-            type: String,
-            default: "",
-        },
-        text: {
-            type: String,
-            default: "",
-        },
-        time: {
-            type: Number,
-            default: 13500,
-        },
+    text: {
+      type: String,
+      default: '',
     },
-    data() {
-        return {
-            isOpened: true,
-        }
+    time: {
+      type: Number,
+      default: 13500,
     },
-    computed: {
-        classes() {
-            return [
-                "site-notification-alert",
-                this.isOpened ? "is-opened" : "is-closed",
-            ]
-        },
+  },
+  data() {
+    return {
+      isOpened: true,
+    }
+  },
+  computed: {
+    classes() {
+      return [
+        'site-notification-alert',
+        this.isOpened ? 'is-opened' : 'is-closed',
+      ]
     },
-    mounted() {
-        this.delayedClose()
+  },
+  mounted() {
+    this.delayedClose()
+  },
+  methods: {
+    toggleAlert() {
+      this.isOpened = !this.isOpened
     },
-    methods: {
-        toggleAlert() {
-            this.isOpened = !this.isOpened
-        },
-        delayedClose() {
-            setTimeout(() => {
-                this.isOpened = false
-            }, this.time)
-        },
+    delayedClose() {
+      setTimeout(() => {
+        this.isOpened = false
+      }, this.time)
     },
+  },
 }
 </script>
+
+<template>
+  <section :class="classes" role="alert">
+    <button class="alert" @click="toggleAlert()">
+      <div class="alert-box-icon">
+        <SvgAlertCircle class="svg-alert-circle" />
+      </div>
+      <div class="alert-text" v-html="title" />
+    </button>
+
+    <div class="message">
+      <RichText
+        v-if="text"
+        class="message-text"
+        :rich-text-content="text"
+      />
+      <ButtonLink
+        class="button-dismiss"
+        label="Dismiss"
+        icon-name="icon-close"
+        is-quaternary
+        @click="toggleAlert"
+      />
+    </div>
+  </section>
+</template>
 
 <style lang="scss" scoped>
 .site-notification-alert {

@@ -1,23 +1,23 @@
-<template>
-    <div :class="classes" />
-</template>
-
 <script>
 export default {
-    name: "DividerGeneral", // vue component name
-    props: {
-        isBold: {
-            type: Boolean,
-            default: false,
-        },
+  name: 'DividerGeneral', // vue component name
+  props: {
+    isBold: {
+      type: Boolean,
+      default: false,
     },
-    computed: {
-        classes() {
-            return ["divider-general", { "is-bold": this.isBold }]
-        },
+  },
+  computed: {
+    classes() {
+      return ['divider-general', { 'is-bold': this.isBold }]
     },
+  },
 }
 </script>
+
+<template>
+  <div :class="classes" />
+</template>
 
 <style lang="scss" scoped>
 .divider-general {
