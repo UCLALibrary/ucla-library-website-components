@@ -113,13 +113,13 @@ const textLong =
     <heading-arrow text="Default" />
     <br />
     <br />
-    <heading-arrow text="About Us" section="about" />
+    <heading-arrow text="About Us" to="/about/" />
     <br />
     <br />
-    <heading-arrow text="Visit Us" section="visit" />
+    <heading-arrow text="Visit Us" to="/visit/" />
     <br />
     <br />
-    <heading-arrow text="Get Help" section="help" />
+    <heading-arrow text="Get Help" to="/help" />
     <br />
     <hr />
     <br />

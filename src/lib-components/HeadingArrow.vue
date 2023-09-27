@@ -14,7 +14,6 @@ import SmartLink from "@/lib-components/SmartLink"
 import getSectionName from "@/utils/getSectionName"
 import { computed } from "vue"
 
-// props
 const { text, to, section } = defineProps({
     text: {
         type: String,
@@ -30,7 +29,6 @@ const { text, to, section } = defineProps({
     },
 })
 
-// computed properties
 const sectionName = computed(() => section || getSectionName(to))
 
 const classes = computed(() => ["heading-arrow", `color-${sectionName.value}`])
@@ -44,48 +42,6 @@ const componentType = computed(() => {
 })
 
 const textClasses = computed(() => ["heading", `color-${componentType.value}`])
-
-// export default {
-//   name: "HeadingArrow",
-//   mixins: [getSectionName],
-//   components: {
-//       SvgHeadingArrow,
-//       SmartLink,
-//   },
-
-//   props: {
-//       text: {
-//           type: String,
-//           default: "",
-//       },
-//       to: {
-//           type: String,
-//           default: "",
-//       },
-//       section: {
-//           type: String,
-//           default: "",
-//       },
-//   },
-//   computed: {
-//       classes() {
-//           return ["heading-arrow", `color-${this.sectionName}`]
-//       },
-//       sectionName() {
-//           return this.section || this.getSectionName(this.to)
-//       },
-//       componentType() {
-//           let output = "div"
-//           if (this.to) {
-//               output = "smart-link"
-//           }
-//           return output
-//       },
-//       textClasses() {
-//           return ["heading", `color-${this.componentType}`]
-//       },
-//   },
-// }
 </script>
 
 <style lang="scss" scoped>
