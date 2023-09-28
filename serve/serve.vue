@@ -163,7 +163,7 @@ const attribution = "Lady Gaga"
             icon-name="svg-icon-location"
             to="/visit/library/powell"
         />
-        <br /><br />
+        <br />
         <icon-with-link
             text="See More"
             icon-name="svg-icon-search"
