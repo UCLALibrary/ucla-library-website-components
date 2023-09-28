@@ -1,5 +1,6 @@
 <template>
     <div class="pull-quote">
+        <!-- eslint-disable vue/no-v-html -->
         <div v-if="text" class="quote" v-html="text" />
         <div v-if="attribution" class="attribution-block">
             <span class="dash">—</span>

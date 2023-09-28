@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BlockDate from "@/lib-components/BlockDate.vue"
 import ButtonHide from "@/lib-components/ButtonHide"
 import ButtonLink from "@/lib-components/ButtonLink"
 import ButtonMore from "@/lib-components/ButtonMore"
@@ -145,6 +146,12 @@ const attribution = "Lady Gaga"
         <PullQuote :text="text" />
         <br />
         <PullQuote :text="text" :attribution="attribution" />
+        <br />
+        <hr />
+        <br />
+        <h2>BlockDate Component</h2>
+        <br />
+        <block-date date="10" day="Digniss" />
         <br />
         <hr />
         <br />
