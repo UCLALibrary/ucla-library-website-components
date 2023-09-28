@@ -5,6 +5,8 @@ import ButtonMore from "@/lib-components/ButtonMore"
 import ButtonShow from "@/lib-components/ButtonShow"
 import DividerGeneral from "@/lib-components/DividerGeneral"
 import DividerWayFinder from "@/lib-components/DividerWayFinder"
+import HeadingArrow from "@/lib-components/HeadingArrow"
+import PullQuote from "@/lib-components/PullQuote.vue"
 import RichText from "@/lib-components/RichText"
 import SiteBrandBar from "@/lib-components/SiteBrandBar"
 import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert"
@@ -19,6 +21,7 @@ const text =
     "Napster mozy sococo orkut <a href='http://google.com/'>convore scribd napster</a>, twones diigo joukuu weebly. <i>Sclipo jibjab scribd</i>."
 const textLong =
     "Greplin prezi zillow zoosk orkut, zoosk gooru. Kiko xobni joukuu ideeli bitly joukuu, squidoo heroku hulu sifteo, zooomr jumo dropio chumby. Qeyno wikia oooooc jajah, ebay qeyno lala, jajah lijit. Etsy wufoo flickr movity sclipo heroku, oooooc etsy oooooc. Vimeo foodzie zoosk ebay, wesabe. Ebay doostang vuvox, xobni. Mozy joyent dropio gooru kippt, greplin skype. Kiko napster geni dogster yoono yammer disqus, hipmunk xobni odeo zynga loopt. Groupon klout divvyshot zinch elgg yoono airbnb, orkut zinch chartly squidoo."
+const attribution = "Lady Gaga"
 </script>
 <template>
     <div id="app" class="app">
@@ -54,6 +57,7 @@ const textLong =
         <h2>SiteNotificationAlert Component</h2>
         <site-notification-alert :title="title" :text="text" />
         <site-notification-alert :title="title" :text="textLong" />
+        <br />
         <hr />
         <br />
         <h2>ButtonLink Component</h2>
@@ -133,6 +137,14 @@ const textLong =
         <br />
         <br />
         <heading-arrow text="Get Help" to="/help/" />
+        <br />
+        <hr />
+        <br />
+        <h2>PullQuote Component</h2>
+        <br />
+        <PullQuote :text="text" />
+        <br />
+        <PullQuote :text="text" :attribution="attribution" />
         <br />
         <hr />
         <br />

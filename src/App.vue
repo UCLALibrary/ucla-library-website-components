@@ -7,6 +7,7 @@ import HeadingArrow from "@/lib-components/HeadingArrow.vue"
 import HelloWorld from "@/lib-components/HelloWorld.vue"
 import DividerGeneral from "@/lib-components/DividerGeneral.vue"
 import DividerWayFinder from "@/lib-components/DividerWayFinder.vue"
+import PullQuote from "@/lib-components/PullQuote.vue"
 import RichText from "@/lib-components/RichText.vue"
 import SiteBrandBar from "./lib-components/SiteBrandBar.vue"
 import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert.vue"
@@ -21,6 +22,7 @@ const text =
     "Napster mozy sococo orkut <a href='http://google.com/'>convore scribd napster</a>, twones diigo joukuu weebly. <i>Sclipo jibjab scribd</i>."
 const textLong =
     "Greplin prezi zillow zoosk orkut, zoosk gooru. Kiko xobni joukuu ideeli bitly joukuu, squidoo heroku hulu sifteo, zooomr jumo dropio chumby. Qeyno wikia oooooc jajah, ebay qeyno lala, jajah lijit. Etsy wufoo flickr movity sclipo heroku, oooooc etsy oooooc. Vimeo foodzie zoosk ebay, wesabe. Ebay doostang vuvox, xobni. Mozy joyent dropio gooru kippt, greplin skype. Kiko napster geni dogster yoono yammer disqus, hipmunk xobni odeo zynga loopt. Groupon klout divvyshot zinch elgg yoono airbnb, orkut zinch chartly squidoo."
+const attribution = "Lady Gaga"
 </script>
 
 <template>
@@ -74,7 +76,6 @@ const textLong =
     />
     <br />
     <br />
-
     <button-link
         label="Etiam et Ultrices"
         :is-secondary="true"
@@ -144,6 +145,14 @@ const textLong =
     <br />
     <br />
     <heading-arrow text="Get Help" to="/help" />
+    <br />
+    <hr />
+    <br />
+    <h2>PullQuote Component</h2>
+    <br />
+    <PullQuote :text="text" />
+    <br />
+    <PullQuote :text="text" :attribution="attribution" />
     <br />
     <hr />
     <br />
