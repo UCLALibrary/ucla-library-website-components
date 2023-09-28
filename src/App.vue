@@ -4,10 +4,11 @@ import ButtonHide from "@/lib-components/ButtonHide.vue"
 import ButtonLink from "@/lib-components/ButtonLink.vue"
 import ButtonMore from "@/lib-components/ButtonMore.vue"
 import ButtonShow from "@/lib-components/ButtonShow.vue"
-import HeadingArrow from "@/lib-components/HeadingArrow.vue"
-import HelloWorld from "@/lib-components/HelloWorld.vue"
 import DividerGeneral from "@/lib-components/DividerGeneral.vue"
 import DividerWayFinder from "@/lib-components/DividerWayFinder.vue"
+import HeadingArrow from "@/lib-components/HeadingArrow.vue"
+import HelloWorld from "@/lib-components/HelloWorld.vue"
+import IconWithLink from "@/lib-components/IconWithLink.vue"
 import PullQuote from "@/lib-components/PullQuote.vue"
 import RichText from "@/lib-components/RichText.vue"
 import SiteBrandBar from "./lib-components/SiteBrandBar.vue"
@@ -160,6 +161,23 @@ const attribution = "Lady Gaga"
     <h2>BlockDate Component</h2>
     <br />
     <block-date date="10" day="Digniss" />
+    <br />
+    <hr />
+    <br />
+    <h2>IconWithLink Component</h2>
+    <br />
+    <icon-with-link
+        text="Powell"
+        icon-name="svg-icon-location"
+        to="/visit/library/powell"
+    />
+    <br /><br />
+    <icon-with-link
+        text="See More"
+        icon-name="svg-icon-search"
+        to="https://www.google.com/"
+    />
+    <br />
     <br />
     <hr />
     <br />
