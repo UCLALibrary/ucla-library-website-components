@@ -151,9 +151,9 @@ const attribution = "Lady Gaga"
     <br />
     <h2>PullQuote Component</h2>
     <br />
-    <PullQuote :text="text" />
+    <pull-quote :text="text" />
     <br />
-    <PullQuote :text="text" :attribution="attribution" />
+    <pull-quote :text="text" :attribution="attribution" />
     <br />
     <hr />
     <br />
