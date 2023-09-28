@@ -8,6 +8,7 @@ import HelloWorld from "@/lib-components/HelloWorld.vue"
 import DividerGeneral from "@/lib-components/DividerGeneral.vue"
 import DividerWayFinder from "@/lib-components/DividerWayFinder.vue"
 import RichText from "@/lib-components/RichText.vue"
+import SiteBrandBar from "./lib-components/SiteBrandBar.vue"
 import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert.vue"
 
 import { computed } from "vue"
@@ -32,16 +33,36 @@ const textLong =
         </a>
     </div>
     <HelloWorld msg="Vite + Vue" />
+    <br />
+    <hr />
+    <br />
+    <h2>SiteBrandBar Component</h2>
+    <site-brand-bar />
+    <br />
+    <hr />
+    <br />
+    <h2>Divider Component</h2>
     <divider-general />
+    <hr />
+    <br />
+    <h2>DividerWayFinder Component</h2>
     <divider-way-finder color="help" />
+    <hr />
     <br />
-    <br />
+    <h2>RichText Component</h2>
     <rich-text :rich-text-content="richTextContent" />
     <br />
+    <hr />
+    <br />
+    <h2>SiteNotificationAlert Component</h2>
     <br />
     <site-notification-alert :title="title" :text="text" />
     <site-notification-alert :title="title" :text="textLong" />
     <br />
+    <br />
+    <hr />
+    <br />
+    <h2>ButtonLink Component</h2>
     <br />
     <button-link label="Egest perl Conub" to="/help/more" />
     <br />
@@ -98,8 +119,10 @@ const textLong =
         to="www.google.com"
     />
     <br />
+    <br />
     <hr />
     <br />
+    <h2>Button Component</h2>
     <button-hide />
     <br />
     <br />
@@ -110,6 +133,7 @@ const textLong =
     <br />
     <hr />
     <br />
+    <h2>HeadingArrow Component</h2>
     <heading-arrow text="Default" />
     <br />
     <br />

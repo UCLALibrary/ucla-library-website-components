@@ -6,6 +6,7 @@ import ButtonShow from "@/lib-components/ButtonShow"
 import DividerGeneral from "@/lib-components/DividerGeneral"
 import DividerWayFinder from "@/lib-components/DividerWayFinder"
 import RichText from "@/lib-components/RichText"
+import SiteBrandBar from "@/lib-components/SiteBrandBar"
 import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert"
 
 import { computed } from "vue"
@@ -29,21 +30,32 @@ const textLong =
                 ucla-library-website-components npm repo
             </a>
         </h1>
+        <br />
         <hr />
+        <br />
+        <h2>SiteBrandBar Component</h2>
+        <site-brand-bar />
+        <br />
+        <hr />
+        <br />
         <h2>DividerGeneral Component</h2>
         <divider-general :is-bold="true" />
         <hr />
-
+        <br />
         <h2>DividerWayFinder Component</h2>
         <divider-way-finder color="visit" />
         <hr />
+        <br />
         <h2>RichText Component</h2>
         <rich-text :rich-text-content="richTextContent" />
+        <br />
         <hr />
+        <br />
         <h2>SiteNotificationAlert Component</h2>
         <site-notification-alert :title="title" :text="text" />
         <site-notification-alert :title="title" :text="textLong" />
         <hr />
+        <br />
         <h2>ButtonLink Component</h2>
         <button-link
             label="Etiam et Ultrices"
@@ -52,7 +64,6 @@ const textLong =
         />
         <br />
         <br />
-
         <button-link
             label="Etiam et Ultrices"
             :is-secondary="true"
@@ -97,8 +108,10 @@ const textLong =
             to="www.google.com"
         />
         <br />
+        <br />
         <hr />
         <br />
+        <h2>Button Component</h2>
         <button-hide />
         <br />
         <br />
@@ -109,6 +122,7 @@ const textLong =
         <br />
         <hr />
         <br />
+        <h2>HeadingArrow Component</h2>
         <heading-arrow text="Default" />
         <br />
         <br />
