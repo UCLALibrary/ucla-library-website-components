@@ -214,7 +214,7 @@ export const PastEventsCheckbox = () => ({
             SearchGenericQuery: {
                 queryText: "",
                 queryFilters: {
-                    "past": "yes",
+                    past: "yes",
                     "departments.title.keyword": ["Neque porro quisquam"],
                 },
             },
@@ -226,9 +226,9 @@ export const PastEventsCheckbox = () => ({
                     items: items,
                 },
                 {
-                    "label": "Past Events",
-                    "esFieldName": "past",
-                    "inputType": "single-checkbox",
+                    label: "Past Events",
+                    esFieldName: "past",
+                    inputType: "single-checkbox",
                 },
             ],
             placeholder: "Search Events & Exhibitions",
