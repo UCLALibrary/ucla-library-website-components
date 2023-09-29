@@ -1,3 +1,10 @@
+# [2.41.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.40.0...v2.41.0) (2023-09-29)
+
+
+### Features
+
+* "Include past events" single checkbox filter ([#401](https://github.com/UCLALibrary/ucla-library-website-components/issues/401)) ([3e3d7b5](https://github.com/UCLALibrary/ucla-library-website-components/commit/3e3d7b542de6d5c95d5764ec9f799064537c6c9f))
+
 # [2.40.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0...v2.40.0) (2023-09-26)
 
 
