@@ -208,6 +208,42 @@ export const RouterQueryWithSinglCheckBoxSelected = () => ({
     `,
 })
 
+export const PastEventsCheckbox = () => ({
+    data() {
+        return {
+            SearchGenericQuery: {
+                queryText: "",
+                queryFilters: {
+                    past: "yes",
+                    "departments.title.keyword": ["Neque porro quisquam"],
+                },
+            },
+            filters: [
+                {
+                    label: "Department",
+                    esFieldName: "departments.title.keyword",
+                    inputType: "checkbox",
+                    items: items,
+                },
+                {
+                    label: "Past Events",
+                    esFieldName: "past",
+                    inputType: "single-checkbox",
+                },
+            ],
+            placeholder: "Search Events & Exhibitions",
+            searchType: "about",
+        }
+    },
+    components: { SearchGeneric },
+    template: `
+        <search-generic
+            :filters="filters"
+            :search-generic-query="routerQueryData"
+        />
+    `,
+})
+
 // export const Default = () => ({
 //     data() {
 //         return {
