@@ -75,9 +75,10 @@ export default {
                     typeof this.filteredFilters[property] === "string" &&
                     this.filteredFilters[property] !== ""
                 ) {
-                    if (property !== "subjectLibrarian.keyword")
-                        obj[property] = this.filteredFilters[property]
-                    else obj[property] = "Subject Librarian"
+                    obj[property] = {
+                        "past": "Include Past Events",
+                        "subjectLibrarian.keyword": "Subject Librarian",
+                    }[property] || this.filteredFilters[property]
                     console.log("what is in obj:" + obj[property])
                     parseFilters.push(obj)
                 } else if (
