@@ -34,4 +34,5 @@ jobs:
         wait-on: http://localhost:6006
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
+        PERCY_TARGET_BRANCH: vue3.x
     
