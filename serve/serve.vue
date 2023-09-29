@@ -1,11 +1,16 @@
 <script setup lang="ts">
+import BlockDate from "@/lib-components/BlockDate.vue"
 import ButtonHide from "@/lib-components/ButtonHide"
 import ButtonLink from "@/lib-components/ButtonLink"
 import ButtonMore from "@/lib-components/ButtonMore"
 import ButtonShow from "@/lib-components/ButtonShow"
 import DividerGeneral from "@/lib-components/DividerGeneral"
 import DividerWayFinder from "@/lib-components/DividerWayFinder"
+import HeadingArrow from "@/lib-components/HeadingArrow"
+import IconWithLink from "@/lib-components/IconWithLink.vue"
+import PullQuote from "@/lib-components/PullQuote.vue"
 import RichText from "@/lib-components/RichText"
+import SiteBrandBar from "@/lib-components/SiteBrandBar"
 import SiteNotificationAlert from "@/lib-components/SiteNotificationAlert"
 
 import { computed } from "vue"
@@ -18,6 +23,7 @@ const text =
     "Napster mozy sococo orkut <a href='http://google.com/'>convore scribd napster</a>, twones diigo joukuu weebly. <i>Sclipo jibjab scribd</i>."
 const textLong =
     "Greplin prezi zillow zoosk orkut, zoosk gooru. Kiko xobni joukuu ideeli bitly joukuu, squidoo heroku hulu sifteo, zooomr jumo dropio chumby. Qeyno wikia oooooc jajah, ebay qeyno lala, jajah lijit. Etsy wufoo flickr movity sclipo heroku, oooooc etsy oooooc. Vimeo foodzie zoosk ebay, wesabe. Ebay doostang vuvox, xobni. Mozy joyent dropio gooru kippt, greplin skype. Kiko napster geni dogster yoono yammer disqus, hipmunk xobni odeo zynga loopt. Groupon klout divvyshot zinch elgg yoono airbnb, orkut zinch chartly squidoo."
+const attribution = "Lady Gaga"
 </script>
 <template>
     <div id="app" class="app">
@@ -29,21 +35,33 @@ const textLong =
                 ucla-library-website-components npm repo
             </a>
         </h1>
+        <br />
         <hr />
+        <br />
+        <h2>SiteBrandBar Component</h2>
+        <site-brand-bar />
+        <br />
+        <hr />
+        <br />
         <h2>DividerGeneral Component</h2>
         <divider-general :is-bold="true" />
         <hr />
-
+        <br />
         <h2>DividerWayFinder Component</h2>
         <divider-way-finder color="visit" />
         <hr />
+        <br />
         <h2>RichText Component</h2>
         <rich-text :rich-text-content="richTextContent" />
+        <br />
         <hr />
+        <br />
         <h2>SiteNotificationAlert Component</h2>
         <site-notification-alert :title="title" :text="text" />
         <site-notification-alert :title="title" :text="textLong" />
+        <br />
         <hr />
+        <br />
         <h2>ButtonLink Component</h2>
         <button-link
             label="Etiam et Ultrices"
@@ -52,7 +70,6 @@ const textLong =
         />
         <br />
         <br />
-
         <button-link
             label="Etiam et Ultrices"
             :is-secondary="true"
@@ -97,8 +114,10 @@ const textLong =
             to="www.google.com"
         />
         <br />
+        <br />
         <hr />
         <br />
+        <h2>Button Component</h2>
         <button-hide />
         <br />
         <br />
@@ -109,6 +128,7 @@ const textLong =
         <br />
         <hr />
         <br />
+        <h2>HeadingArrow Component</h2>
         <heading-arrow text="Default" />
         <br />
         <br />
@@ -119,6 +139,37 @@ const textLong =
         <br />
         <br />
         <heading-arrow text="Get Help" to="/help/" />
+        <br />
+        <hr />
+        <br />
+        <h2>PullQuote Component</h2>
+        <br />
+        <pull-quote :text="text" />
+        <br />
+        <pull-quote :text="text" :attribution="attribution" />
+        <br />
+        <hr />
+        <br />
+        <h2>BlockDate Component</h2>
+        <br />
+        <block-date date="10" day="Digniss" />
+        <br />
+        <hr />
+        <br />
+        <h2>IconWithLink Component</h2>
+        <br />
+        <icon-with-link
+            text="Powell"
+            icon-name="svg-icon-location"
+            to="/visit/library/powell"
+        />
+        <br />
+        <icon-with-link
+            text="See More"
+            icon-name="svg-icon-search"
+            to="https://www.google.com/"
+        />
+        <br />
         <br />
         <hr />
         <br />
