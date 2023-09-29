@@ -6,7 +6,7 @@ import svgLoader from 'vite-svg-loader'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: './dev',
+  root: './serve',
   server: {
     port: 5174,
   },
