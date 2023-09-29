@@ -1,3 +1,10 @@
+# [2.39.0-alpha.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.7...v2.39.0-alpha.8) (2023-09-29)
+
+
+### Features
+
+* add SiteBrandBar, IconWithLink, PullQuote, BlockDate components ([#400](https://github.com/UCLALibrary/ucla-library-website-components/issues/400)) ([b974e25](https://github.com/UCLALibrary/ucla-library-website-components/commit/b974e2553c4786552cd375e79be64b87aa6437ad))
+
 # [2.39.0-alpha.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.6...v2.39.0-alpha.7) (2023-09-27)
 
 
