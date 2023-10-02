@@ -1,22 +1,28 @@
-import BlockDate from "@/lib-components/BlockDate"
+import BlockDate from '@/lib-components/BlockDate'
 
 // Storybook default settings
 export default {
-    title: "BLOCK / Date",
-    components: BlockDate,
+  title: 'BLOCK / Date',
+  components: BlockDate,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     components: { BlockDate },
-    template: `<block-date date="10" day="Digniss" />`,
-})
+    template: '<block-date date="10" day="Digniss" />',
+  }
+}
 
-export const BigDate = () => ({
+export function BigDate() {
+  return {
     components: { BlockDate },
-    template: `<block-date date="30" day="Sodales" />`,
-})
+    template: '<block-date date="30" day="Sodales" />',
+  }
+}
 
-export const LongDayName = () => ({
+export function LongDayName() {
+  return {
     components: { BlockDate },
-    template: `<block-date date="30" day="Suspendise" />`,
-})
+    template: '<block-date date="30" day="Suspendise" />',
+  }
+}

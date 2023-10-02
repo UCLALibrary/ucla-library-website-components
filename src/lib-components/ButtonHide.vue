@@ -1,34 +1,34 @@
-<template>
-    <button class="button-hide">
-        <div class="icon" aria-hidden="true">
-            <molecule-stroke class="molecule-stroke" />
-            <icon-collapse class="icon-collapse" />
-        </div>
-
-        <div class="text">
-            {{ text }}
-        </div>
-    </button>
-</template>
-
 <script>
-import IconCollapse from "ucla-library-design-tokens/assets/svgs/icon-collapse.svg"
-import MoleculeStroke from "ucla-library-design-tokens/assets/svgs/molecule-stroke.svg"
+import IconCollapse from 'ucla-library-design-tokens/assets/svgs/icon-collapse.svg'
+import MoleculeStroke from 'ucla-library-design-tokens/assets/svgs/molecule-stroke.svg'
 
 export default {
-    name: "ButtonHide",
-    components: {
-        IconCollapse,
-        MoleculeStroke,
+  name: 'ButtonHide',
+  components: {
+    IconCollapse,
+    MoleculeStroke,
+  },
+  props: {
+    text: {
+      type: String,
+      default: 'See Less',
     },
-    props: {
-        text: {
-            type: String,
-            default: "See Less",
-        },
-    },
+  },
 }
 </script>
+
+<template>
+  <button class="button-hide">
+    <div class="icon" aria-hidden="true">
+      <MoleculeStroke class="molecule-stroke" />
+      <IconCollapse class="icon-collapse" />
+    </div>
+
+    <div class="text">
+      {{ text }}
+    </div>
+  </button>
+</template>
 
 <style lang="scss" scoped>
 .button-hide {

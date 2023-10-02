@@ -1,48 +1,48 @@
-<template>
-    <component :is="componentType" :to="to" :class="classes">
-        <svg-heading-arrow class="svg" aria-hidden="true" />
-        <h2 :class="textClasses">
-            {{ text }}
-        </h2>
-    </component>
-</template>
-
 <script setup>
-import SvgHeadingArrow from "ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg"
-import SmartLink from "@/lib-components/SmartLink"
+import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
+import { computed } from 'vue'
+import SmartLink from '@/lib-components/SmartLink'
 
-import getSectionName from "@/utils/getSectionName"
-import { computed } from "vue"
+import getSectionName from '@/utils/getSectionName'
 
 const { text, to, section } = defineProps({
-    text: {
-        type: String,
-        default: "",
-    },
-    to: {
-        type: String,
-        default: "",
-    },
-    section: {
-        type: String,
-        default: "",
-    },
+  text: {
+    type: String,
+    default: '',
+  },
+  to: {
+    type: String,
+    default: '',
+  },
+  section: {
+    type: String,
+    default: '',
+  },
 })
 
 const sectionName = computed(() => section || getSectionName(to))
 
-const classes = computed(() => ["heading-arrow", `color-${sectionName.value}`])
+const classes = computed(() => ['heading-arrow', `color-${sectionName.value}`])
 
 const componentType = computed(() => {
-    let output = "div"
-    if (to) {
-        output = SmartLink
-    }
-    return output
+  let output = 'div'
+  if (to)
+    output = SmartLink
+
+  return output
 })
 
-const textClasses = computed(() => ["heading", `color-${componentType.value}`])
+const textClasses = computed(() => ['heading', `color-${componentType.value}`])
 </script>
+
+<template>
+  <component :is="componentType" :to="to" :class="classes">
+    <SvgHeadingArrow class="svg" aria-hidden="true" />
+    <h2 :class="textClasses">
+      {{ text }}
+    </h2>
+  </component>
+</template>
 
 <style lang="scss" scoped>
 .heading-arrow {

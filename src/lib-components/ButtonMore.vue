@@ -1,40 +1,40 @@
-<template>
-    <smart-link :to="to" class="button-more">
-        <div class="icon" aria-hidden="true">
-            <molecule-stroke class="molecule-stroke" />
-            <arrow-right class="arrow-right" />
-        </div>
-
-        <div class="text">
-            {{ text }}
-        </div>
-    </smart-link>
-</template>
-
 <script>
-import ArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
-import MoleculeStroke from "ucla-library-design-tokens/assets/svgs/molecule-stroke.svg"
-import SmartLink from "@/lib-components/SmartLink.vue"
+import ArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
+import MoleculeStroke from 'ucla-library-design-tokens/assets/svgs/molecule-stroke.svg'
+import SmartLink from '@/lib-components/SmartLink.vue'
 
 export default {
-    name: "ButtonMore",
-    components: {
-        ArrowRight,
-        MoleculeStroke,
-        SmartLink,
+  name: 'ButtonMore',
+  components: {
+    ArrowRight,
+    MoleculeStroke,
+    SmartLink,
+  },
+  props: {
+    text: {
+      type: String,
+      default: 'See More',
     },
-    props: {
-        text: {
-            type: String,
-            default: "See More",
-        },
-        to: {
-            type: String,
-            default: "",
-        },
+    to: {
+      type: String,
+      default: '',
     },
+  },
 }
 </script>
+
+<template>
+  <SmartLink :to="to" class="button-more">
+    <div class="icon" aria-hidden="true">
+      <MoleculeStroke class="molecule-stroke" />
+      <ArrowRight class="arrow-right" />
+    </div>
+
+    <div class="text">
+      {{ text }}
+    </div>
+  </SmartLink>
+</template>
 
 <style lang="scss" scoped>
 .button-more {

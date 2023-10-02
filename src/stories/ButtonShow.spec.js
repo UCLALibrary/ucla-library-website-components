@@ -1,8 +1,8 @@
-describe("BUTTON / Show", () => {
-    it("Default", () => {
-        cy.visit("/iframe.html?id=button-show--default&args=&viewMode=story")
-        cy.get(".button-show").should("exist")
+describe('BUTTON / Show', () => {
+  it('Default', () => {
+    cy.visit('/iframe.html?id=button-show--default&args=&viewMode=story')
+    cy.get('.button-show').should('exist')
 
-        cy.percySnapshot("BUTTON / Show: Default")
-    })
+    cy.percySnapshot('BUTTON / Show: Default')
+  })
 })

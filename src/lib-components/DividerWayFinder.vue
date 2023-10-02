@@ -1,34 +1,34 @@
-<template>
-    <div :class="classes">
-        <div class="solid" />
-        <div class="dotted" />
-    </div>
-</template>
-
 <script setup>
 // Helpers
-import getSectionName from "@/utils/getSectionName"
-import { computed } from "vue"
-import { useRoute } from "vue-router"
-
-const route = useRoute()
-console.log("does this route exist?", route)
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import getSectionName from '@/utils/getSectionName'
 
 const { color } = defineProps({
-    color: {
-        type: String,
-        default: "", // This will be "visit", "about", "help".
-    },
+  color: {
+    type: String,
+    default: '', // This will be "visit", "about", "help".
+  },
 })
+const route = useRoute()
+// console.log('does this route exist?', route)
 
+const sectionName = computed(() => color || getSectionName(route.path))
 const classes = computed(() => [
-    "divider-way-finder",
+  'divider-way-finder',
     `color-${sectionName.value}`,
 ])
-const sectionName = computed(() => color || getSectionName(route.path))
-/*console.log("section name computed", sectionName.value)
-console.log("color prop", color)*/
+
+/* console.log("section name computed", sectionName.value)
+console.log("color prop", color) */
 </script>
+
+<template>
+  <div :class="classes">
+    <div class="solid" />
+    <div class="dotted" />
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .divider-way-finder {

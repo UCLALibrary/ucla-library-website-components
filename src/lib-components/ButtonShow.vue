@@ -1,34 +1,34 @@
-<template>
-    <button class="button-show">
-        <div class="icon" aria-hidden="true">
-            <molecule-stroke class="molecule-stroke" />
-            <icon-expand class="icon-expand" />
-        </div>
-
-        <div class="text">
-            {{ text }}
-        </div>
-    </button>
-</template>
-
 <script>
-import IconExpand from "ucla-library-design-tokens/assets/svgs/icon-expand.svg"
-import MoleculeStroke from "ucla-library-design-tokens/assets/svgs/molecule-stroke.svg"
+import IconExpand from 'ucla-library-design-tokens/assets/svgs/icon-expand.svg'
+import MoleculeStroke from 'ucla-library-design-tokens/assets/svgs/molecule-stroke.svg'
 
 export default {
-    name: "ButtonShow",
-    components: {
-        IconExpand,
-        MoleculeStroke,
+  name: 'ButtonShow',
+  components: {
+    IconExpand,
+    MoleculeStroke,
+  },
+  props: {
+    text: {
+      type: String,
+      default: 'See More',
     },
-    props: {
-        text: {
-            type: String,
-            default: "See More",
-        },
-    },
+  },
 }
 </script>
+
+<template>
+  <button class="button-show">
+    <div class="icon" aria-hidden="true">
+      <MoleculeStroke class="molecule-stroke" />
+      <IconExpand class="icon-expand" />
+    </div>
+
+    <div class="text">
+      {{ text }}
+    </div>
+  </button>
+</template>
 
 <style lang="scss" scoped>
 .button-show {

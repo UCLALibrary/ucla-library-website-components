@@ -1,22 +1,22 @@
-<template>
-    <div class="site-brand-bar">
-        <a href="https://www.ucla.edu" target="_blank">
-            <svg-logo-ucla class="svg ucla-logo" />
-            <span class="visually-hidden">UCLA Home</span>
-        </a>
-    </div>
-</template>
-
 <script>
-import SvgLogoUcla from "ucla-library-design-tokens/assets/svgs/logo-ucla.svg"
+import SvgLogoUcla from 'ucla-library-design-tokens/assets/svgs/logo-ucla.svg'
 
 export default {
-    name: "SiteBrandBar",
-    components: {
-        SvgLogoUcla,
-    },
+  name: 'SiteBrandBar',
+  components: {
+    SvgLogoUcla,
+  },
 }
 </script>
+
+<template>
+  <div class="site-brand-bar">
+    <a href="https://www.ucla.edu" target="_blank">
+      <SvgLogoUcla class="svg ucla-logo" />
+      <span class="visually-hidden">UCLA Home</span>
+    </a>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .site-brand-bar {
