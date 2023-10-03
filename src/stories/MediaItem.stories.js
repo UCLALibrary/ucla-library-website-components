@@ -16,10 +16,12 @@ export default {
   component: MediaItem,
 }
 
-export const Default = Template.bind({})
-Default.args = {
-  item: MEDIA.ImageFile,
+export const Default = {
+  args: {
+    item: MEDIA.ImageFile,
+  }
 }
+
 
 export function Image() {
   return {

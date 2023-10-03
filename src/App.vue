@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { computed } from 'vue'
 import SiteBrandBar from './lib-components/SiteBrandBar.vue'
 import BlockMediaWithText from './lib-components/BlockMediaWithText.vue'
@@ -24,9 +24,9 @@ const richTextContent = computed(() => {
 })
 const title = 'Dropio, heroku'
 const text
-    = 'Napster mozy sococo orkut <a href=\'http://google.com/\'>convore scribd napster</a>, twones diigo joukuu weebly. <i>Sclipo jibjab scribd</i>.'
+  = 'Napster mozy sococo orkut <a href=\'http://google.com/\'>convore scribd napster</a>, twones diigo joukuu weebly. <i>Sclipo jibjab scribd</i>.'
 const textLong
-    = 'Greplin prezi zillow zoosk orkut, zoosk gooru. Kiko xobni joukuu ideeli bitly joukuu, squidoo heroku hulu sifteo, zooomr jumo dropio chumby. Qeyno wikia oooooc jajah, ebay qeyno lala, jajah lijit. Etsy wufoo flickr movity sclipo heroku, oooooc etsy oooooc. Vimeo foodzie zoosk ebay, wesabe. Ebay doostang vuvox, xobni. Mozy joyent dropio gooru kippt, greplin skype. Kiko napster geni dogster yoono yammer disqus, hipmunk xobni odeo zynga loopt. Groupon klout divvyshot zinch elgg yoono airbnb, orkut zinch chartly squidoo.'
+  = 'Greplin prezi zillow zoosk orkut, zoosk gooru. Kiko xobni joukuu ideeli bitly joukuu, squidoo heroku hulu sifteo, zooomr jumo dropio chumby. Qeyno wikia oooooc jajah, ebay qeyno lala, jajah lijit. Etsy wufoo flickr movity sclipo heroku, oooooc etsy oooooc. Vimeo foodzie zoosk ebay, wesabe. Ebay doostang vuvox, xobni. Mozy joyent dropio gooru kippt, greplin skype. Kiko napster geni dogster yoono yammer disqus, hipmunk xobni odeo zynga loopt. Groupon klout divvyshot zinch elgg yoono airbnb, orkut zinch chartly squidoo.'
 const attribution = 'Lady Gaga'
 const sectionTitle = 'Section Title'
 const sectionSummary = '<p><strong>Section Summary with Rich Text</strong> Lorem ipsum dolor <a href="https://fonts.google.com/featured" target="_blank" rel="noreferrer noopener">reprehenderit in voluptate.</a> <em>Ut enim ad minim veniam.</em> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>'
@@ -162,30 +162,28 @@ const coverImage = MEDIA.VideoFileCoverImage
   </SectionWrapper>
   <br>
   <br>
-  <BlockMediaWithText
-    :section-header="mockMediaWithText.mediaWithText[0].titleLink"
+  <BlockMediaWithText :section-header="mockMediaWithText.mediaWithText[0].titleLink"
     :short-description="mockMediaWithText.mediaWithText[0].description"
     :button-text="mockMediaWithText.mediaWithText[0].buttonText"
     :button-url="mockMediaWithText.mediaWithText[0].buttonUrl" :item="itemVideo" :cover-image="coverImage"
-    type-media="video"
-  />
+    type-media="video" />
   <br>
   <br>
 </template>
 
 <style scoped>
 .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
 
 .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
 .logo.vue:hover {
-    filter: drop-shadow(0 0 2em #42b883aa);
+  filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>

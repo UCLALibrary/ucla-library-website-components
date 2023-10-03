@@ -3,10 +3,10 @@
         <div class="text-grouping">
             <h3 class="section-header" v-html="sectionHeader" />
             <div class="meta-mobile">
-                <smart-link v-if="mediaLink" :to="mediaLink" class="media-link">
+                <!--smart-link v-if="mediaLink" :to="mediaLink" class="media-link">
                     <media-item v-if="item || coverImage" :item="item" :coverImage="coverImage" coverOnly="true"
                         @click.native="showLightbox = true" class="media-mobile" />
-                </smart-link>
+                </smart-link-->
                 <div v-if="!(item || coverImage)" class="no-media-mobile" />
                 <div class="clippy">
                     <div v-if="isVideo || isAudio" class="floating-highlight-mobile" />
@@ -19,7 +19,7 @@
             <button-link v-if="buttonUrl" class="button" :to="buttonUrl" :label="buttonText" :is-secondary="true"
                 :is-download="parsedIsDownload" />
         </div>
-        <media-item v-if="item || coverImage" :item="item" :coverImage="coverImage" coverOnly="true" class="meta media"
+        <media-item v-if="item || coverImage" :item="item" :coverImage="coverImage" :coverOnly="true" class="meta media"
             @click.native="showLightbox = true">
             <div class="clippy">
                 <div v-if="isVideo || isAudio" class="floating-highlight" />
@@ -35,11 +35,13 @@
     </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { defineAsyncComponent } from 'vue'
 import { ref, computed } from "vue"
 // Helper functions
-import { isInternalLink } from '@/composables/isInternalLink'
+
+import type { PropType } from 'vue'
+import type { MediaItemType, MediaGalleryItemType } from '@/types/types'
 
 
 const SvgIconHeadphones = defineAsyncComponent(() =>
@@ -50,8 +52,8 @@ const SvgIconPlayFilled = defineAsyncComponent(() =>
     import(
         "ucla-library-design-tokens/assets/svgs/icon-play-filled.svg"
     ))
-const SmartLink = defineAsyncComponent(() =>
-    import("@/lib-components/SmartLink.vue"))
+/*const SmartLink = defineAsyncComponent(() =>
+    import("@/lib-components/SmartLink.vue"))*/
 const ButtonLink = defineAsyncComponent(() =>
     import("@/lib-components/ButtonLink.vue"))
 const MediaItem = defineAsyncComponent(() =>
@@ -87,11 +89,11 @@ const props = defineProps({
         default: "",
     },
     item: {
-        type: Array,
+        type: Array as PropType<MediaItemType[]>,
         default: () => [],
     },
     coverImage: {
-        type: Array,
+        type: Array as PropType<MediaItemType[]>,
         default: () => [],
     },
 })
@@ -111,7 +113,7 @@ const isVideo = computed(() => {
         (props.item && props.item[0] && props.item[0].kind == "video")
     )
 })
-const lightboxItems = computed(() => {
+const lightboxItems = computed<MediaGalleryItemType[]>(() => {
     return [
         {
             item: props.item,
