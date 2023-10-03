@@ -309,7 +309,7 @@ export default {
         }
     }
     .meta {
-        z-index: 10;
+        z-index: 0;
         width: 100%;
     }
     .category {
