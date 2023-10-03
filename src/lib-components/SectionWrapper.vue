@@ -7,77 +7,77 @@ import RichText from '@/lib-components/RichText.vue'
 import kebabCase from '@/utils/kebabCase'
 
 export default {
-    name: 'SectionWrapper',
-    components: { SectionHeader, RichText },
+  name: 'SectionWrapper',
+  components: { SectionHeader, RichText },
 
-    provide() {
-        return {
-            sectionLevel: this.levelComputed,
-            ancestorSetMargins: this.ancestorSetMargins || this.setMargins,
-        }
+  provide() {
+    return {
+      sectionLevel: this.levelComputed,
+      ancestorSetMargins: this.ancestorSetMargins || this.setMargins,
+    }
+  },
+  inject: {
+    parentLevel: { from: 'sectionLevel', default: 1 },
+    ancestorSetMargins: { default: false },
+  },
+  props: {
+    sectionTitle: {
+      type: String,
+      default: '',
     },
-    inject: {
-        parentLevel: { from: 'sectionLevel', default: 1 },
-        ancestorSetMargins: { default: false },
+    sectionSummary: {
+      type: String,
+      default: '',
     },
-    props: {
-        sectionTitle: {
-            type: String,
-            default: '',
-        },
-        sectionSummary: {
-            type: String,
-            default: '',
-        },
-        theme: {
-            type: String,
-            default: 'white',
-        },
-        level: {
-            type: Number,
-            default: 0,
-        },
-        noMargins: {
-            type: Boolean,
-            default: false,
-        },
+    theme: {
+      type: String,
+      default: 'white',
     },
-    computed: {
-        classes() {
-            return [
-                'section-wrapper',
+    level: {
+      type: Number,
+      default: 0,
+    },
+    noMargins: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    classes() {
+      return [
+        'section-wrapper',
                 `section-wrapper${this.levelComputed}`,
                 `theme-${this.theme}`,
                 { 'top-level': this.setMargins },
-            ]
-        },
-        levelComputed() {
-            return Number(this.level || this.parentLevel + 1)
-        },
-        getId() {
-            return kebabCase(this.sectionTitle)
-        },
-        setMargins() {
-            if (this.noMargins || this.ancestorSetMargins)
-                return false
-
-            return true
-        },
+      ]
     },
+    levelComputed() {
+      return Number(this.level || this.parentLevel + 1)
+    },
+    getId() {
+      return kebabCase(this.sectionTitle)
+    },
+    setMargins() {
+      if (this.noMargins || this.ancestorSetMargins)
+        return false
+
+      return true
+    },
+  },
 }
 </script>
 
 <template>
-    <section :class="classes">
-        <a v-if="sectionTitle" :id="getId" />
-        <div v-if="sectionTitle" class="section-header">
-            <SectionHeader v-if="sectionTitle" class="section-title" v-text="sectionTitle" />
+  <section :class="classes">
+    <a v-if="sectionTitle" :id="getId" />
+    <div v-if="sectionTitle" class="section-header">
+      <SectionHeader v-if="sectionTitle" class="section-title" v-text="sectionTitle" />
 
-            <RichText v-if="sectionSummary" class="section-summary" v-html="sectionSummary" />
-        </div>
+      <RichText v-if="sectionSummary" class="section-summary" v-html="sectionSummary" />
+    </div>
 
-        <slot />
-    </section>
+    <slot />
+  </section>
 </template>
 
 <style lang="scss" scoped>

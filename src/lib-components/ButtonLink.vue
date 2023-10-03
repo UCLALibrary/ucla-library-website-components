@@ -2,10 +2,9 @@
 import { defineAsyncComponent } from 'vue'
 
 // Helper functions
+import SvgExternalLink from 'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
 import { isInternalLink } from '@/composables/isInternalLink'
 import SmartLink from '@/lib-components/SmartLink.vue'
-import SvgExternalLink from 'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
-
 
 export default {
   name: 'ButtonLink',
@@ -21,7 +20,7 @@ export default {
        import(
          'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
        )
-     ),*/
+     ), */
     SvgArrowDownload: defineAsyncComponent(() =>
       import('ucla-library-design-tokens/assets/svgs/icon-download.svg')
     ),

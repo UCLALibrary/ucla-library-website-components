@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
-import VideoJs from './VideoJs.vue'
 import type { PropType } from 'vue'
+import VideoJs from './VideoJs.vue'
 import type { MediaItemType } from '@/types/types'
 
 const props = defineProps({
@@ -55,15 +55,15 @@ const mediaStyles = computed(() => {
 })
 const parsedAspectRatio = computed(() => {
   return (
-    props.aspectRatio ||
-    (props.height / props.width) * 100 ||
-    (!props.coverOnly &&
-      props.item[0] &&
-      (props.item[0].height / props.item[0].width) * 100) ||
-    (props.coverImage[0] &&
-      props.coverImage[0].height / props.coverImage[0].width) *
-    100 ||
-    (9 / 16) * 100
+    props.aspectRatio
+    || (props.height / props.width) * 100
+    || (!props.coverOnly
+      && props.item[0]
+      && (props.item[0].height / props.item[0].width) * 100)
+    || (props.coverImage[0]
+      && props.coverImage[0].height / props.coverImage[0].width)
+    * 100
+    || (9 / 16) * 100
   )
 })
 const sizerStyles = computed(() => {
@@ -79,13 +79,17 @@ const sizerStyles = computed(() => {
     <div v-if="isEmbed" class="media media-embed" v-html="embedCode" />
     <img v-else-if="isImage" class="media media-image" :style="mediaStyles" v-bind="item[0]">
     <img v-else-if="props.coverOnly" class="media media-image" :style="mediaStyles" v-bind="props.coverImage[0]">
-    <VideoJs v-else-if="isVideo || isAudio" class="media media-video" :style="mediaStyles" :sources="props.item"
+    <VideoJs
+      v-else-if="isVideo || isAudio" class="media media-video" :style="mediaStyles" :sources="props.item"
       :poster="coverImageSrc" :controls="props.controls" :autoplay="props.autoplay" :loop="props.loop"
-      :muted="props.muted" :playsinline="props.playsinline" :audio-poster-mode="isAudio" />
-    <p v-else class="media" style="background-color: white; padding: 10px" v-text="isAudio
-      ? 'Audio uploads not supported yet'
-      : 'Could not identify media type'
-      " />
+      :muted="props.muted" :playsinline="props.playsinline" :audio-poster-mode="isAudio"
+    />
+    <p
+      v-else class="media" style="background-color: white; padding: 10px" v-text="isAudio
+        ? 'Audio uploads not supported yet'
+        : 'Could not identify media type'
+      "
+    />
     <div class="sizer" :style="sizerStyles" />
     <slot />
   </div>

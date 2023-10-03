@@ -162,11 +162,13 @@ const coverImage = MEDIA.VideoFileCoverImage
   </SectionWrapper>
   <br>
   <br>
-  <BlockMediaWithText :section-header="mockMediaWithText.mediaWithText[0].titleLink"
+  <BlockMediaWithText
+    :section-header="mockMediaWithText.mediaWithText[0].titleLink"
     :short-description="mockMediaWithText.mediaWithText[0].description"
     :button-text="mockMediaWithText.mediaWithText[0].buttonText"
     :button-url="mockMediaWithText.mediaWithText[0].buttonUrl" :item="itemVideo" :cover-image="coverImage"
-    type-media="video" />
+    type-media="video"
+  />
   <br>
   <br>
 </template>

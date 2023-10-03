@@ -22,7 +22,6 @@ export const Default = {
   }
 }
 
-
 export function Image() {
   return {
     data() {
