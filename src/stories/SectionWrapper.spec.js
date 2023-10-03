@@ -31,7 +31,7 @@ describe('SectionWrapper', () => {
   })
 
   describe('Nested Sections', () => {
-    before(() => {
+    beforeEach(() => {
       cy.visit(
         '/iframe.html?id=section-wrapper--nested&args=&viewMode=story'
       )

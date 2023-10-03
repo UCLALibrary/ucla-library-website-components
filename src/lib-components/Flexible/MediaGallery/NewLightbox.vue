@@ -13,42 +13,42 @@ import MediaItem from '@/lib-components/Media/Item.vue'
 
 // defineProps is a macro hence we do not need to import it
 const { items, selectedItem } = defineProps({
-  items: {
-    type: Array as PropType<MediaGalleryItemType[]>,
-    default: () => [],
-    required: true,
-  },
-  selectedItem: {
-    type: Number,
-    default: 0,
-  },
+    items: {
+        type: Array as PropType<MediaGalleryItemType[]>,
+        default: () => [],
+        required: true,
+    },
+    selectedItem: {
+        type: Number,
+        default: 0,
+    },
 })
 
 const emit = defineEmits<{
-  (e: 'closeModal'): void
+    (e: 'closeModal'): void
 }>()
 
 const SvgExternalLink = defineAsyncComponent(() =>
-  import(
-    'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
-  )
+    import(
+        'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
+    )
 )
 const selectionIndex = ref(selectedItem)
 
 const captionTitle = computed(() => {
-  return items.map(item => item.captionTitle)
+    return items.map(item => item.captionTitle)
 })
 
 const captionText = computed(() => {
-  return items.map(item => item.captionText)
+    return items.map(item => item.captionText)
 })
 const lightbox = ref<HTMLElement | null>(null) // replacing this.$refs.lightbox
 
 onMounted(() => {
-  lightbox.value?.focus()
+    lightbox.value?.focus()
 })
 function closeModal() {
-  emit('closeModal')
+    emit('closeModal')
 }
 
 /* these methods were used by vue-glide-js */
@@ -59,64 +59,56 @@ function closeModal() {
     }
 } */
 function setCurrentSlide(currentSlide: number) {
-  selectionIndex.value = currentSlide
+    selectionIndex.value = currentSlide
 }
 </script>
 
 <template>
-  <div ref="lightbox" class="lightbox">
-    <button class="button-close" @click="closeModal">
-      <SvgIconClose aria-label="Close" />
-    </button>
-    <!-- vue-glide ref="slider" :active="selectionIndex" :per-view="1" :rewind="false" class="media-container"
+    <div ref="lightbox" class="lightbox">
+        <button class="button-close" @click="closeModal">
+            <SvgIconClose aria-label="Close" />
+        </button>
+        <!-- vue-glide ref="slider" :active="selectionIndex" :per-view="1" :rewind="false" class="media-container"
             type="carousel" @change="setCurrentSlide" -->
-    <div class="media-container">
-      <!-- vue-glide-slide v-for="(item, index) in items" :key="index" -->
-      <div v-for="(item, index) in items" :key="index">
-        <MediaItem
-          :key="index" object-fit="contain" :item="item.item" :cover-image="item.coverImage"
-          :embed-code="item.embedCode"
-        />
-      </div>
-      <!-- /vue-glide-slide -->
-      <div>
-        <button v-if="items.length > 1" class="button-prev" :disabled="selectionIndex <= 0" data-glide-dir="<">
-          <SvgIconCaretLeft aria-label="Show previous image" />
-        </button>
-        <button
-          v-if="items.length > 1" class="button-next" :disabled="selectionIndex >= items.length - 1"
-          data-glide-dir=">"
-        >
-          <SvgIconCaretRight aria-label="Show next image" />
-        </button>
-      </div>
-    </div>
-    <!-- /vue-glide -->
-    <div class="caption-block">
-      <div v-if="items.length > 1" class="media-counter" role="tablist">
-        <button
-          v-for="index in items.length" :key="index" class="media-counter-item"
-          :disabled="index - 1 === selectionIndex" @click="setCurrentSlide(index - 1)"
-        >
-          <SvgIconMoleculeBullet />
-        </button>
-      </div>
+        <div class="media-container">
+            <!-- vue-glide-slide v-for="(item, index) in items" :key="index" -->
+            <div v-for="(item, index) in items" :key="index">
+                <MediaItem :key="index" object-fit="contain" :item="item.item" :cover-image="item.coverImage"
+                    :embed-code="item.embedCode" />
+            </div>
+            <!-- /vue-glide-slide -->
+            <div>
+                <button v-if="items.length > 1" class="button-prev" :disabled="selectionIndex <= 0" data-glide-dir="<">
+                    <SvgIconCaretLeft aria-label="Show previous image" />
+                </button>
+                <button v-if="items.length > 1" class="button-next" :disabled="selectionIndex >= items.length - 1"
+                    data-glide-dir=">">
+                    <SvgIconCaretRight aria-label="Show next image" />
+                </button>
+            </div>
+        </div>
+        <!-- /vue-glide -->
+        <div class="caption-block">
+            <div v-if="items.length > 1" class="media-counter" role="tablist">
+                <button v-for="index in items.length" :key="index" class="media-counter-item"
+                    :disabled="index - 1 === selectionIndex" @click="setCurrentSlide(index - 1)">
+                    <SvgIconMoleculeBullet />
+                </button>
+            </div>
 
-      <h4 v-if="captionTitle" class="media-object-title" v-text="captionTitle[selectionIndex]" />
-      <p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" />
-      <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
-        {{ items[selectionIndex].credit }}
-      </p>
-      <SmartLink
-        v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
-          && items[selectionIndex].linkText
-        " class="media-object-caption-link" :to="items[selectionIndex].linkUrl"
-      >
-        {{ items[selectionIndex].linkText }}
-        <SvgExternalLink />
-      </SmartLink>
+            <h4 v-if="captionTitle" class="media-object-title" v-text="captionTitle[selectionIndex]" />
+            <p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" />
+            <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
+                {{ items[selectionIndex].credit }}
+            </p>
+            <SmartLink v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
+                && items[selectionIndex].linkText
+                " class="media-object-caption-link" :to="items[selectionIndex].linkUrl">
+                {{ items[selectionIndex].linkText }}
+                <SvgExternalLink />
+            </SmartLink>
+        </div>
     </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -156,11 +148,11 @@ function setCurrentSlide(currentSlide: number) {
         width: auto;
         padding: 0;
 
-        ::v-deep .svg__fill--primary-blue-01 {
+        :deep(.svg__fill--primary-blue-01) {
             fill: none;
         }
 
-        ::v-deep .svg__stroke--default-cyan-02 {
+        :deep(.svg__stroke--default-cyan-02) {
             stroke: var(--color-white);
         }
     }
@@ -172,7 +164,7 @@ function setCurrentSlide(currentSlide: number) {
     }
 
     // Override colors of all the SVG icons
-    ::v-deep svg {
+    :deep(svg) {
         display: block;
 
         .svg__fill--primary-blue-03 {
@@ -187,7 +179,7 @@ function setCurrentSlide(currentSlide: number) {
     @media #{$has-hover} {
         button:enabled {
             .media-counter-item:hover {
-                ::v-deep .svg__fill--primary-blue-03 {
+                :deep(.svg__fill--primary-blue-03) {
                     fill: var(--color-white);
                 }
             }
@@ -199,14 +191,14 @@ function setCurrentSlide(currentSlide: number) {
     }
 
     button:disabled {
-        ::v-deep svg {
+        :deep(svg) {
             .svg__fill--primary-blue-03 {
                 fill: var(--color-white);
             }
         }
     }
 
-    ::v-deep .media-item {
+    :deep(.media-item) {
         height: var(--media-height);
     }
 
@@ -229,11 +221,11 @@ function setCurrentSlide(currentSlide: number) {
         align-self: center;
         color: white;
 
-        ::v-deep .svg__fill--primary-blue-01 {
+        :deep(.svg__fill--primary-blue-01) {
             fill: none;
         }
 
-        ::v-deep .svg__fill--primary-blue-03 {
+        :deep(.svg__fill--primary-blue-03) {
             fill: var(--color-white);
         }
     }
@@ -246,11 +238,11 @@ function setCurrentSlide(currentSlide: number) {
         align-self: center;
         color: white;
 
-        ::v-deep .svg__fill--primary-blue-01 {
+        :deep(.svg__fill--primary-blue-01) {
             fill: none;
         }
 
-        ::v-deep .svg__fill--primary-blue-03 {
+        :deep(.svg__fill--primary-blue-03) {
             fill: var(--color-white);
         }
     }
@@ -266,11 +258,11 @@ function setCurrentSlide(currentSlide: number) {
             top: calc(var(--media-width) / 3);
         }
 
-        ::v-deep .media-item {
+        :deep(.media-item) {
             height: calc(var(--media-height) * 1.2);
         }
 
-        ::v-deep .glide__slides {
+        :deep(.glide__slides) {
             align-items: center;
         }
     }
@@ -288,11 +280,11 @@ function setCurrentSlide(currentSlide: number) {
             display: none;
         }
 
-        ::v-deep .media-item {
+        :deep(.media-item) {
             height: 100%;
         }
 
-        ::v-deep .glide__slides {
+        :deep(.glide__slides) {
             align-items: center;
         }
     }
@@ -315,16 +307,16 @@ function setCurrentSlide(currentSlide: number) {
                     display: block;
                 }
 
-                ::v-deep .svg__fill--primary-blue-03 {
+                :deep(.svg__fill--primary-blue-03) {
                     fill: none;
                 }
 
                 &:disabled {
-                    ::v-deep .svg__stroke--primary-blue-03 {
+                    :deep(.svg__stroke--primary-blue-03) {
                         stroke: white;
                     }
 
-                    ::v-deep .svg__fill--primary-blue-03 {
+                    :deep(.svg__fill--primary-blue-03) {
                         fill: white;
                     }
                 }
@@ -358,7 +350,7 @@ function setCurrentSlide(currentSlide: number) {
 
             color: $white;
 
-            ::v-deep .svg__icon-external-link {
+            :deep(.svg__icon-external-link) {
                 .svg__fill--primary-blue-03 {
                     fill: $white;
 

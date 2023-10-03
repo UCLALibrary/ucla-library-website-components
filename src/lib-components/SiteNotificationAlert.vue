@@ -63,148 +63,138 @@ export default {
     </button>
 
     <div class="message">
-      <RichText
-        v-if="text"
-        class="message-text"
-        :rich-text-content="text"
-      />
-      <ButtonLink
-        class="button-dismiss"
-        label="Dismiss"
-        icon-name="icon-close"
-        is-quaternary
-        @click="toggleAlert"
-      />
+      <RichText v-if="text" class="message-text" :rich-text-content="text" />
+      <ButtonLink class="button-dismiss" label="Dismiss" icon-name="icon-close" is-quaternary @click="toggleAlert" />
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
 .site-notification-alert {
-    width: 410px;
+  width: 410px;
+
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  .alert {
+    position: relative;
+    z-index: 10;
 
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
+    user-select: none;
+
+    background-color: var(--color-primary-yellow-01);
+    border-radius: var(--rounded-slightly-all);
+    transition: border-radius 400ms ease-in-out;
+    height: 48px;
+    max-width: 196px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .alert-box-icon {
+      align-self: center;
+      padding: 0 0 0 20px;
+
+      .svg-alert-circle {
+        path {
+          stroke: var(--color-black);
+        }
+      }
+    }
+
+    .alert-text {
+      align-self: center;
+      flex-wrap: nowrap;
+
+      color: var(--color-black);
+      font-family: var(--font-primary);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 14px;
+      overflow: hidden;
+      padding: 0 20px 3px 4px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .message {
+    display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
+    align-items: flex-end;
 
+    background-color: #{$white};
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.04),
+      0px 6px 32px rgba(0, 0, 0, 0.08);
+    border-radius: var(--rounded-slightly-all);
+    border-top-right-radius: 0;
+
+    transition-property: clip-path opacity border-radius;
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
+
+    .message-text {
+      margin: 24px 32px 12px;
+      max-height: 128px;
+      overflow: auto;
+
+      color: var(--color-black);
+      font-family: var(--font-primary);
+      padding: 0;
+
+      :deep(p) {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        line-height: 22px;
+      }
+
+      :deep(a) {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        line-height: 22px;
+      }
+    }
+
+    .button-dismiss {
+      margin: 0 24px 24px;
+      width: min-content;
+    }
+  }
+
+  // States
+  &.is-opened {
     .alert {
-        position: relative;
-        z-index: 10;
-
-        display: flex;
-        justify-content: center;
-        user-select: none;
-
-        background-color: var(--color-primary-yellow-01);
-        border-radius: var(--rounded-slightly-all);
-        transition: border-radius 400ms ease-in-out;
-        height: 48px;
-        max-width: 196px;
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        .alert-box-icon {
-            align-self: center;
-            padding: 0 0 0 20px;
-
-            .svg-alert-circle {
-                path {
-                    stroke: var(--color-black);
-                }
-            }
-        }
-
-        .alert-text {
-            align-self: center;
-            flex-wrap: nowrap;
-
-            color: var(--color-black);
-            font-family: var(--font-primary);
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.01em;
-            line-height: 14px;
-            overflow: hidden;
-            padding: 0 20px 3px 4px;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
+      border-radius: var(--rounded-slightly-top);
     }
 
     .message {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-
-        background-color: #{$white};
-        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.04),
-            0px 6px 32px rgba(0, 0, 0, 0.08);
-        border-radius: var(--rounded-slightly-all);
-        border-top-right-radius: 0;
-
-        transition-property: clip-path opacity border-radius;
-        transition-duration: 400ms;
-        transition-timing-function: ease-in-out;
-
-        .message-text {
-            margin: 24px 32px 12px;
-            max-height: 128px;
-            overflow: auto;
-
-            color: var(--color-black);
-            font-family: var(--font-primary);
-            padding: 0;
-
-            :deep p {
-                font-size: 16px;
-                font-weight: 400;
-                letter-spacing: 0.01em;
-                line-height: 22px;
-            }
-
-            :deep a {
-                font-size: 16px;
-                font-weight: 400;
-                letter-spacing: 0.01em;
-                line-height: 22px;
-            }
-        }
-
-        .button-dismiss {
-            margin: 0 24px 24px;
-            width: min-content;
-        }
+      opacity: 1;
+      clip-path: inset(-30% -30% -30% -30%); //space for drop shadow
     }
+  }
 
-    // States
-    &.is-opened {
-        .alert {
-            border-radius: var(--rounded-slightly-top);
-        }
-
-        .message {
-            opacity: 1;
-            clip-path: inset(-30% -30% -30% -30%); //space for drop shadow
-        }
+  &.is-closed {
+    .message {
+      opacity: 0;
+      clip-path: inset(0% 0% 100% 70%);
     }
+  }
 
-    &.is-closed {
-        .message {
-            opacity: 0;
-            clip-path: inset(0% 0% 100% 70%);
-        }
+  // Breakpoints
+  @media #{$small} {
+    width: 300px;
+
+    .message {
+      width: 300px;
     }
-
-    // Breakpoints
-    @media #{$small} {
-        width: 300px;
-
-        .message {
-            width: 300px;
-        }
-    }
+  }
 }
 </style>

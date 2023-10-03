@@ -46,50 +46,55 @@ const textClasses = computed(() => ['heading', `color-${componentType.value}`])
 
 <style lang="scss" scoped>
 .heading-arrow {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    text-decoration: none;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  text-decoration: none;
 
-    // themes
-    --color-theme: var(--color-primary-blue-03);
-    &.color-visit {
-        --color-theme: var(--color-visit-fushia-03);
-    }
-    &.color-help {
-        --color-theme: var(--color-help-green-03);
-    }
-    &.color-about {
-        --color-theme: var(--color-about-purple-03);
+  // themes
+  --color-theme: var(--color-primary-blue-03);
+
+  &.color-visit {
+    --color-theme: var(--color-visit-fushia-03);
+  }
+
+  &.color-help {
+    --color-theme: var(--color-help-green-03);
+  }
+
+  &.color-about {
+    --color-theme: var(--color-about-purple-03);
+  }
+
+  :deep(.svg__stroke--wayfinder) {
+    stroke: var(--color-theme);
+  }
+
+  .heading {
+    margin-left: 30px;
+    @include step-3;
+    line-height: 100%;
+    text-transform: capitalize;
+
+    &.color-smart-link {
+      color: var(--color-white);
     }
 
-    :deep .svg__stroke--wayfinder {
-        stroke: var(--color-theme);
+    &.color-div {
+      color: var(--color-white);
     }
+  }
+
+  @media #{$medium} {
+    .svg {
+      height: 40px;
+      width: auto;
+      margin-right: 0;
+    }
+
     .heading {
-        margin-left: 30px;
-        @include step-3;
-        line-height: 100%;
-        text-transform: capitalize;
-
-        &.color-smart-link {
-            color: var(--color-white);
-        }
-        &.color-div {
-            color: var(--color-white);
-        }
+      font-size: 28px;
+      margin-left: 8px;
     }
-
-    @media #{$medium} {
-        .svg {
-            height: 40px;
-            width: auto;
-            margin-right: 0;
-        }
-        .heading {
-            font-size: 28px;
-            margin-left: 8px;
-        }
-    }
-}
-</style>
+  }
+}</style>

@@ -46,9 +46,9 @@ export default {
     classes() {
       return [
         'section-wrapper',
-                `section-wrapper${this.levelComputed}`,
-                `theme-${this.theme}`,
-                { 'top-level': this.setMargins },
+        `section-wrapper${this.levelComputed}`,
+        `theme-${this.theme}`,
+        { 'top-level': this.setMargins },
       ]
     },
     levelComputed() {
@@ -82,86 +82,86 @@ export default {
 
 <style lang="scss" scoped>
 .section-wrapper {
-    >.section-header {
-        margin-bottom: var(--space-xl);
+  >.section-header {
+    margin-bottom: var(--space-xl);
 
-        >.section-title {
-            color: var(--color-primary-blue-03);
-            line-height: 1.2;
-            margin-bottom: var(--space-m);
-        }
-
-        .section-summary {
-            @include step-0;
-            padding-right: 0;
-
-            ::v-deep p:not(:last-child) {
-                margin-bottom: var(--space-m);
-            }
-
-            ::v-deep p:last-child {
-                margin: 0;
-            }
-        }
+    >.section-title {
+      color: var(--color-primary-blue-03);
+      line-height: 1.2;
+      margin-bottom: var(--space-m);
     }
 
-    &.top-level {
-        --color-theme: var(--color-white);
+    .section-summary {
+      @include step-0;
+      padding-right: 0;
 
-        &.theme-gray {
-            --color-theme: var(--color-secondary-grey-01);
-            padding: var(--space-2xl) var(--unit-gutter);
-        }
+      :deep(p:not(:last-child)) {
+        margin-bottom: var(--space-m);
+      }
 
-        &.theme-white {
-            padding: 0 var(--unit-gutter);
-            margin: var(--space-2xl) auto;
+      :deep(p:last-child) {
+        margin: 0;
+      }
+    }
+  }
 
-            &.section-banner {
-                margin-top: 0;
+  &.top-level {
+    --color-theme: var(--color-white);
 
-                >* {
-                    max-width: $container-xl-banner + px;
-                }
-            }
+    &.theme-gray {
+      --color-theme: var(--color-secondary-grey-01);
+      padding: var(--space-2xl) var(--unit-gutter);
+    }
 
-            &.section-no-top-margin {
-                margin-top: 0;
-            }
+    &.theme-white {
+      padding: 0 var(--unit-gutter);
+      margin: var(--space-2xl) auto;
 
-            .section-featured-banner {
-                max-width: $container-l-cta + px;
-            }
-        }
+      &.section-banner {
+        margin-top: 0;
 
-        &.theme-divider {
-            padding: 0 var(--unit-gutter);
-        }
-
-        padding: var(--space-2xl) var(--unit-gutter);
-        margin: 0 auto;
-        background-color: var(--color-theme);
-
-        // Configure spacing of child components (individual components might override things like max-width)
         >* {
-            max-width: #{$container-l-main}px;
-            padding: 0;
-            margin-left: auto;
-            margin-right: auto;
-
-            &.block-call-to-action {
-                max-width: var(--block-width);
-                padding: var(--space-2xl);
-            }
+          max-width: $container-xl-banner + px;
         }
+      }
 
-        > :first-child:not(.divider-way-finder) {
-            margin-top: 0;
-        }
+      &.section-no-top-margin {
+        margin-top: 0;
+      }
 
-        > :last-child:not(.divider-way-finder) {
-            margin-bottom: 0;
-        }
+      .section-featured-banner {
+        max-width: $container-l-cta + px;
+      }
     }
+
+    &.theme-divider {
+      padding: 0 var(--unit-gutter);
+    }
+
+    padding: var(--space-2xl) var(--unit-gutter);
+    margin: 0 auto;
+    background-color: var(--color-theme);
+
+    // Configure spacing of child components (individual components might override things like max-width)
+    >* {
+      max-width: #{$container-l-main}px;
+      padding: 0;
+      margin-left: auto;
+      margin-right: auto;
+
+      &.block-call-to-action {
+        max-width: var(--block-width);
+        padding: var(--space-2xl);
+      }
+    }
+
+    > :first-child:not(.divider-way-finder) {
+      margin-top: 0;
+    }
+
+    > :last-child:not(.divider-way-finder) {
+      margin-bottom: 0;
+    }
+  }
 }
 </style>

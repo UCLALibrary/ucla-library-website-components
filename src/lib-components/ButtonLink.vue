@@ -226,7 +226,7 @@ export default {
     white-space: nowrap;
   }
 
-  :deep .arrow {
+  :deep(.arrow) {
     flex-shrink: 0;
 
     .svg__stroke--primary-blue-03,
@@ -242,8 +242,8 @@ export default {
     }
   }
 
-  :deep .svg__icon-external-link,
-  :deep .svg__icon-download {
+  :deep(.svg__icon-external-link),
+  :deep(.svg__icon-download) {
     .svg__stroke--primary-blue-03 {
       stroke: var(--button-icon-withaccent-color);
     }
