@@ -156,6 +156,7 @@ export default {
         handleSelectedLetter(letter) {
             this.selectedLetter = letter.letter
             this.checkIfLetterIsSelected()
+            // eslint-disable-next-line vue/require-explicit-emits
             this.$emit("selectedLetter", this.selectedLetter)
         },
     },

@@ -179,6 +179,9 @@ const coverImage = MEDIA.VideoFileCoverImage
   <AlphabeticalBrowseBy />
   <hr>
   <br>
+  <AlphabeticalBrowseBy selected-letter-prop="A" />
+  <hr>
+  <br>
 </template>
 
 <style scoped>
