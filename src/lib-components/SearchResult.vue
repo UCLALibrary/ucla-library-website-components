@@ -8,39 +8,32 @@
     </li>
 </template>
 
-<script>
-// UTILITY FUNCTIONS
+<script setup>
 import removeHtmlTruncate from "@/utils/removeHtmlTruncate"
+import { computed } from "vue"
 
-export default {
-    name: "SearchResult",
-    mixins: [removeHtmlTruncate],
-    props: {
-        to: {
-            type: String,
-            default: "",
-        },
-        category: {
-            type: String,
-            default: "",
-        },
-        title: {
-            type: String,
-            default: "",
-        },
-        summary: {
-            type: String,
-            default: "",
-        },
+const { to, category, title, summary } = defineProps({
+    to: {
+        type: String,
+        default: "",
     },
-    computed: {
-        parsedText() {
-            return this.summary
-                ? this.removeHtmlTruncate(this.summary, 250)
-                : ""
-        },
+    category: {
+        type: String,
+        default: "",
     },
-}
+    title: {
+        type: String,
+        default: "",
+    },
+    summary: {
+        type: String,
+        default: "",
+    },
+})
+
+const parsedText = computed(() => {
+    return summary ? removeHtmlTruncate(summary, 250) : ""
+})
 </script>
 
 <style lang="scss" scoped>
