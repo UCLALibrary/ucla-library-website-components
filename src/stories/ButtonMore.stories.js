@@ -1,22 +1,28 @@
-import ButtonMore from "@/lib-components/ButtonMore"
+import ButtonMore from '@/lib-components/ButtonMore'
 
 export default {
-    title: "BUTTON / More",
-    component: ButtonMore,
+  title: 'BUTTON / More',
+  component: ButtonMore,
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     components: { ButtonMore },
-    template: `<button-more/>`,
-})
+    template: '<button-more/>',
+  }
+}
 
-export const WithAlternateText = () => ({
+export function WithAlternateText() {
+  return {
     components: { ButtonMore },
-    template: `<button-more text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>`,
-})
+    template: '<button-more text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>',
+  }
+}
 
-export const WithLink = () => ({
+export function WithLink() {
+  return {
     components: { ButtonMore },
-    template: `<button-more text="See More" to="visit/events-exhibits"/>`,
-})
+    template: '<button-more text="See More" to="visit/events-exhibits"/>',
+  }
+}

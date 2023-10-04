@@ -1,15 +1,23 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["vite-env.d.ts", "vue-global-props.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": [
+    "vite-env.d.ts",
+    "vue-global-props.d.ts",
+    "src/**/*",
+    "src/**/*.vue"
+  ],
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "module": "ES2016",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "skipLibCheck": true,
     "allowJs": true,
     "ignoreDeprecations": "5.0",
-
     /* Bundler mode */
     "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
@@ -17,20 +25,19 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     // "verbatimModuleSyntax": true,
-
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-
   "references": [
     {
       "path": "./tsconfig.vite-config.json"

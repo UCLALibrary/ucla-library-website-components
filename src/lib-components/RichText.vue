@@ -1,34 +1,34 @@
-<template>
-    <div class="rich-text">
-        <div class="parsed-content" v-html="parsedContent" />
-        <slot />
-    </div>
-</template>
-
 <script>
 // UTILITY FUNCTIONS
-import { stripCraftURLFromText } from "@/composables/stripCraftURLFromText"
-import { accessibleExternalLinks } from "@/composables/accessibleExternalLinks"
+import { stripCraftURLFromText } from '@/composables/stripCraftURLFromText'
+import { accessibleExternalLinks } from '@/composables/accessibleExternalLinks'
 
 export default {
-    name: "RichText",
-    components: {},
+  name: 'RichText',
+  components: {},
 
-    props: {
-        richTextContent: {
-            type: String,
-            default: "",
-        },
+  props: {
+    richTextContent: {
+      type: String,
+      default: '',
     },
-    computed: {
-        parsedContent() {
-            const content = stripCraftURLFromText(this.richTextContent)
+  },
+  computed: {
+    parsedContent() {
+      const content = stripCraftURLFromText(this.richTextContent)
 
-            return accessibleExternalLinks(content)
-        },
+      return accessibleExternalLinks(content)
     },
+  },
 }
 </script>
+
+<template>
+  <div class="rich-text">
+    <div class="parsed-content" v-html="parsedContent" />
+    <slot />
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .rich-text {
@@ -36,38 +36,41 @@ export default {
     margin: 0 auto;
     padding-right: 96px;
 
-    :deep h3 {
+    :deep(h3) {
         color: var(--color-primary-blue-03);
         @include step-2;
         font-weight: 400;
         margin-bottom: var(--space-l);
         margin-top: var(--space-xl);
     }
-    :deep h4 {
+
+    :deep(h4) {
         color: var(--color-primary-blue-03);
         @include step-1;
         margin-bottom: 24px;
     }
-    :deep h5 {
+
+    :deep(h5) {
         color: var(--color-black);
         @include step-0;
     }
-    :deep p,
-    :deep li {
+
+    :deep(p),
+    :deep(li) {
         color: var(--color-black);
         @include step-0;
         margin: 0 0 var(--space-l) 0;
     }
 
-    :deep p:only-child {
+    :deep(p:only-child) {
         margin: 0;
     }
 
-    :deep p:last-child {
+    :deep(p:last-child) {
         margin-bottom: 0;
     }
 
-    :deep blockquote {
+    :deep(blockquote) {
         border-left: 4px solid var(--color-default-cyan-03);
         border-radius: 2px;
         padding: 24px var(--spacing-text-left);
@@ -95,7 +98,7 @@ export default {
         }
     }
 
-    :deep .figure {
+    :deep(.figure) {
         width: 100%;
         margin: var(--space-s);
 
@@ -103,35 +106,35 @@ export default {
         flex-direction: column;
     }
 
-    :deep .image-right {
+    :deep(.image-right) {
         float: right;
         margin-left: var(--space-s);
     }
 
-    :deep .image-left {
+    :deep(.image-left) {
         float: left;
         margin-right: var(--space-s);
     }
 
-    :deep figcaption {
+    :deep(figcaption) {
         font-family: var(--font-secondary);
         @include step--1;
         color: var(--color-secondary-grey-05);
         padding: 16px 16px 26px 16px;
     }
 
-    :deep iframe {
+    :deep(iframe) {
         width: 100%;
         height: 400px;
         object-fit: cover;
     }
 
-    :deep img {
+    :deep(img) {
         height: auto;
         object-fit: cover;
     }
 
-    :deep a {
+    :deep(a) {
         @include link-default;
         @include step-0;
         word-wrap: break-word;
@@ -141,11 +144,11 @@ export default {
         }
     }
 
-    :deep a[target="_blank"] {
+    :deep(a[target="_blank"]) {
         position: relative;
     }
 
-    :deep a[target="_blank"]:after {
+    :deep(a[target="_blank"]:after) {
         content: url("ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
         display: inline-block;
         background-size: contain;
@@ -156,8 +159,8 @@ export default {
         vertical-align: text-top;
     }
 
-    :deep ul,
-    :deep ol {
+    :deep(ul),
+    :deep(ol) {
         padding: 0 16px;
         margin: 0 0 32px;
 
@@ -167,7 +170,8 @@ export default {
             @include step-0;
         }
     }
-    :deep ol {
+
+    :deep(ol) {
         margin-left: 24px;
 
         ::marker {
@@ -178,12 +182,12 @@ export default {
         }
     }
 
-    :deep ul {
+    :deep(ul) {
         list-style: none;
         list-style-position: outside;
     }
 
-    :deep ul li {
+    :deep(ul) li {
         background-image: url("ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-stroke.svg");
         background-repeat: no-repeat;
         background-position-y: 5px; // This will shift the bullet down as needed
@@ -192,7 +196,7 @@ export default {
         overflow: hidden;
     }
 
-    :deep table {
+    :deep(table) {
         padding: var(--space-xl);
         border: 1px solid var(--color-primary-blue-05);
         border-radius: 4px;
@@ -206,23 +210,27 @@ export default {
             padding: 16px;
             border-bottom: 2px dotted var(--color-secondary-grey-03);
         }
+
         strong {
             @include step-0;
             font-weight: $font-weight-medium;
             color: var(--color-primary-blue-05);
         }
+
         th:first-child {
             padding-left: 0;
         }
+
         th:last-child {
             padding-right: 0;
         }
 
         // no border on last row
-        tr:last-child > td {
+        tr:last-child>td {
             border-bottom: 0;
             padding-bottom: 0;
         }
+
         td {
             @include step-0;
             color: var(--color-black);
@@ -230,9 +238,11 @@ export default {
             padding: 16px;
             vertical-align: top;
         }
+
         td:first-child {
             padding-left: 0;
         }
+
         td:last-child {
             padding-right: 0;
         }
@@ -245,16 +255,18 @@ export default {
     }
 
     @media #{$small} {
-        :deep .figure {
+        :deep(.figure) {
             width: 100%;
             height: auto;
         }
-        :deep iframe {
+
+        :deep(iframe) {
             width: 100%;
             width: 100%;
             height: auto;
         }
-        :deep blockquote {
+
+        :deep(blockquote) {
             --spacing-text-left: 24px;
             --container-width: 100%;
         }

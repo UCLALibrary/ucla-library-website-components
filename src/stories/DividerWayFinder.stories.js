@@ -1,28 +1,28 @@
-import DividerWayFinder from "@/lib-components/DividerWayFinder.vue"
+import DividerWayFinder from '@/lib-components/DividerWayFinder.vue'
 
 export default {
-    title: "DIVIDER / Way Finder",
-    component: DividerWayFinder,
+  title: 'DIVIDER / Way Finder',
+  component: DividerWayFinder,
 }
 
 export const Default = {
-    args: {},
+  args: {},
 }
 
 export const Visit = {
-    args: {
-        color: "visit",
-    },
+  args: {
+    color: 'visit',
+  },
 }
 
 export const About = {
-    args: {
-        color: "about",
-    },
+  args: {
+    color: 'about',
+  },
 }
 
 export const Help = {
-    args: {
-        color: "help",
-    },
+  args: {
+    color: 'help',
+  },
 }

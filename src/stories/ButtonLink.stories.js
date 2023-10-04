@@ -1,85 +1,103 @@
-import ButtonLink from "@/lib-components/ButtonLink"
+import ButtonLink from '@/lib-components/ButtonLink'
 
 // Storybook default settings
 export default {
-    title: "BUTTON / Link",
-    component: ButtonLink,
+  title: 'BUTTON / Link',
+  component: ButtonLink,
 
-    argTypes: {
-        label: { type: "string" },
-        iconName: {
-            type: "select",
-            options: [
-                "svg-arrow-right",
-                "svg-arrow-download",
-                "svg-external-link",
-                "icon-close",
-            ],
-        },
-        isSecondary: { type: "boolean" },
-        isTertiary: { type: "boolean" },
-        isQuaternary: { type: "boolean" },
-        to: { type: "string" },
+  argTypes: {
+    label: { type: 'string' },
+    iconName: {
+      type: 'select',
+      options: [
+        'svg-arrow-right',
+        'svg-arrow-download',
+        'svg-external-link',
+        'icon-close',
+      ],
     },
+    isSecondary: { type: 'boolean' },
+    isTertiary: { type: 'boolean' },
+    isQuaternary: { type: 'boolean' },
+    to: { type: 'string' },
+  },
 }
 
-const Template = (args) => ({
+function Template(args) {
+  return {
     components: { ButtonLink },
     setup() {
-        return { args }
+      return { args }
     },
     template: '<button-link v-bind="args" />',
-})
+  }
+}
 
 export const WithControls = {
-    args: {
-        label: "Ibus orci Luctus no template",
-    },
+  args: {
+    label: 'Ibus orci Luctus no template',
+  },
 }
 
 export const WithControlsIconClose = Template.bind({})
 WithControlsIconClose.args = {
-    label: "Ibus orci Luctus",
-    iconName: "icon-close",
+  label: 'Ibus orci Luctus',
+  iconName: 'icon-close',
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     components: { ButtonLink },
-    template: `<button-link label="Egest perl Conub" to="/help/more" />`,
-})
+    template: '<button-link label="Egest perl Conub" to="/help/more" />',
+  }
+}
 
-export const SecondaryInternal = () => ({
+export function SecondaryInternal() {
+  return {
     components: { ButtonLink },
-    template: `<button-link label="Etiam et Ultrices" :isSecondary="true" to='/help/more' />`,
-})
+    template: '<button-link label="Etiam et Ultrices" :isSecondary="true" to=\'/help/more\' />',
+  }
+}
 
-export const SecondaryLibraryInternal = () => ({
+export function SecondaryLibraryInternal() {
+  return {
     components: { ButtonLink },
-    template: `<button-link label="Etiam et Ultrices" :isSecondary="true" to='https://calendar.library.ucla.edu/' />`,
-})
+    template: '<button-link label="Etiam et Ultrices" :isSecondary="true" to=\'https://calendar.library.ucla.edu/\' />',
+  }
+}
 
-export const SecondaryExternal = () => ({
+export function SecondaryExternal() {
+  return {
     components: { ButtonLink },
-    template: `<button-link label="Etiam et Ultrices" :isSecondary="true" to='https://www.google.com/' />`,
-})
+    template: '<button-link label="Etiam et Ultrices" :isSecondary="true" to=\'https://www.google.com/\' />',
+  }
+}
 
-export const LongLabel = () => ({
+export function LongLabel() {
+  return {
     components: { ButtonLink },
-    template: `<button-link label="Proin sodales dolor sit amet." iconName="svg-arrow-right" to='/help/more'/>`,
-})
+    template: '<button-link label="Proin sodales dolor sit amet." iconName="svg-arrow-right" to=\'/help/more\'/>',
+  }
+}
 
-export const HasGlyph = () => ({
+export function HasGlyph() {
+  return {
     components: { ButtonLink },
-    template: `<button-link label="Aug id Dignissim" :isSecondary="true"  :is-download="true" to='/help/more'/>`,
-})
+    template: '<button-link label="Aug id Dignissim" :isSecondary="true"  :is-download="true" to=\'/help/more\'/>',
+  }
+}
 
-export const HasExternalGlyph = () => ({
+export function HasExternalGlyph() {
+  return {
     components: { ButtonLink },
-    template: `<button-link label="Aug id Dignissim" :isSecondary="true" iconName="svg-arrow-diagonal" to='www.google.com'/>`,
-})
+    template: '<button-link label="Aug id Dignissim" :isSecondary="true" iconName="svg-arrow-diagonal" to=\'www.google.com\'/>',
+  }
+}
 
-export const HasNoGlyph = () => ({
+export function HasNoGlyph() {
+  return {
     components: { ButtonLink },
-    template: `<button-link label="Aug id Dignissim" :isSecondary="true" icon-name="none" to='www.google.com'/>`,
-})
+    template: '<button-link label="Aug id Dignissim" :isSecondary="true" icon-name="none" to=\'www.google.com\'/>',
+  }
+}
