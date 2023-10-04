@@ -60,27 +60,27 @@ export default {
             },
         },
         labelClass() {
-            console.log("In labelClass:" + this.isSelected)
+            // console.log("In labelClass:" + this.isSelected)
             return ["label", this.isSelected === "yes" ? "checked" : ""]
         },
     },
     watch: {
         selected: {
             handler(newVal) {
-                console.log(
-                    "what is the new value of singlecheckobox in watch handler:" +
-                        newVal
-                )
+                // console.log(
+                //     "what is the new value of singlecheckobox in watch handler:" +
+                //         newVal
+                // )
                 this.isSelected = newVal
             },
         },
     },
     mounted() {
-        console.log("In mounted:" + this.isSelected)
+        // console.log("In mounted:" + this.isSelected)
     },
     methods: {
         onChange(value) {
-            console.log("checkbox updates: " + this.isSelected)
+            // console.log("checkbox updates: " + this.isSelected)
             this.$emit(
                 "update:selected",
                 !this.isSelected ? "" : this.isSelected
