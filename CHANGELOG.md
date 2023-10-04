@@ -1,3 +1,10 @@
+# [2.39.0-alpha.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.8...v2.39.0-alpha.9) (2023-10-04)
+
+
+### Features
+
+* Add section header and sectionwrapper compositon api support and use antfu ([#403](https://github.com/UCLALibrary/ucla-library-website-components/issues/403)) ([b31489f](https://github.com/UCLALibrary/ucla-library-website-components/commit/b31489f63b3ce4d53b0068a5c6da778226339661))
+
 # [2.39.0-alpha.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.7...v2.39.0-alpha.8) (2023-09-29)
 
 
