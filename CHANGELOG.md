@@ -1,3 +1,10 @@
+## [2.41.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.0...v2.41.1) (2023-10-04)
+
+
+### Bug Fixes
+
+* APPS-2434   Fix meap filters when covering block-highlight component ([#404](https://github.com/UCLALibrary/ucla-library-website-components/issues/404)) ([130a62d](https://github.com/UCLALibrary/ucla-library-website-components/commit/130a62d34dabefccaa3cda7d52d9f65014ab5fe5))
+
 # [2.41.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.40.0...v2.41.0) (2023-09-29)
 
 
