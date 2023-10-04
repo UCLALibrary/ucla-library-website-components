@@ -170,19 +170,19 @@ export default {
         --color-svg-molecule-outline: var(--color-primary-blue-03);
         --color-svg-molecule-inner-highlight: var(--color-help-green-03);
 
-        .svg__stroke--primary-blue-03 {
+        :deep .svg__stroke--primary-blue-03 {
             stroke: var(--color-primary-blue-03);
         }
 
-        .svg__stroke--help-green-03 {
+        :deep .svg__stroke--help-green-03 {
             stroke: var(--color-help-green-03);
         }
 
-        .svg__stroke--default-cyan-03 {
+        :deep .svg__stroke--default-cyan-03 {
             stroke: var(--color-default-cyan-03);
         }
 
-        .svg__fill--default-cyan-03 {
+        :deep .svg__fill--default-cyan-03 {
             fill: var(--color-default-cyan-03);
         }
     }
@@ -196,19 +196,19 @@ export default {
         --color-button-background: var(--color-primary-blue-03);
         --color-button-border: 2px solid var(--color-default-cyan-02);
 
-        .svg__stroke--primary-blue-03 {
+        :deep .svg__stroke--primary-blue-03 {
             stroke: var(--color-primary-blue-02);
         }
 
-        .svg__stroke--help-green-03 {
+        :deep .svg__stroke--help-green-03 {
             stroke: var(--color-white);
         }
 
-        .svg__stroke--default-cyan-03 {
+        :deep .svg__stroke--default-cyan-03 {
             stroke: var(--color-help-green-03);
         }
 
-        .svg__fill--default-cyan-03 {
+        :deep .svg__fill--default-cyan-03 {
             fill: var(--color-help-green-03);
         }
     }
