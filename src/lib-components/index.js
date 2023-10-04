@@ -22,3 +22,4 @@ export { default as SiteBrandBar } from './SiteBrandBar.vue'
 export { default as SiteNotificationAlert } from './SiteNotificationAlert.vue'
 export { default as SmartLink } from './SmartLink.vue'
 export { default as SearchResult } from './SearchResult.vue'
+export { default as SingleCheckbox } from "./SingleCheckbox.vue"
