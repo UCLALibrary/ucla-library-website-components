@@ -6,22 +6,25 @@ export default {
   component: SectionHeader,
 }
 
-const Template = (args) => ({
-  components: { SectionHeader },
-  setup() {
-    return { args }
-  },
-  template: '<SectionHeader v-bind="args">Header goes here</SectionHeader>',
-})
+function Template(args) {
+  return {
+    components: { SectionHeader },
+    setup() {
+      return { args }
+    },
+    template: '<SectionHeader v-bind="args">Header goes here</SectionHeader>',
+  }
+}
 
 export const Default = Template.bind({})
 Default.args = {
   level: 0,
 }
 
-export const InsideSectionWrapper = () => ({
-  components: { SectionHeader, SectionWrapper },
-  template: `
+export function InsideSectionWrapper() {
+  return {
+    components: { SectionHeader, SectionWrapper },
+    template: `
     <SectionWrapper level="1">
       <SectionHeader>Level 1</SectionHeader>
       <SectionWrapper>
@@ -41,4 +44,5 @@ export const InsideSectionWrapper = () => ({
       </SectionWrapper>
     </SectionWrapper>
   `,
-})
+  }
+}

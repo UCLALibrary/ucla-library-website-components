@@ -120,7 +120,7 @@ export default {
       &.section-banner {
         margin-top: 0;
 
-        >* {
+        >:deep(*) {
           max-width: $container-xl-banner + px;
         }
       }
@@ -143,7 +143,7 @@ export default {
     background-color: var(--color-theme);
 
     // Configure spacing of child components (individual components might override things like max-width)
-    >* {
+    >:deep(*) {
       max-width: #{$container-l-main}px;
       padding: 0;
       margin-left: auto;

@@ -97,4 +97,5 @@ const textClasses = computed(() => ['heading', `color-${componentType.value}`])
       margin-left: 8px;
     }
   }
-}</style>
+}
+</style>

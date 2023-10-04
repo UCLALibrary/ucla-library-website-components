@@ -78,13 +78,17 @@ const sizerStyles = computed(() => {
     <div v-if="isEmbed" class="media media-embed" v-html="embedCode" />
     <img v-else-if="isImage" class="media media-image" :style="mediaStyles" v-bind="item[0]">
     <img v-else-if="props.coverOnly" class="media media-image" :style="mediaStyles" v-bind="props.coverImage[0]">
-    <VideoJs v-else-if="isVideo || isAudio" class="media media-video" :style="mediaStyles" :sources="props.item"
+    <VideoJs
+      v-else-if="isVideo || isAudio" class="media media-video" :style="mediaStyles" :sources="props.item"
       :poster="coverImageSrc" :controls="props.controls" :autoplay="props.autoplay" :loop="props.loop"
-      :muted="props.muted" :playsinline="props.playsinline" :audio-poster-mode="isAudio" />
-    <p v-else class="media" style="background-color: white; padding: 10px" v-text="isAudio
-      ? 'Audio uploads not supported yet'
-      : 'Could not identify media type'
-      " />
+      :muted="props.muted" :playsinline="props.playsinline" :audio-poster-mode="isAudio"
+    />
+    <p
+      v-else class="media" style="background-color: white; padding: 10px" v-text="isAudio
+        ? 'Audio uploads not supported yet'
+        : 'Could not identify media type'
+      "
+    />
     <div class="sizer" :style="sizerStyles" />
     <slot />
   </div>
