@@ -23,6 +23,7 @@ export default {
             default: "All",
         },
     },
+    emits: ["selectedLetter"],
     data() {
         return {
             alphabet: [
@@ -156,7 +157,6 @@ export default {
         handleSelectedLetter(letter) {
             this.selectedLetter = letter.letter
             this.checkIfLetterIsSelected()
-            // eslint-disable-next-line vue/require-explicit-emits
             this.$emit("selectedLetter", this.selectedLetter)
         },
     },

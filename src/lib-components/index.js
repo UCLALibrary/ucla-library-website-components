@@ -23,3 +23,4 @@ export { default as SiteNotificationAlert } from './SiteNotificationAlert.vue'
 export { default as SmartLink } from './SmartLink.vue'
 export { default as SearchResult } from './SearchResult.vue'
 export { default as SingleCheckbox } from "./SingleCheckbox.vue"
+export { default as BlockCallToAction } from "./BlockCallToAction.vue"
