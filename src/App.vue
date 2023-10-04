@@ -222,6 +222,16 @@ const coverImage = MEDIA.VideoFileCoverImage
     :is-small-size="false"
   />
   <br>
+  <BlockCallToAction
+    svg-name="svg-call-to-action-money"
+    :title="mockData.title"
+    :text="mockData.text"
+    :name="mockData.title"
+    :to="mockData.toInternal"
+    :is-small-size="true"
+    :is-dark="true"
+  />
+  <br>
   <hr>
   <br>
 </template>
