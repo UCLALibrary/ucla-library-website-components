@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
 import BlockDate from '@/lib-components/BlockDate.vue'
 import ButtonHide from '@/lib-components/ButtonHide'
 import ButtonLink from '@/lib-components/ButtonLink'
@@ -164,6 +165,14 @@ const coverImage = MEDIA.VideoFileCoverImage
       type-media="video"
     />
     <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <h2>AlphabeticalBrowseBy Component</h2>
+    <br>
+    <AlphabeticalBrowseBy />
+    <hr>
     <br>
   </div>
 </template>

@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import SiteBrandBar from './lib-components/SiteBrandBar.vue'
 import BlockMediaWithText from './lib-components/BlockMediaWithText.vue'
+import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
 import BlockDate from '@/lib-components/BlockDate.vue'
 import ButtonHide from '@/lib-components/ButtonHide.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
@@ -170,6 +171,13 @@ const coverImage = MEDIA.VideoFileCoverImage
     type-media="video"
   />
   <br>
+  <br>
+  <hr>
+  <br>
+  <h2>AlphabeticalBrowseBy Component</h2>
+  <br>
+  <AlphabeticalBrowseBy />
+  <hr>
   <br>
 </template>
 

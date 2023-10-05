@@ -1,6 +1,7 @@
 import 'ucla-library-design-tokens/scss/app-global.scss'
 import '@/styles/global.scss'
 
+export { default as AlphabeticalBrowseBy } from './AlphabeticalBrowseBy.vue'
 export { default as BlockDate } from './BlockDate.vue'
 export { default as BlockMediaWithText } from './BlockMediaWithText.vue'
 export { default as ButtonHide } from './ButtonHide.vue'
