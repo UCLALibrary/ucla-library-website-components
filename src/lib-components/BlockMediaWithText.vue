@@ -125,6 +125,7 @@ const parsedIsDownload = computed(() => {
       <SvgIconHeadphones v-if="isAudio" class="icon-headphones" />
     </MediaItem>
     <div v-if="!(item || coverImage)" class="no-media" />
+    <!--eslint-disable-->
     <NewLightbox
       v-if="showLightbox" :items="lightboxItems" @closeModal="showLightbox = false"
       @keydown.esc="showLightbox = false"

@@ -1,95 +1,96 @@
-<template>
-    <div class="single-checkbox">
-        <label :class="labelClass"
-            >{{ label }}
-            <input
-                v-model="parseSelected"
-                type="checkbox"
-                class="input"
-                :true-value="value"
-                :value="value"
-                @change="onChange(value)"
-            />
-
-            <svg-icon-checkbox class="svg" />
-        </label>
-    </div>
-</template>
-
 <script>
-import SvgIconCheckbox from "ucla-library-design-tokens/assets/svgs/icon-checkbox.svg"
+import SvgIconCheckbox from 'ucla-library-design-tokens/assets/svgs/icon-checkbox.svg'
 
 export default {
-    name: "SingleCheckbox",
-    components: {
-        SvgIconCheckbox,
+  name: 'SingleCheckbox',
+  components: {
+    SvgIconCheckbox,
+  },
+  props: {
+    value: {
+      type: String,
+      default: '',
     },
-    props: {
-        value: {
-            type: String,
-            default: "",
-        },
-        label: {
-            type: String,
-            default: "[LABEL]",
-        },
-        querySelection: {
-            type: String,
-            default: "",
-        },
-        selected: {
-            type: String,
-            default: "",
-        },
+    label: {
+      type: String,
+      default: '[LABEL]',
     },
-    emits: ["update:selected", "input-selected"],
-    data() {
-        return {
-            isSelected: "",
-        }
+    querySelection: {
+      type: String,
+      default: '',
     },
-    computed: {
-        parseSelected: {
-            get() {
-                return this.isSelected == this.querySelection
-                    ? this.isSelected
-                    : this.querySelection
-            },
-            set(value) {
-                this.isSelected = value
-            },
-        },
-        labelClass() {
-            // console.log("In labelClass:" + this.isSelected)
-            return ["label", this.isSelected === "yes" ? "checked" : ""]
-        },
+    selected: {
+      type: String,
+      default: '',
     },
-    watch: {
-        selected: {
-            handler(newVal) {
-                // console.log(
-                //     "what is the new value of singlecheckobox in watch handler:" +
-                //         newVal
-                // )
-                this.isSelected = newVal
-            },
-        },
+  },
+  emits: ['update:selected', 'input-selected'],
+  data() {
+    return {
+      isSelected: '',
+    }
+  },
+  computed: {
+    parseSelected: {
+      get() {
+        return this.isSelected === this.querySelection
+          ? this.isSelected
+          : this.querySelection
+      },
+      set(value) {
+        this.isSelected = value
+      },
     },
-    mounted() {
-        // console.log("In mounted:" + this.isSelected)
+    labelClass() {
+      // console.log("In labelClass:" + this.isSelected)
+      return ['label', this.isSelected === 'yes' ? 'checked' : '']
     },
-    methods: {
-        onChange(value) {
-            // console.log("checkbox updates: " + this.isSelected)
-            this.$emit(
-                "update:selected",
-                !this.isSelected ? "" : this.isSelected
-            )
-            this.$emit("input-selected")
-        },
+  },
+  watch: {
+    selected: {
+      handler(newVal) {
+        // console.log(
+        //     "what is the new value of singlecheckobox in watch handler:" +
+        //         newVal
+        // )
+        this.isSelected = newVal
+      },
     },
+  },
+  mounted() {
+    // console.log("In mounted:" + this.isSelected)
+  },
+  methods: {
+    // eslint-disable-next-line unused-imports/no-unused-vars
+    onChange(value) {
+      // console.log("checkbox updates: " + this.isSelected)
+      this.$emit(
+        'update:selected',
+        !this.isSelected ? '' : this.isSelected
+      )
+      // eslint-disable-next-line vue/custom-event-name-casing
+      this.$emit('input-selected')
+    },
+  },
 }
 </script>
+
+<template>
+  <div class="single-checkbox">
+    <label :class="labelClass">{{ label }}
+      <input
+        v-model="parseSelected"
+        type="checkbox"
+        class="input"
+        :true-value="value"
+        :value="value"
+        @change="onChange(value)"
+      >
+
+      <SvgIconCheckbox class="svg" />
+    </label>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .single-checkbox {
