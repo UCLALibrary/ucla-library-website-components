@@ -1,40 +1,42 @@
 <!-- eslint-disable vue/no-v-html -->
 <!-- eslint-disable vue/no-v-text-v-html-on-component -->
-<template>
-    <li class="search-result-item">
-        <div class="category" v-html="category" />
-        <smart-link class="title" :to="to" v-html="title" />
-        <div v-if="summary" class="summary">{{ parsedText }}</div>
-    </li>
-</template>
-
 <script setup>
-import removeHtmlTruncate from "@/utils/removeHtmlTruncate"
-import { computed } from "vue"
+import { computed } from 'vue'
+import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 const { to, category, title, summary } = defineProps({
-    to: {
-        type: String,
-        default: "",
-    },
-    category: {
-        type: String,
-        default: "",
-    },
-    title: {
-        type: String,
-        default: "",
-    },
-    summary: {
-        type: String,
-        default: "",
-    },
+  to: {
+    type: String,
+    default: '',
+  },
+  category: {
+    type: String,
+    default: '',
+  },
+  title: {
+    type: String,
+    default: '',
+  },
+  summary: {
+    type: String,
+    default: '',
+  },
 })
 
 const parsedText = computed(() => {
-    return summary ? removeHtmlTruncate(summary, 250) : ""
+  return summary ? removeHtmlTruncate(summary, 250) : ''
 })
 </script>
+
+<template>
+  <li class="search-result-item">
+    <div class="category" v-html="category" />
+    <smart-link class="title" :to="to" v-html="title" />
+    <div v-if="summary" class="summary">
+      {{ parsedText }}
+    </div>
+  </li>
+</template>
 
 <style lang="scss" scoped>
 .search-result-item {

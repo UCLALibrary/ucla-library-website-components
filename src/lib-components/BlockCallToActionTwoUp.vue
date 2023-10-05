@@ -1,35 +1,35 @@
-<template>
-    <section class="block-call-to-action-two-up">
-        <block-call-to-action
-            v-for="(item, index) in items"
-            :key="`BlockCallToActionTwoUpKey${index}`"
-            :svg-name="item.svgName"
-            :title="item.title"
-            :text="item.text"
-            :name="item.name"
-            :to="item.to"
-            :is-dark="item.isDark"
-            :is-small-size="true"
-        />
-    </section>
-</template>
-
 <script>
-import BlockCallToAction from "@/lib-components/BlockCallToAction"
+import BlockCallToAction from '@/lib-components/BlockCallToAction'
 
 export default {
-    name: "BlockCallToActionTwoUp",
-    components: {
-        BlockCallToAction,
+  name: 'BlockCallToActionTwoUp',
+  components: {
+    BlockCallToAction,
+  },
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
     },
-    props: {
-        items: {
-            type: Array,
-            default: () => [],
-        },
-    },
+  },
 }
 </script>
+
+<template>
+  <section class="block-call-to-action-two-up">
+    <BlockCallToAction
+      v-for="(item, index) in items"
+      :key="`BlockCallToActionTwoUpKey${index}`"
+      :svg-name="item.svgName"
+      :title="item.title"
+      :text="item.text"
+      :name="item.name"
+      :to="item.to"
+      :is-dark="item.isDark"
+      :is-small-size="true"
+    />
+  </section>
+</template>
 
 <style lang="scss" scoped>
 .block-call-to-action-two-up {

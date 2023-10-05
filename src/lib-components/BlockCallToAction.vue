@@ -1,140 +1,142 @@
 <!-- eslint-disable vue/no-v-html -->
-<template>
-    <div :class="classes">
-        <component :is="parsedContent.svgName" class="svg" aria-hidden="true" />
-        <h2 class="title" v-html="parsedContent.title" />
-        <div class="text" v-html="parsedContent.text" />
-        <button-link
-            v-if="!isDark"
-            :label="parsedContent.label"
-            :to="parsedContent.to"
-            :is-secondary="true"
-            class="button-link"
-        />
-        <button-link
-            v-if="isDark"
-            :label="parsedContent.label"
-            :to="parsedContent.to"
-            :is-tertiary="true"
-            class="button-link"
-        />
-    </div>
-</template>
-
 <script>
-import { defineAsyncComponent } from "vue"
-import ButtonLink from "@/lib-components/ButtonLink.vue"
+import { defineAsyncComponent } from 'vue'
+import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 export default {
-    name: "BlockCallToAction",
-    components: {
-        ButtonLink,
-        SvgCallToActionMoney: defineAsyncComponent(() =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/call-to-action-money.svg"
-            )
-        ),
-        SvgCallToActionChat: defineAsyncComponent(() =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/call-to-action-chat.svg"
-            )
-        ),
-        SvgCallToActionMail: defineAsyncComponent(() =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/call-to-action-mail.svg"
-            )
-        ),
-        SvgCallToActionFind: defineAsyncComponent(() =>
-            import(
-                "ucla-library-design-tokens/assets/svgs/call-to-action-find.svg"
-            )
-        ),
+  name: 'BlockCallToAction',
+  components: {
+    ButtonLink,
+    SvgCallToActionMoney: defineAsyncComponent(() =>
+      import(
+        'ucla-library-design-tokens/assets/svgs/call-to-action-money.svg'
+      )
+    ),
+    SvgCallToActionChat: defineAsyncComponent(() =>
+      import(
+        'ucla-library-design-tokens/assets/svgs/call-to-action-chat.svg'
+      )
+    ),
+    SvgCallToActionMail: defineAsyncComponent(() =>
+      import(
+        'ucla-library-design-tokens/assets/svgs/call-to-action-mail.svg'
+      )
+    ),
+    SvgCallToActionFind: defineAsyncComponent(() =>
+      import(
+        'ucla-library-design-tokens/assets/svgs/call-to-action-find.svg'
+      )
+    ),
+  },
+  props: {
+    svgName: {
+      type: String,
+      default: '',
     },
-    props: {
-        svgName: {
-            type: String,
-            default: "",
-        },
-        title: {
-            type: String,
-            default: "",
-        },
-        text: {
-            type: String,
-            default: "",
-        },
-        name: {
-            type: String,
-            default: "",
-        },
-        to: {
-            type: String,
-            default: "",
-        },
-        isDark: {
-            type: Boolean,
-            default: false,
-        },
-        isSmallSize: {
-            type: Boolean,
-            default: false,
-        },
-        isGlobal: {
-            type: Boolean,
-            default: false,
-        },
-        isMeapGlobal: {
-            type: Boolean,
-            default: false,
-        },
+    title: {
+      type: String,
+      default: '',
     },
-    computed: {
-        classes() {
-            return [
-                "block-call-to-action",
-                { "full-width": !this.isSmallSize },
-                { "half-width": this.isSmallSize },
-                { "theme-light": !this.isDark },
-                { "theme-dark": this.isDark },
-            ]
-        },
-        askALibrarian() {
-            return this.$store.state.globals.askALibrarian
-        },
-        meapCallToAction() {
-            return this.$store.state.globals.meapCallToAction
-        },
-        // Use Global Ask A Libarian data if isGlobal is true
-        parsedContent() {
-            if (this.isGlobal) {
-                return {
-                    to: this.askALibrarian.buttonUrl[0].buttonUrl,
-                    title: this.askALibrarian.askALibrarianTitle,
-                    text: this.askALibrarian.askALibrarianText,
-                    label: this.askALibrarian.buttonUrl[0].buttonText,
-                    svgName: "svg-call-to-action-chat",
-                }
-            } else if (this.isMeapGlobal) {
-                return {
-                    to: this.meapCallToAction.button[0].buttonUrl,
-                    title: this.meapCallToAction.titleGeneral,
-                    text: this.meapCallToAction.summary,
-                    label: this.meapCallToAction.button[0].buttonText,
-                    svgName: "svg-call-to-action-chat",
-                }
-            } else {
-                return {
-                    to: this.to,
-                    title: this.title,
-                    text: this.text,
-                    label: this.name,
-                    svgName: this.svgName,
-                }
-            }
-        },
+    text: {
+      type: String,
+      default: '',
     },
+    name: {
+      type: String,
+      default: '',
+    },
+    to: {
+      type: String,
+      default: '',
+    },
+    isDark: {
+      type: Boolean,
+      default: false,
+    },
+    isSmallSize: {
+      type: Boolean,
+      default: false,
+    },
+    isGlobal: {
+      type: Boolean,
+      default: false,
+    },
+    isMeapGlobal: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    classes() {
+      return [
+        'block-call-to-action',
+        { 'full-width': !this.isSmallSize },
+        { 'half-width': this.isSmallSize },
+        { 'theme-light': !this.isDark },
+        { 'theme-dark': this.isDark },
+      ]
+    },
+    askALibrarian() {
+      return this.$store.state.globals.askALibrarian
+    },
+    meapCallToAction() {
+      return this.$store.state.globals.meapCallToAction
+    },
+    // Use Global Ask A Libarian data if isGlobal is true
+    parsedContent() {
+      if (this.isGlobal) {
+        return {
+          to: this.askALibrarian.buttonUrl[0].buttonUrl,
+          title: this.askALibrarian.askALibrarianTitle,
+          text: this.askALibrarian.askALibrarianText,
+          label: this.askALibrarian.buttonUrl[0].buttonText,
+          svgName: 'svg-call-to-action-chat',
+        }
+      }
+      else if (this.isMeapGlobal) {
+        return {
+          to: this.meapCallToAction.button[0].buttonUrl,
+          title: this.meapCallToAction.titleGeneral,
+          text: this.meapCallToAction.summary,
+          label: this.meapCallToAction.button[0].buttonText,
+          svgName: 'svg-call-to-action-chat',
+        }
+      }
+      else {
+        return {
+          to: this.to,
+          title: this.title,
+          text: this.text,
+          label: this.name,
+          svgName: this.svgName,
+        }
+      }
+    },
+  },
 }
 </script>
+
+<template>
+  <div :class="classes">
+    <component :is="parsedContent.svgName" class="svg" aria-hidden="true" />
+    <h2 class="title" v-html="parsedContent.title" />
+    <div class="text" v-html="parsedContent.text" />
+    <ButtonLink
+      v-if="!isDark"
+      :label="parsedContent.label"
+      :to="parsedContent.to"
+      :is-secondary="true"
+      class="button-link"
+    />
+    <ButtonLink
+      v-if="isDark"
+      :label="parsedContent.label"
+      :to="parsedContent.to"
+      :is-tertiary="true"
+      class="button-link"
+    />
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .block-call-to-action {

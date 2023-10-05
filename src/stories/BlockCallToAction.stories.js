@@ -1,31 +1,32 @@
 // Vuex to be replaced by Pinia
 // import Vue from "vue"
 // import Vuex from "vuex"
-import BlockCallToAction from "@/lib-components/BlockCallToAction"
+import BlockCallToAction from '@/lib-components/BlockCallToAction'
 
 // Vue.use(Vuex)
 
 export default {
-    title: "BLOCK / Call to Action",
-    component: BlockCallToAction,
+  title: 'BLOCK / Call to Action',
+  component: BlockCallToAction,
 }
 
 const mock = {
-    svgName: "svg-call-to-action-chat",
-    title: "Lorem ipsum dolor sit amet?",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    name: "Lorem ipsum dolor",
-    to: "/help/foo/bar/",
-    isDark: false,
-    isSmallSize: false,
+  svgName: 'svg-call-to-action-chat',
+  title: 'Lorem ipsum dolor sit amet?',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  name: 'Lorem ipsum dolor',
+  to: '/help/foo/bar/',
+  isDark: false,
+  isSmallSize: false,
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCallToAction },
     template: `
@@ -39,13 +40,15 @@ export const Default = () => ({
             :isSmallSize="isSmallSize"
         />
     `,
-})
+  }
+}
 
-export const DarkBlue = () => ({
+export function DarkBlue() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCallToAction },
     template: `
@@ -59,13 +62,15 @@ export const DarkBlue = () => ({
             :isSmallSize="isSmallSize"
         />
     `,
-})
+  }
+}
 
-export const SmallCTA = () => ({
+export function SmallCTA() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCallToAction },
     template: `
@@ -79,13 +84,15 @@ export const SmallCTA = () => ({
             :isSmallSize=true
         />
     `,
-})
+  }
+}
 
-export const SmallCTADarkBlue = () => ({
+export function SmallCTADarkBlue() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCallToAction },
     template: `
@@ -99,7 +106,8 @@ export const SmallCTADarkBlue = () => ({
             :is-dark=true
         />
     `,
-})
+  }
+}
 
 // Stories to be updated when Pinia is installed
 // export const GlobalAskALibrarian = () => ({

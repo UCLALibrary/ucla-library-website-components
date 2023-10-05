@@ -1,16 +1,18 @@
-import SingleCheckbox from "@/lib-components/SingleCheckbox"
+import SingleCheckbox from '@/lib-components/SingleCheckbox'
 
 export default {
-    title: "SEARCH / SingleCheckbox",
-    component: SingleCheckbox,
+  title: 'SEARCH / SingleCheckbox',
+  component: SingleCheckbox,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {}
+      return {}
     },
     components: { SingleCheckbox },
     template: `
         <single-checkbox />
     `,
-})
+  }
+}

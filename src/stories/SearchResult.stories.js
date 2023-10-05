@@ -1,23 +1,24 @@
-import SearchResult from "@/lib-components/SearchResult"
+import SearchResult from '@/lib-components/SearchResult'
 
 export default {
-    title: "SEARCH / Search Result",
-    component: SearchResult,
+  title: 'SEARCH / Search Result',
+  component: SearchResult,
 }
 
 const mock = {
-    category: "Article",
-    to: "/about/news/article",
-    title: "Lacus Luctus",
-    summary:
-        "Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.",
+  category: 'Article',
+  to: '/about/news/article',
+  title: 'Lacus Luctus',
+  summary:
+        'Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.',
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { SearchResult },
     template: `
@@ -28,4 +29,5 @@ export const Default = () => ({
             :to="to"
         />
     `,
-})
+  }
+}
