@@ -42,28 +42,21 @@ export default {
       },
     },
     labelClass() {
-      // console.log("In labelClass:" + this.isSelected)
       return ['label', this.isSelected === 'yes' ? 'checked' : '']
     },
   },
   watch: {
     selected: {
       handler(newVal) {
-        // console.log(
-        //     "what is the new value of singlecheckobox in watch handler:" +
-        //         newVal
-        // )
         this.isSelected = newVal
       },
     },
   },
   mounted() {
-    // console.log("In mounted:" + this.isSelected)
   },
   methods: {
     // eslint-disable-next-line unused-imports/no-unused-vars
     onChange(value) {
-      // console.log("checkbox updates: " + this.isSelected)
       this.$emit(
         'update:selected',
         !this.isSelected ? '' : this.isSelected
