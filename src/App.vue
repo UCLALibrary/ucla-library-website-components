@@ -193,7 +193,6 @@ const coverImage = MEDIA.VideoFileCoverImage
   <br>
   <h2>BlockMediaWithText Component</h2>
   <br>
-  <br>
   <BlockMediaWithText
     :section-header="mockMediaWithText.mediaWithText[0].titleLink"
     :short-description="mockMediaWithText.mediaWithText[0].description"
