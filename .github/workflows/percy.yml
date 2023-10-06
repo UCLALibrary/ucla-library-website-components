@@ -2,7 +2,7 @@ name:  Submit screenshots to Percy for visual regression testing.
 
 on:
   push:
-    branches: [ main ]
+    branches: [ vue3.x ]
   workflow_dispatch:
     inputs: {}
 

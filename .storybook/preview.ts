@@ -3,6 +3,9 @@ import type { Preview } from "@storybook/vue3"
 import "ucla-library-design-tokens/scss/app-global.scss"
 import "@/styles/global.scss"
 import router from "@/router"
+import { createPinia } from 'pinia';
+
+
 
 export const parameters = {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -61,5 +64,5 @@ export const parameters = {
 }
 setup((app) => {
     app.use(router)
-    // app.use(createPinia())
+    app.use(createPinia())
 })
