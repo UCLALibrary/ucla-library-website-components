@@ -1,3 +1,11 @@
+# [2.39.0-alpha.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.9...v2.39.0-alpha.10) (2023-10-06)
+
+
+### Features
+
+* add AlphaBrowseBy, BlockCTA, BlockCTA2Up, SearchResult, SingleCheckbox components ([#405](https://github.com/UCLALibrary/ucla-library-website-components/issues/405)) ([ea46997](https://github.com/UCLALibrary/ucla-library-website-components/commit/ea469977773371f5002646f57749b3065feaa0f4)), closes [#403](https://github.com/UCLALibrary/ucla-library-website-components/issues/403)
+* Apps 2431 apps 2454 add pinia ([#406](https://github.com/UCLALibrary/ucla-library-website-components/issues/406)) ([84829a1](https://github.com/UCLALibrary/ucla-library-website-components/commit/84829a1af8e0721667a17ca54c463238f28ef15e))
+
 # [2.39.0-alpha.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.8...v2.39.0-alpha.9) (2023-10-04)
 
 
