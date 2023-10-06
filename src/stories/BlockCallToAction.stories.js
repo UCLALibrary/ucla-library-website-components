@@ -109,67 +109,33 @@ export function SmallCTADarkBlue() {
   }
 }
 
-// Stories to be updated when Pinia is installed
-// export const GlobalAskALibrarian = () => ({
-//     store: new Vuex.Store({
-//         state: {
-//             globals: {
-//                 askALibrarian: {
-//                     id: "7322",
-//                     askALibrarianTitle: "Have further questions?",
-//                     askALibrarianText:
-//                         "<p>We're here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.</p>",
-//                     buttonUrl: [
-//                         {
-//                             buttonText: "Contact us",
-//                             buttonUrl: "/help/",
-//                         },
-//                     ],
-//                 },
-//             },
-//         },
-//     }),
-//     data() {
-//         return {
-//             ...mock,
-//         }
-//     },
-//     components: { BlockCallToAction },
-//     template: `
-//         <block-call-to-action
-//             :is-global="true"
-//         />
-//     `,
-// })
 
-// export const GlobalMeapCTA = () => ({
-//     store: new Vuex.Store({
-//         state: {
-//             globals: {
-//                 meapCallToAction: {
-//                     id: "28646",
-//                     name: "MEAP Call to Action",
-//                     titleGeneral: "Get in Touch",
-//                     summary: "<p>Have further questions?</p>",
-//                     button: [
-//                         {
-//                             buttonText: "Contact Us",
-//                             buttonUrl: "mailto:meap@library.ucla.edu",
-//                         },
-//                     ],
-//                 },
-//             },
-//         },
-//     }),
-//     data() {
-//         return {
-//             ...mock,
-//         }
-//     },
-//     components: { BlockCallToAction },
-//     template: `
-//         <block-call-to-action
-//             :is-meap-global="true"
-//         />
-//     `,
-// })
+export const GlobalAskALibrarian = () => ({
+
+  data() {
+    return {
+      ...mock,
+    }
+  },
+  components: { BlockCallToAction },
+  template: `
+        <block-call-to-action
+            :is-global="true"
+        />
+    `,
+})
+
+export const GlobalMeapCTA = () => ({
+
+  data() {
+    return {
+      ...mock,
+    }
+  },
+  components: { BlockCallToAction },
+  template: `
+        <block-call-to-action
+            :is-meap-global="true"
+        />
+    `,
+})
