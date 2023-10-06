@@ -7,6 +7,7 @@ export default defineConfig({
   viewportHeight: 1024,
   retries: 1,
 
+  // eslint-disable-next-line unused-imports/no-unused-vars
   setupNodeEvents(on, config) {
     // implement node event listeners here
   },

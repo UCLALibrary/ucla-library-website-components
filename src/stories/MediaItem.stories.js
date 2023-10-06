@@ -3,6 +3,7 @@ import MediaItem from '@/lib-components/Media/Item'
 // Import mock api data
 import * as MEDIA from '@/stories/mock/Media'
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 function Template(args, { argTypes }) {
   return {
     props: Object.keys(argTypes),

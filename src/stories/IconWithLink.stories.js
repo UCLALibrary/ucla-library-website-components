@@ -1,6 +1,5 @@
 import IconWithLink from '@/lib-components/IconWithLink'
 
-// Storybook default settings
 export default {
   title: 'Icon With Link',
   component: IconWithLink,
