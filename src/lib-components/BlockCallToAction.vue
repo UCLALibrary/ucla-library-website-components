@@ -4,7 +4,6 @@ import { defineAsyncComponent } from 'vue'
 import { mapState } from 'pinia'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
-
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 export default {
@@ -128,10 +127,14 @@ export default {
     <component :is="parsedContent.svgName" class="svg" aria-hidden="true" />
     <h2 class="title" v-html="parsedContent.title" />
     <div class="text" v-html="parsedContent.text" />
-    <ButtonLink v-if="!isDark" :label="parsedContent.label" :to="parsedContent.to" :is-secondary="true"
-      class="button-link" />
-    <ButtonLink v-if="isDark" :label="parsedContent.label" :to="parsedContent.to" :is-tertiary="true"
-      class="button-link" />
+    <ButtonLink
+      v-if="!isDark" :label="parsedContent.label" :to="parsedContent.to" :is-secondary="true"
+      class="button-link"
+    />
+    <ButtonLink
+      v-if="isDark" :label="parsedContent.label" :to="parsedContent.to" :is-tertiary="true"
+      class="button-link"
+    />
   </div>
 </template>
 
@@ -198,8 +201,6 @@ export default {
     :deep(.svg__stroke--primary-blue-03) {
       stroke: var(--color-primary-blue-02);
     }
-
-
 
     :deep(.svg__stroke--help-green-03) {
       stroke: var(--color-white);

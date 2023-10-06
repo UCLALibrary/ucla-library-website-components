@@ -1,6 +1,4 @@
-
 import BlockCallToAction from '@/lib-components/BlockCallToAction'
-
 
 export default {
   title: 'BLOCK / Call to Action',
@@ -106,35 +104,38 @@ export function SmallCTADarkBlue() {
   }
 }
 
+export function GlobalAskALibrarian() {
+  return {
 
-export const GlobalAskALibrarian = () => ({
-
-  data() {
-    return {
-      ...mock,
-    }
-  },
-  components: { BlockCallToAction },
-  template: `
+    data() {
+      return {
+        ...mock,
+      }
+    },
+    components: { BlockCallToAction },
+    template: `
         <block-call-to-action
             :is-global="true"
         />
     `,
 
-})
+  }
+}
 
-export const GlobalMeapCTA = () => ({
+export function GlobalMeapCTA() {
+  return {
 
-  data() {
-    return {
-      ...mock,
-    }
-  },
-  components: { BlockCallToAction },
-  template: `
+    data() {
+      return {
+        ...mock,
+      }
+    },
+    components: { BlockCallToAction },
+    template: `
         <block-call-to-action
             :is-meap-global="true"
         />
     `,
 
-})
+  }
+}
