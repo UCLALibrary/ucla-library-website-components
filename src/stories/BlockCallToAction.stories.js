@@ -1,9 +1,6 @@
-// Vuex to be replaced by Pinia
-// import Vue from "vue"
-// import Vuex from "vuex"
+
 import BlockCallToAction from '@/lib-components/BlockCallToAction'
 
-// Vue.use(Vuex)
 
 export default {
   title: 'BLOCK / Call to Action',
@@ -123,6 +120,7 @@ export const GlobalAskALibrarian = () => ({
             :is-global="true"
         />
     `,
+
 })
 
 export const GlobalMeapCTA = () => ({
@@ -138,4 +136,5 @@ export const GlobalMeapCTA = () => ({
             :is-meap-global="true"
         />
     `,
+
 })

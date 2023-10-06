@@ -2,8 +2,8 @@
 <script>
 import { defineAsyncComponent } from 'vue'
 import { mapState } from 'pinia'
-import useGlobalStore from '@/stores/GlobalStore'
-const globalStore = useGlobalStore()
+import { useGlobalStore } from '@/stores/GlobalStore'
+
 
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 
@@ -169,19 +169,19 @@ export default {
     --color-svg-molecule-outline: var(--color-primary-blue-03);
     --color-svg-molecule-inner-highlight: var(--color-help-green-03);
 
-    :deep .svg__stroke--primary-blue-03 {
+    .svg :deep(.svg__stroke--primary-blue-03) {
       stroke: var(--color-primary-blue-03);
     }
 
-    :deep .svg__stroke--help-green-03 {
+    :deep(.svg__stroke--help-green-03) {
       stroke: var(--color-help-green-03);
     }
 
-    :deep .svg__stroke--default-cyan-03 {
+    :deep(.svg__stroke--default-cyan-03) {
       stroke: var(--color-default-cyan-03);
     }
 
-    :deep .svg__fill--default-cyan-03 {
+    :deep(.svg__fill--default-cyan-03) {
       fill: var(--color-default-cyan-03);
     }
   }
@@ -195,19 +195,21 @@ export default {
     --color-button-background: var(--color-primary-blue-03);
     --color-button-border: 2px solid var(--color-default-cyan-02);
 
-    :deep .svg__stroke--primary-blue-03 {
+    :deep(.svg__stroke--primary-blue-03) {
       stroke: var(--color-primary-blue-02);
     }
 
-    :deep .svg__stroke--help-green-03 {
+
+
+    :deep(.svg__stroke--help-green-03) {
       stroke: var(--color-white);
     }
 
-    :deep .svg__stroke--default-cyan-03 {
+    :deep(.svg__stroke--default-cyan-03) {
       stroke: var(--color-help-green-03);
     }
 
-    :deep .svg__fill--default-cyan-03 {
+    :deep(.svg__fill--default-cyan-03) {
       fill: var(--color-help-green-03);
     }
   }

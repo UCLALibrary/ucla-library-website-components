@@ -226,16 +226,16 @@ export default {
     white-space: nowrap;
   }
 
-  :deep(.arrow) {
+  .arrow {
     flex-shrink: 0;
 
-    .svg__stroke--primary-blue-03,
-    .svg__stroke--default-cyan-03 {
+    :deep(.svg__stroke--primary-blue-03),
+    :deep(.svg__stroke--default-cyan-03) {
       stroke: var(--button-icon-single-color);
     }
 
     &.svg__icon-close {
-      circle {
+      :deep(circle) {
         stroke: transparent;
         fill: transparent;
       }

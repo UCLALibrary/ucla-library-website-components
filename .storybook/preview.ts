@@ -5,7 +5,7 @@ import "@/styles/global.scss"
 import router from "@/router"
 import { createPinia } from 'pinia';
 
-const pinia = createPinia();
+
 
 export const parameters = {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -64,5 +64,5 @@ export const parameters = {
 }
 setup((app) => {
     app.use(router)
-    app.use(pinia)
+    app.use(createPinia())
 })
