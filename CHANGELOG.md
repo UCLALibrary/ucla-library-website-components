@@ -1,3 +1,10 @@
+# [2.39.0-alpha.11](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.10...v2.39.0-alpha.11) (2023-10-10)
+
+
+### Features
+
+* APPS-2405 Add footer components and get footer data from mock pinia store ([#408](https://github.com/UCLALibrary/ucla-library-website-components/issues/408)) ([c9ae722](https://github.com/UCLALibrary/ucla-library-website-components/commit/c9ae722ec088cca7f8084322282f6ea6fb0ad27f))
+
 # [2.39.0-alpha.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.9...v2.39.0-alpha.10) (2023-10-06)
 
 
