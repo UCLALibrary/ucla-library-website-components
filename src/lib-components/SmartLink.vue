@@ -22,13 +22,9 @@ export default {
   },
   computed: {
     parsedTarget() {
-      console.log(this.linkTarget, this.to)
-      console.log("format link target value:", formatLinkTarget(this.linkTarget, this.to))
       return formatLinkTarget(this.linkTarget, this.to)
     },
     isRelative() {
-      console.log("in is relative", this.to)
-      console.log("in is relative value", isRelativeLink(this.to))
       return !!isRelativeLink(this.to)
     },
   },
