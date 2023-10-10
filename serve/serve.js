@@ -4,6 +4,7 @@ import { createApp } from 'vue'
 import './serve.css'
 import router from '../src/router'
 import UclaLibraryWebsiteComponent from '../src/entry.js'
+import { createPinia } from 'pinia';
 import Dev from './serve.vue'
 
 // console.log(Dev)
@@ -14,5 +15,6 @@ app.use(UclaLibraryWebsiteComponent)
 
 // app.use(store);
 app.use(router)
+app.use(createPinia())
 
 app.mount('#app')

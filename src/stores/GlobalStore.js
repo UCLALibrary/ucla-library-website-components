@@ -11,7 +11,7 @@ export const useGlobalStore = defineStore('GlobalStore', {
         id: '7322',
         askALibrarianTitle: 'Have further questions?',
         askALibrarianText:
-                    '<p>We\'re here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.</p>',
+          '<p>We\'re here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.</p>',
         buttonUrl: [
           {
             buttonText: 'Contact us',
@@ -49,7 +49,7 @@ export const useGlobalStore = defineStore('GlobalStore', {
     footerSock: {
       nodes: mockFooterSock.nodes
     },
-    footerSponsors: {
+    footerSponsor: {
       funders: mockFooterSponsor.funders
     }
   }),
