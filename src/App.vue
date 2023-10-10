@@ -10,6 +10,7 @@ import BlockDate from '@/lib-components/BlockDate.vue'
 import BlockEvent from '@/lib-components/BlockEvent.vue'
 import BlockSimpleCard from '@/lib-components/BlockSimpleCard.vue'
 import BlockSpaces from '@/lib-components/BlockSpaces.vue'
+import BlockSponsor from '@/lib-components/BlockSponsor.vue'
 import ButtonHide from '@/lib-components/ButtonHide.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 import ButtonMore from '@/lib-components/ButtonMore.vue'
@@ -40,6 +41,18 @@ const mock = {
   attribution: 'Lady Gaga',
   category: 'Article',
   endDate: '2022-12-11T00:00',
+  funderLogo: [
+    {
+      id: '28636',
+      src: 'https://static.library.ucla.edu/craftassetstest/logo-arcadia1.svg',
+      height: 569,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/logo-arcadia1.svg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/logo-arcadia1.svg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/logo-arcadia1.svg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/logo-arcadia1.svg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/logo-arcadia1.svg 2560w',
+      alt: 'Logo arcadia1',
+      focalPoint: [0.5, 0.5],
+      altText: null,
+    },
+  ],
   location: 'Fast Lane Building',
   name: 'Ipsum dolor amet',
   svgName: 'svg-call-to-action-chat',
@@ -299,6 +312,15 @@ const coverImage = MEDIA.VideoFileCoverImage
     :end-date="mock.endDate"
     :to="mock.to"
     :section-handle="mock.title"
+  />
+  <br>
+  <hr>
+  <br>
+  <h2>BlockSponsor Component</h2>
+  <BlockSponsor
+    :funder-logo="mock.funderLogo"
+    funder-name="Hostess Cupcakes"
+    funder-url="https://www.hostesscakes.com/products/cupcakes/chocolate/"
   />
   <br>
   <hr>
