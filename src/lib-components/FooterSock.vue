@@ -1,52 +1,53 @@
-<template>
-    <div class="footer-sock">
-        <div class="container">
-            <div class="regents">
-                &#169; {{ year }} Regents of the University of California
-            </div>
-
-            <ul class="links">
-                <li v-for="item in parsedSockItems" :key="item.id" class="item">
-                    <smart-link class="link" :to="item.to" :link-target="item.target">
-                        {{ item.name }}
-                    </smart-link>
-                </li>
-            </ul>
-        </div>
-    </div>
-</template>
-
 <script>
 // Helpers
-import SmartLink from "@/lib-components/SmartLink"
 import { mapState } from 'pinia'
+import SmartLink from '@/lib-components/SmartLink'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 export default {
-    name: "FooterSock",
-    components: {
-        SmartLink,
+  name: 'FooterSock',
+  components: {
+    SmartLink,
+  },
+  computed: {
+    ...mapState(useGlobalStore, ['footerSock']),
+    year() {
+      const current_year = new Date().getFullYear()
+      return current_year
     },
-    computed: {
-        ...mapState(useGlobalStore, ['footerSock']),
-        year() {
-            const current_year = new Date().getFullYear()
-            return current_year
-        },
-        parsedSockItems() {
-            if (Object.keys(this.footerSock).length !== 0) {
-                return this.footerSock.nodes
-            } else {
-                console.log(
-                    "Pinia state data for footer sock not present if navigation is not setup for the website: is it client side:" +
-                    process.client
-                )
-            }
-            return []
-        },
+    parsedSockItems() {
+      if (Object.keys(this.footerSock).length !== 0) {
+        return this.footerSock.nodes
+      }
+      else {
+        // eslint-disable-next-line no-console
+        console.log(
+                    `Pinia state data for footer sock not present if navigation is not setup for the website: is it client side:${process.client}`
+        )
+      }
+      return []
     },
+  },
 }
 </script>
+
+<template>
+  <div class="footer-sock">
+    <div class="container">
+      <div class="regents">
+        &#169; {{ year }} Regents of the University of California
+      </div>
+
+      <ul class="links">
+        <li v-for="item in parsedSockItems" :key="item.id" class="item">
+          <SmartLink class="link" :to="item.to" :link-target="item.target">
+            {{ item.name }}
+          </SmartLink>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .footer-sock {

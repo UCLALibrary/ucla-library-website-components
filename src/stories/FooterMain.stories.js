@@ -1,22 +1,18 @@
 // Storybook default settings
 
-import FooterMain from "@/lib-components/FooterMain"
-
-
-
+import FooterMain from '@/lib-components/FooterMain'
 
 export default {
-    title: "FOOTER / Main",
-    component: FooterMain,
+  title: 'FOOTER / Main',
+  component: FooterMain,
 }
 
-
-
-export const Default = () => ({
+export function Default() {
+  return {
 
     components: { FooterMain },
 
-
     template: `
         <footer-main />`,
-})
+  }
+}

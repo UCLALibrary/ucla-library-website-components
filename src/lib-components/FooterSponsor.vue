@@ -1,36 +1,37 @@
-<template>
-    <div class="footer-sponsor">
-        <div class="sponsor-text">
-            The UCLA Library Modern Endangered Archives Program is supported by
-            Arcadia.
-        </div>
-        <div class="sponsor-logos">
-            <block-sponsor v-for="(item, index) in parsedFunders" :key="index" class="sponsor-item"
-                :funderLogo="item.funderLogo" :funderName="item.funderName" :funderUrl="item.funderUrl" />
-        </div>
-    </div>
-</template>
-
 <script setup lang="ts">
-import BlockSponsor from "@/lib-components/BlockSponsor.vue"
 import { computed } from 'vue'
+import BlockSponsor from '@/lib-components/BlockSponsor.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
-
 
 const globalStore = useGlobalStore()
 const parsedFunders = computed(() => {
-    if (Object.keys(globalStore.footerSponsor).length !== 0) {
-        return globalStore.footerSponsor.funders
-    } else {
-        console.log(
-            "Pinia state data for footer sock not present if navigation is not setup for the website."
-        )
-    }
-    return []
+  if (Object.keys(globalStore.footerSponsor).length !== 0) {
+    return globalStore.footerSponsor.funders
+  }
+  else {
+    // eslint-disable-next-line no-console
+    console.log(
+      'Pinia state data for footer sock not present if navigation is not setup for the website.'
+    )
+  }
+  return []
 })
-
-
 </script>
+
+<template>
+  <div class="footer-sponsor">
+    <div class="sponsor-text">
+      The UCLA Library Modern Endangered Archives Program is supported by
+      Arcadia.
+    </div>
+    <div class="sponsor-logos">
+      <BlockSponsor
+        v-for="(item, index) in parsedFunders" :key="index" class="sponsor-item"
+        :funder-logo="item.funderLogo" :funder-name="item.funderName" :funder-url="item.funderUrl"
+      />
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .footer-sponsor {

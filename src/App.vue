@@ -197,11 +197,13 @@ const coverImage = MEDIA.VideoFileCoverImage
   <br>
   <h2>BlockMediaWithText Component</h2>
   <br>
-  <BlockMediaWithText :section-header="mockMediaWithText.mediaWithText[0].titleLink"
+  <BlockMediaWithText
+    :section-header="mockMediaWithText.mediaWithText[0].titleLink"
     :short-description="mockMediaWithText.mediaWithText[0].description"
     :button-text="mockMediaWithText.mediaWithText[0].buttonText"
     :button-url="mockMediaWithText.mediaWithText[0].buttonUrl" :item="itemVideo" :cover-image="coverImage"
-    type-media="video" />
+    type-media="video"
+  />
   <br>
   <hr>
   <br>
@@ -227,11 +229,15 @@ const coverImage = MEDIA.VideoFileCoverImage
   <br>
   <h2>BlockCallToAction Component</h2>
   <br>
-  <BlockCallToAction :svg-name="mock.svgName" :title="mock.title" :text="mock.text" :name="mock.name" :to="mock.to"
-    :is-dark="false" :is-small-size="false" />
+  <BlockCallToAction
+    :svg-name="mock.svgName" :title="mock.title" :text="mock.text" :name="mock.name" :to="mock.to"
+    :is-dark="false" :is-small-size="false"
+  />
   <br>
-  <BlockCallToAction svg-name="svg-call-to-action-money" :title="mock.title" :text="mock.text" :name="mock.name"
-    :to="mock.to" :is-small-size="true" :is-dark="true" />
+  <BlockCallToAction
+    svg-name="svg-call-to-action-money" :title="mock.title" :text="mock.text" :name="mock.name"
+    :to="mock.to" :is-small-size="true" :is-dark="true"
+  />
   <br>
   <hr>
   <br>
@@ -240,19 +246,19 @@ const coverImage = MEDIA.VideoFileCoverImage
   <hr>
   <br>
   <h2>FooterMain Component</h2>
-  <footer-main />
+  <FooterMain />
   <hr>
   <br>
   <h2>FooterPrimary Component</h2>
-  <footer-primary />
+  <FooterPrimary />
   <hr>
   <br>
   <h2>FooterSock Component</h2>
-  <footer-sock />
+  <FooterSock />
   <hr>
   <br>
   <h2>FooterSponsor Component</h2>
-  <footer-sponsor />
+  <FooterSponsor />
   <hr>
   <br>
 </template>

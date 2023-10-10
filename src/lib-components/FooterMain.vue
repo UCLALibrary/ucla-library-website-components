@@ -1,25 +1,25 @@
-<template>
-    <footer class="footer-main">
-        <footer-sponsor class="sponsor" />
-        <footer-primary :form="false" class="primary" :is-microsite="true" />
-        <footer-sock class="sock" />
-    </footer>
-</template>
-
 <script>
-import FooterSponsor from "@/lib-components/FooterSponsor"
-import FooterPrimary from "@/lib-components/FooterPrimary"
-import FooterSock from "@/lib-components/FooterSock"
+import FooterSponsor from '@/lib-components/FooterSponsor'
+import FooterPrimary from '@/lib-components/FooterPrimary'
+import FooterSock from '@/lib-components/FooterSock'
 
 export default {
-    name: "FooterMain",
-    components: {
-        FooterSponsor,
-        FooterPrimary,
-        FooterSock,
-    },
+  name: 'FooterMain',
+  components: {
+    FooterSponsor,
+    FooterPrimary,
+    FooterSock,
+  },
 }
 </script>
+
+<template>
+  <footer class="footer-main">
+    <FooterSponsor class="sponsor" />
+    <FooterPrimary :form="false" class="primary" :is-microsite="true" />
+    <FooterSock class="sock" />
+  </footer>
+</template>
 
 <style lang="scss" scoped>
 .footer-main {}

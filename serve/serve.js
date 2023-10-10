@@ -2,9 +2,9 @@ import { createApp } from 'vue'
 
 // import store from '@/store';
 import './serve.css'
+import { createPinia } from 'pinia'
 import router from '../src/router'
 import UclaLibraryWebsiteComponent from '../src/entry.js'
-import { createPinia } from 'pinia';
 import Dev from './serve.vue'
 
 // console.log(Dev)
