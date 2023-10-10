@@ -12,12 +12,6 @@ export default {
 // Variations of stories below
 export function Default() {
     return {
-
-        data() {
-            return {
-                ...mock,
-            }
-        },
         components: { FooterSock },
         computed: {},
         template: '<footer-sock />',
