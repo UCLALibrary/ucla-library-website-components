@@ -3,7 +3,7 @@ import { defineAsyncComponent } from 'vue'
 
 // Helper functions
 import SvgExternalLink from 'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
-import { isInternalLink } from '@/composables/isInternalLink'
+import isInternalLink from '@/utils/isInternalLink'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 export default {

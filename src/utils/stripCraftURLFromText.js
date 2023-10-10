@@ -1,4 +1,4 @@
-export function stripCraftURLFromText(text = '') {
+export default function stripCraftURLFromText(text = '') {
   if (text == null)
     return text // don't try string method .replace
 

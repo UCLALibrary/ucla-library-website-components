@@ -1,7 +1,7 @@
 <script>
 // UTILITY FUNCTIONS
-import { stripCraftURLFromText } from '@/composables/stripCraftURLFromText'
-import { accessibleExternalLinks } from '@/composables/accessibleExternalLinks'
+import stripCraftURLFromText from '@/utils/stripCraftURLFromText'
+import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 
 export default {
   name: 'RichText',

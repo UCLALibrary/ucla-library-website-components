@@ -1,4 +1,4 @@
-export function accessibleExternalLinks(text = '') {
+export default function accessibleExternalLinks(text = '') {
   if (text == null)
     return text // don't try string method .replace
 
@@ -8,7 +8,7 @@ export function accessibleExternalLinks(text = '') {
     const xmatch = match.replace('</a>', '')
     return (
       `${xmatch
-             }<span class="visually-hidden">(opens in a new tab)</span></a>`
+      }<span class="visually-hidden">(opens in a new tab)</span></a>`
     )
   })
 }
