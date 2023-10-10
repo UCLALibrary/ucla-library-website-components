@@ -6,6 +6,7 @@ import SiteBrandBar from './lib-components/SiteBrandBar.vue'
 import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
+import BlockCardWithIllustration from '@/lib-components/BlockCardWithIllustration.vue'
 import BlockDate from '@/lib-components/BlockDate.vue'
 import BlockEvent from '@/lib-components/BlockEvent.vue'
 import BlockSimpleCard from '@/lib-components/BlockSimpleCard.vue'
@@ -304,6 +305,7 @@ const coverImage = MEDIA.VideoFileCoverImage
   <br>
   <FooterSponsor />
   <h2>BlockEvent Component</h2>
+  <br>
   <BlockEvent
     :category="mock.category"
     :title="mock.title"
@@ -317,10 +319,21 @@ const coverImage = MEDIA.VideoFileCoverImage
   <hr>
   <br>
   <h2>BlockSponsor Component</h2>
+  <br>
   <BlockSponsor
     :funder-logo="mock.funderLogo"
     funder-name="Hostess Cupcakes"
     funder-url="https://www.hostesscakes.com/products/cupcakes/chocolate/"
+  />
+  <br>
+  <hr>
+  <br>
+  <h2>BlockCardWithIllustration Component</h2>
+  <br>
+  <BlockCardWithIllustration
+    :to="mock.to"
+    :title="mock.title"
+    :text="mock.text"
   />
   <br>
   <hr>
