@@ -8,139 +8,135 @@ import SvgMoleculeHalf from 'ucla-library-design-tokens/assets/svgs/molecule-hal
 import SvgArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import SmartLink from '@/lib-components/SmartLink'
-import { formatLinkTarget } from '@/composables/formatLinkTarget'
+import formatLinkTarget from '@/utils/formatLinkTarget'
 
 export default {
-  name: 'FooterPrimary',
+    name: 'FooterPrimary',
 
-  components: {
-    SmartLink,
-    SvgLogoUclaLibrary,
-    SvgMoleculeHalf,
-    SvgArrowRight,
-  },
-  props: {
-    form: {
-      type: Boolean,
-      default: true,
+    components: {
+        SmartLink,
+        SvgLogoUclaLibrary,
+        SvgMoleculeHalf,
+        SvgArrowRight,
     },
-    isMicrosite: {
-      type: Boolean,
-      default: false,
+    props: {
+        form: {
+            type: Boolean,
+            default: true,
+        },
+        isMicrosite: {
+            type: Boolean,
+            default: false,
+        },
     },
-  },
-  computed: {
-    ...mapState(useGlobalStore, ['footerPrimary']),
-    classes() {
-      return this.form ? ['container'] : ['container no-form']
-    },
-    parsedSocialItems() {
-      if (Object.keys(this.footerPrimary).length !== 0) {
-        return this.footerPrimary.nodes[0].children
-      }
-      else {
-        // eslint-disable-next-line no-console
-        console.log(
+    computed: {
+        ...mapState(useGlobalStore, ['footerPrimary']),
+        classes() {
+            return this.form ? ['container'] : ['container no-form']
+        },
+        parsedSocialItems() {
+            if (Object.keys(this.footerPrimary).length !== 0) {
+                return this.footerPrimary.nodes[0].children
+            }
+            else {
+                // eslint-disable-next-line no-console
+                console.log(
                     `Pinia state data not present: is it client side:${process.client}`
-        )
-      }
-      return []
-    },
-    parsedPressItems() {
-      if (Object.keys(this.footerPrimary).length !== 0) {
-        return this.footerPrimary.nodes[1].children
-      }
-      else {
-        // eslint-disable-next-line no-console
-        console.log(
+                )
+            }
+            return []
+        },
+        parsedPressItems() {
+            if (Object.keys(this.footerPrimary).length !== 0) {
+                return this.footerPrimary.nodes[1].children
+            }
+            else {
+                // eslint-disable-next-line no-console
+                console.log(
                     `Pinia state data for footer primary not present, it could be because navigation is not setup for the website: is it client side:${process.client}`
-        )
-      }
-      return []
+                )
+            }
+            return []
+        },
     },
-  },
-  methods: {
-    formatTarget(target) {
-      return formatLinkTarget(target)
+    methods: {
+        formatTarget(target) {
+            return formatLinkTarget(target)
+        }
     }
-  }
 }
 </script>
 
 <template>
-  <div class="footer-primary">
-    <SvgMoleculeHalf class="molecule-half-svg" aria-hidden="true" />
-    <div :class="classes">
-      <div class="footer-links">
-        <a v-if="isMicrosite" href="https://www.library.ucla.edu" target="_blank" class="logo-ucla">
-          <SvgLogoUclaLibrary class="logo-svg" />
-          <span class="visually-hidden">UCLA Library Home</span>
-        </a>
-        <SmartLink v-else to="/" class="logo-ucla">
-          <SvgLogoUclaLibrary class="logo-svg" />
-          <span class="visually-hidden">UCLA Library Home</span>
-        </SmartLink>
-        <ul class="socials">
-          <li v-for="item in parsedSocialItems" :key="item.id" class="social-item">
-            <a :href="item.to" :target="formatTarget(item.target)" a>
-              {{ item.name }}
-            </a>
-          </li>
-        </ul>
+    <div class="footer-primary">
+        <SvgMoleculeHalf class="molecule-half-svg" aria-hidden="true" />
+        <div :class="classes">
+            <div class="footer-links">
+                <a v-if="isMicrosite" href="https://www.library.ucla.edu" target="_blank" class="logo-ucla">
+                    <SvgLogoUclaLibrary class="logo-svg" />
+                    <span class="visually-hidden">UCLA Library Home</span>
+                </a>
+                <SmartLink v-else to="/" class="logo-ucla">
+                    <SvgLogoUclaLibrary class="logo-svg" />
+                    <span class="visually-hidden">UCLA Library Home</span>
+                </SmartLink>
+                <ul class="socials">
+                    <li v-for="item in parsedSocialItems" :key="item.id" class="social-item">
+                        <a :href="item.to" :target="formatTarget(item.target)" a>
+                            {{ item.name }}
+                        </a>
+                    </li>
+                </ul>
 
-        <ul v-if="parsedPressItems" class="press-links">
-          <li v-for="item in parsedPressItems" :key="item.id" class="press-item">
-            <SmartLink :to="item.to" :link-target="item.target">
-              {{ item.name }}
-            </SmartLink>
-          </li>
-        </ul>
-      </div>
+                <ul v-if="parsedPressItems" class="press-links">
+                    <li v-for="item in parsedPressItems" :key="item.id" class="press-item">
+                        <SmartLink :to="item.to" :link-target="item.target">
+                            {{ item.name }}
+                        </SmartLink>
+                    </li>
+                </ul>
+            </div>
 
-      <form
-        v-if="form" id="mc-embedded-subscribe-form"
-        action="https://ucla.us7.list-manage.com/subscribe/post?u=31248d1f341b8eede1b46cb33&amp;id=40fdd1db46&amp;f_id=0034f7e4f0"
-        method="post" name="mc-embedded-subscribe-form" class="validate form" target="_blank" novalidate
-      >
-        <div id="mc_embed_signup_scroll" class="form-header">
-          <h2 class="title">
-            Stay updated
-          </h2>
+            <form v-if="form" id="mc-embedded-subscribe-form"
+                action="https://ucla.us7.list-manage.com/subscribe/post?u=31248d1f341b8eede1b46cb33&amp;id=40fdd1db46&amp;f_id=0034f7e4f0"
+                method="post" name="mc-embedded-subscribe-form" class="validate form" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll" class="form-header">
+                    <h2 class="title">
+                        Stay updated
+                    </h2>
 
-          <p class="statement">
-            Subscribe to get the latest updates on what's happening
-            with UCLA Library.
-          </p>
+                    <p class="statement">
+                        Subscribe to get the latest updates on what's happening
+                        with UCLA Library.
+                    </p>
+                </div>
+
+                <div class="input-block">
+                    <div class="field mc-field-group">
+                        <input id="mce-EMAIL" name="EMAIL" type="email" value="" placeholder="email@ucla.edu"
+                            class="input-email" required>
+                        <label for="mce-EMAIL" class="label">
+                            Email Address
+                        </label>
+                    </div>
+
+                    <div id="mce-responses" class="clear">
+                        <div id="mce-error-response" class="response" style="display: none" />
+                        <div id="mce-success-response" class="response" style="display: none" />
+                    </div>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+                    <div style="position: absolute; left: -5000px" aria-hidden="true">
+                        <input type="text" name="b_31248d1f341b8eede1b46cb33_40fdd1db46" tabindex="-1" value="">
+                    </div>
+
+                    <button id="mc-embedded-subscribe" class="button-submit" name="subscribe" type="submit">
+                        Subscribe
+                        <SvgArrowRight class="arrow-svg" />
+                    </button>
+                </div>
+            </form>
         </div>
-
-        <div class="input-block">
-          <div class="field mc-field-group">
-            <input
-              id="mce-EMAIL" name="EMAIL" type="email" value="" placeholder="email@ucla.edu"
-              class="input-email" required
-            >
-            <label for="mce-EMAIL" class="label">
-              Email Address
-            </label>
-          </div>
-
-          <div id="mce-responses" class="clear">
-            <div id="mce-error-response" class="response" style="display: none" />
-            <div id="mce-success-response" class="response" style="display: none" />
-          </div>
-          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
-          <div style="position: absolute; left: -5000px" aria-hidden="true">
-            <input type="text" name="b_31248d1f341b8eede1b46cb33_40fdd1db46" tabindex="-1" value="">
-          </div>
-
-          <button id="mc-embedded-subscribe" class="button-submit" name="subscribe" type="submit">
-            Subscribe
-            <SvgArrowRight class="arrow-svg" />
-          </button>
-        </div>
-      </form>
     </div>
-  </div>
 </template>
 
 <style lang="scss" scoped>

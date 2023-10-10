@@ -1,4 +1,4 @@
-export function isRelativeLink(uri = '') {
+export default function isRelativeLink(uri = '') {
   let output = false
 
   switch (true) {
