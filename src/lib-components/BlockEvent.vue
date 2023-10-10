@@ -1,12 +1,11 @@
 <script>
 import format from 'date-fns/format'
-
 import SmartLink from '@/lib-components/SmartLink'
 
 // Utility functions
 import getSectionName from '@/utils/getSectionName'
-import formatEventTimes from '@/utils/formatEventTimes'
-import formatEventDates from '@/utils/formatEventDates'
+import formatTimes from '@/utils/formatEventTimes'
+import formatDates from '@/utils/formatEventDates'
 
 export default {
   name: 'BlockEvent',
@@ -60,9 +59,6 @@ export default {
 
       return ''
     },
-    // parsedDate() {
-    //     return this.endDate ? this.parsedMultiDate : this.parsedSingledDate
-    // },
   },
 }
 </script>
@@ -110,7 +106,7 @@ export default {
   }
 
   .molecule {
-      background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg");
+      background-image: url("ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg");
       background-size: auto 100%;
       height: 40%;
   }
