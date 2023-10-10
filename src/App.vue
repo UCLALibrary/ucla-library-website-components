@@ -7,6 +7,7 @@ import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
 import BlockDate from '@/lib-components/BlockDate.vue'
+import BlockEvent from '@/lib-components/BlockEvent.vue'
 import BlockSimpleCard from '@/lib-components/BlockSimpleCard.vue'
 import BlockSpaces from '@/lib-components/BlockSpaces.vue'
 import ButtonHide from '@/lib-components/ButtonHide.vue'
@@ -38,9 +39,11 @@ const richTextContent = computed(() => {
 const mock = {
   attribution: 'Lady Gaga',
   category: 'Article',
+  endDate: '2022-12-11T00:00',
   location: 'Fast Lane Building',
   name: 'Ipsum dolor amet',
   svgName: 'svg-call-to-action-chat',
+  startDate: '2022-12-09T00:00',
   text: 'Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.',
   textLong:
     'Greplin prezi zillow zoosk orkut, zoosk gooru. Kiko xobni joukuu ideeli bitly joukuu, squidoo heroku hulu sifteo, zooomr jumo dropio chumby. Qeyno wikia oooooc jajah, ebay qeyno lala, jajah lijit. Etsy wufoo flickr movity sclipo heroku, oooooc etsy oooooc. Vimeo foodzie zoosk ebay, wesabe. Ebay doostang vuvox, xobni. Mozy joyent dropio gooru kippt, greplin skype. Kiko napster geni dogster yoono yammer disqus, hipmunk xobni odeo zynga loopt. Groupon klout divvyshot zinch elgg yoono airbnb, orkut zinch chartly squidoo.',
@@ -271,6 +274,7 @@ const coverImage = MEDIA.VideoFileCoverImage
   <hr>
   <br>
   <h2>FooterMain Component</h2>
+  <br>
   <FooterMain />
   <hr>
   <br>
@@ -286,6 +290,16 @@ const coverImage = MEDIA.VideoFileCoverImage
   <h2>FooterSponsor Component</h2>
   <br>
   <FooterSponsor />
+  <h2>BlockEvent Component</h2>
+  <BlockEvent
+    :category="mock.category"
+    :title="mock.title"
+    :prompt="mock.title"
+    :start-date="mock.startDate"
+    :end-date="mock.endDate"
+    :to="mock.to"
+    :section-handle="mock.title"
+  />
   <br>
   <hr>
   <br>

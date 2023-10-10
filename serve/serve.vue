@@ -4,6 +4,7 @@ import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
 import BlockDate from '@/lib-components/BlockDate.vue'
+import BlockEvent from '@/lib-components/BlockEvent.vue'
 import BlockMediaWithText from '@/lib-components/BlockMediaWithText.vue'
 import BlockSimpleCard from '@/lib-components/BlockSimpleCard.vue'
 import BlockSpaces from '@/lib-components/BlockSpaces.vue'
@@ -36,8 +37,10 @@ const richTextContent = computed(() => {
 const mock = {
   attribution: 'Lady Gaga',
   category: 'Article',
+  endDate: '2022-12-11T00:00',
   location: 'Fast Lane Building',
   name: 'Ipsum dolor amet',
+  startDate: '2022-12-09T00:00',
   svgName: 'svg-call-to-action-chat',
   text: 'Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.Litora torquent per conubia nostra, per inceptos himenaeos.',
   textLong:
@@ -280,6 +283,16 @@ const coverImage = MEDIA.VideoFileCoverImage
     <h2>FooterSponsor Component</h2>
     <br>
     <FooterSponsor />
+    <h2>BlockEvent Component</h2>
+    <BlockEvent
+      :category="mock.category"
+      :title="mock.title"
+      :prompt="mock.title"
+      :start-date="mock.startDate"
+      :end-date="mock.endDate"
+      :to="mock.to"
+      :section-handle="mock.title"
+    />
     <br>
     <hr>
     <br>
