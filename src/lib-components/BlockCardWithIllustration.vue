@@ -113,7 +113,7 @@ export default {
         {{ parsedTextHorizontal }}
       </div>
 
-      <div v-if="!isHorizontal" class="text">
+      <div v-else class="text">
         {{ parsedTextVertical }}
       </div>
     </div>

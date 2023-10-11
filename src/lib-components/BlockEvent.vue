@@ -69,12 +69,12 @@ export default {
 
     <div class="text row">
       <span class="category">{{ category }}</span>
-      <h2 class="title" v-html="title" />
+      <h2 class="title" v-text="title" />
       <div class="date-time">
-        <time v-if="startDate" class="dates" v-html="parsedDate" />
-        <time v-if="parsedTime" class="time" v-html="parsedTime" />
+        <time v-if="startDate" class="dates" v-text="parsedDate" />
+        <time v-if="parsedTime" class="time" v-text="parsedTime" />
       </div>
-      <SmartLink :class="classes" :to="to" v-html="prompt" />
+      <SmartLink :class="classes" :to="to" v-text="prompt" />
       <!-- TO DO: Use button-link component instead -->
     </div>
 
