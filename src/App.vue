@@ -1,11 +1,13 @@
 <script setup>
 import { computed } from 'vue'
-import SiteBrandBar from './lib-components/SiteBrandBar.vue'
+
 import BlockMediaWithText from './lib-components/BlockMediaWithText.vue'
+import SiteBrandBar from './lib-components/SiteBrandBar.vue'
 import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
 import BlockDate from '@/lib-components/BlockDate.vue'
+import BlockSimpleCard from '@/lib-components/BlockSimpleCard.vue'
 import BlockSpaces from '@/lib-components/BlockSpaces.vue'
 import ButtonHide from '@/lib-components/ButtonHide.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
@@ -256,11 +258,24 @@ const coverImage = MEDIA.VideoFileCoverImage
     :text="mock.text"
   />
   <br>
+  <hr>
+  <br>
+  <h2>BlockSimpleCard Component</h2>
+  <br>
+  <BlockSimpleCard
+    :title="mock.title"
+    :text="mock.text"
+    :to="mock.to"
+  />
+  <br>
+  <hr>
+  <br>
   <h2>FooterMain Component</h2>
   <FooterMain />
   <hr>
   <br>
   <h2>FooterPrimary Component</h2>
+  <br>
   <FooterPrimary />
   <hr>
   <br>
@@ -269,7 +284,9 @@ const coverImage = MEDIA.VideoFileCoverImage
   <hr>
   <br>
   <h2>FooterSponsor Component</h2>
+  <br>
   <FooterSponsor />
+  <br>
   <hr>
   <br>
 </template>
