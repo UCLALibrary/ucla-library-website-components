@@ -287,23 +287,6 @@ const coverImage = MEDIA.VideoFileCoverImage
   <br>
   <hr>
   <br>
-  <h2>FooterMain Component</h2>
-  <br>
-  <FooterMain />
-  <hr>
-  <br>
-  <h2>FooterPrimary Component</h2>
-  <br>
-  <FooterPrimary />
-  <hr>
-  <br>
-  <h2>FooterSock Component</h2>
-  <FooterSock />
-  <hr>
-  <br>
-  <h2>FooterSponsor Component</h2>
-  <br>
-  <FooterSponsor />
   <h2>BlockEvent Component</h2>
   <br>
   <BlockEvent
@@ -335,6 +318,26 @@ const coverImage = MEDIA.VideoFileCoverImage
     :title="mock.title"
     :text="mock.text"
   />
+  <br>
+  <hr>
+  <br>
+  <h2>FooterMain Component</h2>
+  <br>
+  <FooterMain />
+  <hr>
+  <br>
+  <h2>FooterPrimary Component</h2>
+  <br>
+  <FooterPrimary />
+  <hr>
+  <br>
+  <h2>FooterSock Component</h2>
+  <FooterSock />
+  <hr>
+  <br>
+  <h2>FooterSponsor Component</h2>
+  <br>
+  <FooterSponsor />
   <br>
   <hr>
   <br>
