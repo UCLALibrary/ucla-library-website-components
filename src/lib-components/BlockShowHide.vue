@@ -32,12 +32,12 @@ export default {
     <ButtonHide
       v-if="!disable && shown"
       class="button-toggle"
-      @click.native="shown = false"
+      @click="shown = false"
     />
     <ButtonShow
       v-else-if="!disable"
       class="button-toggle"
-      @click.native="shown = true"
+      @click="shown = true"
     />
   </component>
 </template>
@@ -49,7 +49,7 @@ export default {
   }
 
   &.hidden {
-      ::v-deep .show-hide-hideable {
+      :deep(.show-hide-hideable) {
           display: none;
       }
   }
