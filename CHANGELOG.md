@@ -1,3 +1,10 @@
+# [2.39.0-alpha.12](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.11...v2.39.0-alpha.12) (2023-10-12)
+
+
+### Features
+
+* APPS-2450 Add multiple block components ([#409](https://github.com/UCLALibrary/ucla-library-website-components/issues/409)) ([8140d68](https://github.com/UCLALibrary/ucla-library-website-components/commit/8140d6821a7b45970b0b554b38739fda277acb5a))
+
 # [2.39.0-alpha.11](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.10...v2.39.0-alpha.11) (2023-10-10)
 
 
