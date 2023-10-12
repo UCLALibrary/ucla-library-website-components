@@ -71,131 +71,131 @@ export default {
 
 <style lang="scss" scoped>
 .block-spaces {
-  border: 2px solid var(--color-primary-blue-01);
-  border-radius: $rounded-slightly + px;
-  @include animate-normal;
-  position: relative;
-  list-style-type: none;
+    border: 2px solid var(--color-primary-blue-01);
+    border-radius: $rounded-slightly + px;
+    @include animate-normal;
+    position: relative;
+    list-style-type: none;
 
-  .container {
-      padding: var(--space-xl) var(--space-l);
-      display: flex;
-      flex-direction: column;
-      .heading-arrow {
-          width: 32px;
-          height: 32px;
-          flex-basis: 32px;
-      }
+    .container {
+        padding: var(--space-xl) var(--space-l);
+        display: flex;
+        flex-direction: column;
+        .heading-arrow {
+            width: 32px;
+            height: 32px;
+            flex-basis: 32px;
+        }
 
-      .arrow-and-title {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          gap: 8px;
-          justify-content: flex-start;
-          align-content: stretch;
-          align-items: center;
-          margin-bottom: var(--space-m);
+        .arrow-and-title {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 8px;
+            justify-content: flex-start;
+            align-content: stretch;
+            align-items: center;
+            margin-bottom: var(--space-m);
 
-          .space-title {
-              @include step-2;
-              color: var(--color-primary-blue-03);
-          }
-      }
+            .space-title {
+                @include step-2;
+                color: var(--color-primary-blue-03);
+            }
+        }
 
-      .space-title-no-link {
-          @include step-2;
-          color: var(--color-primary-blue-05);
-      }
+        .space-title-no-link {
+            @include step-2;
+            color: var(--color-primary-blue-05);
+        }
 
-      .svg__graphic-chevron-right {
-          .svg__stroke--wayfinder {
-              stroke: var(--color-visit-fushia-03);
-          }
-      }
+        :deep(.svg__graphic-chevron-right) {
+            .svg__stroke--wayfinder {
+                stroke: var(--color-visit-fushia-03);
+            }
+        }
 
-      .meta {
-          display: flex;
-          flex-direction: column;
-          flex-wrap: nowrap;
-          justify-content: center;
-          align-content: flex-start;
-          align-items: flex-start;
+        .meta {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-content: flex-start;
+            align-items: flex-start;
 
-          .location {
-              @include step-0;
-              color: var(--color-primary-blue-03);
-              margin-bottom: var(--space-m);
-              .icon {
-                  margin-bottom: -10px;
-              }
-              .location-title {
-                  line-height: 20px;
-              }
-          }
-          .text {
-              @include step-0;
-              margin: 0 24px var(--space-m) 40px;
-              padding: 0;
-          }
-          .button {
-              margin-left: 40px;
-          }
-      }
-  }
+            .location {
+                @include step-0;
+                color: var(--color-primary-blue-03);
+                margin-bottom: var(--space-m);
+                .icon {
+                    margin-bottom: -10px;
+                }
+                .location-title {
+                    line-height: 20px;
+                }
+            }
+            .text {
+                @include step-0;
+                margin: 0 24px var(--space-m) 40px;
+                padding: 0;
+            }
+            .button {
+                margin-left: 40px;
+            }
+        }
+    }
 
-  // Hover states
-  @media #{$has-hover} {
-      .space-title a:hover,
-      .is-link:hover {
-          @include link-hover;
-      }
-      .location-title:hover {
-          @include link-hover;
-      }
-      &:hover {
-          @include card-horizontal-hover;
+    // Hover states
+    @media #{$has-hover} {
+        .space-title a:hover,
+        .is-link:hover {
+            @include link-hover;
+        }
+        .location-title:hover {
+            @include link-hover;
+        }
+        &:hover {
+            @include card-horizontal-hover;
 
-          text-decoration: none;
+            text-decoration: none;
 
-          :deep(a.smart-link),
-          :deep(button.smart-link) {
-              text-decoration: none;
-          }
-      }
-  }
+            :deep(a.smart-link),
+            :deep(button.smart-link) {
+                text-decoration: none;
+            }
+        }
+    }
 
-  // Breakpoints
-  @media #{$medium} {
-      .container {
-          display: flex;
-          flex-direction: column;
+    // Breakpoints
+    @media #{$medium} {
+        .container {
+            display: flex;
+            flex-direction: column;
 
-          .arrow-and-title {
-              display: flex;
-              flex-direction: row;
-              flex-wrap: nowrap;
-              justify-content: flex-start;
-              align-items: center;
+            .arrow-and-title {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                align-items: center;
 
-              .space-title {
-                  margin-left: 0;
-              }
-          }
-      }
-  }
+                .space-title {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
 
-  @media #{$small} {
-      .container {
-          .meta {
-              .text {
-                  margin-left: 0;
-              }
-              .button {
-                  margin-left: 0;
-              }
-          }
-      }
-  }
+    @media #{$small} {
+        .container {
+            .meta {
+                .text {
+                    margin-left: 0;
+                }
+                .button {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
 }
 </style>
