@@ -1,3 +1,10 @@
+# [2.39.0-alpha.13](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.12...v2.39.0-alpha.13) (2023-10-13)
+
+
+### Features
+
+* APPS 2452 Add BlockShowHide, NavBreadcrumb, OrcidPub components ([#410](https://github.com/UCLALibrary/ucla-library-website-components/issues/410)) ([9a5c8fc](https://github.com/UCLALibrary/ucla-library-website-components/commit/9a5c8fc4eb3198799c9e642b44ad00e2a223942b))
+
 # [2.39.0-alpha.12](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.11...v2.39.0-alpha.12) (2023-10-12)
 
 
