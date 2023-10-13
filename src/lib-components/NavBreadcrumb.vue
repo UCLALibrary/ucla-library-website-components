@@ -2,10 +2,13 @@
 // SVGs
 import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-left.svg'
 
+import SmartLink from '@/lib-components/SmartLink.vue'
+
 export default {
   name: 'NavBreadcrumb',
   components: {
     SvgIconCaretLeft,
+    SmartLink
   },
   props: {
     to: {
@@ -26,7 +29,7 @@ export default {
 
 <template>
   <div class="nav-breadcrumb subtitle">
-    <smart-link :to="to" class="parent-page-url" v-text="parentTitle" />
+    <SmartLink :to="to" class="parent-page-url" v-text="parentTitle" />
     <SvgIconCaretLeft aria-hidden="true" />
     <span class="current-page-title" v-text="title" />
   </div>
