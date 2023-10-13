@@ -3,6 +3,7 @@ import { computed } from 'vue'
 
 import BlockMediaWithText from './lib-components/BlockMediaWithText.vue'
 import SiteBrandBar from './lib-components/SiteBrandBar.vue'
+import BlockShowHide from './lib-components/BlockShowHide.vue'
 import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
@@ -25,9 +26,11 @@ import FooterSponsor from '@/lib-components/FooterSponsor.vue'
 import HeadingArrow from '@/lib-components/HeadingArrow.vue'
 import HelloWorld from '@/lib-components/HelloWorld.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
+import NavBreadcrumb from '@/lib-components/NavBreadcrumb.vue'
 import PullQuote from '@/lib-components/PullQuote.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SearchResult from '@/lib-components/SearchResult.vue'
+import SectionStaffOrcidPublications from '@/lib-components/SectionStaffOrcidPublications.vue'
 import SingleCheckbox from '@/lib-components/SingleCheckbox.vue'
 import SiteNotificationAlert from '@/lib-components/SiteNotificationAlert.vue'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
@@ -338,6 +341,34 @@ const coverImage = MEDIA.VideoFileCoverImage
   <h2>FooterSponsor Component</h2>
   <br>
   <FooterSponsor />
+  <br>
+  <hr>
+  <br>
+  <h2>BlockShowHide Component</h2>
+  <br>
+  <BlockShowHide style="width: 100%; padding: 0 48px;">
+    <div style="width: 100%; padding: 0 12px 18px; border: 2px grey dotted" data-cy="main">
+      Main content is passed via a slot and will be visible by default.
+    </div>
+    <div class="show-hide-hideable" style="width: 100%; padding: 0 12px 18px; border: 2px grey dotted" data-cy="extra">
+      To make content "expandable" it should be passed in the slot along with the main content, but add the class "show-hide-hideable" to any items that should be hidden.
+    </div>
+  </BlockShowHide>
+  <br>
+  <hr>
+  <br>
+  <h2>SectionStaffOrcidPublications Component</h2>
+  <br>
+  <SectionStaffOrcidPublications
+    class="staff-orcid-publications"
+    orcid="https://orcid.org/0000-0002-6391-2088"
+    publications="<ul><li><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. (2021). 'Teaching in the Digital Library: A Partnership Between Teaching Librarians and Digital Library Staff.' College &amp; Research Libraries News. 82(7). <a href='https://crln.acrl.org/index.php/crlnews/article/view/25033/32921'>https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></li></ul>"
+  />
+  <br>
+  <hr>
+  <br>
+  <h2>NavBreadcrumb Component</h2>
+  <NavBreadcrumb title="jane-doe" to="/about/news" parent-title="parent" />
   <br>
   <hr>
   <br>
