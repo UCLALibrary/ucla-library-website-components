@@ -26,3 +26,6 @@ export interface MediaGalleryItemType {
 }
 
 type customKind = 'image' | 'video' | 'audio'
+
+export interface Departments {
+}
