@@ -115,6 +115,10 @@ export default {
         &.theme-gray {
             --color-theme: var(--color-secondary-grey-01);
             padding: var(--space-2xl) var(--unit-gutter);
+            
+            ::v-deep .byline-group {
+                color: var(--color-secondary-grey-05);
+            }
         }
 
         &.theme-white {
