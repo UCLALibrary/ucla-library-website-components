@@ -1,3 +1,10 @@
+## [2.41.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.1...v2.41.2) (2023-10-16)
+
+
+### Bug Fixes
+
+* various accessibility issues ([#411](https://github.com/UCLALibrary/ucla-library-website-components/issues/411)) ([72ed8d8](https://github.com/UCLALibrary/ucla-library-website-components/commit/72ed8d8fa7009caffd37caeadc72bc7863df833c))
+
 ## [2.41.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.0...v2.41.1) (2023-10-04)
 
 
