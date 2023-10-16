@@ -38,12 +38,17 @@ function setCurrentSlide(currentSlideIndex: number) {
   <div class="impact-numbers-carousel">
     <div class="slide-indicator">
       <SvgIconMoleculeBullet
-        v-for="(block, index) in blocks" :key="block.largeText" :class="checkCurrentSlide(index)"
+        v-for="(block, index) in blocks"
+        :key="block.largeText"
+        :class="checkCurrentSlide(index)"
         @click="setCurrentSlide(index)"
       />
     </div>
     <Carousel v-model="currentSlide">
-      <Slide v-for="(block) in blocks" :key="block.largeText">
+      <Slide
+        v-for="(block) in blocks"
+        :key="block.largeText"
+      >
         <div class="slide-image">
           <ResponsiveImage :media="block.image[0]" />
         </div>
@@ -58,14 +63,28 @@ function setCurrentSlide(currentSlideIndex: number) {
     </Carousel>
     <!-- navigation -->
     <div class="controls">
-      <button data-glide-dir="<" :disabled="currentSlide <= 0" @click="currentSlide -= 1">
-        <SvgArrowLeft aria-label="Go to previous item" class="prev-control" />
+      <button
+        data-glide-dir="<"
+        :disabled="currentSlide <= 0"
+        @click="currentSlide -= 1"
+      >
+        <SvgArrowLeft
+          aria-label="Go to previous item"
+          class="prev-control"
+        />
       </button>
-      <button data-glide-dir=">" :disabled="currentSlide >= blocks.length - 1" @click="currentSlide += 1">
+      <button
+        data-glide-dir=">"
+        :disabled="currentSlide >= blocks.length - 1"
+        @click="currentSlide += 1"
+      >
         <SvgArrowRight aria-label="Go to next item" />
       </button>
     </div>
-    <div role="tablist" class="dots" />
+    <div
+      role="tablist"
+      class="dots"
+    />
   </div>
 </template>
 
