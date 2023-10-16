@@ -29,7 +29,10 @@
             <template slot="control">
                 <!-- <div class="controls"> -->
                 <button data-glide-dir="<" :class="prevIsDisabled">
-                    <svg-arrow-right aria-label="Go to previous item" class="prev-control" />
+                    <svg-arrow-right
+                        aria-label="Go to previous item"
+                        class="prev-control"
+                    />
                 </button>
                 <button data-glide-dir=">" :class="nextIsDisabled">
                     <svg-arrow-right aria-label="Go to next item" />
