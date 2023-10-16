@@ -148,7 +148,7 @@ export default {
         background-color: var(--color-primary-blue-03);
         padding: 16px 40px;
         @include button;
-        color: var(--color-theme);
+        color: var(--color-white);
         transition: color 400ms ease-in-out;
 
         // Themes
@@ -174,7 +174,7 @@ export default {
     // Hover
     @media #{$has-hover} {
         .button:hover {
-            color: var(--color-white);
+            color: var(--color-theme);
         }
     }
 
