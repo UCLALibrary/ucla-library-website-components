@@ -16,6 +16,7 @@
         <div class="content">
             <iframe
                 id="the-iframe"
+                title="Form"
                 refs="form_iframe"
                 class="iframe"
                 :srcdoc="parsedFormContent"
