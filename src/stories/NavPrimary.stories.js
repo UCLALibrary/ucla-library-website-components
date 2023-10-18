@@ -1,13 +1,13 @@
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
 import NavPrimary from "@/lib-components/NavPrimary"
-import StoryRouter from "storybook-vue-router"
+
 
 // Storybook default settings
 export default {
     title: "NAV / Primary",
     component: NavPrimary,
-    decorators: [StoryRouter()],
+
 }
 
 const items = [

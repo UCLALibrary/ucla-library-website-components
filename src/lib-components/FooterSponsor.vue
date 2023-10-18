@@ -25,72 +25,70 @@ const parsedFunders = computed(() => {
       Arcadia.
     </div>
     <div class="sponsor-logos">
-      <BlockSponsor
-        v-for="(item, index) in parsedFunders" :key="index" class="sponsor-item"
-        :funder-logo="item.funderLogo" :funder-name="item.funderName" :funder-url="item.funderUrl"
-      />
+      <BlockSponsor v-for="(item, index) in parsedFunders" :key="index" class="sponsor-item"
+        :funder-logo="item.funderLogo" :funder-name="item.funderName" :funder-url="item.funderUrl" />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .footer-sponsor {
-    background-color: var(--color-secondary-grey-01);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-m);
-    justify-content: center;
-    padding: 0 var(--unit-gutter);
-    --unit-content-width: 1040px;
+  background-color: var(--color-secondary-grey-01);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  justify-content: center;
+  padding: 0 var(--unit-gutter);
+  --unit-content-width: 1040px;
 }
 
 .sponsor-text {
-    @include overline;
-    display: flex;
-    line-height: $line-height-0;
-    color: var(--color-secondary-grey-05);
-    margin: 0 auto;
-    width: 100%;
-    max-width: var(--unit-content-width);
-    padding-top: var(--unit-gutter);
+  @include overline;
+  display: flex;
+  line-height: $line-height-0;
+  color: var(--color-secondary-grey-05);
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--unit-content-width);
+  padding-top: var(--unit-gutter);
 }
 
 .sponsor-logos {
-    padding-bottom: var(--unit-gutter);
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    max-width: var(--unit-content-width);
-    width: 100%;
+  padding-bottom: var(--unit-gutter);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: var(--unit-content-width);
+  width: 100%;
 }
 
 // Breakpoints
 @media #{$medium} {
-    .sponsor-logos {
-        flex-direction: column;
-        //align-items: flex-end;
-        gap: var(--space-l);
-    }
+  .sponsor-logos {
+    flex-direction: column;
+    //align-items: flex-end;
+    gap: var(--space-l);
+  }
 
-    .sponsor-text {
-        //align-self: flex-end;
-        width: unset;
-        margin: unset;
-        //text-align: right;
-    }
+  .sponsor-text {
+    //align-self: flex-end;
+    width: unset;
+    margin: unset;
+    //text-align: right;
+  }
 }
 
 @media #{$small} {
-    .sponsor-text {
-        align-self: center;
-        text-align: center;
-    }
+  .sponsor-text {
+    align-self: center;
+    text-align: center;
+  }
 
-    .sponsor-logos {
-        align-items: center;
-    }
+  .sponsor-logos {
+    align-items: center;
+  }
 }
 </style>

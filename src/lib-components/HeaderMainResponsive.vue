@@ -254,7 +254,7 @@ export default {
         margin: 32px 0;
         background-color: var(--color-primary-blue-03);
 
-        ::v-deep .svg__logo-library {
+        :deep(.svg__logo-library) {
 
             .svg__fill--primary-blue-03,
             .svg__fill--black {
@@ -269,7 +269,7 @@ export default {
         .close-svg {
             cursor: pointer;
 
-            .svg__fill--primary-blue-01 {
+            :deep(.svg__fill--primary-blue-01) {
                 fill: transparent;
             }
         }
@@ -278,11 +278,11 @@ export default {
             cursor: pointer;
             height: 48px;
 
-            .svg__fill--primary-blue-01 {
+            :deep(.svg__fill--primary-blue-01) {
                 fill: transparent;
             }
 
-            .svg__fill--primary-blue-03 {
+            :deep(.svg__fill--primary-blue-03) {
                 fill: var(--color-default-cyan-02);
             }
         }
@@ -368,25 +368,25 @@ export default {
     }
 
     .cyan {
-        .svg__stroke--default-cyan-03 {
+        :deep(.svg__stroke--default-cyan-03) {
             stroke: var(--color-default-cyan-02);
         }
     }
 
     .green {
-        .svg__stroke--default-cyan-03 {
+        :deep(.svg__stroke--default-cyan-03) {
             stroke: var(--color-help-green-02);
         }
     }
 
     .pink {
-        .svg__stroke--default-cyan-03 {
+        :deep(.svg__stroke--default-cyan-03) {
             stroke: var(--color-visit-fushia-02);
         }
     }
 
     .purple {
-        .svg__stroke--default-cyan-03 {
+        :deep(.svg__stroke--default-cyan-03) {
             stroke: var(--color-about-purple-03);
         }
     }
