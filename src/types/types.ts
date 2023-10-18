@@ -1,4 +1,14 @@
 // custom types
+export interface DepartmentItemType {
+  id: string
+  title: string
+}
+
+export interface LocationItemType {
+  id?: string
+  title: string
+  to: string
+}
 
 export interface MediaItemType {
   id: string
@@ -26,6 +36,3 @@ export interface MediaGalleryItemType {
 }
 
 type customKind = 'image' | 'video' | 'audio'
-
-export interface Departments {
-}

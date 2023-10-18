@@ -4,6 +4,7 @@ import { computed } from 'vue'
 import BlockMediaWithText from './lib-components/BlockMediaWithText.vue'
 import SiteBrandBar from './lib-components/SiteBrandBar.vue'
 import BlockShowHide from './lib-components/BlockShowHide.vue'
+import BlockStaffSubjectLibrarian from './lib-components/BlockStaffSubjectLibrarian.vue'
 import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
@@ -100,6 +101,53 @@ const propsForMediaWithText = {
 const itemVideo = MEDIA.VideoFile
 
 const coverImage = MEDIA.VideoFileCoverImage
+
+const mockStaff = {
+  subjectArea: 'African American Studies',
+  nameFirst: 'Ariane',
+  nameLast: 'Bicho',
+  to: '/about/staff/ariane-bicho',
+  staffName: 'Ariane Bicho 娘の洋子より',
+  image: null,
+
+  jobTitle: 'Director of Communications and Marketing',
+  departments: [
+    {
+      id: '7272',
+      title: 'Communications',
+    },
+    {
+      id: '7373',
+      title: 'Marketing',
+    },
+  ],
+  alternativeName: [
+    {
+      fullName: '娘の洋子より',
+      languageAltName: 'zh',
+    },
+  ],
+  uri: 'about/staff/ariane-bicho',
+  phone: '(222) 444-5555',
+  email: 'abicho@library.ucla.edu',
+  consultation: 'https://calendar.library.ucla.edu/appointments/aogarcia',
+  academicDepartments: [
+    {
+      id: '11947',
+      title: 'African American Studies',
+    },
+    {
+      id: '11955',
+      title: 'Cluster 60: America in Sixties: Politics, Society, and Culture, 1954 to 1974',
+    },
+  ],
+  locations: [
+    {
+      title: 'DIIT',
+      to: 'location/bar',
+    },
+  ],
+}
 </script>
 
 <template>
@@ -369,6 +417,11 @@ const coverImage = MEDIA.VideoFileCoverImage
   <br>
   <h2>NavBreadcrumb Component</h2>
   <NavBreadcrumb title="jane-doe" to="/about/news" parent-title="parent" />
+  <br>
+  <hr>
+  <br>
+  <h2>BlockStaffSubjectLibrarian Component</h2>
+  <BlockStaffSubjectLibrarian v-bind="mockStaff" />
   <br>
   <hr>
   <br>

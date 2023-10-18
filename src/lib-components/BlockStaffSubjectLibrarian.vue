@@ -5,11 +5,8 @@ import { computed, defineAsyncComponent } from 'vue'
 import _isEmpty from 'lodash/isEmpty'
 
 import type { PropType } from 'vue'
-import type { Departments } from '@/types/types'
 
-// COMPONENTS
-// import SmartLink from '@/lib-components/SmartLink.vue'
-// import IconWithLink from '@/lib-components/IconWithLink.vue'
+import type { DepartmentItemType, LocationItemType } from '@/types/types'
 
 const props = defineProps({
   subjectArea: {
@@ -37,7 +34,7 @@ const props = defineProps({
     default: '',
   },
   departments: {
-    type: Array as PropType<Departments>,
+    type: Array as PropType<DepartmentItemType[]>,
     default: () => [],
   },
   academicDepartments: {
@@ -45,11 +42,15 @@ const props = defineProps({
     default: () => [],
   },
   locations: {
-    type: Array,
+    type: Array as PropType<LocationItemType[]>,
     default: () => [],
   },
   alternativeFullName: {
-    ttype: String,
+    type: String,
+    default: '',
+  },
+  language: {
+    type: String,
     default: '',
   },
   uri: {
@@ -70,88 +71,17 @@ const props = defineProps({
   },
 })
 
-const SmartLink = defineAsyncComponent(() =>
-  import('@/lib-components/SmartLink.vue'))
+const IconWithLink = defineAsyncComponent(
+  () => import('@/lib-components/IconWithLink.vue')
+)
 
-const IconWithLink = defineAsyncComponent(() =>
-  import('@/lib-components/IconWithLink.vue'))
+const SmartLink = defineAsyncComponent(
+  () => import('@/lib-components/SmartLink.vue')
+)
 
 const lastDepartment = computed(() => {
-  return (
-    props.departments[props.departments.length - 1].title
-  )
+  return props.departments[props.departments.length - 1].title
 })
-
-// export default {
-// name: 'BlockStaffList',
-// components: {
-//   SmartLink,
-//   IconWithLink,
-// },
-// props: {
-//   subjectArea: {
-//     type: String,
-//     default: '',
-//   },
-//   to: {
-//     type: String,
-//     default: '',
-//   },
-//   staffName: {
-//     type: String,
-//     default: '',
-//   },
-//   nameLast: {
-//     type: String,
-//     default: '',
-//   },
-//   nameFirst: {
-//     type: String,
-//     default: '',
-//   },
-//   jobTitle: {
-//     type: String,
-//     default: '',
-//   },
-//   departments: {
-//     type: Array,
-//     default: () => [],
-//   },
-//   academicDepartments: {
-//     type: Array,
-//     default: () => [],
-//   },
-//   locations: {
-//     type: Array,
-//     default: () => [],
-//   },
-//   alternativeFullName: {
-//     ttype: String,
-//     default: '',
-//   },
-//   uri: {
-//     type: String,
-//     default: '',
-//   },
-//   email: {
-//     type: String,
-//     default: '',
-//   },
-//   phone: {
-//     type: String,
-//     default: '',
-//   },
-//   consultation: {
-//     type: String,
-//     default: '',
-//   },
-// },
-//   computed: {
-//     lastDepartment() {
-//       return this.departments[this.departments.length - 1].title
-//     },
-//   },
-// }
 </script>
 
 <template>
@@ -169,7 +99,7 @@ const lastDepartment = computed(() => {
           {{ alternativeFullName }}</span>
       </SmartLink>
 
-      <div class="job-title" v-html="jobTitle" />
+      <div class="job-title" v-text="jobTitle" />
 
       <ul v-if="departments.length" class="departments">
         <li class="department">
@@ -219,173 +149,173 @@ const lastDepartment = computed(() => {
 
 <style lang="scss" scoped>
 .block-staff-subject-librarian {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: var(--space-xl);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: var(--space-xl);
 
-  line-height: $line-height--1;
-  padding: 10px 0;
+    line-height: $line-height--1;
+    padding: 10px 0;
 
-  .academic-department {
-      color: var(--color-primary-blue-05);
-      @include step-0;
-      font-weight: 500;
+    .academic-department {
+        color: var(--color-primary-blue-05);
+        @include step-0;
+        font-weight: 500;
 
-      display: flex;
-      flex: 1 1 0px;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-content: flex-start;
-      align-items: flex-start;
-  }
+        display: flex;
+        flex: 1 1 0px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: flex-start;
+    }
 
-  .librarian-block {
-      @include step-0;
+    .librarian-block {
+        @include step-0;
 
-      display: flex;
-      flex: 1 1 0px;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-content: flex-start;
-      align-items: flex-start;
+        display: flex;
+        flex: 1 1 0px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: flex-start;
 
-      .name-title {
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-xs);
-      }
+        .name-title {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
 
-      .staff-name {
-          color: var(--color-primary-blue-03);
-          font-weight: 500;
+        .staff-name {
+            color: var(--color-primary-blue-03);
+            font-weight: 500;
 
-          a::after {
-              content: "";
-              position: absolute;
-              left: 0;
-              top: 0;
-              right: 0;
-              bottom: 0;
-          }
-      }
-      .job-title {
-          color: var(--color-black);
-      }
-      .departments {
-          display: flex;
-          flex-direction: column;
+            a::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+        .job-title {
+            color: var(--color-black);
+        }
+        .departments {
+            display: flex;
+            flex-direction: column;
 
-          list-style: none;
-      }
-      .department {
-          color: var(--color-secondary-grey-04);
-      }
-  }
+            list-style: none;
+        }
+        .department {
+            color: var(--color-secondary-grey-04);
+        }
+    }
 
-  .contact-info {
-      display: flex;
-      flex: 1 1 0px;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-content: flex-start;
-      align-items: flex-start;
-  }
-  .contact-info a {
-      @include button;
-      z-index: 10;
-  }
+    .contact-info {
+        display: flex;
+        flex: 1 1 0px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: flex-start;
+    }
+    .contact-info a {
+        @include button;
+        z-index: 10;
+    }
 
-  .email,
-  .phone,
-  .consultation {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: var(--space-xs);
+    .email,
+    .phone,
+    .consultation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-xs);
 
-      color: var(--color-primary-blue-03);
+        color: var(--color-primary-blue-03);
 
-      .icon {
-          flex-shrink: 0;
-      }
-  }
+        .icon {
+            flex-shrink: 0;
+        }
+    }
 
-  &.subject-librarian-item {
-      border-bottom: 2px dotted var(--color-secondary-grey-02);
-      padding-left: 0;
-      padding-right: 0;
+    &.subject-librarian-item {
+        border-bottom: 2px dotted var(--color-secondary-grey-02);
+        padding-left: 0;
+        padding-right: 0;
 
-      &:last-child {
-          border-bottom: 0;
-      }
-  }
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
 
-  // Hover states
-  @media #{$has-hover} {
-      .staff-name:hover,
-      .is-link:hover {
-          @include link-hover;
-      }
-  }
+    // Hover states
+    @media #{$has-hover} {
+        .staff-name:hover,
+        .is-link:hover {
+            @include link-hover;
+        }
+    }
 
-  // Breakpoints
-  @media #{$medium} {
-      align-items: flex-start;
+    // Breakpoints
+    @media #{$medium} {
+        align-items: flex-start;
 
-      .image,
-      .no-image {
-          --image-size: 220px;
-          flex-shrink: 0;
-      }
+        .image,
+        .no-image {
+            --image-size: 220px;
+            flex-shrink: 0;
+        }
 
-      .job-title,
-      .department,
-      .contact-info {
-          font-size: 18px;
-      }
+        .job-title,
+        .department,
+        .contact-info {
+            font-size: 18px;
+        }
 
-      .contact-info .icon {
-          width: 28px;
-          height: 28px;
-      }
-  }
-  @media #{$small} {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-content: flex-start;
-      align-items: flex-start;
-      gap: 0px;
+        .contact-info .icon {
+            width: 28px;
+            height: 28px;
+        }
+    }
+    @media #{$small} {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: flex-start;
+        gap: 0px;
 
-      border: 0;
-      margin: unset;
+        border: 0;
+        margin: unset;
 
-      .academic-department {
-          margin-bottom: 4px;
-      }
+        .academic-department {
+            margin-bottom: 4px;
+        }
 
-      &.subject-librarian-item {
-          border-bottom: 2px dotted var(--color-secondary-grey-02);
-          padding-left: 0;
-          padding-right: 0;
+        &.subject-librarian-item {
+            border-bottom: 2px dotted var(--color-secondary-grey-02);
+            padding-left: 0;
+            padding-right: 0;
 
-          &:last-child {
-              border-bottom: 0;
-          }
-      }
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
 
-      .image,
-      .no-image {
-          display: none;
-      }
+        .image,
+        .no-image {
+            display: none;
+        }
 
-      .meta {
-          width: 100%;
-      }
-  }
+        .meta {
+            width: 100%;
+        }
+    }
 }
 </style>
