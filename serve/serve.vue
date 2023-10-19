@@ -8,6 +8,7 @@ import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
 import BlockCardWithIllustration from '@/lib-components/BlockCardWithIllustration.vue'
 import BlockDate from '@/lib-components/BlockDate.vue'
 import BlockEvent from '@/lib-components/BlockEvent.vue'
+import BlockGenericList from '@/lib-components/BlockGenericList.vue'
 import BlockMediaWithText from '@/lib-components/BlockMediaWithText.vue'
 import BlockSimpleCard from '@/lib-components/BlockSimpleCard.vue'
 import BlockSpaces from '@/lib-components/BlockSpaces.vue'
@@ -143,6 +144,39 @@ const mockStaff = {
     {
       title: 'DIIT',
       to: 'location/bar',
+    },
+  ],
+}
+
+const mockStaff2 = {
+  title: 'Humanities and Social Sciences Librarian',
+  alternativeFullName: '陳餘敏卿纪念基金',
+  language: 'zh',
+  text:
+        '<p><span>The UCLA Library seeks a highly collaborative, user-focused professional for the position of Humanities and Social Sciences Librarian. The incumbent will join a multi-location, cross disciplinary team that supports teaching and all levels of research in the humanities and social sciences. </span><span>Note: Two positions are being filled.</span><br /></p>',
+  jobType: [
+    {
+      title: 'Academic Librarian',
+    },
+  ],
+  jobRequisitionNumber: 'JPF08053',
+  jobPostingURL: 'https://recruit.apo.ucla.edu/JPF08053',
+  department: [
+    {
+      title: 'User Engagement',
+    },
+    {
+      title: 'Human Resources',
+    },
+  ],
+  associatedLocations: [
+    {
+      title: 'UCLA Film & Television Archive',
+      uri: 'visit/locations/film-television-archive',
+    },
+    {
+      title: 'Powell Library',
+      uri: 'visit/locations/powell-library',
     },
   ],
 }
@@ -415,6 +449,11 @@ const mockStaff = {
     <br>
     <h2>BlockStaffSubjectLibrarian Component</h2>
     <BlockStaffSubjectLibrarian v-bind="mockStaff" />
+    <br>
+    <hr>
+    <br>
+    <h2>BlockGenericList Component</h2>
+    <BlockGenericList v-bind="mockStaff2" />
     <br>
     <hr>
     <br>

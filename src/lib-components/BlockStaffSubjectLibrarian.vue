@@ -1,10 +1,9 @@
 <script lang="ts" setup>
 import { computed, defineAsyncComponent } from 'vue'
+import type { PropType } from 'vue'
 
 // UTILITY FUNCTIONS
 import _isEmpty from 'lodash/isEmpty'
-
-import type { PropType } from 'vue'
 
 import type { DepartmentItemType, LocationItemType } from '@/types/types'
 
