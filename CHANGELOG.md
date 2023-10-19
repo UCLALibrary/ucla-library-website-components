@@ -1,3 +1,10 @@
+## [2.41.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.2...v2.41.3) (2023-10-19)
+
+
+### Bug Fixes
+
+* change ucla library website to site search ([#413](https://github.com/UCLALibrary/ucla-library-website-components/issues/413)) ([0d7042a](https://github.com/UCLALibrary/ucla-library-website-components/commit/0d7042a0015f0c48aad577f73da1c2e33c804429))
+
 ## [2.41.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.1...v2.41.2) (2023-10-16)
 
 
