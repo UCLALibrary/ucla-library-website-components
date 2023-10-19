@@ -63,10 +63,10 @@ import SearchInput from "./SearchInput.vue"
 
 const tabs = [
     {
-        title: "UCLA Library Website",
+        title: "Site Search",
         actionURL: "/search-site",
         queryParam: "q",
-        placeholder: "Search library website",
+        placeholder: "Search the library website",
     },
     {
         title: "UC Library Search",
