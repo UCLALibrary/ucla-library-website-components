@@ -1,13 +1,12 @@
 <script lang="ts" setup>
 import { computed, defineAsyncComponent } from 'vue'
 
-// import type { PropType } from 'vue'
-
-// import type { AmenitiesItemType } from '@/types/types'
+import type { PropType } from 'vue'
+import type { AmenitiesItemType } from '@/types/types'
 
 const props = defineProps({
   amenities: {
-    type: Array,
+    type: Array as PropType<AmenitiesItemType[]>,
     default: () => [],
   }
 })
@@ -40,130 +39,27 @@ const SvgIconBook = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-book.svg')
 )
 
-// const amenitiesMapping = {
-//   'icon-clock': '24 Hour Study Space',
-//   'icon-accessible': 'ADA Stations',
-//   'icon-chair': 'Cafe',
-//   'icon-virtual': 'Computer/Laptop Access',
-//   'icon-laptop': 'Laptop Lending',
-//   'icon-locker': 'Lockers',
-//   'icon-light': 'Makerspace',
-//   'icon-share-printer': 'Print, Copy and Scan',
-//   'icon-book': 'Research Help',
-// }
 const amenitiesMapping = {
-  'icon-clock': ['24 Hour Study Space', SvgIconClock],
-  'icon-accessible': ['ADA Stations', SvgIconAccessible],
-  'icon-chair': ['Cafe', SvgIconChair],
-  'icon-virtual': ['Computer/Laptop Access', SvgIconVirtual],
-  'icon-laptop': ['Laptop Lending', SvgIconLaptop],
-  'icon-locker': ['Locker', SvgIconLocker],
-  'icon-light': ['Makerspace', SvgIconLight],
-  'icon-share-printer': ['Print, Copy and Scan', SvgIconSharePrinter],
-  'icon-book': ['Research Help', SvgIconBook],
+  'icon-clock': [SvgIconClock, '24 Hour Study Space'],
+  'icon-accessible': [SvgIconAccessible, 'ADA Stations'],
+  'icon-chair': [SvgIconChair, 'Cafe'],
+  'icon-virtual': [SvgIconVirtual, 'Computer/Laptop Access'],
+  'icon-laptop': [SvgIconLaptop, 'Laptop Lending'],
+  'icon-locker': [SvgIconLocker, 'Locker'],
+  'icon-light': [SvgIconLight, 'Makerspace'],
+  'icon-share-printer': [SvgIconSharePrinter, 'Print, Copy and Scan'],
+  'icon-book': [SvgIconBook, 'Research Help'],
 }
 
-// eslint-disable-next-line no-console
-console.log(props.amenities)
-
 const parsedAmenities = computed(() => {
-  return props.amenities.map((obj) => {
-    const label = amenitiesMapping[obj]
-    // eslint-disable-next-line no-console
-    console.log(obj)
+  return props.amenities.map((key) => {
+    const amenitiesItem = amenitiesMapping[key as keyof typeof amenitiesMapping]
     return {
-      svgLabel: label[0],
-      svgIcon: label[1],
+      svgIcon: amenitiesItem[0],
+      svgLabel: amenitiesItem[1]
     }
   })
 })
-
-// export default {
-//   // TO DO import all amenitites svgs
-//   name: 'BlockAmenities',
-//   components: {
-//     // 24 Hour Study Space - icon-clock
-//     IconClock: () =>
-//       import(
-//         'ucla-library-design-tokens/assets/svgs/icon-clock.svg'
-//       ).then(d => d.default),
-
-//     // ADA Stations - icon-accessible
-//     IconAccessible: () =>
-//       import(
-//         'ucla-library-design-tokens/assets/svgs/icon-accessible.svg'
-//       ).then(d => d.default),
-//     // Cafe - icon-chair
-//     IconChair: () =>
-//       import(
-//         'ucla-library-design-tokens/assets/svgs/icon-chair.svg'
-//       ).then(d => d.default),
-//     // Computer/Laptop Access - icon-virtual
-//     IconVirtual: () =>
-//       import(
-//         'ucla-library-design-tokens/assets/svgs/icon-virtual.svg'
-//       ).then(d => d.default),
-//     // Laptop Lending - icon-laptop
-//     IconLaptop: () =>
-//       import(
-//         'ucla-library-design-tokens/assets/svgs/icon-laptop.svg'
-//       ).then(d => d.default),
-//     // Lockers - icon-locker
-//     IconLocker: () =>
-//       import(
-//         'ucla-library-design-tokens/assets/svgs/icon-locker.svg'
-//       ).then(d => d.default),
-//     // Makerspace - icon-light
-//     IconLight: () =>
-//       import(
-//         'ucla-library-design-tokens/assets/svgs/icon-light.svg'
-//       ).then(d => d.default),
-//     // Printing, Scanning, and Copying - icon-share-printer
-//     IconSharePrinter: () =>
-//       import(
-//         'ucla-library-design-tokens/assets/svgs/icon-share-printer.svg'
-//       ).then(d => d.default),
-//     // Research Help -  icon-book
-//     IconBook: () =>
-//       import('ucla-library-design-tokens/assets/svgs/icon-book.svg').then(
-//         d => d.default
-//       ),
-//   },
-//   props: {
-//     amenities: {
-//       type: Array,
-//       default: () => [],
-//     },
-//   },
-//   data() {
-//     return {
-//       amenitiesMapping: {
-//         'icon-clock': '24 Hour Study Space',
-//         'icon-accessible': 'ADA Stations',
-//         'icon-chair': 'Cafe',
-//         'icon-virtual': 'Computer/Laptop Access',
-//         'icon-laptop': 'Laptop Lending',
-//         'icon-locker': 'Lockers',
-//         'icon-light': 'Makerspace',
-//         'icon-share-printer': 'Print, Copy and Scan',
-//         'icon-book': 'Research Help',
-//       },
-//     }
-//   },
-//   computed: {
-//     parsedAmenities() {
-//       return this.amenities.map((obj) => {
-//         const label = this.amenitiesMapping[obj]
-//         // console.log(obj)
-//         // console.log(label)
-//         return {
-//           svgLabel: label,
-//           svgIcon: obj,
-//         }
-//       })
-//     },
-//   },
-// }
 </script>
 
 <template>

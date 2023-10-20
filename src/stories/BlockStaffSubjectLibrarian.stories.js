@@ -1,7 +1,5 @@
 import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian'
 
-// A storybook decorator that allows you to use routing-aware components in your stories
-
 // Storybook default settings
 export default {
   title: 'BLOCK / Staff / SubjectLibrarian',
