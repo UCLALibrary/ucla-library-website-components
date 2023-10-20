@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/no-v-html -->
 <script>
 import { defineAsyncComponent } from 'vue'
 import { mapState } from 'pinia'
@@ -125,8 +124,8 @@ export default {
 <template>
   <div :class="classes">
     <component :is="parsedContent.svgName" class="svg" aria-hidden="true" />
-    <h2 class="title" v-html="parsedContent.title" />
-    <div class="text" v-html="parsedContent.text" />
+    <h2 class="title" v-text="parsedContent.title" />
+    <div class="text" v-text="parsedContent.text" />
     <ButtonLink
       v-if="!isDark" :label="parsedContent.label" :to="parsedContent.to" :is-secondary="true"
       class="button-link"

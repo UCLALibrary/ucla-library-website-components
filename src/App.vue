@@ -479,6 +479,7 @@ const mockAmenities = {
   <hr>
   <br>
   <h2>BlockGenericList Component</h2>
+  <br>
   <ul>
     <BlockGenericList v-bind="mockStaff2" />
   </ul>
@@ -486,6 +487,7 @@ const mockAmenities = {
   <hr>
   <br>
   <h2>BlockAmenities Component</h2>
+  <br>
   <BlockAmenities v-bind="mockAmenities" />
   <br>
   <hr>
