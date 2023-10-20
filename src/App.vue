@@ -6,6 +6,7 @@ import SiteBrandBar from './lib-components/SiteBrandBar.vue'
 import BlockShowHide from './lib-components/BlockShowHide.vue'
 import BlockStaffSubjectLibrarian from './lib-components/BlockStaffSubjectLibrarian.vue'
 import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
+import BlockAmenities from '@/lib-components/BlockAmenities.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
 import BlockCardWithIllustration from '@/lib-components/BlockCardWithIllustration.vue'
@@ -180,6 +181,20 @@ const mockStaff2 = {
       title: 'Powell Library',
       uri: 'visit/locations/powell-library',
     },
+  ],
+}
+
+const mockAmenities = {
+  amenities: [
+    'icon-clock',
+    'icon-accessible',
+    'icon-chair',
+    'icon-virtual',
+    'icon-laptop',
+    'icon-locker',
+    'icon-light',
+    'icon-share-printer',
+    'icon-book',
   ],
 }
 </script>
@@ -455,12 +470,23 @@ const mockStaff2 = {
   <hr>
   <br>
   <h2>BlockStaffSubjectLibrarian Component</h2>
-  <BlockStaffSubjectLibrarian v-bind="mockStaff" />
+  <table>
+    <tbody>
+      <BlockStaffSubjectLibrarian v-bind="mockStaff" />
+    </tbody>
+  </table>
   <br>
   <hr>
   <br>
   <h2>BlockGenericList Component</h2>
-  <BlockGenericList v-bind="mockStaff2" />
+  <ul>
+    <BlockGenericList v-bind="mockStaff2" />
+  </ul>
+  <br>
+  <hr>
+  <br>
+  <h2>BlockAmenities Component</h2>
+  <BlockAmenities v-bind="mockAmenities" />
   <br>
   <hr>
   <br>

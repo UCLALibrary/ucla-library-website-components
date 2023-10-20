@@ -1,13 +1,16 @@
 // custom types
+export type AmenitiesItemType = string
+
 export interface DepartmentItemType {
-  id: string
+  id?: string
   title: string
+  to?: string
 }
 
 export interface LocationItemType {
   id?: string
   title: string
-  to: string
+  to?: string
 }
 
 export interface MediaItemType {

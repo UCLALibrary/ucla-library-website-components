@@ -1,11 +1,82 @@
 <script lang="ts" setup>
 import { computed, defineAsyncComponent } from 'vue'
 
-const props = defineProps({})
+// import type { PropType } from 'vue'
+
+// import type { AmenitiesItemType } from '@/types/types'
+
+const props = defineProps({
+  amenities: {
+    type: Array,
+    default: () => [],
+  }
+})
 
 const SvgIconClock = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-clock.svg')
 )
+const SvgIconAccessible = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-accessible.svg')
+)
+const SvgIconChair = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-chair.svg')
+)
+const SvgIconVirtual = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-virtual.svg')
+)
+const SvgIconLaptop = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-laptop.svg')
+)
+const SvgIconLocker = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-locker.svg')
+)
+const SvgIconLight = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-light.svg')
+)
+const SvgIconSharePrinter = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-share-printer.svg')
+)
+const SvgIconBook = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-book.svg')
+)
+
+// const amenitiesMapping = {
+//   'icon-clock': '24 Hour Study Space',
+//   'icon-accessible': 'ADA Stations',
+//   'icon-chair': 'Cafe',
+//   'icon-virtual': 'Computer/Laptop Access',
+//   'icon-laptop': 'Laptop Lending',
+//   'icon-locker': 'Lockers',
+//   'icon-light': 'Makerspace',
+//   'icon-share-printer': 'Print, Copy and Scan',
+//   'icon-book': 'Research Help',
+// }
+const amenitiesMapping = {
+  'icon-clock': ['24 Hour Study Space', SvgIconClock],
+  'icon-accessible': ['ADA Stations', SvgIconAccessible],
+  'icon-chair': ['Cafe', SvgIconChair],
+  'icon-virtual': ['Computer/Laptop Access', SvgIconVirtual],
+  'icon-laptop': ['Laptop Lending', SvgIconLaptop],
+  'icon-locker': ['Locker', SvgIconLocker],
+  'icon-light': ['Makerspace', SvgIconLight],
+  'icon-share-printer': ['Print, Copy and Scan', SvgIconSharePrinter],
+  'icon-book': ['Research Help', SvgIconBook],
+}
+
+// eslint-disable-next-line no-console
+console.log(props.amenities)
+
+const parsedAmenities = computed(() => {
+  return props.amenities.map((obj) => {
+    const label = amenitiesMapping[obj]
+    // eslint-disable-next-line no-console
+    console.log(obj)
+    return {
+      svgLabel: label[0],
+      svgIcon: label[1],
+    }
+  })
+})
 
 // export default {
 //   // TO DO import all amenitites svgs
@@ -104,7 +175,7 @@ const SvgIconClock = defineAsyncComponent(() =>
       <ul class="amenities-list">
         <li
           v-for="(item, index) in parsedAmenities"
-          :key="index"
+          :key="`${item.svgLabel}-${index}`"
           class="amenitiy-row"
         >
           <component :is="item.svgIcon" v-if="item.svgIcon" />
@@ -151,13 +222,13 @@ const SvgIconClock = defineAsyncComponent(() =>
   }
 
   // Adjusts: Svg shareprinter to white bg and blue stroke
-  :deep (.svg__fill--secondary-grey-01) {
+  :deep(.svg__fill--secondary-grey-01) {
       fill: var(--color-white);
   }
-  :deep (.svg__stroke--black) {
+  :deep(.svg__stroke--black) {
       stroke: var(--color-primary-blue-03);
   }
-  :deep (.svg__fill--black) {
+  :deep(.svg__fill--black) {
       fill: var(--color-primary-blue-03);
   }
 
