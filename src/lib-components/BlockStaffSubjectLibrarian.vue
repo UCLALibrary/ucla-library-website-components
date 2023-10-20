@@ -3,7 +3,6 @@ import { computed, defineAsyncComponent } from 'vue'
 import type { PropType } from 'vue'
 
 // UTILITY FUNCTIONS
-import _isEmpty from 'lodash/isEmpty'
 
 import type { DepartmentItemType, LocationItemType } from '@/types/types'
 
