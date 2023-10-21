@@ -53,6 +53,7 @@ export default {
     },
   },
   mounted() {
+    // console.log("In mounted:" + this.isSelected)
   },
   methods: {
     // eslint-disable-next-line unused-imports/no-unused-vars
@@ -72,11 +73,7 @@ export default {
   <div class="single-checkbox">
     <label :class="labelClass">{{ label }}
       <input
-        v-model="parseSelected"
-        type="checkbox"
-        class="input"
-        :true-value="value"
-        :value="value"
+        v-model="parseSelected" type="checkbox" class="input" :true-value="value" :value="value"
         @change="onChange(value)"
       >
 
@@ -87,73 +84,77 @@ export default {
 
 <style lang="scss" scoped>
 .single-checkbox {
-    min-width: 300px;
-    // padding: 18px 16px 18px 16px;
-    background: var(--color-primary-blue-03);
-    color: white;
+  min-width: 300px;
+  // padding: 18px 16px 18px 16px;
+  background: var(--color-primary-blue-03);
+  color: white;
+  font-family: var(--font-secondary);
+
+  .label {
     font-family: var(--font-secondary);
-    .label {
-        font-family: var(--font-secondary);
-        display: inline-block;
-        width: 100%;
-        padding: 15px 16px 15px 16px;
-        // margin: 4px 0;
-        // padding: 6px 14px 8px 45px;
-        cursor: pointer;
-        position: relative;
-        border: 1.5px solid var(--color-primary-blue-03);
-        transition-duration: 400ms;
-        transition-timing-function: ease-in-out;
+    display: inline-block;
+    width: 100%;
+    padding: 15px 16px 15px 16px;
+    // margin: 4px 0;
+    // padding: 6px 14px 8px 45px;
+    cursor: pointer;
+    position: relative;
+    border: 1.5px solid var(--color-primary-blue-03);
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
+  }
+
+  .input {
+    height: 20px;
+    width: 20px;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+  }
+
+  .svg {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+
+    .filler {
+      opacity: 0;
+      transition: opacity 200ms ease-in-out;
+    }
+  }
+
+  .svg__icon-checkbox {
+    :deep .svg__stroke--default-cyan-03 {
+      stroke: transparent;
     }
 
-    .input {
-        height: 20px;
-        width: 20px;
-        opacity: 0;
-        position: absolute;
-        z-index: -1;
-        margin: 0;
-        padding: 0;
+    :deep .svg__stroke--primary-blue-03 {
+      stroke: white;
     }
+  }
 
-    .svg {
-        position: absolute;
-        right: 20px;
-        top: 15px;
-        .filler {
-            opacity: 0;
-            transition: opacity 200ms ease-in-out;
-        }
-    }
+  .checked {
+    border: 1.5px solid var(--color-default-cyan-03);
+  }
 
-    .svg__icon-checkbox {
-        :deep .svg__stroke--default-cyan-03 {
-            stroke: transparent;
-        }
-        :deep .svg__stroke--primary-blue-03 {
-            stroke: white;
-        }
-    }
+  // Selected state
+  .input:checked+.svg__icon-checkbox :deep .svg__stroke--default-cyan-03 {
+    stroke: white;
+  }
 
-    .checked {
-        border: 1.5px solid var(--color-default-cyan-03);
+  // Hovers
+  @media #{$has-hover} {
+    .label:hover {
+      //background-color: rgba(255, 255, 255, 0.1);
+      background-color: var(--color-primary-blue-04);
     }
+  }
 
-    // Selected state
-    .input:checked + .svg__icon-checkbox :deep .svg__stroke--default-cyan-03 {
-        stroke: white;
-    }
-    // Hovers
-    @media #{$has-hover} {
-        .label:hover {
-            //background-color: rgba(255, 255, 255, 0.1);
-            background-color: var(--color-primary-blue-04);
-        }
-    }
-
-    //Breakpoints
-    @media #{$small} {
-        min-width: unset;
-    }
+  //Breakpoints
+  @media #{$small} {
+    min-width: unset;
+  }
 }
 </style>

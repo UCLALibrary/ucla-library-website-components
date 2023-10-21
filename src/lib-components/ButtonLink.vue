@@ -94,7 +94,7 @@ export default {
       else if (isInternalLink(this.to))
         output = 'svg-arrow-right'
       else if (this.iconName === 'none')
-        output = ''
+        output = 'none'
       else if (this.iconName)
         output = this.iconName
       else output = 'svg-external-link'
@@ -107,6 +107,7 @@ export default {
 <template>
   <SmartLink :to="to" :class="classes" :is-download="isDownload" :link-target="linkTarget">
     <span class="label">{{ label }}</span>
+
     <component :is="parsedIconName" class="arrow" aria-hidden="true" />
     <div class="hover">
       <span class="label">{{ label }}</span>

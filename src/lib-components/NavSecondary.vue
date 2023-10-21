@@ -1,84 +1,81 @@
-<template>
-    <nav aria-label="Secondary Navigation" class="nav-secondary">
-        <div :class="classes">
-            <a href="https://www.library.ucla.edu" v-if="isMicrosite" target="_blank" aria-label="UCLA Library home page">
-                <svg-logo-ucla-library class="svg logo-ucla" alt="UCLA Library logo blue" />
-            </a>
+<script setup>
+// components
+import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
+import { computed } from 'vue'
+import SmartLink from '@/lib-components/SmartLink'
+import ButtonLink from '@/lib-components/ButtonLink'
 
-            <div class="navigation-list">
-                <ul class="list" v-if="!isMicrosite">
-                    <li v-for="(item, index) in parsedItemsMinusAccount" :key="index" :class="item.classes">
-                        <smart-link class="link underline-hover" :to="item.to" :linkTarget="item.target">
-                            {{ item.name }}
-                        </smart-link>
-                    </li>
-                </ul>
+// vue
 
-                <button-link v-if="!isMicrosite" :label="accountLink.name" class="account-button"
-                    :linkTarget="accountLink.target" :to="accountLink.to" :is-secondary="true" icon-name="none" />
+const { items, isMicrosite } = defineProps({
+  items: {
+    type: Array,
+    default: () => [],
+  },
+  isMicrosite: {
+    type: Boolean,
+    default: false,
+  },
+})
 
-                <ul class="link-list" v-if="isMicrosite">
-                    <li v-for="(item, index) in parsedLinks" :key="index" :class="item.classes">
-                        <smart-link class="link underline-hover" :to="item.to" :linkTarget="item.target">
-                            {{ item.name }}
-                        </smart-link>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</template>
-
-<script>
-import SvgLogoUclaLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
-// Helpers
-import SmartLink from "@/lib-components/SmartLink"
-import ButtonLink from "@/lib-components/ButtonLink"
-
-export default {
-    name: "NavSecondary",
-    components: {
-        SvgLogoUclaLibrary,
-        SmartLink,
-        ButtonLink,
-    },
-    props: {
-        items: {
-            type: Array,
-            default: () => [],
-        },
-        isMicrosite: {
-            type: Boolean,
-            default: false,
-        },
-    },
-    computed: {
-        classes() {
-            return [
-                "flex-container",
-                { "flex-container-not-microsite": !this.isMicrosite },
-                { "flex-container-microsite": this.isMicrosite },
-            ]
-        },
-        parsedLinks() {
-            return this.items.map((obj) => {
-                let support = "list-item"
-                if (obj.classes) support = `${support} ${obj.classes}`
-                return {
-                    ...obj,
-                    classes: support,
-                }
-            })
-        },
-        parsedItemsMinusAccount() {
-            return this.parsedLinks.slice(0, -1)
-        },
-        accountLink() {
-            return this.parsedLinks[this.parsedLinks.length - 1]
-        },
-    },
-}
+const classes = computed(() => {
+  return [
+    'flex-container',
+    { 'flex-container-not-microsite': !isMicrosite },
+    { 'flex-container-microsite': isMicrosite },
+  ]
+})
+const parsedLinks = computed(() => {
+  return items.map((obj) => {
+    let support = 'list-item'
+    if (obj.classes)
+      support = `${support} ${obj.classes}`
+    return {
+      ...obj,
+      classes: support,
+    }
+  })
+})
+const parsedItemsMinusAccount = computed(() => {
+  return parsedLinks.value.slice(0, -1)
+})
+const accountLink = computed(() => {
+  return parsedLinks.value[parsedLinks.value.length - 1]
+})
 </script>
+
+<template>
+  <nav aria-label="Secondary Navigation" class="nav-secondary">
+    <div :class="classes">
+      <a v-if="isMicrosite" href="https://www.library.ucla.edu" target="_blank" aria-label="UCLA Library home page">
+        <SvgLogoUclaLibrary class="svg logo-ucla" alt="UCLA Library logo blue" />
+      </a>
+
+      <div class="navigation-list">
+        <ul v-if="!isMicrosite" class="list">
+          <li v-for="(item, index) in parsedItemsMinusAccount" :key="index" :class="item.classes">
+            <SmartLink class="link underline-hover" :to="item.to" :link-target="item.target">
+              {{ item.name }}
+            </SmartLink>
+          </li>
+        </ul>
+
+        <ButtonLink
+          v-if="!isMicrosite" :label="accountLink.name" class="account-button"
+          :link-target="accountLink.target" :to="accountLink.to" :is-secondary="true"
+        />
+
+        <ul v-if="isMicrosite" class="link-list">
+          <li v-for="(item, index) in parsedLinks" :key="index" :class="item.classes">
+            <SmartLink class="link underline-hover" :to="item.to" :link-target="item.target">
+              {{ item.name }}
+            </SmartLink>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</template>
 
 <style lang="scss" scoped>
 .nav-secondary {

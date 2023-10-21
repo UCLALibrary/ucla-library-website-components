@@ -1,163 +1,128 @@
+<script setup>
+import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
+import { computed, onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import SmartLink from '@/lib-components/SmartLink'
+import NavMenuItem from '@/lib-components/NavMenuItem'
+
+const { items, currentPath, title, acronym } = defineProps({
+    items: {
+        type: Array,
+        default: () => [],
+    },
+    currentPath: {
+        type: String,
+        default: '',
+    },
+    title: {
+        type: String,
+        default: '',
+    },
+    acronym: {
+        type: String,
+        default: '',
+    },
+})
+
+const route = useRoute()
+const isOpened = ref(false)
+const activeMenuIndex = ref(-1)
+
+const classes = computed(() => [
+    'nav-primary',
+    { 'is-opened': isOpened.value },
+    { 'not-hovered': activeMenuIndex.value === -1 },
+    { 'has-title': title },
+    { 'has-acronym': acronym },
+])
+const shouldRenderSmartLink = computed(() => title || acronym)
+const noChildren = computed(() => {
+    if (!title) return []
+    return items.filter((item) => !item.children || !item.children.length)
+})
+
+const supportLinks = computed(() => {
+    return items.filter((item) => !item.children || !item.children.length)
+})
+
+const currentPathActiveIndex = computed(() => {
+    const currentPathNew = currentPath || route.path
+    return items.findIndex((item) => currentPathNew.includes(item.url))
+})
+
+const parsedItems = computed(() =>
+    items
+        .filter((item) => item.children && item.children.length)
+        .map((item, index) => ({
+            ...item,
+            isActive: index === activeMenuIndex.value,
+        }))
+)
+
+onMounted(() => {
+    activeMenuIndex.value = currentPathActiveIndex.value
+})
+
+const toggleMenu = () => {
+    isOpened.value = !isOpened.value
+    if (!isOpened.value) {
+        document.body.setAttribute('tabindex', '-1')
+        document.body.focus()
+        document.body.removeAttribute('tabindex')
+    }
+}
+
+const setActive = (index) => {
+    activeMenuIndex.value = index
+}
+
+const clearActive = () => {
+    activeMenuIndex.value = currentPathActiveIndex.value
+}
+</script>
+
 <template>
-    <nav aria-label="Primary  Navigation" :class="classes">
+    <nav aria-label="Primary Navigation" :class="classes">
         <div class="item-top">
-            <smart-link to="/" :aria-label="title ? '' : `UCLA Library home page`" v-if="items && items.length > 0">
+            <SmartLink v-if="shouldRenderSmartLink" to="/" :aria-label="title ? '' : `UCLA Library home page`">
                 <div v-if="title" class="title">
                     <span class="full-title"> {{ title }} </span>
-                    <span class="acronym" v-if="acronym"> {{ acronym }} </span>
+                    <span v-if="acronym" class="acronym"> {{ acronym }} </span>
                 </div>
-                <svg-logo-ucla-library v-else class="svg logo-ucla" alt="UCLA Library logo blue" />
-            </smart-link>
-            <a href="/" :aria-label="title ? '' : `UCLA Library home page`" v-else>
+                <SvgLogoUclaLibrary v-else class="svg logo-ucla" alt="UCLA Library logo blue" />
+            </SmartLink>
+            <a v-else href="/" :aria-label="title ? '' : `UCLA Library home page`">
                 <div v-if="title" class="title">
                     <span class="full-title"> {{ title }} </span>
-                    <span class="acronym" v-if="acronym"> {{ acronym }} </span>
+                    <span v-if="acronym" class="acronym"> {{ acronym }} </span>
                 </div>
-                <svg-logo-ucla-library v-else class="svg logo-ucla" alt="UCLA Library logo blue" />
+                <SvgLogoUclaLibrary v-else class="svg logo-ucla" alt="UCLA Library logo blue" />
             </a>
         </div>
 
         <ul class="menu">
-            <nav-menu-item v-for="(item, index) in parsedItems" :key="item.id" :item="item" :is-active="item.isActive"
-                :is-opened="isOpened" @click.native="toggleMenu" @mouseover.native="setActive(index)"
-                @mouseleave.native="clearActive" />
-            <li v-for="(item, index) in noChildren" class="nochildren-links" :key="index">
-                <smart-link class="nochildren-link underline-hover" :to="item.to" :linkTarget="item.target">
+            <NavMenuItem v-for="(item, index) in parsedItems" :key="item.name" :item="item" :is-active="item.isActive"
+                :is-opened="isOpened" @click="toggleMenu" @mouseover="setActive(index)" @mouseleave="clearActive" />
+            <li v-for="(item, index) in noChildren" :key="index" class="nochildren-links">
+                <SmartLink class="nochildren-link underline-hover" :to="item.to" :link-target="item.target">
                     {{ item.name }}
-                </smart-link>
+                </SmartLink>
             </li>
         </ul>
 
         <div v-if="!title" class="support-links">
             <div v-for="(item, index) in supportLinks" :key="index" class="item-top">
-                <smart-link class="support-link underline-hover" :to="item.to">
+                <SmartLink class="support-link underline-hover" :to="item.to">
                     {{ item.name }}
-                </smart-link>
+                </SmartLink>
             </div>
         </div>
 
         <div class="background-white" />
         <div v-if="isOpened" class="background-blue" @click="toggleMenu" />
-
         <div v-if="isOpened" class="click-blocker" @click="toggleMenu" />
     </nav>
 </template>
-
-<script>
-import SvgLogoUclaLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
-import SmartLink from "@/lib-components/SmartLink"
-import NavMenuItem from "@/lib-components/NavMenuItem"
-
-// TODO Handle "click outside" event to close menu. Or just add a "click-blocker" DIV to the page.
-// SEE https://stackoverflow.com/questions/53013471/vuejs-2-custom-directive-to-close-when-clicked-outside-not-working
-
-export default {
-    name: "NavPrimary",
-    components: {
-        SvgLogoUclaLibrary,
-        SmartLink,
-        NavMenuItem,
-    },
-    props: {
-        items: {
-            // This is an array of objects, with each object shaped like {name, url, items:[{text, to, target}]}
-            type: Array,
-            default: () => [],
-        },
-        currentPath: {
-            type: String,
-            default: "",
-        },
-        title: {
-            type: String,
-            default: "",
-        },
-        acronym: {
-            type: String,
-            default: "",
-        },
-    },
-    data() {
-        return {
-            isOpened: false,
-            activeMenuIndex: -1,
-        }
-    },
-    computed: {
-        classes() {
-            return [
-                "nav-primary",
-                { "is-opened": this.isOpened },
-                { "not-hovered": this.activeMenuIndex == -1 },
-                { "has-title": this.title },
-                { "has-acronym": this.acronym },
-            ]
-        },
-        noChildren() {
-            if (!this.title) {
-                return []
-            }
-
-            return this.items.filter((obj) => {
-                // Return items that don't have sub-menu children
-                return !obj.children || !obj.children.length
-            })
-        },
-        supportLinks() {
-            // Generally this is just the last "Support Us" link, but we are going to allwo it to be more than 1
-            return this.items.filter((obj) => {
-                // Return items that don't have sub-menu children
-                return !obj.children || !obj.children.length
-            })
-        },
-        currentPathActiveIndex() {
-            // Find the index for the active menu item based on current route URL
-            const currentPath = this.currentPath || this.$route.path
-            return this.items.findIndex((obj, index) => {
-                return currentPath.includes(obj.url)
-            })
-        },
-        parsedItems() {
-            // Add an isActive property to all menu items
-            const items = this.items.map((obj, index) => {
-                if (obj.children) {
-                    return {
-                        ...obj,
-                        isActive: index == this.activeMenuIndex,
-                    }
-                }
-            })
-
-            // Return only items that have children (assume these are dropdowns)
-            return items.filter((obj) => {
-                return obj.children && obj.children.length
-            })
-        },
-    },
-    mounted() {
-        this.activeMenuIndex = this.currentPathActiveIndex
-    },
-    methods: {
-        toggleMenu() {
-            this.isOpened = !this.isOpened
-            if (!this.isOpened) {
-                // clear focus after clicking to allow menu to close
-                document.body.setAttribute("tabindex", "-1")
-                document.body.focus()
-                document.body.removeAttribute("tabindex")
-            }
-        },
-        setActive(index) {
-            // On hover, set current active menu item
-            this.activeMenuIndex = index
-        },
-        clearActive() {
-            // Reset active item back to the one from the route URL
-            this.activeMenuIndex = this.currentPathActiveIndex
-        },
-    },
-}
-</script>
 
 <style lang="scss" scoped>
 .nav-primary {

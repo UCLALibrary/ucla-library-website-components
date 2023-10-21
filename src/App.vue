@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 import BlockMediaWithText from './lib-components/BlockMediaWithText.vue'
 import SiteBrandBar from './lib-components/SiteBrandBar.vue'
@@ -30,6 +30,7 @@ import HeadingArrow from '@/lib-components/HeadingArrow.vue'
 import HelloWorld from '@/lib-components/HelloWorld.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import NavBreadcrumb from '@/lib-components/NavBreadcrumb.vue'
+import NavSecondary from '@/lib-components/NavSecondary.vue'
 import PullQuote from '@/lib-components/PullQuote.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SearchResult from '@/lib-components/SearchResult.vue'
@@ -197,6 +198,46 @@ const mockAmenities = {
     'icon-book',
   ],
 }
+const navSecondaryLinks = {
+  items: [
+    {
+      id: '843',
+      name: 'Locations & Hours',
+      to: '/locations',
+      classes: '',
+    },
+    {
+      id: '844',
+      name: 'Ask a Librarian',
+      to: 'https://external.url/research-teaching-support/research-help',
+      classes: null,
+    },
+    {
+      id: '25315',
+      name: 'Support Us',
+      to: 'https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463',
+      classes: 'support-link',
+      target: '0',
+    },
+    {
+      id: '845',
+      name: 'My Account',
+      to: 'https://search.library.ucla.edu/discovery/login?vid=01UCS_LAL:UCLA',
+      classes: 'account-button',
+      target: '1',
+    },
+  ],
+}
+const items = ref(navSecondaryLinks.items)
+const parsedItems = computed(() => {
+  // Restructuring item to support text key
+  return items.value.map((obj) => {
+    return {
+      ...obj,
+      text: obj.name,
+    }
+  })
+})
 </script>
 
 <template>
@@ -261,7 +302,7 @@ const mockAmenities = {
   <ButtonLink label="Aug id Dignissim" :is-secondary="true" icon-name="svg-arrow-diagonal" to="www.google.com" />
   <br>
   <br>
-  <ButtonLink label="Aug id Dignissim" :is-secondary="true" icon-name="none" to="www.google.com" />
+  <ButtonLink label="Aug id Dignissim" :is-secondary="true" to="www.google.com" />
   <br>
   <br>
   <hr>
@@ -458,6 +499,11 @@ const mockAmenities = {
   <h2>BlockAmenities Component</h2>
   <br>
   <BlockAmenities v-bind="mockAmenities" />
+  <h2>NavSecondary</h2>
+  <br>
+  <hr>
+  <br>
+  <NavSecondary :items="parsedItems" />
   <br>
   <hr>
   <br>

@@ -91,7 +91,7 @@ export function HasGlyph() {
 export function HasExternalGlyph() {
   return {
     components: { ButtonLink },
-    template: '<button-link label="Aug id Dignissim" :isSecondary="true" iconName="svg-arrow-diagonal" to=\'www.google.com\'/>',
+    template: '<button-link label="Aug id Dignissim" :isSecondary="true" iconName="svg-external-link" to=\'www.google.com\'/>',
   }
 }
 

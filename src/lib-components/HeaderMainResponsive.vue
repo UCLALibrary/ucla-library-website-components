@@ -1,93 +1,26 @@
-<template>
-    <nav role="navigation" aria-label="Menu" :class="classes">
-        <div v-show="!isOpened" class="collapsed-menu">
-            <smart-link class="clickable-parent" to="/" :aria-label="parseAriaLabel">
-                <div v-if="title" class="title">
-                    <span class="full-title"> {{ title }} </span>
-                    <span class="acronym" v-if="acronym"> {{ acronym }} </span>
-                </div>
-                <component v-else :is="`LogoLibrary`" width="155" height="55" class="logo-ucla" role="button" />
-            </smart-link>
-            <button role="button" class="open-menu" aria-label="Open menu" :is-opened="isOpened" @click="toggleMenu">
-                <component :is="`IconMenu`" class="hamburguer" />
-            </button>
-        </div>
-        <div v-show="isOpened" class="expanded-menu-container">
-            <div class="expanded-menu">
-                <smart-link class="clickable-parent" to="/" :aria-label="parseAriaLabel" @click.native="toggleMenu">
-                    <div v-if="title" class="title opened-title">
-                        <span class="full-title"> {{ title }} </span>
-                        <span class="acronym" v-if="acronym">
-                            {{ acronym }}
-                        </span>
-                    </div>
-                    <component v-else :is="`LogoLibrary`" width="155" height="55" class="expanded-logo"
-                        @click="toggleMenu" />
-                </smart-link>
-                <button role="button" class="close-menu" aria-label="Close menu" @click="handleCloseOrReturn">
-                    <component :is="parsedSvgName" class="close-svg" />
-                </button>
-            </div>
-            <ul class="nav-menu-primary">
-                <nav-menu-item-responsive v-for="(item, index) in parsedPrimaryMenuItems" :key="item.id" :item="item"
-                    :index="index" :go-back="goBack" @shouldOpen="shouldOpen" @itemOpenedColor="itemOpenedColor"
-                    @closeMainMenu="toggleMenu" />
-                <li v-for="(item, index) in noChildren" class="nochildren-links" :key="index">
-                    <smart-link class="nochildren-link" :to="item.to">
-                        {{ item.name }}
-                    </smart-link>
-                </li>
-            </ul>
-            <div v-if="isOpened && !title" class="nav-menu-secondary">
-                <ul class="list">
-                    <li v-for="item in parsedSecondaryMenuItems" :key="item.id" class="list-item" @click="toggleMenu">
-                        <smart-link class="link underline-hover" :to="item.to" :linkTarget="item.target">
-                            {{ item.name }}
-                        </smart-link>
-                    </li>
-                </ul>
-            </div>
-            <div v-if="!title" class="support-us-container">
-                <button-link v-if="supportLinks.length" :label="supportLinks[0].name" :is-secondary="true" class="button"
-                    :to="supportLinks[0].to" icon-name="none" @click="toggleMenu" />
-            </div>
-            <component :is="`Molecule3d`" width="150" height="247" viewBox="50 57 50 250" class="molecule"
-                :class="moleculeColor" />
-        </div>
-    </nav>
-</template>
-
-<script>
-// Helpers
+<script setup>
+// Components
 import IconCloseLarge from "ucla-library-design-tokens/assets/svgs/icon-close-large.svg"
 import IconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-circle-left.svg"
 import Molecule3d from "ucla-library-design-tokens/assets/svgs/molecule-3d.svg"
 import IconMenu from "ucla-library-design-tokens/assets/svgs/icon-menu.svg"
 import LogoLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
-import NavMenuItemResponsive from "@/lib-components/NavMenuItemResponsive"
-import SmartLink from "@/lib-components/SmartLink"
-import ButtonLink from "@/lib-components/ButtonLink"
+import NavMenuItemResponsive from '@/lib-components/NavMenuItemResponsive'
+import SmartLink from '@/lib-components/SmartLink'
+import ButtonLink from '@/lib-components/ButtonLink'
 
-export default {
-    name: "HeaderMainResponsive",
-    components: {
-        IconCloseLarge,
-        IconCaretLeft,
-        Molecule3d,
-        IconMenu,
-        LogoLibrary,
-        NavMenuItemResponsive,
-        SmartLink,
-        ButtonLink,
-    },
-    props: {
+import { computed, ref } from 'vue'
+
+
+const props = defineProps(
+    {
         iconCloseName: {
             type: String,
-            default: "icon-close-large",
+            default: 'icon-close-large',
         },
         iconGoBackName: {
             type: String,
-            default: "icon-caret-circle-left",
+            default: 'icon-caret-circle-left',
         },
         primaryNav: {
             // This is an array of objects, with each object shaped like {name, url, items:[{text, to, target}]}
@@ -100,99 +33,149 @@ export default {
         },
         title: {
             type: String,
-            default: "",
+            default: '',
         },
         acronym: {
             type: String,
-            default: "",
+            default: '',
         },
     },
-    data() {
-        return {
-            isOpened: false,
-            isItemOpened: false,
-            goBack: false,
-            moleculeColor: "cyan",
-        }
-    },
-    computed: {
-        classes() {
-            return [
-                "header-main-responsive",
-                this.isOpened ? "fullHeight" : "collapsedHeight",
-                { "has-title": this.title },
-                { "has-acronym": this.acronym },
-            ]
-        },
-        parseAriaLabel() {
-            return this.title ? this.title : `UCLA Library home page`
-        },
-        parsedSvgName() {
-            return `${this.iconCloseName}`
-        },
-        parsedPrimaryMenuItems() {
-            // Return only items that have children (assume these are dropdowns)
-            return this.primaryNav.filter((obj) => {
-                return obj.children && obj.children.length
-            })
-        },
-        parsedSecondaryMenuItems() {
-            return this.secondaryNav
-        },
-        noChildren() {
-            if (!this.title) {
-                return []
-            }
+)
 
-            return this.primaryNav.filter((obj) => {
-                // Return items that don't have sub-menu children
-                return !obj.children || !obj.children.length
-            })
-        },
-        supportLinks() {
-            // Generally this is just the last "Support Us" link, but we are going to allow it to be more than 1
-            return this.primaryNav.filter((obj) => {
-                // Return items that don't have sub-menu children
-                return !obj.children || !obj.children.length
-            })
-        },
-    },
-    methods: {
-        shouldOpen() {
-            this.isItemOpened = !this.isItemOpened
-            this.goBack = false
-        },
-        handleCloseOrReturn() {
-            // console.log("Close clicked")
+const isOpened = ref(false)
+const isItemOpened = ref(false)
+const goBack = ref(false)
+const moleculeColor = ref('cyan')
 
-            this.goBack = !this.goBack
-            this.moleculeColor = "cyan"
+const classes = computed(() => {
+    return [
+        'header-main-responsive',
+        isOpened.value ? 'fullHeight' : 'collapsedHeight',
+        { 'has-title': props.title },
+        { 'has-acronym': props.acronym },
+    ]
+})
+const parseAriaLabel = computed(() => {
+    return props.title ? props.title : 'UCLA Library home page'
+})
+const parsedSvgName = computed(() => {
+    return `${props.iconCloseName}`
+})
+const parsedPrimaryMenuItems = computed(() => {
+    // Return only items that have children (assume these are dropdowns)
+    return props.primaryNav.filter((obj) => {
+        return obj.children && obj.children.length
+    })
+})
+const parsedSecondaryMenuItems = computed(() => {
+    return props.secondaryNav
+})
+const noChildren = computed(() => {
+    if (!props.title)
+        return []
 
-            this.isOpened = false
-        },
-        itemOpenedColor(itemIndex) {
-            if (itemIndex === 0) {
-                this.moleculeColor = "green"
-            } else if (itemIndex === 1) {
-                this.moleculeColor = "pink"
-            } else if (itemIndex === 2) {
-                this.moleculeColor = "purple"
-            }
+    return props.primaryNav.filter((obj) => {
+        // Return items that don't have sub-menu children
+        return !obj.children || !obj.children.length
+    })
+})
+const supportLinks = computed(() => {
+    // Generally this is just the last "Support Us" link, but we are going to allow it to be more than 1
+    return props.primaryNav.filter((obj) => {
+        // Return items that don't have sub-menu children
+        return !obj.children || !obj.children.length
+    })
+})
+function shouldOpen() {
+    isItemOpened.value = !isItemOpened.value
+    goBack.value = false
+}
+function handleCloseOrReturn() {
+    // console.log("Close clicked")
 
-            if (this.isItemOpened === false) {
-                this.moleculeColor = "cyan"
-            }
-        },
-        toggleMenu() {
-            this.isOpened = !this.isOpened
-            this.goBack = !this.goBack
-        },
-        closeItem() {
-            this.isItemOpened = false
-        },
-    },
+    goBack.value = !goBack.value
+    moleculeColor.value = 'cyan'
+
+    isOpened.value = false
+}
+function itemOpenedColor(itemIndex) {
+    if (itemIndex === 0)
+        moleculeColor.value = 'green'
+    else if (itemIndex === 1)
+        moleculeColor.value = 'pink'
+    else if (itemIndex === 2)
+        moleculeColor.value = 'purple'
+
+    if (isItemOpened.value === false)
+        moleculeColor.value = 'cyan'
+}
+function toggleMenu() {
+    isOpened.value = !isOpened.value
+    goBack.value = !goBack.value
+}
+function closeItem() {
+    isItemOpened.value = false
 }
 </script>
+
+<template>
+    <nav role="navigation" aria-label="Menu" :class="classes">
+        <div v-show="!isOpened" class="collapsed-menu">
+            <SmartLink class="clickable-parent" to="/" :aria-label="parseAriaLabel">
+                <div v-if="title" class="title">
+                    <span class="full-title"> {{ title }} </span>
+                    <span v-if="acronym" class="acronym"> {{ acronym }} </span>
+                </div>
+                <component :is="LogoLibrary" v-else width="155" height="55" class="logo-ucla" role="button" />
+            </SmartLink>
+            <button role="button" class="open-menu" aria-label="Open menu" :is-opened="isOpened" @click="toggleMenu">
+                <component :is="IconMenu" class="hamburguer" />
+            </button>
+        </div>
+        <div v-show="isOpened" class="expanded-menu-container">
+            <div class="expanded-menu">
+                <SmartLink class="clickable-parent" to="/" :aria-label="parseAriaLabel" @click="toggleMenu">
+                    <div v-if="title" class="title opened-title">
+                        <span class="full-title"> {{ title }} </span>
+                        <span v-if="acronym" class="acronym">
+                            {{ acronym }}
+                        </span>
+                    </div>
+                    <component :is="LogoLibrary" v-else width="155" height="55" class="expanded-logo" @click="toggleMenu" />
+                </SmartLink>
+                <button role="button" class="close-menu" aria-label="Close menu" @click="handleCloseOrReturn">
+                    <component :is="parsedSvgName" class="close-svg" />
+                </button>
+            </div>
+            <ul class="nav-menu-primary">
+                <NavMenuItemResponsive v-for="(item, index) in parsedPrimaryMenuItems" :key="item.name" :item="item"
+                    :index="index" :go-back="goBack" @shouldOpen="shouldOpen" @itemOpenedColor="itemOpenedColor"
+                    @closeMainMenu="toggleMenu" />
+                <li v-for="(item, index) in noChildren" :key="index" class="nochildren-links">
+                    <SmartLink class="nochildren-link" :to="item.to">
+                        {{ item.name }}
+                    </SmartLink>
+                </li>
+            </ul>
+            <div v-if="isOpened && !title" class="nav-menu-secondary">
+                <ul class="list">
+                    <li v-for="item in parsedSecondaryMenuItems" :key="item.name" class="list-item" @click="toggleMenu">
+                        <SmartLink class="link underline-hover" :to="item.to" :link-target="item.target">
+                            {{ item.name }}
+                        </SmartLink>
+                    </li>
+                </ul>
+            </div>
+            <div v-if="!title" class="support-us-container">
+                <ButtonLink v-if="supportLinks.length" :label="supportLinks[0].name" :is-secondary="true" class="button"
+                    :to="supportLinks[0].to" icon-name="none" @click="toggleMenu" />
+            </div>
+            <!-- moleculeColor class on this svg component does not do anything ask Axa -->
+            <component :is="Molecule3d" width="150" height="247" viewBox="50 57 50 250" class="molecule"
+                :class="moleculeColor" />
+        </div>
+    </nav>
+</template>
 
 <style lang="scss" scoped>
 .fullHeight {

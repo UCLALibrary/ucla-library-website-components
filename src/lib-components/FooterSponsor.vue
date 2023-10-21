@@ -25,8 +25,10 @@ const parsedFunders = computed(() => {
       Arcadia.
     </div>
     <div class="sponsor-logos">
-      <BlockSponsor v-for="(item, index) in parsedFunders" :key="index" class="sponsor-item"
-        :funder-logo="item.funderLogo" :funder-name="item.funderName" :funder-url="item.funderUrl" />
+      <BlockSponsor
+        v-for="(item, index) in parsedFunders" :key="index" class="sponsor-item"
+        :funder-logo="item.funderLogo" :funder-name="item.funderName" :funder-url="item.funderUrl"
+      />
     </div>
   </div>
 </template>
