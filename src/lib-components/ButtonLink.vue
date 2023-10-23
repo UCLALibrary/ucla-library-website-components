@@ -105,14 +105,14 @@ export default {
 </script>
 
 <template>
-  <SmartLink :to="to" :class="classes" :is-download="isDownload" :link-target="linkTarget">
+  <smart-link :to="to" :class="classes" :is-download="isDownload" :link-target="linkTarget">
     <span class="label">{{ label }}</span>
     <component :is="parsedIconName" class="arrow" aria-hidden="true" />
     <div class="hover">
       <span class="label">{{ label }}</span>
       <component :is="parsedIconName" class="arrow" aria-hidden="true" />
     </div>
-  </SmartLink>
+  </smart-link>
 </template>
 
 <style lang="scss" scoped>

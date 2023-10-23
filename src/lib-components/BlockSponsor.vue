@@ -29,17 +29,13 @@ export default {
 </script>
 
 <template>
-  <SmartLink :to="funderUrl" link-target="_blank">
-    <img
-      :src="parsedFunderLogo.src"
-      :alt="funderName"
-      class="block-sponsor"
-    >
-  </SmartLink>
+  <smart-link :to="funderUrl" link-target="_blank">
+    <img :src="parsedFunderLogo.src" :alt="funderName" class="block-sponsor">
+  </smart-link>
 </template>
 
 <style lang="scss" scoped>
 .block-sponsor {
-    max-height: 80px;
+  max-height: 80px;
 }
 </style>

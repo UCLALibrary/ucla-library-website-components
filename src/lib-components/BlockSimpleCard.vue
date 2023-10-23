@@ -55,9 +55,9 @@ export default {
     <!-- TODO: Fix sectionName to use "to" value to determine section -->
     <span class="section">{{ sectionName }}</span>
     <h3 class="title2">
-      <SmartLink v-if="title" :to="to" class="title">
+      <smart-link v-if="title" :to="to" class="title">
         {{ title }}
-      </SmartLink>
+      </smart-link>
     </h3>
 
     <div v-if="text" class="text">
@@ -91,74 +91,83 @@ export default {
 
   // Themes
   --color-theme: var(--color-default-cyan-01);
+
   &.color-visit {
-      --color-theme: var(--color-visit-fushia-01);
+    --color-theme: var(--color-visit-fushia-01);
   }
+
   &.color-help {
-      --color-theme: var(--color-help-green-01);
+    --color-theme: var(--color-help-green-01);
   }
+
   &.color-about {
-      --color-theme: var(--color-about-purple-01);
+    --color-theme: var(--color-about-purple-01);
   }
 
   .section {
-      display: none;
-      @include overline;
+    display: none;
+    @include overline;
   }
+
   .title {
-      @include step-1;
-      color: var(--color-primary-blue-03);
-      @include card-clickable-area;
+    @include step-1;
+    color: var(--color-primary-blue-03);
+    @include card-clickable-area;
   }
 
   .text {
-      @include step--1;
-      @include truncate(5);
+    @include step--1;
+    @include truncate(5);
   }
 
   .spacer {
-      flex-basis: 0;
-      flex-grow: 1;
+    flex-basis: 0;
+    flex-grow: 1;
   }
 
   .svg-meta {
-      align-self: flex-end;
+    align-self: flex-end;
   }
 
   .svg {
-      z-index: 20;
-      display: block;
+    z-index: 20;
+    display: block;
   }
+
   // Breakpoints
   @media #{$small} {
-      padding: var(--unit-gutter);
+    padding: var(--unit-gutter);
   }
 
   // Hovers
   @media #{$has-hover} {
-      &:hover,
-      &:focus {
-          @include card-horizontal-hover;
-          background-color: var(--color-theme);
-          z-index: 30;
-          cursor: pointer;
 
-          .title {
-              text-decoration-thickness: 1.5px;
-              color: var(--color-primary-blue-05);
-          }
-          .text {
-              color: var(--color-primary-blue-05);
-          }
-          :deep(.svg) {
-              .svg__stroke--primary-blue-03 {
-                  stroke: var(--color-primary-blue-05);
-              }
-              .svg__fill--primary-blue-03 {
-                  fill: var(--color-primary-blue-05);
-              }
-          }
+    &:hover,
+    &:focus {
+      @include card-horizontal-hover;
+      background-color: var(--color-theme);
+      z-index: 30;
+      cursor: pointer;
+
+      .title {
+        text-decoration-thickness: 1.5px;
+        color: var(--color-primary-blue-05);
       }
+
+      .text {
+        color: var(--color-primary-blue-05);
+      }
+
+      :deep(.svg) {
+        .svg__stroke--primary-blue-03 {
+          stroke: var(--color-primary-blue-05);
+        }
+
+        .svg__fill--primary-blue-03 {
+          fill: var(--color-primary-blue-05);
+        }
+      }
+    }
   }
 }
 </style>

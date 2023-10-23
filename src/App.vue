@@ -156,7 +156,7 @@ const mockStaff2 = {
   alternativeFullName: '陳餘敏卿纪念基金',
   language: 'zh',
   text:
-        '<p><span>The UCLA Library seeks a highly collaborative, user-focused professional for the position of Humanities and Social Sciences Librarian. The incumbent will join a multi-location, cross disciplinary team that supports teaching and all levels of research in the humanities and social sciences. </span><span>Note: Two positions are being filled.</span><br /></p>',
+    '<p><span>The UCLA Library seeks a highly collaborative, user-focused professional for the position of Humanities and Social Sciences Librarian. The incumbent will join a multi-location, cross disciplinary team that supports teaching and all levels of research in the humanities and social sciences. </span><span>Note: Two positions are being filled.</span><br /></p>',
   jobType: [
     {
       title: 'Academic Librarian',
@@ -304,9 +304,9 @@ const mockAmenities = {
   <br>
   <h2>IconWithLink Component</h2>
   <br>
-  <IconWithLink text="Powell" icon-name="svg-icon-location" to="/visit/library/powell" />
+  <icon-with-link text="Powell" icon-name="svg-icon-location" to="/visit/library/powell" />
   <br>
-  <IconWithLink text="See More" icon-name="svg-icon-search" to="https://www.google.com/" />
+  <icon-with-link text="See More" icon-name="svg-icon-search" to="https://www.google.com/" />
   <br>
   <hr>
   <br>
@@ -318,13 +318,11 @@ const mockAmenities = {
   <br>
   <h2>BlockMediaWithText Component</h2>
   <br>
-  <BlockMediaWithText
-    :section-header="mockMediaWithText.mediaWithText[0].titleLink"
+  <BlockMediaWithText :section-header="mockMediaWithText.mediaWithText[0].titleLink"
     :short-description="mockMediaWithText.mediaWithText[0].description"
     :button-text="mockMediaWithText.mediaWithText[0].buttonText"
     :button-url="mockMediaWithText.mediaWithText[0].buttonUrl" :item="itemVideo" :cover-image="coverImage"
-    type-media="video"
-  />
+    type-media="video" />
   <br>
   <hr>
   <br>
@@ -350,15 +348,11 @@ const mockAmenities = {
   <br>
   <h2>BlockCallToAction Component</h2>
   <br>
-  <BlockCallToAction
-    :svg-name="mock.svgName" :title="mock.title" :text="mock.text" :name="mock.name" :to="mock.to"
-    :is-dark="false" :is-small-size="false"
-  />
+  <BlockCallToAction :svg-name="mock.svgName" :title="mock.title" :text="mock.text" :name="mock.name" :to="mock.to"
+    :is-dark="false" :is-small-size="false" />
   <br>
-  <BlockCallToAction
-    svg-name="svg-call-to-action-money" :title="mock.title" :text="mock.text" :name="mock.name"
-    :to="mock.to" :is-small-size="true" :is-dark="true"
-  />
+  <BlockCallToAction svg-name="svg-call-to-action-money" :title="mock.title" :text="mock.text" :name="mock.name"
+    :to="mock.to" :is-small-size="true" :is-dark="true" />
   <br>
   <hr>
   <br>
@@ -368,56 +362,33 @@ const mockAmenities = {
   <br>
   <h2>BlockSpace Component</h2>
   <br>
-  <BlockSpaces
-    :to="mock.to"
-    :title="mock.title"
-    :location="mock.location"
-    :text="mock.text"
-  />
+  <BlockSpaces :to="mock.to" :title="mock.title" :location="mock.location" :text="mock.text" />
   <br>
   <hr>
   <br>
   <h2>BlockSimpleCard Component</h2>
   <br>
-  <BlockSimpleCard
-    :title="mock.title"
-    :text="mock.text"
-    :to="mock.to"
-  />
+  <BlockSimpleCard :title="mock.title" :text="mock.text" :to="mock.to" />
   <br>
   <hr>
   <br>
   <h2>BlockEvent Component</h2>
   <br>
-  <BlockEvent
-    :category="mock.category"
-    :title="mock.title"
-    :prompt="mock.title"
-    :start-date="mock.startDate"
-    :end-date="mock.endDate"
-    :to="mock.to"
-    :section-handle="mock.title"
-  />
+  <BlockEvent :category="mock.category" :title="mock.title" :prompt="mock.title" :start-date="mock.startDate"
+    :end-date="mock.endDate" :to="mock.to" :section-handle="mock.title" />
   <br>
   <hr>
   <br>
   <h2>BlockSponsor Component</h2>
   <br>
-  <BlockSponsor
-    :funder-logo="mock.funderLogo"
-    funder-name="Hostess Cupcakes"
-    funder-url="https://www.hostesscakes.com/products/cupcakes/chocolate/"
-  />
+  <BlockSponsor :funder-logo="mock.funderLogo" funder-name="Hostess Cupcakes"
+    funder-url="https://www.hostesscakes.com/products/cupcakes/chocolate/" />
   <br>
   <hr>
   <br>
   <h2>BlockCardWithIllustration Component</h2>
   <br>
-  <BlockCardWithIllustration
-    :to="mock.to"
-    :title="mock.title"
-    :text="mock.text"
-  />
+  <BlockCardWithIllustration :to="mock.to" :title="mock.title" :text="mock.text" />
   <br>
   <hr>
   <br>
@@ -448,7 +419,8 @@ const mockAmenities = {
       Main content is passed via a slot and will be visible by default.
     </div>
     <div class="show-hide-hideable" style="width: 100%; padding: 0 12px 18px; border: 2px grey dotted" data-cy="extra">
-      To make content "expandable" it should be passed in the slot along with the main content, but add the class "show-hide-hideable" to any items that should be hidden.
+      To make content "expandable" it should be passed in the slot along with the main content, but add the class
+      "show-hide-hideable" to any items that should be hidden.
     </div>
   </BlockShowHide>
   <br>
@@ -456,11 +428,8 @@ const mockAmenities = {
   <br>
   <h2>SectionStaffOrcidPublications Component</h2>
   <br>
-  <SectionStaffOrcidPublications
-    class="staff-orcid-publications"
-    orcid="https://orcid.org/0000-0002-6391-2088"
-    publications="<ul><li><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. (2021). 'Teaching in the Digital Library: A Partnership Between Teaching Librarians and Digital Library Staff.' College &amp; Research Libraries News. 82(7). <a href='https://crln.acrl.org/index.php/crlnews/article/view/25033/32921'>https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></li></ul>"
-  />
+  <SectionStaffOrcidPublications class="staff-orcid-publications" orcid="https://orcid.org/0000-0002-6391-2088"
+    publications="<ul><li><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. (2021). 'Teaching in the Digital Library: A Partnership Between Teaching Librarians and Digital Library Staff.' College &amp; Research Libraries News. 82(7). <a href='https://crln.acrl.org/index.php/crlnews/article/view/25033/32921'>https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></li></ul>" />
   <br>
   <hr>
   <br>
