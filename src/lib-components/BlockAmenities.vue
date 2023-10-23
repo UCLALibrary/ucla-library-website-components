@@ -2,11 +2,11 @@
 import { computed, defineAsyncComponent } from 'vue'
 
 import type { PropType } from 'vue'
-import type { AmenitiesItemType } from '@/types/types'
+import SvgIconSharePrinter from 'ucla-library-design-tokens/assets/svgs/icon-share-printer.svg'
 
 const props = defineProps({
   amenities: {
-    type: Array as PropType<AmenitiesItemType[]>,
+    type: Array as PropType<string[]>,
     default: () => [],
   }
 })
@@ -32,9 +32,9 @@ const SvgIconLocker = defineAsyncComponent(() =>
 const SvgIconLight = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-light.svg')
 )
-const SvgIconSharePrinter = defineAsyncComponent(() =>
+/* const SvgIconSharePrinter = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-share-printer.svg')
-)
+) */
 const SvgIconBook = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-book.svg')
 )
@@ -69,11 +69,7 @@ const parsedAmenities = computed(() => {
     </h3>
     <div class="amenity-column">
       <ul class="amenities-list">
-        <li
-          v-for="(item, index) in parsedAmenities"
-          :key="`${item.svgLabel}-${index}`"
-          class="amenitiy-row"
-        >
+        <li v-for="(item, index) in parsedAmenities" :key="`${item.svgLabel}-${index}`" class="amenitiy-row">
           <component :is="item.svgIcon" v-if="item.svgIcon" />
 
           <span class="amenity-name">{{ item.svgLabel }}</span>
@@ -90,69 +86,72 @@ const parsedAmenities = computed(() => {
   width: 100%;
 
   .amenities-title {
-      @include step-2;
-      color: var(--color-primary-blue-03);
-      margin-bottom: 16px;
-      margin-left: 2px;
+    @include step-2;
+    color: var(--color-primary-blue-03);
+    margin-bottom: 16px;
+    margin-left: 2px;
   }
 
   .amenity-column ul {
-      display: flex;
-      flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .amenity-column ul li {
-      list-style: none;
-      flex-basis: 32%;
+    list-style: none;
+    flex-basis: 32%;
   }
 
   .amenitiy-row {
-      margin-bottom: 16px;
-      display: flex;
-      align-content: center;
+    margin-bottom: 16px;
+    display: flex;
+    align-content: center;
   }
+
   .amenity-name {
-      color: var(--color-black);
-      @include step-0;
-      padding-left: 5px;
+    color: var(--color-black);
+    @include step-0;
+    padding-left: 5px;
   }
 
   // Adjusts: Svg shareprinter to white bg and blue stroke
   :deep(.svg__fill--secondary-grey-01) {
-      fill: var(--color-white);
+    fill: var(--color-white);
   }
+
   :deep(.svg__stroke--black) {
-      stroke: var(--color-primary-blue-03);
+    stroke: var(--color-primary-blue-03);
   }
+
   :deep(.svg__fill--black) {
-      fill: var(--color-primary-blue-03);
+    fill: var(--color-primary-blue-03);
   }
 
   // Breakpoints
 
   @media #{$medium} {
-      .amenity-column ul {
-          display: flex;
-          flex-wrap: wrap;
-      }
+    .amenity-column ul {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-      .amenity-column ul li {
-          list-style: none;
-          flex-basis: 50%;
-      }
+    .amenity-column ul li {
+      list-style: none;
+      flex-basis: 50%;
+    }
   }
 
   @media #{$small} {
-      .amenity-column ul {
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-      }
+    .amenity-column ul {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
 
-      .amenity-column ul li {
-          list-style: none;
-          flex-basis: 20%;
-      }
+    .amenity-column ul li {
+      list-style: none;
+      flex-basis: 20%;
+    }
   }
 }
 </style>

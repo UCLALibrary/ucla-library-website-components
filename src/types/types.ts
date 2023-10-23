@@ -1,6 +1,4 @@
 // custom types
-export type AmenitiesItemType = string
-
 export interface DepartmentItemType {
   id?: string
   title: string
