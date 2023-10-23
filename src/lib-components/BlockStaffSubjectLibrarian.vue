@@ -5,6 +5,7 @@ import type { PropType } from 'vue'
 // UTILITY FUNCTIONS
 // Components
 import SmartLink from '@/lib-components/SmartLink.vue'
+
 // Types
 import type { DepartmentItemType, LocationItemType } from '@/types/types'
 
@@ -89,11 +90,11 @@ const lastDepartment = computed(() => {
 
     <!-- NAME -->
     <td class="librarian-block">
-      <smart-link :to="to" class="staff-name">
+      <SmartLink :to="to" class="staff-name">
         {{ staffName }}
         <span v-if="alternativeFullName" :lang="language">
           {{ alternativeFullName }}</span>
-      </smart-link>
+      </SmartLink>
 
       <div class="job-title" v-text="jobTitle" />
 
@@ -104,23 +105,25 @@ const lastDepartment = computed(() => {
       </ul>
 
       <div v-if="locations.length">
-        <icon-with-link v-for="location in locations" :key="`location-${location.id}`" :text="location.title"
-          icon-name="svg-icon-location" :to="`/${location.to}`" />
+        <IconWithLink
+          v-for="location in locations" :key="`location-${location.id}`" :text="location.title"
+          icon-name="svg-icon-location" :to="`/${location.to}`"
+        />
       </div>
     </td>
 
     <!-- CONTACT INFO -->
     <td class="contact-info">
       <div class="email">
-        <icon-with-link :text="email" icon-name="svg-icon-email" :to="`mailto:${email}`" />
+        <IconWithLink :text="email" icon-name="svg-icon-email" :to="`mailto:${email}`" />
       </div>
 
       <div v-if="phone" class="phone">
-        <icon-with-link :text="phone" icon-name="svg-icon-phone" :to="`tel:${phone}`" />
+        <IconWithLink :text="phone" icon-name="svg-icon-phone" :to="`tel:${phone}`" />
       </div>
 
       <div v-if="consultation" class="consultation">
-        <icon-with-link text="Book a consultation" icon-name="svg-icon-consultation" :to="consultation" />
+        <IconWithLink text="Book a consultation" icon-name="svg-icon-consultation" :to="consultation" />
       </div>
     </td>
   </tr>

@@ -45,9 +45,9 @@ export default {
         <SvgHeadingArrow class="heading-arrow" />
         <!-- if the is a link (:to) - display as a link -->
         <h3 v-if="to" class="space-title">
-          <smart-link :to="to">
+          <SmartLink :to="to">
             {{ title }}
-          </smart-link>
+          </SmartLink>
         </h3>
         <!-- if no link (:to)  - do not display as a link -->
         <h3 v-else class="space-title-no-link" v-html="title" />
@@ -55,8 +55,10 @@ export default {
       <div class="meta">
         <RichText v-if="text" class="text" :rich-text-content="text" />
         <!-- if no buttonUrl -  do not display button -->
-        <ButtonLink v-if="to" class="button" :button-url="to" :label="buttonText" :is-secondary="true" :to="to"
-          link-target="_blank" />
+        <ButtonLink
+          v-if="to" class="button" :button-url="to" :label="buttonText" :is-secondary="true" :to="to"
+          link-target="_blank"
+        />
       </div>
     </component>
   </li>

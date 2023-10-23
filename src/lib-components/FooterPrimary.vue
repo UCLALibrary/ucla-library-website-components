@@ -76,10 +76,10 @@ export default {
           <SvgLogoUclaLibrary class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
         </a>
-        <smart-link v-else to="/" class="logo-ucla">
+        <SmartLink v-else to="/" class="logo-ucla">
           <SvgLogoUclaLibrary class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
-        </smart-link>
+        </SmartLink>
         <ul class="socials">
           <li v-for="item in parsedSocialItems" :key="item.id" class="social-item">
             <a :href="item.to" :target="formatTarget(item.target)" a>
@@ -90,16 +90,18 @@ export default {
 
         <ul v-if="parsedPressItems" class="press-links">
           <li v-for="item in parsedPressItems" :key="item.id" class="press-item">
-            <smart-link :to="item.to" :link-target="item.target">
+            <SmartLink :to="item.to" :link-target="item.target">
               {{ item.name }}
-            </smart-link>
+            </SmartLink>
           </li>
         </ul>
       </div>
 
-      <form v-if="form" id="mc-embedded-subscribe-form"
+      <form
+        v-if="form" id="mc-embedded-subscribe-form"
         action="https://ucla.us7.list-manage.com/subscribe/post?u=31248d1f341b8eede1b46cb33&amp;id=40fdd1db46&amp;f_id=0034f7e4f0"
-        method="post" name="mc-embedded-subscribe-form" class="validate form" target="_blank" novalidate>
+        method="post" name="mc-embedded-subscribe-form" class="validate form" target="_blank" novalidate
+      >
         <div id="mc_embed_signup_scroll" class="form-header">
           <h2 class="title">
             Stay updated
@@ -113,8 +115,10 @@ export default {
 
         <div class="input-block">
           <div class="field mc-field-group">
-            <input id="mce-EMAIL" name="EMAIL" type="email" value="" placeholder="email@ucla.edu" class="input-email"
-              required>
+            <input
+              id="mce-EMAIL" name="EMAIL" type="email" value="" placeholder="email@ucla.edu" class="input-email"
+              required
+            >
             <label for="mce-EMAIL" class="label">
               Email Address
             </label>

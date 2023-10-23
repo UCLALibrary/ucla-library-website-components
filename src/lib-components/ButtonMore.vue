@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-  <smart-link :to="to" class="button-more">
+  <SmartLink :to="to" class="button-more">
     <div class="icon" aria-hidden="true">
       <MoleculeStroke class="molecule-stroke" />
       <ArrowRight class="arrow-right" />
@@ -33,7 +33,7 @@ export default {
     <div class="text">
       {{ text }}
     </div>
-  </smart-link>
+  </SmartLink>
 </template>
 
 <style lang="scss" scoped>

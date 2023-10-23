@@ -29,9 +29,9 @@ export default {
 </script>
 
 <template>
-  <smart-link :to="funderUrl" link-target="_blank">
+  <SmartLink :to="funderUrl" link-target="_blank">
     <img :src="parsedFunderLogo.src" :alt="funderName" class="block-sponsor">
-  </smart-link>
+  </SmartLink>
 </template>
 
 <style lang="scss" scoped>

@@ -304,9 +304,9 @@ const mockAmenities = {
   <br>
   <h2>IconWithLink Component</h2>
   <br>
-  <icon-with-link text="Powell" icon-name="svg-icon-location" to="/visit/library/powell" />
+  <IconWithLink text="Powell" icon-name="svg-icon-location" to="/visit/library/powell" />
   <br>
-  <icon-with-link text="See More" icon-name="svg-icon-search" to="https://www.google.com/" />
+  <IconWithLink text="See More" icon-name="svg-icon-search" to="https://www.google.com/" />
   <br>
   <hr>
   <br>
@@ -318,11 +318,13 @@ const mockAmenities = {
   <br>
   <h2>BlockMediaWithText Component</h2>
   <br>
-  <BlockMediaWithText :section-header="mockMediaWithText.mediaWithText[0].titleLink"
+  <BlockMediaWithText
+    :section-header="mockMediaWithText.mediaWithText[0].titleLink"
     :short-description="mockMediaWithText.mediaWithText[0].description"
     :button-text="mockMediaWithText.mediaWithText[0].buttonText"
     :button-url="mockMediaWithText.mediaWithText[0].buttonUrl" :item="itemVideo" :cover-image="coverImage"
-    type-media="video" />
+    type-media="video"
+  />
   <br>
   <hr>
   <br>
@@ -348,11 +350,15 @@ const mockAmenities = {
   <br>
   <h2>BlockCallToAction Component</h2>
   <br>
-  <BlockCallToAction :svg-name="mock.svgName" :title="mock.title" :text="mock.text" :name="mock.name" :to="mock.to"
-    :is-dark="false" :is-small-size="false" />
+  <BlockCallToAction
+    :svg-name="mock.svgName" :title="mock.title" :text="mock.text" :name="mock.name" :to="mock.to"
+    :is-dark="false" :is-small-size="false"
+  />
   <br>
-  <BlockCallToAction svg-name="svg-call-to-action-money" :title="mock.title" :text="mock.text" :name="mock.name"
-    :to="mock.to" :is-small-size="true" :is-dark="true" />
+  <BlockCallToAction
+    svg-name="svg-call-to-action-money" :title="mock.title" :text="mock.text" :name="mock.name"
+    :to="mock.to" :is-small-size="true" :is-dark="true"
+  />
   <br>
   <hr>
   <br>
@@ -374,15 +380,19 @@ const mockAmenities = {
   <br>
   <h2>BlockEvent Component</h2>
   <br>
-  <BlockEvent :category="mock.category" :title="mock.title" :prompt="mock.title" :start-date="mock.startDate"
-    :end-date="mock.endDate" :to="mock.to" :section-handle="mock.title" />
+  <BlockEvent
+    :category="mock.category" :title="mock.title" :prompt="mock.title" :start-date="mock.startDate"
+    :end-date="mock.endDate" :to="mock.to" :section-handle="mock.title"
+  />
   <br>
   <hr>
   <br>
   <h2>BlockSponsor Component</h2>
   <br>
-  <BlockSponsor :funder-logo="mock.funderLogo" funder-name="Hostess Cupcakes"
-    funder-url="https://www.hostesscakes.com/products/cupcakes/chocolate/" />
+  <BlockSponsor
+    :funder-logo="mock.funderLogo" funder-name="Hostess Cupcakes"
+    funder-url="https://www.hostesscakes.com/products/cupcakes/chocolate/"
+  />
   <br>
   <hr>
   <br>
@@ -428,8 +438,10 @@ const mockAmenities = {
   <br>
   <h2>SectionStaffOrcidPublications Component</h2>
   <br>
-  <SectionStaffOrcidPublications class="staff-orcid-publications" orcid="https://orcid.org/0000-0002-6391-2088"
-    publications="<ul><li><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. (2021). 'Teaching in the Digital Library: A Partnership Between Teaching Librarians and Digital Library Staff.' College &amp; Research Libraries News. 82(7). <a href='https://crln.acrl.org/index.php/crlnews/article/view/25033/32921'>https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></li></ul>" />
+  <SectionStaffOrcidPublications
+    class="staff-orcid-publications" orcid="https://orcid.org/0000-0002-6391-2088"
+    publications="<ul><li><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. (2021). 'Teaching in the Digital Library: A Partnership Between Teaching Librarians and Digital Library Staff.' College &amp; Research Libraries News. 82(7). <a href='https://crln.acrl.org/index.php/crlnews/article/view/25033/32921'>https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></li></ul>"
+  />
   <br>
   <hr>
   <br>

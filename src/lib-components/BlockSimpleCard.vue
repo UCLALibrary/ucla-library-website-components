@@ -55,9 +55,9 @@ export default {
     <!-- TODO: Fix sectionName to use "to" value to determine section -->
     <span class="section">{{ sectionName }}</span>
     <h3 class="title2">
-      <smart-link v-if="title" :to="to" class="title">
+      <SmartLink v-if="title" :to="to" class="title">
         {{ title }}
-      </smart-link>
+      </SmartLink>
     </h3>
 
     <div v-if="text" class="text">

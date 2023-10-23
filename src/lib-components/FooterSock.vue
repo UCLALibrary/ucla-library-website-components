@@ -40,9 +40,9 @@ export default {
 
       <ul class="links">
         <li v-for="item in parsedSockItems" :key="item.id" class="item">
-          <smart-link class="link" :to="item.to" :link-target="item.target">
+          <SmartLink class="link" :to="item.to" :link-target="item.target">
             {{ item.name }}
-          </smart-link>
+          </SmartLink>
         </li>
       </ul>
     </div>

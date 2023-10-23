@@ -126,11 +126,15 @@ export default {
     <component :is="parsedContent.svgName" class="svg" aria-hidden="true" />
     <h2 class="title" v-text="parsedContent.title" />
     <div class="text" v-html="parsedContent.text" />
-    <!--  this parsedContent.text can have html content so v-html should be used here-->
-    <ButtonLink v-if="!isDark" :label="parsedContent.label" :to="parsedContent.to" :is-secondary="true"
-      class="button-link" />
-    <ButtonLink v-if="isDark" :label="parsedContent.label" :to="parsedContent.to" :is-tertiary="true"
-      class="button-link" />
+    <!--  this parsedContent.text can have html content so v-html should be used here -->
+    <ButtonLink
+      v-if="!isDark" :label="parsedContent.label" :to="parsedContent.to" :is-secondary="true"
+      class="button-link"
+    />
+    <ButtonLink
+      v-if="isDark" :label="parsedContent.label" :to="parsedContent.to" :is-tertiary="true"
+      class="button-link"
+    />
   </div>
 </template>
 

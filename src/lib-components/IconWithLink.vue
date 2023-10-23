@@ -152,10 +152,10 @@ export default {
 
 <template>
   <div class="icon-with-link">
-    <smart-link v-if="to" :to="to" class="icon-with-link-container link">
+    <SmartLink v-if="to" :to="to" class="icon-with-link-container link">
       <component :is="iconName" class="icon" aria-hidden="true" />
       <div class="text" v-text="text" />
-    </smart-link>
+    </SmartLink>
     <div v-else class="icon-with-link-container">
       <component :is="iconName" class="icon" aria-hidden="true" />
       <div class="text" v-text="text" />

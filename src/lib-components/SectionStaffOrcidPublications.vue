@@ -28,9 +28,9 @@ export default {
     </h2>
     <div v-if="orcid" class="orcid-key">
       ORCID:
-      <smart-link :to="orcid" class="orcid-value">
+      <SmartLink :to="orcid" class="orcid-value">
         {{ orcid }}
-      </smart-link>
+      </SmartLink>
     </div>
     <RichText v-if="publications" class="publications" :rich-text-content="publications" />
   </section>

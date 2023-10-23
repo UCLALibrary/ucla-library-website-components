@@ -105,9 +105,9 @@ export default {
     <div class="meta">
       <div v-if="category" class="category" v-html="category" />
 
-      <smart-link v-if="to" :to="to">
+      <SmartLink v-if="to" :to="to">
         <h3 class="title" v-html="title" />
-      </smart-link>
+      </SmartLink>
 
       <div v-if="isHorizontal" class="text">
         {{ parsedTextHorizontal }}

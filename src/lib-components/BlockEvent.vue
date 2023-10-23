@@ -74,7 +74,7 @@ export default {
         <time v-if="startDate" class="dates" v-text="parsedDate" />
         <time v-if="parsedTime" class="time" v-text="parsedTime" />
       </div>
-      <smart-link :class="classes" :to="to" v-text="prompt" />
+      <SmartLink :class="classes" :to="to" v-text="prompt" />
       <!-- TO DO: Use button-link component instead -->
     </div>
 
@@ -190,4 +190,5 @@ export default {
       text-align: center;
     }
   }
-}</style>
+}
+</style>

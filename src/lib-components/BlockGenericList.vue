@@ -60,11 +60,11 @@ const parsedText = computed(() => {
     <div v-if="jobRequisitionNumber" class="category">
       JOB #{{ jobRequisitionNumber }}
     </div>
-    <smart-link v-if="jobPostingURL" :to="jobPostingURL" class="title">
+    <SmartLink v-if="jobPostingURL" :to="jobPostingURL" class="title">
       {{ title }}
       <span v-if="alternativeFullName" :lang="language" class="translation">
         {{ alternativeFullName }}</span>
-    </smart-link>
+    </SmartLink>
     <h3 v-else class="title-no-link">
       {{ title }}
     </h3>
@@ -81,7 +81,7 @@ const parsedText = computed(() => {
     </div>
 
     <div v-if="associatedLocations.length > 0" class="location-group">
-      <icon-with-link v-for="(location, index) in associatedLocations" :key="`block-generic-${location.title}-${index}`"
+      <IconWithLink v-for="(location, index) in associatedLocations" :key="`block-generic-${location.title}-${index}`"
         :text="location.title" icon-name="svg-icon-location" :to="location.to" />
     </div>
     <div v-if="text" class="text">

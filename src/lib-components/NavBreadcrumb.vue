@@ -29,7 +29,7 @@ export default {
 
 <template>
   <div class="nav-breadcrumb subtitle">
-    <smart-link :to="to" class="parent-page-url" v-text="parentTitle" />
+    <SmartLink :to="to" class="parent-page-url" v-text="parentTitle" />
     <SvgIconCaretLeft aria-hidden="true" />
     <span class="current-page-title" v-text="title" />
   </div>
@@ -89,4 +89,5 @@ export default {
   .parent-page-url:hover {
     @include link-hover;
   }
-}</style>
+}
+</style>
