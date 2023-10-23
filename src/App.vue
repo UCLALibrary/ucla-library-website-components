@@ -4,12 +4,15 @@ import { computed } from 'vue'
 import BlockMediaWithText from './lib-components/BlockMediaWithText.vue'
 import SiteBrandBar from './lib-components/SiteBrandBar.vue'
 import BlockShowHide from './lib-components/BlockShowHide.vue'
+import BlockStaffSubjectLibrarian from './lib-components/BlockStaffSubjectLibrarian.vue'
 import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
+import BlockAmenities from '@/lib-components/BlockAmenities.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
 import BlockCardWithIllustration from '@/lib-components/BlockCardWithIllustration.vue'
 import BlockDate from '@/lib-components/BlockDate.vue'
 import BlockEvent from '@/lib-components/BlockEvent.vue'
+import BlockGenericList from '@/lib-components/BlockGenericList.vue'
 import BlockSimpleCard from '@/lib-components/BlockSimpleCard.vue'
 import BlockSpaces from '@/lib-components/BlockSpaces.vue'
 import BlockSponsor from '@/lib-components/BlockSponsor.vue'
@@ -100,6 +103,100 @@ const propsForMediaWithText = {
 const itemVideo = MEDIA.VideoFile
 
 const coverImage = MEDIA.VideoFileCoverImage
+
+const mockStaff = {
+  subjectArea: 'African American Studies',
+  nameFirst: 'Ariane',
+  nameLast: 'Bicho',
+  to: '/about/staff/ariane-bicho',
+  staffName: 'Ariane Bicho 娘の洋子より',
+  image: null,
+
+  jobTitle: 'Director of Communications and Marketing',
+  departments: [
+    {
+      id: '7272',
+      title: 'Communications',
+    },
+    {
+      id: '7373',
+      title: 'Marketing',
+    },
+  ],
+  alternativeName: [
+    {
+      fullName: '娘の洋子より',
+      languageAltName: 'zh',
+    },
+  ],
+  uri: 'about/staff/ariane-bicho',
+  phone: '(222) 444-5555',
+  email: 'abicho@library.ucla.edu',
+  consultation: 'https://calendar.library.ucla.edu/appointments/aogarcia',
+  academicDepartments: [
+    {
+      id: '11947',
+      title: 'African American Studies',
+    },
+    {
+      id: '11955',
+      title: 'Cluster 60: America in Sixties: Politics, Society, and Culture, 1954 to 1974',
+    },
+  ],
+  locations: [
+    {
+      title: 'DIIT',
+      to: 'location/bar',
+    },
+  ],
+}
+
+const mockStaff2 = {
+  title: 'Humanities and Social Sciences Librarian',
+  alternativeFullName: '陳餘敏卿纪念基金',
+  language: 'zh',
+  text:
+    '<p><span>The UCLA Library seeks a highly collaborative, user-focused professional for the position of Humanities and Social Sciences Librarian. The incumbent will join a multi-location, cross disciplinary team that supports teaching and all levels of research in the humanities and social sciences. </span><span>Note: Two positions are being filled.</span><br /></p>',
+  jobType: [
+    {
+      title: 'Academic Librarian',
+    },
+  ],
+  jobRequisitionNumber: 'JPF08053',
+  jobPostingURL: 'https://recruit.apo.ucla.edu/JPF08053',
+  department: [
+    {
+      title: 'User Engagement',
+    },
+    {
+      title: 'Human Resources',
+    },
+  ],
+  associatedLocations: [
+    {
+      title: 'UCLA Film & Television Archive',
+      uri: 'visit/locations/film-television-archive',
+    },
+    {
+      title: 'Powell Library',
+      uri: 'visit/locations/powell-library',
+    },
+  ],
+}
+
+const mockAmenities = {
+  amenities: [
+    'icon-clock',
+    'icon-accessible',
+    'icon-chair',
+    'icon-virtual',
+    'icon-laptop',
+    'icon-locker',
+    'icon-light',
+    'icon-share-printer',
+    'icon-book',
+  ],
+}
 </script>
 
 <template>
@@ -271,35 +368,21 @@ const coverImage = MEDIA.VideoFileCoverImage
   <br>
   <h2>BlockSpace Component</h2>
   <br>
-  <BlockSpaces
-    :to="mock.to"
-    :title="mock.title"
-    :location="mock.location"
-    :text="mock.text"
-  />
+  <BlockSpaces :to="mock.to" :title="mock.title" :location="mock.location" :text="mock.text" />
   <br>
   <hr>
   <br>
   <h2>BlockSimpleCard Component</h2>
   <br>
-  <BlockSimpleCard
-    :title="mock.title"
-    :text="mock.text"
-    :to="mock.to"
-  />
+  <BlockSimpleCard :title="mock.title" :text="mock.text" :to="mock.to" />
   <br>
   <hr>
   <br>
   <h2>BlockEvent Component</h2>
   <br>
   <BlockEvent
-    :category="mock.category"
-    :title="mock.title"
-    :prompt="mock.title"
-    :start-date="mock.startDate"
-    :end-date="mock.endDate"
-    :to="mock.to"
-    :section-handle="mock.title"
+    :category="mock.category" :title="mock.title" :prompt="mock.title" :start-date="mock.startDate"
+    :end-date="mock.endDate" :to="mock.to" :section-handle="mock.title"
   />
   <br>
   <hr>
@@ -307,8 +390,7 @@ const coverImage = MEDIA.VideoFileCoverImage
   <h2>BlockSponsor Component</h2>
   <br>
   <BlockSponsor
-    :funder-logo="mock.funderLogo"
-    funder-name="Hostess Cupcakes"
+    :funder-logo="mock.funderLogo" funder-name="Hostess Cupcakes"
     funder-url="https://www.hostesscakes.com/products/cupcakes/chocolate/"
   />
   <br>
@@ -316,11 +398,7 @@ const coverImage = MEDIA.VideoFileCoverImage
   <br>
   <h2>BlockCardWithIllustration Component</h2>
   <br>
-  <BlockCardWithIllustration
-    :to="mock.to"
-    :title="mock.title"
-    :text="mock.text"
-  />
+  <BlockCardWithIllustration :to="mock.to" :title="mock.title" :text="mock.text" />
   <br>
   <hr>
   <br>
@@ -351,7 +429,8 @@ const coverImage = MEDIA.VideoFileCoverImage
       Main content is passed via a slot and will be visible by default.
     </div>
     <div class="show-hide-hideable" style="width: 100%; padding: 0 12px 18px; border: 2px grey dotted" data-cy="extra">
-      To make content "expandable" it should be passed in the slot along with the main content, but add the class "show-hide-hideable" to any items that should be hidden.
+      To make content "expandable" it should be passed in the slot along with the main content, but add the class
+      "show-hide-hideable" to any items that should be hidden.
     </div>
   </BlockShowHide>
   <br>
@@ -360,8 +439,7 @@ const coverImage = MEDIA.VideoFileCoverImage
   <h2>SectionStaffOrcidPublications Component</h2>
   <br>
   <SectionStaffOrcidPublications
-    class="staff-orcid-publications"
-    orcid="https://orcid.org/0000-0002-6391-2088"
+    class="staff-orcid-publications" orcid="https://orcid.org/0000-0002-6391-2088"
     publications="<ul><li><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. (2021). 'Teaching in the Digital Library: A Partnership Between Teaching Librarians and Digital Library Staff.' College &amp; Research Libraries News. 82(7). <a href='https://crln.acrl.org/index.php/crlnews/article/view/25033/32921'>https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></li></ul>"
   />
   <br>
@@ -369,6 +447,29 @@ const coverImage = MEDIA.VideoFileCoverImage
   <br>
   <h2>NavBreadcrumb Component</h2>
   <NavBreadcrumb title="jane-doe" to="/about/news" parent-title="parent" />
+  <br>
+  <hr>
+  <br>
+  <h2>BlockStaffSubjectLibrarian Component</h2>
+  <table>
+    <tbody>
+      <BlockStaffSubjectLibrarian v-bind="mockStaff" />
+    </tbody>
+  </table>
+  <br>
+  <hr>
+  <br>
+  <h2>BlockGenericList Component</h2>
+  <br>
+  <ul>
+    <BlockGenericList v-bind="mockStaff2" />
+  </ul>
+  <br>
+  <hr>
+  <br>
+  <h2>BlockAmenities Component</h2>
+  <br>
+  <BlockAmenities v-bind="mockAmenities" />
   <br>
   <hr>
   <br>

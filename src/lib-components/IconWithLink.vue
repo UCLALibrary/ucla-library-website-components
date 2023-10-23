@@ -165,52 +165,52 @@ export default {
 
 <style lang="scss" scoped>
 .icon-with-link {
-    --link-color: var(--color-primary-blue-03);
-    --icon-color: var(--color-primary-blue-03);
-    --icon-color-highlight: var(--color-default-cyan-03);
+  --link-color: var(--color-primary-blue-03);
+  --icon-color: var(--color-primary-blue-03);
+  --icon-color-highlight: var(--color-default-cyan-03);
 
-    display: inline-block;
-    line-height: 1;
+  display: inline-block;
+  line-height: 1;
 
-    .text {
-        @include button;
-        white-space: pre-wrap;
+  .text {
+    @include button;
+    white-space: pre-wrap;
+  }
+
+  .link {
+    color: var(--link-color);
+  }
+
+  .icon-with-link-container {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .icon {
+    flex-shrink: 0;
+
+    .svg__stroke--primary-blue-03 {
+      stroke: var(--icon-color);
     }
 
-    .link {
-        color: var(--link-color);
+    .svg__fill--primary-blue-03 {
+      fill: var(--icon-color);
     }
 
-    .icon-with-link-container {
-        display: inline-flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        gap: var(--space-xs);
+    .svg__stroke--default-cyan-03 {
+      stroke: var(--icon-color-highlight);
     }
+  }
 
-    .icon {
-        flex-shrink: 0;
-
-        .svg__stroke--primary-blue-03 {
-            stroke: var(--icon-color);
-        }
-
-        .svg__fill--primary-blue-03 {
-            fill: var(--icon-color);
-        }
-
-        .svg__stroke--default-cyan-03 {
-            stroke: var(--icon-color-highlight);
-        }
+  // Hover states
+  @media #{$has-hover} {
+    .link:hover {
+      @include link-hover;
     }
-
-    // Hover states
-    @media #{$has-hover} {
-        .link:hover {
-            @include link-hover;
-        }
-    }
+  }
 }
 </style>

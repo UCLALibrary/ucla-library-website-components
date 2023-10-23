@@ -1,4 +1,15 @@
 // custom types
+export interface DepartmentItemType {
+  id?: string
+  title: string
+  to?: string
+}
+
+export interface LocationItemType {
+  id?: string
+  title: string
+  to?: string
+}
 
 export interface MediaItemType {
   id: string

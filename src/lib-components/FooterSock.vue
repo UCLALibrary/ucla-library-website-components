@@ -22,7 +22,7 @@ export default {
       else {
         // eslint-disable-next-line no-console
         console.log(
-                    `Pinia state data for footer sock not present if navigation is not setup for the website: is it client side:${process.client}`
+          `Pinia state data for footer sock not present if navigation is not setup for the website: is it client side:${process.client}`
         )
       }
       return []
@@ -51,100 +51,100 @@ export default {
 
 <style lang="scss" scoped>
 .footer-sock {
-    --unit-content-width: #{$container-l-cta}px;
+  --unit-content-width: #{$container-l-cta}px;
 
-    background-color: var(--color-white);
-    padding: var(--space-l) var(--unit-gutter);
+  background-color: var(--color-white);
+  padding: var(--space-l) var(--unit-gutter);
 
+  .container {
+    max-width: var(--unit-content-width);
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+
+    .links {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-content: flex-start;
+      align-items: center;
+      gap: 48px;
+
+      list-style-type: none;
+    }
+
+    .link {
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 4px;
+      text-decoration-color: var(--color-default-cyan-03);
+      display: inline-block;
+      line-height: 1.25;
+      color: var(--color-black);
+
+      position: relative;
+      @include min-clickable-area;
+    }
+
+    .regents {
+      color: var(--color-secondary-grey-04);
+      letter-spacing: 0.01em;
+    }
+  }
+
+  // Hover states
+  @media #{$has-hover} {
+    &:hover {
+
+      .link:hover,
+      .link:focus {
+        color: var(--color-primary-blue-03);
+      }
+    }
+  }
+
+  // Breakpoints
+  @media (max-width: 1120px) {
     .container {
-        max-width: var(--unit-content-width);
-        margin: auto;
+      flex-direction: column;
+      gap: 32px;
 
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+      .links {
         justify-content: space-between;
         align-content: center;
-        align-items: center;
+        gap: 32px;
+        order: 1;
+      }
 
-        .links {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-            align-content: flex-start;
-            align-items: center;
-            gap: 48px;
-
-            list-style-type: none;
-        }
-
-        .link {
-            text-decoration: underline;
-            text-decoration-thickness: 1.5px;
-            text-underline-offset: 4px;
-            text-decoration-color: var(--color-default-cyan-03);
-            display: inline-block;
-            line-height: 1.25;
-            color: var(--color-black);
-
-            position: relative;
-            @include min-clickable-area;
-        }
-
-        .regents {
-            color: var(--color-secondary-grey-04);
-            letter-spacing: 0.01em;
-        }
+      .regents {
+        order: 2;
+      }
     }
+  }
 
-    // Hover states
-    @media #{$has-hover} {
-        &:hover {
+  @media #{$small} {
+    padding: var(--unit-gutter);
 
-            .link:hover,
-            .link:focus {
-                color: var(--color-primary-blue-03);
-            }
-        }
+    .container {
+      align-content: flex-start;
+      align-items: flex-start;
+      gap: 48px;
+
+      .links {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: flex-start;
+        margin: 0;
+        gap: 24px;
+      }
     }
-
-    // Breakpoints
-    @media (max-width: 1120px) {
-        .container {
-            flex-direction: column;
-            gap: 32px;
-
-            .links {
-                justify-content: space-between;
-                align-content: center;
-                gap: 32px;
-                order: 1;
-            }
-
-            .regents {
-                order: 2;
-            }
-        }
-    }
-
-    @media #{$small} {
-        padding: var(--unit-gutter);
-
-        .container {
-            align-content: flex-start;
-            align-items: flex-start;
-            gap: 48px;
-
-            .links {
-                flex-direction: column;
-                justify-content: flex-start;
-                align-content: flex-start;
-                align-items: flex-start;
-                margin: 0;
-                gap: 24px;
-            }
-        }
-    }
+  }
 }
 </style>

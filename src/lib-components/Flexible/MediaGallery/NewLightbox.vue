@@ -123,250 +123,250 @@ function setCurrentSlide(currentSlide: number) {
 /*@import "@/styles/vue-glide.scss";*/
 
 .lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    overflow-y: auto;
-    overscroll-behavior: contain;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 
-    --side-column-min-width: 72px;
-    --gap-width: var(--space-m);
-    --media-width: min(calc(100vw - (2 * var(--side-column-min-width)) - (2 * var(--gap-width))),
-            992px);
-    --media-height: calc(var(--media-width) * 9 / 16);
-    --side-column-width: calc((100vw - var(--media-width) - 2 * var(--gap-width)) / 2);
+  --side-column-min-width: 72px;
+  --gap-width: var(--space-m);
+  --media-width: min(calc(100vw - (2 * var(--side-column-min-width)) - (2 * var(--gap-width))),
+      992px);
+  --media-height: calc(var(--media-width) * 9 / 16);
+  --side-column-width: calc((100vw - var(--media-width) - 2 * var(--gap-width)) / 2);
 
-    background: var(--color-primary-blue-05);
-    z-index: 800;
+  background: var(--color-primary-blue-05);
+  z-index: 800;
 
-    display: grid;
-    grid-template-columns:
-        [col] var(--side-column-width) [col] var(--media-width) [col] var(--side-column-width);
-    grid-template-rows: [row] auto [row] min-content [row] auto;
-    grid-gap: var(--gap-width);
+  display: grid;
+  grid-template-columns:
+    [col] var(--side-column-width) [col] var(--media-width) [col] var(--side-column-width);
+  grid-template-rows: [row] auto [row] min-content [row] auto;
+  grid-gap: var(--gap-width);
 
-    .button-close {
-        grid-row: row 1;
-        grid-column: col 3 / span 1;
-        justify-self: start;
-        align-self: end;
+  .button-close {
+    grid-row: row 1;
+    grid-column: col 3 / span 1;
+    justify-self: start;
+    align-self: end;
 
-        width: auto;
-        padding: 0;
+    width: auto;
+    padding: 0;
 
-        :deep(.svg__fill--primary-blue-01) {
-            fill: none;
-        }
-
-        :deep(.svg__stroke--default-cyan-02) {
-            stroke: var(--color-white);
-        }
+    :deep(.svg__fill--primary-blue-01) {
+      fill: none;
     }
 
-    .media-container {
-        position: relative;
-        grid-row: row 2;
-        grid-column: col 2 / span 1;
+    :deep(.svg__stroke--default-cyan-02) {
+      stroke: var(--color-white);
+    }
+  }
+
+  .media-container {
+    position: relative;
+    grid-row: row 2;
+    grid-column: col 2 / span 1;
+  }
+
+  // Override colors of all the SVG icons
+  :deep(svg) {
+    display: block;
+
+    .svg__fill--primary-blue-03 {
+      fill: none;
     }
 
-    // Override colors of all the SVG icons
-    :deep(svg) {
-        display: block;
-
-        .svg__fill--primary-blue-03 {
-            fill: none;
-        }
-
-        .svg__stroke--primary-blue-03 {
-            stroke: white;
-        }
+    .svg__stroke--primary-blue-03 {
+      stroke: white;
     }
+  }
 
-    @media #{$has-hover} {
-        button:enabled {
-            .media-counter-item:hover {
-                :deep(.svg__fill--primary-blue-03) {
-                    fill: var(--color-white);
-                }
-            }
+  @media #{$has-hover} {
+    button:enabled {
+      .media-counter-item:hover {
+        :deep(.svg__fill--primary-blue-03) {
+          fill: var(--color-white);
         }
-
-        button:disabled {
-            cursor: default;
-        }
+      }
     }
 
     button:disabled {
-        :deep(svg) {
-            .svg__fill--primary-blue-03 {
-                fill: var(--color-white);
-            }
-        }
+      cursor: default;
+    }
+  }
+
+  button:disabled {
+    :deep(svg) {
+      .svg__fill--primary-blue-03 {
+        fill: var(--color-white);
+      }
+    }
+  }
+
+  :deep(.media-item) {
+    height: var(--media-height);
+  }
+
+  .controls {
+    width: 110%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 250px;
+    left: -50px;
+  }
+
+  --media-height-half: calc(var(--media-height) / 2);
+
+  .button-prev {
+    position: absolute;
+    top: var(--media-height-half);
+    left: calc(-1 * var(--side-column-min-width));
+    justify-self: end;
+    align-self: center;
+    color: white;
+
+    :deep(.svg__fill--primary-blue-01) {
+      fill: none;
     }
 
-    :deep(.media-item) {
-        height: var(--media-height);
+    :deep(.svg__fill--primary-blue-03) {
+      fill: var(--color-white);
+    }
+  }
+
+  .button-next {
+    position: absolute;
+    top: var(--media-height-half);
+    right: calc(-1 * var(--side-column-min-width));
+    justify-self: start;
+    align-self: center;
+    color: white;
+
+    :deep(.svg__fill--primary-blue-01) {
+      fill: none;
     }
 
-    .controls {
-        width: 110%;
-        display: flex;
-        justify-content: space-between;
-        position: absolute;
-        top: 250px;
-        left: -50px;
+    :deep(.svg__fill--primary-blue-03) {
+      fill: var(--color-white);
     }
+  }
 
-    --media-height-half: calc(var(--media-height) / 2);
+  @media #{$medium} {
+    --side-column-min-width: 64px;
 
     .button-prev {
-        position: absolute;
-        top: var(--media-height-half);
-        left: calc(-1 * var(--side-column-min-width));
-        justify-self: end;
-        align-self: center;
-        color: white;
-
-        :deep(.svg__fill--primary-blue-01) {
-            fill: none;
-        }
-
-        :deep(.svg__fill--primary-blue-03) {
-            fill: var(--color-white);
-        }
+      top: calc(var(--media-width) / 3);
     }
 
     .button-next {
-        position: absolute;
-        top: var(--media-height-half);
-        right: calc(-1 * var(--side-column-min-width));
-        justify-self: start;
-        align-self: center;
-        color: white;
+      top: calc(var(--media-width) / 3);
+    }
 
-        :deep(.svg__fill--primary-blue-01) {
-            fill: none;
+    :deep(.media-item) {
+      height: calc(var(--media-height) * 1.2);
+    }
+
+    :deep(.glide__slides) {
+      align-items: center;
+    }
+  }
+
+  @media #{$small} {
+    --side-column-min-width: var(--unit-gutter);
+
+    .button-close {
+      grid-column: col 2;
+      justify-self: end;
+    }
+
+    .button-prev,
+    .button-next {
+      display: none;
+    }
+
+    :deep(.media-item) {
+      height: 100%;
+    }
+
+    :deep(.glide__slides) {
+      align-items: center;
+    }
+  }
+
+  .caption-block {
+    color: var(--color-white);
+    grid-row: row 3;
+    grid-column: col 2;
+
+    .media-counter {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-bottom: 24px;
+
+      .media-counter-item {
+        padding: 0;
+
+        .svg {
+          display: block;
         }
 
         :deep(.svg__fill--primary-blue-03) {
-            fill: var(--color-white);
+          fill: none;
         }
+
+        &:disabled {
+          :deep(.svg__stroke--primary-blue-03) {
+            stroke: white;
+          }
+
+          :deep(.svg__fill--primary-blue-03) {
+            fill: white;
+          }
+        }
+      }
     }
 
-    @media #{$medium} {
-        --side-column-min-width: 64px;
-
-        .button-prev {
-            top: calc(var(--media-width) / 3);
-        }
-
-        .button-next {
-            top: calc(var(--media-width) / 3);
-        }
-
-        :deep(.media-item) {
-            height: calc(var(--media-height) * 1.2);
-        }
-
-        :deep(.glide__slides) {
-            align-items: center;
-        }
+    .media-object-title {
+      @include step-0;
+      margin-bottom: var(--space-s);
     }
 
-    @media #{$small} {
-        --side-column-min-width: var(--unit-gutter);
-
-        .button-close {
-            grid-column: col 2;
-            justify-self: end;
-        }
-
-        .button-prev,
-        .button-next {
-            display: none;
-        }
-
-        :deep(.media-item) {
-            height: 100%;
-        }
-
-        :deep(.glide__slides) {
-            align-items: center;
-        }
+    .media-object-caption {
+      @include step--1;
     }
 
-    .caption-block {
-        color: var(--color-white);
-        grid-row: row 3;
-        grid-column: col 2;
+    .media-object-credit {
+      margin-top: 4px;
 
-        .media-counter {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin-bottom: 24px;
-
-            .media-counter-item {
-                padding: 0;
-
-                .svg {
-                    display: block;
-                }
-
-                :deep(.svg__fill--primary-blue-03) {
-                    fill: none;
-                }
-
-                &:disabled {
-                    :deep(.svg__stroke--primary-blue-03) {
-                        stroke: white;
-                    }
-
-                    :deep(.svg__fill--primary-blue-03) {
-                        fill: white;
-                    }
-                }
-            }
-        }
-
-        .media-object-title {
-            @include step-0;
-            margin-bottom: var(--space-s);
-        }
-
-        .media-object-caption {
-            @include step--1;
-        }
-
-        .media-object-credit {
-            margin-top: 4px;
-
-            @include step--1;
-            font-style: italic;
-        }
-
-        .media-object-caption-link {
-            @include step--1;
-
-            margin-top: 4px;
-            padding: 0;
-
-            display: flex;
-            align-items: center;
-
-            color: $white;
-
-            :deep(.svg__icon-external-link) {
-                .svg__fill--primary-blue-03 {
-                    fill: $white;
-
-                    fill: $white;
-                    stroke: $white;
-                }
-            }
-        }
+      @include step--1;
+      font-style: italic;
     }
+
+    .media-object-caption-link {
+      @include step--1;
+
+      margin-top: 4px;
+      padding: 0;
+
+      display: flex;
+      align-items: center;
+
+      color: $white;
+
+      :deep(.svg__icon-external-link) {
+        .svg__fill--primary-blue-03 {
+          fill: $white;
+
+          fill: $white;
+          stroke: $white;
+        }
+      }
+    }
+  }
 }
 </style>

@@ -48,42 +48,46 @@ export default {
   padding: 0 var(--unit-gutter);
 
   .parent-page-url {
-      @include step-1;
-      color: var(--color-primary-blue-03);
-      flex-shrink: 0;
+    @include step-1;
+    color: var(--color-primary-blue-03);
+    flex-shrink: 0;
   }
 
   .svg__icon-caret-left {
-      flex-shrink: 0;
+    flex-shrink: 0;
   }
+
   .current-page-title {
-      @include step-0;
-      color: var(--color-black);
-      @include truncate(1);
+    @include step-0;
+    color: var(--color-black);
+    @include truncate(1);
   }
 
   @media #{$extra-large} {
-      padding: 0;
+    padding: 0;
   }
 
   @media #{$small} {
-      padding-left: calc(var(--unit-gutter) - 8px);
-      .current-page-title {
-          display: none;
-      }
-      .svg__icon-caret-left {
-          order: 1;
-      }
-      .parent-page-url {
-          order: 2;
-      }
+    padding-left: calc(var(--unit-gutter) - 8px);
+
+    .current-page-title {
+      display: none;
+    }
+
+    .svg__icon-caret-left {
+      order: 1;
+    }
+
+    .parent-page-url {
+      order: 2;
+    }
   }
 }
 
 // Hovers
 @media #{$has-hover} {
   .parent-page-url:hover {
-      @include link-hover;
+    @include link-hover;
   }
 }
 </style>
