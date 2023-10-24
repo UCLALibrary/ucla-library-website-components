@@ -1,3 +1,10 @@
+# [2.39.0-alpha.14](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.13...v2.39.0-alpha.14) (2023-10-23)
+
+
+### Features
+
+* APPS-2458 Add Block- Amenities, Generic List, StaffSubjectLibrarian ([#414](https://github.com/UCLALibrary/ucla-library-website-components/issues/414)) ([ce7109a](https://github.com/UCLALibrary/ucla-library-website-components/commit/ce7109a9700c062b4fdfc21f559ec41e8c7f8078))
+
 # [2.39.0-alpha.13](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.12...v2.39.0-alpha.13) (2023-10-13)
 
 
