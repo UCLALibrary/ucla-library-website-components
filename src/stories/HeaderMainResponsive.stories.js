@@ -181,8 +181,6 @@ const secondaryMicroSiteItems = [
   },
 ]
 
-
-
 // Variations of stories below
 export function Default() {
   return {
@@ -245,29 +243,29 @@ export function Microsite() {
   }
 }
 // Define a Template for your stories
-const Template = (args, { argTypes }) => ({
-  components: { HeaderMainResponsive },
-  props: Object.keys(argTypes), // Bind all args to props
-  computed: {
-    parsedSecondaryItems() {
+function Template(args, { argTypes }) {
+  return {
+    components: { HeaderMainResponsive },
+    props: Object.keys(argTypes), // Bind all args to props
+    computed: {
+      parsedSecondaryItems() {
       // Restructuring item to support text key
-      return secondaryItems.map((obj) => {
-        return {
-          ...obj,
-          text: obj.name,
-        }
-      })
+        return secondaryItems.map((obj) => {
+          return {
+            ...obj,
+            text: obj.name,
+          }
+        })
+      },
+      parsePrimaryItems() {
+        return primaryItems
+      }
     },
-    parsePrimaryItems() {
-      return primaryItems
-    }
-  },
-  template: `<header-main-responsive :primary-nav="parsePrimaryItems" :secondary-nav="parsedSecondaryItems" current-path= "/about/foo/bar" />`,
-});
+    template: '<header-main-responsive :primary-nav="parsePrimaryItems" :secondary-nav="parsedSecondaryItems" current-path= "/about/foo/bar" />',
+  }
+}
 
-
-
-export const WithControls = Template.bind({});
+export const WithControls = Template.bind({})
 WithControls.args = {
   primaryItems,
   secondaryItems,

@@ -1,17 +1,15 @@
 <script lang="ts" setup>
 // components
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
+import { computed } from 'vue'
+import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 // vue
-import { computed } from 'vue'
-import type { PropType } from 'vue'
 
 // types
 import type { NavSecondaryItemType } from '@/types/types'
-
-
 
 const { items, isMicrosite } = defineProps({
   items: {
@@ -67,8 +65,10 @@ const accountLink = computed(() => {
           </li>
         </ul>
 
-        <ButtonLink v-if="!isMicrosite" :label="accountLink.name" class="account-button" :link-target="accountLink.target"
-          :to="accountLink.to" :is-secondary="true" />
+        <ButtonLink
+          v-if="!isMicrosite" :label="accountLink.name" class="account-button" :link-target="accountLink.target"
+          :to="accountLink.to" :is-secondary="true"
+        />
 
         <ul v-if="isMicrosite" class="link-list">
           <li v-for="(item, index) in parsedLinks" :key="index" :class="item.classes">

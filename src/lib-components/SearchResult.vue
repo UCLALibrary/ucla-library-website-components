@@ -2,10 +2,10 @@
 <!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <script setup>
 // components
+import { computed } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 // vue
-import { computed } from 'vue'
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 const { to, category, title, summary } = defineProps({
@@ -35,7 +35,7 @@ const parsedText = computed(() => {
 <template>
   <li class="search-result-item">
     <div class="category" v-text="category" />
-    <smart-link class="title" :to="to" v-html="title" />
+    <SmartLink class="title" :to="to" v-html="title" />
     <div v-if="summary" class="summary">
       {{ parsedText }}
     </div>

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
+import type { PropType } from 'vue'
 import NavPrimary from '@/lib-components/NavPrimary.vue'
 import NavSecondary from '@/lib-components/NavSecondary.vue'
-import type { PropType } from 'vue'
 
 // types
 import type { NavPrimaryItemType } from '@/types/types'

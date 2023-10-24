@@ -1,96 +1,93 @@
 <script setup>
-
 // vue
-import { computed, watch, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 // components
 import SmartLink from '@/lib-components/SmartLink.vue'
 
-
-
 const { item, index, goBack } = defineProps(
-    {
-        item: {
-            type: Object,
-            default: () => { },
-        },
-        index: {
-            type: Number,
-            default: 0,
-        },
-        goBack: {
-            type: Boolean,
-            default: false,
-        },
-    }
+  {
+    item: {
+      type: Object,
+      default: () => { },
+    },
+    index: {
+      type: Number,
+      default: 0,
+    },
+    goBack: {
+      type: Boolean,
+      default: false,
+    },
+  }
 )
 const emits = defineEmits(['shouldOpen', 'itemOpenedColor', 'closeMainMenu'])
 
 const parsedChildren = computed(() => {
-    return item.children.map((obj) => {
-        return {
-            ...obj,
-            classes: `sub-menu-link ${obj.classes || ''}`,
-        }
-    })
+  return item.children.map((obj) => {
+    return {
+      ...obj,
+      classes: `sub-menu-link ${obj.classes || ''}`,
+    }
+  })
 })
 
 function toggleItem(itemIndex) {
-    const subMenuItemInfoElement = document.querySelectorAll(
+  const subMenuItemInfoElement = document.querySelectorAll(
         `[data-sub-menu-item-id="${itemIndex}"]`
-    )[0]
-    const subMenuItemInfoElementReset = document.querySelectorAll(
+  )[0]
+  const subMenuItemInfoElementReset = document.querySelectorAll(
         `ul:not([data-sub-menu-item-id="${itemIndex}"])`
-    )
-    const subMenuTitleElement = document.querySelectorAll(
+  )
+  const subMenuTitleElement = document.querySelectorAll(
         `li span:not([data-sub-menu-title-id="${itemIndex}"])`
-    )
-    if (subMenuItemInfoElement.classList.contains('block')) {
-        subMenuItemInfoElement.classList.remove('block')
-        subMenuItemInfoElement.classList.add('hidden')
+  )
+  if (subMenuItemInfoElement.classList.contains('block')) {
+    subMenuItemInfoElement.classList.remove('block')
+    subMenuItemInfoElement.classList.add('hidden')
 
-        for (const title of subMenuTitleElement) {
-            // title.classList.remove("hidden")
-            title.classList.add('block')
-        }
+    for (const title of subMenuTitleElement) {
+      // title.classList.remove("hidden")
+      title.classList.add('block')
     }
-    else {
-        subMenuItemInfoElement.classList.remove('hidden')
-        subMenuItemInfoElement.classList.add('block')
+  }
+  else {
+    subMenuItemInfoElement.classList.remove('hidden')
+    subMenuItemInfoElement.classList.add('block')
 
-        for (const title of subMenuTitleElement)
-            title.classList.remove('block')
-        // title.classList.add("hidden")
+    for (const title of subMenuTitleElement)
+      title.classList.remove('block')
+    // title.classList.add("hidden")
 
-        for (const title of subMenuItemInfoElementReset) {
-            // title.classList.remove("hidden")
-            title.classList.remove('block')
-            title.classList.add('hidden')
-        }
+    for (const title of subMenuItemInfoElementReset) {
+      // title.classList.remove("hidden")
+      title.classList.remove('block')
+      title.classList.add('hidden')
     }
-    emits('shouldOpen')
-    emits('itemOpenedColor', itemIndex)
+  }
+  emits('shouldOpen')
+  emits('itemOpenedColor', itemIndex)
 }
 function resetAccordion() {
-    // this.$emit("shouldOpen")
+  // this.$emit("shouldOpen")
 
-    const subMenuTitleElement = document.querySelectorAll(
-        '[data-sub-menu-title-id]'
-    )
-    for (const title of subMenuTitleElement) {
-        title.classList.remove('hidden')
-        title.classList.add('block')
-    }
-    const subMenuItemInfoElement = document.querySelectorAll(
-        '[data-sub-menu-item-id]'
-    )
-    for (const item of subMenuItemInfoElement) {
-        item.classList.remove('block')
-        item.classList.add('hidden')
-    }
+  const subMenuTitleElement = document.querySelectorAll(
+    '[data-sub-menu-title-id]'
+  )
+  for (const title of subMenuTitleElement) {
+    title.classList.remove('hidden')
+    title.classList.add('block')
+  }
+  const subMenuItemInfoElement = document.querySelectorAll(
+    '[data-sub-menu-item-id]'
+  )
+  for (const item of subMenuItemInfoElement) {
+    item.classList.remove('block')
+    item.classList.add('hidden')
+  }
 }
 function closeMenu() {
-    emits('closeMainMenu')
+  emits('closeMainMenu')
 }
 
 // Wrap the goBack prop in a ref to make it reactive
@@ -98,26 +95,25 @@ const goBackRef = ref(goBack)
 
 // Define a watcher for goBackRef
 watch(goBackRef, (newVal) => {
-    if (newVal) {
-        resetAccordion()
-    }
+  if (newVal)
+    resetAccordion()
 })
 </script>
 
 <template>
-    <li class="nav-menu-item">
-        <button class="section-name block" :data-sub-menu-title-id="index" @click="toggleItem(index)">
-            {{ item.name }}
-        </button>
+  <li class="nav-menu-item">
+    <button class="section-name block" :data-sub-menu-title-id="index" @click="toggleItem(index)">
+      {{ item.name }}
+    </button>
 
-        <ul :data-sub-menu-item-id="index" class="sub-menu hidden">
-            <li v-for="child in parsedChildren" :key="child.id" class="sub-menu-item" @click="closeMenu">
-                <SmartLink :class="child.classes" :to="child.to" :link-target="child.target">
-                    {{ child.name }}
-                </SmartLink>
-            </li>
-        </ul>
-    </li>
+    <ul :data-sub-menu-item-id="index" class="sub-menu hidden">
+      <li v-for="child in parsedChildren" :key="child.id" class="sub-menu-item" @click="closeMenu">
+        <SmartLink :class="child.classes" :to="child.to" :link-target="child.target">
+          {{ child.name }}
+        </SmartLink>
+      </li>
+    </ul>
+  </li>
 </template>
 
 <style lang="scss" scoped>

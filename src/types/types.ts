@@ -39,7 +39,6 @@ export interface MediaGalleryItemType {
   embedCode?: string
 }
 
-
 interface NavItem {
   id?: string
   name: string

@@ -75,10 +75,6 @@ const props = defineProps({
 const IconWithLink = defineAsyncComponent(
   () => import('@/lib-components/IconWithLink.vue')
 )
-
-const lastDepartment = computed(() => {
-  return props.departments[props.departments.length - 1].title
-})
 </script>
 
 <template>
