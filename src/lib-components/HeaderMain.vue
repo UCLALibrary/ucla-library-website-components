@@ -1,17 +1,22 @@
-<script setup>
+<script lang="ts" setup>
 import { computed } from 'vue'
-import NavPrimary from '@/lib-components/NavPrimary'
-import NavSecondary from '@/lib-components/NavSecondary'
+import NavPrimary from '@/lib-components/NavPrimary.vue'
+import NavSecondary from '@/lib-components/NavSecondary.vue'
+import type { PropType } from 'vue'
+
+// types
+import type { NavPrimaryItemType } from '@/types/types'
+import type { NavSecondaryItemType } from '@/types/types'
 
 const { primaryNav, secondaryNav, title } = defineProps(
   {
     primaryNav: {
       // This is an array of objects, with each object shaped like {name, url, items:[{text, to, target}]}
-      type: Array,
+      type: Array as PropType<NavPrimaryItemType[]>,
       default: () => [],
     },
     secondaryNav: {
-      type: Array,
+      type: Array as PropType<NavSecondaryItemType[]>,
       default: () => [],
     },
     title: {
@@ -35,15 +40,15 @@ const parseTitle = computed(() => {
 
 <style lang="scss" scoped>
 .header-main {
-    z-index: 200;
+  z-index: 200;
 
-    position: relative;
-    height: 128px;
+  position: relative;
+  height: 128px;
 
-    .primary {
-        position: absolute;
-    }
+  .primary {
+    position: absolute;
+  }
 
-    // TODO nav on smaller viewports
+  // TODO nav on smaller viewports
 }
 </style>

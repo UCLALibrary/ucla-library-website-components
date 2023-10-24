@@ -1,13 +1,16 @@
-<script setup>
+<script lang="ts" setup>
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
 import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import SmartLink from '@/lib-components/SmartLink'
-import NavMenuItem from '@/lib-components/NavMenuItem'
+import SmartLink from '@/lib-components/SmartLink.vue'
+import NavMenuItem from '@/lib-components/NavMenuItem.vue'
+
+import type { PropType } from 'vue'
+import type { NavPrimaryItemType } from '@/types/types'
 
 const { items, currentPath, title, acronym } = defineProps({
     items: {
-        type: Array,
+        type: Array as PropType<NavPrimaryItemType[]>,
         default: () => [],
     },
     currentPath: {
@@ -47,7 +50,7 @@ const supportLinks = computed(() => {
 
 const currentPathActiveIndex = computed(() => {
     const currentPathNew = currentPath || route.path
-    return items.findIndex((item) => currentPathNew.includes(item.url))
+    return items.findIndex((item) => item.url && currentPathNew.includes(item.url))
 })
 
 const parsedItems = computed(() =>
@@ -72,7 +75,7 @@ const toggleMenu = () => {
     }
 }
 
-const setActive = (index) => {
+const setActive = (index: number) => {
     activeMenuIndex.value = index
 }
 

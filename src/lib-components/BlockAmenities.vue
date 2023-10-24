@@ -40,23 +40,50 @@ const SvgIconBook = defineAsyncComponent(() =>
 )
 
 const amenitiesMapping = {
-  'icon-clock': [SvgIconClock, '24 Hour Study Space'],
-  'icon-accessible': [SvgIconAccessible, 'ADA Stations'],
-  'icon-chair': [SvgIconChair, 'Cafe'],
-  'icon-virtual': [SvgIconVirtual, 'Computer/Laptop Access'],
-  'icon-laptop': [SvgIconLaptop, 'Laptop Lending'],
-  'icon-locker': [SvgIconLocker, 'Locker'],
-  'icon-light': [SvgIconLight, 'Makerspace'],
-  'icon-share-printer': [SvgIconSharePrinter, 'Print, Copy and Scan'],
-  'icon-book': [SvgIconBook, 'Research Help'],
+  'icon-clock': {
+    icon: SvgIconClock,
+    label: '24 Hour Study Space'
+  },
+  'icon-accessible': {
+    icon: SvgIconAccessible,
+    label: 'ADA Stations'
+  },
+  'icon-chair': {
+    icon: SvgIconChair,
+    label: 'Cafe'
+  },
+  'icon-virtual': {
+    icon: SvgIconVirtual,
+    label: 'Computer/Laptop Access'
+  },
+  'icon-laptop': {
+    icon: SvgIconLaptop,
+    label: 'Laptop Lending'
+  },
+  'icon-locker': {
+    icon: SvgIconLocker,
+    label: 'Locker'
+  },
+  'icon-light': {
+    icon: SvgIconLight,
+    label: 'Makerspace'
+  },
+  'icon-share-printer': {
+    icon: SvgIconSharePrinter,
+    label: 'Print, Copy and Scan'
+  },
+  'icon-book': {
+    icon: SvgIconBook,
+    label: 'Research Help'
+  },
 }
 
 const parsedAmenities = computed(() => {
   return props.amenities.map((key) => {
     const amenitiesItem = amenitiesMapping[key as keyof typeof amenitiesMapping]
     return {
-      svgIcon: amenitiesItem[0],
-      svgLabel: amenitiesItem[1]
+      svgIcon: amenitiesItem.icon,
+      svgLabel: amenitiesItem.label
     }
   })
 })

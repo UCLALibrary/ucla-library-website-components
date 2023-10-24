@@ -36,7 +36,7 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  department: {
+  departments: {
     type: Array as PropType<DepartmentItemType[]>,
     default: () => [],
   },
@@ -69,9 +69,9 @@ const parsedText = computed(() => {
       {{ title }}
     </h3>
 
-    <div v-if="department.length || payRate" class="byline-group">
-      <div v-if="department.length" class="schedule-item">
-        <div v-for="(item, index) in department" :key="`block-generic-${item.title}-${index}`" class="schedule-item">
+    <div v-if="departments.length || payRate" class="byline-group">
+      <div v-if="departments.length" class="schedule-item">
+        <div v-for="(item, index) in departments" :key="`block-generic-${item.title}-${index}`" class="schedule-item">
           {{ item.title }}
         </div>
         <div v-if="payRate" class="schedule-item">
@@ -81,10 +81,8 @@ const parsedText = computed(() => {
     </div>
 
     <div v-if="associatedLocations.length > 0" class="location-group">
-      <IconWithLink
-        v-for="(location, index) in associatedLocations" :key="`block-generic-${location.title}-${index}`"
-        :text="location.title" icon-name="svg-icon-location" :to="location.to"
-      />
+      <IconWithLink v-for="(location, index) in associatedLocations" :key="`block-generic-${location.title}-${index}`"
+        :text="location.title" icon-name="svg-icon-location" :to="location.to" />
     </div>
     <div v-if="text" class="text">
       {{ parsedText }}

@@ -1,15 +1,21 @@
-<script setup>
+<script lang="ts" setup>
 // components
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
-import { computed } from 'vue'
-import SmartLink from '@/lib-components/SmartLink'
-import ButtonLink from '@/lib-components/ButtonLink'
+import SmartLink from '@/lib-components/SmartLink.vue'
+import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 // vue
+import { computed } from 'vue'
+import type { PropType } from 'vue'
+
+// types
+import type { NavSecondaryItemType } from '@/types/types'
+
+
 
 const { items, isMicrosite } = defineProps({
   items: {
-    type: Array,
+    type: Array as PropType<NavSecondaryItemType[]>,
     default: () => [],
   },
   isMicrosite: {
@@ -36,6 +42,7 @@ const parsedLinks = computed(() => {
     }
   })
 })
+
 const parsedItemsMinusAccount = computed(() => {
   return parsedLinks.value.slice(0, -1)
 })
@@ -60,10 +67,8 @@ const accountLink = computed(() => {
           </li>
         </ul>
 
-        <ButtonLink
-          v-if="!isMicrosite" :label="accountLink.name" class="account-button"
-          :link-target="accountLink.target" :to="accountLink.to" :is-secondary="true"
-        />
+        <ButtonLink v-if="!isMicrosite" :label="accountLink.name" class="account-button" :link-target="accountLink.target"
+          :to="accountLink.to" :is-secondary="true" />
 
         <ul v-if="isMicrosite" class="link-list">
           <li v-for="(item, index) in parsedLinks" :key="index" :class="item.classes">
@@ -79,85 +84,85 @@ const accountLink = computed(() => {
 
 <style lang="scss" scoped>
 .nav-secondary {
-    padding: 12px var(--unit-gutter);
-    border-bottom: 1px solid var(--color-secondary-grey-02);
+  padding: 12px var(--unit-gutter);
+  border-bottom: 1px solid var(--color-secondary-grey-02);
 
-    .flex-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .flex-container-not-microsite {
+    justify-content: flex-end;
+    align-content: flex-end;
+    align-items: center;
+  }
+
+  .flex-container-microsite {
+    justify-content: space-between;
+    align-content: flex-end;
+    align-items: center;
+  }
+
+  .navigation-list {
+    margin-top: 3px;
+    align-content: right;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+  }
+
+  .list-item {
+    display: inline-block;
+    margin-left: 50px;
+    font-size: 18px;
+    line-height: 1;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .support-link {
+    font-weight: $font-weight-medium;
+    color: var(--color-primary-blue-04);
+  }
+
+  ::v-deep .account-button {
+    color: var(--color-white);
+    background-color: var(--color-primary-blue-04);
+    border-color: var(--color-primary-blue-04);
+    border-radius: 4px;
+    padding: 2px 12px;
+    font-weight: $font-weight-medium;
+    margin-left: 48px;
+    min-height: unset;
+
+    :not(:only-child):first-child {
+      padding: 0;
     }
 
-    .flex-container-not-microsite {
-        justify-content: flex-end;
-        align-content: flex-end;
-        align-items: center;
+    .arrow {
+      display: none;
     }
+  }
 
-    .flex-container-microsite {
-        justify-content: space-between;
-        align-content: flex-end;
-        align-items: center;
+  // Hover states
+  @media #{$has-hover} {
+
+    .link:hover,
+    .link:active {
+      color: var(--color-primary-blue-03);
     }
-
-    .navigation-list {
-        margin-top: 3px;
-        align-content: right;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        align-content: center;
-        align-items: center;
-        align-self: center;
-    }
-
-    .list-item {
-        display: inline-block;
-        margin-left: 50px;
-        font-size: 18px;
-        line-height: 1;
-
-        &:first-child {
-            margin-left: 0;
-        }
-    }
-
-    .support-link {
-        font-weight: $font-weight-medium;
-        color: var(--color-primary-blue-04);
-    }
-
-    ::v-deep .account-button {
-        color: var(--color-white);
-        background-color: var(--color-primary-blue-04);
-        border-color: var(--color-primary-blue-04);
-        border-radius: 4px;
-        padding: 2px 12px;
-        font-weight: $font-weight-medium;
-        margin-left: 48px;
-        min-height: unset;
-
-        :not(:only-child):first-child {
-            padding: 0;
-        }
-
-        .arrow {
-            display: none;
-        }
-    }
-
-    // Hover states
-    @media #{$has-hover} {
-
-        .link:hover,
-        .link:active {
-            color: var(--color-primary-blue-03);
-        }
-    }
+  }
 }
 </style>

@@ -1,9 +1,12 @@
 <script setup>
-// components
-import { computed, watch, ref } from 'vue'
-import SmartLink from '@/lib-components/SmartLink'
 
 // vue
+import { computed, watch, ref } from 'vue'
+
+// components
+import SmartLink from '@/lib-components/SmartLink.vue'
+
+
 
 const { item, index, goBack } = defineProps(
     {

@@ -1,34 +1,33 @@
-<script setup>
+<script lang="ts" setup>
 // Components
 import IconCloseLarge from "ucla-library-design-tokens/assets/svgs/icon-close-large.svg"
-import IconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-circle-left.svg"
 import Molecule3d from "ucla-library-design-tokens/assets/svgs/molecule-3d.svg"
 import IconMenu from "ucla-library-design-tokens/assets/svgs/icon-menu.svg"
 import LogoLibrary from "ucla-library-design-tokens/assets/svgs/logo-library.svg"
-import NavMenuItemResponsive from '@/lib-components/NavMenuItemResponsive'
-import SmartLink from '@/lib-components/SmartLink'
-import ButtonLink from '@/lib-components/ButtonLink'
+import NavMenuItemResponsive from '@/lib-components/NavMenuItemResponsive.vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
+import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 import { computed, ref } from 'vue'
+import type { PropType } from 'vue'
+
+// types
+import type { NavPrimaryItemType } from '@/types/types'
+import type { NavSecondaryItemType } from '@/types/types'
+
 
 
 const props = defineProps(
     {
-        iconCloseName: {
-            type: String,
-            default: 'icon-close-large',
-        },
-        iconGoBackName: {
-            type: String,
-            default: 'icon-caret-circle-left',
-        },
+
+
         primaryNav: {
             // This is an array of objects, with each object shaped like {name, url, items:[{text, to, target}]}
-            type: Array,
+            type: Array as PropType<NavPrimaryItemType[]>,
             default: () => [],
         },
         secondaryNav: {
-            type: Array,
+            type: Array as PropType<NavSecondaryItemType[]>,
             default: () => [],
         },
         title: {
@@ -41,6 +40,7 @@ const props = defineProps(
         },
     },
 )
+
 
 const isOpened = ref(false)
 const isItemOpened = ref(false)
@@ -59,7 +59,7 @@ const parseAriaLabel = computed(() => {
     return props.title ? props.title : 'UCLA Library home page'
 })
 const parsedSvgName = computed(() => {
-    return `${props.iconCloseName}`
+    return IconCloseLarge
 })
 const parsedPrimaryMenuItems = computed(() => {
     // Return only items that have children (assume these are dropdowns)
@@ -98,7 +98,7 @@ function handleCloseOrReturn() {
 
     isOpened.value = false
 }
-function itemOpenedColor(itemIndex) {
+function itemOpenedColor(itemIndex: number) {
     if (itemIndex === 0)
         moleculeColor.value = 'green'
     else if (itemIndex === 1)
@@ -113,9 +113,7 @@ function toggleMenu() {
     isOpened.value = !isOpened.value
     goBack.value = !goBack.value
 }
-function closeItem() {
-    isItemOpened.value = false
-}
+
 </script>
 
 <template>
@@ -143,6 +141,7 @@ function closeItem() {
                     </div>
                     <component :is="LogoLibrary" v-else width="155" height="55" class="expanded-logo" @click="toggleMenu" />
                 </SmartLink>
+
                 <button role="button" class="close-menu" aria-label="Close menu" @click="handleCloseOrReturn">
                     <component :is="parsedSvgName" class="close-svg" />
                 </button>

@@ -43,6 +43,7 @@ const mock = {
   ],
   locations: [
     {
+      id: '3456',
       title: 'DIIT',
       to: '/location/bar',
     },
