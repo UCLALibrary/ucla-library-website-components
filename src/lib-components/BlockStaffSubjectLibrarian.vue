@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, defineAsyncComponent } from 'vue'
+import { defineAsyncComponent } from 'vue'
 import type { PropType } from 'vue'
 
 // UTILITY FUNCTIONS
@@ -9,7 +9,7 @@ import SmartLink from '@/lib-components/SmartLink.vue'
 // Types
 import type { DepartmentItemType, LocationItemType } from '@/types/types'
 
-const props = defineProps({
+defineProps({
   subjectArea: {
     type: String,
     default: '',
