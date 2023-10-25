@@ -88,17 +88,18 @@ export default {
     // else if -> if there is no iconName prop given & it is an internal link then the svg-arrow-right will display
     // else svg-arrow-diagonal will display
     parsedIconName() {
-      let output = ''
-      if (this.isDownload)
-        output = 'svg-arrow-download'
-      else if (isInternalLink(this.to))
-        output = 'svg-arrow-right'
-      else if (this.iconName === 'none')
-        output = 'none'
-      else if (this.iconName)
-        output = this.iconName
-      else output = 'svg-external-link'
-      return output
+      switch (true) {
+        case this.isDownload:
+          return 'svg-arrow-download'
+        case isInternalLink(this.to):
+          return 'svg-arrow-right'
+        case this.iconName === 'none':
+          return 'none'
+        case this.iconName:
+          return this.iconName
+        default:
+          return 'svg-external-link'
+      }
     },
   },
 }
