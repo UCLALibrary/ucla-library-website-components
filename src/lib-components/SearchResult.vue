@@ -1,5 +1,3 @@
-<!-- eslint-disable vue/no-v-html -->
-<!-- eslint-disable vue/no-v-text-v-html-on-component -->
 <script setup>
 // components
 import { computed } from 'vue'
