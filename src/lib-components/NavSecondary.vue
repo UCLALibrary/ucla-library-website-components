@@ -58,20 +58,18 @@ const accountLink = computed(() => {
 
       <div class="navigation-list">
         <ul v-if="!isMicrosite" class="list">
-          <li v-for="(item, index) in parsedItemsMinusAccount" :key="index" :class="item.classes">
+          <li v-for="item in parsedItemsMinusAccount" :key="`nav-secondary-${item.name}`" :class="item.classes">
             <SmartLink class="link underline-hover" :to="item.to" :link-target="item.target">
               {{ item.name }}
             </SmartLink>
           </li>
         </ul>
 
-        <ButtonLink
-          v-if="!isMicrosite" :label="accountLink.name" class="account-button" :link-target="accountLink.target"
-          :to="accountLink.to" :is-secondary="true"
-        />
+        <ButtonLink v-if="!isMicrosite" :label="accountLink.name" class="account-button" :link-target="accountLink.target"
+          :to="accountLink.to" :is-secondary="true" />
 
         <ul v-if="isMicrosite" class="link-list">
-          <li v-for="(item, index) in parsedLinks" :key="index" :class="item.classes">
+          <li v-for="item in parsedLinks" :key="`nav-secondary-${item.name}`" :class="item.classes">
             <SmartLink class="link underline-hover" :to="item.to" :link-target="item.target">
               {{ item.name }}
             </SmartLink>

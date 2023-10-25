@@ -116,7 +116,7 @@ function clearActive() {
     </ul>
 
     <div v-if="!title" class="support-links">
-      <div v-for="(item, index) in supportLinks" :key="index" class="item-top">
+      <div v-for="item in supportLinks" :key="`nav-primary-support-${item.name}`" class="item-top">
         <SmartLink class="support-link underline-hover" :to="item.to">
           {{ item.name }}
         </SmartLink>
