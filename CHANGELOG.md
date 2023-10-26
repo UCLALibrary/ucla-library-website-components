@@ -1,3 +1,10 @@
+# [2.39.0-alpha.15](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.14...v2.39.0-alpha.15) (2023-10-26)
+
+
+### Features
+
+* APPS-2460 add header components ([#415](https://github.com/UCLALibrary/ucla-library-website-components/issues/415)) ([9cf2385](https://github.com/UCLALibrary/ucla-library-website-components/commit/9cf2385f2dba8fe4c1200fa511bbd4865a5ec9ff))
+
 # [2.39.0-alpha.14](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.13...v2.39.0-alpha.14) (2023-10-23)
 
 
