@@ -6,6 +6,25 @@ export interface DepartmentItemType {
   to?: string
 }
 
+export interface EventItemType {
+  image?: ImageItemType
+  category: string
+  title: string
+  prompt: string
+  startDate: string
+  endDate: string
+  to: string
+  sectionHandle?: string
+}
+
+interface ImageItemType {
+  src: string
+  srcset?: string
+  sizes?: string
+  alt: string
+  title?: string
+}
+
 export interface LocationItemType {
   id?: string
   title: string
@@ -47,6 +66,7 @@ interface NavItem {
   classes?: string
   target?: string
 }
+
 interface NavPrimaryBaseItem extends NavItem {
   children?: NavItem[]
 }
