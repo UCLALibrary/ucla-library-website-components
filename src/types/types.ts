@@ -17,12 +17,16 @@ export interface EventItemType {
   sectionHandle?: string
 }
 
-interface ImageItemType {
+export interface ImageItemType {
   src: string
   srcset?: string
   sizes?: string
   alt: string
   title?: string
+  caption?: string
+  height?: number
+  width?: number
+  focalPoint?: number[]
 }
 
 export interface LocationItemType {

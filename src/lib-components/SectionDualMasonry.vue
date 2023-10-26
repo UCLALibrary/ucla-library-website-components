@@ -1,4 +1,3 @@
-<!-- <script> -->
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import type { EventItemType } from '@/types/types'
@@ -6,7 +5,7 @@ import type { EventItemType } from '@/types/types'
 import ButtonMore from '@/lib-components/ButtonMore.vue'
 import BlockEvent from '@/lib-components/BlockEvent.vue'
 
-// import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 const { items, to, text } = defineProps({
@@ -47,7 +46,7 @@ const { items, to, text } = defineProps({
         :to="item.to"
         class="brick brick-image"
       >
-        <!-- <ResponsiveImage :image="item.image" :aspect-ratio="100" /> -->
+        <ResponsiveImage :image="item.image" :aspect-ratio="100" />
       </SmartLink>
     </div>
     <SmartLink class="more" :to="to">

@@ -11,8 +11,8 @@ const { items, nShown } = defineProps({
     default: () => [],
   },
   nShown: {
-    type: Number,
-    default: 4,
+    type: String,
+    default: '4',
   }
 })
 </script>
@@ -22,12 +22,12 @@ const { items, nShown } = defineProps({
     <h3 id="spaces" class="spaces-title">
       Spaces
     </h3>
-    <BlockShowHide :disable="items.length <= nShown">
+    <BlockShowHide :disable="items.length <= Number(nShown)">
       <ul class="section-spaces-list">
         <BlockSpaces
           v-for="(item, index) in items"
           :key="`BlockSpace${index}`"
-          :class="index >= nShown ? 'show-hide-hideable' : null"
+          :class="index >= Number(nShown) ? 'show-hide-hideable' : null"
           :to="item.to"
           :title="item.title"
           :is-online="item.isOnline"
