@@ -34,6 +34,7 @@ import NavSecondary from '@/lib-components/NavSecondary.vue'
 import PullQuote from '@/lib-components/PullQuote.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SearchResult from '@/lib-components/SearchResult.vue'
+import SectionSpacesList from '@/lib-components/SectionSpacesList.vue'
 import SectionStaffOrcidPublications from '@/lib-components/SectionStaffOrcidPublications.vue'
 import SimpleCards from '@/lib-components/SimpleCards.vue'
 import SingleCheckbox from '@/lib-components/SingleCheckbox.vue'
@@ -263,6 +264,30 @@ const mockTwoCards = {
     },
   ],
 }
+
+const mockSpaces = [
+  {
+    to: 'https://calendar.library.ucla.edu',
+    title: 'Internal Portico',
+    location: 'Fames Turpis Building',
+    text: 'Etiam faucibus tellus quis magna finibus auctor. Fusce sagittis vel lectus sed ullamcorper. Proin faucibus nibh ut purus consequat lobortis. Aenean eu fermentum leo, vitae egestas eros. Vivamus urna nibh, porttitor in egestas eu, eleifend ac felis. Praesent sed tristique nibh. Nulla dignissim purus at metus consequat, vitae pharetra orci efficitur. Vivamus facilisis massa vel ipsum vestibulum, porta efficitur dolor aliquam.',
+    buttonUrl: 'http://google.com',
+  },
+  {
+    to: 'https://www.gettyimages.com/photos/cute-llamas',
+    title: 'External Von Junz',
+    location: 'Debordist Room',
+    text: 'If one examines Marxist class, one is faced with a choice: either reject Baudrillardist simulation or conclude that the significance of the artist is social comment. The premise of Debordist situation implies that the law is capable of significance. Therefore, any number of constructions concerning a self-sufficient reality may be found.',
+    buttonUrl: 'http://google.com',
+  },
+  {
+    to: '',
+    title: 'Null Beefeater Numpty',
+    location: 'Pennyboy Cottage',
+    text: 'Gosh beefeater numpty scouser rambunctious a bottle of plonk know your onions, cornish pasty spend a penny cheerio down the local mush. What a mug one off blimey a comely wench nose rag ponce gobsmacked pennyboy cottage pie, ey up fake tan spam fritters marvelous chippy hedgehog chav.',
+    buttonUrl: 'http://google.com',
+  },
+]
 </script>
 
 <template>
@@ -384,11 +409,13 @@ const mockTwoCards = {
   <br>
   <h2>BlockMediaWithText Component</h2>
   <br>
-  <BlockMediaWithText :section-header="mockMediaWithText.mediaWithText[0].titleLink"
+  <BlockMediaWithText
+    :section-header="mockMediaWithText.mediaWithText[0].titleLink"
     :short-description="mockMediaWithText.mediaWithText[0].description"
     :button-text="mockMediaWithText.mediaWithText[0].buttonText"
     :button-url="mockMediaWithText.mediaWithText[0].buttonUrl" :item="itemVideo" :cover-image="coverImage"
-    type-media="video" />
+    type-media="video"
+  />
   <br>
   <hr>
   <br>
@@ -414,11 +441,15 @@ const mockTwoCards = {
   <br>
   <h2>BlockCallToAction Component</h2>
   <br>
-  <BlockCallToAction :svg-name="mock.svgName" :title="mock.title" :text="mock.text" :name="mock.name" :to="mock.to"
-    :is-dark="false" :is-small-size="false" />
+  <BlockCallToAction
+    :svg-name="mock.svgName" :title="mock.title" :text="mock.text" :name="mock.name" :to="mock.to"
+    :is-dark="false" :is-small-size="false"
+  />
   <br>
-  <BlockCallToAction svg-name="svg-call-to-action-money" :title="mock.title" :text="mock.text" :name="mock.name"
-    :to="mock.to" :is-small-size="true" :is-dark="true" />
+  <BlockCallToAction
+    svg-name="svg-call-to-action-money" :title="mock.title" :text="mock.text" :name="mock.name"
+    :to="mock.to" :is-small-size="true" :is-dark="true"
+  />
   <br>
   <hr>
   <br>
@@ -440,15 +471,19 @@ const mockTwoCards = {
   <br>
   <h2>BlockEvent Component</h2>
   <br>
-  <BlockEvent :category="mock.category" :title="mock.title" :prompt="mock.title" :start-date="mock.startDate"
-    :end-date="mock.endDate" :to="mock.to" :section-handle="mock.title" />
+  <BlockEvent
+    :category="mock.category" :title="mock.title" :prompt="mock.title" :start-date="mock.startDate"
+    :end-date="mock.endDate" :to="mock.to" :section-handle="mock.title"
+  />
   <br>
   <hr>
   <br>
   <h2>BlockSponsor Component</h2>
   <br>
-  <BlockSponsor :funder-logo="mock.funderLogo" funder-name="Hostess Cupcakes"
-    funder-url="https://www.hostesscakes.com/products/cupcakes/chocolate/" />
+  <BlockSponsor
+    :funder-logo="mock.funderLogo" funder-name="Hostess Cupcakes"
+    funder-url="https://www.hostesscakes.com/products/cupcakes/chocolate/"
+  />
   <br>
   <hr>
   <br>
@@ -494,8 +529,10 @@ const mockTwoCards = {
   <br>
   <h2>SectionStaffOrcidPublications Component</h2>
   <br>
-  <SectionStaffOrcidPublications class="staff-orcid-publications" orcid="https://orcid.org/0000-0002-6391-2088"
-    publications="<ul><li><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. (2021). 'Teaching in the Digital Library: A Partnership Between Teaching Librarians and Digital Library Staff.' College &amp; Research Libraries News. 82(7). <a href='https://crln.acrl.org/index.php/crlnews/article/view/25033/32921'>https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></li></ul>" />
+  <SectionStaffOrcidPublications
+    class="staff-orcid-publications" orcid="https://orcid.org/0000-0002-6391-2088"
+    publications="<ul><li><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. (2021). 'Teaching in the Digital Library: A Partnership Between Teaching Librarians and Digital Library Staff.' College &amp; Research Libraries News. 82(7). <a href='https://crln.acrl.org/index.php/crlnews/article/view/25033/32921'>https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></li></ul>"
+  />
   <br>
   <hr>
   <br>
@@ -538,6 +575,15 @@ const mockTwoCards = {
     :items="mockTwoCards.cards"
     :section-title="sectionTitle"
     :section-summary="sectionSummary"
+  />
+  <br>
+  <hr>
+  <br>
+  <h2>SectionSpacesList Component</h2>
+  <br>
+  <SectionSpacesList
+    :items="mockSpaces"
+    n-shown="1"
   />
   <br>
   <hr>

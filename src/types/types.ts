@@ -59,6 +59,17 @@ export interface NavPrimaryItemType extends NavPrimaryBaseItem {
 export interface NavSecondaryItemType extends NavItem {
   text?: string
 }
+
+export interface SectionSpaceListItemType {
+  to: string
+  title: string
+  location: string
+  text: string
+  buttonUrl: string
+  buttonText?: string
+  isOnline?: boolean
+}
+
 export interface SimpleCardItemType {
   id?: string
   text: string
