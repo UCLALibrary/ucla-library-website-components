@@ -35,6 +35,7 @@ import PullQuote from '@/lib-components/PullQuote.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SearchResult from '@/lib-components/SearchResult.vue'
 import SectionStaffOrcidPublications from '@/lib-components/SectionStaffOrcidPublications.vue'
+import SimpleCards from '@/lib-components/SimpleCards.vue'
 import SingleCheckbox from '@/lib-components/SingleCheckbox.vue'
 import SiteNotificationAlert from '@/lib-components/SiteNotificationAlert.vue'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
@@ -237,6 +238,31 @@ const parsedItems = computed(() => {
     }
   })
 })
+
+const mockTwoCards = {
+  id: '13783',
+  sectionTitle: 'Fix Potholes',
+  sectionSummary:
+        '<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote. It is a frightening thought to imagine the ground below your feet or house suddenly collapsing and forming a big hole in the ground.</p>',
+  cards: [
+    {
+      id: '6622',
+      text: '<p>Learn how to use a VPN or proxy server to access Library resources with your UCLA Logon ID through a series of helpful videos.</p>',
+      title: 'Connecting from Off-Campus',
+      slug: 'connecting-from-off-campus',
+      to: 'help/services-resources/connecting-from-off-campus',
+      type: 'resource',
+    },
+    {
+      id: '6407',
+      text: '<p>A research guide</p>',
+      title: 'A new research guide',
+      slug: 'a-new-research-guide',
+      to: null,
+      externalResourceUrl: 'http://libguides.library.ucla.edu',
+    },
+  ],
+}
 </script>
 
 <template>
@@ -506,6 +532,15 @@ const parsedItems = computed(() => {
   <br>
   <NavSecondary :items="parsedItems" />
   <br>
+  <h2>SimpleCards Component</h2>
+  <br>
+  <SimpleCards
+    :items="mockTwoCards.cards"
+    :section-title="sectionTitle"
+    :section-summary="sectionSummary"
+  />
+  <br>
+  <hr>
   <br>
 </template>
 

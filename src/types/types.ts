@@ -1,4 +1,5 @@
 // custom types
+
 export interface DepartmentItemType {
   id?: string
   title: string
@@ -57,4 +58,13 @@ export interface NavPrimaryItemType extends NavPrimaryBaseItem {
 
 export interface NavSecondaryItemType extends NavItem {
   text?: string
+}
+export interface SimpleCardItemType {
+  id?: string
+  text: string
+  title: string
+  slug?: string
+  to: string
+  type?: string
+  externalResourceUrl?: string
 }
