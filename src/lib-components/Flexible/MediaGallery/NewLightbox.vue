@@ -72,21 +72,17 @@ function setCurrentSlide(currentSlide: number) {
             type="carousel" @change="setCurrentSlide" -->
     <div class="media-container">
       <!-- vue-glide-slide v-for="(item, index) in items" :key="index" -->
-      <div v-for="(item, index) in items" :key="index">
-        <MediaItem
-          :key="index" object-fit="contain" :item="item.item" :cover-image="item.coverImage"
-          :embed-code="item.embedCode"
-        />
+      <div v-for="(item, index) in items" :key="`media-container-${index}`">
+        <MediaItem :key="index" object-fit="contain" :item="item.item" :cover-image="item.coverImage"
+          :embed-code="item.embedCode" />
       </div>
       <!-- /vue-glide-slide -->
       <div>
         <button v-if="items.length > 1" class="button-prev" :disabled="selectionIndex <= 0" data-glide-dir="<">
           <SvgIconCaretLeft aria-label="Show previous image" />
         </button>
-        <button
-          v-if="items.length > 1" class="button-next" :disabled="selectionIndex >= items.length - 1"
-          data-glide-dir=">"
-        >
+        <button v-if="items.length > 1" class="button-next" :disabled="selectionIndex >= items.length - 1"
+          data-glide-dir=">">
           <SvgIconCaretRight aria-label="Show next image" />
         </button>
       </div>
@@ -94,10 +90,8 @@ function setCurrentSlide(currentSlide: number) {
     <!-- /vue-glide -->
     <div class="caption-block">
       <div v-if="items.length > 1" class="media-counter" role="tablist">
-        <button
-          v-for="index in items.length" :key="index" class="media-counter-item"
-          :disabled="index - 1 === selectionIndex" @click="setCurrentSlide(index - 1)"
-        >
+        <button v-for="index in items.length" :key="`caption-block-${index}`" class="media-counter-item"
+          :disabled="index - 1 === selectionIndex" @click="setCurrentSlide(index - 1)">
           <SvgIconMoleculeBullet />
         </button>
       </div>
@@ -107,11 +101,9 @@ function setCurrentSlide(currentSlide: number) {
       <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
         {{ items[selectionIndex].credit }}
       </p>
-      <SmartLink
-        v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
-          && items[selectionIndex].linkText
-        " class="media-object-caption-link" :to="items[selectionIndex].linkUrl"
-      >
+      <SmartLink v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
+        && items[selectionIndex].linkText
+        " class="media-object-caption-link" :to="items[selectionIndex].linkUrl">
         {{ items[selectionIndex].linkText }}
         <SvgExternalLink />
       </SmartLink>

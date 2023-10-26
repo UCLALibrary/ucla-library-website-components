@@ -11,6 +11,8 @@ export interface LocationItemType {
   to?: string
 }
 
+type customKind = 'image' | 'video' | 'audio'
+
 export interface MediaItemType {
   id: string
   src: string
@@ -23,6 +25,7 @@ export interface MediaItemType {
   type: string
   alt: string
 }
+
 export interface MediaGalleryItemType {
   id?: string
   captionTitle?: string
@@ -36,4 +39,22 @@ export interface MediaGalleryItemType {
   embedCode?: string
 }
 
-type customKind = 'image' | 'video' | 'audio'
+interface NavItem {
+  id?: string
+  name: string
+  to?: string
+  classes?: string
+  target?: string
+}
+interface NavPrimaryBaseItem extends NavItem {
+  children?: NavItem[]
+}
+
+export interface NavPrimaryItemType extends NavPrimaryBaseItem {
+  url?: string
+  isActive?: boolean
+}
+
+export interface NavSecondaryItemType extends NavItem {
+  text?: string
+}

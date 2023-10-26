@@ -14,7 +14,7 @@ const mock = {
     '<p><span>The UCLA Library seeks a highly collaborative, user-focused professional for the position of Humanities and Social Sciences Librarian. The incumbent will join a multi-location, cross disciplinary team that supports teaching and all levels of research in the humanities and social sciences. </span><span>Note: Two positions are being filled.</span><br /></p>',
   jobRequisitionNumber: 'JPF08053',
   jobPostingURL: 'https://recruit.apo.ucla.edu/JPF08053',
-  department: [
+  departments: [
     {
       title: 'User Engagement',
     },
@@ -41,7 +41,7 @@ const mock2 = {
   jobRequisitionNumber: '176834',
   jobPostingURL: 'https://www.studio-job.com/news/chess',
   payRate: '$5.45/hour',
-  department: [
+  departments: [
     {
       title: 'Business Services',
     },
@@ -71,7 +71,7 @@ export function Default() {
         :text="summary"
         :jobRequisitionNumber="jobRequisitionNumber"
         :jobPostingURL="jobPostingURL"
-        :department="department"
+        :departments="departments"
         :associatedLocations="associatedLocations"
         :alternativeFullName="alternativeFullName"
         :language="language"
@@ -93,7 +93,7 @@ export function PayRate() {
         :text="summary"
         :jobRequisitionNumber="jobRequisitionNumber"
         :jobPostingURL="jobPostingURL"
-        :department="department"
+        :departments="departments"
         :associatedLocations="associatedLocations"
         :payRate="payRate"
       />
