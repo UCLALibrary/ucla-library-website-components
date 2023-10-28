@@ -94,12 +94,14 @@ export interface SectionSpaceListItemType {
   isOnline?: boolean
 }
 
-export interface SimpleCardItemType {
+export interface CardItemType {
+  category?: string
+  externalResourceUrl?: string
+  iconName?: string
   id?: string
+  slug?: string
   text: string
   title: string
-  slug?: string
   to: string
   type?: string
-  externalResourceUrl?: string
 }

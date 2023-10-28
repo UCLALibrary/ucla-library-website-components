@@ -5,6 +5,7 @@ import BlockMediaWithText from './lib-components/BlockMediaWithText.vue'
 import SiteBrandBar from './lib-components/SiteBrandBar.vue'
 import BlockShowHide from './lib-components/BlockShowHide.vue'
 import BlockStaffSubjectLibrarian from './lib-components/BlockStaffSubjectLibrarian.vue'
+import SectionCardsWithIllustrations from './lib-components/SectionCardsWithIllustrations.vue'
 import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
 import BlockAmenities from '@/lib-components/BlockAmenities.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
@@ -291,6 +292,44 @@ const mockSpaces = [
     buttonUrl: 'http://google.com',
   },
 ]
+
+const itemsVertical = [
+  {
+    iconName: 'illustration-book-binding',
+    to: '/help/foo/bar/',
+    title: 'Lacus Luctus',
+    text: 'There are lots of things to climb on and huge space to run around. There\'s a large sitting area for us to bring our snacks/lunch or for me to read a book while they play well, at least for a few minutes until they come up and want to interact with me again. :) The place has been very clean every time we\'ve been there.',
+    isHorizontal: false,
+  },
+  {
+    iconName: 'illustration-find-space',
+    to: '/visit/foo/baz/',
+    title: 'Ultrices Enim',
+    text: 'Under the Sea is the newest, fun, unique, exciting, most talked about children\'s entertainment center. Beautiful floor-to-ceiling murals depict the world under the sea, with pirates, mermaids, and other sea life. As different as all kids are, they all enjoy one thing: fun,fun, and tons of fun!',
+    isHorizontal: false,
+  },
+  {
+    iconName: 'illustration-digitized-resources',
+    to: '/about/foo/fred/',
+    title: 'Egestas et Augue Justo eu Magna Luctus',
+    text: 'Unleash your child\'s imagination in a world Under the Sea. Through play, children develop the self esteem, coordination, and social skills necessary to grow. Children will bounce in the Moon Bouncer, go down the Turbo Slide, crawl through the climbing structure, or climb up to the top of a sea castle.',
+    isHorizontal: false,
+  },
+  {
+    iconName: 'illustration-databases',
+    to: '/about/foo/thud/',
+    title: 'Proin Sodales',
+    text: 'Under the Sea is the newest, fun, unique, exciting, most talked about children\'s entertainment center. Beautiful floor-to-ceiling murals depict the world under the sea, with pirates, mermaids, and other sea life. As different as all kids are, they all enjoy one thing: fun, fun and tons of fun!',
+    isHorizontal: false,
+  },
+  {
+    iconName: 'illustration-remote-access',
+    to: '/visit/foo/qux/',
+    title: 'Taciti sociosqu',
+    text: 'Our Live Characters Make each event an unforgettable celebration. Each performance is unique, and includes music, games, magic, and interaction with the guests.',
+    isHorizontal: false,
+  },
+]
 </script>
 
 <template>
@@ -492,7 +531,9 @@ const mockSpaces = [
   <br>
   <h2>BlockCardWithIllustration Component</h2>
   <br>
-  <BlockCardWithIllustration :to="mock.to" :title="mock.title" :text="mock.text" />
+  <ul>
+    <BlockCardWithIllustration :to="mock.to" :title="mock.title" :text="mock.text" />
+  </ul>
   <br>
   <hr>
   <br>
@@ -606,6 +647,19 @@ const mockSpaces = [
     :items="API.bricks"
     to="/visit/foo"
     text="See All Events"
+  />
+  <br>
+  <hr>
+  <br>
+  <h2>SectionCardsWithIllustrations Component</h2>
+  <br>
+  <SectionCardsWithIllustrations
+    :items="itemsVertical"
+    :section-title="sectionTitle"
+    :section-summary="sectionSummary"
+    to="/help/foo/bar"
+    :is-horizontal="false"
+    button-text="See More"
   />
   <br>
   <hr>

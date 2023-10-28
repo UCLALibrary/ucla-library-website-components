@@ -5,11 +5,11 @@ import type { PropType } from 'vue'
 
 import BlockSimpleCard from '@/lib-components/BlockSimpleCard.vue'
 
-import type { SimpleCardItemType } from '@/types/types'
+import type { CardItemType } from '@/types/types'
 
 const { items, sectionTitle, sectionSummary } = defineProps({
   items: {
-    type: Array as PropType<SimpleCardItemType[]>,
+    type: Array as PropType<CardItemType[]>,
     default: () => [],
   },
   sectionTitle: {
