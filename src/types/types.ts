@@ -35,6 +35,11 @@ export interface LocationItemType {
   to?: string
 }
 
+export interface MastheadLinkItemType {
+  text: string
+  url: string
+}
+
 type customKind = 'image' | 'video' | 'audio'
 
 export interface MediaItemType {

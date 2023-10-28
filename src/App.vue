@@ -30,6 +30,7 @@ import FooterSponsor from '@/lib-components/FooterSponsor.vue'
 import HeadingArrow from '@/lib-components/HeadingArrow.vue'
 import HelloWorld from '@/lib-components/HelloWorld.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
+import MastheadPrimary from '@/lib-components/MastheadPrimary.vue'
 import NavBreadcrumb from '@/lib-components/NavBreadcrumb.vue'
 import NavSecondary from '@/lib-components/NavSecondary.vue'
 import PullQuote from '@/lib-components/PullQuote.vue'
@@ -330,6 +331,27 @@ const itemsVertical = [
     isHorizontal: false,
   },
 ]
+
+const mockMasthead = {
+  linkItems: [
+    {
+      text: 'Course Reserves',
+      url: 'https://catalog.library.ucla.edu/vwebv/enterCourseReserve.do',
+    },
+    {
+      text: 'UCLA Research Guides',
+      url: 'https://guides.library.ucla.edu/',
+    },
+    {
+      text: 'Databases A-Z',
+      url: 'https://guides.library.ucla.edu/az.php',
+    },
+  ],
+  advancedSearchLink: {
+    text: 'Advanced Search',
+    url: 'https://www.library.ucla.edu/search',
+  },
+}
 </script>
 
 <template>
@@ -661,6 +683,12 @@ const itemsVertical = [
     :is-horizontal="false"
     button-text="See More"
   />
+  <br>
+  <hr>
+  <br>
+  <h2>MastheadPrimary Component</h2>
+  <br>
+  <MastheadPrimary :link-items="mockMasthead.linkItems" :advanced-search-link="advancedSearchLink" />
   <br>
   <hr>
   <br>
