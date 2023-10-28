@@ -31,6 +31,7 @@ import HeadingArrow from '@/lib-components/HeadingArrow.vue'
 import HelloWorld from '@/lib-components/HelloWorld.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import MastheadPrimary from '@/lib-components/MastheadPrimary.vue'
+import MastheadSecondary from '@/lib-components/MastheadSecondary.vue'
 import NavBreadcrumb from '@/lib-components/NavBreadcrumb.vue'
 import NavSecondary from '@/lib-components/NavSecondary.vue'
 import PullQuote from '@/lib-components/PullQuote.vue'
@@ -689,6 +690,15 @@ const mockMasthead = {
   <h2>MastheadPrimary Component</h2>
   <br>
   <MastheadPrimary :link-items="mockMasthead.linkItems" :advanced-search-link="advancedSearchLink" />
+  <br>
+  <hr>
+  <br>
+  <h2>MastheadSecondary Component</h2>
+  <br>
+  <MastheadSecondary
+    :title="sectionTitle"
+    :text="sectionSummary"
+  />
   <br>
   <hr>
   <br>
