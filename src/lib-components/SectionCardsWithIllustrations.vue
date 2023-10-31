@@ -156,6 +156,7 @@ const cypressSelector = computed(() => {
               overflow-x: auto;
               overflow-y: visible;
               flex-wrap: nowrap;
+              // .card,
               .card-more {
                   width: 280px;
                   flex-shrink: 0;

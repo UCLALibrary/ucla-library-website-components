@@ -1,6 +1,7 @@
-import { MastheadSecondary } from '../lib-components'
+import { MastheadSecondary, SearchHome } from '../lib-components'
 
 // TODO: Add SearchHome import after vue3 version has been migrated
+// import { SearchHome } from '../lib-components'
 
 import * as API from '@/stories/mock-api.json'
 

@@ -4,6 +4,7 @@ import { defineAsyncComponent } from 'vue'
 import type { PropType } from 'vue'
 import type { MastheadLinkItemType } from '@/types/types'
 
+// TODO: Add back when SearchHome component is added.
 // import SearchHome from './SearchHome.vue'
 
 const { linkItems, advancedSearchLink } = defineProps({
@@ -16,8 +17,6 @@ const { linkItems, advancedSearchLink } = defineProps({
     default: () => {},
   },
 })
-
-// import SvgLogoUclaLibraryUnderline from 'ucla-library-design-tokens/assets/svgs/logo-ucla-library-underline.svg'
 
 const SvgLogoUclaLibraryUnderline = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/logo-ucla-library-underline.svg')

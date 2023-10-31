@@ -90,7 +90,7 @@ const parsedContent = computed (() => {
         @include step-0;
         color: var(--color-black);
 
-        ::v-deep p {
+        :deep(p) {
             margin: 0;
         }
     }

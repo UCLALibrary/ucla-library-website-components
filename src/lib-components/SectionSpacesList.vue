@@ -60,7 +60,6 @@ const { items, nShown } = defineProps({
   gap: 16px;
 
   .block {
-      //margin-bottom: var(--space-m);
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
