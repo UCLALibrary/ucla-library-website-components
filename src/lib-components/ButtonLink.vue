@@ -93,8 +93,9 @@ export default {
           return 'svg-arrow-download'
         case isInternalLink(this.to):
           return 'svg-arrow-right'
-        case this.iconName === 'none':
+        case this.iconName === '':
           return 'none'
+        case this.iconName === 'icon-close':
         case this.iconName:
           return this.iconName
         default:
