@@ -282,7 +282,7 @@ function clearActive() {
 
   // Hovers
   &.not-hovered {
-    ::v-deep .nav-menu-item .sub-menu {
+    :deep(.nav-menu-item .sub-menu) {
       opacity: 1;
     }
   }

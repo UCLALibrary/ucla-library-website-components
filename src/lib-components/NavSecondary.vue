@@ -135,7 +135,7 @@ const accountLink = computed(() => {
     color: var(--color-primary-blue-04);
   }
 
-  ::v-deep .account-button {
+  :deep(.account-button) {
     color: var(--color-white);
     background-color: var(--color-primary-blue-04);
     border-color: var(--color-primary-blue-04);

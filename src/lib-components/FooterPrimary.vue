@@ -167,13 +167,13 @@ export default {
     height: 287px;
     transform: rotate(180deg) translateY(50%);
 
-    ::v-deep .svg__fill-bottom,
-    ::v-deep .svg__fill-top {
+    :deep(.svg__fill-bottom),
+    :deep(.svg__fill-top) {
       fill: var(--color-primary-blue-02);
       opacity: 0.25;
     }
 
-    ::v-deep .svg__fill-accent {
+    :deep(.svg__fill-accent) {
       fill: var(--color-primary-blue-02);
       opacity: 0.55;
     }
@@ -212,7 +212,7 @@ export default {
         width: 304px;
         max-width: 100%;
 
-        ::v-deep path {
+        :deep(path) {
           fill: var(--color-white);
         }
       }
