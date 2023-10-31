@@ -65,8 +65,10 @@ const accountLink = computed(() => {
           </li>
         </ul>
 
-        <ButtonLink v-if="!isMicrosite" :label="accountLink.name" class="account-button" :link-target="accountLink.target"
-          :to="accountLink.to" :is-secondary="true" />
+        <ButtonLink
+          v-if="!isMicrosite" :label="accountLink.name" class="account-button" :link-target="accountLink.target"
+          :to="accountLink.to" :is-secondary="true"
+        />
 
         <ul v-if="isMicrosite" class="link-list">
           <li v-for="item in parsedLinks" :key="`nav-secondary-${item.name}`" :class="item.classes">
