@@ -1,9 +1,7 @@
 <script setup>
-// components
 import { computed } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
-// vue
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 const { to, category, title, summary } = defineProps({

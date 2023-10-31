@@ -105,9 +105,11 @@ function clearActive() {
     </div>
 
     <ul class="menu">
-      <NavMenuItem v-for="(item, index) in parsedItems" :key="`NavMenuItem-${item.name}`" :item="item"
+      <NavMenuItem
+        v-for="(item, index) in parsedItems" :key="`NavMenuItem-${item.name}`" :item="item"
         :is-active="item.isActive" :is-opened="isOpened" @click="toggleMenu" @mouseover="setActive(index)"
-        @mouseleave="clearActive" />
+        @mouseleave="clearActive"
+      />
       <li v-for="item in noChildren" :key="`nav-primary-${item.name}`" class="nochildren-links">
         <SmartLink class="nochildren-link underline-hover" :to="item.to" :link-target="item.target">
           {{ item.name }}
