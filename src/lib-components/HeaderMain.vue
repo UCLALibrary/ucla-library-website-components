@@ -5,8 +5,7 @@ import NavPrimary from '@/lib-components/NavPrimary.vue'
 import NavSecondary from '@/lib-components/NavSecondary.vue'
 
 // types
-import type { NavPrimaryItemType } from '@/types/types'
-import type { NavSecondaryItemType } from '@/types/types'
+import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
 
 const { primaryNav, secondaryNav, title } = defineProps(
   {
