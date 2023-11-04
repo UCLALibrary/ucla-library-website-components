@@ -93,13 +93,13 @@ export default {
           return 'svg-arrow-download'
         case isInternalLink(this.to):
           return 'svg-arrow-right'
-        case this.iconName === '':
-          return 'none'
+        case this.linkTarget === '_blank' || this.iconName === 'svg-external-link':
+          return 'svg-external-link'
         case this.iconName === 'icon-close':
         case this.iconName:
           return this.iconName
         default:
-          return 'svg-external-link'
+          return 'none'
       }
     },
   },
