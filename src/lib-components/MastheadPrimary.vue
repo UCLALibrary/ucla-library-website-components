@@ -41,7 +41,7 @@ const SvgLogoUclaLibraryUnderline = defineAsyncComponent(() =>
 <style lang="scss" scoped>
 .masthead-primary::after {
   content: "";
-  background: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"),
+  background: url("ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"),
       center -100px;
   background-size: cover;
   background-position: center;

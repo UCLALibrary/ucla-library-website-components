@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 
 import _isEmpty from 'lodash/isEmpty'
@@ -32,6 +32,12 @@ const props = defineProps({
   },
 })
 
+const defaultSlotContent = ref<HTMLElement | null>(null)
+
+const hasDefaultSlotContent = computed(() => {
+  return defaultSlotContent.value !== null
+})
+
 const hasHeroImage = computed(() => {
   return !_isEmpty(props.heroImage)
 })
@@ -42,10 +48,9 @@ const classes = computed(() => {
     {
       'has-molecule': props.hasMolecules && !hasHeroImage.value,
     },
-    // See TODO in MastheadSecondary.stories.js
-    // {
-    //   'has-slot': this.$slots.default,
-    // },
+    {
+      'has-slot': hasDefaultSlotContent.value,
+    },
     {
       'theme-meap': props.theme.toLowerCase() === 'meap',
     },
@@ -135,7 +140,7 @@ const classes = computed(() => {
       left: 0;
       bottom: 0;
       right: 0;
-      background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-masthead.svg");
+      background-image: url("ucla-library-design-tokens/assets/svgs/molecule-masthead.svg");
       background-repeat: no-repeat;
       background-position: center 60%;
       mix-blend-mode: soft-light;

@@ -29,7 +29,6 @@ export function Default() {
             :title="title"
             :text="summary"
         >
-            <search-home actionURL="/search" />
         </masthead-secondary>
     `,
   }
