@@ -1,3 +1,10 @@
+# [2.39.0-alpha.16](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.15...v2.39.0-alpha.16) (2023-11-09)
+
+
+### Features
+
+* APPS-2459 Add Multiple Components ([#416](https://github.com/UCLALibrary/ucla-library-website-components/issues/416)) ([64db8fa](https://github.com/UCLALibrary/ucla-library-website-components/commit/64db8fae60666350d7f68ae53aa8fee91b014554))
+
 # [2.39.0-alpha.15](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.14...v2.39.0-alpha.15) (2023-10-26)
 
 
