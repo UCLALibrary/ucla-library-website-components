@@ -13,14 +13,6 @@ const mock = {
   to: '/about/staff/ariane-bicho',
   staffName: 'Ariane Bicho 娘の洋子より',
   image: null,
-
-  jobTitle: 'Director of Communications and Marketing',
-  departments: [
-    {
-      id: '7272',
-      title: 'Communications',
-    },
-  ],
   alternativeName: [
     {
       fullName: '娘の洋子より',
@@ -40,14 +32,7 @@ const mock = {
       id: '11955',
       title: 'Cluster 60: America in Sixties: Politics, Society, and Culture, 1954 to 1974',
     },
-  ],
-  locations: [
-    {
-      id: '3456',
-      title: 'DIIT',
-      to: '/location/bar',
-    },
-  ],
+  ]
 }
 
 // Variations of stories below

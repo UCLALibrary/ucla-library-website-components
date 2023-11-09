@@ -1,13 +1,8 @@
 <script lang="ts" setup>
 import { defineAsyncComponent } from 'vue'
-import type { PropType } from 'vue'
 
-// UTILITY FUNCTIONS
 // Components
 import SmartLink from '@/lib-components/SmartLink.vue'
-
-// Types
-import type { DepartmentItemType, LocationItemType } from '@/types/types'
 
 defineProps({
   subjectArea: {
@@ -30,20 +25,8 @@ defineProps({
     type: String,
     default: '',
   },
-  jobTitle: {
-    type: String,
-    default: '',
-  },
-  departments: {
-    type: Array as PropType<DepartmentItemType[]>,
-    default: () => [],
-  },
   academicDepartments: {
     type: Array,
-    default: () => [],
-  },
-  locations: {
-    type: Array as PropType<LocationItemType[]>,
     default: () => [],
   },
   alternativeFullName: {
@@ -91,21 +74,6 @@ const IconWithLink = defineAsyncComponent(
         <span v-if="alternativeFullName" :lang="language">
           {{ alternativeFullName }}</span>
       </SmartLink>
-
-      <div class="job-title" v-text="jobTitle" />
-
-      <ul v-if="departments.length" class="departments">
-        <li v-for="department in departments" :key="`staffsubjectdepartment-${department.id}`" class="department">
-          {{ department.title }}
-        </li>
-      </ul>
-
-      <div v-if="locations.length">
-        <IconWithLink
-          v-for="location in locations" :key="`staffsubjectlocation-${location.id}`" :text="location.title"
-          icon-name="svg-icon-location" :to="`/${location.to}`"
-        />
-      </div>
     </td>
 
     <!-- CONTACT INFO -->
