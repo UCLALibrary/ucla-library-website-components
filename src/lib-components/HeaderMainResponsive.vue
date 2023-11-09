@@ -11,8 +11,7 @@ import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 // types
-import type { NavPrimaryItemType } from '@/types/types'
-import type { NavSecondaryItemType } from '@/types/types'
+import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
 
 const props = defineProps(
   {
@@ -141,9 +140,11 @@ function toggleMenu() {
         </button>
       </div>
       <ul class="nav-menu-primary">
-        <NavMenuItemResponsive v-for="(item, index) in parsedPrimaryMenuItems" :key="item.name" :item="item"
-          :index="index" :go-back="goBack" @shouldOpen="shouldOpen" @itemOpenedColor="itemOpenedColor"
-          @closeMainMenu="toggleMenu" />
+        <NavMenuItemResponsive
+          v-for="(item, index) in parsedPrimaryMenuItems" :key="item.name" :item="item"
+          :index="index" :go-back="goBack" @should-open="shouldOpen" @item-opened-color="itemOpenedColor"
+          @close-main-menu="toggleMenu"
+        />
         <li v-for="item in noChildren" :key="`nochildren-${item.name}`" class="nochildren-links">
           <SmartLink class="nochildren-link" :to="item.to">
             {{ item.name }}
@@ -160,12 +161,16 @@ function toggleMenu() {
         </ul>
       </div>
       <div v-if="!title" class="support-us-container">
-        <ButtonLink v-if="supportLinks.length" :label="supportLinks[0].name" :is-secondary="true" class="button"
-          :to="supportLinks[0].to" icon-name="none" @click="toggleMenu" />
+        <ButtonLink
+          v-if="supportLinks.length" :label="supportLinks[0].name" :is-secondary="true" class="button"
+          :to="supportLinks[0].to" icon-name="none" @click="toggleMenu"
+        />
       </div>
       <!-- moleculeColor class on this svg component does not do anything ask Axa -->
-      <component :is="Molecule3d" width="150" height="247" viewBox="50 57 50 250" class="molecule"
-        :class="moleculeColor" />
+      <component
+        :is="Molecule3d" width="150" height="247" viewBox="50 57 50 250" class="molecule"
+        :class="moleculeColor"
+      />
     </div>
   </nav>
 </template>

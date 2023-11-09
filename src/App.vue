@@ -5,6 +5,7 @@ import BlockMediaWithText from './lib-components/BlockMediaWithText.vue'
 import SiteBrandBar from './lib-components/SiteBrandBar.vue'
 import BlockShowHide from './lib-components/BlockShowHide.vue'
 import BlockStaffSubjectLibrarian from './lib-components/BlockStaffSubjectLibrarian.vue'
+import SectionCardsWithIllustrations from './lib-components/SectionCardsWithIllustrations.vue'
 import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
 import BlockAmenities from '@/lib-components/BlockAmenities.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
@@ -29,17 +30,24 @@ import FooterSponsor from '@/lib-components/FooterSponsor.vue'
 import HeadingArrow from '@/lib-components/HeadingArrow.vue'
 import HelloWorld from '@/lib-components/HelloWorld.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
+import MastheadPrimary from '@/lib-components/MastheadPrimary.vue'
+import MastheadSecondary from '@/lib-components/MastheadSecondary.vue'
 import NavBreadcrumb from '@/lib-components/NavBreadcrumb.vue'
 import NavSecondary from '@/lib-components/NavSecondary.vue'
 import PullQuote from '@/lib-components/PullQuote.vue'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SearchResult from '@/lib-components/SearchResult.vue'
+import SectionDualMasonry from '@/lib-components/SectionDualMasonry.vue'
+import SectionSpacesList from '@/lib-components/SectionSpacesList.vue'
 import SectionStaffOrcidPublications from '@/lib-components/SectionStaffOrcidPublications.vue'
+import SimpleCards from '@/lib-components/SimpleCards.vue'
 import SingleCheckbox from '@/lib-components/SingleCheckbox.vue'
 import SiteNotificationAlert from '@/lib-components/SiteNotificationAlert.vue'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
 import { mock as mockMediaWithText } from '@/stories/mock/BlockMediaWithText.js'
 import * as MEDIA from '@/stories/mock/Media'
+import * as API from '@/stories/mock-api.json'
 
 const richTextContent = computed(() => {
   return '<h3>Here is a title</h3><figure class="figure image-right"><img src="https://static.library.ucla.edu/craftassetstest/images/zooland.jpeg" alt="ZooLand" /><figcaption>Zoo</figcaption></figure><p>Could you do an actual logo instead of a font I cant pay you? Can we try some other colors maybe? I cant pay you. You might wanna give it another shot, so make it pop and this is just a 5 minutes job the target audience makes and families aged zero and up will royalties in the company do instead of cash.</p>\n<p>Jazz it up a little I was wondering if my cat could be placed over the logo in the flyer I have printed it out, but the animated gif is not moving I have printed it out, but the animated gif is not moving make it original. Can you make it stand out more? Make it original.</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><h3><a href="http://google.com/" target="_blank" rel="noreferrer noopener">This is an <strong>EXTERNAL link</strong></a></h3><figure><iframe width="560" height="315" src="https://www.youtube.com/embed/wn7s7podZWI" title="YouTube video player" frameborder="0"></iframe></figure><h2>\n The Outer Space Treaty\n</h2>\n<p>\n Hearts of the stars something incredible is waiting to be known corpus callosum rich in mystery two ghostly white figures in coveralls and helmets are soflty dancing a very small stage in a vast cosmic arena. Are creatures of the cosmos across the centuries courage of our questions inconspicuous motes of rock and gas hundreds of thousands Orion\'s sword.\n</p>\n<blockquote class="twitter-tweet">\n <p lang="en" dir="ltr" xml:lang="en">\n Crew Dragon docked to the <a href="https://twitter.com/Space_Station?ref_src=twsrc%5Etfw" target="_blank">@Space_Station</a> <a href="https://t.co/JG5e2XjZ4n">pic.twitter.com/JG5e2XjZ4n</a>\n </p>\n — SpaceX (@SpaceX) <a href="https://twitter.com/SpaceX/status/1278799363804811264?ref_src=twsrc%5Etfw">July 2, 2020</a>\n </blockquote>\n <p>\n Star stuff harvesting star light kindling the energy hidden in matter a mote of dust suspended in a sunbeam bits of moving fluff another world brain is the seed of intelligence. Take root and flourish kindling the energy hidden in matter the carbon in our apple pies kindling the energy hidden in matter citizens of distant epochs bits of moving fluff.\n</p>\n<p>Could you do an actual logo instead of a font I cant pay you? Can we try some other colors maybe? I cant pay you. You might wanna give it another shot, so make it pop and this is just a 5 minutes job the target audience makes and families aged zero and up will royalties in the company do instead of cash.</p>\n<p>Jazz it up a little I was wondering if my cat could be placed over the logo in the flyer I have printed it out, but the animated gif is not moving I have printed it out, but the animated gif is not moving make it original. Can you make it stand out more? Make it original.</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></figure>'
@@ -237,6 +245,114 @@ const parsedItems = computed(() => {
     }
   })
 })
+
+const mockTwoCards = {
+  id: '13783',
+  sectionTitle: 'Fix Potholes',
+  sectionSummary:
+        '<p>Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote. It is a frightening thought to imagine the ground below your feet or house suddenly collapsing and forming a big hole in the ground.</p>',
+  cards: [
+    {
+      id: '6622',
+      text: '<p>Learn how to use a VPN or proxy server to access Library resources with your UCLA Logon ID through a series of helpful videos.</p>',
+      title: 'Connecting from Off-Campus',
+      slug: 'connecting-from-off-campus',
+      to: 'help/services-resources/connecting-from-off-campus',
+      type: 'resource',
+    },
+    {
+      id: '6407',
+      text: '<p>A research guide</p>',
+      title: 'A new research guide',
+      slug: 'a-new-research-guide',
+      to: null,
+      externalResourceUrl: 'http://libguides.library.ucla.edu',
+    },
+  ],
+}
+
+const mockSpaces = [
+  {
+    to: 'https://calendar.library.ucla.edu',
+    title: 'Internal Portico',
+    location: 'Fames Turpis Building',
+    text: 'Etiam faucibus tellus quis magna finibus auctor. Fusce sagittis vel lectus sed ullamcorper. Proin faucibus nibh ut purus consequat lobortis. Aenean eu fermentum leo, vitae egestas eros. Vivamus urna nibh, porttitor in egestas eu, eleifend ac felis. Praesent sed tristique nibh. Nulla dignissim purus at metus consequat, vitae pharetra orci efficitur. Vivamus facilisis massa vel ipsum vestibulum, porta efficitur dolor aliquam.',
+    buttonUrl: 'http://google.com',
+  },
+  {
+    to: 'https://www.gettyimages.com/photos/cute-llamas',
+    title: 'External Von Junz',
+    location: 'Debordist Room',
+    text: 'If one examines Marxist class, one is faced with a choice: either reject Baudrillardist simulation or conclude that the significance of the artist is social comment. The premise of Debordist situation implies that the law is capable of significance. Therefore, any number of constructions concerning a self-sufficient reality may be found.',
+    buttonUrl: 'http://google.com',
+  },
+  {
+    to: '',
+    title: 'Null Beefeater Numpty',
+    location: 'Pennyboy Cottage',
+    text: 'Gosh beefeater numpty scouser rambunctious a bottle of plonk know your onions, cornish pasty spend a penny cheerio down the local mush. What a mug one off blimey a comely wench nose rag ponce gobsmacked pennyboy cottage pie, ey up fake tan spam fritters marvelous chippy hedgehog chav.',
+    buttonUrl: 'http://google.com',
+  },
+]
+
+const itemsVertical = [
+  {
+    iconName: 'illustration-book-binding',
+    to: '/help/foo/bar/',
+    title: 'Lacus Luctus',
+    text: 'There are lots of things to climb on and huge space to run around. There\'s a large sitting area for us to bring our snacks/lunch or for me to read a book while they play well, at least for a few minutes until they come up and want to interact with me again. :) The place has been very clean every time we\'ve been there.',
+    isHorizontal: false,
+  },
+  {
+    iconName: 'illustration-find-space',
+    to: '/visit/foo/baz/',
+    title: 'Ultrices Enim',
+    text: 'Under the Sea is the newest, fun, unique, exciting, most talked about children\'s entertainment center. Beautiful floor-to-ceiling murals depict the world under the sea, with pirates, mermaids, and other sea life. As different as all kids are, they all enjoy one thing: fun,fun, and tons of fun!',
+    isHorizontal: false,
+  },
+  {
+    iconName: 'illustration-digitized-resources',
+    to: '/about/foo/fred/',
+    title: 'Egestas et Augue Justo eu Magna Luctus',
+    text: 'Unleash your child\'s imagination in a world Under the Sea. Through play, children develop the self esteem, coordination, and social skills necessary to grow. Children will bounce in the Moon Bouncer, go down the Turbo Slide, crawl through the climbing structure, or climb up to the top of a sea castle.',
+    isHorizontal: false,
+  },
+  {
+    iconName: 'illustration-databases',
+    to: '/about/foo/thud/',
+    title: 'Proin Sodales',
+    text: 'Under the Sea is the newest, fun, unique, exciting, most talked about children\'s entertainment center. Beautiful floor-to-ceiling murals depict the world under the sea, with pirates, mermaids, and other sea life. As different as all kids are, they all enjoy one thing: fun, fun and tons of fun!',
+    isHorizontal: false,
+  },
+  {
+    iconName: 'illustration-remote-access',
+    to: '/visit/foo/qux/',
+    title: 'Taciti sociosqu',
+    text: 'Our Live Characters Make each event an unforgettable celebration. Each performance is unique, and includes music, games, magic, and interaction with the guests.',
+    isHorizontal: false,
+  },
+]
+
+const mockMasthead = {
+  linkItems: [
+    {
+      text: 'Course Reserves',
+      url: 'https://catalog.library.ucla.edu/vwebv/enterCourseReserve.do',
+    },
+    {
+      text: 'UCLA Research Guides',
+      url: 'https://guides.library.ucla.edu/',
+    },
+    {
+      text: 'Databases A-Z',
+      url: 'https://guides.library.ucla.edu/az.php',
+    },
+  ],
+  advancedSearchLink: {
+    text: 'Advanced Search',
+    url: 'https://www.library.ucla.edu/search',
+  },
+}
 </script>
 
 <template>
@@ -358,11 +474,13 @@ const parsedItems = computed(() => {
   <br>
   <h2>BlockMediaWithText Component</h2>
   <br>
-  <BlockMediaWithText :section-header="mockMediaWithText.mediaWithText[0].titleLink"
+  <BlockMediaWithText
+    :section-header="mockMediaWithText.mediaWithText[0].titleLink"
     :short-description="mockMediaWithText.mediaWithText[0].description"
     :button-text="mockMediaWithText.mediaWithText[0].buttonText"
     :button-url="mockMediaWithText.mediaWithText[0].buttonUrl" :item="itemVideo" :cover-image="coverImage"
-    type-media="video" />
+    type-media="video"
+  />
   <br>
   <hr>
   <br>
@@ -388,11 +506,15 @@ const parsedItems = computed(() => {
   <br>
   <h2>BlockCallToAction Component</h2>
   <br>
-  <BlockCallToAction :svg-name="mock.svgName" :title="mock.title" :text="mock.text" :name="mock.name" :to="mock.to"
-    :is-dark="false" :is-small-size="false" />
+  <BlockCallToAction
+    :svg-name="mock.svgName" :title="mock.title" :text="mock.text" :name="mock.name" :to="mock.to"
+    :is-dark="false" :is-small-size="false"
+  />
   <br>
-  <BlockCallToAction svg-name="svg-call-to-action-money" :title="mock.title" :text="mock.text" :name="mock.name"
-    :to="mock.to" :is-small-size="true" :is-dark="true" />
+  <BlockCallToAction
+    svg-name="svg-call-to-action-money" :title="mock.title" :text="mock.text" :name="mock.name"
+    :to="mock.to" :is-small-size="true" :is-dark="true"
+  />
   <br>
   <hr>
   <br>
@@ -414,21 +536,27 @@ const parsedItems = computed(() => {
   <br>
   <h2>BlockEvent Component</h2>
   <br>
-  <BlockEvent :category="mock.category" :title="mock.title" :prompt="mock.title" :start-date="mock.startDate"
-    :end-date="mock.endDate" :to="mock.to" :section-handle="mock.title" />
+  <BlockEvent
+    :category="mock.category" :title="mock.title" :prompt="mock.title" :start-date="mock.startDate"
+    :end-date="mock.endDate" :to="mock.to" :section-handle="mock.title"
+  />
   <br>
   <hr>
   <br>
   <h2>BlockSponsor Component</h2>
   <br>
-  <BlockSponsor :funder-logo="mock.funderLogo" funder-name="Hostess Cupcakes"
-    funder-url="https://www.hostesscakes.com/products/cupcakes/chocolate/" />
+  <BlockSponsor
+    :funder-logo="mock.funderLogo" funder-name="Hostess Cupcakes"
+    funder-url="https://www.hostesscakes.com/products/cupcakes/chocolate/"
+  />
   <br>
   <hr>
   <br>
   <h2>BlockCardWithIllustration Component</h2>
   <br>
-  <BlockCardWithIllustration :to="mock.to" :title="mock.title" :text="mock.text" />
+  <ul>
+    <BlockCardWithIllustration :to="mock.to" :title="mock.title" :text="mock.text" />
+  </ul>
   <br>
   <hr>
   <br>
@@ -468,8 +596,10 @@ const parsedItems = computed(() => {
   <br>
   <h2>SectionStaffOrcidPublications Component</h2>
   <br>
-  <SectionStaffOrcidPublications class="staff-orcid-publications" orcid="https://orcid.org/0000-0002-6391-2088"
-    publications="<ul><li><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. (2021). 'Teaching in the Digital Library: A Partnership Between Teaching Librarians and Digital Library Staff.' College &amp; Research Libraries News. 82(7). <a href='https://crln.acrl.org/index.php/crlnews/article/view/25033/32921'>https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></li></ul>" />
+  <SectionStaffOrcidPublications
+    class="staff-orcid-publications" orcid="https://orcid.org/0000-0002-6391-2088"
+    publications="<ul><li><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. (2021). 'Teaching in the Digital Library: A Partnership Between Teaching Librarians and Digital Library Staff.' College &amp; Research Libraries News. 82(7). <a href='https://crln.acrl.org/index.php/crlnews/article/view/25033/32921'>https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></li></ul>"
+  />
   <br>
   <hr>
   <br>
@@ -506,6 +636,71 @@ const parsedItems = computed(() => {
   <br>
   <NavSecondary :items="parsedItems" />
   <br>
+  <h2>SimpleCards Component</h2>
+  <br>
+  <SimpleCards
+    :items="mockTwoCards.cards"
+    :section-title="sectionTitle"
+    :section-summary="sectionSummary"
+  />
+  <br>
+  <hr>
+  <br>
+  <h2>SectionSpacesList Component</h2>
+  <br>
+  <SectionSpacesList
+    :items="mockSpaces"
+    n-shown="2"
+  />
+  <br>
+  <hr>
+  <br>
+  <h2>ResponsiveImage Component</h2>
+  <br>
+  <ResponsiveImage
+    :image="API.image"
+    :aspect-ratio="100"
+  />
+  <br>
+  <hr>
+  <br>
+  <h2>SectionDualMasonry Component</h2>
+  <br>
+  <SectionDualMasonry
+    :items="API.bricks"
+    to="/visit/foo"
+    text="See All Events"
+  />
+  <br>
+  <hr>
+  <br>
+  <h2>SectionCardsWithIllustrations Component</h2>
+  <br>
+  <SectionCardsWithIllustrations
+    :items="itemsVertical"
+    :section-title="sectionTitle"
+    :section-summary="sectionSummary"
+    to="/help/foo/bar"
+    :is-horizontal="false"
+    button-text="See More"
+  />
+  <br>
+  <hr>
+  <br>
+  <h2>MastheadPrimary Component</h2>
+  <br>
+  <MastheadPrimary :link-items="mockMasthead.linkItems" :advanced-search-link="advancedSearchLink" />
+  <br>
+  <hr>
+  <br>
+  <h2>MastheadSecondary Component</h2>
+  <br>
+  <MastheadSecondary
+    :title="sectionTitle"
+    :text="sectionSummary"
+  />
+  <br>
+  <hr>
   <br>
 </template>
 

@@ -101,8 +101,10 @@ const IconWithLink = defineAsyncComponent(
       </ul>
 
       <div v-if="locations.length">
-        <IconWithLink v-for="location in locations" :key="`staffsubjectlocation-${location.id}`" :text="location.title"
-          icon-name="svg-icon-location" :to="`/${location.to}`" />
+        <IconWithLink
+          v-for="location in locations" :key="`staffsubjectlocation-${location.id}`" :text="location.title"
+          icon-name="svg-icon-location" :to="`/${location.to}`"
+        />
       </div>
     </td>
 
