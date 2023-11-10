@@ -1,6 +1,6 @@
 <template>
     <pull-quote
-        v-if="block.pullQuote"
+        v-if="block.pullQuote && block.pullQuote.length > 0"
         :text="block.pullQuote[0].text"
         :attribution="block.pullQuote[0].attribution"
     />
