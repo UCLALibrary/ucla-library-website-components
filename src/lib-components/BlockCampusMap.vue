@@ -1,9 +1,9 @@
 <script>
-import ModalGeneric from "@/lib-components/ModalGeneric.vue";
-import RichText from "@/lib-components/RichText.vue";
+import ModalGeneric from '@/lib-components/ModalGeneric.vue'
+import RichText from '@/lib-components/RichText.vue'
 
 export default {
-  name: "BlockCampusMap",
+  name: 'BlockCampusMap',
   components: {
     ModalGeneric,
     RichText,
@@ -11,55 +11,57 @@ export default {
   props: {
     campusLocationId: {
       type: String,
-      default: "",
+      default: '',
     },
     locationName: {
       type: String,
-      default: "",
+      default: '',
     },
     buildingAccess: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   data() {
     return {
       isModalVisible: false,
-    };
+    }
   },
   computed: {
     parsedSrc() {
-      return `https://map.ucla.edu/?id=${this.campusLocationId}&e=true`;
+      return `https://map.ucla.edu/?id=${this.campusLocationId}&e=true`
     },
   },
   methods: {
     showModal() {
-      this.isModalVisible = true;
+      this.isModalVisible = true
     },
     closeModal() {
-      this.isModalVisible = false;
+      this.isModalVisible = false
     },
   },
-};
+}
 </script>
 
 <template>
   <div class="block-campus-map">
     <ModalGeneric v-show="isModalVisible" class="modal" @close="closeModal">
       <div class="modal-content">
-        <iframe :src="parsedSrc" class="iframe-modal" allowfullscreen></iframe>
+        <iframe :src="parsedSrc" class="iframe-modal" allowfullscreen />
       </div>
     </ModalGeneric>
-    <button class="title" @click="showModal"></button>
+    <button class="title" @click="showModal" />
     <div class="content">
       <div class="iframe-hover">
         <div class="iframe-container">
-          <iframe :src="parsedSrc" class="iframe" allowfullscreen></iframe>
-          <div class="iframe-click" @click="showModal"></div>
+          <iframe :src="parsedSrc" class="iframe" allowfullscreen />
+          <div class="iframe-click" @click="showModal" />
         </div>
       </div>
       <div v-if="buildingAccess" class="text-grouping">
-        <h4 class="subheading-small">Building Access</h4>
+        <h4 class="subheading-small">
+          Building Access
+        </h4>
         <RichText class="building-access-text" :rich-text-content="buildingAccess" />
       </div>
     </div>

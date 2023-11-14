@@ -2,13 +2,13 @@
 import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 
 export default {
-  name: "ModalGeneric",
+  name: 'ModalGeneric',
   components: {
     SvgGlyphClose,
   },
   methods: {
     close() {
-      this.$emit("close");
+      this.$emit('close')
     },
   },
 }
@@ -17,7 +17,7 @@ export default {
 <template>
   <div class="modal" @click="close">
     <button class="svg-glyph-close" @click="close">
-      <svg-glyph-close />
+      <SvgGlyphClose />
     </button>
     <div class="content">
       <slot />
