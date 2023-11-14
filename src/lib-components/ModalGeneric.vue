@@ -1,16 +1,5 @@
-<template>
-  <div class="modal" @click="close">
-    <button class="svg-glyph-close" @click="close">
-      <svg-glyph-close />
-    </button>
-    <div class="content">
-      <slot />
-    </div>
-  </div>
-</template>
-
 <script>
-import SvgGlyphClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg";
+import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 
 export default {
   name: "ModalGeneric",
@@ -22,8 +11,19 @@ export default {
       this.$emit("close");
     },
   },
-};
+}
 </script>
+
+<template>
+  <div class="modal" @click="close">
+    <button class="svg-glyph-close" @click="close">
+      <svg-glyph-close />
+    </button>
+    <div class="content">
+      <slot />
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .modal {
@@ -89,4 +89,5 @@ export default {
       max-width: 100%;
     }
   }
+}
 </style>
