@@ -7,6 +7,7 @@ import BlockShowHide from './lib-components/BlockShowHide.vue'
 import BlockStaffSubjectLibrarian from './lib-components/BlockStaffSubjectLibrarian.vue'
 import AlphabeticalBrowseBy from '@/lib-components/AlphabeticalBrowseBy.vue'
 import BlockAmenities from '@/lib-components/BlockAmenities.vue'
+import BlockCampusMap from '@/lib-components/BlockCampusMap'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
 import BlockCardWithIllustration from '@/lib-components/BlockCardWithIllustration.vue'
@@ -73,6 +74,13 @@ const mock = {
   title: 'Dropio Heroku',
   to: '/about/news/article',
 }
+
+const mockCampusMap = {
+    campusLocationId: "280",
+    locationName: "YRL Library",
+    buildingAccess:
+        "<p>Park at parking structure 2. You cannot park in the roundabout. Powell is the second building in on the quad. Walk straight ahead for about 15 minutes. Wear your walking shoes. Finally when you are there walk up the stairs to the rotunda. You are at the library now.</p>",
+};
 
 const blockCTAitems = [
   {
@@ -383,6 +391,24 @@ const parsedItems = computed(() => {
   <h2>SingleCheckbox Component</h2>
   <br>
   <SingleCheckbox />
+  <br>
+  <hr>
+  <br>
+
+const mockCampusMap = {
+    campusLocationId: "280",
+    locationName: "YRL Library",
+    buildingAccess:
+        "<p>Park at parking structure 2. You cannot park in the roundabout. Powell is the second building in on the quad. Walk straight ahead for about 15 minutes. Wear your walking shoes. Finally when you are there walk up the stairs to the rotunda. You are at the library now.</p>",
+};
+
+  <h2>BlockCampusMap Component</h2>
+  <br>
+  <block-campus-map
+    :campus-location-id="mockCampusMap.campusLocationId"
+    :location-name="mockCampusMap.locationName"
+    :building-access="mockCampusMap.buildingAccess"
+  />
   <br>
   <hr>
   <br>

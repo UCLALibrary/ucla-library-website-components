@@ -1,30 +1,6 @@
-<template>
-  <div class="block-campus-map">
-    <modal-generic v-show="isModalVisible" class="modal" @close="closeModal">
-      <div class="modal-content">
-        <iframe :src="parsedSrc" class="iframe-modal" allowfullscreen />
-      </div>
-    </modal-generic>
-    <button class="title" @click="showModal" />
-    <div class="content">
-      <div class="iframe-hover">
-        <div class="iframe-container">
-          <iframe :src="parsedSrc" class="iframe" allowfullscreen />
-          <div class="iframe-click" @click="showModal" />
-        </div>
-      </div>
-      <div v-if="buildingAccess" class="text-grouping">
-        <h4 class="subheading-small">Building Access</h4>
-        <rich-text class="building-access-text" :rich-text-content="buildingAccess" />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script>
-import { ref, computed } from "vue";
-import ModalGeneric from "@/lib-components/ModalGeneric";
-import RichText from "@/lib-components/RichText";
+import ModalGeneric from "@/lib-components/ModalGeneric.vue";
+import RichText from "@/lib-components/RichText.vue";
 
 export default {
   name: "BlockCampusMap",
@@ -46,28 +22,49 @@ export default {
       default: "",
     },
   },
-  setup(props) {
-    const isModalVisible = ref(false);
-
-    const parsedSrc = computed(() => `https://map.ucla.edu/?id=${props.campusLocationId}&e=true`);
-
-    const showModal = () => {
-      isModalVisible.value = true;
-    };
-
-    const closeModal = () => {
-      isModalVisible.value = false;
-    };
-
+  data() {
     return {
-      isModalVisible,
-      parsedSrc,
-      showModal,
-      closeModal,
+      isModalVisible: false,
     };
+  },
+  computed: {
+    parsedSrc() {
+      return `https://map.ucla.edu/?id=${this.campusLocationId}&e=true`;
+    },
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
   },
 };
 </script>
+
+<template>
+  <div class="block-campus-map">
+    <ModalGeneric v-show="isModalVisible" class="modal" @close="closeModal">
+      <div class="modal-content">
+        <iframe :src="parsedSrc" class="iframe-modal" allowfullscreen></iframe>
+      </div>
+    </ModalGeneric>
+    <button class="title" @click="showModal"></button>
+    <div class="content">
+      <div class="iframe-hover">
+        <div class="iframe-container">
+          <iframe :src="parsedSrc" class="iframe" allowfullscreen></iframe>
+          <div class="iframe-click" @click="showModal"></div>
+        </div>
+      </div>
+      <div v-if="buildingAccess" class="text-grouping">
+        <h4 class="subheading-small">Building Access</h4>
+        <RichText class="building-access-text" :rich-text-content="buildingAccess" />
+      </div>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .block-campus-map {
