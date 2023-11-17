@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import { computed, markRaw } from 'vue'
+import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
-// Components
+// SVGs
 import SvgMoleculeHalfFaceted from 'ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg'
 import SvgHatchRight from 'ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg'
 import SvgHeadingVector from 'ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg'
 
+// Components
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
-
-// Where is it used/called?
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
 /** To Add */
@@ -21,12 +20,6 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 // import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
 
 import type { BylineItemType, ImageItemType, LocationItemType } from '@/types/types'
-
-// import SvgIconEmail from 'ucla-library-design-tokens/assets/svgs/icon-email.svg'
-// import SvgIconLocation from 'ucla-library-design-tokens/assets/svgs/icon-location.svg'
-// import SvgIconOnline from 'ucla-library-design-tokens/assets/svgs/icon-virtual.svg'
-// import SvgIconPerson from 'ucla-library-design-tokens/assets/svgs/icon-person.svg'
-// import SvgIconPhone from 'ucla-library-design-tokens/assets/svgs/icon-phone.svg'
 
 // Utility functions
 import formatEventTimes from '@/utils/formatEventTimes'
@@ -105,7 +98,6 @@ const props = defineProps({
     default: '',
   },
 })
-
 
 // Video & Image
 const isVideo = computed(() => {
@@ -189,7 +181,6 @@ const bylineArticleExists = computed(() => {
   )
 })
 
-// eslint-disable-next-line no-console
 // console.log(props.byline)
 
 const parseByLineStaff = computed(() => {
@@ -328,14 +319,18 @@ const classes = computed(() => {
         </div>
 
         <div v-if="bylineProjectExists" class="byline">
-          <div v-for="(item, index) in parseByLineProject" :key="`project-topics-${index}`" class="byline-item"
-            v-html="item.title" />
+          <div
+            v-for="(item, index) in parseByLineProject" :key="`project-topics-${index}`" class="byline-item"
+            v-html="item.title"
+          />
         </div>
 
-        <div v-if="byline.length
-          && !bylineArticleExists
-          && !bylineProjectExists
-          " class="byline">
+        <div
+          v-if="byline.length
+            && !bylineArticleExists
+            && !bylineProjectExists
+          " class="byline"
+        >
           <div v-for="(item, index) in byline" :key="`external-${index}`" class="byline-item" v-html="item" />
         </div>
 
@@ -347,23 +342,31 @@ const classes = computed(() => {
         </div>
 
         <div v-if="locationLinksExists" class="location-group">
-          <IconWithLink v-for="location in parsedLocationsLinks" :key="`location-${location.id}`" :text="location.title"
-            icon-name="svg-icon-location" :to="`/${location.to}`" />
+          <IconWithLink
+            v-for="location in parsedLocationsLinks" :key="`location-${location.id}`" :text="location.title"
+            icon-name="svg-icon-location" :to="`/${location.to}`"
+          />
         </div>
 
         <div v-if="locationExternalExists" class="location-group">
           <IconWithLink :text="parsedLocationsExternal" icon-name="svg-icon-location" />
         </div>
-        <div v-if="locations.length
-          && !locationLinksExists
-          && !locationExternalExists
-          " class="location-group">
-          <IconWithLink v-for="location in parsedLocations" :key="`location-${location.id}`" :text="location.title"
-            :icon-name="location.svg" :to="location.to" :class="location.class" />
+        <div
+          v-if="locations.length
+            && !locationLinksExists
+            && !locationExternalExists
+          " class="location-group"
+        >
+          <IconWithLink
+            v-for="location in parsedLocations" :key="`location-${location.id}`" :text="location.title"
+            :icon-name="location.svg" :to="location.to" :class="location.class"
+          />
         </div>
       </div>
-      <ButtonLink v-if="to" id="banner-featured-button" :label="prompt" :to="to"
-        aria-labelledby="banner-featured-button banner-featured" class="button" />
+      <ButtonLink
+        v-if="to" id="banner-featured-button" :label="prompt" :to="to"
+        aria-labelledby="banner-featured-button banner-featured" class="button"
+      />
     </div>
     <!-- <div v-if="!to && registerEvent" class="block-form-container">
       <block-form />
