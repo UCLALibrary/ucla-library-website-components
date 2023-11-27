@@ -54,9 +54,9 @@ const ButtonLink = defineAsyncComponent(() =>
   import('@/lib-components/ButtonLink.vue'))
 const MediaItem = defineAsyncComponent(() =>
   import('@/lib-components/Media/Item.vue'))
-const NewLightbox = defineAsyncComponent(() =>
+const Lightbox = defineAsyncComponent(() =>
   import(
-    '@/lib-components/Flexible/MediaGallery/NewLightbox.vue'
+    '@/lib-components/Flexible/MediaGallery/Lightbox.vue'
   ))
 
 const showLightbox = ref(false)
@@ -126,7 +126,7 @@ const parsedIsDownload = computed(() => {
     </MediaItem>
     <div v-if="!(item || coverImage)" class="no-media" />
     <!--eslint-disable-->
-    <NewLightbox
+    <Lightbox
       v-if="showLightbox" :items="lightboxItems" @closeModal="showLightbox = false"
       @keydown.esc="showLightbox = false"
     />
