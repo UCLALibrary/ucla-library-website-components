@@ -6,6 +6,7 @@ export default {
   components: {
     SvgGlyphClose,
   },
+  emits: ['close'],
   methods: {
     close() {
       this.$emit('close')
