@@ -10,6 +10,7 @@ export { default as BlockCardWithIllustration } from './BlockCardWithIllustratio
 export { default as BlockCardWithImage } from './BlockCardWithImage.vue'
 export { default as BlockDate } from './BlockDate.vue'
 export { default as BlockEvent } from './BlockEvent.vue'
+export { default as BlockFloatingHighlight } from './BlockFloatingHighlight.vue'
 export { default as BlockGenericList } from './BlockGenericList.vue'
 export { default as BlockMediaWithText } from './BlockMediaWithText.vue'
 export { default as BlockSimpleCard } from './BlockSimpleCard.vue'
