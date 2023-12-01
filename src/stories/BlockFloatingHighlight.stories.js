@@ -27,27 +27,52 @@ const mock = {
   sectionHandle: 'event',
 }
 
-export function Default() {
+function Template(args) {
   return {
     data() {
-      return { ...mock }
+      return {
+        ...mock,
+        ...args,
+      }
     },
     components: { BlockFloatingHighlight },
     template: `
-      <block-floating-highlight
-          :image="image"
-          :to="to"
-          :category="category"
-          :title="title"
-          :start-date="startDate"
-          :end-date="endDate"
-          :text="text"
-          :image-aspect-ratio="60"
-          :locations="locations"
-          :alternativeFullName="alternativeFullName"
-          :language="language"
-          :section-handle="sectionHandle"
-      />
-  `,
+    <block-floating-highlight
+      :image="image"
+      :to="to"
+      :category="category"
+      :title="title"
+      :start-date="startDate"
+      :end-date="endDate"
+      :text="text"
+      :image-aspect-ratio="imageAspectRatio"
+      :locations="locations"
+      :alternativeFullName="alternativeFullName"
+      :language="language"
+      :section-handle="sectionHandle"
+    />
+`,
   }
+}
+
+export const Default = Template.bind({})
+
+export const ShortTitle = Template.bind({})
+ShortTitle.args = {
+  title: 'Seven Seas'
+}
+
+export const LongTitleNoDate = Template.bind({})
+LongTitleNoDate.args = {
+  title: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+  startDate: '',
+  endDate: '',
+}
+
+export const LongTitleNoDateNoEyebrow = Template.bind({})
+LongTitleNoDateNoEyebrow.args = {
+  title: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+  startDate: '',
+  endDate: '',
+  category: '',
 }

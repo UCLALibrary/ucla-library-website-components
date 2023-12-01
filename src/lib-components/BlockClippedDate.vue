@@ -13,8 +13,6 @@ import getSectionName from '@/utils/getSectionName'
 import formatDay from '@/utils/formatEventDay'
 import formatMonth from '@/utils/formatEventMonth'
 
-// import formatDates from '@/utils/formatEventDates'
-
 import type { ImageItemType, LocationItemType } from '@/types/types'
 
 const props = defineProps({
@@ -107,21 +105,6 @@ const parsedDateMonth = computed(() => {
 
   return ''
 })
-
-// const parsedDate = computed(() => {
-//   if (props.startDate)
-//     return formatDates(props.startDate, props.endDate)
-
-//   return ''
-// })
-
-// const isImpactReport = computed(() => {
-//   return !!route.path.includes('impact')
-// })
-
-// const parsedTarget = computed(() => {
-//   return isImpactReport.value ? '_blank' : ''
-// })
 </script>
 
 <template>

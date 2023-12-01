@@ -98,14 +98,6 @@ const classes = computed(() => {
               `color-${sectionName.value}`,
   ]
 })
-
-// const isImpactReport = computed(() => {
-//   return !!route.path.includes('impact')
-// })
-
-// const parsedTarget = computed(() => {
-//   return isImpactReport.value ? '_blank' : ''
-// })
 </script>
 
 <template>
@@ -144,17 +136,6 @@ const classes = computed(() => {
   position: relative;
   display: flex;
   flex-direction: row;
-  // Themes for floating highlight/ triangle
-  --floating-highlight-color-theme: var(--color-default-cyan-03);
-  &.color-visit {
-      --floating-highlight-color-theme: var(--color-visit-fushia-03);
-  }
-  &.color-help {
-      --floating-highlight-color-theme: var(--color-help-green-03);
-  }
-  &.color-about {
-      --floating-highlight-color-theme: var(--color-about-purple-03);
-  }
 
   .image-container {
       .molecule-no-image {

@@ -103,14 +103,6 @@ const classes = computed(() => {
               `color-${sectionName.value}`,
   ]
 })
-
-// const isImpactReport = computed(() => {
-//   return !!route.path.includes('impact')
-// })
-
-// const parsedTarget = computed(() => {
-//   return isImpactReport.value ? '_blank' : ''
-// })
 </script>
 
 <template>
@@ -235,7 +227,7 @@ const classes = computed(() => {
       // for clipped version
       &.has-triangle {
           :deep(.card-meta) {
-              margin-top: -24px;
+              // margin-top: -24px;
               padding: 0 72px 0 16px;
           }
           :deep(.image) {

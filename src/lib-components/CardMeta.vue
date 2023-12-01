@@ -141,7 +141,7 @@ const parsedText = computed(() => {
     <div v-if="locations.length" class="location-group">
       <IconWithLink
         v-for="(location, index) in parsedLocations"
-        :key="`location-${index}`"
+        :key="`location-card-meta${index}`"
         :text="location.title"
         :icon-name="location.svg"
         :to="location.to"
