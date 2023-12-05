@@ -57,6 +57,12 @@ function Template(args) {
 
 export const Default = Template.bind({})
 
+export const About = Template.bind({})
+About.args = {
+  image: null,
+  to: '/about/foo/bar/',
+}
+
 export const ShortTitle = Template.bind({})
 ShortTitle.args = {
   title: 'Seven Seas'
