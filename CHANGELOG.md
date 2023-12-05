@@ -1,3 +1,10 @@
+# [2.39.0-alpha.18](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.17...v2.39.0-alpha.18) (2023-11-27)
+
+
+### Features
+
+* APPS-2465 Add BlockCampusMap in vue3 ([#420](https://github.com/UCLALibrary/ucla-library-website-components/issues/420)) ([4dd29e0](https://github.com/UCLALibrary/ucla-library-website-components/commit/4dd29e0e0a92aca43f6b99f56af33babc0c0ac69))
+
 # [2.39.0-alpha.17](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.16...v2.39.0-alpha.17) (2023-11-09)
 
 
