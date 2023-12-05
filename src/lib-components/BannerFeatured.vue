@@ -132,10 +132,8 @@ const isVideo = computed(() => {
 // eslint-disable-next-line no-console
 console.log(isVideo.value)
 
-const responseImage = markRaw(ResponsiveImage)
-
 const parsedMediaComponent = computed(() => {
-  return isVideo.value ? 'responsive-video' : responseImage
+  return isVideo.value ? 'responsive-video' : ResponsiveImage
 })
 // eslint-disable-next-line no-console
 console.log(parsedMediaComponent.value)
