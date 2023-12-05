@@ -56,7 +56,7 @@ const props = defineProps({
     default: '',
   },
   locations: {
-    type: Array as PropType<LocationItemType[]>,
+    type: Array as PropType<LocationItemType[] >,
     default: () => [],
   },
   byline: {
@@ -121,14 +121,9 @@ const isVideo = computed(() => {
   }
 })
 
-// eslint-disable-next-line no-console
-console.log(isVideo.value)
-
 const parsedMediaComponent = computed(() => {
   return isVideo.value ? 'responsive-video' : ResponsiveImage
 })
-// eslint-disable-next-line no-console
-console.log(parsedMediaComponent.value)
 
 const parseImage = computed(() => {
   if (isVideo.value)
@@ -161,17 +156,11 @@ const parsedMediaProp = computed(() => {
   return isVideo.value ? parseVideo.value : parseImage.value
 })
 
-// eslint-disable-next-line no-console
-console.log(parsedMediaProp.value)
-
 const parsedRatio = computed(() => {
   // If on mobile, change ratio of image
   const output = props.ratio
   return output
 })
-
-// eslint-disable-next-line no-console
-console.log(parsedRatio.value)
 
 // Byline
 const bylineArticleExists = computed(() => {
@@ -180,8 +169,6 @@ const bylineArticleExists = computed(() => {
     && (props.byline.articleStaff || props.byline.articlePostDate)
   )
 })
-
-// console.log(props.byline)
 
 const parseByLineStaff = computed(() => {
   return props.byline.articleStaff
@@ -213,22 +200,6 @@ const parsedLocations = computed(() => {
   })
 })
 
-const parsedLocationsLinks = computed(() => {
-  return props.locations.location_links
-})
-
-const parsedLocationsExternal = computed(() => {
-  return props.locations.location_external
-})
-
-const locationLinksExists = computed(() => {
-  return props.locations && props.locations.location_links
-})
-
-const locationExternalExists = computed(() => {
-  return props.locations && props.locations.location_external
-})
-
 // Dates
 const parsedDate = computed(() => {
   return formatEventDates(props.startDate, props.endDate)
@@ -246,7 +217,6 @@ const parsedTime = computed(() => {
 })
 
 const sectionName = computed(() => {
-  // Is this section or sectionHandle?
   return props.sectionHandle || getSectionName(props.to)
 })
 
@@ -341,20 +311,9 @@ const classes = computed(() => {
           <time v-if="parsedTime" class="schedule-item" v-html="parsedTime" />
         </div>
 
-        <div v-if="locationLinksExists" class="location-group">
-          <IconWithLink
-            v-for="location in parsedLocationsLinks" :key="`location-${location.id}`" :text="location.title"
-            icon-name="svg-icon-location" :to="`/${location.to}`"
-          />
-        </div>
-
-        <div v-if="locationExternalExists" class="location-group">
-          <IconWithLink :text="parsedLocationsExternal" icon-name="svg-icon-location" />
-        </div>
+        <!-- To Do: Remove location_external and location_links properties from Flexible_BannerFeatured; assign directly to location array -->
         <div
           v-if="locations.length
-            && !locationLinksExists
-            && !locationExternalExists
           " class="location-group"
         >
           <IconWithLink
@@ -363,6 +322,7 @@ const classes = computed(() => {
           />
         </div>
       </div>
+
       <ButtonLink
         v-if="to" id="banner-featured-button" :label="prompt" :to="to"
         aria-labelledby="banner-featured-button banner-featured" class="button"

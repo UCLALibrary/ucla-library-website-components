@@ -1,9 +1,18 @@
 // custom types
 
+export interface ArticleStaffItemType {
+  title?: string
+  to?: string
+}
+
+export interface BylineProjectItemType {
+  title?: string
+}
+
 export interface BylineItemType {
-  articleStaff?: string
+  articleStaff?: ArticleStaffItemType[]
   articlePostDate?: string
-  project?: string
+  project?: BylineProjectItemType[]
   length?: number
 }
 
@@ -41,8 +50,6 @@ export interface LocationItemType {
   id?: string
   title?: string
   to?: string
-  location_links?: LocationItemType[]
-  location_external?: LocationItemType[]
 }
 
 export interface MastheadLinkItemType {
