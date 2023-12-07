@@ -13,13 +13,13 @@ export default {
 
 const mock = {
   image: API.image,
-  to: '/help/foo/bar/',
+  to: '/about/foo/bar/',
   title: 'Curabitur Tortor Pellentesque Nibh Aenean',
   category: 'Ullamcorper',
   description:
         'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   breadcrumb: 'Lectus',
-  startDate: '1995-12-17T03:24:00',
+  startDate: '1995-12-16T03:24:00',
   endDate: '1995-12-17T03:24:00',
   byline: ['Excepteur sint occaecat', 'non proident, sunt in culpa qui'],
   locations: [
@@ -124,15 +124,15 @@ export function Slot() {
     data() {
       return {
         image: API.image,
-        to: '/visit/foo/bar/',
+        to: '/about/foo/bar/',
         title: 'Sed Lectus Inceptos: Suspendisse in Justo eu Magna Luctus Suscipit',
         category: 'Torquent',
         breadcrumb: 'Torquent',
-        startDate: '1995-12-17T03:24:00',
+        startDate: '1995-12-16T03:24:00',
         endDate: '1995-12-17T03:24:00',
         prompt: 'Cursus Quis',
         alignRight: false,
-        sectionHandle: 'workshopOrEventSeries',
+        sectionHandle: '',
       }
     },
     components: { BannerFeatured, HeadingArrow },
@@ -167,7 +167,7 @@ export function LongHeading() {
         title: 'Sit Amet Augue Congue Elementum Aliquet Risus Ultricies',
         category: 'Curabitur',
         breadcrumb: 'Curabitur Sollicitudin',
-        startDate: '1995-12-17T03:24:00',
+        startDate: '1995-12-16T03:24:00',
         endDate: '1997-12-17T03:24:00',
         prompt: 'Amet Mauris',
         alignRight: false,
@@ -359,7 +359,7 @@ const mock2 = {
   description:
         'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   breadcrumb: 'Lectus',
-  startDate: '1995-12-17T03:24:00',
+  startDate: '1995-12-16T03:24:00',
   endDate: '1995-12-17T03:24:00',
   byline: ['Excepteur sint occaecat', 'non proident, sunt in culpa qui'],
   locations: [

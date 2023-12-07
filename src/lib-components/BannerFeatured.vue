@@ -217,7 +217,7 @@ const parsedTime = computed(() => {
 })
 
 const sectionName = computed(() => {
-  return props.sectionHandle || getSectionName(props.to)
+  return getSectionName(props.to)
 })
 
 const classes = computed(() => {
@@ -358,8 +358,8 @@ const classes = computed(() => {
   }
 
   .hatch,
-  .heading-arrow {
-    :deep(.svg__stroke--wayfinder) {
+  :deep(.heading-arrow) {
+    .svg__stroke--wayfinder {
       stroke: var(--banner-color-theme);
     }
   }
