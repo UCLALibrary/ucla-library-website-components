@@ -13,7 +13,7 @@ export default {
 
 const mock = {
   image: API.image,
-  to: '/about/foo/bar/',
+  to: '/help/foo/bar/',
   title: 'Curabitur Tortor Pellentesque Nibh Aenean',
   category: 'Ullamcorper',
   description:
@@ -124,7 +124,7 @@ export function Slot() {
     data() {
       return {
         image: API.image,
-        to: '/about/foo/bar/',
+        to: '/visit/foo/bar/',
         title: 'Sed Lectus Inceptos: Suspendisse in Justo eu Magna Luctus Suscipit',
         category: 'Torquent',
         breadcrumb: 'Torquent',
