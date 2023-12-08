@@ -1,5 +1,21 @@
 // custom types
 
+export interface ArticleStaffItemType {
+  title?: string
+  to?: string
+}
+
+export interface BylineProjectItemType {
+  title?: string
+}
+
+export interface BylineItemType {
+  articleStaff?: ArticleStaffItemType[]
+  articlePostDate?: string
+  project?: BylineProjectItemType[]
+  length?: number
+}
+
 export interface DepartmentItemType {
   id?: string
   title: string
@@ -27,11 +43,12 @@ export interface ImageItemType {
   height?: number
   width?: number
   focalPoint?: number[]
+  poster?: string
 }
 
 export interface LocationItemType {
   id?: string
-  title: string
+  title?: string
   to?: string
 }
 
