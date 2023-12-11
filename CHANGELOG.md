@@ -1,3 +1,17 @@
+# [2.39.0-alpha.20](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.19...v2.39.0-alpha.20) (2023-12-08)
+
+
+### Features
+
+* APPS-2415 banner featured ([#422](https://github.com/UCLALibrary/ucla-library-website-components/issues/422)) ([b7a9476](https://github.com/UCLALibrary/ucla-library-website-components/commit/b7a9476e8d977f88258068aa7e003e7d68a00f26))
+
+# [2.39.0-alpha.19](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.18...v2.39.0-alpha.19) (2023-12-06)
+
+
+### Features
+
+* APPS-2513 Add BlockHighlight child components ([#421](https://github.com/UCLALibrary/ucla-library-website-components/issues/421)) ([381e9fe](https://github.com/UCLALibrary/ucla-library-website-components/commit/381e9fe8097dd7cc455024fbca1708dc2ee9abfe))
+
 # [2.39.0-alpha.18](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.17...v2.39.0-alpha.18) (2023-11-27)
 
 
