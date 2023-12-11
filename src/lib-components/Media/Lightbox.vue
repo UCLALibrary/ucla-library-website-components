@@ -8,7 +8,7 @@ import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-
 import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-circle-right.svg'
 import SvgIconClose from 'ucla-library-design-tokens/assets/svgs/icon-close-large.svg'
 import SvgIconMoleculeBullet from 'ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg'
-import SmartLink from '../../SmartLink.vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
 import type { MediaGalleryItemType } from '@/types/types'
 import MediaItem from '@/lib-components/Media/Item.vue'
 
@@ -63,7 +63,7 @@ function setCurrentSlide(currentSlide: number) {
       <SvgIconClose aria-label="Close" />
     </button>
     <Carousel
-      ref="carousel" v-model="selectionIndex"
+      v-model="selectionIndex"
       class="media-container"
     >
       <Slide v-for="(item, index) in items" :key="index">

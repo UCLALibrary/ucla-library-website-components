@@ -1,7 +1,7 @@
-describe('MEDIA GALLERY / New Lightbox', () => {
+describe('MEDIA / Lightbox', () => {
   it('Default', () => {
     cy.visit(
-      '/iframe.html?id=media-gallery-new-lightbox--default&args=&viewMode=story'
+      '/iframe.html?id=media-lightbox--default&args=&viewMode=story'
     )
     cy.get('.lightbox').should('exist')
 
@@ -11,7 +11,7 @@ describe('MEDIA GALLERY / New Lightbox', () => {
   context('When there is only one item', () => {
     it('hides the controls', () => {
       cy.visit(
-        '/iframe.html?id=media-gallery-new-lightbox--single-item&args=&viewMode=story'
+        '/iframe.html?id=media-lightbox--single-item&args=&viewMode=story'
       )
       cy.get('.button-prev').should('not.exist')
       cy.get('.button-next').should('not.exist')
