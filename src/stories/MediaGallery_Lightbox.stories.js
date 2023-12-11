@@ -1,29 +1,33 @@
-import FlexibleMediaGalleryLightbox from "@/lib-components/Flexible/MediaGallery/Lightbox.vue"
+import FlexibleMediaGalleryLightbox from '@/lib-components/Flexible/MediaGallery/Lightbox.vue'
 
-import { Gallery as MEDIA_GALLERY_MOCK } from "@/stories/mock/Media"
+import { Gallery as MEDIA_GALLERY_MOCK } from '@/stories/mock/Media'
 
 // Storybook default settings
 export default {
-    title: "Media Gallery / Lightbox",
-    component: FlexibleMediaGalleryLightbox,
+  title: 'Media Gallery / Lightbox',
+  component: FlexibleMediaGalleryLightbox,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            items: MEDIA_GALLERY_MOCK.mediaGallery,
-        }
+      return {
+        items: MEDIA_GALLERY_MOCK.mediaGallery,
+      }
     },
     components: { FlexibleMediaGalleryLightbox },
-    template: `<flexible-media-gallery-lightbox :items="items" />`,
-})
+    template: '<flexible-media-gallery-lightbox :items="items" />',
+  }
+}
 
-export const SingleItem = () => ({
+export function SingleItem() {
+  return {
     data() {
-        return {
-            items: [MEDIA_GALLERY_MOCK.mediaGallery[2]],
-        }
+      return {
+        items: [MEDIA_GALLERY_MOCK.mediaGallery[2]],
+      }
     },
     components: { FlexibleMediaGalleryLightbox },
-    template: `<flexible-media-gallery-lightbox :items="items" />`,
-})
+    template: '<flexible-media-gallery-lightbox :items="items" />',
+  }
+}

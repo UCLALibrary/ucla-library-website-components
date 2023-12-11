@@ -58,75 +58,77 @@ function setCurrentSlide(currentSlide: number) {
 </script>
 
 <template>
-    <div ref="lightbox" class="lightbox">
-        <button class="button-close" @click="$emit('closeModal')">
-            <svg-icon-close aria-label="Close" />
-        </button>
-        <Carousel ref="carousel" v-model="selectionIndex"
-            class="media-container">
-            <Slide v-for="(item, index) in items" :key="index">
-                <MediaItem
-                    object-fit="contain"
-                    :item="item.item"
-                    :coverImage="item.coverImage"
-                    :embedCode="item.embedCode"
-                />
-            </Slide>
-        </Carousel>
+  <div ref="lightbox" class="lightbox">
+    <button class="button-close" @click="$emit('closeModal')">
+      <SvgIconClose aria-label="Close" />
+    </button>
+    <Carousel
+      ref="carousel" v-model="selectionIndex"
+      class="media-container"
+    >
+      <Slide v-for="(item, index) in items" :key="index">
+        <MediaItem
+          object-fit="contain"
+          :item="item.item"
+          :cover-image="item.coverImage"
+          :embed-code="item.embedCode"
+        />
+      </Slide>
+    </Carousel>
+    <button
+      v-if="items.length > 1"
+      class="button-prev"
+      :disabled="selectionIndex <= 0"
+      @click="selectionIndex -= 1"
+    >
+      <SvgIconCaretLeft aria-label="Show previous image" />
+    </button>
+    <button
+      v-if="items.length > 1"
+      class="button-next"
+      :disabled="selectionIndex >= items.length - 1"
+      @click="selectionIndex += 1"
+    >
+      <SvgIconCaretRight aria-label="Show next image" />
+    </button>
+    <div class="caption-block">
+      <div v-if="items.length > 1" class="media-counter" role="tablist">
         <button
-            v-if="items.length > 1"
-            class="button-prev"
-            :disabled="selectionIndex <= 0"
-            @click="selectionIndex -= 1"
-            >
-            <svg-icon-caret-left aria-label="Show previous image" />
-        </button>
-        <button
-            v-if="items.length > 1"
-            class="button-next"
-            :disabled="selectionIndex >= items.length - 1"
-            @click="selectionIndex += 1"
+          v-for="index in items.length"
+          :key="index"
+          class="media-counter-item"
+          :disabled="index - 1 === selectionIndex"
+          @click="setCurrentSlide(index - 1)"
         >
-            <svg-icon-caret-right aria-label="Show next image" />
+          <SvgIconMoleculeBullet />
         </button>
-        <div class="caption-block">
-            <div v-if="items.length > 1" class="media-counter" role="tablist">
-                <button
-                    v-for="index in items.length"
-                    :key="index"
-                    class="media-counter-item"
-                    :disabled="index - 1 == selectionIndex"
-                    @click="setCurrentSlide(index - 1)"
-                >
-                    <svg-icon-molecule-bullet />
-                </button>
-            </div>
+      </div>
 
-            <h4
-                class="media-object-title"
-                v-text="captionTitle[selectionIndex]"
-            />
-            <p
-                v-if="captionText[selectionIndex]"
-                class="media-object-caption"
-                v-text="captionText[selectionIndex]"
-            />
-            <p v-if="items[selectionIndex].credit" class="media-object-credit">
-                {{ items[selectionIndex].credit }}
-            </p>
-            <smart-link
-                v-if="
-                    items[selectionIndex].linkUrl &&
-                    items[selectionIndex].linkText
-                "
-                class="media-object-caption-link"
-                :to="items[selectionIndex].linkUrl"
-            >
-                {{ items[selectionIndex].linkText }}
-                <SvgExternalLink />
-            </smart-link>
-        </div>
+      <h4
+        class="media-object-title"
+        v-text="captionTitle[selectionIndex]"
+      />
+      <p
+        v-if="captionText[selectionIndex]"
+        class="media-object-caption"
+        v-text="captionText[selectionIndex]"
+      />
+      <p v-if="items[selectionIndex].credit" class="media-object-credit">
+        {{ items[selectionIndex].credit }}
+      </p>
+      <SmartLink
+        v-if="
+          items[selectionIndex].linkUrl
+            && items[selectionIndex].linkText
+        "
+        class="media-object-caption-link"
+        :to="items[selectionIndex].linkUrl"
+      >
+        {{ items[selectionIndex].linkText }}
+        <SvgExternalLink />
+      </SmartLink>
     </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
