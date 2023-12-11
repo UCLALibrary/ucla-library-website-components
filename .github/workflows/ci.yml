@@ -41,7 +41,7 @@ jobs:
         repository: ${{ github.event.pull_request.head.repo.full_name }}
         token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }} # non-github token so pushing auto-fies will trigger a new CI run will expire ever 4 months
     - uses: ./.github/workflows/setup-workspace
-    - run: pnpm run lint
+    - run: pnpm run lint:fix
     - uses: EndBug/add-and-commit@v9
       with:
         message: "chore: linter autofixes"
