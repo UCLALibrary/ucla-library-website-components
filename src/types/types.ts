@@ -16,6 +16,18 @@ export interface BylineItemType {
   length?: number
 }
 
+export interface CardItemType {
+  category?: string
+  externalResourceUrl?: string
+  iconName?: string
+  id?: string
+  slug?: string
+  text: string
+  title: string
+  to: string
+  type?: string
+}
+
 export interface DepartmentItemType {
   id?: string
   title: string
@@ -116,14 +128,6 @@ export interface SectionSpaceListItemType {
   isOnline?: boolean
 }
 
-export interface CardItemType {
-  category?: string
-  externalResourceUrl?: string
-  iconName?: string
-  id?: string
-  slug?: string
-  text: string
+export interface SubjectAreaItemType {
   title: string
-  to: string
-  type?: string
 }

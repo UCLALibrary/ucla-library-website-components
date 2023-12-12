@@ -3,6 +3,7 @@ import '@/styles/global.scss'
 
 export { default as AlphabeticalBrowseBy } from './AlphabeticalBrowseBy.vue'
 export { default as BannerFeatured } from './BannerFeatured.vue'
+export { default as BannerHeader } from './BannerHeader.vue'
 export { default as BlockAmenities } from './BlockAmenities.vue'
 export { default as BlockCampusMap } from './BlockCampusMap.vue'
 export { default as BlockCallToAction } from './BlockCallToAction.vue'
