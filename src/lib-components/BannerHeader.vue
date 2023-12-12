@@ -14,7 +14,6 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 // import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
 
 // Enable BlockForm component: https://uclalibrary.atlassian.net/browse/APPS-2518
-// Enable BlockForm in template
 // import BlockForm from '@/lib-components/BlockForm.vue'
 
 import type { ImageItemType, LocationItemType, SubjectAreaItemType } from '@/types/types'
