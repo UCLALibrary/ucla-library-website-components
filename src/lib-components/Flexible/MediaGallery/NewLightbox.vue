@@ -11,6 +11,8 @@ import SmartLink from '../../SmartLink.vue'
 import type { MediaGalleryItemType } from '@/types/types'
 import MediaItem from '@/lib-components/Media/Item.vue'
 
+// import { title } from 'process'
+
 // defineProps is a macro hence we do not need to import it
 const { items, selectedItem } = defineProps({
   items: {
@@ -74,7 +76,7 @@ function setCurrentSlide(currentSlide: number) {
       <!-- vue-glide-slide v-for="(item, index) in items" :key="index" -->
       <div v-for="(item, index) in items" :key="`media-container-${index}`">
         <MediaItem
-          :key="index" object-fit="contain" :item="item.item" :cover-image="item.coverImage"
+          :key="`${item.item[index].title}-${index}`" object-fit="contain" :item="item.item" :cover-image="item.coverImage"
           :embed-code="item.embedCode"
         />
       </div>
