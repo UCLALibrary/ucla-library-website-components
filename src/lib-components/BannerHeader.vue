@@ -14,6 +14,7 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 // import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
 
 // Enable BlockForm component: https://uclalibrary.atlassian.net/browse/APPS-2518
+// Enable BlockForm in template
 // import BlockForm from '@/lib-components/BlockForm.vue'
 
 import type { BylineItemType, ImageItemType, LocationItemType, SubjectAreaItemType } from '@/types/types'
@@ -26,7 +27,7 @@ import getSectionName from '@/utils/getSectionName'
 const props = defineProps({
   image: {
     type: Object as PropType<ImageItemType>,
-    default: () => { },
+    default: () => ({}),
   },
   title: {
     type: String,

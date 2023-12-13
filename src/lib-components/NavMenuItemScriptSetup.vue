@@ -8,7 +8,7 @@ import SmartLink from '@/lib-components/SmartLink'
 const { item, isActive, isOpened } = defineProps({
   item: {
     type: Object,
-    default: () => { },
+    default: () => {},
   },
   isActive: {
     type: Boolean,

@@ -14,7 +14,7 @@ const { linkItems, advancedSearchLink } = defineProps({
   },
   advancedSearchLink: {
     type: Object as PropType<MastheadLinkItemType>,
-    default: () => {},
+    default: () => ({}),
   },
 })
 

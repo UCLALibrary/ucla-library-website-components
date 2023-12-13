@@ -9,7 +9,7 @@ const { item, index, goBack } = defineProps(
   {
     item: {
       type: Object,
-      default: () => { },
+      default: () => {},
     },
     index: {
       type: Number,

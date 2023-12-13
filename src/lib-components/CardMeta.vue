@@ -207,7 +207,7 @@ const parsedText = computed(() => {
       @include truncate(4);
       margin-top: var(--space-s);
 
-      ::v-deep strong {
+      :deep(strong) {
           font-weight: normal;
       }
   }
