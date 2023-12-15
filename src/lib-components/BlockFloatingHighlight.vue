@@ -17,7 +17,7 @@ import type { ImageItemType, LocationItemType } from '@/types/types'
 const props = defineProps({
   image: {
     type: Object as PropType<ImageItemType>,
-    default: () => ({}),
+    default: () => {},
   },
   to: {
     type: String,

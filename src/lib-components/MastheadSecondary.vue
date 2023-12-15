@@ -28,7 +28,7 @@ const props = defineProps({
   },
   heroImage: {
     type: Object as PropType<ImageItemType>,
-    default: () => ({}),
+    default: () => {},
   },
 })
 

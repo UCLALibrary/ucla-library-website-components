@@ -17,7 +17,7 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 // Enable BlockForm in template
 // import BlockForm from '@/lib-components/BlockForm.vue'
 
-import type { BylineItemType, ImageItemType, LocationItemType, SubjectAreaItemType } from '@/types/types'
+import type { ImageItemType, LocationItemType, SubjectAreaItemType } from '@/types/types'
 
 // Utility functions
 import formatEventTimes from '@/utils/formatEventTimes'
@@ -27,7 +27,7 @@ import getSectionName from '@/utils/getSectionName'
 const props = defineProps({
   image: {
     type: Object as PropType<ImageItemType>,
-    default: () => ({}),
+    default: () => {},
   },
   title: {
     type: String,
@@ -38,7 +38,7 @@ const props = defineProps({
     default: '',
   },
   byline: {
-    type: Array as PropType<BylineItemType>,
+    type: Array as PropType<string[]>,
     default: () => [],
   },
   contributors: {
@@ -291,7 +291,7 @@ const parsedLocations = computed(() => {
           <div v-if="byline.length" class="byline-item">
             <div
               v-for="(item, index) in byline"
-              :key="index"
+              :key="`${item}-${index}`"
               class="byline-item"
             >
               {{ item }}
@@ -299,7 +299,7 @@ const parsedLocations = computed(() => {
           </div>
 
           <div v-if="subjectAreas.length" class="subject-areas">
-            <div v-for="(item, index) in subjectAreas" :key="index">
+            <div v-for="(item, index) in subjectAreas" :key="`${item.title}-${index}`">
               {{ item.title }}
             </div>
           </div>

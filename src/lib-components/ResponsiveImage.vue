@@ -43,7 +43,7 @@ const props = defineProps({
   },
   image: {
     type: Object as PropType<ImageItemType>,
-    default: () => ({}),
+    default: () => {},
   },
 })
 
