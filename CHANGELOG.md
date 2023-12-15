@@ -1,3 +1,10 @@
+# [2.39.0-alpha.22](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.21...v2.39.0-alpha.22) (2023-12-15)
+
+
+### Features
+
+* APPS-2468 BannerText component ([#424](https://github.com/UCLALibrary/ucla-library-website-components/issues/424)) ([54c5b76](https://github.com/UCLALibrary/ucla-library-website-components/commit/54c5b767b4e2d00eeefde29fbced7f1adb6380bd))
+
 # [2.39.0-alpha.21](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.20...v2.39.0-alpha.21) (2023-12-15)
 
 
