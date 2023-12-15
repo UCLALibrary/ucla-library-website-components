@@ -27,7 +27,7 @@ import getSectionName from '@/utils/getSectionName'
 const props = defineProps({
   image: {
     type: Object as PropType<ImageItemType>,
-    default: () => ({}),
+    default: () => {},
   },
   title: {
     type: String,
