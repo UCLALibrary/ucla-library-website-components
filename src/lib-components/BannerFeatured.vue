@@ -15,9 +15,14 @@ import RichText from '@/lib-components/RichText.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
-/** To Add */
-// import BlockForm from '@/lib-components/BlockForm.vue'
+// TODO:
+// Enable ResponsiveVideo component: https://uclalibrary.atlassian.net/browse/APPS-2507
+// Update parsedMediaComponent method
 // import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
+
+// Enable BlockForm component: https://uclalibrary.atlassian.net/browse/APPS-2518
+// Enable BlockForm in template
+// import BlockForm from '@/lib-components/BlockForm.vue'
 
 import type { BylineItemType, ImageItemType, LocationItemType } from '@/types/types'
 
@@ -29,7 +34,7 @@ import getSectionName from '@/utils/getSectionName'
 const props = defineProps({
   image: {
     type: Object as PropType<ImageItemType>,
-    default: () => { },
+    default: () => ({}),
   },
   title: {
     type: String,
@@ -121,6 +126,7 @@ const isVideo = computed(() => {
   }
 })
 
+// TODO: Use imported ResponsiveVideo component
 const parsedMediaComponent = computed(() => {
   return isVideo.value ? 'responsive-video' : ResponsiveImage
 })
@@ -311,7 +317,7 @@ const classes = computed(() => {
           <time v-if="parsedTime" class="schedule-item" v-html="parsedTime" />
         </div>
 
-        <!-- To Do: Remove location_external and location_links properties from Flexible_BannerFeatured; assign directly to location array -->
+        <!-- TODO: Remove location_external and location_links properties from Flexible_BannerFeatured; assign directly to location array -->
         <div
           v-if="locations.length
           " class="location-group"
@@ -328,6 +334,7 @@ const classes = computed(() => {
         aria-labelledby="banner-featured-button banner-featured" class="button"
       />
     </div>
+    <!-- TODO: Enable BlockForm component: https://uclalibrary.atlassian.net/browse/APPS-2518 -->
     <!-- <div v-if="!to && registerEvent" class="block-form-container">
       <block-form />
     </div> -->

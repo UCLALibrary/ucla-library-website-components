@@ -41,7 +41,7 @@ export default {
     margin: var(--space-2xl) auto; // When sectionWrapper component is available this can be removed and handled by sectionWrapper
     max-width: #{$container-l-cta}px;
 
-    :deep .block-call-to-action {
+    :deep(.block-call-to-action) {
         width: calc(50% - 14px);
     }
 
@@ -49,7 +49,7 @@ export default {
         margin: calc(var(--unit-gutter) / 2);
         // When sectionWrapper component is available this can be removed and handled by sectionWrapper
 
-        :deep .button-link {
+        :deep(.button-link) {
             width: 100%;
         }
     }
@@ -57,7 +57,7 @@ export default {
     @media #{$small} {
         gap: calc(var(--unit-gutter) / 2);
 
-        :deep .block-call-to-action {
+        :deep(.block-call-to-action) {
             width: 100%;
         }
     }

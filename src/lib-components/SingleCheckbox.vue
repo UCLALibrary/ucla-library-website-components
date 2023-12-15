@@ -126,11 +126,11 @@ export default {
   }
 
   .svg__icon-checkbox {
-    :deep .svg__stroke--default-cyan-03 {
+    :deep(.svg__stroke--default-cyan-03) {
       stroke: transparent;
     }
 
-    :deep .svg__stroke--primary-blue-03 {
+    :deep(.svg__stroke--primary-blue-03) {
       stroke: white;
     }
   }
@@ -140,7 +140,7 @@ export default {
   }
 
   // Selected state
-  .input:checked+.svg__icon-checkbox :deep .svg__stroke--default-cyan-03 {
+  .input:checked+.svg__icon-checkbox :deep(.svg__stroke--default-cyan-03) {
     stroke: white;
   }
 
