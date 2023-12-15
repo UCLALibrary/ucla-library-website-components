@@ -130,14 +130,6 @@ const classes = computed(() => {
   return output
 })
 
-// const parseDarkBackground = computed(() => {
-//   let output = true
-//   if (props.isDarkBlue)
-//     output = false
-
-//   return output
-// })
-
 const sectionName = computed(() => {
   return getSectionName(props.to)
 })
