@@ -1,3 +1,10 @@
+# [2.39.0-alpha.21](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.20...v2.39.0-alpha.21) (2023-12-15)
+
+
+### Features
+
+* APPS-2467 BannerHeader component ([#423](https://github.com/UCLALibrary/ucla-library-website-components/issues/423)) ([bc7fe42](https://github.com/UCLALibrary/ucla-library-website-components/commit/bc7fe4268a9ef2583469015ad2311b0485c236e2))
+
 # [2.39.0-alpha.20](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.19...v2.39.0-alpha.20) (2023-12-08)
 
 
