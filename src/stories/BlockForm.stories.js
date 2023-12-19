@@ -1,6 +1,6 @@
-// Import mock api data
-import * as API from '@/stories/mock-api.json'
 import BlockForm from '@/lib-components/BlockForm'
+
+// Import mock api data
 import BlockFormData from '@/stories/mock/BlockFormData.json'
 
 // Storybook default settings
