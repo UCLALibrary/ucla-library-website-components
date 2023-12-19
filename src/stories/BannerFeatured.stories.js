@@ -1,7 +1,6 @@
 import BannerFeatured from '@/lib-components/BannerFeatured'
 import HeadingArrow from '@/lib-components/HeadingArrow'
-
-// import BlockFormData from '@/stories/mock/BlockFormData.json'
+import BlockFormData from '@/stories/mock/BlockFormData.json'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -319,36 +318,34 @@ export function WithDescription() {
 //   }
 // }
 
-// To Do: Uncomment when BlockForm has been migrated.
-
-// export function WithBlockForm() {
-//   return {
-//     data() {
-//       return {
-//         ...mock,
-//         ...BlockFormData,
-//       }
-//     },
-//     provide: {
-//       // explicitly provide a computed property
-//       eventId: '9383207',
-//       blockFormData: BlockFormData.mock0,
-//       libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
-//       registrationType: 'in-person',
-//     },
-//     components: { BannerFeatured },
-//     template: `
-//         <banner-featured
-//             :image="image"
-//             :category="category"
-//             :title="title"
-//             :description="description"
-//             :prompt="prompt"
-//             :registerEvent="true"
-//         />
-//     `,
-//   }
-// }
+export function WithBlockForm() {
+  return {
+    data() {
+      return {
+        ...mock,
+        ...BlockFormData,
+      }
+    },
+    provide: {
+      // explicitly provide a computed property
+      eventId: '9383207',
+      blockFormData: BlockFormData.mock0,
+      libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+      registrationType: 'in-person',
+    },
+    components: { BannerFeatured },
+    template: `
+        <banner-featured
+            :image="image"
+            :category="category"
+            :title="title"
+            :description="description"
+            :prompt="prompt"
+            :registerEvent="true"
+        />
+    `,
+  }
+}
 
 const mock2 = {
   image: API.image,

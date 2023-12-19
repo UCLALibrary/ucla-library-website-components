@@ -2,9 +2,7 @@ import BannerHeader from '@/lib-components/BannerHeader'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
-
-// TODO: Enable for BlockForm story
-// import BlockFormData from '@/stories/mock/BlockFormData.json'
+import BlockFormData from '@/stories/mock/BlockFormData.json'
 
 export default {
   title: 'Banner Header',
@@ -274,36 +272,35 @@ export function ExternalLink() {
   }
 }
 
-// TODO: Enable BlockForm component: https://uclalibrary.atlassian.net/browse/APPS-2518
-// export function WithBlockForm() {
-//   return {
-//     data() {
-//       return {
-//         ...mock,
-//         ...BlockFormData,
-//       }
-//     },
-//     provide: {
-//       // explicitly provide a computed property
-//       eventId: '9383207',
-//       blockFormData: BlockFormData.mock1,
-//       libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
-//       registrationType: 'both',
-//     },
-//     components: { BannerHeader },
-//     template: `
-//         <banner-header
-//            :image="image"
-//            :title="title"
-//            :category="category"
-//            :start-date="startDate"
-//            :end-date="endDate"
-//            :byline="byline"
-//            :prompt="prompt"
-//            :locations="locations"
-//            :registerEvent="true"
-//            :section-handle="sectionHandle"
-//        />
-//     `,
-//   }
-// }
+export function WithBlockForm() {
+  return {
+    data() {
+      return {
+        ...mock,
+        ...BlockFormData,
+      }
+    },
+    provide: {
+      // explicitly provide a computed property
+      eventId: '9383207',
+      blockFormData: BlockFormData.mock1,
+      libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+      registrationType: 'both',
+    },
+    components: { BannerHeader },
+    template: `
+        <banner-header
+           :image="image"
+           :title="title"
+           :category="category"
+           :start-date="startDate"
+           :end-date="endDate"
+           :byline="byline"
+           :prompt="prompt"
+           :locations="locations"
+           :registerEvent="true"
+           :section-handle="sectionHandle"
+       />
+    `,
+  }
+}

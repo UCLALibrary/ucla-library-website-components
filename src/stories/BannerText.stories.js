@@ -1,7 +1,5 @@
 import BannerText from '@/lib-components/BannerText'
-
-// TODO: Enable for BlockForm story
-// import BlockFormData from '@/stories/mock/BlockFormData.json'
+import BlockFormData from '@/stories/mock/BlockFormData.json'
 
 export default {
   title: 'Banner Text',
@@ -198,33 +196,32 @@ export function ExternalLink() {
   }
 }
 
-// TODO: Enable BlockForm component: https://uclalibrary.atlassian.net/browse/APPS-2518
-// export function WithBlockForm() {
-//   return {
-//     data() {
-//       return {
-//         ...mock,
-//         ...BlockFormData,
-//       }
-//     },
-//     provide: {
-//       // explicitly provide a computed property
-//       eventId: '9383207',
-//       blockFormData: BlockFormData.mock0,
-//       libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
-//       registrationType: 'online',
-//     },
-//     components: { BannerText },
-//     template: `<banner-text
-//         :category="category"
-//         :title="title"
-//         :text="text"
-//         :button-text="buttonText"
-//         :byline="byline"
-//         :registerEvent="true"
-//     />`,
-//   }
-// }
+export function WithBlockForm() {
+  return {
+    data() {
+      return {
+        ...mock,
+        ...BlockFormData,
+      }
+    },
+    provide: {
+      // explicitly provide a computed property
+      eventId: '9383207',
+      blockFormData: BlockFormData.mock0,
+      libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+      registrationType: 'online',
+    },
+    components: { BannerText },
+    template: `<banner-text
+        :category="category"
+        :title="title"
+        :text="text"
+        :button-text="buttonText"
+        :byline="byline"
+        :registerEvent="true"
+    />`,
+  }
+}
 
 // --------- ARTICLE --------------
 
