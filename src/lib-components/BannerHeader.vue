@@ -7,15 +7,12 @@ import format from 'date-fns/format'
 import SvgMoleculeHalfFaceted from 'ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg'
 import SvgHatchRight from 'ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import BlockForm from '@/lib-components/BlockForm.vue'
 
 // TODO:
 // Enable ResponsiveVideo component: https://uclalibrary.atlassian.net/browse/APPS-2507
 // Update parsedMediaComponent method
 // import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
-
-// Enable BlockForm component: https://uclalibrary.atlassian.net/browse/APPS-2518
-// Enable BlockForm in template
-// import BlockForm from '@/lib-components/BlockForm.vue'
 
 import type { ImageItemType, LocationItemType, SubjectAreaItemType } from '@/types/types'
 
@@ -370,11 +367,9 @@ const parsedLocations = computed(() => {
         :to="to"
       />
     </div>
-
-    <!-- TODO: Enable BlockForm component: https://uclalibrary.atlassian.net/browse/APPS-2518 -->
-    <!-- <div v-if="!to && registerEvent" class="block-form-container">
+    <div v-if="!to && registerEvent" class="block-form-container">
       <BlockForm />
-    </div> -->
+    </div>
   </div>
 </template>
 

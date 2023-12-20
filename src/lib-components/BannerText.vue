@@ -5,10 +5,7 @@ import format from 'date-fns/format'
 
 import type { LocationItemType, SubjectAreaItemType } from '@/types/types'
 
-// TODO:
-// Enable BlockForm component: https://uclalibrary.atlassian.net/browse/APPS-2518
-// Enable BlockForm in template
-// import BlockForm from '@/lib-components/BlockForm.vue'
+import BlockForm from '@/lib-components/BlockForm.vue'
 
 // Utility functions
 import formatEventTimes from '@/utils/formatEventTimes'
@@ -304,10 +301,9 @@ const parsedLocations = computed(() => {
       </div>
     </div>
 
-    <!-- TODO: Enable BlockForm component: https://uclalibrary.atlassian.net/browse/APPS-2518 -->
-    <!-- <div v-if="!to && registerEvent" class="block-form-container">
+    <div v-if="!to && registerEvent" class="block-form-container">
       <BlockForm />
-    </div> -->
+    </div>
   </div>
 </template>
 
