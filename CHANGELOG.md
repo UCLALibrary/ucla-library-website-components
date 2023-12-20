@@ -1,3 +1,10 @@
+# [2.39.0-alpha.23](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.22...v2.39.0-alpha.23) (2023-12-20)
+
+
+### Features
+
+* APPS-2518 BlockForm component ([#425](https://github.com/UCLALibrary/ucla-library-website-components/issues/425)) ([e339c20](https://github.com/UCLALibrary/ucla-library-website-components/commit/e339c20318060a5dd46a6fbc25d2b0deaa1b555a))
+
 # [2.39.0-alpha.22](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.21...v2.39.0-alpha.22) (2023-12-15)
 
 
