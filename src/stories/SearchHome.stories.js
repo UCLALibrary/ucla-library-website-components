@@ -1,4 +1,3 @@
-import { action } from '@storybook/addon-actions'
 import SearchHome from '@/lib-components/SearchHome'
 
 export default {
