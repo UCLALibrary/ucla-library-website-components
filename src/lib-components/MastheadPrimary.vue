@@ -2,17 +2,17 @@
 import { defineAsyncComponent } from 'vue'
 
 import type { PropType } from 'vue'
-import type { MastheadLinkItemType } from '@/types/types'
+import type { SearchLinkItemType } from '@/types/types'
 
 import SearchHome from '@/lib-components/SearchHome.vue'
 
 const { linkItems, advancedSearchLink } = defineProps({
   linkItems: {
-    type: Array as PropType<MastheadLinkItemType[]>,
+    type: Array as PropType<SearchLinkItemType[]>,
     default: () => [],
   },
   advancedSearchLink: {
-    type: Object as PropType<MastheadLinkItemType>,
+    type: Object as PropType<SearchLinkItemType>,
     default: () => {},
   },
 })

@@ -1,25 +1,24 @@
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
+import type { PropType } from 'vue'
 
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
 
 import SearchInput from '@/lib-components/SearchInput.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
+import type { SearchLinkItemType } from '@/types/types'
+
 const { linkItems, advancedSearchLink } = defineProps({
-/**
- * List of links with the following properties: [{text, url, target}]
- */
+
   linkItems: {
-    type: Array,
+    type: Array as PropType<SearchLinkItemType[]>,
     default: () => [],
   },
-  /**
-   * An advanced search link in this format: {text, url, target}
-   */
+
   advancedSearchLink: {
-    type: Object,
+    type: Object as PropType<SearchLinkItemType>,
     default: () => {},
   },
 })
@@ -39,7 +38,7 @@ const tabs = [
   },
 ]
 
-const route = useRoute()
+const router = useRouter()
 
 const searchtab = ref(null)
 const searchWords = ref('')
@@ -75,7 +74,7 @@ const placeholder = computed(() => {
 })
 
 const queryParam = computed(() => {
-  return tabs[activeTabIndex].queryParam
+  return tabs[activeTabIndex.value].queryParam
 })
 
 const queryifySearchWords = computed(() => {
@@ -85,17 +84,17 @@ const queryifySearchWords = computed(() => {
 
 function doSearch() {
   if (isSiteSearch.value) {
-    route.push({
-      path: actionUrl,
-      query: { [queryParam]: searchWords },
+    router.push({
+      path: actionUrl.value,
+      query: { [queryParam as any]: searchWords.value },
     })
   }
   else {
-    window.location = `${actionUrl.value}${queryifySearchWords.value}`
+    window.location.href = `${actionUrl.value}${queryifySearchWords.value}`
   }
 }
 
-function setActiveTab(index) {
+function setActiveTab(index: number) {
   activeTabIndex.value = index
 }
 </script>
@@ -202,7 +201,7 @@ function setActiveTab(index) {
 
       .icon {
           &:hover {
-              ::v-deep .svg__fill--primary-blue-03 {
+              :deep(.svg__fill--primary-blue-03) {
                   fill: var(--color-default-cyan-03);
               }
           }
