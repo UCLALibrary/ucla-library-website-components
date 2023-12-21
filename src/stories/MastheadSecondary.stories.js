@@ -1,7 +1,4 @@
-import { MastheadSecondary } from '../lib-components'
-
-// TODO: Add SearchHome import after vue3 version has been migrated
-// import { SearchHome } from '../lib-components'
+import { MastheadSecondary, SearchHome } from '../lib-components'
 
 export default {
   component: MastheadSecondary,
@@ -22,13 +19,13 @@ export function Default() {
     data() {
       return { ...mock }
     },
-    components: { MastheadSecondary },
-    // TODO: Add SearchHome to components after vue3 version has been migrated
+    components: { MastheadSecondary, SearchHome },
     template: `
         <masthead-secondary
             :title="title"
             :text="summary"
         >
+          <search-home actionURL="/search" />
         </masthead-secondary>
     `,
   }
@@ -45,8 +42,7 @@ export function LongText() {
     data() {
       return { ...mock2 }
     },
-    components: { MastheadSecondary },
-    // TODO: Add SearchHome to components after vue3 version has been migrated
+    components: { MastheadSecondary, SearchHome },
     template: `
         <masthead-secondary
             :title="title"

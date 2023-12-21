@@ -4,8 +4,7 @@ import { defineAsyncComponent } from 'vue'
 import type { PropType } from 'vue'
 import type { MastheadLinkItemType } from '@/types/types'
 
-// TODO: Add back when SearchHome component is added.
-// import SearchHome from './SearchHome.vue'
+import SearchHome from '@/lib-components/SearchHome.vue'
 
 const { linkItems, advancedSearchLink } = defineProps({
   linkItems: {
