@@ -1,3 +1,10 @@
+# [2.39.0-alpha.24](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.23...v2.39.0-alpha.24) (2023-12-21)
+
+
+### Features
+
+* APPS-2470 SearchHome,Input components ([#426](https://github.com/UCLALibrary/ucla-library-website-components/issues/426)) ([9f2c25c](https://github.com/UCLALibrary/ucla-library-website-components/commit/9f2c25cf7b9f8d692f84d1c92919ab1df7ca17a1))
+
 # [2.39.0-alpha.23](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.22...v2.39.0-alpha.23) (2023-12-20)
 
 
