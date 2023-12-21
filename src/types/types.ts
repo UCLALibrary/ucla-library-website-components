@@ -64,9 +64,10 @@ export interface LocationItemType {
   to?: string
 }
 
-export interface MastheadLinkItemType {
+export interface SearchLinkItemType {
   text: string
   url: string
+  blank?: string
 }
 
 type customKind = 'image' | 'video' | 'audio'
