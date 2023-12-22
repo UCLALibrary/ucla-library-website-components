@@ -1,3 +1,10 @@
+# [2.39.0-alpha.25](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.24...v2.39.0-alpha.25) (2023-12-22)
+
+
+### Features
+
+* APPS-2507 ResponsiveVideo component ([#427](https://github.com/UCLALibrary/ucla-library-website-components/issues/427)) ([ca74313](https://github.com/UCLALibrary/ucla-library-website-components/commit/ca743135562fc2c54cdb275ca0570a34c26f7403))
+
 # [2.39.0-alpha.24](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.23...v2.39.0-alpha.24) (2023-12-21)
 
 
