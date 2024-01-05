@@ -1,46 +1,17 @@
-<script setup>
-import { computed, onMounted, ref, watch } from 'vue'
+<!-- eslint-disable no-console -->
+<script setup lang="ts">
+import { computed, onMounted, reactive, ref, watch } from 'vue'
+import type { PropType } from 'vue'
+import type { MediaItemType } from '@/types/types'
 
 const props = defineProps({
-  video: {
-    type: Object,
+  media: {
+    type: Object as PropType<MediaItemType>,
     default: () => ({})
   },
-  // image: {
-  //   type: Object,
-  //   default: () => ({}),
-  // },
-  height: {
-    type: Number,
-    default: 0,
-  },
-  width: {
-    type: Number,
-    default: 0,
-  },
-  src: {
+  mode: {
     type: String,
-    default: '',
-  },
-  poster: {
-    type: String,
-    default: '',
-  },
-  srcset: {
-    type: String,
-    default: '',
-  },
-  sizes: {
-    type: String,
-    default: '',
-  },
-  alt: {
-    type: String,
-    default: '',
-  },
-  caption: {
-    type: String,
-    default: '',
+    default: 'intrinsic-ratio',
   },
   aspectRatio: {
     type: Number,
@@ -50,51 +21,25 @@ const props = defineProps({
     type: String,
     default: 'cover',
   },
-  mode: {
-    type: String,
-    default: 'intrinsic-ratio',
-  },
-  backgroundColor: {
-    type: String,
-    default: '',
-  },
-  loop: {
-    type: Boolean,
-    default: false,
-  },
-  autoplay: {
-    type: Boolean,
-    default: true,
-  },
-  muted: {
+  playsinline: {
     type: Boolean,
     default: true,
   },
   controls: {
     type: Boolean,
     default: false,
-  },
-  playsinline: {
-    type: Boolean,
-    default: true,
-  },
-  focalPoint: {
-    type: Array,
-    default: () => ([]),
   }
 })
 
-const emit = defineEmits(['ended', 'error', 'error-media', 'error-video', 'loaded', 'loaded-media', 'loaded-video', 'playing'])
+const emit = defineEmits(['ended', 'error', 'error-image', 'error-video', 'loaded', 'loaded-image', 'loaded-video', 'playing'])
 
-const img = ref(null)
-const videoRef = ref(null)
+const videoRef = ref<HTMLMediaElement | null> (null)
 
-const loadedStatus = ref({
-  booted: false,
+const loadedStatus = reactive({
+  video: false,
 })
 
 const errorStatus = ref({
-  image: false,
   video: false,
 })
 
@@ -103,42 +48,31 @@ const hasError = computed(() => {
 })
 
 const hasLoaded = computed(() => {
-  // Check if all are true. To handle if we have a video and an image.
-  return Object.values(loadedStatus.value).every(Boolean)
+  // Check if all are true. To handle if we have a video.
+  return Object.values(loadedStatus).every(Boolean)
 })
 
 const parsedVideoUrl = computed(() => {
-  return props.video.src
-})
-
-const parsedSrc = computed(() => {
-  return props.src
-})
-
-const isSvg = computed(() => {
-  return parsedSrc.value.includes('.svg')
-})
-
-const parsedColor = computed(() => {
-  return props.backgroundColor
+  return props.media.src
 })
 
 const parsedHeight = computed(() => {
   // default to defined height
-  const height = props.video.height || props.height
-  if (height)
+  const height = props.media.height
+  if (height && typeof height === 'string')
     return Number.parseInt(height)
 
-  return 'auto'
+  console.log(height)
+  return 0
 })
 
 const parsedWidth = computed(() => {
   // default to defined width
-  const width = props.video.width || props.width
-  if (width)
+  const width = props.media.width
+  if (width && typeof width === 'string')
     return Number.parseInt(width)
-
-  return 'auto'
+  console.log(width)
+  return 0
 })
 
 const orientation = computed(() => {
@@ -151,21 +85,19 @@ const orientation = computed(() => {
       output = 'square'
       break
   }
+  console.log(output)
   return output
 })
 
 const classes = computed(() => {
   return [
     'responsive-video',
-              `mode-${props.mode}`,
-              { 'has-loaded': hasLoaded.value },
-              { 'has-background-color': parsedColor.value },
-              { 'has-error': hasError.value },
-              { 'has-image-error': errorStatus.value.image },
-              { 'has-video-error': errorStatus.value.video },
+    `mode-${props.mode}`,
+    { 'has-loaded': hasLoaded.value },
+    { 'has-error': hasError.value },
+    { 'has-video-error': errorStatus.value.video },
               `is-orientation-${orientation.value}`,
               `object-fit-${props.objectFit}`,
-              { 'is-svg': isSvg.value },
   ]
 })
 
@@ -175,25 +107,31 @@ const aspectPadding = computed(() => {
   if (!output)
     output = 0
 
+  console.log(output)
   return output
 })
 
 const parsedFocalPoint = computed(() => {
-  return {
-    x: props.video.focalPoint[0],
-    y: props.video.focalPoint[1],
-  } || {
-    x: props.focalPoint[0],
-    y: props.focalPoint[1],
+  if (props.media.focalPoint!.length > 0) {
+    return {
+      x: props.media.focalPoint![0],
+      y: props.media.focalPoint![1],
+    }
+  }
+  else {
+    return {
+      x: '0.5',
+      y: '0.5'
+    }
   }
 })
 
 const parsedAlt = computed(() => {
-  return props.video.alt || props.alt
+  return props.media.alt
 })
 
 const sizerStyles = computed(() => {
-  const styles = {}
+  const styles: Record<string, any> = {}
   // Set padding for size
   if (props.mode === 'intrinsic-ratio')
     styles.paddingBottom = `${aspectPadding.value}%`
@@ -201,17 +139,8 @@ const sizerStyles = computed(() => {
   return styles
 })
 
-const backgroundStyles = computed(() => {
-  const styles = {}
-  // Set background color
-  if (parsedColor.value)
-    styles.backgroundColor = `${parsedColor.value}`
-
-  return styles
-})
-
 const mediaStyles = computed(() => {
-  const styles = {}
+  const styles: Record<string, any> = {}
   if (
     parsedFocalPoint.value.x !== ''
               && parsedFocalPoint.value.y !== ''
@@ -224,84 +153,37 @@ const mediaStyles = computed(() => {
 // Update loaded state if new src set
 watch(parsedVideoUrl, (newVal) => {
   if (newVal) {
-    loadedStatus.value.video = false
+    loadedStatus.video = false
     errorStatus.value.video = false
-  }
-})
-
-// Update loaded state if new src set
-watch(parsedSrc, (newVal) => {
-  if (newVal) {
-    loadedStatus.value.image = false
-    errorStatus.value.image = false
   }
 })
 
 onMounted(() => {
   // Setup loaded state tracking
   if (parsedVideoUrl.value)
-    loadedStatus.value.video = videoRef.value.readyState >= 3
-
-  if (parsedSrc.value)
-    loadedStatus.value.image = img.value.complete
-
-  // Set the booted flag
-  loadedStatus.value.booted = true
+    loadedStatus.video = videoRef.value!.readyState >= 3
 })
 
-function onLoaded(type) {
-  loadedStatus.value[type] = true
-
+function onLoaded(type: 'video') {
+  loadedStatus[type] = true
   emit('loaded', type)
   emit(`loaded-${type}`)
 }
 
-function onError(type) {
+function onError(type: 'video') {
   errorStatus.value[type] = true
 
   emit('error', type)
   emit(`error-${type}`)
 }
 
-function onEnded(event) {
+function onEnded(event: Event) {
   emit('ended', event)
 }
 
-function onPlaying(event) {
+function onPlaying(event: Event) {
   emit('playing', event)
 }
-
-// TODO: Verify purpose of these methods with TL
-// function play() {
-//   if (videoRef.value) {
-//     // HTML5 video method
-//     return videoRef.value.play()
-//   }
-// }
-
-// function volume(amount = false) {
-//   if (videoRef.value) {
-//     // HTML5 video method
-//     if (amount === false)
-//       videoRef.value.volume = amount
-
-//     return videoRef.value.volume
-//   }
-// }
-
-// function pause() {
-//   if (videoRef.value) {
-//     // HTML5 video method
-//     videoRef.value.pause()
-//   }
-// }
-
-// function seekTo(seconds = 0) {
-//   if (videoRef.value) {
-//     // HTML5 video method
-//     videoRef.value.currentTime = seconds
-//   }
-// }
 </script>
 
 <template>
@@ -312,10 +194,6 @@ function onPlaying(event) {
       class="media media-video"
       :src="parsedVideoUrl"
       :style="mediaStyles"
-      :poster="poster"
-      :loop="loop"
-      :autoplay="autoplay"
-      :muted="muted"
       :controls="controls"
       :playsinline="playsinline"
       :alt="parsedAlt"
@@ -326,7 +204,7 @@ function onPlaying(event) {
     />
 
     <div class="sizer" :style="sizerStyles" />
-    <div class="background-color" :style="backgroundStyles" />
+    <div class="background-color" />
 
     <slot />
   </figure>

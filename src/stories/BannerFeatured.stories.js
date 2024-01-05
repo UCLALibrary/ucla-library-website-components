@@ -53,7 +53,7 @@ export function Default() {
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :image="image"
+            :media="image"
             :to="to"
             :title="title"
             :category="category"
@@ -77,7 +77,7 @@ export function LeftAligned() {
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :image="image"
+            :media="image"
             :to="to"
             :title="title"
             :category="category"
@@ -103,7 +103,7 @@ export function NotOnline() {
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :image="image"
+            :media="image"
             :to="to"
             :title="title"
             :category="category"
@@ -137,7 +137,7 @@ export function Slot() {
     components: { BannerFeatured, HeadingArrow },
     template: `
         <banner-featured
-            :image="image"
+            :media="image"
             to="/about/foo/bar/"
             :title="title"
             :category="category"
@@ -176,7 +176,7 @@ export function LongHeading() {
     components: { BannerFeatured, HeadingArrow },
     template: `
         <banner-featured
-            :image="image"
+            :media="image"
             :to="to"
             :title="title"
             :category="category"
@@ -206,7 +206,7 @@ export function WideImage() {
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :image="image"
+            :media="image"
             :to="to"
             :title="title"
             :category="category"
@@ -232,7 +232,7 @@ export function WideImageLeftAligned() {
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :image="image"
+            :media="image"
             :to="to"
             :title="title"
             :category="category"
@@ -259,7 +259,7 @@ export function NoButton() {
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :image="image"
+            :media="image"
             :title="title"
             :category="category"
             :breadcrumb="breadcrumb"
@@ -283,7 +283,7 @@ export function WithDescription() {
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :image="image"
+            :media="image"
             :category="category"
             :to="to"
             :title="title"
@@ -296,27 +296,27 @@ export function WithDescription() {
 
 // To Do: Uncomment when ResponsiveVideo has been migrated.
 
-// export function Video() {
-//   return {
-//     data() {
-//       return {
-//         ...mock,
-//         image: API.video,
-//       }
-//     },
-//     components: { BannerFeatured },
-//     template: `
-//         <banner-featured
-//             :image="image"
-//             :category="category"
-//             :to="to"
-//             :title="title"
-//             :description="description"
-//             :prompt="prompt"
-//         />
-//     `,
-//   }
-// }
+export function Video() {
+  return {
+    data() {
+      return {
+        ...mock,
+        video: API.video,
+      }
+    },
+    components: { BannerFeatured },
+    template: `
+        <banner-featured
+            :media="video"
+            :category="category"
+            :to="to"
+            :title="title"
+            :description="description"
+            :prompt="prompt"
+        />
+    `,
+  }
+}
 
 export function WithBlockForm() {
   return {
@@ -336,7 +336,7 @@ export function WithBlockForm() {
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :image="image"
+            :media="image"
             :category="category"
             :title="title"
             :description="description"
@@ -380,7 +380,7 @@ export function LinkedTitle() {
     components: { BannerFeatured },
     template: `
         <banner-featured
-            :image="image"
+            :media="image"
             :to="to"
             :title="title"
             :titleLink= "titleLink"

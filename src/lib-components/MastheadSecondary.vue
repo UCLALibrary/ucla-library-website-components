@@ -7,7 +7,7 @@ import _isEmpty from 'lodash/isEmpty'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import RichText from '@/lib-components/RichText.vue'
 
-import type { ImageItemType } from '@/types/types'
+import type { MediaItemType } from '@/types/types'
 
 const props = defineProps({
   hasMolecules: {
@@ -27,7 +27,7 @@ const props = defineProps({
     default: '',
   },
   heroImage: {
-    type: Object as PropType<ImageItemType>,
+    type: Object as PropType<MediaItemType>,
     default: () => {},
   },
 })
@@ -63,7 +63,7 @@ const classes = computed(() => {
     <ResponsiveImage
       v-if="hasHeroImage"
       class="hero-image"
-      :image="heroImage"
+      :media="heroImage"
     />
     <div class="container">
       <div class="meta">

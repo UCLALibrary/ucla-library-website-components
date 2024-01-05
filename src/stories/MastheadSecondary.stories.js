@@ -1,11 +1,9 @@
-import { MastheadSecondary, SearchHome } from '../lib-components'
+import { MastheadSecondary } from '../lib-components'
 
 export default {
   component: MastheadSecondary,
   title: 'Masthead / Secondary',
 }
-
-// TODO: search-home was originally search-generic, but we haven't added it to this repo yet. I haven't added it here because the slot in MastheadSecondary doesn't even get used, so it never renders, but I think at some point we'll have to change back to search-generic and actually get it to render in the component?
 
 const mock = {
   title: 'Find and Reserve a Space',
@@ -19,13 +17,12 @@ export function Default() {
     data() {
       return { ...mock }
     },
-    components: { MastheadSecondary, SearchHome },
+    components: { MastheadSecondary },
     template: `
         <masthead-secondary
             :title="title"
             :text="summary"
         >
-          <search-home actionURL="/search" />
         </masthead-secondary>
     `,
   }
@@ -42,25 +39,13 @@ export function LongText() {
     data() {
       return { ...mock2 }
     },
-    components: { MastheadSecondary, SearchHome },
+    components: { MastheadSecondary },
     template: `
         <masthead-secondary
             :title="title"
             :text="summary"
         >
-            <search-home actionURL="/search" />
         </masthead-secondary
-    `,
-  }
-}
-export function NoSearch() {
-  return {
-    components: { MastheadSecondary },
-    template: `
-        <masthead-secondary
-            title="Find and Reserve a Space"
-            text="<p>Browse on-campus spaces for study, meetings, and group projects.</p>
-        "/>
     `,
   }
 }

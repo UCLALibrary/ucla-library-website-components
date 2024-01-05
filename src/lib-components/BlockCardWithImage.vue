@@ -11,11 +11,11 @@ import CardMeta from '@/lib-components/CardMeta.vue'
 // UTILITY FUNCTIONS
 import getSectionName from '@/utils/getSectionName'
 
-import type { ImageItemType, LocationItemType } from '@/types/types'
+import type { LocationItemType, MediaItemType } from '@/types/types'
 
 const props = defineProps({
   image: {
-    type: Object as PropType<ImageItemType>,
+    type: Object as PropType<MediaItemType>,
     default: () => {},
   },
   to: {
@@ -105,7 +105,7 @@ const classes = computed(() => {
     <div class="image-container">
       <ResponsiveImage
         v-if="image"
-        :image="image"
+        :media="image"
         :aspect-ratio="imageAspectRatio"
         class="image"
       />

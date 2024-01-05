@@ -13,11 +13,11 @@ import getSectionName from '@/utils/getSectionName'
 import formatDay from '@/utils/formatEventDay'
 import formatMonth from '@/utils/formatEventMonth'
 
-import type { ImageItemType, LocationItemType } from '@/types/types'
+import type { LocationItemType, MediaItemType } from '@/types/types'
 
 const props = defineProps({
   image: {
-    type: Object as PropType<ImageItemType>,
+    type: Object as PropType<MediaItemType>,
     default: () => {},
   },
   to: {
@@ -117,7 +117,7 @@ const parsedDateMonth = computed(() => {
       </div>
       <ResponsiveImage
         v-if="image"
-        :image="image"
+        :media="image"
         :aspect-ratio="imageAspectRatio"
         class="image"
       />

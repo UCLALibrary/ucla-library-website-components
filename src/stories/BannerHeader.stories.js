@@ -45,7 +45,7 @@ export function Default() {
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            :category="category"
@@ -70,7 +70,7 @@ export function LeftAligned() {
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            :category="category"
@@ -95,7 +95,7 @@ export function NoCategory() {
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            :start-date="startDate"
@@ -119,7 +119,7 @@ export function WithBylineAndSubjectAreas() {
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            :start-date="startDate"
@@ -144,7 +144,7 @@ export function OnlyTitle() {
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :title="title"
            :align-right="false"
        />
@@ -152,25 +152,24 @@ export function OnlyTitle() {
   }
 }
 
-// TODO: Enable ResponsiveVideo component: https://uclalibrary.atlassian.net/browse/APPS-2507
-// export function Video() {
-//   return {
-//     data() {
-//       return {
-//         ...mock,
-//         video: API.video,
-//       }
-//     },
-//     components: { BannerHeader },
-//     template: `
-//         <banner-header
-//            :image="video"
-//            :title="title"
-//            :align-right="false"
-//        />
-//     `,
-//   }
-// }
+export function Video() {
+  return {
+    data() {
+      return {
+        ...mock,
+        video: API.video,
+      }
+    },
+    components: { BannerHeader },
+    template: `
+        <banner-header
+           :media="video"
+           :title="title"
+           :align-right="false"
+       />
+    `,
+  }
+}
 
 export function WithContactInfo() {
   return {
@@ -182,7 +181,7 @@ export function WithContactInfo() {
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -233,7 +232,7 @@ export function ArticleDetail() {
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :title="title"
            :byline="byline"
            :subjectAreas="subjectAreas"
@@ -257,7 +256,7 @@ export function ExternalLink() {
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            :category="category"
@@ -290,7 +289,7 @@ export function WithBlockForm() {
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :title="title"
            :category="category"
            :start-date="startDate"

@@ -14,14 +14,10 @@ import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
 import BlockForm from '@/lib-components/BlockForm.vue'
 
-// TODO:
-// Enable ResponsiveVideo component: https://uclalibrary.atlassian.net/browse/APPS-2507
-// Update parsedMediaComponent method
-// import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
-
-import type { BylineItemType, ImageItemType, LocationItemType } from '@/types/types'
+import type { BylineItemType, LocationItemType, MediaItemType, } from '@/types/types'
 
 // Utility functions
 import formatEventTimes from '@/utils/formatEventTimes'
@@ -29,8 +25,8 @@ import formatEventDates from '@/utils/formatEventDates'
 import getSectionName from '@/utils/getSectionName'
 
 const props = defineProps({
-  image: {
-    type: Object as PropType<ImageItemType>,
+  media: {
+    type: Object as PropType<MediaItemType>,
     default: () => {},
   },
   title: {
@@ -103,8 +99,8 @@ const props = defineProps({
 
 // Video & Image
 const isVideo = computed(() => {
-  if (props.image && props.image.src) {
-    const fileName = props.image.src.toLowerCase()
+  if (props.media && props.media.src) {
+    const fileName = props.media.src.toLowerCase()
     const extension = fileName.split('.').pop()
     if (
       extension === 'mp4'
@@ -123,15 +119,14 @@ const isVideo = computed(() => {
   }
 })
 
-// TODO: Use imported ResponsiveVideo component
 const parsedMediaComponent = computed(() => {
-  return isVideo.value ? 'responsive-video' : ResponsiveImage
+  return isVideo.value ? ResponsiveVideo : ResponsiveImage
 })
 
 const parseImage = computed(() => {
   if (isVideo.value)
     return null
-  const imageObj = props.image
+  const imageObj = props.media
 
   // console.log(`image obj: ${JSON.stringify(imageObj)}`)
   return imageObj
@@ -140,15 +135,16 @@ const parseImage = computed(() => {
 const parseVideo = computed(() => {
   if (!isVideo.value)
     return null
-  let videoObj = {}
-  const mainVideo = props.image
 
-  videoObj = {
-    videoUrl: mainVideo.src,
+  const mainVideo = props.media
+
+  const videoObj: MediaItemType = {
+    src: mainVideo.src,
+    focalPoint: mainVideo.focalPoint,
     sizes: mainVideo.sizes,
     height: mainVideo.height,
     width: mainVideo.width,
-    altText: mainVideo.alt,
+    alt: mainVideo.alt,
     caption: mainVideo.caption,
     poster: mainVideo.poster,
   }
@@ -245,7 +241,7 @@ const classes = computed(() => {
       </slot>
     </div>
 
-    <component :is="parsedMediaComponent" class="media" :image="parsedMediaProp" :aspect-ratio="parsedRatio">
+    <component :is="parsedMediaComponent" class="media" :media="parsedMediaProp" :aspect-ratio="parsedRatio">
       <div v-if="!isVideo" class="gradient" />
 
       <SvgMoleculeHalfFaceted class="molecule" aria-hidden="true" />
