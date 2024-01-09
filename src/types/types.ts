@@ -47,7 +47,6 @@ export interface EventItemType {
 
 export interface MediaItemType {
   alt?: string
-  // altText?: string
   caption?: string
   focalPoint?: number[]
   height?: number
@@ -59,7 +58,6 @@ export interface MediaItemType {
   srcset?: string
   title?: string
   type?: string
-  // videoUrl?: string
   width?: number
 }
 

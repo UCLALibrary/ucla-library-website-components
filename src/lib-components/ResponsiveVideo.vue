@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref, watch } from 'vue'
 import type { PropType } from 'vue'
@@ -22,6 +21,18 @@ const props = defineProps({
     default: 'cover',
   },
   playsinline: {
+    type: Boolean,
+    default: true,
+  },
+  autoplay: {
+    type: Boolean,
+    default: true,
+  },
+  loop: {
+    type: Boolean,
+    default: false,
+  },
+  muted: {
     type: Boolean,
     default: true,
   },
@@ -62,8 +73,7 @@ const parsedHeight = computed(() => {
   if (height && typeof height === 'string')
     return Number.parseInt(height)
 
-  console.log(height)
-  return 0
+  return height!
 })
 
 const parsedWidth = computed(() => {
@@ -71,8 +81,8 @@ const parsedWidth = computed(() => {
   const width = props.media.width
   if (width && typeof width === 'string')
     return Number.parseInt(width)
-  console.log(width)
-  return 0
+
+  return width!
 })
 
 const orientation = computed(() => {
@@ -85,7 +95,7 @@ const orientation = computed(() => {
       output = 'square'
       break
   }
-  console.log(output)
+
   return output
 })
 
@@ -107,7 +117,6 @@ const aspectPadding = computed(() => {
   if (!output)
     output = 0
 
-  console.log(output)
   return output
 })
 
@@ -172,7 +181,6 @@ function onLoaded(type: 'video') {
 
 function onError(type: 'video') {
   errorStatus.value[type] = true
-
   emit('error', type)
   emit(`error-${type}`)
 }
@@ -181,8 +189,8 @@ function onEnded(event: Event) {
   emit('ended', event)
 }
 
-function onPlaying(event: Event) {
-  emit('playing', event)
+function onPlaying() {
+  emit('playing')
 }
 </script>
 
@@ -193,10 +201,13 @@ function onPlaying(event: Event) {
       ref="videoRef"
       class="media media-video"
       :src="parsedVideoUrl"
+      :alt="parsedAlt"
       :style="mediaStyles"
       :controls="controls"
+      :autoplay="autoplay"
+      :muted="muted"
+      :loop="loop"
       :playsinline="playsinline"
-      :alt="parsedAlt"
       @loadeddata="onLoaded('video')"
       @error="onError('video')"
       @ended="onEnded"
