@@ -240,7 +240,7 @@ const parsedLocations = computed(() => {
     <component
       :is="parsedMediaComponent"
       class="media"
-      :media="parsedMediaProp"
+      :media="parsedMediaProp!"
       :aspect-ratio="parsedRatio"
     >
       <div v-if="!isVideo" :class="gradientClasses" />

@@ -241,7 +241,7 @@ const classes = computed(() => {
       </slot>
     </div>
 
-    <component :is="parsedMediaComponent" class="media" :media="parsedMediaProp" :aspect-ratio="parsedRatio">
+    <component :is="parsedMediaComponent" class="media" :media="parsedMediaProp!" :aspect-ratio="parsedRatio">
       <div v-if="!isVideo" class="gradient" />
 
       <SvgMoleculeHalfFaceted class="molecule" aria-hidden="true" />

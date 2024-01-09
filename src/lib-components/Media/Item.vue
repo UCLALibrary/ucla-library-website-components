@@ -39,7 +39,7 @@ const isImage = computed<boolean>(() => {
 const isVideo = computed<boolean>(() => {
   return props.item[0] && props.item[0].kind === 'video'
 })
-const coverImageSrc = computed<string>(() => {
+const coverImageSrc = computed(() => {
   return props.coverImage[0] && props.coverImage[0].src
 })
 const mediaStyles = computed(() => {
@@ -59,9 +59,9 @@ const parsedAspectRatio = computed(() => {
     || (props.height / props.width) * 100
     || (!props.coverOnly
       && props.item[0]
-      && (props.item[0].height / props.item[0].width) * 100)
+      && (props.item[0].height! / props.item[0].width!) * 100)
     || (props.coverImage[0]
-      && props.coverImage[0].height / props.coverImage[0].width)
+      && props.coverImage[0].height! / props.coverImage[0].width!)
     * 100
     || (9 / 16) * 100
   )
