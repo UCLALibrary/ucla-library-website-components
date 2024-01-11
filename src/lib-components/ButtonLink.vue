@@ -95,11 +95,13 @@ export default {
           return 'svg-arrow-right'
         case this.linkTarget === '_blank' || this.iconName === 'svg-external-link':
           return 'svg-external-link'
+        case this.iconName === 'none':
+          return ''
         case this.iconName === 'icon-close':
         case this.iconName:
           return this.iconName
         default:
-          return 'none'
+          return 'svg-external-link'
       }
     },
   },
