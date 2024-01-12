@@ -22,8 +22,7 @@ export function Default() {
         <masthead-secondary
             :title="title"
             :text="summary"
-        >
-        </masthead-secondary>
+        />
     `,
   }
 }
@@ -44,8 +43,7 @@ export function LongText() {
         <masthead-secondary
             :title="title"
             :text="summary"
-        >
-        </masthead-secondary
+        />
     `,
   }
 }
