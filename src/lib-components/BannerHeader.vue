@@ -128,6 +128,9 @@ const sectionName = computed(() => {
   return getSectionName(props.to)
 })
 
+// eslint-disable-next-line no-console
+console.log(sectionName.value)
+
 const classes = computed(() => {
   return [
     'banner-header',
