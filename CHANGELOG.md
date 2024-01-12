@@ -1,3 +1,10 @@
+# [2.39.0-alpha.27](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.26...v2.39.0-alpha.27) (2024-01-12)
+
+
+### Features
+
+* APPS-2527 ImpactNumberCard component ([#429](https://github.com/UCLALibrary/ucla-library-website-components/issues/429)) ([2e86d7d](https://github.com/UCLALibrary/ucla-library-website-components/commit/2e86d7dc442873dbc12a8ec8d8637d278f7898b3))
+
 # [2.39.0-alpha.26](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.25...v2.39.0-alpha.26) (2024-01-12)
 
 
