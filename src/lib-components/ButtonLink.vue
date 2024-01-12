@@ -98,8 +98,10 @@ export default {
         case this.iconName === 'icon-close':
         case this.iconName:
           return this.iconName
+        case this.iconName === 'none':
+          return ''
         default:
-          return 'none'
+          return 'svg-external-link'
       }
     },
   },

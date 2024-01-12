@@ -76,7 +76,7 @@ function setCurrentSlide(currentSlide: number) {
       <!-- vue-glide-slide v-for="(item, index) in items" :key="index" -->
       <div v-for="(item, index) in items" :key="`media-container-${index}`">
         <MediaItem
-          :key="`${item.item[index].title}-${index}`" object-fit="contain" :item="item.item" :cover-image="item.coverImage"
+          :key="`${item.captionTitle}-${index}`" object-fit="contain" :item="item.item" :cover-image="item.coverImage"
           :embed-code="item.embedCode"
         />
       </div>

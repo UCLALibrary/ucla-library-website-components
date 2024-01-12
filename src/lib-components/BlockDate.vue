@@ -51,7 +51,7 @@ export default {
         // height: 60px;
         transform: rotate(90deg) scale(0.9, 0.9);
 
-        .svg__stroke--wayfinder {
+        :deep(.svg__stroke--wayfinder) {
             stroke: var(--color-visit-fushia-03);
         }
     }

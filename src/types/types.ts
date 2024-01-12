@@ -35,7 +35,7 @@ export interface DepartmentItemType {
 }
 
 export interface EventItemType {
-  image?: ImageItemType
+  image?: MediaItemType
   category: string
   title: string
   prompt: string
@@ -45,17 +45,20 @@ export interface EventItemType {
   sectionHandle?: string
 }
 
-export interface ImageItemType {
-  src: string
-  srcset?: string
-  sizes?: string
-  alt: string
-  title?: string
+export interface MediaItemType {
+  alt?: string
   caption?: string
-  height?: number
-  width?: number
   focalPoint?: number[]
+  height?: number
+  id?: string
+  kind?: customKind
   poster?: string
+  sizes?: string
+  src?: string
+  srcset?: string
+  title?: string
+  type?: string
+  width?: number
 }
 
 export interface LocationItemType {
@@ -71,19 +74,6 @@ export interface SearchLinkItemType {
 }
 
 type customKind = 'image' | 'video' | 'audio'
-
-export interface MediaItemType {
-  id: string
-  src: string
-  srcset: string
-  height: number
-  width: number
-  title: string
-  focalPoint: number[]
-  kind: customKind
-  type: string
-  alt: string
-}
 
 export interface MediaGalleryItemType {
   id?: string
@@ -131,4 +121,10 @@ export interface SectionSpaceListItemType {
 
 export interface SubjectAreaItemType {
   title: string
+}
+
+export interface StylesItemType {
+  paddingBottom?: string
+  backgroundColor?: string
+  objectPosition?: string
 }

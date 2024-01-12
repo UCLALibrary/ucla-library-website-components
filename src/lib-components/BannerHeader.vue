@@ -7,14 +7,10 @@ import format from 'date-fns/format'
 import SvgMoleculeHalfFaceted from 'ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg'
 import SvgHatchRight from 'ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
 import BlockForm from '@/lib-components/BlockForm.vue'
 
-// TODO:
-// Enable ResponsiveVideo component: https://uclalibrary.atlassian.net/browse/APPS-2507
-// Update parsedMediaComponent method
-// import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
-
-import type { ImageItemType, LocationItemType, SubjectAreaItemType } from '@/types/types'
+import type { LocationItemType, MediaItemType, SubjectAreaItemType } from '@/types/types'
 
 // Utility functions
 import formatEventTimes from '@/utils/formatEventTimes'
@@ -22,8 +18,8 @@ import formatEventDates from '@/utils/formatEventDates'
 import getSectionName from '@/utils/getSectionName'
 
 const props = defineProps({
-  image: {
-    type: Object as PropType<ImageItemType>,
+  media: {
+    type: Object as PropType<MediaItemType>,
     default: () => {},
   },
   title: {
@@ -132,6 +128,9 @@ const sectionName = computed(() => {
   return getSectionName(props.to)
 })
 
+// eslint-disable-next-line no-console
+console.log(sectionName.value)
+
 const classes = computed(() => {
   return [
     'banner-header',
@@ -141,8 +140,8 @@ const classes = computed(() => {
 })
 
 const isVideo = computed(() => {
-  if (props.image && props.image.src) {
-    const fileName = props.image.src.toLowerCase()
+  if (props.media && props.media.src) {
+    const fileName = props.media.src.toLowerCase()
     const extension = fileName.split('.').pop()
     if (
       extension === 'mp4'
@@ -158,10 +157,14 @@ const isVideo = computed(() => {
   else { return false }
 })
 
+const parsedMediaComponent = computed(() => {
+  return isVideo.value ? ResponsiveVideo : ResponsiveImage
+})
+
 const parseImage = computed(() => {
   if (isVideo.value)
     return null
-  const imageObj = props.image
+  const imageObj = props.media
   // console.log(`image obj: ${JSON.stringify(imageObj)}`)
   return imageObj
 })
@@ -169,24 +172,21 @@ const parseImage = computed(() => {
 const parseVideo = computed(() => {
   if (!isVideo.value)
     return null
-  let videoObj = {}
-  const mainVideo = props.image
-  videoObj = {
-    videoUrl: mainVideo.src,
+
+  const mainVideo = props.media
+
+  const videoObj: MediaItemType = {
+    src: mainVideo.src,
+    focalPoint: mainVideo.focalPoint,
     sizes: mainVideo.sizes,
     height: mainVideo.height,
     width: mainVideo.width,
-    altText: mainVideo.alt,
+    alt: mainVideo.alt,
     caption: mainVideo.caption,
     poster: mainVideo.poster,
   }
 
   return videoObj
-})
-
-// TODO: Use imported ResponsiveVideo component
-const parsedMediaComponent = computed(() => {
-  return isVideo.value ? 'responsive-video' : ResponsiveImage
 })
 
 const parsedMediaProp = computed(() => {
@@ -243,7 +243,7 @@ const parsedLocations = computed(() => {
     <component
       :is="parsedMediaComponent"
       class="media"
-      :image="parsedMediaProp"
+      :media="parsedMediaProp!"
       :aspect-ratio="parsedRatio"
     >
       <div v-if="!isVideo" :class="gradientClasses" />

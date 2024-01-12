@@ -18,7 +18,7 @@ export function Default() {
         image: API.image,
       }
     },
-    template: '<responsive-image :image="image"/>',
+    template: '<responsive-image :media="image"/>',
   }
 }
 
@@ -32,7 +32,7 @@ export function SquareRatio() {
     },
     template: `
         <responsive-image
-            :image="image"
+            :media="image"
             :aspect-ratio="100"
         />
     `,
@@ -49,7 +49,7 @@ export function ObjectFitContain() {
     },
     template: `
         <responsive-image
-            :image="image"
+            :media="image"
             :aspect-ratio="100"
             object-fit="contain"
         />

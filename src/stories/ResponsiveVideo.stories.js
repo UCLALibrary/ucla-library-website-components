@@ -16,7 +16,7 @@ export function ImageWithVideo() {
       }
     },
     components: { ResponsiveVideo },
-    template: '<responsive-video :video="video" />',
+    template: '<responsive-video :media="video" />',
   }
 }
 
@@ -28,6 +28,6 @@ export function VideoWithControls() {
       }
     },
     components: { ResponsiveVideo },
-    template: '<responsive-video :video="video" :controls="true"/>',
+    template: '<responsive-video :media="video" :controls="true"/>',
   }
 }

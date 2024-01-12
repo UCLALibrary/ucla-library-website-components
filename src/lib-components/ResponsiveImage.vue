@@ -2,9 +2,13 @@
 import { computed, ref } from 'vue'
 
 import type { PropType } from 'vue'
-import type { ImageItemType } from '@/types/types'
+import type { MediaItemType } from '@/types/types'
 
 const props = defineProps({
+  media: {
+    type: Object as PropType<MediaItemType>,
+    default: () => {},
+  },
   src: {
     type: String,
     default: '',
@@ -40,11 +44,7 @@ const props = defineProps({
   objectFit: {
     type: String,
     default: '',
-  },
-  image: {
-    type: Object as PropType<ImageItemType>,
-    default: () => {},
-  },
+  }
 })
 
 const hasLoaded = ref(false)
@@ -60,8 +60,8 @@ function onError() {
 
 const parsedFocalPoint = computed (() => {
   let objectPosition = ''
-  if (props.image.focalPoint && props.image.focalPoint.length > 0) {
-    const points = props.image.focalPoint.map((obj) => {
+  if (props.media.focalPoint && props.media.focalPoint.length > 0) {
+    const points = props.media.focalPoint.map((obj) => {
       return `${obj * 100}%`
     })
     objectPosition = `object-position:${points.join(' ')}`
@@ -70,8 +70,8 @@ const parsedFocalPoint = computed (() => {
 })
 
 const parsedAspectRatio = computed (() => {
-  const height = props.image.height || props.height
-  const width = props.image.width || props.width
+  const height = props.media.height || props.height
+  const width = props.media.width || props.width
   return props.aspectRatio || (height / width) * 100
 })
 
@@ -92,14 +92,14 @@ const classes = computed (() => {
 </script>
 
 <template>
-  <figure v-if="props.image && props.image.src" :class="classes">
+  <figure v-if="props.media && props.media.src" :class="classes">
     <img
-      :src="props.image.src || props.src"
-      :height="props.image.width || props.width"
-      :width="props.image.height || props.height"
-      :alt="props.image.alt || props.alt"
-      :srcset="props.image.srcset || props.srcset"
-      :sizes="props.image.sizes || props.sizes"
+      :src="props.media.src || props.src"
+      :height="props.media.width || props.width"
+      :width="props.media.height || props.height"
+      :alt="props.media.alt || props.alt"
+      :srcset="props.media.srcset || props.srcset"
+      :sizes="props.media.sizes || props.sizes"
       :object-fit="props.objectFit"
       :style="parsedFocalPoint"
       class="media"
@@ -107,9 +107,9 @@ const classes = computed (() => {
       @error="onError"
     >
     <figcaption
-      v-if="props.image.caption || props.caption"
+      v-if="props.media.caption || props.caption"
       class="caption"
-      v-html="props.image.caption || props.caption"
+      v-html="props.media.caption || props.caption"
     />
     <div class="sizer" :style="styles" />
     <slot />
