@@ -11,7 +11,7 @@ export default {
 
 const mock = {
   image: API.image,
-  to: '/help/foo/bar/',
+  to: '/app/foo/bar/',
   title: 'Curabitur Tortor Pellentesque Nibh Aenean',
   category: 'Lectus',
   startDate: '1995-12-17T03:24:00',

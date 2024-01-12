@@ -356,8 +356,11 @@ const classes = computed(() => {
     --banner-color-theme: var(--color-about-purple-03);
   }
 
-  .hatch,
-  :deep(.heading-arrow) {
+  .hatch :deep(.svg__stroke--wayfinder) {
+    stroke: var(--banner-color-theme);
+  }
+
+  :deep(.heading-arrow){
     .svg__stroke--wayfinder {
       stroke: var(--banner-color-theme);
     }
