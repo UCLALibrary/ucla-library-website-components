@@ -98,7 +98,7 @@ export default {
         case this.iconName === 'icon-close':
         case this.iconName:
           return this.iconName
-        case this.iconName === '' || this.iconName === 'none':
+        case this.iconName === 'none':
           return ''
         default:
           return 'svg-external-link'
