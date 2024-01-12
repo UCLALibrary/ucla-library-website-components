@@ -294,8 +294,6 @@ export function WithDescription() {
   }
 }
 
-// To Do: Uncomment when ResponsiveVideo has been migrated.
-
 export function Video() {
   return {
     data() {

@@ -46,7 +46,7 @@ const { items, to, text } = defineProps({
         :to="item.to"
         class="brick brick-image"
       >
-        <ResponsiveImage :image="item.image" :aspect-ratio="100" />
+        <ResponsiveImage :media="item.image" :aspect-ratio="100" />
       </SmartLink>
     </div>
     <SmartLink class="more" :to="to">
