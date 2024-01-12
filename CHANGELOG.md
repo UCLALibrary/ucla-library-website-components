@@ -1,3 +1,10 @@
+# [2.39.0-alpha.26](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.25...v2.39.0-alpha.26) (2024-01-12)
+
+
+### Features
+
+* APPS-2535 Add ResponsiveVideo to Banner components ([#428](https://github.com/UCLALibrary/ucla-library-website-components/issues/428)) ([f754127](https://github.com/UCLALibrary/ucla-library-website-components/commit/f75412730b949c367a8fc2f0261615a844a58ca3))
+
 # [2.39.0-alpha.25](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.24...v2.39.0-alpha.25) (2023-12-22)
 
 
