@@ -46,12 +46,16 @@ export interface EventItemType {
 }
 
 export interface GridGalleryItemType {
-  image: MediaItemType
-  monthYear: string
-  to: string
-  headlineText: string
-  snippet: string
+  image?: MediaItemType
+  monthYear?: string
+  to?: string
+  headlineText?: string
+  snippet?: string
   featured?: boolean
+
+  // Options for FlexibleGridGalleryCards:
+  sectionTitle?: string
+  sectionSummary?: string
 }
 
 export interface MediaItemType {

@@ -139,14 +139,6 @@ const parsedAspectRatio = computed(() => {
       grid-template-columns: 1fr;
       gap: 0;
       grid-column: span 6;
-
-      .two-librarians {
-          :deep {
-              .media {
-                  object-position: 50% top;
-              }
-          }
-      }
   }
 
   .card-4up {
