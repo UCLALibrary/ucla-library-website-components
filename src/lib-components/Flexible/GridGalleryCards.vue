@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<!-- eslint-disable no-console -->
+>>>>>>> 59ee322 (feat: add flexible-grid-gallery-cards comp, story, spec, types)
 <script setup lang="ts">
 import { computed } from 'vue'
 
@@ -42,13 +46,23 @@ function flattenTimeLineStructure(galleryData: FlexibleGridGalleryItem) {
           ? subitem.image[0]
           : {}
     flattenedValues.push(obj)
+<<<<<<< HEAD
   }
 
+=======
+    console.log(obj)
+  }
+  // console.log(flattenedValues)
+>>>>>>> 59ee322 (feat: add flexible-grid-gallery-cards comp, story, spec, types)
   return flattenedValues
 }
 
 const parseGalleryCards = computed(() => {
   const timelineData = flattenTimeLineStructure(block)
+<<<<<<< HEAD
+=======
+  // console.log(timelineData)
+>>>>>>> 59ee322 (feat: add flexible-grid-gallery-cards comp, story, spec, types)
   return timelineData
 })
 </script>
