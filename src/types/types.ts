@@ -45,6 +45,15 @@ export interface EventItemType {
   sectionHandle?: string
 }
 
+export interface GridGalleryItemType {
+  image: MediaItemType
+  monthYear: string
+  to: string
+  headlineText: string
+  snippet: string
+  featured?: boolean
+}
+
 export interface MediaItemType {
   alt?: string
   caption?: string
