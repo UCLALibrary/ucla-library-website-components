@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { computed } from 'vue'
 
@@ -45,15 +44,13 @@ function flattenTimeLineStructure(galleryData: FlexibleGridGalleryItem) {
           ? subitem.image[0]
           : {}
     flattenedValues.push(obj)
-    console.log(obj)
   }
-  // console.log(flattenedValues)
+
   return flattenedValues
 }
 
 const parseGalleryCards = computed(() => {
   const timelineData = flattenTimeLineStructure(block)
-  // console.log(timelineData)
   return timelineData
 })
 </script>
