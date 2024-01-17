@@ -109,7 +109,6 @@ const parsedAspectRatio = computed(() => {
       z-index: 20;
       padding-bottom: 16px;
       padding-top: 10px;
-      // margin-top: var(--space-xl);
   }
   .cards {
       display: grid;
