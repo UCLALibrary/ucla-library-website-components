@@ -7,15 +7,11 @@ import type { GridGalleryItemType } from '@/types/types'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
-const { featured, items } = defineProps({
+const { items } = defineProps({
   items: {
     type: Array as PropType<GridGalleryItemType[]>,
     default: () => [],
   },
-  featured: {
-    type: Boolean,
-    default: false
-  }
 })
 
 const parsedItems = computed(() => {
@@ -34,10 +30,6 @@ const parsedItems = computed(() => {
     }
   })
 })
-
-const parsedAspectRatio = computed(() => {
-  return featured ? 100 : 60
-})
 </script>
 
 <template>
@@ -50,7 +42,7 @@ const parsedAspectRatio = computed(() => {
       >
         <ResponsiveImage
           :media="card.image"
-          :aspect-ratio="parsedAspectRatio"
+          :aspect-ratio="60"
           object-fit="cover"
         />
         <h5
