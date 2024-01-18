@@ -7,8 +7,6 @@ export default {
 
 const mock = {
   id: '40361',
-  subtitle: 'Flexible Grid Gallery Cards',
-  summary: '<p>Hello everyone</p>',
   sectionTitle: 'Section Title: Grid Gallery Cards',
   sectionSummary: '<p>Section Summary: Grid Gallery Cards</p>',
   gridGalleryCards: [

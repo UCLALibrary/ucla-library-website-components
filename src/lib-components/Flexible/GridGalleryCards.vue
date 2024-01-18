@@ -19,8 +19,6 @@ function flattenTimeLineStructure(galleryData: FlexibleGridGalleryItem) {
   const flattenedValues = []
   for (const subitem of galleryData.gridGalleryCards) {
     const obj: GridGalleryItemType = {}
-    obj.sectionTitle = galleryData.sectionTitle || ''
-    obj.sectionSummary = galleryData.summary || ''
     obj.headlineText
                   = subitem.contentLink && subitem.contentLink[0]
         ? subitem.contentLink[0].headlineText
@@ -79,7 +77,6 @@ const parseGalleryCards = computed(() => {
     <GridGallery
       v-if="block.gridGalleryCards && block.gridGalleryCards.length > 0"
       class="section-summary"
-      :section-summary="block.summary"
       :items="parseGalleryCards"
     />
   </div>

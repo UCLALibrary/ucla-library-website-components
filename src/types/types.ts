@@ -52,10 +52,6 @@ export interface GridGalleryItemType {
   headlineText?: string
   snippet?: string
   featured?: boolean
-
-  // Options for FlexibleGridGalleryCards:
-  sectionTitle?: string
-  sectionSummary?: string
 }
 
 export interface MediaItemType {

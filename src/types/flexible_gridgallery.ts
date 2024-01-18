@@ -4,8 +4,6 @@ export interface FlexibleGridGalleryItem {
   id: string
   sectionSummary: string
   sectionTitle: string
-  subtitle: string
-  summary: string
   gridGalleryCards: FlexibleGridGalleryCard[]
   typeHandle: string
 }
