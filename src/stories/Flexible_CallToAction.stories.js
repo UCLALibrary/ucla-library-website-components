@@ -1,19 +1,17 @@
 import FlexibleCallToAction from '@/lib-components/Flexible/CallToAction'
 
-// import { mock } from "./mock/Flexible_CallToAction"
-
 const mock = {
   id: '16983',
   typeHandle: 'callToAction',
   callToAction: [
     {
       id: '16984',
-      titleCta: 'Call to action',
-      summary: 'a call to action',
+      titleCta: 'Call to Action',
+      summary: 'A Call to Action',
       icon: 'svg-call-to-action-find',
-      buttonText: 'click me',
+      buttonText: 'Click Me',
       buttonUrl: 'http://google.com',
-      backgroundColor: 'false',
+      backgroundColor: false,
     },
   ],
 }

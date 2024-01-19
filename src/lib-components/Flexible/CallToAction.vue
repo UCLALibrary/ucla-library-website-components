@@ -1,17 +1,19 @@
-<!-- eslint-disable no-console -->
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
-import BlockCallToAction from '@/lib-components/BlockCallToAction'
+
+import type { PropType } from 'vue'
+
+import type { FlexibleCallToActionBlock } from '@/types/flexible_types'
+import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 
 const { block } = defineProps({
   block: {
-    type: Object,
+    type: Object as PropType<FlexibleCallToActionBlock>,
     default: () => {},
   },
 })
 
 const parsedItems = computed(() => {
-  console.log(block.callToAction[0])
   return block.callToAction[0]
 })
 </script>
@@ -24,7 +26,7 @@ const parsedItems = computed(() => {
     :title="parsedItems.titleCta"
     :text="parsedItems.summary"
     :svg-name="parsedItems.icon"
-    :is-dark-blue="parsedItems.backgroundColor"
+    :is-dark="parsedItems.backgroundColor"
   />
 </template>
 

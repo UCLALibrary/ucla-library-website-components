@@ -1,17 +1,34 @@
 import type { MediaItemType } from '@/types/types'
 
-export interface FlexibleGridGalleryItem {
+interface FlexibleBlock {
   id: string
+  typeHandle: string
+}
+
+export interface FlexibleCallToActionBlock extends FlexibleBlock {
+  callToAction: FlexibleCallToActionItem[]
+}
+
+export interface FlexibleCallToActionItem {
+  id: string
+  titleCta: string
+  summary: string
+  icon: string
+  buttonText: string
+  buttonUrl: string
+  backgroundColor: boolean
+}
+
+export interface FlexibleGridGalleryBlock extends FlexibleBlock {
   sectionSummary: string
   sectionTitle: string
   gridGalleryCards: FlexibleGridGalleryCard[]
-  typeHandle: string
 }
 
 export interface FlexibleGridGalleryCard {
   id: string
   featured: string | boolean
-  contentLink?: FlexibleGridGalleryContentLink[]
+  contentLink: FlexibleGridGalleryContentLink[]
   titleGeneral: string
   snippet: string
   image: MediaItemType[]
