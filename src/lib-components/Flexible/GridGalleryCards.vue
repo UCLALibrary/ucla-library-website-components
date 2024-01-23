@@ -3,19 +3,19 @@ import { computed } from 'vue'
 
 import type { PropType } from 'vue'
 import type { GridGalleryItemType } from '@/types/types'
-import type { FlexibleGridGalleryItem } from '@/types/flexible_gridgallery'
+import type { FlexibleGridGalleryBlock } from '@/types/flexible_types'
 
 import GridGallery from '@/lib-components/GridGallery.vue'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
 const { block } = defineProps ({
   block: {
-    type: Object as PropType<FlexibleGridGalleryItem>,
+    type: Object as PropType<FlexibleGridGalleryBlock>,
     default: () => {},
   },
 })
 
-function flattenTimeLineStructure(galleryData: FlexibleGridGalleryItem) {
+function flattenTimeLineStructure(galleryData: FlexibleGridGalleryBlock) {
   const flattenedValues = []
   for (const subitem of galleryData.gridGalleryCards) {
     const obj: GridGalleryItemType = {}
