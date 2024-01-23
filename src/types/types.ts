@@ -5,7 +5,7 @@ export interface ArticleStaffItemType {
   to?: string
 }
 
-export interface BlockCTA2UpType {
+export interface BlockCallToActionTwoUpType {
   svgName: string
   title: string
   text: string

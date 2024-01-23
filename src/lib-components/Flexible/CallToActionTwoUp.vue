@@ -2,13 +2,13 @@
 import { computed } from 'vue'
 
 import type { PropType } from 'vue'
-import type { FlexibleCtaBlock2Up } from '@/types/flexible_types'
+import type { FlexibleCallToAction2Up } from '@/types/flexible_types'
 
 import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
 
 const { block } = defineProps({
   block: {
-    type: Object as PropType<FlexibleCtaBlock2Up>,
+    type: Object as PropType<FlexibleCallToAction2Up>,
     default: () => {},
   },
 })

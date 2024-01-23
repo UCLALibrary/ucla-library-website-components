@@ -1,4 +1,4 @@
-import FlexibleCtaBlock2Up from '@/lib-components/Flexible/CtaBlock2Up.vue'
+import FlexibleCallToActionTwoUp from '@/lib-components/Flexible/CallToActionTwoUp.vue'
 
 const mock = {
   typeHandle: 'ctaBlock2Up',
@@ -26,7 +26,7 @@ const mock = {
 
 export default {
   title: 'FLEXIBLE / Call To Action 2 Up',
-  component: FlexibleCtaBlock2Up,
+  component: FlexibleCallToActionTwoUp,
 }
 
 export function Default() {
@@ -34,9 +34,9 @@ export function Default() {
     data() {
       return { block: mock }
     },
-    components: { FlexibleCtaBlock2Up },
+    components: { FlexibleCallToActionTwoUp },
     template: `
-        <flexible-cta-block-2-up
+        <flexible-call-to-action-two-up
             :block="block"
         />
     `,

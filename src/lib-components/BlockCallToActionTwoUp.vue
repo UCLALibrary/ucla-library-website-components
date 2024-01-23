@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { BlockCTA2UpType } from '@/types/types'
+import type { BlockCallToActionTwoUpType } from '@/types/types'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 
 const { items } = defineProps({
   items: {
-    type: Array as PropType<BlockCTA2UpType[]>,
+    type: Array as PropType<BlockCallToActionTwoUpType[]>,
     default: () => [],
   },
 })

@@ -1,16 +1,16 @@
-import type { BlockCTA2UpType, MediaItemType } from '@/types/types'
+import type { BlockCallToActionTwoUpType, MediaItemType } from '@/types/types'
 
 interface FlexibleBlock {
   id: string
   typeHandle: string
 }
 
-export interface FlexibleCallToActionBlock extends FlexibleBlock {
+export interface FlexibleCallToAction extends FlexibleBlock {
   callToAction: FlexibleCallToActionItem[]
 }
 
-export interface FlexibleCtaBlock2Up extends FlexibleBlock {
-  ctaBlock2Up: BlockCTA2UpType[]
+export interface FlexibleCallToAction2Up extends FlexibleBlock {
+  ctaBlock2Up: BlockCallToActionTwoUpType[]
 }
 
 export interface FlexibleCallToActionItem {
@@ -23,7 +23,7 @@ export interface FlexibleCallToActionItem {
   backgroundColor: boolean
 }
 
-export interface FlexibleGridGalleryBlock extends FlexibleBlock {
+export interface FlexibleGridGallery extends FlexibleBlock {
   sectionSummary: string
   sectionTitle: string
   gridGalleryCards: FlexibleGridGalleryCard[]
