@@ -5,6 +5,16 @@ export interface ArticleStaffItemType {
   to?: string
 }
 
+export interface BlockCTA2UpType {
+  svgName: string
+  title: string
+  text: string
+  name: string
+  to: string
+  isDark: boolean
+  isSmallSize: boolean
+}
+
 export interface BylineProjectItemType {
   title?: string
 }

@@ -1,18 +1,14 @@
-<script>
-import BlockCallToAction from '@/lib-components/BlockCallToAction'
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import type { BlockCTA2UpType } from '@/types/types'
+import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 
-export default {
-  name: 'BlockCallToActionTwoUp',
-  components: {
-    BlockCallToAction,
+const { items } = defineProps({
+  items: {
+    type: Array as PropType<BlockCTA2UpType[]>,
+    default: () => [],
   },
-  props: {
-    items: {
-      type: Array,
-      default: () => [],
-    },
-  },
-}
+})
 </script>
 
 <template>

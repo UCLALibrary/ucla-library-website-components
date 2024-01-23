@@ -1,4 +1,4 @@
-import type { MediaItemType } from '@/types/types'
+import type { BlockCTA2UpType, MediaItemType } from '@/types/types'
 
 interface FlexibleBlock {
   id: string
@@ -7,6 +7,10 @@ interface FlexibleBlock {
 
 export interface FlexibleCallToActionBlock extends FlexibleBlock {
   callToAction: FlexibleCallToActionItem[]
+}
+
+export interface FlexibleCtaBlock2Up extends FlexibleBlock {
+  ctaBlock2Up: BlockCTA2UpType[]
 }
 
 export interface FlexibleCallToActionItem {
