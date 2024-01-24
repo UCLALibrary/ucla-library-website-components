@@ -1,3 +1,17 @@
+# [2.39.0-alpha.28](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.27...v2.39.0-alpha.28) (2024-01-24)
+
+
+### Bug Fixes
+
+* ci npm publish add node version setup for node version 20 ([#434](https://github.com/UCLALibrary/ucla-library-website-components/issues/434)) ([c5b9398](https://github.com/UCLALibrary/ucla-library-website-components/commit/c5b9398219d6dc5e00b27b5dccb5122d9228cf65))
+
+
+### Features
+
+* APPS-2523 FlexibleCallToAction component ([#432](https://github.com/UCLALibrary/ucla-library-website-components/issues/432)) ([e80b52b](https://github.com/UCLALibrary/ucla-library-website-components/commit/e80b52bd95dcfad4db1d677b48e9f2798f1b475c))
+* APPS-2526 GridGallery component ([#430](https://github.com/UCLALibrary/ucla-library-website-components/issues/430)) ([31faed6](https://github.com/UCLALibrary/ucla-library-website-components/commit/31faed6398b0c3d251b6d26c68ea13c240d84901))
+* APPS-2528 FlexibleGridGalleryCards component ([#431](https://github.com/UCLALibrary/ucla-library-website-components/issues/431)) ([e39520c](https://github.com/UCLALibrary/ucla-library-website-components/commit/e39520c3fbf4a584ccd532441085c72486fdda92))
+
 # [2.39.0-alpha.27](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.26...v2.39.0-alpha.27) (2024-01-12)
 
 
