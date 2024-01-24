@@ -16,6 +16,10 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
           token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
         with:
