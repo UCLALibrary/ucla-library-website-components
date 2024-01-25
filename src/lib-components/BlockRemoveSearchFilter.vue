@@ -10,6 +10,10 @@ const props = defineProps({
         type: String,
         default: '',
     },
+    filterType: {
+        type: String,
+        default: '',
+    },
     index: {
         type: Number,
         default: 0,
@@ -48,7 +52,7 @@ function closeBlockFilter() {
         <a>
             {{ title }}
         </a>
-        <button type="button" @click="closeBlockFilter">
+        <button type="button" @click="closeBlockFilter" class="button-close">
             <SvgGlyphClose class="svg-glyph-close" />
         </button>
     </span>
@@ -67,6 +71,10 @@ function closeBlockFilter() {
     font-weight: 400;
     font-size: 18px;
     line-height: 100%;
+
+    .button-close {
+        outline: none; // focus-visible was adding a border
+    }
 
     // background-color variable is not translating the sass which is the reason for the repetition
 
