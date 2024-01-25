@@ -1,3 +1,10 @@
+## [2.41.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.3...v2.41.4) (2024-01-25)
+
+
+### Bug Fixes
+
+* update search when clearing search bar ([#435](https://github.com/UCLALibrary/ucla-library-website-components/issues/435)) ([23e2d16](https://github.com/UCLALibrary/ucla-library-website-components/commit/23e2d1638cdb385079820f29078ffd7272de806d))
+
 ## [2.41.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.2...v2.41.3) (2023-10-19)
 
 
