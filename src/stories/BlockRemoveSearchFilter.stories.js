@@ -7,6 +7,7 @@ export default {
 
 const mock = {
     title: "Amenities",
+    filterType: "location || departments || subjects || categories",
     color: "default",
 }
 
