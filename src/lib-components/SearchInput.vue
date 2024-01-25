@@ -106,6 +106,7 @@ export default {
             console.log("in clear")
             this.searchInputModelValue = ""
             this.$emit("update:modelValue", "")
+            this.$emit("clear", "")
         },
         onInput(e) {
             this.searchInputModelValue = e.target.value

@@ -22,6 +22,7 @@
                     class="search-input"
                     :model-value.sync="searchWords"
                     :placeholder="placeholder"
+                    @clear="doSearch"
                     @keyup.native.enter="doSearch"
                 />
                 <button class="button-submit" type="submit" @click="doSearch">
