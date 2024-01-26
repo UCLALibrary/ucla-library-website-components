@@ -67,6 +67,10 @@ export interface FlexibleCallToAction2Up extends FlexibleBlock {
   ctaBlock2Up: BlockCallToActionTwoUpType[]
 }
 
+export interface FlexibleForm extends FlexibleBlock {
+  form: string
+}
+
 export interface FlexibleGridGallery extends FlexibleBlock {
   sectionSummary: string
   sectionTitle: string

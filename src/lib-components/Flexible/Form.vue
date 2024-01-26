@@ -1,9 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
+import type { PropType } from 'vue'
+import type { FlexibleForm } from '@/types/flexible_types'
 
 const { block } = defineProps ({
   block: {
-    type: Object,
+    type: Object as PropType<FlexibleForm>,
     default: () => {},
   },
 })
