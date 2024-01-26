@@ -1,12 +1,14 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
+import type { PropType } from 'vue'
+import type { FlexibleAssociatedTopicCards } from '@/types/flexible_types'
 
 import SectionCardsWithIllustrations from '@/lib-components/SectionCardsWithIllustrations.vue'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
 const { block } = defineProps({
   block: {
-    type: Object,
+    type: Object as PropType<FlexibleAssociatedTopicCards>,
     default: () => {},
   },
 })
