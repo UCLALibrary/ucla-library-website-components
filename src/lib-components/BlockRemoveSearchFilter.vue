@@ -1,27 +1,27 @@
 <script setup>
 // Helpers
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 import getSectionName from '@/utils/getSectionName'
 
 const props = defineProps({
-    title: {
-        type: String,
-        default: '',
-    },
-    filterType: {
-        type: String,
-        default: '',
-    },
-    index: {
-        type: Number,
-        default: 0,
-    },
-    color: {
-        type: String,
-        default: '', // This will be "visit", "about", "help".
-    },
+  title: {
+    type: String,
+    default: '',
+  },
+  filterType: {
+    type: String,
+    default: '',
+  },
+  index: {
+    type: Number,
+    default: 0,
+  },
+  color: {
+    type: String,
+    default: '', // This will be "visit", "about", "help".
+  },
 },)
 
 const emit = defineEmits(['removeBlockFilter'])
@@ -29,33 +29,32 @@ const emit = defineEmits(['removeBlockFilter'])
 const route = useRoute()
 
 const sectionName = computed(() => {
-    return (
-        props.color ||
-        (route.path
-            ? getSectionName(route.path)
-            : "color-default")
-    )
+  return (
+    props.color
+        || (route.path
+          ? getSectionName(route.path)
+          : 'color-default')
+  )
 })
 
 const classes = computed(() => {
-    return ["block-remove-search-filter", `color-${sectionName.value}`]
+  return ['block-remove-search-filter', `color-${sectionName.value}`]
 })
 
 function closeBlockFilter() {
-    emit("removeBlockFilter", props.index)
+  emit('removeBlockFilter', props.index)
 }
-
 </script>
 
 <template>
-    <span :class="classes">
-        <a>
-            {{ title }}
-        </a>
-        <button type="button" @click="closeBlockFilter" class="button-close">
-            <SvgGlyphClose class="svg-glyph-close" />
-        </button>
-    </span>
+  <span :class="classes">
+    <a>
+      {{ title }}
+    </a>
+    <button type="button" class="button-close" @click="closeBlockFilter">
+      <SvgGlyphClose class="svg-glyph-close" />
+    </button>
+  </span>
 </template>
 
 <style lang="scss" scoped>

@@ -1,20 +1,21 @@
-import BlockRemoveSearchFilter from "@/lib-components/BlockRemoveSearchFilter"
+import BlockRemoveSearchFilter from '@/lib-components/BlockRemoveSearchFilter'
 
 export default {
-    title: "SEARCH / Block Remove Search Filter",
-    component: BlockRemoveSearchFilter,
+  title: 'SEARCH / Block Remove Search Filter',
+  component: BlockRemoveSearchFilter,
 }
 
 const mock = {
-    title: "Amenities",
-    filterType: "location || departments || subjects || categories",
-    color: "default",
+  title: 'Amenities',
+  filterType: 'location || departments || subjects || categories',
+  color: 'default',
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return { ...mock }
+      return { ...mock }
     },
     components: { BlockRemoveSearchFilter },
     template: `
@@ -23,11 +24,13 @@ export const Default = () => ({
             :color="color"
         />
     `,
-})
+  }
+}
 
-export const Help = () => ({
+export function Help() {
+  return {
     data() {
-        return { ...mock }
+      return { ...mock }
     },
     components: { BlockRemoveSearchFilter },
     template: `
@@ -36,11 +39,13 @@ export const Help = () => ({
             color="help"
         />
     `,
-})
+  }
+}
 
-export const Visit = () => ({
+export function Visit() {
+  return {
     data() {
-        return { ...mock }
+      return { ...mock }
     },
     components: { BlockRemoveSearchFilter },
     template: `
@@ -49,11 +54,13 @@ export const Visit = () => ({
             color="visit"
         />
     `,
-})
+  }
+}
 
-export const About = () => ({
+export function About() {
+  return {
     data() {
-        return { ...mock }
+      return { ...mock }
     },
     components: { BlockRemoveSearchFilter },
     template: `
@@ -62,4 +69,5 @@ export const About = () => ({
             color="about"
         />
     `,
-})
+  }
+}
