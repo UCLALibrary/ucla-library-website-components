@@ -3,12 +3,12 @@ import { computed } from 'vue'
 
 import type { PropType } from 'vue'
 
-import type { FlexibleCallToActionBlock } from '@/types/flexible_types'
+import type { FlexibleCallToAction } from '@/types/flexible_types'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 
 const { block } = defineProps({
   block: {
-    type: Object as PropType<FlexibleCallToActionBlock>,
+    type: Object as PropType<FlexibleCallToAction>,
     default: () => {},
   },
 })
