@@ -48,7 +48,6 @@ function closeBlockFilter() {
 
 <template>
   <button type="button" :class="classes" @click="closeBlockFilter">
-
     <span class="title">{{ title }}</span>
 
     <span class="button-close">
