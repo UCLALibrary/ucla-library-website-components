@@ -1,3 +1,10 @@
+# [2.39.0-alpha.29](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.28...v2.39.0-alpha.29) (2024-01-26)
+
+
+### Features
+
+* APPS-2524 FlexibleCallToActionTwoUp component ([#433](https://github.com/UCLALibrary/ucla-library-website-components/issues/433)) ([59a644e](https://github.com/UCLALibrary/ucla-library-website-components/commit/59a644ef9b98c217aaf494958b89cb3b6b461093))
+
 # [2.39.0-alpha.28](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.27...v2.39.0-alpha.28) (2024-01-24)
 
 
