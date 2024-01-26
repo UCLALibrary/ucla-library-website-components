@@ -6,7 +6,7 @@ export default {
 }
 
 const mock = {
-  title: 'Amenities',
+  title: ' Default Amenities',
   filterType: 'location || departments || subjects || categories',
   color: 'default',
 }
@@ -35,7 +35,7 @@ export function Help() {
     components: { BlockRemoveSearchFilter },
     template: `
         <block-remove-search-filter
-            title="HELP"
+            title="Help"
             color="help"
         />
     `,
@@ -50,7 +50,7 @@ export function Visit() {
     components: { BlockRemoveSearchFilter },
     template: `
         <block-remove-search-filter
-            title="VISIT"
+            title="Visit"
             color="visit"
         />
     `,
@@ -65,7 +65,34 @@ export function About() {
     components: { BlockRemoveSearchFilter },
     template: `
         <block-remove-search-filter
-            title="ABOUT"
+            title="About"
+            color="about"
+        />
+    `,
+  }
+}
+
+export function FocusTest() {
+  return {
+    data() {
+      return { ...mock }
+    },
+    components: { BlockRemoveSearchFilter },
+    template: `
+        <block-remove-search-filter
+          :title="title"
+          :filterType="filterType"
+        /><br>
+        <block-remove-search-filter
+          title="Help"
+          color="help"
+        /><br>
+        <block-remove-search-filter
+            title="Visit"
+            color="visit"
+        /><br>
+        <block-remove-search-filter
+            title="About"
             color="about"
         />
     `,

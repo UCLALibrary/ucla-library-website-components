@@ -31,9 +31,9 @@ const route = useRoute()
 const sectionName = computed(() => {
   return (
     props.color
-        || (route.path
-          ? getSectionName(route.path)
-          : 'color-default')
+    || (route.path
+      ? getSectionName(route.path)
+      : 'color-default')
   )
 })
 
@@ -47,75 +47,65 @@ function closeBlockFilter() {
 </script>
 
 <template>
-  <span :class="classes">
-    <a>
-      {{ title }}
-    </a>
-    <button type="button" class="button-close" @click="closeBlockFilter">
+  <button type="button" :class="classes" @click="closeBlockFilter">
+
+    <span class="title">{{ title }}</span>
+
+    <span class="button-close">
       <SvgGlyphClose class="svg-glyph-close" />
-    </button>
-  </span>
+    </span>
+  </button>
 </template>
 
 <style lang="scss" scoped>
 .block-remove-search-filter {
-    padding: 12px;
-    display: flex;
-    flex-direction: row;
-    border: 1.5px var(--color-border) solid;
-    background-color: #ffffff;
-    border-radius: 4px;
-    align-items: center;
-    width: fit-content;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 100%;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  border: 1.5px var(--color-border) solid;
+  background-color: #ffffff;
+  border-radius: 4px;
+  align-items: center;
+  width: fit-content;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
 
-    .button-close {
-        outline: none; // focus-visible was adding a border
-    }
+  .title {
+    margin-right: 8px;
+    color: #032d5b;
+  }
 
-    // background-color variable is not translating the sass which is the reason for the repetition
+  &.color-default {
+    --color-border: var(--color-default-cyan-03);
 
     &:hover {
-        cursor: pointer;
-
-        &.color-default {
-            background-color: transparentize(($default-cyan-03), 0.9);
-        }
-
-        &.color-help {
-            background-color: transparentize($help-green-03, 0.9);
-        }
-
-        &.color-visit {
-            background-color: transparentize($visit-fushia-03, 0.9);
-        }
-
-        &.color-about {
-            background-color: transparentize($about-purple-03, 0.9);
-        }
+      background-color: transparentize(($default-cyan-03), 0.9);
     }
+  }
 
-    a {
-        margin-right: 8px;
-        color: #032d5b;
-    }
+  &.color-help {
+    --color-border: var(--color-help-green-03);
 
-    &.color-default {
-        --color-border: var(--color-default-cyan-03);
+    &:hover {
+      background-color: transparentize(($help-green-03), 0.9);
     }
+  }
 
-    &.color-help {
-        --color-border: var(--color-help-green-03);
-    }
+  &.color-visit {
+    --color-border: var(--color-visit-fushia-03);
 
-    &.color-visit {
-        --color-border: var(--color-visit-fushia-03);
+    &:hover {
+      background-color: transparentize(($visit-fushia-03), 0.9);
     }
+  }
 
-    &.color-about {
-        --color-border: var(--color-about-purple-03);
+  &.color-about {
+    --color-border: var(--color-about-purple-03);
+
+    &:hover {
+      background-color: transparentize(($about-purple-03), 0.9);
     }
+  }
 }
 </style>
