@@ -61,17 +61,3 @@ Build library using vite:
 # pnpm
 pnpm run vite
 ```
-
----
-
-## To run with the Nuxt site
-
-### In Components repo:
-
-1. Run $`pnpm run build`
-2. Then run $`pnpm link --global`
-
-### In the Nuxt repo
-
-1. Run $`pnpm link --global ucla-library-website-components`
-2. Run $`pnpm run dev`
