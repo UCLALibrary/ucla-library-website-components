@@ -1,3 +1,10 @@
+# [2.39.0-alpha.30](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.29...v2.39.0-alpha.30) (2024-01-27)
+
+
+### Features
+
+* APPS-2516 Add block remove search filter to vue3 branch ([#437](https://github.com/UCLALibrary/ucla-library-website-components/issues/437)) ([e49377b](https://github.com/UCLALibrary/ucla-library-website-components/commit/e49377b032ff3e7146f298d54d3b9936416ed461))
+
 # [2.39.0-alpha.29](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.28...v2.39.0-alpha.29) (2024-01-26)
 
 
