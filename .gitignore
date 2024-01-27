@@ -33,3 +33,4 @@ cypress/e2e/2-advanced-examples
 serve
 vite.config.serve.ts
 src/App.vue
+src/mock.js
