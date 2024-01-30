@@ -138,6 +138,24 @@ export interface SectionSpaceListItemType {
   isOnline?: boolean
 }
 
+export interface SectionTeaserCardType {
+  image: MediaItemType
+  to: string
+  category: string
+  title: string
+  alternativeFullName: string
+  language: string
+            : start - date="card.startDate"
+            : end - date="card.endDate"
+text: string
+: image - aspect - ratio="60"
+isVertic: boolean
+bylineOne: string
+bylineTwo: string
+sectionHandle: string
+: ongoing = "card.ongoing"
+}
+
 export interface SubjectAreaItemType {
   title: string
 }
