@@ -214,10 +214,6 @@ export default {
         max-width: calc(50% - 16px);
     }
 
-    ::v-deep .rich-text {
-        padding-right: 0;
-    }
-
     // Breakpoints
     @media #{$small} {
 
