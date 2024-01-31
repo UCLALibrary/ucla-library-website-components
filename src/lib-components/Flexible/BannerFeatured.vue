@@ -17,7 +17,7 @@ const { block } = defineProps({
 
 const parseImage = computed(() => {
   let imageObj = {}
-  console.log(`FROM BANNERFEATURED:${block.content[0]}`)
+  // console.log(`FROM BANNERFEATURED:${block.content[0]}`)
   if (
     block.content[0].contentLink
     && block.content[0].contentLink.length > 0
@@ -31,7 +31,7 @@ const parseImage = computed(() => {
     imageObj = block.content[0].image[0]
   }
 
-  console.log(`image obj: ${JSON.stringify(imageObj)}`)
+  // console.log(`image obj: ${JSON.stringify(imageObj)}`)
   return imageObj
 })
 
@@ -54,7 +54,7 @@ const parsePrompt = computed(() => {
 })
 
 const parsedLocations = computed(() => {
-  const locations = []
+  let locations = []
 
   if (block.content && block.content[0].contentLink) {
     const contentType
@@ -62,24 +62,23 @@ const parsedLocations = computed(() => {
 
     switch (true) {
       case contentType.includes('article'):
-        locations.location_links
+        locations
           = block.content[0].contentLink[0].articleLocations
-
         break
-      case contentType.includes('project'):
-        locations.location_links
-          = block.content[0].contentLink[0].projectLocations
 
+      case contentType.includes('project'):
+        locations
+          = block.content[0].contentLink[0].projectLocations
         break
 
       case contentType.includes('event'):
-        locations.location_links
+        locations
           = block.content[0].contentLink[0].articleLocations
         break
     }
   }
   if (block.content && block.content[0].location)
-    locations.location_external = block.content[0].location
+    locations.push(block.content[0].location)
 
   return locations
 })
@@ -224,34 +223,20 @@ const parsedDescription = computed(() => {
   <div v-if="block && block.content">
     <BannerFeatured
       v-if="block && block.content && block.content[0].contentLink"
-      class="flexible-banner-featured"
-      :media="parseImage"
+      class="flexible-banner-featured" :media="parseImage"
       :to="`/${stripMeapFromURI(block.content[0].contentLink[0].to)}`"
-      :title="block.content[0].contentLink[0].title"
-      :breadcrumb="parsedTypeHandle"
-      :byline="parseByLine"
-      :description="parsedDescription"
-      :prompt="parsePrompt"
-      :locations="parsedLocations"
-      :category="parsedCategory"
-      :start-date="parsedStartDate"
-      :end-date="parsedEndDate"
-      :section-handle="block.content[0].contentLink[0].contentType"
+      :title="block.content[0].contentLink[0].title" :breadcrumb="parsedTypeHandle"
+      :byline="parseByLine" :description="parsedDescription" :prompt="parsePrompt"
+      :locations="parsedLocations" :category="parsedCategory" :start-date="parsedStartDate"
+      :end-date="parsedEndDate" :section-handle="block.content[0].contentLink[0].contentType"
     />
 
     <BannerFeatured
       v-if="block && block.content && !block.content[0].contentLink"
-      class="flexible-banner-featured"
-      :media="parseImage"
-      :to="stripMeapFromURI(block.content[0].to)"
-      :title="block.content[0].title"
-      :breadcrumb="parsedTypeHandle"
-      :byline="parseByLine"
-      :description="block.content[0].summary"
-      :prompt="parsePrompt"
-      :locations="parsedLocations"
-      :category="parsedCategory"
-      :alignment="parsedAlignment"
+      class="flexible-banner-featured" :media="parseImage" :to="stripMeapFromURI(block.content[0].to)"
+      :title="block.content[0].title" :breadcrumb="parsedTypeHandle" :byline="parseByLine"
+      :description="block.content[0].summary" :prompt="parsePrompt" :locations="parsedLocations"
+      :category="parsedCategory" :alignment="parsedAlignment"
       :section-handle="block.content[0].sectionHandle"
     />
   </div>

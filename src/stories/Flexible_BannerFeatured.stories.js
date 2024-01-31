@@ -93,7 +93,10 @@ const mock2 = {
       title: 'Halelua',
       summary: '<p>White foxes are in Artic.</p>',
       alignment: 'right',
-      location: 'Rain Forest',
+      location: {
+        title: 'Rain Forest',
+        to: 'www.google.com'
+      },
       byline1: 'Feburary 2022',
       byline2: 'Dr ABC',
       to: 'www.foxes.com',
