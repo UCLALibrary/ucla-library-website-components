@@ -13,7 +13,8 @@ export const mock = {
                     contentType: "article",
                     to: "about/news/la-niña",
                     title: "La Niña",
-                    text: "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
+                    text: '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of <a href="https://www.dcreport.org/?s=el+nino">El Niño</a>, as part of the broader <a href="#"></a>El Niño–Southern Oscillation climate pattern</a>.</p>',
+
                     articleCategory: [
                         {
                             title: "Featured",
@@ -132,7 +133,7 @@ export const mock = {
             byline1: null,
             byline2: null,
             category: null,
-            text: "When its theatrical home closed its doors in March 2020 due to COVID-19 the UCLA Film & Television Archive shifted public programming to an ambitious new online screening",
+            text: "When its <strong>theatrical home</strong> closed its doors in March 2020 due to COVID-19 the UCLA Film & Television Archive shifted public programming to an ambitious new online screening",
             to: "https://www.cinema.ucla.edu/blogs/archive-blog/2022/01/31/pandemic-spurs-virtual-screening-room",
         },
         {
@@ -166,7 +167,7 @@ export const mock = {
                     contentType: "meapProject",
                     to: "meap/projects/argentinean-human-rights-digital-library-of-periodical-and-non-periodical-publications",
                     title: "Argentinean Human Rights Digital Library of Periodical and Non-periodical Publications",
-                    text: "<p><span>Memoria Abierta is an alliance of nine Argentinean human rights organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed. </span><br /></p>",
+                    text: "<p><strong>Memoria Abierta</strong> is an alliance of nine Argentinean human rights organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed.</p>",
                     projectCategory: "Publications",
                     projectByline1: [
                         {
