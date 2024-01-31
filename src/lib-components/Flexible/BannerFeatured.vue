@@ -223,19 +223,12 @@ const parsedDescription = computed(() => {
   <div v-if="block && block.content">
     <BannerFeatured
       v-if="block && block.content && block.content[0].contentLink"
-      class="flexible-banner-featured"
-      :media="parseImage"
+      class="flexible-banner-featured" :media="parseImage"
       :to="`/${stripMeapFromURI(block.content[0].contentLink[0].to)}`"
-      :title="block.content[0].contentLink[0].title"
-      :breadcrumb="parsedTypeHandle"
-      :byline="parseByLine"
-      :description="parsedDescription"
-      :prompt="parsePrompt"
-      :locations="parsedLocations"
-      :category="parsedCategory"
-      :start-date="parsedStartDate"
-      :end-date="parsedEndDate"
-      :section-handle="block.content[0].contentLink[0].contentType"
+      :title="block.content[0].contentLink[0].title" :breadcrumb="parsedTypeHandle"
+      :byline="parseByLine" :description="parsedDescription" :prompt="parsePrompt"
+      :locations="parsedLocations" :category="parsedCategory" :start-date="parsedStartDate"
+      :end-date="parsedEndDate" :section-handle="block.content[0].contentLink[0].contentType"
     />
 
     <BannerFeatured
