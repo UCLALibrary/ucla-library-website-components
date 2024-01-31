@@ -68,7 +68,5 @@ export interface FlexibleCallToAction2Up extends FlexibleBlock {
 }
 
 export interface FlexibleGridGallery extends FlexibleBlock {
-  sectionSummary: string
-  sectionTitle: string
   gridGalleryCards: FlexibleGridGalleryCard[]
 }
