@@ -1,37 +1,15 @@
 <template>
     <section class="section-teaser-highlight">
         <div class="section-header">
-            <h2
-                v-if="block.sectionTitle"
-                class="section-title"
-                v-html="block.sectionTitle"
-            />
-            <div
-                v-if="block.sectionSummary"
-                class="section-summary"
-                v-html="block.sectionSummary"
-            />
+            <h2 v-if="block.sectionTitle" class="section-title" v-html="block.sectionTitle" />
+            <div v-if="block.sectionSummary" class="section-summary" v-html="block.sectionSummary" />
         </div>
         <ul class="block-group">
-            <block-highlight
-                v-for="(item, index) in parsedItems"
-                :key="`FlexibleHighlight${index}`"
-                :to="item.to"
-                :image="item.parsedImage"
-                :category="item.parsedCategory"
-                :bylineOne="item.byline1"
-                :bylineTwo="item.byline2"
-                :title="item.title"
-                :text="item.text"
-                :locations="item.parsedLocation"
-                :start-date="item.startDate"
-                :end-date="item.endDate"
-                :section-handle="item.contentType"
-                :ongoing="item.ongoing"
-                :has-triangle="true"
-                :is-vertical="true"
-                class="block"
-            />
+            <block-highlight v-for="(item, index) in parsedItems" :key="`FlexibleHighlight${index}`" :to="item.to"
+                :image="item.parsedImage" :category="item.parsedCategory" :bylineOne="item.byline1"
+                :bylineTwo="item.byline2" :title="item.title" :text="item.text" :locations="item.parsedLocation"
+                :start-date="item.startDate" :end-date="item.endDate" :section-handle="item.contentType"
+                :ongoing="item.ongoing" :has-triangle="true" :is-vertical="true" class="block" />
         </ul>
     </section>
 </template>
@@ -51,7 +29,7 @@ export default {
     props: {
         block: {
             type: Object,
-            default: () => {},
+            default: () => { },
         },
     },
     computed: {
@@ -101,9 +79,9 @@ export default {
                             byline2:
                                 obj.articleByline2 != null
                                     ? this.formatDates(
-                                          obj.articleByline2,
-                                          obj.articleByline2
-                                      )
+                                        obj.articleByline2,
+                                        obj.articleByline2
+                                    )
                                     : "",
                         }
                     }
@@ -203,11 +181,13 @@ export default {
     .section-header {
         margin-bottom: var(--space-xl);
     }
+
     .section-title {
         @include step-3;
         color: var(--color-primary-blue-03);
         margin-bottom: var(--space-m);
     }
+
     .section-summary {
         @include step-0;
 
@@ -224,6 +204,7 @@ export default {
         align-content: flex-start;
         align-items: flex-start;
     }
+
     .block {
         width: calc(50% - 16px);
         margin: 0 0 var(--space-xl);
@@ -232,12 +213,19 @@ export default {
     ::v-deep .block-highlight {
         max-width: calc(50% - 16px);
     }
+
+    ::v-deep .rich-text {
+        padding-right: 0;
+    }
+
     // Breakpoints
     @media #{$small} {
+
         //padding: 0 var(--unit-gutter);
         ::v-deep .block-highlight {
             max-width: 100%;
         }
+
         .block {
             width: 100%;
             margin: 0 0 50px;
