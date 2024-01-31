@@ -1,3 +1,10 @@
+# [2.39.0-alpha.31](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.30...v2.39.0-alpha.31) (2024-01-31)
+
+
+### Features
+
+* APPS-2521 Add FlexibleAssociatedTopicCards component ([#438](https://github.com/UCLALibrary/ucla-library-website-components/issues/438)) ([381ea01](https://github.com/UCLALibrary/ucla-library-website-components/commit/381ea01d84657e449f7cddfc1231f667fa303c39))
+
 # [2.39.0-alpha.30](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.29...v2.39.0-alpha.30) (2024-01-27)
 
 
