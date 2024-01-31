@@ -34,7 +34,7 @@ export default {
 .rich-text {
     max-width: $container-l-main + px;
     margin: 0 auto;
-    padding-right: 96px;
+    // padding-right: 96px;
 
     ::v-deep h3 {
         color: var(--color-primary-blue-03);
@@ -43,15 +43,18 @@ export default {
         margin-bottom: var(--space-l);
         margin-top: var(--space-xl);
     }
+
     ::v-deep h4 {
         color: var(--color-primary-blue-03);
         @include step-1;
         margin-bottom: 24px;
     }
+
     ::v-deep h5 {
         color: var(--color-black);
         @include step-0;
     }
+
     ::v-deep p,
     ::v-deep li {
         color: var(--color-black);
@@ -106,6 +109,7 @@ export default {
         margin: var(--space-s);
         display: flex;
         flex-direction: column;
+
         a[target="_blank"]:after {
             display: none;
         }
@@ -124,6 +128,7 @@ export default {
     ::v-deep .image--center {
         margin: 0 auto;
     }
+
     ::v-deep .image--half {
         width: 50%;
     }
@@ -177,6 +182,7 @@ export default {
             @include step-0;
         }
     }
+
     ::v-deep ol {
         margin-left: 24px;
 
@@ -216,23 +222,27 @@ export default {
             padding: 16px;
             border-bottom: 2px dotted var(--color-secondary-grey-03);
         }
+
         strong {
             @include step-0;
             font-weight: $font-weight-medium;
             color: var(--color-primary-blue-05);
         }
+
         th:first-child {
             padding-left: 0;
         }
+
         th:last-child {
             padding-right: 0;
         }
 
         // no border on last row
-        tr:last-child > td {
+        tr:last-child>td {
             border-bottom: 0;
             padding-bottom: 0;
         }
+
         td {
             @include step-0;
             color: var(--color-black);
@@ -240,9 +250,11 @@ export default {
             padding: 16px;
             vertical-align: top;
         }
+
         td:first-child {
             padding-left: 0;
         }
+
         td:last-child {
             padding-right: 0;
         }
@@ -260,6 +272,7 @@ export default {
             height: auto;
             margin: 0;
         }
+
         ::v-deep .image--right {
             margin-left: 0;
         }
@@ -271,18 +284,20 @@ export default {
         ::v-deep .image--left {
             margin-right: 0;
         }
+
         ::v-deep .image--half {
             width: 100%;
         }
+
         ::v-deep iframe {
             width: 100%;
             width: 100%;
             height: auto;
         }
+
         ::v-deep blockquote {
             --spacing-text-left: 24px;
             --container-width: 100%;
         }
     }
-}
-</style>
+}</style>
