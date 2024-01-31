@@ -283,6 +283,10 @@ export default {
     .meta {
         z-index: 0;
         width: 100%;
+
+        ::v-deep .rich-text {
+            padding-right: 0;
+        }
     }
 
     .category {

@@ -34,7 +34,7 @@ export default {
 .rich-text {
     max-width: $container-l-main + px;
     margin: 0 auto;
-    padding-right: 15px;
+    padding-right: 96px;
 
     ::v-deep h3 {
         color: var(--color-primary-blue-03);
