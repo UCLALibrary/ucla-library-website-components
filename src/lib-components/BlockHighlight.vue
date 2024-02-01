@@ -288,7 +288,7 @@ export default {
         ::v-deep .rich-text {
             font-size: 20px;
             font-style: normal;
-            line-height: 140%;
+            line-height: 150%;
             max-width: none;
             padding-right: 0;
             @include truncate(4);
