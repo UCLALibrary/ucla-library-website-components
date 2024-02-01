@@ -136,28 +136,6 @@ export const mock = {
             to: "https://www.cinema.ucla.edu/blogs/archive-blog/2022/01/31/pandemic-spurs-virtual-screening-room",
         },
         {
-            id: "27384",
-            typeHandle: "externalContent",
-            title: " A title",
-            image: [
-                {
-                    id: "26803",
-                    src: "https://static.library.ucla.edu/craftassetstest/kids_2022-08-03-003133_ybnd.jpg",
-                    height: 1704,
-                    width: 2560,
-                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 2560w",
-                    alt: "Kids",
-                    focalPoint: [0.5, 0.5],
-                    altText: null,
-                },
-            ],
-            byline1: "Ashton Prigge",
-            byline2: null,
-            category: "Kids",
-            location: null,
-            text: null,
-        },
-        {
             id: "28621",
             typeHandle: "internalContent",
             contentLink: [
