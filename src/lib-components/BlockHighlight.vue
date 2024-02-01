@@ -276,8 +276,6 @@ export default {
     }
 
     .text {
-        @include truncate(4);
-
         strong {
             font-weight: 500;
         }
@@ -288,6 +286,9 @@ export default {
         width: 100%;
 
         ::v-deep .rich-text {
+            font-size: 20px;
+            font-style: normal;
+            line-height: 140%;
             max-width: none;
             padding-right: 0;
             @include truncate(4);
