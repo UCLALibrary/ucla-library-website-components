@@ -6,13 +6,8 @@
                 <time v-if="startDate" class="month" v-html="parsedDateMonth" />
                 <time v-if="startDate" class="day" v-html="parsedDateDay" />
             </div>
-            <responsive-image
-                v-if="image"
-                :image="image"
-                :aspect-ratio="imageAspectRatio"
-                :object-fit="cover"
-                class="image"
-            />
+            <responsive-image v-if="image" :image="image" :aspect-ratio="imageAspectRatio" :object-fit="cover"
+                class="image" />
             <div v-else class="molecule-no-image">
                 <molecule-placeholder class="molecule" aria-hidden="true" />
             </div>
@@ -24,59 +19,29 @@
         </div>
         <div class="meta">
             <div v-if="category" class="category" v-html="category" />
-            <smart-link
-                v-if="to"
-                :linkTarget="parsedTarget"
-                :to="to"
-                class="title"
-            >
+            <smart-link v-if="to" :linkTarget="parsedTarget" :to="to" class="title">
                 {{ title }}
-                <span
-                    v-if="alternativeFullName"
-                    :lang="language"
-                    v-html="alternativeFullName"
-                    class="translation"
-                />
+                <span v-if="alternativeFullName" :lang="language" v-html="alternativeFullName" class="translation" />
             </smart-link>
             <h3 v-else class="title-no-link" v-html="title" />
 
             <div class="byline-group" v-if="bylineOne || bylineTwo">
-                <div
-                    v-if="bylineOne"
-                    class="schedule-item"
-                    v-html="bylineOne"
-                />
-                <div
-                    v-if="bylineTwo"
-                    class="schedule-item"
-                    v-html="bylineTwo"
-                />
+                <div v-if="bylineOne" class="schedule-item" v-html="bylineOne" />
+                <div v-if="bylineTwo" class="schedule-item" v-html="bylineTwo" />
             </div>
 
             <div class="date-time" v-if="startDate || ongoing">
                 <div v-if="ongoing">Ongoing</div>
-                <time
-                    v-if="startDate"
-                    class="schedule-item"
-                    v-html="parsedDate"
-                />
-                <time
-                    v-if="startDate"
-                    class="schedule-item"
-                    v-html="parsedTime"
-                />
+                <time v-if="startDate" class="schedule-item" v-html="parsedDate" />
+                <time v-if="startDate" class="schedule-item" v-html="parsedTime" />
             </div>
 
             <div v-if="locations.length" class="location-group">
-                <icon-with-link
-                    v-for="(location, index) in parsedLocations"
-                    :key="`location-${index}`"
-                    :text="location.title"
-                    :icon-name="location.svg"
-                    :to="location.to"
-                />
+                <icon-with-link v-for="(location, index) in parsedLocations" :key="`location-${index}`"
+                    :text="location.title" :icon-name="location.svg" :to="location.to" />
             </div>
-            <div v-if="text" class="text">{{ parsedText }}</div>
+
+            <rich-text v-if="text" class="text" :rich-text-content="text" />
         </div>
     </li>
 </template>
@@ -86,6 +51,7 @@
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
 import IconWithLink from "@/lib-components/IconWithLink.vue"
+import RichText from "@/lib-components/RichText"
 
 // UTILITY FUNCTIONS
 import formatTimes from "@/mixins/formatEventTimes"
@@ -105,6 +71,7 @@ export default {
         IconWithLink,
         ResponsiveImage,
         MoleculePlaceholder,
+        RichText,
     },
     mixins: [
         formatTimes,
@@ -117,7 +84,7 @@ export default {
     props: {
         image: {
             type: Object,
-            default: () => {},
+            default: () => { },
         },
         to: {
             type: String,
@@ -242,9 +209,6 @@ export default {
                 }
             })
         },
-        parsedText() {
-            return this.text ? this.removeHtmlTruncate(this.text, 250) : ""
-        },
     },
 }
 </script>
@@ -258,21 +222,26 @@ export default {
     flex-direction: row;
     // Themes for floating highlight/ triangle
     --floating-highlight-color-theme: var(--color-default-cyan-03);
+
     &.color-visit {
         --floating-highlight-color-theme: var(--color-visit-fushia-03);
     }
+
     &.color-help {
         --floating-highlight-color-theme: var(--color-help-green-03);
     }
+
     &.color-about {
         --floating-highlight-color-theme: var(--color-about-purple-03);
     }
+
     .clipped {
         width: 100%;
         height: 47px;
         margin-top: -54px;
         position: relative;
         z-index: 0;
+
         .floating-highlight {
             z-index: 30;
             position: absolute;
@@ -281,15 +250,14 @@ export default {
             left: 5px;
             height: 47px;
             background-color: var(--floating-highlight-color-theme);
-            clip-path: polygon(
-                0 0,
-                calc(100% - 20px) 0,
-                100% 47px,
-                calc(100% - 1.5px) 47px,
-                calc(100% - 21px) 1.5px,
-                0 1.5px
-            );
+            clip-path: polygon(0 0,
+                    calc(100% - 20px) 0,
+                    100% 47px,
+                    calc(100% - 1.5px) 47px,
+                    calc(100% - 21px) 1.5px,
+                    0 1.5px);
         }
+
         .clipped-box {
             position: absolute;
             z-index: 30;
@@ -298,26 +266,32 @@ export default {
             width: calc(100% - 57px);
             height: 47px;
             background-color: var(--color-theme, var(--color-white));
-            clip-path: polygon(
-                0 0,
-                calc(100% - 20px) 0,
-                100% 47px,
-                calc(100% - 1.5px) 47px,
-                0 47px,
-                0 1.5px
-            );
+            clip-path: polygon(0 0,
+                    calc(100% - 20px) 0,
+                    100% 47px,
+                    calc(100% - 1.5px) 47px,
+                    0 47px,
+                    0 1.5px);
         }
     }
+
     .meta {
         z-index: 0;
         width: 100%;
+
+        ::v-deep .rich-text {
+            max-width: none;
+            padding-right: 0;
+        }
     }
+
     .category {
         @include overline;
         color: var(--color-primary-blue-05);
         margin-top: var(--space-xs);
         margin-bottom: var(--space-s);
     }
+
     .title {
         @include card-clickable-area;
         display: block;
@@ -326,6 +300,7 @@ export default {
             display: block;
         }
     }
+
     .title,
     .title-no-link {
         @include step-1;
@@ -333,6 +308,7 @@ export default {
         margin: var(--space-s) 0;
         line-height: $line-height--1;
     }
+
     // .title:has(+ .date-time) {
     //     margin-bottom: $component-02 + px;
     // }
@@ -342,6 +318,7 @@ export default {
         margin: $component-02 + px 0 var(--space-s);
         display: flex;
         flex-direction: column;
+
         .svg-online {
             margin-bottom: -5px;
             margin-left: 10px;
@@ -349,6 +326,7 @@ export default {
             border-left: 1px solid var(--color-secondary-grey-02);
         }
     }
+
     .byline-group {
         display: flex;
         flex-direction: column;
@@ -356,6 +334,7 @@ export default {
         color: var(--color-secondary-grey-04);
         margin: var(--space-s) 0;
     }
+
     .image-container {
         .molecule-no-image {
             width: 100%;
@@ -373,6 +352,7 @@ export default {
             }
         }
     }
+
     .text {
         @include step-0;
         color: var(--color-black);
@@ -383,6 +363,7 @@ export default {
             font-weight: normal;
         }
     }
+
     .location-group {
         color: var(--color-primary-blue-03);
         font-family: var(--font-secondary);
@@ -391,45 +372,56 @@ export default {
         display: flex;
         flex-direction: column;
     }
+
     .icon-with-link {
         position: relative;
         z-index: 20;
     }
+
     // Variations
     &.is-vertical {
         flex-direction: column;
+
         .molecule-no-image {
             width: 100%;
             height: 179.2px;
         }
+
         &:not(.has-triangle) {
             .meta {
                 margin-top: 16px;
             }
+
             ::v-deep .image {
                 width: 100%;
+
                 .media {
                     object-fit: cover;
                 }
             }
         }
+
         // for clipped version
         &.has-triangle {
             .meta {
                 margin-top: -24px;
                 padding: 0 72px 0 16px;
             }
+
             ::v-deep .image {
                 height: 272px;
+
                 .media {
                     object-fit: cover;
                 }
             }
+
             .molecule-no-image {
                 height: 272px;
             }
         }
     }
+
     &:not(&.is-vertical) {
         width: 100%;
 
@@ -443,16 +435,18 @@ export default {
                 width: 100%;
                 height: 272px;
             }
+
             .molecule-no-image {
                 height: 272px;
             }
         }
+
         .meta {
             max-width: calc(50% - var(--space-xl));
             padding-bottom: 16px;
             overflow: hidden;
 
-            > *:last-child {
+            >*:last-child {
                 margin-bottom: 0;
             }
 
@@ -460,6 +454,7 @@ export default {
                 margin-top: 0;
             }
         }
+
         .floating-highlight {
             z-index: 30;
             position: absolute;
@@ -468,15 +463,14 @@ export default {
             left: 6px;
             height: 90px;
             background-color: var(--floating-highlight-color-theme);
-            clip-path: polygon(
-                0 0,
-                calc(100% - 37px) 0,
-                100% 75px,
-                calc(100% - 1.5px) 75px,
-                calc(100% - 38px) 1.5px,
-                0 1.5px
-            );
+            clip-path: polygon(0 0,
+                    calc(100% - 37px) 0,
+                    100% 75px,
+                    calc(100% - 1.5px) 75px,
+                    calc(100% - 38px) 1.5px,
+                    0 1.5px);
         }
+
         .clipped-date {
             margin-top: 54px;
             z-index: 30;
@@ -486,25 +480,25 @@ export default {
             width: 125px;
             height: 84px;
             background-color: var(--color-white);
-            clip-path: polygon(
-                0 0,
-                calc(100% - 39px) 0,
-                100% 84px,
-                calc(100% - 1.5px) 84px,
-                0 84px,
-                0 1.5px
-            );
+            clip-path: polygon(0 0,
+                    calc(100% - 39px) 0,
+                    100% 84px,
+                    calc(100% - 1.5px) 84px,
+                    0 84px,
+                    0 1.5px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding-left: 32px;
             color: var(--color-primary-blue-03);
+
             .month {
                 font-weight: 400;
                 font-family: var(--font-secondary);
                 font-size: 16px;
                 letter-spacing: 1.5%;
             }
+
             .day {
                 font-weight: 500;
                 font-family: var(--font-primary);
@@ -518,6 +512,7 @@ export default {
             width: 456px;
             max-height: 272px;
             margin-right: 56px;
+
             .clipped-date {
                 margin-top: 54px;
                 z-index: 30;
@@ -527,39 +522,43 @@ export default {
                 width: 125px;
                 height: 84px;
                 background-color: var(--color-white);
-                clip-path: polygon(
-                    0 0,
-                    calc(100% - 39px) 0,
-                    100% 84px,
-                    calc(100% - 1.5px) 84px,
-                    0 84px,
-                    0 1.5px
-                );
+                clip-path: polygon(0 0,
+                        calc(100% - 39px) 0,
+                        100% 84px,
+                        calc(100% - 1.5px) 84px,
+                        0 84px,
+                        0 1.5px);
             }
         }
     }
+
     // Breakpoints
     @media #{$medium} {
         .text {
             margin-top: 0;
         }
+
         &.is-vertical {
             .molecule-no-image {
                 height: 226px;
             }
+
             &.has-triangle {
                 ::v-deep .image {
                     height: 200px;
                 }
+
                 .molecule-no-image {
                     height: 200px;
                 }
             }
         }
+
         &:not(&.is-vertical) {
             flex-direction: column;
             padding-left: 0;
             padding-right: 0;
+
             .floating-highlight,
             .clipped-date {
                 display: none;
@@ -575,9 +574,11 @@ export default {
                 margin-bottom: var(--space-l);
             }
         }
+
         &.is-vertical.has-triangle {
             .meta {
                 padding: 0;
+
                 .title {
                     max-width: 680px;
                 }
@@ -586,6 +587,7 @@ export default {
                     padding-right: 72px;
                 }
             }
+
             .schedule {
                 flex-direction: column;
             }
@@ -595,6 +597,7 @@ export default {
             }
         }
     }
+
     @media #{$small} {
         &.is-vertical.has-triangle {
             .meta {
@@ -603,10 +606,12 @@ export default {
                 }
             }
         }
+
         &:not(&.is-vertical) {
             .image {
                 max-width: 100%;
             }
+
             .image-container {
                 .molecule-no-image {
                     height: 200px;
@@ -614,6 +619,7 @@ export default {
             }
         }
     }
+
     // Hovers
     @media #{$has-hover} {
         &:hover {

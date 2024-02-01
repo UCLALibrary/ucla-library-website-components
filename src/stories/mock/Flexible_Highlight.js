@@ -132,7 +132,7 @@ export const mock = {
             byline1: null,
             byline2: null,
             category: null,
-            text: "When its theatrical home closed its doors in March 2020 due to COVID-19 the UCLA Film & Television Archive shifted public programming to an ambitious new online screening",
+            text: 'When its <a href"https://www.nationaltheatre.org.uk/">theatrical home</a> closed its doors in <strong>March 2020</strong> due to <em>COVID-19</em> the UCLA Film & Television Archive shifted public programming to an ambitious new online screening',
             to: "https://www.cinema.ucla.edu/blogs/archive-blog/2022/01/31/pandemic-spurs-virtual-screening-room",
         },
         {
@@ -166,7 +166,7 @@ export const mock = {
                     contentType: "meapProject",
                     to: "meap/projects/argentinean-human-rights-digital-library-of-periodical-and-non-periodical-publications",
                     title: "Argentinean Human Rights Digital Library of Periodical and Non-periodical Publications",
-                    text: "<p><span>Memoria Abierta is an alliance of nine Argentinean human rights organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed. </span><br /></p>",
+                    text: '<p><a href="https://www.cinema.ucla.edu/billy-wilder-theater">Memoria Abierta</a> is an <strong>alliance</strong> of nine Argentinean <em>human rights</em> organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed.</p>',
                     projectCategory: "Publications",
                     projectByline1: [
                         {
