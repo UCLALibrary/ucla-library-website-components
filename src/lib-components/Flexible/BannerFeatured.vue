@@ -1,7 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
+import type { PropType } from 'vue'
 import format from 'date-fns/format'
 import BannerFeatured from '@/lib-components/BannerFeatured.vue'
+import type { LocationItemType } from '@/types/types'
+import type { FlexibleBannerFeatured } from '@/types/flexible_types'
 
 // Helpers
 import getPrompt from '@/utils/getPrompt'
@@ -9,7 +12,7 @@ import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
 const { block } = defineProps({
   block: {
-    type: Object,
+    type: Object as PropType<FlexibleBannerFeatured>,
     default: () => { },
   }
 })
@@ -53,7 +56,7 @@ const parsePrompt = computed(() => {
 })
 
 const parsedLocations = computed(() => {
-  let locations = []
+  let locations: LocationItemType[] = []
 
   if (block.content && block.content[0].contentLink) {
     const contentType
@@ -119,7 +122,7 @@ const parsedTypeHandle = computed(() => {
 
   return block.sectionTitle
     ? block.sectionTitle
-    : parsedCategory
+    : parsedCategory.value
 })
 
 const parsedStartDate = computed(() => {
@@ -178,8 +181,7 @@ const parseByLine = computed(() => {
 
         break
       case entry_type.includes('project'):
-        output.project
-          = block.content[0].contentLink[0].projectByline1
+        output.push(block.content[0].contentLink[0].projectByline1[0].title)
 
         break
 

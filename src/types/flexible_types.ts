@@ -1,4 +1,4 @@
-import type { BlockCallToActionTwoUpType, MediaItemType } from '@/types/types'
+import type { BlockCallToActionTwoUpType, LocationItemType, MediaItemType } from '@/types/types'
 
 // Reusable block declaration for Flexible Components
 
@@ -24,6 +24,51 @@ interface AssociatedTopicsPage {
   topics: AssociatedTopics[]
 }
 
+interface Byline {
+  id: string
+  title: string
+  to: string
+}
+
+interface ContentLink {
+  contentType: string
+  to: string
+  heroImage: { image: MediaItemType[] }[]
+}
+
+interface FlexibleBannerContent {
+  id: string
+  contentLink: FlexibleBannerContentLink[]
+  image: MediaItemType[]
+  title: string
+  summary: string
+  alignment: string
+  location: { title: string; to: string }
+  byline1: string
+  byline2: string
+  to: string
+  category: string
+  contentType: string
+  sectionHandle: string
+}
+
+interface FlexibleBannerContentLink extends ContentLink {
+  title: string
+  summary: string
+  eventDescription: string
+  projectCategory: string
+  articleCategory: { title: string }[]
+  projectByline1: Byline[]
+  startDateWithTime: string
+  endDateWithTime: string
+  startDate: string
+  endDate: string
+  articleByline1: Byline[]
+  articleByline2: string
+  articleLocations: LocationItemType[]
+  projectLocations: LocationItemType[]
+}
+
 interface FlexibleCallToActionItem {
   id: string
   titleCta: string
@@ -45,12 +90,9 @@ interface FlexibleGridGalleryCard {
   to: string
 }
 
-interface FlexibleGridGalleryContentLink {
-  contentType: string
+interface FlexibleGridGalleryContentLink extends ContentLink {
   headlineText: string
   snippet: string
-  to: string
-  heroImage: { image: MediaItemType[] }[]
 }
 
 // Flexible Components
@@ -59,12 +101,20 @@ export interface FlexibleAssociatedTopicCards extends FlexibleBlock {
   associatedTopicsFlexiblePageBlock: AssociatedTopicsPage[]
 }
 
+export interface FlexibleBannerFeatured extends FlexibleBlock {
+  content: FlexibleBannerContent[]
+}
+
 export interface FlexibleCallToAction extends FlexibleBlock {
   callToAction: FlexibleCallToActionItem[]
 }
 
 export interface FlexibleCallToAction2Up extends FlexibleBlock {
   ctaBlock2Up: BlockCallToActionTwoUpType[]
+}
+
+export interface FlexibleForm extends FlexibleBlock {
+  form: string
 }
 
 export interface FlexibleGridGallery extends FlexibleBlock {
