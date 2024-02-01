@@ -343,6 +343,11 @@ export default {
         }
     }
 
+    .meta {
+        z-index: 0;
+        width: 100%;
+    }
+
     .text {
         @include step-0;
         color: var(--color-black);
