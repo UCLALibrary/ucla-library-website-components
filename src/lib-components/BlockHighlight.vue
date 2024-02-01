@@ -285,6 +285,8 @@ export default {
         width: 100%;
 
         ::v-deep .rich-text {
+            max-width: none;
+            padding-right: 0;
             padding-right: 0;
         }
     }
