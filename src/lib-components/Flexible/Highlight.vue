@@ -1,15 +1,37 @@
 <template>
     <section class="section-teaser-highlight">
         <div class="section-header">
-            <h2 v-if="block.sectionTitle" class="section-title" v-html="block.sectionTitle" />
-            <div v-if="block.sectionSummary" class="section-summary" v-html="block.sectionSummary" />
+            <h2
+                v-if="block.sectionTitle"
+                class="section-title"
+                v-html="block.sectionTitle"
+            />
+            <div
+                v-if="block.sectionSummary"
+                class="section-summary"
+                v-html="block.sectionSummary"
+            />
         </div>
         <ul class="block-group">
-            <block-highlight v-for="(item, index) in parsedItems" :key="`FlexibleHighlight${index}`" :to="item.to"
-                :image="item.parsedImage" :category="item.parsedCategory" :bylineOne="item.byline1"
-                :bylineTwo="item.byline2" :title="item.title" :text="item.text" :locations="item.parsedLocation"
-                :start-date="item.startDate" :end-date="item.endDate" :section-handle="item.contentType"
-                :ongoing="item.ongoing" :has-triangle="true" :is-vertical="true" class="block" />
+            <block-highlight
+                v-for="(item, index) in parsedItems"
+                :key="`FlexibleHighlight${index}`"
+                :to="item.to"
+                :image="item.parsedImage"
+                :category="item.parsedCategory"
+                :bylineOne="item.byline1"
+                :bylineTwo="item.byline2"
+                :title="item.title"
+                :text="item.text"
+                :locations="item.parsedLocation"
+                :start-date="item.startDate"
+                :end-date="item.endDate"
+                :section-handle="item.contentType"
+                :ongoing="item.ongoing"
+                :has-triangle="true"
+                :is-vertical="true"
+                class="block"
+            />
         </ul>
     </section>
 </template>
@@ -29,7 +51,7 @@ export default {
     props: {
         block: {
             type: Object,
-            default: () => { },
+            default: () => {},
         },
     },
     computed: {
@@ -79,9 +101,9 @@ export default {
                             byline2:
                                 obj.articleByline2 != null
                                     ? this.formatDates(
-                                        obj.articleByline2,
-                                        obj.articleByline2
-                                    )
+                                          obj.articleByline2,
+                                          obj.articleByline2
+                                      )
                                     : "",
                         }
                     }
@@ -216,7 +238,6 @@ export default {
 
     // Breakpoints
     @media #{$small} {
-
         //padding: 0 var(--unit-gutter);
         ::v-deep .block-highlight {
             max-width: 100%;

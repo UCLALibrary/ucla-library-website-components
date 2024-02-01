@@ -238,7 +238,7 @@ export default {
         }
 
         // no border on last row
-        tr:last-child>td {
+        tr:last-child > td {
             border-bottom: 0;
             padding-bottom: 0;
         }
