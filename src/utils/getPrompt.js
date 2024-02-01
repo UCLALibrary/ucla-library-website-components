@@ -4,29 +4,29 @@
  * @returns {string}
  */
 
-function getPrompt ( contentType = '' ) {
+function getPrompt(contentType = '') {
   let output = ''
   const lowerCaseContentType = contentType.toLowerCase()
 
-  switch ( true ) {
-    case lowerCaseContentType.includes( 'article' ):
+  switch (true) {
+    case lowerCaseContentType.includes('article'):
       output = 'Read more'
       break
 
-    case lowerCaseContentType.includes( 'project' ):
+    case lowerCaseContentType.includes('project'):
       output = 'View project'
       break
 
-    case lowerCaseContentType.includes( 'event' ):
+    case lowerCaseContentType.includes('event'):
       output = 'View event'
       break
-    case lowerCaseContentType.includes( 'exhibition' ):
+    case lowerCaseContentType.includes('exhibition'):
       output = 'View exhibition'
       break
-    case lowerCaseContentType.includes( 'collection' ):
+    case lowerCaseContentType.includes('collection'):
       output = 'View collection'
       break
-    case lowerCaseContentType.includes( 'impactreportstory' ):
+    case lowerCaseContentType.includes('impactreportstory'):
       output = 'Read full story'
       break
   }
