@@ -41,7 +41,7 @@
                     :text="location.title" :icon-name="location.svg" :to="location.to" />
             </div>
 
-            <rich-text v-if="text" class="text" :rich-text-content="text" />
+            <rich-text v-if="text" class="richtext" :rich-text-content="text" />
         </div>
     </li>
 </template>
@@ -272,6 +272,12 @@ export default {
                     calc(100% - 1.5px) 47px,
                     0 47px,
                     0 1.5px);
+        }
+    }
+
+    .text {
+        strong {
+            font-weight: 500;
         }
     }
 
