@@ -41,7 +41,7 @@
                     :text="location.title" :icon-name="location.svg" :to="location.to" />
             </div>
 
-            <rich-text v-if="text" class="richtext" :rich-text-content="text" />
+            <rich-text v-if="text" class="text" :rich-text-content="text" />
         </div>
     </li>
 </template>
@@ -275,26 +275,6 @@ export default {
         }
     }
 
-    .text {
-        strong {
-            font-weight: 500;
-        }
-    }
-
-    .meta {
-        z-index: 0;
-        width: 100%;
-
-        ::v-deep .rich-text {
-            font-size: 20px;
-            font-style: normal;
-            line-height: 150%;
-            max-width: none;
-            padding-right: 0;
-            @include truncate(4);
-        }
-    }
-
     .category {
         @include overline;
         color: var(--color-primary-blue-05);
@@ -367,10 +347,12 @@ export default {
         @include step-0;
         color: var(--color-black);
         @include truncate(4);
+        max-width: none;
+        padding-right: 0;
         margin-top: var(--space-s);
 
         ::v-deep strong {
-            font-weight: normal;
+            font-weight: 500;
         }
     }
 
