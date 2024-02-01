@@ -35,6 +35,7 @@ export { default as FlexibleAssociatedTopicCards } from './Flexible/AssociatedTo
 export { default as FlexibleBannerFeatured } from './Flexible/BannerFeatured.vue'
 export { default as FlexibleCallToAction } from './Flexible/CallToAction.vue'
 export { default as FlexibleCallToActionTwoUp } from './Flexible/CallToActionTwoUp.vue'
+export { default as FlexibleForm } from './Flexible/Form.vue'
 export { default as FlexibleGridGalleryCards } from './Flexible/GridGalleryCards.vue'
 export { default as FlexibleMediaGalleryNewLightbox } from './Flexible/MediaGallery/NewLightbox.vue'
 export { default as FooterMain } from './FooterMain.vue'
