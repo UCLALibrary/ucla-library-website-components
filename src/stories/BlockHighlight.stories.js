@@ -30,7 +30,7 @@ const mock = {
     language: "zh",
     startDate: "2022-03-31T07:00:00+00:00",
     endDate: "2021-11-26T11:00:00-08:00",
-    text: "<p>In Greek literature (which is where the phrase entered Western literature), the Seven Seas were the Aegean, Adriatic, Mediterranean, Black, Red, and Caspian seas, with the Persian Gulf</p>",
+    text: '<p>In <a href="https://www.ushistory.org/civ/5d.asp">Greek literature</a> (<em>which is where the phrase entered Western literature</em>), the <strong>Seven Seas</strong> were the Aegean, Adriatic, Mediterranean, Black, Red, and Caspian seas, with the Persian Gulf</p>',
     imageAspectRatio: 60,
     locations: [
         { title: "Powellarium", to: "/location/bar" },
@@ -46,7 +46,7 @@ const mock2 = {
     title: "Orci Dapibus",
     startDate: "2021-02-05T11:00:00-08:00",
     endDate: "2021-02-05T11:00:00-08:00",
-    text: "<p>Vel eros donec ac odio tempor orci dapibus. Ante metus dictum at tempor. Pretium nibh ipsum consequat nisl vel pretium. Amet consectetur adipiscing elit ut aliquam purus sit. Diam quis enim lobortis scelerisque fermentum dui faucibus. Hac habitasse platea dictumst quisque.</p>",
+    text: '<p><a href="https://vocal.media/history/eros-vs-cupid-unveiling-the-myths-and-realities">Eros vs Cupid</a> Their stories remind us that <strong>love</strong> is a force that transcends time and culture, <em>weaving its magic through the ages</em>.</p>',
     imageAspectRatio: 60,
     locations: [
         { title: "Powellarium", to: "/location/bar" },

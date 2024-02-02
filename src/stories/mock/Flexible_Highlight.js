@@ -13,10 +13,10 @@ export const mock = {
                     contentType: "article",
                     to: "about/news/la-niña",
                     title: "La Niña",
-                    text: "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
+                    text: "<p><strong>La Niña</strong> is an <em>oceanic and atmospheric phenomenon</em> that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
                     articleCategory: [
                         {
-                            title: "Featured",
+                            title: "Featured Internal Content",
                         },
                     ],
                     articleByline1: [
@@ -72,11 +72,11 @@ export const mock = {
                     id: "16484",
                     contentType: "article",
                     to: "about/news/this-is-the-newest-article",
-                    title: "This is the newest article",
-                    text: "<p>Revlon, a cosmetics maker that broke racial barriers and dictated beauty trends for much of the last century, is filing for Chapter 11 bankruptcy protection</p>",
+                    title: "Shortbread is delicious",
+                    text: '<p><strong>Shortbread</strong> or shortie is a traditional <a href="https://www.scotchandscones.com/shortbread-history/">Scottish biscuit</a> usually made from <em>one part white sugar</em>, two parts butter, and three to four parts plain wheat flour.</p>',
                     articleCategory: [
                         {
-                            title: "Featured",
+                            title: "Featured External Content",
                         },
                     ],
                     articleByline1: [
@@ -132,20 +132,20 @@ export const mock = {
             byline1: null,
             byline2: null,
             category: null,
-            text: "When its theatrical home closed its doors in March 2020 due to COVID-19 the UCLA Film & Television Archive shifted public programming to an ambitious new online screening",
+            text: 'When its <a href"https://www.nationaltheatre.org.uk/">theatrical home</a> closed its doors in <strong>March 2020</strong> due to <em>COVID-19</em> the UCLA Film & Television Archive shifted public programming to an ambitious new online screening',
             to: "https://www.cinema.ucla.edu/blogs/archive-blog/2022/01/31/pandemic-spurs-virtual-screening-room",
         },
         {
             id: "27384",
             typeHandle: "externalContent",
-            title: " A title",
+            title: "Mmmmm Shortbread",
             image: [
                 {
                     id: "26803",
-                    src: "https://static.library.ucla.edu/craftassetstest/kids_2022-08-03-003133_ybnd.jpg",
-                    height: 1704,
+                    src: "https://static.library.ucla.edu/craftassetstest/shortbread-cookies.jpg",
+                    height: 1421,
                     width: 2560,
-                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/kids_2022-08-03-003133_ybnd.jpg 2560w",
+                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/shortbread-cookies.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/shortbread-cookies.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/shortbread-cookies.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/shortbread-cookies.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/shortbread-cookies.jpg 2560w",
                     alt: "Kids",
                     focalPoint: [0.5, 0.5],
                     altText: null,
@@ -153,7 +153,7 @@ export const mock = {
             ],
             byline1: "Ashton Prigge",
             byline2: null,
-            category: "Kids",
+            category: "External Content",
             location: null,
             text: null,
         },
@@ -166,7 +166,7 @@ export const mock = {
                     contentType: "meapProject",
                     to: "meap/projects/argentinean-human-rights-digital-library-of-periodical-and-non-periodical-publications",
                     title: "Argentinean Human Rights Digital Library of Periodical and Non-periodical Publications",
-                    text: "<p><span>Memoria Abierta is an alliance of nine Argentinean human rights organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed. </span><br /></p>",
+                    text: '<p><a href="https://www.cinema.ucla.edu/billy-wilder-theater">Memoria Abierta</a> is an <strong>alliance</strong> of nine Argentinean <em>human rights</em> organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed.</p>',
                     projectCategory: "Publications",
                     projectByline1: [
                         {
