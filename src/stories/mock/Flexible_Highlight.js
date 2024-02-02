@@ -13,7 +13,7 @@ export const mock = {
                     contentType: "article",
                     to: "about/news/la-niña",
                     title: "La Niña",
-                    text: '<p><strong>La Niña</strong> is an <em>oceanic and atmospheric phenomenon</em> that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+                    text: "<p><strong>La Niña</strong> is an <em>oceanic and atmospheric phenomenon</em> that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
                     articleCategory: [
                         {
                             title: "Featured Internal Content",
