@@ -13,10 +13,10 @@ export const mock = {
                     contentType: "article",
                     to: "about/news/la-niña",
                     title: "La Niña",
-                    text: "<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>",
+                    text: '<p><strong>La Niña</strong> is an <em>oceanic and atmospheric phenomenon</em> that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
                     articleCategory: [
                         {
-                            title: "Featured",
+                            title: "Featured Internal Content",
                         },
                     ],
                     articleByline1: [
@@ -72,11 +72,11 @@ export const mock = {
                     id: "16484",
                     contentType: "article",
                     to: "about/news/this-is-the-newest-article",
-                    title: "This is the newest article",
-                    text: "<p>Revlon, a cosmetics maker that broke racial barriers and dictated beauty trends for much of the last century, is filing for Chapter 11 bankruptcy protection</p>",
+                    title: "Shortbread is delicious",
+                    text: '<p><strong>Shortbread</strong> or shortie is a traditional <a href="https://www.scotchandscones.com/shortbread-history/">Scottish biscuit</a> usually made from <em>one part white sugar</em>, two parts butter, and three to four parts plain wheat flour.</p>',
                     articleCategory: [
                         {
-                            title: "Featured",
+                            title: "Featured External Content",
                         },
                     ],
                     articleByline1: [
@@ -134,6 +134,28 @@ export const mock = {
             category: null,
             text: 'When its <a href"https://www.nationaltheatre.org.uk/">theatrical home</a> closed its doors in <strong>March 2020</strong> due to <em>COVID-19</em> the UCLA Film & Television Archive shifted public programming to an ambitious new online screening',
             to: "https://www.cinema.ucla.edu/blogs/archive-blog/2022/01/31/pandemic-spurs-virtual-screening-room",
+        },
+        {
+            id: "27384",
+            typeHandle: "externalContent",
+            title: "Mmmmm Shortbread",
+            image: [
+                {
+                    id: "26803",
+                    src: "https://static.library.ucla.edu/craftassetstest/shortbread-cookies.jpg",
+                    height: 1421,
+                    width: 2560,
+                    srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/shortbread-cookies.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/shortbread-cookies.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/shortbread-cookies.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/shortbread-cookies.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/shortbread-cookies.jpg 2560w",
+                    alt: "Kids",
+                    focalPoint: [0.5, 0.5],
+                    altText: null,
+                },
+            ],
+            byline1: "Ashton Prigge",
+            byline2: null,
+            category: "External Content",
+            location: null,
+            text: null,
         },
         {
             id: "28621",
