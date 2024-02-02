@@ -1,3 +1,10 @@
+## [2.41.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.4...v2.41.5) (2024-02-02)
+
+
+### Bug Fixes
+
+* APPS-2493 Hyperlink styling needed in FPB Highlight summary field ([#443](https://github.com/UCLALibrary/ucla-library-website-components/issues/443)) ([5f2983a](https://github.com/UCLALibrary/ucla-library-website-components/commit/5f2983ae751c27c8d79d6490ffe73d1a65ec338b))
+
 ## [2.41.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.3...v2.41.4) (2024-01-25)
 
 
