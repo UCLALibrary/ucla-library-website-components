@@ -1,3 +1,17 @@
+# [2.39.0-alpha.32](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.31...v2.39.0-alpha.32) (2024-02-01)
+
+
+### Features
+
+* APPS-2525 Add FlexibleForm component ([#439](https://github.com/UCLALibrary/ucla-library-website-components/issues/439)) ([431ef16](https://github.com/UCLALibrary/ucla-library-website-components/commit/431ef16136cdfe230ed4acdf6f34b7a8bf63aa80))
+
+# [2.39.0-alpha.31](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.30...v2.39.0-alpha.31) (2024-01-31)
+
+
+### Features
+
+* APPS-2521 Add FlexibleAssociatedTopicCards component ([#438](https://github.com/UCLALibrary/ucla-library-website-components/issues/438)) ([381ea01](https://github.com/UCLALibrary/ucla-library-website-components/commit/381ea01d84657e449f7cddfc1231f667fa303c39))
+
 # [2.39.0-alpha.30](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.29...v2.39.0-alpha.30) (2024-01-27)
 
 

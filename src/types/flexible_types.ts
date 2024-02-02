@@ -1,19 +1,30 @@
 import type { BlockCallToActionTwoUpType, MediaItemType } from '@/types/types'
 
+// Reusable block declaration for Flexible Components
+
 interface FlexibleBlock {
   id: string
   typeHandle: string
+  sectionTitle: string
+  sectionSummary: string
 }
 
-export interface FlexibleCallToAction extends FlexibleBlock {
-  callToAction: FlexibleCallToActionItem[]
+// Types used by Flexible Component declarations
+
+interface AssociatedTopics {
+  to: string
+  title: string
+  text: string
+  uri: string
+  externalResourceUrl: string
 }
 
-export interface FlexibleCallToAction2Up extends FlexibleBlock {
-  ctaBlock2Up: BlockCallToActionTwoUpType[]
+interface AssociatedTopicsPage {
+  id: string
+  topics: AssociatedTopics[]
 }
 
-export interface FlexibleCallToActionItem {
+interface FlexibleCallToActionItem {
   id: string
   titleCta: string
   summary: string
@@ -23,13 +34,7 @@ export interface FlexibleCallToActionItem {
   backgroundColor: boolean
 }
 
-export interface FlexibleGridGallery extends FlexibleBlock {
-  sectionSummary: string
-  sectionTitle: string
-  gridGalleryCards: FlexibleGridGalleryCard[]
-}
-
-export interface FlexibleGridGalleryCard {
+interface FlexibleGridGalleryCard {
   id: string
   featured: string | boolean
   contentLink: FlexibleGridGalleryContentLink[]
@@ -40,10 +45,32 @@ export interface FlexibleGridGalleryCard {
   to: string
 }
 
-export interface FlexibleGridGalleryContentLink {
+interface FlexibleGridGalleryContentLink {
   contentType: string
   headlineText: string
   snippet: string
   to: string
   heroImage: { image: MediaItemType[] }[]
+}
+
+// Flexible Components
+
+export interface FlexibleAssociatedTopicCards extends FlexibleBlock {
+  associatedTopicsFlexiblePageBlock: AssociatedTopicsPage[]
+}
+
+export interface FlexibleCallToAction extends FlexibleBlock {
+  callToAction: FlexibleCallToActionItem[]
+}
+
+export interface FlexibleCallToAction2Up extends FlexibleBlock {
+  ctaBlock2Up: BlockCallToActionTwoUpType[]
+}
+
+export interface FlexibleForm extends FlexibleBlock {
+  form: string
+}
+
+export interface FlexibleGridGallery extends FlexibleBlock {
+  gridGalleryCards: FlexibleGridGalleryCard[]
 }
