@@ -10,16 +10,16 @@ export default {
 }
 
 const mock = [
-  // {
-  //   image: null,
-  //   to: '/visit/foo/bar/',
-  //   category: 'Ullamco',
-  //   title: 'Fames ac turpis egestas sed tempus lorem ipsum',
-  //   startDate: '2021-09-03T08:00:00+00:00',
-  //   endDate: '2021-10-08T07:10:00+00:00',
-  //   text: 'Ultricies leo integer malesuada nunc vel risus commodo viverra.',
-  //   sectionHandle: 'event',
-  // },
+  {
+    image: null,
+    to: '/visit/foo/bar/',
+    category: 'Ullamco',
+    title: 'Fames ac turpis egestas sed tempus lorem ipsum',
+    startDate: '2021-09-03T08:00:00+00:00',
+    endDate: '2021-10-08T07:10:00+00:00',
+    text: 'Ultricies leo integer malesuada nunc vel risus commodo viverra.',
+    sectionHandle: 'event',
+  },
   {
     image: API.image,
     to: '/visit/foo/baz/',
