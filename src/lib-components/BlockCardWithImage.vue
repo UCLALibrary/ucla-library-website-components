@@ -16,7 +16,7 @@ import type { LocationItemType, MediaItemType } from '@/types/types'
 const props = defineProps({
   image: {
     type: Object as PropType<MediaItemType>,
-    default: () => {},
+    default: () => { },
   },
   to: {
     type: String,
@@ -95,7 +95,7 @@ const classes = computed(() => {
   return [
     'block-card-with-image',
     { 'is-vertical': props.isVertical },
-              `color-${sectionName.value}`,
+    `color-${sectionName.value}`,
   ]
 })
 </script>
@@ -103,29 +103,14 @@ const classes = computed(() => {
 <template>
   <li :class="classes">
     <div class="image-container">
-      <ResponsiveImage
-        v-if="image"
-        :media="image"
-        :aspect-ratio="imageAspectRatio"
-        class="image"
-      />
+      <ResponsiveImage v-if="image" :media="image" :aspect-ratio="imageAspectRatio" class="image" />
       <div v-else class="molecule-no-image">
         <MoleculePlaceholder class="molecule" aria-hidden="true" />
       </div>
     </div>
-    <CardMeta
-      :to="to"
-      :category="category"
-      :title="title"
-      :start-date="startDate"
-      :end-date="endDate"
-      :ongoing="ongoing"
-      :text="text"
-      :locations="locations"
-      :alternative-full-name="alternativeFullName"
-      :language="language"
-      :section-handle="sectionHandle"
-    />
+    <CardMeta :to="to" :category="category" :title="title" :start-date="startDate" :end-date="endDate" :ongoing="ongoing"
+      :text="text" :locations="locations" :alternative-full-name="alternativeFullName" :language="language"
+      :section-handle="sectionHandle" />
   </li>
 </template>
 
@@ -138,48 +123,52 @@ const classes = computed(() => {
   flex-direction: row;
 
   .image-container {
-      .molecule-no-image {
-          width: 100%;
-          margin-right: var(--space-xl);
-          background: var(--gradient-01);
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          position: relative;
+    .molecule-no-image {
+      width: 100%;
+      margin-right: var(--space-xl);
+      background: var(--gradient-01);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
 
-          .molecule {
-              flex-shrink: 0;
-              position: absolute;
-              opacity: 0.7;
-          }
+      .molecule {
+        flex-shrink: 0;
+        position: absolute;
+        opacity: 0.7;
       }
+    }
   }
 
   // Variations
   &.is-vertical {
-      flex-direction: column;
-      .molecule-no-image {
-          width: 100%;
-          height: 179.2px;
-      }
+    flex-direction: column;
 
-      :deep(.card-meta) {
-          margin-top: 16px;
+    .molecule-no-image {
+      width: 100%;
+      height: 179.2px;
+    }
+
+    :deep(.card-meta) {
+      margin-top: 16px;
+    }
+
+    :deep(.image) {
+      width: 100%;
+
+      .media {
+        object-fit: cover;
       }
-      :deep(.image) {
-          width: 100%;
-          .media {
-              object-fit: cover;
-          }
-      }
+    }
   }
+
   // Breakpoints
   @media #{$medium} {
-      &.is-vertical {
-          .molecule-no-image {
-              height: 226px;
-          }
+    &.is-vertical {
+      .molecule-no-image {
+        height: 226px;
       }
+    }
   }
 }
 </style>
