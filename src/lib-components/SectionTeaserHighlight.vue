@@ -1,12 +1,11 @@
-<script setup>
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import type { BlockCardMetaType, EventItemType } from '@/types/types'
 import BlockFloatingHighlight from '@/lib-components/BlockFloatingHighlight.vue'
 
 const { items } = defineProps({
-  /**
-   * Array of objects [{ image, to, category, title, dates, times, text }]
-   */
   items: {
-    type: Array,
+    type: Array as PropType<EventItemType[] & BlockCardMetaType[]>,
     default: () => [],
   },
 })
