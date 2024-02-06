@@ -37,11 +37,14 @@ export interface EventItemType {
   image?: MediaItemType
   category: string
   title: string
-  prompt: string
+  text?: string
+  prompt?: string
   startDate: string
   endDate: string
   to: string
   sectionHandle?: string
+  locations?: LocationItemType[]
+  ongoing?: boolean
 }
 
 export interface GridGalleryItemType {

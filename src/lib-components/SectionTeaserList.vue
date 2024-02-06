@@ -1,12 +1,13 @@
-<script setup>
-// import BlockHighlight from '@/lib-components/BlockHighlight.vue'
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import type { EventItemType } from '@/types/types'
+
 import BlockClippedDate from '@/lib-components/BlockClippedDate.vue'
 import BlockShowHide from '@/lib-components/BlockShowHide.vue'
 
 const { items, nShown } = defineProps({
   items: {
-    // Array of objects {image, to, category, title, dates, times, text}
-    type: Array,
+    type: Array as PropType<EventItemType[]>,
     default: () => [],
   },
   nShown: {
