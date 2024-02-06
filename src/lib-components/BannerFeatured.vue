@@ -17,7 +17,7 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import ResponsiveVideo from '@/lib-components/ResponsiveVideo.vue'
 import BlockForm from '@/lib-components/BlockForm.vue'
 
-import type { BylineItemType, LocationItemType, MediaItemType, } from '@/types/types'
+import type { LocationItemType, MediaItemType, } from '@/types/types'
 
 // Utility functions
 import formatEventTimes from '@/utils/formatEventTimes'
@@ -58,7 +58,7 @@ const props = defineProps({
     default: () => [],
   },
   byline: {
-    type: Array as PropType<BylineItemType>,
+    type: Array as PropType<string[] >,
     default: () => [],
   },
   to: {
@@ -161,26 +161,6 @@ const parsedRatio = computed(() => {
   return output
 })
 
-// Byline
-const bylineArticleExists = computed(() => {
-  return (
-    props.byline
-    && (props.byline.articleStaff || props.byline.articlePostDate)
-  )
-})
-
-const parseByLineStaff = computed(() => {
-  return props.byline.articleStaff
-})
-
-const bylineProjectExists = computed(() => {
-  return props.byline && props.byline.project
-})
-
-const parseByLineProject = computed(() => {
-  return props.byline.project
-})
-
 // Location
 const parsedLocations = computed(() => {
   return props.locations.map((obj) => {
@@ -270,34 +250,12 @@ const classes = computed(() => {
       </div>
 
       <div class="meta-text">
-        <div v-if="bylineArticleExists" class="byline">
-          <div v-for="(item, index) in parseByLineStaff" :key="`staff-${index}`" class="byline-item">
-            <SmartLink :to="`/${item.to}`">
-              {{ item.title }}
-            </SmartLink>
-          </div>
-
-          <!-- TODO: Convert date format to Month DD, YYYY -->
-          <div class="byline-item">
-            {{ byline.articlePostDate }}
-          </div>
-        </div>
-
         <div v-if="dateCreated" class="date-created">
           <time v-if="dateCreated" class="date-created" v-html="parsedDateCreated" />
         </div>
 
-        <div v-if="bylineProjectExists" class="byline">
-          <div
-            v-for="(item, index) in parseByLineProject" :key="`project-topics-${index}`" class="byline-item"
-            v-html="item.title"
-          />
-        </div>
-
         <div
           v-if="byline.length
-            && !bylineArticleExists
-            && !bylineProjectExists
           " class="byline"
         >
           <div v-for="(item, index) in byline" :key="`external-${index}`" class="byline-item" v-html="item" />
@@ -310,23 +268,29 @@ const classes = computed(() => {
           <time v-if="parsedTime" class="schedule-item" v-html="parsedTime" />
         </div>
 
-        <!-- TODO: Remove location_external and location_links properties from Flexible_BannerFeatured; assign directly to location array -->
         <div
           v-if="locations.length
           " class="location-group"
         >
           <IconWithLink
-            v-for="location in parsedLocations" :key="`location-${location.id}`" :text="location.title"
-            :icon-name="location.svg" :to="location.to" :class="location.class"
+            v-for="location in parsedLocations"
+            :key="`location-${location.id}`"
+            :text="location.title"
+            :icon-name="location.svg"
+            :to="`/${location.to}`"
+            :class="location.class"
           />
         </div>
       </div>
 
       <ButtonLink
-        v-if="to" id="banner-featured-button" :label="prompt" :to="to"
+        v-if="to" id="banner-featured-button"
+        :label="prompt"
+        :to="to"
         aria-labelledby="banner-featured-button banner-featured" class="button"
       />
     </div>
+
     <div v-if="!to && registerEvent" class="block-form-container">
       <BlockForm />
     </div>
