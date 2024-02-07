@@ -49,7 +49,7 @@ const { items, nShown } = defineProps({
 
   .list {
     @for $i from 1 through 30 {
-      ::v-deep .block-highlight:nth-child(#{$i}) .molecule {
+      :deep(.block-highlight:nth-child(#{$i}) .molecule) {
         left: calc(random(500) * -1) + px;
       }
     }
