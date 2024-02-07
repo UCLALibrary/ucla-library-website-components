@@ -144,7 +144,7 @@ const parsedText = computed(() => {
         :key="`location-card-meta${index}`"
         :text="location.title"
         :icon-name="location.svg"
-        :to="location.to"
+        :to="`/${location.to}`"
       />
     </div>
     <div v-if="text" class="text">

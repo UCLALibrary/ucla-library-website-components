@@ -280,7 +280,7 @@ const parsedLocations = computed(() => {
               :key="`location-${location.id}`"
               :text="location.title"
               :icon-name="location.svg"
-              :to="location.to"
+              :to="`/${location.to}`"
             />
           </div>
 
@@ -360,8 +360,8 @@ const parsedLocations = computed(() => {
       }
 
       .icon {
-          --icon-color: var(--color-white);
-          --icon-color-highlight: var(--color-white);
+        --icon-color: var(--color-white);
+        --icon-color-highlight: var(--color-white);
       }
   }
 
