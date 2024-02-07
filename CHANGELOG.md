@@ -1,3 +1,10 @@
+# [2.39.0-alpha.33](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.32...v2.39.0-alpha.33) (2024-02-07)
+
+
+### Features
+
+* APPS-2522 Add FlexibleBannerFeatured component ([#442](https://github.com/UCLALibrary/ucla-library-website-components/issues/442)) ([928b7b0](https://github.com/UCLALibrary/ucla-library-website-components/commit/928b7b0e16f46c48c784cd62b8be4f2c628c2b04))
+
 # [2.39.0-alpha.32](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.31...v2.39.0-alpha.32) (2024-02-01)
 
 
