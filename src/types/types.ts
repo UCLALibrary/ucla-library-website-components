@@ -28,17 +28,6 @@ export interface BlockCardMetaType {
   ongoing: boolean
 }
 
-export interface BylineProjectItemType {
-  title?: string
-}
-
-export interface BylineItemType {
-  articleStaff?: ArticleStaffItemType[]
-  articlePostDate?: string
-  project?: BylineProjectItemType[]
-  length?: number
-}
-
 export interface CardItemType {
   category?: string
   externalResourceUrl?: string
