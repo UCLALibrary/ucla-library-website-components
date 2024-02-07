@@ -15,6 +15,7 @@ export interface BlockCallToActionTwoUpType {
   isSmallSize: boolean
 }
 
+<<<<<<< HEAD
 export interface BlockCardMetaType {
   to: string
   category: string
@@ -39,6 +40,8 @@ export interface BylineItemType {
   length?: number
 }
 
+=======
+>>>>>>> 928b7b0 (feat: APPS-2522 Add FlexibleBannerFeatured component (#442))
 export interface CardItemType {
   category?: string
   externalResourceUrl?: string
