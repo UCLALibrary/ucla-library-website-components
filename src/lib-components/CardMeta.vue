@@ -6,6 +6,7 @@ import type { PropType } from 'vue'
 // COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
+import RichText from '@/lib-components/RichText.vue'
 
 // UTILITY FUNCTIONS
 import formatTimes from '@/utils/formatEventTimes'
@@ -147,9 +148,10 @@ const parsedText = computed(() => {
         :to="`/${location.to}`"
       />
     </div>
-    <div v-if="text" class="text">
+    <!-- <div v-if="text" class="text">
       {{ parsedText }}
-    </div>
+    </div> -->
+    <RichText v-if="text" class="text" :rich-text-content="parsedText" />
   </div>
 </template>
 
