@@ -172,9 +172,23 @@ const parsedDateMonth = computed(() => {
           width: 100%;
           height: 272px;
       }
+
       .molecule-no-image {
-          height: 272px;
-      }
+            width: 100%;
+            height: 272px;
+            margin-right: var(--space-xl);
+            background: var(--gradient-01);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            .molecule {
+                flex-shrink: 0;
+                position: absolute;
+                opacity: 0.7;
+            }
+        }
   }
 
   .floating-highlight {
@@ -194,6 +208,7 @@ const parsedDateMonth = computed(() => {
           0 1.5px
       );
   }
+
   .clipped-date {
       margin-top: 54px;
       z-index: 30;
@@ -254,6 +269,7 @@ const parsedDateMonth = computed(() => {
           );
       }
   }
+
   // Breakpoints
   @media #{$medium} {
       flex-direction: column;
@@ -274,6 +290,7 @@ const parsedDateMonth = computed(() => {
           }
       }
   }
+
   @media #{$small} {
       .image {
           max-width: 100%;

@@ -15,15 +15,17 @@ export interface BlockCallToActionTwoUpType {
   isSmallSize: boolean
 }
 
-export interface BylineProjectItemType {
-  title?: string
-}
-
-export interface BylineItemType {
-  articleStaff?: ArticleStaffItemType[]
-  articlePostDate?: string
-  project?: BylineProjectItemType[]
-  length?: number
+export interface BlockCardMetaType {
+  to: string
+  category: string
+  title: string
+  alternativeFullName: string
+  language: string
+  text: string
+  locations: LocationItemType[]
+  bylineOne: string
+  bylineTwo: string
+  ongoing: boolean
 }
 
 export interface CardItemType {
@@ -48,11 +50,14 @@ export interface EventItemType {
   image?: MediaItemType
   category: string
   title: string
-  prompt: string
+  text?: string
+  prompt?: string
   startDate: string
   endDate: string
   to: string
   sectionHandle?: string
+  locations?: LocationItemType[]
+  ongoing?: boolean
 }
 
 export interface GridGalleryItemType {
