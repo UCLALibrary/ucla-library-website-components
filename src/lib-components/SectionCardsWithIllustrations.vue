@@ -58,12 +58,16 @@ const cypressSelector = computed(() => {
     </div>
 
     <ul class="cards">
-      <BlockCardWithIllustration v-for="item in items" :key="item.to" :icon-name="item.iconName" :to="item.to"
-        :title="item.title" :text="item.text" :category="item.category" :is-horizontal="isHorizontal" />
+      <BlockCardWithIllustration
+        v-for="item in items" :key="item.to" :icon-name="item.iconName" :to="item.to"
+        :title="item.title" :text="item.text" :category="item.category" :is-horizontal="isHorizontal"
+      />
 
       <SmartLink v-if="to" class="card card-more" :to="to">
-        <ButtonMore id="card-more-button" class="button" :text="buttonText"
-          aria-labelledby="card-more-button cards-with-illustration-title" />
+        <ButtonMore
+          id="card-more-button" class="button" :text="buttonText"
+          aria-labelledby="card-more-button cards-with-illustration-title"
+        />
       </SmartLink>
     </ul>
   </section>

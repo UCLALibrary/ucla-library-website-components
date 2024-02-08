@@ -1,30 +1,30 @@
 <script setup lang="ts">
-
 import type { PropType } from 'vue'
 import type { SectionTeaserCardItemType } from '@/types/types'
 
-import BlockCardWithImage from "@/lib-components/BlockCardWithImage.vue"
+import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
 const props = defineProps({
-    /**
-     * Array of objects [{ image, to, category, title, dates, times, text }]
-     */
-    items: {
-        type: Array as PropType<SectionTeaserCardItemType[]>,
-        default: () => [],
-    },
+  /**
+   * Array of objects [{ image, to, category, title, dates, times, text }]
+   */
+  items: {
+    type: Array as PropType<SectionTeaserCardItemType[]>,
+    default: () => [],
+  },
 })
-
 </script>
 
 <template>
-    <ul class="section-teaser-card">
-        <BlockCardWithImage v-for="(card, index) in items" :key="`Card${index}`" class="card" :image="card.image"
-            :to="card.to" :category="card.category" :title="card.title" :alternativeFullName="card.alternativeFullName"
-            :language="card.language" :start-date="card.startDate" :end-date="card.endDate" :text="card.text"
-            :image-aspect-ratio="60" :is-vertical="true" :is-online="card.isOnline" :byline-one="card.bylineOne"
-            :byline-two="card.bylineTwo" :section-handle="card.sectionHandle" :ongoing="card.ongoing" />
-    </ul>
+  <ul class="section-teaser-card">
+    <BlockCardWithImage
+      v-for="(card, index) in items" :key="`Card${index}`" class="card" :image="card.image"
+      :to="card.to" :category="card.category" :title="card.title" :alternative-full-name="card.alternativeFullName"
+      :language="card.language" :start-date="card.startDate" :end-date="card.endDate" :text="card.text"
+      :image-aspect-ratio="60" :is-vertical="true" :is-online="card.isOnline" :byline-one="card.bylineOne"
+      :byline-two="card.bylineTwo" :section-handle="card.sectionHandle" :ongoing="card.ongoing"
+    />
+  </ul>
 </template>
 
 <style lang="scss" scoped>

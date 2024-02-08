@@ -108,9 +108,11 @@ const classes = computed(() => {
         <MoleculePlaceholder class="molecule" aria-hidden="true" />
       </div>
     </div>
-    <CardMeta :to="to" :category="category" :title="title" :start-date="startDate" :end-date="endDate" :ongoing="ongoing"
+    <CardMeta
+      :to="to" :category="category" :title="title" :start-date="startDate" :end-date="endDate" :ongoing="ongoing"
       :text="text" :locations="locations" :alternative-full-name="alternativeFullName" :language="language"
-      :section-handle="sectionHandle" />
+      :section-handle="sectionHandle"
+    />
   </li>
 </template>
 
