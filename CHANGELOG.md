@@ -1,3 +1,10 @@
+# [2.39.0-alpha.34](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.33...v2.39.0-alpha.34) (2024-02-07)
+
+
+### Features
+
+* APPS-2551 Add SectionTeaserList component ([#444](https://github.com/UCLALibrary/ucla-library-website-components/issues/444)) ([9bf7d5f](https://github.com/UCLALibrary/ucla-library-website-components/commit/9bf7d5f5e565522a841ab1d50ee140c5026a01ef))
+
 # [2.39.0-alpha.33](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.32...v2.39.0-alpha.33) (2024-02-07)
 
 
