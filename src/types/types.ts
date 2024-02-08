@@ -15,6 +15,19 @@ export interface BlockCallToActionTwoUpType {
   isSmallSize: boolean
 }
 
+export interface BlockCardMetaType {
+  to: string
+  category: string
+  title: string
+  alternativeFullName: string
+  language: string
+  text: string
+  locations: LocationItemType[]
+  bylineOne: string
+  bylineTwo: string
+  ongoing: boolean
+}
+
 export interface CardItemType {
   category?: string
   externalResourceUrl?: string
