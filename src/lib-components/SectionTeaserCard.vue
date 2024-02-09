@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import type { EventItemType } from '@/types/types'
-// import type { SectionTeaserCardItemType } from '@/types/types'
 
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
