@@ -133,11 +133,8 @@ export interface NavSecondaryItemType extends NavItem {
   text?: string
 }
 
-export interface SectionSpaceListItemType {
-  to: string
-  title: string
+export interface SectionSpaceListItemType extends BlockCardMetaType {
   location: string
-  text: string
   buttonUrl: string
   buttonText?: string
   isOnline?: boolean

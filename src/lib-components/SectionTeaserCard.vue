@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { BlockCardMetaType, EventItemType, SectionSpaceListItemType } from '@/types/types'
+import type { EventItemType, SectionSpaceListItemType } from '@/types/types'
 
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
 const { items } = defineProps({
   items: {
-    type: Array as PropType<EventItemType[] & BlockCardMetaType[] & SectionSpaceListItemType[]>,
+    type: Array as PropType<EventItemType[] & SectionSpaceListItemType[]>,
     default: () => [],
   },
 })
