@@ -29,7 +29,7 @@ const parsedItems = computed(() => {
   // Maps values based on content type and external or internal content
   // filter out null objects
   return parsedList.value
-    .filter(e => e != null)
+    .filter(e => e !== null)
     .map((obj) => {
       // Article
       if (

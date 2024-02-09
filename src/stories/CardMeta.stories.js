@@ -20,6 +20,8 @@ const mock = {
     { title: 'Research Library (Charles E. Young)', to: '/location/baz' },
   ],
   sectionHandle: 'event',
+  bylineOne: 'Byline 1',
+  bylineTwo: 'Byline 2'
 }
 
 // Variations of stories below
@@ -37,6 +39,8 @@ export function Default() {
           :start-date="startDate"
           :end-date="endDate"
           :text="text"
+          :bylineOne="bylineOne"
+          :bylineTwo="bylineTwo"
           :locations="locations"
           :alternativeFullName="alternativeFullName"
           :language="language"
