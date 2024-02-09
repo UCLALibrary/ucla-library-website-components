@@ -143,22 +143,6 @@ export interface SectionSpaceListItemType {
   isOnline?: boolean
 }
 
-export interface SectionTeaserCardItemType {
-  title: string
-  text: string
-  category?: string
-  image?: MediaItemType
-  to?: string
-  alternativeFullName?: string
-  language?: string
-  startDate?: string
-  endDate?: string
-  ongoing?: boolean
-  isVertical: boolean
-  imageAspectRatio: number
-  locations?: LocationItemType[]
-}
-
 export interface SubjectAreaItemType {
   title: string
 }
