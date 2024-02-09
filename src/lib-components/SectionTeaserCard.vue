@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { EventItemType } from '@/types/types'
+import type { BlockCardMetaType, EventItemType, SectionSpaceListItemType } from '@/types/types'
 
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
-const props = defineProps({
-  /**
-   * Array of objects [{ image, to, category, title, dates, times, text }]
-   */
+const { items } = defineProps({
   items: {
-    type: Array as PropType<EventItemType[]>,
+    type: Array as PropType<EventItemType[] & BlockCardMetaType[] & SectionSpaceListItemType[]>,
     default: () => [],
   },
 })
@@ -18,25 +15,25 @@ const props = defineProps({
 <template>
   <ul class="section-teaser-card">
     <BlockCardWithImage
-      v-for="(card, index) in items"
+      v-for="(item, index) in items"
       :key="`Card${index}`"
-      class="card"
-      :image="card.image"
-      :to="card.to"
-      :category="card.category"
-      :title="card.title"
-      :alternative-full-name="card.alternativeFullName"
-      :language="card.language"
-      :start-date="card.startDate"
-      :end-date="card.endDate"
-      :text="card.text"
+      :image="item.image"
+      :to="item.to"
+      :category="item.category"
+      :title="item.title"
+      :alternative-full-name="item.alternativeFullName"
+      :language="item.language"
+      :start-date="item.startDate"
+      :end-date="item.endDate"
+      :text="item.text"
       :image-aspect-ratio="60"
       :is-vertical="true"
-      :is-online="card.isOnline"
-      :byline-one="card.bylineOne"
-      :byline-two="card.bylineTwo"
-      :section-handle="card.sectionHandle"
-      :ongoing="card.ongoing"
+      :is-online="item.isOnline"
+      :byline-one="item.bylineOne"
+      :byline-two="item.bylineTwo"
+      :section-handle="item.sectionHandle"
+      :ongoing="item.ongoing"
+      class="card"
     />
   </ul>
 </template>
