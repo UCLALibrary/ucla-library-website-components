@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { EventItemType, SectionSpaceListItemType } from '@/types/types'
+import type { BlockCardMetaType, EventItemType } from '@/types/types'
 
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
 const { items } = defineProps({
   items: {
-    type: Array as PropType<EventItemType[] & SectionSpaceListItemType[]>,
+    type: Array as PropType<BlockCardMetaType[] & EventItemType[]>,
     default: () => [],
   },
 })
@@ -28,7 +28,6 @@ const { items } = defineProps({
       :text="item.text"
       :image-aspect-ratio="60"
       :is-vertical="true"
-      :is-online="item.isOnline"
       :byline-one="item.bylineOne"
       :byline-two="item.bylineTwo"
       :section-handle="item.sectionHandle"

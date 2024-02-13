@@ -26,6 +26,7 @@ export interface BlockCardMetaType {
   bylineOne: string
   bylineTwo: string
   ongoing: boolean
+  sectionHandle: string
 }
 
 export interface CardItemType {
@@ -55,7 +56,6 @@ export interface EventItemType {
   startDate: string
   endDate: string
   to: string
-  sectionHandle?: string
   locations?: LocationItemType[]
   ongoing?: boolean
 }
@@ -133,8 +133,11 @@ export interface NavSecondaryItemType extends NavItem {
   text?: string
 }
 
-export interface SectionSpaceListItemType extends BlockCardMetaType {
+export interface SectionSpaceListItemType {
+  to: string
+  title: string
   location: string
+  text: string
   buttonUrl: string
   buttonText?: string
   isOnline?: boolean
