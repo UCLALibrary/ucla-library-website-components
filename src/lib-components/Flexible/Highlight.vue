@@ -1,13 +1,16 @@
-<script setup>
+<!-- eslint-disable no-console -->
+<script setup lang="ts">
 import { computed } from 'vue'
+import type { PropType } from 'vue'
 import _get from 'lodash/get'
-import BlockFloatingHighlight from '@/lib-components/BlockFloatingHighlight'
+import BlockFloatingHighlight from '@/lib-components/BlockFloatingHighlight.vue'
 import formatDates from '@/utils/formatEventDates'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
+import type { FlexibleHighlightBlock } from '@/types/flexible_types'
 
 const { block } = defineProps({
   block: {
-    type: Object,
+    type: Object as PropType<FlexibleHighlightBlock>,
     default: () => {},
   }
 })
@@ -24,6 +27,7 @@ const parsedList = computed(() => {
   }
   return items
 })
+console.log(parsedList.value)
 
 const parsedItems = computed(() => {
   // Maps values based on content type and external or internal content
@@ -44,12 +48,12 @@ const parsedItems = computed(() => {
             'heroImage[0].image[0]',
             null
           ),
-          parsedLocation: _get(
+          locations: _get(
             obj,
             'associatedLocations',
             []
           ),
-          parsedCategory: _get(
+          category: _get(
             obj,
             'articleCategory[0].title',
             ''
@@ -78,8 +82,8 @@ const parsedItems = computed(() => {
             'heroImage[0].image[0]',
             null
           ),
-          parsedLocation: _get(obj, 'projectLocations', []),
-          parsedCategory: _get(obj, 'projectCategory', ''),
+          locations: _get(obj, 'projectLocations', []),
+          category: _get(obj, 'projectCategory', ''),
           byline1: _get(obj, 'projectByline1[0].title', ''),
         }
       }
@@ -95,12 +99,12 @@ const parsedItems = computed(() => {
             'heroImage[0].image[0]',
             null
           ),
-          parsedLocation: _get(
+          locations: _get(
             obj,
             'associatedLocations',
             []
           ),
-          parsedCategory: _get(obj, 'eventType.title', ''),
+          category: _get(obj, 'eventType.title', ''),
           startDate: _get(obj, 'startDateWithTime', ''),
           endDate: _get(obj, 'endDateWithTime', ''),
           text: _get(obj, 'eventDescription', ''),
@@ -119,7 +123,7 @@ const parsedItems = computed(() => {
             'heroImage[0].image[0]',
             null
           ),
-          parsedLocation: _get(
+          locations: _get(
             obj,
             'associatedLocations',
             []
@@ -129,12 +133,13 @@ const parsedItems = computed(() => {
         }
       }
       else if (obj.typeHandle === 'externalContent') {
+        console.log(obj.locations)
         return {
           ...obj,
           parsedImage: _get(obj, 'image[0]', null),
-          parsedLocation:
-                              obj.location != null ? [obj.location] : [],
-          parsedCategory: _get(obj, 'category', ''),
+          locations:
+                              obj.locations != null ? [obj.locations] : [],
+          category: _get(obj, 'category', ''),
         }
       }
       else {
@@ -150,6 +155,7 @@ const parsedItems = computed(() => {
       }
     })
 })
+console.log(parsedItems.value)
 </script>
 
 <template>
@@ -172,12 +178,12 @@ const parsedItems = computed(() => {
         :key="`FlexibleHighlight${index}`"
         :to="item.to"
         :image="item.parsedImage"
-        :category="item.parsedCategory"
+        :category="item.category"
         :byline-one="item.byline1"
         :byline-two="item.byline2"
         :title="item.title"
         :text="item.text"
-        :locations="item.parsedLocation"
+        :locations="item.locations"
         :start-date="item.startDate"
         :end-date="item.endDate"
         :section-handle="item.contentType"
