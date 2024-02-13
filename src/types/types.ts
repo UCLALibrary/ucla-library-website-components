@@ -26,7 +26,6 @@ export interface BlockCardMetaType {
   bylineOne: string
   bylineTwo: string
   ongoing: boolean
-  sectionHandle: string
 }
 
 export interface CardItemType {
