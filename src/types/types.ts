@@ -56,6 +56,7 @@ export interface EventItemType {
   startDate: string
   endDate: string
   to: string
+  sectionHandle?: string
   locations?: LocationItemType[]
   ongoing?: boolean
 }
