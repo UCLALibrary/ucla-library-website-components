@@ -280,7 +280,7 @@ const parsedLocations = computed(() => {
               :key="`location-${location.id}`"
               :text="location.title"
               :icon-name="location.svg"
-              :to="`/${location.to}`"
+              :to="location.to"
             />
           </div>
 

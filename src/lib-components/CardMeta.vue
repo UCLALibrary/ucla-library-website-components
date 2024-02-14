@@ -142,7 +142,7 @@ const parsedLocations = computed(() => {
         :key="`location-card-meta${index}`"
         :text="location.title"
         :icon-name="location.svg"
-        :to="`/${location.to}`"
+        :to="location.to"
       />
     </div>
     <RichText v-if="text" class="text" :rich-text-content="text" />

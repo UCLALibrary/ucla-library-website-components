@@ -86,7 +86,7 @@ const parsedText = computed(() => {
         :key="`block-generic-${location.title}-${index}`"
         :text="location.title"
         icon-name="svg-icon-location"
-        :to="`/${location.to}`"
+        :to="location.to"
       />
     </div>
     <div v-if="text" class="text">
