@@ -1,3 +1,11 @@
+# [2.39.0-alpha.35](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.34...v2.39.0-alpha.35) (2024-02-14)
+
+
+### Features
+
+* APPS-2417 Add SectionTeaserHighlight component ([#445](https://github.com/UCLALibrary/ucla-library-website-components/issues/445)) ([8fc1f57](https://github.com/UCLALibrary/ucla-library-website-components/commit/8fc1f57d7cc5a0fa99506b19275e25e4f3937f43)), closes [#442](https://github.com/UCLALibrary/ucla-library-website-components/issues/442)
+* APPS-2419   Add SectionTeaserCard component to vue3 ([#440](https://github.com/UCLALibrary/ucla-library-website-components/issues/440)) ([47c6190](https://github.com/UCLALibrary/ucla-library-website-components/commit/47c619081b5f1dfa887da84ef3388def2b7caebf))
+
 # [2.39.0-alpha.34](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.33...v2.39.0-alpha.34) (2024-02-07)
 
 
