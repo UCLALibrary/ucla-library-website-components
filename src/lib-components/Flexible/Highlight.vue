@@ -11,7 +11,7 @@ import type { FlexibleHighlightBlock } from '@/types/flexible_types'
 const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleHighlightBlock>,
-    default: () => {},
+    default: () => { },
   }
 })
 
@@ -38,7 +38,7 @@ const parsedItems = computed(() => {
       // Article
       if (
         obj.typeHandle !== 'externalContent'
-                      && obj.contentType.includes('article')
+        && obj.contentType.includes('article')
       ) {
         return {
           ...obj,
@@ -46,12 +46,12 @@ const parsedItems = computed(() => {
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
-            null
+            undefined
           ),
           locations: _get(
             obj,
             'associatedLocations',
-            []
+            undefined
           ),
           category: _get(
             obj,
@@ -60,19 +60,19 @@ const parsedItems = computed(() => {
           ),
           byline1: _get(obj, 'articleByline1[0].title', ''),
           byline2:
-                              obj.articleByline2 != null
-                                ? formatDates(
-                                  obj.articleByline2,
-                                  obj.articleByline2
-                                )
-                                : '',
+            obj.articleByline2 != null
+              ? formatDates(
+                obj.articleByline2,
+                obj.articleByline2
+              )
+              : '',
         }
       }
 
       // Project
       else if (
         obj.typeHandle !== 'externalContent'
-                      && obj.contentType.includes('meapProject')
+        && obj.contentType.includes('meapProject')
       ) {
         return {
           ...obj,
@@ -80,16 +80,16 @@ const parsedItems = computed(() => {
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
-            null
+            undefined
           ),
-          locations: _get(obj, 'projectLocations', []),
+          locations: _get(obj, 'projectLocations', undefined),
           category: _get(obj, 'projectCategory', ''),
           byline1: _get(obj, 'projectByline1[0].title', ''),
         }
       }
       else if (
         obj.typeHandle !== 'externalContent'
-                      && obj.contentType === 'event'
+        && obj.contentType === 'event'
       ) {
         return {
           ...obj,
@@ -97,12 +97,12 @@ const parsedItems = computed(() => {
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
-            null
+            undefined
           ),
           locations: _get(
             obj,
             'associatedLocations',
-            []
+            undefined
           ),
           category: _get(obj, 'eventType.title', ''),
           startDate: _get(obj, 'startDateWithTime', ''),
@@ -112,8 +112,8 @@ const parsedItems = computed(() => {
       }
       else if (
         obj.typeHandle !== 'externalContent'
-                      && (obj.contentType === 'exhibition'
-                          || 'workshopOrEventSeries')
+        && (obj.contentType === 'exhibition'
+          || 'workshopOrEventSeries')
       ) {
         return {
           ...obj,
@@ -121,12 +121,12 @@ const parsedItems = computed(() => {
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
-            null
+            undefined
           ),
           locations: _get(
             obj,
             'associatedLocations',
-            []
+            undefined
           ),
           startDate: _get(obj, 'startDate', ''),
           endDate: _get(obj, 'endDate', ''),
@@ -136,9 +136,10 @@ const parsedItems = computed(() => {
         console.log(obj.locations)
         return {
           ...obj,
-          parsedImage: _get(obj, 'image[0]', null),
-          locations:
-                              obj.locations != null ? [obj.locations] : [],
+          parsedImage: _get(obj, 'image[0]', undefined),
+          // TODO: FIX BlockHighlight gql fragment to add locations in nuxt repo
+          /*locations:
+            obj.locations != null ? [obj.locations] : undefined,*/
           category: _get(obj, 'category', ''),
         }
       }
@@ -148,7 +149,7 @@ const parsedItems = computed(() => {
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
-            null
+            undefined
           ),
           to: `/${stripMeapFromURI(obj.to)}`,
         }
@@ -204,47 +205,53 @@ console.log(parsedItems.value)
   max-width: $container-l-main + px;
 
   .section-header {
-      margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-xl);
   }
-  .section-title {
-      @include step-3;
-      color: var(--color-primary-blue-03);
-      margin-bottom: var(--space-m);
-  }
-  .section-summary {
-      @include step-0;
 
-      :deep(p) {
-          margin: 0;
-      }
+  .section-title {
+    @include step-3;
+    color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-m);
+  }
+
+  .section-summary {
+    @include step-0;
+
+    :deep(p) {
+      margin: 0;
+    }
   }
 
   .block-group {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-content: flex-start;
-      align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: flex-start;
   }
+
   .block {
-      width: calc(50% - 16px);
-      margin: 0 0 var(--space-xl);
+    width: calc(50% - 16px);
+    margin: 0 0 var(--space-xl);
   }
 
   :deep(.block-highlight) {
-      max-width: calc(50% - 16px);
+    max-width: calc(50% - 16px);
   }
+
   // Breakpoints
   @media #{$small} {
-      //padding: 0 var(--unit-gutter);
-      :deep(.block-highlight) {
-          max-width: 100%;
-      }
-      .block {
-          width: 100%;
-          margin: 0 0 50px;
-      }
+
+    //padding: 0 var(--unit-gutter);
+    :deep(.block-highlight) {
+      max-width: 100%;
+    }
+
+    .block {
+      width: 100%;
+      margin: 0 0 50px;
+    }
   }
 }
 </style>

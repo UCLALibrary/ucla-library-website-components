@@ -32,27 +32,41 @@ export default {
 </script>
 
 <template>
-  <router-link v-if="isRelative && !isDownload && !parsedTarget" class="smart-link is-router-link" :to="to">
+  <router-link
+    v-if="isRelative && !isDownload && !parsedTarget"
+    class="smart-link is-router-link"
+    :to="to"
+  >
     <slot />
   </router-link>
 
-  <a v-else-if="isDownload" :href="to" class="smart-link is-link" download>
+  <a
+    v-else-if="isDownload"
+    :href="to"
+    class="smart-link is-link"
+    download
+  >
     <slot />
   </a>
 
-  <a v-else-if="to" :href="to" :target="parsedTarget" class="smart-link is-link">
+  <a
+    v-else-if="to"
+    :href="to"
+    :target="parsedTarget"
+    class="smart-link is-link"
+  >
     <slot />
   </a>
 
-  <button v-else class="smart-link is-link">
-    <slot />
-  </button>
-</template>
+<button
+  v-else
+  class="smart-link is-link"
+>
+  <slot />
+</button></template>
 
-<style lang="scss" scoped>
-.link-icon {
+<style lang="scss" scoped>.link-icon {
   &:hover {
     @include link-hover;
   }
-}
-</style>
+}</style>
