@@ -22,7 +22,7 @@ export interface BlockCardMetaType {
   alternativeFullName: string
   language: string
   text: string
-  locations: LocationItemType[]
+  locations?: LocationItemType[]
   bylineOne: string
   bylineTwo: string
   ongoing: boolean
@@ -47,7 +47,7 @@ export interface DepartmentItemType {
 }
 
 export interface EventItemType {
-  image?: MediaItemType
+  image: MediaItemType
   category: string
   title: string
   text?: string
@@ -56,7 +56,7 @@ export interface EventItemType {
   endDate: string
   to: string
   sectionHandle?: string
-  locations?: LocationItemType[]
+  locations: LocationItemType[]
   ongoing?: boolean
 }
 

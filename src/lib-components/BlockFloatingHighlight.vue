@@ -131,6 +131,8 @@ const classes = computed(() => {
       :end-date="endDate"
       :ongoing="ongoing"
       :text="text"
+      :byline-one="bylineOne"
+      :byline-two="bylineTwo"
       :locations="locations"
       :alternative-full-name="alternativeFullName"
       :language="language"

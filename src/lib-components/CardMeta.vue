@@ -6,11 +6,13 @@ import type { PropType } from 'vue'
 // COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
+import RichText from '@/lib-components/RichText.vue'
 
 // UTILITY FUNCTIONS
 import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
-import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
+
+// import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 import type { LocationItemType } from '@/types/types'
 
@@ -105,10 +107,6 @@ const parsedLocations = computed(() => {
     }
   })
 })
-
-const parsedText = computed(() => {
-  return props.text ? removeHtmlTruncate(props.text, 250) : ''
-})
 </script>
 
 <template>
@@ -147,9 +145,7 @@ const parsedText = computed(() => {
         :to="location.to"
       />
     </div>
-    <div v-if="text" class="text">
-      {{ parsedText }}
-    </div>
+    <RichText v-if="text" class="text" :rich-text-content="text" />
   </div>
 </template>
 
@@ -205,10 +201,12 @@ const parsedText = computed(() => {
       @include step-0;
       color: var(--color-black);
       @include truncate(4);
+      max-width: none;
+      padding-right: 0;
       margin-top: var(--space-s);
 
       :deep(strong) {
-          font-weight: normal;
+          font-weight: 500;
       }
   }
   .location-group {

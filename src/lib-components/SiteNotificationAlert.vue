@@ -54,17 +54,36 @@ export default {
 </script>
 
 <template>
-  <section :class="classes" role="alert">
-    <button class="alert" @click="toggleAlert()">
+  <section
+    :class="classes"
+    role="alert"
+  >
+    <button
+      class="alert"
+      @click="toggleAlert()"
+    >
       <div class="alert-box-icon">
         <SvgAlertCircle class="svg-alert-circle" />
       </div>
-      <div class="alert-text" v-html="title" />
+      <div
+        class="alert-text"
+        v-html="title"
+      />
     </button>
 
     <div class="message">
-      <RichText v-if="text" class="message-text" :rich-text-content="text" />
-      <ButtonLink class="button-dismiss" label="Dismiss" icon-name="icon-close" is-quaternary @click="toggleAlert" />
+      <RichText
+        v-if="text"
+        class="message-text"
+        :rich-text-content="text"
+      />
+      <ButtonLink
+        class="button-dismiss"
+        label="Dismiss"
+        icon-name="icon-close"
+        is-quaternary
+        @click="toggleAlert"
+      />
     </div>
   </section>
 </template>

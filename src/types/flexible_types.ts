@@ -31,8 +31,31 @@ interface Byline {
 }
 
 interface ContentLink {
+  id: string
+  typeHandle: string
   contentType: string
   to: string
+  title: string
+  text: string
+  eventDescription: string
+  buttonText: string
+  projectCategory: string
+  eventType: string
+  category: string
+  articleCategory: { title: string }[]
+  projectByline1: Byline[]
+  articleByline1: Byline[]
+  articleByline2: string
+  byline1: string
+  byline2: string
+  ongoing: boolean
+  startDateWithTime: string
+  endDateWithTime: string
+  startDate: string
+  endDate: string
+  locations?: LocationItemType[]
+  associatedLocations: LocationItemType[]
+  projectLocations: LocationItemType[]
   heroImage: { image: MediaItemType[] }[]
 }
 
@@ -53,20 +76,10 @@ interface FlexibleBannerContent {
 }
 
 interface FlexibleBannerContentLink extends ContentLink {
-  title: string
   summary: string
   eventDescription: string
   projectCategory: string
-  articleCategory: { title: string }[]
-  projectByline1: Byline[]
-  startDateWithTime: string
-  endDateWithTime: string
-  startDate: string
-  endDate: string
-  articleByline1: Byline[]
-  articleByline2: string
   articleLocations: LocationItemType[]
-  projectLocations: LocationItemType[]
 }
 
 interface FlexibleCallToActionItem {
@@ -95,6 +108,26 @@ interface FlexibleGridGalleryContentLink extends ContentLink {
   snippet: string
 }
 
+interface FlexibleHighlight {
+  id: string
+  typeHandle: string
+  contentType: string
+  contentLink: ContentLink[]
+  title: string
+  image: MediaItemType[]
+  byline1: string
+  byline2: string
+  articleByline1: Byline[]
+  articleByline2: string
+  category: string
+  startDate: string
+  endDate: string
+  ongoing: boolean
+  locations: LocationItemType[]
+  text: string
+  to: string
+}
+
 // Flexible Components
 
 export interface FlexibleAssociatedTopicCards extends FlexibleBlock {
@@ -119,4 +152,8 @@ export interface FlexibleForm extends FlexibleBlock {
 
 export interface FlexibleGridGallery extends FlexibleBlock {
   gridGalleryCards: FlexibleGridGalleryCard[]
+}
+
+export interface FlexibleHighlightBlock extends FlexibleBlock {
+  highlight: FlexibleHighlight[]
 }

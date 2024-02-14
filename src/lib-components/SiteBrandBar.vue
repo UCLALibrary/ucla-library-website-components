@@ -11,7 +11,10 @@ export default {
 
 <template>
   <div class="site-brand-bar">
-    <a href="https://www.ucla.edu" target="_blank">
+    <a
+      href="https://www.ucla.edu"
+      target="_blank"
+    >
       <SvgLogoUcla class="svg ucla-logo" />
       <span class="visually-hidden">UCLA Home</span>
     </a>
@@ -20,25 +23,25 @@ export default {
 
 <style lang="scss" scoped>
 .site-brand-bar {
-    height: 40px;
-    background-color: var(--color-primary-blue-03);
-    padding: 0 var(--unit-gutter);
+  height: 40px;
+  background-color: var(--color-primary-blue-03);
+  padding: 0 var(--unit-gutter);
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
 
-    .svg__logo-ucla {
-        display: block;
-        height: 16px;
-        width: auto;
-    }
+  .svg__logo-ucla {
+    display: block;
+    height: 16px;
+    width: auto;
+  }
 
-    @media #{$medium} {
-        height: 32px;
-    }
+  @media #{$medium} {
+    height: 32px;
+  }
 }
 </style>

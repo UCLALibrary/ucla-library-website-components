@@ -109,8 +109,18 @@ const classes = computed(() => {
       </div>
     </div>
     <CardMeta
-      :to="to" :category="category" :title="title" :start-date="startDate" :end-date="endDate" :ongoing="ongoing"
-      :text="text" :locations="locations" :alternative-full-name="alternativeFullName" :language="language"
+      :to="to"
+      :category="category"
+      :title="title"
+      :start-date="startDate"
+      :end-date="endDate"
+      :ongoing="ongoing"
+      :text="text"
+      :byline-one="bylineOne"
+      :byline-two="bylineTwo"
+      :locations="locations"
+      :alternative-full-name="alternativeFullName"
+      :language="language"
       :section-handle="sectionHandle"
     />
   </li>

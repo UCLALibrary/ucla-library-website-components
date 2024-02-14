@@ -14,12 +14,14 @@ const mock = {
   language: 'zh',
   startDate: '2022-03-31T07:00:00+00:00',
   endDate: '2021-11-26T11:00:00-08:00',
-  text: '<p>In Greek literature (which is where the phrase entered Western literature), the Seven Seas were the Aegean, Adriatic, Mediterranean, Black, Red, and Caspian seas, with the Persian Gulf</p>',
+  text: '<p>In Greek literature (which is where the phrase entered Western literature), the Seven Seas were the <strong>Aegean</strong>, <em>Adriatic</em>, Mediterranean, Black, Red, and Caspian seas, with the Persian Gulf.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
   locations: [
     { title: 'Powellarium', to: '/location/bar' },
     { title: 'Research Library (Charles E. Young)', to: '/location/baz' },
   ],
   sectionHandle: 'event',
+  bylineOne: 'Byline 1',
+  bylineTwo: 'Byline 2'
 }
 
 // Variations of stories below
@@ -37,6 +39,8 @@ export function Default() {
           :start-date="startDate"
           :end-date="endDate"
           :text="text"
+          :bylineOne="bylineOne"
+          :bylineTwo="bylineTwo"
           :locations="locations"
           :alternativeFullName="alternativeFullName"
           :language="language"

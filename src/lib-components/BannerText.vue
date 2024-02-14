@@ -360,9 +360,20 @@ const parsedLocations = computed(() => {
       }
 
       .icon {
-          --icon-color: var(--color-white);
-          --icon-color-highlight: var(--color-white);
+        --icon-color: var(--color-white);
+        --icon-color-highlight: var(--color-white);
+        .svg__stroke--primary-blue-03 {
+          stroke: var(--icon-color);
+        }
+
+        .svg__fill--primary-blue-03 {
+          fill: var(--icon-color);
+        }
+
+      .svg__stroke--default-cyan-03 {
+        stroke: var(--icon-color-highlight);
       }
+    }
   }
 
   .text {
