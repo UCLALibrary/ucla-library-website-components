@@ -138,8 +138,8 @@ const parsedItems = computed(() => {
           ...obj,
           parsedImage: _get(obj, 'image[0]', undefined),
           // TODO: FIX BlockHighlight gql fragment to add locations in nuxt repo
-          /*locations:
-            obj.locations != null ? [obj.locations] : undefined,*/
+          /* locations:
+            obj.locations != null ? [obj.locations] : undefined, */
           category: _get(obj, 'category', ''),
         }
       }

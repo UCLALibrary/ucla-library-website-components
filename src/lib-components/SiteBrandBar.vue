@@ -43,4 +43,5 @@ export default {
   @media #{$medium} {
     height: 32px;
   }
-}</style>
+}
+</style>

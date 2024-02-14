@@ -58,15 +58,18 @@ export default {
     <slot />
   </a>
 
-<button
-  v-else
-  class="smart-link is-link"
->
-  <slot />
-</button></template>
+  <button
+    v-else
+    class="smart-link is-link"
+  >
+    <slot />
+  </button>
+</template>
 
-<style lang="scss" scoped>.link-icon {
+<style lang="scss" scoped>
+.link-icon {
   &:hover {
     @include link-hover;
   }
-}</style>
+}
+</style>
