@@ -10,7 +10,6 @@ import CardMeta from '@/lib-components/CardMeta.vue'
 
 // UTILITY FUNCTIONS
 
-
 import type { LocationItemType, MediaItemType } from '@/types/types'
 
 const props = defineProps({
@@ -84,10 +83,6 @@ const props = defineProps({
     default: '',
   },
 })
-
-
-
-
 
 const classes = computed(() => {
   return [

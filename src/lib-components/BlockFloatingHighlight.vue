@@ -90,7 +90,7 @@ const props = defineProps({
 })
 
 const route = useRoute()
-console.log("BlockFloatingHighlight", JSON.stringify(route))
+
 const sectionName = computed(() => {
   return (
     props.color
