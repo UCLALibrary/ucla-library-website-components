@@ -128,6 +128,14 @@ interface FlexibleHighlight {
   to: string
 }
 
+interface FlexibleImpactNumberCard {
+  id: string
+  title: string
+  text: string
+  impactNumber: string
+}
+
+
 // Flexible Components
 
 export interface FlexibleAssociatedTopicCards extends FlexibleBlock {
@@ -156,4 +164,8 @@ export interface FlexibleGridGallery extends FlexibleBlock {
 
 export interface FlexibleHighlightBlock extends FlexibleBlock {
   highlight: FlexibleHighlight[]
+}
+
+export interface FlexibleImpactNumberCards extends FlexibleBlock {
+  impactNumberCards: FlexibleImpactNumberCard[]
 }
