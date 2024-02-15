@@ -1,17 +1,19 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
+import type { PropType } from 'vue'
 
 import SvgMoleculeImageStack from 'ucla-library-design-tokens/assets/svgs/molecule-image-stack.svg'
 import MediaItem from '@/lib-components/Media/Item.vue'
 import MediaBadge from '@/lib-components/MediaBadge.vue'
+import type { MediaItemType } from '@/types/types'
 
 const props = defineProps({
   item: {
-    type: Array,
+    type: Array as PropType<MediaItemType[]>,
     default: () => [],
   },
   coverImage: {
-    type: Array,
+    type: Array as PropType<MediaItemType[]>,
     default: () => [],
   },
   embedCode: {
