@@ -17,7 +17,7 @@ import type { LocationItemType, MediaItemType } from '@/types/types'
 const props = defineProps({
   image: {
     type: Object as PropType<MediaItemType>,
-    default: () => {},
+    default: () => { },
   },
   to: {
     type: String,
@@ -90,9 +90,14 @@ const props = defineProps({
 })
 
 const route = useRoute()
-
+console.log("BlockFloatingHighlight", JSON.stringify(route))
 const sectionName = computed(() => {
-  return props.color || getSectionName(route.path)
+  return (
+    props.color
+    || (route.path
+      ? getSectionName(route.path)
+      : 'color-default')
+  )
 })
 
 const classes = computed(() => {
@@ -100,7 +105,7 @@ const classes = computed(() => {
     'block-floating-highlight',
     { 'is-vertical': props.isVertical },
     { 'has-triangle': props.hasTriangle },
-              `color-${sectionName.value}`,
+    `color-${sectionName.value}`,
   ]
 })
 </script>
@@ -114,11 +119,20 @@ const classes = computed(() => {
         :aspect-ratio="imageAspectRatio"
         class="image"
       />
-      <div v-else class="molecule-no-image">
-        <MoleculePlaceholder class="molecule" aria-hidden="true" />
+      <div
+        v-else
+        class="molecule-no-image"
+      >
+        <MoleculePlaceholder
+          class="molecule"
+          aria-hidden="true"
+        />
       </div>
 
-      <div v-if="hasTriangle" class="clipped">
+      <div
+        v-if="hasTriangle"
+        class="clipped"
+      >
         <div class="floating-highlight" />
         <div class="clipped-box" />
       </div>
@@ -148,146 +162,161 @@ const classes = computed(() => {
   position: relative;
   display: flex;
   flex-direction: row;
+
   // Themes for floating highlight/ triangle
-  --floating-highlight-color-theme: var(--color-default-cyan-03);
+  &.color-default {
+    --floating-highlight-color-theme: var(--color-default-cyan-03);
+  }
+
   &.color-visit {
-      --floating-highlight-color-theme: var(--color-visit-fushia-03);
+    --floating-highlight-color-theme: var(--color-visit-fushia-03);
   }
+
   &.color-help {
-      --floating-highlight-color-theme: var(--color-help-green-03);
+    --floating-highlight-color-theme: var(--color-help-green-03);
   }
+
   &.color-about {
-      --floating-highlight-color-theme: var(--color-about-purple-03);
+    --floating-highlight-color-theme: var(--color-about-purple-03);
   }
+
   .clipped {
-      width: 100%;
+    width: 100%;
+    height: 47px;
+    margin-top: -54px;
+    position: relative;
+    z-index: 0;
+
+    .floating-highlight {
+      z-index: 30;
+      position: absolute;
+      width: calc(100% - 55px);
+      top: 0;
+      left: 5px;
       height: 47px;
-      margin-top: -54px;
-      position: relative;
-      z-index: 0;
-      .floating-highlight {
-          z-index: 30;
-          position: absolute;
-          width: calc(100% - 55px);
-          top: 0;
-          left: 5px;
-          height: 47px;
-          background-color: var(--floating-highlight-color-theme);
-          clip-path: polygon(
-              0 0,
-              calc(100% - 20px) 0,
-              100% 47px,
-              calc(100% - 1.5px) 47px,
-              calc(100% - 21px) 1.5px,
-              0 1.5px
-          );
-      }
-      .clipped-box {
-          position: absolute;
-          z-index: 30;
-          top: 8px;
-          left: -1px;
-          width: calc(100% - 57px);
-          height: 47px;
-          background-color: var(--color-theme, var(--color-white));
-          clip-path: polygon(
-              0 0,
-              calc(100% - 20px) 0,
-              100% 47px,
-              calc(100% - 1.5px) 47px,
-              0 47px,
-              0 1.5px
-          );
-      }
+      background-color: var(--floating-highlight-color-theme);
+      clip-path: polygon(0 0,
+          calc(100% - 20px) 0,
+          100% 47px,
+          calc(100% - 1.5px) 47px,
+          calc(100% - 21px) 1.5px,
+          0 1.5px);
+    }
+
+    .clipped-box {
+      position: absolute;
+      z-index: 30;
+      top: 8px;
+      left: -1px;
+      width: calc(100% - 57px);
+      height: 47px;
+      background-color: var(--color-theme, var(--color-white));
+      clip-path: polygon(0 0,
+          calc(100% - 20px) 0,
+          100% 47px,
+          calc(100% - 1.5px) 47px,
+          0 47px,
+          0 1.5px);
+    }
   }
 
   .image-container {
-      .molecule-no-image {
-          width: 100%;
-          margin-right: var(--space-xl);
-          background: var(--gradient-01);
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          position: relative;
+    .molecule-no-image {
+      width: 100%;
+      margin-right: var(--space-xl);
+      background: var(--gradient-01);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
 
-          .molecule {
-              flex-shrink: 0;
-              position: absolute;
-              opacity: 0.7;
-          }
+      .molecule {
+        flex-shrink: 0;
+        position: absolute;
+        opacity: 0.7;
       }
+    }
   }
 
   // Variations
   &.is-vertical {
-      flex-direction: column;
+    flex-direction: column;
+
+    .molecule-no-image {
+      width: 100%;
+      height: 179.2px;
+    }
+
+    // for clipped version
+    &.has-triangle {
+      :deep(.card-meta) {
+        // margin-top: -24px;
+        padding: 0 72px 0 16px;
+      }
+
+      :deep(.image) {
+        height: 272px;
+
+        .media {
+          object-fit: cover;
+        }
+      }
+
       .molecule-no-image {
-          width: 100%;
-          height: 179.2px;
+        height: 272px;
       }
-      // for clipped version
-      &.has-triangle {
-          :deep(.card-meta) {
-              // margin-top: -24px;
-              padding: 0 72px 0 16px;
-          }
-          :deep(.image) {
-              height: 272px;
-              .media {
-                  object-fit: cover;
-              }
-          }
-          .molecule-no-image {
-              height: 272px;
-          }
-      }
+    }
   }
 
   // Breakpoints
   @media #{$medium} {
-      &.is-vertical {
-          .molecule-no-image {
-              height: 226px;
-          }
-          &.has-triangle {
-              :deep(.image) {
-                  height: 200px;
-              }
-              .molecule-no-image {
-                  height: 200px;
-              }
-          }
+    &.is-vertical {
+      .molecule-no-image {
+        height: 226px;
       }
 
-      &.is-vertical.has-triangle {
-          .card-meta {
-              padding: 0;
-              .title {
-                  max-width: 680px;
-              }
+      &.has-triangle {
+        :deep(.image) {
+          height: 200px;
+        }
 
-              .category {
-                  padding-right: 72px;
-              }
-          }
-          .schedule {
-              flex-direction: column;
-          }
-
-          .schedule-item:after {
-              display: none;
-          }
+        .molecule-no-image {
+          height: 200px;
+        }
       }
+    }
+
+    &.is-vertical.has-triangle {
+      .card-meta {
+        padding: 0;
+
+        .title {
+          max-width: 680px;
+        }
+
+        .category {
+          padding-right: 72px;
+        }
+      }
+
+      .schedule {
+        flex-direction: column;
+      }
+
+      .schedule-item:after {
+        display: none;
+      }
+    }
   }
+
   @media #{$small} {
-      &.is-vertical.has-triangle {
-          .meta {
-              .title {
-                  max-width: 312px;
-              }
-          }
+    &.is-vertical.has-triangle {
+      .meta {
+        .title {
+          max-width: 312px;
+        }
       }
+    }
   }
 }
 </style>
