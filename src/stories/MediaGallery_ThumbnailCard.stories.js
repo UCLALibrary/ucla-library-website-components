@@ -1,5 +1,4 @@
 // Import mock api data
-import _pick from 'lodash/pick'
 import * as API from '@/stories/mock/Media'
 import FlexibleMediaGalleryThumbnailCard from '@/lib-components/Flexible/MediaGallery/ThumbnailCard.vue'
 

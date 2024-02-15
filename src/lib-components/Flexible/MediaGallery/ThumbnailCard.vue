@@ -1,23 +1,23 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue'
+import type { PropType } from 'vue'
 
-// COMPONENTS
 import SvgExternalLink from 'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
 import SmartLink from '../../SmartLink.vue'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
 import SectionHeader from '@/lib-components/SectionHeader.vue'
 import MediaItem from '@/lib-components/Media/Item.vue'
 
-// UTILITY FUNCTIONS
+import type { MediaItemType } from '@/types/types'
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 const props = defineProps({
   item: {
-    type: Array,
+    type: Array as PropType<MediaItemType[]>,
     default: () => [],
   },
   coverImage: {
-    type: Array,
+    type: Array as PropType<MediaItemType[]>,
     default: () => [],
   },
   embedCode: {
@@ -48,7 +48,6 @@ const props = defineProps({
 
 const thumbnailImage = computed(() => {
   // returns an array of objects that can be v-bound to <img> tags. Currently MediaItem only uses the first but in the future we might combine them all with <picture> and <source>, allowing the browser to chooose among versions
-
   return (props.coverImage || []) // replace null & undefined with empty array
     .concat(props.item || []) // add item to use if there's no coverImage
     .filter(item => item.kind === 'image') // only keep "image" items
