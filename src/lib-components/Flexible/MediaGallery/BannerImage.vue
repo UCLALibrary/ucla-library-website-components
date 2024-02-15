@@ -3,8 +3,7 @@ import { computed } from 'vue'
 
 import SvgMoleculeImageStack from 'ucla-library-design-tokens/assets/svgs/molecule-image-stack.svg'
 import MediaItem from '@/lib-components/Media/Item.vue'
-
-// import MediaBadge from '@/lib-components/MediaBadge.vue'
+import MediaBadge from '@/lib-components/MediaBadge.vue'
 
 const props = defineProps({
   item: {
