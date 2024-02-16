@@ -5,38 +5,38 @@ import type { FlexibleImpactNumberCards } from '@/types/flexible_types'
 import ImpactNumberCard from '@/lib-components/ImpactNumberCard.vue'
 
 const { block } = defineProps({
-    block: {
-        type: Object as PropType<FlexibleImpactNumberCards>,
-        default: () => { },
-    },
+  block: {
+    type: Object as PropType<FlexibleImpactNumberCards>,
+    default: () => { },
+  },
 })
 </script>
 
 <template>
-    <div class="impact-number-cards">
-        <div class="section-header">
-            <h3
-                v-if="block.sectionTitle"
-                class="section-title"
-                v-html="block.sectionTitle"
-            />
-            <div
-                v-if="block.sectionSummary"
-                class="section-summary"
-                v-html="block.sectionSummary"
-            />
-        </div>
-        <ul class="impact-number-cards-list">
-            <ImpactNumberCard
-                v-for="(item, index) in block.impactNumberCards"
-                :key="`impactNumberCards${index}`"
-                :title="item.title"
-                :text="item.text"
-                :impact-number="item.impactNumber"
-                class="flexible-impact-number-card"
-            />
-        </ul>
+  <div class="impact-number-cards">
+    <div class="section-header">
+      <h3
+        v-if="block.sectionTitle"
+        class="section-title"
+        v-html="block.sectionTitle"
+      />
+      <div
+        v-if="block.sectionSummary"
+        class="section-summary"
+        v-html="block.sectionSummary"
+      />
     </div>
+    <ul class="impact-number-cards-list">
+      <ImpactNumberCard
+        v-for="(item, index) in block.impactNumberCards"
+        :key="`impactNumberCards${index}`"
+        :title="item.title"
+        :text="item.text"
+        :impact-number="item.impactNumber"
+        class="flexible-impact-number-card"
+      />
+    </ul>
+  </div>
 </template>
 
 <style lang="scss" scoped>

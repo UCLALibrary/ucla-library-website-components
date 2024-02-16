@@ -135,7 +135,6 @@ interface FlexibleImpactNumberCard {
   impactNumber: string
 }
 
-
 // Flexible Components
 
 export interface FlexibleAssociatedTopicCards extends FlexibleBlock {
