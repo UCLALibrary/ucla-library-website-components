@@ -41,56 +41,56 @@ const { block } = defineProps({
 
 <style lang="scss" scoped>
 .impact-number-cards {
-    max-width: $container-l-main + px;
-    margin: 0 auto;
+  max-width: $container-l-main + px;
+  margin: 0 auto;
 
-    .section-header {
-        margin-bottom: var(--space-xl);
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-title {
+    @include step-3;
+    color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-m);
+  }
+
+  .section-summary {
+    @include step-0;
+    color: var(--color-black);
+
+    :deep(p) {
+      margin: 0;
     }
+  }
 
-    .section-title {
-        @include step-3;
-        color: var(--color-primary-blue-03);
-        margin-bottom: var(--space-m);
-    }
+  .impact-number-cards-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 32px 16px;
+  }
 
-    .section-summary {
-        @include step-0;
-        color: var(--color-black);
-
-        ::v-deep p {
-            margin: 0;
-        }
-    }
-
+  @media #{$medium} {
     .impact-number-cards-list {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-content: flex-start;
-        gap: 32px 16px;
+      align-items: flex-start;
+
+      .flexible-impact-number-card {
+        width: calc((100% - 16px) / 2);
+      }
     }
+  }
 
-    @media #{$medium} {
-        .impact-number-cards-list {
-            align-items: flex-start;
+  @media #{$small} {
+    .impact-number-cards-list {
+      display: flex;
+      flex-direction: column;
 
-            .flexible-impact-number-card {
-                width: calc((100% - 16px) / 2);
-            }
-        }
+      .flexible-impact-number-card {
+        width: 100%;
+      }
     }
-
-    @media #{$small} {
-        .impact-number-cards-list {
-            display: flex;
-            flex-direction: column;
-
-            .flexible-impact-number-card {
-                width: 100%;
-            }
-        }
-    }
+  }
 }
 </style>
