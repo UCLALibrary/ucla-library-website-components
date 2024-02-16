@@ -1,3 +1,10 @@
+# [2.39.0-alpha.38](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.37...v2.39.0-alpha.38) (2024-02-16)
+
+
+### Features
+
+* APPS-2529 Add FlexibleImpactNumberCards  component to vue3 branch ([#451](https://github.com/UCLALibrary/ucla-library-website-components/issues/451)) ([9fb34c7](https://github.com/UCLALibrary/ucla-library-website-components/commit/9fb34c76927522c98743772216b0f0808618eda9))
+
 # [2.39.0-alpha.37](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.36...v2.39.0-alpha.37) (2024-02-16)
 
 
