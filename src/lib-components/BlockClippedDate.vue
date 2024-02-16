@@ -18,7 +18,7 @@ import type { LocationItemType, MediaItemType } from '@/types/types'
 const props = defineProps({
   image: {
     type: Object as PropType<MediaItemType>,
-    default: () => {},
+    default: () => { },
   },
   to: {
     type: String,
@@ -85,7 +85,12 @@ const props = defineProps({
 const route = useRoute()
 
 const sectionName = computed(() => {
-  return props.color || getSectionName(route.path)
+  return (
+    props.color
+    || (route.path
+      ? getSectionName(route.path)
+      : 'color-default')
+  )
 })
 
 const classes = computed(() => {
@@ -110,10 +115,24 @@ const parsedDateMonth = computed(() => {
 <template>
   <li :class="classes">
     <div class="image-container">
-      <div v-if="startDate" class="floating-highlight" />
-      <div v-if="startDate" class="clipped-date">
-        <time v-if="startDate" class="month" v-html="parsedDateMonth" />
-        <time v-if="startDate" class="day" v-html="parsedDateDay" />
+      <div
+        v-if="startDate"
+        class="floating-highlight"
+      />
+      <div
+        v-if="startDate"
+        class="clipped-date"
+      >
+        <time
+          v-if="startDate"
+          class="month"
+          v-html="parsedDateMonth"
+        />
+        <time
+          v-if="startDate"
+          class="day"
+          v-html="parsedDateDay"
+        />
       </div>
       <ResponsiveImage
         v-if="image"
@@ -121,8 +140,14 @@ const parsedDateMonth = computed(() => {
         :aspect-ratio="imageAspectRatio"
         class="image"
       />
-      <div v-else class="molecule-no-image">
-        <MoleculePlaceholder class="molecule" aria-hidden="true" />
+      <div
+        v-else
+        class="molecule-no-image"
+      >
+        <MoleculePlaceholder
+          class="molecule"
+          aria-hidden="true"
+        />
       </div>
     </div>
     <CardMeta
@@ -153,65 +178,110 @@ const parsedDateMonth = computed(() => {
   width: 100%;
 
   // Themes for floating highlight/ triangle
-  --floating-highlight-color-theme: var(--color-default-cyan-03);
+  &.color-default {
+    --floating-highlight-color-theme: var(--color-default-cyan-03);
+  }
+
   &.color-visit {
-      --floating-highlight-color-theme: var(--color-visit-fushia-03);
+    --floating-highlight-color-theme: var(--color-visit-fushia-03);
   }
+
   &.color-help {
-      --floating-highlight-color-theme: var(--color-help-green-03);
+    --floating-highlight-color-theme: var(--color-help-green-03);
   }
+
   &.color-about {
-      --floating-highlight-color-theme: var(--color-about-purple-03);
+    --floating-highlight-color-theme: var(--color-about-purple-03);
   }
 
   .image-container {
-      width: 50%;
-      max-height: 272px;
-      flex-shrink: 0;
+    width: 50%;
+    max-height: 272px;
+    flex-shrink: 0;
+    margin-right: var(--space-xl);
+
+    .image {
+      width: 100%;
+      height: 272px;
+    }
+
+    .molecule-no-image {
+      width: 100%;
+      height: 272px;
       margin-right: var(--space-xl);
+      background: var(--gradient-01);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
 
-      .image {
-          width: 100%;
-          height: 272px;
+      .molecule {
+        flex-shrink: 0;
+        position: absolute;
+        opacity: 0.7;
       }
-
-      .molecule-no-image {
-            width: 100%;
-            height: 272px;
-            margin-right: var(--space-xl);
-            background: var(--gradient-01);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            position: relative;
-
-            .molecule {
-                flex-shrink: 0;
-                position: absolute;
-                opacity: 0.7;
-            }
-        }
+    }
   }
 
   .floating-highlight {
-      z-index: 30;
-      position: absolute;
-      width: 123px;
-      top: 191px;
-      left: 6px;
-      height: 90px;
-      background-color: var(--floating-highlight-color-theme);
-      clip-path: polygon(
-          0 0,
-          calc(100% - 37px) 0,
-          100% 75px,
-          calc(100% - 1.5px) 75px,
-          calc(100% - 38px) 1.5px,
-          0 1.5px
-      );
+    z-index: 30;
+    position: absolute;
+    width: 123px;
+    top: 191px;
+    left: 6px;
+    height: 90px;
+    background-color: var(--floating-highlight-color-theme);
+    clip-path: polygon(0 0,
+        calc(100% - 37px) 0,
+        100% 75px,
+        calc(100% - 1.5px) 75px,
+        calc(100% - 38px) 1.5px,
+        0 1.5px);
   }
 
   .clipped-date {
+    margin-top: 54px;
+    z-index: 30;
+    position: absolute;
+    top: 145px;
+    left: 0px;
+    width: 125px;
+    height: 84px;
+    background-color: var(--color-white);
+    clip-path: polygon(0 0,
+        calc(100% - 39px) 0,
+        100% 84px,
+        calc(100% - 1.5px) 84px,
+        0 84px,
+        0 1.5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 32px;
+    color: var(--color-primary-blue-03);
+
+    .month {
+      font-weight: 400;
+      font-family: var(--font-secondary);
+      font-size: 16px;
+      letter-spacing: 1.5%;
+    }
+
+    .day {
+      font-weight: 500;
+      font-family: var(--font-primary);
+      font-size: 36px;
+      letter-spacing: 0.25%;
+      line-height: 1;
+    }
+  }
+
+  :deep(.image) {
+    width: 456px;
+    max-height: 272px;
+    margin-right: 56px;
+
+    .clipped-date {
       margin-top: 54px;
       z-index: 30;
       position: absolute;
@@ -220,88 +290,47 @@ const parsedDateMonth = computed(() => {
       width: 125px;
       height: 84px;
       background-color: var(--color-white);
-      clip-path: polygon(
-          0 0,
+      clip-path: polygon(0 0,
           calc(100% - 39px) 0,
           100% 84px,
           calc(100% - 1.5px) 84px,
           0 84px,
-          0 1.5px
-      );
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-left: 32px;
-      color: var(--color-primary-blue-03);
-      .month {
-          font-weight: 400;
-          font-family: var(--font-secondary);
-          font-size: 16px;
-          letter-spacing: 1.5%;
-      }
-      .day {
-          font-weight: 500;
-          font-family: var(--font-primary);
-          font-size: 36px;
-          letter-spacing: 0.25%;
-          line-height: 1;
-      }
-  }
-
-  :deep(.image) {
-      width: 456px;
-      max-height: 272px;
-      margin-right: 56px;
-      .clipped-date {
-          margin-top: 54px;
-          z-index: 30;
-          position: absolute;
-          top: 145px;
-          left: 0px;
-          width: 125px;
-          height: 84px;
-          background-color: var(--color-white);
-          clip-path: polygon(
-              0 0,
-              calc(100% - 39px) 0,
-              100% 84px,
-              calc(100% - 1.5px) 84px,
-              0 84px,
-              0 1.5px
-          );
-      }
+          0 1.5px);
+    }
   }
 
   // Breakpoints
   @media #{$medium} {
-      flex-direction: column;
-      padding-left: 0;
-      padding-right: 0;
-      .floating-highlight,
-      .clipped-date {
-          display: none;
-      }
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
 
-      .image-container,
-      :deep(.card-meta) {
-          width: 100%;
-          max-width: 100%;
+    .floating-highlight,
+    .clipped-date {
+      display: none;
+    }
 
-          .image-container {
-              margin-bottom: var(--space-l);
-          }
+    .image-container,
+    :deep(.card-meta) {
+      width: 100%;
+      max-width: 100%;
+
+      .image-container {
+        margin-bottom: var(--space-l);
       }
+    }
   }
 
   @media #{$small} {
-      .image {
-          max-width: 100%;
+    .image {
+      max-width: 100%;
+    }
+
+    .image-container {
+      .molecule-no-image {
+        height: 200px;
       }
-      .image-container {
-          .molecule-no-image {
-              height: 200px;
-          }
-      }
+    }
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+
 import type { PropType } from 'vue'
 
 // COMPONENTS
@@ -9,7 +9,6 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
 // UTILITY FUNCTIONS
-import getSectionName from '@/utils/getSectionName'
 
 import type { LocationItemType, MediaItemType } from '@/types/types'
 
@@ -85,17 +84,11 @@ const props = defineProps({
   },
 })
 
-const route = useRoute()
-
-const sectionName = computed(() => {
-  return props.color || getSectionName(route.path)
-})
-
 const classes = computed(() => {
   return [
     'block-card-with-image',
     { 'is-vertical': props.isVertical },
-    `color-${sectionName.value}`,
+
   ]
 })
 </script>
@@ -103,9 +96,20 @@ const classes = computed(() => {
 <template>
   <li :class="classes">
     <div class="image-container">
-      <ResponsiveImage v-if="image" :media="image" :aspect-ratio="imageAspectRatio" class="image" />
-      <div v-else class="molecule-no-image">
-        <MoleculePlaceholder class="molecule" aria-hidden="true" />
+      <ResponsiveImage
+        v-if="image"
+        :media="image"
+        :aspect-ratio="imageAspectRatio"
+        class="image"
+      />
+      <div
+        v-else
+        class="molecule-no-image"
+      >
+        <MoleculePlaceholder
+          class="molecule"
+          aria-hidden="true"
+        />
       </div>
     </div>
     <CardMeta

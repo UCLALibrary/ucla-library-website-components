@@ -1,3 +1,23 @@
+# [2.39.0-alpha.37](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.36...v2.39.0-alpha.37) (2024-02-16)
+
+
+### Features
+
+* APPS-2568 Add FlexibleGalleryThumbnailCard ([#447](https://github.com/UCLALibrary/ucla-library-website-components/issues/447)) ([18304e3](https://github.com/UCLALibrary/ucla-library-website-components/commit/18304e3fdc72e9decb90e39d3e8ce0fb03155eee))
+
+# [2.39.0-alpha.36](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.35...v2.39.0-alpha.36) (2024-02-16)
+
+
+### Bug Fixes
+
+* APPS-2411 fix section name with color-default, since route path is undefined ([#448](https://github.com/UCLALibrary/ucla-library-website-components/issues/448)) ([a325e0f](https://github.com/UCLALibrary/ucla-library-website-components/commit/a325e0f14005f8297c8c50e96326c06eacf00208))
+
+
+### Features
+
+* APPS-2550 Add FlexibleHighlight component ([#446](https://github.com/UCLALibrary/ucla-library-website-components/issues/446)) ([f3b5e9f](https://github.com/UCLALibrary/ucla-library-website-components/commit/f3b5e9f903d788c2621ce488e03eb2111180c803)), closes [#442](https://github.com/UCLALibrary/ucla-library-website-components/issues/442)
+* APPS-2567 Add FlexibleGalleryBannerImage, MediaBadge ([#449](https://github.com/UCLALibrary/ucla-library-website-components/issues/449)) ([b082d84](https://github.com/UCLALibrary/ucla-library-website-components/commit/b082d84dbbd39ae8d1f98dedc2f541b16975d4cc))
+
 # [2.39.0-alpha.35](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.34...v2.39.0-alpha.35) (2024-02-14)
 
 
