@@ -1,3 +1,10 @@
+# [2.39.0-alpha.37](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.36...v2.39.0-alpha.37) (2024-02-16)
+
+
+### Features
+
+* APPS-2568 Add FlexibleGalleryThumbnailCard ([#447](https://github.com/UCLALibrary/ucla-library-website-components/issues/447)) ([18304e3](https://github.com/UCLALibrary/ucla-library-website-components/commit/18304e3fdc72e9decb90e39d3e8ce0fb03155eee))
+
 # [2.39.0-alpha.36](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.35...v2.39.0-alpha.36) (2024-02-16)
 
 
