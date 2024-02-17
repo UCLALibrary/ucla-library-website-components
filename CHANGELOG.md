@@ -1,3 +1,10 @@
+# [2.39.0-alpha.39](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.38...v2.39.0-alpha.39) (2024-02-17)
+
+
+### Bug Fixes
+
+* Fix useroute ([#452](https://github.com/UCLALibrary/ucla-library-website-components/issues/452)) ([c35ab5d](https://github.com/UCLALibrary/ucla-library-website-components/commit/c35ab5d76a14dcded7fe12b31e0b39ba1a453995))
+
 # [2.39.0-alpha.38](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.37...v2.39.0-alpha.38) (2024-02-16)
 
 
