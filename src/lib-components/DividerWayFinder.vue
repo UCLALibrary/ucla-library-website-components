@@ -15,7 +15,7 @@ const route = useRoute()
 
 const sectionName = computed(() => color || (route !== undefined && route.path
   ? getSectionName(route.path)
-  : 'color-default'))
+  : 'default'))
 const classes = computed(() => [
   'divider-way-finder',
   `color-${sectionName.value}`,
