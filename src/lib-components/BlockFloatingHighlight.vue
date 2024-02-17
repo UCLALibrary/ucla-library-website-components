@@ -90,11 +90,11 @@ const props = defineProps({
 })
 
 const route = useRoute()
-
+console.log('does this route exist?', JSON.stringify(route))
 const sectionName = computed(() => {
   return (
     props.color
-    || (route.path
+    || (route !== undefined && route.path
       ? getSectionName(route.path)
       : 'color-default')
   )

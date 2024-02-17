@@ -5,6 +5,7 @@
     ],
     "rules": {
         "@typescript-eslint/comma-dangle": "off",
-        "n/prefer-global/process": "off"
+        "n/prefer-global/process": "off",
+        "no-console": "warn",
     }
 }
