@@ -13,7 +13,7 @@ const { color } = defineProps({
 const route = useRoute()
 // console.log('does this route exist?', route)
 
-const sectionName = computed(() => color || (route.path
+const sectionName = computed(() => color || (route !== undefined && route.path
   ? getSectionName(route.path)
   : 'color-default'))
 const classes = computed(() => [
