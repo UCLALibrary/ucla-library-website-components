@@ -50,7 +50,7 @@ const supportLinks = computed(() => {
 })
 
 const currentPathActiveIndex = computed(() => {
-  const currentPathNew = currentPath || route.path
+  const currentPathNew = currentPath || route?.path
   return items.findIndex(item => item.url && currentPathNew.includes(item.url))
 })
 
@@ -86,48 +86,110 @@ function clearActive() {
 </script>
 
 <template>
-  <nav aria-label="Primary Navigation" :class="classes">
+  <nav
+    aria-label="Primary Navigation"
+    :class="classes"
+  >
     <div class="item-top">
-      <SmartLink v-if="shouldRenderSmartLink" to="/" :aria-label="title ? '' : `UCLA Library home page`">
-        <div v-if="title" class="title">
+      <SmartLink
+        v-if="shouldRenderSmartLink"
+        to="/"
+        :aria-label="title ? '' : `UCLA Library home page`"
+      >
+        <div
+          v-if="title"
+          class="title"
+        >
           <span class="full-title"> {{ title }} </span>
-          <span v-if="acronym" class="acronym"> {{ acronym }} </span>
+          <span
+            v-if="acronym"
+            class="acronym"
+          > {{ acronym }} </span>
         </div>
-        <SvgLogoUclaLibrary v-else class="svg logo-ucla" alt="UCLA Library logo blue" />
+        <SvgLogoUclaLibrary
+          v-else
+          class="svg logo-ucla"
+          alt="UCLA Library logo blue"
+        />
       </SmartLink>
-      <a v-else href="/" :aria-label="title ? '' : `UCLA Library home page`">
-        <div v-if="title" class="title">
+      <a
+        v-else
+        href="/"
+        :aria-label="title ? '' : `UCLA Library home page`"
+      >
+        <div
+          v-if="title"
+          class="title"
+        >
           <span class="full-title"> {{ title }} </span>
-          <span v-if="acronym" class="acronym"> {{ acronym }} </span>
+          <span
+            v-if="acronym"
+            class="acronym"
+          > {{ acronym }} </span>
         </div>
-        <SvgLogoUclaLibrary v-else class="svg logo-ucla" alt="UCLA Library logo blue" />
+        <SvgLogoUclaLibrary
+          v-else
+          class="svg logo-ucla"
+          alt="UCLA Library logo blue"
+        />
       </a>
     </div>
 
     <ul class="menu">
       <NavMenuItem
-        v-for="(item, index) in parsedItems" :key="`NavMenuItem-${item.name}`" :item="item"
-        :is-active="item.isActive" :is-opened="isOpened" @click="toggleMenu" @mouseover="setActive(index)"
+        v-for="(item, index) in parsedItems"
+        :key="`NavMenuItem-${item.name}`"
+        :item="item"
+        :is-active="item.isActive"
+        :is-opened="isOpened"
+        @click="toggleMenu"
+        @mouseover="setActive(index)"
         @mouseleave="clearActive"
       />
-      <li v-for="item in noChildren" :key="`nav-primary-${item.name}`" class="nochildren-links">
-        <SmartLink class="nochildren-link underline-hover" :to="item.to" :link-target="item.target">
+      <li
+        v-for="item in noChildren"
+        :key="`nav-primary-${item.name}`"
+        class="nochildren-links"
+      >
+        <SmartLink
+          class="nochildren-link underline-hover"
+          :to="item.to"
+          :link-target="item.target"
+        >
           {{ item.name }}
         </SmartLink>
       </li>
     </ul>
 
-    <div v-if="!title" class="support-links">
-      <div v-for="item in supportLinks" :key="`nav-primary-support-${item.name}`" class="item-top">
-        <SmartLink class="support-link underline-hover" :to="item.to">
+    <div
+      v-if="!title"
+      class="support-links"
+    >
+      <div
+        v-for="item in supportLinks"
+        :key="`nav-primary-support-${item.name}`"
+        class="item-top"
+      >
+        <SmartLink
+          class="support-link underline-hover"
+          :to="item.to"
+        >
           {{ item.name }}
         </SmartLink>
       </div>
     </div>
 
     <div class="background-white" />
-    <div v-if="isOpened" class="background-blue" @click="toggleMenu" />
-    <div v-if="isOpened" class="click-blocker" @click="toggleMenu" />
+    <div
+      v-if="isOpened"
+      class="background-blue"
+      @click="toggleMenu"
+    />
+    <div
+      v-if="isOpened"
+      class="click-blocker"
+      @click="toggleMenu"
+    />
   </nav>
 </template>
 
@@ -301,5 +363,4 @@ function clearActive() {
       }
     }
   }
-}
-</style>
+}</style>

@@ -74,7 +74,7 @@ const props = defineProps({
 const route = useRoute()
 
 const isImpactReport = computed(() => {
-  return !!route.path.includes('impact')
+  return route !== undefined && route.path.includes("impact") ? true : false
 })
 
 const parsedTarget = computed(() => {
@@ -88,7 +88,7 @@ const parsedDate = computed(() => {
   return ''
 })
 
-const parsedTime = computed (() => {
+const parsedTime = computed(() => {
   if (props.startDate && props.sectionHandle === 'event')
     return formatTimes(props.startDate, props.endDate)
 
@@ -111,8 +111,17 @@ const parsedLocations = computed(() => {
 
 <template>
   <div class="card-meta">
-    <div v-if="category" class="category" v-html="category" />
-    <SmartLink v-if="to" :link-target="parsedTarget" :to="to" class="title">
+    <div
+      v-if="category"
+      class="category"
+      v-html="category"
+    />
+    <SmartLink
+      v-if="to"
+      :link-target="parsedTarget"
+      :to="to"
+      class="title"
+    >
       {{ title }}
       <span
         v-if="alternativeFullName"
@@ -121,22 +130,51 @@ const parsedLocations = computed(() => {
         v-html="alternativeFullName"
       />
     </SmartLink>
-    <h3 v-else class="title-no-link" v-html="title" />
+    <h3
+      v-else
+      class="title-no-link"
+      v-html="title"
+    />
 
-    <div v-if="bylineOne || bylineTwo" class="byline-group">
-      <div v-if="bylineOne" class="schedule-item" v-html="bylineOne" />
-      <div v-if="bylineTwo" class="schedule-item" v-html="bylineTwo" />
+    <div
+      v-if="bylineOne || bylineTwo"
+      class="byline-group"
+    >
+      <div
+        v-if="bylineOne"
+        class="schedule-item"
+        v-html="bylineOne"
+      />
+      <div
+        v-if="bylineTwo"
+        class="schedule-item"
+        v-html="bylineTwo"
+      />
     </div>
 
-    <div v-if="startDate || ongoing" class="date-time">
+    <div
+      v-if="startDate || ongoing"
+      class="date-time"
+    >
       <div v-if="ongoing">
         Ongoing
       </div>
-      <time v-if="startDate" class="schedule-item" v-html="parsedDate" />
-      <time v-if="startDate" class="schedule-item" v-html="parsedTime" />
+      <time
+        v-if="startDate"
+        class="schedule-item"
+        v-html="parsedDate"
+      />
+      <time
+        v-if="startDate"
+        class="schedule-item"
+        v-html="parsedTime"
+      />
     </div>
 
-    <div v-if="locations.length" class="location-group">
+    <div
+      v-if="locations.length"
+      class="location-group"
+    >
       <IconWithLink
         v-for="(location, index) in parsedLocations"
         :key="`location-card-meta${index}`"
@@ -145,97 +183,109 @@ const parsedLocations = computed(() => {
         :to="location.to"
       />
     </div>
-    <RichText v-if="text" class="text" :rich-text-content="text" />
+    <RichText
+      v-if="text"
+      class="text"
+      :rich-text-content="text"
+    />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .card-meta {
   .meta {
-      z-index: 10;
-      width: 100%;
+    z-index: 10;
+    width: 100%;
   }
-  .category {
-      @include overline;
-      color: var(--color-primary-blue-05);
-      margin-top: var(--space-xs);
-      margin-bottom: var(--space-s);
-  }
-  .title {
-      @include card-clickable-area;
-      display: block;
 
-      .translation {
-          display: block;
-      }
+  .category {
+    @include overline;
+    color: var(--color-primary-blue-05);
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-s);
   }
+
+  .title {
+    @include card-clickable-area;
+    display: block;
+
+    .translation {
+      display: block;
+    }
+  }
+
   .title,
   .title-no-link {
-      @include step-1;
-      color: var(--color-primary-blue-03);
-      margin: var(--space-s) 0;
-      line-height: $line-height--1;
+    @include step-1;
+    color: var(--color-primary-blue-03);
+    margin: var(--space-s) 0;
+    line-height: $line-height--1;
   }
 
   .date-time {
-      @include step-0;
-      color: var(--color-secondary-grey-05);
-      margin: $component-02 + px 0 var(--space-s);
-      display: flex;
-      flex-direction: column;
-      .svg-online {
-          margin-bottom: -5px;
-          margin-left: 10px;
-          padding-left: 10px;
-          border-left: 1px solid var(--color-secondary-grey-02);
-      }
-  }
-  .byline-group {
-      display: flex;
-      flex-direction: column;
-      @include step-0;
-      color: var(--color-secondary-grey-04);
-      margin: var(--space-s) 0;
-  }
-  .text {
-      @include step-0;
-      color: var(--color-black);
-      @include truncate(4);
-      max-width: none;
-      padding-right: 0;
-      margin-top: var(--space-s);
+    @include step-0;
+    color: var(--color-secondary-grey-05);
+    margin: $component-02 + px 0 var(--space-s);
+    display: flex;
+    flex-direction: column;
 
-      :deep(strong) {
-          font-weight: 500;
-      }
+    .svg-online {
+      margin-bottom: -5px;
+      margin-left: 10px;
+      padding-left: 10px;
+      border-left: 1px solid var(--color-secondary-grey-02);
+    }
   }
+
+  .byline-group {
+    display: flex;
+    flex-direction: column;
+    @include step-0;
+    color: var(--color-secondary-grey-04);
+    margin: var(--space-s) 0;
+  }
+
+  .text {
+    @include step-0;
+    color: var(--color-black);
+    @include truncate(4);
+    max-width: none;
+    padding-right: 0;
+    margin-top: var(--space-s);
+
+    :deep(strong) {
+      font-weight: 500;
+    }
+  }
+
   .location-group {
-      color: var(--color-primary-blue-03);
-      font-family: var(--font-secondary);
-      line-height: 1;
-      margin-bottom: var(--space-s);
-      display: flex;
-      flex-direction: column;
+    color: var(--color-primary-blue-03);
+    font-family: var(--font-secondary);
+    line-height: 1;
+    margin-bottom: var(--space-s);
+    display: flex;
+    flex-direction: column;
   }
+
   .icon-with-link {
-      position: relative;
-      z-index: 20;
+    position: relative;
+    z-index: 20;
   }
 
   // Breakpoints
   @media #{$medium} {
-      .text {
-          margin-top: 0;
-      }
+    .text {
+      margin-top: 0;
+    }
   }
 
   // Hovers
   @media #{$has-hover} {
-      &:hover {
-          .title {
-              @include link-hover;
-          }
+    &:hover {
+      .title {
+        @include link-hover;
       }
+    }
   }
 }
 </style>
