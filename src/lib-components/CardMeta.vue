@@ -74,7 +74,7 @@ const props = defineProps({
 const route = useRoute()
 
 const isImpactReport = computed(() => {
-  return !!(route !== undefined && route.path.includes('impact'))
+  return route !== undefined && route.path.includes("impact") ? true : false
 })
 
 const parsedTarget = computed(() => {

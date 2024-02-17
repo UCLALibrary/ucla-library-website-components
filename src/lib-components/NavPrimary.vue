@@ -363,5 +363,4 @@ function clearActive() {
       }
     }
   }
-}
-</style>
+}</style>
