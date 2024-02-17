@@ -1,3 +1,10 @@
+# [2.39.0-alpha.40](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.39...v2.39.0-alpha.40) (2024-02-17)
+
+
+### Bug Fixes
+
+* remove duplicate color which was causing hydration error ([#454](https://github.com/UCLALibrary/ucla-library-website-components/issues/454)) ([260f208](https://github.com/UCLALibrary/ucla-library-website-components/commit/260f208de65fd7e953ee7e2d7a82dbd5ff53d937))
+
 # [2.39.0-alpha.39](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.38...v2.39.0-alpha.39) (2024-02-17)
 
 

@@ -33,7 +33,7 @@ const sectionName = computed(() => {
     props.color
     || (route !== undefined && route.path
       ? getSectionName(route.path)
-      : 'color-default')
+      : 'default')
   )
 })
 
