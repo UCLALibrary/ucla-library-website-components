@@ -1,7 +1,7 @@
-import FlexiblePullQuote from "@/lib-components/Flexible/PullQuote"
+import FlexiblePullQuote from '@/lib-components/Flexible/PullQuote'
 
 export default {
-  title: "FLEXIBLE / Pull Quote",
+  title: 'FLEXIBLE / Pull Quote',
   component: FlexiblePullQuote,
 }
 
@@ -9,11 +9,11 @@ const mock = {
   pullQuote: [
     {
       text: 'There are three ways to ultimate success: <a href="https://blog.iamsecond.com/mister-rogers">The first way is to be kind</a>. The second way is to be kind. The third way is to be kind.',
-      attribution: "Mr. Rodgers",
+      attribution: 'Mr. Rodgers',
     },
     {
-      text: "Better is the enemy of good.",
-      attribution: "Voltaire",
+      text: 'Better is the enemy of good.',
+      attribution: 'Voltaire',
     },
   ],
 }

@@ -6,19 +6,19 @@ import type { FlexiblePullQuote } from '@/types/flexible_types'
 import PullQuote from '@/lib-components/PullQuote.vue'
 
 const { block } = defineProps({
-    block: {
-        type: Object as PropType<FlexiblePullQuote>,
-        default: () => { },
-    },
+  block: {
+    type: Object as PropType<FlexiblePullQuote>,
+    default: () => { },
+  },
 })
 </script>
 
 <template>
-    <PullQuote
-        v-if="block.pullQuote"
-        :text="block.pullQuote[0].text"
-        :attribution="block.pullQuote[0].attribution"
-    />
+  <PullQuote
+    v-if="block.pullQuote"
+    :text="block.pullQuote[0].text"
+    :attribution="block.pullQuote[0].attribution"
+  />
 </template>
 
 <style lang="scss" scoped>

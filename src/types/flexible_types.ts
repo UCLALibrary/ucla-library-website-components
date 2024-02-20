@@ -171,7 +171,7 @@ export interface FlexibleImpactNumberCards extends FlexibleBlock {
 
 export interface FlexiblePullQuote extends FlexibleBlock {
   pullQuote: {
-    text: string,
+    text: string
     attribution: string
   }[]
 }
