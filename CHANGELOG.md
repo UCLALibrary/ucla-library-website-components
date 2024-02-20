@@ -1,3 +1,24 @@
+# [2.39.0-alpha.41](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.40...v2.39.0-alpha.41) (2024-02-17)
+
+
+### Bug Fixes
+
+* check if route exists in cardmeta and navprimary ([#455](https://github.com/UCLALibrary/ucla-library-website-components/issues/455)) ([1b9945e](https://github.com/UCLALibrary/ucla-library-website-components/commit/1b9945ec4b870e141e0e36e41ecc5e528d49545f))
+
+# [2.39.0-alpha.40](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.39...v2.39.0-alpha.40) (2024-02-17)
+
+
+### Bug Fixes
+
+* remove duplicate color which was causing hydration error ([#454](https://github.com/UCLALibrary/ucla-library-website-components/issues/454)) ([260f208](https://github.com/UCLALibrary/ucla-library-website-components/commit/260f208de65fd7e953ee7e2d7a82dbd5ff53d937))
+
+# [2.39.0-alpha.39](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.38...v2.39.0-alpha.39) (2024-02-17)
+
+
+### Bug Fixes
+
+* Fix useroute ([#452](https://github.com/UCLALibrary/ucla-library-website-components/issues/452)) ([c35ab5d](https://github.com/UCLALibrary/ucla-library-website-components/commit/c35ab5d76a14dcded7fe12b31e0b39ba1a453995))
+
 # [2.39.0-alpha.38](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.37...v2.39.0-alpha.38) (2024-02-16)
 
 

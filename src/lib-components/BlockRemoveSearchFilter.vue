@@ -31,9 +31,9 @@ const route = useRoute()
 const sectionName = computed(() => {
   return (
     props.color
-    || (route.path
+    || (route !== undefined && route.path
       ? getSectionName(route.path)
-      : 'color-default')
+      : 'default')
   )
 })
 
@@ -47,7 +47,11 @@ function closeBlockFilter() {
 </script>
 
 <template>
-  <button type="button" :class="classes" @click="closeBlockFilter">
+  <button
+    type="button"
+    :class="classes"
+    @click="closeBlockFilter"
+  >
     <span class="title">{{ title }}</span>
 
     <span class="button-close">
