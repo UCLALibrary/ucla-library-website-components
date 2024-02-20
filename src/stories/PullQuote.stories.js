@@ -6,8 +6,8 @@ export default {
 }
 
 const mock = {
-  text: 'Vestibulum ac nunc blandit elit hendrerit venenatis hendrerit eget dolor. Curabitur a purus vel felis vulputate pretium. Duis ligula quam, faucibus nec gravida eget, vehicula eget mauris. Sed consequat pulvinar nisi, in suscipit est pretium',
-  attribution: 'Duis Blandit',
+  text: 'You get to decide where your time goes. You can either spend it <strong>moving forward</strong>, or you can spend it <a href="https://dothethings.com/always-putting-out-fires-in-business/">putting out fires</a>. You decide. And if you don’t decide, <em>others will decide for you</em>.',
+  attribution: 'Tony Morgan',
 }
 
 export function Default() {
@@ -28,7 +28,7 @@ export function Default() {
 }
 
 const mockNoAttribution = {
-  text: 'Duis ligula quam, faucibus nec gravida eget, vehicula eget mauris. Sed consequat pulvinar nisi, in suscipit.',
+  text: 'If I could reach up and hold a star for every time you have made me smile, <a href="https://earthsky.org/astronomy-essentials/visible-planets-tonight-mars-jupiter-venus-saturn-mercury/">the entire evening sky</a> would be in the palm of my hand.',
 }
 
 export function NoAttribution() {
