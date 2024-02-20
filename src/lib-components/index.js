@@ -38,6 +38,7 @@ export { default as FlexibleCallToActionTwoUp } from './Flexible/CallToActionTwo
 export { default as FlexibleForm } from './Flexible/Form.vue'
 export { default as FlexibleGridGalleryCards } from './Flexible/GridGalleryCards.vue'
 export { default as FlexibleHighlight } from './Flexible/Highlight.vue'
+export { default as FlexibleMediaGallery } from './Flexible/MediaGallery.vue'
 export { default as FlexibleImpactNumberCards } from './Flexible/ImpactNumberCards.vue'
 export { default as FlexibleMediaGalleryBannerImage } from './Flexible/MediaGallery/BannerImage.vue'
 export { default as FlexibleMediaGalleryNewLightbox } from './Flexible/MediaGallery/NewLightbox.vue'
