@@ -16,7 +16,7 @@ const { block } = defineProps({
 })
 
 const expandThumbnails = ref(false)
-const selectionIndex = ref(1)
+const selectionIndex = ref(0)
 const showLightboxModal = ref(false)
 
 // const expand_toggle_text = computed(() => {
