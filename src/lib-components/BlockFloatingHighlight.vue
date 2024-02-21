@@ -90,7 +90,7 @@ const props = defineProps({
 })
 
 const route = useRoute()
-console.log('does this route exist?', JSON.stringify(route))
+// console.log('does this route exist?', JSON.stringify(route))
 const sectionName = computed(() => {
   return (
     props.color
