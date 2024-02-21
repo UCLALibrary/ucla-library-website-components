@@ -65,6 +65,12 @@ export default {
     font-weight: 600;
   }
 
+  :deep(.rich-text) {
+    max-width: none;
+    margin: 0;
+    padding-right: 0;
+  }
+
   // Breakpoints
   @media #{$small} {
     --spacing-text-left: 24px;
