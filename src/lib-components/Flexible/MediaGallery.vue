@@ -1,12 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue'
+import type { PropType } from 'vue'
+
 import FlexibleMediaGalleryBannerImage from '@/lib-components/Flexible/MediaGallery/BannerImage.vue'
 import FlexibleMediaGalleryNewLightbox from '@/lib-components/Flexible/MediaGallery/NewLightbox.vue'
 import FlexibleMediaGalleryThumbnailCard from '@/lib-components/Flexible/MediaGallery/ThumbnailCard.vue'
 
+import type { FlexibleMediaGallery } from '@/types/flexible_types'
+
 const { block } = defineProps({
   block: {
-    type: Object,
+    type: Object as PropType<FlexibleMediaGallery>,
     required: true,
   }
 })
@@ -80,7 +84,7 @@ function toggleThumbnails() {
 //     selectionIndex.value -= 1
 // }
 
-function selectItem(itemIndex) {
+function selectItem(itemIndex: number) {
   selectionIndex.value = itemIndex
   showLightboxModal.value = true
 }
