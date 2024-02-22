@@ -20,6 +20,7 @@ const { items, isMicrosite } = defineProps({
     type: Boolean,
     default: false,
   },
+  
 })
 
 const classes = computed(() => {
