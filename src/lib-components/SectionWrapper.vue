@@ -69,11 +69,25 @@ export default {
 
 <template>
   <section :class="classes">
-    <a v-if="sectionTitle" :id="getId" />
-    <div v-if="sectionTitle" class="section-header">
-      <SectionHeader v-if="sectionTitle" class="section-title" v-text="sectionTitle" />
+    <a
+      v-if="sectionTitle"
+      :id="getId"
+    />
+    <div
+      v-if="sectionTitle"
+      class="section-header"
+    >
+      <SectionHeader
+        v-if="sectionTitle"
+        class="section-title"
+        v-text="sectionTitle"
+      />
 
-      <RichText v-if="sectionSummary" class="section-summary" v-html="sectionSummary" />
+      <RichText
+        v-if="sectionSummary"
+        class="section-summary"
+        v-html="sectionSummary"
+      />
     </div>
 
     <slot />
@@ -111,6 +125,10 @@ export default {
     &.theme-gray {
       --color-theme: var(--color-secondary-grey-01);
       padding: var(--space-2xl) var(--unit-gutter);
+
+      :deep(.byline-group) {
+        color: var(--color-secondary-grey-05);
+      }
     }
 
     &.theme-white {
