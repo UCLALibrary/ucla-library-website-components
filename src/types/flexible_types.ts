@@ -168,3 +168,10 @@ export interface FlexibleHighlightBlock extends FlexibleBlock {
 export interface FlexibleImpactNumberCards extends FlexibleBlock {
   impactNumberCards: FlexibleImpactNumberCard[]
 }
+
+export interface FlexiblePullQuote extends FlexibleBlock {
+  pullQuote: {
+    text: string
+    attribution: string
+  }[]
+}

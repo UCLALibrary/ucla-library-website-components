@@ -1,3 +1,17 @@
+# [2.39.0-alpha.42](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.41...v2.39.0-alpha.42) (2024-02-22)
+
+
+### Features
+
+* APPS:2562 add Flexible/PullQuote component to vue3 ([#457](https://github.com/UCLALibrary/ucla-library-website-components/issues/457)) ([2b209b6](https://github.com/UCLALibrary/ucla-library-website-components/commit/2b209b6089a32c1018bba2acd37f8c67556ad0d1))
+
+# [2.39.0-alpha.41](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.40...v2.39.0-alpha.41) (2024-02-17)
+
+
+### Bug Fixes
+
+* check if route exists in cardmeta and navprimary ([#455](https://github.com/UCLALibrary/ucla-library-website-components/issues/455)) ([1b9945e](https://github.com/UCLALibrary/ucla-library-website-components/commit/1b9945ec4b870e141e0e36e41ecc5e528d49545f))
+
 # [2.39.0-alpha.40](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.39...v2.39.0-alpha.40) (2024-02-17)
 
 
