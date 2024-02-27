@@ -4,6 +4,7 @@ import type { PropType } from 'vue'
 // COMPONENTS
 import RichText from '@/lib-components/RichText.vue'
 
+// TYPESCRPT
 import type { FlexibleRichText } from "@/types/flexible_types"
 
 const { block } = defineProps({
