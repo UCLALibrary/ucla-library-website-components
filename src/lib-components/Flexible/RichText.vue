@@ -1,31 +1,17 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import type { PropType } from 'vue'
-
-import type RichText from "@/types/flexible_types"
 
 // COMPONENTS
 import RichText from '@/lib-components/RichText.vue'
 
+import type { FlexibleRichText } from "@/types/flexible_types"
 
 const { block } = defineProps({
   block: {
-    type: Object,
+    type: Object as PropType<FlexibleRichText>,
     default: () => { },
   },
 })
-
-const parsedContent = computed(() => {
-  const block = []
-  return this.block.richText
-})
-
-// computed: {
-//   parsedContent() {
-//     return this.block.richText
-//   },
-// },
-
 </script>
 
 <template>
@@ -36,7 +22,7 @@ const parsedContent = computed(() => {
       v-html="block.sectionTitle"
     />
 
-    <RichText :rich-text-content="parsedContent" />
+    <RichText :rich-text-content="block.richText" />
   </div>
 </template>
 

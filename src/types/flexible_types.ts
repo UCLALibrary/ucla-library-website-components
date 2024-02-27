@@ -175,3 +175,7 @@ export interface FlexiblePullQuote extends FlexibleBlock {
     attribution: string
   }[]
 }
+
+export interface FlexibleRichText extends FlexibleBlock {
+  richText: string
+}
