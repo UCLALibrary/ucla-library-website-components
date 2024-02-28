@@ -1,3 +1,10 @@
+# [2.39.0-alpha.42](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.41...v2.39.0-alpha.42) (2024-02-22)
+
+
+### Features
+
+* APPS:2562 add Flexible/PullQuote component to vue3 ([#457](https://github.com/UCLALibrary/ucla-library-website-components/issues/457)) ([2b209b6](https://github.com/UCLALibrary/ucla-library-website-components/commit/2b209b6089a32c1018bba2acd37f8c67556ad0d1))
+
 # [2.39.0-alpha.41](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.40...v2.39.0-alpha.41) (2024-02-17)
 
 

@@ -174,3 +174,10 @@ export interface FlexibleMediaGallery extends FlexibleBlock {
   mediaGallery: MediaGalleryItemType[]
   richTextSimplified: string
 }
+
+export interface FlexiblePullQuote extends FlexibleBlock {
+  pullQuote: {
+    text: string
+    attribution: string
+  }[]
+}

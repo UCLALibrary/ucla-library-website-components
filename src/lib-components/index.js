@@ -43,6 +43,7 @@ export { default as FlexibleImpactNumberCards } from './Flexible/ImpactNumberCar
 export { default as FlexibleMediaGalleryBannerImage } from './Flexible/MediaGallery/BannerImage.vue'
 export { default as FlexibleMediaGalleryNewLightbox } from './Flexible/MediaGallery/NewLightbox.vue'
 export { default as FlexibleMediaGalleryThumbnailCard } from './Flexible/MediaGallery/ThumbnailCard.vue'
+export { default as FlexiblePullQuote } from './Flexible/PullQuote.vue'
 export { default as FooterMain } from './FooterMain.vue'
 export { default as FooterPrimary } from './FooterPrimary.vue'
 export { default as FooterSock } from './FooterSock.vue'
