@@ -272,10 +272,6 @@ function setCurrentSlide(currentSlide: number) {
     :deep(.media-item) {
       height: calc(var(--media-height) * 1.2);
     }
-
-    :deep(.glide__slides) {
-      align-items: center;
-    }
   }
 
   @media #{$small} {
@@ -293,10 +289,6 @@ function setCurrentSlide(currentSlide: number) {
 
     :deep(.media-item) {
       height: 100%;
-    }
-
-    :deep(.glide__slides) {
-      align-items: center;
     }
   }
 
