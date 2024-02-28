@@ -207,7 +207,7 @@ const parsedLocations = computed(() => {
               || email
               || addressLink
               || staffDirectoryLink
-              "
+            "
             class="meta-block"
           >
             <div
