@@ -73,6 +73,7 @@
     "dependencies": {
         "date-fns": "^2.30.0",
         "lodash": "^4.17.21",
-        "pinia": "^2.1.6"
+        "pinia": "^2.1.6",
+        "vue3-carousel": "^0.3.1"
     }
 }

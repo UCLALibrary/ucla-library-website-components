@@ -5,6 +5,7 @@ import type { PropType } from 'vue'
 import SvgMoleculeImageStack from 'ucla-library-design-tokens/assets/svgs/molecule-image-stack.svg'
 import MediaItem from '@/lib-components/Media/Item.vue'
 import MediaBadge from '@/lib-components/MediaBadge.vue'
+import RichText from '@/lib-components/RichText.vue'
 import type { MediaItemType } from '@/types/types'
 
 const props = defineProps({
@@ -96,7 +97,7 @@ const classes = computed(() => {
     <div v-if="isHalfWidth" class="text-wrapper">
       <h3 v-if="sectionTitle" class="title" v-text="sectionTitle" />
 
-      <rich-text
+      <RichText
         v-if="sectionSummary"
         class="summary"
         v-html="sectionSummary"
