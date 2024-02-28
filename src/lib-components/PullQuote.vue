@@ -65,6 +65,10 @@ export default {
     padding-right: 0;
   }
 
+  :deep(div) {
+    color: var(--color-primary-blue-03);
+  }
+
   // Breakpoints
   @media #{$small} {
     --spacing-text-left: 24px;
