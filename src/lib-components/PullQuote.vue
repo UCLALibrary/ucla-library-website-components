@@ -59,12 +59,6 @@ export default {
   --spacing-text-left: 64px;
   --container-width: $container-m-text + px;
 
-  :deep(a:link) {
-    font-size: 24px;
-    font-style: italic;
-    font-weight: 600;
-  }
-
   :deep(.rich-text) {
     max-width: none;
     margin: 0;

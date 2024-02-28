@@ -59,7 +59,8 @@ export default {
     }
 
     :deep(p),
-    :deep(li) {
+    :deep(li),
+    :deep(div) {
         color: var(--color-black);
         @include step-0;
         margin: 0 0 var(--space-l) 0;
@@ -151,7 +152,7 @@ export default {
 
     :deep(a) {
         @include link-default;
-        @include step-0;
+        // @include step-0;
         word-wrap: break-word;
 
         &:hover {
@@ -202,7 +203,7 @@ export default {
         list-style-position: outside;
     }
 
-    :deep(ul, li) {
+    :deep(ul li) {
         background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-stroke.svg");
         background-repeat: no-repeat;
         background-position-y: 5px; // This will shift the bullet down as needed
