@@ -4,33 +4,33 @@ import stripCraftURLFromText from '@/utils/stripCraftURLFromText'
 import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 
 export default {
-  name: 'RichText',
-  components: {},
+    name: 'RichText',
+    components: {},
 
-  props: {
-    richTextContent: {
-      type: String,
-      default: '',
+    props: {
+        richTextContent: {
+            type: String,
+            default: '',
+        },
     },
-  },
-  computed: {
-    parsedContent() {
-      const content = stripCraftURLFromText(this.richTextContent)
+    computed: {
+        parsedContent() {
+            const content = stripCraftURLFromText(this.richTextContent)
 
-      return accessibleExternalLinks(content)
+            return accessibleExternalLinks(content)
+        },
     },
-  },
 }
 </script>
 
 <template>
-  <div class="rich-text">
-    <div
-      class="parsed-content"
-      v-html="parsedContent"
-    />
-    <slot />
-  </div>
+    <div class="rich-text">
+        <div
+            class="parsed-content"
+            v-html="parsedContent"
+        />
+        <slot />
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -165,7 +165,7 @@ export default {
     }
 
     :deep(a[target="_blank"]:after) {
-        content: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
+        content: url("ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
         display: inline-block;
         background-size: contain;
         scale: 0.6;
@@ -204,7 +204,7 @@ export default {
     }
 
     :deep(ul li) {
-        background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-stroke.svg");
+        background-image: url("ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-stroke.svg");
         background-repeat: no-repeat;
         background-position-y: 5px; // This will shift the bullet down as needed
         background-size: 24px;
