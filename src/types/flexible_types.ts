@@ -135,6 +135,15 @@ interface FlexibleImpactNumberCard {
   impactNumber: string
 }
 
+interface FlexibleSimpleCard {
+  id: string
+  typeHandle: string
+  title: string
+  summary: string
+  externalLink: string
+  externalResourceUrl: string
+}
+
 // Flexible Components
 
 export interface FlexibleAssociatedTopicCards extends FlexibleBlock {
@@ -174,4 +183,8 @@ export interface FlexiblePullQuote extends FlexibleBlock {
     text: string
     attribution: string
   }[]
+}
+
+export interface FlexibleSimpleCards extends FlexibleBlock {
+  cards: FlexibleSimpleCard[]
 }
