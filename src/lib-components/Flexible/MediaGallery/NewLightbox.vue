@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
 import type { PropType } from 'vue'
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide } from 'vue3-carousel'
 
-// import { Glide, GlideSlide } from "vue-glide-js"
 import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-circle-left.svg'
 import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-circle-right.svg'
 import SvgIconClose from 'ucla-library-design-tokens/assets/svgs/icon-close-large.svg'
@@ -11,9 +12,6 @@ import SmartLink from '../../SmartLink.vue'
 import type { MediaGalleryItemType } from '@/types/types'
 import MediaItem from '@/lib-components/Media/Item.vue'
 
-// import { title } from 'process'
-
-// defineProps is a macro hence we do not need to import it
 const { items, selectedItem } = defineProps({
   items: {
     type: Array as PropType<MediaGalleryItemType[]>,
@@ -35,6 +33,7 @@ const SvgExternalLink = defineAsyncComponent(() =>
     'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
   )
 )
+
 const selectionIndex = ref(selectedItem)
 
 const captionTitle = computed(() => {
@@ -44,22 +43,17 @@ const captionTitle = computed(() => {
 const captionText = computed(() => {
   return items.map(item => item.captionText)
 })
+
 const lightbox = ref<HTMLElement | null>(null) // replacing this.$refs.lightbox
 
 onMounted(() => {
   lightbox.value?.focus()
 })
+
 function closeModal() {
   emit('closeModal')
 }
 
-/* these methods were used by vue-glide-js */
-
-/* function checkCurrentSlide(index: number) {
-    if (index === this.currentSlide) {
-        return "current-slide"
-    }
-} */
 function setCurrentSlide(currentSlide: number) {
   selectionIndex.value = currentSlide
 }
@@ -70,40 +64,50 @@ function setCurrentSlide(currentSlide: number) {
     <button class="button-close" @click="closeModal">
       <SvgIconClose aria-label="Close" />
     </button>
-    <!-- vue-glide ref="slider" :active="selectionIndex" :per-view="1" :rewind="false" class="media-container"
-            type="carousel" @change="setCurrentSlide" -->
-    <div class="media-container">
-      <!-- vue-glide-slide v-for="(item, index) in items" :key="index" -->
-      <div v-for="(item, index) in items" :key="`media-container-${index}`">
+
+    <Carousel v-model="selectionIndex" class="media-container">
+      <Slide v-for="(item, index) in items" :key="`media-container-${index}`">
         <MediaItem
-          :key="`${item.captionTitle}-${index}`" object-fit="contain" :item="item.item" :cover-image="item.coverImage"
+          :key="`${item.captionTitle}-${index}`"
+          object-fit="contain"
+          :item="item.item"
+          :cover-image="item.coverImage"
           :embed-code="item.embedCode"
         />
-      </div>
-      <!-- /vue-glide-slide -->
-      <div>
-        <button v-if="items.length > 1" class="button-prev" :disabled="selectionIndex <= 0" data-glide-dir="<">
-          <SvgIconCaretLeft aria-label="Show previous image" />
-        </button>
-        <button
-          v-if="items.length > 1" class="button-next" :disabled="selectionIndex >= items.length - 1"
-          data-glide-dir=">"
-        >
-          <SvgIconCaretRight aria-label="Show next image" />
-        </button>
-      </div>
-    </div>
-    <!-- /vue-glide -->
+      </Slide>
+    </Carousel>
+
+    <!-- Navigation -->
+    <button
+      v-if="items.length > 1"
+      class="button-prev"
+      :disabled="selectionIndex <= 0"
+      @click="selectionIndex -= 1"
+    >
+      <SvgIconCaretLeft aria-label="Show previous image" />
+    </button>
+    <button
+      v-if="items.length > 1"
+      class="button-next"
+      :disabled="selectionIndex >= items.length - 1"
+      @click="selectionIndex += 1"
+    >
+      <SvgIconCaretRight aria-label="Show next image" />
+    </button>
+
+    <!-- Pagination -->
     <div class="caption-block">
       <div v-if="items.length > 1" class="media-counter" role="tablist">
         <button
-          v-for="index in items.length" :key="`caption-block-${index}`" class="media-counter-item"
-          :disabled="index - 1 === selectionIndex" @click="setCurrentSlide(index - 1)"
+          v-for="index in items.length"
+          :key="`caption-block-${index}`"
+          :disabled="index - 1 === selectionIndex" class="media-counter-item"
+          @click="setCurrentSlide(index - 1)"
         >
           <SvgIconMoleculeBullet />
         </button>
       </div>
-
+      <!-- Captions -->
       <h4 v-if="captionTitle" class="media-object-title" v-text="captionTitle[selectionIndex]" />
       <p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" />
       <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
@@ -122,7 +126,9 @@ function setCurrentSlide(currentSlide: number) {
 </template>
 
 <style lang="scss" scoped>
-/*@import "@/styles/vue-glide.scss";*/
+.carousel__slide {
+  display: block;
+}
 
 .lightbox {
   position: fixed;
@@ -212,24 +218,16 @@ function setCurrentSlide(currentSlide: number) {
     height: var(--media-height);
   }
 
-  .controls {
-    width: 110%;
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: 250px;
-    left: -50px;
-  }
-
-  --media-height-half: calc(var(--media-height) / 2);
-
   .button-prev {
     position: absolute;
-    top: var(--media-height-half);
-    left: calc(-1 * var(--side-column-min-width));
-    justify-self: end;
-    align-self: center;
+    top: calc(var(--media-height) / 1.5);
     color: white;
+
+    grid-row: row 1;
+    grid-column: col 1/span 1;
+    justify-self: end;
+    align-self: end;
+    width: auto;
 
     :deep(.svg__fill--primary-blue-01) {
       fill: none;
@@ -242,11 +240,14 @@ function setCurrentSlide(currentSlide: number) {
 
   .button-next {
     position: absolute;
-    top: var(--media-height-half);
-    right: calc(-1 * var(--side-column-min-width));
-    justify-self: start;
-    align-self: center;
+    top: calc(var(--media-height) / 1.5);
     color: white;
+
+    grid-row: row 1;
+    grid-column: col 3/span 1;
+    justify-self: start;
+    align-self: end;
+    width: auto;
 
     :deep(.svg__fill--primary-blue-01) {
       fill: none;
@@ -261,19 +262,15 @@ function setCurrentSlide(currentSlide: number) {
     --side-column-min-width: 64px;
 
     .button-prev {
-      top: calc(var(--media-width) / 3);
+      top: calc(var(--media-width) / 2);
     }
 
     .button-next {
-      top: calc(var(--media-width) / 3);
+      top: calc(var(--media-width) / 2);
     }
 
     :deep(.media-item) {
       height: calc(var(--media-height) * 1.2);
-    }
-
-    :deep(.glide__slides) {
-      align-items: center;
     }
   }
 
@@ -292,10 +289,6 @@ function setCurrentSlide(currentSlide: number) {
 
     :deep(.media-item) {
       height: 100%;
-    }
-
-    :deep(.glide__slides) {
-      align-items: center;
     }
   }
 

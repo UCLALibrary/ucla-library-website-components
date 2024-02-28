@@ -21,8 +21,8 @@ const props = defineProps({
     default: () => [],
   },
   embedCode: {
-    type: Array,
-    default: () => [],
+    type: String,
+    default: '',
   },
   captionTitle: {
     type: String,
