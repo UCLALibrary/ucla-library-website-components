@@ -79,6 +79,7 @@ function setCurrentSlide(currentSlide: number) {
 
     <!-- Navigation -->
     <button
+      v-if="items.length > 1"
       class="button-prev"
       :disabled="selectionIndex <= 0"
       @click="selectionIndex -= 1"
@@ -86,6 +87,7 @@ function setCurrentSlide(currentSlide: number) {
       <SvgIconCaretLeft aria-label="Show previous image" />
     </button>
     <button
+      v-if="items.length > 1"
       class="button-next"
       :disabled="selectionIndex >= items.length - 1"
       @click="selectionIndex += 1"
