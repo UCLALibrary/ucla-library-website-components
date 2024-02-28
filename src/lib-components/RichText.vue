@@ -4,30 +4,33 @@ import stripCraftURLFromText from '@/utils/stripCraftURLFromText'
 import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 
 export default {
-  name: 'RichText',
-  components: {},
+    name: 'RichText',
+    components: {},
 
-  props: {
-    richTextContent: {
-      type: String,
-      default: '',
+    props: {
+        richTextContent: {
+            type: String,
+            default: '',
+        },
     },
-  },
-  computed: {
-    parsedContent() {
-      const content = stripCraftURLFromText(this.richTextContent)
+    computed: {
+        parsedContent() {
+            const content = stripCraftURLFromText(this.richTextContent)
 
-      return accessibleExternalLinks(content)
+            return accessibleExternalLinks(content)
+        },
     },
-  },
 }
 </script>
 
 <template>
-  <div class="rich-text">
-    <div class="parsed-content" v-html="parsedContent" />
-    <slot />
-  </div>
+    <div class="rich-text">
+        <div
+            class="parsed-content"
+            v-html="parsedContent"
+        />
+        <slot />
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -98,39 +101,51 @@ export default {
         }
     }
 
-    :deep(.figure) {
-        width: 100%;
-        margin: var(--space-s);
-
-        display: flex;
-        flex-direction: column;
+    :deep(img) {
+        height: auto;
+        object-fit: cover;
+        display: inline-block;
     }
 
-    :deep(.image-right) {
+    :deep(figure) {
+        width: 100%;
+        margin: var(--space-s);
+        display: flex;
+        flex-direction: column;
+
+        a[target="_blank"]:after {
+            display: none;
+        }
+    }
+
+    :deep(.image--right) {
         float: right;
         margin-left: var(--space-s);
     }
 
-    :deep(.image-left) {
+    :deep(.image--left) {
         float: left;
         margin-right: var(--space-s);
+    }
+
+    :deep(.image--center) {
+        margin: 0 auto;
+    }
+
+    :deep(.image--half) {
+        width: 50%;
     }
 
     :deep(figcaption) {
         font-family: var(--font-secondary);
         @include step--1;
         color: var(--color-secondary-grey-05);
-        padding: 16px 16px 26px 16px;
+        padding: var(--space-s) var(--space-s) 0 var(--space-s);
     }
 
     :deep(iframe) {
         width: 100%;
         height: 400px;
-        object-fit: cover;
-    }
-
-    :deep(img) {
-        height: auto;
         object-fit: cover;
     }
 
@@ -149,7 +164,7 @@ export default {
     }
 
     :deep(a[target="_blank"]:after) {
-        content: url("ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
+        content: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-external-link.svg");
         display: inline-block;
         background-size: contain;
         scale: 0.6;
@@ -187,8 +202,8 @@ export default {
         list-style-position: outside;
     }
 
-    :deep(ul) li {
-        background-image: url("ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-stroke.svg");
+    :deep(ul, li) {
+        background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-stroke.svg");
         background-repeat: no-repeat;
         background-position-y: 5px; // This will shift the bullet down as needed
         background-size: 24px;
@@ -255,9 +270,26 @@ export default {
     }
 
     @media #{$small} {
-        :deep(.figure) {
+        :deep(figure) {
             width: 100%;
             height: auto;
+            margin: 0;
+        }
+
+        :deep(.image--right) {
+            margin-left: 0;
+        }
+
+        :deep(figcaption) {
+            padding-bottom: var(--space-s);
+        }
+
+        :deep(.image--left) {
+            margin-right: 0;
+        }
+
+        :deep(.image--half) {
+            width: 100%;
         }
 
         :deep(iframe) {
