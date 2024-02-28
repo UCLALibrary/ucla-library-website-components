@@ -1,7 +1,7 @@
 {
     "name": "ucla-library-website-components",
     "private": false,
-    "version": "2.39.0-alpha.42",
+    "version": "2.39.0-alpha.43",
     "main": "dist/ucla-library-website-components.cjs.js",
     "module": "dist/ucla-library-website-components.es.js",
     "files": [
@@ -73,6 +73,7 @@
     "dependencies": {
         "date-fns": "^2.30.0",
         "lodash": "^4.17.21",
-        "pinia": "^2.1.6"
+        "pinia": "^2.1.6",
+        "vue3-carousel": "^0.3.1"
     }
 }

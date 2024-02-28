@@ -1,3 +1,10 @@
+# [2.39.0-alpha.43](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.42...v2.39.0-alpha.43) (2024-02-28)
+
+
+### Features
+
+* APPS-2560 Add FlexibleMediaGallery + Vue3 Carousel ([#458](https://github.com/UCLALibrary/ucla-library-website-components/issues/458)) ([f1212b1](https://github.com/UCLALibrary/ucla-library-website-components/commit/f1212b17e06efb3a8aa67d8894ea016ef1ecb5be))
+
 # [2.39.0-alpha.42](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.41...v2.39.0-alpha.42) (2024-02-22)
 
 

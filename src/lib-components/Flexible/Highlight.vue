@@ -1,4 +1,3 @@
-<!-- eslint-disable no-console -->
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { PropType } from 'vue'
@@ -27,7 +26,6 @@ const parsedList = computed(() => {
   }
   return items
 })
-console.log(parsedList.value)
 
 const parsedItems = computed(() => {
   // Maps values based on content type and external or internal content
@@ -133,7 +131,6 @@ const parsedItems = computed(() => {
         }
       }
       else if (obj.typeHandle === 'externalContent') {
-        console.log(obj.locations)
         return {
           ...obj,
           parsedImage: _get(obj, 'image[0]', undefined),
@@ -156,7 +153,6 @@ const parsedItems = computed(() => {
       }
     })
 })
-console.log(parsedItems.value)
 </script>
 
 <template>
