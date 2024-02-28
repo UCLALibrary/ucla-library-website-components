@@ -19,39 +19,9 @@ const expandThumbnails = ref(false)
 const selectionIndex = ref(0)
 const showLightboxModal = ref(false)
 
-// const expand_toggle_text = computed(() => {
-//   return `${props.block.mediaGallery.length} images ${
-//             expandThumbnails.value ? '-' : '+'
-//           }`
-// })
-
-// const glyphExpandClass = computed(() => {
-//   return [
-//     'glyph-expand',
-//     isExpanded ? 'glyph-expand-minus' : 'glyph-expand-plus',
-//   ]
-// })
-
-// const glyphExpandSVGContent = computed(() => {
-//   // eslint-disable-next-line no-constant-condition
-//   return `<line x1="0%" y1="50%" x2="100%" y2="50%" stroke="black" />${expandThumbnails.value}`
-//     ? ''
-//     : '<line x1="0" y1="80" x2="100" y2="20" stroke="black" />'
-// })
-
 const nItems = computed(() => {
   return block.mediaGallery.length
 })
-
-// const plusMinusIcon = computed(() => {
-//   // These are the "fullwidth" unicode plus (U+FF0B) & minus (U+FF0D)
-//   return expandThumbnails.value ? '－' : '＋'
-// })
-
-// const getMediaGalleryStyle = computed(() => {
-//   // return this.block.mediaGallery.mediaGalleryStyle == "halfWidth"
-//   return !!block.mediaGallery
-// })
 
 const halfWidthTitle = computed(() => {
   return block.mediaGalleryStyle === 'halfWidth'
@@ -73,16 +43,6 @@ function hideLightboxModal() {
 function toggleThumbnails() {
   expandThumbnails.value = !expandThumbnails.value
 }
-
-// function clickNext() {
-//   if (selectionIndex.value + 1 < nItems.value)
-//     selectionIndex.value += 1
-// }
-
-// function clickPrev() {
-//   if (selectionIndex.value > 0)
-//     selectionIndex.value -= 1
-// }
 
 function selectItem(itemIndex: number) {
   selectionIndex.value = itemIndex
