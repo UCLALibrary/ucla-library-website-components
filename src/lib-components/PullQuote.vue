@@ -67,6 +67,10 @@ export default {
 
   :deep(div) {
     color: var(--color-primary-blue-03);
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 150%;
   }
 
   // Breakpoints
