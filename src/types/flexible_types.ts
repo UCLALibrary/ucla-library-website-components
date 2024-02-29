@@ -191,6 +191,10 @@ export interface FlexiblePullQuote extends FlexibleBlock {
   }[]
 }
 
+export interface FlexibleRichText extends FlexibleBlock {
+  richText: string
+}
+
 export interface FlexibleSimpleCards extends FlexibleBlock {
   cards: FlexibleSimpleCard[]
 }

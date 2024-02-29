@@ -43,7 +43,7 @@ const props = defineProps({
     default: '',
   },
   locations: {
-    type: Array as PropType<LocationItemType[] >,
+    type: Array as PropType<LocationItemType[]>,
     default: () => [],
   },
   isOnline: {
@@ -168,12 +168,18 @@ const parsedLocations = computed(() => {
   <div class="banner-text">
     <div :class="classes">
       <div class="banner-text-content-container">
-        <div v-if="category" class="category">
+        <div
+          v-if="category"
+          class="category"
+        >
           <SvgHeadingVector
             class="heading-line"
             aria-hidden="true"
           />
-          <div :class="categoryClasses" v-html="category" />
+          <div
+            :class="categoryClasses"
+            v-html="category"
+          />
         </div>
 
         <div class="content">
@@ -194,24 +200,32 @@ const parsedLocations = computed(() => {
           />
 
           <div
-            v-if="
-              byline
-                || subjectAreas
-                || startDate
-                || phone
-                || email
-                || addressLink
-                || staffDirectoryLink
+            v-if="byline
+              || subjectAreas
+              || startDate
+              || phone
+              || email
+              || addressLink
+              || staffDirectoryLink
             "
             class="meta-block"
           >
-            <div v-if="byline" class="byline-item">
-              <div v-for="(item, index) in byline" :key="`${item}-${index}`">
+            <div
+              v-if="byline"
+              class="byline-item"
+            >
+              <div
+                v-for="(item, index) in byline"
+                :key="`${item}-${index}`"
+              >
                 {{ item }}
               </div>
             </div>
 
-            <div v-if="subjectAreas" class="subject-areas">
+            <div
+              v-if="subjectAreas"
+              class="subject-areas"
+            >
               <div
                 v-for="(item, index) in subjectAreas"
                 :key="`${item.title}-${index}`"
@@ -220,7 +234,10 @@ const parsedLocations = computed(() => {
               </div>
             </div>
 
-            <div v-if="email" class="contact-info">
+            <div
+              v-if="email"
+              class="contact-info"
+            >
               <IconWithLink
                 :text="email"
                 icon-name="svg-icon-email"
@@ -228,7 +245,10 @@ const parsedLocations = computed(() => {
               />
             </div>
 
-            <div v-if="phone" class="contact-info">
+            <div
+              v-if="phone"
+              class="contact-info"
+            >
               <IconWithLink
                 :text="phone"
                 icon-name="svg-icon-phone"
@@ -236,7 +256,10 @@ const parsedLocations = computed(() => {
               />
             </div>
 
-            <div v-if="staffDirectoryLink" class="contact-info">
+            <div
+              v-if="staffDirectoryLink"
+              class="contact-info"
+            >
               <IconWithLink
                 text="View staff directory"
                 icon-name="svg-icon-person"
@@ -244,7 +267,10 @@ const parsedLocations = computed(() => {
               />
             </div>
 
-            <div v-if="addressLink" class="contact-info">
+            <div
+              v-if="addressLink"
+              class="contact-info"
+            >
               <IconWithLink
                 :text="address"
                 icon-name="svg-icon-location"
@@ -252,7 +278,10 @@ const parsedLocations = computed(() => {
               />
             </div>
 
-            <div v-if="startDate || dateCreated" class="schedule">
+            <div
+              v-if="startDate || dateCreated"
+              class="schedule"
+            >
               <time
                 v-if="dateCreated"
                 class="date-created"
@@ -268,13 +297,19 @@ const parsedLocations = computed(() => {
                 class="schedule-item"
                 v-html="parsedTime"
               />
-              <div v-if="isOnline" class="schedule-item">
+              <div
+                v-if="isOnline"
+                class="schedule-item"
+              >
                 Online
               </div>
             </div>
           </div>
 
-          <div v-if="locations.length" class="location-group">
+          <div
+            v-if="locations.length"
+            class="location-group"
+          >
             <IconWithLink
               v-for="location in parsedLocations"
               :key="`location-${location.id}`"
@@ -301,7 +336,10 @@ const parsedLocations = computed(() => {
       </div>
     </div>
 
-    <div v-if="!to && registerEvent" class="block-form-container">
+    <div
+      v-if="!to && registerEvent"
+      class="block-form-container"
+    >
       <BlockForm />
     </div>
   </div>
@@ -349,26 +387,27 @@ const parsedLocations = computed(() => {
   background-image: url("ucla-library-design-tokens/assets/svgs/molecule-half-faceted-dark.svg");
 
   :deep(.icon-with-link) {
-      .link {
-          --link-color: var(--color-white);
+    .link {
+      --link-color: var(--color-white);
 
-          &:hover,
-          &:focus {
-              color: var(--link-color);
-              text-decoration-color: var(--color-default-cyan-02);
-          }
+      &:hover,
+      &:focus {
+        color: var(--link-color);
+        text-decoration-color: var(--color-default-cyan-02);
+      }
+    }
+
+    .icon {
+      --icon-color: var(--color-white);
+      --icon-color-highlight: var(--color-white);
+
+      .svg__stroke--primary-blue-03 {
+        stroke: var(--icon-color);
       }
 
-      .icon {
-        --icon-color: var(--color-white);
-        --icon-color-highlight: var(--color-white);
-        .svg__stroke--primary-blue-03 {
-          stroke: var(--icon-color);
-        }
-
-        .svg__fill--primary-blue-03 {
-          fill: var(--icon-color);
-        }
+      .svg__fill--primary-blue-03 {
+        fill: var(--icon-color);
+      }
 
       .svg__stroke--default-cyan-03 {
         stroke: var(--icon-color-highlight);
@@ -376,10 +415,13 @@ const parsedLocations = computed(() => {
     }
   }
 
-  .text {
-      color: var(--color-white);
+  .text,
+  .text :deep(div),
+  .text :deep(p) {
+    color: var(--color-white);
   }
 }
+
 .banner-text-container {
   margin: 0 auto;
   background-color: var(--background-color);
@@ -388,146 +430,164 @@ const parsedLocations = computed(() => {
   background-position: 100% 50%;
   background-size: contain;
   background-repeat: no-repeat;
-  .category {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      margin-left: -52px;
-      .heading-line {
-          flex-shrink: 0;
-          padding-right: 0;
-      }
-      .text {
-          border: 1px solid var(--color-theme);
-          padding: 14px 24px;
-          margin-left: -10px;
-          clip-path: polygon(17px 0, 100% 0, 100% 100%, 1px 100%);
-          line-height: 1;
-          font-weight: #{$font-weight-regular};
-          font-size: 26px;
 
-          color: var(--category-title-color);
-          text-transform: capitalize;
-      }
+  .category {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: -52px;
+
+    .heading-line {
+      flex-shrink: 0;
+      padding-right: 0;
+    }
+
+    .text {
+      border: 1px solid var(--color-theme);
+      padding: 14px 24px;
+      margin-left: -10px;
+      clip-path: polygon(17px 0, 100% 0, 100% 100%, 1px 100%);
+      line-height: 1;
+      font-weight: #{$font-weight-regular};
+      font-size: 26px;
+
+      color: var(--category-title-color);
+      text-transform: capitalize;
+    }
   }
+
   // Themes for category outline
   --color-theme: var(--color-primary-blue-03);
+
   .color-visit {
-      --color-theme: var(--color-visit-fushia-03);
+    --color-theme: var(--color-visit-fushia-03);
   }
+
   .color-help {
-      --color-theme: var(--color-help-green-03);
+    --color-theme: var(--color-help-green-03);
   }
+
   .color-about {
-      --color-theme: var(--color-about-purple-03);
+    --color-theme: var(--color-about-purple-03);
   }
 
   .banner-text-content-container {
-      padding: 40px 0 0;
-      max-width: $container-l-main + px;
-      margin: auto;
+    padding: 40px 0 0;
+    max-width: $container-l-main + px;
+    margin: auto;
 
-      .category {
-          margin-bottom: var(--space-m);
+    .category {
+      margin-bottom: var(--space-m);
+    }
+
+    .content {
+      max-width: calc(100% - 144px);
+
+      >*:last-child {
+        margin-bottom: 0;
       }
-
-      .content {
-          max-width: calc(100% - 144px);
-
-          > *:last-child {
-              margin-bottom: 0;
-          }
-      }
+    }
   }
+
   .title {
-      @include step-5;
-      color: var(--title-color);
-      margin-bottom: var(--space-m);
+    @include step-5;
+    color: var(--title-color);
+    margin-bottom: var(--space-m);
 
-      .translation {
-          @include step-4;
-          display: block;
-      }
+    .translation {
+      @include step-4;
+      display: block;
+    }
   }
+
   .contact-info {
-      color: var(--color-primary-blue-03);
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 4px;
-      margin-bottom: 4px;
+    color: var(--color-primary-blue-03);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 4px;
   }
-  .content .text {
-      @include step-0;
-      margin-bottom: var(--space-m);
-  }
-  .schedule {
-      @include step-0;
-      text-align: left;
-      color: var(--schedule-item-color);
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-  }
-  .meta-block {
-      display: flex;
-      flex-direction: row;
 
-      margin-bottom: var(--space-m);
+  .content .text {
+    @include step-0;
+    margin-bottom: var(--space-m);
+  }
+
+  .schedule {
+    @include step-0;
+    text-align: left;
+    color: var(--schedule-item-color);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .meta-block {
+    display: flex;
+    flex-direction: row;
+
+    margin-bottom: var(--space-m);
   }
 
   .byline-item,
   .schedule-item,
   .subject-areas,
   .date-created {
-      @include step-0;
-      color: var(--meta-block-color);
+    @include step-0;
+    color: var(--meta-block-color);
   }
 
   .location-group {
-      color: var(--location-color);
-      margin-bottom: var(--space-m);
+    color: var(--location-color);
+    margin-bottom: var(--space-m);
 
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
+
   .location-svg {
-      .location-icon {
-          fill: var(--location-icon-color);
-      }
-      .location-icon-line {
-          stroke: var(--location-icon-color);
-      }
+    .location-icon {
+      fill: var(--location-icon-color);
+    }
+
+    .location-icon-line {
+      stroke: var(--location-icon-color);
+    }
   }
+
   .meta-block {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
+
   .byline-item {
-      @include step-0;
-      color: var(--color-secondary-grey-04);
+    @include step-0;
+    color: var(--color-secondary-grey-04);
   }
+
   .byline-item,
   .schedule-item {
-      &:after {
-          display: none;
-      }
+    &:after {
+      display: none;
+    }
   }
+
   .schedule {
-      flex-direction: column;
+    flex-direction: column;
   }
 
   // Hovers
   @media #{$has-hover} {
-      &.theme-dark {
-          .button-link:hover {
-              background-color: var(--hover-background-color);
-              color: var(--text-color);
-          }
+    &.theme-dark {
+      .button-link:hover {
+        background-color: var(--hover-background-color);
+        color: var(--text-color);
       }
+    }
   }
 }
 
@@ -540,83 +600,94 @@ const parsedLocations = computed(() => {
 // Breakpoints
 @media #{$extra-large} {
   .banner-text-container {
-      .text {
-          max-width: 788px;
-      }
+    .text {
+      max-width: 788px;
+    }
   }
 }
+
 @media #{$medium} {
   .banner-text-container {
-      background-size: contain;
-      .category .text {
-          font-size: 20px;
-      }
-      .category .heading-line {
-          height: 80px;
-      }
-      .category {
-          margin-left: 0;
-      }
-      .banner-text-content-container {
-          padding-left: var(--unit-gutter);
-          padding-top: 40px;
-      }
-      .text {
-          padding-right: 120px;
-      }
+    background-size: contain;
+
+    .category .text {
+      font-size: 20px;
+    }
+
+    .category .heading-line {
+      height: 80px;
+    }
+
+    .category {
+      margin-left: 0;
+    }
+
+    .banner-text-content-container {
+      padding-left: var(--unit-gutter);
+      padding-top: 40px;
+    }
+
+    .text {
+      padding-right: 120px;
+    }
   }
 
   .-container {
-      padding-left: var(--unit-gutter);
-      padding-top: 40px;
+    padding-left: var(--unit-gutter);
+    padding-top: 40px;
   }
 }
 
 @media #{$medium} and (min-width: 928px) {
   .banner-text-container .banner-text-content-container {
-      max-width: 100%;
+    max-width: 100%;
   }
 
   .block-form-container {
-      max-width: 100%;
+    max-width: 100%;
   }
 }
+
 @media #{$small} {
   .banner-text-container {
-      background-image: none;
+    background-image: none;
 
-      .category {
-          margin-left: 0;
-          .text {
-              padding: 12px 16px;
-          }
-      }
-      .banner-text-content-container {
-          padding: 32px;
-      }
-      .banner-text-content-container .content {
-          max-width: 100%;
-      }
+    .category {
+      margin-left: 0;
 
-      .schedule {
-          display: flex;
-          flex-direction: column;
-          padding-left: 0;
-      }
-
-      .location-group {
-          padding-left: 0;
-      }
       .text {
-          padding-left: 0;
-          padding-right: 0;
-          max-width: 100%;
+        padding: 12px 16px;
       }
+    }
+
+    .banner-text-content-container {
+      padding: 32px;
+    }
+
+    .banner-text-content-container .content {
+      max-width: 100%;
+    }
+
+    .schedule {
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+    }
+
+    .location-group {
+      padding-left: 0;
+    }
+
+    .text {
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 100%;
+    }
   }
 
   .block-form-container {
-      max-width: 100%;
-      padding: 32px;
+    max-width: 100%;
+    padding: 32px;
   }
 }
 </style>

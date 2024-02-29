@@ -1,3 +1,10 @@
+# [2.39.0-alpha.44](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.43...v2.39.0-alpha.44) (2024-02-29)
+
+
+### Features
+
+* APPS-2563 Convert Flexible RichText component to vue3 ([#465](https://github.com/UCLALibrary/ucla-library-website-components/issues/465)) ([368dc13](https://github.com/UCLALibrary/ucla-library-website-components/commit/368dc133f3fbe8ffac191039891d86c9a74ff332))
+
 # [2.39.0-alpha.43](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.42...v2.39.0-alpha.43) (2024-02-28)
 
 
