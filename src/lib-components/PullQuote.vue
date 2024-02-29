@@ -73,6 +73,10 @@ export default {
     line-height: 150%;
   }
 
+  :deep(.parsed-content) {
+    margin-bottom: 0;
+  }
+
   // Breakpoints
   @media #{$small} {
     --spacing-text-left: 24px;
