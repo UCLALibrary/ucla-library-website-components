@@ -3,12 +3,11 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 
 // COMPONENTS
+import _get from 'lodash/get'
 import SimpleCards from '@/lib-components/SimpleCards.vue'
 
 // TYPESCRPT
 import type { FlexibleSimpleCards } from '@/types/flexible_types'
-
-import _get from 'lodash/get'
 
 // UTILS
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
