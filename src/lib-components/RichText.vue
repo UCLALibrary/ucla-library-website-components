@@ -25,7 +25,10 @@ export default {
 
 <template>
   <div class="rich-text">
-    <div class="parsed-content" v-html="parsedContent" />
+    <div
+      class="parsed-content"
+      v-html="parsedContent"
+    />
     <slot />
   </div>
 </template>
@@ -56,7 +59,8 @@ export default {
     }
 
     :deep(p),
-    :deep(li) {
+    :deep(li),
+    :deep(div) {
         color: var(--color-black);
         @include step-0;
         margin: 0 0 var(--space-l) 0;
@@ -98,29 +102,46 @@ export default {
         }
     }
 
-    :deep(.figure) {
-        width: 100%;
-        margin: var(--space-s);
-
-        display: flex;
-        flex-direction: column;
+    :deep(img) {
+        height: auto;
+        object-fit: cover;
+        display: inline-block;
     }
 
-    :deep(.image-right) {
+    :deep(figure) {
+        width: 100%;
+        margin: var(--space-s);
+        display: flex;
+        flex-direction: column;
+
+        a[target="_blank"]:after {
+            display: none;
+        }
+    }
+
+    :deep(.image--right) {
         float: right;
         margin-left: var(--space-s);
     }
 
-    :deep(.image-left) {
+    :deep(.image--left) {
         float: left;
         margin-right: var(--space-s);
+    }
+
+    :deep(.image--center) {
+        margin: 0 auto;
+    }
+
+    :deep(.image--half) {
+        width: 50%;
     }
 
     :deep(figcaption) {
         font-family: var(--font-secondary);
         @include step--1;
         color: var(--color-secondary-grey-05);
-        padding: 16px 16px 26px 16px;
+        padding: var(--space-s) var(--space-s) 0 var(--space-s);
     }
 
     :deep(iframe) {
@@ -129,14 +150,9 @@ export default {
         object-fit: cover;
     }
 
-    :deep(img) {
-        height: auto;
-        object-fit: cover;
-    }
-
     :deep(a) {
         @include link-default;
-        @include step-0;
+        // @include step-0;
         word-wrap: break-word;
 
         &:hover {
@@ -187,7 +203,7 @@ export default {
         list-style-position: outside;
     }
 
-    :deep(ul) li {
+    :deep(ul li) {
         background-image: url("ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-stroke.svg");
         background-repeat: no-repeat;
         background-position-y: 5px; // This will shift the bullet down as needed
@@ -255,9 +271,26 @@ export default {
     }
 
     @media #{$small} {
-        :deep(.figure) {
+        :deep(figure) {
             width: 100%;
             height: auto;
+            margin: 0;
+        }
+
+        :deep(.image--right) {
+            margin-left: 0;
+        }
+
+        :deep(figcaption) {
+            padding-bottom: var(--space-s);
+        }
+
+        :deep(.image--left) {
+            margin-right: 0;
+        }
+
+        :deep(.image--half) {
+            width: 100%;
         }
 
         :deep(iframe) {

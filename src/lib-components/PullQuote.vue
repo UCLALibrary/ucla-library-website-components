@@ -59,16 +59,22 @@ export default {
   --spacing-text-left: 64px;
   --container-width: $container-m-text + px;
 
-  :deep(a:link) {
-    font-size: 24px;
-    font-style: italic;
-    font-weight: 600;
-  }
-
   :deep(.rich-text) {
     max-width: none;
     margin: 0;
     padding-right: 0;
+  }
+
+  :deep(div) {
+    color: var(--color-primary-blue-03);
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  :deep(.parsed-content) {
+    margin-bottom: 0;
   }
 
   // Breakpoints

@@ -159,27 +159,23 @@ export default {
     transition-timing-function: ease-in-out;
 
     .message-text {
+      padding: 0;
       margin: 24px 32px 12px;
       max-height: 128px;
       overflow: auto;
-
       color: var(--color-black);
       font-family: var(--font-primary);
       padding: 0;
 
-      :deep(p) {
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 0.01em;
-        line-height: 22px;
-      }
+    }
 
-      :deep(a) {
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 0.01em;
-        line-height: 22px;
-      }
+    .message-text :deep(div) {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 22px;
+      margin: 0;
+      padding: 0;
     }
 
     .button-dismiss {
