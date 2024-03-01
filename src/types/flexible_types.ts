@@ -181,3 +181,7 @@ export interface FlexiblePullQuote extends FlexibleBlock<PullQuote[]> {
     attribution: string
   }[]*/
 }
+
+export interface FlexibleRichText extends FlexibleBlock<string> {
+  // richText: string
+}

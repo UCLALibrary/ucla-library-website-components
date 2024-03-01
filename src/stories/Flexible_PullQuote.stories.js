@@ -6,7 +6,7 @@ export default {
 }
 
 const mock = {
-  pullQuote: [
+  content: [
     {
       text: 'There are three ways to ultimate success: <a href="https://blog.iamsecond.com/mister-rogers">The first way is to be kind</a>. The second way is to be kind. The third way is to be kind.',
       attribution: 'Mr. Rodgers',
@@ -33,7 +33,7 @@ export function Default() {
 }
 
 const mockNoAttribution = {
-  pullQuote: [
+  content: [
     {
       text: 'Human greatness does not lie in wealth or power, but in character and goodness. People are just people, and all people have faults and shortcomings, but all of us are born with a <a href="https://www.good.is/">basic goodness</a>.',
     },

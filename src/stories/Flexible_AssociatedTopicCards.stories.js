@@ -10,8 +10,8 @@ const itemsVertical = {
   typeHandle: 'associatedTopicCards',
   sectionTitle: 'Section Title: Fix Potholes',
   sectionSummary:
-        '<p>Section Summary: Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>',
-  associatedTopicsFlexiblePageBlock: [
+    '<p>Section Summary: Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>',
+  content: [
     {
       id: '13899',
       topics: [
@@ -35,7 +35,7 @@ const itemsVertical = {
           text: '<p>Use this worksheet to brainstorm how you might want to describe items\n within your collection and to hone in your choices before filling out \nthe spreadsheet.</p>',
           uri: null,
           externalResourceUrl:
-                        'https://docs.google.com/document/d/1hyzHX5cWE_Y7aML7XHI29tswnqV44Q0sJsnibu-Krp4/edit',
+            'https://docs.google.com/document/d/1hyzHX5cWE_Y7aML7XHI29tswnqV44Q0sJsnibu-Krp4/edit',
         },
       ],
     },

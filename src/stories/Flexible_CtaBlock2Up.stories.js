@@ -2,7 +2,7 @@ import FlexibleCtaBlock2Up from '@/lib-components/Flexible/CtaBlock2Up.vue'
 
 const mock = {
   typeHandle: 'ctaBlock2Up',
-  ctaBlock2Up: [
+  content: [
     {
       text: 'Parking passes for Cats & Kittens only. Day use, weekly, monthly and annual passes are available now.',
       name: 'Get Parking Passes',

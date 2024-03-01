@@ -9,8 +9,8 @@ const mock = {
   id: '37071',
   sectionTitle: 'Section Title: Impact Number Cards',
   sectionSummary:
-        '<p>Section Summary: Impact Number Cards - Remote Learning by the Numbers: Data from March 2020 through September 2021</p>',
-  impactNumberCards: [
+    '<p>Section Summary: Impact Number Cards - Remote Learning by the Numbers: Data from March 2020 through September 2021</p>',
+  content: [
     {
       id: '37072',
       title: 'HathiTrust Partnership',
