@@ -28,7 +28,7 @@ const { block } = defineProps({
     </div>
     <ul class="impact-number-cards-list">
       <ImpactNumberCard
-        v-for="(item, index) in block.impactNumberCards"
+        v-for="(item, index) in block.content"
         :key="`impactNumberCards${index}`"
         :title="item.title"
         :text="item.text"

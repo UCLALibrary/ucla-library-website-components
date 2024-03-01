@@ -15,9 +15,9 @@ const { block } = defineProps({
 
 <template>
   <PullQuote
-    v-if="block.pullQuote"
-    :text="block.pullQuote[0].text"
-    :attribution="block.pullQuote[0].attribution"
+    v-if="block.content"
+    :text="block.content[0].text"
+    :attribution="block.content[0].attribution"
   />
 </template>
 

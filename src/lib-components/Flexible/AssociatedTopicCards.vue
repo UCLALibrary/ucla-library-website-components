@@ -9,12 +9,12 @@ import stripMeapFromURI from '@/utils/stripMeapFromURI'
 const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleAssociatedTopicCards>,
-    default: () => {},
+    default: () => { },
   },
 })
 
 const parseditems = computed(() => {
-  return block.associatedTopicsFlexiblePageBlock[0].topics.map(
+  return block.content[0].topics.map(
     (obj) => {
       return {
         ...obj,
@@ -29,7 +29,7 @@ const parseditems = computed(() => {
 
 <template>
   <SectionCardsWithIllustrations
-    v-if="block && block.associatedTopicsFlexiblePageBlock"
+    v-if="block && block.content"
     :items="parseditems"
     :section-title="block.sectionTitle"
     :section-summary="block.sectionSummary"
@@ -39,6 +39,5 @@ const parseditems = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.associated-topic-cards {
-}
+.associated-topic-cards {}
 </style>

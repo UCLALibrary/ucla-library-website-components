@@ -16,13 +16,13 @@ const { block } = defineProps({
 
 const parsedList = computed(() => {
   const items = []
-  for (const item in block.highlight) {
+  for (const item in block.content) {
     if (
-      block.highlight[item].typeHandle === 'internalContent'
+      block.content[item].typeHandle === 'internalContent'
     )
-      items.push(block.highlight[item].contentLink[0])
+      items.push(block.content[item].contentLink[0])
     else
-      items.push(block.highlight[item])
+      items.push(block.content[item])
   }
   return items
 })
