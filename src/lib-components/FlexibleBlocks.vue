@@ -33,11 +33,11 @@
   </section-wrapper>
 </template>
 
-<script setup lang="ts">
+<script setup >
 import { computed, defineAsyncComponent } from 'vue'
-import type { PropType } from 'vue'
 
-import type { FlexibleBlock } from '@/types/flexible_types'
+
+
 import _kebabCase from 'lodash/kebabCase'
 import omit from 'lodash/omit'
 import SectionWrapper from './SectionWrapper.vue'
@@ -46,7 +46,7 @@ import SectionHeader from './SectionHeader.vue'
 
 const props = defineProps({
   blocks: {
-    type: Array as PropType<FlexibleBlock[]>,
+    type: Array,
     default: () => [],
   },
 })
@@ -57,10 +57,10 @@ const FlexibleBannerFeatured = defineAsyncComponent(() =>
 )
 
 const FlexibleCallToAction = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/CallToAction')
+  import('@/lib-components/Flexible/CallToAction.vue')
 )
 const FlexibleCtaBlock2Up = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/CtaBlock2Up')
+  import('@/lib-components/Flexible/CtaBlock2Up.vue')
 )
 
 const FlexibleHighlight = defineAsyncComponent(() =>
@@ -74,16 +74,16 @@ const FlexiblePullQuote = defineAsyncComponent(() =>
 )
 /*const FlexibleCardWithImage = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/CardWithImage.vue')
-)
+)*/
 const FlexibleRichText = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/RichText.vue')
 )
-const FlexibleMediaWithText = defineAsyncComponent(() =>
+/*const FlexibleMediaWithText = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/MediaWithText.vue')
-)
+)*/
 const FlexibleMediaGallery = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/MediaGallery.vue')
-)*/
+)
 const FlexibleForm = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/Form.vue')
 )
@@ -100,6 +100,7 @@ const FlexibleGridGalleryCards = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/GridGalleryCards.vue')
 )
 
+
 const components = {
   'flexible-call-to-action': FlexibleCallToAction,
   'flexible-cta-block2-up': FlexibleCtaBlock2Up,
@@ -108,9 +109,9 @@ const components = {
   // 'flexible-simple-cards': FlexibleSimpleCards,
   'flexible-pull-quote': FlexiblePullQuote,
   // 'flexible-card-with-image': FlexibleCardWithImage,
-  // 'flexible-rich-text': FlexibleRichText,
+  'flexible-rich-text': FlexibleRichText,
   // 'flexible-media-with-text': FlexibleMediaWithText,
-  // 'flexible-media-gallery': FlexibleMediaGallery,
+  'flexible-media-gallery': FlexibleMediaGallery,
   'flexible-form': FlexibleForm,
   'flexible-impact-numbers-carousel': FlexibleImpactNumbersCarousel,
   'flexible-associated-topic-cards': FlexibleAssociatedTopicCards,
@@ -133,13 +134,17 @@ const NEVER_GRAY = [
   'flexible-grid-gallery-cards',
 ]
 
+
 const parsedBlocks = computed(() => {
   // Map over the blocks and add additional properties to each block
   let output = props.blocks.map((obj) => ({
+
     ...obj, // Spread the properties of the original block
     componentName: convertName(obj.typeHandle), // Convert the typeHandle to a component name
     theme: 'white', // Set the default theme to 'white'
     needsDivider: false, // Set the default divider need to false
+
+
   }))
 
   // Iterate over the blocks to set the theme and divider need
@@ -172,9 +177,17 @@ const parsedBlocks = computed(() => {
 function convertName(typeHandle) {
   return _kebabCase(`flexible-${typeHandle}`)
 }
+// Type guard to check if a ContentType is a FlexibleMediaGallery
+function isFlexibleMediaGallery(block) {
+  return block.mediaGalleryStyle !== undefined;
+}
 
 function sectionTitle(block) {
-  return block.mediaGalleryStyle == 'halfWidth' ? '' : block.sectionTitle
+  // Use the type guard to narrow down the type
+  if (isFlexibleMediaGallery(block)) {
+    // TypeScript now knows block is FlexibleMediaGallery, so it's safe to access mediaGalleryStyle
+    return block.mediaGalleryStyle == 'halfWidth' ? '' : block.sectionTitle;
+  }
 }
 
 function sectionSummary(block) {

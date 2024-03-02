@@ -20,7 +20,7 @@ const selectionIndex = ref(0)
 const showLightboxModal = ref(false)
 
 const nItems = computed(() => {
-  return block.mediaGallery.length
+  return block.content.length
 })
 
 const halfWidthTitle = computed(() => {
@@ -54,7 +54,7 @@ function selectItem(itemIndex: number) {
   <section class="media-gallery">
     <FlexibleMediaGalleryNewLightbox
       v-if="showLightboxModal"
-      :items="block.mediaGallery"
+      :items="block.content"
       :selected-item="selectionIndex"
       tabindex="0"
       @close-modal="hideLightboxModal"
@@ -62,10 +62,10 @@ function selectItem(itemIndex: number) {
     />
 
     <FlexibleMediaGalleryBannerImage
-      v-if="block.mediaGallery && block.mediaGallery[selectionIndex].item"
-      :item="block.mediaGallery[selectionIndex].item"
-      :cover-image="block.mediaGallery[selectionIndex].coverImage"
-      :embed-code="block.mediaGallery[selectionIndex].embedCode"
+      v-if="block.content && block.content[selectionIndex].item"
+      :item="block.content[selectionIndex].item"
+      :cover-image="block.content[selectionIndex].coverImage"
+      :embed-code="block.content[selectionIndex].embedCode"
       :n-items="nItems"
       :expanded="expandThumbnails"
       :is-half-width="block.mediaGalleryStyle"
@@ -74,9 +74,12 @@ function selectItem(itemIndex: number) {
       @toggle-thumbnails="toggleThumbnails"
     />
 
-    <div v-if="expandThumbnails" class="thumbnails">
+    <div
+      v-if="expandThumbnails"
+      class="thumbnails"
+    >
       <FlexibleMediaGalleryThumbnailCard
-        v-for="(item, index) in block.mediaGallery"
+        v-for="(item, index) in block.content"
         :key="item.id"
         v-bind="item"
         @click="selectItem(index)"
@@ -90,13 +93,12 @@ function selectItem(itemIndex: number) {
   background-color: var(--color-theme, var(--color-white));
 
   .thumbnails {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
-      column-gap: var(--space-m);
-      row-gap: var(--space-xl);
-      padding-top: var(--space-xl);
-      list-style-type: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
+    column-gap: var(--space-m);
+    row-gap: var(--space-xl);
+    padding-top: var(--space-xl);
+    list-style-type: none;
   }
-}
-</style>
+}</style>

@@ -1,5 +1,6 @@
-import type { BlockCallToActionTwoUpType, LocationItemType, MediaItemType } from '@/types/types'
+import type { BlockCallToActionTwoUpType, LocationItemType, MediaGalleryItemType, MediaItemType } from '@/types/types'
 
+export type BlocksType<T> = T[]
 
 // Reusable block declaration for Flexible Components
 // A generic flexible block that can contain any type of content, making it versatile for different uses.
@@ -139,49 +140,58 @@ interface FlexibleImpactNumberCard {
 
 // Flexible Components
 
-export interface FlexibleAssociatedTopicCards extends FlexibleBlock<AssociatedTopicsPage[]> {
-  // associatedTopicsFlexiblePageBlock: AssociatedTopicsPage[]
-}
+export type FlexibleAssociatedTopicCards = FlexibleBlock<AssociatedTopicsPage[]>
+//{
+// associatedTopicsFlexiblePageBlock: AssociatedTopicsPage[]
+//}
 
-export interface FlexibleBannerFeatured extends FlexibleBlock<FlexibleBannerContent[]> {
+export type FlexibleBannerFeatured = FlexibleBlock<FlexibleBannerContent[]>  /*{
   // content: FlexibleBannerContent[]
-}
+}*/
 
-export interface FlexibleCallToAction extends FlexibleBlock<FlexibleCallToActionItem[]> {
+export type FlexibleCallToAction = FlexibleBlock<FlexibleCallToActionItem[]>  /*{
   // callToAction: FlexibleCallToActionItem[]
-}
+}*/
 
-export interface FlexibleCallToAction2Up extends FlexibleBlock<BlockCallToActionTwoUpType[]> {
+export type FlexibleCallToAction2Up = FlexibleBlock<BlockCallToActionTwoUpType[]>  /*{
   // ctaBlock2Up: BlockCallToActionTwoUpType[]
-}
+}*/
 
-export interface FlexibleForm extends FlexibleBlock<string> {
+export type FlexibleForm = FlexibleBlock<string>  /*{
   // form: string
-}
+}*/
 
-export interface FlexibleGridGallery extends FlexibleBlock<FlexibleGridGalleryCard[]> {
+export type FlexibleGridGallery = FlexibleBlock<FlexibleGridGalleryCard[]>  /*{
   // gridGalleryCards: FlexibleGridGalleryCard[]
-}
+}*/
 
-export interface FlexibleHighlightBlock extends FlexibleBlock<FlexibleHighlight[]> {
+export type FlexibleHighlightBlock = FlexibleBlock<FlexibleHighlight[]>  /*{
   // highlight: FlexibleHighlight[]
-}
+}*/
 
-export interface FlexibleImpactNumberCards extends FlexibleBlock<FlexibleImpactNumberCard[]> {
+export type FlexibleImpactNumberCards = FlexibleBlock<FlexibleImpactNumberCard[]>  /*{
   // impactNumberCards: FlexibleImpactNumberCard[]
+}*/
+
+export type FlexibleMediaGallery = FlexibleBlock<MediaGalleryItemType[]> & {
+  mediaGalleryStyle: string
+  //mediaGallery: MediaGalleryItemType[]
+  richTextSimplified: string
 }
 
 interface PullQuote {
   text: string
   attribution: string
 }
-export interface FlexiblePullQuote extends FlexibleBlock<PullQuote[]> {
+export type FlexiblePullQuote = FlexibleBlock<PullQuote[]> /* {
   /*pullQuote: {
     text: string
     attribution: string
-  }[]*/
-}
+  }[]
+}*/
 
-export interface FlexibleRichText extends FlexibleBlock<string> {
+export type FlexibleRichText = FlexibleBlock<string> /*{
   // richText: string
-}
+}*/
+// Extend as needed
+export type ContentType = FlexibleAssociatedTopicCards | FlexibleBannerFeatured | FlexibleCallToActionItem | FlexibleCallToAction2Up | FlexibleForm | FlexibleGridGallery | FlexibleHighlightBlock | FlexibleImpactNumberCards | FlexibleMediaGallery | FlexiblePullQuote | FlexibleRichText
