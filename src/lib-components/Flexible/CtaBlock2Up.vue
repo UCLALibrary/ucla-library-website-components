@@ -9,12 +9,12 @@ import BlockCallToActionTwoUp from '@/lib-components/BlockCallToActionTwoUp.vue'
 const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleCallToAction2Up>,
-    default: () => {},
+    default: () => { },
   },
 })
 
 const parsedItems = computed(() => {
-  return block.ctaBlock2Up
+  return block.content
 })
 </script>
 

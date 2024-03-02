@@ -9,12 +9,12 @@ import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleCallToAction>,
-    default: () => {},
+    default: () => { },
   },
 })
 
 const parsedItems = computed(() => {
-  return block.callToAction[0]
+  return block.content[0]
 })
 </script>
 

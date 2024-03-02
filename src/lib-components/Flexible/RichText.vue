@@ -23,7 +23,7 @@ const { block } = defineProps({
       v-html="block.sectionTitle"
     />
 
-    <RichText :rich-text-content="block.richText" />
+    <RichText :rich-text-content="block.content" />
   </div>
 </template>
 

@@ -3,7 +3,7 @@ import FlexibleCallToAction from '@/lib-components/Flexible/CallToAction'
 const mock = {
   id: '16983',
   typeHandle: 'callToAction',
-  callToAction: [
+  content: [
     {
       id: '16984',
       titleCta: 'Call to Action',

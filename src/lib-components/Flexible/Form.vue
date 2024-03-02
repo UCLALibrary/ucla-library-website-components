@@ -3,15 +3,15 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 import type { FlexibleForm } from '@/types/flexible_types'
 
-const { block } = defineProps ({
+const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleForm>,
-    default: () => {},
+    default: () => { },
   },
 })
 
 const parsedFormContent = computed(() => {
-  return block.form
+  return block.content
 })
 </script>
 
@@ -54,29 +54,31 @@ const parsedFormContent = computed(() => {
   max-width: $container-l-main + px;
 
   .content {
-      border: 2px var(--color-primary-blue-01) solid;
-      border-radius: 4px;
+    border: 2px var(--color-primary-blue-01) solid;
+    border-radius: 4px;
   }
 
   .section-header {
-      margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-xl);
   }
-  .section-title {
-      @include step-3;
-      color: var(--color-primary-blue-03);
-      margin-bottom: var(--space-m);
-  }
-  .section-summary {
-      @include step-0;
 
-      :deep(p) {
-          margin: 0;
-      }
+  .section-title {
+    @include step-3;
+    color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-m);
+  }
+
+  .section-summary {
+    @include step-0;
+
+    :deep(p) {
+      margin: 0;
+    }
   }
 
   .iframe {
-      max-width: 928px;
-      padding: 4px;
+    max-width: 928px;
+    padding: 4px;
   }
 }
 </style>

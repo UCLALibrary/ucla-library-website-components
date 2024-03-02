@@ -9,7 +9,7 @@ const mock = {
   id: '40361',
   sectionTitle: 'Section Title: Grid Gallery Cards',
   sectionSummary: '<p>Section Summary: Grid Gallery Cards</p>',
-  gridGalleryCards: [
+  content: [
     {
       id: '40362',
       contentLink: [
@@ -17,7 +17,7 @@ const mock = {
           contentType: 'article',
           title: 'La Niña',
           snippet:
-                        '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+            '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
           to: 'about/news/la-niña',
           heroImage: [
             {

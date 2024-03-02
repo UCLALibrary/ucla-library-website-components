@@ -1,8 +1,8 @@
-import FlexibleCallToActionTwoUp from '@/lib-components/Flexible/CallToActionTwoUp.vue'
+import FlexibleCtaBlock2Up from '@/lib-components/Flexible/CtaBlock2Up.vue'
 
 const mock = {
   typeHandle: 'ctaBlock2Up',
-  ctaBlock2Up: [
+  content: [
     {
       text: 'Parking passes for Cats & Kittens only. Day use, weekly, monthly and annual passes are available now.',
       name: 'Get Parking Passes',
@@ -26,7 +26,7 @@ const mock = {
 
 export default {
   title: 'FLEXIBLE / Call To Action 2 Up',
-  component: FlexibleCallToActionTwoUp,
+  component: FlexibleCtaBlock2Up,
 }
 
 export function Default() {
@@ -34,9 +34,9 @@ export function Default() {
     data() {
       return { block: mock }
     },
-    components: { FlexibleCallToActionTwoUp },
+    components: { FlexibleCtaBlock2Up },
     template: `
-        <flexible-call-to-action-two-up
+        <flexible-Cta-Block-2-Up
             :block="block"
         />
     `,

@@ -8,23 +8,23 @@ import type { FlexibleGridGallery } from '@/types/flexible_types'
 import GridGallery from '@/lib-components/GridGallery.vue'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
-const { block } = defineProps ({
+const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleGridGallery>,
-    default: () => {},
+    default: () => { },
   },
 })
 
 function flattenTimeLineStructure(galleryData: FlexibleGridGallery) {
   const flattenedValues = []
-  for (const subitem of galleryData.gridGalleryCards) {
+  for (const subitem of galleryData.content) {
     const obj: GridGalleryItemType = {}
     obj.headlineText
-                  = subitem.contentLink && subitem.contentLink[0]
+      = subitem.contentLink && subitem.contentLink[0]
         ? subitem.contentLink[0].headlineText
         : subitem.headlineText
     obj.snippet
-                  = subitem.contentLink && subitem.contentLink[0]
+      = subitem.contentLink && subitem.contentLink[0]
         ? subitem.contentLink[0].snippet
         : subitem.snippet
     obj.featured = subitem.featured === 'true'
@@ -34,9 +34,9 @@ function flattenTimeLineStructure(galleryData: FlexibleGridGallery) {
         : subitem.to
     )
     obj.image
-                  = subitem.contentLink
-                  && subitem.contentLink[0]
-                  && subitem.contentLink[0].heroImage
+      = subitem.contentLink
+        && subitem.contentLink[0]
+        && subitem.contentLink[0].heroImage
         ? subitem.contentLink[0].heroImage[0].image[0]
         : subitem.image
           ? subitem.image[0]
@@ -56,10 +56,9 @@ const parseGalleryCards = computed(() => {
 <template>
   <div class="grid-gallery-cards">
     <div
-      v-if="
-        (block.gridGalleryCards && block.gridGalleryCards.length > 0)
-          || block.sectionTitle
-      "
+      v-if="(block.gridGalleryCards && block.gridGalleryCards.length > 0)
+        || block.sectionTitle
+        "
       class="section-header"
     >
       <h2
@@ -88,21 +87,22 @@ const parseGalleryCards = computed(() => {
   position: relative;
 
   .section-header {
-      margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-xl);
   }
 
   .section-title {
-      @include step-3;
-      color: var(--color-primary-blue-03);
-      margin-bottom: var(--space-m);
+    @include step-3;
+    color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-m);
   }
-  .section-summary {
-      @include step-0;
-      color: var(--color-black);
 
-      :deep(p) {
-          margin: 0;
-      }
+  .section-summary {
+    @include step-0;
+    color: var(--color-black);
+
+    :deep(p) {
+      margin: 0;
+    }
   }
 }
 </style>
