@@ -1,39 +1,4 @@
-<template>
-  <section-wrapper
-    class="flexible-blocks"
-    :no-margins="true"
-  >
-    <section-header class="more-information">More Information</section-header>
-    <!--{{ parsedBlocks }}
-    <br>
-    {{ blocks }} -->
-    <div
-      v-for="(block, index) in parsedBlocks"
-      :key="index"
-    >
-      <section-wrapper
-        v-if="block.needsDivider"
-        theme="divider"
-      >
-        <DividerWayFinder />
-      </section-wrapper>
-
-      <section-wrapper
-        :theme="block.theme"
-        :section-title="sectionTitle(block)"
-        :section-summary="sectionSummary(block)"
-      >
-        <component
-          :is="getComponent(block.componentName)"
-          :block="block.mediaGalleryStyle == 'halfWidth' ? block : omit(block, ['sectionTitle', 'sectionSummary'])"
-          class="flexible-block"
-        />
-      </section-wrapper>
-    </div>
-  </section-wrapper>
-</template>
-
-<script setup >
+<script setup>
 import { computed, defineAsyncComponent } from 'vue'
 import _kebabCase from 'lodash/kebabCase'
 import omit from 'lodash/omit'
@@ -63,21 +28,21 @@ const FlexibleCtaBlock2Up = defineAsyncComponent(() =>
 const FlexibleHighlight = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/Highlight.vue')
 )
-/*const FlexibleSimpleCards = defineAsyncComponent(() =>
+/* const FlexibleSimpleCards = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/SimpleCards.vue')
-)*/
+) */
 const FlexiblePullQuote = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/PullQuote.vue')
 )
-/*const FlexibleCardWithImage = defineAsyncComponent(() =>
+/* const FlexibleCardWithImage = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/CardWithImage.vue')
-)*/
+) */
 const FlexibleRichText = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/RichText.vue')
 )
-/*const FlexibleMediaWithText = defineAsyncComponent(() =>
+/* const FlexibleMediaWithText = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/MediaWithText.vue')
-)*/
+) */
 const FlexibleMediaGallery = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/MediaGallery.vue')
 )
@@ -96,7 +61,6 @@ const FlexibleImpactNumberCards = defineAsyncComponent(() =>
 const FlexibleGridGalleryCards = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/GridGalleryCards.vue')
 )
-
 
 const components = {
   'flexible-call-to-action': FlexibleCallToAction,
@@ -131,16 +95,14 @@ const NEVER_GRAY = [
   'flexible-grid-gallery-cards',
 ]
 
-
 const parsedBlocks = computed(() => {
   // Map over the blocks and add additional properties to each block
-  let output = props.blocks.map((obj) => ({
+  const output = props.blocks.map(obj => ({
 
     ...obj, // Spread the properties of the original block
     componentName: convertName(obj.typeHandle), // Convert the typeHandle to a component name
     theme: 'white', // Set the default theme to 'white'
     needsDivider: false, // Set the default divider need to false
-
 
   }))
 
@@ -149,22 +111,20 @@ const parsedBlocks = computed(() => {
     // If the block is not the first one, the previous block's theme is 'white',
     // the block's component name is not in the NEVER_GRAY list, and the block is not the last one
     if (
-      index > 0 &&
-      arr[index - 1].theme == 'white' &&
-      !NEVER_GRAY.includes(block.componentName) &&
-      index < arr.length - 1
-    ) {
+      index > 0
+      && arr[index - 1].theme === 'white'
+      && !NEVER_GRAY.includes(block.componentName)
+      && index < arr.length - 1
+    )
       block.theme = 'gray' // Set the block's theme to 'gray'
-    }
 
     // If the block is not the first one, and both the block and the previous block have a theme of 'white'
     if (
-      index > 0 &&
-      block.theme == 'white' &&
-      arr[index - 1].theme == 'white'
-    ) {
+      index > 0
+      && block.theme === 'white'
+      && arr[index - 1].theme === 'white'
+    )
       block.needsDivider = true // Set the block's divider need to true
-    }
   })
 
   // Filter the blocks to only include those whose component name is a key in the components object
@@ -176,25 +136,62 @@ function convertName(typeHandle) {
 }
 // Type guard to check if a ContentType is a FlexibleMediaGallery
 function isFlexibleMediaGallery(block) {
-  return block.mediaGalleryStyle !== undefined;
+  return block.mediaGalleryStyle !== undefined
 }
 
 function sectionTitle(block) {
   // Use the type guard to narrow down the type
   if (isFlexibleMediaGallery(block)) {
     // TypeScript now knows block is FlexibleMediaGallery, so it's safe to access mediaGalleryStyle
-    return block.mediaGalleryStyle == 'halfWidth' ? '' : block.sectionTitle;
+    return block.mediaGalleryStyle === 'halfWidth' ? '' : block.sectionTitle
   }
 }
 
 function sectionSummary(block) {
-  return block.mediaGalleryStyle == 'halfWidth' ? '' : block.sectionSummary || block.richTextSimplified
+  return block.mediaGalleryStyle === 'halfWidth' ? '' : block.sectionSummary || block.richTextSimplified
 }
 
 function getComponent(name) {
   return components[name]
 }
 </script>
+
+<template>
+  <SectionWrapper
+    class="flexible-blocks"
+    :no-margins="true"
+  >
+    <SectionHeader class="more-information">
+      More Information
+    </SectionHeader>
+    <!-- {{ parsedBlocks }}
+    <br>
+    {{ blocks }} -->
+    <div
+      v-for="(block, index) in parsedBlocks"
+      :key="index"
+    >
+      <SectionWrapper
+        v-if="block.needsDivider"
+        theme="divider"
+      >
+        <DividerWayFinder />
+      </SectionWrapper>
+
+      <SectionWrapper
+        :theme="block.theme"
+        :section-title="sectionTitle(block)"
+        :section-summary="sectionSummary(block)"
+      >
+        <component
+          :is="getComponent(block.componentName)"
+          :block="block.mediaGalleryStyle === 'halfWidth' ? block : omit(block, ['sectionTitle', 'sectionSummary'])"
+          class="flexible-block"
+        />
+      </SectionWrapper>
+    </div>
+  </SectionWrapper>
+</template>
 
 <style lang="scss" scoped>
 .flexible-blocks {
@@ -203,4 +200,3 @@ function getComponent(name) {
   }
 }
 </style>
-
