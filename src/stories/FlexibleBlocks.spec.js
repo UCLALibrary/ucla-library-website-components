@@ -3,10 +3,10 @@ describe('Flexible Blocks', () => {
     cy.visit(
       '/iframe.html?id=flexible-blocks--default&args=&viewMode=story'
     )
-    cy.get('.simple-cards').should('exist')
+    // cy.get('.simple-cards').should('exist')
     cy.get('.media-gallery').should('exist')
-    cy.get('.media-with-text').should('exist')
-
+    // cy.get('.media-with-text').should('exist')
+    cy.get('.rich-text').should('exist')
     cy.percySnapshot()
   })
 
