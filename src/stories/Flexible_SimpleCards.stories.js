@@ -1,10 +1,9 @@
 import {
-  mockFiveCards,
-  mockFourCards,
-  mockLibraryFlexibleSimpleCards,
-  mockSixCards,
-  mockThreeCards,
   mockTwoCards,
+  mockThreeCards,
+  mockFourCards,
+  mockFiveCards,
+  mockSixCards,
 } from './mock/Flexible_SimpleCards'
 import FlexibleSimpleCards from '@/lib-components/Flexible/SimpleCards'
 
@@ -69,18 +68,6 @@ export function SixCards() {
   return {
     data() {
       return { block: mockSixCards }
-    },
-    components: { FlexibleSimpleCards },
-    template: `
-      <flexible-simple-cards :block="block" />
-  `,
-  }
-}
-
-export function LibrarySimpleCards() {
-  return {
-    data() {
-      return { block: mockLibraryFlexibleSimpleCards }
     },
     components: { FlexibleSimpleCards },
     template: `

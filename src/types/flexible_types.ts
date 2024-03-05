@@ -82,6 +82,17 @@ interface FlexibleBannerContentLink extends ContentLink {
   articleLocations: LocationItemType[]
 }
 
+interface FlexibleSimpleCard extends ContentLink {
+  uri: string
+  slug: string
+  title: string
+  summary: string
+  externalResourceUrl: string
+  // TODO - Add Event Title and Event Description
+  // eventTitle: string
+  // eventDescription: string
+}
+
 interface FlexibleCallToActionItem {
   id: string
   titleCta: string
@@ -137,11 +148,9 @@ interface FlexibleImpactNumberCard {
 
 interface FlexibleSimpleCard {
   id: string
-  typeHandle: string
-  title: string
-  summary: string
+  typehandle: string
+  contentLink: FlexibleSimpleCard[]
   externalLink: string
-  externalResourceUrl: string
 }
 
 // Flexible Components

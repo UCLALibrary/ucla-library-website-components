@@ -19,7 +19,7 @@ const { block } = defineProps({
   },
 })
 
-const parseditems = computed(() => {
+const parsedContent = computed(() => {
   return block.cards.map((card) => {
     if (
       (card.typeHandle === 'internalResource'
@@ -64,3 +64,6 @@ const parseditems = computed(() => {
     />
   </div>
 </template>
+
+event-title
+event-description
