@@ -169,7 +169,7 @@ function getComponent(name) {
     {{ blocks }} -->
     <div
       v-for="(block, index) in parsedBlocks"
-      :key="index"
+      :key="`flexibleblocks-${index}`"
     >
       <SectionWrapper
         v-if="block.needsDivider"
@@ -193,7 +193,10 @@ function getComponent(name) {
   </SectionWrapper>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .flexible-blocks {
   .more-information {
     @include visually-hidden
