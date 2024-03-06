@@ -34,6 +34,7 @@ export { default as DividerWayFinder } from './DividerWayFinder.vue'
 export { default as FlexibleAssociatedTopicCards } from './Flexible/AssociatedTopicCards.vue'
 export { default as FlexibleBannerFeatured } from './Flexible/BannerFeatured.vue'
 export { default as FlexibleCallToAction } from './Flexible/CallToAction.vue'
+export { default as FlexibleCardWithImage } from "./Flexible/CardWithImage.vue"
 export { default as FlexibleCtaBlock2Up } from './Flexible/CtaBlock2Up.vue'
 export { default as FlexibleForm } from './Flexible/Form.vue'
 export { default as FlexibleGridGalleryCards } from './Flexible/GridGalleryCards.vue'
