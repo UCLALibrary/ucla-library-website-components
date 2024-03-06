@@ -1,3 +1,10 @@
+# [2.39.0-alpha.45](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.44...v2.39.0-alpha.45) (2024-03-06)
+
+
+### Features
+
+* APPS-2552 flexible blocks component ([#467](https://github.com/UCLALibrary/ucla-library-website-components/issues/467)) ([cc52770](https://github.com/UCLALibrary/ucla-library-website-components/commit/cc52770e90de20256ae7bfabe4aeac4d12b4cdce))
+
 # [2.39.0-alpha.44](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.43...v2.39.0-alpha.44) (2024-02-29)
 
 
