@@ -39,7 +39,7 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.ref }}
         repository: ${{ github.event.pull_request.head.repo.full_name }}
-        token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }} # non-github token so pushing auto-fies will trigger a new CI run will expire ever 4 months
+        token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }} # non-github token Parinita's personal access token will expire ever 90 days
     - uses: ./.github/workflows/setup-workspace
     - run: pnpm run lint
     - uses: EndBug/add-and-commit@v9
