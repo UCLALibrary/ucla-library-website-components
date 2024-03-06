@@ -64,6 +64,3 @@ const parsedContent = computed(() => {
     />
   </div>
 </template>
-
-event-title
-event-description
