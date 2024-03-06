@@ -1,4 +1,4 @@
-// Test dta from Craft
+// Test data from Craft
 // HELP TOPIC - printing
 // TEST - Printing Practices - Simple Card 3 Up - Rich Text - Pull Quote
 // ALL Rich Text Options
