@@ -1,32 +1,38 @@
-<script>
+<script
+  setup
+  lang="ts"
+>
+
+import type { PropType } from 'vue'
+import { computed } from 'vue'
+
+// COMPONENTS
 import BlockMediaWithText from "@/lib-components/BlockMediaWithText.vue"
 
-export default {
-  name: "FlexibleMediaWithText",
-  components: { BlockMediaWithText },
-  props: {
-    block: {
-      type: Object,
-      default: () => { },
-    },
+// TYPESCRPT
+import type { FlexibleRichText } from '@/types/flexible_types'
+
+const { block } = defineProps({
+  block: {
+    type: Object,
+    default: () => { },
   },
-  computed: {
-    parsedContent() {
-      const mediaWithText = this.block.mediaWithText
-      return mediaWithText.map((obj) => {
-        return {
-          ...obj,
-          parsedTitle: obj.titleLink
-            ? obj.titleLink
-            : obj.titleUpload,
-          parsedButtonUrl:
-            obj.upload && obj.typeMedia == "other"
-              ? obj.upload[0].src
-              : obj.buttonUrl,
-        }
-      })
-    },
-  },
+})
+
+const parsedContent = computed(() => {
+  const mediaWithText = block.mediaWithText
+  return mediaWithText.map((obj) => {
+    return {
+      ...obj,
+      parsedTitle: obj.titleLink
+        ? obj.titleLink
+        : obj.titleUpload,
+      parsedButtonUrl:
+        obj.upload && obj.typeMedia == "other"
+          ? obj.upload[0].src
+          : obj.buttonUrl,
+    }
+  })
 }
 </script>
 
@@ -123,7 +129,7 @@ export default {
     margin-bottom: 56px;
   }
 
-  ::v-deep .clipped-play {
+  :deep(.clipped-play) {
     background-color: var(--background-color);
   }
 
@@ -174,7 +180,7 @@ export default {
         margin-bottom: 24px;
       }
 
-      ::v-deep .clipped-play-mobile {
+      :deep(.clipped-play-mobile) {
         background-color: var(--background-color);
       }
     }
