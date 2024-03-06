@@ -1,9 +1,9 @@
 import {
-  mockTwoCards,
-  mockThreeCards,
-  mockFourCards,
   mockFiveCards,
+  mockFourCards,
   mockSixCards,
+  mockThreeCards,
+  mockTwoCards,
 } from './mock/Flexible_SimpleCards'
 import FlexibleSimpleCards from '@/lib-components/Flexible/SimpleCards'
 
