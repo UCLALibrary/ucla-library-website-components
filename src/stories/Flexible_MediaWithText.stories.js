@@ -1,23 +1,26 @@
-import FlexibleMediaWithText from "@/lib-components/Flexible/MediaWithText"
-import StoryRouter from "storybook-vue-router"
+import StoryRouter from 'storybook-vue-router'
 
-import { mock, mockSingle } from "./mock/Flexible_MediaWithText"
+import { mock, mockSingle } from './mock/Flexible_MediaWithText'
+import FlexibleMediaWithText from '@/lib-components/Flexible/MediaWithText'
 
 export default {
-    title: "FLEXIBLE / Media With Text",
-    component: FlexibleMediaWithText,
-    decorators: [StoryRouter()],
+  title: 'FLEXIBLE / Media With Text',
+  component: FlexibleMediaWithText,
+  decorators: [StoryRouter()],
 }
 
-const Template = (args, { argTypes }) => ({
+function Template(args, { argTypes }) {
+  return {
     components: { FlexibleMediaWithText },
     props: Object.keys(argTypes),
-    template: `<flexible-media-with-text v-bind="$props"/>`,
-})
+    template: '<flexible-media-with-text v-bind="$props"/>',
+  }
+}
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return { block: mock }
+      return { block: mock }
     },
     components: { FlexibleMediaWithText },
     template: `
@@ -26,11 +29,13 @@ export const Default = () => ({
 
         />
     `,
-})
+  }
+}
 
-export const Single = () => ({
+export function Single() {
+  return {
     data() {
-        return { block: mockSingle }
+      return { block: mockSingle }
     },
     components: { FlexibleMediaWithText },
     template: `
@@ -39,9 +44,10 @@ export const Single = () => ({
 
         />
     `,
-})
+  }
+}
 
 export const WithControls = Template.bind({})
 WithControls.args = {
-    block: mock,
+  block: mock,
 }

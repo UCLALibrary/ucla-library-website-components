@@ -43,7 +43,7 @@ export { default as FlexibleMediaGallery } from './Flexible/MediaGallery.vue'
 export { default as FlexibleMediaGalleryBannerImage } from './Flexible/MediaGallery/BannerImage.vue'
 export { default as FlexibleMediaGalleryNewLightbox } from './Flexible/MediaGallery/NewLightbox.vue'
 export { default as FlexibleMediaGalleryThumbnailCard } from './Flexible/MediaGallery/ThumbnailCard.vue'
-export { default as FlexibleMediaWithText } from "./Flexible/MediaWithText.vue"
+export { default as FlexibleMediaWithText } from './Flexible/MediaWithText.vue'
 export { default as FlexiblePullQuote } from './Flexible/PullQuote.vue'
 export { default as FlexibleRichText } from './Flexible/RichText.vue'
 export { default as FooterMain } from './FooterMain.vue'
