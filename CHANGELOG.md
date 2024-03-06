@@ -1,3 +1,10 @@
+# [2.39.0-alpha.46](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.45...v2.39.0-alpha.46) (2024-03-06)
+
+
+### Features
+
+* APPS-2564 convert flexible-simple-cards component to vue3 ([#459](https://github.com/UCLALibrary/ucla-library-website-components/issues/459)) ([d872275](https://github.com/UCLALibrary/ucla-library-website-components/commit/d8722755ba4387a83dc244e9ffb2caedc83ea1cb))
+
 # [2.39.0-alpha.45](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.44...v2.39.0-alpha.45) (2024-03-06)
 
 
