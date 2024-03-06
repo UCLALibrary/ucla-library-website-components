@@ -28,6 +28,15 @@ export interface BlockCardMetaType {
   ongoing: boolean
 }
 
+// TODO image or imagePath?
+export interface BlockImpactNumbersCarouselType {
+  largeText: string
+  mediumText: string
+  smallDescriptor: string
+  imagePath: string
+  altImageText: string
+}
+
 export interface CardItemType {
   category?: string
   externalResourceUrl?: string
