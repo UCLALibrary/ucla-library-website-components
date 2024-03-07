@@ -1,6 +1,6 @@
-<script setup lang="ts">
-import type { PropType } from 'vue'
+<script lang="ts" setup>
 import { computed, ref } from 'vue'
+import type { PropType } from 'vue'
 
 // COMPONENTS
 import 'vue3-carousel/dist/carousel.css'
@@ -9,7 +9,7 @@ import { Carousel, Slide } from 'vue3-carousel'
 // SVGs
 import SvgArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
 import SvgIconMoleculeBullet from 'ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg'
-import ResponsiveImage from '@/lib-components/ResponsiveImage'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
 // PROPS & DATA
 import type { BlockImpactNumbersCarouselType } from '@/types/types'
@@ -43,14 +43,6 @@ function checkCurrentSlide(index: number) {
 function setCurrentSlide(currentSlideIndex: number) {
   currentSlide.value = currentSlideIndex
 }
-
-// TODO [Glide.name]: Glide, etc refactor to what
-// export default {
-//   name: 'ImpactNumbersCarousel',
-/*   components: {
-    [Glide.name]: Glide,
-    [GlideSlide.name]: GlideSlide,
-  }, */
 </script>
 
 <template>
@@ -83,7 +75,7 @@ function setCurrentSlide(currentSlideIndex: number) {
             </template>
 </vue-glide> -->
 
-    <Carousel v-model="currentSlide" class="media-container">
+    <Carousel v-model="currentSlide">
       <Slide v-for="(block) in blocks" :key="block.largeText">
         <div class="slide-image">
           <ResponsiveImage :image="block.image[0]" />
@@ -96,21 +88,27 @@ function setCurrentSlide(currentSlideIndex: number) {
           {{ block.smallDescriptor }}
         </div>
       </Slide>
-
-      <template #control>
-        <button data-glide-dir="<" :class="prevIsDisabled">
-          <SvgArrowRight aria-label="Go to previous item" class="prev-control" />
-        </button>
-        <button data-glide-dir=">" :class="nextIsDisabled">
-          <SvgArrowRight aria-label="Go to next item" />
-        </button>
-      </template>
     </Carousel>
+    <!-- navigation -->
+    <div class="controls">
+      <button data-glide-dir="<" :class="prevIsDisabled">
+        <SvgArrowRight aria-label="Go to previous item" class="prev-control" />
+      </button>
+      <button data-glide-dir=">" :class="nextIsDisabled">
+        <SvgArrowRight aria-label="Go to next item" />
+      </button>
+    </div>
+    <!-- to do tablist refactor? what happened to it in lightbox-->
     <div role="tablist" class="dots" />
   </div>
 </template>
 
 <style lang="scss" scoped>
+.carousel__slide {
+  display: block;
+  // width: calc(100% - 32px);
+}
+
 .impact-numbers-carousel {
   display: flex;
   max-width: $container-l-main + px;
@@ -126,46 +124,43 @@ function setCurrentSlide(currentSlideIndex: number) {
     }
   }
 
-  .glide {
-    width: calc(100% - 32px);
+  // TODO equivalent
+  .responsive-image {
+    max-height: 544px;
+  }
 
-    .responsive-image {
-      max-height: 544px;
+  .impact-numbers-text-container {
+    background: white;
+    margin-top: -64px;
+    margin-bottom: var(--space-m);
+    padding-left: 25px;
+    position: relative;
+    width: 431px;
+    -webkit-clip-path: polygon(0 0,
+        calc(100% - 39px) 0,
+        100% 95px,
+        100% 102%,
+        0 102%);
+    clip-path: polygon(0 0,
+        calc(100% - 39px) 0,
+        100% 95px,
+        100% 102%,
+        0 102%);
+
+    .impactNumber {
+      font-family: var(--font-secondary);
+      font-weight: medium;
+      font-size: 128px;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+      color: var(--color-primary-blue-03);
     }
 
-    .impact-numbers-text-container {
-      background: white;
-      margin-top: -64px;
-      margin-bottom: var(--space-m);
-      padding-left: 25px;
-      position: relative;
-      width: 431px;
-      -webkit-clip-path: polygon(0 0,
-          calc(100% - 39px) 0,
-          100% 95px,
-          100% 102%,
-          0 102%);
-      clip-path: polygon(0 0,
-          calc(100% - 39px) 0,
-          100% 95px,
-          100% 102%,
-          0 102%);
-
-      .impactNumber {
-        font-family: var(--font-secondary);
-        font-weight: medium;
-        font-size: 128px;
-        line-height: 100%;
-        letter-spacing: -0.02em;
-        color: var(--color-primary-blue-03);
-      }
-
-      .impactText {
-        @include step-5;
-        line-height: 85%;
-        letter-spacing: -0.005em;
-        color: var(--color-black);
-      }
+    .impactText {
+      @include step-5;
+      line-height: 85%;
+      letter-spacing: -0.005em;
+      color: var(--color-black);
     }
 
     .small-descriptor {
@@ -174,7 +169,7 @@ function setCurrentSlide(currentSlideIndex: number) {
     }
   }
 
-  [data-glide-el="controls"] {
+  .controls {
 
     button,
     .separator {
@@ -226,6 +221,7 @@ function setCurrentSlide(currentSlideIndex: number) {
       margin: 12px 0;
     }
 
+    // TODO FIX
     .glide {
       .impact-numbers-text-container {
         width: unset;
