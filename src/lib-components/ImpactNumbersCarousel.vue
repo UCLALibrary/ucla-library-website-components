@@ -49,8 +49,10 @@ function setCurrentSlide(currentSlideIndex: number) {
 <template>
   <div class="impact-numbers-carousel">
     <div class="slide-indicator">
-      <SvgIconMoleculeBullet v-for="(block, index) in blocks" :key="block.largeText" :class="checkCurrentSlide(index)"
-        @click="setCurrentSlide(index)" />
+      <SvgIconMoleculeBullet
+        v-for="(block, index) in blocks" :key="block.largeText" :class="checkCurrentSlide(index)"
+        @click="setCurrentSlide(index)"
+      />
     </div>
     <Carousel v-model="currentSlide">
       <Slide v-for="(block) in blocks" :key="block.largeText">

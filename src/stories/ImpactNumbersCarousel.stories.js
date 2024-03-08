@@ -50,7 +50,7 @@ function Template(args) {
       }
     },
     components: { ImpactNumbersCarousel },
-    template: 
+    template:
     '<impact-numbers-carousel :blocks="blocks" />',
   }
 }
