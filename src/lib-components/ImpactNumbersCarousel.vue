@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import type { PropType } from 'vue'
 
 // COMPONENTS
@@ -23,18 +23,6 @@ const { blocks } = defineProps({
   },
 })
 const currentSlide = ref(0)
-
-// COMPUTED
-// returns 'disabled' if current slide is first
-const prevIsDisabled = computed(() => {
-  return currentSlide.value === 0 ? 'disabled' : ''
-})
-// returns 'disabled' if current slide is last
-const nextIsDisabled = computed(() => {
-  return currentSlide.value === blocks.length - 1
-    ? 'disabled'
-    : ''
-})
 
 // METHODS
 function checkCurrentSlide(index: number) {
@@ -70,10 +58,10 @@ function setCurrentSlide(currentSlideIndex: number) {
     </Carousel>
     <!-- navigation -->
     <div class="controls">
-      <button data-glide-dir="<" :class="prevIsDisabled">
+      <button data-glide-dir="<" :disabled="currentSlide <= 0" @click="currentSlide -= 1">
         <SvgArrowLeft aria-label="Go to previous item" class="prev-control" />
       </button>
-      <button data-glide-dir=">" :class="nextIsDisabled">
+      <button data-glide-dir=">" :disabled="currentSlide >= blocks.length - 1" @click="currentSlide += 1">
         <SvgArrowRight aria-label="Go to next item" />
       </button>
     </div>
@@ -174,7 +162,7 @@ function setCurrentSlide(currentSlideIndex: number) {
         right: 104px;
       }
 
-      &.disabled {
+      &:disabled {
         cursor: default;
 
         :deep(.svg__stroke--primary-blue-03) {
