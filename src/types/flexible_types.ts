@@ -82,6 +82,17 @@ interface FlexibleBannerContentLink extends ContentLink {
   articleLocations: LocationItemType[]
 }
 
+interface FlexibleSimpleCard extends ContentLink {
+  uri: string
+  slug: string
+  title: string
+  summary: string
+  externalResourceUrl: string
+  // TODO - Add Event Title and Event Description
+  // eventTitle: string
+  // eventDescription: string
+}
+
 interface FlexibleCallToActionItem {
   id: string
   titleCta: string
@@ -135,6 +146,13 @@ interface FlexibleImpactNumberCard {
   impactNumber: string
 }
 
+interface FlexibleSimpleCard {
+  id: string
+  typehandle: string
+  contentLink: FlexibleSimpleCard[]
+  externalLink: string
+}
+
 // Flexible Components
 
 export interface FlexibleAssociatedTopicCards extends FlexibleBlock {
@@ -184,4 +202,8 @@ export interface FlexiblePullQuote extends FlexibleBlock {
 
 export interface FlexibleRichText extends FlexibleBlock {
   richText: string
+}
+
+export interface FlexibleSimpleCards extends FlexibleBlock {
+  cards: FlexibleSimpleCard[]
 }
