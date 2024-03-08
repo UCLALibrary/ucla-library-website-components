@@ -10,13 +10,14 @@ import { computed } from 'vue'
 import BlockMediaWithText from "@/lib-components/BlockMediaWithText.vue"
 
 // TYPESCRPT
-import type { FlexibleRichText } from '@/types/flexible_types'
+import type { MediaItemType } from '@/types/types'
+import type { FlexibleMediaWithText } from '@/types/flexible_types'
 
 const { block } = defineProps({
   block: {
-    type: Object,
+    type: Object as PropType<FlexibleMediaWithText>,
     default: () => { },
-  },
+  }
 })
 
 const parsedContent = computed(() => {
@@ -30,10 +31,10 @@ const parsedContent = computed(() => {
       parsedButtonUrl:
         obj.upload && obj.typeMedia == "other"
           ? obj.upload[0].src
-          : obj.buttonUrl,
-    }
+          : obj.buttonUrl
+    },
   })
-}
+})
 </script>
 
 <template>

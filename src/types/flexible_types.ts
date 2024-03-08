@@ -82,17 +82,6 @@ interface FlexibleBannerContentLink extends ContentLink {
   articleLocations: LocationItemType[]
 }
 
-interface FlexibleSimpleCard extends ContentLink {
-  uri: string
-  slug: string
-  title: string
-  summary: string
-  externalResourceUrl: string
-  // TODO - Add Event Title and Event Description
-  // eventTitle: string
-  // eventDescription: string
-}
-
 interface FlexibleCallToActionItem {
   id: string
   titleCta: string
@@ -146,11 +135,33 @@ interface FlexibleImpactNumberCard {
   impactNumber: string
 }
 
-interface FlexibleSimpleCard {
+type customTypeMedia = 'audio' | 'video' | 'other'
+
+interface MediaWithText {
+  titleLink: string
+  description: string
+  coverImage: MediaItemType[]
+  buttonText: string
+  buttonUrl: string
+  embedCode: string
+  typeMedia: customTypeMedia
+  titleUpload: string
+  item: MediaItemType[]
+}
+
+interface FlexibleSimpleCard extends ContentLink {
   id: string
   typehandle: string
   contentLink: FlexibleSimpleCard[]
   externalLink: string
+  uri: string
+  slug: string
+  title: string
+  summary: string
+  externalResourceUrl: string
+  // TODO - Add Event Title and Event Description
+  // eventTitle: string
+  // eventDescription: string
 }
 
 // Flexible Components
@@ -191,6 +202,10 @@ export interface FlexibleMediaGallery extends FlexibleBlock {
   mediaGalleryStyle: string
   mediaGallery: MediaGalleryItemType[]
   richTextSimplified: string
+}
+
+export interface FlexibleMediaWithText extends FlexibleBlock {
+  mediaWithText: MediaWithText[]
 }
 
 export interface FlexiblePullQuote extends FlexibleBlock {
