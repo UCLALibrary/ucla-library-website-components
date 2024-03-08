@@ -9,13 +9,13 @@ export default {
   // decorators: [StoryRouter()],
 }
 
-function Template(args, { argTypes }) {
-  return {
-    components: { FlexibleMediaWithText },
-    props: Object.keys(argTypes),
-    template: '<flexible-media-with-text v-bind="$props"/>',
-  }
-}
+// function Template(args, { argTypes }) {
+//   return {
+//     components: { FlexibleMediaWithText },
+//     props: Object.keys(argTypes),
+//     template: '<flexible-media-with-text v-bind="$props"/>',
+//   }
+// }
 
 export function Default() {
   return {
@@ -26,7 +26,6 @@ export function Default() {
     template: `
         <flexible-media-with-text
             :block="block"
-
         />
     `,
   }
@@ -41,7 +40,6 @@ export function Single() {
     template: `
         <flexible-media-with-text
             :block="block"
-
         />
     `,
   }
