@@ -6,7 +6,7 @@ import FlexibleMediaWithText from '@/lib-components/Flexible/MediaWithText'
 export default {
   title: 'FLEXIBLE / Media With Text',
   component: FlexibleMediaWithText,
-  //decorators: [StoryRouter()],
+  // decorators: [StoryRouter()],
 }
 
 function Template(args, { argTypes }) {
