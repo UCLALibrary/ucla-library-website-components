@@ -8,6 +8,7 @@ import { Carousel, Slide } from 'vue3-carousel'
 
 // SVGs
 import SvgArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
+import SvgArrowLeft from 'ucla-library-design-tokens/assets/svgs/icon-arrow-left.svg'
 import SvgIconMoleculeBullet from 'ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
@@ -51,34 +52,10 @@ function setCurrentSlide(currentSlideIndex: number) {
       <SvgIconMoleculeBullet v-for="(block, index) in blocks" :key="block.largeText" :class="checkCurrentSlide(index)"
         @click="setCurrentSlide(index)" />
     </div>
-    <!--
-        <vue-glide :per-view="1" :rewind="false" :active="currentSlide" @change="setCurrentSlide">
-            <vue-glide-slide v-for="(block) in blocks" :key="block.largeText">
-                <div class="slide-image">
-                    <ResponsiveImage :image="block.image[0]" />
-                </div>
-                <div class="impact-numbers-text-container">
-                    <span class="impactNumber">{{ block.largeText }}</span>
-                    <span class="impactText">{{ block.mediumText }}</span>
-                </div>
-                <div class="small-descriptor">
-                    {{ block.smallDescriptor }}
-                </div>
-            </vue-glide-slide>
-            <template #control>
-                <button data-glide-dir="<" :class="prevIsDisabled">
-                    <SvgArrowRight aria-label="Go to previous item" class="prev-control" />
-                </button>
-                <button data-glide-dir=">" :class="nextIsDisabled">
-                    <SvgArrowRight aria-label="Go to next item" />
-                </button>
-            </template>
-</vue-glide> -->
-
     <Carousel v-model="currentSlide">
       <Slide v-for="(block) in blocks" :key="block.largeText">
         <div class="slide-image">
-          <ResponsiveImage :image="block.image[0]" />
+          <ResponsiveImage :media="block.image[0]" />
         </div>
         <div class="impact-numbers-text-container">
           <span class="impactNumber">{{ block.largeText }}</span>
@@ -92,13 +69,12 @@ function setCurrentSlide(currentSlideIndex: number) {
     <!-- navigation -->
     <div class="controls">
       <button data-glide-dir="<" :class="prevIsDisabled">
-        <SvgArrowRight aria-label="Go to previous item" class="prev-control" />
+        <SvgArrowLeft aria-label="Go to previous item" class="prev-control" />
       </button>
       <button data-glide-dir=">" :class="nextIsDisabled">
         <SvgArrowRight aria-label="Go to next item" />
       </button>
     </div>
-    <!-- to do tablist refactor? what happened to it in lightbox-->
     <div role="tablist" class="dots" />
   </div>
 </template>
@@ -106,7 +82,10 @@ function setCurrentSlide(currentSlideIndex: number) {
 <style lang="scss" scoped>
 .carousel__slide {
   display: block;
-  // width: calc(100% - 32px);
+}
+
+.carousel__item {
+  width: calc(100% - 32px);
 }
 
 .impact-numbers-carousel {
@@ -124,9 +103,18 @@ function setCurrentSlide(currentSlideIndex: number) {
     }
   }
 
-  // TODO equivalent
+  /* previously .glide in vue-glide */
+  .carousel {
+    width: calc(100% - 32px);
+    text-align: left;
+  }
+
   .responsive-image {
     max-height: 544px;
+
+    .media {
+      object-fit: cover;
+    }
   }
 
   .impact-numbers-text-container {
@@ -162,14 +150,15 @@ function setCurrentSlide(currentSlideIndex: number) {
       letter-spacing: -0.005em;
       color: var(--color-black);
     }
+  }
 
-    .small-descriptor {
-      margin-left: 25px;
-      max-width: 352px;
-    }
+  .small-descriptor {
+    margin-left: 25px;
+    max-width: 352px;
   }
 
   .controls {
+    position: relative;
 
     button,
     .separator {
@@ -186,27 +175,14 @@ function setCurrentSlide(currentSlideIndex: number) {
       &.disabled {
         cursor: default;
 
-        path {
+        :deep(.svg__stroke--primary-blue-03) {
           stroke: var(--color-secondary-grey-02);
         }
       }
 
-      path {
+      :deep(.svg__stroke--primary-blue-03) {
         stroke: var(--color-secondary-grey-04);
       }
-    }
-
-    .prev-control {
-      right: 52px;
-      transform: scaleX(-1);
-    }
-
-    .separator {
-      border-left: dotted 1px;
-      bottom: 56px;
-      border-color: var(--color-secondary-grey-02);
-      height: 16px;
-      right: 107px;
     }
   }
 }
@@ -221,15 +197,12 @@ function setCurrentSlide(currentSlideIndex: number) {
       margin: 12px 0;
     }
 
-    // TODO FIX
-    .glide {
-      .impact-numbers-text-container {
-        width: unset;
-      }
+    .impact-numbers-text-container {
+      width: unset;
     }
 
-    [data-glide-el="controls"] button,
-    [data-glide-el="controls"] .separator {
+    .controls button,
+    .controls .separator {
       display: none;
     }
   }
