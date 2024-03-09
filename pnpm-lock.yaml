@@ -3509,7 +3509,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 3.13.1
       vue: 3.3.4
-      vue-component-type-helpers: 2.0.5
+      vue-component-type-helpers: 2.0.6
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -10547,8 +10547,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /vue-component-type-helpers@2.0.5:
-    resolution: {integrity: sha512-v9N4ufDSnd8YHcDq/vURPjxDyBVak5ZVAQ6aGNIrf7ZAj/VxRKpLZXFHEaqt9yHkWi0/TZp76Jmf8yNJxDQi4g==}
+  /vue-component-type-helpers@2.0.6:
+    resolution: {integrity: sha512-qdGXCtoBrwqk1BT6r2+1Wcvl583ZVkuSZ3or7Y1O2w5AvWtlvvxwjGhmz5DdPJS9xqRdDlgTJ/38ehWnEi0tFA==}
     dev: true
 
   /vue-demi@0.14.6(vue@3.3.4):
