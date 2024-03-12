@@ -144,6 +144,7 @@ interface MediaWithText {
   buttonText: string
   buttonUrl: string
   embedCode: string
+  upload: string
   typeMedia: customTypeMedia
   titleUpload: string
   item: MediaItemType[]
