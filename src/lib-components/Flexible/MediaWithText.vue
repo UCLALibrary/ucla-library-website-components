@@ -2,15 +2,13 @@
   setup
   lang="ts"
 >
-
 import type { PropType } from 'vue'
 import { computed } from 'vue'
 
 // COMPONENTS
-import BlockMediaWithText from "@/lib-components/BlockMediaWithText.vue"
+import BlockMediaWithText from '@/lib-components/BlockMediaWithText.vue'
 
 // TYPESCRPT
-import type { MediaItemType } from '@/types/types'
 import type { FlexibleMediaWithText } from '@/types/flexible_types'
 
 const { block } = defineProps({
@@ -29,10 +27,10 @@ const parsedContent = computed(() => {
         ? obj.titleLink
         : obj.titleUpload,
       parsedButtonUrl:
-        obj.upload && obj.typeMedia == "other"
+        obj.upload && obj.typeMedia == 'other'
           ? obj.upload[0].src
-          : obj.buttonUrl
-    },
+          : obj.buttonUrl,
+    }
   })
 })
 </script>
@@ -40,7 +38,9 @@ const parsedContent = computed(() => {
 <template>
   <div class="section-media-with-text">
     <div class="flexible-page-block-container">
-      <h2 class="visually-hidden">Resources</h2>
+      <h2 class="visually-hidden">
+        Resources
+      </h2>
       <div class="section-header">
         <h3
           v-if="block.sectionTitle"
@@ -59,11 +59,11 @@ const parsedContent = computed(() => {
         :key="`MediaWithTextKey${index}`"
         class="meta"
       >
-        <block-media-with-text
+        <BlockMediaWithText
           :section-header="item.parsedTitle"
           :short-description="item.description"
           :item="item.item"
-          :coverImage="item.coverImage"
+          :cover-image="item.coverImage"
           :button-text="item.buttonText"
           :button-url="item.parsedButtonUrl"
           :embed-code="item.embedCode"

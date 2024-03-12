@@ -1,21 +1,18 @@
-// import StoryRouter from 'storybook-vue-router'
-
 import { mock, mockSingle } from './mock/Flexible_MediaWithText'
 import FlexibleMediaWithText from '@/lib-components/Flexible/MediaWithText'
 
 export default {
   title: 'FLEXIBLE / Media With Text',
   component: FlexibleMediaWithText,
-  // decorators: [StoryRouter()],
 }
 
-// function Template(args, { argTypes }) {
-//   return {
-//     components: { FlexibleMediaWithText },
-//     props: Object.keys(argTypes),
-//     template: '<flexible-media-with-text v-bind="$props"/>',
-//   }
-// }
+function Template(args, { argTypes }) {
+  return {
+    components: { FlexibleMediaWithText },
+    props: Object.keys(argTypes),
+    template: '<flexible-media-with-text v-bind="$props"/>',
+  }
+}
 
 export function Default() {
   return {
@@ -45,7 +42,7 @@ export function Single() {
   }
 }
 
-// export const WithControls = Template.bind({})
-// WithControls.args = {
-//   block: mock,
-// }
+export const WithControls = Template.bind({})
+WithControls.args = {
+  block: mock,
+}
