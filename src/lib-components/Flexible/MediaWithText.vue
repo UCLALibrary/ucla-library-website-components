@@ -27,7 +27,7 @@ const parsedContent = computed(() => {
         ? obj.titleLink
         : obj.titleUpload,
       parsedButtonUrl:
-        obj.upload && obj.typeMedia == 'other'
+        obj.upload && obj.typeMedia === 'other'
           ? obj.upload[0].src
           : obj.buttonUrl,
     }
