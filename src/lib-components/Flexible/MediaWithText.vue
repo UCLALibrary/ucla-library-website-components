@@ -23,12 +23,14 @@ const parsedContent = computed(() => {
   return mediaWithText.map((obj) => {
     return {
       ...obj,
+      // mediaWithText_mediaEmbed or mediaWithText_mediaUpload
       parsedTitle: obj.titleLink
         ? obj.titleLink
         : obj.titleUpload,
+      // item: upload
       parsedButtonUrl:
-        obj.upload && obj.typeMedia === 'other'
-          ? obj.upload[0].src
+        obj.item && obj.typeMedia === 'other'
+          ? obj.item[0].src
           : obj.buttonUrl,
     }
   })

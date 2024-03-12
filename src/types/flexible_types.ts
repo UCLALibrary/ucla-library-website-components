@@ -139,15 +139,14 @@ type customTypeMedia = 'audio' | 'video' | 'other'
 
 interface MediaWithText {
   titleLink: string
+  titleUpload: string
   description: string
   src: string
   coverImage: MediaItemType[]
   buttonText: string
   buttonUrl: string
   embedCode: string
-  upload: string
   typeMedia: customTypeMedia
-  titleUpload: string
   item: MediaItemType[]
 }
 
