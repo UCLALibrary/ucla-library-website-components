@@ -52,7 +52,7 @@ const SvgIconPlayFilled = defineAsyncComponent(() =>
     'ucla-library-design-tokens/assets/svgs/icon-play-filled.svg'
   ))
 const SmartLink = defineAsyncComponent(() =>
-  import("@/lib-components/SmartLink.vue"))
+  import('@/lib-components/SmartLink.vue'))
 const ButtonLink = defineAsyncComponent(() =>
   import('@/lib-components/ButtonLink.vue'))
 const MediaItem = defineAsyncComponent(() =>
@@ -100,20 +100,20 @@ const parsedIsDownload = computed(() => {
         v-html="sectionHeader"
       />
       <div class="meta-mobile">
-        <!--<smart-link
+        <!-- <smart-link
           v-if="mediaLink"
           :to="mediaLink"
           class="media-link"
-        >-->
+        > -->
         <MediaItem
           v-if="item || coverImage"
           :item="item"
           :cover-image="coverImage"
-          :cover-only=true
+          :cover-only="true"
           class="media-mobile"
           @click="showLightbox = true"
         />
-        <!--</smart-link>-->
+        <!-- </smart-link> -->
         <div
           v-if="!(item || coverImage)"
           class="no-media-mobile"

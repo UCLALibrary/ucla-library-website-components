@@ -217,8 +217,8 @@ export const mock = {
     {
       titleUpload: 'Type: Other - Add an Asset',
       description: 'Cover  image is ignored, The Upload is used as the image in the component.',
-      buttonText: "Internal Link",
-      buttonUrl: "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
+      buttonText: 'Internal Link',
+      buttonUrl: 'https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf',
       coverImage: [
         {
           dataId: '2348348',
