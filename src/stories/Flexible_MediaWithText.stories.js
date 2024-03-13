@@ -6,11 +6,13 @@ export default {
   component: FlexibleMediaWithText,
 }
 
-function Template(args, { argTypes }) {
+function Template(args) {
   return {
     components: { FlexibleMediaWithText },
-    props: Object.keys(argTypes),
-    template: '<flexible-media-with-text v-bind="$props"/>',
+    setup() {
+      return { args }
+    },
+    template: '<flexible-media-with-text v-bind="args"/>',
   }
 }
 

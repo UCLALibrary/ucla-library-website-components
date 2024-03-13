@@ -85,22 +85,23 @@ const parsedContent = computed(() => {
   scoped
 >
 .section-media-with-text {
-  // Themes
-  --background-color: var(--color-theme, var(--color-white));
-
-  &.color-grey {
-    --background-color: var(--color-theme, var(--color-secondary-grey-02));
-  }
-
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   align-content: center;
   align-items: center;
   justify-content: flex-end;
-  background-color: var(--background-color);
 
+  background-color: var(--background-color);
   width: 100%;
+
+  /*
+  // Themes
+  --background-color: var(--color-theme, var(--color-white));
+
+  &.color-grey {
+    --background-color: var(--color-theme, var(--color-secondary-grey-02));
+  } */
 
   .flexible-page-block-container {
     max-width: $container-l-main + px;
