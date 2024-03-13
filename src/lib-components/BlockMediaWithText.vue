@@ -110,7 +110,7 @@ const parsedIsDownload = computed(() => {
           v-if="item || coverImage"
           :item="item"
           :cover-image="coverImage"
-          cover-only=true
+          :cover-only=true
           class="media-mobile"
           @click="showLightbox = true"
         />
