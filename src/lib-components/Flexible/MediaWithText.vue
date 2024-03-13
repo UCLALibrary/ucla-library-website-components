@@ -95,13 +95,12 @@ const parsedContent = computed(() => {
   background-color: var(--background-color);
   width: 100%;
 
-  /*
-  // Themes
+  /* Themes (section wrapper - zebra striping) */
   --background-color: var(--color-theme, var(--color-white));
 
   &.color-grey {
     --background-color: var(--color-theme, var(--color-secondary-grey-02));
-  } */
+  }
 
   .flexible-page-block-container {
     max-width: $container-l-main + px;
