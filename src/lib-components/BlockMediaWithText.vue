@@ -157,7 +157,7 @@ const parsedIsDownload = computed(() => {
       :cover-image="coverImage"
       :cover-only="true"
       class="meta media"
-      @click="showLightbox = true"
+      @click="isAudio || isVideo ? showLightbox = true : showLightbox = false"
     >
       <div class="clippy">
         <div
