@@ -95,7 +95,7 @@ const parsedContent = computed(() => {
   background-color: var(--background-color);
   width: 100%;
 
-  /* Themes (section wrapper - zebra striping) */
+  /* THEMES (used in section wrapper - zebra striping) */
   --background-color: var(--color-theme, var(--color-white));
 
   &.color-grey {
