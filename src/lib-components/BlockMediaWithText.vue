@@ -52,7 +52,7 @@ const SvgIconPlayFilled = defineAsyncComponent(() =>
     'ucla-library-design-tokens/assets/svgs/icon-play-filled.svg'
   ))
 // const SmartLink = defineAsyncComponent(() =>
-import('@/lib-components/SmartLink.vue'))
+// import('@/lib-components/SmartLink.vue'))
 const ButtonLink = defineAsyncComponent(() =>
   import('@/lib-components/ButtonLink.vue'))
 const MediaItem = defineAsyncComponent(() =>
