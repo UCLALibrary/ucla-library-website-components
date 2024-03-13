@@ -1,3 +1,10 @@
+# [2.39.0-alpha.47](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.46...v2.39.0-alpha.47) (2024-03-09)
+
+
+### Features
+
+* APPS-2466 convert ImpactNumbersCarousel component to vue3 ([#471](https://github.com/UCLALibrary/ucla-library-website-components/issues/471)) ([80290c4](https://github.com/UCLALibrary/ucla-library-website-components/commit/80290c4d0ac0d0b0da353dd616f95a0633efa808))
+
 # [2.39.0-alpha.46](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.45...v2.39.0-alpha.46) (2024-03-06)
 
 

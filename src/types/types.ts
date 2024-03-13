@@ -28,6 +28,14 @@ export interface BlockCardMetaType {
   ongoing: boolean
 }
 
+export interface BlockImpactNumbersCarouselType {
+  largeText: string
+  mediumText: string
+  smallDescriptor: string
+  image: MediaItemType[]
+  altImageText: string
+}
+
 export interface CardItemType {
   category?: string
   externalResourceUrl?: string
