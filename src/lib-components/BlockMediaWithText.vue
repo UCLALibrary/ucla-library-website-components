@@ -112,7 +112,7 @@ const parsedIsDownload = computed(() => {
           :cover-image="coverImage"
           cover-only="true"
           class="media-mobile"
-          @click.native="showLightbox = true"
+          @click="showLightbox = true"
         />
         <!-- </smart-link> -->
         <div
