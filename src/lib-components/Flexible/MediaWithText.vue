@@ -28,6 +28,7 @@ const parsedContent = computed(() => {
         ? obj.titleLink
         : obj.titleUpload,
       // item: upload
+      // item[0].src & buttonUrl can return as null - neither are required
       parsedButtonUrl:
         obj.item && obj.typeMedia === 'other'
           ? obj.item[0].src
