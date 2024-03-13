@@ -99,7 +99,6 @@ const parsedIsDownload = computed(() => {
         class="section-header"
         v-html="sectionHeader"
       />
-      <h3>{{ }}</h3>
       <div class="meta-mobile">
         <!-- <smart-link
           v-if="mediaLink"
