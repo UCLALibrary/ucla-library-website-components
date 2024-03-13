@@ -216,9 +216,9 @@ export const mock = {
     },
     {
       titleUpload: 'Type: Other - Add an Asset',
-      description: 'Cover  image is ignored, The Upload is used as the image in the component and in the pop open module. Even if you load multiple image only one appears. There is no indicator that the image is going to open.',
-      buttonText: null,
-      buttonUrl: null,
+      description: 'Cover  image is ignored, The Upload is used as the image in the component.',
+      buttonText: "Internal Link",
+      buttonUrl: "https://uclalibrary.github.io/research-tips/assets/handouts/citation-integration-final.pdf",
       coverImage: [
         {
           dataId: '2348348',
