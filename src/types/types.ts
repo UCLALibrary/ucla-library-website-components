@@ -91,6 +91,7 @@ export interface MediaItemType {
   title?: string
   type?: string
   width?: number
+  linkToMedia?: string
 }
 
 export interface LocationItemType {

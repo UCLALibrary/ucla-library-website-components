@@ -14,70 +14,69 @@ const props = defineProps({
 })
 
 // Async components with explicit definitions
+const FlexibleAssociatedTopicCards = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/AssociatedTopicCards.vue')
+)
 const FlexibleBannerFeatured = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/BannerFeatured.vue')
 )
-
 const FlexibleCallToAction = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/CallToAction.vue')
+)
+const FlexibleCardWithImage = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/CardWithImage.vue')
 )
 const FlexibleCtaBlock2Up = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/CtaBlock2Up.vue')
 )
-
-const FlexibleHighlight = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/Highlight.vue')
-)
-/* const FlexibleSimpleCards = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/SimpleCards.vue')
-) */
-const FlexiblePullQuote = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/PullQuote.vue')
-)
-/* const FlexibleCardWithImage = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/CardWithImage.vue')
-) */
-const FlexibleRichText = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/RichText.vue')
-)
-/* const FlexibleMediaWithText = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/MediaWithText.vue')
-) */
-const FlexibleMediaGallery = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/MediaGallery.vue')
-)
 const FlexibleForm = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/Form.vue')
-)
-/* const FlexibleImpactNumbersCarousel = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/ImpactNumbersCarousel.vue')
-) */
-const FlexibleAssociatedTopicCards = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/AssociatedTopicCards.vue')
-)
-const FlexibleImpactNumberCards = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/ImpactNumberCards.vue')
 )
 const FlexibleGridGalleryCards = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/GridGalleryCards.vue')
 )
+const FlexibleHighlight = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/Highlight.vue')
+)
+const FlexibleImpactNumberCards = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/ImpactNumberCards.vue')
+)
+/* const FlexibleImpactNumbersCarousel = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/ImpactNumbersCarousel.vue')
+) */
+
+const FlexibleMediaGallery = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/MediaGallery.vue')
+)
+const FlexibleMediaWithText = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/MediaWithText.vue')
+) * /
+const FlexiblePullQuote = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/PullQuote.vue')
+)
+const FlexibleRichText = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/RichText.vue')
+)
+/* const FlexibleSimpleCards = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/SimpleCards.vue')
+) */
 
 const components = {
-  'flexible-call-to-action': FlexibleCallToAction,
-  'flexible-cta-block2-up': FlexibleCtaBlock2Up,
-  'flexible-banner-featured': FlexibleBannerFeatured,
-  'flexible-highlight': FlexibleHighlight,
-  // 'flexible-simple-cards': FlexibleSimpleCards,
-  'flexible-pull-quote': FlexiblePullQuote,
-  // 'flexible-card-with-image': FlexibleCardWithImage,
-  'flexible-rich-text': FlexibleRichText,
-  // 'flexible-media-with-text': FlexibleMediaWithText,
-  'flexible-media-gallery': FlexibleMediaGallery,
-  'flexible-form': FlexibleForm,
-  // 'flexible-impact-numbers-carousel': FlexibleImpactNumbersCarousel,
   'flexible-associated-topic-cards': FlexibleAssociatedTopicCards,
-  'flexible-impact-number-cards': FlexibleImpactNumberCards,
+  'flexible-banner-featured': FlexibleBannerFeatured,
+  'flexible-call-to-action': FlexibleCallToAction,
+  'flexible-card-with-image': FlexibleCardWithImage,
+  'flexible-cta-block2-up': FlexibleCtaBlock2Up,
+  'flexible-form': FlexibleForm,
   'flexible-grid-gallery-cards': FlexibleGridGalleryCards,
+  'flexible-highlight': FlexibleHighlight,
+  'flexible-impact-number-cards': FlexibleImpactNumberCards,
+  // 'flexible-impact-numbers-carousel': FlexibleImpactNumbersCarousel,
+  'flexible-media-gallery': FlexibleMediaGallery,
+  'flexible-media-with-text': FlexibleMediaWithText,
+  'flexible-pull-quote': FlexiblePullQuote,
+  'flexible-rich-text': FlexibleRichText,
+  // 'flexible-simple-cards': FlexibleSimpleCards,
   // Add other components here if needed
 }
 
