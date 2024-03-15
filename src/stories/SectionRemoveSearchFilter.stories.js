@@ -4,14 +4,6 @@ export default {
   title: 'SEARCH / Section Remove Search Filter',
   component: SectionRemoveSearchFilter,
 }
-const mockRework = [
-  { name: 'location', value: 'Neque porro quisquam' },
-  { name: 'departments', value: 'DIIT' },
-  { name: 'departments', value: 'Digital Library Program' },
-  { name: 'departments', value: 'Arts Library' },
-  { name: 'departments', value: 'Special Collections' },
-  { name: 'departments,', value: 'CLICC' }
-]
 
 const mock = [
   { name: 'location', value: 'Neque porro quisquam' },

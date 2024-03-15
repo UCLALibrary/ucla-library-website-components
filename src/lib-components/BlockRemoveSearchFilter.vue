@@ -10,16 +10,7 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  filterType: {
-    type: String,
-    default: '',
-  },
-  index: {
-    type: Number,
-    default: 0,
-  },
-
-},)
+})
 
 const emit = defineEmits(['removeBlockFilter'])
 
@@ -38,7 +29,7 @@ const classes = computed(() => {
 })
 
 function closeBlockFilter() {
-  emit('removeBlockFilter', props.index)
+  emit('removeBlockFilter')
 }
 </script>
 
