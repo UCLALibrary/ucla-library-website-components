@@ -18,10 +18,7 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
-  color: {
-    type: String,
-    default: '', // This will be "visit", "about", "help".
-  },
+
 },)
 
 const emit = defineEmits(['removeBlockFilter'])
@@ -30,10 +27,9 @@ const route = useRoute()
 
 const sectionName = computed(() => {
   return (
-    props.color
-    || (route !== undefined && route.path
+    route !== undefined && route.path
       ? getSectionName(route.path)
-      : 'default')
+      : 'default'
   )
 })
 
@@ -60,7 +56,10 @@ function closeBlockFilter() {
   </button>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .block-remove-search-filter {
   padding: 12px;
   display: flex;
