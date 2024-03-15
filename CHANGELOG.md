@@ -1,3 +1,10 @@
+# [2.39.0-alpha.48](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.47...v2.39.0-alpha.48) (2024-03-13)
+
+
+### Features
+
+* APPS-2561 convert flexible-media-with-text component to vue3 ([#469](https://github.com/UCLALibrary/ucla-library-website-components/issues/469)) ([782df47](https://github.com/UCLALibrary/ucla-library-website-components/commit/782df47dc942f05b29f10623f5da97384a526743))
+
 # [2.39.0-alpha.47](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.46...v2.39.0-alpha.47) (2024-03-09)
 
 
