@@ -1,18 +1,24 @@
 import BlockRemoveSearchFilter from '@/lib-components/BlockRemoveSearchFilter'
+import router from '@/router'
 
 export default {
   title: 'SEARCH / Block Remove Search Filter',
   component: BlockRemoveSearchFilter,
+  decorators: [
+    () => ({
+      router,
+      template: '<story />',
+    }),
+  ],
 }
 
 const mock = {
-  title: ' Default Amenities',
-  filterType: 'location || departments || subjects || categories',
-  color: 'default',
+  title: ' Default Amenities'
 }
 
 // Variations of stories below
 export function Default() {
+  router.push('/abc/ccc')
   return {
     data() {
       return { ...mock }
@@ -21,13 +27,13 @@ export function Default() {
     template: `
         <block-remove-search-filter
             :title="title"
-            :color="color"
         />
     `,
   }
 }
 
 export function Help() {
+  router.push('/help/ddd')
   return {
     data() {
       return { ...mock }
@@ -43,6 +49,7 @@ export function Help() {
 }
 
 export function Visit() {
+  router.push('/visit/eee')
   return {
     data() {
       return { ...mock }
@@ -51,13 +58,13 @@ export function Visit() {
     template: `
         <block-remove-search-filter
             title="Visit"
-            color="visit"
         />
     `,
   }
 }
 
 export function About() {
+  router.push('/about/fff')
   return {
     data() {
       return { ...mock }
@@ -66,34 +73,6 @@ export function About() {
     template: `
         <block-remove-search-filter
             title="About"
-            color="about"
-        />
-    `,
-  }
-}
-
-export function FocusTest() {
-  return {
-    data() {
-      return { ...mock }
-    },
-    components: { BlockRemoveSearchFilter },
-    template: `
-        <block-remove-search-filter
-          :title="title"
-          :filterType="filterType"
-        /><br>
-        <block-remove-search-filter
-          title="Help"
-          color="help"
-        /><br>
-        <block-remove-search-filter
-            title="Visit"
-            color="visit"
-        /><br>
-        <block-remove-search-filter
-            title="About"
-            color="about"
         />
     `,
   }
