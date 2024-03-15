@@ -15,6 +15,7 @@ const mockDateFilterData = {
 }
 // QUESTION: does this component need to have the ability to select initial dates?
 */
+const threeLetterDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const { initialDates, eventDates } = defineProps({
     initialDates: {
         type: Object as PropType<any>,
@@ -27,10 +28,7 @@ const { initialDates, eventDates } = defineProps({
     },
 })
 
-// TODO TODO do we need to pass initial selection?
-// if we have initial dates in array, set date to initialDates
-// const date = ref(initialDates.length > 0 ? initialDates : [])
-const date = ref()
+const date = ref([])
 const datepicker = ref<DatePickerInstance | null>(null)
 watch(date, async (newDate, oldDate) => {
     if (newDate !== oldDate) {
@@ -40,7 +38,9 @@ watch(date, async (newDate, oldDate) => {
 
 // prep event dates array
 function calcDateFrequency(dateArray: string[]) {
-    let obj = {};
+    let obj: {
+        [key: string]: number;
+    } = {};
     for (let i = 0; i < dateArray.length; i++) {
         if (obj[dateArray[i]] === undefined) {
             obj[dateArray[i]] = 1;
@@ -60,16 +60,30 @@ const goToToday = () => {
 const clearDate = () => {
     datepicker.value?.updateInternalModelValue(null);
 };
-const threeLetterDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+const isSelecting = ref(false);
+const handleInternalSelection = (selectedDate: Date | Date[] | null) => {
+    console.log('handleInternalSelection', selectedDate);
+    // determine selection styles
+    if (selectedDate?.length && selectedDate.length.valueOf() == 1) {
+        // range
+        isSelecting.value = true;
+    } else {
+        isSelecting.value = false;
+    }
+
+};
 
 //Components
 const ButtonLink = defineAsyncComponent(() =>
     import('@/lib-components/ButtonLink.vue'))
+
 </script>
 
 <template>
     <VueDatePicker v-model="date" ref="datepicker" range :week-start="0" :month-name-format="'long'"
-        :enable-time-picker="false" class="date-filter" placeholder="All upcoming">
+        :enable-time-picker="false" @internal-model-change="handleInternalSelection"
+        :class="['date-filter', { 'is-selecting': isSelecting }]" placeholder="All upcoming">
         <template #month-year="{
         month,
         year,
@@ -115,21 +129,102 @@ const ButtonLink = defineAsyncComponent(() =>
             <div class="action-row">
                 <!-- <button class="select-button" @click="selectDate">Done</button>
                 <button class="close-button" @click="clearDate()">Clear X</button> -->
-                <ButtonLink class="select-button" @click="selectDate" label="Done" />
-                <ButtonLink class="clear-button" @click="clearDate()" label="Clear" icon-name="icon-close"
-                    :is-quaternary="true" />
+                <ButtonLink class="action-row-button select-button" @click="selectDate" label="Done" />
+                <ButtonLink class="action-row-button clear-button" @click="clearDate()" label="Clear"
+                    icon-name="icon-close" :is-quaternary="true" />
             </div>
         </template>
     </VueDatePicker>
 </template>
 
 <style lang="scss" scoped>
+// @import "ucla-library-design-tokens/scss/_tokens-ftva";
+// TODO replace with tokens
+$medium-grey: #555555;
+$grey-blue: #ABBFD6;
+$page-blue: #e7edf2;
+$accent-blue: #115DAF;
+$padding: 26px; // rename this one
+
+// TODO if using datepicker input, need to style the input
+// var(--font-secondary);
+.dp__calendar_header_separator {
+    display: none;
+}
+
+// 10px bottom border radius
+
+/* .dp__menu_inner {
+    padding: var(--dp-menu-padding);
+} */
+
 .date-filter {
+    // font-family: var(--font-primary) !important;
+    --dp-font-family: var(--font-primary);
+    --dp-menu-min-width: 380px;
+    --dp-menu-padding: #{$padding};
+    --dp-cell-size: 38px; //height: 38, TODO width 41
+
+    :deep(.dp__calendar_header_separator) {
+        display: none;
+    }
+
+    :deep(.dp__menu) {
+        // min-width: 380px;
+    }
+
+    :deep(.dp__menu_inner) {
+        padding-bottom: 0px;
+    }
+
+    :deep(.dp__cell_inner) {
+        transition: background-color 0.3s ease;
+        width: 41px;
+
+        &.dp__range_between {
+            z-index: 2;
+
+            &::before {
+                content: '';
+                z-index: 0;
+                background-color: $accent-blue;
+                width: 51px;
+                height: 38px;
+                position: absolute;
+                top: -1px;
+                left: -6px;
+            }
+
+        }
+
+        &:hover {
+            background-color: $grey-blue;
+        }
+    }
+
+    &.is-selecting {
+        :deep(.dp__cell_inner) {
+            &.dp__range_between::before {
+                background-color: $page-blue;
+            }
+        }
+    }
+
+    :deep(.dp__calendar_item) {
+        // transition: background-color 0.3s ease;
+        // flex-grow: unset; // TODO discuss with axa
+
+        &:hover {
+            // background-color: $grey-blue;
+        }
+    }
+
     .custom-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        font-size: 26px;
 
         .custom-nav-buttons {
             display: flex;
@@ -138,7 +233,7 @@ const ButtonLink = defineAsyncComponent(() =>
 
             .today-button,
             .nav-arrow-button {
-                background-color: var(--color-primary-blue-01);
+                background-color: $page-blue; //var(--color-primary-blue-01);
                 border: none;
                 border-radius: 0px;
                 padding: 0;
@@ -150,13 +245,15 @@ const ButtonLink = defineAsyncComponent(() =>
                 transition: background-color 0.3s ease;
 
                 &:hover {
-                    background-color: var(--color-primary-blue-02);
+                    background-color: $grey-blue;
                 }
             }
 
             .today-button {
                 color: var(--color-primary-blue-03);
                 width: 81px;
+                font-size: 16px;
+                font-weight: 500;
             }
 
             .nav-arrow-button {
@@ -170,17 +267,25 @@ const ButtonLink = defineAsyncComponent(() =>
         }
     }
 
+    .day-header {
+        font-size: 16px;
+        font-weight: normal;
+        color: $medium-grey;
+        text-align: center;
+    }
+
     .day-content {
         display: flex;
         position: relative;
         flex-direction: column;
         width: 100%;
         margin-top: -5px;
+        font-size: 22px;
 
         .event-dots {
             position: absolute;
             width: 100%;
-            bottom: -3px;
+            bottom: 0px;
             display: flex;
             flex-direction: row;
             gap: 3px;
@@ -192,6 +297,37 @@ const ButtonLink = defineAsyncComponent(() =>
                 border-radius: 50%;
                 background-color: var(--color-primary-blue-03);
             }
+        }
+    }
+
+    .action-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+
+        .action-row-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 0px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 100%;
+            color: var(--color-white);
+            background-color: var(--color-primary-blue-01);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: var(--color-primary-blue-02);
+            }
+        }
+
+        .clear-button {
+            background-color: var(--color-secondary-grey-01);
+            color: var(--color-black);
         }
     }
 }
