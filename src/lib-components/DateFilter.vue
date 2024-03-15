@@ -1,150 +1,152 @@
 <script lang="ts" setup>
-import { ref, watch, defineAsyncComponent } from 'vue';
+import { defineAsyncComponent, ref, watch } from 'vue'
 import type { PropType } from 'vue'
-import VueDatePicker from '@vuepic/vue-datepicker';
-import type { DatePickerInstance } from "@vuepic/vue-datepicker"
+import VueDatePicker from '@vuepic/vue-datepicker'
+import type { DatePickerInstance } from '@vuepic/vue-datepicker'
 import '@vuepic/vue-datepicker/dist/main.css'
 import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-left.svg'
 import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-right.svg'
 
+const { initialDates, eventDates } = defineProps({
+  initialDates: {
+    type: Object as PropType<any>,
+    default: { start: null, end: null },
+  },
+  eventDates: {
+    type: Array as PropType<string[]>,
+    default: () => [],
+    required: true,
+  },
+})
+// Emits
+const emit = defineEmits(['input-selected', 'update:selected'])
 // PROPS & DATA
 /* currently App is sending this data as props
 const mockDateFilterData = {
   initialDates: { start: '3/8/2024', end: '3/10/2024' },
-  eventDates: ['3/1/2024', '3/2/2024', '3/2/2024', '3/4/2024', '3/6/2024', '3/8/2024', '3/19/2024', '3/19/2024',],
+  eventDates: ['2/29/2024','2/29/2024','3/1/2024', '3/2/2024', '3/2/2024', '3/4/2024', '3/6/2024', '3/8/2024', '3/19/2024', '3/19/2024',],
 }
 // QUESTION: does this component need to have the ability to select initial dates?
 */
-const threeLetterDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const { initialDates, eventDates } = defineProps({
-    initialDates: {
-        type: Object as PropType<any>,
-        default: { start: null, end: null },
-    },
-    eventDates: {
-        type: Array as PropType<string[]>,
-        default: () => [],
-        required: true,
-    },
-})
-
+const threeLetterDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const date = ref([])
 const datepicker = ref<DatePickerInstance | null>(null)
+const isSelecting = ref(false)
+const todayBtnActive = ref(false)
+
+// Watchers
 watch(date, async (newDate, oldDate) => {
-    if (newDate !== oldDate) {
-        console.log('newDate', newDate);
-    }
+  if (newDate !== oldDate)
+    emit('input-selected', newDate)
 })
 
-// prep event dates array
+// Methods
+// Transform eventDates into an object with date frequencies
 function calcDateFrequency(dateArray: string[]) {
-    let obj: {
-        [key: string]: number;
-    } = {};
-    for (let i = 0; i < dateArray.length; i++) {
-        if (obj[dateArray[i]] === undefined) {
-            obj[dateArray[i]] = 1;
-        } else {
-            obj[dateArray[i]]++;
-        }
-    }
-    return obj;
+  const obj: {
+    [key: string]: number
+  } = {}
+  for (let i = 0; i < dateArray.length; i++) {
+    if (obj[dateArray[i]] === undefined)
+      obj[dateArray[i]] = 1
+    else
+      obj[dateArray[i]]++
+  }
+  return obj
 }
-const dateFrequency = calcDateFrequency(eventDates);
+const dateFrequency = calcDateFrequency(eventDates)
 
-// METHODS
-const goToToday = () => {
-    // select today's date
-    date.value = [new Date(), null];
-};
-const clearDate = () => {
-    datepicker.value?.updateInternalModelValue(null);
-};
+// Select today's date
+function goToToday() {
+  date.value = [new Date(), new Date()]
+  todayBtnActive.value = true
+}
+// Clear date selection
+function clearDate() {
+  datepicker.value?.updateInternalModelValue(null)
+  todayBtnActive.value = false
+}
+// Determine is-selecting boolean for range selection styles
+function handleInternalSelection(selectedDate: Date | Date[] | null) {
+  if (selectedDate?.length && selectedDate.length.valueOf() == 1)
+    isSelecting.value = true
+  else
+    isSelecting.value = false
+}
+// Deselect today button when range selection starts
+function clearTodayBtn() {
+  todayBtnActive.value = false
+}
 
-const isSelecting = ref(false);
-const handleInternalSelection = (selectedDate: Date | Date[] | null) => {
-    console.log('handleInternalSelection', selectedDate);
-    // determine selection styles
-    if (selectedDate?.length && selectedDate.length.valueOf() == 1) {
-        // range
-        isSelecting.value = true;
-    } else {
-        isSelecting.value = false;
-    }
-
-};
-
-//Components
+// Async Components
 const ButtonLink = defineAsyncComponent(() =>
-    import('@/lib-components/ButtonLink.vue'))
-
+  import('@/lib-components/ButtonLink.vue'))
 </script>
 
 <template>
-    <VueDatePicker v-model="date" ref="datepicker" range :week-start="0" :month-name-format="'long'"
-        :enable-time-picker="false" @internal-model-change="handleInternalSelection"
-        :class="['date-filter', { 'is-selecting': isSelecting }]" placeholder="All upcoming">
-        <template #month-year="{
+  <VueDatePicker
+    ref="datepicker" v-model="date" range :week-start="0" month-name-format="long"
+    :enable-time-picker="false" :auto-position="false" class="date-filter"
+    :class="[{ 'is-selecting': isSelecting }]" placeholder="All upcoming" @internal-model-change="handleInternalSelection"
+    @range-start="clearTodayBtn"
+  >
+    <template
+      #month-year="{
         month,
         year,
         months,
-        handleMonthYearChange
-    }">
-            <div class="custom-header">
-                <div class="custom-month-year-component">
-                    {{ months[month].text }} {{ year }}
-                </div>
-                <div class="custom-nav-buttons">
-                    <button class="nav-arrow-button" @click="handleMonthYearChange(false)">
-                        <SvgIconCaretLeft />
-                    </button>
-                    <button class="today-button" @click="goToToday">
-                        TODAY
-                    </button>
-                    <button class="nav-arrow-button" @click="handleMonthYearChange(true)">
-                        <SvgIconCaretRight />
-                    </button>
-                </div>
-            </div>
-        </template>
+        handleMonthYearChange,
+      }"
+    >
+      <div class="custom-header">
+        <div class="custom-month-year-component">
+          {{ months[month].text }} {{ year }}
+        </div>
+        <div class="custom-nav-buttons">
+          <button class="nav-arrow-button" @click="handleMonthYearChange(false)">
+            <SvgIconCaretLeft />
+          </button>
+          <button class="today-button" :class="[{ 'is-active-selection': todayBtnActive }]" @click="goToToday">
+            TODAY
+          </button>
+          <button class="nav-arrow-button" @click="handleMonthYearChange(true)">
+            <SvgIconCaretRight />
+          </button>
+        </div>
+      </div>
+    </template>
 
-        <template #calendar-header="{ index, day }">
-            <div class="day-header">
-                {{ threeLetterDays[index] }}
-            </div>
-        </template>
+    <template #calendar-header="{ index, day }">
+      <div class="day-header">
+        {{ threeLetterDays[index] }}
+      </div>
+    </template>
 
-        <template #day="{ day, date }">
-            <div class="day-content">
-                {{ day }}
-                <div v-if="dateFrequency.hasOwnProperty(date.toLocaleDateString())" class="event-dots">
-                    <template v-for="index in dateFrequency[date.toLocaleDateString()]" :key="index">
-                        <span class="dot"></span>
-                    </template>
-                </div>
-            </div>
-        </template>
+    <template #day="{ day, date }">
+      <div class="day-content">
+        {{ day }}
+        <div v-if="dateFrequency.hasOwnProperty(date.toLocaleDateString())" class="event-dots">
+          <template v-for=" index in dateFrequency[date.toLocaleDateString()]" :key="index">
+            <span class="dot" />
+          </template>
+        </div>
+      </div>
+    </template>
 
-        <template #action-row="{ selectDate }">
-            <div class="action-row">
-                <!-- <button class="select-button" @click="selectDate">Done</button>
-                <button class="close-button" @click="clearDate()">Clear X</button> -->
-                <ButtonLink class="action-row-button select-button" @click="selectDate" label="Done" />
-                <ButtonLink class="action-row-button clear-button" @click="clearDate()" label="Clear"
-                    icon-name="icon-close" :is-quaternary="true" />
-            </div>
-        </template>
-    </VueDatePicker>
+    <template #action-row="{ selectDate }">
+      <div class="action-row">
+        <ButtonLink class="action-row-button select-button" label="Done" icon-name="none" @click="selectDate" />
+        <ButtonLink
+          class="action-row-button clear-button" label="Clear" icon-name="icon-close"
+          @click="(e: Event) => clearDate(e)"
+        />
+      </div>
+    </template>
+  </VueDatePicker>
 </template>
 
 <style lang="scss" scoped>
-// @import "ucla-library-design-tokens/scss/_tokens-ftva";
-// TODO replace with tokens
-$medium-grey: #555555;
-$grey-blue: #ABBFD6;
-$page-blue: #e7edf2;
-$accent-blue: #115DAF;
-$padding: 26px; // rename this one
+@import "ucla-library-design-tokens/scss/_tokens-ftva";
 
 // TODO if using datepicker input, need to style the input
 // var(--font-secondary);
@@ -152,25 +154,42 @@ $padding: 26px; // rename this one
     display: none;
 }
 
-// 10px bottom border radius
-
-/* .dp__menu_inner {
-    padding: var(--dp-menu-padding);
-} */
+button:focus,
+button:focus-visible {
+    outline: 1px hidden $accent-blue;
+}
 
 .date-filter {
-    // font-family: var(--font-primary) !important;
     --dp-font-family: var(--font-primary);
     --dp-menu-min-width: 380px;
-    --dp-menu-padding: #{$padding};
-    --dp-cell-size: 38px; //height: 38, TODO width 41
+    --dp-menu-padding: 26px;
+    --dp-cell-size: 38px;
+    width: 380px;
+
+    // Input styling
+    :deep(.dp__input) {
+        height: 59px;
+        font-size: 18px;
+    }
+
+    :deep(.dp__outer_menu_wrap.dp--menu-wrapper) {
+        top: 50px !important;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 0px 10px 10px;
+
+        .dp__menu {
+            border-radius: 0px 0px 10px 10px;
+
+            .dp__arrow_top {
+                display: none;
+            }
+        }
+    }
+
+    // Calendar styling
 
     :deep(.dp__calendar_header_separator) {
         display: none;
-    }
-
-    :deep(.dp__menu) {
-        // min-width: 380px;
     }
 
     :deep(.dp__menu_inner) {
@@ -183,6 +202,7 @@ $padding: 26px; // rename this one
 
         &.dp__range_between {
             z-index: 2;
+            color: var(--color-white);
 
             &::before {
                 content: '';
@@ -195,6 +215,21 @@ $padding: 26px; // rename this one
                 left: -6px;
             }
 
+            .day-content>.event-dots>.dot {
+                background-color: var(--color-white);
+            }
+
+        }
+
+        &.dp__range_end,
+        &.dp__range_start,
+        &.dp__active_date {
+            background: $navy-blue;
+            color: var(--color-white);
+
+            .day-content>.event-dots>.dot {
+                background-color: var(--color-white);
+            }
         }
 
         &:hover {
@@ -202,20 +237,35 @@ $padding: 26px; // rename this one
         }
     }
 
-    &.is-selecting {
-        :deep(.dp__cell_inner) {
-            &.dp__range_between::before {
-                background-color: $page-blue;
+    :deep(.dp__cell_offset) {
+        color: $light-grey;
+
+        .day-content>.event-dots>.dot {
+            background-color: $light-grey;
+        }
+
+        &:hover {
+            color: $heading-grey;
+
+            .day-content>.event-dots>.dot {
+                background-color: $accent-blue;
             }
         }
     }
 
-    :deep(.dp__calendar_item) {
-        // transition: background-color 0.3s ease;
-        // flex-grow: unset; // TODO discuss with axa
+    &.is-selecting {
+        :deep(.dp__cell_inner) {
+            &.dp__range_between {
+                color: $heading-grey;
 
-        &:hover {
-            // background-color: $grey-blue;
+                &::before {
+                    background-color: $page-blue;
+                }
+
+                .day-content>.event-dots>.dot {
+                    background-color: $accent-blue;
+                }
+            }
         }
     }
 
@@ -233,7 +283,7 @@ $padding: 26px; // rename this one
 
             .today-button,
             .nav-arrow-button {
-                background-color: $page-blue; //var(--color-primary-blue-01);
+                background-color: $page-blue;
                 border: none;
                 border-radius: 0px;
                 padding: 0;
@@ -254,6 +304,11 @@ $padding: 26px; // rename this one
                 width: 81px;
                 font-size: 16px;
                 font-weight: 500;
+
+                &.is-active-selection {
+                    background-color: $accent-blue;
+                    color: var(--color-white);
+                }
             }
 
             .nav-arrow-button {
@@ -302,32 +357,54 @@ $padding: 26px; // rename this one
 
     .action-row {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
+        width: 100%;
         align-items: center;
-        margin-top: 10px;
+        margin: 10px 18px; //dp__action_row adds 8 px for total of 18px top and bottom
+        gap: 5px;
 
         .action-row-button {
-            font-size: 16px;
-            padding: 10px 20px;
-            border-radius: 0px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            line-height: 100%;
+            // font-size: 18px;
+            padding: 10px 21px;
+            border-radius: 2px;
+            font-family: var(--font-primary);
+            font-weight: 500;
+            line-height: 27px;
             color: var(--color-white);
-            background-color: var(--color-primary-blue-01);
-            border: none;
+            background-color: $accent-blue;
+            border: 1px solid $accent-blue;
             cursor: pointer;
             transition: background-color 0.3s ease;
 
+            &.select-button> :deep(.label) {
+                padding-left: 0px;
+            }
+
+            :deep(.hover) {
+                display: none;
+            }
+
             &:hover {
-                background-color: var(--color-primary-blue-02);
+                background-color: $navy-blue;
             }
         }
 
         .clear-button {
-            background-color: var(--color-secondary-grey-01);
-            color: var(--color-black);
+            background-color: var(--color-white);
+            color: $accent-blue;
+
+            :deep(.svg__stroke--primary-blue-03) {
+                stroke: $accent-blue;
+            }
+
+            &:hover {
+                background-color: $navy-blue;
+                color: var(--color-white);
+
+                :deep(.svg__stroke--primary-blue-03) {
+                    stroke: var(--color-white);
+                }
+            }
         }
     }
 }
