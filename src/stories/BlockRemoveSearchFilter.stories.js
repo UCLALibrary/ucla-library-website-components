@@ -1,5 +1,5 @@
 import BlockRemoveSearchFilter from '@/lib-components/BlockRemoveSearchFilter'
-import router from "@/router"
+import router from '@/router'
 
 export default {
   title: 'SEARCH / Block Remove Search Filter',

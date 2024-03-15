@@ -79,7 +79,7 @@ export { default as SectionDualMasonry } from './SectionDualMasonry.vue'
 export { default as SectionHeader } from './SectionHeader.vue'
 export { default as SectionSpacesList } from './SectionSpacesList.vue'
 export { default as SectionStaffOrcidPublications } from './SectionStaffOrcidPublications.vue'
-export { default as SectionRemoveSearchFilter } from "./SectionRemoveSearchFilter.vue"
+export { default as SectionRemoveSearchFilter } from './SectionRemoveSearchFilter.vue'
 export { default as SectionTeaserCard } from './SectionTeaserCard.vue'
 export { default as SectionTeaserHighlight } from './SectionTeaserHighlight.vue'
 export { default as SectionTeaserList } from './SectionTeaserList.vue'
