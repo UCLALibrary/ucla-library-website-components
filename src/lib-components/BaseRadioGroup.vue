@@ -1,3 +1,41 @@
+<script setup>
+import { ref } from 'vue'
+import SvgIconRadioButton from 'ucla-library-design-tokens/assets/svgs/icon-radio-button.svg'
+
+const { items, selected } = defineProps({
+  items: {
+    type: Array,
+    default: () => [],
+  },
+  selected: {
+    type: String,
+    default: '',
+  },
+})
+// TODO Watch for changes in `selected` prop and update `parsedSelected`
+/* watch(selected, (newVal, oldVal) => {
+  console.log("Old value", oldVal)
+  console.log("New value", newVal)
+  parsedSelected.value = newVal
+},
+  { immediate: true }
+) */
+
+// Emitting events
+const emit = defineEmits(['update:selected', 'input-selected'])
+
+console.log('selected', selected)
+
+const parsedSelected = ref(selected)
+console.log('parseselected radio button', parsedSelected.value)
+
+function onChange(value) {
+  console.log('what is slected', value)
+  emit('update:selected', value)
+  emit('input-selected')
+}
+</script>
+
 <template>
   <transition
     name="slide-toggle"
@@ -17,7 +55,7 @@
               :value="item.name"
               class="input"
               @change="onChange(item.name)"
-            />
+            >
 
             <SvgIconRadioButton class="svg" />
 
@@ -28,43 +66,6 @@
     </fieldset>
   </transition>
 </template>
-
-<script setup>
-import { ref, watch } from 'vue'
-import SvgIconRadioButton from "ucla-library-design-tokens/assets/svgs/icon-radio-button.svg"
-
-const { items, selected } = defineProps({
-  items: {
-    type: Array,
-    default: () => [],
-  },
-  selected: {
-    type: String,
-    default: "",
-  },
-})
-console.log("selected", selected)
-
-const parsedSelected = ref(selected)
-console.log("parseselected radio button", parsedSelected.value)
-
-// TODO Watch for changes in `selected` prop and update `parsedSelected`
-/* watch(selected, (newVal, oldVal) => {
-  console.log("Old value", oldVal)
-  console.log("New value", newVal)
-  parsedSelected.value = newVal
-},
-  { immediate: true }
-) */
-
-// Emitting events
-const emit = defineEmits(['update:selected', 'input-selected'])
-const onChange = (value) => {
-  console.log("what is slected", value)
-  emit('update:selected', value)
-  emit('input-selected')
-}
-</script>
 
 <style
   lang="scss"

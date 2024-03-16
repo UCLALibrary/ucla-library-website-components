@@ -1,35 +1,5 @@
-<template>
-  <transition
-    name="slide-toggle"
-    mode="out-in"
-  >
-    <fieldset class="base-checkbox-group">
-      <ul class="list">
-        <li
-          class="list-item"
-          v-for="(item, index) in items"
-          :key="`BaseCheckboxGroup${index}`"
-        >
-          <label class="label">
-            <input
-              type="checkbox"
-              :value="item.name"
-              :checked="parsedSelected.find(selectedItem => selectedItem.name === item.name)"
-              @change="onChange(item.name)"
-              class="input"
-            />
-
-            <SvgIconCheckbox class="svg" />
-            {{ item.name }}
-          </label>
-        </li>
-      </ul>
-    </fieldset>
-  </transition>
-</template>
-
 <script setup>
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import _uniq from 'lodash/uniq'
 import SvgIconCheckbox from 'ucla-library-design-tokens/assets/svgs/icon-checkbox.svg'
 
@@ -44,25 +14,54 @@ const props = defineProps({
   },
 })
 
-const parsedSelected = ref(_uniq([...props.selected]))
 // TODO
 /* watch(props.selected, (newVal) => {
   parsedSelected.value = _uniq([...newVal])
 }) */
 
 const emit = defineEmits(['update:selected', 'input-selected'])
-
-const onChange = (itemName) => {
+const parsedSelected = ref(_uniq([...props.selected]))
+function onChange(itemName) {
   const index = parsedSelected.value.indexOf(itemName)
-  if (index > -1) {
+  if (index > -1)
     parsedSelected.value.splice(index, 1)
-  } else {
+  else
     parsedSelected.value.push({ name: itemName })
-  }
+
   emit('update:selected', parsedSelected.value)
   emit('input-selected')
 }
 </script>
+
+<template>
+  <transition
+    name="slide-toggle"
+    mode="out-in"
+  >
+    <fieldset class="base-checkbox-group">
+      <ul class="list">
+        <li
+          v-for="(item, index) in items"
+          :key="`BaseCheckboxGroup${index}`"
+          class="list-item"
+        >
+          <label class="label">
+            <input
+              type="checkbox"
+              :value="item.name"
+              :checked="parsedSelected.find(selectedItem => selectedItem.name === item.name)"
+              class="input"
+              @change="onChange(item.name)"
+            >
+
+            <SvgIconCheckbox class="svg" />
+            {{ item.name }}
+          </label>
+        </li>
+      </ul>
+    </fieldset>
+  </transition>
+</template>
 
 <style
   lang="scss"

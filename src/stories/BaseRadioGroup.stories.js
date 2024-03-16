@@ -15,13 +15,15 @@ export default {
   },
 }
 
-const Template = (args) => ({
-  components: { BaseRadioGroup },
-  setup() {
-    return { args }
-  },
-  template: '<BaseRadioGroup v-bind="args" />',
-})
+function Template(args) {
+  return {
+    components: { BaseRadioGroup },
+    setup() {
+      return { args }
+    },
+    template: '<BaseRadioGroup v-bind="args" />',
+  }
+}
 
 export const Default = Template.bind({})
 Default.args = {

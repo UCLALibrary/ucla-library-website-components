@@ -1,4 +1,6 @@
-import BaseCheckboxGroup from '@/lib-components/BaseCheckboxGroup' // Adjust the path as needed
+import BaseCheckboxGroup from '@/lib-components/BaseCheckboxGroup'
+
+// Adjust the path as needed
 // Ensure you have a path to your SVG or mock
 
 export default {
@@ -17,15 +19,17 @@ export default {
   }
 }
 
-const Template = (args) => ({
-  components: { BaseCheckboxGroup },
-  setup() {
-    return { args };
-  },
-  template: '<BaseCheckboxGroup v-bind="args" />',
-})
+function Template(args) {
+  return {
+    components: { BaseCheckboxGroup },
+    setup() {
+      return { args }
+    },
+    template: '<BaseCheckboxGroup v-bind="args" />',
+  }
+}
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 Default.args = {
   items: [
     { name: 'Checkbox 1' },
@@ -35,7 +39,7 @@ Default.args = {
   selected: [],
 }
 
-export const WithSelection = Template.bind({});
+export const WithSelection = Template.bind({})
 WithSelection.args = {
   items: [
     { name: 'Checkbox 1' },
@@ -43,4 +47,4 @@ WithSelection.args = {
     { name: 'Checkbox 3' },
   ],
   selected: [{ name: 'Checkbox 1' }],
-};
+}
