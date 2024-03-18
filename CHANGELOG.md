@@ -1,3 +1,10 @@
+# [2.39.0-alpha.50](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.49...v2.39.0-alpha.50) (2024-03-18)
+
+
+### Features
+
+* Add BaseRadioGroup and BaseCheckboxGroup components to vue3 and stories are new ([#475](https://github.com/UCLALibrary/ucla-library-website-components/issues/475)) ([c18c33c](https://github.com/UCLALibrary/ucla-library-website-components/commit/c18c33c344691c51931493777572e639222e2e27))
+
 # [2.39.0-alpha.49](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.48...v2.39.0-alpha.49) (2024-03-15)
 
 
