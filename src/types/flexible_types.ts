@@ -25,10 +25,6 @@ interface AssociatedTopicsPage {
 }
 
 interface Byline {
-  title: string
-}
-
-interface Byline {
   id: string
   title: string
   to: string
@@ -58,8 +54,10 @@ interface ContentLink {
   buttonText: string
   projectCategory: string
   eventType: string
+  eventType: EventType[]
   category: string
   articleCategory: { title: string }[]
+  projectCategory: string
   projectByline1: Byline[]
   articleByline1: Byline[]
   articleByline2: string
@@ -74,6 +72,7 @@ interface ContentLink {
   associatedLocations: LocationItemType[]
   projectLocations: LocationItemType[]
   heroImage: { image: MediaItemType[] }[]
+  staffMember: StaffMember[]
 }
 
 interface FlexibleBannerContent extends ContentLink {
@@ -90,6 +89,11 @@ interface FlexibleBannerContent extends ContentLink {
   category: string
   contentType: string
   sectionHandle: string
+}
+
+interface EventType {
+  id: string
+  title: string
 }
 
 interface FlexibleBannerContentLink extends ContentLink {
@@ -152,21 +156,6 @@ interface FlexibleImpactNumberCard {
   impactNumber: string
 }
 
-type customTypeMedia = 'audio' | 'video' | 'other'
-
-interface MediaWithText {
-  titleLink: string
-  titleUpload: string
-  description: string
-  src: string
-  coverImage: MediaItemType[]
-  buttonText: string
-  buttonUrl: string
-  embedCode: string
-  typeMedia: customTypeMedia
-  item: MediaItemType[]
-}
-
 interface FlexibleSimpleCard extends ContentLink {
   id: string
   typehandle: string
@@ -180,6 +169,21 @@ interface FlexibleSimpleCard extends ContentLink {
   // TODO - Add Event Title and Event Description
   // eventTitle: string
   // eventDescription: string
+}
+
+type customTypeMedia = 'audio' | 'video' | 'other'
+
+interface MediaWithText {
+  titleLink: string
+  titleUpload: string
+  description: string
+  src: string
+  coverImage: MediaItemType[]
+  buttonText: string
+  buttonUrl: string
+  embedCode: string
+  typeMedia: customTypeMedia
+  item: MediaItemType[]
 }
 
 interface StaffMember {

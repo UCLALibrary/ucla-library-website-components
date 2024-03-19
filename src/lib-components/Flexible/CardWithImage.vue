@@ -159,11 +159,11 @@ const parsedItems = computed(() => {
             "heroImage[0].image[0]",
             null
           ),
-          to: `/${stripMeapFromURI(obj.to)}`
+          to: `/${stripMeapFromURI(obj.to)}`,
         }
       }
     })
-},
+}
 </script>
 
 <template>
