@@ -23,7 +23,7 @@ import type { FlexibleCardWithImage } from '@/types/flexible_types'
 
 const { block } = defineProps({
   block: {
-    type: Object,
+    type: Object as PropType<FlexibleCardWithImage>,
     default: () => { },
   },
 })

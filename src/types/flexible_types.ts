@@ -25,8 +25,25 @@ interface AssociatedTopicsPage {
 }
 
 interface Byline {
+  title: string
+}
+
+interface Byline {
   id: string
   title: string
+  to: string
+}
+
+interface CardWithImage {
+  id: string
+  typeHandle: string
+  contentLink: contentLink[]
+  title: string
+  image: MediaItemType[]
+  byline1: string
+  byline2: string
+  category: string
+  text: string
   to: string
 }
 
@@ -59,7 +76,7 @@ interface ContentLink {
   heroImage: { image: MediaItemType[] }[]
 }
 
-interface FlexibleBannerContent {
+interface FlexibleBannerContent extends ContentLink {
   id: string
   contentLink: FlexibleBannerContentLink[]
   image: MediaItemType[]
@@ -165,6 +182,12 @@ interface FlexibleSimpleCard extends ContentLink {
   // eventDescription: string
 }
 
+interface StaffMember {
+  id: string
+  title: string
+  to: string
+}
+
 // Flexible Components
 
 export interface FlexibleAssociatedTopicCards extends FlexibleBlock {
@@ -181,6 +204,10 @@ export interface FlexibleCallToAction extends FlexibleBlock {
 
 export interface FlexibleCallToAction2Up extends FlexibleBlock {
   ctaBlock2Up: BlockCallToActionTwoUpType[]
+}
+
+export interface FlexibleCardWithImage extends FlexibleBlock {
+  cardWithImage: CardWithImage[]
 }
 
 export interface FlexibleForm extends FlexibleBlock {
