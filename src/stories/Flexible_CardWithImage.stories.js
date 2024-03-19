@@ -1,17 +1,17 @@
-import { mock} from './mock/Flexible_MediaWithText'
-import FlexibleCardWithImage from "@/lib-components/Flexible/CardWithImage.vue"
+import { mock } from './mock/Flexible_MediaWithText'
+import FlexibleCardWithImage from '@/lib-components/Flexible/CardWithImage.vue'
 
 export default {
-    title: "FLEXIBLE / Card With Image",
-    component: FlexibleCardWithImage,
+  title: 'FLEXIBLE / Card With Image',
+  component: FlexibleCardWithImage,
 }
 
-
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            block: mock,
-        }
+      return {
+        block: mock,
+      }
     },
     components: { FlexibleCardWithImage },
     template: `
@@ -19,7 +19,8 @@ export const Default = () => ({
             :block="block"
        />
     `,
-})
+  }
+}
 
 // export const EventExhibitonArticle = () => ({
 //     data() {
