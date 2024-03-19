@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const routes = []
+const routes = [
+  { path: '/', component: {} }, // Default path
+  // Add more mock paths as needed
+]
 
 const router = createRouter({
   history: createWebHistory(),
