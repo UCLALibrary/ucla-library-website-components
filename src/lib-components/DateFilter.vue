@@ -28,7 +28,7 @@ const { eventDates, hideInput } = defineProps({
 const emit = defineEmits(['input-selected', 'update:selected'])
 // PROPS & DATA
 const threeLetterDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-const date = ref([])
+const date = ref<Date[] | Date>([])
 const datepicker = ref<DatePickerInstance | null>(null)
 const isSelecting = ref(false)
 const isOpen = ref(false)
@@ -73,7 +73,7 @@ function clearDate() {
 }
 // Determine is-selecting boolean for range selection styles
 function handleInternalSelection(selectedDate: Date | Date[] | null) {
-    if (selectedDate?.length && selectedDate.length.valueOf() == 1)
+    if ((selectedDate && 'length' in selectedDate) && selectedDate.length.valueOf() == 1)
         isSelecting.value = true
     else
         isSelecting.value = false
@@ -165,7 +165,10 @@ const ButtonLink = defineAsyncComponent(() =>
                     {{ day }}
                     <div v-if="dateFrequency.hasOwnProperty(date.toLocaleDateString())" class="event-dots">
                         <template v-for=" index in dateFrequency[date.toLocaleDateString()]" :key="index">
-                            <span class="dot" />
+                            <!-- limit display to 3 events dots-->
+                            <template v-if="index <= 3">
+                                <span class="dot"></span>
+                            </template>
                         </template>
                     </div>
                 </div>
