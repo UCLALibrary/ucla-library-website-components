@@ -6,13 +6,12 @@ import type { PropType } from 'vue'
 import { computed } from 'vue'
 
 // COMPONENTS
-import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 import type { BlockCardMetaType, EventItemType } from '@/types/types'
 import BlockFloatingHighlight from '@/lib-components/BlockFloatingHighlight.vue'
 
 // UTILS
 import _get from 'lodash/get'
-import formatDates from "@/mixins/formatEventDates"
+import formatDates from "@/utils/formatEventDates"
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
 // TYPESCRIPT
@@ -158,7 +157,7 @@ const parsedItems = computed(() => {
           ),
           to: `/${stripMeapFromURI(obj.to)}`,
         }
-      }
+      },
     })
 }
 </script>
