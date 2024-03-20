@@ -1,3 +1,4 @@
+// FRESH DATA CARDWITH image
 export const mock = {
   id: '2900942',
   typeHandle: 'cardWithImage',
@@ -14,7 +15,7 @@ export const mock = {
           to: 'visit/events-exhibitions/getting-started-with-web-of-science-02-21-24',
           title: 'Getting Started with Web of Science 02-21-24',
           text: null,
-          eventDescription: '<p>\n<span><span>Do you want to find scientific research articles? This workshops will introduce searching in Web of Science, a database covering science topics. The workshop is perfect for first time users and experienced searchers looking for a refresher</span></span></p>\n\n<p><span><br /><span><span><span><span><span><span>This workshop will be offered via Zoom. If you\'re registered, you\'ll receive the Zoom invitation information the day of the workshop.</span></span></span></span></span></span></span></p>\n\n<p><span>Instructors: <span><span><span><span><span><span>Robert Johnson, Clinical and Research Support Librarian; <span><span><span><span><span><span>Renee Romero, Science Librarian; <span><span><span><span><span><span>Alexandra Solodkaya, Rothman Family Food Studies Librarian</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p>',
+          eventDescription: "<p>\n<span><span>Do you want to find scientific research articles? This workshops will introduce searching in Web of Science, a database covering science topics. The workshop is perfect for first time users and experienced searchers looking for a refresher</span></span></p>\n\n<p><span><br /><span><span><span><span><span><span>This workshop will be offered via Zoom. If you\'re registered, you\'ll receive the Zoom invitation information the day of the workshop.</span></span></span></span></span></span></span></p>\n\n<p><span>Instructors: <span><span><span><span><span><span>Robert Johnson, Clinical and Research Support Librarian; <span><span><span><span><span><span>Renee Romero, Science Librarian; <span><span><span><span><span><span>Alexandra Solodkaya, Rothman Family Food Studies Librarian</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p>",
           articleByline2: '2023-12-15T14:45:00-08:00',
           startDateWithTime: '2024-02-21T13:00',
           endDateWithTime: '2024-02-21T14:00',

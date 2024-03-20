@@ -6,11 +6,9 @@ import type { PropType } from 'vue'
 import { computed } from 'vue'
 
 // COMPONENTS
+import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 import type { BlockCardMetaType, EventItemType } from '@/types/types'
 import BlockFloatingHighlight from '@/lib-components/BlockFloatingHighlight.vue'
-
-// TYPESCRPT
-import type { FlexibleRichText } from '@/types/flexible_types'
 
 // UTILS
 import _get from 'lodash/get'
@@ -19,7 +17,6 @@ import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
 // TYPESCRIPT
 import type { FlexibleCardWithImage } from '@/types/flexible_types'
-
 
 const { block } = defineProps({
   block: {
@@ -171,6 +168,7 @@ const parsedItems = computed(() => {
     class="card-with-image"
     v-if="block.cardWithImage"
   >
+    <h3>{{ block }}</h3>
     <div class="section-header">
       <h2
         v-if="block.sectionTitle"
