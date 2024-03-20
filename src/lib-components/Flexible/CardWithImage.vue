@@ -6,8 +6,7 @@ import type { PropType } from 'vue'
 import { computed } from 'vue'
 
 // COMPONENTS
-import type { BlockCardMetaType, EventItemType } from '@/types/types'
-import BlockFloatingHighlight from '@/lib-components/BlockFloatingHighlight.vue'
+import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
 // UTILS
 import _get from 'lodash/get'
@@ -16,7 +15,6 @@ import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
 // TYPESCRIPT
 import type { FlexibleCardWithImage } from '@/types/flexible_types'
-import type { LocationItemType, MediaItemType } from '@/types/types'
 
 const { block } = defineProps({
   block: {
@@ -202,36 +200,6 @@ const parsedItems = computed(() => {
         class="block"
       />
     </ul>
-    <!--
-    <div class="section-header">
-
-      <h2>{{ block.sectionTitle }}</h2>
-
-      <div>{{ block.sectionSummary }}</div>
-    </div>
-
-    <ul class="block-group">
-      <block-highlight
-        v-for="(item, index) in parsedItems"
-        :key="`FlexibleCardWithImage${index}`"
-        :to="item.to"
-        :image="item.parsedImage"
-        :category="item.parsedCategory"
-        :bylineOne="item.byline1"
-        :bylineTwo="item.byline2"
-        :title="item.title"
-        :text="item.text"
-        :locations="item.parsedLocation"
-        :image-aspect-ratio="60"
-        :is-vertical="true"
-        :start-date="item.startDate"
-        :end-date="item.endDate"
-        :section-handle="item.contentType"
-        :ongoing="item.ongoing"
-        class="block"
-      />
-    </ul>
-    -->
   </div>
 </template>
 
