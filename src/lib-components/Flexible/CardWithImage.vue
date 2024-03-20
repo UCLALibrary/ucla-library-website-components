@@ -16,6 +16,7 @@ import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
 // TYPESCRIPT
 import type { FlexibleCardWithImage } from '@/types/flexible_types'
+import type { LocationItemType, MediaItemType } from '@/types/types'
 
 const { block } = defineProps({
   block: {
@@ -25,8 +26,8 @@ const { block } = defineProps({
 })
 
 const parsedList = computed(() => {
-  let items = []
-  for (let item in block.cardWithImage) {
+  const items = []
+  for (const item in block.cardWithImage) {
     if (
       block.cardWithImage[item].typeHandle ===
       "internalContent"
@@ -42,7 +43,7 @@ const parsedList = computed(() => {
 const parsedItems = computed(() => {
   // Maps values based on content type and external or internal content
   // filter out null objects
-  return parsedList
+  return parsedList.value
     .filter((e) => e != null)
     .map((obj) => {
       // Article
@@ -157,9 +158,9 @@ const parsedItems = computed(() => {
           ),
           to: `/${stripMeapFromURI(obj.to)}`,
         }
-      },
+      }
     })
-}
+})
 </script>
 
 <template>
@@ -167,18 +168,46 @@ const parsedItems = computed(() => {
     class="card-with-image"
     v-if="block.cardWithImage"
   >
-    <h3>{{ block }}</h3>
     <div class="section-header">
       <h2
-        v-if="block.sectionTitle"
         class="section-title"
-        v-html="block.sectionTitle"
-      />
+        v-if="block.sectionTitle"
+      >{{ block.sectionTitle }}</h2>
+
       <div
         v-if="block.sectionSummary"
         class="section-summary"
         v-html="block.sectionSummary"
       />
+    </div>
+
+    <ul class="block-group">
+      <block-highlight
+        v-for="(item, index) in parsedItems.value"
+        :key="`FlexibleCardWithImage${index}`"
+        :to="item.to"
+        :image="item.parsedImage"
+        :category="item.parsedCategory"
+        :bylineOne="item.byline1"
+        :bylineTwo="item.byline2"
+        :title="item.title"
+        :text="item.text"
+        :locations="item.parsedLocation"
+        :image-aspect-ratio="60"
+        :is-vertical="true"
+        :start-date="item.startDate"
+        :end-date="item.endDate"
+        :section-handle="item.contentType"
+        :ongoing="item.ongoing"
+        class="block"
+      />
+    </ul>
+    <!--
+    <div class="section-header">
+
+      <h2>{{ block.sectionTitle }}</h2>
+
+      <div>{{ block.sectionSummary }}</div>
     </div>
 
     <ul class="block-group">
@@ -202,6 +231,7 @@ const parsedItems = computed(() => {
         class="block"
       />
     </ul>
+    -->
   </div>
 </template>
 
