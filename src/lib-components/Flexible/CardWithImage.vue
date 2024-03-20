@@ -180,7 +180,7 @@ const parsedItems = computed(() => {
     </div>
 
     <ul class="block-group">
-      <block-highlight
+      <BlockCardWithImage
         v-for="(item, index) in parsedItems.value"
         :key="`FlexibleCardWithImage${index}`"
         :to="item.to"
