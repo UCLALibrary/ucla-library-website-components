@@ -19,7 +19,7 @@ function Template(args) {
     },
     components: { DateFilter },
     template:
-    '<date-filter />',
+    '<div style="height:509px"><date-filter /></div>',
   }
 }
 

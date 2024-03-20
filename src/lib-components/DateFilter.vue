@@ -33,7 +33,7 @@ const datepicker = ref<DatePickerInstance | null>(null)
 const isSelecting = ref(false)
 const isOpen = ref(false)
 const todayBtnActive = ref(false)
-const windowSize = ref(window.innerWidth) // > 750px is the breakpoint for mobile
+const windowSize = ref(window.innerWidth)
 
 // Watch date and emit to parent component
 watch(date, async (newDate, oldDate) => {
@@ -88,6 +88,7 @@ function toggleArrow() {
 }
 // Determine if the window size is mobile for conditional rendering
 function isMobile() {
+    // 750 corresponds to the $small breakpoint in the design tokens
     return windowSize.value <= 750
 }
 
@@ -113,7 +114,7 @@ const ButtonLink = defineAsyncComponent(() =>
 <template>
     <div class="date-filter-container">
         <VueDatePicker ref="datepicker" v-model="date" :range="!isMobile()" :week-start="0" month-name-format="long"
-            :enable-time-picker="false" :auto-position="false" :inline="hideInput" class="date-filter"
+            :enable-time-picker="false" :auto-position="false" no-today :inline="hideInput" class="date-filter"
             :class="[{ 'is-selecting': isSelecting }]" :placeholder="isMobile() ? 'Select a date' : 'All upcoming'"
             @internal-model-change="handleInternalSelection" @range-start="clearTodayBtn" @open="toggleArrow"
             @closed="toggleArrow">
@@ -187,6 +188,10 @@ const ButtonLink = defineAsyncComponent(() =>
 
 .dp__calendar_header_separator {
     display: none;
+}
+
+:deep(.dp__calendar_header_item) {
+    padding-top: 23px;
 }
 
 button:focus,
