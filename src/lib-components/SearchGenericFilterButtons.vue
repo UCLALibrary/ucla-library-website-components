@@ -1,0 +1,194 @@
+<script
+  lang="ts"
+  setup
+>
+import { computed, ref } from 'vue'
+import type { PropType } from 'vue'
+
+import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
+import SingleCheckbox from "@/lib-components/SingleCheckbox.vue"
+interface Item {
+  inputType: string
+  label: string
+  class: string
+}
+
+const props = defineProps({
+  items: {
+    type: Array as PropType<Item[]>,
+    default: () => [],
+  },
+  activeIndex: {
+    type: Number,
+    default: -1,
+  },
+  singleCheckboxState: {
+    type: Boolean,
+    default: false,
+  },
+})
+const emit = defineEmits(['update:activeIndex', 'update:selected', 'single-checkbox-selected'])
+
+const theSingleCheckboxState = ref(props.singleCheckboxState)
+
+console.log("theSingleCheckboxState", theSingleCheckboxState.value)
+
+const isSingleCheckBox = computed(() => {
+  return props.items?.some(item => item.inputType === "single-checkbox")
+})
+
+const updateSingleCheckboxState = () => {
+  emit('update:selected', theSingleCheckboxState.value)
+  emit('single-checkbox-selected')
+}
+const getSingleCheckboxLabel = computed(() => {
+  const item = props.items.find(item => item.inputType === "single-checkbox")
+  return item ? item.label : ""
+})
+
+
+const parsedItems = computed(() => {
+  return props.items.map((item, index) => {
+    if (item.inputType !== "single-checkbox") {
+      let btnClass = "button" + (props.activeIndex === index ? " is-active" : "")
+      return {
+        ...item,
+        class: btnClass,
+      }
+    }
+  }).filter(item => item) // Filter out undefined items (single-checkbox case)
+})
+const toggleOpen = (index: number) => {
+  emit('update:activeIndex', props.activeIndex === index ? -1 : index)
+}
+</script>
+<template>
+  <div class="search-generic-filter-buttons">
+    <button
+      v-for="(filter, index) in parsedItems"
+      :key="filter?.label"
+      :class="filter?.class"
+      @click="toggleOpen(index)"
+      type="button"
+    >
+      <span class="title">
+        {{ filter?.label }}
+      </span>
+
+      <div class="chevron">
+        <SvgIconCaretDown class="caret-down-svg" />
+      </div>
+    </button>
+    <SingleCheckbox
+      @input-selected="updateSingleCheckboxState"
+      v-if="isSingleCheckBox"
+      :label="getSingleCheckboxLabel"
+      v-model:selected="theSingleCheckboxState"
+    />
+  </div>
+</template>
+<style
+  lang="scss"
+  scoped
+>
+.search-generic-filter-buttons {
+  width: 100%;
+  font-family: var(--font-secondary);
+  font-size: 18px;
+
+  display: flex;
+  flex-direction: row;
+
+  .button {
+    flex: 1 1 auto;
+
+    height: 60px;
+    font-size: 18px;
+    font-family: var(--font-secondary);
+    color: var(--color-white);
+    background-color: var(--color-primary-blue-03);
+    margin-right: 8px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    border: 1.5px solid transparent;
+
+    transition-property: border, border-radius;
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .title {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 0 50px 0 16px;
+    transition: background-color 400ms ease-in-out;
+
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+
+  .chevron {
+    font-size: 16px;
+    color: var(--color-white);
+    position: absolute;
+    width: 56px;
+    right: 0;
+    top: 0;
+    height: 100%;
+    transition: background-color 400ms ease-in-out;
+    background-color: var(--color-blue-03);
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: white;
+    }
+
+    // chevron up & down
+  }
+
+  .svg__icon-radio-button {
+    .svg__fill--default-cyan-03 {
+      fill: transparent;
+    }
+
+    .svg__stroke--primary-blue-03 {
+      stroke: white;
+    }
+  }
+
+  // Open state
+  .is-active {
+    .caret-down-svg {
+      transform: rotate(180deg);
+    }
+
+    .title,
+    .chevron {
+      background-color: var(--color-primary-blue-04);
+    }
+  }
+
+  //Breakpoints
+  @media #{$small} {
+
+    .button,
+    .single-checkbox {
+      margin-right: 0;
+    }
+  }
+
+  // Hovers
+  @media #{$has-hover} {}
+}
+</style>

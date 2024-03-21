@@ -1,88 +1,61 @@
-<script>
-import SvgIconCheckbox from 'ucla-library-design-tokens/assets/svgs/icon-checkbox.svg'
-
-export default {
-  name: 'SingleCheckbox',
-  components: {
-    SvgIconCheckbox,
-  },
-  props: {
-    value: {
-      type: String,
-      default: '',
-    },
-    label: {
-      type: String,
-      default: '[LABEL]',
-    },
-    querySelection: {
-      type: String,
-      default: '',
-    },
-    selected: {
-      type: String,
-      default: '',
-    },
-  },
-  emits: ['update:selected', 'input-selected'],
-  data() {
-    return {
-      isSelected: '',
-    }
-  },
-  computed: {
-    parseSelected: {
-      get() {
-        return this.isSelected === this.querySelection
-          ? this.isSelected
-          : this.querySelection
-      },
-      set(value) {
-        this.isSelected = value
-      },
-    },
-    labelClass() {
-      return ['label', this.isSelected === 'yes' ? 'checked' : '']
-    },
-  },
-  watch: {
-    selected: {
-      handler(newVal) {
-        this.isSelected = newVal
-      },
-    },
-  },
-  mounted() {
-    // console.log("In mounted:" + this.isSelected)
-  },
-  methods: {
-    // eslint-disable-next-line unused-imports/no-unused-vars
-    onChange(value) {
-      this.$emit(
-        'update:selected',
-        !this.isSelected ? '' : this.isSelected
-      )
-      // eslint-disable-next-line vue/custom-event-name-casing
-      this.$emit('input-selected')
-    },
-  },
-}
-</script>
-
 <template>
   <div class="single-checkbox">
-    <label :class="labelClass">{{ label }}
+    <label :class="labelClass">
+      {{ label }}
       <input
-        v-model="parseSelected" type="checkbox" class="input" :true-value="value" :value="value"
-        @change="onChange(value)"
-      >
-
+        type="checkbox"
+        class="input"
+        v-model="theSelection"
+        @change="onChange"
+      />
       <SvgIconCheckbox class="svg" />
     </label>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<script setup>
+import { ref, watch, computed } from 'vue'
+import SvgIconCheckbox from 'ucla-library-design-tokens/assets/svgs/icon-checkbox.svg'
+
+// Define props
+const props = defineProps({
+  label: String,
+  selected: Boolean,
+})
+
+// Define emits
+const emit = defineEmits(['update:selected', 'input-selected'])
+
+// Reactive state
+const theSelection = ref(props.selected)
+
+console.log(theSelection.value)
+// Watch for external changes to the `selected` prop
+watch(() => props.selected, (newVal) => {
+  console.log("Selected prop changed in SingleCheckbox:", newVal)
+  theSelection.value = newVal
+})
+
+// Computed class
+const labelClass = computed(() => ['label', theSelection.value ? 'checked' : ''])
+
+// Method to handle change events
+const onChange = () => {
+  // Assuming there was a mistake in your original method, correcting it here
+  emit('update:selected', theSelection.value)
+  emit('input-selected')
+}
+
+// Watch to log selection changes, could be removed in production
+watch(theSelection, (newVal) => {
+  console.log("Checkbox selection changed to:", newVal)
+})
+</script>
+
+<style
+  lang="scss"
+  scoped
+>
 .single-checkbox {
   min-width: 300px;
   // padding: 18px 16px 18px 16px;

@@ -1,39 +1,3 @@
-<template>
-  <div
-    :class="classes"
-    @click="toggleOpen"
-  >
-    <button class="view-btn">
-      <div class="selected">
-        <span v-if="!selected">View</span>
-        <component
-          :is="parsedSelectedSVG(selectedItem.iconName)"
-          class="svg"
-        />
-      </div>
-
-      <div class="chevron">
-        <SvgIconCaretDown class="svg" />
-      </div>
-    </button>
-
-    <ul class="view-list">
-      <li
-        v-for="view in parsedItems"
-        :key="view.slug"
-        :class="view.classes"
-        @click.stop="onClick(view.slug)"
-      >
-        <component
-          :is="parsedSelectedSVG(view.iconName)"
-          class="svg"
-        />
-        <div v-html="view.title" />
-      </li>
-    </ul>
-  </div>
-</template>
-
 <script setup>
 import { ref, computed } from 'vue'
 
@@ -43,9 +7,18 @@ import SvgIconCard from "ucla-library-design-tokens/assets/svgs/icon-card.svg"
 import SvgIconList from "ucla-library-design-tokens/assets/svgs/icon-list.svg"
 
 const props = defineProps({
-  isOpened: Boolean,
-  items: Array,
-  selected: String,
+  isOpened: {
+    type: Boolean,
+    default: false,
+  },
+  items: {
+    type: Array,
+    default: () => [],
+  },
+  selected: {
+    type: String,
+    default: "",
+  },
 })
 
 const emit = defineEmits(['update:isOpened', 'update:selected', 'view-changed'])
@@ -87,6 +60,41 @@ const onClick = (slug) => {
   emit('view-changed', slug)
 }
 </script>
+<template>
+  <div
+    :class="classes"
+    @click="toggleOpen"
+  >
+    <button class="view-btn">
+      <div class="selected">
+        <span v-if="!selected">View</span>
+        <component
+          :is="parsedSelectedSVG(selectedItem.iconName)"
+          class="svg"
+        />
+      </div>
+
+      <div class="chevron">
+        <SvgIconCaretDown class="svg" />
+      </div>
+    </button>
+
+    <ul class="view-list">
+      <li
+        v-for="view in parsedItems"
+        :key="view.slug"
+        :class="view.classes"
+        @click.stop="onClick(view.slug)"
+      >
+        <component
+          :is="parsedSelectedSVG(view.iconName)"
+          class="svg"
+        />
+        <div v-html="view.title" />
+      </li>
+    </ul>
+  </div>
+</template>
 
 <style
   scoped
