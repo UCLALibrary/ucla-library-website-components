@@ -1,3 +1,5 @@
+// TEST ARTICLE - ALL FPB - So Many Squirrels
+
 import { mock } from './mock/Flexible_CardWithImage'
 import FlexibleCardWithImage from '@/lib-components/Flexible/CardWithImage'
 
@@ -20,16 +22,16 @@ export function Default() {
   }
 }
 
-// export const EventExhibitonArticle = () => ({
-//     data() {
-//         return {
-//             block: eventExhibitonArticle,
-//         }
-//     },
-//     components: { FlexibleCardWithImage },
-//     template: `
-//         <flexible-card-with-image
-//             :block="block"
-//        />
-//     `,
-// })
+export const EventExhibitonArticle = () => ({
+    data() {
+        return {
+            block: eventExhibitonArticle,
+        }
+    },
+    components: { FlexibleCardWithImage },
+    template: `
+        <flexible-card-with-image
+            :block="block"
+       />
+    `,
+})

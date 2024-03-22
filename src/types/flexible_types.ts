@@ -1,6 +1,6 @@
 import type { BlockCallToActionTwoUpType, LocationItemType, MediaGalleryItemType, MediaItemType } from '@/types/types'
 
-// Reusable block declaration for Flexible Components
+// Section Title, Section Summary & typeHandle for Flexible Components
 
 interface FlexibleBlock {
   id: string
@@ -9,7 +9,7 @@ interface FlexibleBlock {
   sectionSummary: string
 }
 
-// Types used by Flexible Component declarations
+// Types used by Flexible Components
 
 interface AssociatedTopics {
   to: string
@@ -30,52 +30,85 @@ interface Byline {
   to: string
 }
 
-interface CardWithImage {
+interface EventType {
   id: string
-  typeHandle: string
-  contentLink: contentLink[]
   title: string
-  image: MediaItemType[]
-  byline1: string
-  byline2: string
-  category: string
-  text: string
-  to: string
 }
 
-interface ContentLink {
+// ContentLinks (Internal Pages)
+
+interface FlexibleBannerContentLink {
+  contentType: string
+  title: string
+  to: string
+  summary: string
+  articleByline2: string
+  articleLocations: LocationItemType[]
+  heroImage: { image: MediaItemType[] }[]
+}
+
+interface FlexibleCardWithImageContentLink {
   id: string
-  typeHandle: string
   contentType: string
   to: string
   title: string
   text: string
   eventDescription: string
-  buttonText: string
-  projectCategory: string
-  eventType: string
-  eventType: EventType[]
-  category: string
-  articleCategory: { title: string }[]
-  projectCategory: string
-  projectByline1: Byline[]
-  articleByline1: Byline[]
   articleByline2: string
-  byline1: string
-  byline2: string
-  ongoing: boolean
   startDateWithTime: string
   endDateWithTime: string
-  startDate: string
-  endDate: string
-  locations?: LocationItemType[]
+  eventType: EventType[]
   associatedLocations: LocationItemType[]
-  projectLocations: LocationItemType[]
   heroImage: { image: MediaItemType[] }[]
-  staffMember: StaffMember[]
 }
 
-interface FlexibleBannerContent extends ContentLink {
+// ExhibitionsAndCollectionsFpb
+// ImpactReportFpb
+// Collection Detail Page
+// https://test-craft.library.ucla.edu/admin/entries/collection/41243-halloween-costumes
+
+interface FlexibleGridGalleryContentLink {
+  contentType: string
+  headlineText: string
+  snippet: string
+  to: string
+  heroImage: { image: MediaItemType[] }[]
+}
+
+interface FlexibleHighlightContentLink {
+  // highlight - common
+  id: string
+  contentType: string
+  to: string
+  title: string
+  // highlight - not common
+  text: string
+  summary: string
+  articleByline2: string
+  associatedLocations: LocationItemType[]
+  articleCategory: { title: string }[]
+  heroImage: { image: MediaItemType[] }[]
+  eventDescription: string
+  startDateWithTime: string
+  endDateWithTime: string
+  eventType: EventType[]
+  ongoing: boolean
+  startDate: string
+  endDate: string
+}
+
+interface FlexibleSimpleCardContentLink {
+  id: string
+  uri: string
+  slug: string
+  title: string
+  summary: string
+  externalResourceUrl: string
+}
+
+// Flexible Components
+
+interface FlexibleBannerContent {
   id: string
   contentLink: FlexibleBannerContentLink[]
   image: MediaItemType[]
@@ -89,18 +122,6 @@ interface FlexibleBannerContent extends ContentLink {
   category: string
   contentType: string
   sectionHandle: string
-}
-
-interface EventType {
-  id: string
-  title: string
-}
-
-interface FlexibleBannerContentLink extends ContentLink {
-  summary: string
-  eventDescription: string
-  projectCategory: string
-  articleLocations: LocationItemType[]
 }
 
 interface FlexibleCallToActionItem {
@@ -124,16 +145,11 @@ interface FlexibleGridGalleryCard {
   to: string
 }
 
-interface FlexibleGridGalleryContentLink extends ContentLink {
-  headlineText: string
-  snippet: string
-}
-
 interface FlexibleHighlight {
   id: string
   typeHandle: string
   contentType: string
-  contentLink: ContentLink[]
+  contentLink: FlexibleHighlightContentLink[]
   title: string
   image: MediaItemType[]
   byline1: string
@@ -156,21 +172,7 @@ interface FlexibleImpactNumberCard {
   impactNumber: string
 }
 
-interface FlexibleSimpleCard extends ContentLink {
-  id: string
-  typehandle: string
-  contentLink: FlexibleSimpleCard[]
-  externalLink: string
-  uri: string
-  slug: string
-  title: string
-  summary: string
-  externalResourceUrl: string
-  // TODO - Add Event Title and Event Description
-  // eventTitle: string
-  // eventDescription: string
-}
-
+// ? FlexibleMediaWithText
 type customTypeMedia = 'audio' | 'video' | 'other'
 
 interface MediaWithText {
@@ -186,13 +188,23 @@ interface MediaWithText {
   item: MediaItemType[]
 }
 
-interface StaffMember {
+interface FlexibleSimpleCard {
   id: string
+  typehandle: string
+  contentLink: FlexibleSimpleCardContentLink[]
+  externalLink: string
+  uri: string
+  slug: string
   title: string
-  to: string
+  summary: string
+  externalResourceUrl: string
+  // TODO - Add Event Title and Event Description
+  // eventTitle: string
+  // eventDescription: string
 }
 
-// Flexible Components
+// Flexible Components with FlexibleBlock:
+// sectionTitle, sectionSummary, typeHandle & id
 
 export interface FlexibleAssociatedTopicCards extends FlexibleBlock {
   associatedTopicsFlexiblePageBlock: AssociatedTopicsPage[]
@@ -210,8 +222,9 @@ export interface FlexibleCallToAction2Up extends FlexibleBlock {
   ctaBlock2Up: BlockCallToActionTwoUpType[]
 }
 
+// FlexibleHighlight contains everything needed for cadWithImage
 export interface FlexibleCardWithImage extends FlexibleBlock {
-  cardWithImage: CardWithImage[]
+  cardWithImage: FlexibleHighlight[]
 }
 
 export interface FlexibleForm extends FlexibleBlock {

@@ -76,7 +76,7 @@ const components = {
   'flexible-media-with-text': FlexibleMediaWithText,
   'flexible-pull-quote': FlexiblePullQuote,
   'flexible-rich-text': FlexibleRichText,
-  // 'flexible-simple-cards': FlexibleSimpleCards,
+  'flexible-simple-cards': FlexibleSimpleCards,
   // Add other components here if needed
 }
 
