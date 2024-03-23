@@ -2,7 +2,7 @@ import SearchGenericFilterButtons from '@/lib-components/SearchGenericFilterButt
 
 
 export default {
-  title: 'Search / SearchGeneric / FilterButtons',
+  title: 'Search / Generic / FilterButtons',
   component: SearchGenericFilterButtons,
   argTypes: {
     items: {

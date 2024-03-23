@@ -1,7 +1,7 @@
 import SearchGenericViewModes from '@/lib-components//SearchGenericViewModes.vue'
 
 export default {
-  title: 'Search / SearchGeneric / ViewModes',
+  title: 'Search / Generic / ViewModes',
   component: SearchGenericViewModes,
   argTypes: {
     isOpened: {

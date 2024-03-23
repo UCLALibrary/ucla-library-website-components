@@ -2,7 +2,7 @@
   lang="ts"
   setup
 >
-import { computed, ref } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 import type { PropType } from 'vue'
 
 import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
@@ -18,20 +18,16 @@ const props = defineProps({
     type: Array as PropType<Item[]>,
     default: () => [],
   },
-  activeIndex: {
-    type: Number,
-    default: -1,
-  },
+
   singleCheckboxState: {
     type: Boolean,
     default: false,
   },
 })
-const emit = defineEmits(['update:activeIndex', 'update:selected', 'single-checkbox-selected'])
+const emit = defineEmits(['toggle', 'update:selected', 'single-checkbox-checked'])
 
 const theSingleCheckboxState = ref(props.singleCheckboxState)
 
-console.log("theSingleCheckboxState", theSingleCheckboxState.value)
 
 const isSingleCheckBox = computed(() => {
   return props.items?.some(item => item.inputType === "single-checkbox")
@@ -39,7 +35,7 @@ const isSingleCheckBox = computed(() => {
 
 const updateSingleCheckboxState = () => {
   emit('update:selected', theSingleCheckboxState.value)
-  emit('single-checkbox-selected')
+  emit('single-checkbox-checked')
 }
 const getSingleCheckboxLabel = computed(() => {
   const item = props.items.find(item => item.inputType === "single-checkbox")
@@ -48,9 +44,11 @@ const getSingleCheckboxLabel = computed(() => {
 
 
 const parsedItems = computed(() => {
+
   return props.items.map((item, index) => {
     if (item.inputType !== "single-checkbox") {
-      let btnClass = "button" + (props.activeIndex === index ? " is-active" : "")
+      let btnClass = "button" + (item.isVisible ? " is-active" : "")
+      // console.log("btnClass", btnClass)
       return {
         ...item,
         class: btnClass,
@@ -58,8 +56,11 @@ const parsedItems = computed(() => {
     }
   }).filter(item => item) // Filter out undefined items (single-checkbox case)
 })
+
 const toggleOpen = (index: number) => {
-  emit('update:activeIndex', props.activeIndex === index ? -1 : index)
+  // console.log("toggleOpen index ", index)
+
+  emit('toggle', index);
 }
 </script>
 <template>
@@ -68,7 +69,7 @@ const toggleOpen = (index: number) => {
       v-for="(filter, index) in parsedItems"
       :key="filter?.label"
       :class="filter?.class"
-      @click="toggleOpen(index)"
+      @click.prevent="toggleOpen(index)"
       type="button"
     >
       <span class="title">

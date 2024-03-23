@@ -37,34 +37,29 @@ function onChange(value) {
 </script>
 
 <template>
-  <transition
-    name="slide-toggle"
-    mode="out-in"
-  >
-    <fieldset class="base-radio-group">
-      <ul class="list">
-        <li class="list-item">
-          <label
-            v-for="(item, index) in items"
-            :key="`BaseRadioGroup${index}`"
-            class="label"
+  <fieldset class="base-radio-group">
+    <ul class="list">
+      <li class="list-item">
+        <label
+          v-for="(item, index) in items"
+          :key="`BaseRadioGroup${index}`"
+          class="label"
+        >
+          <input
+            v-model="parsedSelected"
+            type="radio"
+            :value="item.name"
+            class="input"
+            @change="onChange(item.name)"
           >
-            <input
-              v-model="parsedSelected"
-              type="radio"
-              :value="item.name"
-              class="input"
-              @change="onChange(item.name)"
-            >
 
-            <SvgIconRadioButton class="svg" />
+          <SvgIconRadioButton class="svg" />
 
-            {{ item.name }}
-          </label>
-        </li>
-      </ul>
-    </fieldset>
-  </transition>
+          {{ item.name }}
+        </label>
+      </li>
+    </ul>
+  </fieldset>
 </template>
 
 <style
@@ -119,17 +114,17 @@ function onChange(value) {
   }
 
   .svg__icon-radio-button {
-    ::v-deep .svg__fill--default-cyan-03 {
+    :deep(.svg__fill--default-cyan-03) {
       fill: transparent;
     }
 
-    ::v-deep .svg__stroke--primary-blue-03 {
+    :deep(.svg__stroke--primary-blue-03) {
       stroke: white;
     }
   }
 
   // Selected state
-  .input:checked+.svg__icon-radio-button ::v-deep .svg__fill--default-cyan-03 {
+  .input:checked+.svg__icon-radio-button :deep(.svg__fill--default-cyan-03) {
     fill: white;
   }
 

@@ -18,24 +18,24 @@ const { filters } = defineProps({
   },
 })
 
-const emit = defineEmits(['update:selected', 'remove-selected'])
-
+const emit = defineEmits(['update:filters', 'remove-selected'])
+// console.log("SectionRemoveFilters", filters)
 const filteredFilters = ref<Item[]>([...filters])
-
-watch(filters, (newVal: Item[] | undefined, oldVal: Item[] | undefined) => {
+// console.log("filteredFilters", JSON.stringify(filteredFilters.value))
+/*watch(filters, (newVal: Item[] | undefined, oldVal: Item[] | undefined) => {
   console.log('filters changed from', JSON.stringify(oldVal), JSON.stringify(newVal))
   filteredFilters.value = [...(newVal || [])]
 },
-{
-  deep: true,
-  immediate: true
-}
-)
+  {
+    deep: true,
+    immediate: true
+  }
+)*/
 
 function closeBlockFilter(esfieldName: string, label: string, indexVal: number) {
   console.log('closeblockfilter event handlr fired:', esfieldName, label, indexVal)
   filteredFilters.value = filteredFilters.value.filter(item => item.value !== label)
-  emit('update:selected', filteredFilters.value)
+  emit('update:filters', filteredFilters.value)
   emit('remove-selected')
 }
 </script>
@@ -45,6 +45,7 @@ function closeBlockFilter(esfieldName: string, label: string, indexVal: number) 
     v-show="filteredFilters"
     class="section-remove-search-filter"
   >
+
     <div
       v-for="(filter, index) in filteredFilters"
       :key="`filter-${filter.value}`"
@@ -52,12 +53,12 @@ function closeBlockFilter(esfieldName: string, label: string, indexVal: number) 
       <BlockRemoveSearchFilter
         :title="filter.value"
         @removeBlockFilter="
-          closeBlockFilter(
-            filter.name,
-            filter.value,
-            index,
-          )
-        "
+      closeBlockFilter(
+        filter.name,
+        filter.value,
+        index,
+      )
+      "
       />
     </div>
   </div>
