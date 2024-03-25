@@ -136,6 +136,11 @@ interface FlexibleCallToActionItem {
   buttonUrl: string
   backgroundColor: boolean
 }
+
+interface FlexibleCardWithImage extends FlexibleHighlight {
+  contentLink: FlexibleCardWithImageContentLink[]
+}
+
 // FlexibleGridGallery only used in
 // ExhibitionsAndCollectionsFpb
 // ImpactReportFpb
