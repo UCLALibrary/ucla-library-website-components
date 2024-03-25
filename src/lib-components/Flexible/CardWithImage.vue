@@ -5,13 +5,13 @@
 import type { PropType } from 'vue'
 import { computed } from 'vue'
 
-// COMPONENTS
-import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
-
 // UTILS
 import _get from 'lodash/get'
 import formatDates from "@/utils/formatEventDates"
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
+
+// COMPONENTS
+import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
 // TYPESCRIPT
 import type { FlexibleCardWithImage } from '@/types/flexible_types'
@@ -178,10 +178,11 @@ const parsedItems = computed(() => {
         v-html="block.sectionSummary"
       />
     </div>
+    <h3>JEN</h3>
 
     <ul class="block-group">
       <BlockCardWithImage
-        v-for="(item, index) in parsedItems.value"
+        v-for="(item, index) in parsedItems"
         :key="`FlexibleCardWithImage${index}`"
         :to="item.to"
         :image="item.parsedImage"

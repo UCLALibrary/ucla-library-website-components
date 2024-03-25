@@ -45,6 +45,13 @@ interface FlexibleBannerContentLink {
   articleByline2: string
   articleLocations: LocationItemType[]
   heroImage: { image: MediaItemType[] }[]
+  projectLocations: LocationItemType[]
+  startDateWithTime: string
+  endDateWithTime: string
+  articleByline1: string
+  articleByline2: string
+  eventDescription
+  heroImage: { image: MediaItemType[] }[]
 }
 
 interface FlexibleCardWithImageContentLink {
@@ -61,11 +68,6 @@ interface FlexibleCardWithImageContentLink {
   associatedLocations: LocationItemType[]
   heroImage: { image: MediaItemType[] }[]
 }
-
-// ExhibitionsAndCollectionsFpb
-// ImpactReportFpb
-// Collection Detail Page
-// https://test-craft.library.ucla.edu/admin/entries/collection/41243-halloween-costumes
 
 interface FlexibleGridGalleryContentLink {
   contentType: string
@@ -108,6 +110,7 @@ interface FlexibleSimpleCardContentLink {
 
 // Flexible Components
 
+// FlexibleBannerFeatured
 interface FlexibleBannerContent {
   id: string
   contentLink: FlexibleBannerContentLink[]
@@ -133,6 +136,11 @@ interface FlexibleCallToActionItem {
   buttonUrl: string
   backgroundColor: boolean
 }
+// FlexibleGridGallery only used in
+// ExhibitionsAndCollectionsFpb
+// ImpactReportFpb
+// Collection Detail Page
+// https://test-craft.library.ucla.edu/admin/entries/collection/41243-halloween-costumes
 
 interface FlexibleGridGalleryCard {
   id: string
