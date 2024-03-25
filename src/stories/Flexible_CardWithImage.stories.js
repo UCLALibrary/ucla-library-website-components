@@ -22,11 +22,12 @@ export function Default() {
   }
 }
 
-export const EventExhibitonArticle = () => ({
+export function EventExhibitonArticle() {
+  return {
     data() {
-        return {
-            block: eventExhibitonArticle,
-        }
+      return {
+        block: eventExhibitonArticle,
+      }
     },
     components: { FlexibleCardWithImage },
     template: `
@@ -34,4 +35,5 @@ export const EventExhibitonArticle = () => ({
             :block="block"
        />
     `,
-})
+  }
+}
