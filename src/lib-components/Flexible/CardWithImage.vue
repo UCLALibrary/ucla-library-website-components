@@ -7,7 +7,7 @@ import { computed } from 'vue'
 
 // UTILS
 import _get from 'lodash/get'
-import formatDates from "@/utils/formatEventDates"
+import formatDates from '@/utils/formatEventDates'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
 // COMPONENTS
@@ -27,13 +27,12 @@ const parsedList = computed(() => {
   const items = []
   for (const item in block.cardWithImage) {
     if (
-      block.cardWithImage[item].typeHandle ===
-      "internalContent"
-    ) {
+      block.cardWithImage[item].typeHandle
+      === 'internalContent'
+    )
       items.push(block.cardWithImage[item].contentLink[0])
-    } else {
+    else
       items.push(block.cardWithImage[item])
-    }
   }
   return items
 })
@@ -42,116 +41,120 @@ const parsedItems = computed(() => {
   // Maps values based on content type and external or internal content
   // filter out null objects
   return parsedList.value
-    .filter((e) => e !== null)
+    .filter(e => e !== null)
     .map((obj) => {
       // Article
       if (
-        obj.typeHandle !== "externalContent" &&
-        obj.contentType.includes("article")
+        obj.typeHandle !== 'externalContent'
+        && obj.contentType.includes('article')
       ) {
         return {
           ...obj,
           to: `/${stripMeapFromURI(obj.to)}`,
           parsedImage: _get(
             obj,
-            "heroImage[0].image[0]",
+            'heroImage[0].image[0]',
             null
           ),
           parsedLocation: _get(
             obj,
-            "associatedLocations",
+            'associatedLocations',
             []
           ),
           parsedCategory: _get(
             obj,
-            "articleCategory[0].title",
-            ""
+            'articleCategory[0].title',
+            ''
           ),
-          byline1: _get(obj, "articleByline1[0].title", ""),
+          byline1: _get(obj, 'articleByline1[0].title', ''),
           byline2:
             obj.articleByline2 !== null
               ? formatDates(
                 obj.articleByline2,
                 obj.articleByline2
               )
-              : "",
+              : '',
         }
       }
 
       // Project
       else if (
-        obj.typeHandle !== "externalContent" &&
-        obj.contentType.includes("meapProject")
+        obj.typeHandle !== 'externalContent'
+        && obj.contentType.includes('meapProject')
       ) {
         return {
           ...obj,
           to: `/${stripMeapFromURI(obj.to)}`,
           parsedImage: _get(
             obj,
-            "heroImage[0].image[0]",
+            'heroImage[0].image[0]',
             null
           ),
-          parsedLocation: _get(obj, "projectLocations", []),
-          parsedCategory: _get(obj, "projectCategory", ""),
-          byline1: _get(obj, "projectByline1[0].title", ""),
+          parsedLocation: _get(obj, 'projectLocations', []),
+          parsedCategory: _get(obj, 'projectCategory', ''),
+          byline1: _get(obj, 'projectByline1[0].title', ''),
         }
-      } else if (
-        obj.typeHandle !== "externalContent" &&
-        obj.contentType === "event"
+      }
+      else if (
+        obj.typeHandle !== 'externalContent'
+        && obj.contentType === 'event'
       ) {
         return {
           ...obj,
           to: `/${stripMeapFromURI(obj.to)}`,
           parsedImage: _get(
             obj,
-            "heroImage[0].image[0]",
-            null
-          ),
-          parsedLocation: _get(
-            obj,
-            "associatedLocations",
-            []
-          ),
-          parsedCategory: _get(obj, "eventType.title", ""),
-          startDate: _get(obj, "startDateWithTime", ""),
-          endDate: _get(obj, "endDateWithTime", ""),
-          text: _get(obj, "eventDescription", ""),
-        }
-      } else if (
-        obj.typeHandle !== "externalContent" &&
-        (obj.contentType === "exhibition" ||
-          "workshopOrEventSeries")
-      ) {
-        return {
-          ...obj,
-          to: `/${stripMeapFromURI(obj.to)}`,
-          parsedImage: _get(
-            obj,
-            "heroImage[0].image[0]",
+            'heroImage[0].image[0]',
             null
           ),
           parsedLocation: _get(
             obj,
-            "associatedLocations",
+            'associatedLocations',
             []
           ),
-          startDate: _get(obj, "startDate", ""),
-          endDate: _get(obj, "endDate", ""),
+          parsedCategory: _get(obj, 'eventType.title', ''),
+          startDate: _get(obj, 'startDateWithTime', ''),
+          endDate: _get(obj, 'endDateWithTime', ''),
+          text: _get(obj, 'eventDescription', ''),
         }
-      } else if (obj.typeHandle === "externalContent") {
+      }
+      else if (
+        obj.typeHandle !== 'externalContent'
+        && (obj.contentType === 'exhibition'
+          || 'workshopOrEventSeries')
+      ) {
         return {
           ...obj,
-          parsedImage: _get(obj, "image[0]", null),
+          to: `/${stripMeapFromURI(obj.to)}`,
+          parsedImage: _get(
+            obj,
+            'heroImage[0].image[0]',
+            null
+          ),
+          parsedLocation: _get(
+            obj,
+            'associatedLocations',
+            []
+          ),
+          startDate: _get(obj, 'startDate', ''),
+          endDate: _get(obj, 'endDate', ''),
+        }
+      }
+      else if (obj.typeHandle === 'externalContent') {
+        return {
+          ...obj,
+          parsedImage: _get(obj, 'image[0]', null),
           parsedLocation:
             obj.location !== null ? [obj.location] : [],
-          parsedCategory: _get(obj, "category", ""),
+          parsedCategory: _get(obj, 'category', ''),
         }
-      } else {
+      }
+      else {
         return {
           ...obj,
           parsedImage: _get(
             obj,
-            "heroImage[0].image[0]",
+            'heroImage[0].image[0]',
             null
           ),
           to: `/${stripMeapFromURI(obj.to)}`,
@@ -163,14 +166,16 @@ const parsedItems = computed(() => {
 
 <template>
   <div
-    class="card-with-image"
     v-if="block.cardWithImage"
+    class="card-with-image"
   >
     <div class="section-header">
       <h2
-        class="section-title"
         v-if="block.sectionTitle"
-      >{{ block.sectionTitle }}</h2>
+        class="section-title"
+      >
+        {{ block.sectionTitle }}
+      </h2>
 
       <div
         v-if="block.sectionSummary"
