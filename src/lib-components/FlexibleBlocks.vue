@@ -57,9 +57,9 @@ const FlexiblePullQuote = defineAsyncComponent(() =>
 const FlexibleRichText = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/RichText.vue')
 )
-/* const FlexibleSimpleCards = defineAsyncComponent(() =>
+const FlexibleSimpleCards = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/SimpleCards.vue')
-) */
+)
 
 const components = {
   'flexible-associated-topic-cards': FlexibleAssociatedTopicCards,
