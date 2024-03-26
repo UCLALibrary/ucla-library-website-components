@@ -123,7 +123,7 @@ defineExpose({
 
 // COMPUTED VALUES
 // Determine if the window size is mobile for conditional rendering
-const isMobile = computed(() => globalStore.winWidth <= 750)
+const isMobile = computed(() => globalStore.winWidth <= 750) // TODO NOT WORKING!!
 // Format the selected date(s) into consistent object
 const formattedDateSelection = computed(() => {
   // range selected
@@ -146,6 +146,10 @@ const formattedDateSelection = computed(() => {
     endDate: null,
   }
 })
+// computed classes
+const vue3datepickerClass = computed(() => ['vue-date-picker', { 'is-selecting': isSelecting.value }])
+const inputIconClass = computed(() => ['toggle-triangle-icon', { 'is-open': isOpen.value }])
+const todayButtonClass = computed(() => ['today-button', { 'is-active-selection': todayBtnActive.value }])
 
 // ASYNC COMPONENTS
 const ButtonLink = defineAsyncComponent(() =>
@@ -169,6 +173,7 @@ watch(date, async (newDate, oldDate) => {
     emit('input-selected', formattedDateSelection.value)
   }
 })
+
 // Watch window size and update windowSize ref
 /* window.addEventListener('resize', () => {
   windowSize.value = window.innerWidth
@@ -176,18 +181,15 @@ watch(date, async (newDate, oldDate) => {
 </script>
 
 <template>
-  <div class="date-filter-container">
-    <VueDatePicker
-      ref="datepicker" v-model="date" :config="vue3datepickerConfig" :range="!isMobile" :week-start="0"
+  <div class="date-filter">
+    <VueDatePicker ref="datepicker" v-model="date" :config="vue3datepickerConfig" :range="!isMobile" :week-start="0"
       month-name-format="long" :enable-time-picker="false" :auto-position="false" :auto-apply="true"
-      :text-input="textConfig" no-today :inline="hideInput" class="date-filter"
-      :class="[{ 'is-selecting': isSelecting }]" :placeholder="isMobile ? 'Select a date' : 'All upcoming'"
-      @internal-model-change="handleInternalSelection" @range-start="clearTodayBtn" @open="toggleArrow"
-      @closed="toggleArrow"
-    >
+      :text-input="textConfig" no-today :inline="hideInput" :class="vue3datepickerClass"
+      :placeholder="isMobile ? 'Select a date' : 'All upcoming'" @internal-model-change="handleInternalSelection"
+      @range-start="clearTodayBtn" @open="toggleArrow" @closed="toggleArrow">
       <template #input-icon>
         <SvgIconFTVACalender />
-        <span class="toggle-triangle-icon" :class="[{ 'is-open': isOpen }]">
+        <span :class="inputIconClass">
           <SvgIconFTVADropTriangle />
         </span>
       </template>
@@ -196,26 +198,24 @@ watch(date, async (newDate, oldDate) => {
         <SvgIconClose @click="clear" />
       </template>
 
-      <template
-        #month-year="{
-          month,
-          year,
-          months,
-          handleMonthYearChange,
-        }"
-      >
+      <template #month-year="{
+      month,
+      year,
+      months,
+      handleMonthYearChange,
+    }">
         <div class="custom-header">
           <div class="custom-month-year-component">
             {{ months[month].text }} {{ year }}
           </div>
           <div class="custom-nav-buttons">
-            <button class="nav-arrow-button" @click="() => { clearTodayBtn(); handleMonthYearChange(false) }">
+            <button class="nav-arrow-button" @click="clearTodayBtn(); handleMonthYearChange(false)">
               <SvgIconCaretLeft />
             </button>
-            <button class="today-button" :class="[{ 'is-active-selection': todayBtnActive }]" @click="goToToday">
+            <button :class="todayButtonClass" @click="goToToday">
               TODAY
             </button>
-            <button class="nav-arrow-button" @click="() => { clearTodayBtn(); handleMonthYearChange(true) }">
+            <button class="nav-arrow-button" @click="clearTodayBtn(); handleMonthYearChange(true)">
               <SvgIconCaretRight />
             </button>
           </div>
@@ -255,7 +255,7 @@ watch(date, async (newDate, oldDate) => {
 <style lang="scss" scoped>
 @import "ucla-library-design-tokens/scss/_tokens-ftva";
 
-.date-filter-container {
+.date-filter {
   .dp__calendar_header_separator {
     display: none;
   }
@@ -270,7 +270,7 @@ watch(date, async (newDate, oldDate) => {
     outline: 1px hidden $accent-blue;
   }
 
-  .date-filter {
+  .vue-date-picker {
     --dp-font-family: var(--font-primary);
     --dp-menu-min-width: 380px;
     --dp-menu-padding: 26px;
