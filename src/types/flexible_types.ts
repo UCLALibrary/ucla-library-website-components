@@ -1,6 +1,6 @@
 import type { BlockCallToActionTwoUpType, LocationItemType, MediaGalleryItemType, MediaItemType } from '@/types/types'
 
-// Section Title, Section Summary & typeHandle for Flexible Components
+// Reusable block declaration for Flexible Components
 
 interface FlexibleBlock {
   id: string
@@ -9,7 +9,7 @@ interface FlexibleBlock {
   sectionSummary: string
 }
 
-// Types used by Flexible Components
+// Types used by Flexible Component declarations
 
 interface AssociatedTopics {
   to: string
@@ -35,82 +35,36 @@ interface EventType {
   title: string
 }
 
-// ContentLinks (Internal Pages)
-
-interface FlexibleBannerContentLink {
-  contentType: string
-  title: string
-  to: string
-  summary: string
-  articleByline2: string
-  articleLocations: LocationItemType[]
-  heroImage: { image: MediaItemType[] }[]
-  projectLocations: LocationItemType[]
-  startDateWithTime: string
-  endDateWithTime: string
-  articleByline1: string
-  articleByline2: string
-  eventDescription
-  heroImage: { image: MediaItemType[] }[]
-}
-
-interface FlexibleCardWithImageContentLink {
+interface ContentLink {
   id: string
+  typeHandle: string
   contentType: string
   to: string
   title: string
   text: string
   eventDescription: string
-  articleByline2: string
-  startDateWithTime: string
-  endDateWithTime: string
+  buttonText: string
+  projectCategory: string
   eventType: EventType[]
-  associatedLocations: LocationItemType[]
-  heroImage: { image: MediaItemType[] }[]
-}
-
-interface FlexibleGridGalleryContentLink {
-  contentType: string
-  headlineText: string
-  snippet: string
-  to: string
-  heroImage: { image: MediaItemType[] }[]
-}
-
-interface FlexibleHighlightContentLink {
-  // highlight - common
-  id: string
-  contentType: string
-  to: string
-  title: string
-  // highlight - not common
-  text: string
-  summary: string
-  articleByline2: string
-  associatedLocations: LocationItemType[]
+  category: string
   articleCategory: { title: string }[]
-  heroImage: { image: MediaItemType[] }[]
-  eventDescription: string
+  projectByline1: Byline[]
+  articleByline1: Byline[]
+  articleByline2: string
+  byline1: string
+  byline2: string
+  ongoing: boolean
   startDateWithTime: string
   endDateWithTime: string
-  eventType: EventType[]
-  ongoing: boolean
   startDate: string
   endDate: string
+  locations?: LocationItemType[]
+  associatedLocations: LocationItemType[]
+  projectLocations: LocationItemType[]
+  heroImage: { image: MediaItemType[] }[]
+  location: string
 }
 
-interface FlexibleSimpleCardContentLink {
-  id: string
-  uri: string
-  slug: string
-  title: string
-  summary: string
-  externalResourceUrl: string
-}
-
-// Flexible Components
-
-// FlexibleBannerFeatured
 interface FlexibleBannerContent {
   id: string
   contentLink: FlexibleBannerContentLink[]
@@ -127,6 +81,29 @@ interface FlexibleBannerContent {
   sectionHandle: string
 }
 
+interface FlexibleBannerContentLink extends ContentLink {
+  summary: string
+  eventDescription: string
+  projectCategory: string
+  articleLocations: LocationItemType[]
+}
+
+interface FlexibleCardWithImage {
+  id: string
+  typeHandle: string
+  title: string
+  image: MediaItemType[]
+  byline1: string
+  byline2: string
+  articleByline2: string
+  contentType: string
+  contentLink: ContentLink[]
+  eventExhibitonArticle: string
+  text: string
+  to: string
+  category: string
+}
+
 interface FlexibleCallToActionItem {
   id: string
   titleCta: string
@@ -136,16 +113,6 @@ interface FlexibleCallToActionItem {
   buttonUrl: string
   backgroundColor: boolean
 }
-
-interface FlexibleCardWithImage extends FlexibleHighlight {
-  contentLink: FlexibleCardWithImageContentLink[]
-}
-
-// FlexibleGridGallery only used in
-// ExhibitionsAndCollectionsFpb
-// ImpactReportFpb
-// Collection Detail Page
-// https://test-craft.library.ucla.edu/admin/entries/collection/41243-halloween-costumes
 
 interface FlexibleGridGalleryCard {
   id: string
@@ -158,11 +125,16 @@ interface FlexibleGridGalleryCard {
   to: string
 }
 
+interface FlexibleGridGalleryContentLink extends ContentLink {
+  headlineText: string
+  snippet: string
+}
+
 interface FlexibleHighlight {
   id: string
   typeHandle: string
   contentType: string
-  contentLink: FlexibleHighlightContentLink[]
+  contentLink: ContentLink[]
   title: string
   image: MediaItemType[]
   byline1: string
@@ -185,7 +157,6 @@ interface FlexibleImpactNumberCard {
   impactNumber: string
 }
 
-// ? FlexibleMediaWithText
 type customTypeMedia = 'audio' | 'video' | 'other'
 
 interface MediaWithText {
@@ -201,10 +172,10 @@ interface MediaWithText {
   item: MediaItemType[]
 }
 
-interface FlexibleSimpleCard {
+interface FlexibleSimpleCard extends ContentLink {
   id: string
   typehandle: string
-  contentLink: FlexibleSimpleCardContentLink[]
+  contentLink: FlexibleSimpleCard[]
   externalLink: string
   uri: string
   slug: string
@@ -216,8 +187,7 @@ interface FlexibleSimpleCard {
   // eventDescription: string
 }
 
-// Flexible Components with FlexibleBlock:
-// sectionTitle, sectionSummary, typeHandle & id
+// Flexible Components
 
 export interface FlexibleAssociatedTopicCards extends FlexibleBlock {
   associatedTopicsFlexiblePageBlock: AssociatedTopicsPage[]
@@ -235,9 +205,8 @@ export interface FlexibleCallToAction2Up extends FlexibleBlock {
   ctaBlock2Up: BlockCallToActionTwoUpType[]
 }
 
-// FlexibleHighlight contains everything needed for cadWithImage
-export interface FlexibleCardWithImage extends FlexibleBlock {
-  cardWithImage: FlexibleHighlight[]
+export interface FlexibleCardsWithImage extends FlexibleBlock {
+  cardWithImage: FlexibleCardWithImage[]
 }
 
 export interface FlexibleForm extends FlexibleBlock {

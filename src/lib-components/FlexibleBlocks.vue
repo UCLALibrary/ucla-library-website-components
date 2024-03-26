@@ -50,7 +50,7 @@ const FlexibleMediaGallery = defineAsyncComponent(() =>
 )
 const FlexibleMediaWithText = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/MediaWithText.vue')
-) * /
+)
 const FlexiblePullQuote = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/PullQuote.vue')
 )

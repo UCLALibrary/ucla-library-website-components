@@ -14,11 +14,11 @@ import stripMeapFromURI from '@/utils/stripMeapFromURI'
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
 // TYPESCRIPT
-import type { FlexibleCardWithImage } from '@/types/flexible_types'
+import type { FlexibleCardsWithImage } from '@/types/flexible_types'
 
 const { block } = defineProps({
   block: {
-    type: Object as PropType<FlexibleCardWithImage>,
+    type: Object as PropType<FlexibleCardsWithImage>,
     default: () => { },
   },
 })
@@ -54,7 +54,7 @@ const parsedItems = computed(() => {
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
-            null
+            undefined
           ),
           parsedLocation: _get(
             obj,
@@ -88,7 +88,7 @@ const parsedItems = computed(() => {
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
-            null
+            undefined
           ),
           parsedLocation: _get(obj, 'projectLocations', []),
           parsedCategory: _get(obj, 'projectCategory', ''),
@@ -105,7 +105,7 @@ const parsedItems = computed(() => {
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
-            null
+            undefined
           ),
           parsedLocation: _get(
             obj,
@@ -129,13 +129,9 @@ const parsedItems = computed(() => {
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
-            null
+            undefined
           ),
-          parsedLocation: _get(
-            obj,
-            'associatedLocations',
-            []
-          ),
+          parsedLocation: obj.associatedLocations,
           startDate: _get(obj, 'startDate', ''),
           endDate: _get(obj, 'endDate', ''),
         }
@@ -143,9 +139,8 @@ const parsedItems = computed(() => {
       else if (obj.typeHandle === 'externalContent') {
         return {
           ...obj,
-          parsedImage: _get(obj, 'image[0]', null),
-          parsedLocation:
-            obj.location !== null ? [obj.location] : [],
+          parsedImage: _get(obj, 'image[0]', undefined),
+          //parsedLocation:  obj.location !== null ? [obj.location] : [],
           parsedCategory: _get(obj, 'category', ''),
         }
       }
@@ -155,7 +150,7 @@ const parsedItems = computed(() => {
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
-            null
+            undefined
           ),
           to: `/${stripMeapFromURI(obj.to)}`,
         }
