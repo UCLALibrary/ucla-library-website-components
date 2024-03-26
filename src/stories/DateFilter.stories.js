@@ -1,4 +1,5 @@
 import DateFilter from '@/lib-components/DateFilter'
+import { useGlobalStore } from '@/stores/GlobalStore'
 
 export default {
   title: 'DateFilter',
@@ -17,6 +18,10 @@ function Template(args) {
         ...mock,
         ...args,
       }
+    },
+    created() {
+      const globalStore = useGlobalStore()
+      globalStore.winWidth = 1024
     },
     components: { DateFilter },
     template:

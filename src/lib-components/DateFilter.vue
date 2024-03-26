@@ -9,6 +9,7 @@ import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret
 import SvgIconClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 import SvgIconFTVACalender from 'ucla-library-design-tokens/assets/svgs/icon-ftva-calendar.svg'
 import SvgIconFTVADropTriangle from 'ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg'
+import { useGlobalStore } from '@/stores/GlobalStore'
 
 // TYPES
 interface SelectedDates {
@@ -45,10 +46,10 @@ const datepicker = ref<DatePickerInstance | null>(null)
 const isSelecting = ref(false)
 const isOpen = ref(false)
 const todayBtnActive = ref(false)
-const windowSize = ref(window.innerWidth)
 const textConfig = ref({
   rangeSeparator: ' — ',
 })
+const globalStore = useGlobalStore()
 
 // SETUP - Select initial dates if they exist
 if (initialDates.startDate && initialDates.endDate)
@@ -122,7 +123,7 @@ defineExpose({
 
 // COMPUTED VALUES
 // Determine if the window size is mobile for conditional rendering
-const isMobile = computed(() => windowSize.value <= 750)
+const isMobile = computed(() => globalStore.winWidth <= 750)
 // Format the selected date(s) into consistent object
 const formattedDateSelection = computed(() => {
   // range selected
@@ -169,9 +170,9 @@ watch(date, async (newDate, oldDate) => {
   }
 })
 // Watch window size and update windowSize ref
-window.addEventListener('resize', () => {
+/* window.addEventListener('resize', () => {
   windowSize.value = window.innerWidth
-})
+}) */
 </script>
 
 <template>
