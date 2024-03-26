@@ -115,8 +115,6 @@ interface FlexibleBannerContentLink extends ContentLink {
   articleLocations: LocationItemType[]
 }
 
-
-
 interface FlexibleCallToActionItem {
   id: string
   titleCta: string

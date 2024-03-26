@@ -133,7 +133,7 @@ const parsedItems = computed(() => {
           ),
           parsedLocation: _get(
             obj,
-            "associatedLocations",
+            'associatedLocations',
             []
           ),
           startDate: _get(obj, 'startDate', ''),
