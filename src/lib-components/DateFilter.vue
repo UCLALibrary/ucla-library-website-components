@@ -54,7 +54,7 @@ const textConfig = ref({
 if (initialDates.startDate && initialDates.endDate)
   date.value = [initialDates.startDate, initialDates.endDate]
 else if (initialDates.startDate)
-  date.value = initialDates.startDate
+  date.value = [initialDates.startDate, initialDates.startDate]
 
 // METHODS
 // Transform eventDates into an object with date frequencies
