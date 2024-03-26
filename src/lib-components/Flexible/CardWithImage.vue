@@ -131,7 +131,11 @@ const parsedItems = computed(() => {
             'heroImage[0].image[0]',
             undefined
           ),
-          parsedLocation: obj.associatedLocations,
+          parsedLocation: _get(
+            obj,
+            "associatedLocations",
+            []
+          ),
           startDate: _get(obj, 'startDate', ''),
           endDate: _get(obj, 'endDate', ''),
         }

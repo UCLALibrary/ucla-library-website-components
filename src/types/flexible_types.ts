@@ -58,11 +58,38 @@ interface ContentLink {
   endDateWithTime: string
   startDate: string
   endDate: string
-  locations?: LocationItemType[]
+  locations: LocationItemType[]
   associatedLocations: LocationItemType[]
   projectLocations: LocationItemType[]
   heroImage: { image: MediaItemType[] }[]
-  location: string
+}
+
+// In the component ContentLink and External Content are combined a single Array
+// which is why parsedLocation & parsedCategory are repeating in both FlexibleCardWithImageContentLink && FlexibleCardWithImage
+interface FlexibleCardWithImageContentLink extends ContentLink {
+  parsedLocation: LocationItemType[]
+  parsedCategory: string
+}
+
+interface FlexibleCardWithImage {
+  id: string
+  typeHandle: string
+  title: string
+  image: MediaItemType[]
+  byline1: string
+  byline2: string
+  articleByline2: string
+  contentLink: FlexibleCardWithImageContentLink[]
+  text: string
+  to: string
+  category: string
+  locations: LocationItemType[]
+  startDate: string
+  endDate: string
+  ongoing: boolean
+  contentType: string
+  parsedLocation: LocationItemType[]
+  parsedCategory: string
 }
 
 interface FlexibleBannerContent {
@@ -88,21 +115,7 @@ interface FlexibleBannerContentLink extends ContentLink {
   articleLocations: LocationItemType[]
 }
 
-interface FlexibleCardWithImage {
-  id: string
-  typeHandle: string
-  title: string
-  image: MediaItemType[]
-  byline1: string
-  byline2: string
-  articleByline2: string
-  contentType: string
-  contentLink: ContentLink[]
-  eventExhibitonArticle: string
-  text: string
-  to: string
-  category: string
-}
+
 
 interface FlexibleCallToActionItem {
   id: string
