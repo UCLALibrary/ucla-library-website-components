@@ -68,53 +68,53 @@ export const mockInternalEvent = {
   sectionSummary: '<p><em><a href=\"https://www.critterguard.org/blogs/articles/dangerous-diseases-from-squirrels-in-the-home\" target=\"_blank\" rel=\"noreferrer noopener\">Be careful of these</a></em> <strong>diseases</strong> that can be transmitted from squirrels to humans: Leptospirosis, Lyme Disease, Salmonellosis, Tularemia, Rabies.</p>',
   cardWithImage: [
     {
-      "id": "2900943",
-      "typeHandle": "internalContent",
-      "contentLink": [
+      id: '2900943',
+      typeHandle: 'internalContent',
+      contentLink: [
         {
-          id: "2656394",
-          contentType: "event",
-          to: "visit/events-exhibitions/getting-started-with-web-of-science-02-21-24",
-          title: "INTERNAL CONTENT - Getting Started with Web of Science 02-21-24",
+          id: '2656394',
+          contentType: 'event',
+          to: 'visit/events-exhibitions/getting-started-with-web-of-science-02-21-24',
+          title: 'INTERNAL CONTENT - Getting Started with Web of Science 02-21-24',
           text: null,
-          eventDescription: "<h3>Science Research</h3><h4><strong>Do you want to find scientific</strong> research articles?</h4>\n<h5><em>Web of Science</em></h5>\n<p><em>The <em>Web of Science</em> is </em>a database covering science topics. The workshop is perfect for first time users and <del>experienced searchers</del> looking for a refresher.</p>\n<p>This workshop will be offered via Zoom. If you're registered, you'll receive the Zoom invitation information the day of the workshop.</p>\n\n<p><strong>Instructors:</strong></p><ul><li><a href=\"https://www.library.ucla.edu/about/news/introducing-robert-johnson-clinical-and-research-support-librarian/\" target=\"_blank\" rel=\"noreferrer noopener\">Robert Johnson</a>, Clinical and Research Support Librarian;</li><li>Renee Romero, Science Librarian; </li><li>Alexandra Solodkaya, Rothman Family Food Studies Librarian</li></ul><figure class=\"image--right image--half\"><a href=\"https://www.infoworld.com/article/3225459/progressive-web-apps-in-microsoft-edge-what-you-need-to-know.html\" target=\"_blank\" rel=\"noreferrer noopener\"><img src=\"https://static.library.ucla.edu/craftassetstest/images/_medium/thread-web.webp\" alt=\"Thread Web\" /></a><figcaption>Thread Web</figcaption></figure>",
-          articleByline2: "2023-12-15T14:45:00-08:00",
-          startDateWithTime: "2024-02-21T13:00",
-          endDateWithTime: "2024-02-21T14:00",
+          eventDescription: '<h3>Science Research</h3><h4><strong>Do you want to find scientific</strong> research articles?</h4>\n<h5><em>Web of Science</em></h5>\n<p><em>The <em>Web of Science</em> is </em>a database covering science topics. The workshop is perfect for first time users and <del>experienced searchers</del> looking for a refresher.</p>\n<p>This workshop will be offered via Zoom. If you\'re registered, you\'ll receive the Zoom invitation information the day of the workshop.</p>\n\n<p><strong>Instructors:</strong></p><ul><li><a href="https://www.library.ucla.edu/about/news/introducing-robert-johnson-clinical-and-research-support-librarian/" target="_blank" rel="noreferrer noopener">Robert Johnson</a>, Clinical and Research Support Librarian;</li><li>Renee Romero, Science Librarian; </li><li>Alexandra Solodkaya, Rothman Family Food Studies Librarian</li></ul><figure class="image--right image--half"><a href="https://www.infoworld.com/article/3225459/progressive-web-apps-in-microsoft-edge-what-you-need-to-know.html" target="_blank" rel="noreferrer noopener"><img src="https://static.library.ucla.edu/craftassetstest/images/_medium/thread-web.webp" alt="Thread Web" /></a><figcaption>Thread Web</figcaption></figure>',
+          articleByline2: '2023-12-15T14:45:00-08:00',
+          startDateWithTime: '2024-02-21T13:00',
+          endDateWithTime: '2024-02-21T14:00',
           eventType: [
             {
-              id: "62837",
-              title: "Workshop"
+              id: '62837',
+              title: 'Workshop'
             },
             {
-              id: "197026",
-              title: "Lecture"
+              id: '197026',
+              title: 'Lecture'
             }
           ],
           associatedLocations: [
             {
-              id: "11497",
-              title: "Richard C. Rudolph East Asian Library",
-              to: "visit/locations/east-asian-library"
+              id: '11497',
+              title: 'Richard C. Rudolph East Asian Library',
+              to: 'visit/locations/east-asian-library'
             },
             {
-              id: "4695",
-              title: "Louise M. Darling Biomedical Library",
-              to: "visit/locations/biomed"
+              id: '4695',
+              title: 'Louise M. Darling Biomedical Library',
+              to: 'visit/locations/biomed'
             }
           ],
           heroImage: [
             {
-              id: "2922854",
+              id: '2922854',
               image: [
                 {
-                  id: "2922820",
-                  src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/spider-web-with-dew.jpg",
+                  id: '2922820',
+                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/spider-web-with-dew.jpg',
                   height: 1698,
                   width: 2560,
-                  srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/spider-web-with-dew.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/spider-web-with-dew.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/spider-web-with-dew.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/spider-web-with-dew.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/spider-web-with-dew.jpg 2560w",
-                  "alt": "Spider web with dew",
-                  "focalPoint": [
+                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/spider-web-with-dew.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/spider-web-with-dew.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/spider-web-with-dew.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/spider-web-with-dew.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/spider-web-with-dew.jpg 2560w',
+                  alt: 'Spider web with dew',
+                  focalPoint: [
                     0.5,
                     0.5
                   ]

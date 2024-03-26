@@ -140,7 +140,7 @@ const parsedItems = computed(() => {
         return {
           ...obj,
           parsedImage: _get(obj, 'image[0]', undefined),
-          //parsedLocation:  obj.location !== null ? [obj.location] : [],
+          // parsedLocation:  obj.location !== null ? [obj.location] : [],
           parsedCategory: _get(obj, 'category', ''),
         }
       }

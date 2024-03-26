@@ -1,7 +1,6 @@
 // TEST ARTICLE - ALL FPB - So Many Squirrels
 
-import { mockExternal, mockInternalEvent, mockInternalExhibition, mockInternalWorkshop, mockInternalSeries, mockInternalArticle, mockInternalEndowment, mockInternalCollection
- } from './mock/Flexible_CardWithImage'
+import { mockExternal, mockInternalArticle, mockInternalCollection, mockInternalEndowment, mockInternalEvent, mockInternalExhibition, mockInternalSeries, mockInternalWorkshop } from './mock/Flexible_CardWithImage'
 import FlexibleCardWithImage from '@/lib-components/Flexible/CardWithImage'
 
 export default {
