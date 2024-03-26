@@ -1,11 +1,9 @@
-import StoryRouter from 'storybook-vue-router'
 import SectionPagination from '@/lib-components/SectionPagination'
 
 // Storybook default settings
 export default {
   title: 'SECTION / Pagination',
   component: SectionPagination,
-  decorators: [StoryRouter()],
 }
 
 export function Default() {
