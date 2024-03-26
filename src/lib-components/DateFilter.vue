@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { defineAsyncComponent, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import VueDatePicker from '@vuepic/vue-datepicker'
 import type { DatePickerInstance } from '@vuepic/vue-datepicker'
@@ -10,11 +10,21 @@ import SvgIconClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 import SvgIconFTVACalender from 'ucla-library-design-tokens/assets/svgs/icon-ftva-calendar.svg'
 import SvgIconFTVADropTriangle from 'ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg'
 
-const { eventDates, hideInput } = defineProps({
+// TYPES
+interface SelectedDates {
+  startDate: Date | null
+  endDate: Date | null
+}
+
+// PROPS & DATA
+const { eventDates, initialDates, hideInput } = defineProps({
   eventDates: {
     type: Array as PropType<string[]>,
     default: () => [],
-    required: true,
+  },
+  initialDates: {
+    type: Object as PropType<SelectedDates>,
+    default: () => ({ startDate: null, endDate: null }),
   },
   // if true, the datepicker will be shown in 'inline' mode
   // https://vue3datepicker.com/props/modes/#inline
@@ -24,8 +34,7 @@ const { eventDates, hideInput } = defineProps({
   },
 })
 // EMITS
-const emit = defineEmits(['input-selected', 'update:selected'])
-// PROPS & DATA
+const emit = defineEmits(['input-selected'])
 const threeLetterDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const vue3datepickerConfig = {
   closeOnAutoApply: false,
@@ -41,28 +50,11 @@ const textConfig = ref({
   rangeSeparator: ' — ',
 })
 
-// Watch date and emit to parent component
-watch(date, async (newDate, oldDate) => {
-  if (newDate !== oldDate) {
-    // change seperator for single or range select
-    if ((newDate && 'length' in newDate) && newDate[1] === null) {
-      textConfig.value = {
-        rangeSeparator: ' ',
-      }
-    }
-    else {
-      textConfig.value = {
-        rangeSeparator: ' — ',
-      }
-    }
-    // eslint-disable-next-line vue/custom-event-name-casing
-    emit('input-selected', newDate)
-  }
-})
-// Watch window size and update windowSize ref
-window.addEventListener('resize', () => {
-  windowSize.value = window.innerWidth
-})
+// SETUP - Select initial dates if they exist
+if (initialDates.startDate && initialDates.endDate)
+  date.value = [initialDates.startDate, initialDates.endDate]
+else if (initialDates.startDate)
+  date.value = initialDates.startDate
 
 // METHODS
 // Transform eventDates into an object with date frequencies
@@ -98,7 +90,7 @@ function clearDate() {
   datepicker.value?.updateInternalModelValue(null)
   todayBtnActive.value = false
 }
-// Determine is-selecting boolean for range selection styles
+// When selection changes, determine is-selecting boolean for range selection styles
 function handleInternalSelection(selectedDate: Date | Date[] | null) {
   if ((selectedDate && 'length' in selectedDate) && selectedDate.length.valueOf() === 1)
     isSelecting.value = true
@@ -113,13 +105,8 @@ function clearTodayBtn() {
 function toggleArrow() {
   isOpen.value = !isOpen.value
 }
-// Determine if the window size is mobile for conditional rendering
-function isMobile() {
-  // 750 corresponds to the $small breakpoint in the design tokens
-  return windowSize.value <= 750
-}
 
-// Parent component can use these methods to open and close the datepicker if input is hidden
+// EXPOSED METHODS - Parent component can use these methods to open and close the datepicker if input is hidden
 // Open datepicker
 function openDatepicker() {
   datepicker.value?.openMenu()
@@ -133,18 +120,67 @@ defineExpose({
   closeDatepicker,
 })
 
+// COMPUTED VALUES
+// Determine if the window size is mobile for conditional rendering
+const isMobile = computed(() => windowSize.value <= 750)
+// Format the selected date(s) into consistent object
+const formattedDateSelection = computed(() => {
+  // range selected
+  if (date.value && 'length' in date.value) {
+    return {
+      startDate: date.value[0],
+      endDate: date.value[1],
+    }
+  }
+  // single date selected
+  else if (date.value) {
+    return {
+      startDate: date.value,
+      endDate: null,
+    }
+  }
+  // nothing selected
+  return {
+    startDate: null,
+    endDate: null,
+  }
+})
+
 // ASYNC COMPONENTS
 const ButtonLink = defineAsyncComponent(() =>
   import('@/lib-components/ButtonLink.vue'))
+
+// Watch date and emit to parent component
+watch(date, async (newDate, oldDate) => {
+  if (newDate !== oldDate) {
+    // change seperator for single or range select
+    if ((newDate && 'length' in newDate) && newDate[1] === null) {
+      textConfig.value = {
+        rangeSeparator: ' ',
+      }
+    }
+    else {
+      textConfig.value = {
+        rangeSeparator: ' — ',
+      }
+    }
+    // eslint-disable-next-line vue/custom-event-name-casing
+    emit('input-selected', formattedDateSelection.value)
+  }
+})
+// Watch window size and update windowSize ref
+window.addEventListener('resize', () => {
+  windowSize.value = window.innerWidth
+})
 </script>
 
 <template>
   <div class="date-filter-container">
     <VueDatePicker
-      ref="datepicker" v-model="date" :config="vue3datepickerConfig" :range="!isMobile()" :week-start="0"
+      ref="datepicker" v-model="date" :config="vue3datepickerConfig" :range="!isMobile" :week-start="0"
       month-name-format="long" :enable-time-picker="false" :auto-position="false" :auto-apply="true"
       :text-input="textConfig" no-today :inline="hideInput" class="date-filter"
-      :class="[{ 'is-selecting': isSelecting }]" :placeholder="isMobile() ? 'Select a date' : 'All upcoming'"
+      :class="[{ 'is-selecting': isSelecting }]" :placeholder="isMobile ? 'Select a date' : 'All upcoming'"
       @internal-model-change="handleInternalSelection" @range-start="clearTodayBtn" @open="toggleArrow"
       @closed="toggleArrow"
     >
@@ -218,349 +254,351 @@ const ButtonLink = defineAsyncComponent(() =>
 <style lang="scss" scoped>
 @import "ucla-library-design-tokens/scss/_tokens-ftva";
 
-.dp__calendar_header_separator {
-  display: none;
-}
-
-:deep(.dp__calendar_header_item) {
-  padding-top: 23px;
-  padding-bottom: 30px;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 1px hidden $accent-blue;
-}
-
-.date-filter {
-  --dp-font-family: var(--font-primary);
-  --dp-menu-min-width: 380px;
-  --dp-menu-padding: 26px;
-  --dp-cell-size: 38px;
-  --dp-input-icon-padding: 30px;
-  width: 380px;
-
-  // Input styling
-  :deep(.dp__input) {
-    height: 59px;
-    font-family: var(--font-secondary);
-    font-size: 18px;
-    color: $medium-grey;
-
-    @media #{$small} {
-      padding-inline-start: 57px;
-    }
-
-    &::placeholder {
-      color: $medium-grey;
-      opacity: 1;
-    }
-  }
-
-  :deep(.dp__input_icon) {
-    width: 100%;
-
-    svg {
-      position: absolute;
-      right: 40px;
-      transform: translateY(-50%);
-
-      @media #{$small} {
-        left: 30px;
-      }
-    }
-
-    .toggle-triangle-icon {
-      svg {
-        right: 23px;
-      }
-
-      &.is-open>svg {
-        transform: rotate(180deg);
-        bottom: -5px;
-      }
-
-      @media #{$small} {
-        display: none;
-      }
-    }
-
-  }
-
-  :deep(.dp__clear_icon) {
-    svg {
-      display: none;
-      position: absolute;
-      right: 23px;
-      transform: translateY(-50%);
-
-      @media #{$small} {
-        display: inherit;
-      }
-    }
-  }
-
-  :deep(.dp__outer_menu_wrap.dp--menu-wrapper) {
-    top: 50px !important;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    border-radius: 0px 0px 10px 10px;
-
-    .dp__menu {
-      border-radius: 0px 0px 10px 10px;
-
-      .dp__arrow_top {
-        display: none;
-      }
-    }
-  }
-
-  // Calendar styling
-
-  .custom-month-year-component {
-    color: $heading-grey;
-  }
-
-  :deep(.dp__calendar_header_separator) {
+.date-filter-container {
+  .dp__calendar_header_separator {
     display: none;
   }
 
-  :deep(.dp__menu_inner) {
-    padding-bottom: 0px;
+  :deep(.dp__calendar_header_item) {
+    padding-top: 23px;
+    padding-bottom: 30px;
   }
 
-  :deep(.dp__cell_inner) {
-    transition: background-color 0.3s ease;
-    width: 41px;
-    color: $heading-grey;
-    border-radius: 0px;
+  button:focus,
+  button:focus-visible {
+    outline: 1px hidden $accent-blue;
+  }
 
-    &.dp__range_between,
-    &.dp__range_end:not(.dp__range_start) {
-      z-index: 2;
-      color: var(--color-white);
+  .date-filter {
+    --dp-font-family: var(--font-primary);
+    --dp-menu-min-width: 380px;
+    --dp-menu-padding: 26px;
+    --dp-cell-size: 38px;
+    --dp-input-icon-padding: 30px;
+    width: 380px;
 
-      &::before {
+    // Input styling
+    :deep(.dp__input) {
+      height: 59px;
+      font-family: var(--font-secondary);
+      font-size: 18px;
+      color: $medium-grey;
+
+      @media #{$small} {
+        padding-inline-start: 57px;
+      }
+
+      &::placeholder {
+        color: $medium-grey;
+        opacity: 1;
+      }
+    }
+
+    :deep(.dp__input_icon) {
+      width: 100%;
+
+      svg {
+        position: absolute;
+        right: 40px;
+        transform: translateY(-50%);
+
+        @media #{$small} {
+          left: 30px;
+        }
+      }
+
+      .toggle-triangle-icon {
+        svg {
+          right: 23px;
+        }
+
+        &.is-open>svg {
+          transform: rotate(180deg);
+          bottom: -5px;
+        }
+
+        @media #{$small} {
+          display: none;
+        }
+      }
+
+    }
+
+    :deep(.dp__clear_icon) {
+      svg {
+        display: none;
+        position: absolute;
+        right: 23px;
+        transform: translateY(-50%);
+
+        @media #{$small} {
+          display: inherit;
+        }
+      }
+    }
+
+    :deep(.dp__outer_menu_wrap.dp--menu-wrapper) {
+      top: 50px !important;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      border-radius: 0px 0px 10px 10px;
+
+      .dp__menu {
+        border-radius: 0px 0px 10px 10px;
+
+        .dp__arrow_top {
+          display: none;
+        }
+      }
+    }
+
+    // Calendar styling
+
+    .custom-month-year-component {
+      color: $heading-grey;
+    }
+
+    :deep(.dp__calendar_header_separator) {
+      display: none;
+    }
+
+    :deep(.dp__menu_inner) {
+      padding-bottom: 0px;
+    }
+
+    :deep(.dp__cell_inner) {
+      transition: background-color 0.3s ease;
+      width: 41px;
+      color: $heading-grey;
+      border-radius: 0px;
+
+      &.dp__range_between,
+      &.dp__range_end:not(.dp__range_start) {
+        z-index: 2;
+        color: var(--color-white);
+
+        &::before {
+          content: '';
+          z-index: 0;
+          background-color: $accent-blue;
+          width: 53px;
+          height: 38px;
+          position: absolute;
+          top: -1px;
+          left: -7px;
+        }
+
+        .day-content>.event-dots>.dot {
+          background-color: var(--color-white);
+        }
+
+      }
+
+      &.dp__range_end,
+      &.dp__range_start,
+      &.dp__active_date {
+        background: $navy-blue;
+        color: var(--color-white);
+
+        .day-content>.event-dots>.dot {
+          background-color: var(--color-white);
+        }
+      }
+
+      // overwrite styles for last day in event range
+      &.dp__range_end:not(.dp__range_start)::before {
         content: '';
         z-index: 0;
-        background-color: $accent-blue;
-        width: 53px;
-        height: 38px;
-        position: absolute;
-        top: -1px;
+        width: 6px;
         left: -7px;
       }
 
-      .day-content>.event-dots>.dot {
-        background-color: var(--color-white);
-      }
-
-    }
-
-    &.dp__range_end,
-    &.dp__range_start,
-    &.dp__active_date {
-      background: $navy-blue;
-      color: var(--color-white);
-
-      .day-content>.event-dots>.dot {
-        background-color: var(--color-white);
+      &:hover {
+        background-color: $grey-blue;
       }
     }
 
-    // overwrite styles for last day in event range
-    &.dp__range_end:not(.dp__range_start)::before {
-      content: '';
-      z-index: 0;
-      width: 6px;
-      left: -7px;
-    }
-
-    &:hover {
-      background-color: $grey-blue;
-    }
-  }
-
-  :deep(.dp__cell_offset) {
-    color: $light-grey;
-
-    .day-content>.event-dots>.dot {
-      background-color: $light-grey;
-    }
-
-    &:hover {
-      color: $heading-grey;
+    :deep(.dp__cell_offset) {
+      color: $light-grey;
 
       .day-content>.event-dots>.dot {
-        background-color: $accent-blue;
+        background-color: $light-grey;
       }
-    }
-  }
 
-  &.is-selecting {
-    :deep(.dp__cell_inner) {
-      &.dp__range_between {
+      &:hover {
         color: $heading-grey;
-
-        &::before {
-          background-color: $page-blue;
-        }
 
         .day-content>.event-dots>.dot {
           background-color: $accent-blue;
         }
       }
+    }
 
-      &.dp__range_end:not(.dp__range_start):before {
-        background-color: $page-blue;
+    &.is-selecting {
+      :deep(.dp__cell_inner) {
+        &.dp__range_between {
+          color: $heading-grey;
+
+          &::before {
+            background-color: $page-blue;
+          }
+
+          .day-content>.event-dots>.dot {
+            background-color: $accent-blue;
+          }
+        }
+
+        &.dp__range_end:not(.dp__range_start):before {
+          background-color: $page-blue;
+        }
       }
     }
-  }
 
-  .custom-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    font-size: 26px;
-
-    .custom-nav-buttons {
+    .custom-header {
       display: flex;
-      gap: 2px;
+      justify-content: space-between;
       align-items: center;
-
-      .today-button,
-      .nav-arrow-button {
-        background-color: $page-blue;
-        border: none;
-        border-radius: 0px;
-        padding: 0;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 31px;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-          background-color: $grey-blue;
-        }
-      }
-
-      .today-button {
-        color: $accent-blue;
-        width: 81px;
-        font-size: 16px;
-        font-weight: 500;
-
-        &.is-active-selection {
-          background-color: $accent-blue;
-          color: var(--color-white);
-        }
-      }
-
-      .nav-arrow-button {
-        color: black;
-        width: 25px;
-      }
-
-      :deep(.svg__stroke--primary-blue-03) {
-        stroke: var(--color-black);
-      }
-    }
-  }
-
-  .day-header {
-    font-size: 16px;
-    font-weight: normal;
-    color: $medium-grey;
-    text-align: center;
-  }
-
-  .day-content {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    width: 100%;
-    margin-top: -5px;
-    font-size: 22px;
-
-    .event-dots {
-      position: absolute;
       width: 100%;
-      bottom: 0px;
-      display: flex;
-      flex-direction: row;
-      gap: 3px;
-      justify-content: center;
+      font-size: 26px;
 
-      .dot {
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background-color: $accent-blue;
-      }
-    }
-  }
+      .custom-nav-buttons {
+        display: flex;
+        gap: 2px;
+        align-items: center;
 
-  .action-row {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    align-items: center;
-    margin: 10px 18px; //dp__action_row adds 8 px for total of 18px top and bottom
-    gap: 5px;
+        .today-button,
+        .nav-arrow-button {
+          background-color: $page-blue;
+          border: none;
+          border-radius: 0px;
+          padding: 0;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 31px;
+          transition: background-color 0.3s ease;
 
-    .action-row-button {
-      padding: 10px 21px;
-      border-radius: 2px;
-      font-family: var(--font-primary);
-      font-weight: 500;
-      line-height: 27px;
-      color: var(--color-white);
-      background-color: $accent-blue;
-      border: 1px solid $accent-blue;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+          &:hover {
+            background-color: $grey-blue;
+          }
+        }
 
-      &.select-button> :deep(.label) {
-        padding-left: 0px;
-      }
+        .today-button {
+          color: $accent-blue;
+          width: 81px;
+          font-size: 16px;
+          font-weight: 500;
 
-      :deep(.hover) {
-        display: none;
-      }
+          &.is-active-selection {
+            background-color: $accent-blue;
+            color: var(--color-white);
+          }
+        }
 
-      &:hover {
-        background-color: $navy-blue;
-      }
-    }
-
-    .clear-button {
-      background-color: var(--color-white);
-      color: $accent-blue;
-
-      :deep(.svg__stroke--primary-blue-03) {
-        stroke: $accent-blue;
-      }
-
-      &:hover {
-        background-color: $navy-blue;
-        color: var(--color-white);
+        .nav-arrow-button {
+          color: black;
+          width: 25px;
+        }
 
         :deep(.svg__stroke--primary-blue-03) {
-          stroke: var(--color-white);
+          stroke: var(--color-black);
         }
       }
     }
 
-    // MOBILE styles
-    @media #{$small} {
-      .clear-button {
-        display: none;
+    .day-header {
+      font-size: 16px;
+      font-weight: normal;
+      color: $medium-grey;
+      text-align: center;
+    }
+
+    .day-content {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      width: 100%;
+      margin-top: -5px;
+      font-size: 22px;
+
+      .event-dots {
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+        display: flex;
+        flex-direction: row;
+        gap: 3px;
+        justify-content: center;
+
+        .dot {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background-color: $accent-blue;
+        }
+      }
+    }
+
+    .action-row {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      align-items: center;
+      margin: 10px 18px; //dp__action_row adds 8 px for total of 18px top and bottom
+      gap: 5px;
+
+      .action-row-button {
+        padding: 10px 21px;
+        border-radius: 2px;
+        font-family: var(--font-primary);
+        font-weight: 500;
+        line-height: 27px;
+        color: var(--color-white);
+        background-color: $accent-blue;
+        border: 1px solid $accent-blue;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &.select-button> :deep(.label) {
+          padding-left: 0px;
+        }
+
+        :deep(.hover) {
+          display: none;
+        }
+
+        &:hover {
+          background-color: $navy-blue;
+        }
       }
 
-      .select-button {
-        width: 100%;
+      .clear-button {
+        background-color: var(--color-white);
+        color: $accent-blue;
+
+        :deep(.svg__stroke--primary-blue-03) {
+          stroke: $accent-blue;
+        }
+
+        &:hover {
+          background-color: $navy-blue;
+          color: var(--color-white);
+
+          :deep(.svg__stroke--primary-blue-03) {
+            stroke: var(--color-white);
+          }
+        }
+      }
+
+      // MOBILE styles
+      @media #{$small} {
+        .clear-button {
+          display: none;
+        }
+
+        .select-button {
+          width: 100%;
+        }
       }
     }
   }

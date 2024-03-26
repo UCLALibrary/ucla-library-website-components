@@ -41,3 +41,18 @@ export function NoInput() {
     template: '<date-filter :eventDates="eventDates" :hideInput="hideInput"/>',
   }
 }
+
+const mockInitialDates = {
+  initialDates: { startDate: new Date('2024-03-19'), endDate: new Date('2024-03-29') },
+}
+export function InitialDates() {
+  return {
+    data() {
+      return {
+        ...mockInitialDates,
+      }
+    },
+    components: { DateFilter },
+    template: '<date-filter :eventDates="eventDates" :initialDates="initialDates"/>',
+  }
+}
