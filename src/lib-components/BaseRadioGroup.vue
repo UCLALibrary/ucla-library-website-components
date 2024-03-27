@@ -1,15 +1,22 @@
-<script setup>
+<script
+  lang="ts"
+  setup
+>
 import { ref } from 'vue'
+import type { PropType } from 'vue'
 import SvgIconRadioButton from 'ucla-library-design-tokens/assets/svgs/icon-radio-button.svg'
 
+interface Item {
+  name: string
+}
 const { items, selected } = defineProps({
   items: {
-    type: Array,
+    type: Array as PropType<Item[]>,
     default: () => [],
   },
   selected: {
-    type: String,
-    default: '',
+    type: Array as PropType<string[]>,
+    default: () => [],
   },
 })
 // TODO Watch for changes in `selected` prop and update `parsedSelected`
@@ -26,12 +33,12 @@ const emit = defineEmits(['update:selected', 'input-selected'])
 
 console.log('selected', selected)
 
-const parsedSelected = ref(selected)
+const parsedSelected = ref<string[]>(selected)
 console.log('parseselected radio button', parsedSelected.value)
 
-function onChange(value) {
+function onChange(value: string) {
   console.log('what is slected', value)
-  emit('update:selected', value)
+  emit('update:selected', [value])
   emit('input-selected')
 }
 </script>

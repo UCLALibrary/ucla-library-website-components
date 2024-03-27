@@ -24,7 +24,7 @@ Default.args = {
     { inputType: 'checkbox', label: 'Filter 2', esFieldName: 'filter2', items: [{ name: 'Check 1' }, { name: 'Check 2' }] },
   ],
   queryFilters: {
-    filter1: 'Option 1',
+    filter1: ['Option 1'],
     filter2: ['Check 1', 'Check 2'],
   }
 }
@@ -37,7 +37,7 @@ WithSingleCheckbox.args = {
     { inputType: 'single-checkbox', label: 'Filter 3', esFieldName: 'filter3' },
   ],
   queryFilters: {
-    filter1: 'Option 1',
+    filter1: ['Option 1'],
     filter2: ['Check 1', 'Check 2'],
     filter3: true
   }

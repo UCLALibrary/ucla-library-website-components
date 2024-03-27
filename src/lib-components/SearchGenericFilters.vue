@@ -20,10 +20,11 @@ interface Item {
   esFieldName: string
   items?: ContentItem[]
   isVisible?: false
+  class?: string
 }
 
 interface QueryFilters {
-  [key: string]: string | string[]
+  [key: string]: string[]
 }
 
 const props = defineProps({
@@ -60,29 +61,29 @@ watch(() => props.queryFilters, (newQueryFilters) => {
   // console.log("queryFilterButtonDropDownStates", queryFilterButtonDropDownStates.value)
 }, { deep: true, immediate: true })
 
-function updateSelected(key: string, newValue: string | string[]) {
+function updateSelected(key: string, newValue: string[]) {
   // This function updates the selected state and could emit an event for parent component
   queryFilterButtonDropDownStates.value[key] = newValue
   // Emit an event if needed
 }
 
 // single-checkbox
-const checkedState = ref(props.filters.map(obj => !!(obj.inputType === 'single-checkbox' && props.queryFilters[obj.esFieldName])))
+const checkedState = ref(props.filters.some(obj => obj.inputType === 'single-checkbox' && !!props.queryFilters[obj.esFieldName]))
 
 const openItemIndex = ref(-1) // -1 indicates that no item is open
 
 // filter buttons
 const parsedFilters = computed(() => {
   return props.filters.map((obj, index) => {
-    let selected = selectedFilters.value?.filter(item => item.name === obj.esFieldName) || []
+    // let selected: { name: string value: string }[] | string = selectedFilters.value?.filter(item => item.name === obj.esFieldName) || []
     // console.log("In parseselected: " + selected)
     let componentName = BaseCheckboxGroup
 
     // If none selected, then make sure radio's default is empty string
-    if (!selected.length && obj.inputType === 'radio') {
-      selected = ''
-      selectedFilters.value = selectedFilters.value?.filter(item => item.name !== obj.esFieldName)
-    }
+    /* if (!selected.length && obj.inputType === 'radio') {
+      // selected = ''
+      // selectedFilters.value = selectedFilters.value?.filter(item => item.name !== obj.esFieldName)
+    } */
 
     // Figure out Vue component name
     switch (obj.inputType) {
@@ -105,7 +106,7 @@ const parsedFilters = computed(() => {
 
     return {
       ...obj,
-      selected,
+      // selected,
       componentName,
       isVisible: index === openItemIndex.value,
 
@@ -118,6 +119,10 @@ function toggleTransition(index: number) {
   // Toggles visibility state for the given index
   openItemIndex.value = openItemIndex.value === index ? -1 : index
   console.log('toggleTransition end', index, parsedFilters.value[index].isVisible)
+}
+
+function doSearch() {
+  console.log('this event got emitted')
 }
 </script>
 
@@ -136,22 +141,25 @@ function toggleTransition(index: number) {
       />
     </div>
     <!-- This loops through avaible filter groups -->
-    <transition
-      v-for="(group) in parsedFilters"
+    <div
+      v-for="group in parsedFilters"
       :key="group.esFieldName"
-      name="slide-toggle"
-      mode="out-in"
     >
-      <component
-        :is="group.componentName"
-        v-if="group.isVisible"
-        v-model:selected="queryFilterButtonDropDownStates[group.esFieldName]"
-        :items="group.items"
-        class="filter-group"
-        @update:selected="newValue => updateSelected(group.esFieldName, newValue)"
-        @input-selected="doSearch"
-      />
-    </transition>
+      <transition
+        name="slide-toggle"
+        mode="out-in"
+      >
+        <component
+          :is="group.componentName"
+          v-if="group.isVisible"
+          v-model:selected="queryFilterButtonDropDownStates[group.esFieldName]"
+          :items="group.items"
+          class="filter-group"
+          @update:selected="newValue => updateSelected(group.esFieldName, newValue)"
+          @input-selected="doSearch"
+        />
+      </transition>
+    </div>
 
     <SectionRemoveSearchFilter
       v-model:filters="selectedFilters"

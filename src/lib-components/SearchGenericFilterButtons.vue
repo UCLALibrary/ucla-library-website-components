@@ -11,7 +11,7 @@ import SingleCheckbox from '@/lib-components/SingleCheckbox.vue'
 interface Item {
   inputType: string
   label: string
-  class: string
+  class?: string
   isVisible: boolean
 }
 
