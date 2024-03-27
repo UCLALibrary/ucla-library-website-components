@@ -1,19 +1,20 @@
 // Import mock api data
-import * as API from "@/stories/impact-report_index.json"
-import StoryWithImage from "@/lib-components/StoryWithImage.vue"
+import * as API from '@/stories/impact-report_index.json'
+import StoryWithImage from '@/lib-components/StoryWithImage.vue'
 
 // Storybook default settings
 export default {
-    title: "IMPACT REPORT / Story with Image",
-    component: StoryWithImage,
+  title: 'IMPACT REPORT / Story with Image',
+  component: StoryWithImage,
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            item: { ...API.story[0] },
-        }
+      return {
+        item: { ...API.story[0] },
+      }
     },
     components: { StoryWithImage },
     template: `
@@ -26,4 +27,5 @@ export const Default = () => ({
           :calltoaction="item.calltoaction"
       />
   `,
-})
+  }
+}

@@ -1,60 +1,63 @@
 <script lang="ts" setup>
-import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
-import DividerGeneral from "@/lib-components/DividerGeneral.vue"
-import SvgArrowDiagonal from "ucla-library-design-tokens/assets/svgs/icon-external-link.svg"
+import SvgArrowDiagonal from 'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
 import type { PropType } from 'vue'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import DividerGeneral from '@/lib-components/DividerGeneral.vue'
 import type { MediaItemType } from '@/types/types'
 
 const { image, caption, title, text, footnote, calltoaction } = defineProps({
-    image: {
-        type: Object as PropType<MediaItemType>,
-        default: () => { },
-    },
-    caption: {
-        type: String,
-        default: "",
-    },
-    title: {
-        type: String,
-        default: "",
-    },
-    text: {
-        type: String,
-        default: "",
-    },
-    footnote: {
-        type: String,
-        default: "",
-    },
-    calltoaction: {
-        type: String,
-        default: "",
-    },
+  image: {
+    type: Object as PropType<MediaItemType>,
+    default: () => { },
+  },
+  caption: {
+    type: String,
+    default: '',
+  },
+  title: {
+    type: String,
+    default: '',
+  },
+  text: {
+    type: String,
+    default: '',
+  },
+  footnote: {
+    type: String,
+    default: '',
+  },
+  calltoaction: {
+    type: String,
+    default: '',
+  },
 })
-
 </script>
-<template>
-    <div class="story-with-image">
-        <div v-if="image" class="image-block">
-            <ResponsiveImage class="image" :media="image">
-                <div class="gradient" />
-            </ResponsiveImage>
-            <div v-if="caption" class="caption" v-text="caption" />
 
-            <div class="meta">
-                <h2 v-if="title" class="title"> {{ title }}</h2>
-                <div v-if="text" class="text" v-html="text" />
-                <DividerGeneral class="divider-general" />
-                <div v-if="footnote" class="footnote" v-html="footnote" />
-                <DividerGeneral class="divider-general" />
-                <div class="calltoaction">
-                    <span v-if="calltoaction"> {{ calltoaction }}</span>
-                    <SvgArrowDiagonal class="svg" />
-                </div>
-            </div>
+<template>
+  <div class="story-with-image">
+    <div v-if="image" class="image-block">
+      <ResponsiveImage class="image" :media="image">
+        <div class="gradient" />
+      </ResponsiveImage>
+      <div v-if="caption" class="caption" v-text="caption" />
+
+      <div class="meta">
+        <h2 v-if="title" class="title">
+          {{ title }}
+        </h2>
+        <div v-if="text" class="text" v-html="text" />
+        <DividerGeneral class="divider-general" />
+        <div v-if="footnote" class="footnote" v-html="footnote" />
+        <DividerGeneral class="divider-general" />
+        <div class="calltoaction">
+          <span v-if="calltoaction"> {{ calltoaction }}</span>
+          <SvgArrowDiagonal class="svg" />
         </div>
+      </div>
     </div>
+  </div>
 </template>
+
 <style lang="scss" scoped>
 .story-with-image {
     color: var(--color-black);
