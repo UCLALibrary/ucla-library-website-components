@@ -18,8 +18,8 @@ const { block } = defineProps({
 
 <template>
   <div
-    class="impact-numbers-carousel"
     v-if="block"
+    class="impact-numbers-carousel"
   >
     <div class="section-header">
       <h2
@@ -34,7 +34,7 @@ const { block } = defineProps({
       />
     </div>
 
-    <impact-numbers-carousel :blocks="block.blocks" />
+    <ImpactNumbersCarousel :blocks="block.blocks" />
   </div>
 </template>
 

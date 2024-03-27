@@ -1,4 +1,4 @@
-import type { BlockCallToActionTwoUpType, LocationItemType, MediaGalleryItemType, MediaItemType, BlockImpactNumbersCarouselType } from '@/types/types'
+import type { BlockCallToActionTwoUpType, BlockImpactNumbersCarouselType, LocationItemType, MediaGalleryItemType, MediaItemType } from '@/types/types'
 
 // Reusable block declaration for Flexible Components
 

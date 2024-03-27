@@ -5,15 +5,17 @@ import { mock } from './mock/Flexible_ImpactNumbersCarousel'
 import FlexibleImpactNumbersCarousel from '@/lib-components/Flexible/ImpactNumbersCarousel'
 
 export default {
-  title: "Flexible / Impact Numbers Carousel",
+  title: 'Flexible / Impact Numbers Carousel',
   component: FlexibleImpactNumbersCarousel,
 }
 
-// const Template = (args, { argTypes }) => ({
-//     props: Object.keys(argTypes),
-//     components: { FlexibleImpactNumbersCarousel },
-//     template: `<flexible-impact-numbers-carousel v-bind="$props" />`,
-// })
+function Template(args, { argTypes }) {
+  return {
+    props: Object.keys(argTypes),
+    components: { FlexibleImpactNumbersCarousel },
+    template: '<flexible-impact-numbers-carousel v-bind="$props" />',
+  }
+}
 
 export function Default() {
   return {
