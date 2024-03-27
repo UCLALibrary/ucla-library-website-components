@@ -1,3 +1,17 @@
+# [2.39.0-alpha.52](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.51...v2.39.0-alpha.52) (2024-03-27)
+
+
+### Features
+
+* APPS-2571 convert SectionPagination to vue 3 ([#477](https://github.com/UCLALibrary/ucla-library-website-components/issues/477)) ([2921110](https://github.com/UCLALibrary/ucla-library-website-components/commit/29211105fce271b1525e7c309a8f7cbaf8b1887e))
+
+# [2.39.0-alpha.51](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.50...v2.39.0-alpha.51) (2024-03-26)
+
+
+### Features
+
+* APPS-2597 convert flexible-card-with-image component to vue3 ([#470](https://github.com/UCLALibrary/ucla-library-website-components/issues/470)) ([f463681](https://github.com/UCLALibrary/ucla-library-website-components/commit/f463681a3874271e72e8fba1ee2331d144029038))
+
 # [2.39.0-alpha.50](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.49...v2.39.0-alpha.50) (2024-03-18)
 
 
