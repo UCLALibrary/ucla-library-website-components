@@ -2,7 +2,7 @@
   setup
   lang="ts"
 >
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import type { PropType } from 'vue'
 import BlockRemoveSearchFilter from '@/lib-components/BlockRemoveSearchFilter.vue'
 
@@ -22,7 +22,7 @@ const emit = defineEmits(['update:filters', 'remove-selected'])
 // console.log("SectionRemoveFilters", filters)
 const filteredFilters = ref<Item[]>([...filters])
 // console.log("filteredFilters", JSON.stringify(filteredFilters.value))
-/*watch(filters, (newVal: Item[] | undefined, oldVal: Item[] | undefined) => {
+/* watch(filters, (newVal: Item[] | undefined, oldVal: Item[] | undefined) => {
   console.log('filters changed from', JSON.stringify(oldVal), JSON.stringify(newVal))
   filteredFilters.value = [...(newVal || [])]
 },
@@ -30,7 +30,7 @@ const filteredFilters = ref<Item[]>([...filters])
     deep: true,
     immediate: true
   }
-)*/
+) */
 
 function closeBlockFilter(esfieldName: string, label: string, indexVal: number) {
   console.log('closeblockfilter event handlr fired:', esfieldName, label, indexVal)
@@ -45,7 +45,6 @@ function closeBlockFilter(esfieldName: string, label: string, indexVal: number) 
     v-show="filteredFilters"
     class="section-remove-search-filter"
   >
-
     <div
       v-for="(filter, index) in filteredFilters"
       :key="`filter-${filter.value}`"
@@ -53,12 +52,12 @@ function closeBlockFilter(esfieldName: string, label: string, indexVal: number) 
       <BlockRemoveSearchFilter
         :title="filter.value"
         @removeBlockFilter="
-      closeBlockFilter(
-        filter.name,
-        filter.value,
-        index,
-      )
-      "
+          closeBlockFilter(
+            filter.name,
+            filter.value,
+            index,
+          )
+        "
       />
     </div>
   </div>

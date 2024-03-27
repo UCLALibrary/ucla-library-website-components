@@ -1,20 +1,5 @@
-<template>
-  <div class="single-checkbox">
-    <label :class="labelClass">
-      {{ label }}
-      <input
-        type="checkbox"
-        class="input"
-        v-model="theSelection"
-        @change="onChange"
-      />
-      <SvgIconCheckbox class="svg" />
-    </label>
-  </div>
-</template>
-
 <script setup>
-import { ref, watch, computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import SvgIconCheckbox from 'ucla-library-design-tokens/assets/svgs/icon-checkbox.svg'
 
 // Define props
@@ -33,7 +18,7 @@ const theSelection = ref(props.selected)
 
 // Watch for external changes to the `selected` prop
 watch(() => props.selected, (newVal) => {
-  console.log("Selected prop changed in SingleCheckbox:", newVal)
+  console.log('Selected prop changed in SingleCheckbox:', newVal)
   theSelection.value = newVal
 })
 
@@ -41,7 +26,7 @@ watch(() => props.selected, (newVal) => {
 const labelClass = computed(() => ['label', theSelection.value ? 'checked' : ''])
 
 // Method to handle change events
-const onChange = () => {
+function onChange() {
   // Assuming there was a mistake in your original method, correcting it here
   emit('update:selected', theSelection.value)
   emit('input-selected')
@@ -49,9 +34,24 @@ const onChange = () => {
 
 // Watch to log selection changes, could be removed in production
 watch(theSelection, (newVal) => {
-  console.log("Checkbox selection changed to:", newVal)
+  console.log('Checkbox selection changed to:', newVal)
 })
 </script>
+
+<template>
+  <div class="single-checkbox">
+    <label :class="labelClass">
+      {{ label }}
+      <input
+        v-model="theSelection"
+        type="checkbox"
+        class="input"
+        @change="onChange"
+      >
+      <SvgIconCheckbox class="svg" />
+    </label>
+  </div>
+</template>
 
 <style
   lang="scss"

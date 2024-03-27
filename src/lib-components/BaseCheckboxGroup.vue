@@ -57,7 +57,6 @@ function onChange(itemName) {
       </li>
     </ul>
   </fieldset>
-
 </template>
 
 <style

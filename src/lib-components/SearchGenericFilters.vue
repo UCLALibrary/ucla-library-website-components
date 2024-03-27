@@ -1,56 +1,14 @@
-<template>
-  <div class="search-generic-filters">
-    <div
-      v-if="filters.length > 0"
-      class="container"
-    >
-      <search-generic-filter-buttons
-        :items="parsedFilters"
-        v-model:single-checkbox-state="checkedState"
-        class="search-generic-filter-buttons"
-        @toggle="toggleTransition"
-        @single-checkbox-checked="doSearch"
-      />
-    </div>
-    <!-- This loops through avaible filter groups -->
-    <transition
-      name="slide-toggle"
-      mode="out-in"
-      :key="group.esFieldName"
-      v-for="(group, index) in parsedFilters"
-    >
-      <component
-        :is="group.componentName"
-        v-if="group.isVisible"
-        :items="group.items"
-        v-model:selected="queryFilterButtonDropDownStates[group.esFieldName]"
-        @update:selected="newValue => updateSelected(group.esFieldName, newValue)"
-        class="filter-group"
-        @input-selected="doSearch"
-      />
-    </transition>
-
-    <section-remove-search-filter
-      v-model:filters="selectedFilters"
-      class="section-remove-container"
-      @remove-selected="doSearch"
-    />
-
-  </div>
-</template>
-
 <script
   lang="ts"
   setup
 >
-import { computed, ref, watch, watchEffect } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 
-import SearchGenericFilterButtons from "./SearchGenericFilterButtons.vue"
-import SearchGenericViewModes from "./SearchGenericViewModes.vue"
-import BaseRadioGroup from "./BaseRadioGroup.vue"
-import BaseCheckboxGroup from "./BaseCheckboxGroup.vue"
-import SectionRemoveSearchFilter from "./SectionRemoveSearchFilter.vue"
+import SearchGenericFilterButtons from './SearchGenericFilterButtons.vue'
+import BaseRadioGroup from './BaseRadioGroup.vue'
+import BaseCheckboxGroup from './BaseCheckboxGroup.vue'
+import SectionRemoveSearchFilter from './SectionRemoveSearchFilter.vue'
 
 interface ContentItem {
   name: string
@@ -64,10 +22,9 @@ interface Item {
   isVisible?: false
 }
 
-type QueryFilters = {
+interface QueryFilters {
   [key: string]: string | string[]
 }
-
 
 const props = defineProps({
   filters: {
@@ -79,22 +36,20 @@ const props = defineProps({
     default: () => { },
   }
 })
-const selectedView = ref("list") // TODO If we add VIEW MODES COMPONENT TO THIS
+// const selectedView = ref('list') // TODO If we add VIEW MODES COMPONENT TO THIS
 const selectedFilters = computed(() => {
   // This structure is good for SectionRemoveSearchFilters component which needs an array of
   // objects with name and value properties
 
   const result = Object.entries(props.queryFilters).flatMap(([name, value]) => {
-    if (Array.isArray(value)) {
+    if (Array.isArray(value))
       return value.map(item => ({ name, value: item }))
-    } else {
+    else
       return [{ name, value }]
-    }
   })
   return result
-
 })
-const queryFilterButtonDropDownStates = ref({})
+const queryFilterButtonDropDownStates = ref<QueryFilters>({})
 
 watch(() => props.queryFilters, (newQueryFilters) => {
   // Assuming newQueryFilters is always an object as per your default prop definition.
@@ -105,47 +60,36 @@ watch(() => props.queryFilters, (newQueryFilters) => {
   // console.log("queryFilterButtonDropDownStates", queryFilterButtonDropDownStates.value)
 }, { deep: true, immediate: true })
 
-const updateSelected = (key, newValue) => {
+function updateSelected(key: string, newValue: string | string[]) {
   // This function updates the selected state and could emit an event for parent component
   queryFilterButtonDropDownStates.value[key] = newValue
   // Emit an event if needed
 }
 
-
 // single-checkbox
-const checkedState = ref(props.filters.map((obj) => obj.inputType === "single-checkbox" && props.queryFilters[obj.esFieldName] ? true : false))
+const checkedState = ref(props.filters.map(obj => !!(obj.inputType === 'single-checkbox' && props.queryFilters[obj.esFieldName])))
 
-// Now, instead of tracking visibility toggles, track the index of the currently open item
-const openItemIndex = ref(-1); // -1 indicates that no item is open
-
-const toggleTransition = (index) => {
-  console.log("toggleTransition called", index, parsedFilters.value[index].isVisible)
-  // Toggles visibility state for the given index
-  openItemIndex.value = openItemIndex.value === index ? -1 : index
-  console.log("toggleTransition end", index, parsedFilters.value[index].isVisible)
-}
-
+const openItemIndex = ref(-1) // -1 indicates that no item is open
 
 // filter buttons
 const parsedFilters = computed(() => {
-
   return props.filters.map((obj, index) => {
-    let selected = selectedFilters.value?.filter((item) => item.name === obj.esFieldName) || []
+    let selected = selectedFilters.value?.filter(item => item.name === obj.esFieldName) || []
     // console.log("In parseselected: " + selected)
     let componentName = BaseCheckboxGroup
 
     // If none selected, then make sure radio's default is empty string
-    if (!selected.length && obj.inputType == "radio") {
-      selected = ""
-      selectedFilters.value = selectedFilters.value?.filter((item) => item.name !== obj.esFieldName)
+    if (!selected.length && obj.inputType === 'radio') {
+      selected = ''
+      selectedFilters.value = selectedFilters.value?.filter(item => item.name !== obj.esFieldName)
     }
 
     // Figure out Vue component name
     switch (obj.inputType) {
-      case "radio":
+      case 'radio':
         componentName = BaseRadioGroup
         break
-      case "checkbox":
+      case 'checkbox':
         componentName = BaseCheckboxGroup
         break
 
@@ -169,8 +113,53 @@ const parsedFilters = computed(() => {
   })
 })
 
-
+function toggleTransition(index: number) {
+  console.log('toggleTransition called', index, parsedFilters.value[index].isVisible)
+  // Toggles visibility state for the given index
+  openItemIndex.value = openItemIndex.value === index ? -1 : index
+  console.log('toggleTransition end', index, parsedFilters.value[index].isVisible)
+}
 </script>
+
+<template>
+  <div class="search-generic-filters">
+    <div
+      v-if="filters.length > 0"
+      class="container"
+    >
+      <SearchGenericFilterButtons
+        v-model:single-checkbox-state="checkedState"
+        :items="parsedFilters"
+        class="search-generic-filter-buttons"
+        @toggle="toggleTransition"
+        @single-checkbox-checked="doSearch"
+      />
+    </div>
+    <!-- This loops through avaible filter groups -->
+    <transition
+      v-for="(group) in parsedFilters"
+      :key="group.esFieldName"
+      name="slide-toggle"
+      mode="out-in"
+    >
+      <component
+        :is="group.componentName"
+        v-if="group.isVisible"
+        v-model:selected="queryFilterButtonDropDownStates[group.esFieldName]"
+        :items="group.items"
+        class="filter-group"
+        @update:selected="newValue => updateSelected(group.esFieldName, newValue)"
+        @input-selected="doSearch"
+      />
+    </transition>
+
+    <SectionRemoveSearchFilter
+      v-model:filters="selectedFilters"
+      class="section-remove-container"
+      @remove-selected="doSearch"
+    />
+  </div>
+</template>
 
 <style
   lang="scss"

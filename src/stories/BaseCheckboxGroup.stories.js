@@ -46,5 +46,5 @@ WithSelection.args = {
     { name: 'Checkbox 2' },
     { name: 'Checkbox 3' },
   ],
-  selected: [ 'Checkbox 1'],
+  selected: ['Checkbox 1'],
 }

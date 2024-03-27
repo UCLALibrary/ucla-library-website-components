@@ -19,17 +19,19 @@ export default {
   },
 }
 
-const Template = (args) => ({
-  components: {
-    SearchGenericViewModes,
-  },
-  setup() {
-    return { args }
-  },
-  template: `
+function Template(args) {
+  return {
+    components: {
+      SearchGenericViewModes,
+    },
+    setup() {
+      return { args }
+    },
+    template: `
     <SearchGenericViewModes v-bind="args" />
   `,
-})
+  }
+}
 
 export const Default = Template.bind({})
 Default.args = {

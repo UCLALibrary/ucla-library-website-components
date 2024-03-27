@@ -7,7 +7,7 @@ export default {
 
 export function Default() {
   return {
-    data(){
+    data() {
       return {}
     },
     components: { SingleCheckbox },
@@ -19,7 +19,7 @@ export function Default() {
 
 export function Checked() {
   return {
-    data(){
+    data() {
       return {}
     },
     components: { SingleCheckbox },

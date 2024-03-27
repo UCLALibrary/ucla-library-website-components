@@ -1,10 +1,10 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
-import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
-import SvgIconCalendar from "ucla-library-design-tokens/assets/svgs/icon-calendar.svg"
-import SvgIconCard from "ucla-library-design-tokens/assets/svgs/icon-card.svg"
-import SvgIconList from "ucla-library-design-tokens/assets/svgs/icon-list.svg"
+import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
+import SvgIconCalendar from 'ucla-library-design-tokens/assets/svgs/icon-calendar.svg'
+import SvgIconCard from 'ucla-library-design-tokens/assets/svgs/icon-card.svg'
+import SvgIconList from 'ucla-library-design-tokens/assets/svgs/icon-list.svg'
 
 const props = defineProps({
   isOpened: {
@@ -17,7 +17,7 @@ const props = defineProps({
   },
   selected: {
     type: String,
-    default: "",
+    default: '',
   },
 })
 
@@ -26,40 +26,41 @@ const emit = defineEmits(['update:isOpened', 'update:selected', 'view-changed'])
 const isOpened = ref(props.isOpened)
 
 const classes = computed(() => {
-  return ["search-generic-view-modes", { "is-opened": isOpened.value }]
+  return ['search-generic-view-modes', { 'is-opened': isOpened.value }]
 })
 
 const selectedItem = computed(() => {
-  return props.items.find(item => item.slug == props.selected) || {}
+  return props.items.find(item => item.slug === props.selected) || {}
 })
 
 const parsedItems = computed(() => {
-  return props.items.map(item => {
-    let classes = "list-item"
-    if (item.slug == props.selected) {
-      classes += " is-active"
-    }
+  return props.items.map((item) => {
+    let classes = 'list-item'
+    if (item.slug === props.selected)
+      classes += ' is-active'
+
     return { ...item, classes }
   })
 })
 const svgList = new Map([
-  ["icon-calendar", SvgIconCalendar],
-  ["icon-list", SvgIconList],
-  ["icon-card", SvgIconCard]
+  ['icon-calendar', SvgIconCalendar],
+  ['icon-list', SvgIconList],
+  ['icon-card', SvgIconCard]
 ])
-const parsedSelectedSVG = (iconName) => {
+function parsedSelectedSVG(iconName) {
   return svgList.get(iconName)
 }
-const toggleOpen = () => {
+function toggleOpen() {
   isOpened.value = !isOpened.value
   emit('update:isOpened', isOpened.value)
 }
 
-const onClick = (slug) => {
+function onClick(slug) {
   emit('update:selected', slug)
   emit('view-changed', slug)
 }
 </script>
+
 <template>
   <div
     :class="classes"
@@ -153,7 +154,6 @@ const onClick = (slug) => {
       }
     }
 
-
   }
 
   .svg__icon-calendar {
@@ -204,7 +204,6 @@ const onClick = (slug) => {
     .svg path {
       stroke: var(--color-white);
     }
-
 
   }
 

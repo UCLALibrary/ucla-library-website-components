@@ -2,15 +2,17 @@
   lang="ts"
   setup
 >
-import { computed, ref, watch, watchEffect } from 'vue'
+import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 
-import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
-import SingleCheckbox from "@/lib-components/SingleCheckbox.vue"
+import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
+import SingleCheckbox from '@/lib-components/SingleCheckbox.vue'
+
 interface Item {
   inputType: string
   label: string
   class: string
+  isVisible: boolean
 }
 
 const props = defineProps({
@@ -28,49 +30,50 @@ const emit = defineEmits(['toggle', 'update:selected', 'single-checkbox-checked'
 
 const theSingleCheckboxState = ref(props.singleCheckboxState)
 
-
 const isSingleCheckBox = computed(() => {
-  return props.items?.some(item => item.inputType === "single-checkbox")
+  return props.items?.some(item => item.inputType === 'single-checkbox')
 })
 
-const updateSingleCheckboxState = () => {
+function updateSingleCheckboxState() {
   emit('update:selected', theSingleCheckboxState.value)
   emit('single-checkbox-checked')
 }
 const getSingleCheckboxLabel = computed(() => {
-  const item = props.items.find(item => item.inputType === "single-checkbox")
-  return item ? item.label : ""
+  const item = props.items.find(item => item.inputType === 'single-checkbox')
+  return item ? item.label : ''
 })
 
-
 const parsedItems = computed(() => {
-
-  return props.items.map((item, index) => {
-    if (item.inputType !== "single-checkbox") {
-      let btnClass = "button" + (item.isVisible ? " is-active" : "")
+  return props.items.map((item) => {
+    if (item.inputType !== 'single-checkbox') {
+      const btnClass = `button${item.isVisible ? ' is-active' : ''}`
       // console.log("btnClass", btnClass)
       return {
         ...item,
         class: btnClass,
       }
     }
-  }).filter(item => item) // Filter out undefined items (single-checkbox case)
+    else {
+      return null
+    }
+  }).filter(item => item != null) // Filter out undefined or null items (single-checkbox case)
 })
 
-const toggleOpen = (index: number) => {
+function toggleOpen(index: number) {
   // console.log("toggleOpen index ", index)
 
-  emit('toggle', index);
+  emit('toggle', index)
 }
 </script>
+
 <template>
   <div class="search-generic-filter-buttons">
     <button
       v-for="(filter, index) in parsedItems"
       :key="filter?.label"
       :class="filter?.class"
-      @click.prevent="toggleOpen(index)"
       type="button"
+      @click.prevent="toggleOpen(index)"
     >
       <span class="title">
         {{ filter?.label }}
@@ -81,13 +84,14 @@ const toggleOpen = (index: number) => {
       </div>
     </button>
     <SingleCheckbox
-      @input-selected="updateSingleCheckboxState"
       v-if="isSingleCheckBox"
-      :label="getSingleCheckboxLabel"
       v-model:selected="theSingleCheckboxState"
+      :label="getSingleCheckboxLabel"
+      @input-selected="updateSingleCheckboxState"
     />
   </div>
 </template>
+
 <style
   lang="scss"
   scoped

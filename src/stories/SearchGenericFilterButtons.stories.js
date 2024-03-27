@@ -1,6 +1,5 @@
 import SearchGenericFilterButtons from '@/lib-components/SearchGenericFilterButtons'
 
-
 export default {
   title: 'Search / Generic / FilterButtons',
   component: SearchGenericFilterButtons,
@@ -20,23 +19,25 @@ export default {
   },
 }
 
-const Template = (args) => ({
-  components: { SearchGenericFilterButtons },
-  setup() {
-    return { args }
-  },
-  template: '<SearchGenericFilterButtons v-bind="args" />',
-})
+function Template(args) {
+  return {
+    components: { SearchGenericFilterButtons },
+    setup() {
+      return { args }
+    },
+    template: '<SearchGenericFilterButtons v-bind="args" />',
+  }
+}
 
 export const Default = Template.bind({})
 Default.args = {
   items: [
-    { label: 'Filter 1',  inputType: 'radio' },
-    { label: 'Filter 2',  inputType: 'checkbox' },
-    { label: 'Filter 3',  inputType: 'date' },
-    { label: 'Filter 4',  inputType: 'radio' },
+    { label: 'Filter 1', inputType: 'radio' },
+    { label: 'Filter 2', inputType: 'checkbox' },
+    { label: 'Filter 3', inputType: 'date' },
+    { label: 'Filter 4', inputType: 'radio' },
     // Assuming your SingleCheckbox component expects a certain structure
-    { label: 'Checkbox Label',  inputType: 'single-checkbox' },
+    { label: 'Checkbox Label', inputType: 'single-checkbox' },
   ],
   activeIndex: -1,
   singleCheckboxState: false,
@@ -45,12 +46,12 @@ Default.args = {
 export const Active = Template.bind({})
 Active.args = {
   items: [
-    { label: 'Filter 1',  inputType: 'radio' },
-    { label: 'Filter 2',  inputType: 'checkbox' },
-    { label: 'Filter 3',  inputType: 'date' },
-    { label: 'Filter 4',  inputType: 'radio' },
+    { label: 'Filter 1', inputType: 'radio' },
+    { label: 'Filter 2', inputType: 'checkbox' },
+    { label: 'Filter 3', inputType: 'date' },
+    { label: 'Filter 4', inputType: 'radio' },
     // Assuming your SingleCheckbox component expects a certain structure
-    { label: 'Checkbox Label',  inputType: 'single-checkbox' },
+    { label: 'Checkbox Label', inputType: 'single-checkbox' },
   ],
   activeIndex: 0,
   singleCheckboxState: false,
@@ -59,12 +60,12 @@ Active.args = {
 export const Checked = Template.bind({})
 Checked.args = {
   items: [
-    { label: 'Filter 1',  inputType: 'radio' },
-    { label: 'Filter 2',  inputType: 'checkbox' },
-    { label: 'Filter 3',  inputType: 'date' },
-    { label: 'Filter 4',  inputType: 'radio' },
+    { label: 'Filter 1', inputType: 'radio' },
+    { label: 'Filter 2', inputType: 'checkbox' },
+    { label: 'Filter 3', inputType: 'date' },
+    { label: 'Filter 4', inputType: 'radio' },
     // Assuming your SingleCheckbox component expects a certain structure
-    { label: 'Checkbox Label',  inputType: 'single-checkbox' },
+    { label: 'Checkbox Label', inputType: 'single-checkbox' },
   ],
   activeIndex: 2,
   singleCheckboxState: true,
@@ -73,10 +74,10 @@ Checked.args = {
 export const NoSingleCheckbox = Template.bind({})
 NoSingleCheckbox.args = {
   items: [
-    { label: 'Filter 1',  inputType: 'radio' },
-    { label: 'Filter 2',  inputType: 'checkbox' },
-    { label: 'Filter 3',  inputType: 'date' },
-    { label: 'Filter 4',  inputType: 'radio' },
+    { label: 'Filter 1', inputType: 'radio' },
+    { label: 'Filter 2', inputType: 'checkbox' },
+    { label: 'Filter 3', inputType: 'date' },
+    { label: 'Filter 4', inputType: 'radio' },
   ],
   activeIndex: 3,
   singleCheckboxState: false,
