@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { computed } from "vue"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import DividerGeneral from "@/lib-components/DividerGeneral.vue"
 import SvgArrowDiagonal from "ucla-library-design-tokens/assets/svgs/icon-external-link.svg"
+import type { PropType } from 'vue'
+import type { MediaItemType } from '@/types/types'
 
-
-const props = defineProps({
+const { image, caption, title, text, footnote, calltoaction } = defineProps({
     image: {
-        type: Object,
+        type: Object as PropType<MediaItemType>,
         default: () => { },
     },
     caption: {
@@ -32,70 +32,24 @@ const props = defineProps({
     },
 })
 
-const parsedRatio = computed(() => {
-    // If on mobile, change ratio of image
-    let output = props.ratio
-    return output
-})
-// export default {
-//     name: "StoryWithImage",
-//     components: {
-//         ResponsiveImage,
-//         DividerGeneral,
-//         SvgArrowDiagonal,
-//     },
-//     props: {
-//         image: {
-//             type: Object,
-//             default: () => { },
-//         },
-//         caption: {
-//             type: String,
-//             default: "",
-//         },
-//         title: {
-//             type: String,
-//             default: "",
-//         },
-//         text: {
-//             type: String,
-//             default: "",
-//         },
-//         footnote: {
-//             type: String,
-//             default: "",
-//         },
-//         calltoaction: {
-//             type: String,
-//             default: "",
-//         },
-//     },
-//     computed: {
-//         parsedRatio() {
-//             // If on mobile, change ratio of image
-//             let output = this.ratio
-//             return output
-//         },
-//     },
-// }
 </script>
 <template>
     <div class="story-with-image">
         <div v-if="image" class="image-block">
-            <responsive-image class="image" :image="image" :aspect-ratio="parsedRatio">
+            <ResponsiveImage class="image" :media="image">
                 <div class="gradient" />
-            </responsive-image>
-            <div v-if="caption" class="caption" v-html="caption" />
+            </ResponsiveImage>
+            <div v-if="caption" class="caption" v-text="caption" />
 
             <div class="meta">
-                <h2 v-if="title" class="title" v-html="title" />
+                <h2 v-if="title" class="title"> {{ title }}</h2>
                 <div v-if="text" class="text" v-html="text" />
-                <divider-general class="divider-general" />
+                <DividerGeneral class="divider-general" />
                 <div v-if="footnote" class="footnote" v-html="footnote" />
-                <divider-general class="divider-general" />
+                <DividerGeneral class="divider-general" />
                 <div class="calltoaction">
                     <span v-if="calltoaction"> {{ calltoaction }}</span>
-                    <svg-arrow-diagonal class="svg" />
+                    <SvgArrowDiagonal class="svg" />
                 </div>
             </div>
         </div>
@@ -162,6 +116,7 @@ const parsedRatio = computed(() => {
         font-size: 16px;
         line-height: 160%;
         margin: 42px 0;
+
     }
 
     .calltoaction {
@@ -189,13 +144,10 @@ const parsedRatio = computed(() => {
     }
 
     // Hover states
-    // TODO fix
-    ::v-deep {
-        a {
-            color: var(--color-primary-blue-03);
-        }
+    :deep(a) {
+        color: var(--color-primary-blue-03);
 
-        a:hover {
+        &:hover {
             text-decoration: underline;
             text-decoration-color: var(--color-primary-blue-03);
             text-decoration-thickness: 1.5px;
@@ -211,8 +163,6 @@ const parsedRatio = computed(() => {
 
         .svg:hover {
             .arrow {
-
-                // TODO remove color: green;
                 path {
                     fill: var(--color-primary-blue-03);
                 }
