@@ -41,9 +41,9 @@ const FlexibleHighlight = defineAsyncComponent(() =>
 const FlexibleImpactNumberCards = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/ImpactNumberCards.vue')
 )
-/* const FlexibleImpactNumbersCarousel = defineAsyncComponent(() =>
+const FlexibleImpactNumbersCarousel = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/ImpactNumbersCarousel.vue')
-) */
+)
 
 const FlexibleMediaGallery = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/MediaGallery.vue')
@@ -71,7 +71,7 @@ const components = {
   'flexible-grid-gallery-cards': FlexibleGridGalleryCards,
   'flexible-highlight': FlexibleHighlight,
   'flexible-impact-number-cards': FlexibleImpactNumberCards,
-  // 'flexible-impact-numbers-carousel': FlexibleImpactNumbersCarousel,
+  'flexible-impact-numbers-carousel': FlexibleImpactNumbersCarousel,
   'flexible-media-gallery': FlexibleMediaGallery,
   'flexible-media-with-text': FlexibleMediaWithText,
   'flexible-pull-quote': FlexiblePullQuote,
