@@ -1,4 +1,4 @@
-import { onMounted, onBeforeUnmount } from 'vue'
+import { onBeforeUnmount, onMounted } from 'vue'
 import DateFilter from '@/lib-components/DateFilter'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
@@ -41,7 +41,6 @@ function Template(args) {
     template: '<div style="height:509px"><date-filter :eventDates="eventDates" :hideInput="hideInput"/></div>',
   }
 }
-
 
 export const Default = Template.bind({})
 

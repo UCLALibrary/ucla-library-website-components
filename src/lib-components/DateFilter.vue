@@ -124,9 +124,8 @@ defineExpose({
 // COMPUTED VALUES
 // Determine if the window size is mobile for conditional rendering
 const isMobile = computed(() => {
-  console.log("globalStore.winWidth", globalStore.winWidth)
   return globalStore.winWidth <= 750
-}) // TODO NOT WORKING!!
+})
 // Format the selected date(s) into consistent object
 const formattedDateSelection = computed(() => {
   // range selected
