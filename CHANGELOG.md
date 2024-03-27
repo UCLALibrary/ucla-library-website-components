@@ -1,3 +1,10 @@
+# [2.39.0-alpha.53](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.52...v2.39.0-alpha.53) (2024-03-27)
+
+
+### Features
+
+* APPS-2610 convert Flexible/ImpactNumberCarousel component to vue3 ([#479](https://github.com/UCLALibrary/ucla-library-website-components/issues/479)) ([0b66ed4](https://github.com/UCLALibrary/ucla-library-website-components/commit/0b66ed475e3e0d4a550ce55b13ae0fd277a5d5e7))
+
 # [2.39.0-alpha.52](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.51...v2.39.0-alpha.52) (2024-03-27)
 
 
