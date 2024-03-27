@@ -75,3 +75,20 @@ export function InitialDates() {
     template: '<date-filter :eventDates="eventDates" :initialDates="initialDates"/>',
   }
 }
+
+export function Mobile() {
+  return {
+    data() {
+      return {
+        ...mock,
+      }
+    },
+    created() {
+      const globalStore = useGlobalStore()
+      globalStore.winWidth = 320
+    },
+    components: { DateFilter },
+    template:
+      '<div style="height:509px"><date-filter :eventDates="eventDates" :hideInput="hideInput"/></div> ',
+  }
+}
