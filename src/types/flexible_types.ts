@@ -1,4 +1,4 @@
-import type { BlockCallToActionTwoUpType, LocationItemType, MediaGalleryItemType, MediaItemType } from '@/types/types'
+import type { BlockCallToActionTwoUpType, BlockImpactNumbersCarouselType, LocationItemType, MediaGalleryItemType, MediaItemType } from '@/types/types'
 
 // Reusable block declaration for Flexible Components
 
@@ -234,6 +234,10 @@ export interface FlexibleHighlightBlock extends FlexibleBlock {
 
 export interface FlexibleImpactNumberCards extends FlexibleBlock {
   impactNumberCards: FlexibleImpactNumberCard[]
+}
+
+export interface FlexibleImpactNumbersCarousel extends FlexibleBlock {
+  blocks: BlockImpactNumbersCarouselType[]
 }
 
 export interface FlexibleMediaGallery extends FlexibleBlock {
