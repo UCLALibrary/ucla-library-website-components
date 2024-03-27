@@ -1,3 +1,4 @@
+import { onMounted, onBeforeUnmount } from 'vue'
 import DateFilter from '@/lib-components/DateFilter'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
@@ -13,21 +14,34 @@ const mock = {
 
 function Template(args) {
   return {
-    data() {
-      return {
-        ...mock,
-        ...args,
-      }
-    },
-    created() {
-      const globalStore = useGlobalStore()
-      globalStore.winWidth = 1024
+    setup() {
+      // Setup function provides a context where you can use Composition API
+      onMounted(() => {
+        const globalStore = useGlobalStore()
+
+        const updateWinWidth = () => {
+          globalStore.winWidth = window.innerWidth
+        }
+
+        // Set initial winWidth
+        updateWinWidth()
+
+        // Update winWidth on window resize
+        window.addEventListener('resize', updateWinWidth)
+
+        // Use onBeforeUnmount to clean up
+        onBeforeUnmount(() => {
+          window.removeEventListener('resize', updateWinWidth)
+        })
+      })
+
+      return { ...mock, ...args }
     },
     components: { DateFilter },
-    template:
-      '<div style="height:509px"><date-filter :eventDates="eventDates" :hideInput="hideInput"/></div> ',
+    template: '<div style="height:509px"><date-filter :eventDates="eventDates" :hideInput="hideInput"/></div>',
   }
 }
+
 
 export const Default = Template.bind({})
 
