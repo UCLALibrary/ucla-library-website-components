@@ -1,3 +1,10 @@
+# [2.39.0-alpha.55](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.54...v2.39.0-alpha.55) (2024-03-28)
+
+
+### Features
+
+* APPS-2565, APPS-2566 convert ImpactRichText & StoryWithImage to vue 3 ([#480](https://github.com/UCLALibrary/ucla-library-website-components/issues/480)) ([6e0f1dd](https://github.com/UCLALibrary/ucla-library-website-components/commit/6e0f1dd30490d642afa015d92d4f4b6f9ede737a))
+
 # [2.39.0-alpha.54](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.53...v2.39.0-alpha.54) (2024-03-28)
 
 
