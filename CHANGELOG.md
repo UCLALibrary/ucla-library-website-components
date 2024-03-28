@@ -1,3 +1,10 @@
+# [2.39.0-alpha.54](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.53...v2.39.0-alpha.54) (2024-03-28)
+
+
+### Features
+
+* APPS-2076 Create DateFilter component and install Vue3Datepicker ([#476](https://github.com/UCLALibrary/ucla-library-website-components/issues/476)) ([63970a8](https://github.com/UCLALibrary/ucla-library-website-components/commit/63970a8f1af1234bbbeba34887286a262f2392c6))
+
 # [2.39.0-alpha.53](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.52...v2.39.0-alpha.53) (2024-03-27)
 
 
