@@ -6,26 +6,26 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import type { MediaItemType } from '@/types/types'
 
 const { images, pullQuote, textBlocks } = defineProps({
-    images: {
-        type: Array as PropType<MediaItemType[]>,
-        default: () => [],
-    },
-    pullQuote: {
-        type: Array as PropType<{ text?: string; attribution?: string }[]>,
-        default: () => [],
-    },
-    textBlocks: {
-        type: Array,
-        default: () => [],
-    },
+  images: {
+    type: Array as PropType<MediaItemType[]>,
+    default: () => [],
+  },
+  pullQuote: {
+    type: Array as PropType<{ text?: string; attribution?: string }[]>,
+    default: () => [],
+  },
+  textBlocks: {
+    type: Array,
+    default: () => [],
+  },
 })
 
 // TODO check with team this.ratio
 const parsedRatio = computed(() => {
-    // If on mobile, change ratio of image
-    // let output = this.ratio
-    // return output
-    return 0
+  // If on mobile, change ratio of image
+  // let output = this.ratio
+  // return output
+  return 0
 })
 
 // OLD VUE 2 CODE
@@ -59,36 +59,42 @@ const parsedRatio = computed(() => {
 </script>
 
 <template>
-    <div class="rich-text">
-        <div v-if="textBlocks[0]" class="text" v-html="textBlocks[0]" />
-        <PullQuote v-if="pullQuote[0]" class="pull-quote" :text="pullQuote[0].text"
-            :attribution="pullQuote[0].attribution" />
-        <div v-if="textBlocks[1]" class="text" v-html="textBlocks[1]" />
-        <div v-if="images[0]" class="image-block">
-            <ResponsiveImage v-if="images[0]" class="image" :image="images[0]" :aspect-ratio="parsedRatio" />
-            <div v-if="images[0].caption" class="caption" v-html="images[0].caption" />
-        </div>
-
-        <div v-if="textBlocks[2]" class="text" v-html="textBlocks[2]" />
-        <PullQuote v-if="pullQuote[1]" class="pull-quote" :text="pullQuote[1].text"
-            :attribution="pullQuote[1].attribution" />
-        <div v-if="textBlocks[3]" class="text" v-html="textBlocks[3]" />
-        <div v-if="images[1]" class="image-block">
-            <ResponsiveImage v-if="images[1]" class="image" :image="images[1]" :aspect-ratio="parsedRatio" />
-            <div v-if="images[1].caption" class="caption" v-html="images[1].caption" />
-        </div>
-
-        <div v-if="textBlocks[4]" class="text" v-html="textBlocks[4]" />
-        <div v-if="textBlocks[5]" class="text" v-html="textBlocks[5]" />
-        <PullQuote v-if="pullQuote[2]" class="pull-quote" :text="pullQuote[2].text"
-            :attribution="pullQuote[2].attribution" />
-        <div v-if="textBlocks[6]" class="text" v-html="textBlocks[6]" />
-        <div v-if="images[2]" class="image-block">
-            <ResponsiveImage v-if="images[2]" class="image" :image="images[2]" :aspect-ratio="parsedRatio" />
-            <div v-if="images[2].caption" class="caption" v-html="images[2].caption" />
-        </div>
-        <div v-if="textBlocks[7]" class="text" v-html="textBlocks[7]" />
+  <div class="rich-text">
+    <div v-if="textBlocks[0]" class="text" v-html="textBlocks[0]" />
+    <PullQuote
+      v-if="pullQuote[0]" class="pull-quote" :text="pullQuote[0].text"
+      :attribution="pullQuote[0].attribution"
+    />
+    <div v-if="textBlocks[1]" class="text" v-html="textBlocks[1]" />
+    <div v-if="images[0]" class="image-block">
+      <ResponsiveImage v-if="images[0]" class="image" :image="images[0]" :aspect-ratio="parsedRatio" />
+      <div v-if="images[0].caption" class="caption" v-html="images[0].caption" />
     </div>
+
+    <div v-if="textBlocks[2]" class="text" v-html="textBlocks[2]" />
+    <PullQuote
+      v-if="pullQuote[1]" class="pull-quote" :text="pullQuote[1].text"
+      :attribution="pullQuote[1].attribution"
+    />
+    <div v-if="textBlocks[3]" class="text" v-html="textBlocks[3]" />
+    <div v-if="images[1]" class="image-block">
+      <ResponsiveImage v-if="images[1]" class="image" :image="images[1]" :aspect-ratio="parsedRatio" />
+      <div v-if="images[1].caption" class="caption" v-html="images[1].caption" />
+    </div>
+
+    <div v-if="textBlocks[4]" class="text" v-html="textBlocks[4]" />
+    <div v-if="textBlocks[5]" class="text" v-html="textBlocks[5]" />
+    <PullQuote
+      v-if="pullQuote[2]" class="pull-quote" :text="pullQuote[2].text"
+      :attribution="pullQuote[2].attribution"
+    />
+    <div v-if="textBlocks[6]" class="text" v-html="textBlocks[6]" />
+    <div v-if="images[2]" class="image-block">
+      <ResponsiveImage v-if="images[2]" class="image" :image="images[2]" :aspect-ratio="parsedRatio" />
+      <div v-if="images[2].caption" class="caption" v-html="images[2].caption" />
+    </div>
+    <div v-if="textBlocks[7]" class="text" v-html="textBlocks[7]" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
