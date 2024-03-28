@@ -19,22 +19,11 @@ const { items, selected } = defineProps({
     default: () => [],
   },
 })
-// TODO Watch for changes in `selected` prop and update `parsedSelected`
-/* watch(selected, (newVal, oldVal) => {
-  console.log("Old value", oldVal)
-  console.log("New value", newVal)
-  parsedSelected.value = newVal
-},
-  { immediate: true }
-) */
 
 // Emitting events
 const emit = defineEmits(['update:selected', 'input-selected'])
 
-console.log('selected', selected)
-
-const parsedSelected = ref<string[]>(selected)
-console.log('parseselected radio button', parsedSelected.value)
+const parsedSelected = ref<string>(selected && selected.length > 0 ? selected[0] : '')
 
 function onChange(value: string) {
   console.log('what is slected', value)

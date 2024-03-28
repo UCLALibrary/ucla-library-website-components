@@ -37,53 +37,33 @@ const props = defineProps({
     default: () => { },
   }
 })
-// const selectedView = ref('list') // TODO If we add VIEW MODES COMPONENT TO THIS
-const selectedFilters = computed(() => {
-  // This structure is good for SectionRemoveSearchFilters component which needs an array of
-  // objects with name and value properties
 
-  const result = Object.entries(props.queryFilters).flatMap(([name, value]) => {
-    if (Array.isArray(value))
-      return value.map(item => ({ name, value: item }))
-    else
-      return [{ name, value }]
-  })
-  return result
-})
 const queryFilterButtonDropDownStates = ref<QueryFilters>({})
 
 watch(() => props.queryFilters, (newQueryFilters) => {
   // Assuming newQueryFilters is always an object as per your default prop definition.
-  // console.log("newQueryFilters", Object.entries(newQueryFilters))
+
   Object.entries(newQueryFilters).forEach(([key, value]) => {
     queryFilterButtonDropDownStates.value[key] = value
   })
-  // console.log("queryFilterButtonDropDownStates", queryFilterButtonDropDownStates.value)
 }, { deep: true, immediate: true })
 
 function updateSelected(key: string, newValue: string[]) {
   // This function updates the selected state and could emit an event for parent component
+  console.log('Search Generic Filters updateSelected: ', key, JSON.stringify(newValue))
   queryFilterButtonDropDownStates.value[key] = newValue
   // Emit an event if needed
 }
 
 // single-checkbox
-const checkedState = ref(props.filters.some(obj => obj.inputType === 'single-checkbox' && !!props.queryFilters[obj.esFieldName]))
+const checkedState = ref(props.filters.some(obj => obj.inputType === 'single-checkbox' && props.queryFilters[obj.esFieldName].includes('yes')))
 
 const openItemIndex = ref(-1) // -1 indicates that no item is open
 
 // filter buttons
 const parsedFilters = computed(() => {
   return props.filters.map((obj, index) => {
-    // let selected: { name: string value: string }[] | string = selectedFilters.value?.filter(item => item.name === obj.esFieldName) || []
-    // console.log("In parseselected: " + selected)
     let componentName = BaseCheckboxGroup
-
-    // If none selected, then make sure radio's default is empty string
-    /* if (!selected.length && obj.inputType === 'radio') {
-      // selected = ''
-      // selectedFilters.value = selectedFilters.value?.filter(item => item.name !== obj.esFieldName)
-    } */
 
     // Figure out Vue component name
     switch (obj.inputType) {
@@ -106,7 +86,6 @@ const parsedFilters = computed(() => {
 
     return {
       ...obj,
-      // selected,
       componentName,
       isVisible: index === openItemIndex.value,
 
@@ -115,15 +94,20 @@ const parsedFilters = computed(() => {
 })
 
 function toggleTransition(index: number) {
-  console.log('toggleTransition called', index, parsedFilters.value[index].isVisible)
   // Toggles visibility state for the given index
   openItemIndex.value = openItemIndex.value === index ? -1 : index
-  console.log('toggleTransition end', index, parsedFilters.value[index].isVisible)
 }
 
-function doSearch() {
-  console.log('this event got emitted')
+function doUpdateQueryFilters(key: string) {
+  queryFilterButtonDropDownStates.value[key] = checkedState.value ? ['yes'] : []
 }
+function doSearch() {
+  console.log('doSearch this event got emitted')
+}
+
+watch(queryFilterButtonDropDownStates, () => {
+  checkedState.value = props.filters.some(obj => obj.inputType === 'single-checkbox' && queryFilterButtonDropDownStates.value[obj.esFieldName].includes('yes'))
+})
 </script>
 
 <template>
@@ -137,7 +121,7 @@ function doSearch() {
         :items="parsedFilters"
         class="search-generic-filter-buttons"
         @toggle="toggleTransition"
-        @single-checkbox-checked="doSearch"
+        @single-checkbox-checked="doUpdateQueryFilters"
       />
     </div>
     <!-- This loops through avaible filter groups -->
@@ -162,7 +146,7 @@ function doSearch() {
     </div>
 
     <SectionRemoveSearchFilter
-      v-model:filters="selectedFilters"
+      v-model:filters="queryFilterButtonDropDownStates"
       class="section-remove-container"
       @remove-selected="doSearch"
     />

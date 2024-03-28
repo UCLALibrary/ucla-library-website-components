@@ -21,15 +21,10 @@ const props = defineProps({
     default: () => [],
   },
 })
-// console.log("selected base check box group", JSON.stringify(props.selected))
-// TODO
-/* watch(props.selected, (newVal) => {
-  parsedSelected.value = _uniq([...newVal])
-}) */
 
 const emit = defineEmits(['update:selected', 'input-selected'])
 const parsedSelected = ref<string[]>(_uniq([...props.selected]))
-// console.log("In base check box group", JSON.stringify(parsedSelected.value))
+
 function onChange(itemName: string) {
   const index = parsedSelected.value.indexOf(itemName)
   if (index > -1)
@@ -58,7 +53,6 @@ function onChange(itemName: string) {
             class="input"
             @change="onChange(item.name)"
           >
-
           <SvgIconCheckbox class="svg" />
           {{ item.name }}
         </label>

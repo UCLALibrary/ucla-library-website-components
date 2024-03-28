@@ -32,53 +32,49 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   items: [
-    { label: 'Filter 1', inputType: 'radio' },
-    { label: 'Filter 2', inputType: 'checkbox' },
-    { label: 'Filter 3', inputType: 'date' },
-    { label: 'Filter 4', inputType: 'radio' },
+    { label: 'Filter 1', inputType: 'radio', esFieldName: 'filter1' },
+    { label: 'Filter 2', inputType: 'checkbox', esFieldName: 'filter2' },
+    { label: 'Filter 3', inputType: 'date', esFieldName: 'filter3' },
+    { label: 'Filter 4', inputType: 'radio', esFieldName: 'filter4' },
     // Assuming your SingleCheckbox component expects a certain structure
-    { label: 'Checkbox Label', inputType: 'single-checkbox' },
+    { label: 'Checkbox Label', inputType: 'single-checkbox', esFieldName: 'filter5' },
   ],
-  activeIndex: -1,
   singleCheckboxState: false,
 }
 
 export const Active = Template.bind({})
 Active.args = {
   items: [
-    { label: 'Filter 1', inputType: 'radio' },
-    { label: 'Filter 2', inputType: 'checkbox' },
-    { label: 'Filter 3', inputType: 'date' },
-    { label: 'Filter 4', inputType: 'radio' },
+    { label: 'Filter 1', inputType: 'radio', isVisible: true, esFieldName: 'filter1' },
+    { label: 'Filter 2', inputType: 'checkbox', esFieldName: 'filter2' },
+    { label: 'Filter 3', inputType: 'date', esFieldName: 'filter3' },
+    { label: 'Filter 4', inputType: 'radio', esFieldName: 'filter4' },
     // Assuming your SingleCheckbox component expects a certain structure
-    { label: 'Checkbox Label', inputType: 'single-checkbox' },
+    { label: 'Checkbox Label', inputType: 'single-checkbox', esFieldName: 'filter5' },
   ],
-  activeIndex: 0,
   singleCheckboxState: false,
 }
 
 export const Checked = Template.bind({})
 Checked.args = {
   items: [
-    { label: 'Filter 1', inputType: 'radio' },
-    { label: 'Filter 2', inputType: 'checkbox' },
-    { label: 'Filter 3', inputType: 'date' },
-    { label: 'Filter 4', inputType: 'radio' },
+    { label: 'Filter 1', inputType: 'radio', esFieldName: 'filter1' },
+    { label: 'Filter 2', inputType: 'checkbox', esFieldName: 'filter2' },
+    { label: 'Filter 3', inputType: 'date', isVisible: true, esFieldName: 'filter3' },
+    { label: 'Filter 4', inputType: 'radio', esFieldName: 'filter4' },
     // Assuming your SingleCheckbox component expects a certain structure
     { label: 'Checkbox Label', inputType: 'single-checkbox' },
   ],
-  activeIndex: 2,
   singleCheckboxState: true,
 }
 
 export const NoSingleCheckbox = Template.bind({})
 NoSingleCheckbox.args = {
   items: [
-    { label: 'Filter 1', inputType: 'radio' },
-    { label: 'Filter 2', inputType: 'checkbox' },
-    { label: 'Filter 3', inputType: 'date' },
-    { label: 'Filter 4', inputType: 'radio' },
+    { label: 'Filter 1', inputType: 'radio', esFieldName: 'filter1' },
+    { label: 'Filter 2', inputType: 'checkbox', esFieldName: 'filter2' },
+    { label: 'Filter 3', inputType: 'date', esFieldName: 'filter3' },
+    { label: 'Filter 4', inputType: 'radio', isVisible: true, esFieldName: 'filter4' },
   ],
-  activeIndex: 3,
   singleCheckboxState: false,
 }

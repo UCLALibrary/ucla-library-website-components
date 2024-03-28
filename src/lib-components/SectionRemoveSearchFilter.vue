@@ -2,39 +2,42 @@
   setup
   lang="ts"
 >
-import { ref } from 'vue'
+// Helpers
+
+import { computed, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import BlockRemoveSearchFilter from '@/lib-components/BlockRemoveSearchFilter.vue'
 
 interface Item {
-  name: string
-  value: string
+  [key: string]: string[]
 }
 
 const { filters } = defineProps({
   filters: {
-    type: Array as PropType<Item[]>,
-    default: () => [],
+    type: Object as PropType<Item>,
+    default: () => { },
   },
 })
 
 const emit = defineEmits(['update:filters', 'remove-selected'])
-// console.log("SectionRemoveFilters", filters)
-const filteredFilters = ref<Item[]>([...filters])
-// console.log("filteredFilters", JSON.stringify(filteredFilters.value))
-/* watch(filters, (newVal: Item[] | undefined, oldVal: Item[] | undefined) => {
-  console.log('filters changed from', JSON.stringify(oldVal), JSON.stringify(newVal))
-  filteredFilters.value = [...(newVal || [])]
-},
-  {
-    deep: true,
-    immediate: true
-  }
-) */
 
-function closeBlockFilter(esfieldName: string, label: string, indexVal: number) {
-  console.log('closeblockfilter event handlr fired:', esfieldName, label, indexVal)
-  filteredFilters.value = filteredFilters.value.filter(item => item.value !== label)
+const filteredFilters = ref<Item>({})
+
+watch(() => filters, (newFilters) => {
+  Object.entries(newFilters).forEach(([key, value]) => {
+    filteredFilters.value[key] = value
+  })
+}, { deep: true, immediate: true })
+
+const parsedFilters = computed(() => {
+  const result = Object.entries(filteredFilters.value).flatMap(([name, value]) => {
+    return value.map(item => ({ name, value: item }))
+  })
+  return result
+})
+
+function closeBlockFilter(esfieldName: string, label: string | boolean) {
+  filteredFilters.value[esfieldName] = filteredFilters.value[esfieldName].filter(item => item !== label)
   emit('update:filters', filteredFilters.value)
   emit('remove-selected')
 }
@@ -46,18 +49,17 @@ function closeBlockFilter(esfieldName: string, label: string, indexVal: number) 
     class="section-remove-search-filter"
   >
     <div
-      v-for="(filter, index) in filteredFilters"
+      v-for="(filter) in parsedFilters"
       :key="`filter-${filter.value}`"
     >
       <BlockRemoveSearchFilter
         :title="filter.value"
         @removeBlockFilter="
-          closeBlockFilter(
-            filter.name,
-            filter.value,
-            index,
-          )
-        "
+      closeBlockFilter(
+        filter.name,
+        filter.value
+      )
+      "
       />
     </div>
   </div>

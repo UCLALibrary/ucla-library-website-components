@@ -39,7 +39,7 @@ WithSingleCheckbox.args = {
   queryFilters: {
     filter1: ['Option 1'],
     filter2: ['Check 1', 'Check 2'],
-    filter3: true
+    filter3: ['yes']
   }
 }
 
@@ -51,6 +51,7 @@ NoSelection.args = {
     { inputType: 'single-checkbox', label: 'Filter 3', esFieldName: 'filter3' },
   ],
   queryFilters: {
+    filter3: []
   }
 }
 

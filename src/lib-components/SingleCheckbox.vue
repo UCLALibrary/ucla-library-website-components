@@ -14,11 +14,8 @@ const emit = defineEmits(['update:selected', 'input-selected'])
 // Reactive state
 const theSelection = ref(props.selected)
 
-// console.log(theSelection.value)
-
 // Watch for external changes to the `selected` prop
 watch(() => props.selected, (newVal) => {
-  console.log('Selected prop changed in SingleCheckbox:', newVal)
   theSelection.value = newVal
 })
 
@@ -31,11 +28,6 @@ function onChange() {
   emit('update:selected', theSelection.value)
   emit('input-selected')
 }
-
-// Watch to log selection changes, could be removed in production
-watch(theSelection, (newVal) => {
-  console.log('Checkbox selection changed to:', newVal)
-})
 </script>
 
 <template>

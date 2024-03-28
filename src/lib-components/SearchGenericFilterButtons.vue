@@ -2,7 +2,7 @@
   lang="ts"
   setup
 >
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 
 import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
@@ -10,6 +10,7 @@ import SingleCheckbox from '@/lib-components/SingleCheckbox.vue'
 
 interface Item {
   inputType: string
+  esFieldName: string
   label: string
   class?: string
   isVisible: boolean
@@ -26,22 +27,31 @@ const props = defineProps({
     default: false,
   },
 })
-const emit = defineEmits(['toggle', 'update:selected', 'single-checkbox-checked'])
+const emit = defineEmits(['toggle', 'update:single-checkbox-state', 'single-checkbox-checked'])
 
 const theSingleCheckboxState = ref(props.singleCheckboxState)
+
+watch(() => props.singleCheckboxState, (newValue) => {
+  theSingleCheckboxState.value = newValue
+})
+
+const getSingleCheckboxLabel = computed(() => {
+  const item = props.items.find(item => item.inputType === 'single-checkbox')
+  return item ? item.label : ''
+})
+const getSingleCheckboxESFieldName = computed(() => {
+  const item = props.items.find(item => item.inputType === 'single-checkbox')
+  return item ? item.esFieldName : ''
+})
 
 const isSingleCheckBox = computed(() => {
   return props.items?.some(item => item.inputType === 'single-checkbox')
 })
 
 function updateSingleCheckboxState() {
-  emit('update:selected', theSingleCheckboxState.value)
-  emit('single-checkbox-checked')
+  emit('update:single-checkbox-state', theSingleCheckboxState.value)
+  emit('single-checkbox-checked', getSingleCheckboxESFieldName.value)
 }
-const getSingleCheckboxLabel = computed(() => {
-  const item = props.items.find(item => item.inputType === 'single-checkbox')
-  return item ? item.label : ''
-})
 
 const parsedItems = computed(() => {
   return props.items.map((item) => {
