@@ -64,13 +64,14 @@
         "sass": "^1.64.2",
         "storybook": "^7.4.1",
         "typescript": "^5.2.2",
-        "ucla-library-design-tokens": "^5.8.0",
+        "ucla-library-design-tokens": "^5.9.1",
         "video.js": "^8.5.2",
         "vite": "^4.4.5",
         "vite-svg-loader": "^4.0.0",
         "vue-tsc": "^1.8.5"
     },
     "dependencies": {
+        "@vuepic/vue-datepicker": "^8.2.0",
         "date-fns": "^2.30.0",
         "lodash": "^4.17.21",
         "pinia": "^2.1.6",

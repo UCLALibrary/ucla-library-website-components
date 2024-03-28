@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@vuepic/vue-datepicker':
+    specifier: ^8.2.0
+    version: 8.2.0(vue@3.3.4)
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
@@ -104,8 +107,8 @@ devDependencies:
     specifier: ^5.2.2
     version: 5.2.2
   ucla-library-design-tokens:
-    specifier: ^5.8.0
-    version: 5.8.0
+    specifier: ^5.9.1
+    version: 5.9.1
   video.js:
     specifier: ^8.5.2
     version: 8.5.2
@@ -4193,6 +4196,16 @@ packages:
       - typescript
     dev: true
 
+  /@vuepic/vue-datepicker@8.2.0(vue@3.3.4):
+    resolution: {integrity: sha512-H3X9/XRvF4/ttdgxgNhFCp9m9gt9UVsiuv8FXOfAPpfQvVlmlTHZ3yf3E5oAxzP/INVhBIJCGrkijhCl5+UAPg==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      vue: '>=3.2.0'
+    dependencies:
+      date-fns: 3.4.0
+      vue: 3.3.4
+    dev: false
+
   /@xmldom/xmldom@0.8.10:
     resolution: {integrity: sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==}
     engines: {node: '>=10.0.0'}
@@ -5289,6 +5302,10 @@ packages:
     engines: {node: '>=0.11'}
     dependencies:
       '@babel/runtime': 7.23.1
+    dev: false
+
+  /date-fns@3.4.0:
+    resolution: {integrity: sha512-Akz4R8J9MXBsOgF1QeWeCsbv6pntT5KCPjU0Q9prBxVmWJYPLhwAIsNg3b0QAdr0ttiozYLD3L/af7Ra0jqYXw==}
     dev: false
 
   /dayjs@1.11.10:
@@ -10253,8 +10270,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  /ucla-library-design-tokens@5.8.0:
-    resolution: {integrity: sha512-mA2U9f36FXB+7uB91S6H14ERKfKseNgZGJ73b2rt1PG5jt4thE2HEFnKMaTlz/jCjTTDSmaIHZcLcCA4CGrGyw==}
+  /ucla-library-design-tokens@5.9.1:
+    resolution: {integrity: sha512-1yoZOhiy93kHAGHyJnnmgj7eESGENUUTbXHaUsKHkFLNS9qw8Ajp4H8ppMuxkZMs/LnYBlibngZGsQC8w/vtlQ==}
     dev: true
 
   /uglify-js@3.17.4:
