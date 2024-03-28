@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
 import type { PropType } from 'vue'
 import PullQuote from '@/lib-components/PullQuote.vue'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
@@ -20,42 +19,8 @@ const { images, pullQuote, textBlocks } = defineProps({
   },
 })
 
-// TODO check with team this.ratio
-const parsedRatio = computed(() => {
-  // If on mobile, change ratio of image
-  // let output = this.ratio
-  // return output
-  return 0
-})
-
-// OLD VUE 2 CODE
-// export default {
-//     name: "ImpactRichText",
-//     components: { PullQuote, ResponsiveImage },
-//     props: {
-//         // Array of image objects
-//         images: {
-//             type: Array,
-//             default: () => [],
-//         },
-//         // Array of pullquote objects
-//         pullQuote: {
-//             type: Array,
-//             default: () => [],
-//         },
-//         textBlocks: {
-//             type: Array,
-//             default: () => [],
-//         },
-//     },
-//     computed: {
-//         parsedRatio() {
-//             // If on mobile, change ratio of image
-//             let output = this.ratio
-//             return output
-//         },
-//     },
-// }
+// may be deprecated
+const parsedRatio = 60
 </script>
 
 <template>
@@ -67,7 +32,7 @@ const parsedRatio = computed(() => {
     />
     <div v-if="textBlocks[1]" class="text" v-html="textBlocks[1]" />
     <div v-if="images[0]" class="image-block">
-      <ResponsiveImage v-if="images[0]" class="image" :image="images[0]" :aspect-ratio="parsedRatio" />
+      <ResponsiveImage v-if="images[0]" class="image" :media="images[0]" :aspect-ratio="parsedRatio" />
       <div v-if="images[0].caption" class="caption" v-html="images[0].caption" />
     </div>
 
@@ -78,7 +43,7 @@ const parsedRatio = computed(() => {
     />
     <div v-if="textBlocks[3]" class="text" v-html="textBlocks[3]" />
     <div v-if="images[1]" class="image-block">
-      <ResponsiveImage v-if="images[1]" class="image" :image="images[1]" :aspect-ratio="parsedRatio" />
+      <ResponsiveImage v-if="images[1]" class="image" :media="images[1]" :aspect-ratio="parsedRatio" />
       <div v-if="images[1].caption" class="caption" v-html="images[1].caption" />
     </div>
 
@@ -90,7 +55,7 @@ const parsedRatio = computed(() => {
     />
     <div v-if="textBlocks[6]" class="text" v-html="textBlocks[6]" />
     <div v-if="images[2]" class="image-block">
-      <ResponsiveImage v-if="images[2]" class="image" :image="images[2]" :aspect-ratio="parsedRatio" />
+      <ResponsiveImage v-if="images[2]" class="image" :media="images[2]" :aspect-ratio="parsedRatio" />
       <div v-if="images[2].caption" class="caption" v-html="images[2].caption" />
     </div>
     <div v-if="textBlocks[7]" class="text" v-html="textBlocks[7]" />
@@ -99,62 +64,62 @@ const parsedRatio = computed(() => {
 
 <style lang="scss" scoped>
 .rich-text {
-    max-width: $container-l-text + px;
-    margin: var(--unit-gutter) auto;
-    padding-right: 96px;
+  max-width: $container-l-text + px;
+  margin: var(--unit-gutter) auto;
+  padding-right: 96px;
 
-    :deep(h5) {
-        font-family: var(--font-primary);
-        color: var(--color-black);
-        @include step-1;
+  :deep(h5) {
+    font-family: var(--font-primary);
+    color: var(--color-black);
+    @include step-1;
+  }
+
+  .text {
+    font-family: var(--font-primary);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0.01em;
+    color: var(--color-black);
+  }
+
+  .image-block {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 100%;
+  }
+
+  .caption {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    letter-spacing: 0.01em;
+    color: var(--color-secondary-grey-05);
+    padding: 16px 16px 26px 16px;
+  }
+
+  .pull-quote {
+    margin: 20px 10px 20px 0;
+  }
+
+  :deep(link) {
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary-blue-03);
+    text-decoration-thickness: 2px;
+  }
+
+  @media #{$has-hover} {
+    :deep(.link:hover) {
+      @include link-hover;
     }
+  }
 
-    .text {
-        font-family: var(--font-primary);
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 150%;
-        letter-spacing: 0.01em;
-        color: var(--color-black);
-    }
-
-    .image-block {
-        display: flex;
-        flex-direction: column;
-
-        max-width: 100%;
-    }
-
-    .caption {
-        font-family: var(--font-secondary);
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 160%;
-        letter-spacing: 0.01em;
-        color: var(--color-secondary-grey-05);
-        padding: 16px 16px 26px 16px;
-    }
-
-    .pull-quote {
-        margin: 20px 10px 20px 0;
-    }
-
-    :deep(link) {
-        text-decoration: underline;
-        text-decoration-color: var(--color-primary-blue-03);
-        text-decoration-thickness: 2px;
-    }
-
-    @media #{$has-hover} {
-        :deep(.link:hover) {
-            @include link-hover;
-        }
-    }
-
-    // Breakpoints
-    @media #{$medium} {
-        padding: 0 $whitespace-s-sides + px;
-        max-width: $container-l-main + px;
-    }
+  // Breakpoints
+  @media #{$medium} {
+    padding: 0 $whitespace-s-sides + px;
+    max-width: $container-l-main + px;
+  }
 }
 </style>
