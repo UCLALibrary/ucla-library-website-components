@@ -90,7 +90,15 @@ function goToToday() {
 function clearDate() {
   datepicker.value?.updateInternalModelValue(null)
   todayBtnActive.value = false
+  datepicker.value?.clearValue()
+  datepicker.value?.openMenu() // reopen after clear
 }
+
+function onDoneClick() {
+  // always close menu after done click, even if no date selected
+  datepicker.value?.closeMenu()
+}
+
 // When selection changes, determine is-selecting boolean for range selection styles
 function handleInternalSelection(selectedDate: Date | Date[] | null) {
   if ((selectedDate && 'length' in selectedDate) && selectedDate.length.valueOf() === 1)
@@ -175,20 +183,17 @@ watch(date, async (newDate, oldDate) => {
     emit('input-selected', formattedDateSelection.value)
   }
 })
-
-// Watch window size and update windowSize ref
-/* window.addEventListener('resize', () => {
-  windowSize.value = window.innerWidth
-}) */
 </script>
 
 <template>
   <div class="date-filter">
-    <VueDatePicker ref="datepicker" v-model="date" :config="vue3datepickerConfig" :range="!isMobile" :week-start="0"
+    <VueDatePicker
+      ref="datepicker" v-model="date" :config="vue3datepickerConfig" :range="!isMobile" :week-start="0"
       month-name-format="long" :enable-time-picker="false" :auto-position="false" :auto-apply="true"
       :text-input="textConfig" no-today :inline="hideInput" :class="vue3datepickerClass"
       :placeholder="isMobile ? 'Select a date' : 'All upcoming'" @internal-model-change="handleInternalSelection"
-      @range-start="clearTodayBtn" @open="toggleArrow" @closed="toggleArrow">
+      @range-start="clearTodayBtn" @open="toggleArrow" @closed="toggleArrow"
+    >
       <template #input-icon>
         <SvgIconFTVACalender />
         <span :class="inputIconClass">
@@ -200,12 +205,14 @@ watch(date, async (newDate, oldDate) => {
         <SvgIconClose @click="clear" />
       </template>
 
-      <template #month-year="{
-      month,
-      year,
-      months,
-      handleMonthYearChange,
-    }">
+      <template
+        #month-year="{
+          month,
+          year,
+          months,
+          handleMonthYearChange,
+        }"
+      >
         <div class="custom-header">
           <div class="custom-month-year-component">
             {{ months[month].text }} {{ year }}
@@ -246,7 +253,10 @@ watch(date, async (newDate, oldDate) => {
 
       <template #action-row="{ selectDate }">
         <div class="action-row">
-          <ButtonLink class="action-row-button select-button" label="Done" icon-name="none" @click="selectDate" />
+          <ButtonLink
+            class="action-row-button select-button" label="Done" icon-name="none"
+            @click="selectDate(); onDoneClick()"
+          />
           <ButtonLink class="action-row-button clear-button" label="Clear" icon-name="icon-close" @click="clearDate" />
         </div>
       </template>
