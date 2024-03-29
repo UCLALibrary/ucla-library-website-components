@@ -5,15 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@vueuse/components':
-    specifier: ^10.9.0
-    version: 10.9.0(vue@3.3.4)
-  '@vueuse/core':
-    specifier: ^10.9.0
-    version: 10.9.0(vue@3.3.4)
   '@vuepic/vue-datepicker':
     specifier: ^8.2.0
     version: 8.2.0(vue@3.3.4)
+  '@vueuse/core':
+    specifier: ^10.9.0
+    version: 10.9.0(vue@3.3.4)
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
@@ -4206,16 +4203,14 @@ packages:
       - typescript
     dev: true
 
-<<<<<<< HEAD
-  /@vueuse/components@10.9.0(vue@3.3.4):
-    resolution: {integrity: sha512-BHQpA0yIi3y7zKa1gYD0FUzLLkcRTqVhP8smnvsCK6GFpd94Nziq1XVPD7YpFeho0k5BzbBiNZF7V/DpkJ967A==}
+  /@vuepic/vue-datepicker@8.2.0(vue@3.3.4):
+    resolution: {integrity: sha512-H3X9/XRvF4/ttdgxgNhFCp9m9gt9UVsiuv8FXOfAPpfQvVlmlTHZ3yf3E5oAxzP/INVhBIJCGrkijhCl5+UAPg==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      vue: '>=3.2.0'
     dependencies:
-      '@vueuse/core': 10.9.0(vue@3.3.4)
-      '@vueuse/shared': 10.9.0(vue@3.3.4)
-      vue-demi: 0.14.7(vue@3.3.4)
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
+      date-fns: 3.4.0
+      vue: 3.3.4
     dev: false
 
   /@vueuse/core@10.9.0(vue@3.3.4):
@@ -4241,16 +4236,6 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
-=======
-  /@vuepic/vue-datepicker@8.2.0(vue@3.3.4):
-    resolution: {integrity: sha512-H3X9/XRvF4/ttdgxgNhFCp9m9gt9UVsiuv8FXOfAPpfQvVlmlTHZ3yf3E5oAxzP/INVhBIJCGrkijhCl5+UAPg==}
-    engines: {node: '>=18.12.0'}
-    peerDependencies:
-      vue: '>=3.2.0'
-    dependencies:
-      date-fns: 3.4.0
-      vue: 3.3.4
->>>>>>> a59d41d396d986a46fb8e3d84a657a5a0b76c41b
     dev: false
 
   /@xmldom/xmldom@0.8.10:

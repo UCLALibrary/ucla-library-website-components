@@ -55,11 +55,11 @@ function closeBlockFilter(esfieldName: string, label: string | boolean) {
       <BlockRemoveSearchFilter
         :title="filter.value"
         @removeBlockFilter="
-      closeBlockFilter(
-        filter.name,
-        filter.value
-      )
-      "
+          closeBlockFilter(
+            filter.name,
+            filter.value,
+          )
+        "
       />
     </div>
   </div>

@@ -5,6 +5,8 @@
 import { computed, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 
+// import { onClickOutside } from '@vueuse/core'
+
 import SearchGenericFilterButtons from './SearchGenericFilterButtons.vue'
 import BaseRadioGroup from './BaseRadioGroup.vue'
 import BaseCheckboxGroup from './BaseCheckboxGroup.vue'
@@ -92,6 +94,15 @@ const parsedFilters = computed(() => {
     }
   })
 })
+
+// Logic to hide the dropdowns when clicked outside anywhere
+
+/* function closeFilterDropDowns() {
+
+  for (item in parsedFilters.value) {
+    item.isVisible = false
+  }
+} */
 
 function toggleTransition(index: number) {
   // Toggles visibility state for the given index

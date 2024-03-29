@@ -71,7 +71,6 @@
         "vue-tsc": "^1.8.5"
     },
     "dependencies": {
-        "@vueuse/components": "^10.9.0",
         "@vueuse/core": "^10.9.0",
         "@vuepic/vue-datepicker": "^8.2.0",
         "date-fns": "^2.30.0",
