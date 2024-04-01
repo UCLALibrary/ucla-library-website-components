@@ -1,3 +1,10 @@
+# [2.39.0-alpha.57](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.56...v2.39.0-alpha.57) (2024-04-01)
+
+
+### Features
+
+* APPS-2619 ([#478](https://github.com/UCLALibrary/ucla-library-website-components/issues/478)) ([daf43ac](https://github.com/UCLALibrary/ucla-library-website-components/commit/daf43ac5001d56afca8e7f66e1a0f80a71f63f1a))
+
 # [2.39.0-alpha.56](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.55...v2.39.0-alpha.56) (2024-03-29)
 
 
