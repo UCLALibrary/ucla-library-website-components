@@ -73,39 +73,50 @@ const props = defineProps({
   },
 })
 // Async Components
+// @ts-expect-error declared but its value is never read
 const SvgIconPhone = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-phone.svg')
 )
+// @ts-expect-error declared but its value is never read
 const SvgIconCalendar = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-calendar.svg')
 )
+// @ts-expect-error declared but its value is never read
 const SvgIconLocation = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-location.svg')
 )
 const IconClock = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-clock.svg')
 )
+// @ts-expect-error declared but its value is never read
 const IconAccessible = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-accessible.svg')
 )
+// @ts-expect-error declared but its value is never read
 const IconChair = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-chair.svg')
 )
+// @ts-expect-error declared but its value is never read
 const IconVirtual = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-virtual.svg')
 )
+// @ts-expect-error declared but its value is never read
 const IconLaptop = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-laptop.svg')
 )
+// @ts-expect-error declared but its value is never read
 const IconLocker = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-locker.svg')
 )
+// @ts-expect-error declared but its value is never read
 const IconLight = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-light.svg')
 )
+// @ts-expect-error declared but its value is never read
 const IconShare = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-share-printer.svg')
 )
+// @ts-expect-error declared but its value is never read
 const IconBook = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-book.svg')
 )
@@ -181,10 +192,8 @@ onBeforeMount(() => {
               <span> {{ parseLibCalHours }} </span>
             </div>
           </div>
-          <IconWithLink
-            v-if="props.reserveSeat" text="Reserve a Seat" icon-name="svg-icon-calendar"
-            :to="props.reserveSeat" class="reserve"
-          />
+          <IconWithLink v-if="props.reserveSeat" text="Reserve a Seat" icon-name="svg-icon-calendar"
+            :to="props.reserveSeat" class="reserve" />
           <IconWithLink :text="props.address" icon-name="svg-icon-location" :to="props.addressLink" class="location" />
 
           <div v-if="props.amenities" class="amenities">
