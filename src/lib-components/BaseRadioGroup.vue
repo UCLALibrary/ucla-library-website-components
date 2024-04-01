@@ -1,70 +1,61 @@
-<script setup>
+<script
+  lang="ts"
+  setup
+>
 import { ref } from 'vue'
+import type { PropType } from 'vue'
 import SvgIconRadioButton from 'ucla-library-design-tokens/assets/svgs/icon-radio-button.svg'
 
+interface Item {
+  name: string
+}
 const { items, selected } = defineProps({
   items: {
-    type: Array,
+    type: Array as PropType<Item[]>,
     default: () => [],
   },
   selected: {
-    type: String,
-    default: '',
+    type: Array as PropType<string[]>,
+    default: () => [],
   },
 })
-// TODO Watch for changes in `selected` prop and update `parsedSelected`
-/* watch(selected, (newVal, oldVal) => {
-  console.log("Old value", oldVal)
-  console.log("New value", newVal)
-  parsedSelected.value = newVal
-},
-  { immediate: true }
-) */
 
 // Emitting events
 const emit = defineEmits(['update:selected', 'input-selected'])
 
-console.log('selected', selected)
+const parsedSelected = ref<string>(selected && selected.length > 0 ? selected[0] : '')
 
-const parsedSelected = ref(selected)
-console.log('parseselected radio button', parsedSelected.value)
-
-function onChange(value) {
+function onChange(value: string) {
   console.log('what is slected', value)
-  emit('update:selected', value)
+  emit('update:selected', [value])
   emit('input-selected')
 }
 </script>
 
 <template>
-  <transition
-    name="slide-toggle"
-    mode="out-in"
-  >
-    <fieldset class="base-radio-group">
-      <ul class="list">
-        <li class="list-item">
-          <label
-            v-for="(item, index) in items"
-            :key="`BaseRadioGroup${index}`"
-            class="label"
+  <fieldset class="base-radio-group">
+    <ul class="list">
+      <li class="list-item">
+        <label
+          v-for="(item, index) in items"
+          :key="`BaseRadioGroup${index}`"
+          class="label"
+        >
+          <input
+            v-model="parsedSelected"
+            type="radio"
+            :value="item.name"
+            class="input"
+            @change="onChange(item.name)"
           >
-            <input
-              v-model="parsedSelected"
-              type="radio"
-              :value="item.name"
-              class="input"
-              @change="onChange(item.name)"
-            >
 
-            <SvgIconRadioButton class="svg" />
+          <SvgIconRadioButton class="svg" />
 
-            {{ item.name }}
-          </label>
-        </li>
-      </ul>
-    </fieldset>
-  </transition>
+          {{ item.name }}
+        </label>
+      </li>
+    </ul>
+  </fieldset>
 </template>
 
 <style
@@ -119,17 +110,17 @@ function onChange(value) {
   }
 
   .svg__icon-radio-button {
-    ::v-deep .svg__fill--default-cyan-03 {
+    :deep(.svg__fill--default-cyan-03) {
       fill: transparent;
     }
 
-    ::v-deep .svg__stroke--primary-blue-03 {
+    :deep(.svg__stroke--primary-blue-03) {
       stroke: white;
     }
   }
 
   // Selected state
-  .input:checked+.svg__icon-radio-button ::v-deep .svg__fill--default-cyan-03 {
+  .input:checked+.svg__icon-radio-button :deep(.svg__fill--default-cyan-03) {
     fill: white;
   }
 
