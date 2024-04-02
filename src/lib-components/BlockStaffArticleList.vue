@@ -2,18 +2,17 @@
   lang="ts"
   setup
 >
-import type { PropType } from 'vue'
 import { computed } from 'vue'
 
 // COMPONENTS
-import ResponsiveImage from "@/lib-components/ResponsiveImage"
+import format from 'date-fns/format'
+import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
+import ResponsiveImage from '@/lib-components/ResponsiveImage'
 
 // UTILITY FUNCTIONS
-import removeHtmlTruncate from "@/util/removeHtmlTruncate"
-import format from "date-fns/format"
+import removeHtmlTruncate from '@/util/removeHtmlTruncate'
 
 // SVGs
-import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
 
 const props = defineProps({
   image: {
@@ -22,15 +21,15 @@ const props = defineProps({
   },
   to: {
     type: String,
-    default: "",
+    default: '',
   },
   category: {
     type: String,
-    default: "",
+    default: '',
   },
   title: {
     type: String,
-    default: "",
+    default: '',
   },
   authors: {
     type: Array,
@@ -38,11 +37,11 @@ const props = defineProps({
   },
   date: {
     type: String,
-    default: "",
+    default: '',
   },
   description: {
     type: String,
-    default: "",
+    default: '',
   },
   imageAspectRatio: {
     type: Number,
@@ -51,29 +50,29 @@ const props = defineProps({
 })
 
 const parsedDate = computed(() => {
-  return format(new Date(date), "MMMM d, Y")
+  return format(new Date(date), 'MMMM d, Y')
 })
 
 const imageExists = computed(() => {
-  return image && Object.keys(image) != 0 ? true : false
+  return !!(image && Object.keys(image) != 0)
 })
 
 const parsedTextTruncated = computed(() => {
   return description
     ? removeHtmlTruncate(description, 130)
-    : ""
+    : ''
 })
 
 const parsedTextAll = computed(() => {
   return description
     ? removeHtmlTruncate(description, 250)
-    : ""
+    : ''
 })
 </script>
 
 <template>
   <li class="block-staff-article-item">
-    <responsive-image
+    <ResponsiveImage
       v-if="imageExists"
       :image="image"
       :aspect-ratio="imageAspectRatio"
@@ -85,7 +84,7 @@ const parsedTextAll = computed(() => {
       v-else
       class="molecule-no-image"
     >
-      <molecule-placeholder
+      <MoleculePlaceholder
         class="molecule"
         aria-hidden="true"
       />
@@ -118,8 +117,8 @@ const parsedTextAll = computed(() => {
       <!-- AUTHOR(S) - DATE - SUMMARY -->
       <div v-else>
         <div
-          class="byline"
           v-if="authors || date"
+          class="byline"
         >
           <div
             v-for="author in authors"
