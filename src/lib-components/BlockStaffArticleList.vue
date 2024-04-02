@@ -54,7 +54,7 @@ const parsedDate = computed(() => {
 })
 
 const imageExists = computed(() => {
-  return !!(image && Object.keys(image) != 0)
+  return !!(image && Object.keys(image) !== 0)
 })
 
 const parsedTextTruncated = computed(() => {
