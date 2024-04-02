@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, defineAsyncComponent, onMounted, ref, markRaw } from 'vue'
+import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
 import type { PropType } from 'vue'
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import type { AmenitiesType, MediaItemType } from '@/types/types'
@@ -111,7 +111,7 @@ const IconBook = defineAsyncComponent(() =>
 )
 // Vue 3 requires mapping componenents to object to use :is
 // https://stackoverflow.com/questions/75855511/why-doesnt-the-component-tag-in-vue3-work-properly-for-dynamically-rendering-co
-const IconComponents = {
+const IconComponents: any = {
   IconPhone,
   IconCalendar,
   IconLocation,
@@ -198,8 +198,10 @@ onMounted(() => {
               <span> {{ parseLibCalHours }} </span>
             </div>
           </div>
-          <IconWithLink v-if="props.reserveSeat" text="Reserve a Seat" icon-name="svg-icon-calendar"
-            :to="props.reserveSeat" class="reserve" />
+          <IconWithLink
+            v-if="props.reserveSeat" text="Reserve a Seat" icon-name="svg-icon-calendar"
+            :to="props.reserveSeat" class="reserve"
+          />
           <IconWithLink :text="props.address" icon-name="svg-icon-location" :to="props.addressLink" class="location" />
 
           <div v-if="props.amenities" class="amenities">

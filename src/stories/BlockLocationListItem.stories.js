@@ -78,7 +78,7 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   ...mock,
-    libcalLocationIdForHours: '4690',
+  libcalLocationIdForHours: '4690',
 }
 
 export const NoHours = Template.bind({})
