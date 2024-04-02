@@ -38,7 +38,6 @@ const parsedList = computed(() => {
       items.push(block.cardWithImage[indexProperty])
   }
   return items
-
 })
 
 const parsedItems = computed(() => {
