@@ -1,5 +1,10 @@
 // custom types
 
+export interface AmenitiesType {
+  title: string
+  icon: string
+}
+
 export interface ArticleStaffItemType {
   title?: string
   to?: string
