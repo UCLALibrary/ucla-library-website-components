@@ -3,20 +3,30 @@
   setup
 >
 import { computed } from 'vue'
+import type { PropType, Ref } from 'vue'
+
+//TYPESCRIPT
+import type { MediaItemType } from '@/types/types'
 
 // COMPONENTS
 import format from 'date-fns/format'
+
+// SVGs
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import ResponsiveImage from '@/lib-components/ResponsiveImage'
 
 // UTILITY FUNCTIONS
 import removeHtmlTruncate from '@/util/removeHtmlTruncate'
 
-// SVGs
+// TYPES
+interface {
 
+}
+
+// PROPS & DATA
 const props = defineProps({
   image: {
-    type: Object,
+    type: Object as PropType<MediaItemType>,
     default: () => { },
   },
   to: {
@@ -235,7 +245,7 @@ const parsedTextAll = computed(() => {
     @include truncate(5);
   }
 
-  ::v-deep .image {
+  :deep(.image) {
     height: 272px;
 
     .media {
