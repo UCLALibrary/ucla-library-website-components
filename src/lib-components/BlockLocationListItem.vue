@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
-import type { PropType } from 'vue'
+import type { PropType, Ref } from 'vue'
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import type { AmenitiesType, MediaItemType } from '@/types/types'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
@@ -127,8 +127,7 @@ const IconComponents: any = {
 }
 
 // METHODS
-let libcalHoursData: libcalHoursType | null = null
-const reRenderCounter = ref(0) // Used to re-render the component when the data is fetched
+const libcalHoursData: Ref<libcalHoursType | null> = ref(null)
 function fetchLibcalHours() {
   const url = `https://calendar.library.ucla.edu/api_hours_today.php?iid=3244&lid=${props.libcalLocationIdForHours}&format=json&systemTime=0`
   fetch(url)
@@ -136,11 +135,10 @@ function fetchLibcalHours() {
       return response.json()
     })
     .then((data) => {
-      libcalHoursData = {
+      libcalHoursData.value = {
         ...data.locations[0],
         ...data.locations[0].times,
       }
-      reRenderCounter.value += 1
     })
     .catch((err) => {
       console.error(err)
@@ -155,12 +153,12 @@ const classes = computed(() => {
   return ['block-location-list-item', `color-${cardTheme.value}`]
 })
 const parseLibCalHours = computed(() => {
-  if (libcalHoursData?.status === 'open')
-    return `${libcalHoursData.hours[0].from} -  ${libcalHoursData.hours[0].to}`
-  else if (libcalHoursData?.status === 'text')
-    return libcalHoursData.text
+  if (libcalHoursData?.value?.status === 'open')
+    return `${libcalHoursData.value.hours[0].from} -  ${libcalHoursData.value.hours[0].to}`
+  else if (libcalHoursData?.value?.status === 'text')
+    return libcalHoursData.value.text
   else
-    return libcalHoursData?.status
+    return libcalHoursData?.value?.status
 })
 const imageExists = computed(() => {
   return !!(props.image && Object.keys(props.image).length !== 0)
@@ -190,7 +188,7 @@ onMounted(() => {
             {{ props.title }}
           </SmartLink>
         </div>
-        <div :key="reRenderCounter" class="text">
+        <div class="text">
           <div v-if="libcalHoursData && props.isUclaLibrary" class="time">
             <IconClock />
             <span v-if="libcalHoursData.day">{{ "Today" }}</span>
@@ -198,10 +196,8 @@ onMounted(() => {
               <span> {{ parseLibCalHours }} </span>
             </div>
           </div>
-          <IconWithLink
-            v-if="props.reserveSeat" text="Reserve a Seat" icon-name="svg-icon-calendar"
-            :to="props.reserveSeat" class="reserve"
-          />
+          <IconWithLink v-if="props.reserveSeat" text="Reserve a Seat" icon-name="svg-icon-calendar"
+            :to="props.reserveSeat" class="reserve" />
           <IconWithLink :text="props.address" icon-name="svg-icon-location" :to="props.addressLink" class="location" />
 
           <div v-if="props.amenities" class="amenities">
