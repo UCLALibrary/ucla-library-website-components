@@ -1,3 +1,10 @@
+# [2.39.0-alpha.58](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.57...v2.39.0-alpha.58) (2024-04-02)
+
+
+### Features
+
+* APPS-2570, APPS-2557 convert BlockLocationListItem and SectionLocationList ([#482](https://github.com/UCLALibrary/ucla-library-website-components/issues/482)) ([b9468df](https://github.com/UCLALibrary/ucla-library-website-components/commit/b9468df57f40a596cf501c3226e84fb49c7a067a))
+
 # [2.39.0-alpha.57](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.56...v2.39.0-alpha.57) (2024-04-01)
 
 
