@@ -6,6 +6,7 @@ export interface AmenitiesType {
 }
 
 export interface ArticleStaffItemType {
+  id: string
   title?: string
   to?: string
 }
@@ -99,9 +100,17 @@ export interface MediaItemType {
 }
 
 export interface LocationItemType {
-  id?: string
-  title?: string
-  to?: string
+  image: MediaItemType
+  locationType: string
+  title: string
+  to: string
+  affiliateLibraryUrl: string
+  address: string
+  addressLink: string
+  amenities: AmenitiesType[]
+  reserveSeat: string
+  isUclaLibrary: boolean
+  libcalLocationIdForHours: string
 }
 
 export interface SearchLinkItemType {
@@ -160,7 +169,7 @@ export interface SubjectAreaItemType {
   title: string
 }
 
-export interface StaffType {
+export interface BlockStaffList {
   image: MediaItemType
   to: string
   staff-name: string
@@ -173,6 +182,7 @@ export interface StaffType {
   departments: string
   consultation: string
 }
+
 export interface StylesItemType {
   paddingBottom?: string
   backgroundColor?: string

@@ -8,16 +8,15 @@ import type { PropType } from 'vue'
 // TYPESCRIPT
 import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 
-// COMPONENTS
+// UTILITY FUNCTIONS
+import removeHtmlTruncate from '@/util/removeHtmlTruncate.js'
 import format from 'date-fns/format'
 
 // SVGs
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 
+// COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
-
-// UTILITY FUNCTIONS
-import removeHtmlTruncate from '@/util/removeHtmlTruncate'
 
 // PROPS & DATA
 const props = defineProps({

@@ -74,7 +74,7 @@ export default {
   })
 
 const lastDepartment = computed(() => {
-    return this.departments[this.departments.length - 1].title
+    return departments[departments.length - 1].title
   })
 </script>
 

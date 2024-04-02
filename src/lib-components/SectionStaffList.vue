@@ -7,18 +7,24 @@ import type { PropType } from 'vue'
 
 import BlockStaffList from "@/lib-components/BlockStaffList.vue"
 
-export default {
-  name: "SectionStaffList",
-  components: {
-    BlockStaffList,
+// export default {
+//   name: "SectionStaffList",
+//   components: {
+//     BlockStaffList,
+//   },
+//   props: {
+//     items: {
+//       type: Array,
+//       default: () => [],
+//     },
+//   },
+// }
+const { items } = defineProps({
+  items: {
+    type: Array as PropType<BlockStaffList[]>,
+    default: () => [],
   },
-  props: {
-    items: {
-      type: Array,
-      default: () => [],
-    },
-  },
-}
+})
 </script>
 
 <template>
