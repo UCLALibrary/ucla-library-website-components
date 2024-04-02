@@ -1,32 +1,36 @@
-<script setup>
+<script
+  lang="ts"
+  setup
+>
 import { ref } from 'vue'
+import type { PropType } from 'vue'
 import _uniq from 'lodash/uniq'
 import SvgIconCheckbox from 'ucla-library-design-tokens/assets/svgs/icon-checkbox.svg'
 
+interface Item {
+  name: string
+}
+
 const props = defineProps({
   items: {
-    type: Array,
+    type: Array as PropType<Item[]>,
     default: () => [],
   },
   selected: {
-    type: Array,
+    type: Array as PropType<string[]>,
     default: () => [],
   },
 })
 
-// TODO
-/* watch(props.selected, (newVal) => {
-  parsedSelected.value = _uniq([...newVal])
-}) */
-
 const emit = defineEmits(['update:selected', 'input-selected'])
-const parsedSelected = ref(_uniq([...props.selected]))
-function onChange(itemName) {
+const parsedSelected = ref<string[]>(_uniq([...props.selected]))
+
+function onChange(itemName: string) {
   const index = parsedSelected.value.indexOf(itemName)
   if (index > -1)
     parsedSelected.value.splice(index, 1)
   else
-    parsedSelected.value.push({ name: itemName })
+    parsedSelected.value.push(itemName)
 
   emit('update:selected', parsedSelected.value)
   emit('input-selected')
@@ -34,33 +38,27 @@ function onChange(itemName) {
 </script>
 
 <template>
-  <transition
-    name="slide-toggle"
-    mode="out-in"
-  >
-    <fieldset class="base-checkbox-group">
-      <ul class="list">
-        <li
-          v-for="(item, index) in items"
-          :key="`BaseCheckboxGroup${index}`"
-          class="list-item"
-        >
-          <label class="label">
-            <input
-              type="checkbox"
-              :value="item.name"
-              :checked="parsedSelected.find(selectedItem => selectedItem.name === item.name)"
-              class="input"
-              @change="onChange(item.name)"
-            >
-
-            <SvgIconCheckbox class="svg" />
-            {{ item.name }}
-          </label>
-        </li>
-      </ul>
-    </fieldset>
-  </transition>
+  <fieldset class="base-checkbox-group">
+    <ul class="list">
+      <li
+        v-for="(item, index) in items"
+        :key="`BaseCheckboxGroup${index}`"
+        class="list-item"
+      >
+        <label class="label">
+          <input
+            type="checkbox"
+            :value="item.name"
+            :checked="parsedSelected.includes(item.name)"
+            class="input"
+            @change="onChange(item.name)"
+          >
+          <SvgIconCheckbox class="svg" />
+          {{ item.name }}
+        </label>
+      </li>
+    </ul>
+  </fieldset>
 </template>
 
 <style

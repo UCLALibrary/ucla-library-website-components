@@ -12,7 +12,19 @@ export function Default() {
     },
     components: { SingleCheckbox },
     template: `
-        <single-checkbox />
+        <single-checkbox label="Subject Librarian"/>
+    `,
+  }
+}
+
+export function Checked() {
+  return {
+    data() {
+      return {}
+    },
+    components: { SingleCheckbox },
+    template: `
+        <single-checkbox label="Past Events" :selected="true"/>
     `,
   }
 }

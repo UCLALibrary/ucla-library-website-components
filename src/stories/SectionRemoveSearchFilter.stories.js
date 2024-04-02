@@ -5,28 +5,28 @@ export default {
   component: SectionRemoveSearchFilter,
 }
 
-const mock = [
-  { name: 'location', value: 'Neque porro quisquam' },
-  { name: 'departments', value: 'DIIT' },
-  { name: 'departments', value: 'Digital Library Program' },
-  { name: 'departments', value: 'Arts Library' },
-  { name: 'departments', value: 'Special Collections' },
-  { name: 'departments,', value: 'CLICC' }
-]
-const mockBigger = [
-  { name: 'location', value: 'Neque porro quisquam' },
-  { name: 'departments', value: 'DIIT' },
-  { name: 'departments', value: 'Digital Library Program' },
-  { name: 'departments', value: 'Arts Library' },
-  { name: 'departments', value: 'Special Collections' },
-  { name: 'departments', value: 'CLICC' },
-  { name: 'subjectLibrarian.keyword', value: 'Subject Librarian' },
-  { name: 'areas', value: 'English' },
-  { name: 'areas', value: 'History' },
-  { name: 'areas', value: 'Geography' },
-  { name: 'areas', value: 'Science' },
-  { name: 'areas', value: 'Math' },
-]
+const mock = {
+  location: ['Neque porro quisquam'],
+  departments: [
+    'DIIT',
+    'Digital Library Program',
+    'Arts Library',
+    'Special Collections',
+    'CLICC',
+  ],
+}
+const mockBigger = {
+  'location': ['Neque porro quisquam'],
+  'departments': [
+    'DIIT',
+    'Digital Library Program',
+    'Arts Library',
+    'Special Collections',
+    'CLICC',
+  ],
+  'subjectLibrarian.keyword': ['yes'],
+  'areas': ['English', 'History', 'Geography', 'Science', 'Math'],
+}
 
 // Variations of stories below
 export function Default() {

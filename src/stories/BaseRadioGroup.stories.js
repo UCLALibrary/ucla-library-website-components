@@ -9,8 +9,8 @@ export default {
       description: 'Array of objects for each radio button',
     },
     selected: {
-      control: 'text',
-      description: 'Selected radio button value',
+      control: 'object',
+      description: 'Array of selected item objects',
     },
   },
 }
@@ -32,7 +32,7 @@ Default.args = {
     { name: 'Option 2' },
     { name: 'Option 3' },
   ],
-  selected: 'Option 1',
+  selected: ['Option 1'],
 }
 
 export const NoSelection = Template.bind({})
@@ -42,5 +42,5 @@ NoSelection.args = {
     { name: 'Option 2' },
     { name: 'Option 3' },
   ],
-  selected: '',
+  selected: [],
 }
