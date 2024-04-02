@@ -3,7 +3,7 @@
   setup
 >
 import { computed } from 'vue'
-import type { PropType, Ref } from 'vue'
+import type { PropType } from 'vue'
 
 //TYPESCRIPT
 import type { MediaItemType } from '@/types/types'
@@ -13,14 +13,15 @@ import format from 'date-fns/format'
 
 // SVGs
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
-import ResponsiveImage from '@/lib-components/ResponsiveImage'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
 // UTILITY FUNCTIONS
 import removeHtmlTruncate from '@/util/removeHtmlTruncate'
 
 // TYPES
-interface {
-
+interface AuthorsTypes {
+  id: string
+  title: string
 }
 
 // PROPS & DATA
@@ -42,7 +43,7 @@ const props = defineProps({
     default: '',
   },
   authors: {
-    type: Array,
+    type: Array as PropType<AuthorsTypes[]>,
     default: () => [],
   },
   date: {

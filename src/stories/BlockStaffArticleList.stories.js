@@ -1,5 +1,5 @@
 // Import mock api data
-import StoryRouter from 'storybook-vue-router'
+// import StoryRouter from 'storybook-vue-router'
 import * as API from '@/stories/mock-api.json'
 import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList'
 
@@ -7,27 +7,27 @@ import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList'
 export default {
   title: 'BLOCK / Staff / Article / List',
   component: BlockStaffArticleList,
-  decorators: [
-    StoryRouter(
-      {},
-      {
-        routes: [
-          {
-            path: '/about/foo/bar/',
-            component: BlockStaffArticleList,
-          },
-          {
-            path: '/staff/Justo-Magna',
-            component: BlockStaffArticleList,
-          },
-          {
-            path: '/staff/Luctus-Suscipit',
-            component: BlockStaffArticleList,
-          },
-        ],
-      }
-    ),
-  ],
+  // decorators: [
+  //   // StoryRouter(
+  //   //   {},
+  //     {
+  //       routes: [
+  //         {
+  //           path: '/about/foo/bar/',
+  //           component: BlockStaffArticleList,
+  //         },
+  //         {
+  //           path: '/staff/Justo-Magna',
+  //           component: BlockStaffArticleList,
+  //         },
+  //         {
+  //           path: '/staff/Luctus-Suscipit',
+  //           component: BlockStaffArticleList,
+  //         },
+  //       ],
+  //     }
+  //   ),
+  // ],
 }
 
 const mock = {
