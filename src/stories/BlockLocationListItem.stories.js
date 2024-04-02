@@ -2,8 +2,6 @@
 import * as API from '@/stories/mock-api.json'
 import BlockLocationListItem from '@/lib-components/BlockLocationListItem'
 
-// import StoryRouter from "storybook-vue-router"
-
 const mock = {
   isUclaLibrary: true,
   title: 'Arts Library',
@@ -29,86 +27,74 @@ const mock = {
 export default {
   title: 'BLOCK / Location List Item',
   component: BlockLocationListItem,
-  // decorators: [StoryRouter()],
+  argTypes: {
+    title: {
+      control: 'text',
+      description: 'Location title',
+    },
+    image: {
+      description: 'Image object with src and alt properties',
+    },
+    address: {
+      control: 'text',
+      description: 'Location address',
+    },
+    addressLink: {
+      control: 'text',
+      description: 'Link to location address',
+    },
+    amenities: {
+      control: 'object',
+      description: 'Array of amenities',
+    },
+    reserveSeat: {
+      control: 'text',
+      description: 'Link to reserve a seat',
+    },
+    isUclaLibrary: {
+      control: 'boolean',
+      description: 'Is this a UCLA Library location?',
+    },
+    libcalLocationIdForHours: {
+      control: 'text',
+      description: 'LibCal location ID for hours',
+    },
+    to: {
+      control: 'text',
+      description: 'Link to location title',
+    },
+  },
 }
 
-function Template(args, { argTypes }) {
+function Template(args) {
   return {
-    props: Object.keys(argTypes),
-    components: { BlockLocationListItem },
-    template: '<block-location-list-item v-bind="$props"/>',
-  }
-}
-
-export function Default() {
-  return {
-    data() {
-      return { ...mock }
+    setup() {
+      return { args }
     },
     components: { BlockLocationListItem },
-    template: `
-        <block-location-list-item
-            :title="title"
-            :to="to"
-            :image="image"
-
-            :address="address"
-            :addressLink="addressLink"
-            :amenities="amenities"
-            :reserveSeat="reserveSeat"
-            :isUclaLibrary="isUclaLibrary"
-            libcalLocationIdForHours="4690"
-        />
-    `,
+    template: '<block-location-list-item v-bind="args"/>',
   }
 }
-export function NoHours() {
-  return {
-    data() {
-      return { ...mock }
-    },
-    components: { BlockLocationListItem },
-    template: `
-        <block-location-list-item
-            :title="title"
-            :to="to"
-            :image="image"
-
-            :address="address"
-            :addressLink="addressLink"
-            :amenities="amenities"
-            :reserveSeat="reserveSeat"
-            :isUclaLibrary="isUclaLibrary"
-            libcalLocationIdForHours="4691"
-        />
-    `,
-  }
+export const Default = Template.bind({})
+Default.args = {
+  ...mock,
+    libcalLocationIdForHours: '4690',
 }
-export function TextHours() {
-  return {
-    data() {
-      return { ...mock }
-    },
-    components: { BlockLocationListItem },
-    template: `
-        <block-location-list-item
-            :title="title"
-            :to="to"
-            :image="image"
-            :address="address"
-            :addressLink="addressLink"
-            :amenities="amenities"
-            :reserveSeat="reserveSeat"
-            :isUclaLibrary="isUclaLibrary"
-            libcalLocationIdForHours="2081"
-        />
-    `,
-  }
+
+export const NoHours = Template.bind({})
+NoHours.args = {
+  ...mock,
+  libcalLocationIdForHours: '4691',
+}
+export const TextHours = Template.bind({})
+TextHours.args = {
+  ...mock,
+  libcalLocationIdForHours: '2081',
 }
 
 export const WithControls = Template.bind({})
 WithControls.args = {
-  ...mock,
+  ...mock
 }
 
 export const WithControlsAndNoImage = Template.bind({})

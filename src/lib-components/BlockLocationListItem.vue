@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, defineAsyncComponent, onBeforeMount, ref } from 'vue'
+import { computed, defineAsyncComponent, onMounted, ref, markRaw } from 'vue'
 import type { PropType } from 'vue'
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import type { AmenitiesType, MediaItemType } from '@/types/types'
@@ -73,59 +73,65 @@ const props = defineProps({
   },
 })
 // Async Components
-// @ts-expect-error declared but its value is never read
-const SvgIconPhone = defineAsyncComponent(() =>
+const IconPhone = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-phone.svg')
 )
-// @ts-expect-error declared but its value is never read
-const SvgIconCalendar = defineAsyncComponent(() =>
+const IconCalendar = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-calendar.svg')
 )
-// @ts-expect-error declared but its value is never read
-const SvgIconLocation = defineAsyncComponent(() =>
+const IconLocation = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-location.svg')
 )
 const IconClock = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-clock.svg')
 )
-// @ts-expect-error declared but its value is never read
 const IconAccessible = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-accessible.svg')
 )
-// @ts-expect-error declared but its value is never read
 const IconChair = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-chair.svg')
 )
-// @ts-expect-error declared but its value is never read
 const IconVirtual = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-virtual.svg')
 )
-// @ts-expect-error declared but its value is never read
 const IconLaptop = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-laptop.svg')
 )
-// @ts-expect-error declared but its value is never read
 const IconLocker = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-locker.svg')
 )
-// @ts-expect-error declared but its value is never read
 const IconLight = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-light.svg')
 )
-// @ts-expect-error declared but its value is never read
 const IconShare = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-share-printer.svg')
 )
-// @ts-expect-error declared but its value is never read
 const IconBook = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-book.svg')
 )
+// Vue 3 requires mapping componenents to object to use :is
+// https://stackoverflow.com/questions/75855511/why-doesnt-the-component-tag-in-vue3-work-properly-for-dynamically-rendering-co
+const IconComponents = {
+  IconPhone,
+  IconCalendar,
+  IconLocation,
+  IconClock,
+  IconAccessible,
+  IconChair,
+  IconVirtual,
+  IconLaptop,
+  IconLocker,
+  IconLight,
+  IconShare,
+  IconBook
+}
+
 // METHODS
 let libcalHoursData: libcalHoursType | null = null
 const reRenderCounter = ref(0) // Used to re-render the component when the data is fetched
-async function fetchLibcalHours() {
+function fetchLibcalHours() {
   const url = `https://calendar.library.ucla.edu/api_hours_today.php?iid=3244&lid=${props.libcalLocationIdForHours}&format=json&systemTime=0`
-  await fetch(url)
+  fetch(url)
     .then((response) => {
       return response.json()
     })
@@ -161,7 +167,7 @@ const imageExists = computed(() => {
 })
 
 // Fetch data
-onBeforeMount(() => {
+onMounted(() => {
   fetchLibcalHours()
 })
 </script>
@@ -197,9 +203,9 @@ onBeforeMount(() => {
           <IconWithLink :text="props.address" icon-name="svg-icon-location" :to="props.addressLink" class="location" />
 
           <div v-if="props.amenities" class="amenities">
-            <div v-for="(amenity, index) in amenities" :key="`amenity-${index}`" class="tooltip">
+            <div v-for="(amenity) in amenities" :key="`amenity-${amenity.title}`" class="tooltip">
               <span class="tooltiptext">{{ amenity.title }}</span>
-              <component :is="amenity.icon" class="svg" />
+              <component :is="IconComponents[amenity.icon]" class="svg" />
             </div>
           </div>
         </div>
