@@ -160,6 +160,19 @@ export interface SubjectAreaItemType {
   title: string
 }
 
+export interface StaffType {
+  image: MediaItemType
+  to: string
+  staff-name: string
+  alternativeFullName: string
+  language: string
+  job-title: string
+  locations: string
+  email: string
+  phone=: string
+  departments: string
+  consultation: string
+}
 export interface StylesItemType {
   paddingBottom?: string
   backgroundColor?: string
