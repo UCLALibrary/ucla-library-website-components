@@ -118,6 +118,7 @@ export interface LocationItemType {
   locationType: string
   title: string
   to: string
+  uri: string
   affiliateLibraryUrl: string
   address: string
   addressLink: string
