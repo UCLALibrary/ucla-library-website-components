@@ -42,6 +42,20 @@ export interface BlockImpactNumbersCarouselType {
   altImageText: string
 }
 
+export interface BlockStaffListItemType {
+  image: MediaItemType
+  to: string
+  staffName: string
+  alternativeFullName: string
+  language: string
+  jobTitle: string
+  locations: LocationItemType[]
+  email: string
+  phone: string
+  departments: DepartmentItemType[]
+  consultation: string
+}
+
 export interface CardItemType {
   category?: string
   externalResourceUrl?: string
@@ -167,20 +181,6 @@ export interface SectionSpaceListItemType {
 
 export interface SubjectAreaItemType {
   title: string
-}
-
-export interface BlockStaffList {
-  image: MediaItemType
-  to: string
-  staff-name: string
-  alternativeFullName: string
-  language: string
-  job-title: string
-  locations: string
-  email: string
-  phone=: string
-  departments: string
-  consultation: string
 }
 
 export interface StylesItemType {

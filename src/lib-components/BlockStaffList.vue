@@ -5,17 +5,16 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
-// UTILITY FUNCTIONS
-
-// COMPONENTS
-import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
-import ResponsiveImage from '@/lib-components/ResponsiveImage'
-import SmartLink from '@/lib-components/SmartLink.vue'
-import IconWithLink from '@/lib-components/IconWithLink.vue'
-
 // TYPESCRIPT
 import type { DepartmentItemType, LocationItemType, MediaItemType } from '@/types/types'
 
+// COMPONENTS
+import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
+import IconWithLink from '@/lib-components/IconWithLink.vue'
+
+// PROPS & DATA
 const props = defineProps({
   to: {
     type: String,
@@ -64,20 +63,20 @@ const props = defineProps({
 })
 
 const lastDepartment = computed(() => {
-  return departments[departments.length - 1].title
+  return props.departments[props.departments.length - 1].title
 })
 </script>
 
 <template>
   <li class="block-staff-list">
     <ResponsiveImage
-      :image="image"
+      :media="props.image"
       :aspect-ratio="100"
       sizes="300px"
       class="image"
     />
     <div
-      v-if="!image"
+      v-if="!props.image"
       class="no-image"
     >
       <SvgHeadingArrow class="icon-heading-arrow" />
@@ -86,22 +85,22 @@ const lastDepartment = computed(() => {
     <div class="meta">
       <div class="name-title">
         <h3 class="staff-name">
-          <SmartLink :to="to">
+          <SmartLink :to="props.to">
             {{ staffName }}
 
             <span
               v-if="alternativeFullName"
-              :lang="language"
+              :lang="props.language"
             >
               {{ alternativeFullName }}</span>
           </SmartLink>
         </h3>
         <div
           class="job-title"
-          v-html="jobTitle"
+          v-html="props.jobTitle"
         />
         <ul
-          v-if="departments.length"
+          v-if="props.departments.length"
           class="departments"
         >
           <li class="department">
@@ -113,40 +112,40 @@ const lastDepartment = computed(() => {
       <div class="contact-info">
         <div class="email">
           <IconWithLink
-            :text="email"
+            :text="props.email"
             icon-name="svg-icon-email"
-            :to="`mailto:${email}`"
+            :to="`mailto:${props.email}`"
           />
         </div>
 
         <div
-          v-if="phone"
+          v-if="props.phone"
           class="phone"
         >
           <IconWithLink
-            :text="phone"
+            :text="props.phone"
             icon-name="svg-icon-phone"
-            :to="`tel:${phone}`"
+            :to="`tel:${props.phone}`"
           />
         </div>
 
         <div
-          v-if="consultation"
+          v-if="props.consultation"
           class="consultation"
         >
           <IconWithLink
             text="Book a consultation"
             icon-name="svg-icon-consultation"
-            :to="consultation"
+            :to="props.consultation"
           />
         </div>
 
         <div
-          v-if="locations.length"
+          v-if="props.locations.length"
           class="locations"
         >
           <IconWithLink
-            v-for="(location, index) in locations"
+            v-for="(location, index) in props.locations"
             :key="`${index}`"
             :text="location.title"
             icon-name="svg-icon-location"

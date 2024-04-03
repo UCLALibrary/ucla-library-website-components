@@ -17,6 +17,7 @@ import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
 
 // PROPS & DATA
 const props = defineProps({
@@ -55,22 +56,23 @@ const props = defineProps({
 })
 
 const parsedDate = computed(() => {
-  return format(new Date(date), 'MMMM d, Y')
+  return format(new Date(props.date), 'MMMM d, Y')
 })
 
 const imageExists = computed(() => {
-  return !!(image && Object.keys(image) != 0)
+  return props.image && Object.keys(props.image).length !== 0 ? true : false
 })
 
+
 const parsedTextTruncated = computed(() => {
-  return description
-    ? removeHtmlTruncate(description, 130)
+  return props.description
+    ? removeHtmlTruncate(props.description, 130)
     : ''
 })
 
 const parsedTextAll = computed(() => {
-  return description
-    ? removeHtmlTruncate(description, 250)
+  return props.description
+    ? removeHtmlTruncate(props.description, 250)
     : ''
 })
 </script>
@@ -79,9 +81,9 @@ const parsedTextAll = computed(() => {
   <li class="block-staff-article-item">
     <ResponsiveImage
       v-if="imageExists"
-      :image="image"
-      :aspect-ratio="imageAspectRatio"
-      :object-fit="cover"
+      :media="props.image"
+      :aspect-ratio="props.imageAspectRatio"
+      object-fit="cover"
       class="image"
     />
 
@@ -97,22 +99,22 @@ const parsedTextAll = computed(() => {
 
     <div class="meta">
       <div
-        v-if="category"
+        v-if="props.category"
         class="category"
-        v-html="category"
+        v-html="props.category"
       />
 
-      <smart-link
+      <SmartLink
         class="title"
-        :to="to"
-        v-html="title"
+        :to="props.to"
+        v-html="props.title"
       />
 
       <!-- SUMMARY ONLY -->
-      <div v-if="authors.length < 1 || !date">
+      <div v-if="props.authors.length < 1 || !props.date">
         <!-- If there is no author or date - increase max-length for truncation -->
         <div
-          v-if="description"
+          v-if="props.description"
           class="description-summary-only"
         >
           {{ parsedTextAll }}
@@ -122,24 +124,24 @@ const parsedTextAll = computed(() => {
       <!-- AUTHOR(S) - DATE - SUMMARY -->
       <div v-else>
         <div
-          v-if="authors || date"
+          v-if="props.authors || props.date"
           class="byline"
         >
           <div
-            v-for="author in authors"
+            v-for="author in props.authors"
             :key="author.id"
             class="author"
             v-html="author.title"
           />
           <div
-            v-if="date"
+            v-if="props.date"
             class="date"
             v-html="parsedDate"
           />
         </div>
 
         <div
-          v-if="description"
+          v-if="props.description"
           class="description"
         >
           {{ parsedTextTruncated }}

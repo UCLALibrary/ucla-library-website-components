@@ -4,50 +4,41 @@
 >
 import type { PropType } from 'vue'
 
+// TYPESCRIPT
+import type { BlockStaffListItemType } from '@/types/types'
+
+// COMPONENTSs
 import BlockStaffList from '@/lib-components/BlockStaffList.vue'
 
-// TYPESCRIPT
-import { BlockStaffList } from '@/types/types'
-
-// export default {
-//   name: "SectionStaffList",
-//   components: {
-//     BlockStaffList,
-//   },
-//   props: {
-//     items: {
-//       type: Array,
-//       default: () => [],
-//     },
-//   },
-// }
 const { items } = defineProps({
   items: {
-    type: Array as PropType<BlockStaffList[]>,
+    type: Array as PropType<BlockStaffListItemType[]>,
     default: () => [],
   },
 })
 </script>
 
 <template>
-  <ul class="section-staff-list">
-    <BlockStaffList
-      v-for="item in items"
-      :key="item.to"
-      :image="item.image"
-      :to="item.to"
-      :staff-name="item.staffName"
-      :alternative-full-name="item.alternativeFullName"
-      :language="item.language"
-      :job-title="item.jobTitle"
-      :locations="item.locations"
-      :email="item.email"
-      :phone="item.phone"
-      :departments="item.departments"
-      :consultation="item.consultation"
-      class="block-staff-list-item"
-    />
-  </ul>
+  <div>
+    <ul class="section-staff-list">
+      <BlockStaffList
+        v-for="item in items"
+        :key="`ucla-staff-${item.to}`"
+        :image="item.image"
+        :to="item.to"
+        :staff-name="item.staffName"
+        :alternative-full-name="item.alternativeFullName"
+        :language="item.language"
+        :job-title="item.jobTitle"
+        :locations="item.locations"
+        :email="item.email"
+        :phone="item.phone"
+        :departments="item.departments"
+        :consultation="item.consultation"
+        class="block-staff-list-item"
+      />
+    </ul>
+  </div>
 </template>
 
 <style
