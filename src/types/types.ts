@@ -114,6 +114,7 @@ export interface MediaItemType {
 }
 
 export interface LocationItemType {
+  id: string
   image: MediaItemType
   locationType: string
   title: string
