@@ -18,7 +18,7 @@
         </h3>
 
         <div class="byline-group" v-if="department.length || payRate">
-            <div v-if="department.length" class="schedule-item">
+            <div v-if="department.length || payRate" class="schedule-item">
                 <div
                     v-for="(item, index) in department"
                     :key="index"
