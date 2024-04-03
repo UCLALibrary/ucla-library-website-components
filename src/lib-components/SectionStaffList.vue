@@ -7,7 +7,7 @@ import type { PropType } from 'vue'
 import BlockStaffList from '@/lib-components/BlockStaffList.vue'
 
 // TYPESCRIPT
-import type { BlockStaffList } from '@/types/types'
+import { BlockStaffList } from '@/types/types'
 
 // export default {
 //   name: "SectionStaffList",
