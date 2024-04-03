@@ -25,12 +25,21 @@ onMounted(() => {
   window.addEventListener(
     'message',
     (e) => {
-      const hours_iframe = document.getElementById('the-iframe') as HTMLIFrameElement
       const eventName = e.data[0]
       const data = e.data[1]
+      const source = e.source
       switch (eventName) {
         case 'setHeight':
-          hours_iframe.height = data + 20
+          // previously we were using the getElementsById to set the iframe height
+          // HOWEVER, this was failing when multiple iframes with the same ID were present
+          // THEREFORE, we are now looping through all iframes and setting the height based on matching source
+          let iframes = document.getElementsByTagName('iframe')
+          for (let i = 0; i < iframes.length; i++) {
+            if (iframes[i].contentWindow === source) {
+              iframes[i].style.height = `${data + 20}px`
+              break
+            }
+          }
           break
       }
     },
@@ -45,53 +54,49 @@ onMounted(() => {
       Hours
     </h3>
     <div class="content">
-      <iframe
-        id="the-iframe" title="Hours for location" class="iframe" :src="parsedSrc" frameBorder="0"
-        width="100%" height="100%"
-      />
-      <ButtonLink
-        label="All Library Hours" :is-secondary="true" to="https://calendar.library.ucla.edu/hours"
-        class="btn-lnk"
-      />
+      <iframe id="the-iframe" title="Hours for location" class="iframe" :src="parsedSrc" frameBorder="0" width="100%"
+        height="100%" />
+      <ButtonLink label="All Library Hours" :is-secondary="true" to="https://calendar.library.ucla.edu/hours"
+        class="btn-lnk" />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .block-hours {
-    max-width: 930px;
-    width: 100%;
+  max-width: 930px;
+  width: 100%;
 
-    .title {
-        color: var(--color-primary-blue-03);
-        @include step-2;
-        margin-bottom: var(--space-m);
+  .title {
+    color: var(--color-primary-blue-03);
+    @include step-2;
+    margin-bottom: var(--space-m);
+  }
+
+  .content {
+    border-radius: var(--rounded-slightly-all);
+    border: 2px solid var(--color-primary-blue-01);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: space-between;
+
+    .btn-lnk {
+      max-width: 300px;
+      margin-left: 10px;
+      margin-top: 8px;
+      margin-bottom: 20px;
     }
 
-    .content {
-        border-radius: var(--rounded-slightly-all);
-        border: 2px solid var(--color-primary-blue-01);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        align-content: space-between;
-
-        .btn-lnk {
-            max-width: 300px;
-            margin-left: 10px;
-            margin-top: 8px;
-            margin-bottom: 20px;
-        }
-
-        .iframe {
-            max-width: 928px;
-            padding: 12px;
-        }
-
-        table {
-            height: 100%;
-        }
+    .iframe {
+      max-width: 928px;
+      padding: 12px;
     }
+
+    table {
+      height: 100%;
+    }
+  }
 }
 </style>
