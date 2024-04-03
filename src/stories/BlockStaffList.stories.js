@@ -1,42 +1,43 @@
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
-import BlockStaffList from "@/lib-components/BlockStaffList"
+import * as API from '@/stories/mock-api.json'
+import BlockStaffList from '@/lib-components/BlockStaffList'
 
 // Storybook default settings
 export default {
-    title: "BLOCK / Staff / List",
+  title: 'BLOCK / Staff / List',
 }
 
 const mock = {
-    to: "/staff/anne-bonny",
-    jobTitle: "Pirate",
-    staffName: "Anne Bonny",
-    departments: [
-        { id: 123, title: "Pillaging" },
-        { id: 123, title: "Plundering" },
-    ],
-    email: "loreum@ipsum.foo",
+  to: '/staff/anne-bonny',
+  jobTitle: 'Pirate',
+  staffName: 'Anne Bonny',
+  departments: [
+    { id: 123, title: 'Pillaging' },
+    { id: 123, title: 'Plundering' },
+  ],
+  email: 'loreum@ipsum.foo',
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            item: {
-                ...mock,
-                image: API.image_people,
-                locations: [
-                    {
-                        title: "Cupidatat non Proident",
-                        to: "/location/bar",
-                    },
-                    {
-                        title: "tristique",
-                        to: "/location/baz",
-                    },
-                ],
+      return {
+        item: {
+          ...mock,
+          image: API.image_people,
+          locations: [
+            {
+              title: 'Cupidatat non Proident',
+              to: '/location/bar',
             },
-        }
+            {
+              title: 'tristique',
+              to: '/location/baz',
+            },
+          ],
+        },
+      }
     },
     components: { BlockStaffList },
     template: `
@@ -45,18 +46,20 @@ export const Default = () => ({
         phone="(222) 444-5555"
       />
   `,
-})
+  }
+}
 
-export const AlternativeName = () => ({
+export function AlternativeName() {
+  return {
     data() {
-        return {
-            item: {
-                ...mock,
-                image: API.image_people,
-                alternativeFullName: "生懸命",
-                language: "ja",
-            },
-        }
+      return {
+        item: {
+          ...mock,
+          image: API.image_people,
+          alternativeFullName: '生懸命',
+          language: 'ja',
+        },
+      }
     },
     components: { BlockStaffList },
     template: `
@@ -65,25 +68,27 @@ export const AlternativeName = () => ({
         phone="(222) 444-5555"
       />
   `,
-})
+  }
+}
 
-export const NoImage = () => ({
+export function NoImage() {
+  return {
     data() {
-        return {
-            item: {
-                ...mock,
-                locations: [
-                    {
-                        title: "Cupidatat on Proident",
-                        to: "/location/bar",
-                    },
-                    {
-                        title: "Tristique Abore et Dolore",
-                        to: "/location/baz",
-                    },
-                ],
+      return {
+        item: {
+          ...mock,
+          locations: [
+            {
+              title: 'Cupidatat on Proident',
+              to: '/location/bar',
             },
-        }
+            {
+              title: 'Tristique Abore et Dolore',
+              to: '/location/baz',
+            },
+          ],
+        },
+      }
     },
     components: { BlockStaffList },
     template: `
@@ -92,22 +97,24 @@ export const NoImage = () => ({
         phone="(222) 444-5555"
       />
   `,
-})
+  }
+}
 
-export const OneLocation = () => ({
+export function OneLocation() {
+  return {
     data() {
-        return {
-            item: {
-                ...mock,
-                image: API.image_people,
-                locations: [
-                    {
-                        title: "cupidatat non proident",
-                        to: "/location/bar",
-                    },
-                ],
+      return {
+        item: {
+          ...mock,
+          image: API.image_people,
+          locations: [
+            {
+              title: 'cupidatat non proident',
+              to: '/location/bar',
             },
-        }
+          ],
+        },
+      }
     },
     components: { BlockStaffList },
     template: `
@@ -116,26 +123,28 @@ export const OneLocation = () => ({
         phone="(222) 444-5555"
       />
   `,
-})
+  }
+}
 
-export const NoPhoneNumber = () => ({
+export function NoPhoneNumber() {
+  return {
     data() {
-        return {
-            item: {
-                ...mock,
-                image: API.image_people,
-                locations: [
-                    {
-                        title: "cupidatat non proident",
-                        to: "/location/bar",
-                    },
-                    {
-                        title: "tristique",
-                        to: "/location/baz",
-                    },
-                ],
+      return {
+        item: {
+          ...mock,
+          image: API.image_people,
+          locations: [
+            {
+              title: 'cupidatat non proident',
+              to: '/location/bar',
             },
-        }
+            {
+              title: 'tristique',
+              to: '/location/baz',
+            },
+          ],
+        },
+      }
     },
     components: { BlockStaffList },
     template: `
@@ -143,16 +152,18 @@ export const NoPhoneNumber = () => ({
         v-bind="item"
       />
   `,
-})
+  }
+}
 
-export const NoLocation = () => ({
+export function NoLocation() {
+  return {
     data() {
-        return {
-            item: {
-                ...mock,
-                image: API.image_people,
-            },
-        }
+      return {
+        item: {
+          ...mock,
+          image: API.image_people,
+        },
+      }
     },
     components: { BlockStaffList },
     template: `
@@ -160,4 +171,5 @@ export const NoLocation = () => ({
         v-bind="item"
       />
   `,
-})
+  }
+}

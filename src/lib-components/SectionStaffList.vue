@@ -2,10 +2,9 @@
   lang="ts"
   setup
 >
-import { computed } from 'vue'
 import type { PropType } from 'vue'
 
-import BlockStaffList from "@/lib-components/BlockStaffList.vue"
+import BlockStaffList from '@/lib-components/BlockStaffList.vue'
 
 // export default {
 //   name: "SectionStaffList",
@@ -29,13 +28,13 @@ const { items } = defineProps({
 
 <template>
   <ul class="section-staff-list">
-    <block-staff-list
+    <BlockStaffList
       v-for="item in items"
       :key="item.to"
       :image="item.image"
       :to="item.to"
       :staff-name="item.staffName"
-      :alternativeFullName="item.alternativeFullName"
+      :alternative-full-name="item.alternativeFullName"
       :language="item.language"
       :job-title="item.jobTitle"
       :locations="item.locations"
