@@ -6,10 +6,10 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 
 // TYPESCRIPT
+import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
 import type { DepartmentItemType, LocationItemType, MediaItemType } from '@/types/types'
 
 // COMPONENTS
-import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
