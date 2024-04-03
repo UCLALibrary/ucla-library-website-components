@@ -1,3 +1,10 @@
+# [2.39.0-alpha.59](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.58...v2.39.0-alpha.59) (2024-04-02)
+
+
+### Bug Fixes
+
+* typehandle error ([#484](https://github.com/UCLALibrary/ucla-library-website-components/issues/484)) ([eb6cf8e](https://github.com/UCLALibrary/ucla-library-website-components/commit/eb6cf8e344c25f8984ea1d12ebaf4468fd0b7a1b))
+
 # [2.39.0-alpha.58](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.57...v2.39.0-alpha.58) (2024-04-02)
 
 

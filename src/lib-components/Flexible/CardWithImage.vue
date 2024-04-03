@@ -25,14 +25,17 @@ const { block } = defineProps({
 
 const parsedList = computed(() => {
   const items = []
-  for (const item in block.cardWithImage) {
+  for (const indexProperty in block.cardWithImage) {
+    // console.log("card with image loop, property:", indexProperty)
+    // console.log("block.cardWithImage[indexProperty].typeHandle", block.cardWithImage[indexProperty].typeHandle)
     if (
-      block.cardWithImage[item].typeHandle
-      === 'internalContent'
+      block.cardWithImage[indexProperty].typeHandle === 'internalContent'
+      && block.cardWithImage[indexProperty].contentLink
+      && block.cardWithImage[indexProperty].contentLink.length > 0
     )
-      items.push(block.cardWithImage[item].contentLink[0])
-    else
-      items.push(block.cardWithImage[item])
+      items.push(block.cardWithImage[indexProperty].contentLink[0])
+    else if (block.cardWithImage[indexProperty].typeHandle !== 'internalContent')
+      items.push(block.cardWithImage[indexProperty])
   }
   return items
 })
