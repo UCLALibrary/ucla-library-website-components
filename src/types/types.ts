@@ -33,6 +33,21 @@ export interface BlockCardMetaType {
   ongoing: boolean
 }
 
+export interface BlockGenericListType {
+  title?: string
+  alternativeFullName?: string
+  language?: string
+  text?: string
+  summary?: string // todo check this data, overlap with text?
+  jobType?: string // todo check
+  jobRequisitionNumber?: string
+  jobPostingURL?: string
+  departments?: DepartmentItemType[]
+  department?: string // todo check
+  associatedLocations?: LocationItemType[]
+  payRate?: string
+}
+
 export interface BlockImpactNumbersCarouselType {
   largeText: string
   mediumText: string
