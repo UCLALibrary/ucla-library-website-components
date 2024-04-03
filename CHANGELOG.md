@@ -1,3 +1,10 @@
+# [2.39.0-alpha.60](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.59...v2.39.0-alpha.60) (2024-04-03)
+
+
+### Features
+
+* APPS-2556 Convert BlockHours to vue3 ([#485](https://github.com/UCLALibrary/ucla-library-website-components/issues/485)) ([2824893](https://github.com/UCLALibrary/ucla-library-website-components/commit/2824893f3559401c486bb22d23c22d32f2a2d487))
+
 # [2.39.0-alpha.59](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.58...v2.39.0-alpha.59) (2024-04-02)
 
 
