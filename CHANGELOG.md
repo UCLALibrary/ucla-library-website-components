@@ -1,3 +1,10 @@
+## [2.41.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.5...v2.41.6) (2024-04-03)
+
+
+### Bug Fixes
+
+* pay rate should display in block generic list ([#486](https://github.com/UCLALibrary/ucla-library-website-components/issues/486)) ([fdb4107](https://github.com/UCLALibrary/ucla-library-website-components/commit/fdb4107b2266d915a7f49cefc4c4fe49e2764fc0))
+
 ## [2.41.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.4...v2.41.5) (2024-02-02)
 
 
