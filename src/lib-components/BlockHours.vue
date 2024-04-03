@@ -28,12 +28,12 @@ onMounted(() => {
       const eventName = e.data[0]
       const data = e.data[1]
       const source = e.source
+      // previously we were using the getElementsById to set the iframe height
+      // HOWEVER, this was failing when multiple iframes with the same ID were present
+      // THEREFORE, we are now looping through all iframes and setting the height based on matching source
+      const iframes = document.getElementsByTagName('iframe')
       switch (eventName) {
         case 'setHeight':
-          // previously we were using the getElementsById to set the iframe height
-          // HOWEVER, this was failing when multiple iframes with the same ID were present
-          // THEREFORE, we are now looping through all iframes and setting the height based on matching source
-          let iframes = document.getElementsByTagName('iframe')
           for (let i = 0; i < iframes.length; i++) {
             if (iframes[i].contentWindow === source) {
               iframes[i].style.height = `${data + 20}px`
