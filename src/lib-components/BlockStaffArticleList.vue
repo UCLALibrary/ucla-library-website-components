@@ -1,19 +1,19 @@
 <script
-  lang="ts"
   setup
+  lang="ts"
 >
 import { computed } from 'vue'
 import type { PropType } from 'vue'
+import format from 'date-fns/format'
+
+// SVGs
+import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 
 // TYPESCRIPT
-import format from 'date-fns/format'
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 
 // UTILITY FUNCTIONS
-import removeHtmlTruncate from '@/util/removeHtmlTruncate.js'
-
-// SVGs
+import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
@@ -37,7 +37,7 @@ const props = defineProps({
     default: '',
   },
   authors: {
-    type: Array as PropType<ArticleStaffItemType>,
+    type: Array as PropType<ArticleStaffItemType[]>,
     default: () => [],
   },
   date: {
@@ -59,7 +59,7 @@ const parsedDate = computed(() => {
 })
 
 const imageExists = computed(() => {
-  return !!(image && Object.keys(image) !== 0)
+  return image && Object.keys(image) != 0 ? true : false
 })
 
 const parsedTextTruncated = computed(() => {

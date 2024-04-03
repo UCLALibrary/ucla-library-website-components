@@ -12,70 +12,61 @@ import _isEmpty from "lodash/isEmpty"
 import SvgHeadingArrow from "ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg"
 import ResponsiveImage from "@/lib-components/ResponsiveImage"
 import SmartLink from "@/lib-components/SmartLink.vue"
+import IconWithLink from '@/lib-components/IconWithLink.vue'
 
 // TYPESCRIPT
 import type { MediaItemType, DepartmentItemType, LocationItemType } from '@/types/types'
 
-export default {
-  name: "BlockStaffList",
-  components: {
-    SvgHeadingArrow,
-    ResponsiveImage,
-    SmartLink,
-    IconWithLink: () =>
-      import("@/lib-components/IconWithLink.vue").then((d) => d.default),
+const props = defineProps({
+  to: {
+    type: String,
+    default: "",
   },
-
-  const props = defineProps({
-    to: {
-      type: String,
-      default: "",
-    },
-    image: {
-      type: Object as PropType<MediaItemType>,
-      default: () => { },
-    },
-    staffName: {
-      type: String,
-      default: "",
-    },
-    alternativeFullName: {
-      type: String,
-      default: "",
-    },
-    language: {
-      type: String,
-      default: "",
-    },
-    jobTitle: {
-      type: String,
-      default: "",
-    },
-    email: {
-      type: String,
-      default: "",
-    },
-    phone: {
-      type: String,
-      default: "",
-    },
-    departments: {
-      type: Array as PropType<DepartmentItemType[]>,
-      default: () => [],
-    },
-    consultation: {
-      type: String,
-      default: "",
-    },
-    locations: {
-      type: Array as PropType<LocationItemType[]>,
-      default: () => [],
-    },
-  })
+  image: {
+    type: Object as PropType<MediaItemType>,
+    default: () => { },
+  },
+  staffName: {
+    type: String,
+    default: "",
+  },
+  alternativeFullName: {
+    type: String,
+    default: "",
+  },
+  language: {
+    type: String,
+    default: "",
+  },
+  jobTitle: {
+    type: String,
+    default: "",
+  },
+  email: {
+    type: String,
+    default: "",
+  },
+  phone: {
+    type: String,
+    default: "",
+  },
+  departments: {
+    type: Array as PropType<DepartmentItemType[]>,
+    default: () => [],
+  },
+  consultation: {
+    type: String,
+    default: "",
+  },
+  locations: {
+    type: Array as PropType<LocationItemType[]>,
+    default: () => [],
+  },
+})
 
 const lastDepartment = computed(() => {
-    return departments[departments.length - 1].title
-  })
+  return departments[departments.length - 1].title
+})
 </script>
 
 <template>
