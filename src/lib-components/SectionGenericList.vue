@@ -1,25 +1,28 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
-import BlockGenericList from "@/lib-components/BlockGenericList.vue"
+import BlockGenericList from '@/lib-components/BlockGenericList.vue'
 import type { SectionGenericListItemType } from '@/types/types'
 
 const { items } = defineProps({
-    items: {
-        type: Array as PropType<SectionGenericListItemType[]>,
-        default: () => [],
-    },
+  items: {
+    type: Array as PropType<SectionGenericListItemType[]>,
+    default: () => [],
+  },
 })
 </script>
+
 <template>
-    <section class="section-block-generic-list">
-        <ul class="block-generic-list">
-            <BlockGenericList v-for="(item, index) in items" sectionTitle="Academic Librarian Jobs"
-                :key="`${item.title}-${index}`" :title="item.title" :alternativeFullName="item.alternativeFullName"
-                :language="item.language" :text="item.summary" :jobRequisitionNumber="item.jobRequisitionNumber"
-                :jobPostingURL="item.jobPostingURL" :departments="item.department" :payRate="item.payRate"
-                :associatedLocations="item.associatedLocations" />
-        </ul>
-    </section>
+  <section class="section-block-generic-list">
+    <ul class="block-generic-list">
+      <BlockGenericList
+        v-for="(item, index) in items" :key="`${item.title}-${index}`"
+        section-title="Academic Librarian Jobs" :title="item.title" :alternative-full-name="item.alternativeFullName"
+        :language="item.language" :text="item.summary" :job-requisition-number="item.jobRequisitionNumber"
+        :job-posting-u-r-l="item.jobPostingURL" :departments="item.department" :pay-rate="item.payRate"
+        :associated-locations="item.associatedLocations"
+      />
+    </ul>
+  </section>
 </template>
 
 <style lang="scss" scoped>
