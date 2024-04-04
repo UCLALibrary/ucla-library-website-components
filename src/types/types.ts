@@ -33,21 +33,6 @@ export interface BlockCardMetaType {
   ongoing: boolean
 }
 
-export interface BlockGenericListType {
-  title?: string
-  alternativeFullName?: string
-  language?: string
-  text?: string
-  summary?: string // todo check this data, overlap with text?
-  jobType?: string // todo check
-  jobRequisitionNumber?: string
-  jobPostingURL?: string
-  departments?: DepartmentItemType[]
-  department?: string // todo check
-  associatedLocations?: LocationItemType[]
-  payRate?: string
-}
-
 export interface BlockImpactNumbersCarouselType {
   largeText: string
   mediumText: string
@@ -159,6 +144,19 @@ export interface NavPrimaryItemType extends NavPrimaryBaseItem {
 
 export interface NavSecondaryItemType extends NavItem {
   text?: string
+}
+
+export interface SectionGenericListItemType {
+  title?: string
+  alternativeFullName?: string
+  language?: string
+  summary?: string // maps to 'text' prop in BlockGenericList component
+  jobType?: { title?: string }[] // deprecated, data not displayed
+  jobRequisitionNumber?: string
+  jobPostingURL?: string
+  department?: DepartmentItemType[] // maps to 'departments' prop in BlockGenericList component
+  associatedLocations?: LocationItemType[]
+  payRate?: string
 }
 
 export interface SectionSpaceListItemType {

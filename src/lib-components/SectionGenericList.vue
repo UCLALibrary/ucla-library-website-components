@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import BlockGenericList from "@/lib-components/BlockGenericList.vue"
-import type { BlockGenericListType } from '@/types/types'
+import type { SectionGenericListItemType } from '@/types/types'
 
 const { items } = defineProps({
     items: {
-        type: Array as PropType<BlockGenericListType[]>,
+        type: Array as PropType<SectionGenericListItemType[]>,
         default: () => [],
     },
 })
@@ -15,9 +15,9 @@ const { items } = defineProps({
         <ul class="block-generic-list">
             <BlockGenericList v-for="(item, index) in items" sectionTitle="Academic Librarian Jobs"
                 :key="`${item.title}-${index}`" :title="item.title" :alternativeFullName="item.alternativeFullName"
-                :language="item.language" :text="item.summary" :jobType="item.jobType"
-                :jobRequisitionNumber="item.jobRequisitionNumber" :jobPostingURL="item.jobPostingURL"
-                :department="item.department" :payRate="item.payRate" :associatedLocations="item.associatedLocations" />
+                :language="item.language" :text="item.summary" :jobRequisitionNumber="item.jobRequisitionNumber"
+                :jobPostingURL="item.jobPostingURL" :departments="item.department" :payRate="item.payRate"
+                :associatedLocations="item.associatedLocations" />
         </ul>
     </section>
 </template>
