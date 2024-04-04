@@ -1,10 +1,4 @@
 // custom types
-export interface AuthorsType {
-  id: string
-  slug: string
-  title: string
-  to: string
-}
 
 export interface AmenitiesType {
   title: string
@@ -12,7 +6,6 @@ export interface AmenitiesType {
 }
 
 export interface ArticleStaffItemType {
-  id: string
   title?: string
   to?: string
 }
@@ -46,33 +39,6 @@ export interface BlockImpactNumbersCarouselType {
   smallDescriptor: string
   image: MediaItemType[]
   altImageText: string
-}
-
-export interface BlockStaffArticleListItemType {
-  image: MediaItemType
-  to: string
-  category: string
-  title: string
-  date: string
-  authors: AuthorsType[]
-  description: string
-  externalResourceUrl: string
-}
-
-export interface BlockStaffListItemType {
-  image: MediaItemType
-  to: string
-  staffName: string
-  alternativeName: string
-  alternativeFullName: string
-  language: string
-  jobTitle: string
-  locations: LocationItemType[]
-  email: string
-  phone: string
-  departments: DepartmentItemType[]
-  consultation: string
-  subjectArea: string
 }
 
 export interface CardItemType {
@@ -133,19 +99,19 @@ export interface MediaItemType {
 }
 
 export interface LocationItemType {
-  id: string
-  image: MediaItemType
-  locationType: string
-  title: string
-  to: string
-  uri: string
-  affiliateLibraryUrl: string
-  address: string
-  addressLink: string
-  amenities: AmenitiesType[]
-  reserveSeat: string
-  isUclaLibrary: boolean
-  libcalLocationIdForHours: string
+id?: string
+image: MediaItemType
+locationType: string
+title: string
+to: string
+uri?: string
+affiliateLibraryUrl: string
+address: string
+addressLink: string
+amenities: AmenitiesType[]
+reserveSeat: string
+isUclaLibrary: boolean
+libcalLocationIdForHours: string
 }
 
 export interface SearchLinkItemType {
