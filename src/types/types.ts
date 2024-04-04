@@ -54,7 +54,7 @@ export interface BlockStaffListItemType {
   phone: string
   departments: DepartmentItemType[]
   consultation: string
-  subject-area: string
+  subjectArea: string
 }
 
 export interface CardItemType {
