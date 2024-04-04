@@ -19,6 +19,7 @@ const { items, sectionTitle } = defineProps({
     default: '',
   },
 })
+// TODO? we could parse the heroImage here instead of on the page similar to flexible/highlight
 </script>
 
 <template>
@@ -40,6 +41,7 @@ const { items, sectionTitle } = defineProps({
           :date="item.date"
           :authors="item.authors"
           :description="item.description"
+          :external-resource-url="item.externalResourceUrl"
         />
       </ul>
     </div>
@@ -87,7 +89,7 @@ const { items, sectionTitle } = defineProps({
     }
 
     @for $i from 1 through 30 {
-      ::v-deep .block-staff-article-item:nth-child(#{$i}) .molecule {
+      :v-deep(.block-staff-article-item:nth-child(#{$i}) .molecule) {
         left: calc(random(500) * -1) + px;
       }
     }

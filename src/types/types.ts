@@ -61,6 +61,7 @@ export interface BlockStaffArticleListItemType {
   date: string
   authors: AuthorsType[]
   description: string
+  externalResourceUrl: string
 }
 
 export interface BlockStaffListItemType {
