@@ -10,6 +10,13 @@ export interface ArticleStaffItemType {
   to?: string
 }
 
+export interface AuthorsItemType {
+  id: string
+  slug: string
+  to: string
+  title: string
+}
+
 export interface BlockCallToActionTwoUpType {
   svgName: string
   title: string
@@ -39,6 +46,31 @@ export interface BlockImpactNumbersCarouselType {
   smallDescriptor: string
   image: MediaItemType[]
   altImageText: string
+}
+
+export interface BlockStaffListItemType {
+  subjectArea: string
+  staff-name: string
+  to: string
+  alternativeName: string
+  language: string
+  jobTitle: string
+  departments: DepartmentItemType[]
+  locations: LocationItemType[]
+  email: string
+  phone: string
+  consultation: string
+}
+
+export interface BlockStaffArticleListItemType {
+  image: MediaItemType
+  to: string
+  category: string
+  title: string
+  date: string
+  authors: AuthorsItemType[]
+  description: string
+  externalResourceUrl: string
 }
 
 export interface CardItemType {
