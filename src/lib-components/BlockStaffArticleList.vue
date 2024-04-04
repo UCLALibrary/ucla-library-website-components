@@ -281,6 +281,3 @@ const parsedTextAll = computed(() => {
     }
   }
 }
-
-// injectto pass data and provide
-</style>
