@@ -1,8 +1,6 @@
 // Import component
 import SectionGenericList from '@/lib-components/SectionGenericList'
 
-// Import mock api data
-
 // Storybook default settings
 export default {
   title: 'SECTION / Generic / List',
