@@ -11,11 +11,6 @@ export interface AmenitiesType {
   icon: string
 }
 
-export interface AmenitiesType {
-  title: string
-  icon: string
-}
-
 export interface ArticleStaffItemType {
   id: string
   title?: string
