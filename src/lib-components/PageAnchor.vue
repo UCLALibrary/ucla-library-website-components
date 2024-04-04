@@ -1,78 +1,94 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
+import type { PropType } from 'vue'
+import { useRoute } from 'vue-router'
+
 // Helpers
+import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
 import getSectionName from '@/utils/getSectionName'
-import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
 
 const { sectionTitles, color } = defineProps({
-    sectionTitles: {
-        type: Array,//TODO OF WHAT
-        required: true,
-    },
-    color: {
-        type: String,
-        default: "", // This will be "visit", "about", "help".
-    },
+  sectionTitles: {
+    type: Array as PropType<string[]>,
+    required: true,
+  },
+  color: {
+    type: String as PropType<routeColors>,
+    default: 'default',
+  },
 })
+
+const route = useRoute()
+
+// typify valid route color strings
+type routeColors = 'about' | 'help' | 'visit' | 'default'
+
 const isDropdownOpen = ref(false)
 const windowWidth = ref(window.innerWidth)
 // Computed
-const classes = computed(() => {
-    return ["link", `color-${sectionName.value}`]
-})
 const sectionName = computed(() => {
-    return color || getSectionName($route.path) // todo anything with route?
+  return color || getSectionName(route?.path)
+})
+
+const classes = computed(() => {
+  return ['link', `color-${sectionName.value}`]
 })
 const kebabCaseTitles = computed(() => {
-    return sectionTitles.map((title) => {
-        let titleWithNoSpecialChars = title
-            .replace("&", "")
-            .replace(/\s+/g, " ")
-            .trim()
-        return titleWithNoSpecialChars.toLowerCase().replace(/ /g, "-")
-    })
+  return sectionTitles.map((title) => {
+    const titleWithNoSpecialChars = title
+      .replace('&', '')
+      .replace(/\s+/g, ' ')
+      .trim()
+    return titleWithNoSpecialChars.toLowerCase().replace(/ /g, '-')
+  })
 })
 const isDesktop = computed(() => {
-    if (windowWidth.value > 1024) {
-        return true
-    }
-    return false
+  if (windowWidth.value > 1024)
+    return true
+
+  return false
 })
 // Methods
-const toggleDropdown = () => {
-    isDropdownOpen.value = !isDropdownOpen.value
+function toggleDropdown() {
+  isDropdownOpen.value = !isDropdownOpen.value
 }
 </script>
+
 <template>
-    <div class="page-anchor">
-        <div class="page-anchor-content">
-            <button class="dropdown-button" @click="toggleDropdown">
-                On this page
-                <span class="caret" :class="{ 'is-active': isDropdownOpen }">
-                    <span class="chevron">
-                        <SvgIconCaretDown class="caret-down-svg" />
-                    </span>
-                </span>
-            </button>
+  <div class="page-anchor">
+    <div class="page-anchor-content">
+      <button class="dropdown-button" @click="toggleDropdown">
+        On this page
+        <span class="caret" :class="{ 'is-active': isDropdownOpen }">
+          <span class="chevron">
+            <SvgIconCaretDown class="caret-down-svg" />
+          </span>
+        </span>
+      </button>
 
-            <!-- Desktop - Page Anchor remains open when link is clicked -->
-            <ul v-if="isDropdownOpen && isDesktop" class="dropdown-menu page-anchor-list">
-                <li v-for="(title, index) in sectionTitles" :key="`${title}-${index}`" :class="classes">
-                    <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
-                </li>
-                <li :class="classes"><a href="#">Back to Top</a></li>
-            </ul>
+      <!-- Desktop - Page Anchor remains open when link is clicked -->
+      <ul v-if="isDropdownOpen && isDesktop" class="dropdown-menu page-anchor-list">
+        <li v-for="(title, index) in sectionTitles" :key="`${title}-${index}`" :class="classes">
+          <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
+        </li>
+        <li :class="classes">
+          <a href="#">Back to Top</a>
+        </li>
+      </ul>
 
-            <!-- Tablet or Mobile - Page Anchor closes when link is clicked -->
-            <ul v-if="isDropdownOpen && !isDesktop" class="dropdown-menu page-anchor-list" @click="toggleDropdown">
-                <li v-for="(title, index) in sectionTitles" :key="`${title}-${index}`" :class="classes">
-                    <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
-                </li>
-                <li :class="classes"><a href="#">Back to Top</a></li>
-            </ul>
-        </div>
+      <!-- Tablet or Mobile - Page Anchor closes when link is clicked -->
+      <ul v-if="isDropdownOpen && !isDesktop" class="dropdown-menu page-anchor-list" @click="toggleDropdown">
+        <li v-for="(title, index) in sectionTitles" :key="`${title}-${index}`" :class="classes">
+          <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
+        </li>
+        <li :class="classes">
+          <a href="#">Back to Top</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </template>
+
 <style lang="scss" scoped>
 .page-anchor {
     position: -webkit-sticky;
