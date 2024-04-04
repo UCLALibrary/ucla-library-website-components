@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
@@ -79,8 +82,11 @@ const parsedLocations = computed(() => {
         break
     }
   }
-  if (block.content && block.content[0].location)
-    locations.push(block.content[0].location)
+  // Currently BlockCardWithImageFragment.gql comments out
+  // line 96. # location {id,title}
+
+  // if (block.content && block.content[0].location)
+  // locations.push(block.content[0].location)
 
   return locations
 })
@@ -241,7 +247,8 @@ const parsedDescription = computed(() => {
     <BannerFeatured
       v-if="block && block.content && !block.content[0].contentLink"
       class="flexible-banner-featured"
-      :media="parseImage" :to="stripMeapFromURI(block.content[0].to)"
+      :media="parseImage"
+      :to="stripMeapFromURI(block.content[0].to)"
       :title="block.content[0].title"
       :breadcrumb="parsedTypeHandle"
       :byline="parseByLine"
@@ -255,4 +262,7 @@ const parsedDescription = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style
+  lang="scss"
+  scoped
+></style>

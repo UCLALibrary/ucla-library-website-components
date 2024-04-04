@@ -99,7 +99,7 @@ interface FlexibleBannerContent {
   title: string
   summary: string
   alignment: string
-  location: { title: string; to: string }
+  location: LocationItemType[]
   byline1: string
   byline2: string
   to: string
