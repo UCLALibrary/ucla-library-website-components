@@ -4,13 +4,14 @@
 >
 import type { PropType } from 'vue'
 
-// UTILITY FUNCTIONS
+// TYPESCRIPT
+import type { BlockStaffArticleListItemType } from '@/types/types'
 
-import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList'
+import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList.vue'
 
 const { items, sectionTitle } = defineProps({
   items: {
-    type: Array as PropType<EventItemType[]>,
+    type: Array as PropType<BlockStaffArticleListItemType[]>,
     default: () => [],
   },
   sectionTitle: {

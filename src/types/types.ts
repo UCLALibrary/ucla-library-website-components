@@ -1,4 +1,15 @@
 // custom types
+export interface AuthorsType {
+  id: string
+  slug: string
+  title: string
+  to: string
+}
+
+export interface AmenitiesType {
+  title: string
+  icon: string
+}
 
 export interface AmenitiesType {
   title: string
@@ -42,10 +53,21 @@ export interface BlockImpactNumbersCarouselType {
   altImageText: string
 }
 
+export interface BlockStaffArticleListItemType {
+  image: MediaItemType
+  to: string
+  category: string
+  title: string
+  date: string
+  authors: AuthorsType[]
+  description: string
+}
+
 export interface BlockStaffListItemType {
   image: MediaItemType
   to: string
   staffName: string
+  alternativeName: string
   alternativeFullName: string
   language: string
   jobTitle: string
