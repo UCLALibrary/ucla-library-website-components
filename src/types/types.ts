@@ -1,5 +1,4 @@
 // custom types
-
 export interface AmenitiesType {
   title: string
   icon: string

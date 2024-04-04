@@ -6,7 +6,7 @@ import type { PropType } from 'vue'
 import BlockLocationListItem from '@/lib-components/BlockLocationListItem.vue'
 
 // TYPES
-import type { LocationItemType, AmenitiesType, MediaItemType } from '@/types/types'
+import type { LocationItemType } from '@/types/types'
 
 const { items } = defineProps({
   items: {
