@@ -5,9 +5,8 @@
 import type { PropType } from 'vue'
 
 // UTILITY FUNCTIONS
-import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
-import BlockStaffArticleList from "@/lib-components/BlockStaffArticleList"
+import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList'
 
 const { items, sectionTitle } = defineProps({
   items: {
@@ -16,10 +15,9 @@ const { items, sectionTitle } = defineProps({
   },
   sectionTitle: {
     type: String,
-    default: "",
+    default: '',
   },
 })
-
 </script>
 
 <template>

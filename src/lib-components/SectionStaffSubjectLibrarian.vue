@@ -7,7 +7,7 @@ import type { PropType } from 'vue'
 // TYPESCRIPT
 import type { BlockStaffListItemType } from '@/types/types'
 
-import BlockStaffSubjectLibrarian from "@/lib-components/BlockStaffSubjectLibrarian.vue"
+import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian.vue'
 
 const { items, tableHeaders } = defineProps({
   items: {
@@ -44,7 +44,7 @@ const { items, tableHeaders } = defineProps({
         :subject-area="item.subjectArea"
         :staff-name="item.staffName"
         :to="item.to"
-        :alternativeName="item.alternativeName"
+        :alternative-name="item.alternativeName"
         :language="item.language"
         :job-title="item.jobTitle"
         :departments="item.departments"
