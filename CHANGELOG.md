@@ -1,3 +1,10 @@
+# [2.39.0-alpha.63](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.62...v2.39.0-alpha.63) (2024-04-05)
+
+
+### Features
+
+* APPS-2555 convert PageAnchor to vue 3 ([#488](https://github.com/UCLALibrary/ucla-library-website-components/issues/488)) ([ecd2f5d](https://github.com/UCLALibrary/ucla-library-website-components/commit/ecd2f5de57a7b76bbe9518739b418308d5e446a1))
+
 # [2.39.0-alpha.62](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.61...v2.39.0-alpha.62) (2024-04-05)
 
 
