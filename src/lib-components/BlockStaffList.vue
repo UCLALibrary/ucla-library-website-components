@@ -73,7 +73,8 @@ const props = defineProps({
 })
 
 const parsedImage = computed(() => {
-  return props.image.length ? props.image[0].src : undefined
+  if (props.image.length)
+    return props.image[0].src
 })
 
 const parsedStaffName = computed(() => {
