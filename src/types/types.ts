@@ -4,7 +4,7 @@ export interface AcademicDepartmentsItemType {
   title: string
 }
 
-export interface AlternativeNameItemType: {
+export interface AlternativeNameItemType {
   fullName: string
   languageAltName: string
 }
