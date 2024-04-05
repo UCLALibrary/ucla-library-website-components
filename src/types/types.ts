@@ -144,19 +144,19 @@ export interface MediaItemType {
 }
 
 export interface LocationItemType {
-id?: string
-image: MediaItemType
-locationType: string
-title: string
-to: string
-uri?: string
-affiliateLibraryUrl: string
-address: string
-addressLink: string
-amenities: AmenitiesType[]
-reserveSeat: string
-isUclaLibrary: boolean
-libcalLocationIdForHours: string
+  id?: string
+  image: MediaItemType
+  locationType: string
+  title: string
+  to: string
+  uri?: string
+  affiliateLibraryUrl: string
+  address: string
+  addressLink: string
+  amenities: AmenitiesType[]
+  reserveSeat: string
+  isUclaLibrary: boolean
+  libcalLocationIdForHours: string
 }
 
 export interface SearchLinkItemType {
