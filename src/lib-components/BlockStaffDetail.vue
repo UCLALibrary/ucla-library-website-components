@@ -20,8 +20,8 @@ import IconWithLink from '@/lib-components/IconWithLink.vue'
 // PROPS & DATA
 const props = defineProps({
   image: {
-    type: Object as PropType<MediaItemType>,
-    default: () => { },
+    type: Array as PropType<MediaItemType>,
+    default: () => [],
   },
   to: {
     type: String,
