@@ -62,14 +62,14 @@ export interface BlockStaffListItemType {
   to: string
   nameLast: string
   nameFirst: string
+  jobTitle: string
+  departments: DepartmentItemType[]
+  email: string
   topics: TopicsItemType[]
   alternativeName?: AlternativeNameItemType[]
-  email?: string
-  departments: DepartmentItemType[]
   subjectArea?: string
   staffName?: string
   language?: string
-  jobTitle: string
   locations?: LocationItemType[]
   phone?: string
   consultation?: string
@@ -82,17 +82,34 @@ export interface BlockStaffListItemType {
   pronouns?: string
   slug: string
   sectionHandle: string
+  subjectLibrarian: boolean
 }
 
 export interface BlockStaffArticleListItemType {
-  image: MediaItemType
-  to: string
-  category: string
-  title: string
-  date: string
-  authors: AuthorsItemType[]
-  description: string
-  externalResourceUrl: string
+  image?: MediaItemType
+  to?: string
+  category?: string
+  title?: string
+  date?: string
+  authors?: AuthorsItemType[]
+  description?: string
+  externalResourceUrl?: string
+}
+
+export interface StaffLocationItemType {
+  id?: string
+  image?: MediaItemType
+  locationType?: string
+  title?: string
+  to?: string
+  uri?: string
+  affiliateLibraryUrl?: string
+  address?: string
+  addressLink?: string
+  amenities?: AmenitiesType[]
+  reserveSeat?: string
+  isUclaLibrary?: boolean
+  libcalLocationIdForHours?: string
 }
 
 export interface CardItemType {
@@ -154,18 +171,8 @@ export interface MediaItemType {
 
 export interface LocationItemType {
   id?: string
-  image: MediaItemType
-  locationType: string
   title: string
   to: string
-  uri?: string
-  affiliateLibraryUrl: string
-  address: string
-  addressLink: string
-  amenities: AmenitiesType[]
-  reserveSeat: string
-  isUclaLibrary: boolean
-  libcalLocationIdForHours: string
 }
 
 export interface SearchLinkItemType {
