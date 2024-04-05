@@ -9,7 +9,7 @@ import type { PropType } from 'vue'
 import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
 
 // TYPESCRIPT
-import type { AlternativeNameItemType, DepartmentItemType, LocationItemType, MediaItemType } from '@/types/types'
+import type { AlternativeNameItemType, DepartmentItemType, StaffLocationItemType, MediaItemType } from '@/types/types'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
@@ -67,7 +67,7 @@ const props = defineProps({
     default: '',
   },
   locations: {
-    type: Array as PropType<LocationItemType[]>,
+    type: Array as PropType<StaffLocationItemType[]>,
     default: () => [],
   },
 })
