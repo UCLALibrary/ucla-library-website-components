@@ -82,11 +82,8 @@ const parsedLocations = computed(() => {
         break
     }
   }
-  // Currently BlockCardWithImageFragment.gql comments out
-  // line 96. # location {id,title}
-
-  // if (block.content && block.content[0].location)
-  // locations.push(block.content[0].location)
+  if (block.content && block.content[0].location)
+    locations.push(block.content[0].location)
 
   return locations
 })
