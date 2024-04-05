@@ -231,6 +231,7 @@ const parsedTextAll = computed(() => {
   // .date:not(:only-child) {
   //     padding-left: 20px;
   // }
+
   .description {
     @include step-0;
     color: var(--color-black);

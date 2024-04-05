@@ -7,16 +7,16 @@ export default {
   component: SectionStaffArticleList,
 }
 
-const mock = [
+const mockDefault = [
   {
     image: API.image,
-    to: '/visit/foo/bar/',
-    category: 'Ullamco',
-    title: 'Fames ac turpis egestas sed tempus lorem ipsum',
+    to: 'https://www.pbs.org/wgbh/nova/article/six-snippets-squirrel-science/',
+    category: 'Communications',
+    title: 'So Many Squirrels',
     date: '1995-12-17T03:24:00',
-    authors: [{ title: 'Justo Magna', id: 123 }],
+    authors: [{ title: 'Phyllis Blackshear', id: 123 }],
     description:
-            '<p>We love re-creating restaurant-quality sandwiches like <a href=\'https://natashaskitchen.com/french-dip-pastrami-sandwich-recipe/\'>French Dip</a> and <a href=\'https://natashaskitchen.com/perfect-burger-recipe/\'>Burgers</a>! This Cheesesteak recipe is easier than you think. Watch the <strong>video tutorial below</strong> and you’ll know why everyone is talking about it.</p>',
+            '<p>The squirrel family includes tree squirrels, ground squirrels, and <a href=\'https://natashaskitchen.com/french-dip-pastrami-sandwich-recipe/\'>Fflying squirrels</a>.</p>',
   },
   {
     image: API.image,
