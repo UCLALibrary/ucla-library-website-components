@@ -1,25 +1,29 @@
 <script lang="ts" setup>
-import NavPrimary from "@/lib-components/NavPrimary.vue"
-import NavSecondary from "@/lib-components/NavSecondary.vue"
+import type { PropType } from 'vue'
+import NavPrimary from '@/lib-components/NavPrimary.vue'
+import NavSecondary from '@/lib-components/NavSecondary.vue'
+import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
 
 const { primaryItems, secondaryItems } = defineProps({
-    primaryItems: {
-        type: Array, // todo of what?
-        default: () => [],
-    },
-    secondaryItems: {
-        type: Array,  // todo of what?
-        default: () => [],
-    },
+  primaryItems: {
+    type: Array as PropType<NavPrimaryItemType[]>, // todo of what?
+    default: () => [],
+  },
+  secondaryItems: {
+    type: Array as PropType<NavSecondaryItemType[]>, // todo of what?
+    default: () => [],
+  },
 })
 </script>
-<template>
-    <header class="header-sticky">
-        <nav-primary :items="primaryItems" class="primary" />
 
-        <nav-secondary :items="secondaryItems" class="secondary" />
-    </header>
+<template>
+  <header class="header-sticky">
+    <NavPrimary :items="primaryItems" class="primary" />
+
+    <NavSecondary :items="secondaryItems" class="secondary" />
+  </header>
 </template>
+
 <style lang="scss" scoped>
 .header-sticky {
     z-index: 100;
