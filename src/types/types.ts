@@ -81,7 +81,6 @@ export interface BlockStaffListItemType {
   publications: string
   pronouns: string
   slug: string
-  uri: string
   sectionHandle: string
 }
 
