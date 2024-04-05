@@ -6,40 +6,39 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 
 // LODASH FUNCTIONS
-import _isEmpty from "lodash/isEmpty"
 
 // TYPESCRIPT
-import type { DepartmentItemType, LocationItemType, AcademicDepartmentsItemType, AlternativeNameItemType } from '@/types/types'
+import type { AcademicDepartmentsItemType, AlternativeNameItemType, DepartmentItemType, LocationItemType } from '@/types/types'
 
 // COMPONENTS
-import SmartLink from "@/lib-components/SmartLink.vue"
-import IconWithLink from "@/lib-components/IconWithLink.vue"
+import SmartLink from '@/lib-components/SmartLink.vue'
+import IconWithLink from '@/lib-components/IconWithLink.vue'
 
 // PROPS & DATA
 const props = defineProps({
   subjectArea: {
     type: String,
-    default: "",
+    default: '',
   },
   to: {
     type: String,
-    default: "",
+    default: '',
   },
   staffName: {
     type: String,
-    default: "",
+    default: '',
   },
   nameLast: {
     type: String,
-    default: "",
+    default: '',
   },
   nameFirst: {
     type: String,
-    default: "",
+    default: '',
   },
   jobTitle: {
     type: String,
-    default: "",
+    default: '',
   },
   departments: {
     type: Array as PropType<DepartmentItemType[]>,
@@ -55,27 +54,27 @@ const props = defineProps({
   },
   alternativeName: {
     type: Array as PropType<AlternativeNameItemType[]>,
-    default: "",
+    default: '',
   },
   uri: {
     type: String,
-    default: "",
+    default: '',
   },
   email: {
     type: String,
-    default: "",
+    default: '',
   },
   phone: {
     type: String,
-    default: "",
+    default: '',
   },
   consultation: {
     type: String,
-    default: "",
+    default: '',
   },
   language: {
     type: String,
-    default: "",
+    default: '',
   }
 })
 
@@ -101,11 +100,13 @@ const parsedLanguage = computed(() => {
   <div>
     <tr class="block-staff-subject-librarian">
       <!-- SUBJECT AREA -->
-      <td class="academic-department">{{ subjectArea }}</td>
+      <td class="academic-department">
+        {{ subjectArea }}
+      </td>
 
       <!-- NAME -->
       <td class="librarian-block">
-        <smart-link
+        <SmartLink
           :to="to"
           class="staff-name"
         >
@@ -115,7 +116,7 @@ const parsedLanguage = computed(() => {
             :language="parsedLanguage"
           >
             {{ parsedAlternativeFullName }}</span>
-        </smart-link>
+        </SmartLink>
 
         <div
           class="job-title"
@@ -126,11 +127,13 @@ const parsedLanguage = computed(() => {
           v-if="departments.length"
           class="departments"
         >
-          <li class="department">{{ lastDepartment }}</li>
+          <li class="department">
+            {{ lastDepartment }}
+          </li>
         </ul>
 
         <div v-if="locations.length">
-          <icon-with-link
+          <IconWithLink
             v-for="location in locations"
             :key="`location-${location.id}`"
             :text="location.title"
@@ -143,7 +146,7 @@ const parsedLanguage = computed(() => {
       <!-- CONTACT INFO -->
       <td class="contact-info">
         <div class="email">
-          <icon-with-link
+          <IconWithLink
             :text="email"
             icon-name="svg-icon-email"
             :to="`mailto:${email}`"
@@ -154,7 +157,7 @@ const parsedLanguage = computed(() => {
           v-if="phone"
           class="phone"
         >
-          <icon-with-link
+          <IconWithLink
             :text="phone"
             icon-name="svg-icon-phone"
             :to="`tel:${phone}`"
@@ -165,8 +168,8 @@ const parsedLanguage = computed(() => {
           v-if="consultation"
           class="consultation"
         >
-          <icon-with-link
-            :text="`Book a consultation`"
+          <IconWithLink
+            text="Book a consultation"
             icon-name="svg-icon-consultation"
             :to="consultation"
           />
