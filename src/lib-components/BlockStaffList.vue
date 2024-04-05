@@ -103,7 +103,7 @@ const lastDepartment = computed(() => {
       class="image"
     />
     <div
-      v-if="props.image.length == 0"
+      v-if="props.image.length === 0"
       class="no-image"
     >
       <SvgHeadingArrow class="icon-heading-arrow" />
