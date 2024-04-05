@@ -54,7 +54,7 @@ const props = defineProps({
   },
   alternativeName: {
     type: Array as PropType<AlternativeNameItemType[]>,
-    default: '',
+    default: () => [],
   },
   uri: {
     type: String,
