@@ -63,23 +63,23 @@ export interface BlockStaffListItemType {
   nameLast: string
   nameFirst: string
   topics: TopicsItemType[]
-  alternativeName: AlternativeNameItemType[]
-  email: string
+  alternativeName?: AlternativeNameItemType[]
+  email?: string
   departments: DepartmentItemType[]
   subjectArea?: string
   staffName?: string
-  language: string
+  language?: string
   jobTitle: string
   locations?: LocationItemType[]
   phone?: string
   consultation?: string
   academicDepartments?: AcademicDepartmentsItemType[]
   uri: string
-  image: MediaItemType[]
-  biography: string
-  orcid: string
-  publications: string
-  pronouns: string
+  image?: MediaItemType[]
+  biography?: string
+  orcid?: string
+  publications?: string
+  pronouns?: string
   slug: string
   sectionHandle: string
 }

@@ -93,7 +93,7 @@ const props = defineProps({
 })
 
 const parsedImage = computed(() => {
-  return props.image.length ? props.image[0].src : ''
+  return props.image.length ? props.image[0].src : ""
 })
 
 const parsedPronouns = computed(() => {
@@ -152,13 +152,14 @@ const mergeSortTopics = computed(() => {
     <div class="section-staff-bio">
       <div :class="image ? 'body-contact' : 'body-contact no-image'">
         <ResponsiveImage
-          v-if="parsedImage"
+          v-if="image"
           :media="parsedImage"
           :aspect-ratio="100"
           class="image"
         />
 
         <div class="info-container">
+          <h3>{{ props.image }}</h3>
           <div class="staff-info">
             <div
               class="job-title"
