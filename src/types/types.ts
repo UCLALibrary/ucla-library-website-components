@@ -1,4 +1,14 @@
 // custom types
+export interface AcademicDepartmentsItemType {
+  id: string
+  title: string
+}
+
+export interface AlternativeNameItemType: {
+  fullName: string
+  languageAltName: string
+}
+
 export interface AmenitiesType {
   title: string
   icon: string
@@ -48,17 +58,21 @@ export interface BlockImpactNumbersCarouselType {
 }
 
 export interface BlockStaffListItemType {
-  subjectArea: string
-  staff-name: string
   to: string
-  alternativeName: string
+  nameLast: string
+  nameFirst: string
+  alternativeName: AlternativeNameType[]
+  email: string
+  departments: DepartmentItemType[]
+  subjectArea?: string
+  staff-name?: string
   language: string
   jobTitle: string
-  departments: DepartmentItemType[]
-  locations: LocationItemType[]
-  email: string
-  phone: string
-  consultation: string
+  locations?: LocationItemType[]
+  phone?: string
+  consultation?: string
+  academicDepartments?: AcademicDepartmentsType[]
+  uri: string
 }
 
 export interface BlockStaffArticleListItemType {

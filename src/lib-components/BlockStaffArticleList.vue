@@ -4,6 +4,8 @@
 >
 import { computed } from 'vue'
 import type { PropType } from 'vue'
+
+// LODASH FUNCTIONS
 import format from 'date-fns/format'
 
 // SVGs
@@ -281,3 +283,4 @@ const parsedTextAll = computed(() => {
     }
   }
 }
+</style>

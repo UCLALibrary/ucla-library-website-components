@@ -1,99 +1,185 @@
-<script lang="ts" setup>
-import { defineAsyncComponent } from 'vue'
+<script
+  lang="ts"
+  setup
+>
+import { computed } from 'vue'
+import type { PropType } from 'vue'
 
-// Components
-import SmartLink from '@/lib-components/SmartLink.vue'
+// LODASH FUNCTIONS
+import _isEmpty from "lodash/isEmpty"
 
-defineProps({
+// TYPESCRIPT
+import type { DepartmentItemType, LocationItemType, AcademicDepartmentsItemType, AlternativeNameItemType } from '@/types/types'
+
+// COMPONENTS
+import SmartLink from "@/lib-components/SmartLink.vue"
+import IconWithLink from "@/lib-components/IconWithLink.vue"
+
+// PROPS & DATA
+const props = defineProps({
   subjectArea: {
     type: String,
-    default: '',
+    default: "",
   },
   to: {
     type: String,
-    default: '',
+    default: "",
   },
   staffName: {
     type: String,
-    default: '',
+    default: "",
   },
   nameLast: {
     type: String,
-    default: '',
+    default: "",
   },
   nameFirst: {
     type: String,
-    default: '',
+    default: "",
   },
-  academicDepartments: {
-    type: Array,
+  jobTitle: {
+    type: String,
+    default: "",
+  },
+  departments: {
+    type: Array as PropType<DepartmentItemType[]>,
     default: () => [],
   },
-  alternativeFullName: {
-    type: String,
-    default: '',
+  academicDepartments: {
+    type: Array as PropType<AcademicDepartmentsItemType[]>,
+    default: () => [],
   },
-  language: {
-    type: String,
-    default: '',
+  locations: {
+    type: Array as PropType<LocationItemType[]>,
+    default: () => [],
+  },
+  alternativeName: {
+    type: Array as PropType<AlternativeNameItemType[]>,
+    default: "",
   },
   uri: {
     type: String,
-    default: '',
+    default: "",
   },
   email: {
     type: String,
-    default: '',
+    default: "",
   },
   phone: {
     type: String,
-    default: '',
+    default: "",
   },
   consultation: {
     type: String,
-    default: '',
+    default: "",
   },
+  language: {
+    type: String,
+    default: "",
+  }
 })
 
-const IconWithLink = defineAsyncComponent(
-  () => import('@/lib-components/IconWithLink.vue')
-)
+const lastDepartment = computed(() => {
+  const dept = props.departments
+  return dept[dept.length - 1].title
+})
+
+const parsedStaffName = computed(() => {
+  return `${props.nameFirst} ${props.nameLast}`
+})
+
+const parsedAlternativeFullName = computed(() => {
+  return props.alternativeName[0].fullName
+})
+
+const parsedLanguage = computed(() => {
+  return props.alternativeName[0].languageAltName
+})
 </script>
 
 <template>
-  <tr class="block-staff-subject-librarian">
-    <!-- SUBJECT AREA -->
-    <td class="academic-department">
-      {{ subjectArea }}
-    </td>
+  <div>
+    <tr class="block-staff-subject-librarian">
+      <!-- SUBJECT AREA -->
+      <td class="academic-department">{{ subjectArea }}</td>
 
-    <!-- NAME -->
-    <td class="librarian-block">
-      <SmartLink :to="to" class="staff-name">
-        {{ staffName }}
-        <span v-if="alternativeFullName" :lang="language">
-          {{ alternativeFullName }}</span>
-      </SmartLink>
-    </td>
+      <!-- NAME -->
+      <td class="librarian-block">
+        <smart-link
+          :to="to"
+          class="staff-name"
+        >
+          {{ parsedStaffName }}
+          <span
+            v-if="alternativeName"
+            :language="parsedLanguage"
+          >
+            {{ parsedAlternativeFullName }}</span>
+        </smart-link>
 
-    <!-- CONTACT INFO -->
-    <td class="contact-info">
-      <div class="email">
-        <IconWithLink :text="email" icon-name="svg-icon-email" :to="`mailto:${email}`" />
-      </div>
+        <div
+          class="job-title"
+          v-html="jobTitle"
+        />
 
-      <div v-if="phone" class="phone">
-        <IconWithLink :text="phone" icon-name="svg-icon-phone" :to="`tel:${phone}`" />
-      </div>
+        <ul
+          v-if="departments.length"
+          class="departments"
+        >
+          <li class="department">{{ lastDepartment }}</li>
+        </ul>
 
-      <div v-if="consultation" class="consultation">
-        <IconWithLink text="Book a consultation" icon-name="svg-icon-consultation" :to="consultation" />
-      </div>
-    </td>
-  </tr>
+        <div v-if="locations.length">
+          <icon-with-link
+            v-for="location in locations"
+            :key="`location-${location.id}`"
+            :text="location.title"
+            icon-name="svg-icon-location"
+            :to="`/${location.to}`"
+          />
+        </div>
+      </td>
+
+      <!-- CONTACT INFO -->
+      <td class="contact-info">
+        <div class="email">
+          <icon-with-link
+            :text="email"
+            icon-name="svg-icon-email"
+            :to="`mailto:${email}`"
+          />
+        </div>
+
+        <div
+          v-if="phone"
+          class="phone"
+        >
+          <icon-with-link
+            :text="phone"
+            icon-name="svg-icon-phone"
+            :to="`tel:${phone}`"
+          />
+        </div>
+
+        <div
+          v-if="consultation"
+          class="consultation"
+        >
+          <icon-with-link
+            :text="`Book a consultation`"
+            icon-name="svg-icon-consultation"
+            :to="consultation"
+          />
+        </div>
+      </td>
+    </tr>
+  </div>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .block-staff-subject-librarian {
   display: flex;
   flex-direction: row;
