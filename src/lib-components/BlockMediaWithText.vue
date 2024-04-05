@@ -1,12 +1,10 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { computed, defineAsyncComponent, ref } from 'vue'
 
 // Helper functions
 
 import type { PropType } from 'vue'
+import SvgIconHeadphones from 'ucla-library-design-tokens/assets/svgs/molecule-headphones.svg'
 import type { MediaGalleryItemType, MediaItemType } from '@/types/types'
 
 const props = defineProps({
@@ -43,10 +41,10 @@ const props = defineProps({
     default: () => [],
   },
 })
-const SvgIconHeadphones = defineAsyncComponent(() =>
+/* const SvgIconHeadphones = defineAsyncComponent(() =>
   import(
     'ucla-library-design-tokens/assets/svgs/molecule-headphones.svg'
-  ))
+  )) */
 const SvgIconPlayFilled = defineAsyncComponent(() =>
   import(
     'ucla-library-design-tokens/assets/svgs/icon-play-filled.svg'
@@ -196,10 +194,7 @@ const parsedIsDownload = computed(() => {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .media-with-text {
   display: flex;
   flex-direction: row;
