@@ -67,7 +67,6 @@ export interface BlockStaffListItemType {
   email: string
   topics: TopicsItemType[]
   alternativeName?: AlternativeNameItemType[]
-  subjectArea?: string
   staffName?: string
   language?: string
   locations?: LocationItemType[]
@@ -110,6 +109,7 @@ export interface StaffLocationItemType {
   reserveSeat?: string
   isUclaLibrary?: boolean
   libcalLocationIdForHours?: string
+  subjectArea?: string
 }
 
 export interface CardItemType {
