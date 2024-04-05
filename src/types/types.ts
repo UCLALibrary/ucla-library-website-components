@@ -201,6 +201,19 @@ export interface NavSecondaryItemType extends NavItem {
   text?: string
 }
 
+export interface SectionGenericListItemType {
+  title?: string
+  alternativeFullName?: string
+  language?: string
+  summary?: string // maps to 'text' prop in BlockGenericList component
+  jobType?: { title?: string }[] // deprecated, data not displayed
+  jobRequisitionNumber?: string
+  jobPostingURL?: string
+  department?: DepartmentItemType[] // maps to 'departments' prop in BlockGenericList component
+  associatedLocations?: LocationItemType[]
+  payRate?: string
+}
+
 export interface SectionSpaceListItemType {
   to: string
   title: string

@@ -1,3 +1,10 @@
+# [2.39.0-alpha.61](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.60...v2.39.0-alpha.61) (2024-04-04)
+
+
+### Features
+
+* APPS-2569 convert SectionGenericList to vue3 ([#487](https://github.com/UCLALibrary/ucla-library-website-components/issues/487)) ([5d7f61d](https://github.com/UCLALibrary/ucla-library-website-components/commit/5d7f61dfab6fe9147009ed7402c8217badfe236f))
+
 # [2.39.0-alpha.60](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.59...v2.39.0-alpha.60) (2024-04-03)
 
 
