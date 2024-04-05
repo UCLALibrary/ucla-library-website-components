@@ -17,7 +17,7 @@ const mock = [
     slug: 'test-subject-librarian',
     uri: 'about/staff/test-subject-librarian',
     title: 'TEST - Subject Librarian',
-    image: [{src: API.image_people}],
+    image: [{ src: API.image_people }],
     to: 'test-subject-librarian',
     nameFirst: 'TEST - Subject',
     nameLast: 'Librarian',
