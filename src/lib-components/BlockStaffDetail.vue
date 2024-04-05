@@ -159,7 +159,6 @@ const mergeSortTopics = computed(() => {
         />
 
         <div class="info-container">
-          <h3>{{ props.image }}</h3>
           <div class="staff-info">
             <div
               class="job-title"
