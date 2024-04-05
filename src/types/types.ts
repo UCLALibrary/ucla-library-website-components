@@ -15,6 +15,7 @@ export interface AmenitiesType {
 }
 
 export interface ArticleStaffItemType {
+  id: string
   title?: string
   to?: string
 }
@@ -61,7 +62,8 @@ export interface BlockStaffListItemType {
   to: string
   nameLast: string
   nameFirst: string
-  alternativeName: AlternativeNameType[]
+  alternativeName: AlternativeNameItemType[]
+  alternativeFullName: string
   email: string
   departments: DepartmentItemType[]
   subjectArea?: string
@@ -71,8 +73,9 @@ export interface BlockStaffListItemType {
   locations?: LocationItemType[]
   phone?: string
   consultation?: string
-  academicDepartments?: AcademicDepartmentsType[]
+  academicDepartments?: AcademicDepartmentsItemType[]
   uri: string
+  image: MediaItemType
 }
 
 export interface BlockStaffArticleListItemType {
