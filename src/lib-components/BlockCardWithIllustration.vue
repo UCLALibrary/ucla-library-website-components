@@ -2,13 +2,14 @@
 import { defineAsyncComponent } from 'vue'
 
 // COMPONENTS
+import IllustrationDigitizedResources from 'ucla-library-design-tokens/assets/svgs/illustration-digitized-resources.svg'
+import IllustrationTeaching from 'ucla-library-design-tokens/assets/svgs/illustration-teaching.svg'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 // UTILITY FUNCTIONS
 import getSectionName from '@/utils/getSectionName'
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
-import IllustrationDigitizedResources from 'ucla-library-design-tokens/assets/svgs/illustration-digitized-resources.svg'
-import IllustrationTeaching from 'ucla-library-design-tokens/assets/svgs/illustration-teaching.svg'
+
 export default {
   name: 'BlockCardWithIllustration',
   components: {
@@ -26,10 +27,10 @@ export default {
         'ucla-library-design-tokens/assets/svgs/illustration-databases.svg'
       )),
     IllustrationDigitizedResources,
-    /*: defineAsyncComponent(() =>
+    /* : defineAsyncComponent(() =>
       import(
         'ucla-library-design-tokens/assets/svgs/illustration-digitized-resources.svg'
-      )),*/
+      )), */
     IllustrationFindSpace: defineAsyncComponent(() =>
       import(
         'ucla-library-design-tokens/assets/svgs/illustration-find-space.svg'
@@ -43,10 +44,10 @@ export default {
         'ucla-library-design-tokens/assets/svgs/illustration-research.svg'
       )),
     IllustrationTeaching,
-    /*: defineAsyncComponent(() =>
+    /* : defineAsyncComponent(() =>
       import(
         'ucla-library-design-tokens/assets/svgs/illustration-teaching.svg'
-      )),*/
+      )), */
   },
   props: {
     iconName: {

@@ -54,10 +54,14 @@ onMounted(() => {
       Hours
     </h3>
     <div class="content">
-      <iframe id="the-iframe" title="Hours for location" class="iframe" :src="parsedSrc" frameBorder="0" width="100%"
-        height="100%" />
-      <ButtonLink label="All Library Hours" :is-secondary="true" to="https://calendar.library.ucla.edu/hours"
-        class="btn-lnk" />
+      <iframe
+        id="the-iframe" title="Hours for location" class="iframe" :src="parsedSrc" frameBorder="0" width="100%"
+        height="100%"
+      />
+      <ButtonLink
+        label="All Library Hours" :is-secondary="true" to="https://calendar.library.ucla.edu/hours"
+        class="btn-lnk"
+      />
     </div>
   </div>
 </template>

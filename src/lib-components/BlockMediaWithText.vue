@@ -4,8 +4,9 @@ import { computed, defineAsyncComponent, ref } from 'vue'
 // Helper functions
 
 import type { PropType } from 'vue'
-import type { MediaGalleryItemType, MediaItemType } from '@/types/types'
 import SvgIconHeadphones from 'ucla-library-design-tokens/assets/svgs/molecule-headphones.svg'
+import type { MediaGalleryItemType, MediaItemType } from '@/types/types'
+
 const props = defineProps({
   sectionHeader: {
     type: String,
@@ -40,10 +41,10 @@ const props = defineProps({
     default: () => [],
   },
 })
-/*const SvgIconHeadphones = defineAsyncComponent(() =>
+/* const SvgIconHeadphones = defineAsyncComponent(() =>
   import(
     'ucla-library-design-tokens/assets/svgs/molecule-headphones.svg'
-  ))*/
+  )) */
 const SvgIconPlayFilled = defineAsyncComponent(() =>
   import(
     'ucla-library-design-tokens/assets/svgs/icon-play-filled.svg'
