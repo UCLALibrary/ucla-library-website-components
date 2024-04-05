@@ -9,7 +9,7 @@ import type { PropType } from 'vue'
 import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
 
 // TYPESCRIPT
-import type { DepartmentItemType, LocationItemType, MediaItemType, AlternativeNameItemType } from '@/types/types'
+import type { AlternativeNameItemType, DepartmentItemType, LocationItemType, MediaItemType } from '@/types/types'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
@@ -95,7 +95,6 @@ const lastDepartment = computed(() => {
 
 <template>
   <li class="block-staff-list">
-
     <ResponsiveImage
       :media="parsedImage"
       :aspect-ratio="100"
