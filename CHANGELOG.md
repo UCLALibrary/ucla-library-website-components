@@ -1,3 +1,10 @@
+# [2.39.0-alpha.62](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.61...v2.39.0-alpha.62) (2024-04-05)
+
+
+### Bug Fixes
+
+* section wrapper for prerender ([#489](https://github.com/UCLALibrary/ucla-library-website-components/issues/489)) ([a3a3510](https://github.com/UCLALibrary/ucla-library-website-components/commit/a3a3510dc30f3258ecf981c474a884c6422c1835))
+
 # [2.39.0-alpha.61](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.60...v2.39.0-alpha.61) (2024-04-04)
 
 

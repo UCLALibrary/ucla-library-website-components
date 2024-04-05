@@ -52,12 +52,15 @@ export default {
       ]
     },
     levelComputed() {
+      console.log('SectionWrapper levelComputed', Number(this.level || this.parentLevel + 1))
       return Number(this.level || this.parentLevel + 1)
     },
     getId() {
+      console.log('SectionWrapper getId', kebabCase(this.sectionTitle))
       return kebabCase(this.sectionTitle)
     },
     setMargins() {
+      console.log('SectionWrapper setMargins', this.noMargins || this.ancestorSetMargins)
       if (this.noMargins || this.ancestorSetMargins)
         return false
 

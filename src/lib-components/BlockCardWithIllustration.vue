@@ -2,6 +2,8 @@
 import { defineAsyncComponent } from 'vue'
 
 // COMPONENTS
+import IllustrationDigitizedResources from 'ucla-library-design-tokens/assets/svgs/illustration-digitized-resources.svg'
+import IllustrationTeaching from 'ucla-library-design-tokens/assets/svgs/illustration-teaching.svg'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 // UTILITY FUNCTIONS
@@ -24,10 +26,11 @@ export default {
       import(
         'ucla-library-design-tokens/assets/svgs/illustration-databases.svg'
       )),
-    IllustrationDigitizedResources: defineAsyncComponent(() =>
+    IllustrationDigitizedResources,
+    /* : defineAsyncComponent(() =>
       import(
         'ucla-library-design-tokens/assets/svgs/illustration-digitized-resources.svg'
-      )),
+      )), */
     IllustrationFindSpace: defineAsyncComponent(() =>
       import(
         'ucla-library-design-tokens/assets/svgs/illustration-find-space.svg'
@@ -40,10 +43,11 @@ export default {
       import(
         'ucla-library-design-tokens/assets/svgs/illustration-research.svg'
       )),
-    IllustrationTeaching: defineAsyncComponent(() =>
+    IllustrationTeaching,
+    /* : defineAsyncComponent(() =>
       import(
         'ucla-library-design-tokens/assets/svgs/illustration-teaching.svg'
-      )),
+      )), */
   },
   props: {
     iconName: {
@@ -100,20 +104,40 @@ export default {
 
 <template>
   <li :class="classes">
-    <component :is="parsedSvgName" class="svg" aria-hidden="true" />
+    <component
+      :is="parsedSvgName"
+      class="svg"
+      aria-hidden="true"
+    />
 
     <div class="meta">
-      <div v-if="category" class="category" v-html="category" />
+      <div
+        v-if="category"
+        class="category"
+        v-html="category"
+      />
 
-      <SmartLink v-if="to" :to="to">
-        <h3 class="title" v-html="title" />
+      <SmartLink
+        v-if="to"
+        :to="to"
+      >
+        <h3
+          class="title"
+          v-html="title"
+        />
       </SmartLink>
 
-      <div v-if="isHorizontal" class="text">
+      <div
+        v-if="isHorizontal"
+        class="text"
+      >
         {{ parsedTextHorizontal }}
       </div>
 
-      <div v-else class="text">
+      <div
+        v-else
+        class="text"
+      >
         {{ parsedTextVertical }}
       </div>
     </div>
