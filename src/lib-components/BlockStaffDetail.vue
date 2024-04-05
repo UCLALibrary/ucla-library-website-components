@@ -6,15 +6,15 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 
 // TYPESCRIPT
-import type { MediaItemType, AcademicDepartmentsItemType, AlternativeNameItemType, DepartmentItemType, LocationItemType, TopicsItemType } from '@/types/types'
+import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
+import type { AcademicDepartmentsItemType, AlternativeNameItemType, DepartmentItemType, LocationItemType, MediaItemType, TopicsItemType } from '@/types/types'
 
 // SVGs
-import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
 
 // COMPONENTS
-import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
-import RichText from "@/lib-components/RichText.vue"
-import DividerWayFinder from "@/lib-components/DividerWayFinder.vue"
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import RichText from '@/lib-components/RichText.vue'
+import DividerWayFinder from '@/lib-components/DividerWayFinder.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 
 // PROPS & DATA
@@ -25,11 +25,11 @@ const props = defineProps({
   },
   to: {
     type: String,
-    default: "",
+    default: '',
   },
   staffName: {
     type: String,
-    default: "",
+    default: '',
   },
   nameLast: {
     type: String,
@@ -41,7 +41,7 @@ const props = defineProps({
   },
   jobTitle: {
     type: String,
-    default: "",
+    default: '',
   },
   departments: {
     type: Array as PropType<DepartmentItemType[]>,
@@ -68,27 +68,27 @@ const props = defineProps({
   },
   email: {
     type: String,
-    default: "",
+    default: '',
   },
   phone: {
     type: String,
-    default: "",
+    default: '',
   },
   consultation: {
     type: String,
-    default: "",
+    default: '',
   },
   language: {
     type: String,
-    default: "",
+    default: '',
   },
   pronouns: {
     type: String,
-    default: "",
+    default: '',
   },
   biography: {
     type: String,
-    default: "",
+    default: '',
   }
 })
 
@@ -212,7 +212,7 @@ const mergeSortTopics = computed(() => {
               class="contact-info"
             >
               <IconWithLink
-                :text="`Book a consultation`"
+                text="Book a consultation"
                 icon-name="svg-icon-consultation"
                 :to="consultation"
               />
@@ -232,7 +232,9 @@ const mergeSortTopics = computed(() => {
           v-if="topics.length || academicDepartments.length"
           class="ask-me-about"
         >
-          <h2 class="section-title">Ask Me About</h2>
+          <h2 class="section-title">
+            Ask Me About
+          </h2>
           <RichText>
             <ul class="list topics">
               <li
@@ -244,7 +246,7 @@ const mergeSortTopics = computed(() => {
           </RichText>
         </div>
 
-        <!-- RICH TEXT-->
+        <!-- RICH TEXT -->
         <DividerWayFinder
           v-if="biography"
           class="divider divider-first"
@@ -254,7 +256,9 @@ const mergeSortTopics = computed(() => {
           v-if="biography"
           class="biography"
         >
-          <h2 class="section-title">Biography</h2>
+          <h2 class="section-title">
+            Biography
+          </h2>
           <RichText :rich-text-content="biography" />
         </div>
       </div>
