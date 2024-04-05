@@ -9,7 +9,7 @@ import type { PropType } from 'vue'
 import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
 
 // TYPESCRIPT
-import type { DepartmentItemType, LocationItemType, MediaItemType } from '@/types/types'
+import type { DepartmentItemType, LocationItemType, MediaItemType, AlternativeNameItemType } from '@/types/types'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
@@ -23,16 +23,24 @@ const props = defineProps({
     default: '',
   },
   image: {
-    type: Object as PropType<MediaItemType>,
-    default: () => { },
+    type: Array as PropType<MediaItemType[]>,
+    default: () => [],
   },
   staffName: {
     type: String,
     default: '',
   },
-  alternativeFullName: {
+  nameLast: {
     type: String,
     default: '',
+  },
+  nameFirst: {
+    type: String,
+    default: '',
+  },
+  alternativeName: {
+    type: Array as PropType<AlternativeNameItemType[]>,
+    default: () => [],
   },
   language: {
     type: String,
@@ -64,6 +72,22 @@ const props = defineProps({
   },
 })
 
+const parsedImage = computed(() => {
+  return props.image[0] || undefined
+})
+
+const parsedStaffName = computed(() => {
+  return `${props.nameFirst} ${props.nameLast}`
+})
+
+const parsedAlternativeFullName = computed(() => {
+  return props.alternativeName[0].fullName
+})
+
+const parsedLanguage = computed(() => {
+  return props.alternativeName[0].languageAltName
+})
+
 const lastDepartment = computed(() => {
   return props.departments[props.departments.length - 1].title
 })
@@ -71,14 +95,15 @@ const lastDepartment = computed(() => {
 
 <template>
   <li class="block-staff-list">
+
     <ResponsiveImage
-      :media="props.image"
+      :media="parsedImage"
       :aspect-ratio="100"
       sizes="300px"
       class="image"
     />
     <div
-      v-if="!props.image"
+      v-if="!parsedImage"
       class="no-image"
     >
       <SvgHeadingArrow class="icon-heading-arrow" />
@@ -88,13 +113,13 @@ const lastDepartment = computed(() => {
       <div class="name-title">
         <h3 class="staff-name">
           <SmartLink :to="props.to">
-            {{ staffName }}
+            {{ parsedStaffName }}
 
             <span
-              v-if="alternativeFullName"
-              :lang="props.language"
+              v-if="alternativeName.length"
+              :lang="parsedLanguage"
             >
-              {{ alternativeFullName }}</span>
+              {{ parsedAlternativeFullName }}</span>
           </SmartLink>
         </h3>
         <div

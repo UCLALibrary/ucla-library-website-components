@@ -6,10 +6,10 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 
 // TYPESCRIPT
-import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
 import type { AcademicDepartmentsItemType, AlternativeNameItemType, DepartmentItemType, LocationItemType, MediaItemType, TopicsItemType } from '@/types/types'
 
 // SVGs
+import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
@@ -20,8 +20,8 @@ import IconWithLink from '@/lib-components/IconWithLink.vue'
 // PROPS & DATA
 const props = defineProps({
   image: {
-    type: Object as PropType<MediaItemType>,
-    default: () => { },
+    type: Array as PropType<MediaItemType[]>,
+    default: () => [],
   },
   to: {
     type: String,
@@ -38,6 +38,10 @@ const props = defineProps({
   nameFirst: {
     type: String,
     default: '',
+  },
+  alternativeName: {
+    type: Array as PropType<AlternativeNameItemType[]>,
+    default: () => [],
   },
   jobTitle: {
     type: String,
@@ -60,10 +64,6 @@ const props = defineProps({
   },
   locations: {
     type: Array as PropType<LocationItemType[]>,
-    default: () => [],
-  },
-  alternativeName: {
-    type: Array as PropType<AlternativeNameItemType[]>,
     default: () => [],
   },
   email: {
@@ -90,6 +90,10 @@ const props = defineProps({
     type: String,
     default: '',
   }
+})
+
+const parsedImage = computed(() => {
+  return props.image[0] || undefined
 })
 
 const parsedPronouns = computed(() => {
@@ -148,11 +152,12 @@ const mergeSortTopics = computed(() => {
     <div class="section-staff-bio">
       <div :class="image ? 'body-contact' : 'body-contact no-image'">
         <ResponsiveImage
-          v-if="image"
-          :image="image"
+          v-if="parsedImage"
+          :media="parsedImage"
           :aspect-ratio="100"
           class="image"
         />
+
         <div class="info-container">
           <div class="staff-info">
             <div
@@ -465,7 +470,7 @@ const mergeSortTopics = computed(() => {
         margin: 0;
       }
 
-      :v-deep(.rich-text p:last-child) {
+      :deep(.rich-text p:last-child) {
         margin-bottom: 0;
       }
     }

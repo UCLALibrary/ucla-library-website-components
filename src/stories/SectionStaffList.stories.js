@@ -12,41 +12,72 @@ export default {
 
 const mock = [
   {
-    to: '/staff/foo',
+    id: "2975759",
+    sectionHandle: "staffMember",
+    slug: "test-subject-librarian",
+    uri: "about/staff/test-subject-librarian",
+    title: "TEST - Subject Librarian",
     image: API.image_people,
-    jobTitle: 'Ullamco',
-    staffName: 'Fames ac turpis',
-    department: 'Inceptos Himenaeos',
-    email: 'loreum@ipsum.foo',
+    to: "test-subject-librarian",
+    nameFirst: "TEST - Subject",
+    nameLast: "Librarian",
+    alternativeName: [
+      {
+        fullName: "司書",
+        languageAltName: "ja"
+      }
+    ],
+    jobTitle: "Head of Everything",
+    departments: [
+      {
+        id: "7272",
+        title: "Communications"
+      },
+      {
+        id: "7270",
+        title: "East Asian Library"
+      }
+    ],
     locations: [
       {
-        title: 'cupidatat non proident',
-        to: '/location/bar',
+        title: "Richard C. Rudolph East Asian Library",
+        to: "visit/locations/east-asian-library",
+        id: "11497"
       },
       {
-        title: 'tristique',
-        to: '/location/baz',
-      },
+        title: "UCLA Film & Television Archive",
+        to: "visit/locations/film-television-archive",
+        id: "11612"
+      }
     ],
-    phone: '(222) 444-5555',
-  },
-  {
-    image: API.image_people,
-    to: '/staff/id/',
-    staffName: 'Ada Lovelace',
-    alternativeFullName: '生懸命',
-    language: 'ja',
-    jobTitle: 'Library Supervisor',
-    locations: [
-      { title: 'Powellarium', to: '/location/bar' },
+    pronouns: "she/his/them",
+    email: "subject.librarian@email.com",
+    phone: "(555) 475-1523",
+    consultation: "http://help.com",
+    topics: [
       {
-        title: 'Research Library (Charles E. Young)',
-        to: '/location/baz',
+        title: "diaries",
+        id: "2975760"
       },
+      {
+        title: "decorative arts",
+        id: "2975783"
+      }
     ],
-    email: 'ada@somewhere.com',
-    phone: '555-555-5555',
-    departments: ['DIIT', 'Other Departments'],
+    academicDepartments: [
+      {
+        id: "11947",
+        title: "African American Studies"
+      },
+      {
+        id: "11956",
+        title: "cats"
+      }
+    ],
+    biography: '<p>li Wong is a stand-up comedian who has written and performed two specials: Baby Cobra and Hard Knock Wife. She co-wrote, produced, and starred in the romantic comedy Always Be My Maybe. She is the proud mother of two rowdy-ass girls who inspired this entire book. She aspires to lie down but somehow keeps getting pressured into doing more sh*t that gets in the way of her lying down.</p>',
+    subjectLibrarian: "yes",
+    orcid: "http://1234",
+    publications: "<ul><li>Lembo, Mary Frances; Hallmark, Julie</li></ul>"
   },
   {
     to: '/staff/foo',

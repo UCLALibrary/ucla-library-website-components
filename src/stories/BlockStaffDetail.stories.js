@@ -7,25 +7,14 @@ export default {
   title: 'BLOCK / Staff / Detail'
 }
 
-const mock = {
+const mockDefault = {
   id: '2975759',
   sectionHandle: 'staffMember',
   slug: 'test-subject-librarian',
   uri: 'about/staff/test-subject-librarian',
   title: 'TEST - Subject Librarian',
   image: [
-    {
-      id: '2975764',
-      src: 'https://static.library.ucla.edu/craftassetstest/Portraits/_fullscreen/martini-cat.gif',
-      height: 2701,
-      width: 2560,
-      srcset: 'https://static.library.ucla.edu/craftassetstest/Portraits/_375xAUTO_crop_center-center_none/martini-cat.gif 375w, https://static.library.ucla.edu/craftassetstest/Portraits/_960xAUTO_crop_center-center_none/martini-cat.gif 960w, https://static.library.ucla.edu/craftassetstest/Portraits/_1280xAUTO_crop_center-center_none/martini-cat.gif 1280w, https://static.library.ucla.edu/craftassetstest/Portraits/_1920xAUTO_crop_center-center_none/martini-cat.gif 1920w, https://static.library.ucla.edu/craftassetstest/Portraits/_2560xAUTO_crop_center-center_none/martini-cat.gif 2560w',
-      alt: 'Martini cat',
-      focalPoint: [
-        0.5,
-        0.5
-      ]
-    }
+    {src: API.image_people},
   ],
   to: 'test-subject-librarian',
   nameFirst: 'TEST - Subject',
@@ -89,89 +78,233 @@ const mock = {
   publications: '<ul><li>Lembo, Mary Frances; Hallmark, Julie</li></ul>'
 }
 
-const mock1 = {
-  // image: API.image_people,
-  to: 'about/staff/id/',
-  staffName: 'Ada Lovelace',
-  jobTitle:
-        'Associate University Librarian for User Engagement (interim) and Director of Arts, Music and Powell Libraries',
-  locations: [
-    { title: 'Powellarium', to: '/location/bar' },
-    { title: 'Research Library (Charles E. Young)', to: '/location/baz' },
+const mockAlternativeName = {
+  id: "14632",
+  sectionHandle: "staffMember",
+  slug: "test-phyllis-blackshear",
+  uri: "about/staff/test-phyllis-blackshear",
+  title: "Test Alternative Name Phyllis Blackshear",
+  image: [
+    {src: API.image_people},
   ],
-  email: 'ada@somewhere.com',
-  phone: '555-555-5555',
+  to: "test-phyllis-blackshear",
+  nameFirst: "test_Phyllis",
+  nameLast: "Blackshear",
+  alternativeName: [
+    {
+      fullName: "もののけ姫",
+      languageAltName: "ja"
+    }
+  ],
+  jobTitle: "Senior Mail Processor",
   departments: [
-    { id: '6361', title: 'Digital Initiatives & Information Technology' },
-    { id: '6361', title: 'Software Development & Library Systems' },
+    {
+      id: "6365",
+      title: "Resource Acquisitions and Metadata Services"
+    }
   ],
+  locations: [
+    {
+      title: "UCLA Film & Television Archive",
+      to: "visit/locations/film-television-archive",
+      id: "11612"
+    },
+    {
+      title: "Music Library",
+      to: "visit/locations/music-library",
+      id: "11512"
+    }
+  ],
+  pronouns: null,
+  email: "pblack@library.ucla.edu",
+  phone: "(310) 267-5484",
+  consultation: null,
   topics: [
-    { title: 'Quadrigis aedificium', id: '808' },
-    { title: 'Carpe vinum', id: '809' },
-  ],
-  biography:
-        '<p>Creo quia absurdum est. Fusce metus ex, gravida at metus id, vestibulum aliquam ante. Vestibulum hendrerit ut augue id pulvinar. Nam id efficitur felis. Duis nisi dui, vulputate id cursus quis, facilisis sed est. Etiam consequat malesuada congue. Nullam sed nulla laoreet, e gestas felis in, sollicitudin lacus. Cras ultrices dolor at quam vestibulum, eget vestibulum diam congue. Nam at est cursus, cursus justo non, pharetra ipsum.</p><p>Morbi gravida, turpis ut luctus placerat, est mauris congue libero, sed tristique quam eros vel neque. Nunc lacinia mi a orci faucibus tincidunt. Praesent dapibus blandit eros eget auctor. Nullam orci ex, pharetra tempor nulla non, vulputate mattis nibh. Sed vel pharetra erat. Proin nec sapien a velit scelerisque interdum. Donec sagittis magna tincidunt, eleifend arcu id, elementum sapien.</p>',
-}
-
-const mock2 = {
-  image: API.image_people,
-  to: '/staff/id/',
-  staffName: 'Ada Lovelace',
-  alternativeFullName: '生懸命',
-  language: 'ja',
-  jobTitle: 'Library Supervisor',
-  locations: [
-    { title: 'Powellarium', to: '/location/bar' },
-    { title: 'Research Library (Charles E. Young)', to: '/location/baz' },
-  ],
-  email: 'ada@somewhere.com',
-  phone: '555-555-5555',
-  departments: [
-    { id: '6361', title: 'DIIT' },
-    { id: '6361', title: 'Other Departments' },
-  ],
-}
-
-const mock3 = {
-  // image: API.image_people,
-  to: '/staff/id/',
-  staffName: 'Ada Lovelace',
-  jobTitle: 'Library Supervisor',
-  locations: [
-    { title: 'Powellarium', to: '/location/bar' },
-    { title: 'Research Library (Charles E. Young)', to: '/location/baz' },
-  ],
-  email: 'ada@somewhere.com',
-  phone: '555-555-5555',
-  departments: [
-    { id: '6361', title: 'DIIT' },
-    { id: '6361', title: 'Other Departments' },
-  ],
-}
-
-const mock4 = {
-  // image: API.image_people,
-  to: '/staff/id/',
-  staffName: 'Ada Lovelace',
-  jobTitle: 'Library Supervisor',
-  locations: [
-    { title: 'Powellarium', to: '/location/bar' },
-    { title: 'Research Library (Charles E. Young)', to: '/location/baz' },
-  ],
-  email: 'ada@somewhere.com',
-  phone: '555-555-5555',
-  departments: [
-    { id: '6361', title: 'DIIT' },
-    { id: '6361', title: 'Other Departments' },
-  ],
-  topics: [
-    { title: 'topic1', id: 'bar1' },
-    { title: 'topic2', id: 'baz2' },
+    {
+      title: "Art History",
+      id: "11950"
+    },
+    {
+      title: "lower case test",
+      id: "14633"
+    },
+    {
+      title: "test with the title case of in test",
+      id: "20821"
+    },
+    {
+      title: "Title case with CAPS",
+      id: "20824"
+    }
   ],
   academicDepartments: [
-    { title: 'acadept1', id: 'acbar1' },
-    { title: 'acadept2', id: 'acbaz2' },
+    {
+      id: "11955",
+      title: "Cluster 60: America in Sixties: Politics, Society, and Culture, 1954 to 1974"
+    },
+    {
+      id: "20827",
+      title: "test title case with in for test the CAPS"
+    }
   ],
+  biography: '<p>Phyllis combines the tenacity and courage of the finest tradition of investigative journalism with the stylish subtlety and profound insight of the born writer. His account of an ascent of Mount Everest has led to a general reevaluation of climbing and of the commercialization of what was once a romantic, solitary sport. While his account of the life and death of Christopher McCandless, who died of starvation after challenging the Alaskan wilderness, delves even more deeply and disturbingly into the fascination of nature and the devastating effects of its lure on a young and curious mind.</p>',
+  subjectLibrarian: "no",
+  orcid: "https://orcid.org/+0000-0001-8746-9239",
+  publications: '<ul><li><p><strong>Johnson, M. W.</strong>, Abumeeiz, S. &amp; McAulay, E. \n(2021). “Teaching in the Digital Library: A Partnership Between Teaching\n Librarians and Digital Library Staff.” College &amp; Research Libraries\n News. 82(7). <a href=\"https://crln.acrl.org/index.php/crlnews/article/view/25033/32921\">https://crln.acrl.org/index.php/crlnews/article/view/25033/32921</a></p></li><li><p><strong>Johnson, M. W.</strong> &amp; Lasher, M. (2021). “The \nCommunity Workshop Series: A Case Study for Community-Engaged Learning \nin LIS.” Library Trends. 69(4). <a href=\"https://doi.org/10.1353/lib.2020.0045\">https://doi.org/10.1353/lib.2020.0045</a></p></li><li><p>Keralis, S. D. C., Jacobs, C. &amp; <strong>Johnson, M.W.</strong> \n(2021). “Collaborative Digital Projects in the Undergraduate Humanities \nClassroom: Case Studies with Timeline JS.” The Journal of Interactive \nTechnology &amp; Pedagogy. 19. <a href=\"https://jitp.commons.gc.cuny.edu/classroom-timeline-projects/\">https://jitp.commons.gc.cuny.edu/classroom-timeline-projects/</a>\n</p></li></ul>'
+}
+
+const mockNoImageOneLocation = {
+  id: "11910",
+  sectionHandle: "staffMember",
+  slug: "sylvia-page",
+  uri: "about/staff/sylvia-page",
+  title: "Test  NO IMAGE Penelope Pitstop",
+  image: [],
+  to: "sylvia-page",
+  nameFirst: "Test  NO IMAGE Penelope",
+  nameLast: "Pitstop",
+  alternativeName: [],
+  jobTitle: "Research and Instruction Librarian for Arts, Music, and Powell (AMP)",
+  departments: [
+    {
+      id: "6339",
+      title: "User Engagement"
+    }
+  ],
+  locations: [
+    {
+      title: "Powell Library",
+      to: "visit/locations/powell-library",
+      id: "523"
+    }
+  ],
+  pronouns: "she/her",
+  email: "thejendiamond@gmail.com",
+  phone: "(323) 555-5555",
+  consultation: "https://calendar.library.ucla.edu/appointments/spage",
+  topics: [
+    {
+      title: "Zines",
+      id: "11858"
+    },
+    {
+      title: "Comics/Graphic Novels",
+      id: "11859"
+    },
+    {
+      title: "English Composition",
+      id: "11860"
+    },
+    {
+      title: "dogs",
+      id: "11959"
+    },
+    {
+      title: "balloons",
+      id: "11952"
+    }
+  ],
+  academicDepartments: [
+    {
+      id: "11947",
+      title: "African American Studies"
+    },
+    {
+      id: "11936",
+      title: "test african american studies"
+    },
+    {
+      id: "11954",
+      title: "African Studies"
+    },
+    {
+      id: "11955",
+      title: "Cluster 60: America in Sixties: Politics, Society, and Culture, 1954 to 1974"
+    },
+    {
+      id: "11956",
+      title: "cats"
+    }
+  ],
+  biography: "<p>Sylvia Page works to support the research needs of the UCLA community through reference, instruction, outreach, and collections. Her experience prior to UCLA includes work in academic libraries, museums, and galleries.</p>",
+  subjectLibrarian: "yes",
+  orcid: null,
+  publications: null
+}
+
+const mockNoImageOrBio = {
+  id: "11910",
+  sectionHandle: "staffMember",
+  slug: "sylvia-page",
+  uri: "about/staff/sylvia-page",
+  title: "Test  NO IMAGE Penelope Pitstop",
+  image: [],
+  to: "sylvia-page",
+  nameFirst: "Test  NO IMAGE Penelope",
+  nameLast: "Pitstop",
+  alternativeName: [],
+  jobTitle: "Research and Instruction Librarian for Arts, Music, and Powell (AMP)",
+  departments: [
+    {
+      id: "6339",
+      title: "User Engagement"
+    }
+  ],
+  locations: [
+    {
+      title: "Powell Library",
+      to: "visit/locations/powell-library",
+      id: "523"
+    }
+  ],
+  pronouns: "she/her",
+  email: "thejendiamond@gmail.com",
+  phone: "(323) 555-5555",
+  consultation: "https://calendar.library.ucla.edu/appointments/spage",
+  topics: [
+    {
+      title: "Zines",
+      id: "11858"
+    },
+    {
+      title: "Comics/Graphic Novels",
+      id: "11859"
+    },
+    {
+      title: "English Composition",
+      id: "11860"
+    },
+    {
+      title: "dogs",
+      id: "11959"
+    },
+    {
+      title: "balloons",
+      id: "11952"
+    }
+  ],
+  academicDepartments: [
+    {
+      id: "11947",
+      title: "African American Studies"
+    },
+    {
+      id: "11936",
+      title: "test african american studies"
+    },
+    {
+      id: "11954",
+      title: "African Studies"
+    },
+    {
+      id: "11955",
+      title: "Cluster 60: America in Sixties: Politics, Society, and Culture, 1954 to 1974"
+    },
+    {
+      id: "11956",
+      title: "cats"
+    }
+  ]
 }
 
 // Variations of stories below
@@ -180,7 +313,7 @@ export function Default() {
     data() {
       return {
         item: {
-          ...mock1,
+          ...mockDefault,
           image: API.image_people,
         },
       }
@@ -199,8 +332,7 @@ export function AlternativeName() {
     data() {
       return {
         item: {
-          ...mock2,
-          image: API.image_people,
+          ...mockAlternativeName,
         },
       }
     },
@@ -218,7 +350,7 @@ export function NoImage() {
     data() {
       return {
         item: {
-          ...mock1,
+          ...mockNoImageOneLocation,
         },
       }
     },
@@ -236,7 +368,7 @@ export function NoImageOrBio() {
     data() {
       return {
         item: {
-          ...mock3,
+          ...mockNoImageOrBio,
         },
       }
     },
