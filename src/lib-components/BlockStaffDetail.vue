@@ -20,8 +20,8 @@ import IconWithLink from '@/lib-components/IconWithLink.vue'
 // PROPS & DATA
 const props = defineProps({
   image: {
-    type: Array as PropType<MediaItemType[]>,
-    default: () => [],
+    type: Object as PropType<MediaItemType>,
+    default: () => { },
   },
   to: {
     type: String,
@@ -93,7 +93,7 @@ const props = defineProps({
 })
 
 const parsedImage = computed(() => {
-  return props.image[0] || undefined
+  return props.image.length ? props.image[0].src : undefined
 })
 
 const parsedPronouns = computed(() => {
@@ -134,7 +134,7 @@ const mergeSortTopics = computed(() => {
         <h1 class="staffName">
           {{ parsedStaffName }}
           <span
-            v-if="alternativeName"
+            v-if="alternativeName.length"
             :lang="parsedLanguage"
           >
             {{ parsedAlternativeFullName }}

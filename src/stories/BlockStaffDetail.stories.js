@@ -13,9 +13,7 @@ const mockDefault = {
   slug: 'test-subject-librarian',
   uri: 'about/staff/test-subject-librarian',
   title: 'TEST - Subject Librarian',
-  image: [
-    { src: API.image_people },
-  ],
+  image: [{src: API.image_people}],
   to: 'test-subject-librarian',
   nameFirst: 'TEST - Subject',
   nameLast: 'Librarian',
@@ -77,16 +75,14 @@ const mockDefault = {
   orcid: 'http://1234',
   publications: '<ul><li>Lembo, Mary Frances; Hallmark, Julie</li></ul>'
 }
-
+//image: [{ src: API.image_people },],
 const mockAlternativeName = {
   id: '14632',
   sectionHandle: 'staffMember',
   slug: 'test-phyllis-blackshear',
   uri: 'about/staff/test-phyllis-blackshear',
   title: 'Test Alternative Name Phyllis Blackshear',
-  image: [
-    { src: API.image_people },
-  ],
+  image: [{src: API.image_people}],
   to: 'test-phyllis-blackshear',
   nameFirst: 'test_Phyllis',
   nameLast: 'Blackshear',
@@ -314,7 +310,6 @@ export function Default() {
       return {
         item: {
           ...mockDefault,
-          image: API.image_people,
         },
       }
     },
