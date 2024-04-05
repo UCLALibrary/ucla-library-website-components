@@ -89,7 +89,7 @@ const { items, sectionTitle } = defineProps({
     }
 
     @for $i from 1 through 30 {
-      :v-deep(.block-staff-article-item:nth-child(#{$i}) .molecule) {
+      :deep(.block-staff-article-item:nth-child(#{$i}) .molecule) {
         left: calc(random(500) * -1) + px;
       }
     }
