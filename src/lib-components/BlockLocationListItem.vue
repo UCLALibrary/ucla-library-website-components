@@ -196,8 +196,10 @@ onMounted(() => {
               <span> {{ parseLibCalHours }} </span>
             </div>
           </div>
-          <IconWithLink v-if="props.reserveSeat" text="Reserve a Seat" icon-name="svg-icon-calendar"
-            :to="props.reserveSeat" class="reserve" />
+          <IconWithLink
+            v-if="props.reserveSeat" text="Reserve a Seat" icon-name="svg-icon-calendar"
+            :to="props.reserveSeat" class="reserve"
+          />
           <IconWithLink :text="props.address" icon-name="svg-icon-location" :to="props.addressLink" class="location" />
 
           <div v-if="props.amenities" class="amenities">
