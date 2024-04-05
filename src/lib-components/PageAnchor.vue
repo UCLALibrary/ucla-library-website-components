@@ -14,14 +14,14 @@ const { sectionTitles, color } = defineProps({
   },
   color: {
     type: String as PropType<routeColors>,
-    default: 'default',
+    default: '',
   },
 })
 
 const route = useRoute()
 
 // typify valid route color strings
-type routeColors = 'about' | 'help' | 'visit' | 'default'
+type routeColors = 'about' | 'help' | 'visit' | 'default' | ''
 
 const isDropdownOpen = ref(false)
 const windowWidth = ref(window.innerWidth)
