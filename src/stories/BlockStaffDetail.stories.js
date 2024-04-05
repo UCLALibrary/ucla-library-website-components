@@ -387,7 +387,7 @@ export function AskMeAboutAndAcademicDeaprtments() {
     data() {
       return {
         item: {
-          ...mock4,
+          ...mockDefault,
         },
       }
     },
