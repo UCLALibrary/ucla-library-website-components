@@ -152,7 +152,7 @@ const mergeSortTopics = computed(() => {
     <div class="section-staff-bio">
       <div :class="image ? 'body-contact' : 'body-contact no-image'">
         <ResponsiveImage
-          v-if="image"
+          v-if="props.image.length"
           :media="parsedImage"
           :aspect-ratio="100"
           class="image"

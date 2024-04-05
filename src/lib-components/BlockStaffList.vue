@@ -96,14 +96,14 @@ const lastDepartment = computed(() => {
 <template>
   <li class="block-staff-list">
     <ResponsiveImage
-      v-if="image"
+      v-if="props.image.length"
       :media="parsedImage"
       :aspect-ratio="100"
       sizes="300px"
       class="image"
     />
     <div
-      v-if="!parsedImage"
+      v-if="props.image.length == 0"
       class="no-image"
     >
       <SvgHeadingArrow class="icon-heading-arrow" />

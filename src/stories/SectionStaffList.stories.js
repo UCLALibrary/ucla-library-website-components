@@ -10,7 +10,7 @@ export default {
   component: SectionStaffList,
 }
 
-const mock = [
+const mockDefault = [
   {
     id: '2975759',
     sectionHandle: 'staffMember',
@@ -21,12 +21,7 @@ const mock = [
     to: 'test-subject-librarian',
     nameFirst: 'TEST - Subject',
     nameLast: 'Librarian',
-    alternativeName: [
-      {
-        fullName: '司書',
-        languageAltName: 'ja'
-      }
-    ],
+    alternativeName: [],
     jobTitle: 'Head of Everything',
     departments: [
       {
@@ -80,53 +75,90 @@ const mock = [
     publications: '<ul><li>Lembo, Mary Frances; Hallmark, Julie</li></ul>'
   },
   {
-    to: '/staff/foo',
-    jobTitle: 'Ullamco',
-    staffName: 'Fames ac turpis',
-    department: 'Inceptos Himenaeos',
-    email: 'loreum@ipsum.foo',
-    alternativeFullName: '生懸命',
-    language: 'ja',
+    id: '11910',
+    sectionHandle: 'staffMember',
+    slug: 'sylvia-page',
+    uri: 'about/staff/sylvia-page',
+    title: 'Test  NO IMAGE Penelope Pitstop',
+    image: [],
+    to: 'sylvia-page',
+    nameFirst: 'Test  NO IMAGE Penelope',
+    nameLast: 'Pitstop',
+    alternativeName: [],
+    jobTitle: 'Research and Instruction Librarian for Arts, Music, and Powell (AMP)',
+    departments: [
+      {
+        id: '6339',
+        title: 'User Engagement'
+      }
+    ],
     locations: [
       {
-        title: 'cupidatat non proident',
-        to: '/location/bar',
-      },
-      {
-        title: 'tristique',
-        to: '/location/baz',
-      },
+        title: 'Powell Library',
+        to: 'visit/locations/powell-library',
+        id: '523'
+      }
     ],
-    phone: '(222) 444-5555',
-  },
-  {
-    to: '/staff/foo',
-    image: API.image,
-    jobTitle: 'Ullamco',
-    staffName: 'Fames ac turpis',
-    alternativeFullName: '生懸命',
-    language: 'ja',
-    department: 'Inceptos Himenaeos',
-    email: 'loreum@ipsum.foo',
-    locations: [
+    pronouns: 'she/her',
+    email: 'thejendiamond@gmail.com',
+    phone: '(323) 555-5555',
+    consultation: 'https://calendar.library.ucla.edu/appointments/spage',
+    topics: [
       {
-        title: 'cupidatat non proident',
-        to: '/location/bar',
+        title: 'Zines',
+        id: '11858'
       },
       {
-        title: 'tristique',
-        to: '/location/baz',
+        title: 'Comics/Graphic Novels',
+        id: '11859'
       },
+      {
+        title: 'English Composition',
+        id: '11860'
+      },
+      {
+        title: 'dogs',
+        id: '11959'
+      },
+      {
+        title: 'balloons',
+        id: '11952'
+      }
     ],
-    phone: '(222) 444-5555',
-  },
+    academicDepartments: [
+      {
+        id: '11947',
+        title: 'African American Studies'
+      },
+      {
+        id: '11936',
+        title: 'test african american studies'
+      },
+      {
+        id: '11954',
+        title: 'African Studies'
+      },
+      {
+        id: '11955',
+        title: 'Cluster 60: America in Sixties: Politics, Society, and Culture, 1954 to 1974'
+      },
+      {
+        id: '11956',
+        title: 'cats'
+      }
+    ],
+    biography: '<p>Sylvia Page works to support the research needs of the UCLA community through reference, instruction, outreach, and collections. Her experience prior to UCLA includes work in academic libraries, museums, and galleries.</p>',
+    subjectLibrarian: 'yes',
+    orcid: null,
+    publications: null
+  }
 ]
 
 // Variations of stories below
 export function Default() {
   return {
     data() {
-      return { items: mock }
+      return { items: mockDefault }
     },
     components: { SectionStaffList },
     template: `
