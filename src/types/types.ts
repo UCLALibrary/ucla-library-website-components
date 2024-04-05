@@ -62,8 +62,8 @@ export interface BlockStaffListItemType {
   to: string
   nameLast: string
   nameFirst: string
+  topics: TopicsItemType[]
   alternativeName: AlternativeNameItemType[]
-  alternativeFullName: string
   email: string
   departments: DepartmentItemType[]
   subjectArea?: string
@@ -76,6 +76,13 @@ export interface BlockStaffListItemType {
   academicDepartments?: AcademicDepartmentsItemType[]
   uri: string
   image: MediaItemType
+  biography: string
+  orcid: string
+  publications: string
+  pronouns: string
+  slug: string
+  uri: string
+  sectionHandle: string
 }
 
 export interface BlockStaffArticleListItemType {
@@ -235,4 +242,9 @@ export interface StylesItemType {
   paddingBottom?: string
   backgroundColor?: string
   objectPosition?: string
+}
+
+export interface TopicsItemType {
+  id: string
+  title: string
 }

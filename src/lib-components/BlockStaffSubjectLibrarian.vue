@@ -113,7 +113,7 @@ const parsedLanguage = computed(() => {
           {{ parsedStaffName }}
           <span
             v-if="alternativeName"
-            :language="parsedLanguage"
+            :lang="parsedLanguage"
           >
             {{ parsedAlternativeFullName }}</span>
         </SmartLink>

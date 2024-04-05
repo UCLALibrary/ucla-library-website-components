@@ -5,8 +5,10 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
-// TYPESCRIPT
+// SVGs
 import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
+
+// TYPESCRIPT
 import type { DepartmentItemType, LocationItemType, MediaItemType } from '@/types/types'
 
 // COMPONENTS
