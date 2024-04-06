@@ -1,133 +1,37 @@
-<script
-  setup
-  lang="ts"
->
-import { computed } from 'vue'
-import type { PropType } from 'vue'
-
-// SVGs
-import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
-
-// TYPESCRIPT
-import type { AlternativeNameItemType, DepartmentItemType, MediaItemType, StaffLocationItemType } from '@/types/types'
-
-// COMPONENTS
-import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
-import SmartLink from '@/lib-components/SmartLink.vue'
-import IconWithLink from '@/lib-components/IconWithLink.vue'
-
-// PROPS & DATA
-const props = defineProps({
-  to: {
-    type: String,
-    default: '',
-  },
-  image: {
-    type: Array as PropType<MediaItemType[]>,
-    default: () => [],
-  },
-  staffName: {
-    type: String,
-    default: '',
-  },
-  nameLast: {
-    type: String,
-    default: '',
-  },
-  nameFirst: {
-    type: String,
-    default: '',
-  },
-  alternativeName: {
-    type: Array as PropType<AlternativeNameItemType[]>,
-    default: () => [],
-  },
-  language: {
-    type: String,
-    default: '',
-  },
-  jobTitle: {
-    type: String,
-    default: '',
-  },
-  email: {
-    type: String,
-    default: '',
-  },
-  phone: {
-    type: String,
-    default: '',
-  },
-  departments: {
-    type: Array as PropType<DepartmentItemType[]>,
-    default: () => [],
-  },
-  consultation: {
-    type: String,
-    default: '',
-  },
-  locations: {
-    type: Array as PropType<StaffLocationItemType[]>,
-    default: () => [],
-  },
-})
-
-const parsedImage = computed(() => {
-  return props.image.length ? props.image[0].src : {}
-})
-
-const parsedStaffName = computed(() => {
-  return `${props.nameFirst} ${props.nameLast}`
-})
-
-const parsedAlternativeFullName = computed(() => {
-  return props.alternativeName[0].fullName
-})
-
-const parsedLanguage = computed(() => {
-  return props.alternativeName[0].languageAltName
-})
-
-const lastDepartment = computed(() => {
-  return props.departments[props.departments.length - 1].title
-})
-</script>
-
 <template>
   <li class="block-staff-list">
-    <ResponsiveImage
-      v-if="props.image.length"
-      :media="parsedImage"
+    <responsive-image
+      :image="image"
       :aspect-ratio="100"
       sizes="300px"
       class="image"
     />
     <div
-      v-if="props.image.length === 0"
+      v-if="!image"
       class="no-image"
     >
-      <SvgHeadingArrow class="icon-heading-arrow" />
+      <svg-heading-arrow class="icon-heading-arrow" />
     </div>
 
     <div class="meta">
       <div class="name-title">
         <h3 class="staff-name">
-          <SmartLink :to="props.to">
-            {{ parsedStaffName }}
+          <smart-link :to="to">
+            {{ staffName }}
 
             <span
-              v-if="alternativeName.length"
-              :lang="parsedLanguage"
+              v-if="alternativeFullName"
+              :lang="language"
             >
-              {{ parsedAlternativeFullName }}</span>
-          </SmartLink>
+              {{ alternativeFullName }}</span>
+          </smart-link>
         </h3>
         <div
           class="job-title"
-          v-html="props.jobTitle"
+          v-html="jobTitle"
         />
         <ul
-          v-if="props.departments.length"
+          v-if="departments.length"
           class="departments"
         >
           <li class="department">
@@ -138,41 +42,41 @@ const lastDepartment = computed(() => {
 
       <div class="contact-info">
         <div class="email">
-          <IconWithLink
-            :text="props.email"
+          <icon-with-link
+            :text="email"
             icon-name="svg-icon-email"
-            :to="`mailto:${props.email}`"
+            :to="`mailto:${email}`"
           />
         </div>
 
         <div
-          v-if="props.phone"
+          v-if="phone"
           class="phone"
         >
-          <IconWithLink
-            :text="props.phone"
+          <icon-with-link
+            :text="phone"
             icon-name="svg-icon-phone"
-            :to="`tel:${props.phone}`"
+            :to="`tel:${phone}`"
           />
         </div>
 
         <div
-          v-if="props.consultation"
+          v-if="consultation"
           class="consultation"
         >
-          <IconWithLink
-            text="Book a consultation"
+          <icon-with-link
+            :text="`Book a consultation`"
             icon-name="svg-icon-consultation"
-            :to="props.consultation"
+            :to="consultation"
           />
         </div>
 
         <div
-          v-if="props.locations.length"
+          v-if="locations.length"
           class="locations"
         >
-          <IconWithLink
-            v-for="(location, index) in props.locations"
+          <icon-with-link
+            v-for="(location, index) in locations"
             :key="`${index}`"
             :text="location.title"
             icon-name="svg-icon-location"
@@ -183,6 +87,75 @@ const lastDepartment = computed(() => {
     </div>
   </li>
 </template>
+
+<script>
+import _isEmpty from "lodash/isEmpty"
+import SvgHeadingArrow from "ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg"
+import ResponsiveImage from "@/lib-components/ResponsiveImage"
+import SmartLink from "@/lib-components/SmartLink.vue"
+
+export default {
+  name: "BlockStaffList",
+  components: {
+    SvgHeadingArrow,
+    ResponsiveImage,
+    SmartLink,
+    IconWithLink: () =>
+      import("@/lib-components/IconWithLink.vue").then((d) => d.default),
+  },
+  props: {
+    to: {
+      type: String,
+      default: "",
+    },
+    image: {
+      type: Object,
+      default: () => { },
+    },
+    staffName: {
+      type: String,
+      default: "",
+    },
+    alternativeFullName: {
+      type: String,
+      default: "",
+    },
+    language: {
+      type: String,
+      default: "",
+    },
+    jobTitle: {
+      type: String,
+      default: "",
+    },
+    email: {
+      type: String,
+      default: "",
+    },
+    phone: {
+      type: String,
+      default: "",
+    },
+    departments: {
+      type: Array,
+      default: () => [],
+    },
+    consultation: {
+      type: String,
+      default: "",
+    },
+    locations: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  computed: {
+    lastDepartment() {
+      return this.departments[this.departments.length - 1].title
+    },
+  },
+}
+</script>
 
 <style
   lang="scss"
