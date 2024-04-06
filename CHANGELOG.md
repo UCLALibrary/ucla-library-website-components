@@ -1,3 +1,10 @@
+# [2.39.0-alpha.64](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.63...v2.39.0-alpha.64) (2024-04-06)
+
+
+### Features
+
+* APPS-2633_APPS-2636 Convert BlockStaffList & SectionStaffList to vue3 ([#490](https://github.com/UCLALibrary/ucla-library-website-components/issues/490)) ([4f6b97f](https://github.com/UCLALibrary/ucla-library-website-components/commit/4f6b97fcbaa6cae1a1fe8d6f0e7e6baa18c91411))
+
 # [2.39.0-alpha.63](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.62...v2.39.0-alpha.63) (2024-04-05)
 
 
