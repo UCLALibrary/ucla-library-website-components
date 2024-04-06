@@ -50,7 +50,7 @@ const mockDefault = [
 export function Default() {
   return {
     data() {
-      return { items: mock }
+      return { items: mockDefault }
     },
     components: { SectionStaffArticleList },
     template: `
