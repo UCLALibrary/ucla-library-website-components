@@ -1,79 +1,81 @@
-<script>
-export default {
-  name: 'SectionHeader',
-  inject: {
-    levelInjected: { from: 'sectionLevel', default: 1 },
+<script setup>
+import { inject, computed } from 'vue'
+
+const props = defineProps({
+  theme: {
+    type: String,
+    default: 'white',
   },
-  props: {
-    theme: {
-      type: String,
-      default: 'white',
-    },
-    level: {
-      type: Number,
-      default: 0,
-    },
+  level: {
+    type: Number,
+    default: 0,
   },
-  computed: {
-    classes() {
-      return ['section-header', `section-header${this.levelComputed}`]
-    },
-    levelComputed() {
-      return Number(this.level || this.levelInjected)
-    },
-    titleTag() {
-      return this.levelComputed >= 1 && this.levelComputed <= 6
-        ? `h${this.levelComputed}`
-        : 'h6'
-    },
-  },
-}
+})
+
+const levelInjected = inject('sectionLevel', 1)
+
+const levelComputed = computed(() => {
+  return Number(props.level || levelInjected)
+});
+
+const classes = computed(() => {
+  return ['section-header', `section-header${levelComputed.value}`]
+});
+
+const titleTag = computed(() => {
+  return levelComputed.value >= 1 && levelComputed.value <= 6
+    ? `h${levelComputed.value}`
+    : 'h6'
+})
 </script>
 
 <template>
-  <component :is="titleTag" :class="classes">
+  <component
+    :is="titleTag"
+    :class="classes"
+  >
     <slot />
   </component>
 </template>
 
 <style lang="scss" scoped>
 .section-header {
-    color: var(--color-primary-blue-03);
+  color: var(--color-primary-blue-03);
 }
 
 h1 {
-    font-family: var(--font-primary);
-    font-size: var(--step-5);
-    font-weight: 400;
+  font-family: var(--font-primary);
+  font-size: var(--step-5);
+  font-weight: 400;
 }
 
 h2 {
-    font-family: var(--font-primary);
-    font-size: var(--step-4);
-    font-weight: 400;
+  font-family: var(--font-primary);
+  font-size: var(--step-4);
+  font-weight: 400;
 }
 
 h3 {
-    font-family: var(--font-primary);
-    font-size: var(--step-3);
-    font-weight: 400;
+  font-family: var(--font-primary);
+  font-size: var(--step-3);
+  font-weight: 400;
 }
 
 h4 {
-    font-family: var(--font-primary);
-    font-size: var(--step-3);
-    font-weight: 400;
+  font-family: var(--font-primary);
+  font-size: var(--step-3);
+  font-weight: 400;
 }
 
 h5 {
-    font-family: var(--font-primary);
-    font-size: var(--step-3);
-    font-weight: 400;
+  font-family: var(--font-primary);
+  font-size: var(--step-3);
+  font-weight: 400;
 }
 
 h6 {
-    font-family: var(--font-primary);
-    font-size: 20px;
-    font-weight: 500;
+  font-family: var(--font-primary);
+  font-size: 20px;
+  font-weight: 500;
 }
 </style>

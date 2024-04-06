@@ -10,6 +10,11 @@ const blockFormData = inject('blockFormData')
 const registrationType = inject('registrationType')
 const libcalWaitlist = inject('libcalWaitlist')
 const libcalEndpoint = inject('libcalEndpoint')
+console.log("eventId", eventId.value)
+console.log("blockFormData", blockFormData.value)
+console.log("registrationType", registrationType.value)
+console.log("libcalWaitlist", libcalWaitlist.value)
+console.log("libcalEndpoint", libcalEndpoint)
 
 const errors = ref([])
 const firstName = ref('')
@@ -25,16 +30,13 @@ const showForm = ref(false)
 const registrationTypeInput = ref('')
 
 const parseQuestions = computed(() => {
-  // console.log(
-  //     `what is the value :${JSON.stringify(blockFormData)}`
-  // )
-  if (!blockFormData.questions)
+  if (!blockFormData.value.questions)
     return []
-  return blockFormData.questions.map((obj) => {
+  return blockFormData.value.questions.map((obj) => {
     if (
       obj.type === 'string'
-                || obj.type === 'radio'
-                || obj.type === 'dropdown'
+      || obj.type === 'radio'
+      || obj.type === 'dropdown'
     )
       formQuestions.value[obj.id] = ''
     else
@@ -48,19 +50,7 @@ const parseQuestions = computed(() => {
   })
 })
 
-function showBlockEvent() {
-  showForm.value = true
-}
 
-function closeBlockForm() {
-  showForm.value = false
-}
-
-function removeNotification() {
-  clearTimeout(countdown.value)
-  hasNotifications.value = false
-  showForm.value = false
-}
 
 function handleSubmit() {
   const data = {
@@ -72,32 +62,34 @@ function handleSubmit() {
     },
     registration_type:
       registrationType
-      && registrationType !== 'both'
-      && registrationType !== ''
-        ? registrationType
-        : registrationType
-            && registrationType === 'both'
+        && registrationType.value !== 'both'
+        && registrationType.value !== ''
+        ? registrationType.value
+        : registrationType?.value
+          && registrationType === 'both'
           ? registrationTypeInput.value
           : '',
     is_waitlist:
-      libcalWaitlist && libcalWaitlist !== '' ? libcalWaitlist : '0',
+      libcalWaitlist.value && libcalWaitlist.value !== '' ? libcalWaitlist.value : '0',
   }
 
-  data.form.questions = blockFormData.questions.map((obj) => {
+  data.form.questions = blockFormData.value.questions.map((obj) => {
     return {
       id: obj.id,
       answer: formQuestions.value[obj.id],
     }
   })
+  console.log("data submitting", JSON.stringify(data))
 
   let url = ''
+  console.log("eventId", eventId)
   if (libcalEndpoint) {
-    url = `${libcalEndpoint}api/1.1/events/${eventId}/register`
+    url = `${libcalEndpoint}api/1.1/events/${eventId.value}/register`
   }
   else {
     url
-              = `${process.env.VUE_APP_CALENDAR_LIBRARY_URL
-               }${eventId}/register`
+      = `${process.env.VUE_APP_CALENDAR_LIBRARY_URL
+      }${eventId}/register`
   }
 
   fetch(url, {
@@ -124,6 +116,8 @@ function handleSubmit() {
     })
 }
 
+
+
 function checkForm() {
   let fullNameValid = false
   let emailValid = false
@@ -133,20 +127,20 @@ function checkForm() {
     fullNameValid = true
 
   if (
-    blockFormData.emailMethod.status === 'required'
-            && email.value
+    blockFormData.value.emailMethod.status === 'required'
+    && email.value
   )
     emailValid = true
 
   if (
     registrationType
-            && registrationType === 'both'
-            && registrationTypeInput.value === ''
+    && registrationType.value === 'both'
+    && registrationTypeInput.value === ''
   )
     registrationTypeValid = false
   else if (
     registrationType
-            && registrationType !== 'both'
+    && registrationType.value !== 'both'
   )
     registrationTypeValid = true
   else
@@ -162,21 +156,21 @@ function checkForm() {
   if (!registrationTypeValid)
     errors.value.push('Registration Type 3 required.')
 
-  for (const question of blockFormData.questions) {
+  for (const question of blockFormData.value.questions) {
     if (
       questionsRequired.value[question.id]
-                && !formQuestions.value[question.id]
+      && !formQuestions.value[question.id]
     ) {
       question.type === 'string'
         ? errors.value.push(
-            `${blockFormData.questions.label} 4a required.`
+          `${blockFormData.value.questions.label} 4a required.`
         )
         : errors.value.push(`${question.label} 4b required.`)
     }
     else if (
       questionsRequired.value[question.id]
-                && question.type === 'checkbox'
-                && formQuestions.value[question.id].length === 0
+      && question.type === 'checkbox'
+      && formQuestions.value[question.id].length === 0
     ) {
       errors.value.push(`${question.label} 4c required.`)
     }
@@ -186,6 +180,20 @@ function checkForm() {
     handleSubmit()
   else
     window.scrollTo(0, 0)
+}
+
+function showBlockEvent() {
+  showForm.value = true
+}
+
+function closeBlockForm() {
+  showForm.value = false
+}
+
+function removeNotification() {
+  clearTimeout(countdown.value)
+  hasNotifications.value = false
+  showForm.value = false
 }
 
 watch(status, () => {
@@ -211,7 +219,10 @@ watch(status, () => {
       'form-success': hasNotifications,
     }"
   >
-    <div v-if="hasNotifications" class="success-message">
+    <div
+      v-if="hasNotifications"
+      class="success-message"
+    >
       <h3>Registration complete</h3>
       <p>Please check your email to view your booking.</p>
 
@@ -223,18 +234,29 @@ watch(status, () => {
         <SvgGlyphClose class="svg-glyph-close" />
       </button>
     </div>
-    <form v-else id="app" method="post" class="form">
+    <form
+      v-else
+      id="app"
+      method="post"
+      class="form"
+    >
       <div class="formTitleWrapper">
         <h3 class="formTitle">
           Registration
         </h3>
 
-        <button type="button" @click="closeBlockForm()">
+        <button
+          type="button"
+          @click="closeBlockForm()"
+        >
           <SvgGlyphClose class="svg-glyph-close" />
         </button>
       </div>
 
-      <div v-if="errors.length" class="form-errors">
+      <div
+        v-if="errors.length"
+        class="form-errors"
+      >
         <p>
           Please complete the required fields to complete registration
         </p>
@@ -295,7 +317,10 @@ watch(status, () => {
         </div>
       </div>
 
-      <div v-if="blockFormData.emailMethod" class="input-wrapper">
+      <div
+        v-if="blockFormData.emailMethod"
+        class="input-wrapper"
+      >
         <label for="email">
           <span v-if="blockFormData.emailMethod.status === 'required'">
             Email <span class="required">(required)</span>
@@ -323,18 +348,27 @@ watch(status, () => {
           :class="question.required ? 'questionRequired' : ''"
         >
           {{ question.label }}
-          <span v-if="question.required" class="required">
+          <span
+            v-if="question.required"
+            class="required"
+          >
             (required)
           </span>
         </label>
 
-        <div v-if="question.type === 'string'" class="textareaWrapper">
+        <div
+          v-if="question.type === 'string'"
+          class="textareaWrapper"
+        >
           <label
             :for="question.id"
             :class="question.required ? 'questionRequired' : ''"
           >
             {{ question.label }}
-            <span v-if="question.required" class="required">(required)</span>
+            <span
+              v-if="question.required"
+              class="required"
+            >(required)</span>
           </label>
           <textarea
             v-model="formQuestions[question.id]"
@@ -342,7 +376,10 @@ watch(status, () => {
           />
         </div>
 
-        <div v-if="question.type === 'radio'" class="radio-wrapper">
+        <div
+          v-if="question.type === 'radio'"
+          class="radio-wrapper"
+        >
           <div
             v-for="(option, index) in question.options"
             :key="index"
@@ -388,7 +425,10 @@ watch(status, () => {
           class="input-dropdown"
           :class="question.classes"
         >
-          <option disabled value="">
+          <option
+            disabled
+            value=""
+          >
             Please select one
           </option>
           <option
@@ -423,305 +463,317 @@ watch(status, () => {
   padding: var(--space-xl);
 
   &.form-error {
-      border-color: var(--color-status-error-02);
+    border-color: var(--color-status-error-02);
   }
 
   &.form-success {
-      border-color: var(--color-status-success-02);
+    border-color: var(--color-status-success-02);
   }
 
   @media #{$medium} {
-      max-width: 100%;
-      min-width: 600px;
+    max-width: 100%;
+    min-width: 600px;
   }
 
   @media #{$small} {
-      max-width: 100%;
-      min-width: 320px;
+    max-width: 100%;
+    min-width: 320px;
   }
 
   .formTitleWrapper {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--color-secondary-grey-01);
-      margin-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-secondary-grey-01);
+    margin-bottom: 8px;
 
-      :deep(.svg__fill--secondary-grey-01) {
-          fill: none;
-      }
+    :deep(.svg__fill--secondary-grey-01) {
+      fill: none;
+    }
   }
 
   .formTitle {
-      @include step-1;
-      color: var(--color-primary-blue-03);
-      margin-bottom: 8px;
+    @include step-1;
+    color: var(--color-primary-blue-03);
+    margin-bottom: 8px;
   }
 
   .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--space-m);
+
+    .required {
+      font-size: var(--step--1);
+      color: var(--color-status-error-02);
+      vertical-align: baseline;
+      align-self: baseline;
+      margin-left: 8px;
+    }
+
+    .input-container {
       display: flex;
-      flex-direction: column;
-      margin-bottom: var(--space-m);
+      flex: auto;
+      justify-content: space-between;
 
-      .required {
-          font-size: var(--step--1);
-          color: var(--color-status-error-02);
-          vertical-align: baseline;
-          align-self: baseline;
-          margin-left: 8px;
+      input {
+        padding: 8px 16px;
+        width: 100%;
       }
 
-      .input-container {
-          display: flex;
-          flex: auto;
-          justify-content: space-between;
-
-          input {
-              padding: 8px 16px;
-              width: 100%;
-          }
-
-          &:has(:nth-child(n + 1)) input:first-child {
-              margin-right: 8px;
-          }
+      &:has(:nth-child(n + 1)) input:first-child {
+        margin-right: 8px;
       }
+    }
 
-      legend {
-          @include step-0;
-      }
+    legend {
+      @include step-0;
+    }
 
-      > input {
-          padding: 8px 16px;
-          width: 100%;
-      }
+    >input {
+      padding: 8px 16px;
+      width: 100%;
+    }
   }
 
   .input-radio {
-      label {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          gap: var(--space-xs);
-      }
+    label {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: var(--space-xs);
+    }
   }
 
   label {
-      @include step-0;
-      width: 100%;
+    @include step-0;
+    width: 100%;
   }
 
   label:required {
-      @include step-0;
-      font-weight: $font-weight-medium;
+    @include step-0;
+    font-weight: $font-weight-medium;
   }
 
   ::placeholder {
-      @include step--1;
-      color: var(--color-secondary-grey-04);
+    @include step--1;
+    color: var(--color-secondary-grey-04);
   }
 
   .registrationInfo {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      @include step-0;
-      margin-bottom: var(--space-l);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include step-0;
+    margin-bottom: var(--space-l);
 
-      @media #{$small} {
-          flex-direction: column;
-          gap: 8px;
-      }
+    @media #{$small} {
+      flex-direction: column;
+      gap: 8px;
+    }
 
-      .requiredField {
-          font-weight: $font-weight-medium;
-      }
+    .requiredField {
+      font-weight: $font-weight-medium;
+    }
   }
+
   .registration-type {
-      font-weight: 600;
+    font-weight: 600;
   }
 
   .fullNameWrapper {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-      label {
-          font-weight: $font-weight-semibold;
-          text-align: end;
+    label {
+      font-weight: $font-weight-semibold;
+      text-align: end;
+    }
+
+    div {
+      display: flex;
+      flex: auto;
+      justify-content: space-between;
+
+      input {
+        padding: 8px 16px;
+        width: 49%;
       }
+    }
+
+    @media #{$medium} {
+      flex-direction: column;
+      max-width: 100%;
+      align-items: flex-start;
 
       div {
-          display: flex;
-          flex: auto;
-          justify-content: space-between;
-
-          input {
-              padding: 8px 16px;
-              width: 49%;
-          }
+        width: 100%;
       }
-
-      @media #{$medium} {
-          flex-direction: column;
-          max-width: 100%;
-          align-items: flex-start;
-          div {
-              width: 100%;
-          }
-      }
+    }
   }
 
   .emailLabelWrapper {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      label {
-          font-weight: $font-weight-semibold;
-      }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    label {
+      font-weight: $font-weight-semibold;
+    }
+
+    input {
+      padding: 8px 16px;
+      flex: auto;
+    }
+
+    @media #{$medium} {
+      flex-direction: column;
+      max-width: 100%;
+      align-items: flex-start;
+
       input {
-          padding: 8px 16px;
-          flex: auto;
+        width: 100%;
       }
-
-      @media #{$medium} {
-          flex-direction: column;
-          max-width: 100%;
-          align-items: flex-start;
-
-          input {
-              width: 100%;
-          }
-      }
+    }
   }
 
   .checkboxWrapper {
-      display: flex;
-      flex-direction: row;
+    display: flex;
+    flex-direction: row;
 
-      input {
-          margin-right: 14px;
-          width: auto;
-      }
+    input {
+      margin-right: 14px;
+      width: auto;
+    }
   }
 
   textarea {
-      padding: 8px 16px;
-      border-radius: var(--rounded-slightly-all);
+    padding: 8px 16px;
+    border-radius: var(--rounded-slightly-all);
   }
 
   input {
-      border: 1px solid;
-      border-color: var(--color-secondary-grey-03);
-      border-radius: var(--rounded-slightly-all);
-      font: {
-          color: var(--color-secondary-grey-04);
+    border: 1px solid;
+    border-color: var(--color-secondary-grey-03);
+    border-radius: var(--rounded-slightly-all);
+
+    font: {
+      color: var(--color-secondary-grey-04);
+    }
+
+    @include step--1;
+    color: var(--color-secondary-grey-05);
+
+    &:hover {
+      border-color: var(--color-default-cyan-03);
+    }
+
+    &:focus {
+      border-color: var(--color-default-cyan-03);
+
+      font {
+        color: var(--color-secondary-grey-04);
+      }
+    }
+
+    &:active {
+      border-color: var(--color-default-cyan-03);
+
+      font {
+        color: var(--color-secondary-grey-05);
       }
 
-      @include step--1;
-      color: var(--color-secondary-grey-05);
-
-      &:hover {
-          border-color: var(--color-default-cyan-03);
-      }
-
-      &:focus {
-          border-color: var(--color-default-cyan-03);
-          font {
-              color: var(--color-secondary-grey-04);
-          }
-      }
-
-      &:active {
-          border-color: var(--color-default-cyan-03);
-          font {
-              color: var(--color-secondary-grey-05);
-          }
-          background-color: var(--color-primary-blue-01);
-      }
+      background-color: var(--color-primary-blue-01);
+    }
   }
 
   .input-dropdown {
-      padding: 12px 16px;
-      flex: auto;
-      border-radius: var(--rounded-slightly-all);
-      width: 100%;
-      background: white;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg width='32' height='33' viewBox='0 0 32 33' fill='none' xmlns='http://www.w3.org/2000/svg' class='svg__icon-caret-down'%3E%3Cpath d='m10 14.729 6 6 6-6' stroke='%23999999' stroke-width='1.5' stroke-linecap='square' stroke-linejoin='round' class='svg__stroke--primary-blue-03' /%3E%3C/svg%3E") !important;
-      background-size: initial !important;
-      background-repeat: no-repeat;
-      background-position: center right calc(0.375em + 0.1875rem);
-      @include step--1;
+    padding: 12px 16px;
+    flex: auto;
+    border-radius: var(--rounded-slightly-all);
+    width: 100%;
+    background: white;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='33' viewBox='0 0 32 33' fill='none' xmlns='http://www.w3.org/2000/svg' class='svg__icon-caret-down'%3E%3Cpath d='m10 14.729 6 6 6-6' stroke='%23999999' stroke-width='1.5' stroke-linecap='square' stroke-linejoin='round' class='svg__stroke--primary-blue-03' /%3E%3C/svg%3E") !important;
+    background-size: initial !important;
+    background-repeat: no-repeat;
+    background-position: center right calc(0.375em + 0.1875rem);
+    @include step--1;
   }
 
   .textareaWrapper {
-      display: flex;
-      flex-direction: column;
-      flex: auto;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
 
-      label {
-          width: auto;
-          margin-bottom: 10px;
-      }
-      @media #{$medium} {
-          width: 100%;
-      }
+    label {
+      width: auto;
+      margin-bottom: 10px;
+    }
+
+    @media #{$medium} {
+      width: 100%;
+    }
   }
 
   .radioWrapper {
-      display: flex;
-      flex-direction: row;
+    display: flex;
+    flex-direction: row;
 
-      label {
-          align-self: flex-start;
-          @media #{$medium} {
-              align-self: flex-start;
-              width: 100%;
-          }
-      }
+    label {
+      align-self: flex-start;
 
-      input {
-          margin-right: 16px;
+      @media #{$medium} {
+        align-self: flex-start;
+        width: 100%;
       }
+    }
+
+    input {
+      margin-right: 16px;
+    }
   }
 
   .success-message {
-      position: relative;
-      z-index: 5;
-      box-sizing: border-box;
-      width: 100%;
+    position: relative;
+    z-index: 5;
+    box-sizing: border-box;
+    width: 100%;
 
-      h3 {
-          @include step-1;
-          padding-bottom: 8px;
-          margin-bottom: 8px;
-          border-bottom: 1px solid var(--color-secondary-grey-01);
-      }
+    h3 {
+      @include step-1;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid var(--color-secondary-grey-01);
+    }
 
-      p {
-          @include step-0;
-      }
-
-      .notification--remove {
-          position: absolute;
-          top: 0;
-          right: 0;
-          font-size: 15px;
-          &:hover {
-              cursor: pointer;
-          }
-
-          :deep(.svg__fill--secondary-grey-01) {
-              fill: none;
-          }
-      }
-  }
-  .form-errors {
-      background-color: var(--color-status-error-01);
-      box-sizing: border-box;
-      padding: 20px;
-      border-radius: var(--rounded-slightly-all);
+    p {
       @include step-0;
+    }
+
+    .notification--remove {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 15px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      :deep(.svg__fill--secondary-grey-01) {
+        fill: none;
+      }
+    }
+  }
+
+  .form-errors {
+    background-color: var(--color-status-error-01);
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: var(--rounded-slightly-all);
+    @include step-0;
   }
 }
 </style>
