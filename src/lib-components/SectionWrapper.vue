@@ -1,5 +1,5 @@
 <script setup>
-import { inject, provide, computed } from 'vue'
+import { computed, inject, provide } from 'vue'
 import SectionHeader from '@/lib-components/SectionHeader.vue'
 import RichText from '@/lib-components/RichText.vue'
 import kebabCase from '@/utils/kebabCase'
@@ -29,7 +29,7 @@ const props = defineProps({
 
 const parentLevel = inject('sectionLevel', 1)
 const ancestorSetMargins = inject('ancestorSetMargins', false)
-console.log("ancestorSetMargins", ancestorSetMargins)
+console.log('ancestorSetMargins', ancestorSetMargins)
 
 const levelComputed = computed(() => {
   console.log('SectionWrapper levelComputed', Number(props.level || parentLevel + 1))
@@ -57,9 +57,8 @@ const getId = computed(() => {
   // console.log('SectionWrapper getId', kebabCase(props.sectionTitle))
   return kebabCase(props.sectionTitle)
 })
-
-
 </script>
+
 <template>
   <section :class="classes">
     <a

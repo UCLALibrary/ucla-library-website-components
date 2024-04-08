@@ -10,11 +10,11 @@ const blockFormData = inject('blockFormData')
 const registrationType = inject('registrationType')
 const libcalWaitlist = inject('libcalWaitlist')
 const libcalEndpoint = inject('libcalEndpoint')
-console.log("eventId", eventId.value)
-console.log("blockFormData", blockFormData.value)
-console.log("registrationType", registrationType.value)
-console.log("libcalWaitlist", libcalWaitlist.value)
-console.log("libcalEndpoint", libcalEndpoint)
+console.log('eventId', eventId.value)
+console.log('blockFormData', blockFormData.value)
+console.log('registrationType', registrationType.value)
+console.log('libcalWaitlist', libcalWaitlist.value)
+console.log('libcalEndpoint', libcalEndpoint)
 
 const errors = ref([])
 const firstName = ref('')
@@ -50,10 +50,8 @@ const parseQuestions = computed(() => {
   })
 })
 
-
-
 function handleSubmit() {
-  console.log("registrationTypeInput", registrationTypeInput.value, registrationType.value && registrationType === 'both')
+  console.log('registrationTypeInput', registrationTypeInput.value, registrationType.value && registrationType === 'both')
   const data = {
     form: {
       first_name: firstName.value,
@@ -80,10 +78,10 @@ function handleSubmit() {
       answer: formQuestions.value[obj.id],
     }
   })
-  console.log("data submitting", JSON.stringify(data))
+  console.log('data submitting', JSON.stringify(data))
 
   let url = ''
-  console.log("eventId", eventId)
+  console.log('eventId', eventId)
   if (libcalEndpoint) {
     url = `${libcalEndpoint}api/1.1/events/${eventId.value}/register`
   }
@@ -116,8 +114,6 @@ function handleSubmit() {
       }
     })
 }
-
-
 
 function checkForm() {
   let fullNameValid = false

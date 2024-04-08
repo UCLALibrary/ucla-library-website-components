@@ -1,5 +1,5 @@
 <script setup>
-import { inject, computed } from 'vue'
+import { computed, inject } from 'vue'
 
 const props = defineProps({
   theme: {
@@ -16,11 +16,11 @@ const levelInjected = inject('sectionLevel', 1)
 
 const levelComputed = computed(() => {
   return Number(props.level || levelInjected)
-});
+})
 
 const classes = computed(() => {
   return ['section-header', `section-header${levelComputed.value}`]
-});
+})
 
 const titleTag = computed(() => {
   return levelComputed.value >= 1 && levelComputed.value <= 6

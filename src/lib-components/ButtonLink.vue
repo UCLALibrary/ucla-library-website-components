@@ -118,16 +118,16 @@ export default {
     <span class="label">{{ label }}</span>
 
     <component
-      v-if="parsedIconName !== ''"
       :is="parsedIconName"
+      v-if="parsedIconName !== ''"
       class="arrow"
       aria-hidden="true"
     />
     <div class="hover">
       <span class="label">{{ label }}</span>
       <component
-        v-if="parsedIconName !== ''"
         :is="parsedIconName"
+        v-if="parsedIconName !== ''"
         class="arrow"
         aria-hidden="true"
       />

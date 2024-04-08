@@ -1,5 +1,5 @@
-import BlockForm from '@/lib-components/BlockForm'
 import { computed } from 'vue'
+import BlockForm from '@/lib-components/BlockForm'
 
 // Import mock api data
 import BlockFormData from '@/stories/mock/BlockFormData.json'
@@ -17,7 +17,7 @@ export function Default() {
       return { BlockFormData }
     },
     provide() {
-      return{
+      return {
         eventId: computed(() => '12333405'),
         blockFormData: computed(() => BlockFormData.mock1),
         libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
@@ -32,18 +32,18 @@ export function Default() {
   }
 }
 
-export function  AppsTeamForm() {
+export function AppsTeamForm() {
   return {
     data() {
       return { BlockFormData }
     },
     provide() {
-      return{
-        eventId:  computed(() => '12333409'),
-        blockFormData:  computed(() =>  BlockFormData.mock2),
+      return {
+        eventId: computed(() => '12333409'),
+        blockFormData: computed(() => BlockFormData.mock2),
         libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
-        registrationType:  computed(() => 'online'),
-        libcalWaitlist:  computed(() => null),
+        registrationType: computed(() => 'online'),
+        libcalWaitlist: computed(() => null),
       }
     },
     components: { BlockForm },
@@ -59,7 +59,7 @@ export function CLICCInstructionalUseForm() {
       return { BlockFormData }
     },
     provide() {
-      return{
+      return {
         eventId: computed(() => '12333413'),
         blockFormData: computed(() => BlockFormData.mock3),
         libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
@@ -80,7 +80,7 @@ export function LibrarySpecialCollections() {
       return { BlockFormData }
     },
     provide() {
-      return{
+      return {
         eventId: computed(() => '12333417'),
         blockFormData: computed(() => BlockFormData.mock4),
         libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
@@ -128,8 +128,8 @@ export function TerryAllen() {
         libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
         registrationType: computed(() => 'online'),
         libcalWaitlist: computed(() => null),
-        }
-      },
+      }
+    },
     components: { BlockForm },
     template: `
         <block-form />
