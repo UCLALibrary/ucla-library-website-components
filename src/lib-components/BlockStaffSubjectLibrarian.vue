@@ -8,7 +8,7 @@ import type { PropType } from 'vue'
 // LODASH FUNCTIONS
 
 // TYPESCRIPT
-import type { AcademicDepartmentsItemType, AlternativeNameItemType, DepartmentItemType, StaffLocationItemType[] } from '@/types/types'
+import type { AcademicDepartmentsItemType, AlternativeNameItemType, DepartmentItemType, StaffLocationItemType } from '@/types/types'
 
 // COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
