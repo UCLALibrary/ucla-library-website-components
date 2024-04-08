@@ -32,7 +32,7 @@ export function Default() {
   }
 }
 
-export function AdvancedResearch() {
+export function  AppsTeamForm() {
   return {
     data() {
       return { BlockFormData }

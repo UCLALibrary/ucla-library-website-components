@@ -53,6 +53,7 @@ const parseQuestions = computed(() => {
 
 
 function handleSubmit() {
+  console.log("registrationTypeInput", registrationTypeInput.value, registrationType.value && registrationType === 'both')
   const data = {
     form: {
       first_name: firstName.value,
@@ -65,8 +66,8 @@ function handleSubmit() {
         && registrationType.value !== 'both'
         && registrationType.value !== ''
         ? registrationType.value
-        : registrationType?.value
-          && registrationType === 'both'
+        : registrationType.value
+          && registrationType.value === 'both'
           ? registrationTypeInput.value
           : '',
     is_waitlist:

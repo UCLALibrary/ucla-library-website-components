@@ -261,8 +261,8 @@
         ]
     },
     "mock2": {
-        "id": 5906,
-        "name": "Advanced Research Workshop Series",
+        "id": 22020,
+        "name": "TEST form for Apps Team",
         "identityHelp": "",
         "emailMethod": {
             "status": "required",
@@ -281,36 +281,46 @@
         },
         "questions": [
             {
-                "id": 15929,
-                "label": "UCLA Department Affiliation",
-                "type": "string",
-                "required": true
-            },
-            {
-                "id": 16763,
-                "label": "Status",
+                "id": 61316,
+                "label": "Do you like radio buttons?",
                 "type": "radio",
                 "required": true,
                 "options": [
-                    "Graduate Student",
-                    "Faculty",
-                    "Undergraduate Student",
-                    "Staff",
-                    "Library Staff",
-                    "Visiting Scholar"
+                    "Yes",
+                    "No"
                 ]
             },
             {
-                "id": 16764,
-                "label": "Please provide a brief description of your experience with this topic.",
+                "id": 61317,
+                "label": "Do you like checkboxes?",
+                "type": "checkbox",
+                "required": true,
+                "options": [
+                    "Yes",
+                    "No"
+                ]
+            },
+            {
+                "id": 61318,
+                "label": "What about dropdown?",
+                "type": "dropdown",
+                "required": true,
+                "options": [
+                    "Yes",
+                    "No"
+                ]
+            },
+            {
+                "id": 61319,
+                "label": "Single-line text - Type something in!",
                 "type": "string",
                 "required": true
             },
             {
-                "id": 16765,
-                "label": "How did you hear about this event?",
+                "id": 61320,
+                "label": "Multi-line text - Write a lot of something!",
                 "type": "string",
-                "required": false
+                "required": true
             }
         ]
     },
