@@ -26,7 +26,7 @@ const props = defineProps({
     default: false,
   },
 })
-console.log("In SectionWrapper code")
+console.log('In SectionWrapper code')
 const parentLevel = inject('sectionLevel', 1)
 const ancestorSetMargins = inject('ancestorSetMargins', false)
 // console.log('ancestorSetMargins', ancestorSetMargins)

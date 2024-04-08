@@ -109,7 +109,6 @@ export default {
 </script>
 
 <template>
-
   <SmartLink
     :to="to"
     :class="classes"

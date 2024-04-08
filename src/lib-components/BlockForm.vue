@@ -333,9 +333,9 @@ watch(status, () => {
           v-bind="{}"
         >
       </div>
-      <!--pre>
+      <!-- pre>
         {{ parseQuestions }}
-      </pre-->
+      </pre -->
       <div
         v-for="question in parseQuestions"
         :key="question.id"
