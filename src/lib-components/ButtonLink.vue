@@ -109,6 +109,7 @@ export default {
 </script>
 
 <template>
+
   <SmartLink
     :to="to"
     :class="classes"
@@ -119,7 +120,6 @@ export default {
 
     <component
       :is="parsedIconName"
-      v-if="parsedIconName !== ''"
       class="arrow"
       aria-hidden="true"
     />
@@ -127,7 +127,6 @@ export default {
       <span class="label">{{ label }}</span>
       <component
         :is="parsedIconName"
-        v-if="parsedIconName !== ''"
         class="arrow"
         aria-hidden="true"
       />

@@ -10,11 +10,11 @@ const blockFormData = inject('blockFormData')
 const registrationType = inject('registrationType')
 const libcalWaitlist = inject('libcalWaitlist')
 const libcalEndpoint = inject('libcalEndpoint')
-console.log('eventId', eventId.value)
-console.log('blockFormData', blockFormData.value)
-console.log('registrationType', registrationType.value)
-console.log('libcalWaitlist', libcalWaitlist.value)
-console.log('libcalEndpoint', libcalEndpoint)
+console.log('BlockForm eventId', eventId.value)
+console.log('BlockForm blockFormData', blockFormData.value)
+console.log('BlockForm registrationType', registrationType.value)
+console.log('BlockForm libcalWaitlist', libcalWaitlist.value)
+console.log('BlockForm libcalEndpoint', libcalEndpoint)
 
 const errors = ref([])
 const firstName = ref('')
@@ -333,7 +333,9 @@ watch(status, () => {
           v-bind="{}"
         >
       </div>
-
+      <!--pre>
+        {{ parseQuestions }}
+      </pre-->
       <div
         v-for="question in parseQuestions"
         :key="question.id"

@@ -26,13 +26,13 @@ const props = defineProps({
     default: false,
   },
 })
-
+console.log("In SectionWrapper code")
 const parentLevel = inject('sectionLevel', 1)
 const ancestorSetMargins = inject('ancestorSetMargins', false)
-console.log('ancestorSetMargins', ancestorSetMargins)
+// console.log('ancestorSetMargins', ancestorSetMargins)
 
 const levelComputed = computed(() => {
-  console.log('SectionWrapper levelComputed', Number(props.level || parentLevel + 1))
+  // console.log('SectionWrapper levelComputed', Number(props.level || parentLevel + 1))
   return Number(props.level || parentLevel + 1)
 })
 const setMargins = computed(() => {
