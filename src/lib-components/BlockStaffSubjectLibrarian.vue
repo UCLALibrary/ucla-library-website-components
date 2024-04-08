@@ -49,7 +49,7 @@ const props = defineProps({
     default: () => [],
   },
   locations: {
-    type: Array as PropType<LocationItemType[]>,
+    type: Array as PropType<StaffLocationItemType[]>,
     default: () => [],
   },
   alternativeName: {
