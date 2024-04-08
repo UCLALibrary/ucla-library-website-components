@@ -1,3 +1,10 @@
+# [2.39.0-alpha.65](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.64...v2.39.0-alpha.65) (2024-04-08)
+
+
+### Features
+
+* APPS-2634_APPS-2581 Convert BlockStaffArticleList & SectionStaffArticleList ([#491](https://github.com/UCLALibrary/ucla-library-website-components/issues/491)) ([a947bdd](https://github.com/UCLALibrary/ucla-library-website-components/commit/a947bddd7f4501c5a77f6e78fea0fccaea5706cf))
+
 # [2.39.0-alpha.64](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.63...v2.39.0-alpha.64) (2024-04-06)
 
 
