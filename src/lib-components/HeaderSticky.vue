@@ -6,11 +6,11 @@ import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
 
 const { primaryItems, secondaryItems } = defineProps({
   primaryItems: {
-    type: Array as PropType<NavPrimaryItemType[]>, // todo of what?
+    type: Array as PropType<NavPrimaryItemType[]>,
     default: () => [],
   },
   secondaryItems: {
-    type: Array as PropType<NavSecondaryItemType[]>, // todo of what?
+    type: Array as PropType<NavSecondaryItemType[]>,
     default: () => [],
   },
 })
@@ -45,15 +45,14 @@ const { primaryItems, secondaryItems } = defineProps({
         justify-content: flex-start;
         width: unset;
 
-        // start
-        :v-deep(.section-name) {
+        :deep(.section-name) {
             color: var(--color-black);
             font-family: var(--font-primary);
             font-size: 15px;
             font-weight: 600;
         }
 
-        :v-deep(.support-links) {
+        :deep(.support-links) {
             .item-top {
                 color: var(--color-black);
                 font-family: var(--font-primary);
@@ -61,12 +60,12 @@ const { primaryItems, secondaryItems } = defineProps({
             }
         }
 
-        :v-deep(.background-white) {
+        :deep(.background-white) {
             border-bottom: unset;
             height: unset;
         }
 
-        :v-deep(.background-blue) {
+        :deep(.background-blue) {
             width: 1920px;
         }
     }
