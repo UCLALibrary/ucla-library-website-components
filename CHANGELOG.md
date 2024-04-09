@@ -1,3 +1,10 @@
+# [2.39.0-alpha.67](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.66...v2.39.0-alpha.67) (2024-04-09)
+
+
+### Features
+
+* provide inject can be refs ([#492](https://github.com/UCLALibrary/ucla-library-website-components/issues/492)) ([f8d5c9d](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8d5c9d318f5bf54bb354265030ed1a6a8ab34fc))
+
 # [2.39.0-alpha.66](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.65...v2.39.0-alpha.66) (2024-04-09)
 
 
