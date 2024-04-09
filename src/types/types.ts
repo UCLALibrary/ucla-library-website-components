@@ -1,4 +1,13 @@
 // custom types
+export interface AcademicDepartmentsItemType {
+  id: string
+  title: string
+}
+
+export interface AlternativeNameItemType {
+  fullName: string
+  languageAltName: string
+}
 
 export interface AmenitiesType {
   title: string
@@ -6,8 +15,16 @@ export interface AmenitiesType {
 }
 
 export interface ArticleStaffItemType {
+  id: string
   title?: string
   to?: string
+}
+
+export interface AuthorsItemType {
+  id: string
+  slug: string
+  to: string
+  title: string
 }
 
 export interface BlockCallToActionTwoUpType {
@@ -39,6 +56,60 @@ export interface BlockImpactNumbersCarouselType {
   smallDescriptor: string
   image: MediaItemType[]
   altImageText: string
+}
+
+export interface BlockStaffListItemType {
+  to: string
+  nameLast: string
+  nameFirst: string
+  jobTitle: string
+  departments: DepartmentItemType[]
+  email: string
+  topics: TopicsItemType[]
+  alternativeName?: AlternativeNameItemType[]
+  subjectArea?: string
+  staffName?: string
+  language?: string
+  locations?: StaffLocationItemType[]
+  phone?: string
+  consultation?: string
+  academicDepartments?: AcademicDepartmentsItemType[]
+  uri: string
+  image?: MediaItemType[]
+  biography?: string
+  orcid?: string
+  publications?: string
+  pronouns?: string
+  slug: string
+  sectionHandle: string
+  subjectLibrarian: boolean
+}
+
+export interface BlockStaffArticleListItemType {
+  image?: MediaItemType
+  to?: string
+  category?: string
+  title?: string
+  date?: string
+  authors?: AuthorsItemType[]
+  description?: string
+  externalResourceUrl?: string
+}
+
+export interface StaffLocationItemType {
+  id?: string
+  image?: MediaItemType
+  locationType?: string
+  title?: string
+  to?: string
+  uri?: string
+  affiliateLibraryUrl?: string
+  address?: string
+  addressLink?: string
+  amenities?: AmenitiesType[]
+  reserveSeat?: string
+  isUclaLibrary?: boolean
+  libcalLocationIdForHours?: string
 }
 
 export interface CardItemType {
@@ -100,8 +171,8 @@ export interface MediaItemType {
 
 export interface LocationItemType {
   id?: string
-  title?: string
-  to?: string
+  title: string
+  to: string
 }
 
 export interface SearchLinkItemType {
@@ -177,4 +248,9 @@ export interface StylesItemType {
   paddingBottom?: string
   backgroundColor?: string
   objectPosition?: string
+}
+
+export interface TopicsItemType {
+  id: string
+  title: string
 }
