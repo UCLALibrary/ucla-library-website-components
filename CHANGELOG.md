@@ -1,3 +1,10 @@
+# [2.39.0-alpha.66](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.65...v2.39.0-alpha.66) (2024-04-09)
+
+
+### Features
+
+* Apps-2559 convert HeaderSticky to vue3 ([#493](https://github.com/UCLALibrary/ucla-library-website-components/issues/493)) ([25e081c](https://github.com/UCLALibrary/ucla-library-website-components/commit/25e081cb7c01a5c43a031e2afb6d2d1d2235fa18))
+
 # [2.39.0-alpha.65](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.64...v2.39.0-alpha.65) (2024-04-08)
 
 
