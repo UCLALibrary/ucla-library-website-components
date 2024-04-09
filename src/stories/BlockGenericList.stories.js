@@ -100,12 +100,12 @@ export function PayRate() {
   `,
   }
 }
-// Not all jobs have departments, example: Academic Librarian Jobs 
+// Not all jobs have departments, example: Academic Librarian Jobs
 // https://www.library.ucla.edu/about/jobs/staff-academic-jobs/
 export function emptyDepartments() {
   return {
     data() {
-      return { ...mock2, departments: []}
+      return { ...mock2, departments: [] }
     },
     components: { BlockGenericList },
     template: `
