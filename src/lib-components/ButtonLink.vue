@@ -119,6 +119,7 @@ export default {
 
     <component
       :is="parsedIconName"
+      v-if="parsedIconName !== ''"
       class="arrow"
       aria-hidden="true"
     />
@@ -126,6 +127,7 @@ export default {
       <span class="label">{{ label }}</span>
       <component
         :is="parsedIconName"
+        v-if="parsedIconName !== ''"
         class="arrow"
         aria-hidden="true"
       />

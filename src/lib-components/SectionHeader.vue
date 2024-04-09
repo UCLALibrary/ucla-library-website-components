@@ -11,7 +11,7 @@ const props = defineProps({
     default: 0,
   },
 })
-
+console.log('Section Header component initialized')
 const levelInjected = inject('sectionLevel', 1)
 
 const levelComputed = computed(() => {

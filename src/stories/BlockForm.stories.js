@@ -10,6 +10,7 @@ export default {
   component: BlockForm,
 }
 
+// The blockform data is tied to eventid, we cannot change eventid and keep the same form, so if you are updating form , also update the eventid and other details
 // Variations of stories below
 export function Default() {
   return {
@@ -22,7 +23,7 @@ export function Default() {
         blockFormData: computed(() => BlockFormData.mock1),
         libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
         libcalWaitlist: computed(() => '1'),
-        registrationType: computed(() => 'online'),
+        registrationType: computed(() => 'in-person'),
       }
     },
     components: { BlockForm },
