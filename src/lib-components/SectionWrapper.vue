@@ -1,73 +1,62 @@
-<script>
-// Components
+<script setup>
+import { computed, inject, provide } from 'vue'
 import SectionHeader from '@/lib-components/SectionHeader.vue'
 import RichText from '@/lib-components/RichText.vue'
-
-// Helpers
 import kebabCase from '@/utils/kebabCase'
 
-export default {
-  name: 'SectionWrapper',
-  components: { SectionHeader, RichText },
+const props = defineProps({
+  sectionTitle: {
+    type: String,
+    default: '',
+  },
+  sectionSummary: {
+    type: String,
+    default: '',
+  },
+  theme: {
+    type: String,
+    default: 'white',
+  },
+  level: {
+    type: Number,
+    default: 0,
+  },
+  noMargins: {
+    type: Boolean,
+    default: false,
+  },
+})
+console.log('SectionWrapper code initialized')
+const parentLevel = inject('sectionLevel', 1)
+const ancestorSetMargins = inject('ancestorSetMargins', false)
+// console.log('ancestorSetMargins', ancestorSetMargins)
 
-  provide() {
-    return {
-      sectionLevel: this.levelComputed,
-      ancestorSetMargins: this.ancestorSetMargins || this.setMargins,
-    }
-  },
-  inject: {
-    parentLevel: { from: 'sectionLevel', default: 1 },
-    ancestorSetMargins: { default: false },
-  },
-  props: {
-    sectionTitle: {
-      type: String,
-      default: '',
-    },
-    sectionSummary: {
-      type: String,
-      default: '',
-    },
-    theme: {
-      type: String,
-      default: 'white',
-    },
-    level: {
-      type: Number,
-      default: 0,
-    },
-    noMargins: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  computed: {
-    classes() {
-      return [
-        'section-wrapper',
-        `section-wrapper${this.levelComputed}`,
-        `theme-${this.theme}`,
-        { 'top-level': this.setMargins },
-      ]
-    },
-    levelComputed() {
-      console.log('SectionWrapper levelComputed', Number(this.level || this.parentLevel + 1))
-      return Number(this.level || this.parentLevel + 1)
-    },
-    getId() {
-      console.log('SectionWrapper getId', kebabCase(this.sectionTitle))
-      return kebabCase(this.sectionTitle)
-    },
-    setMargins() {
-      console.log('SectionWrapper setMargins', this.noMargins || this.ancestorSetMargins)
-      if (this.noMargins || this.ancestorSetMargins)
-        return false
+const levelComputed = computed(() => {
+  // console.log('SectionWrapper levelComputed', Number(props.level || parentLevel + 1))
+  return Number(props.level || parentLevel + 1)
+})
+const setMargins = computed(() => {
+  console.log('SectionWrapper setMargins', props.noMargins || ancestorSetMargins)
+  return !(props.noMargins || ancestorSetMargins)
+})
 
-      return true
-    },
-  },
-}
+// Provide must be called synchronously in setup()
+provide('sectionLevel', levelComputed.value)
+provide('ancestorSetMargins', ancestorSetMargins || setMargins.value)
+
+const classes = computed(() => {
+  return [
+    'section-wrapper',
+    `section-wrapper${levelComputed.value}`,
+    `theme-${props.theme}`,
+    { 'top-level': setMargins.value },
+  ]
+})
+
+const getId = computed(() => {
+  // console.log('SectionWrapper getId', kebabCase(props.sectionTitle))
+  return kebabCase(props.sectionTitle)
+})
 </script>
 
 <template>
