@@ -40,7 +40,6 @@ const setMargins = computed(() => {
   return !(props.noMargins || ancestorSetMargins)
 })
 
-// Provide must be called synchronously in setup()
 provide('sectionLevel', levelComputed.value)
 provide('ancestorSetMargins', ancestorSetMargins || setMargins.value)
 
@@ -86,7 +85,10 @@ const getId = computed(() => {
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .section-wrapper {
   >.section-header {
     margin-bottom: var(--space-xl);
