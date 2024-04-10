@@ -1,26 +1,3 @@
-<script
-  setup
-  lang="ts"
->
-import type { PropType } from 'vue'
-
-// TYPESCRIPT
-import type { BlockStaffListItemType } from '@/types/types'
-
-import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian.vue'
-
-const { items, tableHeaders } = defineProps({
-  items: {
-    type: Array as PropType<BlockStaffListItemType[]>,
-    default: () => [],
-  },
-  tableHeaders: {
-    type: Array,
-    default: () => [],
-  },
-})
-</script>
-
 <template>
   <table class="section-staff-subject-librarian">
     <caption>
@@ -38,13 +15,13 @@ const { items, tableHeaders } = defineProps({
     </thead>
 
     <tbody>
-      <BlockStaffSubjectLibrarian
+      <block-staff-subject-librarian
         v-for="(item, index) in items"
         :key="`${index}-${item.subjectArea}`"
         :subject-area="item.subjectArea"
         :staff-name="item.staffName"
         :to="item.to"
-        :alternative-name="item.alternativeName"
+        :alternativeName="item.alternativeName"
         :language="item.language"
         :job-title="item.jobTitle"
         :departments="item.departments"
@@ -57,6 +34,27 @@ const { items, tableHeaders } = defineProps({
     </tbody>
   </table>
 </template>
+
+<script>
+import BlockStaffSubjectLibrarian from "@/lib-components/BlockStaffSubjectLibrarian.vue"
+
+export default {
+  name: "SectionStaffSubjectLibrarian",
+  components: {
+    BlockStaffSubjectLibrarian,
+  },
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+    tableHeaders: {
+      type: Array,
+      default: () => [],
+    },
+  },
+}
+</script>
 
 <style
   lang="scss"
