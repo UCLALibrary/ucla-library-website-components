@@ -49,7 +49,7 @@ const mockDefault = {
   pronouns: 'she/his/them',
   email: 'subject.librarian@email.com',
   phone: '(555) 475-1523',
-  consultation: 'http://help.com',
+  consultation: 'http://helpme.com',
   topics: [
     {
       title: 'diaries',
