@@ -1,3 +1,10 @@
+# [2.39.0-alpha.69](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.68...v2.39.0-alpha.69) (2024-04-10)
+
+
+### Features
+
+* APPS-2635 Convert BlockStaffDetail to vue3 ([#497](https://github.com/UCLALibrary/ucla-library-website-components/issues/497)) ([4c8d803](https://github.com/UCLALibrary/ucla-library-website-components/commit/4c8d8033e0f539757e82caae2dbcb595d02832f0))
+
 # [2.39.0-alpha.68](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.67...v2.39.0-alpha.68) (2024-04-10)
 
 
