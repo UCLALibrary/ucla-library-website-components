@@ -100,3 +100,25 @@ export function PayRate() {
   `,
   }
 }
+// Not all jobs have departments, example: Academic Librarian Jobs
+// https://www.library.ucla.edu/about/jobs/staff-academic-jobs/
+export function emptyDepartments() {
+  return {
+    data() {
+      return { ...mock2, departments: [] }
+    },
+    components: { BlockGenericList },
+    template: `
+      <block-generic-list
+        sectionTitle="Academic Librarian Jobs"
+        :title="title"
+        :text="summary"
+        :jobRequisitionNumber="jobRequisitionNumber"
+        :jobPostingURL="jobPostingURL"
+        :departments="departments"
+        :associatedLocations="associatedLocations"
+        :payRate="payRate"
+      />
+  `,
+  }
+}
