@@ -114,7 +114,6 @@ const mockDefault = [
       },
     ],
     to: '/about/staff/ariane-bicho',
-    staffName: 'Ariane Bicho のより娘',
   },
 ]
 
