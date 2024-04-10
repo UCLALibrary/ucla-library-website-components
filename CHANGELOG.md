@@ -1,3 +1,10 @@
+# [2.39.0-alpha.68](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.67...v2.39.0-alpha.68) (2024-04-10)
+
+
+### Features
+
+* APPS-2583-2582 Fix block StaffSubjectLibrarian & Convert SectionStaffSubjectLibrarian to vue3 ([#494](https://github.com/UCLALibrary/ucla-library-website-components/issues/494)) ([0d6cb4d](https://github.com/UCLALibrary/ucla-library-website-components/commit/0d6cb4ddf0b17a3ec1e0100b43f00247a5a3f55c))
+
 # [2.39.0-alpha.67](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.66...v2.39.0-alpha.67) (2024-04-09)
 
 

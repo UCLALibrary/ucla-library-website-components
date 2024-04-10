@@ -6,33 +6,99 @@ export default {
   component: BlockStaffSubjectLibrarian,
 }
 
-const mock = {
+const mockDeafult = {
   subjectArea: 'African American Studies',
-  nameFirst: 'Ariane',
-  nameLast: 'Bicho',
   to: '/about/staff/ariane-bicho',
-  staffName: 'Ariane Bicho 娘の洋子より',
-  image: null,
-  alternativeName: [
+  nameLast: 'Bicho',
+  nameFirst: 'Ariane',
+  jobTitle: 'Super Duper Director of Marketing',
+  departments: [
     {
-      fullName: '娘の洋子より',
-      languageAltName: 'zh',
+      id: '7272',
+      title: 'Gorilla Marketing'
     },
+    {
+      id: '7270',
+      title: 'Communications'
+    }
   ],
-  uri: 'about/staff/ariane-bicho',
-  phone: '(222) 444-5555',
-  email: 'abicho@library.ucla.edu',
-  consultation: 'https://calendar.library.ucla.edu/appointments/aogarcia',
+  locations: [
+    {
+      title: 'Richard C. Rudolph East Asian Library',
+      to: 'visit/locations/east-asian-library',
+      id: '11497'
+    },
+    {
+      title: 'UCLA Film & Television Archive',
+      to: 'visit/locations/film-television-archive',
+      id: '11612'
+    }
+  ],
   academicDepartments: [
     {
       id: '11947',
-      title: 'African American Studies',
+      title: 'African American Studies'
     },
     {
       id: '11955',
-      title: 'Cluster 60: America in Sixties: Politics, Society, and Culture, 1954 to 1974',
+      title: 'Studious Studies Department'
+    }
+  ],
+  alternativeName: [],
+  uri: 'about/staff/ariane-bicho',
+  email: 'abicho@library.ucla.edu',
+  phone: '(222) 444-5555',
+  consultation: 'https://calendar.library.ucla.edu/appointments/aogarcia',
+}
+
+const mockAlternativeName = {
+  subjectArea: 'African American Studies',
+  to: '/about/staff/ariane-bicho',
+  nameLast: 'Bicho',
+  nameFirst: 'Ariane',
+  jobTitle: 'Super Duper Director of Marketing',
+  departments: [
+    {
+      id: '7272',
+      title: 'Gorilla Marketing'
     },
-  ]
+    {
+      id: '7270',
+      title: 'Communications'
+    }
+  ],
+  locations: [
+    {
+      title: 'Richard C. Rudolph East Asian Library',
+      to: 'visit/locations/east-asian-library',
+      id: '11497'
+    },
+    {
+      title: 'UCLA Film & Television Archive',
+      to: 'visit/locations/film-television-archive',
+      id: '11612'
+    }
+  ],
+  academicDepartments: [
+    {
+      id: '11947',
+      title: 'African American Studies'
+    },
+    {
+      id: '11955',
+      title: 'Studious Studies Department'
+    }
+  ],
+  alternativeName: [
+    {
+      fullName: '司書',
+      languageAltName: 'ja'
+    }
+  ],
+  uri: 'about/staff/ariane-bicho',
+  email: 'abicho@library.ucla.edu',
+  phone: '(222) 444-5555',
+  consultation: 'https://calendar.library.ucla.edu/appointments/aogarcia',
 }
 
 // Variations of stories below
@@ -41,7 +107,25 @@ export function Default() {
     data() {
       return {
         item: {
-          ...mock,
+          ...mockDeafult,
+        },
+      }
+    },
+    components: { BlockStaffSubjectLibrarian },
+    template: `
+      <block-staff-subject-librarian
+        v-bind="item"
+      />
+  `,
+  }
+}
+
+export function AlternativeName() {
+  return {
+    data() {
+      return {
+        item: {
+          ...mockAlternativeName,
         },
       }
     },
