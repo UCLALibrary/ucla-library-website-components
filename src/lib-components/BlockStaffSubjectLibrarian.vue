@@ -24,10 +24,6 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  staffName: {
-    type: String,
-    default: '',
-  },
   nameLast: {
     type: String,
     default: '',
@@ -83,16 +79,22 @@ const lastDepartment = computed(() => {
   return dept[dept.length - 1].title
 })
 
-const parsedStaffName = computed(() => {
-  return `${props.nameFirst} ${props.nameLast}`
-})
-
 const parsedAlternativeFullName = computed(() => {
   return props.alternativeName[0].fullName
 })
 
 const parsedLanguage = computed(() => {
   return props.alternativeName[0].languageAltName
+})
+
+const parsedStaffName = computed(() => {
+  return `${props.nameFirst} ${props.nameLast}`
+})
+
+const parsedStaffNameTwo = computed(() => {
+  return props.alternativeName.length > 0
+    ? `${props.nameFirst} ${props.nameLast} ${props.alternativeName[0].fullName}`
+    : `${props.nameFirst} ${props.nameLast}`
 })
 </script>
 
@@ -106,18 +108,27 @@ const parsedLanguage = computed(() => {
 
       <!-- NAME -->
       <td class="librarian-block">
+
         <SmartLink
           :to="to"
           class="staff-name"
+          v-if="props.alternativeName.length === 0 || props.alternativeName === null"
+        >
+          {{ parsedStaffName }}
+        </SmartLink>
+
+        <SmartLink
+          :to="to"
+          class="staff-name"
+          v-else
         >
           {{ parsedStaffName }}
           <span
-            v-if="alternativeName"
             :lang="parsedLanguage"
+            v-if="props.alternativeName && props.alternativeName != null"
           >
             {{ parsedAlternativeFullName }}</span>
         </SmartLink>
-
         <div
           class="job-title"
           v-html="jobTitle"
@@ -134,7 +145,7 @@ const parsedLanguage = computed(() => {
 
         <div v-if="locations.length">
           <IconWithLink
-            v-for="location in locations"
+            v-for="  location   in   locations  "
             :key="`location-${location.id}`"
             :text="location.title"
             icon-name="svg-icon-location"

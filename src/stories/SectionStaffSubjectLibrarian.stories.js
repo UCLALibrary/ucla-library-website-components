@@ -7,7 +7,7 @@ export default {
   component: SectionStaffSubjectLibrarian,
 }
 
-const mock = [
+const mockDefault = [
   {
     subjectArea: 'Female Outlaw Studies',
     nameLast: 'Bullion',
@@ -41,7 +41,6 @@ const mock = [
       },
     ],
     to: '/about/staff/ariane-bicho',
-    staffName: 'Laura Bullion 娘の洋子より',
   },
   {
     subjectArea: 'Pirate Studies',
@@ -57,7 +56,7 @@ const mock = [
       },
     ],
     consultation: 'https://calendar.library.ucla.edu/appointments/aogarcia',
-    alternativeName: null,
+    alternativeName: [],
     uri: 'about/staff/ariane-bicho',
     email: 'abicho@library.ucla.edu',
     academicDepartments: [
@@ -71,7 +70,6 @@ const mock = [
       },
     ],
     to: '/about/staff/ariane-bicho',
-    staffName: 'Anne Bonny',
   },
   {
     subjectArea: 'African American Studies',
@@ -126,7 +124,7 @@ const tableH = ['Academic Departments', 'Name', 'Contact Information']
 export function Default() {
   return {
     data() {
-      return { items: mock, tableHeaders: tableH }
+      return { items: mockDefault, tableHeaders: tableH }
     },
     components: { SectionStaffSubjectLibrarian },
     template: `
