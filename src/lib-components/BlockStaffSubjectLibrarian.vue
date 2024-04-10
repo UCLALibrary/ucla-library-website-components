@@ -102,24 +102,23 @@ const parsedStaffName = computed(() => {
 
       <!-- NAME -->
       <td class="librarian-block">
-
         <SmartLink
+          v-if="props.alternativeName.length === 0 || props.alternativeName === null"
           :to="to"
           class="staff-name"
-          v-if="props.alternativeName.length === 0 || props.alternativeName === null"
         >
           {{ parsedStaffName }}
         </SmartLink>
 
         <SmartLink
+          v-else
           :to="to"
           class="staff-name"
-          v-else
         >
           {{ parsedStaffName }}
           <span
-            :lang="parsedLanguage"
             v-if="props.alternativeName && props.alternativeName != null"
+            :lang="parsedLanguage"
           >
             {{ parsedAlternativeFullName }}</span>
         </SmartLink>
@@ -139,7 +138,7 @@ const parsedStaffName = computed(() => {
 
         <div v-if="locations.length">
           <IconWithLink
-            v-for="  location   in   locations  "
+            v-for=" location in locations "
             :key="`location-${location.id}`"
             :text="location.title"
             icon-name="svg-icon-location"
