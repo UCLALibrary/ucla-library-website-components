@@ -6,7 +6,7 @@ import type { PropType } from 'vue'
 import { computed } from 'vue'
 
 // TPESCRIPT
-import type { AmenitiesType, MediaItemType } from '@/types/types'
+import type { MediaItemType } from '@/types/types'
 
 // UTILITY FUNCTION
 import getSectionName from "@/utils/getSectionName"
@@ -38,7 +38,7 @@ const props = defineProps({
 })
 
 const classes = computed(() => {
-  return ["block-post-small", `color-${props.sectionName}`]
+  return ["block-post-small", `color-${sectionName.value}`]
 })
 
 const sectionName = computed(() => {
@@ -55,8 +55,9 @@ const parsedAuthor = computed(() => {
     :to="to"
     :class="classes"
   >
-    <responsive-image
-      :image="image"
+    <ResponsiveImage
+      v-if="image"
+      :media="image"
       :aspect-ratio="100"
       class="image"
     />

@@ -1,112 +1,140 @@
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
 import BlockPostSmall from "@/lib-components/BlockPostSmall"
-import StoryRouter from "storybook-vue-router"
 
 // Storybook default settings
 export default {
     title: "BLOCK / Post Small",
     component: BlockPostSmall,
-    decorators: [StoryRouter()],
 }
 
-const mock = {
+const mockDefault = {
+    image: API.image,
+    to: "/foo/bar",
+    categoryName: "squirrels",
+    author: "Fluffy Ranger",
+    title: "What to Feed Squirrels",
+}
+
+const mockVisit = {
     image: API.image,
     to: "/visit/foo/bar/",
-    categoryName: "faucibus",
-    author: "Inceptos Himenaeos",
-    title: "Suspendisse in justo eu magna",
+    categoryName: "wild pets",
+    author: "Dexter Diamond",
+    title: "Introducing Mammals to Young Naturalists",
+}
+
+const mockAbout = {
+    image: API.image,
+    to: "/about/foo/bar",
+    categoryName: "red squirrels",
+    author: "Dexter Diamond",
+    title: "Twenty-two Things About Squirrels",
+}
+
+const mockHelp = {
+    image: API.image,
+    to: "/help/foo/bar/",
+    categoryName: "gray squirrels",
+    author: "Smokey Smith",
+    title: "Squirrels: Diet, Habits & Other Facts",
+}
+
+const mockLongText = {
+    image: API.image,
+    to: "/visit/foo/bar/",
+    categoryName: "wild squirrels",
+    author: "Fluffy Ranger",
+    title: "Six Stupendous Reasons to Appreciate the Heck Out of these surprisingly brainy, aerodynamic, nut-crazed squirrels",
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        item: {
+          ...mockDefault,
+        },
+      }
     },
     components: { BlockPostSmall },
     template: `
-        <block-post-small
-            :category-name="categoryName"
-            :author="author"
-            :title="title"
-            :image="image"
-            to="/legal/"
-        />
-    `,
-})
-export const Visit = () => ({
-    data() {
-        return {
-            ...mock,
-        }
-    },
-    components: { BlockPostSmall },
-    template: `
-        <block-post-small
-            :category-name="categoryName"
-            :author="author"
-            :title="title"
-            :image="image"
-            :to="to"
-        />
-    `,
-})
+      <block-post-small
+        v-bind="item"
+      />
+  `,
+  }
+}
 
-export const About = () => ({
+export const Visit = () => {
+  return {
     data() {
-        return {
-            ...mock,
-            to: "/about/foo/bar/",
-        }
+      return {
+        item: {
+          ...mockVisit,
+        },
+      }
     },
     components: { BlockPostSmall },
     template: `
-        <block-post-small
-            :category-name="categoryName"
-            :author="author"
-            :title="title"
-            :image="image"
-            :to="to"
-        />
-    `,
-})
+      <block-post-small
+        v-bind="item"
+      />
+  `,
+  }
+}
 
-export const Help = () => ({
+export const About = () => {
+  return {
     data() {
-        return {
-            ...mock,
-            to: "/help/foo/bar/",
-        }
+      return {
+        item: {
+          ...mockAbout,
+        },
+      }
     },
     components: { BlockPostSmall },
     template: `
-        <block-post-small
-            :category-name="categoryName"
-            :author="author"
-            :title="title"
-            :image="image"
-            :to="to"
-        />
-    `,
-})
+      <block-post-small
+        v-bind="item"
+      />
+  `,
+  }
+}
 
-export const LongText = () => ({
+export const Help = () => {
+  return {
     data() {
-        return {
-            ...mock,
-            to: "/help/foo/bar/",
-        }
+      return {
+        item: {
+          ...mockHelp,
+        },
+      }
     },
     components: { BlockPostSmall },
     template: `
-        <block-post-small
-            category-name="Morbi in dui quis est ullamcorper"
-            :author="author"
-            title="Nulla facilisi dolor sit amet, consectetur adipiscing elit. In egestas nisl eget tellus posuere, eu malesuada massa lobortis."
-            :image="image"
-            :to="to"
-        />
-    `,
-})
+      <block-post-small
+        v-bind="item"
+      />
+  `,
+  }
+}
+
+export const LongText = () => {
+  return {
+    data() {
+      return {
+        item: {
+          ...mockLongText,
+        },
+      }
+    },
+    components: { BlockPostSmall },
+    template: `
+      <block-post-small
+        v-bind="item"
+      />
+  `,
+  }
+}
