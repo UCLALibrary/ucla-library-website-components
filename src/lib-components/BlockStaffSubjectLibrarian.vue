@@ -90,12 +90,6 @@ const parsedLanguage = computed(() => {
 const parsedStaffName = computed(() => {
   return `${props.nameFirst} ${props.nameLast}`
 })
-
-const parsedStaffNameTwo = computed(() => {
-  return props.alternativeName.length > 0
-    ? `${props.nameFirst} ${props.nameLast} ${props.alternativeName[0].fullName}`
-    : `${props.nameFirst} ${props.nameLast}`
-})
 </script>
 
 <template>
