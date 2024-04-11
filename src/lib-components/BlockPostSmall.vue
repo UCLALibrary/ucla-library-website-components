@@ -9,10 +9,10 @@ import { computed } from 'vue'
 import type { MediaItemType } from '@/types/types'
 
 // UTILITY FUNCTION
-import getSectionName from "@/utils/getSectionName"
+import getSectionName from '@/utils/getSectionName'
 
 // COMPONENTS
-import ResponsiveImage from "@/lib-components/ResponsiveImage"
+import ResponsiveImage from '@/lib-components/ResponsiveImage'
 
 const props = defineProps({
   image: {
@@ -21,24 +21,24 @@ const props = defineProps({
   },
   categoryName: {
     type: String,
-    default: "",
+    default: '',
   },
   title: {
     type: String,
-    default: "",
+    default: '',
   },
   author: {
     type: String,
-    default: "",
+    default: '',
   },
   to: {
     type: String,
-    default: "",
+    default: '',
   },
 })
 
 const classes = computed(() => {
-  return ["block-post-small", `color-${sectionName.value}`]
+  return ['block-post-small', `color-${sectionName.value}`]
 })
 
 const sectionName = computed(() => {

@@ -1,8 +1,8 @@
 <script>
-import BlockPostSmall from "@/lib-components/BlockPostSmall.vue"
+import BlockPostSmall from '@/lib-components/BlockPostSmall.vue'
 
 export default {
-  name: "SectionPostSmall",
+  name: 'SectionPostSmall',
   components: {
     BlockPostSmall,
   },
@@ -13,7 +13,7 @@ export default {
     },
     to: {
       type: String,
-      default: "",
+      default: '',
     },
   },
 }
@@ -22,7 +22,7 @@ export default {
 <template>
   <section class="section-post-small">
     <div class="grid">
-      <block-post-small
+      <BlockPostSmall
         v-for="item in items"
         :key="item.to"
         :category-name="item.categoryName"
