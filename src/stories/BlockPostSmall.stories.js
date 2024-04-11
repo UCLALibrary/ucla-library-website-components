@@ -9,7 +9,7 @@ export default {
 }
 
 const mockDefault = {
-  image: API.image,
+  media: API.image,
   to: '/foo/bar',
   categoryName: 'squirrels',
   author: 'Fluffy Ranger',
@@ -17,7 +17,7 @@ const mockDefault = {
 }
 
 const mockVisit = {
-  image: API.image,
+  media: API.image,
   to: '/visit/foo/bar/',
   categoryName: 'wild pets',
   author: 'Dexter Diamond',
@@ -25,7 +25,7 @@ const mockVisit = {
 }
 
 const mockAbout = {
-  image: API.image,
+  media: API.image,
   to: '/about/foo/bar',
   categoryName: 'red squirrels',
   author: 'Dexter Diamond',
@@ -33,7 +33,7 @@ const mockAbout = {
 }
 
 const mockHelp = {
-  image: API.image,
+  media: API.image,
   to: '/help/foo/bar/',
   categoryName: 'gray squirrels',
   author: 'Smokey Smith',
@@ -41,7 +41,7 @@ const mockHelp = {
 }
 
 const mockLongText = {
-  image: API.image,
+  media: API.image,
   to: '/visit/foo/bar/',
   categoryName: 'wild squirrels',
   author: 'Fluffy Ranger',

@@ -15,7 +15,7 @@ import getSectionName from '@/utils/getSectionName'
 import ResponsiveImage from '@/lib-components/ResponsiveImage'
 
 const props = defineProps({
-  image: {
+  media: {
     type: Object as PropType<MediaItemType>,
     default: () => { },
   },

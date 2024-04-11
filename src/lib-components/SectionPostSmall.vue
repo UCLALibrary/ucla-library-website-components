@@ -28,7 +28,7 @@ export default {
         :category-name="item.categoryName"
         :author="item.author"
         :title="item.title"
-        :image="item.image"
+        :media="item.image"
         :to="item.to"
         class="block"
       />
