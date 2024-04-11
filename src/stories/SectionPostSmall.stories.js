@@ -9,20 +9,34 @@ export default {
 }
 
 const items = [
-    {
-        ...API.article,
-        image: API.image,
-    },
-    {
-        ...API.article,
-        image: API.image,
-        to: "/about/foo/bar",
-    },
-    {
-        ...API.article,
-        image: API.image,
-        to: "/help/foo/bar",
-    },
+  {
+      image: API.image,
+      to: "/foo/bar",
+      categoryName: "squirrels",
+      author: "Fluffy Ranger",
+      title: "What to Feed Squirrels",
+  },
+  {
+      image: API.image,
+      to: "/visit/foo/bar/",
+      categoryName: "wild pets",
+      author: "Dexter Diamond",
+      title: "Introducing Mammals to Young Naturalists",
+  },
+  {
+      image: API.image,
+      to: "/about/foo/bar",
+      categoryName: "red squirrels",
+      author: "Dexter Diamond",
+      title: "Twenty-two Things About Squirrels",
+  },
+  {
+      image: API.image,
+      to: "/help/foo/bar/",
+      categoryName: "gray squirrels",
+      author: "Smokey Smith",
+      title: "Squirrels: Diet, Habits & Other Facts",
+  }
 ]
 
 // Variations of stories below
@@ -36,7 +50,7 @@ export const Default = () => ({
     computed: {
         parsedItems() {
             // Restructuring item to support text key
-            return this.items
+            return items
         },
     },
     template: `<section-post-small :items="parsedItems" to="/news/"/>`,
