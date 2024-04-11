@@ -37,12 +37,12 @@ const props = defineProps({
   },
 })
 
-const classes = computed(() => {
-  return ['block-post-small', `color-${sectionName.value}`]
-})
-
 const sectionName = computed(() => {
   return getSectionName(props.to)
+})
+
+const classes = computed(() => {
+  return ['block-post-small', `color-${sectionName.value}`]
 })
 
 const parsedAuthor = computed(() => {
