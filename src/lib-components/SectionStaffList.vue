@@ -5,7 +5,7 @@
 import type { PropType } from 'vue'
 
 // TYPESCRIPT
-import type { BlockStaffListItemType } from '@/types/types'
+import type { BlockStaffListItemType, staffName } from '@/types/types'
 
 // COMPONENTS
 import BlockStaffList from '@/lib-components/BlockStaffList.vue'
@@ -27,7 +27,7 @@ const { items } = defineProps({
         :image="item.image"
         :to="item.to"
         :staff-name="item.staffName"
-        :alternative-full-name="item.alternativeName"
+        :alternative-full-name="item.alternativeFullName"
         :language="item.language"
         :job-title="item.jobTitle"
         :locations="item.locations"

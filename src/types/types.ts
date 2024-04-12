@@ -75,7 +75,7 @@ export interface BlockStaffListItemType {
   consultation?: string
   academicDepartments?: AcademicDepartmentsItemType[]
   uri: string
-  image?: MediaItemType[]
+  image?: MediaItemType
   biography?: string
   orcid?: string
   publications?: string
