@@ -5,14 +5,14 @@
 import type { PropType } from 'vue'
 import { computed } from 'vue'
 
-// TPESCRIPT
+// TYPESCRIPT
 import type { MediaItemType } from '@/types/types'
 
 // UTILITY FUNCTION
 import getSectionName from '@/utils/getSectionName'
 
 // COMPONENTS
-import ResponsiveImage from '@/lib-components/ResponsiveImage'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
 const props = defineProps({
   image: {
