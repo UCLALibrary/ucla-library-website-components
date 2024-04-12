@@ -629,7 +629,6 @@ const mockImageNull = [
     ],
     locations: [],
     image: null,
-    staffName: 'Suzy Lee'
   },
   {
     id: '3522',
@@ -662,7 +661,6 @@ const mockImageNull = [
         0.5
       ]
     },
-    staffName: 'Dianne Weinthal'
   }
 ]
 
