@@ -318,7 +318,6 @@ const mockImageNull = {
   ],
   locations: [],
   image: null,
-  staffName: 'Suzy Lee'
 }
 
 // Variations of stories below
