@@ -56,8 +56,8 @@ function selectItem(itemIndex: number) {
 <template>
   <!-- <section class="media-gallery"> -->
   <section
-    class="media-gallery"
     v-if="block.mediaGallery && block.mediaGallery.length > 0"
+    class="media-gallery"
   >
     <FlexibleMediaGalleryNewLightbox
       v-if="showLightboxModal"

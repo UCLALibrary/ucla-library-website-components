@@ -89,7 +89,7 @@ const mockAlternativeName = {
   },
   to: 'test-phyllis-blackshear',
   staffName: 'test_Phyllis Blackshear',
-  alternativeFullName: "生懸命",
+  alternativeFullName: '生懸命',
   language: 'ja',
   jobTitle: 'Senior Mail Processor',
   departments: [
@@ -157,7 +157,7 @@ const mockNoImageOneLocation = {
   image: [],
   to: 'sylvia-page',
   staffName: 'Test  NO IMAGE Penelope Pitstop',
-  alternativeFullName: "生懸命",
+  alternativeFullName: '生懸命',
   language: 'ja',
   jobTitle: 'Research and Instruction Librarian for Arts, Music, and Powell (AMP)',
   departments: [
@@ -303,22 +303,22 @@ const mockNoLocation = {
 }
 
 const mockImageNull = {
-  id: "4273",
-  email: "szlee@library.ucla.edu",
+  id: '4273',
+  email: 'szlee@library.ucla.edu',
   phone: null,
-  jobTitle: "Public Programs and Communications Manager",
-  staffName: "image: null - Suzy Lee",
-  to: "/about/staff/suzy-lee",
+  jobTitle: 'Public Programs and Communications Manager',
+  staffName: 'image: null - Suzy Lee',
+  to: '/about/staff/suzy-lee',
   consultation: null,
   departments: [
     {
-      id: "7272",
-      title: "Communications"
+      id: '7272',
+      title: 'Communications'
     }
   ],
   locations: [],
   image: null,
-  staffName: "Suzy Lee"
+  staffName: 'Suzy Lee'
 }
 
 // Variations of stories below
