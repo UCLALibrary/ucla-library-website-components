@@ -66,7 +66,7 @@ export interface BlockStaffListItemType {
   departments: DepartmentItemType[]
   email: string
   topics: TopicsItemType[]
-  alternativeName?: AlternativeNameItemType[]
+  alternativeFullName?: string
   subjectArea?: string
   staffName?: string
   language?: string
