@@ -23,24 +23,16 @@ const props = defineProps({
     default: '',
   },
   image: {
-    type: Array as PropType<MediaItemType[]>,
-    default: () => [],
+    type: Object as PropType<MediaItemType>,
+    default: () => { },
   },
   staffName: {
     type: String,
     default: '',
   },
-  nameLast: {
+  alternativeFullName: {
     type: String,
-    default: '',
-  },
-  nameFirst: {
-    type: String,
-    default: '',
-  },
-  alternativeName: {
-    type: Array as PropType<AlternativeNameItemType[]>,
-    default: () => [],
+    default: "",
   },
   language: {
     type: String,
@@ -72,20 +64,8 @@ const props = defineProps({
   },
 })
 
-const parsedImage = computed(() => {
-  return props.image.length ? props.image[0].src : {}
-})
-
-const parsedStaffName = computed(() => {
-  return `${props.nameFirst} ${props.nameLast}`
-})
-
-const parsedAlternativeFullName = computed(() => {
-  return props.alternativeName[0].fullName
-})
-
-const parsedLanguage = computed(() => {
-  return props.alternativeName[0].languageAltName
+const imageExists = computed(() => {
+  return !!(props.image && Object.keys(props.image).length !== 0)
 })
 
 const lastDepartment = computed(() => {
@@ -96,15 +76,17 @@ const lastDepartment = computed(() => {
 <template>
   <li class="block-staff-list">
     <ResponsiveImage
-      v-if="props.image.length"
-      :media="parsedImage"
+      v-if="imageExists"
+      :media="image"
       :aspect-ratio="100"
       sizes="300px"
       class="image"
     />
+
     <div
-      v-if="props.image.length === 0"
-      class="no-image"
+      v-else
+      class="
+      no-image"
     >
       <SvgHeadingArrow class="icon-heading-arrow" />
     </div>
@@ -113,13 +95,13 @@ const lastDepartment = computed(() => {
       <div class="name-title">
         <h3 class="staff-name">
           <SmartLink :to="props.to">
-            {{ parsedStaffName }}
+            {{ staffName }}
 
             <span
-              v-if="alternativeName.length"
-              :lang="parsedLanguage"
+              v-if="alternativeFullName"
+              :lang="language"
             >
-              {{ parsedAlternativeFullName }}</span>
+              {{ alternativeFullName }}</span>
           </SmartLink>
         </h3>
         <div

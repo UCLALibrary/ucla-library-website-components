@@ -13,11 +13,9 @@ const mockDefault = {
   slug: 'test-subject-librarian',
   uri: 'about/staff/test-subject-librarian',
   title: 'TEST - Subject Librarian',
-  image: [{ src: API.image_people }],
+  image: API.image_people,
   to: 'test-subject-librarian',
-  nameFirst: 'TEST - Subject',
-  nameLast: 'Librarian',
-  alternativeName: [],
+  staffName: 'TEST - Subject Librarian',
   jobTitle: 'Head of Everything',
   departments: [
     {
@@ -77,16 +75,22 @@ const mockAlternativeName = {
   slug: 'test-phyllis-blackshear',
   uri: 'about/staff/test-phyllis-blackshear',
   title: 'Test Alternative Name Phyllis Blackshear',
-  image: [{ src: API.image_people }],
+  image: {
+    id: '48295',
+    src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/clock1.jpg',
+    height: 1920,
+    width: 2560,
+    srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/clock1.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/clock1.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/clock1.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/clock1.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/clock1.jpg 2560w',
+    alt: null,
+    focalPoint: [
+      0.5,
+      0.5
+    ]
+  },
   to: 'test-phyllis-blackshear',
-  nameFirst: 'test_Phyllis',
-  nameLast: 'Blackshear',
-  alternativeName: [
-    {
-      fullName: 'もののけ姫',
-      languageAltName: 'ja'
-    }
-  ],
+  staffName: 'test_Phyllis Blackshear',
+  alternativeFullName: "生懸命",
+  language: 'ja',
   jobTitle: 'Senior Mail Processor',
   departments: [
     {
@@ -152,9 +156,9 @@ const mockNoImageOneLocation = {
   title: 'Test  NO IMAGE Penelope Pitstop',
   image: [],
   to: 'sylvia-page',
-  nameFirst: 'Test  NO IMAGE Penelope',
-  nameLast: 'Pitstop',
-  alternativeName: [],
+  staffName: 'Test  NO IMAGE Penelope Pitstop',
+  alternativeFullName: "生懸命",
+  language: 'ja',
   jobTitle: 'Research and Instruction Librarian for Arts, Music, and Powell (AMP)',
   departments: [
     {
@@ -231,9 +235,7 @@ const mockNoPhone = {
   title: 'Test NO PHONE Jen Diamond',
   image: [],
   to: 'ariane-bicho',
-  nameFirst: 'Test NO PHONE Jen',
-  nameLast: 'Diamond',
-  alternativeName: [],
+  staffName: 'Test NO PHONE Jen Diamond',
   jobTitle: 'Director of Communications and Marketing',
   departments: [
     {
@@ -277,14 +279,9 @@ const mockNoLocation = {
   title: 'Test NO LOCATION Brigid Abreu',
   image: [],
   to: 'brigid-abreu',
-  nameFirst: 'Test NO LOCATION Brigid',
-  nameLast: 'Abreu',
-  alternativeName: [
-    {
-      fullName: '生懸命',
-      languageAltName: 'ja'
-    }
-  ],
+  staffName: 'Test NO LOCATION Brigid Abreu',
+  alternativeFullName: '生懸命',
+  language: 'ja',
   jobTitle: 'Inventory Control Coordinator and Data Analyst',
   departments: [
     {
@@ -303,6 +300,25 @@ const mockNoLocation = {
   subjectLibrarian: 'yes',
   orcid: null,
   publications: null
+}
+
+const mockImageNull = {
+  id: "4273",
+  email: "szlee@library.ucla.edu",
+  phone: null,
+  jobTitle: "Public Programs and Communications Manager",
+  staffName: "image: null - Suzy Lee",
+  to: "/about/staff/suzy-lee",
+  consultation: null,
+  departments: [
+    {
+      id: "7272",
+      title: "Communications"
+    }
+  ],
+  locations: [],
+  image: null,
+  staffName: "Suzy Lee"
 }
 
 // Variations of stories below
@@ -403,6 +419,24 @@ export function NoLocation() {
       return {
         item: {
           ...mockNoLocation,
+        },
+      }
+    },
+    components: { BlockStaffList },
+    template: `
+      <block-staff-list
+        v-bind="item"
+      />
+  `,
+  }
+}
+
+export function ImageNull() {
+  return {
+    data() {
+      return {
+        item: {
+          ...mockImageNull,
         },
       }
     },
