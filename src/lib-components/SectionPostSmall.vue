@@ -24,11 +24,11 @@ export default {
     <div class="grid">
       <BlockPostSmall
         v-for="item in items"
-        :key="item.to"
+        :key="`block-post-${item.title}`"
         :category-name="item.categoryName"
         :author="item.author"
         :title="item.title"
-        :media="item.image"
+        :image="item.image"
         :to="item.to"
         class="block"
       />

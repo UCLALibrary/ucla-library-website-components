@@ -10,28 +10,28 @@ export default {
 
 const items = [
   {
-    media: API.image,
+    image: API.image,
     to: '/foo/bar',
     categoryName: 'squirrels',
     author: 'Fluffy Ranger',
     title: 'What to Feed Squirrels',
   },
   {
-    media: API.image,
+    image: API.image,
     to: '/visit/foo/bar/',
     categoryName: 'wild pets',
     author: 'Dexter Diamond',
     title: 'Introducing Mammals to Young Naturalists',
   },
   {
-    media: API.image,
+    image: API.image,
     to: '/about/foo/bar',
     categoryName: 'red squirrels',
     author: 'Dexter Diamond',
     title: 'Twenty-two Things About Squirrels',
   },
   {
-    media: API.image,
+    image: API.image,
     to: '/help/foo/bar/',
     categoryName: 'gray squirrels',
     author: 'Smokey Smith',
