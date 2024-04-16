@@ -168,93 +168,89 @@ onMounted(() => {
 </script>
 
 <template>
-  <li class="block-staff-list">
-    <responsive-image
-      :image="image"
-      :aspect-ratio="100"
-      sizes="300px"
-      class="image"
-    />
-    <div
-      v-if="!image"
-      class="no-image"
-    >
-      <svg-heading-arrow class="icon-heading-arrow" />
-    </div>
-
-    <div class="meta">
-      <div class="name-title">
-        <h3 class="staff-name">
-          <smart-link :to="to">
-            {{ staffName }}
-
-            <span
-              v-if="alternativeFullName"
-              :lang="language"
-            >
-              {{ alternativeFullName }}</span>
-          </smart-link>
-        </h3>
-        <div
-          class="job-title"
-          v-html="jobTitle"
+  <div :class="classes">
+    <div class="card-container">
+      <div class="image-container">
+        <ResponsiveImage
+          v-if="imageExists"
+          class="image"
+          :media="props.image"
         />
-        <ul
-          v-if="departments.length"
-          class="departments"
+        <div
+          v-else
+          class="molecule-no-image"
         >
-          <li class="department">
-            {{ lastDepartment }}
-          </li>
-        </ul>
+          <MoleculePlaceholder
+            class="molecule"
+            aria-hidden="true"
+          />
+        </div>
       </div>
-
-      <div class="contact-info">
-        <div class="email">
-          <icon-with-link
-            :text="email"
-            icon-name="svg-icon-email"
-            :to="`mailto:${email}`"
-          />
+      <div class="library">
+        <div>
+          <SmartLink
+            v-if="props.to"
+            :to="props.to"
+            class="title"
+          >
+            {{ props.title }}
+          </SmartLink>
+          <SmartLink
+            v-else
+            :to="props.affiliateLibraryUrl"
+            class="title"
+          >
+            {{ props.title }}
+          </SmartLink>
         </div>
-
-        <div
-          v-if="phone"
-          class="phone"
-        >
-          <icon-with-link
-            :text="phone"
-            icon-name="svg-icon-phone"
-            :to="`tel:${phone}`"
+        <div class="text">
+          <div
+            v-if="libcalHoursData && props.isUclaLibrary"
+            class="time"
+          >
+            <IconClock />
+            <span v-if="libcalHoursData.day">{{ "Today" }}</span>
+            <div
+              v-if="libcalHoursData.status !== 'not-set'"
+              class="hour"
+            >
+              <span> {{ parseLibCalHours }} </span>
+            </div>
+          </div>
+          <IconWithLink
+            v-if="props.reserveSeat"
+            text="Reserve a Seat"
+            icon-name="svg-icon-calendar"
+            :to="props.reserveSeat"
+            class="reserve"
           />
-        </div>
-
-        <div
-          v-if="consultation"
-          class="consultation"
-        >
-          <icon-with-link
-            :text="`Book a consultation`"
-            icon-name="svg-icon-consultation"
-            :to="consultation"
-          />
-        </div>
-
-        <div
-          v-if="locations.length"
-          class="locations"
-        >
-          <icon-with-link
-            v-for="(location, index) in locations"
-            :key="`${index}`"
-            :text="location.title"
+          <IconWithLink
+            :text="props.address"
             icon-name="svg-icon-location"
-            :to="location.uri"
+            :to="props.addressLink"
+            class="location"
           />
+
+          <div
+            v-if="props.amenities"
+            class="amenities"
+          >
+            <div
+              v-for="(amenity) in amenities"
+              :key="`amenity-${amenity.title}`"
+              class="tooltip"
+            >
+              <span class="tooltiptext">{{ amenity.title }}</span>
+              <component
+                :is="IconComponents[amenity.icon]"
+                class="svg"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </li>
+  </div>
 </template>
 
 <style lang="scss" scoped>
