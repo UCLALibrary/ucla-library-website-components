@@ -65,9 +65,10 @@ const lastDepartment = computed(() => {
   return props.departments[props.departments.length - 1].title
 })
 </script>
+
 <template>
   <li class="block-staff-list">
-    <responsive-image
+    <ResponsiveImage
       :media="image"
       :aspect-ratio="100"
       sizes="300px"
@@ -77,13 +78,13 @@ const lastDepartment = computed(() => {
       v-if="!image"
       class="no-image"
     >
-      <svg-heading-arrow class="icon-heading-arrow" />
+      <SvgHeadingArrow class="icon-heading-arrow" />
     </div>
 
     <div class="meta">
       <div class="name-title">
         <h3 class="staff-name">
-          <smart-link :to="to">
+          <SmartLink :to="to">
             {{ staffName }}
 
             <span
@@ -91,7 +92,7 @@ const lastDepartment = computed(() => {
               :lang="language"
             >
               {{ alternativeFullName }}</span>
-          </smart-link>
+          </SmartLink>
         </h3>
         <div
           class="job-title"
@@ -109,7 +110,7 @@ const lastDepartment = computed(() => {
 
       <div class="contact-info">
         <div class="email">
-          <icon-with-link
+          <IconWithLink
             :text="email"
             icon-name="svg-icon-email"
             :to="`mailto:${email}`"
@@ -120,7 +121,7 @@ const lastDepartment = computed(() => {
           v-if="phone"
           class="phone"
         >
-          <icon-with-link
+          <IconWithLink
             :text="phone"
             icon-name="svg-icon-phone"
             :to="`tel:${phone}`"
@@ -131,8 +132,8 @@ const lastDepartment = computed(() => {
           v-if="consultation"
           class="consultation"
         >
-          <icon-with-link
-            :text="`Book a consultation`"
+          <IconWithLink
+            text="Book a consultation"
             icon-name="svg-icon-consultation"
             :to="consultation"
           />
@@ -142,7 +143,7 @@ const lastDepartment = computed(() => {
           v-if="locations.length"
           class="locations"
         >
-          <icon-with-link
+          <IconWithLink
             v-for="(location, index) in locations"
             :key="`${index}`"
             :text="location.title"
@@ -154,7 +155,6 @@ const lastDepartment = computed(() => {
     </div>
   </li>
 </template>
-
 
 <style lang="scss" scoped>
 .block-staff-list {
