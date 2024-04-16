@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
@@ -64,37 +61,29 @@ const props = defineProps({
   },
 })
 
-const imageExists = computed(() => {
-  return !!(props.image && Object.keys(props.image).length !== 0)
-})
-
 const lastDepartment = computed(() => {
   return props.departments[props.departments.length - 1].title
 })
 </script>
-
 <template>
   <li class="block-staff-list">
-    <ResponsiveImage
-      v-if="imageExists"
+    <responsive-image
       :media="image"
       :aspect-ratio="100"
       sizes="300px"
       class="image"
     />
-
     <div
-      v-else
-      class="
-      no-image"
+      v-if="!image"
+      class="no-image"
     >
-      <SvgHeadingArrow class="icon-heading-arrow" />
+      <svg-heading-arrow class="icon-heading-arrow" />
     </div>
 
     <div class="meta">
       <div class="name-title">
         <h3 class="staff-name">
-          <SmartLink :to="props.to">
+          <smart-link :to="to">
             {{ staffName }}
 
             <span
@@ -102,14 +91,14 @@ const lastDepartment = computed(() => {
               :lang="language"
             >
               {{ alternativeFullName }}</span>
-          </SmartLink>
+          </smart-link>
         </h3>
         <div
           class="job-title"
-          v-html="props.jobTitle"
+          v-html="jobTitle"
         />
         <ul
-          v-if="props.departments.length"
+          v-if="departments.length"
           class="departments"
         >
           <li class="department">
@@ -120,41 +109,41 @@ const lastDepartment = computed(() => {
 
       <div class="contact-info">
         <div class="email">
-          <IconWithLink
-            :text="props.email"
+          <icon-with-link
+            :text="email"
             icon-name="svg-icon-email"
-            :to="`mailto:${props.email}`"
+            :to="`mailto:${email}`"
           />
         </div>
 
         <div
-          v-if="props.phone"
+          v-if="phone"
           class="phone"
         >
-          <IconWithLink
-            :text="props.phone"
+          <icon-with-link
+            :text="phone"
             icon-name="svg-icon-phone"
-            :to="`tel:${props.phone}`"
+            :to="`tel:${phone}`"
           />
         </div>
 
         <div
-          v-if="props.consultation"
+          v-if="consultation"
           class="consultation"
         >
-          <IconWithLink
-            text="Book a consultation"
+          <icon-with-link
+            :text="`Book a consultation`"
             icon-name="svg-icon-consultation"
-            :to="props.consultation"
+            :to="consultation"
           />
         </div>
 
         <div
-          v-if="props.locations.length"
+          v-if="locations.length"
           class="locations"
         >
-          <IconWithLink
-            v-for="(location, index) in props.locations"
+          <icon-with-link
+            v-for="(location, index) in locations"
             :key="`${index}`"
             :text="location.title"
             icon-name="svg-icon-location"
@@ -166,10 +155,8 @@ const lastDepartment = computed(() => {
   </li>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+
+<style lang="scss" scoped>
 .block-staff-list {
   --image-size: 272px;
 
