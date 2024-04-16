@@ -1,8 +1,10 @@
+// Import mock api data
+import * as API from '@/stories/mock-api.json'
+
 // Import component
 import SectionStaffList from '@/lib-components/SectionStaffList'
 
 // Import mock api data
-import * as API from '@/stories/mock-api.json'
 
 // Storybook default settings
 export default {
@@ -12,145 +14,121 @@ export default {
 
 const mockDefault = [
   {
-    id: '2975759',
-    sectionHandle: 'staffMember',
-    slug: 'test-subject-librarian',
-    uri: 'about/staff/test-subject-librarian',
-    title: 'TEST - Subject Librarian',
-    image: [{ src: API.image_people }],
-    to: 'test-subject-librarian',
-    nameFirst: 'TEST - Subject',
-    nameLast: 'Librarian',
-    alternativeName: [],
-    jobTitle: 'Head of Everything',
-    departments: [
-      {
-        id: '7272',
-        title: 'Communications'
-      },
-      {
-        id: '7270',
-        title: 'East Asian Library'
-      }
-    ],
+    to: '/staff/foo',
+    image: API.image_people,
+    jobTitle: 'Ullamco',
+    staffName: 'Fames ac turpis',
+    department: 'Inceptos Himenaeos',
+    email: 'loreum@ipsum.foo',
     locations: [
       {
-        title: 'Richard C. Rudolph East Asian Library',
-        to: 'visit/locations/east-asian-library',
-        id: '11497'
+        title: 'cupidatat non proident',
+        to: '/location/bar',
       },
       {
-        title: 'UCLA Film & Television Archive',
-        to: 'visit/locations/film-television-archive',
-        id: '11612'
-      }
-    ],
-    pronouns: 'she/his/them',
-    email: 'subject.librarian@email.com',
-    phone: '(555) 475-1523',
-    consultation: 'http://help.com',
-    topics: [
-      {
-        title: 'diaries',
-        id: '2975760'
+        title: 'tristique',
+        to: '/location/baz',
       },
-      {
-        title: 'decorative arts',
-        id: '2975783'
-      }
     ],
-    academicDepartments: [
-      {
-        id: '11947',
-        title: 'African American Studies'
-      },
-      {
-        id: '11956',
-        title: 'cats'
-      }
-    ],
-    biography: '<p>li Wong is a stand-up comedian who has written and performed two specials: Baby Cobra and Hard Knock Wife. She co-wrote, produced, and starred in the romantic comedy Always Be My Maybe. She is the proud mother of two rowdy-ass girls who inspired this entire book. She aspires to lie down but somehow keeps getting pressured into doing more sh*t that gets in the way of her lying down.</p>',
-    subjectLibrarian: 'yes',
-    orcid: 'http://1234',
-    publications: '<ul><li>Lembo, Mary Frances; Hallmark, Julie</li></ul>'
+    phone: '(222) 444-5555',
   },
   {
-    id: '11910',
-    sectionHandle: 'staffMember',
-    slug: 'sylvia-page',
-    uri: 'about/staff/sylvia-page',
-    title: 'Test  NO IMAGE Penelope Pitstop',
-    image: [],
-    to: 'sylvia-page',
-    nameFirst: 'Test  NO IMAGE Penelope',
-    nameLast: 'Pitstop',
-    alternativeName: [],
-    jobTitle: 'Research and Instruction Librarian for Arts, Music, and Powell (AMP)',
-    departments: [
+    image: API.image_people,
+    to: '/staff/id/',
+    staffName: 'Ada Lovelace',
+    alternativeFullName: '生懸命',
+    language: 'ja',
+    jobTitle: 'Library Supervisor',
+    locations: [
+      { title: 'Powellarium', to: '/location/bar' },
       {
-        id: '6339',
-        title: 'User Engagement'
-      }
+        title: 'Research Library (Charles E. Young)',
+        to: '/location/baz',
+      },
     ],
+    email: 'ada@somewhere.com',
+    phone: '555-555-5555',
+    departments: ['DIIT', 'Other Departments'],
+  },
+  {
+    to: '/staff/foo',
+    jobTitle: 'Ullamco',
+    staffName: 'Fames ac turpis',
+    department: 'Inceptos Himenaeos',
+    email: 'loreum@ipsum.foo',
+    alternativeFullName: '生懸命',
+    language: 'ja',
     locations: [
       {
-        title: 'Powell Library',
-        to: 'visit/locations/powell-library',
-        id: '523'
-      }
+        title: 'cupidatat non proident',
+        to: '/location/bar',
+      },
+      {
+        title: 'tristique',
+        to: '/location/baz',
+      },
     ],
-    pronouns: 'she/her',
-    email: 'thejendiamond@gmail.com',
-    phone: '(323) 555-5555',
-    consultation: 'https://calendar.library.ucla.edu/appointments/spage',
-    topics: [
+    phone: '(222) 444-5555',
+  },
+  {
+    to: '/staff/foo',
+    image: API.image,
+    jobTitle: 'Ullamco',
+    staffName: 'Fames ac turpis',
+    alternativeFullName: '生懸命',
+    language: 'ja',
+    department: 'Inceptos Himenaeos',
+    email: 'loreum@ipsum.foo',
+    locations: [
       {
-        title: 'Zines',
-        id: '11858'
+        title: 'cupidatat non proident',
+        to: '/location/bar',
       },
       {
-        title: 'Comics/Graphic Novels',
-        id: '11859'
+        title: 'tristique',
+        to: '/location/baz',
       },
-      {
-        title: 'English Composition',
-        id: '11860'
-      },
-      {
-        title: 'dogs',
-        id: '11959'
-      },
-      {
-        title: 'balloons',
-        id: '11952'
-      }
     ],
-    academicDepartments: [
-      {
-        id: '11947',
-        title: 'African American Studies'
-      },
-      {
-        id: '11936',
-        title: 'test african american studies'
-      },
-      {
-        id: '11954',
-        title: 'African Studies'
-      },
-      {
-        id: '11955',
-        title: 'Cluster 60: America in Sixties: Politics, Society, and Culture, 1954 to 1974'
-      },
-      {
-        id: '11956',
-        title: 'cats'
-      }
-    ],
-    biography: '<p>Sylvia Page works to support the research needs of the UCLA community through reference, instruction, outreach, and collections. Her experience prior to UCLA includes work in academic libraries, museums, and galleries.</p>',
-    subjectLibrarian: 'yes',
-    orcid: null,
-    publications: null
+    phone: '(222) 444-5555',
+  },
+]
+
+const mockImageNull = [
+  {
+    id: '4273',
+    email: 'szlee@library.ucla.edu',
+    phone: null,
+    jobTitle: 'Public Programs and Communications Manager',
+    nameFirst: 'Suzy',
+    nameLast: 'Lee',
+    to: '/about/staff/suzy-lee',
+    consultation: null,
+    departments: [{ id: '7272', title: 'Communications' }],
+    locations: [],
+    image: null,
+    staffName: 'Suzy Lee'
+  },
+  {
+    id: '3522',
+    email: 'dianneweinthal@library.ucla.edu',
+    phone: '',
+    jobTitle: 'Visual Designer',
+    nameFirst: 'Dianne',
+    nameLast: 'Weinthal',
+    to: '/about/staff/dianne',
+    consultation: 'https://calendar.library.ucla.edu/appointments/dweinthal',
+    departments: [{ id: '6357', title: 'Digital Initiatives and Information Technology' }, { id: '7250', title: 'Software Development and Library Systems' }],
+    locations: [],
+    image: {
+      id: '60352',
+      src: 'https://static.library.ucla.edu/craftassetstest/Portraits/_fullscreen/Dianne-Weinthal-1780a.jpeg',
+      height: 3840,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/Portraits/_375xAUTO_crop_center-center_none/Dianne-Weinthal-1780a.jpeg 375w, https://static.library.ucla.edu/craftassetstest/Portraits/_960xAUTO_crop_center-center_none/Dianne-Weinthal-1780a.jpeg 960w, https://static.library.ucla.edu/craftassetstest/Portraits/_1280xAUTO_crop_center-center_none/Dianne-Weinthal-1780a.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/Portraits/_1920xAUTO_crop_center-center_none/Dianne-Weinthal-1780a.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/Portraits/_2560xAUTO_crop_center-center_none/Dianne-Weinthal-1780a.jpeg 2560w',
+      alt: 'color photograph of woman with long hair and hoop earrings wearing a black sweater against a blue background',
+      focalPoint: [0.5, 0.5]
+    },
+    staffName: 'Dianne Weinthal'
   }
 ]
 
@@ -159,6 +137,20 @@ export function Default() {
   return {
     data() {
       return { items: mockDefault }
+    },
+    components: { SectionStaffList },
+    template: `
+      <section-staff-list
+        :items="items"
+      />
+  `,
+  }
+}
+
+export function ImageNull() {
+  return {
+    data() {
+      return { items: mockImageNull }
     },
     components: { SectionStaffList },
     template: `

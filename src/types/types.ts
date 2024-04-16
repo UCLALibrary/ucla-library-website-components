@@ -67,6 +67,7 @@ export interface BlockStaffListItemType {
   email: string
   topics: TopicsItemType[]
   alternativeName?: AlternativeNameItemType[]
+  alternativeFullName?: string
   subjectArea?: string
   staffName?: string
   language?: string
@@ -75,7 +76,7 @@ export interface BlockStaffListItemType {
   consultation?: string
   academicDepartments?: AcademicDepartmentsItemType[]
   uri: string
-  image?: MediaItemType[]
+  image?: MediaItemType
   biography?: string
   orcid?: string
   publications?: string

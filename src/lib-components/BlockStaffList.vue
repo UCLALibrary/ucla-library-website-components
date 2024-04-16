@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
@@ -9,7 +6,7 @@ import type { PropType } from 'vue'
 import SvgHeadingArrow from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
 
 // TYPESCRIPT
-import type { AlternativeNameItemType, DepartmentItemType, MediaItemType, StaffLocationItemType } from '@/types/types'
+import type { DepartmentItemType, MediaItemType, StaffLocationItemType } from '@/types/types'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
@@ -23,24 +20,16 @@ const props = defineProps({
     default: '',
   },
   image: {
-    type: Array as PropType<MediaItemType[]>,
-    default: () => [],
+    type: Object as PropType<MediaItemType>,
+    default: () => { },
   },
   staffName: {
     type: String,
     default: '',
   },
-  nameLast: {
+  alternativeFullName: {
     type: String,
     default: '',
-  },
-  nameFirst: {
-    type: String,
-    default: '',
-  },
-  alternativeName: {
-    type: Array as PropType<AlternativeNameItemType[]>,
-    default: () => [],
   },
   language: {
     type: String,
@@ -72,22 +61,6 @@ const props = defineProps({
   },
 })
 
-const parsedImage = computed(() => {
-  return props.image.length ? props.image[0].src : {}
-})
-
-const parsedStaffName = computed(() => {
-  return `${props.nameFirst} ${props.nameLast}`
-})
-
-const parsedAlternativeFullName = computed(() => {
-  return props.alternativeName[0].fullName
-})
-
-const parsedLanguage = computed(() => {
-  return props.alternativeName[0].languageAltName
-})
-
 const lastDepartment = computed(() => {
   return props.departments[props.departments.length - 1].title
 })
@@ -96,14 +69,13 @@ const lastDepartment = computed(() => {
 <template>
   <li class="block-staff-list">
     <ResponsiveImage
-      v-if="props.image.length"
-      :media="parsedImage"
+      :media="image"
       :aspect-ratio="100"
       sizes="300px"
       class="image"
     />
     <div
-      v-if="props.image.length === 0"
+      v-if="!image"
       class="no-image"
     >
       <SvgHeadingArrow class="icon-heading-arrow" />
@@ -112,22 +84,22 @@ const lastDepartment = computed(() => {
     <div class="meta">
       <div class="name-title">
         <h3 class="staff-name">
-          <SmartLink :to="props.to">
-            {{ parsedStaffName }}
+          <SmartLink :to="to">
+            {{ staffName }}
 
             <span
-              v-if="alternativeName.length"
-              :lang="parsedLanguage"
+              v-if="alternativeFullName"
+              :lang="language"
             >
-              {{ parsedAlternativeFullName }}</span>
+              {{ alternativeFullName }}</span>
           </SmartLink>
         </h3>
         <div
           class="job-title"
-          v-html="props.jobTitle"
+          v-html="jobTitle"
         />
         <ul
-          v-if="props.departments.length"
+          v-if="departments.length"
           class="departments"
         >
           <li class="department">
@@ -139,40 +111,40 @@ const lastDepartment = computed(() => {
       <div class="contact-info">
         <div class="email">
           <IconWithLink
-            :text="props.email"
+            :text="email"
             icon-name="svg-icon-email"
-            :to="`mailto:${props.email}`"
+            :to="`mailto:${email}`"
           />
         </div>
 
         <div
-          v-if="props.phone"
+          v-if="phone"
           class="phone"
         >
           <IconWithLink
-            :text="props.phone"
+            :text="phone"
             icon-name="svg-icon-phone"
-            :to="`tel:${props.phone}`"
+            :to="`tel:${phone}`"
           />
         </div>
 
         <div
-          v-if="props.consultation"
+          v-if="consultation"
           class="consultation"
         >
           <IconWithLink
             text="Book a consultation"
             icon-name="svg-icon-consultation"
-            :to="props.consultation"
+            :to="consultation"
           />
         </div>
 
         <div
-          v-if="props.locations.length"
+          v-if="locations.length"
           class="locations"
         >
           <IconWithLink
-            v-for="(location, index) in props.locations"
+            v-for="(location, index) in locations"
             :key="`${index}`"
             :text="location.title"
             icon-name="svg-icon-location"
@@ -184,10 +156,7 @@ const lastDepartment = computed(() => {
   </li>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .block-staff-list {
   --image-size: 272px;
 

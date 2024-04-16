@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 
@@ -51,7 +54,11 @@ function selectItem(itemIndex: number) {
 </script>
 
 <template>
-  <section class="media-gallery">
+  <!-- <section class="media-gallery"> -->
+  <section
+    v-if="block.mediaGallery && block.mediaGallery.length > 0"
+    class="media-gallery"
+  >
     <FlexibleMediaGalleryNewLightbox
       v-if="showLightboxModal"
       :items="block.mediaGallery"
@@ -74,7 +81,10 @@ function selectItem(itemIndex: number) {
       @toggle-thumbnails="toggleThumbnails"
     />
 
-    <div v-if="expandThumbnails" class="thumbnails">
+    <div
+      v-if="expandThumbnails"
+      class="thumbnails"
+    >
       <FlexibleMediaGalleryThumbnailCard
         v-for="(item, index) in block.mediaGallery"
         :key="item.id"
@@ -85,18 +95,21 @@ function selectItem(itemIndex: number) {
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .media-gallery {
   background-color: var(--color-theme, var(--color-white));
 
   .thumbnails {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
-      column-gap: var(--space-m);
-      row-gap: var(--space-xl);
-      padding-top: var(--space-xl);
-      list-style-type: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
+    column-gap: var(--space-m);
+    row-gap: var(--space-xl);
+    padding-top: var(--space-xl);
+    list-style-type: none;
   }
 }
 </style>
