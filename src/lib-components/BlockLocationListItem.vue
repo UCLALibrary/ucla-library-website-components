@@ -160,6 +160,9 @@ const parseLibCalHours = computed(() => {
   else
     return libcalHoursData?.value?.status
 })
+const imageExists = computed(() => {
+  return !!(props.image && Object.keys(props.image).length !== 0)
+})
 
 // Fetch data
 onMounted(() => {
