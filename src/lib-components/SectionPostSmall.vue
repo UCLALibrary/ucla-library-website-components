@@ -2,7 +2,6 @@
   setup
   lang="ts"
 >
-import type { PropType } from 'vue'
 import BlockPostSmall from '@/lib-components/BlockPostSmall.vue'
 
 const { items } = defineProps({
