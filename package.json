@@ -1,7 +1,7 @@
 {
     "name": "ucla-library-website-components",
     "private": false,
-    "version": "2.39.0-alpha.70",
+    "version": "2.39.0-alpha.71",
     "main": "dist/ucla-library-website-components.cjs.js",
     "module": "dist/ucla-library-website-components.es.js",
     "files": [
@@ -34,7 +34,7 @@
         "prepublishOnly": "pnpm run build"
     },
     "peerDependencies": {
-        "vue": "^3.3.4",
+        "vue": "^3.4",
         "vue-router": "^4.2.4"
     },
     "devDependencies": {

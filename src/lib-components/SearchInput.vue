@@ -35,9 +35,8 @@ const props = defineProps({
     default: true
   }
 })
-
 const emit = defineEmits(['update:modelValue'])
-
+console.log('modelValue', props.modelValue)
 const attrs = useAttrs()
 
 const hasFocus = ref(false)
@@ -116,12 +115,11 @@ function onKeydown(e) {
 
 function onDocumentKeydown(e) {
   if (
-    e.key === shortcutKey
-              && e.target !== inputRef.value
-              && window.document.activeElement !== inputRef.value
-              && !(e.target instanceof HTMLInputElement)
-              && !(e.target instanceof HTMLSelectElement)
-              && !(e.target instanceof HTMLTextAreaElement)
+    e.target !== inputRef.value
+    && window.document.activeElement !== inputRef.value
+    && !(e.target instanceof HTMLInputElement)
+    && !(e.target instanceof HTMLSelectElement)
+    && !(e.target instanceof HTMLTextAreaElement)
   ) {
     e.preventDefault()
     const allVisibleSearchInputs = [].slice
@@ -133,14 +131,14 @@ function onDocumentKeydown(e) {
       .filter((el) => {
         return !!(
           el.offsetWidth
-                          || el.offsetHeight
-                          || el.getClientRects().length
+          || el.offsetHeight
+          || el.getClientRects().length
         )
       })
     const elToFocus
-                  = allVisibleSearchInputs.length > 1
-                    ? allVisibleSearchInputs[0]
-                    : inputRef.value
+      = allVisibleSearchInputs.length > 1
+        ? allVisibleSearchInputs[0]
+        : inputRef.value
 
     if (elToFocus) {
       elToFocus.focus()
@@ -184,24 +182,25 @@ $active-color: #1ea7fd;
   position: relative;
 
   input[data-search-input="true"] {
-      display: block;
-      font-family: var(--font-primary);
-      font-style: normal;
-      font-weight: normal;
-      font-size: 20px;
-      line-height: 100%;
-      letter-spacing: 0.01em;
-      background-color: var(--color-primary-blue-01);
-      border-color: transparent;
-      padding: 24px 24px 24px 16px;
-      width: 100%;
+    display: block;
+    font-family: var(--font-primary);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0.01em;
+    background-color: var(--color-primary-blue-01);
+    border-color: transparent;
+    padding: 24px 24px 24px 16px;
+    width: 100%;
 
-      &::placeholder {
-          text-transform: uppercase;
-          font-family: var(--font-primary);
-          text-overflow: ellipsis;
-      }
-      /*
+    &::placeholder {
+      text-transform: uppercase;
+      font-family: var(--font-primary);
+      text-overflow: ellipsis;
+    }
+
+    /*
       &:focus {
           background-color: var(--color-primary-blue-01);
           border-color: $active-color;
@@ -211,43 +210,47 @@ $active-color: #1ea7fd;
   }
 
   .clear-icon {
-      color: $icon-color;
+    color: $icon-color;
+    position: absolute;
+
+    &.clear {
+      right: 15px;
+      bottom: 22px;
+      cursor: pointer;
+      z-index: 10;
+      box-sizing: border-box;
+      display: block;
+      width: 24px;
+      height: 24px;
+      border: 2px solid transparent;
+      border-radius: 40px;
+      background: none;
+      padding: 0px;
+      outline: none;
+
+      &:focus {
+        background: darken($input-background, 4%);
+      }
+    }
+
+    &.clear::after,
+    &.clear::before {
+      content: "";
+      display: block;
+      box-sizing: border-box;
       position: absolute;
-      &.clear {
-          right: 15px;
-          bottom: 22px;
-          cursor: pointer;
-          z-index: 10;
-          box-sizing: border-box;
-          display: block;
-          width: 24px;
-          height: 24px;
-          border: 2px solid transparent;
-          border-radius: 40px;
-          background: none;
-          padding: 0px;
-          outline: none;
-          &:focus {
-              background: darken($input-background, 4%);
-          }
-      }
-      &.clear::after,
-      &.clear::before {
-          content: "";
-          display: block;
-          box-sizing: border-box;
-          position: absolute;
-          width: 16px;
-          height: 2px;
-          background: $icon-color;
-          transform: rotate(45deg);
-          border-radius: 5px;
-          top: 9px;
-          left: 2px;
-      }
-      &.clear::after {
-          transform: rotate(-45deg);
-      }
+      width: 16px;
+      height: 2px;
+      background: $icon-color;
+      transform: rotate(45deg);
+      border-radius: 5px;
+      top: 9px;
+      left: 2px;
+    }
+
+    &.clear::after {
+      transform: rotate(-45deg);
+    }
   }
 }
 
@@ -257,6 +260,7 @@ input[type="search"]::-ms-clear {
   width: 0;
   height: 0;
 }
+
 input[type="search"]::-ms-reveal {
   display: none;
   width: 0;
