@@ -8,7 +8,7 @@ export default {
   component: SectionPostSmall,
 }
 
-const items = [
+const mock = [
   {
     image: API.image,
     to: '/foo/bar',
@@ -43,17 +43,31 @@ const items = [
 export function Default() {
   return {
     data() {
-      return {
-        items,
-      }
+      return { items: mock }
     },
     components: { SectionPostSmall },
-    computed: {
-      parsedItems() {
-        // Restructuring item to support text key
-        return items
-      },
-    },
-    template: '<section-post-small :items="parsedItems" to="/news/"/>',
+    template: `
+      <section-post-small
+        :items="items"
+      />
+  `,
   }
 }
+
+// export function Default() {
+//   return {
+//     data() {
+//       return {
+//         mock,
+//       }
+//     },
+//     components: { SectionPostSmall },
+//     computed: {
+//       parsedItems() {
+//         // Restructuring item to support text key
+//         return mock
+//       },
+//     },
+//     template: '<section-post-small :items="parsedItems" to="/news/"/>',
+//   }
+// }
