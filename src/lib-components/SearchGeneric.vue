@@ -136,7 +136,7 @@ function doSearch() {
 
 <style lang="scss" scoped>
 .search-generic {
-  /*z-index: 10;
+  z-index: 10;
   position: relative;
   background-color: var(--color-white);
   border: 1px solid transparent;
@@ -145,7 +145,7 @@ function doSearch() {
   margin-left: auto;
   margin-top: -32px;
   max-width: $container-l-cta + px;
-  padding: 32px 32px 0;*/
+  padding: 32px 32px 0;
 
   form {
     max-width: $container-l-main + px;
