@@ -63,10 +63,10 @@ devDependencies:
     version: 0.2.0
   '@storybook/vue3':
     specifier: ^7.1.1
-    version: 7.1.1(@vue/compiler-core@3.3.4)(vue@3.4.23)
+    version: 7.1.1(@vue/compiler-core@3.4.23)(vue@3.4.23)
   '@storybook/vue3-vite':
     specifier: ^7.1.1
-    version: 7.1.1(@vue/compiler-core@3.3.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(vite@4.4.5)(vue@3.4.23)
+    version: 7.1.1(@vue/compiler-core@3.4.23)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(vite@4.4.5)(vue@3.4.23)
   '@types/node':
     specifier: ^20.4.9
     version: 20.4.9
@@ -3477,7 +3477,7 @@ packages:
       file-system-cache: 2.3.0
     dev: true
 
-  /@storybook/vue3-vite@7.1.1(@vue/compiler-core@3.3.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(vite@4.4.5)(vue@3.4.23):
+  /@storybook/vue3-vite@7.1.1(@vue/compiler-core@3.4.23)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)(vite@4.4.5)(vue@3.4.23):
     resolution: {integrity: sha512-BHBDbxz8XjXBcVZjeb5JKrS4czNCGJixb2E0cRxM1ZbxrtWozk0ped153PrwJzK73M6y+MynAR5ySchD36MlwA==}
     engines: {node: ^14.18 || >=16}
     peerDependencies:
@@ -3487,7 +3487,7 @@ packages:
     dependencies:
       '@storybook/builder-vite': 7.1.1(typescript@5.2.2)(vite@4.4.5)
       '@storybook/core-server': 7.1.1
-      '@storybook/vue3': 7.1.1(@vue/compiler-core@3.3.4)(vue@3.4.23)
+      '@storybook/vue3': 7.1.1(@vue/compiler-core@3.4.23)(vue@3.4.23)
       '@vitejs/plugin-vue': 4.2.3(vite@4.4.5)(vue@3.4.23)
       magic-string: 0.30.4
       react: 18.2.0
@@ -3506,7 +3506,7 @@ packages:
       - vue
     dev: true
 
-  /@storybook/vue3@7.1.1(@vue/compiler-core@3.3.4)(vue@3.4.23):
+  /@storybook/vue3@7.1.1(@vue/compiler-core@3.4.23)(vue@3.4.23):
     resolution: {integrity: sha512-Q72N+QQL3a4Ws+vZM79PQZq9TuxbTJgQHH0PhBOEvlAGKdCLUu7CNkLR2OwMYqryePLNTcj0MKJRoE7NUKRswQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -3518,7 +3518,7 @@ packages:
       '@storybook/global': 5.0.0
       '@storybook/preview-api': 7.1.1
       '@storybook/types': 7.1.1
-      '@vue/compiler-core': 3.3.4
+      '@vue/compiler-core': 3.4.23
       lodash: 4.17.21
       ts-dedent: 2.2.0
       type-fest: 3.13.1
