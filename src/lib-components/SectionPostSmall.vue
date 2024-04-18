@@ -13,7 +13,6 @@ interface PostSmallItemType {
   to: string
 }
 
-
 const { items } = defineProps({
   items: {
     type: Array as PropType<PostSmallItemType[]>,
