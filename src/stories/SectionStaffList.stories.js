@@ -12,12 +12,12 @@ export default {
 
 const mockDefault = [
   {
-    id: '2975759',
+    id: '2975758',
     sectionHandle: 'staffMember',
     slug: 'test-subject-librarian',
     uri: 'about/staff/test-subject-librarian',
     title: 'TEST - Subject Librarian',
-    image: [{ src: API.image_people }],
+    image: API.image_people,
     to: 'test-subject-librarian',
     nameFirst: 'TEST - Subject',
     nameLast: 'Librarian',
