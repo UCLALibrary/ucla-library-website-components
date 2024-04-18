@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 // Helpers
 
 import { computed, ref, watch } from 'vue'
@@ -35,6 +32,9 @@ const parsedFilters = computed(() => {
   })
   return result
 })
+function getCheckBoxLabel(esFieldName: string) {
+  return esFieldName === 'subjectLibrarian.keyword' ? 'Subject Librarian' : 'Past Events'
+}
 
 function closeBlockFilter(esfieldName: string, label: string | boolean) {
   filteredFilters.value[esfieldName] = filteredFilters.value[esfieldName].filter(item => item !== label)
@@ -53,7 +53,7 @@ function closeBlockFilter(esfieldName: string, label: string | boolean) {
       :key="`filter-${filter.value}`"
     >
       <BlockRemoveSearchFilter
-        :title="filter.value"
+        :title="filter.value === 'yes' ? getCheckBoxLabel(filter.name) : filter.value"
         @removeBlockFilter="
           closeBlockFilter(
             filter.name,
@@ -65,10 +65,7 @@ function closeBlockFilter(esfieldName: string, label: string | boolean) {
   </div>
 </template>
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .section-remove-search-filter {
   display: flex;
   flex-direction: row;

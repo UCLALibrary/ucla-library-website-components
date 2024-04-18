@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 
@@ -40,6 +37,8 @@ const props = defineProps({
   }
 })
 
+const emit = defineEmits(['update:queryFilters', 'filters-selection-action'])
+
 const queryFilterButtonDropDownStates = ref<QueryFilters>({})
 
 watch(() => props.queryFilters, (newQueryFilters) => {
@@ -58,7 +57,7 @@ function updateSelected(key: string, newValue: string[]) {
 }
 
 // single-checkbox
-const checkedState = ref(props.filters.some(obj => obj.inputType === 'single-checkbox' && props.queryFilters[obj.esFieldName].includes('yes')))
+const checkedState = ref(props.filters.some(obj => obj.inputType === 'single-checkbox' && props.queryFilters[obj.esFieldName]?.includes('yes')))
 
 const openItemIndex = ref(-1) // -1 indicates that no item is open
 
@@ -110,14 +109,19 @@ function toggleTransition(index: number) {
 }
 
 function doUpdateQueryFilters(key: string) {
+  console.log('emit event to parent if checkbox is selected')
   queryFilterButtonDropDownStates.value[key] = checkedState.value ? ['yes'] : []
+  emit('update:queryFilters', queryFilterButtonDropDownStates.value)
+  emit('filters-selection-action')
 }
 function doSearch() {
-  console.log('doSearch this event got emitted')
+  console.log('doSearch function called to emit update:queryFilters and filters-selection-action events to the parent component')
+  emit('update:queryFilters', queryFilterButtonDropDownStates.value)
+  emit('filters-selection-action')
 }
 
 watch(queryFilterButtonDropDownStates, () => {
-  checkedState.value = props.filters.some(obj => obj.inputType === 'single-checkbox' && queryFilterButtonDropDownStates.value[obj.esFieldName].includes('yes'))
+  checkedState.value = props.filters.some(obj => obj.inputType === 'single-checkbox' && queryFilterButtonDropDownStates.value[obj.esFieldName]?.includes('yes'))
 })
 </script>
 
@@ -164,10 +168,7 @@ watch(queryFilterButtonDropDownStates, () => {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .search-generic-filters {
   z-index: 10;
   position: relative;
@@ -176,9 +177,9 @@ watch(queryFilterButtonDropDownStates, () => {
   border-radius: 4px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: -32px;
+  // margin-top: -32px;
   max-width: $container-l-cta + px;
-  padding: 32px 32px 0;
+  // padding: 32px 32px 0;
 
   .search-generic-filter-buttons {
     margin-top: 16px;
@@ -198,6 +199,7 @@ watch(queryFilterButtonDropDownStates, () => {
 
   .section-remove-container {
     margin: 12px 24px;
+    padding: 0 29px;
   }
 
   .filter-group {
