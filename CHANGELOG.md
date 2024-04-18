@@ -1,3 +1,10 @@
+# [2.39.0-alpha.70](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.69...v2.39.0-alpha.70) (2024-04-16)
+
+
+### Bug Fixes
+
+* Refactor StaffList & Add checks for MediaGallery ([#499](https://github.com/UCLALibrary/ucla-library-website-components/issues/499)) ([131cfe3](https://github.com/UCLALibrary/ucla-library-website-components/commit/131cfe304807d20c8ea078dbf72a07e7f7da46a3))
+
 # [2.39.0-alpha.69](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.68...v2.39.0-alpha.69) (2024-04-10)
 
 

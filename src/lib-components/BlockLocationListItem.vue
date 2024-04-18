@@ -174,38 +174,80 @@ onMounted(() => {
   <div :class="classes">
     <div class="card-container">
       <div class="image-container">
-        <ResponsiveImage v-if="imageExists" class="image" :media="props.image" />
-        <div v-else class="molecule-no-image">
-          <MoleculePlaceholder class="molecule" aria-hidden="true" />
+        <ResponsiveImage
+          v-if="imageExists"
+          class="image"
+          :media="props.image"
+        />
+        <div
+          v-else
+          class="molecule-no-image"
+        >
+          <MoleculePlaceholder
+            class="molecule"
+            aria-hidden="true"
+          />
         </div>
       </div>
       <div class="library">
         <div>
-          <SmartLink v-if="props.to" :to="props.to" class="title">
+          <SmartLink
+            v-if="props.to"
+            :to="props.to"
+            class="title"
+          >
             {{ props.title }}
           </SmartLink>
-          <SmartLink v-else :to="props.affiliateLibraryUrl" class="title">
+          <SmartLink
+            v-else
+            :to="props.affiliateLibraryUrl"
+            class="title"
+          >
             {{ props.title }}
           </SmartLink>
         </div>
         <div class="text">
-          <div v-if="libcalHoursData && props.isUclaLibrary" class="time">
+          <div
+            v-if="libcalHoursData && props.isUclaLibrary"
+            class="time"
+          >
             <IconClock />
             <span v-if="libcalHoursData.day">{{ "Today" }}</span>
-            <div v-if="libcalHoursData.status !== 'not-set'" class="hour">
+            <div
+              v-if="libcalHoursData.status !== 'not-set'"
+              class="hour"
+            >
               <span> {{ parseLibCalHours }} </span>
             </div>
           </div>
           <IconWithLink
-            v-if="props.reserveSeat" text="Reserve a Seat" icon-name="svg-icon-calendar"
-            :to="props.reserveSeat" class="reserve"
+            v-if="props.reserveSeat"
+            text="Reserve a Seat"
+            icon-name="svg-icon-calendar"
+            :to="props.reserveSeat"
+            class="reserve"
           />
-          <IconWithLink :text="props.address" icon-name="svg-icon-location" :to="props.addressLink" class="location" />
+          <IconWithLink
+            :text="props.address"
+            icon-name="svg-icon-location"
+            :to="props.addressLink"
+            class="location"
+          />
 
-          <div v-if="props.amenities" class="amenities">
-            <div v-for="(amenity) in amenities" :key="`amenity-${amenity.title}`" class="tooltip">
+          <div
+            v-if="props.amenities"
+            class="amenities"
+          >
+            <div
+              v-for="(amenity) in amenities"
+              :key="`amenity-${amenity.title}`"
+              class="tooltip"
+            >
               <span class="tooltiptext">{{ amenity.title }}</span>
-              <component :is="IconComponents[amenity.icon]" class="svg" />
+              <component
+                :is="IconComponents[amenity.icon]"
+                class="svg"
+              />
             </div>
           </div>
         </div>
