@@ -26,7 +26,7 @@ const props = defineProps({
     default: false,
   },
 })
-console.log('SectionWrapper code initialized')
+// console.log('SectionWrapper code initialized')
 const parentLevel = inject('sectionLevel', 1)
 const ancestorSetMargins = inject('ancestorSetMargins', false)
 // console.log('ancestorSetMargins', ancestorSetMargins)
@@ -36,7 +36,7 @@ const levelComputed = computed(() => {
   return Number(props.level || parentLevel + 1)
 })
 const setMargins = computed(() => {
-  console.log('SectionWrapper setMargins', props.noMargins || ancestorSetMargins)
+  // console.log('SectionWrapper setMargins', props.noMargins || ancestorSetMargins)
   return !(props.noMargins || ancestorSetMargins)
 })
 
@@ -85,10 +85,7 @@ const getId = computed(() => {
   </section>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .section-wrapper {
   >.section-header {
     margin-bottom: var(--space-xl);
