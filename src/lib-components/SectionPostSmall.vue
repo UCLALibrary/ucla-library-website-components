@@ -15,7 +15,6 @@ const { items } = defineProps({
 <template>
   <section class="section-post-small">
     <div class="grid">
-      <h3>{{ items }}</h3>
       <BlockPostSmall
         v-for="item in items"
         :key="`block-post-${item.title}`"
