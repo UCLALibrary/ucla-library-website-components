@@ -51,31 +51,33 @@ const parsedAuthor = computed(() => {
 </script>
 
 <template>
-  <smart-link
-    :to="to"
-    :class="classes"
-  >
-    <ResponsiveImage
-      v-if="image"
-      :media="image"
-      :aspect-ratio="100"
-      class="image"
-    />
-    <div class="meta">
-      <div
-        class="category"
-        v-html="categoryName"
+  <div>
+    <smart-link
+      :to="to"
+      :class="classes"
+    >
+      <ResponsiveImage
+        v-if="image"
+        :media="image"
+        :aspect-ratio="100"
+        class="image"
       />
-      <h3
-        class="title"
-        v-html="title"
-      />
-      <div
-        class="author"
-        v-html="parsedAuthor"
-      />
-    </div>
-  </smart-link>
+      <div class="meta">
+        <div
+          class="category"
+          v-html="categoryName"
+        />
+        <h3
+          class="title"
+          v-html="title"
+        />
+        <div
+          class="author"
+          v-html="parsedAuthor"
+        />
+      </div>
+    </smart-link>
+  </div>
 </template>
 
 <style

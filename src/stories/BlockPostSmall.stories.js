@@ -28,8 +28,8 @@ const mockAbout = {
   image: API.image,
   to: '/about/foo/bar',
   categoryName: 'red squirrels',
-  author: 'Dexter Diamond',
-  title: 'Twenty-two Things About Squirrels',
+  author: 'Penelope Nutstop',
+  title: 'Twenty-two Things About Flying Squirrels',
 }
 
 const mockHelp = {
