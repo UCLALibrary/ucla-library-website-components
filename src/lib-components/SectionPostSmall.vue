@@ -4,9 +4,19 @@
 >
 import BlockPostSmall from '@/lib-components/BlockPostSmall.vue'
 
+// TYPES
+interface PostSmallItemType {
+  image: MediaItemType
+  category: string
+  author: string
+  title: string
+  to: string
+}
+
+
 const { items } = defineProps({
   items: {
-    type: Array,
+    type: Array as PropType<PostSmallItemType[]>,
     default: () => [],
   },
 })
