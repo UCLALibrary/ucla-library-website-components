@@ -1,22 +1,20 @@
-<script>
+<script
+  setup
+  lang="ts"
+>
+import type { PropType } from 'vue'
 import BlockPostSmall from '@/lib-components/BlockPostSmall.vue'
 
-export default {
-  name: 'SectionPostSmall',
-  components: {
-    BlockPostSmall,
+const { items } = defineProps({
+  items: {
+    type: Array,
+    default: () => [],
   },
-  props: {
-    items: {
-      type: Array,
-      default: () => [],
-    },
-    to: {
-      type: String,
-      default: '',
-    },
-  },
-}
+  to: {
+    type: String,
+    default: '',
+  }
+})
 </script>
 
 <template>
