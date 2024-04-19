@@ -10,7 +10,7 @@ import BlockPostSmall from '@/lib-components/BlockPostSmall.vue'
 // TYPES
 interface PostSmallItemType {
   image: MediaItemType
-  category: string
+  categoryName: string
   author: string
   title: string
   to: string
