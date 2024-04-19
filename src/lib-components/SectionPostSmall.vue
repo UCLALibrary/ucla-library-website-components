@@ -41,7 +41,7 @@ const { items } = defineProps({
 
     <smart-link
       class="more"
-      :to="to"
+      :to="items.to"
     >
       <button-more />
     </smart-link>
