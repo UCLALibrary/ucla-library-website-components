@@ -2,7 +2,6 @@
   setup
   lang="ts"
 >
-
 import type { PropType } from 'vue'
 import type { MediaItemType } from '@/types/types'
 
