@@ -24,7 +24,7 @@ const { items } = defineProps({
     default: () => [],
   },
   to: {
-    type: string,
+    type: String,
     default: '',
   },
 })

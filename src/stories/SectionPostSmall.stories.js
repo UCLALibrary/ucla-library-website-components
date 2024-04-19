@@ -49,26 +49,8 @@ export function Default() {
     template: `
       <section-post-small
         :items="items"
-        :to="/visit/foo/bar/"
+        to: "/visit/foo/bar/"
       />
   `,
   }
 }
-
-// export function Default() {
-//   return {
-//     data() {
-//       return {
-//         mock,
-//       }
-//     },
-//     components: { SectionPostSmall },
-//     computed: {
-//       parsedItems() {
-//         // Restructuring item to support text key
-//         return mock
-//       },
-//     },
-//     template: '<section-post-small :items="parsedItems" to="/news/"/>',
-//   }
-// }
