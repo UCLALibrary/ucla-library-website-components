@@ -1,7 +1,7 @@
 <script>
-import MastheadSecondary from "@/lib-components/MastheadSecondary"
-import SearchGeneric from "@/lib-components/SearchGeneric"
 import { mapState } from 'pinia'
+import MastheadSecondary from '@/lib-components/MastheadSecondary'
+import SearchGeneric from '@/lib-components/SearchGeneric'
 import HeaderSmart from '@/lib-components/HeaderSmart'
 
 // Pinia
@@ -109,7 +109,7 @@ export default {
   },
   methods: {
     getSearchData() {
-      console.log("search is ready")
+      console.log('search is ready')
     }
   },
 }
@@ -120,12 +120,12 @@ export default {
     <HeaderSmart title="Modern Endangered Archives Program" />
 
     <main id="main">
-      <masthead-secondary
+      <MastheadSecondary
         title="Modern Endangered Archives Program"
         text="Our grants enable digitization and access to at-risk cultural heritage collections from around the world. Explore our projects and learn more about available grant opportunities."
         theme="meap"
       />
-      <search-generic
+      <SearchGeneric
         v-if="isSearch"
         search-type="about"
         :filters="searchFilters"
