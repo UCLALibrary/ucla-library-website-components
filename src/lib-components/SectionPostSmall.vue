@@ -5,7 +5,9 @@
 import type { PropType } from 'vue'
 import type { MediaItemType } from '@/types/types'
 
+// COMPONENTS
 import BlockPostSmall from '@/lib-components/BlockPostSmall.vue'
+import ButtonMore from '@/lib-components/ButtonMore.vue'
 
 // TYPES
 interface PostSmallItemType {
@@ -20,6 +22,10 @@ const { items } = defineProps({
   items: {
     type: Array as PropType<PostSmallItemType[]>,
     default: () => [],
+  },
+  to: {
+    type: String,
+    default: '',
   },
 })
 </script>
@@ -40,10 +46,11 @@ const { items } = defineProps({
     </div>
 
     <smart-link
+      v-if="to"
       class="more"
-      :to="items.to"
+      :to="to"
     >
-      <button-more />
+      <ButtonMore />
     </smart-link>
   </section>
 </template>

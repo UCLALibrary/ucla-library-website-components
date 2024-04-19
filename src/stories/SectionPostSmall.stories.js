@@ -18,7 +18,7 @@ const mock = [
   },
   {
     image: API.image,
-    to: '/visit/foo/bar/',
+    to: ' ',
     categoryName: 'wild pets',
     author: 'Dexter Diamond',
     title: 'Introducing Mammals to Young Naturalists',
@@ -49,6 +49,7 @@ export function Default() {
     template: `
       <section-post-small
         :items="items"
+        :to="/visit/foo/bar/"
       />
   `,
   }
