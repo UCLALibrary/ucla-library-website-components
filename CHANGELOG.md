@@ -1,3 +1,10 @@
+# [2.39.0-alpha.72](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.71...v2.39.0-alpha.72) (2024-04-22)
+
+
+### Bug Fixes
+
+* add search to masthead ([#503](https://github.com/UCLALibrary/ucla-library-website-components/issues/503)) ([ddd8746](https://github.com/UCLALibrary/ucla-library-website-components/commit/ddd8746156db2a3c13f17ff26a9903f8ae3cb1d9))
+
 # [2.39.0-alpha.71](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.70...v2.39.0-alpha.71) (2024-04-18)
 
 
