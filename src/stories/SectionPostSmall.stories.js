@@ -49,7 +49,7 @@ export function Default() {
     template: `
       <section-post-small
         :items="items"
-        to: "/visit/foo/bar/"
+        to="/visit/foo/bar/"
       />
   `,
   }
