@@ -1,3 +1,10 @@
+# [2.39.0-alpha.73](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.72...v2.39.0-alpha.73) (2024-04-22)
+
+
+### Features
+
+* APPS-2632 convert block & section PostSmall to vue3 ([#498](https://github.com/UCLALibrary/ucla-library-website-components/issues/498)) ([38e05cf](https://github.com/UCLALibrary/ucla-library-website-components/commit/38e05cffbcb38c6aed94790848eb70148331afe3))
+
 # [2.39.0-alpha.72](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.71...v2.39.0-alpha.72) (2024-04-22)
 
 
