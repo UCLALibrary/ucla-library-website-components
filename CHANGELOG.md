@@ -1,3 +1,10 @@
+# [2.39.0-alpha.71](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.70...v2.39.0-alpha.71) (2024-04-18)
+
+
+### Features
+
+* Add SearchGeneric component ([#501](https://github.com/UCLALibrary/ucla-library-website-components/issues/501)) ([d1886e8](https://github.com/UCLALibrary/ucla-library-website-components/commit/d1886e85c7e96305b04aca7d8ac4035d6b143995))
+
 # [2.39.0-alpha.70](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.69...v2.39.0-alpha.70) (2024-04-16)
 
 
