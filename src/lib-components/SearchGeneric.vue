@@ -145,7 +145,7 @@ function doSearch() {
   margin-left: auto;
   margin-top: -32px;
   max-width: $container-l-cta + px;
-  padding: 32px 32px 0;
+  padding: 32px 0 0 0;
 
   form {
     max-width: $container-l-main + px;
