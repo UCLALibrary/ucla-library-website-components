@@ -1,33 +1,33 @@
 <script>
 // COMPONENTS
-import RichText from "./RichText.vue"
+import RichText from './RichText.vue'
 
 export default {
-    name: "PullQuote",
-    components: {
-        RichText,
+  name: 'PullQuote',
+  components: {
+    RichText,
+  },
+  props: {
+    text: {
+      type: String,
+      default: '',
     },
-    props: {
-        text: {
-            type: String,
-            default: "",
-        },
-        attribution: {
-            type: String,
-            default: "",
-        },
+    attribution: {
+      type: String,
+      default: '',
     },
+  },
 }
 </script>
 
 <template>
-    <div class="pull-quote">
-        <RichText v-if="text" class="quote" :rich-text-content="text" />
-        <div v-if="attribution" class="attribution-block">
-            <span class="dash">—</span>
-            <span v-if="attribution" class="attribution" v-html="attribution" />
-        </div>
+  <div class="pull-quote">
+    <RichText v-if="text" class="quote" :rich-text-content="text" />
+    <div v-if="attribution" class="attribution-block">
+      <span class="dash">—</span>
+      <span v-if="attribution" class="attribution" v-html="attribution" />
     </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>

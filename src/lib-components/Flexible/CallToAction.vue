@@ -16,8 +16,6 @@ const { block } = defineProps({
 const parsedItems = computed(() => {
     return block.callToAction[0]
 })
-
-console.log(parsedItems.value)
 </script>
 
 <template>
