@@ -52,12 +52,12 @@ export default {
             default: "",
         },
         isDark: {
-            type: Boolean,
-            default: false,
+            type: String,
+            default: "false",
         },
         isSmallSize: {
-            type: Boolean,
-            default: false,
+            type: String,
+            default: "false",
         },
         isGlobal: {
             type: Boolean,
@@ -75,10 +75,14 @@ export default {
         classes() {
             return [
                 "block-call-to-action",
-                { "full-width": !this.isSmallSize },
-                { "half-width": this.isSmallSize },
-                { "theme-light": !this.isDark },
-                { "theme-dark": this.isDark },
+                // { "full-width": !this.isSmallSize },
+                // { "half-width": this.isSmallSize },
+                // { "theme-light": !this.isDark },
+                // { "theme-dark": this.isDark },
+                { "full-width": !this.parseStringBoolean(this.isSmallSize) },
+                { "half-width": this.parseStringBoolean(this.isSmallSize) },
+                { "theme-light": !this.parseStringBoolean(this.isDark) },
+                { "theme-dark": this.parseStringBoolean(this.isDark) },
             ]
         },
         askALibrarian() {
@@ -112,8 +116,15 @@ export default {
                     text: this.text,
                     label: this.name,
                     svgName: this.svgName,
+                    // isDark: this.isDark,
+                    // isSmallSize: this.isSmallSize,
                 }
             }
+        },
+    },
+    methods: {
+        parseStringBoolean(value) {
+            return value === "true" ? true : false
         },
     },
 }

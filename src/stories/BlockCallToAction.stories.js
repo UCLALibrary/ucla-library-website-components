@@ -29,8 +29,8 @@ export function Default() {
             :text="text"
             :name="name"
             :to="to"
-            :is-dark="isDark"
-            :is-small-size="isSmallSize"
+            :isDark="false"
+            :isSmallSize="false"
         />
     `,
     }
@@ -41,7 +41,6 @@ export function DarkBlue() {
         data() {
             return {
                 ...mock,
-                isDark: "true",
             }
         },
         components: { BlockCallToAction },
@@ -52,8 +51,8 @@ export function DarkBlue() {
             :text="text"
             :name="name"
             :to="to"
-            :is-dark="isDark"
-            :is-small-size="isSmallSize"
+            :isDark="true"
+            :isSmallSize="false"
         />
     `,
     }
@@ -64,7 +63,6 @@ export function SmallCTA() {
         data() {
             return {
                 ...mock,
-                isSmallSize: "true",
             }
         },
         components: { BlockCallToAction },
@@ -75,8 +73,8 @@ export function SmallCTA() {
             :text="text"
             :name="name"
             :to="to"
-            :is-dark="isDark"
-            :is-small-size="isSmallSize"
+            :isDark="false"
+            :isSmallSize="true"
         />
     `,
     }
@@ -87,20 +85,18 @@ export function SmallCTADarkBlue() {
         data() {
             return {
                 ...mock,
-                isDark: "true",
-                isSmallSize: "true",
             }
         },
         components: { BlockCallToAction },
         template: `
         <block-call-to-action
-            svg-name= "svg-call-to-action-money"
+            svgName= "svg-call-to-action-money"
             :title="title"
             :text="text"
             :name="name"
             :to="to"
-            :is-dark="isDark"
-            :is-small-size="isSmallSize"
+            :isDark="true"
+            :isSmallSize="true"
         />
     `,
     }

@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
-import type { BlockCallToActionTwoUpType } from '@/types/types'
-import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
+import type { PropType } from "vue"
+import type { BlockCallToActionTwoUpType } from "@/types/types"
+import BlockCallToAction from "@/lib-components/BlockCallToAction.vue"
 
 const { items } = defineProps({
-  items: {
-    type: Array as PropType<BlockCallToActionTwoUpType[]>,
-    default: () => [],
-  },
+    items: {
+        type: Array as PropType<BlockCallToActionTwoUpType[]>,
+        default: () => [],
+    },
 })
 </script>
 
 <template>
-  <section class="block-call-to-action-two-up">
-    <BlockCallToAction
-      v-for="(item, index) in items"
-      :key="`BlockCallToActionTwoUpKey${index}`"
-      :svg-name="item.svgName"
-      :title="item.title"
-      :text="item.text"
-      :name="item.name"
-      :to="item.to"
-      :is-dark="item.isDark"
-      :is-small-size="true"
-    />
-  </section>
+    <section class="block-call-to-action-two-up">
+        <BlockCallToAction
+            v-for="(item, index) in items"
+            :key="`BlockCallToActionTwoUpKey${index}`"
+            :svg-name="item.svgName"
+            :title="item.title"
+            :text="item.text"
+            :name="item.name"
+            :to="item.to"
+            :is-dark="item.isDark"
+            :is-small-size="true"
+        />
+    </section>
 </template>
 
 <style lang="scss" scoped>

@@ -13,7 +13,6 @@ const items = [
         name: "Lorem ipsum dolor",
         to: "/help/foo/bar/",
         isDark: "false",
-        isSmallSize: "true",
     },
     {
         svgName: "svg-call-to-action-chat",
@@ -22,7 +21,6 @@ const items = [
         name: "Ipsum dolor amet",
         to: "/help/foo/bar/",
         isDark: "true",
-        isSmallSize: "true",
     },
 ]
 
