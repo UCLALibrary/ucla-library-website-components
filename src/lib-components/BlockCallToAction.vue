@@ -75,10 +75,6 @@ export default {
     classes() {
       return [
         'block-call-to-action',
-        // { "full-width": !this.isSmallSize },
-        // { "half-width": this.isSmallSize },
-        // { "theme-light": !this.isDark },
-        // { "theme-dark": this.isDark },
         { 'full-width': !this.parseStringBoolean(this.isSmallSize) },
         { 'half-width': this.parseStringBoolean(this.isSmallSize) },
         { 'theme-light': !this.parseStringBoolean(this.isDark) },
@@ -118,8 +114,6 @@ export default {
           text: this.text,
           label: this.name,
           svgName: this.svgName,
-          // isDark: this.isDark,
-          // isSmallSize: this.isSmallSize,
         }
       }
     },
