@@ -1,3 +1,24 @@
+# [2.39.0-alpha.74](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.73...v2.39.0-alpha.74) (2024-04-25)
+
+
+### Features
+
+* APPS-2265, Add clickoutside feature to search-generic component ([#505](https://github.com/UCLALibrary/ucla-library-website-components/issues/505)) ([34a3e2b](https://github.com/UCLALibrary/ucla-library-website-components/commit/34a3e2b2ed97bfa193500682bb53d84bf88e512d))
+
+# [2.39.0-alpha.73](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.72...v2.39.0-alpha.73) (2024-04-22)
+
+
+### Features
+
+* APPS-2632 convert block & section PostSmall to vue3 ([#498](https://github.com/UCLALibrary/ucla-library-website-components/issues/498)) ([38e05cf](https://github.com/UCLALibrary/ucla-library-website-components/commit/38e05cffbcb38c6aed94790848eb70148331afe3))
+
+# [2.39.0-alpha.72](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.71...v2.39.0-alpha.72) (2024-04-22)
+
+
+### Bug Fixes
+
+* add search to masthead ([#503](https://github.com/UCLALibrary/ucla-library-website-components/issues/503)) ([ddd8746](https://github.com/UCLALibrary/ucla-library-website-components/commit/ddd8746156db2a3c13f17ff26a9903f8ae3cb1d9))
+
 # [2.39.0-alpha.71](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.70...v2.39.0-alpha.71) (2024-04-18)
 
 

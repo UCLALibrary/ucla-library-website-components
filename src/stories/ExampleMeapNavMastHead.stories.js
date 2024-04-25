@@ -170,3 +170,19 @@ export function Default() {
     `,
   }
 }
+
+export function WithSearch() {
+  return {
+
+    created() {
+      const globalStore = useGlobalStore()
+      globalStore.header.primary = mockMicrosite.primary
+      globalStore.header.secondary = mockMicrosite.secondary
+      globalStore.winWidth = 1200
+    },
+    components: { ExampleMeapNavMastHead },
+    template: `
+        <ExampleMeapNavMastHead  :is-search="true"/>
+    `,
+  }
+}
