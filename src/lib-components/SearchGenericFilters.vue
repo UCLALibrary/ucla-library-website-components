@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 
-// import { onClickOutside } from '@vueuse/core'
+import { onClickOutside } from '@vueuse/core'
 
 import SearchGenericFilterButtons from './SearchGenericFilterButtons.vue'
 import BaseRadioGroup from './BaseRadioGroup.vue'
@@ -94,15 +94,6 @@ const parsedFilters = computed(() => {
   })
 })
 
-// Logic to hide the dropdowns when clicked outside anywhere
-
-/* function closeFilterDropDowns() {
-
-  for (item in parsedFilters.value) {
-    item.isVisible = false
-  }
-} */
-
 function toggleTransition(index: number) {
   // Toggles visibility state for the given index
   openItemIndex.value = openItemIndex.value === index ? -1 : index
@@ -123,10 +114,14 @@ function doSearch() {
 watch(queryFilterButtonDropDownStates, () => {
   checkedState.value = props.filters.some(obj => obj.inputType === 'single-checkbox' && queryFilterButtonDropDownStates.value[obj.esFieldName]?.includes('yes'))
 })
+
+//click outside setup
+const clickOutsideTarget = ref(null)
+onClickOutside(clickOutsideTarget, event => { openItemIndex.value = -1 })
 </script>
 
 <template>
-  <div class="search-generic-filters">
+  <div class="search-generic-filters" ref="clickOutsideTarget">
     <div
       v-if="filters.length > 0"
       class="container"
