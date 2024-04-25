@@ -1,3 +1,10 @@
+# [2.39.0-alpha.74](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.73...v2.39.0-alpha.74) (2024-04-25)
+
+
+### Features
+
+* APPS-2265, Add clickoutside feature to search-generic component ([#505](https://github.com/UCLALibrary/ucla-library-website-components/issues/505)) ([34a3e2b](https://github.com/UCLALibrary/ucla-library-website-components/commit/34a3e2b2ed97bfa193500682bb53d84bf88e512d))
+
 # [2.39.0-alpha.73](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.72...v2.39.0-alpha.73) (2024-04-22)
 
 
