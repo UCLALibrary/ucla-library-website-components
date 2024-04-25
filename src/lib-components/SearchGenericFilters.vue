@@ -117,7 +117,8 @@ watch(queryFilterButtonDropDownStates, () => {
 
 // click outside setup
 const clickOutsideTarget = ref(null)
-onClickOutside(clickOutsideTarget, () => { openItemIndex.value = -1 })
+onClickOutside(clickOutsideTarget,
+  () => { openItemIndex.value = -1 })
 </script>
 
 <template>
