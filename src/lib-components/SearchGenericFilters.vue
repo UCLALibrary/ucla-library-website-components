@@ -115,13 +115,13 @@ watch(queryFilterButtonDropDownStates, () => {
   checkedState.value = props.filters.some(obj => obj.inputType === 'single-checkbox' && queryFilterButtonDropDownStates.value[obj.esFieldName]?.includes('yes'))
 })
 
-//click outside setup
+// click outside setup
 const clickOutsideTarget = ref(null)
-onClickOutside(clickOutsideTarget, event => { openItemIndex.value = -1 })
+onClickOutside(clickOutsideTarget, () => { openItemIndex.value = -1 })
 </script>
 
 <template>
-  <div class="search-generic-filters" ref="clickOutsideTarget">
+  <div ref="clickOutsideTarget" class="search-generic-filters">
     <div
       v-if="filters.length > 0"
       class="container"
