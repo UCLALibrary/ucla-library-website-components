@@ -12,8 +12,7 @@ const items = [
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     name: 'Lorem ipsum dolor',
     to: '/help/foo/bar/',
-    isDark: false,
-    isSmallSize: true,
+    isDark: 'false',
   },
   {
     svgName: 'svg-call-to-action-chat',
@@ -21,8 +20,7 @@ const items = [
     text: 'Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     name: 'Ipsum dolor amet',
     to: '/help/foo/bar/',
-    isDark: true,
-    isSmallSize: true,
+    isDark: 'true',
   },
 ]
 

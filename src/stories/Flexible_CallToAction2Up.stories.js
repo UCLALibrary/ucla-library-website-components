@@ -9,8 +9,7 @@ const mock = {
       to: 'http://cat-kitten-parking.com',
       title: 'Cat & Kitten Parking Passes',
       svgName: 'svg-call-to-action-find',
-      isDark: false,
-      isSmallSize: true,
+      isDark: 'false',
     },
     {
       text: 'Advanced Ancient Greek for Dogs. Teach your dog the useful language of ancient Greek so you can communicate together more effectively.',
@@ -18,8 +17,7 @@ const mock = {
       to: 'http://ancient-greek-for-dogs.com',
       title: 'Ancient Greek for Dogs',
       svgName: 'svg-call-to-action-money',
-      isDark: true,
-      isSmallSize: true,
+      isDark: 'true',
     },
   ],
 }

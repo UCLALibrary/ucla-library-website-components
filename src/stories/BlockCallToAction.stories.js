@@ -5,137 +5,61 @@ export default {
   component: BlockCallToAction,
 }
 
+function Template(args) {
+  return {
+    setup() {
+      return { args }
+    },
+    components: { BlockCallToAction },
+    template: '<block-call-to-action v-bind="args"/>',
+  }
+}
+
 const mock = {
-  svgName: 'svg-call-to-action-chat',
+  svgName: 'svg-call-to-action-find',
   title: 'Lorem ipsum dolor sit amet?',
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   name: 'Lorem ipsum dolor',
   to: '/help/foo/bar/',
-  isDark: false,
-  isSmallSize: false,
 }
 
 // Variations of stories below
-export function Default() {
-  return {
-    data() {
-      return {
-        ...mock,
-      }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            :svgName="svgName"
-            :title="title"
-            :text="text"
-            :name="name"
-            :to="to"
-            :isDark=false
-            :isSmallSize="isSmallSize"
-        />
-    `,
-  }
+
+export const Default = Template.bind({})
+Default.args = {
+  ...mock,
 }
 
-export function DarkBlue() {
-  return {
-    data() {
-      return {
-        ...mock,
-      }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            :svgName= "svgName"
-            :title="title"
-            :text="text"
-            :name="name"
-            :to="to"
-            :is-dark=true
-            :isSmallSize="isSmallSize"
-        />
-    `,
-  }
+export const DarkBlue = Template.bind({})
+DarkBlue.args = {
+  ...mock,
+  title: 'Dark Blue: Lorem ipsum dolor sit amet?',
+  isDark: 'true',
+  isSmallSize: 'false',
 }
 
-export function SmallCTA() {
-  return {
-    data() {
-      return {
-        ...mock,
-      }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            svgName= "svg-call-to-action-find"
-            :title="title"
-            :text="text"
-            :name="name"
-            :to="to"
-            :is-dark=false
-            :isSmallSize=true
-        />
-    `,
-  }
+export const SmallCTA = Template.bind({})
+SmallCTA.args = {
+  ...mock,
+  title: 'Small CTA: Lorem ipsum dolor sit amet?',
+  isDark: 'false',
+  isSmallSize: 'true',
 }
 
-export function SmallCTADarkBlue() {
-  return {
-    data() {
-      return {
-        ...mock,
-      }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            svg-name= "svg-call-to-action-money"
-            :title="title"
-            :text="text"
-            :name="name"
-            :to="to"
-            :is-small-size=true
-            :is-dark=true
-        />
-    `,
-  }
+export const SmallCTADark = Template.bind({})
+SmallCTADark.args = {
+  ...mock,
+  title: 'Small CTA Dark Blue: Lorem ipsum dolor sit amet?',
+  isDark: 'true',
+  isSmallSize: 'true',
 }
 
-export function GlobalAskALibrarian() {
-  return {
-
-    data() {
-      return {
-        ...mock,
-      }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            :is-global="true"
-        />
-    `,
-
-  }
+export const GlobalAskALibrarian = Template.bind({})
+GlobalAskALibrarian.args = {
+  isGlobal: 'true',
 }
 
-export function GlobalMeapCTA() {
-  return {
-
-    data() {
-      return {
-        ...mock,
-      }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            :is-meap-global="true"
-        />
-    `,
-
-  }
+export const GlobalMeapCTA = Template.bind({})
+GlobalMeapCTA.args = {
+  isMeapGlobal: 'true',
 }

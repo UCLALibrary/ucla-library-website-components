@@ -52,12 +52,12 @@ export default {
       default: '',
     },
     isDark: {
-      type: Boolean,
-      default: false,
+      type: String,
+      default: 'false',
     },
     isSmallSize: {
-      type: Boolean,
-      default: false,
+      type: String,
+      default: 'false',
     },
     isGlobal: {
       type: Boolean,
@@ -75,10 +75,10 @@ export default {
     classes() {
       return [
         'block-call-to-action',
-        { 'full-width': !this.isSmallSize },
-        { 'half-width': this.isSmallSize },
-        { 'theme-light': !this.isDark },
-        { 'theme-dark': this.isDark },
+        { 'full-width': !this.parseStringBoolean(this.isSmallSize) },
+        { 'half-width': this.parseStringBoolean(this.isSmallSize) },
+        { 'theme-light': !this.parseStringBoolean(this.isDark) },
+        { 'theme-dark': this.parseStringBoolean(this.isDark) },
       ]
     },
     askALibrarian() {
@@ -118,6 +118,11 @@ export default {
       }
     },
   },
+  methods: {
+    parseStringBoolean(value) {
+      return value === 'true'
+    },
+  },
 }
 </script>
 
@@ -128,11 +133,17 @@ export default {
     <div class="text" v-html="parsedContent.text" />
     <!--  this parsedContent.text can have html content so v-html should be used here -->
     <ButtonLink
-      v-if="!isDark" :label="parsedContent.label" :to="parsedContent.to" :is-secondary="true"
+      v-if="!isDark"
+      :label="parsedContent.label"
+      :to="parsedContent.to"
+      :is-secondary="true"
       class="button-link"
     />
     <ButtonLink
-      v-if="isDark" :label="parsedContent.label" :to="parsedContent.to" :is-tertiary="true"
+      v-if="isDark"
+      :label="parsedContent.label"
+      :to="parsedContent.to"
+      :is-tertiary="true"
       class="button-link"
     />
   </div>
@@ -140,141 +151,141 @@ export default {
 
 <style lang="scss" scoped>
 .block-call-to-action {
-  max-width: var(--block-width);
-  background-color: var(--color-background);
-  padding: var(--space-2xl);
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: center;
-  align-items: center;
+    max-width: var(--block-width);
+    background-color: var(--color-background);
+    padding: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
 
-  // Sizes
-  &.full-width {
-    --block-width: #{$container-l-cta}px;
-    --block-padding-title: 70px;
-    --block-padding-text: 10px;
-  }
-
-  &.half-width {
-    --block-width: calc(#{$container-l-cta}px / 2);
-    --block-padding-title: 114px;
-    --block-padding-text: 112px;
-  }
-
-  // Color Themes
-  &.theme-light {
-    --color-background: var(--color-primary-blue-01);
-    --color-title: var(--color-primary-blue-03);
-    --color-text: var(--color-black);
-    --color-button-background: var(--color-primary-blue-03);
-    --color-svg-molecule-outline: var(--color-primary-blue-03);
-    --color-svg-molecule-inner-highlight: var(--color-help-green-03);
-
-    .svg :deep(.svg__stroke--primary-blue-03) {
-      stroke: var(--color-primary-blue-03);
-    }
-
-    :deep(.svg__stroke--help-green-03) {
-      stroke: var(--color-help-green-03);
-    }
-
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-default-cyan-03);
-    }
-
-    :deep(.svg__fill--default-cyan-03) {
-      fill: var(--color-default-cyan-03);
-    }
-  }
-
-  &.theme-dark {
-    --color-background: var(--color-primary-blue-03);
-    --color-title: var(--color-white);
-    --color-text: var(--color-white);
-    --color-svg-molecule-outline: var(--color-primary-blue-02);
-    --color-svg-molecule-inner-highlight: var(--color-white);
-    --color-button-background: var(--color-primary-blue-03);
-    --color-button-border: 2px solid var(--color-default-cyan-02);
-
-    :deep(.svg__stroke--primary-blue-03) {
-      stroke: var(--color-primary-blue-02);
-    }
-
-    :deep(.svg__stroke--help-green-03) {
-      stroke: var(--color-white);
-    }
-
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-help-green-03);
-    }
-
-    :deep(.svg__fill--default-cyan-03) {
-      fill: var(--color-help-green-03);
-    }
-  }
-
-  .svg {
-    margin-bottom: 32px;
-    flex-grow: 0;
-    flex-shrink: 0;
-
-    .outline {
-      stroke: var(--color-svg-molecule-outline);
-    }
-
-    .color {
-      stroke: var(--color-svg-molecule-inner-highlight);
-    }
-  }
-
-  .title {
-    @include step-2;
-    text-align: center;
-    letter-spacing: 0.0025em;
-    color: var(--color-title);
-    margin-bottom: 16px;
-    max-width: 640px;
-  }
-
-  .text {
-    @include step-0;
-    text-align: center;
-    color: var(--color-text);
-    margin-bottom: 32px;
-    max-width: 640px;
-  }
-
-  // Breakpoints
-  @media #{$medium} {
+    // Sizes
     &.full-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
+        --block-width: #{$container-l-cta}px;
+        --block-padding-title: 70px;
+        --block-padding-text: 10px;
     }
 
     &.half-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
-      width: 100%;
+        --block-width: calc(#{$container-l-cta}px / 2);
+        --block-padding-title: 114px;
+        --block-padding-text: 112px;
     }
 
-    .title,
+    // Color Themes
+    &.theme-light {
+        --color-background: var(--color-primary-blue-01);
+        --color-title: var(--color-primary-blue-03);
+        --color-text: var(--color-black);
+        --color-button-background: var(--color-primary-blue-03);
+        --color-svg-molecule-outline: var(--color-primary-blue-03);
+        --color-svg-molecule-inner-highlight: var(--color-help-green-03);
+
+        .svg :deep(.svg__stroke--primary-blue-03) {
+            stroke: var(--color-primary-blue-03);
+        }
+
+        :deep(.svg__stroke--help-green-03) {
+            stroke: var(--color-help-green-03);
+        }
+
+        :deep(.svg__stroke--default-cyan-03) {
+            stroke: var(--color-default-cyan-03);
+        }
+
+        :deep(.svg__fill--default-cyan-03) {
+            fill: var(--color-default-cyan-03);
+        }
+    }
+
+    &.theme-dark {
+        --color-background: var(--color-primary-blue-03);
+        --color-title: var(--color-white);
+        --color-text: var(--color-white);
+        --color-svg-molecule-outline: var(--color-primary-blue-02);
+        --color-svg-molecule-inner-highlight: var(--color-white);
+        --color-button-background: var(--color-primary-blue-03);
+        --color-button-border: 2px solid var(--color-default-cyan-02);
+
+        :deep(.svg__stroke--primary-blue-03) {
+            stroke: var(--color-primary-blue-02);
+        }
+
+        :deep(.svg__stroke--help-green-03) {
+            stroke: var(--color-white);
+        }
+
+        :deep(.svg__stroke--default-cyan-03) {
+            stroke: var(--color-help-green-03);
+        }
+
+        :deep(.svg__fill--default-cyan-03) {
+            fill: var(--color-help-green-03);
+        }
+    }
+
+    .svg {
+        margin-bottom: 32px;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        .outline {
+            stroke: var(--color-svg-molecule-outline);
+        }
+
+        .color {
+            stroke: var(--color-svg-molecule-inner-highlight);
+        }
+    }
+
+    .title {
+        @include step-2;
+        text-align: center;
+        letter-spacing: 0.0025em;
+        color: var(--color-title);
+        margin-bottom: 16px;
+        max-width: 640px;
+    }
+
     .text {
-      padding: 0;
-    }
-  }
-
-  @media #{$small} {
-    &.full-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
+        @include step-0;
+        text-align: center;
+        color: var(--color-text);
+        margin-bottom: 32px;
+        max-width: 640px;
     }
 
-    &.half-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
+    // Breakpoints
+    @media #{$medium} {
+        &.full-width {
+            --block-padding-title: 48px;
+            --block-padding-text: 48px;
+        }
+
+        &.half-width {
+            --block-padding-title: 48px;
+            --block-padding-text: 48px;
+            width: 100%;
+        }
+
+        .title,
+        .text {
+            padding: 0;
+        }
     }
-  }
+
+    @media #{$small} {
+        &.full-width {
+            --block-padding-title: 48px;
+            --block-padding-text: 48px;
+        }
+
+        &.half-width {
+            --block-padding-title: 48px;
+            --block-padding-text: 48px;
+        }
+    }
 }
 </style>

@@ -9,9 +9,9 @@ const mock = {
       titleCta: 'Call to Action',
       summary: 'A Call to Action',
       icon: 'svg-call-to-action-find',
-      buttonText: 'Click Me',
+      buttonText: 'Click Me Please',
       buttonUrl: 'http://google.com',
-      backgroundColor: false,
+      backgroundColor: 'false',
     },
   ],
 }

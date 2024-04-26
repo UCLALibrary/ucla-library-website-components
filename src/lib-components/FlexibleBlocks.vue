@@ -97,12 +97,10 @@ const NEVER_GRAY = [
 const parsedBlocks = computed(() => {
   // Map over the blocks and add additional properties to each block
   const output = props.blocks.map(obj => ({
-
     ...obj, // Spread the properties of the original block
     componentName: convertName(obj.typeHandle), // Convert the typeHandle to a component name
     theme: 'white', // Set the default theme to 'white'
     needsDivider: false, // Set the default divider need to false
-
   }))
 
   // Iterate over the blocks to set the theme and divider need
@@ -111,23 +109,25 @@ const parsedBlocks = computed(() => {
     // the block's component name is not in the NEVER_GRAY list, and the block is not the last one
     if (
       index > 0
-      && arr[index - 1].theme === 'white'
-      && !NEVER_GRAY.includes(block.componentName)
-      && index < arr.length - 1
+            && arr[index - 1].theme === 'white'
+            && !NEVER_GRAY.includes(block.componentName)
+            && index < arr.length - 1
     )
       block.theme = 'gray' // Set the block's theme to 'gray'
 
     // If the block is not the first one, and both the block and the previous block have a theme of 'white'
     if (
       index > 0
-      && block.theme === 'white'
-      && arr[index - 1].theme === 'white'
+            && block.theme === 'white'
+            && arr[index - 1].theme === 'white'
     )
       block.needsDivider = true // Set the block's divider need to true
   })
 
   // Filter the blocks to only include those whose component name is a key in the components object
-  return output.filter(block => Object.keys(components).includes(block.componentName))
+  return output.filter(block =>
+    Object.keys(components).includes(block.componentName)
+  )
 })
 
 function convertName(typeHandle) {
@@ -144,10 +144,15 @@ function sectionTitle(block) {
     // TypeScript now knows block is FlexibleMediaGallery, so it's safe to access mediaGalleryStyle
     return block.mediaGalleryStyle === 'halfWidth' ? '' : block.sectionTitle
   }
+  else {
+    return block.sectionTitle
+  }
 }
 
 function sectionSummary(block) {
-  return block.mediaGalleryStyle === 'halfWidth' ? '' : block.sectionSummary || block.richTextSimplified
+  return block.mediaGalleryStyle === 'halfWidth'
+    ? ''
+    : block.sectionSummary || block.richTextSimplified
 }
 
 function getComponent(name) {
@@ -156,10 +161,7 @@ function getComponent(name) {
 </script>
 
 <template>
-  <SectionWrapper
-    class="flexible-blocks"
-    :no-margins="true"
-  >
+  <SectionWrapper class="flexible-blocks" :no-margins="true">
     <SectionHeader class="more-information">
       More Information
     </SectionHeader>
@@ -170,10 +172,7 @@ function getComponent(name) {
       v-for="(block, index) in parsedBlocks"
       :key="`flexibleblocks-${index}`"
     >
-      <SectionWrapper
-        v-if="block.needsDivider"
-        theme="divider"
-      >
+      <SectionWrapper v-if="block.needsDivider" theme="divider">
         <DividerWayFinder />
       </SectionWrapper>
 
@@ -184,7 +183,11 @@ function getComponent(name) {
       >
         <component
           :is="getComponent(block.componentName)"
-          :block="block.mediaGalleryStyle === 'halfWidth' ? block : omit(block, ['sectionTitle', 'sectionSummary'])"
+          :block="
+            block.mediaGalleryStyle === 'halfWidth'
+              ? block
+              : omit(block, ['sectionTitle', 'sectionSummary'])
+          "
           class="flexible-block"
         />
       </SectionWrapper>
@@ -192,13 +195,10 @@ function getComponent(name) {
   </SectionWrapper>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .flexible-blocks {
-  .more-information {
-    @include visually-hidden
-  }
+    .more-information {
+        @include visually-hidden;
+    }
 }
 </style>
