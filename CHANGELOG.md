@@ -1,3 +1,10 @@
+# [2.39.0-alpha.75](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.74...v2.39.0-alpha.75) (2024-04-26)
+
+
+### Bug Fixes
+
+* APPS-2637 Fix issues in FlexibleBlock's nested components ([#504](https://github.com/UCLALibrary/ucla-library-website-components/issues/504)) ([7ca4dc9](https://github.com/UCLALibrary/ucla-library-website-components/commit/7ca4dc935b7220680dce429685222390eff1877e))
+
 # [2.39.0-alpha.74](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.73...v2.39.0-alpha.74) (2024-04-25)
 
 
