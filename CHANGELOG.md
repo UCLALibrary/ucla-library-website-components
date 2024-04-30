@@ -1,3 +1,10 @@
+# [2.39.0-alpha.76](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.75...v2.39.0-alpha.76) (2024-04-30)
+
+
+### Bug Fixes
+
+* APPS-2648 Fix BannerFeatured error in FlexibleBlock component ([#506](https://github.com/UCLALibrary/ucla-library-website-components/issues/506)) ([274bb79](https://github.com/UCLALibrary/ucla-library-website-components/commit/274bb79fa26282e4afa5b4295088e5020428282b))
+
 # [2.39.0-alpha.75](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.74...v2.39.0-alpha.75) (2024-04-26)
 
 
