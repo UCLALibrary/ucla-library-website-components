@@ -11,6 +11,7 @@ import {
 import { mockSingle as mockMediaWithText } from '@/stories/mock/Flexible_MediaWithText.js'
 import { mock as mockRichText } from '@/stories/mock/Flexible_RichText.js'
 import { mockTwoCards as mockSimpleCards } from '@/stories/mock/Flexible_SimpleCards.js'
+import { mockFlexibleBanner } from '@/stories/mock/Flexible_Banner.js'
 
 export default {
   title: 'Flexible Blocks',
@@ -286,7 +287,11 @@ export function DividerBetweenWhiteBlocks() {
   return {
     data() {
       return {
-        blocks: [mockMediaWithText, mockSimpleCards],
+        blocks: [
+          mockMediaWithText,
+          mockSimpleCards,
+          mockFlexibleBanner,
+        ],
       }
     },
     components: { FlexibleBlocks, SectionWrapper, DividerGeneral },

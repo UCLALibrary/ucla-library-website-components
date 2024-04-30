@@ -13,8 +13,8 @@ import stripMeapFromURI from '@/utils/stripMeapFromURI'
 const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleBannerFeatured>,
-    default: () => { },
-  }
+    default: () => {},
+  },
 })
 
 const parseImage = computed(() => {
@@ -22,16 +22,13 @@ const parseImage = computed(() => {
   // console.log(`FROM BANNERFEATURED:${block.content[0]}`)
   if (
     block.content[0].contentLink
-    && block.content[0].contentLink.length > 0
-    && block.content[0].contentLink[0].heroImage
-    && block.content[0].contentLink[0].heroImage.length > 0
-  ) {
-    imageObj
-      = block.content[0].contentLink[0].heroImage[0].image[0]
-  }
-  else if (block.content[0].image) {
+        && block.content[0].contentLink.length > 0
+        && block.content[0].contentLink[0].heroImage
+        && block.content[0].contentLink[0].heroImage.length > 0
+  )
+    imageObj = block.content[0].contentLink[0].heroImage[0].image[0]
+  else if (block.content[0].image)
     imageObj = block.content[0].image[0]
-  }
 
   // console.log(`image obj: ${JSON.stringify(imageObj)}`)
   return imageObj
@@ -43,14 +40,10 @@ const parsedAlignment = computed(() => {
 
 const parsePrompt = computed(() => {
   let prompt = ''
-  if (block.content[0].contentType) {
+  if (block.content[0].contentType)
     prompt = getPrompt(block.content[0].contentType)
-  }
-  else {
-    prompt = getPrompt(
-      block.content[0].contentLink[0].contentType
-    )
-  }
+  else
+    prompt = getPrompt(block.content[0].contentLink[0].contentType)
 
   return prompt
 })
@@ -60,22 +53,19 @@ const parsedLocations = computed(() => {
 
   if (block.content && block.content[0].contentLink) {
     const contentType
-      = block.content[0].contentLink[0].contentType.toLowerCase()
+            = block.content[0].contentLink[0].contentType.toLowerCase()
 
     switch (true) {
       case contentType.includes('article'):
-        locations
-          = block.content[0].contentLink[0].articleLocations
+        locations = block.content[0].contentLink[0].articleLocations
         break
 
       case contentType.includes('project'):
-        locations
-          = block.content[0].contentLink[0].projectLocations
+        locations = block.content[0].contentLink[0].projectLocations
         break
 
       case contentType.includes('event'):
-        locations
-          = block.content[0].contentLink[0].articleLocations
+        locations = block.content[0].contentLink[0].articleLocations
         break
     }
   }
@@ -92,22 +82,20 @@ const parsedCategory = computed(() => {
 
   if (block.content && block.content[0].contentLink) {
     const contentType
-      = block.content[0].contentLink[0].contentType.toLowerCase()
+            = block.content[0].contentLink[0].contentType.toLowerCase()
     switch (true) {
       case contentType.includes('article'):
-        category
-          = block.content[0].contentLink[0].articleCategory
-            .map((obj) => {
-              return obj.title
-            })
-            .toString()
+        category = block.content[0].contentLink[0].articleCategory
+          .map((obj) => {
+            return obj.title
+          })
+          .toString()
         break
       case contentType.includes('project'):
-        category
-          = block.content[0].contentLink[0].projectCategory
+        category = block.content[0].contentLink[0].projectCategory
         break
 
-      /* case contentType.includes("event"):
+            /* case contentType.includes("event"):
           category =
               this.block.content[0].contentLink[0].eventCategory
           break */
@@ -120,28 +108,24 @@ const parsedCategory = computed(() => {
 const parsedTypeHandle = computed(() => {
   // This will be passed on the page level
 
-  return block.sectionTitle
-    ? block.sectionTitle
-    : parsedCategory.value
+  return block.sectionTitle ? block.sectionTitle : parsedCategory.value
 })
 
 const parsedStartDate = computed(() => {
   let startDate = ''
   if (
     block.content
-    && block.content[0].contentLink
-    && block.content[0].contentLink[0].startDateWithTime
-  ) {
-    startDate
-      = block.content[0].contentLink[0].startDateWithTime
-  }
+        && block.content[0].contentLink
+        && block.content[0].contentLink[0].startDateWithTime
+  )
+    startDate = block.content[0].contentLink[0].startDateWithTime
   else if (
     block.content
-    && block.content[0].contentLink
-    && block.content[0].contentLink[0].startDate
-  ) {
+        && block.content[0].contentLink
+        && block.content[0].contentLink[0].startDate
+  )
     startDate = block.content[0].contentLink[0].startDate
-  }
+
   return startDate
 })
 
@@ -149,14 +133,14 @@ const parsedEndDate = computed(() => {
   let endDate = ''
   if (
     block.content
-    && block.content[0].contentLink
-    && block.content[0].contentLink[0].endDateWithTime
+        && block.content[0].contentLink
+        && block.content[0].contentLink[0].endDateWithTime
   )
     endDate = block.content[0].contentLink[0].endDateWithTime
   else if (
     block.content
-    && block.content[0].contentLink
-    && block.content[0].contentLink[0].endDate
+        && block.content[0].contentLink
+        && block.content[0].contentLink[0].endDate
   )
     endDate = block.content[0].contentLink[0].endDate
 
@@ -165,37 +149,41 @@ const parsedEndDate = computed(() => {
 
 const parseByLine = computed(() => {
   const output = []
+
   if (block.content && block.content[0].contentLink) {
     const entry_type
-      = block.content[0].contentLink[0].contentType.toLowerCase()
+            = block.content[0].contentLink[0].contentType.toLowerCase()
+
+    const articleByline1 = block.content[0].contentLink[0].articleByline1
+
+    const projectByline1 = block.content[0].contentLink[0].projectByline1
+
+    const formatDate = format(
+      new Date(block.content[0].contentLink[0].articleByline2),
+      'MMMM d, Y'
+    )
 
     switch (true) {
       case entry_type.includes('article'):
-        block.content[0].contentLink[0].articleByline1.forEach(obj => output.push(obj.title))
-        output.push(format(
-          new Date(
-            block.content[0].contentLink[0].articleByline2
-          ),
-          'MMMM d, Y'
-        ))
-
+        if (articleByline1) {
+          articleByline1.forEach(obj => output.push(obj.title))
+          output.push(formatDate)
+        }
+        else {
+          output.push(formatDate)
+        }
         break
       case entry_type.includes('project'):
-        output.push(block.content[0].contentLink[0].projectByline1[0].title)
+        if (projectByline1)
+          output.push(projectByline1[0].title)
 
         break
-
-      /* case entry_type.includes("event"):
-      output["eventStartTime"] =
-          this.block.content[0].contentLink[0].eventByline1
-      output["eventEndTime"] =
-          this.block.content[0].contentLink[0].eventByline2
-      break */
     }
   }
+
   if (
     block.content
-    && (block.content[0].byline1 || block.content[0].byline2)
+        && (block.content[0].byline1 || block.content[0].byline2)
   ) {
     output.push(block.content[0].byline1)
     output.push(block.content[0].byline2)
@@ -208,12 +196,11 @@ const parsedDescription = computed(() => {
   let output = ''
   if (
     block.content
-    && block.content[0].contentLink
-    && block.content[0].contentLink[0].contentType === 'event'
+        && block.content[0].contentLink
+        && block.content[0].contentLink[0].contentType === 'event'
   )
     output = block.content[0].contentLink[0].eventDescription
-  else
-    output = block.content[0].contentLink[0].summary
+  else output = block.content[0].contentLink[0].summary
 
   return output
 })
@@ -241,7 +228,8 @@ const parsedDescription = computed(() => {
     <BannerFeatured
       v-if="block && block.content && !block.content[0].contentLink"
       class="flexible-banner-featured"
-      :media="parseImage" :to="stripMeapFromURI(block.content[0].to)"
+      :media="parseImage"
+      :to="stripMeapFromURI(block.content[0].to)"
       :title="block.content[0].title"
       :breadcrumb="parsedTypeHandle"
       :byline="parseByLine"

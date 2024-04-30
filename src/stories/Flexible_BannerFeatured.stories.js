@@ -18,7 +18,7 @@ const mock = {
           to: 'about/news/la-niña',
           sectionHandle: 'article',
           summary:
-            '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+                        '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
           articleCategory: [
             {
               title: 'Featured Category',
@@ -95,7 +95,7 @@ const mock2 = {
       alignment: 'right',
       location: {
         title: 'Rain Forest',
-        to: 'www.google.com'
+        to: 'www.google.com',
       },
       byline1: 'Feburary 2022',
       byline2: 'Dr ABC',
@@ -120,7 +120,7 @@ const mock3 = {
           title: 'Argentinean Human Rights Digital Library of Periodical and Non-periodical Publications',
           to: 'meap/projects/argentinean-human-rights-digital-library-of-periodical-and-non-periodical-publications',
           summary:
-            '<p><span>Memoria Abierta is an alliance of nine Argentinean human rights organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed. </span><br /></p>',
+                        '<p><span>Memoria Abierta is an alliance of nine Argentinean human rights organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed. </span><br /></p>',
           projectCategory: 'Publications',
           projectByline1: [
             {
@@ -172,7 +172,7 @@ const mock4 = {
           title: 'After Covid Triggered a Campus Closure, UCLA Library Reimagined Its Services for Students and Faculty Scattered Across the Country and Globe',
           to: 'impact/2021/ucla-library-reimagined',
           summary:
-            '<p>Undergraduates reflect on successfully completing their research projects while learning remotely.</p>',
+                        '<p>Undergraduates reflect on successfully completing their research projects while learning remotely.</p>',
           articleByline2: '2021-09-09T10:03:00-07:00',
           heroImage: [
             {
@@ -214,7 +214,7 @@ const externalVideo = {
       ],
       title: 'External Video',
       summary:
-        '<p>This is sample test video which has few seconds of video</p>',
+                '<p>This is sample test video which has few seconds of video</p>',
       alignment: 'left',
       byline1: null,
       byline2: null,
@@ -239,7 +239,7 @@ const internalVideo = {
           to: 'impact/2021/ucla-library-reimagined',
           sectionHandle: 'article',
           summary:
-            '<p>Undergraduates reflect on successfully completing their research projects while learning remotely.</p>',
+                        '<p>Undergraduates reflect on successfully completing their research projects while learning remotely.</p>',
           articleByline2: '2021-09-09T10:03:00-07:00',
           heroImage: [
             {
@@ -276,7 +276,7 @@ const event = {
           to: 'visit/events-exhibitions/test-the-white-balloon',
           summary: null,
           eventDescription:
-            '<p><strong>All <em>Family Flicks</em> screenings are free admission. Seating is first come, first served. The Billy Wilder Theater opens 15 minutes before each <em>Family Flicks</em> program.</strong></p>\n\n<p>Director Jafar Panahi’s debut feature, <em>The White Balloon</em>, won the Camera d’Or at the Cannes Film Festival and announced the arrival of a major new voice on the international film scene. A simply presented but powerful moving fable of perseverance, it follows a young girl as she overcomes the obstacles of the big city on her way to buy a goldfish for Nowruz, the Iranian New Year. Among The Guardian newspaper’s top 50 family films of all time, <em>The White Balloon</em> is also on the British Film Institute’s list of 50 films you should see by the age of 14.</p>\n\n<p>35mm, color, in Persian with English subtitles, 85 min. Director: Jafar Panahi. Screenwriter: Abbas Kiarostami. With: Aida Mohammadkhani, Mohsen Kafili, Fereshteh Sadre Orafaiy.</p>\n\n<p>Part of: <a href="https://www.cinema.ucla.edu/events/family-flicks" target="_blank" rel="noreferrer noopener">Family Flicks</a><br /><a href="https://www.cinema.ucla.edu/events/2023/01/22/the-white-balloon" target="_blank" rel="noreferrer noopener">Learn more</a> </p>',
+                        '<p><strong>All <em>Family Flicks</em> screenings are free admission. Seating is first come, first served. The Billy Wilder Theater opens 15 minutes before each <em>Family Flicks</em> program.</strong></p>\n\n<p>Director Jafar Panahi’s debut feature, <em>The White Balloon</em>, won the Camera d’Or at the Cannes Film Festival and announced the arrival of a major new voice on the international film scene. A simply presented but powerful moving fable of perseverance, it follows a young girl as she overcomes the obstacles of the big city on her way to buy a goldfish for Nowruz, the Iranian New Year. Among The Guardian newspaper’s top 50 family films of all time, <em>The White Balloon</em> is also on the British Film Institute’s list of 50 films you should see by the age of 14.</p>\n\n<p>35mm, color, in Persian with English subtitles, 85 min. Director: Jafar Panahi. Screenwriter: Abbas Kiarostami. With: Aida Mohammadkhani, Mohsen Kafili, Fereshteh Sadre Orafaiy.</p>\n\n<p>Part of: <a href="https://www.cinema.ucla.edu/events/family-flicks" target="_blank" rel="noreferrer noopener">Family Flicks</a><br /><a href="https://www.cinema.ucla.edu/events/2023/01/22/the-white-balloon" target="_blank" rel="noreferrer noopener">Learn more</a> </p>',
           startDateWithTime: '2022-12-19T11:00',
           endDateWithTime: '2022-12-19T12:30',
           articleByline2: '2022-12-19T07:48:00-08:00',
@@ -321,7 +321,7 @@ const exhibition = {
           title: 'Fante Asafo Flags',
           to: 'visit/events-exhibitions/fante-asafo-flags',
           summary:
-            '<p>Prior to the colonial era, asafo companies were charged with the safety and protection of the region. Surviving a century of violence and upheaval, they remain one of the core local institutions.</p>',
+                        '<p>Prior to the colonial era, asafo companies were charged with the safety and protection of the region. Surviving a century of violence and upheaval, they remain one of the core local institutions.</p>',
           startDate: '2023-01-04T00:00',
           endDate: '2023-03-05T00:00',
           articleByline2: '2022-03-09T15:17:00-08:00',
@@ -425,6 +425,7 @@ export function InternalVideo() {
     `,
   }
 }
+
 export function ExternalVideo() {
   return {
     data() {
