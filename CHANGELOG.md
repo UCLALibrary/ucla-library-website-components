@@ -1,3 +1,10 @@
+# [2.39.0-alpha.77](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.76...v2.39.0-alpha.77) (2024-05-09)
+
+
+### Bug Fixes
+
+* APPS-2668 SearchHome.vue query param should be q ([#507](https://github.com/UCLALibrary/ucla-library-website-components/issues/507)) ([3ab4e57](https://github.com/UCLALibrary/ucla-library-website-components/commit/3ab4e579abecd50182f85783d99c14f0ecbcf949))
+
 # [2.39.0-alpha.76](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.75...v2.39.0-alpha.76) (2024-04-30)
 
 
