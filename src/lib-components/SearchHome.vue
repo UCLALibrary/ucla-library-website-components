@@ -86,7 +86,7 @@ function doSearch() {
   if (isSiteSearch.value) {
     router.push({
       path: actionUrl.value,
-      query: { [queryParam as any]: searchWords.value },
+      query: { [queryParam.value as string]: searchWords.value },
     })
   }
   else {
