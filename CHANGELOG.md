@@ -1,3 +1,10 @@
+# [2.39.0-alpha.78](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.77...v2.39.0-alpha.78) (2024-05-11)
+
+
+### Bug Fixes
+
+* APPS-2675 fix BlockStaffDetail.vue image type ([#508](https://github.com/UCLALibrary/ucla-library-website-components/issues/508)) ([779e58d](https://github.com/UCLALibrary/ucla-library-website-components/commit/779e58dcaebf126eb1743701d35e7c18f1961016))
+
 # [2.39.0-alpha.77](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.76...v2.39.0-alpha.77) (2024-05-09)
 
 
