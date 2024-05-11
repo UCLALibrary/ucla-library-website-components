@@ -20,8 +20,8 @@ import IconWithLink from '@/lib-components/IconWithLink.vue'
 // PROPS & DATA
 const props = defineProps({
   image: {
-    type: Array as PropType<MediaItemType[]>,
-    default: () => [],
+    type: Object as PropType<MediaItemType>,
+    default: () => {},
   },
   to: {
     type: String,
@@ -92,10 +92,6 @@ const props = defineProps({
   }
 })
 
-const parsedImage = computed(() => {
-  return props.image.length ? props.image[0].src : {}
-})
-
 const parsedPronouns = computed(() => {
   return `Pronouns: ${props.pronouns}`
 })
@@ -152,8 +148,8 @@ const mergeSortTopics = computed(() => {
     <div class="section-staff-bio">
       <div :class="image ? 'body-contact' : 'body-contact no-image'">
         <ResponsiveImage
-          v-if="props.image.length"
-          :media="parsedImage"
+          v-if="image"
+          :media="image"
           :aspect-ratio="100"
           class="image"
         />

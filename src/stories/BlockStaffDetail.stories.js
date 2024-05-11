@@ -13,7 +13,7 @@ const mockDefault = {
   slug: 'test-subject-librarian',
   uri: 'about/staff/test-subject-librarian',
   title: 'TEST - Subject Librarian',
-  image: [{ src: API.image_people }],
+  image: API.image_people,
   to: 'test-subject-librarian',
   nameFirst: 'TEST - Subject',
   nameLast: 'Librarian',
@@ -82,7 +82,7 @@ const mockAlternativeName = {
   slug: 'test-phyllis-blackshear',
   uri: 'about/staff/test-phyllis-blackshear',
   title: 'Test Alternative Name Phyllis Blackshear',
-  image: [{ src: API.image_people }],
+  image: API.image_people,
   to: 'test-phyllis-blackshear',
   nameFirst: 'test_Phyllis',
   nameLast: 'Blackshear',
@@ -155,7 +155,7 @@ const mockNoImageOneLocation = {
   slug: 'sylvia-page',
   uri: 'about/staff/sylvia-page',
   title: 'Test  NO IMAGE Penelope Pitstop',
-  image: [],
+  // image: {},
   to: 'sylvia-page',
   nameFirst: 'Test  NO IMAGE Penelope',
   nameLast: 'Pitstop',
@@ -234,7 +234,7 @@ const mockNoImageOrBio = {
   slug: 'sylvia-page',
   uri: 'about/staff/sylvia-page',
   title: 'Test  NO IMAGE Penelope Pitstop',
-  image: [],
+  image: {},
   to: 'sylvia-page',
   nameFirst: 'Test  NO IMAGE Penelope',
   nameLast: 'Pitstop',
@@ -377,7 +377,7 @@ export function NoImageOrBio() {
   }
 }
 
-export function AskMeAboutAndAcademicDeaprtments() {
+export function AskMeAboutAndAcademicDepartments() {
   return {
     data() {
       return {
