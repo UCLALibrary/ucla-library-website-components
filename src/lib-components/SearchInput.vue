@@ -35,8 +35,9 @@ const props = defineProps({
     default: true
   }
 })
-const emit = defineEmits(['update:modelValue'])
-console.log('modelValue', props.modelValue)
+//
+const emit = defineEmits(['update:modelValue', 'clear'])
+// console.log('modelValue', props.modelValue)
 const attrs = useAttrs()
 
 const hasFocus = ref(false)
@@ -94,6 +95,7 @@ function clear() {
   // console.log('in clear')
   searchInputModelValue.value = ''
   emit('update:modelValue', '')
+  emit('clear')
 }
 
 function onInput(e) {
