@@ -1,3 +1,10 @@
+# [2.39.0-alpha.79](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.78...v2.39.0-alpha.79) (2024-05-16)
+
+
+### Bug Fixes
+
+* APPS-2665 When user clicks the x on search keyword, the search is not triggered automatically ([#509](https://github.com/UCLALibrary/ucla-library-website-components/issues/509)) ([49ad0af](https://github.com/UCLALibrary/ucla-library-website-components/commit/49ad0afaee1ef67d97d367efc8a3bdfcf397a2b8))
+
 # [2.39.0-alpha.78](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.77...v2.39.0-alpha.78) (2024-05-11)
 
 
