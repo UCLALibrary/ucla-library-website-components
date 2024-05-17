@@ -55,19 +55,18 @@ const openItemIndex = ref(-1) // -1 indicates that no item is open
 
 watch(() => props.queryFilters, (newQueryFilters) => {
   // Assuming newQueryFilters is always an object as per your default prop definition.
-  console.log("In watch function props.queryFilters updated", JSON.stringify(newQueryFilters), JSON.stringify(props.filters))
+  console.log('In watch function props.queryFilters updated', JSON.stringify(newQueryFilters), JSON.stringify(props.filters))
   Object.entries(newQueryFilters).forEach(([key, value]) => {
     queryFilterButtonDropDownStates.value[key] = value
   })
-  console.log("queryFilterButtonDropDownStates.value", JSON.stringify(queryFilterButtonDropDownStates.value))
+  console.log('queryFilterButtonDropDownStates.value', JSON.stringify(queryFilterButtonDropDownStates.value))
 
-
-  console.log("In watch function props.queryFilters checkedState.value", checkedState.value, JSON.stringify(props.filters))
+  console.log('In watch function props.queryFilters checkedState.value', checkedState.value, JSON.stringify(props.filters))
 }, { deep: true, immediate: true })
 watch(() => props.filters, (newFilters) => {
-  console.log("In watch function props.filters updated", JSON.stringify(props.filters), JSON.stringify(newFilters))
-  console.log("In watch funciton props.filters heello query filters props.queryFilters", props.queryFilters)
-  console.log("In watch fucntion props.filters queryFilterButtonDropDownStates", queryFilterButtonDropDownStates.value)
+  console.log('In watch function props.filters updated', JSON.stringify(props.filters), JSON.stringify(newFilters))
+  console.log('In watch funciton props.filters heello query filters props.queryFilters', props.queryFilters)
+  console.log('In watch fucntion props.filters queryFilterButtonDropDownStates', queryFilterButtonDropDownStates.value)
   checkedState.value = newFilters?.some(obj => obj.inputType === 'single-checkbox' && queryFilterButtonDropDownStates.value[obj.esFieldName]?.includes('yes'))
 }, { deep: true, immediate: true })
 
@@ -122,7 +121,7 @@ function doSearch() {
 }
 
 watch(queryFilterButtonDropDownStates, () => {
-  console.log("Update checked state")
+  console.log('Update checked state')
   checkedState.value = props.filters.some(obj => obj.inputType === 'single-checkbox' && queryFilterButtonDropDownStates.value[obj.esFieldName]?.includes('yes'))
 })
 
