@@ -1,3 +1,10 @@
+# [2.39.0-alpha.80](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.79...v2.39.0-alpha.80) (2024-05-18)
+
+
+### Bug Fixes
+
+* search generic checkbox state  ([#510](https://github.com/UCLALibrary/ucla-library-website-components/issues/510)) ([89d6e32](https://github.com/UCLALibrary/ucla-library-website-components/commit/89d6e324901ef6b31780abad668aba5b1e14d3fb))
+
 # [2.39.0-alpha.79](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.78...v2.39.0-alpha.79) (2024-05-16)
 
 
