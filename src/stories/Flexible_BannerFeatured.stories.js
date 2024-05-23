@@ -5,23 +5,90 @@ export default {
   component: FlexibleBannerFeatured,
 }
 
-const mock = {
+// MOCK DATA
+// Default - External
+const mockExternalArticle = {
+  id: '27050',
+  sectionTitle: 'External Article - Section title',
+  content: [
+    {
+      id: '27051',
+      image: [
+        {
+          id: '26089',
+          src: 'https://static.library.ucla.edu/craftassetstest/AlbinoFox.jpg',
+          height: 2074,
+          width: 2560,
+          srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/AlbinoFox.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/AlbinoFox.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/AlbinoFox.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/AlbinoFox.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/AlbinoFox.jpg 2560w',
+          alt: 'Albino Fox',
+          focalPoint: [0.5, 0.5],
+          altText: null,
+        },
+      ],
+      title: 'Halelua - Alignment: Right',
+      summary: '<p>Arctic foxes generally eat any small animal they can find, including lemmings, voles, other rodents, hares, birds, eggs, fish, and carrion.</p>',
+      alignment: 'right',
+      location: {
+        title: 'Rain Forest',
+        to: 'www.google.com',
+      },
+      byline1: 'Feburary 2022',
+      byline2: 'Kiki Smith',
+      to: 'www.foxes.com',
+      category: 'foxes',
+      contentType: 'project',
+    },
+  ],
+  typeHandle: 'bannerFeatured',
+}
+
+const mockExternalArticleWithVideo = {
+  id: '42757',
+  typeHandle: 'bannerFeatured',
+  sectionTitle: 'External Article With Video - Section title',
+  content: [
+    {
+      id: '42758',
+      image: [
+        {
+          id: '42732',
+          src: 'https://static.library.ucla.edu/craftassetstest/images/PXL_20220829_021552028.mp4',
+          height: null,
+          width: null,
+          srcset: '',
+          alt: 'Sample 5s',
+          focalPoint: [0.5, 0.5],
+        },
+      ],
+      title: 'External Article With Video - Alignment: Left',
+      summary: '<p><strong>626 Night Market</strong> Jumpers at the fair, <em>August 8th 2022</em></p>',
+      alignment: 'left',
+      byline1: 'Jen Diamond',
+      byline2: null,
+      to: 'https://www.626nightmarket.com/',
+      category: 'Category External Article With Video',
+      contentType: 'article',
+    },
+  ],
+}
+
+const mockInternalArticle = {
   id: '26943',
-  sectionTitle: 'Internal link',
+  sectionTitle: 'Internal Article - Section title',
   content: [
     {
       id: '26944',
       contentLink: [
         {
           contentType: 'article',
-          title: 'La Niña',
+          title: 'La Niña - Internal Article',
           to: 'about/news/la-niña',
           sectionHandle: 'article',
           summary:
                         '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
           articleCategory: [
             {
-              title: 'Featured Category',
+              title: 'Weather',
             },
           ],
           articleByline1: [
@@ -72,45 +139,10 @@ const mock = {
   typeHandle: 'bannerFeatured',
 }
 
-const mock2 = {
-  id: '27050',
-  sectionTitle: 'External Link',
-  content: [
-    {
-      id: '27051',
-      image: [
-        {
-          id: '26089',
-          src: 'https://static.library.ucla.edu/craftassetstest/AlbinoFox.jpg',
-          height: 2074,
-          width: 2560,
-          srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/AlbinoFox.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/AlbinoFox.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/AlbinoFox.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/AlbinoFox.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/AlbinoFox.jpg 2560w',
-          alt: 'Albino Fox',
-          focalPoint: [0.5, 0.5],
-          altText: null,
-        },
-      ],
-      title: 'Halelua',
-      summary: '<p>White foxes are in Artic.</p>',
-      alignment: 'right',
-      location: {
-        title: 'Rain Forest',
-        to: 'www.google.com',
-      },
-      byline1: 'Feburary 2022',
-      byline2: 'Dr ABC',
-      to: 'www.foxes.com',
-      category: 'foxes',
-      contentType: 'project',
-    },
-  ],
-  typeHandle: 'bannerFeatured',
-}
-
-const mock3 = {
+const mockInternalMeapProjectArticle = {
   id: '27175',
   typeHandle: 'bannerFeatured',
-  sectionTitle: 'Use this for breadcrumb',
+  sectionTitle: 'Internal Meap Project Article - Section title',
   content: [
     {
       id: '27176',
@@ -119,8 +151,7 @@ const mock3 = {
           contentType: 'meapProject',
           title: 'Argentinean Human Rights Digital Library of Periodical and Non-periodical Publications',
           to: 'meap/projects/argentinean-human-rights-digital-library-of-periodical-and-non-periodical-publications',
-          summary:
-                        '<p><span>Memoria Abierta is an alliance of nine Argentinean human rights organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed. </span><br /></p>',
+          summary: '<p><span>Memoria Abierta is an alliance of nine Argentinean human rights organizations. Most of them were created during the last dictatorship (1976-1983) to denounce the violations committed during that period and to support relatives and victims. The Argentinean human rights movement, with its innovative strategies to fight oblivion and achieve justice, is known worldwide and referenced by other countries where human rights crimes have been or are being committed. </span><br /></p>',
           projectCategory: 'Publications',
           projectByline1: [
             {
@@ -159,9 +190,10 @@ const mock3 = {
   componentName: 'flexible-banner-featured',
 }
 
-const mock4 = {
+const mockImpactReportArticle = {
   id: '36699',
   typeHandle: 'bannerFeatured',
+  sectionTitle: 'Impact Report Article - Section title',
   content: [
     {
       id: '36700',
@@ -195,43 +227,14 @@ const mock4 = {
   ],
 }
 
-const externalVideo = {
-  id: '42757',
-  typeHandle: 'bannerFeatured',
-  content: [
-    {
-      id: '42758',
-      image: [
-        {
-          id: '42732',
-          src: 'https://static.library.ucla.edu/craftassetstest/images/sample-5s.mp4',
-          height: null,
-          width: null,
-          srcset: '',
-          alt: 'Sample 5s',
-          focalPoint: [0.5, 0.5],
-        },
-      ],
-      title: 'External Video',
-      summary:
-                '<p>This is sample test video which has few seconds of video</p>',
-      alignment: 'left',
-      byline1: null,
-      byline2: null,
-      to: 'www.samplevideos.com',
-      category: null,
-      contentType: 'article',
-      sectionHandle: 'article',
-    },
-  ],
-}
-
-const internalVideo = {
+const mockInternalArticleWithVideo = {
   id: '36699',
   typeHandle: 'bannerFeatured',
+  sectionTitle: 'Internal Article With Video Article - Section title',
   content: [
     {
       id: '36700',
+
       contentLink: [
         {
           contentType: 'impactReportStory',
@@ -262,10 +265,11 @@ const internalVideo = {
   ],
 }
 
-const event = {
+// event
+const mockInternalEventLeftAlign = {
   id: '695718',
   typeHandle: 'bannerFeatured',
-  sectionTitle: 'Flexible Banner featured with dates',
+  sectionTitle: 'Internal Event - Section title',
   content: [
     {
       id: '695719',
@@ -275,8 +279,7 @@ const event = {
           title: 'TEST - The White Balloon',
           to: 'visit/events-exhibitions/test-the-white-balloon',
           summary: null,
-          eventDescription:
-                        '<p><strong>All <em>Family Flicks</em> screenings are free admission. Seating is first come, first served. The Billy Wilder Theater opens 15 minutes before each <em>Family Flicks</em> program.</strong></p>\n\n<p>Director Jafar Panahi’s debut feature, <em>The White Balloon</em>, won the Camera d’Or at the Cannes Film Festival and announced the arrival of a major new voice on the international film scene. A simply presented but powerful moving fable of perseverance, it follows a young girl as she overcomes the obstacles of the big city on her way to buy a goldfish for Nowruz, the Iranian New Year. Among The Guardian newspaper’s top 50 family films of all time, <em>The White Balloon</em> is also on the British Film Institute’s list of 50 films you should see by the age of 14.</p>\n\n<p>35mm, color, in Persian with English subtitles, 85 min. Director: Jafar Panahi. Screenwriter: Abbas Kiarostami. With: Aida Mohammadkhani, Mohsen Kafili, Fereshteh Sadre Orafaiy.</p>\n\n<p>Part of: <a href="https://www.cinema.ucla.edu/events/family-flicks" target="_blank" rel="noreferrer noopener">Family Flicks</a><br /><a href="https://www.cinema.ucla.edu/events/2023/01/22/the-white-balloon" target="_blank" rel="noreferrer noopener">Learn more</a> </p>',
+          eventDescription: '<p><strong>All <em>Family Flicks</em> screenings are free admission. Seating is first come, first served. The Billy Wilder Theater opens 15 minutes before each <em>Family Flicks</em> program.</strong></p>\n\n<p>Director Jafar Panahi’s debut feature, <em>The White Balloon</em>, won the Camera d’Or at the Cannes Film Festival and announced the arrival of a major new voice on the international film scene. A simply presented but powerful moving fable of perseverance, it follows a young girl as she overcomes the obstacles of the big city on her way to buy a goldfish for Nowruz, the Iranian New Year. Among The Guardian newspaper’s top 50 family films of all time, <em>The White Balloon</em> is also on the British Film Institute’s list of 50 films you should see by the age of 14.</p>\n\n<p>35mm, color, in Persian with English subtitles, 85 min. Director: Jafar Panahi. Screenwriter: Abbas Kiarostami. With: Aida Mohammadkhani, Mohsen Kafili, Fereshteh Sadre Orafaiy.</p>\n\n<p>Part of: <a href="https://www.cinema.ucla.edu/events/family-flicks" target="_blank" rel="noreferrer noopener">Family Flicks</a><br /><a href="https://www.cinema.ucla.edu/events/2023/01/22/the-white-balloon" target="_blank" rel="noreferrer noopener">Learn more</a> </p>',
           startDateWithTime: '2022-12-19T11:00',
           endDateWithTime: '2022-12-19T12:30',
           articleByline2: '2022-12-19T07:48:00-08:00',
@@ -308,7 +311,8 @@ const event = {
   ],
 }
 
-const exhibition = {
+// exhibition
+const mockInternalExhibition = {
   id: '696007',
   typeHandle: 'bannerFeatured',
   sectionTitle: 'Flexible banner featured with exhibiton',
@@ -346,11 +350,145 @@ const exhibition = {
   ],
 }
 
+const mockInternalWorkshopOrEventSeries = {
+  id: '2930666',
+  typeHandle: 'bannerFeatured',
+  sectionTitle: 'FPB - BANNER FEATURED  - Internal Content - Workshop or Series - Workshop',
+  content: [
+    {
+      id: '2930667',
+      contentLink: [
+        {
+          parent: null,
+          contentType: 'workshopOrEventSeries',
+          title: 'Test - Workshop - Family Flicks',
+          to: 'help/services-resources/family-flicks',
+          summary: '<p>All <strong>Family Flicks</strong> screenings are <em>free admission</em>. An incorrigible squirrel helps his friends raid a nut store, a location that also happens to be a front for a human gang\'s bank robbery.</p>',
+          startDate: '1967-10-09T00:00',
+          endDate: '2002-04-19T00:00',
+          articleByline2: '2022-12-19T07:44:00-08:00',
+          articleLocations: [
+            {
+              id: '11612',
+              title: 'UCLA Film & Television Archive',
+              to: 'visit/locations/film-television-archive'
+            }
+          ],
+          heroImage: [
+            {
+              image: [
+                {
+                  id: '2930537',
+                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Screenshot-2024-03-22-at-3.07.33-PM.png',
+                  height: 1391,
+                  width: 2560,
+                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Screenshot-2024-03-22-at-3.07.33-PM.png 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Screenshot-2024-03-22-at-3.07.33-PM.png 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Screenshot-2024-03-22-at-3.07.33-PM.png 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Screenshot-2024-03-22-at-3.07.33-PM.png 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Screenshot-2024-03-22-at-3.07.33-PM.png 2560w',
+                  alt: null,
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+const mockInternalEndowment = {
+  id: '2923932',
+  typeHandle: 'bannerFeatured',
+  sectionTitle: 'FPB - BANNER FEATURED  - Internal Content - Endowment',
+  content: [
+    {
+      id: '2923933',
+      contentLink: [
+        {
+          parent: null,
+          contentType: 'endowment',
+          title: 'Endowment The Jen & Diane Living Memorial',
+          to: 'give/endowments/the-jen-diane-living-memorial-endowment',
+          summary: '<p><strong>Jen &amp; Diane want</strong> everyone to have as many stuffed animals as they need to make them happy. This fund will allow recipients to purchase as many stuff animals as they want in one fiscal year.</p>',
+          articleByline2: '2022-12-06T16:05:00-08:00',
+          articleLocations: [
+            {
+              id: '801',
+              title: 'Charles E. Young Research Library',
+              to: 'visit/locations/young-research-library'
+            },
+            {
+              id: '11602',
+              title: 'UCLA Library Special Collections',
+              to: 'visit/locations/library-special-collections'
+            }
+          ],
+          heroImage: [
+            {
+              image: [
+                {
+                  id: '75076',
+                  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Animals-1-pick.jpg',
+                  height: 2560,
+                  width: 2560,
+                  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Animals-1-pick.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Animals-1-pick.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Animals-1-pick.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Animals-1-pick.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Animals-1-pick.jpg 2560w',
+                  alt: null,
+                  focalPoint: [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+const mockInternalCollection = {
+  id: '2924728',
+  typeHandle: 'bannerFeatured',
+  sectionTitle: 'FPB - BANNER FEATURED  - External Content- Content Type: Collection',
+  content: [
+    {
+      id: '2924729',
+      image: [
+        {
+          id: '2924155',
+          src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/squirrel-banana.png',
+          height: 1590,
+          width: 2560,
+          srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/squirrel-banana.png 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/squirrel-banana.png 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/squirrel-banana.png 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/squirrel-banana.png 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/squirrel-banana.png 2560w',
+          alt: 'Squirrel banana',
+          focalPoint: [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      title: 'Content Type: Collection - Image Alignment: Right',
+      summary: '<p><strong>Squirrels</strong> love to <em>bananas and other fruits</em>.</p>',
+      alignment: 'right',
+      byline1: 'Terry Butcher',
+      byline2: 'November 19, 2025',
+      to: 'https://www.pixoto.com/images-photography/animals/other-mammals/squirrels-love-bananas-too---5320359971651584',
+      category: 'lecture',
+      contentType: 'collection'
+    }
+  ]
+}
+
+// STORIES
+// External
 export function Default() {
   return {
     data() {
       return {
-        block: mock,
+        block: mockExternalArticle,
       }
     },
     components: { FlexibleBannerFeatured },
@@ -362,11 +500,11 @@ export function Default() {
   }
 }
 
-export function ExternalContent() {
+export function ExternalArticleWithVideo() {
   return {
     data() {
       return {
-        block: mock2,
+        block: mockExternalArticleWithVideo,
       }
     },
     components: { FlexibleBannerFeatured },
@@ -378,11 +516,11 @@ export function ExternalContent() {
   }
 }
 
-export function InternalContentProject() {
+export function InternalArticle() {
   return {
     data() {
       return {
-        block: mock3,
+        block: mockInternalArticle,
       }
     },
     components: { FlexibleBannerFeatured },
@@ -394,11 +532,11 @@ export function InternalContentProject() {
   }
 }
 
-export function ImpactStory() {
+export function InternalMeapProjectArticle() {
   return {
     data() {
       return {
-        block: mock4,
+        block: mockInternalMeapProjectArticle,
       }
     },
     components: { FlexibleBannerFeatured },
@@ -410,11 +548,11 @@ export function ImpactStory() {
   }
 }
 
-export function InternalVideo() {
+export function InternalImpactArticle() {
   return {
     data() {
       return {
-        block: internalVideo,
+        block: mockImpactReportArticle,
       }
     },
     components: { FlexibleBannerFeatured },
@@ -426,11 +564,11 @@ export function InternalVideo() {
   }
 }
 
-export function ExternalVideo() {
+export function InternalArticleWithVideo() {
   return {
     data() {
       return {
-        block: externalVideo,
+        block: mockInternalArticleWithVideo,
       }
     },
     components: { FlexibleBannerFeatured },
@@ -442,11 +580,11 @@ export function ExternalVideo() {
   }
 }
 
-export function Event() {
+export function InternalEvent() {
   return {
     data() {
       return {
-        block: event,
+        block: mockInternalEvent,
       }
     },
     components: { FlexibleBannerFeatured },
@@ -458,11 +596,59 @@ export function Event() {
   }
 }
 
-export function Exhibition() {
+export function InternalExhibition() {
   return {
     data() {
       return {
-        block: exhibition,
+        block: mockInternalExhibition,
+      }
+    },
+    components: { FlexibleBannerFeatured },
+    template: `
+        <flexible-banner-featured
+            :block="block"
+       />
+    `,
+  }
+}
+
+export function InternalWorkshopOrEventSeries() {
+  return {
+    data() {
+      return {
+        block: mockInternalWorkshopOrEventSeries,
+      }
+    },
+    components: { FlexibleBannerFeatured },
+    template: `
+        <flexible-banner-featured
+            :block="block"
+       />
+    `,
+  }
+}
+
+export function InternalEndowment() {
+  return {
+    data() {
+      return {
+        block: mockInternalEndowment,
+      }
+    },
+    components: { FlexibleBannerFeatured },
+    template: `
+        <flexible-banner-featured
+            :block="block"
+       />
+    `,
+  }
+}
+
+export function InternalCollection() {
+  return {
+    data() {
+      return {
+        block: mockInternalCollection,
       }
     },
     components: { FlexibleBannerFeatured },

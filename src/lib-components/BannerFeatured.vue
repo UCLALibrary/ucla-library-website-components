@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
@@ -27,7 +30,7 @@ import getSectionName from '@/utils/getSectionName'
 const props = defineProps({
   media: {
     type: Object as PropType<MediaItemType>,
-    default: () => {},
+    default: () => { },
   },
   title: {
     type: String,
@@ -54,11 +57,11 @@ const props = defineProps({
     default: '',
   },
   locations: {
-    type: Array as PropType<LocationItemType[] >,
+    type: Array as PropType<LocationItemType[]>,
     default: () => [],
   },
   byline: {
-    type: Array as PropType<string[] >,
+    type: Array as PropType<string[]>,
     default: () => [],
   },
   to: {
@@ -212,8 +215,14 @@ const classes = computed(() => {
   <div :class="classes">
     <div class="slot">
       <slot>
-        <div v-if="breadcrumb" class="breadcrumb">
-          <SvgHeadingVector class="heading-line" aria-hidden="true" />
+        <div
+          v-if="breadcrumb"
+          class="breadcrumb"
+        >
+          <SvgHeadingVector
+            class="heading-line"
+            aria-hidden="true"
+          />
           <h2 class="text">
             {{ breadcrumb }}
           </h2>
@@ -221,56 +230,115 @@ const classes = computed(() => {
       </slot>
     </div>
 
-    <component :is="parsedMediaComponent" class="media" :media="parsedMediaProp!" :aspect-ratio="parsedRatio">
-      <div v-if="!isVideo" class="gradient" />
+    <component
+      :is="parsedMediaComponent"
+      class="media"
+      :media="parsedMediaProp!"
+      :aspect-ratio="parsedRatio"
+    >
+      <div
+        v-if="!isVideo"
+        class="gradient"
+      />
 
-      <SvgMoleculeHalfFaceted class="molecule" aria-hidden="true" />
+      <SvgMoleculeHalfFaceted
+        class="molecule"
+        aria-hidden="true"
+      />
     </component>
 
     <div class="hatch-box">
       <div class="clipped-box">
-        <h2 v-if="category" class="category category-mobile" v-html="category" />
+        <h2
+          v-if="category"
+          class="category category-mobile"
+          v-html="category"
+        />
       </div>
       <div class="hatch">
-        <SvgHatchRight class="svg" aria-hidden="true" />
+        <SvgHatchRight
+          class="svg"
+          aria-hidden="true"
+        />
       </div>
     </div>
 
     <div class="meta">
-      <div v-if="category" class="category category-desktop" v-html="category" />
+      <div
+        v-if="category"
+        class="category category-desktop"
+        v-html="category"
+      />
 
       <div v-if="titleLink.length > 0">
-        <SmartLink id="banner-featured" :to="titleLink" class="title title-linked">
+        <SmartLink
+          id="banner-featured"
+          :to="titleLink"
+          class="title title-linked"
+        >
           {{ title }}
         </SmartLink>
       </div>
 
       <div v-else>
-        <h3 id="banner-featured" class="title" v-html="title" />
+        <h3
+          id="banner-featured"
+          class="title"
+          v-html="title"
+        />
       </div>
 
       <div class="meta-text">
-        <div v-if="dateCreated" class="date-created">
-          <time v-if="dateCreated" class="date-created" v-html="parsedDateCreated" />
+        <div
+          v-if="dateCreated"
+          class="date-created"
+        >
+          <time
+            v-if="dateCreated"
+            class="date-created"
+            v-html="parsedDateCreated"
+          />
         </div>
 
         <div
           v-if="byline.length
-          " class="byline"
+          "
+          class="byline"
         >
-          <div v-for="(item, index) in byline" :key="`external-${index}`" class="byline-item" v-html="item" />
+          <div
+            v-for="(item, index) in byline"
+            :key="`external-${index}`"
+            class="byline-item"
+            v-html="item"
+          />
         </div>
 
-        <RichText v-if="description" class="description" :rich-text-content="description" />
+        <RichText
+          v-if="description"
+          class="description"
+          :rich-text-content="description"
+        />
 
-        <div v-if="startDate || endDate" class="schedule">
-          <time v-if="startDate" class="schedule-item" v-html="parsedDate" />
-          <time v-if="parsedTime" class="schedule-item" v-html="parsedTime" />
+        <div
+          v-if="startDate || endDate"
+          class="schedule"
+        >
+          <time
+            v-if="startDate"
+            class="schedule-item"
+            v-html="parsedDate"
+          />
+          <time
+            v-if="parsedTime"
+            class="schedule-item"
+            v-html="parsedTime"
+          />
         </div>
 
         <div
           v-if="locations.length
-          " class="location-group"
+          "
+          class="location-group"
         >
           <IconWithLink
             v-for="location in parsedLocations"
@@ -284,20 +352,28 @@ const classes = computed(() => {
       </div>
 
       <ButtonLink
-        v-if="to" id="banner-featured-button"
+        v-if="to"
+        id="banner-featured-button"
         :label="prompt"
         :to="to"
-        aria-labelledby="banner-featured-button banner-featured" class="button"
+        aria-labelledby="banner-featured-button banner-featured"
+        class="button"
       />
     </div>
 
-    <div v-if="!to && registerEvent" class="block-form-container">
+    <div
+      v-if="!to && registerEvent"
+      class="block-form-container"
+    >
       <BlockForm />
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .banner-featured {
   z-index: 0;
   position: relative;
@@ -324,7 +400,7 @@ const classes = computed(() => {
     stroke: var(--banner-color-theme);
   }
 
-  :deep(.heading-arrow){
+  :deep(.heading-arrow) {
     .svg__stroke--wayfinder {
       stroke: var(--banner-color-theme);
     }
