@@ -622,10 +622,54 @@ const mockInternalExhibition = {
   ],
 }
 
-const mockInternalMeapProjectArticle = {
+const mockInternalMeapArticle = {
+  "id": "3093454",
+  "typeHandle": "bannerFeatured",
+  "sectionTitle": "Internal Meap Article - Section title",
+  "content": [
+    {
+      "id": "3093455",
+      "contentLink": [
+        {
+          "parent": null,
+          "contentType": "meapArticle",
+          "articleCategory": [
+            {
+              "title": "Featured"
+            }
+          ],
+          "title": "Kids Play",
+          "to": "about/news/kids-play",
+          "summary": "<span>It is through play that children learn to develop a sense of self, participate and socialise with others, take turns, be a part of a team, cooperate, and share or withhold crucial information</span>",
+          "articleByline2": "2022-07-15T16:22:00-07:00",
+          "heroImage": [
+            {
+              "image": [
+                {
+                  "id": "26046",
+                  "src": "https://static.library.ucla.edu/craftassetstest/MEAP-test/_fullscreen/kids3.jpg",
+                  "height": 1707,
+                  "width": 2560,
+                  "srcset": "https://static.library.ucla.edu/craftassetstest/MEAP-test/_375xAUTO_crop_center-center_none/kids3.jpg 375w, https://static.library.ucla.edu/craftassetstest/MEAP-test/_960xAUTO_crop_center-center_none/kids3.jpg 960w, https://static.library.ucla.edu/craftassetstest/MEAP-test/_1280xAUTO_crop_center-center_none/kids3.jpg 1280w, https://static.library.ucla.edu/craftassetstest/MEAP-test/_1920xAUTO_crop_center-center_none/kids3.jpg 1920w, https://static.library.ucla.edu/craftassetstest/MEAP-test/_2560xAUTO_crop_center-center_none/kids3.jpg 2560w",
+                  "alt": null,
+                  "focalPoint": [
+                    0.5,
+                    0.5
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+const mockInternalMeapProject = {
   id: '27175',
   typeHandle: 'bannerFeatured',
-  sectionTitle: 'Internal Meap Project Article - Section title',
+  sectionTitle: 'Internal Meap Project - Section title',
   content: [
     {
       id: '27176',
@@ -919,11 +963,27 @@ export function InternalExhibition() {
   }
 }
 
-export function InternalMeapProjectArticle() {
+export function InternalMeapArticle() {
   return {
     data() {
       return {
-        block: mockInternalMeapProjectArticle,
+        block: mockInternalMeapArticle,
+      }
+    },
+    components: { FlexibleBannerFeatured },
+    template: `
+        <flexible-banner-featured
+            :block="block"
+       />
+    `,
+  }
+}
+
+export function InternalMeapProject() {
+  return {
+    data() {
+      return {
+        block: mockInternalMeapProject,
       }
     },
     components: { FlexibleBannerFeatured },

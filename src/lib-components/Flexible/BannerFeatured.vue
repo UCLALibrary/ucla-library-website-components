@@ -90,7 +90,6 @@ const parsedCategory = computed(() => {
   if (block.content && block.content[0].contentLink) {
     const contentType = block.content[0].contentLink[0].contentType
     const workshopOrSeries = block.content[0].contentLink[0].workshopOrEventSeriesType
-    const collectionFormat = block.content[0].contentLink[0].physicalDigital
 
     switch (true) {
       case contentType.includes('article'):
@@ -102,7 +101,7 @@ const parsedCategory = computed(() => {
         break
 
       case contentType.includes('collection'):
-        category = collectionFormat
+        category = block.content[0].contentLink[0].physicalDigital[0]
         break
 
       case contentType.includes('project'):
@@ -118,6 +117,10 @@ const parsedCategory = computed(() => {
 
       case contentType.includes('meapProject'):
         category = 'Meap Project'
+        break
+
+      case contentType.includes('meapArticle'):
+        category = 'Meap Article'
         break
 
       case workshopOrSeries.includes('help/services-resources'):
