@@ -87,7 +87,6 @@ const parsedCategory = computed(() => {
     const contentType
       = block.content[0].contentLink[0].contentType.toLowerCase()
     switch (true) {
-      // working
       case contentType.includes('article'):
         category = block.content[0].contentLink[0].articleCategory
           .map((obj) => {
@@ -96,32 +95,37 @@ const parsedCategory = computed(() => {
           .toString()
         break
 
-        // case contentType.includes('project' || "event" || "exhibition" || "endowment" || "workshopOrEventSeries"):
-        //   category = contentType
-        //   break
-
       case contentType.includes('collection'):
-        category = category
+        category = block.content[0].contentLink[0].category
         break
 
       case contentType.includes('project'):
-        category = contentType
-        break
-
       case contentType.includes('event'):
-        category = contentType
-        break
-
       case contentType.includes('exhibition'):
+      case contentType.includes('endowment'):
+      case contentType.includes('impactReportStory'):
+      case contentType.includes('workshopOrEventSeries'):
         category = contentType
         break
 
-      case contentType.includes('endowment'):
-        category = contentType
+      case contentType.includes('impactReportStory'):
+        category = 'Impact Report Story'
+        break
+
+      case contentType.includes('meapProject'):
+        category = 'Meap Project'
         break
 
       case contentType.includes('workshopOrEventSeries'):
-        category = contentType
+        // block.content[0].contentLink[0].workshopOrEventSeriesTypeincludes === "help/services-resources"
+        category = 'Workshop'
+        break
+
+        // case contentType.includes('workshopOrEventSeries' &&
+        //   block.content[0].contentLink[0].workshopOrEventSeriesType === "visit/events-exhibitions"):
+        //   category = "Event Series"
+        //   break
+
         break
     }
   }
