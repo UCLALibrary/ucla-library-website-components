@@ -78,14 +78,20 @@ const parsedLocations = computed(() => {
   return locations
 })
 
+// CATEGORY / EYEBROW
 const parsedCategory = computed(() => {
   let category = ''
+
+  // EXTERNAL
   if (block.content && block.content[0].category)
     return block.content[0].category
 
+  // INTERNAL
   if (block.content && block.content[0].contentLink) {
-    const contentType
-      = block.content[0].contentLink[0].contentType.toLowerCase()
+    const contentType = block.content[0].contentLink[0].contentType
+    const workshopOrSeries = block.content[0].contentLink[0].workshopOrEventSeriesType
+    const collectionFormat = block.content[0].contentLink[0].physicalDigital
+
     switch (true) {
       case contentType.includes('article'):
         category = block.content[0].contentLink[0].articleCategory
@@ -96,15 +102,13 @@ const parsedCategory = computed(() => {
         break
 
       case contentType.includes('collection'):
-        category = block.content[0].contentLink[0].category
+        category = collectionFormat
         break
 
       case contentType.includes('project'):
       case contentType.includes('event'):
       case contentType.includes('exhibition'):
       case contentType.includes('endowment'):
-      case contentType.includes('impactReportStory'):
-      case contentType.includes('workshopOrEventSeries'):
         category = contentType
         break
 
@@ -116,19 +120,18 @@ const parsedCategory = computed(() => {
         category = 'Meap Project'
         break
 
-      case contentType.includes('workshopOrEventSeries'):
-        // block.content[0].contentLink[0].workshopOrEventSeriesTypeincludes === "help/services-resources"
+      case workshopOrSeries.includes('help/services-resources'):
         category = 'Workshop'
         break
 
-        // case contentType.includes('workshopOrEventSeries' &&
-        //   block.content[0].contentLink[0].workshopOrEventSeriesType === "visit/events-exhibitions"):
-        //   category = "Event Series"
-        //   break
+      case workshopOrSeries.includes('visit/events-exhibitions'):
+        category = 'Event Series'
+        break
 
         break
     }
   }
+
   return category
 })
 
@@ -234,6 +237,7 @@ const parsedDescription = computed(() => {
 </script>
 
 <template>
+  <!-- EXTERNAL -->
   <div v-if="block && block.content">
     <BannerFeatured
       v-if="block && block.content && block.content[0].contentLink"
@@ -252,6 +256,7 @@ const parsedDescription = computed(() => {
       :section-handle="block.content[0].contentLink[0].contentType"
     />
 
+    <!-- INTERNAL -->
     <BannerFeatured
       v-if="block && block.content && !block.content[0].contentLink"
       class="flexible-banner-featured"
@@ -273,4 +278,14 @@ const parsedDescription = computed(() => {
 <style
   lang="scss"
   scoped
-></style>
+>
+.flexible-banner-featured {
+  :deep(.breadcrumb) {
+    z-index: 30;
+  }
+
+  :deep(.slot) {
+    z-index: 30;
+  }
+}
+</style>

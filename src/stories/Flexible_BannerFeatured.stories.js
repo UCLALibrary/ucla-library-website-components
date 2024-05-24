@@ -513,6 +513,9 @@ const mockInternalCollection = {
           to: 'collections/explore/tamagotchi',
           summary: '<p>The <em>Tamagotchi</em> is a handheld digital <em>pet</em> that was created in Japan by Akihiro Yokoi of WiZ and Aki Maita of Bandai.</p>',
           articleByline2: '2022-11-08T13:45:00-08:00',
+          physicalDigital: [
+            'physical'
+          ],
           heroImage: [
             {
               image: [
