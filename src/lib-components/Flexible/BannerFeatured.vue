@@ -127,8 +127,6 @@ const parsedCategory = computed(() => {
       case workshopOrSeries.includes('visit/events-exhibitions'):
         category = 'Event Series'
         break
-
-        break
     }
   }
 
