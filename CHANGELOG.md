@@ -1,3 +1,10 @@
+# [2.39.0-alpha.82](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.81...v2.39.0-alpha.82) (2024-05-28)
+
+
+### Bug Fixes
+
+* Fix tab focus in-out of search input field ([#514](https://github.com/UCLALibrary/ucla-library-website-components/issues/514)) ([8810085](https://github.com/UCLALibrary/ucla-library-website-components/commit/8810085558f37ee5400e935b619106e123348af2))
+
 # [2.39.0-alpha.81](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.80...v2.39.0-alpha.81) (2024-05-28)
 
 
