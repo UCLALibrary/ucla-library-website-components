@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
@@ -6,14 +9,14 @@ import BannerFeatured from '@/lib-components/BannerFeatured.vue'
 import type { LocationItemType } from '@/types/types'
 import type { FlexibleBannerFeatured } from '@/types/flexible_types'
 
-// Helpers
+// HELPERS
 import getPrompt from '@/utils/getPrompt'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
 const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleBannerFeatured>,
-    default: () => {},
+    default: () => { },
   },
 })
 
@@ -22,9 +25,9 @@ const parseImage = computed(() => {
   // console.log(`FROM BANNERFEATURED:${block.content[0]}`)
   if (
     block.content[0].contentLink
-        && block.content[0].contentLink.length > 0
-        && block.content[0].contentLink[0].heroImage
-        && block.content[0].contentLink[0].heroImage.length > 0
+    && block.content[0].contentLink.length > 0
+    && block.content[0].contentLink[0].heroImage
+    && block.content[0].contentLink[0].heroImage.length > 0
   )
     imageObj = block.content[0].contentLink[0].heroImage[0].image[0]
   else if (block.content[0].image)
@@ -53,7 +56,7 @@ const parsedLocations = computed(() => {
 
   if (block.content && block.content[0].contentLink) {
     const contentType
-            = block.content[0].contentLink[0].contentType.toLowerCase()
+      = block.content[0].contentLink[0].contentType.toLowerCase()
 
     switch (true) {
       case contentType.includes('article'):
@@ -75,14 +78,19 @@ const parsedLocations = computed(() => {
   return locations
 })
 
+// CATEGORY / EYEBROW
 const parsedCategory = computed(() => {
   let category = ''
+
+  // EXTERNAL
   if (block.content && block.content[0].category)
     return block.content[0].category
 
+  // INTERNAL
   if (block.content && block.content[0].contentLink) {
-    const contentType
-            = block.content[0].contentLink[0].contentType.toLowerCase()
+    const contentType = block.content[0].contentLink[0].contentType
+    const workshopOrSeries = block.content[0].contentLink[0].workshopOrEventSeriesType
+
     switch (true) {
       case contentType.includes('article'):
         category = block.content[0].contentLink[0].articleCategory
@@ -91,14 +99,37 @@ const parsedCategory = computed(() => {
           })
           .toString()
         break
-      case contentType.includes('project'):
-        category = block.content[0].contentLink[0].projectCategory
+
+      case contentType.includes('collection'):
+        category = block.content[0].contentLink[0].physicalDigital[0]
         break
 
-            /* case contentType.includes("event"):
-          category =
-              this.block.content[0].contentLink[0].eventCategory
-          break */
+      case contentType.includes('project'):
+      case contentType.includes('event'):
+      case contentType.includes('exhibition'):
+      case contentType.includes('endowment'):
+        category = contentType
+        break
+
+      case contentType.includes('impactReportStory'):
+        category = 'Impact Report Story'
+        break
+
+      case contentType.includes('meapProject'):
+        category = 'Meap Project'
+        break
+
+      case contentType.includes('meapArticle'):
+        category = 'Meap Article'
+        break
+
+      case workshopOrSeries.includes('help/services-resources'):
+        category = 'Workshop'
+        break
+
+      case workshopOrSeries.includes('visit/events-exhibitions'):
+        category = 'Event Series'
+        break
     }
   }
 
@@ -115,14 +146,14 @@ const parsedStartDate = computed(() => {
   let startDate = ''
   if (
     block.content
-        && block.content[0].contentLink
-        && block.content[0].contentLink[0].startDateWithTime
+    && block.content[0].contentLink
+    && block.content[0].contentLink[0].startDateWithTime
   )
     startDate = block.content[0].contentLink[0].startDateWithTime
   else if (
     block.content
-        && block.content[0].contentLink
-        && block.content[0].contentLink[0].startDate
+    && block.content[0].contentLink
+    && block.content[0].contentLink[0].startDate
   )
     startDate = block.content[0].contentLink[0].startDate
 
@@ -133,14 +164,14 @@ const parsedEndDate = computed(() => {
   let endDate = ''
   if (
     block.content
-        && block.content[0].contentLink
-        && block.content[0].contentLink[0].endDateWithTime
+    && block.content[0].contentLink
+    && block.content[0].contentLink[0].endDateWithTime
   )
     endDate = block.content[0].contentLink[0].endDateWithTime
   else if (
     block.content
-        && block.content[0].contentLink
-        && block.content[0].contentLink[0].endDate
+    && block.content[0].contentLink
+    && block.content[0].contentLink[0].endDate
   )
     endDate = block.content[0].contentLink[0].endDate
 
@@ -152,7 +183,7 @@ const parseByLine = computed(() => {
 
   if (block.content && block.content[0].contentLink) {
     const entry_type
-            = block.content[0].contentLink[0].contentType.toLowerCase()
+      = block.content[0].contentLink[0].contentType.toLowerCase()
 
     const articleByline1 = block.content[0].contentLink[0].articleByline1
 
@@ -183,7 +214,7 @@ const parseByLine = computed(() => {
 
   if (
     block.content
-        && (block.content[0].byline1 || block.content[0].byline2)
+    && (block.content[0].byline1 || block.content[0].byline2)
   ) {
     output.push(block.content[0].byline1)
     output.push(block.content[0].byline2)
@@ -196,8 +227,8 @@ const parsedDescription = computed(() => {
   let output = ''
   if (
     block.content
-        && block.content[0].contentLink
-        && block.content[0].contentLink[0].contentType === 'event'
+    && block.content[0].contentLink
+    && block.content[0].contentLink[0].contentType === 'event'
   )
     output = block.content[0].contentLink[0].eventDescription
   else output = block.content[0].contentLink[0].summary
@@ -207,6 +238,7 @@ const parsedDescription = computed(() => {
 </script>
 
 <template>
+  <!-- EXTERNAL -->
   <div v-if="block && block.content">
     <BannerFeatured
       v-if="block && block.content && block.content[0].contentLink"
@@ -225,6 +257,7 @@ const parsedDescription = computed(() => {
       :section-handle="block.content[0].contentLink[0].contentType"
     />
 
+    <!-- INTERNAL -->
     <BannerFeatured
       v-if="block && block.content && !block.content[0].contentLink"
       class="flexible-banner-featured"
@@ -237,10 +270,23 @@ const parsedDescription = computed(() => {
       :prompt="parsePrompt"
       :locations="parsedLocations"
       :category="parsedCategory"
-      :alignment="parsedAlignment"
+      :align-right="parsedAlignment"
       :section-handle="block.content[0].sectionHandle"
     />
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style
+  lang="scss"
+  scoped
+>
+.flexible-banner-featured {
+  :deep(.breadcrumb) {
+    z-index: 30;
+  }
+
+  :deep(.slot) {
+    z-index: 30;
+  }
+}
+</style>

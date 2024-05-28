@@ -113,6 +113,8 @@ interface FlexibleBannerContentLink extends ContentLink {
   eventDescription: string
   projectCategory: string
   articleLocations: LocationItemType[]
+  workshopOrEventSeriesType: string
+  physicalDigital: string[]
 }
 
 interface FlexibleCallToActionItem {
