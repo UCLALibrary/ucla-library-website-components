@@ -1,3 +1,10 @@
+# [2.39.0-alpha.81](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.80...v2.39.0-alpha.81) (2024-05-28)
+
+
+### Bug Fixes
+
+* APPS-2671 BannerFeatured digital eyebrow / category is not appearing ([#513](https://github.com/UCLALibrary/ucla-library-website-components/issues/513)) ([c962748](https://github.com/UCLALibrary/ucla-library-website-components/commit/c9627480a57091f9a7f52592cb8156d5113a708f))
+
 # [2.39.0-alpha.80](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.79...v2.39.0-alpha.80) (2024-05-18)
 
 
