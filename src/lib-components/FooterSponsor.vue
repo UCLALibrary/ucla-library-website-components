@@ -13,7 +13,8 @@ export default {
     parsedFunders() {
       if (Object.keys(this.footerSponsor).length !== 0) {
         return this.footerSponsor.funders
-      } else {
+      }
+      else {
         console.log(
           'Pinia state data for footer sponsor not present if navigation is not setup for the website.'
         )
