@@ -1,21 +1,27 @@
-<script setup lang="ts">
-import { computed } from 'vue'
+<script>
+import { mapState } from 'pinia'
 import BlockSponsor from '@/lib-components/BlockSponsor.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
-const globalStore = useGlobalStore()
-const parsedFunders = computed(() => {
-  if (Object.keys(globalStore.footerSponsor).length !== 0) {
-    return globalStore.footerSponsor.funders
+export default {
+  name: 'FooterSponsor',
+  components: {
+    BlockSponsor
+  },
+  computed: {
+    ...mapState(useGlobalStore, ['footerSponsor']),
+    parsedFunders() {
+      if (Object.keys(this.footerSponsor).length !== 0) {
+        return this.footerSponsor.funders
+      } else {
+        console.log(
+          'Pinia state data for footer sponsor not present if navigation is not setup for the website.'
+        )
+      }
+      return []
+    }
   }
-  else {
-    // eslint-disable-next-line no-console
-    console.log(
-      'Pinia state data for footer sock not present if navigation is not setup for the website.'
-    )
-  }
-  return []
-})
+}
 </script>
 
 <template>
@@ -26,8 +32,12 @@ const parsedFunders = computed(() => {
     </div>
     <div class="sponsor-logos">
       <BlockSponsor
-        v-for="item in parsedFunders" :key="`footer-sponsor-${item.funderName}`" class="sponsor-item"
-        :funder-logo="item.funderLogo" :funder-name="item.funderName" :funder-url="item.funderUrl"
+        v-for="item in parsedFunders"
+        :key="`footer-sponsor-${item.funderName}`"
+        class="sponsor-item"
+        :funder-logo="item.funderLogo"
+        :funder-name="item.funderName"
+        :funder-url="item.funderUrl"
       />
     </div>
   </div>
