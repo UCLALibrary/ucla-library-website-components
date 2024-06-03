@@ -1,3 +1,10 @@
+# [2.39.0-alpha.83](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.82...v2.39.0-alpha.83) (2024-06-03)
+
+
+### Features
+
+* APPS-2738 convert script setup to options api ([#515](https://github.com/UCLALibrary/ucla-library-website-components/issues/515)) ([438e5ad](https://github.com/UCLALibrary/ucla-library-website-components/commit/438e5adec974b4a4b965c026f6b37c6af193fd81))
+
 # [2.39.0-alpha.82](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.81...v2.39.0-alpha.82) (2024-05-28)
 
 
