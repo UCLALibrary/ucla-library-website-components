@@ -2,7 +2,7 @@
 import { computed, defineAsyncComponent } from 'vue'
 
 // PROPS & DATA
-const { label, iconName, styles, classes, showRemoveIcon, isSecondary } = defineProps({
+const { label, iconName, styles, theme, isSecondary } = defineProps({
   label: {
     type: String,
     default: '' // Text displayed on the tag or pill.
@@ -11,30 +11,21 @@ const { label, iconName, styles, classes, showRemoveIcon, isSecondary } = define
     type: String,
     required: false
   },
-  // classes: {
-  //     type: String,
-  //     required: false
-  // },
-  // todo rename as class, styles, or theme?
-  // site: {
-  //     type: String,
-  //     default: "" // Specifies the site context ("website" use white background, "ftva" use pale white).
-  // },
+  // this prop takes a classname that is based on the theme
+  theme: {
+    type: String,
+    required: false
+  },
+  // this prop takes inline style objects, will override all else
   styles: {
     type: Object,
-    default: () => ({}) // Specifies css styles for themes
+    default: () => ({})
   },
-  // if we keep this here, might also need click event prop for function
-  // showRemoveIcon: {
-  //     type: Boolean,
-  //     default: true
-  // },
   isSecondary: {
     type: Boolean,
     default: false
   }
 })
-// import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 
 // TODO replace with real FTVA icons from Serena when available
 const IconCollapse = defineAsyncComponent(() =>
@@ -53,10 +44,10 @@ const BlockTagIcons: any = {
   SvgIconVideo
 }
 
+// if we want to use theme pattern based on passing classes prop to each component
 const parsedClasses = computed(() => {
-  // TODO if using classes prop pattern, add classes ? classes : '',
   // (maybe classes.join() if need an array)
-  return ['block-tag', isSecondary ? '' : 'primary']
+  return ['block-tag', theme || '', isSecondary ? '' : 'primary']
 })
 </script>
 
@@ -66,9 +57,6 @@ const parsedClasses = computed(() => {
     <div class="label" :style="styles['.label']">
       {{ label }}
     </div>
-    <!-- <span v-if="showRemoveIcon" class="button-close">
-            <SvgGlyphClose class="svg-glyph-close" />
-        </span> -->
     <!-- slot for 'x' button or any additional content parent needs to display in tag -->
     <slot />
   </span>
@@ -76,7 +64,7 @@ const parsedClasses = computed(() => {
 
 <style lang="scss" scoped>
 // Need imports to access ftva tokens
-// can be removed once this file is included here
+// can be removed once this file is included here by UX team
 // https://github.com/UCLALibrary/design-tokens/blob/main/scss/app.scss
 @import "ucla-library-design-tokens/scss/_tokens-ftva";
 
@@ -99,7 +87,8 @@ const parsedClasses = computed(() => {
     }
 }
 
-// TODO
+// example of class-based theme styles within component library
+// ftva theme
 .ftva.block-tag {
     // base ftva styles
     padding: 8px 16px;
@@ -120,6 +109,7 @@ const parsedClasses = computed(() => {
         height: 15px;
         width: 15px;
         margin-right:8px;
+        color: $subtitle-grey;
     }
     // primary colors & styles
     &.primary {
@@ -127,7 +117,9 @@ const parsedClasses = computed(() => {
         border: none;
         color: #fff;
         .label {
-        color: #fff;
+          color: #fff;
+        }
+        .svg {
         }
     }
 }

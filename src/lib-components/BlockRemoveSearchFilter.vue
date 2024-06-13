@@ -4,11 +4,10 @@ import { defineAsyncComponent } from 'vue'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
-// import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 import BlockTag from './BlockTag.vue'
 import getSectionName from '@/utils/getSectionName'
 
-const props = defineProps({
+const { title, iconName, removeIconName, theme } = defineProps({
   // todo refactor to label here and in parent component that uses blockremovesearchfilter
   title: {
     type: String,
@@ -19,9 +18,13 @@ const props = defineProps({
     type: String,
     required: false,
   },
-  removeIcon: {
+  removeIconName: {
     type: String,
     default: 'SvgGlyphClose', // this is the default icon for library-website-nuxt
+  },
+  theme: {
+    type: String,
+    required: false
   },
 })
 
@@ -30,7 +33,6 @@ const emit = defineEmits(['removeBlockFilter'])
 const SvgGlyphClose = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-close.svg')
 )
-
 const removeIcons = {
   SvgGlyphClose
 }
@@ -46,7 +48,7 @@ const sectionName = computed(() => {
 })
 
 const classes = computed(() => {
-  return ['block-remove-search-filter', `color-${sectionName.value}`]
+  return ['block-remove-search-filter', theme || '', `color-${sectionName.value}`]
 })
 
 function closeBlockFilter() {
@@ -56,11 +58,11 @@ function closeBlockFilter() {
 
 <template>
   <button type="button" :class="classes" @click="closeBlockFilter">
-    <BlockTag :label="title" :icon-name="iconName">
+    <BlockTag :label="title" :icon-name="iconName" :theme="theme" :is-secondary="true">
       <span class="button-close">
         <!-- if no remove icon, show 'x' character -->
-        <span v-if="removeIcon === ''">&#x2715;</span>
-        <component :is="removeIcons[removeIcon]" v-else />
+        <span v-if="removeIconName === ''">&#x2715;</span>
+        <component :is="removeIcons[removeIconName]" v-else />
       </span>
     </BlockTag>
   </button>
@@ -70,21 +72,13 @@ function closeBlockFilter() {
   lang="scss"
   scoped
 >
+/* // Need imports to access ftva tokens
+// can be removed once this file is included here by UX team
+// https://github.com/UCLALibrary/design-tokens/blob/main/scss/app.scss */
+@import "ucla-library-design-tokens/scss/_tokens-ftva";
+
 .block-remove-search-filter {
   padding: 0px;
-  /* old styles
-  padding: 12px;
-  display: flex;
-  flex-direction: row;
-  border: 1.5px var(--color-border) solid;
-  background-color: #ffffff;
-  border-radius: 4px;
-  align-items: center;
-  width: fit-content;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%; */
-
   .button-close {
     margin-left: 8px;
   }
@@ -122,6 +116,41 @@ function closeBlockFilter() {
       }
     &:hover {
       background-color: transparentize(($about-purple-03), 0.9);
+    }
+  }
+}
+
+/* FTVA theme */
+.ftva.block-remove-search-filter {
+  align-items: center;
+
+  :deep(.block-tag) {
+    background: #fff;
+    padding: inherit 18px;
+    border-color: $subtitle-grey;
+    border-radius: 25px;
+    font-size: 18px;
+    height: 40px;
+  }
+
+  .button-close {
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 100%;
+  }
+
+  &:hover {
+    :deep(.block-tag) {
+      border-color: $accent-blue;
+      background-color: $accent-blue;
+
+      .label {
+        color: #fff;
+      }
+    }
+
+    .button-close {
+      color: #fff;
     }
   }
 }

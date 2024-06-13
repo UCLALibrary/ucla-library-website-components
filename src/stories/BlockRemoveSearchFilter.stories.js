@@ -88,8 +88,9 @@ export function FTVA() {
     template: `
         <block-remove-search-filter
             title="FTVA"
-            removeIcon=""
+            removeIconName=""
             iconName="SvgIconList"
+            theme="ftva"
         />
     `,
   }
