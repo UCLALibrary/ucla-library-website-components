@@ -77,3 +77,20 @@ export function About() {
     `,
   }
 }
+
+export function FTVA() {
+  router.push('/')
+  return {
+    data() {
+      return { ...mock }
+    },
+    components: { BlockRemoveSearchFilter },
+    template: `
+        <block-remove-search-filter
+            title="FTVA"
+            removeIcon=""
+            iconName="SvgIconList"
+        />
+    `,
+  }
+}
