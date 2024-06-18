@@ -3,22 +3,29 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import getSectionName from '@/utils/getSectionName'
+import 'ftva-theme'
 
 const { color } = defineProps({
   color: {
     type: String,
-    default: '', // This will be "visit", "about", "help".
+    default: '', // "VISIT", "ABOUT", "HELP", "FTVA"
   },
+  isHalfWidth: {
+    type: Boolean,
+    default: false,
+  }
 })
+
 const route = useRoute()
 // console.log('does this route exist?', route)
 
 const sectionName = computed(() => color || (route !== undefined && route.path
   ? getSectionName(route.path)
   : 'default'))
+
 const classes = computed(() => [
   'divider-way-finder',
-  `color-${sectionName.value}`,
+  `color-${sectionName.value}`, `is-half-width: true`,
 ])
 
 /* console.log("section name computed", sectionName.value)
@@ -32,7 +39,10 @@ console.log("color prop", color) */
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .divider-way-finder {
   &.color-help {
     --color-border: var(--color-help-green-03);
@@ -46,12 +56,21 @@ console.log("color prop", color) */
     --color-border: var(--color-about-purple-03);
   }
 
+  // accent-blue
+  &.color-ftva {
+    --color-border: #115DAF;
+  }
+
   &.color-default {
     --color-border: var(--color-default-cyan-03);
   }
 
   &.search-margin {
     margin: var(--space-2xl) auto;
+  }
+
+  &.is-half-width {
+    max-width: calc((100% - 16px) / 2);
   }
 
   display: flex;

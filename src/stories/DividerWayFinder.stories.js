@@ -26,3 +26,16 @@ export const Help = {
     color: 'help',
   },
 }
+
+export const FTVA = {
+  args: {
+    color: 'ftva',
+  },
+}
+
+export const IsHalfWidth = {
+  render: () => ({
+    components: { DividerWayFinder },
+    template: '<divider-way-finder :is-half-width="true"/>',
+  }),
+}
