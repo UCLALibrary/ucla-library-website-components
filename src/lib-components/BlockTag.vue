@@ -4,7 +4,7 @@ import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 // THEME
-const { theme } = useTheme();
+const theme = useTheme();
 
 // PROPS & DATA
 const { label, iconName, isSecondary } = defineProps({
@@ -39,17 +39,10 @@ const BlockTagIcons: any = {
   SvgIconVideo
 }
 
-const themeClass = computed(() => {
-  return theme.value
-});
 // if we want to use theme pattern based on passing classes prop to each component
 const parsedClasses = computed(() => {
   // (maybe classes.join() if need an array)
-  return ['block-tag', themeClass || '', isSecondary ? '' : 'primary']
-})
-
-onMounted(() => {
-  console.log('themeclass', themeClass)
+  return ['block-tag', theme?.value || '', isSecondary ? '' : 'primary']
 })
 </script>
 
