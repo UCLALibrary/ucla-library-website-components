@@ -1,6 +1,7 @@
-import { inject } from "vue";
+import { inject } from 'vue'
+
 // Inject the theme
-export function useTheme(){
+export function useTheme() {
   const theme = inject('theme')
-  return theme;
+  return theme
 }

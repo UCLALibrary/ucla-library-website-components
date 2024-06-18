@@ -1,10 +1,8 @@
 <script lang="ts" setup>
-import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
+
 // import { inject } from "vue";
 import { useTheme } from '@/composables/useTheme'
-
-// THEME
-const theme = useTheme();
 
 // PROPS & DATA
 const { label, iconName, isSecondary } = defineProps({
@@ -21,6 +19,9 @@ const { label, iconName, isSecondary } = defineProps({
     default: false
   }
 })
+
+// THEME
+const theme = useTheme()
 
 // TODO replace with real FTVA icons from Serena when available
 const IconCollapse = defineAsyncComponent(() =>
@@ -47,18 +48,17 @@ const parsedClasses = computed(() => {
 </script>
 
 <template>
-    <span :class="parsedClasses">
-      <component :is="BlockTagIcons[iconName]" v-if="iconName" class="svg" aria-hidden="true" />
-      <div class="label">
-        {{ label }}
-      </div>
-      <!-- slot for 'x' button or any additional content parent needs to display in tag -->
-      <slot />
-    </span>
+  <span :class="parsedClasses">
+    <component :is="BlockTagIcons[iconName]" v-if="iconName" class="svg" aria-hidden="true" />
+    <div class="label">
+      {{ label }}
+    </div>
+    <!-- slot for 'x' button or any additional content parent needs to display in tag -->
+    <slot />
+  </span>
 </template>
 
 <style lang="scss" scoped>
-
 // TODO working on scoped?
 @import "@/styles/themes.scss";
 </style>

@@ -1,5 +1,5 @@
-import BlockTag from '@/lib-components/BlockTag'
 import { computed } from 'vue'
+import BlockTag from '@/lib-components/BlockTag'
 
 export default {
   title: 'BLOCK / Tag',
