@@ -90,7 +90,6 @@ export function FTVA() {
             title="FTVA"
             removeIconName=""
             iconName="SvgIconList"
-            theme="ftva"
         />
     `,
   }
