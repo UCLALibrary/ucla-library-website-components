@@ -1,0 +1,33 @@
+.ftva.block-remove-search-filter {
+    align-items: center;
+
+    :deep(.block-tag) {
+        background: #fff;
+        padding: inherit 18px;
+        border-color: $subtitle-grey;
+        border-radius: 25px;
+        font-size: 18px;
+        height: 40px;
+    }
+
+    .button-close {
+        font-size: 10px;
+        font-weight: bold;
+        line-height: 100%;
+    }
+
+    &:hover {
+        :deep(.block-tag) {
+            border-color: $accent-blue;
+            background-color: $accent-blue;
+
+            .label {
+                color: #fff;
+            }
+        }
+
+        .button-close {
+            color: #fff;
+        }
+    }
+}

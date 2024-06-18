@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 import { computed, defineAsyncComponent } from 'vue'
-
-// import { inject } from "vue";
 import { useTheme } from '@/composables/useTheme'
 
 // PROPS & DATA
@@ -59,6 +57,5 @@ const parsedClasses = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-// TODO working on scoped?
 @import "@/styles/themes.scss";
 </style>
