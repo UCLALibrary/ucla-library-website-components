@@ -5,6 +5,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import BlockTag from './BlockTag.vue'
 import getSectionName from '@/utils/getSectionName'
+import { useTheme } from '@/composables/useTheme'
 
 const { title, iconName, removeIconName } = defineProps({
   // todo refactor to label here and in parent component that uses blockremovesearchfilter
@@ -33,6 +34,7 @@ const removeIcons = {
 }
 
 const route = useRoute()
+const theme = useTheme()
 
 const sectionName = computed(() => {
   return (
@@ -43,7 +45,7 @@ const sectionName = computed(() => {
 })
 
 const classes = computed(() => {
-  return ['block-remove-search-filter', theme || '', `color-${sectionName.value}`]
+  return ['block-remove-search-filter', theme?.value || '', `color-${sectionName.value}`]
 })
 
 function closeBlockFilter() {

@@ -24,11 +24,6 @@ export function Default() {
         ...defaultmock,
       }
     },
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     components: { BlockTag },
     template: `
     <block-tag
