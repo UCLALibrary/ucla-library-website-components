@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import BlockRemoveSearchFilter from '@/lib-components/BlockRemoveSearchFilter'
 import router from '@/router'
 
@@ -73,6 +74,28 @@ export function About() {
     template: `
         <block-remove-search-filter
             title="About"
+        />
+    `,
+  }
+}
+
+export function FTVA() {
+  router.push('/')
+  return {
+    data() {
+      return { ...mock }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockRemoveSearchFilter },
+    template: `
+        <block-remove-search-filter
+            title="FTVA"
+            removeIconName=""
+            iconName="SvgIconList"
         />
     `,
   }
