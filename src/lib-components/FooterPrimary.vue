@@ -69,28 +69,58 @@ export default {
 
 <template>
   <div class="footer-primary">
-    <SvgMoleculeHalf class="molecule-half-svg" aria-hidden="true" />
+    <SvgMoleculeHalf
+      class="molecule-half-svg"
+      aria-hidden="true"
+    />
     <div :class="classes">
       <div class="footer-links">
-        <a v-if="isMicrosite" href="https://www.library.ucla.edu" target="_blank" class="logo-ucla">
+        <a
+          v-if="isMicrosite"
+          href="https://www.library.ucla.edu"
+          target="_blank"
+          class="logo-ucla"
+        >
           <SvgLogoUclaLibrary class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
         </a>
-        <SmartLink v-else to="/" class="logo-ucla">
+        <SmartLink
+          v-else
+          to="/"
+          class="logo-ucla"
+        >
           <SvgLogoUclaLibrary class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
         </SmartLink>
         <ul class="socials">
-          <li v-for="item in parsedSocialItems" :key="item.id" class="social-item">
-            <a :href="item.to" :target="formatTarget(item.target)" a>
+          <li
+            v-for="item in parsedSocialItems"
+            :key="item.id"
+            class="social-item"
+          >
+            <a
+              :href="item.to"
+              :target="formatTarget(item.target)"
+              a
+            >
               {{ item.name }}
             </a>
           </li>
         </ul>
 
-        <ul v-if="parsedPressItems" class="press-links">
-          <li v-for="item in parsedPressItems" :key="item.id" class="press-item">
-            <SmartLink :to="item.to" :link-target="item.target">
+        <ul
+          v-if="parsedPressItems"
+          class="press-links"
+        >
+          <li
+            v-for="item in parsedPressItems"
+            :key="item.id"
+            class="press-item"
+          >
+            <SmartLink
+              :to="item.to"
+              :link-target="item.target"
+            >
               {{ item.name }}
             </SmartLink>
           </li>
@@ -98,11 +128,19 @@ export default {
       </div>
 
       <form
-        v-if="form" id="mc-embedded-subscribe-form"
+        v-if="form"
+        id="mc-embedded-subscribe-form"
         action="https://ucla.us7.list-manage.com/subscribe/post?u=31248d1f341b8eede1b46cb33&amp;id=40fdd1db46&amp;f_id=0034f7e4f0"
-        method="post" name="mc-embedded-subscribe-form" class="validate form" target="_blank" novalidate
+        method="post"
+        name="mc-embedded-subscribe-form"
+        class="validate form"
+        target="_blank"
+        novalidate
       >
-        <div id="mc_embed_signup_scroll" class="form-header">
+        <div
+          id="mc_embed_signup_scroll"
+          class="form-header"
+        >
           <h2 class="title">
             Stay updated
           </h2>
@@ -116,24 +154,56 @@ export default {
         <div class="input-block">
           <div class="field mc-field-group">
             <input
-              id="mce-EMAIL" name="EMAIL" type="email" value="" placeholder="email@ucla.edu" class="input-email"
+              id="mce-EMAIL"
+              name="EMAIL"
+              type="email"
+              value=""
+              placeholder="email@ucla.edu"
+              class="input-email"
               required
             >
-            <label for="mce-EMAIL" class="label">
+            <label
+              for="mce-EMAIL"
+              class="label"
+            >
               Email Address
             </label>
           </div>
 
-          <div id="mce-responses" class="clear">
-            <div id="mce-error-response" class="response" style="display: none" />
-            <div id="mce-success-response" class="response" style="display: none" />
+          <div
+            id="mce-responses"
+            class="clear"
+          >
+            <div
+              id="mce-error-response"
+              class="response"
+              style="display: none"
+            />
+            <div
+              id="mce-success-response"
+              class="response"
+              style="display: none"
+            />
           </div>
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
-          <div style="position: absolute; left: -5000px" aria-hidden="true">
-            <input type="text" name="b_31248d1f341b8eede1b46cb33_40fdd1db46" tabindex="-1" value="">
+          <div
+            style="position: absolute; left: -5000px"
+            aria-hidden="true"
+          >
+            <input
+              type="text"
+              name="b_31248d1f341b8eede1b46cb33_40fdd1db46"
+              tabindex="-1"
+              value=""
+            >
           </div>
 
-          <button id="mc-embedded-subscribe" class="button-submit" name="subscribe" type="submit">
+          <button
+            id="mc-embedded-subscribe"
+            class="button-submit"
+            name="subscribe"
+            type="submit"
+          >
             Subscribe
             <SvgArrowRight class="arrow-svg" />
           </button>
@@ -372,6 +442,20 @@ export default {
         position: relative;
         border-bottom: 2px solid var(--color-help-green-03);
         font-family: var(--font-primary);
+
+        .field {
+          input {
+            &::placeholder {
+              // Ensures only the placeholder of this input is targeted
+              opacity: 0;
+              transition: opacity 0.2s ease-in-out;
+            }
+
+            &:focus::placeholder {
+              opacity: 1; // Ensures it becomes visible on focus if that's intended
+            }
+          }
+        }
 
         .description {
           position: absolute;
