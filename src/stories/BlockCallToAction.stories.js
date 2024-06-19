@@ -34,32 +34,31 @@ export const DarkBlue = Template.bind({})
 DarkBlue.args = {
   ...mock,
   title: 'Dark Blue: Lorem ipsum dolor sit amet?',
-  isDark: 'true',
-  isSmallSize: 'false',
+  isDark: true,
 }
 
 export const SmallCTA = Template.bind({})
 SmallCTA.args = {
   ...mock,
   title: 'Small CTA: Lorem ipsum dolor sit amet?',
-  isDark: 'false',
-  isSmallSize: 'true',
+  isDark: false,
+  isSmallSize: true,
 }
 
 export const SmallCTADark = Template.bind({})
 SmallCTADark.args = {
   ...mock,
   title: 'Small CTA Dark Blue: Lorem ipsum dolor sit amet?',
-  isDark: 'true',
-  isSmallSize: 'true',
+  isDark: true,
+  isSmallSize: true,
 }
 
 export const GlobalAskALibrarian = Template.bind({})
 GlobalAskALibrarian.args = {
-  isGlobal: 'true',
+  isGlobal: true,
 }
 
 export const GlobalMeapCTA = Template.bind({})
 GlobalMeapCTA.args = {
-  isMeapGlobal: 'true',
+  isMeapGlobal: true,
 }
