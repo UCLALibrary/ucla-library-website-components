@@ -34,8 +34,7 @@ export const FTVA = {
 }
 
 export const IsHalfWidth = {
-  render: () => ({
-    components: { DividerWayFinder },
-    template: '<divider-way-finder :is-half-width="true"/>',
-  }),
+  args: {
+    isHalfWidth: true,
+  },
 }

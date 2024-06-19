@@ -3,8 +3,6 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import getSectionName from '@/utils/getSectionName'
-import { useTheme } from '@/composables/useTheme'
-import 'ftva-theme'
 
 const { color, isHalfWidth } = defineProps({
   color: {
@@ -26,11 +24,9 @@ const sectionName = computed(() => color || (route !== undefined && route.path
 
 const classes = computed(() => [
   'divider-way-finder',
-  `color-${sectionName.value}`, { 'is-half-width': isHalfWidth },
+  `color-${sectionName.value}`,
+  { 'half-width': isHalfWidth }
 ])
-
-/* console.log("section name computed", sectionName.value)
-console.log("color prop", color) */
 </script>
 
 <template>
@@ -46,30 +42,31 @@ console.log("color prop", color) */
 >
 .divider-way-finder {
   &.color-help {
-    --color-border: $help-green-03;
+    --color-border: var(--color-help-green-03);
   }
 
   &.color-visit {
-    --color-border: $visit-fushia-03;
+    --color-border: var(--color-visit-fushia-03);
   }
 
   &.color-about {
-    --color-border: $about-purple-03;
+    --color-border: var(--color-about-purple-03);
   }
 
   &.color-ftva {
-    --color-border: $accent-blue
+    --color-border: #115DAF;
+    /* -color-border: var($accent-blue); */
   }
 
   &.color-default {
-    --color-border: $default-cyan-03;
+    --color-border: var(--color-default-cyan-03);
   }
 
   &.search-margin {
     margin: var(--space-2xl) auto;
   }
 
-  &.is-half-width {
+  &.half-width {
     max-width: calc((100% - 16px) / 2);
   }
 
@@ -93,7 +90,7 @@ console.log("color prop", color) */
   }
 
   .dotted {
-    border-bottom: 2px dotted $secondary-grey-02;
+    border-bottom: 2px dotted var(--color-secondary-grey-02);
     height: 1px;
 
     flex: 1 1 auto;
