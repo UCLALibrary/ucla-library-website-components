@@ -1,3 +1,10 @@
+# [2.39.0-alpha.84](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.83...v2.39.0-alpha.84) (2024-06-18)
+
+
+### Features
+
+* APPS-2704 create tags component ([#522](https://github.com/UCLALibrary/ucla-library-website-components/issues/522)) ([71e0076](https://github.com/UCLALibrary/ucla-library-website-components/commit/71e0076301dd0524d64bed078996f5a9144b5e91))
+
 # [2.39.0-alpha.83](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.82...v2.39.0-alpha.83) (2024-06-03)
 
 
