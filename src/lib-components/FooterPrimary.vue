@@ -130,7 +130,7 @@ export default {
       <form
         v-if="form"
         id="mc-embedded-subscribe-form"
-        action="https://ucla.us7.list-manage.com/subscribe/post?u=31248d1f341b8eede1b46cb33&amp;id=40fdd1db46&amp;f_id=0034f7e4f0"
+        action="https://ucla.us17.list-manage.com/subscribe/post?u=cb3f880892df52211b236bdee&amp;id=ce2bece15c&amp;f_id=00edc2e1f0"
         method="post"
         name="mc-embedded-subscribe-form"
         class="validate form"

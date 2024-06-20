@@ -26,7 +26,7 @@ const parsedItems = computed(() => {
     :title="parsedItems.titleCta"
     :text="parsedItems.summary"
     :svg-name="parsedItems.icon"
-    :is-dark="parsedItems.backgroundColor == 'true'"
+    :is-dark="parsedItems.backgroundColor === 'true'"
   />
 </template>
 
