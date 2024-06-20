@@ -26,9 +26,6 @@ const FlexibleCallToAction = defineAsyncComponent(() =>
 const FlexibleCardWithImage = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/CardWithImage.vue')
 )
-const FlexibleCtaBlock2Up = defineAsyncComponent(() =>
-  import('@/lib-components/Flexible/CtaBlock2Up.vue')
-)
 const FlexibleForm = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/Form.vue')
 )
@@ -66,7 +63,6 @@ const components = {
   'flexible-banner-featured': FlexibleBannerFeatured,
   'flexible-call-to-action': FlexibleCallToAction,
   'flexible-card-with-image': FlexibleCardWithImage,
-  'flexible-cta-block2-up': FlexibleCtaBlock2Up,
   'flexible-form': FlexibleForm,
   'flexible-grid-gallery-cards': FlexibleGridGalleryCards,
   'flexible-highlight': FlexibleHighlight,
@@ -109,17 +105,17 @@ const parsedBlocks = computed(() => {
     // the block's component name is not in the NEVER_GRAY list, and the block is not the last one
     if (
       index > 0
-            && arr[index - 1].theme === 'white'
-            && !NEVER_GRAY.includes(block.componentName)
-            && index < arr.length - 1
+      && arr[index - 1].theme === 'white'
+      && !NEVER_GRAY.includes(block.componentName)
+      && index < arr.length - 1
     )
       block.theme = 'gray' // Set the block's theme to 'gray'
 
     // If the block is not the first one, and both the block and the previous block have a theme of 'white'
     if (
       index > 0
-            && block.theme === 'white'
-            && arr[index - 1].theme === 'white'
+      && block.theme === 'white'
+      && arr[index - 1].theme === 'white'
     )
       block.needsDivider = true // Set the block's divider need to true
   })
@@ -161,7 +157,10 @@ function getComponent(name) {
 </script>
 
 <template>
-  <SectionWrapper class="flexible-blocks" :no-margins="true">
+  <SectionWrapper
+    class="flexible-blocks"
+    :no-margins="true"
+  >
     <SectionHeader class="more-information">
       More Information
     </SectionHeader>
@@ -172,7 +171,10 @@ function getComponent(name) {
       v-for="(block, index) in parsedBlocks"
       :key="`flexibleblocks-${index}`"
     >
-      <SectionWrapper v-if="block.needsDivider" theme="divider">
+      <SectionWrapper
+        v-if="block.needsDivider"
+        theme="divider"
+      >
         <DividerWayFinder />
       </SectionWrapper>
 
@@ -183,10 +185,9 @@ function getComponent(name) {
       >
         <component
           :is="getComponent(block.componentName)"
-          :block="
-            block.mediaGalleryStyle === 'halfWidth'
-              ? block
-              : omit(block, ['sectionTitle', 'sectionSummary'])
+          :block="block.mediaGalleryStyle === 'halfWidth'
+            ? block
+            : omit(block, ['sectionTitle', 'sectionSummary'])
           "
           class="flexible-block"
         />
@@ -197,8 +198,8 @@ function getComponent(name) {
 
 <style lang="scss" scoped>
 .flexible-blocks {
-    .more-information {
-        @include visually-hidden;
-    }
+  .more-information {
+    @include visually-hidden;
+  }
 }
 </style>

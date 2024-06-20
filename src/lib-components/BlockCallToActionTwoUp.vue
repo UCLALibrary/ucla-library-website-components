@@ -21,7 +21,7 @@ const { items } = defineProps({
       :text="item.text"
       :name="item.name"
       :to="item.to"
-      :is-dark="item.isDark === 'true'"
+      :is-dark="item.isDark"
       :is-small-size="true"
     />
   </section>
