@@ -3,6 +3,7 @@
 import { computed, defineAsyncComponent } from 'vue'
 import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
+import { useTheme } from '@/composables/useTheme'
 
 // import IconWithLink from '@/lib-components/IconWithLink.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
@@ -11,6 +12,13 @@ import SmartLink from '@/lib-components/SmartLink.vue'
 import SvgIconCalendar from 'ucla-library-design-tokens/assets/svgs/icon-calendar.svg'
 import SvgIconLocation from 'ucla-library-design-tokens/assets/svgs/icon-location.svg'
 import SvgIconClock from 'ucla-library-design-tokens/assets/svgs/icon-clock.svg'
+
+interface BlockEventDetailLocation {
+  id?: string
+  title: string
+  url?: string
+  uri?: string
+}
 
 const { startDate, time, locations} = defineProps({
     startDate: {
@@ -22,12 +30,12 @@ const { startDate, time, locations} = defineProps({
         default: '',
     },
     locations: {
-        type: Array,
+        type: Array<BlockEventDetailLocation>,
         default: () => [],
     },
 })
 
-const theme = '' //useTheme()
+const theme = useTheme()
 
 const parsedClasses = computed(() => {
     return ['block-event-detail', theme || '']
@@ -49,7 +57,7 @@ const parsedClasses = computed(() => {
       <span>
         <SvgIconLocation class="row-icon" />
         <span v-for="(location, index) in locations" :key="location.title" class="location-link">
-          <SmartLink :to="location.title" :linkTarget="location.uri">{{ location.title }}</SmartLink>{{
+          <SmartLink :to="location.title" :linkTarget="location.uri ? location.uri : ''">{{ location.title }}</SmartLink>{{
           index < locations.length - 1 ? ', ' : '' }} </span>
         </span>
     </div>
@@ -57,6 +65,7 @@ const parsedClasses = computed(() => {
   </div>
 </template>
 <style lang="scss" scoped>
+// TODO tokenify
 // base
 .block-event-detail {
   text-transform: uppercase;
@@ -84,5 +93,14 @@ const parsedClasses = computed(() => {
 
 
 // ftva
+.ftva.block-event-detail {
+  .event-list {
+    > span {
+      .row-icon {
+        fill: #fff;
+      }
+    }
+  }
+}
 
 </style>

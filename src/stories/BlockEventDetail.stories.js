@@ -28,11 +28,34 @@ const mockEventDetailData = {
 }
 
 
-export function testStory() {
+export function Default() {
   return {
     data() {
       return {
         data: mockEventDetailData,
+      }
+    },
+    components: { BlockEventDetail },
+    template: `
+    <block-event-detail
+      startDate="2024-03-09T03:30:00+00:00"
+      time="2024-03-09T03:30:00+00:00"
+      :locations="data.location"
+    />
+    `,
+  }
+}
+
+export function FTVA() {
+  return {
+    data() {
+      return {
+        data: mockEventDetailData,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     components: { BlockEventDetail },
