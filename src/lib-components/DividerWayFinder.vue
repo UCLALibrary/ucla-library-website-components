@@ -18,6 +18,8 @@ const { color, isHalfWidth } = defineProps({
 
 const route = useRoute()
 // console.log('does this route exist?', route)
+
+// THEME
 const theme = useTheme()
 
 const sectionName = computed(() => color || (route !== undefined && route.path

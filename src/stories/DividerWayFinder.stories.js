@@ -28,6 +28,7 @@ const MockFtva = {
   color: 'ftva',
 }
 
+// STORIES
 export function Default() {
   return {
     components: { DividerWayFinder },
