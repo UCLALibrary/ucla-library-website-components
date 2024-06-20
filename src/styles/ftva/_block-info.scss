@@ -1,0 +1,55 @@
+.block-info {
+    .block-info-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 10px;
+        background: $page-blue;
+        width: 282px;
+
+        .block-info-header {
+            color: $medium-grey;
+            font-size: 20px;
+            font-weight: $font-weight-medium;
+            line-height: 28px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid $subtitle-grey;
+        }
+
+        .block-info-list {
+            padding: 16px 0 16px 20px;
+        }
+
+        .block-info-list li {
+            font-size: $font-size-16;
+            line-height: 24px;
+            color: $body-grey;
+        }
+
+        .button-link {
+            *:not(:only-child):first-child {
+                padding-left: 0px;
+            }
+        }
+
+        #block-info-button {
+            border-radius: 2px;
+            width: -webkit-max-content;
+            width: -moz-max-content;
+            width: max-content;
+            margin: 0 auto;
+            border: 1px solid $accent-blue;
+            font-size: 18px;
+            font-weight: $font-weight-medium;
+            color: $accent-blue;
+        }
+
+        #block-info-button:hover {
+            background: $accent-blue;
+        }
+    }
+}
