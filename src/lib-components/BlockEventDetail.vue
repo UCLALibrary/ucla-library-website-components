@@ -1,17 +1,17 @@
 <script setup lang="ts">
 // Utility functions
-import { computed, defineAsyncComponent } from 'vue'
+import { computed } from 'vue'
+import SvgIconCalendar from 'ucla-library-design-tokens/assets/svgs/icon-calendar.svg'
+import SvgIconLocation from 'ucla-library-design-tokens/assets/svgs/icon-location.svg'
+import SvgIconClock from 'ucla-library-design-tokens/assets/svgs/icon-clock.svg'
 import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
 import { useTheme } from '@/composables/useTheme'
 
-// import IconWithLink from '@/lib-components/IconWithLink.vue'
+// Child components
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 // TODO import FTVA icons when available
-import SvgIconCalendar from 'ucla-library-design-tokens/assets/svgs/icon-calendar.svg'
-import SvgIconLocation from 'ucla-library-design-tokens/assets/svgs/icon-location.svg'
-import SvgIconClock from 'ucla-library-design-tokens/assets/svgs/icon-clock.svg'
 
 interface BlockEventDetailLocation {
   id?: string
@@ -20,27 +20,28 @@ interface BlockEventDetailLocation {
   uri?: string
 }
 
-const { startDate, time, locations} = defineProps({
-    startDate: {
-        type: String,
-        default: '',
-    },
-    time: {
-        type: String,
-        default: '',
-    },
-    locations: {
-        type: Array<BlockEventDetailLocation>,
-        default: () => [],
-    },
+const { startDate, time, locations } = defineProps({
+  startDate: {
+    type: String,
+    default: '',
+  },
+  time: {
+    type: String,
+    default: '',
+  },
+  locations: {
+    type: Array<BlockEventDetailLocation>,
+    default: () => [],
+  },
 })
 
 const theme = useTheme()
 
 const parsedClasses = computed(() => {
-    return ['block-event-detail', theme || '']
+  return ['block-event-detail', theme?.value || '']
 })
 </script>
+
 <template>
   <div :class="parsedClasses">
     <div class="event-list date">
@@ -57,50 +58,15 @@ const parsedClasses = computed(() => {
       <span>
         <SvgIconLocation class="row-icon" />
         <span v-for="(location, index) in locations" :key="location.title" class="location-link">
-          <SmartLink :to="location.title" :linkTarget="location.uri ? location.uri : ''">{{ location.title }}</SmartLink>{{
-          index < locations.length - 1 ? ', ' : '' }} </span>
-        </span>
+          <SmartLink :to="location.title" :link-target="location.uri ? location.uri : ''">{{ location.title }}</SmartLink>{{
+            index < locations.length - 1 ? ', ' : '' }} </span>
+      </span>
     </div>
-    <!-- TO DO ADD TO CALENDAR BUTTON IMPLEMENT HERE-->
+    <!-- TO DO ADD TO CALENDAR BUTTON IMPLEMENT HERE -->
+    <slot />
   </div>
 </template>
+
 <style lang="scss" scoped>
-// TODO tokenify
-// base
-.block-event-detail {
-  text-transform: uppercase;
-  font-size: 20px;
-  color: #555;
-  .event-list {
-    margin-bottom: 15px;
-    > span {
-      display: inline-flex;
-      flex-direction: row;
-      align-items: center;
-      .row-icon {
-        margin-right: 24px;
-      }
-      .location-link {
-        margin-right: 5px;
-      }
-    }
-  }
-  a {
-    text-decoration: underline;
-  }
-}
-
-
-
-// ftva
-.ftva.block-event-detail {
-  .event-list {
-    > span {
-      .row-icon {
-        fill: #fff;
-      }
-    }
-  }
-}
-
+@import "@/styles/themes.scss";
 </style>
