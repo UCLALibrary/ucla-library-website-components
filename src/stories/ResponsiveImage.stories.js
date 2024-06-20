@@ -68,7 +68,6 @@ export function WithCreditText() {
     template: `
         <responsive-image
             :media="image"
-            :aspect-ratio="100"
         >
         <template v-slot:credit>
                Photo by John Doe
@@ -89,7 +88,6 @@ export function WithLongCreditText() {
     template: `
         <responsive-image
             :media="image"
-            :aspect-ratio="100"
         >
         <template v-slot:credit>
                lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum 
