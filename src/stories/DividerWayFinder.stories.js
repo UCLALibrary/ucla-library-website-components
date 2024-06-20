@@ -1,40 +1,125 @@
-import DividerWayFinder from '@/lib-components/DividerWayFinder.vue'
+import { computed } from 'vue'
+import DividerWayFinder from '@/lib-components/DividerWayFinder'
 
 export default {
   title: 'DIVIDER / Way Finder',
   component: DividerWayFinder,
 }
 
-export const Default = {
-  args: {},
+// MOCK DATA
+const MockVisit = {
+  color: 'visit',
 }
 
-export const Visit = {
-  args: {
-    color: 'visit',
-  },
+const MockAbout = {
+  color: 'about',
 }
 
-export const About = {
-  args: {
-    color: 'about',
-  },
+const MockHelp = {
+  color: 'help',
 }
 
-export const Help = {
-  args: {
-    color: 'help',
-  },
+const MockIsHalfWidthHelp = {
+  color: 'help',
+  isHalfWidth: true
 }
 
-export const FTVA = {
-  args: {
-    color: 'ftva',
-  },
+const MockFtva = {
+  color: 'ftva',
 }
 
-export const IsHalfWidth = {
-  args: {
-    isHalfWidth: true,
-  },
+export function Default() {
+  return {
+    components: { DividerWayFinder },
+    template: '<divider-way-finder />',
+  }
+}
+
+export function Visit() {
+  return {
+    data() {
+      return {
+        ...MockVisit,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'visit'),
+      }
+    },
+    components: { DividerWayFinder },
+    template: `<divider-way-finder :color='color'/>`,
+  }
+}
+
+export function About() {
+  return {
+    data() {
+      return {
+        ...MockAbout,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'about'),
+      }
+    },
+    components: { DividerWayFinder },
+    template: `<divider-way-finder :color='color'/>`,
+  }
+}
+
+export function Help() {
+  return {
+    data() {
+      return {
+        ...MockHelp,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'help'),
+      }
+    },
+    components: { DividerWayFinder },
+    template: `<divider-way-finder :color='color'/>`,
+  }
+}
+
+export function IsHalfWidthHelp() {
+  return {
+    data() {
+      return {
+        ...MockIsHalfWidthHelp,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'help'),
+      }
+    },
+    components: { DividerWayFinder },
+    template: `
+    <divider-way-finder
+      :color='color'
+      :isHalfWidth='isHalfWidth'
+    />`,
+  }
+}
+
+export function FTVA() {
+  return {
+    data() {
+      return {
+        ...MockFtva,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { DividerWayFinder },
+    template: `<divider-way-finder :color='color'/>`,
+  }
 }
