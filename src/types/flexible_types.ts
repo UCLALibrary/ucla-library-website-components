@@ -1,4 +1,4 @@
-import type { BlockCallToActionTwoUpType, BlockImpactNumbersCarouselType, LocationItemType, MediaGalleryItemType, MediaItemType } from '@/types/types'
+import type { BlockImpactNumbersCarouselType, LocationItemType, MediaGalleryItemType, MediaItemType } from '@/types/types'
 
 // Reusable block declaration for Flexible Components
 
@@ -124,7 +124,7 @@ interface FlexibleCallToActionItem {
   icon: string
   buttonText: string
   buttonUrl: string
-  backgroundColor: boolean
+  backgroundColor: string
 }
 
 interface FlexibleGridGalleryCard {
@@ -212,10 +212,6 @@ export interface FlexibleBannerFeatured extends FlexibleBlock {
 
 export interface FlexibleCallToAction extends FlexibleBlock {
   callToAction: FlexibleCallToActionItem[]
-}
-
-export interface FlexibleCallToAction2Up extends FlexibleBlock {
-  ctaBlock2Up: BlockCallToActionTwoUpType[]
 }
 
 export interface FlexibleCardsWithImage extends FlexibleBlock {
