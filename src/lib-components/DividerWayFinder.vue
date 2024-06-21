@@ -41,4 +41,5 @@ const classes = computed(() => [
   scoped
 >
 @import "@/styles/themes.scss";
+@import "ucla-library-design-tokens/scss/_tokens-ftva";
 </style>
