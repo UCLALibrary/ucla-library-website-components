@@ -64,7 +64,7 @@
         "sass": "^1.64.2",
         "storybook": "^7.4.1",
         "typescript": "^5.2.2",
-        "ucla-library-design-tokens": "^5.12.6",
+        "ucla-library-design-tokens": "^5.13.0",
         "video.js": "^8.5.2",
         "vite": "^4.4.5",
         "vite-svg-loader": "^4.0.0",

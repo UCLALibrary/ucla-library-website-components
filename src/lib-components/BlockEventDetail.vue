@@ -1,9 +1,9 @@
 <script setup lang="ts">
 // Utility functions
 import { computed } from 'vue'
-import SvgIconCalendar from 'ucla-library-design-tokens/assets/svgs/icon-calendar.svg'
-import SvgIconLocation from 'ucla-library-design-tokens/assets/svgs/icon-location.svg'
-import SvgIconClock from 'ucla-library-design-tokens/assets/svgs/icon-clock.svg'
+import SvgIconCalendar from 'ucla-library-design-tokens/assets/svgs/icon-ftva-calendar.svg'
+import SvgIconLocation from 'ucla-library-design-tokens/assets/svgs/icon-ftva-location.svg'
+import SvgIconClock from 'ucla-library-design-tokens/assets/svgs/icon-ftva-clock.svg'
 import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
 import { useTheme } from '@/composables/useTheme'
