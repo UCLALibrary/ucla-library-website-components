@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
@@ -68,6 +71,10 @@ const props = defineProps({
   sectionHandle: {
     type: String,
     default: '',
+  },
+  tagLabel: {
+    type: String,
+    required: false
   },
 })
 
@@ -191,7 +198,10 @@ const parsedLocations = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .card-meta {
   .meta {
     z-index: 10;

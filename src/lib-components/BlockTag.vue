@@ -61,8 +61,15 @@ const parsedClasses = computed(() => {
 
 <template>
   <span :class="parsedClasses">
-    <component :is="BlockTagIcons[iconName]" v-if="iconName" class="svg" aria-hidden="true" />
-    <div class="label" v-html="label" />
+    <component
+      :is="BlockTagIcons[iconName]"
+      v-if="iconName"
+      class="svg"
+      aria-hidden="true"
+    />
+    <div class="label">
+      {{ label }}
+    </div>
     <!-- slot for 'x' button or any additional content parent needs to display in tag -->
     <slot />
   </span>

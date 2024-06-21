@@ -174,6 +174,7 @@ export interface LocationItemType {
   id?: string
   title: string
   to: string
+  tagLabel?: string
 }
 
 export interface SearchLinkItemType {
