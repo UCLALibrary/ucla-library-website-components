@@ -39,6 +39,7 @@
 
         :deep(.hover) {
             background-color: $accent-blue;
+            border: 1px solid $accent-blue;
         }
 
         *:not(:only-child):first-child {
