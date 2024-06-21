@@ -159,7 +159,6 @@ const classes = computed (() => {
   // Credit text slot
     .credit {
       position: absolute;
-      width: 100%;
       font-family: var(--font-secondary);
       bottom: 0;
       right: 0;
@@ -173,6 +172,8 @@ const classes = computed (() => {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      @media #{$small} {
+        width: 100%;
+      }
     }
-}
-</style>
+}</style>
