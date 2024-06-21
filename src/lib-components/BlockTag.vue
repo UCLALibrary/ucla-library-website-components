@@ -1,4 +1,7 @@
-<script lang="ts" setup>
+<script
+  lang="ts"
+  setup
+>
 import { computed, defineAsyncComponent } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
@@ -47,7 +50,12 @@ const parsedClasses = computed(() => {
 
 <template>
   <span :class="parsedClasses">
-    <component :is="BlockTagIcons[iconName]" v-if="iconName" class="svg" aria-hidden="true" />
+    <component
+      :is="BlockTagIcons[iconName]"
+      v-if="iconName"
+      class="svg"
+      aria-hidden="true"
+    />
     <div class="label">
       {{ label }}
     </div>
@@ -56,6 +64,9 @@ const parsedClasses = computed(() => {
   </span>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 @import "@/styles/themes.scss";
 </style>
