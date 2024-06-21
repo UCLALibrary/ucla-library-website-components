@@ -1,3 +1,17 @@
+# [2.39.0-alpha.86](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.85...v2.39.0-alpha.86) (2024-06-21)
+
+
+### Bug Fixes
+
+* convert isdark and isSmallSize to boolean and test if string is true in flexible component ([#526](https://github.com/UCLALibrary/ucla-library-website-components/issues/526)) ([c864037](https://github.com/UCLALibrary/ucla-library-website-components/commit/c864037d3c534eafe917cdc59d6ca482136a62be))
+
+# [2.39.0-alpha.85](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.84...v2.39.0-alpha.85) (2024-06-20)
+
+
+### Bug Fixes
+
+* grey placeholder appreaing under email address label when not in focus ([#525](https://github.com/UCLALibrary/ucla-library-website-components/issues/525)) ([a036142](https://github.com/UCLALibrary/ucla-library-website-components/commit/a0361425d2b631d7c779004f0b45bc2cd6c98cd3))
+
 # [2.39.0-alpha.84](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.83...v2.39.0-alpha.84) (2024-06-18)
 
 
