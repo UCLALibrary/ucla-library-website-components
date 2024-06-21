@@ -14,7 +14,7 @@ const defaultmock = {
 // ftva site
 const ftvamock = {
   label: 'ftva label text',
-  iconName: 'SvgIconList',
+  iconName: 'SvgIconGuest',
 }
 
 export function Default() {
@@ -49,7 +49,6 @@ export function PrimaryFTVA() {
     template: `
     <block-tag
         :label="label"
-        :iconName="iconName"
     />
   `,
   }
@@ -72,6 +71,7 @@ export function SecondaryFTVA() {
     <block-tag
         :label="label"
         :iconName="iconName"
+        isSecondary="true"
     />
   `,
   }
