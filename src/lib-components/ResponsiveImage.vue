@@ -93,22 +93,23 @@ const classes = computed (() => {
 
 <template>
   <figure v-if="props.media && props.media.src" :class="classes">
-    <img 
-      :src="props.media.src || props.src" 
+    <img
+      :src="props.media.src || props.src"
       :height="props.media.width || props.width"
-      :width="props.media.height || props.height" 
+      :width="props.media.height || props.height"
       :alt="props.media.alt || props.alt"
-      :srcset="props.media.srcset || props.srcset" 
+      :srcset="props.media.srcset || props.srcset"
       :sizes="props.media.sizes || props.sizes"
-      :object-fit="props.objectFit" :style="parsedFocalPoint" 
-      class="media" 
-      @load="onLoad" 
+      :object-fit="props.objectFit" :style="parsedFocalPoint"
+      class="media"
+      @load="onLoad"
       @error="onError"
     >
-    <figcaption 
-      v-if="props.media.caption || props.caption" 
+    <figcaption
+      v-if="props.media.caption || props.caption"
       class="caption"
-      v-html="props.media.caption || props.caption" />
+      v-html="props.media.caption || props.caption"
+    />
     <div class="sizer" :style="styles" />
     <slot />
     <div v-if="$slots.credit" class="credit">
