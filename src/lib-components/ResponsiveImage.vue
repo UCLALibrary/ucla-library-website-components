@@ -176,4 +176,5 @@ const classes = computed (() => {
         width: 100%;
       }
     }
-}</style>
+}
+</style>
