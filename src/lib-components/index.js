@@ -46,7 +46,6 @@ export { default as FlexibleBannerFeatured } from './Flexible/BannerFeatured.vue
 export { default as FlexibleBlocks } from './FlexibleBlocks.vue'
 export { default as FlexibleCallToAction } from './Flexible/CallToAction.vue'
 export { default as FlexibleCardWithImage } from './Flexible/CardWithImage.vue'
-export { default as FlexibleCtaBlock2Up } from './Flexible/CtaBlock2Up.vue'
 export { default as FlexibleForm } from './Flexible/Form.vue'
 export { default as FlexibleGridGalleryCards } from './Flexible/GridGalleryCards.vue'
 export { default as FlexibleHighlight } from './Flexible/Highlight.vue'
