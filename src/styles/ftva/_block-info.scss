@@ -1,55 +1,55 @@
 .block-info {
-    .block-info-wrapper {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        border-radius: 10px;
-        background: $page-blue;
-        width: 282px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    background: $page-blue;
 
-        .block-info-header {
-            color: $medium-grey;
-            font-size: 20px;
-            font-weight: $font-weight-medium;
-            line-height: 28px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid $subtitle-grey;
+    .block-info-header {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: $font-weight-medium;
+        color: $medium-grey;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 8px 0;
+        border-bottom: 1px solid $subtitle-grey;
+    }
+
+    .block-info-list {
+        padding: 16px 0 16px 20px;
+    }
+
+    .block-info-list li {
+        font-size: $font-size-16;
+        line-height: 24px;
+        color: $body-grey;
+    }
+
+    .button-link {
+        color: $accent-blue;
+        font-size: 18px;
+        border: 1px solid $accent-blue;
+        border-radius: 2px;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        margin: 0 auto;
+
+        :deep(.hover) {
+            background-color: $accent-blue;
         }
 
-        .block-info-list {
-            padding: 16px 0 16px 20px;
+        *:not(:only-child):first-child {
+            padding-left: 0px;
         }
+    }
 
-        .block-info-list li {
-            font-size: $font-size-16;
-            line-height: 24px;
-            color: $body-grey;
-        }
-
+    @media (min-width: 1024px) {
         .button-link {
-            *:not(:only-child):first-child {
-                padding-left: 0px;
-            }
-        }
-
-        #block-info-button {
-            border-radius: 2px;
-            width: -webkit-max-content;
-            width: -moz-max-content;
-            width: max-content;
-            margin: 0 auto;
-            border: 1px solid $accent-blue;
-            font-size: 18px;
-            font-weight: $font-weight-medium;
-            color: $accent-blue;
-        }
-
-        #block-info-button:hover {
-            background: $accent-blue;
+            padding-left: 16px;
+            padding-right: 16px;
         }
     }
 }
