@@ -159,6 +159,7 @@ const classes = computed (() => {
   // Credit text slot
     .credit {
       position: absolute;
+      width: 100%;
       font-family: var(--font-secondary);
       bottom: 0;
       right: 0;
