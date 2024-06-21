@@ -25,17 +25,3 @@ export const IsTertiary = {
     template: '<divider-general :is-tertiary="true"/>',
   }),
 }
-
-export const IsHalfWidth = {
-  render: () => ({
-    components: { DividerGeneral },
-    template: '<divider-general :is-half-width="true"/>',
-  }),
-}
-
-export const IsHalfWidthAndTertiary = {
-  render: () => ({
-    components: { DividerGeneral },
-    template: '<divider-general :is-half-width="true" :is-tertiary="true"/>',
-  }),
-}

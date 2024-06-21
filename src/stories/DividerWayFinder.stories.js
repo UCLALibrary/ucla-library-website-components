@@ -19,11 +19,6 @@ const MockHelp = {
   color: 'help',
 }
 
-const MockIsHalfWidthHelp = {
-  color: 'help',
-  isHalfWidth: true
-}
-
 const MockFtva = {
   color: 'ftva',
 }
@@ -84,27 +79,6 @@ export function Help() {
     },
     components: { DividerWayFinder },
     template: `<divider-way-finder :color='color'/>`,
-  }
-}
-
-export function IsHalfWidthHelp() {
-  return {
-    data() {
-      return {
-        ...MockIsHalfWidthHelp,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'help'),
-      }
-    },
-    components: { DividerWayFinder },
-    template: `
-    <divider-way-finder
-      :color='color'
-      :isHalfWidth='isHalfWidth'
-    />`,
   }
 }
 

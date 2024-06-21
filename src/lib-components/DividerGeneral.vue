@@ -10,14 +10,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    isHalfWidth: {
-      type: Boolean,
-      default: false,
-    },
   },
   computed: {
     classes() {
-      return ['divider-general', { 'is-bold': this.isBold }, { 'is-tertiary': this.isTertiary }, { 'is-half-width': this.isHalfWidth }]
+      return ['divider-general', { 'is-bold': this.isBold }, { 'is-tertiary': this.isTertiary }]
     },
   },
 }
@@ -44,10 +40,6 @@ export default {
   &.is-tertiary {
     border-bottom-color: var(--color-secondary-grey-03);
     border-bottom: 2px solid var(--color-secondary-grey-02);
-  }
-
-  &.is-half-width {
-    max-width: calc((100% - 16px) / 2);
   }
 }
 </style>

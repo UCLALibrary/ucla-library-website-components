@@ -5,15 +5,11 @@ import { useRoute } from 'vue-router'
 import getSectionName from '@/utils/getSectionName'
 import { useTheme } from '@/composables/useTheme'
 
-const { color, isHalfWidth } = defineProps({
+const { color } = defineProps({
   color: {
     type: String,
     default: '', // "VISIT", "ABOUT", "HELP", "FTVA"
   },
-  isHalfWidth: {
-    type: Boolean,
-    default: false,
-  }
 })
 
 const route = useRoute()
@@ -29,7 +25,6 @@ const sectionName = computed(() => color || (route !== undefined && route.path
 const classes = computed(() => [
   'divider-way-finder',
   `color-${sectionName.value}`,
-  { 'half-width': isHalfWidth },
   theme?.value || ''
 ])
 </script>
