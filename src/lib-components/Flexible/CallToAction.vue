@@ -9,7 +9,7 @@ import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleCallToAction>,
-    default: () => {},
+    default: () => { },
   },
 })
 
@@ -26,7 +26,7 @@ const parsedItems = computed(() => {
     :title="parsedItems.titleCta"
     :text="parsedItems.summary"
     :svg-name="parsedItems.icon"
-    :is-dark="parsedItems.backgroundColor"
+    :is-dark="parsedItems.backgroundColor === 'true'"
   />
 </template>
 
