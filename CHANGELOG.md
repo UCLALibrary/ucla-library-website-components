@@ -1,3 +1,10 @@
+# [2.39.0-alpha.87](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.86...v2.39.0-alpha.87) (2024-06-24)
+
+
+### Features
+
+* APPS-2777 fix nitro crawling issue ([#534](https://github.com/UCLALibrary/ucla-library-website-components/issues/534)) ([c4e689a](https://github.com/UCLALibrary/ucla-library-website-components/commit/c4e689a0ff5509ea75831f73c19dd56bd8585a98))
+
 # [2.39.0-alpha.86](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.85...v2.39.0-alpha.86) (2024-06-21)
 
 
