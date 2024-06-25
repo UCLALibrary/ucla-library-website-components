@@ -11,8 +11,6 @@ import { useTheme } from '@/composables/useTheme'
 // Child components
 import SmartLink from '@/lib-components/SmartLink.vue'
 
-// TODO import FTVA icons when available
-
 interface BlockEventDetailLocation {
   id?: string
   title: string
