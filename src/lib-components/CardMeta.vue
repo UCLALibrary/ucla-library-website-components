@@ -137,6 +137,7 @@ const parsedLocations = computed(() => {
         v-html="alternativeFullName"
       />
     </SmartLink>
+
     <h3
       v-else
       class="title-no-link"
@@ -190,6 +191,17 @@ const parsedLocations = computed(() => {
         :to="location.to"
       />
     </div>
+
+    <div class="block-tag">
+      <BlockTag
+        v-for="item in items"
+        :key="`block-post-${item.title}`"
+        :label="label"
+        :iconName="iconName"
+        class="block-tag"
+      />
+    </div>
+
     <RichText
       v-if="text"
       class="text"
