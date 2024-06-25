@@ -45,6 +45,7 @@ export interface BlockCardMetaType {
   language: string
   text: string
   locations?: LocationItemType[]
+  screeningTags?: ScreeningTagItemType[]
   bylineOne: string
   bylineTwo: string
   ongoing: boolean
@@ -174,7 +175,11 @@ export interface LocationItemType {
   id?: string
   title: string
   to: string
-  tagLabel?: string
+}
+
+export interface ScreeningTagItemType {
+  id: string
+  title: string
 }
 
 export interface SearchLinkItemType {
