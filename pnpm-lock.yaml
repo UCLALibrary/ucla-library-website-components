@@ -3865,7 +3865,7 @@ packages:
       lodash: 4.17.21
       ts-dedent: 2.2.0
       type-fest: 3.13.1
-      vue: 3.4.23(typescript@5.2.2)
+      vue: 3.4.29(typescript@5.2.2)
       vue-component-type-helpers: 2.0.22
     transitivePeerDependencies:
       - encoding
