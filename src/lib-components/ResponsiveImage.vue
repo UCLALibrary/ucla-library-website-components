@@ -94,25 +94,22 @@ const classes = computed (() => {
 <template>
   <figure v-if="props.media && props.media.src" :class="classes">
     <img
-      :src="props.media.src || props.src"
-      :height="props.media.width || props.width"
-      :width="props.media.height || props.height"
-      :alt="props.media.alt || props.alt"
-      :srcset="props.media.srcset || props.srcset"
-      :sizes="props.media.sizes || props.sizes"
-      :object-fit="props.objectFit"
-      :style="parsedFocalPoint"
-      class="media"
-      @load="onLoad"
-      @error="onError"
+      :src="props.media.src || props.src" :height="props.media.width || props.width"
+      :width="props.media.height || props.height" :alt="props.media.alt || props.alt"
+      :srcset="props.media.srcset || props.srcset" :sizes="props.media.sizes || props.sizes"
+      :object-fit="props.objectFit" :style="parsedFocalPoint" class="media" @load="onLoad" @error="onError"
     >
     <figcaption
-      v-if="props.media.caption || props.caption"
-      class="caption"
+      v-if="props.media.caption || props.caption" class="caption"
       v-html="props.media.caption || props.caption"
     />
     <div class="sizer" :style="styles" />
     <slot />
+    <div v-if="$slots.credit" class="credit">
+      <div class="credit-text">
+        <slot name="credit" />
+      </div>
+    </div>
   </figure>
 </template>
 
@@ -153,5 +150,28 @@ const classes = computed (() => {
   &.has-loaded {
       opacity: 1;
   }
+
+  // Credit text slot
+    .credit {
+      position: absolute;
+      font-family: var(--font-secondary);
+      bottom: 0;
+      right: 0;
+      color: #f1f1f1;
+      font-size: 16px;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      .credit-text {
+        background-color: rgba(0, 0, 0, 0.64);
+        padding: 4px 8px;
+        // enforce 1 line, 50 char limit
+        height: 32px;
+        max-width: 385px;
+        white-space: pre;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
 }
 </style>
