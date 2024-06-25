@@ -20,6 +20,9 @@
         -moz-transition: width .15s ease-in-out;
         -o-transition: width .15s ease-in-out;
         transition: width .15s ease-in-out;
+        svg {
+            margin-top: 3px;
+        }
     }
 
     &:hover {
@@ -37,7 +40,10 @@
 
         .button-close {
             color: white;
-            width: 8px;
+            width: 20px;
+            :deep(.svg__stroke--pure-white) {
+                fill: white;
+            }
         }
     }
 }

@@ -110,8 +110,8 @@ devDependencies:
     specifier: ^5.2.2
     version: 5.2.2
   ucla-library-design-tokens:
-    specifier: ^5.13.0
-    version: 5.13.0
+    specifier: ^5.15.0
+    version: 5.15.0
   video.js:
     specifier: ^8.5.2
     version: 8.5.2
@@ -3523,7 +3523,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 3.13.1
       vue: 3.4.23(typescript@5.2.2)
-      vue-component-type-helpers: 2.0.21
+      vue-component-type-helpers: 2.0.22
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -10388,8 +10388,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  /ucla-library-design-tokens@5.13.0:
-    resolution: {integrity: sha512-Riqhi699mFEBTDb7Sv4MYAUn5r8BIQzK5D/GN260bxrsO2R9kLv18Ms+aQoGBGz/xZyaO5TJJAfG4xFgiy9Ytw==}
+  /ucla-library-design-tokens@5.15.0:
+    resolution: {integrity: sha512-eSPig1iinQHpJ+J0DMXIXvE0BD4rRxcnazXwEQmlE9fmjgUSZnZpc1fkoDOu0ZP7nhoADIn7HZuFf0dlAM5veQ==}
     dev: true
 
   /uglify-js@3.17.4:
@@ -10682,8 +10682,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /vue-component-type-helpers@2.0.21:
-    resolution: {integrity: sha512-3NaicyZ7N4B6cft4bfb7dOnPbE9CjLcx+6wZWAg5zwszfO4qXRh+U52dN5r5ZZfc6iMaxKCEcoH9CmxxoFZHLg==}
+  /vue-component-type-helpers@2.0.22:
+    resolution: {integrity: sha512-gPr2Ba7efUwy/Vfbuf735bHSVdN4ycoZUCHfypkI33M9DUH+ieRblLLVM2eImccFYaWNWwEzURx02EgoXDBmaQ==}
     dev: true
 
   /vue-demi@0.14.6(vue@3.4.23):
