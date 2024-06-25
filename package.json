@@ -1,7 +1,7 @@
 {
     "name": "ucla-library-website-components",
     "private": false,
-    "version": "2.39.0-alpha.87",
+    "version": "2.39.0-alpha.88",
     "main": "dist/ucla-library-website-components.umd.js",
     "module": "dist/ucla-library-website-components.es.js",
     "files": [

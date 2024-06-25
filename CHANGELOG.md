@@ -1,3 +1,10 @@
+# [2.39.0-alpha.88](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.87...v2.39.0-alpha.88) (2024-06-25)
+
+
+### Features
+
+* Apps-2773 update responsive image component ([#528](https://github.com/UCLALibrary/ucla-library-website-components/issues/528)) ([78b02f0](https://github.com/UCLALibrary/ucla-library-website-components/commit/78b02f0f4758827c78459f8f34f5e8feb4667b82))
+
 # [2.39.0-alpha.87](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.86...v2.39.0-alpha.87) (2024-06-24)
 
 
