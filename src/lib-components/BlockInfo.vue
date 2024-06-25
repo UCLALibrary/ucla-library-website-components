@@ -39,13 +39,13 @@ const parsedTicketInfo = computed(() => {
 // THEME
 const theme = useTheme()
 
-const themeClass = computed(() => {
-  return ['block-info']
+const parsedClasses = computed(() => {
+  return ['block-info', theme?.value || '']
 })
 </script>
 
 <template>
-  <div :class="themeClass">
+  <div :class="parsedClasses">
     <!-- ToDo: Potential to make this field dynamic; See: https://uclalibrary.atlassian.net/browse/APPS-2785 -->
 
     <h1 class="block-info-header">
