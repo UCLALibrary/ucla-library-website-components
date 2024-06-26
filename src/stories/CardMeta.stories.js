@@ -1,5 +1,5 @@
+import { computed } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
-provide() { return { theme: computed(() => 'ftva'), } },
 
 // Storybook default settings
 export default {
@@ -7,7 +7,7 @@ export default {
   component: CardMeta
 }
 
-const mockDefault = {
+const mock = {
   to: '/visit/foo/bar/',
   category: 'Ullamco',
   title: 'Seven seas of the ancient world',
@@ -25,56 +25,36 @@ const mockDefault = {
   bylineTwo: 'Byline 2'
 }
 
-const mockEventTagsAndIntroduction = {
-  to: '/visit/foo/bar/',
-  category: 'Ullamco',
-  eventTitle: 'Origin of a Meal',
-  eventDescription: 'In-person: chef and restaurateur Alice Waters.',
-  sectionHandle: 'event',
-  tagLabels: [
-    { title: 'Guest speaker' }, { title: '35mm' }
-  ],
-  text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
-}
-
-const mockEventSeries = {
-  to: '/visit/foo/bar/',
-  category: 'Ullamco',
-  eventTitle: 'Origin of a Meal',
-  eventDescription: 'In-person: chef and restaurateur Alice Waters.',
-  sectionHandle: 'event',
-  tagLabels: [
-    { title: 'Guest speaker' }, { title: '35mm' }
-  ],
-  text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
-}
-
 const mockOnlyCategoryAndTitle = {
-  category: 'Ullamco',
-  title: 'Origin of a Meal',
+  event:{
+    eventTitle: 'Origin of a Meal',
+  },
+  series: {
+    title: "TEST Series: The Step Up Movie Series"
+  }
 }
 
 // Variations of stories below
 export function Default() {
   return {
     data() {
-      return { ...mockDefault }
+      return { ...mock }
     },
     components: { CardMeta },
     template: `
       <card-meta
-        :to="to"
-        :category="category"
-        :title="title"
-        :start-date="startDate"
-        :end-date="endDate"
-        :text="text"
-        :bylineOne="bylineOne"
-        :bylineTwo="bylineTwo"
-        :locations="locations"
-        :alternativeFullName="alternativeFullName"
-        :language="language"
-        :section-handle="sectionHandle"
+          :to="to"
+          :category="category"
+          :title="title"
+          :start-date="startDate"
+          :end-date="endDate"
+          :text="text"
+          :bylineOne="bylineOne"
+          :bylineTwo="bylineTwo"
+          :locations="locations"
+          :alternativeFullName="alternativeFullName"
+          :language="language"
+          :section-handle="sectionHandle"
       />
   `,
   }
@@ -83,20 +63,35 @@ export function Default() {
 export function Ongoing() {
   return {
     data() {
-      return { ...mockDefault }
+      return { ...mock }
     },
     components: { CardMeta },
     template: `
       <card-meta
-        :to="to"
-        :category="category"
-        :title="title"
-        :ongoing=true
-        :text="text"
-        :locations="locations"
-        :alternativeFullName="alternativeFullName"
-        :language="language"
-        :section-handle="sectionHandle"
+          :to="to"
+          :category="category"
+          :title="title"
+          :ongoing=true
+          :text="text"
+          :locations="locations"
+          :alternativeFullName="alternativeFullName"
+          :language="language"
+          :section-handle="sectionHandle"
+      />
+  `,
+  }
+}
+
+export function OnlyCategoryAndTitle() {
+  return {
+    data() {
+      return { ...mockOnlyCategoryAndTitle }
+    },
+    components: { CardMeta },
+    template: `
+      <card-meta
+        :category="series.title"
+        :title="event.eventTitle"
       />
   `,
   }
@@ -112,75 +107,90 @@ export function EventTagsAndIntroduction() {
       <card-meta
         :category="category"
         :title="eventTitle"
-        :introduction="eventDescription"
+        :tagLabel="ftvaEventFilters"
+        :introduction="ftvaEventIntroduction"
         :text="eventDescription"
       />
   `,
   }
 }
 
-export function EventSeriesCategory() {
-  return {
-    data() {
-      return { ...mockEventSeries }
-    },
-    components: { CardMeta },
-    template: `
-      <card-meta
-          :category="category"
-          :title="eventTitle"
-          :text="eventDescription"
-          :section-handle="sectionHandle"
-      />
-  `,
-  }
+const mockEventTagsAndIntroduction = {
+  to: '/visit/foo/bar/',
+  eventTitle: 'Origin of a Meal',
+  ftvaEventIntroduction: 'In-person: chef and restaurateur Alice Waters.',
+  ftvaEventFilters: [
+    { title: 'Guest speaker' }, { title: '35mm' }
+  ],
+  text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
 }
 
-export function ShareButton() {
-  return {
-    data() {
-      return { ...mockEventSeries }
-    },
-    components: { CardMeta },
-    template: `
-      <card-meta
-          :category="category"
-          :title="eventTitle"
-          :text="eventDescription"
-          :section-handle="sectionHandle"
-          :section-handle="sectionHandle"
-      />
-  `,
-  }
-}
+// const mockEventSeries = {
+//   event:{
+//     eventTitle: 'Origin of a Meal',
+//     ftvaEventIntroduction: 'In-person: chef and restaurateur Alice Waters.',
+//     ftvaEventFilters: [
+//       { title: 'Guest speaker' }, { title: '35mm' }
+//     ],
+//     text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
+//   }
+//   series: {
+//     title: "TEST Series: The Step Up Movie Series"
+//   }
+// }
 
-export function CenteredTitleText() {
-  return {
-    data() {
-      return { ...mockDefault }
-    },
-    components: { CardMeta },
-    template: `
-      <card-meta
-        :category="category"
-        :title="title"
-        :text="text"
-      />
-  `,
-  }
-}
+// export function EventSeriesCategory() {
+//   return {
+//     data() {
+//       return { ...mockEventSeries }
+//     },
+//     components: { CardMeta },
+//     template: `
+//       <card-meta
+//           :category="series.title"
+//           :title="event.eventTitle"
+//           :text="event.eventDescription"
+//           :section-handle="event.sectionHandle"
+//       />
+//   `,
+//   }
+// }
 
-export function OnlyCategoryAndTitle() {
-  return {
-    data() {
-      return { ...mockOnlyCategoryAndTitle }
-    },
-    components: { CardMeta },
-    template: `
-      <card-meta
-        :category="category"
-        :title="title"
-      />
-  `,
-  }
-}
+// export function ShareButton() {
+//   return {
+//     data() {
+//       return { ...mockEventSeries }
+//     },
+//     components: { CardMeta },
+//     template: `
+//       <card-meta
+//           :title="event.eventTitle"
+//           :text="event.eventDescription"
+//       />
+//   `,
+//   }
+// }
+
+// export function CenteredTitleText() {
+//   return {
+//     data() {
+//       return { ...mockEventSeries }
+//     },
+//     components: { CardMeta },
+//     template: `
+//       <card-meta
+//         :category="event.category"
+//         :title="event.title"
+//         :text="event.text"
+//       />
+//   `,
+//   }
+// }
+
+
+
+
+
+
+
+
