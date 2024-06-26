@@ -1,13 +1,29 @@
 // CardMeta THEME
-// Change these to make FTVA CardMeta look right
+
 .ftva.card-meta {
   .category {
     @include overline;
     color: $accent-blue;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: $proxima-nova;
+    font-size: $font-size-18;
+    line-height: $line-height-150;
     margin-top: var(--space-xs);
     margin-bottom: var(--space-s);
   }
 
-  .block-tag {}
+  .title,
+  .title-no-link {
+    color: $heading-grey;
+    font-family: Karbon Bold;
+    font-size: 48px;
+    line-height: 110%;
+    margin-top: var(--space-xs);
+  }
+
+  .introduction {
+    font-family: Proxima Nova Regular;
+    font-size: 18px;
+    line-height: 150%;
+    color: $body-grey;
+  }
 }

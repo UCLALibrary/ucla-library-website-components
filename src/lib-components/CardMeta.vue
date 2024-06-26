@@ -75,6 +75,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  introduction: {
+    type: String,
+    default: '',
+  },
 })
 
 const route = useRoute()
@@ -192,6 +196,13 @@ const parsedLocations = computed(() => {
         :to="location.to"
       />
     </div>
+
+    <div
+      v-if="introduction"
+      class="introduction"
+      v-html="parsedIntroduction"
+    />
+
     <RichText
       v-if="text"
       class="text"
