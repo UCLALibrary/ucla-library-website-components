@@ -1,29 +1,43 @@
 .ftva.button-link {
-    // &.is-ftva {
-    //     --button-background-color: $accent-blue;
-    //     --button-text-color: #{$white};
-    //     --button-icon-single-color: #{$white};
-    //     --button-icon-withaccent-color: #{$white};
-    //     --button-icon-accent-color: #{$white};
-    //     --button-border-color: $accent-blue;
+    --button-background-color: #{$accent-blue};
+    --button-text-color: #{$pure-white};
+    --button-border-color: #{$accent-blue};
+    --button-icon-single-color: #{$pure-white};
+    --button-icon-withaccent-color: #{$pure-white};
+    --button-icon-accent-color: #{$pure-white};
 
-    //     .hover {
-    //         --button-background-color: $darker-blue;
-    //         --button-border-color: $darker-blue;
-    //     }
-    // }
+    .hover {
+        --button-background-color: #054a94; /* $darker-blue */
+        --button-border-color: #054a94; /* $darker-blue */
+        --button-icon-single-color: #{$pure-white};
+        --button-icon-withaccent-color: #{$pure-white};
+        --button-icon-accent-color: #{$pure-white};
+    }
 
-    // &.is-ftva-secondary {
-    //     --button-background-color: #{$white};
-    //     --button-text-color: #{$accent-blue};
-    //     --button-icon-single-color: #{$accent-blue};
-    //     --button-icon-withaccent-color: #{$accent-blue};
-    //     --button-icon-accent-color: #{$accent-blue};
-    //     --button-border-color: #{$accent-blue};
+    &.is-secondary {
+        --button-background-color: #{$pure-white};
+        --button-text-color: #{$accent-blue};
+        --button-border-color: #{$accent-blue};
+        --button-icon-single-color: #{$accent-blue};
+        --button-icon-withaccent-color: #{$accent-blue};
+        --button-icon-accent-color: #{$accent-blue};
 
-    //     .hover {
-    //         --button-background-color: #{$accent-blue};
-    //         --button-border-color: #{$accent-blue};
-    //     }
-    // }
+        .hover {
+            --button-background-color: #{$accent-blue};
+            --button-text-color: #{$pure-white};
+            --button-icon-single-color: #{$pure-white};
+            --button-icon-withaccent-color: #{$pure-white};
+            --button-icon-accent-color: #{$pure-white};
+        }
+    }
+
+    // General Styling
+    .hover {
+        transition-duration: unset;
+        transition-timing-function: unset;
+    }
+
+    *:not(:only-child):first-child {
+        padding-left: 0px;
+    }
 }
