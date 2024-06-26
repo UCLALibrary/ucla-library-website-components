@@ -29,16 +29,23 @@ const mockEventTagsAndIntroduction = {
   category: 'Ullamco',
   eventTitle: 'Origin of a Meal',
   eventDescription: "In-person: chef and restaurateur Alice Waters.",
-  text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
-  locations: [
-    { title: 'Powellarium', to: '/location/bar' },
-    { title: 'Research Library (Charles E. Young)', to: '/location/baz' },
-  ],
   sectionHandle: 'event',
   tagLabels: [
     { title: "Guest speaker" },{ title: "35mm" }
   ],
-  introduction: 'introduction'
+  text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
+}
+
+const mockEventSeries = {
+  to: '/visit/foo/bar/',
+  category: 'Ullamco',
+  eventTitle: 'Origin of a Meal',
+  eventDescription: "In-person: chef and restaurateur Alice Waters.",
+  sectionHandle: 'event',
+  tagLabels: [
+    { title: "Guest speaker" },{ title: "35mm" }
+  ],
+  text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
 }
 
 const mockOnlyCategoryAndTitle = {
@@ -103,7 +110,9 @@ export function EventTagsAndIntroduction() {
     template: `
       <card-meta
         :category="category"
-        :title="title"
+        :title="eventTitle"
+        :introduction="eventDescription"
+        :text="eventDescription"
       />
   `,
   }
@@ -112,19 +121,14 @@ export function EventTagsAndIntroduction() {
 export function EventSeriesCategory() {
   return {
     data() {
-      return { ...mockDefault }
+      return { ...mockEventSeries }
     },
     components: { CardMeta },
     template: `
       <card-meta
-          :to="to"
           :category="category"
-          :title="title"
-          :ongoing=true
-          :text="text"
-          :locations="locations"
-          :alternativeFullName="alternativeFullName"
-          :language="language"
+          :title="eventTitle"
+          :text="eventDescription"
           :section-handle="sectionHandle"
       />
   `,
@@ -134,19 +138,15 @@ export function EventSeriesCategory() {
 export function ShareButton() {
   return {
     data() {
-      return { ...mockDefault }
+      return { ...mockEventSeries }
     },
     components: { CardMeta },
     template: `
       <card-meta
-          :to="to"
           :category="category"
-          :title="title"
-          :ongoing=true
-          :text="text"
-          :locations="locations"
-          :alternativeFullName="alternativeFullName"
-          :language="language"
+          :title="eventTitle"
+          :text="eventDescription"
+          :section-handle="sectionHandle"
           :section-handle="sectionHandle"
       />
   `,
