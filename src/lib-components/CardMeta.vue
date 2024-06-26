@@ -3,15 +3,15 @@
   lang="ts"
 >
 import { computed } from 'vue'
-import { useTheme } from '@/composables/useTheme'
 import { useRoute } from 'vue-router'
+import { useTheme } from '@/composables/useTheme'
 import type { PropType } from 'vue'
 
 // COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
-import BlockTag from '@/lib-components/BlockTag.vue'
+// import BlockTag from '@/lib-components/BlockTag.vue'
 
 // UTILITY FUNCTIONS
 import formatTimes from '@/utils/formatEventTimes'
@@ -20,7 +20,6 @@ import formatDates from '@/utils/formatEventDates'
 // import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 import type { LocationItemType } from '@/types/types'
-import type { ScreeningTagItemType } from '@/types/types'
 
 const props = defineProps({
   to: {
@@ -75,18 +74,6 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  tagLabels: {
-    type: Array as PropType<ScreeningTagItemType[]>,
-    default: () => [],
-  },
-  introduction: {
-    type: String,
-    default: '',
-  },
-  isCentered: {
-    type: Boolean,
-    default: false,
-  }
 })
 
 const route = useRoute()
@@ -128,120 +115,87 @@ const parsedLocations = computed(() => {
     }
   })
 })
-
-const parsedIntroduction = computed(() => {
-  if (props.introduction)
-    return `Presented by ${props.introduction}`
-})
 </script>
 
 <template>
   <div class="card-meta">
     <div
-      v-if="isCentered"
-      class="centered"
+      v-if="category"
+      class="category"
+      v-html="category"
+    />
+    <SmartLink
+      v-if="to"
+      :link-target="parsedTarget"
+      :to="to"
+      class="title"
+    >
+      {{ title }}
+      <span
+        v-if="alternativeFullName"
+        :lang="language"
+        class="translation"
+        v-html="alternativeFullName"
+      />
+    </SmartLink>
+    <h3
+      v-else
+      class="title-no-link"
+      v-html="title"
+    />
+
+    <div
+      v-if="bylineOne || bylineTwo"
+      class="byline-group"
     >
       <div
-        v-if="category"
-        class="category"
-        v-html="category"
+        v-if="bylineOne"
+        class="schedule-item"
+        v-html="bylineOne"
       />
-      <SmartLink
-        v-if="to"
-        :link-target="parsedTarget"
-        :to="to"
-        class="title"
-      >
-        {{ title }}
-        <span
-          v-if="alternativeFullName"
-          :lang="language"
-          class="translation"
-          v-html="alternativeFullName"
-        />
-      </SmartLink>
-
-      <h3
-        v-else
-        class="title-no-link"
-        v-html="title"
-      />
-
       <div
-        v-if="bylineOne || bylineTwo"
-        class="byline-group"
-      >
-        <div
-          v-if="bylineOne"
-          class="schedule-item"
-          v-html="bylineOne"
-        />
-        <div
-          v-if="bylineTwo"
-          class="schedule-item"
-          v-html="bylineTwo"
-        />
-      </div>
-
-      <div
-        v-if="startDate || ongoing"
-        class="date-time"
-      >
-        <div v-if="ongoing">
-          Ongoing
-        </div>
-        <time
-          v-if="startDate"
-          class="schedule-item"
-          v-html="parsedDate"
-        />
-        <time
-          v-if="startDate"
-          class="schedule-item"
-          v-html="parsedTime"
-        />
-      </div>
-
-      <div
-        v-if="locations.length"
-        class="location-group"
-      >
-        <IconWithLink
-          v-for="(location, index) in parsedLocations"
-          :key="`location-card-meta${index}`"
-          :text="location.title"
-          :icon-name="location.svg"
-          :to="location.to"
-        />
-      </div>
-
-      <div
-        v-if="tagLabels.length"
-        class="block-tags"
-      >
-        <BlockTag
-          v-for="tag in tagLabels"
-          :key="`tag-${tag.title}`"
-          :title="title"
-          class="tag-label"
-        />
-      </div>
-
-      <div
-        v-if="introduction"
-        class="introduction"
-        v-html="parsedIntroduction"
-      />
-
-      <!--  -->
-      <slot></slot>
-
-      <RichText
-        v-if="text"
-        class="text"
-        :rich-text-content="text"
+        v-if="bylineTwo"
+        class="schedule-item"
+        v-html="bylineTwo"
       />
     </div>
+
+    <div
+      v-if="startDate || ongoing"
+      class="date-time"
+    >
+      <div v-if="ongoing">
+        Ongoing
+      </div>
+      <time
+        v-if="startDate"
+        class="schedule-item"
+        v-html="parsedDate"
+      />
+      <time
+        v-if="startDate"
+        class="schedule-item"
+        v-html="parsedTime"
+      />
+    </div>
+
+    <div
+      v-if="locations.length"
+      class="location-group"
+    >
+      <IconWithLink
+        v-for="(location, index) in parsedLocations"
+        :key="`location-card-meta${index}`"
+        :text="location.title"
+        :icon-name="location.svg"
+        :to="location.to"
+      />
+    </div>
+    <RichText
+      v-if="text"
+      class="text"
+      :rich-text-content="text"
+    />
   </div>
 </template>
 
