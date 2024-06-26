@@ -56,3 +56,43 @@ export function ObjectFitContain() {
     `,
   }
 }
+
+export function WithCreditText() {
+  return {
+    components: { ResponsiveImage },
+    data() {
+      return {
+        image: API.image,
+      }
+    },
+    template: `
+        <responsive-image
+            :media="image"
+        >
+        <template v-slot:credit>
+               Photo by John Doe
+        </template>
+        </responsive-image>
+    `,
+  }
+}
+
+export function WithLongCreditText() {
+  return {
+    components: { ResponsiveImage },
+    data() {
+      return {
+        image: API.image,
+      }
+    },
+    template: `
+        <responsive-image
+            :media="image"
+        >
+        <template v-slot:credit>
+               lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum 
+        </template>
+        </responsive-image>
+    `,
+  }
+}

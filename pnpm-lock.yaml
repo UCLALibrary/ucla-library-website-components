@@ -110,8 +110,8 @@ devDependencies:
     specifier: ^5.2.2
     version: 5.2.2
   ucla-library-design-tokens:
-    specifier: ^5.12.6
-    version: 5.12.6
+    specifier: ^5.14.1
+    version: 5.14.1
   video.js:
     specifier: ^8.5.2
     version: 8.5.2
@@ -10846,8 +10846,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  /ucla-library-design-tokens@5.12.6:
-    resolution: {integrity: sha512-cHvHjWzkiDRCJre1S3naGCvObfs6l6hnvoRWcGfwgviihRea8ovfuURwVNhvHm5JeSurRBTVGqxekcahPs22OQ==}
+  /ucla-library-design-tokens@5.14.1:
+    resolution: {integrity: sha512-7UpX+ol/wq/XDAxLxol/44N4BeogB4UJT+g9RjsneFIcc5sgVsyywoTIOEke7VMSzygXKw7Lp0xxpDrSjodtsg==}
     dev: true
 
   /uglify-js@3.17.4:
