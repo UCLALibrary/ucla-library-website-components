@@ -11,6 +11,7 @@ import { useTheme } from '@/composables/useTheme'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
+import BlockTag from '@/lib-components/BlockTag.vue'
 
 // import BlockTag from '@/lib-components/BlockTag.vue'
 
@@ -20,7 +21,7 @@ import formatDates from '@/utils/formatEventDates'
 
 // import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
-import type { LocationItemType } from '@/types/types'
+import type { LocationItemType, ScreeningTagItemType } from '@/types/types'
 
 const props = defineProps({
   to: {
@@ -74,6 +75,10 @@ const props = defineProps({
   sectionHandle: {
     type: String,
     default: '',
+  },
+  tagLabels: {
+    type: Array as PropType<ScreeningTagItemType[]>,
+    default: () => [],
   },
   introduction: {
     type: String,
@@ -198,9 +203,21 @@ const parsedLocations = computed(() => {
     </div>
 
     <div
+      v-if="tagLabels.length"
+      class="block-tags"
+    >
+      <BlockTag
+        v-for="tag in tagLabels"
+        :key="`tag-${tag.title}`"
+        :title="title"
+        class="tag-label"
+      />
+    </div>
+
+    <div
       v-if="introduction"
       class="introduction"
-      v-html="parsedIntroduction"
+      v-html="introduction"
     />
 
     <RichText
