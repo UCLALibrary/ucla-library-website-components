@@ -1,4 +1,5 @@
 import CardMeta from '@/lib-components/CardMeta'
+provide() { return { theme: computed(() => 'ftva'), } },
 
 // Storybook default settings
 export default {
