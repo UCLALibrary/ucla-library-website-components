@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import BlockInfo from '@/lib-components/BlockInfo'
 
 // Storybook default settings
@@ -24,6 +25,11 @@ export function Default() {
   return {
     data() {
       return { ...mockBlockInfo }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
     },
     components: { BlockInfo },
     template:

@@ -63,6 +63,7 @@ const parsedClasses = computed(() => {
       label="Plan Your Visit"
       :to="to"
       class="button"
+      :is-secondary="true"
       icon-name="none"
     />
   </div>
@@ -70,5 +71,4 @@ const parsedClasses = computed(() => {
 
 <style lang="scss" scoped>
 @import "@/styles/themes.scss";
-@import "ucla-library-design-tokens/scss/_tokens-ftva";
 </style>

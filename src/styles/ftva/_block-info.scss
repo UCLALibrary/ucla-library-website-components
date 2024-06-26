@@ -28,23 +28,13 @@
     }
 
     .button-link {
-        color: $accent-blue;
+        // @include ftva-button;
         font-size: 18px;
-        border: 1px solid $accent-blue;
         border-radius: 2px;
         width: -webkit-max-content;
         width: -moz-max-content;
         width: max-content;
         margin: 0 auto;
-
-        :deep(.hover) {
-            background-color: $accent-blue;
-            border: 1px solid $accent-blue;
-        }
-
-        *:not(:only-child):first-child {
-            padding-left: 0px;
-        }
     }
 
     @media (min-width: 1024px) {
