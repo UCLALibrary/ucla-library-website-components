@@ -28,10 +28,10 @@ const mockEventTagsAndIntroduction = {
   to: '/visit/foo/bar/',
   category: 'Ullamco',
   eventTitle: 'Origin of a Meal',
-  eventDescription: "In-person: chef and restaurateur Alice Waters.",
+  eventDescription: 'In-person: chef and restaurateur Alice Waters.',
   sectionHandle: 'event',
   tagLabels: [
-    { title: "Guest speaker" },{ title: "35mm" }
+    { title: 'Guest speaker' }, { title: '35mm' }
   ],
   text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
 }
@@ -40,10 +40,10 @@ const mockEventSeries = {
   to: '/visit/foo/bar/',
   category: 'Ullamco',
   eventTitle: 'Origin of a Meal',
-  eventDescription: "In-person: chef and restaurateur Alice Waters.",
+  eventDescription: 'In-person: chef and restaurateur Alice Waters.',
   sectionHandle: 'event',
   tagLabels: [
-    { title: "Guest speaker" },{ title: "35mm" }
+    { title: 'Guest speaker' }, { title: '35mm' }
   ],
   text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
 }

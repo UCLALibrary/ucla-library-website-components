@@ -4,13 +4,14 @@
 >
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useTheme } from '@/composables/useTheme'
 import type { PropType } from 'vue'
+import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
+
 // import BlockTag from '@/lib-components/BlockTag.vue'
 
 // UTILITY FUNCTIONS
