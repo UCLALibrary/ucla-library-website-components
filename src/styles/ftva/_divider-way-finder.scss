@@ -4,7 +4,6 @@
   }
 
   &.color-ftva {
-    --color-border: #115DAF;
-    // --color-border: $accent-blue;
+    --color-border: #{$accent-blue};
   }
 }
