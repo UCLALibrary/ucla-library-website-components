@@ -4,7 +4,7 @@
   .category {
     @include overline;
     color: $accent-blue;
-    font-family: $proxima-nova;
+    font-family: $karbon;
     font-size: $font-size-18;
     line-height: $line-height-150;
     margin-top: var(--space-xs);
@@ -14,16 +14,20 @@
   .title,
   .title-no-link {
     color: $heading-grey;
-    font-family: Karbon Bold;
+    font-family: $karbon;
+    font-weight: 700;
     font-size: 48px;
     line-height: 110%;
     margin-top: var(--space-xs);
   }
 
   .introduction {
-    font-family: Proxima Nova Regular;
+    font-family: $karbon;
     font-size: 18px;
     line-height: 150%;
     color: $body-grey;
+    @include truncate($lines: 4)
   }
+
+  .text {}
 }

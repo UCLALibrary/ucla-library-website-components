@@ -125,10 +125,16 @@ const parsedLocations = computed(() => {
     }
   })
 })
+
+// if we want to use theme pattern based on passing classes prop to each component
+const parsedClasses = computed(() => {
+  // (maybe classes.join() if need an array)
+  return ['card-meta', theme?.value || '']
+})
 </script>
 
 <template>
-  <div class="card-meta">
+  <div :class="parsedClasses">
     <div
       v-if="category"
       class="category"
@@ -209,7 +215,7 @@ const parsedLocations = computed(() => {
       <BlockTag
         v-for="tag in tagLabels"
         :key="`tag-${tag.title}`"
-        :title="title"
+        :label="tag.title"
         class="tag-label"
       />
     </div>
@@ -219,6 +225,10 @@ const parsedLocations = computed(() => {
       class="introduction"
       v-html="introduction"
     />
+
+
+    <!-- SHARE BUTTON -->
+    <slot />
 
     <RichText
       v-if="text"
