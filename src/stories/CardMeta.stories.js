@@ -26,43 +26,6 @@ const mockDefault = {
   bylineTwo: 'Byline 2'
 }
 
-const mockEventTagsAndIntroduction = {
-  event: {
-    eventTitle: 'Step Up',
-    ftvaEventIntroduction: 'In-person: The Scenes Talk with Duane Adler',
-    ftvaEventFilters: [
-      { title: 'Guest speaker' }, { title: '35mm' }
-    ],
-    text: '<p>Step Up is an American romantic dance franchise created by Duane Adler. The franchise includes six films and a television series. The films have received a generally mixed critical reception, while being a box office success with a collective total of $651 million.</p>',
-  },
-  series: {
-    title: "Step Up Movie Series"
-  }
-}
-
-const mockEventSeries = {
-  event:{
-    eventTitle: 'Origin of a Meal',
-    ftvaEventIntroduction: 'In-person: chef and restaurateur Alice Waters.',
-    ftvaEventFilters: [
-      { title: 'Guest speaker' }, { title: '35mm' }
-    ],
-    text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
-  },
-  series: {
-    title: "TEST Series: The Step Up Movie Series"
-  }
-}
-
-const mockOnlyCategoryAndTitle = {
-  event:{
-    eventTitle: 'Origin of a Meal',
-  },
-  series: {
-    title: "TEST Series: The Step Up Movie Series"
-  }
-}
-
 // Variations of stories below
 export function Default() {
   return {
@@ -112,15 +75,23 @@ export function Ongoing() {
 }
 
 // FTVA STORIES
-// with tag / blocktag
-// with share button
-// with centered title text
-// there is technically a 4th variation with only the category/subtitle and title showing (not pictured)
 
 export function WithBlockTagsAndIntro() {
   return {
     data() {
-      return { ...mockEventTagsAndIntroduction }
+      return {
+        event: {
+          eventTitle: 'Step Up (2006)',
+          ftvaEventIntroduction: 'In-person: The Scenes Talk with Duane Adler',
+          ftvaEventFilters: [
+            { title: 'Guest speaker' }, { title: '35mm' }
+          ],
+          text: '<p>Step Up is an American romantic dance franchise created by Duane Adler. The franchise includes six films and a television series. The films have received a generally mixed critical reception, while being a box office success with a collective total of $651 million.</p>',
+        },
+        series: {
+          title: "The Step Up Movie Series"
+        }
+      }
     },
     provide() {
       return {
@@ -143,7 +114,14 @@ export function WithBlockTagsAndIntro() {
 export function OnlyCategoryAndTitle() {
   return {
     data() {
-      return { ...mockOnlyCategoryAndTitle }
+      return {
+        event:{
+          eventTitle: 'Step Up 2 - The Streets (2008)',
+        },
+        series: {
+          title: "The Step Up Movie Series"
+        }
+      }
     },
     provide() {
       return {
@@ -163,7 +141,39 @@ export function OnlyCategoryAndTitle() {
 export function ShareButton() {
   return {
     data() {
-      return { ...mockOnlyCategoryAndTitle }
+      return {
+        event:{
+          eventTitle: 'Step Up 3D (2010)',
+        },
+        series: {
+          title: "The Step Up Movie Series"
+        }
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta, ButtonLink },
+    template: `
+      <card-meta
+        :category="series.title"
+        :title="event.eventTitle"
+      >
+        <button-link label="Share" to="/share" />
+      </card-meta>
+  `,
+  }
+}
+
+export function CenteredTitleText() {
+  return {
+    data() {
+      return {
+        eventTitle: 'Step Up - The Revolution (2012)',
+        text: '<p>Step Up Revolution is an American dance film directed by Scott Speer and written by Amanda Brody. The film is the sequel to Step Up 3D (2010) and the fourth installment in the Step Up film series. It stars Ryan Guzman, Kathryn McCormick, Misha Gabriel, Cleopatra Coleman, Stephen "tWitch" Boss, Tommy Dewey, and Peter Gallagher.</p>',
+      }
     },
     provide() {
       return {
@@ -173,56 +183,10 @@ export function ShareButton() {
     components: { CardMeta },
     template: `
       <card-meta
-        :category="series.title"
-        :title="event.eventTitle"
+        :title="eventTitle"
+        :text="text"
+        isCentered=true
       />
-        <button-link label="Share" to="/share" />
-      </card-meta>
   `,
   }
 }
-
-
-export function Slot() {
-  return {
-    data() {
-      return {
-        image: API.image,
-        to: '/visit/foo/bar/',
-        title: 'Sed Lectus Inceptos: Suspendisse in Justo eu Magna Luctus Suscipit',
-        category: 'Torquent',
-        breadcrumb: 'Torquent',
-        startDate: '1995-12-16T03:24:00',
-        endDate: '1995-12-17T03:24:00',
-        prompt: 'Cursus Quis',
-        alignRight: false,
-        sectionHandle: '',
-      }
-    },
-    components: { BannerFeatured, HeadingArrow },
-    template: `
-        <card-meta
-          :category="series.title"
-          :title="event.eventTitle"
-        >
-          <button-link label="Share" to="/share" />
-        </card-meta>
-    `,
-  }
-}
-
-// export function CenteredTitleText() {
-//   return {
-//     data() {
-//       return { ...mockEventSeries }
-//     },
-//     components: { CardMeta },
-//     template: `
-//       <card-meta
-//         :category="event.category"
-//         :title="event.title"
-//         :text="event.text"
-//       />
-//   `,
-//   }
-// }

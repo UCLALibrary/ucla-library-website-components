@@ -7,8 +7,6 @@
     font-family: $karbon;
     font-size: $font-size-18;
     line-height: $line-height-150;
-    margin-top: var(--space-xs);
-    margin-bottom: var(--space-s);
   }
 
   .title,
@@ -18,16 +16,41 @@
     font-weight: 700;
     font-size: 48px;
     line-height: 110%;
-    margin-top: var(--space-xs);
+    margin-bottom: 20px;
+  }
+
+  .block-tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 8px;
+    margin-bottom: 16px;
   }
 
   .introduction {
     font-family: $karbon;
+    // font-family: $proximaNova';
     font-size: 18px;
+    font-weight: 500;
     line-height: 150%;
     color: $body-grey;
-    @include truncate($lines: 4)
+    @include truncate($lines: 4);
   }
 
-  .text {}
+  .text {
+    margin-top: 40px;
+  }
+
+  .slot {
+    margin-top: 28px;
+  }
+
+  &.centered {
+
+    .title,
+    .title-no-link {
+      display: flex;
+      justify-content: center;
+    }
+  }
 }
