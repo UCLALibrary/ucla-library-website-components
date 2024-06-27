@@ -2,7 +2,7 @@
     align-items: center;
 
     :deep(.block-tag) {
-        background: #fff;
+        background-color: white;
         padding: inherit 18px;
         border-color: $subtitle-grey;
         border-radius: 25px;
@@ -14,20 +14,36 @@
         font-size: 10px;
         font-weight: bold;
         line-height: 100%;
+        width: 0;
+        overflow: hidden;
+        -webkit-transition: width .15s ease-in-out;
+        -moz-transition: width .15s ease-in-out;
+        -o-transition: width .15s ease-in-out;
+        transition: width .15s ease-in-out;
+        svg {
+            margin-top: 3px;
+        }
     }
 
     &:hover {
         :deep(.block-tag) {
             border-color: $accent-blue;
             background-color: $accent-blue;
-
             .label {
-                color: #fff;
+                color: white;
             }
         }
 
+        :deep(path.svg__fill--medium-grey) {
+            fill: white;
+        }
+
         .button-close {
-            color: #fff;
+            color: white;
+            width: 20px;
+            :deep(.svg__stroke--pure-white) {
+                fill: white;
+            }
         }
     }
 }

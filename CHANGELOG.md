@@ -1,3 +1,10 @@
+# [2.39.0-alpha.89](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.88...v2.39.0-alpha.89) (2024-06-27)
+
+
+### Features
+
+* Apps-2704 finish tags component part 2 ([#531](https://github.com/UCLALibrary/ucla-library-website-components/issues/531)) ([e7dc9c0](https://github.com/UCLALibrary/ucla-library-website-components/commit/e7dc9c0a81ef53a7420751a0dcd2a6e4704b4a55))
+
 # [2.39.0-alpha.88](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.87...v2.39.0-alpha.88) (2024-06-25)
 
 
