@@ -19,10 +19,6 @@ const MockHelp = {
   color: 'help',
 }
 
-const MockFtva = {
-  color: 'ftva',
-}
-
 // STORIES
 export function Default() {
   return {
@@ -84,17 +80,12 @@ export function Help() {
 
 export function FTVA() {
   return {
-    data() {
-      return {
-        ...MockFtva,
-      }
-    },
     provide() {
       return {
         theme: computed(() => 'ftva'),
       }
     },
     components: { DividerWayFinder },
-    template: `<divider-way-finder :color='color'/>`,
+    template: `<divider-way-finder />`,
   }
 }
