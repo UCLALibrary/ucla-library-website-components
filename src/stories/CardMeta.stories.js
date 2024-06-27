@@ -1,5 +1,6 @@
 import { computed } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
+import ButtonLink from '@/lib-components/ButtonLink'
 
 // Storybook default settings
 export default {
@@ -7,7 +8,7 @@ export default {
   component: CardMeta
 }
 
-const mock = {
+const mockDefault = {
   to: '/visit/foo/bar/',
   category: 'Ullamco',
   title: 'Seven seas of the ancient world',
@@ -25,6 +26,34 @@ const mock = {
   bylineTwo: 'Byline 2'
 }
 
+const mockEventTagsAndIntroduction = {
+  event: {
+    eventTitle: 'Step Up',
+    ftvaEventIntroduction: 'In-person: The Scenes Talk with Duane Adler',
+    ftvaEventFilters: [
+      { title: 'Guest speaker' }, { title: '35mm' }
+    ],
+    text: '<p>Step Up is an American romantic dance franchise created by Duane Adler. The franchise includes six films and a television series. The films have received a generally mixed critical reception, while being a box office success with a collective total of $651 million.</p>',
+  },
+  series: {
+    title: "Step Up Movie Series"
+  }
+}
+
+const mockEventSeries = {
+  event:{
+    eventTitle: 'Origin of a Meal',
+    ftvaEventIntroduction: 'In-person: chef and restaurateur Alice Waters.',
+    ftvaEventFilters: [
+      { title: 'Guest speaker' }, { title: '35mm' }
+    ],
+    text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
+  },
+  series: {
+    title: "TEST Series: The Step Up Movie Series"
+  }
+}
+
 const mockOnlyCategoryAndTitle = {
   event:{
     eventTitle: 'Origin of a Meal',
@@ -38,7 +67,7 @@ const mockOnlyCategoryAndTitle = {
 export function Default() {
   return {
     data() {
-      return { ...mock }
+      return { ...mockDefault }
     },
     components: { CardMeta },
     template: `
@@ -63,7 +92,7 @@ export function Default() {
 export function Ongoing() {
   return {
     data() {
-      return { ...mock }
+      return { ...mockDefault }
     },
     components: { CardMeta },
     template: `
@@ -82,10 +111,44 @@ export function Ongoing() {
   }
 }
 
+// FTVA STORIES
+// with tag / blocktag
+// with share button
+// with centered title text
+// there is technically a 4th variation with only the category/subtitle and title showing (not pictured)
+
+export function WithBlockTagsAndIntro() {
+  return {
+    data() {
+      return { ...mockEventTagsAndIntroduction }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta },
+    template: `
+      <card-meta
+        :category="series.title"
+        :title="event.eventTitle"
+        :tagLabels="event.ftvaEventFilters"
+        :introduction="event.ftvaEventIntroduction"
+        :text="event.text"
+      />
+  `,
+  }
+}
+
 export function OnlyCategoryAndTitle() {
   return {
     data() {
       return { ...mockOnlyCategoryAndTitle }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
     },
     components: { CardMeta },
     template: `
@@ -97,79 +160,56 @@ export function OnlyCategoryAndTitle() {
   }
 }
 
-export function EventTagsAndIntroduction() {
+export function ShareButton() {
   return {
     data() {
-      return { ...mockEventTagsAndIntroduction }
+      return { ...mockOnlyCategoryAndTitle }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
     },
     components: { CardMeta },
     template: `
       <card-meta
-        :category="category"
-        :title="eventTitle"
-        :tagLabel="ftvaEventFilters"
-        :introduction="ftvaEventIntroduction"
-        :text="eventDescription"
+        :category="series.title"
+        :title="event.eventTitle"
       />
+        <button-link label="Share" to="/share" />
+      </card-meta>
   `,
   }
 }
 
-const mockEventTagsAndIntroduction = {
-  to: '/visit/foo/bar/',
-  eventTitle: 'Origin of a Meal',
-  ftvaEventIntroduction: 'In-person: chef and restaurateur Alice Waters.',
-  ftvaEventFilters: [
-    { title: 'Guest speaker' }, { title: '35mm' }
-  ],
-  text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
+
+export function Slot() {
+  return {
+    data() {
+      return {
+        image: API.image,
+        to: '/visit/foo/bar/',
+        title: 'Sed Lectus Inceptos: Suspendisse in Justo eu Magna Luctus Suscipit',
+        category: 'Torquent',
+        breadcrumb: 'Torquent',
+        startDate: '1995-12-16T03:24:00',
+        endDate: '1995-12-17T03:24:00',
+        prompt: 'Cursus Quis',
+        alignRight: false,
+        sectionHandle: '',
+      }
+    },
+    components: { BannerFeatured, HeadingArrow },
+    template: `
+        <card-meta
+          :category="series.title"
+          :title="event.eventTitle"
+        >
+          <button-link label="Share" to="/share" />
+        </card-meta>
+    `,
+  }
 }
-
-// const mockEventSeries = {
-//   event:{
-//     eventTitle: 'Origin of a Meal',
-//     ftvaEventIntroduction: 'In-person: chef and restaurateur Alice Waters.',
-//     ftvaEventFilters: [
-//       { title: 'Guest speaker' }, { title: '35mm' }
-//     ],
-//     text: '<p>From a meal composed of eggs, canned tuna and bananas, Luc Moullet goes up the chain that led these foods to his plate: supermarket managers, wholesalers, importers, manufacturers, workers, etc. are interviewed to help us understand how it all works.</p>',
-//   }
-//   series: {
-//     title: "TEST Series: The Step Up Movie Series"
-//   }
-// }
-
-// export function EventSeriesCategory() {
-//   return {
-//     data() {
-//       return { ...mockEventSeries }
-//     },
-//     components: { CardMeta },
-//     template: `
-//       <card-meta
-//           :category="series.title"
-//           :title="event.eventTitle"
-//           :text="event.eventDescription"
-//           :section-handle="event.sectionHandle"
-//       />
-//   `,
-//   }
-// }
-
-// export function ShareButton() {
-//   return {
-//     data() {
-//       return { ...mockEventSeries }
-//     },
-//     components: { CardMeta },
-//     template: `
-//       <card-meta
-//           :title="event.eventTitle"
-//           :text="event.eventDescription"
-//       />
-//   `,
-//   }
-// }
 
 // export function CenteredTitleText() {
 //   return {
@@ -186,11 +226,3 @@ const mockEventTagsAndIntroduction = {
 //   `,
 //   }
 // }
-
-
-
-
-
-
-
-
