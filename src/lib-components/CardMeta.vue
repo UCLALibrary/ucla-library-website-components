@@ -84,6 +84,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  isCentered: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const route = useRoute()
@@ -129,7 +133,7 @@ const parsedLocations = computed(() => {
 // if we want to use theme pattern based on passing classes prop to each component
 const parsedClasses = computed(() => {
   // (maybe classes.join() if need an array)
-  return ['card-meta', theme?.value || '']
+  return ['card-meta', theme?.value || '', props.isCentered ? 'centered' : '']
 })
 </script>
 
@@ -226,9 +230,10 @@ const parsedClasses = computed(() => {
       v-html="introduction"
     />
 
-
     <!-- SHARE BUTTON -->
-    <slot />
+    <div class="slot">
+      <slot />
+    </div>
 
     <RichText
       v-if="text"
