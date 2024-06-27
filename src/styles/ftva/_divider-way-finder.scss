@@ -1,8 +1,4 @@
 .ftva.divider-way-finder {
-  &.color-default {
-    --color-border: var(--color-default-cyan-03);
-  }
-
   &.color-ftva {
     --color-border: #{$accent-blue};
   }
