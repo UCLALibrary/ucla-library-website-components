@@ -38,8 +38,8 @@ export function Default() {
     components: { BlockEventDetail },
     template: `
     <block-event-detail
-      startDate="data.startDateWithTime"
-      time="data.startDateWithTime"
+      :startDate="data.startDateWithTime"
+      :time="data.startDateWithTime"
       :locations="data.location"
     />
     `,
@@ -61,8 +61,8 @@ export function FTVA() {
     components: { BlockEventDetail },
     template: `
     <block-event-detail
-      startDate="data.startDateWithTime"
-      time="data.startDateWithTime"
+      :startDate="data.startDateWithTime"
+      :time="data.startDateWithTime"
       :locations="data.location"
     />
     `,
