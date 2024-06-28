@@ -70,11 +70,10 @@ const parsedClasses = computed(() => {
       class="svg"
       aria-hidden="true"
     />
-
-    <div class="label">
-      {{ label }}
-    </div>
-
+    <div
+      class="label"
+      v-html="label"
+    />
     <!-- slot for 'x' button or any additional content parent needs to display in tag -->
     <slot />
   </span>
