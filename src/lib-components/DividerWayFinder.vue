@@ -8,7 +8,7 @@ import { useTheme } from '@/composables/useTheme'
 const { color } = defineProps({
   color: {
     type: String,
-    default: '', // "VISIT", "ABOUT", "HELP", "FTVA"
+    default: '', // "visit", "about", "help", "ftva"
   },
 })
 

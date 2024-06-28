@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import router from '@/router'
 import DividerWayFinder from '@/lib-components/DividerWayFinder'
 
 export default {
@@ -6,21 +7,9 @@ export default {
   component: DividerWayFinder,
 }
 
-// MOCK DATA
-const MockVisit = {
-  color: 'visit',
-}
-
-const MockAbout = {
-  color: 'about',
-}
-
-const MockHelp = {
-  color: 'help',
-}
-
 // STORIES
 export function Default() {
+  router.push('/default')
   return {
     components: { DividerWayFinder },
     template: '<divider-way-finder />',
@@ -28,57 +17,31 @@ export function Default() {
 }
 
 export function Visit() {
+  router.push('/visit/eee')
   return {
-    data() {
-      return {
-        ...MockVisit,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'visit'),
-      }
-    },
     components: { DividerWayFinder },
-    template: `<divider-way-finder :color='color'/>`,
+    template: `<divider-way-finder />`,
   }
 }
 
 export function About() {
+  router.push('/about/fff')
   return {
-    data() {
-      return {
-        ...MockAbout,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'about'),
-      }
-    },
     components: { DividerWayFinder },
-    template: `<divider-way-finder :color='color'/>`,
+    template: `<divider-way-finder />`,
   }
 }
 
 export function Help() {
+  router.push('/help/ddd')
   return {
-    data() {
-      return {
-        ...MockHelp,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'help'),
-      }
-    },
     components: { DividerWayFinder },
-    template: `<divider-way-finder :color='color'/>`,
+    template: `<divider-way-finder />`,
   }
 }
 
 export function FTVA() {
+  router.push('/default')
   return {
     provide() {
       return {
