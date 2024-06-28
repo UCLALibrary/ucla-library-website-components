@@ -1,4 +1,4 @@
-.block-info {
+.ftva.block-info {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -21,6 +21,7 @@
         padding: 16px 0 16px 20px;
     }
 
+    // ToDo: Add Proxima font when fixed in design tokens
     .block-info-list li {
         font-size: $font-size-16;
         line-height: 24px;
@@ -28,6 +29,7 @@
     }
 
     .button-link {
+        // ToDo: Enable include when tokens package update works
         // @include ftva-button;
         font-size: 18px;
         border-radius: 2px;
