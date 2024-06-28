@@ -1,93 +1,97 @@
-<script>
+<script setup>
+import { computed } from "vue"
+import { useTheme } from "@/composables/useTheme"
+
 // SVGs
-import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-left.svg'
+import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-left.svg"
+import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret-right.svg"
 
-import SmartLink from '@/lib-components/SmartLink.vue'
+import SmartLink from "@/lib-components/SmartLink.vue"
 
-export default {
-  name: 'NavBreadcrumb',
-  components: {
-    SvgIconCaretLeft,
-    SmartLink
-  },
-  props: {
-    to: {
-      type: String,
-      default: '',
-    },
+const { parentTitle, title, to, uri } = defineProps({
     parentTitle: {
-      type: String,
-      default: '',
+        type: String,
+        default: "",
     },
     title: {
-      type: String,
-      default: '',
+        type: String,
+        default: "",
     },
-  },
-}
+    to: {
+        type: String,
+        default: "",
+    },
+    uri: {
+        type: String,
+        default: "",
+    },
+})
+
+const parsedBreadcrumbs = computed(() => {
+    let pagePathArray = uri.split("/").slice(1)
+    // split apart URI path into distinct sections
+    // remove empty string at start of the array
+
+    return pagePathArray
+})
+// console.log(parsedBreadcrumbs.value)
+
+const parsedBreadcrumbLastTitle = computed(() => {
+    // Last item in parsedBreadcrumbs array is page title text and unlinked
+    return [...parsedBreadcrumbs.value].pop()
+})
+// console.log(parsedBreadcrumbLastTitle.value)
+
+const parsedBreadcrumbLinks = computed(() => {
+    // All other items in parsedBreadcrumbs array except last to be rendered as a link
+    const linkedBreadcrumbs = parsedBreadcrumbs.value.slice(0, -1)
+
+    let breadCrumbObjects = []
+
+    for (let link of linkedBreadcrumbs) {
+        let linkTitle = link.replaceAll("-", " ")
+        breadCrumbObjects.push({ to: link, title: linkTitle })
+    }
+
+    return breadCrumbObjects
+})
+// console.log(parsedBreadcrumbLinks.value)
+
+// THEME
+const theme = useTheme()
+
+const parsedClasses = computed(() => {
+    return ["nav-breadcrumb", "subtitle", theme?.value || ""]
+})
 </script>
 
 <template>
-  <div class="nav-breadcrumb subtitle">
-    <SmartLink :to="to" class="parent-page-url" v-text="parentTitle" />
-    <SvgIconCaretLeft aria-hidden="true" />
-    <span class="current-page-title" v-text="title" />
-  </div>
+    <div class="nav-breadcrumb subtitle" v-if="uri">
+        <span class="test" v-for="linkObj in parsedBreadcrumbLinks">
+            <SmartLink
+                :to="linkObj.to"
+                class="parent-page-url"
+                v-text="linkObj.title"
+            />
+            <SvgIconCaretRight aria-hidden="true" />
+        </span>
+        <span class="current-page-title" v-text="parsedBreadcrumbLastTitle" />
+    </div>
+
+    <div class="nav-breadcrumb subtitle" v-else>
+        <SmartLink :to="to" class="parent-page-url" v-text="parentTitle" />
+        <SvgIconCaretLeft aria-hidden="true" />
+        <span class="current-page-title" v-text="title" />
+    </div>
 </template>
 
 <style lang="scss" scoped>
-.nav-breadcrumb {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
+@import "@/styles/themes.scss";
 
-  max-width: $container-xl-full-width + px;
-  margin: var(--space-m) auto;
-  padding: 0 var(--unit-gutter);
-
-  .parent-page-url {
-    @include step-1;
-    color: var(--color-primary-blue-03);
-    flex-shrink: 0;
-  }
-
-  .svg__icon-caret-left {
-    flex-shrink: 0;
-  }
-
-  .current-page-title {
-    @include step-0;
-    color: var(--color-black);
-    @include truncate(1);
-  }
-
-  @media #{$extra-large} {
-    padding: 0;
-  }
-
-  @media #{$small} {
-    padding-left: calc(var(--unit-gutter) - 8px);
-
-    .current-page-title {
-      display: none;
-    }
-
-    .svg__icon-caret-left {
-      order: 1;
-    }
-
-    .parent-page-url {
-      order: 2;
-    }
-  }
-}
-
-// Hovers
-@media #{$has-hover} {
-  .parent-page-url:hover {
-    @include link-hover;
-  }
+.test {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
 }
 </style>
