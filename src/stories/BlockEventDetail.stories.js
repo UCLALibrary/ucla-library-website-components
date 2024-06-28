@@ -38,8 +38,8 @@ export function Default() {
     components: { BlockEventDetail },
     template: `
     <block-event-detail
-      startDate="2024-03-09T03:30:00+00:00"
-      time="2024-03-09T03:30:00+00:00"
+      startDate="data.startDateWithTime"
+      time="data.startDateWithTime"
       :locations="data.location"
     />
     `,
@@ -61,8 +61,8 @@ export function FTVA() {
     components: { BlockEventDetail },
     template: `
     <block-event-detail
-      startDate="2024-03-09T03:30:00+00:00"
-      time="2024-03-09T03:30:00+00:00"
+      startDate="data.startDateWithTime"
+      time="data.startDateWithTime"
       :locations="data.location"
     />
     `,
