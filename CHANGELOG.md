@@ -1,3 +1,10 @@
+# [2.39.0-alpha.90](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.89...v2.39.0-alpha.90) (2024-06-28)
+
+
+### Features
+
+* APPS-2707 Create FTVA BlockInfo component ([#529](https://github.com/UCLALibrary/ucla-library-website-components/issues/529)) ([84e8df0](https://github.com/UCLALibrary/ucla-library-website-components/commit/84e8df071addec2c7da48c9461f634a42d6b55e3))
+
 # [2.39.0-alpha.89](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.88...v2.39.0-alpha.89) (2024-06-27)
 
 
