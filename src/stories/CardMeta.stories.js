@@ -89,7 +89,7 @@ export function WithBlockTagsAndIntro() {
           text: '<p>Step Up is an American romantic dance franchise created by Duane Adler. The franchise includes six films and a television series. The films have received a generally mixed critical reception, while being a box office success with a collective total of $651 million.</p>',
         },
         series: {
-          title: "The Step Up Movie Series"
+          title: 'The Step Up Movie Series'
         }
       }
     },
@@ -115,11 +115,11 @@ export function OnlyCategoryAndTitle() {
   return {
     data() {
       return {
-        event:{
+        event: {
           eventTitle: 'Step Up 2 - The Streets (2008)',
         },
         series: {
-          title: "The Step Up Movie Series"
+          title: 'The Step Up Movie Series'
         }
       }
     },
@@ -142,11 +142,11 @@ export function ShareButton() {
   return {
     data() {
       return {
-        event:{
+        event: {
           eventTitle: 'Step Up 3D (2010)',
         },
         series: {
-          title: "The Step Up Movie Series"
+          title: 'The Step Up Movie Series'
         }
       }
     },
