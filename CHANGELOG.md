@@ -1,3 +1,24 @@
+# [2.39.0-alpha.90](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.89...v2.39.0-alpha.90) (2024-06-28)
+
+
+### Features
+
+* APPS-2707 Create FTVA BlockInfo component ([#529](https://github.com/UCLALibrary/ucla-library-website-components/issues/529)) ([84e8df0](https://github.com/UCLALibrary/ucla-library-website-components/commit/84e8df071addec2c7da48c9461f634a42d6b55e3))
+
+# [2.39.0-alpha.89](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.88...v2.39.0-alpha.89) (2024-06-27)
+
+
+### Features
+
+* Apps-2704 finish tags component part 2 ([#531](https://github.com/UCLALibrary/ucla-library-website-components/issues/531)) ([e7dc9c0](https://github.com/UCLALibrary/ucla-library-website-components/commit/e7dc9c0a81ef53a7420751a0dcd2a6e4704b4a55))
+
+# [2.39.0-alpha.88](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.87...v2.39.0-alpha.88) (2024-06-25)
+
+
+### Features
+
+* Apps-2773 update responsive image component ([#528](https://github.com/UCLALibrary/ucla-library-website-components/issues/528)) ([78b02f0](https://github.com/UCLALibrary/ucla-library-website-components/commit/78b02f0f4758827c78459f8f34f5e8feb4667b82))
+
 # [2.39.0-alpha.87](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.86...v2.39.0-alpha.87) (2024-06-24)
 
 
