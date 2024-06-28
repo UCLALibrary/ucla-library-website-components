@@ -1,3 +1,10 @@
+# [2.39.0-alpha.91](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.90...v2.39.0-alpha.91) (2024-06-28)
+
+
+### Features
+
+* Apps-2706 create BlockEventDetail component ([#527](https://github.com/UCLALibrary/ucla-library-website-components/issues/527)) ([9b47c54](https://github.com/UCLALibrary/ucla-library-website-components/commit/9b47c5492261e03bdff5067c68f3c7f952040081))
+
 # [2.39.0-alpha.90](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.89...v2.39.0-alpha.90) (2024-06-28)
 
 
