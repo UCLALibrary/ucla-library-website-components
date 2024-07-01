@@ -1,3 +1,10 @@
+# [2.39.0-alpha.92](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.91...v2.39.0-alpha.92) (2024-07-01)
+
+
+### Bug Fixes
+
+* add console.log to divider component to test issue on the website ([#538](https://github.com/UCLALibrary/ucla-library-website-components/issues/538)) ([d001b0d](https://github.com/UCLALibrary/ucla-library-website-components/commit/d001b0dcfe85b13e9a9b6b568eb17bf21c8d439e))
+
 # [2.39.0-alpha.91](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.90...v2.39.0-alpha.91) (2024-06-28)
 
 
