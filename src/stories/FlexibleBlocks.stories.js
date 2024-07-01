@@ -1,3 +1,4 @@
+import router from '@/router'
 import FlexibleBlocks from '@/lib-components/FlexibleBlocks'
 import SectionWrapper from '@/lib-components/SectionWrapper'
 import DividerGeneral from '@/lib-components/DividerGeneral'
@@ -206,6 +207,7 @@ const mockData = [
 ]
 
 export function Default() {
+  router.push('/abc/ccc')
   return {
     data() {
       return {
@@ -227,6 +229,7 @@ export function Default() {
 }
 
 export function GrayBackgrounds() {
+  router.push('/help/ddd')
   return {
     data() {
       return {
@@ -284,6 +287,7 @@ export function GrayBackgrounds() {
 }
 
 export function DividerBetweenWhiteBlocks() {
+  router.push('/visit/eee')
   return {
     data() {
       return {
@@ -304,6 +308,7 @@ export function DividerBetweenWhiteBlocks() {
 }
 
 export function LocationDetailBioMed() {
+  router.push('/about/fff')
   return {
     data() {
       return {
