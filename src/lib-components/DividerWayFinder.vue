@@ -21,8 +21,8 @@ const classes = computed(() => [
   `color-${sectionName.value}`,
 ])
 
-console.log("section name computed", sectionName.value)
-console.log("color prop", color)
+console.log('section name computed', sectionName.value)
+console.log('color prop', color)
 </script>
 
 <template>

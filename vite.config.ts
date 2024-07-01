@@ -20,7 +20,7 @@ export default defineConfig({
         // preserveModules: true,
         exports: 'named', // Ensure that exports are named,
         globals: {
-          'vue': 'Vue',
+          vue: 'Vue',
         },
       },
     },
