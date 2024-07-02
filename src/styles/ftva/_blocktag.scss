@@ -13,6 +13,9 @@
 
     .label {
         color: $subtitle-grey;
+        :deep(a) {
+          text-decoration: underline;
+        }
     }
 
     .svg {
@@ -31,7 +34,5 @@
         .label {
             color: #fff;
         }
-
-        .svg {}
     }
 }

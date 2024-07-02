@@ -94,8 +94,7 @@ export function FTVA() {
     template: `
         <block-remove-search-filter
             title="FTVA"
-            removeIconName=""
-            iconName="SvgIconList"
+            iconName="SvgIconGuest"
         />
     `,
   }

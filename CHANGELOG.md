@@ -1,3 +1,45 @@
+# [2.39.0-alpha.94](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.93...v2.39.0-alpha.94) (2024-07-02)
+
+
+### Bug Fixes
+
+* APPS-2794 ([#541](https://github.com/UCLALibrary/ucla-library-website-components/issues/541)) ([dbf38c0](https://github.com/UCLALibrary/ucla-library-website-components/commit/dbf38c0dc78059e08d52177c946e0424ee98340f))
+
+# [2.39.0-alpha.93](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.92...v2.39.0-alpha.93) (2024-07-01)
+
+
+### Bug Fixes
+
+* remove vue-router from external ([#540](https://github.com/UCLALibrary/ucla-library-website-components/issues/540)) ([1d52e4f](https://github.com/UCLALibrary/ucla-library-website-components/commit/1d52e4fa4f979464f7c7a61f30ca1c1e497a64aa))
+
+# [2.39.0-alpha.92](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.91...v2.39.0-alpha.92) (2024-07-01)
+
+
+### Bug Fixes
+
+* add console.log to divider component to test issue on the website ([#538](https://github.com/UCLALibrary/ucla-library-website-components/issues/538)) ([d001b0d](https://github.com/UCLALibrary/ucla-library-website-components/commit/d001b0dcfe85b13e9a9b6b568eb17bf21c8d439e))
+
+# [2.39.0-alpha.91](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.90...v2.39.0-alpha.91) (2024-06-28)
+
+
+### Features
+
+* Apps-2706 create BlockEventDetail component ([#527](https://github.com/UCLALibrary/ucla-library-website-components/issues/527)) ([9b47c54](https://github.com/UCLALibrary/ucla-library-website-components/commit/9b47c5492261e03bdff5067c68f3c7f952040081))
+
+# [2.39.0-alpha.90](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.89...v2.39.0-alpha.90) (2024-06-28)
+
+
+### Features
+
+* APPS-2707 Create FTVA BlockInfo component ([#529](https://github.com/UCLALibrary/ucla-library-website-components/issues/529)) ([84e8df0](https://github.com/UCLALibrary/ucla-library-website-components/commit/84e8df071addec2c7da48c9461f634a42d6b55e3))
+
+# [2.39.0-alpha.89](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.88...v2.39.0-alpha.89) (2024-06-27)
+
+
+### Features
+
+* Apps-2704 finish tags component part 2 ([#531](https://github.com/UCLALibrary/ucla-library-website-components/issues/531)) ([e7dc9c0](https://github.com/UCLALibrary/ucla-library-website-components/commit/e7dc9c0a81ef53a7420751a0dcd2a6e4704b4a55))
+
 # [2.39.0-alpha.88](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.87...v2.39.0-alpha.88) (2024-06-25)
 
 

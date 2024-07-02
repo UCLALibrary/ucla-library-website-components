@@ -13,7 +13,7 @@ const { color } = defineProps({
 })
 
 const route = useRoute()
-// console.log('does this route exist?', route)
+console.log('does this route exist?', route, route?.path)
 
 // THEME
 const theme = useTheme()
@@ -27,6 +27,8 @@ const classes = computed(() => [
   `color-${sectionName.value}`,
   theme?.value || ''
 ])
+// console.log('section name computed', sectionName.value)
+// console.log('color prop', color)
 </script>
 
 <template>
