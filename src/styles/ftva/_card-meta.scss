@@ -23,11 +23,8 @@
   }
 
   .introduction {
-    // @include ftva-body;
-    font-family: $proxima-nova;
-    font-size: $font-size-18;
+    @include ftva-body;
     font-weight: 500;
-    line-height: $line-height-150;
     color: $body-grey;
     @include truncate($lines: 4);
   }
