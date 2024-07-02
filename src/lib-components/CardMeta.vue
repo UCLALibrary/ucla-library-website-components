@@ -20,7 +20,7 @@ import formatDates from '@/utils/formatEventDates'
 
 // import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
-import type { LocationItemType, ScreeningTagItemType } from '@/types/types'
+import type { LocationItemType, EventFiltersItemType } from '@/types/types'
 
 const props = defineProps({
   to: {
@@ -76,7 +76,7 @@ const props = defineProps({
     default: '',
   },
   tagLabels: {
-    type: Array as PropType<ScreeningTagItemType[]>,
+    type: Array as PropType<EventFiltersItemType[]>,
     default: () => [],
   },
   introduction: {
