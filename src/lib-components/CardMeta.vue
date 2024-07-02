@@ -212,7 +212,7 @@ const classes = computed(() => {
     </div>
 
     <div
-      v-if="tagLabels.length"
+      v-if="tagLabels && tagLabels.length > 0"
       class="block-tags"
     >
       <BlockTag
