@@ -2,9 +2,8 @@
   setup
   lang="ts"
 >
-import { defineAsyncComponent } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 
-import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
 import { useTheme } from '@/composables/useTheme'
@@ -13,7 +12,6 @@ import { useTheme } from '@/composables/useTheme'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
-const BlockTag = defineAsyncComponent(() => import('@/lib-components/BlockTag.vue'))
 
 // UTILITY FUNCTIONS
 import formatTimes from '@/utils/formatEventTimes'
@@ -83,6 +81,8 @@ const props = defineProps({
     default: '',
   },
 })
+
+const BlockTag = defineAsyncComponent(() => import('@/lib-components/BlockTag.vue'))
 
 const route = useRoute()
 
