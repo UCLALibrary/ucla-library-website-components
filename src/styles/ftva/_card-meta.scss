@@ -15,7 +15,7 @@
     font-family: $karbon;
     font-weight: 700;
     font-size: 48px;
-    line-height: 110%;
+    line-height: $line-height-110;
     margin-bottom: 20px;
   }
 
@@ -28,11 +28,10 @@
   }
 
   .introduction {
-    font-family: $karbon;
-    // font-family: $proximaNova';
-    font-size: 18px;
+    font-family: $proxima-nova;
+    font-size: $font-size-18;
     font-weight: 500;
-    line-height: 150%;
+    line-height: $line-height-150;
     color: $body-grey;
     @include truncate($lines: 4);
   }
@@ -43,14 +42,5 @@
 
   .slot {
     margin-top: 28px;
-  }
-
-  &.centered {
-
-    .title,
-    .title-no-link {
-      display: flex;
-      justify-content: center;
-    }
   }
 }
