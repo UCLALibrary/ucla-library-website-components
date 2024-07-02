@@ -1,4 +1,7 @@
-<script lang="ts" setup>
+<script
+  lang="ts"
+  setup
+>
 import { computed, defineAsyncComponent } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
@@ -76,6 +79,9 @@ const classes = computed(() => {
   </span>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 @import "@/styles/themes.scss";
 </style>
