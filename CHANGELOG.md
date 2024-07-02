@@ -1,3 +1,10 @@
+# [2.39.0-alpha.93](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.92...v2.39.0-alpha.93) (2024-07-01)
+
+
+### Bug Fixes
+
+* remove vue-router from external ([#540](https://github.com/UCLALibrary/ucla-library-website-components/issues/540)) ([1d52e4f](https://github.com/UCLALibrary/ucla-library-website-components/commit/1d52e4fa4f979464f7c7a61f30ca1c1e497a64aa))
+
 # [2.39.0-alpha.92](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.91...v2.39.0-alpha.92) (2024-07-01)
 
 
