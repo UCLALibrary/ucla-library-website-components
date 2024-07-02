@@ -6,16 +6,25 @@ export default {
   component: NavSearch,
 }
 
-const mockData = {}
+const mockData = {
+  placeholder: 'Search the Library',
+}
 
 // Variations of stories below
-export function Default() {
+export function DefaultWithPlaceholderProp() {
   return {
     data() {
-        return {
-          ...mockData
+      return {
+        ...mockData
       }
     },
+    components: { NavSearch },
+    template: '<nav-search :placeholder="placeholder"/>',
+  }
+}
+
+export function FTVA() {
+  return {
     provide() {
       return {
         theme: computed(() => 'ftva'),

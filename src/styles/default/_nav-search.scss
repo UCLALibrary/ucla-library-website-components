@@ -1,7 +1,44 @@
 .nav-search {
-    //styles
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin: 0 auto;
+
     .top-row {
+        position: relative;
         display: flex;
         flex-direction: row;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 20px;
+
+        .icon {
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            z-index: 5;
+        }
+
+        :deep(.search-input-wrapper.search-input) {
+            flex-grow: 1;
+            input[data-search-input="true"] {
+                padding-left: 45px;
+            }
+        }
+    }
+
+    .bottom-row {
+        width: 100%;
+        text-align: left;
+        font-size: 18px;
+
+        a.bottom-link {
+            margin-left: 5px;
+            font-weight: bold;
+            font-size: 20px;
+            text-decoration: underline;
+        }
     }
 }

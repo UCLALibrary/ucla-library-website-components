@@ -1,3 +1,37 @@
 .ftva.nav-search {
-    // FTVA styles
+    background-color: $navy-blue;
+    color: white;
+    .top-row {
+        .icon {
+          top: 17px;
+          left: 14px;
+        }
+
+        :deep(.search-input-wrapper.search-input) {
+            input[data-search-input="true"] {
+                padding: 15px 10px 15px 45px;
+                border-radius: 4px;
+                background-color: white;
+                font-family: var(--font-secondary);
+                font-size: 16px;
+                color: rgba(0, 0, 0, 0.73);
+                &::placeholder {
+                    text-transform: unset;
+                }
+            }
+            .clear-icon {
+              bottom: 15px;
+              &::after, &::before {
+                background-color: $navy-blue;
+              }
+            }
+        }
+        svg {
+          height: 20px;
+          width: 20px;
+          :deep(.svg__fill--primary-blue-03) {
+            fill: $navy-blue;
+          }
+        }
+    }
 }
