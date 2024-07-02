@@ -1,3 +1,10 @@
+# [2.39.0-alpha.94](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.93...v2.39.0-alpha.94) (2024-07-02)
+
+
+### Bug Fixes
+
+* APPS-2794 ([#541](https://github.com/UCLALibrary/ucla-library-website-components/issues/541)) ([dbf38c0](https://github.com/UCLALibrary/ucla-library-website-components/commit/dbf38c0dc78059e08d52177c946e0424ee98340f))
+
 # [2.39.0-alpha.93](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.92...v2.39.0-alpha.93) (2024-07-01)
 
 
