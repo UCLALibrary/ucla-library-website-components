@@ -1,7 +1,12 @@
-<script setup lang="ts">
-import { computed } from 'vue'
+<script
+  setup
+  lang="ts"
+>
+import { computed, defineAsyncComponent } from 'vue'
+
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
+import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
@@ -12,9 +17,7 @@ import RichText from '@/lib-components/RichText.vue'
 import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
 
-// import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
-
-import type { LocationItemType } from '@/types/types'
+import type { EventFiltersItemType, LocationItemType } from '@/types/types'
 
 const props = defineProps({
   to: {
@@ -69,9 +72,22 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  tagLabels: {
+    type: Array as PropType<EventFiltersItemType[]>,
+    default: () => [],
+  },
+  introduction: {
+    type: String,
+    default: '',
+  },
 })
 
+const BlockTag = defineAsyncComponent(() => import('@/lib-components/BlockTag.vue'))
+
 const route = useRoute()
+
+// THEME
+const theme = useTheme()
 
 const isImpactReport = computed(() => {
   return !!(route !== undefined && route.path.includes('impact'))
@@ -107,10 +123,14 @@ const parsedLocations = computed(() => {
     }
   })
 })
+
+const classes = computed(() => {
+  return ['card-meta', theme?.value || '']
+})
 </script>
 
 <template>
-  <div class="card-meta">
+  <div :class="classes">
     <div
       v-if="category"
       class="category"
@@ -183,6 +203,30 @@ const parsedLocations = computed(() => {
         :to="location.to"
       />
     </div>
+
+    <div
+      v-if="tagLabels && tagLabels.length > 0"
+      class="block-tags"
+    >
+      <BlockTag
+        v-for="tag in tagLabels"
+        :key="`tag-${tag.title}`"
+        :label="tag.title"
+        class="tag-label"
+      />
+    </div>
+
+    <div
+      v-if="introduction"
+      class="introduction"
+      v-html="introduction"
+    />
+
+    <!-- SHARE BUTTON -->
+    <div class="slot">
+      <slot />
+    </div>
+
     <RichText
       v-if="text"
       class="text"
@@ -191,101 +235,9 @@ const parsedLocations = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
-.card-meta {
-  .meta {
-    z-index: 10;
-    width: 100%;
-  }
-
-  .category {
-    @include overline;
-    color: var(--color-primary-blue-05);
-    margin-top: var(--space-xs);
-    margin-bottom: var(--space-s);
-  }
-
-  .title {
-    @include card-clickable-area;
-    display: block;
-
-    .translation {
-      display: block;
-    }
-  }
-
-  .title,
-  .title-no-link {
-    @include step-1;
-    color: var(--color-primary-blue-03);
-    margin: var(--space-s) 0;
-    line-height: $line-height--1;
-  }
-
-  .date-time {
-    @include step-0;
-    color: var(--color-secondary-grey-05);
-    margin: $component-02 + px 0 var(--space-s);
-    display: flex;
-    flex-direction: column;
-
-    .svg-online {
-      margin-bottom: -5px;
-      margin-left: 10px;
-      padding-left: 10px;
-      border-left: 1px solid var(--color-secondary-grey-02);
-    }
-  }
-
-  .byline-group {
-    display: flex;
-    flex-direction: column;
-    @include step-0;
-    color: var(--color-secondary-grey-04);
-    margin: var(--space-s) 0;
-  }
-
-  .text {
-    @include step-0;
-    color: var(--color-black);
-    @include truncate(4);
-    max-width: none;
-    padding-right: 0;
-    margin-top: var(--space-s);
-
-    :deep(strong) {
-      font-weight: 500;
-    }
-  }
-
-  .location-group {
-    color: var(--color-primary-blue-03);
-    font-family: var(--font-secondary);
-    line-height: 1;
-    margin-bottom: var(--space-s);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .icon-with-link {
-    position: relative;
-    z-index: 20;
-  }
-
-  // Breakpoints
-  @media #{$medium} {
-    .text {
-      margin-top: 0;
-    }
-  }
-
-  // Hovers
-  @media #{$has-hover} {
-    &:hover {
-      .title {
-        @include link-hover;
-      }
-    }
-  }
-}
+<style
+  lang="scss"
+  scoped
+>
+@import "@/styles/themes.scss";
 </style>

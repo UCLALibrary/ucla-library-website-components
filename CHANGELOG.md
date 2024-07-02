@@ -1,3 +1,11 @@
+# [2.39.0-alpha.96](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.95...v2.39.0-alpha.96) (2024-07-02)
+
+
+### Features
+
+* APPS-2774 Create CardMeta component FTVA variation ([#530](https://github.com/UCLALibrary/ucla-library-website-components/issues/530)) ([898d40a](https://github.com/UCLALibrary/ucla-library-website-components/commit/898d40a292c9ad575b550a7ce97d40af55ba9431))
+* Revert vitebuild code added previously ([#542](https://github.com/UCLALibrary/ucla-library-website-components/issues/542)) ([a03fcb3](https://github.com/UCLALibrary/ucla-library-website-components/commit/a03fcb37b7b46d6549b768025446833f8fc76f50))
+
 # [2.39.0-alpha.95](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.94...v2.39.0-alpha.95) (2024-07-02)
 
 

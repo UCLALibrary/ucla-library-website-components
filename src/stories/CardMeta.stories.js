@@ -1,4 +1,6 @@
+import { computed } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
+import ButtonLink from '@/lib-components/ButtonLink'
 
 // Storybook default settings
 export default {
@@ -6,7 +8,7 @@ export default {
   component: CardMeta
 }
 
-const mock = {
+const mockDefault = {
   to: '/visit/foo/bar/',
   category: 'Ullamco',
   title: 'Seven seas of the ancient world',
@@ -28,7 +30,7 @@ const mock = {
 export function Default() {
   return {
     data() {
-      return { ...mock }
+      return { ...mockDefault }
     },
     components: { CardMeta },
     template: `
@@ -53,7 +55,7 @@ export function Default() {
 export function Ongoing() {
   return {
     data() {
-      return { ...mock }
+      return { ...mockDefault }
     },
     components: { CardMeta },
     template: `
@@ -68,6 +70,99 @@ export function Ongoing() {
           :language="language"
           :section-handle="sectionHandle"
       />
+  `,
+  }
+}
+
+// FTVA STORIES
+
+export function WithBlockTagsAndIntro() {
+  return {
+    data() {
+      return {
+        event: {
+          eventTitle: 'Step Up (2006)',
+          ftvaEventIntroduction: 'In-person: The Scenes Talk with Duane Adler',
+          ftvaEventFilters: [
+            { title: 'Guest speaker' }, { title: '35mm' }
+          ],
+          text: '<p>Step Up is an American romantic dance franchise created by Duane Adler. The franchise includes six films and a television series. The films have received a generally mixed critical reception, while being a box office success with a collective total of $651 million.</p>',
+        },
+        series: {
+          title: 'The Step Up Movie Series'
+        }
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta },
+    template: `
+      <card-meta
+        :category="series.title"
+        :title="event.eventTitle"
+        :tagLabels="event.ftvaEventFilters"
+        :introduction="event.ftvaEventIntroduction"
+        :text="event.text"
+      />
+  `,
+  }
+}
+
+export function OnlyCategoryAndTitle() {
+  return {
+    data() {
+      return {
+        event: {
+          eventTitle: 'Step Up 2 - The Streets (2008)',
+        },
+        series: {
+          title: 'The Step Up Movie Series'
+        }
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta },
+    template: `
+      <card-meta
+        :category="series.title"
+        :title="event.eventTitle"
+      />
+  `,
+  }
+}
+
+export function ShareButton() {
+  return {
+    data() {
+      return {
+        event: {
+          eventTitle: 'Step Up 3D (2010)',
+        },
+        series: {
+          title: 'The Step Up Movie Series'
+        }
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta, ButtonLink },
+    template: `
+      <card-meta
+        :category="series.title"
+        :title="event.eventTitle"
+      >
+        <button-link label="Share" to="/share" />
+      </card-meta>
   `,
   }
 }

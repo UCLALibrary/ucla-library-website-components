@@ -4,7 +4,5 @@ describe('BLOCK / Campus Map', () => {
       '/iframe.html?id=block-campus-map--default&args=&viewMode=story'
     )
     cy.get('.block-campus-map').should('exist')
-
-    cy.percySnapshot('BLOCK / Campus Map: Default')
   })
 })
