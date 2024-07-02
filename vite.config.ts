@@ -9,8 +9,9 @@ export default defineConfig({
   plugins: [vue(), svgLoader({ svgo: false })],
   build: {
     lib: {
-      entry: 'src/entry.js',
+      entry: resolve(__dirname, 'src/entry.js'),
       name: 'ucla-library-website-components',
+      formats: ['es', 'cjs'],
       fileName: format =>
         `ucla-library-website-components.${format}.js`,
     },
@@ -18,10 +19,9 @@ export default defineConfig({
       external: ['vue', 'vue-router'],
       output: {
         // preserveModules: true,
-        exports: 'named', // Ensure that exports are named,
+        exports: 'named',
         globals: {
-          'vue': 'Vue',
-          'vue-router': 'vueRouter',
+          vue: 'Vue',
         },
       },
     },

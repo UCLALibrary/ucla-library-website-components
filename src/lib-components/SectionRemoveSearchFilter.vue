@@ -54,7 +54,7 @@ function closeBlockFilter(esfieldName: string, label: string | boolean) {
     >
       <BlockRemoveSearchFilter
         :title="filter.value === 'yes' ? getCheckBoxLabel(filter.name) : filter.value"
-        @removeBlockFilter="
+        @remove-block-filter="
           closeBlockFilter(
             filter.name,
             filter.value,
