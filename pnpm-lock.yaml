@@ -20,12 +20,6 @@ dependencies:
   pinia:
     specifier: ^2.1.6
     version: 2.1.6(typescript@5.2.2)(vue@3.4.29)
-  vue:
-    specifier: ^3.4.29
-    version: 3.4.29(typescript@5.2.2)
-  vue-router:
-    specifier: ^4.3.3
-    version: 4.4.0(vue@3.4.29)
   vue3-carousel:
     specifier: ^0.3.1
     version: 0.3.1(vue@3.4.29)
@@ -121,6 +115,12 @@ devDependencies:
   vite-svg-loader:
     specifier: ^4.0.0
     version: 4.0.0
+  vue:
+    specifier: ^3.4.29
+    version: 3.4.29(typescript@5.2.2)
+  vue-router:
+    specifier: ^4.3.3
+    version: 4.4.0(vue@3.4.29)
   vue-tsc:
     specifier: ^1.8.5
     version: 1.8.5(typescript@5.2.2)
@@ -4569,7 +4569,7 @@ packages:
 
   /@vue/devtools-api@6.6.3:
     resolution: {integrity: sha512-0MiMsFma/HqA6g3KLKn+AGpL1kgKhFWszC9U29NfpWK5LE7bjeXxySWJrOJ77hBz+TBrBQ7o4QJqbPbqbs8rJw==}
-    dev: false
+    dev: true
 
   /@vue/language-core@1.8.5(typescript@5.2.2):
     resolution: {integrity: sha512-DKQNiNQzNV7nrkZQujvjfX73zqKdj2+KoM4YeKl+ft3f+crO3JB4ycPnmgaRMNX/ULJootdQPGHKFRl5cXxwaw==}
@@ -11226,7 +11226,7 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.6.3
       vue: 3.4.29(typescript@5.2.2)
-    dev: false
+    dev: true
 
   /vue-template-compiler@2.7.14:
     resolution: {integrity: sha512-zyA5Y3ArvVG0NacJDkkzJuPQDF8RFeRlzV2vLeSnhSpieO6LK2OVbdLPi5MPPs09Ii+gMO8nY4S3iKQxBxDmWQ==}
