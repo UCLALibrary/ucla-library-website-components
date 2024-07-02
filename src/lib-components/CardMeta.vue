@@ -20,7 +20,7 @@ import formatDates from '@/utils/formatEventDates'
 
 // import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
-import type { LocationItemType, EventFiltersItemType } from '@/types/types'
+import type { EventFiltersItemType, LocationItemType } from '@/types/types'
 
 const props = defineProps({
   to: {
