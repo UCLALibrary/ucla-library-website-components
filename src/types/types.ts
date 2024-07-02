@@ -45,6 +45,7 @@ export interface BlockCardMetaType {
   language: string
   text: string
   locations?: LocationItemType[]
+  tagLabels?: EventFiltersItemType[]
   bylineOne: string
   bylineTwo: string
   ongoing: boolean
@@ -174,6 +175,11 @@ export interface LocationItemType {
   id?: string
   title: string
   to: string
+}
+
+export interface EventFiltersItemType {
+  id: string
+  title: string
 }
 
 export interface SearchLinkItemType {
