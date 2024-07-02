@@ -20,7 +20,7 @@ export function Visit() {
   router.push('/visit/eee')
   return {
     components: { DividerWayFinder },
-    template: `<divider-way-finder />`,
+    template: '<divider-way-finder />',
   }
 }
 
@@ -28,7 +28,7 @@ export function About() {
   router.push('/about/fff')
   return {
     components: { DividerWayFinder },
-    template: `<divider-way-finder />`,
+    template: '<divider-way-finder />',
   }
 }
 
@@ -36,7 +36,7 @@ export function Help() {
   router.push('/help/ddd')
   return {
     components: { DividerWayFinder },
-    template: `<divider-way-finder />`,
+    template: '<divider-way-finder />',
   }
 }
 
@@ -49,6 +49,6 @@ export function FTVA() {
       }
     },
     components: { DividerWayFinder },
-    template: `<divider-way-finder />`,
+    template: '<divider-way-finder />',
   }
 }
