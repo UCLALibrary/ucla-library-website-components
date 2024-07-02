@@ -12,8 +12,6 @@ import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
 
-// import BlockTag from '@/lib-components/BlockTag.vue'
-
 // UTILITY FUNCTIONS
 import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
