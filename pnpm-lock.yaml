@@ -20,12 +20,6 @@ dependencies:
   pinia:
     specifier: ^2.1.6
     version: 2.1.6(typescript@5.2.2)(vue@3.4.29)
-  vue:
-    specifier: ^3.4.29
-    version: 3.4.29(typescript@5.2.2)
-  vue-router:
-    specifier: ^4.3.3
-    version: 4.4.0(vue@3.4.29)
   vue3-carousel:
     specifier: ^0.3.1
     version: 0.3.1(vue@3.4.29)
@@ -110,8 +104,8 @@ devDependencies:
     specifier: ^5.2.2
     version: 5.2.2
   ucla-library-design-tokens:
-    specifier: ^5.14.1
-    version: 5.14.1
+    specifier: ^5.15.0
+    version: 5.15.0
   video.js:
     specifier: ^8.5.2
     version: 8.5.2
@@ -121,6 +115,12 @@ devDependencies:
   vite-svg-loader:
     specifier: ^4.0.0
     version: 4.0.0
+  vue:
+    specifier: ^3.4.29
+    version: 3.4.29(typescript@5.2.2)
+  vue-router:
+    specifier: ^4.3.3
+    version: 4.4.0(vue@3.4.29)
   vue-tsc:
     specifier: ^1.8.5
     version: 1.8.5(typescript@5.2.2)
@@ -3866,7 +3866,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 3.13.1
       vue: 3.4.29(typescript@5.2.2)
-      vue-component-type-helpers: 2.0.22
+      vue-component-type-helpers: 2.0.24
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -4569,7 +4569,7 @@ packages:
 
   /@vue/devtools-api@6.6.3:
     resolution: {integrity: sha512-0MiMsFma/HqA6g3KLKn+AGpL1kgKhFWszC9U29NfpWK5LE7bjeXxySWJrOJ77hBz+TBrBQ7o4QJqbPbqbs8rJw==}
-    dev: false
+    dev: true
 
   /@vue/language-core@1.8.5(typescript@5.2.2):
     resolution: {integrity: sha512-DKQNiNQzNV7nrkZQujvjfX73zqKdj2+KoM4YeKl+ft3f+crO3JB4ycPnmgaRMNX/ULJootdQPGHKFRl5cXxwaw==}
@@ -10846,8 +10846,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  /ucla-library-design-tokens@5.14.1:
-    resolution: {integrity: sha512-7UpX+ol/wq/XDAxLxol/44N4BeogB4UJT+g9RjsneFIcc5sgVsyywoTIOEke7VMSzygXKw7Lp0xxpDrSjodtsg==}
+  /ucla-library-design-tokens@5.15.0:
+    resolution: {integrity: sha512-eSPig1iinQHpJ+J0DMXIXvE0BD4rRxcnazXwEQmlE9fmjgUSZnZpc1fkoDOu0ZP7nhoADIn7HZuFf0dlAM5veQ==}
     dev: true
 
   /uglify-js@3.17.4:
@@ -11140,8 +11140,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /vue-component-type-helpers@2.0.22:
-    resolution: {integrity: sha512-gPr2Ba7efUwy/Vfbuf735bHSVdN4ycoZUCHfypkI33M9DUH+ieRblLLVM2eImccFYaWNWwEzURx02EgoXDBmaQ==}
+  /vue-component-type-helpers@2.0.24:
+    resolution: {integrity: sha512-Jr5N8QVYEcbQuMN1LRgvg61758G8HTnzUlQsAFOxx6Y6X8kmhJ7C+jOvWsQruYxi3uHhhS6BghyRlyiwO99DBg==}
     dev: true
 
   /vue-demi@0.14.6(vue@3.4.29):
@@ -11226,7 +11226,7 @@ packages:
     dependencies:
       '@vue/devtools-api': 6.6.3
       vue: 3.4.29(typescript@5.2.2)
-    dev: false
+    dev: true
 
   /vue-template-compiler@2.7.14:
     resolution: {integrity: sha512-zyA5Y3ArvVG0NacJDkkzJuPQDF8RFeRlzV2vLeSnhSpieO6LK2OVbdLPi5MPPs09Ii+gMO8nY4S3iKQxBxDmWQ==}

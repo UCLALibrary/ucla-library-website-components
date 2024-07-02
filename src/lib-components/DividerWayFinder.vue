@@ -3,26 +3,32 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import getSectionName from '@/utils/getSectionName'
+import { useTheme } from '@/composables/useTheme'
 
 const { color } = defineProps({
   color: {
     type: String,
-    default: '', // This will be "visit", "about", "help".
+    default: '', // "visit", "about", "help", "ftva"
   },
 })
+
 const route = useRoute()
-// console.log('does this route exist?', route)
+console.log('does this route exist?', route, route?.path)
+
+// THEME
+const theme = useTheme()
 
 const sectionName = computed(() => color || (route !== undefined && route.path
   ? getSectionName(route.path)
   : 'default'))
+
 const classes = computed(() => [
   'divider-way-finder',
   `color-${sectionName.value}`,
+  theme?.value || ''
 ])
-
-/* console.log("section name computed", sectionName.value)
-console.log("color prop", color) */
+// console.log('section name computed', sectionName.value)
+// console.log('color prop', color)
 </script>
 
 <template>
@@ -32,52 +38,10 @@ console.log("color prop", color) */
   </div>
 </template>
 
-<style lang="scss" scoped>
-.divider-way-finder {
-  &.color-help {
-    --color-border: var(--color-help-green-03);
-  }
-
-  &.color-visit {
-    --color-border: var(--color-visit-fushia-03);
-  }
-
-  &.color-about {
-    --color-border: var(--color-about-purple-03);
-  }
-
-  &.color-default {
-    --color-border: var(--color-default-cyan-03);
-  }
-
-  &.search-margin {
-    margin: var(--space-2xl) auto;
-  }
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: space-between;
-  align-items: center;
-
-  max-width: $container-l-main (+ px);
-  margin: var(--space-2xl) auto;
-
-  .solid {
-    height: 1px;
-    width: 96px;
-    margin-right: 17px;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-    border-bottom-color: var(--color-border, var(--color-default-cyan-03));
-  }
-
-  .dotted {
-    border-bottom: 2px dotted var(--color-secondary-grey-02);
-    height: 1px;
-
-    flex: 1 1 auto;
-  }
-}
+<style
+  lang="scss"
+  scoped
+>
+@import "@/styles/themes.scss";
+@import "ucla-library-design-tokens/scss/_tokens-ftva";
 </style>
