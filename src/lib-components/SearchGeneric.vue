@@ -128,7 +128,7 @@ function doSearch() {
     <SearchGenericFilters
       :filters="filters"
       :query-filters="selectedFilters"
-      @update:queryFilters="updateQueryFilters"
+      @update:query-filters="updateQueryFilters"
       @filters-selection-action="doSearch"
     />
   </div>

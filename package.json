@@ -65,7 +65,7 @@
         "video.js": "^8.5.2",
         "vite": "^5.3.1",
         "vite-svg-loader": "^4.0.0",
-        "vue-tsc": "^1.8.5"
+        "vue-tsc": "^2.0.24"
     },
     "dependencies": {
         "@vuepic/vue-datepicker": "^8.2.0",
