@@ -11,7 +11,6 @@ import { useTheme } from '@/composables/useTheme'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
-import BlockTag from '@/lib-components/BlockTag.vue'
 
 // import BlockTag from '@/lib-components/BlockTag.vue'
 
@@ -131,14 +130,14 @@ const parsedLocations = computed(() => {
 })
 
 // if we want to use theme pattern based on passing classes prop to each component
-const parsedClasses = computed(() => {
+const classes = computed(() => {
   // (maybe classes.join() if need an array)
   return ['card-meta', theme?.value || '', props.isCentered ? 'centered' : '']
 })
 </script>
 
 <template>
-  <div :class="parsedClasses">
+  <div :class="classes">
     <div
       v-if="category"
       class="category"

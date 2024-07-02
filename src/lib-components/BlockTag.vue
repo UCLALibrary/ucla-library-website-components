@@ -54,13 +54,13 @@ const BlockTagIcons: any = {
   SvgIconFamilyFriendly
 }
 
-const parsedClasses = computed(() => {
+const classes = computed(() => {
   return ['block-tag', theme?.value || '', isSecondary ? '' : 'primary']
 })
 </script>
 
 <template>
-  <span :class="parsedClasses">
+  <span :class="classes">
     <component
       :is="BlockTagIcons[iconName]"
       v-if="iconName"
