@@ -1,7 +1,7 @@
 {
     "name": "ucla-library-website-components",
     "private": false,
-    "version": "2.39.0-alpha.92",
+    "version": "2.39.0-alpha.95",
     "main": "dist/ucla-library-website-components.umd.js",
     "module": "dist/ucla-library-website-components.es.js",
     "files": [
@@ -64,6 +64,8 @@
         "video.js": "^8.5.2",
         "vite": "^5.3.1",
         "vite-svg-loader": "^4.0.0",
+        "vue": "^3.4.29",
+        "vue-router": "^4.3.3",
         "vue-tsc": "^1.8.5"
     },
     "dependencies": {
@@ -72,8 +74,10 @@
         "date-fns": "^2.30.0",
         "lodash": "^4.17.21",
         "pinia": "^2.1.6",
-        "vue": "^3.4.29",
-        "vue-router": "^4.3.3",
         "vue3-carousel": "^0.3.1"
+    },
+    "peerDependencies": {
+        "vue": "^3.4.29",
+        "vue-router": "^4.3.3"
     }
 }
