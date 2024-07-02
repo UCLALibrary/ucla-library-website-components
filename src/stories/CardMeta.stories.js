@@ -1,7 +1,6 @@
 import { computed } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
 import ButtonLink from '@/lib-components/ButtonLink'
-import BlockTag from '@/lib-components/BlockTag'
 
 // Storybook default settings
 export default {
@@ -99,7 +98,7 @@ export function WithBlockTagsAndIntro() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { CardMeta, BlockTag },
+    components: { CardMeta },
     template: `
       <card-meta
         :category="series.title"
