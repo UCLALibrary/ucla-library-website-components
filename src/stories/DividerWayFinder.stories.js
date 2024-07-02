@@ -1,28 +1,54 @@
-import DividerWayFinder from '@/lib-components/DividerWayFinder.vue'
+import { computed } from 'vue'
+import router from '@/router'
+import DividerWayFinder from '@/lib-components/DividerWayFinder'
 
 export default {
   title: 'DIVIDER / Way Finder',
   component: DividerWayFinder,
 }
 
-export const Default = {
-  args: {},
+// STORIES
+export function Default() {
+  router.push('/default')
+  return {
+    components: { DividerWayFinder },
+    template: '<divider-way-finder />',
+  }
 }
 
-export const Visit = {
-  args: {
-    color: 'visit',
-  },
+export function Visit() {
+  router.push('/visit/eee')
+  return {
+    components: { DividerWayFinder },
+    template: '<divider-way-finder />',
+  }
 }
 
-export const About = {
-  args: {
-    color: 'about',
-  },
+export function About() {
+  router.push('/about/fff')
+  return {
+    components: { DividerWayFinder },
+    template: '<divider-way-finder />',
+  }
 }
 
-export const Help = {
-  args: {
-    color: 'help',
-  },
+export function Help() {
+  router.push('/help/ddd')
+  return {
+    components: { DividerWayFinder },
+    template: '<divider-way-finder />',
+  }
+}
+
+export function FTVA() {
+  router.push('/default')
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { DividerWayFinder },
+    template: '<divider-way-finder />',
+  }
 }

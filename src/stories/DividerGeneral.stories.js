@@ -18,3 +18,10 @@ export const IsBold = {
     template: '<divider-general :is-bold="true"/>',
   }),
 }
+
+export const IsTertiary = {
+  render: () => ({
+    components: { DividerGeneral },
+    template: '<divider-general :is-tertiary="true"/>',
+  }),
+}

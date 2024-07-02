@@ -1,3 +1,24 @@
+# [2.39.0-alpha.95](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.94...v2.39.0-alpha.95) (2024-07-02)
+
+
+### Features
+
+* APPS-2701 Create DividerWayfinder & DividerGeneral component FTVA variation ([#523](https://github.com/UCLALibrary/ucla-library-website-components/issues/523)) ([a8be4c5](https://github.com/UCLALibrary/ucla-library-website-components/commit/a8be4c52e563cee8004cf4c8ac49e8bd642fe618))
+
+# [2.39.0-alpha.94](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.93...v2.39.0-alpha.94) (2024-07-02)
+
+
+### Bug Fixes
+
+* APPS-2794 ([#541](https://github.com/UCLALibrary/ucla-library-website-components/issues/541)) ([dbf38c0](https://github.com/UCLALibrary/ucla-library-website-components/commit/dbf38c0dc78059e08d52177c946e0424ee98340f))
+
+# [2.39.0-alpha.93](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.92...v2.39.0-alpha.93) (2024-07-01)
+
+
+### Bug Fixes
+
+* remove vue-router from external ([#540](https://github.com/UCLALibrary/ucla-library-website-components/issues/540)) ([1d52e4f](https://github.com/UCLALibrary/ucla-library-website-components/commit/1d52e4fa4f979464f7c7a61f30ca1c1e497a64aa))
+
 # [2.39.0-alpha.92](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.91...v2.39.0-alpha.92) (2024-07-01)
 
 
