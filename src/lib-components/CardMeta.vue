@@ -83,10 +83,6 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  isCentered: {
-    type: Boolean,
-    default: false,
-  },
 })
 
 const route = useRoute()
@@ -129,10 +125,8 @@ const parsedLocations = computed(() => {
   })
 })
 
-// if we want to use theme pattern based on passing classes prop to each component
 const classes = computed(() => {
-  // (maybe classes.join() if need an array)
-  return ['card-meta', theme?.value || '', props.isCentered ? 'centered' : '']
+  return ['card-meta', theme?.value || '']
 })
 </script>
 
