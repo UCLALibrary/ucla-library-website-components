@@ -166,27 +166,3 @@ export function ShareButton() {
   `,
   }
 }
-
-export function CenteredTitleText() {
-  return {
-    data() {
-      return {
-        eventTitle: 'Step Up - The Revolution (2012)',
-        text: '<p>Step Up Revolution is an American dance film directed by Scott Speer and written by Amanda Brody. The film is the sequel to Step Up 3D (2010) and the fourth installment in the Step Up film series. It stars Ryan Guzman, Kathryn McCormick, Misha Gabriel, Cleopatra Coleman, Stephen "tWitch" Boss, Tommy Dewey, and Peter Gallagher.</p>',
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { CardMeta },
-    template: `
-      <card-meta
-        :title="eventTitle"
-        :text="text"
-        isCentered=true
-      />
-  `,
-  }
-}
