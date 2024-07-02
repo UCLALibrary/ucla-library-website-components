@@ -2,7 +2,7 @@
     "name": "ucla-library-website-components",
     "type": "module",
     "private": false,
-    "version": "2.39.0-alpha.95",
+    "version": "2.39.0-alpha.96",
     "main": "dist/ucla-library-website-components.cjs.js",
     "module": "dist/ucla-library-website-components.es.js",
     "files": [
