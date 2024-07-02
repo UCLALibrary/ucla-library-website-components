@@ -11,12 +11,11 @@ import { useTheme } from '@/composables/useTheme'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
+import BlockTag from '@/lib-components/BlockTag'
 
 // UTILITY FUNCTIONS
 import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
-
-// import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 import type { EventFiltersItemType, LocationItemType } from '@/types/types'
 

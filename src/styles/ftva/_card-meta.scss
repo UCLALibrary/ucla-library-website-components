@@ -2,16 +2,16 @@
 
 .ftva.card-meta {
   .category {
-    @include overline;
-    @include ftva-body;
+    @include ftva-button-link;
     color: $accent-blue;
+    margin: 0 0 20px;
   }
 
   .title,
   .title-no-link {
     @include ftva-h2;
     color: $heading-grey;
-    margin-bottom: 20px;
+    margin: 0 0 24px;
   }
 
   .block-tags {
@@ -19,14 +19,13 @@
     flex-direction: row;
     justify-content: left;
     gap: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
 
   .introduction {
-    @include ftva-body;
-    font-weight: 500;
-    color: $body-grey;
+    @include ftva-body-2;
     @include truncate($lines: 4);
+    color: $navy-blue;
   }
 
   .text {
