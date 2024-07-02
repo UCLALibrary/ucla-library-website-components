@@ -1,3 +1,10 @@
+# [2.39.0-alpha.95](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.94...v2.39.0-alpha.95) (2024-07-02)
+
+
+### Features
+
+* APPS-2701 Create DividerWayfinder & DividerGeneral component FTVA variation ([#523](https://github.com/UCLALibrary/ucla-library-website-components/issues/523)) ([a8be4c5](https://github.com/UCLALibrary/ucla-library-website-components/commit/a8be4c52e563cee8004cf4c8ac49e8bd642fe618))
+
 # [2.39.0-alpha.94](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.93...v2.39.0-alpha.94) (2024-07-02)
 
 
