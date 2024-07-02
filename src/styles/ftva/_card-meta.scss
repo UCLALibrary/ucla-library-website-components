@@ -3,19 +3,14 @@
 .ftva.card-meta {
   .category {
     @include overline;
+    @include ftva-body;
     color: $accent-blue;
-    font-family: $karbon;
-    font-size: $font-size-18;
-    line-height: $line-height-150;
   }
 
   .title,
   .title-no-link {
+    @include ftva-h2;
     color: $heading-grey;
-    font-family: $karbon;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: $line-height-110;
     margin-bottom: 20px;
   }
 
@@ -28,6 +23,7 @@
   }
 
   .introduction {
+    // @include ftva-body;
     font-family: $proxima-nova;
     font-size: $font-size-18;
     font-weight: 500;
