@@ -1,6 +1,6 @@
 <script setup>
 // Helpers
-import { computed } from 'vue'
+import { computed, onMounted, ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import getSectionName from '@/utils/getSectionName'
 import { useTheme } from '@/composables/useTheme'
@@ -13,13 +13,13 @@ const { color } = defineProps({
 })
 
 const route = useRoute()
-console.log('does this route exist?', route, route?.path)
 
 // THEME
 const theme = useTheme()
+const colorRoute = ref(route?.path || '')
 
-const sectionName = computed(() => color || (route !== undefined && route.path
-  ? getSectionName(route.path)
+const sectionName = computed(() => color || (colorRoute.value !== ''
+  ? getSectionName(colorRoute.value)
   : 'default'))
 
 const classes = computed(() => [
@@ -27,6 +27,17 @@ const classes = computed(() => [
   `color-${sectionName.value}`,
   theme?.value || ''
 ])
+
+// Watch for route changes
+watchEffect(() => {
+  colorRoute.value = route?.path || ''
+})
+
+// Mounted
+onMounted(() => {
+  console.log('does this route exist?', route?.path)
+  colorRoute.value = route?.path || ''
+})
 // console.log('section name computed', sectionName.value)
 // console.log('color prop', color)
 </script>
@@ -38,10 +49,7 @@ const classes = computed(() => [
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 @import "@/styles/themes.scss";
 @import "ucla-library-design-tokens/scss/_tokens-ftva";
 </style>
