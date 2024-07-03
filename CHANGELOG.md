@@ -1,3 +1,10 @@
+# [2.39.0-alpha.100](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.99...v2.39.0-alpha.100) (2024-07-03)
+
+
+### Features
+
+* move vue-router back to external and peer dependencies ([#547](https://github.com/UCLALibrary/ucla-library-website-components/issues/547)) ([b566b96](https://github.com/UCLALibrary/ucla-library-website-components/commit/b566b969cf0f41186921acba4de4486ab43dc92d))
+
 # [2.39.0-alpha.99](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.98...v2.39.0-alpha.99) (2024-07-03)
 
 
