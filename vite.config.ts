@@ -13,7 +13,7 @@ export default defineConfig({
       name: 'ucla-library-website-components',
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', 'vue-router'],
       output: {
         // preserveModules: true,
         exports: 'named',
