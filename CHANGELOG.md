@@ -1,3 +1,10 @@
+# [2.39.0-alpha.99](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.98...v2.39.0-alpha.99) (2024-07-03)
+
+
+### Features
+
+* vite build update for useroute to work ([#545](https://github.com/UCLALibrary/ucla-library-website-components/issues/545)) ([c449bea](https://github.com/UCLALibrary/ucla-library-website-components/commit/c449bea2367f28c3a09e7df68ee7c218674513c8))
+
 # [2.39.0-alpha.98](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.97...v2.39.0-alpha.98) (2024-07-03)
 
 
