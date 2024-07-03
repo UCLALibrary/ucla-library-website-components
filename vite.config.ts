@@ -16,7 +16,7 @@ export default defineConfig({
         format === 'cjs' ? `ucla-library-website-components.${format}` : `ucla-library-website-components.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue', 'vue-router'],
+      external: ['vue'],
       output: {
         // preserveModules: true,
         exports: 'named',
