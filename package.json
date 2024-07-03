@@ -2,7 +2,7 @@
     "name": "ucla-library-website-components",
     "type": "module",
     "private": false,
-    "version": "2.39.0-alpha.96",
+    "version": "2.39.0-alpha.99",
     "main": "./dist/ucla-library-website-components.umd.cjs",
     "module": "./dist/ucla-library-website-components.js",
     "style": "./dist/style.css",
@@ -89,7 +89,6 @@
         "vue3-carousel": "^0.3.1"
     },
     "peerDependencies": {
-        "vue": "^3.4.29",
-        "vue-router": "^4.3.3"
+        "vue": "^3.4.29"
     }
 }
