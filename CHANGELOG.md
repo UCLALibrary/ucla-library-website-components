@@ -1,3 +1,17 @@
+# [2.39.0-alpha.98](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.97...v2.39.0-alpha.98) (2024-07-03)
+
+
+### Features
+
+* adds watcheffect onmounted for useroute reactivity ([#544](https://github.com/UCLALibrary/ucla-library-website-components/issues/544)) ([99bb9e4](https://github.com/UCLALibrary/ucla-library-website-components/commit/99bb9e4ad0a701a19a291f92e86f60069daddeb9))
+
+# [2.39.0-alpha.97](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.96...v2.39.0-alpha.97) (2024-07-02)
+
+
+### Features
+
+* fix csbuild ([#543](https://github.com/UCLALibrary/ucla-library-website-components/issues/543)) ([58a80d6](https://github.com/UCLALibrary/ucla-library-website-components/commit/58a80d6a86cd1f6a4c03eb9496b3c8094ecdaf62))
+
 # [2.39.0-alpha.96](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.95...v2.39.0-alpha.96) (2024-07-02)
 
 
