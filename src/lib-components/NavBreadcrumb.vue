@@ -1,107 +1,112 @@
 <script setup>
-import { computed, ref } from "vue"
-import { useTheme } from "@/composables/useTheme"
-import { useGlobalStore } from "@/stores/GlobalStore"
+import { computed, ref } from 'vue'
+import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-left.svg'
+import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-right.svg'
+import { useTheme } from '@/composables/useTheme'
 
 // SVGs
-import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-left.svg"
-import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret-right.svg"
 
 // COMPONENTS
-import SmartLink from "@/lib-components/SmartLink.vue"
+import SmartLink from '@/lib-components/SmartLink.vue'
 
 const { parentTitle, title, to, uri } = defineProps({
-    parentTitle: {
-        type: String,
-        default: "",
-    },
-    title: {
-        type: String,
-        default: "",
-    },
-    to: {
-        type: String,
-        default: "",
-    },
-    uri: {
-        type: String,
-        default: "",
-    },
+  parentTitle: {
+    type: String,
+    default: '',
+  },
+  title: {
+    type: String,
+    default: '',
+  },
+  to: {
+    type: String,
+    default: '',
+  },
+  uri: {
+    type: String,
+    default: '',
+  },
 })
 
 const isCollapsed = ref(null)
 
-const globalStore = useGlobalStore()
+// ToDo: Mobile
+// const globalStore = useGlobalStore()
 
-const isMobile = computed(() => {
-    return globalStore.winWidth <= 1024
-})
+// const isMobile = computed(() => {
+//   return globalStore.winWidth <= 1024
+// })
 
 const parsedBreadcrumbs = computed(() => {
-    const pagePathArray = uri.split("/").slice(1)
-    // Split apart URI path into distinct sections
-    // Remove empty string at start of the array
+  const pagePathArray = uri.split('/').slice(1)
+  // Split apart URI path into distinct sections
+  // Remove empty string at start of the array
 
-    return pagePathArray
+  return pagePathArray
 })
 // console.log(parsedBreadcrumbs.value)
 
 // ToDo: Handle Mobile behavior
+// ToDo: Resolve side effects
+
 const parsedBreadcrumbLinks = computed(() => {
-    const fullBreadcrumbList = parsedBreadcrumbs.value
+  const fullBreadcrumbList = parsedBreadcrumbs.value
 
-    const arrLength = fullBreadcrumbList.length
+  const arrLength = fullBreadcrumbList.length
 
-    if (isCollapsed.value !== false && arrLength > 4) {
-        isCollapsed.value = true
+  if (isCollapsed.value !== false && arrLength > 4) {
+    // isCollapsed.value = true
+    handleCollapse()
 
-        // Keep first and last two items in the list
-        const truncatedBreadcrumbList = fullBreadcrumbList.toSpliced(
-            1,
-            arrLength - 3,
-            "..."
-        )
-        return createBreadcrumbLinks(truncatedBreadcrumbList)
-    } else if (!isCollapsed.value) {
-        // isCollapsed.value = false
-        return createBreadcrumbLinks(fullBreadcrumbList)
-    }
+    // Keep first and last two items in the list
+    const truncatedBreadcrumbList = fullBreadcrumbList.toSpliced(
+      1,
+      arrLength - 3,
+      '...'
+    )
+    return createBreadcrumbLinks(truncatedBreadcrumbList)
+  }
+  // if (!isCollapsed.value) {
+  // isCollapsed.value = false
+  return createBreadcrumbLinks(fullBreadcrumbList)
+  // }
 })
-console.log(parsedBreadcrumbLinks.value)
+// console.log(parsedBreadcrumbLinks.value)
 
 // METHODS
 
 // ToDo: Handle where to link truncated group
 function createBreadcrumbLinks(arr) {
-    const breadCrumbObjects = []
+  const breadCrumbObjects = []
 
-    arr.forEach((item, index) => {
-        const linkLength = item.length
-        const linkIndex = uri.indexOf(item)
-        const linkTo = uri.substring(0, linkLength + linkIndex)
-        const linkTitle = item.replaceAll("-", " ")
+  arr.forEach((item, index) => {
+    const linkLength = item.length
+    const linkIndex = uri.indexOf(item)
+    const linkTo = uri.substring(0, linkLength + linkIndex)
+    const linkTitle = item.replaceAll('-', ' ')
 
-        let isLastItem
-        index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
+    let isLastItem
+    index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
 
-        let isTruncated
-        isCollapsed && index === 1
-            ? (isTruncated = true)
-            : (isTruncated = false)
+    let isTruncated
+    isCollapsed.value && index === 1
+      ? (isTruncated = true)
+      : (isTruncated = false)
 
-        breadCrumbObjects.push({
-            to: linkTo,
-            title: linkTitle,
-            isTruncated: isTruncated,
-            isLastItem: isLastItem,
-        })
+    breadCrumbObjects.push({
+      to: linkTo,
+      title: linkTitle,
+      isTruncated,
+      isLastItem,
     })
-    return breadCrumbObjects
+  })
+  return breadCrumbObjects
 }
 
 function handleCollapse() {
-    isCollapsed.value = false
-    console.log(isCollapsed.value)
+  // isCollapsed.value = false
+  isCollapsed.value = !isCollapsed.value
+  // console.log(isCollapsed.value)
 }
 
 // THEME
@@ -109,51 +114,51 @@ const theme = useTheme()
 
 // ToDo: Handle Mobile behavior/styling
 const parsedClasses = computed(() => {
-    return [
-        "nav-breadcrumb",
-        "subtitle",
-        // mobileClass,
-        theme?.value || "",
-    ]
+  return [
+    'nav-breadcrumb',
+    'subtitle',
+    // mobileClass,
+    theme?.value || '',
+  ]
 })
 </script>
 
 <template>
-    <!-- Multi-Level Nesting -->
-    <div v-if="uri" :class="parsedClasses">
-        <span
-            v-for="(linkObj, index) in parsedBreadcrumbLinks"
-            :key="linkObj.title"
-            class="test"
-        >
-            <SmartLink
-                :to="linkObj.to"
-                class="parent-page-url"
-                v-text="linkObj.title"
-                v-if="!linkObj.isLastItem && !linkObj.isTruncated"
-            />
-            <SmartLink
-                :to="linkObj.to"
-                class="parent-page-url"
-                v-text="linkObj.title"
-                v-else-if="!linkObj.isLastItem && linkObj.isTruncated"
-                @click="handleCollapse()"
-            />
-            <SvgIconCaretRight v-if="!linkObj.isLastItem" aria-hidden="true" />
-            <span
-                class="current-page-title"
-                v-text="linkObj.title"
-                v-if="linkObj.isLastItem"
-            />
-        </span>
-    </div>
+  <!-- Multi-Level Nesting -->
+  <div v-if="uri" :class="parsedClasses">
+    <span
+      v-for="linkObj in parsedBreadcrumbLinks"
+      :key="linkObj.title"
+      class="test"
+    >
+      <SmartLink
+        v-if="!linkObj.isLastItem && !linkObj.isTruncated"
+        :to="linkObj.to"
+        class="parent-page-url"
+        v-text="linkObj.title"
+      />
+      <SmartLink
+        v-else-if="!linkObj.isLastItem && linkObj.isTruncated"
+        :to="linkObj.to"
+        class="parent-page-url"
+        @click="handleCollapse()"
+        v-text="linkObj.title"
+      />
+      <SvgIconCaretRight v-if="!linkObj.isLastItem" aria-hidden="true" />
+      <span
+        v-if="linkObj.isLastItem"
+        class="current-page-title"
+        v-text="linkObj.title"
+      />
+    </span>
+  </div>
 
-    <!-- Single Level Nesting -->
-    <div v-else :class="parsedClasses">
-        <SmartLink :to="to" class="parent-page-url" v-text="parentTitle" />
-        <SvgIconCaretLeft aria-hidden="true" />
-        <span class="current-page-title" v-text="title" />
-    </div>
+  <!-- Single Level Nesting -->
+  <div v-else :class="parsedClasses">
+    <SmartLink :to="to" class="parent-page-url" v-text="parentTitle" />
+    <SvgIconCaretLeft aria-hidden="true" />
+    <span class="current-page-title" v-text="title" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
