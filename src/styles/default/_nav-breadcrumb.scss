@@ -9,7 +9,8 @@
     margin: var(--space-m) auto;
     padding: 0 var(--unit-gutter);
 
-    .test {
+    .breadcrumb-wrapper {
+        align-self: baseline;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -24,6 +25,14 @@
 
     .svg__icon-caret-left {
         flex-shrink: 0;
+    }
+
+    .collapsed-url {
+        padding: 0;
+        border-radius: 0;
+        align-self: baseline;
+        transition: unset;
+        cursor: pointer;
     }
 
     .current-page-title {

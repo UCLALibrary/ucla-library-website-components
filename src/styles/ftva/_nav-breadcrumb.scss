@@ -1,13 +1,17 @@
 .ftva.nav-breadcrumb {
     .parent-page-url {
+        @include step-1;
         color: $heading-grey;
-        // font-size: 20px;
+        font-weight: 500;
+    }
+
+    .collapsed-url {
+        color: $accent-blue;
     }
 
     .current-page-title {
         @include step-1;
         color: $accent-blue;
-        // font-size: 20px;
     }
 
     .svg__icon-caret-right {
