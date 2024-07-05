@@ -190,6 +190,8 @@ export interface SearchLinkItemType {
 
 type customKind = 'image' | 'video' | 'audio'
 
+// image carousel data
+// sometimes, the image carousel data is passed as 'item', with 1 credit text for many images
 export interface MediaGalleryItemType {
   id?: string
   captionTitle?: string
@@ -201,6 +203,11 @@ export interface MediaGalleryItemType {
   linkText?: string
   coverImage: MediaItemType[]
   embedCode?: string
+}
+// other times, the image carousel data is passed as 'image' with 1 credit text per image (FTVA implementation)
+export interface ImageGalleryItemType {
+  image: MediaItemType
+  creditText?: string
 }
 
 interface NavItem {

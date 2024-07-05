@@ -1,0 +1,71 @@
+.ftva.lightbox {
+    // does not act like a lightbox, displays inline
+    position: relative;
+    z-index: auto;
+    grid-template-columns: [col] var(--media-width);
+    grid-gap: 0px;
+
+    .media-container {
+        grid-column: col 1 / span 3;
+    }
+
+    .caption-block {
+      position: absolute;
+      // unset grid positioning from default theme
+      grid-row: unset;
+      grid-column: unset;
+
+      bottom: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      .media-counter {
+        background-color: $heading-grey;
+        border-radius: 20px;
+        padding: 0px 15px;
+        .media-counter-item {
+          padding: 0px;
+          margin: 0 -5px;
+          svg {
+            height: 24px;
+          }
+        }
+      }
+    }
+
+      // hide captions beneath images and close button
+      .caption-content, .button-close {
+        display: none;
+      } 
+      .button-prev, .button-next {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 43px;
+
+        background-color: $navy-blue;
+        border: 1px solid $grey-blue;
+        border-radius: 8px;
+        padding: 2px 0px;
+        // unset grid positioning from default theme
+        grid-row: unset;
+        grid-column: unset;
+        justify-self: auto;
+        :deep(.svg__fill--primary-blue-03) {
+          fill: $grey-blue;
+        }
+        :deep(.svg__stroke--primary-blue-03) {
+          stroke: $grey-blue;
+        }
+      }
+      .button-prev {
+        left: 30px;
+        svg {
+          margin-left: -4px;  
+        }
+      }
+      .button-next {
+        right: 35px;
+        svg {
+          margin-left: -2px;
+        }
+      }
+}
