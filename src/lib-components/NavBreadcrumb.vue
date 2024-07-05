@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-left.svg'
 import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-right.svg'
 import { useTheme } from '@/composables/useTheme'
+import { useGlobalStore } from '@/stores/GlobalStore'
 
 // SVGs
 
@@ -28,14 +29,13 @@ const { parentTitle, title, to, uri } = defineProps({
   },
 })
 
-const isCollapsed = ref(null)
+const isExpanded = ref(null)
 
-// ToDo: Mobile
-// const globalStore = useGlobalStore()
+const globalStore = useGlobalStore()
 
-// const isMobile = computed(() => {
-//   return globalStore.winWidth <= 1024
-// })
+const isMobile = computed(() => {
+  return globalStore.winWidth <= 1024
+})
 
 const parsedBreadcrumbs = computed(() => {
   const pagePathArray = uri.split('/').slice(1)
@@ -44,38 +44,29 @@ const parsedBreadcrumbs = computed(() => {
 
   return pagePathArray
 })
-// console.log(parsedBreadcrumbs.value)
-
-// ToDo: Handle Mobile behavior
-// ToDo: Resolve side effects
+// console.log("original breadcrumbs: ", parsedBreadcrumbs.value)
 
 const parsedBreadcrumbLinks = computed(() => {
-  const fullBreadcrumbList = parsedBreadcrumbs.value
+  const breadcrumbsList = parsedBreadcrumbs.value
 
-  const arrLength = fullBreadcrumbList.length
+  const arrLength = breadcrumbsList.length
 
-  if (isCollapsed.value !== false && arrLength > 4) {
-    // isCollapsed.value = true
-    handleCollapse()
+  if (arrLength > 4 && isExpanded.value !== false) {
+    handleLinksExpansion()
 
     // Keep first and last two items in the list
-    const truncatedBreadcrumbList = fullBreadcrumbList.toSpliced(
+    const truncatedBreadcrumbsList = breadcrumbsList.toSpliced(
       1,
       arrLength - 3,
       '...'
     )
-    return createBreadcrumbLinks(truncatedBreadcrumbList)
+    return createBreadcrumbLinks(truncatedBreadcrumbsList)
   }
-  // if (!isCollapsed.value) {
-  // isCollapsed.value = false
-  return createBreadcrumbLinks(fullBreadcrumbList)
-  // }
+  return createBreadcrumbLinks(breadcrumbsList)
 })
-// console.log(parsedBreadcrumbLinks.value)
+// console.log("parsed breadcrumbs: ", parsedBreadcrumbLinks.value)
 
 // METHODS
-
-// ToDo: Handle where to link truncated group
 function createBreadcrumbLinks(arr) {
   const breadCrumbObjects = []
 
@@ -88,31 +79,28 @@ function createBreadcrumbLinks(arr) {
     let isLastItem
     index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
 
-    let isTruncated
-    isCollapsed.value && index === 1
-      ? (isTruncated = true)
-      : (isTruncated = false)
+    let isTruncatedGroup
+    isExpanded.value && index === 1
+      ? (isTruncatedGroup = true)
+      : (isTruncatedGroup = false)
 
     breadCrumbObjects.push({
       to: linkTo,
       title: linkTitle,
-      isTruncated,
+      isTruncatedGroup,
       isLastItem,
     })
   })
   return breadCrumbObjects
 }
 
-function handleCollapse() {
-  // isCollapsed.value = false
-  isCollapsed.value = !isCollapsed.value
-  // console.log(isCollapsed.value)
+function handleLinksExpansion() {
+  isExpanded.value = !isExpanded.value
 }
 
 // THEME
 const theme = useTheme()
 
-// ToDo: Handle Mobile behavior/styling
 const parsedClasses = computed(() => {
   return [
     'nav-breadcrumb',
@@ -132,16 +120,17 @@ const parsedClasses = computed(() => {
       class="breadcrumb-wrapper"
     >
       <SmartLink
-        v-if="!linkObj.isLastItem && !linkObj.isTruncated"
+        v-if="!linkObj.isLastItem && !linkObj.isTruncatedGroup"
         :to="linkObj.to"
         class="parent-page-url"
         v-text="linkObj.title"
       />
+      <!-- Collapsed group does not link; only expands -->
       <span
-        v-else-if="!linkObj.isLastItem && linkObj.isTruncated"
+        v-else-if="!linkObj.isLastItem && linkObj.isTruncatedGroup"
         class="parent-page-url collapsed-url"
         tabindex="0"
-        @click="handleCollapse()"
+        @click="handleLinksExpansion"
         v-text="linkObj.title"
       />
       <SvgIconCaretRight v-if="!linkObj.isLastItem" aria-hidden="true" />
