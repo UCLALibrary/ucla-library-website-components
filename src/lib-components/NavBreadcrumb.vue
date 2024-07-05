@@ -129,7 +129,7 @@ const parsedClasses = computed(() => {
     <span
       v-for="linkObj in parsedBreadcrumbLinks"
       :key="linkObj.title"
-      class="test"
+      class="breadcrumb-wrapper"
     >
       <SmartLink
         v-if="!linkObj.isLastItem && !linkObj.isTruncated"
@@ -137,10 +137,10 @@ const parsedClasses = computed(() => {
         class="parent-page-url"
         v-text="linkObj.title"
       />
-      <SmartLink
+      <span
         v-else-if="!linkObj.isLastItem && linkObj.isTruncated"
-        :to="linkObj.to"
-        class="parent-page-url"
+        class="parent-page-url collapsed-url"
+        tabindex="0"
         @click="handleCollapse()"
         v-text="linkObj.title"
       />
