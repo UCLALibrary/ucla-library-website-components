@@ -1,11 +1,8 @@
 <script setup>
 import { computed, ref } from 'vue'
 import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-left.svg'
-import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-right.svg'
 import { useTheme } from '@/composables/useTheme'
 import { useGlobalStore } from '@/stores/GlobalStore'
-
-// SVGs
 
 // COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
@@ -37,34 +34,40 @@ const isMobile = computed(() => {
   return globalStore.winWidth <= 1024
 })
 
+// Split URI path; then remove empty string at start of the array
 const parsedBreadcrumbs = computed(() => {
   const pagePathArray = uri.split('/').slice(1)
-  // Split apart URI path into distinct sections
-  // Remove empty string at start of the array
 
   return pagePathArray
 })
-// console.log("original breadcrumbs: ", parsedBreadcrumbs.value)
 
 const parsedBreadcrumbLinks = computed(() => {
   const breadcrumbsList = parsedBreadcrumbs.value
 
   const arrLength = breadcrumbsList.length
 
-  if (arrLength > 4 && isExpanded.value !== false) {
-    handleLinksExpansion()
+  if (isMobile.value) {
+    const mobileBreadcrumb
+            = createBreadcrumbLinks(breadcrumbsList).slice(-2)
 
-    // Keep first and last two items in the list
-    const truncatedBreadcrumbsList = breadcrumbsList.toSpliced(
-      1,
-      arrLength - 3,
-      '...'
-    )
-    return createBreadcrumbLinks(truncatedBreadcrumbsList)
+    return mobileBreadcrumb.splice(0, 1)
   }
-  return createBreadcrumbLinks(breadcrumbsList)
+  else if (!isMobile.value) {
+    if (arrLength > 4 && !isExpanded.value) {
+      isExpanded.value = false
+      const truncatedBreadcrumbsList = breadcrumbsList.toSpliced(
+        1,
+        arrLength - 3,
+        '...'
+      )
+
+      return createBreadcrumbLinks(truncatedBreadcrumbsList)
+    }
+    else {
+      return createBreadcrumbLinks(breadcrumbsList)
+    }
+  }
 })
-// console.log("parsed breadcrumbs: ", parsedBreadcrumbLinks.value)
 
 // METHODS
 function createBreadcrumbLinks(arr) {
@@ -80,7 +83,7 @@ function createBreadcrumbLinks(arr) {
     index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
 
     let isTruncatedGroup
-    isExpanded.value && index === 1
+    isExpanded.value === false && index === 1
       ? (isTruncatedGroup = true)
       : (isTruncatedGroup = false)
 
@@ -102,12 +105,7 @@ function handleLinksExpansion() {
 const theme = useTheme()
 
 const parsedClasses = computed(() => {
-  return [
-    'nav-breadcrumb',
-    'subtitle',
-    // mobileClass,
-    theme?.value || '',
-  ]
+  return ['nav-breadcrumb', 'subtitle', theme?.value || '']
 })
 </script>
 
@@ -125,15 +123,15 @@ const parsedClasses = computed(() => {
         class="parent-page-url"
         v-text="linkObj.title"
       />
-      <!-- Collapsed group does not link; only expands -->
-      <span
+      <!-- Collapsed group should not link -->
+      <button
         v-else-if="!linkObj.isLastItem && linkObj.isTruncatedGroup"
         class="parent-page-url collapsed-url"
         tabindex="0"
-        @click="handleLinksExpansion"
+        @click="handleLinksExpansion()"
         v-text="linkObj.title"
       />
-      <SvgIconCaretRight v-if="!linkObj.isLastItem" aria-hidden="true" />
+      <SvgIconCaretLeft v-if="!linkObj.isLastItem" aria-hidden="true" />
       <span
         v-if="linkObj.isLastItem"
         class="current-page-title"
