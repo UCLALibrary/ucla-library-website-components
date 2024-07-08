@@ -69,16 +69,14 @@ const classes = computed(() => {
             :to="location.title"
             :link-target="location.uri ? location.uri : ''"
           >{{ location.title }}</SmartLink>{{
-    index <
-      locations.length
-      -
-      1
-            ? ', '
-            : ''
-            }}
-            </span
-          >
+            index
+              < locations.length
+              - 1
+              ? ', '
+              : ''
+          }}
         </span>
+      </span>
     </div>
     <!-- TO DO ADD TO CALENDAR BUTTON IMPLEMENT HERE -->
     <slot />
