@@ -36,4 +36,8 @@
             color:#{$pure-white};
         }
     }
+
+    &.is-selected {
+        background-color: $page-blue;
+    }
 }
