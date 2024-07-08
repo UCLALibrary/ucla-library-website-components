@@ -11,9 +11,6 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/entry.js'),
       name: 'ucla-library-website-components',
-      formats: ['es', 'cjs'],
-      fileName: format =>
-        `ucla-library-website-components.${format}.js`,
     },
     rollupOptions: {
       external: ['vue', 'vue-router'],
