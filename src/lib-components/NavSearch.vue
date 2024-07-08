@@ -1,7 +1,10 @@
-<script lang="ts" setup>
+<script
+  lang="ts"
+  setup
+>
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
+import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
 import { useTheme } from '@/composables/useTheme'
 
 import SearchInput from '@/lib-components/SearchInput.vue'
@@ -44,20 +47,36 @@ function doSearch() {
     <span class="top-row">
       <IconSearch class="icon" />
       <SearchInput
-        v-model="searchWords" class="search-input" :placeholder="placeholder" @clear="doSearch"
+        v-model="searchWords"
+        class="search-input"
+        :placeholder="placeholder"
+        @clear="doSearch"
         @keyup.enter="doSearch"
       />
-      <ButtonLink label="search site" icon-name="none" class="button-link" @click="doSearch" />
+      <ButtonLink
+        label="search site"
+        icon-name="none"
+        class="button-link"
+        @click="doSearch"
+      />
     </span>
+
     <span class="bottom-row">
       {{ defaultBottomText }}
-      <SmartLink id="search-link" :to="defaultBottomLink.to" class="bottom-link">
+      <SmartLink
+        id="search-link"
+        :to="defaultBottomLink.to"
+        class="bottom-link"
+      >
         {{ defaultBottomLink.label }}
       </SmartLink>
     </span>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 @import "@/styles/themes.scss";
 </style>
