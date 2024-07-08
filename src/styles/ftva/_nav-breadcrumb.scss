@@ -1,8 +1,7 @@
 .ftva.nav-breadcrumb {
     .parent-page-url {
-        @include step-1;
+        @include ftva-breadcrumb-inactive;
         color: $heading-grey;
-        font-weight: 500;
     }
 
     .collapsed-url {
@@ -10,7 +9,7 @@
     }
 
     .current-page-title {
-        @include step-1;
+        @include ftva-breadcrumb-active;
         color: $accent-blue;
     }
 
