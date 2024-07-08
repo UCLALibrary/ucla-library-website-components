@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 // Utility functions
 import { computed } from 'vue'
 import SvgIconCalendar from 'ucla-library-design-tokens/assets/svgs/icon-ftva-calendar.svg'
@@ -35,36 +38,56 @@ const { startDate, time, locations } = defineProps({
 
 const theme = useTheme()
 
-const parsedClasses = computed(() => {
+const classes = computed(() => {
   return ['block-event-detail', theme?.value || '']
 })
 </script>
 
 <template>
-  <div :class="parsedClasses">
+  <div :class="classes">
     <div class="event-list date">
       <span>
         <SvgIconCalendar class="row-icon" /> {{ formatDates(startDate, startDate) }}
       </span>
     </div>
+
     <div class="event-list time">
       <span>
         <SvgIconClock class="row-icon" /> {{ formatTimes(time, time) }}
       </span>
     </div>
+
     <div class="event-list location">
       <span>
         <SvgIconLocation class="row-icon" />
-        <span v-for="(location, index) in locations" :key="location.title" class="location-link">
-          <SmartLink :to="location.title" :link-target="location.uri ? location.uri : ''">{{ location.title }}</SmartLink>{{
-            index < locations.length - 1 ? ', ' : '' }} </span>
-      </span>
+        <span
+          v-for="(location, index) in locations"
+          :key="location.title"
+          class="location-link"
+        >
+          <SmartLink
+            :to="location.title"
+            :link-target="location.uri ? location.uri : ''"
+          >{{ location.title }}</SmartLink>{{
+    index <
+      locations.length
+      -
+      1
+            ? ', '
+            : ''
+            }}
+            </span
+          >
+        </span>
     </div>
     <!-- TO DO ADD TO CALENDAR BUTTON IMPLEMENT HERE -->
     <slot />
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 @import "@/styles/themes.scss";
 </style>

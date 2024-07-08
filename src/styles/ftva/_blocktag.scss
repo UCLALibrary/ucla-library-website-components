@@ -5,7 +5,7 @@
     border-radius: 16px;
 
     // secondary colors and styles
-    // TODO focused and disabled, if they are also variations maybe better to use styles modifier
+    // focused and disabled,styled in blockRemoveSearchFilter
 
     color: $subtitle-grey;
     padding: 8px 16px;
@@ -20,20 +20,20 @@
     }
 
     .svg {
-        margin-right: 8px;
         color: $subtitle-grey;
+        margin-right: 8px;
         height: 15px;
         width: 15px;
     }
 
     // primary colors & styles
     &.primary {
+        color: #{$pure-white};
         background-color: $accent-blue;
         border: none;
-        color: #fff;
 
         .label {
-            color: #fff;
+            color:#{$pure-white};
         }
     }
 }

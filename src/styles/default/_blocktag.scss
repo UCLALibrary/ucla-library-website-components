@@ -6,16 +6,13 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 100%;
-
+    background-color: #{$white};
     border: 1.5px var(--color-default-cyan-03) solid;
-    background-color: #ffffff;
     border-radius: 4px;
-
+    padding: 12px;
     width: fit-content;
 
-    padding: 12px;
-
     .label {
-        color: #032d5b;
+        color: #{$primary-blue-05};
     }
 }
