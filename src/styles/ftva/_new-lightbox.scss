@@ -45,10 +45,11 @@
         border-radius: 20px;
         padding: 0px 15px;
         .media-counter-item {
-          padding: 0px;
+          padding: 1px;
           margin: 0 -5px;
           svg {
-            height: 24px;
+            height: 22px;
+            width: 27px;
           }
         }
       }
@@ -91,32 +92,27 @@
         }
       }
 
-    // Homepage Lightbox
-        &.homepage {
-            // TODO grid on bottom with each button and caption block
+    // Homepage Lightbox Theme
+      &.homepage {
+        .caption-block {
+              display: flex;
+              flex-direction: column-reverse;
+              align-items: center;
     
-            .caption-block {
-                display: flex;
-                // text-align: center;
-                flex-direction: column-reverse;
-                align-items: center;
-    
-                div.media-counter {
-                    display: inline-flex;
-                }
-                div.caption-content {
-                    display: block;
-                //   position: absolute;
-                //   bottom: 0;
-                }
-            }
+              div.media-counter {
+                  display: inline-flex;
+              }
+              div.caption-content {
+                  display: block;
+              }
+        }
 
     
-            .media-container {
-                .credit-text {
-                    display: none;
-                }
-            }
+        .media-container {
+          .credit-text {
+            display: none;
+          }
+        }
         .button-prev,
         .button-next {
           bottom: 25px;
