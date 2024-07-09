@@ -23,6 +23,7 @@
         flex-shrink: 0;
     }
 
+    .svg__icon-caret-right,
     .svg__icon-caret-left {
         flex-shrink: 0;
     }
@@ -44,11 +45,19 @@
         padding: 0;
     }
 
-    @media #{$medium} {
+    @media (max-width: 1201px) {
         padding-left: calc(var(--unit-gutter) - 8px);
 
         .current-page-title {
             display: none;
+        }
+
+        .svg__icon-caret-left {
+            order: 1;
+        }
+
+        .parent-page-url {
+            order: 2;
         }
     }
 }

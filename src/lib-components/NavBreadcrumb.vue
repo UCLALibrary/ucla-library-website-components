@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-right.svg'
+import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-left.svg'
 import { useTheme } from '@/composables/useTheme'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
@@ -135,7 +136,14 @@ const parsedClasses = computed(() => {
         @click="toggleLinksExpansion()"
         v-text="linkObj.title"
       />
-      <SvgIconCaretRight v-if="!linkObj.isLastItem" aria-hidden="true" />
+      <SvgIconCaretRight
+        v-if="!isMobile && !linkObj.isLastItem"
+        aria-hidden="true"
+      />
+      <SvgIconCaretLeft
+        v-else-if="isMobile && !linkObj.isLastItem"
+        aria-hidden="true"
+      />
       <span
         v-if="linkObj.isLastItem"
         class="current-page-title"
@@ -147,7 +155,8 @@ const parsedClasses = computed(() => {
   <!-- Single Level Nesting -->
   <div v-else :class="parsedClasses">
     <SmartLink :to="to" class="parent-page-url" v-text="parentTitle" />
-    <SvgIconCaretRight aria-hidden="true" />
+    <SvgIconCaretLeft v-if="isMobile" aria-hidden="true" />
+    <SvgIconCaretRight v-else aria-hidden="true" />
     <span class="current-page-title" v-text="title" />
   </div>
 </template>

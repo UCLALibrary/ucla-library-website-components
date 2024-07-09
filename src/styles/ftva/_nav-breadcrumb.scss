@@ -14,7 +14,8 @@
         color: $accent-blue;
     }
 
-    .svg__icon-caret-right {
+    .svg__icon-caret-right,
+    .svg__icon-caret-left {
         :deep(.svg__stroke--primary-blue-03) {
             stroke: $secondary-grey-03;
         }
