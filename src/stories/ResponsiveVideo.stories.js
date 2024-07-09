@@ -37,6 +37,7 @@ export function VideoWithControls() {
 const mockFTVAData = {
   trailer: '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/uYr_SvIKKuI?si=ihenbmyE91KqyXK5" title="YouTube video player" frameborder="0"></iframe></figure>'
 }
+// recommend adding parsedTrailer as a util in the FTVA website repo, so it can be used in multiple pages
 const parsedTrailer = computed(() => {
   return mockFTVAData.trailer.split('src=\"')[1].split('\"')[0]
 })
