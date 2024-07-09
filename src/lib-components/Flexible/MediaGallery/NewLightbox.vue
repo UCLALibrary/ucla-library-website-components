@@ -9,14 +9,14 @@ import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret
 import SvgIconClose from 'ucla-library-design-tokens/assets/svgs/icon-close-large.svg'
 import SvgIconMoleculeBullet from 'ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg'
 import SmartLink from '../../SmartLink.vue'
-import type { ImageGalleryItemType, MediaGalleryItemType } from '@/types/types'
+import type { MediaGalleryItemType } from '@/types/types'
 import MediaItem from '@/lib-components/Media/Item.vue'
 
 import { useTheme } from '@/composables/useTheme'
 
 const { items, selectedItem } = defineProps({
   items: {
-    type: Array as PropType<MediaGalleryItemType[] | ImageGalleryItemType[]>,
+    type: Array as PropType<MediaGalleryItemType[]>,
     default: () => [],
     required: true,
   },
@@ -45,11 +45,6 @@ const captionTitle = computed(() => {
 })
 const captionText = computed(() => {
   return items.map(item => item.captionText)
-})
-const parsedMediaItem = computed(() => {
-  return {
-
-  }
 })
 const classes = computed(() => {
   return ['lightbox', theme?.value || '']
@@ -86,8 +81,8 @@ function setCurrentSlide(currentSlide: number) {
           :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item"
           :cover-image="item.coverImage" :embed-code="item.embedCode"
         >
-          <div class="credit-text">
-            <span v-if="captionTitle" class="" v-text="captionTitle[selectionIndex]" />
+          <div v-if="item.credit" class="credit-text">
+            <span v-text="item.credit" />
           </div>
         </MediaItem>
       </Slide>
@@ -116,6 +111,7 @@ function setCurrentSlide(currentSlide: number) {
       </div>
       <!-- Captions -->
       <div class="caption-content">
+        <slot :selection-index="selectionIndex" /><!-- additional blocktags etc, can be slotted in here by parent -->
         <h4 v-if="captionTitle" class="media-object-title" v-text="captionTitle[selectionIndex]" />
         <p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" />
         <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">

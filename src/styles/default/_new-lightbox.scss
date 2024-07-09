@@ -6,11 +6,6 @@
     position: fixed;
     top: 0;
     left: 0;
-    // &.force-lightbox {
-    //     position: fixed;
-    //     top: 0;
-    //     left: 0;
-    // }
     height: 100%;
     width: 100%;
     overflow-y: auto;
@@ -54,26 +49,8 @@
         grid-row: row 2;
         grid-column: col 2 / span 1;
 
-        // todo make these styles a mixin?
         .credit-text {
-            position: absolute;
-            font-family: var(--font-secondary);
-            bottom: 0;
-            right: 0;
-            color: var(--color-white);
-            font-size: 16px;
-            max-width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-
-            span {
-                background-color: rgba(0, 0, 0, 0.64);
-                padding: 4px 23px 4px 18px;
-                // enforce 1 line, 50 char limit
-                height: 32px;
-                max-width: 385px;
-                white-space: pre;
-            }
+          display: none;
         }
     }
 

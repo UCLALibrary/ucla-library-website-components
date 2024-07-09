@@ -7,6 +7,28 @@
 
     .media-container {
         grid-column: col 1 / span 3;
+        // todo make these styles a mixin?
+        .credit-text {
+            display: inline-block;
+            position: absolute;
+            font-family: var(--font-secondary);
+            bottom: 0;
+            right: 0;
+            color: var(--color-white);
+            font-size: 16px;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+    
+            span {
+                background-color: rgba(0, 0, 0, 0.64);
+                padding: 4px 23px 4px 18px;
+                // enforce 1 line, 50 char limit
+                height: 32px;
+                max-width: 385px;
+                white-space: pre;
+            }
+        }
     }
 
     .caption-block {
@@ -68,4 +90,38 @@
           margin-left: -2px;
         }
       }
-}
+
+    // Homepage Lightbox
+        &.homepage {
+            // TODO grid on bottom with each button and caption block
+    
+            .caption-block {
+                display: flex;
+                // text-align: center;
+                flex-direction: column-reverse;
+                align-items: center;
+    
+                div.media-counter {
+                    display: inline-flex;
+                }
+                div.caption-content {
+                    display: block;
+                //   position: absolute;
+                //   bottom: 0;
+                }
+            }
+
+    
+            .media-container {
+                .credit-text {
+                    display: none;
+                }
+            }
+        .button-prev,
+        .button-next {
+          bottom: 25px;
+          top: unset;
+          transform: unset;
+        }
+     }
+    } 
