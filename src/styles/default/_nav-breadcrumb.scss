@@ -10,11 +10,11 @@
     padding: 0 var(--unit-gutter);
 
     .breadcrumb-wrapper {
-        align-self: baseline;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: center;
     }
 
     .parent-page-url {
@@ -30,7 +30,6 @@
     .collapsed-url {
         padding: 0;
         border-radius: 0;
-        align-self: baseline;
         transition: unset;
         cursor: pointer;
     }
@@ -52,7 +51,7 @@
             display: none;
         }
 
-        .svg__icon-caret-left {
+        .svg__icon-caret-right {
             order: 1;
         }
 
