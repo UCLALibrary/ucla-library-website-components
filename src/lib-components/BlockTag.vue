@@ -18,7 +18,12 @@ const { label, iconName, isSecondary } = defineProps({
   isSecondary: {
     type: Boolean,
     default: false
-  }
+  },
+  // TODO ADD PROP TO HANDLE isSelected prop
+  // isSelected: {
+  //   type: Boolean,
+  //   default: false
+  // },
 })
 
 // THEME

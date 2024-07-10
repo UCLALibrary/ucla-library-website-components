@@ -1,17 +1,18 @@
 .block-tag {
-    padding: 12px;
     display: flex;
     flex-direction: row;
-    border: 1.5px var(--color-default-cyan-03) solid;
-    background-color: #ffffff;
-    border-radius: 4px;
     align-items: center;
-    width: fit-content;
+
     font-weight: 400;
     font-size: 18px;
     line-height: 100%;
+    background-color: #{$white};
+    border: 1.5px var(--color-default-cyan-03) solid;
+    border-radius: 4px;
+    padding: 12px;
+    width: fit-content;
 
     .label {
-        color: #032d5b;
+        color: #{$primary-blue-05};
     }
 }

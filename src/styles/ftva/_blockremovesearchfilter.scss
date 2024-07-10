@@ -2,11 +2,11 @@
     align-items: center;
 
     :deep(.block-tag) {
-        background-color: white;
-        padding: inherit 18px;
+        font-size: 18px;
+        background-color: #{$pure-white};
         border-color: $subtitle-grey;
         border-radius: 25px;
-        font-size: 18px;
+        padding: inherit 18px;
         height: 40px;
     }
 
@@ -20,30 +20,39 @@
         -moz-transition: width .15s ease-in-out;
         -o-transition: width .15s ease-in-out;
         transition: width .15s ease-in-out;
+
         svg {
             margin-top: 3px;
         }
     }
 
+    &:focus,
     &:hover {
         :deep(.block-tag) {
             border-color: $accent-blue;
             background-color: $accent-blue;
+
             .label {
-                color: white;
+                color: #{$pure-white};
             }
         }
 
         :deep(path.svg__fill--medium-grey) {
-            fill: white;
+            fill: #{$pure-white};
         }
 
         .button-close {
-            color: white;
+            color: #{$pure-white};
             width: 20px;
+
             :deep(.svg__stroke--pure-white) {
-                fill: white;
+                fill: #{$pure-white};
             }
         }
     }
+
+    // TODO will discuss with UX
+    // &:disabled {
+    //     color: #{$page-blue};
+    // }
 }
