@@ -1,38 +1,41 @@
 .ftva.block-tag {
-    // base ftva styles
-    padding: 8px 16px;
-    border-radius: 16px;
-    font-size: 15px;
-    font-weight: 500;
-    height: 32px;
-    // secondary colors and styles
-    // TODO focused and disabled, if they are also variations maybe better to use styles modifier
+    @include ftva-tags;
     background-color: transparent;
     border: 1.5px solid $subtitle-grey;
+    border-radius: 16px;
     color: $subtitle-grey;
+    padding: 8px 16px;
+    height: 32px;
+    // secondary colors and styles
+    // focused and disabled,styled in blockRemoveSearchFilter
 
     .label {
         color: $subtitle-grey;
+
         :deep(a) {
-          text-decoration: underline;
+            text-decoration: underline;
         }
     }
 
     .svg {
+        color: $subtitle-grey;
+        margin-right: 8px;
         height: 15px;
         width: 15px;
-        margin-right: 8px;
-        color: $subtitle-grey;
     }
 
     // primary colors & styles
     &.primary {
+        color: #{$pure-white};
         background-color: $accent-blue;
         border: none;
-        color: #fff;
 
         .label {
-            color: #fff;
+            color:#{$pure-white};
         }
+    }
+
+    &.is-selected {
+        background-color: $page-blue;
     }
 }

@@ -19,8 +19,7 @@ const ftvamock = {
 
 // ftva site
 const ftvamockwLinkLabel = {
-  label: '<a href="/">label with html link tags</a>',
-  iconName: 'SvgIconGuest',
+  label: 'ghost tag',
 }
 
 export function Default() {
@@ -83,7 +82,7 @@ export function SecondaryFTVA() {
   }
 }
 
-export function HTMLLinkFTVA() {
+export function SecondaryFTVANoIcon() {
   return {
     data() {
       return {
@@ -99,9 +98,31 @@ export function HTMLLinkFTVA() {
     template: `
     <block-tag
         :label="label"
-        :iconName="iconName"
         isSecondary="true"
     />
   `,
   }
 }
+
+// TODO
+// export function SecondaryFTVASelected() {
+//   return {
+//     data() {
+//       return {
+//         ...ftvamockwLinkLabel
+//       }
+//     },
+//     provide() {
+//       return {
+//         theme: computed(() => 'ftva'),
+//       }
+//     },
+//     components: { BlockTag },
+//     template: `
+//     <block-tag
+//         :label="label"
+//         isSecondary="true"
+//     />
+//   `,
+//   }
+// }

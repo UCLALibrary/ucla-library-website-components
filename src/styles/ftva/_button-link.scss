@@ -5,13 +5,18 @@
     --button-icon-single-color: #{$pure-white};
     --button-icon-withaccent-color: #{$pure-white};
     --button-icon-accent-color: #{$pure-white};
+    @include ftva-button;
 
+    /* This is a hover class beacause we need to over-ride the swipe animation */
+    &:hover,
     .hover {
-        --button-background-color: #054a94; /* $darker-blue */
-        --button-border-color: #054a94; /* $darker-blue */
+        --button-background-color: #{$darker-blue};
+        --button-border-color: #{$darker-blue};
+
         --button-icon-single-color: #{$pure-white};
         --button-icon-withaccent-color: #{$pure-white};
         --button-icon-accent-color: #{$pure-white};
+        @include ftva-button;
     }
 
     &.is-secondary {
@@ -22,6 +27,7 @@
         --button-icon-withaccent-color: #{$accent-blue};
         --button-icon-accent-color: #{$accent-blue};
 
+        &:hover,
         .hover {
             --button-background-color: #{$accent-blue};
             --button-text-color: #{$pure-white};
@@ -32,6 +38,7 @@
     }
 
     // General Styling
+    &:hover,
     .hover {
         transition-duration: unset;
         transition-timing-function: unset;

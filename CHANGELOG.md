@@ -1,3 +1,10 @@
+# [2.39.0-alpha.101](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.100...v2.39.0-alpha.101) (2024-07-10)
+
+
+### Features
+
+* APPS-2788 Create Component FTVA NavSearch ([#539](https://github.com/UCLALibrary/ucla-library-website-components/issues/539)) ([bcb84d8](https://github.com/UCLALibrary/ucla-library-website-components/commit/bcb84d86510dc1cf364ba58f5aff6d1f6b9e9431))
+
 # [2.39.0-alpha.100](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.99...v2.39.0-alpha.100) (2024-07-03)
 
 

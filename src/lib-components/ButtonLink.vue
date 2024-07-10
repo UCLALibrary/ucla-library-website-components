@@ -66,7 +66,7 @@ const IconClose = defineAsyncComponent(() =>
 
 const theme = useTheme()
 
-const parsedClasses = computed(() => {
+const classes = computed(() => {
   return [
     'button-link',
     theme?.value || '',
@@ -91,12 +91,12 @@ const parsedIconName = computed(() => {
     case isInternalLink(props.to):
       return SvgArrowRight
     case props.linkTarget === '_blank'
-            || props.iconName === 'svg-external-link':
+      || props.iconName === 'svg-external-link':
       return SvgExternalLink
     case props.iconName === 'icon-close':
       return IconClose
-      // case props.iconName:
-      //     return props.iconName
+    // case props.iconName:
+    //     return props.iconName
     case props.iconName === 'none':
       return ''
     default:
@@ -108,7 +108,7 @@ const parsedIconName = computed(() => {
 <template>
   <SmartLink
     :to="to"
-    :class="parsedClasses"
+    :class="classes"
     :is-download="isDownload"
     :link-target="linkTarget"
   >
@@ -132,6 +132,9 @@ const parsedIconName = computed(() => {
   </SmartLink>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 @import "@/styles/themes.scss";
 </style>
