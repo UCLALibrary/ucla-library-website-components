@@ -1,17 +1,21 @@
 .block-event-detail {
     font-size: 20px;
-    color: black;
+    color: #{$black};
 
     .event-list {
-        margin-bottom: 1px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        margin-bottom: 15px;
+
         >span {
             display: inline-flex;
             flex-direction: row;
             align-items: center;
-
-            .row-icon {
-                margin-right: 24px;
-            }
+            gap: 24px;
 
             .location-link {
                 margin-right: 5px;

@@ -1,9 +1,17 @@
 .ftva.block-event-detail {
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 500;
-    color: $medium-grey;
+    @include ftva-button-link;
+    color: #{$medium-grey};
+
     a {
-        text-decoration-color: $grey-blue;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        text-decoration-color: #{$grey-blue};
+        text-underline-offset: 4px;
+
+        &:hover {
+            text-decoration-color: #{$bright-blue};
+        }
     }
+
+
 }

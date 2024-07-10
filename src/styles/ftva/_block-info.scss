@@ -1,20 +1,17 @@
 .ftva.block-info {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    border-radius: 10px;
+
     background: $page-blue;
+    border-radius: 10px;
+    padding: 20px;
 
     .block-info-header {
-        font-size: 20px;
-        line-height: 28px;
-        font-weight: $font-weight-medium;
-        color: $medium-grey;
+        @include ftva-subtitle-1;
         text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        padding: 8px 0;
+        color: $medium-grey;
         border-bottom: 1px solid $subtitle-grey;
+        padding: 8px 0;
     }
 
     .block-info-list {
@@ -23,14 +20,11 @@
 
     // ToDo: Add Proxima font when fixed in design tokens
     .block-info-list li {
-        font-size: $font-size-16;
-        line-height: 24px;
+        @include ftva-body-2;
         color: $body-grey;
     }
 
     .button-link {
-        // ToDo: Enable include when tokens package update works
-        // @include ftva-button;
         font-size: 18px;
         border-radius: 2px;
         width: -webkit-max-content;
