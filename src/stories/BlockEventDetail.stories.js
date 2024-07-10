@@ -1,6 +1,8 @@
 import { computed } from 'vue'
 import BlockEventDetail from '@/lib-components/BlockEventDetail.vue'
 
+// THIS COMPONENT IS NOT USED AS DEFAULT RIGHT NOW
+
 // Storybook default settings
 export default {
   title: 'BLOCK / Event Detail',
@@ -18,12 +20,6 @@ const mockEventDetailData = {
       title: 'Billy Wilder Theater',
       url: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
       uri: 'locations/billy-wilder-theater'
-    },
-    {
-      id: '770077',
-      title: 'Music Library',
-      url: 'https://test-craft.library.ucla.edu/locations/music-library',
-      uri: 'locations/music-library'
     }
   ]
 }
