@@ -1,3 +1,10 @@
+# [2.39.0-alpha.102](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.101...v2.39.0-alpha.102) (2024-07-10)
+
+
+### Features
+
+* APPS-2780 APPS-2781 APPS-2802 ([#552](https://github.com/UCLALibrary/ucla-library-website-components/issues/552)) ([a9973f4](https://github.com/UCLALibrary/ucla-library-website-components/commit/a9973f451fe536ff566221bba5c0c65c8cdfd644))
+
 # [2.39.0-alpha.101](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.100...v2.39.0-alpha.101) (2024-07-10)
 
 

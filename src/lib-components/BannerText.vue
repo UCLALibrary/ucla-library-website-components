@@ -11,6 +11,7 @@ import BlockForm from '@/lib-components/BlockForm.vue'
 import formatEventTimes from '@/utils/formatEventTimes'
 import formatEventDates from '@/utils/formatEventDates'
 import getSectionName from '@/utils/getSectionName'
+import fixURI from '@/utils/fixURI'
 
 const props = defineProps({
   category: {
@@ -158,7 +159,7 @@ const parsedLocations = computed(() => {
     return {
       ...obj,
       svg: input,
-      to: obj.to != null ? obj.to : '',
+      to: obj.to != null ? fixURI(obj.to) : '',
     }
   })
 })

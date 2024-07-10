@@ -19,6 +19,11 @@ const mock = {
       title: 'Research Library (Charles E. Young)',
       to: '/location/baz',
     },
+    {
+      id: '801',
+      title: 'Research Library (Charles E. Young)',
+      to: 'visit/location/zzz',
+    },
   ],
   startDate: '1995-12-17T03:24:00',
   endDate: '1995-12-17T03:24:00',

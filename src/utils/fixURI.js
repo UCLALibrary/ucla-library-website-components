@@ -3,7 +3,7 @@
  * @param {string} uri
  * @returns {string}
  */
-export default function stripMeapFromURI(uri = '') {
+export default function fixURI(uri = '') {
   if (uri === null)
     return uri // don't try string method .replace
 
@@ -16,5 +16,5 @@ export default function stripMeapFromURI(uri = '') {
     uri = `/${uri}`
 
   // Remove 'meap/' from the URI
-  return uri.replace('meap/', '')
+  return uri
 }
