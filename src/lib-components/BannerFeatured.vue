@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
@@ -26,6 +23,7 @@ import type { LocationItemType, MediaItemType, } from '@/types/types'
 import formatEventTimes from '@/utils/formatEventTimes'
 import formatEventDates from '@/utils/formatEventDates'
 import getSectionName from '@/utils/getSectionName'
+import fixURI from '@/utils/fixURI'
 
 const props = defineProps({
   media: {
@@ -177,7 +175,7 @@ const parsedLocations = computed(() => {
         obj.title === 'Online'
           ? 'location-online'
           : 'location-link',
-      to: obj.to != null ? `/${obj.to}` : '',
+      to: obj.to != null ? fixURI(obj.to) : '',
     }
   })
 })
@@ -370,10 +368,7 @@ const classes = computed(() => {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .banner-featured {
   z-index: 0;
   position: relative;

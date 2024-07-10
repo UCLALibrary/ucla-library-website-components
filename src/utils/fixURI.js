@@ -3,21 +3,21 @@
  * @param {string} uri
  * @returns {string}
  */
-export default function stripMeapFromURI(uri = '') {
+export default function fixURI(uri = '') {
   if (uri === null) {
-    return uri; // don't try string method .replace
+    return uri // don't try string method .replace
   }
 
   // Do not do anything if URI contains HTTP or HTTPS protocol
   if (uri.match(/^(http|https):\/\//)) {
-    return uri;
+    return uri
   }
 
   // Add a leading slash if URI does not begin with one
   if (!uri.startsWith('/')) {
-    uri = '/' + uri;
+    uri = '/' + uri
   }
 
   // Remove 'meap/' from the URI
-  return uri.replace('meap/', '');
+  return uri
 }

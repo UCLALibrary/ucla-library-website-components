@@ -9,7 +9,7 @@ import stripMeapFromURI from '@/utils/stripMeapFromURI'
 const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleAssociatedTopicCards>,
-    default: () => {},
+    default: () => { },
   },
 })
 
@@ -20,7 +20,7 @@ const parseditems = computed(() => {
         ...obj,
         to: obj.externalResourceUrl
           ? obj.externalResourceUrl
-          : `/${stripMeapFromURI(obj.uri)}`,
+          : stripMeapFromURI(obj.uri),
       }
     }
   )
@@ -39,6 +39,5 @@ const parseditems = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.associated-topic-cards {
-}
+.associated-topic-cards {}
 </style>
