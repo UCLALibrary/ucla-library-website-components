@@ -1,30 +1,30 @@
 <script setup>
-import { computed, ref } from 'vue'
-import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-right.svg'
-import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-left.svg'
-import { useTheme } from '@/composables/useTheme'
-import { useGlobalStore } from '@/stores/GlobalStore'
+import { computed, ref } from "vue"
+import SvgIconCaretRight from "ucla-library-design-tokens/assets/svgs/icon-caret-right.svg"
+import SvgIconCaretLeft from "ucla-library-design-tokens/assets/svgs/icon-caret-left.svg"
+import { useTheme } from "@/composables/useTheme"
+import { useGlobalStore } from "@/stores/GlobalStore"
 
 // COMPONENTS
-import SmartLink from '@/lib-components/SmartLink.vue'
+import SmartLink from "@/lib-components/SmartLink.vue"
 
 const { parentTitle, title, to, uri } = defineProps({
-  parentTitle: {
-    type: String,
-    default: '',
-  },
-  title: {
-    type: String,
-    default: '',
-  },
-  to: {
-    type: String,
-    default: '',
-  },
-  uri: {
-    type: String,
-    default: '',
-  },
+    parentTitle: {
+        type: String,
+        default: "",
+    },
+    title: {
+        type: String,
+        default: "",
+    },
+    to: {
+        type: String,
+        default: "",
+    },
+    uri: {
+        type: String,
+        default: "",
+    },
 })
 
 const isExpanded = ref(null)
@@ -32,133 +32,132 @@ const isExpanded = ref(null)
 const globalStore = useGlobalStore()
 
 const isMobile = computed(() => {
-  return globalStore.winWidth <= 1200
+    return globalStore.winWidth <= 1200
 })
 
 // Split URI path; then remove empty string at start of the array
 const parsedBreadcrumbs = computed(() => {
-  const pagePathArray = uri.split('/').slice(1)
+    const pagePathArray = uri.split("/").slice(1)
 
-  return pagePathArray
+    return pagePathArray
 })
 
 const parsedBreadcrumbLinks = computed(() => {
-  const breadcrumbsList = parsedBreadcrumbs.value
+    const breadcrumbsList = parsedBreadcrumbs.value
 
-  const arrLength = breadcrumbsList.length
+    const arrLength = breadcrumbsList.length
 
-  if (isMobile.value) {
-    const mobileBreadcrumb
-            = createBreadcrumbLinks(breadcrumbsList).slice(-2)
+    if (isMobile.value) {
+        const mobileBreadcrumb =
+            createBreadcrumbLinks(breadcrumbsList).slice(-2)
 
-    return mobileBreadcrumb.splice(0, 1)
-  }
-  else if (!isMobile.value) {
-    if (arrLength > 4 && !isExpanded.value) {
-      setLinkExpansion()
+        return mobileBreadcrumb.splice(0, 1)
+    } else if (!isMobile.value) {
+        if (arrLength > 4 && !isExpanded.value) {
+            setLinkExpansion()
 
-      const truncatedBreadcrumbsList = breadcrumbsList.toSpliced(
-        1,
-        arrLength - 3,
-        '...'
-      )
+            const truncatedBreadcrumbsList = breadcrumbsList.toSpliced(
+                1,
+                arrLength - 3,
+                "..."
+            )
 
-      return createBreadcrumbLinks(truncatedBreadcrumbsList)
+            return createBreadcrumbLinks(truncatedBreadcrumbsList)
+        }
     }
-  }
 
-  return createBreadcrumbLinks(breadcrumbsList)
+    return createBreadcrumbLinks(breadcrumbsList)
 })
 
 // METHODS
 function createBreadcrumbLinks(arr) {
-  const breadCrumbObjects = []
+    const breadCrumbObjects = []
 
-  arr.forEach((item, index) => {
-    const linkLength = item.length
-    const linkIndex = uri.indexOf(item)
-    const linkTo = uri.substring(0, linkLength + linkIndex)
-    const linkTitle = item.replaceAll('-', ' ')
+    arr.forEach((item, index) => {
+        const linkLength = item.length
+        const linkIndex = uri.indexOf(item)
+        const linkTo = uri.substring(0, linkLength + linkIndex)
+        const linkTitle = item.replaceAll("-", " ")
 
-    let isLastItem
-    index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
+        let isLastItem
+        index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
 
-    let isTruncatedGroup
-    isExpanded.value === false && index === 1
-      ? (isTruncatedGroup = true)
-      : (isTruncatedGroup = false)
+        let isTruncatedGroup
+        isExpanded.value === false && index === 1
+            ? (isTruncatedGroup = true)
+            : (isTruncatedGroup = false)
 
-    breadCrumbObjects.push({
-      to: linkTo,
-      title: linkTitle,
-      isTruncatedGroup,
-      isLastItem,
+        breadCrumbObjects.push({
+            to: linkTo,
+            title: linkTitle,
+            isTruncatedGroup,
+            isLastItem,
+        })
     })
-  })
-  return breadCrumbObjects
+    return breadCrumbObjects
 }
 
 function setLinkExpansion() {
-  isExpanded.value = false
+    isExpanded.value = false
 }
 
 function toggleLinksExpansion() {
-  isExpanded.value = !isExpanded.value
+    isExpanded.value = !isExpanded.value
 }
 
 // THEME
 const theme = useTheme()
 
 const parsedClasses = computed(() => {
-  return ['nav-breadcrumb', 'subtitle', theme?.value || '']
+    return ["nav-breadcrumb", "subtitle", theme?.value || ""]
 })
 </script>
 
 <template>
-  <!-- Multi-Level Nesting -->
-  <div v-if="uri" :class="parsedClasses">
-    <span
-      v-for="linkObj in parsedBreadcrumbLinks"
-      :key="linkObj.title"
-      class="breadcrumb-wrapper"
-    >
-      <SmartLink
-        v-if="!linkObj.isLastItem && !linkObj.isTruncatedGroup"
-        :to="linkObj.to"
-        class="parent-page-url"
-        v-text="linkObj.title"
-      />
-      <!-- Collapsed group should not link -->
-      <button
-        v-else-if="!linkObj.isLastItem && linkObj.isTruncatedGroup"
-        class="parent-page-url collapsed-url"
-        tabindex="0"
-        @click="toggleLinksExpansion()"
-        v-text="linkObj.title"
-      />
-      <SvgIconCaretRight
-        v-if="!isMobile && !linkObj.isLastItem"
-        aria-hidden="true"
-      />
-      <SvgIconCaretLeft
-        v-else-if="isMobile && !linkObj.isLastItem"
-        aria-hidden="true"
-      />
-      <span
-        v-if="linkObj.isLastItem"
-        class="current-page-title"
-        v-text="linkObj.title"
-      />
-    </span>
-  </div>
+    <!-- Multi-Level Nesting -->
+    <div v-if="uri" :class="parsedClasses">
+        <span
+            v-for="linkObj in parsedBreadcrumbLinks"
+            :key="linkObj.title"
+            class="breadcrumb-wrapper"
+        >
+            <SmartLink
+                v-if="!linkObj.isLastItem && !linkObj.isTruncatedGroup"
+                :to="linkObj.to"
+                class="parent-page-url"
+                v-text="linkObj.title"
+            />
+            <!-- Collapsed group should not link -->
+            <button
+                v-else-if="!linkObj.isLastItem && linkObj.isTruncatedGroup"
+                class="parent-page-url collapsed-url"
+                tabindex="0"
+                @click="toggleLinksExpansion()"
+                v-text="linkObj.title"
+            />
+            <SvgIconCaretRight
+                v-if="!isMobile && !linkObj.isLastItem"
+                aria-hidden="true"
+            />
+            <SvgIconCaretLeft
+                v-else-if="!linkObj.isLastItem"
+                aria-hidden="true"
+            />
+            <span
+                v-if="linkObj.isLastItem"
+                class="current-page-title"
+                v-text="linkObj.title"
+            />
+        </span>
+    </div>
 
-  <!-- Single Level Nesting -->
-  <div v-else :class="parsedClasses">
-    <SmartLink :to="to" class="parent-page-url" v-text="parentTitle" />
-    <SvgIconCaretLeft v-if="isMobile" aria-hidden="true" />
-    <SvgIconCaretRight v-else aria-hidden="true" />
-    <span class="current-page-title" v-text="title" />
-  </div>
+    <!-- Single Level Nesting -->
+    <div v-else :class="parsedClasses">
+        <SmartLink :to="to" class="parent-page-url" v-text="parentTitle" />
+        <SvgIconCaretRight aria-hidden="true" />
+        <SvgIconCaretLeft aria-hidden="true" />
+        <span class="current-page-title" v-text="title" />
+    </div>
 </template>
 
 <style lang="scss" scoped>
