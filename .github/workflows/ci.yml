@@ -65,7 +65,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: ./.github/workflows/setup-workspace
-     - name: Sets env vars for vue3.x merge
+    - name: Sets env vars for vue3.x merge
       run: |
         echo "NETLIFY_SITE_ID=${{secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X}}" >> $GITHUB_ENV
         echo "PERCY_TOKEN=${{secrets.PERCY_TOKEN_STORYBOOK_VUE3X}}" >> $GITHUB_ENV
