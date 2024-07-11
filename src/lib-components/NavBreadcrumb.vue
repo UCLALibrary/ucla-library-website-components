@@ -28,7 +28,6 @@ const isMobile = computed(() => {
 // Split URI path; then remove empty string at start of the array
 const parsedBreadcrumbs = computed(() => {
   const pagePathArray = route.path.split('/').slice(1)
-  console.log(pagePathArray)
 
   return pagePathArray
 })
