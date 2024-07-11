@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import type { PropType } from 'vue'
 import { computed } from 'vue'
 
@@ -53,7 +50,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          to: `/${stripMeapFromURI(obj.to)}`,
+          to: stripMeapFromURI(obj.to),
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
@@ -87,7 +84,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          to: `/${stripMeapFromURI(obj.to)}`,
+          to: stripMeapFromURI(obj.to),
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
@@ -104,7 +101,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          to: `/${stripMeapFromURI(obj.to)}`,
+          to: stripMeapFromURI(obj.to),
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
@@ -128,7 +125,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          to: `/${stripMeapFromURI(obj.to)}`,
+          to: stripMeapFromURI(obj.to),
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
@@ -159,7 +156,7 @@ const parsedItems = computed(() => {
             'heroImage[0].image[0]',
             undefined
           ),
-          to: `/${stripMeapFromURI(obj.to)}`,
+          to: stripMeapFromURI(obj.to),
         }
       }
     })
@@ -210,10 +207,7 @@ const parsedItems = computed(() => {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .card-with-image {
   max-width: $container-l-main + px;
   margin: 0 auto;

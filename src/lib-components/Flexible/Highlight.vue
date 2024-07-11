@@ -40,7 +40,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          to: `/${stripMeapFromURI(obj.to)}`,
+          to: stripMeapFromURI(obj.to),
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
@@ -74,7 +74,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          to: `/${stripMeapFromURI(obj.to)}`,
+          to: stripMeapFromURI(obj.to),
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
@@ -91,7 +91,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          to: `/${stripMeapFromURI(obj.to)}`,
+          to: stripMeapFromURI(obj.to),
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
@@ -115,7 +115,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          to: `/${stripMeapFromURI(obj.to)}`,
+          to: stripMeapFromURI(obj.to),
           parsedImage: _get(
             obj,
             'heroImage[0].image[0]',
@@ -148,7 +148,7 @@ const parsedItems = computed(() => {
             'heroImage[0].image[0]',
             undefined
           ),
-          to: `/${stripMeapFromURI(obj.to)}`,
+          to: stripMeapFromURI(obj.to),
         }
       }
     })

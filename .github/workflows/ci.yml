@@ -3,9 +3,13 @@ name: Run CI Suite
 
 on:
   push:
-    branches: [ vue3.x ]
+    branches: 
+      - main
+      - vue3.x
   pull_request:
-    branches: [ vue3.x ]
+    branches: 
+      - main
+      - vue3.x
 
 # Cancel this run if a newer commit is pushed
 concurrency:
@@ -61,6 +65,26 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: ./.github/workflows/setup-workspace
+    - name: Sets env vars for vue3.x merge
+      run: |
+        echo "NETLIFY_SITE_ID=${{secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X}}" >> $GITHUB_ENV
+        echo "PERCY_TOKEN=${{secrets.PERCY_TOKEN_STORYBOOK_VUE3X}}" >> $GITHUB_ENV
+      if: github.ref_name=='vue3.x'
+    - name: Sets env vars for main merge
+      run: |
+        echo "NETLIFY_SITE_ID=${{secrets.NETLIFY_SITE_ID_STORYBOOK}}" >> $GITHUB_ENV
+        echo "PERCY_TOKEN=${{secrets.PERCY_TOKEN_STORYBOOK}}" >> $GITHUB_ENV
+      if: github.ref_name=='main'
+    - name: Set environment variables for PR preview
+      run: |
+        if [[ "${{ github.base_ref }}" == "vue3.x" ]]; then
+          echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}" >> $GITHUB_ENV
+          echo "PERCY_TOKEN=${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}" >> $GITHUB_ENV
+        elif [[ "${{ github.base_ref }}" == "main" ]]; then
+          echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_STORYBOOK }}" >> $GITHUB_ENV
+          echo "PERCY_TOKEN=${{ secrets.PERCY_TOKEN_STORYBOOK }}" >> $GITHUB_ENV
+        fi
+      if: github.event_name == 'pull_request'
     - name: Cache Storybook Build
       id: cache-storybook
       uses: actions/cache@v3
@@ -69,7 +93,7 @@ jobs:
         key: storybook-${{ github.sha }}
     - run: pnpm run build-storybook
     - name: Deploy to Netlify (merged)
-      if: github.ref_name=='vue3.x'
+      if: github.ref_name == 'main' || github.ref_name == 'vue3.x'
       uses: nwtgck/actions-netlify@v2 # v1.2.3
       with:
         production-deploy: true
@@ -80,9 +104,9 @@ jobs:
         github-deployment-environment: test
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
+        NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
     - name: Deploy to Netlify (preview)
-      if: github.ref_name!='main'
+      if: github.event_name == 'pull_request'
       uses: nwtgck/actions-netlify@v2 # v1.2.3
       with:
         production-deploy: false
@@ -95,11 +119,11 @@ jobs:
         github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
+        NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
     - name: Cypress test for Storybook Components
       uses: cypress-io/github-action@v5
       with:
         start: pnpm dlx http-server ./storybook-static -p 6006
         wait-on: http://localhost:6006
       env:
-        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
+        PERCY_TOKEN: ${{ env.PERCY_TOKEN }}

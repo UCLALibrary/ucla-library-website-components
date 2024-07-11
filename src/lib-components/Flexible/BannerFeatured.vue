@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
@@ -244,7 +241,7 @@ const parsedDescription = computed(() => {
       v-if="block && block.content && block.content[0].contentLink"
       class="flexible-banner-featured"
       :media="parseImage"
-      :to="`/${stripMeapFromURI(block.content[0].contentLink[0].to)}`"
+      :to="stripMeapFromURI(block.content[0].contentLink[0].to)"
       :title="block.content[0].contentLink[0].title"
       :breadcrumb="parsedTypeHandle"
       :byline="parseByLine"
@@ -276,10 +273,7 @@ const parsedDescription = computed(() => {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .flexible-banner-featured {
   :deep(.breadcrumb) {
     z-index: 30;

@@ -16,11 +16,12 @@ import type { LocationItemType, MediaItemType, SubjectAreaItemType } from '@/typ
 import formatEventTimes from '@/utils/formatEventTimes'
 import formatEventDates from '@/utils/formatEventDates'
 import getSectionName from '@/utils/getSectionName'
+import fixURI from '@/utils/fixURI'
 
 const props = defineProps({
   media: {
     type: Object as PropType<MediaItemType>,
-    default: () => {},
+    default: () => { },
   },
   title: {
     type: String,
@@ -55,7 +56,7 @@ const props = defineProps({
     default: '',
   },
   locations: {
-    type: Array as PropType<LocationItemType[] >,
+    type: Array as PropType<LocationItemType[]>,
     default: () => [],
   },
   to: {
@@ -132,7 +133,7 @@ const classes = computed(() => {
   return [
     'banner-header',
     { 'hatch-left': !props.alignRight },
-              `color-${sectionName.value}`,
+    `color-${sectionName.value}`,
   ]
 })
 
@@ -142,10 +143,10 @@ const isVideo = computed(() => {
     const extension = fileName.split('.').pop()
     if (
       extension === 'mp4'
-                  || extension === 'm4a'
-                  || extension === 'f4v'
-                  || extension === 'm4b'
-                  || extension === 'mov'
+      || extension === 'm4a'
+      || extension === 'f4v'
+      || extension === 'm4b'
+      || extension === 'mov'
     )
       return true
     else
@@ -224,7 +225,7 @@ const parsedLocations = computed(() => {
     return {
       ...obj,
       svg: input,
-      to: obj.to != null ? obj.to : '',
+      to: obj.to != null ? fixURI(obj.to) : '',
     }
   })
 })
@@ -232,9 +233,18 @@ const parsedLocations = computed(() => {
 
 <template>
   <div :class="classes">
-    <div v-if="category" class="category">
-      <SvgHeadingVector class="heading-line" aria-hidden="true" />
-      <div class="text" v-html="category" />
+    <div
+      v-if="category"
+      class="category"
+    >
+      <SvgHeadingVector
+        class="heading-line"
+        aria-hidden="true"
+      />
+      <div
+        class="text"
+        v-html="category"
+      />
     </div>
 
     <component
@@ -243,46 +253,63 @@ const parsedLocations = computed(() => {
       :media="parsedMediaProp!"
       :aspect-ratio="parsedRatio"
     >
-      <div v-if="!isVideo" :class="gradientClasses" />
+      <div
+        v-if="!isVideo"
+        :class="gradientClasses"
+      />
 
-      <SvgMoleculeHalfFaceted class="molecule" aria-hidden="true" />
+      <SvgMoleculeHalfFaceted
+        class="molecule"
+        aria-hidden="true"
+      />
     </component>
 
     <div class="hatch-box">
       <div class="clipped-box" />
       <div class="hatch">
-        <SvgHatchRight class="svg" aria-hidden="true" />
+        <SvgHatchRight
+          class="svg"
+          aria-hidden="true"
+        />
       </div>
     </div>
 
     <div class="meta">
-      <h1 class="title" v-html="title" />
+      <h1
+        class="title"
+        v-html="title"
+      />
 
-      <RichText v-if="text" class="snippet" :rich-text-content="text" />
+      <RichText
+        v-if="text"
+        class="snippet"
+        :rich-text-content="text"
+      />
 
       <div
-        v-show="
-          byline.length
-            || subjectAreas.length
-            || dateCreated
-            || startDate
-            || email
-            || phone
-            || staffDirectoryLink
-            || addressLink
+        v-show="byline.length
+          || subjectAreas.length
+          || dateCreated
+          || startDate
+          || email
+          || phone
+          || staffDirectoryLink
+          || addressLink
         "
         class="meta-text"
       >
         <div
-          v-show="
-            byline.length
-              || subjectAreas.length
-              || dateCreated
-              || startDate
+          v-show="byline.length
+            || subjectAreas.length
+            || dateCreated
+            || startDate
           "
           class="meta-block"
         >
-          <div v-if="byline.length" class="byline-item">
+          <div
+            v-if="byline.length"
+            class="byline-item"
+          >
             <div
               v-for="(item, index) in byline"
               :key="`${item}-${index}`"
@@ -292,8 +319,14 @@ const parsedLocations = computed(() => {
             </div>
           </div>
 
-          <div v-if="subjectAreas.length" class="subject-areas">
-            <div v-for="(item, index) in subjectAreas" :key="`${item.title}-${index}`">
+          <div
+            v-if="subjectAreas.length"
+            class="subject-areas"
+          >
+            <div
+              v-for="(item, index) in subjectAreas"
+              :key="`${item.title}-${index}`"
+            >
               {{ item.title }}
             </div>
           </div>
@@ -345,7 +378,10 @@ const parsedLocations = computed(() => {
           />
         </div>
 
-        <div v-if="locations.length" class="location-group">
+        <div
+          v-if="locations.length"
+          class="location-group"
+        >
           <IconWithLink
             v-for="location in parsedLocations"
             :key="`location-${location.id}`"
@@ -364,7 +400,10 @@ const parsedLocations = computed(() => {
         :to="to"
       />
     </div>
-    <div v-if="!to && registerEvent" class="block-form-container">
+    <div
+      v-if="!to && registerEvent"
+      class="block-form-container"
+    >
       <BlockForm />
     </div>
   </div>
@@ -380,329 +419,360 @@ const parsedLocations = computed(() => {
 
   // Themes
   --color-theme: var(--color-default-cyan-03);
+
   &.color-visit {
-      --color-theme: var(--color-visit-fushia-03);
+    --color-theme: var(--color-visit-fushia-03);
   }
+
   &.color-help {
-      --color-theme: var(--color-help-green-03);
+    --color-theme: var(--color-help-green-03);
   }
+
   &.color-about {
-      --color-theme: var(--color-about-purple-03);
+    --color-theme: var(--color-about-purple-03);
   }
+
   .hatch {
-      :deep(.svg__stroke--wayfinder) {
-          stroke: var(--color-theme);
-      }
+    :deep(.svg__stroke--wayfinder) {
+      stroke: var(--color-theme);
+    }
   }
 
   .category {
-      color: var(--color-white);
+    color: var(--color-white);
+    font-size: 26px;
+    text-transform: capitalize;
+
+    position: absolute;
+    z-index: 20;
+    padding-left: 64px;
+    margin-top: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .heading-line {
+      flex-shrink: 0;
+      padding-right: 0;
+      height: 96px;
+    }
+
+    .text {
+      border: 1px solid var(--color-white);
+      padding: 14px 24px;
+      margin-left: -10px;
+      clip-path: polygon(17px 0, 100% 0, 100% 100%, 1px 100%);
+      line-height: 1;
+      font-weight: #{$font-weight-regular};
       font-size: 26px;
-      text-transform: capitalize;
-
-      position: absolute;
-      z-index: 20;
-      padding-left: 64px;
-      margin-top: 64px;
-
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-
-      .heading-line {
-          flex-shrink: 0;
-          padding-right: 0;
-          height: 96px;
-      }
-      .text {
-          border: 1px solid var(--color-white);
-          padding: 14px 24px;
-          margin-left: -10px;
-          clip-path: polygon(17px 0, 100% 0, 100% 100%, 1px 100%);
-          line-height: 1;
-          font-weight: #{$font-weight-regular};
-          font-size: 26px;
-      }
+    }
   }
+
   :deep(.responsive-image),
   .responsive-video {
-      max-height: 576px;
-      .media {
-          object-fit: cover;
-      }
-  }
-  .gradient {
-      background: $overlays-overlay-01;
-      z-index: 10;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-  }
-  .gradient-no-category {
-      background: linear-gradient(
-          120deg,
-          rgba(15, 15, 15, 0) 0,
-          rgba(15, 15, 15, 0.2509803922) 67.57%,
-          #0f0f0f 120%
-      );
-      z-index: 10;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-  }
-  .molecule {
-      right: 0;
-      top: 0;
-      bottom: 96px;
-      margin: auto;
-      position: absolute;
-      z-index: 20;
-      opacity: 0.3;
-      mix-blend-mode: screen;
+    max-height: 576px;
 
-      height: 70%;
-      width: auto;
+    .media {
+      object-fit: cover;
+    }
+  }
+
+  .gradient {
+    background: $overlays-overlay-01;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gradient-no-category {
+    background: linear-gradient(120deg,
+        rgba(15, 15, 15, 0) 0,
+        rgba(15, 15, 15, 0.2509803922) 67.57%,
+        #0f0f0f 120%);
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .molecule {
+    right: 0;
+    top: 0;
+    bottom: 96px;
+    margin: auto;
+    position: absolute;
+    z-index: 20;
+    opacity: 0.3;
+    mix-blend-mode: screen;
+
+    height: 70%;
+    width: auto;
   }
 
   --hatch-height: 96px;
   --hatch-width: 28%;
   --hatch-density: 818px;
+
   .hatch-box {
-      width: 100%;
-      position: relative;
-      z-index: 30;
-      overflow: hidden;
+    width: 100%;
+    position: relative;
+    z-index: 30;
+    overflow: hidden;
 
-      margin-top: calc(-1 * var(--hatch-height));
+    margin-top: calc(-1 * var(--hatch-height));
   }
+
   .clipped-box {
-      max-width: calc(100% - var(--hatch-width));
-      background-color: var(--color-white);
-      position: relative;
-      z-index: 20;
-      height: calc(var(--hatch-height) + 2px);
+    max-width: calc(100% - var(--hatch-width));
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 20;
+    height: calc(var(--hatch-height) + 2px);
 
-      clip-path: polygon(
-          0 0,
-          calc(100% - 39px) 0,
-          100% 95px,
-          100% 102%,
-          0 102%
-      );
+    clip-path: polygon(0 0,
+        calc(100% - 39px) 0,
+        100% 95px,
+        100% 102%,
+        0 102%);
   }
-  .hatch {
-      height: var(--hatch-height);
-      overflow: hidden;
-      z-index: 10;
-      position: absolute;
-      top: 0;
-      left: calc(72% - 68px);
 
-      .svg {
-          position: relative;
-          bottom: 8px;
-          width: var(--hatch-density);
-          height: auto;
-      }
+  .hatch {
+    height: var(--hatch-height);
+    overflow: hidden;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: calc(72% - 68px);
+
+    .svg {
+      position: relative;
+      bottom: 8px;
+      width: var(--hatch-density);
+      height: auto;
+    }
   }
 
   // Variant
   &.hatch-left {
-      .clipped-box {
-          margin-left: auto;
-          padding-right: 50px;
-          padding-left: 100px;
-          clip-path: polygon(39px 0, 105% 0, 100% 102%, 0 102%, 0% 95px);
-      }
-      .hatch {
-          right: calc(72% - 68px);
-          left: auto;
+    .clipped-box {
+      margin-left: auto;
+      padding-right: 50px;
+      padding-left: 100px;
+      clip-path: polygon(39px 0, 105% 0, 100% 102%, 0 102%, 0% 95px);
+    }
 
-          .svg {
-              transform: scaleX(-1);
-          }
-      }
-      .meta {
-          padding-right: 0;
-          padding-left: clamp(184px, 35%, 280px);
-          margin-left: auto;
+    .hatch {
+      right: calc(72% - 68px);
+      left: auto;
 
-          align-content: flex-start;
+      .svg {
+        transform: scaleX(-1);
       }
+    }
+
+    .meta {
+      padding-right: 0;
+      padding-left: clamp(184px, 35%, 280px);
+      margin-left: auto;
+
+      align-content: flex-start;
+    }
   }
 
   .meta {
-      padding-right: clamp(184px, 35%, 280px);
-      margin-top: -36px;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      z-index: 40;
-      max-width: $container-l-main + px;
+    padding-right: clamp(184px, 35%, 280px);
+    margin-top: -36px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 40;
+    max-width: $container-l-main + px;
 
-      flex-direction: column;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      align-content: flex-end;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-end;
   }
 
   .title {
-      @include step-4;
-      color: var(--color-primary-blue-03);
-      margin-bottom: var(--space-m);
+    @include step-4;
+    color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-m);
   }
-  .snippet {
-      @include step-0;
-      color: var(--color-black);
-      margin-bottom: var(--space-m);
 
-      &:last-child,
-      :deep(p) {
-          margin-bottom: 0;
-      }
+  .snippet {
+    @include step-0;
+    color: var(--color-black);
+    margin-bottom: var(--space-m);
+
+    &:last-child,
+    :deep(p) {
+      margin-bottom: 0;
+    }
   }
+
   .meta-block {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      align-items: flex-start;
-      margin-bottom: var(--space-m);
-      justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    margin-bottom: var(--space-m);
+    justify-content: space-evenly;
   }
 
   .schedule-item,
   .date-created {
-      display: flex;
-      flex-direction: row;
+    display: flex;
+    flex-direction: row;
 
-      @include step-0;
-      color: var(--color-secondary-grey-04);
+    @include step-0;
+    color: var(--color-secondary-grey-04);
   }
 
   .byline-item,
   .subject-areas {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-      @include step-0;
-      color: var(--color-secondary-grey-04);
+    @include step-0;
+    color: var(--color-secondary-grey-04);
   }
-  .schedule {
-      line-height: 24px;
-      text-align: left;
-      color: var(--color-primary-blue-03);
-      margin-top: var(--space-m);
 
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+  .schedule {
+    line-height: 24px;
+    text-align: left;
+    color: var(--color-primary-blue-03);
+    margin-top: var(--space-m);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .contact-info-group {
-      color: var(--color-primary-blue-03);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: var(--space-m);
+    color: var(--color-primary-blue-03);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: var(--space-m);
   }
 
   .location-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: var(--space-m);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: var(--space-m);
   }
 
   .block-form-container {
-      padding: 0;
-      max-width: 928px;
-      margin: auto;
+    padding: 0;
+    max-width: 928px;
+    margin: auto;
   }
 
   @media #{$medium} {
-      --hatch-height: 74px;
-      --hatch-density: 632px;
-      .category {
-          padding-left: 32px;
-          margin-top: 32px;
-      }
-      .category .text {
-          font-size: 20px;
-      }
-      .category .heading-line {
-          height: 80px;
-      }
-      .hatch {
-          left: calc(72% - 84px);
-      }
-      &.hatch-left .hatch {
-          right: calc(72% - 84px);
-          left: auto;
-      }
-      .meta {
-          padding-right: clamp(184px, 35%, 300px);
-          padding-left: var(--unit-gutter);
-          margin-top: -36px;
-      }
-      &.hatch-left .meta {
-          padding-right: var(--unit-gutter);
-          margin-top: -36px;
-      }
-      .title {
-          margin-top: var(--space-m);
-      }
+    --hatch-height: 74px;
+    --hatch-density: 632px;
+
+    .category {
+      padding-left: 32px;
+      margin-top: 32px;
+    }
+
+    .category .text {
+      font-size: 20px;
+    }
+
+    .category .heading-line {
+      height: 80px;
+    }
+
+    .hatch {
+      left: calc(72% - 84px);
+    }
+
+    &.hatch-left .hatch {
+      right: calc(72% - 84px);
+      left: auto;
+    }
+
+    .meta {
+      padding-right: clamp(184px, 35%, 300px);
+      padding-left: var(--unit-gutter);
+      margin-top: -36px;
+    }
+
+    &.hatch-left .meta {
+      padding-right: var(--unit-gutter);
+      margin-top: -36px;
+    }
+
+    .title {
+      margin-top: var(--space-m);
+    }
   }
+
   @media #{$medium} and (min-width: 928px) {
-      .meta {
-          max-width: 100%;
-      }
+    .meta {
+      max-width: 100%;
+    }
   }
 
   @media #{$small} {
-      .media {
-          height: 375px;
-          max-height: 375px;
+    .media {
+      height: 375px;
+      max-height: 375px;
+    }
+
+    .category {
+      padding-left: 16px;
+      margin-top: 16px;
+
+      .text {
+        padding: 12px 16px;
       }
-      .category {
-          padding-left: 16px;
-          margin-top: 16px;
-          .text {
-              padding: 12px 16px;
-          }
-      }
-      .molecule {
-          bottom: 10%;
-          height: 215px;
-          width: auto;
-      }
-      --hatch-height: 36px;
-      --hatch-density: 338px;
-      .hatch {
-          left: calc(72% - 46px);
-      }
-      &.hatch-left .hatch {
-          right: calc(72% - 46px);
-          left: auto;
-      }
-      .meta {
-          width: 100%;
-          max-width: 100%;
-          margin-top: 0;
-          padding-left: 0;
-          padding-right: 0;
-          position: static;
-      }
-      &.hatch-left .meta {
-          padding-right: 0;
-          padding-left: 0;
-          width: 100%;
-          max-width: 100%;
-          margin-top: 0;
-      }
+    }
+
+    .molecule {
+      bottom: 10%;
+      height: 215px;
+      width: auto;
+    }
+
+    --hatch-height: 36px;
+    --hatch-density: 338px;
+
+    .hatch {
+      left: calc(72% - 46px);
+    }
+
+    &.hatch-left .hatch {
+      right: calc(72% - 46px);
+      left: auto;
+    }
+
+    .meta {
+      width: 100%;
+      max-width: 100%;
+      margin-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+      position: static;
+    }
+
+    &.hatch-left .meta {
+      padding-right: 0;
+      padding-left: 0;
+      width: 100%;
+      max-width: 100%;
+      margin-top: 0;
+    }
   }
 }
 </style>

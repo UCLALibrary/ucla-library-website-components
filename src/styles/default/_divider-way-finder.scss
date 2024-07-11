@@ -30,18 +30,18 @@
   margin: var(--space-2xl) auto;
 
   .solid {
-    height: 1px;
-    width: 96px;
-    margin-right: 17px;
     border-bottom-style: solid;
     border-bottom-width: 2px;
     border-bottom-color: var(--color-border, var(--color-default-cyan-03));
+    margin-right: 17px;
+    height: 1px;
+    width: 96px;
   }
 
   .dotted {
+    flex: 1 1 auto;
+
     border-bottom: 2px dotted var(--color-secondary-grey-02);
     height: 1px;
-
-    flex: 1 1 auto;
   }
 }

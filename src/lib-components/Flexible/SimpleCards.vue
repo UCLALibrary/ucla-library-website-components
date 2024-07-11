@@ -31,9 +31,9 @@ const parsedContent = computed(() => {
         text: _get(card, 'contentLink[0].summary', ''),
         to: card.contentLink[0].externalResourceUrl
           ? card.contentLink[0].externalResourceUrl
-          : `/${stripMeapFromURI(
+          : stripMeapFromURI(
             card.contentLink[0].uri
-          )}`,
+          ),
       }
     }
     else if (

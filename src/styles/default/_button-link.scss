@@ -98,7 +98,6 @@
         transition-property: clip-path, -webkit-clip-path;
         @include animate-normal;
 
-        @include button;
         display: inline-flex;
         align-items: center;
         justify-content: center;
