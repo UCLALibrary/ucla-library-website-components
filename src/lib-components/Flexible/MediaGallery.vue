@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 
@@ -92,7 +95,10 @@ function selectItem(itemIndex: number) {
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .media-gallery {
   background-color: var(--color-theme, var(--color-white));
 

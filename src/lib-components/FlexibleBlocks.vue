@@ -188,7 +188,7 @@ function getComponent(name) {
           :block="block.mediaGalleryStyle === 'halfWidth'
             ? block
             : omit(block, ['sectionTitle', 'sectionSummary'])
-            "
+          "
           class="flexible-block"
         />
       </SectionWrapper>
