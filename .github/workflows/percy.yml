@@ -2,7 +2,8 @@ name:  Submit screenshots to Percy for visual regression testing.
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - main
   workflow_dispatch:
     inputs: {}
 
@@ -13,19 +14,25 @@ jobs:
     timeout-minutes: 20
     steps:
     - uses: actions/checkout@v3
-    - uses: ./.github/workflows/setup-workspace
+    - uses: ./.github/workflows/setup-workspace # why cant cypress percy command access this pnpm cache
     - name: Use cached storybook build
       id: cache-storybook
       uses: actions/cache@v3
       with:
         path: storybook-static
         key: storybook-${{ github.sha }}
-    - run: npm run build-storybook
+    - run: pnpm run build-storybook
       if: steps.cache-storybook.outputs.cache-hit != 'true'
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2
+      with:
+          version: 8
     - uses: cypress-io/github-action@v3
       with:
-        start: npx http-server ./storybook-static -p 6006
-        command-prefix: 'percy exec -- npx'
+        start: pnpm dlx http-server ./storybook-static -p 6006
+        install: false
+        command-prefix: 'percy exec -- pnpx'
         wait-on: http://localhost:6006
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
+    

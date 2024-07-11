@@ -1,7 +1,9 @@
 name: Release
 on:
   push:
-    branches: [main]
+    branches:
+    - main
+
 jobs:
   release:
     name: Release
@@ -12,17 +14,21 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-          token: ${{ secrets.GH_TOKEN }}
-      - name: Setup Node.js
+          token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16.15.0'
+          node-version: 20
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
       - name: Install semantic-release extra plugins
-        run: npm install --save-dev @semantic-release/changelog @semantic-release/git
+        run: pnpm install --save-dev @semantic-release/changelog @semantic-release/git
       - name: Release
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+        run: pnpm dlx semantic-release
