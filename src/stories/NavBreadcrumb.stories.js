@@ -46,7 +46,9 @@ function Template(args) {
 
 export const Default = Template.bind({})
 Default.args = {
-  to: '/arts-library/arts-library-collections-access-and-services-during-seismic-construction-closure',
+  to: '/about/news',
+  title: 'jane doe',
+  parentTitle: 'parent',
 }
 
 export const MultipleNesting = Template.bind({})
