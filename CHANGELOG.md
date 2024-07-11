@@ -1,3 +1,21 @@
+# [2.39.0-alpha.104](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.103...v2.39.0-alpha.104) (2024-07-11)
+
+
+### Bug Fixes
+
+* add keyup event handler to search home ([#368](https://github.com/UCLALibrary/ucla-library-website-components/issues/368)) ([655f25b](https://github.com/UCLALibrary/ucla-library-website-components/commit/655f25b749051655528691495a1b2396ff6df14c))
+* button in banner-header component ([#367](https://github.com/UCLALibrary/ucla-library-website-components/issues/367)) ([551e218](https://github.com/UCLALibrary/ucla-library-website-components/commit/551e218c893c197f1aae85aa12108e44477252f4))
+* pay rate should display in block generic list ([#486](https://github.com/UCLALibrary/ucla-library-website-components/issues/486)) ([60bb246](https://github.com/UCLALibrary/ucla-library-website-components/commit/60bb24699b008d86ab74cff0d6a2e2009b7ef44b))
+* update search when clearing search bar ([#435](https://github.com/UCLALibrary/ucla-library-website-components/issues/435)) ([563948f](https://github.com/UCLALibrary/ucla-library-website-components/commit/563948f09cfab74c9153a9ea1102ce3e6623bf80))
+* various accessibility issues ([#411](https://github.com/UCLALibrary/ucla-library-website-components/issues/411)) ([1205013](https://github.com/UCLALibrary/ucla-library-website-components/commit/120501352daccbd24577cd6c3acb9e1c10ca89a2))
+
+
+### Features
+
+* "Include past events" single checkbox filter ([#401](https://github.com/UCLALibrary/ucla-library-website-components/issues/401)) ([0aee2ec](https://github.com/UCLALibrary/ucla-library-website-components/commit/0aee2ec91cbd3e6d8b55d025b17ba22ddfd2fc27))
+* APPS-1932 create media gallery half width ([#394](https://github.com/UCLALibrary/ucla-library-website-components/issues/394)) ([667bb12](https://github.com/UCLALibrary/ucla-library-website-components/commit/667bb12e8a908dbb17ae6ff2576fbc2bde21b6fc))
+* update styles to work with halfWidth option in redactor ([#397](https://github.com/UCLALibrary/ucla-library-website-components/issues/397)) ([772de69](https://github.com/UCLALibrary/ucla-library-website-components/commit/772de690d8cd6a13d654ad12d4777a62be07b102))
+
 # [2.39.0-alpha.103](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.102...v2.39.0-alpha.103) (2024-07-11)
 
 
