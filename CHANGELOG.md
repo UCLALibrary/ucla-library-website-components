@@ -1,3 +1,10 @@
+# [2.39.0-alpha.106](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.105...v2.39.0-alpha.106) (2024-07-11)
+
+
+### Features
+
+* APPS-2790 Create Component FTVA Carousel -> NewLightbox  ([#550](https://github.com/UCLALibrary/ucla-library-website-components/issues/550)) ([fe3363b](https://github.com/UCLALibrary/ucla-library-website-components/commit/fe3363b9209b3f6f71255a819e9367818d5ae551))
+
 # [2.39.0-alpha.105](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.104...v2.39.0-alpha.105) (2024-07-11)
 
 
