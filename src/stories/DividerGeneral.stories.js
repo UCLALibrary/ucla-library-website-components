@@ -1,16 +1,27 @@
-import DividerGeneral from "../lib-components/DividerGeneral"
+import DividerGeneral from '@/lib-components/DividerGeneral.vue'
 
 export default {
-    title: "DIVIDER / General",
-    component: DividerGeneral,
+  title: 'DIVIDER / General',
+  component: DividerGeneral,
 }
 
-export const Default = () => ({
+export const Default = {
+  render: () => ({
     components: { DividerGeneral },
-    template: `<divider-general/>`,
-})
+    template: '<divider-general/>',
+  }),
+}
 
-export const IsBold = () => ({
+export const IsBold = {
+  render: () => ({
     components: { DividerGeneral },
-    template: `<divider-general :is-bold="true"/>`,
-})
+    template: '<divider-general :is-bold="true"/>',
+  }),
+}
+
+export const IsTertiary = {
+  render: () => ({
+    components: { DividerGeneral },
+    template: '<divider-general :is-tertiary="true"/>',
+  }),
+}

@@ -1,13 +1,21 @@
-// iife/cjs usage extends esm default export - so import it all
-import plugin, * as components from "@/entry.esm"
+// Import vue components
+import * as components from '@/lib-components/index'
 
-// Attach named exports directly to plugin. IIFE/CJS will
-// only expose one global var, with component exports exposed as properties of
-// that global var (eg. plugin.component)
-Object.entries(components).forEach(([componentName, component]) => {
-    if (componentName !== "default") {
-        plugin[componentName] = component
-    }
-})
+// install function executed by Vue.use()
+const uclaLibraryWebsiteComponent = {
+  install(Vue) {
+    Object.entries(components).forEach(([componentName, component]) => {
+      Vue.component(componentName, component)
+    })
+  },
+}
 
-export default plugin
+// Create module definition for Vue.use()
+export default uclaLibraryWebsiteComponent
+
+// To allow individual component use, export components
+// each can be registered via Vue.component()
+export * from '@/lib-components/index'
+
+// Tree Shaking: With the above structure, if someone imports only one component from your library,
+// only the code for that specific component should end up in their final bundle.

@@ -1,45 +1,56 @@
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
-import SectionPostSmall from "@/lib-components/SectionPostSmall"
-import StoryRouter from "storybook-vue-router"
+import * as API from '@/stories/mock-api.json'
+import SectionPostSmall from '@/lib-components/SectionPostSmall'
 
 // Storybook default settings
 export default {
-    title: "Section / Post Small",
-    component: SectionPostSmall,
-    decorators: [StoryRouter()],
+  title: 'Section / Post Small',
+  component: SectionPostSmall,
 }
 
-const items = [
-    {
-        ...API.article,
-        image: API.image,
-    },
-    {
-        ...API.article,
-        image: API.image,
-        to: "/about/foo/bar",
-    },
-    {
-        ...API.article,
-        image: API.image,
-        to: "/help/foo/bar",
-    },
+const mock = [
+  {
+    image: API.image,
+    to: '/foo/bar',
+    categoryName: 'squirrels',
+    author: 'Fluffy Ranger',
+    title: 'What to Feed Squirrels',
+  },
+  {
+    image: API.image,
+    to: ' ',
+    categoryName: 'wild pets',
+    author: 'Dexter Diamond',
+    title: 'Introducing Mammals to Young Naturalists',
+  },
+  {
+    image: API.image,
+    to: '/about/foo/bar',
+    categoryName: 'red squirrels',
+    author: 'Penelope Nutstop',
+    title: 'Twenty-two Things About Flying Squirrels',
+  },
+  {
+    image: API.image,
+    to: '/help/foo/bar/',
+    categoryName: 'gray squirrels',
+    author: 'Smokey Smith',
+    title: 'Squirrels: Diet, Habits & Other Facts',
+  }
 ]
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            items,
-        }
+      return { items: mock }
     },
     components: { SectionPostSmall },
-    computed: {
-        parsedItems() {
-            // Restructuring item to support text key
-            return this.items
-        },
-    },
-    template: `<section-post-small :items="parsedItems" to="/news/"/>`,
-})
+    template: `
+      <section-post-small
+        :items="items"
+        to="/visit/foo/bar/"
+      />
+  `,
+  }
+}

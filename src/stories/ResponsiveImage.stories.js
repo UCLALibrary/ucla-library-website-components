@@ -1,52 +1,98 @@
-import ResponsiveImage from "@/lib-components/ResponsiveImage"
+import ResponsiveImage from '@/lib-components/ResponsiveImage'
 
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
+import * as API from '@/stories/mock-api.json'
 
 // Storybook default settings
 export default {
-    title: "GLOBAL / Responsive Image",
-    component: ResponsiveImage,
+  title: 'GLOBAL / Responsive Image',
+  component: ResponsiveImage,
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     components: { ResponsiveImage },
     data() {
-        return {
-            image: API.image,
-        }
+      return {
+        image: API.image,
+      }
     },
-    template: `<responsive-image :image="image"/>`,
-})
+    template: '<responsive-image :media="image"/>',
+  }
+}
 
-export const SquareRatio = () => ({
+export function SquareRatio() {
+  return {
     components: { ResponsiveImage },
     data() {
-        return {
-            image: API.image,
-        }
+      return {
+        image: API.image,
+      }
     },
     template: `
         <responsive-image
-            :image="image"
+            :media="image"
             :aspect-ratio="100"
         />
     `,
-})
+  }
+}
 
-export const ObjectFitContain = () => ({
+export function ObjectFitContain() {
+  return {
     components: { ResponsiveImage },
     data() {
-        return {
-            image: API.image,
-        }
+      return {
+        image: API.image,
+      }
     },
     template: `
         <responsive-image
-            :image="image"
+            :media="image"
             :aspect-ratio="100"
             object-fit="contain"
         />
     `,
-})
+  }
+}
+
+export function WithCreditText() {
+  return {
+    components: { ResponsiveImage },
+    data() {
+      return {
+        image: API.image,
+      }
+    },
+    template: `
+        <responsive-image
+            :media="image"
+        >
+        <template v-slot:credit>
+               Photo by John Doe
+        </template>
+        </responsive-image>
+    `,
+  }
+}
+
+export function WithLongCreditText() {
+  return {
+    components: { ResponsiveImage },
+    data() {
+      return {
+        image: API.image,
+      }
+    },
+    template: `
+        <responsive-image
+            :media="image"
+        >
+        <template v-slot:credit>
+               lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum 
+        </template>
+        </responsive-image>
+    `,
+  }
+}

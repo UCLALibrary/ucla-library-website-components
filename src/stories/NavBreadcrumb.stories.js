@@ -1,15 +1,15 @@
-import NavBreadcrumb from "@/lib-components/NavBreadcrumb"
-import StoryRouter from "storybook-vue-router"
+import NavBreadcrumb from '@/lib-components/NavBreadcrumb'
 
 // Storybook default settings
 export default {
-    title: "NAV / Breadcrumb",
-    component: NavBreadcrumb,
-    decorators: [StoryRouter()],
+  title: 'NAV / Breadcrumb',
+  component: NavBreadcrumb,
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     components: { NavBreadcrumb },
-    template: `<nav-breadcrumb title="jane-doe" to="/about/news" parent-title="parent"/>`,
-})
+    template: '<nav-breadcrumb title="jane-doe" to="/about/news" parent-title="parent"/>',
+  }
+}

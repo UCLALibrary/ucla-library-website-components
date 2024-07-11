@@ -1,252 +1,286 @@
-<template>
-    <div v-if="block && block.content">
-        <banner-featured
-            v-if="block && block.content && block.content[0].contentLink"
-            class="flexible-banner-featured"
-            :image="parseImage"
-            :to="`/${stripMeapFromURI(block.content[0].contentLink[0].to)}`"
-            :title="block.content[0].contentLink[0].title"
-            :breadcrumb="parsedTypeHandle"
-            :byline="parseByLine"
-            :description="parsedDescription"
-            :prompt="parsePrompt"
-            :locations="parsedLocations"
-            :category="parsedCategory"
-            :start-date="parsedStartDate"
-            :end-date="parsedEndDate"
-            :section-handle="block.content[0].contentLink[0].contentType"
-        />
+<script setup lang="ts">
+import { computed } from 'vue'
+import type { PropType } from 'vue'
+import format from 'date-fns/format'
+import BannerFeatured from '@/lib-components/BannerFeatured.vue'
+import type { LocationItemType } from '@/types/types'
+import type { FlexibleBannerFeatured } from '@/types/flexible_types'
 
-        <banner-featured
-            v-if="block && block.content && !block.content[0].contentLink"
-            class="flexible-banner-featured"
-            :image="parseImage"
-            :to="stripMeapFromURI(block.content[0].to)"
-            :title="block.content[0].title"
-            :breadcrumb="parsedTypeHandle"
-            :byline="parseByLine"
-            :description="block.content[0].summary"
-            :prompt="parsePrompt"
-            :locations="parsedLocations"
-            :category="parsedCategory"
-            :alignment="parsedAlignment"
-            :section-handle="block.content[0].sectionHandle"
-        />
-    </div>
-</template>
+// HELPERS
+import getPrompt from '@/utils/getPrompt'
+import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
-<script>
-// Components
-import BannerFeatured from "@/lib-components/BannerFeatured.vue"
+const { block } = defineProps({
+  block: {
+    type: Object as PropType<FlexibleBannerFeatured>,
+    default: () => { },
+  },
+})
 
-// Helpers
-import getPrompt from "@/mixins/getPrompt"
-import stripMeapFromURI from "@/mixins/stripMeapFromURI"
-import format from "date-fns/format"
+const parseImage = computed(() => {
+  let imageObj = {}
+  // console.log(`FROM BANNERFEATURED:${block.content[0]}`)
+  if (
+    block.content[0].contentLink
+    && block.content[0].contentLink.length > 0
+    && block.content[0].contentLink[0].heroImage
+    && block.content[0].contentLink[0].heroImage.length > 0
+  )
+    imageObj = block.content[0].contentLink[0].heroImage[0].image[0]
+  else if (block.content[0].image)
+    imageObj = block.content[0].image[0]
 
-export default {
-    name: "FlexibleBannerFeatured",
-    components: { BannerFeatured },
-    props: {
-        block: {
-            type: Object,
-            default: () => {},
-        },
-    },
-    mixins: [getPrompt, stripMeapFromURI],
-    computed: {
-        parseImage() {
-            let imageObj = {}
-            console.log("FROM BANNERFEATURED:" + this.block.content[0])
-            if (
-                this.block.content[0].contentLink &&
-                this.block.content[0].contentLink.length > 0 &&
-                this.block.content[0].contentLink[0].heroImage &&
-                this.block.content[0].contentLink[0].heroImage.length > 0
-            )
-                imageObj =
-                    this.block.content[0].contentLink[0].heroImage[0].image[0]
-            else if (this.block.content[0].image)
-                imageObj = this.block.content[0].image[0]
+  // console.log(`image obj: ${JSON.stringify(imageObj)}`)
+  return imageObj
+})
 
-            console.log("image obj: " + JSON.stringify(imageObj))
-            return imageObj
-        },
-        parsedAlignment() {
-            return this.block.content[0].alignment === "right" ? true : false
-        },
-        parsePrompt() {
-            let prompt = ""
-            if (this.block.content[0].contentType)
-                prompt = this.getPrompt(this.block.content[0].contentType)
-            else
-                prompt = this.getPrompt(
-                    this.block.content[0].contentLink[0].contentType
-                )
+const parsedAlignment = computed(() => {
+  return block.content[0].alignment === 'right'
+})
 
-            return prompt
-        },
-        parsedLocations() {
-            let locations = []
+const parsePrompt = computed(() => {
+  let prompt = ''
+  if (block.content[0].contentType)
+    prompt = getPrompt(block.content[0].contentType)
+  else
+    prompt = getPrompt(block.content[0].contentLink[0].contentType)
 
-            if (this.block.content && this.block.content[0].contentLink) {
-                let contentType =
-                    this.block.content[0].contentLink[0].contentType.toLowerCase()
+  return prompt
+})
 
-                switch (true) {
-                    case contentType.includes("article"):
-                        locations["location_links"] =
-                            this.block.content[0].contentLink[0].articleLocations
+const parsedLocations = computed(() => {
+  let locations: LocationItemType[] = []
 
-                        break
-                    case contentType.includes("project"):
-                        locations["location_links"] =
-                            this.block.content[0].contentLink[0].projectLocations
+  if (block.content && block.content[0].contentLink) {
+    const contentType
+      = block.content[0].contentLink[0].contentType.toLowerCase()
 
-                        break
+    switch (true) {
+      case contentType.includes('article'):
+        locations = block.content[0].contentLink[0].articleLocations
+        break
 
-                    case contentType.includes("event"):
-                        locations["location_links"] =
-                            this.block.content[0].contentLink[0].articleLocations
-                        break
-                }
-            }
-            if (this.block.content && this.block.content[0].location) {
-                locations["location_external"] = this.block.content[0].location
-            }
+      case contentType.includes('project'):
+        locations = block.content[0].contentLink[0].projectLocations
+        break
 
-            return locations
-        },
-        parsedCategory() {
-            let category = ""
-            if (this.block.content && this.block.content[0].category)
-                return this.block.content[0].category
+      case contentType.includes('event'):
+        locations = block.content[0].contentLink[0].articleLocations
+        break
+    }
+  }
+  if (block.content && block.content[0].location)
+    locations.push(block.content[0].location)
 
-            if (this.block.content && this.block.content[0].contentLink) {
-                let contentType =
-                    this.block.content[0].contentLink[0].contentType.toLowerCase()
-                switch (true) {
-                    case contentType.includes("article"):
-                        category =
-                            this.block.content[0].contentLink[0].articleCategory
-                                .map((obj) => {
-                                    return obj.title
-                                })
-                                .toString()
-                        break
-                    case contentType.includes("project"):
-                        category =
-                            this.block.content[0].contentLink[0].projectCategory
-                        break
+  return locations
+})
 
-                    /*case contentType.includes("event"):
-                        category =
-                            this.block.content[0].contentLink[0].eventCategory
-                        break*/
-                }
-            }
+// CATEGORY / EYEBROW
+const parsedCategory = computed(() => {
+  let category = ''
 
-            return category
-        },
-        parsedTypeHandle() {
-            // This will be passed on the page level
+  // EXTERNAL
+  if (block.content && block.content[0].category)
+    return block.content[0].category
 
-            return this.block.sectionTitle
-                ? this.block.sectionTitle
-                : this.parsedCategory
-        },
-        parsedStartDate() {
-            let startDate = ""
-            if (
-                this.block.content &&
-                this.block.content[0].contentLink &&
-                this.block.content[0].contentLink[0].startDateWithTime
-            ) {
-                startDate =
-                    this.block.content[0].contentLink[0].startDateWithTime
-            } else if (
-                this.block.content &&
-                this.block.content[0].contentLink &&
-                this.block.content[0].contentLink[0].startDate
-            ) {
-                startDate = this.block.content[0].contentLink[0].startDate
-            }
-            return startDate
-        },
-        parsedEndDate() {
-            let endDate = ""
-            if (
-                this.block.content &&
-                this.block.content[0].contentLink &&
-                this.block.content[0].contentLink[0].endDateWithTime
-            ) {
-                endDate = this.block.content[0].contentLink[0].endDateWithTime
-            } else if (
-                this.block.content &&
-                this.block.content[0].contentLink &&
-                this.block.content[0].contentLink[0].endDate
-            ) {
-                endDate = this.block.content[0].contentLink[0].endDate
-            }
-            return endDate
-        },
-        parseByLine() {
-            let output = []
-            if (this.block.content && this.block.content[0].contentLink) {
-                let entry_type =
-                    this.block.content[0].contentLink[0].contentType.toLowerCase()
+  // INTERNAL
+  if (block.content && block.content[0].contentLink) {
+    const contentType = block.content[0].contentLink[0].contentType
+    const workshopOrSeries = block.content[0].contentLink[0].workshopOrEventSeriesType
 
-                switch (true) {
-                    case entry_type.includes("article"):
-                        output["articleStaff"] =
-                            this.block.content[0].contentLink[0].articleByline1
-                        output["articlePostDate"] = format(
-                            new Date(
-                                this.block.content[0].contentLink[0].articleByline2
-                            ),
-                            "MMMM d, Y"
-                        )
+    switch (true) {
+      case contentType.includes('article'):
+        category = block.content[0].contentLink[0].articleCategory
+          .map((obj) => {
+            return obj.title
+          })
+          .toString()
+        break
 
-                        break
-                    case entry_type.includes("project"):
-                        output["project"] =
-                            this.block.content[0].contentLink[0].projectByline1
+      case contentType.includes('collection'):
+        category = block.content[0].contentLink[0].physicalDigital[0]
+        break
 
-                        break
+      case contentType.includes('project'):
+      case contentType.includes('event'):
+      case contentType.includes('exhibition'):
+      case contentType.includes('endowment'):
+        category = contentType
+        break
 
-                    /*case entry_type.includes("event"):
-                    output["eventStartTime"] =
-                        this.block.content[0].contentLink[0].eventByline1
-                    output["eventEndTime"] =
-                        this.block.content[0].contentLink[0].eventByline2
-                    break*/
-                }
-            }
-            if (
-                this.block.content &&
-                (this.block.content[0].byline1 || this.block.content[0].byline2)
-            ) {
-                output.push(this.block.content[0].byline1)
-                output.push(this.block.content[0].byline2)
-            }
+      case contentType.includes('impactReportStory'):
+        category = 'Impact Report Story'
+        break
 
-            return output
-        },
-        parsedDescription() {
-            let output = ""
-            if (
-                this.block.content &&
-                this.block.content[0].contentLink &&
-                this.block.content[0].contentLink[0].contentType == "event"
-            ) {
-                output = this.block.content[0].contentLink[0].eventDescription
-            } else {
-                output = this.block.content[0].contentLink[0].summary
-            }
-            return output
-        },
-    },
-}
+      case contentType.includes('meapProject'):
+        category = 'Meap Project'
+        break
+
+      case contentType.includes('meapArticle'):
+        category = 'Meap Article'
+        break
+
+      case workshopOrSeries.includes('help/services-resources'):
+        category = 'Workshop'
+        break
+
+      case workshopOrSeries.includes('visit/events-exhibitions'):
+        category = 'Event Series'
+        break
+    }
+  }
+
+  return category
+})
+
+const parsedTypeHandle = computed(() => {
+  // This will be passed on the page level
+
+  return block.sectionTitle ? block.sectionTitle : parsedCategory.value
+})
+
+const parsedStartDate = computed(() => {
+  let startDate = ''
+  if (
+    block.content
+    && block.content[0].contentLink
+    && block.content[0].contentLink[0].startDateWithTime
+  )
+    startDate = block.content[0].contentLink[0].startDateWithTime
+  else if (
+    block.content
+    && block.content[0].contentLink
+    && block.content[0].contentLink[0].startDate
+  )
+    startDate = block.content[0].contentLink[0].startDate
+
+  return startDate
+})
+
+const parsedEndDate = computed(() => {
+  let endDate = ''
+  if (
+    block.content
+    && block.content[0].contentLink
+    && block.content[0].contentLink[0].endDateWithTime
+  )
+    endDate = block.content[0].contentLink[0].endDateWithTime
+  else if (
+    block.content
+    && block.content[0].contentLink
+    && block.content[0].contentLink[0].endDate
+  )
+    endDate = block.content[0].contentLink[0].endDate
+
+  return endDate
+})
+
+const parseByLine = computed(() => {
+  const output = []
+
+  if (block.content && block.content[0].contentLink) {
+    const entry_type
+      = block.content[0].contentLink[0].contentType.toLowerCase()
+
+    const articleByline1 = block.content[0].contentLink[0].articleByline1
+
+    const projectByline1 = block.content[0].contentLink[0].projectByline1
+
+    const formatDate = format(
+      new Date(block.content[0].contentLink[0].articleByline2),
+      'MMMM d, Y'
+    )
+
+    switch (true) {
+      case entry_type.includes('article'):
+        if (articleByline1) {
+          articleByline1.forEach(obj => output.push(obj.title))
+          output.push(formatDate)
+        }
+        else {
+          output.push(formatDate)
+        }
+        break
+      case entry_type.includes('project'):
+        if (projectByline1)
+          output.push(projectByline1[0].title)
+
+        break
+    }
+  }
+
+  if (
+    block.content
+    && (block.content[0].byline1 || block.content[0].byline2)
+  ) {
+    output.push(block.content[0].byline1)
+    output.push(block.content[0].byline2)
+  }
+
+  return output
+})
+
+const parsedDescription = computed(() => {
+  let output = ''
+  if (
+    block.content
+    && block.content[0].contentLink
+    && block.content[0].contentLink[0].contentType === 'event'
+  )
+    output = block.content[0].contentLink[0].eventDescription
+  else output = block.content[0].contentLink[0].summary
+
+  return output
+})
 </script>
 
-<style lang="scss" scoped></style>
+<template>
+  <!-- EXTERNAL -->
+  <div v-if="block && block.content">
+    <BannerFeatured
+      v-if="block && block.content && block.content[0].contentLink"
+      class="flexible-banner-featured"
+      :media="parseImage"
+      :to="stripMeapFromURI(block.content[0].contentLink[0].to)"
+      :title="block.content[0].contentLink[0].title"
+      :breadcrumb="parsedTypeHandle"
+      :byline="parseByLine"
+      :description="parsedDescription"
+      :prompt="parsePrompt"
+      :locations="parsedLocations"
+      :category="parsedCategory"
+      :start-date="parsedStartDate"
+      :end-date="parsedEndDate"
+      :section-handle="block.content[0].contentLink[0].contentType"
+    />
+
+    <!-- INTERNAL -->
+    <BannerFeatured
+      v-if="block && block.content && !block.content[0].contentLink"
+      class="flexible-banner-featured"
+      :media="parseImage"
+      :to="stripMeapFromURI(block.content[0].to)"
+      :title="block.content[0].title"
+      :breadcrumb="parsedTypeHandle"
+      :byline="parseByLine"
+      :description="block.content[0].summary"
+      :prompt="parsePrompt"
+      :locations="parsedLocations"
+      :category="parsedCategory"
+      :align-right="parsedAlignment"
+      :section-handle="block.content[0].sectionHandle"
+    />
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.flexible-banner-featured {
+  :deep(.breadcrumb) {
+    z-index: 30;
+  }
+
+  :deep(.slot) {
+    z-index: 30;
+  }
+}
+</style>

@@ -1,103 +1,108 @@
-<template>
-    <button class="button-hide">
-        <div class="icon" aria-hidden="true">
-            <molecule-stroke class="molecule-stroke" />
-            <icon-collapse class="icon-collapse" />
-        </div>
-
-        <div class="text">
-            {{ text }}
-        </div>
-    </button>
-</template>
-
 <script>
-import IconCollapse from "ucla-library-design-tokens/assets/svgs/icon-collapse.svg"
-import MoleculeStroke from "ucla-library-design-tokens/assets/svgs/molecule-stroke.svg"
+import IconCollapse from 'ucla-library-design-tokens/assets/svgs/icon-collapse.svg'
+import MoleculeStroke from 'ucla-library-design-tokens/assets/svgs/molecule-stroke.svg'
 
 export default {
-    name: "ButtonHide",
-    components: {
-        IconCollapse,
-        MoleculeStroke,
+  name: 'ButtonHide',
+  components: {
+    IconCollapse,
+    MoleculeStroke,
+  },
+  props: {
+    text: {
+      type: String,
+      default: 'See Less',
     },
-    props: {
-        text: {
-            type: String,
-            default: "See Less",
-        },
-    },
+  },
 }
 </script>
 
+<template>
+  <button class="button-hide">
+    <div class="icon" aria-hidden="true">
+      <MoleculeStroke class="molecule-stroke" />
+      <IconCollapse class="icon-collapse" />
+    </div>
+
+    <div class="text">
+      {{ text }}
+    </div>
+  </button>
+</template>
+
 <style lang="scss" scoped>
 .button-hide {
-    background-color: var(--color-white);
-    width: fit-content;
-    max-width: 80px;
-    line-height: #{$line-height--2};
+  background-color: var(--color-white);
+  width: fit-content;
+  max-width: 80px;
+  line-height: #{$line-height--2};
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+
+  .icon {
     position: relative;
-    text-align: center;
+    margin-bottom: 16px;
+  }
 
-    .icon {
-        position: relative;
-        margin-bottom: 16px;
+  .molecule-border {
+    width: 83px;
+    height: 83px;
+
+    stroke: var(--color-default-cyan-03);
+    stroke-width: 1.5px;
+  }
+
+  .icon-collapse {
+    position: absolute;
+    z-index: 0;
+    width: 49px;
+    height: 49px;
+    left: 50%;
+
+    // Center this way so button can be streched and it still centers
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition-property: left;
+    @include animate-normal;
+
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: var(--color-primary-blue-03);
+      stroke-width: 1.25px;
+      transition-property: stroke;
+      @include animate-normal;
     }
-    .molecule-border {
-        width: 83px;
-        height: 83px;
+  }
 
-        stroke: var(--color-default-cyan-03);
-        stroke-width: 1.5px;
-    }
-    .icon-collapse {
-        position: absolute;
-        z-index: 0;
-        width: 49px;
-        height: 49px;
-        left: 50%;
+  .text {
+    color: var(--color-primary-blue-05);
+    @include overline;
+    letter-spacing: 0.01em;
+    transition: color;
+  }
 
-        // Center this way so button can be streched and it still centers
-        top: 50%;
-        transform: translate(-50%, -50%);
-        transition-property: left;
-        @include animate-normal;
+  // Hover states
+  @media #{$has-hover} {
+    &:hover {
+      cursor: pointer;
 
-        ::v-deep .svg__stroke--primary-blue-03 {
-            stroke: var(--color-primary-blue-03);
-            stroke-width: 1.25px;
-            transition-property: stroke;
-            @include animate-normal;
+      .icon-collapse {
+        :deep(.svg__stroke--primary-blue-03) {
+          stroke: var(--color-default-cyan-03);
         }
-    }
 
-    .text {
-        color: var(--color-primary-blue-05);
-        @include overline;
-        letter-spacing: 0.01em;
-        transition: color;
-    }
+        //left: calc(50% + 4px);
+      }
 
-    // Hover states
-    @media #{$has-hover} {
-        &:hover {
-            cursor: pointer;
-            .icon- {
-                ::v-deep .svg__stroke--primary-blue-03 {
-                    stroke: var(--color-default-cyan-03);
-                }
-                left: calc(50% + 4px);
-            }
-            .text {
-                color: var(--color-primary-blue-03);
-            }
-        }
+      .text {
+        color: var(--color-primary-blue-03);
+      }
     }
+  }
 }
 </style>

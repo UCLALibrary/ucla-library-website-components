@@ -1,21 +1,22 @@
 // Import mock api data
-import FlexibleMediaGalleryBannerImage from "@/lib-components/Flexible/MediaGallery/BannerImage.vue"
+import FlexibleMediaGalleryBannerImage from '@/lib-components/Flexible/MediaGallery/BannerImage.vue'
 
-import * as MEDIA from "@/stories/mock/Media"
+import * as MEDIA from '@/stories/mock/Media'
 
 // Storybook default settings
 export default {
-    title: "MEDIA GALLERY / Banner Image",
-    component: FlexibleMediaGalleryBannerImage,
+  title: 'MEDIA GALLERY / Banner Image',
+  component: FlexibleMediaGalleryBannerImage,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            item: MEDIA.ImageFile,
-            nItems: 5,
-            expanded: false,
-        }
+      return {
+        item: MEDIA.ImageFile,
+        nItems: 5,
+        expanded: false,
+      }
     },
     components: { FlexibleMediaGalleryBannerImage },
     template: `
@@ -25,14 +26,16 @@ export const Default = () => ({
         :expanded="expanded"
     />
   `,
-})
+  }
+}
 
-export const Expanded = () => ({
+export function Expanded() {
+  return {
     data() {
-        return {
-            item: MEDIA.ImageFile,
-            expanded: true,
-        }
+      return {
+        item: MEDIA.ImageFile,
+        expanded: true,
+      }
     },
     components: { FlexibleMediaGalleryBannerImage },
     template: `
@@ -42,11 +45,13 @@ export const Expanded = () => ({
         :expanded="expanded"
     />
   `,
-})
+  }
+}
 
-export const SingleItem = () => ({
+export function SingleItem() {
+  return {
     data() {
-        return { item: MEDIA.ImageFile }
+      return { item: MEDIA.ImageFile }
     },
     components: { FlexibleMediaGalleryBannerImage },
     template: `
@@ -56,4 +61,5 @@ export const SingleItem = () => ({
         expanded=false
     />
   `,
-})
+  }
+}

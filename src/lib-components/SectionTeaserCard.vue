@@ -1,77 +1,71 @@
-<template>
-    <ul class="section-teaser-card">
-        <block-highlight
-            v-for="(card, index) in items"
-            :key="`Card${index}`"
-            class="card"
-            :image="card.image"
-            :to="card.to"
-            :category="card.category"
-            :title="card.title"
-            :alternativeFullName="card.alternativeFullName"
-            :language="card.language"
-            :start-date="card.startDate"
-            :end-date="card.endDate"
-            :text="card.text"
-            :image-aspect-ratio="60"
-            :is-vertical="true"
-            :is-online="card.isOnline"
-            :byline-one="card.bylineOne"
-            :byline-two="card.bylineTwo"
-            :section-handle="card.sectionHandle"
-            :ongoing="card.ongoing"
-        />
-    </ul>
-</template>
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import type { BlockCardMetaType, EventItemType } from '@/types/types'
 
-<script>
-import BlockHighlight from "@/lib-components/BlockHighlight.vue"
+import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
-export default {
-    name: "SectionTeaserCard",
-    components: {
-        BlockHighlight,
-    },
-    props: {
-        /**
-         * Array of objects [{ image, to, category, title, dates, times, text }]
-         */
-        items: {
-            type: Array,
-            default: () => [],
-        },
-    },
-}
+const { items } = defineProps({
+  items: {
+    type: Array as PropType<BlockCardMetaType[] & EventItemType[]>,
+    default: () => [],
+  },
+})
 </script>
+
+<template>
+  <ul class="section-teaser-card">
+    <BlockCardWithImage
+      v-for="(item, index) in items"
+      :key="`Card${index}`"
+      :image="item.image"
+      :to="item.to"
+      :category="item.category"
+      :title="item.title"
+      :alternative-full-name="item.alternativeFullName"
+      :language="item.language"
+      :start-date="item.startDate"
+      :end-date="item.endDate"
+      :text="item.text"
+      :image-aspect-ratio="60"
+      :is-vertical="true"
+      :byline-one="item.bylineOne"
+      :byline-two="item.bylineTwo"
+      :section-handle="item.sectionHandle"
+      :ongoing="item.ongoing"
+      class="card"
+    />
+  </ul>
+</template>
 
 <style lang="scss" scoped>
 .section-teaser-card {
-    max-width: $container-l-main + px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: var(--space-xl) 16px;
+  max-width: $container-l-main + px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: var(--space-xl) 16px;
+
+  .card {
+    width: calc((100% - 32px) / 3);
+  }
+
+  // Breakpoints
+  @media #{$medium} {
+    align-items: flex-start;
 
     .card {
-        width: calc((100% - 32px) / 3);
+      width: calc((100% - 16px) / 2);
     }
+  }
 
-    // Breakpoints
-    @media #{$medium} {
-        align-items: flex-start;
+  @media #{$small} {
+    align-items: center;
 
-        .card {
-            width: calc((100% - 16px) / 2);
-        }
+    .card {
+      width: 100%;
     }
-    @media #{$small} {
-        align-items: center;
-
-        .card {
-            width: 100%;
-        }
-    }
+  }
 }
 </style>

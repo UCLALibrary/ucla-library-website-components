@@ -1,29 +1,30 @@
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
-import MediaBadge from "@/lib-components/MediaBadge"
-import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
+import * as API from '@/stories/mock-api.json'
+import MediaBadge from '@/lib-components/MediaBadge'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
 // Storybook default settings
 export default {
-    title: "Media Badge",
-    component: MediaBadge,
+  title: 'Media Badge',
+  component: MediaBadge,
 }
 
 const mock = {
-    image: API.image,
+  image: API.image,
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     components: {
-        ResponsiveImage,
-        MediaBadge,
+      ResponsiveImage,
+      MediaBadge,
     },
     data() {
-        return { ...mock }
+      return { ...mock }
     },
     template: `
-      <responsive-image :image="image">
+      <responsive-image :media="image">
         <media-badge
             :image="image"
             :image-aspect-ratio="60"
@@ -35,4 +36,5 @@ export const Default = () => ({
         </media-badge>
       </responsive-image>
   `,
-})
+  }
+}

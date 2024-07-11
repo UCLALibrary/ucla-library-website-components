@@ -1,16 +1,16 @@
-import BlockMediaWithText from "@/lib-components/BlockMediaWithText"
-
-import { mock } from "./mock/BlockMediaWithText"
-import * as MEDIA from "./mock/Media"
+import { mock } from './mock/BlockMediaWithText'
+import * as MEDIA from './mock/Media'
+import BlockMediaWithText from '@/lib-components/BlockMediaWithText'
 
 export default {
-    title: "BLOCK / Media with Text",
-    component: BlockMediaWithText,
+  title: 'BLOCK / Media with Text',
+  component: BlockMediaWithText,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return { ...mock }
+      return { ...mock }
     },
     components: { BlockMediaWithText },
     template: `
@@ -23,11 +23,13 @@ export const Default = () => ({
             :type-media="mediaWithText[0].typeMedia"
         />
     `,
-})
+  }
+}
 
-export const NoMediaLink = () => ({
+export function NoMediaLink() {
+  return {
     data() {
-        return { ...mock }
+      return { ...mock }
     },
     components: { BlockMediaWithText },
     template: `
@@ -40,15 +42,17 @@ export const NoMediaLink = () => ({
             :type-media="mediaWithText[0].typeMedia"
         />
     `,
-})
+  }
+}
 
-export const Video = () => ({
+export function Video() {
+  return {
     data() {
-        return {
-            ...mock,
-            item: MEDIA.VideoFile,
-            coverImage: MEDIA.VideoFileCoverImage,
-        }
+      return {
+        ...mock,
+        item: MEDIA.VideoFile,
+        coverImage: MEDIA.VideoFileCoverImage,
+      }
     },
     components: { BlockMediaWithText },
     template: `
@@ -62,15 +66,17 @@ export const Video = () => ({
             type-media="video"
         />
     `,
-})
+  }
+}
 
-export const Audio = () => ({
+export function Audio() {
+  return {
     data() {
-        return {
-            ...mock,
-            item: MEDIA.AudioFile,
-            coverImage: MEDIA.AudioFileCoverImage,
-        }
+      return {
+        ...mock,
+        item: MEDIA.AudioFile,
+        coverImage: MEDIA.AudioFileCoverImage,
+      }
     },
     components: { BlockMediaWithText },
     template: `
@@ -84,15 +90,17 @@ export const Audio = () => ({
             type-media="audio"
         />
     `,
-})
+  }
+}
 
-export const Embed = () => ({
+export function Embed() {
+  return {
     data() {
-        return {
-            ...mock,
-            embedCode: MEDIA.AudioEmbed,
-            coverImage: MEDIA.AudioEmbedCoverImage,
-        }
+      return {
+        ...mock,
+        embedCode: MEDIA.AudioEmbed,
+        coverImage: MEDIA.AudioEmbedCoverImage,
+      }
     },
     components: { BlockMediaWithText },
     template: `
@@ -106,11 +114,13 @@ export const Embed = () => ({
             type-media="audio"
         />
     `,
-})
+  }
+}
 
-export const NoImage = () => ({
+export function NoImage() {
+  return {
     data() {
-        return { ...mock }
+      return { ...mock }
     },
     components: { BlockMediaWithText },
     template: `
@@ -122,4 +132,5 @@ export const NoImage = () => ({
             :type-media="mediaWithText[0].typeMedia"
         />
     `,
-})
+  }
+}

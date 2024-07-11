@@ -1,26 +1,29 @@
-import SmartLink from "@/lib-components/SmartLink"
-import StoryRouter from "storybook-vue-router"
+import SmartLink from '@/lib-components/SmartLink.vue'
 
 // Storybook default settings
 export default {
-    title: "GLOBAL / Smart Link",
-    component: SmartLink,
-    decorators: [StoryRouter()],
+  title: 'GLOBAL / Smart Link',
+  component: SmartLink,
 }
 
-const Template = (args, { argTypes }) => ({
+function Template(args) {
+  return {
     components: { SmartLink },
-    props: Object.keys(argTypes),
-    template: `<smart-link v-bind="$props">Link goes here</smart-link>`,
-})
+    setup() {
+      return { args }
+    },
+    template: '<smart-link v-bind="args">Link goes here</smart-link>',
+  }
+}
 
 // Variations of stories below
 export const Default = Template.bind({})
 Default.args = {
-    to: "/",
+  to: '/',
 }
 
-export const ExternalLink = () => ({
+export function ExternalLink() {
+  return {
     components: { SmartLink },
     template: `
     <smart-link
@@ -30,4 +33,5 @@ export const ExternalLink = () => ({
       This will render as a external link
     </smart-link>
   `,
-})
+  }
+}

@@ -1,29 +1,33 @@
-import ResponsiveVideo from "@/lib-components/ResponsiveVideo"
+import ResponsiveVideo from '@/lib-components/ResponsiveVideo'
 
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
+import * as API from '@/stories/mock-api.json'
 
 export default {
-    title: "GLOBAL / Responsive Video",
-    component: ResponsiveVideo,
+  title: 'GLOBAL / Responsive Video',
+  component: ResponsiveVideo,
 }
 
-export const ImageWithVideo = () => ({
+export function ImageWithVideo() {
+  return {
     data() {
-        return {
-            image: API.videoVideoUrl,
-        }
+      return {
+        video: API.video
+      }
     },
     components: { ResponsiveVideo },
-    template: `<responsive-video :image="image" />`,
-})
+    template: '<responsive-video :media="video" />',
+  }
+}
 
-export const VideoWithControls = () => ({
+export function VideoWithControls() {
+  return {
     data() {
-        return {
-            image: API.videoVideoUrl,
-        }
+      return {
+        video: API.video,
+      }
     },
     components: { ResponsiveVideo },
-    template: `<responsive-video :image="image" :controls="true"/>`,
-})
+    template: '<responsive-video :media="video" :controls="true"/>',
+  }
+}

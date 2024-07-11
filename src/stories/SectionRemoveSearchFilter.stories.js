@@ -1,38 +1,38 @@
-import SectionRemoveSearchFilter from "@/lib-components/SectionRemoveSearchFilter"
-import StoryRouter from "storybook-vue-router"
+import SectionRemoveSearchFilter from '@/lib-components/SectionRemoveSearchFilter'
 
 export default {
-    title: "SEARCH / Section Remove Search Filter",
-    component: SectionRemoveSearchFilter,
-    decorators: [StoryRouter()],
+  title: 'SEARCH / Section Remove Search Filter',
+  component: SectionRemoveSearchFilter,
 }
+
 const mock = {
-    location: "Neque porro quisquam",
-    departments: [
-        "DIIT",
-        "Digital Library Program",
-        "Arts Library",
-        "Special Collections",
-        "CLICC",
-    ],
+  location: ['Neque porro quisquam'],
+  departments: [
+    'DIIT',
+    'Digital Library Program',
+    'Arts Library',
+    'Special Collections',
+    'CLICC',
+  ],
 }
 const mockBigger = {
-    location: "Neque porro quisquam",
-    departments: [
-        "DIIT",
-        "Digital Library Program",
-        "Arts Library",
-        "Special Collections",
-        "CLICC",
-    ],
-    "subjectLibrarian.keyword": "yes",
-    areas: ["English", "History", "Geography", "Science", "Math"],
+  'location': ['Neque porro quisquam'],
+  'departments': [
+    'DIIT',
+    'Digital Library Program',
+    'Arts Library',
+    'Special Collections',
+    'CLICC',
+  ],
+  'subjectLibrarian.keyword': ['yes'],
+  'areas': ['English', 'History', 'Geography', 'Science', 'Math'],
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return { mock }
+      return { mock }
     },
     components: { SectionRemoveSearchFilter },
     template: `
@@ -40,10 +40,12 @@ export const Default = () => ({
             :filters="mock"
         />
     `,
-})
-export const WithMoreFilters = () => ({
+  }
+}
+export function WithMoreFilters() {
+  return {
     data() {
-        return { mockBigger }
+      return { mockBigger }
     },
     components: { SectionRemoveSearchFilter },
     template: `
@@ -51,4 +53,5 @@ export const WithMoreFilters = () => ({
             :filters="mockBigger"
         />
     `,
-})
+  }
+}

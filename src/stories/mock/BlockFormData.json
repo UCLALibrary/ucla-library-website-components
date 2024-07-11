@@ -1,5 +1,5 @@
 {
-    "mock0": {
+    "mock1": {
         "id": 5481,
         "name": "Data Science Center Workshops",
         "identityHelp": "",
@@ -21,7 +21,7 @@
         "questions": [
             {
                 "id": 32798,
-                "label": "UCLA Department Affiliation",
+                "label": "UCLA Department (Use Other Below if Your Department not Listed)",
                 "type": "dropdown",
                 "required": false,
                 "options": [
@@ -204,7 +204,7 @@
                     "Theater and Performance Studies",
                     "Theater Department",
                     "Urban and Regional Planning",
-                    "Urban and Regional Planning - Institut d'Etudes de Paris",
+                    "Urban and Regional Planning - Institut d&#039;Etudes de Paris",
                     "Urban Planning",
                     "Urban Planning Department",
                     "World Arts and Cultures/Dance Department"
@@ -233,11 +233,24 @@
                 ]
             },
             {
+                "id": 61178,
+                "label": "Do you intend to attend the workshop in person at the YRL, Data Science Center, Room 11630L?",
+                "type": "radio",
+                "required": true,
+                "options": [
+                    "Yes, I&#039;ll be there",
+                    "No, I want to attend on Zoom"
+                ]
+            },
+            {
                 "id": 19717,
                 "label": "Can we email you about future Data Science Center events & workshops?",
                 "type": "radio",
                 "required": false,
-                "options": ["Yes", "No"]
+                "options": [
+                    "Yes",
+                    "No"
+                ]
             },
             {
                 "id": 19772,
@@ -247,10 +260,9 @@
             }
         ]
     },
-
-    "mock1": {
-        "id": 5906,
-        "name": "Advanced Research Workshop Series",
+    "mock2": {
+        "id": 22020,
+        "name": "TEST form for Apps Team",
         "identityHelp": "",
         "emailMethod": {
             "status": "required",
@@ -269,41 +281,50 @@
         },
         "questions": [
             {
-                "id": 15929,
-                "label": "UCLA Department Affiliation",
-                "type": "string",
-                "required": true
-            },
-            {
-                "id": 16763,
-                "label": "Status",
+                "id": 61316,
+                "label": "Do you like radio buttons?",
                 "type": "radio",
                 "required": true,
                 "options": [
-                    "Graduate Student",
-                    "Faculty",
-                    "Undergraduate Student",
-                    "Staff",
-                    "Library Staff",
-                    "Visiting Scholar"
+                    "Yes",
+                    "No"
                 ]
             },
             {
-                "id": 16764,
-                "label": "Please provide a brief description of your experience with this topic.",
-                "type": "string",
-                "required": true
+                "id": 61317,
+                "label": "Do you like checkboxes?",
+                "type": "checkbox",
+                "required": false,
+                "options": [
+                    "Yes",
+                    "No"
+                ]
             },
             {
-                "id": 16765,
-                "label": "How did you hear about this event?",
+                "id": 61318,
+                "label": "What about dropdown?",
+                "type": "dropdown",
+                "required": false,
+                "options": [
+                    "Yes",
+                    "No"
+                ]
+            },
+            {
+                "id": 61319,
+                "label": "Single-line text - Type something in!",
+                "type": "string",
+                "required": false
+            },
+            {
+                "id": 61320,
+                "label": "Multi-line text - Write a lot of something!",
                 "type": "string",
                 "required": false
             }
         ]
     },
-
-    "mock2": {
+    "mock3": {
         "id": 2317,
         "name": "CLICC Instructional Use Form",
         "identityHelp": "",
@@ -324,8 +345,49 @@
         },
         "questions": []
     },
-
-    "mock3": {
+    "mock4": {
+        "id": 2755,
+        "name": "Library Special Collections Registration Form",
+        "identityHelp": "",
+        "emailMethod": {
+            "status": "required",
+            "label": "Email",
+            "help": ""
+        },
+        "phoneMethod": {
+            "status": "disabled",
+            "label": "Phone Number",
+            "help": ""
+        },
+        "barcodeMethod": {
+            "status": "disabled",
+            "label": "Library Barcode",
+            "help": ""
+        },
+        "questions": []
+    },
+    "mock5": {
+        "id": 17629,
+        "name": "FTVA Test non-registration",
+        "identityHelp": "*** This sign up form is for updates and reminders only. *** To receive email updates about this event, please submit your information below. ",
+        "emailMethod": {
+            "status": "required",
+            "label": "Email",
+            "help": ""
+        },
+        "phoneMethod": {
+            "status": "disabled",
+            "label": "Phone Number",
+            "help": ""
+        },
+        "barcodeMethod": {
+            "status": "disabled",
+            "label": "Library Barcode",
+            "help": ""
+        },
+        "questions": []
+    },
+    "mock6": {
         "id": 5907,
         "name": "Terry Allen",
         "identityHelp": "",
@@ -353,37 +415,7 @@
             }
         ]
     },
-
-    "mock4": {
-        "id": 14719,
-        "name": "Test Form - FTVA",
-        "identityHelp": "",
-        "emailMethod": {
-            "status": "required",
-            "label": "Email",
-            "help": ""
-        },
-        "phoneMethod": {
-            "status": "disabled",
-            "label": "Phone Number",
-            "help": ""
-        },
-        "barcodeMethod": {
-            "status": "disabled",
-            "label": "Library Barcode",
-            "help": ""
-        },
-        "questions": [
-            {
-                "id": 44084,
-                "label": "multiline text",
-                "type": "string",
-                "required": false
-            }
-        ]
-    },
-
-    "mock5": {
+    "mock7": {
         "id": 10193,
         "name": "Text/Ballot",
         "identityHelp": "",
@@ -408,19 +440,25 @@
                 "label": "President",
                 "type": "radio",
                 "required": true,
-                "options": ["Zoe", "Diane"]
+                "options": [
+                    "Zoe",
+                    "Diane"
+                ]
             },
             {
                 "id": 26604,
                 "label": "Vice President",
                 "type": "radio",
                 "required": true,
-                "options": ["Zoe", "Diane", "Gabi"]
+                "options": [
+                    "Zoe",
+                    "Diane",
+                    "Gabi"
+                ]
             }
         ]
     },
-
-    "mock6": {
+    "mock8": {
         "id": 1486,
         "name": "UCLA Library Event Registration",
         "identityHelp": "",
@@ -445,7 +483,11 @@
                 "label": "Favorite Animal",
                 "type": "radio",
                 "required": false,
-                "options": ["Lion", "Tiger", "Liger"]
+                "options": [
+                    "Lion",
+                    "Tiger",
+                    "Liger"
+                ]
             }
         ]
     }

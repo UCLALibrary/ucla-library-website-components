@@ -1,63 +1,52 @@
-import BlockClippedDate from "@/lib-components/BlockClippedDate"
-import StoryRouter from "storybook-vue-router"
+import BlockClippedDate from '@/lib-components/BlockClippedDate'
 
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
+import * as API from '@/stories/mock-api.json'
 
 // Storybook default settings
 export default {
-    title: "BLOCK / Clipped Date",
-    component: BlockClippedDate,
-    decorators: [
-        StoryRouter(
-            {},
-            {
-                routes: [
-                    { path: "/visit/foo/bar/", component: BlockClippedDate },
-                    { path: "/about/foo/bar/", component: BlockClippedDate },
-                ],
-            }
-        ),
-    ],
+  title: 'BLOCK / Clipped Date',
+  component: BlockClippedDate
 }
 
 const mock = {
-    image: API.image,
-    to: "/visit/foo/bar/",
-    category: "Ullamco",
-    title: "Seven seas of the ancient world",
-    alternativeFullName: "陳餘敏卿纪念基金",
-    language: "zh",
-    startDate: "2022-03-31T07:00:00+00:00",
-    endDate: "2021-11-26T11:00:00-08:00",
-    text: "<p>In Greek literature (which is where the phrase entered Western literature), the Seven Seas were the Aegean, Adriatic, Mediterranean, Black, Red, and Caspian seas, with the Persian Gulf</p>",
-    imageAspectRatio: 60,
-    locations: [
-        { title: "Powellarium", to: "/location/bar" },
-        { title: "Research Library (Charles E. Young)", to: "/location/baz" },
-    ],
-    sectionHandle: "event",
+  image: API.image,
+  to: '/visit/foo/bar/',
+  category: 'Ullamco',
+  title: 'Seven seas of the ancient world',
+  alternativeFullName: '陳餘敏卿纪念基金',
+  language: 'zh',
+  startDate: '2022-03-31T07:00:00+00:00',
+  endDate: '2021-11-26T11:00:00-08:00',
+  text: '<p>In Greek literature (which is where the phrase entered Western literature), the Seven Seas were the Aegean, Adriatic, Mediterranean, Black, Red, and Caspian seas, with the Persian Gulf</p>',
+  imageAspectRatio: 60,
+  locations: [
+    { title: 'Powellarium', to: '/location/bar' },
+    { title: 'Research Library (Charles E. Young)', to: '/location/baz' },
+  ],
+  sectionHandle: 'event',
 }
 
 const ongoing = {
-    image: API.image,
-    to: "/visit/foo/bar/",
-    category: "Ullamco",
-    title: "Seven seas of the ancient world",
-    alternativeFullName: "陳餘敏卿纪念基金",
-    language: "zh",
-    text: "<p>In Greek literature (which is where the phrase entered Western literature), the Seven Seas were the Aegean, Adriatic, Mediterranean, Black, Red, and Caspian seas, with the Persian Gulf</p>",
-    imageAspectRatio: 60,
-    locations: [
-        { title: "Powellarium", to: "/location/bar" },
-        { title: "Research Library (Charles E. Young)", to: "/location/baz" },
-    ],
-    sectionHandle: "event",
+  image: API.image,
+  to: '/visit/foo/bar/',
+  category: 'Ullamco',
+  title: 'Seven seas of the ancient world',
+  alternativeFullName: '陳餘敏卿纪念基金',
+  language: 'zh',
+  text: '<p>In Greek literature (which is where the phrase entered Western literature), the Seven Seas were the Aegean, Adriatic, Mediterranean, Black, Red, and Caspian seas, with the Persian Gulf</p>',
+  imageAspectRatio: 60,
+  locations: [
+    { title: 'Powellarium', to: '/location/bar' },
+    { title: 'Research Library (Charles E. Young)', to: '/location/baz' },
+  ],
+  sectionHandle: 'event',
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return { ...mock }
+      return { ...mock }
     },
     components: { BlockClippedDate },
     template: `
@@ -76,11 +65,13 @@ export const Default = () => ({
           :section-handle="sectionHandle"
       />
   `,
-})
+  }
+}
 
-export const OngoingEvent = () => ({
+export function OngoingEvent() {
+  return {
     data() {
-        return { ...ongoing }
+      return { ...ongoing }
     },
     components: { BlockClippedDate },
     template: `
@@ -98,4 +89,5 @@ export const OngoingEvent = () => ({
           :section-handle="sectionHandle"
       />
   `,
-})
+  }
+}

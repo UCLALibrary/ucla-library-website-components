@@ -1,48 +1,56 @@
-<template>
-    <div class="impact-numbers-carousel" v-if="block">
-        <div class="section-header">
-            <h2
-                v-if="block.sectionTitle"
-                class="section-title"
-                v-html="block.sectionTitle"
-            />
-            <div
-                v-if="block.sectionSummary"
-                class="section-summary"
-                v-html="block.sectionSummary"
-            />
-        </div>
+<script
+  setup
+  lang="ts"
+>
+import type { PropType } from 'vue'
 
-        <impact-numbers-carousel :blocks="block.blocks" />
-    </div>
-</template>
+import type { FlexibleImpactNumbersCarousel } from '@/types/flexible_types'
 
-<script>
-import ImpactNumbersCarousel from "@/lib-components/ImpactNumbersCarousel.vue"
+import ImpactNumbersCarousel from '@/lib-components/ImpactNumbersCarousel.vue'
 
-export default {
-    name: "FlexibleImpactNumbersCarpusel",
-    components: {
-        ImpactNumbersCarousel,
-    },
-    props: {
-        block: {
-            type: Object,
-            default: () => {},
-        },
-    },
-}
+const { block } = defineProps({
+  block: {
+    type: Object as PropType<FlexibleImpactNumbersCarousel>,
+    default: () => { },
+  },
+})
 </script>
 
-<style lang="scss" scoped>
+<template>
+  <div
+    v-if="block"
+    class="impact-numbers-carousel"
+  >
+    <div class="section-header">
+      <h2
+        v-if="block.sectionTitle"
+        class="section-title"
+        v-text="block.sectionTitle"
+      />
+      <div
+        v-if="block.sectionSummary"
+        class="section-summary"
+        v-html="block.sectionSummary"
+      />
+    </div>
+
+    <ImpactNumbersCarousel :blocks="block.blocks" />
+  </div>
+</template>
+
+<style
+  lang="scss"
+  scoped
+>
 .impact-numbers-carousel {
-    .section-header {
-        margin-bottom: var(--space-xl);
-    }
-    .section-title {
-        @include step-3;
-        color: var(--color-primary-blue-03);
-        margin-bottom: var(--space-xl);
-    }
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-title {
+    @include step-3;
+    color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-xl);
+  }
 }
 </style>

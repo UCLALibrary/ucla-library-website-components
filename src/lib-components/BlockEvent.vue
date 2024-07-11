@@ -1,91 +1,86 @@
-<template>
-    <div :class="classes">
-        <div class="molecule row" />
-
-        <div class="text row">
-            <span class="category">{{ category }}</span>
-            <h2 class="title" v-html="title" />
-            <div class="date-time">
-                <time v-if="startDate" class="dates" v-html="parsedDate" />
-                <time v-if="parsedTime" class="time" v-html="parsedTime" />
-            </div>
-            <smart-link :class="classes" :to="to" v-html="prompt" />
-            <!-- TO DO: Use button-link component instead -->
-        </div>
-
-        <div class="sizer" />
-    </div>
-</template>
-
 <script>
-import format from "date-fns/format"
-
-import SmartLink from "@/lib-components/SmartLink"
+import format from 'date-fns/format'
+import SmartLink from '@/lib-components/SmartLink'
 
 // Utility functions
-import getSectionName from "@/mixins/getSectionName"
-import formatEventTimes from "@/mixins/formatEventTimes"
-import formatEventDates from "@/mixins/formatEventDates"
+import getSectionName from '@/utils/getSectionName'
+import formatTimes from '@/utils/formatEventTimes'
+import formatDates from '@/utils/formatEventDates'
 
 export default {
-    name: "BlockEvent",
-    components: { SmartLink },
-    mixins: [getSectionName, formatEventDates, formatEventTimes],
-    props: {
-        title: {
-            type: String,
-            default: "",
-        },
-        category: {
-            type: String,
-            default: "",
-        },
-        startDate: {
-            type: String,
-            default: "",
-        },
-        endDate: {
-            type: String,
-            default: "",
-        },
-        prompt: {
-            type: String,
-            default: "View",
-        },
-        to: {
-            type: String,
-            default: "",
-        },
-        sectionHandle: {
-            type: String,
-            default: "",
-        },
+  name: 'BlockEvent',
+  components: { SmartLink },
+  props: {
+    title: {
+      type: String,
+      default: '',
     },
-    computed: {
-        classes() {
-            return ["block-event", `button color-${this.sectionName}`]
-        },
-        sectionName() {
-            return this.getSectionName(this.to)
-        },
-        parsedDate() {
-            return this.formatDates(this.startDate, this.endDate)
-        },
-        parsedSingledDate() {
-            return format(new Date(this.startDate), "MMMM d, Y")
-        },
-        parsedTime() {
-            if (this.startDate && this.sectionHandle == "event") {
-                return this.formatTimes(this.startDate, this.endDate)
-            }
-            return ""
-        },
-        // parsedDate() {
-        //     return this.endDate ? this.parsedMultiDate : this.parsedSingledDate
-        // },
+    category: {
+      type: String,
+      default: '',
     },
+    startDate: {
+      type: String,
+      default: '',
+    },
+    endDate: {
+      type: String,
+      default: '',
+    },
+    prompt: {
+      type: String,
+      default: 'View',
+    },
+    to: {
+      type: String,
+      default: '',
+    },
+    sectionHandle: {
+      type: String,
+      default: '',
+    },
+  },
+  computed: {
+    classes() {
+      return ['block-event', `button color-${this.sectionName}`]
+    },
+    sectionName() {
+      return getSectionName(this.to)
+    },
+    parsedDate() {
+      return formatDates(this.startDate, this.endDate)
+    },
+    parsedSingledDate() {
+      return format(new Date(this.startDate), 'MMMM d, Y')
+    },
+    parsedTime() {
+      if (this.startDate && this.sectionHandle === 'event')
+        return formatTimes(this.startDate, this.endDate)
+
+      return ''
+    },
+  },
 }
 </script>
+
+<template>
+  <div :class="classes">
+    <div class="molecule row" />
+
+    <div class="text row">
+      <span class="category">{{ category }}</span>
+      <h2 class="title" v-text="title" />
+      <div class="date-time">
+        <time v-if="startDate" class="dates" v-text="parsedDate" />
+        <time v-if="parsedTime" class="time" v-text="parsedTime" />
+      </div>
+      <SmartLink :class="classes" :to="to" v-text="prompt" />
+      <!-- TO DO: Use button-link component instead -->
+    </div>
+
+    <div class="sizer" />
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .block-event {
@@ -111,7 +106,7 @@ export default {
     }
 
     .molecule {
-        background-image: url("node_modules/ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg");
+        background-image: url("ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg");
         background-size: auto 100%;
         height: 40%;
     }

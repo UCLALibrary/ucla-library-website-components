@@ -1,72 +1,86 @@
-import MediaItem from "@/lib-components/Media/Item"
+import MediaItem from '@/lib-components/Media/Item'
 
 // Import mock api data
-import * as MEDIA from "@/stories/mock/Media"
+import * as MEDIA from '@/stories/mock/Media'
 
-const Template = (args, { argTypes }) => ({
+// eslint-disable-next-line unused-imports/no-unused-vars
+function Template(args, { argTypes }) {
+  return {
     props: Object.keys(argTypes),
     components: { MediaItem },
-    template: `<media-item v-bind="$props"/>`,
-})
+    template: '<media-item v-bind="$props"/>',
+  }
+}
 
 export default {
-    title: "GLOBAL / Media Item",
-    component: MediaItem,
+  title: 'GLOBAL / Media Item',
+  component: MediaItem,
 }
 
-export const Default = Template.bind({})
-Default.args = {
+export const Default = {
+  args: {
     item: MEDIA.ImageFile,
+  }
 }
 
-export const Image = () => ({
+export function Image() {
+  return {
     data() {
-        return {
-            item: MEDIA.ImageFile,
-        }
+      return {
+        item: MEDIA.ImageFile,
+      }
     },
     components: { MediaItem },
-    template: `<media-item :item="item" />`,
-})
+    template: '<media-item :item="item" />',
+  }
+}
 
-export const Video = () => ({
+export function Video() {
+  return {
     data() {
-        return {
-            item: MEDIA.VideoFile,
-            coverImage: MEDIA.VideoFileCoverImage,
-        }
+      return {
+        item: MEDIA.VideoFile,
+        coverImage: MEDIA.VideoFileCoverImage,
+      }
     },
     components: { MediaItem },
-    template: `<media-item v-bind="$data" />`,
-})
+    template: '<media-item v-bind="$data" />',
+  }
+}
 
-export const VideoEmbed = () => ({
+export function VideoEmbed() {
+  return {
     data() {
-        return {
-            embedCode: MEDIA.VideoEmbed,
-        }
+      return {
+        embedCode: MEDIA.VideoEmbed,
+      }
     },
     components: { MediaItem },
-    template: `<media-item :embedCode="embedCode" />`,
-})
+    template: '<media-item :embedCode="embedCode" />',
+  }
+}
 
-export const Audio = () => ({
+export function Audio() {
+  return {
     data() {
-        return {
-            item: MEDIA.AudioFile,
-            coverImage: MEDIA.AudioFileCoverImage,
-        }
+      return {
+        item: MEDIA.AudioFile,
+        coverImage: MEDIA.AudioFileCoverImage,
+      }
     },
     components: { MediaItem },
-    template: `<media-item v-bind="$data" />`,
-})
+    template: '<media-item v-bind="$data" />',
+  }
+}
 
-export const AudioEmbed = () => ({
+export function AudioEmbed() {
+  return {
     data() {
-        return {
-            embedCode: MEDIA.AudioEmbed,
-        }
+      return {
+        embedCode: MEDIA.AudioEmbed,
+      }
     },
     components: { MediaItem },
-    template: `<media-item :embedCode="embedCode" />`,
-})
+    template: '<media-item :embedCode="embedCode" />',
+  }
+}

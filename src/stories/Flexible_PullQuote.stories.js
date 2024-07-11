@@ -1,24 +1,27 @@
-import FlexiblePullQuote from "@/lib-components/Flexible/PullQuote"
+import FlexiblePullQuote from '@/lib-components/Flexible/PullQuote'
 
 export default {
-    title: "FLEXIBLE / Pull Quote",
-    component: FlexiblePullQuote,
+  title: 'FLEXIBLE / Pull Quote',
+  component: FlexiblePullQuote,
 }
 
 const mock = {
-    pullQuote: [
-        {
-            text: "Vestibulum ac nunc blandit elit hendrerit venenatis hendrerit eget dolor. Curabitur a purus vel felis vulputate pretium. Duis ligula quam, faucibus nec gravida eget, vehicula eget mauris. Sed consequat pulvinar nisi, in suscipit est pretium",
-            attribution: "Duis Blandit",
-        },
-    ],
+  pullQuote: [
+    {
+      text: 'There are three ways to ultimate success: <a href="https://blog.iamsecond.com/mister-rogers">The first way is to be kind</a>. The second way is to be kind. The third way is to be kind.',
+      attribution: 'Mr. Rodgers',
+    },
+    {
+      text: 'Better is the enemy of good.',
+      attribution: 'Voltaire',
+    },
+  ],
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            block: mock,
-        }
+      return { block: mock }
     },
     components: { FlexiblePullQuote },
     template: `
@@ -26,26 +29,27 @@ export const Default = () => ({
             :block="block"
         />
     `,
-})
-
-const mockNoAttribution = {
-    pullQuote: [
-        {
-            text: "Vestibulum ac nunc blandit elit hendrerit venenatis hendrerit eget dolor. Curabitur a purus vel felis vulputate pretium. Duis ligula quam, faucibus nec gravida eget, vehicula eget mauris. Sed consequat pulvinar nisi, in suscipit est pretium",
-        },
-    ],
+  }
 }
 
-export const NoAttribution = () => ({
+const mockNoAttribution = {
+  pullQuote: [
+    {
+      text: 'Human greatness does not lie in wealth or power, but in character and goodness. People are just people, and all people have faults and shortcomings, but all of us are born with a <a href="https://www.good.is/">basic goodness</a>.',
+    },
+  ],
+}
+
+export function NoAttribution() {
+  return {
     data() {
-        return {
-            block: mockNoAttribution,
-        }
+      return { block: mockNoAttribution }
     },
     components: { FlexiblePullQuote },
     template: `
-    <flexible-pull-quote
-        :block="block"
-    />
-        `,
-})
+      <flexible-pull-quote
+          :block="block"
+      />
+    `,
+  }
+}

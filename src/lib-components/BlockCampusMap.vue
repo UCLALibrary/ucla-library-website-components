@@ -1,77 +1,72 @@
-<template>
-    <div class="block-campus-map">
-        <modal-generic
-            v-show="isModalVisible"
-            class="modal"
-            @close="closeModal"
-        >
-            <div class="modal-content">
-                <iframe :src="parsedSrc" class="iframe-modal" allowfullscreen />
-            </div>
-        </modal-generic>
-        <button class="title" @click="showModal" />
-        <div class="content">
-            <div class="iframe-hover">
-                <div class="iframe-container">
-                    <iframe :src="parsedSrc" class="iframe" allowfullscreen />
-                    <div class="iframe-click" @click="showModal" />
-                </div>
-            </div>
-            <div v-if="buildingAccess" class="text-grouping">
-                <h4 class="subheading-small">Building Access</h4>
-                <rich-text
-                    class="building-access-text"
-                    :rich-text-content="buildingAccess"
-                />
-            </div>
-        </div>
-    </div>
-</template>
-
 <script>
-import ModalGeneric from "@/lib-components/ModalGeneric"
-import RichText from "@/lib-components/RichText"
+import ModalGeneric from '@/lib-components/ModalGeneric.vue'
+import RichText from '@/lib-components/RichText.vue'
 
 export default {
-    name: "BlockCampusMap",
-    components: {
-        ModalGeneric,
-        RichText,
+  name: 'BlockCampusMap',
+  components: {
+    ModalGeneric,
+    RichText,
+  },
+  props: {
+    campusLocationId: {
+      type: String,
+      default: '',
     },
-    props: {
-        campusLocationId: {
-            type: String,
-            default: "",
-        },
-        locationName: {
-            type: String,
-            default: "",
-        },
-        buildingAccess: {
-            type: String,
-            default: "",
-        },
+    locationName: {
+      type: String,
+      default: '',
     },
-    data() {
-        return {
-            isModalVisible: false,
-        }
+    buildingAccess: {
+      type: String,
+      default: '',
     },
-    computed: {
-        parsedSrc() {
-            return `https://map.ucla.edu/?id=${this.campusLocationId}&e=true`
-        },
+  },
+  data() {
+    return {
+      isModalVisible: false,
+    }
+  },
+  computed: {
+    parsedSrc() {
+      return `https://map.ucla.edu/?id=${this.campusLocationId}&e=true`
     },
-    methods: {
-        showModal() {
-            this.isModalVisible = true
-        },
-        closeModal() {
-            this.isModalVisible = false
-        },
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true
     },
+    closeModal() {
+      this.isModalVisible = false
+    },
+  },
 }
 </script>
+
+<template>
+  <div class="block-campus-map">
+    <ModalGeneric v-show="isModalVisible" class="modal" @close="closeModal">
+      <div class="modal-content">
+        <iframe :src="parsedSrc" class="iframe-modal" allowfullscreen />
+      </div>
+    </ModalGeneric>
+    <button class="title" @click="showModal" />
+    <div class="content">
+      <div class="iframe-hover">
+        <div class="iframe-container">
+          <iframe :src="parsedSrc" class="iframe" allowfullscreen />
+          <div class="iframe-click" @click="showModal" />
+        </div>
+      </div>
+      <div v-if="buildingAccess" class="text-grouping">
+        <h4 class="subheading-small">
+          Building Access
+        </h4>
+        <RichText class="building-access-text" :rich-text-content="buildingAccess" />
+      </div>
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .block-campus-map {
@@ -152,7 +147,7 @@ export default {
         margin-bottom: var(--space-s);
     }
 
-    ::v-deep .rich-text {
+    :deep(.rich-text) {
         padding-right: unset;
         margin: unset;
     }

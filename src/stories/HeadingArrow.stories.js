@@ -1,33 +1,41 @@
-import HeadingArrow from "../lib-components/HeadingArrow"
-import StoryRouter from "storybook-vue-router"
+import HeadingArrow from '../lib-components/HeadingArrow'
 
 export default {
-    title: "Heading / Arrow",
-    component: HeadingArrow,
-    decorators: [StoryRouter()],
+  title: 'Heading / Arrow',
+  component: HeadingArrow,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     components: { HeadingArrow },
-    template: `<heading-arrow />`,
-})
+    template: '<heading-arrow />',
+  }
+}
 
-export const About = () => ({
+export function About() {
+  return {
     components: { HeadingArrow },
-    template: `<heading-arrow text="Staff Directory" to="/about/foo/bar/"/>`,
-})
+    template: '<heading-arrow text="Staff Directory" to="/about/foo/bar/"/>',
+  }
+}
 
-export const Visit = () => ({
+export function Visit() {
+  return {
     components: { HeadingArrow },
-    template: `<heading-arrow text="Visit the Library" to="/visit/foo/bar/" section="visit"/>`,
-})
+    template: '<heading-arrow text="Visit the Library" to="/visit/foo/bar/" section="visit"/>',
+  }
+}
 
-export const Help = () => ({
+export function Help() {
+  return {
     components: { HeadingArrow },
-    template: `<heading-arrow text="Get Help With" to="/help/foo/bar/"/>`,
-})
+    template: '<heading-arrow text="Get Help With" to="/help/foo/bar/"/>',
+  }
+}
 
-export const Section = () => ({
+export function Section() {
+  return {
     components: { HeadingArrow },
-    template: `<heading-arrow text="Visit the Library" to="/visit/" section="visit"/>`,
-})
+    template: '<heading-arrow text="Visit the Library" to="/visit/" section="visit"/>',
+  }
+}

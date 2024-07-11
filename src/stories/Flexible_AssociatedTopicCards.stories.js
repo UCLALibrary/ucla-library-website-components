@@ -1,54 +1,51 @@
-import FlexibleAssociatedTopicCards from "@/lib-components/Flexible/AssociatedTopicCards"
-import StoryRouter from "storybook-vue-router"
+import FlexibleAssociatedTopicCards from '@/lib-components/Flexible/AssociatedTopicCards'
 
 export default {
-    title: "FLEXIBLE / Associated Topic Cards",
-    component: FlexibleAssociatedTopicCards,
-    decorators: [StoryRouter()],
+  title: 'FLEXIBLE / Associated Topic Cards',
+  component: FlexibleAssociatedTopicCards,
 }
 
 const itemsVertical = {
-    id: "13783",
-    typeHandle: "associatedTopicCards",
-    sectionTitle: "Section Title: Fix Potholes",
-    sectionSummary:
-        "<p>Section Summary: Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>",
-    associatedTopicsFlexiblePageBlock: [
+  id: '13783',
+  typeHandle: 'associatedTopicCards',
+  sectionTitle: 'Section Title: Fix Potholes',
+  sectionSummary:
+        '<p>Section Summary: Get pothole repair service in Los Angeles and surrounding areas. We look forward to serving all your needs. Contact us now for fast service. Get A Free Quote.</p>',
+  associatedTopicsFlexiblePageBlock: [
+    {
+      id: '13899',
+      topics: [
         {
-            id: "13899",
-            topics: [
-                {
-                    to: "help/road-work",
-                    title: "Road Work Guide",
-                    text: "<p>A research guide</p>",
-                },
-                {
-                    title: "Types of Sinkholes",
-                    text: "Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes",
-                    uri: "help/types-sinkholes",
-                },
-                {
-                    uri: "help/animals",
-                    title: "Animals eat food!",
-                    text: "<p>Some animals eat plants and plant products like grass, leaves and fodder. Goat, cow, horse and sheep eat only plants.</p>",
-                },
-                {
-                    title: "Metadata Planning Worksheet",
-                    text: "<p>Use this worksheet to brainstorm how you might want to describe items\n within your collection and to hone in your choices before filling out \nthe spreadsheet.</p>",
-                    uri: null,
-                    externalResourceUrl:
-                        "https://docs.google.com/document/d/1hyzHX5cWE_Y7aML7XHI29tswnqV44Q0sJsnibu-Krp4/edit",
-                },
-            ],
+          to: 'help/road-work',
+          title: 'Road Work Guide',
+          text: '<p>A research guide</p>',
         },
-    ],
+        {
+          title: 'Types of Sinkholes',
+          text: 'Dissolution sinkholes, Cover-subsidence sinkholes, Cover-collapse sinkholes',
+          uri: 'help/types-sinkholes',
+        },
+        {
+          uri: 'help/animals',
+          title: 'Animals eat food!',
+          text: '<p>Some animals eat plants and plant products like grass, leaves and fodder. Goat, cow, horse and sheep eat only plants.</p>',
+        },
+        {
+          title: 'Metadata Planning Worksheet',
+          text: '<p>Use this worksheet to brainstorm how you might want to describe items\n within your collection and to hone in your choices before filling out \nthe spreadsheet.</p>',
+          uri: null,
+          externalResourceUrl:
+                        'https://docs.google.com/document/d/1hyzHX5cWE_Y7aML7XHI29tswnqV44Q0sJsnibu-Krp4/edit',
+        },
+      ],
+    },
+  ],
 }
 
-// Variations of stories below
-// TwoCards
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return { block: itemsVertical }
+      return { block: itemsVertical }
     },
     components: { FlexibleAssociatedTopicCards },
     template: `
@@ -56,4 +53,5 @@ export const Default = () => ({
           :block="block"
       />
   `,
-})
+  }
+}

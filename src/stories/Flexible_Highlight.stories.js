@@ -1,20 +1,17 @@
-import FlexibleHighlight from "@/lib-components/Flexible/Highlight"
-import StoryRouter from "storybook-vue-router"
-
-import { mock } from "./mock/Flexible_Highlight"
-import { eventExhibitonArticle } from "./mock/Flexible_Highlight"
+import { eventExhibitonArticle, mock } from './mock/Flexible_Highlight'
+import FlexibleHighlight from '@/lib-components/Flexible/Highlight'
 
 export default {
-    title: "FLEXIBLE / Highlight",
-    component: FlexibleHighlight,
-    decorators: [StoryRouter()],
+  title: 'FLEXIBLE / Highlight',
+  component: FlexibleHighlight,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            block: mock,
-        }
+      return {
+        block: mock,
+      }
     },
     components: { FlexibleHighlight },
     template: `
@@ -22,13 +19,15 @@ export const Default = () => ({
             :block="block"
        />
     `,
-})
+  }
+}
 
-export const EventExhibitonArticle = () => ({
+export function EventExhibitonArticle() {
+  return {
     data() {
-        return {
-            block: eventExhibitonArticle,
-        }
+      return {
+        block: eventExhibitonArticle,
+      }
     },
     components: { FlexibleHighlight },
     template: `
@@ -36,4 +35,5 @@ export const EventExhibitonArticle = () => ({
             :block="block"
        />
     `,
-})
+  }
+}

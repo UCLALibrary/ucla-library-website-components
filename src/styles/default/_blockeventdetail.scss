@@ -1,0 +1,29 @@
+.block-event-detail {
+    font-size: 20px;
+    color: #{$black};
+
+    .event-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        margin-bottom: 15px;
+
+        >span {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 24px;
+
+            .location-link {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}

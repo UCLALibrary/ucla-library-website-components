@@ -1,41 +1,45 @@
-import BannerText from "@/lib-components/BannerText"
-import StoryRouter from "storybook-vue-router"
-import BlockFormData from "@/stories/mock/BlockFormData.json"
+import BannerText from '@/lib-components/BannerText'
+import BlockFormData from '@/stories/mock/BlockFormData.json'
 
 export default {
-    title: "Banner Text",
-    component: BannerText,
-    decorators: [StoryRouter()],
+  title: 'Banner Text',
+  component: BannerText
 }
 
 const mock = {
-    category: "Event",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.",
-    title: "Curabitur Tortor Pellentesque",
-    alternativeFullName: "陳餘敏卿纪念基金",
-    language: "zh",
-    locations: [
-        { id: "523", title: "Powellarium", to: "/location/bar" },
-        {
-            id: "801",
-            title: "Research Library (Charles E. Young)",
-            to: "/location/baz",
-        },
-    ],
-    startDate: "1995-12-17T03:24:00",
-    endDate: "1995-12-17T03:24:00",
-    buttonText: "Curabitur",
-    subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
-    byline: ["Cursus Quis", "Charles E. Young"],
-    to: "/visit/foo/bar/",
-    sectionHandle: "event",
+  category: 'Event',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, metus in aliquet venenatis, mi lectus placerat leo, congue gravida mi quam sit amet neque.',
+  title: 'Curabitur Tortor Pellentesque',
+  alternativeFullName: '陳餘敏卿纪念基金',
+  language: 'zh',
+  locations: [
+    { id: '523', title: 'Powellarium', to: '/location/bar' },
+    {
+      id: '801',
+      title: 'Research Library (Charles E. Young)',
+      to: '/location/baz',
+    },
+    {
+      id: '801',
+      title: 'Research Library (Charles E. Young)',
+      to: 'visit/location/zzz',
+    },
+  ],
+  startDate: '1995-12-17T03:24:00',
+  endDate: '1995-12-17T03:24:00',
+  buttonText: 'Curabitur',
+  subjectAreas: [{ title: 'Ghosts' }, { title: 'Clowns' }],
+  byline: ['Cursus Quis', 'Charles E. Young'],
+  to: '/visit/foo/bar/',
+  sectionHandle: 'event',
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BannerText },
     template: `<banner-text
@@ -48,13 +52,15 @@ export const Default = () => ({
         :alternativeFullName="alternativeFullName"
         :language="language"
     />`,
-})
+  }
+}
 
-export const WithSubjectAreas = () => ({
+export function WithSubjectAreas() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BannerText },
     template: `<banner-text
@@ -66,13 +72,15 @@ export const WithSubjectAreas = () => ({
         :button-text="buttonText"
         :to="to"
     />`,
-})
+  }
+}
 
-export const NoButton = () => ({
+export function NoButton() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BannerText },
     template: `<banner-text
@@ -84,13 +92,15 @@ export const NoButton = () => ({
         :byline="byline"
         :section-handle="sectionHandle"
     />`,
-})
+  }
+}
 
-export const NoText = () => ({
+export function NoText() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BannerText },
     template: `<banner-text
@@ -98,13 +108,15 @@ export const NoText = () => ({
         :title="title"
 
     />`,
-})
+  }
+}
 
-export const DarkBlueBackground = () => ({
+export function DarkBlueBackground() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BannerText },
     template: `<banner-text
@@ -117,15 +129,17 @@ export const DarkBlueBackground = () => ({
         :isDarkBlue="true"
         :section-handle="sectionHandle"
     />`,
-})
+  }
+}
 
-export const LocationInfo = () => ({
+export function LocationInfo() {
+  return {
     data() {
-        return {
-            ...mock,
-            to: "/help/foo/bar/",
-            sectionHandle: "workshopOrEventSeries",
-        }
+      return {
+        ...mock,
+        to: '/help/foo/bar/',
+        sectionHandle: 'workshopOrEventSeries',
+      }
     },
     components: { BannerText },
     template: `<banner-text
@@ -139,15 +153,17 @@ export const LocationInfo = () => ({
         :to="to"
         :section-handle="sectionHandle"
     />`,
-})
+  }
+}
 
-export const LocationInfoDarkBlue = () => ({
+export function LocationInfoDarkBlue() {
+  return {
     data() {
-        return {
-            ...mock,
-            to: "/help/foo/bar/",
-            sectionHandle: "location",
-        }
+      return {
+        ...mock,
+        to: '/help/foo/bar/',
+        sectionHandle: 'location',
+      }
     },
     components: { BannerText },
     template: `<banner-text
@@ -162,14 +178,16 @@ export const LocationInfoDarkBlue = () => ({
         :isDarkBlue="true"
         :section-handle="sectionHandle"
     />`,
-})
+  }
+}
 
-export const ExternalLink = () => ({
+export function ExternalLink() {
+  return {
     data() {
-        return {
-            ...mock,
-            to: "https://an.external.url/",
-        }
+      return {
+        ...mock,
+        to: 'https://an.external.url/',
+      }
     },
     components: { BannerText },
     template: `<banner-text
@@ -180,21 +198,23 @@ export const ExternalLink = () => ({
         :to="to"
         :byline="byline"
     />`,
-})
+  }
+}
 
-export const WithBlockForm = () => ({
+export function WithBlockForm() {
+  return {
     data() {
-        return {
-            ...mock,
-            ...BlockFormData,
-        }
+      return {
+        ...mock,
+        ...BlockFormData,
+      }
     },
     provide: {
-        // explicitly provide a computed property
-        eventId: "9383207",
-        blockFormData: BlockFormData.mock0,
-        libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
-        registrationType: "online",
+      // explicitly provide a computed property
+      eventId: '9383207',
+      blockFormData: BlockFormData.mock0,
+      libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+      registrationType: 'online',
     },
     components: { BannerText },
     template: `<banner-text
@@ -205,38 +225,40 @@ export const WithBlockForm = () => ({
         :byline="byline"
         :registerEvent="true"
     />`,
-})
+  }
+}
 
 // --------- ARTICLE --------------
 
 const article = {
-    title: "I Like Turtles",
-    category: "Library News",
-    articleType: "news",
-    dateCreated: "2022-02-09T10:57:46-08:00",
-    sectionHandle: "article",
-    byline: [" Written by Courtney Hoffner", "Illustrations by Jen Diamond"],
-    locations: [
-        {
-            id: "523",
-            title: "Powell Library",
-            to: "visit/locations/powell-library",
-        },
-        {
-            id: "3062",
-            title: "Online",
-            to: "visit/locations/online",
-        },
-    ],
-    alignRight: true,
-    text: "Turtles are an order of reptiles known as Testudines, characterized by a shell developed mainly from their ribs. Turtles are groups, big ones and small ones.",
+  title: 'I Like Turtles',
+  category: 'Library News',
+  articleType: 'news',
+  dateCreated: '2022-02-09T10:57:46-08:00',
+  sectionHandle: 'article',
+  byline: [' Written by Courtney Hoffner', 'Illustrations by Jen Diamond'],
+  locations: [
+    {
+      id: '523',
+      title: 'Powell Library',
+      to: 'visit/locations/powell-library',
+    },
+    {
+      id: '3062',
+      title: 'Online',
+      to: 'visit/locations/online',
+    },
+  ],
+  alignRight: true,
+  text: 'Turtles are an order of reptiles known as Testudines, characterized by a shell developed mainly from their ribs. Turtles are groups, big ones and small ones.',
 }
 
-export const ArticleDetail = () => ({
+export function ArticleDetail() {
+  return {
     data() {
-        return {
-            ...article,
-        }
+      return {
+        ...article,
+      }
     },
     components: { BannerText },
     template: `
@@ -250,4 +272,5 @@ export const ArticleDetail = () => ({
            articleType="news"
        />
     `,
-})
+  }
+}

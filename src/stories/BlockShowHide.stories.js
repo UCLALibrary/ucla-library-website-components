@@ -1,13 +1,14 @@
 // Import component
-import BlockShowHide from "@/lib-components/BlockShowHide"
+import BlockShowHide from '@/lib-components/BlockShowHide'
 
 // Storybook default settings
 export default {
-    title: "BLOCK / Show Hide",
-    component: BlockShowHide,
+  title: 'BLOCK / Show Hide',
+  component: BlockShowHide,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     components: { BlockShowHide },
     template: `
     <block-show-hide style="width: 100%; padding: 0 48px;">
@@ -19,9 +20,11 @@ export const Default = () => ({
         </div>
     </block-show-hide>
   `,
-})
+  }
+}
 
-export const NoHideableContent = () => ({
+export function NoHideableContent() {
+  return {
     components: { BlockShowHide },
     template: `
     <block-show-hide disable style="width: 100%; padding: 0 48px;">
@@ -30,4 +33,5 @@ export const NoHideableContent = () => ({
         </p>
     </block-show-hide>
   `,
-})
+  }
+}

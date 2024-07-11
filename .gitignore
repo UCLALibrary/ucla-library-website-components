@@ -1,39 +1,36 @@
-.env
-.DS_Store
-node_modules
-/dist
-storybook-static
-src/components
-src/stories/index.stories.js
-src/stories/index.stories.mdx
-src/stories/Page*
-# src/stories/Button*
-# src/stories/Header*
-src/stories/*.css
-src/stories/assets
-
-# Cypress
-cypress/fixtures
-cypress/screenshots
-cypress/integration/1-getting-started
-cypress/integration/2-advanced-examples
-
-
-# local env files
-.env.local
-.env.*.local
-
-# Log files
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+storybook-static
+dist-ssr
+*.local
 
 # Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea
-.vscode
+.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+cypress/downloads
+cypress/fixtures
+cypress/screenshots
+cypress/e2e/1-getting-started
+cypress/e2e/2-advanced-examples
+
+serve
+vite.config.serve.ts
+src/App.vue
+src/mock.js

@@ -1,68 +1,60 @@
-<template>
-    <li :class="classes">
-        <button class="section-name" v-html="item.name" />
-
-        <ul class="sub-menu">
-            <li
-                v-for="child in parsedChildren"
-                :key="child.id"
-                class="sub-menu-item"
-            >
-                <smart-link
-                    :class="child.classes"
-                    :to="child.to"
-                    :linkTarget="child.target"
-                >
-                    {{ child.name }}
-                </smart-link>
-            </li>
-        </ul>
-    </li>
-</template>
-
 <script>
 // Helpers
-import SmartLink from "@/lib-components/SmartLink"
+import SmartLink from '@/lib-components/SmartLink'
 
 export default {
-    name: "NavMenuItem",
-    components: {
-        SmartLink,
+  name: 'NavMenuItem',
+  components: {
+    SmartLink,
+  },
+  props: {
+    item: {
+      type: Object,
+      default: () => {},
     },
-    props: {
-        item: {
-            type: Object,
-            default: () => {},
-        },
-        isActive: {
-            type: Boolean,
-            default: false,
-        },
-        isOpened: {
-            type: Boolean,
-            default: true,
-        },
+    isActive: {
+      type: Boolean,
+      default: false,
     },
-    computed: {
-        classes() {
-            return [
-                this.item.classes,
-                "nav-menu-item",
-                { "is-active": this.isActive },
-                { "is-opened": this.isOpened },
-            ]
-        },
-        parsedChildren() {
-            return this.item.children.map((obj) => {
-                return {
-                    ...obj,
-                    classes: `sub-menu-link ${obj.classes || ""}`,
-                }
-            })
-        },
+    isOpened: {
+      type: Boolean,
+      default: true,
     },
+  },
+  computed: {
+    classes() {
+      return [
+        this.item.classes,
+        'nav-menu-item',
+        { 'is-active': this.isActive },
+        { 'is-opened': this.isOpened },
+      ]
+    },
+    parsedChildren() {
+      return this.item.children.map((obj) => {
+        return {
+          ...obj,
+          classes: `sub-menu-link ${obj.classes || ''}`,
+        }
+      })
+    },
+  },
 }
 </script>
+
+<template>
+  <li :class="classes">
+    <button class="section-name" v-html="item.name" />
+
+    <ul class="sub-menu">
+      <li v-for="child in parsedChildren" :key="child.id" class="sub-menu-item">
+        <SmartLink :class="child.classes" :to="child.to" :link-target="child.target">
+          {{ child.name }}
+        </SmartLink>
+      </li>
+    </ul>
+  </li>
+</template>
 
 <style lang="scss" scoped>
 .nav-menu-item {
@@ -74,11 +66,11 @@ export default {
     display: inline-block;
     vertical-align: top;
 
-    &:focus-within:not(.is-opened) > .section-name::after {
+    &:focus-within:not(.is-opened)>.section-name::after {
         opacity: 1;
     }
 
-    &:focus-within:not(.is-opened) > .sub-menu {
+    &:focus-within:not(.is-opened)>.sub-menu {
         opacity: 0.9;
         max-height: 100vh;
         background: var(--color-primary-blue-03);
@@ -156,20 +148,24 @@ export default {
         transition-duration: $transition-timing-slow;
         transition-timing-function: ease-in-out;
     }
+
     .sub-menu-item {
         transition: background-color $transition-timing-normal ease-in-out;
 
         &:first-child {
             margin-top: 36px;
         }
+
         &:last-child {
             margin-bottom: 36px;
         }
     }
+
     .sub-menu-link {
         padding: 12px 32px;
         display: block;
     }
+
     .sub-menu-link:focus {
         background-color: rgba(#ffffff, 0.1);
         text-decoration: underline;
@@ -187,12 +183,14 @@ export default {
             opacity: 1;
         }
     }
+
     &.is-opened {
         .sub-menu {
             max-height: 100vh;
             opacity: 0.45;
         }
     }
+
     &.is-opened.is-active {
         .sub-menu {
             opacity: 1;

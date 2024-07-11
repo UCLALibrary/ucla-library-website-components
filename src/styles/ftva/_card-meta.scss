@@ -1,0 +1,39 @@
+// CardMeta THEME
+
+.ftva.card-meta {
+  .category {
+    @include ftva-button-link;
+    color: $accent-blue;
+    margin: 0 0 20px;
+  }
+
+  .title,
+  .title-no-link {
+    @include ftva-h2;
+    color: $heading-grey;
+    margin: 0 0 24px;
+  }
+
+  .block-tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 8px;
+
+    margin-bottom: 8px;
+  }
+
+  .introduction {
+    @include ftva-body-2;
+    @include truncate($lines: 4);
+    color: $navy-blue;
+  }
+
+  .text {
+    margin-top: 40px;
+  }
+
+  .slot {
+    margin-top: 28px;
+  }
+}

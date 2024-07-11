@@ -1,21 +1,30 @@
-// Storybook default settings
-import SingleCheckbox from "@/lib-components/SingleCheckbox"
-import StoryRouter from "storybook-vue-router"
+import SingleCheckbox from '@/lib-components/SingleCheckbox'
 
-// Storybook default settings
 export default {
-    title: "SEARCH / SingleCheckbox",
-    component: SingleCheckbox,
-    decorators: [StoryRouter()],
+  title: 'SEARCH / SingleCheckbox',
+  component: SingleCheckbox,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {}
+      return {}
     },
     components: { SingleCheckbox },
     template: `
-        <single-checkbox
-        />
+        <single-checkbox label="Subject Librarian"/>
     `,
-})
+  }
+}
+
+export function Checked() {
+  return {
+    data() {
+      return {}
+    },
+    components: { SingleCheckbox },
+    template: `
+        <single-checkbox label="Past Events" :selected="true"/>
+    `,
+  }
+}

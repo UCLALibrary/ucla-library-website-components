@@ -1,33 +1,33 @@
-<template>
-    <block-call-to-action
-        class="cta-block-content-width"
-        :to="parsedItems.buttonUrl"
-        :name="parsedItems.buttonText"
-        :title="parsedItems.titleCta"
-        :text="parsedItems.summary"
-        :svg-name="parsedItems.icon"
-        :is-dark-blue="parsedItems.backgroundColor"
-    />
-</template>
+<script setup lang="ts">
+import { computed } from 'vue'
 
-<script>
-import BlockCallToAction from "@/lib-components/BlockCallToAction"
+import type { PropType } from 'vue'
 
-export default {
-    name: "FlexibleCtaBlockContentWidth",
-    components: { BlockCallToAction },
-    props: {
-        block: {
-            type: Object,
-            default: () => {},
-        },
-    },
-    computed: {
-        parsedItems() {
-            return this.block.callToAction[0]
-        },
-    },
-}
+import type { FlexibleCallToAction } from '@/types/flexible_types'
+import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
+
+const { block } = defineProps({
+  block: {
+    type: Object as PropType<FlexibleCallToAction>,
+    default: () => { },
+  },
+})
+
+const parsedItems = computed(() => {
+  return block.callToAction[0]
+})
 </script>
+
+<template>
+  <BlockCallToAction
+    class="cta-block-content-width"
+    :to="parsedItems.buttonUrl"
+    :name="parsedItems.buttonText"
+    :title="parsedItems.titleCta"
+    :text="parsedItems.summary"
+    :svg-name="parsedItems.icon"
+    :is-dark="parsedItems.backgroundColor === 'true'"
+  />
+</template>
 
 <style lang="css" scoped></style>

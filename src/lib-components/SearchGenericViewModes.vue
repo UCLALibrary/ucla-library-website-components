@@ -1,226 +1,280 @@
-<template>
-    <div :class="classes" @click="toggleOpen">
-        <button class="view-btn">
-            <div class="selected">
-                <span v-if="isOpened">View</span>
-                <component
-                    :is="`svg-${selectedItem.iconName}`"
-                    v-else
-                    class="svg"
-                />
-            </div>
+<script setup>
+import { computed, ref } from 'vue'
 
-            <div class="chevron">
-                <svg-icon-caret-down class="svg" />
-            </div>
-        </button>
+import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
+import SvgIconCalendar from 'ucla-library-design-tokens/assets/svgs/icon-calendar.svg'
+import SvgIconCard from 'ucla-library-design-tokens/assets/svgs/icon-card.svg'
+import SvgIconList from 'ucla-library-design-tokens/assets/svgs/icon-list.svg'
 
-        <ul class="view-list">
-            <li
-                v-for="view in parsedItems"
-                :key="view.slug"
-                :class="view.classes"
-                @click="onClick(view.slug)"
-            >
-                <component :is="`svg-${view.iconName}`" class="svg" />
-                <div v-html="view.title" />
-            </li>
-        </ul>
-    </div>
-</template>
+const props = defineProps({
+  isOpened: {
+    type: Boolean,
+    default: false,
+  },
+  items: {
+    type: Array,
+    default: () => [],
+  },
+  selected: {
+    type: String,
+    default: '',
+  },
+})
 
-<script>
-import SvgIconCaretDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
-import SvgIconCalendar from "ucla-library-design-tokens/assets/svgs/icon-calendar.svg"
-import SvgIconCard from "ucla-library-design-tokens/assets/svgs/icon-card.svg"
-import SvgIconList from "ucla-library-design-tokens/assets/svgs/icon-list.svg"
+const emit = defineEmits(['update:isOpened', 'update:selected', 'view-changed'])
 
-export default {
-    name: "SearchGenericViewModes",
-    components: {
-        SvgIconCaretDown,
-        SvgIconCalendar,
-        SvgIconCard,
-        SvgIconList,
-    },
-    props: {
-        isOpened: {
-            type: Boolean,
-            default: false,
-        },
-        items: {
-            type: Array,
-            default: () => [],
-        },
-        selected: {
-            type: String,
-            default: "",
-        },
-    },
-    computed: {
-        classes() {
-            return ["search-generic-view-modes", { "is-opened": this.isOpened }]
-        },
-        selectedItem() {
-            return (
-                this.items.find((obj) => {
-                    return obj.slug == this.selected
-                }) || {}
-            )
-        },
-        parsedItems() {
-            return this.items.map((obj) => {
-                let classes = "list-item"
-                if (obj.slug == this.selected) {
-                    classes = "list-item is-active"
-                }
+const isOpened = ref(props.isOpened)
 
-                return {
-                    classes,
-                    ...obj,
-                }
-            })
-        },
-    },
-    methods: {
-        toggleOpen() {
-            this.$emit("update:isOpened", !this.isOpened)
-        },
-        onClick(slug) {
-            this.$emit("update:selected", slug)
-            this.$emit("view-changed", slug)
-        },
-    },
+const classes = computed(() => {
+  return ['search-generic-view-modes', { 'is-opened': isOpened.value }]
+})
+
+const selectedItem = computed(() => {
+  return props.items.find(item => item.slug === props.selected) || {}
+})
+
+const parsedItems = computed(() => {
+  return props.items.map((item) => {
+    let classes = 'list-item'
+    if (item.slug === props.selected)
+      classes += ' is-active'
+
+    return { ...item, classes }
+  })
+})
+const svgList = new Map([
+  ['icon-calendar', SvgIconCalendar],
+  ['icon-list', SvgIconList],
+  ['icon-card', SvgIconCard]
+])
+function parsedSelectedSVG(iconName) {
+  return svgList.get(iconName)
+}
+function toggleOpen() {
+  isOpened.value = !isOpened.value
+  emit('update:isOpened', isOpened.value)
+}
+
+function onClick(slug) {
+  emit('update:selected', slug)
+  emit('view-changed', slug)
 }
 </script>
 
-<style lang="scss" scoped>
+<template>
+  <div
+    :class="classes"
+    @click="toggleOpen"
+  >
+    <button class="view-btn">
+      <div class="selected">
+        <span v-if="!selected">View</span>
+        <component
+          :is="parsedSelectedSVG(selectedItem.iconName)"
+          class="svg"
+        />
+      </div>
+
+      <div class="chevron">
+        <SvgIconCaretDown class="svg" />
+      </div>
+    </button>
+
+    <ul class="view-list">
+      <li
+        v-for="view in parsedItems"
+        :key="view.slug"
+        :class="view.classes"
+        @click.stop="onClick(view.slug)"
+      >
+        <component
+          :is="parsedSelectedSVG(view.iconName)"
+          class="svg"
+        />
+        <div v-html="view.title" />
+      </li>
+    </ul>
+  </div>
+</template>
+
+<style
+  scoped
+  lang="scss"
+>
 .search-generic-view-modes {
+  position: relative;
+
+  margin-left: 8px;
+  font-family: var(--font-secondary);
+  font-size: 18px;
+
+  .view-btn {
+    width: 106px;
+    height: 60px;
+    font-size: 18px;
+    overflow: hidden;
+
+    font-family: var(--font-secondary);
+    color: var(--color-white);
+    background-color: var(--color-primary-blue-03);
+    padding: 0 50px 0 16px;
     position: relative;
 
-    margin-left: 8px;
-    font-family: var(--font-secondary);
-    font-size: 18px;
+    border-radius: 0;
+    border: 1.5px solid transparent;
 
-    .view-btn {
-        width: 106px;
-        height: 60px;
-        font-size: 18px;
-        overflow: hidden;
+    transition-property: border-color, border-radius;
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
 
-        font-family: var(--font-secondary);
-        color: var(--color-white);
-        background-color: var(--color-primary-blue-03);
-        padding: 0 50px 0 16px;
-        position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+  }
 
-        border-radius: 0;
-        border: 1.5px solid transparent;
+  .selected {
+    width: 100%;
+    text-align: center;
 
-        transition-property: border-color, border-radius;
-        transition-duration: 400ms;
-        transition-timing-function: ease-in-out;
+    .svg {
+      display: inline-block;
+      transform: translateY(2px);
 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        align-content: center;
+      rect {
+        stroke: white;
+      }
+
+      .svg__stroke--default-cyan-03 {
+        stroke: white;
+      }
+
+      .svg__icon-list svg {
+        stroke: white;
+      }
     }
 
-    .selected {
-        width: 100%;
-        text-align: center;
+  }
 
-        .svg {
-            display: inline-block;
-            transform: translateY(2px);
-            rect {
-                stroke: white;
-            }
-            .svg__stroke--default-cyan-03 {
-                stroke: white;
-            }
-            .svg__icon-list svg {
-                stroke: white;
-            }
-        }
+  .svg__icon-calendar {
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: white;
     }
 
-    .chevron {
-        font-size: 16px;
-        color: var(--color-white);
-        position: absolute;
-        width: 40px;
-        right: 0;
-        top: 0;
-        height: 100%;
-        transition: background-color 400ms ease-in-out;
-
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
+    :deep(.svg__stroke--default-cyan-03) {
+      stroke: white;
     }
+  }
+
+  .svg__icon-card {
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: white;
+    }
+
+    :deep(.svg__stroke--default-cyan-03) {
+      stroke: white;
+    }
+  }
+
+  .svg__icon-list {
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: white;
+    }
+
+    :deep(.svg__stroke--default-cyan-03) {
+      stroke: white;
+    }
+  }
+
+  .chevron {
+    font-size: 16px;
+    color: var(--color-white);
+    position: absolute;
+    width: 40px;
+    right: 0;
+    top: 0;
+    height: 100%;
+    transition: background-color 400ms ease-in-out;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 
     .svg path {
-        stroke: var(--color-white); // default list
+      stroke: var(--color-white);
+    }
+
+  }
+
+  .svg__icon-caret-down {
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: white;
+    }
+  }
+
+  .svg path {
+    stroke: var(--color-white); // default list
+  }
+
+  .view-list {
+    margin-top: 8px;
+    list-style: none;
+    background-color: var(--color-primary-blue-03);
+    color: var(--color-white);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    text-align: center;
+    border-radius: var(--rounded-slightly-all);
+    border: 1.5px solid transparent;
+    padding: 16px 8px;
+
+    position: absolute;
+    top: 100%;
+    /*right: 0;*/
+
+    transition-property: opacity, max-height, border;
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
+  }
+
+  .list-item {
+    height: 72px;
+    padding: 12px 8px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: var(--rounded-slightly-all);
+    transition: background-color 400ms ease-in-out;
+
+    .svg {
+      display: block;
+      margin: 0 auto;
+
+      rect {
+        stroke: white; // card
+      }
+    }
+  }
+
+  // Open state
+  &.is-opened {
+    .view-btn {
+      border-radius: var(--rounded-slightly-all);
+      border-color: var(--color-fushia-03);
     }
 
     .view-list {
-        margin-top: 8px;
-        list-style: none;
-        background-color: var(--color-primary-blue-03);
-        color: var(--color-white);
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-        text-align: center;
-        border-radius: var(--rounded-slightly-all);
-        border: 1.5px solid transparent;
-        padding: 16px 8px;
-
-        position: absolute;
-        top: 100%;
-        right: 0;
-
-        transition-property: opacity, max-height, border;
-        transition-duration: 400ms;
-        transition-timing-function: ease-in-out;
+      max-height: 275px;
+      opacity: 1;
+      border-color: var(--color-fushia-03);
     }
-    .list-item {
-        height: 72px;
-        padding: 12px 8px;
-        background-color: rgba(255, 255, 255, 0);
-        border-radius: var(--rounded-slightly-all);
-        transition: background-color 400ms ease-in-out;
+  }
 
-        .svg {
-            display: block;
-            margin: 0 auto;
-            rect {
-                stroke: white; // card
-            }
-        }
+  // Hovers
+  @media #{$has-hover} {
+    .list-item:hover {
+      background-color: rgba(255, 255, 255, 0.1);
     }
-
-    // Open state
-    &.is-opened {
-        .view-btn {
-            border-radius: var(--rounded-slightly-all);
-            border-color: var(--color-fushia-03);
-        }
-        .view-list {
-            max-height: 275px;
-            opacity: 1;
-            border-color: var(--color-fushia-03);
-        }
-    }
-
-    // Hovers
-    @media #{$has-hover} {
-        .list-item:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-    }
+  }
 }
 </style>

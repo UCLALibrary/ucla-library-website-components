@@ -1,207 +1,190 @@
-<template>
-    <li :class="classes">
-        <div class="image-container">
-            <responsive-image
-                v-if="image"
-                :image="image"
-                :aspect-ratio="imageAspectRatio"
-                :object-fit="cover"
-                class="image"
-            />
-            <div v-else class="molecule-no-image">
-                <molecule-placeholder class="molecule" aria-hidden="true" />
-            </div>
-        </div>
-        <card-meta
-            :to="to"
-            :category="category"
-            :title="title"
-            :start-date="startDate"
-            :end-date="endDate"
-            :ongoing="ongoing"
-            :text="text"
-            :locations="locations"
-            :alternativeFullName="alternativeFullName"
-            :language="language"
-            :section-handle="sectionHandle"
-        />
-    </li>
-</template>
+<script setup lang="ts">
+import { computed } from 'vue'
 
-<script>
+import type { PropType } from 'vue'
+
 // COMPONENTS
-import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
-import CardMeta from "@/lib-components/CardMeta.vue"
+import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import CardMeta from '@/lib-components/CardMeta.vue'
 
 // UTILITY FUNCTIONS
 
-import getSectionName from "@/mixins/getSectionName"
+import type { LocationItemType, MediaItemType } from '@/types/types'
 
-// SVGs
-import MoleculePlaceholder from "ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg"
+const props = defineProps({
+  image: {
+    type: Object as PropType<MediaItemType>,
+    default: () => { },
+  },
+  to: {
+    type: String,
+    default: '',
+  },
+  category: {
+    type: String,
+    default: '',
+  },
+  title: {
+    type: String,
+    default: '',
+  },
+  alternativeFullName: {
+    type: String,
+    default: '',
+  },
+  language: {
+    type: String,
+    default: '',
+  },
+  startDate: {
+    type: String,
+    default: '',
+  },
+  endDate: {
+    type: String,
+    default: '',
+  },
+  ongoing: {
+    type: Boolean,
+    default: false,
+  },
 
-export default {
-    name: "BlockCardWithImage",
-    components: {
-        ResponsiveImage,
-        MoleculePlaceholder,
-        CardMeta,
-    },
-    mixins: [getSectionName],
-    props: {
-        image: {
-            type: Object,
-            default: () => {},
-        },
-        to: {
-            type: String,
-            default: "",
-        },
-        category: {
-            type: String,
-            default: "",
-        },
-        title: {
-            type: String,
-            default: "",
-        },
-        alternativeFullName: {
-            type: String,
-            default: "",
-        },
-        language: {
-            type: String,
-            default: "",
-        },
-        startDate: {
-            type: String,
-            default: "",
-        },
-        endDate: {
-            type: String,
-            default: "",
-        },
-        ongoing: {
-            type: Boolean,
-            default: false,
-        },
+  isVertical: {
+    type: Boolean,
+    default: true,
+  },
+  imageAspectRatio: {
+    type: Number,
+    default: 0,
+  },
+  locations: {
+    type: Array as PropType<LocationItemType[]>,
+    default: () => [],
+  },
+  text: {
+    type: String,
+    default: '',
+  },
+  bylineOne: {
+    type: String,
+    default: '',
+  },
+  bylineTwo: {
+    type: String,
+    default: '',
+  },
+  color: {
+    type: String,
+    default: '', // This will be "visit", "about", "help".
+  },
+  sectionHandle: {
+    type: String,
+    default: '',
+  },
+})
 
-        isVertical: {
-            type: Boolean,
-            default: true,
-        },
-        imageAspectRatio: {
-            type: Number,
-            default: 0,
-        },
-        locations: {
-            type: Array,
-            default: () => [],
-        },
-        text: {
-            type: String,
-            default: "",
-        },
-        bylineOne: {
-            type: String,
-            default: "",
-        },
-        bylineTwo: {
-            type: String,
-            default: "",
-        },
-        color: {
-            type: String,
-            default: "", // This will be "visit", "about", "help".
-        },
-        sectionHandle: {
-            type: String,
-            default: "",
-        },
-    },
-    computed: {
-        classes() {
-            return [
-                "block-card-with-image",
-                { "is-vertical": this.isVertical },
-                `color-${this.sectionName}`,
-            ]
-        },
-        sectionName() {
-            return this.color || this.getSectionName(this.$route.path)
-        },
-        isImpactReport() {
-            return this.$route.path.includes("impact") ? true : false
-        },
-        parsedTarget() {
-            return this.isImpactReport ? "_blank" : ""
-        },
-    },
-}
+const classes = computed(() => {
+  return [
+    'block-card-with-image',
+    { 'is-vertical': props.isVertical },
+
+  ]
+})
 </script>
+
+<template>
+  <li :class="classes">
+    <div class="image-container">
+      <ResponsiveImage
+        v-if="image"
+        :media="image"
+        :aspect-ratio="imageAspectRatio"
+        class="image"
+      />
+      <div
+        v-else
+        class="molecule-no-image"
+      >
+        <MoleculePlaceholder
+          class="molecule"
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+    <CardMeta
+      :to="to"
+      :category="category"
+      :title="title"
+      :start-date="startDate"
+      :end-date="endDate"
+      :ongoing="ongoing"
+      :text="text"
+      :byline-one="bylineOne"
+      :byline-two="bylineTwo"
+      :locations="locations"
+      :alternative-full-name="alternativeFullName"
+      :language="language"
+      :section-handle="sectionHandle"
+    />
+  </li>
+</template>
 
 <style lang="scss" scoped>
 .block-card-with-image {
-    background-color: var(--color-theme, var(--color-white));
-    font-family: var(--font-primary);
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    // Themes for floating highlight/ triangle
-    --floating-highlight-color-theme: var(--color-default-cyan-03);
-    &.color-visit {
-        --floating-highlight-color-theme: var(--color-visit-fushia-03);
+  background-color: var(--color-theme, var(--color-white));
+  font-family: var(--font-primary);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  .image-container {
+    .molecule-no-image {
+      width: 100%;
+      margin-right: var(--space-xl);
+      background: var(--gradient-01);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      .molecule {
+        flex-shrink: 0;
+        position: absolute;
+        opacity: 0.7;
+      }
     }
-    &.color-help {
-        --floating-highlight-color-theme: var(--color-help-green-03);
-    }
-    &.color-about {
-        --floating-highlight-color-theme: var(--color-about-purple-03);
+  }
+
+  // Variations
+  &.is-vertical {
+    flex-direction: column;
+
+    .molecule-no-image {
+      width: 100%;
+      height: 179.2px;
     }
 
-    .image-container {
-        .molecule-no-image {
-            width: 100%;
-            margin-right: var(--space-xl);
-            background: var(--gradient-01);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            position: relative;
-
-            .molecule {
-                flex-shrink: 0;
-                position: absolute;
-                opacity: 0.7;
-            }
-        }
+    :deep(.card-meta) {
+      margin-top: 16px;
     }
 
-    // Variations
+    :deep(.image) {
+      width: 100%;
+
+      .media {
+        object-fit: cover;
+      }
+    }
+  }
+
+  // Breakpoints
+  @media #{$medium} {
     &.is-vertical {
-        flex-direction: column;
-        .molecule-no-image {
-            width: 100%;
-            height: 179.2px;
-        }
-
-        ::v-deep .card-meta {
-            margin-top: 16px;
-        }
-        ::v-deep .image {
-            width: 100%;
-            .media {
-                object-fit: cover;
-            }
-        }
+      .molecule-no-image {
+        height: 226px;
+      }
     }
-    // Breakpoints
-    @media #{$medium} {
-        &.is-vertical {
-            .molecule-no-image {
-                height: 226px;
-            }
-        }
-    }
+  }
 }
 </style>

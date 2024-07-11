@@ -1,103 +1,77 @@
-<template>
-    <span :class="classes">
-        <a>
-            {{ title }}
-        </a>
-        <button type="button" @click="closeBlockFilter()">
-            <svg-glyph-close class="svg-glyph-close" />
-        </button>
-    </span>
-</template>
-
-<script>
+<script setup>
 // Helpers
-import getSectionName from "@/mixins/getSectionName"
+import { defineAsyncComponent } from 'vue'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import BlockTag from './BlockTag.vue'
+import getSectionName from '@/utils/getSectionName'
+import { useTheme } from '@/composables/useTheme'
 
-import SvgGlyphClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg"
+const { title, iconName, removeIconName } = defineProps({
+  title: {
+    type: String,
+    default: '',
+  },
+  iconName: {
+    type: String,
+    required: false,
+  }
+})
 
-export default {
-    name: "BlockRemoveSearchFilter",
-    mixins: [getSectionName],
-    data() {
-        return {}
-    },
-    components: {
-        SvgGlyphClose,
-    },
-    props: {
-        title: {
-            type: String,
-            default: "",
-        },
-        filterType: {
-            type: String,
-            default: "",
-        },
-        index: {
-            type: Number,
-            default: 0,
-        },
-        color: {
-            type: String,
-            default: "", // This will be "visit", "about", "help".
-        },
-    },
-    computed: {
-        classes() {
-            return ["block-remove-search-filter", `color-${this.sectionName}`]
-        },
-        sectionName() {
-            return (
-                this.color ||
-                (this.$route
-                    ? this.getSectionName(this.$route.path)
-                    : "color-default")
-            )
-        },
-    },
-    methods: {
-        closeBlockFilter() {
-            this.$emit("removeBlockFilter", this.index)
-        },
-    },
+const emit = defineEmits(['removeBlockFilter'])
+
+const SvgGlyphClose = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-close.svg')
+)
+const SvgGlyphX = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-ftva-xtag.svg')
+)
+const removeIcons = {
+  SvgGlyphClose,
+  SvgGlyphX,
+}
+const route = useRoute()
+const theme = useTheme()
+
+const sectionName = computed(() => {
+  return (
+    route !== undefined && route.path
+      ? getSectionName(route.path)
+      : 'default'
+  )
+})
+
+const classes = computed(() => {
+  return ['block-remove-search-filter', theme?.value || '', `color-${sectionName.value}`]
+})
+// compute remove icon based on theme
+const removeIcon = computed(() => {
+  switch (theme?.value) {
+    case 'ftva':
+      return 'SvgGlyphX'
+    default:
+      return 'SvgGlyphClose'
+  }
+})
+
+function closeBlockFilter() {
+  emit('removeBlockFilter')
 }
 </script>
 
-<style scoped lang="scss">
-.block-remove-search-filter {
-    padding: 12px;
-    display: flex;
-    flex-direction: row;
-    border: 1.5px #c099ff solid;
-    background: #ffffff;
-    border-radius: 4px;
-    align-items: center;
-    width: fit-content;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 100%;
+<template>
+  <button type="button" :class="classes" @click="closeBlockFilter">
+    <BlockTag :label="title" :icon-name="iconName" :theme="theme" :is-secondary="true">
+      <span class="button-close">
+        <component :is="removeIcons[removeIcon]" />
+      </span>
+    </BlockTag>
+  </button>
+</template>
 
-    &:hover {
-        background: #efe5ff;
-        cursor: pointer;
-    }
-
-    a {
-        margin-right: 8px;
-        color: #032d5b;
-    }
-
-    &.color-help {
-        --color-border: var(--color-help-green-03);
-    }
-    &.color-visit {
-        --color-border: var(--color-visit-fushia-03);
-    }
-    &.color-about {
-        --color-border: var(--color-about-purple-03);
-    }
-    &.color-default {
-        --color-border: var(--color-default-cyan-03);
-    }
-}
+<style
+  lang="scss"
+  scoped
+>
+@import "@/styles/themes.scss";
 </style>

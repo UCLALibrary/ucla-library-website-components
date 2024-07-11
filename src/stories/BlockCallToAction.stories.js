@@ -1,175 +1,64 @@
-// Storybook default settings
-import Vue from "vue"
-import Vuex from "vuex"
-import BlockCallToAction from "@/lib-components/BlockCallToAction"
-import StoryRouter from "storybook-vue-router"
-
-Vue.use(Vuex)
+import BlockCallToAction from '@/lib-components/BlockCallToAction'
 
 export default {
-    title: "BLOCK / Call to Action",
-    component: BlockCallToAction,
-    decorators: [
-        StoryRouter({
-            routes: [
-                { path: "/", component: BlockCallToAction },
-                { path: "/help/foo/bar/", component: BlockCallToAction },
-            ],
-        }),
-    ],
+  title: 'BLOCK / Call to Action',
+  component: BlockCallToAction,
+}
+
+function Template(args) {
+  return {
+    setup() {
+      return { args }
+    },
+    components: { BlockCallToAction },
+    template: '<block-call-to-action v-bind="args"/>',
+  }
 }
 
 const mock = {
-    svgName: "svg-call-to-action-chat",
-    title: "Lorem ipsum dolor sit amet?",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    name: "Lorem ipsum dolor",
-    to: "/help/foo/bar/",
-    isDark: false,
-    isSmallSize: false,
+  svgName: 'svg-call-to-action-find',
+  title: 'Lorem ipsum dolor sit amet?',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  name: 'Lorem ipsum dolor',
+  to: '/help/foo/bar/',
 }
 
 // Variations of stories below
-export const Default = () => ({
-    data() {
-        return {
-            ...mock,
-        }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            :svgName="svgName"
-            :title="title"
-            :text="text"
-            :name="name"
-            :to="to"
-            :isDark=false
-            :isSmallSize="isSmallSize"
-        />
-    `,
-})
 
-export const DarkBlue = () => ({
-    data() {
-        return {
-            ...mock,
-        }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            :svgName= "svgName"
-            :title="title"
-            :text="text"
-            :name="name"
-            :to="to"
-            :is-dark=true
-            :isSmallSize="isSmallSize"
-        />
-    `,
-})
+export const Default = Template.bind({})
+Default.args = {
+  ...mock,
+}
 
-export const SmallCTA = () => ({
-    data() {
-        return {
-            ...mock,
-        }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            svgName= "svg-call-to-action-find"
-            :title="title"
-            :text="text"
-            :name="name"
-            :to="to"
-            :is-dark=false
-            :isSmallSize=true
-        />
-    `,
-})
+export const DarkBlue = Template.bind({})
+DarkBlue.args = {
+  ...mock,
+  title: 'Dark Blue: Lorem ipsum dolor sit amet?',
+  isDark: true,
+}
 
-export const SmallCTADarkBlue = () => ({
-    data() {
-        return {
-            ...mock,
-        }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            svg-name= "svg-call-to-action-money"
-            :title="title"
-            :text="text"
-            :name="name"
-            :to="to"
-            :is-small-size=true
-            :is-dark=true
-        />
-    `,
-})
+export const SmallCTA = Template.bind({})
+SmallCTA.args = {
+  ...mock,
+  title: 'Small CTA: Lorem ipsum dolor sit amet?',
+  isDark: false,
+  isSmallSize: true,
+}
 
-export const GlobalAskALibrarian = () => ({
-    store: new Vuex.Store({
-        state: {
-            globals: {
-                askALibrarian: {
-                    id: "7322",
-                    askALibrarianTitle: "Have further questions?",
-                    askALibrarianText:
-                        "<p>We're here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.</p>",
-                    buttonUrl: [
-                        {
-                            buttonText: "Contact us",
-                            buttonUrl: "/help/",
-                        },
-                    ],
-                },
-            },
-        },
-    }),
-    data() {
-        return {
-            ...mock,
-        }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            :is-global="true"
-        />
-    `,
-})
+export const SmallCTADark = Template.bind({})
+SmallCTADark.args = {
+  ...mock,
+  title: 'Small CTA Dark Blue: Lorem ipsum dolor sit amet?',
+  isDark: true,
+  isSmallSize: true,
+}
 
-export const GlobalMeapCTA = () => ({
-    store: new Vuex.Store({
-        state: {
-            globals: {
-                meapCallToAction: {
-                    id: "28646",
-                    name: "MEAP Call to Action",
-                    titleGeneral: "Get in Touch",
-                    summary: "<p>Have further questions?</p>",
-                    button: [
-                        {
-                            buttonText: "Contact Us",
-                            buttonUrl: "mailto:meap@library.ucla.edu",
-                        },
-                    ],
-                },
-            },
-        },
-    }),
-    data() {
-        return {
-            ...mock,
-        }
-    },
-    components: { BlockCallToAction },
-    template: `
-        <block-call-to-action
-            :is-meap-global="true"
-        />
-    `,
-})
+export const GlobalAskALibrarian = Template.bind({})
+GlobalAskALibrarian.args = {
+  isGlobal: true,
+}
+
+export const GlobalMeapCTA = Template.bind({})
+GlobalMeapCTA.args = {
+  isMeapGlobal: true,
+}

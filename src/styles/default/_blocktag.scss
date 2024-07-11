@@ -1,0 +1,18 @@
+.block-tag {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    background-color: #{$white};
+    border: 1.5px var(--color-default-cyan-03) solid;
+    border-radius: 4px;
+    padding: 12px;
+    width: fit-content;
+
+    .label {
+        color: #{$primary-blue-05};
+    }
+}

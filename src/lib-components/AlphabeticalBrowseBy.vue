@@ -1,166 +1,168 @@
-<template>
-    <div class="alphabetical-browse-by">
-        <h2 class="title">Browse by Last Name</h2>
-        <ul class="alphabet-list">
-            <li
-                v-for="letter in parsedAlphabet"
-                :key="letter.letter"
-                :class="letter.class"
-                @click="handleSelectedLetter(letter)"
-            >
-                <a>{{ letter.letter }}</a>
-            </li>
-        </ul>
-    </div>
-</template>
-
 <script>
 export default {
-    name: "AlphabeticalBrowseBy",
-    data() {
-        return {
-            alphabet: [
-                {
-                    letter: "All",
-                },
-                {
-                    letter: "A",
-                },
-                {
-                    letter: "B",
-                },
-                {
-                    letter: "C",
-                },
-                {
-                    letter: "D",
-                },
-                {
-                    letter: "E",
-                },
-                {
-                    letter: "F",
-                },
-                {
-                    letter: "G",
-                },
-                {
-                    letter: "H",
-                },
-                {
-                    letter: "I",
-                },
-                {
-                    letter: "J",
-                },
-                {
-                    letter: "K",
-                },
-                {
-                    letter: "L",
-                },
-                {
-                    letter: "M",
-                },
-                {
-                    letter: "N",
-                },
-                {
-                    letter: "O",
-                },
-                {
-                    letter: "P",
-                },
-                {
-                    letter: "Q",
-                },
-                {
-                    letter: "R",
-                },
-                {
-                    letter: "S",
-                },
-                {
-                    letter: "T",
-                },
-                {
-                    letter: "U",
-                },
-                {
-                    letter: "V",
-                },
-                {
-                    letter: "W",
-                },
-                {
-                    letter: "X",
-                },
-                {
-                    letter: "Y",
-                },
-                {
-                    letter: "Z",
-                },
-            ],
-            selectedLetter: "",
-        }
+  name: 'AlphabeticalBrowseBy',
+  props: {
+    selectedLetterProp: {
+      type: String,
+      default: 'All',
     },
-    props: {
-        selectedLetterProp: {
-            type: String,
-            default: "All",
+  },
+  emits: ['selectedLetter'],
+  data() {
+    return {
+      alphabet: [
+        {
+          letter: 'All',
         },
-    },
-    computed: {
-        parsedAlphabet: {
-            get() {
-                return this.alphabet.map((item) => {
-                    let letterClass = "letter"
-                    // Set the class for the letter when initially loaded
-                    if (
-                        item.letter === this.selectedLetterProp &&
-                        this.selectedLetter === ""
-                    ) {
-                        letterClass = letterClass + " is-selected"
-                    }
-                    // Set the class for the letter when clicked
-                    if (item.letter === this.selectedLetter) {
-                        letterClass = letterClass + " is-selected"
-                    }
+        {
+          letter: 'A',
+        },
+        {
+          letter: 'B',
+        },
+        {
+          letter: 'C',
+        },
+        {
+          letter: 'D',
+        },
+        {
+          letter: 'E',
+        },
+        {
+          letter: 'F',
+        },
+        {
+          letter: 'G',
+        },
+        {
+          letter: 'H',
+        },
+        {
+          letter: 'I',
+        },
+        {
+          letter: 'J',
+        },
+        {
+          letter: 'K',
+        },
+        {
+          letter: 'L',
+        },
+        {
+          letter: 'M',
+        },
+        {
+          letter: 'N',
+        },
+        {
+          letter: 'O',
+        },
+        {
+          letter: 'P',
+        },
+        {
+          letter: 'Q',
+        },
+        {
+          letter: 'R',
+        },
+        {
+          letter: 'S',
+        },
+        {
+          letter: 'T',
+        },
+        {
+          letter: 'U',
+        },
+        {
+          letter: 'V',
+        },
+        {
+          letter: 'W',
+        },
+        {
+          letter: 'X',
+        },
+        {
+          letter: 'Y',
+        },
+        {
+          letter: 'Z',
+        },
+      ],
+      selectedLetter: '',
+    }
+  },
+  computed: {
+    parsedAlphabet: {
+      get() {
+        return this.alphabet.map((item) => {
+          let letterClass = 'letter'
+          // Set the class for the letter when initially loaded
+          if (
+            item.letter === this.selectedLetterProp
+                        && this.selectedLetter === ''
+          )
+            letterClass = `${letterClass} is-selected`
 
-                    // Set the class for the letter when not clicked
-                    return {
-                        ...item,
-                        class: letterClass,
-                    }
-                })
-            },
-            set(alphabet) {
-                this.alphabet = alphabet
-            },
-        },
+          // Set the class for the letter when clicked
+          if (item.letter === this.selectedLetter)
+            letterClass = `${letterClass} is-selected`
+
+          // Set the class for the letter when not clicked
+          return {
+            ...item,
+            class: letterClass,
+          }
+        })
+      },
+      set(alphabet) {
+        this.alphabet = alphabet
+      },
     },
-    methods: {
-        checkIfLetterIsSelected() {
-            this.parsedAlphabet = this.alphabet.map((item) => {
-                let letterClass = "letter"
-                if (this.selectedLetter === item.letter) {
-                    letterClass = letterClass + " is-selected"
-                }
-                return {
-                    ...item,
-                    class: letterClass,
-                }
-            })
-        },
-        handleSelectedLetter(letter) {
-            this.selectedLetter = letter.letter
-            this.checkIfLetterIsSelected()
-            this.$emit("selectedLetter", this.selectedLetter)
-        },
+  },
+  methods: {
+    checkIfLetterIsSelected() {
+      this.parsedAlphabet = this.alphabet.map((item) => {
+        let letterClass = 'letter'
+        if (this.selectedLetter === item.letter)
+          letterClass = `${letterClass} is-selected`
+
+        return {
+          ...item,
+          class: letterClass,
+        }
+      })
     },
+    handleSelectedLetter(letter) {
+      this.selectedLetter = letter.letter
+      this.checkIfLetterIsSelected()
+      this.$emit('selectedLetter', this.selectedLetter)
+    },
+  },
 }
 </script>
+
+<template>
+  <div class="alphabetical-browse-by">
+    <h2 class="title">
+      Browse by Last Name
+    </h2>
+    <ul class="alphabet-list">
+      <li
+        v-for="letter in parsedAlphabet"
+        :key="letter.letter"
+        :class="letter.class"
+        @click="handleSelectedLetter(letter)"
+      >
+        <a>{{ letter.letter }}</a>
+      </li>
+    </ul>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .alphabetical-browse-by {

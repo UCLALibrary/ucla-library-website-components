@@ -1,22 +1,21 @@
 // Storybook default settings
-import BlockEvent from "@/lib-components/BlockEvent"
-import StoryRouter from "storybook-vue-router"
+import BlockEvent from '@/lib-components/BlockEvent'
 
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
+import * as API from '@/stories/mock-api.json'
 
 // Storybook default settings
 export default {
-    title: "BLOCK / Event",
-    component: BlockEvent,
-    decorators: [StoryRouter()],
+  title: 'BLOCK / Event',
+  component: BlockEvent,
 }
 
-export const ShortText = () => ({
+export function ShortText() {
+  return {
     data() {
-        return {
-            item: { ...API.bricks[0] },
-        }
+      return {
+        item: { ...API.bricks[0] },
+      }
     },
     components: { BlockEvent },
     template: `
@@ -30,13 +29,15 @@ export const ShortText = () => ({
             :sectionHandle="item.sectionHandle"
         />
     `,
-})
+  }
+}
 
-export const LongText = () => ({
+export function LongText() {
+  return {
     data() {
-        return {
-            item: { ...API.bricks[1] },
-        }
+      return {
+        item: { ...API.bricks[1] },
+      }
     },
     components: { BlockEvent },
     template: `
@@ -48,13 +49,15 @@ export const LongText = () => ({
             :to="item.to"
         />
     `,
-})
+  }
+}
 
-export const Visit = () => ({
+export function Visit() {
+  return {
     data() {
-        return {
-            item: { ...API.bricks[1] },
-        }
+      return {
+        item: { ...API.bricks[1] },
+      }
     },
     components: { BlockEvent },
     template: `
@@ -66,13 +69,15 @@ export const Visit = () => ({
             to="/visit/foo/bar/"
         />
     `,
-})
+  }
+}
 
-export const About = () => ({
+export function About() {
+  return {
     data() {
-        return {
-            item: { ...API.bricks[1] },
-        }
+      return {
+        item: { ...API.bricks[1] },
+      }
     },
     components: { BlockEvent },
     template: `
@@ -84,13 +89,15 @@ export const About = () => ({
             to="/about/foo/bar/"
         />
     `,
-})
+  }
+}
 
-export const Help = () => ({
+export function Help() {
+  return {
     data() {
-        return {
-            item: { ...API.bricks[1] },
-        }
+      return {
+        item: { ...API.bricks[1] },
+      }
     },
     components: { BlockEvent },
     template: `
@@ -102,4 +109,5 @@ export const Help = () => ({
             to="/help/foo/bar/"
         />
     `,
-})
+  }
+}

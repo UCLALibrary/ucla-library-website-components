@@ -1,24 +1,23 @@
 // Import component
-import SectionDualMasonry from "@/lib-components/SectionDualMasonry"
+import SectionDualMasonry from '@/lib-components/SectionDualMasonry'
 
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
-import StoryRouter from "storybook-vue-router"
+import * as API from '@/stories/mock-api.json'
 
 // Storybook default settings
 export default {
-    title: "SECTION / Dual Masonry",
-    component: SectionDualMasonry,
-    decorators: [StoryRouter()],
+  title: 'SECTION / Dual Masonry',
+  component: SectionDualMasonry,
 }
 
 const items = API.bricks
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            items,
-        }
+      return {
+        items,
+      }
     },
     components: { SectionDualMasonry },
     template: `
@@ -28,4 +27,5 @@ export const Default = () => ({
             text="See All Events"
         />
     `,
-})
+  }
+}

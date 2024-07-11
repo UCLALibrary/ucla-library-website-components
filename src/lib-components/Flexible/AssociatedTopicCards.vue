@@ -1,48 +1,43 @@
-<template>
-    <section-cards-with-illustrations
-        v-if="block && block.associatedTopicsFlexiblePageBlock"
-        :items="parseditems"
-        :sectionTitle="block.sectionTitle"
-        :sectionSummary="block.sectionSummary"
-        :is-horizontal="false"
-        class="associated-topic-cards"
-    />
-</template>
+<script setup lang="ts">
+import { computed } from 'vue'
+import type { PropType } from 'vue'
+import type { FlexibleAssociatedTopicCards } from '@/types/flexible_types'
 
-<script>
-import SectionCardsWithIllustrations from "@/lib-components/SectionCardsWithIllustrations.vue"
-import stripMeapFromURI from "@/mixins/stripMeapFromURI"
+import SectionCardsWithIllustrations from '@/lib-components/SectionCardsWithIllustrations.vue'
+import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
-export default {
-    name: "FlexibleAssociatedTopicCards",
-    components: {
-        SectionCardsWithIllustrations,
-    },
-    mixins: [stripMeapFromURI],
-    props: {
-        block: {
-            type: Object,
-            default: () => {},
-        },
-    },
-    computed: {
-        parseditems() {
-            return this.block.associatedTopicsFlexiblePageBlock[0].topics.map(
-                (obj) => {
-                    return {
-                        ...obj,
-                        to: obj.externalResourceUrl
-                            ? obj.externalResourceUrl
-                            : `/${this.stripMeapFromURI(obj.uri)}`,
-                    }
-                }
-            )
-        },
-    },
-}
+const { block } = defineProps({
+  block: {
+    type: Object as PropType<FlexibleAssociatedTopicCards>,
+    default: () => { },
+  },
+})
+
+const parseditems = computed(() => {
+  return block.associatedTopicsFlexiblePageBlock[0].topics.map(
+    (obj) => {
+      return {
+        ...obj,
+        to: obj.externalResourceUrl
+          ? obj.externalResourceUrl
+          : stripMeapFromURI(obj.uri),
+      }
+    }
+  )
+})
 </script>
 
+<template>
+  <SectionCardsWithIllustrations
+    v-if="block && block.associatedTopicsFlexiblePageBlock"
+    :items="parseditems"
+    :section-title="block.sectionTitle"
+    :section-summary="block.sectionSummary"
+    :is-horizontal="false"
+    class="associated-topic-cards"
+  />
+</template>
+
 <style lang="scss" scoped>
-.associated-topic-cards {
-}
+.associated-topic-cards {}
 </style>

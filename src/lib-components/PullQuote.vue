@@ -1,28 +1,34 @@
-<template>
-    <div class="pull-quote">
-        <div v-if="text" class="quote" v-html="text" />
-        <div v-if="attribution" class="attribution-block">
-            <span class="dash">—</span>
-            <span v-if="attribution" class="attribution" v-html="attribution" />
-        </div>
-    </div>
-</template>
-
 <script>
+// COMPONENTS
+import RichText from './RichText.vue'
+
 export default {
-    name: "PullQuote",
-    props: {
-        text: {
-            type: String,
-            default: "",
-        },
-        attribution: {
-            type: String,
-            default: "",
-        },
+  name: 'PullQuote',
+  components: {
+    RichText,
+  },
+  props: {
+    text: {
+      type: String,
+      default: '',
     },
+    attribution: {
+      type: String,
+      default: '',
+    },
+  },
 }
 </script>
+
+<template>
+  <div class="pull-quote">
+    <RichText v-if="text" class="quote" :rich-text-content="text" />
+    <div v-if="attribution" class="attribution-block">
+      <span class="dash">—</span>
+      <span v-if="attribution" class="attribution" v-html="attribution" />
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .pull-quote {
@@ -41,6 +47,25 @@ export default {
     padding: 24px var(--spacing-text-left);
     --spacing-text-left: 64px;
     --container-width: $container-m-text + px;
+
+    :deep(.rich-text) {
+        max-width: none;
+        margin: 0;
+        padding-right: 0;
+    }
+
+    :deep(div),
+    :deep(p) {
+        color: var(--color-primary-blue-03);
+        font-size: 24px;
+        font-style: italic;
+        font-weight: 600;
+        line-height: 150%;
+    }
+
+    :deep(.parsed-content) {
+        margin-bottom: 0;
+    }
 
     // Breakpoints
     @media #{$small} {

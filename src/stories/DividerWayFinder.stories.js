@@ -1,42 +1,54 @@
-import DividerWayFinder from "@/lib-components/DividerWayFinder"
-import StoryRouter from "storybook-vue-router"
+import { computed } from 'vue'
+import router from '@/router'
+import DividerWayFinder from '@/lib-components/DividerWayFinder'
 
-// Storybook default settings
 export default {
-    title: "DIVIDER / Way Finder",
-    component: DividerWayFinder,
-    decorators: [
-        StoryRouter(
-            {},
-            {
-                routes: [
-                    {
-                        path: "/",
-                        component: DividerWayFinder,
-                    },
-                ],
-            }
-        ),
-    ],
+  title: 'DIVIDER / Way Finder',
+  component: DividerWayFinder,
 }
 
-// Variations of stories below
-export const Default = () => ({
+// STORIES
+export function Default() {
+  router.push('/default')
+  return {
     components: { DividerWayFinder },
-    template: `<divider-way-finder />`,
-})
+    template: '<divider-way-finder />',
+  }
+}
 
-export const Visit = () => ({
+export function Visit() {
+  router.push('/visit/eee')
+  return {
     components: { DividerWayFinder },
-    template: `<divider-way-finder color="visit"/>`,
-})
+    template: '<divider-way-finder />',
+  }
+}
 
-export const About = () => ({
+export function About() {
+  router.push('/about/fff')
+  return {
     components: { DividerWayFinder },
-    template: `<divider-way-finder color="about" />`,
-})
+    template: '<divider-way-finder />',
+  }
+}
 
-export const Help = () => ({
+export function Help() {
+  router.push('/help/ddd')
+  return {
     components: { DividerWayFinder },
-    template: `<divider-way-finder color="help"/>`,
-})
+    template: '<divider-way-finder />',
+  }
+}
+
+export function FTVA() {
+  router.push('/default')
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { DividerWayFinder },
+    template: '<divider-way-finder />',
+  }
+}

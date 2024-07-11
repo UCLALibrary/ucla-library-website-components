@@ -1,0 +1,42 @@
+.ftva.block-info {
+    display: flex;
+    flex-direction: column;
+
+    background: $page-blue;
+    border-radius: 10px;
+    padding: 20px;
+
+    .block-info-header {
+        @include ftva-subtitle-1;
+        text-align: center;
+        color: $medium-grey;
+        border-bottom: 1px solid $subtitle-grey;
+        padding: 8px 0;
+    }
+
+    .block-info-list {
+        padding: 16px 0 16px 20px;
+    }
+
+    // ToDo: Add Proxima font when fixed in design tokens
+    .block-info-list li {
+        @include ftva-body-2;
+        color: $body-grey;
+    }
+
+    .button-link {
+        font-size: 18px;
+        border-radius: 2px;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        margin: 0 auto;
+    }
+
+    @media (min-width: 1024px) {
+        .button-link {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    }
+}

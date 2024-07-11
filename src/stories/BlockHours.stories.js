@@ -1,43 +1,50 @@
-import BlockHours from "@/lib-components/BlockHours"
+import BlockHours from '@/lib-components/BlockHours'
 
 export default {
-    title: "BLOCK / Hours",
-    component: BlockHours,
+  title: 'BLOCK / Hours',
+  component: BlockHours,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {}
+      return {}
     },
     components: { BlockHours },
     template: `
         <block-hours lid="4690"/>
     `,
-})
+  }
+}
 
-export const NoInternalLocations = () => ({
+export function NoInternalLocations() {
+  return {
     data() {
-        return {}
+      return {}
     },
     components: { BlockHours },
     template: `
         <block-hours lid="4693"/>
     `,
-})
+  }
+}
 
-export const MoreInternalLocations = () => ({
+export function MoreInternalLocations() {
+  return {
     data() {
-        return {}
+      return {}
     },
     components: { BlockHours },
     template: `
         <block-hours lid="2081"/>
     `,
-})
+  }
+}
 
-export const WithZeroLid = () => ({
+export function WithZeroLid() {
+  return {
     data() {
-        return {}
+      return {}
     },
     components: { BlockHours },
     template: `
@@ -46,4 +53,5 @@ export const WithZeroLid = () => ({
             :is-clicc="true"
         />
     `,
-})
+  }
+}

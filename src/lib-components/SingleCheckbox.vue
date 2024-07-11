@@ -1,169 +1,126 @@
-<template>
-    <div class="single-checkbox">
-        <label :class="labelClass"
-            >{{ label }}
-            <input
-                type="checkbox"
-                class="input"
-                v-model="parseSelected"
-                :true-value="value"
-                :value="value"
-                @change="onChange(value)"
-            />
+<script setup>
+import { computed, ref, watch } from 'vue'
+import SvgIconCheckbox from 'ucla-library-design-tokens/assets/svgs/icon-checkbox.svg'
 
-            <!-- TODO create a checkbox SVG for this -->
-            <svg-icon-checkbox class="svg" />
-        </label>
-    </div>
-</template>
+// Define props
+const props = defineProps({
+  label: String,
+  selected: Boolean,
+})
 
-<script>
-// SVGs
-import SvgIconCheckbox from "ucla-library-design-tokens/assets/svgs/icon-checkbox.svg"
+// Define emits
+const emit = defineEmits(['update:selected', 'input-selected'])
 
-export default {
-    name: "SingleCheckbox",
-    data() {
-        return {
-            isSelected: "",
-        }
-    },
-    components: {
-        SvgIconCheckbox,
-    },
-    watch: {
-        selected: {
-            handler(newVal) {
-                console.log(
-                    "what is the new value of singlecheckobox in watch handler:" +
-                        newVal
-                )
-                this.isSelected = newVal
-            },
-        },
-    },
-    props: {
-        value: {
-            type: String,
-            default: "",
-        },
-        label: {
-            type: String,
-            default: "[LABEL]",
-        },
-        querySelection: {
-            type: String,
-            default: "",
-        },
-        selected: {
-            type: String,
-            default: "",
-        },
-    },
-    mounted() {
-        console.log("In mounted:" + this.isSelected)
-    },
-    computed: {
-        parseSelected: {
-            get() {
-                return this.isSelected == this.querySelection
-                    ? this.isSelected
-                    : this.querySelection
-            },
-            set(value) {
-                this.isSelected = value
-            },
-        },
-        labelClass() {
-            console.log("In labelClass:" + this.isSelected)
-            return ["label", this.isSelected === "yes" ? "checked" : ""]
-        },
-    },
-    methods: {
-        onChange(value) {
-            console.log("checkbox updates: " + this.isSelected)
-            this.$emit(
-                "update:selected",
-                !this.isSelected ? "" : this.isSelected
-            )
-            this.$emit("input-selected")
-        },
-    },
+// Reactive state
+const theSelection = ref(props.selected)
+
+// Watch for external changes to the `selected` prop
+watch(() => props.selected, (newVal) => {
+  theSelection.value = newVal
+})
+
+// Computed class
+const labelClass = computed(() => ['label', theSelection.value ? 'checked' : ''])
+
+// Method to handle change events
+function onChange() {
+  // Assuming there was a mistake in your original method, correcting it here
+  emit('update:selected', theSelection.value)
+  emit('input-selected')
 }
 </script>
 
-<style lang="scss" scoped>
+<template>
+  <div class="single-checkbox">
+    <label :class="labelClass">
+      {{ label }}
+      <input
+        v-model="theSelection"
+        type="checkbox"
+        class="input"
+        @change="onChange"
+      >
+      <SvgIconCheckbox class="svg" />
+    </label>
+  </div>
+</template>
+
+<style
+  lang="scss"
+  scoped
+>
 .single-checkbox {
-    min-width: 300px;
-    // padding: 18px 16px 18px 16px;
-    background: var(--color-primary-blue-03);
-    color: white;
+  min-width: 300px;
+  // padding: 18px 16px 18px 16px;
+  background: var(--color-primary-blue-03);
+  color: white;
+  font-family: var(--font-secondary);
+
+  .label {
     font-family: var(--font-secondary);
-    .label {
-        font-family: var(--font-secondary);
-        display: inline-block;
-        width: 100%;
-        padding: 15px 16px 15px 16px;
-        // margin: 4px 0;
-        // padding: 6px 14px 8px 45px;
-        cursor: pointer;
-        position: relative;
-        border: 1.5px solid var(--color-primary-blue-03);
-        transition-duration: 400ms;
-        transition-timing-function: ease-in-out;
+    display: inline-block;
+    width: 100%;
+    padding: 15px 16px 15px 16px;
+    // margin: 4px 0;
+    // padding: 6px 14px 8px 45px;
+    cursor: pointer;
+    position: relative;
+    border: 1.5px solid var(--color-primary-blue-03);
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
+  }
+
+  .input {
+    height: 20px;
+    width: 20px;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+  }
+
+  .svg {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+
+    .filler {
+      opacity: 0;
+      transition: opacity 200ms ease-in-out;
+    }
+  }
+
+  .svg__icon-checkbox {
+    :deep(.svg__stroke--default-cyan-03) {
+      stroke: transparent;
     }
 
-    .input {
-        height: 20px;
-        width: 20px;
-        opacity: 0;
-        position: absolute;
-        z-index: -1;
-        margin: 0;
-        padding: 0;
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: white;
     }
+  }
 
-    .svg {
-        position: absolute;
-        right: 20px;
-        top: 15px;
-        .filler {
-            opacity: 0;
-            transition: opacity 200ms ease-in-out;
-        }
-    }
+  .checked {
+    border: 1.5px solid var(--color-default-cyan-03);
+  }
 
-    .svg__icon-checkbox {
-        ::v-deep .svg__stroke--default-cyan-03 {
-            stroke: transparent;
-        }
-        ::v-deep .svg__stroke--primary-blue-03 {
-            stroke: white;
-        }
-    }
+  // Selected state
+  .input:checked+.svg__icon-checkbox :deep(.svg__stroke--default-cyan-03) {
+    stroke: white;
+  }
 
-    .checked {
-        border: 1.5px solid var(--color-default-cyan-03);
+  // Hovers
+  @media #{$has-hover} {
+    .label:hover {
+      //background-color: rgba(255, 255, 255, 0.1);
+      background-color: var(--color-primary-blue-04);
     }
+  }
 
-    // Selected state
-    .input:checked
-        + .svg__icon-checkbox
-        ::v-deep
-        .svg__stroke--default-cyan-03 {
-        stroke: white;
-    }
-    // Hovers
-    @media #{$has-hover} {
-        .label:hover {
-            //background-color: rgba(255, 255, 255, 0.1);
-            background-color: var(--color-primary-blue-04);
-        }
-    }
-
-    //Breakpoints
-    @media #{$small} {
-        min-width: unset;
-    }
+  //Breakpoints
+  @media #{$small} {
+    min-width: unset;
+  }
 }
 </style>

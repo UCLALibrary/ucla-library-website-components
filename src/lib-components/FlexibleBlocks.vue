@@ -1,203 +1,205 @@
-<template>
-    <section-wrapper class="flexible-blocks" :no-margins="true">
-        <section-header class="more-information"
-            >More Information</section-header
-        >
-        <div v-for="(block, index) in parsedBlocks" :key="index">
-            <section-wrapper v-if="block.needsDivider" theme="divider">
-                <DividerWayFinder />
-            </section-wrapper>
+<script setup>
+import { computed, defineAsyncComponent } from 'vue'
+import _kebabCase from 'lodash/kebabCase'
+import omit from 'lodash/omit'
+import SectionWrapper from './SectionWrapper.vue'
+import DividerWayFinder from './DividerWayFinder.vue'
+import SectionHeader from './SectionHeader.vue'
 
-            <section-wrapper
-                :theme="block.theme"
-                :section-title="sectionTitle(block)"
-                :section-summary="sectionSummary(block)"
-            >
-                <component
-                    v-if="block.mediaGalleryStyle == 'halfWidth'"
-                    :is="block.componentName"
-                    :block="block"
-                    class="flexible-block"
-                />
-                <component
-                    v-else
-                    :is="block.componentName"
-                    :block="omit(block, ['sectionTitle', 'sectionSummary'])"
-                    class="flexible-block"
-                />
-            </section-wrapper>
-        </div>
-    </section-wrapper>
-</template>
+const props = defineProps({
+  blocks: {
+    type: Array,
+    default: () => [],
+  },
+})
 
-<script>
-// Helpers
-import _kebabCase from "lodash/kebabCase"
-import omit from "lodash/omit"
-import SectionWrapper from "./SectionWrapper.vue"
-import DividerWayFinder from "./DividerWayFinder.vue"
-import SectionHeader from "./SectionHeader.vue"
+// Async components with explicit definitions
+const FlexibleAssociatedTopicCards = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/AssociatedTopicCards.vue')
+)
+const FlexibleBannerFeatured = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/BannerFeatured.vue')
+)
+const FlexibleCallToAction = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/CallToAction.vue')
+)
+const FlexibleCardWithImage = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/CardWithImage.vue')
+)
+const FlexibleForm = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/Form.vue')
+)
+const FlexibleGridGalleryCards = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/GridGalleryCards.vue')
+)
+const FlexibleHighlight = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/Highlight.vue')
+)
+const FlexibleImpactNumberCards = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/ImpactNumberCards.vue')
+)
+const FlexibleImpactNumbersCarousel = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/ImpactNumbersCarousel.vue')
+)
 
-const NEVER_GRAY = [
-    "flexible-associated-topic-cards",
-    "flexible-banner-featured",
-    "flexible-divider-general",
-    "flexible-form",
-    "flexible-impact-numbers-carousel",
-    "flexible-pull-quote",
-    "flexible-simple-cards",
-    "flexible-call-to-action",
-    "flexible-cta-block2-up",
-    "flexible-impact-number-cards",
-    "flexible-grid-gallery-cards",
-]
+const FlexibleMediaGallery = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/MediaGallery.vue')
+)
+const FlexibleMediaWithText = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/MediaWithText.vue')
+)
+const FlexiblePullQuote = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/PullQuote.vue')
+)
+const FlexibleRichText = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/RichText.vue')
+)
+const FlexibleSimpleCards = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/SimpleCards.vue')
+)
 
-export default {
-    name: "FlexibleBlocks",
-    components: {
-        SectionWrapper,
-        // TODO register all other block types
-        FlexibleCallToAction: () =>
-            import("@/lib-components/Flexible/CallToAction").then(
-                (d) => d.default
-            ),
-        FlexibleCtaBlock2Up: () =>
-            import("@/lib-components/Flexible/CtaBlock2Up").then(
-                (d) => d.default
-            ),
-        FlexibleBannerFeatured: () =>
-            import("@/lib-components/Flexible/BannerFeatured.vue").then(
-                (d) => d.default
-            ),
-        FlexibleHighlight: () =>
-            import("@/lib-components/Flexible/Highlight.vue").then(
-                (d) => d.default
-            ),
-        FlexibleSimpleCards: () =>
-            import("@/lib-components/Flexible/SimpleCards.vue").then(
-                (d) => d.default
-            ),
-        FlexiblePullQuote: () =>
-            import("@/lib-components/Flexible/PullQuote.vue").then(
-                (d) => d.default
-            ),
-        FlexibleCardWithImage: () =>
-            import("@/lib-components/Flexible/CardWithImage.vue").then(
-                (d) => d.default
-            ),
-        FlexibleRichText: () =>
-            import("@/lib-components/Flexible/RichText.vue").then(
-                (d) => d.default
-            ),
-        FlexibleMediaWithText: () =>
-            import("@/lib-components/Flexible/MediaWithText.vue").then(
-                (d) => d.default
-            ),
-        FlexibleMediaGallery: () =>
-            import("@/lib-components/Flexible/MediaGallery.vue").then(
-                (d) => d.default
-            ),
-        FlexibleForm: () =>
-            import("@/lib-components/Flexible/Form.vue").then((d) => d.default),
-        FlexibleImpactNumbersCarousel: () =>
-            import("@/lib-components/Flexible/ImpactNumbersCarousel.vue").then(
-                (d) => d.default
-            ),
-        FlexibleAssociatedTopicCards: () =>
-            import("@/lib-components/Flexible/AssociatedTopicCards.vue").then(
-                (d) => d.default
-            ),
-        FlexibleImpactNumberCards: () =>
-            import("@/lib-components/Flexible/ImpactNumberCards.vue").then(
-                (d) => d.default
-            ),
-        FlexibleGridGalleryCards: () =>
-            import("@/lib-components/Flexible/GridGalleryCards.vue").then(
-                (d) => d.default
-            ),
-        DividerWayFinder,
-        SectionHeader,
-    },
-
-    props: {
-        blocks: {
-            type: Array,
-            default: () => [],
-        },
-    },
-    computed: {
-        parsedBlocks() {
-            // Shape blocks to work with components
-            let output = this.blocks
-                .map((obj) => {
-                    // Normalize componentName
-                    return {
-                        ...obj,
-                        componentName: convertName(obj.typeHandle),
-                    }
-                })
-                .filter((obj) => {
-                    // Remove any un-registered blocks
-                    return this.registeredComponents.includes(obj.componentName)
-                })
-            for (let index = 0; index < output.length; index++) {
-                // Set theme color
-                if (
-                    index > 0 &&
-                    output[index - 1].theme == "white" &&
-                    !NEVER_GRAY.includes(output[index].componentName) &&
-                    index < output.length - 1 // Last flexible block will always be white
-                ) {
-                    output[index].theme = "gray"
-                } else {
-                    output[index].theme = "white"
-                }
-
-                // Add divider if one white block follows another
-                output[index].needsDivider =
-                    index > 0 &&
-                    output[index].theme == "white" &&
-                    output[index - 1].theme == "white"
-                        ? true
-                        : false
-            }
-
-            return output
-        },
-        registeredComponents() {
-            // Get all local component names as kebabCase, used to check if component is registered above
-            let components = Object.keys(this.$options.components || {})
-            return components.map((str) => {
-                return _kebabCase(str)
-            })
-        },
-    },
-    methods: {
-        omit,
-        sectionTitle(block) {
-            return block.mediaGalleryStyle == "halfWidth"
-                ? ""
-                : block.sectionTitle
-        },
-        sectionSummary(block) {
-            return block.mediaGalleryStyle == "halfWidth"
-                ? ""
-                : block.sectionSummary || block.richTextSimplified
-        },
-    },
+const components = {
+  'flexible-associated-topic-cards': FlexibleAssociatedTopicCards,
+  'flexible-banner-featured': FlexibleBannerFeatured,
+  'flexible-call-to-action': FlexibleCallToAction,
+  'flexible-card-with-image': FlexibleCardWithImage,
+  'flexible-form': FlexibleForm,
+  'flexible-grid-gallery-cards': FlexibleGridGalleryCards,
+  'flexible-highlight': FlexibleHighlight,
+  'flexible-impact-number-cards': FlexibleImpactNumberCards,
+  'flexible-impact-numbers-carousel': FlexibleImpactNumbersCarousel,
+  'flexible-media-gallery': FlexibleMediaGallery,
+  'flexible-media-with-text': FlexibleMediaWithText,
+  'flexible-pull-quote': FlexiblePullQuote,
+  'flexible-rich-text': FlexibleRichText,
+  'flexible-simple-cards': FlexibleSimpleCards,
+  // Add other components here if needed
 }
 
-function convertName(typeHandle) {
-    let output = `flexible-${typeHandle}`
+const NEVER_GRAY = [
+  'flexible-associated-topic-cards',
+  'flexible-banner-featured',
+  'flexible-divider-general',
+  'flexible-form',
+  'flexible-impact-numbers-carousel',
+  'flexible-pull-quote',
+  'flexible-simple-cards',
+  'flexible-call-to-action',
+  'flexible-cta-block2-up',
+  'flexible-impact-number-cards',
+  'flexible-grid-gallery-cards',
+]
 
-    return _kebabCase(output)
+const parsedBlocks = computed(() => {
+  // Map over the blocks and add additional properties to each block
+  const output = props.blocks.map(obj => ({
+    ...obj, // Spread the properties of the original block
+    componentName: convertName(obj.typeHandle), // Convert the typeHandle to a component name
+    theme: 'white', // Set the default theme to 'white'
+    needsDivider: false, // Set the default divider need to false
+  }))
+
+  // Iterate over the blocks to set the theme and divider need
+  output.forEach((block, index, arr) => {
+    // If the block is not the first one, the previous block's theme is 'white',
+    // the block's component name is not in the NEVER_GRAY list, and the block is not the last one
+    if (
+      index > 0
+      && arr[index - 1].theme === 'white'
+      && !NEVER_GRAY.includes(block.componentName)
+      && index < arr.length - 1
+    )
+      block.theme = 'gray' // Set the block's theme to 'gray'
+
+    // If the block is not the first one, and both the block and the previous block have a theme of 'white'
+    if (
+      index > 0
+      && block.theme === 'white'
+      && arr[index - 1].theme === 'white'
+    )
+      block.needsDivider = true // Set the block's divider need to true
+  })
+
+  // Filter the blocks to only include those whose component name is a key in the components object
+  return output.filter(block =>
+    Object.keys(components).includes(block.componentName)
+  )
+})
+
+function convertName(typeHandle) {
+  return _kebabCase(`flexible-${typeHandle}`)
+}
+// Type guard to check if a ContentType is a FlexibleMediaGallery
+function isFlexibleMediaGallery(block) {
+  return block.mediaGalleryStyle !== undefined
+}
+
+function sectionTitle(block) {
+  // Use the type guard to narrow down the type
+  if (isFlexibleMediaGallery(block)) {
+    // TypeScript now knows block is FlexibleMediaGallery, so it's safe to access mediaGalleryStyle
+    return block.mediaGalleryStyle === 'halfWidth' ? '' : block.sectionTitle
+  }
+  else {
+    return block.sectionTitle
+  }
+}
+
+function sectionSummary(block) {
+  return block.mediaGalleryStyle === 'halfWidth'
+    ? ''
+    : block.sectionSummary || block.richTextSimplified
+}
+
+function getComponent(name) {
+  return components[name]
 }
 </script>
 
+<template>
+  <SectionWrapper
+    class="flexible-blocks"
+    :no-margins="true"
+  >
+    <SectionHeader class="more-information">
+      More Information
+    </SectionHeader>
+    <!-- {{ parsedBlocks }}
+    <br>
+    {{ blocks }} -->
+    <div
+      v-for="(block, index) in parsedBlocks"
+      :key="`flexibleblocks-${index}`"
+    >
+      <SectionWrapper
+        v-if="block.needsDivider"
+        theme="divider"
+      >
+        <DividerWayFinder />
+      </SectionWrapper>
+
+      <SectionWrapper
+        :theme="block.theme"
+        :section-title="sectionTitle(block)"
+        :section-summary="sectionSummary(block)"
+      >
+        <component
+          :is="getComponent(block.componentName)"
+          :block="block.mediaGalleryStyle === 'halfWidth'
+            ? block
+            : omit(block, ['sectionTitle', 'sectionSummary'])
+          "
+          class="flexible-block"
+        />
+      </SectionWrapper>
+    </div>
+  </SectionWrapper>
+</template>
+
 <style lang="scss" scoped>
 .flexible-blocks {
-    .more-information {
-        @include visually-hidden;
-    }
+  .more-information {
+    @include visually-hidden;
+  }
 }
 </style>

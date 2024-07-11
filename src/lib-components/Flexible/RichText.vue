@@ -1,42 +1,38 @@
-<template>
-    <div class="rich-text">
-        <h2
-            v-if="block.sectionTitle"
-            class="section-title"
-            v-html="block.sectionTitle"
-        />
+<script setup lang="ts">
+import type { PropType } from 'vue'
 
-        <rich-text :rich-text-content="parsedContent" />
-    </div>
-</template>
+// COMPONENTS
+import RichText from '@/lib-components/RichText.vue'
 
-<script>
-import RichText from "@/lib-components/RichText"
+// TYPESCRPT
+import type { FlexibleRichText } from '@/types/flexible_types'
 
-export default {
-    name: "FlexibleRichText",
-    components: { RichText },
-
-    props: {
-        block: {
-            type: Object,
-            default: () => {},
-        },
-    },
-    computed: {
-        parsedContent() {
-            return this.block.richText
-        },
-    },
-}
+const { block } = defineProps({
+  block: {
+    type: Object as PropType<FlexibleRichText>,
+    default: () => { },
+  },
+})
 </script>
+
+<template>
+  <div class="rich-text">
+    <h2
+      v-if="block.sectionTitle"
+      class="section-title"
+      v-html="block.sectionTitle"
+    />
+
+    <RichText :rich-text-content="block.richText" />
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .rich-text {
-    .section-title {
-        @include step-3;
-        color: var(--color-primary-blue-03);
-        margin-bottom: var(--space-xl);
-    }
+  .section-title {
+    @include step-3;
+    color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-xl);
+  }
 }
 </style>

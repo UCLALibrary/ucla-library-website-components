@@ -1,27 +1,12 @@
-import IconWithLink from "@/lib-components/IconWithLink"
-import StoryRouter from "storybook-vue-router"
+import IconWithLink from '@/lib-components/IconWithLink'
 
-// Storybook default settings
 export default {
-    title: "Icon With Link",
-    component: IconWithLink,
-    decorators: [
-        StoryRouter(
-            {},
-            {
-                routes: [
-                    { path: "/visit/library/powell", component: IconWithLink },
-                    {
-                        path: "/help/services-and-resources",
-                        component: IconWithLink,
-                    },
-                ],
-            }
-        ),
-    ],
+  title: 'Icon With Link',
+  component: IconWithLink,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     components: { IconWithLink },
     template: `
         <icon-with-link
@@ -30,9 +15,11 @@ export const Default = () => ({
             to="/visit/library/powell"
         />
     `,
-})
+  }
+}
 
-export const WithExternalLink = () => ({
+export function WithExternalLink() {
+  return {
     components: { IconWithLink },
     template: `
         <icon-with-link
@@ -41,9 +28,11 @@ export const WithExternalLink = () => ({
             to="https://www.google.com/"
         />
     `,
-})
+  }
+}
 
-export const InternalLink = () => ({
+export function InternalLink() {
+  return {
     components: { IconWithLink },
     template: `
         <icon-with-link
@@ -52,9 +41,11 @@ export const InternalLink = () => ({
             to= "/help/services-and-resources"
         />
     `,
-})
+  }
+}
 
-export const ConsultationIconLink = () => ({
+export function ConsultationIconLink() {
+  return {
     components: { IconWithLink },
     template: `
         <icon-with-link
@@ -63,9 +54,11 @@ export const ConsultationIconLink = () => ({
             to= "/help/services-and-resources"
         />
     `,
-})
+  }
+}
 
-export const LongText = () => ({
+export function LongText() {
+  return {
     components: { IconWithLink },
     template: `
         <icon-with-link
@@ -74,9 +67,11 @@ export const LongText = () => ({
             to= "/help/services-and-resources"
         />
     `,
-})
+  }
+}
 
-export const AllIcons = () => ({
+export function AllIcons() {
+  return {
     components: { IconWithLink },
     template: `
         <ul>
@@ -260,4 +255,5 @@ export const AllIcons = () => ({
             /></li>
         </ul>
     `,
-})
+  }
+}

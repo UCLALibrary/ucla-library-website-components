@@ -1,3 +1,782 @@
+# [2.39.0-alpha.103](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.102...v2.39.0-alpha.103) (2024-07-11)
+
+
+### Features
+
+* Update workflows for merge to main ([#555](https://github.com/UCLALibrary/ucla-library-website-components/issues/555)) ([d31e3b5](https://github.com/UCLALibrary/ucla-library-website-components/commit/d31e3b561e461c94636a449ad8cb5dd41c313ca0))
+
+# [2.39.0-alpha.102](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.101...v2.39.0-alpha.102) (2024-07-10)
+
+
+### Features
+
+* APPS-2780 APPS-2781 APPS-2802 ([#552](https://github.com/UCLALibrary/ucla-library-website-components/issues/552)) ([a9973f4](https://github.com/UCLALibrary/ucla-library-website-components/commit/a9973f451fe536ff566221bba5c0c65c8cdfd644))
+
+# [2.39.0-alpha.101](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.100...v2.39.0-alpha.101) (2024-07-10)
+
+
+### Features
+
+* APPS-2788 Create Component FTVA NavSearch ([#539](https://github.com/UCLALibrary/ucla-library-website-components/issues/539)) ([bcb84d8](https://github.com/UCLALibrary/ucla-library-website-components/commit/bcb84d86510dc1cf364ba58f5aff6d1f6b9e9431))
+
+# [2.39.0-alpha.100](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.99...v2.39.0-alpha.100) (2024-07-03)
+
+
+### Features
+
+* move vue-router back to external and peer dependencies ([#547](https://github.com/UCLALibrary/ucla-library-website-components/issues/547)) ([b566b96](https://github.com/UCLALibrary/ucla-library-website-components/commit/b566b969cf0f41186921acba4de4486ab43dc92d))
+
+# [2.39.0-alpha.99](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.98...v2.39.0-alpha.99) (2024-07-03)
+
+
+### Features
+
+* vite build update for useroute to work ([#545](https://github.com/UCLALibrary/ucla-library-website-components/issues/545)) ([c449bea](https://github.com/UCLALibrary/ucla-library-website-components/commit/c449bea2367f28c3a09e7df68ee7c218674513c8))
+
+# [2.39.0-alpha.98](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.97...v2.39.0-alpha.98) (2024-07-03)
+
+
+### Features
+
+* adds watcheffect onmounted for useroute reactivity ([#544](https://github.com/UCLALibrary/ucla-library-website-components/issues/544)) ([99bb9e4](https://github.com/UCLALibrary/ucla-library-website-components/commit/99bb9e4ad0a701a19a291f92e86f60069daddeb9))
+
+# [2.39.0-alpha.97](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.96...v2.39.0-alpha.97) (2024-07-02)
+
+
+### Features
+
+* fix csbuild ([#543](https://github.com/UCLALibrary/ucla-library-website-components/issues/543)) ([58a80d6](https://github.com/UCLALibrary/ucla-library-website-components/commit/58a80d6a86cd1f6a4c03eb9496b3c8094ecdaf62))
+
+# [2.39.0-alpha.96](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.95...v2.39.0-alpha.96) (2024-07-02)
+
+
+### Features
+
+* APPS-2774 Create CardMeta component FTVA variation ([#530](https://github.com/UCLALibrary/ucla-library-website-components/issues/530)) ([898d40a](https://github.com/UCLALibrary/ucla-library-website-components/commit/898d40a292c9ad575b550a7ce97d40af55ba9431))
+* Revert vitebuild code added previously ([#542](https://github.com/UCLALibrary/ucla-library-website-components/issues/542)) ([a03fcb3](https://github.com/UCLALibrary/ucla-library-website-components/commit/a03fcb37b7b46d6549b768025446833f8fc76f50))
+
+# [2.39.0-alpha.95](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.94...v2.39.0-alpha.95) (2024-07-02)
+
+
+### Features
+
+* APPS-2701 Create DividerWayfinder & DividerGeneral component FTVA variation ([#523](https://github.com/UCLALibrary/ucla-library-website-components/issues/523)) ([a8be4c5](https://github.com/UCLALibrary/ucla-library-website-components/commit/a8be4c52e563cee8004cf4c8ac49e8bd642fe618))
+
+# [2.39.0-alpha.94](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.93...v2.39.0-alpha.94) (2024-07-02)
+
+
+### Bug Fixes
+
+* APPS-2794 ([#541](https://github.com/UCLALibrary/ucla-library-website-components/issues/541)) ([dbf38c0](https://github.com/UCLALibrary/ucla-library-website-components/commit/dbf38c0dc78059e08d52177c946e0424ee98340f))
+
+# [2.39.0-alpha.93](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.92...v2.39.0-alpha.93) (2024-07-01)
+
+
+### Bug Fixes
+
+* remove vue-router from external ([#540](https://github.com/UCLALibrary/ucla-library-website-components/issues/540)) ([1d52e4f](https://github.com/UCLALibrary/ucla-library-website-components/commit/1d52e4fa4f979464f7c7a61f30ca1c1e497a64aa))
+
+# [2.39.0-alpha.92](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.91...v2.39.0-alpha.92) (2024-07-01)
+
+
+### Bug Fixes
+
+* add console.log to divider component to test issue on the website ([#538](https://github.com/UCLALibrary/ucla-library-website-components/issues/538)) ([d001b0d](https://github.com/UCLALibrary/ucla-library-website-components/commit/d001b0dcfe85b13e9a9b6b568eb17bf21c8d439e))
+
+# [2.39.0-alpha.91](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.90...v2.39.0-alpha.91) (2024-06-28)
+
+
+### Features
+
+* Apps-2706 create BlockEventDetail component ([#527](https://github.com/UCLALibrary/ucla-library-website-components/issues/527)) ([9b47c54](https://github.com/UCLALibrary/ucla-library-website-components/commit/9b47c5492261e03bdff5067c68f3c7f952040081))
+
+# [2.39.0-alpha.90](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.89...v2.39.0-alpha.90) (2024-06-28)
+
+
+### Features
+
+* APPS-2707 Create FTVA BlockInfo component ([#529](https://github.com/UCLALibrary/ucla-library-website-components/issues/529)) ([84e8df0](https://github.com/UCLALibrary/ucla-library-website-components/commit/84e8df071addec2c7da48c9461f634a42d6b55e3))
+
+# [2.39.0-alpha.89](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.88...v2.39.0-alpha.89) (2024-06-27)
+
+
+### Features
+
+* Apps-2704 finish tags component part 2 ([#531](https://github.com/UCLALibrary/ucla-library-website-components/issues/531)) ([e7dc9c0](https://github.com/UCLALibrary/ucla-library-website-components/commit/e7dc9c0a81ef53a7420751a0dcd2a6e4704b4a55))
+
+# [2.39.0-alpha.88](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.87...v2.39.0-alpha.88) (2024-06-25)
+
+
+### Features
+
+* Apps-2773 update responsive image component ([#528](https://github.com/UCLALibrary/ucla-library-website-components/issues/528)) ([78b02f0](https://github.com/UCLALibrary/ucla-library-website-components/commit/78b02f0f4758827c78459f8f34f5e8feb4667b82))
+
+# [2.39.0-alpha.87](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.86...v2.39.0-alpha.87) (2024-06-24)
+
+
+### Features
+
+* APPS-2777 fix nitro crawling issue ([#534](https://github.com/UCLALibrary/ucla-library-website-components/issues/534)) ([c4e689a](https://github.com/UCLALibrary/ucla-library-website-components/commit/c4e689a0ff5509ea75831f73c19dd56bd8585a98))
+
+# [2.39.0-alpha.86](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.85...v2.39.0-alpha.86) (2024-06-21)
+
+
+### Bug Fixes
+
+* convert isdark and isSmallSize to boolean and test if string is true in flexible component ([#526](https://github.com/UCLALibrary/ucla-library-website-components/issues/526)) ([c864037](https://github.com/UCLALibrary/ucla-library-website-components/commit/c864037d3c534eafe917cdc59d6ca482136a62be))
+
+# [2.39.0-alpha.85](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.84...v2.39.0-alpha.85) (2024-06-20)
+
+
+### Bug Fixes
+
+* grey placeholder appreaing under email address label when not in focus ([#525](https://github.com/UCLALibrary/ucla-library-website-components/issues/525)) ([a036142](https://github.com/UCLALibrary/ucla-library-website-components/commit/a0361425d2b631d7c779004f0b45bc2cd6c98cd3))
+
+# [2.39.0-alpha.84](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.83...v2.39.0-alpha.84) (2024-06-18)
+
+
+### Features
+
+* APPS-2704 create tags component ([#522](https://github.com/UCLALibrary/ucla-library-website-components/issues/522)) ([71e0076](https://github.com/UCLALibrary/ucla-library-website-components/commit/71e0076301dd0524d64bed078996f5a9144b5e91))
+
+# [2.39.0-alpha.83](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.82...v2.39.0-alpha.83) (2024-06-03)
+
+
+### Features
+
+* APPS-2738 convert script setup to options api ([#515](https://github.com/UCLALibrary/ucla-library-website-components/issues/515)) ([438e5ad](https://github.com/UCLALibrary/ucla-library-website-components/commit/438e5adec974b4a4b965c026f6b37c6af193fd81))
+
+# [2.39.0-alpha.82](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.81...v2.39.0-alpha.82) (2024-05-28)
+
+
+### Bug Fixes
+
+* Fix tab focus in-out of search input field ([#514](https://github.com/UCLALibrary/ucla-library-website-components/issues/514)) ([8810085](https://github.com/UCLALibrary/ucla-library-website-components/commit/8810085558f37ee5400e935b619106e123348af2))
+
+# [2.39.0-alpha.81](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.80...v2.39.0-alpha.81) (2024-05-28)
+
+
+### Bug Fixes
+
+* APPS-2671 BannerFeatured digital eyebrow / category is not appearing ([#513](https://github.com/UCLALibrary/ucla-library-website-components/issues/513)) ([c962748](https://github.com/UCLALibrary/ucla-library-website-components/commit/c9627480a57091f9a7f52592cb8156d5113a708f))
+
+# [2.39.0-alpha.80](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.79...v2.39.0-alpha.80) (2024-05-18)
+
+
+### Bug Fixes
+
+* search generic checkbox state  ([#510](https://github.com/UCLALibrary/ucla-library-website-components/issues/510)) ([89d6e32](https://github.com/UCLALibrary/ucla-library-website-components/commit/89d6e324901ef6b31780abad668aba5b1e14d3fb))
+
+# [2.39.0-alpha.79](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.78...v2.39.0-alpha.79) (2024-05-16)
+
+
+### Bug Fixes
+
+* APPS-2665 When user clicks the x on search keyword, the search is not triggered automatically ([#509](https://github.com/UCLALibrary/ucla-library-website-components/issues/509)) ([49ad0af](https://github.com/UCLALibrary/ucla-library-website-components/commit/49ad0afaee1ef67d97d367efc8a3bdfcf397a2b8))
+
+# [2.39.0-alpha.78](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.77...v2.39.0-alpha.78) (2024-05-11)
+
+
+### Bug Fixes
+
+* APPS-2675 fix BlockStaffDetail.vue image type ([#508](https://github.com/UCLALibrary/ucla-library-website-components/issues/508)) ([779e58d](https://github.com/UCLALibrary/ucla-library-website-components/commit/779e58dcaebf126eb1743701d35e7c18f1961016))
+
+# [2.39.0-alpha.77](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.76...v2.39.0-alpha.77) (2024-05-09)
+
+
+### Bug Fixes
+
+* APPS-2668 SearchHome.vue query param should be q ([#507](https://github.com/UCLALibrary/ucla-library-website-components/issues/507)) ([3ab4e57](https://github.com/UCLALibrary/ucla-library-website-components/commit/3ab4e579abecd50182f85783d99c14f0ecbcf949))
+
+# [2.39.0-alpha.76](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.75...v2.39.0-alpha.76) (2024-04-30)
+
+
+### Bug Fixes
+
+* APPS-2648 Fix BannerFeatured error in FlexibleBlock component ([#506](https://github.com/UCLALibrary/ucla-library-website-components/issues/506)) ([274bb79](https://github.com/UCLALibrary/ucla-library-website-components/commit/274bb79fa26282e4afa5b4295088e5020428282b))
+
+# [2.39.0-alpha.75](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.74...v2.39.0-alpha.75) (2024-04-26)
+
+
+### Bug Fixes
+
+* APPS-2637 Fix issues in FlexibleBlock's nested components ([#504](https://github.com/UCLALibrary/ucla-library-website-components/issues/504)) ([7ca4dc9](https://github.com/UCLALibrary/ucla-library-website-components/commit/7ca4dc935b7220680dce429685222390eff1877e))
+
+# [2.39.0-alpha.74](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.73...v2.39.0-alpha.74) (2024-04-25)
+
+
+### Features
+
+* APPS-2265, Add clickoutside feature to search-generic component ([#505](https://github.com/UCLALibrary/ucla-library-website-components/issues/505)) ([34a3e2b](https://github.com/UCLALibrary/ucla-library-website-components/commit/34a3e2b2ed97bfa193500682bb53d84bf88e512d))
+
+# [2.39.0-alpha.73](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.72...v2.39.0-alpha.73) (2024-04-22)
+
+
+### Features
+
+* APPS-2632 convert block & section PostSmall to vue3 ([#498](https://github.com/UCLALibrary/ucla-library-website-components/issues/498)) ([38e05cf](https://github.com/UCLALibrary/ucla-library-website-components/commit/38e05cffbcb38c6aed94790848eb70148331afe3))
+
+# [2.39.0-alpha.72](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.71...v2.39.0-alpha.72) (2024-04-22)
+
+
+### Bug Fixes
+
+* add search to masthead ([#503](https://github.com/UCLALibrary/ucla-library-website-components/issues/503)) ([ddd8746](https://github.com/UCLALibrary/ucla-library-website-components/commit/ddd8746156db2a3c13f17ff26a9903f8ae3cb1d9))
+
+# [2.39.0-alpha.71](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.70...v2.39.0-alpha.71) (2024-04-18)
+
+
+### Features
+
+* Add SearchGeneric component ([#501](https://github.com/UCLALibrary/ucla-library-website-components/issues/501)) ([d1886e8](https://github.com/UCLALibrary/ucla-library-website-components/commit/d1886e85c7e96305b04aca7d8ac4035d6b143995))
+
+# [2.39.0-alpha.70](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.69...v2.39.0-alpha.70) (2024-04-16)
+
+
+### Bug Fixes
+
+* Refactor StaffList & Add checks for MediaGallery ([#499](https://github.com/UCLALibrary/ucla-library-website-components/issues/499)) ([131cfe3](https://github.com/UCLALibrary/ucla-library-website-components/commit/131cfe304807d20c8ea078dbf72a07e7f7da46a3))
+
+# [2.39.0-alpha.69](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.68...v2.39.0-alpha.69) (2024-04-10)
+
+
+### Features
+
+* APPS-2635 Convert BlockStaffDetail to vue3 ([#497](https://github.com/UCLALibrary/ucla-library-website-components/issues/497)) ([4c8d803](https://github.com/UCLALibrary/ucla-library-website-components/commit/4c8d8033e0f539757e82caae2dbcb595d02832f0))
+
+# [2.39.0-alpha.68](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.67...v2.39.0-alpha.68) (2024-04-10)
+
+
+### Features
+
+* APPS-2583-2582 Fix block StaffSubjectLibrarian & Convert SectionStaffSubjectLibrarian to vue3 ([#494](https://github.com/UCLALibrary/ucla-library-website-components/issues/494)) ([0d6cb4d](https://github.com/UCLALibrary/ucla-library-website-components/commit/0d6cb4ddf0b17a3ec1e0100b43f00247a5a3f55c))
+
+# [2.39.0-alpha.67](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.66...v2.39.0-alpha.67) (2024-04-09)
+
+
+### Features
+
+* provide inject can be refs ([#492](https://github.com/UCLALibrary/ucla-library-website-components/issues/492)) ([f8d5c9d](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8d5c9d318f5bf54bb354265030ed1a6a8ab34fc))
+
+# [2.39.0-alpha.66](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.65...v2.39.0-alpha.66) (2024-04-09)
+
+
+### Features
+
+* Apps-2559 convert HeaderSticky to vue3 ([#493](https://github.com/UCLALibrary/ucla-library-website-components/issues/493)) ([25e081c](https://github.com/UCLALibrary/ucla-library-website-components/commit/25e081cb7c01a5c43a031e2afb6d2d1d2235fa18))
+
+# [2.39.0-alpha.65](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.64...v2.39.0-alpha.65) (2024-04-08)
+
+
+### Features
+
+* APPS-2634_APPS-2581 Convert BlockStaffArticleList & SectionStaffArticleList ([#491](https://github.com/UCLALibrary/ucla-library-website-components/issues/491)) ([a947bdd](https://github.com/UCLALibrary/ucla-library-website-components/commit/a947bddd7f4501c5a77f6e78fea0fccaea5706cf))
+
+# [2.39.0-alpha.64](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.63...v2.39.0-alpha.64) (2024-04-06)
+
+
+### Features
+
+* APPS-2633_APPS-2636 Convert BlockStaffList & SectionStaffList to vue3 ([#490](https://github.com/UCLALibrary/ucla-library-website-components/issues/490)) ([4f6b97f](https://github.com/UCLALibrary/ucla-library-website-components/commit/4f6b97fcbaa6cae1a1fe8d6f0e7e6baa18c91411))
+
+# [2.39.0-alpha.63](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.62...v2.39.0-alpha.63) (2024-04-05)
+
+
+### Features
+
+* APPS-2555 convert PageAnchor to vue 3 ([#488](https://github.com/UCLALibrary/ucla-library-website-components/issues/488)) ([ecd2f5d](https://github.com/UCLALibrary/ucla-library-website-components/commit/ecd2f5de57a7b76bbe9518739b418308d5e446a1))
+
+# [2.39.0-alpha.62](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.61...v2.39.0-alpha.62) (2024-04-05)
+
+
+### Bug Fixes
+
+* section wrapper for prerender ([#489](https://github.com/UCLALibrary/ucla-library-website-components/issues/489)) ([a3a3510](https://github.com/UCLALibrary/ucla-library-website-components/commit/a3a3510dc30f3258ecf981c474a884c6422c1835))
+
+# [2.39.0-alpha.61](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.60...v2.39.0-alpha.61) (2024-04-04)
+
+
+### Features
+
+* APPS-2569 convert SectionGenericList to vue3 ([#487](https://github.com/UCLALibrary/ucla-library-website-components/issues/487)) ([5d7f61d](https://github.com/UCLALibrary/ucla-library-website-components/commit/5d7f61dfab6fe9147009ed7402c8217badfe236f))
+
+# [2.39.0-alpha.60](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.59...v2.39.0-alpha.60) (2024-04-03)
+
+
+### Features
+
+* APPS-2556 Convert BlockHours to vue3 ([#485](https://github.com/UCLALibrary/ucla-library-website-components/issues/485)) ([2824893](https://github.com/UCLALibrary/ucla-library-website-components/commit/2824893f3559401c486bb22d23c22d32f2a2d487))
+
+# [2.39.0-alpha.59](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.58...v2.39.0-alpha.59) (2024-04-02)
+
+
+### Bug Fixes
+
+* typehandle error ([#484](https://github.com/UCLALibrary/ucla-library-website-components/issues/484)) ([eb6cf8e](https://github.com/UCLALibrary/ucla-library-website-components/commit/eb6cf8e344c25f8984ea1d12ebaf4468fd0b7a1b))
+
+# [2.39.0-alpha.58](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.57...v2.39.0-alpha.58) (2024-04-02)
+
+
+### Features
+
+* APPS-2570, APPS-2557 convert BlockLocationListItem and SectionLocationList ([#482](https://github.com/UCLALibrary/ucla-library-website-components/issues/482)) ([b9468df](https://github.com/UCLALibrary/ucla-library-website-components/commit/b9468df57f40a596cf501c3226e84fb49c7a067a))
+
+# [2.39.0-alpha.57](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.56...v2.39.0-alpha.57) (2024-04-01)
+
+
+### Features
+
+* APPS-2619 ([#478](https://github.com/UCLALibrary/ucla-library-website-components/issues/478)) ([daf43ac](https://github.com/UCLALibrary/ucla-library-website-components/commit/daf43ac5001d56afca8e7f66e1a0f80a71f63f1a))
+
+# [2.39.0-alpha.56](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.55...v2.39.0-alpha.56) (2024-03-29)
+
+
+### Bug Fixes
+
+* add FlexibleBlocks export to index.js ([#481](https://github.com/UCLALibrary/ucla-library-website-components/issues/481)) ([334fd7f](https://github.com/UCLALibrary/ucla-library-website-components/commit/334fd7fad3be22e5e87384670bd0ac6be706c25e))
+
+# [2.39.0-alpha.55](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.54...v2.39.0-alpha.55) (2024-03-28)
+
+
+### Features
+
+* APPS-2565, APPS-2566 convert ImpactRichText & StoryWithImage to vue 3 ([#480](https://github.com/UCLALibrary/ucla-library-website-components/issues/480)) ([6e0f1dd](https://github.com/UCLALibrary/ucla-library-website-components/commit/6e0f1dd30490d642afa015d92d4f4b6f9ede737a))
+
+# [2.39.0-alpha.54](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.53...v2.39.0-alpha.54) (2024-03-28)
+
+
+### Features
+
+* APPS-2076 Create DateFilter component and install Vue3Datepicker ([#476](https://github.com/UCLALibrary/ucla-library-website-components/issues/476)) ([63970a8](https://github.com/UCLALibrary/ucla-library-website-components/commit/63970a8f1af1234bbbeba34887286a262f2392c6))
+
+# [2.39.0-alpha.53](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.52...v2.39.0-alpha.53) (2024-03-27)
+
+
+### Features
+
+* APPS-2610 convert Flexible/ImpactNumberCarousel component to vue3 ([#479](https://github.com/UCLALibrary/ucla-library-website-components/issues/479)) ([0b66ed4](https://github.com/UCLALibrary/ucla-library-website-components/commit/0b66ed475e3e0d4a550ce55b13ae0fd277a5d5e7))
+
+# [2.39.0-alpha.52](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.51...v2.39.0-alpha.52) (2024-03-27)
+
+
+### Features
+
+* APPS-2571 convert SectionPagination to vue 3 ([#477](https://github.com/UCLALibrary/ucla-library-website-components/issues/477)) ([2921110](https://github.com/UCLALibrary/ucla-library-website-components/commit/29211105fce271b1525e7c309a8f7cbaf8b1887e))
+
+# [2.39.0-alpha.51](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.50...v2.39.0-alpha.51) (2024-03-26)
+
+
+### Features
+
+* APPS-2597 convert flexible-card-with-image component to vue3 ([#470](https://github.com/UCLALibrary/ucla-library-website-components/issues/470)) ([f463681](https://github.com/UCLALibrary/ucla-library-website-components/commit/f463681a3874271e72e8fba1ee2331d144029038))
+
+# [2.39.0-alpha.50](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.49...v2.39.0-alpha.50) (2024-03-18)
+
+
+### Features
+
+* Add BaseRadioGroup and BaseCheckboxGroup components to vue3 and stories are new ([#475](https://github.com/UCLALibrary/ucla-library-website-components/issues/475)) ([c18c33c](https://github.com/UCLALibrary/ucla-library-website-components/commit/c18c33c344691c51931493777572e639222e2e27))
+
+# [2.39.0-alpha.49](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.48...v2.39.0-alpha.49) (2024-03-15)
+
+
+### Features
+
+* APPS-2549 Migrate SectionRemoveSearchFilter component ([#474](https://github.com/UCLALibrary/ucla-library-website-components/issues/474)) ([05baae5](https://github.com/UCLALibrary/ucla-library-website-components/commit/05baae56f9e728992f200dcb675622b3d4f87146))
+
+# [2.39.0-alpha.48](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.47...v2.39.0-alpha.48) (2024-03-13)
+
+
+### Features
+
+* APPS-2561 convert flexible-media-with-text component to vue3 ([#469](https://github.com/UCLALibrary/ucla-library-website-components/issues/469)) ([782df47](https://github.com/UCLALibrary/ucla-library-website-components/commit/782df47dc942f05b29f10623f5da97384a526743))
+
+# [2.39.0-alpha.47](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.46...v2.39.0-alpha.47) (2024-03-09)
+
+
+### Features
+
+* APPS-2466 convert ImpactNumbersCarousel component to vue3 ([#471](https://github.com/UCLALibrary/ucla-library-website-components/issues/471)) ([80290c4](https://github.com/UCLALibrary/ucla-library-website-components/commit/80290c4d0ac0d0b0da353dd616f95a0633efa808))
+
+# [2.39.0-alpha.46](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.45...v2.39.0-alpha.46) (2024-03-06)
+
+
+### Features
+
+* APPS-2564 convert flexible-simple-cards component to vue3 ([#459](https://github.com/UCLALibrary/ucla-library-website-components/issues/459)) ([d872275](https://github.com/UCLALibrary/ucla-library-website-components/commit/d8722755ba4387a83dc244e9ffb2caedc83ea1cb))
+
+# [2.39.0-alpha.45](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.44...v2.39.0-alpha.45) (2024-03-06)
+
+
+### Features
+
+* APPS-2552 flexible blocks component ([#467](https://github.com/UCLALibrary/ucla-library-website-components/issues/467)) ([cc52770](https://github.com/UCLALibrary/ucla-library-website-components/commit/cc52770e90de20256ae7bfabe4aeac4d12b4cdce))
+
+# [2.39.0-alpha.44](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.43...v2.39.0-alpha.44) (2024-02-29)
+
+
+### Features
+
+* APPS-2563 Convert Flexible RichText component to vue3 ([#465](https://github.com/UCLALibrary/ucla-library-website-components/issues/465)) ([368dc13](https://github.com/UCLALibrary/ucla-library-website-components/commit/368dc133f3fbe8ffac191039891d86c9a74ff332))
+
+# [2.39.0-alpha.43](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.42...v2.39.0-alpha.43) (2024-02-28)
+
+
+### Features
+
+* APPS-2560 Add FlexibleMediaGallery + Vue3 Carousel ([#458](https://github.com/UCLALibrary/ucla-library-website-components/issues/458)) ([f1212b1](https://github.com/UCLALibrary/ucla-library-website-components/commit/f1212b17e06efb3a8aa67d8894ea016ef1ecb5be))
+
+# [2.39.0-alpha.42](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.41...v2.39.0-alpha.42) (2024-02-22)
+
+
+### Features
+
+* APPS:2562 add Flexible/PullQuote component to vue3 ([#457](https://github.com/UCLALibrary/ucla-library-website-components/issues/457)) ([2b209b6](https://github.com/UCLALibrary/ucla-library-website-components/commit/2b209b6089a32c1018bba2acd37f8c67556ad0d1))
+
+# [2.39.0-alpha.41](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.40...v2.39.0-alpha.41) (2024-02-17)
+
+
+### Bug Fixes
+
+* check if route exists in cardmeta and navprimary ([#455](https://github.com/UCLALibrary/ucla-library-website-components/issues/455)) ([1b9945e](https://github.com/UCLALibrary/ucla-library-website-components/commit/1b9945ec4b870e141e0e36e41ecc5e528d49545f))
+
+# [2.39.0-alpha.40](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.39...v2.39.0-alpha.40) (2024-02-17)
+
+
+### Bug Fixes
+
+* remove duplicate color which was causing hydration error ([#454](https://github.com/UCLALibrary/ucla-library-website-components/issues/454)) ([260f208](https://github.com/UCLALibrary/ucla-library-website-components/commit/260f208de65fd7e953ee7e2d7a82dbd5ff53d937))
+
+# [2.39.0-alpha.39](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.38...v2.39.0-alpha.39) (2024-02-17)
+
+
+### Bug Fixes
+
+* Fix useroute ([#452](https://github.com/UCLALibrary/ucla-library-website-components/issues/452)) ([c35ab5d](https://github.com/UCLALibrary/ucla-library-website-components/commit/c35ab5d76a14dcded7fe12b31e0b39ba1a453995))
+
+# [2.39.0-alpha.38](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.37...v2.39.0-alpha.38) (2024-02-16)
+
+
+### Features
+
+* APPS-2529 Add FlexibleImpactNumberCards  component to vue3 branch ([#451](https://github.com/UCLALibrary/ucla-library-website-components/issues/451)) ([9fb34c7](https://github.com/UCLALibrary/ucla-library-website-components/commit/9fb34c76927522c98743772216b0f0808618eda9))
+
+# [2.39.0-alpha.37](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.36...v2.39.0-alpha.37) (2024-02-16)
+
+
+### Features
+
+* APPS-2568 Add FlexibleGalleryThumbnailCard ([#447](https://github.com/UCLALibrary/ucla-library-website-components/issues/447)) ([18304e3](https://github.com/UCLALibrary/ucla-library-website-components/commit/18304e3fdc72e9decb90e39d3e8ce0fb03155eee))
+
+# [2.39.0-alpha.36](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.35...v2.39.0-alpha.36) (2024-02-16)
+
+
+### Bug Fixes
+
+* APPS-2411 fix section name with color-default, since route path is undefined ([#448](https://github.com/UCLALibrary/ucla-library-website-components/issues/448)) ([a325e0f](https://github.com/UCLALibrary/ucla-library-website-components/commit/a325e0f14005f8297c8c50e96326c06eacf00208))
+
+
+### Features
+
+* APPS-2550 Add FlexibleHighlight component ([#446](https://github.com/UCLALibrary/ucla-library-website-components/issues/446)) ([f3b5e9f](https://github.com/UCLALibrary/ucla-library-website-components/commit/f3b5e9f903d788c2621ce488e03eb2111180c803)), closes [#442](https://github.com/UCLALibrary/ucla-library-website-components/issues/442)
+* APPS-2567 Add FlexibleGalleryBannerImage, MediaBadge ([#449](https://github.com/UCLALibrary/ucla-library-website-components/issues/449)) ([b082d84](https://github.com/UCLALibrary/ucla-library-website-components/commit/b082d84dbbd39ae8d1f98dedc2f541b16975d4cc))
+
+# [2.39.0-alpha.35](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.34...v2.39.0-alpha.35) (2024-02-14)
+
+
+### Features
+
+* APPS-2417 Add SectionTeaserHighlight component ([#445](https://github.com/UCLALibrary/ucla-library-website-components/issues/445)) ([8fc1f57](https://github.com/UCLALibrary/ucla-library-website-components/commit/8fc1f57d7cc5a0fa99506b19275e25e4f3937f43)), closes [#442](https://github.com/UCLALibrary/ucla-library-website-components/issues/442)
+* APPS-2419   Add SectionTeaserCard component to vue3 ([#440](https://github.com/UCLALibrary/ucla-library-website-components/issues/440)) ([47c6190](https://github.com/UCLALibrary/ucla-library-website-components/commit/47c619081b5f1dfa887da84ef3388def2b7caebf))
+
+# [2.39.0-alpha.34](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.33...v2.39.0-alpha.34) (2024-02-07)
+
+
+### Features
+
+* APPS-2551 Add SectionTeaserList component ([#444](https://github.com/UCLALibrary/ucla-library-website-components/issues/444)) ([9bf7d5f](https://github.com/UCLALibrary/ucla-library-website-components/commit/9bf7d5f5e565522a841ab1d50ee140c5026a01ef))
+
+# [2.39.0-alpha.33](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.32...v2.39.0-alpha.33) (2024-02-07)
+
+
+### Features
+
+* APPS-2522 Add FlexibleBannerFeatured component ([#442](https://github.com/UCLALibrary/ucla-library-website-components/issues/442)) ([928b7b0](https://github.com/UCLALibrary/ucla-library-website-components/commit/928b7b0e16f46c48c784cd62b8be4f2c628c2b04))
+
+# [2.39.0-alpha.32](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.31...v2.39.0-alpha.32) (2024-02-01)
+
+
+### Features
+
+* APPS-2525 Add FlexibleForm component ([#439](https://github.com/UCLALibrary/ucla-library-website-components/issues/439)) ([431ef16](https://github.com/UCLALibrary/ucla-library-website-components/commit/431ef16136cdfe230ed4acdf6f34b7a8bf63aa80))
+
+# [2.39.0-alpha.31](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.30...v2.39.0-alpha.31) (2024-01-31)
+
+
+### Features
+
+* APPS-2521 Add FlexibleAssociatedTopicCards component ([#438](https://github.com/UCLALibrary/ucla-library-website-components/issues/438)) ([381ea01](https://github.com/UCLALibrary/ucla-library-website-components/commit/381ea01d84657e449f7cddfc1231f667fa303c39))
+
+# [2.39.0-alpha.30](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.29...v2.39.0-alpha.30) (2024-01-27)
+
+
+### Features
+
+* APPS-2516 Add block remove search filter to vue3 branch ([#437](https://github.com/UCLALibrary/ucla-library-website-components/issues/437)) ([e49377b](https://github.com/UCLALibrary/ucla-library-website-components/commit/e49377b032ff3e7146f298d54d3b9936416ed461))
+
+# [2.39.0-alpha.29](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.28...v2.39.0-alpha.29) (2024-01-26)
+
+
+### Features
+
+* APPS-2524 FlexibleCallToActionTwoUp component ([#433](https://github.com/UCLALibrary/ucla-library-website-components/issues/433)) ([59a644e](https://github.com/UCLALibrary/ucla-library-website-components/commit/59a644ef9b98c217aaf494958b89cb3b6b461093))
+
+# [2.39.0-alpha.28](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.27...v2.39.0-alpha.28) (2024-01-24)
+
+
+### Bug Fixes
+
+* ci npm publish add node version setup for node version 20 ([#434](https://github.com/UCLALibrary/ucla-library-website-components/issues/434)) ([c5b9398](https://github.com/UCLALibrary/ucla-library-website-components/commit/c5b9398219d6dc5e00b27b5dccb5122d9228cf65))
+
+
+### Features
+
+* APPS-2523 FlexibleCallToAction component ([#432](https://github.com/UCLALibrary/ucla-library-website-components/issues/432)) ([e80b52b](https://github.com/UCLALibrary/ucla-library-website-components/commit/e80b52bd95dcfad4db1d677b48e9f2798f1b475c))
+* APPS-2526 GridGallery component ([#430](https://github.com/UCLALibrary/ucla-library-website-components/issues/430)) ([31faed6](https://github.com/UCLALibrary/ucla-library-website-components/commit/31faed6398b0c3d251b6d26c68ea13c240d84901))
+* APPS-2528 FlexibleGridGalleryCards component ([#431](https://github.com/UCLALibrary/ucla-library-website-components/issues/431)) ([e39520c](https://github.com/UCLALibrary/ucla-library-website-components/commit/e39520c3fbf4a584ccd532441085c72486fdda92))
+
+# [2.39.0-alpha.27](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.26...v2.39.0-alpha.27) (2024-01-12)
+
+
+### Features
+
+* APPS-2527 ImpactNumberCard component ([#429](https://github.com/UCLALibrary/ucla-library-website-components/issues/429)) ([2e86d7d](https://github.com/UCLALibrary/ucla-library-website-components/commit/2e86d7dc442873dbc12a8ec8d8637d278f7898b3))
+
+# [2.39.0-alpha.26](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.25...v2.39.0-alpha.26) (2024-01-12)
+
+
+### Features
+
+* APPS-2535 Add ResponsiveVideo to Banner components ([#428](https://github.com/UCLALibrary/ucla-library-website-components/issues/428)) ([f754127](https://github.com/UCLALibrary/ucla-library-website-components/commit/f75412730b949c367a8fc2f0261615a844a58ca3))
+
+# [2.39.0-alpha.25](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.24...v2.39.0-alpha.25) (2023-12-22)
+
+
+### Features
+
+* APPS-2507 ResponsiveVideo component ([#427](https://github.com/UCLALibrary/ucla-library-website-components/issues/427)) ([ca74313](https://github.com/UCLALibrary/ucla-library-website-components/commit/ca743135562fc2c54cdb275ca0570a34c26f7403))
+
+# [2.39.0-alpha.24](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.23...v2.39.0-alpha.24) (2023-12-21)
+
+
+### Features
+
+* APPS-2470 SearchHome,Input components ([#426](https://github.com/UCLALibrary/ucla-library-website-components/issues/426)) ([9f2c25c](https://github.com/UCLALibrary/ucla-library-website-components/commit/9f2c25cf7b9f8d692f84d1c92919ab1df7ca17a1))
+
+# [2.39.0-alpha.23](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.22...v2.39.0-alpha.23) (2023-12-20)
+
+
+### Features
+
+* APPS-2518 BlockForm component ([#425](https://github.com/UCLALibrary/ucla-library-website-components/issues/425)) ([e339c20](https://github.com/UCLALibrary/ucla-library-website-components/commit/e339c20318060a5dd46a6fbc25d2b0deaa1b555a))
+
+# [2.39.0-alpha.22](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.21...v2.39.0-alpha.22) (2023-12-15)
+
+
+### Features
+
+* APPS-2468 BannerText component ([#424](https://github.com/UCLALibrary/ucla-library-website-components/issues/424)) ([54c5b76](https://github.com/UCLALibrary/ucla-library-website-components/commit/54c5b767b4e2d00eeefde29fbced7f1adb6380bd))
+
+# [2.39.0-alpha.21](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.20...v2.39.0-alpha.21) (2023-12-15)
+
+
+### Features
+
+* APPS-2467 BannerHeader component ([#423](https://github.com/UCLALibrary/ucla-library-website-components/issues/423)) ([bc7fe42](https://github.com/UCLALibrary/ucla-library-website-components/commit/bc7fe4268a9ef2583469015ad2311b0485c236e2))
+
+# [2.39.0-alpha.20](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.19...v2.39.0-alpha.20) (2023-12-08)
+
+
+### Features
+
+* APPS-2415 banner featured ([#422](https://github.com/UCLALibrary/ucla-library-website-components/issues/422)) ([b7a9476](https://github.com/UCLALibrary/ucla-library-website-components/commit/b7a9476e8d977f88258068aa7e003e7d68a00f26))
+
+# [2.39.0-alpha.19](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.18...v2.39.0-alpha.19) (2023-12-06)
+
+
+### Features
+
+* APPS-2513 Add BlockHighlight child components ([#421](https://github.com/UCLALibrary/ucla-library-website-components/issues/421)) ([381e9fe](https://github.com/UCLALibrary/ucla-library-website-components/commit/381e9fe8097dd7cc455024fbca1708dc2ee9abfe))
+
+# [2.39.0-alpha.18](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.17...v2.39.0-alpha.18) (2023-11-27)
+
+
+### Features
+
+* APPS-2465 Add BlockCampusMap in vue3 ([#420](https://github.com/UCLALibrary/ucla-library-website-components/issues/420)) ([4dd29e0](https://github.com/UCLALibrary/ucla-library-website-components/commit/4dd29e0e0a92aca43f6b99f56af33babc0c0ac69))
+
+# [2.39.0-alpha.17](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.16...v2.39.0-alpha.17) (2023-11-09)
+
+
+### Bug Fixes
+
+* APPS-2491 Component updates ([#417](https://github.com/UCLALibrary/ucla-library-website-components/issues/417)) ([cdf1fc3](https://github.com/UCLALibrary/ucla-library-website-components/commit/cdf1fc34ac1b46425331077e89d8941d23bba533))
+
+# [2.39.0-alpha.16](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.15...v2.39.0-alpha.16) (2023-11-09)
+
+
+### Features
+
+* APPS-2459 Add Multiple Components ([#416](https://github.com/UCLALibrary/ucla-library-website-components/issues/416)) ([64db8fa](https://github.com/UCLALibrary/ucla-library-website-components/commit/64db8fae60666350d7f68ae53aa8fee91b014554))
+
+# [2.39.0-alpha.15](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.14...v2.39.0-alpha.15) (2023-10-26)
+
+
+### Features
+
+* APPS-2460 add header components ([#415](https://github.com/UCLALibrary/ucla-library-website-components/issues/415)) ([9cf2385](https://github.com/UCLALibrary/ucla-library-website-components/commit/9cf2385f2dba8fe4c1200fa511bbd4865a5ec9ff))
+
+# [2.39.0-alpha.14](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.13...v2.39.0-alpha.14) (2023-10-23)
+
+
+### Features
+
+* APPS-2458 Add Block- Amenities, Generic List, StaffSubjectLibrarian ([#414](https://github.com/UCLALibrary/ucla-library-website-components/issues/414)) ([ce7109a](https://github.com/UCLALibrary/ucla-library-website-components/commit/ce7109a9700c062b4fdfc21f559ec41e8c7f8078))
+
+# [2.39.0-alpha.13](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.12...v2.39.0-alpha.13) (2023-10-13)
+
+
+### Features
+
+* APPS 2452 Add BlockShowHide, NavBreadcrumb, OrcidPub components ([#410](https://github.com/UCLALibrary/ucla-library-website-components/issues/410)) ([9a5c8fc](https://github.com/UCLALibrary/ucla-library-website-components/commit/9a5c8fc4eb3198799c9e642b44ad00e2a223942b))
+
+# [2.39.0-alpha.12](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.11...v2.39.0-alpha.12) (2023-10-12)
+
+
+### Features
+
+* APPS-2450 Add multiple block components ([#409](https://github.com/UCLALibrary/ucla-library-website-components/issues/409)) ([8140d68](https://github.com/UCLALibrary/ucla-library-website-components/commit/8140d6821a7b45970b0b554b38739fda277acb5a))
+
+# [2.39.0-alpha.11](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.10...v2.39.0-alpha.11) (2023-10-10)
+
+
+### Features
+
+* APPS-2405 Add footer components and get footer data from mock pinia store ([#408](https://github.com/UCLALibrary/ucla-library-website-components/issues/408)) ([c9ae722](https://github.com/UCLALibrary/ucla-library-website-components/commit/c9ae722ec088cca7f8084322282f6ea6fb0ad27f))
+
+# [2.39.0-alpha.10](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.9...v2.39.0-alpha.10) (2023-10-06)
+
+
+### Features
+
+* add AlphaBrowseBy, BlockCTA, BlockCTA2Up, SearchResult, SingleCheckbox components ([#405](https://github.com/UCLALibrary/ucla-library-website-components/issues/405)) ([ea46997](https://github.com/UCLALibrary/ucla-library-website-components/commit/ea469977773371f5002646f57749b3065feaa0f4)), closes [#403](https://github.com/UCLALibrary/ucla-library-website-components/issues/403)
+* Apps 2431 apps 2454 add pinia ([#406](https://github.com/UCLALibrary/ucla-library-website-components/issues/406)) ([84829a1](https://github.com/UCLALibrary/ucla-library-website-components/commit/84829a1af8e0721667a17ca54c463238f28ef15e))
+
+# [2.39.0-alpha.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.8...v2.39.0-alpha.9) (2023-10-04)
+
+
+### Features
+
+* Add section header and sectionwrapper compositon api support and use antfu ([#403](https://github.com/UCLALibrary/ucla-library-website-components/issues/403)) ([b31489f](https://github.com/UCLALibrary/ucla-library-website-components/commit/b31489f63b3ce4d53b0068a5c6da778226339661))
+
+# [2.39.0-alpha.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.7...v2.39.0-alpha.8) (2023-09-29)
+
+
+### Features
+
+* add SiteBrandBar, IconWithLink, PullQuote, BlockDate components ([#400](https://github.com/UCLALibrary/ucla-library-website-components/issues/400)) ([b974e25](https://github.com/UCLALibrary/ucla-library-website-components/commit/b974e2553c4786552cd375e79be64b87aa6437ad))
+
+# [2.39.0-alpha.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.6...v2.39.0-alpha.7) (2023-09-27)
+
+
+### Features
+
+* Add heading-arrow component ([#399](https://github.com/UCLALibrary/ucla-library-website-components/issues/399)) ([85fc752](https://github.com/UCLALibrary/ucla-library-website-components/commit/85fc75234c6b8fa7c0265f453cb9aba88fe28648))
+
+# [2.39.0-alpha.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.5...v2.39.0-alpha.6) (2023-09-26)
+
+
+### Features
+
+* ButtonShow, ButtonMore ([#398](https://github.com/UCLALibrary/ucla-library-website-components/issues/398)) ([11ade14](https://github.com/UCLALibrary/ucla-library-website-components/commit/11ade146ea05c4b2259fdccd14ad84976dabc10f))
+
+# [2.39.0-alpha.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.4...v2.39.0-alpha.5) (2023-09-22)
+
+
+### Features
+
+* ButtonHide ([#396](https://github.com/UCLALibrary/ucla-library-website-components/issues/396)) ([bdc6d08](https://github.com/UCLALibrary/ucla-library-website-components/commit/bdc6d08f24e9165a4281704ff0d42bb0ff634831))
+
+# [2.39.0-alpha.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.3...v2.39.0-alpha.4) (2023-09-15)
+
+
+### Features
+
+* Add SiteNotificationAlert, RichText, ButtonLink, and Smart Link  components ([#395](https://github.com/UCLALibrary/ucla-library-website-components/issues/395)) ([a740d4e](https://github.com/UCLALibrary/ucla-library-website-components/commit/a740d4ed3d937d47e52369ecfda74122104f4181))
+
+# [2.39.0-alpha.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.2...v2.39.0-alpha.3) (2023-09-01)
+
+
+### Features
+
+* test patch bump with semantic pre release alpha ([#392](https://github.com/UCLALibrary/ucla-library-website-components/issues/392)) ([a9c5ba4](https://github.com/UCLALibrary/ucla-library-website-components/commit/a9c5ba46c28279da36a0336b1801ccfbce6cf506))
+
+# [2.39.0-alpha.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.1...v2.39.0-alpha.2) (2023-09-01)
+
+
+### Features
+
+* test minor bump with semantic pre release alpha ([#391](https://github.com/UCLALibrary/ucla-library-website-components/issues/391)) ([260436e](https://github.com/UCLALibrary/ucla-library-website-components/commit/260436efcb01a1a6285a6d33b1eb97aa9d04766f))
+
+# [2.39.0-alpha.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.0...v2.39.0-alpha.1) (2023-09-01)
+
+
+### Bug Fixes
+
+* build a new version for next release candidate ([#381](https://github.com/UCLALibrary/ucla-library-website-components/issues/381)) ([0ed3dc1](https://github.com/UCLALibrary/ucla-library-website-components/commit/0ed3dc18dd22a0133026d094b99919ea1b93fc9e))
+* changelog and unpublish the next tag ([#384](https://github.com/UCLALibrary/ucla-library-website-components/issues/384)) ([a15b35a](https://github.com/UCLALibrary/ucla-library-website-components/commit/a15b35a5c6f6d7272e15b407cb8d30784ed052b6))
+* ci workflows, test npm release ([#383](https://github.com/UCLALibrary/ucla-library-website-components/issues/383)) ([4cd7030](https://github.com/UCLALibrary/ucla-library-website-components/commit/4cd7030d139badcd4ac4548429a5f4802b556b4b))
+* if package.json changes run pnpm install ([#380](https://github.com/UCLALibrary/ucla-library-website-components/issues/380)) ([2300b3d](https://github.com/UCLALibrary/ucla-library-website-components/commit/2300b3d08dc2f7f318e14a80b78fdfd8ab664c17))
+* release vue3.x to next channel ([#386](https://github.com/UCLALibrary/ucla-library-website-components/issues/386)) ([3b55e04](https://github.com/UCLALibrary/ucla-library-website-components/commit/3b55e04257f59f85111ee85784d12e1e5752c200))
+
+
+### Features
+
+* APPS-2381 add divider components ([#366](https://github.com/UCLALibrary/ucla-library-website-components/issues/366)) ([4544e6c](https://github.com/UCLALibrary/ucla-library-website-components/commit/4544e6c35508705fec5a03a36079f8af4cf68632))
+* bump up semantic minor version test ([#387](https://github.com/UCLALibrary/ucla-library-website-components/issues/387)) ([309acb5](https://github.com/UCLALibrary/ucla-library-website-components/commit/309acb58cc9cd38fe84037c282681167ce7028f4))
+* fix and use alpha release ([#390](https://github.com/UCLALibrary/ucla-library-website-components/issues/390)) ([9b55857](https://github.com/UCLALibrary/ucla-library-website-components/commit/9b55857a99fabe30236f432e91e9d5e0b47e194e))
+
+# [2.39.0-vue3.x.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.0...v2.39.0-vue3.x.1) (2023-09-01)
+
+
+### Bug Fixes
+
+* build a new version for next release candidate ([#381](https://github.com/UCLALibrary/ucla-library-website-components/issues/381)) ([0ed3dc1](https://github.com/UCLALibrary/ucla-library-website-components/commit/0ed3dc18dd22a0133026d094b99919ea1b93fc9e))
+* changelog and unpublish the next tag ([#384](https://github.com/UCLALibrary/ucla-library-website-components/issues/384)) ([a15b35a](https://github.com/UCLALibrary/ucla-library-website-components/commit/a15b35a5c6f6d7272e15b407cb8d30784ed052b6))
+* ci workflows, test npm release ([#383](https://github.com/UCLALibrary/ucla-library-website-components/issues/383)) ([4cd7030](https://github.com/UCLALibrary/ucla-library-website-components/commit/4cd7030d139badcd4ac4548429a5f4802b556b4b))
+* if package.json changes run pnpm install ([#380](https://github.com/UCLALibrary/ucla-library-website-components/issues/380)) ([2300b3d](https://github.com/UCLALibrary/ucla-library-website-components/commit/2300b3d08dc2f7f318e14a80b78fdfd8ab664c17))
+* release vue3.x to next channel ([#386](https://github.com/UCLALibrary/ucla-library-website-components/issues/386)) ([3b55e04](https://github.com/UCLALibrary/ucla-library-website-components/commit/3b55e04257f59f85111ee85784d12e1e5752c200))
+
+
+### Features
+
+* APPS-2381 add divider components ([#366](https://github.com/UCLALibrary/ucla-library-website-components/issues/366)) ([4544e6c](https://github.com/UCLALibrary/ucla-library-website-components/commit/4544e6c35508705fec5a03a36079f8af4cf68632))
+* bump up semantic minor version test ([#387](https://github.com/UCLALibrary/ucla-library-website-components/issues/387)) ([309acb5](https://github.com/UCLALibrary/ucla-library-website-components/commit/309acb58cc9cd38fe84037c282681167ce7028f4))
+
+# [2.39.0-vue3.x.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.0...v2.39.0-vue3.x.1) (2023-09-01)
+
+
+### Bug Fixes
+
+* build a new version for next release candidate ([#381](https://github.com/UCLALibrary/ucla-library-website-components/issues/381)) ([0ed3dc1](https://github.com/UCLALibrary/ucla-library-website-components/commit/0ed3dc18dd22a0133026d094b99919ea1b93fc9e))
+* changelog and unpublish the next tag ([#384](https://github.com/UCLALibrary/ucla-library-website-components/issues/384)) ([a15b35a](https://github.com/UCLALibrary/ucla-library-website-components/commit/a15b35a5c6f6d7272e15b407cb8d30784ed052b6))
+* ci workflows, test npm release ([#383](https://github.com/UCLALibrary/ucla-library-website-components/issues/383)) ([4cd7030](https://github.com/UCLALibrary/ucla-library-website-components/commit/4cd7030d139badcd4ac4548429a5f4802b556b4b))
+* if package.json changes run pnpm install ([#380](https://github.com/UCLALibrary/ucla-library-website-components/issues/380)) ([2300b3d](https://github.com/UCLALibrary/ucla-library-website-components/commit/2300b3d08dc2f7f318e14a80b78fdfd8ab664c17))
+* release vue3.x to next channel ([#386](https://github.com/UCLALibrary/ucla-library-website-components/issues/386)) ([3b55e04](https://github.com/UCLALibrary/ucla-library-website-components/commit/3b55e04257f59f85111ee85784d12e1e5752c200))
+
+
+### Features
+
 ## [2.41.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.41.5...v2.41.6) (2024-04-03)
 
 

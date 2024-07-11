@@ -1,24 +1,28 @@
-import SectionPagination from "@/lib-components/SectionPagination"
-import StoryRouter from "storybook-vue-router"
+import SectionPagination from '@/lib-components/SectionPagination'
 
 // Storybook default settings
 export default {
-    title: "SECTION / Pagination",
-    component: SectionPagination,
-    decorators: [StoryRouter()],
+  title: 'SECTION / Pagination',
+  component: SectionPagination,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     components: { SectionPagination },
-    template: `<section-pagination previousTo="/page/1" nextTo="/page/3" />`,
-})
+    template: '<section-pagination previousTo="/page/1" nextTo="/page/3" />',
+  }
+}
 
-export const FirstPage = () => ({
+export function FirstPage() {
+  return {
     components: { SectionPagination },
-    template: `<section-pagination nextTo="/page/1" />`,
-})
+    template: '<section-pagination nextTo="/page/1" />',
+  }
+}
 
-export const LastPage = () => ({
+export function LastPage() {
+  return {
     components: { SectionPagination },
-    template: `<section-pagination previousTo="/page/10" />`,
-})
+    template: '<section-pagination previousTo="/page/10" />',
+  }
+}

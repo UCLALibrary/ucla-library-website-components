@@ -1,51 +1,51 @@
-import BannerHeader from "@/lib-components/BannerHeader"
-import StoryRouter from "storybook-vue-router"
+import BannerHeader from '@/lib-components/BannerHeader'
+
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
-import BlockFormData from "@/stories/mock/BlockFormData.json"
+import * as API from '@/stories/mock-api.json'
+import BlockFormData from '@/stories/mock/BlockFormData.json'
 
 export default {
-    title: "Banner Header",
-    component: BannerHeader,
-    decorators: [StoryRouter()],
+  title: 'Banner Header',
+  component: BannerHeader,
 }
 
 const mock = {
-    image: API.image,
-    to: "/applicants/foo/bar/",
-    title: "Curabitur Tortor Pellentesque Nibh Aenean",
-    category: "Lectus",
-    startDate: "1995-12-17T03:24:00",
-    endDate: "1995-12-17T03:24:00",
-    byline: ["Jen Diamond", "Pikku Lehtonen"],
-    subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
-    locations: [
-        {
-            id: "523",
-            title: "Powell Library",
-            to: "visit/locations/powell-library",
-        },
-        {
-            id: "3062",
-            title: "Online",
-            to: "visit/locations/online",
-        },
-    ],
-    prompt: "Cursus Quis",
-    alignRight: true,
-    sectionHandle: "event",
+  image: API.image,
+  to: '/app/foo/bar/',
+  title: 'Curabitur Tortor Pellentesque Nibh Aenean',
+  category: 'Lectus',
+  startDate: '1995-12-17T03:24:00',
+  endDate: '1995-12-17T03:24:00',
+  byline: ['Jen Diamond', 'Pikku Lehtonen'],
+  subjectAreas: [{ title: 'Ghosts' }, { title: 'Clowns' }],
+  locations: [
+    {
+      id: '523',
+      title: 'Powell Library',
+      to: 'visit/locations/powell-library',
+    },
+    {
+      id: '3062',
+      title: 'Online',
+      to: 'visit/locations/online',
+    },
+  ],
+  prompt: 'Cursus Quis',
+  alignRight: true,
+  sectionHandle: 'event',
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            :category="category"
@@ -57,18 +57,20 @@ export const Default = () => ({
            :section-handle="sectionHandle"
        />
     `,
-})
+  }
+}
 
-export const LeftAligned = () => ({
+export function LeftAligned() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            :category="category"
@@ -80,18 +82,20 @@ export const LeftAligned = () => ({
            :section-handle="sectionHandle"
        />
     `,
-})
+  }
+}
 
-export const NoCategory = () => ({
+export function NoCategory() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            :start-date="startDate"
@@ -102,18 +106,20 @@ export const NoCategory = () => ({
            :section-handle="sectionHandle"
        />
     `,
-})
+  }
+}
 
-export const WithBylineAndSubjectAreas = () => ({
+export function WithBylineAndSubjectAreas() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            :start-date="startDate"
@@ -125,51 +131,57 @@ export const WithBylineAndSubjectAreas = () => ({
            :section-handle="sectionHandle"
        />
     `,
-})
+  }
+}
 
-export const OnlyTitle = () => ({
+export function OnlyTitle() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :title="title"
            :align-right="false"
        />
     `,
-})
+  }
+}
 
-export const Video = () => ({
+export function Video() {
+  return {
     data() {
-        return {
-            ...mock,
-            video: API.video,
-        }
+      return {
+        ...mock,
+        video: API.video,
+      }
     },
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="video"
+           :media="video"
            :title="title"
            :align-right="false"
        />
     `,
-})
+  }
+}
 
-export const WithContactInfo = () => ({
+export function WithContactInfo() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -181,44 +193,46 @@ export const WithContactInfo = () => ({
            :prompt="prompt"
        />
     `,
-})
+  }
+}
 
 // --------- ARTICLE --------------
 
 const article = {
-    image: API.image,
-    title: "I Like Turtles",
-    category: "Library News",
-    dateCreated: "2022-02-09T10:57:46-08:00",
-    sectionHandle: "article",
-    byline: [" Written by Courtney Hoffner", "Illustrations by Jen Diamond"],
-    subjectAreas: [{ title: "Ghosts" }, { title: "Clowns" }],
-    locations: [
-        {
-            id: "523",
-            title: "Powell Library",
-            to: "visit/locations/powell-library",
-        },
-        {
-            id: "3062",
-            title: "Online",
-            to: "visit/locations/online",
-        },
-    ],
-    alignRight: true,
-    text: "Turtles are an order of reptiles known as Testudines, characterized by a shell developed mainly from their ribs. Turtles are groups, big ones and small ones.",
+  image: API.image,
+  title: 'I Like Turtles',
+  category: 'Library News',
+  dateCreated: '2022-02-09T10:57:46-08:00',
+  sectionHandle: 'article',
+  byline: [' Written by Courtney Hoffner', 'Illustrations by Jen Diamond'],
+  subjectAreas: [{ title: 'Ghosts' }, { title: 'Clowns' }],
+  locations: [
+    {
+      id: '523',
+      title: 'Powell Library',
+      to: 'visit/locations/powell-library',
+    },
+    {
+      id: '3062',
+      title: 'Online',
+      to: 'visit/locations/online',
+    },
+  ],
+  alignRight: true,
+  text: 'Turtles are an order of reptiles known as Testudines, characterized by a shell developed mainly from their ribs. Turtles are groups, big ones and small ones.',
 }
 
-export const ArticleDetail = () => ({
+export function ArticleDetail() {
+  return {
     data() {
-        return {
-            ...article,
-        }
+      return {
+        ...article,
+      }
     },
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :title="title"
            :byline="byline"
            :subjectAreas="subjectAreas"
@@ -228,19 +242,21 @@ export const ArticleDetail = () => ({
            :section-handle="sectionHandle"
        />
     `,
-})
+  }
+}
 
-export const ExternalLink = () => ({
+export function ExternalLink() {
+  return {
     data() {
-        return {
-            ...mock,
-            to: "https://an.external.url/",
-        }
+      return {
+        ...mock,
+        to: 'https://an.external.url/',
+      }
     },
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :to="to"
            :title="title"
            :category="category"
@@ -252,26 +268,28 @@ export const ExternalLink = () => ({
            :section-handle="sectionHandle"
        />
     `,
-})
+  }
+}
 
-export const WithBlockForm = () => ({
+export function WithBlockForm() {
+  return {
     data() {
-        return {
-            ...mock,
-            ...BlockFormData,
-        }
+      return {
+        ...mock,
+        ...BlockFormData,
+      }
     },
     provide: {
-        // explicitly provide a computed property
-        eventId: "9383207",
-        blockFormData: BlockFormData.mock1,
-        libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
-        registrationType: "both",
+      // explicitly provide a computed property
+      eventId: '9383207',
+      blockFormData: BlockFormData.mock1,
+      libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+      registrationType: 'both',
     },
     components: { BannerHeader },
     template: `
         <banner-header
-           :image="image"
+           :media="image"
            :title="title"
            :category="category"
            :start-date="startDate"
@@ -283,4 +301,5 @@ export const WithBlockForm = () => ({
            :section-handle="sectionHandle"
        />
     `,
-})
+  }
+}

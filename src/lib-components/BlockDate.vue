@@ -1,37 +1,37 @@
-<template>
-    <div class="block-date">
-        <svg-arrow-down class="svg" />
-        <div class="date">
-            {{ date }}
-        </div>
-        <div class="day">
-            {{ day }}
-        </div>
-    </div>
-</template>
-
 <script>
-import SvgArrowDown from "ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg"
+import SvgArrowDown from 'ucla-library-design-tokens/assets/svgs/graphic-chevron-right.svg'
 
 export default {
-    name: "BlockDate",
-    components: {
-        SvgArrowDown,
+  name: 'BlockDate',
+  components: {
+    SvgArrowDown,
+  },
+  // TODO See ticket in internal system for notes on this. TLDR: Use JS date objects
+  // Then have date-fns format function as computed to show date and day
+  props: {
+    date: {
+      type: String,
+      default: '',
     },
-    // TODO See ticket in internal system for notes on this. TLDR: Use JS date objects
-    // Then have date-fns format function as computed to show date and day
-    props: {
-        date: {
-            type: String,
-            default: "",
-        },
-        day: {
-            type: String,
-            default: "",
-        },
+    day: {
+      type: String,
+      default: '',
     },
+  },
 }
 </script>
+
+<template>
+  <div class="block-date">
+    <SvgArrowDown class="svg" />
+    <div class="date">
+      {{ date }}
+    </div>
+    <div class="day">
+      {{ day }}
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .block-date {
@@ -51,7 +51,7 @@ export default {
         // height: 60px;
         transform: rotate(90deg) scale(0.9, 0.9);
 
-        .svg__stroke--wayfinder {
+        :deep(.svg__stroke--wayfinder) {
             stroke: var(--color-visit-fushia-03);
         }
     }

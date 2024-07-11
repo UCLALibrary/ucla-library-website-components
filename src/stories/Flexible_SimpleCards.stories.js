@@ -1,26 +1,23 @@
-import FlexibleSimpleCards from "@/lib-components/Flexible/SimpleCards"
-import StoryRouter from "storybook-vue-router"
-
 import {
-    mockTwoCards,
-    mockThreeCards,
-    mockFourCards,
-    mockFiveCards,
-    mockSixCards,
-    mockLibraryFlexibleSimpleCards,
-} from "./mock/Flexible_SimpleCards"
+  mockFiveCards,
+  mockFourCards,
+  mockSixCards,
+  mockThreeCards,
+  mockTwoCards,
+} from './mock/Flexible_SimpleCards'
+import FlexibleSimpleCards from '@/lib-components/Flexible/SimpleCards'
 
 export default {
-    title: "FLEXIBLE / Simple Cards",
-    component: FlexibleSimpleCards,
-    decorators: [StoryRouter()],
+  title: 'FLEXIBLE / Simple Cards',
+  component: FlexibleSimpleCards,
 }
 
 // Variations of stories below
 // TwoCards
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return { block: mockTwoCards }
+      return { block: mockTwoCards }
     },
     components: { FlexibleSimpleCards },
     template: `
@@ -28,54 +25,53 @@ export const Default = () => ({
           :block="block"
       />
   `,
-})
+  }
+}
 
-export const ThreeCards = () => ({
+export function ThreeCards() {
+  return {
     data() {
-        return { block: mockThreeCards }
+      return { block: mockThreeCards }
     },
     components: { FlexibleSimpleCards },
     template: `
       <flexible-simple-cards :block="block" />
   `,
-})
+  }
+}
 
-export const FourCards = () => ({
+export function FourCards() {
+  return {
     data() {
-        return { block: mockFourCards }
+      return { block: mockFourCards }
     },
     components: { FlexibleSimpleCards },
     template: `
       <flexible-simple-cards :block="block" />
   `,
-})
+  }
+}
 
-export const FiveCards = () => ({
+export function FiveCards() {
+  return {
     data() {
-        return { block: mockFiveCards }
+      return { block: mockFiveCards }
     },
     components: { FlexibleSimpleCards },
     template: `
       <flexible-simple-cards :block="block" />
   `,
-})
+  }
+}
 
-export const SixCards = () => ({
+export function SixCards() {
+  return {
     data() {
-        return { block: mockSixCards }
+      return { block: mockSixCards }
     },
     components: { FlexibleSimpleCards },
     template: `
       <flexible-simple-cards :block="block" />
   `,
-})
-
-export const LibrarySimpleCards = () => ({
-    data() {
-        return { block: mockLibraryFlexibleSimpleCards }
-    },
-    components: { FlexibleSimpleCards },
-    template: `
-      <flexible-simple-cards :block="block" />
-  `,
-})
+  }
+}

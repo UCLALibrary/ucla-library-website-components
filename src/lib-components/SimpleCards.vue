@@ -1,77 +1,78 @@
-<template>
-    <div class="simple-cards">
-        <div class="section-header">
-            <h2
-                v-if="sectionTitle"
-                class="section-title"
-                v-html="sectionTitle"
-            />
-            <div
-                v-if="sectionSummary"
-                class="section-summary"
-                v-html="sectionSummary"
-            />
-        </div>
+<script lang="ts" setup>
+import { computed } from 'vue'
 
-        <ul class="simple-cards-list">
-            <block-simple-card
-                v-for="(item, index) in parsedContent"
-                :key="`SimpleCardsKey${index}`"
-                :class="item.classes"
-                :to="item.to"
-                :title="item.title"
-                :text="item.text"
-            />
-        </ul>
-    </div>
-</template>
+import type { PropType } from 'vue'
 
-<script>
-import BlockSimpleCard from "@/lib-components/BlockSimpleCard"
+import BlockSimpleCard from '@/lib-components/BlockSimpleCard.vue'
 
-export default {
-    name: "SimpleCards",
-    components: { BlockSimpleCard },
-    props: {
-        items: {
-            type: Array,
-            default: () => [],
-        },
-        sectionTitle: {
-            type: String,
-            default: "",
-        },
-        sectionSummary: {
-            type: String,
-            default: "",
-        },
-    },
-    computed: {
-        parsedContent() {
-            let output = ["card", "card-small"]
-            switch (this.items.length) {
-                case 1:
-                    output = ["card"]
-                    break
-                case 2:
-                case 4:
-                    output = ["card", "card-large"]
-                    break
-                case 5:
-                    output = ["card", "card-five"]
-                    break
-            }
+import type { CardItemType } from '@/types/types'
 
-            return this.items.map((obj) => {
-                return {
-                    ...obj,
-                    classes: output,
-                }
-            })
-        },
-    },
-}
+const { items, sectionTitle, sectionSummary } = defineProps({
+  items: {
+    type: Array as PropType<CardItemType[]>,
+    default: () => [],
+  },
+  sectionTitle: {
+    type: String,
+    default: '',
+  },
+  sectionSummary: {
+    type: String,
+    default: '',
+  },
+})
+
+const parsedContent = computed (() => {
+  let output = ['card', 'card-small']
+  switch (items.length) {
+    case 1:
+      output = ['card']
+      break
+    case 2:
+    case 4:
+      output = ['card', 'card-large']
+      break
+    case 5:
+      output = ['card', 'card-five']
+      break
+  }
+
+  return items.map((obj) => {
+    return {
+      ...obj,
+      classes: output,
+    }
+  })
+})
 </script>
+
+<template>
+  <div class="simple-cards">
+    <div class="section-header">
+      <h2
+        v-if="sectionTitle"
+        class="section-title"
+        v-text="sectionTitle"
+      />
+      <div
+        v-if="sectionSummary"
+        class="section-summary"
+        v-html="sectionSummary"
+      />
+    </div>
+
+    <ul class="simple-cards-list">
+      <BlockSimpleCard
+        v-for="(item, index) in parsedContent"
+        :key="`SimpleCardsKey${index}`"
+        :class="item.classes"
+        :to="item.to"
+        :title="item.title"
+        :text="item.text"
+      />
+    </ul>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .simple-cards {
@@ -89,7 +90,7 @@ export default {
         @include step-0;
         color: var(--color-black);
 
-        ::v-deep p {
+        :deep(p) {
             margin: 0;
         }
     }

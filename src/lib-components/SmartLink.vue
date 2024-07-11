@@ -1,67 +1,75 @@
-<template>
-    <router-link
-        v-if="isRelative && !isDownload && !parsedTarget"
-        class="smart-link is-router-link"
-        :to="to"
-    >
-        <slot />
-    </router-link>
-
-    <a v-else-if="isDownload" :href="to" class="smart-link is-link" download>
-        <slot />
-    </a>
-
-    <a
-        v-else-if="to"
-        :href="to"
-        :target="parsedTarget"
-        class="smart-link is-link"
-    >
-        <slot />
-    </a>
-
-    <button v-else class="smart-link is-link">
-        <slot />
-    </button>
-</template>
-
 <script>
 // Helper functions
-import formatLinkTarget from "@/mixins/formatLinkTarget"
-import isRelativeLink from "@/mixins/isRelativeLink"
+import formatLinkTarget from '@/utils/formatLinkTarget'
+import isRelativeLink from '@/utils/isRelativeLink'
 
 export default {
-    name: "SmartLink",
-    mixins: [isRelativeLink, formatLinkTarget],
-    props: {
-        to: {
-            type: String,
-            default: "",
-        },
-        linkTarget: {
-            type: String,
-            default: "",
-        },
-        isDownload: {
-            type: Boolean,
-            default: false,
-        },
+  name: 'SmartLink',
+
+  props: {
+    to: {
+      type: String,
+      default: '',
     },
-    computed: {
-        parsedTarget() {
-            return this.formatLinkTarget(this.linkTarget, this.to)
-        },
-        isRelative() {
-            return this.isRelativeLink(this.to) ? true : false
-        },
+    linkTarget: {
+      type: String,
+      default: '',
     },
+    isDownload: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    parsedTarget() {
+      return formatLinkTarget(this.linkTarget, this.to)
+    },
+    isRelative() {
+      return !!isRelativeLink(this.to)
+    },
+  },
 }
 </script>
 
+<template>
+  <router-link
+    v-if="isRelative && !isDownload && !parsedTarget"
+    class="smart-link is-router-link"
+    :to="to"
+  >
+    <slot />
+  </router-link>
+
+  <a
+    v-else-if="isDownload"
+    :href="to"
+    class="smart-link is-link"
+    download
+  >
+    <slot />
+  </a>
+
+  <a
+    v-else-if="to"
+    :href="to"
+    :target="parsedTarget"
+    class="smart-link is-link"
+  >
+    <slot />
+  </a>
+
+  <button
+    v-else
+    class="smart-link is-link"
+  >
+    <slot />
+  </button>
+</template>
+
 <style lang="scss" scoped>
 .link-icon {
-    &:hover {
-        @include link-hover;
-    }
+  &:hover {
+    @include link-hover;
+  }
 }
 </style>

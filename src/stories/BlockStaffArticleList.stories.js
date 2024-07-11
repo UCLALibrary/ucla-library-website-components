@@ -1,50 +1,29 @@
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
-import BlockStaffArticleList from "@/lib-components/BlockStaffArticleList"
-import StoryRouter from "storybook-vue-router"
+import * as API from '@/stories/mock-api.json'
+import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList'
 
 // Storybook default settings
 export default {
-    title: "BLOCK / Staff / Article / List",
-    component: BlockStaffArticleList,
-    decorators: [
-        StoryRouter(
-            {},
-            {
-                routes: [
-                    {
-                        path: "/about/foo/bar/",
-                        component: BlockStaffArticleList,
-                    },
-                    {
-                        path: "/staff/Justo-Magna",
-                        component: BlockStaffArticleList,
-                    },
-                    {
-                        path: "/staff/Luctus-Suscipit",
-                        component: BlockStaffArticleList,
-                    },
-                ],
-            }
-        ),
-    ],
+  title: 'BLOCK / Staff / Article / List',
+  component: BlockStaffArticleList,
 }
 
 const mock = {
-    image: API.image,
-    to: "/about/foo/bar/",
-    category: "Ullamco",
-    title: "Fames ac turpis egestas sed tempus lorem ipsum",
-    date: "1995-12-17T03:24:00",
-    authors: [{ title: "Justo Magna", id: 123 }],
-    description:
-        "Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.",
+  image: API.image,
+  to: '/about/foo/bar/',
+  category: 'Ullamco',
+  title: 'Fames ac turpis egestas sed tempus lorem ipsum',
+  date: '1995-12-17T03:24:00',
+  authors: [{ title: 'Justo Magna', id: 123 }],
+  description:
+        'Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.',
 }
 
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return { ...mock }
+      return { ...mock }
     },
     components: { BlockStaffArticleList },
     template: `
@@ -58,17 +37,19 @@ export const Default = () => ({
           :description="description"
       />
   `,
-})
+  }
+}
 
-export const MultipleAuthors = () => ({
+export function MultipleAuthors() {
+  return {
     data() {
-        return {
-            ...mock,
-            authors: [
-                { title: "Justo Magna", id: "article-1" },
-                { title: "Luctus Suscipit", id: "article-2" },
-            ],
-        }
+      return {
+        ...mock,
+        authors: [
+          { title: 'Justo Magna', id: 'article-1' },
+          { title: 'Luctus Suscipit', id: 'article-2' },
+        ],
+      }
     },
     components: { BlockStaffArticleList },
     template: `
@@ -82,17 +63,19 @@ export const MultipleAuthors = () => ({
           :description="description"
       />
   `,
-})
+  }
+}
 
-export const LongTitle = () => ({
+export function LongTitle() {
+  return {
     data() {
-        return {
-            ...mock,
-            authors: [
-                { id: "article-1", title: "Justo Magna" },
-                { id: "article-2", title: "Luctus Suscipit" },
-            ],
-        }
+      return {
+        ...mock,
+        authors: [
+          { id: 'article-1', title: 'Justo Magna' },
+          { id: 'article-2', title: 'Luctus Suscipit' },
+        ],
+      }
     },
     components: { BlockStaffArticleList },
     template: `
@@ -106,25 +89,27 @@ export const LongTitle = () => ({
           :description="description"
       />
   `,
-})
+  }
+}
 
-export const LongDescription = () => ({
+export function LongDescription() {
+  return {
     data() {
-        return {
-            ...mock,
-            authors: [
-                {
-                    title: "Justo Magna",
-                    id: "article1",
-                    slug: "/staff/Justo-Magna",
-                },
-                {
-                    title: "Luctus Suscipit",
-                    id: "article2",
-                    slug: "/staff/Luctus-Suscipit",
-                },
-            ],
-        }
+      return {
+        ...mock,
+        authors: [
+          {
+            title: 'Justo Magna',
+            id: 'article1',
+            slug: '/staff/Justo-Magna',
+          },
+          {
+            title: 'Luctus Suscipit',
+            id: 'article2',
+            slug: '/staff/Luctus-Suscipit',
+          },
+        ],
+      }
     },
     components: { BlockStaffArticleList },
     template: `
@@ -138,11 +123,13 @@ export const LongDescription = () => ({
           description="Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien."
       />
   `,
-})
+  }
+}
 
-export const NoImage = () => ({
+export function NoImage() {
+  return {
     data() {
-        return { ...mock, image: {} }
+      return { ...mock, image: {} }
     },
     components: { BlockStaffArticleList },
     template: `
@@ -156,11 +143,13 @@ export const NoImage = () => ({
           :description="description"
       />
   `,
-})
+  }
+}
 
-export const NoAuthorOrDate = () => ({
+export function NoAuthorOrDate() {
+  return {
     data() {
-        return { ...mock }
+      return { ...mock }
     },
     components: { BlockStaffArticleList },
     template: `
@@ -173,4 +162,5 @@ export const NoAuthorOrDate = () => ({
           description="Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien."
       />
   `,
-})
+  }
+}

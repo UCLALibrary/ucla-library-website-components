@@ -1,22 +1,23 @@
-import ImpactNumberCard from "../lib-components/ImpactNumberCard"
+import ImpactNumberCard from '../lib-components/ImpactNumberCard'
 
 export default {
-    title: "IMPACT REPORT / Impact Number Card",
-    component: ImpactNumberCard,
+  title: 'IMPACT REPORT / Impact Number Card',
+  component: ImpactNumberCard,
 }
 
 const mock = {
-    id: "37072",
-    title: "HathiTrust Partnership",
-    text: "Pages Viewed Through HathiTrust Digital Library to Support Collections Access",
-    impactNumber: "3,958,321",
+  id: '37072',
+  title: 'HathiTrust Partnership',
+  text: 'Pages Viewed Through HathiTrust Digital Library to Support Collections Access',
+  impactNumber: '3,958,321',
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { ImpactNumberCard },
     template: `
@@ -26,4 +27,5 @@ export const Default = () => ({
             :impact-number="impactNumber"
         />
     `,
-})
+  }
+}

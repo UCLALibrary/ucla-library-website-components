@@ -1,38 +1,32 @@
-<template>
-    <header class="header-sticky">
-        <nav-primary :items="primaryItems" class="primary" />
+<script lang="ts" setup>
+import type { PropType } from 'vue'
+import NavPrimary from '@/lib-components/NavPrimary.vue'
+import NavSecondary from '@/lib-components/NavSecondary.vue'
+import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
 
-        <nav-secondary :items="secondaryItems" class="secondary" />
-    </header>
-</template>
-
-<script>
-import NavPrimary from "@/lib-components/NavPrimary"
-import NavSecondary from "@/lib-components/NavSecondary"
-
-export default {
-    name: "HeaderSticky",
-    components: {
-        NavPrimary,
-        NavSecondary,
-    },
-    props: {
-        primaryItems: {
-            type: Array,
-            default: () => [],
-        },
-        secondaryItems: {
-            type: Array,
-            default: () => [],
-        },
-    },
-}
+const { primaryItems, secondaryItems } = defineProps({
+  primaryItems: {
+    type: Array as PropType<NavPrimaryItemType[]>,
+    default: () => [],
+  },
+  secondaryItems: {
+    type: Array as PropType<NavSecondaryItemType[]>,
+    default: () => [],
+  },
+})
 </script>
+
+<template>
+  <header class="header-sticky">
+    <NavPrimary :items="primaryItems" class="primary" />
+
+    <NavSecondary :items="secondaryItems" class="secondary" />
+  </header>
+</template>
 
 <style lang="scss" scoped>
 .header-sticky {
     z-index: 100;
-
     top: 0;
     left: 0;
     width: 100%;
@@ -46,42 +40,41 @@ export default {
     justify-content: space-between;
 
     .primary {
-        // position: absolute;
         --unit-height: 64px;
         padding: 0 18px;
         justify-content: flex-start;
         width: unset;
-        ::v-deep {
-            .section-name {
+
+        :deep(.section-name) {
+            color: var(--color-black);
+            font-family: var(--font-primary);
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        :deep(.support-links) {
+            .item-top {
                 color: var(--color-black);
                 font-family: var(--font-primary);
                 font-size: 15px;
-                font-weight: 600;
-            }
-            .support-links {
-                .item-top {
-                    color: var(--color-black);
-                    font-family: var(--font-primary);
-                    font-size: 15px;
-                }
-            }
-            .background-white {
-                border-bottom: unset;
-                height: unset;
-            }
-            .background-blue {
-                width: 1920px;
             }
         }
+
+        :deep(.background-white) {
+            border-bottom: unset;
+            height: unset;
+        }
+
+        :deep(.background-blue) {
+            width: 1920px;
+        }
     }
+
     .secondary {
         border-bottom: unset;
         margin-top: 10px;
-        // margin-bottom: 21px;
         justify-content: flex-start;
         padding: 0 20px;
     }
 }
 </style>
-
-<!-- TODO Write story for this component -->

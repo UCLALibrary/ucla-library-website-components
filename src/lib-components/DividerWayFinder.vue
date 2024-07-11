@@ -1,75 +1,55 @@
-<template>
-    <div :class="classes">
-        <div class="solid" />
-        <div class="dotted" />
-    </div>
-</template>
-
-<script>
+<script setup>
 // Helpers
-import getSectionName from "@/mixins/getSectionName"
+import { computed, onMounted, ref, watchEffect } from 'vue'
+import { useRoute } from 'vue-router'
+import getSectionName from '@/utils/getSectionName'
+import { useTheme } from '@/composables/useTheme'
 
-export default {
-    name: "DividerWayFinder",
-    mixins: [getSectionName],
-    props: {
-        color: {
-            type: String,
-            default: "", // This will be "visit", "about", "help".
-        },
-    },
-    computed: {
-        classes() {
-            return ["divider-way-finder", `color-${this.sectionName}`]
-        },
-        sectionName() {
-            return this.color || this.getSectionName(this.$route.path)
-        },
-    },
-}
+const { color } = defineProps({
+  color: {
+    type: String,
+    default: '', // "visit", "about", "help", "ftva"
+  },
+})
+
+const route = useRoute()
+
+// THEME
+const theme = useTheme()
+const colorRoute = ref(route?.path || '')
+
+const sectionName = computed(() => color || (colorRoute.value !== ''
+  ? getSectionName(colorRoute.value)
+  : 'default'))
+
+const classes = computed(() => [
+  'divider-way-finder',
+  `color-${sectionName.value}`,
+  theme?.value || ''
+])
+
+// Watch for route changes
+watchEffect(() => {
+  colorRoute.value = route?.path || ''
+})
+
+// Mounted
+onMounted(() => {
+  console.log('does this route exist?', route?.path)
+  colorRoute.value = route?.path || ''
+})
+// console.log('section name computed', sectionName.value)
+// console.log('color prop', color)
 </script>
 
+<template>
+  <div :class="classes">
+    <div class="solid" />
+    <div class="dotted" />
+  </div>
+</template>
+
 <style lang="scss" scoped>
-.divider-way-finder {
-    &.color-help {
-        --color-border: var(--color-help-green-03);
-    }
-    &.color-visit {
-        --color-border: var(--color-visit-fushia-03);
-    }
-    &.color-about {
-        --color-border: var(--color-about-purple-03);
-    }
-    &.color-default {
-        --color-border: var(--color-default-cyan-03);
-    }
-    &.search-margin {
-        margin: var(--space-2xl) auto;
-    }
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: space-between;
-    align-items: center;
-
-    max-width: $container-l-main + px;
-    margin: var(--space-2xl) auto;
-
-    .solid {
-        height: 1px;
-        width: 96px;
-        margin-right: 17px;
-        border-bottom-style: solid;
-        border-bottom-width: 2px;
-        border-bottom-color: var(--color-border, var(--color-default-cyan-03));
-    }
-    .dotted {
-        border-bottom: 2px dotted var(--color-secondary-grey-02);
-        height: 1px;
-
-        flex: 1 1 auto;
-    }
-}
+@import "@/styles/themes.scss";
+@import "ucla-library-design-tokens/scss/_tokens-ftva";
 </style>

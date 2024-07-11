@@ -1,47 +1,29 @@
-import BlockCardWithIllustration from "@/lib-components/BlockCardWithIllustration"
-import StoryRouter from "storybook-vue-router"
+import BlockCardWithIllustration from '@/lib-components/BlockCardWithIllustration'
 
 // Storybook default settings
 export default {
-    title: "BLOCK / Card With Illustration",
-    component: BlockCardWithIllustration,
-    decorators: [
-        StoryRouter(
-            {},
-            {
-                routes: [
-                    { path: "/", component: BlockCardWithIllustration },
-                    {
-                        path: "/help/foo/bar/",
-                        component: BlockCardWithIllustration,
-                    },
-                    {
-                        path: "/visit/foo/bar/",
-                        component: BlockCardWithIllustration,
-                    },
-                ],
-            }
-        ),
-    ],
+  title: 'BLOCK / Card With Illustration',
+  component: BlockCardWithIllustration,
 }
 
 const mock = {
-    to: "/help/foo/bar/",
-    title: "Quisque Volutpat",
-    text: "<p>Need help figuring out what topic you want to explore for your project?</p>",
+  to: '/help/foo/bar/',
+  title: 'Quisque Volutpat',
+  text: '<p>Need help figuring out what topic you want to explore for your project?</p>',
 }
 
 const mock2 = {
-    to: "/visit/foo/bar/",
-    title: "Quisque Volutpat",
-    text: "<p>Need help figuring out what topic you want to explore for your project? Having trouble turning a general idea into something more specific? Learn how to develop a research question through synchronous.</p>",
+  to: '/visit/foo/bar/',
+  title: 'Quisque Volutpat',
+  text: '<p>Need help figuring out what topic you want to explore for your project? Having trouble turning a general idea into something more specific? Learn how to develop a research question through synchronous.</p>',
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -51,13 +33,15 @@ export const Default = () => ({
             :text="text"
         />
     `,
-})
+  }
+}
 
-export const Visit = () => ({
+export function Visit() {
+  return {
     data() {
-        return {
-            ...mock2,
-        }
+      return {
+        ...mock2,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -68,13 +52,15 @@ export const Visit = () => ({
             :text="text"
         />
     `,
-})
+  }
+}
 
-export const LongTextAbout = () => ({
+export function LongTextAbout() {
+  return {
     data() {
-        return {
-            ...mock2,
-        }
+      return {
+        ...mock2,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -86,13 +72,15 @@ export const LongTextAbout = () => ({
             "
         />
     `,
-})
+  }
+}
 
-export const DatabasesVisit = () => ({
+export function DatabasesVisit() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -103,13 +91,15 @@ export const DatabasesVisit = () => ({
             :text="text"
         />
     `,
-})
+  }
+}
 
-export const RemoteAccessHelp = () => ({
+export function RemoteAccessHelp() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -120,13 +110,15 @@ export const RemoteAccessHelp = () => ({
             :text="text"
         />
     `,
-})
+  }
+}
 
-export const ResearchVisit = () => ({
+export function ResearchVisit() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -137,13 +129,15 @@ export const ResearchVisit = () => ({
             :text="text"
         />
     `,
-})
+  }
+}
 
-export const TeachingAbout = () => ({
+export function TeachingAbout() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -155,13 +149,15 @@ export const TeachingAbout = () => ({
             :is-horizontal="false"
         />
     `,
-})
+  }
+}
 
-export const ExternalLink = () => ({
+export function ExternalLink() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -173,13 +169,15 @@ export const ExternalLink = () => ({
             :is-horizontal="false"
         />
     `,
-})
+  }
+}
 
-export const HorizontalCardRemoteAccess = () => ({
+export function HorizontalCardRemoteAccess() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -192,13 +190,15 @@ export const HorizontalCardRemoteAccess = () => ({
             :is-horizontal="true"
         />
     `,
-})
+  }
+}
 
-export const HorizontalCardTeaching = () => ({
+export function HorizontalCardTeaching() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -211,13 +211,15 @@ export const HorizontalCardTeaching = () => ({
             :is-horizontal="true"
         />
     `,
-})
+  }
+}
 
-export const HorizontalCardResearch = () => ({
+export function HorizontalCardResearch() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -230,13 +232,15 @@ export const HorizontalCardResearch = () => ({
             :is-horizontal="true"
         />
     `,
-})
+  }
+}
 
-export const HorizontalCardShortDigitizedResources = () => ({
+export function HorizontalCardShortDigitizedResources() {
+  return {
     data() {
-        return {
-            ...mock,
-        }
+      return {
+        ...mock,
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -249,14 +253,16 @@ export const HorizontalCardShortDigitizedResources = () => ({
             :is-horizontal="true"
         />
     `,
-})
+  }
+}
 
-export const NoText = () => ({
+export function NoText() {
+  return {
     data() {
-        return {
-            ...mock,
-            text: "",
-        }
+      return {
+        ...mock,
+        text: '',
+      }
     },
     components: { BlockCardWithIllustration },
     template: `
@@ -268,4 +274,5 @@ export const NoText = () => ({
 
         />
     `,
-})
+  }
+}

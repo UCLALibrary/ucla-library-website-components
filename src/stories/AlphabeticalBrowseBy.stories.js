@@ -1,16 +1,20 @@
-import AlphabeticalBrowseBy from "../lib-components/AlphabeticalBrowseBy"
+import AlphabeticalBrowseBy from '../lib-components/AlphabeticalBrowseBy'
 
 export default {
-    title: "SEARCH / AlphabeticalBrowseBy",
-    component: AlphabeticalBrowseBy,
+  title: 'SEARCH / AlphabeticalBrowseBy',
+  component: AlphabeticalBrowseBy,
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     components: { AlphabeticalBrowseBy },
-    template: `<alphabetical-browse-by/>`,
-})
+    template: '<alphabetical-browse-by/>',
+  }
+}
 
-export const CIsSelected = () => ({
+export function CIsSelected() {
+  return {
     components: { AlphabeticalBrowseBy },
-    template: `<alphabetical-browse-by selectedLetterProp="C"/>`,
-})
+    template: '<alphabetical-browse-by selectedLetterProp="C"/>',
+  }
+}

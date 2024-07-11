@@ -1,139 +1,181 @@
+import { computed } from 'vue'
+import BlockForm from '@/lib-components/BlockForm'
+
 // Import mock api data
-import * as API from "@/stories/mock-api.json"
-import BlockForm from "@/lib-components/BlockForm"
-import StoryRouter from "storybook-vue-router"
-import BlockFormData from "@/stories/mock/BlockFormData.json"
+import BlockFormData from '@/stories/mock/BlockFormData.json'
 
 // Storybook default settings
 export default {
-    title: "BLOCK / Form",
-    component: BlockForm,
-    decorators: [StoryRouter()],
+  title: 'BLOCK / Form',
+  component: BlockForm,
 }
 
+// The blockform data is tied to eventid, we cannot change eventid and keep the same form, so if you are updating form , also update the eventid and other details
 // Variations of stories below
-export const Default = () => ({
+export function Default() {
+  return {
     data() {
-        return { BlockFormData }
+      return { BlockFormData }
     },
-    provide: {
-        // explicitly provide a computed property
-        eventId: "9383207",
-        blockFormData: BlockFormData.mock0,
-        libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
-        libcalWaitlist: "",
-        registrationType: "both",
+    provide() {
+      return {
+        eventId: computed(() => '12333405'),
+        blockFormData: computed(() => BlockFormData.mock1),
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        libcalWaitlist: computed(() => '1'),
+        registrationType: computed(() => 'in-person'),
+      }
     },
     components: { BlockForm },
     template: `
         <block-form />
     `,
-})
+  }
+}
 
-export const DefaultType2 = () => ({
+export function AppsTeamForm() {
+  return {
     data() {
-        return { BlockFormData }
+      return { BlockFormData }
     },
-    provide: {
-        // explicitly provide a computed property
-        eventId: "9383207",
-        blockFormData: BlockFormData.mock1,
-        libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
-        registrationType: "both",
-        libcalWaitlist: null,
+    provide() {
+      return {
+        eventId: computed(() => '12333409'),
+        blockFormData: computed(() => BlockFormData.mock2),
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        registrationType: computed(() => 'online'),
+        libcalWaitlist: computed(() => null),
+      }
     },
     components: { BlockForm },
     template: `
         <block-form />
     `,
-})
+  }
+}
 
-export const CLICCInstructionalUseForm = () => ({
+export function CLICCInstructionalUseForm() {
+  return {
     data() {
-        return { BlockFormData }
+      return { BlockFormData }
     },
-    provide: {
-        // explicitly provide a computed property
-        eventId: "9383207",
-        blockFormData: BlockFormData.mock2,
-        libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
-        registrationType: "online",
-        libcalWaitlist: "0",
+    provide() {
+      return {
+        eventId: computed(() => '12333413'),
+        blockFormData: computed(() => BlockFormData.mock3),
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        registrationType: computed(() => 'both'),
+        libcalWaitlist: computed(() => null),
+      }
     },
     components: { BlockForm },
     template: `
         <block-form />
     `,
-})
+  }
+}
 
-export const TestFormTerryAllen = () => ({
+export function LibrarySpecialCollections() {
+  return {
     data() {
-        return { BlockFormData }
+      return { BlockFormData }
     },
-    provide: {
-        // explicitly provide a computed property
-        eventId: "9383207",
-        blockFormData: BlockFormData.mock3,
-        libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
-        registrationType: "in-person",
-        libcalWaitlist: "1",
+    provide() {
+      return {
+        eventId: computed(() => '12333417'),
+        blockFormData: computed(() => BlockFormData.mock4),
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        registrationType: computed(() => 'online'),
+        libcalWaitlist: computed(() => null),
+      }
     },
     components: { BlockForm },
     template: `
         <block-form />
     `,
-})
+  }
+}
 
-export const TestFormFTVA = () => ({
+export function FTVATest() {
+  return {
     data() {
-        return { BlockFormData }
+      return { BlockFormData }
     },
-    provide: {
-        // explicitly provide a computed property
-        eventId: "9383207",
-        blockFormData: BlockFormData.mock4,
-        libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
-        registrationType: "in-person",
-        libcalWaitlist: "",
+    provide() {
+      return {
+        eventId: computed(() => '12333419'),
+        blockFormData: computed(() => BlockFormData.mock5),
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        registrationType: computed(() => 'in-person'),
+        libcalWaitlist: computed(() => '1'),
+      }
     },
     components: { BlockForm },
     template: `
         <block-form />
     `,
-})
+  }
+}
 
-export const TextBallot = () => ({
+export function TerryAllen() {
+  return {
     data() {
-        return { BlockFormData }
+      return { BlockFormData }
     },
-    provide: {
-        // explicitly provide a computed property
-        eventId: "9383207",
-        blockFormData: BlockFormData.mock5,
-        libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
-        registrationType: "in-person",
-        libcalWaitlist: null,
+    provide() {
+      return {
+        eventId: computed(() => '12333423'),
+        blockFormData: computed(() => BlockFormData.mock6),
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        registrationType: computed(() => 'online'),
+        libcalWaitlist: computed(() => null),
+      }
     },
     components: { BlockForm },
     template: `
         <block-form />
     `,
-})
+  }
+}
 
-export const UCLALibraryEventRegistration = () => ({
+export function TextBallot() {
+  return {
     data() {
-        return { BlockFormData }
+      return { BlockFormData }
     },
-    provide: {
-        // explicitly provide a computed property
-        eventId: "9383207",
-        blockFormData: BlockFormData.mock6,
-        libcalEndpoint: "https://proxy.calendar.library.ucla.edu/",
-        registrationType: "in-person",
-        libcalWaitlist: "1",
+    provide() {
+      return {
+        eventId: computed(() => '12333425'),
+        blockFormData: computed(() => BlockFormData.mock7),
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        registrationType: computed(() => 'in-person'),
+        libcalWaitlist: computed(() => null),
+      }
     },
     components: { BlockForm },
     template: `
         <block-form />
     `,
-})
+  }
+}
+
+export function UCLALibrary() {
+  return {
+    data() {
+      return { BlockFormData }
+    },
+    provide() {
+      return {
+        eventId: computed(() => '12333491'),
+        blockFormData: computed(() => BlockFormData.mock8),
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        registrationType: computed(() => 'both'),
+        libcalWaitlist: computed(() => null),
+      }
+    },
+    components: { BlockForm },
+    template: `
+        <block-form />
+    `,
+  }
+}

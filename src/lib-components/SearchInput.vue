@@ -1,165 +1,183 @@
-<template>
-    <div v-bind="attrsStyles">
-        <input
-            ref="inputRef"
-            type="search"
-            data-search-input="true"
-            v-model="searchInputModelValue"
-            v-bind="attrsWithoutStyles"
-            @input="onInput"
-            @focus="hasFocus = true"
-            @blur="hasFocus = false"
-            @keydown="onKeydown"
-        />
-        <button
-            v-show="showClearIcon"
-            class="clear-icon clear"
-            aria-label="Clear"
-            @mousedown="clear"
-            @keydown.space.enter="clear"
-        ></button>
-    </div>
-</template>
+<script setup>
+import { computed, onBeforeUnmount, onMounted, ref, useAttrs } from 'vue'
 
-<script>
-const filterObject = (obj, properties, remove = true) => {
-    // console.log(obj)
-    // console.log(properties)
-    const res = {}
-    if (properties && properties.length > 0) {
-        Object.keys(obj).forEach((objAttr) => {
-            const condition = remove
-                ? properties.indexOf(objAttr) === -1
-                : properties.indexOf(objAttr) >= 0
+defineOptions({
+  inheritAttrs: true,
+})
 
-            if (condition) {
-                res[objAttr] = obj[objAttr]
-            }
-        })
-    }
+const props = defineProps({
+  type: {
+    type: String,
+    default: 'search',
+  },
+  modelValue: {
+    type: String,
+    default: '',
+  },
+  wrapperClass: {
+    type: String,
+    default: 'search-input-wrapper',
+  },
+  clearIcon: {
+    type: Boolean,
+    default: true,
+  },
+  clearOnEsc: {
+    type: Boolean,
+    default: true,
+  },
+  blurOnEsc: {
+    type: Boolean,
+    default: true,
+  },
+  selectOnFocus: {
+    type: Boolean,
+    default: true,
+  },
+  shortcutKey: {
+    type: String,
+    default: '/',
+  },
+})
+//
+const emit = defineEmits(['update:modelValue', 'clear'])
+// console.log('modelValue', props.modelValue)
+const attrs = useAttrs()
 
-    return res
+const hasFocus = ref(false)
+const inputRef = ref(null)
+const searchInputModelValue = ref(props.modelValue)
+
+function filterObject(obj, properties, remove = true) {
+  const res = {}
+
+  if (properties && properties.length > 0) {
+    Object.keys(obj).forEach((objAttr) => {
+      const condition = remove
+        ? !properties.includes(objAttr)
+        : properties.includes(objAttr)
+
+      if (condition)
+        res[objAttr] = obj[objAttr]
+    })
+  }
+  return res
 }
 
-const defaultBoolean = (val = true) => ({ type: Boolean, default: val })
+const attrsWithoutStyles = computed(() => {
+  const res = filterObject(attrs, ['class', 'style'])
+  return res
+})
 
-export default {
-    inheritAttrs: false,
-    props: {
-        type: {
-            type: String,
-            default: "search",
-        },
-        modelValue: {
-            type: String,
-            default: "",
-        },
-        wrapperClass: {
-            type: String,
-            default: "search-input-wrapper",
-        },
+const attrsStyles = computed(() => {
+  const res = filterObject(attrs, ['class', 'style'])
 
-        clearIcon: defaultBoolean(),
+  if (!res.class)
+    res.class = props.wrapperClass
 
-        clearOnEsc: defaultBoolean(),
-        blurOnEsc: defaultBoolean(),
-        selectOnFocus: defaultBoolean(),
-    },
+  return res
+})
 
-    data() {
-        return {
-            searchInputModelValue: this.modelValue,
-            hasFocus: false,
-            inputRef: null,
-        }
-    },
-    computed: {
-        attrsWithoutStyles() {
-            return filterObject(this.$attrs, ["class", "style"])
-        },
-        attrsStyles() {
-            const res = filterObject(this.$attrs, ["class", "style"], false)
+const showClearIcon = computed(() => {
+  // console.log(
+  //   'in show clear icon',
+  //   props.clearIcon,
+  //   searchInputModelValue.value.length
+  // )
+  return props.clearIcon && searchInputModelValue.value.length > 0
+})
 
-            if (!res.class) res.class = this.wrapperClass
+onMounted(() => {
+  window.document.addEventListener('keydown', onDocumentKeydown)
+})
 
-            return res
-        },
-        showClearIcon() {
-            console.log(
-                "in show clear icon",
-                this.clearIcon,
-                this.searchInputModelValue.length
-            )
-            return this.clearIcon && this.searchInputModelValue.length > 0
-        },
-    },
-    mounted() {
-        this.inputRef = this.$refs.inputRef
-        window.document.addEventListener("keydown", this.onDocumentKeydown)
-    },
-    beforeDestroy() {
-        window.document.removeEventListener("keydown", this.onDocumentKeydown)
-    },
+onBeforeUnmount(() => {
+  window.document.removeEventListener('keydown', onDocumentKeydown)
+})
 
-    methods: {
-        clear() {
-            console.log("in clear")
-            this.searchInputModelValue = ""
-            this.$emit("update:modelValue", "")
-            this.$emit("clear", "")
-        },
-        onInput(e) {
-            this.searchInputModelValue = e.target.value
-            this.$emit("update:modelValue", e.target.value)
-        },
-        onKeydown(e) {
-            if (e.key === "Escape") {
-                if (this.clearOnEsc) this.clear()
-                if (this.blurOnEsc) {
-                    const el = this.inputRef
-                    if (el) el.blur()
-                }
-            }
-        },
-        onDocumentKeydown(e) {
-            if (
-                e.key === this.shortcutKey &&
-                e.target !== this.inputRef &&
-                window.document.activeElement !== this.inputRef &&
-                !(e.target instanceof HTMLInputElement) &&
-                !(e.target instanceof HTMLSelectElement) &&
-                !(e.target instanceof HTMLTextAreaElement)
-            ) {
-                e.preventDefault()
-                const allVisibleSearchInputs = [].slice
-                    .call(
-                        document.querySelectorAll(
-                            '[data-search-input="true"]:not([data-shortcut-enabled="false"])'
-                        )
-                    )
-                    .filter((el) => {
-                        return !!(
-                            el.offsetWidth ||
-                            el.offsetHeight ||
-                            el.getClientRects().length
-                        )
-                    })
-                const elToFocus =
-                    allVisibleSearchInputs.length > 1
-                        ? allVisibleSearchInputs[0]
-                        : this.inputRef
+function clear() {
+  // console.log('in clear')
+  searchInputModelValue.value = ''
+  emit('update:modelValue', '')
+  emit('clear')
+}
 
-                if (elToFocus) {
-                    elToFocus.focus()
-                    if (this.selectOnFocus) {
-                        elToFocus.select()
-                    }
-                }
-            }
-        },
-    },
+function onInput(e) {
+  searchInputModelValue.value = e.target.value
+  emit('update:modelValue', e.target.value)
+}
+
+function onKeydown(e) {
+  if (e.key === 'Escape') {
+    if (props.clearOnEsc)
+      clear()
+    if (props.blurOnEsc) {
+      const el = inputRef.value
+      if (el)
+        el.blur()
+    }
+  }
+}
+
+function onDocumentKeydown(e) {
+  if (
+    e.key === props.shortcutKey
+        && e.target !== inputRef.value
+        && window.document.activeElement !== inputRef.value
+        && !(e.target instanceof HTMLInputElement)
+        && !(e.target instanceof HTMLSelectElement)
+        && !(e.target instanceof HTMLTextAreaElement)
+  ) {
+    e.preventDefault()
+    const allVisibleSearchInputs = [].slice
+      .call(
+        document.querySelectorAll(
+          '[data-search-input="true"]:not([data-shortcut-enabled="false"])'
+        )
+      )
+      .filter((el) => {
+        return !!(
+          el.offsetWidth
+                    || el.offsetHeight
+                    || el.getClientRects().length
+        )
+      })
+    const elToFocus
+            = allVisibleSearchInputs.length > 1
+              ? allVisibleSearchInputs[0]
+              : inputRef.value
+
+    if (elToFocus) {
+      elToFocus.focus()
+      if (props.selectOnFocus)
+        elToFocus.select()
+    }
+  }
 }
 </script>
+
+<template>
+  <div v-bind="attrsStyles">
+    <input
+      ref="inputRef"
+      v-model="searchInputModelValue"
+      type="search"
+      data-search-input="true"
+      v-bind="attrsWithoutStyles"
+      @input="onInput"
+      @focus="hasFocus = true"
+      @blur="hasFocus = false"
+      @keydown="onKeydown"
+    >
+    <button
+      v-show="showClearIcon"
+      class="clear-icon clear"
+      aria-label="Clear"
+      @mousedown="clear"
+      @keydown.space.enter="clear"
+    />
+  </div>
+</template>
 
 <style lang="scss" scoped>
 $input-color: #333;
@@ -188,18 +206,20 @@ $active-color: #1ea7fd;
             font-family: var(--font-primary);
             text-overflow: ellipsis;
         }
+
         /*
-        &:focus {
-            background-color: var(--color-primary-blue-01);
-            border-color: $active-color;
-            outline: 0;
-            box-shadow: none;
-        }*/
+      &:focus {
+          background-color: var(--color-primary-blue-01);
+          border-color: $active-color;
+          outline: 0;
+          box-shadow: none;
+      }*/
     }
 
     .clear-icon {
         color: $icon-color;
         position: absolute;
+
         &.clear {
             right: 15px;
             bottom: 22px;
@@ -214,10 +234,12 @@ $active-color: #1ea7fd;
             background: none;
             padding: 0px;
             outline: none;
+
             &:focus {
                 background: darken($input-background, 4%);
             }
         }
+
         &.clear::after,
         &.clear::before {
             content: "";
@@ -232,6 +254,7 @@ $active-color: #1ea7fd;
             top: 9px;
             left: 2px;
         }
+
         &.clear::after {
             transform: rotate(-45deg);
         }
@@ -244,6 +267,7 @@ input[type="search"]::-ms-clear {
     width: 0;
     height: 0;
 }
+
 input[type="search"]::-ms-reveal {
     display: none;
     width: 0;
