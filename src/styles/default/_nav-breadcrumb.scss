@@ -28,10 +28,6 @@
         flex-shrink: 0;
     }
 
-    .svg__icon-caret-left {
-        display: none;
-    }
-
     .collapsed-url {
         padding: 0;
         border-radius: 0;
@@ -52,14 +48,15 @@
     @media (max-width: 1199px) {
         padding-left: calc(var(--unit-gutter) - 8px);
 
-        .svg__icon-caret-right,
-        .current-page-title {
-            display: none;
+        .svg__icon-caret-right {
+            order: 1;
+            transform: rotate(180deg);
+            position: relative;
+            top: 2px;
         }
 
-        .svg__icon-caret-left {
-            display: block;
-            order: 1;
+        .current-page-title {
+            display: none;
         }
 
         .parent-page-url {
