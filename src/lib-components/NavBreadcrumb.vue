@@ -8,7 +8,7 @@ import { useGlobalStore } from '@/stores/GlobalStore'
 // COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
 
-const { to } = defineProps({
+const { to, parentTitle, title } = defineProps({
   to: {
     type: String,
     default: '',
@@ -72,6 +72,23 @@ const parsedBreadcrumbLinks = computed(() => {
 function createBreadcrumbLinks(arr) {
   const breadCrumbObjects = []
 
+  // if props are present, we are using the legacy single breadcrumb
+  if (to && parentTitle && title) {
+    breadCrumbObjects.push({
+      to,
+      title: parentTitle,
+      isLastItem: false,
+      isTruncatedGroup: false
+    })
+    breadCrumbObjects.push({
+      to: '',
+      title,
+      isLastItem: true,
+      isTruncatedGroup: false
+    })
+    return breadCrumbObjects
+  }
+  // otherwise format based on route
   arr.forEach((item, index) => {
     const linkLength = item.length
     const linkIndex = route.path.indexOf(item)
@@ -114,16 +131,8 @@ const parsedClasses = computed(() => {
 
 <template>
   <div :class="parsedClasses">
-    <!-- Legacy single nesting with hardcoded breadcrumbs -->
-    <span v-if="parentTitle && title" class="breadcrumb-wrapper">
-      <SmartLink :to="to" class="parent-page-url" v-text="parentTitle" />
-      <SvgIconCaretRight aria-hidden="true" />
-      <span class="current-page-title" v-text="title" />
-    </span>
-    <!-- Breadcrumbs from route path -->
     <span
       v-for="linkObj in parsedBreadcrumbLinks"
-      v-else
       :key="linkObj.title"
       class="breadcrumb-wrapper"
     >
