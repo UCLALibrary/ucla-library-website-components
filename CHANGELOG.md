@@ -1,3 +1,22 @@
+# [2.39.0-alpha.105](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.104...v2.39.0-alpha.105) (2024-07-11)
+
+
+### Bug Fixes
+
+* stop releases while merging ([698c834](https://github.com/UCLALibrary/ucla-library-website-components/commit/698c8348c599a64c88b427bcb2cd858a81613fd9))
+
+
+### Features
+
+* Revert specific commits to undo recent changes ([#557](https://github.com/UCLALibrary/ucla-library-website-components/issues/557)) ([ab94529](https://github.com/UCLALibrary/ucla-library-website-components/commit/ab9452976f917ec97ac3b0645973b028d5e3d879))
+
+# [2.39.0-alpha.103](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.102...v2.39.0-alpha.103) (2024-07-11)
+
+
+### Features
+
+* Update workflows for merge to main ([#555](https://github.com/UCLALibrary/ucla-library-website-components/issues/555)) ([d31e3b5](https://github.com/UCLALibrary/ucla-library-website-components/commit/d31e3b561e461c94636a449ad8cb5dd41c313ca0))
+
 # [2.39.0-alpha.102](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.101...v2.39.0-alpha.102) (2024-07-10)
 
 
