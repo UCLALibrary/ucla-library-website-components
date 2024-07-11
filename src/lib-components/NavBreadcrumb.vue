@@ -13,6 +13,14 @@ const { to } = defineProps({
     type: String,
     default: '',
   },
+  parentTitle: {
+    type: String,
+    default: '',
+  },
+  title: {
+    type: String,
+    default: '',
+  },
 })
 
 const route = useRoute()
@@ -106,8 +114,16 @@ const parsedClasses = computed(() => {
 
 <template>
   <div :class="parsedClasses">
+    <!-- Legacy single nesting with hardcoded breadcrumbs -->
+    <span v-if="parentTitle && title" class="breadcrumb-wrapper">
+      <SmartLink :to="to" class="parent-page-url" v-text="parentTitle" />
+      <SvgIconCaretRight aria-hidden="true" />
+      <span class="current-page-title" v-text="title" />
+    </span>
+    <!-- Breadcrumbs from route path -->
     <span
       v-for="linkObj in parsedBreadcrumbLinks"
+      v-else
       :key="linkObj.title"
       class="breadcrumb-wrapper"
     >
