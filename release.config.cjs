@@ -1,12 +1,5 @@
 module.exports = {
-  branches: [
-    'main',
-    {
-      name: 'vue3.x',
-      prerelease: 'alpha',
-      channel: 'alpha',
-    },
-  ],
+  branches: ['main'],
   plugins: [
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
