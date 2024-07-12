@@ -1,6 +1,5 @@
 import ResponsiveVideo from '@/lib-components/ResponsiveVideo'
 import VideoEmbed from '@/lib-components/VideoEmbed'
-import { computed } from 'vue'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'

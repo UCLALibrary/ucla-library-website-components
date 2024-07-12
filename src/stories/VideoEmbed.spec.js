@@ -1,10 +1,10 @@
-// describe('/ Story With Image', () => {
-//   it('Default', () => {
-//     cy.visit(
-//       '/iframe.html?id=impact-report-story-with-image--default&args=&viewMode=story'
-//     )
-//     cy.get('.story-with-image').should('exist')
+describe('/ Video Embed', () => {
+  it('Default', () => {
+    cy.visit(
+      '/iframe.html?id=global-videoembed--default&args=&viewMode=story'
+    )
+    cy.get('.video-embed').should('exist')
 
-//     cy.percySnapshot('IMPACT REPORT / Story With Image: Default')
-//   })
-// })
+    cy.percySnapshot('VIDEO / Video Embed: Default')
+  })
+})
