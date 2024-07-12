@@ -64,9 +64,46 @@ Build library using vite:
 # pnpm
 pnpm run vite
 ```
+## `APP.vue` and `mock.js`
 
-## Be sure to add the `APP.vue` and `mock.js` in the `src` file
+### Local copy of `APP.vue` and `mock.js` in the `src` file
+If you already have a local copy of be sure to save it locally because they will be deleted if you reclone this repo.
+You can add a page to the [Wiki](https://github.com/UCLALibrary/ucla-library-website-components/wiki/) with your version.
+
+### If starting this project from scratch
+Be sure to add the `APP.vue` and `mock.js` in the `src` file
 
 There are example files here: https://github.com/UCLALibrary/ucla-library-website-components/wiki/AppDotVueAndMockJS.md
+
+#### If you get an error like this; you have forgotten to do this step:
+(Add `APP.vue` and `mock.js` in the `src` file)
+
+```
+[plugin:vite:import-analysis] Failed to resolve import "./App.vue" from "src/main.ts". Does the file exist?
+/Users/jendiamond/UCLA/ucla-library-website-components/src/main.ts:8:16
+5  |  import "ucla-library-design-tokens/scss/app-global.scss";
+6  |  import "@/styles/global.scss";
+7  |  import App from "./App.vue";
+   |                   ^
+8  |  createApp(App).use(router).use(createPinia()).mount("#app");
+```
+```
+src
+  > assets
+  > composables
+  > lib-components
+  > stores
+  > stories
+  > styles
+  > types
+  > utils
+  App.vue
+  entry.js
+  main.ts
+  mock.js
+  router.js
+  style.css
+  vue-global-props.d.ts
+```
 
 </details>
