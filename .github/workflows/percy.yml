@@ -2,14 +2,13 @@ name:  Submit screenshots to Percy for visual regression testing.
 
 on:
   push:
-    branches: 
-      - main
+    branches: [ main ]
   workflow_dispatch:
-    inputs:{}
+    inputs: {}
 
 jobs:
   percy:
-    name: Percy - Storybook Components
+    name: Percy - Storybook Components 3.x
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

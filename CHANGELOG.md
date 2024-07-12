@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.0.0...v3.0.1) (2024-07-12)
+
+
+### Bug Fixes
+
+* workflow dispatch indentation issue ([#562](https://github.com/UCLALibrary/ucla-library-website-components/issues/562)) ([f601134](https://github.com/UCLALibrary/ucla-library-website-components/commit/f6011344dfdcabaadfe55ce8b1515e1dadfe8da0))
+
 # [3.0.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.0...v3.0.0) (2024-07-12)
 
 
