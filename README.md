@@ -1,4 +1,4 @@
-# This is component library for UCLA Library websites 
+# This is the component library for the UCLA Library websites
 # Vue 3 + TypeScript + Vite
 
 This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
@@ -20,7 +20,9 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 ## Setup
 
-Make sure to install the dependencies:
+<details><summary>STEPS</summary>
+
+## Make sure to install the dependencies:
 
 ```bash
 # pnpm
@@ -62,3 +64,9 @@ Build library using vite:
 # pnpm
 pnpm run vite
 ```
+
+## Be sure to add the `APP.vue` and `mock.js` in the `src` file
+
+There are example files here: https://github.com/UCLALibrary/ucla-library-website-components/wiki/AppDotVueAndMockJS.md
+
+</details>
