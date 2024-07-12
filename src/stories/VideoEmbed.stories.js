@@ -8,7 +8,7 @@ export default {
 // Variations of stories below
 const mockTrailerData = {
   trailer: '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/uYr_SvIKKuI?si=ihenbmyE91KqyXK5" title="YouTube video player" frameborder="0"></iframe></figure>',
-  posterImage: { ...API.image, src: 'https://via.placeholder.com/960x540' }
+  posterImage: API.image
 }
 export function Default() {
   return {
