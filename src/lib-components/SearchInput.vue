@@ -122,11 +122,11 @@ function onKeydown(e) {
 function onDocumentKeydown(e) {
   if (
     e.key === props.shortcutKey
-    && e.target !== inputRef.value
-    && window.document.activeElement !== inputRef.value
-    && !(e.target instanceof HTMLInputElement)
-    && !(e.target instanceof HTMLSelectElement)
-    && !(e.target instanceof HTMLTextAreaElement)
+        && e.target !== inputRef.value
+        && window.document.activeElement !== inputRef.value
+        && !(e.target instanceof HTMLInputElement)
+        && !(e.target instanceof HTMLSelectElement)
+        && !(e.target instanceof HTMLTextAreaElement)
   ) {
     e.preventDefault()
     const allVisibleSearchInputs = [].slice
@@ -138,14 +138,14 @@ function onDocumentKeydown(e) {
       .filter((el) => {
         return !!(
           el.offsetWidth
-          || el.offsetHeight
-          || el.getClientRects().length
+                    || el.offsetHeight
+                    || el.getClientRects().length
         )
       })
     const elToFocus
-      = allVisibleSearchInputs.length > 1
-        ? allVisibleSearchInputs[0]
-        : inputRef.value
+            = allVisibleSearchInputs.length > 1
+              ? allVisibleSearchInputs[0]
+              : inputRef.value
 
     if (elToFocus) {
       elToFocus.focus()
@@ -186,98 +186,98 @@ $icon-color: darken($input-background, 30%);
 $active-color: #1ea7fd;
 
 .search-input-wrapper {
-  position: relative;
+    position: relative;
 
-  input[data-search-input="true"] {
-    display: block;
-    font-family: var(--font-primary);
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 100%;
-    letter-spacing: 0.01em;
-    background-color: var(--color-primary-blue-01);
-    border-color: transparent;
-    padding: 24px 24px 24px 16px;
-    width: 100%;
+    input[data-search-input="true"] {
+        display: block;
+        font-family: var(--font-primary);
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: 0.01em;
+        background-color: var(--color-primary-blue-01);
+        border-color: transparent;
+        padding: 24px 24px 24px 16px;
+        width: 100%;
 
-    &::placeholder {
-      text-transform: uppercase;
-      font-family: var(--font-primary);
-      text-overflow: ellipsis;
-    }
+        &::placeholder {
+            text-transform: uppercase;
+            font-family: var(--font-primary);
+            text-overflow: ellipsis;
+        }
 
-    /*
+        /*
       &:focus {
           background-color: var(--color-primary-blue-01);
           border-color: $active-color;
           outline: 0;
           box-shadow: none;
       }*/
-  }
-
-  .clear-icon {
-    color: $icon-color;
-    position: absolute;
-
-    &.clear {
-      right: 15px;
-      bottom: 22px;
-      cursor: pointer;
-      z-index: 10;
-      box-sizing: border-box;
-      display: block;
-      width: 24px;
-      height: 24px;
-      border: 2px solid transparent;
-      border-radius: 40px;
-      background: none;
-      padding: 0px;
-      outline: none;
-
-      &:focus {
-        background: darken($input-background, 4%);
-      }
     }
 
-    &.clear::after,
-    &.clear::before {
-      content: "";
-      display: block;
-      box-sizing: border-box;
-      position: absolute;
-      width: 16px;
-      height: 2px;
-      background: $icon-color;
-      transform: rotate(45deg);
-      border-radius: 5px;
-      top: 9px;
-      left: 2px;
-    }
+    .clear-icon {
+        color: $icon-color;
+        position: absolute;
 
-    &.clear::after {
-      transform: rotate(-45deg);
+        &.clear {
+            right: 15px;
+            bottom: 22px;
+            cursor: pointer;
+            z-index: 10;
+            box-sizing: border-box;
+            display: block;
+            width: 24px;
+            height: 24px;
+            border: 2px solid transparent;
+            border-radius: 40px;
+            background: none;
+            padding: 0px;
+            outline: none;
+
+            &:focus {
+                background: darken($input-background, 4%);
+            }
+        }
+
+        &.clear::after,
+        &.clear::before {
+            content: "";
+            display: block;
+            box-sizing: border-box;
+            position: absolute;
+            width: 16px;
+            height: 2px;
+            background: $icon-color;
+            transform: rotate(45deg);
+            border-radius: 5px;
+            top: 9px;
+            left: 2px;
+        }
+
+        &.clear::after {
+            transform: rotate(-45deg);
+        }
     }
-  }
 }
 
 /* Fix the X appearing in search field on Chrome and IE */
 input[type="search"]::-ms-clear {
-  display: none;
-  width: 0;
-  height: 0;
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 input[type="search"]::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0;
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
-  display: none;
+    display: none;
 }
 </style>

@@ -1,3 +1,5 @@
+# [2.39.0-alpha.106](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.105...v2.39.0-alpha.106) (2024-07-11)
+
 # [2.39.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.38.0...v2.39.0) (2024-07-11)
 
 
@@ -41,6 +43,11 @@
 
 
 ### Features
+
+
+* APPS-2790 Create Component FTVA Carousel -> NewLightbox  ([#550](https://github.com/UCLALibrary/ucla-library-website-components/issues/550)) ([fe3363b](https://github.com/UCLALibrary/ucla-library-website-components/commit/fe3363b9209b3f6f71255a819e9367818d5ae551))
+
+# [2.39.0-alpha.105](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.104...v2.39.0-alpha.105) (2024-07-11)
 
 * "Include past events" single checkbox filter ([#401](https://github.com/UCLALibrary/ucla-library-website-components/issues/401)) ([0aee2ec](https://github.com/UCLALibrary/ucla-library-website-components/commit/0aee2ec91cbd3e6d8b55d025b17ba22ddfd2fc27))
 * add AlphaBrowseBy, BlockCTA, BlockCTA2Up, SearchResult, SingleCheckbox components ([#405](https://github.com/UCLALibrary/ucla-library-website-components/issues/405)) ([ea46997](https://github.com/UCLALibrary/ucla-library-website-components/commit/ea469977773371f5002646f57749b3065feaa0f4)), closes [#403](https://github.com/UCLALibrary/ucla-library-website-components/issues/403)
@@ -138,20 +145,15 @@
 # [2.39.0-alpha.104](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.103...v2.39.0-alpha.104) (2024-07-11)
 
 
+
 ### Bug Fixes
 
-* add keyup event handler to search home ([#368](https://github.com/UCLALibrary/ucla-library-website-components/issues/368)) ([655f25b](https://github.com/UCLALibrary/ucla-library-website-components/commit/655f25b749051655528691495a1b2396ff6df14c))
-* button in banner-header component ([#367](https://github.com/UCLALibrary/ucla-library-website-components/issues/367)) ([551e218](https://github.com/UCLALibrary/ucla-library-website-components/commit/551e218c893c197f1aae85aa12108e44477252f4))
-* pay rate should display in block generic list ([#486](https://github.com/UCLALibrary/ucla-library-website-components/issues/486)) ([60bb246](https://github.com/UCLALibrary/ucla-library-website-components/commit/60bb24699b008d86ab74cff0d6a2e2009b7ef44b))
-* update search when clearing search bar ([#435](https://github.com/UCLALibrary/ucla-library-website-components/issues/435)) ([563948f](https://github.com/UCLALibrary/ucla-library-website-components/commit/563948f09cfab74c9153a9ea1102ce3e6623bf80))
-* various accessibility issues ([#411](https://github.com/UCLALibrary/ucla-library-website-components/issues/411)) ([1205013](https://github.com/UCLALibrary/ucla-library-website-components/commit/120501352daccbd24577cd6c3acb9e1c10ca89a2))
+* stop releases while merging ([698c834](https://github.com/UCLALibrary/ucla-library-website-components/commit/698c8348c599a64c88b427bcb2cd858a81613fd9))
 
 
 ### Features
 
-* "Include past events" single checkbox filter ([#401](https://github.com/UCLALibrary/ucla-library-website-components/issues/401)) ([0aee2ec](https://github.com/UCLALibrary/ucla-library-website-components/commit/0aee2ec91cbd3e6d8b55d025b17ba22ddfd2fc27))
-* APPS-1932 create media gallery half width ([#394](https://github.com/UCLALibrary/ucla-library-website-components/issues/394)) ([667bb12](https://github.com/UCLALibrary/ucla-library-website-components/commit/667bb12e8a908dbb17ae6ff2576fbc2bde21b6fc))
-* update styles to work with halfWidth option in redactor ([#397](https://github.com/UCLALibrary/ucla-library-website-components/issues/397)) ([772de69](https://github.com/UCLALibrary/ucla-library-website-components/commit/772de690d8cd6a13d654ad12d4777a62be07b102))
+* Revert specific commits to undo recent changes ([#557](https://github.com/UCLALibrary/ucla-library-website-components/issues/557)) ([ab94529](https://github.com/UCLALibrary/ucla-library-website-components/commit/ab9452976f917ec97ac3b0645973b028d5e3d879))
 
 # [2.39.0-alpha.103](https://github.com/UCLALibrary/ucla-library-website-components/compare/v2.39.0-alpha.102...v2.39.0-alpha.103) (2024-07-11)
 

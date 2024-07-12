@@ -4,17 +4,8 @@ on:
   push:
     branches: 
       - main
-      - vue3.x
   workflow_dispatch:
-    inputs:
-      target-branch:
-        description: 'Select target branch for Percy screenshots'
-        required: true
-        default: 'main'
-        type: choice
-        options:
-          - main
-          - vue3.x
+    inputs:{}
 
 jobs:
   percy:
@@ -24,16 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: ./.github/workflows/setup-workspace # why cant cypress percy command access this pnpm cache
-    - name: Set Percy environment variables
-      run: |
-        if [[ "${{ github.ref_name }}" == "vue3.x" || "${{ github.event.inputs.target-branch }}" == "vue3.x" ]]; then
-          echo "PERCY_TOKEN=${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}" >> $GITHUB_ENV
-          echo "PERCY_TARGET_BRANCH=vue3.x" >> $GITHUB_ENV
-        else
-          echo "PERCY_TOKEN=${{ secrets.PERCY_TOKEN_STORYBOOK }}" >> $GITHUB_ENV
-          echo "PERCY_TARGET_BRANCH=main" >> $GITHUB_ENV
-        fi
-      if: always()
     - name: Use cached storybook build
       id: cache-storybook
       uses: actions/cache@v3
@@ -53,6 +34,6 @@ jobs:
         command-prefix: 'percy exec -- pnpx'
         wait-on: http://localhost:6006
       env:
-        PERCY_TOKEN: ${{ env.PERCY_TOKEN }}
-        PERCY_TARGET_BRANCH: ${{ env.PERCY_TARGET_BRANCH }}
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
+        PERCY_TARGET_BRANCH: main
     

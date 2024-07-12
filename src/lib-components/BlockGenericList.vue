@@ -57,72 +57,36 @@ const parsedText = computed(() => {
 
 <template>
   <li class="block-generic-list">
-    <div
-      v-if="jobRequisitionNumber"
-      class="category"
-    >
+    <div v-if="jobRequisitionNumber" class="category">
       JOB #{{ jobRequisitionNumber }}
     </div>
-    <SmartLink
-      v-if="jobPostingURL"
-      :to="jobPostingURL"
-      class="title"
-    >
+    <SmartLink v-if="jobPostingURL" :to="jobPostingURL" class="title">
       {{ title }}
-      <span
-        v-if="alternativeFullName"
-        :lang="language"
-        class="translation"
-      >
+      <span v-if="alternativeFullName" :lang="language" class="translation">
         {{ alternativeFullName }}</span>
     </SmartLink>
-    <h3
-      v-else
-      class="title-no-link"
-    >
+    <h3 v-else class="title-no-link">
       {{ title }}
     </h3>
 
-    <div
-      v-if="departments.length || payRate"
-      class="byline-group"
-    >
-      <div
-        v-if="departments.length || payRate"
-        class="schedule-item"
-      >
-        <div
-          v-for="(item, index) in departments"
-          :key="`block-generic-${item.title}-${index}`"
-          class="schedule-item"
-        >
+    <div v-if="departments.length || payRate" class="byline-group">
+      <div v-if="departments.length || payRate" class="schedule-item">
+        <div v-for="(item, index) in departments" :key="`block-generic-${item.title}-${index}`" class="schedule-item">
           {{ item.title }}
         </div>
-        <div
-          v-if="payRate"
-          class="schedule-item"
-        >
+        <div v-if="payRate" class="schedule-item">
           {{ payRate }}
         </div>
       </div>
     </div>
 
-    <div
-      v-if="associatedLocations.length > 0"
-      class="location-group"
-    >
+    <div v-if="associatedLocations.length > 0" class="location-group">
       <IconWithLink
-        v-for="(location, index) in associatedLocations"
-        :key="`block-generic-${location.title}-${index}`"
-        :text="location.title"
-        icon-name="svg-icon-location"
-        :to="location.to"
+        v-for="(location, index) in associatedLocations" :key="`block-generic-${location.title}-${index}`"
+        :text="location.title" icon-name="svg-icon-location" :to="location.to"
       />
     </div>
-    <div
-      v-if="text"
-      class="text"
-    >
+    <div v-if="text" class="text">
       {{ parsedText }}
     </div>
   </li>
