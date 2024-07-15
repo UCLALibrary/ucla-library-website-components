@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.0.1...v3.1.0) (2024-07-15)
+
+
+### Features
+
+* Create Component FTVA VideoEmbed ([#563](https://github.com/UCLALibrary/ucla-library-website-components/issues/563)) ([8dd3844](https://github.com/UCLALibrary/ucla-library-website-components/commit/8dd3844b05ed9048c38cc73cc7f42db21db0d638))
+
 ## [3.0.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.0.0...v3.0.1) (2024-07-12)
 
 
