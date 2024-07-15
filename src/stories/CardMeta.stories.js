@@ -166,3 +166,50 @@ export function ShareButton() {
   `,
   }
 }
+
+export function ScreeningDetails() {
+  return {
+    data() {
+      return {
+        title: "Central Regions",
+        alternateTitle: "Alternate  La Central Region",
+        language: "es",
+        year: "2025",
+        country: "South Country",
+        languageInfo: "Spanglish",
+        runtime: "190 minutes",
+        screeningTags: [
+          {
+            title: "IMAX"
+          },
+          {
+            title: "Experimental Film"
+          }
+        ],
+        text: '<p><em>This is the first part of a two-part article, the second half of which will be published in the December issue.</em></p> <p><a href="https://www.cinema.ucla.edu/events/2023/11/05/la-region-centrale">The late avant-garde master Michael Snow’s work</a> explores the nature of perception, consciousness, participation, and in many ways is uncategorizable but relation to time is evident.</p>',
+
+
+
+
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta, ButtonLink },
+    template: `
+      <card-meta
+        :title="title"
+        :year="year"
+        :country="country"
+        :languageInfo="languageInfo"
+        :runtime="runtime"
+        :tagLabels="screeningTags"
+        :text="text"
+      >
+      </card-meta>
+  `,
+  }
+}

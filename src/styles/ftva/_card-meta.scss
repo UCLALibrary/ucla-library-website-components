@@ -36,4 +36,24 @@
   .slot {
     margin-top: 28px;
   }
+
+  .definition-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+
+  .definition-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .definition-key {
+    color: coral;
+  }
+
+  .definition-value {
+    color: aqua;
+  }
 }

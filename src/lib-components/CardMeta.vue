@@ -36,6 +36,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  alternativeTitle: {
+    type: String,
+    default: '',
+  },
   language: {
     type: String,
     default: '',
@@ -77,6 +81,22 @@ const props = defineProps({
     default: () => [],
   },
   introduction: {
+    type: String,
+    default: '',
+  },
+  year: {
+    type: String,
+    default: '',
+  },
+  country: {
+    type: String,
+    default: '',
+  },
+  languageInfo: {
+    type: String,
+    default: '',
+  },
+  runtime: {
     type: String,
     default: '',
   },
@@ -203,6 +223,60 @@ const classes = computed(() => {
         :to="location.to"
       />
     </div>
+
+    <!-- Screening Details -->
+    <dl
+      v-if="year || country || language || runtime"
+      class="definition-list"
+    >
+      <div class="definition-item">
+        <dt
+          v-if="year"
+          class="definition-key"
+        >Year</dt>
+
+        <dd
+          v-if="year"
+          class="definition-value"
+          v-html="year"
+        />
+      </div>
+      <div class="definition-item">
+        <dt
+          v-if="country"
+          class="definition-key"
+        >Country</dt>
+        <dd
+          v-if="country"
+          class="definition-value"
+          v-html="country"
+        />
+      </div>
+
+      <div class="definition-item">
+        <dt
+          v-if="language"
+          class="definition-key"
+        >Language</dt>
+        <dd
+          v-if="languageInfo"
+          class="definition-value"
+          v-html="languageInfo"
+        />
+      </div>
+
+      <div class="definition-item">
+        <dt
+          v-if="runtime"
+          class="definition-key"
+        >Runtime</dt>
+        <dd
+          v-if="runtime"
+          class="definition-value"
+          v-html="runtime"
+        />
+      </div>
+    </dl>
 
     <div
       v-if="tagLabels && tagLabels.length > 0"
