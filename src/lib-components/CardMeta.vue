@@ -233,7 +233,9 @@ const classes = computed(() => {
         <dt
           v-if="year"
           class="definition-key"
-        >Year</dt>
+        >
+          Year
+        </dt>
 
         <dd
           v-if="year"
@@ -245,7 +247,9 @@ const classes = computed(() => {
         <dt
           v-if="country"
           class="definition-key"
-        >Country</dt>
+        >
+          Country
+        </dt>
         <dd
           v-if="country"
           class="definition-value"
@@ -257,7 +261,9 @@ const classes = computed(() => {
         <dt
           v-if="language"
           class="definition-key"
-        >Language</dt>
+        >
+          Language
+        </dt>
         <dd
           v-if="languageInfo"
           class="definition-value"
@@ -269,7 +275,9 @@ const classes = computed(() => {
         <dt
           v-if="runtime"
           class="definition-key"
-        >Runtime</dt>
+        >
+          Runtime
+        </dt>
         <dd
           v-if="runtime"
           class="definition-value"
