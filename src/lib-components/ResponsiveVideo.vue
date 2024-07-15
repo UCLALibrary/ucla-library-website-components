@@ -302,5 +302,11 @@ function onPlaying() {
           opacity: 0;
       }
   }
+  :deep(.video-embed) {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+  }
 }
 </style>
