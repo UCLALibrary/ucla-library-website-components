@@ -15,7 +15,7 @@ import VideoEmbed from '@/lib-components/VideoEmbed.vue'
 // TYPES
 import type { EventFiltersItemType, MediaItemType } from '@/types/types'
 
-const { props } = defineProps({
+defineProps({
 
   title: {
     type: String,
@@ -65,8 +65,6 @@ const { props } = defineProps({
 
 const BlockTag = defineAsyncComponent(() => import('@/lib-components/BlockTag.vue'))
 
-// const route = useRoute()
-
 // THEME
 const theme = useTheme()
 
@@ -77,8 +75,6 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
-    <!-- COUNT -->
-    <slot />
 
     <h3 class="title-no-link">
       {{ title }}
