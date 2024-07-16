@@ -1,4 +1,9 @@
 .ftva.block-screening-detail {
+  .count {
+    @include ftva-subtitle-1;
+    color: $subtitle-grey;
+  }
+
   .title-no-link {
     @include ftva-h3;
     color: $heading-grey;
@@ -19,6 +24,7 @@
     justify-content: flex-start;
     align-items: flex-start;
 
+    @include ftva-body;
     margin: 0;
     margin-top: 40px;
   }

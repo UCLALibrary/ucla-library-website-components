@@ -80,10 +80,15 @@ const classes = computed(() => {
 <template>
   <div :class="classes">
     <!-- COUNT -->
-    <div v-if="count">{{ count }}</div>
-    <!-- <slot :selection-index="selectionIndex" /> -->
+    <div
+      v-if="count"
+      class="count"
+    >{{ count }}</div>
 
-    <h3 class="title-no-link">
+    <h3
+      class="title-no-link"
+      v-if="title"
+    >
       {{ title }}
 
       <span
