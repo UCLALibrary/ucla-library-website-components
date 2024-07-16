@@ -29,18 +29,17 @@ const { items } = defineProps({
           v-for="item in items"
           :key="`block-screening-detail-${item.title}`"
           :title="item.title"
-          :alternativeTitle="item.alternativeTitle"
+          :alternative-title="item.alternativeTitle"
           :language="item.language"
           :year="item.year"
           :country="item.country"
-          :languageInfo="item.languageInfo"
+          :language-info="item.languageInfo"
           :runtime="item.runtime"
-          :tagLabels="item.tagLabels"
+          :tag-labels="item.tagLabels"
           :text="item.text"
           :trailer="item.trailer"
           class="block"
         />
-
       </div>
     </div>
 

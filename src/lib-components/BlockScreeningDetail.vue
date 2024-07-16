@@ -75,7 +75,6 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
-
     <h3 class="title-no-link">
       {{ title }}
 
@@ -88,14 +87,30 @@ const classes = computed(() => {
 
     <!-- Screening Details -->
     <dl>
-      <dt v-if="year">Year</dt>
-      <dd v-if="year">{{ year }}</dd>
-      <dt v-if="country">Country</dt>
-      <dd v-if="country">{{ country }}</dd>
-      <dt v-if="languageInfo">Language</dt>
-      <dd v-if="languageInfo">{{ languageInfo }}</dd>
-      <dt v-if="runtime">Runtime</dt>
-      <dd v-if="runtime">{{ runtime }}</dd>
+      <dt v-if="year">
+        Year
+      </dt>
+      <dd v-if="year">
+        {{ year }}
+      </dd>
+      <dt v-if="country">
+        Country
+      </dt>
+      <dd v-if="country">
+        {{ country }}
+      </dd>
+      <dt v-if="languageInfo">
+        Language
+      </dt>
+      <dd v-if="languageInfo">
+        {{ languageInfo }}
+      </dd>
+      <dt v-if="runtime">
+        Runtime
+      </dt>
+      <dd v-if="runtime">
+        {{ runtime }}
+      </dd>
     </dl>
 
     <div
