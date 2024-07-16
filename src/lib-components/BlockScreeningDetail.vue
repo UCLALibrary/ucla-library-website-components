@@ -2,73 +2,29 @@
   setup
   lang="ts"
 >
-import { computed } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 
+//import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
+import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
-import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
-import CardMeta from '@/lib-components/CardMeta.vue'
+import RichText from '@/lib-components/RichText.vue'
+
 // TYPES
-interface tagLabelsType {
-  tagLabels: {
-    title: string
-  }[]
-}
-// TYPES
-interface PostSmallItemType {
-  image: MediaItemType
-  categoryName: string
-  author: string
-  title: string
-  to: string
-}
+import type { EventFiltersItemType, MediaItemType } from '@/types/types'
 
-interface ScreeningDetailItemType {
-  screeningTitle: string
-  alternateTitle: string
-  languageTranslated: string
-  year: string
-  country: string
-  languageInfo: string
-  runtime: string
-  screeningTags: [
-    {
-      title: "IMAX"
-    },
-    {
-      title: "Experimental Film"
-    }
-  ],
-  descriptionOfScreening: string
-  trailer: MediaItemType
-}
+const { props } = defineProps({
 
-import type { MediaItemType } from '@/types/types'
-
-const props = defineProps({
-  to: {
-    type: String,
-    default: '',
-  },
-  category: {
-    type: String,
-    default: '',
-  },
   title: {
     type: String,
     default: '',
   },
-
-  screeningTitle: {
+  alternativeTitle: {
     type: String,
     default: '',
   },
-  alternateTitle: {
-    type: String,
-    default: '',
-  },
-  languageTranslated: {
+  language: {
     type: String,
     default: '',
   },
@@ -89,20 +45,6 @@ const props = defineProps({
     default: '',
   },
   tagLabels: {
-    type: Array as <tagLabelsType[] >,
-    default: () => [],
-  },
-  alternativeFullName: {
-    type: String,
-    default: '',
-  },
-  language: {
-    type: String,
-    default: '',
-  },
-
-
-  tagLabels: {
     type: Array as PropType<EventFiltersItemType[]>,
     default: () => [],
   },
@@ -110,120 +52,132 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  trailer: {
+    type: String,
+    default: '',
+  },
   image: {
     type: Object as PropType<MediaItemType>,
     default: () => { },
   },
-  imageAspectRatio: {
-    type: Number,
-    default: 0,
-  },
 })
 
-const classes = computed(() => {
-  return [
-    'block-card-with-image',
-    { 'is-vertical': props.isVertical },
+const BlockTag = defineAsyncComponent(() => import('@/lib-components/BlockTag.vue'))
 
-  ]
+// const route = useRoute()
+
+// THEME
+const theme = useTheme()
+
+const classes = computed(() => {
+  return ['block-screening-detail', theme?.value || '']
 })
 </script>
 
 <template>
-  <li :class="classes">
-    <div class="image-container">
-      <ResponsiveImage
-        v-if="image"
-        :media="image"
-        :aspect-ratio="imageAspectRatio"
-        class="image"
-      />
-      <div
-        v-else
-        class="molecule-no-image"
+  <div :class="classes">
+    <!-- COUNT -->
+    <slot />
+
+    <h3 class="title-no-link">
+      {{ title }}
+
+      <span
+        v-if="alternativeTitle"
+        :lang="language"
       >
-        <MoleculePlaceholder
-          class="molecule"
-          aria-hidden="true"
-        />
-      </div>
+        {{ alternativeTitle }}</span>
+    </h3>
+
+    <!-- Screening Details -->
+    <table
+      v-if="year || country || language || runtime"
+      class="definition-list"
+    >
+      <tbody>
+        <tr>
+          <th
+            scope="row"
+            v-if="year"
+            class="detail-key"
+          >Year</th>
+          <td
+            v-if="year"
+            class="definition-item"
+            v-html="year"
+          />
+        </tr>
+
+        <tr>
+          <th
+            scope="row"
+            v-if="country"
+            class="detail-key"
+          >Country</th>
+          <td
+            v-if="country"
+            class="definition-item"
+            v-html="country"
+          />
+        </tr>
+
+        <tr>
+          <th
+            scope="row"
+            v-if="languageInfo"
+            class="detail-key"
+          >Language</th>
+          <td
+            v-if="languageInfo"
+            class="definition-item"
+            v-html="languageInfo"
+          />
+        </tr>
+
+        <tr>
+          <th
+            scope="row"
+            v-if="runtime"
+            class="detail-key"
+          >Runtime</th>
+          <td
+            v-if="runtime"
+            class="definition-item"
+            v-html="runtime"
+          />
+        </tr>
+      </tbody>
+    </table>
+
+    <div
+      v-if="tagLabels && tagLabels.length > 0"
+      class="block-tags"
+    >
+      <BlockTag
+        v-for="tag in tagLabels"
+        :key="`tag-${tag.title}`"
+        :label="tag.title"
+        :isSecondary="true"
+        class="tag-label"
+      />
     </div>
-    <CardMeta
-      :to="to"
-      :category="category"
-      :title="title"
-      :start-date="startDate"
-      :end-date="endDate"
-      :ongoing="ongoing"
-      :text="text"
-      :byline-one="bylineOne"
-      :byline-two="bylineTwo"
-      :locations="locations"
-      :alternative-full-name="alternativeFullName"
-      :language="language"
-      :section-handle="sectionHandle"
+
+    <RichText
+      v-if="text"
+      class="text"
+      :rich-text-content="text"
     />
-  </li>
+
+    <VideoEmbed
+      :trailer="trailer"
+      :posterImage="image"
+    />
+  </div>
 </template>
 
 <style
   lang="scss"
   scoped
 >
-.block-card-with-image {
-  background-color: var(--color-theme, var(--color-white));
-  font-family: var(--font-primary);
-  position: relative;
-  display: flex;
-  flex-direction: row;
-
-  .image-container {
-    .molecule-no-image {
-      width: 100%;
-      margin-right: var(--space-xl);
-      background: var(--gradient-01);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      position: relative;
-
-      .molecule {
-        flex-shrink: 0;
-        position: absolute;
-        opacity: 0.7;
-      }
-    }
-  }
-
-  // Variations
-  &.is-vertical {
-    flex-direction: column;
-
-    .molecule-no-image {
-      width: 100%;
-      height: 179.2px;
-    }
-
-    :deep(.card-meta) {
-      margin-top: 16px;
-    }
-
-    :deep(.image) {
-      width: 100%;
-
-      .media {
-        object-fit: cover;
-      }
-    }
-  }
-
-  // Breakpoints
-  @media #{$medium} {
-    &.is-vertical {
-      .molecule-no-image {
-        height: 226px;
-      }
-    }
-  }
-}
+@import "@/styles/themes.scss";
 </style>

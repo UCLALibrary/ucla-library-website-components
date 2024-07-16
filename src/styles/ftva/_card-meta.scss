@@ -1,15 +1,20 @@
 // CardMeta THEME
 
-.ftva.card-meta {
+.ftva.block-screening-detail {
   .category {
     @include ftva-button-link;
     color: $accent-blue;
     margin: 0 0 20px;
   }
 
-  .title,
-  .title-no-link {
+  .title {
     @include ftva-h2;
+    color: $heading-grey;
+    margin: 0 0 24px;
+  }
+
+  .title-no-link {
+    @include ftva-h3;
     color: $heading-grey;
     margin: 0 0 24px;
   }
@@ -37,23 +42,37 @@
     margin-top: 28px;
   }
 
-  .definition-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
+  dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 2em;
+    margin-inline-start: -40px;
+    margin-inline-end: 0px;
   }
 
-  .definition-item {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  dt {
+    display: block;
   }
 
-  .definition-key {
-    color: coral;
+  dd {
+    display: block;
+    margin-inline-start: 40px;
   }
 
-  .definition-value {
-    color: aqua;
+  tr {
+    text-align: left;
+    @include ftva-subtitle-2;
+
+  }
+
+  th {
+    padding-right: 40px;
+    @include ftva-subtitle-2;
+  }
+
+  td {
+    padding-right: 25px;
+    @include ftva-subtitle-2;
+    color: #{$accent-blue};
   }
 }

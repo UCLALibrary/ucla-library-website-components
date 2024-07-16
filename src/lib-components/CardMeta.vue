@@ -84,6 +84,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  count: {
+    type: String,
+    default: '',
+  },
   year: {
     type: String,
     default: '',
@@ -151,6 +155,9 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
+    <!-- COUNT -->
+    <slot />
+
     <div
       v-if="category"
       class="category"
@@ -225,66 +232,64 @@ const classes = computed(() => {
     </div>
 
     <!-- Screening Details -->
-    <dl
+    <table
       v-if="year || country || language || runtime"
       class="definition-list"
     >
-      <div class="definition-item">
-        <dt
-          v-if="year"
-          class="definition-key"
-        >
-          Year
-        </dt>
+      <tbody>
+        <tr>
+          <th
+            scope="row"
+            v-if="year"
+            class="detail-key"
+          >Year</th>
+          <td
+            v-if="year"
+            class="definition-item"
+            v-html="year"
+          />
+        </tr>
 
-        <dd
-          v-if="year"
-          class="definition-value"
-          v-html="year"
-        />
-      </div>
-      <div class="definition-item">
-        <dt
-          v-if="country"
-          class="definition-key"
-        >
-          Country
-        </dt>
-        <dd
-          v-if="country"
-          class="definition-value"
-          v-html="country"
-        />
-      </div>
+        <tr>
+          <th
+            scope="row"
+            v-if="country"
+            class="detail-key"
+          >Country</th>
+          <td
+            v-if="country"
+            class="definition-item"
+            v-html="country"
+          />
+        </tr>
 
-      <div class="definition-item">
-        <dt
-          v-if="language"
-          class="definition-key"
-        >
-          Language
-        </dt>
-        <dd
-          v-if="languageInfo"
-          class="definition-value"
-          v-html="languageInfo"
-        />
-      </div>
+        <tr>
+          <th
+            scope="row"
+            v-if="languageInfo"
+            class="detail-key"
+          >Language</th>
+          <td
+            v-if="languageInfo"
+            class="definition-item"
+            v-html="languageInfo"
+          />
+        </tr>
 
-      <div class="definition-item">
-        <dt
-          v-if="runtime"
-          class="definition-key"
-        >
-          Runtime
-        </dt>
-        <dd
-          v-if="runtime"
-          class="definition-value"
-          v-html="runtime"
-        />
-      </div>
-    </dl>
+        <tr>
+          <th
+            scope="row"
+            v-if="runtime"
+            class="detail-key"
+          >Runtime</th>
+          <td
+            v-if="runtime"
+            class="definition-item"
+            v-html="runtime"
+          />
+        </tr>
+      </tbody>
+    </table>
 
     <div
       v-if="tagLabels && tagLabels.length > 0"
@@ -294,6 +299,19 @@ const classes = computed(() => {
         v-for="tag in tagLabels"
         :key="`tag-${tag.title}`"
         :label="tag.title"
+        class="tag-label"
+      />
+    </div>
+
+    <div
+      v-if="typeHandle = screeningDetails && tagLabels && tagLabels.length > 0"
+      class="block-tags"
+    >
+      <BlockTag
+        v-for="tag in tagLabels"
+        :key="`tag-${tag.title}`"
+        :label="tag.title"
+        isSecondary="true"
         class="tag-label"
       />
     </div>
