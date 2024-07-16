@@ -91,72 +91,16 @@ const classes = computed(() => {
     </h3>
 
     <!-- Screening Details -->
-    <table
-      v-if="year || country || language || runtime"
-      class="definition-list"
-    >
-      <tbody>
-        <tr>
-          <th
-            v-if="year"
-            scope="row"
-            class="detail-key"
-          >
-            Year
-          </th>
-          <td
-            v-if="year"
-            class="definition-item"
-            v-html="year"
-          />
-        </tr>
-
-        <tr>
-          <th
-            v-if="country"
-            scope="row"
-            class="detail-key"
-          >
-            Country
-          </th>
-          <td
-            v-if="country"
-            class="definition-item"
-            v-html="country"
-          />
-        </tr>
-
-        <tr>
-          <th
-            v-if="languageInfo"
-            scope="row"
-            class="detail-key"
-          >
-            Language
-          </th>
-          <td
-            v-if="languageInfo"
-            class="definition-item"
-            v-html="languageInfo"
-          />
-        </tr>
-
-        <tr>
-          <th
-            v-if="runtime"
-            scope="row"
-            class="detail-key"
-          >
-            Runtime
-          </th>
-          <td
-            v-if="runtime"
-            class="definition-item"
-            v-html="runtime"
-          />
-        </tr>
-      </tbody>
-    </table>
+    <dl>
+      <dt v-if="year">Year</dt>
+      <dd v-if="year">{{ year }}</dd>
+      <dt v-if="country">Country</dt>
+      <dd v-if="country">{{ country }}</dd>
+      <dt v-if="languageInfo">Language</dt>
+      <dd v-if="languageInfo">{{ languageInfo }}</dd>
+      <dt v-if="runtime">Runtime</dt>
+      <dd v-if="runtime">{{ runtime }}</dd>
+    </dl>
 
     <div
       v-if="tagLabels && tagLabels.length > 0"

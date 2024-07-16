@@ -27,24 +27,21 @@
     margin-bottom: 28px;
   }
 
-  table {
+  dl {
+    display: grid;
+    grid-template: auto / 114px 1fr;
+
     margin-bottom: 20px;
   }
 
-  tr {
-    text-align: left;
+  dt,
+  dd {
+    margin: 0;
     @include ftva-subtitle-2;
-
+    padding-bottom: 2px;
   }
 
-  th {
-    padding-right: 40px;
-    @include ftva-subtitle-2;
-  }
-
-  td {
-    padding-right: 25px;
-    @include ftva-subtitle-2;
+  dd {
     color: #{$accent-blue};
   }
 }
