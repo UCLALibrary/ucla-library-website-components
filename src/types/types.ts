@@ -244,6 +244,20 @@ export interface SectionGenericListItemType {
   payRate?: string
 }
 
+export interface SectionScreeningDetailsItemType {
+  title?: string
+  alternativeTitle?: string
+  language?: string
+  year?: string
+  country?: string
+  languageInfo?: string
+  runtime?: string
+  tagLabels?: EventFiltersItemType[]
+  text?: string
+  trailer?: string
+  image: MediaItemType
+}
+
 export interface SectionSpaceListItemType {
   to: string
   title: string
