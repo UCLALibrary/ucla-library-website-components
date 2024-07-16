@@ -4,13 +4,14 @@
 >
 import { computed, defineAsyncComponent } from 'vue'
 
-//import { useRoute } from 'vue-router'
+// import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
 import RichText from '@/lib-components/RichText.vue'
 import VideoEmbed from '@/lib-components/VideoEmbed.vue'
+
 // TYPES
 import type { EventFiltersItemType, MediaItemType } from '@/types/types'
 
@@ -97,10 +98,12 @@ const classes = computed(() => {
       <tbody>
         <tr>
           <th
-            scope="row"
             v-if="year"
+            scope="row"
             class="detail-key"
-          >Year</th>
+          >
+            Year
+          </th>
           <td
             v-if="year"
             class="definition-item"
@@ -110,10 +113,12 @@ const classes = computed(() => {
 
         <tr>
           <th
-            scope="row"
             v-if="country"
+            scope="row"
             class="detail-key"
-          >Country</th>
+          >
+            Country
+          </th>
           <td
             v-if="country"
             class="definition-item"
@@ -123,10 +128,12 @@ const classes = computed(() => {
 
         <tr>
           <th
-            scope="row"
             v-if="languageInfo"
+            scope="row"
             class="detail-key"
-          >Language</th>
+          >
+            Language
+          </th>
           <td
             v-if="languageInfo"
             class="definition-item"
@@ -136,10 +143,12 @@ const classes = computed(() => {
 
         <tr>
           <th
-            scope="row"
             v-if="runtime"
+            scope="row"
             class="detail-key"
-          >Runtime</th>
+          >
+            Runtime
+          </th>
           <td
             v-if="runtime"
             class="definition-item"
@@ -157,7 +166,7 @@ const classes = computed(() => {
         v-for="tag in tagLabels"
         :key="`tag-${tag.title}`"
         :label="tag.title"
-        :isSecondary="true"
+        :is-secondary="true"
         class="tag-label"
       />
     </div>
@@ -170,7 +179,7 @@ const classes = computed(() => {
 
     <VideoEmbed
       :trailer="trailer"
-      :posterImage="image"
+      :poster-image="image"
     />
   </div>
 </template>
