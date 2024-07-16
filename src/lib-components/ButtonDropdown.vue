@@ -2,6 +2,7 @@
 import { computed } from "vue"
 import { useRoute } from "vue-router"
 import { useTheme } from "@/composables/useTheme"
+import "add-to-calendar-button"
 
 // Components
 
@@ -31,7 +32,22 @@ const route = useRoute()
 
 <template>
     <h2>Dropdown</h2>
-    {{ title }}
+
+    <div v-if="eventDetail">
+        <add-to-calendar-button
+            name="Title"
+            options="'Apple','Google'"
+            location="World Wide Web"
+            startDate="2024-07-19"
+            endDate="2024-07-19"
+            startTime="10:15"
+            endTime="23:30"
+            timeZone="America/Los_Angeles"
+        ></add-to-calendar-button>
+    </div>
+    <div v-else>
+        {{ title }}
+    </div>
 </template>
 
 <style lang="scss" scoped>
