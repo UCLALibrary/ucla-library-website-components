@@ -11,12 +11,16 @@ import { useTheme } from '@/composables/useTheme'
 // COMPONENTS
 import RichText from '@/lib-components/RichText.vue'
 import VideoEmbed from '@/lib-components/VideoEmbed.vue'
+import DividerWayFinder from '@/lib-components/DividerWayFinder.vue'
 
 // TYPES
 import type { EventFiltersItemType, MediaItemType } from '@/types/types'
 
 defineProps({
-
+  count: {
+    type: String,
+    default: '',
+  },
   title: {
     type: String,
     default: '',
@@ -75,6 +79,10 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
+    <!-- COUNT -->
+    <div v-if="count">{{ count }}</div>
+    <!-- <slot :selection-index="selectionIndex" /> -->
+
     <h3 class="title-no-link">
       {{ title }}
 
@@ -85,7 +93,6 @@ const classes = computed(() => {
         {{ alternativeTitle }}</span>
     </h3>
 
-    <!-- Screening Details -->
     <dl>
       <dt v-if="year">
         Year
@@ -133,9 +140,12 @@ const classes = computed(() => {
     />
 
     <VideoEmbed
+      v-if="trailer"
       :trailer="trailer"
       :poster-image="image"
     />
+
+    <divider-way-finder class="divider" />
   </div>
 </template>
 

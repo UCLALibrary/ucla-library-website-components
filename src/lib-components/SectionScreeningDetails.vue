@@ -1,3 +1,7 @@
+WHY SectionScreeningDetails
+
+WHY DON"T I WORK???
+
 <script
   setup
   lang="ts"
@@ -7,13 +11,17 @@ import type { PropType } from 'vue'
 // COMPONENTS
 import BlockScreeningDetail from '@/lib-components/BlockScreeningDetail.vue'
 
-// TYPE
+// TYPESCRIPT
 import type { SectionScreeningDetailsItemType } from '@/types/types'
 
-const { items } = defineProps({
+const { items, sectionTitle } = defineProps({
   items: {
     type: Array as PropType<SectionScreeningDetailsItemType[]>,
     default: () => [],
+  },
+  sectionTitle: {
+    type: String,
+    default: '',
   },
 })
 
@@ -22,33 +30,38 @@ const { items } = defineProps({
 
 <template>
   <section class="section-screening-details">
-    <div>
+    <!-- <div>
       <h3>COUNT</h3>
       <div class="block">
-        <BlockScreeningDetail
-          v-for="item in items"
-          :key="`block-screening-detail-${item.title}`"
-          :title="item.title"
-          :alternative-title="item.alternativeTitle"
-          :language="item.language"
-          :year="item.year"
-          :country="item.country"
-          :language-info="item.languageInfo"
-          :runtime="item.runtime"
-          :tag-labels="item.tagLabels"
-          :text="item.text"
-          :trailer="item.trailer"
-          class="block"
-        />
+        HELLO
       </div>
-    </div>
+    </div> -->
 
-    <smart-link
-      v-if="to"
-      class="more"
-      :to="to"
-    >
-      <ButtonMore />
-    </smart-link>
+    <!-- TEST -->
+    <div class="container">
+      <div
+        v-if="sectionTitle"
+        class="section-title"
+        v-html="sectionTitle"
+      />
+
+      <BlockScreeningDetail
+        v-for="(item, index) in items"
+        :key="`block-screening-detail-${item.title}`"
+        :count="`Screening ${index + 1} of ${items.length}`"
+        :title="item.title"
+        :alternative-title="item.alternativeTitle"
+        :language="item.language"
+        :year="item.year"
+        :country="item.country"
+        :language-info="item.languageInfo"
+        :runtime="item.runtime"
+        :tag-labels="item.tagLabels"
+        :text="item.text"
+        :trailer="item.trailer"
+        class="block"
+      />
+
+    </div>
   </section>
 </template>
