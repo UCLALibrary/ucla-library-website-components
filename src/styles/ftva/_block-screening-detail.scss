@@ -1,0 +1,50 @@
+.ftva.block-screening-detail {
+  .title-no-link {
+    @include ftva-h3;
+    color: $heading-grey;
+    margin: 0 0 24px;
+  }
+
+  .block-tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 8px;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    margin: 0;
+    margin-top: 40px;
+  }
+
+  .slot {
+    margin-bottom: 28px;
+  }
+
+  table {
+    margin-bottom: 20px;
+  }
+
+  tr {
+    text-align: left;
+    @include ftva-subtitle-2;
+
+  }
+
+  th {
+    padding-right: 40px;
+    @include ftva-subtitle-2;
+  }
+
+  td {
+    padding-right: 25px;
+    @include ftva-subtitle-2;
+    color: #{$accent-blue};
+  }
+}

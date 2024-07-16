@@ -10,7 +10,7 @@ import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
 import RichText from '@/lib-components/RichText.vue'
-
+import VideoEmbed from '@/lib-components/VideoEmbed.vue'
 // TYPES
 import type { EventFiltersItemType, MediaItemType } from '@/types/types'
 

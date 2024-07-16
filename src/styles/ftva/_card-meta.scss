@@ -1,6 +1,6 @@
 // CardMeta THEME
 
-.ftva.block-screening-detail {
+.ftva.card-meta {
   .category {
     @include ftva-button-link;
     color: $accent-blue;
@@ -40,39 +40,5 @@
 
   .slot {
     margin-top: 28px;
-  }
-
-  dl {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 2em;
-    margin-inline-start: -40px;
-    margin-inline-end: 0px;
-  }
-
-  dt {
-    display: block;
-  }
-
-  dd {
-    display: block;
-    margin-inline-start: 40px;
-  }
-
-  tr {
-    text-align: left;
-    @include ftva-subtitle-2;
-
-  }
-
-  th {
-    padding-right: 40px;
-    @include ftva-subtitle-2;
-  }
-
-  td {
-    padding-right: 25px;
-    @include ftva-subtitle-2;
-    color: #{$accent-blue};
   }
 }

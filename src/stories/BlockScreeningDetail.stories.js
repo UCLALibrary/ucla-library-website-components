@@ -1,6 +1,9 @@
 import { computed } from 'vue'
 import BlockScreeningDetail from '@/lib-components/BlockScreeningDetail'
 
+// Import mock api data
+import * as MEDIA from '@/stories/mock/Media'
+
 // Storybook default settings
 export default {
   title: 'BLOCK / Screening Detail',
@@ -24,7 +27,8 @@ const mockDefault = {
       }
     ],
     text: '<p><em>This is the first part of a two-part article, the second half of which will be published in the December issue.</em></p> <p><a href="https://www.cinema.ucla.edu/events/2023/11/05/la-region-centrale">The late avant-garde master Michael Snow’s work</a> explores the nature of perception, consciousness, participation, and in many ways is uncategorizable but relation to time is evident.</p>',
-    trailer: '<figure><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/uYr_SvIKKuI?si=ihenbmyE91KqyXK5\" title=\"YouTube video player\" frameborder=\"0\"></iframe></figure>',
+    trailer: '<figure><iframe width="560" height="315" src="https://www.youtube.com/embed/3sQ9k4yvvPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></figure>',
+    embedCode: MEDIA.VideoEmbed,
     image: [
       {
         id: "3119538",
@@ -63,6 +67,8 @@ export function Default() {
         :runtime="runtime"
         :tagLabels="screeningTags"
         :text="text"
+        :trailer= "trailer"
+
       />
   `,
   }
