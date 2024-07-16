@@ -83,11 +83,13 @@ const classes = computed(() => {
     <div
       v-if="count"
       class="count"
-    >{{ count }}</div>
+    >
+      {{ count }}
+    </div>
 
     <h3
-      class="title-no-link"
       v-if="title"
+      class="title-no-link"
     >
       {{ title }}
 
@@ -150,7 +152,7 @@ const classes = computed(() => {
       :poster-image="image"
     />
 
-    <divider-way-finder class="divider" />
+    <DividerWayFinder class="divider" />
   </div>
 </template>
 

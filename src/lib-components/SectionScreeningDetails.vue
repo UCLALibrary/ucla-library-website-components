@@ -61,7 +61,6 @@ const { items, sectionTitle } = defineProps({
         :trailer="item.trailer"
         class="block"
       />
-
     </div>
   </section>
 </template>
