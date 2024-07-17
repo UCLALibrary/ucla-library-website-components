@@ -17,9 +17,13 @@ import DividerWayFinder from '@/lib-components/DividerWayFinder.vue'
 import type { EventFiltersItemType, MediaItemType } from '@/types/types'
 
 defineProps({
-  count: {
+  screeningCount: {
     type: String,
     default: '',
+  },
+  count: {
+    type: Number,
+    default: 0,
   },
   title: {
     type: String,
@@ -79,12 +83,11 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
-    <!-- COUNT -->
     <div
-      v-if="count"
+      v-if="count > 1"
       class="count"
     >
-      {{ count }}
+      {{ screeningCount }}
     </div>
 
     <h3
@@ -147,12 +150,15 @@ const classes = computed(() => {
     />
 
     <VideoEmbed
-      v-if="trailer"
+      v-if="trailer || image"
       :trailer="trailer"
       :poster-image="image"
     />
 
-    <DividerWayFinder class="divider" />
+    <DividerWayFinder
+      v-if="(count > 1)"
+      class="divider"
+    />
   </div>
 </template>
 

@@ -1,7 +1,3 @@
-WHY SectionScreeningDetails
-
-WHY DON"T I WORK???
-
 <script
   setup
   lang="ts"
@@ -48,7 +44,8 @@ const { items, sectionTitle } = defineProps({
       <BlockScreeningDetail
         v-for="(item, index) in items"
         :key="`block-screening-detail-${item.title}`"
-        :count="`Screening ${index + 1} of ${items.length}`"
+        :count="items.length"
+        :screeningCount="`Screening ${index + 1} of ${items.length}`"
         :title="item.title"
         :alternative-title="item.alternativeTitle"
         :language="item.language"
@@ -59,6 +56,7 @@ const { items, sectionTitle } = defineProps({
         :tag-labels="item.tagLabels"
         :text="item.text"
         :trailer="item.trailer"
+        :posterImage="item.image"
         class="block"
       />
     </div>
