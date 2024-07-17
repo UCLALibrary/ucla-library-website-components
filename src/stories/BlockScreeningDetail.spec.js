@@ -1,7 +1,7 @@
 describe('BLOCK/ Screening / Detail', () => {
   it('Default', () => {
     cy.visit(
-      '/iframe.html?id=block-screeing-detail--default&args=&viewMode=story'
+      '/iframe.html?id=block-screening-detail--default&args=&viewMode=story'
     )
     cy.get('.block-screening-detail').should('exist')
 
