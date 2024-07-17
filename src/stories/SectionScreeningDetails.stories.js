@@ -29,12 +29,12 @@ const mockDefault = [
     embedCode: '<figure><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/nir7aNK5794?si=QZAJFI1fYNGZ96rc\" title=\"YouTube video player\" frameborder=\"0\"></iframe></figure>',
     image: [
       {
-        id: "3156203",
-        src: "https://static.library.ucla.edu/craftassetstest/_fullscreen/michaelSnow.jpeg",
+        id: '3156203',
+        src: 'https://static.library.ucla.edu/craftassetstest/_fullscreen/michaelSnow.jpeg',
         height: 2416,
         width: 2560,
-        srcset: "https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/michaelSnow.jpeg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/michaelSnow.jpeg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/michaelSnow.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/michaelSnow.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/michaelSnow.jpeg 2560w",
-        alt: "michael snow in thinking man pose",
+        srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/michaelSnow.jpeg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/michaelSnow.jpeg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/michaelSnow.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/michaelSnow.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/michaelSnow.jpeg 2560w',
+        alt: 'michael snow in thinking man pose',
         focalPoint: [
           0.5,
           0.5
