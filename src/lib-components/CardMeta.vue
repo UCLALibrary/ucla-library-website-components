@@ -99,14 +99,17 @@ const parsedTarget = computed(() => {
 
 const parsedDate = computed(() => {
   if (props.startDate)
-    return formatDates(props.startDate, props.endDate)
+    return props.endDate ? formatDates(props.startDate, props.endDate) : formatDates(props.startDate, props.startDate)
 
   return ''
 })
 
 const parsedTime = computed(() => {
+  // necessary check for library-website-nuxt & meap
   if (props.startDate && props.sectionHandle === 'event')
     return formatTimes(props.startDate, props.endDate)
+  else if (props.startDate)
+    return props.endDate ? formatTimes(props.startDate, props.endDate) : formatTimes(props.startDate, props.startDate)
 
   return ''
 })

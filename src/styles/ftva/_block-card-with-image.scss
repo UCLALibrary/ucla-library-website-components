@@ -1,0 +1,58 @@
+// @import SvgIconClock from 'ucla-library-design-tokens/assets/svgs/icon-ftva-clock.svg'
+// import svg
+// @import "ucla-library-design-tokens/assets/svgs/icon-ftva-clock.svg";
+
+.ftva.block-card-with-image {
+
+    // normal styles
+    .card-meta {
+        padding: 20px;
+        .title {
+            @include ftva-card-title-2;
+            margin-bottom: 10px;
+        }
+
+        &:hover>a.title {
+            text-decoration: none;
+        }
+
+        .date-time {
+            @include ftva-emphasized-subtitle;
+            color: $accent-blue;
+            flex-direction: row;
+            align-items: center;
+            ;
+            &::before {
+                content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-calendar.svg');
+                margin: 3px 10px 0 0;
+            }
+            .schedule-item:nth-of-type(1) {
+                position: relative;
+                padding-right: 32px;
+                &::after {
+                content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
+                position: absolute;
+                top: -2px;
+                margin: 0px 10px;
+                }
+            }
+        }
+
+        .rich-text {
+          margin-top: 0px;
+          div.parsed-content {
+            color: $subtitle-grey;
+            margin-bottom: 0px;
+          }
+        }
+    }
+
+    // hover styles
+    &:hover {
+        .responsive-image {
+            .media {
+                border: 5px solid $accent-blue;
+            }
+        }
+    }
+}
