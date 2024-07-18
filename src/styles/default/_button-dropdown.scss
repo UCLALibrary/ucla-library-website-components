@@ -1,36 +1,60 @@
 .button-dropdown {
+    display: flex;
+    justify-content: center;
+
     .button {
         height: 51px;
         padding: 12px 16px 12px 20px;
         border-radius: 8px;
-        font-size: 18px;
+        font-weight: 500; //
+        font-size: 18px; // Update to: $font-size-18
+        border: 2px solid #{$primary-blue-03};
+        background-color: $white;
+        color: #{$primary-blue-03};
+        position: relative;
+    }
+    .button.is-expanded {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
-    .button-share {
+    .button-icon {
         display: flex;
         justify-content: space-between;
         width: 187px;
-        border: 1px solid $accent-blue;
 
         &__inner-wrapper {
             display: flex;
             -moz-column-gap: 8px;
             column-gap: 8px;
+            height: 100%;
+        }
+
+        &__svg {
+            position: relative;
+            top: 1px;
         }
     }
 
-    .toggle-triangle-icon {
-        svg {
-            // right: 23px;
-        }
+    .is-expanded.toggle-triangle-icon > svg {
+        transform: rotate(180deg);
+        position: relative;
+        bottom: 2px;
+    }
 
-        &.is-expanded > svg {
-            transform: rotate(180deg);
-            // bottom: -5px;
-        }
+    .button-dropdown-modal {
+        position: relative;
+        top: -4px;
+        z-index: -4;
+    }
 
-        @media #{$small} {
-            // display: none;
-        }
+    .button-dropdown-modal-wrapper {
+        padding: 24px 42px 24px 24px;
+        max-height: 220px;
+        width: 178px;
+        border: 2px solid #{$primary-blue-03};
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        margin: 0 auto;
     }
 }

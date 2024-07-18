@@ -5,8 +5,44 @@ import { useTheme } from "@/composables/useTheme"
 import "add-to-calendar-button"
 
 // Components
-import SvgIconCalendar from "ucla-library-design-tokens/assets/svgs/icon-calendar.svg"
+import SvgIconShare from "ucla-library-design-tokens/assets/svgs/icon-ftva-share.svg"
 import SvgIconFTVADropTriangle from "ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg"
+
+// Calendar Icons
+const SvgAppleICal = defineAsyncComponent(() =>
+    import("ucla-library-design-tokens/assets/svgs/icon-ftva-appleinc.svg")
+)
+
+const SvgGoogleCalendar = defineAsyncComponent(() =>
+    import("ucla-library-design-tokens/assets/svgs/icon-ftva-gcal.svg")
+)
+
+const SvgOutlook = defineAsyncComponent(() =>
+    import("ucla-library-design-tokens/assets/svgs/icon-ftva-outlook.svg")
+)
+
+const SvgFTVADownload = defineAsyncComponent(() =>
+    import("ucla-library-design-tokens/assets/svgs/icon-ftva-download.svg")
+)
+
+// Social Icons
+const SvgFTVAFacebook = defineAsyncComponent(() =>
+    import(
+        "ucla-library-design-tokens/assets/svgs/icon-ftva-social_facebook.svg"
+    )
+)
+
+const SvgFTVATwitterX = defineAsyncComponent(() =>
+    import("ucla-library-design-tokens/assets/svgs/icon-ftva-social_x.svg")
+)
+
+const SvgFTVASocialLink = defineAsyncComponent(() =>
+    import("ucla-library-design-tokens/assets/svgs/icon-ftva-social_link.svg")
+)
+
+const SvgFTVASocialEmail = defineAsyncComponent(() =>
+    import("ucla-library-design-tokens/assets/svgs/icon-ftva-social_email.svg")
+)
 
 //
 const { eventDetail, socialList, title, hasIcon } = defineProps({
@@ -37,10 +73,14 @@ const parsedEvent = computed(() => {
     return ""
 })
 
-const toggledTriangle = computed(() => [
-    "toggle-triangle-icon",
+const isExpandedClass = computed(() => [
     { "is-expanded": isDropdownExpanded.value },
 ])
+
+// Methods
+function handleDropdown() {
+    return (isDropdownExpanded.value = !isDropdownExpanded.value)
+}
 
 // Theme
 const theme = useTheme()
@@ -70,20 +110,32 @@ const parsedClasses = computed(() => {
             ></add-to-calendar-button>
         </div>
         <div v-else>
-            <button class="button button-share">
+            <button
+                class="button button-icon"
+                :class="isExpandedClass"
+                @click="handleDropdown"
+            >
                 <!-- icon -->
-                <span class="button-share__inner-wrapper">
+                <span class="button-icon__inner-wrapper">
                     <span v-if="hasIcon"
-                        ><component :is="SvgIconCalendar" class="" />
+                        ><component
+                            :is="SvgIconShare"
+                            class="button-icon__svg"
+                        />
                     </span>
 
                     {{ title }}
                 </span>
                 <!-- dropdown toggle -->
-                <span :class="toggledTriangle">
+                <span :class="isExpandedClass" class="toggle-triangle-icon">
                     <SvgIconFTVADropTriangle />
                 </span>
             </button>
+            <div v-if="isDropdownExpanded" class="button-dropdown-modal">
+                <div class="button-dropdown-modal-wrapper">
+                    <pre>{{ socialList }}</pre>
+                </div>
+            </div>
         </div>
     </div>
 </template>
