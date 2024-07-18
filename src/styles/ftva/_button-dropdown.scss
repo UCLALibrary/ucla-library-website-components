@@ -12,7 +12,9 @@
     }
 
     .button-dropdown-modal-wrapper {
-        border-width: 1px;
+        border-left-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
         border-color: #555555; // Update to: $medium-grey
     }
 }

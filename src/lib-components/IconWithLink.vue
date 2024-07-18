@@ -159,6 +159,12 @@ export default {
             import("ucla-library-design-tokens/assets/svgs/icon-ftva-share.svg")
         ),
 
+        SvgIconFtvaSocialConfirm: defineAsyncComponent(() =>
+            import(
+                "ucla-library-design-tokens/assets/svgs/icon-ftva-social_confirm.svg"
+            )
+        ),
+
         SvgIconFtvaSocialEmail: defineAsyncComponent(() =>
             import(
                 "ucla-library-design-tokens/assets/svgs/icon-ftva-social_email.svg"

@@ -19,7 +19,7 @@ const { eventDetail, socialList, title, hasIcon } = defineProps({
         type: Array,
         default: () => [],
     },
-    title: {
+    buttonTitle: {
         type: String,
         default: () => "",
     },
@@ -32,6 +32,7 @@ const { eventDetail, socialList, title, hasIcon } = defineProps({
 const isDropdownExpanded = ref(false)
 
 const route = useRoute()
+// console.log(route)
 
 // Computed
 const parsedEvent = computed(() => {
@@ -47,6 +48,13 @@ function handleDropdown() {
     return (isDropdownExpanded.value = !isDropdownExpanded.value)
 }
 
+function handleCopyLink() {
+    // console.log("copy")
+
+    navigator.clipboard.writeText(route.fullPath)
+    alert("Copied the text: " + route.fullPath)
+}
+
 // Theme
 const theme = useTheme()
 
@@ -59,6 +67,7 @@ const parsedClasses = computed(() => {
     <div :class="parsedClasses">
         <div v-if="eventDetail">
             <!-- <pre>{{ eventDetail }}</pre> -->
+            <!-- Add to Calendar Button -->
             <add-to-calendar-button
                 :name="eventDetail.title"
                 :startDate="eventDetail.startDate"
@@ -74,14 +83,17 @@ const parsedClasses = computed(() => {
                 trigger="click"
             ></add-to-calendar-button>
         </div>
+
+        <!-- Generic Button -->
         <div v-else>
             <button
                 class="button button-icon"
                 :class="isExpandedClass"
                 @click="handleDropdown"
             >
-                <!-- icon -->
+                <!-- Optional Icon -->
                 <span class="button-icon__inner-wrapper">
+                    <!-- Make this a slot? -->
                     <span v-if="hasIcon"
                         ><component
                             :is="SvgIconShare"
@@ -89,16 +101,46 @@ const parsedClasses = computed(() => {
                         />
                     </span>
 
-                    {{ title }}
+                    {{ buttonTitle }}
                 </span>
-                <!-- dropdown toggle -->
+                <!-- Dropdown Toggle -->
                 <span :class="isExpandedClass" class="toggle-triangle-icon">
                     <SvgIconFTVADropTriangle />
                 </span>
             </button>
+            <!-- Dropdown Modal -->
             <div v-if="isDropdownExpanded" class="button-dropdown-modal">
                 <div class="button-dropdown-modal-wrapper">
-                    <pre>{{ socialList }}</pre>
+                    <div
+                        v-for="social in socialList"
+                        :key="social.socialTitle"
+                        class="dropdown-modal-item"
+                    >
+                        <span v-if="social.socialTitle === 'Email'"
+                            ><a
+                                :href="`mailto:?&body=${route.fullPath}`"
+                                class="social-email-icon"
+                            >
+                                <IconWithLink
+                                    :text="social.socialTitle"
+                                    :icon-name="social.iconName" /></a
+                        ></span>
+
+                        <!-- Copy page link -->
+                        <IconWithLink
+                            v-else-if="social.socialTitle === 'Copy Link'"
+                            :text="social.socialTitle"
+                            :icon-name="social.iconName"
+                            @click="handleCopyLink(route.fullPath)"
+                        />
+
+                        <IconWithLink
+                            v-else
+                            :text="social.socialTitle"
+                            :icon-name="social.iconName"
+                            :to="`${social.socialUrl}${route.fullPath}`"
+                        />
+                    </div>
                 </div>
             </div>
         </div>

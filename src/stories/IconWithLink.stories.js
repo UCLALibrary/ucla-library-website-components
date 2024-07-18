@@ -313,6 +313,18 @@ export function FTVASocialIcons() {
             /></li>
 
             <li><icon-with-link
+                text="Confirm"
+                icon-name="svg-icon-ftva-social-confirm"
+                to= ""
+            /></li>
+
+                        <li><icon-with-link
+                text="Copy Link"
+                icon-name="svg-icon-ftva-social-link"
+                to= ""
+            /></li>
+
+            <li><icon-with-link
                 text="Email"
                 icon-name="svg-icon-ftva-social-email"
                 to= ""
@@ -328,12 +340,6 @@ export function FTVASocialIcons() {
                 text="X"
                 icon-name="svg-icon-ftva-social-x"
                 to= "/help/services-and-resources"
-            /></li>
-            
-            <li><icon-with-link
-                text="Copy Link"
-                icon-name="svg-icon-ftva-social-link"
-                to= ""
             /></li>
         </ul>
     `,
