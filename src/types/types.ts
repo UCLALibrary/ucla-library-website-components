@@ -201,7 +201,7 @@ export interface MediaGalleryItemType {
   credit?: string
   linkUrl?: string
   linkText?: string
-  coverImage: MediaItemType[]
+  coverImage?: MediaItemType[]
   embedCode?: string
 }
 // other times, the image carousel data is passed as 'image' with 1 credit text per image (FTVA implementation)
@@ -245,8 +245,10 @@ export interface SectionGenericListItemType {
 }
 
 export interface SectionScreeningDetailsItemType {
+  screeningCount?: string
+  count?: string
   title?: string
-  alternativeTitle?: string
+  alternateTitle?: string
   language?: string
   year?: string
   country?: string
@@ -255,7 +257,7 @@ export interface SectionScreeningDetailsItemType {
   tagLabels?: EventFiltersItemType[]
   text?: string
   trailer?: string
-  image: MediaItemType
+  image?: MediaItemType[]
 }
 
 export interface SectionSpaceListItemType {
