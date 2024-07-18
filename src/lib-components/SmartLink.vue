@@ -29,10 +29,10 @@ export default {
     },
     parsedTo() {
       if (this.isRelative && !this.isDownload && !this.parsedTarget) {
-        if (this.to !== '/' && !this.to.endsWith('/') && !this.to.includes("q=") && !this.to.includes("&filters=")) {
+        if (this.to !== '/' && !this.to.endsWith('/') && !this.to.includes('q=') && !this.to.includes('&filters='))
 
           return `${this.to}/`
-        }
+
         return this.to
       }
       return this.to
