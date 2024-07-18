@@ -33,7 +33,6 @@ const mockDefault = {
 }
 
 // Variations of stories below
-
 export function Default() {
   return {
     data() {
@@ -62,16 +61,3 @@ export function Default() {
   `,
   }
 }
-
-// MediaItem.stories
-// export function VideoEmbed() {
-//   return {
-//     data() {
-//       return {
-//         embedCode: MEDIA.VideoEmbed,
-//       }
-//     },
-//     components: { MediaItem },
-//     template: '<media-item :embedCode="embedCode" />',
-//   }
-// }
