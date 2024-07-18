@@ -9,11 +9,11 @@ import BlockScreeningDetail from '@/lib-components/BlockScreeningDetail.vue'
 import DividerWayFinder from '@/lib-components/DividerWayFinder.vue'
 
 // TYPESCRIPT
-import type { SectionScreeningDetailsItemType } from '@/types/types'
+import type { BlockScreeningDetailsItemType } from '@/types/types'
 
 const { items } = defineProps({
   items: {
-    type: Array as PropType<SectionScreeningDetailsItemType[]>,
+    type: Array as PropType<BlockScreeningDetailsItemType[]>,
     default: () => [],
   },
 })

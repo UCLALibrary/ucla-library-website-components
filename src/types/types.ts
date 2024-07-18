@@ -87,6 +87,22 @@ export interface BlockStaffListItemType {
   subjectLibrarian: boolean
 }
 
+export interface BlockScreeningDetailsItemType {
+  screeningCount?: string
+  count?: string
+  title?: string
+  alternateTitle?: string
+  language?: string
+  year?: string
+  country?: string
+  languageInfo?: string
+  runtime?: string
+  tagLabels?: EventFiltersItemType[]
+  text?: string
+  trailer?: string
+  image?: MediaItemType
+}
+
 export interface BlockStaffArticleListItemType {
   image?: MediaItemType
   to?: string
@@ -242,22 +258,6 @@ export interface SectionGenericListItemType {
   department?: DepartmentItemType[] // maps to 'departments' prop in BlockGenericList component
   associatedLocations?: LocationItemType[]
   payRate?: string
-}
-
-export interface SectionScreeningDetailsItemType {
-  screeningCount?: string
-  count?: string
-  title?: string
-  alternateTitle?: string
-  language?: string
-  year?: string
-  country?: string
-  languageInfo?: string
-  runtime?: string
-  tagLabels?: EventFiltersItemType[]
-  text?: string
-  trailer?: string
-  image?: MediaItemType[]
 }
 
 export interface SectionSpaceListItemType {
