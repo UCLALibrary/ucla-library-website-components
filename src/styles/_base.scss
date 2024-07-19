@@ -1,11 +1,12 @@
 // default styles correspond to old library-website-nuxt styles formerly in components
 
-@import "default/_blockremovesearchfilter";
-@import "default/_divider-way-finder";
-@import "default/_blockeventdetail";
-@import "default/_blocktag";
+@import "default/_block-event-detail";
+@import "default/_block-remove-search-filter";
+@import "default/_block-tag";
 @import "default/_button-link";
 @import "default/_card-meta";
+@import "default/_divider-way-finder";
+@import "default/_nav-breadcrumb";
 @import "default/_nav-search";
 @import "default/_new-lightbox";
 @import "default/_block-card-with-image";
