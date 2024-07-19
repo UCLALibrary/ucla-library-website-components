@@ -1,4 +1,7 @@
 .ftva.section-teaser-card {
+    align-items: flex-start;
+    overflow-y: visible;
+    flex-wrap: nowrap;
     padding-top: 100px;
 
     // display the sectionTitle here if passed to component
@@ -7,19 +10,19 @@
         color: $accent-blue;
     }
 
+
     .card {
         width: calc((100% / 3) - 22px);
         flex-shrink: 0;
-    }
-    // #{$medium} breakpoint is too small for smooth transition to y-scroll, so we set larger size
-    @media screen and (max-width: 1024px) {
-        align-items: flex-start;
-            overflow-y: visible;
-            flex-wrap: nowrap;
-    
-            .card {
-                min-width: 288px;
-                flex-shrink: 0;
+        min-width: 300px;
+
+        // Hovers
+        @media #{$has-hover} {
+            &:hover {
+                transform: scale(1.05);
+                border: 2px solid $accent-blue;
+                box-shadow: 0 10px 17px rgba(0,0,0,0.1)
             }
+        }
     }
 }
