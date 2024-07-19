@@ -27,6 +27,16 @@ export default {
     isRelative() {
       return !!isRelativeLink(this.to)
     },
+    parsedTo() {
+      if (this.isRelative && !this.isDownload && !this.parsedTarget) {
+        if (this.to !== '/' && !this.to.endsWith('/') && !this.to.includes('q=') && !this.to.includes('&filters='))
+
+          return `${this.to}/`
+
+        return this.to
+      }
+      return this.to
+    }
   },
 }
 </script>
@@ -35,7 +45,7 @@ export default {
   <router-link
     v-if="isRelative && !isDownload && !parsedTarget"
     class="smart-link is-router-link"
-    :to="to"
+    :to="parsedTo"
   >
     <slot />
   </router-link>
