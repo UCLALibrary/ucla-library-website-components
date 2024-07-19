@@ -1,3 +1,11 @@
+# [3.2.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.1.0...v3.2.0) (2024-07-19)
+
+
+### Features
+
+* Add trailing slash for internal links for percy to not create new snapshots ([#568](https://github.com/UCLALibrary/ucla-library-website-components/issues/568)) ([4c8e2d1](https://github.com/UCLALibrary/ucla-library-website-components/commit/4c8e2d16806a7631228779872606c4c086e765d1))
+* APPS-2700 Create Component FTVA Breadcrumb Variant ([#548](https://github.com/UCLALibrary/ucla-library-website-components/issues/548)) ([8c2b9d3](https://github.com/UCLALibrary/ucla-library-website-components/commit/8c2b9d32d07d0c5a16bec4b8c3b7f57676435524)), closes [#557](https://github.com/UCLALibrary/ucla-library-website-components/issues/557) [#557](https://github.com/UCLALibrary/ucla-library-website-components/issues/557) [#559](https://github.com/UCLALibrary/ucla-library-website-components/issues/559)
+
 # [3.1.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.0.1...v3.1.0) (2024-07-15)
 
 
