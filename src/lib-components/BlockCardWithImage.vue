@@ -103,7 +103,7 @@ function handleClick() {
 const theme = useTheme()
 const classes = computed(() => {
   return [
-    'block-card-with-image',
+    'block-highlight', // legacy name already used in library-website-nuxt and MEAP styles, do not change
     { 'is-vertical': props.isVertical },
     theme?.value || ''
   ]
