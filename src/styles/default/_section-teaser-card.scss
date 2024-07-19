@@ -1,0 +1,35 @@
+.section-teaser-card {
+    max-width: $container-l-main + px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--space-xl) 16px;
+
+    &:before {
+        content: attr(data-header);
+        position: absolute;
+        top: 30px;
+    }
+
+    .card {
+        width: calc((100% - 32px) / 3);
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+        align-items: flex-start;
+
+        .card {
+            width: calc((100% - 16px) / 2);
+        }
+    }
+    @media #{$small} {
+        align-items: center;
+
+        .card {
+            width: 100%;
+        }
+    }
+}

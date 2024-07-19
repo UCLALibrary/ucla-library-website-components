@@ -48,6 +48,11 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  // long = 'Febuary 1, 2022', short = 'Feb 1, 2022
+  dateFormat: {
+    type: String,
+    default: 'long',
+  },
   ongoing: {
     type: Boolean,
     default: false,
@@ -99,8 +104,7 @@ const parsedTarget = computed(() => {
 
 const parsedDate = computed(() => {
   if (props.startDate)
-    return props.endDate ? formatDates(props.startDate, props.endDate) : formatDates(props.startDate, props.startDate)
-
+    return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
   return ''
 })
 
@@ -108,7 +112,9 @@ const parsedTime = computed(() => {
   // necessary check for library-website-nuxt & meap
   if (props.startDate && props.sectionHandle === 'event')
     return formatTimes(props.startDate, props.endDate)
-  else if (props.startDate)
+  // legacy behavior returns nothing when sectionHandle is not 'event',
+  // so check theme is set to avoid returning nothing
+  else if (props.startDate && theme?.value !== undefined)
     return props.endDate ? formatTimes(props.startDate, props.endDate) : formatTimes(props.startDate, props.startDate)
 
   return ''

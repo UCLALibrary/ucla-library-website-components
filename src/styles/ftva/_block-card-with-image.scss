@@ -1,12 +1,8 @@
-// @import SvgIconClock from 'ucla-library-design-tokens/assets/svgs/icon-ftva-clock.svg'
-// import svg
-// @import "ucla-library-design-tokens/assets/svgs/icon-ftva-clock.svg";
-
 .ftva.block-card-with-image {
 
     // normal styles
     .card-meta {
-        padding: 20px;
+        padding: 0px 10px 10px 10px;
         .title {
             @include ftva-card-title-2;
             margin-bottom: 10px;
@@ -19,19 +15,21 @@
         .date-time {
             @include ftva-emphasized-subtitle;
             color: $accent-blue;
+            letter-spacing: .04px;
             flex-direction: row;
-            align-items: center;
-            ;
+            height: 34px;
+            overflow: hidden;
             &::before {
                 content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-calendar.svg');
                 margin: 3px 10px 0 0;
             }
             .schedule-item:nth-of-type(1) {
                 position: relative;
-                padding-right: 32px;
+                margin-right: 28px;
                 &::after {
                 content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
                 position: absolute;
+                right: -30px;
                 top: -2px;
                 margin: 0px 10px;
                 }

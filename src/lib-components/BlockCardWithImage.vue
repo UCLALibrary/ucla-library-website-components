@@ -108,6 +108,10 @@ const classes = computed(() => {
     theme?.value || ''
   ]
 })
+// dates are formatted in the short format for ftva only
+const parsedDateFormat = computed(() => {
+  return theme?.value === 'ftva' ? 'short' : 'long'
+})
 </script>
 
 <template>
@@ -135,6 +139,7 @@ const classes = computed(() => {
       :title="title"
       :start-date="startDate"
       :end-date="endDate"
+      :date-format="parsedDateFormat"
       :ongoing="ongoing"
       :text="text"
       :byline-one="bylineOne"
@@ -144,10 +149,9 @@ const classes = computed(() => {
       :language="language"
       :section-handle="sectionHandle"
     />
-    <!-- something you need to display below or instead of card meta info -->
-    <slot />
   </li>
 </template>
 
 <style lang="scss" scoped>
+@import "@/styles/themes.scss";
 </style>

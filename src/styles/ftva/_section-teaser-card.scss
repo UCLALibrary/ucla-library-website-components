@@ -1,0 +1,25 @@
+.ftva.section-teaser-card {
+    padding-top: 100px;
+
+    // display the sectionTitle here if passed to component
+    &:before {
+        @include ftva-card-title-1;
+        color: $accent-blue;
+    }
+
+    .card {
+        width: calc((100% / 3) - 22px);
+        flex-shrink: 0;
+    }
+    // #{$medium} breakpoint is too small for smooth transition to y-scroll, so we set larger size
+    @media screen and (max-width: 1024px) {
+        align-items: flex-start;
+            overflow-y: visible;
+            flex-wrap: nowrap;
+    
+            .card {
+                min-width: 288px;
+                flex-shrink: 0;
+            }
+    }
+}
