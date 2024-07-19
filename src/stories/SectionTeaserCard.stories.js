@@ -104,10 +104,16 @@ export function Default() {
   }
 }
 
+const FTVAMock = mock.slice(3, 6).map((item) => {
+  return {
+    ...item,
+    category: ''
+  }
+})
 export function FTVAWithSectionTitle() {
   return {
     data() {
-      return { items: mock }
+      return { items: FTVAMock.concat(FTVAMock) }
     },
     provide() {
       return {
