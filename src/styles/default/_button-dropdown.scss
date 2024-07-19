@@ -8,7 +8,7 @@
         border-radius: 8px;
         font-weight: 500; //
         font-size: 18px; // Update to: $font-size-18
-        border: 2px solid #{$primary-blue-03};
+        border: 1px solid #{$primary-blue-03};
         background-color: $white;
         color: #{$primary-blue-03};
     }
@@ -21,7 +21,7 @@
     .button-icon {
         display: flex;
         justify-content: space-between;
-        width: 187px;
+        width: 190px;
 
         &__inner-wrapper {
             display: flex;
@@ -33,6 +33,7 @@
         &__svg {
             position: relative;
             top: 1px;
+            stroke: #{$primary-blue-03};
         }
     }
 
@@ -48,11 +49,11 @@
     .button-dropdown-modal-wrapper {
         display: flex;
         flex-direction: column;
-        row-gap: 6px;
-        padding: 24px 24px 20px 24px;
+        row-gap: 14px;
+        padding: 24px 20px 20px 20px;
         min-height: auto;
-        width: 178px;
-        border-width: 0 2px 2px 2px;
+        width: 182px;
+        border-width: 0 1px 1px 1px;
         border-style: solid;
         border-color: #{$primary-blue-03};
         border-bottom-left-radius: 8px;
@@ -61,11 +62,54 @@
     }
 
     .dropdown-modal-item {
-        :deep(.icon-with-link .text) {
-            font-family: "Karbon", Helvetica, Arial, sans-serif;
+        :deep(.icon-with-link) {
+            .text {
+                align-self: baseline;
+                font-family: "Karbon", Helvetica, Arial, sans-serif;
+                font-weight: 500;
+                color: #555555; // Update to $medium-gray
+            }
+
+            .link {
+                text-decoration: underline;
+                text-decoration-thickness: 3px;
+                text-underline-offset: 6px;
+                -webkit-text-decoration-color: #abbfd6;
+                text-decoration-color: #abbfd6; // Update to: $grey-blue
+            }
+        }
+
+        :deep(.icon-with-link.no-active-link) {
+            .text {
+                align-self: baseline;
+                text-decoration: underline;
+                text-decoration-thickness: 3px;
+                text-underline-offset: 6px;
+                -webkit-text-decoration-color: #abbfd6;
+                text-decoration-color: #abbfd6; // Update to: $grey-blue
+            }
         }
     }
 
-    .email-icon {
+    @media #{$has-hover} {
+        .button:hover {
+            background-color: #f1f1f1;
+        }
+
+        :deep(.icon-with-link) {
+            .link:hover {
+                text-decoration-thickness: 3px;
+                -webkit-text-decoration-color: #2c91ff;
+                text-decoration-color: #2c91ff; // Update to: $bright-blue
+                text-underline-offset: 6px;
+            }
+        }
+
+        :deep(.icon-with-link.no-active-link):hover {
+            .text {
+                -webkit-text-decoration-color: #2c91ff;
+                text-decoration-color: #2c91ff; // Update to: $bright-blue
+            }
+        }
     }
 }

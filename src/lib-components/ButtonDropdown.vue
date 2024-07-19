@@ -95,7 +95,6 @@ const parsedClasses = computed(() => {
             >
                 <!-- Optional Icon -->
                 <span class="button-icon__inner-wrapper">
-                    <!-- Make this a slot? -->
                     <span v-if="hasIcon">
                         <component
                             :is="SvgIconFtvaShare"
@@ -110,6 +109,7 @@ const parsedClasses = computed(() => {
                     <SvgIconFtvaDropTriangle />
                 </span>
             </button>
+
             <!-- Dropdown Modal -->
             <div v-if="isDropdownExpanded" class="button-dropdown-modal">
                 <div class="button-dropdown-modal-wrapper">
@@ -118,6 +118,7 @@ const parsedClasses = computed(() => {
                         :key="item.dropdownItemTitle"
                         class="dropdown-modal-item"
                     >
+                        <!-- "Send to Email" -->
                         <span v-if="item.dropdownItemTitle === 'Email'"
                             ><a
                                 :href="`mailto:?&body=${route.fullPath}`"
@@ -125,18 +126,21 @@ const parsedClasses = computed(() => {
                             >
                                 <IconWithLink
                                     :text="item.dropdownItemTitle"
-                                    :icon-name="item.iconName" /></a
+                                    :icon-name="item.iconName"
+                                    class="no-active-link" /></a
                         ></span>
 
-                        <!-- Copy page link -->
+                        <!-- "Copy URL/Link" -->
                         <span
                             v-else-if="item.dropdownItemTitle === 'Copy Link'"
                         >
+                            <!-- Swap on click -->
                             <IconWithLink
                                 v-if="!isLinkCopied"
                                 :text="item.dropdownItemTitle"
                                 :icon-name="item.iconName"
                                 @click="handleCopyLink(route.fullPath)"
+                                class="no-active-link"
                             />
 
                             <IconWithLink
@@ -146,13 +150,7 @@ const parsedClasses = computed(() => {
                             />
                         </span>
 
-                        <!-- <IconWithLink
-                            v-else-if="item.dropdownItemTitle === 'Copy Link'"
-                            :text="item.dropdownItemTitle"
-                            :icon-name="item.iconName"
-                            @click="handleCopyLink(route.fullPath)"
-                        /> -->
-
+                        <!-- Generic Items -->
                         <IconWithLink
                             v-else
                             :text="item.dropdownItemTitle"

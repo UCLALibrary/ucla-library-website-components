@@ -276,25 +276,25 @@ export function FTVACalendarIcons() {
             <li><icon-with-link
                 text="iCal"
                 icon-name="svg-icon-ftva-appleinc"
-                to= ""
+                to= "/help/services-and-resources"
             /></li>
 
             <li><icon-with-link
                 text="Google Calendar"
                 icon-name="svg-icon-ftva-gcal"
-                to= ""
+                to= "/help/services-and-resources"
             /></li>
 
             <li><icon-with-link
                 text="Outlook.com"
                 icon-name="svg-icon-ftva-outlook"
-                to= ""
+                to= "/help/services-and-resources"
             /></li>
 
             <li><icon-with-link
                 text="Download .ics file"
                 icon-name="svg-icon-ftva-download"
-                to= ""
+                to= "/help/services-and-resources"
             /></li>
         </ul>
     `,
@@ -309,31 +309,31 @@ export function FTVASocialIcons() {
             <li><icon-with-link
                 text="Share"
                 icon-name="svg-icon-ftva-share"
-                to= ""
+                to= "/help/services-and-resources"
             /></li>
 
             <li><icon-with-link
                 text="Confirm"
                 icon-name="svg-icon-ftva-social-confirm"
-                to= ""
+                to= "/help/services-and-resources"
             /></li>
 
                         <li><icon-with-link
                 text="Copy Link"
                 icon-name="svg-icon-ftva-social-link"
-                to= ""
+                to= "/help/services-and-resources"
             /></li>
 
             <li><icon-with-link
                 text="Email"
                 icon-name="svg-icon-ftva-social-email"
-                to= ""
+                to= "/help/services-and-resources"
             /></li>
 
             <li><icon-with-link
                 text="Facebook"
                 icon-name="svg-icon-ftva-social-facebook"
-                to= ""
+                to= "/help/services-and-resources"
             /></li>
 
             <li><icon-with-link

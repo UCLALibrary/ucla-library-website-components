@@ -1,8 +1,13 @@
 .ftva.button-dropdown {
     .button {
-        border-width: 1px;
         border-color: #555555; // Update to: $medium-grey
         color: #555555; // Update to: $medium-grey
+    }
+
+    .button-icon {
+        &__svg {
+            stroke: unset;
+        }
     }
 
     .toggle-triangle-icon {
