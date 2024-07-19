@@ -6,6 +6,7 @@ import "add-to-calendar-button"
 
 // Components
 import SvgIconFtvaShare from "ucla-library-design-tokens/assets/svgs/icon-ftva-share.svg"
+import SvgIconFtvaSocialConfirm from "ucla-library-design-tokens/assets/svgs/icon-ftva-social_confirm.svg"
 import SvgIconFtvaDropTriangle from "ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg"
 import IconWithLink from "./IconWithLink.vue"
 
@@ -29,9 +30,9 @@ const { eventDetail, dropdownList, title, hasIcon } = defineProps({
     },
 })
 
-const isDropdownExpanded = ref(false)
-
 const route = useRoute()
+const isDropdownExpanded = ref(false)
+const isLinkCopied = ref(false)
 
 // Computed
 const parsedEvent = computed(() => {
@@ -48,10 +49,11 @@ function handleDropdown() {
 }
 
 function handleCopyLink() {
-    // console.log("copy")
-
     navigator.clipboard.writeText(route.fullPath)
-    alert("Copied the text: " + route.fullPath)
+    isLinkCopied.value = true
+    setTimeout(() => {
+        isLinkCopied.value = false
+    }, 6000)
 }
 
 // Theme
@@ -103,7 +105,7 @@ const parsedClasses = computed(() => {
 
                     <span class="button-text">{{ buttonTitle }}</span>
                 </span>
-                <!-- Dropdown Toggle -->
+
                 <span :class="isExpandedClass" class="toggle-triangle-icon">
                     <SvgIconFtvaDropTriangle />
                 </span>
@@ -127,12 +129,29 @@ const parsedClasses = computed(() => {
                         ></span>
 
                         <!-- Copy page link -->
-                        <IconWithLink
+                        <span
+                            v-else-if="item.dropdownItemTitle === 'Copy Link'"
+                        >
+                            <IconWithLink
+                                v-if="!isLinkCopied"
+                                :text="item.dropdownItemTitle"
+                                :icon-name="item.iconName"
+                                @click="handleCopyLink(route.fullPath)"
+                            />
+
+                            <IconWithLink
+                                v-else
+                                text="Link Copied!"
+                                :icon-name="SvgIconFtvaSocialConfirm"
+                            />
+                        </span>
+
+                        <!-- <IconWithLink
                             v-else-if="item.dropdownItemTitle === 'Copy Link'"
                             :text="item.dropdownItemTitle"
                             :icon-name="item.iconName"
                             @click="handleCopyLink(route.fullPath)"
-                        />
+                        /> -->
 
                         <IconWithLink
                             v-else
