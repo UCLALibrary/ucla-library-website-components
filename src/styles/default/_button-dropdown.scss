@@ -151,6 +151,18 @@
         outline: 4px auto -webkit-focus-ring-color;
     }
 
+    add-to-calendar-button::part(atcb-button-text) {
+        position: relative;
+    }
+
+    add-to-calendar-button::part(atcb-button-text)::after {
+        position: relative;
+        display: inline-block;
+        margin-left: 24px;
+        top: -1px;
+        content: url("ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg");
+    }
+
     add-to-calendar-button::part(atcb-list-wrapper) {
         padding: 24px 20px 20px 20px;
         min-height: auto;

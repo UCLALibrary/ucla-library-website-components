@@ -48,13 +48,16 @@ function handleDropdown() {
     return (isDropdownExpanded.value = !isDropdownExpanded.value)
 }
 
+//
 function handleActbExpandedStyle(e) {
     let style = document.createElement("style")
     style.innerHTML =
-        ".atcb-button.atcb-click.atcb-active { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; }"
+        ".atcb-button.atcb-click.atcb-active { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; } .atcb-active .atcb-text::after { transform: rotate(180deg); }"
+
     e.target.shadowRoot.appendChild(style)
 }
 
+// Show "Copied Link" component for 6secs
 function handleCopiedLink() {
     navigator.clipboard.writeText(route.fullPath)
     isLinkCopied.value = true
@@ -74,7 +77,6 @@ const parsedClasses = computed(() => {
 <template>
     <div :class="parsedClasses">
         <div v-if="eventDetail">
-            <!-- <pre>{{ eventDetail }}</pre> -->
             <!-- Add to Calendar Button -->
             <add-to-calendar-button
                 :name="eventDetail.title"
@@ -93,7 +95,6 @@ const parsedClasses = computed(() => {
                 listStyle="dropdown-static"
                 @click="handleActbExpandedStyle"
             ></add-to-calendar-button>
-            <!-- buttonStyle="none" -->
         </div>
 
         <!-- Generic Button -->
