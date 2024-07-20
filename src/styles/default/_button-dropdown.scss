@@ -3,7 +3,7 @@
     justify-content: center;
 
     .button {
-        height: 51px;
+        // height: 51px;
         padding: 12px 16px 12px 20px;
         border-radius: 8px;
         font-weight: 500; //
@@ -111,5 +111,91 @@
                 text-decoration-color: #2c91ff; // Update to: $bright-blue
             }
         }
+    }
+
+    // Overwrites for Add-to-Calendar-Button CSS
+
+    add-to-calendar-button::part(atcb-button-wrapper) {
+        // padding: 0;
+    }
+
+    add-to-calendar-button::part(atcb-button) {
+        width: 190px;
+        max-width: 100%;
+        padding: 0;
+        line-height: inherit;
+        // display: block;
+        // text-align: unset;
+        justify-content: flex-start;
+        font-size: 18px;
+        font-family: inherit;
+        box-sizing: border-box;
+        padding: 12px 16px 12px 20px;
+        border-radius: 8px;
+        font-weight: 500; //
+        font-size: 18px; // Update to: $font-size-18
+        border: 1px solid #{$primary-blue-03};
+        background-color: $white;
+        color: #{$primary-blue-03};
+        box-shadow: unset;
+        height: 51px;
+        margin: unset;
+    }
+
+    add-to-calendar-button::part(atcb-button):hover {
+        margin: unset;
+        background-color: #f1f1f1;
+    }
+
+    add-to-calendar-button::part(atcb-button):focus {
+        outline: 4px auto -webkit-focus-ring-color;
+    }
+
+    add-to-calendar-button::part(atcb-list-wrapper) {
+        padding: 24px 20px 20px 20px;
+        min-height: auto;
+        width: 182px;
+        border-width: 0 1px 1px 1px;
+        border-style: solid;
+        border-color: #{$primary-blue-03};
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        position: relative;
+        margin: 0 auto;
+        top: 0;
+        min-width: 0;
+        max-width: 100%;
+        left: 0;
+    }
+
+    add-to-calendar-button::part(atcb-list) {
+        box-shadow: unset;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+    }
+
+    add-to-calendar-button::part(atcb-list-item) {
+        box-shadow: unset;
+        background-color: transparent;
+        font-size: 18px;
+        line-height: inherit;
+        padding: 0;
+        //
+        font-family: "Karbon", Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        color: #555555; // Update to $medium-gray
+        //
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 6px;
+        -webkit-text-decoration-color: #abbfd6;
+        text-decoration-color: #abbfd6; // Update to: $grey-blue
+    }
+
+    add-to-calendar-button::part(atcb-list-item):hover {
+        -webkit-text-decoration-color: #2c91ff;
+        text-decoration-color: #2c91ff; // Update to: $bright-blue
     }
 }

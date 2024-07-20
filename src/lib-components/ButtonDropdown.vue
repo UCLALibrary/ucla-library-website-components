@@ -48,7 +48,14 @@ function handleDropdown() {
     return (isDropdownExpanded.value = !isDropdownExpanded.value)
 }
 
-function handleCopyLink() {
+function handleActbExpandedStyle(e) {
+    let style = document.createElement("style")
+    style.innerHTML =
+        ".atcb-button.atcb-click.atcb-active { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; }"
+    e.target.shadowRoot.appendChild(style)
+}
+
+function handleCopiedLink() {
     navigator.clipboard.writeText(route.fullPath)
     isLinkCopied.value = true
     setTimeout(() => {
@@ -78,12 +85,15 @@ const parsedClasses = computed(() => {
                 :location="eventDetail.location"
                 :description="eventDetail.location"
                 options="'Apple','Google','iCal','Outlook.com'"
+                trigger="click"
                 hideBranding="true"
                 hideCheckmark="true"
-                hideBackground
+                hideBackground="true"
                 hideIconButton="true"
-                trigger="click"
+                listStyle="dropdown-static"
+                @click="handleActbExpandedStyle"
             ></add-to-calendar-button>
+            <!-- buttonStyle="none" -->
         </div>
 
         <!-- Generic Button -->
@@ -139,7 +149,7 @@ const parsedClasses = computed(() => {
                                 v-if="!isLinkCopied"
                                 :text="item.dropdownItemTitle"
                                 :icon-name="item.iconName"
-                                @click="handleCopyLink(route.fullPath)"
+                                @click="handleCopiedLink(route.fullPath)"
                                 class="no-active-link"
                             />
 
