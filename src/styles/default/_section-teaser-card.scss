@@ -1,4 +1,5 @@
 .section-teaser-card {
+    position: relative;
     max-width: $container-l-main + px;
     margin: 0 auto;
     display: flex;
@@ -6,12 +7,6 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: var(--space-xl) 16px;
-
-    &:before {
-        content: attr(data-header);
-        position: absolute;
-        top: 30px;
-    }
 
     .card {
         width: calc((100% - 32px) / 3);
@@ -33,3 +28,9 @@
         }
     }
 }
+.section-teaser-card-title {
+    position: relative;
+    max-width: $container-l-main + px;
+    margin: 0 auto;
+}
+
