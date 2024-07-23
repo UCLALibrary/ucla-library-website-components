@@ -1,0 +1,61 @@
+.ftva.block-screening-detail {
+  .count {
+    @include ftva-subtitle-1;
+    color: $subtitle-grey;
+  }
+
+  .event-title {
+    margin: 0 0 24px;
+  }
+
+  .title {
+    @include ftva-h3;
+    color: $heading-grey;
+  }
+
+  .alternate-title {
+    @include ftva-h4;
+    color: $medium-grey;
+  }
+
+  .block-tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: 8px;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @include ftva-body;
+    margin: 0;
+    margin-top: 40px;
+  }
+
+  .slot {
+    margin-bottom: 28px;
+  }
+
+  dl {
+    display: grid;
+    grid-template: auto / 114px 1fr;
+
+    margin-bottom: 20px;
+  }
+
+  dt,
+  dd {
+    margin: 0;
+    @include ftva-subtitle-2;
+    padding-bottom: 2px;
+  }
+
+  dd {
+    color: #{$accent-blue};
+  }
+}

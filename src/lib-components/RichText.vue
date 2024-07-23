@@ -33,7 +33,10 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style
+    lang="scss"
+    scoped
+>
 .rich-text {
     max-width: $container-l-main + px;
     margin: 0 auto;

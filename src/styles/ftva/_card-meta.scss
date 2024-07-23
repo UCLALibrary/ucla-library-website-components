@@ -7,9 +7,14 @@
     margin: 0 0 20px;
   }
 
-  .title,
-  .title-no-link {
+  .title {
     @include ftva-h2;
+    color: $heading-grey;
+    margin: 0 0 24px;
+  }
+
+  .title-no-link {
+    @include ftva-h3;
     color: $heading-grey;
     margin: 0 0 24px;
   }

@@ -87,6 +87,22 @@ export interface BlockStaffListItemType {
   subjectLibrarian: boolean
 }
 
+export interface BlockScreeningDetailsItemType {
+  screeningCount?: string
+  count?: string
+  title?: string
+  alternateTitle?: string
+  language?: string
+  year?: string
+  country?: string
+  languageInfo?: string
+  runtime?: string
+  tagLabels?: EventFiltersItemType[]
+  text?: string
+  trailer?: string
+  image?: MediaItemType
+}
+
 export interface BlockStaffArticleListItemType {
   image?: MediaItemType
   to?: string
@@ -201,7 +217,7 @@ export interface MediaGalleryItemType {
   credit?: string
   linkUrl?: string
   linkText?: string
-  coverImage: MediaItemType[]
+  coverImage?: MediaItemType[]
   embedCode?: string
 }
 // other times, the image carousel data is passed as 'image' with 1 credit text per image (FTVA implementation)
