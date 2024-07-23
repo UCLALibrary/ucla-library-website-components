@@ -155,11 +155,17 @@ const classes = computed(() => {
       :rich-text-content="text"
     />
 
-    <VideoEmbed
+    <ResponsiveVideo
       v-if="trailer || image"
-      :trailer="trailer"
-      :poster-image="image"
-    />
+      :aspect-ratio="56.9"
+      :controls="true"
+    >
+      <VideoEmbed
+        v-if="trailer || image"
+        :trailer="trailer"
+        :poster-image="image"
+      />
+    </ResponsiveVideo>
   </div>
 </template>
 
