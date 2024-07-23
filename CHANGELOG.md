@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.2.0...v3.3.0) (2024-07-23)
+
+
+### Features
+
+* create ftva themes for BlockCardWithImage, SectionCardWithImage, + bugfix ([#566](https://github.com/UCLALibrary/ucla-library-website-components/issues/566)) ([738461a](https://github.com/UCLALibrary/ucla-library-website-components/commit/738461af90318772789fd866fb2d65ea1f477a17))
+
 # [3.2.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.1.0...v3.2.0) (2024-07-19)
 
 
