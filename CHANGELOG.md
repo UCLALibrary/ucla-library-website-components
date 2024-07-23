@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.3.0...v3.4.0) (2024-07-23)
+
+
+### Features
+
+* APPS-2799 Create Components FTVA BlockScreeningDetail & SectionScreeningDetails ([#565](https://github.com/UCLALibrary/ucla-library-website-components/issues/565)) ([96bd3b7](https://github.com/UCLALibrary/ucla-library-website-components/commit/96bd3b78760574633f94c28ff8c5c740d6c6f973))
+
 # [3.3.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.2.0...v3.3.0) (2024-07-23)
 
 
