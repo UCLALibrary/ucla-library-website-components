@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage'
 
 // Import mock api data
@@ -35,6 +36,11 @@ function Template(args) {
         ...args,
       }
     },
+    provide() {
+      return {
+        theme: computed(() => args.theme ? args.theme : ''),
+      }
+    },
     components: { BlockCardWithImage },
     template: `
     <block-card-with-image
@@ -45,7 +51,7 @@ function Template(args) {
         :start-date="startDate"
         :end-date="endDate"
         :text="text"
-        :image-aspect-ratio="60"
+        :image-aspect-ratio="imageAspectRatio"
         :locations="locations"
         :alternativeFullName="alternativeFullName"
         :language="language"
@@ -65,4 +71,28 @@ ShortTitle.args = {
 export const LongTitle = Template.bind({})
 LongTitle.args = {
   title: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'
+}
+
+export const TallImage = Template.bind({})
+TallImage.args = {
+  title: 'Test Other Image Sizes',
+  image: { ...API.image, src: 'https://via.placeholder.com/1080x1920', height: 1920, width: 1920, },
+  imageAspectRatio: 150
+}
+
+export const FTVAEventDetailPage = Template.bind({})
+FTVAEventDetailPage.args = {
+  title: 'FTVA CardWithImage using their styles',
+  category: '',
+  theme: 'ftva',
+  to: '/some/url/here/',
+  alternativeFullName: '',
+  language: 'zh',
+  startDate: '2022-03-31T07:00:00+00:00',
+  endDate: '',
+  text: '3 episodes',
+  imageAspectRatio: 60,
+  sectionHandle: '',
+  locations: [],
+  cardIsLink: true
 }

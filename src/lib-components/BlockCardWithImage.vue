@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-
+import { useRouter } from 'vue-router'
 import type { PropType } from 'vue'
+import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
+import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
@@ -49,7 +50,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-
   isVertical: {
     type: Boolean,
     default: true,
@@ -82,19 +82,40 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  cardIsLink: {
+    type: Boolean,
+    default: false, // If this is true, make entire card clickable instead of just title
+  },
 })
 
+// TOGGLE CLICKABLE BEHAVIOR
+const router = useRouter()
+function handleClick() {
+  if (props.cardIsLink && props.to) {
+    router.push({
+      path: props.to
+    })
+  }
+  // if card is not a link, do nothing on click
+}
+
+// THEME
+const theme = useTheme()
 const classes = computed(() => {
   return [
-    'block-card-with-image',
+    'block-highlight', // legacy name already used in library-website-nuxt and MEAP styles, do not change
     { 'is-vertical': props.isVertical },
-
+    theme?.value || ''
   ]
+})
+// dates are formatted in the short format for ftva only
+const parsedDateFormat = computed(() => {
+  return theme?.value === 'ftva' ? 'short' : 'long'
 })
 </script>
 
 <template>
-  <li :class="classes">
+  <li :class="classes" @click="handleClick">
     <div class="image-container">
       <ResponsiveImage
         v-if="image"
@@ -118,6 +139,7 @@ const classes = computed(() => {
       :title="title"
       :start-date="startDate"
       :end-date="endDate"
+      :date-format="parsedDateFormat"
       :ongoing="ongoing"
       :text="text"
       :byline-one="bylineOne"
@@ -131,60 +153,5 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.block-card-with-image {
-  background-color: var(--color-theme, var(--color-white));
-  font-family: var(--font-primary);
-  position: relative;
-  display: flex;
-  flex-direction: row;
-
-  .image-container {
-    .molecule-no-image {
-      width: 100%;
-      margin-right: var(--space-xl);
-      background: var(--gradient-01);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      position: relative;
-
-      .molecule {
-        flex-shrink: 0;
-        position: absolute;
-        opacity: 0.7;
-      }
-    }
-  }
-
-  // Variations
-  &.is-vertical {
-    flex-direction: column;
-
-    .molecule-no-image {
-      width: 100%;
-      height: 179.2px;
-    }
-
-    :deep(.card-meta) {
-      margin-top: 16px;
-    }
-
-    :deep(.image) {
-      width: 100%;
-
-      .media {
-        object-fit: cover;
-      }
-    }
-  }
-
-  // Breakpoints
-  @media #{$medium} {
-    &.is-vertical {
-      .molecule-no-image {
-        height: 226px;
-      }
-    }
-  }
-}
+@import "@/styles/themes.scss";
 </style>

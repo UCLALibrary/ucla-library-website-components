@@ -35,5 +35,8 @@
 
   .slot {
     margin-top: 28px;
+    &:empty {
+      display: none;
+    }
   }
 }
