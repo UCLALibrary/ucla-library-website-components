@@ -1,3 +1,5 @@
+import { computed } from 'vue'
+
 // Import component
 import SectionTeaserCard from '@/lib-components/SectionTeaserCard'
 
@@ -97,6 +99,32 @@ export function Default() {
     template: `
       <section-teaser-card
         :items="items"
+      />
+  `,
+  }
+}
+
+const FTVAMock = mock.slice(3, 6).map((item) => {
+  return {
+    ...item,
+    category: ''
+  }
+})
+export function FTVAWithSectionTitle() {
+  return {
+    data() {
+      return { items: FTVAMock.concat(FTVAMock) }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <section-teaser-card
+        :items="items"
+        section-title="section title here"
       />
   `,
   }
