@@ -4233,6 +4233,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
 <<<<<<< HEAD
+<<<<<<< HEAD
       vue: 3.4.31(typescript@5.5.3)
 <<<<<<< HEAD
       vue-component-type-helpers: 2.0.29
@@ -4243,6 +4244,10 @@ packages:
       vue-component-type-helpers: 2.0.26
 >>>>>>> 6c950cc (task: delete, reinstall node modules)
 >>>>>>> 0e7ba6d (task: delete, reinstall node modules)
+=======
+      vue: 3.4.32(typescript@5.5.3)
+      vue-component-type-helpers: 2.0.28
+>>>>>>> e8d0ffc (task: run pnpm install)
     transitivePeerDependencies:
       - encoding
       - supports-color
