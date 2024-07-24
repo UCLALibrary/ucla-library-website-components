@@ -16,7 +16,7 @@ export default {
 }
 
 const mockArticle =
-    "https://www.library.ucla.edu/about/news/the-75th-anniversary-of-the-university-archives"
+    "/about/news/the-75th-anniversary-of-the-university-archives"
 
 const mockSocialList = {
     buttonTitle: "Share",
