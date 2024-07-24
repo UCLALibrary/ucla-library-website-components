@@ -56,6 +56,7 @@
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         margin: 0 auto;
+        background-color: $white;
     }
 
     .dropdown-modal-item {
@@ -111,6 +112,66 @@
             .text {
                 -webkit-text-decoration-color: #2c91ff;
                 text-decoration-color: #2c91ff; // Update to: $bright-blue
+            }
+        }
+    }
+
+    @media #{$small} {
+        .button-dropdown-modal {
+            position: fixed;
+            width: 100%;
+            height: auto;
+        }
+        .button-overlay.is-expanded {
+            position: fixed;
+            // display: block;
+            // width: 100%;
+            // height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            // z-index: -1;
+        }
+
+        .svg__icon-close.svg-glyph-close {
+            position: fixed;
+            right: 24px;
+            bottom: 170px;
+            z-index: 1;
+        }
+
+        .button-dropdown-modal-wrapper.is-expanded {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            // z-index: 3;
+        }
+
+        .button.is-expanded {
+            display: none;
+        }
+
+        .button-text,
+        .toggle-triangle-icon {
+            display: none;
+        }
+
+        .button-icon {
+            display: block;
+            width: 36px;
+            height: 36px;
+
+            &__inner-wrapper {
+                justify-content: center;
+                align-items: center;
+                -moz-column-gap: 0;
+                column-gap: 0;
+            }
+
+            &__svg {
+                left: -1px;
             }
         }
     }

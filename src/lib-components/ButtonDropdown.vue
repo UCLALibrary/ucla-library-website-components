@@ -2,12 +2,14 @@
 import { computed, ref } from "vue"
 import { vOnClickOutside } from "@vueuse/components"
 import { useRoute } from "vue-router"
+import { useGlobalStore } from "@/stores/GlobalStore"
 import "add-to-calendar-button"
 
 // SVGs
 import SvgIconFtvaDropTriangle from "ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg"
 import SvgIconFtvaShare from "ucla-library-design-tokens/assets/svgs/icon-ftva-share.svg"
 import SvgIconFtvaSocialConfirm from "ucla-library-design-tokens/assets/svgs/icon-ftva-social_confirm.svg"
+import SvgGlyphClose from "ucla-library-design-tokens/assets/svgs/icon-close.svg"
 
 import IconWithLink from "./IconWithLink.vue"
 
@@ -33,12 +35,18 @@ const { eventDetail, dropdownList, title, hasIcon } = defineProps({
     },
 })
 
+const globalStore = useGlobalStore()
 const route = useRoute()
+
 const target = ref(null)
 const isDropdownExpanded = ref(false)
 const isLinkCopied = ref(false)
 
 // COMPUTED
+const isMobile = computed(() => {
+    return globalStore.winWidth <= 750
+})
+
 const parsedEvent = computed(() => {
     return ""
 })
@@ -81,6 +89,10 @@ function closeDropdownOnClickOutside() {
     isDropdownExpanded.value = false
 }
 
+function removeOverlay() {
+    isDropdownExpanded.value = false
+}
+
 // THEME
 const theme = useTheme()
 
@@ -113,7 +125,12 @@ const parsedClasses = computed(() => {
         </div>
 
         <!-- Generic Button -->
-        <div v-else v-on-click-outside="closeDropdownOnClickOutside">
+        <div
+            v-else
+            v-on-click-outside="closeDropdownOnClickOutside"
+            class="button-overlay"
+            :class="isExpandedClass"
+        >
             <button
                 class="button button-icon"
                 :class="isExpandedClass"
@@ -139,7 +156,16 @@ const parsedClasses = computed(() => {
 
             <!-- Dropdown Modal -->
             <div v-if="isDropdownExpanded" class="button-dropdown-modal">
-                <div class="button-dropdown-modal-wrapper">
+                <SvgGlyphClose
+                    v-if="isMobile"
+                    :class="isExpanded"
+                    class="svg-glyph-close"
+                    @click="removeOverlay"
+                />
+                <div
+                    class="button-dropdown-modal-wrapper"
+                    :class="isExpandedClass"
+                >
                     <div
                         v-for="item in dropdownList"
                         :key="item.dropdownItemTitle"
