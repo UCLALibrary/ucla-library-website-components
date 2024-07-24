@@ -1,16 +1,19 @@
 <script setup>
-import { computed, defineAsyncComponent, ref } from "vue"
+import { computed, ref } from "vue"
+import { vOnClickOutside } from "@vueuse/components"
 import { useRoute } from "vue-router"
-import { useTheme } from "@/composables/useTheme"
 import "add-to-calendar-button"
 
-// Components
+// SVGs
+import SvgIconFtvaDropTriangle from "ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg"
 import SvgIconFtvaShare from "ucla-library-design-tokens/assets/svgs/icon-ftva-share.svg"
 import SvgIconFtvaSocialConfirm from "ucla-library-design-tokens/assets/svgs/icon-ftva-social_confirm.svg"
-import SvgIconFtvaDropTriangle from "ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg"
+
 import IconWithLink from "./IconWithLink.vue"
 
-//
+import { useTheme } from "@/composables/useTheme"
+
+// DATA
 const { eventDetail, dropdownList, title, hasIcon } = defineProps({
     eventDetail: {
         type: Object,
@@ -31,10 +34,11 @@ const { eventDetail, dropdownList, title, hasIcon } = defineProps({
 })
 
 const route = useRoute()
+const target = ref(null)
 const isDropdownExpanded = ref(false)
 const isLinkCopied = ref(false)
 
-// Computed
+// COMPUTED
 const parsedEvent = computed(() => {
     return ""
 })
@@ -43,30 +47,41 @@ const isExpandedClass = computed(() => [
     { "is-expanded": isDropdownExpanded.value },
 ])
 
-// Methods
+// METHODS
 function handleDropdown() {
     return (isDropdownExpanded.value = !isDropdownExpanded.value)
 }
 
-//
+/* Inject styles into ATCB ShadowDOM on button dropdown:
+ - Remove border bottom radii on button
+ - Rotate FTVA dropdown triangle
+ - Disable custom cursor
+*/
 function handleActbExpandedStyle(e) {
-    let style = document.createElement("style")
+    const style = document.createElement("style")
     style.innerHTML =
-        ".atcb-button.atcb-click.atcb-active { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; } .atcb-active .atcb-text::after { transform: rotate(180deg); }"
+        ".atcb-button.atcb-click.atcb-active { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; } .atcb-active .atcb-text::after { transform: rotate(180deg); } #atcb-bgoverlay.atcb-click:hover {  cursor: unset; }"
 
     e.target.shadowRoot.appendChild(style)
 }
 
-// Show "Copied Link" component for 6secs
+/*
+- Copy page path to clipboard;
+- Show "Copied Link" icon for 4secs
+*/
 function handleCopiedLink() {
     navigator.clipboard.writeText(route.fullPath)
     isLinkCopied.value = true
     setTimeout(() => {
         isLinkCopied.value = false
-    }, 6000)
+    }, 4000)
 }
 
-// Theme
+function closeDropdownOnClickOutside() {
+    isDropdownExpanded.value = false
+}
+
+// THEME
 const theme = useTheme()
 
 const parsedClasses = computed(() => {
@@ -86,7 +101,7 @@ const parsedClasses = computed(() => {
                 timeZone="America/Los_Angeles"
                 :location="eventDetail.location"
                 :description="eventDetail.location"
-                options="'Apple','Google','iCal','Outlook.com'"
+                options="'Google','Apple','Outlook.com','iCal'"
                 trigger="click"
                 hideBranding="true"
                 hideCheckmark="true"
@@ -98,13 +113,14 @@ const parsedClasses = computed(() => {
         </div>
 
         <!-- Generic Button -->
-        <div v-else>
+        <div v-else v-on-click-outside="closeDropdownOnClickOutside">
             <button
                 class="button button-icon"
                 :class="isExpandedClass"
+                data-element="button-dropdown"
                 @click="handleDropdown"
             >
-                <!-- Optional Icon -->
+                <!-- Optional Button Icon -->
                 <span class="button-icon__inner-wrapper">
                     <span v-if="hasIcon">
                         <component
@@ -161,7 +177,7 @@ const parsedClasses = computed(() => {
                             />
                         </span>
 
-                        <!-- Generic Items -->
+                        <!-- Generic Dropdown Items -->
                         <IconWithLink
                             v-else
                             :text="item.dropdownItemTitle"
