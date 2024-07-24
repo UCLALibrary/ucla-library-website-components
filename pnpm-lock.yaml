@@ -8,6 +8,9 @@ dependencies:
   '@vuepic/vue-datepicker':
     specifier: ^8.8.1
     version: 8.8.1(vue@3.4.34)
+  '@vueuse/components':
+    specifier: ^10.11.0
+    version: 10.11.0(vue@3.4.34)
   '@vueuse/core':
     specifier: ^10.11.0
     version: 10.11.0(vue@3.4.34)
@@ -4953,6 +4956,17 @@ packages:
     dependencies:
       date-fns: 3.6.0
       vue: 3.4.34(typescript@5.5.4)
+    dev: false
+
+  /@vueuse/components@10.11.0(vue@3.4.34):
+    resolution: {integrity: sha512-ZvLZI23d5ZAtva5fGyYh/jQtZO8l+zJ5tAXyYNqHJZkq1o5yWyqZhENvSv5mfDmN5IuAOp4tq02mRmX/ipFGcg==}
+    dependencies:
+      '@vueuse/core': 10.11.0(vue@3.4.34)
+      '@vueuse/shared': 10.11.0(vue@3.4.34)
+      vue-demi: 0.14.9(vue@3.4.34)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
     dev: false
 
   /@vueuse/core@10.11.0(vue@3.4.34):

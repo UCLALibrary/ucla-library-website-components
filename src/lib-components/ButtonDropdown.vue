@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { vOnClickOutside } from '@vueuse/core'
+import { vOnClickOutside } from '@vueuse/components'
 import { useRoute } from 'vue-router'
 import 'add-to-calendar-button'
 

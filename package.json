@@ -82,6 +82,7 @@
     },
     "dependencies": {
         "@vuepic/vue-datepicker": "^8.8.1",
+        "@vueuse/components": "^10.11.0",
         "@vueuse/core": "^10.11.0",
         "add-to-calendar-button": "^2.6.18",
         "date-fns": "^2.30.0",
