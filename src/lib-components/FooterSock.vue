@@ -1,38 +1,43 @@
-<script>
-// Helpers
-import { mapState } from 'pinia'
-import SmartLink from '@/lib-components/SmartLink'
+<script setup>
+// UTILS
+import { computed } from 'vue';
+// import { mapState } from 'pinia'
 import { useGlobalStore } from '@/stores/GlobalStore'
+import { useTheme } from '@/composables/useTheme'
 
-export default {
-  name: 'FooterSock',
-  components: {
-    SmartLink,
-  },
-  computed: {
-    ...mapState(useGlobalStore, ['footerSock']),
-    year() {
-      const current_year = new Date().getFullYear()
-      return current_year
-    },
-    parsedSockItems() {
-      if (Object.keys(this.footerSock).length !== 0) {
-        return this.footerSock.nodes
-      }
-      else {
-        // eslint-disable-next-line no-console
-        console.log(
-          `Pinia state data for footer sock not present if navigation is not setup for the website: is it client side:${process.client}`
-        )
-      }
-      return []
-    },
-  },
-}
+// CHILD COMPONENTS
+import SmartLink from './SmartLink.vue'
+
+// GLOBALSTORE DATA
+const globalStore = useGlobalStore()
+const parsedSockItems = computed(() => {
+  if (Object.keys(globalStore.footerSock).length !== 0) {
+    return globalStore.footerSock.nodes
+  }
+  else {
+    // eslint-disable-next-line no-console
+    console.log(
+      `Pinia state data for footer sock not present if navigation is not setup for the website: is it client side:${process.client}`
+    )
+  }
+  return []
+})
+
+// THEME
+const theme = useTheme()
+const classes = computed(() => {
+  return ['footer-sock', theme?.value || '']
+})
+
+// OTHER COMPUTED METHODS
+const year = computed(() => {
+  const current_year = new Date().getFullYear()
+  return current_year
+})
 </script>
 
 <template>
-  <div class="footer-sock">
+  <div :class="classes">
     <div class="container">
       <div class="regents">
         &#169; {{ year }} Regents of the University of California

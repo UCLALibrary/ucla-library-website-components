@@ -1,6 +1,5 @@
-// Storybook default settings
-
 import FooterMain from '@/lib-components/FooterMain'
+import { computed } from 'vue'
 
 export default {
   title: 'FOOTER / Main',
@@ -9,9 +8,20 @@ export default {
 
 export function Default() {
   return {
-
     components: { FooterMain },
+    template: `
+        <footer-main />`,
+  }
+}
 
+export function FTVAFooter() {
+  return {
+    components: { FooterMain },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
     template: `
         <footer-main />`,
   }

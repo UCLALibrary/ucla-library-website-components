@@ -1,5 +1,6 @@
 import 'ucla-library-design-tokens/scss/app-global.scss'
 import '@/styles/global.scss'
+import { FooterLinks } from '@/lib-components/FooterLinks';
 
 export { default as AlphabeticalBrowseBy } from './AlphabeticalBrowseBy.vue'
 export { default as BannerFeatured } from './BannerFeatured.vue'
@@ -63,6 +64,7 @@ export { default as FlexiblePullQuote } from './Flexible/PullQuote.vue'
 export { default as FlexibleRichText } from './Flexible/RichText.vue'
 export { default as FlexibleSimpleCards } from './Flexible/SimpleCards.vue'
 export { default as FooterMain } from './FooterMain.vue'
+export { default as FooterLinks } from './FooterLinks.vue'
 export { default as FooterPrimary } from './FooterPrimary.vue'
 export { default as FooterSock } from './FooterSock.vue'
 export { default as FooterSponsor } from './FooterSponsor.vue'

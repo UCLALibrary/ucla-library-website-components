@@ -1,74 +1,89 @@
-<script>
-// Helpers
+<script lang="ts" setup>
+// UTILS
+import { computed } from 'vue'
 import { mapState } from 'pinia'
+import { useTheme } from '@/composables/useTheme'
+import { useGlobalStore } from '@/stores/GlobalStore'
+import formatLinkTarget from '@/utils/formatLinkTarget'
 
 // SVGs
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
 import SvgMoleculeHalf from 'ucla-library-design-tokens/assets/svgs/molecule-half.svg'
 import SvgArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
-import { useGlobalStore } from '@/stores/GlobalStore'
+
+// CHILD COMPONENTS
 import SmartLink from '@/lib-components/SmartLink'
-import formatLinkTarget from '@/utils/formatLinkTarget'
 
-export default {
-  name: 'FooterPrimary',
+// PROPS
+const props = defineProps({
+  form: {
+    type: Boolean,
+    default: true,
+  },
+  // formSubmitLabel: {
+  //   type: String,
+  //   default: 'Subscribe'
+  // },
+  isMicrosite: {
+    type: Boolean,
+    default: false,
+  },
+})
 
-  components: {
-    SmartLink,
-    SvgLogoUclaLibrary,
-    SvgMoleculeHalf,
-    SvgArrowRight,
-  },
-  props: {
-    form: {
-      type: Boolean,
-      default: true,
-    },
-    isMicrosite: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  computed: {
-    ...mapState(useGlobalStore, ['footerPrimary']),
-    classes() {
-      return this.form ? ['container'] : ['container no-form']
-    },
-    parsedSocialItems() {
-      if (Object.keys(this.footerPrimary).length !== 0) {
-        return this.footerPrimary.nodes[0].children
-      }
-      else {
-        // eslint-disable-next-line no-console
-        console.log(
-          `Pinia state data not present: is it client side:${process.client}`
-        )
-      }
-      return []
-    },
-    parsedPressItems() {
-      if (Object.keys(this.footerPrimary).length !== 0) {
-        return this.footerPrimary.nodes[1].children
-      }
-      else {
-        // eslint-disable-next-line no-console
-        console.log(
-          `Pinia state data for footer primary not present, it could be because navigation is not setup for the website: is it client side:${process.client}`
-        )
-      }
-      return []
-    },
-  },
-  methods: {
-    formatTarget(target) {
-      return formatLinkTarget(target)
-    }
+// THEME
+const theme = useTheme()
+const wrapperClasses = computed(() => ['footer-primary', theme?.value || ''])
+const classes = computed(() => {
+  return props.form ? ['container'] : ['container no-form']
+})
+const parsedNewsletterStatement = computed(() => {
+  if (theme?.value === 'ftva') {
+    return `Subscribe to receive the latest updates on what's happening at the Film & Television Archive.`
   }
+  return `Subscribe to get the latest updates on what's happening with UCLA Library.`
+})
+const parsedFormSubmitLabel = computed(() => {
+  if (theme?.value === 'ftva') {
+    return 'Submit'
+  }
+  return 'Subscribe'
+}) 
+
+// GLOBALSTORE DATA
+const globalStore = useGlobalStore()
+const parsedSocialItems = computed(() => {
+  if (Object.keys(globalStore.footerPrimary).length !== 0) {
+    return globalStore.footerPrimary.nodes[0].children
+  }
+  else {
+    // eslint-disable-next-line no-console
+    console.log(
+      `Pinia state data not present: is it client side:${process.client}`
+    )
+  }
+  return []
+})
+const parsedPressItems = computed(() => {
+  if (Object.keys(globalStore.footerPrimary).length !== 0) {
+    return globalStore.footerPrimary.nodes[1].children
+  }
+  else {
+    // eslint-disable-next-line no-console
+    console.log(
+      `Pinia state data not present: is it client side:${process.client}`
+    )
+  }
+  return []
+})
+
+// METHODS
+function formatTarget(target:string) {
+  return formatLinkTarget(target)
 }
 </script>
 
 <template>
-  <div class="footer-primary">
+  <div :class="wrapperClasses">
     <SvgMoleculeHalf
       class="molecule-half-svg"
       aria-hidden="true"
@@ -81,6 +96,7 @@ export default {
           target="_blank"
           class="logo-ucla"
         >
+          <!-- TODO replace? -->
           <SvgLogoUclaLibrary class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
         </a>
@@ -146,8 +162,7 @@ export default {
           </h2>
 
           <p class="statement">
-            Subscribe to get the latest updates on what's happening
-            with UCLA Library.
+            {{ parsedNewsletterStatement }}
           </p>
         </div>
 
@@ -204,7 +219,7 @@ export default {
             name="subscribe"
             type="submit"
           >
-            Subscribe
+            {{ parsedFormSubmitLabel }}
             <SvgArrowRight class="arrow-svg" />
           </button>
         </div>
