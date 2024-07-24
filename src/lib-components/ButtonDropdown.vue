@@ -51,6 +51,10 @@ const parsedEvent = computed(() => {
     return ""
 })
 
+const isLinkCopiedClass = computed(() => [
+    { "is-link-copied": isLinkCopied.value },
+])
+
 const isExpandedClass = computed(() => [
     { "is-expanded": isDropdownExpanded.value },
 ])
@@ -194,6 +198,8 @@ const parsedClasses = computed(() => {
                             <IconWithLink
                                 v-else
                                 text="Link Copied!"
+                                :class="isLinkCopiedClass"
+                                class="test"
                                 :icon-name="SvgIconFtvaSocialConfirm"
                             />
                         </span>
