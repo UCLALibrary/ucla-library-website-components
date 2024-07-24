@@ -1,79 +1,79 @@
-import IconWithLink from "@/lib-components/IconWithLink"
+import IconWithLink from '@/lib-components/IconWithLink'
 
 export default {
-    title: "Icon With Link",
-    component: IconWithLink,
+  title: 'Icon With Link',
+  component: IconWithLink,
 }
 
 export function Default() {
-    return {
-        components: { IconWithLink },
-        template: `
+  return {
+    components: { IconWithLink },
+    template: `
         <icon-with-link
             text="Powell"
             icon-name="svg-icon-location"
             to="/visit/library/powell"
         />
     `,
-    }
+  }
 }
 
 export function WithExternalLink() {
-    return {
-        components: { IconWithLink },
-        template: `
+  return {
+    components: { IconWithLink },
+    template: `
         <icon-with-link
             text="See More"
             icon-name="svg-icon-search"
             to="https://www.google.com/"
         />
     `,
-    }
+  }
 }
 
 export function InternalLink() {
-    return {
-        components: { IconWithLink },
-        template: `
+  return {
+    components: { IconWithLink },
+    template: `
         <icon-with-link
             text="Emergency Phone Booth"
             icon-name="svg-icon-phone"
             to= "/help/services-and-resources"
         />
     `,
-    }
+  }
 }
 
 export function ConsultationIconLink() {
-    return {
-        components: { IconWithLink },
-        template: `
+  return {
+    components: { IconWithLink },
+    template: `
         <icon-with-link
             text="Book a Consultation"
             icon-name="svg-icon-consultation"
             to= "/help/services-and-resources"
         />
     `,
-    }
+  }
 }
 
 export function LongText() {
-    return {
-        components: { IconWithLink },
-        template: `
+  return {
+    components: { IconWithLink },
+    template: `
         <icon-with-link
             text="A Icon with Link with Very Very Long Text What Happens?"
             icon-name="svg-icon-share-twitter"
             to= "/help/services-and-resources"
         />
     `,
-    }
+  }
 }
 
 export function GeneralIcons() {
-    return {
-        components: { IconWithLink },
-        template: `
+  return {
+    components: { IconWithLink },
+    template: `
         <ul>
             <li>
             <icon-with-link
@@ -220,13 +220,13 @@ export function GeneralIcons() {
             /></li>
         </ul>
     `,
-    }
+  }
 }
 
 export function SocialIcons() {
-    return {
-        components: { IconWithLink },
-        template: `
+  return {
+    components: { IconWithLink },
+    template: `
         <ul>
             <li><icon-with-link
                 text="Share Email"
@@ -265,13 +265,13 @@ export function SocialIcons() {
             /></li>
         </ul>
     `,
-    }
+  }
 }
 
 export function FTVACalendarIcons() {
-    return {
-        components: { IconWithLink },
-        template: `
+  return {
+    components: { IconWithLink },
+    template: `
         <ul>
             <li><icon-with-link
                 text="iCal"
@@ -298,13 +298,13 @@ export function FTVACalendarIcons() {
             /></li>
         </ul>
     `,
-    }
+  }
 }
 
 export function FTVASocialIcons() {
-    return {
-        components: { IconWithLink },
-        template: `
+  return {
+    components: { IconWithLink },
+    template: `
         <ul>
             <li><icon-with-link
                 text="Share"
@@ -343,5 +343,5 @@ export function FTVASocialIcons() {
             /></li>
         </ul>
     `,
-    }
+  }
 }
