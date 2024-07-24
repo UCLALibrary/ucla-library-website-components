@@ -125,12 +125,8 @@ const parsedClasses = computed(() => {
         </div>
 
         <!-- Generic Button -->
-        <div
-            v-else
-            v-on-click-outside="closeDropdownOnClickOutside"
-            class="button-overlay"
-            :class="isExpandedClass"
-        >
+        <div v-else v-on-click-outside="closeDropdownOnClickOutside">
+            <div class="button-overlay" :class="isExpandedClass"></div>
             <button
                 class="button button-icon"
                 :class="isExpandedClass"
@@ -158,7 +154,6 @@ const parsedClasses = computed(() => {
             <div v-if="isDropdownExpanded" class="button-dropdown-modal">
                 <SvgGlyphClose
                     v-if="isMobile"
-                    :class="isExpanded"
                     class="svg-glyph-close"
                     @click="removeOverlay"
                 />
