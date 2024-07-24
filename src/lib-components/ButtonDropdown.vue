@@ -36,6 +36,7 @@ const { eventDetail, dropdownList, title, hasIcon } = defineProps({
 })
 
 const globalStore = useGlobalStore()
+
 const route = useRoute()
 
 const target = ref(null)
@@ -47,21 +48,29 @@ const isMobile = computed(() => {
     return globalStore.winWidth <= 750
 })
 
-const parsedEvent = computed(() => {
-    return ""
-})
-
 const isLinkCopiedClass = computed(() => [
     { "is-link-copied": isLinkCopied.value },
 ])
 
-const isExpandedClass = computed(() => [
+const isDropdownExpandedClass = computed(() => [
     { "is-expanded": isDropdownExpanded.value },
 ])
 
+const parsedEvent = computed(() => {
+    return ""
+})
+
 // METHODS
-function handleDropdown() {
+function handleDropdownExpansion() {
     return (isDropdownExpanded.value = !isDropdownExpanded.value)
+}
+
+function closeDropdownOnClickOutside() {
+    isDropdownExpanded.value = false
+}
+
+function removeOverlay() {
+    isDropdownExpanded.value = false
 }
 
 /* Inject styles into ATCB ShadowDOM on button dropdown:
@@ -84,17 +93,10 @@ function handleActbExpandedStyle(e) {
 function handleCopiedLink() {
     navigator.clipboard.writeText(route.fullPath)
     isLinkCopied.value = true
+
     setTimeout(() => {
         isLinkCopied.value = false
     }, 4000)
-}
-
-function closeDropdownOnClickOutside() {
-    isDropdownExpanded.value = false
-}
-
-function removeOverlay() {
-    isDropdownExpanded.value = false
 }
 
 // THEME
@@ -130,26 +132,28 @@ const parsedClasses = computed(() => {
 
         <!-- Generic Button -->
         <div v-else v-on-click-outside="closeDropdownOnClickOutside">
-            <div class="button-overlay" :class="isExpandedClass"></div>
+            <div
+                class="dropdown-overlay"
+                :class="isDropdownExpandedClass"
+            ></div>
             <button
-                class="button button-icon"
-                :class="isExpandedClass"
-                data-element="button-dropdown"
-                @click="handleDropdown"
+                class="button"
+                :class="isDropdownExpandedClass"
+                @click="handleDropdownExpansion"
             >
                 <!-- Optional Button Icon -->
-                <span class="button-icon__inner-wrapper">
+                <span class="button-inner-wrapper">
                     <span v-if="hasIcon">
-                        <component
-                            :is="SvgIconFtvaShare"
-                            class="button-icon__svg"
-                        />
+                        <component :is="SvgIconFtvaShare" class="button-svg" />
                     </span>
 
                     <span class="button-text">{{ buttonTitle }}</span>
                 </span>
 
-                <span :class="isExpandedClass" class="toggle-triangle-icon">
+                <span
+                    :class="isDropdownExpandedClass"
+                    class="toggle-triangle-icon"
+                >
                     <SvgIconFtvaDropTriangle />
                 </span>
             </button>
@@ -163,7 +167,7 @@ const parsedClasses = computed(() => {
                 />
                 <div
                     class="button-dropdown-modal-wrapper"
-                    :class="isExpandedClass"
+                    :class="isDropdownExpandedClass"
                 >
                     <div
                         v-for="item in dropdownList"
@@ -179,7 +183,7 @@ const parsedClasses = computed(() => {
                                 <IconWithLink
                                     :text="item.dropdownItemTitle"
                                     :icon-name="item.iconName"
-                                    class="no-active-link" /></a
+                                    class="not-smart-link" /></a
                         ></span>
 
                         <!-- "Copy URL/Link" -->
@@ -192,7 +196,7 @@ const parsedClasses = computed(() => {
                                 :text="item.dropdownItemTitle"
                                 :icon-name="item.iconName"
                                 @click="handleCopiedLink(route.fullPath)"
-                                class="no-active-link"
+                                class="not-smart-link"
                             />
 
                             <IconWithLink

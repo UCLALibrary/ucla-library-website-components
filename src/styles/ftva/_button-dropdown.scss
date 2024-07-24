@@ -2,10 +2,8 @@
     .button {
         border-color: #555555; // Update to: $medium-grey
         color: #555555; // Update to: $medium-grey
-    }
 
-    .button-icon {
-        &__svg {
+        .button-svg {
             stroke: unset;
         }
     }

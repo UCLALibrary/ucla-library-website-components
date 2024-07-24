@@ -15,7 +15,7 @@ export default {
     ],
 }
 
-const mockArticle =
+const mockArticleUrl =
     "/about/news/the-75th-anniversary-of-the-university-archives"
 
 const mockSocialList = {
@@ -47,7 +47,7 @@ const mockSocialList = {
 }
 
 function Template(args) {
-    router.push(mockArticle)
+    router.push(mockArticleUrl)
     return {
         setup() {
             onMounted(() => {
@@ -90,7 +90,7 @@ Share.args = {
 // FTVA
 
 function TemplateFTVA(args) {
-    router.push(mockArticle)
+    router.push(mockArticleUrl)
     return {
         provide() {
             return {
