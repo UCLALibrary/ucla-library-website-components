@@ -110,6 +110,7 @@ const parsedClasses = computed(() => {
   <div :class="parsedClasses">
     <div v-if="eventDetail">
       <!-- Add to Calendar Button -->
+      <!--  eslint-disable -->
       <add-to-calendar-button
         :name="eventDetail.title"
         :startDate="eventDetail.startDate"
@@ -126,7 +127,8 @@ const parsedClasses = computed(() => {
         hideIconButton="true"
         listStyle="dropdown-static"
         @click="handleActbExpandedStyle"
-       ></add-to-calendar-button>
+    ></add-to-calendar-button>
+      <!-- eslint-enable -->
     </div>
 
     <!-- Generic Button -->
