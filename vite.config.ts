@@ -6,19 +6,7 @@ import svgLoader from 'vite-svg-loader'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue({
-      // Skip component resolution for Add-to-Calendar plugin:
-      // https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue
-      template: {
-        compilerOptions: {
-          // treat all tags with a dash as custom elements
-          isCustomElement: tag => tag.includes('-'),
-        },
-      },
-    }),
-    svgLoader({ svgo: false }),
-  ],
+  plugins: [vue(), svgLoader({ svgo: false })],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/entry.js'),
