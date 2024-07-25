@@ -89,6 +89,13 @@
         :deep(.icon-with-link.not-smart-link) {
             width: unset;
         }
+
+        :deep(.icon-with-link.is-link-copied) {
+            .text {
+                position: relative;
+                top: 3px;
+            }
+        }
     }
 
     @media #{$has-hover} {
@@ -181,9 +188,13 @@
             z-index: 1;
         }
 
-        .icon-with-link.is-link-copied {
+        :deep(.icon-with-link.is-link-copied) {
             width: 85%;
             background-color: #e7edf2; // update with token
+
+            .text {
+                top: 3px;
+            }
         }
 
         .dropdown-modal-item {

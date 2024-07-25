@@ -18,29 +18,28 @@ export default {
 const mockArticleUrl
     = '/about/news/the-75th-anniversary-of-the-university-archives'
 
-const mockSocialList = {
-  buttonTitle: 'Share',
+const mockDropdownList = {
+  buttonTitle: 'Label',
   hasIcon: true,
-  buttonIconName: 'svg-icon-ftva-share',
   dropdownList: [
     {
-      dropdownItemTitle: 'Copy Link',
+      dropdownItemTitle: 'Generic Item',
       dropdownItemUrl: '',
-      iconName: 'svg-icon-ftva-social-link',
+      iconName: 'svg-icon-ftva-social-x',
     },
     {
-      dropdownItemTitle: 'Email',
+      dropdownItemTitle: 'Generic Item',
       dropdownItemUrl: '',
-      iconName: 'svg-icon-ftva-social-email',
+      iconName: 'svg-icon-ftva-social-x',
     },
     {
-      dropdownItemTitle: 'Facebook',
-      dropdownItemUrl: 'https://www.facebook.com/sharer/sharer.php?u=',
-      iconName: 'svg-icon-ftva-social-facebook',
+      dropdownItemTitle: 'Generic Item',
+      dropdownItemUrl: '',
+      iconName: 'svg-icon-ftva-social-x',
     },
     {
-      dropdownItemTitle: 'X',
-      dropdownItemUrl: 'https://twitter.com/share?url=',
+      dropdownItemTitle: 'Generic Item',
+      dropdownItemUrl: '',
       iconName: 'svg-icon-ftva-social-x',
     },
   ],
@@ -78,7 +77,34 @@ function Template(args) {
 export const Default = Template.bind({})
 
 Default.args = {
-  ...mockSocialList,
+  ...mockDropdownList,
+}
+
+const mockSocialList = {
+  buttonTitle: 'Share',
+  hasIcon: true,
+  dropdownList: [
+    {
+      dropdownItemTitle: 'Copy Link',
+      dropdownItemUrl: '',
+      iconName: 'svg-icon-ftva-social-link',
+    },
+    {
+      dropdownItemTitle: 'Email',
+      dropdownItemUrl: '',
+      iconName: 'svg-icon-ftva-social-email',
+    },
+    {
+      dropdownItemTitle: 'Facebook',
+      dropdownItemUrl: 'https://www.facebook.com/sharer/sharer.php?u=',
+      iconName: 'svg-icon-ftva-social-facebook',
+    },
+    {
+      dropdownItemTitle: 'X',
+      dropdownItemUrl: 'https://twitter.com/share?url=',
+      iconName: 'svg-icon-ftva-social-x',
+    },
+  ],
 }
 
 export const Share = Template.bind({})
@@ -144,15 +170,21 @@ function TemplateAddToCalendar(args) {
 }
 
 const mockCalendarData = {
-  eventDetail: {
-    title: 'FTVA Event Title',
-    startDate: '2024-07-04',
-    startTime: '10:15',
-    endTime: '23:30',
-    location: 'Hammer Museum',
-    description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  },
+  isEvent: true,
+  title: 'TEST - La Région Centrale Screening',
+  startDate: '2024-07-09',
+  startTime: '09:30',
+  endTime: '10:30',
+  location: [
+    {
+      title: 'Billy Wilder Theater',
+      campusMapId: null,
+      publicUrl: 'https://www.cinema.ucla.edu/billy-wilder-theater',
+      address: []
+    }
+  ],
+  eventDescription:
+'La Région Centrale Canada, 1971 The late avant-garde master Michael Snow’s work explores the nature of perception, consciousness, participation, and in many ways is uncategorizable but relation to time is evident.',
 }
 
 export const AddToCalendar = TemplateAddToCalendar.bind({})

@@ -11,9 +11,6 @@ import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg
 
 import IconWithLink from './IconWithLink.vue'
 
-import formatDates from '@/utils/formatEventDates'
-import formatTimes from '@/utils/formatEventTimes'
-
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'
 
@@ -57,7 +54,7 @@ const { title, eventDescription, startDate, startTime, endTime, location, dropdo
   },
   isEvent: {
     type: Boolean,
-    default: null
+    default: false
   }
 })
 
@@ -83,11 +80,11 @@ const isDropdownExpandedClass = computed(() => [
 ])
 
 const parsedLocation = computed(() => {
-  const evtLocation = location[0]?.title
-
   const evtUrl = location[0]?.publicUrl
 
-  return evtLocation || (evtUrl || '')
+  const evtLocation = location[0]?.title
+
+  return evtUrl || (evtLocation || '')
 })
 
 // ToDo
@@ -188,7 +185,7 @@ const parsedClasses = computed(() => {
         <!-- Optional Button Icon -->
         <span class="button-inner-wrapper">
           <span v-if="hasIcon">
-            <component :is="SvgIconFtvaShare" class="button-svg" />
+            <component :is="SvgIconFtvaShare" class="button-svg" aria-hidden="true" />
           </span>
 
           <span class="button-text">{{ buttonTitle }}</span>
@@ -247,7 +244,6 @@ const parsedClasses = computed(() => {
                 v-else
                 text="Link Copied!"
                 :class="isLinkCopiedClass"
-                class="test"
                 :icon-name="SvgIconFtvaSocialConfirm"
               />
             </span>
