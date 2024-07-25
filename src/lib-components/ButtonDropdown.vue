@@ -10,15 +10,38 @@ import SvgIconFtvaSocialConfirm from 'ucla-library-design-tokens/assets/svgs/ico
 import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 
 import IconWithLink from './IconWithLink.vue'
-import { useGlobalStore } from '@/stores/GlobalStore'
 
+import formatDates from '@/utils/formatEventDates'
+import formatTimes from '@/utils/formatEventTimes'
+
+import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'
 
 // DATA
-const { eventDetail, dropdownList, buttonTitle, hasIcon } = defineProps({
-  eventDetail: {
-    type: Object,
-    default: () => {},
+const { title, eventDescription, startDate, startTime, endTime, location, dropdownList, buttonTitle, isEvent, hasIcon } = defineProps({
+  title: {
+    type: String,
+    default: '',
+  },
+  eventDescription: {
+    type: String,
+    default: '',
+  },
+  startDate: {
+    type: String,
+    default: '',
+  },
+  startTime: {
+    type: String,
+    default: '',
+  },
+  endTime: {
+    type: String,
+    default: '',
+  },
+  location: {
+    type: Array,
+    default: () => [],
   },
   dropdownList: {
     type: Array,
@@ -32,6 +55,10 @@ const { eventDetail, dropdownList, buttonTitle, hasIcon } = defineProps({
     type: Boolean,
     default: false,
   },
+  isEvent: {
+    type: Boolean,
+    default: null
+  }
 })
 
 const globalStore = useGlobalStore()
@@ -55,9 +82,23 @@ const isDropdownExpandedClass = computed(() => [
   { 'is-expanded': isDropdownExpanded.value },
 ])
 
-const parsedEvent = computed(() => {
-  return ''
+const parsedLocation = computed(() => {
+  const evtLocation = location[0]?.title
+
+  const evtUrl = location[0]?.publicUrl
+
+  return evtLocation || (evtUrl || '')
 })
+
+// ToDo
+// const parsedEventDate = computed(() => {
+//   return ''
+// })
+
+// ToDo
+// const parsedEventTime = computed(() => {
+//   return ''
+// })
 
 // METHODS
 function handleDropdownExpansion() {
@@ -108,18 +149,21 @@ const parsedClasses = computed(() => {
 
 <template>
   <div :class="parsedClasses">
-    <div v-if="eventDetail">
+    <div v-if="isEvent">
       <!-- Add to Calendar Button plugin component -->
-      <!-- Plugin's attributes must be camel-cased -->
+      <!-- https://add-to-calendar-button.com/configuration -->
+      <!-- Set debug attribute to 'true' for troubleshooting -->
+      <!-- Plugin's attributes must be camelCased -->
+      <!-- eslint flag to prevent attribute hyphenation -->
       <!-- eslint-disable -->
       <add-to-calendar-button
-        :name="eventDetail.title"
-        :startDate="eventDetail.startDate"
-        :startTime="eventDetail.startTime"
-        :endTime="eventDetail.endTime"
+        :name="title"
+        :startDate="startDate"
+        :startTime="startTime"
+        :endTime="endTime"
         timeZone="America/Los_Angeles"
-        :location="eventDetail.location"
-        :description="eventDetail.location"
+        :location="parsedLocation"
+        :description="eventDescription"
         options="'Google','Apple','Outlook.com','iCal'"
         trigger="click"
         hideBranding="true"
@@ -127,8 +171,9 @@ const parsedClasses = computed(() => {
         hideBackground="true"
         hideIconButton="true"
         listStyle="dropdown-static"
+        debug="true"
         @click="handleActbExpandedStyle"
-    ></add-to-calendar-button>
+></add-to-calendar-button>
       <!-- eslint-enable -->
     </div>
 
@@ -168,6 +213,7 @@ const parsedClasses = computed(() => {
           class="button-dropdown-modal-wrapper"
           :class="isDropdownExpandedClass"
         >
+          <!-- Dropdown Items -->
           <div
             v-for="item in dropdownList"
             :key="item.dropdownItemTitle"
