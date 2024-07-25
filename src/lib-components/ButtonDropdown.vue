@@ -147,11 +147,16 @@ const parsedClasses = computed(() => {
 <template>
   <div :class="parsedClasses">
     <div v-if="isEvent">
-      <!-- Add to Calendar Button plugin component -->
-      <!-- https://add-to-calendar-button.com/configuration -->
-      <!-- Set debug attribute to 'true' for troubleshooting -->
-      <!-- Plugin's attributes must be camelCased -->
-      <!-- eslint flag to prevent attribute hyphenation -->
+      <!-- Add to Calendar Button plugin component
+
+      - https://add-to-calendar-button.com/configuration
+
+      - Set debug attribute to 'true' for troubleshooting
+
+      - Plugin's attributes must be camelCased
+
+      - eslint flag to prevent attribute hyphenation -->
+
       <!-- eslint-disable -->
       <add-to-calendar-button
         :name="title"
