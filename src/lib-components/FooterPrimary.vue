@@ -1,18 +1,19 @@
 <script lang="ts" setup>
 // UTILS
 import { computed } from 'vue'
-import { mapState } from 'pinia'
+// import { mapState } from 'pinia'
 import { useTheme } from '@/composables/useTheme'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import formatLinkTarget from '@/utils/formatLinkTarget'
 
 // SVGs
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
+import SvgLogoFTVA from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footerlogo.svg'
 import SvgMoleculeHalf from 'ucla-library-design-tokens/assets/svgs/molecule-half.svg'
 import SvgArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
 
 // CHILD COMPONENTS
-import SmartLink from '@/lib-components/SmartLink'
+import SmartLink from '@/lib-components/SmartLink.vue'
 
 // PROPS
 const props = defineProps({
@@ -20,10 +21,6 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-  // formSubmitLabel: {
-  //   type: String,
-  //   default: 'Subscribe'
-  // },
   isMicrosite: {
     type: Boolean,
     default: false,
@@ -75,6 +72,16 @@ const parsedPressItems = computed(() => {
   }
   return []
 })
+// const parsedFooterLogo = computed(() => {
+//   // TODO return template portion 
+//   // <SvgLogoUclaLibrary class="logo-svg" />
+//   //   <span class="visually-hidden" > UCLA Library Home </span>
+//   if (theme?.value === 'ftva') {
+//     return `<SvgLogoFTVA />`
+//   }
+//   return `<SvgLogoUclaLibrary class="logo-svg" />
+//   <span class="visually-hidden" > UCLA Library Home </span>`
+// })
 
 // METHODS
 function formatTarget(target:string) {
@@ -85,40 +92,38 @@ function formatTarget(target:string) {
 <template>
   <div :class="wrapperClasses">
     <SvgMoleculeHalf
+      v-if="!theme"
       class="molecule-half-svg"
-      aria-hidden="true"
-    />
+      aria-hidden="true" />
     <div :class="classes">
       <div class="footer-links">
         <a
           v-if="isMicrosite"
           href="https://www.library.ucla.edu"
           target="_blank"
-          class="logo-ucla"
-        >
+          class="logo-ucla">
           <!-- TODO replace? -->
           <SvgLogoUclaLibrary class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
+          <!-- {{{ parsedFooterLogo } }} OR v-html="parsedFooterLogo -->
         </a>
         <SmartLink
           v-else
           to="/"
-          class="logo-ucla"
-        >
+          class="logo-ucla">
           <SvgLogoUclaLibrary class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
+          <!-- {{ { parsedFooterLogo } }} -->
         </SmartLink>
         <ul class="socials">
           <li
             v-for="item in parsedSocialItems"
             :key="item.id"
-            class="social-item"
-          >
+            class="social-item">
             <a
               :href="item.to"
               :target="formatTarget(item.target)"
-              a
-            >
+              a>
               {{ item.name }}
             </a>
           </li>
@@ -126,17 +131,14 @@ function formatTarget(target:string) {
 
         <ul
           v-if="parsedPressItems"
-          class="press-links"
-        >
+          class="press-links">
           <li
             v-for="item in parsedPressItems"
             :key="item.id"
-            class="press-item"
-          >
+            class="press-item">
             <SmartLink
               :to="item.to"
-              :link-target="item.target"
-            >
+              :link-target="item.target">
               {{ item.name }}
             </SmartLink>
           </li>
@@ -151,12 +153,10 @@ function formatTarget(target:string) {
         name="mc-embedded-subscribe-form"
         class="validate form"
         target="_blank"
-        novalidate
-      >
+        novalidate>
         <div
           id="mc_embed_signup_scroll"
-          class="form-header"
-        >
+          class="form-header">
           <h2 class="title">
             Stay updated
           </h2>
@@ -175,50 +175,42 @@ function formatTarget(target:string) {
               value=""
               placeholder="email@ucla.edu"
               class="input-email"
-              required
-            >
+              required>
             <label
               for="mce-EMAIL"
-              class="label"
-            >
+              class="label">
               Email Address
             </label>
           </div>
 
           <div
             id="mce-responses"
-            class="clear"
-          >
+            class="clear">
             <div
               id="mce-error-response"
               class="response"
-              style="display: none"
-            />
+              style="display: none" />
             <div
               id="mce-success-response"
               class="response"
-              style="display: none"
-            />
+              style="display: none" />
           </div>
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
           <div
             style="position: absolute; left: -5000px"
-            aria-hidden="true"
-          >
+            aria-hidden="true">
             <input
               type="text"
               name="b_31248d1f341b8eede1b46cb33_40fdd1db46"
               tabindex="-1"
-              value=""
-            >
+              value="">
           </div>
 
           <button
             id="mc-embedded-subscribe"
             class="button-submit"
             name="subscribe"
-            type="submit"
-          >
+            type="submit">
             {{ parsedFormSubmitLabel }}
             <SvgArrowRight class="arrow-svg" />
           </button>
@@ -229,6 +221,7 @@ function formatTarget(target:string) {
 </template>
 
 <style lang="scss" scoped>
+@import "ucla-library-design-tokens/scss/_tokens-ftva";
 .footer-primary {
   --unit-content-width: #{$container-l-cta}px;
 
@@ -333,7 +326,6 @@ function formatTarget(target:string) {
       }
 
       // socials
-
       .press-links {
         display: inline-flex;
         flex-direction: column;
@@ -598,6 +590,35 @@ function formatTarget(target:string) {
   @media (max-width: 375px) {
     .container {
       align-items: center;
+    }
+  }
+}
+
+// FTVA
+.ftva.footer-primary {
+  background-color: $navy-blue;
+  .container {
+    flex-direction: row-reverse;
+    .form {
+      h2.title {
+        font-size: 50px;
+      }
+      .statement {
+        font-size: 18px;
+        font-family: var(--font-secondary);
+      }
+      .input-block {
+        border-color: var(--color-white);
+        text-transform: uppercase;
+        .button-submit {
+          text-transform: uppercase;
+        }
+      }
+    }
+    .footer-links {
+      .press-links {
+        display: none;
+      }
     }
   }
 }

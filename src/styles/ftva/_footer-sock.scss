@@ -1,0 +1,18 @@
+.ftva.footer-sock {
+    background-color: #191919;
+
+    .container {
+        .link {
+            color: $white;
+            text-decoration-color: $grey-blue;
+
+            &:hover {
+                color: $grey-blue;
+            }
+        }
+
+        .regents {
+            color: $white;
+        }
+    }
+}

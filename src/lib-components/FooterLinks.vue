@@ -58,6 +58,7 @@ const classes = computed(() => {
 //   @import "@/styles/ftva/_footer-links.scss";
 
   // TODO move styles to files
+  // TODO TODO rename footer-links to something else? footer-links class is used elsewhere
 .footer-links {
     display: flex;
     flex-direction: row;

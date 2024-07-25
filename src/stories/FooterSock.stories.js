@@ -1,17 +1,27 @@
 import FooterSock from '@/lib-components/FooterSock'
+import { computed } from 'vue'
 
-// Storybook default settings
 export default {
   title: 'FOOTER / Sock',
   component: FooterSock,
 
 }
 
-// Variations of stories below
 export function Default() {
   return {
     components: { FooterSock },
-    computed: {},
+    template: '<footer-sock />',
+  }
+}
+
+export function FTVAFooter() {
+  return {
+    components: { FooterSock },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
     template: '<footer-sock />',
   }
 }

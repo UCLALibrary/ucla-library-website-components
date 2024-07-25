@@ -28,13 +28,20 @@ const showLinks = computed(() => {
   }
   return true
 })
+const showForm = computed(() => {
+  if (theme?.value === 'ftva') {
+    // if ftva theme, show newletter subscribe form
+    return true
+  }
+  return false
+})
 </script>
 
 <template>
   <footer :class="classes">
     <FooterSponsor v-if="showSponsor" class="sponsor" />
-    <!-- todo either pass theme based props or make all props in primary computed-->
-    <FooterPrimary :form="false" class="primary" :is-microsite="true" />
+    <!-- todo either pass theme based props like or make all props in primary computed-->
+    <FooterPrimary :form="showForm" class="primary" :is-microsite="true" />
     <FooterLinks v-if="showLinks" class="links" />
     <FooterSock class="sock" />
   </footer>
