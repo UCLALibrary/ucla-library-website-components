@@ -15,7 +15,7 @@ import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'
 
 // DATA
-const { eventDetail, dropdownList, title, hasIcon } = defineProps({
+const { eventDetail, dropdownList, buttonTitle, hasIcon } = defineProps({
   eventDetail: {
     type: Object,
     default: () => {},
@@ -38,8 +38,8 @@ const globalStore = useGlobalStore()
 
 const route = useRoute()
 
-const target = ref(null)
 const isDropdownExpanded = ref(false)
+
 const isLinkCopied = ref(false)
 
 // COMPUTED
@@ -109,8 +109,9 @@ const parsedClasses = computed(() => {
 <template>
   <div :class="parsedClasses">
     <div v-if="eventDetail">
-      <!-- Add to Calendar Button -->
-      <!--  eslint-disable -->
+      <!-- Add to Calendar Button plugin component -->
+      <!-- Plugin's attributes must be camel-cased -->
+      <!-- eslint-disable -->
       <add-to-calendar-button
         :name="eventDetail.title"
         :startDate="eventDetail.startDate"
