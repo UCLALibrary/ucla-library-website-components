@@ -16,7 +16,7 @@ export default {
 }
 
 const mockArticleUrl
-    = '/about/news/the-75th-anniversary-of-the-university-archives'
+    = 'www.library.ucla.edu/visit/events-exhibitions/baby-doll-07-28-24'
 
 const mockDropdownList = {
   buttonTitle: 'Label',
