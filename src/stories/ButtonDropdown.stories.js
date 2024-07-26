@@ -1,5 +1,4 @@
 import { computed, onBeforeUnmount, onMounted } from 'vue'
-import router from '@/router'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
@@ -9,14 +8,10 @@ export default {
   component: ButtonDropdown,
   decorators: [
     () => ({
-      router,
       template: '<story />',
     }),
   ],
 }
-
-const mockArticleUrl
-    = 'www.library.ucla.edu/visit/events-exhibitions/baby-doll-07-28-24'
 
 const mockDropdownList = {
   buttonTitle: 'Label',
@@ -46,7 +41,6 @@ const mockDropdownList = {
 }
 
 function Template(args) {
-  router.push(mockArticleUrl)
   return {
     setup() {
       onMounted(() => {
@@ -116,7 +110,6 @@ Share.args = {
 // FTVA
 
 function TemplateFTVA(args) {
-  router.push(mockArticleUrl)
   return {
     provide() {
       return {
