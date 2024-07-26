@@ -186,7 +186,7 @@ const parsedClasses = computed(() => {
         hideBackground="true"
         hideIconButton="true"
         listStyle="dropdown-static"
-        debug="true"
+        debug="false"
         @click="handleActbExpandedStyle"
 ></add-to-calendar-button>
       <!-- eslint-enable -->
