@@ -172,9 +172,8 @@ function TemplateAddToCalendar(args) {
 const mockCalendarData = {
   isEvent: true,
   title: 'TEST - La Région Centrale Screening',
-  startDate: '2024-07-09',
-  startTime: '09:30',
-  endTime: '10:30',
+  startDateWithTime: '2025-07-08T02:30:00+00:00',
+  endTime: '20:30:00',
   location: [
     {
       title: 'Billy Wilder Theater',

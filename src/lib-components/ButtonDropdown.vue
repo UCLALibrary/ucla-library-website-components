@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { vOnClickOutside } from '@vueuse/components'
 import { useRoute } from 'vue-router'
 import 'add-to-calendar-button'
+import format from 'date-fns/format'
 
 import SvgIconFtvaDropTriangle from 'ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg'
 import SvgIconFtvaShare from 'ucla-library-design-tokens/assets/svgs/icon-ftva-share.svg'
@@ -15,7 +16,8 @@ import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'
 
 // DATA
-const { title, eventDescription, startDate, startTime, endTime, location, dropdownList, buttonTitle, isEvent, hasIcon } = defineProps({
+const { title, eventDescription, startDateWithTime, endTime, location, isEvent, dropdownList, buttonTitle, hasIcon } = defineProps({
+  // Event props
   title: {
     type: String,
     default: '',
@@ -24,13 +26,9 @@ const { title, eventDescription, startDate, startTime, endTime, location, dropdo
     type: String,
     default: '',
   },
-  startDate: {
+  startDateWithTime: {
     type: String,
-    default: '',
-  },
-  startTime: {
-    type: String,
-    default: '',
+    default: ''
   },
   endTime: {
     type: String,
@@ -40,6 +38,11 @@ const { title, eventDescription, startDate, startTime, endTime, location, dropdo
     type: Array,
     default: () => [],
   },
+  isEvent: {
+    type: Boolean,
+    default: false
+  },
+  // Dropdown props
   dropdownList: {
     type: Array,
     default: () => [],
@@ -52,10 +55,6 @@ const { title, eventDescription, startDate, startTime, endTime, location, dropdo
     type: Boolean,
     default: false,
   },
-  isEvent: {
-    type: Boolean,
-    default: false
-  }
 })
 
 const globalStore = useGlobalStore()
@@ -79,6 +78,7 @@ const isDropdownExpandedClass = computed(() => [
   { 'is-expanded': isDropdownExpanded.value },
 ])
 
+// Event data computations
 const parsedLocation = computed(() => {
   const evtUrl = location[0]?.publicUrl
 
@@ -87,15 +87,21 @@ const parsedLocation = computed(() => {
   return evtUrl || (evtLocation || '')
 })
 
-// ToDo
-// const parsedEventDate = computed(() => {
-//   return ''
-// })
+const parsedDateAndTime = computed(() => {
+  if (startDateWithTime) {
+    const startDate = format(new Date(startDateWithTime), 'yyyy-MM-dd')
+    const startTime = format(new Date(startDateWithTime), 'HH:mm')
+    return { startDate, startTime }
+  }
+  return ''
+})
 
-// ToDo
-// const parsedEventTime = computed(() => {
-//   return ''
-// })
+const parsedEndTime = computed(() => {
+  if (endTime)
+    return formatEndTime(endTime)
+
+  return parsedDateAndTime.value.startTime
+})
 
 // METHODS
 function handleDropdownExpansion() {
@@ -136,6 +142,13 @@ function handleCopiedLink() {
   }, 4000)
 }
 
+/* Expected format arg: "PDT00:00:00" */
+function formatEndTime(str) {
+  const pattern = /[0-9][0-9]:[0-9][0-9]/
+  const result = str.match(pattern)
+  return result[0]
+}
+
 // THEME
 const theme = useTheme()
 
@@ -160,13 +173,13 @@ const parsedClasses = computed(() => {
       <!-- eslint-disable -->
       <add-to-calendar-button
         :name="title"
-        :startDate="startDate"
-        :startTime="startTime"
-        :endTime="endTime"
+        :startDate="parsedDateAndTime.startDate"
+        :startTime="parsedDateAndTime.startTime"
+        :endTime="parsedEndTime"
         timeZone="America/Los_Angeles"
         :location="parsedLocation"
         :description="eventDescription"
-        options="'Google','Apple','Outlook.com','iCal'"
+        options="'Google','Apple','Microsoft365','Outlook.com','iCal'"
         trigger="click"
         hideBranding="true"
         hideCheckmark="true"
