@@ -75,9 +75,9 @@ const mockMultiple = [
     image: []
   },
   {
-    title: "Only Screening Title",
+    title: 'Only Screening Title',
     alternateTitle: null,
-    language: "ar",
+    language: 'ar',
     year: null,
     country: null,
     languageInfo: null,
