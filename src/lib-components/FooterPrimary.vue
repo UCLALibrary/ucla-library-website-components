@@ -72,16 +72,12 @@ const parsedPressItems = computed(() => {
   }
   return []
 })
-// const parsedFooterLogo = computed(() => {
-//   // TODO return template portion 
-//   // <SvgLogoUclaLibrary class="logo-svg" />
-//   //   <span class="visually-hidden" > UCLA Library Home </span>
-//   if (theme?.value === 'ftva') {
-//     return `<SvgLogoFTVA />`
-//   }
-//   return `<SvgLogoUclaLibrary class="logo-svg" />
-//   <span class="visually-hidden" > UCLA Library Home </span>`
-// })
+const parsedFooterLogo = computed(() => {
+  if (theme?.value === 'ftva') {
+    return SvgLogoFTVA
+  }
+  return SvgLogoUclaLibrary
+})
 
 // METHODS
 function formatTarget(target:string) {
@@ -101,19 +97,18 @@ function formatTarget(target:string) {
           v-if="isMicrosite"
           href="https://www.library.ucla.edu"
           target="_blank"
-          class="logo-ucla">
-          <!-- TODO replace? -->
-          <SvgLogoUclaLibrary class="logo-svg" />
+          class="logo-ucla"
+          >
+           <SvgLogoUclaLibrary class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
-          <!-- {{{ parsedFooterLogo } }} OR v-html="parsedFooterLogo -->
         </a>
         <SmartLink
           v-else
           to="/"
-          class="logo-ucla">
-          <SvgLogoUclaLibrary class="logo-svg" />
+          class="logo-ucla"
+          >
+          <component :is="parsedFooterLogo" class="logo-svg" /> 
           <span class="visually-hidden">UCLA Library Home</span>
-          <!-- {{ { parsedFooterLogo } }} -->
         </SmartLink>
         <ul class="socials">
           <li
