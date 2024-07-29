@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.4.0...v3.5.0) (2024-07-29)
+
+
+### Features
+
+* externalize pinia in lib build ([#571](https://github.com/UCLALibrary/ucla-library-website-components/issues/571)) ([4dd2406](https://github.com/UCLALibrary/ucla-library-website-components/commit/4dd24067894cec0ca8dc4482baaf172c13f2ac33))
+
 # [3.4.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.3.0...v3.4.0) (2024-07-23)
 
 
