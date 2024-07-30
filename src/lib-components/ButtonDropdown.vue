@@ -11,6 +11,7 @@ import SvgIconFtvaSocialConfirm from 'ucla-library-design-tokens/assets/svgs/ico
 import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 
 import IconWithLink from './IconWithLink.vue'
+import removeTags from '@/utils/removeTags'
 
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'
@@ -103,6 +104,13 @@ const parsedEndTime = computed(() => {
   return parsedDateAndTime.value.startTime
 })
 
+const parsedEventDescription = computed(() => {
+  if (eventDescription)
+    return removeTags(eventDescription)
+
+  return ''
+})
+
 // METHODS
 function handleDropdownExpansion() {
   return (isDropdownExpanded.value = !isDropdownExpanded.value)
@@ -178,7 +186,7 @@ const parsedClasses = computed(() => {
         :endTime="parsedEndTime"
         timeZone="America/Los_Angeles"
         :location="parsedLocation"
-        :description="eventDescription"
+        :description="parsedEventDescription"
         options="'Google','Apple','Microsoft365','Outlook.com','iCal'"
         trigger="click"
         hideBranding="true"

@@ -7,7 +7,8 @@
 function removeTags(str) {
   if (str) {
     const stripHtml = str.replace(/(<([^>]+)>)/ig, '')
-    const removeQuotes = stripHtml.replace(/"/ig, '')
+    const removeBreaks = stripHtml.replace(/[\n]/g, '')
+    const removeQuotes = removeBreaks.replace(/"/ig, '')
     return removeQuotes
   }
   else {
