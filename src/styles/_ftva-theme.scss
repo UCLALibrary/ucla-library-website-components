@@ -3,6 +3,7 @@
 // https://github.com/UCLALibrary/design-tokens/blob/main/scss/app.scss
 @import "ucla-library-design-tokens/scss/_tokens-ftva";
 
+@import "ftva/_block-card-with-image";
 @import "ftva/_block-event-detail";
 @import "ftva/_block-info";
 @import "ftva/_block-remove-search-filter";
@@ -14,5 +15,5 @@
 @import "ftva/_nav-breadcrumb";
 @import "ftva/_nav-search";
 @import "ftva/_new-lightbox";
-@import "ftva/_block-card-with-image";
+@import "ftva/_rich-text";
 @import "ftva/_section-teaser-card";
