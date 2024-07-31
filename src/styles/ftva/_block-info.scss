@@ -9,8 +9,8 @@
     .block-info-header {
         @include ftva-subtitle-1;
         text-align: center;
-        color: $medium-grey;
-        border-bottom: 1px solid $subtitle-grey;
+        color: $heading-grey;
+        border-bottom: 1px solid $grey-blue;
         padding: 8px 0;
     }
 
@@ -18,9 +18,12 @@
         padding: 16px 0 16px 20px;
     }
 
-    // ToDo: Add Proxima font when fixed in design tokens
     .block-info-list li {
         @include ftva-body-2;
+        color: $body-grey;
+    }
+
+    .block-info-list li::marker {
         color: $body-grey;
     }
 
@@ -31,6 +34,8 @@
         width: -moz-max-content;
         width: max-content;
         margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     @media (min-width: 1024px) {
