@@ -97,6 +97,23 @@ const mockMultiple = [
   }
 ]
 
+const mockNoTrailer = [
+  {
+    typeHandle: 'screeningDetails',
+    title: null,
+    alternateTitle: null,
+    language: 'ar',
+    year: '1939',
+    country: 'Spain',
+    languageInfo: 'Spanish',
+    runtime: '179 minutes',
+    tagLabels: [],
+    text: null,
+    trailer: null,
+    image: []
+  }
+]
+
 // Variations of stories below
 export function Default() {
   return {
@@ -136,6 +153,27 @@ export function MultipleScreenings() {
         :items="items"
       />
       </div>
+  `,
+  }
+}
+
+export function NoTrailer() {
+  return {
+    data() {
+      return { items: mockNoTrailer }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionScreeningDetails },
+    template: `
+    <div>
+      <section-screening-details
+        :items="items"
+      />
+    </div>
   `,
   }
 }

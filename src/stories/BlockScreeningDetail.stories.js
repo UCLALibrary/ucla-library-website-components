@@ -60,3 +60,46 @@ export function Default() {
   `,
   }
 }
+
+const mockNoTrailer = {
+  title: null,
+  alternateTitle: null,
+  language: 'ar',
+  year: '1939',
+  country: 'Spain',
+  languageInfo: 'Spanish',
+  runtime: '179 minutes',
+  tagLabels: [],
+  text: null,
+  trailer: null,
+  image: []
+}
+
+export function NoTrailer() {
+  return {
+    data() {
+      return { ...mockNoTrailer }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockScreeningDetail },
+    template: `
+      <block-screening-detail
+        :title="title"
+        :alternateTitle="alternateTitle"
+        :language="language"
+        :year="year"
+        :country="country"
+        :languageInfo="languageInfo"
+        :runtime="runtime"
+        :tagLabels="tagLabels"
+        :text="text"
+        :trailer= "trailer"
+        :image="image"
+      />
+  `,
+  }
+}
