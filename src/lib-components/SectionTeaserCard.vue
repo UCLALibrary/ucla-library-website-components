@@ -26,13 +26,17 @@ const titleClasses = computed(() => {
 </script>
 
 <template>
-  <div v-if="sectionTitle" :class="titleClasses"> {{ sectionTitle }} </div>
+  <div v-if="sectionTitle" :class="titleClasses">
+    {{ sectionTitle }}
+  </div>
   <ul :class="classes" :data-header="sectionTitle ? sectionTitle : null">
-    <BlockCardWithImage v-for="(item, index) in items" :key="`Card${index}`" :image="item.image" :to="item.to"
+    <BlockCardWithImage
+      v-for="(item, index) in items" :key="`Card${index}`" :image="item.image" :to="item.to"
       :category="item.category" :title="item.title" :alternative-full-name="item.alternativeFullName"
       :language="item.language" :start-date="item.startDate" :end-date="item.endDate" :text="item.text"
       :image-aspect-ratio="60" :is-vertical="true" :byline-one="item.bylineOne" :byline-two="item.bylineTwo"
-      :section-handle="item.sectionHandle" :ongoing="item.ongoing" class="card" />
+      :section-handle="item.sectionHandle" :ongoing="item.ongoing" class="card"
+    />
   </ul>
 </template>
 
