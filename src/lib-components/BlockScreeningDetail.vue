@@ -92,47 +92,47 @@ const classes = computed(() => {
 
     <div class="event-title">
       <h3
-        v-if="title"
+        v-if="title && title !== null"
         class="title"
       >
         {{ title }}
       </h3>
 
       <h4
-        v-if="alternateTitle"
+        v-if="alternateTitle && alternateTitle !== null"
         class="alternate-title"
       >
         {{ alternateTitle }}
         <span
-          v-if="alternateTitle && language"
+          v-if="alternateTitle && (language && language !== null)"
           :lang="language"
         />
       </h4>
     </div>
 
     <dl>
-      <dt v-if="year">
+      <dt v-if="year && year !== null">
         Year
       </dt>
-      <dd v-if="year">
+      <dd v-if="year && year !== null">
         {{ year }}
       </dd>
-      <dt v-if="country">
+      <dt v-if="country && country !== null">
         Country
       </dt>
-      <dd v-if="country">
+      <dd v-if="country && country !== null">
         {{ country }}
       </dd>
-      <dt v-if="languageInfo">
+      <dt v-if="languageInfo && languageInfo !== null">
         Language
       </dt>
-      <dd v-if="languageInfo">
+      <dd v-if="languageInfo && languageInfo !== null">
         {{ languageInfo }}
       </dd>
-      <dt v-if="runtime">
+      <dt v-if="runtime && runtime !== null">
         Runtime
       </dt>
-      <dd v-if="runtime">
+      <dd v-if="runtime && runtime !== null">
         {{ runtime }}
       </dd>
     </dl>
@@ -151,22 +151,24 @@ const classes = computed(() => {
     </div>
 
     <RichText
-      v-if="text"
+      v-if="text && text !== null"
       class="text"
       :rich-text-content="text"
     />
 
-    <ResponsiveVideo
-      v-if="trailer || image"
-      :aspect-ratio="56.9"
-      :controls="true"
-    >
-      <VideoEmbed
+    <div v-if="trailer && trailer !== null">
+      <ResponsiveVideo
         v-if="trailer || image"
-        :trailer="trailer"
-        :poster-image="image"
-      />
-    </ResponsiveVideo>
+        :aspect-ratio="56.9"
+        :controls="true"
+      >
+        <VideoEmbed
+          v-if="trailer || image"
+          :trailer="trailer"
+          :poster-image="image"
+        />
+      </ResponsiveVideo>
+    </div>
   </div>
 </template>
 
