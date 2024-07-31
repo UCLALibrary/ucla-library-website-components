@@ -1,3 +1,10 @@
+## [3.5.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.1...v3.5.2) (2024-07-31)
+
+
+### Bug Fixes
+
+* APPS 2841 Fix screening details components ([#576](https://github.com/UCLALibrary/ucla-library-website-components/issues/576)) ([0f297f5](https://github.com/UCLALibrary/ucla-library-website-components/commit/0f297f5d166d1c611d28777dd59f37bf7c625c16))
+
 ## [3.5.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.0...v3.5.1) (2024-07-31)
 
 
