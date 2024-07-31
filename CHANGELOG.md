@@ -1,3 +1,10 @@
+## [3.5.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.0...v3.5.1) (2024-07-31)
+
+
+### Bug Fixes
+
+* APPS-2847 NavBreadcrumb URI encoding ([#573](https://github.com/UCLALibrary/ucla-library-website-components/issues/573)) ([245d805](https://github.com/UCLALibrary/ucla-library-website-components/commit/245d8055ccfc69bb018dad452efe846a5c284ba8))
+
 # [3.5.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.4.0...v3.5.0) (2024-07-29)
 
 
