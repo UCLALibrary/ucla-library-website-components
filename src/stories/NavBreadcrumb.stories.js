@@ -53,7 +53,7 @@ Default.args = {
 
 export const MultipleNesting = Template.bind({})
 MultipleNesting.args = {
-  to: '/explore-collections/watch-and-listen-online/senator-john-f.-kennedy-gives-press-conference-in-los-angeles',
+  to: '/events/upcoming-events/la-région-centrale-03-08-24',
 }
 
 export const MultipleNestingCollapsed = Template.bind({})
