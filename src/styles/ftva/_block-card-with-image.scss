@@ -1,8 +1,9 @@
 .ftva.block-highlight {
+    height: 350px;
 
-    // normal styles
     .card-meta {
         padding: 0px 10px 10px 10px;
+
         .title {
             @include ftva-card-title-2;
             margin-bottom: 10px;
@@ -11,41 +12,38 @@
         &:hover>a.title {
             text-decoration: none;
         }
+    }
 
-        .date-time {
-            @include ftva-emphasized-subtitle;
-            color: $accent-blue;
-            letter-spacing: .04px;
-            flex-direction: row;
-            height: 34px;
-            overflow: hidden;
-            &::before {
-                content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-calendar.svg');
-                margin: 3px 10px 0 0;
-            }
-            .schedule-item:nth-of-type(1) {
-                position: relative;
-                margin-right: 28px;
-                &::after {
+    .date-time {
+        display: flex;
+        flex-direction: row;
+
+        @include ftva-emphasized-subtitle;
+        color: $accent-blue;
+        letter-spacing: .04px;
+
+        height: 34px;
+        overflow: hidden;
+
+        &::before {
+            content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-calendar.svg');
+            margin: 3px 10px 0 0;
+        }
+
+        .schedule-item:nth-of-type(1) {
+            position: relative;
+            margin-right: 28px;
+
+            &::after {
                 content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
                 position: absolute;
                 right: -30px;
                 top: -2px;
                 margin: 0px 10px;
-                }
             }
-        }
-
-        .rich-text {
-          margin-top: 0px;
-          div.parsed-content {
-            color: $subtitle-grey;
-            margin-bottom: 0px;
-          }
         }
     }
 
-    // hover styles
     &:hover {
         .responsive-image {
             .media {

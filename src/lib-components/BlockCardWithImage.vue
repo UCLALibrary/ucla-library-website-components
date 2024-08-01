@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import type { PropType } from 'vue'
@@ -115,7 +118,10 @@ const parsedDateFormat = computed(() => {
 </script>
 
 <template>
-  <li :class="classes" @click="handleClick">
+  <li
+    :class="classes"
+    @click="handleClick"
+  >
     <div class="image-container">
       <ResponsiveImage
         v-if="image"
@@ -130,10 +136,13 @@ const parsedDateFormat = computed(() => {
         <MoleculePlaceholder
           class="molecule"
           aria-hidden="true"
+          :aspect-ratio="imageAspectRatio"
         />
       </div>
     </div>
+
     <CardMeta
+      class="card-meta-items"
       :to="to"
       :category="category"
       :title="title"
@@ -152,6 +161,9 @@ const parsedDateFormat = computed(() => {
   </li>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 @import "@/styles/themes.scss";
 </style>

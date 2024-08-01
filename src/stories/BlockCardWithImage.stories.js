@@ -11,7 +11,18 @@ export default {
 }
 
 const mock = {
-  image: API.image,
+  image: {
+      id: "3157357",
+      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/step2.jpg",
+      height: 1705,
+      width: 2560,
+      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/step2.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/step2.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/step2.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/step2.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/step2.jpg 2560w",
+      alt: null,
+      focalPoint: [
+        0.5,
+        0.5
+      ]
+  },
   to: '/visit/foo/bar/',
   category: 'Ullamco',
   title: 'Seven seas of the ancient world',
@@ -80,17 +91,35 @@ TallImage.args = {
   imageAspectRatio: 150
 }
 
-export const FTVAEventDetailPage = Template.bind({})
-FTVAEventDetailPage.args = {
-  title: 'FTVA CardWithImage using their styles',
-  category: '',
+export const FTVAItems = Template.bind({})
+FTVAItems.args = {
+  title: 'FTVA CardWithImage Step Up 3D',
+  category: null,
   theme: 'ftva',
   to: '/some/url/here/',
-  alternativeFullName: '',
+  alternativeFullName: null,
   language: 'zh',
   startDate: '2022-03-31T07:00:00+00:00',
-  endDate: '',
-  text: '3 episodes',
+  endDate: null,
+  text: '',
+  imageAspectRatio: 60,
+  sectionHandle: '',
+  locations: [],
+  cardIsLink: true
+}
+
+export const FTVAItemsNoImage = Template.bind({})
+FTVAItemsNoImage.args = {
+  image: null,
+  title: 'FTVA CardWithImage with NO image',
+  category: null,
+  theme: 'ftva',
+  to: '/some/url/here/',
+  alternativeFullName: null,
+  language: 'zh',
+  startDate: '2022-03-31T07:00:00+00:00',
+  endDate: null,
+  text: '',
   imageAspectRatio: 60,
   sectionHandle: '',
   locations: [],
