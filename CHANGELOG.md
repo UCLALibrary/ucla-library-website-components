@@ -1,3 +1,17 @@
+## [3.5.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.2...v3.5.3) (2024-07-31)
+
+
+### Bug Fixes
+
+* APPS-2843 Component BlockInfo Styling updates ([#575](https://github.com/UCLALibrary/ucla-library-website-components/issues/575)) ([18309c5](https://github.com/UCLALibrary/ucla-library-website-components/commit/18309c5c46bd30ab0fcaaaee7c2867ad43577eca))
+
+## [3.5.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.1...v3.5.2) (2024-07-31)
+
+
+### Bug Fixes
+
+* APPS 2841 Fix screening details components ([#576](https://github.com/UCLALibrary/ucla-library-website-components/issues/576)) ([0f297f5](https://github.com/UCLALibrary/ucla-library-website-components/commit/0f297f5d166d1c611d28777dd59f37bf7c625c16))
+
 ## [3.5.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.0...v3.5.1) (2024-07-31)
 
 
