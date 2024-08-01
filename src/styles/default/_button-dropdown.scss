@@ -1,0 +1,36 @@
+.button-dropdown {
+    .button {
+        height: 51px;
+        padding: 12px 16px 12px 20px;
+        border-radius: 8px;
+        font-size: 18px;
+    }
+
+    .button-share {
+        display: flex;
+        justify-content: space-between;
+        width: 187px;
+        border: 1px solid $accent-blue;
+
+        &__inner-wrapper {
+            display: flex;
+            -moz-column-gap: 8px;
+            column-gap: 8px;
+        }
+    }
+
+    .toggle-triangle-icon {
+        svg {
+            // right: 23px;
+        }
+
+        &.is-expanded > svg {
+            transform: rotate(180deg);
+            // bottom: -5px;
+        }
+
+        @media #{$small} {
+            // display: none;
+        }
+    }
+}

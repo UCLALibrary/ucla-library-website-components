@@ -6,14 +6,26 @@ import svgLoader from 'vite-svg-loader'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), svgLoader({ svgo: false })],
+  plugins: [
+    vue({
+      // Skip component resolution for Add-to-Calendar plugin:
+      // https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue
+      template: {
+        compilerOptions: {
+          // treat all tags with a dash as custom elements
+          isCustomElement: tag => tag.includes('-'),
+        },
+      },
+    }),
+    svgLoader({ svgo: false }),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/entry.js'),
       name: 'ucla-library-website-components',
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', 'pinia'],
+      external: ['vue', 'vue-router'],
       output: {
         // preserveModules: true,
         exports: 'named',
