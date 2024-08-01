@@ -1,3 +1,10 @@
+## [3.5.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.3...v3.5.4) (2024-08-01)
+
+
+### Bug Fixes
+
+* APPS-2856 VideoEmbed Responsiveness ([#578](https://github.com/UCLALibrary/ucla-library-website-components/issues/578)) ([fb99664](https://github.com/UCLALibrary/ucla-library-website-components/commit/fb996648e7a4dbd6b904810fa7de48707932b0bf))
+
 ## [3.5.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.2...v3.5.3) (2024-07-31)
 
 
