@@ -46,6 +46,7 @@ const parsedTrailer = computed(() => {
       >
       <SvgIconPlayFilled class="play-button" />
     </div>
+
     <div
       v-if="parsedTrailer"
       class="video-container"
@@ -70,8 +71,8 @@ const parsedTrailer = computed(() => {
 >
 .video-embed {
   position: relative;
-  width: 793px;
-  height: 568px;
+  width: 100%;
+  aspect-ratio: 16/9;
 
   &.has-poster {
     .video-container {
@@ -86,7 +87,7 @@ const parsedTrailer = computed(() => {
   }
 
   .cover-container {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
     display: grid;
@@ -115,10 +116,6 @@ const parsedTrailer = computed(() => {
   .video-container,
   .responsive-iframe {
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
     width: 100%;
     height: 100%;
   }
