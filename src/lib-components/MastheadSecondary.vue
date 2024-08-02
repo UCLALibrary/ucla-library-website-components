@@ -106,7 +106,7 @@ const classes = computed(() => {
     }
 
     :deep(div) {
-      margin: 0;
+      margin-bottom: 0;
     }
   }
 
