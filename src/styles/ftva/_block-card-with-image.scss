@@ -1,11 +1,14 @@
 .ftva.block-highlight {
+    max-width: 350px;
     height: 350px;
+    position: relative;
 
     .card-meta {
         padding: 0px 10px 10px 10px;
 
         .title {
             @include ftva-card-title-2;
+            @include truncate($lines: 3);
             margin-bottom: 10px;
         }
 
@@ -14,10 +17,20 @@
         }
     }
 
-    .date-time {
+    .top-text {
+        display: flex;
+    }
+
+    :deep(.date-time) {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .only-date-time {
         display: flex;
         flex-direction: row;
 
+        //background-color: aquamarine;
         @include ftva-emphasized-subtitle;
         color: $accent-blue;
         letter-spacing: .04px;
@@ -44,10 +57,15 @@
         }
     }
 
+    .time {
+        color: hotpink;
+    }
+
     &:hover {
         .responsive-image {
             .media {
-                border: 5px solid $accent-blue;
+                //border: 5px solid $accent-blue;
+                outline: 5px solid red;
             }
         }
     }

@@ -14,7 +14,7 @@ export default {
 
 const mockDefault = [
   {
-    image: [],
+    image: null,
     to: '/visit/foo/bar/',
     category: 'Feugiat',
     title: 'Vel Quam Elementum',
@@ -69,7 +69,7 @@ const mockDefault = [
     isOnline: true,
   },
   {
-    image: [],
+    image: null,
     to: '/visit/foo/bag/',
     category: 'Tortor',
     title: 'Vivamus Consectetuer Risus et Tortor',
@@ -112,7 +112,7 @@ const mockFtva = [
   {
     id: "3145808",
     to: "events/step-up-3-07-19-25",
-    title: "TEST - Step Up 3D (2010)",
+    title: "TEST - Step Up 3D (2010) Sequel to 2008's Step Up 2: The Streets and the third installment in the Step Up film series",
     startDate: '2028-03-31T07:00:00+00:00',
     image: null
   },

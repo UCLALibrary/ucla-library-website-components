@@ -12,7 +12,6 @@
         width: calc((100% - 32px) / 3);
     }
 
-
     // Breakpoints
     @media #{$medium} {
         align-items: flex-start;
@@ -35,9 +34,4 @@
     position: relative;
     max-width: $container-l-main + px;
     margin: 0 auto;
-}
-
-.date-time {
-    display: flex;
-    align-items: flex-end;
 }

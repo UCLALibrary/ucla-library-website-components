@@ -140,45 +140,47 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
-    <div
-      v-if="category"
-      class="category"
-      v-html="category"
-    />
-    <SmartLink
-      v-if="to"
-      :link-target="parsedTarget"
-      :to="to"
-      class="title"
-    >
-      {{ title }}
-      <span
-        v-if="alternativeFullName"
-        :lang="language"
-        class="translation"
-        v-html="alternativeFullName"
+    <div class="top-text">
+      <div
+        v-if="category"
+        class="category"
+        v-html="category"
       />
-    </SmartLink>
-    <h3
-      v-else
-      class="title-no-link"
-      v-html="title"
-    />
+      <SmartLink
+        v-if="to"
+        :link-target="parsedTarget"
+        :to="to"
+        class="title"
+      >
+        {{ title }}
+        <span
+          v-if="alternativeFullName"
+          :lang="language"
+          class="translation"
+          v-html="alternativeFullName"
+        />
+      </SmartLink>
+      <h3
+        v-else
+        class="title-no-link"
+        v-html="title"
+      />
 
-    <div
-      v-if="bylineOne || bylineTwo"
-      class="byline-group"
-    >
       <div
-        v-if="bylineOne"
-        class="schedule-item"
-        v-html="bylineOne"
-      />
-      <div
-        v-if="bylineTwo"
-        class="schedule-item"
-        v-html="bylineTwo"
-      />
+        v-if="bylineOne || bylineTwo"
+        class="byline-group"
+      >
+        <div
+          v-if="bylineOne"
+          class="schedule-item"
+          v-html="bylineOne"
+        />
+        <div
+          v-if="bylineTwo"
+          class="schedule-item"
+          v-html="bylineTwo"
+        />
+      </div>
     </div>
 
     <div
@@ -188,16 +190,18 @@ const classes = computed(() => {
       <div v-if="ongoing">
         Ongoing
       </div>
-      <time
-        v-if="startDate"
-        class="schedule-item"
-        v-html="parsedDate"
-      />
-      <time
-        v-if="startDate"
-        class="schedule-item"
-        v-html="parsedTime"
-      />
+      <div class="only-date-time">
+        <time
+          v-if="startDate"
+          class="schedule-item time"
+          v-html="parsedDate"
+        />
+        <time
+          v-if="startDate"
+          class="schedule-item date"
+          v-html="parsedTime"
+        />
+      </div>
     </div>
 
     <div
