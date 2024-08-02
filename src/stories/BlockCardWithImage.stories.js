@@ -111,7 +111,7 @@ FTVAItems.args = {
 export const FTVAItemsNoImage = Template.bind({})
 FTVAItemsNoImage.args = {
   image: null,
-  title: 'FTVA CardWithImage with NO image',
+  title: 'FTVA CardWithImage with NO image Step Up 3D (2010) Sequel to Step Up 2: The Streets and the third installment in the Step Up film series',
   category: null,
   theme: 'ftva',
   to: '/some/url/here/',

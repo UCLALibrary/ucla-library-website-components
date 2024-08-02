@@ -193,12 +193,12 @@ const classes = computed(() => {
       <div class="only-date-time">
         <time
           v-if="startDate"
-          class="schedule-item time"
+          class="schedule-item"
           v-html="parsedDate"
         />
         <time
           v-if="startDate"
-          class="schedule-item date"
+          class="schedule-item"
           v-html="parsedTime"
         />
       </div>

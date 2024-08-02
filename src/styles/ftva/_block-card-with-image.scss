@@ -57,16 +57,22 @@
         }
     }
 
-    .time {
-        color: hotpink;
-    }
-
     &:hover {
         .responsive-image {
             .media {
                 //border: 5px solid $accent-blue;
                 outline: 5px solid red;
             }
+        }
+    }
+
+    /* This keeps the moleule image from expanding vertically when in tablet size */
+    &.is-vertical {
+        flex-direction: column;
+
+        .molecule-no-image {
+            width: 100%;
+            height: 179.2px;
         }
     }
 }
