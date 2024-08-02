@@ -3,7 +3,10 @@
     height: 350px;
     position: relative;
 
+    border-radius: 12px;
+
     .card-meta {
+        margin: 25px 10px 0;
         padding: 0px 10px 10px 10px;
 
         .title {
@@ -15,6 +18,14 @@
         &:hover>a.title {
             text-decoration: none;
         }
+    }
+
+    :deep(.media) {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .molecule-no-image {
+        border-radius: 10px 10px 0 0;
     }
 
     .top-text {
@@ -30,6 +41,8 @@
         display: flex;
         flex-direction: row;
 
+        margin-bottom: 10px;
+
         //background-color: aquamarine;
         @include ftva-emphasized-subtitle;
         color: $accent-blue;
@@ -37,11 +50,6 @@
 
         height: 34px;
         overflow: hidden;
-
-        &::before {
-            content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-calendar.svg');
-            margin: 3px 10px 0 0;
-        }
 
         .schedule-item:nth-of-type(1) {
             position: relative;

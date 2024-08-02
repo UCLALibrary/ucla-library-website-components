@@ -5,17 +5,21 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import type { PropType } from 'vue'
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
+
+// THEME
 import { useTheme } from '@/composables/useTheme'
+
+// SVGs
+import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
-// UTILITY FUNCTIONS
-
+// TYPESCRIPT
 import type { LocationItemType, MediaItemType } from '@/types/types'
 
+// PROPS & DATA
 const props = defineProps({
   image: {
     type: Object as PropType<MediaItemType>,
