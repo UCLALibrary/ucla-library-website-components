@@ -11,6 +11,11 @@ import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-libr
 import SvgLogoFTVA from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footerlogo.svg'
 import SvgMoleculeHalf from 'ucla-library-design-tokens/assets/svgs/molecule-half.svg'
 import SvgArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
+import SvgCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-right.svg'
+import SvgYtIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_yt.svg'
+import SvgIgIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_ig.svg'
+import SvgXIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_x.svg'
+import SvgFbIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_fb.svg'
 
 // CHILD COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
@@ -26,6 +31,23 @@ const props = defineProps({
     default: false,
   },
 })
+const formIcons = {
+  arrowRight: SvgArrowRight,
+  caretRight: SvgCaretRight,
+}
+const socialMediaIcons = {
+  youtube: SvgYtIcon,
+  Youtube: SvgYtIcon,
+  YouTube: SvgYtIcon, // handle edge case
+  instagram: SvgIgIcon,
+  Instagram: SvgIgIcon,
+  twitter: SvgXIcon,
+  Twitter: SvgXIcon,
+  x: SvgXIcon,
+  X: SvgXIcon, // handle either X or Twitter
+  facebook: SvgFbIcon,
+  Facebook: SvgFbIcon
+}
 
 // THEME
 const theme = useTheme()
@@ -33,17 +55,19 @@ const wrapperClasses = computed(() => ['footer-primary', theme?.value || ''])
 const classes = computed(() => {
   return props.form ? ['container'] : ['container no-form']
 })
-const parsedNewsletterStatement = computed(() => {
+// const parsedNewsletterStatement = computed(() => {
+//   if (theme?.value === 'ftva') {
+//     return `Subscribe to receive the latest updates on what's happening at the Film & Television Archive.`
+//   }
+//   return `Subscribe to get the latest updates on what's happening with UCLA Library.`
+// })
+const parsedFooterThemeSettings = computed(() => {
+  // ftva
   if (theme?.value === 'ftva') {
-    return `Subscribe to receive the latest updates on what's happening at the Film & Television Archive.`
+    return { statement:`Subscribe to receive the latest updates on what's happening at the Film & Television Archive.`, label: 'Submit', icon: formIcons.caretRight, socialMediaIcons:true }
   }
-  return `Subscribe to get the latest updates on what's happening with UCLA Library.`
-})
-const parsedFormSubmitLabel = computed(() => {
-  if (theme?.value === 'ftva') {
-    return 'Submit'
-  }
-  return 'Subscribe'
+  //defaults
+  return { statement:`Subscribe to get the latest updates on what's happening with UCLA Library.`, label: 'Subscribe', icon: formIcons.arrowRight, socialMediaIcons: true }
 }) 
 
 // GLOBALSTORE DATA
@@ -97,17 +121,15 @@ function formatTarget(target:string) {
           v-if="isMicrosite"
           href="https://www.library.ucla.edu"
           target="_blank"
-          class="logo-ucla"
-          >
-           <SvgLogoUclaLibrary class="logo-svg" />
+          class="logo-ucla">
+          <component :is="parsedFooterLogo" class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
         </a>
         <SmartLink
           v-else
           to="/"
-          class="logo-ucla"
-          >
-          <component :is="parsedFooterLogo" class="logo-svg" /> 
+          class="logo-ucla">
+          <component :is="parsedFooterLogo" class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
         </SmartLink>
         <ul class="socials">
@@ -117,9 +139,9 @@ function formatTarget(target:string) {
             class="social-item">
             <a
               :href="item.to"
-              :target="formatTarget(item.target)"
-              a>
-              {{ item.name }}
+              :target="formatTarget(item.target)">
+              <component v-if="parsedFooterThemeSettings?.socialMediaIcons" :is="socialMediaIcons[item.name]" />
+              <template v-else>{{ item.name }}</template>
             </a>
           </li>
         </ul>
@@ -157,7 +179,7 @@ function formatTarget(target:string) {
           </h2>
 
           <p class="statement">
-            {{ parsedNewsletterStatement }}
+            {{ parsedFooterThemeSettings.statement }}
           </p>
         </div>
 
@@ -206,8 +228,8 @@ function formatTarget(target:string) {
             class="button-submit"
             name="subscribe"
             type="submit">
-            {{ parsedFormSubmitLabel }}
-            <SvgArrowRight class="arrow-svg" />
+            {{ parsedFooterThemeSettings.label }}
+            <component :is="parsedFooterThemeSettings.icon" class="arrow-svg" />
           </button>
         </div>
       </form>
@@ -592,6 +614,7 @@ function formatTarget(target:string) {
 // FTVA
 .ftva.footer-primary {
   background-color: $navy-blue;
+  border-bottom: 0px;
   .container {
     flex-direction: row-reverse;
     .form {
@@ -607,10 +630,22 @@ function formatTarget(target:string) {
         text-transform: uppercase;
         .button-submit {
           text-transform: uppercase;
+          .arrow-svg {
+            :deep(path) {
+              stroke: var(--color-white);
+              color: var(--color-white);
+            }
+          }
         }
       }
     }
     .footer-links {
+      gap: 20px;
+      .socials {
+        .social-item {
+          border-right: 0;
+        }
+      }
       .press-links {
         display: none;
       }

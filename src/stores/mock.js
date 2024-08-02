@@ -105,28 +105,28 @@ export const mockFooterPrimary = {
   socialItems: [
     {
       id: '11777',
-      name: 'Twotter',
+      name: 'Twitter',
       to: 'https://twitter.com/',
       classes: null,
       target: '1',
     },
     {
       id: '11778',
-      name: 'Fatebook',
+      name: 'Facebook',
       to: 'https://www.facebook.com/',
       classes: null,
       target: '1',
     },
     {
       id: '11779',
-      name: 'Instagrim',
+      name: 'Instagram',
       to: 'https://www.instagram.com/',
       classes: null,
       target: '1',
     },
     {
       id: '11780',
-      name: 'FooTube',
+      name: 'YouTube',
       to: 'https://www.youtube.com/',
       classes: null,
       target: '1',
