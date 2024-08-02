@@ -15,7 +15,7 @@ const mockDefault = [
     typeHandle: 'screeningDetails',
     title: 'Trailer with Cover image - The Central Regions',
     alternateTitle: null,
-    languageTranslated: 'es',
+    language: 'es',
     year: '2025',
     country: 'South Country',
     languageInfo: 'Spanglish',
@@ -39,7 +39,7 @@ const mockMultiple = [
     typeHandle: 'screeningDetails',
     title: 'Trailer with Cover image - The Central Regions',
     alternateTitle: null,
-    languageTranslated: 'es',
+    language: 'es',
     year: '2025',
     country: 'South Country',
     languageInfo: 'Spanglish',
@@ -60,7 +60,7 @@ const mockMultiple = [
     typeHandle: 'screeningDetails',
     title: 'No trailer - Alternate Title - South America is Super Interesting',
     alternateTitle: 'Sudamérica es súper interesante',
-    languageTranslated: 'sp',
+    language: 'sp',
     year: '1971',
     country: 'South America',
     languageInfo: 'Spanish',
@@ -78,7 +78,7 @@ const mockMultiple = [
     typeHandle: 'screeningDetails',
     title: 'Trailer - No Cover image - Michael Snow 1983',
     alternateTitle: null,
-    languageTranslated: 'es',
+    language: 'es',
     year: '1983',
     country: 'Spain',
     languageInfo: 'Spanish',
@@ -93,6 +93,23 @@ const mockMultiple = [
     ],
     text: '<p>Interview and profile of experimental filmmaker Michael Snow from 1983. Includes extracts from \'Back and Forth\', \'Wavelength\', \'La Region Central\', \'So Is This\' and gallery piece \'Two Sides To Every Story\'. Made for Channel 4 \'Visions\' and broadcast 19 January 1983. Interview: Simon Field; Director: Keith Griffiths</p>',
     trailer: '<figure><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/nir7aNK5794?si=QZAJFI1fYNGZ96rc\" title=\"YouTube video player\" frameborder=\"0\"></iframe></figure>',
+    image: []
+  }
+]
+
+const mockNoTrailer = [
+  {
+    typeHandle: 'screeningDetails',
+    title: null,
+    alternateTitle: null,
+    language: 'ar',
+    year: '1939',
+    country: 'Spain',
+    languageInfo: 'Spanish',
+    runtime: '179 minutes',
+    tagLabels: [],
+    text: null,
+    trailer: null,
     image: []
   }
 ]
@@ -136,6 +153,27 @@ export function MultipleScreenings() {
         :items="items"
       />
       </div>
+  `,
+  }
+}
+
+export function NoTrailer() {
+  return {
+    data() {
+      return { items: mockNoTrailer }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionScreeningDetails },
+    template: `
+    <div>
+      <section-screening-details
+        :items="items"
+      />
+    </div>
   `,
   }
 }
