@@ -1,5 +1,5 @@
-import FooterMain from '@/lib-components/FooterMain'
 import { computed } from 'vue'
+import FooterMain from '@/lib-components/FooterMain'
 
 export default {
   title: 'FOOTER / Main',

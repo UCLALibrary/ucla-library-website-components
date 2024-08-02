@@ -1,6 +1,5 @@
 import 'ucla-library-design-tokens/scss/app-global.scss'
 import '@/styles/global.scss'
-import { FooterLinks } from '@/lib-components/FooterLinks';
 
 export { default as AlphabeticalBrowseBy } from './AlphabeticalBrowseBy.vue'
 export { default as BannerFeatured } from './BannerFeatured.vue'

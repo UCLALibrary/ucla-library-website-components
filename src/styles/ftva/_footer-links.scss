@@ -1,0 +1,21 @@
+.ftva.footer-links {
+    background-color: #191919;
+    color: white;
+
+    .link-list {
+        .link-list-label {
+            color: $grey-blue;
+            border-bottom: 1.5px $accent-blue solid;
+        }
+
+        ul {
+            li a {
+                color: white;
+
+                &:hover {
+                    border-color: #41648C;
+                }
+            }
+        }
+    }
+}

@@ -40,7 +40,7 @@ const showForm = computed(() => {
 <template>
   <footer :class="classes">
     <FooterSponsor v-if="showSponsor" class="sponsor" />
-    <!-- todo either pass theme based props like or make all props in primary computed-->
+    <!-- todo either pass theme based props like or make all props in primary computed -->
     <FooterPrimary :form="showForm" class="primary" :is-microsite="true" />
     <FooterLinks v-if="showLinks" class="links" />
     <FooterSock class="sock" />
@@ -48,5 +48,9 @@ const showForm = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.footer-main {}
+.footer-main {
+  @media #{$small} {
+  .links { display: none;}
+  }
+}
 </style>

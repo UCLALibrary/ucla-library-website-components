@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import FooterLinks from '@/lib-components/FooterLinks'
 
 export default {
@@ -7,9 +8,20 @@ export default {
 
 export function Default() {
   return {
-
     components: { FooterLinks },
+    template: `
+        <footer-links />`,
+  }
+}
 
+export function FTVAStyleLinks() {
+  return {
+    components: { FooterLinks },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
     template: `
         <footer-links />`,
   }

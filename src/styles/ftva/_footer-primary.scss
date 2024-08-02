@@ -1,0 +1,57 @@
+.ftva.footer-primary {
+    background-color: $navy-blue;
+    border-bottom: 0px;
+
+    .container {
+        flex-direction: row-reverse;
+
+        .form {
+            h2.title {
+                font-size: 50px;
+            }
+
+            .statement {
+                font-size: 18px;
+                font-family: var(--font-secondary);
+            }
+
+            .input-block {
+                border-color: var(--color-white);
+                text-transform: uppercase;
+
+                .button-submit {
+                    text-transform: uppercase;
+
+                    .arrow-svg {
+                        :deep(path) {
+                            stroke: var(--color-white);
+                            color: var(--color-white);
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-links {
+            gap: 20px;
+
+            .socials {
+                .social-item {
+                    border-right: 0;
+                }
+            }
+
+            .press-links {
+                display: none;
+            }
+        }
+    }
+
+    @media #{$small} {
+        .container {
+            flex-direction: column;
+            gap: 5px;
+            padding-bottom: 20px;
+        }
+    }
+}

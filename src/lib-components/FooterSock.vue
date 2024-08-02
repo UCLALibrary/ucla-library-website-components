@@ -1,12 +1,13 @@
 <script setup>
 // UTILS
-import { computed } from 'vue';
+import { computed } from 'vue'
+
 // import { mapState } from 'pinia'
+import SmartLink from './SmartLink.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'
 
 // CHILD COMPONENTS
-import SmartLink from './SmartLink.vue'
 
 // GLOBALSTORE DATA
 const globalStore = useGlobalStore()

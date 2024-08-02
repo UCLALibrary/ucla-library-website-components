@@ -1,6 +1,6 @@
 // Storybook default settings
-import FooterPrimary from '@/lib-components/FooterPrimary'
 import { computed } from 'vue'
+import FooterPrimary from '@/lib-components/FooterPrimary'
 
 export default {
   title: 'FOOTER / Primary',

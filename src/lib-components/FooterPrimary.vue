@@ -1,10 +1,8 @@
 <script lang="ts" setup>
 // UTILS
 import { computed } from 'vue'
+
 // import { mapState } from 'pinia'
-import { useTheme } from '@/composables/useTheme'
-import { useGlobalStore } from '@/stores/GlobalStore'
-import formatLinkTarget from '@/utils/formatLinkTarget'
 
 // SVGs
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
@@ -16,6 +14,9 @@ import SvgYtIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_y
 import SvgIgIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_ig.svg'
 import SvgXIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_x.svg'
 import SvgFbIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_fb.svg'
+import formatLinkTarget from '@/utils/formatLinkTarget'
+import { useGlobalStore } from '@/stores/GlobalStore'
+import { useTheme } from '@/composables/useTheme'
 
 // CHILD COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
@@ -64,11 +65,21 @@ const classes = computed(() => {
 const parsedFooterThemeSettings = computed(() => {
   // ftva
   if (theme?.value === 'ftva') {
-    return { statement:`Subscribe to receive the latest updates on what's happening at the Film & Television Archive.`, label: 'Submit', icon: formIcons.caretRight, socialMediaIcons:true }
+    return {
+      statement: 'Subscribe to receive the latest updates on what\'s happening at the Film & Television Archive.',
+      label: 'Submit',
+      icon: formIcons.caretRight,
+      socialMediaIcons: true
+    }
   }
-  //defaults
-  return { statement:`Subscribe to get the latest updates on what's happening with UCLA Library.`, label: 'Subscribe', icon: formIcons.arrowRight, socialMediaIcons: true }
-}) 
+  // defaults
+  return {
+    statement: 'Subscribe to get the latest updates on what\'s happening with UCLA Library.',
+    label: 'Subscribe',
+    icon: formIcons.arrowRight,
+    socialMediaIcons: false
+  }
+})
 
 // GLOBALSTORE DATA
 const globalStore = useGlobalStore()
@@ -97,14 +108,14 @@ const parsedPressItems = computed(() => {
   return []
 })
 const parsedFooterLogo = computed(() => {
-  if (theme?.value === 'ftva') {
+  if (theme?.value === 'ftva')
     return SvgLogoFTVA
-  }
+
   return SvgLogoUclaLibrary
 })
 
 // METHODS
-function formatTarget(target:string) {
+function formatTarget(target: string) {
   return formatLinkTarget(target)
 }
 </script>
@@ -114,21 +125,24 @@ function formatTarget(target:string) {
     <SvgMoleculeHalf
       v-if="!theme"
       class="molecule-half-svg"
-      aria-hidden="true" />
+      aria-hidden="true"
+    />
     <div :class="classes">
       <div class="footer-links">
         <a
           v-if="isMicrosite"
           href="https://www.library.ucla.edu"
           target="_blank"
-          class="logo-ucla">
+          class="logo-ucla"
+        >
           <component :is="parsedFooterLogo" class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
         </a>
         <SmartLink
           v-else
           to="/"
-          class="logo-ucla">
+          class="logo-ucla"
+        >
           <component :is="parsedFooterLogo" class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
         </SmartLink>
@@ -136,11 +150,13 @@ function formatTarget(target:string) {
           <li
             v-for="item in parsedSocialItems"
             :key="item.id"
-            class="social-item">
+            class="social-item"
+          >
             <a
               :href="item.to"
-              :target="formatTarget(item.target)">
-              <component v-if="parsedFooterThemeSettings?.socialMediaIcons" :is="socialMediaIcons[item.name]" />
+              :target="formatTarget(item.target)"
+            >
+              <component :is="socialMediaIcons[item.name]" v-if="parsedFooterThemeSettings?.socialMediaIcons" />
               <template v-else>{{ item.name }}</template>
             </a>
           </li>
@@ -148,14 +164,17 @@ function formatTarget(target:string) {
 
         <ul
           v-if="parsedPressItems"
-          class="press-links">
+          class="press-links"
+        >
           <li
             v-for="item in parsedPressItems"
             :key="item.id"
-            class="press-item">
+            class="press-item"
+          >
             <SmartLink
               :to="item.to"
-              :link-target="item.target">
+              :link-target="item.target"
+            >
               {{ item.name }}
             </SmartLink>
           </li>
@@ -170,10 +189,12 @@ function formatTarget(target:string) {
         name="mc-embedded-subscribe-form"
         class="validate form"
         target="_blank"
-        novalidate>
+        novalidate
+      >
         <div
           id="mc_embed_signup_scroll"
-          class="form-header">
+          class="form-header"
+        >
           <h2 class="title">
             Stay updated
           </h2>
@@ -192,42 +213,50 @@ function formatTarget(target:string) {
               value=""
               placeholder="email@ucla.edu"
               class="input-email"
-              required>
+              required
+            >
             <label
               for="mce-EMAIL"
-              class="label">
+              class="label"
+            >
               Email Address
             </label>
           </div>
 
           <div
             id="mce-responses"
-            class="clear">
+            class="clear"
+          >
             <div
               id="mce-error-response"
               class="response"
-              style="display: none" />
+              style="display: none"
+            />
             <div
               id="mce-success-response"
               class="response"
-              style="display: none" />
+              style="display: none"
+            />
           </div>
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
           <div
             style="position: absolute; left: -5000px"
-            aria-hidden="true">
+            aria-hidden="true"
+          >
             <input
               type="text"
               name="b_31248d1f341b8eede1b46cb33_40fdd1db46"
               tabindex="-1"
-              value="">
+              value=""
+            >
           </div>
 
           <button
             id="mc-embedded-subscribe"
             class="button-submit"
             name="subscribe"
-            type="submit">
+            type="submit"
+          >
             {{ parsedFooterThemeSettings.label }}
             <component :is="parsedFooterThemeSettings.icon" class="arrow-svg" />
           </button>
@@ -239,417 +268,6 @@ function formatTarget(target:string) {
 
 <style lang="scss" scoped>
 @import "ucla-library-design-tokens/scss/_tokens-ftva";
-.footer-primary {
-  --unit-content-width: #{$container-l-cta}px;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  background-color: var(--color-primary-blue-03);
-  border-bottom: 4px solid var(--color-primary-yellow-01);
-  position: relative;
-  z-index: 0;
-  padding: var(--unit-gutter);
-
-  .molecule-half-svg {
-    position: absolute;
-    z-index: 10;
-    opacity: 0.5;
-    top: 50%;
-    left: -55px;
-    height: 287px;
-    transform: rotate(180deg) translateY(50%);
-
-    :deep(.svg__fill-bottom),
-    :deep(.svg__fill-top) {
-      fill: var(--color-primary-blue-02);
-      opacity: 0.25;
-    }
-
-    :deep(.svg__fill-accent) {
-      fill: var(--color-primary-blue-02);
-      opacity: 0.55;
-    }
-  }
-
-  .container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 128px;
-
-    width: 100%;
-    max-width: var(--unit-content-width);
-    position: relative;
-    z-index: 20;
-    margin: 0 auto;
-
-    &.no-form {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-content: flex-start;
-      align-items: center;
-    }
-
-    // Footer Links - Left / Top
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-
-      .logo-svg {
-        height: auto;
-        width: 304px;
-        max-width: 100%;
-
-        :deep(path) {
-          fill: var(--color-white);
-        }
-      }
-
-      .socials {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-content: flex-start;
-        align-items: flex-start;
-
-        color: var(--color-white);
-        text-decoration: none;
-        list-style-type: none;
-        z-index: 10;
-
-        .social-item {
-          line-height: 1em;
-          padding-right: 8px;
-          padding-left: 8px;
-
-          &:first-child {
-            padding-left: 0;
-          }
-
-          border-right: 1px solid var(--color-white);
-
-          &:last-child {
-            border-right: 0;
-          }
-        }
-      }
-
-      // socials
-      .press-links {
-        display: inline-flex;
-        flex-direction: column;
-        align-self: flex-start;
-        gap: 16px;
-      }
-
-      .press-item {
-        align-self: flex-start;
-        text-transform: uppercase;
-        color: var(--color-white);
-        list-style-type: none;
-        font-weight: 600;
-        font-size: 20px;
-        letter-spacing: 0.1em;
-        border-bottom: 2px solid var(--color-primary-yellow-01);
-        line-height: 1.2;
-
-        .is-link {
-          position: relative;
-
-          @include min-clickable-area;
-        }
-      }
-    }
-
-    // footer-links
-
-    // Form - Right / Bottom
-    .form {
-      color: var(--color-white);
-      padding-top: 16px;
-
-      input {
-        background-color: transparent;
-      }
-
-      input:placeholder-shown+label {
-        cursor: text;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        transform-origin: left bottom;
-        transform: translate(0, 2.125rem) scale(1.25);
-      }
-
-      ::placeholder,
-      ::-webkit-input-placeholder {
-        opacity: 0;
-        transition: inherit;
-      }
-
-      input:focus::placeholder,
-      input:focus::-webkit-input-placeholder {
-        opacity: 1;
-        color: white;
-      }
-
-      input:not(:placeholder-shown)+label,
-      input:focus+label {
-        color: var(--color-help-green-02);
-        font-size: 16px;
-        font-weight: 500;
-        transform: translate(0, -8px) scale(1);
-        cursor: pointer;
-      }
-
-      .field {
-        display: flex;
-        flex-flow: column-reverse;
-        width: 100%;
-      }
-
-      label,
-      input {
-        transition: all 0.2s;
-        touch-action: manipulation;
-      }
-
-      input {
-        @include step-0;
-        line-height: 1.2;
-        color: white;
-        border: 0;
-        border-radius: 4px;
-        padding: 8px 12px;
-        -webkit-appearance: none;
-        cursor: text;
-      }
-
-      input:focus {
-        outline: 0;
-        background-color: rgba(#fff, 0.1);
-        color: var(--color-white);
-      }
-
-      .form-header {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 32px;
-      }
-
-      .title {
-        @include step-3;
-      }
-
-      .statement {
-        @include step-0;
-        margin: 0;
-      }
-
-      .input-block {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-content: center;
-        align-items: flex-end;
-        padding-bottom: 8px;
-
-        position: relative;
-        border-bottom: 2px solid var(--color-help-green-03);
-        font-family: var(--font-primary);
-
-        .field {
-          input {
-            &::placeholder {
-              // Ensures only the placeholder of this input is targeted
-              opacity: 0;
-              transition: opacity 0.2s ease-in-out;
-            }
-
-            &:focus::placeholder {
-              opacity: 1; // Ensures it becomes visible on focus if that's intended
-            }
-          }
-        }
-
-        .description {
-          position: absolute;
-          top: 0;
-          color: var(--color-help-green-03);
-          font-size: 16px;
-          opacity: 0;
-          transition: opacity 400ms ease-in-out;
-        }
-
-        .button-submit {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: center;
-          align-content: center;
-          align-items: center;
-          height: 40px;
-          padding-left: 16px;
-
-          color: var(--color-white);
-          @include button;
-        }
-
-        .arrow-svg {
-          path {
-            stroke: var(--color-white);
-            color: var(--color-white);
-          }
-        }
-      }
-    }
-  }
-
-  // Hover states
-  @media #{$has-hover} {
-    &:hover {
-
-      .social-item a:hover,
-      .social-item a:focus {
-        color: var(--color-primary-yellow-01);
-      }
-
-      .press-item a:hover,
-      .press-item a:focus {
-        color: var(--color-primary-yellow-01);
-        text-decoration: none;
-      }
-    }
-  }
-
-  // Breakpoints
-  @media #{$medium} {
-    padding: var(--unit-gutter);
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-content: flex-end;
-      align-items: flex-end;
-      gap: 32px;
-
-      &.no-form {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-content: flex-end;
-        align-items: flex-end;
-      }
-
-      .form {
-        width: 100%;
-
-        .form-header {
-          margin-bottom: 24px;
-        }
-      }
-
-      .footer-links {
-        flex-wrap: nowrap;
-        align-items: flex-end;
-
-        .social-item:last-child {
-          padding-right: 0;
-        }
-
-        .press-item {
-          align-self: flex-end;
-        }
-
-        .press-links {
-          align-self: flex-end;
-        }
-      }
-    }
-  }
-
-  @media #{$small} {
-    padding-top: 48px;
-    padding-bottom: 48px;
-
-    .container {
-      gap: 48px;
-
-      .form {
-        .statement {
-          line-height: 1.4;
-          font-size: 16px;
-        }
-
-        .form-header {
-          margin-bottom: 16px;
-        }
-
-        .field {
-          width: calc(100% - 108px);
-        }
-      }
-    }
-  }
-
-  @media (max-width: 375px) {
-    .container {
-      align-items: center;
-    }
-  }
-}
-
-// FTVA
-.ftva.footer-primary {
-  background-color: $navy-blue;
-  border-bottom: 0px;
-  .container {
-    flex-direction: row-reverse;
-    .form {
-      h2.title {
-        font-size: 50px;
-      }
-      .statement {
-        font-size: 18px;
-        font-family: var(--font-secondary);
-      }
-      .input-block {
-        border-color: var(--color-white);
-        text-transform: uppercase;
-        .button-submit {
-          text-transform: uppercase;
-          .arrow-svg {
-            :deep(path) {
-              stroke: var(--color-white);
-              color: var(--color-white);
-            }
-          }
-        }
-      }
-    }
-    .footer-links {
-      gap: 20px;
-      .socials {
-        .social-item {
-          border-right: 0;
-        }
-      }
-      .press-links {
-        display: none;
-      }
-    }
-  }
-}
+@import "@/styles/default/_footer-primary.scss";
+@import "@/styles/ftva/_footer-primary.scss";
 </style>

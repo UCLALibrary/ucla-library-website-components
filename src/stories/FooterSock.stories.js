@@ -1,5 +1,5 @@
-import FooterSock from '@/lib-components/FooterSock'
 import { computed } from 'vue'
+import FooterSock from '@/lib-components/FooterSock'
 
 export default {
   title: 'FOOTER / Sock',

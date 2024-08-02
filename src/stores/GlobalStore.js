@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { mockFooterPrimary, mockFooterSock, mockFooterSponsor, mockPrimary, mockSecondary, mockFooterLinks } from '@/stores/mock.js'
+import { mockFooterLinks, mockFooterPrimary, mockFooterSock, mockFooterSponsor, mockPrimary, mockSecondary } from '@/stores/mock.js'
 
 export const useGlobalStore = defineStore('GlobalStore', {
   state: () => ({
