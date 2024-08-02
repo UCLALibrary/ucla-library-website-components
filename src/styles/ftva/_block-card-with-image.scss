@@ -60,8 +60,7 @@
     &:hover {
         .responsive-image {
             .media {
-                //border: 5px solid $accent-blue;
-                outline: 5px solid red;
+                outline: 5px solid $accent-blue;
             }
         }
     }
