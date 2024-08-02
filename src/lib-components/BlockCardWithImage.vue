@@ -7,10 +7,10 @@ import { useRouter } from 'vue-router'
 import type { PropType } from 'vue'
 
 // THEME
+import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import { useTheme } from '@/composables/useTheme'
 
 // SVGs
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
