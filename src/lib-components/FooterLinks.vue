@@ -32,7 +32,7 @@ const classes = computed(() => {
 <template>
   <div :class="classes">
     <div class="link-wrapper">
-      <div v-for="item, index in parsedFooterLinks" :key="item.id" class="link-list">
+      <div v-for="item, index in parsedFooterLinks" :key="item.category" class="link-list">
         <h4 class="link-list-label">
           {{ item.category }}
         </h4>
