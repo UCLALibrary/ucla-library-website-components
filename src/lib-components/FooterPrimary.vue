@@ -90,7 +90,7 @@ const parsedSocialItems = computed(() => {
   else {
     // eslint-disable-next-line no-console
     console.log(
-      // @ts-ignore
+      // @ts-expect-error
       `Pinia state data not present: is it client side:${process.client}`
     )
   }
@@ -103,7 +103,7 @@ const parsedPressItems = computed(() => {
   else {
     // eslint-disable-next-line no-console
     console.log(
-      // @ts-ignore
+      // @ts-expect-error
       `Pinia state data not present: is it client side:${process.client}`
     )
   }
