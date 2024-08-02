@@ -12,16 +12,16 @@ export default {
 
 const mock = {
   image: {
-      id: "3157357",
-      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/step2.jpg",
-      height: 1705,
-      width: 2560,
-      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/step2.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/step2.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/step2.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/step2.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/step2.jpg 2560w",
-      alt: null,
-      focalPoint: [
-        0.5,
-        0.5
-      ]
+    id: '3157357',
+    src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/step2.jpg',
+    height: 1705,
+    width: 2560,
+    srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/step2.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/step2.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/step2.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/step2.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/step2.jpg 2560w',
+    alt: null,
+    focalPoint: [
+      0.5,
+      0.5
+    ]
   },
   to: '/visit/foo/bar/',
   category: 'Ullamco',

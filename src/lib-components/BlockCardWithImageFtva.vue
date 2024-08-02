@@ -110,10 +110,6 @@ const parsedDateFormat = computed(() => {
       </div>
     </div>
     <h3>{{ title }}</h3>
-
-
-
-
   </li>
 </template>
 
