@@ -90,6 +90,7 @@ const parsedSocialItems = computed(() => {
   else {
     // eslint-disable-next-line no-console
     console.log(
+      // @ts-ignore
       `Pinia state data not present: is it client side:${process.client}`
     )
   }
@@ -102,6 +103,7 @@ const parsedPressItems = computed(() => {
   else {
     // eslint-disable-next-line no-console
     console.log(
+      // @ts-ignore
       `Pinia state data not present: is it client side:${process.client}`
     )
   }
@@ -156,7 +158,7 @@ function formatTarget(target: string) {
               :href="item.to"
               :target="formatTarget(item.target)"
             >
-              <component :is="socialMediaIcons[item.name]" v-if="parsedFooterThemeSettings?.socialMediaIcons" />
+              <component :is="(socialMediaIcons as any)[item.name]" v-if="parsedFooterThemeSettings?.socialMediaIcons" />
               <template v-else>{{ item.name }}</template>
             </a>
           </li>
