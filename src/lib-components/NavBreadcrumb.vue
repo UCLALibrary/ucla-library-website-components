@@ -36,7 +36,8 @@ const isMobile = computed(() => {
 // Split URI path; then remove empty string at start of the array
 const parsedBreadcrumbs = computed(() => {
   const decodedRoutePath = decodeURI(route.path)
-  const pagePathArray = decodedRoutePath.split('/').slice(1)
+  const pathWithNoTrailingDates = stripUrlDate(decodedRoutePath)
+  const pagePathArray = pathWithNoTrailingDates.split('/').slice(1)
 
   return pagePathArray
 })
@@ -120,6 +121,18 @@ function setLinkExpansion() {
 
 function toggleLinksExpansion() {
   isExpanded.value = !isExpanded.value
+}
+
+function stripUrlDate(str) {
+  // Find the last occurrence of date pattern 00-00-00 in a string
+  const pattern = /([0-9][0-9])-([0-9][0-9])-([0-9][0-9])(?!.\w)/
+
+  if (pattern.test(str)) {
+    const updateStr = str.replace(pattern, '')
+    return updateStr.trim()
+  }
+
+  return str
 }
 
 // THEME
