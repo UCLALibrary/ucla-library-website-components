@@ -6,16 +6,18 @@
     padding-top: 25px;
 
     .card {
-        flex-shrink: 0;
-
         width: calc((100% / 3) - 22px);
         min-width: 298px;
-        margin: 0 0 15px 5px;
+        margin-bottom: 15px;
 
-        // Hovers
-        @media #{$has-hover} {
-            &:hover {
-                box-shadow: 0 4px 4px rgb(51 51 51 / 0.2);
+        @media #{$medium} {
+            flex-shrink: 0;
+
+            .section-teaser-card {
+                gap: var(--space-m);
+                overflow-x: auto;
+                overflow-y: visible;
+                flex-wrap: nowrap;
             }
         }
     }
