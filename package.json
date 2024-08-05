@@ -1,30 +1,30 @@
 {
   "name": "ucla-library-website-components",
   "type": "module",
-  "version": "3.5.3",
   "private": false,
-  "author": "Parinita Mulak",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/UCLALibrary/ucla-library-website-components.git"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/ucla-library-website-components.js",
-      "require": "./dist/ucla-library-website-components.umd.cjs"
-    },
-    "./dist/style.css": {
-      "import": "./dist/style.css",
-      "require": "./dist/style.css"
-    }
-  },
+  "version": "3.5.6",
   "main": "./dist/ucla-library-website-components.umd.cjs",
   "module": "./dist/ucla-library-website-components.js",
   "style": "./dist/style.css",
   "files": [
-    "dist"
+      "dist"
   ],
+  "exports": {
+      ".": {
+          "import": "./dist/ucla-library-website-components.js",
+          "require": "./dist/ucla-library-website-components.umd.cjs"
+      },
+      "./dist/style.css": {
+          "import": "./dist/style.css",
+          "require": "./dist/style.css"
+      }
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/UCLALibrary/ucla-library-website-components.git"
+  },
+  "author": "Parinita Mulak",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "serve": "vite --config vite.config.serve.ts",
