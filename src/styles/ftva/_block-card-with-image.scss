@@ -42,8 +42,6 @@
         flex-direction: row;
 
         margin-bottom: 10px;
-
-        //background-color: aquamarine;
         @include ftva-emphasized-subtitle;
         color: $accent-blue;
         letter-spacing: .04px;
@@ -93,15 +91,5 @@
         &:hover {
             box-shadow: 0 4px 4px rgb(51 51 51 / 0.2);
         }
-    }
-
-    .ftva.section-teaser-card .card[data-v-a9e65b06]:hover {
-        /* border: 2px solid #115daf; */
-        box-shadow: 0 10px 17px rgba(0, 0, 0, 0.1);
-    }
-
-    .ftva.section-teaser-card .card[data-v-49e2255f]:hover {
-        border: 2px solid #115daf;
-        box-shadow: 0 10px 17px rgba(0, 0, 0, 0.1);
     }
 }

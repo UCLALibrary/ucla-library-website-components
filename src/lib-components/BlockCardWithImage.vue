@@ -140,7 +140,6 @@ const parsedDateFormat = computed(() => {
         <MoleculePlaceholder
           class="molecule"
           aria-hidden="true"
-          :aspect-ratio="imageAspectRatio"
         />
       </div>
     </div>

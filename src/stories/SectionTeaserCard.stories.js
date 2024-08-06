@@ -52,7 +52,7 @@ const mockDefault = [
     image: API.image,
     to: '/visit/foo/barf/',
     category: 'Curabitur ',
-    title: 'Quam Elementum',
+    title: 'Vel Quam Elementum',
     startDate: '2021-02-05T11:00:00-08:00',
     endDate: '2021-02-05T11:00:00-08:00',
     sectionHandle: 'event',
@@ -150,12 +150,6 @@ export function Default() {
   }
 }
 
-// const FTVAMock = mock.slice(3, 6).map((item) => {
-//   return {
-//     ...item,
-//     category: ''
-//   }
-// })
 export function FTVAWithSectionTitle() {
   return {
     data() {
