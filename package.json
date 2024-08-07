@@ -2,26 +2,26 @@
   "name": "ucla-library-website-components",
   "type": "module",
   "private": false,
-  "version": "3.5.7",
+  "version": "3.6.0",
   "main": "./dist/ucla-library-website-components.umd.cjs",
   "module": "./dist/ucla-library-website-components.js",
   "style": "./dist/style.css",
   "files": [
-      "dist"
+    "dist"
   ],
   "exports": {
-      ".": {
-          "import": "./dist/ucla-library-website-components.js",
-          "require": "./dist/ucla-library-website-components.umd.cjs"
-      },
-      "./dist/style.css": {
-          "import": "./dist/style.css",
-          "require": "./dist/style.css"
-      }
+    ".": {
+      "import": "./dist/ucla-library-website-components.js",
+      "require": "./dist/ucla-library-website-components.umd.cjs"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/UCLALibrary/ucla-library-website-components.git"
+    "type": "git",
+    "url": "https://github.com/UCLALibrary/ucla-library-website-components.git"
   },
   "author": "Parinita Mulak",
   "license": "MIT",
