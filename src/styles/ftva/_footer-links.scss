@@ -4,6 +4,7 @@
 
     .link-list {
         .link-list-label {
+            @include ftva-subtitle-1;
             color: $grey-blue;
             border-bottom: 1.5px $accent-blue solid;
         }
@@ -11,7 +12,7 @@
         ul {
             li a {
                 color: white;
-
+                font-weight: 400;
                 &:hover {
                     border-color: #41648C;
                 }
