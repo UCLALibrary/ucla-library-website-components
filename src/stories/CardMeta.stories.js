@@ -76,17 +76,17 @@ export function Ongoing() {
 
 // FTVA STORIES
 
-export function WithBlockTagsAndIntro() {
+export function FtvaWithBlockTagsAndIntro() {
   return {
     data() {
       return {
         event: {
           eventTitle: 'Step Up (2006)',
-          ftvaEventIntroduction: 'In-person: The Scenes Talk with Duane Adler',
+          ftvaEventIntroduction: 'Introduction In-person: The Scenes Talk with Duane Adler',
           ftvaEventFilters: [
             { title: 'Guest speaker' }, { title: '35mm' }
           ],
-          text: '<p>Step Up is an American romantic dance franchise created by Duane Adler. The franchise includes six films and a television series. The films have received a generally mixed critical reception, while being a box office success with a collective total of $651 million.</p>',
+          guestSpeaker: 'Guest Speaker Graeme Ferguson Ivan Graeme Ferguson CM (October 7, 1929 – May 8, 2021) was a Canadian filmmaker and inventor who co-invented the IMAX film format.',
         },
         series: {
           title: 'The Step Up Movie Series'
@@ -103,15 +103,15 @@ export function WithBlockTagsAndIntro() {
       <card-meta
         :category="series.title"
         :title="event.eventTitle"
+        :guestSpeaker="event.guestSpeaker"
         :tagLabels="event.ftvaEventFilters"
         :introduction="event.ftvaEventIntroduction"
-        :text="event.text"
       />
   `,
   }
 }
 
-export function OnlyCategoryAndTitle() {
+export function FtvaOnlyCategoryAndTitle() {
   return {
     data() {
       return {
@@ -138,7 +138,7 @@ export function OnlyCategoryAndTitle() {
   }
 }
 
-export function ShareButton() {
+export function FtvaShareButton() {
   return {
     data() {
       return {
@@ -163,41 +163,6 @@ export function ShareButton() {
       >
         <button-link label="Share" to="/share" />
       </card-meta>
-  `,
-  }
-}
-
-export function RichTextNotTruncated() {
-  return {
-    data() {
-      return {
-        event: {
-          eventTitle: 'Step Up (franchise)',
-          ftvaEventIntroduction: 'In-person: The Scenes Talk with Duane Adler',
-          ftvaEventFilters: [
-            { title: 'Guest speaker' }, { title: '35mm' }
-          ],
-          guestSpeaker: 'Graeme Ferguson Ivan Graeme Ferguson CM (October 7, 1929 – May 8, 2021) was a Canadian filmmaker and inventor who co-invented the IMAX film format.',
-        },
-        series: {
-          title: 'The Step Up Movie Series'
-        }
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { CardMeta },
-    template: `
-      <card-meta
-        :category="series.title"
-        :title="event.eventTitle"
-        :tagLabels="event.ftvaEventFilters"
-        :introduction="event.ftvaEventIntroduction"
-        :text="event.text"
-      />
   `,
   }
 }

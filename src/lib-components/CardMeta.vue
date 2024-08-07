@@ -150,11 +150,6 @@ const classes = computed(() => {
       v-html="category"
     />
 
-    <div
-      v-if="guestSpeaker"
-      class="guestSpeaker"
-    >Hello{{ guestSpeaker }}</div>
-
     <SmartLink
       v-if="to"
       :link-target="parsedTarget"
@@ -174,6 +169,11 @@ const classes = computed(() => {
       class="title-no-link"
       v-html="title"
     />
+
+    <div
+      v-if="guestSpeaker"
+      class="guestSpeaker"
+    >{{ guestSpeaker }}</div>
 
     <div
       v-if="bylineOne || bylineTwo"
