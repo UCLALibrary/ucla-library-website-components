@@ -167,17 +167,17 @@ export function ShareButton() {
   }
 }
 
-export function TextNotTruncated() {
+export function RichTextNotTruncated() {
   return {
     data() {
       return {
         event: {
-          eventTitle: 'Step Up (2006)',
+          eventTitle: 'Step Up (franchise)',
           ftvaEventIntroduction: 'In-person: The Scenes Talk with Duane Adler',
           ftvaEventFilters: [
             { title: 'Guest speaker' }, { title: '35mm' }
           ],
-          text: '<p>Step Up is an American romantic dance franchise created by Duane Adler. The franchise includes six films and a television series. The films have received a generally mixed critical reception, while being a box office success with a collective total of $651 million.</p><p>Set in Baltimore, Maryland, the film follows the tale of the disadvantaged Tyler Gage (Tatum) and the privileged modern dancer Nora Clark (Dewan), who find themselves paired up in a showcase that determines both of their futures. Realizing that they only have one chance, they finally work together.<p>',
+          text: '<h2>H2 Step Up (franchise)</h2><h3>H3 Step Up is an American romantic dance franchise created by Duane Adler.</h3><h4>H4 The franchise includes six films and a television series.</h4> <h5>H5 The films have received a generally mixed critical reception, while being a box office success with a collective total of $651 million.</h5><h6>H6 Set in Baltimore, Maryland, <em>the film follows the tale of the disadvantaged Tyler Gage</em> (Tatum) and the privileged modern dancer Nora Clark (Dewan), who find themselves paired up in a showcase that determines both of their futures. <strong>Realizing that they only have one chance</strong>, they finally work together.</h6><p>Paragraph When Mac and Skinny visit Tyler in the school lot, Nora watches from a window as Tyler dances with his friends, mockingly a mashup of <a href="https://en.wikipedia.org/wiki/Breakdancing">breakdance</a> and the moves he recently observed. When her dance partner Andrew sprains an ankle, she finds herself short a partner for her routine.</p><ul><li>Step Up (2006)</li><li>Step Up 2: The Streets (2008)</li><li>Step Up 3D (2010)</li><li>Step Up Revolution (2012)</li><li>Step Up: All In (2014)</li><li>Step Up: Year of the Dance (2020)</li></ul>',
         },
         series: {
           title: 'The Step Up Movie Series'
