@@ -17,10 +17,14 @@ const { to, parentTitle, title } = defineProps({
     type: String,
     default: '',
   },
+  /* Note:
+  For legacy (Library website) breadcrumbs, `title` is the hardcoded value entered at page-level;
+  Otherwise, for FTVA (and other future themes/use case?), `title` is coming from Craft data
+  */
   title: {
     type: String,
     default: '',
-  },
+  }
 })
 
 const route = useRoute()
@@ -48,6 +52,7 @@ const parsedBreadcrumbLinks = computed(() => {
   const arrLength = breadcrumbsList.length
 
   if (isMobile.value) {
+    // return last 2 items
     const mobileBreadcrumb
             = createBreadcrumbLinks(breadcrumbsList).slice(-2)
 
@@ -57,6 +62,8 @@ const parsedBreadcrumbLinks = computed(() => {
     if (arrLength > 4 && !isExpanded.value) {
       setLinkExpansion()
 
+      // Keep 1st and last 2 items in breadcrumbs array
+      // Replace deleted items with `...`
       const truncatedBreadcrumbsList = breadcrumbsList.toSpliced(
         1,
         arrLength - 3,
@@ -76,12 +83,14 @@ function createBreadcrumbLinks(arr) {
 
   // if props are present, we are using the legacy single breadcrumb
   if (to && parentTitle && title) {
+    // Set the parent
     breadCrumbObjects.push({
       to,
       title: parentTitle,
       isLastItem: false,
       isTruncatedGroup: false
     })
+    // Set the child, no url
     breadCrumbObjects.push({
       to: '',
       title,
@@ -94,12 +103,14 @@ function createBreadcrumbLinks(arr) {
   arr.forEach((item, index) => {
     const linkLength = item.length
     const linkIndex = route.path.indexOf(item)
+    // Create a link for the item
     const linkTo = route.path.substring(0, linkLength + linkIndex)
     const linkTitle = item.replaceAll('-', ' ')
 
     let isLastItem
     index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
 
+    // Identifies the `...` in the breadcrumbs array
     let isTruncatedGroup
     isExpanded.value === false && index === 1
       ? (isTruncatedGroup = true)
@@ -165,8 +176,15 @@ const parsedClasses = computed(() => {
         v-text="linkObj.title"
       />
       <SvgIconCaretRight v-if="!linkObj.isLastItem" aria-hidden="true" />
+      <!-- FTVA uses title field from Craft for the final breadcrumb -->
       <span
-        v-if="linkObj.isLastItem"
+        v-if="linkObj.isLastItem && theme === 'ftva'"
+        class="current-page-title"
+        v-text="title"
+      />
+      <!-- Otherwise, use parsed route url to set last breadcrumb; if future or default use will be to get the `title` from data and not the slug, this condition can be removed -->
+      <span
+        v-else-if="linkObj.isLastItem"
         class="current-page-title"
         v-text="linkObj.title"
       />

@@ -41,6 +41,11 @@
         @include truncate(1);
     }
 
+    .parent-page-url,
+    .current-page-title {
+        text-transform: capitalize;
+    }
+
     @media #{$extra-large} {
         padding: 0;
     }
