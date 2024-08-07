@@ -34,9 +34,8 @@
     color: $navy-blue;
   }
 
-  .text {
-    margin-top: 40px;
-    @include truncate(200);
+  .guestSpeaker {
+    color: aqua;
   }
 
   .slot {
