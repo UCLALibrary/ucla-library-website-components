@@ -104,6 +104,10 @@ const classes = computed(() => {
     :deep(div) {
       color: var(--color-white);
     }
+
+    :deep(div) {
+      margin-bottom: 0;
+    }
   }
 
   .container {

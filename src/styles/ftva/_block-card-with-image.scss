@@ -1,56 +1,95 @@
 .ftva.block-highlight {
+    max-width: 350px;
+    height: 350px;
+    position: relative;
 
-    // normal styles
+    border-radius: 12px;
+
+    :deep(.media) {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .molecule-no-image {
+        border-radius: 10px 10px 0 0;
+    }
+
     .card-meta {
+        margin: 25px 10px 0;
         padding: 0px 10px 10px 10px;
+
         .title {
             @include ftva-card-title-2;
+            @include truncate($lines: 3);
             margin-bottom: 10px;
         }
 
         &:hover>a.title {
             text-decoration: none;
         }
+    }
 
-        .date-time {
-            @include ftva-emphasized-subtitle;
-            color: $accent-blue;
-            letter-spacing: .04px;
-            flex-direction: row;
-            height: 34px;
-            overflow: hidden;
-            &::before {
-                content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-calendar.svg');
-                margin: 3px 10px 0 0;
-            }
-            .schedule-item:nth-of-type(1) {
-                position: relative;
-                margin-right: 28px;
-                &::after {
+    .top-text {
+        display: flex;
+    }
+
+    :deep(.date-time) {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .only-date-time {
+        display: flex;
+        flex-direction: row;
+
+        margin-bottom: 10px;
+        @include ftva-emphasized-subtitle;
+        color: $accent-blue;
+        letter-spacing: .04px;
+
+        height: 34px;
+        overflow: hidden;
+
+        .schedule-item:nth-of-type(1) {
+            position: relative;
+            margin-right: 28px;
+
+            &::after {
                 content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
                 position: absolute;
                 right: -30px;
                 top: -2px;
                 margin: 0px 10px;
-                }
             }
-        }
-
-        .rich-text {
-          margin-top: 0px;
-          div.parsed-content {
-            color: $subtitle-grey;
-            margin-bottom: 0px;
-          }
         }
     }
 
-    // hover styles
-    &:hover {
-        .responsive-image {
-            .media {
-                border: 5px solid $accent-blue;
+    // take the hover style off of the title
+    @media #{$has-hover} {
+        &:hover {
+            .title {
+                color: none;
+                text-decoration: none;
+                text-decoration-thickness: none;
+                text-decoration-color: none;
+                text-underline-offset: none;
             }
+        }
+    }
+
+    /* This keeps the moleule image from expanding vertically when in tablet size */
+    &.is-vertical {
+        flex-direction: column;
+
+        .molecule-no-image {
+            width: 100%;
+            height: 179.2px;
+        }
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        &:hover {
+            box-shadow: 0 4px 4px rgb(51 51 51 / 0.2);
         }
     }
 }
