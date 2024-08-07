@@ -170,10 +170,11 @@ const classes = computed(() => {
       v-html="title"
     />
 
-    <div
+    <RichText
       v-if="guestSpeaker"
       class="guestSpeaker"
-    >{{ guestSpeaker }}</div>
+      :rich-text-content="guestSpeaker"
+    />
 
     <div
       v-if="bylineOne || bylineTwo"
