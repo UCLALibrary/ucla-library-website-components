@@ -5,6 +5,8 @@ import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 
 import { useTheme } from '@/composables/useTheme'
 
+const theme = useTheme()
+
 export default {
   name: 'RichText',
   components: {},
@@ -26,8 +28,6 @@ export default {
     },
   },
 }
-
-const theme = useTheme()
 </script>
 
 <template>
