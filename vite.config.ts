@@ -6,14 +6,25 @@ import svgLoader from 'vite-svg-loader'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), svgLoader({ svgo: false })],
+  plugins: [
+    vue({
+      // Turns of Add-to-Calendar plugin console warnings
+      template: {
+        compilerOptions: {
+          // treat Add-to-Calendar-Button plugin like a custom element
+          isCustomElement: tag => tag.startsWith('add-'),
+        },
+      },
+    }),
+    svgLoader({ svgo: false }),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/entry.js'),
       name: 'ucla-library-website-components',
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', 'pinia'],
+      external: ['vue', 'vue-router'],
       output: {
         // preserveModules: true,
         exports: 'named',
