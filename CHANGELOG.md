@@ -1,3 +1,24 @@
+## [3.5.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.6...v3.5.7) (2024-08-06)
+
+
+### Bug Fixes
+
+* APPS-2827 Component SectionTeaserCard ([#577](https://github.com/UCLALibrary/ucla-library-website-components/issues/577)) ([910d035](https://github.com/UCLALibrary/ucla-library-website-components/commit/910d035d5a0a415531710bda317f2487ccb6e91f))
+
+## [3.5.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.5...v3.5.6) (2024-08-03)
+
+
+### Bug Fixes
+
+* APPS-2825 Fix MastheadSecondary Height ([#581](https://github.com/UCLALibrary/ucla-library-website-components/issues/581)) ([c4bec89](https://github.com/UCLALibrary/ucla-library-website-components/commit/c4bec89d8c93158e02f8ad495e2de29715126f9f))
+
+## [3.5.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.4...v3.5.5) (2024-08-02)
+
+
+### Bug Fixes
+
+* APPS-2858 Remove Trailing Dates from NavBeadcrumbs ([#579](https://github.com/UCLALibrary/ucla-library-website-components/issues/579)) ([b711f31](https://github.com/UCLALibrary/ucla-library-website-components/commit/b711f31e5a6291c6fe85e8e980f501026d18d116))
+
 ## [3.5.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.3...v3.5.4) (2024-08-01)
 
 

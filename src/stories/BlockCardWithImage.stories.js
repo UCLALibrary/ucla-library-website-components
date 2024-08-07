@@ -80,17 +80,35 @@ TallImage.args = {
   imageAspectRatio: 150
 }
 
-export const FTVAEventDetailPage = Template.bind({})
-FTVAEventDetailPage.args = {
-  title: 'FTVA CardWithImage using their styles',
-  category: '',
+export const FTVAItems = Template.bind({})
+FTVAItems.args = {
+  title: 'FTVA CardWithImage Step Up 3D',
+  category: null,
   theme: 'ftva',
   to: '/some/url/here/',
-  alternativeFullName: '',
+  alternativeFullName: null,
   language: 'zh',
   startDate: '2022-03-31T07:00:00+00:00',
-  endDate: '',
-  text: '3 episodes',
+  endDate: null,
+  text: '',
+  imageAspectRatio: 60,
+  sectionHandle: '',
+  locations: [],
+  cardIsLink: true
+}
+
+export const FTVAItemsNoImage = Template.bind({})
+FTVAItemsNoImage.args = {
+  image: null,
+  title: 'FTVA CardWithImage with NO image Step Up 3D (2010) Sequel to Step Up 2: The Streets and the third installment in the Step Up film series',
+  category: null,
+  theme: 'ftva',
+  to: '/some/url/here/',
+  alternativeFullName: null,
+  language: 'zh',
+  startDate: '2022-03-31T07:00:00+00:00',
+  endDate: null,
+  text: '',
   imageAspectRatio: 60,
   sectionHandle: '',
   locations: [],
