@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.7...v3.6.0) (2024-08-07)
+
+
+### Features
+
+* APPS-2798 Create ButtonDropdown Component ([#567](https://github.com/UCLALibrary/ucla-library-website-components/issues/567)) ([638d766](https://github.com/UCLALibrary/ucla-library-website-components/commit/638d766f26ae217e943075f8787473b45ab6b319))
+
 ## [3.5.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.6...v3.5.7) (2024-08-06)
 
 
