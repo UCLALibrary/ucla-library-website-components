@@ -1,18 +1,25 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import type { PropType } from 'vue'
+
+// THEME
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import { useTheme } from '@/composables/useTheme'
+
+// SVGs
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
-// UTILITY FUNCTIONS
-
+// TYPESCRIPT
 import type { LocationItemType, MediaItemType } from '@/types/types'
 
+// PROPS & DATA
 const props = defineProps({
   image: {
     type: Object as PropType<MediaItemType>,
@@ -115,7 +122,10 @@ const parsedDateFormat = computed(() => {
 </script>
 
 <template>
-  <li :class="classes" @click="handleClick">
+  <li
+    :class="classes"
+    @click="handleClick"
+  >
     <div class="image-container">
       <ResponsiveImage
         v-if="image"
@@ -133,7 +143,9 @@ const parsedDateFormat = computed(() => {
         />
       </div>
     </div>
+
     <CardMeta
+      class="card-meta-items"
       :to="to"
       :category="category"
       :title="title"
@@ -152,6 +164,9 @@ const parsedDateFormat = computed(() => {
   </li>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 @import "@/styles/themes.scss";
 </style>

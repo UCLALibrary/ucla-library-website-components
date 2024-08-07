@@ -1,23 +1,29 @@
 .ftva.section-teaser-card {
+    flex-wrap: nowrap;
+
     align-items: flex-start;
     overflow-y: auto;
-    flex-wrap: nowrap;
     padding-top: 25px;
+    scrollbar-color: $grey-blue $white;
 
     .card {
         width: calc((100% / 3) - 22px);
-        flex-shrink: 0;
         min-width: 298px;
+        margin-bottom: 15px;
 
-        // Hovers
-        @media #{$has-hover} {
-            &:hover {
-                border: 2px solid $accent-blue;
-                box-shadow: 0 10px 17px rgba(0,0,0,0.1)
+        @media #{$medium} {
+            flex-shrink: 0;
+
+            .section-teaser-card {
+                gap: var(--space-m);
+                overflow-x: auto;
+                overflow-y: visible;
+                flex-wrap: nowrap;
             }
         }
     }
 }
+
 .ftva.section-teaser-card-title {
     @include ftva-card-title-1;
     padding-top: 60px;
