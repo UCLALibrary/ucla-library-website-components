@@ -36,10 +36,12 @@
 
   .text {
     margin-top: 40px;
+    @include truncate(200);
   }
 
   .slot {
     margin-top: 28px;
+
     &:empty {
       display: none;
     }

@@ -166,3 +166,38 @@ export function ShareButton() {
   `,
   }
 }
+
+export function TextNotTruncated() {
+  return {
+    data() {
+      return {
+        event: {
+          eventTitle: 'Step Up (2006)',
+          ftvaEventIntroduction: 'In-person: The Scenes Talk with Duane Adler',
+          ftvaEventFilters: [
+            { title: 'Guest speaker' }, { title: '35mm' }
+          ],
+          text: '<p>Step Up is an American romantic dance franchise created by Duane Adler. The franchise includes six films and a television series. The films have received a generally mixed critical reception, while being a box office success with a collective total of $651 million.</p><p>Set in Baltimore, Maryland, the film follows the tale of the disadvantaged Tyler Gage (Tatum) and the privileged modern dancer Nora Clark (Dewan), who find themselves paired up in a showcase that determines both of their futures. Realizing that they only have one chance, they finally work together.<p>',
+        },
+        series: {
+          title: 'The Step Up Movie Series'
+        }
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta },
+    template: `
+      <card-meta
+        :category="series.title"
+        :title="event.eventTitle"
+        :tagLabels="event.ftvaEventFilters"
+        :introduction="event.ftvaEventIntroduction"
+        :text="event.text"
+      />
+  `,
+  }
+}
