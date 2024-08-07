@@ -3,6 +3,8 @@
 import stripCraftURLFromText from '@/utils/stripCraftURLFromText'
 import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 
+import { useTheme } from '@/composables/useTheme'
+
 export default {
   name: 'RichText',
   components: {},
@@ -14,6 +16,9 @@ export default {
     },
   },
   computed: {
+    classes() {
+      return ['rich-text', theme?.value || '']
+    },
     parsedContent() {
       const content = stripCraftURLFromText(this.richTextContent)
 
@@ -21,10 +26,12 @@ export default {
     },
   },
 }
+
+const theme = useTheme()
 </script>
 
 <template>
-  <div class="rich-text">
+  <div :class="classes">
     <div
       class="parsed-content"
       v-html="parsedContent"
@@ -34,8 +41,8 @@ export default {
 </template>
 
 <style
-    lang="scss"
-    scoped
+  lang="scss"
+  scoped
 >
 @import "@/styles/themes.scss";
 </style>
