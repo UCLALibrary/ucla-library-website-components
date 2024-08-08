@@ -19,7 +19,7 @@ const { to, parentTitle, title } = defineProps({
   },
   /* Note:
   For legacy (Library website) breadcrumbs, `title` is the hardcoded value entered at page-level;
-  Otherwise, for FTVA (and other future themes/use case?), `title` is coming from Craft data
+  Otherwise, for FTVA (and other future themes/use case?), `title` is coming from or parsed from Craft data
   */
   title: {
     type: String,
@@ -182,7 +182,7 @@ const parsedClasses = computed(() => {
         class="current-page-title"
         v-text="title"
       />
-      <!-- Otherwise, use parsed route url to set last breadcrumb; if future or default use will be to get the `title` from data and not the slug, this condition can be removed -->
+      <!-- Otherwise, use parsed route url to set last breadcrumb; if future or default use will be to get the `title` from data and not the slug, this condition can be removed, and the condition above checking for the ftva theme can be refactored -->
       <span
         v-else-if="linkObj.isLastItem"
         class="current-page-title"
