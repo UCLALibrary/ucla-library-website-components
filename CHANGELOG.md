@@ -1,3 +1,24 @@
+## [3.6.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.1...v3.6.2) (2024-08-08)
+
+
+### Bug Fixes
+
+* APPS-2879 - Update NavBreadcrumb to use Event Title ([#584](https://github.com/UCLALibrary/ucla-library-website-components/issues/584)) ([835a8aa](https://github.com/UCLALibrary/ucla-library-website-components/commit/835a8aa08dfe1649c37ba00642216f5856ee7332))
+
+## [3.6.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.0...v3.6.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* APPS-2876 Component BlockEventDetail - No map icon If no location ([#583](https://github.com/UCLALibrary/ucla-library-website-components/issues/583)) ([370a889](https://github.com/UCLALibrary/ucla-library-website-components/commit/370a88952ff1b589791e782eba58f977a146cf3c))
+
+# [3.6.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.7...v3.6.0) (2024-08-07)
+
+
+### Features
+
+* APPS-2798 Create ButtonDropdown Component ([#567](https://github.com/UCLALibrary/ucla-library-website-components/issues/567)) ([638d766](https://github.com/UCLALibrary/ucla-library-website-components/commit/638d766f26ae217e943075f8787473b45ab6b319))
+
 ## [3.5.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.6...v3.5.7) (2024-08-06)
 
 
