@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import RichText from '@/lib-components/RichText.vue'
 
 // Storybook default settings
@@ -22,6 +23,27 @@ export const Default = {
     data() {
       return {
         block: mock,
+      }
+    },
+    components: { RichText },
+    template: `
+        <rich-text
+            :rich-text-content="block.richText"
+        />
+    `,
+  })
+}
+
+export const FtvaRichText = {
+  render: () => ({
+    data() {
+      return {
+        block: mock,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     components: { RichText },
