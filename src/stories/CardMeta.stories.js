@@ -1,6 +1,5 @@
 import { computed } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
-import ButtonLink from '@/lib-components/ButtonLink'
 
 // Storybook default settings
 export default {
