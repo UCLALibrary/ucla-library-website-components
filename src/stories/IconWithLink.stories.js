@@ -70,7 +70,7 @@ export function LongText() {
   }
 }
 
-export function AllIcons() {
+export function GeneralIcons() {
   return {
     components: { IconWithLink },
     template: `
@@ -218,39 +218,127 @@ export function AllIcons() {
                 icon-name="svg-icon-alert"
                 to= "/help/services-and-resources"
             /></li>
+        </ul>
+    `,
+  }
+}
+
+export function SocialIcons() {
+  return {
+    components: { IconWithLink },
+    template: `
+        <ul>
             <li><icon-with-link
                 text="Share Email"
                 icon-name="svg-icon-share-email"
                 to= "/help/services-and-resources"
             /></li>
-            <li><icon-with-link
-                text="Share Printer"
-                icon-name="svg-icon-share-printer"
-                to= "/help/services-and-resources"
-            /></li>
+
             <li><icon-with-link
                 text="Share Facebook"
                 icon-name="svg-icon-share-facebook"
                 to= "/help/services-and-resources"
             /></li>
+
             <li><icon-with-link
                 text="Share Instagram"
                 icon-name="svg-icon-share-instagram"
                 to= "/help/services-and-resources"
             /></li>
+
             <li><icon-with-link
                 text="Share LinkedIn"
                 icon-name="svg-icon-share-linkedin"
                 to= "/help/services-and-resources"
             /></li>
+
             <li><icon-with-link
                 text="Share Twitter"
                 icon-name="svg-icon-share-twitter"
                 to= "/help/services-and-resources"
             /></li>
+            
             <li><icon-with-link
                 text="Share Whatsapp"
                 icon-name="svg-icon-share-whatsapp"
+                to= "/help/services-and-resources"
+            /></li>
+        </ul>
+    `,
+  }
+}
+
+export function FTVACalendarIcons() {
+  return {
+    components: { IconWithLink },
+    template: `
+        <ul>
+            <li><icon-with-link
+                text="iCal"
+                icon-name="svg-icon-ftva-appleinc"
+                to= "/help/services-and-resources"
+            /></li>
+
+            <li><icon-with-link
+                text="Google Calendar"
+                icon-name="svg-icon-ftva-gcal"
+                to= "/help/services-and-resources"
+            /></li>
+
+            <li><icon-with-link
+                text="Outlook.com"
+                icon-name="svg-icon-ftva-outlook"
+                to= "/help/services-and-resources"
+            /></li>
+
+            <li><icon-with-link
+                text="Download .ics file"
+                icon-name="svg-icon-ftva-download"
+                to= "/help/services-and-resources"
+            /></li>
+        </ul>
+    `,
+  }
+}
+
+export function FTVASocialIcons() {
+  return {
+    components: { IconWithLink },
+    template: `
+        <ul>
+            <li><icon-with-link
+                text="Share"
+                icon-name="svg-icon-ftva-share"
+                to= "/help/services-and-resources"
+            /></li>
+
+            <li><icon-with-link
+                text="Confirm"
+                icon-name="svg-icon-ftva-social-confirm"
+                to= "/help/services-and-resources"
+            /></li>
+
+                        <li><icon-with-link
+                text="Copy Link"
+                icon-name="svg-icon-ftva-social-link"
+                to= "/help/services-and-resources"
+            /></li>
+
+            <li><icon-with-link
+                text="Email"
+                icon-name="svg-icon-ftva-social-email"
+                to= "/help/services-and-resources"
+            /></li>
+
+            <li><icon-with-link
+                text="Facebook"
+                icon-name="svg-icon-ftva-social-facebook"
+                to= "/help/services-and-resources"
+            /></li>
+
+            <li><icon-with-link
+                text="X"
+                icon-name="svg-icon-ftva-social-x"
                 to= "/help/services-and-resources"
             /></li>
         </ul>
