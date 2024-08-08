@@ -64,3 +64,26 @@ export function FTVA() {
     `,
   }
 }
+
+export function FtvaNoLocation() {
+  return {
+    data() {
+      return {
+        data: mockEventDetailData,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockEventDetail },
+    template: `
+    <block-event-detail
+      :startDate="data.startDateWithTime"
+      :time="data.startDateWithTime"
+      :locations=[]
+    />
+    `,
+  }
+}

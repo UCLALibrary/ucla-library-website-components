@@ -1,3 +1,10 @@
+## [3.6.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.0...v3.6.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* APPS-2876 Component BlockEventDetail - No map icon If no location ([#583](https://github.com/UCLALibrary/ucla-library-website-components/issues/583)) ([370a889](https://github.com/UCLALibrary/ucla-library-website-components/commit/370a88952ff1b589791e782eba58f977a146cf3c))
+
 # [3.6.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.5.7...v3.6.0) (2024-08-07)
 
 
