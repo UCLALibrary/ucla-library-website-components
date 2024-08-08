@@ -31,9 +31,8 @@ onMounted(() => {
       // Previously we used JS DOM manipulation to set the height of the iframe via getElementsById / getElementsByTagName
       // HOWEVER, this was failing when a race condition occured between the iframe loading and the JS DOM manipulation (APPS-2852)
       // THEREFORE, we are now using vue refs to set the height of the iframe, which should be sturdier
-      if (eventName === 'setHeight' && iframeRef.value) {
+      if (eventName === 'setHeight' && iframeRef.value)
         iframeRef.value!.style.height = `${data + 20}px`
-      }
     },
     false
   )
