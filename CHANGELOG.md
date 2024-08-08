@@ -1,3 +1,10 @@
+## [3.6.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.1...v3.6.2) (2024-08-08)
+
+
+### Bug Fixes
+
+* APPS-2879 - Update NavBreadcrumb to use Event Title ([#584](https://github.com/UCLALibrary/ucla-library-website-components/issues/584)) ([835a8aa](https://github.com/UCLALibrary/ucla-library-website-components/commit/835a8aa08dfe1649c37ba00642216f5856ee7332))
+
 ## [3.6.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.0...v3.6.1) (2024-08-08)
 
 
