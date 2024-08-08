@@ -19,12 +19,6 @@
     margin: 0 0 24px;
   }
 
-  .guestSpeaker {
-    @include ftva-body-2;
-    color: $heading-grey;
-    margin: 0 0 24px;
-  }
-
   .block-tags {
     display: flex;
     flex-direction: row;
@@ -34,11 +28,18 @@
     margin-bottom: 8px;
   }
 
-  .introduction {
-    @include ftva-body-2;
-    @include truncate($lines: 4);
-    color: $navy-blue;
+  // styles the rich-text components
+  // introduction and guestSpeaker
+  .rich-text {
+    margin: 0;
+    padding-right: 0;
   }
+
+  // .introduction {
+  //   @include ftva-body-2;
+  //   @include truncate($lines: 4);
+  //   color: $navy-blue;
+  // }
 
   .slot {
     margin-top: 28px;

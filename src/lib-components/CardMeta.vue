@@ -236,10 +236,10 @@ const classes = computed(() => {
       />
     </div>
 
-    <div
+    <RichText
       v-if="introduction"
       class="introduction"
-      v-html="introduction"
+      :rich-text-content="introduction"
     />
 
     <!-- SHARE BUTTON -->
