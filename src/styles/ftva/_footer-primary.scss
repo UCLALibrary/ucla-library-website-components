@@ -13,6 +13,8 @@
 
             .statement {
                 @include ftva-body;
+                -webkit-text-stroke: .25px $navy-blue;
+                padding-top: 5px;
             }
 
             input:not(:placeholder-shown)+label,
