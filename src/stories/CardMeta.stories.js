@@ -137,32 +137,3 @@ export function FtvaOnlyCategoryAndTitle() {
   `,
   }
 }
-
-export function FtvaShareButton() {
-  return {
-    data() {
-      return {
-        event: {
-          title: 'Step Up 3D (2010)',
-        },
-        series: {
-          title: 'The Step Up Movie Series'
-        }
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { CardMeta, ButtonLink },
-    template: `
-      <card-meta
-        :category="series.title"
-        :title="event.title"
-      >
-        <button-link label="Share" to="/share" />
-      </card-meta>
-  `,
-  }
-}
