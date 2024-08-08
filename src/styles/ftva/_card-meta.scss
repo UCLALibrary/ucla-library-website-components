@@ -28,18 +28,16 @@
     margin-bottom: 8px;
   }
 
-  .introduction {
-    @include ftva-body-2;
-    @include truncate($lines: 4);
-    color: $navy-blue;
-  }
-
-  .text {
-    margin-top: 40px;
+  // styles the rich-text components
+  // introduction and guestSpeaker
+  .rich-text {
+    margin: 0;
+    padding-right: 0;
   }
 
   .slot {
     margin-top: 28px;
+
     &:empty {
       display: none;
     }

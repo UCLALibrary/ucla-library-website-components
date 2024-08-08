@@ -1,3 +1,10 @@
+## [3.6.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.2...v3.6.3) (2024-08-08)
+
+
+### Bug Fixes
+
+* APPS-2870 Component CardMeta in RichText - Text is truncated when it shouldn't be ([#582](https://github.com/UCLALibrary/ucla-library-website-components/issues/582)) ([2a8e814](https://github.com/UCLALibrary/ucla-library-website-components/commit/2a8e8148588a7765c7bf30ebbb03c9177f87ded1))
+
 ## [3.6.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.1...v3.6.2) (2024-08-08)
 
 
