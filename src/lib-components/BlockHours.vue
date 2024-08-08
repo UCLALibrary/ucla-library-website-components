@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, IframeHTMLAttributes, onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 // Props
@@ -13,7 +13,7 @@ const props = defineProps({
     default: false,
   },
 })
-const iframeRef = ref<IframeHTMLAttributes | null>(null)
+const iframeRef = ref<HTMLIFrameElement | null>(null)
 // Computed
 const parsedSrc = computed(() => {
   if (!props.isClicc)
@@ -38,7 +38,7 @@ onMounted(() => {
       // NEW
       // if (parsedVideoUrl.value)
       //   loadedStatus.video = videoRef.value!.readyState >= 3
-      if (eventName === 'setHeight') {
+      if (eventName === 'setHeight' && iframeRef.value) {
         iframeRef.value!.style.height = `${data + 20}px`
       }
       // OLD
