@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 // Props
@@ -13,6 +13,7 @@ const props = defineProps({
     default: false,
   },
 })
+const iframeRef = ref<HTMLIFrameElement | null>(null)
 // Computed
 const parsedSrc = computed(() => {
   if (!props.isClicc)
@@ -27,21 +28,11 @@ onMounted(() => {
     (e) => {
       const eventName = e.data[0]
       const data = e.data[1]
-      const source = e.source
-      // previously we were using the getElementsById to set the iframe height
-      // HOWEVER, this was failing when multiple iframes with the same ID were present
-      // THEREFORE, we are now looping through all iframes and setting the height based on matching source
-      const iframes = document.getElementsByTagName('iframe')
-      switch (eventName) {
-        case 'setHeight':
-          for (let i = 0; i < iframes.length; i++) {
-            if (iframes[i].contentWindow === source) {
-              iframes[i].style.height = `${data + 20}px`
-              break
-            }
-          }
-          break
-      }
+      // Previously we used JS DOM manipulation to set the height of the iframe via getElementsById / getElementsByTagName
+      // HOWEVER, this was failing when a race condition occured between the iframe loading and the JS DOM manipulation (APPS-2852)
+      // THEREFORE, we are now using vue refs to set the height of the iframe, which should be sturdier
+      if (eventName === 'setHeight' && iframeRef.value)
+        iframeRef.value!.style.height = `${data + 20}px`
     },
     false
   )
@@ -55,7 +46,7 @@ onMounted(() => {
     </h3>
     <div class="content">
       <iframe
-        id="the-iframe" title="Hours for location" class="iframe" :src="parsedSrc" frameBorder="0" width="100%"
+        id="the-iframe" ref="iframeRef" title="Hours for location" class="iframe" :src="parsedSrc" frameBorder="0" width="100%"
         height="100%"
       />
       <ButtonLink
