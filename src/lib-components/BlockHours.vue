@@ -28,31 +28,12 @@ onMounted(() => {
     (e) => {
       const eventName = e.data[0]
       const data = e.data[1]
-
-      // console.log('eventName', eventName)
-      // console.log('data', data)
-      // console.log('source', source)
       // Previously we used JS DOM manipulation to set the height of the iframe via getElementsById / getElementsByTagName
       // HOWEVER, this was failing when a race condition occured between the iframe loading and the JS DOM manipulation (APPS-2852)
       // THEREFORE, we are now using vue refs to set the height of the iframe, which should be sturdier
-      // NEW
-      // if (parsedVideoUrl.value)
-      //   loadedStatus.video = videoRef.value!.readyState >= 3
       if (eventName === 'setHeight' && iframeRef.value) {
         iframeRef.value!.style.height = `${data + 20}px`
       }
-      // OLD
-      // const iframes = document.getElementsByTagName('iframe')
-      // switch (eventName) {
-      //   case 'setHeight':
-      //     for (let i = 0; i < iframes.length; i++) {
-      //       if (iframes[i].contentWindow === source) {
-      //         iframes[i].style.height = `${data + 20}px`
-      //         break
-      //       }
-      //     }
-      //     break
-      // }
     },
     false
   )
