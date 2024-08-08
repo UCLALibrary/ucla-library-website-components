@@ -57,7 +57,10 @@ const classes = computed(() => {
       </span>
     </div>
 
-    <div class="event-list location">
+    <div
+      v-if="locations && locations.length > 0"
+      class="event-list location"
+    >
       <span>
         <SvgIconLocation class="row-icon" />
         <span
@@ -68,17 +71,18 @@ const classes = computed(() => {
           <SmartLink
             :to="location.title"
             :link-target="location.uri ? location.uri : ''"
-          >{{ location.title }}</SmartLink>{{
-            index
-              < locations.length
-              - 1
-              ? ', '
-              : ''
+          >
+            {{ location.title }}
+          </SmartLink>
+          {{ index
+            < locations.length
+            - 1
+            ? ', '
+            : ''
           }}
         </span>
       </span>
     </div>
-    <!-- TO DO ADD TO CALENDAR BUTTON IMPLEMENT HERE -->
     <slot />
   </div>
 </template>
