@@ -1,3 +1,10 @@
+# [3.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.7.0...v3.8.0) (2024-08-09)
+
+
+### Features
+
+* APPS-2888 Add debug prop to Dropdown Calendar ([#587](https://github.com/UCLALibrary/ucla-library-website-components/issues/587)) ([39a1e62](https://github.com/UCLALibrary/ucla-library-website-components/commit/39a1e62d35e23832b505409f7c572d3382634b8b))
+
 # [3.7.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.4...v3.7.0) (2024-08-09)
 
 
