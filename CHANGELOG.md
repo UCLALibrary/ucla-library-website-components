@@ -1,3 +1,10 @@
+## [3.6.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.3...v3.6.4) (2024-08-09)
+
+
+### Bug Fixes
+
+* update vite.config.js external ['vue', 'vue-router', 'pinia'] ([#586](https://github.com/UCLALibrary/ucla-library-website-components/issues/586)) ([7658906](https://github.com/UCLALibrary/ucla-library-website-components/commit/765890699864cdb301a0b44b559280dbd405cfb9))
+
 ## [3.6.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.2...v3.6.3) (2024-08-08)
 
 
