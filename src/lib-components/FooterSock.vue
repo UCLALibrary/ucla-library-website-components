@@ -2,7 +2,6 @@
 // UTILS
 import { computed } from 'vue'
 
-// import { mapState } from 'pinia'
 import SmartLink from './SmartLink.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'

@@ -2,8 +2,6 @@
 // UTILS
 import { computed } from 'vue'
 
-// import { mapState } from 'pinia'
-
 // SVGs
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
 import SvgLogoFTVA from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footerlogo.svg'
@@ -56,12 +54,6 @@ const wrapperClasses = computed(() => ['footer-primary', theme?.value || ''])
 const classes = computed(() => {
   return props.form ? ['container'] : ['container no-form']
 })
-// const parsedNewsletterStatement = computed(() => {
-//   if (theme?.value === 'ftva') {
-//     return `Subscribe to receive the latest updates on what's happening at the Film & Television Archive.`
-//   }
-//   return `Subscribe to get the latest updates on what's happening with UCLA Library.`
-// })
 const parsedFooterThemeSettings = computed(() => {
   // ftva
   if (theme?.value === 'ftva') {
