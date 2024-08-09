@@ -24,7 +24,7 @@ export default defineConfig({
       name: 'ucla-library-website-components',
     },
     rollupOptions: {
-      external: ['vue', 'vue-router'],
+      external: ['vue', 'vue-router', 'pinia']
       output: {
         // preserveModules: true,
         exports: 'named',
