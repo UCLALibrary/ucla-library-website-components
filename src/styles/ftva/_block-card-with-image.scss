@@ -34,11 +34,10 @@
 
     :deep(.date-time) {
         position: absolute;
-        bottom: 0;
+        bottom: var(--space-s);
         display: flex;
         flex-direction: row;
 
-        margin-bottom: 10px;
         @include ftva-emphasized-subtitle;
         color: $accent-blue;
         letter-spacing: .04px;
