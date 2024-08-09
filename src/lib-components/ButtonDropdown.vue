@@ -177,7 +177,7 @@ const parsedClasses = computed(() => {
 
       - https://add-to-calendar-button.com/configuration
 
-      - Set debug attribute to 'true' at page-level for troubleshooting
+      - plugin's debug attribute is bound to the component's debugModeEnabled prop; set to 'true' at page-level for troubleshooting
 
       - Plugin's attributes must be camelCased
 
