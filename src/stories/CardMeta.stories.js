@@ -1,6 +1,5 @@
 import { computed } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
-import ButtonLink from '@/lib-components/ButtonLink'
 
 // Storybook default settings
 export default {
@@ -76,17 +75,17 @@ export function Ongoing() {
 
 // FTVA STORIES
 
-export function WithBlockTagsAndIntro() {
+export function FtvaWithBlockTagsAndIntro() {
   return {
     data() {
       return {
         event: {
-          eventTitle: 'Step Up (2006)',
-          ftvaEventIntroduction: 'In-person: The Scenes Talk with Duane Adler',
-          ftvaEventFilters: [
+          title: 'Step Up (2006)',
+          introduction: '<p><em>UCLA Film &amp; Television Archive</em> and the <strong>Hammer Museum</strong> are proud to introduce <em>Graeme Ferguson</em></p><p>Ferguson who not only is the inventor of the IMAX format but also made a name for himself as a young cinematographer. He was known for working in the cinéma vérité style when he was asked to direct a documentary about the Arctic and Antarctic for the Expo 67 world’s fair in Montreal. He traveled for a year filming the movie, which included footage of Inuit life and the aurora borealis. </p>',
+          tagLabels: [
             { title: 'Guest speaker' }, { title: '35mm' }
           ],
-          text: '<p>Step Up is an American romantic dance franchise created by Duane Adler. The franchise includes six films and a television series. The films have received a generally mixed critical reception, while being a box office success with a collective total of $651 million.</p>',
+          guestSpeaker: '<p><a href=\"https://en.wikipedia.org/wiki/Graeme_Ferguson_(filmmaker)\">Graeme Ferguson</a> Ivan <em>Graeme Ferguson</em> CM (October 7, 1929 – May 8, 2021) was a Canadian filmmaker and inventor who co-invented the IMAX film format.</p>',
         },
         series: {
           title: 'The Step Up Movie Series'
@@ -102,21 +101,21 @@ export function WithBlockTagsAndIntro() {
     template: `
       <card-meta
         :category="series.title"
-        :title="event.eventTitle"
-        :tagLabels="event.ftvaEventFilters"
-        :introduction="event.ftvaEventIntroduction"
-        :text="event.text"
+        :title="event.title"
+        :guestSpeaker="event.guestSpeaker"
+        :tagLabels="event.tagLabels"
+        :introduction="event.introduction"
       />
   `,
   }
 }
 
-export function OnlyCategoryAndTitle() {
+export function FtvaOnlyCategoryAndTitle() {
   return {
     data() {
       return {
         event: {
-          eventTitle: 'Step Up 2 - The Streets (2008)',
+          title: 'Step Up 2 - The Streets (2008)',
         },
         series: {
           title: 'The Step Up Movie Series'
@@ -132,37 +131,8 @@ export function OnlyCategoryAndTitle() {
     template: `
       <card-meta
         :category="series.title"
-        :title="event.eventTitle"
+        :title="event.title"
       />
-  `,
-  }
-}
-
-export function ShareButton() {
-  return {
-    data() {
-      return {
-        event: {
-          eventTitle: 'Step Up 3D (2010)',
-        },
-        series: {
-          title: 'The Step Up Movie Series'
-        }
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { CardMeta, ButtonLink },
-    template: `
-      <card-meta
-        :category="series.title"
-        :title="event.eventTitle"
-      >
-        <button-link label="Share" to="/share" />
-      </card-meta>
   `,
   }
 }
