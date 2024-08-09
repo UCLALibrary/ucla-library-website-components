@@ -91,5 +91,7 @@ const classes = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/themes.scss";
+@import "ucla-library-design-tokens/scss/_tokens-ftva";
+@import "@/styles/default/_block-event-detail.scss";
+@import "@/styles/ftva/_block-event-detail.scss";
 </style>

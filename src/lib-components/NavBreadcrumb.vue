@@ -193,5 +193,7 @@ const parsedClasses = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/themes.scss";
+@import "ucla-library-design-tokens/scss/_tokens-ftva";
+@import "@/styles/default/_nav-breadcrumb.scss";
+@import "@/styles/ftva/_nav-breadcrumb.scss";
 </style>
