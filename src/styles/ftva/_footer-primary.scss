@@ -1,0 +1,72 @@
+.ftva.footer-primary {
+    --unit-content-width: $ftva-container-max-width;
+    background-color: $navy-blue;
+    border-bottom: 0px;
+
+    .container {
+        flex-direction: row-reverse;
+
+        .form {
+            h2.title {
+                font-size: 50px;
+            }
+
+            .statement {
+                @include ftva-body;
+                -webkit-text-stroke: .25px $navy-blue;
+                padding-top: 5px;
+            }
+
+            input:not(:placeholder-shown)+label,
+            input:focus+label { 
+                color: $grey-blue;
+            }
+
+            .form-header {
+                margin-bottom: 22px;
+            }
+
+            .input-block {
+                border-color: var(--color-white);
+                text-transform: uppercase;
+
+                .button-submit {
+                    text-transform: uppercase;
+
+                    .arrow-svg {
+                        :deep(path) {
+                            stroke: var(--color-white);
+                            color: var(--color-white);
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-links {
+            gap: 20px;
+            padding-top: 34px;
+
+            .socials {
+                .social-item {
+                    border-right: 0;
+                }
+            }
+
+            .press-links {
+                display: none;
+            }
+        }
+    }
+
+    @media #{$small} {
+        .container {
+            flex-direction: column;
+            gap: 5px;
+            padding-bottom: 20px;
+            .footer-links {
+                padding-top: 0px
+            }
+        }
+    }
+}

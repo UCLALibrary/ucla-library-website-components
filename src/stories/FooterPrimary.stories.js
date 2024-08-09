@@ -1,4 +1,5 @@
 // Storybook default settings
+import { computed } from 'vue'
 import FooterPrimary from '@/lib-components/FooterPrimary'
 
 export default {
@@ -56,7 +57,7 @@ const mock = {
   ],
 }
 
-// Variations of stories below
+// Library Website Nuxt Stories
 export function Default() {
   return {
     data() {
@@ -81,7 +82,6 @@ export function NoForm() {
   }
 }
 
-// Variations of stories below
 export function MicroSite() {
   return {
     data() {
@@ -91,5 +91,23 @@ export function MicroSite() {
     },
     components: { FooterPrimary },
     template: '<footer-primary :social-items="socialItems" :press-items="pressItems" :form="false" :is-microsite="true"/>',
+  }
+}
+
+// FTVA Stories
+export function FTVAFooter() {
+  return {
+    data() {
+      return {
+        ...mock,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { FooterPrimary },
+    template: '<footer-primary :form="true" />',
   }
 }
