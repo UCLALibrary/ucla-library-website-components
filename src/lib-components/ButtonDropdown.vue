@@ -18,7 +18,7 @@ import { useTheme } from '@/composables/useTheme'
 
 // DATA
 const { title, eventDescription, startDateWithTime, endTime, location, isEvent, dropdownList, buttonTitle, hasIcon } = defineProps({
-  // Event props
+  // Event props for Dropdown Calendar
   title: {
     type: String,
     default: '',
@@ -43,6 +43,11 @@ const { title, eventDescription, startDateWithTime, endTime, location, isEvent, 
     type: Boolean,
     default: false
   },
+  debugModeEnabled: {
+    type: Boolean,
+    default: false
+  },
+
   // Dropdown props
   dropdownList: {
     type: Array,
@@ -172,7 +177,7 @@ const parsedClasses = computed(() => {
 
       - https://add-to-calendar-button.com/configuration
 
-      - Set debug attribute to 'true' for troubleshooting
+      - Set debug attribute to 'true' at page-level for troubleshooting
 
       - Plugin's attributes must be camelCased
 
@@ -194,7 +199,7 @@ const parsedClasses = computed(() => {
         hideBackground="true"
         hideIconButton="true"
         listStyle="dropdown-static"
-        debug="false"
+        :debug="debugModeEnabled"
         @click="handleActbExpandedStyle"
 ></add-to-calendar-button>
       <!-- eslint-enable -->
