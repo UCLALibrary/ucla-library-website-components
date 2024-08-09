@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.4...v3.7.0) (2024-08-09)
+
+
+### Features
+
+* APPS-2699 update footer for ftva theme ([#580](https://github.com/UCLALibrary/ucla-library-website-components/issues/580)) ([89efc96](https://github.com/UCLALibrary/ucla-library-website-components/commit/89efc962cbcae4f634de80c1816caed8659f2f9a))
+
 ## [3.6.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.3...v3.6.4) (2024-08-09)
 
 
