@@ -105,28 +105,28 @@ export const mockFooterPrimary = {
   socialItems: [
     {
       id: '11777',
-      name: 'Twotter',
+      name: 'Twitter',
       to: 'https://twitter.com/',
       classes: null,
       target: '1',
     },
     {
       id: '11778',
-      name: 'Fatebook',
+      name: 'Facebook',
       to: 'https://www.facebook.com/',
       classes: null,
       target: '1',
     },
     {
       id: '11779',
-      name: 'Instagrim',
+      name: 'Instagram',
       to: 'https://www.instagram.com/',
       classes: null,
       target: '1',
     },
     {
       id: '11780',
-      name: 'FooTube',
+      name: 'YouTube',
       to: 'https://www.youtube.com/',
       classes: null,
       target: '1',
@@ -216,6 +216,99 @@ export const mockFooterSponsor = {
       ],
       funderName: 'Etch A Sketch',
       funderUrl: 'https://en.wikipedia.org/wiki/Etch_A_Sketch',
+    },
+  ],
+}
+
+// TODO add nodes? See footersock?
+export const mockFooterLinks = {
+  // links: [
+  //   { title: 'About', links: mockFooterLinks.aboutLinks },
+  // ]
+  aboutLinks: [
+    {
+      id: '1623',
+      name: 'About the Library',
+      to: '/about',
+      classes: null,
+    },
+    {
+      id: '1624',
+      name: 'Library News',
+      to: '/about/news',
+      classes: null,
+    },
+    {
+      id: '1625',
+      name: 'Staff Directory',
+      to: '/about/staff',
+      classes: null,
+    },
+    {
+      id: '1626',
+      name: 'Jobs',
+      to: '/about/jobs',
+      classes: null,
+    },
+  ],
+  contactLinks: [
+    {
+      id: '1620',
+      name: 'Contact Us',
+      to: '/help',
+      classes: null,
+    },
+    {
+      id: '1621',
+      name: 'Ask a Librarian',
+      to: '/research-teaching-support/research-help',
+      classes: null,
+    },
+    {
+      id: '1622',
+      name: 'Locations & Hours',
+      to: '/locations',
+      classes: null,
+    },
+  ],
+  contributeLinks: [
+    {
+      id: '1617',
+      name: 'Support the Library',
+      to: 'https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463',
+      classes: null,
+    },
+    {
+      id: '1618',
+      name: 'Volunteer',
+      to: '/about/jobs/volunteer',
+      classes: null,
+    },
+    {
+      id: '1619',
+      name: 'Give Feedback',
+      to: '/help/feedback',
+      classes: null,
+    },
+  ],
+  resourcesLinks: [
+    {
+      id: '1614',
+      name: 'Services & Resources',
+      to: '/help/services-resources',
+      classes: null,
+    },
+    {
+      id: '1615',
+      name: 'Research Guides',
+      to: '/research-teaching-support/research-guides',
+      classes: null,
+    },
+    {
+      id: '1616',
+      name: 'Digital Collections',
+      to: '/collections/digital-collections',
+      classes: null,
     },
   ],
 }

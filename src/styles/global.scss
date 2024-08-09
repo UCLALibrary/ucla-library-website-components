@@ -9,6 +9,9 @@ a {
   @include animate-normal;
 }
 
+// Theme specific variables
+$ftva-container-max-width: 1160px;
+
 // Animations
 .underline-hover {
   position: relative;
