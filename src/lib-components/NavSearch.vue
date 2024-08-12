@@ -78,7 +78,6 @@ function doSearch() {
   lang="scss"
   scoped
 >
-@import "ucla-library-design-tokens/scss/_tokens-ftva";
 @import "@/styles/default/_nav-search.scss";
 @import "@/styles/ftva/_nav-search.scss";
 </style>
