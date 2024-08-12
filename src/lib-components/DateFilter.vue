@@ -302,8 +302,6 @@ watch(date, async (newDate, oldDate) => {
 </template>
 
 <style lang="scss" scoped>
-@import "ucla-library-design-tokens/scss/_tokens-ftva";
-
 .date-filter {
   .dp__calendar_header_separator {
     display: none;
