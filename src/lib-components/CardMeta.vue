@@ -167,9 +167,9 @@ const classes = computed(() => {
     <h3
       v-else
       class="title-no-link"
-    >
-      {{ title }}
-    </h3>
+      v-html="title"
+    />
+
     <h4
       v-if="alternativeFullName && alternativeFullName !== null"
       class="alternate-title"
