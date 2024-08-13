@@ -1,6 +1,6 @@
 .ftva.section-teaser-card {
     flex-wrap: nowrap;
-
+    max-width: 100%; // 100% of the parent container
     align-items: flex-start;
     overflow-y: auto;
     padding-top: 25px;
