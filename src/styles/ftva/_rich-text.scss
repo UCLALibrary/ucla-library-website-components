@@ -1,4 +1,10 @@
 .ftva.rich-text {
   @include ftva-body;
   color: $body-grey;
+
+  color: hotpink;
+  font-family: $font-secondary;
+  font-size: 30px;
+  font-weight: $font-weight-regular;
+  line-height: 150%;
 }

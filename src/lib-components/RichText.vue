@@ -8,41 +8,42 @@ import { useTheme } from '@/composables/useTheme'
 const theme = useTheme()
 
 export default {
-  name: 'RichText',
-  components: {},
+    name: 'RichText',
+    components: {},
 
-  props: {
-    richTextContent: {
-      type: String,
-      default: '',
+    props: {
+        richTextContent: {
+            type: String,
+            default: '',
+        },
     },
-  },
-  computed: {
-    classes() {
-      return ['rich-text', theme?.value || '']
-    },
-    parsedContent() {
-      const content = stripCraftURLFromText(this.richTextContent)
+    computed: {
+        classes() {
+            return ['rich-text', theme?.value || '']
+        },
+        parsedContent() {
+            const content = stripCraftURLFromText(this.richTextContent)
 
-      return accessibleExternalLinks(content)
+            return accessibleExternalLinks(content)
+        },
     },
-  },
 }
 </script>
 
 <template>
-  <div :class="classes">
-    <div
-      class="parsed-content"
-      v-html="parsedContent"
-    />
-    <slot />
-  </div>
+    <div :class="classes">
+        <div
+            class="parsed-content"
+            v-html="parsedContent"
+        />
+        <slot />
+    </div>
 </template>
 
 <style
-  lang="scss"
-  scoped
+    lang="scss"
+    scoped
 >
-@import "@/styles/themes.scss";
+@import "@/styles/default/_rich-text.scss";
+@import "@/styles/ftva/_rich-text.scss";
 </style>
