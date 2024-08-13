@@ -174,11 +174,10 @@ const classes = computed(() => {
       v-if="alternativeFullName && alternativeFullName !== null"
       class="alternate-title"
     >
-      {{ alternativeFullName }}
       <span
         v-if="alternativeFullName && (language && language !== null)"
         :lang="language"
-      />
+      >{{ alternativeFullName }}</span>
     </h4>
 
     <RichText
