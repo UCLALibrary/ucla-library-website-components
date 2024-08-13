@@ -20,9 +20,14 @@
   }
 
   .alternate-title {
-    @include ftva-h4;
-    color: $medium-grey;
+    @include ftva-card-title-1;
+    font-weight: $font-weight-regular;
+    color: $subtitle-grey;
     margin: 0 0 24px;
+  }
+
+  .title-no-link:has(+ .alternate-title) {
+    margin-bottom: 0;
   }
 
   .block-tags {
