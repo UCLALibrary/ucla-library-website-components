@@ -181,7 +181,6 @@ const classes = computed(() => {
       />
     </h4>
 
-
     <RichText
       v-if="guestSpeaker"
       class="guestSpeaker"
