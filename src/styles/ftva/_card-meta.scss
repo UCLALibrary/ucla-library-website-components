@@ -19,6 +19,12 @@
     margin: 0 0 24px;
   }
 
+  .alternate-title {
+    @include ftva-h4;
+    color: $medium-grey;
+    margin: 0 0 24px;
+  }
+
   .block-tags {
     display: flex;
     flex-direction: row;

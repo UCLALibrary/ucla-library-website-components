@@ -110,6 +110,44 @@ export function FtvaWithBlockTagsAndIntro() {
   }
 }
 
+export function FtvaWithAlternativeTitle() {
+  return {
+    data() {
+      return {
+        event: {
+          title: 'Step Up (2006)',
+          alternativeTitle: 'The Central Region',
+          language: 'en',
+          introduction: '<p><em>UCLA Film &amp; Television Archive</em> and the <strong>Hammer Museum</strong> are proud to introduce <em>Graeme Ferguson</em></p><p>Ferguson who not only is the inventor of the IMAX format but also made a name for himself as a young cinematographer. He was known for working in the cinéma vérité style when he was asked to direct a documentary about the Arctic and Antarctic for the Expo 67 world’s fair in Montreal. He traveled for a year filming the movie, which included footage of Inuit life and the aurora borealis. </p>',
+          tagLabels: [
+            { title: 'Guest speaker' }, { title: '35mm' }
+          ],
+          guestSpeaker: '<p><a href=\"https://en.wikipedia.org/wiki/Graeme_Ferguson_(filmmaker)\">Graeme Ferguson</a> Ivan <em>Graeme Ferguson</em> CM (October 7, 1929 – May 8, 2021) was a Canadian filmmaker and inventor who co-invented the IMAX film format.</p>',
+        },
+        series: {
+          title: 'The Step Up Movie Series'
+        }
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta },
+    template: `
+      <card-meta
+        :category="series.title"
+        :title="event.title"
+        :alternativeFullName="event.alternativeTitle"
+        :guestSpeaker="event.guestSpeaker"
+        :tagLabels="event.tagLabels"
+        :introduction="event.introduction"
+      />
+  `,
+  }
+}
+
 export function FtvaOnlyCategoryAndTitle() {
   return {
     data() {

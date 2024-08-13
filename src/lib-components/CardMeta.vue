@@ -167,8 +167,20 @@ const classes = computed(() => {
     <h3
       v-else
       class="title-no-link"
-      v-html="title"
-    />
+    >
+      {{ title }}
+    </h3>
+    <h4
+      v-if="alternativeFullName && alternativeFullName !== null"
+      class="alternate-title"
+    >
+      {{ alternativeFullName }}
+      <span
+        v-if="alternativeFullName && (language && language !== null)"
+        :lang="language"
+      />
+    </h4>
+
 
     <RichText
       v-if="guestSpeaker"
