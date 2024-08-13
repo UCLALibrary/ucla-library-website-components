@@ -193,5 +193,6 @@ const parsedClasses = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/themes.scss";
+@import "@/styles/default/_nav-breadcrumb.scss";
+@import "@/styles/ftva/_nav-breadcrumb.scss";
 </style>

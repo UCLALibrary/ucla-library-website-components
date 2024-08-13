@@ -55,7 +55,6 @@ const year = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "ucla-library-design-tokens/scss/_tokens-ftva";
 @import "@/styles/default/_footer-sock.scss";
 @import "@/styles/ftva/_footer-sock.scss";
 </style>

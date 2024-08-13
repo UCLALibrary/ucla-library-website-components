@@ -88,5 +88,6 @@ const classes = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/themes.scss";
+@import "@/styles/default/_block-tag.scss";
+@import "@/styles/ftva/_block-tag.scss";
 </style>

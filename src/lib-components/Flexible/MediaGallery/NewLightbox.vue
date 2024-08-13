@@ -131,5 +131,6 @@ function setCurrentSlide(currentSlide: number) {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/themes.scss";
+@import "@/styles/default/_new-lightbox.scss";
+@import "@/styles/ftva/_new-lightbox.scss";
 </style>

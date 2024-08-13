@@ -59,7 +59,6 @@ const classes = computed(() => {
   lang="scss"
   scoped
 >
-@import "ucla-library-design-tokens/scss/_tokens-ftva";
 @import "@/styles/default/_section-teaser-card.scss";
 @import "@/styles/ftva/_section-teaser-card.scss";
 </style>
