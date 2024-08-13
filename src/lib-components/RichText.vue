@@ -1,5 +1,9 @@
-<script>
+<script
+    setup
+    lang="ts"
+>
 // UTILITY FUNCTIONS
+import { computed } from 'vue'
 import stripCraftURLFromText from '@/utils/stripCraftURLFromText'
 import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 
@@ -7,27 +11,22 @@ import { useTheme } from '@/composables/useTheme'
 
 const theme = useTheme()
 
-export default {
-    name: 'RichText',
-    components: {},
-
-    props: {
-        richTextContent: {
-            type: String,
-            default: '',
-        },
+const props = defineProps({
+    richTextContent: {
+        type: String,
+        default: '',
     },
-    computed: {
-        classes() {
-            return ['rich-text', theme?.value || '']
-        },
-        parsedContent() {
-            const content = stripCraftURLFromText(this.richTextContent)
+})
 
-            return accessibleExternalLinks(content)
-        },
-    },
-}
+const classes = computed(() => {
+    return ['rich-text', theme?.value || '']
+})
+
+const parsedContent = computed(() => {
+    const content = stripCraftURLFromText(props.richTextContent)
+
+    return accessibleExternalLinks(content)
+})
 </script>
 
 <template>
