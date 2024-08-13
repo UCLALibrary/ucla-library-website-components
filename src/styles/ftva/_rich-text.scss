@@ -1,9 +1,9 @@
-:deep(.ftva.rich-text) {
+.ftva.rich-text {
   @include ftva-body;
   color: $body-grey;
-  color: green;
-
-  :deep(h3) {
-    color: hotpink;
-  }
+  background-color: aqua;
+  font-family: roboto;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 350%;
 }
