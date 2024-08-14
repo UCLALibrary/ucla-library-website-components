@@ -1,4 +1,11 @@
 
+// Theme specific variables
+// use css variables to make it easier to inject vars into storybook. etc
+:root {
+  --ftva-container-max-width: 1160px;
+  --ftva-off-black: #191919;
+}
+
 body {
   font-family: var(--font-primary);
 }
@@ -9,9 +16,6 @@ a {
   transition: color;
   @include animate-normal;
 }
-
-// Theme specific variables
-$ftva-container-max-width: 1160px;
 
 // Animations
 .underline-hover {
