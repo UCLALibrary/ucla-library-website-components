@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import SvgLogoUcla from 'ucla-library-design-tokens/assets/svgs/logo-ucla.svg'
 import { computed } from 'vue'
+import ButtonLink from './ButtonLink.vue'
 import { useTheme } from '@/composables/useTheme'
-import ButtonLink from './ButtonLink.vue';
 
 // THEME
 const theme = useTheme()
@@ -16,7 +16,7 @@ const parsedHeaderThemeSettings = computed(() => {
       useLogo: false,
       headerText: 'UCLA Film & Television Archive',
       buttonText: 'Donate',
-      buttonLink: "/donate",
+      buttonLink: '/donate',
     }
   }
   // default
@@ -28,7 +28,8 @@ const parsedHeaderThemeSettings = computed(() => {
   <div :class="classes">
     <a
       href="https://www.ucla.edu"
-      target="_blank">
+      target="_blank"
+    >
       <span v-if="!parsedHeaderThemeSettings?.useLogo && parsedHeaderThemeSettings.headerText" class="ucla-text">{{
         parsedHeaderThemeSettings. headerText }}</span>
       <SvgLogoUcla v-else class="svg ucla-logo" />
@@ -39,7 +40,8 @@ const parsedHeaderThemeSettings = computed(() => {
         :label="parsedHeaderThemeSettings.buttonText"
         icon-name="none"
         :to="parsedHeaderThemeSettings.buttonLink"
-        class="button" />
+        class="button"
+      />
     </span>
   </div>
 </template>
