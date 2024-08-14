@@ -1,6 +1,7 @@
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 import HeaderSticky from '@/lib-components/HeaderSticky'
+import { computed } from 'vue'
 
 // Storybook default settings
 export default {
@@ -53,6 +54,27 @@ export function Default() {
         <header-sticky
             :primary-items="primaryItems"
             :secondary-items="parsedSecondaryItems"
+        />
+    `,
+  }
+}
+
+export function FTVAVersion() {
+  return {
+    data() {
+      return {
+        primaryItems,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { HeaderSticky },
+    template: `
+        <header-sticky
+            :primary-items="primaryItems"
         />
     `,
   }
