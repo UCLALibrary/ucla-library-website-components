@@ -73,5 +73,6 @@ const classes = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/themes.scss";
+@import "@/styles/default/_block-info.scss";
+@import "@/styles/ftva/_block-info.scss";
 </style>

@@ -261,7 +261,6 @@ function formatTarget(target: string) {
 </template>
 
 <style lang="scss" scoped>
-@import "ucla-library-design-tokens/scss/_tokens-ftva";
 @import "@/styles/default/_footer-primary.scss";
 @import "@/styles/ftva/_footer-primary.scss";
 </style>

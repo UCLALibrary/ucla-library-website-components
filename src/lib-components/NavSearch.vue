@@ -78,5 +78,6 @@ function doSearch() {
   lang="scss"
   scoped
 >
-@import "@/styles/themes.scss";
+@import "@/styles/default/_nav-search.scss";
+@import "@/styles/ftva/_nav-search.scss";
 </style>
