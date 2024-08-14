@@ -19,4 +19,7 @@
     @media #{$medium} {
         height: 32px;
     }
+    .button-container {
+        margin-left: auto; //align right
+    }
 }
