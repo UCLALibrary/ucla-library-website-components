@@ -9,34 +9,34 @@ import accessibleExternalLinks from '@/utils/accessibleExternalLinks'
 
 import { useTheme } from '@/composables/useTheme'
 
-const theme = useTheme()
-
 const props = defineProps({
-    richTextContent: {
-        type: String,
-        default: '',
-    },
+  richTextContent: {
+    type: String,
+    default: '',
+  },
 })
 
+const theme = useTheme()
+
 const classes = computed(() => {
-    return ['rich-text', theme?.value || '']
+  return ['rich-text', theme?.value || '']
 })
 
 const parsedContent = computed(() => {
-    const content = stripCraftURLFromText(props.richTextContent)
+  const content = stripCraftURLFromText(props.richTextContent)
 
-    return accessibleExternalLinks(content)
+  return accessibleExternalLinks(content)
 })
 </script>
 
 <template>
-    <div :class="classes">
-        <div
-            class="parsed-content"
-            v-html="parsedContent"
-        />
-        <slot />
-    </div>
+  <div :class="classes">
+    <div
+      class="parsed-content"
+      v-html="parsedContent"
+    />
+    <slot />
+  </div>
 </template>
 
 <style
