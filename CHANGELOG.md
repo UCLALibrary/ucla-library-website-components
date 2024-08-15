@@ -1,3 +1,10 @@
+## [3.8.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.1...v3.8.2) (2024-08-15)
+
+
+### Bug Fixes
+
+* APPS-2852 block hours ([#592](https://github.com/UCLALibrary/ucla-library-website-components/issues/592)) ([56f5c37](https://github.com/UCLALibrary/ucla-library-website-components/commit/56f5c370e8ec454c4233ed3ff1cb0aec9a69a785))
+
 ## [3.8.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.0...v3.8.1) (2024-08-15)
 
 
