@@ -65,6 +65,6 @@ export default defineConfig({
         'node_modules/ucla-library-design-tokens'
       ),
     },
-    extensions: ['.vue', '.js', '.json'],
+    extensions: ['.mjs', '.mts', '.ts', '.jsx', '.tsx', '.vue', '.js', '.json'],
   },
 })

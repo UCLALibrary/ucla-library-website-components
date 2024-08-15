@@ -67,7 +67,7 @@ Build library using vite:
 
 ```bash
 # pnpm
-pnpm run vite
+pnpm run build
 ```
 ## `App.vue` and `mock.js`
 
