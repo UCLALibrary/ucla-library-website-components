@@ -3,18 +3,18 @@
         &.theme-white {
             &.section-banner {
                 >:deep(*) {
-                    max-width: $ftva-container-max-width;
+                    max-width: var(--ftva-container-max-width);
                 }
             }
 
             .section-featured-banner {
-                max-width: $ftva-container-max-width;
+                max-width: var(--ftva-container-max-width);
             }
         }
 
         // FTVA uses different page max-width
         >:deep(*) {
-            max-width: $ftva-container-max-width;
+            max-width: var(--ftva-container-max-width);
         }
     }
 }
