@@ -1,0 +1,31 @@
+.ftva.nav-menu-item {
+
+    &:focus-within:not(.is-opened)>.sub-menu {
+        background: $navy-blue;
+
+        &::before,
+        &::after {
+            background-color: $navy-blue;
+        }
+    }
+
+    .section-name {
+        &::after {
+            background-color: var(--ftva-medium-blue);
+        }
+
+        &:hover {
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    // Hover
+    @media #{$has-hover} {
+        .sub-menu-item:hover {
+            background-color: rgba($accent-blue, 0.3);
+            text-decoration: none;
+        }
+    }
+}

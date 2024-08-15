@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import NavMenuItem from '@/lib-components/NavMenuItem.vue'
+import { useTheme } from '@/composables/useTheme'
 
 import type { NavPrimaryItemType } from '@/types/types'
 
@@ -31,13 +32,23 @@ const route = useRoute()
 const isOpened = ref(false)
 const activeMenuIndex = ref(-1)
 
+const theme = useTheme()
 const classes = computed(() => [
   'nav-primary',
   { 'is-opened': isOpened.value },
   { 'not-hovered': activeMenuIndex.value === -1 },
   { 'has-title': title },
   { 'has-acronym': acronym },
+  theme?.value || ''
 ])
+const shouldRenderItemTop = computed(() => { 
+  switch (theme?.value) {
+    case 'ftva':
+      return false
+    default:
+      return true
+  }
+})
 const shouldRenderSmartLink = computed(() => title || acronym)
 const noChildren = computed(() => {
   if (!title)
@@ -90,7 +101,7 @@ function clearActive() {
     aria-label="Primary Navigation"
     :class="classes"
   >
-    <div class="item-top">
+    <div v-if="shouldRenderItemTop" class="item-top">
       <SmartLink
         v-if="shouldRenderSmartLink"
         to="/"
@@ -194,174 +205,6 @@ function clearActive() {
 </template>
 
 <style lang="scss" scoped>
-.nav-primary {
-  --unit-height: 80px;
-  padding: 0 var(--unit-gutter);
-  position: relative;
-  width: 100%;
-  z-index: 10;
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-content: space-between;
-  align-items: flex-start;
-
-  .item-top {
-    height: var(--unit-height);
-    position: relative;
-    z-index: 10;
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-
-    .nuxt-link-active {
-      color: var(--color-primary-blue-03);
-    }
-  }
-
-  .logo-ucla {
-    height: 23px;
-    width: auto;
-  }
-
-  .title {
-    @include step-1;
-    color: var(--color-primary-blue-03);
-    text-transform: initial;
-    letter-spacing: normal;
-    position: relative;
-    @include min-clickable-area;
-  }
-
-  .menu {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    position: relative;
-    z-index: 10;
-  }
-
-  .support-links {
-    // removing support-link from nav-primary with display
-    display: none;
-    position: relative;
-    z-index: 10;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 18px;
-      bottom: 18px;
-      width: 1px;
-      background-color: var(--color-secondary-grey-02);
-    }
-
-    .item-top {
-      display: inline-flex;
-      margin-left: 30px;
-    }
-  }
-
-  .background-white {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background-color: var(--color-white);
-    border-bottom: 1px solid var(--color-secondary-grey-02);
-    z-index: 0;
-  }
-
-  .background-blue {
-    background-color: var(--color-primary-blue-03);
-    position: absolute;
-    top: var(--unit-height);
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    opacity: 0;
-    transition: opacity 1000ms ease-in-out;
-    border-bottom: 1px solid var(--color-secondary-grey-02);
-    z-index: 0;
-  }
-
-  .click-blocker {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -10;
-  }
-
-  &.has-acronym .acronym {
-    display: none;
-  }
-
-  &.has-title {
-    .nochildren-links {
-      padding: 0;
-      position: relative;
-      min-width: 128px;
-      max-width: 300px;
-      display: inline-block;
-      vertical-align: top;
-
-      .nochildren-link {
-        height: var(--unit-height);
-        line-height: var(--unit-height);
-        text-align: center;
-
-        font-size: 18px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        cursor: pointer;
-        position: relative;
-
-        @include min-clickable-area;
-      }
-    }
-  }
-
-  // States
-  &.is-opened {
-    .background-blue {
-      opacity: 0.9;
-    }
-  }
-
-  // Hovers
-  &.not-hovered {
-    :deep(.nav-menu-item .sub-menu) {
-      opacity: 1;
-    }
-  }
-
-  // Hover states
-  @media (max-width: 1330px) {
-    &.has-acronym {
-      .full-title {
-        display: none;
-      }
-
-      .acronym {
-        display: block;
-      }
-    }
-  }
-}
+@import "@/styles/default/_nav-primary.scss";
+@import "@/styles/ftva/_nav-primary.scss";
 </style>

@@ -1,3 +1,19 @@
 .ftva.header-sticky {
     background-color: $navy-blue;
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 1000; // always on top
+        top: 64px;
+        height: 1px;
+        width: 100vw;
+        border-bottom: 1px solid var(--ftva-medium-blue);
+    }
+
+    .primary {
+        :deep(.section-name) {
+          color: white;
+        }
+    }
 }
