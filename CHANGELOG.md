@@ -1,3 +1,10 @@
+## [3.8.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.0...v3.8.1) (2024-08-15)
+
+
+### Bug Fixes
+
+* Apps-2852 fix blockhours height ([#585](https://github.com/UCLALibrary/ucla-library-website-components/issues/585)) ([2592b29](https://github.com/UCLALibrary/ucla-library-website-components/commit/2592b29417972b07973a56a689f7fd238b3ac3e3))
+
 # [3.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.7.0...v3.8.0) (2024-08-09)
 
 
