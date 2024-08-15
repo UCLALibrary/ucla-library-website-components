@@ -1,8 +1,9 @@
 // Import component
 import { mock as mockMediaWithText } from './mock/BlockMediaWithText'
 import SectionWrapper from '@/lib-components/SectionWrapper'
-
+import BlockHours from '@/lib-components/BlockHours'
 import BlockMediaWithText from '@/lib-components/BlockMediaWithText'
+import DividerGeneral from '@/lib-components/DividerGeneral'
 import DividerWayFinder from '@/lib-components/DividerWayFinder'
 
 const propsForMediaWithText = {
@@ -118,5 +119,21 @@ export function Divider() {
     </section-wrapper>
     </div>
   `,
+  }
+}
+
+export function Hours() {
+  return {
+    data() {
+      return {
+      }
+    },
+    components: { SectionWrapper, BlockHours, DividerGeneral },
+    template: `
+    <section-wrapper sectionTitle="Using the Library" sectionSummary="SEL/Boelter is located at 8270 Boelter Hall, accessible via the northeast elevator or stairs. SEL/Geology is located at 4697 Geology Building, accessible via the east elevator or stairs.">
+      <block-hours lid="4702" />
+      <DividerGeneral class="divider-general"/>
+    </section-wrapper>
+    `,
   }
 }
