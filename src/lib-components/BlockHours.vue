@@ -25,8 +25,8 @@ const parsedSrc = computed(() => {
 // Function to adjust iframe height
 function adjustIframeHeight(data: number) {
   if (iframeRef.value) {
-    console.log("iframe calculated height:", data)
-    iframeRef.value.style.height = `${data + 20}px`;
+    console.log('iframe calculated height:', data)
+    iframeRef.value.style.height = `${data + 20}px`
   }
 }
 // Polling mechanism to adjust height
@@ -39,7 +39,6 @@ function startPolling() {
           adjustIframeHeight(height)
           trackHeight.value = height
         }
-
       }
     }
   }, 1000) // Adjust every second, can be tuned as needed
@@ -49,37 +48,33 @@ onMounted(() => {
   window.addEventListener(
     'message',
     (e) => {
-      console.log("Message received:", e);
+      console.log('Message received:', e)
       const eventName = e.data[0]
       const data = e.data[1]
       // Previously we used JS DOM manipulation to set the height of the iframe via getElementsById / getElementsByTagName
       // HOWEVER, this was failing when a race condition occured between the iframe loading and the JS DOM manipulation (APPS-2852)
       // THEREFORE, we are now using vue refs to set the height of the iframe, which should be sturdier
 
-      if (eventName === 'setHeight' && iframeRef.value) {
+      if (eventName === 'setHeight' && iframeRef.value)
         adjustIframeHeight(data)
-      }
-
     },
     false
   )
   // Force height adjustment on load and resize
   /*
-    Force Height Request on Load/Resize: The window.onload and window.onresize 
-    events are used to send a message to the iframe asking 
-    it to send back its height. This ensures that even if the parent page is 
+    Force Height Request on Load/Resize: The window.onload and window.onresize
+    events are used to send a message to the iframe asking
+    it to send back its height. This ensures that even if the parent page is
     opened in a new window, the height adjustment is triggered.
   */
   window.onload = () => {
-    if (iframeRef.value) {
+    if (iframeRef.value)
       iframeRef.value.contentWindow?.postMessage('requestHeight', '*')
-    }
   }
 
   window.onresize = () => {
-    if (iframeRef.value) {
+    if (iframeRef.value)
       iframeRef.value.contentWindow?.postMessage('requestHeight', '*')
-    }
   }
   startPolling()
 })
