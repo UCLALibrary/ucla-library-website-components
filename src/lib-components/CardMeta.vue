@@ -85,6 +85,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  guestSpeaker: {
+    type: String,
+    default: '',
+  },
 })
 
 const BlockTag = defineAsyncComponent(() => import('@/lib-components/BlockTag.vue'))
@@ -140,47 +144,52 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
-    <div class="top-text">
-      <div
-        v-if="category"
-        class="category"
-        v-html="category"
-      />
-      <SmartLink
-        v-if="to"
-        :link-target="parsedTarget"
-        :to="to"
-        class="title"
-      >
-        {{ title }}
-        <span
-          v-if="alternativeFullName"
-          :lang="language"
-          class="translation"
-          v-html="alternativeFullName"
-        />
-      </SmartLink>
-      <h3
-        v-else
-        class="title-no-link"
-        v-html="title"
-      />
+    <div
+      v-if="category"
+      class="category"
+      v-html="category"
+    />
 
+    <SmartLink
+      v-if="to"
+      :link-target="parsedTarget"
+      :to="to"
+      class="title"
+    >
+      {{ title }}
+      <span
+        v-if="alternativeFullName"
+        :lang="language"
+        class="translation"
+        v-html="alternativeFullName"
+      />
+    </SmartLink>
+    <h3
+      v-else
+      class="title-no-link"
+      v-html="title"
+    />
+
+    <RichText
+      v-if="guestSpeaker"
+      class="guestSpeaker"
+      :rich-text-content="guestSpeaker"
+    />
+
+    <div
+      v-if="bylineOne || bylineTwo"
+      class="byline-group"
+    >
       <div
-        v-if="bylineOne || bylineTwo"
-        class="byline-group"
-      >
-        <div
-          v-if="bylineOne"
-          class="schedule-item"
-          v-html="bylineOne"
-        />
-        <div
-          v-if="bylineTwo"
-          class="schedule-item"
-          v-html="bylineTwo"
-        />
-      </div>
+        v-if="bylineOne"
+        class="schedule-item"
+        v-html="bylineOne"
+      />
+      <div
+        v-if="bylineTwo"
+        class="schedule-item"
+        v-html="bylineTwo"
+      />
     </div>
 
     <div
@@ -190,18 +199,16 @@ const classes = computed(() => {
       <div v-if="ongoing">
         Ongoing
       </div>
-      <div class="only-date-time">
-        <time
-          v-if="startDate"
-          class="schedule-item"
-          v-html="parsedDate"
-        />
-        <time
-          v-if="startDate"
-          class="schedule-item"
-          v-html="parsedTime"
-        />
-      </div>
+      <time
+        v-if="startDate"
+        class="schedule-item"
+        v-html="parsedDate"
+      />
+      <time
+        v-if="startDate"
+        class="schedule-item"
+        v-html="parsedTime"
+      />
     </div>
 
     <div
@@ -229,10 +236,10 @@ const classes = computed(() => {
       />
     </div>
 
-    <div
+    <RichText
       v-if="introduction"
       class="introduction"
-      v-html="introduction"
+      :rich-text-content="introduction"
     />
 
     <!-- SHARE BUTTON -->
@@ -252,5 +259,6 @@ const classes = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/themes.scss";
+@import "@/styles/default/_card-meta.scss";
+@import "@/styles/ftva/_card-meta.scss";
 </style>

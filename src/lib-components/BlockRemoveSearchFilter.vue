@@ -73,5 +73,6 @@ function closeBlockFilter() {
   lang="scss"
   scoped
 >
-@import "@/styles/themes.scss";
+@import "@/styles/default/_block-remove-search-filter.scss";
+@import "@/styles/ftva/_block-remove-search-filter.scss";
 </style>

@@ -1,3 +1,45 @@
+## [3.8.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.0...v3.8.1) (2024-08-15)
+
+
+### Bug Fixes
+
+* Apps-2852 fix blockhours height ([#585](https://github.com/UCLALibrary/ucla-library-website-components/issues/585)) ([2592b29](https://github.com/UCLALibrary/ucla-library-website-components/commit/2592b29417972b07973a56a689f7fd238b3ac3e3))
+
+# [3.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.7.0...v3.8.0) (2024-08-09)
+
+
+### Features
+
+* APPS-2888 Add debug prop to Dropdown Calendar ([#587](https://github.com/UCLALibrary/ucla-library-website-components/issues/587)) ([39a1e62](https://github.com/UCLALibrary/ucla-library-website-components/commit/39a1e62d35e23832b505409f7c572d3382634b8b))
+
+# [3.7.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.4...v3.7.0) (2024-08-09)
+
+
+### Features
+
+* APPS-2699 update footer for ftva theme ([#580](https://github.com/UCLALibrary/ucla-library-website-components/issues/580)) ([89efc96](https://github.com/UCLALibrary/ucla-library-website-components/commit/89efc962cbcae4f634de80c1816caed8659f2f9a))
+
+## [3.6.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.3...v3.6.4) (2024-08-09)
+
+
+### Bug Fixes
+
+* update vite.config.js external ['vue', 'vue-router', 'pinia'] ([#586](https://github.com/UCLALibrary/ucla-library-website-components/issues/586)) ([7658906](https://github.com/UCLALibrary/ucla-library-website-components/commit/765890699864cdb301a0b44b559280dbd405cfb9))
+
+## [3.6.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.2...v3.6.3) (2024-08-08)
+
+
+### Bug Fixes
+
+* APPS-2870 Component CardMeta in RichText - Text is truncated when it shouldn't be ([#582](https://github.com/UCLALibrary/ucla-library-website-components/issues/582)) ([2a8e814](https://github.com/UCLALibrary/ucla-library-website-components/commit/2a8e8148588a7765c7bf30ebbb03c9177f87ded1))
+
+## [3.6.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.1...v3.6.2) (2024-08-08)
+
+
+### Bug Fixes
+
+* APPS-2879 - Update NavBreadcrumb to use Event Title ([#584](https://github.com/UCLALibrary/ucla-library-website-components/issues/584)) ([835a8aa](https://github.com/UCLALibrary/ucla-library-website-components/commit/835a8aa08dfe1649c37ba00642216f5856ee7332))
+
 ## [3.6.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.6.0...v3.6.1) (2024-08-08)
 
 

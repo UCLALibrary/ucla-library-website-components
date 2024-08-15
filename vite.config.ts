@@ -24,7 +24,7 @@ export default defineConfig({
       name: 'ucla-library-website-components',
     },
     rollupOptions: {
-      external: ['vue', 'vue-router'],
+      external: ['vue', 'vue-router', 'pinia'],
       output: {
         // preserveModules: true,
         exports: 'named',
@@ -40,6 +40,7 @@ export default defineConfig({
       scss: {
         additionalData: `
                   @import "ucla-library-design-tokens/scss/fonts.scss";
+                  @import "ucla-library-design-tokens/scss/_tokens-ftva";
                   @import "ucla-library-design-tokens/scss/app.scss";
                 `,
       },
