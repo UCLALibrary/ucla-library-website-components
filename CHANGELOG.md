@@ -1,3 +1,10 @@
+## [3.8.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.3...v3.8.4) (2024-08-16)
+
+
+### Bug Fixes
+
+* Revert "fix: Add production url back for blockhours" ([#594](https://github.com/UCLALibrary/ucla-library-website-components/issues/594)) ([8aa0853](https://github.com/UCLALibrary/ucla-library-website-components/commit/8aa0853c9d0b9c4b5ea672e9288ca096318ccb07)), closes [#593](https://github.com/UCLALibrary/ucla-library-website-components/issues/593)
+
 ## [3.8.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.2...v3.8.3) (2024-08-16)
 
 
