@@ -14,69 +14,28 @@ const props = defineProps({
   },
 })
 const iframeRef = ref<HTMLIFrameElement | null>(null)
-const trackHeight = ref(0)
 // Computed
 const parsedSrc = computed(() => {
   if (!props.isClicc)
-    return `/blockHours.html?lid=${props.lid}`
+    return `https://www.library.ucla.edu/blockHours.html?lid=${props.lid}`
   else
-    return '/blockCliccHours.html?lid=0'
+    return 'https://www.library.ucla.edu/blockCliccHours.html?lid=0'
 })
-// Function to adjust iframe height
-function adjustIframeHeight(data: number) {
-  if (iframeRef.value) {
-    console.log('iframe calculated height:', data)
-    iframeRef.value.style.height = `${data + 20}px`
-  }
-}
-// Polling mechanism to adjust height
-function startPolling() {
-  setInterval(() => {
-    if (iframeRef.value) {
-      const height = iframeRef.value.contentWindow?.document.body.scrollHeight
-      if (height) {
-        if (height !== trackHeight.value) {
-          adjustIframeHeight(height)
-          trackHeight.value = height
-        }
-      }
-    }
-  }, 1000) // Adjust every second, can be tuned as needed
-}
 // Mounted
 onMounted(() => {
   window.addEventListener(
     'message',
     (e) => {
-      console.log('Message received:', e)
       const eventName = e.data[0]
       const data = e.data[1]
       // Previously we used JS DOM manipulation to set the height of the iframe via getElementsById / getElementsByTagName
       // HOWEVER, this was failing when a race condition occured between the iframe loading and the JS DOM manipulation (APPS-2852)
       // THEREFORE, we are now using vue refs to set the height of the iframe, which should be sturdier
-
       if (eventName === 'setHeight' && iframeRef.value)
-        adjustIframeHeight(data)
+        iframeRef.value!.style.height = `${data + 20}px`
     },
     false
   )
-  // Force height adjustment on load and resize
-  /*
-    Force Height Request on Load/Resize: The window.onload and window.onresize
-    events are used to send a message to the iframe asking
-    it to send back its height. This ensures that even if the parent page is
-    opened in a new window, the height adjustment is triggered.
-  */
-  window.onload = () => {
-    if (iframeRef.value)
-      iframeRef.value.contentWindow?.postMessage('requestHeight', '*')
-  }
-
-  window.onresize = () => {
-    if (iframeRef.value)
-      iframeRef.value.contentWindow?.postMessage('requestHeight', '*')
-  }
-  startPolling()
 })
 </script>
 
@@ -87,19 +46,11 @@ onMounted(() => {
     </h3>
     <div class="content">
       <iframe
-        id="the-iframe"
-        ref="iframeRef"
-        title="Hours for location"
-        class="iframe"
-        :src="parsedSrc"
-        frameBorder="0"
-        width="100%"
+        id="the-iframe" ref="iframeRef" title="Hours for location" class="iframe" :src="parsedSrc" frameBorder="0" width="100%"
         height="100%"
       />
       <ButtonLink
-        label="All Library Hours"
-        :is-secondary="true"
-        to="https://calendar.library.ucla.edu/hours"
+        label="All Library Hours" :is-secondary="true" to="https://calendar.library.ucla.edu/hours"
         class="btn-lnk"
       />
     </div>
