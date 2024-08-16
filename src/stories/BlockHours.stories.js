@@ -41,30 +41,6 @@ export function MoreInternalLocations() {
   }
 }
 
-export function Powell() {
-  return {
-    data() {
-      return {}
-    },
-    components: { BlockHours },
-    template: `
-        <block-hours lid="2572"/>
-    `,
-  }
-}
-
-export function SEL() {
-  return {
-    data() {
-      return {}
-    },
-    components: { BlockHours },
-    template: `
-        <block-hours lid="4702"/>
-    `,
-  }
-}
-
 export function WithZeroLid() {
   return {
     data() {
