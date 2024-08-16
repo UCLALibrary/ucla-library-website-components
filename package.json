@@ -2,7 +2,7 @@
   "name": "ucla-library-website-components",
   "type": "module",
   "private": false,
-  "version": "3.8.2",
+  "version": "3.8.3",
   "main": "./dist/ucla-library-website-components.umd.cjs",
   "module": "./dist/ucla-library-website-components.js",
   "style": "./dist/style.css",
