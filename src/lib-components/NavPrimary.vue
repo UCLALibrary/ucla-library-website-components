@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
+import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
 import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
+import ButtonLink from '@/lib-components/ButtonLink.vue'
 import NavMenuItem from '@/lib-components/NavMenuItem.vue'
 import { useTheme } from '@/composables/useTheme'
 
@@ -30,6 +32,7 @@ const { items, currentPath, title, acronym } = defineProps({
 
 const route = useRoute()
 const isOpened = ref(false)
+const slotIsOpened = ref(false)
 const activeMenuIndex = ref(-1)
 
 const theme = useTheme()
@@ -41,12 +44,18 @@ const classes = computed(() => [
   { 'has-acronym': acronym },
   theme?.value || ''
 ])
-const shouldRenderItemTop = computed(() => { 
+const themeSettings = computed(() => { 
   switch (theme?.value) {
     case 'ftva':
-      return false
+      return {
+        renderItemTop: false,
+        showSearch: true
+      }
     default:
-      return true
+      return {
+        renderItemTop: true,
+        showSearch: false
+      }
   }
 })
 const shouldRenderSmartLink = computed(() => title || acronym)
@@ -99,50 +108,41 @@ function clearActive() {
 <template>
   <nav
     aria-label="Primary Navigation"
-    :class="classes"
-  >
-    <div v-if="shouldRenderItemTop" class="item-top">
+    :class="classes">
+    <div v-if="themeSettings.renderItemTop" class="item-top">
       <SmartLink
         v-if="shouldRenderSmartLink"
         to="/"
-        :aria-label="title ? '' : `UCLA Library home page`"
-      >
+        :aria-label="title ? '' : `UCLA Library home page`">
         <div
           v-if="title"
-          class="title"
-        >
+          class="title">
           <span class="full-title"> {{ title }} </span>
           <span
             v-if="acronym"
-            class="acronym"
-          > {{ acronym }} </span>
+            class="acronym"> {{ acronym }} </span>
         </div>
         <SvgLogoUclaLibrary
           v-else
           class="svg logo-ucla"
-          alt="UCLA Library logo blue"
-        />
+          alt="UCLA Library logo blue" />
       </SmartLink>
       <a
         v-else
         href="/"
-        :aria-label="title ? '' : `UCLA Library home page`"
-      >
+        :aria-label="title ? '' : `UCLA Library home page`">
         <div
           v-if="title"
-          class="title"
-        >
+          class="title">
           <span class="full-title"> {{ title }} </span>
           <span
             v-if="acronym"
-            class="acronym"
-          > {{ acronym }} </span>
+            class="acronym"> {{ acronym }} </span>
         </div>
         <SvgLogoUclaLibrary
           v-else
           class="svg logo-ucla"
-          alt="UCLA Library logo blue"
-        />
+          alt="UCLA Library logo blue" />
       </a>
     </div>
 
@@ -155,18 +155,15 @@ function clearActive() {
         :is-opened="isOpened"
         @click="toggleMenu"
         @mouseover="setActive(index)"
-        @mouseleave="clearActive"
-      />
+        @mouseleave="clearActive" />
       <li
         v-for="item in noChildren"
         :key="`nav-primary-${item.name}`"
-        class="nochildren-links"
-      >
+        class="nochildren-links">
         <SmartLink
           class="nochildren-link underline-hover"
           :to="item.to"
-          :link-target="item.target"
-        >
+          :link-target="item.target">
           {{ item.name }}
         </SmartLink>
       </li>
@@ -174,33 +171,44 @@ function clearActive() {
 
     <div
       v-if="!title"
-      class="support-links"
-    >
+      class="support-links">
       <div
         v-for="item in supportLinks"
         :key="`nav-primary-support-${item.name}`"
-        class="item-top"
-      >
+        class="item-top">
         <SmartLink
           class="support-link underline-hover"
-          :to="item.to"
-        >
+          :to="item.to">
           {{ item.name }}
         </SmartLink>
       </div>
     </div>
 
+    <ul v-if="themeSettings.showSearch" class="more-menu">
+      <ButtonLink
+        class="search-button"
+        icon-name="none"
+        @click="slotIsOpened = !slotIsOpened"
+        aria-label="Search">
+        <IconSearch class="icon-search" />
+      </ButtonLink>
+    </ul>
+
     <div class="background-white" />
     <div
       v-if="isOpened"
       class="background-blue"
-      @click="toggleMenu"
-    />
+      @click="toggleMenu" />
+    <div
+      v-if="slotIsOpened && themeSettings.showSearch"
+      class="background-blue"
+      @click="">
+      <slot />
+    </div>
     <div
       v-if="isOpened"
       class="click-blocker"
-      @click="toggleMenu"
-    />
+      @click="toggleMenu" />
   </nav>
 </template>
 

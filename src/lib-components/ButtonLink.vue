@@ -113,7 +113,7 @@ const parsedIconName = computed(() => {
     :link-target="linkTarget"
   >
     <span class="label">{{ label }}</span>
-
+    <slot />
     <component
       :is="parsedIconName"
       v-if="parsedIconName !== ''"

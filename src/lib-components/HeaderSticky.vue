@@ -5,6 +5,7 @@ import NavPrimary from '@/lib-components/NavPrimary.vue'
 import NavSecondary from '@/lib-components/NavSecondary.vue'
 import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
 import { useTheme } from '@/composables/useTheme'
+import NavSearch from './NavSearch.vue'
 
 const { primaryItems, secondaryItems } = defineProps({
   primaryItems: {
@@ -26,7 +27,9 @@ const classes = computed(() => {
 
 <template>
   <header :class="classes">
-    <NavPrimary :items="primaryItems" class="primary" />
+    <NavPrimary :items="primaryItems" class="primary">
+      <NavSearch /> <!-- v-if="theme?.value === 'ftva'"/>-->
+    </NavPrimary>
 
     <NavSecondary v-if="secondaryItems.length !== 0" :items="secondaryItems" class="secondary" />
   </header>
