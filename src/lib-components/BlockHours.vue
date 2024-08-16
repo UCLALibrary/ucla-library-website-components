@@ -18,9 +18,9 @@ const trackHeight = ref(0)
 // Computed
 const parsedSrc = computed(() => {
   if (!props.isClicc)
-    return `/blockHours.html?lid=${props.lid}`
+    return `https://www.library.ucla.edu/blockHours.html?lid=${props.lid}`
   else
-    return '/blockCliccHours.html?lid=0'
+    return 'https://www.library.ucla.edu/blockCliccHours.html?lid=0'
 })
 // Function to adjust iframe height
 function adjustIframeHeight(data: number) {
