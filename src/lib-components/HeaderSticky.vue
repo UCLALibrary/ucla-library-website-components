@@ -28,7 +28,7 @@ const classes = computed(() => {
 <template>
   <header :class="classes">
     <NavPrimary :items="primaryItems" class="primary">
-      <NavSearch /> <!-- v-if="theme?.value === 'ftva'"/>-->
+      <NavSearch v-if="theme?.value === 'ftva'"/>
     </NavPrimary>
 
     <NavSecondary v-if="secondaryItems.length !== 0" :items="secondaryItems" class="secondary" />

@@ -146,6 +146,17 @@ function clearActive() {
       </a>
     </div>
 
+    <!-- search is placed before menu so that it can be easily kept at to when menu expands -->
+    <ul v-if="themeSettings.showSearch" class="more-menu">
+      <ButtonLink
+        class="search-button"
+        icon-name="none"
+        @click="slotIsOpened = !slotIsOpened"
+        aria-label="Search">
+        <IconSearch class="icon-search" />
+      </ButtonLink>
+    </ul>
+
     <ul class="menu">
       <NavMenuItem
         v-for="(item, index) in parsedItems"
@@ -183,28 +194,18 @@ function clearActive() {
         </SmartLink>
       </div>
     </div>
-
-    <ul v-if="themeSettings.showSearch" class="more-menu">
-      <ButtonLink
-        class="search-button"
-        icon-name="none"
-        @click="slotIsOpened = !slotIsOpened"
-        aria-label="Search">
-        <IconSearch class="icon-search" />
-      </ButtonLink>
-    </ul>
-
     <div class="background-white" />
     <div
       v-if="isOpened"
       class="background-blue"
       @click="toggleMenu" />
     <div
-      v-if="slotIsOpened && themeSettings.showSearch"
-      class="background-blue"
+      v-if="themeSettings.showSearch"
+      class="background-blue slot-container"
       @click="">
       <slot />
     </div>
+    <!-- slotIsOpened && -->
     <div
       v-if="isOpened"
       class="click-blocker"

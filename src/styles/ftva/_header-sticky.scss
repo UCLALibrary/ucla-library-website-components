@@ -13,6 +13,8 @@
 
     .primary {
         width: 100%;
+        max-width: var(--ftva-container-max-width);
+        margin: 0 auto;
         :deep(.section-name) {
           color: white;
         }

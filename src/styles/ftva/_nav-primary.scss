@@ -15,14 +15,15 @@
     }
 
     .more-menu {
-        margin-left: auto;
-        align-self: center;
+        position:absolute;
+        right: 0;
+        top: 0;
         height: 100%;
 
         .search-button {
             background: none;
             border: none;
-            height: 100%;
+            height: 64px;
             width: 65px;
             padding: unset;
 
