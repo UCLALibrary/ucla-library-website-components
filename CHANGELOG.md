@@ -1,3 +1,10 @@
+# [3.9.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.5...v3.9.0) (2024-08-16)
+
+
+### Features
+
+* APPS-2821 Add FTVA theme to RichText component ([#574](https://github.com/UCLALibrary/ucla-library-website-components/issues/574)) ([e468a43](https://github.com/UCLALibrary/ucla-library-website-components/commit/e468a43fe88d9b3d9a56eab75ea16425221abdd8))
+
 ## [3.8.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.4...v3.8.5) (2024-08-16)
 
 
