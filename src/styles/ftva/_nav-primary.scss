@@ -1,4 +1,12 @@
-.ftva.nav-primary {
+.ftva.nav-primary.primary {
+    position: relative; //absolutely positioned children will be relative to this
+    overflow: visible; //allows the search button menu to overflow the container
+    // refactor to grid layout so we can place menu items over top of each other w/o absolute positioning
+    display: grid;
+    grid-template-columns: auto auto 64px;
+    justify-content: unset;
+    grid-auto-flow: dense;
+
     .support-links {
         .item-top {
             display: none;
@@ -14,11 +22,20 @@
         background-color: $navy-blue;
     }
 
+    .menu {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
     .more-menu {
-        position:absolute;
-        right: 0;
-        top: 0;
-        height: 100%;
+        display: block;
+        grid-column: 3;
+        // may need for mobile styles?
+        // flex-direction: column;
+        // position: absolute;
+        // right: 0;
+        // top: 0;
+        // height: 100%;
 
         .search-button {
             background: none;
@@ -54,6 +71,44 @@
 
             :deep(.svg__fill--dark-navy) {
                 fill: white;
+            }
+        }
+
+        .slot-container {
+            display: block;
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            right: 0;
+            background-color: $navy-blue;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition-duration: .2s;
+            transition-timing-function: ease-in-out;
+
+            // add css 'wings' to fill sides of large screen with menu bg color
+            &::after,
+            &::before {
+                display: block;
+                overflow: visible;
+                position: absolute;
+                left: -500px;
+                bottom: 0px;
+                content: '';
+                height: 100%;
+                max-height: 400px;
+                width: 500px;
+                background-color: $navy-blue;
+            }
+
+            &::after {
+                left: 100%;
+            }
+
+            &.is-opened {
+                transform: scaleY(1);
             }
         }
     }

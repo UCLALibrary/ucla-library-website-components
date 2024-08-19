@@ -31,14 +31,14 @@ const { items, currentPath, title, acronym } = defineProps({
 })
 
 const route = useRoute()
-const isOpened = ref(false)
-const slotIsOpened = ref(false)
+const isOpened = ref(false) // tracks if menu is open
+const slotIsOpened = ref(false) // tracks if (newer) slot menu is open
 const activeMenuIndex = ref(-1)
 
 const theme = useTheme()
 const classes = computed(() => [
   'nav-primary',
-  { 'is-opened': isOpened.value },
+  { 'is-opened': isOpened.value || slotIsOpened.value },
   { 'not-hovered': activeMenuIndex.value === -1 },
   { 'has-title': title },
   { 'has-acronym': acronym },
@@ -87,7 +87,23 @@ onMounted(() => {
   activeMenuIndex.value = currentPathActiveIndex.value
 })
 
+function toggleSlot() {
+  // if menu is open, close it first
+  if (isOpened.value) {
+    isOpened.value = false
+    // then open slot menu on delay to prevent animation overlap
+    setTimeout(() => {
+      slotIsOpened.value = !slotIsOpened.value
+    }, 400)
+  }
+  // otherwise, just open slot menu
+  else { slotIsOpened.value = !slotIsOpened.value }
+}
 function toggleMenu() {
+  // if slot menu is open, close it first
+  if (slotIsOpened.value) {
+    slotIsOpened.value = false
+  }
   isOpened.value = !isOpened.value
   if (!isOpened.value) {
     document.body.setAttribute('tabindex', '-1')
@@ -146,16 +162,21 @@ function clearActive() {
       </a>
     </div>
 
-    <!-- search is placed before menu so that it can be easily kept at to when menu expands -->
-    <ul v-if="themeSettings.showSearch" class="more-menu">
+    <!-- search button is placed before menu so that it can be easily kept at to when menu expands -->
+    <!-- more menu was added in later version of this component and is not rendered at all in default -->
+    <div v-if="themeSettings.showSearch" class="more-menu">
       <ButtonLink
         class="search-button"
         icon-name="none"
-        @click="slotIsOpened = !slotIsOpened"
+        @click="toggleSlot"
         aria-label="Search">
         <IconSearch class="icon-search" />
       </ButtonLink>
-    </ul>
+      <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  v-if="slotIsOpened" -->
+      <div :class="['slot-container', { 'is-opened': slotIsOpened }]">
+        <slot />
+      </div>
+    </div>
 
     <ul class="menu">
       <NavMenuItem
@@ -195,17 +216,11 @@ function clearActive() {
       </div>
     </div>
     <div class="background-white" />
+    <!--  || slotIsOpened -->
     <div
-      v-if="isOpened"
+      v-if="isOpened || slotIsOpened"
       class="background-blue"
       @click="toggleMenu" />
-    <div
-      v-if="themeSettings.showSearch"
-      class="background-blue slot-container"
-      @click="">
-      <slot />
-    </div>
-    <!-- slotIsOpened && -->
     <div
       v-if="isOpened"
       class="click-blocker"

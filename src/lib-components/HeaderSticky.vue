@@ -23,12 +23,24 @@ const theme = useTheme()
 const classes = computed(() => {
   return ['header-sticky', theme?.value || '']
 })
+const themeSettings = computed(() => {
+  switch (theme?.value) {
+    case 'ftva':
+      return {
+        showSearch: true,
+      }
+    default:
+      return {
+        showSearch: false,
+      }
+  }
+})
 </script>
 
 <template>
   <header :class="classes">
     <NavPrimary :items="primaryItems" class="primary">
-      <NavSearch v-if="theme?.value === 'ftva'"/>
+      <NavSearch v-if="themeSettings.showSearch" />
     </NavPrimary>
 
     <NavSecondary v-if="secondaryItems.length !== 0" :items="secondaryItems" class="secondary" />
