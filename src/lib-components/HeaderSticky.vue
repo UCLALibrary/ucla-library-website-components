@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue'
 import { computed } from 'vue'
+import NavSearch from './NavSearch.vue'
 import NavPrimary from '@/lib-components/NavPrimary.vue'
 import NavSecondary from '@/lib-components/NavSecondary.vue'
 import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
 import { useTheme } from '@/composables/useTheme'
-import NavSearch from './NavSearch.vue'
 
 const { primaryItems, secondaryItems } = defineProps({
   primaryItems: {

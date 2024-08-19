@@ -4,7 +4,7 @@
 
 // Helpers
 import SmartLink from '@/lib-components/SmartLink'
-import { useTheme } from '@/composables/useTheme';
+import { useTheme } from '@/composables/useTheme'
 
 export default {
   name: 'NavMenuItem',

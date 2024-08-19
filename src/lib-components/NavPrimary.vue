@@ -44,7 +44,7 @@ const classes = computed(() => [
   { 'has-acronym': acronym },
   theme?.value || ''
 ])
-const themeSettings = computed(() => { 
+const themeSettings = computed(() => {
   switch (theme?.value) {
     case 'ftva':
       return {
@@ -101,9 +101,9 @@ function toggleSlot() {
 }
 function toggleMenu() {
   // if slot menu is open, close it first
-  if (slotIsOpened.value) {
+  if (slotIsOpened.value)
     slotIsOpened.value = false
-  }
+
   isOpened.value = !isOpened.value
   if (!isOpened.value) {
     document.body.setAttribute('tabindex', '-1')
@@ -124,41 +124,50 @@ function clearActive() {
 <template>
   <nav
     aria-label="Primary Navigation"
-    :class="classes">
+    :class="classes"
+  >
     <div v-if="themeSettings.renderItemTop" class="item-top">
       <SmartLink
         v-if="shouldRenderSmartLink"
         to="/"
-        :aria-label="title ? '' : `UCLA Library home page`">
+        :aria-label="title ? '' : `UCLA Library home page`"
+      >
         <div
           v-if="title"
-          class="title">
+          class="title"
+        >
           <span class="full-title"> {{ title }} </span>
           <span
             v-if="acronym"
-            class="acronym"> {{ acronym }} </span>
+            class="acronym"
+          > {{ acronym }} </span>
         </div>
         <SvgLogoUclaLibrary
           v-else
           class="svg logo-ucla"
-          alt="UCLA Library logo blue" />
+          alt="UCLA Library logo blue"
+        />
       </SmartLink>
       <a
         v-else
         href="/"
-        :aria-label="title ? '' : `UCLA Library home page`">
+        :aria-label="title ? '' : `UCLA Library home page`"
+      >
         <div
           v-if="title"
-          class="title">
+          class="title"
+        >
           <span class="full-title"> {{ title }} </span>
           <span
             v-if="acronym"
-            class="acronym"> {{ acronym }} </span>
+            class="acronym"
+          > {{ acronym }} </span>
         </div>
         <SvgLogoUclaLibrary
           v-else
           class="svg logo-ucla"
-          alt="UCLA Library logo blue" />
+          alt="UCLA Library logo blue"
+        />
       </a>
     </div>
 
@@ -168,12 +177,13 @@ function clearActive() {
       <ButtonLink
         class="search-button"
         icon-name="none"
+        aria-label="Search"
         @click="toggleSlot"
-        aria-label="Search">
+      >
         <IconSearch class="icon-search" />
       </ButtonLink>
       <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  v-if="slotIsOpened" -->
-      <div :class="['slot-container', { 'is-opened': slotIsOpened }]">
+      <div class="slot-container" :class="[{ 'is-opened': slotIsOpened }]">
         <slot />
       </div>
     </div>
@@ -187,15 +197,18 @@ function clearActive() {
         :is-opened="isOpened"
         @click="toggleMenu"
         @mouseover="setActive(index)"
-        @mouseleave="clearActive" />
+        @mouseleave="clearActive"
+      />
       <li
         v-for="item in noChildren"
         :key="`nav-primary-${item.name}`"
-        class="nochildren-links">
+        class="nochildren-links"
+      >
         <SmartLink
           class="nochildren-link underline-hover"
           :to="item.to"
-          :link-target="item.target">
+          :link-target="item.target"
+        >
           {{ item.name }}
         </SmartLink>
       </li>
@@ -203,14 +216,17 @@ function clearActive() {
 
     <div
       v-if="!title"
-      class="support-links">
+      class="support-links"
+    >
       <div
         v-for="item in supportLinks"
         :key="`nav-primary-support-${item.name}`"
-        class="item-top">
+        class="item-top"
+      >
         <SmartLink
           class="support-link underline-hover"
-          :to="item.to">
+          :to="item.to"
+        >
           {{ item.name }}
         </SmartLink>
       </div>
@@ -220,11 +236,13 @@ function clearActive() {
     <div
       v-if="isOpened || slotIsOpened"
       class="background-blue"
-      @click="toggleMenu" />
+      @click="toggleMenu"
+    />
     <div
       v-if="isOpened"
       class="click-blocker"
-      @click="toggleMenu" />
+      @click="toggleMenu"
+    />
   </nav>
 </template>
 
