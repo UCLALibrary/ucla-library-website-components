@@ -1,7 +1,7 @@
 .ftva.nav-primary.primary {
     position: relative; //absolutely positioned children will be relative to this
     overflow: visible; //allows the search button menu to overflow the container
-    // refactor to grid layout so we can place menu items over top of each other w/o absolute positioning
+    // this theme refactors to grid layout so we can place menu items over top of each other w/o absolute positioning
     display: grid;
     grid-template-columns: auto auto 64px;
     justify-content: unset;
@@ -30,14 +30,10 @@
     .more-menu {
         display: block;
         grid-column: 3;
-        // may need for mobile styles?
-        // flex-direction: column;
-        // position: absolute;
-        // right: 0;
-        // top: 0;
-        // height: 100%;
 
-        .search-button {
+        .search-button,
+        .close-button,
+        .more-menu-button {
             background: none;
             border: none;
             height: 64px;
@@ -71,6 +67,10 @@
 
             :deep(.svg__fill--dark-navy) {
                 fill: white;
+            }
+
+            :deep(.svg__stroke--primary-blue-03) {
+                stroke: white;
             }
         }
 
@@ -109,6 +109,57 @@
 
             &.is-opened {
                 transform: scaleY(1);
+            }
+        }
+
+        .mobile-only {
+            display: none;
+        }
+    }
+
+    @media #{$small} {
+        grid-auto-flow: unset;
+
+        .more-menu {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+
+            .search-button,
+            .close-button,
+            .more-menu-button {
+                svg {
+                    width: 23px;
+                    height: 23px;
+                }
+            }
+
+            .search-button svg {
+                padding: 4px;
+            }
+
+            .mobile-only {
+                display: block;
+            }
+
+            .slot-container {
+                top: 64px; // menu height
+            }
+        }
+
+        .menu {
+            display: none;
+
+            // opacity: 0; // need to animate?
+            &.is-opened-mobile {
+                display: unset;
+                grid-column: 1 / span 3;
+                width: 100%;
+
+                :deep(.nav-menu-item) {
+                    width: 100%;
+                    max-width: 100%;
+                }
             }
         }
     }

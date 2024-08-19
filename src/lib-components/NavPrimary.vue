@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
+
+// FTVA more menu icons - refactor to use defineasynccomponent ?
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
+import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
 import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
@@ -33,6 +36,7 @@ const { items, currentPath, title, acronym } = defineProps({
 const route = useRoute()
 const isOpened = ref(false) // tracks if menu is open
 const slotIsOpened = ref(false) // tracks if (newer) slot menu is open
+const mobileMenuIsOpened = ref(false) // tracks if mobile hamburger menu is open
 const activeMenuIndex = ref(-1)
 
 const theme = useTheme()
@@ -86,7 +90,7 @@ const parsedItems = computed(() =>
 onMounted(() => {
   activeMenuIndex.value = currentPathActiveIndex.value
 })
-
+// Toggle slot menu (used to render search bar)
 function toggleSlot() {
   // if menu is open, close it first
   if (isOpened.value) {
@@ -99,6 +103,7 @@ function toggleSlot() {
   // otherwise, just open slot menu
   else { slotIsOpened.value = !slotIsOpened.value }
 }
+// toggle primary menu on default theme / all desktops
 function toggleMenu() {
   // if slot menu is open, close it first
   if (slotIsOpened.value)
@@ -110,6 +115,15 @@ function toggleMenu() {
     document.body.focus()
     document.body.removeAttribute('tabindex')
   }
+}
+// toggle mobile menu (used for ftva)
+function toggleMobileMenu() {
+  // close others
+  slotIsOpened.value = false
+  isOpened.value = false
+
+  // toggle mobile menu
+  mobileMenuIsOpened.value = !mobileMenuIsOpened.value
 }
 
 function setActive(index: number) {
@@ -182,13 +196,29 @@ function clearActive() {
       >
         <IconSearch class="icon-search" />
       </ButtonLink>
-      <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  v-if="slotIsOpened" -->
+      <ButtonLink
+        v-if="!mobileMenuIsOpened"
+        class="more-menu-button mobile-only"
+        icon-name="none"
+        aria-label="open menu"
+        @click="toggleMobileMenu"
+      >
+        <IconMenu class="icon-menu" />
+      </ButtonLink>
+      <ButtonLink
+        v-if="mobileMenuIsOpened"
+        class="close-button mobile-only"
+        icon-name="icon-close"
+        aria-label="close menu"
+        @click="toggleMobileMenu"
+      />
+      <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
       <div class="slot-container" :class="[{ 'is-opened': slotIsOpened }]">
         <slot />
       </div>
     </div>
 
-    <ul class="menu">
+    <ul class="menu" :class="[{ 'is-opened-mobile': mobileMenuIsOpened }]">
       <NavMenuItem
         v-for="(item, index) in parsedItems"
         :key="`NavMenuItem-${item.name}`"
@@ -232,7 +262,6 @@ function clearActive() {
       </div>
     </div>
     <div class="background-white" />
-    <!--  || slotIsOpened -->
     <div
       v-if="isOpened || slotIsOpened"
       class="background-blue"
