@@ -1,3 +1,38 @@
+# [3.9.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.5...v3.9.0) (2024-08-16)
+
+
+### Features
+
+* APPS-2821 Add FTVA theme to RichText component ([#574](https://github.com/UCLALibrary/ucla-library-website-components/issues/574)) ([e468a43](https://github.com/UCLALibrary/ucla-library-website-components/commit/e468a43fe88d9b3d9a56eab75ea16425221abdd8))
+
+## [3.8.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.4...v3.8.5) (2024-08-16)
+
+
+### Bug Fixes
+
+* Revert "fix: APPS-2852 block hours" ([#595](https://github.com/UCLALibrary/ucla-library-website-components/issues/595)) ([e102321](https://github.com/UCLALibrary/ucla-library-website-components/commit/e102321a0d3cf1a10891ed92a42abe8e621a4c5d)), closes [#592](https://github.com/UCLALibrary/ucla-library-website-components/issues/592)
+
+## [3.8.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.3...v3.8.4) (2024-08-16)
+
+
+### Bug Fixes
+
+* Revert "fix: Add production url back for blockhours" ([#594](https://github.com/UCLALibrary/ucla-library-website-components/issues/594)) ([8aa0853](https://github.com/UCLALibrary/ucla-library-website-components/commit/8aa0853c9d0b9c4b5ea672e9288ca096318ccb07)), closes [#593](https://github.com/UCLALibrary/ucla-library-website-components/issues/593)
+
+## [3.8.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.2...v3.8.3) (2024-08-16)
+
+
+### Bug Fixes
+
+* Add production url back for blockhours ([#593](https://github.com/UCLALibrary/ucla-library-website-components/issues/593)) ([7e3b33a](https://github.com/UCLALibrary/ucla-library-website-components/commit/7e3b33aa1a6e4789cf7032dfd5e4b9e4b86ed9cd))
+
+## [3.8.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.1...v3.8.2) (2024-08-15)
+
+
+### Bug Fixes
+
+* APPS-2852 block hours ([#592](https://github.com/UCLALibrary/ucla-library-website-components/issues/592)) ([56f5c37](https://github.com/UCLALibrary/ucla-library-website-components/commit/56f5c370e8ec454c4233ed3ff1cb0aec9a69a785))
+
 ## [3.8.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.0...v3.8.1) (2024-08-15)
 
 

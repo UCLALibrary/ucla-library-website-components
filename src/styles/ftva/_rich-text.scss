@@ -1,0 +1,52 @@
+.ftva.rich-text {
+  @include ftva-body;
+  color: $body-grey;
+
+  :deep(h3) {
+    @include ftva-h3;
+  }
+
+  :deep(h4) {
+    @include ftva-h4;
+  }
+
+  :deep(h5) {
+    @include ftva-h5;
+  }
+
+  :deep(p),
+  :deep(li),
+  :deep(div) {
+    @include ftva-body;
+  }
+
+  :deep(a) {
+    color: $accent-blue;
+
+    &:hover {
+      color: $body-grey;
+    }
+  }
+
+  :deep(ol) {
+    li {
+      padding-left: 8px;
+    }
+
+    ::marker {
+      @include ftva-body;
+      color: $body-grey;
+    }
+  }
+
+  :deep(ul) {
+    list-style: disc;
+    list-style-position: inside;
+  }
+
+  :deep(ul li) {
+    background-image: none;
+    padding-left: 8px;
+    overflow: hidden;
+  }
+}
