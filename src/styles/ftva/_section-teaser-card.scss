@@ -8,7 +8,7 @@
 
     .card {
         width: calc((100% / 3) - 22px);
-        min-width: 298px;
+        min-width: 280px;
         margin-bottom: 15px;
 
         @media #{$medium} {
