@@ -1,6 +1,4 @@
 .ftva.block-highlight {
-    max-width: 350px;
-    height: 350px;
     position: relative;
 
     border-radius: 12px;
@@ -9,13 +7,24 @@
         border-radius: 10px 10px 0 0;
     }
 
-    .molecule-no-image {
-        border-radius: 10px 10px 0 0;
+    &.is-vertical {
+
+        .image-container {
+            aspect-ratio: 1.71 / 1;
+
+            .molecule-no-image {
+                border-radius: 10px 10px 0 0;
+                aspect-ratio: 1.67 / 1;
+                height: 100%;
+            }
+        }
     }
 
     :deep(.card-meta) {
-        margin: 25px 10px 0;
-        padding: 0px 10px 10px 10px;
+        position: relative;
+        margin: 0px;
+        padding: 25px 20px 15px 20px;
+        height: 191px;
 
         .title {
             @include ftva-card-title-2;
