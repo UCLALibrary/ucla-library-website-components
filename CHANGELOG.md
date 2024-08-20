@@ -1,3 +1,10 @@
+## [3.9.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.9.0...v3.9.1) (2024-08-20)
+
+
+### Bug Fixes
+
+* APPS-2882 part 1: increase max-width of sectionTeaserCard & sectionWrapper for ftva theme ([#590](https://github.com/UCLALibrary/ucla-library-website-components/issues/590)) ([6f7fd84](https://github.com/UCLALibrary/ucla-library-website-components/commit/6f7fd8456d38c37c71be21b16944988e546bf9d9))
+
 # [3.9.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.8.5...v3.9.0) (2024-08-16)
 
 
