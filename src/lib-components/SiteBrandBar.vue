@@ -31,7 +31,7 @@ const parsedHeaderThemeSettings = computed(() => {
       target="_blank"
     >
       <span v-if="!parsedHeaderThemeSettings?.useLogo && parsedHeaderThemeSettings.headerText" class="ucla-text">{{
-        parsedHeaderThemeSettings. headerText }}</span>
+        parsedHeaderThemeSettings.headerText }}</span>
       <SvgLogoUcla v-else class="svg ucla-logo" />
       <span class="visually-hidden">UCLA Home</span>
     </a>
