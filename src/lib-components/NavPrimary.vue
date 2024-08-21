@@ -56,11 +56,11 @@ const isMobile = computed(() => {
 })
 // Define a watcher for goBackRef
 watch(isMobile, (newVal) => {
-  //close menus on resize
+  // close menus on resize
   if (newVal)
     isOpened.value = false
-    slotIsOpened.value = false
-    mobileMenuIsOpened.value = false
+  slotIsOpened.value = false
+  mobileMenuIsOpened.value = false
 })
 const themeSettings = computed(() => {
   switch (theme?.value) {
@@ -180,43 +180,51 @@ function clearActive() {
 <template>
   <nav
     aria-label="Primary Navigation"
-    :class="classes">
-
+    :class="classes"
+  >
     <!-- item top contains logos, etc -->
     <div v-if="themeSettings.renderItemTop" class="item-top">
       <SmartLink
         v-if="shouldRenderSmartLink"
         to="/"
-        :aria-label="title ? '' : `UCLA Library home page`">
+        :aria-label="title ? '' : `UCLA Library home page`"
+      >
         <div
           v-if="title"
-          class="title">
+          class="title"
+        >
           <span class="full-title"> {{ title }} </span>
           <span
             v-if="acronym"
-            class="acronym"> {{ acronym }} </span>
+            class="acronym"
+          > {{ acronym }} </span>
         </div>
         <SvgLogoUclaLibrary
           v-else
           class="svg logo-ucla"
-          alt="UCLA Library logo blue" />
+          alt="UCLA Library logo blue"
+        />
       </SmartLink>
       <a
         v-else
         href="/"
-        :aria-label="title ? '' : `UCLA Library home page`">
+        :aria-label="title ? '' : `UCLA Library home page`"
+      >
         <div
           v-if="title"
-          class="title">
+          class="title"
+        >
           <span class="full-title"> {{ title }} </span>
           <span
             v-if="acronym"
-            class="acronym"> {{ acronym }} </span>
+            class="acronym"
+          > {{ acronym }} </span>
         </div>
         <SvgLogoUclaLibrary
           v-else
           class="svg logo-ucla"
-          alt="UCLA Library logo blue" />
+          alt="UCLA Library logo blue"
+        />
       </a>
     </div>
     <div v-else-if="isMobile && themeSettings.headerText" class="item-top-mobile">
@@ -231,7 +239,8 @@ function clearActive() {
         class="search-button"
         icon-name="none"
         aria-label="Search"
-        @click="searchClick">
+        @click="searchClick"
+      >
         <IconSearch class="icon-search" />
       </ButtonLink>
       <ButtonLink
@@ -239,7 +248,8 @@ function clearActive() {
         class="more-menu-button mobile-only"
         icon-name="none"
         aria-label="open menu"
-        @click="toggleMobileMenu">
+        @click="toggleMobileMenu"
+      >
         <IconMenu class="icon-menu" />
       </ButtonLink>
       <ButtonLink
@@ -247,7 +257,8 @@ function clearActive() {
         class="close-button mobile-only"
         icon-name="icon-close"
         aria-label="close menu"
-        @click="toggleMobileMenu" />
+        @click="toggleMobileMenu"
+      />
       <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
       <div class="slot-container" :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]">
         <slot name="additional-menu" />
@@ -263,11 +274,13 @@ function clearActive() {
         :is-opened="isOpened"
         @click="() => toggleMenuOrSubmenus(index)"
         @mouseover="isMobile ? '' : setActive(index)"
-        @mouseleave="isMobile ? '' : clearActive">
+        @mouseleave="isMobile ? '' : clearActive"
+      >
         <!-- insert caret icon into NavMenuItem slot if theme calls for it -->
         <span
           v-if="themeSettings.horizontalMobileMenu && isMobile" class="caret"
-          :class="{ 'is-active': item.isActive }">
+          :class="{ 'is-active': item.isActive }"
+        >
           <span class="chevron">
             <SvgIconCaretDown class="caret-down-svg" />
           </span>
@@ -276,11 +289,13 @@ function clearActive() {
       <li
         v-for="item in noChildren"
         :key="`nav-primary-${item.name}`"
-        class="nochildren-links">
+        class="nochildren-links"
+      >
         <SmartLink
           class="nochildren-link underline-hover"
           :to="item.to"
-          :link-target="item.target">
+          :link-target="item.target"
+        >
           {{ item.name }}
         </SmartLink>
       </li>
@@ -288,14 +303,17 @@ function clearActive() {
 
     <div
       v-if="!title"
-      class="support-links">
+      class="support-links"
+    >
       <div
         v-for="item in supportLinks"
         :key="`nav-primary-support-${item.name}`"
-        class="item-top">
+        class="item-top"
+      >
         <SmartLink
           class="support-link underline-hover"
-          :to="item.to">
+          :to="item.to"
+        >
           {{ item.name }}
         </SmartLink>
       </div>
@@ -306,11 +324,13 @@ function clearActive() {
     <div
       v-if="isOpened || slotIsOpened"
       class="background-blue"
-      @click="toggleMenu" />
+      @click="toggleMenu"
+    />
     <div
       v-if="isOpened"
       class="click-blocker"
-      @click="toggleMenu" />
+      @click="toggleMenu"
+    />
   </nav>
 </template>
 
