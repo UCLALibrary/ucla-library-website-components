@@ -41,6 +41,11 @@
         :deep(.background-blue) {
             width: 1920px;
         }
+
+        .donate-button {
+            display: none; // not used on default theme
+            margin-bottom: 18px;
+        }
     }
 
     .secondary {

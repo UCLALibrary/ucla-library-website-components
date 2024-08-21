@@ -1,5 +1,6 @@
-// Import mock api data
-import { computed } from 'vue'
+// Import mock api data\
+import { computed, onBeforeUnmount, onMounted } from 'vue'
+import { useGlobalStore } from '@/stores/GlobalStore'
 import * as API from '@/stories/mock-api.json'
 import HeaderSticky from '@/lib-components/HeaderSticky'
 
@@ -61,6 +62,26 @@ export function Default() {
 
 export function FTVAVersion() {
   return {
+    setup() {
+      onMounted(() => {
+        const globalStore = useGlobalStore()
+
+        const updateWinWidth = () => {
+          console.log(window.innerWidth)
+          globalStore.winWidth = window.innerWidth
+        }
+
+        // Set initial winWidth
+        updateWinWidth()
+
+        window.addEventListener('resize', updateWinWidth)
+
+        // Clean up
+        onBeforeUnmount(() => {
+          window.removeEventListener('resize', updateWinWidth)
+        })
+      })
+    },
     data() {
       return {
         primaryItems,

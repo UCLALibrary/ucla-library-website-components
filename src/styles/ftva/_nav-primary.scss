@@ -25,6 +25,10 @@
     .menu {
         grid-column-start: 1;
         grid-column-end: 2;
+        display: flex;
+        .section-name {
+            font-size: 20px;
+        }
     }
 
     .more-menu {
@@ -118,47 +122,149 @@
     }
 
     @media #{$small} {
+        display: flex;
+        flex-direction:  column;
         grid-auto-flow: unset;
+        padding: 0 30px;
 
         .more-menu {
+            position: relative;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            align-self: flex-end;
             gap: 12px;
+            // height: 64px;
 
             .search-button,
             .close-button,
             .more-menu-button {
+                margin-left: auto;
+                width: 23px;
+                height: 64px;
                 svg {
-                    width: 23px;
-                    height: 23px;
+                    width: 32px;
+                    height: 36px;
+                }
+                ::after {
+                    display: none;
                 }
             }
 
-            .search-button svg {
-                padding: 4px;
+            .search-button {
+                // display: none;
+                position: absolute;
+                right: 30px;
+                top: -1px;
+                                svg {
+                                        width: 14px;
+                                        height: 14px;
+                                    }
             }
 
             .mobile-only {
                 display: block;
             }
-
             .slot-container {
-                top: 64px; // menu height
+                transition-duration: 0s; // no transition on mobile
+            }
+            .slot-container.is-opened-mobile {
+                position: relative;
+                transform: scaleY(1);
+                :deep(.nav-search) {
+                    padding:30px 0px;
+                }
             }
         }
 
         .menu {
+            // closed menu
             display: none;
+            grid-column: 1 / span 3;
+            width: 100%;
 
-            // opacity: 0; // need to animate?
+            :deep(.nav-menu-item),
+            :deep(.nav-menu-item.is-opened) {
+                width: 100%;
+                max-width: 100%;
+                border-bottom: 1px solid var(--ftva-medium-blue);
+                ::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -1px;
+                    opacity: 0; // use opacity to hide so we can animate it
+                    width: 100%;
+                    height: 5px;
+                    background-color: var(--ftva-medium-blue);
+                    margin-top: 5px;
+                    transition-property: opacity;
+                    transition-duration: $transition-timing-slow;
+                    transition-timing-function: ease-in-out;
+                }
+                .section-name {
+                    text-align: left;
+
+                    &:hover {
+                        &::after {
+                            opacity: 0;
+                        }
+                    }
+                }
+
+                .sub-menu {
+                    opacity: 0;
+                    max-height: 0;
+                    .sub-menu-item {
+                        &:first-child {
+                            margin-top: 0px;
+                        }
+                        &:last-child {
+                            margin-bottom: 0px;
+                        }
+                    .sub-menu-link {
+                        color: $grey-blue;
+                        padding-right: 24px;
+                        padding-left: 24px;;
+                    }
+                }
+                }
+            }
+            // icon in nav menu item slot
+            .caret {
+                position: absolute;
+                top: 14px;
+                right: 0;
+                .chevron svg {
+                    margin-right:-8px; //offset whitespace around icon
+                    :deep(.svg__stroke--primary-blue-03) {
+                        stroke: $grey-blue;
+                    }
+                }
+                &.is-active > .chevron svg {
+                    transform: rotate(180deg);
+                }
+            }
+
+            // open menu
             &.is-opened-mobile {
                 display: unset;
-                grid-column: 1 / span 3;
-                width: 100%;
 
                 :deep(.nav-menu-item) {
-                    width: 100%;
-                    max-width: 100%;
+                    .section-name::after {
+                     opacity: 0;                                
+                    }
+                    &.is-active {
+                            .section-name {
+                                &::after {
+                                    opacity: 0;
+                                }
+                            }
+                    
+                            .sub-menu {
+                                opacity: 1;
+                                max-height: unset;
+                            }
+                    }
                 }
             }
         }

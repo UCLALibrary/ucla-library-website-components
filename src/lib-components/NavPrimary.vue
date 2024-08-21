@@ -4,12 +4,14 @@ import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-libr
 // FTVA more menu icons - refactor to use defineasynccomponent ?
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
 import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
+import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
 import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 import NavMenuItem from '@/lib-components/NavMenuItem.vue'
+import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'
 
 import type { NavPrimaryItemType } from '@/types/types'
@@ -33,6 +35,7 @@ const { items, currentPath, title, acronym } = defineProps({
   },
 })
 
+const globalStore = useGlobalStore()
 const route = useRoute()
 const isOpened = ref(false) // tracks if menu is open
 const slotIsOpened = ref(false) // tracks if (newer) slot menu is open
@@ -48,17 +51,22 @@ const classes = computed(() => [
   { 'has-acronym': acronym },
   theme?.value || ''
 ])
+const isMobile = computed(() => {
+  return globalStore.winWidth <= 750 // matches {$small} in _variables.scss
+})
 const themeSettings = computed(() => {
   switch (theme?.value) {
     case 'ftva':
       return {
         renderItemTop: false,
-        showSearch: true
+        showSearch: true,
+        horizontalMobileMenu: true
       }
     default:
       return {
         renderItemTop: true,
-        showSearch: false
+        showSearch: false,
+        horizontalMobileMenu: false
       }
   }
 })
@@ -90,6 +98,8 @@ const parsedItems = computed(() =>
 onMounted(() => {
   activeMenuIndex.value = currentPathActiveIndex.value
 })
+
+// Menu Functions
 // Toggle slot menu (used to render search bar)
 function toggleSlot() {
   // if menu is open, close it first
@@ -103,6 +113,7 @@ function toggleSlot() {
   // otherwise, just open slot menu
   else { slotIsOpened.value = !slotIsOpened.value }
 }
+
 // toggle primary menu on default theme / all desktops
 function toggleMenu() {
   // if slot menu is open, close it first
@@ -116,7 +127,7 @@ function toggleMenu() {
     document.body.removeAttribute('tabindex')
   }
 }
-// toggle mobile menu (used for ftva)
+// toggle Mobile-only menu
 function toggleMobileMenu() {
   // close others
   slotIsOpened.value = false
@@ -124,6 +135,28 @@ function toggleMobileMenu() {
 
   // toggle mobile menu
   mobileMenuIsOpened.value = !mobileMenuIsOpened.value
+}
+// toggle submenus on mobile
+function toggleMenuOrSubmenus(index: number) {
+  if (themeSettings.value?.horizontalMobileMenu && (isMobile.value === true)) {
+    // toggle clicked submenu only
+    console.log('mobile submenu toggle', index)
+    if (index === activeMenuIndex.value) {
+      clearActive()
+    }
+    else {
+      clearActive()
+      setActive(index)
+    }
+  }
+  else {
+    console.log('classic')
+    toggleMenu()
+  }
+}
+
+function searchClick() {
+  isMobile.value === true ? toggleMobileMenu() : toggleSlot()
 }
 
 function setActive(index: number) {
@@ -189,15 +222,16 @@ function clearActive() {
     <!-- more menu was added in later version of this component and is not rendered at all in default -->
     <div v-if="themeSettings.showSearch" class="more-menu">
       <ButtonLink
+        v-if="!mobileMenuIsOpened"
         class="search-button"
         icon-name="none"
         aria-label="Search"
-        @click="toggleSlot"
+        @click="searchClick"
       >
         <IconSearch class="icon-search" />
       </ButtonLink>
       <ButtonLink
-        v-if="!mobileMenuIsOpened"
+        v-if="!mobileMenuIsOpened || !isMobile"
         class="more-menu-button mobile-only"
         icon-name="none"
         aria-label="open menu"
@@ -213,8 +247,8 @@ function clearActive() {
         @click="toggleMobileMenu"
       />
       <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
-      <div class="slot-container" :class="[{ 'is-opened': slotIsOpened }]">
-        <slot />
+      <div class="slot-container" :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]">
+        <slot name="additional-menu" />
       </div>
     </div>
 
@@ -225,10 +259,20 @@ function clearActive() {
         :item="item"
         :is-active="item.isActive"
         :is-opened="isOpened"
-        @click="toggleMenu"
-        @mouseover="setActive(index)"
-        @mouseleave="clearActive"
-      />
+        @click="() => toggleMenuOrSubmenus(index)"
+        @mouseover="isMobile ? '' : setActive(index)"
+        @mouseleave="isMobile ? '' : clearActive"
+      >
+        <!-- insert caret icon into NavMenuItem slot if theme calls for it -->
+        <span
+          v-if="themeSettings.horizontalMobileMenu && isMobile" class="caret"
+          :class="{ 'is-active': item.isActive }"
+        >
+          <span class="chevron">
+            <SvgIconCaretDown class="caret-down-svg" />
+          </span>
+        </span>
+      </NavMenuItem> />
       <li
         v-for="item in noChildren"
         :key="`nav-primary-${item.name}`"
@@ -261,6 +305,8 @@ function clearActive() {
         </SmartLink>
       </div>
     </div>
+    <!-- slot for additional buttons at end of mobile menu (like donate on ftva mobile) -->
+    <slot v-if="isMobile && mobileMenuIsOpened" name="additional-mobile-menu-items" class="mobile-menu-slot" />
     <div class="background-white" />
     <div
       v-if="isOpened || slotIsOpened"

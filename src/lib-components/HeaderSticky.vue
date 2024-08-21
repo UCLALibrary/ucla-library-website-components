@@ -2,6 +2,7 @@
 import type { PropType } from 'vue'
 import { computed } from 'vue'
 import NavSearch from './NavSearch.vue'
+import ButtonLink from './ButtonLink.vue'
 import NavPrimary from '@/lib-components/NavPrimary.vue'
 import NavSecondary from '@/lib-components/NavSecondary.vue'
 import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
@@ -28,10 +29,12 @@ const themeSettings = computed(() => {
     case 'ftva':
       return {
         showSearch: true,
+        showDonate: true,
       }
     default:
       return {
         showSearch: false,
+        showDonate: false,
       }
   }
 })
@@ -40,7 +43,17 @@ const themeSettings = computed(() => {
 <template>
   <header :class="classes">
     <NavPrimary :items="primaryItems" class="primary">
-      <NavSearch v-if="themeSettings.showSearch" />
+      <template #additional-menu>
+        <NavSearch v-if="themeSettings.showSearch" />
+      </template>
+      <template v-if="themeSettings.showDonate" #additional-mobile-menu-items>
+        <ButtonLink
+          label="DONATE"
+          icon-name="none"
+          to="/donate"
+          class="donate-button"
+        />
+      </template>
     </NavPrimary>
 
     <NavSecondary v-if="secondaryItems.length !== 0" :items="secondaryItems" class="secondary" />

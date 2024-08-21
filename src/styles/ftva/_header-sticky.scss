@@ -15,8 +15,13 @@
         width: 100%;
         max-width: var(--ftva-container-max-width);
         margin: 0 auto;
+        .donate-button {
+         display:flex;
+         margin-bottom: 30px;
+        }
         :deep(.section-name) {
           color: white;
+          font-size: 20px;
         }
     }
 }
