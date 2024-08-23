@@ -1,6 +1,6 @@
 .ftva.nav-menu-item {
     max-width: unset;
-    
+
     &:focus-within:not(.is-opened)>.sub-menu {
         background: $navy-blue;
 
@@ -20,13 +20,25 @@
                 opacity: 1;
             }
         }
-    }
+        &:focus {
+            outline: none;
+        }
+    }   
 
     // Hover
     @media #{$has-hover} {
-        .sub-menu-item:hover {
+
+        .sub-menu-item:hover,
+        .sub-menu-item:focus,
+        .sub-menu-link:focus {
             background-color: rgba($accent-blue, 0.3);
             text-decoration: none;
+        }
+
+        .sub-menu-link:focus {
+            outline-offset: 0px;
+            outline-width: 0px;
+            outline-style: none;
         }
     }
 }

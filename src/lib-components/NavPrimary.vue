@@ -4,6 +4,7 @@ import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-libr
 // FTVA more menu icons - refactor to use defineasynccomponent ?
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
 import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
+import IconMenuClose from 'ucla-library-design-tokens/assets/svgs/icon-ftva-circle-x.svg'
 import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
@@ -46,21 +47,25 @@ const theme = useTheme()
 const classes = computed(() => [
   'nav-primary',
   { 'is-opened': isOpened.value || slotIsOpened.value },
+  { 'slot-is-opened': slotIsOpened.value }, // sometimes we need to style different depending on which menu is open
   { 'not-hovered': activeMenuIndex.value === -1 },
   { 'has-title': title },
   { 'has-acronym': acronym },
+  { 'is-opened-mobile': mobileMenuIsOpened.value },
   theme?.value || ''
 ])
 const isMobile = computed(() => {
   return globalStore.winWidth <= 750 // matches {$small} in _variables.scss
 })
 // Define a watcher for goBackRef
-watch(isMobile, (newVal) => {
+watch(isMobile, (oldVal, newVal) => {
+  console.log(oldVal, newVal)
   // close menus on resize
-  if (newVal)
+  if (newVal !== oldVal) {
     isOpened.value = false
-  slotIsOpened.value = false
-  mobileMenuIsOpened.value = false
+    slotIsOpened.value = false
+    mobileMenuIsOpened.value = false
+  }
 })
 const themeSettings = computed(() => {
   switch (theme?.value) {
@@ -111,7 +116,8 @@ onMounted(() => {
 // Menu Functions
 // Toggle slot menu (used to render search bar)
 function toggleSlot() {
-  // if menu is open, close it first
+  // if menu is open, close it first & clear active
+  clearActive()
   if (isOpened.value) {
     isOpened.value = false
     // then open slot menu on delay to prevent animation overlap
@@ -149,7 +155,6 @@ function toggleMobileMenu() {
 function toggleMenuOrSubmenus(index: number) {
   if (themeSettings.value?.horizontalMobileMenu && (isMobile.value === true)) {
     // toggle clicked submenu only
-    console.log('mobile submenu toggle', index)
     if (index === activeMenuIndex.value) {
       clearActive()
     }
@@ -159,7 +164,6 @@ function toggleMenuOrSubmenus(index: number) {
     }
   }
   else {
-    console.log('classic')
     toggleMenu()
   }
 }
@@ -175,6 +179,17 @@ function setActive(index: number) {
 function clearActive() {
   activeMenuIndex.value = currentPathActiveIndex.value
 }
+
+// TODO testing something, remove before merge
+// When Navprimary gains focus, direct focus to the first menu item
+// const primaryMenuFocus = ref<HTMLElement | null>(null)
+// function focusPrimaryMenu() {
+//   console.log('attempt focus')
+//   if (primaryMenuFocus.value) {
+//     console.log('element found')
+//     primaryMenuFocus.value.firstElementChild?.focus()
+//   }
+// }
 </script>
 
 <template>
@@ -231,7 +246,9 @@ function clearActive() {
       {{ themeSettings.headerText }}
     </div>
 
-    <!-- search button is placed before menu so that it can be easily kept at to when menu expands -->
+    <div class="nav-background-fill" />
+
+    <!-- search button is placed before menu so that it can be easily kept at top when menu expands -->
     <!-- more menu was added in later version of this component and is not rendered at all in default -->
     <div v-if="themeSettings.showSearch" class="more-menu">
       <ButtonLink
@@ -255,16 +272,19 @@ function clearActive() {
       <ButtonLink
         v-if="mobileMenuIsOpened"
         class="close-button mobile-only"
-        icon-name="icon-close"
+        icon-name="none"
         aria-label="close menu"
         @click="toggleMobileMenu"
-      />
+      >
+        <IconMenuClose class="icon-menu-close" />
+      </ButtonLink>
       <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
       <div class="slot-container" :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]">
         <slot name="additional-menu" />
       </div>
     </div>
 
+    <!-- this is the primary menu and first in the tab index -->
     <ul class="menu" :class="[{ 'is-opened-mobile': mobileMenuIsOpened }]">
       <NavMenuItem
         v-for="(item, index) in parsedItems"
@@ -285,7 +305,7 @@ function clearActive() {
             <SvgIconCaretDown class="caret-down-svg" />
           </span>
         </span>
-      </NavMenuItem> />
+      </NavMenuItem>
       <li
         v-for="item in noChildren"
         :key="`nav-primary-${item.name}`"
@@ -318,8 +338,10 @@ function clearActive() {
         </SmartLink>
       </div>
     </div>
-    <!-- slot for additional buttons at end of mobile menu (like donate on ftva mobile) -->
-    <slot v-if="isMobile && mobileMenuIsOpened" name="additional-mobile-menu-items" class="mobile-menu-slot" />
+    <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
+    <div v-if="isMobile && mobileMenuIsOpened" class="mobile-menu-slot">
+      <slot name="additional-mobile-menu-items" />
+    </div>
     <div class="background-white" />
     <div
       v-if="isOpened || slotIsOpened"
