@@ -1,10 +1,6 @@
-import { computed } from 'vue'
-import { useGlobalStore } from '@/stores/GlobalStore'
-
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 import NavPrimary from '@/lib-components/NavPrimary'
-import NavSearch from '@/lib-components/NavSearch.vue'
 
 // Storybook default settings
 export default {
@@ -208,28 +204,5 @@ export function WithMicrositeTitle() {
             acronym="MEAP"
         />
     `,
-  }
-}
-
-// FTVA w Mobile
-export function FTVAMobileWinWidth() {
-  return {
-    created() {
-      const globalStore = useGlobalStore()
-      globalStore.winWidth = 600
-    },
-    data() {
-      return {
-        items,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { NavPrimary, NavSearch },
-
-    template: '<nav-primary title="Modern Endangered Archives Program"><nav-search /><nav-primary />',
   }
 }
