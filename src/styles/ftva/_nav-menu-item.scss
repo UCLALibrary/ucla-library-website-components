@@ -1,6 +1,10 @@
 .ftva.nav-menu-item {
     max-width: unset;
 
+    .sub-menu {
+        font-weight: 500;
+    }
+    
     &:focus-within:not(.is-opened)>.sub-menu {
         background: $navy-blue;
 

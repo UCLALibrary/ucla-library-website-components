@@ -55,8 +55,12 @@
     color: $grey-blue;
 
     a.bottom-link {
-      @include ftva-button-link;
+      @include ftva-text-link-default;
       margin-left: 5px;
+      color: white;
+      :hover {
+        @include ftva-text-link-hover;
+      }
     }
   }
 
