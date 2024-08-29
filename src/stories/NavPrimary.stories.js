@@ -206,3 +206,10 @@ export function WithMicrositeTitle() {
     `,
   }
 }
+
+/* Notes on FTVA version
+NavPrimary is used in the ftva site, however it's much more dependent on headersticky for positioning and styles, especially in mobile views.
+Therefore, it does not have a standalone story, but is instead used in the HeaderSticky story.
+
+If the FTVA product ever uses NavPrimary outside of headersticky context, a story should be created for it.
+*/
