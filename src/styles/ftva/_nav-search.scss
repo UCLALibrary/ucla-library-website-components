@@ -1,6 +1,7 @@
 .ftva.nav-search {
   color: $pure-white;
   background-color: $navy-blue;
+  padding: 2rem;
 
   .top-row {
     .icon {
@@ -54,8 +55,26 @@
     color: $grey-blue;
 
     a.bottom-link {
-      @include ftva-button-link;
+      @include ftva-text-link-default;
       margin-left: 5px;
+      color: white;
+      :hover {
+        @include ftva-text-link-hover;
+      }
+    }
+  }
+
+  @media #{$small} {
+    .top-row {
+      .icon {
+        left: 18px;
+      }
+
+      :deep(.search-input-wrapper.search-input) {
+        input[data-search-input="true"] {
+          padding-left: 48px;
+        }
+      }
     }
   }
 }
