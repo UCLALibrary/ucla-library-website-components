@@ -1,8 +1,25 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
+import { useTheme } from '@/composables/useTheme'
+
+const { title } = defineProps({
+  title: {
+    type: String,
+    default: 'TabName',
+  },
+})
+const isActive = ref(true)
+
+const theme = useTheme()
+
+const classes = computed(() => {
+  return ['tab-item', theme?.value || '']
+})
 </script>
 
 <template>
-  <div>
+  <div v-show="isActive" :class="classes">
+    <slot />
   </div>
 </template>
 
