@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
-
-// FTVA more menu icons - refactor to use defineasynccomponent ?
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
 import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
 import IconMenuClose from 'ucla-library-design-tokens/assets/svgs/icon-ftva-circle-x.svg'
@@ -38,10 +36,11 @@ const { items, currentPath, title, acronym } = defineProps({
 
 const globalStore = useGlobalStore()
 const route = useRoute()
-const isOpened = ref(false) // tracks if menu is open
-const slotIsOpened = ref(false) // tracks if (newer) slot menu is open
+// Refs to track menu states
+const isOpened = ref(false) // tracks if main menu is open
+const slotIsOpened = ref(false) // tracks if (newer) slot menu is open (used for search)
 const mobileMenuIsOpened = ref(false) // tracks if mobile hamburger menu is open
-const activeMenuIndex = ref(-1)
+const activeMenuIndex = ref(-1) // tracks which submenu is active
 
 const theme = useTheme()
 const classes = computed(() => [
@@ -54,19 +53,6 @@ const classes = computed(() => [
   { 'is-opened-mobile': mobileMenuIsOpened.value },
   theme?.value || ''
 ])
-const isMobile = computed(() => {
-  return globalStore.winWidth <= 750 // matches {$small} in _variables.scss
-})
-// Define a watcher for goBackRef
-watch(isMobile, (oldVal, newVal) => {
-  console.log(oldVal, newVal)
-  // close menus on resize
-  if (newVal !== oldVal) {
-    isOpened.value = false
-    slotIsOpened.value = false
-    mobileMenuIsOpened.value = false
-  }
-})
 const themeSettings = computed(() => {
   switch (theme?.value) {
     case 'ftva':
@@ -109,11 +95,19 @@ const parsedItems = computed(() =>
     }))
 )
 
-onMounted(() => {
-  activeMenuIndex.value = currentPathActiveIndex.value
-})
+// METHODS
+function toggleMenu() {
+  // if slot menu is open, close it first
+  if (slotIsOpened.value)
+    slotIsOpened.value = false
 
-// Menu Functions
+  isOpened.value = !isOpened.value
+  if (!isOpened.value) {
+    document.body.setAttribute('tabindex', '-1')
+    document.body.focus()
+    document.body.removeAttribute('tabindex')
+  }
+}
 // Toggle slot menu (used to render search bar)
 function toggleSlot() {
   // if menu is open, close it first & clear active
@@ -128,20 +122,17 @@ function toggleSlot() {
   // otherwise, just open slot menu
   else { slotIsOpened.value = !slotIsOpened.value }
 }
-
-// toggle primary menu on default theme / all desktops
-function toggleMenu() {
-  // if slot menu is open, close it first
-  if (slotIsOpened.value)
-    slotIsOpened.value = false
-
-  isOpened.value = !isOpened.value
-  if (!isOpened.value) {
-    document.body.setAttribute('tabindex', '-1')
-    document.body.focus()
-    document.body.removeAttribute('tabindex')
-  }
+function setActive(index: number) {
+  activeMenuIndex.value = index
 }
+function clearActive() {
+  activeMenuIndex.value = currentPathActiveIndex.value
+}
+
+// MOBILE METHODS & EVENTS
+const isMobile = computed(() => {
+  return globalStore?.winWidth ? (globalStore?.winWidth <= 750) : false // 750 matches {$small} in _variables.scss
+})
 // toggle Mobile-only menu
 function toggleMobileMenu() {
   // close others
@@ -167,29 +158,22 @@ function toggleMenuOrSubmenus(index: number) {
     toggleMenu()
   }
 }
-
+watch(isMobile, (oldVal, newVal) => {
+  // close menus on resize
+  if (newVal !== oldVal) {
+    isOpened.value = false
+    slotIsOpened.value = false
+    mobileMenuIsOpened.value = false
+  }
+})
 function searchClick() {
   isMobile.value === true ? toggleMobileMenu() : toggleSlot()
 }
 
-function setActive(index: number) {
-  activeMenuIndex.value = index
-}
-
-function clearActive() {
+// Mounted
+onMounted(() => {
   activeMenuIndex.value = currentPathActiveIndex.value
-}
-
-// TODO testing something, remove before merge
-// When Navprimary gains focus, direct focus to the first menu item
-// const primaryMenuFocus = ref<HTMLElement | null>(null)
-// function focusPrimaryMenu() {
-//   console.log('attempt focus')
-//   if (primaryMenuFocus.value) {
-//     console.log('element found')
-//     primaryMenuFocus.value.firstElementChild?.focus()
-//   }
-// }
+})
 </script>
 
 <template>
