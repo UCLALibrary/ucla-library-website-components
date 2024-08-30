@@ -34,6 +34,11 @@ const { startDate, time, locations } = defineProps({
     type: Array<BlockEventDetailLocation>,
     default: () => [],
   },
+  // sometimes we want to display 'multiple locations' instead of a comma-separated list
+  shortLocationDisplay: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const theme = useTheme()
@@ -63,23 +68,28 @@ const classes = computed(() => {
     >
       <span>
         <SvgIconLocation class="row-icon" />
-        <span
-          v-for="(location, index) in locations"
-          :key="location.title"
-          class="location-link"
-        >
-          <SmartLink
-            :to="location.title"
-            :link-target="location.uri ? location.uri : ''"
+        <span v-if="shortLocationDisplay">
+          Multiple Locations
+        </span>
+        <span v-else class="locations-wrapper">
+          <span
+            v-for="(location, index) in locations"
+            :key="location.title"
+            class="location-link"
           >
-            {{ location.title }}
-          </SmartLink>
-          {{ index
-            < locations.length
-            - 1
-            ? ', '
-            : ''
-          }}
+            <SmartLink
+              :to="location.title"
+              :link-target="location.uri ? location.uri : ''"
+            >
+              {{ location.title }}
+            </SmartLink>
+            {{ index
+              < locations.length
+              - 1
+              ? ', '
+              : ''
+            }}
+          </span>
         </span>
       </span>
     </div>
