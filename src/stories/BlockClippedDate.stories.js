@@ -1,3 +1,5 @@
+import { computed } from 'vue'
+
 import BlockClippedDate from '@/lib-components/BlockClippedDate'
 
 // Import mock api data
@@ -43,6 +45,24 @@ const ongoing = {
   sectionHandle: 'event',
 }
 
+const mockFtva = {
+  to: "series/todd-solondz-series",
+  title: "TEST - Todd Solondz Series",
+  startDate: "2025-11-06T08:00:00+00:00",
+  endDate: "2025-12-13T08:00:00+00:00",
+  ongoing: false,
+  image: API.image,
+}
+  // {
+  //   uri: "series/series-with-3-upcoming-events",
+  //   title: "Series with 3 upcoming events",
+  //   startDate: "2026-01-01T08:00:00+00:00",
+  //   endDate: "2026-03-31T07:00:00+00:00",
+  //   ongoing: false,
+  //   ftvaImage: []
+  // }
+// }
+
 export function Default() {
   return {
     data() {
@@ -87,6 +107,31 @@ export function OngoingEvent() {
           :alternativeFullName="alternativeFullName"
           :language="language"
           :section-handle="sectionHandle"
+      />
+  `,
+  }
+}
+
+export function FtvaThreeColumn() {
+  return {
+    data() {
+      return { ...mockFtva }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockClippedDate },
+    template: `
+      <block-clipped-date
+          :image="image"
+          :to="to"
+          :category="category"
+          :title="title"
+          :start-date="startDate"
+          :end-date="endDate"
+          :image-aspect-ratio="60"
       />
   `,
   }
