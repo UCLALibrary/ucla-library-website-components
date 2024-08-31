@@ -3,6 +3,7 @@ import { computed, inject, provide } from 'vue'
 import SectionHeader from '@/lib-components/SectionHeader.vue'
 import RichText from '@/lib-components/RichText.vue'
 import kebabCase from '@/utils/kebabCase'
+import { useTheme } from '@/composables/useTheme'
 
 const props = defineProps({
   sectionTitle: {
@@ -31,6 +32,9 @@ const parentLevel = inject('sectionLevel', 1)
 const ancestorSetMargins = inject('ancestorSetMargins', false)
 // console.log('ancestorSetMargins', ancestorSetMargins)
 
+// THEME
+const theme = useTheme()
+
 const levelComputed = computed(() => {
   // console.log('SectionWrapper levelComputed', Number(props.level || parentLevel + 1))
   return Number(props.level || parentLevel + 1)
@@ -49,6 +53,7 @@ const classes = computed(() => {
     `section-wrapper${levelComputed.value}`,
     `theme-${props.theme}`,
     { 'top-level': setMargins.value },
+    theme?.value || ''
   ]
 })
 
