@@ -16,8 +16,6 @@ const { title, iconName } = defineProps({
 
 const selectedTitle = inject('selectedTitle')
 
-// const isActive = ref(null)
-
 const theme = useTheme()
 
 const classes = computed(() => {

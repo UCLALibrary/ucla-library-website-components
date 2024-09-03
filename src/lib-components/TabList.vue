@@ -9,14 +9,14 @@ const SvgIconList = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-list.svg')
 )
 
-const { tabListAlignment } = defineProps({
-  tabListAlignment: {
+const { alignment } = defineProps({
+  alignment: {
     type: String,
     default: 'left',
   },
 })
 
-const slots = useSlots().default?.()
+const slots = useSlots()?.default?.()
 
 const tabItems = ref(slots.map(tab => {
   return tab.props // {title, icon-name}
@@ -47,23 +47,34 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <div :class="classes">
-    <div class="tabs-list">
-      <ul class="tabs-list-header">
-        <li
-          v-for="tab in tabItems"
-          :key="tab.title"
-          @click="selectedTitle = tab.title"
-        >
-        <component :is="iconMapping[tab.iconName].icon" class="svg"
-        aria-hidden="true" v-if="tab.iconName" />
-          {{ tab.title }}
-        </li>
-      </ul>
+  <div :class="[classes, alignment]" role="tabs">
+    <!-- Slot: Dropdown Filters -->
+    <div v-if="$slots.filters" class="filters">
+        <slot name="filters" />
     </div>
-    <slot></slot>
-    
+
+    <ul class="tab-list-header" role="tabList">
+      <li
+        v-for="tab in tabItems"
+        :key="tab.title"
+        @click="selectedTitle = tab.title"
+        class="tab-list-item"
+        :class="{isActive: selectedTitle === tab.title}"
+        role="tabItem"
+        tabindex="0"
+        :aria-selected="selectedTitle === tab.title"s
+      >
+      <component :is="iconMapping[tab.iconName].icon" class="svg"
+      aria-hidden="true" v-if="tab.iconName" />
+        {{ tab.title }}
+        <span class="glider"></span>
+      </li>
+      
+    </ul>
   </div>
+    <!-- Slot: TabItem -->
+  <slot></slot>
+  
 </template>
 
 <style scoped lang="scss">
