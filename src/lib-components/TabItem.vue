@@ -1,14 +1,22 @@
-<script setup lang="ts">
-import { computed, ref } from 'vue'
+<script setup>
+import { computed, inject } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
-const { title } = defineProps({
+const { title, iconName } = defineProps({
   title: {
     type: String,
-    default: 'TabName',
+    default: '',
   },
+
+  iconName: { 
+    type: String,
+    default: ''
+  }
 })
-const isActive = ref(true)
+
+const selectedTitle = inject('selectedTitle')
+
+// const isActive = ref(null)
 
 const theme = useTheme()
 
@@ -18,8 +26,8 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <div v-show="isActive" :class="classes">
-    <slot />
+  <div v-show="title === selectedTitle" :class="classes">
+    <slot></slot>
   </div>
 </template>
 

@@ -1,36 +1,45 @@
 <script setup>
-import { computed, ref } from 'vue'
-import TabItem from './TabItem.vue'
+import { computed, defineAsyncComponent, provide, ref, useSlots } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
-const { initialSelectedTab, tabs, tabAlignment } = defineProps({
-  initialSelectedTab: {
-    type: Number,
-    default: 0
-  },
-  tabs: {
-    type: Array,
-    default: () => []
-  },
-  tabAlignment: {
+const SvgIconCalendar= defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-calendar.svg')
+)
+const SvgIconList = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-list.svg')
+)
+
+const { tabListAlignment } = defineProps({
+  tabListAlignment: {
     type: String,
-    default: 'left'
+    default: 'left',
   },
 })
 
-const theme = useTheme()
+const slots = useSlots().default?.()
 
-const selectedIndex = ref(0)
+const tabItems = ref(slots.map(tab => {
+  return tab.props // {title, icon-name}
+}))
 
-// const tabs = ref([])
+const selectedTitle = ref(tabItems.value[0].title)
 
-function selectTab(idx) {
-  selectedIndex.value = idx
 
-  tabs.forEach((tab, index) => {
-    tab.isActive = (index === idx)
-  })
+provide('selectedTitle', selectedTitle)
+
+const iconMapping = {
+  'icon-calendar': {
+    icon: SvgIconCalendar,
+    label: 'Calendar'
+  },
+
+  'icon-list': {
+    icon: SvgIconList,
+    label: 'List'
+  },
 }
+
+const theme = useTheme()
 
 const classes = computed(() => {
   return ['tab-list', theme?.value || '']
@@ -40,17 +49,20 @@ const classes = computed(() => {
 <template>
   <div :class="classes">
     <div class="tabs-list">
-      <ul class="tabs-header">
+      <ul class="tabs-list-header">
         <li
-          v-for="(tab, index) in tabs"
+          v-for="tab in tabItems"
           :key="tab.title"
-          :class=" { 'tab-selected': (index === selectedIndex) }"
-          @click="selectTab(index)"
+          @click="selectedTitle = tab.title"
         >
+        <component :is="iconMapping[tab.iconName].icon" class="svg"
+        aria-hidden="true" v-if="tab.iconName" />
           {{ tab.title }}
         </li>
       </ul>
     </div>
+    <slot></slot>
+    
   </div>
 </template>
 
