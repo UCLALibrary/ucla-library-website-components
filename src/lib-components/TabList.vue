@@ -55,14 +55,15 @@ const classes = computed(() => {
 
     <ul class="tab-list-header" role="tabList">
       <li
-        v-for="tab in tabItems"
+        v-for="(tab ,index) in tabItems"
         :key="tab.title"
         @click="selectedTitle = tab.title"
         class="tab-list-item"
         :class="{isActive: selectedTitle === tab.title}"
+        :data-index-number="index"
         role="tabItem"
         tabindex="0"
-        :aria-selected="selectedTitle === tab.title"s
+        :aria-selected="selectedTitle === tab.title"
       >
       <component :is="iconMapping[tab.iconName].icon" class="svg"
       aria-hidden="true" v-if="tab.iconName" />
@@ -73,7 +74,9 @@ const classes = computed(() => {
     </ul>
   </div>
     <!-- Slot: TabItem -->
-  <slot></slot>
+  <div class="tab-list-body">
+    <slot></slot>
+  </div>
   
 </template>
 
