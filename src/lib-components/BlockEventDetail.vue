@@ -33,18 +33,25 @@ const { startDate, time, locations } = defineProps({
   locations: {
     type: Array<BlockEventDetailLocation>,
     default: () => [],
-  },
-  // sometimes we want to display 'multiple locations' instead of a comma-separated list
-  shortLocationDisplay: {
-    type: Boolean,
-    default: false,
-  },
+  }
 })
 
 const theme = useTheme()
 
 const classes = computed(() => {
   return ['block-event-detail', theme?.value || '']
+})
+const themeSettings = computed(() => {
+  switch (theme?.value) {
+    case 'ftva':
+      return {
+        multiLocationMsgDisplay: true,
+      }
+    default:
+      return {
+        multiLocationMsgDisplay: false,
+      }
+  }
 })
 </script>
 
@@ -68,7 +75,7 @@ const classes = computed(() => {
     >
       <span>
         <SvgIconLocation class="row-icon" />
-        <span v-if="shortLocationDisplay">
+        <span v-if="themeSettings?.multiLocationMsgDisplay && locations.length > 1">
           Multiple Locations
         </span>
         <span v-else class="locations-wrapper">

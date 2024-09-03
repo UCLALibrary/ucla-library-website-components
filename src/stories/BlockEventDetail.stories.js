@@ -48,7 +48,7 @@ export function Default() {
   }
 }
 
-export function shortLocationDisplayProp() {
+export function FTVAMultipleLocations() {
   return {
     data() {
       return {
@@ -66,13 +66,12 @@ export function shortLocationDisplayProp() {
       :startDate="data.startDateWithTime"
       :time="data.startDateWithTime"
       :locations="data.location"
-      :short-location-display="true"
     />
     `,
   }
 }
 
-export function FTVA() {
+export function FTVAOneLocation() {
   return {
     data() {
       return {
@@ -89,7 +88,7 @@ export function FTVA() {
     <block-event-detail
       :startDate="data.startDateWithTime"
       :time="data.startDateWithTime"
-      :locations="data.location"
+      :locations="[data.location[0]]"
     />
     `,
   }
