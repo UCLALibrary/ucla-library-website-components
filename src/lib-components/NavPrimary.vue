@@ -1,10 +1,17 @@
 <script lang="ts" setup>
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
-import { computed, onMounted, ref } from 'vue'
+import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
+import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
+import IconMenuClose from 'ucla-library-design-tokens/assets/svgs/icon-ftva-circle-x.svg'
+import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
+import ButtonLink from '@/lib-components/ButtonLink.vue'
 import NavMenuItem from '@/lib-components/NavMenuItem.vue'
+import { useGlobalStore } from '@/stores/GlobalStore'
+import { useTheme } from '@/composables/useTheme'
 
 import type { NavPrimaryItemType } from '@/types/types'
 
@@ -27,17 +34,42 @@ const { items, currentPath, title, acronym } = defineProps({
   },
 })
 
+const globalStore = useGlobalStore()
 const route = useRoute()
-const isOpened = ref(false)
-const activeMenuIndex = ref(-1)
+// Refs to track menu states
+const isOpened = ref(false) // tracks if main menu is open
+const slotIsOpened = ref(false) // tracks if (newer) slot menu is open (used for search)
+const mobileMenuIsOpened = ref(false) // tracks if mobile hamburger menu is open
+const activeMenuIndex = ref(-1) // tracks which submenu is active
 
+const theme = useTheme()
 const classes = computed(() => [
   'nav-primary',
-  { 'is-opened': isOpened.value },
+  { 'is-opened': isOpened.value || slotIsOpened.value },
+  { 'slot-is-opened': slotIsOpened.value }, // sometimes we need to style different depending on which menu is open
   { 'not-hovered': activeMenuIndex.value === -1 },
   { 'has-title': title },
   { 'has-acronym': acronym },
+  { 'is-opened-mobile': mobileMenuIsOpened.value },
+  theme?.value || ''
 ])
+const themeSettings = computed(() => {
+  switch (theme?.value) {
+    case 'ftva':
+      return {
+        renderItemTop: false,
+        showSearch: true,
+        horizontalMobileMenu: true,
+        headerText: 'UCLA Film & Television Archive',
+      }
+    default:
+      return {
+        renderItemTop: true,
+        showSearch: false,
+        horizontalMobileMenu: false
+      }
+  }
+})
 const shouldRenderSmartLink = computed(() => title || acronym)
 const noChildren = computed(() => {
   if (!title)
@@ -63,11 +95,12 @@ const parsedItems = computed(() =>
     }))
 )
 
-onMounted(() => {
-  activeMenuIndex.value = currentPathActiveIndex.value
-})
-
+// METHODS
 function toggleMenu() {
+  // if slot menu is open, close it first
+  if (slotIsOpened.value)
+    slotIsOpened.value = false
+
   isOpened.value = !isOpened.value
   if (!isOpened.value) {
     document.body.setAttribute('tabindex', '-1')
@@ -75,14 +108,72 @@ function toggleMenu() {
     document.body.removeAttribute('tabindex')
   }
 }
-
+// Toggle slot menu (used to render search bar)
+function toggleSlot() {
+  // if menu is open, close it first & clear active
+  clearActive()
+  if (isOpened.value) {
+    isOpened.value = false
+    // then open slot menu on delay to prevent animation overlap
+    setTimeout(() => {
+      slotIsOpened.value = !slotIsOpened.value
+    }, 400)
+  }
+  // otherwise, just open slot menu
+  else { slotIsOpened.value = !slotIsOpened.value }
+}
 function setActive(index: number) {
   activeMenuIndex.value = index
 }
-
 function clearActive() {
   activeMenuIndex.value = currentPathActiveIndex.value
 }
+
+// MOBILE METHODS & EVENTS
+const isMobile = computed(() => {
+  return globalStore?.winWidth ? (globalStore?.winWidth <= 750) : false // 750 matches {$small} in _variables.scss
+})
+// toggle Mobile-only menu
+function toggleMobileMenu() {
+  // close others
+  slotIsOpened.value = false
+  isOpened.value = false
+
+  // toggle mobile menu
+  mobileMenuIsOpened.value = !mobileMenuIsOpened.value
+}
+// toggle submenus on mobile
+function toggleMenuOrSubmenus(index: number) {
+  if (themeSettings.value?.horizontalMobileMenu && (isMobile.value === true)) {
+    // toggle clicked submenu only
+    if (index === activeMenuIndex.value) {
+      clearActive()
+    }
+    else {
+      clearActive()
+      setActive(index)
+    }
+  }
+  else {
+    toggleMenu()
+  }
+}
+watch(isMobile, (oldVal, newVal) => {
+  // close menus on resize
+  if (newVal !== oldVal) {
+    isOpened.value = false
+    slotIsOpened.value = false
+    mobileMenuIsOpened.value = false
+  }
+})
+function searchClick() {
+  isMobile.value === true ? toggleMobileMenu() : toggleSlot()
+}
+
+// Mounted
+onMounted(() => {
+  activeMenuIndex.value = currentPathActiveIndex.value
+})
 </script>
 
 <template>
@@ -90,7 +181,8 @@ function clearActive() {
     aria-label="Primary Navigation"
     :class="classes"
   >
-    <div class="item-top">
+    <!-- item top contains logos, etc -->
+    <div v-if="themeSettings.renderItemTop" class="item-top">
       <SmartLink
         v-if="shouldRenderSmartLink"
         to="/"
@@ -134,18 +226,70 @@ function clearActive() {
         />
       </a>
     </div>
+    <div v-else-if="isMobile && themeSettings.headerText" class="item-top-mobile">
+      {{ themeSettings.headerText }}
+    </div>
 
-    <ul class="menu">
+    <div class="nav-background-fill" />
+
+    <!-- search button is placed before menu so that it can be easily kept at top when menu expands -->
+    <!-- more menu was added in later version of this component and is not rendered at all in default -->
+    <div v-if="themeSettings.showSearch" class="more-menu">
+      <ButtonLink
+        v-if="!mobileMenuIsOpened"
+        class="search-button"
+        icon-name="none"
+        aria-label="Search"
+        @click="searchClick"
+      >
+        <IconSearch class="icon-search" />
+      </ButtonLink>
+      <ButtonLink
+        v-if="!mobileMenuIsOpened || !isMobile"
+        class="more-menu-button mobile-only"
+        icon-name="none"
+        aria-label="open menu"
+        @click="toggleMobileMenu"
+      >
+        <IconMenu class="icon-menu" />
+      </ButtonLink>
+      <ButtonLink
+        v-if="mobileMenuIsOpened"
+        class="close-button mobile-only"
+        icon-name="none"
+        aria-label="close menu"
+        @click="toggleMobileMenu"
+      >
+        <IconMenuClose class="icon-menu-close" />
+      </ButtonLink>
+      <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
+      <div class="slot-container" :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]">
+        <slot name="additional-menu" />
+      </div>
+    </div>
+
+    <!-- this is the primary menu and first in the tab index -->
+    <ul class="menu" :class="[{ 'is-opened-mobile': mobileMenuIsOpened }]">
       <NavMenuItem
         v-for="(item, index) in parsedItems"
         :key="`NavMenuItem-${item.name}`"
         :item="item"
         :is-active="item.isActive"
         :is-opened="isOpened"
-        @click="toggleMenu"
-        @mouseover="setActive(index)"
-        @mouseleave="clearActive"
-      />
+        @click="() => toggleMenuOrSubmenus(index)"
+        @mouseover="isMobile ? '' : setActive(index)"
+        @mouseleave="isMobile ? '' : clearActive"
+      >
+        <!-- insert caret icon into NavMenuItem slot if theme calls for it -->
+        <span
+          v-if="themeSettings.horizontalMobileMenu && isMobile" class="caret"
+          :class="{ 'is-active': item.isActive }"
+        >
+          <span class="chevron">
+            <SvgIconCaretDown class="caret-down-svg" />
+          </span>
+        </span>
+      </NavMenuItem>
       <li
         v-for="item in noChildren"
         :key="`nav-primary-${item.name}`"
@@ -178,10 +322,13 @@ function clearActive() {
         </SmartLink>
       </div>
     </div>
-
+    <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
+    <div v-if="isMobile && mobileMenuIsOpened" class="mobile-menu-slot">
+      <slot name="additional-mobile-menu-items" />
+    </div>
     <div class="background-white" />
     <div
-      v-if="isOpened"
+      v-if="isOpened || slotIsOpened"
       class="background-blue"
       @click="toggleMenu"
     />
@@ -194,174 +341,6 @@ function clearActive() {
 </template>
 
 <style lang="scss" scoped>
-.nav-primary {
-  --unit-height: 80px;
-  padding: 0 var(--unit-gutter);
-  position: relative;
-  width: 100%;
-  z-index: 10;
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-content: space-between;
-  align-items: flex-start;
-
-  .item-top {
-    height: var(--unit-height);
-    position: relative;
-    z-index: 10;
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-
-    .nuxt-link-active {
-      color: var(--color-primary-blue-03);
-    }
-  }
-
-  .logo-ucla {
-    height: 23px;
-    width: auto;
-  }
-
-  .title {
-    @include step-1;
-    color: var(--color-primary-blue-03);
-    text-transform: initial;
-    letter-spacing: normal;
-    position: relative;
-    @include min-clickable-area;
-  }
-
-  .menu {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    position: relative;
-    z-index: 10;
-  }
-
-  .support-links {
-    // removing support-link from nav-primary with display
-    display: none;
-    position: relative;
-    z-index: 10;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 18px;
-      bottom: 18px;
-      width: 1px;
-      background-color: var(--color-secondary-grey-02);
-    }
-
-    .item-top {
-      display: inline-flex;
-      margin-left: 30px;
-    }
-  }
-
-  .background-white {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background-color: var(--color-white);
-    border-bottom: 1px solid var(--color-secondary-grey-02);
-    z-index: 0;
-  }
-
-  .background-blue {
-    background-color: var(--color-primary-blue-03);
-    position: absolute;
-    top: var(--unit-height);
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    opacity: 0;
-    transition: opacity 1000ms ease-in-out;
-    border-bottom: 1px solid var(--color-secondary-grey-02);
-    z-index: 0;
-  }
-
-  .click-blocker {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -10;
-  }
-
-  &.has-acronym .acronym {
-    display: none;
-  }
-
-  &.has-title {
-    .nochildren-links {
-      padding: 0;
-      position: relative;
-      min-width: 128px;
-      max-width: 300px;
-      display: inline-block;
-      vertical-align: top;
-
-      .nochildren-link {
-        height: var(--unit-height);
-        line-height: var(--unit-height);
-        text-align: center;
-
-        font-size: 18px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        cursor: pointer;
-        position: relative;
-
-        @include min-clickable-area;
-      }
-    }
-  }
-
-  // States
-  &.is-opened {
-    .background-blue {
-      opacity: 0.9;
-    }
-  }
-
-  // Hovers
-  &.not-hovered {
-    :deep(.nav-menu-item .sub-menu) {
-      opacity: 1;
-    }
-  }
-
-  // Hover states
-  @media (max-width: 1330px) {
-    &.has-acronym {
-      .full-title {
-        display: none;
-      }
-
-      .acronym {
-        display: block;
-      }
-    }
-  }
-}
+@import "@/styles/default/_nav-primary.scss";
+@import "@/styles/ftva/_nav-primary.scss";
 </style>

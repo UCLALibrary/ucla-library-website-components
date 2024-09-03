@@ -54,7 +54,7 @@ function doSearch() {
         @keyup.enter="doSearch"
       />
       <ButtonLink
-        label="search site"
+        label="Search Site"
         icon-name="none"
         class="button-link"
         @click="doSearch"

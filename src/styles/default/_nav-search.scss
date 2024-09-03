@@ -29,6 +29,9 @@
 
             input[data-search-input="true"] {
                 padding-left: 45px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
         }
 

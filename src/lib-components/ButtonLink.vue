@@ -88,6 +88,8 @@ const parsedIconName = computed(() => {
   switch (true) {
     case props.isDownload:
       return SvgArrowDownload
+    case props.iconName === 'none':
+      return ''
     case isInternalLink(props.to):
       return SvgArrowRight
     case props.linkTarget === '_blank'
@@ -97,8 +99,6 @@ const parsedIconName = computed(() => {
       return IconClose
     // case props.iconName:
     //     return props.iconName
-    case props.iconName === 'none':
-      return ''
     default:
       return SvgExternalLink
   }
@@ -113,7 +113,7 @@ const parsedIconName = computed(() => {
     :link-target="linkTarget"
   >
     <span class="label">{{ label }}</span>
-
+    <slot />
     <component
       :is="parsedIconName"
       v-if="parsedIconName !== ''"

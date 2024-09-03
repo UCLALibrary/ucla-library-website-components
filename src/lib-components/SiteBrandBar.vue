@@ -1,47 +1,52 @@
-<script>
+<script lang="ts" setup>
 import SvgLogoUcla from 'ucla-library-design-tokens/assets/svgs/logo-ucla.svg'
+import { computed } from 'vue'
+import ButtonLink from './ButtonLink.vue'
+import { useTheme } from '@/composables/useTheme'
 
-export default {
-  name: 'SiteBrandBar',
-  components: {
-    SvgLogoUcla,
-  },
-}
+// THEME
+const theme = useTheme()
+const classes = computed(() => {
+  return ['site-brand-bar', theme?.value || '']
+})
+const parsedHeaderThemeSettings = computed(() => {
+  // ftva
+  if (theme?.value === 'ftva') {
+    return {
+      useLogo: false,
+      headerText: 'UCLA Film & Television Archive',
+      buttonText: 'Donate',
+      buttonLink: '/donate',
+    }
+  }
+  // default
+  return {}
+})
 </script>
 
 <template>
-  <div class="site-brand-bar">
+  <div :class="classes">
     <a
       href="https://www.ucla.edu"
       target="_blank"
     >
-      <SvgLogoUcla class="svg ucla-logo" />
+      <span v-if="!parsedHeaderThemeSettings?.useLogo && parsedHeaderThemeSettings.headerText" class="ucla-text">{{
+        parsedHeaderThemeSettings.headerText }}</span>
+      <SvgLogoUcla v-else class="svg ucla-logo" />
       <span class="visually-hidden">UCLA Home</span>
     </a>
+    <span v-if="parsedHeaderThemeSettings.buttonLink && parsedHeaderThemeSettings.buttonText" class="button-container">
+      <ButtonLink
+        :label="parsedHeaderThemeSettings.buttonText"
+        icon-name="none"
+        :to="parsedHeaderThemeSettings.buttonLink"
+        class="button"
+      />
+    </span>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.site-brand-bar {
-  height: 40px;
-  background-color: var(--color-primary-blue-03);
-  padding: 0 var(--unit-gutter);
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: flex-start;
-  align-items: center;
-
-  .svg__logo-ucla {
-    display: block;
-    height: 16px;
-    width: auto;
-  }
-
-  @media #{$medium} {
-    height: 32px;
-  }
-}
+@import "@/styles/default/_site-brand-bar.scss";
+@import "@/styles/ftva/_site-brand-bar.scss";
 </style>
