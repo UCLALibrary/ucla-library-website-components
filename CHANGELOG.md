@@ -1,3 +1,17 @@
+# [3.11.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.10.0...v3.11.0) (2024-09-03)
+
+
+### Features
+
+* Add ftva theme to sectionwrapper and paleblue theme to scss file ([#599](https://github.com/UCLALibrary/ucla-library-website-components/issues/599)) ([e041727](https://github.com/UCLALibrary/ucla-library-website-components/commit/e041727eb3253160ca7df8a853b5ba4798cf6488))
+
+# [3.10.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.9.1...v3.10.0) (2024-08-29)
+
+
+### Features
+
+* APPS-2698 create ftva header ([#591](https://github.com/UCLALibrary/ucla-library-website-components/issues/591)) ([2d1ba97](https://github.com/UCLALibrary/ucla-library-website-components/commit/2d1ba975fe0412ab4515cba0ef9b643616d3127f))
+
 ## [3.9.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.9.0...v3.9.1) (2024-08-20)
 
 

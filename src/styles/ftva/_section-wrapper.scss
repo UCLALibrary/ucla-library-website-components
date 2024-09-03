@@ -10,6 +10,32 @@
             .section-featured-banner {
                 max-width: var(--ftva-container-max-width);
             }
+
+            :deep(.section-teaser-card) {
+                --color-children-theme: #{$page-blue};
+
+                .card-meta {
+                    background-color: var(--color-children-theme);
+                }
+            }
+
+
+        }
+
+        &.theme-paleblue {
+            --color-theme: #{$page-blue};
+            --color-children-theme: var(--color-white);
+
+            background-color: var(--color-theme);
+
+
+            :deep(*) {
+                .card-meta {
+                    background-color: var(--color-children-theme);
+                }
+            }
+
+
         }
 
         // FTVA uses different page max-width
