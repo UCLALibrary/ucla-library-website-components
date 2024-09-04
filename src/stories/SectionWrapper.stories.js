@@ -249,7 +249,6 @@ const mockFtvaSeries = [
   },
 ]
 
-// TODO add link to this story
 export function FtvaExploreOtherSeries() {
   return {
     data() {
