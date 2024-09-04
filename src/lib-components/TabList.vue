@@ -57,7 +57,6 @@ const classes = computed(() => {
         :key="tab.title"
         class="tab-list-item"
         :class="{ isActive: selectedTitle === tab.title }"
-        :data-index-number="index"
         role="tabItem"
         tabindex="0"
         :aria-selected="selectedTitle === tab.title"
