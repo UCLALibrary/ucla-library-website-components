@@ -2,28 +2,26 @@
 import { computed, defineAsyncComponent, provide, ref, useSlots } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
-const SvgIconCalendar= defineAsyncComponent(() =>
-  import('ucla-library-design-tokens/assets/svgs/icon-calendar.svg')
-)
-const SvgIconList = defineAsyncComponent(() =>
-  import('ucla-library-design-tokens/assets/svgs/icon-list.svg')
-)
-
 const { alignment } = defineProps({
   alignment: {
     type: String,
     default: 'left',
   },
 })
+const SvgIconCalendar = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-calendar.svg')
+)
+const SvgIconList = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-list.svg')
+)
 
 const slots = useSlots()?.default?.()
 
-const tabItems = ref(slots.map(tab => {
+const tabItems = ref(slots.map((tab) => {
   return tab.props // {title, icon-name}
 }))
 
 const selectedTitle = ref(tabItems.value[0].title)
-
 
 provide('selectedTitle', selectedTitle)
 
@@ -50,34 +48,34 @@ const classes = computed(() => {
   <div :class="[classes, alignment]" role="tabs">
     <!-- Slot: Dropdown Filters -->
     <div v-if="$slots.filters" class="filters">
-        <slot name="filters" />
+      <slot name="filters" />
     </div>
 
     <ul class="tab-list-header" role="tabList">
       <li
-        v-for="(tab ,index) in tabItems"
+        v-for="(tab, index) in tabItems"
         :key="tab.title"
-        @click="selectedTitle = tab.title"
         class="tab-list-item"
-        :class="{isActive: selectedTitle === tab.title}"
+        :class="{ isActive: selectedTitle === tab.title }"
         :data-index-number="index"
         role="tabItem"
         tabindex="0"
         :aria-selected="selectedTitle === tab.title"
+        @click="selectedTitle = tab.title"
       >
-      <component :is="iconMapping[tab.iconName].icon" class="svg"
-      aria-hidden="true" v-if="tab.iconName" />
+        <component
+          :is="iconMapping[tab.iconName].icon" v-if="tab.iconName"
+          class="svg" aria-hidden="true"
+        />
         {{ tab.title }}
-        <span class="glider"></span>
+        <span class="glider" />
       </li>
-      
     </ul>
   </div>
-    <!-- Slot: TabItem -->
+  <!-- Slot: TabItem -->
   <div class="tab-list-body">
-    <slot></slot>
+    <slot />
   </div>
-  
 </template>
 
 <style scoped lang="scss">

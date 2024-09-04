@@ -8,7 +8,7 @@ const { title, iconName } = defineProps({
     default: '',
   },
 
-  iconName: { 
+  iconName: {
     type: String,
     default: ''
   },
@@ -33,7 +33,7 @@ const classes = computed(() => {
     <div
       v-text="content"
     />
-      <slot></slot>
+    <slot />
   </div>
 </template>
 

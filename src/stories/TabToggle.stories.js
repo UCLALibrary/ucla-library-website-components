@@ -1,8 +1,8 @@
 import { computed } from 'vue'
 
-import SectionTeaserList from "@/lib-components/SectionTeaserList.vue"
 import TabItem from '../lib-components/TabItem.vue'
 import TabList from '../lib-components/TabList.vue'
+import SectionTeaserList from '@/lib-components/SectionTeaserList.vue'
 import * as API from '@/stories/mock-api.json'
 
 export default {
@@ -128,7 +128,7 @@ export function ToggledComponentsRight() {
       return {
         items1: mockComponentContent1,
         items2: mockComponentContent2
-       }
+      }
     },
     components: { SectionTeaserList, TabItem, TabList },
     template: `<div class="wrapper">
