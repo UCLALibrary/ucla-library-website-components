@@ -7,6 +7,7 @@ import SectionWrapper from '@/lib-components/SectionWrapper'
 import BlockMediaWithText from '@/lib-components/BlockMediaWithText'
 import DividerWayFinder from '@/lib-components/DividerWayFinder'
 import SectionTeaserCard from '@/lib-components/SectionTeaserCard'
+import SmartLink from '@/lib-components/SmartLink.vue'
 
 const propsForMediaWithText = {
   sectionHeader: mockMediaWithText.mediaWithText[0].titleLink,
@@ -248,6 +249,7 @@ const mockFtvaSeries = [
   },
 ]
 
+// TODO add link to this story
 export function FtvaExploreOtherSeries() {
   return {
     data() {
@@ -260,12 +262,20 @@ export function FtvaExploreOtherSeries() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { SectionWrapper, SectionTeaserCard },
+    components: { SectionWrapper, SectionTeaserCard, SmartLink },
     template: `
       <SectionWrapper
         section-title="Explore Other Series"
         theme="white"
       >
+        <template v-slot:top-right>
+          <smart-link
+            to="/somelink"
+          >
+            View All Series <span style="font-size:1.5em;"> &#8250;</span>
+          </smart-link>
+          
+        </template>
         <SectionTeaserCard
 
           :items="parsedFtvaEventSeries"

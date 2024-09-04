@@ -1,4 +1,5 @@
 import SmartLink from '@/lib-components/SmartLink.vue'
+import { computed } from 'vue'
 
 // Storybook default settings
 export default {
@@ -31,6 +32,24 @@ export function ExternalLink() {
       linkTarget="_blank"
     >
       This will render as a external link
+    </smart-link>
+  `,
+  }
+}
+
+export function FTVALink() {
+  return {
+    components: { SmartLink},
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    template: `
+    <smart-link
+      to="http://www.ucla.edu"
+    >
+      Some Link <span style="font-size:1.5em;"> &#8250;</span>
     </smart-link>
   `,
   }
