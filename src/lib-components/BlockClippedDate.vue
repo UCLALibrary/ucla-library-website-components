@@ -14,6 +14,7 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
 import getSectionName from '@/utils/getSectionName'
+import formatFullDay from '@/utils/formatFullDay'
 import formatDay from '@/utils/formatEventDay'
 import formatMonth from '@/utils/formatEventMonth'
 
@@ -83,6 +84,10 @@ const props = defineProps({
   sectionHandle: {
     type: String,
     default: '',
+  },
+  isThreeColumn: {
+    type: Boolean,
+    default: false,
   }
 })
 
@@ -103,9 +108,18 @@ const theme = useTheme()
 const classes = computed(() => {
   return ['block-clipped-date', `color-${sectionName.value}`, theme?.value || '']
 })
-// const classes = computed(() => {
-//   return ['card-meta', theme?.value || '']
-// })
+
+const parsedMetaThemeSettings = computed(() => {
+  // ftva
+  if (theme?.value === 'ftva') {
+    return {
+      statement: 'Subscribe to receive the latest updates on what\'s happening at the Film & Television Archive.',
+      label: 'Submit',
+      icon: formIcons.caretRight,
+      socialMediaIcons: true
+    }
+  }
+})
 
 const parsedDateDay = computed(() => {
   if (props.startDate)
@@ -121,63 +135,105 @@ const parsedDateMonth = computed(() => {
   return ''
 })
 
+const parsedFormatFullDay = computed(() => {
+  if (props.startDate)
+    return formatFullDay(props.startDate)
+  return ''
+})
 
+const parsedTime = computed(() => {
+  // necessary check for library-website-nuxt & meap
+  if (props.startDate && props.sectionHandle === 'event')
+    return formatTimes(props.startDate, props.endDate)
+  // legacy behavior returns nothing when sectionHandle is not 'event',
+  // so check theme is set to avoid returning nothing
+  else if (props.startDate && theme?.value !== undefined)
+    return props.endDate ? formatTimes(props.startDate, props.endDate) : formatTimes(props.startDate, props.startDate)
+
+  return ''
+})
 </script>
 
 <template>
   <li :class="classes">
     <div class="image-container">
-      <div
-        v-if="startDate"
-        class="floating-highlight"
-      />
-      <div
-        v-if="startDate"
-        class="clipped-date"
-      >
-        <time
-          v-if="startDate"
-          class="month"
-          v-html="parsedDateMonth"
-        />
+      <div class="day-month-date">
         <time
           v-if="startDate"
           class="day"
-          v-html="parsedDateDay"
+          v-html="parsedFormatFullDay"
         />
+        <div class="month-date">
+          <time
+            v-if="startDate"
+            class="month"
+            v-html="parsedDateMonth"
+          />
+          <time
+            v-if="startDate"
+            v-html="parsedDateDay"
+          />
+        </div>
       </div>
-      <ResponsiveImage
-        v-if="image"
-        :media="image"
-        :aspect-ratio="imageAspectRatio"
-        class="image"
-      />
-      <div
-        v-else
-        class="molecule-no-image"
-      >
-        <MoleculePlaceholder
-          class="molecule"
-          aria-hidden="true"
+
+      <div class="date-block">
+        <div
+          v-if="startDate"
+          class="floating-highlight"
         />
+        <div
+          v-if="startDate"
+          class="clipped-date"
+        >
+          <time
+            v-if="startDate"
+            class="month"
+            v-html="parsedDateMonth"
+          />
+          <time
+            v-if="startDate"
+            class="day"
+            v-html="parsedDateDay"
+          />
+        </div>
+      </div>
+
+      <div class="image-block">
+        <ResponsiveImage
+          v-if="image"
+          :media="image"
+          :aspect-ratio="imageAspectRatio"
+          class="image"
+        />
+        <div
+          v-else
+          class="molecule-no-image"
+        >
+          <MoleculePlaceholder
+            class="molecule"
+            aria-hidden="true"
+          />
+        </div>
       </div>
     </div>
-    <CardMeta
-      :to="to"
-      :category="category"
-      :title="title"
-      :start-date="startDate"
-      :end-date="endDate"
-      :ongoing="ongoing"
-      :text="text"
-      :byline-one="bylineOne"
-      :byline-two="bylineTwo"
-      :locations="locations"
-      :alternative-full-name="alternativeFullName"
-      :language="language"
-      :section-handle="sectionHandle"
-      :tagLabels="tagLabels"
-    />
+
+    <div class="text">
+      <CardMeta
+        :to="to"
+        :category="category"
+        :title="title"
+        :start-date="startDate"
+        :end-date="endDate"
+        :ongoing="ongoing"
+        :text="text"
+        :byline-one="bylineOne"
+        :byline-two="bylineTwo"
+        :locations="locations"
+        :alternative-full-name="alternativeFullName"
+        :language="language"
+        :section-handle="sectionHandle"
+      />
+    </div>
   </li>
 </template>
 

@@ -1,11 +1,64 @@
 .ftva.block-clipped-date {
+  position: static;
   display: flex;
   flex-direction: row;
 
-  background-color: aqua;
-  font-family: 'Courier New', Courier, monospace;
+  .day-month-date {
+    display: flex;
+    flex-direction: column;
 
-  .title {
-    color: palevioletred;
+    color: $accent-blue;
+
+    .day {
+      font-weight: 400;
+      font-family: var(--font-secondary);
+      font-size: 16px;
+      letter-spacing: 1.5%;
+      text-transform: uppercase;
+    }
+
+    .month-date {
+      font-weight: 400;
+      font-family: var(--font-primary);
+      font-size: 36px;
+      letter-spacing: 0.25%;
+      line-height: 1;
+
+      .month {
+        padding-right: 5px;
+      }
+    }
+  }
+
+  .image-container {
+    position: static;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .date-block {
+    background-color: pink;
+    width: 272px;
+  }
+
+  .image {
+    border: 2px solid green;
+    width: 272px;
+    height: 272px;
+  }
+
+
+  .text {
+    background-color: aqua;
+  }
+
+
+
+  .date {
+    border: 2px solid green;
+  }
+
+  .floating-highlight {
+    position: static;
   }
 }

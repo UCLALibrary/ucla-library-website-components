@@ -47,11 +47,15 @@ const ongoing = {
 
 const mockFtva = {
   to: "series/todd-solondz-series",
-  title: "TEST - Todd Solondz Series",
   startDate: "2025-11-06T08:00:00+00:00",
-  endDate: "2025-12-13T08:00:00+00:00",
-  ongoing: false,
   image: API.image,
+  title: "TEST - Todd Solondz Series",
+  endDate: "2025-12-13T08:00:00+00:00",
+  tagLabels:  [
+    {
+      "title": "Guest speaker"
+    }
+  ]
 }
   // {
   //   uri: "series/series-with-3-upcoming-events",
@@ -71,18 +75,18 @@ export function Default() {
     components: { BlockClippedDate },
     template: `
       <block-clipped-date
-          :image="image"
-          :to="to"
-          :category="category"
-          :title="title"
-          :start-date="startDate"
-          :end-date="endDate"
-          :text="text"
-          :image-aspect-ratio="60"
-          :locations="locations"
-          :alternativeFullName="alternativeFullName"
-          :language="language"
-          :section-handle="sectionHandle"
+        :image="image"
+        :to="to"
+        :category="category"
+        :title="title"
+        :start-date="startDate"
+        :end-date="endDate"
+        :text="text"
+        :image-aspect-ratio="60"
+        :locations="locations"
+        :alternativeFullName="alternativeFullName"
+        :language="language"
+        :section-handle="sectionHandle"
       />
   `,
   }
@@ -125,13 +129,12 @@ export function FtvaThreeColumn() {
     components: { BlockClippedDate },
     template: `
       <block-clipped-date
-          :image="image"
-          :to="to"
-          :category="category"
-          :title="title"
-          :start-date="startDate"
-          :end-date="endDate"
-          :image-aspect-ratio="60"
+        :to="to"
+        :start-date="startDate"
+        :image-aspect-ratio="100"
+        :image="image"
+        :title="title"
+        :tagLabels="tagLabels"
       />
   `,
   }
