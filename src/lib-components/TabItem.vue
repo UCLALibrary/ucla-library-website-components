@@ -11,7 +11,12 @@ const { title, iconName } = defineProps({
   iconName: { 
     type: String,
     default: ''
-  }
+  },
+
+  content: {
+    type: String,
+    default: '',
+  },
 })
 
 const selectedTitle = inject('selectedTitle')
@@ -25,7 +30,10 @@ const classes = computed(() => {
 
 <template>
   <div v-show="title === selectedTitle" :class="classes">
-    <slot></slot>
+    <div
+      v-text="content"
+    />
+      <slot></slot>
   </div>
 </template>
 
