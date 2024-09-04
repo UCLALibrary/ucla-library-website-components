@@ -114,9 +114,8 @@ const parsedDate = computed(() => {
 
 const parsedTime = computed(() => {
   // necessary check for library-website-nuxt & meap
-  if (props.startDate && props.sectionHandle === 'event')
+  if (props.startDate && (props.sectionHandle === 'event' || props.sectionHandle === 'ftvaEventSeries'))
     return formatTimes(props.startDate, props.endDate)
-  // TODO change this logic to allow for hiding time on FTVA when props.sectionHandle === ?
   // legacy behavior returns nothing when sectionHandle is not 'event',
   // so check theme is set to avoid returning nothing
   else if (props.startDate && theme?.value !== undefined)
