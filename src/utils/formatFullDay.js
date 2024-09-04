@@ -1,5 +1,3 @@
-import format from 'date-fns/format'
-
 /**
  * Take a date string, and return in human readable date format for Events
  *
@@ -9,7 +7,7 @@ import format from 'date-fns/format'
 
 function formatFullDay(startDate = '') {
   const fullday = new Date(startDate)
-  return fullday.toLocaleDateString('en-us', { weekday:"long"})
+  return fullday.toLocaleDateString('en-us', { weekday: 'long' })
 }
 
 export default formatFullDay

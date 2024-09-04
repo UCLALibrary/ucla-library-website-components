@@ -46,25 +46,25 @@ const ongoing = {
 }
 
 const mockFtva = {
-  to: "series/todd-solondz-series",
-  startDate: "2025-11-06T08:00:00+00:00",
+  to: 'series/todd-solondz-series',
+  startDate: '2025-11-06T08:00:00+00:00',
   image: API.image,
-  title: "TEST - Todd Solondz Series",
-  endDate: "2025-12-13T08:00:00+00:00",
-  tagLabels:  [
+  title: 'TEST - Todd Solondz Series',
+  endDate: '2025-12-13T08:00:00+00:00',
+  tagLabels: [
     {
-      "title": "Guest speaker"
+      title: 'Guest speaker'
     }
   ]
 }
-  // {
-  //   uri: "series/series-with-3-upcoming-events",
-  //   title: "Series with 3 upcoming events",
-  //   startDate: "2026-01-01T08:00:00+00:00",
-  //   endDate: "2026-03-31T07:00:00+00:00",
-  //   ongoing: false,
-  //   ftvaImage: []
-  // }
+// {
+//   uri: "series/series-with-3-upcoming-events",
+//   title: "Series with 3 upcoming events",
+//   startDate: "2026-01-01T08:00:00+00:00",
+//   endDate: "2026-03-31T07:00:00+00:00",
+//   ongoing: false,
+//   ftvaImage: []
+// }
 // }
 
 export function Default() {
