@@ -113,10 +113,10 @@ const parsedMetaThemeSettings = computed(() => {
   // ftva
   if (theme?.value === 'ftva') {
     return {
-      statement: 'Subscribe to receive the latest updates on what\'s happening at the Film & Television Archive.',
-      label: 'Submit',
+      title: 'title',
+      tagLabels: 'tagLabels[0].title',
       icon: formIcons.caretRight,
-      socialMediaIcons: true
+      date: parsedDateFtva
     }
   }
 })
@@ -135,6 +135,7 @@ const parsedDateMonth = computed(() => {
   return ''
 })
 
+// For horizontal FTVA
 const parsedFormatFullDay = computed(() => {
   if (props.startDate)
     return formatFullDay(props.startDate)
@@ -161,7 +162,7 @@ const parsedTime = computed(() => {
 
 <template>
   <li :class="classes">
-    <div class="image-container">
+    <div class="image-date-container">
       <div class="day-month-date">
         <time
           v-if="startDate"
