@@ -141,6 +141,11 @@ const parsedFormatFullDay = computed(() => {
   return ''
 })
 
+const parsedDateFtva = computed(() => {
+  if (props.startDate)
+    return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
+  return ''
+})
 const parsedTime = computed(() => {
   // necessary check for library-website-nuxt & meap
   if (props.startDate && props.sectionHandle === 'event')
@@ -176,7 +181,10 @@ const parsedTime = computed(() => {
         </div>
       </div>
 
-      <div class="date-block">
+      <!-- <div
+        v-if=!ftva
+        class="date-block"
+      >
         <div
           v-if="startDate"
           class="floating-highlight"
@@ -196,7 +204,7 @@ const parsedTime = computed(() => {
             v-html="parsedDateDay"
           />
         </div>
-      </div>
+      </div> -->
 
       <div class="image-block">
         <ResponsiveImage
@@ -217,7 +225,7 @@ const parsedTime = computed(() => {
       </div>
     </div>
 
-    <div class="text">
+    <div class="meta">
       <CardMeta
         :to="to"
         :category="category"
