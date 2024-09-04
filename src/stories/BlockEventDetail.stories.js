@@ -20,6 +20,12 @@ const mockEventDetailData = {
       title: 'Billy Wilder Theater',
       url: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
       uri: 'locations/billy-wilder-theater'
+    },
+    {
+      id: '195746',
+      title: 'Other Location',
+      url: 'https://test-craft.library.ucla.edu/locations/other-locations',
+      uri: 'locations/somelocation'
     }
   ]
 }
@@ -42,7 +48,7 @@ export function Default() {
   }
 }
 
-export function FTVA() {
+export function FTVAMultipleLocations() {
   return {
     data() {
       return {
@@ -60,6 +66,29 @@ export function FTVA() {
       :startDate="data.startDateWithTime"
       :time="data.startDateWithTime"
       :locations="data.location"
+    />
+    `,
+  }
+}
+
+export function FTVAOneLocation() {
+  return {
+    data() {
+      return {
+        data: mockEventDetailData,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockEventDetail },
+    template: `
+    <block-event-detail
+      :startDate="data.startDateWithTime"
+      :time="data.startDateWithTime"
+      :locations="[data.location[0]]"
     />
     `,
   }
