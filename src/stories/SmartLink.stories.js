@@ -1,5 +1,5 @@
-import SmartLink from '@/lib-components/SmartLink.vue'
 import { computed } from 'vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
 
 // Storybook default settings
 export default {
@@ -39,7 +39,7 @@ export function ExternalLink() {
 
 export function FTVALink() {
   return {
-    components: { SmartLink},
+    components: { SmartLink },
     provide() {
       return {
         theme: computed(() => 'ftva'),

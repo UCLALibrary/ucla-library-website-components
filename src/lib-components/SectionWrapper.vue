@@ -67,24 +67,28 @@ const getId = computed(() => {
   <section :class="classes">
     <a
       v-if="sectionTitle"
-      :id="getId" />
+      :id="getId"
+    />
     <div
       v-if="sectionTitle"
-      class="section-header">
+      class="section-header"
+    >
       <SectionHeader
         v-if="sectionTitle"
         class="section-title"
-        v-text="sectionTitle" />
+        v-text="sectionTitle"
+      />
 
       <!-- section-link will not display if slot does not have content -->
       <div class="section-link">
-        <slot name="top-right" class=""></slot> 
+        <slot name="top-right" class="" />
       </div>
 
       <RichText
         v-if="sectionSummary"
         class="section-summary"
-        v-html="sectionSummary" />
+        v-html="sectionSummary"
+      />
     </div>
 
     <slot />
