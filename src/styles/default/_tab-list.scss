@@ -29,6 +29,7 @@
   .tab-list-item {
     flex: 1;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     max-width: -webkit-fit-content;
@@ -65,6 +66,9 @@
   }
 
   @media #{$small} {
+    .tab-list-header {
+      flex-direction: column;
+    }
     .tab-list-item {
       font-size: 16px;
     }
