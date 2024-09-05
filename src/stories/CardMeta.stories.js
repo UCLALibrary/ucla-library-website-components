@@ -156,24 +156,3 @@ export function FTVAOngoing() {
   `,
   }
 }
-// used on FTVA Event Series Page
-export function FTVADateRangeNoTime() {
-  return {
-    data() {
-      return { ...mockDefault }
-    },
-    components: { CardMeta },
-    template: `
-      <card-meta
-          :to="to"
-          :category="category"
-          :title="title"
-          :ongoing=false
-          :text="text"
-          :locations="locations"
-          :language="language"
-          :section-handle="sectionHandle"
-      />
-  `,
-  }
-}

@@ -54,11 +54,16 @@
         height: 34px;
         overflow: hidden;
 
+        .ongoing-item + .schedule-item  {
+            // hide the date range if the ongoing label is display
+            display: none;
+        }
+
         .schedule-item:nth-of-type(1) {
             position: relative;
             margin-right: 28px;
-
-            &::after {
+            // show the diamond icon after, but only if it's not the last child
+            &:not(:last-child)::after {
                 content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
                 position: absolute;
                 right: -30px;

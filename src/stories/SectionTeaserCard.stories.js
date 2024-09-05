@@ -145,7 +145,7 @@ const mockFtvaSeries = [
     title: 'TEST - Todd Solondz Series',
     startDate: '2025-11-06T08:00:00+00:00',
     endDate: '2025-12-13T08:00:00+00:00',
-    ongoing: false,
+    ongoing: true,
     sectionHandle: 'ftvaEventSeries',
     ftvaImage: [
       {
@@ -187,10 +187,10 @@ const mockFtvaSeries = [
   {
     uri: 'series/series-with-3-upcoming-events',
     title: 'Series with 3 upcoming events',
-    startDate: '2026-01-01T08:00:00+00:00',
-    endDate: null,
+    startDate: '2025-11-07T08:00:00+00:00',
+    endDate: '2025-12-20T08:00:00+00:00',
     sectionHandle: 'ftvaEventSeries',
-    ongoing: true,
+    ongoing: false,
     ftvaImage: []
   }
 ]
@@ -258,7 +258,6 @@ export function ftvaEventSeries() {
     template: `
       <section-teaser-card
         :items="items"
-        section-title="section title here"
       />
   `,
   }
