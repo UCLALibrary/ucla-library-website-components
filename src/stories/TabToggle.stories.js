@@ -80,10 +80,10 @@ export function Default() {
     template: `<div class="wrapper">
       <tab-list>
         
-        <tab-item title="Label 1" iconName="icon-calendar" :content="text1">
+        <tab-item title="Label 1" icon="icon-calendar" :content="text1">
         </tab-item>
 
-        <tab-item title="Label 2" iconName="icon-list" :content="text2">
+        <tab-item title="Label 2" icon="icon-list" :content="text2">
         </tab-item>
 
         <tab-item title="Label 3" :content="text3">
@@ -108,10 +108,10 @@ export function FTVACentered() {
     template: `<div class="wrapper">
       <tab-list alignment="center">
         
-        <tab-item title="Label 1" iconName="icon-calendar" :content="text1">
+        <tab-item title="Label 1" icon="icon-calendar" :content="text1">
         </tab-item>
 
-        <tab-item title="Label 2" iconName="icon-list" :content="text2">
+        <tab-item title="Label 2" icon="icon-list" :content="text2">
         </tab-item>
 
         <tab-item title="Label 3" :content="text3">

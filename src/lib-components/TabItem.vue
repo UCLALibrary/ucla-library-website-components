@@ -2,13 +2,13 @@
 import { computed, inject } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
-const { title, iconName } = defineProps({
+const { content, icon, title } = defineProps({
   title: {
     type: String,
     default: '',
   },
 
-  iconName: {
+  icon: {
     type: String,
     default: ''
   },
@@ -19,7 +19,7 @@ const { title, iconName } = defineProps({
   },
 })
 
-const selectedTitle = inject('selectedTitle')
+const activeTab = inject('activeTab')
 
 const theme = useTheme()
 
@@ -29,7 +29,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <div v-show="title === selectedTitle" :class="classes">
+  <div v-show="title === activeTab" :class="classes">
     <div
       v-text="content"
     />
