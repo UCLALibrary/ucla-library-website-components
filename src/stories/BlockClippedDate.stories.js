@@ -47,7 +47,7 @@ const ongoing = {
 
 const mockFtva = {
   to: 'series/todd-solondz-series',
-  startDate: '2025-11-06T08:00:00+00:00',
+  startDate: '2025-12-13T06:30:00+00:00',
   image: API.image,
   title: 'TEST - Todd Solondz Series',
   endDate: '2025-12-13T08:00:00+00:00',
@@ -60,7 +60,7 @@ const mockFtva = {
 // {
 //   uri: "series/series-with-3-upcoming-events",
 //   title: "Series with 3 upcoming events",
-//   startDate: "2026-01-01T08:00:00+00:00",
+//   startDate: "2024-03-09T03:30:00+00:00",
 //   endDate: "2026-03-31T07:00:00+00:00",
 //   ongoing: false,
 //   ftvaImage: []
@@ -135,7 +135,9 @@ export function FtvaThreeColumn() {
         :image="image"
         :title="title"
         :tagLabels="tagLabels"
+        :startTime="startDate"
       />
   `,
   }
 }
+// {{ formatTimes(startTime, startTime) }}

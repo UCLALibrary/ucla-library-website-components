@@ -149,7 +149,6 @@ const classes = computed(() => {
       class="category"
       v-html="category"
     />
-    <!-- Add another slot -->
 
     <SmartLink
       v-if="to"

@@ -18,6 +18,12 @@ import formatFullDay from '@/utils/formatFullDay'
 import formatDay from '@/utils/formatEventDay'
 import formatMonth from '@/utils/formatEventMonth'
 
+// UTILITY FUNCTIONS
+import format from 'date-fns/format'
+import formatTimes from '@/utils/formatEventTimes'
+import formatDates from '@/utils/formatEventDates'
+
+// TYPESCRIPT
 import type { LocationItemType, MediaItemType } from '@/types/types'
 
 const props = defineProps({
@@ -53,6 +59,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  startTime: {
+    type: String,
+    default: '',
+  },
   ongoing: {
     type: Boolean,
     default: false,
@@ -84,15 +94,12 @@ const props = defineProps({
   sectionHandle: {
     type: String,
     default: '',
-  },
-  isThreeColumn: {
-    type: Boolean,
-    default: false,
   }
 })
 
 const route = useRoute()
 // console.log('does this route exist?', JSON.stringify(route))
+
 const sectionName = computed(() => {
   return (
     props.color
@@ -109,18 +116,6 @@ const classes = computed(() => {
   return ['block-clipped-date', `color-${sectionName.value}`, theme?.value || '']
 })
 
-const parsedMetaThemeSettings = computed(() => {
-  // ftva
-  if (theme?.value === 'ftva') {
-    return {
-      title: 'title',
-      tagLabels: 'tagLabels[0].title',
-      icon: formIcons.caretRight,
-      date: parsedDateFtva
-    }
-  }
-})
-
 const parsedDateDay = computed(() => {
   if (props.startDate)
     return formatDay(props.startDate)
@@ -135,6 +130,8 @@ const parsedDateMonth = computed(() => {
   return ''
 })
 
+// ---- FTVA
+
 // For horizontal FTVA
 const parsedFormatFullDay = computed(() => {
   if (props.startDate)
@@ -142,28 +139,37 @@ const parsedFormatFullDay = computed(() => {
   return ''
 })
 
-const parsedDateFtva = computed(() => {
+const parsedStartDatePlusTime = computed(() => {
   if (props.startDate)
     return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
   return ''
 })
-const parsedTime = computed(() => {
-  // necessary check for library-website-nuxt & meap
-  if (props.startDate && props.sectionHandle === 'event')
-    return formatTimes(props.startDate, props.endDate)
-  // legacy behavior returns nothing when sectionHandle is not 'event',
-  // so check theme is set to avoid returning nothing
-  else if (props.startDate && theme?.value !== undefined)
-    return props.endDate ? formatTimes(props.startDate, props.endDate) : formatTimes(props.startDate, props.startDate)
 
-  return ''
+const parsedTime = computed(() => {
+  return format(new Date(props.startDate), 'h:mm aaa')
+})
+
+const parsedMetaThemeSettings = computed(() => {
+  // ftva
+  if (theme?.value === 'ftva') {
+    return {
+      title: 'title',
+      tagLabels: 'tagLabels[0].title',
+      icon: formIcons.caretRight,
+      tagLabels: "tagLabels",
+      startDate: "parsedTime"
+    }
+  }
 })
 </script>
 
 <template>
   <li :class="classes">
     <div class="image-date-container">
-      <div class="day-month-date">
+      <div
+        v-if="theme"
+        class="day-month-date"
+      >
         <time
           v-if="startDate"
           class="day"
@@ -182,8 +188,8 @@ const parsedTime = computed(() => {
         </div>
       </div>
 
-      <!-- <div
-        v-if=!ftva
+      <div
+        v-if=!theme
         class="date-block"
       >
         <div
@@ -205,7 +211,7 @@ const parsedTime = computed(() => {
             v-html="parsedDateDay"
           />
         </div>
-      </div> -->
+      </div>
 
       <div class="image-block">
         <ResponsiveImage
