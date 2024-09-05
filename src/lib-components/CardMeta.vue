@@ -109,7 +109,12 @@ const parsedTarget = computed(() => {
 
 const parsedDate = computed(() => {
   if (props.startDate)
-    return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
+    if (props.sectionHandle === 'ftvaEvent') {
+      console.log('ftva event')
+      return formatDates(props.startDate, props.startDate, props.dateFormat)
+    } else {
+      return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
+    }
   return ''
 })
 

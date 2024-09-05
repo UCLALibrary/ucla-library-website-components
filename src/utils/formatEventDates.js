@@ -30,7 +30,7 @@ function formatDates(startDate = '', endDate = '', dateFormat = 'long') {
     // "Feb 11 2020"
     const day = output.slice(0, 3)
     const dateYear = output.split(' ').slice(1).join(' ')
-    if (endDate) {
+    if (endDate && endDate !== startDate) {
       // Feb 11 – May 31
       const shortFormatEndDate = format(new Date(endDate), 'MMM d')
       const shortFormatStartDate = format(new Date(startDate), 'MMM d')
