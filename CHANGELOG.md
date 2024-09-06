@@ -1,3 +1,10 @@
+# [3.13.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.12.0...v3.13.0) (2024-09-05)
+
+
+### Features
+
+* APPS-2919 add slot to sectionwrapper for link ([#604](https://github.com/UCLALibrary/ucla-library-website-components/issues/604)) ([0195bab](https://github.com/UCLALibrary/ucla-library-website-components/commit/0195bab63471ad36baedcb761d3b5b02f4eaeba0))
+
 # [3.12.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.11.0...v3.12.0) (2024-09-04)
 
 

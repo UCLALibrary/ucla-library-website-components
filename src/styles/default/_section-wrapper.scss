@@ -1,11 +1,23 @@
 .section-wrapper {
     >.section-header {
+        position: relative;
         margin-bottom: var(--space-xl);
 
         >.section-title {
             color: var(--color-primary-blue-03);
             line-height: 1.2;
             margin-bottom: var(--space-m);
+        }
+
+        .section-link {
+            position: absolute;
+            top: 0;
+            right: 0;
+            line-height: 1.2;
+
+            &:empty {
+                display: none;
+            }
         }
 
         .section-summary {
@@ -82,6 +94,16 @@
 
         > :last-child:not(.divider-way-finder) {
             margin-bottom: 0;
+        }
+    }
+
+    // move link under title on mobile
+    @media #{$small} {
+        >.section-header {
+            .section-link {
+                margin-top: -20px;
+                position: relative;
+            }
         }
     }
 }
