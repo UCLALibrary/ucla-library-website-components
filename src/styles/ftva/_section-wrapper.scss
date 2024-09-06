@@ -1,4 +1,21 @@
 .ftva.section-wrapper {
+
+    // default link styles for FTVA
+    .section-link {
+        top: 11px;
+        @include ftva-button-link;
+        color: #{$medium-grey};
+
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        text-decoration-color: #{$grey-blue};
+        text-underline-offset: 4px;
+
+        &:hover {
+            text-decoration-color: #{$bright-blue};
+        }
+    }
+
     &.top-level {
         &.theme-white {
             &.section-banner {

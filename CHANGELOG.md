@@ -1,3 +1,24 @@
+# [3.14.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.13.0...v3.14.0) (2024-09-06)
+
+
+### Features
+
+* APPS-2822 Create TabToggle ([#603](https://github.com/UCLALibrary/ucla-library-website-components/issues/603)) ([3dff422](https://github.com/UCLALibrary/ucla-library-website-components/commit/3dff422d5bf29fe0a11fa4baa8d364ba49fbe89d))
+
+# [3.13.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.12.0...v3.13.0) (2024-09-05)
+
+
+### Features
+
+* APPS-2919 add slot to sectionwrapper for link ([#604](https://github.com/UCLALibrary/ucla-library-website-components/issues/604)) ([0195bab](https://github.com/UCLALibrary/ucla-library-website-components/commit/0195bab63471ad36baedcb761d3b5b02f4eaeba0))
+
+# [3.12.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.11.0...v3.12.0) (2024-09-04)
+
+
+### Features
+
+* APPS-2920 theme to toggle 'multiple locations' ([#601](https://github.com/UCLALibrary/ucla-library-website-components/issues/601)) ([b998ab6](https://github.com/UCLALibrary/ucla-library-website-components/commit/b998ab64b1302602b0fe18136861142f840eff30))
+
 # [3.11.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.10.0...v3.11.0) (2024-09-03)
 
 

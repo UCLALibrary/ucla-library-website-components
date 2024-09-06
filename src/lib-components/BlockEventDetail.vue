@@ -33,13 +33,25 @@ const { startDate, time, locations } = defineProps({
   locations: {
     type: Array<BlockEventDetailLocation>,
     default: () => [],
-  },
+  }
 })
 
 const theme = useTheme()
 
 const classes = computed(() => {
   return ['block-event-detail', theme?.value || '']
+})
+const themeSettings = computed(() => {
+  switch (theme?.value) {
+    case 'ftva':
+      return {
+        multiLocationMsgDisplay: true,
+      }
+    default:
+      return {
+        multiLocationMsgDisplay: false,
+      }
+  }
 })
 </script>
 
@@ -63,23 +75,28 @@ const classes = computed(() => {
     >
       <span>
         <SvgIconLocation class="row-icon" />
-        <span
-          v-for="(location, index) in locations"
-          :key="location.title"
-          class="location-link"
-        >
-          <SmartLink
-            :to="location.title"
-            :link-target="location.uri ? location.uri : ''"
+        <span v-if="themeSettings?.multiLocationMsgDisplay && locations.length > 1">
+          Multiple Locations
+        </span>
+        <span v-else class="locations-wrapper">
+          <span
+            v-for="(location, index) in locations"
+            :key="location.title"
+            class="location-link"
           >
-            {{ location.title }}
-          </SmartLink>
-          {{ index
-            < locations.length
-            - 1
-            ? ', '
-            : ''
-          }}
+            <SmartLink
+              :to="location.title"
+              :link-target="location.uri ? location.uri : ''"
+            >
+              {{ location.title }}
+            </SmartLink>
+            {{ index
+              < locations.length
+              - 1
+              ? ', '
+              : ''
+            }}
+          </span>
         </span>
       </span>
     </div>
