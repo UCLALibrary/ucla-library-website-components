@@ -33,14 +33,14 @@ const isExpanded = ref(null)
 
 const globalStore = useGlobalStore()
 
-const isMobile1 = computed(() => {
+const mobileWinWidth = computed(() => {
   return globalStore.winWidth <= 1200
 })
 
 const isMobile = ref()
 
 onMounted(() => {
-  watch(() => isMobile1.value, (new_val) => {
+  watch(() => mobileWinWidth.value, (new_val) => {
     isMobile.value = new_val
   })
 })
