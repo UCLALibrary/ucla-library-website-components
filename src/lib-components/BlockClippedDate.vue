@@ -22,6 +22,7 @@ import formatMonth from '@/utils/formatEventMonth'
 import format from 'date-fns/format'
 import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
+import { useGlobalStore } from '@/stores/GlobalStore'
 
 // TYPESCRIPT
 import type { LocationItemType, MediaItemType } from '@/types/types'
@@ -149,6 +150,12 @@ const parsedTime = computed(() => {
   return format(new Date(props.startDate), 'h:mm aaa')
 })
 
+const globalStore = useGlobalStore()
+
+const isMobile = computed(() => {
+  return globalStore.winWidth <= 1120
+})
+
 const parsedMetaThemeSettings = computed(() => {
   // ftva
   if (theme?.value === 'ftva') {
@@ -167,7 +174,7 @@ const parsedMetaThemeSettings = computed(() => {
   <li :class="classes">
     <div class="image-date-container">
       <div
-        v-if="theme"
+        v-if="theme && isMobile"
         class="day-month-date"
       >
         <time

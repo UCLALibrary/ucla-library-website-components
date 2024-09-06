@@ -49,11 +49,10 @@
   }
 
   .image {
+    aspect-ratio: 1 / 1;
     width: $large-width;
     height: $large-height;
   }
-
-
 
   .meta {
     width: 50%;
@@ -122,6 +121,20 @@
     position: static;
     display: flex;
     flex-direction: column;
+
+    .image-container {
+      aspect-ratio: 1.71 / 1;
+
+      .molecule-no-image {
+        border-radius: 10px 10px 0 0;
+        aspect-ratio: 1.67 / 1;
+        height: 100%;
+      }
+    }
+
+    // .day-month-date {
+    //   @include visually-hidden;
+    // }
 
     .meta {
       width: $large-width * 2;
