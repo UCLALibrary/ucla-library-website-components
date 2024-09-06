@@ -174,7 +174,7 @@ const parsedMetaThemeSettings = computed(() => {
   <li :class="classes">
     <div class="image-date-container">
       <div
-        v-if="theme && isMobile"
+        v-if="theme && !isMobile"
         class="day-month-date"
       >
         <time
@@ -196,7 +196,7 @@ const parsedMetaThemeSettings = computed(() => {
       </div>
 
       <div
-        v-if=!theme
+        v-if="!theme"
         class="date-block"
       >
         <div

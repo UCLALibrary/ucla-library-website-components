@@ -122,8 +122,15 @@
     display: flex;
     flex-direction: column;
 
-    .image-container {
+    .image-block {
       aspect-ratio: 1.71 / 1;
+      width: 280px;
+    }
+
+    .image {
+      aspect-ratio: 1.71 / 1;
+      width: 280px;
+      border: 2px solid yellow;
 
       .molecule-no-image {
         border-radius: 10px 10px 0 0;
@@ -132,12 +139,15 @@
       }
     }
 
+
     // .day-month-date {
     //   @include visually-hidden;
     // }
 
     .meta {
-      width: $large-width * 2;
+      width: calc((100% / 3) - 22px);
+      min-width: 280px;
+      //width: $large-width * 2;
       height: $large-height;
     }
   }
