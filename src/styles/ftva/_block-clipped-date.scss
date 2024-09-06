@@ -81,7 +81,7 @@
 
     :deep(.date-time) {
       position: absolute;
-      bottom: var(--space-s);
+      bottom: var(--space-m);
       display: flex;
       flex-direction: row;
 
@@ -89,7 +89,7 @@
       color: $accent-blue;
       letter-spacing: .04px;
 
-      height: 34px;
+      height: 75px;
       overflow: hidden;
 
       .schedule-item:nth-of-type(1) {
@@ -107,8 +107,6 @@
     }
   }
 
-
-
   .date {
     border: 2px solid green;
   }
@@ -122,14 +120,14 @@
     display: flex;
     flex-direction: column;
 
-    .image-block {
-      aspect-ratio: 1.71 / 1;
-      width: 280px;
+    .ftva.block-clipped-date .image .image-block {
+      //aspect-ratio: 1.71 / 1;
+      width: 310px;
     }
 
     .image {
       aspect-ratio: 1.71 / 1;
-      width: 280px;
+      width: 310px;
       border: 2px solid yellow;
 
       .molecule-no-image {
