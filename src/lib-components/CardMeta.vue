@@ -109,13 +109,11 @@ const parsedTarget = computed(() => {
 
 const parsedDate = computed(() => {
   if (props.startDate) {
-    if (props.sectionHandle === 'ftvaEvent') {
-      console.log('ftva event')
+    if (props.sectionHandle === 'ftvaEvent')
       return formatDates(props.startDate, props.startDate, props.dateFormat)
-    }
-    else {
+
+    else
       return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
-    }
   }
   return ''
 })
@@ -128,7 +126,7 @@ const parsedTime = computed(() => {
   // so check theme is set AND we are not showing ftvaEventSeries data to avoid returning nothing
   else if (props.startDate && (props.sectionHandle !== 'ftvaEventSeries' && theme?.value !== undefined))
     return props.endDate ? formatTimes(props.startDate, props.endDate) : formatTimes(props.startDate, props.startDate)
-  // if it is ftvaEventSeries, return nothing
+  // in all other cases incl. if it is ftvaEventSeries, return nothing
   return ''
 })
 
