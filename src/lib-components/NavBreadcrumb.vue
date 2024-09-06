@@ -40,8 +40,8 @@ const mobileWinWidth = computed(() => {
 const isMobile = ref()
 
 onMounted(() => {
-  watch(() => mobileWinWidth.value, (new_val) => {
-    isMobile.value = new_val
+  watch(() => mobileWinWidth.value, (newVal) => {
+    isMobile.value = newVal
   })
 })
 
