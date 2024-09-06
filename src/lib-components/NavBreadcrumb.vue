@@ -33,16 +33,16 @@ const isExpanded = ref(null)
 
 const globalStore = useGlobalStore()
 
-const mobileWinWidth = computed(() => {
-  return globalStore.winWidth <= 1200
-})
+// const mobileWinWidth = computed(() => {
+//   return globalStore.winWidth <= 1200
+// })
 
-const isMobile = ref()
+const isMobile = ref(false)
 
 onMounted(() => {
-  watch(() => mobileWinWidth.value, (newVal) => {
+  watch(() => globalStore.winWidth, (newVal) => {
     isMobile.value = newVal
-  })
+  }, { immediate: true })
 })
 
 // Split URI path; then remove empty string at start of the array
