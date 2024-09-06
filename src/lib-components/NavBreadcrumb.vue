@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-right.svg'
 import { useTheme } from '@/composables/useTheme'
@@ -33,8 +33,16 @@ const isExpanded = ref(null)
 
 const globalStore = useGlobalStore()
 
-const isMobile = computed(() => {
+const isMobile1 = computed(() => {
   return globalStore.winWidth <= 1200
+})
+
+const isMobile = ref()
+
+onMounted(() => {
+  watch(() => isMobile1.value, (new_val) => {
+    isMobile.value = new_val
+  })
 })
 
 // Split URI path; then remove empty string at start of the array
