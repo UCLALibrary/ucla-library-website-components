@@ -31,7 +31,7 @@
             :deep(.section-teaser-card) {
                 --color-children-theme: #{$page-blue};
 
-                .card-meta {
+                .block-highlight.card {
                     background-color: var(--color-children-theme);
                 }
             }
@@ -47,7 +47,7 @@
 
 
             :deep(*) {
-                .card-meta {
+                .block-highlight.card {
                     background-color: var(--color-children-theme);
                 }
             }
