@@ -25,6 +25,8 @@ const tabItems = ref(slots.map((tabItem) => {
 
 const activeTab = ref(tabItems.value[0].title)
 
+const tabRefs = ref([])
+
 provide('activeTab', activeTab)
 
 const iconMapping = {
@@ -65,8 +67,10 @@ function setTabAriaControl(tabName) {
 function switchTab(tabName) {
   activeTab.value = tabName
 
-  const tabId = setTabId(tabName)
-  document.getElementById(tabId).focus()
+  const tabIndex = tabItems.value.findIndex(tab => tab.title === tabName)
+
+  if (tabRefs.value[tabIndex])
+    tabRefs.value[tabIndex].focus()
 }
 
 function hyphenateTabName(str) {
@@ -111,8 +115,9 @@ function keydownHandler(e) {
 
     <div class="tab-list-header" role="tablist">
       <button
-        v-for="tab in tabItems"
+        v-for="(tab, index) in tabItems"
         :id="setTabId(tab.title)"
+        :ref="(el) => tabRefs[index] = el"
         :key="tab.title"
         class="tab-list-item"
         :class="{ active: activeTab === tab.title }"
