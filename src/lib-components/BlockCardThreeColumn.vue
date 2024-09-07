@@ -21,7 +21,7 @@ import formatMonth from '@/utils/formatEventMonth'
 import format from 'date-fns/format'
 // import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
-// import { useGlobalStore } from '@/stores/GlobalStore'
+import { useGlobalStore } from '@/stores/GlobalStore'
 
 // TYPESCRIPT
 import type { MediaItemType, EventFiltersItemType } from '@/types/types'
@@ -70,7 +70,7 @@ const props = defineProps({
 const theme = useTheme()
 
 const classes = computed(() => {
-  return ['block-clard-three-column', theme?.value || '']
+  return ['block-card-three-column', theme?.value || '']
 })
 
 const parsedDateDay = computed(() => {
@@ -106,21 +106,17 @@ const parsedTime = computed(() => {
   return format(new Date(props.startDate), 'h:mm aaa')
 })
 
-// const globalStore = useGlobalStore()
+const globalStore = useGlobalStore()
 
-// const isMobile = computed(() => {
-//   return globalStore.winWidth <= 1120
-// })
+const isMobile = computed(() => {
+  return globalStore.winWidth <= 1120
+})
 </script>
 
 <template>
   <li :class="classes">
     <div class="image-date-container">
-      <div
-        v-if="theme"
-        class="day-month-date"
-      >
-        <h2>HELLO JEN</h2>
+      <div class="day-month-date">
         <time
           v-if="startDate"
           class="day"

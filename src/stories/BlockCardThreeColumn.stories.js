@@ -40,8 +40,8 @@ export function Default() {
       <block-card-three-column
         :to="to"
         :start-date="startDate"
-        :image-aspect-ratio="100"
         :image="image"
+        :image-aspect-ratio="100"
         :title="title"
         :tagLabels="tagLabels"
         :startTime="startDate"

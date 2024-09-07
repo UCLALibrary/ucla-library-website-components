@@ -196,7 +196,7 @@ const parsedMetaThemeSettings = computed(() => {
       </div>
 
       <div
-        v-if="!theme"
+        v-else
         class="date-block"
       >
         <div
