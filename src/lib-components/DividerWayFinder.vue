@@ -35,7 +35,7 @@ watchEffect(() => {
 
 // Mounted
 onMounted(() => {
-  console.log('does this route exist?', route?.path)
+  // console.log('does this route exist?', route?.path)
   colorRoute.value = route?.path || ''
 })
 // console.log('section name computed', sectionName.value)
