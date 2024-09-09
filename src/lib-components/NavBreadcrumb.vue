@@ -2,8 +2,8 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-right.svg'
+import { useWindowSize } from '@vueuse/core'
 import { useTheme } from '@/composables/useTheme'
-import { useGlobalStore } from '@/stores/GlobalStore'
 
 // COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
@@ -29,19 +29,16 @@ const { to, parentTitle, title } = defineProps({
 
 const route = useRoute()
 
-const isExpanded = ref(null)
-
-const globalStore = useGlobalStore()
-
-// const mobileWinWidth = computed(() => {
-//   return globalStore.winWidth <= 1200
-// })
+const isExpanded = ref(false)
 
 const isMobile = ref(false)
 
 onMounted(() => {
-  watch(() => globalStore.winWidth, (newVal) => {
-    isMobile.value = newVal
+  // Watch for changes in window width only after the component is mounted
+  const { width } = useWindowSize()
+  watch(width, (newWidth) => {
+    // console.log("window width changes on client side")
+    isMobile.value = newWidth <= 1200
   }, { immediate: true })
 })
 
@@ -62,7 +59,7 @@ const parsedBreadcrumbLinks = computed(() => {
   if (isMobile.value) {
     // return last 2 items
     const mobileBreadcrumb
-            = createBreadcrumbLinks(breadcrumbsList).slice(-2)
+      = createBreadcrumbLinks(breadcrumbsList).slice(-2)
 
     return mobileBreadcrumb.splice(0, 1)
   }
@@ -183,7 +180,10 @@ const parsedClasses = computed(() => {
         @click="toggleLinksExpansion()"
         v-text="linkObj.title"
       />
-      <SvgIconCaretRight v-if="!linkObj.isLastItem" aria-hidden="true" />
+      <SvgIconCaretRight
+        v-if="!linkObj.isLastItem"
+        aria-hidden="true"
+      />
       <!-- FTVA uses title field from Craft for the final breadcrumb -->
       <span
         v-if="linkObj.isLastItem && theme === 'ftva'"
