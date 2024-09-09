@@ -1,3 +1,10 @@
+## [3.14.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.14.0...v3.14.1) (2024-09-09)
+
+
+### Bug Fixes
+
+* APPS-2914 NavBreadcrumb hydration error ([#605](https://github.com/UCLALibrary/ucla-library-website-components/issues/605)) ([d139ab4](https://github.com/UCLALibrary/ucla-library-website-components/commit/d139ab446c8eb3503735e446df06301fa905c0fc))
+
 # [3.14.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.13.0...v3.14.0) (2024-09-06)
 
 
