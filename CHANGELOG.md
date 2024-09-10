@@ -1,3 +1,10 @@
+## [3.15.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.15.0...v3.15.1) (2024-09-10)
+
+
+### Bug Fixes
+
+* APPS-2926 VideoEmbed cover image sizing ([#606](https://github.com/UCLALibrary/ucla-library-website-components/issues/606)) ([89dcdfa](https://github.com/UCLALibrary/ucla-library-website-components/commit/89dcdfac3ea8bb3c0cc1f6500f6b4fcc724b361f))
+
 # [3.15.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.14.1...v3.15.0) (2024-09-10)
 
 
