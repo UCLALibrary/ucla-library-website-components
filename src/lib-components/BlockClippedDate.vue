@@ -9,22 +9,13 @@ import type { PropType } from 'vue'
 
 // COMPONENTS
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
-import { useTheme } from '@/composables/useTheme'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
 import getSectionName from '@/utils/getSectionName'
-import formatFullDay from '@/utils/formatFullDay'
 import formatDay from '@/utils/formatEventDay'
 import formatMonth from '@/utils/formatEventMonth'
 
-// UTILITY FUNCTIONS
-import format from 'date-fns/format'
-import formatTimes from '@/utils/formatEventTimes'
-import formatDates from '@/utils/formatEventDates'
-import { useGlobalStore } from '@/stores/GlobalStore'
-
-// TYPESCRIPT
 import type { LocationItemType, MediaItemType } from '@/types/types'
 
 const props = defineProps({
@@ -57,10 +48,6 @@ const props = defineProps({
     default: '',
   },
   endDate: {
-    type: String,
-    default: '',
-  },
-  startTime: {
     type: String,
     default: '',
   },
@@ -100,7 +87,6 @@ const props = defineProps({
 
 const route = useRoute()
 // console.log('does this route exist?', JSON.stringify(route))
-
 const sectionName = computed(() => {
   return (
     props.color
@@ -110,11 +96,8 @@ const sectionName = computed(() => {
   )
 })
 
-// THEME
-const theme = useTheme()
-
 const classes = computed(() => {
-  return ['block-clipped-date', `color-${sectionName.value}`, theme?.value || '']
+  return ['block-clipped-date', `color-${sectionName.value}`]
 })
 
 const parsedDateDay = computed(() => {
@@ -130,132 +113,61 @@ const parsedDateMonth = computed(() => {
 
   return ''
 })
-
-// ---- FTVA
-
-// For horizontal FTVA
-const parsedFormatFullDay = computed(() => {
-  if (props.startDate)
-    return formatFullDay(props.startDate)
-  return ''
-})
-
-const parsedStartDatePlusTime = computed(() => {
-  if (props.startDate)
-    return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
-  return ''
-})
-
-const parsedTime = computed(() => {
-  return format(new Date(props.startDate), 'h:mm aaa')
-})
-
-const globalStore = useGlobalStore()
-
-const isMobile = computed(() => {
-  return globalStore.winWidth <= 1120
-})
-
-const parsedMetaThemeSettings = computed(() => {
-  // ftva
-  if (theme?.value === 'ftva') {
-    return {
-      title: 'title',
-      tagLabels: 'tagLabels[0].title',
-      icon: formIcons.caretRight,
-      tagLabels: "tagLabels",
-      startDate: "parsedTime"
-    }
-  }
-})
 </script>
 
 <template>
   <li :class="classes">
-    <div class="image-date-container">
+    <div class="image-container">
       <div
-        v-if="theme && !isMobile"
-        class="day-month-date"
+        v-if="startDate"
+        class="floating-highlight"
+      />
+      <div
+        v-if="startDate"
+        class="clipped-date"
       >
         <time
           v-if="startDate"
-          class="day"
-          v-html="parsedFormatFullDay"
+          class="month"
+          v-html="parsedDateMonth"
         />
-        <div class="month-date">
-          <time
-            v-if="startDate"
-            class="month"
-            v-html="parsedDateMonth"
-          />
-          <time
-            v-if="startDate"
-            v-html="parsedDateDay"
-          />
-        </div>
+        <time
+          v-if="startDate"
+          class="day"
+          v-html="parsedDateDay"
+        />
       </div>
-
+      <ResponsiveImage
+        v-if="image"
+        :media="image"
+        :aspect-ratio="imageAspectRatio"
+        class="image"
+      />
       <div
         v-else
-        class="date-block"
+        class="molecule-no-image"
       >
-        <div
-          v-if="startDate"
-          class="floating-highlight"
+        <MoleculePlaceholder
+          class="molecule"
+          aria-hidden="true"
         />
-        <div
-          v-if="startDate"
-          class="clipped-date"
-        >
-          <time
-            v-if="startDate"
-            class="month"
-            v-html="parsedDateMonth"
-          />
-          <time
-            v-if="startDate"
-            class="day"
-            v-html="parsedDateDay"
-          />
-        </div>
-      </div>
-
-      <div class="image-block">
-        <ResponsiveImage
-          v-if="image"
-          :media="image"
-          :aspect-ratio="imageAspectRatio"
-          class="image"
-        />
-        <div
-          v-else
-          class="molecule-no-image"
-        >
-          <MoleculePlaceholder
-            class="molecule"
-            aria-hidden="true"
-          />
-        </div>
       </div>
     </div>
-
-    <div class="meta">
-      <CardMeta
-        :to="to"
-        :category="category"
-        :title="title"
-        :start-date="startDate"
-        :end-date="endDate"
-        :ongoing="ongoing"
-        :text="text"
-        :byline-one="bylineOne"
-        :byline-two="bylineTwo"
-        :locations="locations"
-        :alternative-full-name="alternativeFullName"
-        :language="language"
-        :section-handle="sectionHandle"
-      />
-    </div>
+    <CardMeta
+      :to="to"
+      :category="category"
+      :title="title"
+      :start-date="startDate"
+      :end-date="endDate"
+      :ongoing="ongoing"
+      :text="text"
+      :byline-one="bylineOne"
+      :byline-two="bylineTwo"
+      :locations="locations"
+      :alternative-full-name="alternativeFullName"
+      :language="language"
+      :section-handle="sectionHandle"
+    />
   </li>
 </template>
 
@@ -263,6 +175,168 @@ const parsedMetaThemeSettings = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/default/_block-clipped-date.scss";
-@import "@/styles/ftva/_block-clipped-date.scss";
+.block-clipped-date {
+  background-color: var(--color-theme, var(--color-white));
+  font-family: var(--font-primary);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  // Themes for floating highlight/ triangle
+  &.color-default {
+    --floating-highlight-color-theme: var(--color-default-cyan-03);
+  }
+
+  &.color-visit {
+    --floating-highlight-color-theme: var(--color-visit-fushia-03);
+  }
+
+  &.color-help {
+    --floating-highlight-color-theme: var(--color-help-green-03);
+  }
+
+  &.color-about {
+    --floating-highlight-color-theme: var(--color-about-purple-03);
+  }
+
+  .image-container {
+    width: 50%;
+    max-height: 272px;
+    flex-shrink: 0;
+    margin-right: var(--space-xl);
+
+    .image {
+      width: 100%;
+      height: 272px;
+    }
+
+    .molecule-no-image {
+      width: 100%;
+      height: 272px;
+      margin-right: var(--space-xl);
+      background: var(--gradient-01);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      .molecule {
+        flex-shrink: 0;
+        position: absolute;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .floating-highlight {
+    z-index: 30;
+    position: absolute;
+    width: 123px;
+    top: 191px;
+    left: 6px;
+    height: 90px;
+    background-color: var(--floating-highlight-color-theme);
+    clip-path: polygon(0 0,
+        calc(100% - 37px) 0,
+        100% 75px,
+        calc(100% - 1.5px) 75px,
+        calc(100% - 38px) 1.5px,
+        0 1.5px);
+  }
+
+  .clipped-date {
+    margin-top: 54px;
+    z-index: 30;
+    position: absolute;
+    top: 145px;
+    left: 0px;
+    width: 125px;
+    height: 84px;
+    background-color: var(--color-white);
+    clip-path: polygon(0 0,
+        calc(100% - 39px) 0,
+        100% 84px,
+        calc(100% - 1.5px) 84px,
+        0 84px,
+        0 1.5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 32px;
+    color: var(--color-primary-blue-03);
+
+    .month {
+      font-weight: 400;
+      font-family: var(--font-secondary);
+      font-size: 16px;
+      letter-spacing: 1.5%;
+    }
+
+    .day {
+      font-weight: 500;
+      font-family: var(--font-primary);
+      font-size: 36px;
+      letter-spacing: 0.25%;
+      line-height: 1;
+    }
+  }
+
+  :deep(.image) {
+    width: 456px;
+    max-height: 272px;
+    margin-right: 56px;
+
+    .clipped-date {
+      margin-top: 54px;
+      z-index: 30;
+      position: absolute;
+      top: 145px;
+      left: 0px;
+      width: 125px;
+      height: 84px;
+      background-color: var(--color-white);
+      clip-path: polygon(0 0,
+          calc(100% - 39px) 0,
+          100% 84px,
+          calc(100% - 1.5px) 84px,
+          0 84px,
+          0 1.5px);
+    }
+  }
+
+  // Breakpoints
+  @media #{$medium} {
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+
+    .floating-highlight,
+    .clipped-date {
+      display: none;
+    }
+
+    .image-container,
+    :deep(.card-meta) {
+      width: 100%;
+      max-width: 100%;
+
+      .image-container {
+        margin-bottom: var(--space-l);
+      }
+    }
+  }
+
+  @media #{$small} {
+    .image {
+      max-width: 100%;
+    }
+
+    .image-container {
+      .molecule-no-image {
+        height: 200px;
+      }
+    }
+  }
+}
 </style>

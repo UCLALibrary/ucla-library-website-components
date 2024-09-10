@@ -46,6 +46,7 @@ export function Default() {
         :tagLabels="tagLabels"
         :startTime="startDate"
       />
+
   `,
   }
 }

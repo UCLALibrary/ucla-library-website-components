@@ -48,6 +48,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  startTime: {
+    type: String,
+    default: '',
+  },
   // long = 'Febuary 1, 2022', short = 'Feb 1, 2022
   dateFormat: {
     type: String,
