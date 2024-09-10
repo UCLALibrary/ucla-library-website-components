@@ -1,3 +1,6 @@
+import { computed, onBeforeUnmount, onMounted } from 'vue'
+import { useGlobalStore } from '@/stores/GlobalStore'
+
 // Import component
 import SectionCardsThreeColumn from '@/lib-components/SectionCardsThreeColumn'
 
@@ -16,7 +19,6 @@ const mockDefault = [
     to: 'events/la-région-centrale-03-08-24',
     title: 'TEST - La Région Centrale Screening',
     startDate: '2027-03-31T07:00:00+00:00',
-    endDate: null,
     image: API.image,
     tagLabels: [
       { title: 'Guest speaker' },
@@ -41,11 +43,30 @@ const mockDefault = [
     image: API.image,
   },
 ]
+
 // Variations of stories below
-export function Default() {
+export function Default(args) {
   return {
     data() {
       return { items: mockDefault }
+    },
+    setup() {
+      onMounted(() => {
+        const globalStore = useGlobalStore()
+
+        const updateWinWidth = () => {
+          globalStore.winWidth = window.innerWidth
+        }
+
+        updateWinWidth()
+
+        window.addEventListener('resize', updateWinWidth)
+
+        onBeforeUnmount(() => {
+          window.removeEventListener('resize', updateWinWidth)
+        })
+      })
+      return { args }
     },
     components: { SectionCardsThreeColumn },
     template: `

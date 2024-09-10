@@ -1,5 +1,7 @@
-import { computed } from 'vue'
+import { computed, onBeforeUnmount, onMounted } from 'vue'
+import { useGlobalStore } from '@/stores/GlobalStore'
 
+// Import component
 import BlockCardThreeColumn from '@/lib-components/BlockCardThreeColumn'
 
 // Import mock api data
@@ -22,18 +24,31 @@ const mockDefault = {
       title: 'Guest speaker'
     }
   ],
-  imageAspectRatio: 60,
 }
 
-export function Default() {
+// Variations of stories below
+export function Default(args) {
   return {
     data() {
       return { ...mockDefault }
     },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
+    setup() {
+      onMounted(() => {
+        const globalStore = useGlobalStore()
+
+        const updateWinWidth = () => {
+          globalStore.winWidth = window.innerWidth
+        }
+
+        updateWinWidth()
+
+        window.addEventListener('resize', updateWinWidth)
+
+        onBeforeUnmount(() => {
+          window.removeEventListener('resize', updateWinWidth)
+        })
+      })
+      return { args }
     },
     components: { BlockCardThreeColumn },
     template: `

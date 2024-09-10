@@ -128,6 +128,12 @@ const parsedTime = computed(() => {
   return ''
 })
 
+const parsedStartTime = computed(() => {
+  // if (props.startDate)
+  //   return format(new Date(props.startDate), 'h:mm aaa')
+  return "HELLO FROM START TIME"
+})
+
 const parsedLocations = computed(() => {
   return props.locations.map((obj) => {
     let input = 'svg-icon-location'
@@ -213,6 +219,11 @@ const classes = computed(() => {
         class="schedule-item"
         v-html="parsedTime"
       />
+      <time
+        v-if="startTime"
+        class="schedule-item"
+        v-html="parsedStartTime"
+      />
     </div>
 
     <div
@@ -247,8 +258,13 @@ const classes = computed(() => {
     />
 
     <!-- SHARE BUTTON -->
-    <div class="slot">
-      <slot />
+    <div class="sharebutton-slot">
+      <slot name="sharebutton" />
+    </div>
+
+    <!-- BLOCKTAG SLOT-->
+    <div class="block-tags-slot">
+      <slot name="blocktag" />
     </div>
 
     <RichText

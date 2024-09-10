@@ -12,6 +12,7 @@ import format from 'date-fns/format'
 import { useTheme } from '@/composables/useTheme'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import BlockTag from '@/lib-components/BlockTag.vue'
+import CardMeta from '@/lib-components/CardMeta.vue'
 
 // import formatDayDateTime from '@/utils/formatDayDateTime'
 import formatShortDay from '@/utils/formatShortDay'
@@ -99,7 +100,6 @@ const parsedDateDay = computed(() => {
 })
 
 // Vertical Time
-
 const parsedStartDatePlusTime = computed(() => {
   if (props.startDate)
     return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
@@ -125,7 +125,7 @@ const parsedTime = computed(() => {
 const globalStore = useGlobalStore()
 
 const isMobile = computed(() => {
-  return globalStore.winWidth <= 1120
+  return globalStore.winWidth <= 600
 })
 </script>
 
@@ -172,7 +172,7 @@ const isMobile = computed(() => {
     </div>
 
     <div class="meta">
-      <SmartLink
+      <!-- <SmartLink
         v-if="to"
         :to="to"
       >
@@ -181,30 +181,53 @@ const isMobile = computed(() => {
           class="title"
           v-html="title"
         />
-      </SmartLink>
+      </SmartLink> -->
 
-      <div class="time-tags">
-        <div class="time-date">
-          <time
-            v-if="startTime"
-            class="date"
-          >{{ parsedDayMonthDate }}</time>
-          <time class="time">{{ parsedTime }}</time>
-        </div>
+      <CardMeta
+        class="card-meta-items"
+        :to="to"
+        :title="title"
+        :start-time="parsedTime"
+        :text="text"
+      >
 
-        <div
-          v-if="tagLabels && tagLabels.length > 0"
-          class="block-tags"
+        <template v-slot:blocktag>
+          <div v-for="(label, index) in tagLabels">
+            <BlockTag
+              :label="label.title"
+              :iconName="iconName"
+              isSecondary="true"
+            />
+          </div>
+        </template>
+
+      </CardMeta>
+      <!--
+          <div
+          class="time-tags"
         >
-          <BlockTag
-            v-for="tag in tagLabels"
-            :key="`tag-${tag.title}`"
-            :label="tag.title"
-            :is-secondary="true"
-            class="tag-label"
-          />
-        </div>
-      </div>
+          <div class="time-date">
+            <time
+              v-if="isMobile"
+              class="date"
+            >{{ parsedDayMonthDate }}</time>
+
+            <time class="time">{{ parsedTime }}</time>
+          </div>
+
+          <div
+            v-if="tagLabels && tagLabels.length > 0"
+            class="block-tags"
+          >
+            <BlockTag
+              v-for="tag in tagLabels"
+              :key="`tag-${tag.title}`"
+              :label="tag.title"
+              :is-secondary="true"
+              class="tag-label"
+            />
+          </div>
+    </div> -->
     </div>
   </li>
 </template>
