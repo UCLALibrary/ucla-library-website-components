@@ -190,17 +190,15 @@ const isMobile = computed(() => {
         :start-time="parsedTime"
         :text="text"
       >
-
-        <template v-slot:blocktag>
+        <template #blocktag>
           <div v-for="(label, index) in tagLabels">
             <BlockTag
               :label="label.title"
-              :iconName="iconName"
-              isSecondary="true"
+              :icon-name="iconName"
+              is-secondary="true"
             />
           </div>
         </template>
-
       </CardMeta>
       <!--
           <div

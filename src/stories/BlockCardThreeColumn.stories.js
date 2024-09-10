@@ -1,4 +1,4 @@
-import { computed, onBeforeUnmount, onMounted } from 'vue'
+import { onBeforeUnmount, onMounted } from 'vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 // Import component

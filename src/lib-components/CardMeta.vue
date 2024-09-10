@@ -131,7 +131,7 @@ const parsedTime = computed(() => {
 const parsedStartTime = computed(() => {
   // if (props.startDate)
   //   return format(new Date(props.startDate), 'h:mm aaa')
-  return "HELLO FROM START TIME"
+  return 'HELLO FROM START TIME'
 })
 
 const parsedLocations = computed(() => {
@@ -262,7 +262,7 @@ const classes = computed(() => {
       <slot name="sharebutton" />
     </div>
 
-    <!-- BLOCKTAG SLOT-->
+    <!-- BLOCKTAG SLOT -->
     <div class="block-tags-slot">
       <slot name="blocktag" />
     </div>
