@@ -1,3 +1,10 @@
+# [3.15.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.14.1...v3.15.0) (2024-09-10)
+
+
+### Features
+
+* APPS-2917 FTVA series date variation ([#602](https://github.com/UCLALibrary/ucla-library-website-components/issues/602)) ([ecbf3ed](https://github.com/UCLALibrary/ucla-library-website-components/commit/ecbf3edf1a704a72e979a087a4bdd17e15767eda))
+
 ## [3.14.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.14.0...v3.14.1) (2024-09-09)
 
 
