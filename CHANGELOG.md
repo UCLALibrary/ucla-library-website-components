@@ -1,3 +1,24 @@
+## [3.15.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.15.0...v3.15.1) (2024-09-10)
+
+
+### Bug Fixes
+
+* APPS-2926 VideoEmbed cover image sizing ([#606](https://github.com/UCLALibrary/ucla-library-website-components/issues/606)) ([89dcdfa](https://github.com/UCLALibrary/ucla-library-website-components/commit/89dcdfac3ea8bb3c0cc1f6500f6b4fcc724b361f))
+
+# [3.15.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.14.1...v3.15.0) (2024-09-10)
+
+
+### Features
+
+* APPS-2917 FTVA series date variation ([#602](https://github.com/UCLALibrary/ucla-library-website-components/issues/602)) ([ecbf3ed](https://github.com/UCLALibrary/ucla-library-website-components/commit/ecbf3edf1a704a72e979a087a4bdd17e15767eda))
+
+## [3.14.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.14.0...v3.14.1) (2024-09-09)
+
+
+### Bug Fixes
+
+* APPS-2914 NavBreadcrumb hydration error ([#605](https://github.com/UCLALibrary/ucla-library-website-components/issues/605)) ([d139ab4](https://github.com/UCLALibrary/ucla-library-website-components/commit/d139ab446c8eb3503735e446df06301fa905c0fc))
+
 # [3.14.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.13.0...v3.14.0) (2024-09-06)
 
 

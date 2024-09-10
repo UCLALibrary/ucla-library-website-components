@@ -1,7 +1,6 @@
-import { computed, onBeforeUnmount, onMounted } from 'vue'
+import { computed } from 'vue'
 import router from '@/router'
 import NavBreadcrumb from '@/lib-components/NavBreadcrumb'
-import { useGlobalStore } from '@/stores/GlobalStore'
 
 // Storybook default settings
 export default {
@@ -19,24 +18,6 @@ function Template(args) {
   router.push(args.to)
   return {
     setup() {
-      onMounted(() => {
-        const globalStore = useGlobalStore()
-
-        const updateWinWidth = () => {
-          globalStore.winWidth = window.innerWidth
-        }
-
-        // Set initial winWidth
-        updateWinWidth()
-
-        window.addEventListener('resize', updateWinWidth)
-
-        // Clean up
-        onBeforeUnmount(() => {
-          window.removeEventListener('resize', updateWinWidth)
-        })
-      })
-
       return { args }
     },
     components: { NavBreadcrumb },
@@ -73,21 +54,6 @@ function TemplateFTVA(args) {
       }
     },
     setup() {
-      onMounted(() => {
-        const globalStore = useGlobalStore()
-
-        const updateWinWidth = () => {
-          globalStore.winWidth = window.innerWidth
-        }
-
-        updateWinWidth()
-
-        window.addEventListener('resize', updateWinWidth)
-
-        onBeforeUnmount(() => {
-          window.removeEventListener('resize', updateWinWidth)
-        })
-      })
       return { args }
     },
     components: { NavBreadcrumb },
