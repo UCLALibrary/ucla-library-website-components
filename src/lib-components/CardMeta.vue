@@ -48,7 +48,8 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  // long = 'Febuary 1, 2022', short = 'Feb 1, 2022
+  // long single date = 'Febuary 1, 2022', short = 'Feb 1, 2022
+  // long date range =  'Febuary 1, 2022 - Febuary 2, 2022', short = 'Feb 1 - Feb 2'
   dateFormat: {
     type: String,
     default: 'long',
@@ -107,8 +108,13 @@ const parsedTarget = computed(() => {
 })
 
 const parsedDate = computed(() => {
-  if (props.startDate)
-    return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
+  if (props.startDate) {
+    if (props.sectionHandle === 'ftvaEvent')
+      return formatDates(props.startDate, props.startDate, props.dateFormat)
+
+    else
+      return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
+  }
   return ''
 })
 
@@ -117,10 +123,10 @@ const parsedTime = computed(() => {
   if (props.startDate && props.sectionHandle === 'event')
     return formatTimes(props.startDate, props.endDate)
   // legacy behavior returns nothing when sectionHandle is not 'event',
-  // so check theme is set to avoid returning nothing
-  else if (props.startDate && theme?.value !== undefined)
+  // so check theme is set AND we are not showing ftvaEventSeries data to avoid returning nothing
+  else if (props.startDate && (props.sectionHandle !== 'ftvaEventSeries' && theme?.value !== undefined))
     return props.endDate ? formatTimes(props.startDate, props.endDate) : formatTimes(props.startDate, props.startDate)
-
+  // in all other cases incl. if it is ftvaEventSeries, return nothing
   return ''
 })
 
@@ -196,7 +202,7 @@ const classes = computed(() => {
       v-if="startDate || ongoing"
       class="date-time"
     >
-      <div v-if="ongoing">
+      <div v-if="ongoing" class="ongoing-item">
         Ongoing
       </div>
       <time
@@ -205,7 +211,7 @@ const classes = computed(() => {
         v-html="parsedDate"
       />
       <time
-        v-if="startDate"
+        v-if="startDate && sectionHandle !== 'ftvaEventSeries'"
         class="schedule-item"
         v-html="parsedTime"
       />

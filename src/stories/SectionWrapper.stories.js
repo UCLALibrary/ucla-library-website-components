@@ -204,7 +204,8 @@ const mockFtvaSeries = [
     title: 'TEST - Todd Solondz Series',
     startDate: '2025-11-06T08:00:00+00:00',
     endDate: '2025-12-13T08:00:00+00:00',
-    ongoing: false,
+    ongoing: true,
+    sectionHandle: 'ftvaEventSeries',
     image:
       {
         id: '3157237',
@@ -225,6 +226,7 @@ const mockFtvaSeries = [
     startDate: '2025-11-07T08:00:00+00:00',
     endDate: '2025-12-20T08:00:00+00:00',
     ongoing: false,
+    sectionHandle: 'ftvaEventSeries',
     image:
       {
         id: '3203293',
@@ -246,6 +248,7 @@ const mockFtvaSeries = [
     endDate: '2026-03-31T07:00:00+00:00',
     ongoing: false,
     image: null,
+    sectionHandle: 'ftvaEventSeries'
   },
 ]
 
