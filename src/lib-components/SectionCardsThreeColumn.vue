@@ -18,16 +18,16 @@ const { items, nShown } = defineProps({
 <template>
   <section class="section-cards-three-column">
     <ul>
-      <block-card-three-column
-        class="block-card-three-column-list"
+      <BlockCardThreeColumn
         v-for="(item, index) in items"
+        class="block-card-three-column-list"
         :to="item.to"
         :start-date="item.startDate"
         :image="item.image"
         :image-aspect-ratio="100"
         :title="item.title"
-        :tagLabels="item.tagLabels"
-        :startTime="item.startDate"
+        :tag-labels="item.tagLabels"
+        :start-time="item.startDate"
       />
     </ul>
   </section>

@@ -6,9 +6,9 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
-
 // COMPONENTS
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
+import format from 'date-fns/format'
 import { useTheme } from '@/composables/useTheme'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import BlockTag from '@/lib-components/BlockTag.vue'
@@ -20,12 +20,11 @@ import formatDay from '@/utils/formatEventDay'
 import formatMonth from '@/utils/formatEventMonth'
 
 // UTILITY FUNCTIONS
-import format from 'date-fns/format'
 import formatDates from '@/utils/formatEventDates'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 // TYPESCRIPT
-import type { MediaItemType, EventFiltersItemType } from '@/types/types'
+import type { EventFiltersItemType, MediaItemType } from '@/types/types'
 
 const props = defineProps({
   image: {
@@ -206,7 +205,6 @@ const isMobile = computed(() => {
           />
         </div>
       </div>
-
     </div>
   </li>
 </template>

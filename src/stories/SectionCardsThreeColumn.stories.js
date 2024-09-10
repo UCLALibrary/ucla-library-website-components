@@ -1,5 +1,3 @@
-import { computed } from 'vue'
-
 // Import component
 import SectionCardsThreeColumn from '@/lib-components/SectionCardsThreeColumn'
 
@@ -21,8 +19,8 @@ const mockDefault = [
     endDate: null,
     image: API.image,
     tagLabels: [
-      { title: "Guest speaker" },
-      { title: "Digital" }
+      { title: 'Guest speaker' },
+      { title: 'Digital' }
     ]
   },
   {
@@ -32,7 +30,7 @@ const mockDefault = [
     startDate: '2028-03-31T07:00:00+00:00',
     image: null,
     tagLabels: [
-      { title: "Guest speaker" }
+      { title: 'Guest speaker' }
     ]
   },
   {
