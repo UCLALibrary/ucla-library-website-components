@@ -103,6 +103,8 @@ const parsedTrailer = computed(() => {
       cursor: pointer;
       width: 100%;
       height: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
     }
 
     .play-button {
