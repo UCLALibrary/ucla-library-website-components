@@ -136,3 +136,23 @@ export function FtvaOnlyCategoryAndTitle() {
   `,
   }
 }
+// used on FTVA Event Series Page
+export function FTVAOngoing() {
+  return {
+    data() {
+      return { ...mockDefault }
+    },
+    components: { CardMeta },
+    template: `
+      <card-meta
+          :to="to"
+          :category="category"
+          :title="title"
+          :ongoing=true
+          :text="text"
+          :locations="locations"
+          :language="language"
+      />
+  `,
+  }
+}
