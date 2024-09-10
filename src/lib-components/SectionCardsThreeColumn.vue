@@ -46,11 +46,15 @@ const { items, nShown } = defineProps({
     border-bottom: 2px dotted var(--divider-color);
     padding: 30px 0;
 
-    /* &:last-child {
+    &:last-child {
       border-bottom: 0;
-      padding: 0;
       margin: 0;
-    } */
+    }
+  }
+
+  // Breakpoints
+  @media #{$medium} {
+    --divider-color: none;
   }
 }
 </style>
