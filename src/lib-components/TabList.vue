@@ -26,6 +26,7 @@ const tabItems = ref(slots.map((tabItem) => {
 const activeTab = ref(tabItems.value[0].title)
 
 const tabRefs = ref([])
+const tabGliderRef = ref()
 
 provide('activeTab', activeTab)
 
@@ -71,6 +72,26 @@ function switchTab(tabName) {
 
   if (tabRefs.value[tabIndex])
     tabRefs.value[tabIndex].focus()
+
+  // animate
+  const ele = tabRefs.value[tabIndex]
+
+  if (!ele.classList.contains('active'))
+    moveTabGlider(ele)
+}
+
+function moveTabGlider(elem) {
+  const tabElem = elem.getBoundingClientRect()
+
+  const tabGlider = tabGliderRef.value
+
+  const tabElemWidth = elem.offsetWidth / tabGlider.offsetWidth
+
+  tabGlider.style.setProperty('--_left', `${elem.offsetLeft}px`)
+
+  tabGlider.style.setProperty('--_width', tabElemWidth)
+
+  tabGlider.style.height = `${tabElem.height}px`
 }
 
 function hyphenateTabName(str) {
@@ -114,6 +135,7 @@ function keydownHandler(e) {
     </div>
 
     <div class="tab-list-header" role="tablist">
+      <span ref="tabGliderRef" class="tab-glider" />
       <button
         v-for="(tab, index) in tabItems"
         :id="setTabId(tab.title)"
@@ -133,7 +155,7 @@ function keydownHandler(e) {
           class="svg" aria-hidden="true"
         />
         {{ tab.title }}
-        <span class="glider" />
+        <!-- <span class="glider" /> -->
       </button>
     </div>
   </div>
