@@ -23,7 +23,7 @@ const mockDefault = {
     {
       title: 'Guest speaker'
     },
-        {
+    {
       title: '35mm'
     }
   ],
@@ -69,5 +69,5 @@ export function Default(args) {
         :tagLabels="tagLabels"
         :startTIme="parsedStartTime"
       />`,
-    }
+  }
 }
