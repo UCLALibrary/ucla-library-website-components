@@ -390,11 +390,7 @@ const parsedTime = computed(() => {
     // }
   }
 
-  .time-date {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 10px;
-  }
+
 
   // Breakpoints
   @media #{$medium} {
@@ -425,9 +421,33 @@ const parsedTime = computed(() => {
     .meta {
       padding: 12px 2px 18px 18px;
       width: 100%;
-
-      //height: 190px;
       border-radius: 0 0 12px 12px;
+    }
+
+    :deep(.card-meta) {
+      .date-time {
+        display: flex;
+        flex-direction: row;
+
+        @include ftva-emphasized-subtitle;
+        color: $accent-blue;
+        letter-spacing: .04px;
+        padding-bottom: 10px;
+
+        .start-date {
+          position: relative;
+          margin-right: 28px;
+
+          // show the diamond icon after, but only if it's not the last child
+          &:not(:last-child)::after {
+            content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
+            position: absolute;
+            right: -30px;
+            top: -2px;
+            margin: 0px 10px;
+          }
+        }
+      }
     }
   }
 
