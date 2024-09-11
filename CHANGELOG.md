@@ -1,3 +1,10 @@
+# [3.16.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.15.1...v3.16.0) (2024-09-11)
+
+
+### Features
+
+* APPS-2941 add enddate, ongoing props to blockeventdetail.vue ([#607](https://github.com/UCLALibrary/ucla-library-website-components/issues/607)) ([71c6c52](https://github.com/UCLALibrary/ucla-library-website-components/commit/71c6c52d4b5ae8e5e64dd4929ffa59359a6a621a))
+
 ## [3.15.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.15.0...v3.15.1) (2024-09-10)
 
 
