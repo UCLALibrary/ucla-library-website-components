@@ -189,8 +189,8 @@ const parsedTime = computed(() => {
           <div v-for="(label, index) in tagLabels">
             <BlockTag
               :label="label.title"
-              :icon-name="iconName"
-              is-secondary="true"
+              icon-name="SvgIconGuest"
+              :is-secondary="true"
             />
           </div>
         </template>
