@@ -38,6 +38,8 @@ const { items, nShown } = defineProps({
   scoped
 >
 .section-cards-three-column {
+  background-color: var(--color-white);
+  border-radius: 12px;
   --divider-color: var(--color-secondary-grey-02);
   max-width: 100%;
   margin: auto;

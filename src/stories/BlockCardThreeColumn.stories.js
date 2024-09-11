@@ -22,6 +22,9 @@ const mockDefault = {
   tagLabels: [
     {
       title: 'Guest speaker'
+    },
+        {
+      title: '35mm'
     }
   ],
 }

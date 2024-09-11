@@ -225,7 +225,7 @@ const classes = computed(() => {
       />
       <time
         v-if="parsedStartTime"
-        class="schedule-item parsed-start-time"
+        class="bottom schedule-item parsed-start-time"
         v-html="parsedStartTime"
       />
     </div>
@@ -267,7 +267,7 @@ const classes = computed(() => {
     </div>
 
     <!-- BLOCKTAG SLOT -->
-    <div class="block-tags-slot">
+    <div class="bottom block-tags-slot">
       <slot name="blocktag" />
     </div>
 

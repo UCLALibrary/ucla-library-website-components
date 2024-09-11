@@ -1,4 +1,4 @@
-import { onBeforeUnmount, onMounted } from 'vue'
+import { computed, onBeforeUnmount, onMounted } from 'vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 // Import component
@@ -49,6 +49,11 @@ export function Default(args) {
   return {
     data() {
       return { items: mockDefault }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
     },
     setup() {
       onMounted(() => {

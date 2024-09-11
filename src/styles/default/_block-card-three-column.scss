@@ -78,6 +78,10 @@
     }
   }
 
+  :deep(.bottom) {
+    color: aqua;
+  }
+
   .meta {
     display: flex;
     flex-direction: column;
