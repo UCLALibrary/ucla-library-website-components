@@ -127,11 +127,11 @@ const parsedTime = computed(() => {
     return format(new Date(props.startDate), 'h:mm aaa')
 })
 
-const globalStore = useGlobalStore()
+// const globalStore = useGlobalStore()
 
-const isMobile = computed(() => {
-  return globalStore.winWidth <= 600
-})
+// const isMobile = computed(() => {
+//   return globalStore.winWidth <= 600
+// })
 </script>
 
 <template>
@@ -432,8 +432,6 @@ const isMobile = computed(() => {
   }
 
   @media #{$small} {
-
-
     .day-month-date {
       display: none;
     }
