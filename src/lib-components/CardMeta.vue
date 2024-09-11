@@ -14,6 +14,7 @@ import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
 
 // UTILITY FUNCTIONS
+import format from 'date-fns/format'
 import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
 
@@ -134,12 +135,6 @@ const parsedTime = computed(() => {
   return ''
 })
 
-const parsedStartTime = computed(() => {
-  // if (props.startDate)
-  //   return format(new Date(props.startDate), 'h:mm aaa')
-  return 'HELLO FROM START TIME'
-})
-
 const parsedLocations = computed(() => {
   return props.locations.map((obj) => {
     let input = 'svg-icon-location'
@@ -212,22 +207,25 @@ const classes = computed(() => {
       v-if="startDate || ongoing"
       class="date-time"
     >
-      <div v-if="ongoing" class="ongoing-item">
+      <div
+        v-if="ongoing"
+        class="ongoing-item"
+      >
         Ongoing
       </div>
       <time
         v-if="startDate"
-        class="schedule-item"
+        class="schedule-item start-date"
         v-html="parsedDate"
       />
       <time
         v-if="startDate && sectionHandle !== 'ftvaEventSeries'"
-        class="schedule-item"
+        class="schedule-item parsed-time"
         v-html="parsedTime"
       />
       <time
-        v-if="startTime"
-        class="schedule-item"
+        v-if="parsedStartTime"
+        class="schedule-item parsed-start-time"
         v-html="parsedStartTime"
       />
     </div>

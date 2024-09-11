@@ -78,7 +78,7 @@ const classes = computed(() => {
   return ['block-card-three-column', theme?.value || '']
 })
 
-// Horizontal Time
+// HORIZONTAL TIME
 const parsedFormatFullDay = computed(() => {
   if (props.startDate)
     return formatFullDay(props.startDate)
@@ -99,7 +99,12 @@ const parsedDateDay = computed(() => {
   return ''
 })
 
-// Vertical Time
+// VERTICAL TIME
+// dates are formatted in the short format for ftva only
+const parsedDateFormat = computed(() => {
+  return theme?.value === 'ftva' ? 'short' : 'long'
+})
+
 const parsedStartDatePlusTime = computed(() => {
   if (props.startDate)
     return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
@@ -187,7 +192,9 @@ const isMobile = computed(() => {
         class="card-meta-items"
         :to="to"
         :title="title"
-        :start-time="parsedTime"
+        :start-date="startDate"
+        :end-date="endDate"
+        :date-format="parsedDateFormat"
         :text="text"
       >
         <template #blocktag>

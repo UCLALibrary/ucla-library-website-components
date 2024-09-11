@@ -1,4 +1,4 @@
-import { onBeforeUnmount, onMounted } from 'vue'
+import { computed, onBeforeUnmount, onMounted } from 'vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 // Import component
@@ -32,6 +32,11 @@ export function Default(args) {
     data() {
       return { ...mockDefault }
     },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
     setup() {
       onMounted(() => {
         const globalStore = useGlobalStore()
@@ -59,9 +64,7 @@ export function Default(args) {
         :image-aspect-ratio="100"
         :title="title"
         :tagLabels="tagLabels"
-        :startTime="startDate"
-      />
-
-  `,
-  }
+        :startTIme="parsedStartTime"
+      />`,
+    }
 }

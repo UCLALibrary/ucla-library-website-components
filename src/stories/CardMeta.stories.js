@@ -25,6 +25,17 @@ const mockDefault = {
   bylineTwo: 'Byline 2'
 }
 
+const mockFTVATitleTime = {
+  to: 'series/todd-solondz-series',
+  startDate: '2025-12-13T07:30:00+00:00',
+  title: 'TEST - Todd Solondz Series',
+  tagLabels: [
+    {
+      title: 'Guest speaker'
+    }
+  ],
+}
+
 // Variations of stories below
 export function Default() {
   return {
@@ -142,6 +153,11 @@ export function FTVAOngoing() {
     data() {
       return { ...mockDefault }
     },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
     components: { CardMeta },
     template: `
       <card-meta
@@ -153,6 +169,24 @@ export function FTVAOngoing() {
           :locations="locations"
           :language="language"
       />
+  `,
+  }
+}
+
+export function FTVATitleDate() {
+  return {
+    data() {
+      return { ...mockFTVATitleTime }
+    },
+    components: { CardMeta },
+    template: `
+      <CardMeta
+        class="card-meta-items"
+        :to="to"
+        :title="title"
+        :start-date="startDate"
+        :date-format="parsedDateFormat"
+      >
   `,
   }
 }

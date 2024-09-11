@@ -42,4 +42,9 @@
       display: none;
     }
   }
+
+  .parsed-start-time {
+    @include ftva-emphasized-subtitle;
+    color: $accent-blue;
+  }
 }
