@@ -17,8 +17,6 @@
   .tab-list-header {
     list-style: none;
     display: flex;
-    // flex-wrap: wrap;
-    // justify-content: space-around;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
@@ -37,12 +35,13 @@
     border-radius: .25rem;
     background-color: $white;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .25);
-    scale: var(--_width, .125) 1;
-    translate: var(--_left, 0) 0;
+    scale: var(--scale_glider_width, .125) 1;
+    translate: var(--translate_glider_left, 0) 0;
     transform-origin: left;
     transition: scale 300ms ease-out, translate 300ms ease-out;
   }
 
+  // Set background of initial active tab
   .tab-glider ~ .tab-list-item:nth-of-type(1).active {
     background: $white;
     transition: background-color 3000ms;
@@ -67,28 +66,13 @@
     z-index: 1;
   }
 
-  // .glider {
-  //   position: absolute;
-  //   display: flex;
-  //   height: 100%;
-  //   width: 100%;
-  //   border-radius: .25rem;
-  //   transition: 0.5s ease-out;
-  // }
-
-  // .tab-list-item.active > .glider {
-  //   background-color: $white;
-  //   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .25);
-  //   z-index: -1;
-  // }
-
   .tab-list-item .svg {
     width: 1.5rem;
     margin-right: .5rem;
   }
 
   @media #{$small} {
-    // Potential responsive behavior: No animation
+    // Optional responsive behavior: No animation
 
     // .tab-list-header {
     //   flex-direction: column;

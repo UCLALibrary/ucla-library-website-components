@@ -20,7 +20,7 @@ const SvgIconList = defineAsyncComponent(() =>
 const slots = useSlots()?.default?.()
 
 const tabItems = ref(slots.map((tabItem) => {
-  return tabItem.props
+  return tabItem.props // {title, icon}
 }))
 
 const activeTab = ref(tabItems.value[0].title)
@@ -70,28 +70,33 @@ function switchTab(tabName) {
 
   const tabIndex = tabItems.value.findIndex(tab => tab.title === tabName)
 
-  if (tabRefs.value[tabIndex])
-    tabRefs.value[tabIndex].focus()
+  const tabElem = tabRefs.value[tabIndex]
 
-  // animate
-  const ele = tabRefs.value[tabIndex]
+  if (tabElem)
+    tabElem.focus()
 
-  if (!ele.classList.contains('active'))
-    moveTabGlider(ele)
+  if (!tabElem.classList.contains('active'))
+    animateTabGlider(tabElem)
 }
 
-function moveTabGlider(elem) {
-  const tabElem = elem.getBoundingClientRect()
-
+function animateTabGlider(elem) {
   const tabGlider = tabGliderRef.value
 
-  const tabElemWidth = elem.offsetWidth / tabGlider.offsetWidth
+  const scaleGliderWidth = elem.offsetWidth / tabGlider.offsetWidth
 
-  tabGlider.style.setProperty('--_left', `${elem.offsetLeft}px`)
+  // Calculate width to scale animated glider
+  // Use variable in CSS
+  tabGlider.style.setProperty('--scale_glider_width', scaleGliderWidth)
 
-  tabGlider.style.setProperty('--_width', tabElemWidth)
+  // Calculate and set distance to animate
+  // Use variable in CSS
+  tabGlider.style.setProperty('--translate_glider_left', `${elem.offsetLeft}px`)
 
-  tabGlider.style.height = `${tabElem.height}px`
+  // Object with positional values of tab button
+  const tabBtn = elem.getBoundingClientRect()
+
+  // Set glider to same height as tab button
+  tabGlider.style.height = `${tabBtn.height}px`
 }
 
 function hyphenateTabName(str) {
@@ -155,12 +160,11 @@ function keydownHandler(e) {
           class="svg" aria-hidden="true"
         />
         {{ tab.title }}
-        <!-- <span class="glider" /> -->
       </button>
     </div>
   </div>
   <!-- Slot: TabItem -->
-  <div :id="parsedAriaLabel" class="tab-list-body" role="tabpanel" :aria-labelledby="parsedAriaLabel">
+  <div :id="parsedAriaLabel" class="tab-list-body" role="tabpanel" :aria-labelledby="parsedAriaLabel" :hidden="!activeTab">
     <slot />
   </div>
 </template>
