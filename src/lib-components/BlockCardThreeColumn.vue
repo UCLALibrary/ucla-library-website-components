@@ -363,7 +363,7 @@ const parsedTime = computed(() => {
     }
   }
 
-  .time-tags {
+  /* .time-tags {
     position: absolute;
     bottom: var(--space-m);
     display: flex;
@@ -375,19 +375,19 @@ const parsedTime = computed(() => {
     letter-spacing: .04px;
 
     overflow: hidden;
+  } */
 
-    // .schedule-item:nth-of-type(1) {
-    //   position: relative;
-    //   margin-right: 28px;
+  :deep(.card-meta) {
+    .date-time {
+      @include ftva-emphasized-subtitle;
+      color: $accent-blue;
+      letter-spacing: .04px;
+      padding-bottom: 10px;
 
-    //   &::after {
-    //     content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
-    //     position: absolute;
-    //     right: -30px;
-    //     top: -2px;
-    //     margin: 0px 10px;
-    //   }
-    // }
+      .start-date {
+        display: none;
+      }
+    }
   }
 
 
@@ -457,18 +457,13 @@ const parsedTime = computed(() => {
     }
 
     .image-block {
-
       border-radius: 12px 12px 0 0;
     }
 
-
     .meta {
-
-
       .title {
         @include truncate(2);
       }
-
     }
 
     .image-container {
