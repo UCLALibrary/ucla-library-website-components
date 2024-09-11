@@ -22,7 +22,6 @@ import formatMonth from '@/utils/formatEventMonth'
 
 // UTILITY FUNCTIONS
 import formatDates from '@/utils/formatEventDates'
-import { useGlobalStore } from '@/stores/GlobalStore'
 
 // TYPESCRIPT
 import type { EventFiltersItemType, MediaItemType } from '@/types/types'
@@ -246,7 +245,6 @@ const parsedTime = computed(() => {
   flex-direction: row;
 
   font-family: var(--font-primary);
-  // width: 100%;
   $large-width: 272px;
   $large-height: 272px;
 
@@ -389,8 +387,6 @@ const parsedTime = computed(() => {
       }
     }
   }
-
-
 
   // Breakpoints
   @media #{$medium} {
