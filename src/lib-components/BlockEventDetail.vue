@@ -21,14 +21,23 @@ interface BlockEventDetailLocation {
   uri?: string
 }
 
-const { startDate, time, locations } = defineProps({
+const { startDate, endDate, time, ongoing, locations } = defineProps({
   startDate: {
     type: String,
-    default: '',
+    required: false,
   },
+  endDate: {
+    type: String,
+    required: false,
+  },
+  // Implied this is the start time
   time: {
     type: String,
-    default: '',
+    required: false,
+  },
+  ongoing: {
+    type: Boolean,
+    default: false,
   },
   locations: {
     type: Array<BlockEventDetailLocation>,
@@ -53,17 +62,29 @@ const themeSettings = computed(() => {
       }
   }
 })
+
+// Display date based on which data is provided
+const parsedDateDisplay = computed(() => {
+  if (ongoing)
+    return 'Ongoing'
+  else if (endDate)
+    return formatDates(startDate, endDate, 'shortWithYear')
+  else if (startDate)
+    return formatDates(startDate, startDate)
+  else
+    return null
+})
 </script>
 
 <template>
   <div :class="classes">
     <div class="event-list date">
       <span>
-        <SvgIconCalendar class="row-icon" /> {{ formatDates(startDate, startDate) }}
+        <SvgIconCalendar v-if="startDate" class="row-icon" /> {{ parsedDateDisplay }}
       </span>
     </div>
 
-    <div class="event-list time">
+    <div v-if="time" class="event-list time">
       <span>
         <SvgIconClock class="row-icon" /> {{ formatTimes(time, time) }}
       </span>
