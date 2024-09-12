@@ -177,7 +177,6 @@ const parsedDateFormat = computed(() => {
   align-items: stretch;
 
   font-family: var(--font-primary);
-  $large-width: 272px;
   $large-height: 272px;
 
   li {
@@ -196,7 +195,8 @@ const parsedDateFormat = computed(() => {
     flex: 1;
 
     color: $accent-blue;
-    padding-top: 2px
+    background-color: var(--color-theme, var(--color-white));
+    padding-top: 2px;
   }
 
   .day {
@@ -228,15 +228,16 @@ const parsedDateFormat = computed(() => {
     }
 
     .molecule-no-image {
-      display: flex;
-      align-items: center;
-      position: relative;
-
       width: 100%;
       height: 100%;
       margin-right: var(--space-xl);
       background: var(--gradient-01);
       overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      position: relative;
+
 
       .molecule {
         flex-shrink: 0;
@@ -248,8 +249,10 @@ const parsedDateFormat = computed(() => {
 
   .meta {
     flex-basis: 50%;
-    background-color: var(--color-theme, var(--color-white));
     flex: 2;
+
+    background-color: var(--color-theme, var(--color-white));
+
 
     :deep(.card-meta) {
       display: grid;
@@ -317,6 +320,8 @@ const parsedDateFormat = computed(() => {
       width: 100%;
 
       .molecule-no-image {
+        /* TODO There should be a default image instaed */
+        min-height: $large-height;
         border-radius: 12px 12px 0 0;
       }
     }

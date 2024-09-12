@@ -112,3 +112,44 @@ export function LongTitle(args) {
       />`,
   }
 }
+
+export function NoImage(args) {
+  return {
+    data() {
+      return { ...mockDefault }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    setup() {
+      onMounted(() => {
+        const globalStore = useGlobalStore()
+
+        const updateWinWidth = () => {
+          globalStore.winWidth = window.innerWidth
+        }
+
+        updateWinWidth()
+
+        window.addEventListener('resize', updateWinWidth)
+
+        onBeforeUnmount(() => {
+          window.removeEventListener('resize', updateWinWidth)
+        })
+      })
+      return { args }
+    },
+    components: { BlockCardThreeColumn },
+    template: `
+      <block-card-three-column
+        :to="to"
+        :start-date="startDate"
+        :image=null
+        :image-aspect-ratio="100"
+        title="What I Really Do Is Magic: Edith Head and Hollywood Costume Design"
+        :tagLabels="tagLabels"
+      />`,
+  }
+}
