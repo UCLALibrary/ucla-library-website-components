@@ -137,11 +137,11 @@ const parsedTime = computed(() => {
   return ''
 })
 
-const parsedStartTime = computed(() => {
-  if (props.startDate)
-    return format(new Date(props.startDate), 'h:mm aaa')
-  return ''
-})
+// const parsedStartTime = computed(() => {
+//   if (props.startDate)
+//     return format(new Date(props.startDate), 'h:mm aaa')
+//   return ''
+// })
 
 const parsedLocations = computed(() => {
   return props.locations.map((obj) => {
@@ -237,11 +237,11 @@ const classes = computed(() => {
         class="schedule-item parsed-time"
         v-html="startTime"
       />
-      <time
+      <!-- <time
         v-if="parsedStartTime"
         class="bottom schedule-item parsed-start-time"
         v-html="parsedStartTime"
-      />
+      /> -->
     </div>
 
     <div

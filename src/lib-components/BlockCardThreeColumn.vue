@@ -14,8 +14,6 @@ import BlockTag from '@/lib-components/BlockTag.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
 // UTILITY FUNCTIONS
-// import formatDates from '@/utils/formatEventDates'
-// import formatShortDay from '@/utils/formatShortDay'
 import formatFullDay from '@/utils/formatFullDay'
 import formatDay from '@/utils/formatEventDay'
 import formatMonth from '@/utils/formatEventMonth'
@@ -100,23 +98,6 @@ const parsedDateDay = computed(() => {
 const parsedDateFormat = computed(() => {
   return theme?.value === 'ftva' ? 'short' : 'long'
 })
-
-// const parsedStartDatePlusTime = computed(() => {
-//   if (props.startDate)
-//     return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
-//   return ''
-// })
-
-// const parsedFormatShortDay = computed(() => {
-//   if (props.startDate)
-//     return formatShortDay(props.startDate)
-//   return ''
-// })
-
-// const parsedDayMonthDate = computed(() => {
-//   if (props.startDate)
-//     return format(new Date(props.startDate), 'EEE, MMM dd')
-// })
 </script>
 
 <template>
@@ -194,6 +175,7 @@ const parsedDateFormat = computed(() => {
   display: flex;
   flex-direction: row;
   align-items: stretch;
+
   font-family: var(--font-primary);
   $large-width: 272px;
   $large-height: 272px;
@@ -211,9 +193,9 @@ const parsedDateFormat = computed(() => {
   .day-month-date {
     display: flex;
     flex-direction: column;
-    color: $accent-blue;
     flex: 1;
-    background-color: var(--color-theme, var(--color-white));
+
+    color: $accent-blue;
     padding-top: 2px
   }
 
@@ -246,14 +228,15 @@ const parsedDateFormat = computed(() => {
     }
 
     .molecule-no-image {
+      display: flex;
+      align-items: center;
+      position: relative;
+
       width: 100%;
       height: 100%;
       margin-right: var(--space-xl);
       background: var(--gradient-01);
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      position: relative;
 
       .molecule {
         flex-shrink: 0;
@@ -264,14 +247,14 @@ const parsedDateFormat = computed(() => {
   }
 
   .meta {
-    /* Test */
     flex-basis: 50%;
-    /* background-color: var(--color-theme, var(--color-white)); */
+    background-color: var(--color-theme, var(--color-white));
     flex: 2;
 
     :deep(.card-meta) {
       display: grid;
       grid-template-rows: min-content 1fr;
+
       padding: 20px;
       min-height: $large-height;
 
@@ -280,15 +263,13 @@ const parsedDateFormat = computed(() => {
       }
 
       .title {
-        /* Test */
         @include ftva-card-title-2;
         color: $heading-grey;
       }
 
       .date-time {
-        background-color: whitesmoke;
-        /* Test */
         align-self: flex-end;
+
         @include ftva-emphasized-subtitle;
         color: $accent-blue;
         letter-spacing: .04px;
@@ -310,7 +291,6 @@ const parsedDateFormat = computed(() => {
     }
 
     :deep(.block-tags-slot) {
-      /* Test */
       display: flex;
       justify-content: left;
       gap: 16px;
@@ -401,7 +381,4 @@ const parsedDateFormat = computed(() => {
     }
   }
 }
-
-/* @import "@/styles/default/_block-card-three-column.scss";
-@import "@/styles/ftva/_block-card-three-column.scss"; */
 </style>
