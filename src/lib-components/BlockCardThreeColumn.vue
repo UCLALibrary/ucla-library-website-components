@@ -276,6 +276,7 @@ const parsedDateFormat = computed(() => {
         @include ftva-emphasized-subtitle;
         color: $accent-blue;
         letter-spacing: .04px;
+        padding-top: 15px;
 
         .start-date {
           display: none;
