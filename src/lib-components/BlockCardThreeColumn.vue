@@ -332,12 +332,10 @@ const parsedDateFormat = computed(() => {
       flex: 1;
       width: 100%;
       border-radius: 0 0 12px 12px;
-      /* height: fit-content; */
-      /* min-height: 150px; */
 
       :deep(.card-meta) {
         /* height: fit-content; */
-        height: auto;
+        min-height: 0;
 
         .title {
           order: 2;

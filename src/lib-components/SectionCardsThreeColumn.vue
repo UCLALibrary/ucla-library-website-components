@@ -46,7 +46,7 @@ const { items } = defineProps({
 
   .block-card-three-column-list {
     border-bottom: 2px dotted var(--divider-color);
-    padding: 30px 0;
+    padding: 15px 0;
 
     &:last-child {
       border-bottom: 0;
