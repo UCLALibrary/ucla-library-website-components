@@ -177,7 +177,8 @@ const parsedDateFormat = computed(() => {
   align-items: stretch;
 
   font-family: var(--font-primary);
-  $large-height: 272px;
+  $large-width: 284px;
+  $large-height: 213px;
 
   li {
     list-style: none;
@@ -220,11 +221,16 @@ const parsedDateFormat = computed(() => {
   }
 
   .image-block {
-    flex: 1;
+    //flex: 1;
+    width: $large-width;
+    height: $large-height;
 
     .image {
-      width: 100%;
-      height: 100%;
+      /* width: 100%;
+      height: 100%; */
+      /* width: 284px; */
+      /* width: 500px;
+      height: 213px; */
     }
 
     .molecule-no-image {
@@ -315,6 +321,7 @@ const parsedDateFormat = computed(() => {
     }
 
     .image-block {
+      flex: 1;
       width: 100%;
 
       .molecule-no-image {
@@ -331,7 +338,8 @@ const parsedDateFormat = computed(() => {
       :deep(.card-meta) {
         .title {
           order: 2;
-          align-self: flex-end;
+          align-self: flex-start;
+          padding-top: 10px;
         }
 
         .block-tags-slot {
