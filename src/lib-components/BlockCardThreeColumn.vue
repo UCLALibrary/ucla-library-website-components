@@ -347,7 +347,7 @@ const parsedTime = computed(() => {
         @include ftva-card-title-2;
         color: $heading-grey;
         @include truncate($lines: 2);
-        overflow: visible;
+        overflow: hidden;
       }
 
       &:hover>a.title {
