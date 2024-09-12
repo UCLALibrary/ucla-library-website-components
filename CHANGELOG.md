@@ -1,3 +1,10 @@
+## [3.17.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.17.0...v3.17.1) (2024-09-12)
+
+
+### Bug Fixes
+
+* APP-2937 Remove gap between FTVA event cards ([#610](https://github.com/UCLALibrary/ucla-library-website-components/issues/610)) ([df90e13](https://github.com/UCLALibrary/ucla-library-website-components/commit/df90e13a6c74d09df37842a6893af7bebb7228b8))
+
 # [3.17.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.16.0...v3.17.0) (2024-09-12)
 
 
