@@ -8,11 +8,13 @@
 
         text-decoration: underline;
         text-decoration-thickness: 3px;
-        text-decoration-color: #{$grey-blue};
+        -webkit-text-decoration-color: #{$grey-blue};
+                text-decoration-color: #{$grey-blue};
         text-underline-offset: 4px;
 
         &:hover {
-            text-decoration-color: #{$bright-blue};
+            -webkit-text-decoration-color: #{$bright-blue};
+                    text-decoration-color: #{$bright-blue};
         }
     }
 

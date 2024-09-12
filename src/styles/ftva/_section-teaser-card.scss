@@ -2,26 +2,14 @@
     flex-wrap: nowrap;
     max-width: 100%; // 100% of the parent container
     align-items: flex-start;
-    justify-content: space-between;
     overflow-y: auto;
     padding-top: 25px;
     scrollbar-color: $grey-blue $white;
 
     .card {
-        width: calc((100% / 3) - 22px);
+        flex-basis: calc((100% / 3) - 22px);
         min-width: 280px;
         margin-bottom: 15px;
-
-        @media #{$medium} {
-            flex-shrink: 0;
-
-            .section-teaser-card {
-                gap: var(--space-m);
-                overflow-x: auto;
-                overflow-y: visible;
-                flex-wrap: nowrap;
-            }
-        }
     }
 }
 

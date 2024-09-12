@@ -286,3 +286,38 @@ export function FtvaExploreOtherSeries() {
   `,
   }
 }
+
+export function FtvaSeries2Cards() {
+  return {
+    data() {
+      return {
+        parsedFtvaEventSeries: mockFtvaSeries.slice(1)
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionWrapper, SectionTeaserCard, SmartLink },
+    template: `
+      <SectionWrapper
+        section-title="Explore Other Series"
+        theme="white"
+      >
+        <template v-slot:top-right>
+          <smart-link
+            to="/somelink"
+          >
+            View All Series <span style="font-size:1.5em;"> &#8250;</span>
+          </smart-link>
+          
+        </template>
+        <SectionTeaserCard
+
+          :items="parsedFtvaEventSeries"
+        />
+      </SectionWrapper>
+  `,
+  }
+}
