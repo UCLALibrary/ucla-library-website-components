@@ -1,10 +1,10 @@
-describe('SectionCardThreeColumn', () => {
+describe('SectionCardsThreeColumn', () => {
   it('Default', () => {
     cy.visit(
-      '/iframe.html?id=section-card-three-column--default&args=&viewMode=story'
+      '/iframe.html?id=section-cards-three-column--default&args=&viewMode=story'
     )
-    cy.get('.section-card-three-column').should('exist')
+    cy.get('.section-cards-three-column').should('exist')
 
-    cy.percySnapshot('SECTION / Card Three Column: Default')
+    cy.percySnapshot('SECTION / Cards Three Column: Default')
   })
 })
