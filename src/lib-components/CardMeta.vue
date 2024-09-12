@@ -4,6 +4,7 @@
 >
 import { computed, defineAsyncComponent } from 'vue'
 
+import format from 'date-fns/format'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
 import { useTheme } from '@/composables/useTheme'
@@ -14,7 +15,6 @@ import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
 
 // UTILITY FUNCTIONS
-import format from 'date-fns/format'
 import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
 

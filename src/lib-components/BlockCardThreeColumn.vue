@@ -264,7 +264,6 @@ const parsedDateFormat = computed(() => {
   }
 
   .meta {
-    background-color: lightsteelblue;
     /* Test */
     flex-basis: 50%;
     /* background-color: var(--color-theme, var(--color-white)); */
@@ -281,7 +280,6 @@ const parsedDateFormat = computed(() => {
       }
 
       .title {
-        background-color: yellowgreen;
         /* Test */
         @include ftva-card-title-2;
         color: $heading-grey;
@@ -312,7 +310,6 @@ const parsedDateFormat = computed(() => {
     }
 
     :deep(.block-tags-slot) {
-      background-color: gold;
       /* Test */
       display: flex;
       justify-content: left;
