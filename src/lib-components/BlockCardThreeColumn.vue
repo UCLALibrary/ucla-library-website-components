@@ -221,16 +221,12 @@ const parsedDateFormat = computed(() => {
   }
 
   .image-block {
-    //flex: 1;
     width: $large-width;
     height: $large-height;
 
     .image {
-      /* width: 100%;
-      height: 100%; */
-      /* width: 284px; */
-      /* width: 500px;
-      height: 213px; */
+      width: 100%;
+      height: 100%;
     }
 
     .molecule-no-image {
@@ -332,10 +328,17 @@ const parsedDateFormat = computed(() => {
     }
 
     .meta {
+      flex-basis: 0;
+      flex: 1;
       width: 100%;
       border-radius: 0 0 12px 12px;
+      /* height: fit-content; */
+      /* min-height: 150px; */
 
       :deep(.card-meta) {
+        /* height: fit-content; */
+        height: auto;
+
         .title {
           order: 2;
           align-self: flex-start;
