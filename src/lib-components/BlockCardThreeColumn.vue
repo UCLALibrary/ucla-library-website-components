@@ -331,6 +331,10 @@ const parsedDateFormat = computed(() => {
       flex-direction: row;
       justify-content: left;
       gap: 16px;
+
+      .block-tag .label {
+        padding-left: 10px
+      }
     }
   }
 
