@@ -267,7 +267,7 @@ const classes = computed(() => {
     </div>
 
     <!-- BLOCKTAG SLOT -->
-    <div class="bottom block-tags-slot">
+    <div class="block-tags-slot">
       <slot name="blocktag" />
     </div>
     <!-- </div> -->

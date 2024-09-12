@@ -191,7 +191,12 @@ const parsedDateFormat = computed(() => {
   scoped
 >
 .block-card-three-column {
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  font-family: var(--font-primary);
+  $large-width: 272px;
+  $large-height: 272px;
 
   li {
     list-style: none;
@@ -203,21 +208,11 @@ const parsedDateFormat = computed(() => {
     }
   }
 
-  display: flex;
-  flex-direction: row;
-
-  font-family: var(--font-primary);
-  $large-width: 272px;
-  $large-height: 272px;
-
   .day-month-date {
     display: flex;
     flex-direction: column;
-
     color: $accent-blue;
-    min-width: $large-width;
-    width: 272px;
-    height: $large-height;
+    flex: 1;
     background-color: var(--color-theme, var(--color-white));
     padding-top: 2px
   }
@@ -243,17 +238,16 @@ const parsedDateFormat = computed(() => {
   }
 
   .image-block {
-    width: 25%;
-    flex-shrink: 0;
+    flex: 1;
 
     .image {
       width: 100%;
-      height: 272px;
+      height: 100%;
     }
 
     .molecule-no-image {
       width: 100%;
-      height: 272px;
+      height: 100%;
       margin-right: var(--space-xl);
       background: var(--gradient-01);
       overflow: hidden;
@@ -270,47 +264,40 @@ const parsedDateFormat = computed(() => {
   }
 
   .meta {
-    width: 50%;
-    height: 272px;
-    background-color: var(--color-theme, var(--color-white));
-    padding: 2px 20px 15px 20px;
+    background-color: lightsteelblue; /* Test */
+    flex-basis: 50%;
+    /* background-color: var(--color-theme, var(--color-white)); */
+    flex: 2;
 
     :deep(.card-meta) {
       display: grid;
-      grid-template-columns: repeat(10 fr);
-      /* grid-template-rows: 125px 50px; */
       grid-template-rows: min-content 1fr;
+      padding: 20px;
+      min-height: $large-height;
 
       * {
         margin: 0;
       }
 
       .title {
-        grid-column: 1 / -1;
-        order: 1;
-        margin: 0;
-      }
-
-      .date-time {
-        grid-column: 1 / -1;
-        order: 2;
-      }
-
-      .block-tags-slot.content {
-        grid-column: 1 / -1;
-        order: 3;
-      }
-
-      margin: 0px;
-      padding: 25px 20px 15px 20px;
-      height: $large-height;
-
-      .title {
+        background-color: yellowgreen; /* Test */
         @include ftva-card-title-2;
         color: $heading-grey;
       }
 
-      &:hover>a.title {
+      .date-time {
+        background-color: whitesmoke; /* Test */
+        align-self: flex-end;
+        @include ftva-emphasized-subtitle;
+        color: $accent-blue;
+        letter-spacing: .04px;
+
+      .start-date {
+        display: none;
+      }
+    }
+
+      &:hover > a.title {
         text-decoration: none;
       }
     }
@@ -319,16 +306,11 @@ const parsedDateFormat = computed(() => {
       text-transform: uppercase;
       @include ftva-emphasized-subtitle;
       color: $accent-blue;
-      padding-top: 60px;
-    }
-
-    .date {
-      padding-right: 2px;
     }
 
     :deep(.block-tags-slot) {
+      background-color: gold; /* Test */
       display: flex;
-      flex-direction: row;
       justify-content: left;
       gap: 16px;
 
@@ -338,25 +320,9 @@ const parsedDateFormat = computed(() => {
     }
   }
 
-  /* VERTICAL TIME FORMAT */
-  :deep(.card-meta) {
-    .date-time {
-      @include ftva-emphasized-subtitle;
-      color: $accent-blue;
-      letter-spacing: .04px;
-      padding-bottom: 10px;
-
-      .start-date {
-        display: none;
-      }
-    }
-  }
-
   // Breakpoints
   @media #{$medium} {
     flex-direction: column;
-    padding-left: 0;
-    padding-right: 0;
 
     .day-month-date {
       display: none;
@@ -372,42 +338,26 @@ const parsedDateFormat = computed(() => {
       .molecule-no-image {
         border-radius: 12px 12px 0 0;
       }
-
-      .image {
-        width: 100%;
-      }
     }
 
     .meta {
-      padding: 12px 2px 18px 18px;
       width: 100%;
       border-radius: 0 0 12px 12px;
 
       :deep(.card-meta) {
-        /* display: grid;
-          grid-template-columns: repeat(10 fr); */
-        grid-template-rows: 50px 120px;
-
         .title {
           order: 2;
+          align-self: flex-end;
         }
 
-        .date-time {
-          order: 3;
-        }
-
-        .block-tags-slot.content {
+        .block-tags-slot {
           order: 1;
         }
 
         .date-time {
+          order: 3;
           display: flex;
           flex-direction: row;
-
-          @include ftva-emphasized-subtitle;
-          color: $accent-blue;
-          letter-spacing: .04px;
-          padding-bottom: 10px;
 
           .start-date {
             position: relative;
