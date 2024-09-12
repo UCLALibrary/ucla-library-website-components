@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, defineAsyncComponent, provide, ref, useSlots } from 'vue'
-import type { Ref } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 const { alignment } = defineProps({
@@ -22,6 +21,7 @@ const tabSlots = useSlots()?.default?.()
 const tabProps = tabSlots!.map((tabItem) => {
   return tabItem.props // {title, icon, content}
 })
+
 const tabItems = ref(tabProps)
 
 const activeTab = ref(tabItems.value[0]?.title)
