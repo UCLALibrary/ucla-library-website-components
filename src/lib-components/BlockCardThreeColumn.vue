@@ -5,16 +5,16 @@
 >
 import { computed } from 'vue'
 import type { PropType } from 'vue'
+import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
+import format from 'date-fns/format'
 import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import BlockTag from '@/lib-components/BlockTag.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
 // UTILITY FUNCTIONS
-import format from 'date-fns/format'
 import formatDates from '@/utils/formatEventDates'
 import formatShortDay from '@/utils/formatShortDay'
 import formatFullDay from '@/utils/formatFullDay'
@@ -102,22 +102,22 @@ const parsedDateFormat = computed(() => {
   return theme?.value === 'ftva' ? 'short' : 'long'
 })
 
-const parsedStartDatePlusTime = computed(() => {
-  if (props.startDate)
-    return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
-  return ''
-})
+// const parsedStartDatePlusTime = computed(() => {
+//   if (props.startDate)
+//     return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
+//   return ''
+// })
 
-const parsedFormatShortDay = computed(() => {
-  if (props.startDate)
-    return formatShortDay(props.startDate)
-  return ''
-})
+// const parsedFormatShortDay = computed(() => {
+//   if (props.startDate)
+//     return formatShortDay(props.startDate)
+//   return ''
+// })
 
-const parsedDayMonthDate = computed(() => {
-  if (props.startDate)
-    return format(new Date(props.startDate), 'EEE, MMM dd')
-})
+// const parsedDayMonthDate = computed(() => {
+//   if (props.startDate)
+//     return format(new Date(props.startDate), 'EEE, MMM dd')
+// })
 </script>
 
 <template>
