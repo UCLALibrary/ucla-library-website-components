@@ -425,23 +425,15 @@ const parsedTime = computed(() => {
           grid-template-columns: repeat(10 fr); */
         grid-template-rows: 50px 120px;
 
-        /* * {
-            margin: 0;
-          } */
-
         .title {
-          /* grid-column: 1 / -1; */
           order: 2;
-          /* margin: 0; */
         }
 
         .date-time {
-          /* grid-column: 1 / -1; */
           order: 3;
         }
 
         .block-tags-slot.content {
-          /* grid-column: 1 / -1; */
           order: 1;
         }
 
