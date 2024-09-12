@@ -170,9 +170,11 @@ const parsedDateFormat = computed(() => {
         :date-format="parsedDateFormat"
       >
         <template #blocktag>
-          <div v-for="(label, index) in tagLabels">
+          <div
+            v-for="(label, index) in tagLabels"
+            :key="`${label.title}-${index}`"
+          >
             <BlockTag
-              :key="`${label.title}-${index}`"
               :label="label.title"
               icon-name="SvgIconGuest"
               :is-secondary="true"
