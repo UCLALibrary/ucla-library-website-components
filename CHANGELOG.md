@@ -1,3 +1,10 @@
+# [3.17.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.16.0...v3.17.0) (2024-09-12)
+
+
+### Features
+
+* APPS 2940 Animate TabToggle component ([#608](https://github.com/UCLALibrary/ucla-library-website-components/issues/608)) ([30e3261](https://github.com/UCLALibrary/ucla-library-website-components/commit/30e3261e6b8cb739fb6fce33bdcab80f840215c5))
+
 # [3.16.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.15.1...v3.16.0) (2024-09-11)
 
 

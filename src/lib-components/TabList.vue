@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { computed, defineAsyncComponent, provide, ref, useSlots } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
@@ -12,20 +12,23 @@ const { alignment } = defineProps({
 const SvgIconCalendar = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-calendar.svg')
 )
-
 const SvgIconList = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-list.svg')
 )
 
-const slots = useSlots()?.default?.()
+const tabSlots = useSlots()?.default?.()
 
-const tabItems = ref(slots.map((tabItem) => {
-  return tabItem.props
-}))
+const tabProps = tabSlots!.map((tabItem) => {
+  return tabItem.props // {title, icon, content}
+})
 
-const activeTab = ref(tabItems.value[0].title)
+const tabItems = ref(tabProps)
 
-const tabRefs = ref([])
+const activeTab = ref(tabItems.value[0]?.title)
+
+const tabRefs = ref<Array<any>>([])
+
+const tabGliderRef = ref()
 
 provide('activeTab', activeTab)
 
@@ -54,31 +57,56 @@ const classes = computed(() => {
 })
 
 // Methods
-function setTabId(tabName) {
+function setTabId(tabName: string) {
   const tabTitle = hyphenateTabName(tabName)
   return `tab-${tabTitle}`
 }
 
-function setTabAriaControl(tabName) {
+function setTabAriaControl(tabName: string) {
   const tabTitle = hyphenateTabName(tabName)
   return `panel-${tabTitle}`
 }
 
-function switchTab(tabName) {
+function switchTab(tabName: string) {
   activeTab.value = tabName
 
-  const tabIndex = tabItems.value.findIndex(tab => tab.title === tabName)
+  const tabIndex = tabItems.value!.findIndex(tab => tab?.title === tabName)
 
-  if (tabRefs.value[tabIndex])
-    tabRefs.value[tabIndex].focus()
+  const tabElem: HTMLElement = tabRefs.value[tabIndex]
+
+  if (tabElem)
+    tabElem.focus()
+
+  if (!tabElem.classList.contains('active'))
+    animateTabGlider(tabElem)
 }
 
-function hyphenateTabName(str) {
-  return str.toLowerCase().replaceAll(' ', '-')
+function animateTabGlider(elem: HTMLElement) {
+  const tabGlider = tabGliderRef.value
+
+  const scaleGliderWidth = elem.offsetWidth / tabGlider.offsetWidth
+
+  // Calculate width to scale animated glider
+  // Use variable in CSS
+  tabGlider.style.setProperty('--scale_glider_width', scaleGliderWidth)
+
+  // Calculate and set distance to animate
+  // Use variable in CSS
+  tabGlider.style.setProperty('--translate_glider_left', `${elem.offsetLeft}px`)
+
+  // Object with positional values of tab button
+  const tabBtn = elem.getBoundingClientRect()
+
+  // Set glider to same height as tab button
+  tabGlider.style.height = `${tabBtn.height}px`
 }
 
-function keydownHandler(e) {
-  const tabTitleList = tabItems.value.map(obj => obj.title)
+function hyphenateTabName(str: string) {
+  return str.toLowerCase().replace(/\s/g, '-')
+}
+
+function keydownHandler(e: KeyboardEvent) {
+  const tabTitleList = tabItems.value!.map(obj => obj?.title)
 
   const activeIndex = tabTitleList.indexOf(activeTab.value)
 
@@ -114,31 +142,31 @@ function keydownHandler(e) {
     </div>
 
     <div class="tab-list-header" role="tablist">
+      <span ref="tabGliderRef" class="tab-glider" />
       <button
         v-for="(tab, index) in tabItems"
-        :id="setTabId(tab.title)"
+        :id="setTabId(tab?.title)"
         :ref="(el) => tabRefs[index] = el"
-        :key="tab.title"
+        :key="tab?.title"
         class="tab-list-item"
-        :class="{ active: activeTab === tab.title }"
+        :class="{ active: activeTab === tab?.title }"
         role="tab"
-        :tabindex="activeTab === tab.title ? 0 : -1"
-        :aria-controls="setTabAriaControl(tab.title)"
-        :aria-selected="activeTab === tab.title"
+        :tabindex="activeTab === tab?.title ? 0 : -1"
+        :aria-controls="setTabAriaControl(tab?.title)"
+        :aria-selected="activeTab === tab?.title"
         @keydown="keydownHandler"
-        @click="switchTab(tab.title)"
+        @click="switchTab(tab?.title)"
       >
         <component
-          :is="iconMapping[tab.icon].icon" v-if="tab.icon"
+          :is="iconMapping[tab.icon as keyof typeof iconMapping].icon" v-if="tab?.icon"
           class="svg" aria-hidden="true"
         />
-        {{ tab.title }}
-        <span class="glider" />
+        {{ tab?.title }}
       </button>
     </div>
   </div>
   <!-- Slot: TabItem -->
-  <div :id="parsedAriaLabel" class="tab-list-body" role="tabpanel" :aria-labelledby="parsedAriaLabel">
+  <div :id="parsedAriaLabel" class="tab-list-body" role="tabpanel" :aria-labelledby="parsedAriaLabel" :hidden="!activeTab">
     <slot />
   </div>
 </template>
