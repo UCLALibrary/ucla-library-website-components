@@ -5,23 +5,21 @@
 >
 import { computed } from 'vue'
 import type { PropType } from 'vue'
+import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
-import format from 'date-fns/format'
-import { useTheme } from '@/composables/useTheme'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import BlockTag from '@/lib-components/BlockTag.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
-// import formatDayDateTime from '@/utils/formatDayDateTime'
+// UTILITY FUNCTIONS
+import format from 'date-fns/format'
+import formatDates from '@/utils/formatEventDates'
 import formatShortDay from '@/utils/formatShortDay'
 import formatFullDay from '@/utils/formatFullDay'
 import formatDay from '@/utils/formatEventDay'
 import formatMonth from '@/utils/formatEventMonth'
-
-// UTILITY FUNCTIONS
-import formatDates from '@/utils/formatEventDates'
 
 // TYPESCRIPT
 import type { EventFiltersItemType, MediaItemType } from '@/types/types'
@@ -120,17 +118,6 @@ const parsedDayMonthDate = computed(() => {
   if (props.startDate)
     return format(new Date(props.startDate), 'EEE, MMM dd')
 })
-
-const parsedTime = computed(() => {
-  if (props.startDate)
-    return format(new Date(props.startDate), 'h:mm aaa')
-})
-
-// const globalStore = useGlobalStore()
-
-// const isMobile = computed(() => {
-//   return globalStore.winWidth <= 600
-// })
 </script>
 
 <template>
@@ -187,6 +174,7 @@ const parsedTime = computed(() => {
         <template #blocktag>
           <div v-for="(label, index) in tagLabels">
             <BlockTag
+              :key="`${label.title}-${index}`"
               :label="label.title"
               icon-name="SvgIconGuest"
               :is-secondary="true"
@@ -195,32 +183,6 @@ const parsedTime = computed(() => {
           </div>
         </template>
       </CardMeta>
-      <!--
-          <div
-          class="time-tags"
-        >
-          <div class="time-date">
-            <time
-              v-if="isMobile"
-              class="date"
-            >{{ parsedDayMonthDate }}</time>
-
-            <time class="time">{{ parsedTime }}</time>
-          </div>
-
-          <div
-            v-if="tagLabels && tagLabels.length > 0"
-            class="block-tags"
-          >
-            <BlockTag
-              v-for="tag in tagLabels"
-              :key="`tag-${tag.title}`"
-              :label="tag.title"
-              :is-secondary="true"
-              class="tag-label"
-            />
-          </div>
-    </div> -->
     </div>
   </li>
 </template>
