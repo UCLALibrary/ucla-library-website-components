@@ -5,6 +5,7 @@ import format from 'date-fns/format'
  *
  * @param {string} startDate
  * @param {string} endDate
+ * @param {string} dateFormat - 'long', 'short', or 'shortWithYear'
  * @returns {string}
  */
 
@@ -26,14 +27,20 @@ function formatDates(startDate = '', endDate = '', dateFormat = 'long') {
     output = start
   }
 
-  if (dateFormat === 'short') {
+  if (dateFormat === 'short' || dateFormat === 'shortWithYear') {
     // "Feb 11 2020"
     const day = output.slice(0, 3)
     const dateYear = output.split(' ').slice(1).join(' ')
     if (endDate && endDate !== startDate) {
       // Feb 11 – May 31
-      const shortFormatEndDate = format(new Date(endDate), 'MMM d')
       const shortFormatStartDate = format(new Date(startDate), 'MMM d')
+      const shortFormatEndDate = format(new Date(endDate), 'MMM d')
+      // if 'shortWithYear' is selected, add the year to the end date
+      // Feb 11 – May 31 2020
+      if (dateFormat === 'shortWithYear') {
+        const shortFormatEndDateYear = format(new Date(endDate), 'MMM d, Y')
+        return `${shortFormatStartDate} - ${shortFormatEndDateYear}`
+      }
       return `${shortFormatStartDate} - ${shortFormatEndDate}`
     }
     return `${day} ${dateYear}`
