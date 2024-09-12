@@ -6,7 +6,6 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
-import format from 'date-fns/format'
 import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
@@ -15,8 +14,8 @@ import BlockTag from '@/lib-components/BlockTag.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
 // UTILITY FUNCTIONS
-//import formatDates from '@/utils/formatEventDates'
-//import formatShortDay from '@/utils/formatShortDay'
+// import formatDates from '@/utils/formatEventDates'
+// import formatShortDay from '@/utils/formatShortDay'
 import formatFullDay from '@/utils/formatFullDay'
 import formatDay from '@/utils/formatEventDay'
 import formatMonth from '@/utils/formatEventMonth'

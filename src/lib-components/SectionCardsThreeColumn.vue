@@ -20,8 +20,8 @@ const { items } = defineProps({
     <ul>
       <BlockCardThreeColumn
         v-for="(item, index) in items"
-        class="block-card-three-column-list"
         :key="`${item.title}-${index}`"
+        class="block-card-three-column-list"
         :to="item.to"
         :start-date="item.startDate"
         :image="item.image"
