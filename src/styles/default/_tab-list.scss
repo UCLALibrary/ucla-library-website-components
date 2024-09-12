@@ -42,7 +42,8 @@
   }
 
   // Set background of initial active tab
-  .tab-glider ~ .tab-list-item:nth-of-type(1).active {
+  // .tab-glider ~ .tab-list-item:nth-of-type(1).active
+  .tab-glider ~ .tab-list-item.active {
     background: $white;
     transition: background-color 3000ms;
   }

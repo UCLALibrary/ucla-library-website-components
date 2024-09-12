@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import { computed, defineAsyncComponent, provide, ref, useSlots } from 'vue'
+import { computed, defineAsyncComponent, onMounted, provide, ref, useSlots } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
-const { alignment } = defineProps({
+const { alignment, initialTab } = defineProps({
   alignment: {
     type: String,
     default: 'left',
   },
+  initialTab: {
+    type: Number,
+    default: 0
+  }
 })
 
 const SvgIconCalendar = defineAsyncComponent(() =>
@@ -43,6 +47,11 @@ const iconMapping = {
     label: 'List'
   },
 }
+
+onMounted(() => {
+  if (initialTab <= tabItems.value.length)
+    activeTab.value = tabItems.value[initialTab]?.title
+})
 
 // Computed
 const parsedAriaLabel = computed(() => {
