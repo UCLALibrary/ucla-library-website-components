@@ -160,6 +160,7 @@ export interface EventItemType {
   sectionHandle?: string
   locations: LocationItemType[]
   ongoing?: boolean
+  tagLabels?: EventFiltersItemType[]
 }
 
 export interface GridGalleryItemType {

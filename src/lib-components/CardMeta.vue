@@ -224,7 +224,7 @@ const classes = computed(() => {
         v-html="parsedTime"
       />
       <time
-        v-if="parsedStartTime"
+        v-if="startDate && sectionHandle == 'ftvaEventSeries'"
         class="bottom schedule-item parsed-start-time"
         v-html="parsedStartTime"
       />
