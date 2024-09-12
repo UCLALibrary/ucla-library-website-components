@@ -7,7 +7,7 @@ import type { EventItemType } from '@/types/types'
 
 import BlockCardThreeColumn from '@/lib-components/BlockCardThreeColumn.vue'
 
-const { items, nShown } = defineProps({
+const { items } = defineProps({
   items: {
     type: Array as PropType<EventItemType[]>,
     default: () => [],
@@ -21,6 +21,7 @@ const { items, nShown } = defineProps({
       <BlockCardThreeColumn
         v-for="(item, index) in items"
         class="block-card-three-column-list"
+        :key="`${item.title}-${index}`"
         :to="item.to"
         :start-date="item.startDate"
         :image="item.image"

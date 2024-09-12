@@ -15,8 +15,8 @@ import BlockTag from '@/lib-components/BlockTag.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
 // UTILITY FUNCTIONS
-import formatDates from '@/utils/formatEventDates'
-import formatShortDay from '@/utils/formatShortDay'
+//import formatDates from '@/utils/formatEventDates'
+//import formatShortDay from '@/utils/formatShortDay'
 import formatFullDay from '@/utils/formatFullDay'
 import formatDay from '@/utils/formatEventDay'
 import formatMonth from '@/utils/formatEventMonth'
@@ -169,7 +169,6 @@ const parsedDateFormat = computed(() => {
         :start-date="startDate"
         :end-date="endDate"
         :date-format="parsedDateFormat"
-        :text="text"
       >
         <template #blocktag>
           <div v-for="(label, index) in tagLabels">
@@ -178,7 +177,6 @@ const parsedDateFormat = computed(() => {
               :label="label.title"
               icon-name="SvgIconGuest"
               :is-secondary="true"
-              :class="label.title ? content : null"
             />
           </div>
         </template>
@@ -309,8 +307,6 @@ const parsedDateFormat = computed(() => {
       .title {
         @include ftva-card-title-2;
         color: $heading-grey;
-        @include truncate($lines: 2);
-        overflow: hidden;
       }
 
       &:hover>a.title {
