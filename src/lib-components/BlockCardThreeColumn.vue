@@ -317,7 +317,8 @@ const parsedTime = computed(() => {
     :deep(.card-meta) {
       display: grid;
       grid-template-columns: repeat(10 fr);
-      grid-template-rows: 125px 50px;
+      /* grid-template-rows: 125px 50px; */
+      grid-template-rows: min-content 1fr;
 
       * {
         margin: 0;
