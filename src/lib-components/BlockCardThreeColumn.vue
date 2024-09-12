@@ -238,7 +238,6 @@ const parsedDateFormat = computed(() => {
       align-items: center;
       position: relative;
 
-
       .molecule {
         flex-shrink: 0;
         position: absolute;
@@ -252,7 +251,6 @@ const parsedDateFormat = computed(() => {
     flex: 2;
 
     background-color: var(--color-theme, var(--color-white));
-
 
     :deep(.card-meta) {
       display: grid;
