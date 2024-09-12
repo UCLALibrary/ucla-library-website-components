@@ -1,5 +1,3 @@
-import { computed } from 'vue'
-
 import BlockClippedDate from '@/lib-components/BlockClippedDate'
 
 // Import mock api data
@@ -45,28 +43,6 @@ const ongoing = {
   sectionHandle: 'event',
 }
 
-const mockFtva = {
-  to: 'series/todd-solondz-series',
-  startDate: '2025-12-13T06:30:00+00:00',
-  image: API.image,
-  title: 'TEST - Todd Solondz Series',
-  endDate: '2025-12-13T08:00:00+00:00',
-  tagLabels: [
-    {
-      title: 'Guest speaker'
-    }
-  ]
-}
-// {
-//   uri: "series/series-with-3-upcoming-events",
-//   title: "Series with 3 upcoming events",
-//   startDate: "2024-03-09T03:30:00+00:00",
-//   endDate: "2026-03-31T07:00:00+00:00",
-//   ongoing: false,
-//   ftvaImage: []
-// }
-// }
-
 export function Default() {
   return {
     data() {
@@ -75,18 +51,18 @@ export function Default() {
     components: { BlockClippedDate },
     template: `
       <block-clipped-date
-        :image="image"
-        :to="to"
-        :category="category"
-        :title="title"
-        :start-date="startDate"
-        :end-date="endDate"
-        :text="text"
-        :image-aspect-ratio="60"
-        :locations="locations"
-        :alternativeFullName="alternativeFullName"
-        :language="language"
-        :section-handle="sectionHandle"
+          :image="image"
+          :to="to"
+          :category="category"
+          :title="title"
+          :start-date="startDate"
+          :end-date="endDate"
+          :text="text"
+          :image-aspect-ratio="60"
+          :locations="locations"
+          :alternativeFullName="alternativeFullName"
+          :language="language"
+          :section-handle="sectionHandle"
       />
   `,
   }
@@ -115,29 +91,3 @@ export function OngoingEvent() {
   `,
   }
 }
-
-export function FtvaThreeColumn() {
-  return {
-    data() {
-      return { ...mockFtva }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { BlockClippedDate },
-    template: `
-      <block-clipped-date
-        :to="to"
-        :start-date="startDate"
-        :image-aspect-ratio="100"
-        :image="image"
-        :title="title"
-        :tagLabels="tagLabels"
-        :startTime="startDate"
-      />
-  `,
-  }
-}
-// {{ formatTimes(startTime, startTime) }}
