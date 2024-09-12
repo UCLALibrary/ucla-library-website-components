@@ -1,5 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import { computed, defineAsyncComponent, provide, ref, useSlots } from 'vue'
+import type { Ref } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 const { alignment } = defineProps({
@@ -12,20 +13,21 @@ const { alignment } = defineProps({
 const SvgIconCalendar = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-calendar.svg')
 )
-
 const SvgIconList = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-list.svg')
 )
 
-const slots = useSlots()?.default?.()
+const tabSlots = useSlots()?.default?.()
 
-const tabItems = ref(slots.map((tabItem) => {
-  return tabItem.props // {title, icon}
-}))
+const tabProps = tabSlots!.map((tabItem) => {
+  return tabItem.props // {title, icon, content}
+})
+const tabItems = ref(tabProps)
 
-const activeTab = ref(tabItems.value[0].title)
+const activeTab = ref(tabItems.value[0]?.title)
 
-const tabRefs = ref([])
+const tabRefs = ref<Array<any>>([])
+
 const tabGliderRef = ref()
 
 provide('activeTab', activeTab)
@@ -55,22 +57,22 @@ const classes = computed(() => {
 })
 
 // Methods
-function setTabId(tabName) {
+function setTabId(tabName: string) {
   const tabTitle = hyphenateTabName(tabName)
   return `tab-${tabTitle}`
 }
 
-function setTabAriaControl(tabName) {
+function setTabAriaControl(tabName: string) {
   const tabTitle = hyphenateTabName(tabName)
   return `panel-${tabTitle}`
 }
 
-function switchTab(tabName) {
+function switchTab(tabName: string) {
   activeTab.value = tabName
 
-  const tabIndex = tabItems.value.findIndex(tab => tab.title === tabName)
+  const tabIndex = tabItems.value!.findIndex(tab => tab?.title === tabName)
 
-  const tabElem = tabRefs.value[tabIndex]
+  const tabElem: HTMLElement = tabRefs.value[tabIndex]
 
   if (tabElem)
     tabElem.focus()
@@ -79,7 +81,7 @@ function switchTab(tabName) {
     animateTabGlider(tabElem)
 }
 
-function animateTabGlider(elem) {
+function animateTabGlider(elem: HTMLElement) {
   const tabGlider = tabGliderRef.value
 
   const scaleGliderWidth = elem.offsetWidth / tabGlider.offsetWidth
@@ -99,12 +101,12 @@ function animateTabGlider(elem) {
   tabGlider.style.height = `${tabBtn.height}px`
 }
 
-function hyphenateTabName(str) {
-  return str.toLowerCase().replaceAll(' ', '-')
+function hyphenateTabName(str: string) {
+  return str.toLowerCase().replace(/\s/g, '-')
 }
 
-function keydownHandler(e) {
-  const tabTitleList = tabItems.value.map(obj => obj.title)
+function keydownHandler(e: KeyboardEvent) {
+  const tabTitleList = tabItems.value!.map(obj => obj?.title)
 
   const activeIndex = tabTitleList.indexOf(activeTab.value)
 
@@ -143,23 +145,23 @@ function keydownHandler(e) {
       <span ref="tabGliderRef" class="tab-glider" />
       <button
         v-for="(tab, index) in tabItems"
-        :id="setTabId(tab.title)"
+        :id="setTabId(tab?.title)"
         :ref="(el) => tabRefs[index] = el"
-        :key="tab.title"
+        :key="tab?.title"
         class="tab-list-item"
-        :class="{ active: activeTab === tab.title }"
+        :class="{ active: activeTab === tab?.title }"
         role="tab"
-        :tabindex="activeTab === tab.title ? 0 : -1"
-        :aria-controls="setTabAriaControl(tab.title)"
-        :aria-selected="activeTab === tab.title"
+        :tabindex="activeTab === tab?.title ? 0 : -1"
+        :aria-controls="setTabAriaControl(tab?.title)"
+        :aria-selected="activeTab === tab?.title"
         @keydown="keydownHandler"
-        @click="switchTab(tab.title)"
+        @click="switchTab(tab?.title)"
       >
         <component
-          :is="iconMapping[tab.icon].icon" v-if="tab.icon"
+          :is="iconMapping[tab.icon as keyof typeof iconMapping].icon" v-if="tab?.icon"
           class="svg" aria-hidden="true"
         />
-        {{ tab.title }}
+        {{ tab?.title }}
       </button>
     </div>
   </div>
