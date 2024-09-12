@@ -29,7 +29,7 @@ const mockDefault = [
     id: '3145808',
     to: 'events/step-up-3-07-19-25',
     title: 'TEST - Step Up 3D (2010) Sequel to 2008\'s Step Up 2: The Streets and the third installment in the Step Up film series',
-    startDate: '2028-03-31T07:00:00+00:00',
+    startDate: '2028-03-31T06:30:00+00:00',
     image: null,
     tagLabels: [
       { title: 'Guest speaker' }
@@ -39,7 +39,7 @@ const mockDefault = [
     id: '3145784',
     to: 'events/step-up-2-07-07-25',
     title: 'TEST - Step Up 2: The Streets (2008)',
-    startDate: '2026-03-31T07:00:00+00:00',
+    startDate: '2026-03-31T05:45:00+00:00',
     image: API.image,
   },
 ]

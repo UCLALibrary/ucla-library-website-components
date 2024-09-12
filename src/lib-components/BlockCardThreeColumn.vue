@@ -168,6 +168,7 @@ const parsedDateFormat = computed(() => {
         :start-date="startDate"
         :end-date="endDate"
         :date-format="parsedDateFormat"
+        :startTime="parsedStartTime"
       >
         <template #blocktag>
           <div

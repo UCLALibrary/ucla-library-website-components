@@ -14,6 +14,7 @@ import IconWithLink from '@/lib-components/IconWithLink.vue'
 import RichText from '@/lib-components/RichText.vue'
 
 // UTILITY FUNCTIONS
+import format from 'date-fns/format'
 import formatTimes from '@/utils/formatEventTimes'
 import formatDates from '@/utils/formatEventDates'
 
@@ -131,6 +132,14 @@ const parsedTime = computed(() => {
   else if (props.startDate && (props.sectionHandle !== 'ftvaEventSeries' && theme?.value !== undefined))
     return props.endDate ? formatTimes(props.startDate, props.endDate) : formatTimes(props.startDate, props.startDate)
   // in all other cases incl. if it is ftvaEventSeries, return nothing
+  else if (props.startDate && (props.sectionHandle === 'ftvaEventSeries'))
+    return format(new Date(props.startDate), 'h:mm aaa')
+  return ''
+})
+
+const parsedStartTime = computed(() => {
+  if (props.startDate)
+    return format(new Date(props.startDate), 'h:mm aaa')
   return ''
 })
 
@@ -159,7 +168,6 @@ const classes = computed(() => {
       class="category"
       v-html="category"
     />
-
     <SmartLink
       v-if="to"
       :link-target="parsedTarget"
@@ -174,6 +182,7 @@ const classes = computed(() => {
         v-html="alternativeFullName"
       />
     </SmartLink>
+
     <h3
       v-else
       class="title-no-link"
@@ -224,10 +233,15 @@ const classes = computed(() => {
         v-html="parsedTime"
       />
       <time
-        v-if="startDate && sectionHandle === 'ftvaEventSeries'"
+        v-if="startTime"
+        class="bottom schedule-item parsed-start-time"
+        v-html="startTime"
+      />
+      <!-- <time
+        v-if="parsedStartTime"
         class="bottom schedule-item parsed-start-time"
         v-html="parsedStartTime"
-      />
+      /> -->
     </div>
 
     <div

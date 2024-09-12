@@ -18,7 +18,7 @@ const mockDefault = {
   startDate: '2025-12-13T06:30:00+00:00',
   image: API.image,
   title: 'TEST - Todd Solondz Series',
-  endDate: '2025-12-13T08:00:00+00:00',
+  endDate: '2025-12-13T05:45:00+00:00',
   tagLabels: [
     {
       title: 'Guest speaker'
@@ -67,7 +67,7 @@ export function Default(args) {
         :image-aspect-ratio="100"
         :title="title"
         :tagLabels="tagLabels"
-        :startTIme="parsedStartTime"
+        :startTime="parsedTime"
       />`,
   }
 }
