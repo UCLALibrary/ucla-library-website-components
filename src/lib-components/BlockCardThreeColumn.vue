@@ -190,6 +190,7 @@ const parsedTime = computed(() => {
               :label="label.title"
               icon-name="SvgIconGuest"
               :is-secondary="true"
+              :class="label.title ? content : null"
             />
           </div>
         </template>
@@ -247,12 +248,6 @@ const parsedTime = computed(() => {
   font-family: var(--font-primary);
   $large-width: 272px;
   $large-height: 272px;
-
-  :deep(.card-meta) {
-    .title {
-      color: green;
-    }
-  }
 
   .day-month-date {
     display: flex;
@@ -314,19 +309,36 @@ const parsedTime = computed(() => {
   }
 
   .meta {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: flex-start;
-    align-items: flex-start;
-
     width: 50%;
     height: 272px;
     background-color: var(--color-theme, var(--color-white));
     padding: 2px 20px 15px 20px;
 
     :deep(.card-meta) {
-      position: relative;
+      display: grid;
+      grid-template-columns: repeat(10 fr);
+      grid-template-rows: 125px 50px;
+
+      * {
+        margin: 0;
+      }
+
+      .title {
+        grid-column: 1 / -1;
+        order: 1;
+        margin: 0;
+      }
+
+      .date-time {
+        grid-column: 1 / -1;
+        order: 2;
+      }
+
+      .block-tags-slot.content {
+        grid-column: 1 / -1;
+        order: 3;
+      }
+
       margin: 0px;
       padding: 25px 20px 15px 20px;
       height: $large-height;
@@ -335,6 +347,7 @@ const parsedTime = computed(() => {
         @include ftva-card-title-2;
         color: $heading-grey;
         @include truncate($lines: 2);
+        overflow: visible;
       }
 
       &:hover>a.title {
@@ -357,24 +370,11 @@ const parsedTime = computed(() => {
       display: flex;
       flex-direction: row;
       justify-content: left;
-      gap: 8px;
+      gap: 16px;
     }
   }
 
-  /* .time-tags {
-    position: absolute;
-    bottom: var(--space-m);
-    display: flex;
-    flex-direction: column;
-
-    padding-bottom: 5px;
-    @include ftva-emphasized-subtitle;
-    color: $accent-blue;
-    letter-spacing: .04px;
-
-    overflow: hidden;
-  } */
-
+  /* VERTICAL TIME FORMAT */
   :deep(.card-meta) {
     .date-time {
       @include ftva-emphasized-subtitle;
@@ -418,29 +418,54 @@ const parsedTime = computed(() => {
       padding: 12px 2px 18px 18px;
       width: 100%;
       border-radius: 0 0 12px 12px;
-    }
 
-    :deep(.card-meta) {
-      .date-time {
-        display: flex;
-        flex-direction: row;
+      :deep(.card-meta) {
+        /* display: grid;
+          grid-template-columns: repeat(10 fr); */
+        grid-template-rows: 50px 120px;
 
-        @include ftva-emphasized-subtitle;
-        color: $accent-blue;
-        letter-spacing: .04px;
-        padding-bottom: 10px;
+        /* * {
+            margin: 0;
+          } */
 
-        .start-date {
-          position: relative;
-          margin-right: 28px;
+        .title {
+          /* grid-column: 1 / -1; */
+          order: 2;
+          /* margin: 0; */
+        }
 
-          // show the diamond icon after, but only if it's not the last child
-          &:not(:last-child)::after {
-            content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
-            position: absolute;
-            right: -30px;
-            top: -2px;
-            margin: 0px 10px;
+        .date-time {
+          /* grid-column: 1 / -1; */
+          order: 3;
+        }
+
+        .block-tags-slot.content {
+          /* grid-column: 1 / -1; */
+          order: 1;
+        }
+
+        .date-time {
+          display: flex;
+          flex-direction: row;
+
+          @include ftva-emphasized-subtitle;
+          color: $accent-blue;
+          letter-spacing: .04px;
+          padding-bottom: 10px;
+
+          .start-date {
+            position: relative;
+            display: inline;
+            margin-right: 28px;
+
+            // show the diamond icon after, but only if it's not the last child
+            &:not(:last-child)::after {
+              content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
+              position: absolute;
+              right: -30px;
+              top: -2px;
+              margin: 0px 10px;
+            }
           }
         }
       }

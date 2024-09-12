@@ -202,6 +202,7 @@ const classes = computed(() => {
       />
     </div>
 
+    <!-- <div class="wrapper"> -->
     <div
       v-if="startDate || ongoing"
       class="date-time"
@@ -269,6 +270,7 @@ const classes = computed(() => {
     <div class="bottom block-tags-slot">
       <slot name="blocktag" />
     </div>
+    <!-- </div> -->
 
     <RichText
       v-if="text"
