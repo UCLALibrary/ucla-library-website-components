@@ -109,7 +109,6 @@ export function LongTitle(args) {
         :image-aspect-ratio="100"
         title="What I Really Do Is Magic: Edith Head and Hollywood Costume Design"
         :tagLabels="tagLabels"
-        :startTIme="parsedStartTime"
       />`,
   }
 }
