@@ -46,22 +46,9 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  startTime: {
-    type: String,
-    default: '',
-  },
-  // long = 'Febuary 1, 2022', short = 'Feb 1, 2022
-  dateFormat: {
-    type: String,
-    default: 'long',
-  },
   tagLabels: {
     type: Array as PropType<EventFiltersItemType[]>,
     default: () => [],
-  },
-  isVisible: {
-    type: Boolean,
-    default: true,
   }
 })
 
@@ -102,10 +89,7 @@ const parsedDateFormat = computed(() => {
 
 <template>
   <li :class="classes">
-    <div
-      v-show="isVisible"
-      class="day-month-date"
-    >
+    <div class="day-month-date">
       <time
         v-if="startDate"
         class="day"
@@ -150,7 +134,7 @@ const parsedDateFormat = computed(() => {
         :end-date="endDate"
         :date-format="parsedDateFormat"
       >
-        <template #blocktag>
+        <template #floatingslot>
           <div
             v-for="(label, index) in tagLabels"
             :key="`${label.title}-${index}`"
@@ -296,7 +280,7 @@ const parsedDateFormat = computed(() => {
       color: $accent-blue;
     }
 
-    :deep(.block-tags-slot) {
+    :deep(.floating-slot) {
       display: flex;
       justify-content: left;
       gap: 16px;
@@ -346,7 +330,7 @@ const parsedDateFormat = computed(() => {
           padding-top: 10px;
         }
 
-        .block-tags-slot {
+        .floating-slot {
           order: 1;
         }
 

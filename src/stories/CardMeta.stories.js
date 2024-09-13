@@ -172,21 +172,3 @@ export function FTVAOngoing() {
   `,
   }
 }
-
-export function FTVATitleDate() {
-  return {
-    data() {
-      return { ...mockFTVATitleTime }
-    },
-    components: { CardMeta },
-    template: `
-      <CardMeta
-        class="card-meta-items"
-        :to="to"
-        :title="title"
-        :start-date="startDate"
-        :date-format="parsedDateFormat"
-      >
-  `,
-  }
-}

@@ -1,5 +1,4 @@
-import { computed, onBeforeUnmount, onMounted } from 'vue'
-import { useGlobalStore } from '@/stores/GlobalStore'
+import { computed} from 'vue'
 
 // Import component
 import BlockCardThreeColumn from '@/lib-components/BlockCardThreeColumn'
@@ -40,24 +39,6 @@ export function Default(args) {
         theme: computed(() => 'ftva'),
       }
     },
-    setup() {
-      onMounted(() => {
-        const globalStore = useGlobalStore()
-
-        const updateWinWidth = () => {
-          globalStore.winWidth = window.innerWidth
-        }
-
-        updateWinWidth()
-
-        window.addEventListener('resize', updateWinWidth)
-
-        onBeforeUnmount(() => {
-          window.removeEventListener('resize', updateWinWidth)
-        })
-      })
-      return { args }
-    },
     components: { BlockCardThreeColumn },
     template: `
       <block-card-three-column
@@ -82,24 +63,6 @@ export function LongTitle(args) {
         theme: computed(() => 'ftva'),
       }
     },
-    setup() {
-      onMounted(() => {
-        const globalStore = useGlobalStore()
-
-        const updateWinWidth = () => {
-          globalStore.winWidth = window.innerWidth
-        }
-
-        updateWinWidth()
-
-        window.addEventListener('resize', updateWinWidth)
-
-        onBeforeUnmount(() => {
-          window.removeEventListener('resize', updateWinWidth)
-        })
-      })
-      return { args }
-    },
     components: { BlockCardThreeColumn },
     template: `
       <block-card-three-column
@@ -122,24 +85,6 @@ export function NoImage(args) {
       return {
         theme: computed(() => 'ftva'),
       }
-    },
-    setup() {
-      onMounted(() => {
-        const globalStore = useGlobalStore()
-
-        const updateWinWidth = () => {
-          globalStore.winWidth = window.innerWidth
-        }
-
-        updateWinWidth()
-
-        window.addEventListener('resize', updateWinWidth)
-
-        onBeforeUnmount(() => {
-          window.removeEventListener('resize', updateWinWidth)
-        })
-      })
-      return { args }
     },
     components: { BlockCardThreeColumn },
     template: `

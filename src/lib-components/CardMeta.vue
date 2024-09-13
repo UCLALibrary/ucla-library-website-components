@@ -49,10 +49,6 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  startTime: {
-    type: String,
-    default: '',
-  },
   // long single date = 'Febuary 1, 2022', short = 'Feb 1, 2022
   // long date range =  'Febuary 1, 2022 - Febuary 2, 2022', short = 'Feb 1 - Feb 2'
   dateFormat: {
@@ -225,11 +221,6 @@ const classes = computed(() => {
         class="schedule-item parsed-time"
         v-html="parsedTime"
       />
-      <time
-        v-if="startTime"
-        class="schedule-item parsed-time"
-        v-html="startTime"
-      />
     </div>
 
     <div
@@ -268,9 +259,10 @@ const classes = computed(() => {
       <slot name="sharebutton" />
     </div>
 
-    <!-- BLOCKTAG SLOT -->
-    <div class="block-tags-slot">
-      <slot name="blocktag" />
+    <!-- USED FOR BLOCKTAG SLOT -->
+    <!-- MOVES BASED ON DESKTOP OR MOBILE -->
+    <div class="floating-slot">
+      <slot name="floatingslot" />
     </div>
 
     <RichText
