@@ -60,6 +60,24 @@ export function Default() {
   }
 }
 
+const FTVAprimaryItems = [
+  { ...API.primaryNavlinks[0] },
+  {
+    ...API.primaryNavlinks[0],
+    name: 'Visit',
+    url: '/visit/',
+  },
+  {
+    ...API.primaryNavlinks[0],
+    name: 'About',
+    url: '/about/',
+  },
+  {
+    ...API.primaryNavlinks[0],
+    name: 'Really really long name',
+  },
+]
+
 export function FTVAVersion() {
   return {
     setup() {
@@ -67,7 +85,6 @@ export function FTVAVersion() {
         const globalStore = useGlobalStore()
 
         const updateWinWidth = () => {
-          console.log(window.innerWidth)
           globalStore.winWidth = window.innerWidth
         }
 
@@ -84,7 +101,7 @@ export function FTVAVersion() {
     },
     data() {
       return {
-        primaryItems,
+        FTVAprimaryItems,
       }
     },
     provide() {
@@ -95,7 +112,7 @@ export function FTVAVersion() {
     components: { HeaderSticky },
     template: `
         <header-sticky
-            :primary-items="primaryItems"
+            :primary-items="FTVAprimaryItems"
         />
     `,
   }
