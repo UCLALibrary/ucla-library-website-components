@@ -25,17 +25,6 @@ const mockDefault = {
   bylineTwo: 'Byline 2'
 }
 
-const mockFTVATitleTime = {
-  to: 'series/todd-solondz-series',
-  startDate: '2025-12-13T07:30:00+00:00',
-  title: 'TEST - Todd Solondz Series',
-  tagLabels: [
-    {
-      title: 'Guest speaker'
-    }
-  ],
-}
-
 // Variations of stories below
 export function Default() {
   return {
@@ -152,11 +141,6 @@ export function FTVAOngoing() {
   return {
     data() {
       return { ...mockDefault }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
     },
     components: { CardMeta },
     template: `
