@@ -2,7 +2,6 @@
   setup
   lang="ts"
 >
-
 import { computed, defineAsyncComponent } from 'vue'
 import type { PropType } from 'vue'
 import type { EventItemType } from '@/types/types'
@@ -59,7 +58,7 @@ const parsedComponentName = computed(() => {
           :locations="item.locations"
           :section-handle="item.sectionHandle"
           :ongoing="item.ongoing"
-          :tagLabels="item.tagLabels"
+          :tag-labels="item.tagLabels"
           class="list-item block"
         />
       </ul>

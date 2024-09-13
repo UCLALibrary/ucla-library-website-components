@@ -1,4 +1,4 @@
-import { computed} from 'vue'
+import { computed } from 'vue'
 
 // Import component
 import BlockCardThreeColumn from '@/lib-components/BlockCardThreeColumn'

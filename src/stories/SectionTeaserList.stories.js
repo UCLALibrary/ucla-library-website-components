@@ -10,7 +10,7 @@ export default {
   component: SectionTeaserList,
 }
 
-const mock = [
+const mockDefault = [
   {
     image: null,
     to: '/visit/foo/bar/',
@@ -63,7 +63,7 @@ const mock = [
   },
 ]
 
-const mixedOngoingEvents = [
+const mockMixedOngoingEvents = [
   {
     image: API.image,
     to: '/visit/foo/bar/',
@@ -74,7 +74,6 @@ const mixedOngoingEvents = [
     text: 'Ultricies leo integer malesuada nunc vel risus commodo viverra.',
     sectionHandle: 'event',
   },
-
   {
     image: API.image,
     to: '/visit/foo/bar/',
@@ -90,13 +89,12 @@ const mixedOngoingEvents = [
 export function Default() {
   return {
     data() {
-      return { items: mock }
+      return { items: mockDefault }
     },
     components: { SectionTeaserList },
     template: `
       <section-teaser-list
         :items="items"
-
       />
   `,
   }
@@ -105,7 +103,7 @@ export function Default() {
 export function Expandable() {
   return {
     data() {
-      return { items: mock }
+      return { items: mockDefault }
     },
     components: { SectionTeaserList },
     template: `
@@ -119,7 +117,7 @@ export function Expandable() {
 export function MixedOngoingEvents() {
   return {
     data() {
-      return { items: mixedOngoingEvents }
+      return { items: mockMixedOngoingEvents }
     },
     components: { SectionTeaserList },
     template: `
@@ -166,7 +164,7 @@ export function DynamicComponent() {
     data() {
       return { items: mockDynamicComponent }
     },
-        provide() {
+    provide() {
       return {
         theme: computed(() => 'ftva'),
       }
