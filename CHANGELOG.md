@@ -1,3 +1,10 @@
+## [3.17.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.17.1...v3.17.2) (2024-09-13)
+
+
+### Bug Fixes
+
+* overflowing long text in ftva menu ([#612](https://github.com/UCLALibrary/ucla-library-website-components/issues/612)) ([608ab90](https://github.com/UCLALibrary/ucla-library-website-components/commit/608ab9057651ea6596a30ca56fdfbaa488218b4a))
+
 ## [3.17.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.17.0...v3.17.1) (2024-09-12)
 
 
