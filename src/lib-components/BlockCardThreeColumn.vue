@@ -1,4 +1,4 @@
-<!-- Related to SectionCardsThreeColumn -->
+<!-- Related to SectionTeaserList as DynamicComponent -->
 <script
   setup
   lang="ts"
