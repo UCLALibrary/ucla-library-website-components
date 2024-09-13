@@ -74,7 +74,7 @@ const FTVAprimaryItems = [
   },
   {
     ...API.primaryNavlinks[0],
-    name:'Really really long name',
+    name: 'Really really long name',
   },
 ]
 
