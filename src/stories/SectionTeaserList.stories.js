@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import SectionTeaserList from '@/lib-components/SectionTeaserList'
 
 // Import mock api data
@@ -9,7 +10,7 @@ export default {
   component: SectionTeaserList,
 }
 
-const mock = [
+const mockDefault = [
   {
     image: null,
     to: '/visit/foo/bar/',
@@ -62,7 +63,7 @@ const mock = [
   },
 ]
 
-const mixedOngoingEvents = [
+const mockMixedOngoingEvents = [
   {
     image: API.image,
     to: '/visit/foo/bar/',
@@ -73,7 +74,6 @@ const mixedOngoingEvents = [
     text: 'Ultricies leo integer malesuada nunc vel risus commodo viverra.',
     sectionHandle: 'event',
   },
-
   {
     image: API.image,
     to: '/visit/foo/bar/',
@@ -89,13 +89,12 @@ const mixedOngoingEvents = [
 export function Default() {
   return {
     data() {
-      return { items: mock }
+      return { items: mockDefault }
     },
     components: { SectionTeaserList },
     template: `
       <section-teaser-list
         :items="items"
-
       />
   `,
   }
@@ -104,7 +103,7 @@ export function Default() {
 export function Expandable() {
   return {
     data() {
-      return { items: mock }
+      return { items: mockDefault }
     },
     components: { SectionTeaserList },
     template: `
@@ -118,12 +117,63 @@ export function Expandable() {
 export function MixedOngoingEvents() {
   return {
     data() {
-      return { items: mixedOngoingEvents }
+      return { items: mockMixedOngoingEvents }
     },
     components: { SectionTeaserList },
     template: `
       <section-teaser-list
         :items="items"
+      />
+  `,
+  }
+}
+
+const mockDynamicComponent = [
+  {
+    id: '2847944',
+    to: 'events/la-région-centrale-03-08-24',
+    title: 'TEST - La Région Centrale Screening',
+    startDate: '2027-03-31T07:00:00+00:00',
+    image: API.image,
+    tagLabels: [
+      { title: 'Guest speaker' },
+      { title: 'Digital' }
+    ]
+  },
+  {
+    id: '3145808',
+    to: 'events/step-up-3-07-19-25',
+    title: 'TEST - Step Up 3D (2010) Sequel to 2008\'s Step Up 2: The Streets and the third installment in the Step Up film series',
+    startDate: '2028-03-31T06:30:00+00:00',
+    image: null,
+    tagLabels: [
+      { title: 'Guest speaker' }
+    ]
+  },
+  {
+    id: '3145784',
+    to: 'events/step-up-2-07-07-25',
+    title: 'TEST - Step Up 2: The Streets (2008)',
+    startDate: '2026-03-31T05:45:00+00:00',
+    image: API.image,
+  },
+]
+
+export function DynamicComponent() {
+  return {
+    data() {
+      return { items: mockDynamicComponent }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserList },
+    template: `
+      <section-teaser-list
+        :items="items"
+        componentName="BlockCardThreeColumn"
       />
   `,
   }

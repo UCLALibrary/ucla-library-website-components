@@ -4,6 +4,7 @@
 >
 import { computed, defineAsyncComponent } from 'vue'
 
+import format from 'date-fns/format'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
 import { useTheme } from '@/composables/useTheme'
@@ -127,6 +128,8 @@ const parsedTime = computed(() => {
   else if (props.startDate && (props.sectionHandle !== 'ftvaEventSeries' && theme?.value !== undefined))
     return props.endDate ? formatTimes(props.startDate, props.endDate) : formatTimes(props.startDate, props.startDate)
   // in all other cases incl. if it is ftvaEventSeries, return nothing
+  else if (props.startDate && (props.sectionHandle === 'ftvaEventSeries'))
+    return format(new Date(props.startDate), 'h:mm aaa')
   return ''
 })
 
@@ -155,7 +158,6 @@ const classes = computed(() => {
       class="category"
       v-html="category"
     />
-
     <SmartLink
       v-if="to"
       :link-target="parsedTarget"
@@ -170,6 +172,7 @@ const classes = computed(() => {
         v-html="alternativeFullName"
       />
     </SmartLink>
+
     <h3
       v-else
       class="title-no-link"
@@ -202,17 +205,20 @@ const classes = computed(() => {
       v-if="startDate || ongoing"
       class="date-time"
     >
-      <div v-if="ongoing" class="ongoing-item">
+      <div
+        v-if="ongoing"
+        class="ongoing-item"
+      >
         Ongoing
       </div>
       <time
         v-if="startDate"
-        class="schedule-item"
+        class="schedule-item start-date"
         v-html="parsedDate"
       />
       <time
         v-if="startDate && sectionHandle !== 'ftvaEventSeries'"
-        class="schedule-item"
+        class="schedule-item parsed-time"
         v-html="parsedTime"
       />
     </div>
@@ -249,8 +255,14 @@ const classes = computed(() => {
     />
 
     <!-- SHARE BUTTON -->
-    <div class="slot">
-      <slot />
+    <div class="sharebutton-slot">
+      <slot name="sharebutton" />
+    </div>
+
+    <!-- USED FOR BLOCKTAG SLOT -->
+    <!-- MOVES BASED ON DESKTOP OR MOBILE -->
+    <div class="floating-slot">
+      <slot name="floatingslot" />
     </div>
 
     <RichText

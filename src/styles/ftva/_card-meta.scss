@@ -35,11 +35,16 @@
     padding-right: 0;
   }
 
-  .slot {
+  .sharebutton-slot {
     margin-top: 28px;
 
     &:empty {
       display: none;
     }
+  }
+
+  .parsed-start-time {
+    @include ftva-emphasized-subtitle;
+    color: $accent-blue;
   }
 }

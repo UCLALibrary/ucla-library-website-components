@@ -1,5 +1,8 @@
 <!-- Equivalent to cards in Section teaser List -->
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
@@ -168,7 +171,10 @@ const parsedDateMonth = computed(() => {
   </li>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .block-clipped-date {
   background-color: var(--color-theme, var(--color-white));
   font-family: var(--font-primary);
