@@ -204,6 +204,7 @@ const parsedDateFormat = computed(() => {
     font-weight: 400;
     font-family: var(--font-secondary);
     font-size: 16px;
+    color: $body-grey;
     letter-spacing: 1.5%;
     text-transform: uppercase;
   }
@@ -277,6 +278,7 @@ const parsedDateFormat = computed(() => {
         color: $accent-blue;
         letter-spacing: .04px;
         padding-top: 15px;
+        padding-bottom: 10px;
 
         .start-date {
           display: none;
