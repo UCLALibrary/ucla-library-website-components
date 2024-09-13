@@ -1,3 +1,10 @@
+# [3.18.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.17.2...v3.18.0) (2024-09-13)
+
+
+### Features
+
+* APPS-2823 Create Card Horizontal Variation for FTVA ([#600](https://github.com/UCLALibrary/ucla-library-website-components/issues/600)) ([24bdcf6](https://github.com/UCLALibrary/ucla-library-website-components/commit/24bdcf6e2641c152ef0726428558a4411e879a0f))
+
 ## [3.17.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.17.1...v3.17.2) (2024-09-13)
 
 
