@@ -31,22 +31,19 @@
     left: 0;
     right: 0;
     bottom: 0;
-    margin: 8px 12px;
+    margin: 8px 0;
     min-height: 40px;
     height: 100%;
     border-radius: .25rem;
     background-color: $white;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .25);
-    translate: var(--translate_glider_left, 0) 0;
+    translate: var(--move_glider, 0) 0;
     transform-origin: left;
     transition: scale 300ms ease-out, translate 300ms ease-out;
   }
 
   .tab-glider ~ .tab-list-item.active {
     background: $white;
-    // Delay background to allow glider
-    // animation to complete
-    transition: background-color 900ms;
   }
 
   .tab-list-item {

@@ -53,7 +53,10 @@ onMounted(() => {
 
   const tabElem = tabRefs.value[initialTab]
 
-  // Boolean flag to disable initial width glider
+  /* @argument {boolean} hasInitialWidth */
+  // Boolean flag to disable glider's default full width,
+  // and set glider's starting position to align with
+  // initial tab
   animateTabGlider(tabElem, false)
 })
 
@@ -134,15 +137,17 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
 
   if (!hasInitialWidth) {
     tabGlider.style.width = '0'
-    tabGlider.style.setProperty('--translate_glider_left', `${elem.offsetLeft}px`)
   }
   else {
     // Set glider width to match tab button
     tabGlider.style.width = `${tabBtn.width}px`
 
-    // Note
-    tabGlider.style.setProperty('--translate_glider_left', `${elem.offsetLeft - 12}px`)
+    // Remove tab btn background; display glider background instead
+    elem.style.background = 'none'
   }
+
+  // Calculate and set distance to animate
+  tabGlider.style.setProperty('--move_glider', `${elem.offsetLeft}px`)
 
   // Set glider height to match tab button
   tabGlider.style.height = `${tabBtn.height}px`
