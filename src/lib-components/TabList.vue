@@ -49,8 +49,12 @@ const iconMapping = {
 }
 
 onMounted(() => {
-  if (initialTab <= tabItems.value.length)
-    activeTab.value = tabItems.value[initialTab]?.title
+  activeTab.value = tabItems.value[initialTab]?.title
+
+  const tabElem = tabRefs.value[initialTab]
+
+  // Boolean flag to disable initial width glider
+  animateTabGlider(tabElem, false)
 })
 
 // Computed
@@ -74,40 +78,6 @@ function setTabId(tabName: string) {
 function setTabAriaControl(tabName: string) {
   const tabTitle = hyphenateTabName(tabName)
   return `panel-${tabTitle}`
-}
-
-function switchTab(tabName: string) {
-  activeTab.value = tabName
-
-  const tabIndex = tabItems.value!.findIndex(tab => tab?.title === tabName)
-
-  const tabElem: HTMLElement = tabRefs.value[tabIndex]
-
-  if (tabElem)
-    tabElem.focus()
-
-  if (!tabElem.classList.contains('active'))
-    animateTabGlider(tabElem)
-}
-
-function animateTabGlider(elem: HTMLElement) {
-  const tabGlider = tabGliderRef.value
-
-  const scaleGliderWidth = elem.offsetWidth / tabGlider.offsetWidth
-
-  // Calculate width to scale animated glider
-  // Use variable in CSS
-  tabGlider.style.setProperty('--scale_glider_width', scaleGliderWidth)
-
-  // Calculate and set distance to animate
-  // Use variable in CSS
-  tabGlider.style.setProperty('--translate_glider_left', `${elem.offsetLeft}px`)
-
-  // Object with positional values of tab button
-  const tabBtn = elem.getBoundingClientRect()
-
-  // Set glider to same height as tab button
-  tabGlider.style.height = `${tabBtn.height}px`
 }
 
 function hyphenateTabName(str: string) {
@@ -140,6 +110,42 @@ function keydownHandler(e: KeyboardEvent) {
       break
     default:
   }
+}
+
+function switchTab(tabName: string) {
+  activeTab.value = tabName
+
+  const tabIndex = tabItems.value!.findIndex(tab => tab?.title === tabName)
+
+  const tabElem: HTMLElement = tabRefs.value[tabIndex]
+
+  if (tabElem)
+    tabElem.focus()
+
+  if (!tabElem.classList.contains('active'))
+    animateTabGlider(tabElem, true)
+}
+
+function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
+  const tabGlider = tabGliderRef.value
+
+  // Positional values of tab button
+  const tabBtn = elem.getBoundingClientRect()
+
+  if (!hasInitialWidth) {
+    tabGlider.style.width = '0'
+    tabGlider.style.setProperty('--translate_glider_left', `${elem.offsetLeft}px`)
+  }
+  else {
+    // Set glider width to match tab button
+    tabGlider.style.width = `${tabBtn.width}px`
+
+    // Note
+    tabGlider.style.setProperty('--translate_glider_left', `${elem.offsetLeft - 12}px`)
+  }
+
+  // Set glider height to match tab button
+  tabGlider.style.height = `${tabBtn.height}px`
 }
 </script>
 
