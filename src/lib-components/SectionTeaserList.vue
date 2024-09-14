@@ -37,10 +37,14 @@ const parsedComponentName = computed(() => {
     return BlockCardThreeColumn
   return BlockClippedDate
 })
+
+const classes = computed(() => {
+  return ['section-teaser-list list', theme?.value || '']
+})
 </script>
 
 <template>
-  <section class="section-teaser-list">
+  <section :class="classes">
     <BlockShowHide :disable="items.length <= nShown">
       <ul class="list">
         <component
@@ -70,34 +74,6 @@ const parsedComponentName = computed(() => {
   lang="scss"
   scoped
 >
-.section-teaser-list {
-  background-color: var(--color-white);
-  max-width: $container-l-main + px;
-
-  .list {
-    @for $i from 1 through 30 {
-      :deep(.block-highlight:nth-child(#{$i}) .molecule) {
-        left: calc(random(500) * -1) + px;
-      }
-    }
-  }
-
-  .list-item {
-    margin-bottom: var(--space-xl);
-    padding-bottom: var(--space-xl);
-
-    border-bottom: 2px dotted var(--color-secondary-grey-02);
-
-    &:last-child {
-      border: 0;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-  }
-
-  .hidden .list-item:has(+ .show-hide-hideable) {
-    border: 0;
-    padding-bottom: 0;
-  }
-}
+@import "@/styles/default/_section-teaser-list.scss";
+@import "@/styles/ftva/_section-teaser-list.scss";
 </style>

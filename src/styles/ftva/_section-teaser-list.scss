@@ -1,0 +1,10 @@
+.ftva.section-teaser-list {
+  // Hide border on smaller screens for FTVA theme
+
+  @media (max-width: 768px) {
+
+    .list-item {
+      border-bottom: none;
+    }
+  }
+}

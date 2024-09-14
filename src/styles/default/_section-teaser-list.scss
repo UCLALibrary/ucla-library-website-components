@@ -1,0 +1,37 @@
+.section-teaser-list {
+  background-color: var(--color-white);
+  max-width: $container-l-main + px;
+
+  .list {
+    @for $i from 1 through 30 {
+      :deep(.block-highlight:nth-child(#{$i}) .molecule) {
+        left: calc(random(500) * -1) + px;
+      }
+    }
+  }
+
+  .list-item {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
+
+    border-bottom: 2px dotted var(--color-secondary-grey-02);
+
+    &:last-child {
+      border: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .hidden .list-item:has(+ .show-hide-hideable) {
+    border: 0;
+    padding-bottom: 0;
+  }
+
+  // Hide border on smaller screens for FTVA theme
+  @media (max-width: 768px) {
+    .list-item {
+      border-bottom: none;
+    }
+  }
+}
