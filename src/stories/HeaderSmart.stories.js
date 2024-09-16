@@ -1,11 +1,14 @@
 // Storybook default settings
 import { useGlobalStore } from '@/stores/GlobalStore'
 import HeaderSmart from '@/lib-components/HeaderSmart'
+import { onMounted, ref } from 'vue'
 
 export default {
   title: 'GLOBAL / Header Smart',
   component: HeaderSmart,
 }
+
+
 
 const mock = {
   secondary: [
@@ -262,11 +265,11 @@ const mockMicrosite = {
 // Variations of stories below
 export function Default() {
   return {
-    created() {
+    setup() {
       const globalStore = useGlobalStore()
       globalStore.header.primary = mock.primary
       globalStore.header.secondary = mock.secondary
-      globalStore.winWidth = 824
+      // To simulate mobile header just resize the storybook window
     },
 
     components: { HeaderSmart },
@@ -278,45 +281,15 @@ export function Default() {
 // Variations of stories below
 export function DefaultMicrosite() {
   return {
-    created() {
+    setup() {
       const globalStore = useGlobalStore()
       globalStore.header.primary = mockMicrosite.primary
       globalStore.header.secondary = mockMicrosite.secondary
-      globalStore.winWidth = 824
+      // To simulate mobile header just resize the storybook window
     },
 
     components: { HeaderSmart },
 
     template: '<header-smart title="Modern Endangered Archives Program"/>',
-  }
-}
-
-export function DesktopWindowWidth() {
-  return {
-    created() {
-      const globalStore = useGlobalStore()
-      globalStore.header.primary = mock.primary
-      globalStore.header.secondary = mock.secondary
-      globalStore.winWidth = 1200
-    },
-    components: { HeaderSmart },
-
-    template: '<header-smart />',
-  }
-}
-
-export function DesktopWindowWidthMicrosite() {
-  return {
-    created() {
-      const globalStore = useGlobalStore()
-      globalStore.header.primary = mockMicrosite.primary
-      globalStore.header.secondary = mockMicrosite.secondary
-      globalStore.winWidth = 1200
-    },
-
-    components: { HeaderSmart },
-
-    template: `<header-smart 
-            title="Modern Endangered Archives Program" />`,
   }
 }

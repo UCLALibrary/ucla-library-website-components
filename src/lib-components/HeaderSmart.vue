@@ -1,56 +1,55 @@
-<script>
-import { mapState } from 'pinia'
+<script setup>
+import { computed, onMounted, ref, watch } from 'vue'
+import { useGlobalStore } from '@/stores/GlobalStore'
+import { useWindowSize } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
 import SiteBrandBar from '@/lib-components/SiteBrandBar'
 import HeaderMainResponsive from '@/lib-components/HeaderMainResponsive'
 import HeaderMain from '@/lib-components/HeaderMain'
-import { useGlobalStore } from '@/stores/GlobalStore'
 
-export default {
-  name: 'HeaderSmart',
-  components: {
-    SiteBrandBar,
-    HeaderMainResponsive,
-    HeaderMain,
+// Props
+const props = defineProps({
+  title: {
+    type: String,
+    default: '',
   },
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
+})
+
+// Access the global store
+const globalStore = useGlobalStore()
+const { header } = storeToRefs(globalStore)
+const isMobile = ref(false)
+onMounted(() => {
+  const { width } = useWindowSize()
+  watch(width, (newWidth) => {
+    isMobile.value = newWidth <= 1200
   },
-  computed: {
-    ...mapState(useGlobalStore, ['header', 'winWidth']),
-    primaryMenuItems() {
-      return this.header.primary
-    },
-    secondaryMenuItems() {
-      return this.header.secondary
-    },
-    isMobile() {
-      return this.winWidth <= 1024
-    },
-    whichHeader() {
-      return this.isMobile ? 'header-main-responsive' : 'header-main'
-    },
-  },
-}
+    { immediate: true })
+})
+// Computed properties
+const primaryMenuItems = computed(() => header.value.primary)
+const secondaryMenuItems = computed(() => header.value.secondary)
+const whichHeader = computed(() => (isMobile.value ? HeaderMainResponsive : HeaderMain))
 </script>
 
 <template>
   <header class="header-smart">
     <SiteBrandBar class="brand-bar" />
     <component
-      :is="whichHeader" :class="isMobile ? 'mobile-header' : 'desktop-header'" :primary-nav="primaryMenuItems"
-      :secondary-nav="secondaryMenuItems" :title="title"
+      :is="whichHeader"
+      :class="isMobile ? 'mobile-header' : 'desktop-header'"
+      :primary-nav="primaryMenuItems"
+      :secondary-nav="secondaryMenuItems"
+      :title="title"
     />
   </header>
 </template>
 
 <style lang="scss" scoped>
 @media #{$medium} {
-    .brand-bar {
-        position: absolute;
-        width: 100%;
-    }
+  .brand-bar {
+    position: absolute;
+    width: 100%;
+  }
 }
 </style>
