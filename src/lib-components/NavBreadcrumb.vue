@@ -33,6 +33,10 @@ const isExpanded = ref(false)
 
 const isMobile = ref(false)
 
+const collapseBreadcrumbs = ref(false)
+
+const useRouteTitle = ref(false)
+
 onMounted(() => {
   // Watch for changes in window width only after the component is mounted
   const { width } = useWindowSize()
@@ -42,36 +46,62 @@ onMounted(() => {
   }, { immediate: true })
 })
 
+// console.log('route: ', route.path)
 // Split URI path; then remove empty string at start of the array
 const parsedBreadcrumbs = computed(() => {
-  const decodedRoutePath = decodeURI(route.path)
-  const pathWithNoTrailingDates = stripUrlDate(decodedRoutePath)
-  const pagePathArray = pathWithNoTrailingDates.split('/').slice(1)
+  let path = route.path
 
+  // Remove first '/' of route
+  if (path.indexOf('/') === 0)
+    path = path.slice(1)
+
+  // Remove last '/' of route
+  if (path.lastIndexOf('/') === (path.length - 1))
+    path = path.slice(0, path.length - 1)
+
+  // console.log(path)
+  // const decodedRoutePath = decodeURI(route.path)
+  const decodedRoutePath = decodeURI(path)
+  // console.log('decoded: ', decodedRoutePath)
+
+  // const pathWithNoTrailingDates = stripUrlDate(decodedRoutePath)
+  const pathWithNoTrailingDates = stripUrlDate(decodedRoutePath)
+  // console.log('no trailing dates: ', pathWithNoTrailingDates)
+
+  // remove last forward slash
+  // console.log(pathWithNoTrailingDates.length)
+
+  // const pagePathArray = pathWithNoTrailingDates.split('/').slice(1)
+  const pagePathArray = pathWithNoTrailingDates.split('/')
+  // console.log('path array: ', pagePathArray)
   return pagePathArray
 })
 
 const parsedBreadcrumbLinks = computed(() => {
   const breadcrumbsList = parsedBreadcrumbs.value
 
-  const arrLength = breadcrumbsList.length
+  const breadcrumbListLength = breadcrumbsList.length
+
+  if (breadcrumbListLength > 4)
+    setCollapseBreadcrumbs()
 
   if (isMobile.value) {
-    // return last 2 items
+    // For mobile display, get last 2 items
     const mobileBreadcrumb
       = createBreadcrumbLinks(breadcrumbsList).slice(-2)
 
+    // Display parent item only
     return mobileBreadcrumb.splice(0, 1)
   }
   else if (!isMobile.value) {
-    if (arrLength > 4 && !isExpanded.value) {
+    if (breadcrumbListLength > 4 && !isExpanded.value) {
       setLinkExpansion()
 
       // Keep 1st and last 2 items in breadcrumbs array
       // Replace deleted items with `...`
       const truncatedBreadcrumbsList = breadcrumbsList.toSpliced(
         1,
-        arrLength - 3,
+        breadcrumbListLength - 3,
         '...'
       )
 
@@ -104,35 +134,58 @@ function createBreadcrumbLinks(arr) {
     })
     return breadCrumbObjects
   }
-  // otherwise format based on route
-  arr.forEach((item, index) => {
-    const linkLength = item.length
-    const linkIndex = route.path.indexOf(item)
-    // Create a link for the item
-    const linkTo = route.path.substring(0, linkLength + linkIndex)
-    const linkTitle = item.replaceAll('-', ' ')
+  else {
+    // otherwise format based on route
+    arr.forEach((item, index) => {
+      const linkLength = item.length
+      const linkIndex = route.path.indexOf(item)
+      console.log('linkindex: ', linkIndex)
 
-    let isLastItem
-    index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
+      // Create a link for the item
+      const linkTo = route.path.substring(0, linkLength + linkIndex)
+      console.log('linkto: ', linkTo)
 
-    // Identifies the `...` in the breadcrumbs array
-    let isTruncatedGroup
-    isExpanded.value === false && index === 1
-      ? (isTruncatedGroup = true)
-      : (isTruncatedGroup = false)
+      const linkTitle = item.replaceAll('-', ' ')
+      console.log('linktitle: ', linkTitle)
 
-    breadCrumbObjects.push({
-      to: linkTo,
-      title: linkTitle,
-      isTruncatedGroup,
-      isLastItem,
+      let isLastItem
+      index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
+      // console.log('is last item: ', isLastItem)
+
+      // If title prop is used and there is a route, use the title
+      // if (isLastItem && title)
+      //   linkTitle = title
+
+      // Identifies the `...` in the breadcrumbs array
+      let isTruncatedGroup
+      if (collapseBreadcrumbs.value) {
+        isExpanded.value === false && index === 1
+          ? (isTruncatedGroup = true)
+          : (isTruncatedGroup = false)
+      // console.log('is truncated group: ', isTruncatedGroup)
+      }
+
+      breadCrumbObjects.push({
+        to: linkTo,
+        title: linkTitle,
+        isTruncatedGroup,
+        isLastItem,
+      })
     })
-  })
-  return breadCrumbObjects
+    return breadCrumbObjects
+  }
+}
+
+function test() {
+  useRouteTitle.value = true
 }
 
 function setLinkExpansion() {
   isExpanded.value = false
+}
+
+function setCollapseBreadcrumbs() {
+  collapseBreadcrumbs.value = true
 }
 
 function toggleLinksExpansion() {
@@ -170,6 +223,7 @@ const parsedClasses = computed(() => {
         v-if="!linkObj.isLastItem && !linkObj.isTruncatedGroup"
         :to="linkObj.to"
         class="parent-page-url"
+        @click="test()"
         v-text="linkObj.title"
       />
       <!-- Collapsed group should not link -->
@@ -184,12 +238,23 @@ const parsedClasses = computed(() => {
         v-if="!linkObj.isLastItem"
         aria-hidden="true"
       />
+      <!-- Final Breadcrumb -->
       <!-- FTVA uses title field from Craft for the final breadcrumb -->
       <span
-        v-if="linkObj.isLastItem && theme === 'ftva'"
+        v-if="linkObj.isLastItem && useRouteTitle && title"
+        class="current-page-title"
+        v-text="linkObj.title"
+      />
+      <span
+        v-else-if="linkObj.isLastItem && title"
         class="current-page-title"
         v-text="title"
       />
+      <!-- <span
+        v-else-if="linkObj.isLastItem && theme === 'ftva' && title && !collapseBreadcrumbs"
+        class="current-page-title"
+        v-text="linkObj.title"
+      /> -->
       <!-- Otherwise, use parsed route url to set last breadcrumb; if future or default use will be to get the `title` from data and not the slug, this condition can be removed, and the condition above checking for the ftva theme can be refactored -->
       <span
         v-else-if="linkObj.isLastItem"

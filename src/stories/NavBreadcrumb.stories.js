@@ -68,3 +68,26 @@ FTVA.args = {
   to: '/watch-and-listen-online/senator-john-f.-kennedy-gives-press-conference-in-los-angeles',
   title: 'Senator John F. Kennedy: "Press Conference" in Los Angeles?'
 }
+
+function TemplateFTVA2(args) {
+  router.push('/events/step-up-2-07-07-25')
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    setup() {
+      return { args }
+    },
+    components: { NavBreadcrumb },
+    template: '<nav-breadcrumb v-bind="args" />',
+  }
+}
+
+export const FTVA2 = TemplateFTVA2.bind({})
+FTVA2.args = {
+  parentTitle: '',
+  to: '',
+  title: 'TEST - Step Up 2: The Streets (2008)'
+}
