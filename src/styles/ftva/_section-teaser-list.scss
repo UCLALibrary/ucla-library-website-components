@@ -1,7 +1,9 @@
 .ftva.section-teaser-list {
+  max-width: unset;
 
   // Hide border on smaller screens for FTVA theme
   @media (max-width: 768px) {
+    background-color: #{$page-blue};
 
     .list-item {
       border-bottom: none;

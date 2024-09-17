@@ -1,4 +1,7 @@
 .ftva.section-wrapper {
+    .section-header {
+        margin-bottom: 28px;
+    }
 
     // default link styles for FTVA
     .section-link {
@@ -9,12 +12,12 @@
         text-decoration: underline;
         text-decoration-thickness: 3px;
         -webkit-text-decoration-color: #{$grey-blue};
-                text-decoration-color: #{$grey-blue};
+        text-decoration-color: #{$grey-blue};
         text-underline-offset: 4px;
 
         &:hover {
             -webkit-text-decoration-color: #{$bright-blue};
-                    text-decoration-color: #{$bright-blue};
+            text-decoration-color: #{$bright-blue};
         }
     }
 
@@ -37,8 +40,6 @@
                     background-color: var(--color-children-theme);
                 }
             }
-
-
         }
 
         &.theme-paleblue {
@@ -47,14 +48,11 @@
 
             background-color: var(--color-theme);
 
-
             :deep(*) {
                 .block-highlight.card {
                     background-color: var(--color-children-theme);
                 }
             }
-
-
         }
 
         // FTVA uses different page max-width

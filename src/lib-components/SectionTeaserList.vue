@@ -36,10 +36,16 @@ const BlockCardThreeColumn = defineAsyncComponent(() =>
   import('@/lib-components/BlockCardThreeColumn.vue')
 )
 
+// COMPUTED PROPERTIES
 const parsedComponentName = computed(() => {
   if (componentName === 'BlockCardThreeColumn')
     return BlockCardThreeColumn
   return BlockClippedDate
+})
+
+const isDisabledBlockShowHide = computed(() => {
+  if (items.length <= nShown || (theme?.value === 'ftva' && componentName !== 'BlockClippedDate')) return true
+  return false
 })
 
 const classes = computed(() => {
@@ -49,7 +55,7 @@ const classes = computed(() => {
 
 <template>
   <section :class="classes">
-    <BlockShowHide :disable="items.length <= nShown">
+    <BlockShowHide :disable="isDisabledBlockShowHide">
       <ul class="list">
         <component
           :is="parsedComponentName"
