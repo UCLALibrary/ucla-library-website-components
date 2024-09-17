@@ -57,18 +57,19 @@ onMounted(() => {
   const activeTabElem = tabRefs.value[initialTab]
 
   /* @argument {boolean} hasInitialWidth */
-  // Boolean flag to disable glider's default full width,
-  // and set glider's starting position to align with
-  // initial tab
+  // Boolean flag to disable glider's default
+  // full width, and set glider's starting
+  // position to align with initial tab.
   animateTabGlider(activeTabElem, false)
 
   const { width } = useWindowSize()
   watch(width, (_newWidth) => {
-    // The glider width and animation/travel distance depend on
-    // the width and position of the tab buttons; when the window
-    // resizes these button values change, so the animation method
-    // needs to be called again to update the glider logic using
-    // the new button values
+    // The glider width and animation/travel distance
+    // depend on the width and position of the tab
+    // buttons; when the window resizes, these button
+    // values change. The animation method needs to be
+    // called again to update the glider logic using the
+    // new button values.
     const activeTabElem = tabRefs.value[activeTabIndex.value]
     animateTabGlider(activeTabElem, true)
   })
@@ -147,9 +148,9 @@ function switchTab(tabName: string) {
 function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
   const tabGlider = tabGliderRef.value
 
-  // Positional values of tab button
+  // Get positional values of tab button
+  // and set glider height to match tab button
   const tabBtn = elem.getBoundingClientRect()
-  // Set glider height to match tab button
   tabGlider.style.height = `${tabBtn.height}px`
 
   if (!hasInitialWidth) {
@@ -159,11 +160,11 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
     // Set glider width to match tab button
     tabGlider.style.width = `${tabBtn.width}px`
 
-    // Remove tab btn background; display glider background instead
+    // Remove tab button background; display glider background instead
     elem.style.background = 'none'
   }
 
-  // Calculate and set distance (CSS variable) to animate
+  // Calculate and set distance (CSS variable) to animate glider
   tabGlider.style.setProperty('--move_glider', `${elem.offsetLeft}px`)
 }
 </script>
