@@ -19,7 +19,7 @@ const { content, icon, title } = defineProps({
   },
 })
 
-const activeTab = inject('activeTab')
+const activeTabTitle = inject('activeTabTitle')
 
 const theme = useTheme()
 
@@ -29,7 +29,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <div v-show="title === activeTab" :class="classes">
+  <div v-show="title === activeTabTitle" :class="classes">
     <div
       v-text="content"
     />

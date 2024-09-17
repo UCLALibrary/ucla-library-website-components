@@ -94,6 +94,29 @@ export function Default() {
   }
 }
 
+export function SetInitialTab() {
+  return {
+    data() {
+      return { ...mockContent }
+    },
+    components: { TabItem, TabList },
+    template: `<div class="wrapper">
+      <tab-list :initial-tab="1">
+        
+        <tab-item title="Label 1" icon="icon-calendar" :content="text1">
+        </tab-item>
+
+        <tab-item title="Label 2" icon="icon-list" :content="text2">
+        </tab-item>
+
+        <tab-item title="Label 3" :content="text3">
+        </tab-item>
+      
+      </tab-list>
+    </div>`
+  }
+}
+
 export function FTVACentered() {
   return {
     data() {
