@@ -3,6 +3,7 @@
   lang="ts"
 >
 import { computed, defineAsyncComponent } from 'vue'
+import { useTheme } from '@/composables/useTheme'
 import type { PropType } from 'vue'
 import type { EventItemType } from '@/types/types'
 
@@ -26,6 +27,9 @@ const { items, nShown, componentName } = defineProps({
     default: 'BlockClippedDate',
   },
 })
+
+// THEME
+const theme = useTheme()
 
 // DYNAMIC LAZY COMPONENT LOADING
 const BlockCardThreeColumn = defineAsyncComponent(() =>
