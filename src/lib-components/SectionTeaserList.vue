@@ -4,8 +4,8 @@
   lang="ts"
 >
 import { computed, defineAsyncComponent } from 'vue'
-import { useTheme } from '@/composables/useTheme'
 import type { PropType } from 'vue'
+import { useTheme } from '@/composables/useTheme'
 import type { EventItemType } from '@/types/types'
 
 // COMPONENTS
@@ -45,7 +45,8 @@ const parsedComponentName = computed(() => {
 })
 
 const isDisabledBlockShowHide = computed(() => {
-  if (items.length <= nShown || (theme?.value === 'ftva' && componentName !== 'BlockClippedDate')) return true
+  if (items.length <= nShown || (theme?.value === 'ftva' && componentName !== 'BlockClippedDate'))
+    return true
   return false
 })
 

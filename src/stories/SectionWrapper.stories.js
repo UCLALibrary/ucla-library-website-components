@@ -328,43 +328,43 @@ export function FtvaSeries2Cards() {
 
 const mockUpcomingEvents = [
   {
-    sectionHandle: "ftvaEvent",
-    to: "events/la-région-centrale-03-08-24",
-    title: "TEST - La Région Centrale Screening",
-    startDateWithTime: "2027-03-09T03:30:00+00:00",
-    startDate: "2027-03-08",
-    startTime: "PST19:30:00",
+    sectionHandle: 'ftvaEvent',
+    to: 'events/la-région-centrale-03-08-24',
+    title: 'TEST - La Région Centrale Screening',
+    startDateWithTime: '2027-03-09T03:30:00+00:00',
+    startDate: '2027-03-08',
+    startTime: 'PST19:30:00',
     image: API.image,
     tagLabels: [
       {
-        title: "Guest speaker"
+        title: 'Guest speaker'
       },
       {
-        title: "1.37 Dye Transfer Print"
+        title: '1.37 Dye Transfer Print'
       }
     ]
   },
   {
-    sectionHandle: "ftvaEvent",
-    to: "events/test-corpus-callosum-04-08-27",
-    title: "TEST - Corpus Callosum",
-    startDateWithTime: "2027-04-09T02:30:00+00:00",
-    startDate: "2027-04-08",
-    startTime: "PDT19:30:00",
+    sectionHandle: 'ftvaEvent',
+    to: 'events/test-corpus-callosum-04-08-27',
+    title: 'TEST - Corpus Callosum',
+    startDateWithTime: '2027-04-09T02:30:00+00:00',
+    startDate: '2027-04-08',
+    startTime: 'PDT19:30:00',
     image: API.image,
     tagLabels: [
       {
-        title: "35mm"
+        title: '35mm'
       }
     ]
   },
   {
-    to: "events/wavelength-08-22-24",
-    sectionHandle: "ftvaEvent",
-    title: "TEST - Wavelength",
-    startDateWithTime: "2027-09-18T02:30:00+00:00",
-    startDate: "2027-09-17",
-    startTime: "PDT19:30:00",
+    to: 'events/wavelength-08-22-24',
+    sectionHandle: 'ftvaEvent',
+    title: 'TEST - Wavelength',
+    startDateWithTime: '2027-09-18T02:30:00+00:00',
+    startDate: '2027-09-17',
+    startTime: 'PDT19:30:00',
     image: API.image,
     tagLabels: []
   }
@@ -372,26 +372,26 @@ const mockUpcomingEvents = [
 
 const mockPastEvents = [
   {
-    sectionHandle: "ftvaEvent",
-    to: "events/past-event-michael-snow-death-12-10-23",
-    title: "TEST - Past Event Michael Snow",
-    startDateWithTime: "2023-12-10T02:00",
+    sectionHandle: 'ftvaEvent',
+    to: 'events/past-event-michael-snow-death-12-10-23',
+    title: 'TEST - Past Event Michael Snow',
+    startDateWithTime: '2023-12-10T02:00',
     image: API.image,
     tagLabels: [
       {
-        title: "70mm"
+        title: '70mm'
       }
     ]
   },
   {
-    sectionHandle: "ftvaEvent",
-    to: "events/covid-vaccinations-10-12-21",
-    title: "Covid Vaccination Conies",
-    startDateWithTime: "1921-10-12T07:30",
+    sectionHandle: 'ftvaEvent',
+    to: 'events/covid-vaccinations-10-12-21',
+    title: 'Covid Vaccination Conies',
+    startDateWithTime: '1921-10-12T07:30',
     image: API.image,
     tagLabels: [
       {
-        title: "Immunization"
+        title: 'Immunization'
       }
     ]
   },
@@ -401,8 +401,8 @@ export function FtvaTabListSectionTeaserListPastUpcoming() {
   return {
     data() {
       return {
-        mockUpcomingEvents: mockUpcomingEvents,
-        mockPastEvents: mockPastEvents
+        mockUpcomingEvents,
+        mockPastEvents
       }
     },
     provide() {
