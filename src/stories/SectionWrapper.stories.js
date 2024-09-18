@@ -256,7 +256,7 @@ const mockFtvaSeries = [
   },
 ]
 
-export function FtvaExploreOtherSeries() {
+export function FtvaSeries3Cards() {
   return {
     data() {
       return {
@@ -376,6 +376,8 @@ const mockPastEvents = [
     to: 'events/past-event-michael-snow-death-12-10-23',
     title: 'TEST - Past Event Michael Snow',
     startDateWithTime: '2023-12-10T02:00',
+    startDate: '2023-12-10',
+    startTime: 'PST12:00:00',
     image: API.image,
     tagLabels: [
       {
@@ -387,7 +389,9 @@ const mockPastEvents = [
     sectionHandle: 'ftvaEvent',
     to: 'events/covid-vaccinations-10-12-21',
     title: 'Covid Vaccination Conies',
-    startDateWithTime: '1921-10-12T07:30',
+    startDateWithTime: '2021-10-12T07:30',
+    startDate: '2021-10-12',
+    startTime: 'PST07:30:00',
     image: API.image,
     tagLabels: [
       {

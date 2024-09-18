@@ -60,4 +60,15 @@
             max-width: var(--ftva-container-max-width);
         }
     }
+
+    // Breakpoints
+    @media #{$medium} {
+        .section-header {
+            margin-bottom: 10px;
+        }
+
+        .section-link {
+            margin-bottom: 20px;
+        }
+    }
 }
