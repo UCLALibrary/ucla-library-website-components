@@ -298,7 +298,6 @@ const parsedDateFormat = computed(() => {
 
     .list-item {
       border-bottom: 1px solid #e7edf2;
-      background-color: red;
     }
 
     .block-tag .label {
@@ -335,7 +334,6 @@ const parsedDateFormat = computed(() => {
       :deep(.card-meta) {
         /* height: fit-content; */
         min-height: 0;
-
 
         .title {
           order: 2;
