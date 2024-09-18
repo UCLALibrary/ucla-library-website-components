@@ -1,3 +1,4 @@
+<!-- Associated with BlockClippedDate & BlockCardThreeColumn -->
 <script
   setup
   lang="ts"

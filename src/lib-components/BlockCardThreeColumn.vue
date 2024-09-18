@@ -163,6 +163,7 @@ const parsedDateFormat = computed(() => {
   font-family: var(--font-primary);
   $large-width: 284px;
   $large-height: 213px;
+  background-color: var(--color-white);
 
   li {
     list-style: none;
@@ -180,7 +181,7 @@ const parsedDateFormat = computed(() => {
     flex: 1;
 
     color: $accent-blue;
-    background-color: var(--color-theme, var(--color-white));
+    /* //background-color: white; */
     padding-top: 2px;
   }
 
@@ -237,7 +238,7 @@ const parsedDateFormat = computed(() => {
     flex-basis: 50%;
     flex: 2;
 
-    background-color: var(--color-theme, var(--color-white));
+    background-color: var(--color-white);
 
     :deep(.card-meta) {
       display: grid;
@@ -295,6 +296,15 @@ const parsedDateFormat = computed(() => {
   @media #{$medium} {
     flex-direction: column;
 
+    .list-item {
+      border-bottom: 1px solid #e7edf2;
+      background-color: red;
+    }
+
+    .block-tag .label {
+      padding: 10px
+    }
+
     .day-month-date {
       display: none;
     }
@@ -312,6 +322,8 @@ const parsedDateFormat = computed(() => {
         min-height: $large-height;
         border-radius: 12px 12px 0 0;
       }
+
+      background-color: #{$page-blue};
     }
 
     .meta {
@@ -323,6 +335,7 @@ const parsedDateFormat = computed(() => {
       :deep(.card-meta) {
         /* height: fit-content; */
         min-height: 0;
+
 
         .title {
           order: 2;
