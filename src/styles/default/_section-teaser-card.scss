@@ -4,7 +4,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: var(--space-xl) 33px;
+    gap: 33px;
 
     max-width: $container-l-main + px;
     margin: 0 auto;
@@ -16,6 +16,7 @@
     // Breakpoints
     @media #{$medium} {
         align-items: flex-start;
+        gap: 24px;
 
         .card {
             width: calc((100% - 16px) / 2);
