@@ -1,3 +1,10 @@
+# [3.19.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.18.0...v3.19.0) (2024-09-17)
+
+
+### Features
+
+* APPS-2943 Add initialTab setting option to TabToggle ([#611](https://github.com/UCLALibrary/ucla-library-website-components/issues/611)) ([aadedac](https://github.com/UCLALibrary/ucla-library-website-components/commit/aadedac4eaa4db7f2c9c08796ab2bcaed09ece93))
+
 # [3.18.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.17.2...v3.18.0) (2024-09-13)
 
 

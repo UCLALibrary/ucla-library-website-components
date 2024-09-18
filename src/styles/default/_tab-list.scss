@@ -32,19 +32,17 @@
     right: 0;
     bottom: 0;
     margin: 8px 0;
+    height: auto;
     border-radius: .25rem;
     background-color: $white;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .25);
-    scale: var(--scale_glider_width, .125) 1;
-    translate: var(--translate_glider_left, 0) 0;
+    translate: var(--move_glider, 0) 0;
     transform-origin: left;
     transition: scale 300ms ease-out, translate 300ms ease-out;
   }
 
-  // Set background of initial active tab
-  .tab-glider ~ .tab-list-item:nth-of-type(1).active {
+  .tab-glider ~ .tab-list-item.active {
     background: $white;
-    transition: background-color 3000ms;
   }
 
   .tab-list-item {

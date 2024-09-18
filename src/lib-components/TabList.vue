@@ -1,12 +1,17 @@
 <script setup lang="ts">
-import { computed, defineAsyncComponent, provide, ref, useSlots } from 'vue'
+import { computed, defineAsyncComponent, onMounted, provide, ref, useSlots, watch } from 'vue'
+import { useWindowSize } from '@vueuse/core'
 import { useTheme } from '@/composables/useTheme'
 
-const { alignment } = defineProps({
+const { alignment, initialTab } = defineProps({
   alignment: {
     type: String,
     default: 'left',
   },
+  initialTab: {
+    type: Number,
+    default: 0
+  }
 })
 
 const SvgIconCalendar = defineAsyncComponent(() =>
@@ -24,13 +29,14 @@ const tabProps = tabSlots!.map((tabItem) => {
 
 const tabItems = ref(tabProps)
 
-const activeTab = ref(tabItems.value[0]?.title)
-
 const tabRefs = ref<Array<any>>([])
+
+const activeTabIndex = ref(0)
+const activeTabTitle = ref(tabItems.value[0]?.title)
 
 const tabGliderRef = ref()
 
-provide('activeTab', activeTab)
+provide('activeTabTitle', activeTabTitle)
 
 const iconMapping = {
   'icon-calendar': {
@@ -44,9 +50,34 @@ const iconMapping = {
   },
 }
 
+onMounted(() => {
+  activeTabIndex.value = initialTab
+  activeTabTitle.value = tabItems.value[initialTab]?.title
+
+  const activeTabElem = tabRefs.value[initialTab]
+
+  /* @argument {boolean} hasInitialWidth */
+  // Boolean flag to disable glider's default
+  // full width, and set glider's starting
+  // position to align with initial tab.
+  animateTabGlider(activeTabElem, false)
+
+  const { width } = useWindowSize()
+  watch(width, (_newWidth) => {
+    // The glider width and animation/travel distance
+    // depend on the width and position of the tab
+    // buttons; when the window resizes, these button
+    // values change. The animation method needs to be
+    // called again to update the glider logic using the
+    // new button values.
+    const activeTabElem = tabRefs.value[activeTabIndex.value]
+    animateTabGlider(activeTabElem, true)
+  })
+})
+
 // Computed
 const parsedAriaLabel = computed(() => {
-  const tabTitle = hyphenateTabName(activeTab.value)
+  const tabTitle = hyphenateTabName(activeTabTitle.value)
   return `panel-${tabTitle}`
 })
 
@@ -67,40 +98,6 @@ function setTabAriaControl(tabName: string) {
   return `panel-${tabTitle}`
 }
 
-function switchTab(tabName: string) {
-  activeTab.value = tabName
-
-  const tabIndex = tabItems.value!.findIndex(tab => tab?.title === tabName)
-
-  const tabElem: HTMLElement = tabRefs.value[tabIndex]
-
-  if (tabElem)
-    tabElem.focus()
-
-  if (!tabElem.classList.contains('active'))
-    animateTabGlider(tabElem)
-}
-
-function animateTabGlider(elem: HTMLElement) {
-  const tabGlider = tabGliderRef.value
-
-  const scaleGliderWidth = elem.offsetWidth / tabGlider.offsetWidth
-
-  // Calculate width to scale animated glider
-  // Use variable in CSS
-  tabGlider.style.setProperty('--scale_glider_width', scaleGliderWidth)
-
-  // Calculate and set distance to animate
-  // Use variable in CSS
-  tabGlider.style.setProperty('--translate_glider_left', `${elem.offsetLeft}px`)
-
-  // Object with positional values of tab button
-  const tabBtn = elem.getBoundingClientRect()
-
-  // Set glider to same height as tab button
-  tabGlider.style.height = `${tabBtn.height}px`
-}
-
 function hyphenateTabName(str: string) {
   return str.toLowerCase().replace(/\s/g, '-')
 }
@@ -108,7 +105,7 @@ function hyphenateTabName(str: string) {
 function keydownHandler(e: KeyboardEvent) {
   const tabTitleList = tabItems.value!.map(obj => obj?.title)
 
-  const activeIndex = tabTitleList.indexOf(activeTab.value)
+  const activeIndex = tabTitleList.indexOf(activeTabTitle.value)
 
   let targetTab
 
@@ -132,6 +129,44 @@ function keydownHandler(e: KeyboardEvent) {
     default:
   }
 }
+
+function switchTab(tabName: string) {
+  const tabIndex = tabItems.value!.findIndex(tab => tab?.title === tabName)
+
+  activeTabTitle.value = tabName
+  activeTabIndex.value = tabIndex
+
+  const tabElem: HTMLElement = tabRefs.value[tabIndex]
+
+  if (tabElem)
+    tabElem.focus()
+
+  if (!tabElem.classList.contains('active'))
+    animateTabGlider(tabElem, true)
+}
+
+function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
+  const tabGlider = tabGliderRef.value
+
+  // Get positional values of tab button
+  // and set glider height to match tab button
+  const tabBtn = elem.getBoundingClientRect()
+  tabGlider.style.height = `${tabBtn.height}px`
+
+  if (!hasInitialWidth) {
+    tabGlider.style.width = '0'
+  }
+  else {
+    // Set glider width to match tab button
+    tabGlider.style.width = `${tabBtn.width}px`
+
+    // Remove tab button background; display glider background instead
+    elem.style.background = 'none'
+  }
+
+  // Calculate and set distance (CSS variable) to animate glider
+  tabGlider.style.setProperty('--move_glider', `${elem.offsetLeft}px`)
+}
 </script>
 
 <template>
@@ -149,11 +184,11 @@ function keydownHandler(e: KeyboardEvent) {
         :ref="(el) => tabRefs[index] = el"
         :key="tab?.title"
         class="tab-list-item"
-        :class="{ active: activeTab === tab?.title }"
+        :class="{ active: activeTabTitle === tab?.title }"
         role="tab"
-        :tabindex="activeTab === tab?.title ? 0 : -1"
+        :tabindex="activeTabTitle === tab?.title ? 0 : -1"
         :aria-controls="setTabAriaControl(tab?.title)"
-        :aria-selected="activeTab === tab?.title"
+        :aria-selected="activeTabTitle === tab?.title"
         @keydown="keydownHandler"
         @click="switchTab(tab?.title)"
       >
@@ -166,7 +201,7 @@ function keydownHandler(e: KeyboardEvent) {
     </div>
   </div>
   <!-- Slot: TabItem -->
-  <div :id="parsedAriaLabel" class="tab-list-body" role="tabpanel" :aria-labelledby="parsedAriaLabel" :hidden="!activeTab">
+  <div :id="parsedAriaLabel" class="tab-list-body" role="tabpanel" :aria-labelledby="parsedAriaLabel" :hidden="!activeTabTitle">
     <slot />
   </div>
 </template>
