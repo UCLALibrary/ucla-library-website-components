@@ -3,34 +3,26 @@ import { ref, watch, onMounted } from 'vue'
 import type { Ref } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 
-// PROPS?
-
-onMounted(() => {
-    // Watch for changes in window width only after the component is mounted
-    const { width } = useWindowSize()
-    watch(width, (newWidth) => {
-        // console.log("window width changes on client side")
-        isMobile.value = newWidth <= 1200
-    }, { immediate: true })
-})
-
 // Track height of sidebar and ensure main content as at least as tall
 const isMobile: Ref<Boolean> = ref(false)
 const sidebar: Ref<HTMLDivElement | null> = ref(null)
 const primaryCol: Ref<HTMLDivElement | null> = ref(null)
+onMounted(() => {
+    const { width } = useWindowSize()
+    watch(width, (newWidth) => {
+        isMobile.value = newWidth <= 750
+    }, { immediate: true })
 
-// TODO move to onMounted?
-// '!' indicates to typescript that we are certain 
-// the element is defined when the watcher executes
-watch([isMobile, sidebar], ([newValIsMobile, newValSidebar]) => {
-    if (newValIsMobile === true) {
-        primaryCol!.value!.style!.minHeight = 'auto' // on mobile, reset height
-    } else {
-        primaryCol!.value!.style!.minHeight = `${newValSidebar!.clientHeight + 125}px`
-    }
-}, { deep: true }) // TEST: may not need deep watch
-
-//THEME
+    watch([isMobile, sidebar], ([newValIsMobile, newValSidebar]) => {
+        // Ensure main column min-height is at least as tall as the sidebar, except on mobile
+        // '!' indicates to typescript that we are certain the element is defined when the watcher executes
+        if (newValIsMobile === true) {
+            primaryCol!.value!.style!.minHeight = 'auto' // on mobile, reset height
+        } else {
+            primaryCol!.value!.style!.minHeight = `${newValSidebar!.clientHeight + 125}px`
+        }
+    }, { immediate: true, deep: true })
+})
 </script>
 
 <template>
@@ -40,11 +32,16 @@ watch([isMobile, sidebar], ([newValIsMobile, newValSidebar]) => {
         <div
             ref="primaryCol"
             class="primary-column top">
-            <!-- card meta in a slot or hardcoded? -->
-            <slot name="primary-top"></slot>
-            <!-- cardmeta, richtext in a slot or hardcoded? -->
-            <!-- TODO do we even need a second one? -->
-            <slot name="primary-bottom"></slot>
+            <!-- TODO section wrapper here instead of external ?-->
+            <slot name="primaryTop"></slot>
+            <div v-if="isMobile" class="sidebar-mobile-top">
+                <slot name="sidebarTop"></slot>
+            </div>
+            <slot name="primaryMid"></slot>
+            <div v-if="isMobile" class="sidebar-mobile-bottom">
+                <slot name="sidebarBottom"></slot>
+            </div>
+            <slot name="primaryBottom"></slot>
         </div>
 
         <!-- sidebar column -->
@@ -52,118 +49,11 @@ watch([isMobile, sidebar], ([newValIsMobile, newValSidebar]) => {
             <div
                 ref="sidebar"
                 class="sidebar-content-wrapper">
-                <!-- block event detail, sharebutton, blockInfo in a slot or hardcoded? -->
-                <slot name="sidebar"></slot>
+                <slot v-if="!isMobile" name="sidebarTop"></slot>
+                <slot v-if="!isMobile" name="sidebarBottom"></slot>
             </div>
         </div>
-
-        <!-- bottom of main column??? -->
-        <!-- TODO keep this seperate or combine into main column and change styles for sticky sidebar ?-->
     </div>
-
-    <!-- TODO remove commented out reference code from pages below when done -->
-    <!-- series page template -->
-    <!-- <div class="two-column">
-        <div
-            ref="primaryCol"
-            class="primary-column top">
-            <SectionWrapper>
-          <CardMeta
-            category="Series"
-            :title="page?.title"
-            :text="page?.eventDescription"
-            :introduction="page?.ftvaEventIntroduction"
-            :guest-speaker="page?.guestSpeaker"
-          />
-          <RichText
-            v-if="page?.richText"
-            :rich-text-content="page?.richText"
-          />
-        </SectionWrapper>
-        </div>
-        <div class="sidebar-column">
-            <div
-                ref="sidebar"
-                class="sidebar-content-wrapper">
-                <BlockEventDetail
-                    data-test="event-details"
-                    :start-date="page?.startDate"
-                    :end-date="page?.endDate"
-                    :ongoing="page?.ongoing"
-                    :locations="page?.location" />
-                <BlockInfo
-                    v-if="page?.ftvaTicketInformation && page?.ftvaTicketInformation.length > 0"
-                    data-test="ticket-info"
-                    :ftva-ticket-information="page?.ftvaTicketInformation" />
-            </div>
-        </div>
-    </div> -->
-
-    <!-- events page template -->
-    <!-- <div class="two-column">
-        <div class="primary-column top">
-            <SectionWrapper>
-              /*   DOCUMENT WHAT SLOTS IN WHERE ON WHICH LAYOUTS, BREAK THIS DOWN INTO PROPS?
-             EX: SOME LAYOUTS everything into slot 1, some layouts top sidebar into slot 1,
-             bottom sidebar into slot #2, etc */
-                <CardMeta
-                    data-test="text-block"
-                    :category="series[0]?.title"
-                    :title="page?.title"
-                    :guest-speaker="page?.guestSpeaker"
-                    :tag-labels="page?.tagLabels"
-                    :introduction="page?.introduction" />
-                <RichText
-                    v-if="page?.eventDescription"
-                    data-test="event-description"
-                    class="eventDescription"
-                    :rich-text-content="page?.eventDescription" />
-
-                <RichText
-                    v-if="page?.acknowledements"
-                    data-test="acknowledgements"
-                    class="acknowledgements"
-                    :rich-text-content="page?.acknowledements" />
-            </SectionWrapper>
-        </div>
-
-        // sidebar slots in here on mobile
-        <div class="sidebar-column">
-            <div class="sidebar-content-wrapper">
-                <BlockEventDetail
-                    data-test="event-details"
-                    :start-date="page?.startDateWithTime"
-                    :time="page?.startDateWithTime"
-                    :locations="page?.location" />
-                <ButtonDropdown
-                    data-test="calendar-dropdown"
-                    :title="parsedCalendarData?.title"
-                    :event-description="parsedCalendarData?.eventDescription"
-                    :start-date-with-time="parsedCalendarData?.startDateWithTime"
-                    :location="parsedCalendarData?.location"
-                    :is-event="true"
-                    :debug-mode-enabled="false" />
-                <BlockInfo
-                    v-if="page?.ftvaTicketInformation && page?.ftvaTicketInformation.length > 0"
-                    data-test="ticket-info"
-                    :ftva-ticket-information="page?.ftvaTicketInformation" />
-            </div>
-        </div>
-
-        <div class="primary-column bottom">
-            <SectionWrapper>
-          <DividerWayFinder />
-        </SectionWrapper>
-
-        <SectionWrapper>
-          <SectionScreeningDetails
-            v-if="parsedFTVAEventScreeningDetails"
-            data-test="screening-details"
-            :items="parsedFTVAEventScreeningDetails"
-          />
-        </SectionWrapper>
-        </div>
-    </div> -->
 </template>
 
 <style lang="scss" scoped>
@@ -188,10 +78,6 @@ watch([isMobile, sidebar], ([newValIsMobile, newValSidebar]) => {
             margin-top: -30px;
         }
     }
-    // TODO refactor to put space between generic child components instead of targeting specific ones
-    // .ftva.block-info {
-    //     margin-top: 48px;
-    // }
 
     .sidebar-column {
         min-width: 314px;
@@ -201,12 +87,19 @@ watch([isMobile, sidebar], ([newValIsMobile, newValSidebar]) => {
         top: 0;
         right: 0;
         padding-top: var(--space-2xl);
-        padding-bottom: 40px;
+        padding-bottom: 40px; // TODO move?
 
         .sidebar-content-wrapper {
             position: sticky;
             top: 85px;
             will-change: top;
+
+            // :deep(.block-info, .block-event-detail, .dropdown-button) {
+            //     margin-bottom: 48px; // was margin top
+            // }
+            > * {
+                margin-bottom: 30px;
+            }
         }
     }   
 }
@@ -245,12 +138,13 @@ watch([isMobile, sidebar], ([newValIsMobile, newValSidebar]) => {
           }
 
           .sidebar-column {
-              width: auto;
-              position: relative;
-              grid-column: 1;
-              margin: auto var(--unit-gutter);
-              padding-top: 0px;
-              height: auto; // let content determine height on mobile
+            display: none;
+            //   width: auto;
+            //   position: relative;
+            //   grid-column: 1;
+            //   margin: auto var(--unit-gutter);
+            //   padding-top: 0px;
+            //   height: auto; // let content determine height on mobile
           }
       }
   }
