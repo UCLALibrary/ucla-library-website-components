@@ -61,6 +61,14 @@
         }
     }
 
+    // container for the horizontal cards
+    :deep(.section-teaser-list) {
+        max-width: unset;
+        padding: 2.5%;
+        border-radius: 12px;
+        background-color: white;
+    }
+
     // Breakpoints
     @media #{$medium} {
         .section-header {
@@ -69,6 +77,20 @@
 
         .section-link {
             margin-bottom: 20px;
+        }
+
+        :deep(.section-teaser-list) {
+            // Hide horizontal container on smaller screen
+            border-radius: 0;
+            padding: 0;
+            // background-color: var(--color-children-theme);
+            // background-color: yellow;
+
+            .list-item {
+                border-radius: 12px;
+                // corners of the card same as background
+                //background-color: #{$page-blue};
+            }
         }
     }
 }

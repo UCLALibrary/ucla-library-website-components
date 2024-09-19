@@ -1,22 +1,24 @@
 .ftva.section-teaser-list {
-  max-width: unset;
-  padding: 2.5%;
-  background-color: white;
-  border-radius: 12px;
+  // max-width: unset;
+  // padding: 2.5%;
+  // background-color: white;
+  // border-radius: 12px;
 
   // Breakpoints
   @media #{$medium} {
     // Hide border on smaller screens for FTVA theme
-    border-radius: 0;
-    background-color: #{$page-blue};
-    padding: 0;
+    //border-radius: 0;
+    //background-color: #{$page-blue};
+    //padding: 0;
 
     .list-item {
-      border-bottom: none;
-      border-radius: 12px;
+      border-bottom: none; // keep
+      //border-radius: 12px;
 
       // corners of the card same as background
-      background-color: #{$page-blue};
+      //background-color: #{$page-blue};
     }
   }
 }
+
+// do the rest in section wrapper

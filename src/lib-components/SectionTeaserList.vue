@@ -51,7 +51,7 @@ const isDisabledBlockShowHide = computed(() => {
 })
 
 const classes = computed(() => {
-  return ['section-teaser-list list', theme?.value || '']
+  return ['section-teaser-list', theme?.value || '']
 })
 </script>
 
