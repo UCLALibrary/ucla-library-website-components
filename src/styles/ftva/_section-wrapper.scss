@@ -1,6 +1,8 @@
 .ftva.section-wrapper {
     .section-header {
-        margin-bottom: 0;
+        // Set to zero to remove margin under Section Title
+        // Explore Other Series
+        margin-bottom: 0px;
     }
 
     // default link styles for FTVA
@@ -61,14 +63,6 @@
         }
     }
 
-    // container for the horizontal cards
-    :deep(.section-teaser-list) {
-        max-width: unset;
-        padding: 2.5%;
-        border-radius: 12px;
-        background-color: white;
-    }
-
     // Breakpoints
     @media #{$medium} {
         .section-header {
@@ -79,17 +73,40 @@
             margin-bottom: 20px;
         }
 
-        :deep(.section-teaser-list) {
-            // Hide horizontal container on smaller screen
-            border-radius: 0;
-            padding: 0;
-            // background-color: var(--color-children-theme);
-            // background-color: yellow;
+        &.theme-paleblue {
+            --color-theme: #{$page-blue};
 
-            .list-item {
-                border-radius: 12px;
-                // corners of the card same as background
-                //background-color: #{$page-blue};
+            --color-children-theme: &.theme-paleblue {
+                --color-theme: #{$page-blue};
+                --color-children-theme: var(--color-white);
+
+                background-color: var(--color-theme);
+
+                :deep(*) {
+                    .block-highlight.card {
+                        background-color: var(--color-children-theme);
+                    }
+
+                    .section-teaser-list {
+                        background-color: var(--color-children-theme);
+                    }
+                }
+            }
+
+            background-color: var(--color-theme);
+
+            :deep(*) {
+                .section-teaser-list {
+                    .list {
+                        background-color: var(--color-theme);
+                    }
+
+                    .block-card-three-column {
+                        .meta {
+                            background-color: var(--color-children-theme);
+                        }
+                    }
+                }
             }
         }
     }
