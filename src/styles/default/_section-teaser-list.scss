@@ -1,4 +1,4 @@
-.section-teaser-list {
+DEFAULT .section-teaser-list {
   background-color: var(--color-white);
   max-width: $container-l-main + px;
 
@@ -11,8 +11,8 @@
   }
 
   .list-item {
-    margin-bottom: var(--space-m);
-    padding-bottom: var(--space-m);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
 
     border-bottom: 2px dotted var(--color-secondary-grey-02);
 
