@@ -229,8 +229,12 @@ const parsedClasses = computed(() => {
       <!-- Prevent final [prop] title/breadcrumb from overriding a parent title -->
       <span
         v-if="linkObj.isLastItem && useRouteTitle"
-        class="current-page-title"
+        class="parent-page-url"
         v-text="linkObj.title"
+      />
+      <SvgIconCaretRight
+        v-if="linkObj.isLastItem && useRouteTitle"
+        aria-hidden="true"
       />
       <!-- Set final breadcrumb with prop title if available -->
       <span
