@@ -27,7 +27,7 @@ const { ftvaTicketInformation, ftvaEventRegistration, to } = defineProps({
   /* Default url is the internal 'Plan Your Visit' page; pending. */
   to: {
     type: String,
-    default: '',
+    default: '/plan-your-visit',
   },
 })
 

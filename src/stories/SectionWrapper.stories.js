@@ -2,12 +2,16 @@ import { computed } from 'vue'
 
 // Import component
 import { mock as mockMediaWithText } from './mock/BlockMediaWithText'
+import * as API from '@/stories/mock-api.json'
 import SectionWrapper from '@/lib-components/SectionWrapper'
 
 import BlockMediaWithText from '@/lib-components/BlockMediaWithText'
 import DividerWayFinder from '@/lib-components/DividerWayFinder'
 import SectionTeaserCard from '@/lib-components/SectionTeaserCard'
+import SectionTeaserList from '@/lib-components/SectionTeaserList.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
+import TabItem from '@/lib-components/TabItem.vue'
+import TabList from '@/lib-components/TabList.vue'
 
 const propsForMediaWithText = {
   sectionHeader: mockMediaWithText.mediaWithText[0].titleLink,
@@ -252,7 +256,7 @@ const mockFtvaSeries = [
   },
 ]
 
-export function FtvaExploreOtherSeries() {
+export function FtvaSeries3Cards() {
   return {
     data() {
       return {
@@ -276,7 +280,7 @@ export function FtvaExploreOtherSeries() {
           >
             View All Series <span style="font-size:1.5em;"> &#8250;</span>
           </smart-link>
-          
+
         </template>
         <SectionTeaserCard
 
@@ -311,12 +315,148 @@ export function FtvaSeries2Cards() {
           >
             View All Series <span style="font-size:1.5em;"> &#8250;</span>
           </smart-link>
-          
+
         </template>
         <SectionTeaserCard
 
           :items="parsedFtvaEventSeries"
         />
+      </SectionWrapper>
+  `,
+  }
+}
+
+const mockUpcomingEvents = [
+  {
+    sectionHandle: 'ftvaEvent',
+    to: 'events/la-région-centrale-03-08-24',
+    title: 'TEST - La Région Centrale Screening',
+    startDateWithTime: '2027-03-09T03:30:00+00:00',
+    startDate: '2027-03-08',
+    startTime: 'PST19:30:00',
+    image: API.image,
+    tagLabels: [
+      {
+        title: 'Guest speaker'
+      },
+      {
+        title: '1.37 Dye Transfer Print'
+      }
+    ]
+  },
+  {
+    sectionHandle: 'ftvaEvent',
+    to: 'events/test-corpus-callosum-04-08-27',
+    title: 'TEST - Corpus Callosum',
+    startDateWithTime: '2027-04-09T02:30:00+00:00',
+    startDate: '2027-04-08',
+    startTime: 'PDT19:30:00',
+    image: API.image,
+    tagLabels: [
+      {
+        title: '35mm'
+      }
+    ]
+  },
+  {
+    to: 'events/wavelength-08-22-24',
+    sectionHandle: 'ftvaEvent',
+    title: 'TEST - Wavelength',
+    startDateWithTime: '2027-09-18T02:30:00+00:00',
+    startDate: '2027-09-17',
+    startTime: 'PDT19:30:00',
+    image: API.image,
+    tagLabels: []
+  }
+]
+
+const mockPastEvents = [
+  {
+    sectionHandle: 'ftvaEvent',
+    to: 'events/past-event-michael-snow-death-12-10-23',
+    title: 'TEST - Past Event Michael Snow',
+    startDateWithTime: '2023-12-10T02:00',
+    startDate: '2023-12-10',
+    startTime: 'PST12:00:00',
+    image: API.image,
+    tagLabels: [
+      {
+        title: '70mm'
+      }
+    ]
+  },
+  {
+    sectionHandle: 'ftvaEvent',
+    to: 'events/covid-vaccinations-10-12-21',
+    title: 'Covid Vaccination Conies',
+    startDateWithTime: '2021-10-12T07:30',
+    startDate: '2021-10-12',
+    startTime: 'PST07:30:00',
+    image: API.image,
+    tagLabels: [
+      {
+        title: 'Immunization'
+      }
+    ]
+  },
+]
+
+export function FtvaTabListSectionTeaserListPastUpcoming() {
+  return {
+    data() {
+      return {
+        mockUpcomingEvents,
+        mockPastEvents
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionWrapper, TabItem, TabList, SectionTeaserList },
+    template: `
+      <SectionWrapper theme="paleblue">
+        <TabList alignment="left">
+          <TabItem
+            title="Upcoming Events"
+            class="tab-content"
+          >
+            <template v-if="mockUpcomingEvents && mockUpcomingEvents.length > 0">
+              <!-- :n-shown="10"  this prop does not do anything if theme is ftva-->
+              <SectionTeaserList
+                :items="mockUpcomingEvents"
+                component-name="BlockCardThreeColumn"
+                :n-shown="10"
+                class="tabbed-event-list"
+              />
+            </template>
+            <template v-else>
+              <p class="empty-tab">
+                There are no upcoming events in this series.
+              </p>
+            </template>
+          </TabItem>
+
+          <TabItem
+            title="Past Events"
+            class="tab-content"
+          >
+            <template v-if="mockPastEvents && mockPastEvents.length > 0">
+              <SectionTeaserList
+                :items="mockPastEvents"
+                component-name="BlockCardThreeColumn"
+                n-shown="10"
+                class="tabbed-event-list"
+              />
+            </template>
+            <template v-else>
+              <p class="empty-tab">
+                There are no past events in this series.
+              </p>
+            </template>
+          </TabItem>
+        </TabList>
       </SectionWrapper>
   `,
   }
