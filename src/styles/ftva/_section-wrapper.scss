@@ -75,25 +75,7 @@
 
         &.theme-paleblue {
             --color-theme: #{$page-blue};
-
-            --color-children-theme: &.theme-paleblue {
-                --color-theme: #{$page-blue};
-                --color-children-theme: var(--color-white);
-
-                background-color: var(--color-theme);
-
-                :deep(*) {
-                    .block-highlight.card {
-                        background-color: var(--color-children-theme);
-                    }
-
-                    .section-teaser-list {
-                        background-color: var(--color-children-theme);
-                    }
-                }
-            }
-
-            background-color: var(--color-theme);
+            --color-children-theme: var(--color-white);
 
             :deep(*) {
                 .section-teaser-list {
