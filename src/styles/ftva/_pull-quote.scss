@@ -11,7 +11,10 @@
         font-weight: 600;
         font-style: normal;
     }
-
+    :deep(strong){
+        font-weight: 800;
+    }
+    
     :deep(.parsed-content) {
         margin-bottom: 0;
     }
