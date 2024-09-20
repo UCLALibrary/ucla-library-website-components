@@ -1,0 +1,34 @@
+.ftva.pull-quote {
+    --spacing-text-left: 36px;
+    padding: 20px var(--spacing-text-left);
+    border-color: $grey-blue;
+
+    :deep(div),
+    :deep(p) {
+        @include ftva-card-title-1;
+        color: $accent-blue;
+        line-height: 140%;
+    }
+
+    :deep(.parsed-content) {
+        margin-bottom: 0;
+    }
+    
+    .attribution-block {
+        padding-top: 0px;
+        ::before {
+            content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
+            padding-right: 8px;
+            filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
+        }
+        .attribution {
+            margin-left: 0px;
+            @include ftva-subtitle-1;
+            color: $subtitle-grey;
+        }
+    }
+    // hide default dash for ftva
+    .dash {
+        display: none;
+    }
+}
