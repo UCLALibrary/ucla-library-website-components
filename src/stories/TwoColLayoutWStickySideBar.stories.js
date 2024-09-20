@@ -1,13 +1,12 @@
 import { computed } from 'vue'
-import { useWindowSize } from '@vueuse/core'
-import BlockEventDetail from "@/lib-components/BlockEventDetail.vue"
-import BlockInfo from "@/lib-components/BlockInfo.vue"
-import ButtonDropdown from "@/lib-components/ButtonDropdown.vue"
-import CardMeta from "@/lib-components/CardMeta.vue"
+import BlockEventDetail from '@/lib-components/BlockEventDetail.vue'
+import BlockInfo from '@/lib-components/BlockInfo.vue'
+import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
+import CardMeta from '@/lib-components/CardMeta.vue'
 import DividerWayFinder from '@/lib-components/DividerWayFinder.vue'
-import RichText from "@/lib-components/RichText.vue"
-import SectionWrapper from "@/lib-components/SectionWrapper.vue"
-import TwoColLayoutWStickySideBar from "@/lib-components/TwoColLayoutWStickySideBar.vue"
+import RichText from '@/lib-components/RichText.vue'
+import SectionWrapper from '@/lib-components/SectionWrapper.vue'
+import TwoColLayoutWStickySideBar from '@/lib-components/TwoColLayoutWStickySideBar.vue'
 
 // Storybook default settings
 export default {
@@ -15,18 +14,18 @@ export default {
   components: TwoColLayoutWStickySideBar,
 }
 
+// Mock data for Event Series Page components
 const reallyLongRichText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.'
-// MOVE TO FILE?
 const mockSeriesPageData = {
-    title: 'Page.Title',
-    eventDescription: 'Page.eventDescription, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.',   
-    ftvaEventIntroduction: 'Page.ftvaEventIntroduction, Shorter intro text here.',
-    guestSpeaker: 'Page.guestSpeaker, Guest Speaker Name',
-    richText: 'page.richText, page rich-text content here on some pages.' + reallyLongRichText,
-    startDate: '2021-09-01', // FIX
-    endDate: '2021-09-30', // FIX
-    ongoing: false,
-    location: [
+  title: 'Page.Title',
+  eventDescription: 'Page.eventDescription, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.',
+  ftvaEventIntroduction: 'Page.ftvaEventIntroduction, Shorter intro text here.',
+  guestSpeaker: 'Page.guestSpeaker, Guest Speaker Name',
+  richText: `page.richText, page rich-text content here on some pages.${reallyLongRichText}`,
+  startDate: '2021-09-01', // FIX
+  endDate: '2021-09-30', // FIX
+  ongoing: false,
+  location: [
     {
       id: '195746',
       title: 'Billy Wilder Theater',
@@ -41,25 +40,24 @@ const mockSeriesPageData = {
     }
   ]
 }
-
 const ftvaTicketInformation = [
-    {
-        title: 'Admission is free',
-    },
-    {
-        title: 'Seats are assigned on a first come, first served basis',
-    },
-    {
-        title: 'The box office opens one hour before the event',
-    },
+  {
+    title: 'Admission is free',
+  },
+  {
+    title: 'Seats are assigned on a first come, first served basis',
+  },
+  {
+    title: 'The box office opens one hour before the event',
+  },
 ]
-        
+
 export function EventSeries() {
-    return {
+  return {
     data() {
       return {
-          page: mockSeriesPageData,
-          ftvaTicketInformation
+        page: mockSeriesPageData,
+        ftvaTicketInformation
       }
     },
     provide() {
@@ -68,11 +66,10 @@ export function EventSeries() {
       }
     },
     components: { TwoColLayoutWStickySideBar, CardMeta, RichText, BlockInfo, BlockEventDetail, SectionWrapper },
-        template: `<div>
+    template: `<div>
                 <SectionWrapper theme='paleblue'>Previous Section Content</SectionWrapper>
                 <TwoColLayoutWStickySideBar>
                     <template v-slot:primaryTop>
-                        <SectionWrapper>
                         <CardMeta
                             category="Series"
                             :title="page?.title"
@@ -80,15 +77,12 @@ export function EventSeries() {
                             :introduction="page?.ftvaEventIntroduction"
                             :guest-speaker="page?.guestSpeaker"
                         />
-                        </SectionWrapper>
                     </template>
                     <template v-slot:primaryMid>
-                        <SectionWrapper>
                         <RichText
                             v-if="page?.richText"
                             :rich-text-content="page?.richText"
                         />
-                        </SectionWrapper>
                     </template>
                     <template v-slot:sidebarTop>
                         <BlockEventDetail
@@ -110,12 +104,12 @@ export function EventSeries() {
   }
 }
 
-
+// Mock data for Event Detail Page components
 const mockEventDetailPageData = {
-    id: '2847944',
-    typeHandle: 'ftvaEvent',
-    title: 'La Région Centrale 03-08-24',
-    tagLabels: [
+  id: '2847944',
+  typeHandle: 'ftvaEvent',
+  title: 'La Région Centrale 03-08-24',
+  tagLabels: [
     {
       title: 'Guest speaker'
     },
@@ -123,23 +117,24 @@ const mockEventDetailPageData = {
       title: '35mm'
     }
   ],
-    startDateWithTime: '2024-03-09T03:30:00+00:00',
-    category: 'Series Title Here',
-    endTime: '20:30:00',
-    location: [
-        {
-        id: '195746',
-        title: 'Billy Wilder Theater',
-        url: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
-        uri: 'locations/billy-wilder-theater'
-        },
-        {
-        id: '195746',
-        title: 'Other Location',
-        url: 'https://test-craft.library.ucla.edu/locations/other-locations',
-        uri: 'locations/somelocation'
-        }
-    ]
+  startDateWithTime: '2024-03-09T03:30:00+00:00',
+  category: 'Series Title Here',
+  endTime: '20:30:00',
+  location: [
+    {
+      id: '195746',
+      title: 'Billy Wilder Theater',
+      url: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
+      uri: 'locations/billy-wilder-theater'
+    },
+    {
+      id: '195746',
+      title: 'Other Location',
+      url: 'https://test-craft.library.ucla.edu/locations/other-locations',
+      uri: 'locations/somelocation'
+    }
+  ],
+  acknowledements: 'page.acknowledgements text here', // [SIC] this is the way it's spelled in the query
 }
 // for Add to Calendar Button
 const mockCalendarData = {
@@ -159,7 +154,7 @@ const mockCalendarData = {
 }
 
 export function FTVAEventDetail() {
-    return {
+  return {
     data() {
       return {
         page: mockEventDetailPageData,
@@ -177,30 +172,26 @@ export function FTVAEventDetail() {
         <SectionWrapper theme='paleblue'>Previous Section Content</SectionWrapper>
         <TwoColLayoutWStickySideBar>
         <template v-slot:primaryTop>
-            <SectionWrapper>
-                <CardMeta
-                    :category="page.category"
-                    :title="page?.title"
-                    :tag-labels="page?.tagLabels"
-                    :introduction="page?.ftvaEventIntroduction"
-                    :guest-speaker="page?.guestSpeaker"
-                />
-                <RichText
-                    v-if="page?.richText"
-                    :rich-text-content="page?.richText"
-                 />
-            </SectionWrapper>
+            <CardMeta
+                :category="page.category"
+                :title="page?.title"
+                :tag-labels="page?.tagLabels"
+                :introduction="page?.acknowledements"
+                :guest-speaker="page?.guestSpeaker"
+            />
+            <RichText
+                v-if="page?.eventDescription"
+                :rich-text-content="page?.eventDescription"
+            />
         </template>
         <template v-slot:primaryBottom>
-            <SectionWrapper>
-                 <DividerWayFinder />
-            </SectionWrapper>
+            <DividerWayFinder />
         </template>
         <template v-slot:sidebarTop>
                 <BlockEventDetail
                     data-test="event-details"
-                    :start-date="page?.startDate"
-                    :end-date="page?.endDate"
+                    :start-date="page?.startDateWithTime"
+                    :time="page?.startDateWithTime"
                     :ongoing="page?.ongoing"
                     :locations="page?.location"
                 />
