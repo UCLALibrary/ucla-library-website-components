@@ -1,3 +1,10 @@
+# [3.20.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.19.0...v3.20.0) (2024-09-20)
+
+
+### Features
+
+* APPS-2945 FTVA Variation of SectionTeaserList ([#613](https://github.com/UCLALibrary/ucla-library-website-components/issues/613)) ([29e04f0](https://github.com/UCLALibrary/ucla-library-website-components/commit/29e04f02dca55089287eb24f7550f336b04c52b1))
+
 # [3.19.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.18.0...v3.19.0) (2024-09-17)
 
 
