@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { useTheme } from '@/composables/useTheme';
-// COMPONENTS
 import RichText from './RichText.vue'
+import { useTheme } from '@/composables/useTheme'
 
 const { text, attribution } = defineProps({
   text: {
