@@ -100,4 +100,9 @@ function Template6(args) {
   }
 }
 
-export const FTVA = Template6.bind({})
+export const FTVATheme = Template6.bind({})
+
+export const FTVAThemeWithPropTitle = Template6.bind({})
+FTVAThemeWithPropTitle.args = {
+  title: 'Breadcrumb Title Passed by Prop',
+}

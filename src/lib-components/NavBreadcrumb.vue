@@ -8,6 +8,14 @@ import { useTheme } from '@/composables/useTheme'
 // COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
 
+/* Note:
+  Setting all props at page-level defaults to the legacy pattern of a single-level breadcrumb.
+
+  The library website currently uses the legacy pattern.
+
+  For non-legacy behavior/use cases (FTVA, et al), breadcrumbs are parsed from the route; with the option to set the final breadcrumb title from route data or at page-level with the 'title' prop.
+  */
+
 const { to, parentTitle, title } = defineProps({
   to: {
     type: String,
@@ -17,10 +25,6 @@ const { to, parentTitle, title } = defineProps({
     type: String,
     default: '',
   },
-  /* Note:
-  For legacy (Library website) breadcrumbs, `title` is the hardcoded value entered at page-level;
-  Otherwise, for FTVA (and other future themes/use case?), `title` is coming from or parsed from Craft data
-  */
   title: {
     type: String,
     default: '',
@@ -41,13 +45,10 @@ onMounted(() => {
   // Watch for changes in window width only after the component is mounted
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
-    // console.log("window width changes on client side")
     isMobile.value = newWidth <= 1200
   }, { immediate: true })
 })
 
-// console.log('route: ', route.path)
-// Split URI path; then remove empty string at start of the array
 const parsedBreadcrumbs = computed(() => {
   let path = route.path
 
@@ -59,21 +60,12 @@ const parsedBreadcrumbs = computed(() => {
   if (path.lastIndexOf('/') === (path.length - 1))
     path = path.slice(0, path.length - 1)
 
-  // console.log(path)
-  // const decodedRoutePath = decodeURI(route.path)
   const decodedRoutePath = decodeURI(path)
-  // console.log('decoded: ', decodedRoutePath)
 
-  // const pathWithNoTrailingDates = stripUrlDate(decodedRoutePath)
   const pathWithNoTrailingDates = stripUrlDate(decodedRoutePath)
-  // console.log('no trailing dates: ', pathWithNoTrailingDates)
 
-  // remove last forward slash
-  // console.log(pathWithNoTrailingDates.length)
-
-  // const pagePathArray = pathWithNoTrailingDates.split('/').slice(1)
   const pagePathArray = pathWithNoTrailingDates.split('/')
-  // console.log('path array: ', pagePathArray)
+
   return pagePathArray
 })
 
@@ -116,7 +108,7 @@ const parsedBreadcrumbLinks = computed(() => {
 function createBreadcrumbLinks(arr) {
   const breadCrumbObjects = []
 
-  // if props are present, we are using the legacy single breadcrumb
+  // if all props are present, we are using the legacy single breadcrumb
   if (to && parentTitle && title) {
     // Set the parent
     breadCrumbObjects.push({
@@ -138,23 +130,16 @@ function createBreadcrumbLinks(arr) {
     // otherwise format based on route
     arr.forEach((item, index) => {
       const linkLength = item.length
+
       const linkIndex = route.path.indexOf(item)
-      console.log('linkindex: ', linkIndex)
 
       // Create a link for the item
       const linkTo = route.path.substring(0, linkLength + linkIndex)
-      console.log('linkto: ', linkTo)
 
       const linkTitle = item.replaceAll('-', ' ')
-      console.log('linktitle: ', linkTitle)
 
       let isLastItem
       index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
-      // console.log('is last item: ', isLastItem)
-
-      // If title prop is used and there is a route, use the title
-      // if (isLastItem && title)
-      //   linkTitle = title
 
       // Identifies the `...` in the breadcrumbs array
       let isTruncatedGroup
@@ -162,7 +147,6 @@ function createBreadcrumbLinks(arr) {
         isExpanded.value === false && index === 1
           ? (isTruncatedGroup = true)
           : (isTruncatedGroup = false)
-      // console.log('is truncated group: ', isTruncatedGroup)
       }
 
       breadCrumbObjects.push({
@@ -176,7 +160,8 @@ function createBreadcrumbLinks(arr) {
   }
 }
 
-function test() {
+// Click function/event for parent breadcrumbs. If title prop is passed at page level as the final breadcrumb title, prevent it from from overriding preceding a parent title.
+function setUseRouteTitle() {
   useRouteTitle.value = true
 }
 
@@ -223,7 +208,7 @@ const parsedClasses = computed(() => {
         v-if="!linkObj.isLastItem && !linkObj.isTruncatedGroup"
         :to="linkObj.to"
         class="parent-page-url"
-        @click="test()"
+        @click="setUseRouteTitle()"
         v-text="linkObj.title"
       />
       <!-- Collapsed group should not link -->
@@ -238,24 +223,22 @@ const parsedClasses = computed(() => {
         v-if="!linkObj.isLastItem"
         aria-hidden="true"
       />
-      <!-- Final Breadcrumb -->
-      <!-- FTVA uses title field from Craft for the final breadcrumb -->
+
+      <!-- Final Breadcrumb Logic -->
+
+      <!-- Prevent final [prop] title/breadcrumb from overriding a parent title -->
       <span
-        v-if="linkObj.isLastItem && useRouteTitle && title"
+        v-if="linkObj.isLastItem && useRouteTitle"
         class="current-page-title"
         v-text="linkObj.title"
       />
+      <!-- Set final breadcrumb with prop title if available -->
       <span
         v-else-if="linkObj.isLastItem && title"
         class="current-page-title"
         v-text="title"
       />
-      <!-- <span
-        v-else-if="linkObj.isLastItem && theme === 'ftva' && title && !collapseBreadcrumbs"
-        class="current-page-title"
-        v-text="linkObj.title"
-      /> -->
-      <!-- Otherwise, use parsed route url to set last breadcrumb; if future or default use will be to get the `title` from data and not the slug, this condition can be removed, and the condition above checking for the ftva theme can be refactored -->
+      <!-- Set final breadcrumb with route title if prop title is unavailable -->
       <span
         v-else-if="linkObj.isLastItem"
         class="current-page-title"
