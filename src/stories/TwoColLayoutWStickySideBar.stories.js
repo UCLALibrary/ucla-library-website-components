@@ -22,8 +22,8 @@ const mockSeriesPageData = {
   ftvaEventIntroduction: 'Page.ftvaEventIntroduction, Shorter intro text here.',
   guestSpeaker: 'Page.guestSpeaker, Guest Speaker Name',
   richText: `page.richText, page rich-text content here on some pages.${reallyLongRichText}`,
-  startDate: '2021-09-01', // FIX
-  endDate: '2021-09-30', // FIX
+  startDate: '2021-09-01',
+  endDate: '2021-09-30',
   ongoing: false,
   location: [
     {

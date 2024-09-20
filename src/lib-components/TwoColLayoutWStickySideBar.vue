@@ -15,7 +15,7 @@ function setMainMinHeight() {
 
 onMounted(() => {
   const { width } = useWindowSize()
-  watch([width, sidebar], ([newWidth, newValSidebar]) => {
+  watch([width, sidebar], ([newWidth]) => {
     isMobile.value = newWidth <= 750
 
     if (isMobile.value === true)
@@ -23,7 +23,7 @@ onMounted(() => {
 
     else
       setMainMinHeight()
-  }, { immediate: true }) // add deep:true?
+  }, { immediate: true })
 })
 </script>
 
@@ -67,7 +67,7 @@ onMounted(() => {
 .two-column {
     position: relative;
     width: 100%;
-    max-width: var(--max-width); //TODO DEFINE THIS its currently only in FTVA repo
+    max-width: var(--max-width);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -78,7 +78,6 @@ onMounted(() => {
 
         .primary-section-wrapper {
             padding-left: 0px;
-            // padding-top: var(--space-2xl);
             margin: var(--space-2xl) auto;
             padding: 0 var(--unit-gutter);
         }
@@ -92,7 +91,7 @@ onMounted(() => {
         top: 0;
         right: 0;
         padding-top: var(--space-2xl);
-        padding-bottom: 40px; // TODO move?
+        padding-bottom: 40px;
         padding-right: var(--unit-gutter);
 
         .sidebar-content-wrapper {
@@ -104,7 +103,7 @@ onMounted(() => {
                 margin-bottom: 30px;
 
                 &:last-child {
-                    margin-bottom: 48px; // TODO test if this should be reduced?
+                    margin-bottom: 48px;
                 }
             }
         }
