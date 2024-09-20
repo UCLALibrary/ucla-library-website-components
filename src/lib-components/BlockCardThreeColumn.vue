@@ -180,7 +180,6 @@ const parsedDateFormat = computed(() => {
     flex: 1;
 
     color: $accent-blue;
-    background-color: var(--color-theme, var(--color-white));
     padding-top: 2px;
   }
 
@@ -236,8 +235,6 @@ const parsedDateFormat = computed(() => {
   .meta {
     flex-basis: 50%;
     flex: 2;
-
-    background-color: var(--color-theme, var(--color-white));
 
     :deep(.card-meta) {
       display: grid;
@@ -308,7 +305,6 @@ const parsedDateFormat = computed(() => {
       width: 100%;
 
       .molecule-no-image {
-        /* TODO There should be a default image instaed */
         min-height: $large-height;
         border-radius: 12px 12px 0 0;
       }
@@ -321,7 +317,6 @@ const parsedDateFormat = computed(() => {
       border-radius: 0 0 12px 12px;
 
       :deep(.card-meta) {
-        /* height: fit-content; */
         min-height: 0;
 
         .title {
