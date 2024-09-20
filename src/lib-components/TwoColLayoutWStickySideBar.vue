@@ -113,7 +113,6 @@ onMounted(() => {
 // MEDIUM DEVICE STYLES
 @media (max-width: 1200px) {
     .two-column {
-        padding-left: var(--unit-gutter);
         padding-right: var(--unit-gutter);
     }
 
