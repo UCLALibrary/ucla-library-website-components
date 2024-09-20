@@ -8,13 +8,13 @@
         @include ftva-card-title-1;
         color: $accent-blue;
         line-height: 140%;
-        font-weight: 600;
+        font-weight: 500;
         font-style: normal;
     }
     :deep(strong){
-        font-weight: 800;
+        font-weight: 600;
     }
-    
+
     :deep(.parsed-content) {
         margin-bottom: 0;
     }
