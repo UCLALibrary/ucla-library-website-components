@@ -1,9 +1,11 @@
+<!-- Associated with BlockClippedDate & BlockCardThreeColumn -->
 <script
   setup
   lang="ts"
 >
 import { computed, defineAsyncComponent } from 'vue'
 import type { PropType } from 'vue'
+import { useTheme } from '@/composables/useTheme'
 import type { EventItemType } from '@/types/types'
 
 // COMPONENTS
@@ -27,21 +29,35 @@ const { items, nShown, componentName } = defineProps({
   },
 })
 
+// THEME
+const theme = useTheme()
+
 // DYNAMIC LAZY COMPONENT LOADING
 const BlockCardThreeColumn = defineAsyncComponent(() =>
   import('@/lib-components/BlockCardThreeColumn.vue')
 )
 
+// COMPUTED PROPERTIES
 const parsedComponentName = computed(() => {
   if (componentName === 'BlockCardThreeColumn')
     return BlockCardThreeColumn
   return BlockClippedDate
 })
+
+const isDisabledBlockShowHide = computed(() => {
+  if (items.length <= nShown || (theme?.value === 'ftva' && componentName !== 'BlockClippedDate'))
+    return true
+  return false
+})
+
+const classes = computed(() => {
+  return ['section-teaser-list', theme?.value || '']
+})
 </script>
 
 <template>
-  <section class="section-teaser-list">
-    <BlockShowHide :disable="items.length <= nShown">
+  <section :class="classes">
+    <BlockShowHide :disable="isDisabledBlockShowHide">
       <ul class="list">
         <component
           :is="parsedComponentName"
@@ -70,34 +86,6 @@ const parsedComponentName = computed(() => {
   lang="scss"
   scoped
 >
-.section-teaser-list {
-  background-color: var(--color-white);
-  max-width: $container-l-main + px;
-
-  .list {
-    @for $i from 1 through 30 {
-      :deep(.block-highlight:nth-child(#{$i}) .molecule) {
-        left: calc(random(500) * -1) + px;
-      }
-    }
-  }
-
-  .list-item {
-    margin-bottom: var(--space-xl);
-    padding-bottom: var(--space-xl);
-
-    border-bottom: 2px dotted var(--color-secondary-grey-02);
-
-    &:last-child {
-      border: 0;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-  }
-
-  .hidden .list-item:has(+ .show-hide-hideable) {
-    border: 0;
-    padding-bottom: 0;
-  }
-}
+@import "@/styles/default/_section-teaser-list.scss";
+@import "@/styles/ftva/_section-teaser-list.scss";
 </style>
