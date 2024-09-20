@@ -18,25 +18,39 @@ const props = defineProps({
 // Access the global store
 const globalStore = useGlobalStore()
 const { header } = storeToRefs(globalStore)
+// Use refs for primary, secondary menu items, and header type
+const primaryMenuItems = ref(header.value.primary || [])
+const secondaryMenuItems = ref(header.value.secondary || [])
+const currentHeader = ref(HeaderMain)
+
 const isMobile = ref(false)
 onMounted(() => {
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
+    console.log("newWidth", newWidth)
     isMobile.value = newWidth <= 1200
+    currentHeader.value = isMobile.value ? HeaderMainResponsive : HeaderMain
   },
     { immediate: true })
+
+  watch(
+    header,
+    (newVal, oldVal) => {
+      console.log('Header updated from parent page', newVal, oldVal)
+      primaryMenuItems.value = newVal.primary
+      secondaryMenuItems.value = newVal.secondary
+    },
+    { deep: true, immediate: true }
+  )
 })
-// Computed properties
-const primaryMenuItems = computed(() => header.value.primary)
-const secondaryMenuItems = computed(() => header.value.secondary)
-const whichHeader = computed(() => (isMobile.value ? HeaderMainResponsive : HeaderMain))
+
 </script>
 
 <template>
   <header class="header-smart">
     <SiteBrandBar class="brand-bar" />
     <component
-      :is="whichHeader"
+      :is="currentHeader"
       :class="isMobile ? 'mobile-header' : 'desktop-header'"
       :primary-nav="primaryMenuItems"
       :secondary-nav="secondaryMenuItems"

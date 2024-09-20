@@ -1,11 +1,12 @@
 <script>
 import { defineAsyncComponent } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
-
+import SvgIconFtvaGcal from 'ucla-library-design-tokens/assets/svgs/icon-ftva-gcal.svg'
 export default {
   name: 'IconWithLink',
   components: {
     SmartLink,
+    SvgIconFtvaGcal,
     SvgIconConsultation: defineAsyncComponent(() =>
       import('ucla-library-design-tokens/assets/svgs/icon-chat.svg')
     ),
@@ -139,9 +140,9 @@ export default {
       )
     ),
 
-    SvgIconFtvaGcal: defineAsyncComponent(() =>
+    /*SvgIconFtvaGcal: defineAsyncComponent(() =>
       import('ucla-library-design-tokens/assets/svgs/icon-ftva-gcal.svg')
-    ),
+    ),*/
 
     SvgIconFtvaOutlook: defineAsyncComponent(() =>
       import(
@@ -209,65 +210,86 @@ export default {
 
 <template>
   <div class="icon-with-link">
-    <SmartLink v-if="to" :to="to" class="icon-with-link-container link">
-      <component :is="iconName" class="icon" aria-hidden="true" />
-      <div class="text" v-text="text" />
+    <SmartLink
+      v-if="to"
+      :to="to"
+      class="icon-with-link-container link"
+    >
+      <component
+        :is="iconName"
+        class="icon"
+        aria-hidden="true"
+      />
+      <div
+        class="text"
+        v-text="text"
+      />
     </SmartLink>
-    <div v-else class="icon-with-link-container">
-      <component :is="iconName" class="icon" aria-hidden="true" />
-      <div class="text" v-text="text" />
+    <div
+      v-else
+      class="icon-with-link-container"
+    >
+      <component
+        :is="iconName"
+        class="icon"
+        aria-hidden="true"
+      />
+      <div
+        class="text"
+        v-text="text"
+      />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .icon-with-link {
-    --link-color: var(--color-primary-blue-03);
-    --icon-color: var(--color-primary-blue-03);
-    --icon-color-highlight: var(--color-default-cyan-03);
+  --link-color: var(--color-primary-blue-03);
+  --icon-color: var(--color-primary-blue-03);
+  --icon-color-highlight: var(--color-default-cyan-03);
 
-    display: inline-block;
-    line-height: 1;
+  display: inline-block;
+  line-height: 1;
 
-    .text {
-        @include button;
-        white-space: pre-wrap;
+  .text {
+    @include button;
+    white-space: pre-wrap;
+  }
+
+  .link {
+    color: var(--link-color);
+  }
+
+  .icon-with-link-container {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .icon {
+    flex-shrink: 0;
+
+    .svg__stroke--primary-blue-03 {
+      stroke: var(--icon-color);
     }
 
-    .link {
-        color: var(--link-color);
+    .svg__fill--primary-blue-03 {
+      fill: var(--icon-color);
     }
 
-    .icon-with-link-container {
-        display: inline-flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        gap: var(--space-xs);
+    .svg__stroke--default-cyan-03 {
+      stroke: var(--icon-color-highlight);
     }
+  }
 
-    .icon {
-        flex-shrink: 0;
-
-        .svg__stroke--primary-blue-03 {
-            stroke: var(--icon-color);
-        }
-
-        .svg__fill--primary-blue-03 {
-            fill: var(--icon-color);
-        }
-
-        .svg__stroke--default-cyan-03 {
-            stroke: var(--icon-color-highlight);
-        }
+  // Hover states
+  @media #{$has-hover} {
+    .link:hover {
+      @include link-hover;
     }
-
-    // Hover states
-    @media #{$has-hover} {
-        .link:hover {
-            @include link-hover;
-        }
-    }
+  }
 }
 </style>
