@@ -39,6 +39,8 @@ const isMobile = ref(false)
 
 const collapseBreadcrumbs = ref(false)
 
+const collapsedBreadcrumbsBtn = ref()
+
 const setRouteTitle = ref(false)
 
 onMounted(() => {
@@ -175,6 +177,7 @@ function setCollapseBreadcrumbs() {
 
 function toggleLinksExpansion() {
   isExpanded.value = !isExpanded.value
+  collapsedBreadcrumbsBtn.value[0].classList.remove('collapsed-url')
 }
 
 function stripUrlDate(str) {
@@ -214,6 +217,7 @@ const parsedClasses = computed(() => {
       <!-- Collapsed group should not link; set with button rather than SmartLink -->
       <button
         v-else-if="!linkObj.isLastItem && linkObj.isTruncatedGroup"
+        ref="collapsedBreadcrumbsBtn"
         class="parent-page-url collapsed-url"
         tabindex="0"
         @click="toggleLinksExpansion()"
