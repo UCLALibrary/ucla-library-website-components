@@ -39,7 +39,7 @@ const isMobile = ref(false)
 
 const collapseBreadcrumbs = ref(false)
 
-const useRouteTitle = ref(false)
+const setRouteTitle = ref(false)
 
 onMounted(() => {
   // Watch for changes in window width only after the component is mounted
@@ -161,8 +161,8 @@ function createBreadcrumbLinks(arr) {
 }
 
 // Event handler for parent breadcrumbs; if title prop is passed at page level as the final breadcrumb title, prevent it from from overriding a preceding parent title.
-function setUseRouteTitle() {
-  useRouteTitle.value = true
+function handleSetRouteTitle() {
+  setRouteTitle.value = true
 }
 
 function setLinkExpansion() {
@@ -208,7 +208,7 @@ const parsedClasses = computed(() => {
         v-if="!linkObj.isLastItem && !linkObj.isTruncatedGroup"
         :to="linkObj.to"
         class="parent-page-url"
-        @click="setUseRouteTitle()"
+        @click="handleSetRouteTitle()"
         v-text="linkObj.title"
       />
       <!-- Collapsed group should not link; set with button rather than SmartLink -->
