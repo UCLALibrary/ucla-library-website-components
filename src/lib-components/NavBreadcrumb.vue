@@ -108,7 +108,7 @@ const parsedBreadcrumbLinks = computed(() => {
 function createBreadcrumbLinks(arr) {
   const breadCrumbObjects = []
 
-  // if all props are present, we are using the legacy single breadcrumb
+  // if all props are present, use the legacy single-level breadcrumb pattern
   if (to && parentTitle && title) {
     // Set the parent
     breadCrumbObjects.push({
@@ -127,13 +127,13 @@ function createBreadcrumbLinks(arr) {
     return breadCrumbObjects
   }
   else {
-    // otherwise format based on route
+    // otherwise format breadcrumbs based on route
     arr.forEach((item, index) => {
       const linkLength = item.length
 
       const linkIndex = route.path.indexOf(item)
 
-      // Create a link for the item
+      // Recreate a link for the item
       const linkTo = route.path.substring(0, linkLength + linkIndex)
 
       const linkTitle = item.replaceAll('-', ' ')
@@ -141,7 +141,7 @@ function createBreadcrumbLinks(arr) {
       let isLastItem
       index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
 
-      // Identifies the `...` in the breadcrumbs array
+      // If breadcrumb pattern has more than four levels, identify the `...` (collapsed levels) from the breadcrumbs array
       let isTruncatedGroup
       if (collapseBreadcrumbs.value) {
         isExpanded.value === false && index === 1
@@ -160,7 +160,7 @@ function createBreadcrumbLinks(arr) {
   }
 }
 
-// Click function/event for parent breadcrumbs. If title prop is passed at page level as the final breadcrumb title, prevent it from from overriding preceding a parent title.
+// Event handler for parent breadcrumbs; if title prop is passed at page level as the final breadcrumb title, prevent it from from overriding a preceding parent title.
 function setUseRouteTitle() {
   useRouteTitle.value = true
 }
@@ -211,7 +211,7 @@ const parsedClasses = computed(() => {
         @click="setUseRouteTitle()"
         v-text="linkObj.title"
       />
-      <!-- Collapsed group should not link -->
+      <!-- Collapsed group should not link; set with button rather than SmartLink -->
       <button
         v-else-if="!linkObj.isLastItem && linkObj.isTruncatedGroup"
         class="parent-page-url collapsed-url"
