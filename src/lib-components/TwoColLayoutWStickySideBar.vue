@@ -61,91 +61,98 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-:root {
-    --max-width: 1160px;
-}
 .two-column {
-    position: relative;
-    width: 100%;
-    max-width: var(--max-width);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  max-width: var(--ftva-container-max-width);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
-    .primary-column {
-        margin-bottom: 0px;
-        width: 67%;
+  .primary-column {
+    margin-bottom: 0px;
+    width: 67%;
 
-        .primary-section-wrapper {
-            padding-left: 0px;
-            margin: var(--space-2xl) auto;
-            padding: 0 var(--unit-gutter);
-        }
+    .primary-section-wrapper {
+      padding-left: 0px;
+      margin: var(--space-2xl) auto;
+      padding: 0 var(--unit-gutter);
     }
+  }
 
-    .sidebar-column {
-        min-width: 314px;
-        width: 30%;
-        position: absolute;
-        height: 100%;
-        top: 0;
-        right: 0;
-        padding-top: var(--space-2xl);
-        padding-bottom: 40px;
-        padding-right: var(--unit-gutter);
+  .sidebar-column {
+    min-width: 314px;
+    width: 30%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    padding-top: var(--space-2xl);
+    padding-bottom: 40px;
+    padding-right: var(--unit-gutter);
 
-        .sidebar-content-wrapper {
-            position: sticky;
-            top: 85px;
-            will-change: top;
+    .sidebar-content-wrapper {
+      position: sticky;
+      top: 85px;
+      will-change: top;
 
-            >* {
-                margin-bottom: 30px;
+      >* {
+        margin-bottom: 30px;
 
-                &:last-child {
-                    margin-bottom: 48px;
-                }
-            }
+        &:last-child {
+          margin-bottom: 48px;
         }
+      }
     }
+  }
 }
 
 // MEDIUM DEVICE STYLES
 @media (max-width: 1200px) {
-    .two-column {
-        padding-right: var(--unit-gutter);
-    }
+  .two-column {
+    padding-right: var(--unit-gutter);
+  }
 
-    .two-column>.primary-column {
-        width: 62%;
-    }
+  .two-column>.primary-column {
+    width: 62%;
+  }
 }
 
 // MOBILE STYLES
 @media #{$small} {
-    .two-column {
-        display: grid;
-        grid-template-columns: 1fr;
+  .two-column {
+    display: grid;
+    grid-template-columns: 1fr;
 
-        .primary-column {
-            width: auto;
-            grid-column: 1;
+    .primary-column {
+      width: auto;
+      grid-column: 1;
 
-            .primary-section-wrapper {
-                padding-left: var(--unit-gutter);
-            }
+      .primary-section-wrapper {
+        padding-left: var(--unit-gutter);
 
-            .sidebar-mobile-top,
-            .sidebar-mobile-bottom {
-                >* {
-                    margin-bottom: 30px;
-                }
-            }
+        // Cardmeta divs have a bottom-margin, but the last one doesn't always display if content is overflowing.
+        // We remove the margin from the last card-meta div to ensure it displays consistently, and re-add the spacing below
+        :deep(.card-meta) {
+          div:last-child {
+            margin-bottom: 0px;
+          }
         }
+      }
 
-        .sidebar-column {
-            display: none;
+      .sidebar-mobile-top {
+        padding-top: var(--space-l); // add padding to top of sidebar
+      }
+      .sidebar-mobile-top, .sidebar-mobile-bottom {
+        > * {
+          margin-bottom: 30px;
         }
+      }
     }
+
+    .sidebar-column {
+      display: none;
+    }
+  }
 }
 </style>
