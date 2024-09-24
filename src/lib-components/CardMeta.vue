@@ -160,7 +160,7 @@ const parsedLocations = computed(() => {
 })
 
 const classes = computed(() => {
-  return ['card-meta', theme?.value || '']
+  return ['card-meta', theme?.value || '', props.sectionHandle]
 })
 </script>
 
@@ -284,6 +284,7 @@ const classes = computed(() => {
       <slot name="floatingslot" />
     </div>
 
+    <div v-if="sectionHandle === 'ftvaArticle'" class="heading-about-author">About the Author</div>
     <RichText
       v-if="text"
       class="text"

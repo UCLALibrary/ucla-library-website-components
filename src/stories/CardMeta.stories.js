@@ -181,7 +181,7 @@ const mockFTVAArticleData = {
     }
   ],
   aboutTheAuthor: "<p>Our guest writer is <strong>Jen Diamond</strong>. She wrote this entry</p>",
-  sectionHandle: "ftvaArticle" //TODO remove this if we dont use it to determine
+  sectionHandle: "ftvaArticle"
 }
 const parsedArticleCategories = mockFTVAArticleData.articleCategories.map((category) => category.title).join(', ')
 // data for share button in slot
@@ -233,6 +233,7 @@ export function FTVAArticleDetailWShareButton() {
           :bylineOne="contributors[0].contributor"
           :dateCreated="postDate"
           :text="aboutTheAuthor"
+          sectionHandle="ftvaArticle"
       >
       <template v-slot:sharebutton><ButtonDropdown button-title="Share" has-icon=true :dropdown-list="mockSocialList.dropdownList" /></template>
       </card-meta>

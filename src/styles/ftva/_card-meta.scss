@@ -30,10 +30,13 @@
 
   .byline-group {
     flex-direction: row;
+    @include ftva-body-2;
+    color: $medium-grey;
     .date-created::before {
       content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
       margin: 0 8px;
       padding-top: -10px;
+      filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
     }
   }
 
@@ -45,8 +48,8 @@
   }
 
   .sharebutton-slot {
-    margin-top: 28px;
-    margin-bottom: 28px;
+    margin-top: 20px;
+    margin-bottom: 36px;
     &:empty {
       display: none;
     }
@@ -56,4 +59,22 @@
     @include ftva-emphasized-subtitle;
     color: $accent-blue;
   }
+
+  &.ftvaArticle {
+    // on card-meta with sectionHandle prop = 'ftvaArticle'
+    // we have a unique 'About the Author' section which uses different styles
+    .heading-about-author {
+      @include ftva-subtitle-2;
+      color: $accent-blue;
+      padding-bottom: 4px;
+    }
+    .text {
+      :deep(.parsed-content) > p {
+        @include ftva-body-2;
+        color: $medium-grey;
+      }
+    }
+  }
 }
+
+
