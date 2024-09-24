@@ -28,6 +28,15 @@
     margin-bottom: 8px;
   }
 
+  .byline-group {
+    flex-direction: row;
+    .date-created::before {
+      content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
+      margin: 0 8px;
+      padding-top: -10px;
+    }
+  }
+
   // styles the rich-text components
   // introduction and guestSpeaker
   .rich-text {
@@ -37,7 +46,7 @@
 
   .sharebutton-slot {
     margin-top: 28px;
-
+    margin-bottom: 28px;
     &:empty {
       display: none;
     }

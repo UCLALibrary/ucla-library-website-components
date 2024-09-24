@@ -49,6 +49,12 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  // often used to display date article was published
+  // will be styled or formatted differently than startDate & endDate
+  dateCreated: {
+    type: String,
+    required: false,
+  },
   // long single date = 'Febuary 1, 2022', short = 'Feb 1, 2022
   // long date range =  'Febuary 1, 2022 - Febuary 2, 2022', short = 'Feb 1 - Feb 2'
   dateFormat: {
@@ -115,6 +121,13 @@ const parsedDate = computed(() => {
 
     else
       return props.endDate ? formatDates(props.startDate, props.endDate, props.dateFormat) : formatDates(props.startDate, props.startDate, props.dateFormat)
+  }
+  return ''
+})
+
+const parsedDateCreated = computed(() => {
+  if (props.dateCreated) {
+    return format(new Date(props.dateCreated), 'MMMM d, yyyy')
   }
   return ''
 })
@@ -199,6 +212,12 @@ const classes = computed(() => {
         class="schedule-item"
         v-html="bylineTwo"
       />
+      <div 
+        v-if="dateCreated"
+        class="schedule-item date-created"
+      >
+       {{ parsedDateCreated }}
+      </div>
     </div>
 
     <div
