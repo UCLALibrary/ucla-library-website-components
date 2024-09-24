@@ -126,9 +126,9 @@ const parsedDate = computed(() => {
 })
 
 const parsedDateCreated = computed(() => {
-  if (props.dateCreated) {
+  if (props.dateCreated)
     return format(new Date(props.dateCreated), 'MMMM d, yyyy')
-  }
+
   return ''
 })
 
@@ -212,11 +212,11 @@ const classes = computed(() => {
         class="schedule-item"
         v-html="bylineTwo"
       />
-      <div 
+      <div
         v-if="dateCreated"
         class="schedule-item date-created"
       >
-       {{ parsedDateCreated }}
+        {{ parsedDateCreated }}
       </div>
     </div>
 
@@ -284,7 +284,9 @@ const classes = computed(() => {
       <slot name="floatingslot" />
     </div>
 
-    <div v-if="sectionHandle === 'ftvaArticle'" class="heading-about-author">About the Author</div>
+    <div v-if="sectionHandle === 'ftvaArticle'" class="heading-about-author">
+      About the author
+    </div>
     <RichText
       v-if="text"
       class="text"

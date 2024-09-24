@@ -164,26 +164,26 @@ export function FTVAOngoing() {
 }
 
 const mockFTVAArticleData = {
-  title: "TEST - Tom Reed’s “For Members Only”: Black Perspectives on Local L.A. TV",
+  title: 'TEST - Tom Reed’s “For Members Only”: Black Perspectives on Local L.A. TV',
   articleCategories: [
     {
-      title: "Featured"
+      title: 'Featured'
     },
     {
-      title: "Announcement"
+      title: 'Announcement'
     }
   ],
-  postDate: "2024-07-02T05:08:00-07:00",
+  postDate: '2024-07-02T05:08:00-07:00',
   contributors: [
     {
-      byline: "Written by",
-      contributor: "Axa Liaux (external contributor)"
+      byline: 'Written by',
+      contributor: 'Axa Liaux (external contributor)'
     }
   ],
-  aboutTheAuthor: "<p>Our guest writer is <strong>Jen Diamond</strong>. She wrote this entry</p>",
-  sectionHandle: "ftvaArticle"
+  aboutTheAuthor: '<p>Our guest writer is <strong>Jen Diamond</strong>. She wrote this entry</p>',
+  sectionHandle: 'ftvaArticle'
 }
-const parsedArticleCategories = mockFTVAArticleData.articleCategories.map((category) => category.title).join(', ')
+const parsedArticleCategories = mockFTVAArticleData.articleCategories.map(category => category.title).join(', ')
 // data for share button in slot
 const mockSocialList = {
   buttonTitle: 'Share',
@@ -218,7 +218,7 @@ export function FTVAArticleDetailWShareButton() {
         ...mockFTVAArticleData,
         parsedArticleCategories,
         mockSocialList
-       }
+      }
     },
     provide() {
       return {
@@ -226,7 +226,7 @@ export function FTVAArticleDetailWShareButton() {
       }
     },
     components: { CardMeta, ButtonDropdown },
-    template: `
+    template: ` 
       <card-meta
           :category="parsedArticleCategories"
           :title="title"

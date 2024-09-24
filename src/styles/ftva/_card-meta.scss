@@ -53,6 +53,10 @@
     &:empty {
       display: none;
     }
+    @media #{$small} {
+      margin-top: 12px;
+      margin-bottom: 28px;
+    }
   }
 
   .parsed-start-time {
@@ -76,5 +80,3 @@
     }
   }
 }
-
-
