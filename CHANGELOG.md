@@ -1,3 +1,24 @@
+# [3.22.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.21.1...v3.22.0) (2024-09-24)
+
+
+### Features
+
+* APPS-2957 Create FTVA Pullquote ([#617](https://github.com/UCLALibrary/ucla-library-website-components/issues/617)) ([65577e8](https://github.com/UCLALibrary/ucla-library-website-components/commit/65577e81ea76682975ab087c345036030160a00b))
+
+## [3.21.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.21.0...v3.21.1) (2024-09-24)
+
+
+### Bug Fixes
+
+* APPS-2947 Update NavBreadcrumb logic to display route title or prop title ([#616](https://github.com/UCLALibrary/ucla-library-website-components/issues/616)) ([cba8af6](https://github.com/UCLALibrary/ucla-library-website-components/commit/cba8af6b661b1dd283a834df4983da882c0776f4))
+
+# [3.21.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.20.0...v3.21.0) (2024-09-24)
+
+
+### Features
+
+* APPS-2946 Create Two Column Layout component ([#614](https://github.com/UCLALibrary/ucla-library-website-components/issues/614)) ([cc5d52d](https://github.com/UCLALibrary/ucla-library-website-components/commit/cc5d52d050683917cd0b0bcb65fee01000184da4))
+
 # [3.20.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.19.0...v3.20.0) (2024-09-20)
 
 

@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import PullQuote from '../lib-components/PullQuote'
 
 export default {
@@ -36,6 +37,48 @@ export function NoAttribution() {
     data() {
       return {
         ...mockNoAttribution,
+      }
+    },
+    components: { PullQuote },
+    template: `
+        <pull-quote
+            :text="text"
+        />
+    `,
+  }
+}
+
+export function FTVADefault() {
+  return {
+    data() {
+      return {
+        ...mock,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { PullQuote },
+    template: `
+        <pull-quote
+            :text="text"
+            :attribution="attribution"
+        />
+    `,
+  }
+}
+export function FTVADefaultNoAttribution() {
+  return {
+    data() {
+      return {
+        ...mock,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     components: { PullQuote },

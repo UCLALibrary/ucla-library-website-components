@@ -127,3 +127,5 @@ export { default as StoryWithImage } from './StoryWithImage.vue'
 export { default as TabItem } from './TabItem.vue'
 export { default as TabList } from './TabList.vue'
 export { default as VideoEmbed } from './VideoEmbed.vue'
+// LAYOUTS
+export { default as TwoColLayoutWStickySideBar } from './TwoColLayoutWStickySideBar.vue' // used in FTVA
