@@ -1,3 +1,10 @@
+# [3.22.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.21.1...v3.22.0) (2024-09-24)
+
+
+### Features
+
+* APPS-2957 Create FTVA Pullquote ([#617](https://github.com/UCLALibrary/ucla-library-website-components/issues/617)) ([65577e8](https://github.com/UCLALibrary/ucla-library-website-components/commit/65577e81ea76682975ab087c345036030160a00b))
+
 ## [3.21.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.21.0...v3.21.1) (2024-09-24)
 
 
