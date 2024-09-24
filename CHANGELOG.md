@@ -1,3 +1,10 @@
+## [3.21.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.21.0...v3.21.1) (2024-09-24)
+
+
+### Bug Fixes
+
+* APPS-2947 Update NavBreadcrumb logic to display route title or prop title ([#616](https://github.com/UCLALibrary/ucla-library-website-components/issues/616)) ([cba8af6](https://github.com/UCLALibrary/ucla-library-website-components/commit/cba8af6b661b1dd283a834df4983da882c0776f4))
+
 # [3.21.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.20.0...v3.21.0) (2024-09-24)
 
 
