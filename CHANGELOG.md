@@ -1,3 +1,10 @@
+# [3.21.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.20.0...v3.21.0) (2024-09-24)
+
+
+### Features
+
+* APPS-2946 Create Two Column Layout component ([#614](https://github.com/UCLALibrary/ucla-library-website-components/issues/614)) ([cc5d52d](https://github.com/UCLALibrary/ucla-library-website-components/commit/cc5d52d050683917cd0b0bcb65fee01000184da4))
+
 # [3.20.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.19.0...v3.20.0) (2024-09-20)
 
 
