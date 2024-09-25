@@ -5,6 +5,10 @@
     overflow-y: auto;
     padding-top: 25px;
     scrollbar-color: $grey-blue $white;
+    &:has(> :last-child:nth-child(3)) {
+        /* if section has 3 elements */
+        justify-content: space-between;
+    }
 
     .card {
         flex-basis: calc((100% / 3) - 22px);
