@@ -76,7 +76,7 @@ onMounted(() => {
     .primary-section-wrapper {
       padding-left: 0px;
       margin: var(--space-2xl) auto;
-      padding: 0 var(--unit-gutter);
+      padding: 0 var(--unit-gutter) 0 0;
     }
   }
 
@@ -89,7 +89,6 @@ onMounted(() => {
     right: 0;
     padding-top: var(--space-2xl);
     padding-bottom: 40px;
-    padding-right: var(--unit-gutter);
 
     .sidebar-content-wrapper {
       position: sticky;
