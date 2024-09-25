@@ -74,7 +74,6 @@ onMounted(() => {
     width: 67%;
 
     .primary-section-wrapper {
-      padding-left: 0px;
       margin: var(--space-2xl) auto;
       padding: 0 var(--unit-gutter) 0 0;
     }
@@ -110,10 +109,18 @@ onMounted(() => {
 @media (max-width: 1200px) {
   .two-column {
     padding-right: var(--unit-gutter);
-  }
 
-  .two-column>.primary-column {
-    width: 62%;
+    .primary-column {
+      width: 62%;
+
+      .primary-section-wrapper {
+        padding-left: var(--unit-gutter);
+      }
+    }
+
+    .sidebar-column {
+      padding-right: var(--unit-gutter);
+    }
   }
 }
 
