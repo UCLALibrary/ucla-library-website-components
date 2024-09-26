@@ -4,7 +4,7 @@
   .category {
     @include ftva-button-link;
     color: $accent-blue;
-    margin: 0 0 20px;
+    margin: 0 0 12px;
   }
 
   .title {
@@ -14,7 +14,7 @@
   }
 
   .title-no-link {
-    @include ftva-h3;
+    @include ftva-h2;
     color: $heading-grey;
     margin: 0 0 24px;
   }
