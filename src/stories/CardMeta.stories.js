@@ -1,6 +1,7 @@
-import { computed } from 'vue'
+import { computed, onBeforeUnmount, onMounted  } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
+import { useGlobalStore } from '@/stores/GlobalStore'
 
 // Storybook default settings
 export default {
@@ -224,6 +225,25 @@ export function FTVAArticleDetailWShareButton() {
       return {
         theme: computed(() => 'ftva'),
       }
+    },
+    // The ShareButton needs globalstore logic, so its included in this story
+    setup() {
+      onMounted(() => {
+        const globalStore = useGlobalStore()
+
+        const updateWinWidth = () => {
+          globalStore.winWidth = window.innerWidth
+        }
+
+        updateWinWidth()
+
+        window.addEventListener('resize', updateWinWidth)
+
+        onBeforeUnmount(() => {
+          window.removeEventListener('resize', updateWinWidth)
+        })
+      })
+      return { args }
     },
     components: { CardMeta, ButtonDropdown },
     template: ` 
