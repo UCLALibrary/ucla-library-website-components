@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import { mock } from './mock/Flexible_RichText'
 import FlexibleRichText from '@/lib-components/Flexible/RichText'
 
@@ -11,6 +12,27 @@ export function Default() {
     data() {
       return {
         block: mock,
+      }
+    },
+    components: { FlexibleRichText },
+    template: `
+        <flexible-rich-text
+            :block="block"
+        />
+    `,
+  }
+}
+
+export function Ftva() {
+  return {
+    data() {
+      return {
+        block: mock,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     components: { FlexibleRichText },
