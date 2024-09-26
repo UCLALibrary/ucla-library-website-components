@@ -1,4 +1,4 @@
-import { computed, onBeforeUnmount, onMounted  } from 'vue'
+import { computed, onBeforeUnmount, onMounted } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
@@ -243,7 +243,6 @@ export function FTVAArticleDetailWShareButton() {
           window.removeEventListener('resize', updateWinWidth)
         })
       })
-      return { args }
     },
     components: { CardMeta, ButtonDropdown },
     template: ` 
