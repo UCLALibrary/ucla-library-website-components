@@ -19,25 +19,20 @@ export function Default() {
         block: mockHorizontalDivider,
       }
     },
-    // provide() {
-    //   return {
-    //     theme: computed(() => 'ftva'),
-    //   }
-    // },
     components: { FlexibleHorizontalDivider },
     template: '<flexible-horizontal-divider :block="block" />',
   }
 }
 
 // Hidden Divider
-// export function Hidden() {
-//   return {
-//     data() {
-//       return {
-//         block: { ...mockHorizontalDivider, horizontalDivider: false },
-//       }
-//     },
-//     components: { FlexibleHorizontalDivider },
-//     template: '<flexible-horizontal-divider :block="block" />',
-//   }
-// }
+export function Hidden() {
+  return {
+    data() {
+      return {
+        block: { ...mockHorizontalDivider, horizontalDivider: false },
+      }
+    },
+    components: { FlexibleHorizontalDivider },
+    template: '<flexible-horizontal-divider :block="block" />',
+  }
+}
