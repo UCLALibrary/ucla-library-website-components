@@ -1,10 +1,9 @@
 import { computed } from 'vue'
 
-import RichText from '@/lib-components/RichText.vue'
-
 // Mock Data
 import { mockRichText } from './mock/RichText'
 import { mockFtvaRichText } from './mock/FTVA_RichText'
+import RichText from '@/lib-components/RichText.vue'
 
 // Storybook default settings
 export default {
@@ -39,7 +38,7 @@ export const FtvaRichText = {
   render: () => ({
     data() {
       return {
-        block: mockFtvaRichText ,
+        block: mockFtvaRichText,
       }
     },
     provide() {

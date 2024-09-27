@@ -1,10 +1,10 @@
 import { computed } from 'vue'
 
-import FlexibleRichText from '@/lib-components/Flexible/RichText'
-
 // Mock Data
 import { mockRichText } from './mock/RichText'
 import { mockFtvaRichText } from './mock/FTVA_RichText'
+import FlexibleRichText from '@/lib-components/Flexible/RichText'
+
 export default {
   title: 'FLEXIBLE / Rich Text',
   component: FlexibleRichText,
@@ -30,7 +30,7 @@ export function Ftva() {
   return {
     data() {
       return {
-        block: mockFtvaRichText ,
+        block: mockFtvaRichText,
       }
     },
     provide() {
