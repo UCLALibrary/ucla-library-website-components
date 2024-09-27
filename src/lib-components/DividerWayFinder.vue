@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 // Helpers
 import { computed, onMounted, ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
