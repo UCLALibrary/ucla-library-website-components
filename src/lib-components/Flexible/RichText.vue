@@ -2,13 +2,10 @@
   setup
   lang="ts"
 >
-import { computed } from 'vue'
 import type { PropType } from 'vue'
 
 // COMPONENTS
 import RichText from '@/lib-components/RichText.vue'
-
-import { useTheme } from '@/composables/useTheme'
 
 // TYPESCRPT
 import type { FlexibleRichText } from '@/types/flexible_types'
@@ -19,16 +16,10 @@ const { block } = defineProps({
     default: () => { },
   },
 })
-
-const theme = useTheme()
-
-const classes = computed(() => {
-  return ['rich-text', theme?.value || '']
-})
 </script>
 
 <template>
-  <div :class="classes">
+  <div class="rich-text">
     <h2
       v-if="block.sectionTitle"
       class="section-title"
@@ -43,6 +34,11 @@ const classes = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/default/_flexible-rich-text.scss";
-@import "@/styles/ftva/_flexible-rich-text.scss";
+.rich-text {
+  .section-title {
+    @include step-3;
+    color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-xl);
+  }
+}
 </style>

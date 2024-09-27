@@ -4,14 +4,17 @@
 
   :deep(h3) {
     @include ftva-h3;
+    color: $body-grey;
   }
 
   :deep(h4) {
     @include ftva-h4;
+    color: $body-grey;
   }
 
   :deep(h5) {
     @include ftva-h5;
+    color: $body-grey;
   }
 
   :deep(p),
@@ -22,6 +25,7 @@
 
   :deep(a) {
     color: $accent-blue;
+    text-underline-offset: 3px;
 
     &:hover {
       color: $body-grey;
@@ -29,8 +33,12 @@
   }
 
   :deep(ol) {
+    margin-left: 24px;
+
+    color: $body-grey;
+
     li {
-      padding-left: 8px;
+      padding-left: 14px;
     }
 
     ::marker {
@@ -49,4 +57,43 @@
     padding-left: 8px;
     overflow: hidden;
   }
+
+  // Blue Diamonds
+  :deep(ul) {
+    list-style: none;
+    list-style-position: outside;
+  }
+
+  :deep(ul>li:before) {
+    content: "";
+    display: block;
+    height: .6rem; // height of diamond
+    width: 1rem; // width of diamond
+    float: left; // floats text left
+    margin-left: -.5rem; // moves diamond from left
+    margin-top: 8px; // moves diamond down to text
+    margin-right: 22px; // moves text right
+  }
+
+  :deep(ul>li:before) {
+    background: url("ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg");
+    background-size: cover;
+    background-position: left;
+    padding: .15rem;
+    filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
+  }
+
+  :deep(table) {
+    border: 1px solid $body-grey;
+
+    th {
+      color: $body-grey;
+    }
+
+    strong {
+      color: $body-grey;
+      font-weight: 500;
+    }
+  }
+
 }
