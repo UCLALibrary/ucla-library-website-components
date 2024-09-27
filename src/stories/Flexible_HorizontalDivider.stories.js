@@ -1,4 +1,3 @@
-import { computed } from 'vue'
 import FlexibleHorizontalDivider from '@/lib-components/Flexible/HorizontalDivider.vue'
 
 export default {
@@ -30,7 +29,7 @@ export function Hidden() {
   return {
     data() {
       return {
-        block: {...mockHorizontalDivider, horizontalDivider: false},
+        block: { ...mockHorizontalDivider, horizontalDivider: false },
       }
     },
     components: { FlexibleHorizontalDivider },
