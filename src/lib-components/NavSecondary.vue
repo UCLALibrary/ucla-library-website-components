@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // components
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
-import { computed } from 'vue'
+import { computed, ref, shallowRef, watch } from 'vue'
 import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
@@ -22,6 +22,21 @@ const { items, isMicrosite } = defineProps({
   },
 })
 
+// Convert `items` to a shallow reactive reference
+const itemsRef = shallowRef(items) // Or you can use `toRef(props, 'items')`
+
+const secondaryItems = ref(itemsRef.value || [])
+console.log(items, secondaryItems.value)
+
+watch(
+  itemsRef, // This is now a reactive source
+  (newVal, oldVal) => {
+    console.log('NavSecondary updated from nuxt layout or nuxt app.vue', newVal, oldVal)
+    secondaryItems.value = newVal || []
+  },
+  { deep: true, immediate: true }
+)
+
 const classes = computed(() => {
   return [
     'flex-container',
@@ -30,10 +45,11 @@ const classes = computed(() => {
   ]
 })
 const parsedLinks = computed(() => {
-  return items.map((obj) => {
+  return (secondaryItems.value || []).map((obj) => {
+    console.log('nav-secondary:', JSON.stringify(obj))
     let support = 'list-item'
-    if (obj.classes)
-      support = `${support} ${obj.classes}`
+    if (obj?.classes)
+      support = `${support} ${obj?.classes}`
     return {
       ...obj,
       classes: support,
@@ -42,37 +58,74 @@ const parsedLinks = computed(() => {
 })
 
 const parsedItemsMinusAccount = computed(() => {
-  return parsedLinks.value.slice(0, -1)
+  return parsedLinks?.value?.slice(0, -1)
 })
 const accountLink = computed(() => {
-  return parsedLinks.value[parsedLinks.value.length - 1]
+  return parsedLinks.value && parsedLinks.value.length > 0 ? parsedLinks?.value[parsedLinks?.value?.length - 1] : null
 })
 </script>
 
 <template>
-  <nav aria-label="Secondary Navigation" class="nav-secondary">
+  <nav
+    aria-label="Secondary Navigation"
+    class="nav-secondary"
+  >
     <div :class="classes">
-      <a v-if="isMicrosite" href="https://www.library.ucla.edu" target="_blank" aria-label="UCLA Library home page">
-        <SvgLogoUclaLibrary class="svg logo-ucla" alt="UCLA Library logo blue" />
+      <a
+        v-if="isMicrosite"
+        href="https://www.library.ucla.edu"
+        target="_blank"
+        aria-label="UCLA Library home page"
+      >
+        <SvgLogoUclaLibrary
+          class="svg logo-ucla"
+          alt="UCLA Library logo blue"
+        />
       </a>
 
       <div class="navigation-list">
-        <ul v-if="!isMicrosite" class="list">
-          <li v-for="item in parsedItemsMinusAccount" :key="`nav-secondary-${item.name}`" :class="item.classes">
-            <SmartLink class="link underline-hover" :to="item.to" :link-target="item.target">
+        <ul
+          v-if="!isMicrosite"
+          class="list"
+        >
+          <li
+            v-for="item in parsedItemsMinusAccount"
+            :key="`nav-secondary-${item.name}`"
+            :class="item.classes"
+          >
+            <SmartLink
+              class="link underline-hover"
+              :to="item.to"
+              :link-target="item.target"
+            >
               {{ item.name }}
             </SmartLink>
           </li>
         </ul>
 
         <ButtonLink
-          v-if="!isMicrosite" :label="accountLink.name" class="account-button" :link-target="accountLink.target"
-          :to="accountLink.to" :is-secondary="true"
+          v-if="!isMicrosite && accountLink"
+          :label="accountLink?.name"
+          class="account-button"
+          :link-target="accountLink?.target"
+          :to="accountLink?.to"
+          :is-secondary="true"
         />
 
-        <ul v-if="isMicrosite" class="link-list">
-          <li v-for="item in parsedLinks" :key="`nav-secondary-${item.name}`" :class="item.classes">
-            <SmartLink class="link underline-hover" :to="item.to" :link-target="item.target">
+        <ul
+          v-if="isMicrosite"
+          class="link-list"
+        >
+          <li
+            v-for="item in parsedLinks"
+            :key="`nav-secondary-${item.name}`"
+            :class="item.classes"
+          >
+            <SmartLink
+              class="link underline-hover"
+              :to="item.to"
+              :link-target="item.target"
+            >
               {{ item.name }}
             </SmartLink>
           </li>

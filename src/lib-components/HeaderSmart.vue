@@ -1,56 +1,71 @@
-<script>
-import { mapState } from 'pinia'
+<script setup>
+import { markRaw, onMounted, ref, watch } from 'vue'
+import { useWindowSize } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
+import { useGlobalStore } from '@/stores/GlobalStore'
 import SiteBrandBar from '@/lib-components/SiteBrandBar'
 import HeaderMainResponsive from '@/lib-components/HeaderMainResponsive'
 import HeaderMain from '@/lib-components/HeaderMain'
-import { useGlobalStore } from '@/stores/GlobalStore'
 
-export default {
-  name: 'HeaderSmart',
-  components: {
-    SiteBrandBar,
-    HeaderMainResponsive,
-    HeaderMain,
+// Props
+const props = defineProps({
+  title: {
+    type: String,
+    default: '',
   },
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
+})
+
+// Access the global store
+const globalStore = useGlobalStore()
+const { header } = storeToRefs(globalStore)
+
+// Use refs for primary, secondary menu items, and header type
+const primaryMenuItems = ref(header.value.primary || [])
+const secondaryMenuItems = ref(header.value.secondary || [])
+
+// Mark components as raw to prevent them from being reactive
+const currentHeader = ref(markRaw(HeaderMain))
+
+const isMobile = ref(false)
+onMounted(() => {
+  const { width } = useWindowSize()
+  watch(width, (newWidth) => {
+    console.log('newWidth', newWidth)
+    isMobile.value = newWidth <= 1200
+    currentHeader.value = markRaw(isMobile.value ? HeaderMainResponsive : HeaderMain)
   },
-  computed: {
-    ...mapState(useGlobalStore, ['header', 'winWidth']),
-    primaryMenuItems() {
-      return this.header.primary
+  { immediate: true })
+
+  watch(
+    header,
+    (newVal, oldVal) => {
+      console.log('Header updated from parent page', newVal, oldVal)
+      primaryMenuItems.value = newVal.primary
+      secondaryMenuItems.value = newVal.secondary
     },
-    secondaryMenuItems() {
-      return this.header.secondary
-    },
-    isMobile() {
-      return this.winWidth <= 1024
-    },
-    whichHeader() {
-      return this.isMobile ? 'header-main-responsive' : 'header-main'
-    },
-  },
-}
+    { deep: true, immediate: true }
+  )
+})
 </script>
 
 <template>
   <header class="header-smart">
     <SiteBrandBar class="brand-bar" />
     <component
-      :is="whichHeader" :class="isMobile ? 'mobile-header' : 'desktop-header'" :primary-nav="primaryMenuItems"
-      :secondary-nav="secondaryMenuItems" :title="title"
+      :is="currentHeader"
+      :class="isMobile ? 'mobile-header' : 'desktop-header'"
+      :primary-nav="primaryMenuItems"
+      :secondary-nav="secondaryMenuItems"
+      :title="title"
     />
   </header>
 </template>
 
 <style lang="scss" scoped>
 @media #{$medium} {
-    .brand-bar {
-        position: absolute;
-        width: 100%;
-    }
+  .brand-bar {
+    position: absolute;
+    width: 100%;
+  }
 }
 </style>

@@ -32,8 +32,15 @@ const parseTitle = computed(() => {
 
 <template>
   <header class="header-main">
-    <NavSecondary :items="secondaryNav" :is-microsite="parseTitle" />
-    <NavPrimary class="primary" :items="primaryNav" :title="title" />
+    <NavSecondary
+      :items="secondaryNav"
+      :is-microsite="parseTitle"
+    />
+    <NavPrimary
+      class="primary"
+      :items="primaryNav"
+      :title="title"
+    />
   </header>
 </template>
 
