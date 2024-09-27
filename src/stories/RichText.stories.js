@@ -1,7 +1,6 @@
 import { computed } from 'vue'
-import RichText from '@/lib-components/RichText.vue'
-import FlexibleRichText from '@/lib-components/Flexible/RichText'
 import { mock } from './mock/Flexible_FTVARichText'
+import RichText from '@/lib-components/RichText.vue'
 
 // Storybook default settings
 export default {
