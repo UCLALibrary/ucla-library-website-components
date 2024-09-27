@@ -49,6 +49,12 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  // often used to display date article was published
+  // will be styled or formatted differently than startDate & endDate
+  dateCreated: {
+    type: String,
+    required: false,
+  },
   // long single date = 'Febuary 1, 2022', short = 'Feb 1, 2022
   // long date range =  'Febuary 1, 2022 - Febuary 2, 2022', short = 'Feb 1 - Feb 2'
   dateFormat: {
@@ -119,6 +125,13 @@ const parsedDate = computed(() => {
   return ''
 })
 
+const parsedDateCreated = computed(() => {
+  if (props.dateCreated)
+    return format(new Date(props.dateCreated), 'MMMM d, yyyy')
+
+  return ''
+})
+
 const parsedTime = computed(() => {
   // necessary check for library-website-nuxt & meap
   if (props.startDate && props.sectionHandle === 'event')
@@ -147,7 +160,7 @@ const parsedLocations = computed(() => {
 })
 
 const classes = computed(() => {
-  return ['card-meta', theme?.value || '']
+  return ['card-meta', theme?.value || '', props.sectionHandle]
 })
 </script>
 
@@ -199,6 +212,12 @@ const classes = computed(() => {
         class="schedule-item"
         v-html="bylineTwo"
       />
+      <div
+        v-if="dateCreated"
+        class="schedule-item date-created"
+      >
+        {{ parsedDateCreated }}
+      </div>
     </div>
 
     <div
@@ -265,6 +284,9 @@ const classes = computed(() => {
       <slot name="floatingslot" />
     </div>
 
+    <div v-if="sectionHandle === 'ftvaArticle'" class="heading-about-author">
+      About the author
+    </div>
     <RichText
       v-if="text"
       class="text"

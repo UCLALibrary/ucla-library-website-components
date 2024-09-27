@@ -4,7 +4,13 @@
     align-items: flex-start;
     overflow-y: auto;
     padding-top: 25px;
+    gap: var(--space-xl) 20px;
     scrollbar-color: $grey-blue $white;
+    &:has(> :last-child:nth-child(3)) {
+        /* if section has 3 elements */
+        justify-content: space-between;
+        gap: var(--space-xl) 16px;
+    }
 
     .card {
         flex-basis: calc((100% / 3) - 22px);

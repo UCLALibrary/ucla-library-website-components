@@ -1,5 +1,7 @@
-import { computed } from 'vue'
+import { computed, onBeforeUnmount, onMounted } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
+import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
+import { useGlobalStore } from '@/stores/GlobalStore'
 
 // Storybook default settings
 export default {
@@ -142,6 +144,11 @@ export function FTVAOngoing() {
     data() {
       return { ...mockDefault }
     },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
     components: { CardMeta },
     template: `
       <card-meta
@@ -153,6 +160,102 @@ export function FTVAOngoing() {
           :locations="locations"
           :language="language"
       />
+  `,
+  }
+}
+
+const mockFTVAArticleData = {
+  title: 'TEST - Tom Reed’s “For Members Only”: Black Perspectives on Local L.A. TV',
+  articleCategories: [
+    {
+      title: 'Featured'
+    },
+    {
+      title: 'Announcement'
+    }
+  ],
+  postDate: '2024-07-02T05:08:00-07:00',
+  contributors: [
+    {
+      byline: 'Written by',
+      contributor: 'Axa Liaux (external contributor)'
+    }
+  ],
+  aboutTheAuthor: '<p>Our guest writer is <strong>Jen Diamond</strong>. She wrote this entry</p>',
+  sectionHandle: 'ftvaArticle'
+}
+const parsedArticleCategories = mockFTVAArticleData.articleCategories.map(category => category.title).join(', ')
+// data for share button in slot
+const mockSocialList = {
+  buttonTitle: 'Share',
+  hasIcon: true,
+  dropdownList: [
+    {
+      dropdownItemTitle: 'Copy Link',
+      dropdownItemUrl: '',
+      iconName: 'svg-icon-ftva-social-link',
+    },
+    {
+      dropdownItemTitle: 'Email',
+      dropdownItemUrl: '',
+      iconName: 'svg-icon-ftva-social-email',
+    },
+    {
+      dropdownItemTitle: 'Facebook',
+      dropdownItemUrl: 'https://www.facebook.com/sharer/sharer.php?u=',
+      iconName: 'svg-icon-ftva-social-facebook',
+    },
+    {
+      dropdownItemTitle: 'X',
+      dropdownItemUrl: 'https://twitter.com/share?url=',
+      iconName: 'svg-icon-ftva-social-x',
+    },
+  ],
+}
+export function FTVAArticleDetailWShareButton() {
+  return {
+    data() {
+      return {
+        ...mockFTVAArticleData,
+        parsedArticleCategories,
+        mockSocialList
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    // The ShareButton needs globalstore logic, so its included in this story
+    setup() {
+      onMounted(() => {
+        const globalStore = useGlobalStore()
+
+        const updateWinWidth = () => {
+          globalStore.winWidth = window.innerWidth
+        }
+
+        updateWinWidth()
+
+        window.addEventListener('resize', updateWinWidth)
+
+        onBeforeUnmount(() => {
+          window.removeEventListener('resize', updateWinWidth)
+        })
+      })
+    },
+    components: { CardMeta, ButtonDropdown },
+    template: ` 
+      <card-meta
+          :category="parsedArticleCategories"
+          :title="title"
+          :bylineOne="contributors[0].contributor"
+          :dateCreated="postDate"
+          :text="aboutTheAuthor"
+          sectionHandle="ftvaArticle"
+      >
+      <template v-slot:sharebutton><ButtonDropdown button-title="Share" has-icon=true :dropdown-list="mockSocialList.dropdownList" /></template>
+      </card-meta>
   `,
   }
 }
