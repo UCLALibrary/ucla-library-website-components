@@ -34,7 +34,29 @@ export const Default = {
 }
 
 // GLOBAL FTVA RICH TEXT - ALL FTVA RICH TEXT OPTIONS
-export const FtvaRichText = {
+export const FtvaRichTextSameData = {
+  render: () => ({
+    data() {
+      return {
+        block: mockRichText,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { RichText },
+    template: `
+        <rich-text
+            :rich-text-content="block.richText"
+        />
+    `,
+  })
+}
+
+// GLOBAL FTVA RICH TEXT - ALL FTVA RICH TEXT OPTIONS
+export const FtvaRichTextFtvaData = {
   render: () => ({
     data() {
       return {
