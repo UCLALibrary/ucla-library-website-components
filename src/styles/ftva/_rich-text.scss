@@ -25,9 +25,10 @@
   }
 
   :deep(a) {
-    color: $accent-blue;
+    color: $body-grey;
     text-decoration-color: $page-blue;
-    text-underline-offset: 3px;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
 
     &:hover {
       color: $body-grey;
