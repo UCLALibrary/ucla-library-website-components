@@ -1,8 +1,8 @@
 <script setup>
-import { computed, onMounted, ref, watch, markRaw } from 'vue'
-import { useGlobalStore } from '@/stores/GlobalStore'
+import { markRaw, onMounted, ref, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
+import { useGlobalStore } from '@/stores/GlobalStore'
 import SiteBrandBar from '@/lib-components/SiteBrandBar'
 import HeaderMainResponsive from '@/lib-components/HeaderMainResponsive'
 import HeaderMain from '@/lib-components/HeaderMain'
@@ -34,7 +34,7 @@ onMounted(() => {
     isMobile.value = newWidth <= 1200
     currentHeader.value = markRaw(isMobile.value ? HeaderMainResponsive : HeaderMain)
   },
-    { immediate: true })
+  { immediate: true })
 
   watch(
     header,

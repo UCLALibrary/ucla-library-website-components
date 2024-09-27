@@ -1,14 +1,11 @@
 // Storybook default settings
 import { useGlobalStore } from '@/stores/GlobalStore'
 import HeaderSmart from '@/lib-components/HeaderSmart'
-import { onMounted, ref } from 'vue'
 
 export default {
   title: 'GLOBAL / Header Smart',
   component: HeaderSmart,
 }
-
-
 
 const mock = {
   secondary: [

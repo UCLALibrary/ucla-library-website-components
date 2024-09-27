@@ -7,10 +7,11 @@ import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
+
+import { useWindowSize } from '@vueuse/core' // Import useWindowSize from vueuse
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 import NavMenuItem from '@/lib-components/NavMenuItem.vue'
-import { useWindowSize } from '@vueuse/core' // Import useWindowSize from vueuse
 import { useTheme } from '@/composables/useTheme'
 
 import type { NavPrimaryItemType } from '@/types/types'
@@ -44,7 +45,6 @@ watch(
   },
   { deep: true, immediate: true }
 )
-
 
 const route = useRoute()
 // Refs to track menu states

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // components
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
-import { computed, ref, watch, shallowRef } from 'vue'
+import { computed, ref, shallowRef, watch } from 'vue'
 import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
@@ -46,7 +46,7 @@ const classes = computed(() => {
 })
 const parsedLinks = computed(() => {
   return (secondaryItems.value || []).map((obj) => {
-    console.log("nav-secondary:", JSON.stringify(obj))
+    console.log('nav-secondary:', JSON.stringify(obj))
     let support = 'list-item'
     if (obj?.classes)
       support = `${support} ${obj?.classes}`

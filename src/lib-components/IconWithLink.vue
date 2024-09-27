@@ -1,6 +1,7 @@
 <script>
 import { defineAsyncComponent } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
+
 export default {
   name: 'IconWithLink',
   components: {
