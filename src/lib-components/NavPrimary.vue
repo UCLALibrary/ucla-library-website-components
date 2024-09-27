@@ -7,10 +7,11 @@ import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
+
+import { useWindowSize } from '@vueuse/core' // Import useWindowSize from vueuse
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 import NavMenuItem from '@/lib-components/NavMenuItem.vue'
-import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'
 
 import type { NavPrimaryItemType } from '@/types/types'
@@ -34,7 +35,17 @@ const { items, currentPath, title, acronym } = defineProps({
   },
 })
 
-const globalStore = useGlobalStore()
+const primaryItems = ref(items || [])
+
+watch(
+  items,
+  (newVal, oldVal) => {
+    console.log('NavPrimary data updated from nuxt layout or app.vue when working with craft draft previews', newVal, oldVal)
+    primaryItems.value = newVal
+  },
+  { deep: true, immediate: true }
+)
+
 const route = useRoute()
 // Refs to track menu states
 const isOpened = ref(false) // tracks if main menu is open
@@ -74,20 +85,20 @@ const shouldRenderSmartLink = computed(() => title || acronym)
 const noChildren = computed(() => {
   if (!title)
     return []
-  return items.filter(item => !item.children || !item.children.length)
+  return primaryItems.value.filter(item => !item.children || !item.children.length)
 })
 
 const supportLinks = computed(() => {
-  return items.filter(item => !item.children || !item.children.length)
+  return primaryItems.value.filter(item => !item.children || !item.children.length)
 })
 
 const currentPathActiveIndex = computed(() => {
   const currentPathNew = currentPath || route?.path
-  return items.findIndex(item => item.url && currentPathNew.includes(item.url))
+  return primaryItems.value.findIndex(item => item.url && currentPathNew.includes(item.url))
 })
 
 const parsedItems = computed(() =>
-  items
+  primaryItems.value
     .filter(item => item.children && item.children.length)
     .map((item, index) => ({
       ...item,
@@ -129,10 +140,12 @@ function clearActive() {
   activeMenuIndex.value = currentPathActiveIndex.value
 }
 
-// MOBILE METHODS & EVENTS
-const isMobile = computed(() => {
-  return globalStore?.winWidth ? (globalStore?.winWidth <= 750) : false // 750 matches {$small} in _variables.scss
-})
+// Replace globalStore logic for window width with useWindowSize
+const { width } = useWindowSize()
+
+// Use computed to check if it's mobile based on window width
+const isMobile = computed(() => width.value <= 750) // Use 750px for mobile breakpoint
+
 // toggle Mobile-only menu
 function toggleMobileMenu() {
   // close others
@@ -182,7 +195,10 @@ onMounted(() => {
     :class="classes"
   >
     <!-- item top contains logos, etc -->
-    <div v-if="themeSettings.renderItemTop" class="item-top">
+    <div
+      v-if="themeSettings.renderItemTop"
+      class="item-top"
+    >
       <SmartLink
         v-if="shouldRenderSmartLink"
         to="/"
@@ -226,7 +242,10 @@ onMounted(() => {
         />
       </a>
     </div>
-    <div v-else-if="isMobile && themeSettings.headerText" class="item-top-mobile">
+    <div
+      v-else-if="isMobile && themeSettings.headerText"
+      class="item-top-mobile"
+    >
       {{ themeSettings.headerText }}
     </div>
 
@@ -234,7 +253,10 @@ onMounted(() => {
 
     <!-- search button is placed before menu so that it can be easily kept at top when menu expands -->
     <!-- more menu was added in later version of this component and is not rendered at all in default -->
-    <div v-if="themeSettings.showSearch" class="more-menu">
+    <div
+      v-if="themeSettings.showSearch"
+      class="more-menu"
+    >
       <ButtonLink
         v-if="!mobileMenuIsOpened"
         class="search-button"
@@ -263,13 +285,19 @@ onMounted(() => {
         <IconMenuClose class="icon-menu-close" />
       </ButtonLink>
       <!-- navSearch is loaded into this a slot by HeaderSticky so we don't have to prop drill  -->
-      <div class="slot-container" :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]">
+      <div
+        class="slot-container"
+        :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
+      >
         <slot name="additional-menu" />
       </div>
     </div>
 
     <!-- this is the primary menu and first in the tab index -->
-    <ul class="menu" :class="[{ 'is-opened-mobile': mobileMenuIsOpened }]">
+    <ul
+      class="menu"
+      :class="[{ 'is-opened-mobile': mobileMenuIsOpened }]"
+    >
       <NavMenuItem
         v-for="(item, index) in parsedItems"
         :key="`NavMenuItem-${item.name}`"
@@ -282,7 +310,8 @@ onMounted(() => {
       >
         <!-- insert caret icon into NavMenuItem slot if theme calls for it -->
         <span
-          v-if="themeSettings.horizontalMobileMenu && isMobile" class="caret"
+          v-if="themeSettings.horizontalMobileMenu && isMobile"
+          class="caret"
           :class="{ 'is-active': item.isActive }"
         >
           <span class="chevron">
@@ -323,7 +352,10 @@ onMounted(() => {
       </div>
     </div>
     <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
-    <div v-if="isMobile && mobileMenuIsOpened" class="mobile-menu-slot">
+    <div
+      v-if="isMobile && mobileMenuIsOpened"
+      class="mobile-menu-slot"
+    >
       <slot name="additional-mobile-menu-items" />
     </div>
     <div class="background-white" />
