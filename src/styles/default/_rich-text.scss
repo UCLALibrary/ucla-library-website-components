@@ -20,6 +20,7 @@
   :deep(h5) {
     color: var(--color-black);
     @include step-0;
+    margin-bottom: 18px;
   }
 
   :deep(p),

@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import { mock } from './mock/Flexible_RichText'
+import { mock } from './mock/Flexible_FTVARichText'
 import FlexibleRichText from '@/lib-components/Flexible/RichText'
 
 export default {

@@ -1,10 +1,80 @@
 .ftva.rich-text {
-  .section-title {
-    @include step-3;
-    color: var(--color-primary-blue-03);
-    margin-bottom: var(--space-xl);
-    color: green;
+  :deep(h3) {
+    color: $body-grey;
+  }
+
+  :deep(h4) {
+    color: $body-grey;
+  }
+
+  :deep(h5) {
+    color: $body-grey;
+  }
+
+  :deep(ul),
+  :deep(ol) {
+    padding: 0 16px;
+    @include ftva-body;
+
+    li {
+      margin: var(--space-m) 0;
+      padding-left: 16px;
+      @include step-0;
+    }
+  }
+
+  :deep(ol) {
+    margin-left: 24px;
+    color: $body-grey;
+  }
+
+  :deep(ul) {
+    list-style: none;
+    list-style-position: outside;
   }
 
 
+
+  :deep(ul li) {
+    background-image: url("ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg");
+
+    // How to make the list-style diamond url SVG color: $page-blue; ??
+    path {
+      fill: red;
+    }
+
+    .svg__icon-ftva-diamond {
+      background-color: yellow;
+
+      path {
+        fill: red;
+      }
+
+      .svg__fill--medium-blue {
+        path {
+          fill: aqua;
+        }
+      }
+    }
+
+    //filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
+    background-repeat: no-repeat;
+    background-position-y: 10px; // This will shift the bullet down as needed
+    background-size: 12px;
+    padding-left: 24px;
+    overflow: hidden;
+  }
+
+  :deep(table) {
+    border: 1px solid $body-grey;
+
+    th {
+      color: $body-grey;
+    }
+
+    strong {
+      color: $body-grey;
+      font-weight: 500;
+    }
+  }
 }
