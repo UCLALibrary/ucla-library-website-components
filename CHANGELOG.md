@@ -1,3 +1,10 @@
+# [3.23.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.22.1...v3.23.0) (2024-09-27)
+
+
+### Features
+
+* Apps-2951 card meta changes for article detail page ([#618](https://github.com/UCLALibrary/ucla-library-website-components/issues/618)) ([ace6bfe](https://github.com/UCLALibrary/ucla-library-website-components/commit/ace6bfed531e1ac7a4ba39852adfb4712b994074))
+
 ## [3.22.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.22.0...v3.22.1) (2024-09-25)
 
 

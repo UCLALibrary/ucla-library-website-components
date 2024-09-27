@@ -4,7 +4,7 @@
   .category {
     @include ftva-button-link;
     color: $accent-blue;
-    margin: 0 0 20px;
+    margin: 0 0 12px;
   }
 
   .title {
@@ -14,7 +14,7 @@
   }
 
   .title-no-link {
-    @include ftva-h3;
+    @include ftva-h2;
     color: $heading-grey;
     margin: 0 0 24px;
   }
@@ -28,6 +28,18 @@
     margin-bottom: 8px;
   }
 
+  .byline-group {
+    flex-direction: row;
+    @include ftva-body-2;
+    color: $medium-grey;
+    .date-created::before {
+      content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
+      margin: 0 8px;
+      padding-top: -10px;
+      filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
+    }
+  }
+
   // styles the rich-text components
   // introduction and guestSpeaker
   .rich-text {
@@ -36,15 +48,35 @@
   }
 
   .sharebutton-slot {
-    margin-top: 28px;
-
+    margin-top: 20px;
+    margin-bottom: 36px;
     &:empty {
       display: none;
+    }
+    @media #{$small} {
+      margin-top: 12px;
+      margin-bottom: 28px;
     }
   }
 
   .parsed-start-time {
     @include ftva-emphasized-subtitle;
     color: $accent-blue;
+  }
+
+  &.ftvaArticle {
+    // on card-meta with sectionHandle prop = 'ftvaArticle'
+    // we have a unique 'About the Author' section which uses different styles
+    .heading-about-author {
+      @include ftva-subtitle-2;
+      color: $accent-blue;
+      padding-bottom: 4px;
+    }
+    .text {
+      :deep(.parsed-content) > p {
+        @include ftva-body-2;
+        color: $medium-grey;
+      }
+    }
   }
 }
