@@ -21,10 +21,12 @@
   :deep(li),
   :deep(div) {
     @include ftva-body;
+    color: $body-grey;
   }
 
   :deep(a) {
     color: $accent-blue;
+    text-decoration-color: $page-blue;
     text-underline-offset: 3px;
 
     &:hover {
