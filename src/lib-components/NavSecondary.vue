@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // components
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
-import { ref, computed, watch } from 'vue'
+import { computed, ref, watch, shallowRef } from 'vue'
 import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
@@ -22,13 +22,17 @@ const { items, isMicrosite } = defineProps({
   },
 })
 
-const secondaryItems = ref(items || [])
+// Convert `items` to a shallow reactive reference
+const itemsRef = shallowRef(items) // Or you can use `toRef(props, 'items')`
+
+const secondaryItems = ref(itemsRef.value || [])
+console.log(items, secondaryItems.value)
 
 watch(
-  items,
+  itemsRef, // This is now a reactive source
   (newVal, oldVal) => {
-    console.log('NavSecondary updated from parent page', newVal, oldVal)
-    secondaryItems.value = newVal
+    console.log('NavSecondary updated from nuxt layout or nuxt app.vue', newVal, oldVal)
+    secondaryItems.value = newVal || []
   },
   { deep: true, immediate: true }
 )
@@ -44,8 +48,8 @@ const parsedLinks = computed(() => {
   return (secondaryItems.value || []).map((obj) => {
     console.log("nav-secondary:", JSON.stringify(obj))
     let support = 'list-item'
-    if (obj.classes)
-      support = `${support} ${obj.classes}`
+    if (obj?.classes)
+      support = `${support} ${obj?.classes}`
     return {
       ...obj,
       classes: support,

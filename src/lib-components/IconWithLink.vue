@@ -1,12 +1,10 @@
 <script>
 import { defineAsyncComponent } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
-import SvgIconFtvaGcal from 'ucla-library-design-tokens/assets/svgs/icon-ftva-gcal.svg'
 export default {
   name: 'IconWithLink',
   components: {
     SmartLink,
-    SvgIconFtvaGcal,
     SvgIconConsultation: defineAsyncComponent(() =>
       import('ucla-library-design-tokens/assets/svgs/icon-chat.svg')
     ),
@@ -140,9 +138,9 @@ export default {
       )
     ),
 
-    /*SvgIconFtvaGcal: defineAsyncComponent(() =>
+    SvgIconFtvaGcal: defineAsyncComponent(() =>
       import('ucla-library-design-tokens/assets/svgs/icon-ftva-gcal.svg')
-    ),*/
+    ),
 
     SvgIconFtvaOutlook: defineAsyncComponent(() =>
       import(

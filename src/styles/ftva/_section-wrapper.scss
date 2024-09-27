@@ -1,9 +1,4 @@
 .ftva.section-wrapper {
-    .section-header {
-        // Set to zero to remove margin under Section Title
-        // Explore Other Series
-        margin-bottom: 0px;
-    }
 
     // default link styles for FTVA
     .section-link {
@@ -60,36 +55,6 @@
         // FTVA uses different page max-width
         >:deep(*) {
             max-width: var(--ftva-container-max-width);
-        }
-    }
-
-    // Breakpoints
-    @media #{$medium} {
-        .section-header {
-            margin-bottom: 10px;
-        }
-
-        .section-link {
-            margin-bottom: 20px;
-        }
-
-        &.theme-paleblue {
-            --color-theme: #{$page-blue};
-            --color-children-theme: var(--color-white);
-
-            :deep(*) {
-                .section-teaser-list {
-                    .list {
-                        background-color: var(--color-theme);
-                    }
-
-                    .block-card-three-column {
-                        .meta {
-                            background-color: var(--color-children-theme);
-                        }
-                    }
-                }
-            }
         }
     }
 }
