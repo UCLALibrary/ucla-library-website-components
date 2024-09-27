@@ -163,6 +163,12 @@ interface FlexibleHighlight {
   to: string
 }
 
+export interface FlexibleHorizontalDividerBlock {
+  id: string
+  typeHandle: string
+  horizontalDivider: boolean
+}
+
 interface FlexibleImpactNumberCard {
   id: string
   title: string
