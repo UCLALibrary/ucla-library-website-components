@@ -1,3 +1,11 @@
+# [3.24.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.23.0...v3.24.0) (2024-09-27)
+
+
+### Features
+
+*  APPS-2956 flexible-divider-way finder ([#621](https://github.com/UCLALibrary/ucla-library-website-components/issues/621)) ([125cfe7](https://github.com/UCLALibrary/ucla-library-website-components/commit/125cfe7235b5d080a84a218682f5402b1b10f843))
+* APPS-2916 fix hydration and undefined errors ([#623](https://github.com/UCLALibrary/ucla-library-website-components/issues/623)) ([03c8948](https://github.com/UCLALibrary/ucla-library-website-components/commit/03c894805e47c68f6ef419c175596e7e2203d007)), closes [#611](https://github.com/UCLALibrary/ucla-library-website-components/issues/611)
+
 # [3.23.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.22.1...v3.23.0) (2024-09-27)
 
 
