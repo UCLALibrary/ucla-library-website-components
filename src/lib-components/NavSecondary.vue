@@ -1,17 +1,15 @@
 <script lang="ts" setup>
 // components
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
-import { computed, ref, shallowRef, watch } from 'vue'
+import { computed, onMounted, ref, toRefs, watch } from 'vue'
 import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 
-// vue
-
 // types
 import type { NavSecondaryItemType } from '@/types/types'
 
-const { items, isMicrosite } = defineProps({
+const props = defineProps({
   items: {
     type: Array as PropType<NavSecondaryItemType[]>,
     default: () => [],
@@ -22,31 +20,36 @@ const { items, isMicrosite } = defineProps({
   },
 })
 
-// Convert `items` to a shallow reactive reference
-const itemsRef = shallowRef(items) // Or you can use `toRef(props, 'items')`
+const { items, isMicrosite } = toRefs(props)
 
-const secondaryItems = ref(itemsRef.value || [])
-console.log(items, secondaryItems.value)
+const secondaryItems = ref(items.value || [])
+const isMicrositeRef = ref(isMicrosite.value)
+// console.log("initial prop values in NavSecondary", items, secondaryItems.value)
 
-watch(
-  itemsRef, // This is now a reactive source
-  (newVal, oldVal) => {
-    console.log('NavSecondary updated from nuxt layout or nuxt app.vue', newVal, oldVal)
-    secondaryItems.value = newVal || []
-  },
-  { deep: true, immediate: true }
-)
+onMounted(() => {
+  // Moved watch inside onMounted hook
+  watch(
+    [items, isMicrosite],
+    ([newItems, newIsMicrosite]) => {
+      console.log('NavSecondary updated from nuxt layout or nuxt app.vue', newItems, newIsMicrosite)
+      secondaryItems.value = newItems || []
+      isMicrositeRef.value = newIsMicrosite
+    },
+    { deep: true }
+  )
+})
 
 const classes = computed(() => {
   return [
     'flex-container',
-    { 'flex-container-not-microsite': !isMicrosite },
-    { 'flex-container-microsite': isMicrosite },
+    { 'flex-container-not-microsite': !isMicrositeRef.value },
+    { 'flex-container-microsite': isMicrositeRef.value },
   ]
 })
+
 const parsedLinks = computed(() => {
   return (secondaryItems.value || []).map((obj) => {
-    console.log('nav-secondary:', JSON.stringify(obj))
+    // console.log('nav-secondary:', JSON.stringify(obj))
     let support = 'list-item'
     if (obj?.classes)
       support = `${support} ${obj?.classes}`
@@ -60,6 +63,7 @@ const parsedLinks = computed(() => {
 const parsedItemsMinusAccount = computed(() => {
   return parsedLinks?.value?.slice(0, -1)
 })
+
 const accountLink = computed(() => {
   return parsedLinks.value && parsedLinks.value.length > 0 ? parsedLinks?.value[parsedLinks?.value?.length - 1] : null
 })
@@ -72,7 +76,7 @@ const accountLink = computed(() => {
   >
     <div :class="classes">
       <a
-        v-if="isMicrosite"
+        v-if="isMicrositeRef"
         href="https://www.library.ucla.edu"
         target="_blank"
         aria-label="UCLA Library home page"
@@ -85,7 +89,7 @@ const accountLink = computed(() => {
 
       <div class="navigation-list">
         <ul
-          v-if="!isMicrosite"
+          v-if="!isMicrositeRef"
           class="list"
         >
           <li
@@ -104,7 +108,7 @@ const accountLink = computed(() => {
         </ul>
 
         <ButtonLink
-          v-if="!isMicrosite && accountLink"
+          v-if="!isMicrositeRef && accountLink"
           :label="accountLink?.name"
           class="account-button"
           :link-target="accountLink?.target"
@@ -113,7 +117,7 @@ const accountLink = computed(() => {
         />
 
         <ul
-          v-if="isMicrosite"
+          v-if="isMicrositeRef"
           class="link-list"
         >
           <li
