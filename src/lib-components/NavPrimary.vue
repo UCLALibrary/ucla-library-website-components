@@ -4,7 +4,7 @@ import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.
 import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
 import IconMenuClose from 'ucla-library-design-tokens/assets/svgs/icon-ftva-circle-x.svg'
 import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, toRefs, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
 
@@ -16,7 +16,7 @@ import { useTheme } from '@/composables/useTheme'
 
 import type { NavPrimaryItemType } from '@/types/types'
 
-const { items, currentPath, title, acronym } = defineProps({
+const props = defineProps({
   items: {
     type: Array as PropType<NavPrimaryItemType[]>,
     default: () => [],
@@ -35,16 +35,12 @@ const { items, currentPath, title, acronym } = defineProps({
   },
 })
 
-const primaryItems = ref(items || [])
+const { items, currentPath, title, acronym } = toRefs(props)
 
-watch(
-  items,
-  (newVal, oldVal) => {
-    console.log('NavPrimary data updated from nuxt layout or app.vue when working with craft draft previews', newVal, oldVal)
-    primaryItems.value = newVal
-  },
-  { deep: true, immediate: true }
-)
+const primaryItems = ref(items.value || [])
+const currentPathRef = ref(currentPath.value)
+const titleRef = ref(title.value)
+const acronymRef = ref(acronym.value)
 
 const route = useRoute()
 // Refs to track menu states
@@ -59,8 +55,8 @@ const classes = computed(() => [
   { 'is-opened': isOpened.value || slotIsOpened.value },
   { 'slot-is-opened': slotIsOpened.value }, // sometimes we need to style different depending on which menu is open
   { 'not-hovered': activeMenuIndex.value === -1 },
-  { 'has-title': title },
-  { 'has-acronym': acronym },
+  { 'has-title': titleRef.value },
+  { 'has-acronym': acronymRef.value },
   { 'is-opened-mobile': mobileMenuIsOpened.value },
   theme?.value || ''
 ])
@@ -81,9 +77,9 @@ const themeSettings = computed(() => {
       }
   }
 })
-const shouldRenderSmartLink = computed(() => title || acronym)
+const shouldRenderSmartLink = computed(() => titleRef.value || acronymRef.value)
 const noChildren = computed(() => {
-  if (!title)
+  if (!titleRef.value)
     return []
   return primaryItems.value.filter(item => !item.children || !item.children.length)
 })
@@ -93,7 +89,7 @@ const supportLinks = computed(() => {
 })
 
 const currentPathActiveIndex = computed(() => {
-  const currentPathNew = currentPath || route?.path
+  const currentPathNew = currentPathRef.value || route?.path
   return primaryItems.value.findIndex(item => item.url && currentPathNew.includes(item.url))
 })
 
@@ -185,6 +181,18 @@ function searchClick() {
 
 // Mounted
 onMounted(() => {
+  // Moved watch inside onMounted hook
+  watch(
+    [items, currentPath, title, acronym],
+    ([newItems, newCurrentPath, newTitle, newAcronym]) => {
+      console.log('NavPrimary data updated from nuxt layout or app.vue when working with craft draft previews', newItems, newCurrentPath, newTitle, newAcronym)
+      primaryItems.value = newItems || []
+      currentPathRef.value = newCurrentPath
+      titleRef.value = newTitle
+      acronymRef.value = newAcronym
+    },
+    { deep: true }
+  )
   activeMenuIndex.value = currentPathActiveIndex.value
 })
 </script>
@@ -202,17 +210,17 @@ onMounted(() => {
       <SmartLink
         v-if="shouldRenderSmartLink"
         to="/"
-        :aria-label="title ? '' : `UCLA Library home page`"
+        :aria-label="titleRef ? '' : `UCLA Library home page`"
       >
         <div
-          v-if="title"
+          v-if="titleRef"
           class="title"
         >
-          <span class="full-title"> {{ title }} </span>
+          <span class="full-title"> {{ titleRef }} </span>
           <span
-            v-if="acronym"
+            v-if="acronymRef"
             class="acronym"
-          > {{ acronym }} </span>
+          > {{ acronymRef }} </span>
         </div>
         <SvgLogoUclaLibrary
           v-else
@@ -223,17 +231,17 @@ onMounted(() => {
       <a
         v-else
         href="/"
-        :aria-label="title ? '' : `UCLA Library home page`"
+        :aria-label="titleRef ? '' : `UCLA Library home page`"
       >
         <div
-          v-if="title"
+          v-if="titleRef"
           class="title"
         >
-          <span class="full-title"> {{ title }} </span>
+          <span class="full-title"> {{ titleRef }} </span>
           <span
-            v-if="acronym"
+            v-if="acronymRef"
             class="acronym"
-          > {{ acronym }} </span>
+          > {{ acronymRef }} </span>
         </div>
         <SvgLogoUclaLibrary
           v-else
@@ -335,7 +343,7 @@ onMounted(() => {
     </ul>
 
     <div
-      v-if="!title"
+      v-if="!titleRef"
       class="support-links"
     >
       <div

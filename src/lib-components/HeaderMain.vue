@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, onMounted, ref, toRefs, watch } from 'vue'
 import type { PropType } from 'vue'
 import NavPrimary from '@/lib-components/NavPrimary.vue'
 import NavSecondary from '@/lib-components/NavSecondary.vue'
@@ -7,39 +7,60 @@ import NavSecondary from '@/lib-components/NavSecondary.vue'
 // types
 import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
 
-const { primaryNav, secondaryNav, title } = defineProps(
-  {
-    primaryNav: {
-      // This is an array of objects, with each object shaped like {name, url, items:[{text, to, target}]}
-      type: Array as PropType<NavPrimaryItemType[]>,
-      default: () => [],
-    },
-    secondaryNav: {
-      type: Array as PropType<NavSecondaryItemType[]>,
-      default: () => [],
-    },
-    title: {
-      type: String,
-      default: '',
-    },
+// Define props and destructure them
+const props = defineProps({
+  primaryNav: {
+    type: Array as PropType<NavPrimaryItemType[]>,
+    default: () => [],
   },
-)
+  secondaryNav: {
+    type: Array as PropType<NavSecondaryItemType[]>,
+    default: () => [],
+  },
+  title: {
+    type: String,
+    default: '',
+  },
+})
 
+// Use `toRefs` to make each prop reactive individually
+const { primaryNav, secondaryNav, title } = toRefs(props)
+
+// Set up reactive refs for each prop
+const primaryNavRef = ref(primaryNav.value)
+const secondaryNavRef = ref(secondaryNav.value)
+const titleRef = ref(title.value)
+
+// Move the watcher inside onMounted hook
+onMounted(() => {
+  watch(
+    [primaryNav, secondaryNav, title],
+    ([newPrimaryNav, newSecondaryNav, newTitle]) => {
+      // console.log("HeaderMain: new values", newPrimaryNav, newSecondaryNav, newTitle)
+      primaryNavRef.value = newPrimaryNav
+      secondaryNavRef.value = newSecondaryNav
+      titleRef.value = newTitle
+    },
+    { deep: true }
+  )
+})
+
+// Computed property to parse the title
 const parseTitle = computed(() => {
-  return !!title
+  return !!titleRef.value
 })
 </script>
 
 <template>
   <header class="header-main">
     <NavSecondary
-      :items="secondaryNav"
+      :items="secondaryNavRef"
       :is-microsite="parseTitle"
     />
     <NavPrimary
       class="primary"
-      :items="primaryNav"
-      :title="title"
+      :items="primaryNavRef"
+      :title="titleRef"
     />
   </header>
 </template>
