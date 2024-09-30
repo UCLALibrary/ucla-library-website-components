@@ -26,13 +26,30 @@
 
   :deep(a) {
     color: $body-grey;
-    text-decoration-color: $page-blue;
+    text-decoration-color: $grey-blue;
     text-decoration-thickness: 3px;
     text-underline-offset: 4px;
 
     &:hover {
       color: $body-grey;
     }
+  }
+
+  :deep(a[target="_blank"]) {
+    position: relative;
+  }
+
+  :deep(a[target="_blank"]:after) {
+    content: url("ucla-library-design-tokens/assets/svgs/icon-ftva-external-link.svg");
+    display: inline-block;
+    background-size: contain;
+    scale: 1.25;
+    margin-left: .3em;
+    width: 1em;
+    height: 1em;
+    vertical-align: text-top;
+
+
   }
 
   :deep(ol) {
