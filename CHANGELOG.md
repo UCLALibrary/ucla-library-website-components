@@ -1,3 +1,10 @@
+## [3.24.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.24.0...v3.24.1) (2024-09-28)
+
+
+### Bug Fixes
+
+* move watchers to onmounted and remove immediate:true for some watchers we don't need to run it immediately ([#624](https://github.com/UCLALibrary/ucla-library-website-components/issues/624)) ([e1ec758](https://github.com/UCLALibrary/ucla-library-website-components/commit/e1ec758471df373e604353851ed9c36738896184))
+
 # [3.24.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.23.0...v3.24.0) (2024-09-27)
 
 
