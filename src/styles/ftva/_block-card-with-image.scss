@@ -35,6 +35,10 @@
         &:hover>a.title {
             text-decoration: none;
         }
+        
+        .byline-group .date-created::before {
+            content: unset;
+        }
     }
 
     .top-text {
@@ -80,7 +84,8 @@
                 color: none;
                 text-decoration: none;
                 text-decoration-thickness: none;
-                text-decoration-color: none;
+                -webkit-text-decoration-color: none;
+                        text-decoration-color: none;
                 text-underline-offset: none;
             }
         }

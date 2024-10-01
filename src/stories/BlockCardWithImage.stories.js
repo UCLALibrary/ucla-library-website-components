@@ -120,16 +120,14 @@ FTVAItemsNoImage.args = {
   cardIsLink: true
 }
 
-export const FTVAItemsDateCreated = Template.bind({})
-FTVAItemsDateCreated.args = {
+export const FTVAItemsPostedDate = Template.bind({})
+FTVAItemsPostedDate.args = {
   image: null,
   title: 'Black Perspectives on Local L.A. TV',
   category: null,
   theme: 'ftva',
   to: '/some/url/here/',
   alternativeFullName: null,
-  // language: 'zh',
-  // startDate: '2022-03-31T07:00:00+00:00',
   startDate: null,
   endDate: null,
   text: '',
@@ -138,5 +136,4 @@ FTVAItemsDateCreated.args = {
   locations: [],
   cardIsLink: true,
   dateCreated: '2022-01-31T07:00:00+00:00',
-  bylineOne: 'Jane Doe'
 }
