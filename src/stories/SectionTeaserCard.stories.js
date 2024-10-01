@@ -415,6 +415,7 @@ const parsedFTVABlogSeries = mockFTVABlogSeries.map((item) => {
   return {
     to: item.to,
     title: item.title,
+    category: item.articleCategories[0].title,
     image: item.imageCarousel[0].image[0],
     postDate: item.postDate,
   }
