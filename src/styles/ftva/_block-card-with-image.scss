@@ -20,13 +20,6 @@
         }
     }
 
-    :deep(.card-meta.card-meta-items) {
-        display: grid;
-        grid-template-rows: -webkit-min-content 1fr -webkit-min-content;
-        grid-template-rows: -webkit-max-content 1fr -webkit-max-content;
-        grid-template-rows: max-content 1fr max-content;
-    }
-
     :deep(.card-meta) {
         position: relative;
         margin: 0px;
