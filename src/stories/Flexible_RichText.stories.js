@@ -6,7 +6,6 @@ import { mockRichText } from './mock/RichText'
 // Component
 import FlexibleRichText from '@/lib-components/Flexible/RichText'
 
-
 // Storybook settings
 export default {
   title: 'FLEXIBLE / Rich Text',
