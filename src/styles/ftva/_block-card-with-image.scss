@@ -36,8 +36,21 @@
             text-decoration: none;
         }
 
-        .byline-group .date-created::before {
-            content: unset;
+        .byline-group {
+            position: absolute;
+            bottom: var(--space-s);
+
+            .date-created::before {
+                content: unset;
+            }
+
+            .schedule-item.date-created {
+                // Not yet included in tokens
+                // @include ftva-card-subtitle-2;
+                // Hardcoded:
+                color: #676767;
+                font-weight: 500;
+            }
         }
     }
 
