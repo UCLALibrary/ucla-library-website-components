@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import type { PropType } from 'vue'
 
 // COMPONENTS
@@ -27,7 +30,10 @@ const { block } = defineProps({
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .rich-text {
   .section-title {
     @include step-3;
