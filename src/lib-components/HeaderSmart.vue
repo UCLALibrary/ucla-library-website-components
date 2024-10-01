@@ -30,7 +30,7 @@ const isMobile = ref(false)
 onMounted(() => {
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
-    console.log('newWidth', newWidth)
+    // console.log('newWidth', newWidth)
     isMobile.value = newWidth <= 1200
     currentHeader.value = markRaw(isMobile.value ? HeaderMainResponsive : HeaderMain)
   },
@@ -39,11 +39,11 @@ onMounted(() => {
   watch(
     header,
     (newVal, oldVal) => {
-      console.log('Header updated from parent page', newVal, oldVal)
+      // console.log('Header updated from parent page', newVal, oldVal)
       primaryMenuItems.value = newVal.primary
       secondaryMenuItems.value = newVal.secondary
     },
-    { deep: true, immediate: true }
+    { deep: true }
   )
 })
 </script>
