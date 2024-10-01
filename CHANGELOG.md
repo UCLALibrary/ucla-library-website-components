@@ -1,3 +1,10 @@
+# [3.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.24.1...v3.25.0) (2024-10-01)
+
+
+### Features
+
+* APPS-2958 Component: Create FTVA Variation of RichText component ([#622](https://github.com/UCLALibrary/ucla-library-website-components/issues/622)) ([e772c01](https://github.com/UCLALibrary/ucla-library-website-components/commit/e772c014bad45fbd587f1fda8f0964a15d225aeb))
+
 ## [3.24.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.24.0...v3.24.1) (2024-09-28)
 
 
