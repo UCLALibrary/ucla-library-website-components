@@ -2,14 +2,18 @@ import { computed } from 'vue'
 
 // Mock Data
 import { mockRichText } from './mock/RichText'
-import { mockFtvaRichText } from './mock/FTVA_RichText'
+
+// Component
 import FlexibleRichText from '@/lib-components/Flexible/RichText'
 
+
+// Storybook settings
 export default {
   title: 'FLEXIBLE / Rich Text',
   component: FlexibleRichText,
 }
 
+// Variations of stories below
 export function Default() {
   return {
     data() {
@@ -30,7 +34,7 @@ export function Ftva() {
   return {
     data() {
       return {
-        block: mockFtvaRichText,
+        block: mockRichText,
       }
     },
     provide() {
