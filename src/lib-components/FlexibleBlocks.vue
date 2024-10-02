@@ -1,7 +1,13 @@
 <script setup>
 import { computed, defineAsyncComponent } from 'vue'
+import { useTheme } from '@/composables/useTheme'
+
+// LODASH
 import _kebabCase from 'lodash/kebabCase'
 import omit from 'lodash/omit'
+
+
+// COMPONENTS
 import SectionWrapper from './SectionWrapper.vue'
 import DividerWayFinder from './DividerWayFinder.vue'
 import SectionHeader from './SectionHeader.vue'
@@ -12,6 +18,9 @@ const props = defineProps({
     default: () => [],
   },
 })
+
+// THEME
+const theme = useTheme()
 
 // Async components with explicit definitions
 const FlexibleAssociatedTopicCards = defineAsyncComponent(() =>
@@ -90,6 +99,10 @@ const NEVER_GRAY = [
   'flexible-grid-gallery-cards',
 ]
 
+const classes = computed(() => {
+  return ['flexible-blocks', theme?.value || '']
+})
+
 const parsedBlocks = computed(() => {
   // Map over the blocks and add additional properties to each block
   const output = props.blocks.map(obj => ({
@@ -158,15 +171,13 @@ function getComponent(name) {
 
 <template>
   <SectionWrapper
-    class="flexible-blocks"
+    :class="classes"
     :no-margins="true"
   >
     <SectionHeader class="more-information">
       More Information
     </SectionHeader>
-    <!-- {{ parsedBlocks }}
-    <br>
-    {{ blocks }} -->
+
     <div
       v-for="(block, index) in parsedBlocks"
       :key="`flexibleblocks-${index}`"
@@ -186,9 +197,9 @@ function getComponent(name) {
         <component
           :is="getComponent(block.componentName)"
           :block="block.mediaGalleryStyle === 'halfWidth'
-            ? block
-            : omit(block, ['sectionTitle', 'sectionSummary'])
-          "
+      ? block
+      : omit(block, ['sectionTitle', 'sectionSummary'])
+      "
           class="flexible-block"
         />
       </SectionWrapper>
@@ -196,7 +207,10 @@ function getComponent(name) {
   </SectionWrapper>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .flexible-blocks {
   .more-information {
     @include visually-hidden;
