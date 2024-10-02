@@ -44,6 +44,9 @@ const FlexibleGridGalleryCards = defineAsyncComponent(() =>
 const FlexibleHighlight = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/Highlight.vue')
 )
+const FlexibleHorizontalDivider = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/HorizontalDivider.vue')
+)
 const FlexibleImpactNumberCards = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/ImpactNumberCards.vue')
 )
@@ -75,6 +78,7 @@ const components = {
   'flexible-form': FlexibleForm,
   'flexible-grid-gallery-cards': FlexibleGridGalleryCards,
   'flexible-highlight': FlexibleHighlight,
+  'flexible-horizontal-divider': FlexibleHorizontalDivider,
   'flexible-impact-number-cards': FlexibleImpactNumberCards,
   'flexible-impact-numbers-carousel': FlexibleImpactNumbersCarousel,
   'flexible-media-gallery': FlexibleMediaGallery,
@@ -106,34 +110,39 @@ const classes = computed(() => {
 const parsedBlocks = computed(() => {
   // Map over the blocks and add additional properties to each block
   const output = props.blocks.map(obj => ({
-    ...obj, // Spread the properties of the original block
-    componentName: convertName(obj.typeHandle), // Convert the typeHandle to a component name
-    theme: 'white', // Set the default theme to 'white'
-    needsDivider: false, // Set the default divider need to false
+    ...obj,
+    componentName: convertName(obj.typeHandle),
+    theme: 'white', // Default theme to white
+    needsDivider: false, // Default no divider
   }))
 
-  // Iterate over the blocks to set the theme and divider need
+  // Iterate over blocks and set the theme/divider logic
   output.forEach((block, index, arr) => {
-    // If the block is not the first one, the previous block's theme is 'white',
-    // the block's component name is not in the NEVER_GRAY list, and the block is not the last one
-    if (
-      index > 0
-      && arr[index - 1].theme === 'white'
-      && !NEVER_GRAY.includes(block.componentName)
-      && index < arr.length - 1
-    )
-      block.theme = 'gray' // Set the block's theme to 'gray'
+    // Apply specific theming for ftva
+    if (theme?.value === 'ftva') {
+      block.theme = 'white' // Force theme to white
+      block.needsDivider = false // No dividers in ftva theme
+    } else {
+      // Normal theme logic for other themes
+      if (
+        index > 0
+        && arr[index - 1].theme === 'white'
+        && !NEVER_GRAY.includes(block.componentName)
+        && index < arr.length - 1
+      ) {
+        block.theme = 'gray' // Apply gray theme when needed
+      }
 
-    // If the block is not the first one, and both the block and the previous block have a theme of 'white'
-    if (
-      index > 0
-      && block.theme === 'white'
-      && arr[index - 1].theme === 'white'
-    )
-      block.needsDivider = true // Set the block's divider need to true
+      if (
+        index > 0
+        && block.theme === 'white'
+        && arr[index - 1].theme === 'white'
+      ) {
+        block.needsDivider = true // Set divider if needed
+      }
+    }
   })
 
-  // Filter the blocks to only include those whose component name is a key in the components object
   return output.filter(block =>
     Object.keys(components).includes(block.componentName)
   )

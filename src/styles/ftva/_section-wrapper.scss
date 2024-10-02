@@ -1,4 +1,13 @@
 .ftva.section-wrapper {
+
+    // remove max-width from rich-text inside flexible-blocks for ftva
+    &.flexible-block {
+        :deep(.rich-text) {
+            max-width: none;
+            padding-right: 0px;
+        }
+    }
+
     .section-header {
         // Set to zero to remove margin under Section Title
         // Explore Other Series
@@ -93,4 +102,3 @@
         }
     }
 }
-
