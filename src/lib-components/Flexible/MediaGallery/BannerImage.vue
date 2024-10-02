@@ -78,7 +78,8 @@ const classes = computed(() => {
       </div>
       <MediaBadge v-if="nItems > 1" :is-expanded="expanded">
         <span v-if="theme">
-          View all {{ nItems }} images
+          <span v-if="expanded">Collapse Gallery</span>
+          <span v-else>View all {{ nItems }} images</span>
         </span>
         <span v-else>
           {{ nItems }}
@@ -86,7 +87,7 @@ const classes = computed(() => {
         </span>
 
         <!-- Toggle Icons -->
-        <SvgIconFtvaDropTriangle v-if="theme" class="drop-triangle" />
+        <SvgIconFtvaDropTriangle v-if="theme" class="drop-triangle" :class="{ 'is-expanded': expanded }" />
         <svg v-else class="glyph-expand">
           <line
             x1="20%"
