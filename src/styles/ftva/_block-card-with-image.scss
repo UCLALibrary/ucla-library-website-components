@@ -45,10 +45,7 @@
             }
 
             .schedule-item.date-created {
-                // Not yet included in tokens
-                // @include ftva-card-subtitle-2;
-                // Hardcoded:
-                color: #676767;
+                color: $subtitle-grey;
                 font-weight: 500;
             }
         }
