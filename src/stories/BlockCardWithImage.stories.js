@@ -25,6 +25,8 @@ const mock = {
     { title: 'Powellarium', to: '/location/bar' },
     { title: 'Research Library (Charles E. Young)', to: '/location/baz' },
   ],
+  bylineOne: null,
+  bylineTwo: null,
   sectionHandle: 'event',
 }
 
@@ -56,6 +58,9 @@ function Template(args) {
         :alternativeFullName="alternativeFullName"
         :language="language"
         :section-handle="sectionHandle"
+        :date-created="dateCreated"
+        :byline-one="bylineOne"
+        :byline-two="bylineTwo"
     />
 `,
   }
@@ -113,4 +118,22 @@ FTVAItemsNoImage.args = {
   sectionHandle: '',
   locations: [],
   cardIsLink: true
+}
+
+export const FTVAItemsPostedDate = Template.bind({})
+FTVAItemsPostedDate.args = {
+  image: null,
+  title: 'Black Perspectives on Local L.A. TV',
+  category: null,
+  theme: 'ftva',
+  to: '/some/url/here/',
+  alternativeFullName: null,
+  startDate: null,
+  endDate: null,
+  text: '',
+  imageAspectRatio: 60,
+  sectionHandle: '',
+  locations: [],
+  cardIsLink: true,
+  dateCreated: '2022-01-31T07:00:00+00:00',
 }

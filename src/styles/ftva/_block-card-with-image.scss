@@ -35,6 +35,20 @@
         &:hover>a.title {
             text-decoration: none;
         }
+
+        .byline-group {
+            position: absolute;
+            bottom: var(--space-s);
+
+            .date-created::before {
+                content: unset;
+            }
+
+            .schedule-item.date-created {
+                color: $subtitle-grey;
+                font-weight: 500;
+            }
+        }
     }
 
     .top-text {
@@ -80,7 +94,8 @@
                 color: none;
                 text-decoration: none;
                 text-decoration-thickness: none;
-                text-decoration-color: none;
+                -webkit-text-decoration-color: none;
+                        text-decoration-color: none;
                 text-underline-offset: none;
             }
         }

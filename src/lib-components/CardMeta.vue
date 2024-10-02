@@ -199,7 +199,7 @@ const classes = computed(() => {
     />
 
     <div
-      v-if="bylineOne || bylineTwo"
+      v-if="(bylineOne || bylineTwo) || dateCreated"
       class="byline-group"
     >
       <div

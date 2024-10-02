@@ -49,6 +49,7 @@ export interface BlockCardMetaType {
   bylineOne: string
   bylineTwo: string
   ongoing: boolean
+  postDate?: string
 }
 
 export interface BlockImpactNumbersCarouselType {

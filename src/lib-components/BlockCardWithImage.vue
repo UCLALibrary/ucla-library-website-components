@@ -93,6 +93,10 @@ const props = defineProps({
     type: Boolean,
     default: false, // If this is true, make entire card clickable instead of just title
   },
+  dateCreated: {
+    type: String,
+    default: ''
+  }
 })
 
 // TOGGLE CLICKABLE BEHAVIOR
@@ -160,6 +164,7 @@ const parsedDateFormat = computed(() => {
       :alternative-full-name="alternativeFullName"
       :language="language"
       :section-handle="sectionHandle"
+      :date-created="dateCreated"
     />
   </li>
 </template>
