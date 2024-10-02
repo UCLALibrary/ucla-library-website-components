@@ -1,0 +1,32 @@
+.thumbnail-card {
+  width: 100%;
+
+  .image {
+      margin-bottom: var(--space-s);
+  }
+
+  .caption-title {
+      @include step-1;
+      color: #{$black};
+      margin-bottom: var(--space-xs);
+  }
+
+  .caption-text {
+      @include step-0;
+      color: #{$secondary-grey-05};
+      @include truncate($lines: 4);
+  }
+
+  .caption-link {
+      @include button;
+      margin-top: 10px;
+      padding: 0;
+
+      // /* identical to box height, or 22px */
+      display: flex;
+      align-items: center;
+
+      // /* primary/blue-03 */
+      color: $primary-blue-03;
+  }
+}

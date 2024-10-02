@@ -10,6 +10,7 @@ import MediaItem from '@/lib-components/Media/Item.vue'
 
 import type { MediaItemType } from '@/types/types'
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
+import { useTheme } from '@/composables/useTheme'
 
 const props = defineProps({
   item: {
@@ -56,10 +57,15 @@ const thumbnailImage = computed(() => {
 const parsedText = computed(() => {
   return removeHtmlTruncate(props.captionText || props.credit || '')
 })
+
+const theme = useTheme()
+const parsedClasses = computed(() => {
+  return ['thumbnail-card', theme?.value || '']
+})
 </script>
 
 <template>
-  <SectionWrapper class="thumbnail-card" :no-margins="true">
+  <SectionWrapper :class="parsedClasses" :no-margins="true">
     <MediaItem
       :item="thumbnailImage"
       :aspect-ratio="60"
@@ -82,36 +88,6 @@ const parsedText = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.thumbnail-card {
-  width: 100%;
-
-  .image {
-      margin-bottom: var(--space-s);
-  }
-
-  .caption-title {
-      @include step-1;
-      color: #{$black};
-      margin-bottom: var(--space-xs);
-  }
-
-  .caption-text {
-      @include step-0;
-      color: #{$secondary-grey-05};
-      @include truncate($lines: 4);
-  }
-
-  .caption-link {
-      @include button;
-      margin-top: 10px;
-      padding: 0;
-
-      // /* identical to box height, or 22px */
-      display: flex;
-      align-items: center;
-
-      // /* primary/blue-03 */
-      color: $primary-blue-03;
-  }
-}
+@import "@/styles/default/_media-gallery-thumbnail-card.scss";
+@import "@/styles/ftva/_media-gallery-thumbnail-card.scss";
 </style>

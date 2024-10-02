@@ -1,0 +1,15 @@
+.ftva.thumbnail-card {
+
+  .caption-title {
+    @include truncate($lines: 3);
+    @include ftva-card-title-2;
+    color: $heading-grey;
+      margin-bottom: var(--space-s);
+  }
+
+  .caption-text {
+    @include truncate($lines: 2);
+    @include ftva-body-2;
+    color: $subtitle-grey;
+  }
+}
