@@ -1,3 +1,10 @@
+# [3.26.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.25.0...v3.26.0) (2024-10-02)
+
+
+### Features
+
+* APPS-2954 MultiComponent update with DateCreated prop ([#625](https://github.com/UCLALibrary/ucla-library-website-components/issues/625)) ([316a316](https://github.com/UCLALibrary/ucla-library-website-components/commit/316a3165f5ed5957ef6c0e0917963b2df92f6b79))
+
 # [3.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.24.1...v3.25.0) (2024-10-01)
 
 
