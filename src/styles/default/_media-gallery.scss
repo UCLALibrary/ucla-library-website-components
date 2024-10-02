@@ -1,0 +1,14 @@
+.media-gallery {
+  background-color: var(--color-theme, var(--color-white));
+
+  .thumbnails {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
+    -moz-column-gap: var(--space-m);
+         column-gap: var(--space-m);
+    row-gap: var(--space-xl);
+    padding-top: var(--space-xl);
+    list-style-type: none;
+  }
+}

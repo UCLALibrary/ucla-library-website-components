@@ -1,0 +1,35 @@
+.ftva.media-gallery {
+
+  .gallery-header {
+    margin-bottom: 20px;
+  }
+
+  .gallery-title {
+    @include ftva-h5;
+    color: $accent-blue;
+    margin-bottom: 12px;
+  }
+
+  .selected-image-title {
+    @include ftva-subtitle-1;
+    color: $heading-grey;
+    margin-bottom: 4px;
+  }
+
+
+  .selected-image-caption {
+    @include ftva-body-2;
+    color: $subtitle-grey;
+  }
+
+  .thumbnails {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
+    -moz-column-gap: var(--space-m);
+         column-gap: var(--space-m);
+    row-gap: var(--space-xl);
+    padding-top: var(--space-xl);
+    list-style-type: none;
+  }
+}
