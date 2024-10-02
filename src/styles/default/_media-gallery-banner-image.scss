@@ -1,0 +1,118 @@
+.banner-image {
+  // cursor: pointer;
+  .gradient {
+      display: none;
+      background: var(--gradient-radial);
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+  }
+
+  .svg__molecule-image-stack {
+      --width: calc(min(128px, 30%));
+      width: var(--width);
+      height: var(--width);
+      position: absolute;
+      left: calc(50% - var(--width) / 2);
+      top: calc((50% - var(--width) / 2) - 16px);
+
+      .svg__fill--primary-blue-03 {
+          fill: var(--color-primary-blue-03);
+      }
+  }
+
+  .glyph-expand {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-left: 8px;
+
+      border-radius: 12px;
+      background: #ffffff;
+  }
+}
+
+.half-width-media-item {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-xl);
+
+  .media-item {
+      width: calc((100% - 16px) / 2);
+      cursor: pointer;
+  }
+
+  .text-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: calc((100% - 16px) / 2);
+
+      .title {
+          @include step-3;
+          color: var(--color-primary-blue-03);
+          margin-bottom: var(--space-l);
+          text-align: left;
+          width: 100%;
+      }
+      .summary {
+          @include step-0;
+          align-items: center;
+          text-align: left;
+          width: 100%;
+      }
+      .rich-text {
+          padding-right: 0;
+          :deep(p:not(:last-child)) {
+              margin-bottom: var(--space-m);
+          }
+      }
+  }
+
+  // Breakpoints
+  @media #{$medium} {
+      flex-direction: row;
+      gap: var(--space-xl);
+      .media-item {
+          width: calc((100% - 16px) / 2);
+          cursor: pointer;
+      }
+      .text-wrapper {
+          width: calc((100% - 16px) / 2);
+      }
+  }
+
+  @media #{$small} {
+      flex-direction: column;
+      flex-wrap: wrap;
+      .media-item {
+          width: 100%;
+      }
+      .text-wrapper {
+          min-width: 100%;
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 15px;
+      }
+  }
+}
+
+// Hovers
+@media #{$has-hover} {
+  .media-item:hover {
+      .gradient {
+          display: block;
+      }
+
+      .svg__molecule-image-stack {
+          .svg__fill--primary-blue-03 {
+              fill: var(--color-primary-blue-05);
+          }
+      }
+  }
+}

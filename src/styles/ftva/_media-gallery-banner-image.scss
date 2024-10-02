@@ -1,0 +1,22 @@
+.ftva.banner-image {
+  
+  .media-badge {
+    float: right;
+  }
+
+  .drop-triangle {
+    margin-left: 8px;
+  }
+
+  .expanded .drop-triangle {
+    transform: rotate(180deg);
+    position: relative;
+  }
+}
+
+// To clear floated MediaBadge
+.ftva.banner-image::after {
+  content: "";
+  clear: both;
+  display: table;
+}

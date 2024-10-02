@@ -1,14 +1,16 @@
 .ftva.media-badge {
-
   position: relative;
   right: 0;
   bottom: 0;
   z-index: 1;
 
   .badge-content {
-              -webkit-clip-path: unset;
-                      clip-path: unset;
-      ;
+    justify-content: flex-end;
+    padding-right: 24px;
+    -webkit-clip-path: unset;
+            clip-path: unset;
+  text-transform: uppercase;
+  color: $subtitle-grey;
   }
 
 }
