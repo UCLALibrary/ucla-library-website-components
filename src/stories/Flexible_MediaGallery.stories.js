@@ -1,4 +1,6 @@
+import { computed } from 'vue'
 import * as API from './mock/Media'
+import * as FTVAGallery from './mock/FTVAMedia'
 import FlexibleMediaGallery from '@/lib-components/Flexible/MediaGallery'
 
 export default {
@@ -17,6 +19,26 @@ export function Default() {
       }
     },
 
+    components: { FlexibleMediaGallery },
+    template: '<flexible-media-gallery :block="block"/>',
+  }
+}
+
+export function FTVA() {
+  return {
+    data() {
+      return {
+        block: {
+          ...FTVAGallery.Gallery,
+          mediaGalleryStyle: 'fullWidth',
+        },
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
     components: { FlexibleMediaGallery },
     template: '<flexible-media-gallery :block="block"/>',
   }
