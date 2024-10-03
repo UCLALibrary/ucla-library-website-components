@@ -73,3 +73,19 @@ export const Gallery = {
     },
   ]
 }
+
+export const ImageFile = [{
+  dataId: '3266312',
+  src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Recurrent-nova_0-1.jpg',
+  srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Recurrent-nova_0-1.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Recurrent-nova_0-1.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Recurrent-nova_0-1.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Recurrent-nova_0-1.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Recurrent-nova_0-1.jpg 2560w',
+  height: 1946,
+  width: 2560,
+  title: 'Recurrent nova 0 1',
+  focalPoint: [
+    0.5,
+    0.5
+  ],
+  kind: 'image',
+  type: 'image/jpeg',
+  alt: null
+}]

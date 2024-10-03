@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 
+import * as FTVAMedia from './mock/FTVAMedia'
 import FlexibleMediaGalleryBannerImage from '@/lib-components/Flexible/MediaGallery/BannerImage.vue'
-
 import * as MEDIA from '@/stories/mock/Media'
 
 // Storybook default settings
@@ -34,8 +34,8 @@ export function FTVA() {
   return {
     data() {
       return {
-        item: MEDIA.ImageFile,
-        nItems: 5,
+        item: FTVAMedia.ImageFile,
+        nItems: 4,
         expanded: false,
       }
     },
@@ -78,7 +78,8 @@ export function ExpandedFTVA() {
   return {
     data() {
       return {
-        item: MEDIA.ImageFile,
+        item: FTVAMedia.ImageFile,
+        nItems: 4,
         expanded: true,
       }
     },
@@ -91,7 +92,7 @@ export function ExpandedFTVA() {
     template: `
       <flexible-media-gallery-banner-image
         :item="item"
-        n-items=5
+        :n-items="nItems"
         :expanded="expanded"
     />
   `,

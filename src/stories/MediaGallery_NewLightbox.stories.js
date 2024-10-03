@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+import * as FTVAMedia from './mock/FTVAMedia'
 import FlexibleMediaGalleryNewLightbox from '@/lib-components/Flexible/MediaGallery/NewLightbox.vue'
 import BlockTag from '@/lib-components/BlockTag.vue'
 import { Gallery as MEDIA_GALLERY_MOCK } from '@/stories/mock/Media'
@@ -64,7 +65,7 @@ export function FTVA_DefaultLightbox() {
   return {
     data() {
       return {
-        items: mockFTVAGalleryComputedData,
+        items: FTVAMedia.Gallery.mediaGallery
       }
     },
     provide() {
