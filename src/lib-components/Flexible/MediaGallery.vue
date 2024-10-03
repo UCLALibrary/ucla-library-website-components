@@ -37,14 +37,22 @@ const galleryTitle = computed(() => {
   return block.sectionTitle
 })
 
-const halfWidthTitle = computed(() => {
+const fullWidthGallery = computed(() => {
+  return block.mediaGalleryStyle === 'fullWidth'
+})
+
+const halfWidthGallery = computed(() => {
   return block.mediaGalleryStyle === 'halfWidth'
+})
+
+const halfWidthTitle = computed(() => {
+  return halfWidthGallery.value
     ? block.sectionTitle
     : ''
 })
 
 const halfWidthSummary = computed(() => {
-  return block.mediaGalleryStyle === 'halfWidth'
+  return halfWidthGallery.value
     ? block.richTextSimplified
     : ''
 })
@@ -84,7 +92,7 @@ function selectItem(itemIndex: number) {
       @keydown.esc="hideLightboxModal"
     />
 
-    <section v-if="theme" class="gallery-header">
+    <section v-if="theme && fullWidthGallery" class="gallery-header">
       <h2 class="gallery-title">
         {{ galleryTitle }}
       </h2>
