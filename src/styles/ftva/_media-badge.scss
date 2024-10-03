@@ -1,5 +1,6 @@
 .ftva.media-badge {
   position: relative;
+  // 
   right: 0;
   bottom: 0;
   z-index: 1;
@@ -22,5 +23,12 @@
         -webkit-text-decoration-color: #{$bright-blue};
         text-decoration-color: #{$bright-blue};
     }
+  }
+
+  // Breakpoints
+
+  @media #{$small} {
+    // position: absolute;
+    --badge-width: 250px;
   }
 }

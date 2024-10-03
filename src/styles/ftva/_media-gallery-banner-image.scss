@@ -1,5 +1,4 @@
 .ftva.banner-image {
-  
   .svg__molecule-image-stack {
     --width: calc(min(80px, 30%));
     width: var(--width);
@@ -8,7 +7,7 @@
     :deep(.svg__fill--primary-blue-03) {
         fill: $accent-blue;
     }
-}
+  }
 
   .media-badge {
     float: right;
@@ -30,4 +29,10 @@
   content: "";
   clear: both;
   display: table;
+}
+
+.ftva.half-width-media-item {
+  .media-badge {
+    position: absolute;
+  }
 }
