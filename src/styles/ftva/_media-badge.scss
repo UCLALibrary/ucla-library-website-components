@@ -9,8 +9,18 @@
     padding-right: 24px;
     -webkit-clip-path: unset;
             clip-path: unset;
-  text-transform: uppercase;
-  color: $subtitle-grey;
-  }
+    @include ftva-button-link;
+    color: $subtitle-grey;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    -webkit-text-decoration-color: #{$grey-blue};
+    text-decoration-color: #{$grey-blue};
+    text-underline-offset: 4px;
 
+    &:hover {
+        -webkit-text-decoration-color: #{$bright-blue};
+        text-decoration-color: #{$bright-blue};
+    }
+  }
 }
