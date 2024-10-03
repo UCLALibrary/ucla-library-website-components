@@ -12,10 +12,16 @@ import FlexibleMediaGalleryThumbnailCard from '@/lib-components/Flexible/MediaGa
 import type { FlexibleMediaGallery } from '@/types/flexible_types'
 import { useTheme } from '@/composables/useTheme'
 
-const { block } = defineProps({
+const { block, inline } = defineProps({
   block: {
     type: Object as PropType<FlexibleMediaGallery>,
     required: true,
+  },
+
+  // Triggers Lightbox to be overlaid (default) or inline
+  inline: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -73,6 +79,7 @@ function selectItem(itemIndex: number) {
       :items="block.mediaGallery"
       :selected-item="selectionIndex"
       tabindex="0"
+      :inline="inline"
       @close-modal="hideLightboxModal"
       @keydown.esc="hideLightboxModal"
     />

@@ -60,6 +60,23 @@ const mockFTVAGalleryComputedData = computed(() => {
   })
 })
 
+export function FTVA_DefaultLightbox() {
+  return {
+    data() {
+      return {
+        items: mockFTVAGalleryComputedData,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { FlexibleMediaGalleryNewLightbox },
+    template: '<flexible-media-gallery-new-lightbox :items="items"/>',
+  }
+}
+
 export function FTVA_EventDetailCarousel() {
   return {
     data() {
@@ -73,7 +90,7 @@ export function FTVA_EventDetailCarousel() {
       }
     },
     components: { FlexibleMediaGalleryNewLightbox },
-    template: '<flexible-media-gallery-new-lightbox :items="items" />',
+    template: '<flexible-media-gallery-new-lightbox :items="items" :inline=true />',
   }
 }
 
@@ -99,6 +116,6 @@ export function FTVA_Homepage() {
       }
     },
     components: { FlexibleMediaGalleryNewLightbox, BlockTag },
-    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items"><template v-slot="slotProps"><BlockTag :label="mockTags[slotProps.selectionIndex]" /></template></ flexible-media-gallery-new-lightbox>',
+    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="mockTags[slotProps.selectionIndex]" /></template></ flexible-media-gallery-new-lightbox>',
   }
 }

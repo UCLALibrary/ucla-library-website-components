@@ -1,123 +1,158 @@
 .ftva.lightbox {
-    // does not act like a lightbox, displays inline
-    position: relative;
-    z-index: auto;
-    grid-template-columns: [col] var(--media-width);
-    grid-gap: 0px;
 
-    .media-container {
-        grid-column: col 1 / span 3;
-        // todo make these styles a mixin?
-        .credit-text {
-            display: inline-block;
-            position: absolute;
-            font-family: var(--font-secondary);
-            bottom: 0;
-            right: 0;
-            color: var(--color-white);
-            font-size: 16px;
-            max-width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-    
-            span {
-                background-color: rgba(0, 0, 0, 0.64);
-                padding: 4px 23px 4px 18px;
-                // enforce 1 line, 50 char limit
-                height: 32px;
-                max-width: 385px;
-                white-space: pre;
-            }
-        }
+  background: $navy-blue;
+
+  .button-prev, .button-next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 43px;
+    background-color: $navy-blue;
+    border: 1px solid $grey-blue;
+    border-radius: 8px;
+    padding: 2px 0px;
+  
+    :deep(.svg__fill--primary-blue-03) {
+      fill: $grey-blue;
     }
+  
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: $grey-blue;
+    }
+  }
 
-    .caption-block {
-      position: absolute;
+  .button-prev {
+    svg {
+      margin-left: -4px;  
+    }
+  }
+  
+  .button-next {
+    svg {
+      margin-left: -2px;
+    }
+  }
+} 
+
+ // Does not act like a Lightbox (overlaid); displays inline
+.ftva.inline.lightbox {      
+  position: relative;
+  z-index: auto;
+  grid-template-columns: [col] var(--media-width);
+  grid-gap: 0px;
+
+  .media-container {
+      grid-column: col 1 / span 3;
+      // todo make these styles a mixin?
+      .credit-text {
+          display: inline-block;
+          position: absolute;
+          font-family: var(--font-secondary);
+          bottom: 0;
+          right: 0;
+          color: var(--color-white);
+          font-size: 16px;
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+  
+          span {
+              background-color: rgba(0, 0, 0, 0.64);
+              padding: 4px 23px 4px 18px;
+              // enforce 1 line, 50 char limit
+              height: 32px;
+              max-width: 385px;
+              white-space: pre;
+          }
+      }
+  }
+
+  .caption-block {
+    position: absolute;
+    // unset grid positioning from default theme
+    grid-row: unset;
+    grid-column: unset;
+
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    .media-counter {
+      background-color: $heading-grey;
+      border-radius: 20px;
+      padding: 0px 15px;
+      .media-counter-item {
+        padding: 1px;
+        margin: 0 -5px;
+        svg {
+          height: 22px;
+          width: 27px;
+        }
+      }
+    }
+  }
+
+    // hide captions beneath images and close button
+    .caption-content, .button-close {
+      display: none;
+    } 
+    .button-prev, .button-next {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 43px;
+
+      background-color: $navy-blue;
+      border: 1px solid $grey-blue;
+      border-radius: 8px;
+      padding: 2px 0px;
       // unset grid positioning from default theme
       grid-row: unset;
       grid-column: unset;
-
-      bottom: 0px;
-      left: 50%;
-      transform: translateX(-50%);
-      .media-counter {
-        background-color: $heading-grey;
-        border-radius: 20px;
-        padding: 0px 15px;
-        .media-counter-item {
-          padding: 1px;
-          margin: 0 -5px;
-          svg {
-            height: 22px;
-            width: 27px;
-          }
-        }
+      justify-self: auto;
+      :deep(.svg__fill--primary-blue-03) {
+        fill: $grey-blue;
+      }
+      :deep(.svg__stroke--primary-blue-03) {
+        stroke: $grey-blue;
+      }
+    }
+    .button-prev {
+      left: 30px;
+      svg {
+        margin-left: -4px;  
+      }
+    }
+    .button-next {
+      right: 35px;
+      svg {
+        margin-left: -2px;
       }
     }
 
-      // hide captions beneath images and close button
-      .caption-content, .button-close {
-        display: none;
-      } 
-      .button-prev, .button-next {
-        top: 50%;
-        transform: translateY(-50%);
-        width: 43px;
+  // Homepage Lightbox Theme
+    &.homepage {
+      .caption-block {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+  
+            div.media-counter {
+                display: inline-flex;
+            }
+            div.caption-content {
+                display: block;
+            }
+      }
 
-        background-color: $navy-blue;
-        border: 1px solid $grey-blue;
-        border-radius: 8px;
-        padding: 2px 0px;
-        // unset grid positioning from default theme
-        grid-row: unset;
-        grid-column: unset;
-        justify-self: auto;
-        :deep(.svg__fill--primary-blue-03) {
-          fill: $grey-blue;
-        }
-        :deep(.svg__stroke--primary-blue-03) {
-          stroke: $grey-blue;
+  
+      .media-container {
+        .credit-text {
+          display: none;
         }
       }
-      .button-prev {
-        left: 30px;
-        svg {
-          margin-left: -4px;  
-        }
-      }
+      .button-prev,
       .button-next {
-        right: 35px;
-        svg {
-          margin-left: -2px;
-        }
+        bottom: 25px;
+        top: unset;
+        transform: unset;
       }
-
-    // Homepage Lightbox Theme
-      &.homepage {
-        .caption-block {
-              display: flex;
-              flex-direction: column-reverse;
-              align-items: center;
-    
-              div.media-counter {
-                  display: inline-flex;
-              }
-              div.caption-content {
-                  display: block;
-              }
-        }
-
-    
-        .media-container {
-          .credit-text {
-            display: none;
-          }
-        }
-        .button-prev,
-        .button-next {
-          bottom: 25px;
-          top: unset;
-          transform: unset;
-        }
-     }
-    } 
+   }
+  } 
