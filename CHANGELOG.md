@@ -1,3 +1,10 @@
+# [3.27.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.26.0...v3.27.0) (2024-10-04)
+
+
+### Features
+
+* APPS-2963   Update FlexibleBlocks component with FTVA theme ([#627](https://github.com/UCLALibrary/ucla-library-website-components/issues/627)) ([ab2862a](https://github.com/UCLALibrary/ucla-library-website-components/commit/ab2862ad07b99b2f0475b8ca5c3066725fc6b04a))
+
 # [3.26.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.25.0...v3.26.0) (2024-10-02)
 
 
