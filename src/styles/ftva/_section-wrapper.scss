@@ -1,8 +1,21 @@
 .ftva.section-wrapper {
-    .section-header {
+
+    // remove max-width from rich-text inside flexible-blocks for ftva
+    &.flexible-blocks {
+        :deep(.rich-text) {
+            max-width: var(--ftva-container-max-width);
+            padding-right: 0px;
+        }
+    }
+
+    .section-header:has(+ ul.section-teaser-card.ftva) {
         // Set to zero to remove margin under Section Title
-        // Explore Other Series
-        margin-bottom: 0px;
+        // Explore Other Series or Events or Related Collections and Recent Posts 
+        margin-bottom: 0;
+
+        :deep(.section-title) {
+            margin-bottom: 0;
+        }
     }
 
     // default link styles for FTVA
@@ -93,4 +106,3 @@
         }
     }
 }
-

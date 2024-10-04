@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import router from '@/router'
 import FlexibleBlocks from '@/lib-components/FlexibleBlocks'
 import SectionWrapper from '@/lib-components/SectionWrapper'
@@ -313,6 +314,27 @@ export function LocationDetailBioMed() {
     data() {
       return {
         blocks: mockData,
+      }
+    },
+    components: { FlexibleBlocks, SectionWrapper, DividerGeneral },
+    template: `
+        <flexible-blocks
+            :blocks="blocks"
+        />
+    `,
+  }
+}
+
+export function FtvaBlog() {
+  return {
+    data() {
+      return {
+        blocks: mockData,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     components: { FlexibleBlocks, SectionWrapper, DividerGeneral },
