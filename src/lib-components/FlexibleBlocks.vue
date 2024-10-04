@@ -1,16 +1,15 @@
 <script setup>
 import { computed, defineAsyncComponent } from 'vue'
-import { useTheme } from '@/composables/useTheme'
 
 // LODASH
 import _kebabCase from 'lodash/kebabCase'
 import omit from 'lodash/omit'
 
-
 // COMPONENTS
 import SectionWrapper from './SectionWrapper.vue'
 import DividerWayFinder from './DividerWayFinder.vue'
 import SectionHeader from './SectionHeader.vue'
+import { useTheme } from '@/composables/useTheme'
 
 const props = defineProps({
   blocks: {
@@ -122,24 +121,23 @@ const parsedBlocks = computed(() => {
     if (theme?.value === 'ftva') {
       block.theme = 'white' // Force theme to white
       block.needsDivider = false // No dividers in ftva theme
-    } else {
+    }
+    else {
       // Normal theme logic for other themes
       if (
         index > 0
         && arr[index - 1].theme === 'white'
         && !NEVER_GRAY.includes(block.componentName)
         && index < arr.length - 1
-      ) {
+      )
         block.theme = 'gray' // Apply gray theme when needed
-      }
 
       if (
         index > 0
         && block.theme === 'white'
         && arr[index - 1].theme === 'white'
-      ) {
+      )
         block.needsDivider = true // Set divider if needed
-      }
     }
   })
 
@@ -206,9 +204,9 @@ function getComponent(name) {
         <component
           :is="getComponent(block.componentName)"
           :block="block.mediaGalleryStyle === 'halfWidth'
-      ? block
-      : omit(block, ['sectionTitle', 'sectionSummary'])
-      "
+            ? block
+            : omit(block, ['sectionTitle', 'sectionSummary'])
+          "
           class="flexible-block"
         />
       </SectionWrapper>

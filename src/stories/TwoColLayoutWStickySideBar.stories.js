@@ -1,9 +1,11 @@
 import { computed } from 'vue'
+import { socialList } from './mock/SocialList'
 import BlockEventDetail from '@/lib-components/BlockEventDetail.vue'
 import BlockInfo from '@/lib-components/BlockInfo.vue'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 import DividerWayFinder from '@/lib-components/DividerWayFinder.vue'
+import FlexibleBlocks from '@/lib-components/FlexibleBlocks.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
 import TwoColLayoutWStickySideBar from '@/lib-components/TwoColLayoutWStickySideBar.vue'
@@ -205,5 +207,253 @@ export function FTVAEventDetail() {
         </TwoColLayoutWStickySideBar>
         <SectionWrapper theme='paleblue'>Next Section Content</SectionWrapper>
         </div>`
+  }
+}
+
+export function FTVABlogDetail() {
+  return {
+    data() {
+      return {
+        page: {
+          title: 'TEST - Coronae Borealis Nova',
+          postDate: '2024-09-20T00:49:00-07:00',
+          contributor: 'Vaonis',
+          aboutTheAuthor: `
+            <p><strong><em><a href="https://vaonis.com/about-us">Vaonis</a></em></strong> 
+            stemmed from a powerful ambition to revolutionize the practice of Astronomy 
+            and shake up its codes. We believe Astronomy should be more accessible to everyone. 
+            To achieve this, we had to follow unexplored pathways.</p>`,
+          blocks: [
+            {
+              typeHandle: 'callToAction',
+              id: '3266217',
+              callToAction: [
+                {
+                  id: '3266218',
+                  titleCta: 'Blaze Star explosion expected to happen in September: How to see the rare nova event',
+                  summary: 'A star system 3,000 lightyears away is set to become visible to the naked eye this year, in an event that will see its apparent brightness temporarily increase.',
+                  icon: 'svg-call-to-action-find',
+                  buttonText: 'Read More',
+                  buttonUrl: 'https://www.skyatnightmagazine.com/space-science/t-coronae-borealis-nova',
+                  backgroundColor: 'false'
+                }
+              ]
+            },
+            {
+              typeHandle: 'horizontalDivider',
+              id: '3266221',
+              horizontalDivider: true
+            },
+            {
+              typeHandle: 'impactNumberCards',
+              id: '3266222',
+              sectionSummary: '<h1>Astronomers Await Rare Nova Explosion</h1>',
+              sectionTitle: null,
+              impactNumberCards: [
+                {
+                  id: '3266223',
+                  title: 'Light-years',
+                  text: 'Blaze Star, is a binary star and a recurrent nova about 3,000 light-years away in the constellation Corona Borealis.',
+                  impactNumber: '3000'
+                },
+                {
+                  id: '3266224',
+                  title: 'Magnitude',
+                  text: 'So bright it will be visible on Earth with the naked eye',
+                  impactNumber: '10'
+                }
+              ]
+            },
+            {
+              typeHandle: 'mediaGallery',
+              dataId: '3266536',
+              sectionTitle: 'Once every 80 years',
+              sectionSummary: '<p><em>If predictions are correct, a key outburst star could put on a show in early 2024.</em></p>',
+              mediaGallery: [
+                {
+                  dataId: '3266537',
+                  captionTitle: 'Recurrent Nova',
+                  captionText: 'If predictions are correct, a key outburst star could put on a show in early 2024.',
+                  sortOrder: 1,
+                  item: [
+                    {
+                      dataId: '3266312',
+                      src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Recurrent-nova_0-1.jpg',
+                      srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Recurrent-nova_0-1.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Recurrent-nova_0-1.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Recurrent-nova_0-1.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Recurrent-nova_0-1.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Recurrent-nova_0-1.jpg 2560w',
+                      height: 1946,
+                      width: 2560,
+                      title: 'Recurrent nova 0 1',
+                      focalPoint: [
+                        0.5,
+                        0.5
+                      ],
+                      kind: 'image',
+                      type: 'image/jpeg',
+                      alt: null
+                    }
+                  ]
+                },
+                {
+                  dataId: '3266538',
+                  captionTitle: null,
+                  captionText: 'This finder chart covers about as much sky as the field of view in a typical pair of 7-power binoculars',
+                  sortOrder: 2,
+                  item: [
+                    {
+                      dataId: '3266330',
+                      src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/T-CrB-finder-ST-larger.jpg',
+                      srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/T-CrB-finder-ST-larger.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/T-CrB-finder-ST-larger.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/T-CrB-finder-ST-larger.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/T-CrB-finder-ST-larger.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/T-CrB-finder-ST-larger.jpg 2560w',
+                      height: 2301,
+                      width: 2560,
+                      title: 'T Cr B finder ST larger',
+                      focalPoint: [
+                        0.5,
+                        0.5
+                      ],
+                      kind: 'image',
+                      type: 'image/jpeg',
+                      alt: null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              typeHandle: 'mediaWithText',
+              dataId: '3266539',
+              sectionTitle: 'Coronae Borealis last made a splash just after World War II',
+              sectionSummary: '<p>Does its current restive state hint at an imminent outburst?</p>',
+              mediaWithText: [
+                {
+                  titleLink: 'Rare Stellar Explosion Will Ignite a “New Star”',
+                  description: 'The star system will become bright enough to see with the naked eye for several days before it dims again for about 80 years.',
+                  coverImage: [
+                    {
+                      dataId: '3266535',
+                      src: 'https://static.library.ucla.edu/craftassetstest/_fullscreen/NASA-Accretion_Disk_Binary_System_ST.jpg',
+                      srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/NASA-Accretion_Disk_Binary_System_ST.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/NASA-Accretion_Disk_Binary_System_ST.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/NASA-Accretion_Disk_Binary_System_ST.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/NASA-Accretion_Disk_Binary_System_ST.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/NASA-Accretion_Disk_Binary_System_ST.jpg 2560w',
+                      height: 1682,
+                      width: 2560,
+                      title: 'NASA Accretion Disk Binary System ST',
+                      focalPoint: [
+                        0.5,
+                        0.5
+                      ],
+                      kind: 'image',
+                      type: 'image/jpeg',
+                      alt: null
+                    }
+                  ],
+                  buttonText: null,
+                  buttonUrl: null,
+                  embedCode: '<p>&lt;iframe width="560" height="315" src="<a href="https://www.youtube.com/embed/ZIn_XDVTqmQ?si=1iP6WNczGZjUKz8X" title="YouTube video player"></a></p>',
+                  typeMedia: 'video'
+                }
+              ]
+            },
+            {
+              typeHandle: 'simpleCards',
+              id: '3266626',
+              sectionTitle: 'Film Series about other stuff',
+              sectionSummary: '<p>There will always be something going on at the Hammer. Checkout these great series we have coming up.</p>',
+              cards: [
+                {
+                  id: '3266627',
+                  typeHandle: 'internalServiceOrResource',
+                  contentLink: [
+                    {
+                      id: '3260303',
+                      uri: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
+                      slug: 'a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
+                      title: 'A Film Series for You: Celebrating Giant Robot‚Äôs 30th Anniversary'
+                    }
+                  ]
+                },
+                {
+                  id: '3266628',
+                  typeHandle: 'internalServiceOrResource',
+                  contentLink: [
+                    {
+                      id: '3260317',
+                      uri: 'series/summer-sci-fi',
+                      slug: 'summer-sci-fi',
+                      title: 'Summer Sci-Fi'
+                    }
+                  ]
+                },
+                {
+                  id: '3266629',
+                  typeHandle: 'internalServiceOrResource',
+                  contentLink: [
+                    {
+                      id: '3197229',
+                      uri: 'series/series-with-no-upcoming-events',
+                      slug: 'series-with-no-upcoming-events',
+                      title: 'Series with no upcoming events'
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              typeHandle: 'pullQuote',
+              id: '3266541',
+              pullQuote: [
+                {
+                  text: '<p>I alone am to blame for being remiss in my duties, nevertheless, I still have the feeling that T could have shown me more consideration<em>. </em>We had been friends for many years; on thousands of nights I had watched over it as it slept, and then it arose in my hour of weakness as I nodded at my post. I still am watching it but now it is with a wary eye. There is no warmth between us any more.</p>',
+                  attribution: 'Leslie C. Peltier'
+                }
+              ]
+            },
+            {
+              typeHandle: 'richText',
+              richText: '<p>The stars are behaving similarly to the way they did in the time leading up to the last explosion, so it will happen within the next few months.</p>\n<p>Imagine a star, typically visible only through a telescope, that might suddenly brighten so intensely it becomes visible to the naked eye, as if a brand new celestial body has emerged in the heavens. This is precisely what is about to happen with <strong>T Coronae Borealis</strong>, located 2,600 years away from our planet. Classified as <strong>symbiotic binary star</strong>, its luminosity undergoes fluctuations over time. These abrupt surges in brightness termed “novae” – Latin for “new” – manifest when the star erupts in brilliance beyond its radiance.</p>',
+              sectionTitle: 'When will the star explosion happen?'
+            },
+          ],
+        },
+        articleCategories: 'Interview, Astronomy, Celestial Events',
+        socialList,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionWrapper, TwoColLayoutWStickySideBar, CardMeta, ButtonDropdown, DividerWayFinder, FlexibleBlocks },
+    template: `
+      <div>
+        <SectionWrapper theme='paleblue'>Previous Section Content</SectionWrapper>
+        <TwoColLayoutWStickySideBar>
+          <template v-slot:primaryTop>
+            <CardMeta
+              data-test="text-block"
+              :category="articleCategories"
+              :title="page.title"
+              :byline-one="page.contributor"
+              :date-created="page.postDate"
+              :text="page.aboutTheAuthor"
+              section-handle="ftvaArticle"
+            >
+              <template #sharebutton>
+                <ButtonDropdown
+                  button-title="Share"
+                  :has-icon="true"
+                  :dropdown-list="socialList.dropdownList"
+                />
+              </template>
+            </CardMeta>
+            <DividerWayFinder class="remove-top-margin" />
+            <FlexibleBlocks
+              class="flexible-content"
+              :blocks="page.blocks"
+            />
+          </template>
+          <template v-slot:sidebarTop />
+        </TwoColLayoutWStickySideBar>
+        <SectionWrapper theme='paleblue'>Next Section Content</SectionWrapper>
+      </div>
+    `,
   }
 }
