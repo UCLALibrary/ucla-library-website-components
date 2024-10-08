@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 
 import SvgMoleculeImageStack from 'ucla-library-design-tokens/assets/svgs/molecule-image-stack.svg'
+import SvgIconImageStack from 'ucla-library-design-tokens/assets/svgs/icon-image-stack.svg'
 import SvgIconFtvaDropTriangle from 'ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg'
 import MediaItem from '@/lib-components/Media/Item.vue'
 import MediaBadge from '@/lib-components/MediaBadge.vue'
@@ -71,7 +72,14 @@ const classes = computed(() => {
     >
       <div v-if="nItems > 1 && !expanded">
         <div class="gradient" />
+        <div v-if="theme === 'ftva'" class="ftva-image-stack-bckgrd">
+          <SvgIconImageStack
+            class="molecule-image-stack"
+            aria-hidden="true"
+          />
+        </div>
         <SvgMoleculeImageStack
+          v-else
           class="molecule-image-stack"
           aria-hidden="true"
         />

@@ -1,11 +1,30 @@
 .ftva.banner-image {
-  .svg__molecule-image-stack {
+
+  .ftva-image-stack-bckgrd {
     --width: calc(min(80px, 30%));
     width: var(--width);
     height: var(--width);
+    background-color: $accent-blue;
+    position: absolute;
+    left: calc(50% - var(--width) / 2);
+    top: calc(50% - var(--width) / 2);
+    border-radius: 50%;
+  }
 
-    :deep(.svg__fill--primary-blue-03) {
-        fill: $accent-blue;
+  .svg__icon-image-stack {
+    --width: calc(min(48px, 100%));
+    width: var(--width);
+    height: var(--width);
+    position: absolute;
+    left: calc(50% - var(--width) / 2);
+    top: calc(50% - var(--width) / 2);
+
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: $white;
+    }
+
+    :deep(.svg__stroke--default-cyan-03) {
+      display: none;
     }
   }
 
