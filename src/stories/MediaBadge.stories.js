@@ -1,4 +1,5 @@
-// Import mock api data
+import { computed } from 'vue'
+
 import * as API from '@/stories/mock-api.json'
 import MediaBadge from '@/lib-components/MediaBadge'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
@@ -35,6 +36,34 @@ export function Default() {
 </svg>
         </media-badge>
       </responsive-image>
+  `,
+  }
+}
+
+export function FTVA() {
+  return {
+    data() {
+      return {
+        ...mock,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: {
+      ResponsiveImage,
+      MediaBadge,
+    },
+    template: `
+    <responsive-image :media="image">
+      <media-badge
+          :image="image"
+          :image-aspect-ratio="60">
+        5 Images
+      </media-badge>
+    </responsive-image>
   `,
   }
 }

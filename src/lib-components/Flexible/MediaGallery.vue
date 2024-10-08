@@ -10,11 +10,18 @@ import FlexibleMediaGalleryNewLightbox from '@/lib-components/Flexible/MediaGall
 import FlexibleMediaGalleryThumbnailCard from '@/lib-components/Flexible/MediaGallery/ThumbnailCard.vue'
 
 import type { FlexibleMediaGallery } from '@/types/flexible_types'
+import { useTheme } from '@/composables/useTheme'
 
-const { block } = defineProps({
+const { block, inline } = defineProps({
   block: {
     type: Object as PropType<FlexibleMediaGallery>,
     required: true,
+  },
+
+  // Triggers Lightbox to be overlaid (default) or inline
+  inline: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -26,16 +33,33 @@ const nItems = computed(() => {
   return block.mediaGallery.length
 })
 
-const halfWidthTitle = computed(() => {
+const galleryTitle = computed(() => {
+  return block.sectionTitle
+})
+
+const fullWidthGallery = computed(() => {
+  return block.mediaGalleryStyle === 'fullWidth'
+})
+
+const halfWidthGallery = computed(() => {
   return block.mediaGalleryStyle === 'halfWidth'
+})
+
+const halfWidthTitle = computed(() => {
+  return halfWidthGallery.value
     ? block.sectionTitle
     : ''
 })
 
 const halfWidthSummary = computed(() => {
-  return block.mediaGalleryStyle === 'halfWidth'
+  return halfWidthGallery.value
     ? block.richTextSimplified
     : ''
+})
+
+const theme = useTheme()
+const parsedClasses = computed(() => {
+  return ['media-gallery', theme?.value || '']
 })
 
 // methods:
@@ -54,19 +78,31 @@ function selectItem(itemIndex: number) {
 </script>
 
 <template>
-  <!-- <section class="media-gallery"> -->
   <section
     v-if="block.mediaGallery && block.mediaGallery.length > 0"
-    class="media-gallery"
+    :class="parsedClasses"
   >
     <FlexibleMediaGalleryNewLightbox
       v-if="showLightboxModal"
       :items="block.mediaGallery"
       :selected-item="selectionIndex"
       tabindex="0"
+      :inline="inline"
       @close-modal="hideLightboxModal"
       @keydown.esc="hideLightboxModal"
     />
+
+    <section v-if="theme === 'ftva' && fullWidthGallery" class="gallery-header">
+      <h2 class="gallery-title">
+        {{ galleryTitle }}
+      </h2>
+      <h3 class="selected-image-title">
+        {{ block.mediaGallery[selectionIndex].captionTitle }}
+      </h3>
+      <p class="selected-image-caption">
+        {{ block.mediaGallery[selectionIndex].captionText }}
+      </p>
+    </section>
 
     <FlexibleMediaGalleryBannerImage
       v-if="block.mediaGallery && block.mediaGallery[selectionIndex].item"
@@ -99,17 +135,6 @@ function selectItem(itemIndex: number) {
   lang="scss"
   scoped
 >
-.media-gallery {
-  background-color: var(--color-theme, var(--color-white));
-
-  .thumbnails {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(292px, 1fr));
-    column-gap: var(--space-m);
-    row-gap: var(--space-xl);
-    padding-top: var(--space-xl);
-    list-style-type: none;
-  }
-}
+@import "@/styles/default/_media-gallery.scss";
+@import "@/styles/ftva/_media-gallery.scss";
 </style>

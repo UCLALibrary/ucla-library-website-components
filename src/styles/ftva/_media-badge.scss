@@ -1,0 +1,34 @@
+.ftva.media-badge {
+  position: relative;
+  // 
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  .badge-content {
+    justify-content: flex-end;
+    padding-right: 24px;
+    -webkit-clip-path: unset;
+            clip-path: unset;
+    @include ftva-button-link;
+    color: $subtitle-grey;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    -webkit-text-decoration-color: #{$grey-blue};
+    text-decoration-color: #{$grey-blue};
+    text-underline-offset: 4px;
+
+    &:hover {
+        -webkit-text-decoration-color: #{$bright-blue};
+        text-decoration-color: #{$bright-blue};
+    }
+  }
+
+  // Breakpoints
+
+  @media #{$small} {
+    // position: absolute;
+    --badge-width: 250px;
+  }
+}

@@ -14,16 +14,23 @@ import MediaItem from '@/lib-components/Media/Item.vue'
 
 import { useTheme } from '@/composables/useTheme'
 
-const { items, selectedItem } = defineProps({
+const { items, selectedItem, inline } = defineProps({
   items: {
     type: Array as PropType<MediaGalleryItemType[]>,
     default: () => [],
     required: true,
   },
+
   selectedItem: {
     type: Number,
     default: 0,
   },
+
+  // Triggers Lightbox to be overlaid (default) or inline
+  inline: {
+    type: Boolean,
+    default: false
+  }
 })
 
 const emit = defineEmits<{
@@ -47,7 +54,7 @@ const captionText = computed(() => {
   return items.map(item => item.captionText)
 })
 const classes = computed(() => {
-  return ['lightbox', theme?.value || '']
+  return ['lightbox', theme?.value || '', inline ? 'inline' : '']
 })
 // if ftva, pass cover as object fit, otherwise contain
 const parsedObjectFit = computed(() => {
