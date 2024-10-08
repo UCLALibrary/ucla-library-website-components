@@ -31,6 +31,10 @@ export const useGlobalStore = defineStore('GlobalStore', {
           },
         ],
       },
+      ftvaViewingInformation: {
+        title: 'View information',
+        text: '<p>For more information, or to arrange on-site research viewing, please contact the <a href="https://www.cinema.ucla.edu/archive-research-study-center" target="_blank" rel="noreferrer noopener">Archive Research and Study Center (ARSC)</a></p>'
+      }
     },
     header: {
       primary: mockPrimary,
