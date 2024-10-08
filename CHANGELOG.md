@@ -1,3 +1,10 @@
+# [3.28.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.27.0...v3.28.0) (2024-10-08)
+
+
+### Features
+
+* APPS-2959 FlexibleMediaGallery FTVA variant ([#626](https://github.com/UCLALibrary/ucla-library-website-components/issues/626)) ([4100082](https://github.com/UCLALibrary/ucla-library-website-components/commit/41000822555465a21f434694ede6b96144a7bb4c))
+
 # [3.27.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.26.0...v3.27.0) (2024-10-04)
 
 
