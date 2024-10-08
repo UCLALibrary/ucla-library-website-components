@@ -92,7 +92,7 @@ function selectItem(itemIndex: number) {
       @keydown.esc="hideLightboxModal"
     />
 
-    <section v-if="theme && fullWidthGallery" class="gallery-header">
+    <section v-if="theme === 'ftva' && fullWidthGallery" class="gallery-header">
       <h2 class="gallery-title">
         {{ galleryTitle }}
       </h2>
