@@ -1,16 +1,27 @@
 .ftva.block-call-to-action {
-  // For FTVA default CTA (non-slim, centered) specs if needed
+  // For FTVA default CTA (non-slim, centered) specs if and when needed
+
+  background-color: $page-blue;
+  
+  .title {
+    color: $heading-grey;
+  }
 }
 
 .ftva.block-call-to-action.slim-left-align {
-
+  background-color: $page-blue;
   padding: var(--space-m);
   flex-direction: row;
   justify-content: flex-start;
   align-content: unset;
   align-items: unset;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
+  -moz-column-gap: .5rem;
+       column-gap: .5rem;
+
+  .svg {
+    position: relative;
+    top: -3px;
+  }
 
   .svg,
   .text {

@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction'
 
 export default {
@@ -61,4 +62,59 @@ GlobalAskALibrarian.args = {
 export const GlobalMeapCTA = Template.bind({})
 GlobalMeapCTA.args = {
   isMeapGlobal: true,
+}
+
+const mockFTVA = {
+  svgName: 'svg-call-to-action-info',
+  title: 'View Information',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+}
+
+function TemplateFTVA(args) {
+  return {
+    setup() {
+      return { args }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockCallToAction },
+    template: '<block-call-to-action v-bind="args"/>',
+  }
+}
+
+export const FTVA_CTA_Default = TemplateFTVA.bind({})
+FTVA_CTA_Default.args = {
+  ...mockFTVA,
+  svgName: 'svg-call-to-action-chat'
+}
+
+function TemplateFTVASlim(args) {
+  return {
+    setup() {
+      return { args }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockCallToAction },
+    template: '<block-call-to-action v-bind="args" :is-centered="false"/>',
+  }
+}
+
+export const FTVASlimCTATitled = TemplateFTVASlim.bind({})
+FTVASlimCTATitled.args = {
+  ...mockFTVA,
+  text: '<p>For more information, or to arrange on-site research viewing, please contact the <a href="https://www.cinema.ucla.edu/archive-research-study-center" target="_blank" rel="noreferrer noopener">Archive Research and Study Center (ARSC)</a></p>',
+}
+
+export const FTVASlimCTANoTitle = TemplateFTVASlim.bind({})
+FTVASlimCTANoTitle.args = {
+  ...mockFTVA,
+  title: '',
+  text: '<p>Download a sample list of available titles and additional research resources at UCLA in <a href="https://www.cinema.ucla.edu/archive-research-study-center" target="_blank" rel="noreferrer noopener">PDF format (2MB)</a></p>',
 }
