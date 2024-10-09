@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { computed, defineAsyncComponent } from 'vue'
 
 import { useGlobalStore } from '@/stores/GlobalStore'
@@ -37,6 +37,10 @@ const props = defineProps(
       type: Boolean,
       default: false,
     },
+    isCentered: {
+      type: Boolean,
+      default: true,
+    },
     isGlobal: {
       type: Boolean,
       default: false,
@@ -45,6 +49,10 @@ const props = defineProps(
       type: Boolean,
       default: false,
     },
+    globalType: {
+      type: String,
+      default: ''
+    }
   }
 )
 
@@ -93,6 +101,13 @@ const meapCallToAction = computed(() => {
   return store.globals.meapCallToAction
 })
 
+// ToDo: To be used with globalType prop
+enum GlobalType {
+  DEFAULT = 'default',
+  FTVA = 'ftva',
+  MEAP = 'meap'
+}
+
 // Use Global Ask A Libarian data if isGlobal is true
 const parsedContent = computed(() => {
   if (props.isGlobal) {
@@ -119,7 +134,7 @@ const parsedContent = computed(() => {
       title: props.title,
       text: props.text,
       label: props.name,
-      svgName: iconMapping[props.svgName].icon,
+      svgName: iconMapping[props.svgName as keyof typeof iconMapping].icon,
     }
   }
 })
