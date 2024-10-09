@@ -118,3 +118,10 @@ FTVASlimCTANoTitle.args = {
   title: '',
   text: '<p>Download a sample list of available titles and additional research resources at UCLA in <a href="https://www.cinema.ucla.edu/archive-research-study-center" target="_blank" rel="noreferrer noopener">PDF format (2MB)</a></p>',
 }
+
+export const FTVASlimCTALongText = TemplateFTVASlim.bind({})
+FTVASlimCTALongText.args = {
+  ...mockFTVA,
+  title: '',
+  text: '<p>Cat ipsum dolor sit amet, check cat door for ambush 10 times before coming in or gnaw the corn cob, but woops must get rid run around house maybe it comes off woops left brown marks on floor human slave clean now. Kitty kitty thinking longingly about tuna brine yet stinky cat for chase ball of string but attack the child. Scream for no reason at 4 am. Hide head under blanket so no one can see more napping, more napping all the napping is exhausting and roll over and sun my belly.</p>',
+}
