@@ -113,14 +113,14 @@ const ftvaViewingInformation = computed(() => {
   return store.globals.ftvaViewingInformation
 })
 
-// To be used with globalType prop
+// ToDo: Use with globalType prop in potential refactor
+// See note #7: https://uclalibrary.atlassian.net/browse/APPS-2999
 enum GlobalType {
   DEFAULT = 'default',
   FTVA = 'ftva',
   MEAP = 'meap'
 }
 
-// Use Global Ask A Libarian data if isGlobal is true
 const parsedContent = computed(() => {
   if (props.isGlobal) {
     return {
@@ -167,6 +167,7 @@ const classes = computed(() => {
     { 'half-width': props.isSmallSize },
     { 'theme-light': !props.isDark },
     { 'theme-dark': props.isDark },
+    { 'slim-left-align': !props.isCentered }, // For FTVA SlimCTA
     theme?.value || ''
   ]
 })
@@ -181,7 +182,7 @@ const classes = computed(() => {
     />
     <div>
       <h2
-        v-if="props.title"
+        v-if="props.title || parsedContent.title"
         class="title"
       >
         {{ parsedContent.title }}

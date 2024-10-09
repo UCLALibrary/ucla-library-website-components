@@ -1,6 +1,10 @@
 .ftva.block-call-to-action {
+  // For FTVA default CTA (non-slim, centered) specs if needed
+}
 
-  padding: var(--space-l);
+.ftva.block-call-to-action.slim-left-align {
+
+  padding: var(--space-m);
   flex-direction: row;
   justify-content: flex-start;
   align-content: unset;
@@ -34,17 +38,5 @@
   :deep(.text a) {
     color: $accent-blue;
     text-decoration: underline;
-  }
-
-  :deep(.text > p:last-of-type::after) {
-    // content: url('ucla-library-design-tokens/assets/svgs/icon-external-link.svg');
-    content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link.svg');
-    // content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
-    position: absolute;
-    z-index: 1;
-    background-color: red;
-    width: 20px;
-    height: 20px;
-    margin-left: 8px;
   }
 }
