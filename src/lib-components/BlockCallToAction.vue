@@ -5,6 +5,8 @@ import { useGlobalStore } from '@/stores/GlobalStore'
 
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 
+import { useTheme } from '@/composables/useTheme'
+
 const props = defineProps(
   {
     svgName: {
@@ -83,16 +85,6 @@ const iconMapping = {
 
 const store = useGlobalStore()
 
-const classes = computed(() => {
-  return [
-    'block-call-to-action',
-    { 'full-width': !props.isSmallSize },
-    { 'half-width': props.isSmallSize },
-    { 'theme-light': !props.isDark },
-    { 'theme-dark': props.isDark },
-  ]
-})
-
 const askALibrarian = computed(() => {
   return store.globals.askALibrarian
 })
@@ -131,6 +123,19 @@ const parsedContent = computed(() => {
     }
   }
 })
+
+const theme = useTheme()
+
+const classes = computed(() => {
+  return [
+    'block-call-to-action',
+    { 'full-width': !props.isSmallSize },
+    { 'half-width': props.isSmallSize },
+    { 'theme-light': !props.isDark },
+    { 'theme-dark': props.isDark },
+    theme?.value || ''
+  ]
+})
 </script>
 
 <template>
@@ -167,142 +172,6 @@ const parsedContent = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.block-call-to-action {
-  max-width: var(--block-width);
-  background-color: var(--color-background);
-  padding: var(--space-2xl);
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: center;
-  align-items: center;
-
-  // Sizes
-  &.full-width {
-    --block-width: #{$container-l-cta}px;
-    --block-padding-title: 70px;
-    --block-padding-text: 10px;
-  }
-
-  &.half-width {
-    --block-width: calc(#{$container-l-cta}px / 2);
-    --block-padding-title: 114px;
-    --block-padding-text: 112px;
-  }
-
-  // Color Themes
-  &.theme-light {
-    --color-background: var(--color-primary-blue-01);
-    --color-title: var(--color-primary-blue-03);
-    --color-text: var(--color-black);
-    --color-button-background: var(--color-primary-blue-03);
-    --color-svg-molecule-outline: var(--color-primary-blue-03);
-    --color-svg-molecule-inner-highlight: var(--color-help-green-03);
-
-    .svg :deep(.svg__stroke--primary-blue-03) {
-      stroke: var(--color-primary-blue-03);
-    }
-
-    :deep(.svg__stroke--help-green-03) {
-      stroke: var(--color-help-green-03);
-    }
-
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-default-cyan-03);
-    }
-
-    :deep(.svg__fill--default-cyan-03) {
-      fill: var(--color-default-cyan-03);
-    }
-  }
-
-  &.theme-dark {
-    --color-background: var(--color-primary-blue-03);
-    --color-title: var(--color-white);
-    --color-text: var(--color-white);
-    --color-svg-molecule-outline: var(--color-primary-blue-02);
-    --color-svg-molecule-inner-highlight: var(--color-white);
-    --color-button-background: var(--color-primary-blue-03);
-    --color-button-border: 2px solid var(--color-default-cyan-02);
-
-    :deep(.svg__stroke--primary-blue-03) {
-      stroke: var(--color-primary-blue-02);
-    }
-
-    :deep(.svg__stroke--help-green-03) {
-      stroke: var(--color-white);
-    }
-
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-help-green-03);
-    }
-
-    :deep(.svg__fill--default-cyan-03) {
-      fill: var(--color-help-green-03);
-    }
-  }
-
-  .svg {
-    margin-bottom: 32px;
-    flex-grow: 0;
-    flex-shrink: 0;
-
-    .outline {
-      stroke: var(--color-svg-molecule-outline);
-    }
-
-    .color {
-      stroke: var(--color-svg-molecule-inner-highlight);
-    }
-  }
-
-  .title {
-    @include step-2;
-    text-align: center;
-    letter-spacing: 0.0025em;
-    color: var(--color-title);
-    margin-bottom: 16px;
-    max-width: 640px;
-  }
-
-  .text {
-    @include step-0;
-    text-align: center;
-    color: var(--color-text);
-    margin-bottom: 32px;
-    max-width: 640px;
-  }
-
-  // Breakpoints
-  @media #{$medium} {
-    &.full-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
-    }
-
-    &.half-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
-      width: 100%;
-    }
-
-    .title,
-    .text {
-      padding: 0;
-    }
-  }
-
-  @media #{$small} {
-    &.full-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
-    }
-
-    &.half-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
-    }
-  }
-}
+@import "@/styles/default/_block-call-to-action.scss";
+@import "@/styles/ftva/_block-call-to-action.scss";
 </style>
