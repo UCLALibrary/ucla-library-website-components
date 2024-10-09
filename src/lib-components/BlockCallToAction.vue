@@ -72,6 +72,10 @@ const SvgCallToActionMoney = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/call-to-action-money.svg')
 )
 
+const SvgCallToActionInfo = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-alert.svg')
+)
+
 const iconMapping = {
   'svg-call-to-action-chat': {
     icon: SvgCallToActionChat,
@@ -80,6 +84,10 @@ const iconMapping = {
   'svg-call-to-action-find': {
     icon: SvgCallToActionFind,
     label: 'CTA Find'
+  },
+  'svg-call-to-action-info': {
+    icon: SvgCallToActionInfo,
+    label: 'CTA Info'
   },
   'svg-call-to-action-mail': {
     icon: SvgCallToActionMail,
@@ -101,7 +109,11 @@ const meapCallToAction = computed(() => {
   return store.globals.meapCallToAction
 })
 
-// ToDo: To be used with globalType prop
+const ftvaViewingInformation = computed(() => {
+  return store.globals.ftvaViewingInformation
+})
+
+// To be used with globalType prop
 enum GlobalType {
   DEFAULT = 'default',
   FTVA = 'ftva',
@@ -126,6 +138,13 @@ const parsedContent = computed(() => {
       text: meapCallToAction.value.summary,
       label: meapCallToAction.value.button[0].buttonText,
       svgName: iconMapping['svg-call-to-action-chat'].icon,
+    }
+  }
+  else if (props.globalType === GlobalType.FTVA) {
+    return {
+      title: ftvaViewingInformation.value.title,
+      text: ftvaViewingInformation.value.text,
+      svgName: iconMapping[props.svgName as keyof typeof iconMapping].icon,
     }
   }
   else {
@@ -160,29 +179,34 @@ const classes = computed(() => {
       class="svg"
       aria-hidden="true"
     />
-    <h2
-      class="title"
-    >
-      {{ parsedContent.title }}
-    </h2>
-    <div
-      class="text"
-      v-html="parsedContent.text"
-    />
-    <ButtonLink
-      v-if="!props.isDark"
-      :label="parsedContent.label"
-      :to="parsedContent.to"
-      :is-secondary="true"
-      class="button-link"
-    />
-    <ButtonLink
-      v-if="props.isDark"
-      :label="parsedContent.label"
-      :to="parsedContent.to"
-      :is-tertiary="true"
-      class="button-link"
-    />
+    <div>
+      <h2
+        v-if="props.title"
+        class="title"
+      >
+        {{ parsedContent.title }}
+      </h2>
+      <div
+        class="text"
+        v-html="parsedContent.text"
+      />
+    </div>
+    <div v-if="theme !== GlobalType.FTVA">
+      <ButtonLink
+        v-if="!props.isDark"
+        :label="parsedContent.label"
+        :to="parsedContent.to"
+        :is-secondary="true"
+        class="button-link"
+      />
+      <ButtonLink
+        v-if="props.isDark"
+        :label="parsedContent.label"
+        :to="parsedContent.to"
+        :is-tertiary="true"
+        class="button-link"
+      />
+    </div>
   </div>
 </template>
 
