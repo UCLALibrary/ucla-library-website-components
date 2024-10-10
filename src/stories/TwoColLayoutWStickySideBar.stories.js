@@ -460,7 +460,7 @@ export function FTVABlogDetail() {
 }
 
 const slimCTAData = {
-  svgName: 'svg-call-to-action-info',
+  svgName: 'svg-call-to-action-ftva-pdf',
   title: 'View Information',
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 }

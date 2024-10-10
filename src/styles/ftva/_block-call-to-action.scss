@@ -15,12 +15,11 @@
   justify-content: flex-start;
   align-content: unset;
   align-items: unset;
-  -moz-column-gap: .5rem;
-       column-gap: .5rem;
+  -moz-column-gap: .75rem;
+       column-gap: .75rem;
 
   .svg {
     position: relative;
-    top: -3px;
   }
 
   .svg,
@@ -34,12 +33,15 @@
   }
 
   .title {
+    @include ftva-body;
     font-size: 18px;
+    font-weight: 600;
     color: $heading-grey;
-    margin-bottom: 8px;
+    margin-bottom: 0;
   }
 
   .text {
+    @include ftva-body-2;
     font-size: 16px;
     line-height: 1.5;
     max-width: 100%;

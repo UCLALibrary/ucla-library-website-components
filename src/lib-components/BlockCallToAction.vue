@@ -72,8 +72,12 @@ const SvgCallToActionMoney = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/call-to-action-money.svg')
 )
 
-const SvgCallToActionInfo = defineAsyncComponent(() =>
-  import('ucla-library-design-tokens/assets/svgs/icon-alert.svg')
+const SvgCallToActionFTVAInfo = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-ftva-info.svg')
+)
+
+const SvgCallToActionFTVAPDF = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-ftva-pdf.svg')
 )
 
 const iconMapping = {
@@ -85,9 +89,13 @@ const iconMapping = {
     icon: SvgCallToActionFind,
     label: 'CTA Find'
   },
-  'svg-call-to-action-info': {
-    icon: SvgCallToActionInfo,
-    label: 'CTA Info'
+  'svg-call-to-action-ftva-info': {
+    icon: SvgCallToActionFTVAInfo,
+    label: 'CTA FTVA Info'
+  },
+  'svg-call-to-action-ftva-pdf': {
+    icon: SvgCallToActionFTVAPDF,
+    label: 'CTA FTVA PDF'
   },
   'svg-call-to-action-mail': {
     icon: SvgCallToActionMail,
@@ -144,7 +152,7 @@ const parsedContent = computed(() => {
     return {
       title: ftvaViewingInformation.value.title,
       text: ftvaViewingInformation.value.text,
-      svgName: iconMapping['svg-call-to-action-info'].icon,
+      svgName: iconMapping['svg-call-to-action-ftva-info'].icon,
     }
   }
   else {
