@@ -144,7 +144,7 @@ const parsedContent = computed(() => {
     return {
       title: ftvaViewingInformation.value.title,
       text: ftvaViewingInformation.value.text,
-      svgName: iconMapping[props.svgName as keyof typeof iconMapping].icon,
+      svgName: iconMapping['svg-call-to-action-info'].icon,
     }
   }
   else {

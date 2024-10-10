@@ -505,9 +505,7 @@ export function FTVASlimCTA() {
                     </template>
                     <template v-slot:sidebarTop>
                         <BlockCallToAction
-                            :svgName="slimCTAData.svgName"
-                            :title="slimCTAData.title"
-                            :text="slimCTAData.text" 
+                            globalType="ftva"
                             :is-centered="false" />
                     </template>
                 </TwoColLayoutWStickySideBar>

@@ -108,8 +108,7 @@ function TemplateFTVASlim(args) {
 
 export const FTVASlimCTATitled = TemplateFTVASlim.bind({})
 FTVASlimCTATitled.args = {
-  ...mockFTVA,
-  text: '<p>For more information, or to arrange on-site research viewing, please contact the <a href="https://www.cinema.ucla.edu/archive-research-study-center" target="_blank" rel="noreferrer noopener">Archive Research and Study Center (ARSC)</a></p>',
+  globalType: 'ftva',
 }
 
 export const FTVASlimCTANoTitle = TemplateFTVASlim.bind({})
