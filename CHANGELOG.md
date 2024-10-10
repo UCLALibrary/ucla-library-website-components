@@ -1,3 +1,10 @@
+## [3.28.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.28.0...v3.28.1) (2024-10-10)
+
+
+### Bug Fixes
+
+* add relative position to anchor link on card ([#632](https://github.com/UCLALibrary/ucla-library-website-components/issues/632)) ([db88906](https://github.com/UCLALibrary/ucla-library-website-components/commit/db88906a94b57ff3f1ebc750e4c47ed61acb1217))
+
 # [3.28.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.27.0...v3.28.0) (2024-10-08)
 
 
