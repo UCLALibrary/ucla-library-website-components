@@ -53,4 +53,11 @@
     color: $accent-blue;
     text-decoration: underline;
   }
+
+  :deep(.text.ftva-global-data > p::after) {
+    content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg');
+    position: absolute;
+    margin-left: 10px;
+    bottom: -1px;
+  }
 }

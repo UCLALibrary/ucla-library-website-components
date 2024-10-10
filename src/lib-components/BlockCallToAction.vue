@@ -188,6 +188,7 @@ const classes = computed(() => {
         {{ parsedContent.title }}
       </h2>
       <div
+        :class="{ 'ftva-global-data': props.useGlobalData && theme === 'ftva' }"
         class="text"
         v-html="parsedContent.text"
       />
