@@ -159,20 +159,11 @@ const parsedDateFormat = computed(() => {
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  position: relative;
 
   font-family: var(--font-primary);
   $large-width: 284px;
   $large-height: 213px;
-
-  li {
-    list-style: none;
-    list-style-position: outside;
-    @include card-clickable-area;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
 
   .day-month-date {
     display: flex;
