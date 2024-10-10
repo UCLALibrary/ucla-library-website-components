@@ -49,9 +49,9 @@ const props = defineProps(
       type: Boolean,
       default: false,
     },
-    globalType: {
-      type: String,
-      default: ''
+    useGlobalData: {
+      type: Boolean,
+      default: false
     }
   }
 )
@@ -121,13 +121,7 @@ const ftvaViewingInformation = computed(() => {
   return store.globals.ftvaViewingInformation
 })
 
-// ToDo: Use with globalType prop in potential refactor
-// See note #7: https://uclalibrary.atlassian.net/browse/APPS-2999
-enum GlobalType {
-  DEFAULT = 'default',
-  FTVA = 'ftva',
-  MEAP = 'meap'
-}
+const theme = useTheme()
 
 const parsedContent = computed(() => {
   if (props.isGlobal) {
@@ -148,7 +142,7 @@ const parsedContent = computed(() => {
       svgName: iconMapping['svg-call-to-action-chat'].icon,
     }
   }
-  else if (props.globalType === GlobalType.FTVA) {
+  else if (props.useGlobalData && theme?.value === 'ftva') {
     return {
       title: ftvaViewingInformation.value.title,
       text: ftvaViewingInformation.value.text,
@@ -165,8 +159,6 @@ const parsedContent = computed(() => {
     }
   }
 })
-
-const theme = useTheme()
 
 const classes = computed(() => {
   return [
@@ -200,7 +192,7 @@ const classes = computed(() => {
         v-html="parsedContent.text"
       />
     </div>
-    <div v-if="theme !== GlobalType.FTVA">
+    <div v-if="theme !== 'ftva'">
       <ButtonLink
         v-if="!props.isDark"
         :label="parsedContent.label"

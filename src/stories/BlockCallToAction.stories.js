@@ -107,7 +107,7 @@ function TemplateFTVASlim(args) {
 
 export const FTVASlimCTATitled = TemplateFTVASlim.bind({})
 FTVASlimCTATitled.args = {
-  globalType: 'ftva',
+  useGlobalData: true,
 }
 
 export const FTVASlimCTANoTitle = TemplateFTVASlim.bind({})

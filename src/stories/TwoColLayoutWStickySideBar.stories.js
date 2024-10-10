@@ -497,7 +497,6 @@ export function FTVASlimCTA() {
                             v-if="page?.richText"
                             :rich-text-content="page?.richText"
                         />
-
                         <BlockCallToAction
                             :svgName="slimCTAData.svgName"
                             :text="slimCTAData.text" 
@@ -505,7 +504,7 @@ export function FTVASlimCTA() {
                     </template>
                     <template v-slot:sidebarTop>
                         <BlockCallToAction
-                            globalType="ftva"
+                            :useGlobalData="true"
                             :is-centered="false" />
                     </template>
                 </TwoColLayoutWStickySideBar>
