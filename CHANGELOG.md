@@ -1,3 +1,10 @@
+# [3.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.28.1...v3.29.0) (2024-10-11)
+
+
+### Features
+
+* APPS-2999 Add BlockCTA FTVA variants ([#630](https://github.com/UCLALibrary/ucla-library-website-components/issues/630)) ([0bd38d4](https://github.com/UCLALibrary/ucla-library-website-components/commit/0bd38d475ed6cd0f2a28c1e6288cb3bf660a5e92))
+
 ## [3.28.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.28.0...v3.28.1) (2024-10-10)
 
 
