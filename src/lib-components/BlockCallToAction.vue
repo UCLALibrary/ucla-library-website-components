@@ -1,36 +1,14 @@
-<script>
-import { defineAsyncComponent } from 'vue'
-import { mapState } from 'pinia'
+<script setup lang="ts">
+import { computed, defineAsyncComponent } from 'vue'
+
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 
-export default {
-  name: 'BlockCallToAction',
-  components: {
-    ButtonLink,
-    SvgCallToActionMoney: defineAsyncComponent(() =>
-      import(
-        'ucla-library-design-tokens/assets/svgs/call-to-action-money.svg'
-      )
-    ),
-    SvgCallToActionChat: defineAsyncComponent(() =>
-      import(
-        'ucla-library-design-tokens/assets/svgs/call-to-action-chat.svg'
-      )
-    ),
-    SvgCallToActionMail: defineAsyncComponent(() =>
-      import(
-        'ucla-library-design-tokens/assets/svgs/call-to-action-mail.svg'
-      )
-    ),
-    SvgCallToActionFind: defineAsyncComponent(() =>
-      import(
-        'ucla-library-design-tokens/assets/svgs/call-to-action-find.svg'
-      )
-    ),
-  },
-  props: {
+import { useTheme } from '@/composables/useTheme'
+
+const props = defineProps(
+  {
     svgName: {
       type: String,
       default: '',
@@ -59,6 +37,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    isCentered: {
+      type: Boolean,
+      default: true,
+    },
     isGlobal: {
       type: Boolean,
       default: false,
@@ -67,58 +49,128 @@ export default {
       type: Boolean,
       default: false,
     },
+    useGlobalData: {
+      type: Boolean,
+      default: false
+    }
+  }
+)
+
+const SvgCallToActionChat = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/call-to-action-chat.svg')
+)
+
+const SvgCallToActionFind = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/call-to-action-find.svg')
+)
+
+const SvgCallToActionMail = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/call-to-action-mail.svg')
+)
+
+const SvgCallToActionMoney = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/call-to-action-money.svg')
+)
+
+const SvgCallToActionFTVAInfo = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-ftva-info.svg')
+)
+
+const SvgCallToActionFTVAPDF = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-ftva-pdf.svg')
+)
+
+const iconMapping = {
+  'svg-call-to-action-chat': {
+    icon: SvgCallToActionChat,
+    label: 'CTA Chat'
   },
-  computed: {
-    // gives access to this.globals inside the component
-    // same as reading from store.count
-    ...mapState(useGlobalStore, ['globals']),
-    classes() {
-      return [
-        'block-call-to-action',
-        { 'full-width': !this.isSmallSize },
-        { 'half-width': this.isSmallSize },
-        { 'theme-light': !this.isDark },
-        { 'theme-dark': this.isDark },
-      ]
-    },
-    askALibrarian() {
-      return this.globals.askALibrarian
-    },
-    meapCallToAction() {
-      return this.globals.meapCallToAction
-    },
-    // Use Global Ask A Libarian data if isGlobal is true
-    parsedContent() {
-      if (this.isGlobal) {
-        return {
-          to: this.askALibrarian.buttonUrl[0].buttonUrl,
-          title: this.askALibrarian.askALibrarianTitle,
-          text: this.askALibrarian.askALibrarianText,
-          label: this.askALibrarian.buttonUrl[0].buttonText,
-          svgName: 'svg-call-to-action-chat',
-        }
-      }
-      else if (this.isMeapGlobal) {
-        return {
-          to: this.meapCallToAction.button[0].buttonUrl,
-          title: this.meapCallToAction.titleGeneral,
-          text: this.meapCallToAction.summary,
-          label: this.meapCallToAction.button[0].buttonText,
-          svgName: 'svg-call-to-action-chat',
-        }
-      }
-      else {
-        return {
-          to: this.to,
-          title: this.title,
-          text: this.text,
-          label: this.name,
-          svgName: this.svgName,
-        }
-      }
-    },
+  'svg-call-to-action-find': {
+    icon: SvgCallToActionFind,
+    label: 'CTA Find'
+  },
+  'svg-call-to-action-ftva-info': {
+    icon: SvgCallToActionFTVAInfo,
+    label: 'CTA FTVA Info'
+  },
+  'svg-call-to-action-ftva-pdf': {
+    icon: SvgCallToActionFTVAPDF,
+    label: 'CTA FTVA PDF'
+  },
+  'svg-call-to-action-mail': {
+    icon: SvgCallToActionMail,
+    label: 'CTA Mail'
+  },
+  'svg-call-to-action-money': {
+    icon: SvgCallToActionMoney,
+    label: 'CTA Money'
   },
 }
+
+const store = useGlobalStore()
+
+const askALibrarian = computed(() => {
+  return store.globals.askALibrarian
+})
+
+const meapCallToAction = computed(() => {
+  return store.globals.meapCallToAction
+})
+
+const ftvaViewingInformation = computed(() => {
+  return store.globals.ftvaViewingInformation
+})
+
+const theme = useTheme()
+
+const parsedContent = computed(() => {
+  if (props.isGlobal) {
+    return {
+      to: askALibrarian.value.buttonUrl[0].buttonUrl,
+      title: askALibrarian.value.askALibrarianTitle,
+      text: askALibrarian.value.askALibrarianText,
+      label: askALibrarian.value.buttonUrl[0].buttonText,
+      svgName: iconMapping['svg-call-to-action-chat'].icon,
+    }
+  }
+  else if (props.isMeapGlobal) {
+    return {
+      to: meapCallToAction.value.button[0].buttonUrl,
+      title: meapCallToAction.value.titleGeneral,
+      text: meapCallToAction.value.summary,
+      label: meapCallToAction.value.button[0].buttonText,
+      svgName: iconMapping['svg-call-to-action-chat'].icon,
+    }
+  }
+  else if (props.useGlobalData && theme?.value === 'ftva') {
+    return {
+      title: ftvaViewingInformation.value.title,
+      text: ftvaViewingInformation.value.text,
+      svgName: iconMapping['svg-call-to-action-ftva-info'].icon,
+    }
+  }
+  else {
+    return {
+      to: props.to,
+      title: props.title,
+      text: props.text,
+      label: props.name,
+      svgName: iconMapping[props.svgName as keyof typeof iconMapping].icon,
+    }
+  }
+})
+
+const classes = computed(() => {
+  return [
+    'block-call-to-action',
+    { 'full-width': !props.isSmallSize },
+    { 'half-width': props.isSmallSize },
+    { 'theme-light': !props.isDark },
+    { 'theme-dark': props.isDark },
+    { 'slim-left-align': !props.isCentered }, // For FTVA SlimCTA
+    theme?.value || ''
+  ]
+})
 </script>
 
 <template>
@@ -128,169 +180,39 @@ export default {
       class="svg"
       aria-hidden="true"
     />
-    <h2
-      class="title"
-      v-text="parsedContent.title"
-    />
-    <div
-      class="text"
-      v-html="parsedContent.text"
-    />
-    <!--  this parsedContent.text can have html content so v-html should be used here -->
-    <ButtonLink
-      v-if="!isDark"
-      :label="parsedContent.label"
-      :to="parsedContent.to"
-      :is-secondary="true"
-      class="button-link"
-    />
-    <ButtonLink
-      v-if="isDark"
-      :label="parsedContent.label"
-      :to="parsedContent.to"
-      :is-tertiary="true"
-      class="button-link"
-    />
+    <div>
+      <h2
+        v-if="props.title || parsedContent.title"
+        class="title"
+      >
+        {{ parsedContent.title }}
+      </h2>
+      <div
+        :class="{ 'ftva-global-data': props.useGlobalData && theme === 'ftva' }"
+        class="text"
+        v-html="parsedContent.text"
+      />
+    </div>
+    <div v-if="theme !== 'ftva'">
+      <ButtonLink
+        v-if="!props.isDark"
+        :label="parsedContent.label"
+        :to="parsedContent.to"
+        :is-secondary="true"
+        class="button-link"
+      />
+      <ButtonLink
+        v-if="props.isDark"
+        :label="parsedContent.label"
+        :to="parsedContent.to"
+        :is-tertiary="true"
+        class="button-link"
+      />
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.block-call-to-action {
-  max-width: var(--block-width);
-  background-color: var(--color-background);
-  padding: var(--space-2xl);
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: center;
-  align-items: center;
-
-  // Sizes
-  &.full-width {
-    --block-width: #{$container-l-cta}px;
-    --block-padding-title: 70px;
-    --block-padding-text: 10px;
-  }
-
-  &.half-width {
-    --block-width: calc(#{$container-l-cta}px / 2);
-    --block-padding-title: 114px;
-    --block-padding-text: 112px;
-  }
-
-  // Color Themes
-  &.theme-light {
-    --color-background: var(--color-primary-blue-01);
-    --color-title: var(--color-primary-blue-03);
-    --color-text: var(--color-black);
-    --color-button-background: var(--color-primary-blue-03);
-    --color-svg-molecule-outline: var(--color-primary-blue-03);
-    --color-svg-molecule-inner-highlight: var(--color-help-green-03);
-
-    .svg :deep(.svg__stroke--primary-blue-03) {
-      stroke: var(--color-primary-blue-03);
-    }
-
-    :deep(.svg__stroke--help-green-03) {
-      stroke: var(--color-help-green-03);
-    }
-
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-default-cyan-03);
-    }
-
-    :deep(.svg__fill--default-cyan-03) {
-      fill: var(--color-default-cyan-03);
-    }
-  }
-
-  &.theme-dark {
-    --color-background: var(--color-primary-blue-03);
-    --color-title: var(--color-white);
-    --color-text: var(--color-white);
-    --color-svg-molecule-outline: var(--color-primary-blue-02);
-    --color-svg-molecule-inner-highlight: var(--color-white);
-    --color-button-background: var(--color-primary-blue-03);
-    --color-button-border: 2px solid var(--color-default-cyan-02);
-
-    :deep(.svg__stroke--primary-blue-03) {
-      stroke: var(--color-primary-blue-02);
-    }
-
-    :deep(.svg__stroke--help-green-03) {
-      stroke: var(--color-white);
-    }
-
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-help-green-03);
-    }
-
-    :deep(.svg__fill--default-cyan-03) {
-      fill: var(--color-help-green-03);
-    }
-  }
-
-  .svg {
-    margin-bottom: 32px;
-    flex-grow: 0;
-    flex-shrink: 0;
-
-    .outline {
-      stroke: var(--color-svg-molecule-outline);
-    }
-
-    .color {
-      stroke: var(--color-svg-molecule-inner-highlight);
-    }
-  }
-
-  .title {
-    @include step-2;
-    text-align: center;
-    letter-spacing: 0.0025em;
-    color: var(--color-title);
-    margin-bottom: 16px;
-    max-width: 640px;
-  }
-
-  .text {
-    @include step-0;
-    text-align: center;
-    color: var(--color-text);
-    margin-bottom: 32px;
-    max-width: 640px;
-  }
-
-  // Breakpoints
-  @media #{$medium} {
-    &.full-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
-    }
-
-    &.half-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
-      width: 100%;
-    }
-
-    .title,
-    .text {
-      padding: 0;
-    }
-  }
-
-  @media #{$small} {
-    &.full-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
-    }
-
-    &.half-width {
-      --block-padding-title: 48px;
-      --block-padding-text: 48px;
-    }
-  }
-}
+@import "@/styles/default/_block-call-to-action.scss";
+@import "@/styles/ftva/_block-call-to-action.scss";
 </style>

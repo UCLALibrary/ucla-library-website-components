@@ -1,5 +1,6 @@
 import { computed } from 'vue'
 import { socialList } from './mock/SocialList'
+import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockEventDetail from '@/lib-components/BlockEventDetail.vue'
 import BlockInfo from '@/lib-components/BlockInfo.vue'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
@@ -455,5 +456,59 @@ export function FTVABlogDetail() {
         <SectionWrapper theme='paleblue'>Next Section Content</SectionWrapper>
       </div>
     `,
+  }
+}
+
+const slimCTAData = {
+  svgName: 'svg-call-to-action-ftva-pdf',
+  title: 'View Information',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+}
+
+export function FTVASlimCTA() {
+  return {
+    data() {
+      return {
+        page: mockSeriesPageData,
+        ftvaTicketInformation,
+        slimCTAData
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { TwoColLayoutWStickySideBar, CardMeta, RichText, BlockInfo, BlockEventDetail, SectionWrapper, BlockCallToAction },
+    template: `<div>
+                <SectionWrapper theme='paleblue'>Previous Section Content</SectionWrapper>
+                <TwoColLayoutWStickySideBar>
+                    <template v-slot:primaryTop>
+                        <CardMeta
+                            category="Series"
+                            :title="page?.title"
+                            :text="page?.eventDescription"
+                            :introduction="page?.ftvaEventIntroduction"
+                            :guest-speaker="page?.guestSpeaker"
+                        />
+                    </template>
+                    <template v-slot:primaryMid>
+                        <RichText
+                            v-if="page?.richText"
+                            :rich-text-content="page?.richText"
+                        />
+                        <BlockCallToAction
+                            :svgName="slimCTAData.svgName"
+                            :text="slimCTAData.text" 
+                            :is-centered="false" />
+                    </template>
+                    <template v-slot:sidebarTop>
+                        <BlockCallToAction
+                            :useGlobalData="true"
+                            :is-centered="false" />
+                    </template>
+                </TwoColLayoutWStickySideBar>
+                <SectionWrapper theme='paleblue'>Next Section Content</SectionWrapper>
+                </div>`
   }
 }

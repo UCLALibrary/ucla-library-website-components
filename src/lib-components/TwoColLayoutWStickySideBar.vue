@@ -76,6 +76,10 @@ onMounted(() => {
     .primary-section-wrapper {
       margin: var(--space-2xl) auto;
       padding: 0 var(--unit-gutter) 0 0;
+
+      :deep(.block-call-to-action.slim-left-align){
+        padding: var(--space-m);
+      }
     }
   }
 
@@ -93,6 +97,10 @@ onMounted(() => {
       position: sticky;
       top: 85px;
       will-change: top;
+
+     :deep(.block-call-to-action.slim-left-align) {
+        border-radius: 10px;
+      }
 
       >* {
         margin-bottom: 30px;
