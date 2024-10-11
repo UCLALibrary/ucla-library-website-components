@@ -1,0 +1,64 @@
+.ftva.block-call-to-action {
+  // For FTVA default CTA (non-slim, centered) specs if and when needed
+
+  background-color: $page-blue;
+  
+  .title {
+    color: $heading-grey;
+  }
+}
+
+.ftva.block-call-to-action.slim-left-align {
+  background-color: $page-blue;
+  padding: var(--space-m);
+  border-radius: 2px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: unset;
+  align-items: unset;
+  -moz-column-gap: .75rem;
+       column-gap: .75rem;
+
+  .svg {
+    position: relative;
+  }
+
+  .svg,
+  .text {
+    margin-bottom: 0;
+  }
+
+  .title,
+  .text {
+    text-align: left;
+  }
+
+  .title {
+    @include ftva-body;
+    font-size: 18px;
+    font-weight: 600;
+    color: $heading-grey;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .text {
+    @include ftva-body-2;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 100%;
+    position: relative;
+  }
+
+  :deep(.text a) {
+    color: $accent-blue;
+    text-decoration: underline;
+  }
+
+  :deep(.text.ftva-global-data > p::after) {
+    content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg');
+    position: absolute;
+    margin-left: 10px;
+    bottom: -1px;
+  }
+}
