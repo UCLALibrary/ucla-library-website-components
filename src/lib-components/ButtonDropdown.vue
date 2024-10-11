@@ -166,7 +166,7 @@ function formatEndTime(str) {
 const theme = useTheme()
 
 const parsedClasses = computed(() => {
-  return ['button-dropdown', theme?.value || '']
+  return ['button-dropdown', theme?.value || '', { 'is-expanded': isDropdownExpanded.value }]
 })
 </script>
 

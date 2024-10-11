@@ -57,6 +57,12 @@
         background-color: $white;
     }
 
+    .button-dropdown-modal-wrapper.is-expanded {
+        position: absolute;
+        width: auto;
+        margin: 0 4px;
+    }
+
     .dropdown-modal-item {
         :deep(.icon-with-link) {
             .icon-with-link-container {
@@ -178,6 +184,8 @@
 
         .button-dropdown-modal-wrapper.is-expanded {
             width: 100%;
+            position: static;
+            margin: 0;
         }
 
         .svg__icon-close.svg-glyph-close {
@@ -248,15 +256,15 @@
         min-width: 0;
         min-height: auto;
         padding: 20px 20px 24px 20px;
-        margin: 0 auto;
+        margin: 0 4px;
         border-width: 0 1px 1px 1px;
         border-style: solid;
         border-color: #{$primary-blue-03};
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
-        position: relative;
-        top: 0;
-        left: 0;
+        position: absolute;
+        top: unset;
+        left: unset;
     }
 
     add-to-calendar-button::part(atcb-list) {
@@ -288,7 +296,3 @@
                 text-decoration-color: #{$bright-blue};
     }
 }
-
-// .button-dropdown.is-expanded {
-//     position: absolute;
-// }
