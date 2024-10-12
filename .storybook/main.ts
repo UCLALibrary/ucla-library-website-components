@@ -1,7 +1,9 @@
 import SvgLoader from "vite-svg-loader"
 import type { StorybookConfig } from "@storybook/vue3-vite"
 import path from "path"
-const { mergeConfig } = require("vite")
+import { mergeConfig } from "vite"
+
+import { fileURLToPath } from 'url'
 
 const config: StorybookConfig = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -32,7 +34,7 @@ const config: StorybookConfig = {
             },
             resolve: {
                 alias: {
-                    "@": path.resolve(__dirname, "../src/"),
+                    "@": path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../src/"),
                 },
                 extensions: [".vue", ".js", ".json"],
             },
