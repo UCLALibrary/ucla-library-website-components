@@ -42,12 +42,16 @@
     margin-bottom: 4px;
   }
 
-  .text {
+
+  :deep(.rich-text.text) {
     @include ftva-body-2;
-    font-size: 16px;
     line-height: 1.5;
     max-width: 100%;
     position: relative;
+    
+    p {
+      font-size: 16px;
+    }
   }
 
   :deep(.text a) {
@@ -55,10 +59,8 @@
     text-decoration: underline;
   }
 
-  :deep(.text.ftva-global-data > p::after) {
+  :deep(.rich-text a[target="_blank"]::after) {
     content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg');
-    position: absolute;
-    margin-left: 10px;
-    bottom: -1px;
+    scale: 1;
   }
 }
