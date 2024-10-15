@@ -1,3 +1,10 @@
+## [3.29.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.0...v3.29.1) (2024-10-15)
+
+
+### Bug Fixes
+
+* APPS-2984 Share/Calendar button dropdown behavior ([#631](https://github.com/UCLALibrary/ucla-library-website-components/issues/631)) ([45c707b](https://github.com/UCLALibrary/ucla-library-website-components/commit/45c707b8b295c175ec715142f4cdec206c85510d))
+
 # [3.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.28.1...v3.29.0) (2024-10-11)
 
 
