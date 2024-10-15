@@ -32,10 +32,6 @@
             margin-bottom: 10px;
         }
 
-        &:hover>a.title {
-            text-decoration: none;
-        }
-
         .byline-group {
             position: absolute;
             bottom: var(--space-s);
@@ -83,20 +79,6 @@
                 right: -30px;
                 top: -2px;
                 margin: 0px 10px;
-            }
-        }
-    }
-
-    // take the hover style off of the title
-    @media #{$has-hover} {
-        &:hover {
-            .title {
-                color: none;
-                text-decoration: none;
-                text-decoration-thickness: none;
-                -webkit-text-decoration-color: none;
-                        text-decoration-color: none;
-                text-underline-offset: none;
             }
         }
     }
