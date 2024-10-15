@@ -4,6 +4,7 @@ import { computed, defineAsyncComponent } from 'vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 import ButtonLink from '@/lib-components/ButtonLink.vue'
+import RichText from '@/lib-components/RichText.vue'
 
 import { useTheme } from '@/composables/useTheme'
 
@@ -195,11 +196,7 @@ const classes = computed(() => {
       >
         {{ parsedContent.title }}
       </h2>
-      <div
-        :class="{ 'ftva-global-data': props.useGlobalData && theme === 'ftva' }"
-        class="text"
-        v-html="parsedContent.text"
-      />
+      <RichText :class="{ 'ftva-global-data': props.useGlobalData && theme === 'ftva' }" class="text" :rich-text-content="parsedContent.text" />
     </div>
     <div v-if="theme !== 'ftva'">
       <ButtonLink
