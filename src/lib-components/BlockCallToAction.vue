@@ -72,6 +72,10 @@ const SvgCallToActionMoney = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/call-to-action-money.svg')
 )
 
+const SvgCallToActionFTVAExternalLinkDark = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg')
+)
+
 const SvgCallToActionFTVAInfo = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-ftva-info.svg')
 )
@@ -88,6 +92,10 @@ const iconMapping = {
   'svg-call-to-action-find': {
     icon: SvgCallToActionFind,
     label: 'CTA Find'
+  },
+  'svg-call-to-action-ftva-external-link-dark': {
+    icon: SvgCallToActionFTVAExternalLinkDark,
+    label: 'CTA FTVA External Link'
   },
   'svg-call-to-action-ftva-info': {
     icon: SvgCallToActionFTVAInfo,
