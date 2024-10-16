@@ -84,13 +84,13 @@ const mockFtvaSeriesDetailData = {
   id: '2847944',
   typeHandle: 'eventSeries',
   title: 'The Films of Michael Snow',
-  startDate: "2027-03-06T00:00",
-  endDate: "2027-09-17T00:00",
+  startDate: '2027-03-06T00:00',
+  endDate: '2027-09-17T00:00',
   ongoing: false,
   location: [
     {
-      title: "Billy Wilder Theater",
-      publicUrl: "https://www.cinema.ucla.edu/billy-wilder-theater",
+      title: 'Billy Wilder Theater',
+      publicUrl: 'https://www.cinema.ucla.edu/billy-wilder-theater',
     }
   ]
 }
