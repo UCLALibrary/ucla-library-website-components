@@ -112,7 +112,7 @@ const parsedDateDisplay = computed(() => {
           Multiple Locations
         </span>
 
-        <span v-else-if="themeSettings?.multiLocationMsgDisplay && locations.length == 1">
+        <span v-else-if="themeSettings?.multiLocationMsgDisplay && locations.length === 1">
           <SmartLink
             :to="locations[0].publicUrl"
             :link-target="parsedTarget"
@@ -137,14 +137,17 @@ const parsedDateDisplay = computed(() => {
               {{ location.title }}
             </SmartLink>
             {{ index
-              < locations.length
-              - 1
-              ? ', '
-              : ''
-            }}
+    <
+    locations.length
+    -
+    1
+    ? ', '
+    : ''
+              }}
+              </span
+            >
           </span>
         </span>
-      </span>
     </div>
     <slot />
   </div>
