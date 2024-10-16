@@ -19,6 +19,7 @@ interface BlockEventDetailLocation {
   title: string
   url?: string
   uri?: string
+  publicUrl?: string
 }
 
 const { startDate, endDate, time, ongoing, locations } = defineProps({
@@ -80,11 +81,17 @@ const parsedDateDisplay = computed(() => {
   <div :class="classes">
     <div class="event-list date">
       <span>
-        <SvgIconCalendar v-if="startDate" class="row-icon" /> {{ parsedDateDisplay }}
+        <SvgIconCalendar
+          v-if="startDate"
+          class="row-icon"
+        /> {{ parsedDateDisplay }}
       </span>
     </div>
 
-    <div v-if="time" class="event-list time">
+    <div
+      v-if="time"
+      class="event-list time"
+    >
       <span>
         <SvgIconClock class="row-icon" /> {{ formatTimes(time, time) }}
       </span>
@@ -96,10 +103,24 @@ const parsedDateDisplay = computed(() => {
     >
       <span>
         <SvgIconLocation class="row-icon" />
+
         <span v-if="themeSettings?.multiLocationMsgDisplay && locations.length > 1">
           Multiple Locations
         </span>
-        <span v-else class="locations-wrapper">
+
+        <span v-else-if="themeSettings?.multiLocationMsgDisplay && locations.length == 1">
+          <SmartLink
+            :to="locations[0].publicUrl"
+            :linkTarget="locations"
+          >
+            {{ locations[0].title }}
+          </SmartLink>
+        </span>
+
+        <span
+          v-else
+          class="locations-wrapper"
+        >
           <span
             v-for="(location, index) in locations"
             :key="location.title"
@@ -107,19 +128,22 @@ const parsedDateDisplay = computed(() => {
           >
             <SmartLink
               :to="location.title"
-              :link-target="location.uri ? location.uri : ''"
+              :linkTarget="location.uri ? location.publicUrl : ''"
             >
               {{ location.title }}
             </SmartLink>
             {{ index
-              < locations.length
-              - 1
-              ? ', '
+    <
+    locations.length
+    -
+    1
+    ? ', '
               : ''
-            }}
+              }}
+              </span
+            >
           </span>
         </span>
-      </span>
     </div>
     <slot />
   </div>
