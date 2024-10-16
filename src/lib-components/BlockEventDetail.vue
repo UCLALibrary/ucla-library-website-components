@@ -64,6 +64,10 @@ const themeSettings = computed(() => {
   }
 })
 
+const parsedTarget = computed(() => {
+  return locations.publicUrl || locations.url ? '_blank' : ''
+})
+
 // Display date based on which data is provided
 const parsedDateDisplay = computed(() => {
   if (ongoing)
@@ -111,7 +115,7 @@ const parsedDateDisplay = computed(() => {
         <span v-else-if="themeSettings?.multiLocationMsgDisplay && locations.length == 1">
           <SmartLink
             :to="locations[0].publicUrl"
-            :link-target="locations"
+            :link-target="parsedTarget"
           >
             {{ locations[0].title }}
           </SmartLink>
@@ -128,7 +132,7 @@ const parsedDateDisplay = computed(() => {
           >
             <SmartLink
               :to="location.url"
-              :link-target="location.url ? location.url : ''"
+              :link-target="parsedTarget"
             >
               {{ location.title }}
             </SmartLink>
@@ -138,7 +142,7 @@ const parsedDateDisplay = computed(() => {
     -
     1
     ? ', '
-              : ''
+    : ''
               }}
               </span
             >

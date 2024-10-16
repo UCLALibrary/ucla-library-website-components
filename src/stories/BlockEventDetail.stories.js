@@ -9,7 +9,7 @@ export default {
   component: BlockEventDetail
 }
 
-const mockEventDetailDataSingle = {
+const mockEventDetailData = {
   id: '2847944',
   typeHandle: 'ftvaEvent',
   title: 'La Région Centrale 03-08-24',
@@ -17,27 +17,30 @@ const mockEventDetailDataSingle = {
   location: [
     {
       id: '195746',
-      title: 'Billy Wilder Theater',
-      url: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
+      title: 'LA Opera',
+      url: 'https://www.laopera.org',
+    },
+    {
+      id: '195746',
+      title: 'Pasadena Symphony',
+      url: 'https://pasadenasymphony-pops.org',
     }
   ]
 }
 
-const mockEventDetailDataMultiple = {
+const mockFtvaEventDetailData = {
   id: '2847944',
   typeHandle: 'ftvaEvent',
   title: 'La Région Centrale 03-08-24',
   startDateWithTime: '2024-03-09T03:30:00+00:00',
   location: [
     {
-      id: '195746',
       title: 'Billy Wilder Theater',
-      url: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
+      publicUrl: 'https://cinema.ucla.edu/billy-wilder-theater',
     },
     {
-      id: '195746',
-      title: 'Other Location',
-      url: 'https://test-craft.library.ucla.edu/locations/other-locations',
+      title: 'Vidiots',
+      publicUrl: 'https://vidiotsfoundation.org/',
     }
   ]
 }
@@ -63,24 +66,7 @@ const mockEventSeriesData = {
   ]
 }
 
-const mockFtvaEventDetailData = {
-  id: '2847944',
-  typeHandle: 'ftvaEvent',
-  title: 'La Région Centrale 03-08-24',
-  startDateWithTime: '2024-03-09T03:30:00+00:00',
-  location: [
-    {
-      title: 'Billy Wilder Theater',
-      publicUrl: 'https://cinema.ucla.edu/billy-wilder-theater',
-    },
-    {
-      title: 'Vidiots',
-      publicUrl: 'https://vidiotsfoundation.org/',
-    }
-  ]
-}
-
-const mockFtvaSeriesDetailData = {
+const mockFtvaSeriesDetailDataRange = {
   id: '2847944',
   typeHandle: 'eventSeries',
   title: 'The Films of Michael Snow',
@@ -95,11 +81,12 @@ const mockFtvaSeriesDetailData = {
   ]
 }
 
+// STORIES
 export function Default() {
   return {
     data() {
       return {
-        data: mockEventDetailDataSingle,
+        data: mockEventDetailData,
       }
     },
     components: { BlockEventDetail },
@@ -117,7 +104,7 @@ export function MoreThanOneLocation() {
   return {
     data() {
       return {
-        data: mockEventDetailDataMultiple,
+        data: mockEventDetailData,
       }
     },
     components: { BlockEventDetail },
@@ -135,7 +122,7 @@ export function FtvaOneLocation() {
   return {
     data() {
       return {
-        data: mockEventDetailDataSingle,
+        data: mockFtvaEventDetailData,
       }
     },
     provide() {
@@ -204,7 +191,7 @@ export function FtvaDateRange() {
   return {
     data() {
       return {
-        data: mockFtvaSeriesDetailData,
+        data: mockFtvaSeriesDetailDataRange,
       }
     },
     provide() {
