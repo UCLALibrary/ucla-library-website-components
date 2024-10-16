@@ -65,7 +65,7 @@ const themeSettings = computed(() => {
 })
 
 const parsedTarget = computed(() => {
-  return locations.publicUrl || locations.url ? '_blank' : ''
+  return theme?.value === 'ftva' ? '_blank' : ''
 })
 
 // Display date based on which data is provided
