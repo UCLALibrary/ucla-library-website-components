@@ -32,6 +32,10 @@
             margin-bottom: 10px;
         }
 
+        &:hover>a.title {
+            text-decoration: none;
+        }
+
         .byline-group {
             position: absolute;
             bottom: var(--space-s);
