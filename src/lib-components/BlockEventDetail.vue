@@ -136,19 +136,13 @@ const parsedDateDisplay = computed(() => {
             >
               {{ location.title }}
             </SmartLink>
-            {{ index
-    <
-    locations.length
-    -
-    1
-    ? ', '
-    : ''
-              }}
-              </span
-            >
+
+            {{ index < locations.length - 1 ? ', ' : '' }}
           </span>
         </span>
+      </span>
     </div>
+
     <slot />
   </div>
 </template>
