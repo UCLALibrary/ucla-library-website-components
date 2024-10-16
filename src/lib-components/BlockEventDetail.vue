@@ -127,8 +127,8 @@ const parsedDateDisplay = computed(() => {
             class="location-link"
           >
             <SmartLink
-              :to="location.title"
-              :linkTarget="location.uri ? location.publicUrl : ''"
+              :to="location.publicUrl"
+              :linkTarget="location.publicUrl ? location.publicUrl : ''"
             >
               {{ location.title }}
             </SmartLink>

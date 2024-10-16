@@ -9,7 +9,7 @@ export default {
   component: BlockEventDetail
 }
 
-const mockEventDetailData = {
+const mockEventDetailDataSingle = {
   id: '2847944',
   typeHandle: 'ftvaEvent',
   title: 'La Région Centrale 03-08-24',
@@ -18,14 +18,26 @@ const mockEventDetailData = {
     {
       id: '195746',
       title: 'Billy Wilder Theater',
-      url: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
-      uri: 'locations/billy-wilder-theater'
+      publicUrl: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
+    }
+  ]
+}
+
+const mockEventDetailDataMultiple = {
+  id: '2847944',
+  typeHandle: 'ftvaEvent',
+  title: 'La Région Centrale 03-08-24',
+  startDateWithTime: '2024-03-09T03:30:00+00:00',
+  location: [
+    {
+      id: '195746',
+      title: 'Billy Wilder Theater',
+      publicUrl: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
     },
     {
       id: '195746',
       title: 'Other Location',
-      url: 'https://test-craft.library.ucla.edu/locations/other-locations',
-      uri: 'locations/somelocation'
+      publicUrl: 'https://test-craft.library.ucla.edu/locations/other-locations',
     }
   ]
 }
@@ -41,14 +53,12 @@ const mockEventSeriesData = {
     {
       id: '195746',
       title: 'Billy Wilder Theater',
-      url: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
-      uri: 'locations/billy-wilder-theater'
+      publicUrl: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater'
     },
     {
       id: '195746',
       title: 'Other Location',
-      url: 'https://test-craft.library.ucla.edu/locations/other-locations',
-      uri: 'locations/somelocation'
+      publicUrl: 'https://test-craft.library.ucla.edu/locations/other-locations'
     }
   ]
 }
@@ -80,18 +90,7 @@ const mockFtvaSeriesDetailData = {
   location: [
     {
       title: "Billy Wilder Theater",
-      campusMapId: null,
       publicUrl: "https://www.cinema.ucla.edu/billy-wilder-theater",
-      address: [
-        {
-          addressLine1: "1234 This Way",
-          addressLine2: null,
-          addressCity: "LA",
-          addressState: "CA",
-          addressZipCode: "90210",
-          addressCountry: null
-        }
-      ]
     }
   ]
 }
@@ -100,7 +99,25 @@ export function Default() {
   return {
     data() {
       return {
-        data: mockEventDetailData,
+        data: mockEventDetailDataSingle,
+      }
+    },
+    components: { BlockEventDetail },
+    template: `
+    <block-event-detail
+      :startDate="data.startDateWithTime"
+      :time="data.startDateWithTime"
+      :locations="[data.location[0]]"
+    />
+    `,
+  }
+}
+
+export function MoreThanOneLocation() {
+  return {
+    data() {
+      return {
+        data: mockEventDetailDataMultiple,
       }
     },
     components: { BlockEventDetail },
@@ -114,11 +131,16 @@ export function Default() {
   }
 }
 
-export function MultipleLocations() {
+export function FtvaOneLocation() {
   return {
     data() {
       return {
-        data: mockFtvaEventDetailData,
+        data: mockEventDetailDataSingle,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     components: { BlockEventDetail },
@@ -126,7 +148,7 @@ export function MultipleLocations() {
     <block-event-detail
       :startDate="data.startDateWithTime"
       :time="data.startDateWithTime"
-      :locations="data.location"
+      :locations="[data.location[0]]"
     />
     `,
   }
@@ -150,29 +172,6 @@ export function FtvaMultipleLocations() {
       :startDate="data.startDateWithTime"
       :time="data.startDateWithTime"
       :locations="data.location"
-    />
-    `,
-  }
-}
-
-export function FtvaOneLocation() {
-  return {
-    data() {
-      return {
-        data: mockFtvaEventDetailData,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { BlockEventDetail },
-    template: `
-    <block-event-detail
-      :startDate="data.startDateWithTime"
-      :time="data.startDateWithTime"
-      :locations="[data.location[0]]"
     />
     `,
   }
