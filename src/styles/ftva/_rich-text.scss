@@ -26,12 +26,14 @@
 
   :deep(a) {
     color: $body-grey;
-    text-decoration-color: $grey-blue;
+    -webkit-text-decoration-color: $grey-blue;
+            text-decoration-color: $grey-blue;
     text-decoration-thickness: 3px;
     text-underline-offset: 4px;
 
     &:hover {
-      text-decoration-color: $accent-blue;
+      -webkit-text-decoration-color: $bright-blue;
+              text-decoration-color: $bright-blue;
     }
   }
 
@@ -98,7 +100,8 @@
     background-size: cover;
     background-position: left;
     padding: .15rem;
-    filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
+    -webkit-filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
+            filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
   }
 
   :deep(table) {

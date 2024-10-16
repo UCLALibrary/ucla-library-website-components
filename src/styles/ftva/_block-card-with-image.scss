@@ -87,20 +87,6 @@
         }
     }
 
-    // take the hover style off of the title
-    @media #{$has-hover} {
-        &:hover {
-            .title {
-                color: none;
-                text-decoration: none;
-                text-decoration-thickness: none;
-                -webkit-text-decoration-color: none;
-                        text-decoration-color: none;
-                text-underline-offset: none;
-            }
-        }
-    }
-
     /* This keeps the moleule image from expanding vertically when in tablet size */
     &.is-vertical {
         flex-direction: column;
