@@ -18,7 +18,7 @@ const mockEventDetailDataSingle = {
     {
       id: '195746',
       title: 'Billy Wilder Theater',
-      publicUrl: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
+      url: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
     }
   ]
 }
@@ -32,12 +32,12 @@ const mockEventDetailDataMultiple = {
     {
       id: '195746',
       title: 'Billy Wilder Theater',
-      publicUrl: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
+      url: 'https://test-craft.library.ucla.edu/locations/billy-wilder-theater',
     },
     {
       id: '195746',
       title: 'Other Location',
-      publicUrl: 'https://test-craft.library.ucla.edu/locations/other-locations',
+      url: 'https://test-craft.library.ucla.edu/locations/other-locations',
     }
   ]
 }
