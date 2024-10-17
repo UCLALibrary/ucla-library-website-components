@@ -134,15 +134,21 @@ const parsedDateCreated = computed(() => {
 
 const parsedTime = computed(() => {
   // necessary check for library-website-nuxt & meap
-  if (props.startDate && props.sectionHandle === 'event')
+  if (props.startDate && props.sectionHandle === 'event') {
+    console.log('1')
     return formatTimes(props.startDate, props.endDate)
+  }
   // legacy behavior returns nothing when sectionHandle is not 'event',
   // so check theme is set AND we are not showing ftvaEventSeries data to avoid returning nothing
-  else if (props.startDate && (props.sectionHandle !== 'ftvaEventSeries' && theme?.value !== undefined))
+  else if (props.startDate && (props.sectionHandle !== 'ftvaEventSeries' && theme?.value !== undefined)) {
+    console.log('2')
     return props.endDate ? formatTimes(props.startDate, props.endDate) : formatTimes(props.startDate, props.startDate)
+  }
   // in all other cases incl. if it is ftvaEventSeries, return nothing
-  else if (props.startDate && (props.sectionHandle === 'ftvaEventSeries'))
+  else if (props.startDate && (props.sectionHandle === 'ftvaEventSeries')) {
+    console.log('3')
     return format(new Date(props.startDate), 'h:mm aaa')
+  }
   return ''
 })
 

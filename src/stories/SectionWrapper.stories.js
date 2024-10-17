@@ -12,6 +12,7 @@ import SectionTeaserList from '@/lib-components/SectionTeaserList.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import TabItem from '@/lib-components/TabItem.vue'
 import TabList from '@/lib-components/TabList.vue'
+import ButtonMore from '@/lib-components/ButtonMore.vue'
 
 const propsForMediaWithText = {
   sectionHeader: mockMediaWithText.mediaWithText[0].titleLink,
@@ -29,6 +30,166 @@ export default {
   component: SectionWrapper,
 }
 
+// const mockDefaultHome = [{
+//   id: '20628',
+//   sectionHandle: 'article',
+//   title: 'La Niña',
+//   text: '<p>Laan oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+//   to: '/about/news/la-niña',
+//   externalResourceUrl: null,
+//   articleCategories: [
+//     {
+//       title: 'Featured'
+//     },
+//     {
+//       title: 'Collections'
+//     }
+//   ],
+//   // heroImage: [
+//   //   {
+//   //     image: [
+//   //       {
+//   //         id: '20637',
+//   //         src: 'https://static.library.ucla.edu/craftassetstest/_fullscreen/LaNina-Jet-Wintertime-Pattern.jpg',
+//   //         height: 1997,
+//   //         width: 2560,
+//   //         srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 2560w',
+//   //         alt: 'La Niña',
+//   //         focalPoint: [
+//   //           0.5,
+//   //           0.5
+//   //         ]
+//   //       }
+//   //     ]
+//   //   }
+//   // ],
+//   // image: {
+//   //   id: '20637',
+//   //   src: 'https://static.library.ucla.edu/craftassetstest/_fullscreen/LaNina-Jet-Wintertime-Pattern.jpg',
+//   //   height: 1997,
+//   //   width: 2560,
+//   //   srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 2560w',
+//   //   alt: 'La Niña',
+//   //   focalPoint: [
+//   //     0.5,
+//   //     0.5
+//   //   ]
+//   // },
+//   // category: 'Featured, Collections',
+//   category: null,
+//   startDate: '2023-02-07T15:54:00-08:00',
+//   endDate: '2023-02-07T15:54:00-08:00',
+//   postDate: null,
+//   cardIsLink: false,
+//   isVertical: true,
+//   ongoing: false
+//   // postDate: '2022-06-21T12:39:00-07:00'  // causes double dates but not times?
+// },{
+//   id: '20628',
+//   // sectionHandle: 'article',
+//   title: 'La Niña',
+//   text: '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+//   to: '/about/news/la-niña',
+//   // externalResourceUrl: null,
+//   articleCategories: [
+//     {
+//       title: 'Featured'
+//     },
+//     {
+//       title: 'Collections'
+//     }
+//   ],
+//   heroImage: [
+//     {
+//       image: [
+//         {
+//           id: '20637',
+//           src: 'https://static.library.ucla.edu/craftassetstest/_fullscreen/LaNina-Jet-Wintertime-Pattern.jpg',
+//           height: 1997,
+//           width: 2560,
+//           srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 2560w',
+//           alt: 'La Niña',
+//           focalPoint: [
+//             0.5,
+//             0.5
+//           ]
+//         }
+//       ]
+//     }
+//   ],
+//   image: {
+//     id: '20637',
+//     src: 'https://static.library.ucla.edu/craftassetstest/_fullscreen/LaNina-Jet-Wintertime-Pattern.jpg',
+//     height: 1997,
+//     width: 2560,
+//     srcset: 'https://static.library.ucla.edu/craftassetstest/_375xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 375w, https://static.library.ucla.edu/craftassetstest/_960xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 960w, https://static.library.ucla.edu/craftassetstest/_1280xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1280w, https://static.library.ucla.edu/craftassetstest/_1920xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 1920w, https://static.library.ucla.edu/craftassetstest/_2560xAUTO_crop_center-center_none/LaNina-Jet-Wintertime-Pattern.jpg 2560w',
+//     alt: 'La Niña',
+//     focalPoint: [
+//       0.5,
+//       0.5
+//     ]
+//   },
+//   category: 'Featured, Collections',
+//   startDate: '2022-06-21T12:39:00-07:00',
+//   endDate: '2022-06-21T12:39:00-07:00',
+//   postDate: '2022-06-21T12:39:00-07:00'
+// }]
+
+const mockDefaultHome = [{
+  // id: '20628',
+  sectionHandle: 'news',
+  // title: 'La Bpo',
+  // text: '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+  to: 'https://www.library.ucla.edu',
+  ongoing: false,
+  // externalResourceUrl: '/about/news/la-niña',
+  // externalResourceUrl: null,
+  // category: 'Featured, Collections',
+  startDate: '2023-02-07T15:54:00-08:00',
+  endDate: '2023-02-07T15:54:00-08:00',
+  // endDate: '2023-02-07T15:54:00-08:00' //'2022-06-21T12:39:00-07:00'
+},{
+  // id: '20628',
+  sectionHandle: 'news',
+  // title: 'La Bpo',
+  // text: '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+  to: 'https://www.library.ucla.edu',
+  ongoing: false,
+  // externalResourceUrl: '/about/news/la-niña',
+  // externalResourceUrl: null,
+  // category: 'Featured, Collections',
+  startDate: '2023-02-07T15:54:00-08:00',
+  endDate: '2023-02-07T15:54:00-08:00',
+  // endDate: '2023-02-07T15:54:00-08:00' //'2022-06-21T12:39:00-07:00'
+},{
+  // id: '20628',
+  sectionHandle: 'news',
+  // title: 'La Bpo',
+  // text: '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+  to: 'https://www.library.ucla.edu',
+  ongoing: false,
+  // externalResourceUrl: '/about/news/la-niña',
+  // externalResourceUrl: null,
+  // category: 'Featured, Collections',
+  startDate: '2023-02-07T15:54:00-08:00',
+  endDate: '2023-02-07T15:54:00-08:00',
+  // endDate: '2023-02-07T15:54:00-08:00' //'2022-06-21T12:39:00-07:00'
+},{
+  // id: '20628',
+  sectionHandle: 'news',
+  // title: 'La Bpo',
+  // text: '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+  to: 'https://www.library.ucla.edu',
+  ongoing: false,
+  // externalResourceUrl: '/about/news/la-niña',
+  // externalResourceUrl: null,
+  // category: 'Featured, Collections',
+  startDate: '2023-02-07T15:54:00-08:00',
+  endDate: '2023-02-07T15:54:00-08:00',
+  // endDate: '2023-02-07T15:54:00-08:00' //'2022-06-21T12:39:00-07:00'
+}]
+
+
 export function Default() {
   return {
     data() {
@@ -44,6 +205,34 @@ export function Default() {
     <section-wrapper :sectionTitle="sectionTitle" :sectionSummary="sectionSummary">
       <block-media-with-text v-bind="propsForMediaWithText" />
     </section-wrapper>
+  `,
+  }
+}
+
+export function DefaultHome() {
+  return {
+    data() {
+      return {
+        mockDefaultHome
+      }
+    },
+    // provide() {
+    //   return {
+    //     theme: computed(() => 'sd'),
+    //   }
+    // }, 
+    components: { SectionWrapper, SectionTeaserCard, ButtonMore },
+    template: `
+      <section-wrapper>
+        <section-teaser-card :items="mockDefaultHome">
+              <nuxt-link
+        to="/about/news/"
+        class="button-more"
+      >
+        <button-more text="See All News" />
+      </nuxt-link>
+        </section-teaser-card>
+      </section-wrapper>
   `,
   }
 }
