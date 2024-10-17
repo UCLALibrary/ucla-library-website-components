@@ -1,11 +1,16 @@
 /// <reference types="cypress" />
-Cypress.Commands.add('waitForFontsAndSnapshot', (snapshotName) => {
-  cy.window().then((win) => {
-    return win.document.fonts.ready // Wait for fonts to be ready
-  }).then(() => {
-    cy.percySnapshot(snapshotName) // Take Percy snapshot with custom name
-  })
-})
+
+Cypress.Commands.add('waitForFontsToLoad', () => {
+  return cy.window().then((win) => {
+    return new Promise((resolve) => {
+      if (win.document.fonts.status === 'loaded') {
+        resolve(); // Fonts are already loaded
+      } else {
+        win.document.fonts.ready.then(resolve); // Wait until fonts are ready
+      }
+    });
+  });
+});
 
 // ***********************************************
 // This example commands.ts shows you how to

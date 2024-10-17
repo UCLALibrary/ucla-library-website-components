@@ -5,8 +5,6 @@ import "@/styles/global.scss"
 import router from "@/router"
 import { createPinia } from 'pinia';
 
-
-
 export const parameters = {
     actions: { argTypesRegex: "^on[A-Z].*" },
     layout: "fullscreen",
@@ -62,6 +60,9 @@ export const parameters = {
         },
     },
 }
+
+export const decorators = [ (Story) => { document.fonts.ready.then(() => Story()); return <Story />; }, ];
+
 setup((app) => {
     app.use(router)
     app.use(createPinia())

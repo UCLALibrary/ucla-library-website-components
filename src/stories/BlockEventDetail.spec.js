@@ -5,7 +5,10 @@ describe('BlockEventDetail', () => {
     )
     cy.get('.block-event-detail').should('exist')
 
-    // Use the custom command and pass the snapshot name
-    cy.waitForFontsAndSnapshot('BLOCK / Event Detail: Default')
+// Wait for fonts to load before proceeding
+    cy.waitForFontsToLoad().then(() => {
+      // Now take Percy snapshot
+      cy.percySnapshot('BLOCK / Event Detail: Default')
+    })
   })
 })
