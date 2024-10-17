@@ -5,6 +5,7 @@ describe('FLEXIBLE / Card With Image', () => {
     )
     cy.get('.card-with-image').should('exist')
 
+    cy.document().its("fonts.status").should("equal", "loaded")
     // Use the custom command and pass the snapshot name
     cy.waitForFontsAndSnapshot('FLEXIBLE / Card With Image: Default')
   })
