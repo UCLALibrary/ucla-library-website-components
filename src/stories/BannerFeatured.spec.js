@@ -5,10 +5,7 @@ describe('BannerFeatured', () => {
     )
     cy.get('.banner-featured').should('exist')
 
-    cy.window().then((win) => {
-      return win.document.fonts.ready
-    }).then(() => {
-      cy.percySnapshot('Banner Featured: Default')
-    })
+    // Use the custom command and pass the snapshot name
+    cy.waitForFontsAndSnapshot('Banner Featured: Default')
   })
 })

@@ -3,10 +3,7 @@ describe('BUTTON / Show', () => {
     cy.visit('/iframe.html?id=button-show--default&args=&viewMode=story')
     cy.get('.button-show').should('exist')
 
-    cy.window().then((win) => {
-      return win.document.fonts.ready
-    }).then(() => {
-      cy.percySnapshot('BUTTON / Show: Default')
-    })
+    // Use the custom command and pass the snapshot name
+    cy.waitForFontsAndSnapshot('BUTTON / Show: Default')
   })
 })
