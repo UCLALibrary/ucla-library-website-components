@@ -5,6 +5,10 @@ describe('BannerFeatured', () => {
     )
     cy.get('.banner-featured').should('exist')
 
-    cy.percySnapshot('Banner Featured: Default')
+    cy.window().then(win => {
+      return win.document.fonts.ready;
+    }).then(() => {
+      cy.percySnapshot('Banner Featured: Default');
+    });
   })
 })

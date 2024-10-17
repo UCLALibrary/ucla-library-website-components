@@ -5,6 +5,10 @@ describe('FLEXIBLE / Card With Image', () => {
     )
     cy.get('.card-with-image').should('exist')
 
-    cy.percySnapshot('FLEXIBLE / Card With Image: Default')
+    cy.window().then(win => {
+      return win.document.fonts.ready;
+    }).then(() => {
+      cy.percySnapshot('FLEXIBLE / Card With Image: Default');
+    });
   })
 })

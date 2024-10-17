@@ -3,6 +3,10 @@ describe('BUTTON / Show', () => {
     cy.visit('/iframe.html?id=button-show--default&args=&viewMode=story')
     cy.get('.button-show').should('exist')
 
-    cy.percySnapshot('BUTTON / Show: Default')
+    cy.window().then(win => {
+      return win.document.fonts.ready;
+    }).then(() => {
+      cy.percySnapshot('BUTTON / Show: Default');
+    });
   })
 })

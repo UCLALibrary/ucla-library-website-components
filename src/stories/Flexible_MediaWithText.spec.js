@@ -5,6 +5,10 @@ describe('FLEXIBLE / Media With Text', () => {
     )
     cy.get('.section-media-with-text').should('exist')
 
-    cy.percySnapshot('FLEXIBLE / Media With Text: Default')
+    cy.window().then(win => {
+      return win.document.fonts.ready;
+    }).then(() => {
+      cy.percySnapshot('FLEXIBLE / Media With Text: Default');
+    });
   })
 })
