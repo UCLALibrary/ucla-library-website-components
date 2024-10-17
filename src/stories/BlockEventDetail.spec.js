@@ -5,10 +5,10 @@ describe('BlockEventDetail', () => {
     )
     cy.get('.block-event-detail').should('exist')
 
-    cy.window().then(win => {
-      return win.document.fonts.ready;
+    cy.window().then((win) => {
+      return win.document.fonts.ready
     }).then(() => {
-      cy.percySnapshot('BLOCK / Event Detail: Default');
-    });
+      cy.percySnapshot('BLOCK / Event Detail: Default')
+    })
   })
 })

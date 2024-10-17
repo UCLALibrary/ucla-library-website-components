@@ -1,4 +1,12 @@
 /// <reference types="cypress" />
+Cypress.Commands.add('waitForFontsAndSnapshot', (snapshotName) => {
+  cy.window().then((win) => {
+    return win.document.fonts.ready // Wait for fonts to be ready
+  }).then(() => {
+    cy.percySnapshot(snapshotName) // Take Percy snapshot with custom name
+  })
+})
+
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
