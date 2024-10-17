@@ -5,7 +5,7 @@ describe('BannerFeatured', () => {
     )
     cy.get('.banner-featured').should('exist')
 
-// Wait for fonts to load before proceeding
+    // Wait for fonts to load before proceeding
     cy.waitForFontsToLoad().then(() => {
       // Now take Percy snapshot
       cy.percySnapshot('Banner Featured: Defaul')

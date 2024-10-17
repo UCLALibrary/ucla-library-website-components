@@ -5,7 +5,7 @@ describe('GLOBAL/ Rich Text', () => {
     )
     cy.get('.rich-text').should('exist')
 
-// Wait for fonts to load before proceeding
+    // Wait for fonts to load before proceeding
     cy.waitForFontsToLoad().then(() => {
       // Now take Percy snapshot
       cy.percySnapshot('Global / Rich Text: Default')

@@ -1,3 +1,4 @@
+
 import { setup } from "@storybook/vue3"
 import type { Preview } from "@storybook/vue3"
 import "ucla-library-design-tokens/scss/app-global.scss"
@@ -60,9 +61,6 @@ export const parameters = {
         },
     },
 }
-
-export const decorators = [ (Story) => { document.fonts.ready.then(() => Story()); return <Story />; }, ];
-
 setup((app) => {
     app.use(router)
     app.use(createPinia())
