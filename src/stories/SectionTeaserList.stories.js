@@ -133,7 +133,7 @@ const mockDynamicComponent = [
     id: '2847944',
     to: 'events/la-région-centrale-03-08-24',
     title: 'TEST - La Région Centrale Screening',
-    startDate: '2027-03-31T07:00:00+00:00',
+    startDate: '2027-03-05T07:00:00+00:00',
     image: API.image,
     tagLabels: [
       { title: 'Guest speaker' },

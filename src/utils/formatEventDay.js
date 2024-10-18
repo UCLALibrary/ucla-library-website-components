@@ -8,7 +8,7 @@ import format from 'date-fns/format'
  */
 
 function formatDay(startDate = '') {
-  return format(new Date(startDate), 'dd')
+  return format(new Date(startDate), 'd')
 }
 
 export default formatDay
