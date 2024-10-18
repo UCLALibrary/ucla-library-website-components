@@ -166,6 +166,10 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
+    <div class="linked-category-slot">
+      <slot name="linked-category-slot" />
+    </div>
+
     <div
       v-if="category"
       class="category"
@@ -284,9 +288,6 @@ const classes = computed(() => {
       <slot name="floatingslot" />
     </div>
 
-    <div v-if="sectionHandle === 'ftvaArticle'" class="heading-about-author">
-      About the author
-    </div>
     <RichText
       v-if="text"
       class="text"
