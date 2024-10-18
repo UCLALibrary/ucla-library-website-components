@@ -1,3 +1,10 @@
+## [3.29.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.3...v3.29.4) (2024-10-18)
+
+
+### Bug Fixes
+
+* APPS-2969 Add hover state to FTVA card-horizontal titles ([#633](https://github.com/UCLALibrary/ucla-library-website-components/issues/633)) ([51dbfcd](https://github.com/UCLALibrary/ucla-library-website-components/commit/51dbfcdbc3e608d465fbcf9ac52adbfb953d2de4))
+
 ## [3.29.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.2...v3.29.3) (2024-10-18)
 
 
