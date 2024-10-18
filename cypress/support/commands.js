@@ -1,16 +1,4 @@
 /// <reference types="cypress" />
-
-Cypress.Commands.add('waitForFontsToLoad', () => {
-  return cy.window().then((win) => {
-    return new Promise((resolve) => {
-      if (win.document.fonts.status === 'loaded')
-        resolve() // Fonts are already loaded
-      else
-        win.document.fonts.ready.then(resolve) // Wait until fonts are ready
-    })
-  })
-})
-
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite

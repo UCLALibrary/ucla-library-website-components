@@ -61,13 +61,6 @@ export const parameters = {
     },
 }
 
-export const decorators = [
-  (Story) => {
-    document.fonts.ready.then(() => Story());
-    return Story();
-  },
-];
-
 setup((app) => {
     app.use(router)
     app.use(createPinia())
