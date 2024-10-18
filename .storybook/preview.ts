@@ -62,7 +62,6 @@ export const parameters = {
         },
     },
 }
-
 setup((app) => {
     app.use(router)
     app.use(createPinia())
