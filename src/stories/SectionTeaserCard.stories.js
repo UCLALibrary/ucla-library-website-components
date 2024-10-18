@@ -89,18 +89,6 @@ const mockDefault = [
   },
 ]
 
-const mockDefaultHome = [{
-  // id: '20628',
-  // sectionHandle: 'article',
-  title: 'La Niña',
-  // text: '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
-  // to: '/about/news/la-niña',
-  externalResourceUrl: null,
-  // category: 'Featured, Collections',
-  startDate: '2022-06-21T12:39:00-07:00',
-  // endDate: '2023-02-07T15:54:00-08:00' //'2022-06-21T12:39:00-07:00'
-}]
-
 const mockFtva = [
   {
     id: '2847944',

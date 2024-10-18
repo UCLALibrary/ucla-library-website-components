@@ -136,16 +136,13 @@ const parsedTime = computed(() => {
   // necessary check for library-website-nuxt & meap
   if (props.startDate && props.sectionHandle === 'event')
     return formatTimes(props.startDate, props.endDate)
-
   // legacy behavior returns nothing when sectionHandle is not 'event',
   // so check theme is set to ftva AND we are not showing ftvaEventSeries data to avoid returning nothing
   else if (props.startDate && (props.sectionHandle !== 'ftvaEventSeries' && theme?.value === 'ftva'))
     return props.endDate ? formatTimes(props.startDate, props.endDate) : formatTimes(props.startDate, props.startDate)
-
   // in all other cases incl. if it is ftvaEventSeries, return nothing
   else if (props.startDate && (props.sectionHandle === 'ftvaEventSeries'))
     return format(new Date(props.startDate), 'h:mm aaa')
-
   return ''
 })
 
