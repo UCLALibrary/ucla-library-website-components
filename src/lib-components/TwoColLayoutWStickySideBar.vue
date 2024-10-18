@@ -84,8 +84,7 @@ onMounted(() => {
   }
 
   .sidebar-column {
-    min-width: 314px;
-    width: 30%;
+    width: #{$sidebar-width}px;
     position: absolute;
     height: 100%;
     top: 0;
@@ -119,7 +118,6 @@ onMounted(() => {
     padding-right: var(--unit-gutter);
 
     .primary-column {
-      width: 62%;
 
       .primary-section-wrapper {
         padding-left: var(--unit-gutter);
@@ -127,7 +125,7 @@ onMounted(() => {
     }
 
     .sidebar-column {
-      padding-right: var(--unit-gutter);
+      padding-right: 0;
     }
   }
 }
@@ -137,6 +135,7 @@ onMounted(() => {
   .two-column {
     display: grid;
     grid-template-columns: 1fr;
+    padding-right: 0;
 
     .primary-column {
       width: auto;
