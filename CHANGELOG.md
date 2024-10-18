@@ -1,3 +1,10 @@
+## [3.29.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.4...v3.29.5) (2024-10-18)
+
+
+### Bug Fixes
+
+* Apps-2922 remove time stamp on homepage ([#637](https://github.com/UCLALibrary/ucla-library-website-components/issues/637)) ([f1c6e49](https://github.com/UCLALibrary/ucla-library-website-components/commit/f1c6e49df1b72162ff07cfb05c63ebee9133f707))
+
 ## [3.29.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.3...v3.29.4) (2024-10-18)
 
 
