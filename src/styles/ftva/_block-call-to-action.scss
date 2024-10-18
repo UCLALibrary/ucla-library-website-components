@@ -54,11 +54,6 @@
     }
   }
 
-  :deep(.text a) {
-    color: $accent-blue;
-    text-decoration: underline;
-  }
-
   :deep(.rich-text a[target="_blank"]::after) {
     content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg');
     scale: 1;
