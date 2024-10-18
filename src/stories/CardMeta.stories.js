@@ -181,7 +181,6 @@ const mockFTVAArticleData = {
       contributor: 'Axa Liaux (external contributor)'
     }
   ],
-  aboutTheAuthor: '<p>Our guest writer is <strong>Jen Diamond</strong>. She wrote this entry</p>',
   sectionHandle: 'ftvaArticle'
 }
 const parsedArticleCategories = mockFTVAArticleData.articleCategories.map(category => category.title).join(', ')
@@ -245,13 +244,12 @@ export function FTVAArticleDetailWShareButton() {
       })
     },
     components: { CardMeta, ButtonDropdown },
-    template: ` 
+    template: `
       <card-meta
           :category="parsedArticleCategories"
           :title="title"
           :bylineOne="contributors[0].contributor"
           :dateCreated="postDate"
-          :text="aboutTheAuthor"
           sectionHandle="ftvaArticle"
       >
       <template v-slot:sharebutton><ButtonDropdown button-title="Share" has-icon=true :dropdown-list="mockSocialList.dropdownList" /></template>

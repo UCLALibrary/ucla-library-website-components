@@ -166,7 +166,7 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
-    <div class="linked-category-slot">
+    <div class="linked-category">
       <slot name="linked-category-slot" />
     </div>
 
