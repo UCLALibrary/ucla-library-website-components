@@ -48,6 +48,60 @@ export function Default() {
   }
 }
 
+// Mocks UCLA Library Home page News section data
+const mockDefaultHome = [{
+  sectionHandle: 'news',
+  title: 'La Bpo',
+  text: '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+  to: 'https://www.library.ucla.edu',
+  ongoing: false,
+  externalResourceUrl: null,
+  category: 'Featured, Collections',
+  startDate: '2023-02-07T15:54:00-08:00',
+  endDate: '2023-02-07T15:54:00-08:00',
+  postDate: '2023-02-07T15:54:00-08:00',
+}, {
+  sectionHandle: 'news',
+  title: 'La Bpo',
+  text: '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+  to: 'https://www.library.ucla.edu',
+  ongoing: false,
+  externalResourceUrl: null,
+  category: 'Featured, Collections',
+  startDate: '2023-02-07T15:54:00-08:00',
+  endDate: '2023-02-07T15:54:00-08:00',
+  postDate: '2023-02-07T15:54:00-08:00',
+}, {
+  sectionHandle: 'news',
+  title: 'La Bpo',
+  text: '<p>La Niña is an oceanic and atmospheric phenomenon that is the colder counterpart of El Niño, as part of the broader El Niño–Southern Oscillation climate pattern.</p>',
+  to: 'https://www.library.ucla.edu',
+  ongoing: false,
+  startDate: '2023-02-07T15:54:00-08:00',
+  endDate: '2023-02-07T15:54:00-08:00',
+  postDate: '2022-06-21T12:39:00-07:00'
+}]
+export function DefaultHome() {
+  return {
+    data() {
+      return {
+        mockDefaultHome
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => ''), // default theme
+      }
+    },
+    components: { SectionWrapper, SectionTeaserCard },
+    template: `
+      <section-wrapper>
+        <section-teaser-card :items="mockDefaultHome" />
+      </section-wrapper>
+  `,
+  }
+}
+
 export function NoMeta() {
   return {
     data() {
