@@ -1,3 +1,10 @@
+## [3.29.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.1...v3.29.2) (2024-10-18)
+
+
+### Bug Fixes
+
+* APPS-3004 Fix Location links in component BlockEventDetail ([#635](https://github.com/UCLALibrary/ucla-library-website-components/issues/635)) ([5546329](https://github.com/UCLALibrary/ucla-library-website-components/commit/5546329efa1c9d0e933c910ecc6790cc61061335))
+
 ## [3.29.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.0...v3.29.1) (2024-10-15)
 
 
