@@ -258,7 +258,8 @@ const parsedDateFormat = computed(() => {
       }
 
       &:hover>a.title {
-        text-decoration: none;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 4px;
       }
     }
 
