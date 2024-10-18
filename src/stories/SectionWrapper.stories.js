@@ -96,7 +96,7 @@ export function DefaultHome() {
     components: { SectionWrapper, SectionTeaserCard },
     template: `
       <section-wrapper>
-        <section-teaser-card :items="mockDefaultHome">
+        <section-teaser-card :items="mockDefaultHome" />
       </section-wrapper>
   `,
   }
