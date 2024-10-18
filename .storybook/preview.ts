@@ -5,6 +5,8 @@ import "@/styles/global.scss"
 import router from "@/router"
 import { createPinia } from 'pinia';
 
+
+
 export const parameters = {
     actions: { argTypesRegex: "^on[A-Z].*" },
     layout: "fullscreen",
