@@ -12,7 +12,6 @@ import SectionTeaserList from '@/lib-components/SectionTeaserList.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import TabItem from '@/lib-components/TabItem.vue'
 import TabList from '@/lib-components/TabList.vue'
-import ButtonMore from '@/lib-components/ButtonMore.vue'
 
 const propsForMediaWithText = {
   sectionHeader: mockMediaWithText.mediaWithText[0].titleLink,
@@ -49,7 +48,7 @@ export function Default() {
   }
 }
 
-// Mocks UCLA Library Home page News section
+// Mocks UCLA Library Home page News section data
 const mockDefaultHome = [{
   sectionHandle: 'news',
   title: 'La Bpo',
@@ -60,6 +59,7 @@ const mockDefaultHome = [{
   category: 'Featured, Collections',
   startDate: '2023-02-07T15:54:00-08:00',
   endDate: '2023-02-07T15:54:00-08:00',
+  postDate: '2023-02-07T15:54:00-08:00',
 }, {
   sectionHandle: 'news',
   title: 'La Bpo',
@@ -93,17 +93,10 @@ export function DefaultHome() {
         theme: computed(() => ''), // ucla site passes empty string as theme
       }
     },
-    components: { SectionWrapper, SectionTeaserCard, ButtonMore },
+    components: { SectionWrapper, SectionTeaserCard },
     template: `
       <section-wrapper>
         <section-teaser-card :items="mockDefaultHome">
-              <nuxt-link
-        to="/about/news/"
-        class="button-more"
-      >
-        <button-more text="See All News" />
-      </nuxt-link>
-        </section-teaser-card>
       </section-wrapper>
   `,
   }

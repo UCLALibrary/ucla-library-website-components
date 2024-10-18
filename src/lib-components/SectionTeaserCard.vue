@@ -50,7 +50,7 @@ const classes = computed(() => {
       :byline-two="item.bylineTwo"
       :section-handle="item.sectionHandle"
       :ongoing="item.ongoing"
-      :date-created="item.postDate"
+      :date-created="theme.value === 'ftva' ? item.postDate : ''"
       class="card"
     />
   </ul>
