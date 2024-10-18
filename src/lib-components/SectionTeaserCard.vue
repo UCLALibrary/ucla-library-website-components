@@ -25,6 +25,10 @@ const theme = useTheme()
 const classes = computed(() => {
   return ['section-teaser-card', theme?.value || '']
 })
+
+const currentTheme = computed(() => {
+  return theme?.value || ''
+})
 </script>
 
 <template>
@@ -50,7 +54,7 @@ const classes = computed(() => {
       :byline-two="item.bylineTwo"
       :section-handle="item.sectionHandle"
       :ongoing="item.ongoing"
-      :date-created="(theme && theme?.value === 'ftva') ? item.postDate : ''"
+      :date-created="currentTheme === 'ftva' ? item.postDate : ''"
       class="card"
     />
   </ul>

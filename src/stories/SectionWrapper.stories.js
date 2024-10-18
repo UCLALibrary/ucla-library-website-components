@@ -90,7 +90,7 @@ export function DefaultHome() {
     },
     provide() {
       return {
-        theme: computed(() => ''), // ucla site passes empty string as theme
+        theme: computed(() => ''), // default theme
       }
     },
     components: { SectionWrapper, SectionTeaserCard },
