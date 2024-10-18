@@ -1,3 +1,17 @@
+## [3.29.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.3...v3.29.4) (2024-10-18)
+
+
+### Bug Fixes
+
+* APPS-2969 Add hover state to FTVA card-horizontal titles ([#633](https://github.com/UCLALibrary/ucla-library-website-components/issues/633)) ([51dbfcd](https://github.com/UCLALibrary/ucla-library-website-components/commit/51dbfcdbc3e608d465fbcf9ac52adbfb953d2de4))
+
+## [3.29.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.2...v3.29.3) (2024-10-18)
+
+
+### Bug Fixes
+
+* APPS-2983 Add fixed-width value to sidebar column ([#636](https://github.com/UCLALibrary/ucla-library-website-components/issues/636)) ([264341b](https://github.com/UCLALibrary/ucla-library-website-components/commit/264341b825957a2ee2adf48490e53b6ea8422a7d))
+
 ## [3.29.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.1...v3.29.2) (2024-10-18)
 
 
