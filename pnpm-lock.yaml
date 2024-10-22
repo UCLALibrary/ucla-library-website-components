@@ -13062,7 +13062,9 @@ snapshots:
 
   typescript@5.6.3: {}
 
-  ucla-library-design-tokens@5.27.0: {}
+  ucla-library-design-tokens@5.27.0:
+    resolution: {integrity: sha512-jo1AgrDLzUOcdMHTVZ3HvNmMJrZ0gJMrecGiG0brpmyIm7SeNv6rimf0PN3GF87COhj2oYrZ7PocovU4f7GJEw==}
+    dev: true
 
   ufo@1.5.4: {}
 
