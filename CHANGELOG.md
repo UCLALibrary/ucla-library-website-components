@@ -1,3 +1,17 @@
+# [3.30.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.7...v3.30.0) (2024-10-22)
+
+
+### Features
+
+* APPS 2793 Add selected state to FTVA filters ([#642](https://github.com/UCLALibrary/ucla-library-website-components/issues/642)) ([630b584](https://github.com/UCLALibrary/ucla-library-website-components/commit/630b584a78c4517d2e6b8baff71ac7ca186b9b31))
+
+## [3.29.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.6...v3.29.7) (2024-10-22)
+
+
+### Bug Fixes
+
+* APPS-2972   Reformat dates to exclude the leading zero on single digit dates ([#638](https://github.com/UCLALibrary/ucla-library-website-components/issues/638)) ([76b7155](https://github.com/UCLALibrary/ucla-library-website-components/commit/76b715599dd529232f1655b92afc21df86012b52))
+
 ## [3.29.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.5...v3.29.6) (2024-10-22)
 
 
