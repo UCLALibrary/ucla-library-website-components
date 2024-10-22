@@ -1,3 +1,10 @@
+## [3.29.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.5...v3.29.6) (2024-10-22)
+
+
+### Bug Fixes
+
+* APPS-3007 Use RichText comp in BlockCTA comp ([#634](https://github.com/UCLALibrary/ucla-library-website-components/issues/634)) ([42adaea](https://github.com/UCLALibrary/ucla-library-website-components/commit/42adaeafa0c6424d063fc2220cb727946e25b173))
+
 ## [3.29.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.4...v3.29.5) (2024-10-18)
 
 
