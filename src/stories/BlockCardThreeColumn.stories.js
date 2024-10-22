@@ -28,11 +28,51 @@ const mockDefault = {
   ],
 }
 
+const mockSingleDigitDate = {
+  to: 'series/todd-solondz-series',
+  startDate: '2026-02-03T06:30:00+00:00',
+  image: API.image,
+  title: 'TEST - Todd Solondz Series',
+  endDate: '2026-04-08T05:45:00+00:00',
+  tagLabels: [
+    {
+      title: 'Guest speaker'
+    },
+    {
+      title: '35mm'
+    }
+  ],
+}
+
 // Variations of stories below
 export function Default(args) {
   return {
     data() {
       return { ...mockDefault }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockCardThreeColumn },
+    template: `
+      <block-card-three-column
+        :to="to"
+        :start-date="startDate"
+        :image="image"
+        :image-aspect-ratio="100"
+        :title="title"
+        :tagLabels="tagLabels"
+        :startTime="parsedTime"
+      />`,
+  }
+}
+
+export function SingleDigitDate(args) {
+  return {
+    data() {
+      return { ...mockSingleDigitDate }
     },
     provide() {
       return {
