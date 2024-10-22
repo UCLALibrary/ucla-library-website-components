@@ -7,7 +7,7 @@ import BlockTag from './BlockTag.vue'
 import getSectionName from '@/utils/getSectionName'
 import { useTheme } from '@/composables/useTheme'
 
-const { title, iconName, removeIconName } = defineProps({
+const { title, iconName, isSelected, removeIconName } = defineProps({
   title: {
     type: String,
     default: '',
@@ -15,6 +15,10 @@ const { title, iconName, removeIconName } = defineProps({
   iconName: {
     type: String,
     required: false,
+  },
+  isSelected: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -42,8 +46,9 @@ const sectionName = computed(() => {
 })
 
 const classes = computed(() => {
-  return ['block-remove-search-filter', theme?.value || '', `color-${sectionName.value}`]
+  return ['block-remove-search-filter', theme?.value || '', `color-${sectionName.value}`, (isSelected && theme?.value) ? 'selected' : '']
 })
+
 // compute remove icon based on theme
 const removeIcon = computed(() => {
   switch (theme?.value) {
@@ -62,7 +67,7 @@ function closeBlockFilter() {
 <template>
   <button type="button" :class="classes" @click="closeBlockFilter">
     <BlockTag :label="title" :icon-name="iconName" :theme="theme" :is-secondary="true">
-      <span class="button-close">
+      <span class="button-close" :class="{ 'button-selected': isSelected && theme === 'ftva' }">
         <component :is="removeIcons[removeIcon]" />
       </span>
     </BlockTag>
