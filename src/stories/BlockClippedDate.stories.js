@@ -16,8 +16,8 @@ const mock = {
   title: 'Seven seas of the ancient world',
   alternativeFullName: '陳餘敏卿纪念基金',
   language: 'zh',
-  startDate: '2026-03-07T07:00:00+00:00',
-  endDate: '2027-11-26T11:00:00-08:00',
+  startDate: '2026-12-17T07:00:00+00:00',
+  endDate: '2027-12-26T11:00:00-08:00',
   text: '<p>In Greek literature (which is where the phrase entered Western literature), the Seven Seas were the Aegean, Adriatic, Mediterranean, Black, Red, and Caspian seas, with the Persian Gulf</p>',
   imageAspectRatio: 60,
   locations: [
@@ -27,14 +27,14 @@ const mock = {
   sectionHandle: 'event',
 }
 
-const mock2 = {
+const mockSingleDigitDate = {
   image: API.image,
   to: '/visit/foo/bar/',
   category: 'Ullamco',
   title: 'Seven seas of the ancient world',
   alternativeFullName: '陳餘敏卿纪念基金',
   language: 'zh',
-  startDate: '2026-12-25T07:00:00+00:00',
+  startDate: '2026-02-05T07:00:00+00:00',
   endDate: '2027-02-07T11:00:00-08:00',
   text: '<p>In Greek literature (which is where the phrase entered Western literature), the Seven Seas were the Aegean, Adriatic, Mediterranean, Black, Red, and Caspian seas, with the Persian Gulf</p>',
   imageAspectRatio: 60,
@@ -86,10 +86,10 @@ export function Default() {
   }
 }
 
-export function DateCheck() {
+export function SingleDigitDate() {
   return {
     data() {
-      return { ...mock2 }
+      return { ...mockSingleDigitDate }
     },
     components: { BlockClippedDate },
     template: `
