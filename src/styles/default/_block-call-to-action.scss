@@ -97,6 +97,14 @@
     max-width: 640px;
   }
 
+  :deep(.rich-text) {
+    padding-right: 0;
+
+    .parsed-content {
+      color: unset; 
+    }
+  }
+
   .text {
     @include step-0;
     text-align: center;
@@ -104,6 +112,7 @@
     margin-bottom: 32px;
     max-width: 640px;
   }
+
 
   // Breakpoints
   @media #{$medium} {
