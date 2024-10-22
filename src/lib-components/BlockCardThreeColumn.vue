@@ -6,6 +6,7 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
+import format from 'date-fns/format'
 import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
@@ -15,7 +16,6 @@ import CardMeta from '@/lib-components/CardMeta.vue'
 
 // UTILITY FUNCTIONS
 import formatFullDay from '@/utils/formatFullDay'
-import format from 'date-fns/format'
 import formatMonth from '@/utils/formatEventMonth'
 
 // TYPESCRIPT
