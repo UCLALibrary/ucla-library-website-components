@@ -146,7 +146,7 @@ const lastDepartment = computed(() => {
           <IconWithLink
             v-for="(location, index) in locations"
             :key="`${index}`"
-            :text="location.title"
+            :text="location.title ?? ''"
             icon-name="svg-icon-location"
             :to="location.uri"
           />

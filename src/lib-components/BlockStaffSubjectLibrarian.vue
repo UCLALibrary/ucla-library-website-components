@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
@@ -140,7 +137,7 @@ const parsedStaffName = computed(() => {
           <IconWithLink
             v-for=" location in locations "
             :key="`location-${location.id}`"
-            :text="location.title"
+            :text="location.title ?? ''"
             icon-name="svg-icon-location"
             :to="`/${location.to}`"
           />
@@ -183,10 +180,7 @@ const parsedStaffName = computed(() => {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .block-staff-subject-librarian {
   display: flex;
   flex-direction: row;

@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
@@ -21,7 +18,7 @@ import IconWithLink from '@/lib-components/IconWithLink.vue'
 const props = defineProps({
   image: {
     type: Object as PropType<MediaItemType>,
-    default: () => {},
+    default: () => { },
   },
   to: {
     type: String,
@@ -183,7 +180,7 @@ const mergeSortTopics = computed(() => {
                 class="location"
               >
                 <IconWithLink
-                  :text="location.title"
+                  :text="location.title ?? ''"
                   icon-name="svg-icon-location"
                   :to="`/${location.to}`"
                 />
@@ -267,10 +264,7 @@ const mergeSortTopics = computed(() => {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .block-staff-detail {
   max-width: calc($container-l-main + 128) + px;
 
