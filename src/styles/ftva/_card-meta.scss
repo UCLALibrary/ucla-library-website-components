@@ -12,7 +12,7 @@
     color: $accent-blue;
     margin: 0 0 12px;
 
-    a {
+    &:hover {
       color: $heading-grey;
     }
   }

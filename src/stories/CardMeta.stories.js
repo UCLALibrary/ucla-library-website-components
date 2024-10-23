@@ -260,7 +260,7 @@ export function FTVAArticleDetailWShareButton() {
   }
 }
 
-export function FtvaOnlyCategoryAndTitle2() {
+export function FtvaLinkedCategoryAndTitle() {
   return {
     data() {
       return {
@@ -286,7 +286,6 @@ export function FtvaOnlyCategoryAndTitle2() {
             >
               {{ ftvaEventSeries.title }}
             </smart-link>
-
         </template>
       </card-meta>
   `,
