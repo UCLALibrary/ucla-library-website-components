@@ -1,3 +1,10 @@
+# [3.31.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.30.0...v3.31.0) (2024-10-23)
+
+
+### Features
+
+* APPS-2989 upgrade vue3 version and its dependencies to the latest versions ([#641](https://github.com/UCLALibrary/ucla-library-website-components/issues/641)) ([3dbca5d](https://github.com/UCLALibrary/ucla-library-website-components/commit/3dbca5d9765b309c408d4c8da53ab6de71218c7b))
+
 # [3.30.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.29.7...v3.30.0) (2024-10-22)
 
 
