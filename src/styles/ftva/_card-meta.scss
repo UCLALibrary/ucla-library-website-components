@@ -3,17 +3,17 @@
 .ftva.card-meta {
   .category {
     @include ftva-button-link;
-    color: $accent-blue;
+    color: $subtitle-grey;
     margin: 0 0 12px;
   }
 
   .linked-category {
-    @include ftva-button-link;
-    color: $accent-blue;
+    @include subtitle-1;
+    color: $subtitle-grey;
     margin: 0 0 12px;
 
     &:hover {
-      color: $heading-grey;
+      color: $accent-blue;
     }
   }
 
