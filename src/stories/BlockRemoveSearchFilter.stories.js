@@ -79,23 +79,31 @@ export function About() {
   }
 }
 
-export function FTVA() {
+function FTVATemplate(args) {
   router.push('/')
   return {
-    data() {
-      return { ...mock }
-    },
     provide() {
       return {
         theme: computed(() => 'ftva'),
       }
     },
+    setup() {
+      return { args }
+    },
     components: { BlockRemoveSearchFilter },
-    template: `
-        <block-remove-search-filter
-            title="FTVA"
-            iconName="SvgIconGuest"
-        />
-    `,
+    template: '<block-remove-search-filter v-bind="args" />',
   }
+}
+
+export const FTVA = FTVATemplate.bind({})
+FTVA.args = {
+  title: 'FTVA',
+  iconName: 'SvgIconGuest',
+}
+
+export const FTVASelected = FTVATemplate.bind({})
+FTVASelected.args = {
+  title: 'FTVA',
+  iconName: 'SvgIconGuest',
+  isSelected: 'true'
 }
