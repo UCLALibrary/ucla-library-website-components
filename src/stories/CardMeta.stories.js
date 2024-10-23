@@ -280,12 +280,12 @@ export function FtvaLinkedCategoryAndTitle() {
       <card-meta
         :title="ftvaEventSeries.title"
       >
-          <template v-slot:linkedcategoryslot>
-            <smart-link
-              :to="ftvaEventSeries.to"
-            >
-              {{ ftvaEventSeries.title }}
-            </smart-link>
+        <template v-slot:linkedcategoryslot>
+          <smart-link
+            :to="ftvaEventSeries.to"
+          >
+            {{ ftvaEventSeries.title }}
+          </smart-link>
         </template>
       </card-meta>
   `,
