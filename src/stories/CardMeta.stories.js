@@ -1,6 +1,7 @@
 import { computed, onBeforeUnmount, onMounted } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 // Storybook default settings
@@ -211,6 +212,7 @@ const mockSocialList = {
     },
   ],
 }
+
 export function FTVAArticleDetailWShareButton() {
   return {
     data() {
@@ -253,6 +255,39 @@ export function FTVAArticleDetailWShareButton() {
           sectionHandle="ftvaArticle"
       >
       <template v-slot:sharebutton><ButtonDropdown button-title="Share" has-icon=true :dropdown-list="mockSocialList.dropdownList" /></template>
+      </card-meta>
+  `,
+  }
+}
+
+export function FtvaOnlyCategoryAndTitle2() {
+  return {
+    data() {
+      return {
+        ftvaEventSeries: {
+          title: 'Step Up 2 - The Streets (2008)',
+          to: '/series/step-up-series'
+        }
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta, SmartLink },
+    template: `
+      <card-meta
+        :title="ftvaEventSeries.title"
+      >
+          <template v-slot:linkedcategoryslot>
+            <smart-link
+              :to="ftvaEventSeries.to"
+            >
+              {{ ftvaEventSeries.title }}
+            </smart-link>
+
+        </template>
       </card-meta>
   `,
   }
