@@ -1,6 +1,9 @@
 .ftva.block-screening-detail {
   .count {
     @include ftva-subtitle-1;
+    text-transform: none;
+    font-size: 18px;
+    font-weight: 400;
     color: $subtitle-grey;
   }
 
