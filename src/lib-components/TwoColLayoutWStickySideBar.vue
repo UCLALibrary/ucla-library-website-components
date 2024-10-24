@@ -16,7 +16,7 @@ function setMainMinHeight() {
 onMounted(() => {
   const { width } = useWindowSize()
   watch([width, sidebar], ([newWidth]) => {
-    isMobile.value = newWidth <= 750
+    isMobile.value = newWidth <= 899
 
     if (isMobile.value === true)
       primaryCol.value!.style!.minHeight = 'auto' // on mobile, reset height
@@ -97,9 +97,9 @@ onMounted(() => {
       top: 85px;
       will-change: top;
 
-     :deep(.block-call-to-action.slim-left-align) {
-        border-radius: 10px;
-      }
+    :deep(.block-call-to-action.slim-left-align) {
+      border-radius: 10px;
+    }
 
       >* {
         margin-bottom: 30px;
@@ -113,6 +113,14 @@ onMounted(() => {
 }
 
 // MEDIUM DEVICE STYLES
+@media (min-width: 900px) and (max-width: 1200px){
+  .two-column {
+    .sidebar-column {
+      margin-right: var(--unit-gutter);
+    }
+  }
+}
+
 @media (max-width: 1200px) {
   .two-column {
     padding-right: var(--unit-gutter);
@@ -123,15 +131,11 @@ onMounted(() => {
         padding-left: var(--unit-gutter);
       }
     }
-
-    .sidebar-column {
-      padding-right: 0;
-    }
   }
 }
 
 // MOBILE STYLES
-@media #{$small} {
+@media (max-width: 899px) {
   .two-column {
     display: grid;
     grid-template-columns: 1fr;
