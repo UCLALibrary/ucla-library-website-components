@@ -1,3 +1,10 @@
+## [3.31.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.0...v3.31.1) (2024-10-24)
+
+
+### Bug Fixes
+
+* APPS-2976 & APPS-3011 Updates to cardMeta - category & aboutAuthor ([#639](https://github.com/UCLALibrary/ucla-library-website-components/issues/639)) ([67aaadd](https://github.com/UCLALibrary/ucla-library-website-components/commit/67aaadd591ff325b5845a245680cc87d660b75d0))
+
 # [3.31.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.30.0...v3.31.0) (2024-10-23)
 
 
