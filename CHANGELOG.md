@@ -1,3 +1,10 @@
+## [3.31.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.1...v3.31.2) (2024-10-24)
+
+
+### Bug Fixes
+
+* APPS-2889 styles for screening text ([#643](https://github.com/UCLALibrary/ucla-library-website-components/issues/643)) ([5191f29](https://github.com/UCLALibrary/ucla-library-website-components/commit/5191f291140e35b69ed635c3ed06c25d75ccceb8))
+
 ## [3.31.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.0...v3.31.1) (2024-10-24)
 
 
