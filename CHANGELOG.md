@@ -1,3 +1,10 @@
+## [3.31.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.2...v3.31.3) (2024-10-24)
+
+
+### Bug Fixes
+
+* APPS-3030 Adjust TwoColumn component spacing ([#644](https://github.com/UCLALibrary/ucla-library-website-components/issues/644)) ([88a4a71](https://github.com/UCLALibrary/ucla-library-website-components/commit/88a4a7183d07949e94937dc5b64871d9677cafb4))
+
 ## [3.31.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.1...v3.31.2) (2024-10-24)
 
 
