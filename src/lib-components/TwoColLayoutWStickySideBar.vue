@@ -134,7 +134,6 @@ onMounted(() => {
   }
 }
 
-
 // MOBILE STYLES
 @media (max-width: 899px) {
   .two-column {
