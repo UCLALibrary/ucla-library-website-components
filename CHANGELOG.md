@@ -1,3 +1,10 @@
+## [3.31.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.3...v3.31.4) (2024-10-25)
+
+
+### Bug Fixes
+
+* APPS-3041 Reset TwoCol component primary column width ([#646](https://github.com/UCLALibrary/ucla-library-website-components/issues/646)) ([aab79c2](https://github.com/UCLALibrary/ucla-library-website-components/commit/aab79c269247c4e156c40f886fb1f209ea3f50d7))
+
 ## [3.31.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.2...v3.31.3) (2024-10-24)
 
 
