@@ -115,6 +115,11 @@ onMounted(() => {
 // MEDIUM DEVICE STYLES
 @media (min-width: 900px) and (max-width: 1200px){
   .two-column {
+    
+    .primary-column {
+      width: 62%;
+    }
+
     .sidebar-column {
       margin-right: var(--unit-gutter);
     }
