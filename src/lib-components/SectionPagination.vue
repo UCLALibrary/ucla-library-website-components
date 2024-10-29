@@ -29,11 +29,11 @@ const { nextTo, previousTo, pages, initialCurrentPage } = defineProps({
     required: false,
   },
 })
-const emit = defineEmits(['changePage'])
+const emit = defineEmits(['changePage']) // let parent component know when page changes
 const theme = useTheme()
-const maxPages = ref(10)
-const leftPages = ref([33]) // start with 2 digit page# that uses wide button #'s so we can check button width
-const currPage = ref(0)
+const maxPages = ref(10)  // default # of buttons that will fit in container, gets recalculated onMount & resize
+const leftPages = ref([33]) // an array of numbers representing the page buttons that will appear ( we start with a single '33' so we can measure the width of a button to calc maxPages)
+const currPage = ref(1) // current page, defaults to 1
 const pageButtons: Ref<HTMLElement | null> = ref(null)
 
 // METHODS
@@ -88,12 +88,11 @@ function generateLeftPages() {
   }
 }
 function setPaginationMaxPages(width: number) {
+  // fail gracefully with 10 as a the default
   if (!initialCurrentPage || !pages)
-    return
-  // get width of container
-  console.log('pagination container width', width)
+    return 10
+
   // get width of buttons
-  // TO get spacing between buttons programmatically
   const button = document.getElementsByClassName('pButton')[0]
   const buttonWidth = Math.ceil(button.getBoundingClientRect().width)
   const buttonMargin = getComputedStyle(button).marginRight
