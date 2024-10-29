@@ -24,16 +24,20 @@
     color: $body-grey;
   }
 
+  :deep(strong) {
+    font-weight: 600;
+  }
+
   :deep(a) {
     color: $body-grey;
     -webkit-text-decoration-color: $grey-blue;
-            text-decoration-color: $grey-blue;
+    text-decoration-color: $grey-blue;
     text-decoration-thickness: 3px;
     text-underline-offset: 4px;
 
     &:hover {
       -webkit-text-decoration-color: $bright-blue;
-              text-decoration-color: $bright-blue;
+      text-decoration-color: $bright-blue;
     }
   }
 
@@ -101,7 +105,7 @@
     background-position: left;
     padding: .15rem;
     -webkit-filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
-            filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
+    filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
   }
 
   :deep(table) {

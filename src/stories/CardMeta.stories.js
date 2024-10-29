@@ -1,6 +1,7 @@
 import { computed, onBeforeUnmount, onMounted } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 // Storybook default settings
@@ -181,7 +182,6 @@ const mockFTVAArticleData = {
       contributor: 'Axa Liaux (external contributor)'
     }
   ],
-  aboutTheAuthor: '<p>Our guest writer is <strong>Jen Diamond</strong>. She wrote this entry</p>',
   sectionHandle: 'ftvaArticle'
 }
 const parsedArticleCategories = mockFTVAArticleData.articleCategories.map(category => category.title).join(', ')
@@ -212,6 +212,7 @@ const mockSocialList = {
     },
   ],
 }
+
 export function FTVAArticleDetailWShareButton() {
   return {
     data() {
@@ -245,16 +246,47 @@ export function FTVAArticleDetailWShareButton() {
       })
     },
     components: { CardMeta, ButtonDropdown },
-    template: ` 
+    template: `
       <card-meta
           :category="parsedArticleCategories"
           :title="title"
           :bylineOne="contributors[0].contributor"
           :dateCreated="postDate"
-          :text="aboutTheAuthor"
           sectionHandle="ftvaArticle"
       >
       <template v-slot:sharebutton><ButtonDropdown button-title="Share" has-icon=true :dropdown-list="mockSocialList.dropdownList" /></template>
+      </card-meta>
+  `,
+  }
+}
+
+export function FtvaLinkedCategoryAndTitle() {
+  return {
+    data() {
+      return {
+        ftvaEventSeries: {
+          title: 'Step Up 2 - The Streets (2008)',
+          to: '/series/step-up-series'
+        }
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta, SmartLink },
+    template: `
+      <card-meta
+        :title="ftvaEventSeries.title"
+      >
+        <template v-slot:linkedcategoryslot>
+          <smart-link
+            :to="ftvaEventSeries.to"
+          >
+            {{ ftvaEventSeries.title }}
+          </smart-link>
+        </template>
       </card-meta>
   `,
   }
