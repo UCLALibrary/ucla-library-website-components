@@ -1,3 +1,10 @@
+## [3.31.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.5...v3.31.6) (2024-10-29)
+
+
+### Bug Fixes
+
+* APPS-3046 Remove excess content spacing in SlimBlockCTA ([#648](https://github.com/UCLALibrary/ucla-library-website-components/issues/648)) ([e259821](https://github.com/UCLALibrary/ucla-library-website-components/commit/e2598214ef1cf5f983d5bcf3428f8ed39d3cbcb9))
+
 ## [3.31.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.4...v3.31.5) (2024-10-29)
 
 
