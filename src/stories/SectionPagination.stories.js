@@ -1,5 +1,5 @@
-import SectionPagination from '@/lib-components/SectionPagination'
 import { computed } from 'vue'
+import SectionPagination from '@/lib-components/SectionPagination'
 
 // Storybook default settings
 export default {
@@ -43,6 +43,6 @@ export function FTVA() {
         theme: computed(() => 'ftva'),
       }
     },
-    template: '<section-pagination :pages="23" :currentPage="4" />',
+    template: '<section-pagination :pages="23" :initialCurrentPage="14" />',
   }
 }
