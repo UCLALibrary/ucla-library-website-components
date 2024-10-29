@@ -37,7 +37,7 @@ const currPage = ref(1) // current page, defaults to 1
 const pageButtons: Ref<HTMLElement | null> = ref(null)
 
 // METHODS
-function handlePageChange(item) {
+function handlePageChange(item:number) {
   if (initialCurrentPage && pages) {
     console.log('handlePageChange', item)
     if (currPage.value !== item) {
@@ -127,7 +127,7 @@ onMounted(() => {
   // wait for next tick to ensure children are rendered and width is correct
   nextTick(() => {
     // watch for width changes and update # of buttons that will fit
-    watch([width], ([newWidth]) => {
+    watch([width], () => {
       const paginationWidth = pageButtons.value!.clientWidth
       maxPages.value = setPaginationMaxPages(paginationWidth) as number
       generateLeftPages() // then generate buttons representing pages
