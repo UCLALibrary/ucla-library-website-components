@@ -31,7 +31,7 @@ export function LastPage() {
 export function WithPagesAndCurrentPage() {
   return {
     components: { SectionPagination },
-    template: '<section-pagination :pages="23" :currentPage="4" />',
+    template: '<section-pagination :pages="23" :initialCurrentPage="4" />',
   }
 }
 

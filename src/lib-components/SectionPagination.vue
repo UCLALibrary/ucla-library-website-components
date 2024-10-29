@@ -67,7 +67,7 @@ function generateLeftPages() {
       if (stop > pages) { 
         newMaxPages = newMaxPages + 1 // add 1 back for missing '...' button
         if (currPage.value === pages) {
-          newMaxPages = newMaxPages + 2 // add 2 more back because 'next' button is hidden
+          newMaxPages = newMaxPages + 1 // add another 1 back because 'next' button is hidden
         }
         stop = pages
         start = Math.max(1, stop - newMaxPages)
@@ -97,9 +97,9 @@ function setPaginationMaxPages(width: number) {
   const button = document.getElementsByClassName('pButton')[0]
   const buttonWidth = Math.ceil(button.getBoundingClientRect().width)
   const buttonMargin = getComputedStyle(button).marginRight
-  const itemWidth = Math.ceil(buttonWidth + (parseInt(buttonMargin) * 2) + 2)
-  const prevButtonWidth = Math.ceil(document.getElementsByClassName('previous')[0].getBoundingClientRect().width + 16)
-  const nextButtonWidth = Math.ceil(document.getElementsByClassName('next')[0].getBoundingClientRect().width + 16)
+  const itemWidth = Math.ceil(buttonWidth + (parseInt(buttonMargin) * 2) + 1) // we add 1 to give us a little leeway
+  const prevButtonWidth = Math.ceil(document.getElementsByClassName('previous')[0].getBoundingClientRect().width + 10)
+  const nextButtonWidth = Math.ceil(document.getElementsByClassName('next')[0].getBoundingClientRect().width + 10)
   // calc # of buttons that can fit
   // take width minus the width of: 2 page buttons (last button and '...'), 2 prev/next buttons
   const MaxButtons = Math.max(0, Math.floor(+((width - (prevButtonWidth + nextButtonWidth + (itemWidth * 2))) / itemWidth).toFixed(2)))
