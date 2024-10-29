@@ -1,3 +1,38 @@
+## [3.31.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.4...v3.31.5) (2024-10-29)
+
+
+### Bug Fixes
+
+* APPS-3040 bold is not working in FTVA RichText ([#645](https://github.com/UCLALibrary/ucla-library-website-components/issues/645)) ([202f70a](https://github.com/UCLALibrary/ucla-library-website-components/commit/202f70a4389acdd03d04346d66e8cad98f82ee75))
+
+## [3.31.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.3...v3.31.4) (2024-10-25)
+
+
+### Bug Fixes
+
+* APPS-3041 Reset TwoCol component primary column width ([#646](https://github.com/UCLALibrary/ucla-library-website-components/issues/646)) ([aab79c2](https://github.com/UCLALibrary/ucla-library-website-components/commit/aab79c269247c4e156c40f886fb1f209ea3f50d7))
+
+## [3.31.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.2...v3.31.3) (2024-10-24)
+
+
+### Bug Fixes
+
+* APPS-3030 Adjust TwoColumn component spacing ([#644](https://github.com/UCLALibrary/ucla-library-website-components/issues/644)) ([88a4a71](https://github.com/UCLALibrary/ucla-library-website-components/commit/88a4a7183d07949e94937dc5b64871d9677cafb4))
+
+## [3.31.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.1...v3.31.2) (2024-10-24)
+
+
+### Bug Fixes
+
+* APPS-2889 styles for screening text ([#643](https://github.com/UCLALibrary/ucla-library-website-components/issues/643)) ([5191f29](https://github.com/UCLALibrary/ucla-library-website-components/commit/5191f291140e35b69ed635c3ed06c25d75ccceb8))
+
+## [3.31.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.0...v3.31.1) (2024-10-24)
+
+
+### Bug Fixes
+
+* APPS-2976 & APPS-3011 Updates to cardMeta - category & aboutAuthor ([#639](https://github.com/UCLALibrary/ucla-library-website-components/issues/639)) ([67aaadd](https://github.com/UCLALibrary/ucla-library-website-components/commit/67aaadd591ff325b5845a245680cc87d660b75d0))
+
 # [3.31.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.30.0...v3.31.0) (2024-10-23)
 
 
