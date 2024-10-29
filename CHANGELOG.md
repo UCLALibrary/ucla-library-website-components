@@ -1,3 +1,10 @@
+## [3.31.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.4...v3.31.5) (2024-10-29)
+
+
+### Bug Fixes
+
+* APPS-3040 bold is not working in FTVA RichText ([#645](https://github.com/UCLALibrary/ucla-library-website-components/issues/645)) ([202f70a](https://github.com/UCLALibrary/ucla-library-website-components/commit/202f70a4389acdd03d04346d66e8cad98f82ee75))
+
 ## [3.31.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.3...v3.31.4) (2024-10-25)
 
 
