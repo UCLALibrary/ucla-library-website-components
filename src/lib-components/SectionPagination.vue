@@ -45,8 +45,7 @@ function handlePageChange(item: number) {
   }
 }
 function generateLeftPages() {
-  // TODO make this work without initialCurrentPage?
-  if (initialCurrentPage && pages && maxPages) {
+  if (pages && maxPages) {
     let start = 1
     // stop at either maxPages or total pages, whichever is lesser
     let stop = Math.min(maxPages.value, pages)
@@ -58,8 +57,8 @@ function generateLeftPages() {
       start = Math.max(1, currPage.value - Math.floor(newMaxPages / 2))
       stop = start + newMaxPages
 
-      // if current page is close enough to the end we need to remove the truncation buttons near
-      // the end
+      // if current page is very near the last page,
+      // we need to remove the truncation button near the end
       if (stop > pages) {
         newMaxPages = newMaxPages + 1 // add 1 back for missing '...' button
         if (currPage.value === pages)
