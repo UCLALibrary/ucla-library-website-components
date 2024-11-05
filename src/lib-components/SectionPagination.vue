@@ -139,7 +139,7 @@ onMounted(() => {
         Previous
       </div>
     </SmartLink>
-    <SmartLink v-else-if="currPage !== 1" class="previous" @click="handlePageChange(parsedPrevTo)">
+    <SmartLink v-else-if="(initialCurrentPage && pages) && currPage !== 1" class="previous" @click="handlePageChange(parsedPrevTo)">
       <SvgIconArrowRight class="previous-svg" />
       <div class="underline-hover">
         Previous
@@ -175,7 +175,7 @@ onMounted(() => {
       </div>
       <SvgIconArrowRight class="next-svg" />
     </SmartLink>
-    <SmartLink v-else-if="currPage !== pages" class="next" @click="handlePageChange(parsedNextTo)">
+    <SmartLink v-else-if="(initialCurrentPage && pages) && currPage !== pages" class="next" @click="handlePageChange(parsedNextTo)">
       <div class="underline-hover">
         Next
       </div>
