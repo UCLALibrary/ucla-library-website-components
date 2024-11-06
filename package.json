@@ -93,5 +93,8 @@
   },
   "peerDependencies": {
     "vue": "^3.5.12"
+  },
+  "engines": {
+    "pnpm": "^9.12.1"
   }
 }
