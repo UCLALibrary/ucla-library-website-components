@@ -109,7 +109,7 @@ const parsedCategory = computed(() => {
         break
 
       case contentType.includes('impactReportStory'):
-        category = 'Impact Report Spotlight'
+        category = 'Spotlight'
         break
 
       case contentType.includes('meapProject'):
