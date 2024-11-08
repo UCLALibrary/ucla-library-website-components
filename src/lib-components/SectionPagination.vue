@@ -44,6 +44,7 @@ function handlePageChange(item: number) {
     }
   }
 }
+
 function generateLeftPages() {
   if (pages && maxPages) {
     let start = 1
@@ -108,6 +109,12 @@ const parsedPrevTo = computed(() => {
 const parsedNextTo = computed(() => {
   return currPage.value + 1
 })
+const isNotFirstPage = computed(() => {
+  return (initialCurrentPage && pages) && currPage?.value !== 1
+})
+const isNotLastPage = computed(() => {
+  return (initialCurrentPage && pages) && currPage?.value !== pages
+})
 
 onMounted(() => {
   // legacy implementation does not require any onMounted logic
@@ -138,7 +145,7 @@ onMounted(() => {
         Previous
       </div>
     </SmartLink>
-    <SmartLink v-else-if="(initialCurrentPage && pages) && currPage !== 1" class="previous" @click="handlePageChange(parsedPrevTo)">
+    <SmartLink v-else-if="isNotFirstPage" class="previous" @click="handlePageChange(parsedPrevTo)">
       <SvgIconArrowRight class="previous-svg" />
       <div class="underline-hover">
         Previous
@@ -174,7 +181,7 @@ onMounted(() => {
       </div>
       <SvgIconArrowRight class="next-svg" />
     </SmartLink>
-    <SmartLink v-else-if="(initialCurrentPage && pages) && currPage !== pages" class="next" @click="handlePageChange(parsedNextTo)">
+    <SmartLink v-else-if="isNotLastPage" class="next" @click="handlePageChange(parsedNextTo)">
       <div class="underline-hover">
         Next
       </div>
