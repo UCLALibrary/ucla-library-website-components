@@ -1,3 +1,10 @@
+# [3.33.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.32.1...v3.33.0) (2024-11-08)
+
+
+### Features
+
+* APPS-1974_Add numbered page buttons to SectionPagination ([#647](https://github.com/UCLALibrary/ucla-library-website-components/issues/647)) ([9210fce](https://github.com/UCLALibrary/ucla-library-website-components/commit/9210fce5eddb1a39efbb670f1e03cc6a1066fdf1))
+
 ## [3.32.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.32.0...v3.32.1) (2024-11-08)
 
 
