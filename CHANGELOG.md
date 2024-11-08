@@ -1,3 +1,15 @@
+# [3.32.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.6...v3.32.0) (2024-11-06)
+
+
+### Bug Fixes
+
+* update category for impact report story to impact report spotlight ([#649](https://github.com/UCLALibrary/ucla-library-website-components/issues/649)) ([ce822e6](https://github.com/UCLALibrary/ucla-library-website-components/commit/ce822e68e0b2d08fc4e814c09aa9c21255b708e0))
+
+
+### Features
+
+* fix pnpm version in publish action ([#650](https://github.com/UCLALibrary/ucla-library-website-components/issues/650)) ([081dd12](https://github.com/UCLALibrary/ucla-library-website-components/commit/081dd124e6f11d3bcccb07961c66636a554f3596))
+
 ## [3.31.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.5...v3.31.6) (2024-10-29)
 
 
