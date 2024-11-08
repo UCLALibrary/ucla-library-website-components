@@ -1,3 +1,10 @@
+## [3.32.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.32.0...v3.32.1) (2024-11-08)
+
+
+### Bug Fixes
+
+* replace impact report spotlight with just one word spotlight ([#651](https://github.com/UCLALibrary/ucla-library-website-components/issues/651)) ([febe562](https://github.com/UCLALibrary/ucla-library-website-components/commit/febe562770bf39418a7c697ad84b1ad18b2beda0))
+
 # [3.32.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.31.6...v3.32.0) (2024-11-06)
 
 
