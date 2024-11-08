@@ -1,0 +1,99 @@
+.section-pagination {
+    max-width: 990px;
+
+    font-family: var(--font-secondary);
+    font-size: 18px;
+    padding-left: 13px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+
+    .previous {
+        display: flex;
+        align-items: center;
+    }
+
+    .next {
+        display: flex;
+        align-items: center;
+    }
+
+    .previous-svg {
+        transform: scaleX(-1);
+        margin-right: 5px;
+    }
+
+    .next-svg {
+        margin-left: 5px;
+    }
+
+    &.first-page {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-content: stretch;
+        align-items: center;
+    }
+
+    &.last-page {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: stretch;
+        align-items: center;
+    }
+
+    .pagination-numbers-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // general functional styles for page-buttons
+        .pButton {
+            display: inline-block;
+            margin-bottom: 0;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            background-color: transparent;
+            color: var(--color-secondary-grey-04);
+            font-size: 18px;
+            padding: 0 12px;
+            border: none;
+            border-radius: 4px;
+            margin: 0 6px;
+        }
+
+        .pButton-selected {
+            background-color: var(--color-primary-blue-01);
+        }
+    }
+
+    // Hover states
+    @media #{$has-hover} {
+
+        .previous:hover,
+        .previous:active {
+            color: var(--color-primary-blue-03);
+        }
+
+        .next:hover,
+        .next:active {
+            color: var(--color-primary-blue-03);
+        }
+    }
+}
