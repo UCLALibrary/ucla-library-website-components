@@ -30,7 +30,7 @@ function removeOverlay() {
 // THEME
 const theme = useTheme()
 const parsedClasses = computed(() => {
-  return ['mobile-drawer', 'button-dropdown', theme?.value || '', { 'is-expanded': isDropdownExpanded.value }]
+  return ['mobile-drawer', theme?.value || '', { 'is-expanded': isDropdownExpanded.value }]
 })
 
 onMounted(() => {
@@ -46,13 +46,15 @@ onMounted(() => {
     <div v-on-click-outside="closeDropdownOnClickOutside">
       <div class="dropdown-overlay" :class="isDropdownExpandedClass" />
       <button
-        class="button"
+        class="mobile-button"
         :class="isDropdownExpandedClass"
         @click="handleDropdownExpansion"
       >
         <!-- Drawer Button Label Here
                  Note: icons can be included, clicking button will open drawer -->
-        <slot name="buttonLabel" />
+        <span class="button-inner-wrapper">
+          <slot name="buttonLabel" />
+        </span>
 
         <span
           :class="isDropdownExpandedClass"
@@ -72,8 +74,7 @@ onMounted(() => {
           class="button-dropdown-modal-wrapper"
           :class="isDropdownExpandedClass"
         >
-          <!-- Dropdown Items slot in here
-                     Note: items should use class .dropdown-modal-item -->
+          <!-- Dropdown Items slot in here -->
           <slot name="dropdownItems" />
         </div>
       </div>

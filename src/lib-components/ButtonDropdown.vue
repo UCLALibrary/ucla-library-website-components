@@ -1,19 +1,19 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { vOnClickOutside } from '@vueuse/components'
+
+// import { vOnClickOutside } from '@vueuse/components'
 import { useRoute } from 'vue-router'
 import 'add-to-calendar-button'
 import format from 'date-fns/format'
 
-import SvgIconFtvaDropTriangle from 'ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg'
 import SvgIconFtvaShare from 'ucla-library-design-tokens/assets/svgs/icon-ftva-share.svg'
 import SvgIconFtvaSocialConfirm from 'ucla-library-design-tokens/assets/svgs/icon-ftva-social_confirm.svg'
-import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 
 import IconWithLink from './IconWithLink.vue'
+import MobileDrawer from './MobileDrawer.vue'
 import removeTags from '@/utils/removeTags'
 
-import { useGlobalStore } from '@/stores/GlobalStore'
+// import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'
 
 // DATA
@@ -63,26 +63,26 @@ const { title, eventDescription, startDateWithTime, endTime, location, isEvent, 
   },
 })
 
-const globalStore = useGlobalStore()
+// const globalStore = useGlobalStore()
 
 const route = useRoute()
 
-const isDropdownExpanded = ref(false)
+// const isDropdownExpanded = ref(false)
 
 const isLinkCopied = ref(false)
 
 // COMPUTED
-const isMobile = computed(() => {
-  return globalStore.winWidth <= 750
-})
+// const isMobile = computed(() => {
+//   return globalStore.winWidth <= 750
+// })
 
 const isLinkCopiedClass = computed(() => [
   { 'is-link-copied': isLinkCopied.value },
 ])
 
-const isDropdownExpandedClass = computed(() => [
-  { 'is-expanded': isDropdownExpanded.value },
-])
+// const isDropdownExpandedClass = computed(() => [
+//   { 'is-expanded': isDropdownExpanded.value },
+// ])
 
 // Event data computations
 const parsedLocation = computed(() => {
@@ -117,17 +117,17 @@ const parsedEventDescription = computed(() => {
 })
 
 // METHODS
-function handleDropdownExpansion() {
-  return (isDropdownExpanded.value = !isDropdownExpanded.value)
-}
+// function handleDropdownExpansion() {
+//   return (isDropdownExpanded.value = !isDropdownExpanded.value)
+// }
 
-function closeDropdownOnClickOutside() {
-  isDropdownExpanded.value = false
-}
+// function closeDropdownOnClickOutside() {
+//   isDropdownExpanded.value = false
+// }
 
-function removeOverlay() {
-  isDropdownExpanded.value = false
-}
+// function removeOverlay() {
+//   isDropdownExpanded.value = false
+// }
 
 /* Inject styles into ATCB ShadowDOM on button dropdown:
  - Remove border bottom radii on button
@@ -166,7 +166,7 @@ function formatEndTime(str) {
 const theme = useTheme()
 
 const parsedClasses = computed(() => {
-  return ['button-dropdown', theme?.value || '', { 'is-expanded': isDropdownExpanded.value }]
+  return ['button-dropdown', theme?.value || '']
 })
 </script>
 
@@ -200,96 +200,139 @@ const parsedClasses = computed(() => {
         hideIconButton="true"
         listStyle="dropdown-static"
         :debug="debugModeEnabled"
-        @click="handleActbExpandedStyle"
-></add-to-calendar-button>
+        @click="handleActbExpandedStyle"></add-to-calendar-button>
       <!-- eslint-enable -->
     </div>
 
     <!-- Generic Button -->
-    <div v-else v-on-click-outside="closeDropdownOnClickOutside">
-      <div class="dropdown-overlay" :class="isDropdownExpandedClass" />
-      <button
-        class="button"
-        :class="isDropdownExpandedClass"
-        @click="handleDropdownExpansion"
-      >
+    <MobileDrawer v-else>
+      <template #buttonLabel>
         <!-- Optional Button Icon -->
-        <span class="button-inner-wrapper">
-          <span v-if="hasIcon">
-            <component :is="SvgIconFtvaShare" class="button-svg" aria-hidden="true" />
-          </span>
-
-          <span class="button-text">{{ buttonTitle }}</span>
+        <span v-if="hasIcon" class="icon-svg">
+          <component :is="SvgIconFtvaShare" class="button-svg" aria-hidden="true" />
         </span>
 
-        <span
-          :class="isDropdownExpandedClass"
-          class="toggle-triangle-icon"
-        >
-          <SvgIconFtvaDropTriangle />
-        </span>
-      </button>
-
-      <!-- Dropdown Modal -->
-      <div v-if="isDropdownExpanded" class="button-dropdown-modal">
-        <SvgGlyphClose
-          v-if="isMobile"
-          class="svg-glyph-close"
-          @click="removeOverlay"
-        />
+        <span class="button-text">{{ buttonTitle }}</span>
+      </template>
+      <template #dropdownItems>
         <div
-          class="button-dropdown-modal-wrapper"
-          :class="isDropdownExpandedClass"
+          v-for="item in dropdownList"
+          :key="item.dropdownItemTitle"
+          class="dropdown-modal-item"
         >
-          <!-- Dropdown Items -->
-          <div
-            v-for="item in dropdownList"
-            :key="item.dropdownItemTitle"
-            class="dropdown-modal-item"
+          <!-- "Send to Email" -->
+          <span v-if="item.dropdownItemTitle === 'Email'"><a
+            :href="`mailto:?&body=${route.fullPath}`"
+            class="email-icon"
           >
-            <!-- "Send to Email" -->
-            <span v-if="item.dropdownItemTitle === 'Email'"><a
-              :href="`mailto:?&body=${route.fullPath}`"
-              class="email-icon"
-            >
-              <IconWithLink
-                :text="item.dropdownItemTitle"
-                :icon-name="item.iconName"
-                class="not-smart-link"
-              /></a></span>
-
-            <!-- "Copy URL/Link" -->
-            <span
-              v-else-if="item.dropdownItemTitle === 'Copy Link'"
-            >
-              <!-- Swap on click -->
-              <IconWithLink
-                v-if="!isLinkCopied"
-                :text="item.dropdownItemTitle"
-                :icon-name="item.iconName"
-                class="not-smart-link"
-                @click="handleCopiedLink(route.fullPath)"
-              />
-
-              <IconWithLink
-                v-else
-                text="Link Copied!"
-                :class="isLinkCopiedClass"
-                :icon-name="SvgIconFtvaSocialConfirm"
-              />
-            </span>
-
-            <!-- Generic Dropdown Items -->
             <IconWithLink
-              v-else
               :text="item.dropdownItemTitle"
               :icon-name="item.iconName"
-              :to="`${item.dropdownItemUrl}${route.fullPath}`"
+              class="not-smart-link"
             />
-          </div>
+          </a></span>
+
+          <!-- "Copy URL/Link" -->
+          <span
+            v-else-if="item.dropdownItemTitle === 'Copy Link'"
+          >
+            <!-- Swap on click -->
+            <IconWithLink
+              v-if="!isLinkCopied"
+              :text="item.dropdownItemTitle"
+              :icon-name="item.iconName"
+              class="not-smart-link"
+              @click="handleCopiedLink(route.fullPath)"
+            />
+
+            <IconWithLink
+              v-else
+              text="Link Copied!"
+              :class="isLinkCopiedClass"
+              :icon-name="SvgIconFtvaSocialConfirm"
+            />
+          </span>
+
+          <!-- Generic Dropdown Items -->
+          <IconWithLink
+            v-else
+            :text="item.dropdownItemTitle"
+            :icon-name="item.iconName"
+            :to="`${item.dropdownItemUrl}${route.fullPath}`"
+          />
+        </div>
+      </template>
+    </MobileDrawer>
+
+    <!-- Generic Button -->
+    <!-- <div v-else v-on-click-outside="closeDropdownOnClickOutside">
+      <div class="dropdown-overlay" :class="isDropdownExpandedClass" /> -->
+    <!-- <button
+      class="button"
+      :class="isDropdownExpandedClass"
+      @click="handleDropdownExpansion">
+      <span class="button-inner-wrapper">
+        <span v-if="hasIcon">
+          <component :is="SvgIconFtvaShare" class="button-svg" aria-hidden="true" />
+        </span>
+
+        <span class="button-text">{{ buttonTitle }}</span>
+      </span>
+
+      <span
+        :class="isDropdownExpandedClass"
+        class="toggle-triangle-icon">
+        <SvgIconFtvaDropTriangle />
+      </span>
+    </button> -->
+
+    <!-- Dropdown ITEMS -->
+    <!-- <div v-if="isDropdownExpanded" class="button-dropdown-modal">
+      <SvgGlyphClose
+        v-if="isMobile"
+        class="svg-glyph-close"
+        @click="removeOverlay" />
+      <div
+        class="button-dropdown-modal-wrapper"
+        :class="isDropdownExpandedClass">
+        <div
+          v-for="item in dropdownList"
+          :key="item.dropdownItemTitle"
+          class="dropdown-modal-item">
+          <span v-if="item.dropdownItemTitle === 'Email'"><a
+              :href="`mailto:?&body=${route.fullPath}`"
+              class="email-icon">
+              <IconWithLink
+                :text="item.dropdownItemTitle"
+                :icon-name="item.iconName"
+                class="not-smart-link" />
+            </a></span>
+
+          <span
+            v-else-if="item.dropdownItemTitle === 'Copy Link'">
+            <IconWithLink
+              v-if="!isLinkCopied"
+              :text="item.dropdownItemTitle"
+              :icon-name="item.iconName"
+              class="not-smart-link"
+              @click="handleCopiedLink(route.fullPath)" />
+
+            <IconWithLink
+              v-else
+              text="Link Copied!"
+              :class="isLinkCopiedClass"
+              :icon-name="SvgIconFtvaSocialConfirm" />
+          </span>
+
+          <IconWithLink
+            v-else
+            :text="item.dropdownItemTitle"
+            :icon-name="item.iconName"
+            :to="`${item.dropdownItemUrl}${route.fullPath}`" />
         </div>
       </div>
-    </div>
+    </div> -->
+    <!-- </div> -->
   </div>
 </template>
 
