@@ -21,13 +21,6 @@
             column-gap: 8px;
             height: 100%;
         }
-
-        //TODO
-        // :deep(.button-svg) {
-        //     position: relative;
-        //     top: 1px;
-        //     stroke: #{$primary-blue-03};
-        // }
     }
 
     .mobile-button.is-expanded {
@@ -64,46 +57,6 @@
         margin: 0 4px;
     }
 
-    // .dropdown-modal-item {
-    //     :deep(.icon-with-link) {
-    //         .icon-with-link-container {
-    //             gap: var(--space-s);
-    //             padding: 5px 0 3px 5px;
-    //         }
-    //     }
-
-    //     :deep(.icon-with-link.not-smart-link) .text,
-    //     :deep(.icon-with-link) .text {
-    //         align-self: baseline;
-    //     }
-
-    //     :deep(.icon-with-link) .text {
-    //         font-family: "Karbon", Helvetica, Arial, sans-serif;
-    //         font-weight: 500;
-    //         color: $medium-grey;
-    //     }
-
-    //     :deep(.icon-with-link) .link,
-    //     :deep(.icon-with-link.not-smart-link) .text {
-    //         text-decoration: underline;
-    //         text-decoration-thickness: 3px;
-    //         text-underline-offset: 6px;
-    //         -webkit-text-decoration-color: $grey-blue;
-    //         text-decoration-color: $grey-blue;
-    //     }
-
-    //     :deep(.icon-with-link.not-smart-link) {
-    //         width: unset;
-    //     }
-
-    //     :deep(.icon-with-link.is-link-copied) {
-    //         .text {
-    //             position: relative;
-    //             top: 3px;
-    //         }
-    //     }
-    // }
-
     @media #{$has-hover} {
         .mobile-button:hover {
             background-color: #f1f1f1;
@@ -112,27 +65,6 @@
         .svg__icon-close.svg-glyph-close:hover {
             cursor: pointer;
         }
-
-        // :deep(.icon-with-link) .link:hover,
-        // :deep(.icon-with-link.not-smart-link):hover .text {
-        //     -webkit-text-decoration-color: #{$bright-blue};
-        //     text-decoration-color: #{$bright-blue};
-        // }
-
-        // :deep(.icon-with-link) {
-        //     .link:hover {
-        //         text-decoration-thickness: 3px;
-        //         text-underline-offset: 6px;
-        //     }
-        // }
-
-        // :deep(.icon-with-link.not-smart-link):hover {
-
-        //     .text,
-        //     .icon {
-        //         cursor: pointer;
-        //     }
-        // }
     }
 
     @media #{$small} {
@@ -190,21 +122,5 @@
 
             z-index: 1;
         }
-
-        // :deep(.icon-with-link.is-link-copied) {
-        //     width: 85%;
-        //     background-color: $page-blue;
-
-        //     .text {
-        //         top: 3px;
-        //     }
-        // }
-
-        // .dropdown-modal-item {
-        //     :deep(.icon-with-link):active {
-        //         background-color: #faf5f4;
-        //         width: 85%;
-        //     }
-        // }
     }
 }

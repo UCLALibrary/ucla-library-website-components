@@ -1,11 +1,7 @@
 .ftva.button-dropdown {
-    // .button {
-    //     border-color: $medium-grey;
-    //     color: $medium-grey;
-        .button-svg {
-            stroke: unset;
-        }
-    // }
+    .button-svg {
+        stroke: unset;
+    }
 
     .toggle-triangle-icon {
         :deep(.svg__fill--accent-blue) {

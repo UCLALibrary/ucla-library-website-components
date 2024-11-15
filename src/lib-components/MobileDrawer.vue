@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
+import { vOnClickOutside } from '@vueuse/components'
 import SvgIconFtvaDropTriangle from 'ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg'
 import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 import { useTheme } from '@/composables/useTheme'
