@@ -90,8 +90,7 @@
     "lodash": "^4.17.21",
     "pinia": "^2.2.4",
     "vite-plugin-vuetify": "^2.0.4",
-    "vue3-carousel": "^0.3.1",
-    "vuetify": "3.4.9"
+    "vue3-carousel": "^0.3.1"
   },
   "peerDependencies": {
     "vue": "^3.5.12"
