@@ -29,6 +29,9 @@ importers:
       pinia:
         specifier: ^2.2.4
         version: 2.2.6(typescript@5.6.3)(vue@3.5.12(typescript@5.6.3))
+      vite-plugin-vuetify:
+        specifier: ^2.0.4
+        version: 2.0.4(vite@5.4.10(@types/node@18.19.64)(sass@1.80.6))(vue@3.5.12(typescript@5.6.3))(vuetify@3.4.9)
       vue3-carousel:
         specifier: ^0.3.1
         version: 0.3.4(vue@3.5.12(typescript@5.6.3))
