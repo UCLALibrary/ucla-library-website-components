@@ -3,6 +3,7 @@ import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import svgLoader from 'vite-svg-loader'
+import vuetify from 'vite-plugin-vuetify';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,6 +16,9 @@ export default defineConfig({
           isCustomElement: tag => tag.startsWith('add-'),
         },
       },
+    }),
+    vuetify({
+      autoImport: { labs: true },
     }),
     svgLoader({ svgo: false }),
   ],
