@@ -3,7 +3,7 @@ import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import svgLoader from 'vite-svg-loader'
-import vuetify from 'vite-plugin-vuetify';
+import vuetify from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,13 +13,13 @@ export default defineConfig({
       template: {
         compilerOptions: {
           // treat Add-to-Calendar-Button plugin like a custom element
-          isCustomElement: tag => tag.startsWith('add-'),
+          isCustomElement: tag => {
+            tag.startsWith('add-')
+          },
         },
       },
     }),
-    vuetify({
-      autoImport: { labs: true },
-    }),
+    vuetify(),
     svgLoader({ svgo: false }),
   ],
   build: {

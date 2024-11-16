@@ -8,14 +8,14 @@ import '@/styles/global.scss'
 // Vuetify
 import 'vuetify/styles';
 import { createVuetify } from 'vuetify';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
+import { VCalendar } from 'vuetify/labs/VCalendar';
 
 import App from './App.vue'
 
 const vuetify = createVuetify({
-  components,
-  directives,
+  components: {
+    VCalendar,
+  },
 });
 
 createApp(App).use(vuetify).use(router).use(createPinia()).mount('#app')
