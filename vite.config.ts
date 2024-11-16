@@ -13,9 +13,8 @@ export default defineConfig({
       template: {
         compilerOptions: {
           // treat Add-to-Calendar-Button plugin like a custom element
-          isCustomElement: tag => {
-            tag.startsWith('add-')
-          },
+          isCustomElement: tag =>
+            tag.startsWith('add-'),
         },
       },
     }),

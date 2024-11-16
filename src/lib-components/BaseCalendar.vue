@@ -1,5 +1,4 @@
 <script>
-
 export default {
   data: () => ({
     type: 'month',
@@ -9,7 +8,7 @@ export default {
   }),
   mounted() {},
   methods: {},
-};
+}
 </script>
 
 <template>
@@ -17,12 +16,11 @@ export default {
   <div>
     <v-sheet>
       <v-calendar
-        ref="calendar"
         v-model="value"
         :events="events"
         :view-mode="type"
         :weekdays="weekday"
-      ></v-calendar>
+      />
     </v-sheet>
   </div>
 </template>
