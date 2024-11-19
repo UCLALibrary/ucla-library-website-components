@@ -1,0 +1,54 @@
+.ftva.block-staff-article-item {
+  margin-bottom: 0;
+  padding-bottom: 0;
+
+  .image {
+    max-width: 284px;
+    height: 213px;
+    width: 33%;
+    aspect-ratio: 4/3;
+    margin-right: var(--space-xl);
+  }
+
+  .meta {
+    width: unset;
+    height: 213px;
+  }
+
+  .title {
+    @include ftva-card-title-1;
+    color: $heading-grey;
+    @include truncate(3);
+    @include card-clickable-area;
+    margin-bottom: var(--space-s);
+    margin-bottom: 8px;
+  }
+
+  .description-summary-only {
+    @include ftva-body;
+    color: $body-grey;
+    @include truncate(2);
+    margin-bottom: 16px;
+  }
+
+  .date {
+    position: absolute;
+    bottom: var(--space-s);
+    display: flex;
+    flex-direction: row;
+
+    @include ftva-emphasized-subtitle;
+    color: $accent-blue;
+    letter-spacing: .04px;
+
+    height: 40px;
+    overflow: hidden;
+  }
+
+  // Breakpoints
+  @media #{$small} {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}

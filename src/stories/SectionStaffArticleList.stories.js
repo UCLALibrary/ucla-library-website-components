@@ -61,3 +61,57 @@ export function Default() {
   `,
   }
 }
+
+const mockCurrentEntriesWithDates = [
+  {
+    id: "3440739",
+    typeHandle: "eventSeries",
+    sectionHandle: "ftvaEventSeries",
+    to: "series/holiday-series-on-one-day",
+    title: "Non-Religious Celebrators of Christmas",
+    description: "<p>Fun, non-religious Christmas movies</p>",
+    image: API.image,
+    startDate: "2024-12-23T00:00:00",
+    endDate: "2024-12-23T00:00:00",
+    ongoing: false
+  },
+  {
+    id: "3370267",
+    typeHandle: "eventSeries",
+    sectionHandle: "ftvaEventSeries",
+    to: "series/gymnastic-movie-series",
+    title: null,
+    description: "<p>Gymnastics Movies for Kids That Inspire Athletic Dreams</p>",
+    image: API.image,
+    startDate: "2024-04-07T00:00:00",
+    endDate: null,
+    ongoing: true
+  },
+  {
+    id: "3260303",
+    typeHandle: "eventSeries",
+    sectionHandle: "ftvaEventSeries",
+    to: "series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary",
+    title: null,
+    description: "This deep into the post-print era it may be hard for some to understand how something as ephemeral as a magazine could change the world. That may be especially true when the magazine hasn‚Äôt been in print for over a decade. But from its first issue as a Xeroxed zine in 1994 to its final run as a full-page glossy in 2011, Giant Robot did just that. Founded by UCLA alumni Eric Nakamura, Giant Robot began, simply enough, as a vehicle for Nakamura and co-editor Martin Wong to write about the stuff they liked ‚Äî whether other people liked it or not. Its first three issues featured articles on sumo wrestling, underground filmmaker Jon Moritsugu, Hello Kitty, Hong Kong movie soundtracks, Pizzicato Five and the delights of Southern California‚Äôs Cambodian-run donut shops. Mixed in with the reviews and profiles were personal essays about being Asian American in a wider culture that didn‚Äôt know or care about any of those things. Steeped in Nakamura‚Äôs DIY, punk rock ethic, Giant Robot quickly attracted a like-minded readership. Its eclectic focus on alternative Asian and Asian American culture was so fresh and so unique that many of the artists, filmmakers, musicians and writers that it profiled, such as Daniel Wu and Ayako Fujitani, asked to become contributors themselves. Maggie Cheung, Jenny Shimizu, Jet Li and Margaret Cho graced its cover as well as work by visual artists such as Yoshitomo Nara and Takashi Murakami. Before its run was over, what Giant Robot thought was cool when no else did ‚Äî ramen, Jackie Chan, Japanese candy ‚Äî was suddenly everywhere. The magazine‚Äôs work and spirit lives on at the Giant Robot retail store on Sawtelle Blvd. in Los Angeles and the GR2 art gallery across the street. The Archive is thrilled to celebrate Giant Robot‚Äôs history and legacy with this special film series co-curated with Eric Nakamura.",
+    image: API.image,
+    startDate: "2025-11-01T19:30:00",
+    endDate: "2025-11-17T19:30:00",
+    ongoing: false
+  },
+]
+
+export function CurrentEntriesWithDates() {
+  return {
+    data() {
+      return { items: mockCurrentEntriesWithDates }
+    },
+    components: { SectionStaffArticleList },
+    template: `
+      <section-staff-article-list
+        :items="items"
+        section-title="Articles"
+      />
+  `,
+  }
+}

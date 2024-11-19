@@ -8,18 +8,23 @@ import type { PropType } from 'vue'
 // LODASH FUNCTIONS
 import format from 'date-fns/format'
 
+// UTILITY FUNCTIONS
+import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
+import formatDates from '@/utils/formatEventDates'
+
+// THEME
+import { useTheme } from '@/composables/useTheme'
+
 // SVGs
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 
 // TYPESCRIPT
 import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 
-// UTILITY FUNCTIONS
-import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
-
-// COMPONENTS
+// CHILD COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
+//import Date from '@/lib-components/Date.vue'
 
 // PROPS & DATA
 const props = defineProps({
@@ -55,6 +60,24 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+  startDate: {
+    type: String,
+    required: false,
+  },
+  endDate: {
+    type: String,
+    required: false,
+  },
+  ongoing: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const theme = useTheme()
+
+const classes = computed(() => {
+  return ['block-staff-article-item', theme?.value || '']
 })
 
 const parsedDate = computed(() => {
@@ -76,10 +99,41 @@ const parsedTextAll = computed(() => {
     ? removeHtmlTruncate(props.description, 250)
     : ''
 })
+
+// Display date based on which data is provided
+const parsedDateDisplay = computed(() => {
+  if (props.ongoing == true)
+    return 'Ongoing'
+  else if (props.endDate)
+    return formatDates(props.startDate, props.endDate, 'shortWithYear')
+  else if (props.startDate)
+    return formatDates(props.startDate, props.startDate)
+  else
+    return null
+})
 </script>
 
+<!-- header-smart
+ const isMobile = ref(false)
+onMounted(() => {
+const { width } = useWindowSize()
+watch(width, (newWidth) => {
+// console.log('newWidth', newWidth)
+isMobile.value = newWidth <=
+  1200
+  currentHeader.value=markRaw(isMobile.value
+  ?
+  HeaderMainResponsive
+  :
+  HeaderMain)
+  },
+  {
+  immediate:
+  true
+  }) -->
+
 <template>
-  <li class="block-staff-article-item">
+  <li :class="classes">
     <ResponsiveImage
       v-if="imageExists"
       :media="props.image"
@@ -148,6 +202,16 @@ const parsedTextAll = computed(() => {
           {{ parsedTextTruncated }}
         </div>
       </div>
+
+      <div class="date">
+        {{ parsedDateDisplay }}
+      </div>
+
+      <!-- <Date
+        :startDate="startDate"
+        :endDate="endDate"
+        :ongoing="ongoing"
+      /> -->
     </div>
   </li>
 </template>
@@ -156,132 +220,6 @@ const parsedTextAll = computed(() => {
   lang="scss"
   scoped
 >
-.block-staff-article-item {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: center;
-  align-items: center;
-  width: 100%;
-  position: relative;
-
-  margin-bottom: var(--space-xl);
-  padding-bottom: var(--space-xl);
-
-  .image {
-    width: 50%;
-    margin-right: var(--space-xl);
-  }
-
-  .molecule-no-image {
-    width: 50%;
-    height: 272px;
-    margin-right: var(--space-xl);
-    background: var(--gradient-01);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    position: relative;
-
-    .molecule {
-      flex-shrink: 0;
-      position: absolute;
-      opacity: 0.7;
-    }
-  }
-
-  .meta {
-    width: calc(50% - var(--space-xl));
-    height: 272px;
-  }
-
-  .category {
-    @include overline;
-    color: var(--color-primary-blue-05);
-    margin-bottom: var(--space-s);
-  }
-
-  .title {
-    @include step-1;
-    color: var(--color-primary-blue-03);
-    margin-bottom: var(--space-s);
-    @include truncate(3);
-    @include card-clickable-area;
-  }
-
-  .byline {
-    @include step-0;
-    margin: var(--space-s) 0;
-    color: var(--color-secondary-grey-04);
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-
-  // .author {
-  //     &:after {
-  //         content: ",";
-  //         padding-right: 5px;
-  //     }
-  //     &:nth-last-child(2):after {
-  //         content: "";
-  //     }
-  // }
-  // .date:not(:only-child) {
-  //     padding-left: 20px;
-  // }
-
-  .description {
-    @include step-0;
-    color: var(--color-black);
-    @include truncate(4);
-  }
-
-  .description-summary-only {
-    @include step-0;
-    color: var(--color-black);
-    @include truncate(5);
-  }
-
-  :deep(.image) {
-    height: 272px;
-
-    .media {
-      object-fit: cover;
-    }
-  }
-
-  // Hovers
-  @media #{$has-hover} {
-    .title:hover {
-      @include link-hover;
-    }
-  }
-}
-
-// Breakpoints
-@media #{$small} {
-  .block-staff-article-item {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-
-    .image,
-    .molecule-no-image {
-      width: 100%;
-      margin-right: 0;
-      margin-bottom: var(--space-l);
-    }
-
-    .meta {
-      width: 100%;
-      height: 100%;
-
-      >*:last-child {
-        padding-bottom: 0;
-      }
-    }
-  }
-}
+@import "@/styles/default/_block-staff-article-item.scss";
+@import "@/styles/ftva/_block-staff-article-item.scss";
 </style>
