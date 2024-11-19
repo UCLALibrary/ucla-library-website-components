@@ -64,6 +64,7 @@ const classes = computed(() => {
   return ['base-calendar', theme?.value || '']
 })
 </script>
+<!-- v-model:model-value="searchWords" -->
 
 <template>
   <div
