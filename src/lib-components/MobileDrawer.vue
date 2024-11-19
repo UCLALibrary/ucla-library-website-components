@@ -52,7 +52,7 @@ onMounted(() => {
         @click="handleDropdownExpansion"
       >
         <!-- Drawer Button Label Here
-                 Note: icons can be included, clicking button will open drawer -->
+          Note: icons can be included, clicking button will open drawer -->
         <span class="button-inner-wrapper">
           <slot name="buttonLabel" />
         </span>
@@ -76,7 +76,7 @@ onMounted(() => {
           :class="isDropdownExpandedClass"
         >
           <!-- Dropdown Items slot in here -->
-          <slot name="dropdownItems" />
+          <slot name="dropdownItems" :remove-overlay="removeOverlay" />
         </div>
       </div>
     </div>

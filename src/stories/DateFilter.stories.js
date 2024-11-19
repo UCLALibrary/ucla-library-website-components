@@ -1,6 +1,5 @@
-import { onBeforeUnmount, onMounted } from 'vue'
+import { computed } from 'vue'
 import DateFilter from '@/lib-components/DateFilter'
-import { useGlobalStore } from '@/stores/GlobalStore'
 
 export default {
   title: 'DateFilter',
@@ -12,37 +11,17 @@ const mock = {
   eventDates: ['2/29/2024', '2/29/2024', '2/29/2024', '2/29/2024', '3/1/2024', '3/2/2024', '3/2/2024', '3/4/2024', '3/6/2024', '3/8/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024',],
 }
 
-function Template(args) {
+export function Default() {
   return {
-    setup() {
-      // Setup function provides a context where you can use Composition API
-      onMounted(() => {
-        const globalStore = useGlobalStore()
-
-        const updateWinWidth = () => {
-          globalStore.winWidth = window.innerWidth
-        }
-
-        // Set initial winWidth
-        updateWinWidth()
-
-        // Update winWidth on window resize
-        window.addEventListener('resize', updateWinWidth)
-
-        // Use onBeforeUnmount to clean up
-        onBeforeUnmount(() => {
-          window.removeEventListener('resize', updateWinWidth)
-        })
-      })
-
-      return { ...mock, ...args }
+    data() {
+      return {
+        ...mock,
+      }
     },
     components: { DateFilter },
     template: '<div style="height:509px"><date-filter :eventDates="eventDates" :hideInput="hideInput"/></div>',
   }
 }
-
-export const Default = Template.bind({})
 
 const mockNoInput = {
   hideInput: true,
@@ -75,19 +54,19 @@ export function InitialDates() {
   }
 }
 
-export function Mobile() {
+export function FTVA() {
   return {
     data() {
       return {
         ...mock,
       }
     },
-    created() {
-      const globalStore = useGlobalStore()
-      globalStore.winWidth = 320
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
     },
     components: { DateFilter },
-    template:
-      '<div style="height:509px"><date-filter :eventDates="eventDates" :hideInput="hideInput"/></div> ',
+    template: '<date-filter :eventDates="eventDates" :initialDates="initialDates"/>',
   }
 }
