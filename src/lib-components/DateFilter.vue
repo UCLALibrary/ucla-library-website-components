@@ -30,7 +30,8 @@ const { eventDates, initialDates, hideInput } = defineProps({
     type: Object as PropType<SelectedDates>,
     default: () => ({ startDate: null, endDate: null }),
   },
-  // if true, the datepicker will be shown in 'inline' mode
+  // if true, the datepicker will be shown in 'inline' mode all the time, event on desktop
+  // this option is not currently used on the ftva site
   // https://vue3datepicker.com/props/modes/#inline
   hideInput: {
     type: Boolean,
@@ -48,6 +49,7 @@ const date = ref<Date[] | Date>([])
 const datepicker = ref<DatePickerInstance | null>(null)
 const isSelecting = ref(false)
 const isOpen = ref(false)
+const isMobile = ref(false)
 const todayBtnActive = ref(false)
 const textConfig = ref({
   rangeSeparator: ' — ',
@@ -187,7 +189,6 @@ watch(date, async (newDate, oldDate) => {
   }
 })
 
-const isMobile = ref(false)
 onMounted(() => {
   const { width } = useWindowSize()
   watch(width, (newWidth) => {

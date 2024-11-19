@@ -7,7 +7,6 @@ export default {
 }
 
 const mock = {
-  hideInput: false,
   eventDates: ['2/29/2024', '2/29/2024', '2/29/2024', '2/29/2024', '3/1/2024', '3/2/2024', '3/2/2024', '3/4/2024', '3/6/2024', '3/8/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024',],
 }
 
@@ -19,10 +18,11 @@ export function Default() {
       }
     },
     components: { DateFilter },
-    template: '<div style="height:509px"><date-filter :eventDates="eventDates" :hideInput="hideInput"/></div>',
+    template: '<div style="height:509px"><date-filter :eventDates="eventDates" /></div>',
   }
 }
-
+/* hideInput prop is not currently used anywhere in the app,
+input is hidden automatically on mobile */
 const mockNoInput = {
   hideInput: true,
   eventDates: ['2/29/2024', '2/29/2024', '2/29/2024', '2/29/2024', '3/1/2024', '3/2/2024', '3/2/2024', '3/4/2024', '3/6/2024', '3/8/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024', '3/19/2024',],
