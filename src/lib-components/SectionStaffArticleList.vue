@@ -42,6 +42,10 @@ const { items, sectionTitle } = defineProps({
           :authors="item.authors"
           :description="item.description"
           :external-resource-url="item.externalResourceUrl"
+          :image-aspect-ratio="item.imageAspectRatio"
+          :start-date="item.startDate"
+          :end-date="item.endDate"
+          :ongoing="item.ongoing"
         />
       </ul>
     </div>
@@ -49,59 +53,60 @@ const { items, sectionTitle } = defineProps({
 </template>
 
 <style
-  lang="scss"
+  lang="
+          scss"
   scoped
 >
-.section-staff-article-list {
-  --divider-color: var(--color-secondary-grey-02);
-  max-width: 100%;
-  margin: auto;
+          .section-staff-article-list {
+          --divider-color: var(--color-secondary-grey-02);
+          max-width: 100%;
+          margin: auto;
 
-  .container {
-    max-width: $container-l-main + px;
-    margin: auto;
-  }
+          .container {
+          max-width: $container-l-main + px;
+          margin: auto;
+          }
 
-  .section-title {
-    @include step-3;
-    line-height: $line-height--1;
-    text-transform: capitalize;
-    color: var(--color-primary-blue-03);
-    margin-bottom: var(--space-xl);
-  }
+          .section-title {
+          @include step-3;
+          line-height: $line-height--1;
+          text-transform: capitalize;
+          color: var(--color-primary-blue-03);
+          margin-bottom: var(--space-xl);
+          }
 
-  .block-staff-article-list {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+          .block-staff-article-list {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
 
-    .block-staff-article-item {
-      border-bottom: 2px dotted var(--divider-color);
+          .block-staff-article-item {
+          border-bottom: 2px dotted var(--divider-color);
 
-      &:last-child {
-        border-bottom: 0;
-        padding: 0;
-        margin: 0;
-      }
-    }
+          &:last-child {
+          border-bottom: 0;
+          padding: 0;
+          margin: 0;
+          }
+          }
 
-    @for $i from 1 through 30 {
-      :deep(.block-staff-article-item:nth-child(#{$i}) .molecule) {
-        left: calc(random(500) * -1) + px;
-      }
-    }
-  }
+          @for $i from 1 through 30 {
+          :deep(.block-staff-article-item:nth-child(#{$i}) .molecule) {
+          left: calc(random(500) * -1) + px;
+          }
+          }
+          }
 
-  @media (min-width: 1025px) and (max-width: 1300px) {
-    padding: 0 var(--unit-gutter);
-  }
+          @media (min-width: 1025px) and (max-width: 1300px) {
+          padding: 0 var(--unit-gutter);
+          }
 
-  @media #{$medium} {
-    margin-left: var(--unit-gutter);
-    margin-right: var(--unit-gutter);
-  }
-}
-</style>
+          @media #{$medium} {
+          margin-left: var(--unit-gutter);
+          margin-right: var(--unit-gutter);
+          }
+          }
+          </style>

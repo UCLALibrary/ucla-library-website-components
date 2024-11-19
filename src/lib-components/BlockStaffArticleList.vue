@@ -24,7 +24,6 @@ import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 // CHILD COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
-// import Date from '@/lib-components/Date.vue'
 
 // PROPS & DATA
 const props = defineProps({
@@ -202,15 +201,12 @@ isMobile.value = newWidth <=
         </div>
       </div>
 
-      <div class="date">
+      <div
+        v-if="props.ongoing"
+        class="date"
+      >
         {{ parsedDateDisplay }}
       </div>
-
-      <!-- <Date
-        :startDate="props.startDate"
-        :endDate="props.endDate"
-        :ongoing="props.ongoing"
-      /> -->
     </div>
   </li>
 </template>

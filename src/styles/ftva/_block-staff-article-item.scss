@@ -2,18 +2,22 @@
   margin-bottom: 0;
   padding-bottom: 0;
 
-  // .image {
-  //   max-width: 284px;
-  //   height: 213px;
-  //   width: 33%;
-  //   aspect-ratio: 4/3;
-  //   margin-right: var(--space-xl);
-  // }
+  .image {
+    max-width: 284px;
+    height: 213px;
+    width: 33%;
+    aspect-ratio: 4/3;
+    margin-right: var(--space-xl);
+  }
 
-  // .meta {
-  //   width: unset;
-  //   height: 213px;
-  // }
+  .meta {
+    width: unset;
+    height: 213px;
+  }
+
+  .meta {
+    background-color: white;
+  }
 
   .title {
     @include ftva-card-title-1;
@@ -47,8 +51,51 @@
 
   // Breakpoints
   @media #{$small} {
+    background-color: aquamarine;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+
+    .image {
+      width: 100%;
+      max-width: unset;
+      height: 213px;
+      margin-right: 0;
+      aspect-ratio: 4/3;
+      //margin-right: var(--space-xl);
+    }
+
+    :deep(.image) {
+      height: 272px;
+
+      .media {
+        object-fit: cover;
+      }
+    }
+
+    .meta {
+      width: 100%;
+      height: 213px;
+      background-color: pink;
+    }
+
+    .date {
+      position: absolute;
+      bottom: var(--space-s);
+      display: flex;
+      flex-direction: row;
+
+      @include ftva-emphasized-subtitle;
+      color: $accent-blue;
+      letter-spacing: .04px;
+
+      height: 40px;
+      overflow: hidden;
+    }
   }
 }

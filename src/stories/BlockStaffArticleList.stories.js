@@ -222,7 +222,7 @@ export function FtvaDateRange() {
   }
 }
 
-export function FtvaStartEndDateSame() {
+export function FtvaSameStartEndDate() {
   return {
     data() {
       return { ...mockDateRange2 }

@@ -101,7 +101,7 @@ const mockCurrentEntriesWithDates = [
   },
 ]
 
-export function CurrentEntriesWithDates() {
+export function FtvaCurrentEntriesWithDates() {
   return {
     data() {
       return { items: mockCurrentEntriesWithDates }
