@@ -41,6 +41,16 @@ const mockDateRange2 = {
   ongoing: false
 }
 
+const mockOngoing = {
+  to: "series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary",
+  title: "An Ongoing Film Series for You",
+  image: API.image,
+  description: "This deep into the post-print era it may be hard for some to understand.",
+  startDate: "2024-11-01T19:30:00",
+  endDate: null,
+  ongoing: true
+}
+
 // Variations of stories below
 export function Default() {
   return {
@@ -240,7 +250,7 @@ export function FtvaStartEndDateSame() {
 export function FtvaOngoing() {
   return {
     data() {
-      return { ...mockDateRange }
+      return { ...mockOngoing }
     },
     provide() {
       return {
@@ -254,9 +264,9 @@ export function FtvaOngoing() {
           :to="to"
           :title="title"
           :description="description"
-          startDate="2024-11-01T19:30:00"
-          endDate=null
-          ongoing=true
+          :startDate="startDate"
+          :endDate="endDate"
+          :ongoing="ongoing"
       />
   `,
   }

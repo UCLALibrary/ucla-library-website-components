@@ -10,7 +10,7 @@ import format from 'date-fns/format'
 
 // UTILITY FUNCTIONS
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
-import formatDates from '@/utils/formatEventDates'
+import formatSeriesDates from '@/utils/formatEventSeriesDates'
 
 // THEME
 import { useTheme } from '@/composables/useTheme'
@@ -24,7 +24,7 @@ import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 // CHILD COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
-//import Date from '@/lib-components/Date.vue'
+// import Date from '@/lib-components/Date.vue'
 
 // PROPS & DATA
 const props = defineProps({
@@ -102,12 +102,12 @@ const parsedTextAll = computed(() => {
 
 // Display date based on which data is provided
 const parsedDateDisplay = computed(() => {
-  if (props.ongoing == true)
+  if (props.ongoing === true)
     return 'Ongoing'
   else if (props.endDate)
-    return formatDates(props.startDate, props.endDate, 'shortWithYear')
+    return formatSeriesDates(props.startDate, props.endDate, 'shortWithYear')
   else if (props.startDate)
-    return formatDates(props.startDate, props.startDate)
+    return formatSeriesDates(props.startDate, props.startDate)
   else
     return null
 })
@@ -141,7 +141,6 @@ isMobile.value = newWidth <=
       object-fit="cover"
       class="image"
     />
-
     <div
       v-else
       class="molecule-no-image"
@@ -208,9 +207,9 @@ isMobile.value = newWidth <=
       </div>
 
       <!-- <Date
-        :startDate="startDate"
-        :endDate="endDate"
-        :ongoing="ongoing"
+        :startDate="props.startDate"
+        :endDate="props.endDate"
+        :ongoing="props.ongoing"
       /> -->
     </div>
   </li>

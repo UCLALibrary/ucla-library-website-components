@@ -2,18 +2,18 @@
   margin-bottom: 0;
   padding-bottom: 0;
 
-  .image {
-    max-width: 284px;
-    height: 213px;
-    width: 33%;
-    aspect-ratio: 4/3;
-    margin-right: var(--space-xl);
-  }
+  // .image {
+  //   max-width: 284px;
+  //   height: 213px;
+  //   width: 33%;
+  //   aspect-ratio: 4/3;
+  //   margin-right: var(--space-xl);
+  // }
 
-  .meta {
-    width: unset;
-    height: 213px;
-  }
+  // .meta {
+  //   width: unset;
+  //   height: 213px;
+  // }
 
   .title {
     @include ftva-card-title-1;
