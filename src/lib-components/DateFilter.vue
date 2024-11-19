@@ -84,7 +84,12 @@ function goToToday() {
     document?.activeElement?.blur()
   }
   else {
-    date.value = [new Date(), new Date()]
+    if (isMobile.value)
+      // mobile does allow range selection
+      date.value = new Date()
+    else
+      date.value = [new Date(), new Date()]
+
     todayBtnActive.value = true
   }
 }
