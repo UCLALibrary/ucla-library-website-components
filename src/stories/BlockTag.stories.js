@@ -1,6 +1,20 @@
 import { computed } from 'vue'
 import BlockTag from '@/lib-components/BlockTag'
 
+/**
+ * A component to display a non-interactive tag with a label and an optional icon. <br>
+ * <sub>(For an interactive tag that can be clicked to remove it from a list, try BlockRemoveSearchFilter). </sub>
+ *
+ * Props:
+ * - <b>label</b>: A string representing the text to display in the tag
+ * - <b>iconName</b>: A string representing the name of the icon to display in the tag. <br>
+ * <sub>Valid names: <i>SvgIconGuest, SvgIconFilm, SvgIconTV, SvgIconFilmreel, SvgIconDigital, SvgIconOnline, SvgIconFamilyFriendly</i></sub>
+ * - <b>isSecondary</b>: A boolean value to determine if the tag is styled with primary or secondary styles
+ *
+ * Props added 2024-11-19:
+ *
+ * - <b>isHighlighted</b>: A boolean value to determine if the tag is styled with highlight styles
+ */
 export default {
   title: 'BLOCK / Tag',
   component: BlockTag
@@ -104,25 +118,25 @@ export function SecondaryFTVANoIcon() {
   }
 }
 
-// TODO
-// export function SecondaryFTVASelected() {
-//   return {
-//     data() {
-//       return {
-//         ...ftvamockwLinkLabel
-//       }
-//     },
-//     provide() {
-//       return {
-//         theme: computed(() => 'ftva'),
-//       }
-//     },
-//     components: { BlockTag },
-//     template: `
-//     <block-tag
-//         :label="label"
-//         isSecondary="true"
-//     />
-//   `,
-//   }
-// }
+export function SecondaryFTVAHighlighted() {
+  return {
+    data() {
+      return {
+        ...ftvamock
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockTag },
+    template: `
+    <block-tag
+        :label="label"
+        isSecondary="true"
+        isHighlighted="true"
+    />
+  `,
+  }
+}

@@ -1,12 +1,12 @@
 .ftva.block-tag {
     @include ftva-tags;
+     // secondary colors and styles
     background-color: transparent;
     border: 1.5px solid $subtitle-grey;
     border-radius: 16px;
     color: $subtitle-grey;
     padding: 8px 16px;
     height: 32px;
-    // secondary colors and styles
     // focused and disabled,styled in blockRemoveSearchFilter
 
     .label {
@@ -35,7 +35,12 @@
         }
     }
 
-    &.is-selected {
+    &.highlighted {
         background-color: $page-blue;
+        // color: #{$white};
+        // border: none;  
+        .label {
+            // color: #{$white};
+        }
     }
 }

@@ -6,7 +6,7 @@ import { computed, defineAsyncComponent } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 // PROPS & DATA
-const { label, iconName, isSecondary } = defineProps({
+const { label, iconName, isSecondary, isHighlighted } = defineProps({
   label: {
     type: String,
     default: '' // Text displayed on the tag or pill.
@@ -19,11 +19,10 @@ const { label, iconName, isSecondary } = defineProps({
     type: Boolean,
     default: false
   },
-  // TODO ADD PROP TO HANDLE isSelected prop
-  // isSelected: {
-  //   type: Boolean,
-  //   default: false
-  // },
+  isHighlighted: {
+    type: Boolean,
+    default: false
+  },
 })
 
 // THEME
@@ -63,7 +62,7 @@ const BlockTagIcons: any = {
 }
 
 const classes = computed(() => {
-  return ['block-tag', theme?.value || '', isSecondary ? '' : 'primary']
+  return ['block-tag', theme?.value || '', isSecondary ? '' : 'primary', isHighlighted ? 'highlighted' : '']
 })
 </script>
 
