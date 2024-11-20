@@ -79,8 +79,8 @@ const mockCurrentEntriesWithDates = [
     title: "A Film Series for You",
     image: API.image,
     description: "This deep into the post-print era it may be hard for some to understand.",
-    startDate: "2024-11-01T19:30:00",
-    endDate: "2024-11-17T19:30:00",
+    startDate: "2024-08-17T19:30:00",
+    endDate: "2024-08-17T19:30:00",
     ongoing: false
   },
   {
@@ -88,7 +88,7 @@ const mockCurrentEntriesWithDates = [
     title: "An Ongoing Film Series for You",
     image: API.image,
     description: "This deep into the post-print era it may be hard for some to understand. Someday, if you study hard enough you might be able to inderstand. Unless that it, you are particularly dense.",
-    startDate: "2024-11-01T19:30:00",
+    startDate: "2024-05-07T19:30:00",
     endDate: null,
     ongoing: true
   }

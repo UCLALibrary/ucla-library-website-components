@@ -37,7 +37,7 @@ const mockDateRange2 = {
   image: API.image,
   description: "This deep into the post-print era it may be hard for some to understand.",
   startDate: "2024-11-01T19:30:00",
-  endDate: "2024-11-17T19:30:00",
+  endDate: "2024-11-01T19:30:00",
   ongoing: false
 }
 
