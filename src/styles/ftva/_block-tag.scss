@@ -37,10 +37,10 @@
 
     &.highlighted {
         background-color: $page-blue;
-        // color: #{$white};
-        // border: none;  
+        color: $subtitle-grey;
+        border: 1.5px solid $subtitle-grey;
         .label {
-            // color: #{$white};
+            color: $subtitle-grey;
         }
     }
 }
