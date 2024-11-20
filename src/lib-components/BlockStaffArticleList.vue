@@ -8,8 +8,10 @@ import type { PropType } from 'vue'
 // LODASH FUNCTIONS
 import format from 'date-fns/format'
 
-// UTILITY FUNCTIONS
+// SVGs
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
+
+// UTILITY FUNCTIONS
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 import formatSeriesDates from '@/utils/formatEventSeriesDates'
 
