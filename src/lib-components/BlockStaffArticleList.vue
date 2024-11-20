@@ -174,7 +174,7 @@ isMobile.value = newWidth <=
         </div>
 
         <div
-          v-if="props.ongoing !== 'undefined'"
+          v-if="parsedDateDisplay"
           class="date"
         >
           {{ parsedDateDisplay }}
