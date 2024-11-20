@@ -9,6 +9,7 @@ import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
 // UTILITY FUNCTIONS
+import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 import formatSeriesDates from '@/utils/formatEventSeriesDates'
 
@@ -16,7 +17,6 @@ import formatSeriesDates from '@/utils/formatEventSeriesDates'
 import { useTheme } from '@/composables/useTheme'
 
 // SVGs
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 
 // TYPESCRIPT
 import type { ArticleStaffItemType, MediaItemType } from '@/types/types'

@@ -22,31 +22,31 @@ const mock = {
 }
 
 const mockDateRange = {
-  to: "series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary",
-  title: "A Film Series for You: Celebrating Giant Robot‚Äôs 30th Anniversary",
+  to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
+  title: 'A Film Series for You: Celebrating Giant Robot‚Äôs 30th Anniversary',
   image: API.image,
-  description: "This deep into the post-print era it may be hard for some to understand how something as ephemeral as a magazine could change the world. That may be especially true when the magazine hasn‚Äôt been in print for over a decade. But from its first issue as a Xeroxed zine in 1994 to its final run as a full-page glossy in 2011, Giant Robot did just that.",
-  startDate: "2024-11-01T19:30:00",
-  endDate: "2024-11-17T19:30:00",
+  description: 'This deep into the post-print era it may be hard for some to understand how something as ephemeral as a magazine could change the world. That may be especially true when the magazine hasn‚Äôt been in print for over a decade. But from its first issue as a Xeroxed zine in 1994 to its final run as a full-page glossy in 2011, Giant Robot did just that.',
+  startDate: '2024-11-01T19:30:00',
+  endDate: '2024-11-17T19:30:00',
   ongoing: false
 }
 
 const mockDateRange2 = {
-  to: "series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary",
-  title: "A Film Series for You",
+  to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
+  title: 'A Film Series for You',
   image: API.image,
-  description: "This deep into the post-print era it may be hard for some to understand.",
-  startDate: "2024-11-01T19:30:00",
-  endDate: "2024-11-01T19:30:00",
+  description: 'This deep into the post-print era it may be hard for some to understand.',
+  startDate: '2024-11-01T19:30:00',
+  endDate: '2024-11-01T19:30:00',
   ongoing: false
 }
 
 const mockOngoing = {
-  to: "series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary",
-  title: "An Ongoing Film Series for You",
+  to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
+  title: 'An Ongoing Film Series for You',
   image: API.image,
-  description: "This deep into the post-print era it may be hard for some to understand. Someday, if you study hard enough you might be able to inderstand. Unless that it, you are particularly dense.",
-  startDate: "2024-11-01T19:30:00",
+  description: 'This deep into the post-print era it may be hard for some to understand. Someday, if you study hard enough you might be able to inderstand. Unless that it, you are particularly dense.',
+  startDate: '2024-11-01T19:30:00',
   endDate: null,
   ongoing: true
 }
