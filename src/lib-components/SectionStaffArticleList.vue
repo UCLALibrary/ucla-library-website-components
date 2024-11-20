@@ -2,11 +2,16 @@
   setup
   lang="ts"
 >
+import { computed } from 'vue'
 import type { PropType } from 'vue'
 
 // TYPESCRIPT
 import type { BlockStaffArticleListItemType } from '@/types/types'
 
+// THEME
+import { useTheme } from '@/composables/useTheme'
+
+// CHILD COMPONENTS
 import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList.vue'
 
 const { items, sectionTitle } = defineProps({
@@ -20,10 +25,16 @@ const { items, sectionTitle } = defineProps({
   },
 })
 // TODO? we could parse the heroImage here instead of on the page similar to flexible/highlight
+
+const theme = useTheme()
+
+const classes = computed(() => {
+  return ['section-staff-article-list', theme?.value || '']
+})
 </script>
 
 <template>
-  <section class="section-staff-article-list">
+  <section :class="classes">
     <div class="container">
       <div
         v-if="sectionTitle"
@@ -56,8 +67,6 @@ const { items, sectionTitle } = defineProps({
   lang="scss"
   scoped
 >
-.section-staff-article-list {
-  @import "@/styles/default/_section-staff-article-list.scss";
-  @import "@/styles/ftva/_section-staff-article-list.scss";
-}
+@import "@/styles/default/_section-staff-article-list.scss";
+@import "@/styles/ftva/_section-staff-article-list.scss";
 </style>
