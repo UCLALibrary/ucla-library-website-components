@@ -1,11 +1,7 @@
 .ftva.block-staff-article-item {
-  margin-bottom: 0;
-  padding-bottom: 0;
-
   .image {
-    max-width: 284px;
+    width: 284px;
     height: 213px;
-    width: 33%;
     aspect-ratio: 4/3;
     margin-right: var(--space-xl);
   }
@@ -13,10 +9,7 @@
   .meta {
     width: unset;
     height: 213px;
-  }
-
-  .meta {
-    background-color: white;
+    margin-top: 6px;
   }
 
   .title {
@@ -51,7 +44,6 @@
 
   // Breakpoints
   @media #{$small} {
-    background-color: aquamarine;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -67,7 +59,6 @@
       height: 213px;
       margin-right: 0;
       aspect-ratio: 4/3;
-      //margin-right: var(--space-xl);
     }
 
     :deep(.image) {
@@ -81,7 +72,6 @@
     .meta {
       width: 100%;
       height: 213px;
-      background-color: pink;
     }
 
     .date {

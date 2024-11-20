@@ -45,7 +45,7 @@ const mockOngoing = {
   to: "series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary",
   title: "An Ongoing Film Series for You",
   image: API.image,
-  description: "This deep into the post-print era it may be hard for some to understand.",
+  description: "This deep into the post-print era it may be hard for some to understand. Someday, if you study hard enough you might be able to inderstand. Unless that it, you are particularly dense.",
   startDate: "2024-11-01T19:30:00",
   endDate: null,
   ongoing: true
