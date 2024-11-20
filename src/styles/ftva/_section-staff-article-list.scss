@@ -1,6 +1,10 @@
 .ftva.section-staff-article-list {
-  .block-staff-article-item {
-    border-bottom: 7px dotted indigo;
-    border-bottom: 0;
+
+  // Breakpoints
+  @media #{$small} {
+    .block-staff-article-item {
+      border-bottom: 7px dotted indigo;
+      border-bottom: 0;
+    }
   }
 }
