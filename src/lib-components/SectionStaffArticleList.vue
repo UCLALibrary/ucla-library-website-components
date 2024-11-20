@@ -53,7 +53,6 @@ const classes = computed(() => {
           :authors="item.authors"
           :description="item.description"
           :external-resource-url="item.externalResourceUrl"
-          :image-aspect-ratio="item.imageAspectRatio"
           :start-date="item.startDate"
           :end-date="item.endDate"
           :ongoing="item.ongoing"
