@@ -11,6 +11,9 @@ import format from 'date-fns/format'
 // SVGs
 import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 
+// TYPESCRIPT
+import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
+
 // UTILITY FUNCTIONS
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 import formatSeriesDates from '@/utils/formatEventSeriesDates'
@@ -18,12 +21,7 @@ import formatSeriesDates from '@/utils/formatEventSeriesDates'
 // THEME
 import { useTheme } from '@/composables/useTheme'
 
-// SVGs
-
-// TYPESCRIPT
-import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
-
-// CHILD COMPONENTS
+// COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
