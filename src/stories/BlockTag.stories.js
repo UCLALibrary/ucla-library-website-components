@@ -52,6 +52,24 @@ export function Default() {
   }
 }
 
+// note: currently highlighted styles for default are placeholder styles / not yet implemented
+export function DefaultHighlighted() {
+  return {
+    data() {
+      return {
+        ...defaultmock,
+      }
+    },
+    components: { BlockTag },
+    template: `
+    <block-tag
+        :label="label"
+        :isHighlighted="true"
+    />
+  `,
+  }
+}
+
 export function PrimaryFTVA() {
   return {
     data() {
