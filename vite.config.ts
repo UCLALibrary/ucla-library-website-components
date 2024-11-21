@@ -18,7 +18,6 @@ export default defineConfig({
         },
       },
     }),
-    vuetify(),
     svgLoader({ svgo: false }),
   ],
   build: {

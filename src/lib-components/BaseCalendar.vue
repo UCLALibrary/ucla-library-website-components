@@ -9,18 +9,19 @@ const { events, value } = defineProps({
     default: () => [],
   },
 
-  // Note
-  value: Array,
-  default: () => [new Date()],
+  value: {
+    type: Array,
+    default: () => [new Date()]
+  }
 })
+
+// const newDateRef = ref(value)
 
 const calendarRef = useTemplateRef('calendar')
 
 onMounted(() => {
   updateCalendarWeekdays()
 })
-
-const newDateRef = ref(value)
 
 const parsedEvents = computed(() => {
   if (events.length === 0)
@@ -34,8 +35,6 @@ const parsedEvents = computed(() => {
       start: new Date(rawDate),
       end: new Date(rawDate),
       time: formatEventTime(rawDate),
-      description: obj.eventDescription
-
     }
   })
 
@@ -43,7 +42,7 @@ const parsedEvents = computed(() => {
 })
 // console.log(parsedEvents.value)
 
-// Format time as '12:30 PM'
+// Format time as '00:00 PM'
 function formatEventTime(date) {
   const formattedTime = format(new Date(date), 'h:mm aaa')
   return formattedTime.toUpperCase()
@@ -73,15 +72,15 @@ const classes = computed(() => {
         :model-value="newDateRef"
         :events="parsedEvents"
         view-mode="month"
-        next-icon="$next"
-        prev-icon="$prev"
       >
         <!-- Vuetify calendar header slot -->
-        <!-- <template #header="header">
+        <!--
+        <template #header="header">
           {{ header.title }}
-        </template> -->
+        </template>
+        -->
 
-        <!-- Vuetify event slot -->
+        <!-- Vuetify calendar event slot -->
         <template #event="event">
           <div class="calendar-event-item">
             <p class="calendar-event-title">
@@ -92,7 +91,6 @@ const classes = computed(() => {
             </p>
           </div>
         </template>
-        <!-- tooltip? -->
       </v-calendar>
     </v-sheet>
   </div>

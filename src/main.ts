@@ -14,10 +14,10 @@ import router from './router'
 
 import App from './App.vue'
 
-const vuetify = createVuetify({
+export const vuetify = createVuetify({
   components: {
     VCalendar,
-  }
+  },
 })
 
 createApp(App).use(vuetify).use(router).use(createPinia()).mount('#app')

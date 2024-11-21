@@ -5,7 +5,12 @@ import "@/styles/global.scss"
 import router from "@/router"
 import { createPinia } from 'pinia';
 
+import { withVuetifyTheme } from './withVuetifyTheme.decorator'
+import { vuetify } from '../src/main'
 
+function registerPlugins(app) {
+    app.use(vuetify)
+}
 
 export const parameters = {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -62,7 +67,11 @@ export const parameters = {
         },
     },
 }
+
 setup((app) => {
+    registerPlugins(app)
     app.use(router)
     app.use(createPinia())
 })
+
+export const decorators = [withVuetifyTheme]
