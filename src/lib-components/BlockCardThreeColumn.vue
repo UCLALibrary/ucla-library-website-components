@@ -140,7 +140,6 @@ const parsedDateFormat = computed(() => {
           >
             <BlockTag
               :label="label.title"
-              icon-name="SvgIconGuest"
               :is-secondary="true"
             />
           </div>

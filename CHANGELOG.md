@@ -1,3 +1,10 @@
+# [3.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.33.0...v3.34.0) (2024-11-21)
+
+
+### Features
+
+* APPS-3072 remove icon in BlockTag from BlockCardThreeColumn ([#657](https://github.com/UCLALibrary/ucla-library-website-components/issues/657)) ([1efc83e](https://github.com/UCLALibrary/ucla-library-website-components/commit/1efc83ebd56f2abf1887ff6346d9956d9006e544))
+
 # [3.33.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.32.1...v3.33.0) (2024-11-08)
 
 
