@@ -15,4 +15,15 @@
     .label {
         color: #{$primary-blue-05};
     }
+
+    // primary colors & styles
+    &.highlighted {
+        color: #{$white};
+        background-color: var(--color-default-cyan-03);
+        border: none;
+
+        .label {
+            color: #{$white};
+        }
+    }
 }

@@ -1,3 +1,10 @@
+# [3.35.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.34.0...v3.35.0) (2024-11-21)
+
+
+### Features
+
+* APPS-3067 add ishighlighted prop to BlockTag.vue ([#656](https://github.com/UCLALibrary/ucla-library-website-components/issues/656)) ([7b2c3a7](https://github.com/UCLALibrary/ucla-library-website-components/commit/7b2c3a736b3c2551dc3fbb61566241878a889838))
+
 # [3.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.33.0...v3.34.0) (2024-11-21)
 
 
