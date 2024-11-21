@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.43.1",
+    "@mdi/font": "^7.4.47",
     "@percy/cli": "^1.30.0",
     "@percy/cypress": "^3.1.2",
     "@semantic-release/changelog": "^6.0.3",

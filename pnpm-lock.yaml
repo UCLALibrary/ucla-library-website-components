@@ -42,6 +42,9 @@ importers:
       '@antfu/eslint-config':
         specifier: ^0.43.1
         version: 0.43.1(eslint@8.57.1)(typescript@5.6.3)
+      '@mdi/font':
+        specifier: ^7.4.47
+        version: 7.4.47
       '@percy/cli':
         specifier: ^1.30.0
         version: 1.30.1(typescript@5.6.3)
@@ -1105,6 +1108,9 @@ packages:
 
   '@juggle/resize-observer@3.4.0':
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
+
+  '@mdi/font@7.4.47':
+    resolution: {integrity: sha512-43MtGpd585SNzHZPcYowu/84Vz2a2g31TvPMTm9uTiCSWzaheQySUcSyUH/46fPnuPQWof2yd0pGBtzee/IQWw==}
 
   '@mdx-js/react@2.3.0':
     resolution: {integrity: sha512-zQH//gdOmuu7nt2oJR29vFhDv88oGPmVw6BggmrHeMI+xgEkp1B2dX9/bMBSYtK0dyLX/aOmesKS09g222K1/g==}
@@ -7513,6 +7519,8 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
 
   '@juggle/resize-observer@3.4.0': {}
+
+  '@mdi/font@7.4.47': {}
 
   '@mdx-js/react@2.3.0(react@18.3.1)':
     dependencies:
