@@ -40,6 +40,12 @@ const parsedEvents = computed(() => {
 
   return calendarEvents
 })
+
+function getEventTime(date) {
+  const testTime = format(new Date(date), 'h:mm aaa')
+  return testTime.toUpperCase()
+}
+
 // console.log(parsedEvents.value)
 
 // Format time as '00:00 PM'
@@ -64,7 +70,6 @@ const classes = computed(() => {
   return ['base-calendar', theme?.value || '']
 })
 </script>
-<!-- v-model:model-value="searchWords" -->
 
 <template>
   <div
