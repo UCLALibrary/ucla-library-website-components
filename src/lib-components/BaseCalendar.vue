@@ -67,32 +67,34 @@ const classes = computed(() => {
 
 <template>
   <div ref="calendar" :class="classes">
-    <v-sheet class="calendar-body">
-      <v-calendar
-        :model-value="newDateRef"
-        :events="parsedEvents"
-        view-mode="month"
-      >
-        <!-- Vuetify calendar header slot -->
-        <!--
+    <div class="calendar-wrapper">
+      <v-sheet class="calendar-body">
+        <v-calendar
+          :model-value="newDateRef"
+          :events="parsedEvents"
+          view-mode="month"
+        >
+          <!-- Vuetify calendar header slot -->
+          <!--
         <template #header="header">
           {{ header.title }}
         </template>
         -->
 
-        <!-- Vuetify calendar event slot -->
-        <template #event="event">
-          <div class="calendar-event-item">
-            <p class="calendar-event-title">
-              {{ event.event.title }}
-            </p>
-            <p class="calendar-event-time">
-              {{ event.event.time }}
-            </p>
-          </div>
-        </template>
-      </v-calendar>
-    </v-sheet>
+          <!-- Vuetify calendar event slot -->
+          <template #event="event">
+            <div class="calendar-event-item">
+              <p class="calendar-event-title">
+                {{ event.event.title }}
+              </p>
+              <p class="calendar-event-time">
+                {{ event.event.time }}
+              </p>
+            </div>
+          </template>
+        </v-calendar>
+      </v-sheet>
+    </div>
   </div>
 </template>
 

@@ -1,8 +1,11 @@
 .base-calendar {
-  display: grid;
-  grid-template-columns: 40px 1fr 40px;
   position: relative;
-  
+
+  .calendar-wrapper {
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+  }
+
   .calendar-body {
     grid-column: 2/3;
   }
@@ -35,7 +38,7 @@
 
   // Vuetify navigation arrows
   i.mdi {
-    font-size: 60px;
+    font-size: 50px;
   }
 
   .v-btn.v-btn--icon.v-theme--light.v-btn--density-comfortable.v-btn--size-default.v-btn--variant-text:focus-visible{
@@ -48,14 +51,12 @@
     display: none;
   }
 
-  .v-calendar-weekly__head.days__7.v-calendar-weekly__head-weeknumbers,
-  .v-calendar-month__days.days-with-weeknumbers__7 {
+  .v-calendar-weekly__head.days__7.v-calendar-weekly__head-weeknumbers {
     grid-template-columns: repeat(7, 1fr);
   }
 
   .v-calendar-weekly__head-weekday-with-weeknumber {
     background-color: #fcfcfc;
-    // border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
   }
 
@@ -69,6 +70,17 @@
     color: $subtitle-grey;
     font-weight: 500;
     text-transform: none;
+  }
+
+  /* Calendar Day Cells */
+
+  .v-calendar-month__day {
+    justify-content: space-between;
+  }
+
+  .v-calendar-month__days.days-with-weeknumbers__7.v-calendar-month__weeknumbers{
+    grid-template-columns: repeat(7, minmax(-webkit-min-content, 150px));
+    grid-template-columns: repeat(7, minmax(min-content, 150px));
   }
 
   .v-calendar-weekly__day-label {
@@ -88,10 +100,6 @@
     color: $body-grey !important;
     width: 26px;
     height: 26px;
-  }
-
-  .v-calendar-month__day {
-    justify-content: space-between;
   }
   
   .calendar-event-item {
