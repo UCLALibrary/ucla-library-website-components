@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import SectionPagination from '@/lib-components/SectionPagination'
 
 /**
@@ -49,6 +49,8 @@ export function WithPagesAndCurrentPage() {
   }
 }
 
+// this story uses an async fetch to get the total number of pages
+// like the FTVA event listing page
 export function FTVA() {
   return {
     components: { SectionPagination },
@@ -57,6 +59,25 @@ export function FTVA() {
         theme: computed(() => 'ftva'),
       }
     },
-    template: '<section-pagination :pages="23" :initialCurrentPage="14" />',
+    setup() {
+      // similar to ftva event listing page logic
+      const totalPages = ref(0)
+
+      // Set totalPages.value asynchronously
+      const fetchTotalPages = async () => {
+        // Mocking an async fetch call
+        const response = await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(20)
+          }, 1000)
+        })
+        totalPages.value = response
+      }
+
+      fetchTotalPages()
+
+      return { totalPages }
+    },
+    template: '<section-pagination :pages="totalPages" :initialCurrentPage="6" />'
   }
 }
