@@ -216,7 +216,7 @@ export function FtvaDateRange() {
           :description="description"
           startDate="2024-11-01T19:30:00"
           endDate="2024-11-17T19:30:00"
-          ongoing=false
+          :ongoing="ongoing"
       />
   `,
   }
@@ -241,7 +241,7 @@ export function FtvaSameStartEndDate() {
           description="Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt."
           startDate="2024-11-01T19:30:00"
           endDate="2024-11-01T19:30:00"
-          ongoing=false
+          :ongoing="ongoing"
       />
   `,
   }

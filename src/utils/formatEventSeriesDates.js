@@ -10,43 +10,42 @@ import format from 'date-fns/format'
  */
 
 function formatDates(startDate = '', endDate = '', dateFormat = 'long') {
-  const start = format(new Date(startDate), 'MMMM d, Y')
-  // console.log(start)
-  const end = format(new Date(endDate), 'MMMM d, Y')
+const formatDate = (date, formatType) => (date ? format(new Date(date), formatType) : '')
 
-  // "February 11 2020 – May 31 2021"
-  let output = `${start} - ${end}`
+  const longFormat = 'MMMM d, Y'
+  const shortFormat = 'MMM d'
+  const shortWithYearFormat = 'MMM d, Y'
 
-  if (start === end) {
-    // Thursday, January 28
-    output = format(new Date(startDate), 'MMMM d, Y')
-  }
+  const start = formatDate(startDate, longFormat)
+  const end = endDate ? formatDate(endDate, longFormat) : ''
 
-  if (!endDate) {
-    // February 11 2020
-    output = start
-  }
+  // Handle the various scenarios
+  if (!endDate || start === end) {
+    switch (dateFormat) {
+      case "long":
+        return formatDate(startDate, longFormat) // Single date or no end date
 
-  if (dateFormat === 'short' || dateFormat === 'shortWithYear') {
-    // "Feb 11 2020"
-    const day = output.slice(0, 3)
-    const dateYear = output.split(' ').slice(1).join(' ')
-    if (endDate && endDate !== startDate) {
-      // Feb 11 – May 31
-      const shortFormatStartDate = format(new Date(startDate), 'MMM d, Y')
-      const shortFormatEndDate = format(new Date(endDate), 'MMM d, Y')
-      // if 'shortWithYear' is selected, add the year to the end date
-      // Feb 11 – May 31 2020
-      if (dateFormat === 'shortWithYear') {
-        const shortFormatEndDateYear = format(new Date(endDate), 'MMM d, Y')
-        return `${shortFormatStartDate} - ${shortFormatEndDateYear}`
-      }
-      return `${shortFormatStartDate} - ${shortFormatEndDate}`
+      case "short":
+        return formatDate(startDate, shortFormat) // Single date or no end date
+
+      case "shortWithYear":
+        return formatDate(startDate, shortWithYearFormat) // Single date or no end date
     }
-    return `${day} ${dateYear}`
   }
 
-  return output
+
+  if (dateFormat === 'short') {
+    const shortStart = formatDate(startDate, shortFormat)
+    const shortEnd = formatDate(endDate, shortFormat)
+    return `${shortStart} - ${shortEnd}` // Short format
+  }
+  else if (dateFormat === 'shortWithYear') {
+    const shortStart = formatDate(startDate, shortWithYearFormat)
+    const shortEnd = formatDate(endDate, shortWithYearFormat)
+    return `${shortStart} - ${shortEnd}` // Short format
+  }
+
+  return `${start} - ${end}` // Default long format
 }
 
 export default formatDates

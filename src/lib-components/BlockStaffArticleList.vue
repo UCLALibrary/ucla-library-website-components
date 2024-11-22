@@ -67,6 +67,7 @@ const props = defineProps({
   },
   ongoing: {
     type: Boolean,
+    default: false,
   },
 })
 
@@ -96,16 +97,18 @@ const parsedTextAll = computed(() => {
     : ''
 })
 
-// Display date based on which data is provided
+// If the component is in the FTVA site the field ongoing with exist
+// Ongoing will only be true if the event is Ongoing
+// If the event is not Ongoing
+// it will be displayed as a date range: Nov 1, 2024 - Nov 17, 2024
+// or and individual date (Nov 1, 2024)if all events in the series are on the same date
 const parsedDateDisplay = computed(() => {
+  if (theme?.value !== 'ftva')
+    return null
   if (props.ongoing)
     return 'Ongoing'
-  else if (props.endDate)
+  else if (props.startDate && props.endDate)
     return formatSeriesDates(props.startDate, props.endDate, 'shortWithYear')
-  else if (props.startDate)
-    return formatSeriesDates(props.startDate, props.startDate)
-  else
-    return null
 })
 </script>
 
