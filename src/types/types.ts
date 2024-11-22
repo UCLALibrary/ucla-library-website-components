@@ -113,7 +113,6 @@ export interface BlockStaffArticleListItemType {
   authors?: AuthorsItemType[]
   description?: string
   externalResourceUrl?: string
-  imageAspectRatio?: number
   startDate?: string
   endDate?: string
   ongoing?: boolean
