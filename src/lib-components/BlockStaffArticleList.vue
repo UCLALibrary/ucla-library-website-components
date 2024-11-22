@@ -61,15 +61,12 @@ const props = defineProps({
   },
   startDate: {
     type: String,
-    required: false,
   },
   endDate: {
     type: String,
-    required: false,
   },
   ongoing: {
     type: Boolean,
-    default: false,
   },
 })
 
@@ -101,7 +98,7 @@ const parsedTextAll = computed(() => {
 
 // Display date based on which data is provided
 const parsedDateDisplay = computed(() => {
-  if (props.ongoing === true)
+  if (props.ongoing)
     return 'Ongoing'
   else if (props.endDate)
     return formatSeriesDates(props.startDate, props.endDate, 'shortWithYear')
