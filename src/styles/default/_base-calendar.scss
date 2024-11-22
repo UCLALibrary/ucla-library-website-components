@@ -79,8 +79,7 @@
   }
 
   .v-calendar-month__days.days-with-weeknumbers__7.v-calendar-month__weeknumbers{
-    grid-template-columns: repeat(7, minmax(-webkit-min-content, 150px));
-    grid-template-columns: repeat(7, minmax(min-content, 150px));
+    grid-template-columns: repeat(7, minmax(1px, 150px));
   }
 
   .v-calendar-weekly__day-label {
