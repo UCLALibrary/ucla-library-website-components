@@ -2,7 +2,7 @@
 // https://storybook.js.org/recipes/vuetify
 
 import { h } from 'vue'
-import StoryWrapper from './StoryWrapper.vue'
+import StoryWrapper from './VuetifyStoryWrapper.vue'
 
 // Define a decorator function
 export const withVuetifyTheme = (storyFn, context) => {
