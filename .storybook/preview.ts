@@ -4,11 +4,12 @@ import "ucla-library-design-tokens/scss/app-global.scss"
 import "@/styles/global.scss"
 import router from "@/router"
 import { createPinia } from 'pinia';
+import type { App } from 'vue'
 
+import { vuetify } from '../src/plugins/vuetify'
 import { withVuetifyTheme } from './withVuetifyTheme.decorator'
-import { vuetify } from '../src/main'
 
-function registerPlugins(app) {
+function registerPlugins(app:App) {
     app.use(vuetify)
 }
 
@@ -78,11 +79,9 @@ const preview = {
         }
       }
     }
-  }
-  
- 
+}
 
-setup((app) => {
+setup((app:App) => {
     registerPlugins(app)
     app.use(router)
     app.use(createPinia())
