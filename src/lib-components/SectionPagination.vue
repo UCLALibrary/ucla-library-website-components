@@ -116,6 +116,17 @@ const isNotLastPage = computed(() => {
   return (initialCurrentPage && pages) && currPage?.value !== pages
 })
 
+// WATCHERS - we use watch instead of computed because we are using variables derived from props during render
+// note: this ensures the component will update when props change
+watch(() => pages, () => {
+  // regenerate pages when pages change
+  generateLeftPages()
+}, { immediate: true })
+watch(() => initialCurrentPage, (newVal) => {
+  // set current page when initialCurrentPage changes
+  currPage.value = newVal as number
+}, { immediate: true })
+
 onMounted(() => {
   // legacy implementation does not require any onMounted logic
   if (!initialCurrentPage || !pages)
