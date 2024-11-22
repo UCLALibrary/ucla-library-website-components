@@ -100,10 +100,8 @@ const parsedTextAll = computed(() => {
 const parsedDateDisplay = computed(() => {
   if (props.ongoing)
     return 'Ongoing'
-  else if (props.endDate)
-    return formatSeriesDates(props.startDate, props.endDate, 'shortWithYear')
   else if (props.startDate)
-    return formatSeriesDates(props.startDate, props.startDate)
+    return formatSeriesDates(props.startDate, props.endDate, 'shortWithYear')
   else
     return null
 })
