@@ -68,6 +68,20 @@ export const parameters = {
     },
 }
 
+const preview = {
+    parameters: {
+      actions: { argTypesRegex: '^on[A-Z].*' },
+      controls: {
+        matchers: {
+          color: /(background|color)$/i,
+          date: /Date$/
+        }
+      }
+    }
+  }
+  
+ 
+
 setup((app) => {
     registerPlugins(app)
     app.use(router)
@@ -75,3 +89,4 @@ setup((app) => {
 })
 
 export const decorators = [withVuetifyTheme]
+export default preview
