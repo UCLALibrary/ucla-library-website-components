@@ -112,25 +112,6 @@ const parsedDateDisplay = computed(() => {
 })
 </script>
 
-<!-- header-smart
- const isMobile = ref(false)
-onMounted(() => {
-const { width } = useWindowSize()
-watch(width, (newWidth) => {
-// console.log('newWidth', newWidth)
-isMobile.value = newWidth <=
-  1200
-  currentHeader.value=markRaw(isMobile.value
-  ?
-  HeaderMainResponsive
-  :
-  HeaderMain)
-  },
-  {
-  immediate:
-  true
-  }) -->
-
 <template>
   <li :class="classes">
     <ResponsiveImage
