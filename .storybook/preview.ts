@@ -69,17 +69,17 @@ export const parameters = {
     },
 }
 
-const preview = {
-    parameters: {
-      actions: { argTypesRegex: '^on[A-Z].*' },
-      controls: {
-        matchers: {
-          color: /(background|color)$/i,
-          date: /Date$/
-        }
-      }
-    }
-}
+// const preview = {
+//     parameters: {
+//       actions: { argTypesRegex: '^on[A-Z].*' },
+//       controls: {
+//         matchers: {
+//           color: /(background|color)$/i,
+//           date: /Date$/
+//         }
+//       }
+//     }
+// }
 
 setup((app:App) => {
     registerPlugins(app)
@@ -88,4 +88,4 @@ setup((app:App) => {
 })
 
 export const decorators = [withVuetifyTheme]
-export default preview
+// export default preview
