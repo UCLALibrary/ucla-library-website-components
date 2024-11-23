@@ -109,6 +109,8 @@ const parsedDateDisplay = computed(() => {
     return 'Ongoing'
   else if (props.startDate && props.endDate)
     return formatSeriesDates(props.startDate, props.endDate, 'shortWithYear')
+  else
+    return null
 })
 </script>
 
