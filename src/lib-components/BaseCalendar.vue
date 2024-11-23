@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, useTemplateRef } from 'vue'
+import { computed, onMounted, ref, useTemplateRef } from 'vue'
 import format from 'date-fns/format'
 import { useTheme } from '@/composables/useTheme'
 
@@ -69,6 +69,34 @@ const theme = useTheme()
 const classes = computed(() => {
   return ['base-calendar', theme?.value || '']
 })
+
+// Popover test
+const selectedOpen = ref(false)
+const selectedElement = ref()
+
+function showEvent(event) {
+  console.log('event target: ', event.target)
+  console.log('event value: ', event.target.value)
+  console.log(selectedElement.value)
+
+  // console.log('event: ', event)
+  // console.log('native event: ', event.nativeEvent)
+  // selectedElement.value = event.target
+
+  const open = () => {
+    selectedElement.value = event.target
+  }
+
+  if (selectedOpen.value) {
+    selectedOpen.value = false
+    open()
+  }
+  else {
+    open()
+  }
+
+  event.stopPropagation()
+}
 </script>
 
 <template>
@@ -81,6 +109,7 @@ const classes = computed(() => {
         <v-calendar
           :events="parsedEvents"
           view-mode="month"
+          @click="showEvent($event)"
         >
           <!-- Vuetify calendar header slot -->
           <!--
@@ -101,6 +130,25 @@ const classes = computed(() => {
             </div>
           </template>
         </v-calendar>
+
+        <!-- Popover menu -->
+        <v-menu
+          :model="selectedOpen"
+          :close-on-content-click="false"
+          :activator="selectedElement"
+          location="start bottom"
+          origin="auto"
+        >
+          <v-card min-width="300">
+            <v-list>
+              <v-list-item
+                prepend-avatar="https://cdn.vuetifyjs.com/images/john.jpg"
+                subtitle="Founder of Vuetify"
+                title="John Leider"
+              />
+            </v-list>
+          </v-card>
+        </v-menu>
       </v-sheet>
     </div>
   </div>
