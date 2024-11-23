@@ -10,7 +10,7 @@ import format from 'date-fns/format'
  */
 
 function formatDates(startDate = '', endDate = '', dateFormat = 'long') {
-const formatDate = (date, formatType) => (date ? format(new Date(date), formatType) : '')
+  const formatDate = (date, formatType) => (date ? format(new Date(date), formatType) : '')
 
   const longFormat = 'MMMM d, Y'
   const shortFormat = 'MMM d'
@@ -22,17 +22,16 @@ const formatDate = (date, formatType) => (date ? format(new Date(date), formatTy
   // Handle the various scenarios
   if (!endDate || start === end) {
     switch (dateFormat) {
-      case "long":
+      case 'long':
         return formatDate(startDate, longFormat) // Single date or no end date
 
-      case "short":
+      case 'short':
         return formatDate(startDate, shortFormat) // Single date or no end date
 
-      case "shortWithYear":
+      case 'shortWithYear':
         return formatDate(startDate, shortWithYearFormat) // Single date or no end date
     }
   }
-
 
   if (dateFormat === 'short') {
     const shortStart = formatDate(startDate, shortFormat)
