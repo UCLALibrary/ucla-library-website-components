@@ -3,13 +3,14 @@ import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import type { Ref } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import SvgIconArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
+import { useRoute } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 // PROPS & DATA
-const { nextTo, previousTo, pages, initialCurrentPage } = defineProps({
+const { nextTo, previousTo, pages, initialCurrentPage, generateLinkCallback } = defineProps({
   nextTo: {
     type: String,
     required: false,
@@ -26,8 +27,19 @@ const { nextTo, previousTo, pages, initialCurrentPage } = defineProps({
     type: Number,
     required: false,
   },
+  // callback function to generate link for each page
+  // if not provided, will generate a link based on FTVA Elastic Search pattern
+  generateLinkCallback: {
+    type: Function,
+    required: false
+  }
 })
-const emit = defineEmits(['changePage']) // let parent component know when page changes
+const emit = defineEmits(['changePage'])
+// Router and Route
+const route = useRoute()
+const parsedQuery = computed(() => ({ ...route.query }))
+
+// let parent component know when page changes
 const theme = useTheme()
 const maxPages = ref(10) // default # of buttons that will fit in container, gets recalculated onMount & resize
 const leftPages = ref([33]) // an array of numbers representing the page buttons that will appear ( we start with a single '33' so we can measure the width of a button to calc maxPages)
@@ -35,6 +47,17 @@ const currPage = ref(1) // current page, defaults to 1
 const pageButtons: Ref<HTMLElement | null> = ref(null)
 
 // METHODS
+function generateLink(pageNumber: number) {
+  if (generateLinkCallback) {
+    return generateLinkCallback(pageNumber)
+  }
+  else {
+    const queryParams = new URLSearchParams({ ...parsedQuery.value, page: pageNumber.toString() })
+    console.log('route returned', `${route.path} ? ${queryParams.toString()}`)
+    return `${route.path}?${queryParams.toString()}`
+  }
+}
+
 function handlePageChange(item: number) {
   if (initialCurrentPage && pages) {
     if (currPage.value !== item) {
@@ -164,25 +187,28 @@ onMounted(() => {
     </SmartLink>
     <div v-if="initialCurrentPage && pages" class="pagination-numbers-container">
       <div class="pagination-numbers">
-        <span v-if="currPage > maxPages" class="page-list-first"><button
-          :class="`pButton${1 === currPage ? ' ' + 'pButton-selected' : ''}`"
-          @click="handlePageChange(1)"
-        >{{ 1 }}</button>
+        <!-- TODO trying generateLinkFn instead if this works, was handlePageChange(1) -->
+        <span v-if="currPage > maxPages" class="page-list-first">
+          <SmartLink
+            :class="`pButton${1 === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === 1"
+            :to="generateLink(1)"
+          >{{ 1 }}</SmartLink>
         </span>
         <span v-if="currPage > maxPages" class="page-list-truncate">...</span>
-        <button
-          v-for="item in leftPages"
-          :key="item"
-          :class="`pButton${item === currPage ? ' ' + 'pButton-selected' : ''}`"
-          @click="handlePageChange(item)"
+        <SmartLink
+          v-for="item in leftPages" :key="item"
+          :class="`pButton${item === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === item"
+          :to="generateLink(item)"
         >
           {{ item }}
-        </button>
+        </SmartLink>
         <span v-if="leftPages.length < pages && leftPages.indexOf(pages) === -1" class="page-list-truncate">...</span>
-        <span v-if="leftPages.length < pages && leftPages.indexOf(pages) === -1" class="page-list-right"><button
-          :class="`pButton${pages === currPage ? ' ' + 'pButton-selected' : ''}`"
-          @click="handlePageChange(pages)"
-        >{{ pages }}</button></span>
+        <span v-if="leftPages.length < pages && leftPages.indexOf(pages) === -1" class="page-list-right">
+          <SmartLink
+            :class="`pButton${pages === currPage ? ' ' + 'pButton-selected' : ''}`"
+            :active="currPage === pages" :to="generateLink(pages)"
+          >{{ pages }}</SmartLink>
+        </span>
       </div>
     </div>
     <!-- if legacy attribute nextTo is supplied, use that for Next button instead of handlePageChange -->
@@ -192,7 +218,7 @@ onMounted(() => {
       </div>
       <SvgIconArrowRight class="next-svg" />
     </SmartLink>
-    <SmartLink v-else-if="isNotLastPage" class="next" @click="handlePageChange(parsedNextTo)">
+    <SmartLink v-else-if="isNotLastPage" class="next" :to="generateLink(parsedNextTo)">
       <div class="underline-hover">
         Next
       </div>

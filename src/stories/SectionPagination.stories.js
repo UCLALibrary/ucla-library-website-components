@@ -10,11 +10,9 @@ import SectionPagination from '@/lib-components/SectionPagination'
  * Props:
  * - nextTo: A string representing the URL to the next page
  * - previousTo: A string representing the URL to the previous page
- *
- * Props added 2024-10-29:
- *
- * - pages: A number representing the total number of pages we need to show all content
- * - initialCurrentPage: A number representing the page we are starting on
+ * - pages: A number representing the total number of pages we need to show all content (added 2024-10-29)
+ * - initialCurrentPage: A number representing the page we are starting on (added 2024-10-29)
+ * - generateLinkCallback: A function that generates the link for the page number. It receives the page number as a parameter (added 2024-11-26)
  */
 export default {
   title: 'SECTION / Pagination',
@@ -42,10 +40,12 @@ export function LastPage() {
   }
 }
 
+// this story uses the generateLinkCallback prop 
+// to generate the links in the library-website-nuxt format instead of the default format
 export function WithPagesAndCurrentPage() {
   return {
     components: { SectionPagination },
-    template: '<section-pagination :pages="23" :initialCurrentPage="4" />',
+    template: '<section-pagination :pages="23" :initialCurrentPage="4" :generateLinkCallback="(x) => { return `/page/` + x }"/>',
   }
 }
 
