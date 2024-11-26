@@ -40,7 +40,7 @@ export function LastPage() {
   }
 }
 
-// this story uses the generateLinkCallback prop 
+// this story uses the generateLinkCallback prop
 // to generate the links in the library-website-nuxt format instead of the default format
 export function WithPagesAndCurrentPage() {
   return {

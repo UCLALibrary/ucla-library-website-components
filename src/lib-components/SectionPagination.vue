@@ -47,17 +47,6 @@ const currPage = ref(1) // current page, defaults to 1
 const pageButtons: Ref<HTMLElement | null> = ref(null)
 
 // METHODS
-function generateLink(pageNumber: number) {
-  if (generateLinkCallback) {
-    return generateLinkCallback(pageNumber)
-  }
-  else {
-    const queryParams = new URLSearchParams({ ...parsedQuery.value, page: pageNumber.toString() })
-    console.log('route returned', `${route.path} ? ${queryParams.toString()}`)
-    return `${route.path}?${queryParams.toString()}`
-  }
-}
-
 function handlePageChange(item: number) {
   if (initialCurrentPage && pages) {
     if (currPage.value !== item) {
@@ -65,6 +54,21 @@ function handlePageChange(item: number) {
       generateLeftPages()
       emit('changePage', item)
     }
+  }
+}
+
+function generateLink(pageNumber: number) {
+  // handlePageChange will emit an event to parent component
+  // handlePageChange(pageNumber)
+
+  if (generateLinkCallback) {
+    return generateLinkCallback(pageNumber)
+  }
+  else {
+    const queryParams = new URLSearchParams({ ...parsedQuery.value, page: pageNumber.toString() })
+    // console.log('route returned', `${route.path} ? ${queryParams.toString()}`)
+
+    return `${route.path}?${queryParams.toString()}`
   }
 }
 
@@ -179,7 +183,7 @@ onMounted(() => {
         Previous
       </div>
     </SmartLink>
-    <SmartLink v-else-if="isNotFirstPage" class="previous" @click="handlePageChange(parsedPrevTo)">
+    <SmartLink v-else-if="isNotFirstPage" class="previous" :to="generateLink(parsedPrevTo)" @click="handlePageChange(parsedPrevTo)">
       <SvgIconArrowRight class="previous-svg" />
       <div class="underline-hover">
         Previous
@@ -191,6 +195,7 @@ onMounted(() => {
           <SmartLink
             :class="`pButton${1 === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === 1"
             :to="generateLink(1)"
+            @click="handlePageChange(1)"
           >{{ 1 }}</SmartLink>
         </span>
         <span v-if="currPage > maxPages" class="page-list-truncate">...</span>
@@ -198,6 +203,7 @@ onMounted(() => {
           v-for="item in leftPages" :key="item"
           :class="`pButton${item === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === item"
           :to="generateLink(item)"
+          @click="handlePageChange(item)"
         >
           {{ item }}
         </SmartLink>
@@ -205,7 +211,7 @@ onMounted(() => {
         <span v-if="leftPages.length < pages && leftPages.indexOf(pages) === -1" class="page-list-right">
           <SmartLink
             :class="`pButton${pages === currPage ? ' ' + 'pButton-selected' : ''}`"
-            :active="currPage === pages" :to="generateLink(pages)"
+            :active="currPage === pages" :to="generateLink(pages)" @click="handlePageChange(pages)"
           >{{ pages }}</SmartLink>
         </span>
       </div>
@@ -217,7 +223,7 @@ onMounted(() => {
       </div>
       <SvgIconArrowRight class="next-svg" />
     </SmartLink>
-    <SmartLink v-else-if="isNotLastPage" class="next" :to="generateLink(parsedNextTo)">
+    <SmartLink v-else-if="isNotLastPage" class="next" :to="generateLink(parsedNextTo)" @click="handlePageChange(parsedNextTo)">
       <div class="underline-hover">
         Next
       </div>
