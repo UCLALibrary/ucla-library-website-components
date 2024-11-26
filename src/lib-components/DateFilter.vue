@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // @ts-nocheck
 /* @ts-expect-error */
-import { computed, defineAsyncComponent, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, onMounted, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import VueDatePicker from '@vuepic/vue-datepicker'
 import type { DatePickerInstance } from '@vuepic/vue-datepicker'
@@ -11,7 +11,8 @@ import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret
 import SvgIconClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 import SvgIconFTVACalender from 'ucla-library-design-tokens/assets/svgs/icon-ftva-calendar.svg'
 import SvgIconFTVADropTriangle from 'ucla-library-design-tokens/assets/svgs/icon-ftva-drop-triangle.svg'
-import { useGlobalStore } from '@/stores/GlobalStore'
+import { useWindowSize } from '@vueuse/core'
+import MobileDrawer from './MobileDrawer.vue'
 
 // TYPES
 interface SelectedDates {
@@ -29,7 +30,8 @@ const { eventDates, initialDates, hideInput } = defineProps({
     type: Object as PropType<SelectedDates>,
     default: () => ({ startDate: null, endDate: null }),
   },
-  // if true, the datepicker will be shown in 'inline' mode
+  // if true, the datepicker will be shown in 'inline' mode all the time, event on desktop
+  // this option is not currently used on the ftva site
   // https://vue3datepicker.com/props/modes/#inline
   hideInput: {
     type: Boolean,
@@ -47,11 +49,11 @@ const date = ref<Date[] | Date>([])
 const datepicker = ref<DatePickerInstance | null>(null)
 const isSelecting = ref(false)
 const isOpen = ref(false)
+const isMobile = ref(false)
 const todayBtnActive = ref(false)
 const textConfig = ref({
   rangeSeparator: ' — ',
 })
-const globalStore = useGlobalStore()
 
 // SETUP - Select initial dates if they exist
 if (initialDates.startDate && initialDates.endDate)
@@ -84,7 +86,12 @@ function goToToday() {
     document?.activeElement?.blur()
   }
   else {
-    date.value = [new Date(), new Date()]
+    if (isMobile.value)
+      // mobile does allow range selection
+      date.value = new Date()
+    else
+      date.value = [new Date(), new Date()]
+
     todayBtnActive.value = true
   }
 }
@@ -132,10 +139,6 @@ defineExpose({
 })
 
 // COMPUTED VALUES
-// Determine if the window size is mobile for conditional rendering
-const isMobile = computed(() => {
-  return globalStore.winWidth <= 750
-})
 // Format the selected date(s) into consistent object
 const formattedDateSelection = computed(() => {
   // range selected
@@ -185,11 +188,19 @@ watch(date, async (newDate, oldDate) => {
     emit('input-selected', formattedDateSelection.value)
   }
 })
+
+onMounted(() => {
+  const { width } = useWindowSize()
+  watch(width, (newWidth) => {
+    isMobile.value = newWidth <= 750
+  }, { immediate: true })
+})
 </script>
 
 <template>
   <div class="date-filter">
     <VueDatePicker
+      v-if="!isMobile"
       ref="datepicker"
       v-model="date"
       :config="vue3datepickerConfig"
@@ -298,6 +309,125 @@ watch(date, async (newDate, oldDate) => {
         </div>
       </template>
     </VueDatePicker>
+    <MobileDrawer v-else>
+      <template #buttonLabel>
+        <span class="button-text">
+          <SvgIconFTVACalender />Calendar
+        </span>
+      </template>
+      <!-- pass removeOverlay to the dropdownItems slot so that we can close the drawer from inside the datepicker component -->
+      <template #dropdownItems="{ removeOverlay }">
+        <VueDatePicker
+          ref="datepicker"
+          v-model="date"
+          :config="vue3datepickerConfig"
+          :range="!isMobile"
+          :week-start="0"
+          month-name-format="long"
+          :enable-time-picker="false"
+          :auto-position="false"
+          :auto-apply="true"
+          :text-input="textConfig"
+          no-today
+          :inline="true"
+          :class="vue3datepickerClass"
+          :placeholder="isMobile ? 'Select a date' : 'All upcoming'"
+          @internal-model-change="handleInternalSelection"
+          @range-start="clearTodayBtn"
+          @open="toggleArrow"
+          @closed="toggleArrow"
+        >
+          <template #input-icon>
+            <SvgIconFTVACalender />
+            <span :class="inputIconClass">
+              <SvgIconFTVADropTriangle />
+            </span>
+          </template>
+
+          <template #clear-icon="{ clear }">
+            <SvgIconClose @click="clear" />
+          </template>
+
+          <template
+            #month-year="{
+              month,
+              year,
+              months,
+              handleMonthYearChange,
+            }"
+          >
+            <div class="custom-header">
+              <div class="custom-month-year-component">
+                {{ months[month].text }} {{ year }}
+              </div>
+              <div class="custom-nav-buttons">
+                <button
+                  class="nav-arrow-button"
+                  @click="clearTodayBtn(); handleMonthYearChange(false)"
+                >
+                  <SvgIconCaretLeft />
+                </button>
+                <button
+                  :class="todayButtonClass"
+                  @click="goToToday"
+                >
+                  TODAY
+                </button>
+                <button
+                  class="nav-arrow-button"
+                  @click="clearTodayBtn(); handleMonthYearChange(true)"
+                >
+                  <SvgIconCaretRight />
+                </button>
+              </div>
+            </div>
+          </template>
+
+          <template #calendar-header="{ index }">
+            <div class="day-header">
+              {{ threeLetterDays[index] }}
+            </div>
+          </template>
+
+          <template #day="{ day, date }">
+            <div class="day-content">
+              {{ day }}
+              <div
+                v-if="dateFrequency.hasOwnProperty(date.toLocaleDateString())"
+                class="event-dots"
+              >
+                <template
+                  v-for=" index in dateFrequency[date.toLocaleDateString()]"
+                  :key="index"
+                >
+                  <!-- limit display to 3 events dots -->
+                  <template v-if="index <= 3">
+                    <span class="dot" />
+                  </template>
+                </template>
+              </div>
+            </div>
+          </template>
+
+          <template #action-row="{ selectDate }">
+            <div class="action-row">
+              <ButtonLink
+                class="action-row-button select-button"
+                label="Done"
+                icon-name="none"
+                @click="selectDate(); onDoneClick(); removeOverlay();"
+              />
+              <ButtonLink
+                class="action-row-button clear-button"
+                label="Clear"
+                icon-name="icon-close"
+                @click="clearDate"
+              />
+            </div>
+          </template>
+        </VueDatePicker>
+      </template>
+    </MobileDrawer>
   </div>
 </template>
 
@@ -315,6 +445,17 @@ watch(date, async (newDate, oldDate) => {
   button:focus,
   button:focus-visible {
     outline: 1px hidden $accent-blue;
+  }
+
+  .button-text {
+    display: inline-flex;
+    align-items: center;
+    svg {
+      margin-right: 8px;
+    }
+    :deep(path.svg__fill--accent-blue) {
+      fill: $medium-grey;
+    }
   }
 
   .vue-date-picker {
@@ -646,6 +787,38 @@ watch(date, async (newDate, oldDate) => {
 
         .select-button {
           width: 100%;
+        }
+      }
+    }
+  }
+
+  //mobile drawer styles for datefilter
+  :deep(.mobile-drawer) {
+    // center datepicker within drawer
+    .dp__main {
+      margin: 0 auto;
+      .dp__menu {
+        border: none;
+      }
+    }
+    // styles for the drawer launch button
+    // these may be useful for filterdropdown as well
+    .mobile-button {
+      width: 166px;
+      padding: 6px;
+      border-radius: 4px;
+      &:active {
+        color: white;
+        background-color: $accent-blue;
+          path.svg__fill--accent-blue {
+            fill: white;
+        }
+      }
+      &.is-expanded {
+        color: $accent-blue;
+        border: 2px solid $accent-blue;
+        path.svg__fill--accent-blue {
+          fill: $accent-blue;
         }
       }
     }
