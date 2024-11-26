@@ -1,3 +1,17 @@
+# [3.37.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.36.0...v3.37.0) (2024-11-26)
+
+
+### Features
+
+* APPS-3058   Create FTVA variation of SectionStaffArticleList ([#653](https://github.com/UCLALibrary/ucla-library-website-components/issues/653)) ([4a68214](https://github.com/UCLALibrary/ucla-library-website-components/commit/4a6821480c8a53aa894a1ccde7fac3bd178e27eb))
+
+# [3.36.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.35.1...v3.36.0) (2024-11-26)
+
+
+### Features
+
+* APPS-3045 refactor mobile drawer, datefilter mobile ([#654](https://github.com/UCLALibrary/ucla-library-website-components/issues/654)) ([3301d47](https://github.com/UCLALibrary/ucla-library-website-components/commit/3301d4711a1177ffabb0bc42b081f5d78b49a3e9))
+
 ## [3.35.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.35.0...v3.35.1) (2024-11-22)
 
 
