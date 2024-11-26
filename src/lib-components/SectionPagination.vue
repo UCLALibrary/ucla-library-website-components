@@ -39,7 +39,6 @@ const emit = defineEmits(['changePage'])
 const route = useRoute()
 const parsedQuery = computed(() => ({ ...route.query }))
 
-// let parent component know when page changes
 const theme = useTheme()
 const maxPages = ref(10) // default # of buttons that will fit in container, gets recalculated onMount & resize
 const leftPages = ref([33]) // an array of numbers representing the page buttons that will appear ( we start with a single '33' so we can measure the width of a button to calc maxPages)
@@ -52,21 +51,17 @@ function handlePageChange(item: number) {
     if (currPage.value !== item) {
       currPage.value = item
       generateLeftPages()
-      emit('changePage', item)
+      emit('changePage', item) // let parent component know when page changes
     }
   }
 }
 
 function generateLink(pageNumber: number) {
-  // handlePageChange will emit an event to parent component
-  // handlePageChange(pageNumber)
-
   if (generateLinkCallback) {
     return generateLinkCallback(pageNumber)
   }
   else {
     const queryParams = new URLSearchParams({ ...parsedQuery.value, page: pageNumber.toString() })
-    // console.log('route returned', `${route.path} ? ${queryParams.toString()}`)
 
     return `${route.path}?${queryParams.toString()}`
   }
