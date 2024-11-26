@@ -2,11 +2,16 @@
   setup
   lang="ts"
 >
+import { computed } from 'vue'
 import type { PropType } from 'vue'
 
 // TYPESCRIPT
 import type { BlockStaffArticleListItemType } from '@/types/types'
 
+// THEME
+import { useTheme } from '@/composables/useTheme'
+
+// CHILD COMPONENTS
 import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList.vue'
 
 const { items, sectionTitle } = defineProps({
@@ -20,10 +25,16 @@ const { items, sectionTitle } = defineProps({
   },
 })
 // TODO? we could parse the heroImage here instead of on the page similar to flexible/highlight
+
+const theme = useTheme()
+
+const classes = computed(() => {
+  return ['section-staff-article-list', theme?.value || '']
+})
 </script>
 
 <template>
-  <section class="section-staff-article-list">
+  <section :class="classes">
     <div class="container">
       <div
         v-if="sectionTitle"
@@ -42,6 +53,9 @@ const { items, sectionTitle } = defineProps({
           :authors="item.authors"
           :description="item.description"
           :external-resource-url="item.externalResourceUrl"
+          :start-date="item.startDate"
+          :end-date="item.endDate"
+          :ongoing="item.ongoing"
         />
       </ul>
     </div>
@@ -52,56 +66,6 @@ const { items, sectionTitle } = defineProps({
   lang="scss"
   scoped
 >
-.section-staff-article-list {
-  --divider-color: var(--color-secondary-grey-02);
-  max-width: 100%;
-  margin: auto;
-
-  .container {
-    max-width: $container-l-main + px;
-    margin: auto;
-  }
-
-  .section-title {
-    @include step-3;
-    line-height: $line-height--1;
-    text-transform: capitalize;
-    color: var(--color-primary-blue-03);
-    margin-bottom: var(--space-xl);
-  }
-
-  .block-staff-article-list {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-
-    .block-staff-article-item {
-      border-bottom: 2px dotted var(--divider-color);
-
-      &:last-child {
-        border-bottom: 0;
-        padding: 0;
-        margin: 0;
-      }
-    }
-
-    @for $i from 1 through 30 {
-      :deep(.block-staff-article-item:nth-child(#{$i}) .molecule) {
-        left: calc(random(500) * -1) + px;
-      }
-    }
-  }
-
-  @media (min-width: 1025px) and (max-width: 1300px) {
-    padding: 0 var(--unit-gutter);
-  }
-
-  @media #{$medium} {
-    margin-left: var(--unit-gutter);
-    margin-right: var(--unit-gutter);
-  }
-}
+@import "@/styles/default/_section-staff-article-list.scss";
+@import "@/styles/ftva/_section-staff-article-list.scss";
 </style>
