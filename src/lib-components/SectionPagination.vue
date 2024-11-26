@@ -187,7 +187,6 @@ onMounted(() => {
     </SmartLink>
     <div v-if="initialCurrentPage && pages" class="pagination-numbers-container">
       <div class="pagination-numbers">
-        <!-- TODO trying generateLinkFn instead if this works, was handlePageChange(1) -->
         <span v-if="currPage > maxPages" class="page-list-first">
           <SmartLink
             :class="`pButton${1 === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === 1"
