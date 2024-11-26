@@ -16,6 +16,10 @@ import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 
 // UTILITY FUNCTIONS
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
+import formatSeriesDates from '@/utils/formatEventSeriesDates'
+
+// THEME
+import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
@@ -55,6 +59,22 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+  startDate: {
+    type: String,
+  },
+  endDate: {
+    type: String,
+  },
+  ongoing: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const theme = useTheme()
+
+const classes = computed(() => {
+  return ['block-staff-article-item', theme?.value || '']
 })
 
 const parsedDate = computed(() => {
@@ -76,10 +96,26 @@ const parsedTextAll = computed(() => {
     ? removeHtmlTruncate(props.description, 250)
     : ''
 })
+
+// If the component is in the FTVA site the field ongoing with exist
+// Ongoing will only be true if the event is Ongoing
+// If the event is not Ongoing
+// it will be displayed as a date range: Nov 1, 2024 - Nov 17, 2024
+// or and individual date (Nov 1, 2024)if all events in the series are on the same date
+const parsedDateDisplay = computed(() => {
+  if (theme?.value !== 'ftva')
+    return null
+  if (props.ongoing)
+    return 'Ongoing'
+  else if (props.startDate && props.endDate)
+    return formatSeriesDates(props.startDate, props.endDate, 'shortWithYear')
+  else
+    return null
+})
 </script>
 
 <template>
-  <li class="block-staff-article-item">
+  <li :class="classes">
     <ResponsiveImage
       v-if="imageExists"
       :media="props.image"
@@ -87,7 +123,6 @@ const parsedTextAll = computed(() => {
       object-fit="cover"
       class="image"
     />
-
     <div
       v-else
       class="molecule-no-image"
@@ -119,6 +154,13 @@ const parsedTextAll = computed(() => {
           class="description-summary-only"
         >
           {{ parsedTextAll }}
+        </div>
+
+        <div
+          v-if="parsedDateDisplay"
+          class="date"
+        >
+          {{ parsedDateDisplay }}
         </div>
       </div>
 
@@ -156,132 +198,6 @@ const parsedTextAll = computed(() => {
   lang="scss"
   scoped
 >
-.block-staff-article-item {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: center;
-  align-items: center;
-  width: 100%;
-  position: relative;
-
-  margin-bottom: var(--space-xl);
-  padding-bottom: var(--space-xl);
-
-  .image {
-    width: 50%;
-    margin-right: var(--space-xl);
-  }
-
-  .molecule-no-image {
-    width: 50%;
-    height: 272px;
-    margin-right: var(--space-xl);
-    background: var(--gradient-01);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    position: relative;
-
-    .molecule {
-      flex-shrink: 0;
-      position: absolute;
-      opacity: 0.7;
-    }
-  }
-
-  .meta {
-    width: calc(50% - var(--space-xl));
-    height: 272px;
-  }
-
-  .category {
-    @include overline;
-    color: var(--color-primary-blue-05);
-    margin-bottom: var(--space-s);
-  }
-
-  .title {
-    @include step-1;
-    color: var(--color-primary-blue-03);
-    margin-bottom: var(--space-s);
-    @include truncate(3);
-    @include card-clickable-area;
-  }
-
-  .byline {
-    @include step-0;
-    margin: var(--space-s) 0;
-    color: var(--color-secondary-grey-04);
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-
-  // .author {
-  //     &:after {
-  //         content: ",";
-  //         padding-right: 5px;
-  //     }
-  //     &:nth-last-child(2):after {
-  //         content: "";
-  //     }
-  // }
-  // .date:not(:only-child) {
-  //     padding-left: 20px;
-  // }
-
-  .description {
-    @include step-0;
-    color: var(--color-black);
-    @include truncate(4);
-  }
-
-  .description-summary-only {
-    @include step-0;
-    color: var(--color-black);
-    @include truncate(5);
-  }
-
-  :deep(.image) {
-    height: 272px;
-
-    .media {
-      object-fit: cover;
-    }
-  }
-
-  // Hovers
-  @media #{$has-hover} {
-    .title:hover {
-      @include link-hover;
-    }
-  }
-}
-
-// Breakpoints
-@media #{$small} {
-  .block-staff-article-item {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-
-    .image,
-    .molecule-no-image {
-      width: 100%;
-      margin-right: 0;
-      margin-bottom: var(--space-l);
-    }
-
-    .meta {
-      width: 100%;
-      height: 100%;
-
-      >*:last-child {
-        padding-bottom: 0;
-      }
-    }
-  }
-}
+@import "@/styles/default/_block-staff-article-item.scss";
+@import "@/styles/ftva/_block-staff-article-item.scss";
 </style>
