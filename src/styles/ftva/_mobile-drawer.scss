@@ -1,6 +1,11 @@
-.ftva.button-dropdown {
-    .button-svg {
-        stroke: unset;
+.ftva.mobile-drawer {
+    .mobile-button {
+        border-color: $medium-grey;
+        color: $medium-grey;
+
+        .button-svg {
+            stroke: unset;
+        }
     }
 
     .toggle-triangle-icon {
