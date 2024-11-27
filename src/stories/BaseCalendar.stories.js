@@ -13,7 +13,7 @@ export function Default() {
     data() {
       return { ...mockCalendarEvents }
     },
-    components: { BaseCalendar},
+    components: { BaseCalendar },
     template: '<div style="display: flex;justify-content: center;"><base-calendar :events="events" /></div>'
   }
 }
@@ -28,7 +28,7 @@ export function DefaultFTVA() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { BaseCalendar},
+    components: { BaseCalendar },
     template: '<div style="display: flex;justify-content: center;"><base-calendar :events="events" /></div>'
   }
 }
