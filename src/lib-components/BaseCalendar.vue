@@ -3,19 +3,22 @@ import { computed, onMounted, ref, useTemplateRef } from 'vue'
 import format from 'date-fns/format'
 import { useTheme } from '@/composables/useTheme'
 
-const { events, value } = defineProps({
+const { events, firstEventMonth } = defineProps({
   events: {
     type: Array,
     default: () => [],
   },
 
-  value: {
+  firstEventMonth: {
     type: Array,
     default: () => [new Date()]
+    // Sets calendar to month of earliest event
+    // Default is current day
   }
 })
 
 const calendarRef = useTemplateRef('calendar')
+const firstEventMonthRef = ref(firstEventMonth)
 
 onMounted(() => {
   updateCalendarHeaderElements()
@@ -85,6 +88,7 @@ function showEvent(calEventObj) {
     <div class="calendar-wrapper">
       <v-sheet class="calendar-body">
         <v-calendar
+          v-model="firstEventMonthRef"
           :events="parsedEvents"
           view-mode="month"
         >
