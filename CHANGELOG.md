@@ -1,3 +1,10 @@
+# [3.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.37.0...v3.38.0) (2024-11-27)
+
+
+### Features
+
+* APPS-3049 Create Calendar component (Part 1) ([#655](https://github.com/UCLALibrary/ucla-library-website-components/issues/655)) ([c9ddce8](https://github.com/UCLALibrary/ucla-library-website-components/commit/c9ddce8eab6885ba20fb085a283a4f85ca85d843))
+
 # [3.37.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.36.0...v3.37.0) (2024-11-26)
 
 
