@@ -37,9 +37,9 @@ const parsedEvents = computed(() => {
       end: new Date(rawDate),
       time: formatEventTime(rawDate),
       category: 'unknown',
-      tags: obj.ftvaEventScreeningDetails.tagLabels,
-      // image: obj.imageCarousel[0].image[0].src,
-      // location: obj.location,
+      tagLabels: obj.ftvaEventScreeningDetails.tagLabels,
+      image: obj?.imageCarousel[0]?.image[0],
+      location: obj.location,
     }
   })
 
