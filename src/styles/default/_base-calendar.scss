@@ -73,11 +73,6 @@
     border-bottom: 1px solid #ccc;
   }
 
-  .v-calendar-weekly__head-weekday-with-weeknumber:nth-of-type(even) {
-    // border-left: 1px solid #ccc;
-    // border-right: 1px solid #ccc;
-  }
-
   .v-calendar-weekly__head-weekday-with-weeknumber {
     font-size: 16px;
     color: $subtitle-grey;
@@ -99,6 +94,11 @@
     text-align: right;
   }
 
+  // Reset border color that's showing up darker in Nuxt
+  .v-calendar-month__days.days-with-weeknumbers__7>.v-calendar-month__day:nth-child(7n) {
+    border-right-color: #e0e0e0;
+  }
+
   .v-calendar-weekly__day-label .v-btn {
     color: $subtitle-grey;
     font-size: 16px; // confirm size
@@ -115,7 +115,6 @@
     box-shadow: unset;
   }
 
-  // 
   .v-calendar-weekly__day-label,
   .v-calendar-weekly__day-label .v-btn {
     cursor: default;
@@ -145,20 +144,4 @@
   .calendar-event-time {
     font-size: 14px;
   }
-
-// WIP
-
-// .v-calendar-header > button:nth-of-type(2),
-// .v-calendar-header > button:nth-of-type(3) {
-  // outline-style: inset;
-  // outline-color: $navy-blue;
-// }
-
-// .mdi-chevron-left::before {
-//   content: url("ucla-library-design-tokens/assets/svgs/icon-caret-circle-left.svg");
-// }
-
-// .mdi-chevron-right::before {
-//   content: url("ucla-library-design-tokens/assets/svgs/icon-caret-circle-right.svg");
-// }
 }

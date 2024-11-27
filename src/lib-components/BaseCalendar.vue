@@ -36,14 +36,17 @@ const parsedEvents = computed(() => {
       start: new Date(rawDate),
       end: new Date(rawDate),
       time: formatEventTime(rawDate),
-      desc: obj.eventDescription
+      category: 'unknown',
+      tags: obj.ftvaEventScreeningDetails.tagLabels,
+      // image: obj.imageCarousel[0].image[0].src,
+      // location: obj.location,
     }
   })
 
   return calendarEvents
 })
 
-// console.log(parsedEvents.value)
+console.log(parsedEvents.value)
 
 // Format time as '00:00 PM'
 function formatEventTime(date) {
@@ -77,6 +80,7 @@ const selectedEvent = ref({})
 
 function showEvent(calEventObj) {
   selectedEvent.value = calEventObj
+  console.log(selectedEvent.value)
 }
 </script>
 
@@ -110,12 +114,13 @@ function showEvent(calEventObj) {
                 location="start bottom"
                 origin="auto"
               >
-                <v-card max-width="300">
-                  <slot name="calendar-inner-comp" />
-                  <v-list>
+                <v-card width="320">
+                  <div v-if="$slots.calendarInnerComponent" class="">
+                    <slot name="calendarInnerComponent" :event="selectedEvent" />
+                  </div>
+                  <!-- Default vuetify popup -->
+                  <v-list v-else>
                     <v-list-item
-                      prepend-avatar="https://cdn.vuetifyjs.com/images/john.jpg"
-                      :subtitle="selectedEvent.desc"
                       :title="selectedEvent.title"
                     />
                   </v-list>
