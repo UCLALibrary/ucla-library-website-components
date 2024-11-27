@@ -1,5 +1,18 @@
 .ftva.base-calendar {
 
+  .v-btn.v-calendar-header__today {
+    @include ftva-button;
+    background-color: #{$pure-white};
+    color: #{$accent-blue};
+    border-color: #{$accent-blue};
+
+    &:hover,
+    .hover {
+      background-color: #{$accent-blue};
+      color: #{$pure-white};
+    }
+  }
+
   .v-calendar-header > button:nth-of-type(2),
   .v-calendar-header > button:nth-of-type(3) {
     background-color: $navy-blue;
