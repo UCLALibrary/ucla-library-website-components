@@ -26,7 +26,7 @@
     color: $heading-grey;
   }
 
-  .v-calendar-header__today .v-btn__content {
+  .v-calendar-header__today {
     order: 1;
   }
   
@@ -112,6 +112,13 @@
     color: $body-grey !important;
     width: 26px;
     height: 26px;
+    box-shadow: unset;
+  }
+
+  // 
+  .v-calendar-weekly__day-label,
+  .v-calendar-weekly__day-label .v-btn {
+    cursor: default;
   }
   
   .calendar-event-item {
