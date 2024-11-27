@@ -1,0 +1,141 @@
+.base-calendar {
+  position: relative;
+
+  .calendar-wrapper {
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+  }
+
+  .calendar-body {
+    grid-column: 2/3;
+  }
+
+  .v-calendar-header__title {
+    // @include h3; // ?
+    font-size: 40px;
+    font-weight: 800;
+    color: $heading-grey;
+  }
+  
+  // Reposition calendar navigation
+  .v-calendar-header > button:nth-of-type(2),
+  .v-calendar-header > button:nth-of-type(3) {
+    top: 50%;
+    width: 48px;
+    height: auto;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+
+  .v-calendar-header > button:nth-of-type(2) {
+    left: 0%;
+  }
+
+  .v-calendar-header > button:nth-of-type(3) {
+    left: 100%;
+  }
+
+  // Vuetify navigation arrows
+  i.mdi {
+    font-size: 50px;
+  }
+
+  .v-btn.v-btn--icon.v-theme--light.v-btn--density-comfortable.v-btn--size-default.v-btn--variant-text:focus-visible{
+    outline: 4px solid $accent-blue;
+  }
+
+  // Hide default Vuetify calendar numbering
+  .v-calendar-weekly__head-weeknumber,
+  .v-calendar-month__weeknumber {
+    display: none;
+  }
+
+  .v-calendar-weekly__head.days__7.v-calendar-weekly__head-weeknumbers {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .v-calendar-weekly__head-weekday-with-weeknumber {
+    background-color: #fcfcfc;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .v-calendar-weekly__head-weekday-with-weeknumber:nth-of-type(even) {
+    // border-left: 1px solid #ccc;
+    // border-right: 1px solid #ccc;
+  }
+
+  .v-calendar-weekly__head-weekday-with-weeknumber {
+    font-size: 16px;
+    color: $subtitle-grey;
+    font-weight: 500;
+    text-transform: none;
+  }
+
+  /* Calendar Day Cells */
+
+  .v-calendar-month__day {
+    justify-content: space-between;
+  }
+
+  .v-calendar-month__days.days-with-weeknumbers__7.v-calendar-month__weeknumbers{
+    grid-template-columns: repeat(7, minmax(1px, 150px));
+  }
+
+  .v-calendar-weekly__day-label {
+    text-align: right;
+  }
+
+  .v-calendar-weekly__day-label .v-btn {
+    color: $subtitle-grey;
+    font-size: 16px; // confirm size
+    margin-top: 2px;
+    margin-right: 4px;
+  }
+
+  // Current date
+  .v-calendar-weekly__day-label .v-btn.v-calendar-weekly__day-label__today {
+    background-color: #ccc !important;
+    color: $body-grey !important;
+    width: 26px;
+    height: 26px;
+  }
+  
+  .calendar-event-item {
+    background-color: #eee;
+    margin: 0px 4px 3px 4px;
+    padding: 4px 6px;
+  }
+
+  .calendar-event-item:hover {
+    background-color: #ccc;
+    cursor: pointer;
+  }
+
+  .calendar-event-title {
+    @include truncate(3);
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  .calendar-event-time {
+    font-size: 14px;
+  }
+
+// WIP
+
+// .v-calendar-header > button:nth-of-type(2),
+// .v-calendar-header > button:nth-of-type(3) {
+  // outline-style: inset;
+  // outline-color: $navy-blue;
+// }
+
+// .mdi-chevron-left::before {
+//   content: url("ucla-library-design-tokens/assets/svgs/icon-caret-circle-left.svg");
+// }
+
+// .mdi-chevron-right::before {
+//   content: url("ucla-library-design-tokens/assets/svgs/icon-caret-circle-right.svg");
+// }
+}

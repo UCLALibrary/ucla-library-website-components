@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.43.1",
+    "@mdi/font": "^7.4.47",
     "@percy/cli": "^1.30.0",
     "@percy/cypress": "^3.1.2",
     "@semantic-release/changelog": "^6.0.3",
@@ -89,10 +90,12 @@
     "date-fns": "^2.30.0",
     "lodash": "^4.17.21",
     "pinia": "^2.2.4",
-    "vue3-carousel": "^0.3.1"
+    "vue3-carousel": "^0.3.1",
+    "vuetify": "^3.7.4"
   },
   "peerDependencies": {
-    "vue": "^3.5.12"
+    "vue": "^3.5.12",
+    "vuetify": "^3.7.4"
   },
   "engines": {
     "pnpm": "^9.12.1"

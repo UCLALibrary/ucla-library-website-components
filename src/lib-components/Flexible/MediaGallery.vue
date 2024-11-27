@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 
@@ -92,7 +89,10 @@ function selectItem(itemIndex: number) {
       @keydown.esc="hideLightboxModal"
     />
 
-    <section v-if="theme === 'ftva' && fullWidthGallery" class="gallery-header">
+    <section
+      v-if="theme === 'ftva' && fullWidthGallery"
+      class="gallery-header"
+    >
       <h2 class="gallery-title">
         {{ galleryTitle }}
       </h2>
@@ -131,10 +131,7 @@ function selectItem(itemIndex: number) {
   </section>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 @import "@/styles/default/_media-gallery.scss";
 @import "@/styles/ftva/_media-gallery.scss";
 </style>
