@@ -35,6 +35,7 @@ const parsedEvents = computed(() => {
       start: new Date(rawDate),
       end: new Date(rawDate),
       time: formatEventTime(rawDate),
+      desc: obj.eventDescription
     }
   })
 
@@ -70,32 +71,46 @@ const classes = computed(() => {
   return ['base-calendar', theme?.value || '']
 })
 
-// Popover test
-const selectedOpen = ref(false)
-const selectedElement = ref()
+// Vuetify Popover
+const selectedEvent = ref({}) //
+// const selectedEventIsOpen = ref(false) // vmodel
+// const selectedEventElementAsActivator = ref(null) // activator
 
-function showEvent(event) {
-  console.log('event target: ', event.target)
-  console.log('event value: ', event.target.value)
-  console.log(selectedElement.value)
+function showEvent(calEventObj, event) {
+// console.log('calendar event: ', calEventObj)
+// console.log('event target/element: ', event.target.textContent)
 
-  // console.log('event: ', event)
-  // console.log('native event: ', event.nativeEvent)
-  // selectedElement.value = event.target
+  // selectedEventElementAsActivator.value = event.target
+  // selectedEventIsOpen.value = true
+  // console.log('activator on click is: ', selectedEventElementAsActivator.value)
+  // selectedEventIsOpen.value = true
 
-  const open = () => {
-    selectedElement.value = event.target
-  }
+  // function open() {
+  // console.log('run open')
+  selectedEvent.value = calEventObj
+  // selectedEventElementAsActivator.value = event.target
+  // selectedEventIsOpen.value = true
+  // }
 
-  if (selectedOpen.value) {
-    selectedOpen.value = false
-    open()
-  }
-  else {
-    open()
-  }
+  // if (selectedEventIsOpen.value) {
+  //   console.log('selected open is true')
+  //   // open()
+  //   selectedEventElementAsActivator.value = null
+  //   selectedEventIsOpen.value = false
+  //   console.log('selected open is now false')
+  // }
+  // else if (!selectedEventIsOpen.value) {
+  //   // selectedEventIsOpen.value = true
+  //   selectedEventElementAsActivator.value = event.target
+  //   console.log('activator on click is: ', selectedEventElementAsActivator.value)
+  //   console.log('mehn')
+  //   // open()
+  //   selectedEventIsOpen.value = true
+  // }
 
-  event.stopPropagation()
+  // open()
+
+// event.stopPropagation()
 }
 </script>
 
@@ -109,7 +124,6 @@ function showEvent(event) {
         <v-calendar
           :events="parsedEvents"
           view-mode="month"
-          @click="showEvent($event)"
         >
           <!-- Vuetify calendar header slot -->
           <!--
@@ -120,35 +134,35 @@ function showEvent(event) {
 
           <!-- Vuetify calendar event slot -->
           <template #event="event">
-            <div class="calendar-event-item">
+            <button class="calendar-event-item" @click="showEvent(event.event, $event)">
               <p class="calendar-event-title">
                 {{ event.event.title }}
               </p>
               <p class="calendar-event-time">
                 {{ event.event.time }}
               </p>
-            </div>
+              <!-- Popover menu -->
+              <v-menu
+                activator="parent"
+                :open-on-click="true"
+                :close-on-content-click="false"
+                location="start bottom"
+                origin="auto"
+              >
+                <v-card max-width="300">
+                  <slot />
+                  <!-- <v-list>
+                    <v-list-item
+                      prepend-avatar="https://cdn.vuetifyjs.com/images/john.jpg"
+                      :subtitle="selectedEvent.desc"
+                      :title="selectedEvent.title"
+                    />
+                  </v-list> -->
+                </v-card>
+              </v-menu>
+            </button>
           </template>
         </v-calendar>
-
-        <!-- Popover menu -->
-        <v-menu
-          :model="selectedOpen"
-          :close-on-content-click="false"
-          :activator="selectedElement"
-          location="start bottom"
-          origin="auto"
-        >
-          <v-card min-width="300">
-            <v-list>
-              <v-list-item
-                prepend-avatar="https://cdn.vuetifyjs.com/images/john.jpg"
-                subtitle="Founder of Vuetify"
-                title="John Leider"
-              />
-            </v-list>
-          </v-card>
-        </v-menu>
       </v-sheet>
     </div>
   </div>
