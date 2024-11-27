@@ -12,11 +12,12 @@ export default defineConfig({
       template: {
         compilerOptions: {
           // treat Add-to-Calendar-Button plugin like a custom element
-          isCustomElement: tag => tag.startsWith('add-'),
+          isCustomElement: tag =>
+            tag.startsWith('add-'),
         },
       },
     }),
-    svgLoader({ svgo: false }),
+    svgLoader({ svgo: false })
   ],
   build: {
     lib: {
@@ -24,7 +25,7 @@ export default defineConfig({
       name: 'ucla-library-website-components',
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', 'pinia'],
+      external: ['vue', 'vue-router', 'pinia', 'vuetify'],
       output: {
         // preserveModules: true,
         exports: 'named',

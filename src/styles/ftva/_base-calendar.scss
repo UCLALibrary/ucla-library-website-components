@@ -1,0 +1,24 @@
+.ftva.base-calendar {
+
+  .v-calendar-header > button:nth-of-type(2),
+  .v-calendar-header > button:nth-of-type(3) {
+    background-color: $navy-blue;
+    color: white;
+  }
+
+  // Current date
+  .v-calendar-weekly__day-label .v-btn.v-calendar-weekly__day-label__today {
+    background-color: $grey-blue !important;
+    color: $body-grey !important;
+  }
+
+  .calendar-event-item {
+    background-color: $accent-blue;
+    color: white;
+  }
+
+  .calendar-event-item:hover {
+    background-color: $navy-blue;
+    cursor: pointer;
+  }
+}
