@@ -1,5 +1,4 @@
 import { setup } from "@storybook/vue3"
-import type { Preview } from "@storybook/vue3"
 import "ucla-library-design-tokens/scss/app-global.scss"
 import "@/styles/global.scss"
 import router from "@/router"
@@ -7,9 +6,8 @@ import { createPinia } from 'pinia';
 import type { App } from 'vue'
 
 import { vuetify } from '../src/plugins/vuetify'
-import { withVuetifyTheme } from './withVuetifyTheme.decorator'
 
-function registerPlugins(app:App) {
+function registerPlugins(app: App) {
     app.use(vuetify)
 }
 
@@ -69,10 +67,8 @@ export const parameters = {
     },
 }
 
-setup((app:App) => {
+setup((app: App) => {
     registerPlugins(app)
     app.use(router)
     app.use(createPinia())
 })
-
-export const decorators = [withVuetifyTheme]

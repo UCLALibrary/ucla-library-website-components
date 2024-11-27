@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+
 import BaseCalendar from '../lib-components/BaseCalendar.vue'
 import { mockCalendarEvents } from './mock/CalendarEvents'
 
@@ -12,8 +13,8 @@ export function Default() {
     data() {
       return { ...mockCalendarEvents }
     },
-    components: { BaseCalendar },
-    template: '<base-calendar :events="events" />'
+    components: { BaseCalendar},
+    template: '<div style="display: flex;justify-content: center;"><base-calendar :events="events" /></div>'
   }
 }
 
@@ -27,7 +28,7 @@ export function DefaultFTVA() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { BaseCalendar },
-    template: '<base-calendar :events="events" />'
+    components: { BaseCalendar},
+    template: '<div style="display: flex;justify-content: center;"><base-calendar :events="events" /></div>'
   }
 }

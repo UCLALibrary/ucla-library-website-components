@@ -94,7 +94,8 @@
     "vuetify": "^3.7.4"
   },
   "peerDependencies": {
-    "vue": "^3.5.12"
+    "vue": "^3.5.12",
+    "vuetify": "^3.7.4"
   },
   "engines": {
     "pnpm": "^9.12.1"

@@ -66,11 +66,13 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <div ref="calendar" :class="classes">
+  <div
+    ref="calendar"
+    :class="classes"
+  >
     <div class="calendar-wrapper">
       <v-sheet class="calendar-body">
         <v-calendar
-          :model-value="newDateRef"
           :events="parsedEvents"
           view-mode="month"
         >
@@ -79,7 +81,7 @@ const classes = computed(() => {
         <template #header="header">
           {{ header.title }}
         </template>
-        -->
+-->
 
           <!-- Vuetify calendar event slot -->
           <template #event="event">

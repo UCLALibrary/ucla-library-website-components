@@ -17,7 +17,7 @@ export default defineConfig({
         },
       },
     }),
-    svgLoader({ svgo: false }),
+    svgLoader({ svgo: false })
   ],
   build: {
     lib: {
@@ -25,7 +25,7 @@ export default defineConfig({
       name: 'ucla-library-website-components',
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', 'pinia'],
+      external: ['vue', 'vue-router', 'pinia', 'vuetify'],
       output: {
         // preserveModules: true,
         exports: 'named',
