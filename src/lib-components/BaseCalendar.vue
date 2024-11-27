@@ -15,12 +15,10 @@ const { events, value } = defineProps({
   }
 })
 
-// const newDateRef = ref(value)
-
 const calendarRef = useTemplateRef('calendar')
 
 onMounted(() => {
-  updateCalendarWeekdays()
+  updateCalendarHeaderElements()
 })
 
 const parsedEvents = computed(() => {
@@ -42,11 +40,6 @@ const parsedEvents = computed(() => {
   return calendarEvents
 })
 
-function getEventTime(date) {
-  const testTime = format(new Date(date), 'h:mm aaa')
-  return testTime.toUpperCase()
-}
-
 // console.log(parsedEvents.value)
 
 // Format time as '00:00 PM'
@@ -57,12 +50,17 @@ function formatEventTime(date) {
 
 // Vuetify calendar day format is single-lettered: S, M, etc.
 // Update day to full name: Sunday, Monday, etc.
-function updateCalendarWeekdays() {
+// Default header button text is 'Today'; update to 'This Month'
+function updateCalendarHeaderElements() {
   const weekDayLabels = calendarRef.value.querySelectorAll('.v-calendar-weekly__head-weekday-with-weeknumber')
+
+  const todayBtnElem = calendarRef.value.querySelector('.v-calendar-header__today .v-btn__content')
 
   const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-  weekDayLabels.forEach((elem, idx) => elem.innerHTML = weekDays[idx])
+  weekDayLabels.forEach((elem, idx) => elem.innerText = weekDays[idx])
+
+  todayBtnElem.innerText = 'This Month'
 }
 
 const theme = useTheme()
@@ -72,45 +70,10 @@ const classes = computed(() => {
 })
 
 // Vuetify Popover
-const selectedEvent = ref({}) //
-// const selectedEventIsOpen = ref(false) // vmodel
-// const selectedEventElementAsActivator = ref(null) // activator
+const selectedEvent = ref({})
 
-function showEvent(calEventObj, event) {
-// console.log('calendar event: ', calEventObj)
-// console.log('event target/element: ', event.target.textContent)
-
-  // selectedEventElementAsActivator.value = event.target
-  // selectedEventIsOpen.value = true
-  // console.log('activator on click is: ', selectedEventElementAsActivator.value)
-  // selectedEventIsOpen.value = true
-
-  // function open() {
-  // console.log('run open')
+function showEvent(calEventObj) {
   selectedEvent.value = calEventObj
-  // selectedEventElementAsActivator.value = event.target
-  // selectedEventIsOpen.value = true
-  // }
-
-  // if (selectedEventIsOpen.value) {
-  //   console.log('selected open is true')
-  //   // open()
-  //   selectedEventElementAsActivator.value = null
-  //   selectedEventIsOpen.value = false
-  //   console.log('selected open is now false')
-  // }
-  // else if (!selectedEventIsOpen.value) {
-  //   // selectedEventIsOpen.value = true
-  //   selectedEventElementAsActivator.value = event.target
-  //   console.log('activator on click is: ', selectedEventElementAsActivator.value)
-  //   console.log('mehn')
-  //   // open()
-  //   selectedEventIsOpen.value = true
-  // }
-
-  // open()
-
-// event.stopPropagation()
 }
 </script>
 
@@ -125,23 +88,17 @@ function showEvent(calEventObj, event) {
           :events="parsedEvents"
           view-mode="month"
         >
-          <!-- Vuetify calendar header slot -->
-          <!--
-        <template #header="header">
-          {{ header.title }}
-        </template>
--->
-
           <!-- Vuetify calendar event slot -->
           <template #event="event">
-            <button class="calendar-event-item" @click="showEvent(event.event, $event)">
-              <p class="calendar-event-title">
+            <button class="calendar-event-item" @click="showEvent(event.event)">
+              <span class="calendar-event-title">
                 {{ event.event.title }}
-              </p>
-              <p class="calendar-event-time">
+              </span>
+              <span class="calendar-event-time">
                 {{ event.event.time }}
-              </p>
-              <!-- Popover menu -->
+              </span>
+
+              <!-- Event item popup -->
               <v-menu
                 activator="parent"
                 :open-on-click="true"
@@ -150,14 +107,14 @@ function showEvent(calEventObj, event) {
                 origin="auto"
               >
                 <v-card max-width="300">
-                  <slot />
-                  <!-- <v-list>
+                  <slot name="calendar-inner-comp" />
+                  <v-list>
                     <v-list-item
                       prepend-avatar="https://cdn.vuetifyjs.com/images/john.jpg"
                       :subtitle="selectedEvent.desc"
                       :title="selectedEvent.title"
                     />
-                  </v-list> -->
+                  </v-list>
                 </v-card>
               </v-menu>
             </button>
