@@ -57,12 +57,18 @@ function handlePageChange(item: number) {
 }
 
 function generateLink(pageNumber: number) {
+  let queryParams = new URLSearchParams({ ...parsedQuery.value } as any)
   if (generateLinkCallback) {
+    // if there are queryParams in route & generateLinkCallback prop provided
+    if (queryParams)
+      return generateLinkCallback(pageNumber, queryParams)
+
+    // else if generateLinkCallback prop provided
     return generateLinkCallback(pageNumber)
   }
+  // else use default logic
   else {
-    const queryParams = new URLSearchParams({ ...parsedQuery.value, page: pageNumber.toString() })
-
+    queryParams = new URLSearchParams({ ...parsedQuery.value, page: pageNumber.toString() })
     return `${route.path}?${queryParams.toString()}`
   }
 }
