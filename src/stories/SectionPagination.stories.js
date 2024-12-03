@@ -1,5 +1,6 @@
 import { computed, ref } from 'vue'
 import SectionPagination from '@/lib-components/SectionPagination'
+import router from '@/router'
 
 /**
  * A component to provide pagination for a list of items. It can be used in 2 ways:
@@ -10,11 +11,9 @@ import SectionPagination from '@/lib-components/SectionPagination'
  * Props:
  * - nextTo: A string representing the URL to the next page
  * - previousTo: A string representing the URL to the previous page
- *
- * Props added 2024-10-29:
- *
- * - pages: A number representing the total number of pages we need to show all content
- * - initialCurrentPage: A number representing the page we are starting on
+ * - pages: A number representing the total number of pages we need to show all content (added 2024-10-29)
+ * - initialCurrentPage: A number representing the page we are starting on (added 2024-10-29)
+ * - generateLinkCallback: A function that generates the link for the page number. It receives the page number as a parameter (added 2024-11-26)
  */
 export default {
   title: 'SECTION / Pagination',
@@ -42,10 +41,23 @@ export function LastPage() {
   }
 }
 
+// this story uses the generateLinkCallback prop
+// to generate the links in the library-website-nuxt format instead of the default format
 export function WithPagesAndCurrentPage() {
+  // mock a library site page where someone has searched 'new' like this:
+  // https://www.library.ucla.edu/search-site?q=new&from=10'
+  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
   return {
+    setup() {
+      // sample callback to generate the link
+      const sampleCallback = (pageNumber, queryParams) => {
+        return `/search-site?${queryParams}`
+      }
+
+      return { sampleCallback }
+    },
     components: { SectionPagination },
-    template: '<section-pagination :pages="23" :initialCurrentPage="4" />',
+    template: '<section-pagination :pages="23" :initialCurrentPage="4" :generateLinkCallback="sampleCallback"/>',
   }
 }
 
