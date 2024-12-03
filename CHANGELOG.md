@@ -1,3 +1,10 @@
+# [3.39.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.38.0...v3.39.0) (2024-12-03)
+
+
+### Features
+
+* Apps-3068 SEO friendly SectionPagination ([#659](https://github.com/UCLALibrary/ucla-library-website-components/issues/659)) ([2b9eb98](https://github.com/UCLALibrary/ucla-library-website-components/commit/2b9eb9880627631e4aa5386d0e9a74ca1d8e3a04))
+
 # [3.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.37.0...v3.38.0) (2024-11-27)
 
 
