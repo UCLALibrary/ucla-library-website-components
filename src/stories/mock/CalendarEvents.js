@@ -1,60 +1,96 @@
 export const mockCalendarEvents = {
   events: [
+    // Test Same-Day Events
     {
-      imageCarousel: [
-        {
-          image: [
-            {
-              src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Michael-Snow-old.jpg',
-              width: 2560,
-              alt: 'Michael Snow',
-              id: '3203248',
-              srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Michael-Snow-old.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Michael-Snow-old.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Michael-Snow-old.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Michael-Snow-old.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Michael-Snow-old.jpg 2560w',
-              focalPoint: [
-                0.5,
-                0.5
-              ],
-              height: 1955
-            }
-          ],
-          creditText: null
-        }
-      ],
+      imageCarousel: [],
       typeHandle: 'ftvaEvent',
-      ftvaTicketInformation: [],
-      ftvaScreeningFormatFilters: [],
-      guestSpeaker: null,
-      title: 'TEST - Past Event Michael Snow Death',
-      uri: 'events/past-event-michael-snow-death-10-10-28',
-      acknowledements: null,
-      startDateWithTime: '2024-10-10T02:00:00',
-      eventDescription: null,
-      startTime: '2024-10-10T02:00:00',
-      location: [
+      title: 'Everything Everywhere All at Once',
+      uri: 'events/',
+      startDateWithTime: '2024-10-06T03:30:00',
+      startTime: '2024-10-06T03:30:00',
+      location: [],
+      ftvaEventScreeningDetails: [
         {
-          address: [
-            { }
-          ],
-          campusMapId: null,
-          publicUrl: null,
-          title: 'Birthplace of Michael Snow'
-        }
-      ],
-      id: '3203241',
-      ftvaEventScreeningDetails: [],
-      ftvaEventTypeFilters: [],
-      ftvaEventRegistration: [
+          tagLabels: [
+            {
+              title: 'Guest speaker'
+            },
+            {
+              title: '35mm'
+            }],
+        }],
+      startDate: '2024-10-06T03:30:00',
+      to: '/events/',
+      image: null
+    },
+    {
+      imageCarousel: [],
+      typeHandle: 'ftvaEvent',
+      title: '3000 Years of Longing',
+      uri: 'events/',
+      startDateWithTime: '2024-10-06T03:30:00',
+      startTime: '2024-10-06T03:30:00',
+      location: [],
+      ftvaEventScreeningDetails: [
         {
-          registrationText: null,
-          registrationUrlLink: null
-        }
-      ],
-      sectionHandle: 'ftvaEvent',
-      slug: 'past-event-michael-snow-death-12-10-28',
-      introduction: null,
-      startDate: '2024-10-10T02:00:00'
+          tagLabels: [
+            {
+              title: 'Guest speaker'
+            },
+            {
+              title: '35mm'
+            }],
+        }],
+      startDate: '2024-10-06T03:30:00',
+      to: '/events/',
+      image: null
+    },
+    {
+      imageCarousel: [],
+      typeHandle: 'ftvaEvent',
+      title: 'Ministry of Ungentlemanly Warfare',
+      uri: 'events/',
+      startDateWithTime: '2024-10-06T03:30:00',
+      startTime: '2024-10-06T03:30:00',
+      location: [],
+      ftvaEventScreeningDetails: [
+        {
+          tagLabels: [
+            {
+              title: 'Guest speaker'
+            },
+            {
+              title: '35mm'
+            }],
+        }],
+      startDate: '2024-10-06T03:30:00',
+      to: '/events/',
+      image: null
+    },
+    {
+      imageCarousel: [],
+      typeHandle: 'ftvaEvent',
+      title: 'A Quiet Place: Day One',
+      uri: 'events/',
+      startDateWithTime: '2024-10-06T03:30:00',
+      startTime: '2024-09-06T03:30:00',
+      location: [],
+      ftvaEventScreeningDetails: [
+        {
+          tagLabels: [
+            {
+              title: 'Guest speaker'
+            },
+            {
+              title: '35mm'
+            }],
+        }],
+      startDate: '2024-10-06T03:30:00',
+      to: '/events/',
+      image: null
     },
 
+    // Unique Day Events
     {
       imageCarousel: [
         {
@@ -272,6 +308,71 @@ export const mockCalendarEvents = {
       ],
       to: '/events/pi-tetsuo-the-iron-man-08-03-24',
       image: null
+    },
+
+    {
+      imageCarousel: [
+        {
+          image: [
+            {
+              src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Michael-Snow-old.jpg',
+              width: 2560,
+              alt: 'Michael Snow',
+              id: '3203248',
+              srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Michael-Snow-old.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Michael-Snow-old.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Michael-Snow-old.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Michael-Snow-old.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Michael-Snow-old.jpg 2560w',
+              focalPoint: [
+                0.5,
+                0.5
+              ],
+              height: 1955
+            }
+          ],
+          creditText: null
+        }
+      ],
+      typeHandle: 'ftvaEvent',
+      ftvaTicketInformation: [],
+      ftvaScreeningFormatFilters: [],
+      guestSpeaker: null,
+      title: 'TEST - Past Event Michael Snow Death',
+      uri: 'events/past-event-michael-snow-death-12-10-28',
+      acknowledements: null,
+      startDateWithTime: '2024-12-10T02:00:00',
+      eventDescription: null,
+      startTime: '2024-12-10T02:00:00',
+      location: [
+        {
+          address: [
+            { }
+          ],
+          campusMapId: null,
+          publicUrl: null,
+          title: 'Birthplace of Michael Snow'
+        }
+      ],
+      id: '3203241',
+      ftvaEventScreeningDetails: [
+        {
+          tagLabels: [
+            {
+              title: 'Guest speaker'
+            },
+            {
+              title: '35mm'
+            }],
+        }
+      ],
+      ftvaEventTypeFilters: [],
+      ftvaEventRegistration: [
+        {
+          registrationText: null,
+          registrationUrlLink: null
+        }
+      ],
+      sectionHandle: 'ftvaEvent',
+      slug: 'past-event-michael-snow-death-12-10-28',
+      introduction: null,
+      startDate: '2024-12-10T02:00:00'
     },
 
     {
