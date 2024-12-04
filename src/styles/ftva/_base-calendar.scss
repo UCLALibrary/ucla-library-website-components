@@ -34,3 +34,30 @@
     cursor: pointer;
   }
 }
+
+.v-overlay-container {
+
+  .calendar-slot-wrapper {
+    background-color: $page-blue;
+
+    .ftva.block-highlight {
+      border-radius: 0;
+
+      @media #{$has-hover} {
+        &:hover {
+            box-shadow: unset;
+        }
+      }
+    }
+
+    .ftva.block-highlight.is-vertical {
+      .image-container {
+        aspect-ratio: 3 / 1;
+      }
+      
+      .card-meta .category {
+        color: $subtitle-grey;
+      }
+    }
+  }
+}

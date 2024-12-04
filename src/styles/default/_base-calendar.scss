@@ -145,3 +145,90 @@
     font-size: 14px;
   }
 }
+
+/*************************************/
+/* Styles for Calendar Slot Components: 
+  - BlockCardWithImage
+  - CardMeta
+  - BlockTag
+  - BlockEventDetail
+*/
+
+.v-overlay-container {
+
+  .v-menu .v-card {
+    border-radius: 8px;
+  }
+
+  .smart-link {
+    padding: 0;
+    text-align: left;
+  }
+
+  // Slot Wrapper
+  .calendar-slot-wrapper {
+
+    .block-highlight {
+      border-radius: 0;
+      background-color: transparent;
+    }
+
+    .block-highlight.is-vertical {
+      
+      .image-container {
+        aspect-ratio: 3 / 1;
+      }
+    
+      .image {
+        height: 150px;
+      }
+
+      .card-meta {
+        height: unset;
+        padding: 28px;
+
+        .block-tags {
+          margin-bottom: 0;
+        }
+
+        .title-no-link {
+          font-size: 30px;
+          font-weight: 500;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .block-tag-wrapper {
+      display: flex;
+      padding-left: 28px;
+      gap: 8px;
+    }
+
+    .block-event-detail {
+      padding: 28px;
+
+      .location {
+        margin-bottom: 0;
+      }
+
+      .location button.smart-link {
+        padding: 0;
+        border-radius: 0;
+      }
+      
+      .location .smart-link {
+        text-decoration: none;
+        cursor: default;
+        text-align: left;
+
+        @media #{$has-hover} {
+          &:hover {
+              color: unset;
+          }
+      }
+      }
+    }
+  }
+}
+
