@@ -166,7 +166,7 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
-    <div class="linked-category">
+    <div v-if="$slots.linkedcategoryslot" class="linked-category">
       <slot name="linkedcategoryslot" />
     </div>
 
