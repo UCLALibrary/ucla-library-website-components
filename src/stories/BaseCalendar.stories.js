@@ -35,7 +35,53 @@ export function DefaultFTVA() {
   }
 }
 
-export function FTVAComponentSlot() {
+export function SetStartMonth() {
+  return {
+    data() {
+      return {
+        ...mockCalendarEvents,
+        mockCalendarStart: [new Date('September 01, 2024 00:00:00')],
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BaseCalendar },
+    template: `<div 
+        style="display: flex;justify-content: center;">
+        <base-calendar
+          :events="events"
+          :firstEventMonth="mockCalendarStart" />
+      </div>`
+  }
+}
+
+export function SameDayEvents() {
+  return {
+    data() {
+      return {
+        ...mockCalendarEvents,
+        mockCalendarStart: [new Date('October 01, 2024 00:00:00')],
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BaseCalendar },
+    template: `<div 
+        style="display: flex;justify-content: center;">
+        <base-calendar
+          :events="events"
+          :firstEventMonth="mockCalendarStart" />
+      </div>`
+  }
+}
+
+export function FTVAComponents() {
   return {
     data() {
       return {

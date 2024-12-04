@@ -42,7 +42,7 @@ const parsedEvents = computed(() => {
       startDateWithTime: obj.startDateWithTime,
       // category: 'TBD',
       tagLabels: obj.ftvaEventScreeningDetails[0]?.tagLabels,
-      image: obj?.imageCarousel[0]?.image[0],
+      image: obj.imageCarousel[0]?.image[0],
       location: obj.location,
       to: obj.to
     }
