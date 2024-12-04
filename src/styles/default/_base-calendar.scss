@@ -135,7 +135,7 @@
   }
 
   .calendar-event-title {
-    @include truncate(3);
+    @include truncate(2);
     font-size: 14px;
     line-height: 1.4;
     font-weight: 600;
@@ -163,6 +163,7 @@
   .smart-link {
     padding: 0;
     text-align: left;
+    width: 100%;
   }
 
   // Slot Wrapper
@@ -176,7 +177,11 @@
     .block-highlight.is-vertical {
       
       .image-container {
-        aspect-ratio: 3 / 1;
+        aspect-ratio: unset;
+
+        .sizer {
+          padding-bottom: 0 !important;
+        }
       }
     
       .image {
@@ -203,12 +208,16 @@
       display: flex;
       padding-left: 28px;
       gap: 8px;
+
+      .block-tag {
+        margin-bottom: 28px;
+      }
     }
 
     .block-event-detail {
-      padding: 28px;
+      padding: 0px 28px 28px 28px;
 
-      .location {
+      .event-list:last-of-type {
         margin-bottom: 0;
       }
 
