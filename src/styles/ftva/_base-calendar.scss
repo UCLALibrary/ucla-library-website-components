@@ -29,6 +29,10 @@
     color: white;
   }
 
+  .selected-event.calendar-event-item {
+    background-color: $navy-blue;
+  }
+
   .calendar-event-item:hover {
     background-color: $navy-blue;
     cursor: pointer;

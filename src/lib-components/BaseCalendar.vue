@@ -2,7 +2,6 @@
 import { computed, onMounted, ref, useTemplateRef } from 'vue'
 import format from 'date-fns/format'
 import { useTheme } from '@/composables/useTheme'
-import SmartLink from '@/lib-components/SmartLink.vue'
 
 const { events, firstEventMonth } = defineProps({
   events: {
@@ -79,6 +78,7 @@ const classes = computed(() => {
 })
 
 // Vuetify Popover
+const eventItemRef = ref()
 const selectedEvent = ref({})
 
 function showEvent(calEventObj) {
@@ -99,9 +99,9 @@ function showEvent(calEventObj) {
           view-mode="month"
         >
           <!-- Vuetify calendar event slot -->
-          <!-- slot prop holds event object -->
+          <!-- slot prop holds each parsedEvent object -->
           <template #event="event">
-            <button class="calendar-event-item" @click="showEvent(event.event)">
+            <button ref="eventItemRef" class="calendar-event-item" @click="showEvent(event.event)">
               <span class="calendar-event-title">
                 {{ event.event.title }}
               </span>
@@ -116,20 +116,19 @@ function showEvent(calEventObj) {
                 :close-on-content-click="false"
                 location="start bottom"
                 origin="auto"
+                offset="10"
               >
-                <v-card width="320">
-                  <SmartLink :to="selectedEvent.to">
-                    <!-- Inner component(s) slot -->
-                    <div v-if="$slots.calendarInnerComponent" class="calendar-slot-wrapper">
-                      <slot name="calendarInnerComponent" :event="selectedEvent" />
-                    </div>
-                    <!-- Default vuetify popup -->
-                    <v-list v-else>
-                      <v-list-item
-                        :title="selectedEvent.title"
-                      />
-                    </v-list>
-                  </SmartLink>
+                <v-card width="320" :link="true" :to="selectedEvent.to">
+                  <!-- Inner component(s) slot -->
+                  <div v-if="$slots.calendarInnerComponent" class="calendar-slot-wrapper">
+                    <slot name="calendarInnerComponent" :event="selectedEvent" />
+                  </div>
+                  <!-- Default vuetify popup -->
+                  <v-list v-else>
+                    <v-list-item
+                      :title="selectedEvent.title"
+                    />
+                  </v-list>
                 </v-card>
               </v-menu>
             </button>
