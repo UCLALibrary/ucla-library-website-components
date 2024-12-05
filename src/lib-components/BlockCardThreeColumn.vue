@@ -141,6 +141,7 @@ const parsedDateFormat = computed(() => {
             <BlockTag
               :label="label.title"
               :is-secondary="true"
+              :is-highlighted="label.isHighlighted"
             />
           </div>
         </template>
