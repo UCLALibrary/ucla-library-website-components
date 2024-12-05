@@ -201,6 +201,7 @@ export interface LocationItemType {
 export interface EventFiltersItemType {
   id: string
   title: string
+  isHighlighted?: boolean
 }
 
 export interface SearchLinkItemType {
