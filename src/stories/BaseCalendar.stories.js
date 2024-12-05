@@ -10,7 +10,17 @@ export default {
   component: BaseCalendar,
 }
 
-export function Default() {
+export function DefaultVuetify() {
+  return {
+    data() {
+      return { ...mockCalendarEvents }
+    },
+    components: { BaseCalendar },
+    template: '<div style="display: flex;justify-content: center;"><base-calendar :events="events" :defaultEventCalendar="false" /></div>'
+  }
+}
+
+export function DefaultEvent() {
   return {
     data() {
       return { ...mockCalendarEvents }
@@ -20,7 +30,7 @@ export function Default() {
   }
 }
 
-export function DefaultFTVA() {
+export function DefaultFTVAEvent() {
   return {
     data() {
       return { ...mockCalendarEvents }
@@ -78,44 +88,5 @@ export function SameDayEvents() {
           :events="events"
           :firstEventMonth="mockCalendarStart" />
       </div>`
-  }
-}
-
-export function FTVAComponents() {
-  return {
-    data() {
-      return {
-        ...mockCalendarEvents
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { BaseCalendar, BlockCardWithImage, BlockEventDetail, BlockTag },
-    template: `<div style="display: flex;justify-content: center;"><base-calendar :events="events">
-        <template #calendarInnerComponent="{event}">
-          <block-card-with-image
-            :image="event.image"
-            :title="event.title"
-            :category="event.category"
-          />
-          <div class="block-tag-wrapper">
-            <block-tag
-              v-for="tag in event.tagLabels"
-              :key="tag.title"
-              :label="tag.title"
-              :isSecondary="true"
-            />
-          </div>
-          <block-event-detail
-            :start-date="event.startDateWithTime"
-            :time="event.startDateWithTime"
-            :locations="event.location"
-          />
-        </template>
-      </base-calendar>
-    </div>`
   }
 }

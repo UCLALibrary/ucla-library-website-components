@@ -151,8 +151,8 @@
   }
 }
 
-/*************************************/
-/* Styles for Calendar Slot Components: 
+/*********************************/
+/* Calendar Event Popup Components: 
   - BlockCardWithImage
   - CardMeta
   - BlockTag
@@ -165,8 +165,8 @@
     border-radius: 8px;
   }
 
-  // Slot Wrapper
-  .calendar-slot-wrapper {
+  
+  .calendar-event-popup-wrapper {
 
     .block-highlight {
       border-radius: 0;
@@ -237,5 +237,8 @@
       }
     }
   }
+
+   // Slot styles
+  .calendar-slot-wrapper{}
 }
 

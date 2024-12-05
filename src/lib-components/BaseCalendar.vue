@@ -1,9 +1,12 @@
 <script setup>
 import { computed, onMounted, ref, useTemplateRef } from 'vue'
 import format from 'date-fns/format'
+import BlockCardWithImage from './BlockCardWithImage.vue'
+import BlockEventDetail from './BlockEventDetail.vue'
+import BlockTag from './BlockTag.vue'
 import { useTheme } from '@/composables/useTheme'
 
-const { events, firstEventMonth } = defineProps({
+const { defaultEventCalendar, events, firstEventMonth } = defineProps({
   events: {
     type: Array,
     default: () => [],
@@ -14,6 +17,11 @@ const { events, firstEventMonth } = defineProps({
     default: () => [new Date()]
     // Sets calendar to month of earliest event
     // Default is current date
+  },
+
+  defaultEventCalendar: {
+    type: Boolean,
+    default: true
   }
 })
 
@@ -99,7 +107,7 @@ function showEvent(calEventObj) {
           view-mode="month"
         >
           <!-- Vuetify calendar event slot -->
-          <!-- slot prop holds each parsedEvent object -->
+          <!-- Slot prop holds each parsedEvent object -->
           <template #event="event">
             <button ref="eventItemRef" class="calendar-event-item" @click="showEvent(event.event)">
               <span class="calendar-event-title">
@@ -119,11 +127,34 @@ function showEvent(calEventObj) {
                 offset="10"
               >
                 <v-card width="320" :link="true" :to="selectedEvent.to">
-                  <!-- Inner component(s) slot -->
-                  <div v-if="$slots.calendarInnerComponent" class="calendar-slot-wrapper">
-                    <slot name="calendarInnerComponent" :event="selectedEvent" />
+                  <!-- Default Event Calendar -->
+                  <div v-if="defaultEventCalendar" class="calendar-event-popup-wrapper">
+                    <BlockCardWithImage
+                      :image="selectedEvent.image"
+                      :title="selectedEvent.title"
+                      :category="selectedEvent.category"
+                    />
+                    <div class="block-tag-wrapper">
+                      <BlockTag
+                        v-for="tag in selectedEvent.tagLabels"
+                        :key="`tag-${tag.title}`"
+                        :label="tag.title"
+                        :is-secondary="true"
+                      />
+                    </div>
+                    <BlockEventDetail
+                      :start-date="selectedEvent.startDateWithTime"
+                      :time="selectedEvent.startDateWithTime"
+                      :locations="selectedEvent.location"
+                    />
                   </div>
-                  <!-- Default vuetify popup -->
+
+                  <!-- Slot for new components -->
+                  <div v-else-if="$slots.calendarSlotComponent" class="calendar-slot-wrapper">
+                    <slot name="calendarSlotComponent" :event="selectedEvent" />
+                  </div>
+
+                  <!-- Default Vuetify Popup -->
                   <v-list v-else>
                     <v-list-item
                       :title="selectedEvent.title"

@@ -39,9 +39,17 @@
   }
 }
 
+/*********************************/
+/* Calendar Event Popup Components: 
+  - BlockCardWithImage
+  - CardMeta
+  - BlockTag
+  - BlockEventDetail
+*/
+
 .v-overlay-container {
 
-  .calendar-slot-wrapper {
+  .calendar-event-popup-wrapper {
     background-color: $page-blue;
 
     .ftva.block-highlight {
@@ -64,4 +72,7 @@
       }
     }
   }
+
+  // Slot styles
+  .calendar-slot-wrapper{}
 }
