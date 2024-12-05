@@ -1,9 +1,6 @@
 import { computed } from 'vue'
 import BaseCalendar from '../lib-components/BaseCalendar.vue'
 import { mockCalendarEvents } from './mock/CalendarEvents'
-import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
-import BlockTag from '@/lib-components/BlockTag.vue'
-import BlockEventDetail from '@/lib-components/BlockEventDetail.vue'
 
 export default {
   title: 'Base Calendar',
