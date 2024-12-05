@@ -141,6 +141,8 @@ function showEvent(calEventObj) {
                         :key="`tag-${tag.title}`"
                         :label="tag.title"
                         :is-secondary="true"
+                        :is-highlighted="tag.isHighlighted ? tag.isHighlighted : false"
+                        :class="{ highlighted: tag.isHighlighted }"
                       />
                     </div>
                     <BlockEventDetail

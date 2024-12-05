@@ -71,6 +71,16 @@
         color: $subtitle-grey;
       }
     }
+
+    .block-tag-wrapper {
+      
+      .ftva.block-tag {
+
+        &.highlighted { 
+          background-color: $pure-white;
+        }
+      }
+    }
   }
 
   // Slot styles
