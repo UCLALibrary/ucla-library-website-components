@@ -139,6 +139,12 @@ function handleInternalSelection(selectedDate: Date | Date[] | null) {
   else
     isSelecting.value = false
 }
+// Because date ranges are allowed on desktop but not mobile,
+// we need to reformat the date when the window is resized
+function reformatDateOnResize() {
+  if (isMobile.value && date.value && 'length' in date.value)
+    date.value = date.value[0]
+}
 // Deselect today button when range selection starts
 function clearTodayBtn() {
   todayBtnActive.value = false
@@ -192,10 +198,7 @@ onMounted(() => {
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
     isMobile.value = newWidth <= 750
-    // Note: if we want date to persist between mobile & desktop,
-    // we will need to write a method to convert dates to ranges and back and trigger it here
-    clearDate() // for now we clear the date on resize
-    datepicker.value?.closeMenu()
+    reformatDateOnResize()
   }, { immediate: true })
 })
 </script>
