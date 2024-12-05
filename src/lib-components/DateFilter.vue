@@ -55,6 +55,28 @@ const textConfig = ref({
   rangeSeparator: ' — ',
 })
 
+// Format the selected date(s) into consistent object
+const formattedDateSelection = computed(() => {
+  // range selected
+  if (date.value && 'length' in date.value) {
+    return {
+      startDate: date.value[0],
+      endDate: date.value[1],
+    }
+  }
+  // single date selected
+  else if (date.value) {
+    return {
+      startDate: date.value,
+      endDate: null,
+    }
+  }
+  // nothing selected
+  return {
+    startDate: null,
+    endDate: null,
+  }
+})
 // SETUP - Select initial dates if they exist
 if (initialDates.startDate && initialDates.endDate)
   date.value = [initialDates.startDate, initialDates.endDate]
@@ -101,10 +123,12 @@ function clearDate() {
   todayBtnActive.value = false
   datepicker.value?.clearValue()
   datepicker.value?.openMenu() // reopen after clear
+  emit('input-selected', formattedDateSelection.value)
 }
 
 function onDoneClick() {
   // always close menu after done click, even if no date selected
+  emit('input-selected', formattedDateSelection.value)
   datepicker.value?.closeMenu()
 }
 
@@ -139,28 +163,7 @@ defineExpose({
 })
 
 // COMPUTED VALUES
-// Format the selected date(s) into consistent object
-const formattedDateSelection = computed(() => {
-  // range selected
-  if (date.value && 'length' in date.value) {
-    return {
-      startDate: date.value[0],
-      endDate: date.value[1],
-    }
-  }
-  // single date selected
-  else if (date.value) {
-    return {
-      startDate: date.value,
-      endDate: null,
-    }
-  }
-  // nothing selected
-  return {
-    startDate: null,
-    endDate: null,
-  }
-})
+
 // computed classes
 const vue3datepickerClass = computed(() => ['vue-date-picker', { 'is-selecting': isSelecting.value }])
 const inputIconClass = computed(() => ['toggle-triangle-icon', { 'is-open': isOpen.value }])
@@ -184,8 +187,6 @@ watch(date, async (newDate, oldDate) => {
         rangeSeparator: ' — ',
       }
     }
-    // eslint-disable-next-line vue/custom-event-name-casing
-    emit('input-selected', formattedDateSelection.value)
   }
 })
 
