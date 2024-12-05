@@ -13,7 +13,8 @@ export const mockCalendarEvents = {
         {
           tagLabels: [
             {
-              title: 'Guest speaker'
+              title: 'Guest speaker',
+              isHighlighted: true
             },
             {
               title: '35mm'
@@ -128,7 +129,13 @@ export const mockCalendarEvents = {
           trailer: null,
           country: null,
           image: [],
-          tagLabels: [],
+          tagLabels: [{
+            title: 'Guest speaker',
+            isHighlighted: true
+          },
+          {
+            title: '35mm'
+          }],
           year: null,
           runtime: null,
           language: 'ar',
@@ -358,7 +365,8 @@ export const mockCalendarEvents = {
               title: 'Guest speaker'
             },
             {
-              title: '35mm'
+              title: '35mm',
+              isHighlighted: true
             }],
         }
       ],
