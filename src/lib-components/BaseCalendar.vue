@@ -7,6 +7,12 @@ import BlockTag from './BlockTag.vue'
 import { useTheme } from '@/composables/useTheme'
 
 const { defaultEventCalendar, events, firstEventMonth } = defineProps({
+  defaultEventCalendar: {
+    type: Boolean,
+    default: true
+    // Calendar with fixed components
+  },
+
   events: {
     type: Array,
     default: () => [],
@@ -17,11 +23,6 @@ const { defaultEventCalendar, events, firstEventMonth } = defineProps({
     default: () => [new Date()]
     // Sets calendar to month of earliest event
     // Default is current date
-  },
-
-  defaultEventCalendar: {
-    type: Boolean,
-    default: true
   }
 })
 
