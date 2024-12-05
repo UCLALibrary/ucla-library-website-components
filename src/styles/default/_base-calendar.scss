@@ -1,5 +1,6 @@
 .base-calendar {
   position: relative;
+  height: 1100px;
 
   .calendar-wrapper {
     display: grid;
@@ -37,7 +38,7 @@
     width: 48px;
     height: auto;
     border-radius: 4px;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -300%);
     position: absolute;
   }
 

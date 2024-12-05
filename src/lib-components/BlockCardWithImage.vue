@@ -17,7 +17,7 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
 // TYPESCRIPT
-import type { EventFiltersItemType, LocationItemType, MediaItemType } from '@/types/types'
+import type { LocationItemType, MediaItemType } from '@/types/types'
 
 // PROPS & DATA
 const props = defineProps({
@@ -96,11 +96,7 @@ const props = defineProps({
   dateCreated: {
     type: String,
     default: ''
-  },
-  tagLabels: {
-    type: Array as PropType<EventFiltersItemType[]>,
-    default: () => [],
-  },
+  }
 })
 
 // TOGGLE CLICKABLE BEHAVIOR
@@ -169,7 +165,6 @@ const parsedDateFormat = computed(() => {
       :language="language"
       :section-handle="sectionHandle"
       :date-created="dateCreated"
-      :tag-labels="tagLabels"
     />
   </li>
 </template>
