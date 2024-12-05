@@ -109,7 +109,7 @@ function goToToday() {
   }
   else {
     if (isMobile.value)
-      // mobile does allow range selection
+      // mobile does not allow range selection
       date.value = new Date()
     else
       date.value = [new Date(), new Date()]
@@ -162,8 +162,6 @@ defineExpose({
   closeDatepicker,
 })
 
-// COMPUTED VALUES
-
 // computed classes
 const vue3datepickerClass = computed(() => ['vue-date-picker', { 'is-selecting': isSelecting.value }])
 const inputIconClass = computed(() => ['toggle-triangle-icon', { 'is-open': isOpen.value }])
@@ -194,6 +192,10 @@ onMounted(() => {
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
     isMobile.value = newWidth <= 750
+    // Note: if we want date to persist between mobile & desktop,
+    // we will need to write a method to convert dates to ranges and back and trigger it here
+    clearDate() // for now we clear the date on resize
+    datepicker.value?.closeMenu()
   }, { immediate: true })
 })
 </script>
