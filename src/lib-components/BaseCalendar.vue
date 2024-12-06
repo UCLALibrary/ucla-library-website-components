@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref, useTemplateRef } from 'vue'
+import { computed, onMounted, onUnmounted, ref, useTemplateRef } from 'vue'
 import format from 'date-fns/format'
 import BlockCardWithImage from './BlockCardWithImage.vue'
 import BlockEventDetail from './BlockEventDetail.vue'
@@ -29,8 +29,14 @@ const { defaultEventCalendar, events, firstEventMonth } = defineProps({
 const calendarRef = useTemplateRef('calendar')
 const firstEventMonthRef = ref(firstEventMonth)
 
+// Vuetify Popup/Dialog
+const selectedEvent = ref({})
+const eventItemElements = []
+
 onMounted(() => {
   updateCalendarHeaderElements()
+
+  window.addEventListener('click', handleEventItemDeselect)
 })
 
 // Vuetify calendar day format is single-lettered: S, M, etc.
@@ -46,6 +52,13 @@ function updateCalendarHeaderElements() {
   weekDayLabels.forEach((elem, idx) => elem.innerText = weekDays[idx])
 
   todayBtnElem.innerText = 'This Month'
+}
+
+// Doc:
+function handleEventItemDeselect() {
+  eventItemElements.forEach((obj) => {
+    obj.elem.classList.remove('selected-event')
+  })
 }
 
 const parsedEvents = computed(() => {
@@ -79,16 +92,6 @@ function formatEventTime(date) {
   const formattedTime = format(new Date(date), 'h:mm aaa')
   return formattedTime.toUpperCase()
 }
-
-const theme = useTheme()
-
-const classes = computed(() => {
-  return ['base-calendar', theme?.value || '']
-})
-
-// Vuetify Popup/Dialog
-const selectedEvent = ref({})
-const eventItemElements = []
 
 // Doc:
 function showEventItemPopup(calendarEventObj) {
@@ -125,19 +128,21 @@ function eventItemFuncRef(elem) {
   }
 }
 
-// Doc:
-function handleEventItemDeselect() {
-  eventItemElements.forEach((obj) => {
-    obj.elem.classList.remove('selected-event')
-  })
-}
+onUnmounted(() => {
+  window.removeEventListener('click', handleEventItemDeselect)
+})
+
+const theme = useTheme()
+
+const classes = computed(() => {
+  return ['base-calendar', theme?.value || '']
+})
 </script>
 
 <template>
   <div
     ref="calendar"
     :class="classes"
-    @click="handleEventItemDeselect"
   >
     <div class="calendar-wrapper">
       <v-sheet class="calendar-body">
