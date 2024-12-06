@@ -10,7 +10,7 @@
 
     .section-header:has(+ ul.section-teaser-card.ftva) {
         // Set to zero to remove margin under Section Title
-        // Explore Other Series or Events or Related Collections and Recent Posts 
+        // Explore Other Series or Events or Related Collections and Recent Posts
         margin-bottom: 0;
 
         :deep(.section-title) {
@@ -102,7 +102,20 @@
                         }
                     }
                 }
+
+                .section-staff-article-list {
+                    background-color: var(--color-theme);
+                    // margin-left: 0;
+                    // margin-right: 0;
+                }
             }
         }
     }
+
+    // @media #{$small} {
+    //     //   background: none;
+    //     //   padding: 0;
+    //     margin-left: 0;
+    //     margin-right: 0;
+    // }
 }
