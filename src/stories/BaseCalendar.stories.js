@@ -3,7 +3,7 @@ import BaseCalendar from '../lib-components/BaseCalendar.vue'
 import { mockCalendarEvents } from './mock/CalendarEvents'
 
 /**
- * Calendar component that extends Vuetify's v-calendar component.
+ * Calendar component that extends Vuetify's `v-calendar` component and uses the `v-menu` component to display event item popup/dialog.
  *
  * Props:
  *
@@ -21,7 +21,7 @@ import { mockCalendarEvents } from './mock/CalendarEvents'
  *
  * 3. firstEventMonth: Array with a default `new Date()` object as its only item
  * - When used, sets the first month that the calendar displays on page load
- * - Example syntax: `[new Date('March 01, 2024 00:00:00')]`
+ * - Example syntax: `[new Date('September 01, 2024 00:00:00')]`
  * - See __Set Start Month__ story
  */
 
