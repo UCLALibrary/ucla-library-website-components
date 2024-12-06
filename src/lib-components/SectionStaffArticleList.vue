@@ -40,9 +40,9 @@ const classes = computed(() => {
       />
       <ul class="block-staff-article-list">
         <BlockStaffArticleList
-          class="block-staff-article-item"
           v-for="(item, index) in items"
           :key="index"
+          class="block-staff-article-item"
           :image="item.image"
           :to="item.to"
           :category="item.category"
