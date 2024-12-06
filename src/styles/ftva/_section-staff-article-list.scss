@@ -17,6 +17,11 @@
     }
   }
 
+  @media #{$medium} {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   // Breakpoints
   @media #{$small} {
     background: none;
@@ -28,6 +33,10 @@
       .block-staff-article-item {
         border-bottom: 0;
         margin-bottom: 40px;
+      }
+
+      .block-staff-article-item:last-child {
+        margin-bottom: 0;
       }
     }
 

@@ -526,16 +526,16 @@ const mockSeries = [
     to: "triathlon-movies",
     description: "<p>A <strong>triathlon</strong> is an endurance multisport race consisting of swimming, cycling, and running over various distances.<sup></sup></p>",
     image: {
-          id: "3461183",
-          src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/tri_2024-11-26-230531_mgnw.jpg",
-          height: 1440,
-          width: 2560,
-          srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/tri_2024-11-26-230531_mgnw.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/tri_2024-11-26-230531_mgnw.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/tri_2024-11-26-230531_mgnw.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/tri_2024-11-26-230531_mgnw.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/tri_2024-11-26-230531_mgnw.jpg 2560w",
-          alt: null,
-          focalPoint: [
-            0.5,
-            0.5
-          ]
+      id: "3461183",
+      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/tri_2024-11-26-230531_mgnw.jpg",
+      height: 1440,
+      width: 2560,
+      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/tri_2024-11-26-230531_mgnw.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/tri_2024-11-26-230531_mgnw.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/tri_2024-11-26-230531_mgnw.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/tri_2024-11-26-230531_mgnw.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/tri_2024-11-26-230531_mgnw.jpg 2560w",
+      alt: null,
+      focalPoint: [
+        0.5,
+        0.5
+      ]
     },
     startDate: "2024-11-22T00:00:00",
     endDate: "2024-11-22T00:00:00",
@@ -549,22 +549,16 @@ const mockSeries = [
     to: "holiday-kittens",
     description: null,
     image: {
-      _custom: {
-        type: "reactive",
-        stateTypeName: "Reactive",
-        value: {
-          id: "3454782",
-          src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg",
-          height: 1707,
-          width: 2560,
-          srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg 2560w",
-          alt: null,
-          focalPoint: [
-            0.5,
-            0.5
-          ]
-        }
-      }
+      id: "3454782",
+      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg",
+      height: 1707,
+      width: 2560,
+      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/kittyforchristmasfeatured-1_2024-11-22-020416_isxa.jpg 2560w",
+      alt: null,
+      focalPoint: [
+        0.5,
+        0.5
+      ]
     },
     startDate: "2024-11-19T00:00:00",
     endDate: "2024-11-21T00:00:00",
@@ -578,22 +572,16 @@ const mockSeries = [
     to: "holiday-series-on-one-day",
     description: "<p>Fun, non-religious Christmas movies</p>",
     image: {
-      _custom: {
-        type: "reactive",
-        stateTypeName: "Reactive",
-        value: {
-          id: "3440862",
-          src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/netflix-holiday.jpg",
-          height: 1440,
-          width: 2560,
-          srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/netflix-holiday.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/netflix-holiday.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/netflix-holiday.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/netflix-holiday.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/netflix-holiday.jpg 2560w",
-          alt: null,
-          focalPoint: [
-            0.5,
-            0.5
-          ]
-        }
-      }
+      id: "3440862",
+      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/netflix-holiday.jpg",
+      height: 1440,
+      width: 2560,
+      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/netflix-holiday.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/netflix-holiday.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/netflix-holiday.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/netflix-holiday.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/netflix-holiday.jpg 2560w",
+      alt: null,
+      focalPoint: [
+        0.5,
+        0.5
+      ]
     },
     startDate: "2024-12-23T00:00:00",
     endDate: "2024-12-23T00:00:00",
@@ -607,22 +595,16 @@ const mockSeries = [
     to: "gymnastic-movie-series",
     description: "<p>Gymnastics Movies for Kids That Inspire Athletic Dreams</p>",
     image: {
-      _custom: {
-        type: "reactive",
-        stateTypeName: "Reactive",
-        value: {
-          id: "3385832",
-          src: "https://static.library.ucla.edu/craftassetstest/FTVA/paris-olympics-42-gty-gmh-240730_1722364842455_hpMain_2024-10-22-191218_vple.avif",
-          height: null,
-          width: null,
-          srcset: "",
-          alt: null,
-          focalPoint: [
-            0.5,
-            0.5
-          ]
-        }
-      }
+      id: "3385832",
+      src: "https://static.library.ucla.edu/craftassetstest/FTVA/paris-olympics-42-gty-gmh-240730_1722364842455_hpMain_2024-10-22-191218_vple.avif",
+      height: null,
+      width: null,
+      srcset: "",
+      alt: null,
+      focalPoint: [
+        0.5,
+        0.5
+      ]
     },
     startDate: "2024-04-07T00:00:00",
     endDate: null,
@@ -636,22 +618,16 @@ const mockSeries = [
     to: "a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary",
     description: "This deep into the post-print era it may be hard for some to understand how something as ephemeral as a magazine could change the world. That may be especially true when the magazine hasn‚Äôt been in print for over a decade. But from its first issue as a Xeroxed zine in 1994 to its final run as a full-page glossy in 2011, Giant Robot did just that. Founded by UCLA alumni Eric Nakamura, Giant Robot began, simply enough, as a vehicle for Nakamura and co-editor Martin Wong to write about the stuff they liked ‚Äî whether other people liked it or not. Its first three issues featured articles on sumo wrestling, underground filmmaker Jon Moritsugu, Hello Kitty, Hong Kong movie soundtracks, Pizzicato Five and the delights of Southern California‚Äôs Cambodian-run donut shops. Mixed in with the reviews and profiles were personal essays about being Asian American in a wider culture that didn‚Äôt know or care about any of those things. Steeped in Nakamura‚Äôs DIY, punk rock ethic, Giant Robot quickly attracted a like-minded readership. Its eclectic focus on alternative Asian and Asian American culture was so fresh and so unique that many of the artists, filmmakers, musicians and writers that it profiled, such as Daniel Wu and Ayako Fujitani, asked to become contributors themselves. Maggie Cheung, Jenny Shimizu, Jet Li and Margaret Cho graced its cover as well as work by visual artists such as Yoshitomo Nara and Takashi Murakami. Before its run was over, what Giant Robot thought was cool when no else did ‚Äî ramen, Jackie Chan, Japanese candy ‚Äî was suddenly everywhere. The magazine‚Äôs work and spirit lives on at the Giant Robot retail store on Sawtelle Blvd. in Los Angeles and the GR2 art gallery across the street. The Archive is thrilled to celebrate Giant Robot‚Äôs history and legacy with this special film series co-curated with Eric Nakamura.",
     image: {
-      _custom: {
-        type: "reactive",
-        stateTypeName: "Reactive",
-        value: {
-          id: "3260302",
-          src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Tekkon_Kinkreet_crop.jpeg",
-          height: 1920,
-          width: 2560,
-          srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Tekkon_Kinkreet_crop.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Tekkon_Kinkreet_crop.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Tekkon_Kinkreet_crop.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Tekkon_Kinkreet_crop.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Tekkon_Kinkreet_crop.jpeg 2560w",
-          alt: "An animated scene of a boy sitting on an electrical pole and overlooking a city.",
-          focalPoint: [
-            0.5,
-            0.5
-          ]
-        }
-      }
+      id: "3260302",
+      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Tekkon_Kinkreet_crop.jpeg",
+      height: 1920,
+      width: 2560,
+      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Tekkon_Kinkreet_crop.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Tekkon_Kinkreet_crop.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Tekkon_Kinkreet_crop.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Tekkon_Kinkreet_crop.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Tekkon_Kinkreet_crop.jpeg 2560w",
+      alt: "An animated scene of a boy sitting on an electrical pole and overlooking a city.",
+      focalPoint: [
+        0.5,
+        0.5
+      ]
     },
     startDate: "2024-11-01T19:30:00",
     endDate: "2024-11-22T00:00:00",
@@ -665,22 +641,16 @@ const mockSeries = [
     to: "border-wars",
     description: null,
     image: {
-      _custom: {
-        type: "reactive",
-        stateTypeName: "Reactive",
-        value: {
-          id: "3461200",
-          src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/border-hh_2024-11-26-230828_lxem.webp",
-          height: 1587,
-          width: 2560,
-          srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/border-hh_2024-11-26-230828_lxem.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/border-hh_2024-11-26-230828_lxem.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/border-hh_2024-11-26-230828_lxem.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/border-hh_2024-11-26-230828_lxem.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/border-hh_2024-11-26-230828_lxem.webp 2560w",
-          alt: null,
-          focalPoint: [
-            0.5,
-            0.5
-          ]
-        }
-      }
+      id: "3461200",
+      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/border-hh_2024-11-26-230828_lxem.webp",
+      height: 1587,
+      width: 2560,
+      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/border-hh_2024-11-26-230828_lxem.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/border-hh_2024-11-26-230828_lxem.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/border-hh_2024-11-26-230828_lxem.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/border-hh_2024-11-26-230828_lxem.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/border-hh_2024-11-26-230828_lxem.webp 2560w",
+      alt: null,
+      focalPoint: [
+        0.5,
+        0.5
+      ]
     },
     startDate: "2024-10-26T19:30:00",
     endDate: "2024-10-26T19:30:00",
@@ -694,22 +664,16 @@ const mockSeries = [
     to: "silent-movie-day",
     description: null,
     image: {
-      _custom: {
-        type: "reactive",
-        stateTypeName: "Reactive",
-        value: {
-          id: "3461192",
-          src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/blacknumbers2_2024-11-26-230718_assa.jpg",
-          height: 1438,
-          width: 2560,
-          srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/blacknumbers2_2024-11-26-230718_assa.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/blacknumbers2_2024-11-26-230718_assa.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/blacknumbers2_2024-11-26-230718_assa.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/blacknumbers2_2024-11-26-230718_assa.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/blacknumbers2_2024-11-26-230718_assa.jpg 2560w",
-          alt: null,
-          focalPoint: [
-            0.5,
-            0.5
-          ]
-        }
-      }
+      id: "3461192",
+      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/blacknumbers2_2024-11-26-230718_assa.jpg",
+      height: 1438,
+      width: 2560,
+      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/blacknumbers2_2024-11-26-230718_assa.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/blacknumbers2_2024-11-26-230718_assa.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/blacknumbers2_2024-11-26-230718_assa.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/blacknumbers2_2024-11-26-230718_assa.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/blacknumbers2_2024-11-26-230718_assa.jpg 2560w",
+      alt: null,
+      focalPoint: [
+        0.5,
+        0.5
+      ]
     },
     startDate: "2024-10-06T19:00:00",
     endDate: "2024-10-06T19:00:00",
@@ -723,22 +687,16 @@ const mockSeries = [
     to: "summer-sci-fi",
     description: "In advance of its major fall series, Science Fiction Against the Margins, presented as part of the Getty‚Äôs region-wide initiative, PST ART: Art &amp; Science Collide, the Archive is pleased to whet your appetite with a selection of independent films that have helped to push the science fiction genre into new frontiers. While these films represent a wide range of visual styles and thematic concerns, from cult classics to recent masterpieces, they are connected in a shared ethos that low budgets aren‚Äôt anathema to expansive visions.",
     image: {
-      _custom: {
-        type: "reactive",
-        stateTypeName: "Reactive",
-        value: {
-          id: "3260316",
-          src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Animalia-crop.png",
-          height: 1920,
-          width: 2560,
-          srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Animalia-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Animalia-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Animalia-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Animalia-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Animalia-crop.png 2560w",
-          alt: "A person looking up at dark, cloud-filled sky.",
-          focalPoint: [
-            0.5,
-            0.5
-          ]
-        }
-      }
+      id: "3260316",
+      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Animalia-crop.png",
+      height: 1920,
+      width: 2560,
+      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Animalia-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Animalia-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Animalia-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Animalia-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Animalia-crop.png 2560w",
+      alt: "A person looking up at dark, cloud-filled sky.",
+      focalPoint: [
+        0.5,
+        0.5
+      ]
     },
     startDate: "2024-08-03T19:30:00",
     endDate: "2024-08-18T19:00:00",
@@ -752,22 +710,16 @@ const mockSeries = [
     to: "series-with-one-old-and-2-new-events",
     description: null,
     image: {
-      _custom: {
-        type: "reactive",
-        stateTypeName: "Reactive",
-        value: {
-          id: "3461136",
-          src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/xray-1_2024-11-26-225648_wmke.jpeg",
-          height: 3840,
-          width: 2560,
-          srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/xray-1_2024-11-26-225648_wmke.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/xray-1_2024-11-26-225648_wmke.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/xray-1_2024-11-26-225648_wmke.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/xray-1_2024-11-26-225648_wmke.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/xray-1_2024-11-26-225648_wmke.jpeg 2560w",
-          alt: null,
-          focalPoint: [
-            0.5,
-            0.5
-          ]
-        }
-      }
+      id: "3461136",
+      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/xray-1_2024-11-26-225648_wmke.jpeg",
+      height: 3840,
+      width: 2560,
+      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/xray-1_2024-11-26-225648_wmke.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/xray-1_2024-11-26-225648_wmke.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/xray-1_2024-11-26-225648_wmke.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/xray-1_2024-11-26-225648_wmke.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/xray-1_2024-11-26-225648_wmke.jpeg 2560w",
+      alt: null,
+      focalPoint: [
+        0.5,
+        0.5
+      ]
     },
     startDate: "2024-08-08T00:00:00",
     endDate: null,

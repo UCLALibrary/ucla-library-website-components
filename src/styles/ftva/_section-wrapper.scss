@@ -86,6 +86,16 @@
             margin-bottom: 20px;
         }
 
+        .tab-item {
+            margin-left: 0;
+            margin-right: 0;
+
+            .tab-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
         &.theme-paleblue {
             --color-theme: #{$page-blue};
             --color-children-theme: var(--color-white);
@@ -105,17 +115,22 @@
 
                 .section-staff-article-list {
                     background-color: var(--color-theme);
-                    // margin-left: 0;
-                    // margin-right: 0;
+                    background-color: var(--color-children-theme);
                 }
             }
         }
     }
 
-    // @media #{$small} {
-    //     //   background: none;
-    //     //   padding: 0;
-    //     margin-left: 0;
-    //     margin-right: 0;
-    // }
+    @media #{$small} {
+        &.theme-paleblue {
+            --color-theme: #{$page-blue};
+            --color-children-theme: var(--color-white);
+
+            :deep(*) {
+                .section-staff-article-list {
+                    background-color: var(--color-theme);
+                }
+            }
+        }
+    }
 }
