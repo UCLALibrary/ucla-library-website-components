@@ -113,3 +113,22 @@ export function FtvaCurrentEntriesWithDates() {
   `,
   }
 }
+
+export function FtvaNoSectionTitle() {
+  return {
+    data() {
+      return { items: mockCurrentEntriesWithDates }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionStaffArticleList },
+    template: `
+      <section-staff-article-list
+        :items="items"
+      />
+  `,
+  }
+}

@@ -1,4 +1,50 @@
+// .ftva.section-staff-article-list {
+//   background: var(--color-white);
+//   padding: 45px;
+
+//   .container {
+//     max-width: 100%;
+//   }
+
+//   .block-staff-article-item {
+//     border-bottom: 10px solid var(--page-blue);
+//     margin-bottom: 0;
+//     background-color: pink;
+//   }
+
+//   .block-staff-article-item:first-child {
+//     padding-top: 0;
+//   }
+
+//   .block-staff-article-item:last-child {
+//     border-bottom: 0;
+//     padding-bottom: 0;
+//   }
+
+//   // Breakpoints
+//   @media #{$small} {
+//     padding: 0;
+
+//     .block-staff-article-item {
+//       border-bottom: 0;
+//       margin-bottom: 24px;
+//     }
+//   }
+// }
+
 .ftva.section-staff-article-list {
+  background: var(--color-white);
+  padding: 45px;
+
+  .container {
+    max-width: 100%;
+  }
+
+  .block-staff-article-list {
+    .block-staff-article-item {
+      border-bottom: 1px solid var(--page-blue);
+    }
+  }
 
   // Breakpoints
   @media #{$small} {
