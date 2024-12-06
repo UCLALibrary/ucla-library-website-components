@@ -31,13 +31,14 @@ const calendarRef = useTemplateRef('calendar')
 const firstEventMonthRef = ref(firstEventMonth)
 
 // Vuetify Popup/Dialog
-const selectedEvent = ref({})
-const eventItemElements = []
+const eventItemRef = ref({})
+const selectedEventObj = ref({})
+const selectedEventElement = ref(null)
 
 onMounted(() => {
   updateCalendarHeaderElements()
 
-  window.addEventListener('click', handleEventItemDeselect)
+  window.addEventListener('click', handleSelectedEventItemDeselect)
 })
 
 // Vuetify calendar day format is single-lettered: S, M, etc.
@@ -55,12 +56,10 @@ function updateCalendarHeaderElements() {
   todayBtnElem.innerText = 'This Month'
 }
 
-// When an event item popup closes, a trigger is needed to
-// remove the item's selected-event class
-function handleEventItemDeselect() {
-  eventItemElements.forEach((obj) => {
-    obj.elem.classList.remove('selected-event')
-  })
+// Remove selected style of previous selected event
+function handleSelectedEventItemDeselect() {
+  if (selectedEventElement.value)
+    selectedEventElement.value.classList.remove('selected-event')
 }
 
 const parsedEvents = computed(() => {
@@ -95,50 +94,22 @@ function formatEventTime(date) {
   return formattedTime.toUpperCase()
 }
 
-// Collect event item DOM elements
-function eventItemFuncRef(elem) {
-  if (!elem)
-    return
-
-  const eventid = elem.getAttribute('data-id')
-
-  // Check for event item in array
-  const eventItemExists = eventItemElements.find(obj => obj.id === eventid)
-
-  if (!eventItemExists) {
-    eventItemElements.push({
-      id: eventid,
-      title: elem.innerText,
-      elem,
-    })
-  }
-}
-
-// Render event item popup; set selected style/class
 function showEventItemPopup(calendarEventObj) {
-  selectedEvent.value = calendarEventObj
+  // Remove selected style of previous selected event
+  handleSelectedEventItemDeselect()
 
-  const eventid = calendarEventObj.id
+  selectedEventObj.value = calendarEventObj
 
-  setSelectedStyle(eventid)
-}
+  const selectedElem = eventItemRef.value[`item-${calendarEventObj.id}`]
 
-function setSelectedStyle(selectedEventId) {
-  // Get index of selected event's DOM element
-  const selectedEventIndex = eventItemElements.findIndex(obj => obj.id === selectedEventId)
+  // Set event as new selected event
+  selectedEventElement.value = selectedElem
 
-  // Apply 'selected-event' class to selected event
-  // Remove class from other events
-  eventItemElements.forEach((obj, idx) => {
-    if (idx === selectedEventIndex)
-      obj.elem.classList.add('selected-event')
-    else
-      obj.elem.classList.remove('selected-event')
-  })
+  selectedEventElement.value.classList.add('selected-event')
 }
 
 onUnmounted(() => {
-  window.removeEventListener('click', handleEventItemDeselect)
+  window.removeEventListener('click', handleSelectedEventItemDeselect)
 })
 
 const theme = useTheme()
@@ -163,7 +134,7 @@ const classes = computed(() => {
           <!-- Vuetify calendar event slot -->
           <!-- Slot prop holds each parsedEvent object -->
           <template #event="event">
-            <button :ref="eventItemFuncRef" class="calendar-event-item" :data-id="event.event.id" @click="showEventItemPopup(event.event)">
+            <button :ref="(el) => { eventItemRef[`item-${event.event.id}`] = el }" class="calendar-event-item" @click="showEventItemPopup(event.event)">
               <span class="calendar-event-title">
                 {{ event.event.title }}
               </span>
@@ -180,17 +151,17 @@ const classes = computed(() => {
                 origin="auto"
                 offset="10"
               >
-                <v-card width="320" :link="true" :to="selectedEvent.to">
+                <v-card width="320" :link="true" :to="selectedEventObj.to">
                   <!-- Default Event Calendar -->
                   <div v-if="defaultEventCalendar" class="calendar-event-popup-wrapper">
                     <BlockCardWithImage
-                      :image="selectedEvent.image"
-                      :title="selectedEvent.title"
-                      :category="selectedEvent.category"
+                      :image="selectedEventObj.image"
+                      :title="selectedEventObj.title"
+                      :category="selectedEventObj.category"
                     />
                     <div class="block-tag-wrapper">
                       <BlockTag
-                        v-for="tag in selectedEvent.tagLabels"
+                        v-for="tag in selectedEventObj.tagLabels"
                         :key="`tag-${tag.title}`"
                         :label="tag.title"
                         :is-secondary="true"
@@ -199,21 +170,21 @@ const classes = computed(() => {
                       />
                     </div>
                     <BlockEventDetail
-                      :start-date="selectedEvent.startDateWithTime"
-                      :time="selectedEvent.startDateWithTime"
-                      :locations="selectedEvent.location"
+                      :start-date="selectedEventObj.startDateWithTime"
+                      :time="selectedEventObj.startDateWithTime"
+                      :locations="selectedEventObj.location"
                     />
                   </div>
 
                   <!-- Slot for new components -->
                   <div v-else-if="$slots.calendarSlotComponent" class="calendar-slot-wrapper">
-                    <slot name="calendarSlotComponent" :event="selectedEvent" />
+                    <slot name="calendarSlotComponent" :event="selectedEventObj" />
                   </div>
 
                   <!-- Default Vuetify component -->
                   <v-list v-else>
                     <v-list-item
-                      :title="selectedEvent.title"
+                      :title="selectedEventObj.title"
                     />
                   </v-list>
                 </v-card>

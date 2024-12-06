@@ -8,7 +8,7 @@ import { mockCalendarEvents } from './mock/CalendarEvents'
  * Props:
  *
  * 1. defaultEventCalendar: Boolean value
- * - When `true` (default), renders an event calendar with predetermined inner components:
+ * - When `true` (default), renders an event calendar with preset inner components:
  *     - BlockCardWithImage, BlockEventDetail, and BlockTag
  *     - See __Default Event__ stories
  * - When `false`, BaseCalendar can either be:
