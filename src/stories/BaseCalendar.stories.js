@@ -2,6 +2,29 @@ import { computed } from 'vue'
 import BaseCalendar from '../lib-components/BaseCalendar.vue'
 import { mockCalendarEvents } from './mock/CalendarEvents'
 
+/**
+ * Calendar component that extends Vuetify's v-calendar component.
+ *
+ * Props:
+ *
+ * 1. defaultEventCalendar: Boolean value
+ * - When `true` (default), renders an event calendar with predetermined inner components:
+ *     - BlockCardWithImage, BlockEventDetail, and BlockTag
+ *     - See __Default Event__ stories
+ * - When `false`, BaseCalendar can either be:
+ *     - a simplified calendar that uses Vuetify's `v-list` component; see __Default Vuetify__ story
+ *     - a calendar with custom components if the slot `calendarSlotComponent` is used
+ *
+ *
+ * 2. events: Array of event objects
+ *
+ *
+ * 3. firstEventMonth: Array with a default `new Date()` object as its only item
+ * - When used, sets the first month that the calendar displays on page load
+ * - Example syntax: `[new Date('March 01, 2024 00:00:00')]`
+ * - See __Set Start Month__ story
+ */
+
 export default {
   title: 'Base Calendar',
   component: BaseCalendar,
