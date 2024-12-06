@@ -33,6 +33,21 @@ onMounted(() => {
   updateCalendarHeaderElements()
 })
 
+// Vuetify calendar day format is single-lettered: S, M, etc.
+// Update day to full name: Sunday, Monday, etc.
+// Default header button text is 'Today'; update to 'This Month'
+function updateCalendarHeaderElements() {
+  const weekDayLabels = calendarRef.value.querySelectorAll('.v-calendar-weekly__head-weekday-with-weeknumber')
+
+  const todayBtnElem = calendarRef.value.querySelector('.v-calendar-header__today .v-btn__content')
+
+  const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+  weekDayLabels.forEach((elem, idx) => elem.innerText = weekDays[idx])
+
+  todayBtnElem.innerText = 'This Month'
+}
+
 const parsedEvents = computed(() => {
   if (events.length === 0)
     return []
@@ -47,8 +62,8 @@ const parsedEvents = computed(() => {
       end: new Date(rawDate),
       time: formatEventTime(rawDate),
       // All other event data
+      id: obj.id,
       startDateWithTime: obj.startDateWithTime,
-      // category: 'TBD',
       tagLabels: obj.ftvaEventScreeningDetails[0]?.tagLabels,
       image: obj.imageCarousel[0]?.image[0],
       location: obj.location,
@@ -65,33 +80,56 @@ function formatEventTime(date) {
   return formattedTime.toUpperCase()
 }
 
-// Vuetify calendar day format is single-lettered: S, M, etc.
-// Update day to full name: Sunday, Monday, etc.
-// Default header button text is 'Today'; update to 'This Month'
-function updateCalendarHeaderElements() {
-  const weekDayLabels = calendarRef.value.querySelectorAll('.v-calendar-weekly__head-weekday-with-weeknumber')
-
-  const todayBtnElem = calendarRef.value.querySelector('.v-calendar-header__today .v-btn__content')
-
-  const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-
-  weekDayLabels.forEach((elem, idx) => elem.innerText = weekDays[idx])
-
-  todayBtnElem.innerText = 'This Month'
-}
-
 const theme = useTheme()
 
 const classes = computed(() => {
   return ['base-calendar', theme?.value || '']
 })
 
-// Vuetify Popover
-const eventItemRef = ref()
+// Vuetify Popup/Dialog
 const selectedEvent = ref({})
+const eventItemElements = []
 
-function showEvent(calEventObj) {
-  selectedEvent.value = calEventObj
+// Doc:
+function showEventItemPopup(calendarEventObj) {
+  selectedEvent.value = calendarEventObj
+
+  const selectedEventId = calendarEventObj.id
+
+  const selectedEventIndex = eventItemElements.findIndex(obj => obj.id === selectedEventId)
+
+  eventItemElements.forEach((obj, idx) => {
+    if (idx === selectedEventIndex)
+      obj.elem.classList.add('selected-event')
+    else
+      obj.elem.classList.remove('selected-event')
+  })
+}
+
+// Doc:
+function eventItemFuncRef(elem) {
+  if (!elem)
+    return
+
+  const eventid = elem.getAttribute('data-id')
+
+  // Check for event item in array
+  const eventItemExists = eventItemElements.find(obj => obj.id === eventid)
+
+  if (!eventItemExists) {
+    eventItemElements.push({
+      id: eventid,
+      title: elem.innerText,
+      elem,
+    })
+  }
+}
+
+// Doc:
+function handleEventItemDeselect() {
+  eventItemElements.forEach((obj) => {
+    obj.elem.classList.remove('selected-event')
+  })
 }
 </script>
 
@@ -99,6 +137,7 @@ function showEvent(calEventObj) {
   <div
     ref="calendar"
     :class="classes"
+    @click="handleEventItemDeselect"
   >
     <div class="calendar-wrapper">
       <v-sheet class="calendar-body">
@@ -110,7 +149,7 @@ function showEvent(calEventObj) {
           <!-- Vuetify calendar event slot -->
           <!-- Slot prop holds each parsedEvent object -->
           <template #event="event">
-            <button ref="eventItemRef" class="calendar-event-item" @click="showEvent(event.event)">
+            <button :ref="eventItemFuncRef" class="calendar-event-item" :data-id="event.event.id" @click="showEventItemPopup(event.event)">
               <span class="calendar-event-title">
                 {{ event.event.title }}
               </span>
@@ -157,7 +196,7 @@ function showEvent(calEventObj) {
                     <slot name="calendarSlotComponent" :event="selectedEvent" />
                   </div>
 
-                  <!-- Default Vuetify Popup -->
+                  <!-- Default Vuetify component -->
                   <v-list v-else>
                     <v-list-item
                       :title="selectedEvent.title"
