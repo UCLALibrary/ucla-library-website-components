@@ -9,6 +9,7 @@ export const mockCalendarEvents = {
       startDateWithTime: '2024-10-06T03:30:00',
       startTime: '2024-10-06T03:30:00',
       location: [],
+      id: '3370198',
       ftvaEventScreeningDetails: [
         {
           tagLabels: [
@@ -32,6 +33,7 @@ export const mockCalendarEvents = {
       startDateWithTime: '2024-10-06T03:30:00',
       startTime: '2024-10-06T03:30:00',
       location: [],
+      id: '3370199',
       ftvaEventScreeningDetails: [
         {
           tagLabels: [
@@ -54,6 +56,7 @@ export const mockCalendarEvents = {
       startDateWithTime: '2024-10-06T03:30:00',
       startTime: '2024-10-06T03:30:00',
       location: [],
+      id: '3370200',
       ftvaEventScreeningDetails: [
         {
           tagLabels: [
@@ -76,6 +79,7 @@ export const mockCalendarEvents = {
       startDateWithTime: '2024-10-06T03:30:00',
       startTime: '2024-09-06T03:30:00',
       location: [],
+      id: '3370201',
       ftvaEventScreeningDetails: [
         {
           tagLabels: [
