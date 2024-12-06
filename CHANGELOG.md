@@ -1,3 +1,10 @@
+## [3.39.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.39.0...v3.39.1) (2024-12-06)
+
+
+### Bug Fixes
+
+* APPS-3073 Datefilter bugs & enhancements ([#660](https://github.com/UCLALibrary/ucla-library-website-components/issues/660)) ([64b7825](https://github.com/UCLALibrary/ucla-library-website-components/commit/64b7825f7818175067f988d3562fb84dff2c37aa))
+
 # [3.39.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.38.0...v3.39.0) (2024-12-03)
 
 
