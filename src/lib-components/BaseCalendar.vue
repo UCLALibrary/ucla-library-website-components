@@ -10,7 +10,8 @@ const { defaultEventCalendar, events, firstEventMonth } = defineProps({
   defaultEventCalendar: {
     type: Boolean,
     default: true
-    // Calendar with fixed components
+    // True: Default calendar with fixed components
+    // False: Minimal calendar or with custom components
   },
 
   events: {
@@ -22,7 +23,7 @@ const { defaultEventCalendar, events, firstEventMonth } = defineProps({
     type: Array,
     default: () => [new Date()]
     // Sets calendar to month of earliest event
-    // Default is current date
+    // Default: Calendar opens to month of current date
   }
 })
 
@@ -54,7 +55,8 @@ function updateCalendarHeaderElements() {
   todayBtnElem.innerText = 'This Month'
 }
 
-// Doc:
+// When an event item popup closes, a trigger is needed to
+// remove the item's selected-event class
 function handleEventItemDeselect() {
   eventItemElements.forEach((obj) => {
     obj.elem.classList.remove('selected-event')
@@ -93,23 +95,7 @@ function formatEventTime(date) {
   return formattedTime.toUpperCase()
 }
 
-// Doc:
-function showEventItemPopup(calendarEventObj) {
-  selectedEvent.value = calendarEventObj
-
-  const selectedEventId = calendarEventObj.id
-
-  const selectedEventIndex = eventItemElements.findIndex(obj => obj.id === selectedEventId)
-
-  eventItemElements.forEach((obj, idx) => {
-    if (idx === selectedEventIndex)
-      obj.elem.classList.add('selected-event')
-    else
-      obj.elem.classList.remove('selected-event')
-  })
-}
-
-// Doc:
+// Collect event item DOM elements
 function eventItemFuncRef(elem) {
   if (!elem)
     return
@@ -126,6 +112,29 @@ function eventItemFuncRef(elem) {
       elem,
     })
   }
+}
+
+// Render event item popup; set selected style/class
+function showEventItemPopup(calendarEventObj) {
+  selectedEvent.value = calendarEventObj
+
+  const eventid = calendarEventObj.id
+
+  setSelectedStyle(eventid)
+}
+
+function setSelectedStyle(selectedEventId) {
+  // Get index of selected event's DOM element
+  const selectedEventIndex = eventItemElements.findIndex(obj => obj.id === selectedEventId)
+
+  // Apply 'selected-event' class to selected event
+  // Remove class from other events
+  eventItemElements.forEach((obj, idx) => {
+    if (idx === selectedEventIndex)
+      obj.elem.classList.add('selected-event')
+    else
+      obj.elem.classList.remove('selected-event')
+  })
 }
 
 onUnmounted(() => {
