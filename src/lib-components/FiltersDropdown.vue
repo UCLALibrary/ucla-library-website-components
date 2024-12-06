@@ -1,95 +1,124 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed } from 'vue'
+import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 import BlockTag from './BlockTag.vue'
+import ButtonLink from './ButtonLink.vue'
 import MobileDrawer from './MobileDrawer.vue'
 import { useTheme } from '@/composables/useTheme'
 
-const { filterGroups, initialSelectedFilters } = defineProps({
+// TODO TYPES
+const { filterGroups } = defineProps({
   filterGroups: {
     type: Array, //  as PropType<FilterGroupsTypes[]>,
     default: () => [],
-  },
-  initialSelectedFilters: { // This is like initialDates prop of DateFilter
-    type: Object, //  as PropType<SelectedFiltersTypes>,
-    default: () => { },
   }
 })
 
-const selectedFilters = ref({}) // object or array?
-// TODO ON MOUNT
-// initialSelectedFilters[searchField];
+const selectedFilters = defineModel('selectedFilters')
+const numOfSelectedFilters = computed(() => {
+  let count = 0
+  // for each key in selectedFilters
+  for (const key in selectedFilters.value) {
+    // add the length of the array of selectedFilters[key]
+    count += selectedFilters.value[key].length
+  }
+  return count
+})
+// TODO remove? dont need emits with vmodel?
+// const emit = defineEmits(['update:selectedFilters'])
 
-function isSelected(searchField, option) {
-  return initialSelectedFilters[searchField].includes(option)
+// was implemented on buttons like so
+// :checked="isSelected(group.searchField, option)" @change="toggleSelection(group.searchField, option)"
+function isSelected(searchField: string, option: string) {
+  // check if selectedFilter object has any keys, fail gracefully if it doesn't
+  if (!Object.keys(selectedFilters.value).length)
+    return null
+
+  return selectedFilters.value[searchField].includes(option)
 }
-function toggleSelection(searchField, option) {
-  const index = selectedFilters.value.indexOf(option)
-  if (index > -1)
-    selectedFilters.value.splice(index, 1)
-  else
-    selectedFilters.value.push(option)
+
+// TODO remove? vmodel makes all this unneeded
+function toggleSelection(searchField: string, option: string) {
+  // ORIGINAL
+  // const index = selectedFilters.value.indexOf(option)
+  // if (index > -1)
+  //   selectedFilters.value.splice(index, 1)
+  // else
+  //   selectedFilters.value.push(option)
+
+  // REVISED TO
+  // const index = selectedFilters[searchField].indexOf(option)
+  // if (index > -1)
+  //   selectedFilters[searchField].splice(index, 1)
+  // else
+  //   selectedFilters[searchField].push(option)
 }
+
+// TODO not needed
+function onDoneClick() {
+  // console.log('applyFilters', selectedFilters)
+  // close the drawer handled by MobileDrawer.removeOverlay
+  // emit('applyFilters', selectedFilters.value)
+}
+function clearFilters() {
+  console.log('clearFilters')
+
+  // recreate empty selectedFilters object from filterGroups
+  // selectedFilters.value = {}
+  for (const group of filterGroups)
+    selectedFilters.value[group.searchField] = []
+
+  // emit('update:selectedFilters', {})
+}
+
 // THEME
 const theme = useTheme()
 const parsedClasses = computed(() => {
   return ['filters-dropdown', theme?.value || '']
 })
-
-onMounted(() => {
-  selectedFilters.value = initialSelectedFilters
-})
 </script>
 
 <template>
   <div :class="parsedClasses">
-    <!-- Generic Button -->
-    <!-- <MobileDrawer>
-        <template #buttonLabel>
-            <span class="button-text"> Filters (0 selected)</span>
-        </template>
-        <template #dropdownItems>
-            <div v-for="item in filterGroups" :key="item.dropdownItemTitle" class="dropdown-filter-item">
-                {{ item }}
-            </div>
-        </template>
-    </MobileDrawer> -->
     <MobileDrawer>
       <template #buttonLabel>
-        <!-- Optional Button Icon -->
         <div class="filter-summary">
-          Filters
+          Filters ({{ numOfSelectedFilters }} selected )
         </div>
-
         <!--
             <span v-if="hasIcon" class="icon-svg">
                 <component :is="SvgIconFtvaFiltersSample" class="button-svg" aria-hidden="true" />
             </span> -->
       </template>
-      <template #dropdownItems>
+      <template #dropdownItems="{ removeOverlay }">
         <div class="dropdown-filter">
           <div v-for="group in filterGroups" :key="group.name" class="filter-group">
             <h3>{{ group.name }}</h3>
             <div class="pills">
+              <!-- <label> must wrap <input> for accessbility fuctionality -->
               <label v-for="option in group.options" :key="option" class="pill-label">
-                <!-- Hidden checkbox for managing selection -->
-
+                <!-- Hidden checkbox for managing selection & screen-reader user interaction -->
                 <input
-                  :id="option" type="checkbox" class="pill-checkbox" :value="option"
-                  :checked="isSelected(group.searchField, option)"
-                  @change="toggleSelection(group.searchField, option)"
+                  :id="option" v-model="selectedFilters[group.searchField]" type="checkbox" class="pill-checkbox" :name="option"
+                  :value="option"
                 >
-                <!-- BlockTag component for display, positioned over the checkbox -->
-                <BlockTag :label="option" :is-secondary="false">
+                <!-- BlockTag component for display -->
+                <BlockTag :label="option" :is-secondary="true">
                   <!-- 'x' SVG only shows when selected -->
                   <template v-if="isSelected(group.searchField, option)">
-                    <SvgGlyphX class="x-icon" />
+                    <SvgGlyphClose />
                   </template>
                 </BlockTag>
               </label>
             </div>
           </div>
-          <!-- <button @click="applyFilters">Done</button>
-                <button @click="clearFilters">Clear</button> -->
+          <div class="action-row">
+            <ButtonLink class="action-row-button select-button" label="Done" icon-name="none" @click="removeOverlay" />
+            <ButtonLink
+              class="action-row-button clear-button" label="Clear" icon-name="icon-close"
+              @click="clearFilters"
+            />
+          </div>
         </div>
       </template>
     </MobileDrawer>
@@ -97,4 +126,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@import "@/styles/default/_filters-dropdown.scss";
+@import "@/styles/ftva/_filters-dropdown.scss";
 </style>

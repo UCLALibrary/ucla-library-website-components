@@ -1,3 +1,10 @@
 .ftva.filters-dropdown {
-    // styles
+    :deep(.svg__icon-close) {
+        path {
+            stroke: white;
+        }
+        circle {
+            fill: transparent;
+        }
+    }
 }
