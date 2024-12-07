@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
@@ -45,6 +42,7 @@ const classes = computed(() => {
         <BlockStaffArticleList
           v-for="(item, index) in items"
           :key="index"
+          class="block-staff-article-item"
           :image="item.image"
           :to="item.to"
           :category="item.category"
@@ -62,10 +60,7 @@ const classes = computed(() => {
   </section>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 @import "@/styles/default/_section-staff-article-list.scss";
 @import "@/styles/ftva/_section-staff-article-list.scss";
 </style>
