@@ -1,3 +1,10 @@
+## [3.39.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.39.1...v3.39.2) (2024-12-07)
+
+
+### Bug Fixes
+
+* APPS-3090   Move CSS from EventSeries page to SectionStaffArticleList component for FTVA Theme ([#663](https://github.com/UCLALibrary/ucla-library-website-components/issues/663)) ([10aaab7](https://github.com/UCLALibrary/ucla-library-website-components/commit/10aaab75601130822245c89cbfb7c9225597838a))
+
 ## [3.39.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.39.0...v3.39.1) (2024-12-06)
 
 
