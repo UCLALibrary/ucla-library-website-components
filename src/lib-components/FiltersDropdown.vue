@@ -15,6 +15,19 @@ const { filterGroups } = defineProps({
 })
 
 const selectedFilters = defineModel('selectedFilters')
+// TODO GET THIS ONE WORKING?
+// const selectedFilters = defineModel({
+//   type: Object,
+//   required: true,
+//   // TODO does this need to be a ref object?
+//   // BROKEN!!!!
+//   default: {
+//     'ftvaEventTypeFilters.title.keyword': [] as string[],
+//     'ftvaScreeningFormatFilters.title.keyword': [] as string[],
+//   },
+// });
+
+
 const numOfSelectedFilters = computed(() => {
   let count = 0
   // for each key in selectedFilters
@@ -62,9 +75,6 @@ function onDoneClick() {
 }
 function clearFilters() {
   console.log('clearFilters')
-
-  // recreate empty selectedFilters object from filterGroups
-  // selectedFilters.value = {}
   for (const group of filterGroups)
     selectedFilters.value[group.searchField] = []
 
