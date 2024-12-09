@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import DateFilter from '@/lib-components/DateFilter'
 
 export default {
@@ -17,8 +17,17 @@ export function Default() {
         ...mock,
       }
     },
+    setup() {
+      // Provide a function to update the selected date, and a ref for it
+      // So that the parent page can display / react to the date outside of the component once its selected
+      const modelDate = ref(null)
+      const updateDate = (date) => {
+        modelDate.value = date
+      }
+      return { modelDate, updateDate }
+    },
     components: { DateFilter },
-    template: '<div style="height:509px"><date-filter :eventDates="eventDates" /></div>',
+    template: '<div style="height:509px">Sample Selected Date: <span data-test="selected-date">{{ modelDate }}</span><date-filter @input-selected="updateDate" :eventDates="eventDates" /></div>',
   }
 }
 /* hideInput prop is not currently used anywhere in the app,
