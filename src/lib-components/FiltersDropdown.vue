@@ -1,47 +1,46 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { PropType } from 'vue'
 import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 import BlockTag from './BlockTag.vue'
 import ButtonLink from './ButtonLink.vue'
 import MobileDrawer from './MobileDrawer.vue'
 import { useTheme } from '@/composables/useTheme'
 
-// TODO TYPES
+// PROPS
+interface FilterGroupsTypes {
+  name: string
+  searchField: string
+  options: string[]
+}
 const { filterGroups } = defineProps({
   filterGroups: {
-    type: Array, //  as PropType<FilterGroupsTypes[]>,
+    type: Array as PropType<FilterGroupsTypes[]>,
     default: () => [],
   }
 })
+// V-MODEL DATA
+interface SelectedFiltersTypes {
+  [key: string]: string[]
+}
+const selectedFilters = defineModel('selectedFilters', { type: Object as PropType<SelectedFiltersTypes>, required: true, default: {} })
 
-const selectedFilters = defineModel('selectedFilters')
-// TODO GET THIS ONE WORKING?
-// const selectedFilters = defineModel({
-//   type: Object,
-//   required: true,
-//   // TODO does this need to be a ref object?
-//   // BROKEN!!!!
-//   default: {
-//     'ftvaEventTypeFilters.title.keyword': [] as string[],
-//     'ftvaScreeningFormatFilters.title.keyword': [] as string[],
-//   },
-// });
+// EMITS - remove?
+// TODO remove? dont need emits with vmodel?
+// const emit = defineEmits(['update:selectedFilters'])
 
-
+// FUNCTIONS
+// calc # for UI '# selected' display
 const numOfSelectedFilters = computed(() => {
   let count = 0
   // for each key in selectedFilters
-  for (const key in selectedFilters.value) {
+  for (const key in selectedFilters.value as any) {
     // add the length of the array of selectedFilters[key]
     count += selectedFilters.value[key].length
   }
   return count
 })
-// TODO remove? dont need emits with vmodel?
-// const emit = defineEmits(['update:selectedFilters'])
-
-// was implemented on buttons like so
-// :checked="isSelected(group.searchField, option)" @change="toggleSelection(group.searchField, option)"
+// check if option is selected so we can display 'x' SVG
 function isSelected(searchField: string, option: string) {
   // check if selectedFilter object has any keys, fail gracefully if it doesn't
   if (!Object.keys(selectedFilters.value).length)
@@ -49,36 +48,10 @@ function isSelected(searchField: string, option: string) {
 
   return selectedFilters.value[searchField].includes(option)
 }
-
-// TODO remove? vmodel makes all this unneeded
-function toggleSelection(searchField: string, option: string) {
-  // ORIGINAL
-  // const index = selectedFilters.value.indexOf(option)
-  // if (index > -1)
-  //   selectedFilters.value.splice(index, 1)
-  // else
-  //   selectedFilters.value.push(option)
-
-  // REVISED TO
-  // const index = selectedFilters[searchField].indexOf(option)
-  // if (index > -1)
-  //   selectedFilters[searchField].splice(index, 1)
-  // else
-  //   selectedFilters[searchField].push(option)
-}
-
-// TODO not needed
-function onDoneClick() {
-  // console.log('applyFilters', selectedFilters)
-  // close the drawer handled by MobileDrawer.removeOverlay
-  // emit('applyFilters', selectedFilters.value)
-}
+// clear all selected filters
 function clearFilters() {
-  console.log('clearFilters')
   for (const group of filterGroups)
     selectedFilters.value[group.searchField] = []
-
-  // emit('update:selectedFilters', {})
 }
 
 // THEME
