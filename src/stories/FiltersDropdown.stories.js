@@ -41,7 +41,7 @@ export function Default() {
 export function InitialSelectedFilters() {
   return {
     components: { FiltersDropdown },
-      setup() {
+    setup() {
       const selectedFilters = ref({})
       // mock getting selected filters from a route or other async source
       const fetchFilters = async () => {
