@@ -139,6 +139,12 @@ function handleInternalSelection(selectedDate: Date | Date[] | null) {
   else
     isSelecting.value = false
 }
+// Because date ranges are allowed on desktop but not mobile,
+// we need to reformat the date when the window is resized
+function reformatDateOnResize() {
+  if (isMobile.value && date.value && 'length' in date.value)
+    date.value = date.value[0]
+}
 // Deselect today button when range selection starts
 function clearTodayBtn() {
   todayBtnActive.value = false
@@ -192,10 +198,7 @@ onMounted(() => {
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
     isMobile.value = newWidth <= 750
-    // Note: if we want date to persist between mobile & desktop,
-    // we will need to write a method to convert dates to ranges and back and trigger it here
-    clearDate() // for now we clear the date on resize
-    datepicker.value?.closeMenu()
+    reformatDateOnResize()
   }, { immediate: true })
 })
 </script>
@@ -453,9 +456,11 @@ onMounted(() => {
   .button-text {
     display: inline-flex;
     align-items: center;
+
     svg {
       margin-right: 8px;
     }
+
     :deep(path.svg__fill--accent-blue) {
       fill: $medium-grey;
     }
@@ -797,29 +802,36 @@ onMounted(() => {
 
   //mobile drawer styles for datefilter
   :deep(.mobile-drawer) {
+
     // center datepicker within drawer
     .dp__main {
       margin: 0 auto;
+
       .dp__menu {
         border: none;
       }
     }
+
     // styles for the drawer launch button
     // these may be useful for filterdropdown as well
     .mobile-button {
       width: 166px;
       padding: 6px;
       border-radius: 4px;
+
       &:active {
         color: white;
         background-color: $accent-blue;
-          path.svg__fill--accent-blue {
-            fill: white;
+
+        path.svg__fill--accent-blue {
+          fill: white;
         }
       }
+
       &.is-expanded {
         color: $accent-blue;
         border: 2px solid $accent-blue;
+
         path.svg__fill--accent-blue {
           fill: $accent-blue;
         }
