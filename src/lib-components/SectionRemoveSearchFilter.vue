@@ -28,7 +28,8 @@ watch(() => filters, (newFilters) => {
 
 const parsedFilters = computed(() => {
   const result = Object.entries(filteredFilters.value).flatMap(([name, value]) => {
-    return value.map(item => ({ name, value: item }))
+    const items = Array.isArray(value) ? value : []
+    return items.map(item => ({ name, value: item }))
   })
   return result
 })
