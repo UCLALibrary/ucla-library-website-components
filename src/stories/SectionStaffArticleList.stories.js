@@ -66,7 +66,7 @@ export function Default() {
 
 const mockCurrentEntriesWithDates = [
   {
-    to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
+    to: 'a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
     title: 'A Film Series for You: Celebrating Giant Robot‚Äôs 30th Anniversary',
     image: API.image,
     description: 'This deep into the post-print era it may be hard for some to understand how something as ephemeral as a magazine could change the world. That may be especially true when the magazine hasn‚Äôt been in print for over a decade. But from its first issue as a Xeroxed zine in 1994 to its final run as a full-page glossy in 2011, Giant Robot did just that.',
@@ -109,6 +109,25 @@ export function FtvaCurrentEntriesWithDates() {
       <section-staff-article-list
         :items="items"
         section-title="Articles"
+      />
+  `,
+  }
+}
+
+export function FtvaNoSectionTitle() {
+  return {
+    data() {
+      return { items: mockCurrentEntriesWithDates }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionStaffArticleList },
+    template: `
+      <section-staff-article-list
+        :items="items"
       />
   `,
   }
