@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, useTemplateRef } from 'vue'
-import type { PropType } from 'vue'
+import type { PropType, Ref } from 'vue'
 import format from 'date-fns/format'
 import BlockCardWithImage from './BlockCardWithImage.vue'
 import BlockEventDetail from './BlockEventDetail.vue'
@@ -8,40 +8,30 @@ import BlockTag from './BlockTag.vue'
 import { useTheme } from '@/composables/useTheme'
 import type { MediaItemType } from '@/types/types'
 
-interface CalendarEvent {
-  title: string
+interface Event {
   id: string
   startDateWithTime: string
-  ftvaEventScreeningDetails: { tagLabels: TagLabels[] }[]
-  imageCarousel: { image: MediaItemType[] }[]
-  location: string
-  to: string
-}
-
-interface SelectedCalendarEvent {
-  start: Date
-  end: Date
-  time: string
   title: string
-  id: string
-  startDateWithTime: string
-  tagLabels: TagLabels[]
-  image: MediaItemType
-  location: BlockEventDetailLocation[]
   to: string
+  location?: { title: string; publicUrl?: string }[]
 }
 
 interface TagLabels {
-  title: string
+  title?: string
   isHighlighted?: boolean
 }
 
-interface BlockEventDetailLocation {
-  id?: string
-  title: string
-  url?: string
-  uri?: string
-  publicUrl?: string
+interface CalendarEvent extends Event {
+  ftvaEventScreeningDetails: { tagLabels: TagLabels[] }[]
+  imageCarousel: { image: MediaItemType[] }[]
+}
+
+interface SelectedCalendarEvent extends Event {
+  start: Date
+  end: Date
+  time: string
+  tagLabels?: TagLabels[]
+  image: MediaItemType
 }
 
 const { defaultEventCalendar, events, firstEventMonth } = defineProps({
@@ -69,8 +59,8 @@ const calendarRef = useTemplateRef<HTMLDivElement>('calendar')
 const firstEventMonthRef = ref(firstEventMonth)
 
 // Vuetify Popup/Dialog
-const eventItemRef = ref<CalendarEvent>({})
-const selectedEventObj = ref<SelectedCalendarEvent>({})
+const eventItemRef: Ref<CalendarEvent | any> = ref({})
+const selectedEventObj: Ref<SelectedCalendarEvent | any> = ref({})
 const selectedEventElement = ref<HTMLElement | null>(null)
 
 onMounted(() => {
@@ -104,7 +94,7 @@ const parsedEvents = computed(() => {
   if (events.length === 0)
     return []
 
-  const calendarEvents = events.map((obj) => {
+  const calendarEvents = events.map((obj: CalendarEvent) => {
     const rawDate = obj.startDateWithTime
 
     return {
@@ -132,16 +122,13 @@ function formatEventTime(date: string) {
   return formattedTime.toUpperCase()
 }
 
-function showEventItemPopup(calendarEventObj: SelectedCalendarEvent) {
-  // console.log(calendarEventObj)
+function showEventItemPopup(calendarEventObj: SelectedCalendarEvent | Record <string, unknown>) {
   // Remove selected style of previous selected event
   handleSelectedEventItemDeselect()
 
   selectedEventObj.value = calendarEventObj
 
   const selectedElem = eventItemRef.value[`item-${calendarEventObj.id}`]
-  // console.log(selectedElem)
-  // as keyof typeof eventItemRef.value
 
   // Set event as new selected event
   selectedEventElement.value = selectedElem
