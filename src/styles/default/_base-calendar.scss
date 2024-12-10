@@ -1,5 +1,6 @@
 .base-calendar {
   position: relative;
+  height: 1100px;
 
   .calendar-wrapper {
     display: grid;
@@ -10,11 +11,24 @@
     grid-column: 2/3;
   }
 
+  .v-calendar-header {
+    justify-content: space-between;
+  }
+
+  .v-calendar-header__title,
+  .v-calendar-header__today {
+    margin-inline: 0;
+  }
+
   .v-calendar-header__title {
     // @include h3; // ?
     font-size: 40px;
     font-weight: 800;
     color: $heading-grey;
+  }
+
+  .v-calendar-header__today {
+    order: 1;
   }
   
   // Reposition calendar navigation
@@ -24,7 +38,7 @@
     width: 48px;
     height: auto;
     border-radius: 4px;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -300%);
     position: absolute;
   }
 
@@ -60,11 +74,6 @@
     border-bottom: 1px solid #ccc;
   }
 
-  .v-calendar-weekly__head-weekday-with-weeknumber:nth-of-type(even) {
-    // border-left: 1px solid #ccc;
-    // border-right: 1px solid #ccc;
-  }
-
   .v-calendar-weekly__head-weekday-with-weeknumber {
     font-size: 16px;
     color: $subtitle-grey;
@@ -86,6 +95,11 @@
     text-align: right;
   }
 
+  // Reset border color that's showing up darker in Nuxt
+  .v-calendar-month__days.days-with-weeknumbers__7>.v-calendar-month__day:nth-child(7n) {
+    border-right-color: #e0e0e0;
+  }
+
   .v-calendar-weekly__day-label .v-btn {
     color: $subtitle-grey;
     font-size: 16px; // confirm size
@@ -99,12 +113,25 @@
     color: $body-grey !important;
     width: 26px;
     height: 26px;
+    box-shadow: unset;
+  }
+
+  .v-calendar-weekly__day-label,
+  .v-calendar-weekly__day-label .v-btn {
+    cursor: default;
   }
   
   .calendar-event-item {
     background-color: #eee;
     margin: 0px 4px 3px 4px;
     padding: 4px 6px;
+    border-radius: 0;
+    width: -webkit-fill-available;
+    text-align: left;
+  }
+
+  .selected-event.calendar-event-item {
+    background-color: #ccc;
   }
 
   .calendar-event-item:hover {
@@ -113,7 +140,7 @@
   }
 
   .calendar-event-title {
-    @include truncate(3);
+    @include truncate(2);
     font-size: 14px;
     line-height: 1.4;
     font-weight: 600;
@@ -122,20 +149,100 @@
   .calendar-event-time {
     font-size: 14px;
   }
-
-// WIP
-
-// .v-calendar-header > button:nth-of-type(2),
-// .v-calendar-header > button:nth-of-type(3) {
-  // outline-style: inset;
-  // outline-color: $navy-blue;
-// }
-
-// .mdi-chevron-left::before {
-//   content: url("ucla-library-design-tokens/assets/svgs/icon-caret-circle-left.svg");
-// }
-
-// .mdi-chevron-right::before {
-//   content: url("ucla-library-design-tokens/assets/svgs/icon-caret-circle-right.svg");
-// }
 }
+
+/*********************************/
+/* Calendar Event Popup Components: 
+  - BlockCardWithImage
+  - CardMeta
+  - BlockTag
+  - BlockEventDetail
+*/
+
+.v-overlay-container {
+
+  .v-menu .v-card {
+    border-radius: 8px;
+  }
+
+  
+  .calendar-event-popup-wrapper {
+
+    .block-highlight {
+      border-radius: 0;
+      background-color: transparent;
+    }
+
+    .block-highlight.is-vertical {
+      
+      .image-container {
+        aspect-ratio: unset;
+
+        .sizer {
+          padding-bottom: 0 !important;
+        }
+      }
+    
+      .image {
+        height: 150px;
+      }
+
+      .card-meta {
+        height: unset;
+        padding: 28px;
+
+        .block-tags {
+          margin-bottom: 0;
+        }
+
+        .title-no-link {
+          font-size: 30px;
+          font-weight: 500;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .block-tag-wrapper {
+      display: flex;
+      padding-left: 28px;
+      gap: 8px;
+
+      .block-tag {
+        margin-bottom: 28px;
+
+        &.highlighted { 
+          background-color: var(--color-default-cyan-03);
+        }
+      }
+    }
+
+    .block-event-detail {
+      padding: 0px 28px 28px 28px;
+
+      .event-list:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .location button.smart-link {
+        padding: 0;
+        border-radius: 0;
+      }
+      
+      .location .smart-link {
+        text-decoration: none;
+        text-align: left;
+
+        @media #{$has-hover} {
+          &:hover {
+              color: unset;
+          }
+      }
+      }
+    }
+  }
+
+   // Slot styles
+  .calendar-slot-wrapper{}
+}
+

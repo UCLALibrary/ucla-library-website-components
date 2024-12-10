@@ -1,3 +1,10 @@
+# [3.40.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.39.2...v3.40.0) (2024-12-10)
+
+
+### Features
+
+* APPS 3079 Calendar Component EventCard Popup ([#661](https://github.com/UCLALibrary/ucla-library-website-components/issues/661)) ([dc24f85](https://github.com/UCLALibrary/ucla-library-website-components/commit/dc24f852c908c7c68a3bf8e43e73fb0457b07283))
+
 ## [3.39.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.39.1...v3.39.2) (2024-12-07)
 
 
