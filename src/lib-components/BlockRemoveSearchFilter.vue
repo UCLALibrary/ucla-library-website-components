@@ -65,19 +65,28 @@ function closeBlockFilter() {
 </script>
 
 <template>
-  <button type="button" :class="classes" @click="closeBlockFilter">
-    <BlockTag :label="title" :icon-name="iconName" :theme="theme" :is-secondary="true">
-      <span class="button-close" :class="{ 'button-selected': isSelected && theme === 'ftva' }">
+  <button
+    type="button"
+    :class="classes"
+    @click="closeBlockFilter"
+  >
+    <BlockTag
+      :label="title"
+      :icon-name="iconName"
+      :theme="theme"
+      :is-secondary="true"
+    >
+      <span
+        class="button-close"
+        :class="{ 'button-selected': isSelected && theme === 'ftva' }"
+      >
         <component :is="removeIcons[removeIcon]" />
       </span>
     </BlockTag>
   </button>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 @import "@/styles/default/_block-remove-search-filter.scss";
 @import "@/styles/ftva/_block-remove-search-filter.scss";
 </style>
