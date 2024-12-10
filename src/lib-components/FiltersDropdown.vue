@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { PropType } from 'vue'
-import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
+import SvgGlyphX from 'ucla-library-design-tokens/assets/svgs/icon-ftva-xtag.svg'
+import SvgFilterIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-filter.svg'
 import BlockTag from './BlockTag.vue'
 import ButtonLink from './ButtonLink.vue'
 import MobileDrawer from './MobileDrawer.vue'
@@ -68,10 +69,9 @@ const parsedClasses = computed(() => {
         <div class="filter-summary">
           Filters ({{ numOfSelectedFilters }} selected )
         </div>
-        <!--
-            <span v-if="hasIcon" class="icon-svg">
-                <component :is="SvgIconFtvaFiltersSample" class="button-svg" aria-hidden="true" />
-            </span> -->
+        <span class="icon-svg">
+          <SvgFilterIcon aria-hidden="true" />
+        </span>
       </template>
       <template #dropdownItems="{ removeOverlay }">
         <div class="dropdown-filter">
@@ -89,7 +89,7 @@ const parsedClasses = computed(() => {
                 <BlockTag :label="option" :is-secondary="true">
                   <!-- 'x' SVG only shows when selected -->
                   <template v-if="isSelected(group.searchField, option)">
-                    <SvgGlyphClose />
+                    <SvgGlyphX class="close-icon" />
                   </template>
                 </BlockTag>
               </label>

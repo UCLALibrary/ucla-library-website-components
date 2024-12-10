@@ -33,7 +33,7 @@ export function Default() {
     data() {
       return { mockFilterGroups, mockSelectedFilters: mockEmptySelectedFilters }
     },
-    template: '<span>Selected filters display:{{ mockSelectedFilters }}</span><filters-dropdown v-model:selectedFilters="mockSelectedFilters" :filterGroups="mockFilterGroups" />',
+    template: '<div style="width:400px"><span>Selected filters display:{{ mockSelectedFilters }}</span><filters-dropdown v-model:selectedFilters="mockSelectedFilters" :filterGroups="mockFilterGroups" /></div>',
   }
 }
 

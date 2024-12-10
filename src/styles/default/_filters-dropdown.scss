@@ -1,28 +1,60 @@
 .filters-dropdown {
-    // Dropdown  Window Size
+    // Dropdown  Window Size & Input
     :deep(.mobile-button) {
         min-width: 380px;
+        .toggle-triangle-icon { 
+            path.svg__fill--accent-blue {
+                fill: $accent-blue;
+            }
+        }
+        .button-inner-wrapper {
+            width: 100%;
+            justify-content: space-between;
+            .icon-svg {
+                align-self: flex-end;
+                padding-right: 10px;
+                margin-bottom: -5px;
+            }
+        }
     }
-
+                                                                        
+    :deep(.dropdown-wrapper) {
+        width: 100%; // filters input grows to container width
+    }
     :deep(.button-dropdown-modal-wrapper.is-expanded) {
         min-width: 380px;
         margin: auto;
+        padding: 24px 30px 30px 30px;
+        width: 100%; // filters dropdown grows to container width
+    }
+
+    // Filter Heading
+    .filter-group {
+        h3 {
+            text-transform: uppercase;
+            @include ftva-subtitle-1;
+            color: $heading-grey;
+        }
     }
 
     // Filter Pills
     .pills {
         display: flex;
         flex-wrap: wrap;
+        gap: 10px;
+        margin: 8px auto 20px;
 
         .pill-label {
             display: inline-flex;
-            // align-items: center;
             position: relative;
 
             .pill-checkbox {
                 opacity: 0;
                 position: absolute;
             }
+        }
+        .close-icon {
+            margin: 5px 0 5px 5px;
         }
     }
 
@@ -37,6 +69,58 @@
 
         .label {
             color: white;
+        }
+    }
+
+    // Done / Clear Buttons
+    .action-row {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        align-items: center;
+        padding-top: 18px;
+        gap: 5px;
+
+        .action-row-button {
+            border-radius: 2px;
+            font-family: var(--font-primary);
+            font-weight: 500;
+            line-height: 27px;
+            color: var(--color-white);
+            background-color: var(--color-primary-blue-03); 
+            border: 1px solid var(--color-primary-blue-03); 
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &.select-button> :deep(.label) {
+                padding-left: 0px;
+            }
+
+            :deep(.hover) {
+                display: none;
+            }
+
+            &:hover {
+                background-color: $navy-blue;
+            }
+        }
+
+        .clear-button {
+            background-color: var(--color-white);
+            color: var(--color-primary-blue-03);
+
+            :deep(.svg__stroke--primary-blue-03) {
+                stroke: var(--color-primary-blue-03);
+            }
+
+            &:hover {
+                background-color: $navy-blue;
+                color: var(--color-white);
+
+                :deep(.svg__stroke--primary-blue-03) {
+                    stroke: var(--color-white);
+                }
+            }
         }
     }
 }
