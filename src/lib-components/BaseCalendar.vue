@@ -1,10 +1,48 @@
-<script setup>
+<script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref, useTemplateRef } from 'vue'
+import type { PropType } from 'vue'
 import format from 'date-fns/format'
 import BlockCardWithImage from './BlockCardWithImage.vue'
 import BlockEventDetail from './BlockEventDetail.vue'
 import BlockTag from './BlockTag.vue'
 import { useTheme } from '@/composables/useTheme'
+import type { MediaItemType } from '@/types/types'
+
+interface CalendarEvent {
+  title: string
+  id: string
+  startDateWithTime: string
+  ftvaEventScreeningDetails: { tagLabels: TagLabels[] }[]
+  imageCarousel: { image: MediaItemType[] }[]
+  location: string
+  to: string
+}
+
+interface SelectedCalendarEvent {
+  start: Date
+  end: Date
+  time: string
+  title: string
+  id: string
+  startDateWithTime: string
+  tagLabels: TagLabels[]
+  image: MediaItemType
+  location: BlockEventDetailLocation[]
+  to: string
+}
+
+interface TagLabels {
+  title: string
+  isHighlighted?: boolean
+}
+
+interface BlockEventDetailLocation {
+  id?: string
+  title: string
+  url?: string
+  uri?: string
+  publicUrl?: string
+}
 
 const { defaultEventCalendar, events, firstEventMonth } = defineProps({
   defaultEventCalendar: {
@@ -15,7 +53,7 @@ const { defaultEventCalendar, events, firstEventMonth } = defineProps({
   },
 
   events: {
-    type: Array,
+    type: Array as PropType<CalendarEvent[]>,
     default: () => [],
   },
 
@@ -27,13 +65,13 @@ const { defaultEventCalendar, events, firstEventMonth } = defineProps({
   }
 })
 
-const calendarRef = useTemplateRef('calendar')
+const calendarRef = useTemplateRef<HTMLDivElement>('calendar')
 const firstEventMonthRef = ref(firstEventMonth)
 
 // Vuetify Popup/Dialog
-const eventItemRef = ref({})
-const selectedEventObj = ref({})
-const selectedEventElement = ref(null)
+const eventItemRef = ref<CalendarEvent>({})
+const selectedEventObj = ref<SelectedCalendarEvent>({})
+const selectedEventElement = ref<HTMLElement | null>(null)
 
 onMounted(() => {
   updateCalendarHeaderElements()
@@ -45,13 +83,13 @@ onMounted(() => {
 // Update day to full name: Sunday, Monday, etc.
 // Default header button text is 'Today'; update to 'This Month'
 function updateCalendarHeaderElements() {
-  const weekDayLabels = calendarRef.value.querySelectorAll('.v-calendar-weekly__head-weekday-with-weeknumber')
+  const weekDayLabels = calendarRef.value?.querySelectorAll('.v-calendar-weekly__head-weekday-with-weeknumber')
 
-  const todayBtnElem = calendarRef.value.querySelector('.v-calendar-header__today .v-btn__content')
+  const todayBtnElem = calendarRef.value?.querySelector('.v-calendar-header__today .v-btn__content') as HTMLElement
 
   const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-  weekDayLabels.forEach((elem, idx) => elem.innerText = weekDays[idx])
+  weekDayLabels?.forEach((elem, idx) => (elem as HTMLElement).innerText = weekDays[idx])
 
   todayBtnElem.innerText = 'This Month'
 }
@@ -89,23 +127,26 @@ const parsedEvents = computed(() => {
 })
 
 // Format time as '00:00 PM'
-function formatEventTime(date) {
+function formatEventTime(date: string) {
   const formattedTime = format(new Date(date), 'h:mm aaa')
   return formattedTime.toUpperCase()
 }
 
-function showEventItemPopup(calendarEventObj) {
+function showEventItemPopup(calendarEventObj: SelectedCalendarEvent) {
+  // console.log(calendarEventObj)
   // Remove selected style of previous selected event
   handleSelectedEventItemDeselect()
 
   selectedEventObj.value = calendarEventObj
 
   const selectedElem = eventItemRef.value[`item-${calendarEventObj.id}`]
+  // console.log(selectedElem)
+  // as keyof typeof eventItemRef.value
 
   // Set event as new selected event
   selectedEventElement.value = selectedElem
 
-  selectedEventElement.value.classList.add('selected-event')
+  selectedEventElement.value?.classList.add('selected-event')
 }
 
 onUnmounted(() => {
@@ -158,7 +199,6 @@ const classes = computed(() => {
                     <BlockCardWithImage
                       :image="selectedEventObj.image"
                       :title="selectedEventObj.title"
-                      :category="selectedEventObj.category"
                     />
                     <div class="block-tag-wrapper">
                       <BlockTag
