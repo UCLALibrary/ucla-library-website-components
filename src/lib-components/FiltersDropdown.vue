@@ -26,10 +26,6 @@ interface SelectedFiltersTypes {
 }
 const selectedFilters = defineModel('selectedFilters', { type: Object as PropType<SelectedFiltersTypes>, required: true, default: {} })
 
-// EMITS - remove?
-// TODO remove? dont need emits with vmodel?
-// const emit = defineEmits(['update:selectedFilters'])
-
 // FUNCTIONS
 // calc # for UI '# selected' display
 const numOfSelectedFilters = computed(() => {

@@ -37,13 +37,31 @@ export function Default() {
   }
 }
 
+// uses async data
 export function InitialSelectedFilters() {
   return {
     components: { FiltersDropdown },
-    data() {
-      return { mockFilterGroups, mockSelectedFilters }
+      setup() {
+      const selectedFilters = ref({})
+      // mock getting selected filters from a route or other async source
+      const fetchFilters = async () => {
+        // Mocking an async fetch call
+        const response = await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(mockSelectedFilters.value)
+          }, 1000)
+        })
+        selectedFilters.value = response
+      }
+
+      fetchFilters()
+
+      return { selectedFilters }
     },
-    template: '<span>Selected filters display:{{ mockSelectedFilters }}</span><filters-dropdown v-model:selectedFilters="mockSelectedFilters" :filterGroups="mockFilterGroups" />',
+    data() {
+      return { mockFilterGroups }
+    },
+    template: '<span>Selected filters display:{{ selectedFilters }}</span><filters-dropdown v-model:selectedFilters="selectedFilters" :filterGroups="mockFilterGroups" />',
   }
 }
 
