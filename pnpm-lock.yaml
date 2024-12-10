@@ -121,8 +121,8 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
       ucla-library-design-tokens:
-        specifier: ^5.27.1
-        version: 5.27.2
+        specifier: ^5.28.0
+        version: 5.28.0
       video.js:
         specifier: ^8.5.2
         version: 8.19.1
@@ -5958,8 +5958,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  ucla-library-design-tokens@5.27.2:
-    resolution: {integrity: sha512-+GgHevX1Fflu1uSAgT7otxzqLUuOAXaVKK9vKqTckSiSMxMs1dqBBXqA6+++HuPym2MazR0lSBHA8B53cfVk1Q==}
+  ucla-library-design-tokens@5.28.0:
+    resolution: {integrity: sha512-qgxGlK3/m0VwYGumzLZTTB/ae03DY41+80vFhm4+gukzh8XiqUsN71cg3ijk23Dl9awyicoELbRgnUV4nj3e0g==}
 
   ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
@@ -13128,7 +13128,7 @@ snapshots:
 
   typescript@5.6.3: {}
 
-  ucla-library-design-tokens@5.27.2: {}
+  ucla-library-design-tokens@5.28.0: {}
 
   ufo@1.5.4: {}
 
