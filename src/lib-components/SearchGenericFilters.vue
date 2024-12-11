@@ -114,8 +114,16 @@ function doUpdateQueryFilters(key: string) {
   emit('update:queryFilters', queryFilterButtonDropDownStates.value)
   emit('filters-selection-action')
 }
+// Handler to update filters reactively
+function handleFilterUpdate(updatedFilters: QueryFilters) {
+  // Replace the entire object reactively
+  queryFilterButtonDropDownStates.value = { ...updatedFilters }
+  console.log('Updated Filters:', queryFilterButtonDropDownStates.value)
+  // Emit an event if necessary
+  // emit('update:queryFilters', queryFilterButtonDropDownStates.value);
+}
 function doSearch() {
-  console.log('doSearch function called to emit update:queryFilters and filters-selection-action events to the parent component')
+  console.log('doSearch function called to emit update:queryFilters and filters-selection-action events to the parent component', queryFilterButtonDropDownStates.value)
   emit('update:queryFilters', queryFilterButtonDropDownStates.value)
   emit('filters-selection-action')
 }
@@ -169,9 +177,15 @@ onClickOutside(clickOutsideTarget,
       </transition>
     </div>
 
-    <SectionRemoveSearchFilter
+    <!-- SectionRemoveSearchFilter
       v-model:filters="queryFilterButtonDropDownStates"
       class="section-remove-container"
+      @remove-selected="doSearch"
+    / -->
+    <SectionRemoveSearchFilter
+      :filters="queryFilterButtonDropDownStates"
+      class="section-remove-container"
+      @update:filters="handleFilterUpdate"
       @remove-selected="doSearch"
     />
   </div>
