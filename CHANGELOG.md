@@ -1,3 +1,10 @@
+# [3.41.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.40.0...v3.41.0) (2024-12-11)
+
+
+### Features
+
+* APPS-3100 Decouple SectionRemoveSearchFilter ([#666](https://github.com/UCLALibrary/ucla-library-website-components/issues/666)) ([28ddd0b](https://github.com/UCLALibrary/ucla-library-website-components/commit/28ddd0bb960a5840754debd05012c7925b33a830))
+
 # [3.40.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.39.2...v3.40.0) (2024-12-10)
 
 
