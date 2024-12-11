@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import SectionRemoveSearchFilter from '@/lib-components/SectionRemoveSearchFilter'
 
 export default {
@@ -51,6 +52,26 @@ export function WithMoreFilters() {
     template: `
         <section-remove-search-filter
             :filters="mockBigger"
+        />
+    `,
+  }
+}
+
+// Variations of stories below
+export function FTVA() {
+  return {
+    data() {
+      return { mock }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionRemoveSearchFilter },
+    template: `
+        <section-remove-search-filter
+            :filters="mock"
         />
     `,
   }
