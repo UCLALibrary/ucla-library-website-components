@@ -55,6 +55,28 @@ const textConfig = ref({
   rangeSeparator: ' — ',
 })
 
+// Format the selected date(s) into consistent object
+const formattedDateSelection = computed(() => {
+  // range selected
+  if (date.value && 'length' in date.value) {
+    return {
+      startDate: date.value[0],
+      endDate: date.value[1],
+    }
+  }
+  // single date selected
+  else if (date.value) {
+    return {
+      startDate: date.value,
+      endDate: null,
+    }
+  }
+  // nothing selected
+  return {
+    startDate: null,
+    endDate: null,
+  }
+})
 // SETUP - Select initial dates if they exist
 if (initialDates.startDate && initialDates.endDate)
   date.value = [initialDates.startDate, initialDates.endDate]
@@ -87,7 +109,7 @@ function goToToday() {
   }
   else {
     if (isMobile.value)
-      // mobile does allow range selection
+      // mobile does not allow range selection
       date.value = new Date()
     else
       date.value = [new Date(), new Date()]
@@ -101,10 +123,12 @@ function clearDate() {
   todayBtnActive.value = false
   datepicker.value?.clearValue()
   datepicker.value?.openMenu() // reopen after clear
+  emit('input-selected', formattedDateSelection.value)
 }
 
 function onDoneClick() {
   // always close menu after done click, even if no date selected
+  emit('input-selected', formattedDateSelection.value)
   datepicker.value?.closeMenu()
 }
 
@@ -114,6 +138,12 @@ function handleInternalSelection(selectedDate: Date | Date[] | null) {
     isSelecting.value = true
   else
     isSelecting.value = false
+}
+// Because date ranges are allowed on desktop but not mobile,
+// we need to reformat the date when the window is resized
+function reformatDateOnResize() {
+  if (isMobile.value && date.value && 'length' in date.value)
+    date.value = date.value[0]
 }
 // Deselect today button when range selection starts
 function clearTodayBtn() {
@@ -138,29 +168,6 @@ defineExpose({
   closeDatepicker,
 })
 
-// COMPUTED VALUES
-// Format the selected date(s) into consistent object
-const formattedDateSelection = computed(() => {
-  // range selected
-  if (date.value && 'length' in date.value) {
-    return {
-      startDate: date.value[0],
-      endDate: date.value[1],
-    }
-  }
-  // single date selected
-  else if (date.value) {
-    return {
-      startDate: date.value,
-      endDate: null,
-    }
-  }
-  // nothing selected
-  return {
-    startDate: null,
-    endDate: null,
-  }
-})
 // computed classes
 const vue3datepickerClass = computed(() => ['vue-date-picker', { 'is-selecting': isSelecting.value }])
 const inputIconClass = computed(() => ['toggle-triangle-icon', { 'is-open': isOpen.value }])
@@ -184,8 +191,6 @@ watch(date, async (newDate, oldDate) => {
         rangeSeparator: ' — ',
       }
     }
-    // eslint-disable-next-line vue/custom-event-name-casing
-    emit('input-selected', formattedDateSelection.value)
   }
 })
 
@@ -193,6 +198,7 @@ onMounted(() => {
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
     isMobile.value = newWidth <= 750
+    reformatDateOnResize()
   }, { immediate: true })
 })
 </script>
@@ -450,9 +456,11 @@ onMounted(() => {
   .button-text {
     display: inline-flex;
     align-items: center;
+
     svg {
       margin-right: 8px;
     }
+
     :deep(path.svg__fill--accent-blue) {
       fill: $medium-grey;
     }
@@ -794,29 +802,36 @@ onMounted(() => {
 
   //mobile drawer styles for datefilter
   :deep(.mobile-drawer) {
+
     // center datepicker within drawer
     .dp__main {
       margin: 0 auto;
+
       .dp__menu {
         border: none;
       }
     }
+
     // styles for the drawer launch button
     // these may be useful for filterdropdown as well
     .mobile-button {
       width: 166px;
       padding: 6px;
       border-radius: 4px;
+
       &:active {
         color: white;
         background-color: $accent-blue;
-          path.svg__fill--accent-blue {
-            fill: white;
+
+        path.svg__fill--accent-blue {
+          fill: white;
         }
       }
+
       &.is-expanded {
         color: $accent-blue;
         border: 2px solid $accent-blue;
+
         path.svg__fill--accent-blue {
           fill: $accent-blue;
         }
