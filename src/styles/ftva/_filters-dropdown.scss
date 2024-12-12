@@ -12,7 +12,7 @@
                 :deep(.svg__stroke--primary-blue-03) {
                     stroke: $accent-blue;
                 }
-                &:hover {
+                &:hover, &:focus {
                     background-color: $navy-blue;
                     color: var(--color-white);
                     :deep(.svg__stroke--primary-blue-03) {
@@ -23,7 +23,7 @@
         }
     }
     // Selected Filter Pills
-    :deep(.block-tag:hover),
+    :deep(.block-tag:hover), :deep(.block-tag:focus),
     .pill-checkbox:checked+ :deep(.block-tag) {
         background-color: $accent-blue;
         border-color: $accent-blue;

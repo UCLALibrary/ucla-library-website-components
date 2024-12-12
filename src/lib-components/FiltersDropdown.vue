@@ -20,13 +20,12 @@ const { filterGroups } = defineProps({
     default: () => [],
   }
 })
+const emit = defineEmits(['update-display'])
 // V-MODEL DATA
 interface SelectedFiltersTypes {
   [key: string]: string[]
 }
 const selectedFilters = defineModel('selectedFilters', { type: Object as PropType<SelectedFiltersTypes>, required: true, default: {} })
-const emit = defineEmits(['update-display'])
-
 // FUNCTIONS
 // calc # for UI '# selected' display
 const numOfSelectedFilters = computed(() => {

@@ -1,4 +1,4 @@
-import { computed, ref, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import FiltersDropdown from '@/lib-components/FiltersDropdown.vue'
 
 export default {
@@ -81,13 +81,13 @@ export function FTVA() {
   }
 }
 
-
 // FTVA Theme W Selected Filters updating on 'done' click only
+// This is the current planned implmentation on the FTVA site
 const mockSelectedFiltersEmitted = ref({
   'ftvaEventTypeFilters.title.keyword': ['Film'],
   'ftvaScreeningFormatFilters.title.keyword': ['Online'],
 })
-export function FTVADateUpdateEmit() {
+export function FTVAFiltersUpdateDoneClick() {
   return {
     components: { FiltersDropdown },
     setup() {
@@ -95,7 +95,7 @@ export function FTVADateUpdateEmit() {
 
       const updateFiltersDisplay = () => {
         // assignment is done with spread operator so that a copy is made
-        selectedFiltersDisplay.value = { ...mockSelectedFiltersEmitted.value}
+        selectedFiltersDisplay.value = { ...mockSelectedFiltersEmitted.value }
       }
       onMounted(() => {
         // trigger function once onMount to update display with initial selected filters

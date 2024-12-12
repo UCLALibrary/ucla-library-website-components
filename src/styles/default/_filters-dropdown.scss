@@ -63,7 +63,7 @@
     }
 
     // Selected Filter Pills
-    :deep(.block-tag:hover),
+    :deep(.block-tag:hover), :deep(.block-tag:focus)
     .pill-checkbox:checked+ :deep(.block-tag) {
         background-color: var(--color-primary-blue-03);
 
@@ -100,7 +100,7 @@
                 display: none;
             }
 
-            &:hover {
+            &:hover, &:focus {
                 background-color: $navy-blue;
             }
         }
@@ -113,7 +113,7 @@
                 stroke: var(--color-primary-blue-03);
             }
 
-            &:hover {
+            &:hover, &:focus {
                 background-color: $navy-blue;
                 color: var(--color-white);
 
