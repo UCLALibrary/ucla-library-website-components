@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import FiltersDropdown from '@/lib-components/FiltersDropdown.vue'
 
 export default {
@@ -19,7 +19,7 @@ const mockFilterGroups = [
     options: ['Online', 'In-Person'],
   },
 ]
-// note that because this component uses v-model,
+// note that because this component uses v-model by default,
 // parent component needs to use a ref for selectedFilters
 const mockEmptySelectedFilters = ref({ 'ftvaEventTypeFilters.title.keyword': [], 'ftvaScreeningFormatFilters.title.keyword': [] })
 const mockSelectedFilters = ref({
@@ -65,6 +65,7 @@ export function InitialSelectedFilters() {
   }
 }
 
+// FTVA Theme
 export function FTVA() {
   return {
     components: { FiltersDropdown },
@@ -77,5 +78,39 @@ export function FTVA() {
       }
     },
     template: '<span>Selected filters display:{{ mockSelectedFilters }}</span><filters-dropdown v-model:selectedFilters="mockSelectedFilters" :filterGroups="mockFilterGroups" />',
+  }
+}
+
+
+// FTVA Theme W Selected Filters updating on 'done' click only
+const mockSelectedFiltersEmitted = ref({
+  'ftvaEventTypeFilters.title.keyword': ['Film'],
+  'ftvaScreeningFormatFilters.title.keyword': ['Online'],
+})
+export function FTVADateUpdateEmit() {
+  return {
+    components: { FiltersDropdown },
+    setup() {
+      const selectedFiltersDisplay = ref({})
+
+      const updateFiltersDisplay = () => {
+        // assignment is done with spread operator so that a copy is made
+        selectedFiltersDisplay.value = { ...mockSelectedFiltersEmitted.value}
+      }
+      onMounted(() => {
+        // trigger function once onMount to update display with initial selected filters
+        updateFiltersDisplay()
+      })
+      return { selectedFiltersDisplay, updateFiltersDisplay }
+    },
+    data() {
+      return { mockFilterGroups, mockSelectedFiltersEmitted }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    template: '<span>Selected filters display:{{ selectedFiltersDisplay }}</span><filters-dropdown v-model:selectedFilters="mockSelectedFiltersEmitted" @update-display="updateFiltersDisplay" :filterGroups="mockFilterGroups" />',
   }
 }

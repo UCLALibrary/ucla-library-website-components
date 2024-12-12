@@ -25,6 +25,7 @@ interface SelectedFiltersTypes {
   [key: string]: string[]
 }
 const selectedFilters = defineModel('selectedFilters', { type: Object as PropType<SelectedFiltersTypes>, required: true, default: {} })
+const emit = defineEmits(['update-display'])
 
 // FUNCTIONS
 // calc # for UI '# selected' display
@@ -45,10 +46,14 @@ function isSelected(searchField: string, option: string) {
 
   return selectedFilters.value[searchField].includes(option)
 }
-// clear all selected filters
+// Clear Button Click / clear all selected filters
 function clearFilters() {
   for (const group of filterGroups)
     selectedFilters.value[group.searchField] = []
+}
+// Done Button Click / emit selected filters to parent
+function onDoneClick() {
+  emit('update-display', selectedFilters.value)
 }
 
 // THEME
@@ -92,7 +97,7 @@ const parsedClasses = computed(() => {
             </div>
           </div>
           <div class="action-row">
-            <ButtonLink class="action-row-button select-button" label="Done" icon-name="none" @click="removeOverlay" />
+            <ButtonLink class="action-row-button select-button" label="Done" icon-name="none" @click="onDoneClick(); removeOverlay();" />
             <ButtonLink
               class="action-row-button clear-button" label="Clear" icon-name="icon-close"
               @click="clearFilters"
