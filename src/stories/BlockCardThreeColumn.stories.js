@@ -23,7 +23,8 @@ const mockDefault = {
       title: 'Guest speaker'
     },
     {
-      title: '35mm'
+      title: '35mm',
+      isHighlighted: true
     }
   ],
 }
@@ -39,7 +40,8 @@ const mockSingleDigitDate = {
       title: 'Guest speaker'
     },
     {
-      title: '35mm'
+      title: '35mm',
+      isHighlighted: true
     }
   ],
 }
