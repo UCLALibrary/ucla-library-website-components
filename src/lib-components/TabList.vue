@@ -55,15 +55,12 @@ const iconMapping = {
 }
 
 onMounted(() => {
-  // activeTabIndex.value = initialTab
-  // activeTabTitle.value = tabItems.value[initialTab]?.title
-
-  // const activeTabElem = tabRefs.value[initialTab]
-
   const initialTabFromUrl = route.query.view
+
   const tabIndex = tabItems.value.findIndex(
     tab => tab?.title.toLowerCase() === initialTabFromUrl
   )
+
   if (tabIndex !== -1) {
     activeTabIndex.value = tabIndex
     activeTabTitle.value = tabItems.value[tabIndex]?.title
@@ -72,6 +69,7 @@ onMounted(() => {
     activeTabIndex.value = initialTab
     activeTabTitle.value = tabItems.value[initialTab]?.title
   }
+
   const activeTabElem = tabRefs.value[activeTabIndex.value]
 
   /* @argument {boolean} hasInitialWidth */
