@@ -44,7 +44,7 @@ onMounted(() => {
 
 <template>
   <div :class="parsedClasses">
-    <div v-on-click-outside="closeDropdownOnClickOutside">
+    <div v-on-click-outside="closeDropdownOnClickOutside" class="dropdown-wrapper">
       <div class="dropdown-overlay" :class="isDropdownExpandedClass" />
       <button
         class="mobile-button"
