@@ -1,0 +1,42 @@
+.ftva.filters-dropdown {
+    .action-row {
+        .action-row-button {
+            color: $accent-blue;
+            border-color: $accent-blue;
+            &.select-button {
+                background-color: $accent-blue;
+                color: white;
+            }
+            &.clear-button {
+                color: $accent-blue;
+                :deep(.svg__stroke--primary-blue-03) {
+                    stroke: $accent-blue;
+                }
+                &:hover, &:focus {
+                    background-color: $navy-blue;
+                    color: var(--color-white);
+                    :deep(.svg__stroke--primary-blue-03) {
+                        stroke: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+    // Selected Filter Pills
+    :deep(.block-tag:hover), :deep(.block-tag:focus),
+    .pill-checkbox:checked+ :deep(.block-tag) {
+        background-color: $accent-blue;
+        border-color: $accent-blue;
+        .label {
+            color: white;
+        }
+    }
+    :deep(.svg__icon-close) {
+        path {
+            stroke: white;
+        }
+        circle {
+            fill: transparent;
+        }
+    }
+}

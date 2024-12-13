@@ -4,6 +4,7 @@
 import { computed, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import BlockRemoveSearchFilter from '@/lib-components/BlockRemoveSearchFilter.vue'
+import { useTheme } from '@/composables/useTheme'
 
 interface Item {
   [key: string]: string[]
@@ -15,8 +16,9 @@ const { filters } = defineProps({
     default: () => { },
   },
 })
-
 const emit = defineEmits(['update:filters', 'remove-selected'])
+
+const theme = useTheme()
 
 const filteredFilters = ref<Item>({})
 
@@ -28,7 +30,8 @@ watch(() => filters, (newFilters) => {
 
 const parsedFilters = computed(() => {
   const result = Object.entries(filteredFilters.value).flatMap(([name, value]) => {
-    return value.map(item => ({ name, value: item }))
+    const items = Array.isArray(value) ? value : []
+    return items.map(item => ({ name, value: item }))
   })
   return result
 })
@@ -53,6 +56,7 @@ function closeBlockFilter(esfieldName: string, label: string | boolean) {
       :key="`filter-${filter.value}`"
     >
       <BlockRemoveSearchFilter
+        :is-selected="theme === 'ftva'"
         :title="filter.value === 'yes' ? getCheckBoxLabel(filter.name) : filter.value"
         @remove-block-filter="
           closeBlockFilter(

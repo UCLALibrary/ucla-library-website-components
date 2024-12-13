@@ -456,9 +456,11 @@ onMounted(() => {
   .button-text {
     display: inline-flex;
     align-items: center;
+
     svg {
       margin-right: 8px;
     }
+
     :deep(path.svg__fill--accent-blue) {
       fill: $medium-grey;
     }
@@ -800,29 +802,36 @@ onMounted(() => {
 
   //mobile drawer styles for datefilter
   :deep(.mobile-drawer) {
+
     // center datepicker within drawer
     .dp__main {
       margin: 0 auto;
+
       .dp__menu {
         border: none;
       }
     }
+
     // styles for the drawer launch button
     // these may be useful for filterdropdown as well
     .mobile-button {
       width: 166px;
       padding: 6px;
       border-radius: 4px;
+
       &:active {
         color: white;
         background-color: $accent-blue;
-          path.svg__fill--accent-blue {
-            fill: white;
+
+        path.svg__fill--accent-blue {
+          fill: white;
         }
       }
+
       &.is-expanded {
         color: $accent-blue;
         border: 2px solid $accent-blue;
+
         path.svg__fill--accent-blue {
           fill: $accent-blue;
         }
