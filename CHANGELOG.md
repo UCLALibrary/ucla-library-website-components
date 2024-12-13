@@ -1,3 +1,10 @@
+# [3.43.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.42.0...v3.43.0) (2024-12-13)
+
+
+### Features
+
+* APPS-3078 add is highlighted to blockcardthreecolumn ([#662](https://github.com/UCLALibrary/ucla-library-website-components/issues/662)) ([32758a6](https://github.com/UCLALibrary/ucla-library-website-components/commit/32758a668909c61d768b08c591f14fcbeb490214))
+
 # [3.42.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.41.0...v3.42.0) (2024-12-13)
 
 
