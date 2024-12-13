@@ -1,9 +1,9 @@
 import { computed } from 'vue'
-
 import TabItem from '../lib-components/TabItem.vue'
 import TabList from '../lib-components/TabList.vue'
 import SectionTeaserList from '@/lib-components/SectionTeaserList.vue'
 import * as API from '@/stories/mock-api.json'
+import router from '@/router'
 
 export default {
   title: 'Tab Toggle',
@@ -72,6 +72,10 @@ const mockComponentContent2 = [
 ]
 
 export function Default() {
+  router.push({
+    query: {}
+  })
+
   return {
     data() {
       return { ...mockContent }
@@ -80,13 +84,13 @@ export function Default() {
     template: `<div class="wrapper">
       <tab-list>
         
-        <tab-item title="Label 1" icon="icon-calendar" :content="text1">
+        <tab-item title="Label1" icon="icon-calendar" :content="text1">
         </tab-item>
 
-        <tab-item title="Label 2" icon="icon-list" :content="text2">
+        <tab-item title="Label2" icon="icon-list" :content="text2">
         </tab-item>
 
-        <tab-item title="Label 3" :content="text3">
+        <tab-item title="Label3" :content="text3">
         </tab-item>
       
       </tab-list>
@@ -95,6 +99,10 @@ export function Default() {
 }
 
 export function SetInitialTab() {
+  router.push({
+    query: {}
+  })
+
   return {
     data() {
       return { ...mockContent }
@@ -103,13 +111,13 @@ export function SetInitialTab() {
     template: `<div class="wrapper">
       <tab-list :initial-tab="1">
         
-        <tab-item title="Label 1" icon="icon-calendar" :content="text1">
+        <tab-item title="Label1" icon="icon-calendar" :content="text1">
         </tab-item>
 
-        <tab-item title="Label 2" icon="icon-list" :content="text2">
+        <tab-item title="Label2" icon="icon-list" :content="text2">
         </tab-item>
 
-        <tab-item title="Label 3" :content="text3">
+        <tab-item title="Label3" :content="text3">
         </tab-item>
       
       </tab-list>
@@ -118,6 +126,10 @@ export function SetInitialTab() {
 }
 
 export function FTVACentered() {
+  router.push({
+    query: {}
+  })
+
   return {
     data() {
       return { ...mockContent }
@@ -131,13 +143,13 @@ export function FTVACentered() {
     template: `<div class="wrapper">
       <tab-list alignment="center">
         
-        <tab-item title="Label 1" icon="icon-calendar" :content="text1">
+        <tab-item title="Label1" icon="icon-calendar" :content="text1">
         </tab-item>
 
-        <tab-item title="Label 2" icon="icon-list" :content="text2">
+        <tab-item title="Label2" icon="icon-list" :content="text2">
         </tab-item>
 
-        <tab-item title="Label 3" :content="text3">
+        <tab-item title="Label3" :content="text3">
         </tab-item>
       
       </tab-list>
@@ -146,6 +158,10 @@ export function FTVACentered() {
 }
 
 export function ToggledComponentsRight() {
+  router.push({
+    query: {}
+  })
+
   return {
     data() {
       return {

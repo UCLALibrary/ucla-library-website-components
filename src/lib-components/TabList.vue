@@ -205,7 +205,7 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
       <button
         v-for="(tab, index) in tabItems"
         :id="setTabId(tab?.title)"
-        :ref="(el) => tabRefs[index] = el"
+        :ref="(el: HTMLElement) => tabRefs[index] = el"
         :key="tab?.title"
         class="tab-list-item"
         :class="{ active: activeTabTitle === tab?.title }"
