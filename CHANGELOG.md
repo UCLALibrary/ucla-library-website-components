@@ -1,3 +1,10 @@
+## [3.43.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.1...v3.43.2) (2024-12-13)
+
+
+### Bug Fixes
+
+* export filtersdropdown because I forgot! ([#668](https://github.com/UCLALibrary/ucla-library-website-components/issues/668)) ([0052ba1](https://github.com/UCLALibrary/ucla-library-website-components/commit/0052ba1c4342d323f551e8f73c1a90fba270cb34))
+
 ## [3.43.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.0...v3.43.1) (2024-12-13)
 
 
