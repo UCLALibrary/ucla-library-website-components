@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, defineAsyncComponent, onMounted, provide, ref, useSlots, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
+import { useRoute, useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 
 const { alignment, initialTab } = defineProps({
@@ -36,6 +37,9 @@ const activeTabTitle = ref(tabItems.value[0]?.title)
 
 const tabGliderRef = ref()
 
+const route = useRoute()
+const router = useRouter()
+
 provide('activeTabTitle', activeTabTitle)
 
 const iconMapping = {
@@ -51,10 +55,22 @@ const iconMapping = {
 }
 
 onMounted(() => {
-  activeTabIndex.value = initialTab
-  activeTabTitle.value = tabItems.value[initialTab]?.title
+  const initialTabFromUrl = route.query.view
 
-  const activeTabElem = tabRefs.value[initialTab]
+  const tabIndex = tabItems.value.findIndex(
+    tab => tab?.title.toLowerCase() === initialTabFromUrl
+  )
+
+  if (tabIndex !== -1) {
+    activeTabIndex.value = tabIndex
+    activeTabTitle.value = tabItems.value[tabIndex]?.title
+  }
+  else {
+    activeTabIndex.value = initialTab
+    activeTabTitle.value = tabItems.value[initialTab]?.title
+  }
+
+  const activeTabElem = tabRefs.value[activeTabIndex.value]
 
   /* @argument {boolean} hasInitialWidth */
   // Boolean flag to disable glider's default
@@ -136,6 +152,14 @@ function switchTab(tabName: string) {
   activeTabTitle.value = tabName
   activeTabIndex.value = tabIndex
 
+  // Update URL with query parameter
+  router.push({
+    query: {
+      ...route.query,
+      view: tabName.split(' ')[0].toLowerCase()
+    }
+  })
+
   const tabElem: HTMLElement = tabRefs.value[tabIndex]
 
   if (tabElem)
@@ -181,7 +205,7 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
       <button
         v-for="(tab, index) in tabItems"
         :id="setTabId(tab?.title)"
-        :ref="(el) => tabRefs[index] = el"
+        :ref="(el: any) => tabRefs[index] = el"
         :key="tab?.title"
         class="tab-list-item"
         :class="{ active: activeTabTitle === tab?.title }"
