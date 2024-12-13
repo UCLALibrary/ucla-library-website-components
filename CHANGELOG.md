@@ -1,3 +1,10 @@
+## [3.43.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.0...v3.43.1) (2024-12-13)
+
+
+### Bug Fixes
+
+* APPS 3080 Update TabList buttons with SEO logic ([#667](https://github.com/UCLALibrary/ucla-library-website-components/issues/667)) ([de1c8fa](https://github.com/UCLALibrary/ucla-library-website-components/commit/de1c8faebaab447106d2639a662d5d49832af56d))
+
 # [3.43.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.42.0...v3.43.0) (2024-12-13)
 
 
