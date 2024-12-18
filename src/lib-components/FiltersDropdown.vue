@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import SvgGlyphX from 'ucla-library-design-tokens/assets/svgs/icon-ftva-xtag.svg'
 import SvgFilterIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-filter.svg'
+import { useWindowSize } from '@vueuse/core'
 import BlockTag from './BlockTag.vue'
 import ButtonLink from './ButtonLink.vue'
 import MobileDrawer from './MobileDrawer.vue'
@@ -57,8 +58,15 @@ function onDoneClick() {
 
 // THEME
 const theme = useTheme()
+const isMobile = ref(false)
 const parsedClasses = computed(() => {
   return ['filters-dropdown', theme?.value || '']
+})
+onMounted(() => {
+  const { width } = useWindowSize()
+  watch(width, (newWidth) => {
+    isMobile.value = newWidth <= 750
+  }, { immediate: true })
 })
 </script>
 
@@ -67,7 +75,12 @@ const parsedClasses = computed(() => {
     <MobileDrawer>
       <template #buttonLabel>
         <div class="filter-summary">
-          Filters ({{ numOfSelectedFilters }} selected )
+          <template v-if="!isMobile">
+            Filters ({{ numOfSelectedFilters }} selected )
+          </template>
+          <template v-else>
+            Filters
+          </template>
         </div>
         <span class="icon-svg">
           <SvgFilterIcon aria-hidden="true" />
@@ -82,8 +95,8 @@ const parsedClasses = computed(() => {
               <label v-for="option in group.options" :key="option" class="pill-label">
                 <!-- Hidden checkbox for managing selection & screen-reader user interaction -->
                 <input
-                  :id="option" v-model="selectedFilters[group.searchField]" type="checkbox" class="pill-checkbox" :name="option"
-                  :value="option"
+                  :id="option" v-model="selectedFilters[group.searchField]" type="checkbox" class="pill-checkbox"
+                  :name="option" :value="option"
                 >
                 <!-- BlockTag component for display -->
                 <BlockTag :label="option" :is-secondary="true">
@@ -96,7 +109,10 @@ const parsedClasses = computed(() => {
             </div>
           </div>
           <div class="action-row">
-            <ButtonLink class="action-row-button select-button" label="Done" icon-name="none" @click="onDoneClick(); removeOverlay();" />
+            <ButtonLink
+              class="action-row-button select-button" label="Done" icon-name="none"
+              @click="onDoneClick(); removeOverlay();"
+            />
             <ButtonLink
               class="action-row-button clear-button" label="Clear" icon-name="icon-close"
               @click="clearFilters"

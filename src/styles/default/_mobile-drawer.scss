@@ -58,12 +58,14 @@
     }
 
     @media #{$has-hover} {
-        .mobile-button:hover {
-            background-color: #f1f1f1;
-        }
+        @media #{$small} {
+            .mobile-button:hover {
+                background-color: #f1f1f1;
+            }
 
-        .svg__icon-close.svg-glyph-close:hover {
-            cursor: pointer;
+            .svg__icon-close.svg-glyph-close:hover {
+                cursor: pointer;
+            }
         }
     }
 
