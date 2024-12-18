@@ -1,4 +1,8 @@
 .ftva.filters-dropdown {
+    :deep(.mobile-button) {
+        border-color: #ddd;
+    }
+    // Done / Clear Buttons
     .action-row {
         .action-row-button {
             color: $accent-blue;
@@ -31,12 +35,23 @@
             color: white;
         }
     }
-    :deep(.svg__icon-close) {
+    .icon-close {
         path {
             stroke: white;
         }
         circle {
             fill: transparent;
+        }
+    }
+
+    @media #{$small} { 
+        // Input field / Button on Mobile
+        .icon-svg {
+            :deep(svg) {
+                path.svg__fill--accent-blue {
+                    fill: $medium-grey;
+                }
+            }
         }
     }
 }

@@ -477,9 +477,11 @@ onMounted(() => {
     // Input styling
     :deep(.dp__input) {
       height: 59px;
-      font-family: var(--font-secondary);
+      font-family: var(--font-primary);
+      font-weight: 500;
       font-size: 18px;
       color: $medium-grey;
+      border-radius: 8px;
 
       @media #{$small} {
         padding-inline-start: 57px;
@@ -817,7 +819,8 @@ onMounted(() => {
     .mobile-button {
       width: 166px;
       padding: 6px;
-      border-radius: 4px;
+      // border-radius: 4px;
+      border: none;
 
       &:active {
         color: white;
