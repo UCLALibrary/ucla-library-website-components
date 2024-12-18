@@ -819,7 +819,6 @@ onMounted(() => {
     .mobile-button {
       width: 166px;
       padding: 6px;
-      // border-radius: 4px;
       border: none;
 
       &:active {
