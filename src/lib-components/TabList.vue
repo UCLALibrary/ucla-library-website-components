@@ -156,7 +156,8 @@ function switchTab(tabName: string) {
   router.push({
     query: {
       ...route.query,
-      view: tabName.split(' ')[0].toLowerCase()
+      view: tabName.split(' ')[0].toLowerCase(),
+      page: 1
     }
   })
 
@@ -194,14 +195,26 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
 </script>
 
 <template>
-  <div :class="[classes, alignment]" role="tabs">
+  <div
+    :class="[classes, alignment]"
+    role="tabs"
+  >
     <!-- Slot: Dropdown Filters -->
-    <div v-if="$slots.filters" class="filters">
+    <div
+      v-if="$slots.filters"
+      class="filters"
+    >
       <slot name="filters" />
     </div>
 
-    <div class="tab-list-header" role="tablist">
-      <span ref="tabGliderRef" class="tab-glider" />
+    <div
+      class="tab-list-header"
+      role="tablist"
+    >
+      <span
+        ref="tabGliderRef"
+        class="tab-glider"
+      />
       <button
         v-for="(tab, index) in tabItems"
         :id="setTabId(tab?.title)"
@@ -217,15 +230,23 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
         @click="switchTab(tab?.title)"
       >
         <component
-          :is="iconMapping[tab.icon as keyof typeof iconMapping].icon" v-if="tab?.icon"
-          class="svg" aria-hidden="true"
+          :is="iconMapping[tab.icon as keyof typeof iconMapping].icon"
+          v-if="tab?.icon"
+          class="svg"
+          aria-hidden="true"
         />
         {{ tab?.title }}
       </button>
     </div>
   </div>
   <!-- Slot: TabItem -->
-  <div :id="parsedAriaLabel" class="tab-list-body" role="tabpanel" :aria-labelledby="parsedAriaLabel" :hidden="!activeTabTitle">
+  <div
+    :id="parsedAriaLabel"
+    class="tab-list-body"
+    role="tabpanel"
+    :aria-labelledby="parsedAriaLabel"
+    :hidden="!activeTabTitle"
+  >
     <slot />
   </div>
 </template>

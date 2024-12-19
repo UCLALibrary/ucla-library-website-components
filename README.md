@@ -21,6 +21,20 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
     2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
+## Pull request labels to use to trigger a release
+
+Helpful reminders to future selves:
+
+-   Use the commit message conventions that trigger [semantic releases](https://semantic-release.gitbook.io/semantic-release/support/faq#how-can-i-change-the-type-of-commits-that-trigger-a-release)
+    -   feat: A new feature
+    -   fix: A bug fix
+    -   docs: Documentation only changes
+    -   style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+    -   refactor: A code change that neither fixes a bug nor adds a feature
+    -   perf: A code change that improves performance
+    -   test: Adding missing or correcting existing tests
+    -   chore: Do not use it for any source code changes, only use it when Changes to the build process or auxiliary tools and libraries such as documentation generation
+
 ## Setup & Development
 
 <details><summary>STEPS</summary>
@@ -69,18 +83,22 @@ Build library using vite:
 # pnpm
 pnpm run vite
 ```
+
 ## `App.vue` and `mock.js`
 
 ### Local copy of `APP.vue` and `mock.js` in the `src` file
+
 If you already have a local copy of be sure to save it locally because they will be deleted if you reclone this repo.
 You can add a page to the [Wiki](https://github.com/UCLALibrary/ucla-library-website-components/wiki/) with your version.
 
 ### If starting this project from scratch
+
 Be sure to add the `APP.vue` and `mock.js` in the `src` file
 
 There are example files here: https://github.com/UCLALibrary/ucla-library-website-components/wiki/AppDotVueAndMockJS.md
 
 #### If you get an error like this; you have forgotten to do this step:
+
 (Add `APP.vue` and `mock.js` in the `src` file)
 
 ```
@@ -92,6 +110,7 @@ There are example files here: https://github.com/UCLALibrary/ucla-library-websit
    |                   ^
 8  |  createApp(App).use(router).use(createPinia()).mount("#app");
 ```
+
 ```
 src
   > assets
@@ -118,6 +137,7 @@ src
 **You have two choices**
 
 ### Update `package.json` in ftva-website-nuxt
+
 **from**
 `"ucla-library-website-components": "2.39.0-alpha.100"`
 (whatever it is currently)
