@@ -272,10 +272,6 @@ const parsedDateFormat = computed(() => {
       display: flex;
       justify-content: left;
       gap: 16px;
-
-      .block-tag .label {
-        padding-left: 10px
-      }
     }
   }
 
