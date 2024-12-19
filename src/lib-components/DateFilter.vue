@@ -228,9 +228,9 @@ onMounted(() => {
     >
       <template #input-icon>
         <SvgIconFTVACalender />
-        <span :class="inputIconClass">
+        <!-- <span :class="inputIconClass">
           <SvgIconFTVADropTriangle />
-        </span>
+        </span> -->
       </template>
 
       <template #clear-icon="{ clear }">
@@ -477,9 +477,17 @@ onMounted(() => {
     // Input styling
     :deep(.dp__input) {
       height: 59px;
-      font-family: var(--font-secondary);
+      font-family: var(--font-primary);
+      font-weight: 500;
       font-size: 18px;
       color: $medium-grey;
+      border-radius: 8px;
+      &:hover, &:focus {
+        border-color: #ddd;
+      }
+      &:hover {
+        background-color: #f1f1f1;
+      }
 
       @media #{$small} {
         padding-inline-start: 57px;
@@ -496,7 +504,7 @@ onMounted(() => {
 
       svg {
         position: absolute;
-        right: 40px;
+        right: 30px;
         transform: translateY(-50%);
 
         @media #{$small} {
@@ -817,7 +825,7 @@ onMounted(() => {
     .mobile-button {
       width: 166px;
       padding: 6px;
-      border-radius: 4px;
+      // border: none;
 
       &:active {
         color: white;

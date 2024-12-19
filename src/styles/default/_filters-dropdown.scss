@@ -2,6 +2,7 @@
     // Dropdown  Window Size & Input
     :deep(.mobile-button) {
         min-width: 380px;
+        border-color: #ddd;
         .toggle-triangle-icon { 
             path.svg__fill--accent-blue {
                 fill: $accent-blue;
@@ -26,6 +27,9 @@
         margin: auto;
         padding: 24px 30px 30px 30px;
         width: 100%; // filters dropdown grows to container width
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 0px 10px 10px;
+        border: none;
     }
 
     // Filter Heading
@@ -120,6 +124,19 @@
                 :deep(.svg__stroke--primary-blue-03) {
                     stroke: var(--color-white);
                 }
+            }
+        }
+    }
+
+    @media #{$small} {
+        :deep(.mobile-button) {
+            width: 166px;
+            min-width: unset;
+            padding: 6px; 
+            // border: none;
+            .button-inner-wrapper {
+                flex-direction: row-reverse;
+                justify-content: center;
             }
         }
     }
