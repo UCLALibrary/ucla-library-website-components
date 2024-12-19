@@ -1,6 +1,9 @@
 .ftva.filters-dropdown {
     :deep(.mobile-button) {
         border-color: #ddd;
+        &:hover, &:focus {
+            border-color: #ddd;
+        }
     }
     // Done / Clear Buttons
     .action-row {
@@ -46,6 +49,21 @@
 
     @media #{$small} { 
         // Input field / Button on Mobile
+        :deep(.mobile-button) {
+            border-color: $medium-grey;
+            &:hover,
+                &:focus {
+                    border-color: $medium-grey;
+                }
+            &.is-expanded {
+                    color: $accent-blue;
+                    border: 2px solid $accent-blue;
+            
+                    path.svg__fill--accent-blue {
+                        fill: $accent-blue;
+                    }
+                }
+        }
         .icon-svg {
             :deep(svg) {
                 path.svg__fill--accent-blue {

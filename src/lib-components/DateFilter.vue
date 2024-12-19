@@ -482,6 +482,9 @@ onMounted(() => {
       font-size: 18px;
       color: $medium-grey;
       border-radius: 8px;
+      &:hover, &:focus {
+        border-color: #ddd;
+      }
 
       @media #{$small} {
         padding-inline-start: 57px;
@@ -819,7 +822,7 @@ onMounted(() => {
     .mobile-button {
       width: 166px;
       padding: 6px;
-      border: none;
+      // border: none;
 
       &:active {
         color: white;
