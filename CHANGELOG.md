@@ -1,3 +1,10 @@
+## [3.43.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.2...v3.43.3) (2024-12-19)
+
+
+### Bug Fixes
+
+* update readme with pr labels to use, and reset page number ([#670](https://github.com/UCLALibrary/ucla-library-website-components/issues/670)) ([36e98bf](https://github.com/UCLALibrary/ucla-library-website-components/commit/36e98bfc9f1773f0b13d45ca6de91b7f0baa1384))
+
 ## [3.43.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.1...v3.43.2) (2024-12-13)
 
 
