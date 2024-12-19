@@ -228,9 +228,9 @@ onMounted(() => {
     >
       <template #input-icon>
         <SvgIconFTVACalender />
-        <span :class="inputIconClass">
+        <!-- <span :class="inputIconClass">
           <SvgIconFTVADropTriangle />
-        </span>
+        </span> -->
       </template>
 
       <template #clear-icon="{ clear }">
@@ -485,6 +485,9 @@ onMounted(() => {
       &:hover, &:focus {
         border-color: #ddd;
       }
+      &:hover {
+        background-color: #f1f1f1;
+      }
 
       @media #{$small} {
         padding-inline-start: 57px;
@@ -501,7 +504,7 @@ onMounted(() => {
 
       svg {
         position: absolute;
-        right: 40px;
+        right: 30px;
         transform: translateY(-50%);
 
         @media #{$small} {

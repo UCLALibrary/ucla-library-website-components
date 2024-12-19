@@ -4,6 +4,9 @@
         &:hover, &:focus {
             border-color: #ddd;
         }
+        &:hover {
+            background-color: #f1f1f1;
+        }
     }
     // Done / Clear Buttons
     .action-row {
@@ -51,10 +54,9 @@
         // Input field / Button on Mobile
         :deep(.mobile-button) {
             border-color: $medium-grey;
-            &:hover,
-                &:focus {
-                    border-color: $medium-grey;
-                }
+            &:hover, &:focus {
+                border-color: $medium-grey;
+            }
             &.is-expanded {
                     color: $accent-blue;
                     border: 2px solid $accent-blue;
