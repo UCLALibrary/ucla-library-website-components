@@ -1,3 +1,10 @@
+## [3.43.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.3...v3.43.4) (2024-12-20)
+
+
+### Bug Fixes
+
+* APPS-3117 Additional Component Fixes for EventListing Page ([#671](https://github.com/UCLALibrary/ucla-library-website-components/issues/671)) ([385665a](https://github.com/UCLALibrary/ucla-library-website-components/commit/385665a4f9d21823097fd46ddcb54fa3befc189f))
+
 ## [3.43.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.2...v3.43.3) (2024-12-19)
 
 
