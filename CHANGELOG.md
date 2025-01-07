@@ -1,3 +1,10 @@
+## [3.43.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.5...v3.43.6) (2025-01-07)
+
+
+### Bug Fixes
+
+* APPS-3043 Add z-index to dropdown button ([#673](https://github.com/UCLALibrary/ucla-library-website-components/issues/673)) ([4250fe3](https://github.com/UCLALibrary/ucla-library-website-components/commit/4250fe3c7f33b910fc89de3052151237b29a6831))
+
 ## [3.43.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.4...v3.43.5) (2025-01-07)
 
 
