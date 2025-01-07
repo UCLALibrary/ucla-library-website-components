@@ -1,3 +1,10 @@
+## [3.43.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.4...v3.43.5) (2025-01-07)
+
+
+### Bug Fixes
+
+* APPS-3042 Embedded video height in RichText ([#672](https://github.com/UCLALibrary/ucla-library-website-components/issues/672)) ([819a6ba](https://github.com/UCLALibrary/ucla-library-website-components/commit/819a6ba86ce59ff6079ca6f115b8726154a164b5))
+
 ## [3.43.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.3...v3.43.4) (2024-12-20)
 
 
