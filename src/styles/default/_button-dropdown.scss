@@ -1,4 +1,7 @@
 .button-dropdown {
+    position: relative;
+    z-index: 100;
+
     .button-svg {
         position: relative;
         top: 1px;
