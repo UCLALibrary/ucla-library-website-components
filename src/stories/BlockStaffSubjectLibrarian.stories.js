@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian'
 
 // Storybook default settings
@@ -127,6 +128,55 @@ export function AlternativeName() {
         item: {
           ...mockAlternativeName,
         },
+      }
+    },
+    components: { BlockStaffSubjectLibrarian },
+    template: `
+      <block-staff-subject-librarian
+        v-bind="item"
+      />
+  `,
+  }
+}
+
+const mockFilm = {
+          image: [
+            {
+              id: "3593326",
+              src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/gay-abel-bey.jpeg",
+              height: 1434,
+              width: 2560,
+              srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/gay-abel-bey.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/gay-abel-bey.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/gay-abel-bey.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/gay-abel-bey.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/gay-abel-bey.jpeg 2560w",
+              alt: null,
+              focalPoint: [
+                0.5,
+                0.5
+              ]
+            }
+          ],
+          titleGeneral: "Associated Film #1 Title",
+          description: "Associated Film #1 Description",
+          roles: "Associated Film #1 Role(s)",
+          year: "1990",
+          filmLink: [
+            {
+              uri: "collections/l-a-rebellion/as-above-so-below",
+              slug: "as-above-so-below"
+            }
+          ]
+}
+export function FTVAFilmography() {
+  return {
+    data() {
+      return {
+        item: {
+          ...mockFilm,
+        },
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     components: { BlockStaffSubjectLibrarian },

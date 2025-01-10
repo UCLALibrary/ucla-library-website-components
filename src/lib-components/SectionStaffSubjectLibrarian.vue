@@ -5,7 +5,43 @@
 import type { PropType } from 'vue'
 
 // TYPESCRIPT
-import type { BlockStaffListItemType } from '@/types/types'
+import type { BlockStaffListItemType, MediaItemType } from '@/types/types'
+export interface FilmographyListItemType {
+  to: string
+  nameLast: string
+  nameFirst: string
+  // jobTitle: string
+  // departments: DepartmentItemType[]
+  // email: string
+  // topics: TopicsItemType[]
+  // alternativeName?: AlternativeNameItemType[]
+  // alternativeFullName?: string
+  // subjectArea?: string
+  // staffName?: string
+  // language?: string
+  // locations?: StaffLocationItemType[]
+  // phone?: string
+  // consultation?: string
+  // academicDepartments?: AcademicDepartmentsItemType[]
+  uri: string
+  image?: MediaItemType
+  // biography?: string
+  // orcid?: string
+  // publications?: string
+  // pronouns?: string
+  slug: string
+  // sectionHandle: string // MAYBE?
+  // subjectLibrarian: boolean
+  // TODO NEW FIELDS - or map below to existing fields somehow
+  titleGeneral: string,
+  description: string,
+  roles: string,
+  year: string,
+  filmLink: {
+    uri: string,
+    slug: string
+  }[]
+}
 
 import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian.vue'
 
