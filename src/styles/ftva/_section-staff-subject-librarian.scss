@@ -1,0 +1,10 @@
+.ftva.section-staff-subject-librarian {
+    thead tr { 
+        padding: 12px 16px;
+        border-bottom: 1px dashed #555555;
+        th {
+          @include ftva-card-title-2;
+          color: #2f2f2f;
+        }
+    }
+}
