@@ -3,51 +3,32 @@
   lang="ts"
 >
 import type { PropType } from 'vue'
+import { computed } from 'vue'
+import { useTheme } from '@/composables/useTheme'
 
 // TYPESCRIPT
 import type { BlockStaffListItemType, MediaItemType } from '@/types/types'
+
+// CHILD COMPONENTS
+import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian.vue'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+
 export interface FilmographyListItemType {
-  to: string
-  nameLast: string
-  nameFirst: string
-  // jobTitle: string
-  // departments: DepartmentItemType[]
-  // email: string
-  // topics: TopicsItemType[]
-  // alternativeName?: AlternativeNameItemType[]
-  // alternativeFullName?: string
-  // subjectArea?: string
-  // staffName?: string
-  // language?: string
-  // locations?: StaffLocationItemType[]
-  // phone?: string
-  // consultation?: string
-  // academicDepartments?: AcademicDepartmentsItemType[]
-  uri: string
   image?: MediaItemType
-  // biography?: string
-  // orcid?: string
-  // publications?: string
-  // pronouns?: string
-  slug: string
-  // sectionHandle: string // MAYBE?
-  // subjectLibrarian: boolean
-  // TODO NEW FIELDS - or map below to existing fields somehow
-  titleGeneral: string,
-  description: string,
-  roles: string,
-  year: string,
+  titleGeneral: string
+  description: string
+  roles: string
+  year: string
   filmLink: {
-    uri: string,
+    uri: string
     slug: string
   }[]
 }
 
-import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian.vue'
-
+// PROPS
 const { items, tableHeaders } = defineProps({
   items: {
-    type: Array as PropType<BlockStaffListItemType[]>,
+    type: Array as PropType<BlockStaffListItemType[] | FilmographyListItemType[]>,
     default: () => [],
   },
   tableHeaders: {
@@ -55,10 +36,21 @@ const { items, tableHeaders } = defineProps({
     default: () => [],
   },
 })
+
+// If item has a subjectArea, we assume it's a staff item
+function isStaffItem(item: BlockStaffListItemType | FilmographyListItemType): item is BlockStaffListItemType {
+  return (item as BlockStaffListItemType).hasOwnProperty('subjectArea')
+}
+
+// THEME
+const theme = useTheme()
+const classes = computed(() => {
+  return ['section-staff-subject-librarian', theme?.value || '']
+})
 </script>
 
 <template>
-  <table class="section-staff-subject-librarian">
+  <table :class="classes">
     <caption>
       Subject Librarians
     </caption>
@@ -75,7 +67,8 @@ const { items, tableHeaders } = defineProps({
 
     <tbody>
       <BlockStaffSubjectLibrarian
-        v-for="(item, index) in items"
+        v-for="(item, index) in items as BlockStaffListItemType[]"
+        v-if="(items.length !== 0) && isStaffItem(items[0])"
         :key="`${index}-${item.subjectArea}`"
         :subject-area="item.subjectArea"
         :name-first="item.nameFirst"
@@ -91,6 +84,30 @@ const { items, tableHeaders } = defineProps({
         :consultation="item.consultation"
         class="subject-librarian-item"
       />
+      <BlockStaffSubjectLibrarian
+        v-for="(item, index) in items as FilmographyListItemType[]"
+        v-else
+        :key="`${index}-${item.titleGeneral}`"
+        :num-extra-cells="4"
+      >
+        <template #column1>
+          <div class="responsive-image" style="width: 100px; height: 100px;">
+            <ResponsiveImage :media="item.image[0]" />
+          </div>
+        </template>
+        <template #column2>
+          <smart-link :to="item.filmLink[0].uri">
+            {{ item.titleGeneral }}
+          </smart-link>
+          {{ item.description }}
+        </template>
+        <template #column3>
+          {{ item.roles }}
+        </template>
+        <template #column4>
+          {{ item.year }}
+        </template>
+      </BlockStaffSubjectLibrarian>
     </tbody>
   </table>
 </template>
