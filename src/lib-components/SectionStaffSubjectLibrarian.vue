@@ -39,7 +39,7 @@ const { items, tableHeaders } = defineProps({
 
 // If item has a subjectArea, we assume it's a staff item
 function isStaffItem(item: BlockStaffListItemType | FilmographyListItemType): item is BlockStaffListItemType {
-  return (item as BlockStaffListItemType).hasOwnProperty('subjectArea')
+  return Object.prototype.hasOwnProperty.call(item, 'subjectArea')
 }
 
 // THEME
@@ -66,48 +66,50 @@ const classes = computed(() => {
     </thead>
 
     <tbody>
-      <BlockStaffSubjectLibrarian
-        v-for="(item, index) in items as BlockStaffListItemType[]"
-        v-if="(items.length !== 0) && isStaffItem(items[0])"
-        :key="`${index}-${item.subjectArea}`"
-        :subject-area="item.subjectArea"
-        :name-first="item.nameFirst"
-        :name-last="item.nameLast"
-        :to="item.to"
-        :alternative-name="item.alternativeName"
-        :language="item.language"
-        :job-title="item.jobTitle"
-        :departments="item.departments"
-        :locations="item.locations"
-        :email="item.email"
-        :phone="item.phone"
-        :consultation="item.consultation"
-        class="subject-librarian-item"
-      />
-      <BlockStaffSubjectLibrarian
-        v-for="(item, index) in items as FilmographyListItemType[]"
-        v-else
-        :key="`${index}-${item.titleGeneral}`"
-        :num-extra-cells="4"
-      >
-        <template #column1>
-          <div class="responsive-image" style="width: 100px; height: 100px;">
-            <ResponsiveImage :media="item.image[0]" />
-          </div>
-        </template>
-        <template #column2>
-          <smart-link :to="item.filmLink[0].uri">
-            {{ item.titleGeneral }}
-          </smart-link>
-          {{ item.description }}
-        </template>
-        <template #column3>
-          {{ item.roles }}
-        </template>
-        <template #column4>
-          {{ item.year }}
-        </template>
-      </BlockStaffSubjectLibrarian>
+      <template v-if="(items.length !== 0) && isStaffItem(items[0])">
+        <BlockStaffSubjectLibrarian
+          v-for="(item, index) in items as BlockStaffListItemType[]"
+          :key="`${index}-${item.subjectArea}`"
+          :subject-area="item.subjectArea"
+          :name-first="item.nameFirst"
+          :name-last="item.nameLast"
+          :to="item.to"
+          :alternative-name="item.alternativeName"
+          :language="item.language"
+          :job-title="item.jobTitle"
+          :departments="item.departments"
+          :locations="item.locations"
+          :email="item.email"
+          :phone="item.phone"
+          :consultation="item.consultation"
+          class="subject-librarian-item"
+        />
+      </template>
+      <template v-else>
+        <BlockStaffSubjectLibrarian
+          v-for="(item, index) in items as FilmographyListItemType[]"
+          :key="`${index}-${item.titleGeneral}`"
+          :num-extra-cells="4"
+        >
+          <template #column1>
+            <div class="responsive-image" style="width: 100px; height: 100px;">
+              <ResponsiveImage :media="item.image[0]" />
+            </div>
+          </template>
+          <template #column2>
+            <smart-link :to="item.filmLink[0].uri">
+              {{ item.titleGeneral }}
+            </smart-link>
+            {{ item.description }}
+          </template>
+          <template #column3>
+            {{ item.roles }}
+          </template>
+          <template #column4>
+            {{ item.year }}
+          </template>
+        </BlockStaffSubjectLibrarian>
+      </template>
     </tbody>
   </table>
 </template>
