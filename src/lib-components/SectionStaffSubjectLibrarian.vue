@@ -14,7 +14,7 @@ import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrar
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
 export interface FilmographyListItemType {
-  image?: MediaItemType
+  image: MediaItemType[]
   titleGeneral: string
   description: string
   roles: string
@@ -39,7 +39,7 @@ const { items, tableHeaders } = defineProps({
 
 // If item has a subjectArea, we assume it's a staff item
 function isStaffItem(item: BlockStaffListItemType | FilmographyListItemType): item is BlockStaffListItemType {
-  return Object.prototype.hasOwnProperty.call(item, 'subjectArea')
+  return Object.prototype.hasOwnProperty.call(item as BlockStaffListItemType, 'subjectArea')
 }
 
 // THEME
