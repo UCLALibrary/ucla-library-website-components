@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { computed, defineAsyncComponent } from 'vue'
 
 import format from 'date-fns/format'
@@ -166,7 +163,10 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
-    <div v-if="$slots.linkedcategoryslot" class="linked-category">
+    <div
+      v-if="$slots.linkedcategoryslot"
+      class="linked-category"
+    >
       <slot name="linkedcategoryslot" />
     </div>
 
@@ -175,6 +175,15 @@ const classes = computed(() => {
       class="category"
       v-html="category"
     />
+
+    <!-- Named slot for title -->
+    <div
+      v-if="$slots.title"
+      class="custom-title"
+    >
+      <slot name="title" />
+    </div>
+
     <SmartLink
       v-if="to"
       :link-target="parsedTarget"
@@ -195,6 +204,14 @@ const classes = computed(() => {
       class="title-no-link"
       v-html="title"
     />
+
+    <!-- Named slot for description -->
+    <div
+      v-if="$slots.description"
+      class="custom-description"
+    >
+      <slot name="description" />
+    </div>
 
     <RichText
       v-if="guestSpeaker"
@@ -296,10 +313,7 @@ const classes = computed(() => {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 @import "@/styles/default/_card-meta.scss";
 @import "@/styles/ftva/_card-meta.scss";
 </style>

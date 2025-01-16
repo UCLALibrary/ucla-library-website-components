@@ -29,6 +29,10 @@
     margin: 0 0 24px;
   }
 
+  .custom-description {
+    @include truncate(3);
+  }
+
   .block-tags {
     display: flex;
     flex-direction: row;

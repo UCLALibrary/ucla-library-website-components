@@ -2,6 +2,7 @@ import { computed, onBeforeUnmount, onMounted } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
+import RichText from '@/lib-components/RichText.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 // Storybook default settings
@@ -291,3 +292,36 @@ export function FtvaLinkedCategoryAndTitle() {
   `,
   }
 }
+
+export function FtvaCustomTitleAndDesription() {
+  return {
+    data() {
+      return {
+        ftvaFeaturedArticles: [
+          {
+            title: "<h3>Preserving <em>In Transit</em>: <a href=#>The Chinese</a> in California</h3>",
+            ftvaHomepageDescription: "<p><strong>In the summer</strong> of 2023, <a href=#>I had the chance</a> to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.</p>"
+          }
+        ]
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta, RichText },
+    template: `
+      <card-meta>
+        <template v-slot:title>
+          <RichText  v-html="ftvaFeaturedArticles[0].title" />
+        </template>
+
+        <template v-slot:description>
+          <RichText v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
+        </template>
+      </card-meta>
+    `,
+    }
+  }
+
