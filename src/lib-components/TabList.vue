@@ -198,6 +198,7 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
   <div
     :class="[classes, alignment]"
     role="tabs"
+    v-bind="$attrs"
   >
     <!-- Slot: Dropdown Filters -->
     <div
