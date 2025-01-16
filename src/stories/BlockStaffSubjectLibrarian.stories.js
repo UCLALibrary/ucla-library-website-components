@@ -204,7 +204,7 @@ export function FTVAFilmography() {
         :num-extra-cells="4"
       >
       <template v-slot:column1>
-      <div class="responsive-image" style="width: 100px; height: 100px;">
+      <div class="responsive-image">
         <ResponsiveImage :media="item.image[0]"/>
       </div>
       </template>

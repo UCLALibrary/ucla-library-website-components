@@ -1,4 +1,54 @@
 .ftva.block-staff-subject-librarian {
-    // styles here
-    color: red !important;
+    gap: var(--space-m);
+    align-items: center;
+    // justify-content: space-between;
+    &:last-child {
+      padding-bottom: 0px;
+    }
+
+    // td {
+    //     &:nth-of-type(4) {
+    //         justify-content: flex-end;
+    //     }
+    // }
+    :nth-child(1) {
+        flex-grow: 2;
+        max-width: 287px;
+    }
+    :nth-child(2) {
+        max-width: 500px;
+        flex-grow: 3;
+    }
+    :nth-child(3) {
+        justify-self: flex-start;
+        flex-grow: 1;
+    }
+    :nth-child(4){
+        justify-self: flex-end;
+    }
+
+    :deep(*){
+      @include ftva-subtitle-2;
+    }
+    :deep(h1){
+      @include ftva-card-title-1;
+      color: $accent-blue;
+    }
+    :deep(.rich-text){
+        .parsed-content {
+            color: $body-grey;
+            margin-bottom: 0px;
+        }
+    }
+    :deep(p.subtitle) {
+        @include ftva-subtitle-2;
+    }
+    :deep(.responsive-image) {
+        height: 213px;
+        aspect-ratio: 284 / 213;
+    }
+    @media #{$small} {
+        align-items: flex-start;
+        gap: 0px;
+    }
  }

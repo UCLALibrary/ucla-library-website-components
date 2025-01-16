@@ -137,8 +137,7 @@ export function Default() {
   }
 }
 
-const mockFTVAtableHeaders = ['Image', 'Film', 'Role', 'Year']
-// TODO type for this data structure, remove qutoes or paste from BlockStaffSubjectLibrarian
+const mockFTVAtableHeaders = ['', 'Film', 'Role', 'Year']
 const mockFTVAfilmdata = [
   {
     image: [

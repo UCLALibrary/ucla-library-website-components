@@ -12,6 +12,7 @@ import type { BlockStaffListItemType, MediaItemType } from '@/types/types'
 // CHILD COMPONENTS
 import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian.vue'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import RichText from '@/lib-components/RichText.vue'
 
 export interface FilmographyListItemType {
   image: MediaItemType[]
@@ -56,10 +57,7 @@ const classes = computed(() => {
     </caption>
     <thead>
       <tr>
-        <th
-          v-for="(header, index) in tableHeaders"
-          :key="index"
-        >
+        <th v-for="(header, index) in tableHeaders" :key="index">
           {{ header }}
         </th>
       </tr>
@@ -69,44 +67,39 @@ const classes = computed(() => {
       <template v-if="(items.length !== 0) && isStaffItem(items[0])">
         <BlockStaffSubjectLibrarian
           v-for="(item, index) in items as BlockStaffListItemType[]"
-          :key="`${index}-${item.subjectArea}`"
-          :subject-area="item.subjectArea"
-          :name-first="item.nameFirst"
-          :name-last="item.nameLast"
-          :to="item.to"
-          :alternative-name="item.alternativeName"
-          :language="item.language"
-          :job-title="item.jobTitle"
-          :departments="item.departments"
-          :locations="item.locations"
-          :email="item.email"
-          :phone="item.phone"
-          :consultation="item.consultation"
-          class="subject-librarian-item"
+          :key="`${index}-${item.subjectArea}`" :subject-area="item.subjectArea" :name-first="item.nameFirst"
+          :name-last="item.nameLast" :to="item.to" :alternative-name="item.alternativeName" :language="item.language"
+          :job-title="item.jobTitle" :departments="item.departments" :locations="item.locations" :email="item.email"
+          :phone="item.phone" :consultation="item.consultation" class="subject-librarian-item"
         />
       </template>
       <template v-else>
         <BlockStaffSubjectLibrarian
           v-for="(item, index) in items as FilmographyListItemType[]"
-          :key="`${index}-${item.titleGeneral}`"
-          :num-extra-cells="4"
+          :key="`${index}-${item.titleGeneral}`" :num-extra-cells="4" class="subject-librarian-item"
         >
           <template #column1>
-            <div class="responsive-image" style="width: 100px; height: 100px;">
+            <div class="responsive-image">
               <ResponsiveImage :media="item.image[0]" />
             </div>
           </template>
           <template #column2>
-            <smart-link :to="item.filmLink[0].uri">
-              {{ item.titleGeneral }}
-            </smart-link>
-            {{ item.description }}
+            <h1>
+              <smart-link :to="item.filmLink[0].uri">
+                {{ item.titleGeneral }}
+              </smart-link>
+            </h1>
+            <RichText :rich-text-content="item.description" />
           </template>
           <template #column3>
-            {{ item.roles }}
+            <p class="subtitle">
+              {{ item.roles }}
+            </p>
           </template>
           <template #column4>
-            {{ item.year }}
+            <p class="subtitle">
+              {{ item.year }}
+            </p>
           </template>
         </BlockStaffSubjectLibrarian>
       </template>
