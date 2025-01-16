@@ -1,3 +1,10 @@
+## [3.43.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.6...v3.43.7) (2025-01-16)
+
+
+### Bug Fixes
+
+* Add attribute inheritance when component has multiple root nodes ([#675](https://github.com/UCLALibrary/ucla-library-website-components/issues/675)) ([b94458d](https://github.com/UCLALibrary/ucla-library-website-components/commit/b94458d8c7f425decbca7aa50308e8612357ff9f))
+
 ## [3.43.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.5...v3.43.6) (2025-01-07)
 
 
