@@ -197,7 +197,7 @@ function TemplateFTVACustomTitleDescription(args) {
   return {
     data() {
       return {
-        ...mock,
+        ...mockCustomTitleAndDesription,
         ...args,
       }
     },
@@ -216,11 +216,11 @@ function TemplateFTVACustomTitleDescription(args) {
       :image-aspect-ratio="imageAspectRatio"
       >
       <template #title>
-        test title
+        <RichText v-html="title" />
       </template>
 
       <template #description>
-        test description
+        <RichText v-html="ftvaHomepageDescription" />
       </template>
     </block-card-with-image>
 `,
