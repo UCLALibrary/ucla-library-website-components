@@ -322,6 +322,6 @@ export function FtvaCustomTitleAndDesription() {
         </template>
       </card-meta>
     `,
-    }
   }
+}
 

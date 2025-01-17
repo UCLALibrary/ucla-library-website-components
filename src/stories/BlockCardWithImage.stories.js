@@ -7,7 +7,7 @@ import * as API from '@/stories/mock-api.json'
 // Storybook default settings
 export default {
   title: 'BLOCK / Card With Image',
-  component: BlockCardWithImage
+  component: BlockCardWithImage,
 }
 
 const mock = {
@@ -46,21 +46,21 @@ function Template(args) {
     components: { BlockCardWithImage },
     template: `
     <block-card-with-image
-        :image="image"
-        :to="to"
-        :category="category"
-        :title="title"
-        :start-date="startDate"
-        :end-date="endDate"
-        :text="text"
-        :image-aspect-ratio="imageAspectRatio"
-        :locations="locations"
-        :alternativeFullName="alternativeFullName"
-        :language="language"
-        :section-handle="sectionHandle"
-        :date-created="dateCreated"
-        :byline-one="bylineOne"
-        :byline-two="bylineTwo"
+      :image="image"
+      :to="to"
+      :category="category"
+      :title="title"
+      :start-date="startDate"
+      :end-date="endDate"
+      :text="text"
+      :image-aspect-ratio="imageAspectRatio"
+      :locations="locations"
+      :alternativeFullName="alternativeFullName"
+      :language="language"
+      :section-handle="sectionHandle"
+      :date-created="dateCreated"
+      :byline-one="bylineOne"
+      :byline-two="bylineTwo"
     />
 `,
   }
@@ -137,3 +137,94 @@ FTVAItemsPostedDate.args = {
   cardIsLink: true,
   dateCreated: '2022-01-31T07:00:00+00:00',
 }
+
+const mockCustomTitleAndDesription = {
+  title: "Preserving “In Transit: The Chinese in California”",
+  startDate: "2024-05-07T13:00:00-07:00",
+  ftvaHomepageDescription: "<p>In the summer of 2023, I had the chance to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.</p>",
+  uri: "blog/preserving-in-transit-the-chinese-in-california",
+  ftvaImage: [
+    {
+      id: "3619987",
+      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/In_Transit_blog2.jpeg",
+      height: 1813,
+      width: 2560,
+      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 2560w",
+      alt: null,
+      focalPoint: [
+        0.5,
+        0.5
+      ]
+    }
+  ]
+}
+
+// export function FtvaCustomTitleAndDesription() {
+//   return {
+//     data() {
+//       return {
+//         ...mockCustomTitleAndDesription,
+//       }
+//     },
+//     provide() {
+//       return {
+//         theme: computed(() => 'ftva'),
+//       }
+//     },
+//     components: { CardMeta, RichText },
+//     template: `
+//       <block-card-with-image
+//         image: API.image,
+//         to: '/visit/foo/bar/',
+//         title: 'Seven seas of the ancient world',
+//         startDate: '2022-03-31T07:00:00+00:00',
+//         >
+//         <card-meta>
+//           <template v-slot:title>
+//             <RichText  v-html="ftvaFeaturedArticles[0].title" />
+//           </template>
+
+//           <template v-slot:description>
+//             <RichText v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
+//           </template>
+//         </card-meta>
+//       </block-card-with-image>
+//     `,
+//   }
+// }
+
+function TemplateFTVACustomTitleDescription(args) {
+  return {
+    data() {
+      return {
+        ...mock,
+        ...args,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => args.theme ? args.theme : ''),
+      }
+    },
+    components: { BlockCardWithImage },
+    template: `
+    <block-card-with-image
+      :image="image"
+      :to="to"
+      :category="category"
+      :start-date="startDate"
+      :image-aspect-ratio="imageAspectRatio"
+      >
+      <template #title>
+        test title
+      </template>
+
+      <template #description>
+        test description
+      </template>
+    </block-card-with-image>
+`,
+  }
+}
+
+export const Default2= TemplateFTVACustomTitleDescription.bind({})

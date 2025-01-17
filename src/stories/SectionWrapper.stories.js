@@ -5,6 +5,7 @@ import { mock as mockMediaWithText } from './mock/BlockMediaWithText'
 import * as API from '@/stories/mock-api.json'
 import SectionWrapper from '@/lib-components/SectionWrapper'
 
+import BlockCardWithImage from '@/lib-components/BlockCardWithImage'
 import BlockMediaWithText from '@/lib-components/BlockMediaWithText'
 import DividerWayFinder from '@/lib-components/DividerWayFinder'
 import SectionTeaserCard from '@/lib-components/SectionTeaserCard'
@@ -770,6 +771,144 @@ export function FtvaSeriesListing() {
             </template>
           </TabItem>
         </TabList>
+      </SectionWrapper>
+  `,
+  }
+}
+
+const mockArticles = [
+  {
+    typeHandle: "ftvaArticle",
+    id: "3357303",
+    title: "Hispanic and Latin American Heritage in the Hearst Newsreels",
+    postDate: "2024-10-09T09:00:00-07:00",
+    ftvaHomepageDescription: "<p><span>The selection of newsreels and outtake footage presented here highlights prominent figures of Hispanic and Latin American heritage who influenced motion picture and television history, politics and sports, while other clips offer time capsules of various regions and cultural celebrations.</span></p>",
+    uri: "blog/hispanic-and-latin-american-heritage-in-the-hearst-newsreels",
+    ftvaImage: [
+      {
+        id: "3144324",
+        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Eva02_0.jpg",
+        height: 1917,
+        width: 2560,
+        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Eva02_0.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Eva02_0.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Eva02_0.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Eva02_0.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Eva02_0.jpg 2560w",
+        alt: "Eva (1962)",
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ]
+  },
+  {
+    typeHandle: "ftvaArticle",
+    id: "3266907",
+    title: "TEST - Hot Air Balloons",
+    postDate: "2024-09-20T10:50:00-07:00",
+    ftvaHomepageDescription: null,
+    uri: "blog/test-hot-air-balloons",
+    ftvaImage: [
+      {
+        id: "3280520",
+        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/hot_air_balloon.jpg",
+        height: 1280,
+        width: 2560,
+        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/hot_air_balloon.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/hot_air_balloon.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/hot_air_balloon.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/hot_air_balloon.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/hot_air_balloon.jpg 2560w",
+        alt: "Hot air balloon",
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ]
+  },
+  {
+    typeHandle: "ftvaArticle",
+    id: "3264674",
+    title: "TEST -  Coronae Borealis Nova",
+    postDate: "2024-09-20T00:49:00-07:00",
+    ftvaHomepageDescription: "<p>The nova in Corona Borealis, also known as T Coronae Borealis or the Blaze Star, is <mark>a recurring astronomical event that occurs when a binary star system erupts in a thermonuclear blast</mark></p>",
+    uri: "blog/test-coronae-borealis-nova",
+    ftvaImage: [
+      {
+        id: "3264682",
+        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Coronae-Borealis-nova.webp",
+        height: 1436,
+        width: 2560,
+        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Coronae-Borealis-nova.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Coronae-Borealis-nova.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Coronae-Borealis-nova.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Coronae-Borealis-nova.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Coronae-Borealis-nova.webp 2560w",
+        alt: null,
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ]
+  },
+  {
+    typeHandle: "ftvaArticle",
+    id: "3357305",
+    title: "They Can’t Take It Away: Education and the Traditions of the L.A. Rebellion in “Rich”",
+    postDate: "2024-07-09T10:00:00-07:00",
+    ftvaHomepageDescription: "<p><span>The night before his high school graduation, Richard “Rich” Lawson dreams of his late father. His words are clear in Rich’s mind: </span><em>Your education is very important. It’s something that, once you have it, they can’t take it away</em><span>. This is a sentiment Rich has carried throughout his life.</span></p>",
+    uri: "blog/they-cant-take-it-away-education-and-the-traditions-of-the-l-a-rebellion-in-rich",
+    ftvaImage: []
+  }
+]
+
+export function FtvaArticleBlogListing() {
+  return {
+    data() {
+      return {
+        mockArticles
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionWrapper, BlockCardWithImage },
+    template: `
+      <SectionWrapper
+        section-title="Screening Series"
+        section-summary="Discover the magic of our Upcoming Series, where we curate an immersive experience that transcends time and genre. From classic masterpieces to cutting-edge contemporary works, our series showcase the diverse voices and visions that have shaped the evolution of visual storytelling."
+        theme="paleblue"
+      >
+
+    <BlockCardWithImage
+      :image="image"
+      :to="to"
+      :category="category"
+      :title="title"
+      :start-date="startDate"
+      :end-date="endDate"
+      :text="text"
+      :image-aspect-ratio="imageAspectRatio"
+      :locations="locations"
+      :alternativeFullName="alternativeFullName"
+      :language="language"
+      :section-handle="sectionHandle"
+      :date-created="dateCreated"
+      :byline-one="bylineOne"
+      :byline-two="bylineTwo"
+    >
+      <template #title>
+        <RichText  v-html="ftvaFeaturedArticles[0].title" />
+      </template>
+
+      <template #description>
+        <RichText v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
+      </template>
+    </BlockCardWithImage>
+
+      <card-meta>
+        <template v-slot:title>
+          <RichText  v-html="ftvaFeaturedArticles[0].title" />
+        </template>
+
+        <template v-slot:description>
+          <RichText v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
+        </template>
+      </card-meta>
       </SectionWrapper>
   `,
   }

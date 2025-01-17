@@ -164,7 +164,7 @@ const parsedDateFormat = computed(() => {
       :date-created="dateCreated"
     >
       <template #title>
-        <slot name="description" />
+        <slot name="title" />
       </template>
 
       <template #description>
