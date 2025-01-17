@@ -140,7 +140,7 @@ FTVAItemsPostedDate.args = {
 
 const mockCustomTitleAndDesription = {
   title: "Preserving “In Transit: The Chinese in California”",
-  startDate: "2024-05-07T13:00:00-07:00",
+  postDate: "2024-05-07T13:00:00-07:00",
   ftvaHomepageDescription: "<p>In the summer of 2023, I had the chance to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.</p>",
   uri: "blog/preserving-in-transit-the-chinese-in-california",
   ftvaImage: [
@@ -159,40 +159,6 @@ const mockCustomTitleAndDesription = {
   ]
 }
 
-// export function FtvaCustomTitleAndDesription() {
-//   return {
-//     data() {
-//       return {
-//         ...mockCustomTitleAndDesription,
-//       }
-//     },
-//     provide() {
-//       return {
-//         theme: computed(() => 'ftva'),
-//       }
-//     },
-//     components: { CardMeta, RichText },
-//     template: `
-//       <block-card-with-image
-//         image: API.image,
-//         to: '/visit/foo/bar/',
-//         title: 'Seven seas of the ancient world',
-//         startDate: '2022-03-31T07:00:00+00:00',
-//         >
-//         <card-meta>
-//           <template v-slot:title>
-//             <RichText  v-html="ftvaFeaturedArticles[0].title" />
-//           </template>
-
-//           <template v-slot:description>
-//             <RichText v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
-//           </template>
-//         </card-meta>
-//       </block-card-with-image>
-//     `,
-//   }
-// }
-
 function TemplateFTVACustomTitleDescription(args) {
   return {
     data() {
@@ -210,9 +176,9 @@ function TemplateFTVACustomTitleDescription(args) {
     template: `
     <block-card-with-image
       :image="image"
-      :to="to"
+      :to="uri"
       :category="category"
-      :start-date="startDate"
+      :start-date="postDate"
       :image-aspect-ratio="imageAspectRatio"
       >
       <template #title>
@@ -227,4 +193,4 @@ function TemplateFTVACustomTitleDescription(args) {
   }
 }
 
-export const Default2= TemplateFTVACustomTitleDescription.bind({})
+export const FTVACustomTitleDescription = TemplateFTVACustomTitleDescription.bind({})
