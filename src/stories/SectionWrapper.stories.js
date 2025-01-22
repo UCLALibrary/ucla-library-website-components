@@ -778,25 +778,25 @@ export function FtvaSeriesListing() {
 
 const mockArticles = [
   {
-    title: "<h3><em>Preserving In Transit:</em> The Chinese in California<h3>",
+    title: '<h3><em>Preserving In Transit:</em> The Chinese in California<h3>',
     articleCategories: [
       {
-        title: "Interview"
+        title: 'Interview'
       },
       {
-        title: "People"
+        title: 'People'
       }
     ],
-    postDate: "2024-02-19T16:00:00-08:00",
-    ftvaHomepageDescription: "<p>Three alumni student films, made in the 1970s-1980s, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film &amp; Television Archive staff.</p>",
-    uri: "blog/preserving-in-transit-the-chinese-in-california",
+    postDate: '2024-02-19T16:00:00-08:00',
+    ftvaHomepageDescription: '<p>Three alumni student films, made in the 1970s-1980s, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film &amp; Television Archive staff.</p>',
+    uri: 'blog/preserving-in-transit-the-chinese-in-california',
     ftvaImage: [
       {
-        id: "3619987",
-        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/In_Transit_blog2.jpeg",
+        id: '3619987',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/In_Transit_blog2.jpeg',
         height: 1813,
         width: 2560,
-        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 2560w",
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 2560w',
         alt: null,
         focalPoint: [
           0.5,
@@ -806,25 +806,25 @@ const mockArticles = [
     ],
   },
   {
-    title: "<h3><em>From McKinley to LBJ:</em> Presidents in the Hearst Newsreels<h3>",
+    title: '<h3><em>From McKinley to LBJ:</em> Presidents in the Hearst Newsreels<h3>',
     articleCategories: [
       {
-        title: "Interview"
+        title: 'Interview'
       },
       {
-        title: "People"
+        title: 'People'
       }
     ],
-    postDate: "2024-02-19T16:00:00-08:00",
-    ftvaHomepageDescription: "<p>Curated by UCLA Film &amp; Television Archive Senior Newsreel Preservationist Jeffrey Bickel, the newsreels presented here cover the period from 1897 to 1967.</p>",
-    uri: "blog/from-mckinley-to-lbj-presidents-in-the-hearst-newsreels",
+    postDate: '2024-02-19T16:00:00-08:00',
+    ftvaHomepageDescription: '<p>Curated by UCLA Film &amp; Television Archive Senior Newsreel Preservationist Jeffrey Bickel, the newsreels presented here cover the period from 1897 to 1967.</p>',
+    uri: 'blog/from-mckinley-to-lbj-presidents-in-the-hearst-newsreels',
     ftvaImage: [
       {
-        id: "3619990",
-        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/WilsonTaft-crop.png",
+        id: '3619990',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/WilsonTaft-crop.png',
         height: 1792,
         width: 2560,
-        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/WilsonTaft-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/WilsonTaft-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/WilsonTaft-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/WilsonTaft-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/WilsonTaft-crop.png 2560w",
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/WilsonTaft-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/WilsonTaft-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/WilsonTaft-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/WilsonTaft-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/WilsonTaft-crop.png 2560w',
         alt: null,
         focalPoint: [
           0.5,
@@ -834,25 +834,25 @@ const mockArticles = [
     ]
   },
   {
-    title: "<h3>The “Effervescent” Artist, Educator and Activist Betty Chen</h3>",
+    title: '<h3>The “Effervescent” Artist, Educator and Activist Betty Chen</h3>',
     articleCategories: [
       {
-        title: "Interview"
+        title: 'Interview'
       },
       {
-        title: "People"
+        title: 'People'
       }
     ],
-    postDate: "2023-08-24T12:00:00-07:00",
-    ftvaHomepageDescription: "<p><span>In the spring of 2022, UCLA-trained filmmaker Betty Yao-Jung Chen (</span><span>November 5, 1943–April 26, 2022) died in Florida. The news was confirmed by her niece and nephew, who had reached out to me in 2021 after reading an article I had written about their aunt for </span><a href=\'https://online.ucpress.edu/fq/issue/73/3\' target=\'_blank\' rel=\'noreferrer noopener\'><em>Film Quarterly</em> March 2020 dossier</a><span>, <em>Asian American Film at Fifty.</em></span></p>",
-    uri: "blog/the-effervescent-artist-educator-and-activist-betty-chen",
+    postDate: '2023-08-24T12:00:00-07:00',
+    ftvaHomepageDescription: '<p><span>In the spring of 2022, UCLA-trained filmmaker Betty Yao-Jung Chen (</span><span>November 5, 1943–April 26, 2022) died in Florida. The news was confirmed by her niece and nephew, who had reached out to me in 2021 after reading an article I had written about their aunt for </span><a href=\'https://online.ucpress.edu/fq/issue/73/3\' target=\'_blank\' rel=\'noreferrer noopener\'><em>Film Quarterly</em> March 2020 dossier</a><span>, <em>Asian American Film at Fifty.</em></span></p>',
+    uri: 'blog/the-effervescent-artist-educator-and-activist-betty-chen',
     ftvaImage: [
       {
-        id: "3620037",
-        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/BettyChen-blog1.png",
+        id: '3620037',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/BettyChen-blog1.png',
         height: 1813,
         width: 2560,
-        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/BettyChen-blog1.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/BettyChen-blog1.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/BettyChen-blog1.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/BettyChen-blog1.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/BettyChen-blog1.png 2560w",
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/BettyChen-blog1.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/BettyChen-blog1.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/BettyChen-blog1.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/BettyChen-blog1.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/BettyChen-blog1.png 2560w',
         alt: null,
         focalPoint: [
           0.5,
@@ -921,12 +921,12 @@ export function FtvaArticleBlogListing() {
   }
 }
 
-    // .simple-cards-list {
-    //     display: flex;
-    //     flex-direction: row;
-    //     flex-wrap: wrap;
-    //     justify-content: flex-start;
-    //     align-content: flex-start;
-    //     align-items: stretch;
-    //     gap: 16px;
-    // }
+// .simple-cards-list {
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     justify-content: flex-start;
+//     align-content: flex-start;
+//     align-items: stretch;
+//     gap: 16px;
+// }

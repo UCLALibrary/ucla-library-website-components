@@ -6,7 +6,6 @@ import RichText from '@/lib-components/RichText.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 // UTILITY FUNCTIONS
-import formatDates from '@/utils/formatEventDates'
 
 const parsedDateCreated = computed(() => {
   if (props.dateCreated)
@@ -310,10 +309,10 @@ export function FtvaCustomTitleAndDesription() {
       return {
         ftvaFeaturedArticles: [
           {
-            title: "<h3>Preserving <em>In Transit</em>: <a href=#>The Chinese</a> in California</h3>",
-            ftvaHomepageDescription: "<p><strong>In the summer</strong> of 2023, <a href=#>I had the chance</a> to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.</p>",
+            title: '<h3>Preserving <em>In Transit</em>: <a href=#>The Chinese</a> in California</h3>',
+            ftvaHomepageDescription: '<p><strong>In the summer</strong> of 2023, <a href=#>I had the chance</a> to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.</p>',
             articleCategories: 'People, Places',
-            postDate:"2024-10-09T09:00:00-07:00"
+            postDate: '2024-10-09T09:00:00-07:00'
           }
         ]
       }
@@ -340,4 +339,3 @@ export function FtvaCustomTitleAndDesription() {
     `,
   }
 }
-
