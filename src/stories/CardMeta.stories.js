@@ -5,15 +5,6 @@ import SmartLink from '@/lib-components/SmartLink.vue'
 import RichText from '@/lib-components/RichText.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
-// UTILITY FUNCTIONS
-
-const parsedDateCreated = computed(() => {
-  if (props.dateCreated)
-    return format(new Date(props.dateCreated), 'MMMM d, yyyy')
-
-  return ''
-})
-
 // Storybook default settings
 export default {
   title: 'Card Meta',
