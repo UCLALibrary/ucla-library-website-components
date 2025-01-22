@@ -24,7 +24,7 @@
         position: relative;
         margin: 0px;
         padding: 25px 20px 15px 20px;
-        height: 191px;
+        height: 100%;
 
         .title {
             @include ftva-card-title-2;
@@ -51,6 +51,39 @@
         }
     }
 
+    :deep(.rich-text) {
+        @include ftva-body-2;
+        line-height: 1.5;
+        max-width: 100%;
+        position: relative;
+
+        h3 {
+            @include ftva-h3;
+            color: $body-grey;
+            font-size: 30px;
+        }
+    }
+
+    .custom-title {
+        :deep(.rich-text) {
+            max-width: none;
+            margin: -20px 0px;
+            padding: 0px;
+        }
+    }
+
+    .custom-description {
+        @include truncate(3);
+        margin-bottom: 30px;
+
+        :deep(.rich-text) {
+            max-width: none;
+            margin-left: 0px;
+            padding-left: 0px;
+            margin-bottom: 30px;
+        }
+    }
+
     .top-text {
         display: flex;
     }
@@ -68,7 +101,7 @@
         height: 34px;
         overflow: hidden;
 
-        .ongoing-item + .schedule-item  {
+        .ongoing-item+.schedule-item {
             // hide the date range if the ongoing label is display
             display: none;
         }
@@ -76,6 +109,7 @@
         .schedule-item:nth-of-type(1) {
             position: relative;
             margin-right: 28px;
+
             // show the diamond icon after, but only if it's not the last child
             &:not(:last-child)::after {
                 content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
@@ -101,6 +135,17 @@
     @media #{$has-hover} {
         &:hover {
             box-shadow: 0 4px 4px rgb(51 51 51 / 0.2);
+        }
+    }
+
+    @media #{$small} {
+        :deep(.rich-text) {
+
+            h3 {
+                @include ftva-h3;
+                color: $body-grey;
+                font-size: 24px;
+            }
         }
     }
 }

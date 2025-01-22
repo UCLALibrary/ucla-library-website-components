@@ -778,63 +778,53 @@ export function FtvaSeriesListing() {
 
 const mockArticles = [
   {
-    typeHandle: "ftvaArticle",
-    id: "3357303",
-    title: "Hispanic and Latin American Heritage in the Hearst Newsreels",
-    postDate: "2024-10-09T09:00:00-07:00",
-    ftvaHomepageDescription: "<p><span>The selection of newsreels and outtake footage presented here highlights prominent figures of Hispanic and Latin American heritage who influenced motion picture and television history, politics and sports, while other clips offer time capsules of various regions and cultural celebrations.</span></p>",
-    uri: "blog/hispanic-and-latin-american-heritage-in-the-hearst-newsreels",
+    title: "<h3><em>Preserving In Transit:</em> The Chinese in California<h3>",
+    articleCategories: [
+      {
+        title: "Interview"
+      },
+      {
+        title: "People"
+      }
+    ],
+    postDate: "2024-02-19T16:00:00-08:00",
+    ftvaHomepageDescription: "<p>Three alumni student films, made in the 1970s-1980s, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film &amp; Television Archive staff.</p>",
+    uri: "blog/preserving-in-transit-the-chinese-in-california",
     ftvaImage: [
       {
-        id: "3144324",
-        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Eva02_0.jpg",
-        height: 1917,
+        id: "3619987",
+        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/In_Transit_blog2.jpeg",
+        height: 1813,
         width: 2560,
-        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Eva02_0.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Eva02_0.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Eva02_0.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Eva02_0.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Eva02_0.jpg 2560w",
-        alt: "Eva (1962)",
+        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 2560w",
+        alt: null,
         focalPoint: [
           0.5,
           0.5
         ]
       }
-    ]
+    ],
   },
   {
-    typeHandle: "ftvaArticle",
-    id: "3266907",
-    title: "TEST - Hot Air Balloons",
-    postDate: "2024-09-20T10:50:00-07:00",
-    ftvaHomepageDescription: null,
-    uri: "blog/test-hot-air-balloons",
-    ftvaImage: [
+    title: "<h3><em>From McKinley to LBJ:</em> Presidents in the Hearst Newsreels<h3>",
+    articleCategories: [
       {
-        id: "3280520",
-        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/hot_air_balloon.jpg",
-        height: 1280,
-        width: 2560,
-        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/hot_air_balloon.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/hot_air_balloon.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/hot_air_balloon.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/hot_air_balloon.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/hot_air_balloon.jpg 2560w",
-        alt: "Hot air balloon",
-        focalPoint: [
-          0.5,
-          0.5
-        ]
+        title: "Interview"
+      },
+      {
+        title: "People"
       }
-    ]
-  },
-  {
-    typeHandle: "ftvaArticle",
-    id: "3264674",
-    title: "TEST -  Coronae Borealis Nova",
-    postDate: "2024-09-20T00:49:00-07:00",
-    ftvaHomepageDescription: "<p>The nova in Corona Borealis, also known as T Coronae Borealis or the Blaze Star, is <mark>a recurring astronomical event that occurs when a binary star system erupts in a thermonuclear blast</mark></p>",
-    uri: "blog/test-coronae-borealis-nova",
+    ],
+    postDate: "2024-02-19T16:00:00-08:00",
+    ftvaHomepageDescription: "<p>Curated by UCLA Film &amp; Television Archive Senior Newsreel Preservationist Jeffrey Bickel, the newsreels presented here cover the period from 1897 to 1967.</p>",
+    uri: "blog/from-mckinley-to-lbj-presidents-in-the-hearst-newsreels",
     ftvaImage: [
       {
-        id: "3264682",
-        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Coronae-Borealis-nova.webp",
-        height: 1436,
+        id: "3619990",
+        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/WilsonTaft-crop.png",
+        height: 1792,
         width: 2560,
-        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Coronae-Borealis-nova.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Coronae-Borealis-nova.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Coronae-Borealis-nova.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Coronae-Borealis-nova.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Coronae-Borealis-nova.webp 2560w",
+        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/WilsonTaft-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/WilsonTaft-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/WilsonTaft-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/WilsonTaft-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/WilsonTaft-crop.png 2560w",
         alt: null,
         focalPoint: [
           0.5,
@@ -844,13 +834,32 @@ const mockArticles = [
     ]
   },
   {
-    typeHandle: "ftvaArticle",
-    id: "3357305",
-    title: "They Can’t Take It Away: Education and the Traditions of the L.A. Rebellion in “Rich”",
-    postDate: "2024-07-09T10:00:00-07:00",
-    ftvaHomepageDescription: "<p><span>The night before his high school graduation, Richard “Rich” Lawson dreams of his late father. His words are clear in Rich’s mind: </span><em>Your education is very important. It’s something that, once you have it, they can’t take it away</em><span>. This is a sentiment Rich has carried throughout his life.</span></p>",
-    uri: "blog/they-cant-take-it-away-education-and-the-traditions-of-the-l-a-rebellion-in-rich",
-    ftvaImage: []
+    title: "<h3>The “Effervescent” Artist, Educator and Activist Betty Chen</h3>",
+    articleCategories: [
+      {
+        title: "Interview"
+      },
+      {
+        title: "People"
+      }
+    ],
+    postDate: "2023-08-24T12:00:00-07:00",
+    ftvaHomepageDescription: "<p><span>In the spring of 2022, UCLA-trained filmmaker Betty Yao-Jung Chen (</span><span>November 5, 1943–April 26, 2022) died in Florida. The news was confirmed by her niece and nephew, who had reached out to me in 2021 after reading an article I had written about their aunt for </span><a href=\'https://online.ucpress.edu/fq/issue/73/3\' target=\'_blank\' rel=\'noreferrer noopener\'><em>Film Quarterly</em> March 2020 dossier</a><span>, <em>Asian American Film at Fifty.</em></span></p>",
+    uri: "blog/the-effervescent-artist-educator-and-activist-betty-chen",
+    ftvaImage: [
+      {
+        id: "3620037",
+        src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/BettyChen-blog1.png",
+        height: 1813,
+        width: 2560,
+        srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/BettyChen-blog1.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/BettyChen-blog1.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/BettyChen-blog1.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/BettyChen-blog1.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/BettyChen-blog1.png 2560w",
+        alt: null,
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ]
   }
 ]
 
@@ -868,48 +877,56 @@ export function FtvaArticleBlogListing() {
     },
     components: { SectionWrapper, BlockCardWithImage },
     template: `
+
       <SectionWrapper
-        section-title="Screening Series"
-        section-summary="Discover the magic of our Upcoming Series, where we curate an immersive experience that transcends time and genre. From classic masterpieces to cutting-edge contemporary works, our series showcase the diverse voices and visions that have shaped the evolution of visual storytelling."
+        section-title="Featured Blogs"
         theme="paleblue"
       >
 
-    <BlockCardWithImage
-      :image="image"
-      :to="to"
-      :category="category"
-      :title="title"
-      :start-date="startDate"
-      :end-date="endDate"
-      :text="text"
-      :image-aspect-ratio="imageAspectRatio"
-      :locations="locations"
-      :alternativeFullName="alternativeFullName"
-      :language="language"
-      :section-handle="sectionHandle"
-      :date-created="dateCreated"
-      :byline-one="bylineOne"
-      :byline-two="bylineTwo"
-    >
-      <template #title>
-        <RichText  v-html="ftvaFeaturedArticles[0].title" />
-      </template>
-
-      <template #description>
-        <RichText v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
-      </template>
-    </BlockCardWithImage>
-
-      <card-meta>
-        <template v-slot:title>
-          <RichText  v-html="ftvaFeaturedArticles[0].title" />
+      <BlockCardWithImage
+        :image="mockArticles[1].ftvaImage[0]"
+        :to="to"
+        category="Interview, People"
+        :image-aspect-ratio="100"
+        :date-created="mockArticles[1].postDate"
+      >
+        <template #title>
+          <RichText  v-html="mockArticles[1].title" />
         </template>
 
-        <template v-slot:description>
-          <RichText v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
+        <template #description>
+          <RichText v-html="mockArticles[1].ftvaHomepageDescription" />
         </template>
-      </card-meta>
-      </SectionWrapper>
+      </BlockCardWithImage>
+
+
+      <BlockCardWithImage
+        :image="mockArticles[2].ftvaImage[0]"
+        :to="to"
+        category="Interview, People"
+        :image-aspect-ratio="100"
+        :date-created="mockArticles[2].postDate"
+      >
+        <template #title>
+          <RichText  v-html="mockArticles[2].title" />
+        </template>
+
+        <template #description>
+          <RichText v-html="mockArticles[2].ftvaHomepageDescription" />
+        </template>
+      </BlockCardWithImage>
+
+  </SectionWrapper>
   `,
   }
 }
+
+    // .simple-cards-list {
+    //     display: flex;
+    //     flex-direction: row;
+    //     flex-wrap: wrap;
+    //     justify-content: flex-start;
+    //     align-content: flex-start;
+    //     align-items: stretch;
+    //     gap: 16px;
+    // }

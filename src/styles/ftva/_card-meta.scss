@@ -1,6 +1,8 @@
 // CardMeta THEME
 
 .ftva.card-meta {
+  padding: 0px;
+
   .category {
     @include ftva-button-link;
     color: $accent-blue;
@@ -29,8 +31,23 @@
     margin: 0 0 24px;
   }
 
+  .custom-title {
+    :deep(.rich-text) {
+      max-width: none;
+      margin: -20px 0px;
+      padding: 0px;
+    }
+  }
+
   .custom-description {
     @include truncate(3);
+    margin-bottom: 30px;
+
+    :deep(.rich-text) {
+      max-width: none;
+      margin-left: 0px;
+      padding-left: 0px;
+    }
   }
 
   .block-tags {

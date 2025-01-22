@@ -22,6 +22,7 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  // the data is often an array that needs to be combined on the page into one string
   category: {
     type: String,
     default: '',
@@ -220,7 +221,33 @@ const classes = computed(() => {
     />
 
     <div
-      v-if="(bylineOne || bylineTwo) || dateCreated"
+      v-if="$slots.postdate"
+      class="schedule-item date-created"
+    >{{ parsedDateCreated }}
+      <slot name="postdate" />
+    </div>
+
+    <div
+      v-if="
+        (!bylineOne || !bylineTwo)
+        && dateCreated"
+      class="schedule-item date-created"
+    >
+      <div
+        v-if="dateCreated"
+        class="schedule-item date-created"
+      >
+        {{ parsedDateCreated }}
+      </div>
+    </div>
+
+    <div
+      v-if="
+        (bylineOne
+          ||
+          bylineTwo)
+        &&
+        dateCreated"
       class="byline-group"
     >
       <div

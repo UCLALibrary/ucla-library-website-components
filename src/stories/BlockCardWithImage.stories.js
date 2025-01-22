@@ -81,7 +81,7 @@ LongTitle.args = {
 export const TallImage = Template.bind({})
 TallImage.args = {
   title: 'Test Other Image Sizes',
-  image: { ...API.image, src: 'https://via.placeholder.com/1080x1920', height: 1920, width: 1920, },
+  image: { ...API.image, src: 'https://placehold.co/1080x1920', height: 1920, width: 1920, },
   imageAspectRatio: 150
 }
 
@@ -122,7 +122,7 @@ FTVAItemsNoImage.args = {
 
 export const FTVAItemsPostedDate = Template.bind({})
 FTVAItemsPostedDate.args = {
-  image: null,
+  image: API.image,
   title: 'Black Perspectives on Local L.A. TV',
   category: null,
   theme: 'ftva',
@@ -139,24 +139,12 @@ FTVAItemsPostedDate.args = {
 }
 
 const mockCustomTitleAndDesription = {
-  title: "Preserving “In Transit: The Chinese in California”",
-  postDate: "2024-05-07T13:00:00-07:00",
-  ftvaHomepageDescription: "<p>In the summer of 2023, I had the chance to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.</p>",
-  uri: "blog/preserving-in-transit-the-chinese-in-california",
-  ftvaImage: [
-    {
-      id: "3619987",
-      src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/In_Transit_blog2.jpeg",
-      height: 1813,
-      width: 2560,
-      srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 2560w",
-      alt: null,
-      focalPoint: [
-        0.5,
-        0.5
-      ]
-    }
-  ]
+  category: 'Interview, People',
+  title: '<h3>Preserving <em>In <strong>Transit</strong>:</em> The Chinese in California</h3>',
+  postDate: '2024-05-07T13:00:00-07:00',
+  ftvaHomepageDescription: '<p>Three alumni’s student films, made in the 1970s-1980s, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film & Television Archive staff.</p>',
+  uri: 'blog/preserving-in-transit-the-chinese-in-california',
+  image: API.image,
 }
 
 function TemplateFTVACustomTitleDescription(args) {
@@ -174,22 +162,23 @@ function TemplateFTVACustomTitleDescription(args) {
     },
     components: { BlockCardWithImage },
     template: `
-    <block-card-with-image
-      :image="image"
-      :to="uri"
-      :category="category"
-      :start-date="postDate"
-      :image-aspect-ratio="imageAspectRatio"
-      >
-      <template #title>
-        <RichText v-html="title" />
-      </template>
+      <block-card-with-image
+        :image="image"
+        :to="uri"
+        :category="category"
+        :dateCreated="postDate"
+        :image-aspect-ratio="imageAspectRatio"
+        >
 
-      <template #description>
-        <RichText v-html="ftvaHomepageDescription" />
-      </template>
-    </block-card-with-image>
-`,
+        <template #title>
+          <RichText v-html="title" />
+        </template>
+
+        <template #description>
+          <RichText v-html="ftvaHomepageDescription" />
+        </template>
+      </block-card-with-image>
+    `,
   }
 }
 

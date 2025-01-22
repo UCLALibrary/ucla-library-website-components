@@ -5,6 +5,16 @@ import SmartLink from '@/lib-components/SmartLink.vue'
 import RichText from '@/lib-components/RichText.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
+// UTILITY FUNCTIONS
+import formatDates from '@/utils/formatEventDates'
+
+const parsedDateCreated = computed(() => {
+  if (props.dateCreated)
+    return format(new Date(props.dateCreated), 'MMMM d, yyyy')
+
+  return ''
+})
+
 // Storybook default settings
 export default {
   title: 'Card Meta',
@@ -71,7 +81,6 @@ export function Ongoing() {
           :locations="locations"
           :alternativeFullName="alternativeFullName"
           :language="language"
-          :section-handle="sectionHandle"
       />
   `,
   }
@@ -185,7 +194,9 @@ const mockFTVAArticleData = {
   ],
   sectionHandle: 'ftvaArticle'
 }
+
 const parsedArticleCategories = mockFTVAArticleData.articleCategories.map(category => category.title).join(', ')
+
 // data for share button in slot
 const mockSocialList = {
   buttonTitle: 'Share',
@@ -300,7 +311,9 @@ export function FtvaCustomTitleAndDesription() {
         ftvaFeaturedArticles: [
           {
             title: "<h3>Preserving <em>In Transit</em>: <a href=#>The Chinese</a> in California</h3>",
-            ftvaHomepageDescription: "<p><strong>In the summer</strong> of 2023, <a href=#>I had the chance</a> to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.</p>"
+            ftvaHomepageDescription: "<p><strong>In the summer</strong> of 2023, <a href=#>I had the chance</a> to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.</p>",
+            articleCategories: 'People, Places',
+            postDate:"2024-10-09T09:00:00-07:00"
           }
         ]
       }
@@ -312,12 +325,15 @@ export function FtvaCustomTitleAndDesription() {
     },
     components: { CardMeta, RichText },
     template: `
-      <card-meta>
-        <template v-slot:title>
-          <RichText  v-html="ftvaFeaturedArticles[0].title" />
+      <card-meta
+       :category= "ftvaFeaturedArticles[0].articleCategories"
+       :dateCreated="ftvaFeaturedArticles[0].postDate"
+      >
+        <template #title>
+          <RichText v-html="ftvaFeaturedArticles[0].title" />
         </template>
 
-        <template v-slot:description>
+        <template #description>
           <RichText v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
         </template>
       </card-meta>
