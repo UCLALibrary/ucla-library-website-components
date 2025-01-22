@@ -27,6 +27,8 @@ export interface FilmographyListItemType {
 }
 
 // PROPS
+// this component is @deprecated!
+// do not add new props or new implementations, it is being @deprecated as part of APPS-3132
 const { items, tableHeaders } = defineProps({
   items: {
     type: Array as PropType<BlockStaffListItemType[] | FilmographyListItemType[]>,

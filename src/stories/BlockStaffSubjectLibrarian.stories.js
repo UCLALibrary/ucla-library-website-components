@@ -10,7 +10,7 @@ import ResponsiveImage from '@/lib-components/ResponsiveImage'
  * Built originally for the staff directory, it now has slots to allow any data to be displayed in a table row.
  *
  * The component can be configured 2 ways:
- * - (CLASSIC) With a BlockStaffListItemType object, whose fields should be used for each prop in the component. This will transform the data into staff directory format.
+ * - soon to be @deprecated (CLASSIC) With a BlockStaffListItemType object, whose fields should be used for each prop in the component. This will transform the data into staff directory format. This method will be removed when APPS-3132 is completed.
  * - (NEW / GENERIC) With the 'numExtraCells' prop, which will create that many extra slots for data to be displayed. Slots will have the names 'column1', 'column2', etc.
  *
  * The Default & AlternativeName stories show the component in staff directory format. The FTVAFilmography story shows the component in a generic format.
@@ -155,7 +155,7 @@ export function AlternativeName() {
   }
 }
 
-// mock raw data from graphQL
+// mock raw data from FTVA graphQL LA rebellion filmography
 const mockFilm = {
   image: [
     {
@@ -182,8 +182,7 @@ const mockFilm = {
     }
   ]
 }
-// TODO: mock computed method for page handling data?
-// const tableRowData = [{}, mockFilm.]
+
 export function FTVAFilmography() {
   return {
     data() {

@@ -3,6 +3,13 @@ import { computed } from 'vue'
 // Import component
 import SectionStaffSubjectLibrarian from '@/lib-components/SectionStaffSubjectLibrarian'
 
+/**
+ *
+ * soon to be @deprecated as part of APPS-3132! Do not add new stories.
+ * A component to display a table filled with data. Built originally for the staff directory, it now has a filomography implementation for the FTVA site.
+ * This component will be refactored or replaced with a generic table component in the future.
+ */
+
 // Storybook default settings
 export default {
   title: 'SECTION / Staff / SubjectLibrarian',

@@ -11,6 +11,7 @@ import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 
 // PROPS & DATA
+// TECH DEBT: APPS-3132, do not add new props to this component or new implementations until refactor is complete
 const props = defineProps({
   subjectArea: {
     type: String,
