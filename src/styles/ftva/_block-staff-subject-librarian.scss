@@ -30,7 +30,7 @@
     :deep(*){
       @include ftva-subtitle-2;
     }
-    :deep(h1){
+    :deep(.film-title){
       @include ftva-card-title-1;
       color: $accent-blue;
     }

@@ -85,7 +85,7 @@ const classes = computed(() => {
           </template>
           <template #column2>
             <h1>
-              <smart-link :to="item.filmLink[0].uri">
+              <smart-link class="film-title" :to="item.filmLink[0].uri">
                 {{ item.titleGeneral }}
               </smart-link>
             </h1>
