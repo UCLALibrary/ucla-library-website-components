@@ -161,7 +161,7 @@ function TemplateFTVACustomTitleDescription(args) {
         theme: computed(() => args.theme ? args.theme : ''),
       }
     },
-    components: { BlockCardWithImage, RichText},
+    components: { BlockCardWithImage, RichText },
     template: `
       <block-card-with-image
         :image="image"
