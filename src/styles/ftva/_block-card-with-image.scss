@@ -8,6 +8,7 @@
     }
 
     &.is-vertical {
+
         .image-container {
             aspect-ratio: 1.71 / 1;
 
@@ -19,16 +20,8 @@
         }
     }
 
-    .block-card-half {
-        display: flex;
-        flex-direction: row;
-        gap: var(--space-xl);
-    }
-
     :deep(.card-meta) {
         position: relative;
-
-        min-height: 191px;
         margin: 0px;
         padding: 25px 20px 15px 20px;
         border-radius: 0 0 12px 12px;
@@ -57,10 +50,10 @@
             }
         }
     }
-}
 
-.card-meta-items {
-    margin-left: 20px;
+    .top-text {
+        display: flex;
+    }
 
     :deep(.custom-title) {
         .rich-text {
@@ -82,10 +75,6 @@
             margin-bottom: 24px;
             padding-right: 0;
         }
-    }
-
-    .top-text {
-        display: flex;
     }
 
     :deep(.date-time) {

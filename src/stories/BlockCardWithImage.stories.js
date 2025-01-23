@@ -124,7 +124,7 @@ FTVAItemsNoImage.args = {
 
 export const FTVAItemsPostedDate = Template.bind({})
 FTVAItemsPostedDate.args = {
-  image: null,,
+  image: null,
   title: 'Black Perspectives on Local L.A. TV',
   category: null,
   theme: 'ftva',
