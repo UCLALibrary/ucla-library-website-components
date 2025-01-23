@@ -116,6 +116,7 @@ const classes = computed(() => {
     theme?.value || ''
   ]
 })
+
 // dates are formatted in the short format for ftva only
 const parsedDateFormat = computed(() => {
   return theme?.value === 'ftva' ? 'short' : 'long'

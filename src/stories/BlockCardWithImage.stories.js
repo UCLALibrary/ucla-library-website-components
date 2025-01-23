@@ -1,6 +1,8 @@
 import { computed } from 'vue'
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage'
 import RichText from '@/lib-components/RichText.vue'
+import SectionWrapper from '@/lib-components/SectionWrapper.vue'
+
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -184,3 +186,180 @@ function TemplateFTVACustomTitleDescription(args) {
 }
 
 export const FTVACustomTitleDescription = TemplateFTVACustomTitleDescription.bind({})
+
+const mockArticles = [
+  {
+    title: '<h3><em>Preserving In Transit:</em> The Chinese in California<h3>',
+    articleCategories: [
+      {
+        title: 'Interview'
+      },
+      {
+        title: 'People'
+      }
+    ],
+    postDate: '2024-02-19T16:00:00-08:00',
+    ftvaHomepageDescription: '<p>Three alumni student films, made in the 1970s-1980s, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film &amp; Television Archive staff.</p>',
+    uri: 'blog/preserving-in-transit-the-chinese-in-california',
+    ftvaImage: [
+      {
+        id: '3619987',
+        src:  'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/In_Transit_blog2.jpeg',
+              height: 1813,
+              width: 2560,
+              srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 2560w',
+        alt: null,
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+  },
+  {
+    title: '<h3><em>From McKinley to LBJ:</em> Presidents in the Hearst Newsreels<h3>',
+    articleCategories: [
+      {
+        title: 'Interview'
+      },
+      {
+        title: 'People'
+      }
+    ],
+    postDate: '2024-02-19T16:00:00-08:00',
+    ftvaHomepageDescription: '<p>Curated by UCLA Film &amp; Television Archive Senior Newsreel Preservationist Jeffrey Bickel, the newsreels presented here cover the period from 1897 to 1967.</p>',
+    uri: 'blog/from-mckinley-to-lbj-presidents-in-the-hearst-newsreels',
+    ftvaImage: [
+      {
+        id: '3619990',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/WilsonTaft-crop.png',
+        height: 1792,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/WilsonTaft-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/WilsonTaft-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/WilsonTaft-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/WilsonTaft-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/WilsonTaft-crop.png 2560w',
+        alt: null,
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ]
+  },
+  {
+    title: '<h3>The “Effervescent” Artist, Educator and Activist Betty Chen</h3>',
+    articleCategories: [
+      {
+        title: 'Interview'
+      },
+      {
+        title: 'People'
+      }
+    ],
+    postDate: '2023-08-24T12:00:00-07:00',
+    ftvaHomepageDescription: '<p><span>In the spring of 2022, UCLA-trained filmmaker Betty Yao-Jung Chen (</span><span>November 5, 1943–April 26, 2022) died in Florida. The news was confirmed by her niece and nephew, who had reached out to me in 2021 after reading an article I had written about their aunt for </span><a href=\'https://online.ucpress.edu/fq/issue/73/3\' target=\'_blank\' rel=\'noreferrer noopener\'><em>Film Quarterly</em> March 2020 dossier</a><span>, <em>Asian American Film at Fifty.</em></span></p>',
+    uri: 'blog/the-effervescent-artist-educator-and-activist-betty-chen',
+    ftvaImage: [
+      {
+        id: '3620037',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/BettyChen-blog1.png',
+        height: 1813,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/BettyChen-blog1.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/BettyChen-blog1.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/BettyChen-blog1.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/BettyChen-blog1.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/BettyChen-blog1.png 2560w',
+        alt: null,
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ]
+  }
+]
+
+function TemplateFTVAArticleBlogListing(args) {
+  return {
+    data() {
+      return {
+        mockArticles,
+        ...args,
+      }
+    },
+    provide() {
+      return {
+      theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionWrapper, BlockCardWithImage, RichText },
+    template: `
+
+    <section-wrapper
+      section-title="Featured Blogs"
+      theme="paleblue"
+    >
+      <block-card-with-image
+        :image="mockArticles[0].ftvaImage[0]"
+        :to="mockArticles[0].uri"
+        category="Interview, People"
+        :dateCreated="mockArticles[0].postDate"
+        :image-aspect-ratio="60"
+        >
+
+        <template v-slot:title>
+          <rich-text v-html="mockArticles[0].title" />
+        </template>
+
+        <template v-slot:description>
+          <rich-text v-html="mockArticles[0].ftvaHomepageDescription" />
+        </template>
+      </block-card-with-image>
+
+      <div
+          class="block-card-half"
+          style="
+            display: flex;
+            flex-direction: row;
+            gap: var(--space-xl);
+            margin-top: 40px;
+          "
+      >
+          <block-card-with-image
+            :image="mockArticles[1].ftvaImage[0]"
+            :to="mockArticles[1].uri"
+            category="Interview, People"
+            :dateCreated="mockArticles[1].postDate"
+            :image-aspect-ratio="100"
+            >
+
+            <template v-slot:title>
+              <rich-text v-html="mockArticles[1].title" />
+            </template>
+
+            <template v-slot:description>
+              <rich-text v-html="mockArticles[1].ftvaHomepageDescription" />
+            </template>
+          </block-card-with-image>
+
+          <block-card-with-image
+            :image="mockArticles[2].ftvaImage[0]"
+            :to="mockArticles[2].uri"
+            category="Interview, People"
+            :dateCreated="mockArticles[2].postDate"
+            :image-aspect-ratio="100"
+            >
+
+            <template v-slot:title>
+              <rich-text v-html="mockArticles[2].title" />
+            </template>
+
+            <template v-slot:description>
+              <rich-text v-html="mockArticles[2].ftvaHomepageDescription" />
+            </template>
+          </block-card-with-image>
+      </div>
+      <section-wrapper>
+
+      </section-wrapper>
+    </section-wrapper>
+    `,
+  }
+}
+
+export const FTVAArticleBlogListing = TemplateFTVAArticleBlogListing.bind({})

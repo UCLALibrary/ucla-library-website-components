@@ -117,6 +117,12 @@
                     background-color: var(--color-theme);
                     background-color: var(--color-children-theme);
                 }
+
+                .block-highlight {
+                    .card-meta {
+                        background-color: white;
+                    }
+                }
             }
         }
     }

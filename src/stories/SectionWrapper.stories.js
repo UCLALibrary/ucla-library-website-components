@@ -5,7 +5,6 @@ import { mock as mockMediaWithText } from './mock/BlockMediaWithText'
 import * as API from '@/stories/mock-api.json'
 import SectionWrapper from '@/lib-components/SectionWrapper'
 
-import BlockCardWithImage from '@/lib-components/BlockCardWithImage'
 import BlockMediaWithText from '@/lib-components/BlockMediaWithText'
 import DividerWayFinder from '@/lib-components/DividerWayFinder'
 import SectionTeaserCard from '@/lib-components/SectionTeaserCard'
@@ -920,13 +919,3 @@ export function FtvaArticleBlogListing() {
   `,
   }
 }
-
-// .simple-cards-list {
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     justify-content: flex-start;
-//     align-content: flex-start;
-//     align-items: stretch;
-//     gap: 16px;
-// }
