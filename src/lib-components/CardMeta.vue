@@ -221,17 +221,9 @@ const classes = computed(() => {
     />
 
     <div
-      v-if="$slots.postdate"
-      class="schedule-item date-created"
-    >
-      {{ parsedDateCreated }}
-      <slot name="postdate" />
-    </div>
-
-    <div
       v-if="
         (!bylineOne || !bylineTwo)
-          && dateCreated"
+        && dateCreated"
       class="schedule-item date-created"
     >
       <div
@@ -246,7 +238,7 @@ const classes = computed(() => {
       v-if="
         (bylineOne
           || bylineTwo)
-          && dateCreated"
+        && dateCreated"
       class="byline-group"
     >
       <div

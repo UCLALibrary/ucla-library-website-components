@@ -319,12 +319,12 @@ export function FtvaCustomTitleAndDesription() {
        :category= "ftvaFeaturedArticles[0].articleCategories"
        :dateCreated="ftvaFeaturedArticles[0].postDate"
       >
-        <template #title>
-          <RichText v-html="ftvaFeaturedArticles[0].title" />
+        <template v-slot:title>
+          <rich-text v-html="ftvaFeaturedArticles[0].title" />
         </template>
 
-        <template #description>
-          <RichText v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
+        <template v-slot:description>
+          <rich-text v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
         </template>
       </card-meta>
     `,
