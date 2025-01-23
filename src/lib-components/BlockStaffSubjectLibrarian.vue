@@ -152,7 +152,7 @@ const classes = computed(() => {
       </div>
     </td>
     <template v-if="props.numExtraCells !== 0">
-      <td v-for="i in props.numExtraCells" :class="`column-${i}`" :key="i">
+      <td v-for="i in props.numExtraCells" :key="i" :class="`column-${i}`">
         <slot :name="`column${i}`" />
       </td>
     </template>

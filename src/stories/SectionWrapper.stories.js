@@ -776,7 +776,6 @@ export function FtvaSeriesListing() {
   }
 }
 
-
 const mockFTVAtableHeaders = ['', 'Film', 'Role', 'Year']
 const mockFTVAfilmdata = [
   {
