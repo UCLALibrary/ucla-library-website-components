@@ -3,7 +3,6 @@ import BlockCardWithImage from '@/lib-components/BlockCardWithImage'
 import RichText from '@/lib-components/RichText.vue'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
 
-
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 
@@ -204,10 +203,10 @@ const mockArticles = [
     ftvaImage: [
       {
         id: '3619987',
-        src:  'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/In_Transit_blog2.jpeg',
-              height: 1813,
-              width: 2560,
-              srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 2560w',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/In_Transit_blog2.jpeg',
+        height: 1813,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 2560w',
         alt: null,
         focalPoint: [
           0.5,
@@ -284,7 +283,7 @@ function TemplateFTVAArticleBlogListing(args) {
     },
     provide() {
       return {
-      theme: computed(() => 'ftva'),
+        theme: computed(() => 'ftva'),
       }
     },
     components: { SectionWrapper, BlockCardWithImage, RichText },
