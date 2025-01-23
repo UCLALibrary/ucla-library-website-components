@@ -26,6 +26,8 @@
   .custom-title {
     :deep(.rich-text) {
       max-width: none;
+      margin: 0;
+      padding-right: 0;
 
       h3 {
         margin: 0;

@@ -143,7 +143,7 @@ const mockCustomTitleAndDesription = {
   category: 'Interview, People',
   title: '<h3>Preserving <em>In <strong>Transit</strong>:</em> The Chinese in California</h3>',
   postDate: '2024-05-07T13:00:00-07:00',
-  ftvaHomepageDescription: '<p>Three alumni’s student films, made in the 1970s-1980s, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film & Television Archive staff.</p>',
+  ftvaHomepageDescription: '<p>Three alumni student films, made in the <strong>1970s-1980s</strong>, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film & Television Archive staff.</p>',
   uri: 'blog/preserving-in-transit-the-chinese-in-california',
   image: API.image,
 }
