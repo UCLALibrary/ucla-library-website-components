@@ -66,11 +66,13 @@
     @include ftva-body-2;
     color: $medium-grey;
 
-    .date-created::before {
-      content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
-      margin: 0 8px;
-      padding-top: -10px;
-      filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
+    :not(:first-child) {
+      .date-created::before {
+        content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
+        margin: 0 8px;
+        padding-top: -10px;
+        filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
+      }
     }
   }
 
