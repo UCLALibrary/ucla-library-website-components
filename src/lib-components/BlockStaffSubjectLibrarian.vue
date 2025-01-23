@@ -103,27 +103,47 @@ const classes = computed(() => {
 <template>
   <tr :class="classes">
     <!-- SUBJECT AREA -->
-    <td v-if="subjectArea || nameFirst" class="academic-department">
+    <td
+      v-if="subjectArea || nameFirst"
+      class="academic-department"
+    >
       {{ subjectArea }}
     </td>
 
     <!-- NAME -->
-    <td v-if="nameFirst || nameLast" class="librarian-block">
+    <td
+      v-if="nameFirst || nameLast"
+      class="librarian-block"
+    >
       <SmartLink
-        v-if="props.alternativeName.length === 0 || props.alternativeName === null" :to="to"
+        v-if="props.alternativeName.length === 0 || props.alternativeName === null"
+        :to="to"
         class="staff-name"
       >
         {{ parsedStaffName }}
       </SmartLink>
 
-      <SmartLink v-else :to="to" class="staff-name">
+      <SmartLink
+        v-else
+        :to="to"
+        class="staff-name"
+      >
         {{ parsedStaffName }}
-        <span v-if="props.alternativeName && props.alternativeName != null" :lang="parsedLanguage">
+        <span
+          v-if="props.alternativeName && props.alternativeName != null"
+          :lang="parsedLanguage"
+        >
           {{ parsedAlternativeFullName }}</span>
       </SmartLink>
-      <div class="job-title" v-html="jobTitle" />
+      <div
+        class="job-title"
+        v-html="jobTitle"
+      />
 
-      <ul v-if="departments.length" class="departments">
+      <ul
+        v-if="departments.length"
+        class="departments"
+      >
         <li class="department">
           {{ lastDepartment }}
         </li>
@@ -131,28 +151,56 @@ const classes = computed(() => {
 
       <div v-if="locations.length">
         <IconWithLink
-          v-for=" location in locations " :key="`location-${location.id}`" :text="location.title ?? ''"
-          icon-name="svg-icon-location" :to="`/${location.to}`"
+          v-for=" location in locations "
+          :key="`location-${location.id}`"
+          :text="location.title ?? ''"
+          icon-name="svg-icon-location"
+          :to="`/${location.to}`"
         />
       </div>
     </td>
 
     <!-- CONTACT INFO -->
-    <td v-if="email || nameFirst" class="contact-info">
+    <td
+      v-if="email || nameFirst"
+      class="contact-info"
+    >
       <div class="email">
-        <IconWithLink :text="email" icon-name="svg-icon-email" :to="`mailto:${email}`" />
+        <IconWithLink
+          :text="email"
+          icon-name="svg-icon-email"
+          :to="`mailto:${email}`"
+        />
       </div>
 
-      <div v-if="phone" class="phone">
-        <IconWithLink :text="phone" icon-name="svg-icon-phone" :to="`tel:${phone}`" />
+      <div
+        v-if="phone"
+        class="phone"
+      >
+        <IconWithLink
+          :text="phone"
+          icon-name="svg-icon-phone"
+          :to="`tel:${phone}`"
+        />
       </div>
 
-      <div v-if="consultation" class="consultation">
-        <IconWithLink text="Book a consultation" icon-name="svg-icon-consultation" :to="consultation" />
+      <div
+        v-if="consultation"
+        class="consultation"
+      >
+        <IconWithLink
+          text="Book a consultation"
+          icon-name="svg-icon-consultation"
+          :to="consultation"
+        />
       </div>
     </td>
     <template v-if="props.numExtraCells !== 0">
-      <td v-for="i in props.numExtraCells" :key="i" :class="`column-${i}`">
+      <td
+        v-for="i in props.numExtraCells"
+        :class="`column-${i}`"
+        :key="i"
+      >
         <slot :name="`column${i}`" />
       </td>
     </template>
