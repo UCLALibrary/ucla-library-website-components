@@ -67,7 +67,7 @@
     color: $medium-grey;
 
     :not(:first-child) {
-      .date-created::before {
+      &.date-created::before {
         content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
         margin: 0 8px;
         padding-top: -10px;
