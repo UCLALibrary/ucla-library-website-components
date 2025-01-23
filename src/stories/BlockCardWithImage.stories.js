@@ -83,7 +83,7 @@ LongTitle.args = {
 export const TallImage = Template.bind({})
 TallImage.args = {
   title: 'Test Other Image Sizes',
-  image: { ...API.image, src: 'https://placehold.co/1080x1920', height: 1920, width: 1920, },
+  image: { ...API.image, src: 'https://via.placeholder.com/1080x1920', height: 1920, width: 1920, },
   imageAspectRatio: 150
 }
 
