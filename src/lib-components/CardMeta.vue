@@ -221,24 +221,7 @@ const classes = computed(() => {
     />
 
     <div
-      v-if="
-        (!bylineOne || !bylineTwo)
-          && dateCreated"
-      class="schedule-item date-created"
-    >
-      <div
-        v-if="dateCreated"
-        class="schedule-item date-created"
-      >
-        {{ parsedDateCreated }}
-      </div>
-    </div>
-
-    <div
-      v-if="
-        (bylineOne
-          || bylineTwo)
-          && dateCreated"
+      v-if="(bylineOne || bylineTwo) || dateCreated"
       class="byline-group"
     >
       <div

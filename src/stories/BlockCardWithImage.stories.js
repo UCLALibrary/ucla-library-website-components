@@ -298,7 +298,6 @@ function TemplateFTVAArticleBlogListing(args) {
         :to="mockArticles[0].uri"
         category="Interview, People"
         :dateCreated="mockArticles[0].postDate"
-        :image-aspect-ratio="60"
         >
 
         <template v-slot:title>
@@ -324,7 +323,6 @@ function TemplateFTVAArticleBlogListing(args) {
             :to="mockArticles[1].uri"
             category="Interview, People"
             :dateCreated="mockArticles[1].postDate"
-            :image-aspect-ratio="100"
             >
 
             <template v-slot:title>
@@ -341,7 +339,6 @@ function TemplateFTVAArticleBlogListing(args) {
             :to="mockArticles[2].uri"
             category="Interview, People"
             :dateCreated="mockArticles[2].postDate"
-            :image-aspect-ratio="100"
             >
 
             <template v-slot:title>
