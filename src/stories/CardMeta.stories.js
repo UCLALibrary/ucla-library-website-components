@@ -71,6 +71,7 @@ export function Ongoing() {
           :locations="locations"
           :alternativeFullName="alternativeFullName"
           :language="language"
+          :section-handle="sectionHandle"
       />
   `,
   }

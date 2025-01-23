@@ -27,6 +27,8 @@
 
     :deep(.card-meta) {
         position: relative;
+
+        min-height: 191px;
         margin: 0px;
         padding: 25px 20px 15px 20px;
         border-radius: 0 0 12px 12px;

@@ -9,7 +9,7 @@ import * as API from '@/stories/mock-api.json'
 // Storybook default settings
 export default {
   title: 'BLOCK / Card With Image',
-  component: BlockCardWithImage,
+  component: BlockCardWithImage
 }
 
 const mock = {
@@ -48,21 +48,21 @@ function Template(args) {
     components: { BlockCardWithImage },
     template: `
     <block-card-with-image
-      :image="image"
-      :to="to"
-      :category="category"
-      :title="title"
-      :start-date="startDate"
-      :end-date="endDate"
-      :text="text"
-      :image-aspect-ratio="imageAspectRatio"
-      :locations="locations"
-      :alternativeFullName="alternativeFullName"
-      :language="language"
-      :section-handle="sectionHandle"
-      :date-created="dateCreated"
-      :byline-one="bylineOne"
-      :byline-two="bylineTwo"
+        :image="image"
+        :to="to"
+        :category="category"
+        :title="title"
+        :start-date="startDate"
+        :end-date="endDate"
+        :text="text"
+        :image-aspect-ratio="imageAspectRatio"
+        :locations="locations"
+        :alternativeFullName="alternativeFullName"
+        :language="language"
+        :section-handle="sectionHandle"
+        :date-created="dateCreated"
+        :byline-one="bylineOne"
+        :byline-two="bylineTwo"
     />
 `,
   }
