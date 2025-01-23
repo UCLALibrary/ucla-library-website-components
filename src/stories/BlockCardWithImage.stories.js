@@ -1,5 +1,6 @@
 import { computed } from 'vue'
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage'
+import RichText from '@/lib-components/RichText.vue'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -160,7 +161,7 @@ function TemplateFTVACustomTitleDescription(args) {
         theme: computed(() => args.theme ? args.theme : ''),
       }
     },
-    components: { BlockCardWithImage },
+    components: { BlockCardWithImage, RichText},
     template: `
       <block-card-with-image
         :image="image"
@@ -170,12 +171,12 @@ function TemplateFTVACustomTitleDescription(args) {
         :image-aspect-ratio="imageAspectRatio"
         >
 
-        <template #title>
-          <RichText v-html="title" />
+        <template v-slot:title>
+          <rich-text v-html="title" />
         </template>
 
-        <template #description>
-          <RichText v-html="ftvaHomepageDescription" />
+        <template v-slot:description>
+          <rich-text v-html="ftvaHomepageDescription" />
         </template>
       </block-card-with-image>
     `,
