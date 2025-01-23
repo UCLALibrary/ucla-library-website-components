@@ -1,3 +1,10 @@
+# [3.44.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.7...v3.44.0) (2025-01-23)
+
+
+### Features
+
+* APPS-3089 Update StaffSubjectLibrarian components for FTVA ([#674](https://github.com/UCLALibrary/ucla-library-website-components/issues/674)) ([a953ae2](https://github.com/UCLALibrary/ucla-library-website-components/commit/a953ae218cf1c7a094bf0c7f08e1fa1ebbc65630))
+
 ## [3.43.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.6...v3.43.7) (2025-01-16)
 
 
