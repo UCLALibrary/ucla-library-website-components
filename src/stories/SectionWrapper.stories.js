@@ -13,6 +13,7 @@ import SectionStaffArticleList from '@/lib-components/SectionStaffArticleList'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import TabItem from '@/lib-components/TabItem.vue'
 import TabList from '@/lib-components/TabList.vue'
+import SectionStaffSubjectLibrarian from '@/lib-components/SectionStaffSubjectLibrarian.vue'
 
 const propsForMediaWithText = {
   sectionHeader: mockMediaWithText.mediaWithText[0].titleLink,
@@ -775,98 +776,67 @@ export function FtvaSeriesListing() {
   }
 }
 
-const mockArticles = [
-  {
-    title: '<h3><em>Preserving In Transit:</em> The Chinese in California<h3>',
-    articleCategories: [
-      {
-        title: 'Interview'
-      },
-      {
-        title: 'People'
-      }
-    ],
-    postDate: '2024-02-19T16:00:00-08:00',
-    ftvaHomepageDescription: '<p>Three alumni student films, made in the 1970s-1980s, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film &amp; Television Archive staff.</p>',
-    uri: 'blog/preserving-in-transit-the-chinese-in-california',
-    ftvaImage: [
-      {
-        id: '3619987',
-        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/In_Transit_blog2.jpeg',
-        height: 1813,
-        width: 2560,
-        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/In_Transit_blog2.jpeg 2560w',
-        alt: null,
-        focalPoint: [
-          0.5,
-          0.5
-        ]
-      }
-    ],
-  },
-  {
-    title: '<h3><em>From McKinley to LBJ:</em> Presidents in the Hearst Newsreels<h3>',
-    articleCategories: [
-      {
-        title: 'Interview'
-      },
-      {
-        title: 'People'
-      }
-    ],
-    postDate: '2024-02-19T16:00:00-08:00',
-    ftvaHomepageDescription: '<p>Curated by UCLA Film &amp; Television Archive Senior Newsreel Preservationist Jeffrey Bickel, the newsreels presented here cover the period from 1897 to 1967.</p>',
-    uri: 'blog/from-mckinley-to-lbj-presidents-in-the-hearst-newsreels',
-    ftvaImage: [
-      {
-        id: '3619990',
-        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/WilsonTaft-crop.png',
-        height: 1792,
-        width: 2560,
-        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/WilsonTaft-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/WilsonTaft-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/WilsonTaft-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/WilsonTaft-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/WilsonTaft-crop.png 2560w',
-        alt: null,
-        focalPoint: [
-          0.5,
-          0.5
-        ]
-      }
-    ]
-  },
-  {
-    title: '<h3>The “Effervescent” Artist, Educator and Activist Betty Chen</h3>',
-    articleCategories: [
-      {
-        title: 'Interview'
-      },
-      {
-        title: 'People'
-      }
-    ],
-    postDate: '2023-08-24T12:00:00-07:00',
-    ftvaHomepageDescription: '<p><span>In the spring of 2022, UCLA-trained filmmaker Betty Yao-Jung Chen (</span><span>November 5, 1943–April 26, 2022) died in Florida. The news was confirmed by her niece and nephew, who had reached out to me in 2021 after reading an article I had written about their aunt for </span><a href=\'https://online.ucpress.edu/fq/issue/73/3\' target=\'_blank\' rel=\'noreferrer noopener\'><em>Film Quarterly</em> March 2020 dossier</a><span>, <em>Asian American Film at Fifty.</em></span></p>',
-    uri: 'blog/the-effervescent-artist-educator-and-activist-betty-chen',
-    ftvaImage: [
-      {
-        id: '3620037',
-        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/BettyChen-blog1.png',
-        height: 1813,
-        width: 2560,
-        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/BettyChen-blog1.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/BettyChen-blog1.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/BettyChen-blog1.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/BettyChen-blog1.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/BettyChen-blog1.png 2560w',
-        alt: null,
-        focalPoint: [
-          0.5,
-          0.5
-        ]
-      }
-    ]
-  }
-]
 
-export function FtvaArticleBlogListing() {
+const mockFTVAtableHeaders = ['', 'Film', 'Role', 'Year']
+const mockFTVAfilmdata = [
+  {
+    image: [
+      {
+        id: '3593326',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/gay-abel-bey.jpeg',
+        height: 1434,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/gay-abel-bey.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/gay-abel-bey.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/gay-abel-bey.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/gay-abel-bey.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/gay-abel-bey.jpeg 2560w',
+        alt: null,
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+    titleGeneral: 'Associated Film #1 Title',
+    description: 'Associated Film #1 Description',
+    roles: 'Associated Film #1 Role(s)',
+    year: '1990',
+    filmLink: [
+      {
+        uri: 'collections/l-a-rebellion/as-above-so-below',
+        slug: 'as-above-so-below'
+      }
+    ]
+  },
+  {
+    image: [
+      {
+        id: '3593326',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/gay-abel-bey.jpeg',
+        height: 1434,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/gay-abel-bey.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/gay-abel-bey.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/gay-abel-bey.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/gay-abel-bey.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/gay-abel-bey.jpeg 2560w',
+        alt: null,
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+    titleGeneral: 'Associated Film #2 Title',
+    description: 'Associated Film #2 Description',
+    roles: 'Associated Film #2 Role(s)',
+    year: '1996',
+    filmLink: [
+      {
+        uri: 'collections/l-a-rebellion/as-above-so-below',
+        slug: 'as-above-so-below'
+      }
+    ]
+  }]
+export function FTVAFilmographySection() {
   return {
     data() {
       return {
-        mockArticles
+        tableHeaders: mockFTVAtableHeaders,
+        items: mockFTVAfilmdata
       }
     },
     provide() {
@@ -874,48 +844,17 @@ export function FtvaArticleBlogListing() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { SectionWrapper, BlockCardWithImage },
+    components: { SectionWrapper, SectionStaffSubjectLibrarian },
     template: `
-
       <SectionWrapper
-        section-title="Featured Blogs"
+        section-title="Filmography"
         theme="paleblue"
       >
-
-      <BlockCardWithImage
-        :image="mockArticles[1].ftvaImage[0]"
-        :to="to"
-        category="Interview, People"
-        :image-aspect-ratio="100"
-        :date-created="mockArticles[1].postDate"
-      >
-        <template #title>
-          <RichText  v-html="mockArticles[1].title" />
-        </template>
-
-        <template #description>
-          <RichText v-html="mockArticles[1].ftvaHomepageDescription" />
-        </template>
-      </BlockCardWithImage>
-
-
-      <BlockCardWithImage
-        :image="mockArticles[2].ftvaImage[0]"
-        :to="to"
-        category="Interview, People"
-        :image-aspect-ratio="100"
-        :date-created="mockArticles[2].postDate"
-      >
-        <template #title>
-          <RichText  v-html="mockArticles[2].title" />
-        </template>
-
-        <template #description>
-          <RichText v-html="mockArticles[2].ftvaHomepageDescription" />
-        </template>
-      </BlockCardWithImage>
-
-  </SectionWrapper>
+      <section-staff-subject-librarian
+        :items="items"
+        :tableHeaders="tableHeaders"
+      />
+      </SectionWrapper>
   `,
   }
 }
