@@ -230,20 +230,20 @@ const mockArticles = [
     ftvaHomepageDescription: '<p>Curated by UCLA Film &amp; Television Archive Senior Newsreel Preservationist Jeffrey Bickel, the newsreels presented here cover the period from 1897 to 1967.</p>',
     uri: 'blog/from-mckinley-to-lbj-presidents-in-the-hearst-newsreels',
     image: API.image,
-              ftvaImage: [
-            {
-              id: "3619990",
-              src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/WilsonTaft-crop.png",
-              height: 1792,
-              width: 2560,
-              srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/WilsonTaft-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/WilsonTaft-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/WilsonTaft-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/WilsonTaft-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/WilsonTaft-crop.png 2560w",
-              alt: null,
-              focalPoint: [
-                0.5,
-                0.5
-              ]
-            }
-          ]
+    ftvaImage: [
+      {
+        id: '3619990',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/WilsonTaft-crop.png',
+        height: 1792,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/WilsonTaft-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/WilsonTaft-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/WilsonTaft-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/WilsonTaft-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/WilsonTaft-crop.png 2560w',
+        alt: null,
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ]
   },
   {
     title: '<h3>The Effervescent Artist, Educator and Activist Betty Chen</h3>',
