@@ -159,12 +159,13 @@ function TemplateFTVACustomTitleDescription(args) {
     },
     provide() {
       return {
-        theme: computed(() => args.theme ? args.theme : ''),
+        theme: computed(() => 'ftva'),
       }
     },
     components: { BlockCardWithImage, RichText },
     template: `
       <block-card-with-image
+        class="block-highlight"
         :image="image"
         :to="uri"
         :category="category"
