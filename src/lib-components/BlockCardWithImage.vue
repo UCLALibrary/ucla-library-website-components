@@ -171,14 +171,7 @@ const parsedDateFormat = computed(() => {
         <slot name="description" />
       </template>
     </CardMeta>
-    />
   </li>
-</template>
-
-<style lang="scss" scoped>
-@import "@/styles/default/_block-card-with-image.scss";
-@import "@/styles/ftva/_block-card-with-image.scss";
-</style>
 </template>
 
 <style lang="scss" scoped>

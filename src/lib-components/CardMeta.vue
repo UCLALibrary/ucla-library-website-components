@@ -22,6 +22,7 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  // the data is often an array that needs to be combined on the page into one string
   category: {
     type: String,
     default: '',
@@ -176,7 +177,7 @@ const classes = computed(() => {
       v-html="category"
     />
 
-    <!-- Named slot for custom-title -->
+    <!-- Named slot for custom title -->
     <div
       v-if="$slots.title"
       class="custom-title"
@@ -205,7 +206,7 @@ const classes = computed(() => {
       v-html="title"
     />
 
-    <!-- Named slot for description -->
+    <!-- Named slot for custom description -->
     <div
       v-if="$slots.description"
       class="custom-description"
