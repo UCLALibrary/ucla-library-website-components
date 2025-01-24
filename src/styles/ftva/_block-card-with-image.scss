@@ -24,7 +24,7 @@
         position: relative;
         margin: 0px;
         padding: 25px 20px 15px 20px;
-        height: 191px;
+        min-height: 191px;
 
         .title {
             @include ftva-card-title-2;
@@ -68,7 +68,7 @@
         height: 34px;
         overflow: hidden;
 
-        .ongoing-item + .schedule-item  {
+        .ongoing-item+.schedule-item {
             // hide the date range if the ongoing label is display
             display: none;
         }
@@ -76,6 +76,7 @@
         .schedule-item:nth-of-type(1) {
             position: relative;
             margin-right: 28px;
+
             // show the diamond icon after, but only if it's not the last child
             &:not(:last-child)::after {
                 content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
@@ -84,6 +85,12 @@
                 top: -2px;
                 margin: 0px 10px;
             }
+        }
+    }
+
+    :deep(.custom-description) {
+        .rich-text {
+            padding-bottom: 24px;
         }
     }
 

@@ -1,6 +1,7 @@
 import { computed, onBeforeUnmount, onMounted } from 'vue'
 import CardMeta from '@/lib-components/CardMeta'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
+import RichText from '@/lib-components/RichText.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
@@ -184,7 +185,9 @@ const mockFTVAArticleData = {
   ],
   sectionHandle: 'ftvaArticle'
 }
+
 const parsedArticleCategories = mockFTVAArticleData.articleCategories.map(category => category.title).join(', ')
+
 // data for share button in slot
 const mockSocialList = {
   buttonTitle: 'Share',
@@ -289,5 +292,42 @@ export function FtvaLinkedCategoryAndTitle() {
         </template>
       </card-meta>
   `,
+  }
+}
+
+export function FtvaCustomTitleAndDesription() {
+  return {
+    data() {
+      return {
+        ftvaFeaturedArticles: [
+          {
+            title: '<h3>Preserving <em>In Transit</em>: <a href=#>The Chinese</a> in California</h3>',
+            ftvaHomepageDescription: '<p><strong>In the summer</strong> of 2023, <a href=#>I had the chance</a> to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.</p>',
+            articleCategories: 'People, Places',
+            postDate: '2024-10-09T09:00:00-07:00'
+          }
+        ]
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta, RichText },
+    template: `
+      <card-meta
+       :category= "ftvaFeaturedArticles[0].articleCategories"
+       :dateCreated="ftvaFeaturedArticles[0].postDate"
+      >
+        <template v-slot:title>
+          <rich-text v-html="ftvaFeaturedArticles[0].title" />
+        </template>
+
+        <template v-slot:description>
+          <rich-text v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
+        </template>
+      </card-meta>
+    `,
   }
 }

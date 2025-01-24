@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import type { PropType } from 'vue'
@@ -165,14 +162,19 @@ const parsedDateFormat = computed(() => {
       :language="language"
       :section-handle="sectionHandle"
       :date-created="dateCreated"
-    />
+    >
+      <template #title>
+        <slot name="title" />
+      </template>
+
+      <template #description>
+        <slot name="description" />
+      </template>
+    </CardMeta>
   </li>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 @import "@/styles/default/_block-card-with-image.scss";
 @import "@/styles/ftva/_block-card-with-image.scss";
 </style>
