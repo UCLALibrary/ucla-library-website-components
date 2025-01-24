@@ -1,3 +1,10 @@
+# [3.45.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.44.0...v3.45.0) (2025-01-24)
+
+
+### Features
+
+* APPS-3107 create ftva variation of block card with image and card meta component for the article listing page ([#677](https://github.com/UCLALibrary/ucla-library-website-components/issues/677)) ([ae73661](https://github.com/UCLALibrary/ucla-library-website-components/commit/ae73661ba36741d93d5e7485e9673c0a138a2966))
+
 # [3.44.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.43.7...v3.44.0) (2025-01-23)
 
 
