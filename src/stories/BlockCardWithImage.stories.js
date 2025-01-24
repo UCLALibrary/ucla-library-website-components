@@ -188,7 +188,7 @@ export const FTVACustomTitleDescription = TemplateFTVACustomTitleDescription.bin
 
 const mockArticles = [
   {
-    title: '<h3><em>Preserving In Transit:</em> The Chinese in California<h3>',
+    title: '<h3><em>Preserving In Transit:</em> The Chinese in California</h3>',
     articleCategories: [
       {
         title: 'Interview'
@@ -197,8 +197,8 @@ const mockArticles = [
         title: 'People'
       }
     ],
-    postDate: '2024-02-19T16:00:00-08:00',
-    ftvaHomepageDescription: '<p>Three alumni student films, made in the 1970s-1980s, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film &amp; Television Archive staff.</p>',
+    postDate: '2024-05-07T13:00:00-07:00',
+    ftvaHomepageDescription: '<p>Three alumnis student films, made in the <strong>1970s-1980s</strong>, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film &amp; Television Archive staff.</p>',
     uri: 'blog/preserving-in-transit-the-chinese-in-california',
     ftvaImage: [
       {
@@ -213,16 +213,16 @@ const mockArticles = [
           0.5
         ]
       }
-    ],
+    ]
   },
   {
-    title: '<h3><em>From McKinley to LBJ:</em> Presidents in the Hearst Newsreels<h3>',
+    title: '<h3>From McKinley to LBJ: Presidents in the Hearst Newsreels</h3>',
     articleCategories: [
       {
-        title: 'Interview'
+        title: 'Newsreels'
       },
       {
-        title: 'People'
+        title: 'Presidents'
       }
     ],
     postDate: '2024-02-19T16:00:00-08:00',
@@ -244,17 +244,17 @@ const mockArticles = [
     ]
   },
   {
-    title: '<h3>The “Effervescent” Artist, Educator and Activist Betty Chen</h3>',
+    title: '<h3>The Effervescent Artist, Educator and Activist Betty Chen</h3>',
     articleCategories: [
       {
-        title: 'Interview'
+        title: 'Educators'
       },
       {
-        title: 'People'
+        title: 'Artists'
       }
     ],
     postDate: '2023-08-24T12:00:00-07:00',
-    ftvaHomepageDescription: '<p><span>In the spring of 2022, UCLA-trained filmmaker Betty Yao-Jung Chen (</span><span>November 5, 1943–April 26, 2022) died in Florida. The news was confirmed by her niece and nephew, who had reached out to me in 2021 after reading an article I had written about their aunt for </span><a href=\'https://online.ucpress.edu/fq/issue/73/3\' target=\'_blank\' rel=\'noreferrer noopener\'><em>Film Quarterly</em> March 2020 dossier</a><span>, <em>Asian American Film at Fifty.</em></span></p>',
+    ftvaHomepageDescription: '<p><strong>In the spring of 2022</strong>, UCLA-trained filmmaker Betty Yao-Jung Chen (November 5, 1943 throughApril 26, 2022) died in Florida. The news was confirmed by her niece and nephew.</p>',
     uri: 'blog/the-effervescent-artist-educator-and-activist-betty-chen',
     ftvaImage: [
       {
