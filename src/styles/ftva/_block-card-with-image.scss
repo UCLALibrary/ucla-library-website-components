@@ -37,9 +37,6 @@
         }
 
         .byline-group {
-            position: absolute;
-            bottom: var(--space-s);
-
             .date-created::before {
                 content: unset;
             }
