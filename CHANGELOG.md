@@ -1,3 +1,10 @@
+## [3.45.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.45.0...v3.45.1) (2025-01-28)
+
+
+### Bug Fixes
+
+* APPS-3107 rich text update ([#678](https://github.com/UCLALibrary/ucla-library-website-components/issues/678)) ([eff15b5](https://github.com/UCLALibrary/ucla-library-website-components/commit/eff15b5eefc2befc3c82f5a9dc2e3af1a8ee66a3))
+
 # [3.45.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.44.0...v3.45.0) (2025-01-24)
 
 
