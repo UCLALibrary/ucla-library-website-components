@@ -2,6 +2,7 @@ import { computed } from 'vue'
 import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian'
 import SmartLink from '@/lib-components/SmartLink'
 import ResponsiveImage from '@/lib-components/ResponsiveImage'
+import IconWithLink from '@/lib-components/IconWithLink'
 
 /**
  *
@@ -23,7 +24,7 @@ export default {
   component: BlockStaffSubjectLibrarian,
 }
 
-const mockDeafult = {
+const mockDefault = {
   subjectArea: 'African American Studies',
   to: '/about/staff/ariane-bicho',
   nameLast: 'Bicho',
@@ -119,41 +120,115 @@ const mockAlternativeName = {
 }
 
 // Variations of stories below
+// export function Default() {
+//   return {
+//     data() {
+//       return {
+//         item: {
+//           ...mockDefault,
+//         },
+//       }
+//     },
+//     components: { BlockStaffSubjectLibrarian },
+//     template: `
+//       <block-staff-subject-librarian
+//         v-bind="item"
+//       />
+//   `,
+//   }
+// }
+
+// export function AlternativeName() {
+//   return {
+//     data() {
+//       return {
+//         item: {
+//           ...mockAlternativeName,
+//         },
+//       }
+//     },
+//     components: { BlockStaffSubjectLibrarian },
+//     template: `
+//       <block-staff-subject-librarian
+//         v-bind="item"
+//       />
+//   `,
+//   }
+// }
+
+// NEW DEFAULT
+// TODO COPY BOILERPLATE LOGIC AS YOU REMOVE PROPS
 export function Default() {
   return {
     data() {
       return {
         item: {
-          ...mockDeafult,
+          ...mockDefault,
         },
       }
     },
-    components: { BlockStaffSubjectLibrarian },
+    components: { BlockStaffSubjectLibrarian, SmartLink, IconWithLink },
     template: `
-      <block-staff-subject-librarian
-        v-bind="item"
-      />
+      <BlockStaffSubjectLibrarian
+        :num-extra-cells="3"
+      >
+      <template v-slot:column1>
+        {{ item.subjectArea }}
+      </template>
+      <template v-slot:column2>
+        <SmartLink :to="item.to" class="staff-name">
+          {{ item.nameFirst }} {{ item.nameLast }}
+           <span v-if="item.alternativeName && item.alternativeName.length !== 0" :lang="item.alternativeName[0].languageAltName">
+             {{ item.alternativeName[0].fullName }}
+           </span>
+        </SmartLink>
+        <div class="job-title" :v-html="item.jobTitle" />
+        <ul v-if="item.departments.length" class="departments">
+          <li class="department">
+            {{ item.departments[item.departments.length - 1].title }}
+          </li>
+        </ul>
+        <div v-if="item.locations.length">
+          <IconWithLink
+          v-for="location in item.locations " :key="'location-' + location.id" :text="location.title ?? ''"
+          icon-name="svg-icon-location" :to="'/' + location.to"
+          />
+        </div>
+      </template>
+      <template v-slot:column3>
+        <div class="email">
+          <IconWithLink :text="item.email" icon-name="svg-icon-email" :to="'mailto:' + item.email" />
+        </div>
+
+        <div v-if="item.phone" class="phone">
+          <IconWithLink :text="item.phone" icon-name="svg-icon-phone" :to="'tel:' + item.phone" />
+        </div>
+        <div v-if="item.consultation" class="consultation">
+          <IconWithLink text="Book a consultation" icon-name="svg-icon-consultation" :to="item.consultation" />
+        </div>
+      </template>
+      </BlockStaffSubjectLibrarian>
   `,
   }
 }
 
-export function AlternativeName() {
-  return {
-    data() {
-      return {
-        item: {
-          ...mockAlternativeName,
-        },
-      }
-    },
-    components: { BlockStaffSubjectLibrarian },
-    template: `
-      <block-staff-subject-librarian
-        v-bind="item"
-      />
-  `,
-  }
-}
+// export function AlternativeName() {
+//   return {
+//     data() {
+//       return {
+//         item: {
+//           ...mockAlternativeName,
+//         },
+//       }
+//     },
+//     components: { BlockStaffSubjectLibrarian },
+//     template: `
+//       <block-staff-subject-librarian
+//         :num-extra-cells="3"
+//       />
+//   `,
+//   }
+// }
 
 // mock raw data from FTVA graphQL LA rebellion filmography
 const mockFilm = {
@@ -216,6 +291,42 @@ export function FTVAFilmography() {
       </template>
       <template v-slot:column4>
         {{ item.year }}
+      </template>
+      </BlockStaffSubjectLibrarian>
+  `,
+  }
+}
+
+// TODO CHECK DATA MODEL IS CORRECT?
+const mockCredit = {
+  name: 'FirstName LastName',
+  roles: 'Role 1, role 2, role 3, etc'
+}
+
+export function FTVACredits() {
+  return {
+    data() {
+      return {
+        item: {
+          ...mockCredit,
+        },
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockStaffSubjectLibrarian },
+    template: `
+      <BlockStaffSubjectLibrarian
+        :num-extra-cells="2"
+      >
+      <template v-slot:column1>
+        {{ item.name }}
+      </template>
+      <template v-slot:column2>
+        {{ item.roles }}
       </template>
       </BlockStaffSubjectLibrarian>
   `,
