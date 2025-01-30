@@ -1,3 +1,10 @@
+# [3.46.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.45.1...v3.46.0) (2025-01-30)
+
+
+### Features
+
+* add conditional slots to blockcardwithimage template ([#680](https://github.com/UCLALibrary/ucla-library-website-components/issues/680)) ([6b43c1b](https://github.com/UCLALibrary/ucla-library-website-components/commit/6b43c1b39e8a76227b3c5071937f1f69c8b41fd1))
+
 ## [3.45.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.45.0...v3.45.1) (2025-01-28)
 
 
