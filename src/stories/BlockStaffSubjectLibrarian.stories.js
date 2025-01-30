@@ -6,15 +6,10 @@ import IconWithLink from '@/lib-components/IconWithLink'
 
 /**
  *
- * A component to display data in a table row. As such, it should alwayds be used within a table's tbody tag.
+ * A component to display data in a `<tr>` element. As such, it should alwayds be used within a table's `<tbody>` tag, or with `TableComponent.vue`.
  *
- * Built originally for the staff directory, it now has slots to allow any data to be displayed in a table row.
- *
- * The component can be configured 2 ways:
- * - soon to be @deprecated (CLASSIC) With a BlockStaffListItemType object, whose fields should be used for each prop in the component. This will transform the data into staff directory format. This method will be removed when APPS-3132 is completed.
- * - (NEW / GENERIC) With the 'numExtraCells' prop, which will create that many extra slots for data to be displayed. Slots will have the names 'column1', 'column2', etc.
- *
- * The Default & AlternativeName stories show the component in staff directory format. The FTVAFilmography story shows the component in a generic format.
+ * Props:
+ * - NumCells (integer): Will create that # of `<td>` elements with slots for content. Slots will have the names 'column1', 'column2', etc, and `<td>`'s will have the class 'column-1', 'column-2', etc.
  *
  */
 
@@ -119,7 +114,6 @@ const mockAlternativeName = {
   consultation: 'https://calendar.library.ucla.edu/appointments/aogarcia',
 }
 
-// NEW DEFAULT
 export function Default() {
   return {
     data() {
@@ -150,7 +144,7 @@ export function Default() {
             {{ item.departments[item.departments.length - 1].title }}
           </li>
         </ul>
-        <div v-if="item.locations.length">
+        <div v-if="item.locations && item.locations.length !== 0">
           <IconWithLink
           v-for="location in item.locations " :key="'location-' + location.id" :text="location.title ?? ''"
           icon-name="svg-icon-location" :to="'/' + location.to"

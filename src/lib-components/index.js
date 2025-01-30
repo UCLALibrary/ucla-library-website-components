@@ -116,7 +116,7 @@ export { default as SectionRemoveSearchFilter } from './SectionRemoveSearchFilte
 export { default as SectionScreeningDetails } from './SectionScreeningDetails.vue'
 export { default as SectionSpacesList } from './SectionSpacesList.vue'
 export { default as SectionStaffList } from './SectionStaffList.vue'
-export { default as SectionStaffSubjectLibrarian } from './SectionStaffSubjectLibrarian.vue'
+// export { default as SectionStaffSubjectLibrarian } from './SectionStaffSubjectLibrarian.vue'
 export { default as SectionTeaserCard } from './SectionTeaserCard.vue'
 export { default as SectionTeaserHighlight } from './SectionTeaserHighlight.vue'
 export { default as SectionTeaserList } from './SectionTeaserList.vue'
@@ -128,6 +128,9 @@ export { default as SiteNotificationAlert } from './SiteNotificationAlert.vue'
 export { default as SmartLink } from './SmartLink.vue'
 export { default as StoryWithImage } from './StoryWithImage.vue'
 export { default as TabItem } from './TabItem.vue'
+export { default as TableComponent } from './TableComponent.vue'
+// TODO rename BlockStaffSubjectLibrarian to TableRow
+// export { default as TableRow } from './TableRow.vue'
 export { default as TabList } from './TabList.vue'
 export { default as VideoEmbed } from './VideoEmbed.vue'
 // LAYOUTS

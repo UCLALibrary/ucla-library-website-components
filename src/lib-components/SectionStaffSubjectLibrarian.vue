@@ -1,4 +1,4 @@
-<script
+<!-- <script
   setup
   lang="ts"
 >
@@ -115,4 +115,4 @@ const classes = computed(() => {
 >
 @import "@/styles/default/_section-staff-subject-librarian.scss";
 @import "@/styles/ftva/_section-staff-subject-librarian.scss";
-</style>
+</style> -->
