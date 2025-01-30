@@ -320,12 +320,12 @@ export function FtvaCustomTitleAndDesription() {
        :category= "ftvaFeaturedArticles[0].articleCategories"
        :dateCreated="ftvaFeaturedArticles[0].postDate"
       >
-        <template v-slot:title>
+        <template #customTitle>
           <rich-text
             :rich-text-content="ftvaFeaturedArticles[0].title" />
         </template>
 
-        <template v-slot:description>
+        <template #customDescription>
           <rich-text
           :rich-text-content="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
         </template>

@@ -179,10 +179,10 @@ const classes = computed(() => {
 
     <!-- Named slot for custom title -->
     <h3
-      v-if="$slots.title"
+      v-if="$slots.customTitle"
       class="custom-title"
     >
-      <slot name="title" />
+      <slot name="customTitle" />
     </h3>
 
     <SmartLink
@@ -208,10 +208,10 @@ const classes = computed(() => {
 
     <!-- Named slot for custom description -->
     <p
-      v-if="$slots.description"
+      v-if="$slots.customDescription"
       class="custom-description"
     >
-      <slot name="description" />
+      <slot name="customDescription" />
     </p>
 
     <RichText
