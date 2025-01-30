@@ -93,7 +93,15 @@ const props = defineProps({
   dateCreated: {
     type: String,
     default: ''
-  }
+  },
+  customTitle: {
+    type: String,
+    default: '',
+  },
+  customDescription: {
+    type: String,
+    default: '',
+  },
 })
 
 // TOGGLE CLICKABLE BEHAVIOR
@@ -161,6 +169,8 @@ const parsedDateFormat = computed(() => {
       :language="language"
       :section-handle="sectionHandle"
       :date-created="dateCreated"
+      :custom-title="customTitle"
+      :custom-decription="customDecription"
     >
       <template
         v-if="$slots.customTitle"
