@@ -144,7 +144,6 @@ const parsedDateFormat = computed(() => {
         />
       </div>
     </div>
-
     <CardMeta
       class="card-meta-items"
       :to="to"
@@ -163,12 +162,18 @@ const parsedDateFormat = computed(() => {
       :section-handle="sectionHandle"
       :date-created="dateCreated"
     >
-      <template #title>
-        <slot name="title" />
+      <template
+        v-if="$slots.customTitle"
+        #customTitle
+      >
+        <slot name="customTitle" />
       </template>
 
-      <template #description>
-        <slot name="description" />
+      <template
+        v-if="$slots.customDescription"
+        #customDescription
+      >
+        <slot name="customDescription" />
       </template>
     </CardMeta>
   </li>
