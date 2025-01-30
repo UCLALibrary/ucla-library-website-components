@@ -7,7 +7,7 @@
     line-height: $line-height--1;
     padding: 10px 0;
 
-    .academic-department {
+    .column-1 {
         color: var(--color-primary-blue-05);
         @include step-0;
         font-weight: 500;
@@ -21,7 +21,7 @@
         align-items: flex-start;
     }
 
-    .librarian-block {
+    .column-2 {
         @include step-0;
 
         display: flex;
@@ -32,13 +32,13 @@
         align-content: flex-start;
         align-items: flex-start;
 
-        .name-title {
+        :deep(.name-title) {
             display: flex;
             flex-direction: column;
             gap: var(--space-xs);
         }
 
-        .staff-name {
+        :deep(.staff-name) {
             color: var(--color-primary-blue-03);
             font-weight: 500;
 
@@ -52,23 +52,22 @@
             }
         }
 
-        .job-title {
+        :deep(.job-title) {
             color: var(--color-black);
         }
 
-        .departments {
+        :deep(.departments) {
             display: flex;
             flex-direction: column;
-
             list-style: none;
         }
 
-        .department {
+        :deep(.department) {
             color: var(--color-secondary-grey-04);
         }
     }
 
-    .contact-info {
+    .column-3 {
         display: flex;
         flex: 1 1 0px;
         flex-direction: column;
@@ -76,16 +75,15 @@
         justify-content: flex-start;
         align-content: flex-start;
         align-items: flex-start;
+        a {
+            @include button;
+            z-index: 10;
+        }
     }
 
-    .contact-info a {
-        @include button;
-        z-index: 10;
-    }
-
-    .email,
+    :deep(.email,
     .phone,
-    .consultation {
+    .consultation) {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -111,8 +109,8 @@
     // Hover states
     @media #{$has-hover} {
 
-        .staff-name:hover,
-        .is-link:hover {
+        :deep(.staff-name:hover),
+        :deep(.is-link:hover) {
             @include link-hover;
         }
     }
@@ -127,15 +125,14 @@
             flex-shrink: 0;
         }
 
-        .job-title,
-        .department,
-        .contact-info {
-            font-size: 18px;
-        }
-
-        .contact-info .icon {
-            width: 28px;
-            height: 28px;
+        .column-2 {
+            :deep(.job-title,
+            .contact-info) {
+                font-size: 18px;
+            }
+            :deep(.department) {
+                font-size: 18px;
+            }
         }
     }
 
@@ -150,7 +147,7 @@
         border: 0;
         margin: unset;
 
-        .academic-department {
+        .column-1 {
             margin-bottom: 4px;
         }
 

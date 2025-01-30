@@ -119,45 +119,7 @@ const mockAlternativeName = {
   consultation: 'https://calendar.library.ucla.edu/appointments/aogarcia',
 }
 
-// Variations of stories below
-// export function Default() {
-//   return {
-//     data() {
-//       return {
-//         item: {
-//           ...mockDefault,
-//         },
-//       }
-//     },
-//     components: { BlockStaffSubjectLibrarian },
-//     template: `
-//       <block-staff-subject-librarian
-//         v-bind="item"
-//       />
-//   `,
-//   }
-// }
-
-// export function AlternativeName() {
-//   return {
-//     data() {
-//       return {
-//         item: {
-//           ...mockAlternativeName,
-//         },
-//       }
-//     },
-//     components: { BlockStaffSubjectLibrarian },
-//     template: `
-//       <block-staff-subject-librarian
-//         v-bind="item"
-//       />
-//   `,
-//   }
-// }
-
 // NEW DEFAULT
-// TODO COPY BOILERPLATE LOGIC AS YOU REMOVE PROPS
 export function Default() {
   return {
     data() {
@@ -170,7 +132,7 @@ export function Default() {
     components: { BlockStaffSubjectLibrarian, SmartLink, IconWithLink },
     template: `
       <BlockStaffSubjectLibrarian
-        :num-extra-cells="3"
+        :num-cells="3"
       >
       <template v-slot:column1>
         {{ item.subjectArea }}
@@ -182,7 +144,7 @@ export function Default() {
              {{ item.alternativeName[0].fullName }}
            </span>
         </SmartLink>
-        <div class="job-title" :v-html="item.jobTitle" />
+        <div class="job-title" v-html="item.jobTitle" />
         <ul v-if="item.departments.length" class="departments">
           <li class="department">
             {{ item.departments[item.departments.length - 1].title }}
@@ -212,23 +174,19 @@ export function Default() {
   }
 }
 
-// export function AlternativeName() {
-//   return {
-//     data() {
-//       return {
-//         item: {
-//           ...mockAlternativeName,
-//         },
-//       }
-//     },
-//     components: { BlockStaffSubjectLibrarian },
-//     template: `
-//       <block-staff-subject-librarian
-//         :num-extra-cells="3"
-//       />
-//   `,
-//   }
-// }
+export function AlternativeName() {
+  return {
+    data() {
+      return {
+        item: {
+          ...mockAlternativeName,
+        },
+      }
+    },
+    components: { BlockStaffSubjectLibrarian, SmartLink, IconWithLink },
+    template: Default().template,
+  }
+}
 
 // mock raw data from FTVA graphQL LA rebellion filmography
 const mockFilm = {
@@ -275,7 +233,7 @@ export function FTVAFilmography() {
     components: { BlockStaffSubjectLibrarian, SmartLink, ResponsiveImage },
     template: `
       <BlockStaffSubjectLibrarian
-        :num-extra-cells="4"
+        :num-cells="4"
       >
       <template v-slot:column1>
       <div class="responsive-image">
@@ -320,7 +278,7 @@ export function FTVACredits() {
     components: { BlockStaffSubjectLibrarian },
     template: `
       <BlockStaffSubjectLibrarian
-        :num-extra-cells="2"
+        :num-cells="2"
       >
       <template v-slot:column1>
         {{ item.name }}

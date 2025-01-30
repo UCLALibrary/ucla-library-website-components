@@ -1,16 +1,9 @@
 .ftva.block-staff-subject-librarian {
     gap: var(--space-m);
     align-items: center;
-    // justify-content: space-between;
     &:last-child {
       padding-bottom: 0px;
     }
-
-    // td {
-    //     &:nth-of-type(4) {
-    //         justify-content: flex-end;
-    //     }
-    // }
     :nth-child(1) {
         flex-grow: 2;
         max-width: 287px;
