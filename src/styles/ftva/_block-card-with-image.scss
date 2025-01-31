@@ -88,30 +88,6 @@
         }
     }
 
-    :deep(.custom-title) {
-        .rich-text {
-            margin-top: 0;
-            padding-right: 30px;
-
-            .parsed-content {
-                margin-bottom: 18px;
-            }
-
-            h3 {
-                padding-bottom: 0;
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-        }
-    }
-
-    :deep(.custom-description) {
-        .rich-text {
-            padding-bottom: 1px;
-            padding-right: 30px;
-        }
-    }
-
     /* This keeps the molecule image from expanding vertically when in tablet size */
     &.is-vertical {
         flex-direction: column;

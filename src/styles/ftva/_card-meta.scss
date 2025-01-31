@@ -53,10 +53,32 @@
     }
   }
 
+  // .custom-title {
+  //   :deep(.rich-text) {
+  //     max-width: none;
+  //     margin: 0;
+
+  //     div {
+  //       @include ftva-h3;
+  //     }
+  //   }
+  // }
+
   .custom-title {
     :deep(.rich-text) {
       max-width: none;
       margin: 0;
+      padding-right: 30px;
+
+      .parsed-content {
+        margin-bottom: 18px;
+      }
+
+      h3 {
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
 
       div {
         @include ftva-h3;
@@ -69,6 +91,9 @@
       max-width: none;
       margin: 0;
       margin-bottom: 48px;
+
+      padding-bottom: 1px;
+      padding-right: 30px;
 
       div {
         p {
