@@ -88,6 +88,12 @@
         }
     }
 
+    :deep(.custom-description) {
+        .rich-text {
+            margin-bottom: 48px;
+        }
+    }
+
     /* This keeps the molecule image from expanding vertically when in tablet size */
     &.is-vertical {
         flex-direction: column;
