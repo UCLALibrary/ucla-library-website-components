@@ -23,14 +23,13 @@
     :deep(.card-meta) {
         position: relative;
         margin: 0px;
-        padding: 25px 0 15px 30px;
+        padding: 25px 20px 15px 20px;
         min-height: 191px;
 
         .title {
             @include ftva-card-title-2;
             @include truncate($lines: 3);
-            margin-top: 0;
-            margin-bottom: 0;
+            margin-bottom: 10px;
         }
 
         &:hover>a.title {
