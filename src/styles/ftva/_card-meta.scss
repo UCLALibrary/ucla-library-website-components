@@ -53,17 +53,6 @@
     }
   }
 
-  // .custom-title {
-  //   :deep(.rich-text) {
-  //     max-width: none;
-  //     margin: 0;
-
-  //     div {
-  //       @include ftva-h3;
-  //     }
-  //   }
-  // }
-
   .custom-title {
     :deep(.rich-text) {
       max-width: none;
