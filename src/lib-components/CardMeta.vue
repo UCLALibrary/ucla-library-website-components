@@ -178,12 +178,12 @@ const classes = computed(() => {
     />
 
     <!-- Named slot for custom title -->
-    <div
-      v-if="$slots.title"
+    <h3
+      v-if="$slots.customTitle"
       class="custom-title"
     >
-      <slot name="title" />
-    </div>
+      <slot name="customTitle" />
+    </h3>
 
     <SmartLink
       v-if="to"
@@ -207,12 +207,12 @@ const classes = computed(() => {
     />
 
     <!-- Named slot for custom description -->
-    <div
-      v-if="$slots.description"
+    <p
+      v-if="$slots.customDescription"
       class="custom-description"
     >
-      <slot name="description" />
-    </div>
+      <slot name="customDescription" />
+    </p>
 
     <RichText
       v-if="guestSpeaker"

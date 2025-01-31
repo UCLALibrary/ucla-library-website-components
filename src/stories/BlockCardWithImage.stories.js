@@ -173,11 +173,11 @@ function TemplateFTVACustomTitleDescription(args) {
         :image-aspect-ratio="imageAspectRatio"
         >
 
-        <template v-slot:title>
+        <template #customTitle>
           <rich-text v-html="title" />
         </template>
 
-        <template v-slot:description>
+        <template #customDescription>
           <rich-text v-html="ftvaHomepageDescription" />
         </template>
       </block-card-with-image>
@@ -309,11 +309,11 @@ function TemplateFTVAArticleBlogListing(args) {
         :dateCreated="mockArticles[0].postDate"
         >
 
-        <template v-slot:title>
+        <template #customTitle>
           <rich-text v-html="mockArticles[0].title" />
         </template>
 
-        <template v-slot:description>
+        <template #customDescription>
           <rich-text v-html="mockArticles[0].ftvaHomepageDescription" />
         </template>
       </block-card-with-image>
@@ -337,12 +337,12 @@ function TemplateFTVAArticleBlogListing(args) {
             :dateCreated="mockArticles[1].postDate"
             >
 
-            <template v-slot:title>
+            <template #customTitle>
 
               <rich-text v-html="mockArticles[1].title" />
             </template>
 
-            <template v-slot:description>
+            <template #customDescription>
               <rich-text v-html="mockArticles[1].ftvaHomepageDescription" />
             </template>
           </block-card-with-image>
@@ -357,11 +357,11 @@ function TemplateFTVAArticleBlogListing(args) {
             :dateCreated="mockArticles[2].postDate"
             >
 
-            <template v-slot:title>
+            <template #customTitle>
               <rich-text v-html="mockArticles[2].title" />
             </template>
 
-            <template v-slot:description>
+            <template #customDescription>
               <rich-text v-html="mockArticles[2].ftvaHomepageDescription" />
             </template>
           </block-card-with-image>

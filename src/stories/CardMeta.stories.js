@@ -301,8 +301,8 @@ export function FtvaCustomTitleAndDesription() {
       return {
         ftvaFeaturedArticles: [
           {
-            title: '<h3>Preserving <em>In Transit</em>: <a href=#>The Chinese</a> in California</h3>',
-            ftvaHomepageDescription: '<p><strong>In the summer</strong> of 2023, <a href=#>I had the chance</a> to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.</p>',
+            title: 'Preserving <em>In Transit</em>: <a href=#>The Chinese</a> in California',
+            ftvaHomepageDescription: '<strong>In the summer</strong> of 2023, <a href=#>I had the chance</a> to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.',
             articleCategories: 'People, Places',
             postDate: '2024-10-09T09:00:00-07:00'
           }
@@ -320,12 +320,14 @@ export function FtvaCustomTitleAndDesription() {
        :category= "ftvaFeaturedArticles[0].articleCategories"
        :dateCreated="ftvaFeaturedArticles[0].postDate"
       >
-        <template v-slot:title>
-          <rich-text v-html="ftvaFeaturedArticles[0].title" />
+        <template #customTitle>
+          <rich-text
+            :rich-text-content="ftvaFeaturedArticles[0].title" />
         </template>
 
-        <template v-slot:description>
-          <rich-text v-html="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
+        <template #customDescription>
+          <rich-text
+          :rich-text-content="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
         </template>
       </card-meta>
     `,

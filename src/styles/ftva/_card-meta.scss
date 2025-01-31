@@ -53,30 +53,27 @@
     }
   }
 
-  :deep(.custom-title) {
-    .rich-text {
+  .custom-title {
+    :deep(.rich-text) {
       max-width: none;
       margin: 0;
-      padding-right: 0;
 
-      h3 {
-        margin-top: 0;
-        margin-bottom: 12px;
+      div {
+        @include ftva-h3;
       }
     }
   }
 
-  :deep(.custom-description) {
-    .rich-text {
+  .custom-description {
+    :deep(.rich-text) {
       max-width: none;
-      margin-left: 0px;
-      margin-bottom: 24px;
-      padding-right: 0;
+      margin: 0;
+      margin-bottom: 48px;
 
-      p {
-        margin-top: 0;
-        margin-bottom: 12px;
-        @include truncate(3);
+      div {
+        p {
+          @include truncate(3);
+        }
       }
     }
   }
