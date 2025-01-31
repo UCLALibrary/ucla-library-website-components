@@ -1,3 +1,5 @@
+// TODO refactor this component to get rid of position absolute for the date/byline
+
 .ftva.block-highlight {
     position: relative;
 
@@ -88,13 +90,15 @@
         }
     }
 
+    // because right now the byline position is set to absolute
+    // we need to add this margin to push the date down
     :deep(.custom-description) {
         .rich-text {
-            padding-bottom: 24px;
+            margin-bottom: 48px;
         }
     }
 
-    /* This keeps the moleule image from expanding vertically when in tablet size */
+    /* This keeps the molecule image from expanding vertically when in tablet size */
     &.is-vertical {
         flex-direction: column;
 
