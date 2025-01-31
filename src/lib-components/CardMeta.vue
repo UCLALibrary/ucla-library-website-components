@@ -94,7 +94,7 @@ const props = defineProps({
   guestSpeaker: {
     type: String,
     default: '',
-  }
+  },
 })
 
 const BlockTag = defineAsyncComponent(() => import('@/lib-components/BlockTag.vue'))
