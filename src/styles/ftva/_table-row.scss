@@ -1,22 +1,29 @@
-.ftva.block-staff-subject-librarian {
+.ftva.table-row {
     gap: var(--space-m);
     align-items: center;
     &:last-child {
       padding-bottom: 0px;
     }
-    :nth-child(1) {
+    .column-1 {
+        display: table-cell;
+        flex: unset;
         flex-grow: 2;
-        max-width: 287px;
+        max-width: 287px; 
     }
-    :nth-child(2) {
+    .column-2 {
+        display: table-cell;
+        flex: unset;
         max-width: 500px;
         flex-grow: 3;
     }
-    :nth-child(3) {
+    .column-3 {
+        display: table-cell;
+        flex: unset;
         justify-self: flex-start;
         flex-grow: 1;
     }
-    :nth-child(4){
+    .column-4 {
+        display: table-cell;
         justify-self: flex-end;
     }
 

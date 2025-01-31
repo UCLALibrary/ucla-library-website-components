@@ -16,7 +16,7 @@ const props = defineProps({
 // THEME
 const theme = useTheme()
 const classes = computed(() => {
-  return ['block-staff-subject-librarian', theme?.value || '']
+  return ['table-row', theme?.value || '']
 })
 </script>
 
@@ -31,6 +31,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_block-staff-subject-librarian.scss";
-@import "@/styles/ftva/_block-staff-subject-librarian.scss";
+@import "@/styles/default/_table-row.scss";
+@import "@/styles/ftva/_table-row.scss";
 </style>

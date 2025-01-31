@@ -13,7 +13,10 @@ import SectionStaffArticleList from '@/lib-components/SectionStaffArticleList'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import TabItem from '@/lib-components/TabItem.vue'
 import TabList from '@/lib-components/TabList.vue'
-import SectionStaffSubjectLibrarian from '@/lib-components/SectionStaffSubjectLibrarian.vue'
+import TableComponent from '@/lib-components/TableComponent.vue'
+import TableRow from '@/lib-components/TableRow.vue'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import RichText from '@/lib-components/RichText.vue'
 
 const propsForMediaWithText = {
   sectionHeader: mockMediaWithText.mediaWithText[0].titleLink,
@@ -24,6 +27,15 @@ const propsForMediaWithText = {
   item: mockMediaWithText.mediaWithText[0].coverImage,
   typeMedia: mockMediaWithText.mediaWithText[0].typeMedia,
 }
+
+/**
+ * A wrapper for content sections that includes a title and summary, and can be themed.
+ *
+ * Props:
+ * - sectionTitle: String, the title of the section
+ * - sectionSummary: String, the summary of the section
+ * - theme: String, the theme of the section, 'paleblue' is often used for FTVA
+ */
 
 // Storybook default settings
 export default {
@@ -835,7 +847,8 @@ export function FTVAFilmographySection() {
     data() {
       return {
         tableHeaders: mockFTVAtableHeaders,
-        items: mockFTVAfilmdata
+        filmData: mockFTVAfilmdata,
+        tableCaption: 'Filmography'
       }
     },
     provide() {
@@ -843,16 +856,35 @@ export function FTVAFilmographySection() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { SectionWrapper, SectionStaffSubjectLibrarian },
+    components: { SectionWrapper, TableComponent, TableRow, ResponsiveImage, SmartLink, RichText },
     template: `
       <SectionWrapper
         section-title="Filmography"
         theme="paleblue"
       >
-      <section-staff-subject-librarian
-        :items="items"
-        :tableHeaders="tableHeaders"
-      />
+        <TableComponent :tableHeaders="tableHeaders" :tableCaption="tableCaption">
+        <TableRow v-for="item, index in filmData" :key="index" :num-cells="4">
+      <template v-slot:column1>
+      <div class="responsive-image">
+        <ResponsiveImage :media="item.image[0]"/>
+      </div>
+      </template>
+      <template v-slot:column2>
+        <h1><smart-link class="film-title" :to="item.filmLink[0].uri">{{ item.titleGeneral }}</smart-link></h1>
+        <RichText :rich-text-content="item.description" />
+      </template>
+      <template v-slot:column3>
+        <p class="subtitle">
+        {{ item.roles }}
+        </p>
+      </template>
+      <template v-slot:column4>
+        <p class="subtitle">
+        {{ item.year }}
+        </p>
+      </template>
+      </TableRow>
+    </TableComponent>
       </SectionWrapper>
   `,
   }

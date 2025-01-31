@@ -27,10 +27,11 @@
             &:nth-of-type(3) {
                 justify-content: flex-start;
                 flex-grow: 1;
-                padding-left: var(--space-xl);
+                // padding-left: var(--space-xl);
 
                 @media #{$medium} {
                     margin-left: -100px;
+                    padding-left: var(--space-xl);
                 }
             }
 

@@ -1,8 +1,9 @@
 import { computed } from 'vue'
-import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian'
-import SmartLink from '@/lib-components/SmartLink'
+import TableRow from '@/lib-components/TableRow.vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
 import ResponsiveImage from '@/lib-components/ResponsiveImage'
 import IconWithLink from '@/lib-components/IconWithLink'
+import RichText from '@/lib-components/RichText.vue'
 
 /**
  *
@@ -15,8 +16,8 @@ import IconWithLink from '@/lib-components/IconWithLink'
 
 // Storybook default settings
 export default {
-  title: 'BLOCK / Staff / SubjectLibrarian',
-  component: BlockStaffSubjectLibrarian,
+  title: 'TABLE / Table Row',
+  component: TableRow,
 }
 
 const mockDefault = {
@@ -123,9 +124,9 @@ export function Default() {
         },
       }
     },
-    components: { BlockStaffSubjectLibrarian, SmartLink, IconWithLink },
+    components: { TableRow, SmartLink, IconWithLink },
     template: `
-      <BlockStaffSubjectLibrarian
+      <TableRow
         :num-cells="3"
       >
       <template v-slot:column1>
@@ -163,7 +164,7 @@ export function Default() {
           <IconWithLink text="Book a consultation" icon-name="svg-icon-consultation" :to="item.consultation" />
         </div>
       </template>
-      </BlockStaffSubjectLibrarian>
+      </TableRow>
   `,
   }
 }
@@ -177,7 +178,7 @@ export function AlternativeName() {
         },
       }
     },
-    components: { BlockStaffSubjectLibrarian, SmartLink, IconWithLink },
+    components: { TableRow, SmartLink, IconWithLink },
     template: Default().template,
   }
 }
@@ -224,9 +225,9 @@ export function FTVAFilmography() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { BlockStaffSubjectLibrarian, SmartLink, ResponsiveImage },
+    components: { TableRow, SmartLink, ResponsiveImage, RichText },
     template: `
-      <BlockStaffSubjectLibrarian
+      <TableRow
         :num-cells="4"
       >
       <template v-slot:column1>
@@ -235,16 +236,20 @@ export function FTVAFilmography() {
       </div>
       </template>
       <template v-slot:column2>
-        <h1><smart-link class="film-title" :to="item.filmLink[0].uri">{{ item.titleGeneral }}</smart-link></h1>
-        {{ item.description }}
+        <h1><SmartLink class="film-title" :to="item.filmLink[0].uri">{{ item.titleGeneral }}</SmartLink></h1>
+        <RichText :rich-text-content="item.description" />
       </template>
       <template v-slot:column3>
+        <p class="subtitle">
         {{ item.roles }}
+         </p>
       </template>
       <template v-slot:column4>
+        <p class="subtitle">
         {{ item.year }}
+        </p>
       </template>
-      </BlockStaffSubjectLibrarian>
+      </TableRow>
   `,
   }
 }
@@ -269,9 +274,9 @@ export function FTVACredits() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { BlockStaffSubjectLibrarian },
+    components: { TableRow },
     template: `
-      <BlockStaffSubjectLibrarian
+      <TableRow
         :num-cells="2"
       >
       <template v-slot:column1>
@@ -280,7 +285,7 @@ export function FTVACredits() {
       <template v-slot:column2>
         {{ item.roles }}
       </template>
-      </BlockStaffSubjectLibrarian>
+      </TableRow>
   `,
   }
 }

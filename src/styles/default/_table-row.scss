@@ -1,4 +1,4 @@
-.block-staff-subject-librarian {
+.table-row {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -95,8 +95,8 @@
             flex-shrink: 0;
         }
     }
-
-    &.subject-librarian-item {
+    // TODO
+    // &.subject-librarian-item {
         border-bottom: 2px dotted var(--color-secondary-grey-02);
         padding-left: 0;
         padding-right: 0;
@@ -104,7 +104,7 @@
         &:last-child {
             border-bottom: 0;
         }
-    }
+    // }
 
     // Hover states
     @media #{$has-hover} {
@@ -151,15 +151,15 @@
             margin-bottom: 4px;
         }
 
-        &.subject-librarian-item {
-            border-bottom: 2px dotted var(--color-secondary-grey-02);
-            padding-left: 0;
-            padding-right: 0;
+        // &.subject-librarian-item {
+        //     border-bottom: 2px dotted var(--color-secondary-grey-02);
+        //     padding-left: 0;
+        //     padding-right: 0;
 
-            &:last-child {
-                border-bottom: 0;
-            }
-        }
+        //     &:last-child {
+        //         border-bottom: 0;
+        //     }
+        // }
 
         .image,
         .no-image {

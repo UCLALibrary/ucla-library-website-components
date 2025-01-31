@@ -2,10 +2,11 @@ import { computed, ref } from 'vue'
 
 // Import component
 import TableComponent from '@/lib-components/TableComponent'
-import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian'
-import SmartLink from '@/lib-components/SmartLink'
+import TableRow from '@/lib-components/TableRow.vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
 import IconWithLink from '@/lib-components/IconWithLink'
 import ResponsiveImage from '@/lib-components/ResponsiveImage'
+import RichText from '@/lib-components/RichText.vue'
 
 /**
  * Displays data in an `<table>` table format
@@ -142,10 +143,10 @@ export function Default() {
     data() {
       return { items: mockDefaultStaffSubjectLibrarian, tableHeaders: tableH, tableCaption: 'Subject Librarians' }
     },
-    components: { TableComponent, BlockStaffSubjectLibrarian, SmartLink, IconWithLink },
+    components: { TableComponent, TableRow, SmartLink, IconWithLink },
     template: `<tableComponent :tableHeaders="tableHeaders" :tableCaption="tableCaption">
-            <BlockStaffSubjectLibrarian v-for="item, index in items" :key="index" :num-cells="3">
-                  <template v-slot:column1>
+      <TableRow v-for="item, index in items" :key="index" :num-cells="3" :class="subject-librarian-item">
+        <template v-slot:column1>
         {{ item.subjectArea }}
       </template>
       <template v-slot:column2>
@@ -180,7 +181,7 @@ export function Default() {
           <IconWithLink text="Book a consultation" icon-name="svg-icon-consultation" :to="item.consultation" />
         </div>
       </template>
-    </BlockStaffSubjectLibrarian>
+    </TableRow>
     </tableComponent>
   `,
   }
@@ -267,26 +268,30 @@ export function FTVAFilmography() {
       // return the filmData to be used in the template
       return { filmData }
     },
-    components: { TableComponent, BlockStaffSubjectLibrarian, ResponsiveImage, SmartLink },
+    components: { TableComponent, TableRow, ResponsiveImage, SmartLink, RichText },
     template: `
     <TableComponent :tableHeaders="tableHeaders" :tableCaption="tableCaption">
-        <BlockStaffSubjectLibrarian v-for="item, index in filmData" :key="index" :num-cells="4">
+        <TableRow v-for="item, index in filmData" :key="index" :num-cells="4">
       <template v-slot:column1>
       <div class="responsive-image">
         <ResponsiveImage :media="item.image[0]"/>
       </div>
       </template>
       <template v-slot:column2>
-        <h1><smart-link class="film-title" :to="item.filmLink[0].uri">{{ item.titleGeneral }}</smart-link></h1>
-        {{ item.description }}
+        <h1><SmartLink class="film-title" :to="item.filmLink[0].uri">{{ item.titleGeneral }}</SmartLink></h1>
+        <RichText :rich-text-content="item.description" />
       </template>
       <template v-slot:column3>
+        <p class="subtitle">
         {{ item.roles }}
+        </p>
       </template>
       <template v-slot:column4>
+        <p class="subtitle">
         {{ item.year }}
+        </p>
       </template>
-      </BlockStaffSubjectLibrarian>
+      </TableRow>
     </TableComponent>
   `,
   }
@@ -312,17 +317,17 @@ export function FTVAFilmCredits() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { TableComponent, BlockStaffSubjectLibrarian },
+    components: { TableComponent, TableRow },
     template: `
     <TableComponent :tableHeaders="tableHeaders" :tableCaption="tableCaption" :colorScheme="colorScheme">
-        <BlockStaffSubjectLibrarian v-for="item, index in items" :key="index" :num-cells="4">
+        <TableRow v-for="item, index in items" :key="index" :num-cells="4">
       <template v-slot:column1>
         {{ item.name }}
       </template>
       <template v-slot:column2>
         {{ item.roles }}
       </template>
-      </BlockStaffSubjectLibrarian>
+      </TableRow>
     </TableComponent>
   `,
   }
