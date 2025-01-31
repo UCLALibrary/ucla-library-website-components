@@ -56,8 +56,8 @@
   .custom-title {
     :deep(.rich-text) {
       max-width: none;
-      margin: 0;
       padding-right: 30px;
+      margin: 0;
 
       .parsed-content {
         margin-bottom: 18px;
@@ -78,11 +78,10 @@
   .custom-description {
     :deep(.rich-text) {
       max-width: none;
-      margin: 0;
-      margin-bottom: 48px;
-
       padding-bottom: 1px;
       padding-right: 30px;
+      margin: 0;
+      margin-bottom: 48px;
 
       div {
         p {
