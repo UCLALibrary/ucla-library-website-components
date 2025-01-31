@@ -189,7 +189,7 @@ export const FTVACustomTitleDescription = TemplateFTVACustomTitleDescription.bin
 
 const mockArticles = [
   {
-    title: '<h3><em>Preserving In Transit:</em> The Chinese in California</h3>',
+    ftvaAlternativeTitle: '<h3><em>Preserving In Transit:</em> The Chinese in California</h3>',
     articleCategories: [
       {
         title: 'Interview'
@@ -218,7 +218,7 @@ const mockArticles = [
     ]
   },
   {
-    title: '<h3>From McKinley to LBJ: Presidents in the Hearst Newsreels</h3>',
+    ftvaAlternativeTitle: '<h3>From McKinley to LBJ: Presidents in the Hearst Newsreels</h3>',
     articleCategories: [
       {
         title: 'Newsreels'
@@ -247,7 +247,7 @@ const mockArticles = [
     ]
   },
   {
-    title: '<h3>The Effervescent Artist, Educator and Activist Betty Chen</h3>',
+    ftvaAlternativeTitle: '<h3>The Effervescent Artist, Educator and Activist Betty Chen</h3>',
     articleCategories: [
       {
         title: 'Educators'
@@ -308,13 +308,12 @@ function TemplateFTVAArticleBlogListing(args) {
         category="Interview, People"
         :dateCreated="mockArticles[0].postDate"
         >
-
         <template #customTitle>
-          <rich-text v-html="mockArticles[0].title" />
+          <RichText :rich-text-content="mockArticles[0].ftvaAlternativeTitle" />
         </template>
 
         <template #customDescription>
-          <rich-text v-html="mockArticles[0].ftvaHomepageDescription" />
+          <RichText :rich-text-content="mockArticles[0].ftvaHomepageDescription" />
         </template>
       </block-card-with-image>
 
@@ -336,14 +335,12 @@ function TemplateFTVAArticleBlogListing(args) {
             category="Interview, People"
             :dateCreated="mockArticles[1].postDate"
             >
-
             <template #customTitle>
-
-              <rich-text v-html="mockArticles[1].title" />
+              <RichText :rich-text-content="mockArticles[1].ftvaAlternativeTitle" />
             </template>
 
             <template #customDescription>
-              <rich-text v-html="mockArticles[1].ftvaHomepageDescription" />
+              <RichText :rich-text-content="mockArticles[1].ftvaHomepageDescription" />
             </template>
           </block-card-with-image>
 
@@ -356,19 +353,15 @@ function TemplateFTVAArticleBlogListing(args) {
             category="Interview, People"
             :dateCreated="mockArticles[2].postDate"
             >
-
             <template #customTitle>
-              <rich-text v-html="mockArticles[2].title" />
+              <RichText :rich-text-content="mockArticles[2].ftvaAlternativeTitle" />
             </template>
 
             <template #customDescription>
-              <rich-text v-html="mockArticles[2].ftvaHomepageDescription" />
+              <RichText :rich-text-content="mockArticles[2].ftvaHomepageDescription" />
             </template>
           </block-card-with-image>
       </div>
-      <section-wrapper>
-
-      </section-wrapper>
     </section-wrapper>
     `,
   }

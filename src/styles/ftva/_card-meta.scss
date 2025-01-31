@@ -56,7 +56,18 @@
   .custom-title {
     :deep(.rich-text) {
       max-width: none;
+      padding-right: 30px;
       margin: 0;
+
+      .parsed-content {
+        margin-bottom: 18px;
+      }
+
+      h3 {
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
 
       div {
         @include ftva-h3;
@@ -67,8 +78,9 @@
   .custom-description {
     :deep(.rich-text) {
       max-width: none;
+      padding-bottom: 1px;
+      padding-right: 30px;
       margin: 0;
-      margin-bottom: 48px;
 
       div {
         p {

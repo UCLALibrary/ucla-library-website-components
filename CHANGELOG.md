@@ -1,3 +1,10 @@
+## [3.46.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.46.0...v3.46.1) (2025-01-31)
+
+
+### Bug Fixes
+
+* APPS-3158 update block card with image ([#681](https://github.com/UCLALibrary/ucla-library-website-components/issues/681)) ([cb20111](https://github.com/UCLALibrary/ucla-library-website-components/commit/cb201116cdb4b886e7e1d8dbf7d13e09cc5bb722))
+
 # [3.46.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.45.1...v3.46.0) (2025-01-30)
 
 
