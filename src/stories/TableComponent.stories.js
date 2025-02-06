@@ -270,6 +270,33 @@ export function FTVAFilmography() {
     },
     components: { TableComponent, TableRow, ResponsiveImage, SmartLink, RichText },
     template: `
+      <component is="style" type="text/css">
+      * {
+        font-weight: 500;
+        font-size: 18px;
+        font-family: "Karbon", "Adjusted Tahoma Fallback", Helvetica, Arial, sans-serif;
+      }
+      .film-title {
+        // @include ftva-card-title-1;
+        font-weight: 500;
+        font-family: "Karbon", "Adjusted Tahoma Fallback", Helvetica, Arial, sans-serif;
+        font-size: 30px;
+        line-height: 1.2;
+        // use $accent-blue if possible;
+        color: #115daf;
+      }
+      div.parsed-content {
+          color: $body-grey;
+          margin-bottom: 0px !important; //important shouldnt be needed in final styles
+      }
+      p.subtitle {
+        @include ftva-subtitle-2;
+      }
+      .responsive-image {
+        height: 213px;
+        aspect-ratio: 284 / 213;
+      }
+    </component>
     <TableComponent :tableHeaders="tableHeaders" :tableCaption="tableCaption">
         <TableRow v-for="item, index in filmData" :key="index" :num-cells="4">
       <template v-slot:column1>
