@@ -26,27 +26,6 @@
         display: table-cell;
         justify-self: flex-end;
     }
-
-    :deep(*){
-      @include ftva-subtitle-2;
-    }
-    :deep(.film-title){
-      @include ftva-card-title-1;
-      color: $accent-blue;
-    }
-    :deep(.rich-text){
-        .parsed-content {
-            color: $body-grey;
-            margin-bottom: 0px;
-        }
-    }
-    :deep(p.subtitle) {
-        @include ftva-subtitle-2;
-    }
-    :deep(.responsive-image) {
-        height: 213px;
-        aspect-ratio: 284 / 213;
-    }
     @media #{$small} {
         align-items: flex-start;
         gap: 0px;

@@ -227,6 +227,33 @@ export function FTVAFilmography() {
     },
     components: { TableRow, SmartLink, ResponsiveImage, RichText },
     template: `
+      <component is="style" type="text/css">
+      * {
+        font-weight: 500;
+        font-size: 18px;
+        font-family: "Karbon", "Adjusted Tahoma Fallback", Helvetica, Arial, sans-serif;
+      }
+      .film-title {
+        // @include ftva-card-title-1;
+        font-weight: 500;
+        font-family: "Karbon", "Adjusted Tahoma Fallback", Helvetica, Arial, sans-serif;
+        font-size: 30px;
+        line-height: 1.2;
+        // use $accent-blue if possible;
+        color: #115daf;
+      }
+      div.parsed-content {
+          color: $body-grey;
+          margin-bottom: 0px !important; //important shouldnt be needed in final styles
+      }
+      p.subtitle {
+        @include ftva-subtitle-2;
+      }
+      .responsive-image {
+        height: 213px;
+        aspect-ratio: 284 / 213;
+      }
+      </component>
       <TableRow
         :num-cells="4"
       >
@@ -237,7 +264,7 @@ export function FTVAFilmography() {
       </template>
       <template v-slot:column2>
         <h1><SmartLink class="film-title" :to="item.filmLink[0].uri">{{ item.titleGeneral }}</SmartLink></h1>
-        <RichText :rich-text-content="item.description" />
+        <RichText class="rich-text" :rich-text-content="item.description" />
       </template>
       <template v-slot:column3>
         <p class="subtitle">
