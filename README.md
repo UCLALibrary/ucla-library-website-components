@@ -33,7 +33,7 @@ Helpful reminders to future selves:
     -   refactor: A code change that neither fixes a bug nor adds a feature
     -   perf: A code change that improves performance
     -   test: Adding missing or correcting existing tests
-    -   chore: Do not use it for any source code changes, only use it when Changes to the build process or auxiliary tools and libraries such as documentation generation
+    -   chore: Do not use it for any source code changes, only use it when Changes to the build process or auxiliary tools and libraries such as documentation generation 
 
 ## Setup & Development
 
