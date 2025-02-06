@@ -1,4 +1,4 @@
-.section-staff-subject-librarian {
+.table-component {
     display: flex;
     flex-direction: column;
     gap: var(--space-m);
@@ -36,7 +36,7 @@
         }
     }
 
-    .subject-librarian-item {
+    tbody :deep(tr) {
         border-bottom: 2px dotted var(--color-secondary-grey-02);
     }
 

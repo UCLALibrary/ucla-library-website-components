@@ -1,29 +1,26 @@
 import { computed } from 'vue'
-import BlockStaffSubjectLibrarian from '@/lib-components/BlockStaffSubjectLibrarian'
-import SmartLink from '@/lib-components/SmartLink'
+import TableRow from '@/lib-components/TableRow.vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
 import ResponsiveImage from '@/lib-components/ResponsiveImage'
+import IconWithLink from '@/lib-components/IconWithLink'
+import RichText from '@/lib-components/RichText.vue'
 
 /**
  *
- * A component to display data in a table row. As such, it should alwayds be used within a table's tbody tag.
+ * A component to display data in a `<tr>` element. As such, it should alwayds be used within a table's `<tbody>` tag, or with `TableComponent.vue`.
  *
- * Built originally for the staff directory, it now has slots to allow any data to be displayed in a table row.
- *
- * The component can be configured 2 ways:
- * - soon to be @deprecated (CLASSIC) With a BlockStaffListItemType object, whose fields should be used for each prop in the component. This will transform the data into staff directory format. This method will be removed when APPS-3132 is completed.
- * - (NEW / GENERIC) With the 'numExtraCells' prop, which will create that many extra slots for data to be displayed. Slots will have the names 'column1', 'column2', etc.
- *
- * The Default & AlternativeName stories show the component in staff directory format. The FTVAFilmography story shows the component in a generic format.
+ * Props:
+ * - NumCells (integer): Will create that # of `<td>` elements with slots for content. Slots will have the names 'column1', 'column2', etc, and `<td>`'s will have the class 'column-1', 'column-2', etc.
  *
  */
 
 // Storybook default settings
 export default {
-  title: 'BLOCK / Staff / SubjectLibrarian',
-  component: BlockStaffSubjectLibrarian,
+  title: 'TABLE / Table Row',
+  component: TableRow,
 }
 
-const mockDeafult = {
+const mockDefault = {
   subjectArea: 'African American Studies',
   to: '/about/staff/ariane-bicho',
   nameLast: 'Bicho',
@@ -118,21 +115,56 @@ const mockAlternativeName = {
   consultation: 'https://calendar.library.ucla.edu/appointments/aogarcia',
 }
 
-// Variations of stories below
 export function Default() {
   return {
     data() {
       return {
         item: {
-          ...mockDeafult,
+          ...mockDefault,
         },
       }
     },
-    components: { BlockStaffSubjectLibrarian },
+    components: { TableRow, SmartLink, IconWithLink },
     template: `
-      <block-staff-subject-librarian
-        v-bind="item"
-      />
+      <TableRow
+        :num-cells="3"
+      >
+      <template v-slot:column1>
+        {{ item.subjectArea }}
+      </template>
+      <template v-slot:column2>
+        <SmartLink :to="item.to" class="staff-name">
+          {{ item.nameFirst }} {{ item.nameLast }}
+           <span v-if="item.alternativeName && item.alternativeName.length !== 0" :lang="item.alternativeName[0].languageAltName">
+             {{ item.alternativeName[0].fullName }}
+           </span>
+        </SmartLink>
+        <div class="job-title" v-html="item.jobTitle" />
+        <ul v-if="item.departments.length" class="departments">
+          <li class="department">
+            {{ item.departments[item.departments.length - 1].title }}
+          </li>
+        </ul>
+        <div v-if="item.locations && item.locations.length !== 0">
+          <IconWithLink
+          v-for="location in item.locations " :key="'location-' + location.id" :text="location.title ?? ''"
+          icon-name="svg-icon-location" :to="'/' + location.to"
+          />
+        </div>
+      </template>
+      <template v-slot:column3>
+        <div class="email">
+          <IconWithLink :text="item.email" icon-name="svg-icon-email" :to="'mailto:' + item.email" />
+        </div>
+
+        <div v-if="item.phone" class="phone">
+          <IconWithLink :text="item.phone" icon-name="svg-icon-phone" :to="'tel:' + item.phone" />
+        </div>
+        <div v-if="item.consultation" class="consultation">
+          <IconWithLink text="Book a consultation" icon-name="svg-icon-consultation" :to="item.consultation" />
+        </div>
+      </template>
+      </TableRow>
   `,
   }
 }
@@ -146,12 +178,8 @@ export function AlternativeName() {
         },
       }
     },
-    components: { BlockStaffSubjectLibrarian },
-    template: `
-      <block-staff-subject-librarian
-        v-bind="item"
-      />
-  `,
+    components: { TableRow, SmartLink, IconWithLink },
+    template: Default().template,
   }
 }
 
@@ -197,10 +225,10 @@ export function FTVAFilmography() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { BlockStaffSubjectLibrarian, SmartLink, ResponsiveImage },
+    components: { TableRow, SmartLink, ResponsiveImage, RichText },
     template: `
-      <BlockStaffSubjectLibrarian
-        :num-extra-cells="4"
+      <TableRow
+        :num-cells="4"
       >
       <template v-slot:column1>
       <div class="responsive-image">
@@ -208,16 +236,56 @@ export function FTVAFilmography() {
       </div>
       </template>
       <template v-slot:column2>
-        <h1><smart-link class="film-title" :to="item.filmLink[0].uri">{{ item.titleGeneral }}</smart-link></h1>
-        {{ item.description }}
+        <h1><SmartLink class="film-title" :to="item.filmLink[0].uri">{{ item.titleGeneral }}</SmartLink></h1>
+        <RichText :rich-text-content="item.description" />
       </template>
       <template v-slot:column3>
+        <p class="subtitle">
         {{ item.roles }}
+         </p>
       </template>
       <template v-slot:column4>
+        <p class="subtitle">
         {{ item.year }}
+        </p>
       </template>
-      </BlockStaffSubjectLibrarian>
+      </TableRow>
+  `,
+  }
+}
+
+// TODO CHECK DATA MODEL IS CORRECT?
+const mockCredit = {
+  name: 'FirstName LastName',
+  roles: 'Role 1, role 2, role 3, etc'
+}
+
+export function FTVACredits() {
+  return {
+    data() {
+      return {
+        item: {
+          ...mockCredit,
+        },
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { TableRow },
+    template: `
+      <TableRow
+        :num-cells="2"
+      >
+      <template v-slot:column1>
+        {{ item.name }}
+      </template>
+      <template v-slot:column2>
+        {{ item.roles }}
+      </template>
+      </TableRow>
   `,
   }
 }
