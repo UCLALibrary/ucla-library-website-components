@@ -1,3 +1,10 @@
+# [3.47.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.46.1...v3.47.0) (2025-02-07)
+
+
+### Features
+
+* update release config ([#683](https://github.com/UCLALibrary/ucla-library-website-components/issues/683)) ([fa1a2e3](https://github.com/UCLALibrary/ucla-library-website-components/commit/fa1a2e38a43d60ea5e01780c99408e6267d57052))
+
 ## [3.46.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.46.0...v3.46.1) (2025-01-31)
 
 
