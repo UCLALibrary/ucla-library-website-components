@@ -17,6 +17,10 @@
         min-width: 280px;
         margin-bottom: 15px;
         min-height: 350px;
+
+        :deep(.ftvaItemInCollection) {
+            min-height: 60px;
+        }
     }
 }
 

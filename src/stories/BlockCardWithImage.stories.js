@@ -1,7 +1,9 @@
 import { computed } from 'vue'
+import IconFTVAVideo from 'ucla-library-design-tokens/assets/svgs/icon-ftva-digitalformat.svg'
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage'
 import RichText from '@/lib-components/RichText.vue'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
+import BlockTag from '@/lib-components/BlockTag.vue'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -368,3 +370,43 @@ function TemplateFTVAArticleBlogListing(args) {
 }
 
 export const FTVAArticleBlogListing = TemplateFTVAArticleBlogListing.bind({})
+
+const mockMoreCollectionItem = {
+  title: 'Test Collection Item: \'Event Audio Recordings\' item w/ Video',
+  image: API.image,
+  videoEmbed: '<figure><iframe style="width:500px;height:281px;" src="//www.youtube.com/embed/C5osK7kvRGk" frameborder="0"></iframe></figure>',
+  slug: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
+  sectionHandle: 'ftvaItemInCollection'
+}
+function TemplateFTVAMoreCollectionItems(args) {
+  return {
+    data() {
+      return {
+        ...mockMoreCollectionItem,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockCardWithImage, BlockTag, IconFTVAVideo },
+    template: `
+    <component is="style" type="text/css">
+    .white-icon > path {
+      fill: white !important;
+    }
+    </component>
+    <block-card-with-image
+        :image="image"
+        :to="to"
+        :title="title"
+    >
+      <template #toptext>
+        <block-tag><IconFTVAVideo class="white-icon"/> &nbsp Video</block-tag>
+      </template>
+    </block-card-with-image>
+`,
+  }
+}
+export const FTVAMoreCollectionItems = TemplateFTVAMoreCollectionItems.bind({})

@@ -105,6 +105,11 @@ const classes = computed (() => {
     />
     <div class="sizer" :style="styles" />
     <slot />
+    <div v-if="$slots.toptext" class="toptext">
+      <div class="image-top-text">
+        <slot name="toptext" />
+      </div>
+    </div>
     <div v-if="$slots.credit" class="credit">
       <div class="credit-text">
         <slot name="credit" />
@@ -171,6 +176,16 @@ const classes = computed (() => {
         white-space: pre;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+    }
+
+    .toptext {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      .image-top-text {
+        padding: 8px 8px;
       }
     }
 }

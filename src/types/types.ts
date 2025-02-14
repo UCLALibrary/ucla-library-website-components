@@ -145,6 +145,12 @@ export interface CardItemType {
   to: string
   type?: string
 }
+export interface CollectionItemType {
+  image: MediaItemType
+  title: string
+  to: string
+  videoEmbed: string
+}
 
 export interface DepartmentItemType {
   id?: string
