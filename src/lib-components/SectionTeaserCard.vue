@@ -4,7 +4,7 @@
 >
 import { computed } from 'vue'
 import type { PropType } from 'vue'
-import IconFTVAVideo from 'ucla-library-design-tokens/assets/svgs/icon-ftva-digitalformat.svg'
+import IconFTVAVideo from 'ucla-library-design-tokens/assets/svgs/icon-ftva-video.svg'
 import type { BlockCardMetaType, CollectionItemType, EventItemType } from '@/types/types'
 import { useTheme } from '@/composables/useTheme'
 
