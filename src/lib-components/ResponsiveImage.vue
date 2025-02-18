@@ -186,6 +186,9 @@ const classes = computed (() => {
       z-index: 1;
       .image-top-text {
         padding: 16px 16px;
+        :deep(svg.svg__icon-ftva-video) {
+          margin: -10px; // remove extra space from edges of 'icon-ftva-video' icon specifically
+        }
       }
     }
 }

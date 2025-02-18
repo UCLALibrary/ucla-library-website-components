@@ -52,7 +52,7 @@ const currentTheme = computed(() => {
     >
       <template v-if="item.videoEmbed && item.videoEmbed !== null" #toptext>
         <BlockTag>
-          <IconFTVAVideo class="white-icon" /> &nbsp; Video
+          <IconFTVAVideo class="white-icon" />
         </BlockTag>
       </template>
     </BlockCardWithImage>

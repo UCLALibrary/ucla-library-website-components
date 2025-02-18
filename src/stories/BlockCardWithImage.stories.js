@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import IconFTVAVideo from 'ucla-library-design-tokens/assets/svgs/icon-ftva-digitalformat.svg'
+import IconFTVAVideo from 'ucla-library-design-tokens/assets/svgs/icon-ftva-video.svg'
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage'
 import RichText from '@/lib-components/RichText.vue'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
@@ -403,7 +403,7 @@ function TemplateFTVAMoreCollectionItems(args) {
         :title="title"
     >
       <template #toptext>
-        <block-tag><IconFTVAVideo class="white-icon"/> &nbsp Video</block-tag>
+        <block-tag><IconFTVAVideo class="white-icon" />
       </template>
     </block-card-with-image>
 `,
