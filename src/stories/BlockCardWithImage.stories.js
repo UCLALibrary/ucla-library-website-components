@@ -394,7 +394,7 @@ function TemplateFTVAMoreCollectionItems(args) {
     template: `
     <component is="style" type="text/css">
     .white-icon > path {
-      fill: white !important;
+      fill: white;
     }
     </component>
     <block-card-with-image
