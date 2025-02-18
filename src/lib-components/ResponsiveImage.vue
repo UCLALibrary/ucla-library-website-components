@@ -185,7 +185,7 @@ const classes = computed (() => {
       right: 0;
       z-index: 1;
       .image-top-text {
-        padding: 8px 8px;
+        padding: 16px 16px;
       }
     }
 }
