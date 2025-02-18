@@ -403,7 +403,7 @@ function TemplateFTVAMoreCollectionItems(args) {
         :title="title"
     >
       <template #toptext>
-        <block-tag><IconFTVAVideo class="white-icon" />
+        <block-tag><IconFTVAVideo class="white-icon" /></block-tag>
       </template>
     </block-card-with-image>
 `,
