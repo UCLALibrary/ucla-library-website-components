@@ -134,7 +134,7 @@ const parsedDateFormat = computed(() => {
         :aspect-ratio="imageAspectRatio"
         class="image"
       >
-        <template #toptext>
+        <template v-if="$slots.toptext" #toptext>
           <slot name="toptext" />
         </template>
       </ResponsiveImage>
