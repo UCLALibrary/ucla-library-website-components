@@ -1,3 +1,10 @@
+# [3.48.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.47.0...v3.48.0) (2025-02-19)
+
+
+### Features
+
+* APPS-3167 Update Table Component with PaleBlue theme ([#687](https://github.com/UCLALibrary/ucla-library-website-components/issues/687)) ([0eda2c1](https://github.com/UCLALibrary/ucla-library-website-components/commit/0eda2c1065aea0e445383ce55b49558340d5367a))
+
 # [3.47.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.46.1...v3.47.0) (2025-02-07)
 
 
