@@ -80,7 +80,7 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-// Theme not yet implemented. 
+// Theme not yet implemented.
 .definition-list {
   .definition-list-item-wrapper {
     dt, dd {

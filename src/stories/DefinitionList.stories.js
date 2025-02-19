@@ -11,7 +11,7 @@ import BlockTag from '@/lib-components/BlockTag.vue'
  *  - Example: { term1: 'definition1', term2: 'definition2' } becomes `<dt>term1</dt><dd>definition1</dd><dt>term2</dt><dd>definition2</dd>`
  *  - A pair of slots is created for each term, `term-<term>` and `definition-<term>`, where <term> is the key of the object. This allows for custom rendering of each term and definition.
  * - orientation: Either 'vertical', displays the definition underneath the term, or 'horizontal', displays the definition next to the term. Default is 'vertical'.
- * 
+ *
  */
 
 export default {
