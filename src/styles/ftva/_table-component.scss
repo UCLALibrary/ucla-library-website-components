@@ -58,5 +58,6 @@
     &.paleblue {
         --color-theme: #{$page-blue};
         background-color: var(--color-theme);
+        max-width: 100%;
     }
 }
