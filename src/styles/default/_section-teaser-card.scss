@@ -9,7 +9,7 @@
     gap: var(--space-xl) 16px;
 
     .white-icon > :deep(path) {
-        fill: white !important;
+        fill: white;
     }
     .card {
         width: calc((100% - 32px) / 3);
