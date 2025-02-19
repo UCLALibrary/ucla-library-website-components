@@ -1,23 +1,46 @@
 <script lang="ts" setup>
-import { computed } from 'vue'
+/* eslint-disable vue/define-macros-order */
 import type { PropType } from 'vue'
+import { computed } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
-enum Orientation {
-  Vertical = 'vertical',
-  Horizontal = 'horizontal'
-}
+// Define type for orientation to prevent unknown strings
+const Orientations = {
+  Vertical: 'vertical',
+  Horizontal: 'horizontal'
+} as const
+type Orientation = typeof Orientations[keyof typeof Orientations]
 
-const { numItems, orientation } = defineProps({
-  numItems: {
-    type: Number,
-    default: 1
+const { metaDataObject, orientation } = defineProps({
+  metaDataObject: {
+    type: Object,
+    default: () => { }
   },
   orientation: { // triggers CSS styling for vertical or horizontal layout
-    type: String, // as PropType<Orientation>,
-    default: Orientation.Vertical
+    type: String as PropType<Orientation>,
+    default: Orientations.Vertical
   },
 })
+
+// loops through keys in an object and converts them to strings based on type
+function parsedValue(value: any): string {
+  if (typeof value === 'string') {
+    return value
+  }
+  else if (Array.isArray(value)) {
+    return value.map((item) => {
+      return parsedValue(item)
+    }).join('\r\n')
+  }
+  else if (typeof value === 'object') {
+    return Object.keys(value).map((key) => {
+      return `${key}: ${value[key]}`
+    }).join(', ')
+  }
+  else {
+    return value
+  }
+}
 
 // THEME
 const theme = useTheme()
@@ -28,24 +51,67 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
-    <slot name="list-top" />
+    <div v-if="$slots['list-top']" class="list-top-wrapper">
+      <slot name="list-top" />
+    </div>
     <dl class="definition-list-wrapper">
-      <!-- TO DO MAY NEED CHILD COMPONENT LIKE https://mokkapps.de/vue-tips/dynamic-slot-names -->
-      <template v-for="i in numItems" :key="i">
+      <div
+        v-for="(value, key) in metaDataObject" :key="key" class="definition-list-item-wrapper"
+        :class="orientation"
+      >
         <dt>
-          <slot :name="`term${i}`" />
+          <slot :name="`term-${key}`">
+            <!-- converts camelCase variables to sentences with spaces -->
+            {{ key.replace(/([A-Z])/g, ' $1').trim() }}
+          </slot>
         </dt>
-        <dd>
-          <slot :name="`definition${i}`" />
+        <dd class="white-space-wrap">
+          <slot :name="`definition-${key}`">
+            {{ parsedValue(value) }}
+          </slot>
         </dd>
-      </template>
+      </div>
     </dl>
-    <slot name="list-bottom" />
+    <div v-if="$slots['list-bottom']" class="list-bottom-wrapper">
+      <slot name="list-bottom" />
+    </div>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .definition-list {
+  .definition-list-item-wrapper {
+    dt, dd {
+      padding: 8px;
+    }
+    dt {
+      @include ftva-emphasized-subtitle;
+      font-size: 20px;
+      color: $subtitle-grey;
+      border-bottom: 1.5px solid $subtitle-grey;
+    }
+    dd.white-space-wrap {
+        @include ftva-card-title-2;
+        white-space: pre-wrap;
+      }
+  }
+  .list-top-wrapper {
+    text-align: center;
+    padding-bottom: 40px;
+  }
+  .list-bottom-wrapper {
+    text-align: center;
+    padding-top: 40px;
+  }
+}
 
+// horizontal mode
+.horizontal {
+  display: flex;
+}
+.horizontal dt,
+.horizontal dd {
+  flex: 1;
+  border-bottom: 1.5px solid $subtitle-grey;
 }
 </style>
