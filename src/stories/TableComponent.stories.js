@@ -243,6 +243,60 @@ const mockFTVAfilmdata = [
   }]
 // This component is used to display Filmography data in the FTVA site
 // This story mocks an async data call for the Filmography data
+export function FTVAPaleBlueTheme() {
+  return {
+    data() {
+      return { tableHeaders: mockFTVAtableHeaders, tableCaption: 'Filmography', colorScheme: 'paleblue' }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    setup() {
+      const filmData = ref([])
+      const fetchFilmData = async () => {
+        const response = await new Promise((resolve) => {
+          // mock getting film data from craft or some other async source
+          setTimeout(() => {
+            resolve(mockFTVAfilmdata)
+          }, 1000)
+        })
+        filmData.value = response
+      }
+      fetchFilmData()
+      // return the filmData to be used in the template
+      return { filmData }
+    },
+    components: { TableComponent, TableRow, ResponsiveImage, SmartLink, RichText },
+    template: `
+    <TableComponent :tableHeaders="tableHeaders" :tableCaption="tableCaption" :colorScheme="colorScheme">
+        <TableRow v-for="item, index in filmData" :key="index" :num-cells="4">
+      <template v-slot:column1>
+      <div class="responsive-image">
+        <ResponsiveImage :media="item.image[0]"/>
+      </div>
+      </template>
+      <template v-slot:column2>
+        <h1><SmartLink class="film-title" :to="item.filmLink[0].uri">{{ item.titleGeneral }}</SmartLink></h1>
+        <RichText :rich-text-content="item.description" />
+      </template>
+      <template v-slot:column3>
+        <p class="subtitle">
+        {{ item.roles }}
+        </p>
+      </template>
+      <template v-slot:column4>
+        <p class="subtitle">
+        {{ item.year }}
+        </p>
+      </template>
+      </TableRow>
+    </TableComponent>
+  `,
+  }
+}
+
 export function FTVAFilmography() {
   return {
     data() {
