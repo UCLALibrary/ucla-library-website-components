@@ -9,16 +9,17 @@ const Orientations = {
   Vertical: 'vertical',
   Horizontal: 'horizontal'
 } as const
-type Orientation = typeof Orientations[keyof typeof Orientations]
+type OrientationType = typeof Orientations[keyof typeof Orientations]
 
 const { metaDataObject, orientation } = defineProps({
   metaDataObject: {
     type: Object,
-    default: () => { }
+    default: () => {}
   },
-  orientation: { // triggers CSS styling for vertical or horizontal layout
-    type: String as PropType<Orientation>,
-    default: Orientations.Vertical
+  // switch CSS styling between vertical or horizontal layout
+  orientation: {
+    type: String as PropType<OrientationType>,
+    default: 'vertical'
   },
 })
 
