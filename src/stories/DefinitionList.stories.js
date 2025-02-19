@@ -7,8 +7,11 @@ import BlockTag from '@/lib-components/BlockTag.vue'
  * Displays data in a Definition list format using `<dl>, <dt>, and <dd>` HTML elements.
  *
  * Props:
- * - metaDataObject: An array of strings representing the table headers. Also used to infer the # of columns in the table.
- * - orientation: Either 'vertical' or 'horizontal'. Default is 'vertical'.
+ * - metaDataObject: The object to extract terms and defintions from. Object keys will become terms, and object values will become definitions.
+ *  - Example: { term1: 'definition1', term2: 'definition2' } becomes `<dt>term1</dt><dd>definition1</dd><dt>term2</dt><dd>definition2</dd>`
+ *  - A pair of slots is created for each term, `term-<term>` and `definition-<term>`, where <term> is the key of the object. This allows for custom rendering of each term and definition.
+ * - orientation: Either 'vertical', displays the definition underneath the term, or 'horizontal', displays the definition next to the term. Default is 'vertical'.
+ * 
  */
 
 export default {

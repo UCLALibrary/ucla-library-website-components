@@ -80,6 +80,7 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+// Theme not yet implemented. 
 .definition-list {
   .definition-list-item-wrapper {
     dt, dd {
@@ -105,7 +106,6 @@ const classes = computed(() => {
     padding-top: 40px;
   }
 }
-
 // horizontal mode
 .horizontal {
   display: flex;
