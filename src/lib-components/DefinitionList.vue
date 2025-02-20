@@ -28,24 +28,24 @@ const { metaDataObject, orientation } = defineProps({
 function parsedValue(value: any): string | undefined {
   if (typeof value === 'string') {
     return value
-  } else if (Array.isArray(value)) {
+  }
+  else if (Array.isArray(value)) {
     return value.map((item) => {
       return parsedValue(item)
     }).join('\r\n').replace(/(, ){2,}/g, ', ') // remove extra commas from null values
   }
   else if (typeof value === 'object') {
     // check for null before trying to loop
-    if (value === null || value === undefined) {
-      return;
-    }
+    if (value === null || value === undefined)
+      return
+
     // loop through object keys and return key: value pairs
     return Object.keys(value).map((key) => {
-      if (typeof value[key] === 'string') {
+      if (typeof value[key] === 'string')
         return `${key}: ${value[key]}`
-      } else { 
+      else
         return parsedValue(value[key])
-      }
-    }).join(', ').replace(/,\s*$/, ""); // remove trailing comma
+    }).join(', ').replace(/,\s*$/, '') // remove trailing comma
   }
   else {
     return value
