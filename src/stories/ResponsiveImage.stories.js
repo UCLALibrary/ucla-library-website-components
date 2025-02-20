@@ -1,4 +1,6 @@
+import { computed } from 'vue'
 import ResponsiveImage from '@/lib-components/ResponsiveImage'
+import BlockTag from '@/lib-components/BlockTag'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -91,6 +93,33 @@ export function WithLongCreditText() {
         >
         <template v-slot:credit>
                lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum 
+        </template>
+        </responsive-image>
+    `,
+  }
+}
+
+export function WithBadgeAtTop() {
+  return {
+    components: { ResponsiveImage, BlockTag },
+    data() {
+      return {
+        image: API.image,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    template: `
+        <responsive-image
+            :media="image"
+        >
+        <template v-slot:toptext>
+            <block-tag
+            label="Some Label"
+          />
         </template>
         </responsive-image>
     `,
