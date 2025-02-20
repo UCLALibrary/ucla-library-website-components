@@ -32,8 +32,8 @@ function parsedValue(value: any): string | undefined {
   else if (Array.isArray(value)) {
     return value.map((item) => {
       return parsedValue(item)
-    }).join('\r\n').replace(/(, ){2,}/g, ', ') // remove extra commas from null values
-  }
+    }).join(', ').replace(/(, ){2,}/g, ', ') // remove extra commas from null values
+  } // use join('\r\n') for a newline instead
   else if (typeof value === 'object') {
     // check for null before trying to loop
     if (value === null || value === undefined)
