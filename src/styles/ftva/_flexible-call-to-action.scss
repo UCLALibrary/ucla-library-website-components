@@ -1,4 +1,11 @@
 .ftva.block-call-to-action {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+
   background-color: $page-blue;
 
   :deep(.title) {
@@ -10,12 +17,12 @@
     @include ftva-body;
     line-height: 1.5;
     max-width: 100%;
-    position: relative;
 
     p {
+      @include ftva-body;
       font-size: 16px;
       color: $body-grey;
-      color: green;
+      @include truncate(5);
     }
   }
 }

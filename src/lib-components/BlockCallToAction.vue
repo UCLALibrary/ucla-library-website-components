@@ -141,8 +141,7 @@ const parsedContent = computed(() => {
       label: askALibrarian.value.buttonUrl[0].buttonText,
       svgName: iconMapping['svg-call-to-action-chat'].icon,
     }
-  }
-  else if (props.isMeapGlobal) {
+  } else if (props.isMeapGlobal) {
     return {
       to: meapCallToAction.value.button[0].buttonUrl,
       title: meapCallToAction.value.titleGeneral,
@@ -150,21 +149,19 @@ const parsedContent = computed(() => {
       label: meapCallToAction.value.button[0].buttonText,
       svgName: iconMapping['svg-call-to-action-chat'].icon,
     }
-  }
-  else if (props.useGlobalData && theme?.value === 'ftva') {
+  } else if (props.useGlobalData && theme?.value === 'ftva') {
     return {
       title: ftvaViewingInformation.value.title,
       text: ftvaViewingInformation.value.text,
       svgName: iconMapping['svg-call-to-action-ftva-info'].icon,
     }
-  }
-  else {
+  } else {
     return {
       to: props.to,
       title: props.title,
       text: props.text,
       label: props.name,
-      svgName: iconMapping[props.svgName as keyof typeof iconMapping].icon,
+      svgName: props.svgName ? iconMapping[props.svgName as keyof typeof iconMapping]?.icon : undefined, // Allow undefined
     }
   }
 })
@@ -196,7 +193,11 @@ const classes = computed(() => {
       >
         {{ parsedContent.title }}
       </h2>
-      <RichText :class="{ 'ftva-global-data': props.useGlobalData && theme === 'ftva' }" class="text" :rich-text-content="parsedContent.text" />
+      <RichText
+        :class="{ 'ftva-global-data': props.useGlobalData && theme === 'ftva' }"
+        class="text"
+        :rich-text-content="parsedContent.text"
+      />
     </div>
     <div v-if="theme !== 'ftva'">
       <ButtonLink
