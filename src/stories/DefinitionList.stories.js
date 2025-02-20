@@ -54,7 +54,33 @@ const mockDefinitions = {
       nameFirst: 'Patricia Bentley King',
       nameLast: null,
     }
-  ]
+  ],
+  associatedIndividuals: [
+    {
+      individual: [
+        {
+          id: '3604578',
+          nameFirst: 'Leslie',
+          nameLast: 'Jones',
+        },
+      ],
+      roles: 'Producer',
+    },
+    {
+      individual: [
+        {
+          id: '3474871',
+          nameFirst: 'Anita Clearfield',
+          nameLast: null,
+        },
+      ],
+      roles: 'Executive Producer, Writer',
+    },
+  ],
+  testField: undefined, // should not render
+  anotherTestField: null, // should not render
+  emptyArray: [], // should not render
+  emptyObject: {}, // should not render
 }
 export function Default() {
   return {
@@ -109,8 +135,8 @@ export function FTVAWithCustomMetaDataAndButton() {
     <DefinitionList :metaDataObject="newDefinitions">
       <template v-slot:definition-CollectionTags>
         <div class="collection-tags-wrapper">
-          <template v-for="tag in newDefinitions.CollectionTags">
-            <BlockTag :key="tag.id" class="collection-tags">{{ tag.title }}</BlockTag>
+          <template v-for="tag in newDefinitions.CollectionTags" :key="tag.id">
+            <BlockTag class="collection-tags">{{ tag.title }}</BlockTag>
           </template>
         </div>
       </template>

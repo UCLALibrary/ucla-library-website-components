@@ -23,25 +23,35 @@ const { metaDataObject, orientation } = defineProps({
   },
 })
 
-// loops through keys in an object and converts them to strings based on type
-function parsedValue(value: any): string {
+// loops through keys in an object and converts them to strings based on type,
+// then joins them with commas
+function parsedValue(value: any): string | undefined {
   if (typeof value === 'string') {
     return value
-  }
-  else if (Array.isArray(value)) {
+  } else if (Array.isArray(value)) {
     return value.map((item) => {
       return parsedValue(item)
-    }).join('\r\n')
+    }).join('\r\n').replace(/(, ){2,}/g, ', ') // remove extra commas from null values
   }
   else if (typeof value === 'object') {
+    // check for null before trying to loop
+    if (value === null || value === undefined) {
+      return;
+    }
+    // loop through object keys and return key: value pairs
     return Object.keys(value).map((key) => {
-      return `${key}: ${value[key]}`
-    }).join(', ')
+      if (typeof value[key] === 'string') {
+        return `${key}: ${value[key]}`
+      } else { 
+        return parsedValue(value[key])
+      }
+    }).join(', ').replace(/,\s*$/, ""); // remove trailing comma
   }
   else {
     return value
   }
 }
+const emptyValues = [null, undefined, '', [], {}]
 
 // THEME
 const theme = useTheme()
@@ -60,13 +70,13 @@ const classes = computed(() => {
         v-for="(value, key) in metaDataObject" :key="key" class="definition-list-item-wrapper"
         :class="orientation"
       >
-        <dt>
+        <dt v-if="!emptyValues.includes(parsedValue(value))">
           <slot :name="`term-${key}`">
             <!-- converts camelCase variables to sentences with spaces -->
             {{ key.replace(/([A-Z])/g, ' $1').trim() }}
           </slot>
         </dt>
-        <dd class="white-space-wrap">
+        <dd v-if="!emptyValues.includes(parsedValue(value))" class="white-space-wrap">
           <slot :name="`definition-${key}`">
             {{ parsedValue(value) }}
           </slot>
