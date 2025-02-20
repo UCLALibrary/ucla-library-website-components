@@ -31,5 +31,5 @@ const parsedItems = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/ftva/_flex-cta-block-content-width";
+@import "@/styles/ftva/_flexible-call-to-action.scss";
 </style>

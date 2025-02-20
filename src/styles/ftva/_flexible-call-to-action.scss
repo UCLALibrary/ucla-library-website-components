@@ -1,0 +1,21 @@
+.ftva.block-call-to-action {
+  background-color: $page-blue;
+
+  :deep(.title) {
+    @include ftva-card-title-1;
+    color: $accent-blue;
+  }
+
+  :deep(.rich-text.text) {
+    @include ftva-body;
+    line-height: 1.5;
+    max-width: 100%;
+    position: relative;
+
+    p {
+      font-size: 16px;
+      color: $body-grey;
+      color: green;
+    }
+  }
+}
