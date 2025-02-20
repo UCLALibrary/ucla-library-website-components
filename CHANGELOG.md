@@ -1,3 +1,10 @@
+# [3.49.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.48.0...v3.49.0) (2025-02-20)
+
+
+### Features
+
+* APPS-3165 Update SectionTeaserCard & BlockCardWIthImage for Collection Item page ([#685](https://github.com/UCLALibrary/ucla-library-website-components/issues/685)) ([001fb58](https://github.com/UCLALibrary/ucla-library-website-components/commit/001fb589ed0379f092a440a4f9b3692a0a83dd4d))
+
 # [3.48.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.47.0...v3.48.0) (2025-02-19)
 
 
