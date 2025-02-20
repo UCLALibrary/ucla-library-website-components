@@ -36,7 +36,6 @@ export function Default() {
   }
 }
 
-
 const mockFTVA = {
   id: '16983',
   typeHandle: 'callToAction',
@@ -52,8 +51,6 @@ const mockFTVA = {
     },
   ],
 }
-
-
 
 export function FtvaLight() {
   return {
