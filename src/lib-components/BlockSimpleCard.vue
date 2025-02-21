@@ -1,53 +1,52 @@
-<script>
+<script setup>
+import { computed } from 'vue'
+
 // COMPONENTS
 import SvgArrowDiagonal from 'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
 import SvgArrowRightSmall from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
 import SmartLink from '@/lib-components/SmartLink'
+
+import { useTheme } from '@/composables/useTheme'
 
 // UTILITY FUNCTIONS
 import getSectionName from '@/utils/getSectionName'
 import isInternalLink from '@/utils/isInternalLink'
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
-// SVGs
-export default {
-  name: 'BlockSimpleCard',
-  components: {
-    SvgArrowRightSmall,
-    SvgArrowDiagonal,
-    SmartLink,
+const { title, text, to } = defineProps({
+  title: {
+    type: String,
+    default: '',
   },
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-    to: {
-      type: String,
-      default: '',
-    },
+  text: {
+    type: String,
+    default: '',
   },
-  computed: {
-    classes() {
-      return ['block-simple-card', `color-${this.sectionName}`]
-    },
-    sectionName() {
-      return getSectionName(this.to)
-    },
-    parsedIconName() {
-      return isInternalLink(this.to)
-        ? 'svg-arrow-right-small'
-        : 'svg-arrow-diagonal'
-    },
-    parsedText() {
-      return this.text ? removeHtmlTruncate(this.text, 250) : ''
-    },
+  to: {
+    type: String,
+    default: '',
   },
-}
+})
+
+const theme = useTheme()
+
+const sectionName = computed(() => {
+  return getSectionName(to)
+})
+
+const classes = computed(() => {
+  return ['block-simple-card', `color-${sectionName.value}`, theme?.value || '']
+})
+
+const parsedIconName = computed(() => {
+  return isInternalLink(to)
+    ? SvgArrowRightSmall
+    : SvgArrowDiagonal
+})
+
+const parsedText = computed(() => {
+  return text ? removeHtmlTruncate(text, 250) : ''
+})
 </script>
 
 <template>
