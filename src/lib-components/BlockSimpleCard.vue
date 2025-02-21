@@ -1,53 +1,52 @@
-<script>
+<script setup>
+import { computed } from 'vue'
+
 // COMPONENTS
 import SvgArrowDiagonal from 'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
 import SvgArrowRightSmall from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
 import SmartLink from '@/lib-components/SmartLink'
+
+import { useTheme } from '@/composables/useTheme'
 
 // UTILITY FUNCTIONS
 import getSectionName from '@/utils/getSectionName'
 import isInternalLink from '@/utils/isInternalLink'
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
-// SVGs
-export default {
-  name: 'BlockSimpleCard',
-  components: {
-    SvgArrowRightSmall,
-    SvgArrowDiagonal,
-    SmartLink,
+const { title, text, to } = defineProps({
+  title: {
+    type: String,
+    default: '',
   },
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-    to: {
-      type: String,
-      default: '',
-    },
+  text: {
+    type: String,
+    default: '',
   },
-  computed: {
-    classes() {
-      return ['block-simple-card', `color-${this.sectionName}`]
-    },
-    sectionName() {
-      return getSectionName(this.to)
-    },
-    parsedIconName() {
-      return isInternalLink(this.to)
-        ? 'svg-arrow-right-small'
-        : 'svg-arrow-diagonal'
-    },
-    parsedText() {
-      return this.text ? removeHtmlTruncate(this.text, 250) : ''
-    },
+  to: {
+    type: String,
+    default: '',
   },
-}
+})
+
+const theme = useTheme()
+
+const sectionName = computed(() => {
+  return getSectionName(to)
+})
+
+const classes = computed(() => {
+  return ['block-simple-card', `color-${sectionName.value}`, theme?.value || '']
+})
+
+const parsedIconName = computed(() => {
+  return isInternalLink(to)
+    ? SvgArrowRightSmall
+    : SvgArrowDiagonal
+})
+
+const parsedText = computed(() => {
+  return text ? removeHtmlTruncate(text, 250) : ''
+})
 </script>
 
 <template>
@@ -73,101 +72,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.block-simple-card {
-  min-height: 296px;
-  border-radius: var(--rounded-slightly-all);
-  overflow: hidden;
-  background-color: var(--color-primary-blue-01);
-  transition-property: box-shadow, transform;
-  @include animate-normal;
-  position: relative;
-  z-index: 0;
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  padding: 40px 40px 32px;
-
-  // Themes
-  --color-theme: var(--color-default-cyan-01);
-
-  &.color-visit {
-    --color-theme: var(--color-visit-fushia-01);
-  }
-
-  &.color-help {
-    --color-theme: var(--color-help-green-01);
-  }
-
-  &.color-about {
-    --color-theme: var(--color-about-purple-01);
-  }
-
-  .section {
-    display: none;
-    @include overline;
-  }
-
-  .title {
-    @include step-1;
-    color: var(--color-primary-blue-03);
-    @include card-clickable-area;
-  }
-
-  .text {
-    @include step--1;
-    @include truncate(5);
-  }
-
-  .spacer {
-    flex-basis: 0;
-    flex-grow: 1;
-  }
-
-  .svg-meta {
-    align-self: flex-end;
-  }
-
-  .svg {
-    z-index: 20;
-    display: block;
-  }
-
-  // Breakpoints
-  @media #{$small} {
-    padding: var(--unit-gutter);
-  }
-
-  // Hovers
-  @media #{$has-hover} {
-
-    &:hover,
-    &:focus {
-      @include card-horizontal-hover;
-      background-color: var(--color-theme);
-      z-index: 30;
-      cursor: pointer;
-
-      .title {
-        text-decoration-thickness: 1.5px;
-        color: var(--color-primary-blue-05);
-      }
-
-      .text {
-        color: var(--color-primary-blue-05);
-      }
-
-      :deep(.svg) {
-        .svg__stroke--primary-blue-03 {
-          stroke: var(--color-primary-blue-05);
-        }
-
-        .svg__fill--primary-blue-03 {
-          fill: var(--color-primary-blue-05);
-        }
-      }
-    }
-  }
-}
+@import "@/styles/default/_block-simple-card.scss";
+@import "@/styles/ftva/_block-simple-card.scss";
 </style>
