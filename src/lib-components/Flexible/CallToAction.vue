@@ -30,4 +30,6 @@ const parsedItems = computed(() => {
   />
 </template>
 
-<style lang="css" scoped></style>
+<style lang="scss" scoped>
+@import "@/styles/ftva/_flexible-call-to-action.scss";
+</style>
