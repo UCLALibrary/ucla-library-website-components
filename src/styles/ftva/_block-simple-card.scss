@@ -1,0 +1,26 @@
+.ftva.block-simple-card {
+  background-color: #f1f1f1;
+
+  .title {
+    @include ftva-card-title-1;
+    color: $accent-blue;
+  }
+
+  .text {
+    @include ftva-body-2;
+    color: $body-grey;
+  }
+
+  // Hovers
+  @media #{$has-hover} {
+
+    &:hover,
+    &:focus {
+      background-color: #e7edf2;
+
+      .title {
+        color: #132941;
+      }
+    }
+  }
+}
