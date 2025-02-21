@@ -42,3 +42,22 @@ export function WithSectionTitleAndSummary() {
     />`,
   }
 }
+
+export function FTVATheme() {
+  return {
+    data() {
+      return {
+        block: mock2,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { FlexibleForm },
+    template: `<flexible-form
+        :block= "block"
+    />`,
+  }
+}
