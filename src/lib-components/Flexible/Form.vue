@@ -2,6 +2,8 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import type { FlexibleForm } from '@/types/flexible_types'
+import { useTheme } from '@/composables/useTheme'
+
 
 const { block } = defineProps ({
   block: {
@@ -13,10 +15,16 @@ const { block } = defineProps ({
 const parsedFormContent = computed(() => {
   return block.form
 })
+
+// THEME
+const theme = useTheme()
+const parsedClasses = computed(() => {
+  return ['form', theme?.value || '']
+})
 </script>
 
 <template>
-  <div class="form">
+  <div :class="parsedClasses">
     <div class="section-header">
       <h2
         v-if="block.sectionTitle"
