@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 import DefinitionList from '@/lib-components/DefinitionList.vue'
-import ButtonLink from '@/lib-components/ButtonLink.vue'
 import BlockTag from '@/lib-components/BlockTag.vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
 
 /**
  * Displays data in a Definition list format using `<dl>, <dt>, and <dd>` HTML elements.
@@ -110,7 +110,7 @@ const newDefinitions = Object.entries(mockDefinitions).reduce((acc, item) => ({
 
 export function FTVAWithCustomMetaDataAndButton() {
   return {
-    components: { DefinitionList, ButtonLink, BlockTag },
+    components: { DefinitionList, SmartLink, BlockTag },
     data() {
       return { newDefinitions }
     },
@@ -124,6 +124,9 @@ export function FTVAWithCustomMetaDataAndButton() {
       margin: 8px;
       display: inline;
     }
+    .collection-tags:first-child {
+      margin-left: 0;
+    }
     .collection-tags-wrapper {
       display: flex;
       flex-wrap
@@ -133,12 +136,19 @@ export function FTVAWithCustomMetaDataAndButton() {
     }
     </component>
     <DefinitionList :metaDataObject="newDefinitions">
+      <!-- slot name must match field name in metaDataObject, case sensitive -->
       <template v-slot:definition-CollectionTags>
         <div class="collection-tags-wrapper">
           <template v-for="tag in newDefinitions.CollectionTags" :key="tag.id">
             <BlockTag class="collection-tags">{{ tag.title }}</BlockTag>
           </template>
         </div>
+      </template>
+      <!-- slot name must match field name in metaDataObject, case sensitive -->
+      <template v-slot:definition-director>
+        <template v-for="director in newDefinitions.director" :key="director.nameFirst">
+        <p><SmartLink to="/">{{ director.nameFirst }} {{ director.nameLast }}</SmartLink></p>
+        </template>
       </template>
       <template #list-bottom>
         <ButtonLink label="View Catalog Record" to="https://search.library.ucla.edu/permalink/01UCS_LAL/17p22dp/alma99734033506533" :isSecondary="true" icon-name="none" class="centered-button"/>
