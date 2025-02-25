@@ -1,0 +1,11 @@
+.ftva.form {
+    .content {
+      border: 2px solid $accent-blue;
+      border-radius:4px;
+    }
+
+    .section-title {
+        @include step-1;
+        color: $accent-blue;
+    }
+}

@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import FlexibleForm from '@/lib-components/Flexible/Form'
 
 export default {
@@ -43,7 +44,7 @@ export function WithSectionTitleAndSummary() {
   }
 }
 
-export function FTVATheme() {
+export function FTVAForm() {
   return {
     data() {
       return {

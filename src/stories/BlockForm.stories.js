@@ -179,3 +179,26 @@ export function UCLALibrary() {
     `,
   }
 }
+
+export function FTVAForm() {
+  return {
+    data() {
+      return { BlockFormData }
+    },
+    provide() {
+      return {
+        eventId: computed(() => '12333491'),
+        blockFormData: computed(() => BlockFormData.mock8),
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        registrationType: computed(() => 'both'),
+        libcalWaitlist: computed(() => null),
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockForm },
+    template: `
+        <block-form />
+    `,
+  }
+}
+
