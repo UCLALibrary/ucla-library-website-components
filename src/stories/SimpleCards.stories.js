@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import SimpleCards from '@/lib-components/SimpleCards'
 
 export default {
@@ -286,6 +287,28 @@ export function SixCards() {
         :items="cards"
         section-title="Test Services and Resources Cards"
         section-summary="Test summary page, for Services and Resources Card" />
+    `,
+  }
+}
+
+// -------FTVA-------------
+export function FTVADefault() {
+  return {
+    data() {
+      return { ...mockTwoCards }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SimpleCards },
+    template: `
+        <simple-cards
+            :items="cards"
+            :section-title="sectionTitle"
+            :section-summary="sectionSummary"
+        />
     `,
   }
 }
