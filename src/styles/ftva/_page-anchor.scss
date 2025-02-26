@@ -1,0 +1,39 @@
+.ftva.page-anchor {
+    .page-anchor-content {
+        padding: 4px;
+    }
+    li.link, .dropdown-button {
+        @include ftva-subtitle-2;
+        color: var(--ftva-medium-blue);
+        text-transform: unset;
+        align-self: flex-start;
+        justify-content: flex-start;
+    }
+    .page-anchor-list,
+    .link a { 
+        @include ftva-subtitle-2;
+        color: $subtitle-grey;
+        text-transform: unset;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-left: 4px;
+    }
+    .link {
+      &.color-default a:hover {
+        --color-border: var(--ftva-medium-blue);
+      }
+    }
+    .page-anchor-list li {
+        padding: 4px;
+        &:last-child {
+            margin-top: 8px;
+        }
+    }
+    .dropdown-button {
+        .caret-down-svg {
+            :deep(path.svg__stroke--primary-blue-03) {
+                stroke: var(--ftva-medium-blue);
+            }
+        }
+    }
+}
