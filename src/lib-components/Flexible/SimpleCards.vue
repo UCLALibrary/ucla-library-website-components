@@ -6,6 +6,8 @@ import type { PropType } from 'vue'
 import _get from 'lodash/get'
 import SimpleCards from '@/lib-components/SimpleCards.vue'
 
+import { useTheme } from '@/composables/useTheme'
+
 // TYPESCRPT
 import type { FlexibleSimpleCards } from '@/types/flexible_types'
 
@@ -53,10 +55,15 @@ const parsedContent = computed(() => {
     }
   })
 })
+
+const theme = useTheme()
+const classes = computed(() => {
+  return ['flexible-simple-cards', theme?.value || '']
+})
 </script>
 
 <template>
-  <div class="flexible-simple-cards">
+  <div :class="classes">
     <SimpleCards
       :section-title="block.sectionTitle"
       :section-summary="block.sectionSummary"
