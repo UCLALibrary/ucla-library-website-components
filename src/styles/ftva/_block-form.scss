@@ -10,7 +10,7 @@
           color: $accent-blue;
       }
       .section-summary {
-        @include ftva-body-1;
+        @include ftva-body;
         color: $body-grey;
       }
     }
