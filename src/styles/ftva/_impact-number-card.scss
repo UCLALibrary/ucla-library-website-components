@@ -1,3 +1,22 @@
 .ftva.impact-number-card {
-    //
+    .card {
+        background-color: $page-blue;
+    }
+
+    .impact-number {
+        @include ftva-h3;
+        font-size: 60px;
+        color: $navy-blue;
+        padding-bottom: 12px;
+    }
+
+    .title {
+        @include ftva-card-title-2;
+        color: $accent-blue;
+    }
+
+    .text {
+        @include ftva-body;
+        color: $body-grey;
+    }
 }

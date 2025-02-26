@@ -1,6 +1,5 @@
-import { computed, provide } from 'vue';
+import { computed } from 'vue'
 import FlexibleImpactNumberCards from '@/lib-components/Flexible/ImpactNumberCards'
-import { FtvaSeries3Cards } from './SectionWrapper.stories';
 
 export default {
   title: 'FLEXIBLE / Impact Number Cards',
@@ -67,7 +66,7 @@ export function Default() {
     `,
   }
 }
-export function FTVACards() { 
+export function FTVACards() {
   return {
     data() {
       return {

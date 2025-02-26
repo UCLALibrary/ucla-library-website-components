@@ -1,9 +1,25 @@
 .ftva.impact-number-cards {
-//   @include ftva-card;
-//   @include ftva-card-variant;
+    .impact-number-cards-list {
+        gap: 20px 16px;
+    }
 
-//   .ftva-card__content {
-//     @include ftva-card-content;
-//     @include ftva-card-content-variant;
-//   }
+    @media #{$medium} {
+        .impact-number-cards-list {
+            align-items: flex-start;
+            .flexible-impact-number-card {
+                width: calc((100% - 16px) / 2);
+            }
+        }
+    }
+
+    @media #{$small} {
+        .impact-number-cards-list {
+            display: flex;
+            flex-direction: column;
+
+            .flexible-impact-number-card {
+                width: 100%;
+            }
+        }
+    }
 }

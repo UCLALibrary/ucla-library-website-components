@@ -1,25 +1,31 @@
-<script>
-export default {
-  name: 'ImpactNumberCard',
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-    impactNumber: {
-      type: String,
-      default: '',
-    },
+<script lang="ts" setup>
+import { computed } from 'vue'
+import { useTheme } from '@/composables/useTheme'
+
+const { title, text, impactNumber } = defineProps({
+  title: {
+    type: String,
+    default: '',
   },
-}
+  text: {
+    type: String,
+    default: '',
+  },
+  impactNumber: {
+    type: String,
+    default: '',
+  },
+})
+
+// THEME
+const theme = useTheme()
+const classes = computed(() => {
+  return ['impact-number-card', theme?.value || '']
+})
 </script>
 
 <template>
-  <li class="impact-number-card">
+  <li :class="classes">
     <div class="card">
       <div
         v-if="impactNumber"
