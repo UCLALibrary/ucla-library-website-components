@@ -1,4 +1,14 @@
 .ftva.impact-number-cards {
+    .section-header {
+        .section-title {
+            @include ftva-h5;
+            color: $accent-blue;
+        }
+        .section-summary {
+            @include ftva-body;
+            color: $body-grey;
+        }
+    }
     .impact-number-cards-list {
         gap: 20px 16px;
     }
