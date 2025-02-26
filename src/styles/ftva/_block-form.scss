@@ -4,8 +4,14 @@
       border-radius:4px;
     }
 
-    .section-title {
-        @include step-1;
-        color: $accent-blue;
+    .section-header {
+      .section-title {
+        @include ftva-h5;
+          color: $accent-blue;
+      }
+      .section-summary {
+        @include ftva-body-1;
+        color: $body-grey;
+      }
     }
 }
