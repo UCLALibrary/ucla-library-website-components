@@ -11,13 +11,16 @@
     }
     .impact-number-cards-list {
         gap: 16px 20px;
+        .flexible-impact-number-card {
+                width: calc((100% - 40px) / 3);
+            }
     }
 
     @media #{$medium} {
         .impact-number-cards-list {
             align-items: flex-start;
             .flexible-impact-number-card {
-                width: calc((100% - 16px) / 2);
+                width: calc((100% - 40px) / 2);
             }
         }
     }
