@@ -1,0 +1,47 @@
+.block-remove-search-filter {
+    padding: 0px;
+
+    .button-close {
+        margin-left: 8px;
+    }
+
+    &.color-default {
+        :deep(.block-tag) {
+            border: 1.5px var(--color-default-cyan-03) solid;
+        }
+
+        &:hover {
+            background-color: transparentize(($default-cyan-03), 0.9);
+        }
+    }
+
+    &.color-help {
+        :deep(.block-tag) {
+            border: 1.5px var(--color-help-green-03) solid;
+        }
+
+        &:hover {
+            background-color: transparentize(($help-green-03), 0.9);
+        }
+    }
+
+    &.color-visit {
+        :deep(.block-tag) {
+            border: 1.5px var(--color-visit-fushia-03) solid;
+        }
+
+        &:hover {
+            background-color: transparentize(($visit-fushia-03), 0.9);
+        }
+    }
+
+    &.color-about {
+        :deep(.block-tag) {
+            border: 1.5px var(--color-about-purple-03) solid;
+        }
+
+        &:hover {
+            background-color: transparentize(($about-purple-03), 0.9);
+        }
+    }
+}

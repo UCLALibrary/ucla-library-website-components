@@ -1,0 +1,136 @@
+.ftva.section-wrapper {
+
+    // remove max-width from rich-text inside flexible-blocks for ftva
+    &.flexible-blocks {
+        :deep(.rich-text) {
+            max-width: var(--ftva-container-max-width);
+            padding-right: 0px;
+        }
+    }
+
+    .section-header:has(+ ul.section-teaser-card.ftva) {
+        // Set to zero to remove margin under Section Title
+        // Explore Other Series or Events or Related Collections and Recent Posts
+        margin-bottom: 0;
+
+        :deep(.section-title) {
+            margin-bottom: 0;
+        }
+    }
+
+    // default link styles for FTVA
+    .section-link {
+        top: 11px;
+        @include ftva-button-link;
+        color: #{$medium-grey};
+
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        -webkit-text-decoration-color: #{$grey-blue};
+        text-decoration-color: #{$grey-blue};
+        text-underline-offset: 4px;
+
+        &:hover {
+            -webkit-text-decoration-color: #{$bright-blue};
+            text-decoration-color: #{$bright-blue};
+        }
+    }
+
+    &.top-level {
+        &.theme-white {
+            &.section-banner {
+                >:deep(*) {
+                    max-width: var(--ftva-container-max-width);
+                }
+            }
+
+            .section-featured-banner {
+                max-width: var(--ftva-container-max-width);
+            }
+
+            :deep(.section-teaser-card) {
+                --color-children-theme: #{$page-blue};
+
+                .block-highlight.card {
+                    background-color: var(--color-children-theme);
+                }
+            }
+        }
+
+        &.theme-paleblue {
+            --color-theme: #{$page-blue};
+            --color-children-theme: var(--color-white);
+
+            background-color: var(--color-theme);
+
+            :deep(*) {
+                .block-highlight.card {
+                    background-color: var(--color-children-theme);
+                }
+            }
+        }
+
+        // FTVA uses different page max-width
+        >:deep(*) {
+            max-width: var(--ftva-container-max-width);
+        }
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+        .section-header {
+            margin-bottom: 10px;
+        }
+
+        .section-link {
+            margin-bottom: 20px;
+        }
+
+        .tab-item {
+            margin-left: 0;
+            margin-right: 0;
+
+            .tab-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        &.theme-paleblue {
+            --color-theme: #{$page-blue};
+            --color-children-theme: var(--color-white);
+
+            :deep(*) {
+                .section-teaser-list {
+                    .list {
+                        background-color: var(--color-theme);
+                    }
+
+                    .block-card-three-column {
+                        .meta {
+                            background-color: var(--color-children-theme);
+                        }
+                    }
+                }
+
+                .section-staff-article-list {
+                    background-color: var(--color-theme);
+                    background-color: var(--color-children-theme);
+                }
+            }
+        }
+    }
+
+    @media #{$small} {
+        &.theme-paleblue {
+            --color-theme: #{$page-blue};
+            --color-children-theme: var(--color-white);
+
+            :deep(*) {
+                .section-staff-article-list {
+                    background-color: var(--color-theme);
+                }
+            }
+        }
+    }
+}

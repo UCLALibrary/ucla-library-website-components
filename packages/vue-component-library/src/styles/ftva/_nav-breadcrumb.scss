@@ -1,0 +1,23 @@
+.ftva.nav-breadcrumb {
+    .parent-page-url {
+        @include ftva-breadcrumb-inactive;
+        color: $heading-grey;
+    }
+
+    .collapsed-url {
+        color: $accent-blue;
+        font-weight: 600;
+    }
+
+    .current-page-title {
+        @include ftva-breadcrumb-active;
+        color: $accent-blue;
+    }
+
+    .svg__icon-caret-right,
+    .svg__icon-caret-left {
+        :deep(.svg__stroke--primary-blue-03) {
+            stroke: $secondary-grey-03;
+        }
+    }
+}

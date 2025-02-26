@@ -1,0 +1,54 @@
+.ftva.table-row {
+    gap: var(--space-m);
+    align-items: center;
+    &:last-child {
+      padding-bottom: 0px;
+    }
+    .column-1 {
+        display: table-cell;
+        flex: unset;
+        flex-grow: 2;
+        max-width: 287px; 
+    }
+    .column-2 {
+        display: table-cell;
+        flex: unset;
+        max-width: 500px;
+        flex-grow: 3;
+    }
+    .column-3 {
+        display: table-cell;
+        flex: unset;
+        justify-self: flex-start;
+        flex-grow: 1;
+    }
+    .column-4 {
+        display: table-cell;
+        justify-self: flex-end;
+    }
+
+    :deep(*){
+      @include ftva-subtitle-2;
+    }
+    :deep(.film-title){
+      @include ftva-card-title-1;
+      color: $accent-blue;
+    }
+    :deep(.rich-text){
+        .parsed-content {
+            color: $body-grey;
+            margin-bottom: 0px;
+        }
+    }
+    :deep(p.subtitle) {
+        @include ftva-subtitle-2;
+    }
+    :deep(.responsive-image) {
+        height: 213px;
+        aspect-ratio: 284 / 213;
+    }
+    @media #{$small} {
+        align-items: flex-start;
+        gap: 0px;
+    }
+ }

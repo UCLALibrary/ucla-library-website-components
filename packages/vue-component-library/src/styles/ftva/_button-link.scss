@@ -1,0 +1,50 @@
+.ftva.button-link {
+    --button-background-color: #{$accent-blue};
+    --button-text-color: #{$pure-white};
+    --button-border-color: #{$accent-blue};
+    --button-icon-single-color: #{$pure-white};
+    --button-icon-withaccent-color: #{$pure-white};
+    --button-icon-accent-color: #{$pure-white};
+    @include ftva-button;
+
+    /* This is a hover class beacause we need to over-ride the swipe animation */
+    &:hover,
+    .hover {
+        --button-background-color: #{$darker-blue};
+        --button-border-color: #{$darker-blue};
+
+        --button-icon-single-color: #{$pure-white};
+        --button-icon-withaccent-color: #{$pure-white};
+        --button-icon-accent-color: #{$pure-white};
+        @include ftva-button;
+    }
+
+    &.is-secondary {
+        --button-background-color: #{$pure-white};
+        --button-text-color: #{$accent-blue};
+        --button-border-color: #{$accent-blue};
+        --button-icon-single-color: #{$accent-blue};
+        --button-icon-withaccent-color: #{$accent-blue};
+        --button-icon-accent-color: #{$accent-blue};
+
+        &:hover,
+        .hover {
+            --button-background-color: #{$accent-blue};
+            --button-text-color: #{$pure-white};
+            --button-icon-single-color: #{$pure-white};
+            --button-icon-withaccent-color: #{$pure-white};
+            --button-icon-accent-color: #{$pure-white};
+        }
+    }
+
+    // General Styling
+    &:hover,
+    .hover {
+        transition-duration: unset;
+        transition-timing-function: unset;
+    }
+
+    *:not(:only-child):first-child {
+        padding-left: 0px;
+    }
+}

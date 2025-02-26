@@ -1,0 +1,47 @@
+.ftva.section-staff-article-list {
+  background-color: var(--color-white);
+  padding: 45px;
+
+  .container {
+    max-width: 100%;
+  }
+
+  .block-staff-article-list {
+    .block-staff-article-item {
+      border-bottom: 1px solid $page-blue;
+    }
+
+    .block-staff-article-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  @media #{$medium} {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  // Breakpoints
+  @media #{$small} {
+    background: none;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+
+    .block-staff-article-list {
+      .block-staff-article-item {
+        border-bottom: 0;
+        margin-bottom: 40px;
+      }
+
+      .block-staff-article-item:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .container {
+      max-width: none;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.ftva.banner-image {
+
+  .ftva-image-stack-bckgrd {
+    --width: calc(min(80px, 30%));
+    width: var(--width);
+    height: var(--width);
+    background-color: $accent-blue;
+    position: absolute;
+    left: calc(50% - var(--width) / 2);
+    top: calc(50% - var(--width) / 2);
+    border-radius: 50%;
+  }
+
+  .svg__icon-image-stack {
+    --width: calc(min(48px, 100%));
+    width: var(--width);
+    height: var(--width);
+    position: absolute;
+    left: calc(50% - var(--width) / 2);
+    top: calc(50% - var(--width) / 2);
+
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: $white;
+    }
+
+    :deep(.svg__stroke--default-cyan-03) {
+      display: none;
+    }
+  }
+
+  .media-badge {
+    float: right;
+  }
+
+  .drop-triangle {
+    position: relative;
+    margin-left: 8px;
+    bottom: 1px;
+  }
+
+  .is-expanded.drop-triangle {
+    transform: rotate(180deg);
+  }
+}
+
+// To clear floated MediaBadge
+.ftva.banner-image::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.ftva.half-width-media-item {
+  .media-badge {
+    position: absolute;
+  }
+}

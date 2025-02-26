@@ -1,0 +1,11 @@
+.ftva.tab-list {
+    .tab-list-item .svg {
+      :deep(.svg__stroke--primary-blue-03),
+      :deep(.svg__stroke--default-cyan-03) {
+        stroke: $medium-grey;
+    }
+    :deep(rect) {
+      stroke: $medium-grey;
+    }
+  }
+}

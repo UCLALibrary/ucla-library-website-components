@@ -1,0 +1,18 @@
+.ftva.button-dropdown {
+    .button-svg {
+        stroke: unset;
+    }
+
+    .toggle-triangle-icon {
+        :deep(.svg__fill--accent-blue) {
+            fill: $medium-grey;
+        }
+    }
+
+    .button-dropdown-modal-wrapper {
+        border-left-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-color: $medium-grey;
+    }
+}

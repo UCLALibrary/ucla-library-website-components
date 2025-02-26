@@ -1,0 +1,107 @@
+.ftva.block-staff-article-item {
+  background-color: white;
+
+  .image {
+    width: 284px;
+    height: 213px;
+    aspect-ratio: 4/3;
+    margin-right: var(--space-xl);
+  }
+
+  .meta {
+    width: 100%;
+    height: 213px;
+    margin-top: 6px;
+
+  }
+
+  .title {
+    @include ftva-card-title-1;
+    color: $heading-grey;
+    @include truncate(3);
+    @include card-clickable-area;
+    margin-bottom: var(--space-s);
+    margin-bottom: 8px;
+  }
+
+  .description-summary-only {
+    @include ftva-body;
+    color: $body-grey;
+    @include truncate(2);
+    margin-bottom: 16px;
+  }
+
+  .date {
+    position: absolute;
+    bottom: var(--space-s);
+    display: flex;
+    flex-direction: row;
+
+    @include ftva-emphasized-subtitle;
+    color: $accent-blue;
+    letter-spacing: .04px;
+
+    height: 70px;
+    overflow: hidden;
+  }
+
+  // Breakpoints
+  @media #{$small} {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    // both the media border radius and this one are necessary
+    border-radius: 10px;
+    padding: 0;
+
+    :deep(.media) {
+      border-radius: 10px 10px 0 0;
+    }
+
+    .image {
+      width: 100%;
+      max-width: unset;
+      height: 213px;
+      margin-right: 0;
+      aspect-ratio: 4/3;
+    }
+
+    :deep(.image) {
+      height: 272px;
+
+      .media {
+        object-fit: cover;
+      }
+    }
+
+    .li {
+      border-radius: 10px;
+      margin-bottom: 24px;
+    }
+
+    .meta {
+      width: 100%;
+      height: 213px;
+      padding-left: 10px;
+      padding-right: 8px;
+    }
+
+    .date {
+      position: absolute;
+      bottom: var(--space-s);
+      display: flex;
+      flex-direction: row;
+      height: 40px;
+
+      @include ftva-emphasized-subtitle;
+      color: $accent-blue;
+      letter-spacing: .04px;
+      overflow: hidden;
+    }
+  }
+}
