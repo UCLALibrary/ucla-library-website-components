@@ -1,3 +1,10 @@
+# [3.51.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.50.0...v3.51.0) (2025-02-26)
+
+
+### Features
+
+* APPS 3153 Create Flexible SimpleCards FTVA variant ([#690](https://github.com/UCLALibrary/ucla-library-website-components/issues/690)) ([bf53605](https://github.com/UCLALibrary/ucla-library-website-components/commit/bf5360559f6b762cfc84ce1009710b7de576da8c))
+
 # [3.50.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.49.0...v3.50.0) (2025-02-26)
 
 
