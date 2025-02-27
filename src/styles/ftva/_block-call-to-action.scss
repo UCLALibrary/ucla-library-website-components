@@ -1,25 +1,18 @@
 .ftva.block-call-to-action {
   // For FTVA default CTA (non-slim, centered) specs if and when needed
 
-  background-color: $page-blue;
-
-  .title {
-    color: $heading-grey;
-  }
-
   // Color Themes
   &.theme-light {
+    background-color: $page-blue;
+
     :deep(.title) {
       @include ftva-card-title-1;
       color: $accent-blue;
-      max-width: 100%;
     }
 
     :deep(.rich-text.text) {
       @include ftva-body;
       line-height: 1.5;
-      max-width: 100%;
-
 
       p {
         @include ftva-body;
@@ -29,131 +22,77 @@
 
       }
     }
-
-    background-color: green;
-    --color-title: var(--color-primary-blue-03);
-    --color-text: var(--color-black);
-    --color-button-background: var(--color-primary-blue-03);
-    --color-svg-molecule-outline: var(--color-primary-blue-03);
-    --color-svg-molecule-inner-highlight: var(--color-help-green-03);
-
-    .svg :deep(.svg__stroke--primary-blue-03) {
-      stroke: var(--color-primary-blue-03);
-    }
-
-    :deep(.svg__stroke--help-green-03) {
-      stroke: var(--color-help-green-03);
-    }
-
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-default-cyan-03);
-    }
-
-    :deep(.svg__fill--default-cyan-03) {
-      fill: var(--color-default-cyan-03);
-    }
   }
 
   &.theme-dark {
+    background-color: $accent-blue;
+
     :deep(.title) {
       @include ftva-card-title-1;
-      color: $white;
-      max-width: 100%;
+      color: $pure-white;
     }
 
     :deep(.rich-text.text) {
       @include ftva-body;
       line-height: 1.5;
-      max-width: 100%;
-
 
       p {
         @include ftva-body;
         font-size: 16px;
-        color: $white;
+        color: $page-blue;
         @include truncate(5);
+      }
+    }
+  }
 
+  .ftva.block-call-to-action.slim-left-align {
+    background-color: $page-blue;
+    padding: var(--space-m);
+    border-radius: 2px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: unset;
+    align-items: unset;
+    -moz-column-gap: .75rem;
+    column-gap: .75rem;
+
+    .svg {
+      position: relative;
+    }
+
+    .svg,
+    .text {
+      margin-bottom: 0;
+    }
+
+    .title,
+    .text {
+      text-align: left;
+    }
+
+    .title {
+      @include ftva-body;
+      font-size: 18px;
+      font-weight: 600;
+      color: $heading-grey;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    :deep(.rich-text.text) {
+      @include ftva-body-2;
+      line-height: 1.5;
+      max-width: 100%;
+      position: relative;
+
+      p {
+        font-size: 16px;
       }
     }
 
-    background-color: purple;
-
-    --color-svg-molecule-outline: var(--color-primary-blue-02);
-    --color-svg-molecule-inner-highlight: var(--color-white);
-    --color-button-background: var(--color-primary-blue-03);
-    --color-button-border: 2px solid var(--color-default-cyan-02);
-
-    :deep(.svg__stroke--primary-blue-03) {
-      stroke: var(--color-primary-blue-02);
-    }
-
-    :deep(.svg__stroke--help-green-03) {
-      stroke: var(--color-white);
-    }
-
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-help-green-03);
-    }
-
-    :deep(.svg__fill--default-cyan-03) {
-      fill: var(--color-help-green-03);
+    :deep(.rich-text a[target="_blank"]::after) {
+      content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg');
+      scale: 1;
     }
   }
-}
-
-
-
-.ftva.block-call-to-action.slim-left-align {
-  background-color: $page-blue;
-  padding: var(--space-m);
-  border-radius: 2px;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-content: unset;
-  align-items: unset;
-  -moz-column-gap: .75rem;
-  column-gap: .75rem;
-
-  .svg {
-    position: relative;
-  }
-
-  .svg,
-  .text {
-    margin-bottom: 0;
-  }
-
-  .title,
-  .text {
-    text-align: left;
-  }
-
-  .title {
-    @include ftva-body;
-    font-size: 18px;
-    font-weight: 600;
-    color: $heading-grey;
-    line-height: 1.2;
-    margin-bottom: 4px;
-  }
-
-
-  :deep(.rich-text.text) {
-    @include ftva-body-2;
-    line-height: 1.5;
-    max-width: 100%;
-    position: relative;
-
-    p {
-      font-size: 16px;
-    }
-  }
-
-  :deep(.rich-text a[target="_blank"]::after) {
-    content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg');
-    scale: 1;
-  }
-
-
-
 }

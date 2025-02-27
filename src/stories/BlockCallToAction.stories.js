@@ -125,11 +125,11 @@ FTVASlimCTALongText.args = {
 }
 
 const mockFTVALight = {
-  title: 'DARK FTVA Call to Action',
+  title: 'LIGHT FTVA Call to Action',
   text: '<p>Cat ipsum dolor sit amet, check cat door for ambush 10 times before coming in or gnaw the corn cob, but woops must get rid run around house maybe it comes off woops left brown marks on floor human can clean now. Kitty kitty thinking longingly about tuna brine yet stinky cat for chase ball of string but attack the child. Scream for no reason at 4 am. Hide head under blanket so no one can see more napping, more napping all the napping is exhausting and roll over and sun my belly.</p>',
   name: 'Cat ipsum dolor',
   to: '/help/foo/bar/',
-  isDark: true,
+  isDark: false,
 }
 
 export const FTVA_LightSecondaryButton = TemplateFTVA.bind({})
@@ -139,7 +139,7 @@ FTVA_LightSecondaryButton.args = {
 
 const mockFTVADark = {
   title: 'DARK FTVA Call to Action',
-  text: '<p>Cat ipsum dolor sit amet, check cat door for ambush 10 times before coming in or gnaw the corn cob, but woops must get rid run around house maybe it comes off woops left brown marks on floor human can clean now. Kitty kitty thinking longingly about tuna brine yet stinky cat for chase ball of string but attack the child. Scream for no reason at 4 am. Hide head under blanket so no one can see more napping, more napping all the napping is exhausting and roll over and sun my belly.</p>',
+  text: '<p>Kitty kitty thinking longingly about tuna brine yet stinky cat for chase ball of string but attack the child. Scream for no reason at 4 am. Hide head under blanket so no one can see more napping, more napping all the napping is exhausting and roll over and sun my belly. Cat ipsum dolor sit amet, check cat door for ambush 10 times before coming in or gnaw the corn cob, but woops must get rid run around house maybe it comes off woops left brown marks on floor human can clean now.</p>',
   name: 'Kitty ipsum dolor',
   to: '/help/foo/bar/',
   isDark: true,
