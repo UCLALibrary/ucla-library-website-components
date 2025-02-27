@@ -161,3 +161,16 @@ export function FTVASecondaryWithGlyph() {
             '<button-link label="FTVA Secondary" :isSecondary="true" icon-name="svg-external-link" to=\'www.google.com\'/>',
   }
 }
+
+export function FTVATertiary() {
+  return {
+    components: { ButtonLink },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    template:
+            '<button-link label="FTVA Tertiary" :isTertiary="true" icon-name="none" to=\'www.google.com\'/>',
+  }
+}
