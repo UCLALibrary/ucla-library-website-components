@@ -8,11 +8,10 @@ const mock = {
     {
       id: '16984',
       titleCta: 'Call to Action',
-      summary: 'A Call to Action',
+      summary: 'A call to action is a marketing term for any text designed to prompt an immediate response or encourage an immediate sale such as brochures, flyers, catalogs, email campaigns.',
       icon: 'svg-call-to-action-find',
       buttonText: 'Click Me Please',
       buttonUrl: 'http://google.com',
-      backgroundColor: 'false',
     },
   ],
 }
@@ -43,7 +42,7 @@ const mockDark = {
     {
       id: '16984',
       titleCta: 'Call to Action',
-      summary: 'A Call to Action',
+      summary: 'Many marketing materials, such as brochures, flyers, catalogs, email campaigns, also make use of a call to action. Such instructions are designed to show consumers how to take the next step and create a sense of urgency around the offer.',
       icon: 'svg-call-to-action-find',
       buttonText: 'Click Me Please',
       buttonUrl: 'http://google.com',
@@ -72,7 +71,7 @@ const mockFTVALight = {
   callToAction: [
     {
       titleCta: 'FTVA Call to Action',
-      summary: '<p>Cat ipsum dolor sit amet, check cat door for ambush 10 times before coming in or gnaw the corn cob, but woops must get rid run around house maybe it comes off woops left brown marks on floor human can clean now. Kitty kitty thinking longingly about tuna brine yet stinky cat for chase ball of string but attack the child. Scream for no reason at 4 am. Hide head under blanket so no one can see more napping, more napping all the napping is exhausting and roll over and sun my belly.</p>',
+      summary: '<p>A call to action is a marketing term for any text designed to prompt an immediate response or encourage an immediate sale. A CTA most often refers to the use of words or phrases that can be incorporated into sales scripts, advertising messages, or web pages, which compel an audience to act in a specific way. Many marketing materials, such as brochures, flyers, catalogs, email campaigns, also make use of a call to action. Such instructions are designed to show consumers how to take the next step and create a sense of urgency around the offer.</p>',
       backgroundColor: 'false',
       buttonText: 'Click Me Please',
       buttonUrl: 'http://google.com',
@@ -80,7 +79,7 @@ const mockFTVALight = {
   ],
 }
 
-export function FtvaLightPrimaryButton() {
+export function FTVALight() {
   return {
     data() {
       return { block: mockFTVALight }
@@ -105,7 +104,7 @@ const mockFTVADark = {
   callToAction: [
     {
       titleCta: 'FTVA Call to Action',
-      summary: '<p>Cat ipsum dolor sit amet, check cat door for ambush 10 times before coming in or gnaw the corn cob, but woops must get rid run around house maybe it comes off woops left brown marks on floor human can clean now. Kitty kitty thinking longingly about tuna brine yet stinky cat for chase ball of string but attack the child. Scream for no reason at 4 am. Hide head under blanket so no one can see more napping, more napping all the napping is exhausting and roll over and sun my belly.</p>',
+      summary: '<p>A CTA most often refers to the use of words or phrases that can be incorporated into sales scripts, advertising messages, or web pages, which compel an audience to act in a specific way. A call to action is a marketing term for any text designed to prompt an immediate response or encourage an immediate sale. Many marketing materials, such as brochures, flyers, catalogs, email campaigns, also make use of a call to action. Such instructions are designed to show consumers how to take the next step and create a sense of urgency around the offer.</p>',
       backgroundColor: 'false',
       buttonText: 'Click Me Please',
       buttonUrl: 'http://google.com',
@@ -114,7 +113,7 @@ const mockFTVADark = {
   ],
 }
 
-export function FtvaDarkSecondaryButton() {
+export function FTVADark() {
   return {
     data() {
       return { block: mockFTVADark }

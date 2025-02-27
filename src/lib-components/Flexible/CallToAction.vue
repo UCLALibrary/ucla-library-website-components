@@ -33,6 +33,6 @@ const classes = computed(() => {
     :title="parsedItems.titleCta"
     :text="parsedItems.summary"
     :svg-name="parsedItems.icon"
-    :is-dark="((parsedItems.backgroundColor === 'true') || (parsedItems.isDark === 'true'))"
+    :is-dark="(parsedItems.backgroundColor === 'true') || (parsedItems.isDark === 'true')"
   />
 </template>
