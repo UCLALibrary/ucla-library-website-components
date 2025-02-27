@@ -1,6 +1,12 @@
 .ftva.block-call-to-action {
   // For FTVA default CTA (non-slim, centered) specs if and when needed
 
+  background-color: $page-blue;
+
+  .title {
+    color: $heading-grey;
+  }
+
   // Color Themes
   &.theme-light {
     background-color: $page-blue;
