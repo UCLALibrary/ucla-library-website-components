@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import FlexibleForm from '@/lib-components/Flexible/Form'
 
 export default {
@@ -34,6 +35,25 @@ export function WithSectionTitleAndSummary() {
     data() {
       return {
         block: mock2,
+      }
+    },
+    components: { FlexibleForm },
+    template: `<flexible-form
+        :block= "block"
+    />`,
+  }
+}
+
+export function FTVAForm() {
+  return {
+    data() {
+      return {
+        block: mock2,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     components: { FlexibleForm },
