@@ -3,7 +3,7 @@ import BlockCallToAction from '@/lib-components/BlockCallToAction'
 
 export default {
   title: 'BLOCK / Call to Action',
-  component: BlockCallToAction
+  component: BlockCallToAction,
 }
 
 function Template(args) {
