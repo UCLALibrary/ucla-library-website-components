@@ -3,12 +3,7 @@ import { computed } from 'vue'
 
 import { useTheme } from '@/composables/useTheme'
 
-const { blockList, colorScheme } = defineProps({
-  blockList: {
-    type: Array,
-    default: () => []
-  },
-
+const { colorScheme } = defineProps({
   colorScheme: {
     type: String,
     default: '',
@@ -25,34 +20,16 @@ const classes = computed(() => {
 
 <template>
   <div :class="classes">
-    <div v-if="$slots['block-info-header']" class="block-info-header-wrapper">
-      <slot name="block-info-header" />
+    <div v-if="$slots['block-info-top']" class="block-info-top-wrapper">
+      <slot name="block-info-top" />
     </div>
 
-    <div v-if="$slots['block-info-text']" class="block-info-text-wrapper">
-      <slot name="block-info-text" />
+    <div v-if="$slots['block-info-mid']" class="block-info-mid-wrapper">
+      <slot name="block-info-mid" />
     </div>
 
-    <div v-if="$slots['block-info-list']" class="block-info-list-wrapper">
-      <slot name="block-info-list">
-        <!-- Default List -->
-        <ul class="block-info-list">
-          <li
-            v-for="(item, index) in blockList"
-            :key="`${item}-${index}`"
-          >
-            {{ item }}
-          </li>
-        </ul>
-      </slot>
-    </div>
-
-    <div v-if="$slots['block-info-btn']" class="block-info-btn-wrapper">
-      <slot name="block-info-btn" />
-    </div>
-
-    <div v-if="$slots['block-info-footer']" class="block-info-footer-wrapper">
-      <slot name="block-info-footer" />
+    <div v-if="$slots['block-info-bottom']" class="block-info-bottom-wrapper">
+      <slot name="block-info-bottom" />
     </div>
   </div>
 </template>

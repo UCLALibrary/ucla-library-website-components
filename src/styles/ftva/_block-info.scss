@@ -13,6 +13,7 @@
         padding: 8px 0;
     }
 
+    // Move to page level
     :deep(.block-info-list) {
         padding: 16px 0 16px 20px;
 
@@ -26,6 +27,7 @@
         }
     }
 
+    // Move to page level
     :deep(.button-link) {
         font-size: 18px;
         padding-left: 16px;
