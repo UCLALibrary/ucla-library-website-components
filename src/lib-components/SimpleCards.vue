@@ -5,6 +5,8 @@ import type { PropType } from 'vue'
 
 import BlockSimpleCard from '@/lib-components/BlockSimpleCard.vue'
 
+import { useTheme } from '@/composables/useTheme'
+
 import type { CardItemType } from '@/types/types'
 
 const { items, sectionTitle, sectionSummary } = defineProps({
@@ -44,10 +46,15 @@ const parsedContent = computed (() => {
     }
   })
 })
+
+const theme = useTheme()
+const classes = computed(() => {
+  return ['simple-cards', theme?.value || '']
+})
 </script>
 
 <template>
-  <div class="simple-cards">
+  <div :class="classes">
     <div class="section-header">
       <h2
         v-if="sectionTitle"
@@ -75,71 +82,6 @@ const parsedContent = computed (() => {
 </template>
 
 <style lang="scss" scoped>
-.simple-cards {
-    max-width: $container-l-main + px;
-
-    .section-header {
-        margin-bottom: var(--space-xl);
-    }
-    .section-title {
-        @include step-3;
-        color: var(--color-primary-blue-03);
-        margin-bottom: var(--space-m);
-    }
-    .section-summary {
-        @include step-0;
-        color: var(--color-black);
-
-        :deep(p) {
-            margin: 0;
-        }
-    }
-    .simple-cards-list {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-content: flex-start;
-        align-items: stretch;
-        gap: 16px;
-    }
-
-    .card-large {
-        width: calc((100% - 16px) / 2);
-    }
-    .card-small {
-        width: calc((100% - 32px) / 3);
-    }
-    .card-five {
-        &:nth-child(-n + 2) {
-            width: calc((100% - 16px) / 2);
-        }
-        &:nth-last-child(-n + 3) {
-            width: calc((100% - 32px) / 3);
-        }
-    }
-    // Breakpoints
-    @media #{$medium} {
-        .card-small {
-            width: calc((100% - 16px) / 2);
-        }
-        .card-five {
-            width: calc((100% - 16px) / 2);
-            &:nth-child(-n + 2) {
-                width: calc((100% - 16px) / 2);
-            }
-            &:nth-last-child(-n + 3) {
-                width: calc((100% - 16px) / 2);
-            }
-        }
-    }
-    @media #{$small} {
-        display: flex;
-        flex-direction: column;
-        .card,
-        .card.card-five {
-            width: 100%;
-        }
-    }
-}
+@import "@/styles/default/_simple-cards.scss";
+@import "@/styles/ftva/_simple-cards.scss";
 </style>
