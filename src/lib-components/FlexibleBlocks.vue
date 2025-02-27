@@ -28,6 +28,9 @@ const FlexibleAssociatedTopicCards = defineAsyncComponent(() =>
 const FlexibleBannerFeatured = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/BannerFeatured.vue')
 )
+const FlexibleBlockInfo = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/BlockInfo.vue')
+)
 const FlexibleCallToAction = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/CallToAction.vue')
 )
@@ -52,7 +55,6 @@ const FlexibleImpactNumberCards = defineAsyncComponent(() =>
 const FlexibleImpactNumbersCarousel = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/ImpactNumbersCarousel.vue')
 )
-
 const FlexibleMediaGallery = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/MediaGallery.vue')
 )
@@ -72,6 +74,7 @@ const FlexibleSimpleCards = defineAsyncComponent(() =>
 const components = {
   'flexible-associated-topic-cards': FlexibleAssociatedTopicCards,
   'flexible-banner-featured': FlexibleBannerFeatured,
+  'flexible-block-info': FlexibleBlockInfo,
   'flexible-call-to-action': FlexibleCallToAction,
   'flexible-card-with-image': FlexibleCardWithImage,
   'flexible-form': FlexibleForm,
