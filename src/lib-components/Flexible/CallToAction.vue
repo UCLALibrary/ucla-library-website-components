@@ -36,3 +36,5 @@ const classes = computed(() => {
     :is-dark="(parsedItems.backgroundColor === 'true') || (parsedItems.isDark === 'true')"
   />
 </template>
+
+<style lang="css" scoped></style>
