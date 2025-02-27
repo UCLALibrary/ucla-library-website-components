@@ -87,7 +87,7 @@ function TemplateFTVA(args) {
 export const FTVA_CTA_Default = TemplateFTVA.bind({})
 FTVA_CTA_Default.args = {
   ...mockFTVA,
-  svgName: 'svg-call-to-action-chat'
+  svgName: 'svg-call-to-action-chat',
 }
 
 function TemplateFTVASlim(args) {
@@ -122,4 +122,30 @@ FTVASlimCTALongText.args = {
   svgName: 'svg-call-to-action-ftva-pdf',
   title: '',
   text: '<p>Cat ipsum dolor sit amet, check cat door for ambush 10 times before coming in or gnaw the corn cob, but woops must get rid run around house maybe it comes off woops left brown marks on floor human slave clean now. Kitty kitty thinking longingly about tuna brine yet stinky cat for chase ball of string but attack the child. Scream for no reason at 4 am. Hide head under blanket so no one can see more napping, more napping all the napping is exhausting and roll over and sun my belly.</p>',
+}
+
+const mockFTVALight = {
+  title: 'DARK FTVA Call to Action',
+  text: '<p>Cat ipsum dolor sit amet, check cat door for ambush 10 times before coming in or gnaw the corn cob, but woops must get rid run around house maybe it comes off woops left brown marks on floor human can clean now. Kitty kitty thinking longingly about tuna brine yet stinky cat for chase ball of string but attack the child. Scream for no reason at 4 am. Hide head under blanket so no one can see more napping, more napping all the napping is exhausting and roll over and sun my belly.</p>',
+  name: 'Cat ipsum dolor',
+  to: '/help/foo/bar/',
+  isDark: true,
+}
+
+export const FTVA_LightSecondaryButton = TemplateFTVA.bind({})
+FTVA_LightSecondaryButton.args = {
+  ...mockFTVALight,
+}
+
+const mockFTVADark = {
+  title: 'DARK FTVA Call to Action',
+  text: '<p>Cat ipsum dolor sit amet, check cat door for ambush 10 times before coming in or gnaw the corn cob, but woops must get rid run around house maybe it comes off woops left brown marks on floor human can clean now. Kitty kitty thinking longingly about tuna brine yet stinky cat for chase ball of string but attack the child. Scream for no reason at 4 am. Hide head under blanket so no one can see more napping, more napping all the napping is exhausting and roll over and sun my belly.</p>',
+  name: 'Kitty ipsum dolor',
+  to: '/help/foo/bar/',
+  isDark: true,
+}
+
+export const FTVA_DarkSecondaryButton = TemplateFTVA.bind({})
+FTVA_DarkSecondaryButton.args = {
+  ...mockFTVADark,
 }

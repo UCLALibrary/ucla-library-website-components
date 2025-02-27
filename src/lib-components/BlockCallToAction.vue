@@ -174,6 +174,7 @@ const classes = computed(() => [
       class="svg"
       aria-hidden="true"
     />
+
     <div>
       <h2
         v-if="props.title || parsedContent.title"
@@ -187,19 +188,39 @@ const classes = computed(() => [
         :rich-text-content="parsedContent.text"
       />
     </div>
+
     <div v-if="parsedContent.to && parsedContent.label">
       <ButtonLink
-        v-if="!props.isDark"
+        v-if="!props.isDark && theme !== 'ftva'"
         :label="parsedContent.label"
         :to="parsedContent.to"
         :is-secondary="true"
         class="button-link"
       />
+
       <ButtonLink
-        v-if="props.isDark"
+        v-if="props.isDark && theme !== 'ftva'"
         :label="parsedContent.label"
         :to="parsedContent.to"
         :is-tertiary="true"
+        class="button-link"
+      />
+
+      <!-- FTVA -->
+      <ButtonLink
+        v-if="!props.isDark && theme == 'ftva'"
+        :label="parsedContent.label"
+        :to="parsedContent.to"
+        icon-name="none"
+        class="button-link"
+      />
+
+      <ButtonLink
+        v-if="props.isDark && theme == 'ftva'"
+        :label="parsedContent.label"
+        :to="parsedContent.to"
+        :is-tertiary="true"
+        icon-name="none"
         class="button-link"
       />
     </div>
