@@ -14,6 +14,7 @@ import RichText from '@/lib-components/RichText.vue'
  * - block-info-footer
  *
  * Props:
+ * - blockList: An array of strings to pass as default content for the `block-info-list` slot
  * - colorScheme:
  *  - default (white)
  *  - 'paleblue' (FTVA)
@@ -23,6 +24,48 @@ import RichText from '@/lib-components/RichText.vue'
 export default {
   title: 'BLOCK / Info',
   components: BlockInfo,
+}
+
+const mockBlockInfo = {
+  title: '<h2>Rich Text Title</h2>',
+  text: 'The winning poster design will be on display in the <em>Billy Wilder Theater</em> lobby, and every audience memeber in attendance will receive a poster to take home.',
+  list: ['SciFi', 'Thriller', 'Suspense', 'Drama']
+
+}
+
+export function Default() {
+  return {
+    data() {
+      return { ...mockBlockInfo }
+    },
+    components: { BlockInfo, ButtonLink, RichText },
+    template:
+      `<component is="style" type="text/css">
+        .block-info .rich-text {max-width: unset};
+      </component>
+      <block-info :blockList="list">
+        <template #block-info-header>
+          <RichText :rich-text-content="title" />
+        </template>
+
+        <template #block-info-text>
+          <RichText :rich-text-content="text" />
+        </template>
+
+        <template #block-info-list>
+        </template>
+
+        <template #block-info-btn>
+          <br>
+          <ButtonLink
+            label="Button Text"
+            to="https://library.ucla.edu"
+            class="button"
+            icon-name="none"
+          />
+        </template>
+      </block-info>`
+  }
 }
 
 const mockFTVABlockInfo = {
@@ -42,34 +85,6 @@ const mockFTVABlockInfo = {
 const parsedBlockInfo = computed(() => {
   return mockFTVABlockInfo.ftvaTicketInformation.map(obj => obj.title)
 })
-
-export function Default() {
-  return {
-    data() {
-      return { parsedBlockInfo }
-    },
-    components: { BlockInfo, ButtonLink, RichText },
-    template:
-      `<component is="style" type="text/css">
-      </component>
-      <block-info :blockList="parsedBlockInfo">
-        <template #block-info-header>
-          <h3>RichText Header</h3>
-        </template>
-
-        <template #block-info-list>
-        </template>
-
-        <template #block-info-btn>
-          <ButtonLink
-            label="Button"
-            class="button"
-            icon-name="none"
-          />
-        </template>
-      </block-info>`
-  }
-}
 
 export function FTVABlockInfo() {
   return {
@@ -112,43 +127,43 @@ export function FTVABlockInfo() {
   }
 }
 
-export function FTVAContactInfo() {
-  return {
-    data() {
-      return { parsedBlockInfo }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { BlockInfo, ButtonLink },
-    template:
-      `<component is="style" type="text/css">
-        .ftva.block-info {
-          padding: 20px;
-        }
-        .block-info-footer-wrapper {
-          margin: 0 auto;
-        }
-      </component>
-      <block-info colorScheme="paleblue" :blockList="parsedBlockInfo">
-        <template #block-info-header>
-          <h3 class="block-info-header">Ticket Info</h3>
-        </template>
+// export function FTVAContactInfo() {
+//   return {
+//     data() {
+//       return { parsedBlockInfo }
+//     },
+//     provide() {
+//       return {
+//         theme: computed(() => 'ftva'),
+//       }
+//     },
+//     components: { BlockInfo, ButtonLink },
+//     template:
+//       `<component is="style" type="text/css">
+//         .ftva.block-info {
+//           padding: 20px;
+//         }
+//         .block-info-footer-wrapper {
+//           margin: 0 auto;
+//         }
+//       </component>
+//       <block-info colorScheme="paleblue" :blockList="parsedBlockInfo">
+//         <template #block-info-header>
+//           <h3 class="block-info-header">Ticket Info</h3>
+//         </template>
 
-        <template #block-info-list>
-        </template>
+//         <template #block-info-list>
+//         </template>
 
-        <template #block-info-footer>
-          <ButtonLink
-            label="Plan Your Visit"
-            to="https://library.ucla.edu"
-            class="button"
-            :is-secondary="true"
-            icon-name="none"
-          />
-        </template>
-      </block-info>`
-  }
-}
+//         <template #block-info-footer>
+//           <ButtonLink
+//             label="Plan Your Visit"
+//             to="https://library.ucla.edu"
+//             class="button"
+//             :is-secondary="true"
+//             icon-name="none"
+//           />
+//         </template>
+//       </block-info>`
+//   }
+// }
