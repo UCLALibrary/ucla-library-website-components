@@ -1,3 +1,10 @@
+# [3.53.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.52.0...v3.53.0) (2025-02-27)
+
+
+### Features
+
+* APPS-3154 Add FTVA variation to Flexible CallToAction ([#688](https://github.com/UCLALibrary/ucla-library-website-components/issues/688)) ([04ff8c1](https://github.com/UCLALibrary/ucla-library-website-components/commit/04ff8c1eaa9ff7a36e1c034ca03ad646f2091da3))
+
 # [3.52.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.51.0...v3.52.0) (2025-02-27)
 
 
