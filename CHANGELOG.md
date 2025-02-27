@@ -1,3 +1,10 @@
+# [3.52.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.51.0...v3.52.0) (2025-02-27)
+
+
+### Features
+
+* APPS-3148 add ftva theme to flexible form ([#689](https://github.com/UCLALibrary/ucla-library-website-components/issues/689)) ([49ef8e4](https://github.com/UCLALibrary/ucla-library-website-components/commit/49ef8e44918cd77e3b4060ee2cc41dea88e36a4c))
+
 # [3.51.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.50.0...v3.51.0) (2025-02-26)
 
 
