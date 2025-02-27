@@ -105,10 +105,9 @@ const mockFTVADark = {
     {
       titleCta: 'FTVA Dark Call to Action',
       summary: '<p>A CTA most often refers to the use of words or phrases that can be incorporated into sales scripts, advertising messages, or web pages, which compel an audience to act in a specific way. A call to action is a marketing term for any text designed to prompt an immediate response or encourage an immediate sale. Many marketing materials, such as brochures, flyers, catalogs, email campaigns, also make use of a call to action. Such instructions are designed to show consumers how to take the next step and create a sense of urgency around the offer.</p>',
-      backgroundColor: 'false',
+      backgroundColor: 'true',
       buttonText: 'Please Click Me Please',
       buttonUrl: 'http://google.com',
-      backgroundColor: 'true',
     },
   ],
 }

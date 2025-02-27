@@ -211,7 +211,7 @@ const classes = computed(() => [
 
       <!-- FTVA -->
       <ButtonLink
-        v-if="!props.isDark && theme == 'ftva'"
+        v-if="!props.isDark && theme === 'ftva'"
         :label="parsedContent.label"
         :to="parsedContent.to"
         icon-name="none"
@@ -219,7 +219,7 @@ const classes = computed(() => [
       />
 
       <ButtonLink
-        v-if="props.isDark && theme == 'ftva'"
+        v-if="props.isDark && theme === 'ftva'"
         :label="parsedContent.label"
         :to="parsedContent.to"
         :is-tertiary="true"
