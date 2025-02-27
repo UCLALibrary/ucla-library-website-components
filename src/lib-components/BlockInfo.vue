@@ -4,51 +4,55 @@ import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 import { useTheme } from '@/composables/useTheme'
 
-const { ftvaTicketInformation, ftvaEventRegistration, to } = defineProps({
-  ftvaTicketInformation: {
+const { contentList, colorScheme } = defineProps({
+  contentList: {
     type: Array,
-    default: () => [],
+    default: () => []
   },
 
-  // Note / ToDo:
-  /* This prop is for the potential edge case that an event page will require
-    a registration link.
-
-    Although this field exists in Craft, the design spec is pending.
-
-    See: https://github.com/UCLALibrary/ucla-library-website-components/issues/521#issuecomment-2168437199
-    */
-  ftvaEventRegistration: {
-    type: Array,
-    default: () => [],
-  },
-
-  // Note / ToDo:
-  /* Default url is the internal 'Plan Your Visit' page; pending. */
-  to: {
+  colorScheme: {
     type: String,
-    default: '/plan-your-visit',
+    default: '',
   },
-})
-
-// Array of Ticket Info list
-const parsedTicketInfo = computed(() => {
-  return ftvaTicketInformation.map(obj => obj.title)
 })
 
 // THEME
 const theme = useTheme()
 
 const classes = computed(() => {
-  return ['block-info', theme?.value || '']
+  return ['block-info', colorScheme, theme?.value || '']
 })
 </script>
 
 <template>
   <div :class="classes">
-    <!-- ToDo: Potential to make this field dynamic; See: https://uclalibrary.atlassian.net/browse/APPS-2785 -->
+    <div v-if="$slots['block-info-header']" class="block-info-header-wrapper">
+      <slot name="block-info-header" />
+    </div>
 
-    <h1 class="block-info-header">
+    <div v-if="$slots['block-info-body']" class="block-info-body-wrapper">
+      <slot name="block-info-body" />
+    </div>
+
+    <div v-if="$slots['block-info-list']" class="block-info-list-wrapper">
+      <slot name="block-info-list" />
+    </div>
+
+    <div v-if="$slots['block-info-footer']" class="block-info-footer-wrapper">
+      <slot name="block-info-footer" />
+    </div>
+  </div>
+</template>
+
+<style
+  lang="scss"
+  scoped
+>
+@import "@/styles/default/_block-info.scss";
+@import "@/styles/ftva/_block-info.scss";
+</style>
+
+<!-- <h1 class="block-info-header">
       Ticket Info
     </h1>
     <ul class="block-info-list">
@@ -65,14 +69,4 @@ const classes = computed(() => {
       class="button"
       :is-secondary="true"
       icon-name="none"
-    />
-  </div>
-</template>
-
-<style
-  lang="scss"
-  scoped
->
-@import "@/styles/default/_block-info.scss";
-@import "@/styles/ftva/_block-info.scss";
-</style>
+    /> -->
