@@ -1,4 +1,4 @@
-import { MastheadSecondary } from '../lib-components'
+import { MastheadSecondary } from '..'
 
 export default {
   component: MastheadSecondary,

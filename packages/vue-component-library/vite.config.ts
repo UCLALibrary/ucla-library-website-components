@@ -3,6 +3,7 @@ import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import svgLoader from 'vite-svg-loader'
+import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,12 +18,19 @@ export default defineConfig({
         },
       },
     }),
-    svgLoader({ svgo: false })
+    svgLoader({ svgo: false }),
+    dts({
+      tsconfigPath: './tsconfig.json',
+      outDir: 'dist',
+      insertTypesEntry: true,
+      rollupTypes: true,
+    }),
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/entry.js'),
-      name: 'ucla-library-website-components',
+      entry: resolve(__dirname,'/src/index.ts'),
+      formats: ['es', 'cjs'],
+      fileName: 'index'
     },
     rollupOptions: {
        // The following comented code for generating separate components output instead of one lib file like above can be enabled but needs further improvement
