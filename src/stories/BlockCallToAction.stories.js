@@ -132,8 +132,8 @@ const mockFTVALight = {
   isDark: false,
 }
 
-export const FTVA_LightSecondaryButton = TemplateFTVA.bind({})
-FTVA_LightSecondaryButton.args = {
+export const FTVA_LightWithButton = TemplateFTVA.bind({})
+FTVA_LightWithButton.args = {
   ...mockFTVALight,
 }
 
@@ -145,7 +145,7 @@ const mockFTVADark = {
   isDark: true,
 }
 
-export const FTVA_DarkSecondaryButton = TemplateFTVA.bind({})
-FTVA_DarkSecondaryButton.args = {
+export const FTVA_DarkWithButton = TemplateFTVA.bind({})
+FTVA_DarkWithButton.args = {
   ...mockFTVADark,
 }
