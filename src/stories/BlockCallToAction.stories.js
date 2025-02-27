@@ -87,7 +87,7 @@ function TemplateFTVA(args) {
 export const FTVA_CTA_Default = TemplateFTVA.bind({})
 FTVA_CTA_Default.args = {
   ...mockFTVA,
-  svgName: 'svg-call-to-action-chat',
+  svgName: 'svg-call-to-action-chat'
 }
 
 function TemplateFTVASlim(args) {
