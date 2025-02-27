@@ -28,12 +28,12 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname,'/src/index.ts'),
+      entry: resolve(__dirname, '/src/index.ts'),
       formats: ['es', 'cjs'],
       fileName: 'index'
     },
     rollupOptions: {
-       // The following comented code for generating separate components output instead of one lib file like above can be enabled but needs further improvement
+      // The following comented code for generating separate components output instead of one lib file like above can be enabled but needs further improvement
       // This configuration tells Rollup to treat each component file as a separate entry point. The resulting output will place each built component into the dist/components directory as a standalone module.
       /* input: {
         ButtonLink: resolve(__dirname, 'src/lib-components/ButtonLink.vue'),

@@ -3,3 +3,5 @@ storybook-static/
 generated-stories-entry.js
 storybook-init-framework-entry.js
 package-lock.json
+cypress/
+dist/
