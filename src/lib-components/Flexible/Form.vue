@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import type { FlexibleForm } from '@/types/flexible_types'
+import { useTheme } from '@/composables/useTheme'
 
 const { block } = defineProps ({
   block: {
@@ -13,10 +14,16 @@ const { block } = defineProps ({
 const parsedFormContent = computed(() => {
   return block.form
 })
+
+// THEME
+const theme = useTheme()
+const parsedClasses = computed(() => {
+  return ['form', theme?.value || '']
+})
 </script>
 
 <template>
-  <div class="form">
+  <div :class="parsedClasses">
     <div class="section-header">
       <h2
         v-if="block.sectionTitle"
@@ -47,36 +54,6 @@ const parsedFormContent = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.form {
-  width: 100%;
-  height: auto;
-  margin: var(--space-2xl) auto;
-  max-width: $container-l-main + px;
-
-  .content {
-      border: 2px var(--color-primary-blue-01) solid;
-      border-radius: 4px;
-  }
-
-  .section-header {
-      margin-bottom: var(--space-xl);
-  }
-  .section-title {
-      @include step-3;
-      color: var(--color-primary-blue-03);
-      margin-bottom: var(--space-m);
-  }
-  .section-summary {
-      @include step-0;
-
-      :deep(p) {
-          margin: 0;
-      }
-  }
-
-  .iframe {
-      max-width: 928px;
-      padding: 4px;
-  }
-}
+@import "@/styles/default/_block-form.scss";
+@import "@/styles/ftva/_block-form.scss";
 </style>
