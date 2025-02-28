@@ -1,25 +1,31 @@
-<script>
-export default {
-  name: 'ImpactNumberCard',
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-    impactNumber: {
-      type: String,
-      default: '',
-    },
+<script lang="ts" setup>
+import { computed } from 'vue'
+import { useTheme } from '@/composables/useTheme'
+
+const { title, text, impactNumber } = defineProps({
+  title: {
+    type: String,
+    default: '',
   },
-}
+  text: {
+    type: String,
+    default: '',
+  },
+  impactNumber: {
+    type: String,
+    default: '',
+  },
+})
+
+// THEME
+const theme = useTheme()
+const classes = computed(() => {
+  return ['impact-number-card', theme?.value || '']
+})
 </script>
 
 <template>
-  <li class="impact-number-card">
+  <li :class="classes">
     <div class="card">
       <div
         v-if="impactNumber"
@@ -33,45 +39,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.impact-number-card {
-    width: calc((100% - 32px) / 3);
-
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    .card {
-        min-height: 300px;
-        border-radius: var(--rounded-slightly-all);
-        overflow: hidden;
-        background-color: var(--color-primary-blue-01);
-
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
-    }
-    .impact-number {
-        @include step-5;
-        font-weight: 500;
-        color: var(--color-primary-blue-05);
-        font-size: 80px;
-        text-align: center;
-    }
-    .title {
-        @include step-1;
-        color: var(--color-primary-blue-05);
-        text-align: center;
-        padding: 0 16px;
-    }
-
-    .text {
-        padding-top: 16px;
-        @include step-0;
-        color: var(--color-primary-blue-05);
-        padding: 0 4px;
-    }
-}
+@import "@/styles/default/_impact-number-card.scss";
+@import "@/styles/ftva/_impact-number-card.scss";
 </style>

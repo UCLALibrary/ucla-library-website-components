@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import FlexibleImpactNumberCards from '@/lib-components/Flexible/ImpactNumberCards'
 
 export default {
@@ -55,6 +56,26 @@ export function Default() {
     data() {
       return {
         block: mock,
+      }
+    },
+    components: { FlexibleImpactNumberCards },
+    template: `
+        <flexible-impact-number-cards
+            :block="block"
+        />
+    `,
+  }
+}
+export function FTVACards() {
+  return {
+    data() {
+      return {
+        block: mock,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     components: { FlexibleImpactNumberCards },
