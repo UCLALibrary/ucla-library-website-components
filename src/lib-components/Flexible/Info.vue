@@ -2,6 +2,8 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
+import RichText from '@/lib-components/RichText.vue'
+import IconWithLink from '@/lib-components/IconWithLink.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockInfo from '@/lib-components/BlockInfo.vue'
 
@@ -38,7 +40,7 @@ const parsedItems = computed(() => {
 const theme = useTheme()
 
 const classes = computed(() => {
-  return ['flexible-block-info', theme?.value || '']
+  return ['flexible-info', theme?.value || '']
 })
 </script>
 
@@ -51,10 +53,36 @@ const classes = computed(() => {
       :svg-name="parsedItems.icon"
       :is-centered="false"
     />
-    <BlockInfo v-else-if="parsedItems.typeHandle === 'contactInfoBlock'" color-scheme="paleblue" :contact-info="parsedItems">
-      <template #block-info-contact />
+    <BlockInfo v-else-if="parsedItems.typeHandle === 'contactInfoBlock'" color-scheme="paleblue">
+      <template #block-info-mid>
+        <ul class="contact-info">
+          <li>
+            <IconWithLink
+              :text="parsedItems.phone"
+              icon-name="svg-icon-ftva-phone"
+              :to="parsedItems.phone"
+            />
+          </li>
+          <li>
+            <IconWithLink
+              :text="parsedItems.email"
+              icon-name="svg-icon-ftva-email"
+              :to="parsedItems.email"
+            />
+          </li>
+          <li class="info-address">
+            <IconWithLink
+              icon-name="svg-icon-ftva-location-outline"
+              text=""
+            />
+            <RichText :rich-text-content="parsedItems.address" />
+          </li>
+        </ul>
+      </template>
     </BlockInfo>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "@/styles/ftva/_flexible-info.scss";
+</style>

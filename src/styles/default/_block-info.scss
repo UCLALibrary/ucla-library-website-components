@@ -4,18 +4,6 @@
     border-radius: 10px;
     padding: 40px;
 
-    .block-info-contact {
-        list-style-type: none;
-    }
-
-    :deep(.icon-with-link-container) {
-        gap: 20px;
-    }
-
-    .block-info-address {
-        display: flex;
-    }
-
     :deep(.rich-text) {
         max-width: unset;
         margin: 0;

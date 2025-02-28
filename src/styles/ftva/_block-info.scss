@@ -1,4 +1,5 @@
 .ftva.block-info {
+    
     &.paleblue {
         --color-theme: #{$page-blue};
         background-color: var(--color-theme);
@@ -33,30 +34,5 @@
         padding-left: 16px;
         padding-right: 16px;
         margin: 10px auto;
-    }
-
-    // address
-    :deep(.icon-with-link .text),
-    .block-info-address .rich-text {
-        @include ftva-emphasized-subtitle;
-    }
-
-    :deep(.icon-with-link .text) {
-        color: $accent-blue;
-    }
-
-    .block-info-address {
-        :deep(.rich-text){
-            .parsed-content {
-                margin-bottom: 0;
-            }
-            
-            p {
-                color: $body-grey;
-                font-weight: 600;
-                font-size: 20px;
-            }
-        }
-
     }
 }

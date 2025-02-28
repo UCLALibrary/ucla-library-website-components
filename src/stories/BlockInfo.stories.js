@@ -13,11 +13,8 @@ import RichText from '@/lib-components/RichText.vue'
  * - block-info-top
  * - block-info-mid
  * - block-info-end
- * - block-info-contact
  *
  * Props:
- * - contactInfo (object)
- *  - passes phone, email, (rich text) address to `block-info-contact` slot
  * - colorScheme: (string)
  *  - default (white)
  *  - 'paleblue' (FTVA)
@@ -33,13 +30,6 @@ const mockBlockInfo = {
   title: '<h2>Rich Text Heading</h2>',
   text: 'The winning poster design will be on display in the <strong>Billy Wilder Theater</strong> lobby, and every audience memeber in attendance will receive a poster to take home.',
   list: ['SciFi', 'Thriller', 'Suspense', 'Drama']
-
-}
-
-const mockContactInfo = {
-  email: 'archive@email.com',
-  phone: '+1 323-555-1234',
-  address: '<p translate="no">\n<span class="address-line1">722 California Ave</span><br>\n<span class="locality">Glendale</span>, <span class="administrative-area">CA</span> <span class="postal-code">90210</span><br>\n<span class="country">United States</span>\n</p>'
 }
 
 export function DefaultInfo() {
@@ -49,15 +39,8 @@ export function DefaultInfo() {
     },
     components: { BlockInfo, ButtonLink, RichText },
     template:
-      `<component is="style" type="text/css">
-        .block-info {
-          .rich-text {
-            max-width: unset;
-            .parsed-content { margin-bottom: 0;}
-          };
-        }
-      </component>
-      <block-info :blockList="list">
+      `
+      <block-info>
         <template #block-info-top>
           <RichText :rich-text-content="title" />
         </template>
@@ -83,15 +66,7 @@ export function DefaultInfoList() {
     },
     components: { BlockInfo, ButtonLink, RichText },
     template:
-      `<component is="style" type="text/css">
-        .block-info {
-          .rich-text {
-            max-width: unset;
-            .parsed-content { margin-bottom: 0;}
-          };
-        }
-      </component>
-      <block-info :blockList="list">
+      `<block-info :blockList="list">
         <template #block-info-top>
           <RichText :rich-text-content="title" />
         </template>
@@ -118,15 +93,35 @@ export function DefaultInfoList() {
   }
 }
 
-export function DefaultContact() {
+export function DefaultFTVAInfo() {
   return {
     data() {
-      return { mockContactInfo }
+      return { ...mockBlockInfo }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
     },
     components: { BlockInfo, ButtonLink, RichText },
     template:
-      `<block-info :blockList="list" :contactInfo="mockContactInfo">
-        <template #block-info-contact />
+      `
+      <block-info colorScheme="paleblue">
+        <template #block-info-top>
+          <RichText :rich-text-content="title" />
+        </template>
+        <template #block-info-mid>
+          <RichText :rich-text-content="text" />
+        </template>
+        <template #block-info-end>
+          <ButtonLink
+            label="Button Text"
+            to="https://library.ucla.edu"
+            :is-secondary="true"
+            class="button"
+            icon-name="none"
+          />
+        </template>
       </block-info>`
   }
 }
@@ -149,7 +144,7 @@ const parsedInfoList = computed(() => {
   return mockFTVAInfo.ftvaTicketInformation.map(obj => obj.title)
 })
 
-export function FTVAInfo() {
+export function ExampleFTVAInfo() {
   return {
     data() {
       return { parsedInfoList }

@@ -215,16 +215,16 @@ export default {
   },
   props: {
     text: {
-      type: String,
+      type: string,
       required: true,
     },
     iconName: {
-      type: String,
+      type: string,
       required: true,
     },
     to: {
       // URL to link to
-      type: String,
+      type: string,
       default: '',
     },
   },
