@@ -1,3 +1,10 @@
+# [3.54.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.53.0...v3.54.0) (2025-02-28)
+
+
+### Features
+
+* APPS-3150 add ftva theme to Flexible ImpactNumberCards ([#692](https://github.com/UCLALibrary/ucla-library-website-components/issues/692)) ([686bd3e](https://github.com/UCLALibrary/ucla-library-website-components/commit/686bd3e1ccf565831da8ae31276df43d4e9d6ee4))
+
 # [3.53.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.52.0...v3.53.0) (2025-02-27)
 
 
