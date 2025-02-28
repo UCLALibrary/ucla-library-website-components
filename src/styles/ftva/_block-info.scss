@@ -45,9 +45,18 @@
         color: $accent-blue;
     }
 
-    .block-info-address :deep(.rich-text p) {
-        color: $body-grey;
-        font-weight: 600;
-        font-size: 20px;
+    .block-info-address {
+        :deep(.rich-text){
+            .parsed-content {
+                margin-bottom: 0;
+            }
+            
+            p {
+                color: $body-grey;
+                font-weight: 600;
+                font-size: 20px;
+            }
+        }
+
     }
 }
