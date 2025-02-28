@@ -5,34 +5,34 @@
         background-color: var(--color-theme);
     }
 
-    // Move to page level
-    :deep(.block-info-header) {
-        @include ftva-subtitle-1;
-        text-align: center;
-        color: $heading-grey;
-        border-bottom: 1px solid $grey-blue;
-        padding: 8px 0;
-    }
+    // Move to page level - to be deleted when component is refactored at page-level
+    // :deep(.block-info-header) {
+    //     @include ftva-subtitle-1;
+    //     text-align: center;
+    //     color: $heading-grey;
+    //     border-bottom: 1px solid $grey-blue;
+    //     padding: 8px 0;
+    // }
 
-    // Move to page level
-    :deep(.block-info-list) {
-        padding: 16px 0 16px 20px;
+    // Move to page level - to be deleted when component is refactored at page-level
+    // :deep(.block-info-list) {
+    //     padding: 16px 0 16px 20px;
 
-        li {
-            @include ftva-body-2;
-            color: $body-grey;
+    //     li {
+    //         @include ftva-body-2;
+    //         color: $body-grey;
 
-            &::marker {
-                color: $body-grey;
-            }
-        }
-    }
+    //         &::marker {
+    //             color: $body-grey;
+    //         }
+    //     }
+    // }
 
-    // Move to page level
-    :deep(.button-link) {
-        font-size: 18px;
-        padding-left: 16px;
-        padding-right: 16px;
-        margin: 10px auto;
-    }
+    // Move to page level - to be deleted when component is refactored at page-level
+    // :deep(.button-link) {
+    //     font-size: 18px;
+    //     padding-left: 16px;
+    //     padding-right: 16px;
+    //     margin: 10px auto;
+    // }
 }

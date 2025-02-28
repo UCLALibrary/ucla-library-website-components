@@ -160,6 +160,29 @@ export function ExampleFTVAInfo() {
         .ftva.block-info {
           padding: 20px;
         }
+        .block-info-header {
+          color: #2f2f2f;
+          text-align: center;
+          text-transform: uppercase;
+          border-bottom: 1px solid #abbfd6;
+          padding: 8px 0;
+        }
+        .block-info-list {
+          padding: 16px 0 16px 20px;
+        }
+        .block-info-list li {
+          font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 150%;
+          color: #333;
+        }
+        .button-link {
+          font-size: 18px;
+          padding-left: 16px;
+          padding-right: 16px;
+          margin: 10px auto;
+        }
         .block-info-end-wrapper {
           margin: 0 auto;
         }
