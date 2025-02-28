@@ -5,15 +5,20 @@ import ButtonLink from '@/lib-components/ButtonLink.vue'
 import RichText from '@/lib-components/RichText.vue'
 
 /**
- * A generic block component that can be used to display simple, short informational content. Best used in a sidebar column/component. For long text, complex data, content with images, use a different component.
+ * A generic block component that can be used to display simple, short informational content.
+ *
+ * For long text, complex data, content with images, consider using a different component.
  *
  * Slots:
  * - block-info-top
  * - block-info-mid
- * - block-info-bottom
+ * - block-info-end
+ * - block-info-contact
  *
  * Props:
- * - colorScheme:
+ * - contactInfo (object)
+ *  - passes phone, email, (rich text) address to `block-info-contact` slot
+ * - colorScheme: (string)
  *  - default (white)
  *  - 'paleblue' (FTVA)
  */
@@ -29,6 +34,12 @@ const mockBlockInfo = {
   text: 'The winning poster design will be on display in the <strong>Billy Wilder Theater</strong> lobby, and every audience memeber in attendance will receive a poster to take home.',
   list: ['SciFi', 'Thriller', 'Suspense', 'Drama']
 
+}
+
+const mockContactInfo = {
+  email: 'archive@email.com',
+  phone: '+1 323-555-1234',
+  address: '<p translate="no">\n<span class="address-line1">722 California Ave</span><br>\n<span class="locality">Glendale</span>, <span class="administrative-area">CA</span> <span class="postal-code">90210</span><br>\n<span class="country">United States</span>\n</p>'
 }
 
 export function DefaultInfo() {
@@ -53,7 +64,7 @@ export function DefaultInfo() {
         <template #block-info-mid>
           <RichText :rich-text-content="text" />
         </template>
-        <template #block-info-bottom>
+        <template #block-info-end>
           <ButtonLink
             label="Button Text"
             to="https://library.ucla.edu"
@@ -94,7 +105,7 @@ export function DefaultInfoList() {
             </li>
           </ul>
         </template>
-        <template #block-info-bottom>
+        <template #block-info-end>
           <br>
           <ButtonLink
             label="Button Text"
@@ -103,6 +114,19 @@ export function DefaultInfoList() {
             icon-name="none"
           />
         </template>
+      </block-info>`
+  }
+}
+
+export function DefaultContact() {
+  return {
+    data() {
+      return { mockContactInfo }
+    },
+    components: { BlockInfo, ButtonLink, RichText },
+    template:
+      `<block-info :blockList="list" :contactInfo="mockContactInfo">
+        <template #block-info-contact />
       </block-info>`
   }
 }
@@ -141,7 +165,7 @@ export function FTVABlockInfo() {
         .ftva.block-info {
           padding: 20px;
         }
-        .block-info-bottom-wrapper {
+        .block-info-end-wrapper {
           margin: 0 auto;
         }
       </component>
@@ -161,7 +185,7 @@ export function FTVABlockInfo() {
         </ul>
         </template>
 
-        <template #block-info-bottom>
+        <template #block-info-end>
           <ButtonLink
             label="Plan Your Visit"
             to="https://library.ucla.edu"

@@ -5,12 +5,12 @@ import IconWithLink from './IconWithLink.vue'
 import RichText from './RichText.vue'
 import { useTheme } from '@/composables/useTheme'
 
-const { colorScheme, contactList } = defineProps({
+const { colorScheme, contactInfo } = defineProps({
   colorScheme: {
     type: String,
     default: '',
   },
-  contactList: {
+  contactInfo: {
     type: Object,
     default: () => ({})
   }
@@ -35,34 +35,34 @@ const classes = computed(() => {
     </div>
 
     <div v-if="$slots['block-info-contact']" class="block-info-contact-wrapper">
-      <slot name="block-info-contact" :contact-list="contactList">
+      <slot name="block-info-contact" :contact-info="contactInfo">
         <ul class="block-info-contact">
           <li>
             <IconWithLink
-              :text="contactList.phone"
+              :text="contactInfo.phone"
               icon-name="svg-icon-phone"
-              :to="contactList.phone"
+              :to="contactInfo.phone"
             />
           </li>
           <li>
             <IconWithLink
-              :text="contactList.email"
+              :text="contactInfo.email"
               icon-name="svg-icon-email"
-              :to="contactList.email"
+              :to="contactInfo.email"
             />
           </li>
           <li class="block-info-address">
             <IconWithLink
               icon-name="svg-icon-location"
             />
-            <RichText :rich-text-content="contactList.address" />
+            <RichText :rich-text-content="contactInfo.address" />
           </li>
         </ul>
       </slot>
     </div>
 
-    <div v-if="$slots['block-info-bottom']" class="block-info-bottom-wrapper">
-      <slot name="block-info-bottom" />
+    <div v-if="$slots['block-info-end']" class="block-info-end-wrapper">
+      <slot name="block-info-end" />
     </div>
   </div>
 </template>

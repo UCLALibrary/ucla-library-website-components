@@ -51,7 +51,7 @@ const classes = computed(() => {
       :svg-name="parsedItems.icon"
       :is-centered="false"
     />
-    <BlockInfo v-else-if="parsedItems.typeHandle === 'contactInfoBlock'" color-scheme="paleblue" :contact-list="parsedItems">
+    <BlockInfo v-else-if="parsedItems.typeHandle === 'contactInfoBlock'" color-scheme="paleblue" :contact-info="parsedItems">
       <template #block-info-contact />
     </BlockInfo>
   </div>

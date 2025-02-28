@@ -23,7 +23,7 @@ const mockContactInfoBlock = {
       id: '3726207',
       email: 'archive@email.com',
       phone: '+1 323-555-1234',
-      address: '<p translate="no">\n<span class="address-line1">722 California Ave</span><br>\n<span class="locality">Glendlae</span>, <span class="administrative-area">CA</span> <span class="postal-code">90210</span><br>\n<span class="country">United States</span>\n</p>'
+      address: '<p translate="no">\n<span class="address-line1">722 California Ave</span><br>\n<span class="locality">Glendale</span>, <span class="administrative-area">CA</span> <span class="postal-code">90210</span><br>\n<span class="country">United States</span>\n</p>'
     }
   ]
 }
@@ -52,7 +52,7 @@ export function FTVAInfoBlock() {
   }
 }
 
-export function FTVAContactBlock() {
+export function FTVAContactInfoBlock() {
   return {
     data() {
       return { block: mockContactInfoBlock }
