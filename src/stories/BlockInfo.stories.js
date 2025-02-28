@@ -5,7 +5,7 @@ import ButtonLink from '@/lib-components/ButtonLink.vue'
 import RichText from '@/lib-components/RichText.vue'
 
 /**
- * A generic block component that can be used to display simple informational content.
+ * A generic block component that can be used to display simple, short informational content. Best used in a sidebar column/component. For long text, complex data, content with images, use a different component.
  *
  * Slots:
  * - block-info-top
