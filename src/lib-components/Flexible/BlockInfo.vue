@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
-import IconWithLink from '../IconWithLink.vue'
 import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockInfo from '@/lib-components/BlockInfo.vue'
 
@@ -36,8 +35,6 @@ const parsedItems = computed(() => {
   return block.infoBlock[0]
 })
 
-console.log(parsedItems.value)
-
 const theme = useTheme()
 
 const classes = computed(() => {
@@ -54,26 +51,8 @@ const classes = computed(() => {
       :svg-name="parsedItems.icon"
       :is-centered="false"
     />
-    <BlockInfo v-else-if="parsedItems.typeHandle === 'contactInfoBlock'" color-scheme="paleblue">
-      <template #block-info-mid>
-        <!-- {{ parsedItems.email }} -->
-        <ul>
-          <li>
-            <IconWithLink
-              :text="parsedItems.email || ''"
-              icon-name="svg-icon-email"
-              :to="parsedItems.email"
-            />
-          </li>
-          <li>
-            <IconWithLink
-              :text="parsedItems.phone || ''"
-              icon-name="svg-icon-phone"
-              :to="parsedItems.phone"
-            />
-          </li>
-        </ul>
-      </template>
+    <BlockInfo v-else-if="parsedItems.typeHandle === 'contactInfoBlock'" color-scheme="paleblue" :contact-list="parsedItems">
+      <template #block-info-contact />
     </BlockInfo>
   </div>
 </template>
