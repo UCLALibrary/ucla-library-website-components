@@ -40,20 +40,20 @@ const classes = computed(() => {
           <li>
             <IconWithLink
               :text="contactInfo.phone"
-              icon-name="svg-icon-phone"
+              icon-name="svg-icon-ftva-phone"
               :to="contactInfo.phone"
             />
           </li>
           <li>
             <IconWithLink
               :text="contactInfo.email"
-              icon-name="svg-icon-email"
+              icon-name="svg-icon-ftva-email"
               :to="contactInfo.email"
             />
           </li>
           <li class="block-info-address">
             <IconWithLink
-              icon-name="svg-icon-location"
+              icon-name="svg-icon-ftva-location-outline"
             />
             <RichText :rich-text-content="contactInfo.address" />
           </li>
