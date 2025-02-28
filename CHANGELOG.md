@@ -1,3 +1,24 @@
+# [3.54.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.53.0...v3.54.0) (2025-02-28)
+
+
+### Features
+
+* APPS-3150 add ftva theme to Flexible ImpactNumberCards ([#692](https://github.com/UCLALibrary/ucla-library-website-components/issues/692)) ([686bd3e](https://github.com/UCLALibrary/ucla-library-website-components/commit/686bd3e1ccf565831da8ae31276df43d4e9d6ee4))
+
+# [3.53.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.52.0...v3.53.0) (2025-02-27)
+
+
+### Features
+
+* APPS-3154 Add FTVA variation to Flexible CallToAction ([#688](https://github.com/UCLALibrary/ucla-library-website-components/issues/688)) ([04ff8c1](https://github.com/UCLALibrary/ucla-library-website-components/commit/04ff8c1eaa9ff7a36e1c034ca03ad646f2091da3))
+
+# [3.52.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.51.0...v3.52.0) (2025-02-27)
+
+
+### Features
+
+* APPS-3148 add ftva theme to flexible form ([#689](https://github.com/UCLALibrary/ucla-library-website-components/issues/689)) ([49ef8e4](https://github.com/UCLALibrary/ucla-library-website-components/commit/49ef8e44918cd77e3b4060ee2cc41dea88e36a4c))
+
 # [3.51.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.50.0...v3.51.0) (2025-02-26)
 
 

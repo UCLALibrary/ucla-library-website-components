@@ -2,9 +2,53 @@
   // For FTVA default CTA (non-slim, centered) specs if and when needed
 
   background-color: $page-blue;
-  
+
   .title {
     color: $heading-grey;
+  }
+
+  // Color Themes
+  &.theme-light {
+    background-color: $page-blue;
+
+    :deep(.title) {
+      @include ftva-card-title-1;
+      color: $accent-blue;
+    }
+
+    :deep(.rich-text.text) {
+      @include ftva-body;
+      line-height: 1.5;
+
+      p {
+        @include ftva-body;
+        font-size: 16px;
+        color: $body-grey;
+        @include truncate(5);
+
+      }
+    }
+  }
+
+  &.theme-dark {
+    background-color: $accent-blue;
+
+    :deep(.title) {
+      @include ftva-card-title-1;
+      color: $pure-white;
+    }
+
+    :deep(.rich-text.text) {
+      @include ftva-body;
+      line-height: 1.5;
+
+      p {
+        @include ftva-body;
+        font-size: 16px;
+        color: $page-blue;
+        @include truncate(5);
+      }
+    }
   }
 }
 
@@ -17,7 +61,7 @@
   align-content: unset;
   align-items: unset;
   -moz-column-gap: .75rem;
-       column-gap: .75rem;
+  column-gap: .75rem;
 
   .svg {
     position: relative;
@@ -42,13 +86,12 @@
     margin-bottom: 4px;
   }
 
-
   :deep(.rich-text.text) {
     @include ftva-body-2;
     line-height: 1.5;
     max-width: 100%;
     position: relative;
-    
+
     p {
       font-size: 16px;
     }
