@@ -58,14 +58,14 @@ const classes = computed(() => {
         <ul class="contact-info">
           <li>
             <IconWithLink
-              :text="parsedItems.phone"
+              :text="parsedItems.phone || ''"
               icon-name="svg-icon-ftva-phone"
               :to="parsedItems.phone"
             />
           </li>
           <li>
             <IconWithLink
-              :text="parsedItems.email"
+              :text="parsedItems.email || ''"
               icon-name="svg-icon-ftva-email"
               :to="parsedItems.email"
             />
