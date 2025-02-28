@@ -131,7 +131,7 @@ export function DefaultContact() {
   }
 }
 
-const mockFTVABlockInfo = {
+const mockFTVAInfo = {
   ftvaTicketInformation: [
     {
       title: 'Admission is free',
@@ -145,14 +145,14 @@ const mockFTVABlockInfo = {
   ],
 }
 
-const parsedBlockInfo = computed(() => {
-  return mockFTVABlockInfo.ftvaTicketInformation.map(obj => obj.title)
+const parsedInfoList = computed(() => {
+  return mockFTVAInfo.ftvaTicketInformation.map(obj => obj.title)
 })
 
-export function FTVABlockInfo() {
+export function FTVAInfo() {
   return {
     data() {
-      return { parsedBlockInfo }
+      return { parsedInfoList }
     },
     provide() {
       return {
@@ -177,7 +177,7 @@ export function FTVABlockInfo() {
         <template #block-info-mid>
           <ul class="block-info-list">
           <li
-            v-for="(item, index) in parsedBlockInfo"
+            v-for="(item, index) in parsedInfoList"
             :key="item + '-' + index"
           >
             {{ item }}

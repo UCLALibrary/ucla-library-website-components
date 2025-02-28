@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import FlexibleBlockInfo from '@/lib-components/Flexible/BlockInfo'
+import FlexibleInfo from '@/lib-components/Flexible/Info'
 
 const mockInfoBlock = {
   id: '3700149',
@@ -29,8 +29,8 @@ const mockContactInfoBlock = {
 }
 
 export default {
-  title: 'FLEXIBLE / BlockInfo',
-  component: FlexibleBlockInfo,
+  title: 'FLEXIBLE / Info',
+  component: FlexibleInfo,
 }
 
 export function FTVAInfoBlock() {
@@ -43,9 +43,9 @@ export function FTVAInfoBlock() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { FlexibleBlockInfo },
+    components: { FlexibleInfo },
     template: `
-        <flexible-block-info
+        <flexible-info
             :block="block"
         />
     `,
@@ -62,9 +62,9 @@ export function FTVAContactInfoBlock() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { FlexibleBlockInfo },
+    components: { FlexibleInfo },
     template: `
-        <flexible-block-info
+        <flexible-info
             :block="block"
         />
     `,
