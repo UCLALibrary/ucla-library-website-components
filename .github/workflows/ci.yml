@@ -76,7 +76,7 @@ jobs:
           production-deploy: true
           deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/commit/${{ github.sha }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          publish-dir: "./storybook-static"
+          publish-dir: "./packages/vue-component-library/storybook-static"
           fails-without-credentials: true
           github-deployment-environment: test
         env:
@@ -91,7 +91,7 @@ jobs:
           alias: deploy-preview-${{ github.event.pull_request.number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           overwrites-pull-request-comment: true
-          publish-dir: "./storybook-static"
+          publish-dir: "./packages/vue-component-library/storybook-static"
           fails-without-credentials: true
           github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
         env:
