@@ -8,54 +8,52 @@ import RichText from '@/lib-components/RichText.vue'
 
 import { useTheme } from '@/composables/useTheme'
 
-const props = defineProps(
-  {
-    svgName: {
-      type: String,
-      default: '',
-    },
-    title: {
-      type: String,
-      default: '',
-    },
-    text: {
-      type: String,
-      default: '',
-    },
-    name: {
-      type: String,
-      default: '',
-    },
-    to: {
-      type: String,
-      default: '',
-    },
-    isDark: {
-      type: Boolean,
-      default: false,
-    },
-    isSmallSize: {
-      type: Boolean,
-      default: false,
-    },
-    isCentered: {
-      type: Boolean,
-      default: true,
-    },
-    isGlobal: {
-      type: Boolean,
-      default: false,
-    },
-    isMeapGlobal: {
-      type: Boolean,
-      default: false,
-    },
-    useGlobalData: {
-      type: Boolean,
-      default: false
-    }
+const props = defineProps({
+  svgName: {
+    type: String,
+    default: '',
+  },
+  title: {
+    type: String,
+    default: '',
+  },
+  text: {
+    type: String,
+    default: '',
+  },
+  name: {
+    type: String,
+    default: '',
+  },
+  to: {
+    type: String,
+    default: '',
+  },
+  isDark: {
+    type: Boolean,
+    default: false,
+  },
+  isSmallSize: {
+    type: Boolean,
+    default: false,
+  },
+  isCentered: {
+    type: Boolean,
+    default: true,
+  },
+  isGlobal: {
+    type: Boolean,
+    default: false,
+  },
+  isMeapGlobal: {
+    type: Boolean,
+    default: false,
+  },
+  useGlobalData: {
+    type: Boolean,
+    default: false
   }
-)
+})
 
 const SvgCallToActionChat = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/call-to-action-chat.svg')
@@ -118,17 +116,9 @@ const iconMapping = {
 
 const store = useGlobalStore()
 
-const askALibrarian = computed(() => {
-  return store.globals.askALibrarian
-})
-
-const meapCallToAction = computed(() => {
-  return store.globals.meapCallToAction
-})
-
-const ftvaViewingInformation = computed(() => {
-  return store.globals.ftvaViewingInformation
-})
+const askALibrarian = computed(() => store.globals.askALibrarian)
+const meapCallToAction = computed(() => store.globals.meapCallToAction)
+const ftvaViewingInformation = computed(() => store.globals.ftvaViewingInformation)
 
 const theme = useTheme()
 
@@ -164,22 +154,20 @@ const parsedContent = computed(() => {
       title: props.title,
       text: props.text,
       label: props.name,
-      svgName: iconMapping[props.svgName as keyof typeof iconMapping].icon,
+      svgName: props.svgName ? iconMapping[props.svgName as keyof typeof iconMapping]?.icon : undefined, // Allow undefined
     }
   }
 })
 
-const classes = computed(() => {
-  return [
-    'block-call-to-action',
-    { 'full-width': !props.isSmallSize },
-    { 'half-width': props.isSmallSize },
-    { 'theme-light': !props.isDark },
-    { 'theme-dark': props.isDark },
-    { 'slim-left-align': !props.isCentered }, // For FTVA SlimCTA
-    theme?.value || ''
-  ]
-})
+const classes = computed(() => [
+  'block-call-to-action',
+  { 'full-width': !props.isSmallSize },
+  { 'half-width': props.isSmallSize },
+  { 'theme-light': !props.isDark },
+  { 'theme-dark': props.isDark },
+  { 'slim-left-align': !props.isCentered }, // For FTVA SlimCTA
+  theme?.value || ''
+])
 </script>
 
 <template>
@@ -189,6 +177,7 @@ const classes = computed(() => {
       class="svg"
       aria-hidden="true"
     />
+
     <div>
       <h2
         v-if="props.title || parsedContent.title"
@@ -196,21 +185,45 @@ const classes = computed(() => {
       >
         {{ parsedContent.title }}
       </h2>
-      <RichText :class="{ 'ftva-global-data': props.useGlobalData && theme === 'ftva' }" class="text" :rich-text-content="parsedContent.text" />
+      <RichText
+        :class="{ 'ftva-global-data': props.useGlobalData && theme === 'ftva' }"
+        class="text"
+        :rich-text-content="parsedContent.text"
+      />
     </div>
-    <div v-if="theme !== 'ftva'">
+
+    <div v-if="parsedContent.to && parsedContent.label">
       <ButtonLink
-        v-if="!props.isDark"
+        v-if="!props.isDark && theme !== 'ftva'"
         :label="parsedContent.label"
         :to="parsedContent.to"
         :is-secondary="true"
         class="button-link"
       />
+
       <ButtonLink
-        v-if="props.isDark"
+        v-if="props.isDark && theme !== 'ftva'"
         :label="parsedContent.label"
         :to="parsedContent.to"
         :is-tertiary="true"
+        class="button-link"
+      />
+
+      <!-- FTVA -->
+      <ButtonLink
+        v-if="!props.isDark && theme === 'ftva'"
+        :label="parsedContent.label"
+        :to="parsedContent.to"
+        icon-name="none"
+        class="button-link"
+      />
+
+      <ButtonLink
+        v-if="props.isDark && theme === 'ftva'"
+        :label="parsedContent.label"
+        :to="parsedContent.to"
+        :is-tertiary="true"
+        icon-name="none"
         class="button-link"
       />
     </div>
