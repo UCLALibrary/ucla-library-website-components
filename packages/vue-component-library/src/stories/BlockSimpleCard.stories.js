@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import BlockSimpleCard from '@/lib-components/BlockSimpleCard'
 
 export default {
@@ -100,5 +101,26 @@ export function LongText() {
     },
     components: { BlockSimpleCard },
     template: '<block-simple-card v-bind="card" style="max-width: 300px;"/>',
+  }
+}
+
+export function FTVADefault() {
+  return {
+    data() {
+      return { ...mockExternal }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockSimpleCard },
+    template: `
+        <block-simple-card
+            :title="title"
+            :text="summary"
+            :to="externalLink"
+        />
+    `,
   }
 }

@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import ImpactNumberCard from '../lib-components/ImpactNumberCard'
 
 export default {
@@ -17,6 +18,29 @@ export function Default() {
     data() {
       return {
         ...mock,
+      }
+    },
+    components: { ImpactNumberCard },
+    template: `
+        <impact-number-card
+            :text="text"
+            :title="title"
+            :impact-number="impactNumber"
+        />
+    `,
+  }
+}
+
+export function FTVACards() {
+  return {
+    data() {
+      return {
+        ...mock,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     components: { ImpactNumberCard },

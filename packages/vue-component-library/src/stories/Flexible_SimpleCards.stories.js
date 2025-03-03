@@ -1,3 +1,5 @@
+import { computed } from 'vue'
+
 import {
   mockFiveCards,
   mockFourCards,
@@ -72,6 +74,26 @@ export function SixCards() {
     components: { FlexibleSimpleCards },
     template: `
       <flexible-simple-cards :block="block" />
+  `,
+  }
+}
+
+// FTVA
+export function FTVADefault() {
+  return {
+    data() {
+      return { block: mockTwoCards }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { FlexibleSimpleCards },
+    template: `
+      <flexible-simple-cards
+          :block="block"
+      />
   `,
   }
 }
