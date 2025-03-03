@@ -28,7 +28,7 @@ jobs:
           version: 8
       - uses: cypress-io/github-action@v3
         with:
-          start: pnpm --filter ucla-library-website-components dlx http-server ./storybook-static -p 6006
+          start: pnpm --filter ucla-library-website-components exec http-server ./storybook-static -p 6006
           install: false
           command-prefix: "percy exec -- pnpx"
           wait-on: http://localhost:6006
