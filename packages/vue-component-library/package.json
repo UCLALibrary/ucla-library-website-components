@@ -14,11 +14,13 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/ucla-library-website-components.js",
+      "require": "./dist/ucla-library-website-components.cjs"
     },
     "./style.css": "./dist/style.css"
   },
+  "main": "./dist/ucla-library-website-components.cjs",
+  "module": "./dist/ucla-library-website-components.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"

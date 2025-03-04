@@ -28,9 +28,9 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, '/src/index.ts'),
+      entry: resolve(__dirname, '/src/entry.ts'),
       formats: ['es', 'cjs'],
-      fileName: 'index'
+      fileName: 'ucla-library-website-components'
     },
     rollupOptions: {
       // The following comented code for generating separate components output instead of one lib file like above can be enabled but needs further improvement
