@@ -20,6 +20,3 @@ export * from './lib-components/index'
 // Tree Shaking: With the above structure, if someone imports only one component from your library,
 // only the code for that specific component should end up in their final bundle.
 export * from './types/types'
-
-
-
