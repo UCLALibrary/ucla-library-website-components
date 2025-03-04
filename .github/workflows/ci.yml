@@ -98,10 +98,15 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
 
+      - name: Verify Cypress Installation
+        shell: bash
+        run: pnpm --filter ucla-library-website-components exec cypress --version
+
       - name: Cypress test for Storybook Components
         uses: cypress-io/github-action@v5
         with:
-          start: pnpm --filter ucla-library-website-components exec cypress install --force && pnpm --filter ucla-library-website-components exec http-server ./storybook-static -p 6006
+          working-directory: packages/vue-component-library
+          start: pnpm --filter ucla-library-website-components exec http-server ./storybook-static -p 6006
           wait-on: http://localhost:6006
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
