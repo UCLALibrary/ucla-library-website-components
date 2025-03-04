@@ -97,8 +97,15 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
+
       - name: Verify Cypress Installation
-        run: pnpm --filter ucla-library-website-components exec cypress verify
+        shell: bash
+        run: pnpm --filter ucla-library-website-components exec cypress --version
+
+      - name: Install Cypress Globally
+        shell: bash
+        run: pnpm add -g cypress
+
       - name: Cypress test for Storybook Components
         uses: cypress-io/github-action@v5
         with:
