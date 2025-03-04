@@ -105,6 +105,7 @@ jobs:
       - name: Cypress test for Storybook Components
         uses: cypress-io/github-action@v5
         with:
+          install: false
           working-directory: packages/vue-component-library
           start: pnpm --filter ucla-library-website-components exec http-server ./storybook-static -p 6006
           wait-on: http://localhost:6006
