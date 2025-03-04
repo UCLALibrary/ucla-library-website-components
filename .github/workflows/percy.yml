@@ -28,6 +28,7 @@ jobs:
           version: 8
       - uses: cypress-io/github-action@v3
         with:
+          working-directory: packages/vue-component-library
           start: pnpm --filter ucla-library-website-components exec http-server ./storybook-static -p 6006
           install: false
           command-prefix: "percy exec -- pnpx"
