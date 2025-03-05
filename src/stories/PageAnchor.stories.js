@@ -1,3 +1,5 @@
+import { computed } from 'vue'
+
 // A sticky list/menu on the right side of the page. It displays section-titles from the current page that create anchor links to those section-titles. It also always has a Back to Top link as the final element.
 import PageAnchor from '../lib-components/PageAnchor.vue'
 
@@ -98,4 +100,35 @@ About.args = {
     'More About Anything',
   ],
   color: 'about',
+}
+
+function Theme(args) {
+  return {
+    components: { PageAnchor },
+    setup() {
+      return { args }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    template: '<page-anchor v-bind="args" />',
+  }
+}
+
+export const FTVATheme = Theme.bind({})
+FTVATheme.args = {
+  sectionTitles: [
+    'The story',
+    'Endeavors of the initiaive',
+    'Filmmakers & filmography',
+    'Watch online',
+    'Exhibitions & symposia',
+    'Touring films',
+    'Research at UCLA',
+    'Acknowledgements',
+    'Additional materials',
+  ],
+  color: 'default',
 }

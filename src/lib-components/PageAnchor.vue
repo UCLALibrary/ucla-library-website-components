@@ -2,9 +2,10 @@
 import { computed, ref } from 'vue'
 import type { PropType } from 'vue'
 import { useRoute } from 'vue-router'
+import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
+import { useTheme } from '@/composables/useTheme'
 
 // Helpers
-import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
 import getSectionName from '@/utils/getSectionName'
 
 const { sectionTitles, color } = defineProps({
@@ -29,8 +30,7 @@ const windowWidth = ref(window.innerWidth)
 const sectionName = computed(() => {
   return color || getSectionName(route?.path)
 })
-
-const classes = computed(() => {
+const listClasses = computed(() => {
   return ['link', `color-${sectionName.value}`]
 })
 const kebabCaseTitles = computed(() => {
@@ -52,10 +52,16 @@ const isDesktop = computed(() => {
 function toggleDropdown() {
   isDropdownOpen.value = !isDropdownOpen.value
 }
+
+// Theme
+const theme = useTheme()
+const classes = computed(() => {
+  return ['page-anchor', theme?.value || '']
+})
 </script>
 
 <template>
-  <div class="page-anchor">
+  <div :class="classes">
     <div class="page-anchor-content">
       <button class="dropdown-button" @click="toggleDropdown">
         On this page
@@ -68,20 +74,20 @@ function toggleDropdown() {
 
       <!-- Desktop - Page Anchor remains open when link is clicked -->
       <ul v-if="isDropdownOpen && isDesktop" class="dropdown-menu page-anchor-list">
-        <li v-for="(title, index) in sectionTitles" :key="`${title}-${index}`" :class="classes">
+        <li v-for="(title, index) in sectionTitles" :key="`${title}-${index}`" :class="listClasses">
           <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
         </li>
-        <li :class="classes">
+        <li :class="listClasses">
           <a href="#">Back to Top</a>
         </li>
       </ul>
 
       <!-- Tablet or Mobile - Page Anchor closes when link is clicked -->
       <ul v-if="isDropdownOpen && !isDesktop" class="dropdown-menu page-anchor-list" @click="toggleDropdown">
-        <li v-for="(title, index) in sectionTitles" :key="`${title}-${index}`" :class="classes">
+        <li v-for="(title, index) in sectionTitles" :key="`${title}-${index}`" :class="listClasses">
           <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
         </li>
-        <li :class="classes">
+        <li :class="listClasses">
           <a href="#">Back to Top</a>
         </li>
       </ul>
@@ -90,119 +96,6 @@ function toggleDropdown() {
 </template>
 
 <style lang="scss" scoped>
-.page-anchor {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    background: linear-gradient(to left, white, transparent 99.99%);
-    z-index: 30;
-    float: right;
-
-    .page-anchor-content {
-        display: inline-flex;
-        justify-content: flex-end;
-        flex-direction: column;
-        min-height: 48px;
-        padding: 4px 40px;
-        position: relative;
-    }
-
-    .dropdown-button {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        align-self: flex-end;
-        justify-content: flex-end;
-        flex-wrap: nowrap;
-        min-width: 250px;
-        max-width: 100%;
-        @include overline;
-    }
-
-    .page-anchor-list {
-        position: absolute;
-        top: 48px;
-        right: 0;
-        width: 100%;
-        padding: 4px 40px;
-        list-style-type: none;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: flex-end;
-        background: linear-gradient(to left, white, transparent 99.99%);
-
-        li {
-            padding: $component-04 + px $component-05 + px;
-        }
-    }
-
-    .page-anchor-list,
-    .link a {
-        --color-border: var(--color-primary-blue-03);
-        @include overline;
-        text-align: right;
-        text-decoration-thickness: 2px;
-        text-decoration-color: var(--color-border);
-        text-underline-offset: 1px;
-    }
-
-    .link a:hover {
-        text-decoration-line: underline;
-    }
-
-    .link {
-        &.color-help a:hover {
-            --color-border: var(--color-help-green-03);
-        }
-
-        &.color-visit a:hover {
-            --color-border: var(--color-visit-fushia-03);
-        }
-
-        &.color-about a:hover {
-            --color-border: var(--color-about-purple-03);
-        }
-
-        &.color-default a:hover {
-            --color-border: var(--color-default-cyan-03);
-        }
-    }
-
-    // Open state
-    .is-active {
-        .caret-down-svg {
-            transform: rotate(180deg);
-        }
-    }
-
-    // Breakpoints
-    @media #{$medium} {
-        display: block;
-        background-color: var(--color-white);
-        float: none;
-        width: 100%;
-
-        .page-anchor-content {
-            width: 100%;
-            padding: 4px var(--unit-gutter);
-        }
-
-        .dropdown-button {
-            width: 100%;
-            background-color: var(--color-white);
-            padding: 0;
-        }
-
-        .page-anchor-list {
-            width: 100%;
-            background-color: var(--color-white);
-            padding: 4px var(--unit-gutter);
-
-            .link {
-                padding-right: 0;
-            }
-        }
-    }
-}
+@import "@/styles/default/_page-anchor.scss";
+@import "@/styles/ftva/_page-anchor.scss";
 </style>
