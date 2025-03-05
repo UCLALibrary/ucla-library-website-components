@@ -140,14 +140,14 @@ const mockFTVAInfo = {
   ],
 }
 
-const parsedInfoList = computed(() => {
+const mockParsedInfoList = computed(() => {
   return mockFTVAInfo.ftvaTicketInformation.map(obj => obj.title)
 })
 
 export function ExampleFTVAInfo() {
   return {
     data() {
-      return { parsedInfoList }
+      return { mockParsedInfoList }
     },
     provide() {
       return {
@@ -187,7 +187,7 @@ export function ExampleFTVAInfo() {
           margin: 0 auto;
         }
       </component>
-      <block-info colorScheme="paleblue">
+      <BlockInfo colorScheme="paleblue">
         <template #block-info-top>
           <h3 class="block-info-header">Ticket Info</h3>
         </template>
@@ -195,7 +195,7 @@ export function ExampleFTVAInfo() {
         <template #block-info-mid>
           <ul class="block-info-list">
           <li
-            v-for="(item, index) in parsedInfoList"
+            v-for="(item, index) in mockParsedInfoList"
             :key="item + '-' + index"
           >
             {{ item }}
@@ -212,6 +212,6 @@ export function ExampleFTVAInfo() {
             icon-name="none"
           />
         </template>
-      </block-info>`
+      </BlockInfo>`
   }
 }
