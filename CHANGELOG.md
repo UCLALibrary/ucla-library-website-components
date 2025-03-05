@@ -1,3 +1,10 @@
+# [3.56.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.55.0...v3.56.0) (2025-03-05)
+
+
+### Features
+
+* APPS-3147 Create FlexibleBlockInfo ([#694](https://github.com/UCLALibrary/ucla-library-website-components/issues/694)) ([a756e2b](https://github.com/UCLALibrary/ucla-library-website-components/commit/a756e2bca5af931b69920fab1dd6402c88484c81))
+
 # [3.55.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.54.0...v3.55.0) (2025-03-05)
 
 

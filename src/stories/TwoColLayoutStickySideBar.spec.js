@@ -1,7 +1,7 @@
 describe('LAYOUT / Two Columns W Sticky Sidebar', () => {
   it('Default', () => {
     cy.visit(
-      '/iframe.html?id=layout-2-column-layout-with-sticky-sidebar--event-series'
+      '/iframe.html?id=layout-2-column-layout-with-sticky-sidebar--ftva-event-series'
     )
     cy.get('.two-column').should('exist')
 
