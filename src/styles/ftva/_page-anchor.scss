@@ -1,0 +1,52 @@
+.ftva.page-anchor {
+    float: none;
+
+    .page-anchor-content {
+        padding: 4px;
+    }
+    li.link, .dropdown-button {
+        @include ftva-subtitle-2;
+        color: var(--ftva-medium-blue);
+        text-transform: unset;
+        align-self: flex-start;
+        justify-content: flex-start;
+        letter-spacing: normal;
+    }
+    .page-anchor-list,
+    .link a { 
+        @include ftva-subtitle-2;
+        color: $subtitle-grey;
+        text-transform: unset;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-left: 4px;
+        letter-spacing: normal;
+    }
+    .link {
+      &.color-default a:hover {
+        --color-border: var(--ftva-medium-blue);
+      }
+    }
+    .page-anchor-list {
+
+        li.link {
+            padding: 4px;
+            &:last-child {
+                a {
+                    color: var(--ftva-medium-blue);
+                    padding-left: 0px;;
+                }
+                margin-top: 8px;
+                padding-left: 0px;
+                
+            }
+        }
+    }
+    .dropdown-button {
+        .caret-down-svg {
+            :deep(path.svg__stroke--primary-blue-03) {
+                stroke: var(--ftva-medium-blue);
+            }
+        }
+    }
+}
