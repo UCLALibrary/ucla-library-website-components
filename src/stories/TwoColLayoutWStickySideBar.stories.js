@@ -4,6 +4,7 @@ import BlockCallToAction from '@/lib-components/BlockCallToAction.vue'
 import BlockEventDetail from '@/lib-components/BlockEventDetail.vue'
 import BlockInfo from '@/lib-components/BlockInfo.vue'
 import ButtonDropdown from '@/lib-components/ButtonDropdown.vue'
+import ButtonLink from '@/lib-components/ButtonLink.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 import DividerWayFinder from '@/lib-components/DividerWayFinder.vue'
 import FlexibleBlocks from '@/lib-components/FlexibleBlocks.vue'
@@ -43,24 +44,12 @@ const mockSeriesPageData = {
     }
   ]
 }
-const ftvaTicketInformation = [
-  {
-    title: 'Admission is free',
-  },
-  {
-    title: 'Seats are assigned on a first come, first served basis',
-  },
-  {
-    title: 'The box office opens one hour before the event',
-  },
-]
 
-export function EventSeries() {
+export function FTVAEventSeries() {
   return {
     data() {
       return {
-        page: mockSeriesPageData,
-        ftvaTicketInformation
+        page: mockSeriesPageData
       }
     },
     provide() {
@@ -68,7 +57,7 @@ export function EventSeries() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { TwoColLayoutWStickySideBar, CardMeta, RichText, BlockInfo, BlockEventDetail, SectionWrapper },
+    components: { TwoColLayoutWStickySideBar, CardMeta, RichText, BlockEventDetail, SectionWrapper },
     template: `<div>
                 <SectionWrapper theme='paleblue'>Previous Section Content</SectionWrapper>
                 <TwoColLayoutWStickySideBar>
@@ -94,12 +83,6 @@ export function EventSeries() {
                             :end-date="page?.endDate"
                             :ongoing="page?.ongoing"
                             :locations="page?.location" />
-                    </template>
-                    <template v-slot:sidebarBottom>
-                        <BlockInfo
-                            v-if="ftvaTicketInformation && ftvaTicketInformation.length > 0"
-                            data-test="ticket-info"
-                            :ftva-ticket-information="ftvaTicketInformation" />
                     </template>
                 </TwoColLayoutWStickySideBar>
                 <SectionWrapper theme='paleblue'>Next Section Content</SectionWrapper>
@@ -156,12 +139,29 @@ const mockCalendarData = {
   eventDescription: '<p>Admission is free. No advance reservations. Your seat will be assigned to you when you pick up your ticket at the box office. Seats are assigned on a first come, first served basis. The box office opens one hour before the event.</p>\n<p>La Région Centrale</p>\n<p>Canada, 1971</p>\n<p>The late avant-garde master Michael Snow’s work explores the nature of perception, consciousness, participation, and in many ways is uncategorizable but relation to time is evident. He worked in many mediums and his films playfully and prolifically rethink the parameters while requiring audiences to actively participate in this work. La Région Centrale is a three-hour-long film that calls attention to the mechanics of filmmaking, using a computer-programmed, motorized tripod that rotates the camera 360 degrees in any direction, repeatedly, without dialogue or any other subject beyond the landscape, over the course of a day.'
 }
 
+// For BlockInfo
+const ftvaTicketInformation = [
+  {
+    title: 'Admission is free',
+  },
+  {
+    title: 'Seats are assigned on a first come, first served basis',
+  },
+  {
+    title: 'The box office opens one hour before the event',
+  },
+]
+
+const mockParsedInfoList = computed(() => {
+  return ftvaTicketInformation.map(obj => obj.title)
+})
+
 export function FTVAEventDetail() {
   return {
     data() {
       return {
         page: mockEventDetailPageData,
-        ftvaTicketInformation,
+        mockParsedInfoList,
         mockCalendarData
       }
     },
@@ -170,44 +170,95 @@ export function FTVAEventDetail() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { TwoColLayoutWStickySideBar, ButtonDropdown, CardMeta, DividerWayFinder, RichText, BlockInfo, BlockEventDetail, SectionWrapper },
-    template: `<div>
+    components: { TwoColLayoutWStickySideBar, ButtonDropdown, ButtonLink, CardMeta, DividerWayFinder, RichText, BlockInfo, BlockEventDetail, SectionWrapper },
+    template:
+    `<component is="style" type="text/css">
+        .ftva.block-info {
+          padding: 20px;
+        }
+        .block-info-header {
+          color: #2f2f2f;
+          text-align: center;
+          text-transform: uppercase;
+          border-bottom: 1px solid #abbfd6;
+          padding: 8px 0;
+        }
+        .block-info-list {
+          padding: 16px 0 16px 20px;
+        }
+        .block-info-list li {
+          font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 150%;
+          color: #333;
+        }
+        .button-link {
+          font-size: 18px;
+          padding-left: 16px;
+          padding-right: 16px;
+          margin: 10px auto;
+        }
+        .block-info-end-wrapper {
+          margin: 0 auto;
+        }
+      </component>
+      <div>
         <SectionWrapper theme='paleblue'>Previous Section Content</SectionWrapper>
         <TwoColLayoutWStickySideBar>
         <template v-slot:primaryTop>
-            <CardMeta
-                :category="page.category"
-                :title="page?.title"
-                :tag-labels="page?.tagLabels"
-                :introduction="page?.acknowledements"
-                :guest-speaker="page?.guestSpeaker"
-            />
-            <RichText
-                v-if="page?.eventDescription"
-                :rich-text-content="page?.eventDescription"
-            />
+          <CardMeta
+              :category="page.category"
+              :title="page?.title"
+              :tag-labels="page?.tagLabels"
+              :introduction="page?.acknowledements"
+              :guest-speaker="page?.guestSpeaker"
+          />
+          <RichText
+              v-if="page?.eventDescription"
+              :rich-text-content="page?.eventDescription"
+          />
         </template>
         <template v-slot:primaryBottom>
-            <DividerWayFinder />
+          <DividerWayFinder />
         </template>
         <template v-slot:sidebarTop>
-                <BlockEventDetail
-                    data-test="event-details"
-                    :start-date="page?.startDateWithTime"
-                    :time="page?.startDateWithTime"
-                    :ongoing="page?.ongoing"
-                    :locations="page?.location"
-                />
-                <ButtonDropdown v-bind="mockCalendarData" />
-                <BlockInfo
-                    v-if="ftvaTicketInformation && ftvaTicketInformation.length > 0"
-                    data-test="ticket-info"
-                    :ftva-ticket-information="ftvaTicketInformation"
-                />
+          <BlockEventDetail
+            data-test="event-details"
+            :start-date="page?.startDateWithTime"
+            :time="page?.startDateWithTime"
+            :ongoing="page?.ongoing"
+            :locations="page?.location"
+          />
+          <ButtonDropdown v-bind="mockCalendarData" />
+          <BlockInfo colorScheme="paleblue">
+            <template #block-info-top>
+              <h3 class="block-info-header">Ticket Info</h3>
+            </template>
+            <template #block-info-mid>
+              <ul class="block-info-list">
+              <li
+                v-for="(item, index) in mockParsedInfoList"
+                :key="item + '-' + index"
+              >
+                {{ item }}
+              </li>
+            </ul>
+            </template>
+            <template #block-info-end>
+              <ButtonLink
+                label="Plan Your Visit"
+                to="https://library.ucla.edu"
+                class="button"
+                :is-secondary="true"
+                icon-name="none"
+              />
+            </template>
+          </BlockInfo>
         </template>
         </TwoColLayoutWStickySideBar>
         <SectionWrapper theme='paleblue'>Next Section Content</SectionWrapper>
-        </div>`
+      </div>`
   }
 }
 

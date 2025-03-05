@@ -139,8 +139,32 @@ export default {
       )
     ),
 
+    SvgIconFtvaDownload: defineAsyncComponent(() =>
+      import(
+        'ucla-library-design-tokens/assets/svgs/icon-ftva-download.svg'
+      )
+    ),
+
+    SvgIconFtvaEmail: defineAsyncComponent(() =>
+      import(
+        'ucla-library-design-tokens/assets/svgs/icon-ftva-email.svg'
+      )
+    ),
+
     SvgIconFtvaGcal: defineAsyncComponent(() =>
       import('ucla-library-design-tokens/assets/svgs/icon-ftva-gcal.svg')
+    ),
+
+    SvgIconFtvaHours: defineAsyncComponent(() =>
+      import(
+        'ucla-library-design-tokens/assets/svgs/icon-ftva-hours.svg'
+      )
+    ),
+
+    SvgIconFtvaLocationOutline: defineAsyncComponent(() =>
+      import(
+        'ucla-library-design-tokens/assets/svgs/icon-ftva-location-outline.svg'
+      )
     ),
 
     SvgIconFtvaOutlook: defineAsyncComponent(() =>
@@ -149,9 +173,9 @@ export default {
       )
     ),
 
-    SvgIconFtvaDownload: defineAsyncComponent(() =>
+    SvgIconFtvaPhone: defineAsyncComponent(() =>
       import(
-        'ucla-library-design-tokens/assets/svgs/icon-ftva-download.svg'
+        'ucla-library-design-tokens/assets/svgs/icon-ftva-phone.svg'
       )
     ),
 
