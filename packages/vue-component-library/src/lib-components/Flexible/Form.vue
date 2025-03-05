@@ -4,10 +4,10 @@ import type { PropType } from 'vue'
 import type { FlexibleForm } from '@/types/flexible_types'
 import { useTheme } from '@/composables/useTheme'
 
-const { block } = defineProps ({
+const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleForm>,
-    default: () => {},
+    default: () => { },
   },
 })
 

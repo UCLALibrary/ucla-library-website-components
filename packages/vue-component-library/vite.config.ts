@@ -3,6 +3,7 @@ import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import svgLoader from 'vite-svg-loader'
+import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,17 +18,35 @@ export default defineConfig({
         },
       },
     }),
-    svgLoader({ svgo: false })
+    svgLoader({ svgo: false }),
+    dts({
+      tsconfigPath: './tsconfig.json',
+      outDir: 'dist',
+      insertTypesEntry: true,
+      rollupTypes: true,
+    }),
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/entry.js'),
-      name: 'ucla-library-website-components',
+      entry: resolve(__dirname, '/src/index.ts'),
+      formats: ['es', 'cjs'],
+      fileName: 'ucla-library-website-components'
     },
     rollupOptions: {
+      // The following comented code for generating separate components output instead of one lib file like above can be enabled but needs further improvement
+      // This configuration tells Rollup to treat each component file as a separate entry point. The resulting output will place each built component into the dist/components directory as a standalone module.
+      /* input: {
+        ButtonLink: resolve(__dirname, 'src/lib-components/ButtonLink.vue'),
+        SmartLink: resolve(__dirname, 'src/lib-components/SmartLink.vue')
+      },
+      output: {
+        format: 'es', // Typically, ES modules are a good choice for components
+        dir: 'dist/components',
+        entryFileNames: `[name].js`,
+        assetFileNames: `[name].[ext]`
+      }, */
       external: ['vue', 'vue-router', 'pinia', 'vuetify'],
       output: {
-        // preserveModules: true,
         exports: 'named',
         globals: {
           vue: 'Vue',

@@ -1,5 +1,5 @@
 name: Set up Workspace
-description: 'Checks out repository, installs correct version of node and npm dependencies.'
+description: "Checks out repository, installs correct version of node and npm dependencies."
 runs:
   using: composite
   steps:
@@ -16,7 +16,7 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version: 18
-        cache: 'pnpm'
+        cache: "pnpm"
 
     - name: Install dependencies
       shell: bash
@@ -27,7 +27,7 @@ runs:
       run: pnpm add -g gulp prettier typescript
     - name: Install Cypress Binary
       shell: bash
-      run: pnpm exec cypress install
+      run: pnpm --filter ucla-library-website-components exec cypress install
 
     - name: Cache Cypress Binary
       uses: actions/cache@v3

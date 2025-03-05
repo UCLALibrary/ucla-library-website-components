@@ -4,7 +4,13 @@
     "vite-env.d.ts",
     "vue-global-props.d.ts",
     "src/**/*",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/stories/**/*"
   ],
   "compilerOptions": {
     "target": "ES2020",
@@ -22,21 +28,25 @@
     "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
+    "isolatedModules": true, 
+    "noEmit": false, 
+    "declaration": true, // ⬅️ Generate .d.ts files
+    "declarationMap": true, // ⬅️ Allow source mapping to .d.ts
+    "emitDeclarationOnly": true, // ⬅️ Emit only type declarations, no JS files
     "jsx": "preserve",
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    // "verbatimModuleSyntax": true,
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./src/*"
-      ]
-    }
+        "./src/*",
+      ],
+    },
+    "outDir": "dist", // ⬅️ Specify the output folder for declarations
+    "types": ["vite/client"] // ⬅️ Ensure TypeScript includes Vite typings
   },
   "references": [
     {

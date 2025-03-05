@@ -1,12 +1,11 @@
-
 name: Run CI Suite
 
 on:
   push:
-    branches: 
+    branches:
       - main
   pull_request:
-    branches: 
+    branches:
       - main
 
 # Cancel this run if a newer commit is pushed
@@ -37,73 +36,78 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-    - uses: actions/checkout@v3
-      with:
-        ref: ${{ github.event.pull_request.head.ref }}
-        repository: ${{ github.event.pull_request.head.repo.full_name }}
-        token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }} # non-github token Parinita's personal access token will expire ever 90 days
-    - uses: ./.github/workflows/setup-workspace
-    - run: pnpm run lint
-    - uses: EndBug/add-and-commit@v9
-      with:
-        message: "chore: linter autofixes"
-        default_author: github_actions
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }} # non-github token Parinita's personal access token will expire ever 90 days
+      - uses: ./.github/workflows/setup-workspace
+      - run: pnpm -r run lint
+      - uses: EndBug/add-and-commit@v9
+        with:
+          message: "chore: linter autofixes"
+          default_author: github_actions
 
   vite:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-    - uses: actions/checkout@v3
-    - uses: ./.github/workflows/setup-workspace
-    - run: pnpm run build
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/setup-workspace
+      - run: pnpm --filter ucla-library-website-components run build
 
   storybook:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
-    - uses: actions/checkout@v3
-    - uses: ./.github/workflows/setup-workspace
-    - name: Cache Storybook Build
-      id: cache-storybook
-      uses: actions/cache@v3
-      with:
-        path: storybook-static
-        key: storybook-${{ github.sha }}
-    - run: pnpm run build-storybook
-    - name: Deploy to Netlify (merged)
-      if: github.ref_name == 'main' || github.ref_name == 'vue3.x'
-      uses: nwtgck/actions-netlify@v2 # v1.2.3
-      with:
-        production-deploy: true
-        deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/commit/${{ github.sha }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        publish-dir: './storybook-static'
-        fails-without-credentials: true
-        github-deployment-environment: test
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
-    - name: Deploy to Netlify (preview)
-      if: github.event_name == 'pull_request'
-      uses: nwtgck/actions-netlify@v2 # v1.2.3
-      with:
-        production-deploy: false
-        deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/pull/${{ github.event.pull_request.number }}
-        alias: deploy-preview-${{ github.event.pull_request.number }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        overwrites-pull-request-comment: true
-        publish-dir: './storybook-static'
-        fails-without-credentials: true
-        github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
-    - name: Verify Cypress Installation
-      run: pnpm exec cypress verify
-    - name: Cypress test for Storybook Components
-      uses: cypress-io/github-action@v5
-      with:
-        start: pnpm dlx http-server ./storybook-static -p 6006
-        wait-on: http://localhost:6006
-      env:
-        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/setup-workspace
+      - name: Cache Storybook Build
+        id: cache-storybook
+        uses: actions/cache@v3
+        with:
+          path: storybook-static
+          key: storybook-${{ github.sha }}
+      - run: pnpm --filter ucla-library-website-components run build-storybook
+      - name: Deploy to Netlify (merged)
+        if: github.ref_name == 'main' || github.ref_name == 'vue3.x'
+        uses: nwtgck/actions-netlify@v2 # v1.2.3
+        with:
+          production-deploy: true
+          deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/commit/${{ github.sha }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          publish-dir: "./packages/vue-component-library/storybook-static"
+          fails-without-credentials: true
+          github-deployment-environment: test
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
+      - name: Deploy to Netlify (preview)
+        if: github.event_name == 'pull_request'
+        uses: nwtgck/actions-netlify@v2 # v1.2.3
+        with:
+          production-deploy: false
+          deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/pull/${{ github.event.pull_request.number }}
+          alias: deploy-preview-${{ github.event.pull_request.number }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          overwrites-pull-request-comment: true
+          publish-dir: "./packages/vue-component-library/storybook-static"
+          fails-without-credentials: true
+          github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
+
+      - name: Verify Cypress Installation
+        shell: bash
+        run: pnpm --filter ucla-library-website-components exec cypress --version
+
+      - name: Cypress test for Storybook Components
+        uses: cypress-io/github-action@v5
+        with:
+          install: false
+          working-directory: packages/vue-component-library
+          start: pnpm --filter ucla-library-website-components exec http-server ./storybook-static -p 6006
+          wait-on: http://localhost:6006
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}

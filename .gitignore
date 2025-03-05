@@ -9,6 +9,35 @@ lerna-debug.log*
 
 node_modules
 dist
+dist-ssr
+packages/*/dist
+examples
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+## from packages/vue-component-library/.gitignore
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
 storybook-static
 dist-ssr
 *.local
@@ -24,13 +53,13 @@ dist-ssr
 *.sln
 *.sw?
 
-cypress/downloads
-cypress/fixtures
-cypress/screenshots
-cypress/e2e/1-getting-started
-cypress/e2e/2-advanced-examples
+packages/*/cypress/downloads
+packages/*/cypress/fixtures
+packages/*/cypress/screenshots
+packages/*/cypress/e2e/1-getting-started
+packages/*/cypress/e2e/2-advanced-examples
 
-serve
-vite.config.serve.ts
-src/App.vue
-src/mock.js
+packages/*/serve
+packages/*/vite.config.serve.ts
+packages/*/src/App.vue
+packages/*/src/mock.js
