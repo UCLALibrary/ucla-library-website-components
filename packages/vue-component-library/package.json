@@ -31,7 +31,7 @@
   "author": "UCLA Library Application Team",
   "license": "Apache-2.0",
   "scripts": {
-    "build": "vue-tsc --noEmit && VITE_CJS_TRACE=true vite build",
+    "build": "vue-tsc && VITE_CJS_TRACE=true vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts",
     "lint:fix": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
@@ -66,6 +66,7 @@
     "@tsconfig/node18": "^18.2.4",
     "@types/lodash": "^4.17.15",
     "@types/node": "^18.19.55",
+    "@types/vue": "^2.0.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vue/tsconfig": "^0.5.1",
     "cypress": "^13.15.0",
