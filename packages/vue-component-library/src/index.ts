@@ -59,6 +59,7 @@ export { default as FlexibleHighlight } from './lib-components/Flexible/Highligh
 export { default as FlexibleHorizontalDivider } from './lib-components/Flexible/HorizontalDivider.vue'
 export { default as FlexibleImpactNumberCards } from './lib-components/Flexible/ImpactNumberCards.vue'
 export { default as FlexibleImpactNumbersCarousel } from './lib-components/Flexible/ImpactNumbersCarousel.vue'
+export { default as FlexibleInfo } from '././lib-components/Flexible/Info.vue'
 export { default as FlexibleMediaGallery } from './lib-components/Flexible/MediaGallery.vue'
 export { default as FlexibleMediaGalleryBannerImage } from './lib-components/Flexible/MediaGallery/BannerImage.vue'
 export { default as FlexibleMediaGalleryNewLightbox } from './lib-components/Flexible/MediaGallery/NewLightbox.vue'
