@@ -1,0 +1,37 @@
+.ftva.flexible-info {
+
+  .contact-info {
+    list-style-type: none;
+  }
+
+  :deep(.icon-with-link-container) {
+    gap: 20px;
+  }
+
+  .info-address {
+    display: flex;
+  }
+
+  :deep(.icon-with-link .text),
+    .info-address .rich-text {
+        @include ftva-emphasized-subtitle;
+  }
+
+  :deep(.icon-with-link .text) {
+    color: $accent-blue;
+  }
+
+  .info-address {
+    :deep(.rich-text){
+      .parsed-content {
+          margin-bottom: 0;
+        }
+
+      p {
+        color: $body-grey;
+        font-weight: 600;
+        font-size: 20px;
+      }
+    }
+  }
+}

@@ -1,4 +1,11 @@
 .block-info {
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
+    padding: 40px;
+
+    :deep(.rich-text) {
+        max-width: unset;
+        margin: 0;
+    }
 }
