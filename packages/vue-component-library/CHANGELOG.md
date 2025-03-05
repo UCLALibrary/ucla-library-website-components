@@ -1,3 +1,9 @@
+# [3.55.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.54.0...v3.55.0) (2025-03-05)
+
+### Features
+
+-   APPS-3149 FTVA styles for PageAnchor ([#691](https://github.com/UCLALibrary/ucla-library-website-components/issues/691)) ([16d6e23](https://github.com/UCLALibrary/ucla-library-website-components/commit/16d6e230b5753c002dff093d246421a86a2b7068))
+
 # [3.54.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/v3.53.0...v3.54.0) (2025-02-28)
 
 ### Features
