@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.0.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.0.1...@ucla-library-monorepo/ucla-library-website-components-v1.0.2) (2025-03-06)
+
+
+### Bug Fixes
+
+* APPS-3231 Delete BlockInfo styles moved to page-level ([#702](https://github.com/UCLALibrary/ucla-library-website-components/issues/702)) ([a2e4344](https://github.com/UCLALibrary/ucla-library-website-components/commit/a2e4344d63458e0d064c4b0356417d395ef1883e))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.0.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.0.0...@ucla-library-monorepo/ucla-library-website-components-v1.0.1) (2025-03-06)
 
 
