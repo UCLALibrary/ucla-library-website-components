@@ -54,7 +54,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/setup-workspace
-      - run: pnpm --filter ucla-library-website-components run build
+      - run: pnpm --filter @ucla-library/ucla-library-website-components run build
 
   storybook:
     runs-on: ubuntu-latest
@@ -68,7 +68,7 @@ jobs:
         with:
           path: storybook-static
           key: storybook-${{ github.sha }}
-      - run: pnpm --filter ucla-library-website-components run build-storybook
+      - run: pnpm --filter @ucla-library/ucla-library-website-components run build-storybook
       - name: Deploy to Netlify (merged)
         if: github.ref_name == 'main' || github.ref_name == 'vue3.x'
         uses: nwtgck/actions-netlify@v2 # v1.2.3
@@ -100,14 +100,14 @@ jobs:
 
       - name: Verify Cypress Installation
         shell: bash
-        run: pnpm --filter ucla-library-website-components exec cypress --version
+        run: pnpm --filter @ucla-library/ucla-library-website-components exec cypress --version
 
       - name: Cypress test for Storybook Components
         uses: cypress-io/github-action@v5
         with:
           install: false
           working-directory: packages/vue-component-library
-          start: pnpm --filter ucla-library-website-components exec http-server ./storybook-static -p 6006
+          start: pnpm --filter @ucla-library/ucla-library-website-components exec http-server ./storybook-static -p 6006
           wait-on: http://localhost:6006
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
