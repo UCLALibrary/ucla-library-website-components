@@ -38,7 +38,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm --filter @ucla-library/ucla-library-website-components exec -- semantic-release -e semantic-release-monorepo
+        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec -- semantic-release -e semantic-release-monorepo
       # 🔴 Manually publish vue-component-library using pnpm
       - name: Publish Vue Component Library
         env:
@@ -46,5 +46,5 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          pnpm --filter @ucla-library/ucla-library-website-components install
-          pnpm --filter @ucla-library/ucla-library-website-components publish --no-git-checks --access public
+          pnpm --filter @ucla-library-monorepo/ucla-library-website-components install
+          pnpm --filter @ucla-library-monorepo/ucla-library-website-components publish --no-git-checks --access public
