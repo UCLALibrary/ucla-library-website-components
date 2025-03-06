@@ -21,69 +21,6 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
     2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-## Pull request labels to use to trigger a release
-
-Helpful reminders to future selves:
-
--   Use the commit message conventions that trigger [semantic releases](https://semantic-release.gitbook.io/semantic-release/support/faq#how-can-i-change-the-type-of-commits-that-trigger-a-release)
-    -   feat: A new feature
-    -   fix: A bug fix
-    -   docs: Documentation only changes
-    -   style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-    -   refactor: A code change that neither fixes a bug nor adds a feature
-    -   perf: A code change that improves performance
-    -   test: Adding missing or correcting existing tests
-    -   chore: Do not use it for any source code changes, only use it when Changes to the build process or auxiliary tools and libraries such as documentation generation
-
-## Setup & Development
-
-<details><summary>STEPS</summary>
-
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:5173`:
-
-```bash
-# pnpm
-pnpm run dev
-```
-
-## Test component library package Server
-
-Start the vite server on `http://localhost:5174`:
-
-```bash
-# pnpm
-pnpm run serve
-```
-
-## Test stories
-
-Start the storybook on `http://localhost:6006`:
-
-```bash
-# pnpm
-pnpm run storybook
-```
-
-## Build vite component library
-
-Build library using vite:
-
-```bash
-# pnpm
-pnpm run vite
-```
-
 ## `App.vue` and `mock.js`
 
 ### Local copy of `APP.vue` and `mock.js` in the `src` file
