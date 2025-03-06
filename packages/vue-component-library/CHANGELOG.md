@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.1.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.0.2...@ucla-library-monorepo/ucla-library-website-components-v1.1.0) (2025-03-06)
+
+
+### Features
+
+* APPS-3152 FlexibleBlocks add Info ([#703](https://github.com/UCLALibrary/ucla-library-website-components/issues/703)) ([1ba47e0](https://github.com/UCLALibrary/ucla-library-website-components/commit/1ba47e04947e4da3c21155cf860fc0c594944671))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.0.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.0.1...@ucla-library-monorepo/ucla-library-website-components-v1.0.2) (2025-03-06)
 
 
