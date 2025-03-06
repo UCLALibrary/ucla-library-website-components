@@ -1,3 +1,44 @@
+# @ucla-library/ucla-library-website-components-v1.0.0 (2025-03-06)
+
+
+* feat!: APPS-3134 Part1 Monorepo with component library package ([#695](https://github.com/UCLALibrary/ucla-library-website-components/issues/695)) ([32897e9](https://github.com/UCLALibrary/ucla-library-website-components/commit/32897e96c0745bafcd42ded801741902d7ebb15a))
+
+
+### Bug Fixes
+
+* release config error ([#697](https://github.com/UCLALibrary/ucla-library-website-components/issues/697)) ([a7b7048](https://github.com/UCLALibrary/ucla-library-website-components/commit/a7b704898f58e744f96b15e09b3bc4e6f7742e72))
+* the plugin structure ([#698](https://github.com/UCLALibrary/ucla-library-website-components/issues/698)) ([0b77aac](https://github.com/UCLALibrary/ucla-library-website-components/commit/0b77aac3ab484a2d5cf2b45d989a3315d28f9f97))
+
+
+### Features
+
+* rename the package so it is published in a different location ([#699](https://github.com/UCLALibrary/ucla-library-website-components/issues/699)) ([7171798](https://github.com/UCLALibrary/ucla-library-website-components/commit/7171798a537eb94faafcc8c819ee16ff09fb9364))
+
+
+### BREAKING CHANGES
+
+* MonoRepo with one package
+
+* fix: update pnpm , cypress github action versions in yaml files
+
+* feat: add entry and other updates for the monorepo package to work with ftva nuxt repo
+
+* fix: lint errors
+
+* feat: generate types for components for DX and test it with localftva
+
+* feat: fix eslint errors
+
+* feat: update version to latest from main branch
+
+* fix: duplicates issue with pnpm lock
+
+* feat: update the version and changelog and index.ts
+
+* ci: update publishing worklfow to support packages, semantic release monorepo to update versions of different packages and pnpm publish for pusblishing to npm
+
+* fix: package version needs to be what is on main
+
 # ucla-library-website-components-v1.0.0 (2025-03-05)
 
 
