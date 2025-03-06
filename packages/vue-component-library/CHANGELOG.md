@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.0.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.0.0...@ucla-library-monorepo/ucla-library-website-components-v1.0.1) (2025-03-06)
+
+
+### Bug Fixes
+
+* Publish to ucla library monorepo ([#701](https://github.com/UCLALibrary/ucla-library-website-components/issues/701)) ([6416e0c](https://github.com/UCLALibrary/ucla-library-website-components/commit/6416e0cafb42e9ba3d99cd5ef2101fb576a9871c))
+
 # @ucla-library-monorepo/ucla-library-website-components-v1.0.0 (2025-03-06)
 
 
