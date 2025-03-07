@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "vue-component-library": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build",
-    "build:lib": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build",
+    "lib:build": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build",
     "lib:percy": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run percy",
     "lib:percy-static": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run percy-static",
     "lib:cypress": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run cypress",

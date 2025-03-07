@@ -21,9 +21,91 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
     2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
+## Storybook
+
+[UCLA Components](https://ucla-library-storybook.netlify.app/?path=/docs/configure-your-project--docs)
+
+## 📥 Usage in Nuxt Projects as a vue component library
+
+### Installation
+
+```
+pnpm add --save-dev @ucla-library-monorepo/ucla-library-website-components or pnpm install
+```
+
+### Update nuxt.config.ts Adding Global CSS
+
+```
+ css: [
+   '@ucla-library-monorepo/ucla-library-website-components/style.css',
+  ],
+```
+
+### Importing Components
+
+For direct imports:
+
+```
+import { ButtonLink } from '@ucla-library-monorepo/ucla-library-website-components'
+```
+
+---
+
+## 📥 Usage in Vue Site as a vue component library
+
+### 1. Install the Package
+
+```
+pnpm add @ucla-library-monorepo/ucla-library-website-components
+
+```
+
+### 2. Import the Components in Your Vue Project
+
+In your main.ts (or main.js) file:
+
+```
+import { createApp } from 'vue'
+import App from './App.vue'
+
+// Import individual components
+import { ButtonLink, SmartLink } from '@ucla-library/ucla-library-website-components'
+
+// Import the component library's global styles
+import '@ucla-library/ucla-library-website-components/style.css'
+
+const app = createApp(App)
+
+// Register individual components globally (optional)
+app.component('ButtonLink', ButtonLink)
+app.component('SmartLink', SmartLink)
+
+app.mount('#app')
+
+```
+
+Alternatively, in each .vue file for better tree-shaking:
+
+```
+<script setup>
+import { ButtonLink } from '@ucla-library/ucla-library-website-components'
+</script>
+
+<template>
+  <ButtonLink label="Read More" />
+</template>
+
+```
+
+---
+
+## Setup & Development
+
+<details><summary>STEPS</summary>
+
 ## `App.vue` and `mock.js`
 
-### Local copy of `APP.vue` and `mock.js` in the `src` file
+### Local copy of `APP.vue`, `main.ts`, `index.html` and `mock.js` in the `src` file
 
 If you already have a local copy of be sure to save it locally because they will be deleted if you reclone this repo.
 You can add a page to the [Wiki](https://github.com/UCLALibrary/ucla-library-website-components/wiki/) with your version.
