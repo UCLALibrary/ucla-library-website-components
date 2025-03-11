@@ -15,6 +15,7 @@
     "nuxt-module:prepare": "pnpm --filter @ucla-library/component-library-nuxt-module run dev:prepare",
     "nuxt-module:dev": "pnpm --filter @ucla-library/component-library-nuxt-module run dev",
     "nuxt-module:build": "pnpm --filter @ucla-library/component-library-nuxt-module run prepack",
+    "build": "pnpm run lib:build && pnpm run nuxt-module:build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

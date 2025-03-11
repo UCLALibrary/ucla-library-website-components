@@ -54,14 +54,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/setup-workspace
-      - run: pnpm run lib:build
-  nuxt-module:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/setup-workspace
-      - run: pnpm run nuxt-module:build
+      - run: pnpm run build
 
   storybook:
     runs-on: ubuntu-latest
