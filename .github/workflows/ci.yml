@@ -54,7 +54,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/setup-workspace
-      - run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build
+      - run: pnpm run lib:build
+  nuxt-module:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/setup-workspace
+      - run: pnpm run nuxt-module:build
 
   storybook:
     runs-on: ubuntu-latest

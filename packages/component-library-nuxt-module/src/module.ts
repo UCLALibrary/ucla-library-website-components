@@ -4,7 +4,7 @@ import * as VueComponentLibrary from '@ucla-library-monorepo/ucla-library-websit
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: '@apps-monorepo-poc/nuxt-module',
+    name: '@ucla-library/component-library-nuxt-module',
     configKey: 'uclaLibraryWebsiteComponents',
   },
   // Default configuration options of the Nuxt module
