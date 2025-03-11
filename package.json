@@ -12,6 +12,9 @@
     "lib:build-storybook": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook",
     "lib:cypress-run": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run cypress-run",
     "lib:cypress-storybook": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run cypress-storybook",
+    "nuxt-module:prepare": "pnpm --filter @ucla-library/component-library-nuxt-module run dev:prepare",
+    "nuxt-module:dev": "pnpm --filter @ucla-library/component-library-nuxt-module run dev",
+    "nuxt-module:build": "pnpm --filter @ucla-library/component-library-nuxt-module run prepack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
