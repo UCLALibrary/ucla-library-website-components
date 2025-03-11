@@ -7,8 +7,8 @@
   "description": "Nuxt module to enable autoimports",
   "repository": {
     "type": "git",
-    "url": "https://github.com/UCLALibrary/apps-monorepo-poc",
-    "directory": "packages/nuxt"
+    "url": "https://github.com/UCLALibrary/ucla-library-website-components",
+    "directory": "packages/component-library-nuxt-module"
   },
   "author": "UCLA Library Application Team",
   "license": "MIT",
