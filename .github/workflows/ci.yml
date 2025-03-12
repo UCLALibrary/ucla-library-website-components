@@ -54,7 +54,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/setup-workspace
-      - run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build
+      - run: pnpm run build
 
   storybook:
     runs-on: ubuntu-latest
