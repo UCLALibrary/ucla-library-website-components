@@ -180,38 +180,23 @@ function getComponent(name) {
 </script>
 
 <template>
-  <SectionWrapper
-    :class="classes"
-    :no-margins="true"
-  >
+  <SectionWrapper :class="classes" :no-margins="true">
     <SectionHeader class="more-information">
       More Information
     </SectionHeader>
 
-    <div
-      v-for="(block, index) in parsedBlocks"
-      :key="`flexibleblocks-${index}`"
-    >
-      <SectionWrapper
-        v-if="block.needsDivider"
-        theme="divider"
-      >
+    <div v-for="(block, index) in parsedBlocks" :key="`flexibleblocks-${index}`">
+      <SectionWrapper v-if="block.needsDivider" theme="divider">
         <DividerWayFinder />
       </SectionWrapper>
 
-      <SectionWrapper
-        :theme="block.theme"
-        :section-title="sectionTitle(block)"
-        :section-summary="sectionSummary(block)"
-      >
-        <component
-          :is="getComponent(block.componentName)"
-          :block="block.mediaGalleryStyle === 'halfWidth'
+      <SectionWrapper :theme="block.theme" :section-title="sectionTitle(block)"
+        :section-summary="sectionSummary(block)">
+        <!-- TODO v-if component is FlexibleCardWithImage , wrap in ScrollWrapper ? -->
+        <component :is="getComponent(block.componentName)" :block="block.mediaGalleryStyle === 'halfWidth'
             ? block
             : omit(block, ['sectionTitle', 'sectionSummary'])
-          "
-          class="flexible-block"
-        />
+          " class="flexible-block" />
       </SectionWrapper>
     </div>
   </SectionWrapper>
