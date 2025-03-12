@@ -88,5 +88,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          pnpm --filter @ucla-library-monorepo/ucla-library-website-components install
+          pnpm --filter @ucla-library-monorepo/ucla-library-website-components build
           pnpm --filter @ucla-library/component-library-nuxt-module install
           pnpm --filter @ucla-library/component-library-nuxt-module publish --no-git-checks --access public --force
