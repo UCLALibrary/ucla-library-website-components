@@ -70,6 +70,9 @@ const FlexibleRichText = defineAsyncComponent(() =>
 const FlexibleSimpleCards = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/SimpleCards.vue')
 )
+const ScrollWrapper = defineAsyncComponent(() =>
+  import('@/lib-components/ScrollWrapper.vue')
+)
 
 const components = {
   'flexible-associated-topic-cards': FlexibleAssociatedTopicCards,
@@ -177,6 +180,16 @@ function sectionSummary(block) {
 function getComponent(name) {
   return components[name]
 }
+
+function getWrapperComponent(name) {
+  // if not ftva, never use scroll wrapper
+  if (theme?.value !== 'ftva') return 'template'
+
+  // if ftva, add scroll wrapper to specific components
+  return name === 'flexible-card-with-image'
+    ? ScrollWrapper 
+    : 'template'
+}
 </script>
 
 <template>
@@ -192,11 +205,12 @@ function getComponent(name) {
 
       <SectionWrapper :theme="block.theme" :section-title="sectionTitle(block)"
         :section-summary="sectionSummary(block)">
-        <!-- TODO v-if component is FlexibleCardWithImage , wrap in ScrollWrapper ? -->
-        <component :is="getComponent(block.componentName)" :block="block.mediaGalleryStyle === 'halfWidth'
+        <component :is="getWrapperComponent(block.componentName)">
+          <component :is="getComponent(block.componentName)" :block="block.mediaGalleryStyle === 'halfWidth'
             ? block
             : omit(block, ['sectionTitle', 'sectionSummary'])
           " class="flexible-block" />
+        </component>
       </SectionWrapper>
     </div>
   </SectionWrapper>

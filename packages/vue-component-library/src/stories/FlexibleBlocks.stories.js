@@ -10,6 +10,7 @@ import {
   Gallery as mockMediaGallery,
   GalleryHalfWidth as mockMediaGalleryHalfWidth,
 } from '@/stories/mock/Media.js'
+import { mockFlexibleBlocks } from '@/stories/mock/FTVAMedia.js'
 import { mockSingle as mockMediaWithText } from '@/stories/mock/Flexible_MediaWithText.js'
 import { mock as mockRichText } from '@/stories/mock/Flexible_RichText.js'
 import { mockTwoCards as mockSimpleCards } from '@/stories/mock/Flexible_SimpleCards.js'
@@ -330,6 +331,27 @@ export function FtvaBlog() {
     data() {
       return {
         blocks: mockData,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { FlexibleBlocks, SectionWrapper, DividerGeneral },
+    template: `
+        <flexible-blocks
+            :blocks="blocks"
+        />
+    `,
+  }
+}
+
+export function FtvaFlexibleBlocks() {
+  return {
+    data() {
+      return {
+        blocks: mockFlexibleBlocks,
       }
     },
     provide() {
