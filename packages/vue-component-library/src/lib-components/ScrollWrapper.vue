@@ -1,4 +1,4 @@
-<script lang="ts"setup>
+<script lang="ts" setup>
 import { computed } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
@@ -14,7 +14,7 @@ const classes = computed(() => {
     <v-sheet class="mx-auto">
       <v-slide-group :show-arrows="true">
         <v-slide-group-item>
-          <slot /> 
+          <slot />
         </v-slide-group-item>
       </v-slide-group>
     </v-sheet>
