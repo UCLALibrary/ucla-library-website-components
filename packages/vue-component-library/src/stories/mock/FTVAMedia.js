@@ -249,186 +249,186 @@ export const parsedFTVABlogSeries = mockFTVABlogSeries.map((item) => {
 
 export const mockFlexibleBlocks = [
   {
-    id: "3761985",
-    typeHandle: "richText",
-    richText: "<p>Serving the UCLA community and an international constituency of academic faculty, scholars, students, writers, and professionals, the Archive Research and Study Center (ARSC) provides a vital access point to UCLA Film &amp; Television Archive's collection of over 350,000 films and television programs, over 100,000 News and Public Affairs (NAPA) programs, and over 2,000 radio programs. ARSC coordinates individual viewing appointments, facilitating access to the Archive's rare collections through the Powell Library Media Lab at UCLA. With ARSC's assistance, visitors conduct scholarly and professional research for hundreds of class assignments, dissertations, publications and film and television productions.</p>",
+    id: '3761985',
+    typeHandle: 'richText',
+    richText: '<p>Serving the UCLA community and an international constituency of academic faculty, scholars, students, writers, and professionals, the Archive Research and Study Center (ARSC) provides a vital access point to UCLA Film &amp; Television Archive\'s collection of over 350,000 films and television programs, over 100,000 News and Public Affairs (NAPA) programs, and over 2,000 radio programs. ARSC coordinates individual viewing appointments, facilitating access to the Archive\'s rare collections through the Powell Library Media Lab at UCLA. With ARSC\'s assistance, visitors conduct scholarly and professional research for hundreds of class assignments, dissertations, publications and film and television productions.</p>',
     sectionTitle: null
   },
   {
-    id: "3761986",
-    typeHandle: "horizontalDivider",
+    id: '3761986',
+    typeHandle: 'horizontalDivider',
     horizontalDivider: true
   },
   {
-    id: "3761987",
-    typeHandle: "infoBlock",
+    id: '3761987',
+    typeHandle: 'infoBlock',
     infoBlock: [
       {
-        typeHandle: "infoBlock",
+        typeHandle: 'infoBlock',
         icon: null,
-        heading: "MONDAY - FRIDAY, 9 A.M. TO 5 P.M.",
-        text: "<p>Hours are subject to change. Requests to view materials must be arranged in advance.</p>"
+        heading: 'MONDAY - FRIDAY, 9 A.M. TO 5 P.M.',
+        text: '<p>Hours are subject to change. Requests to view materials must be arranged in advance.</p>'
       }
     ]
   },
   {
-    id: "3761989",
-    typeHandle: "horizontalDivider",
+    id: '3761989',
+    typeHandle: 'horizontalDivider',
     horizontalDivider: true
   },
   {
-  id: "3699997",
-  typeHandle: "cardWithImage",
-  sectionTitle: "Associated Topics / Card with Image - National Archives of Finland",
-  sectionSummary: "<p>Archives <em>official documents</em> of the <strong>Finnish state</strong> and municipalities. It consists of three locations in the capital <a href=\"https://en.wikipedia.org/wiki/Helsinki\" title=\"Helsinki\">Helsinki</a> and seven former regional archives.<br /></p>",
-  cardWithImage: [
-    {
-      id: "3754181",
-      typeHandle: "internalContent",
-      contentLink: [
-        {
-          id: "2870869",
-          contentType: "serviceOrResource",
-          to: "help/services-resources/digital-printing",
-          title: "Digital Printing",
-          text: "<p>Digital printing is the process of printing digital-based images directly onto a variety of media substrates. There is no need for a printing plate, unlike with offset printing.</p>",
-          articleByline2: "2024-02-27T21:35:00-08:00"
-        }
-      ]
-    },
-    {
-      id: "3754182",
-      typeHandle: "externalContent",
-      title: "Helsinki",
-      image: [],
-      byline1: "Finns",
-      byline2: null,
-      category: null,
-      text: "Helsinki is the capital and most populous city in Finland. It is on the shore of the Gulf of Finland and is the seat of southern Finland's Uusimaa region.",
-      to: "https://en.wikipedia.org/wiki/Helsinki"
-    },
-    {
-      id: "3754282",
-      typeHandle: "internalContent",
-      contentLink: [
-        {
-          id: "3469834",
-          contentType: "ftvaEvent",
-          to: "events/mother-india-12-01-24",
-          title: "Mother India 12-01-24",
-          eventDescription: "<p>In this melodrama, a poverty-stricken woman raises her sons through many trials and tribulations. But no matter the struggles, she always sticks to her own moral code.</p>",
-          articleByline2: "2024-12-04T14:11:00-08:00",
-          startDateWithTime: "2024-12-01T00:00",
-          endDateWithTime: "2024-12-01T00:00",
-          imageCarousel: [
-            {
-              image: [
-                {
-                  id: "3469872",
-                  src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg",
-                  height: 3602,
-                  width: 2560,
-                  srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg 2560w",
-                  alt: null,
-                  focalPoint: [
-                    0.5,
-                    0.5
-                  ]
-                }
-              ],
-              creditText: null
-            },
-            {
-              image: [
-                {
-                  id: "3469876",
-                  src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg",
-                  height: 3587,
-                  width: 2560,
-                  srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg 2560w",
-                  alt: null,
-                  focalPoint: [
-                    0.5,
-                    0.5
-                  ]
-                }
-              ],
-              creditText: null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      id: "3754283",
-      typeHandle: "internalContent",
-      contentLink: [
-        {
-          id: "3469824",
-          contentType: "ftvaEvent",
-          to: "events/palm-springs-12-13-25",
-          title: "Palm Springs 12-13-25",
-          eventDescription: "<p>Palm Springs is a 2020 American science fiction romantic comedy film directed by Max Barbakow (in his feature directorial debut) from a screenplay by Andy Siara, based on a story by Barbakow and Siara. Starring Andy Samberg (who also produced the film), Cristin Milioti, and J. K. Simmons, it focuses on two strangers who meet at a wedding in Palm Springs only to find themselves stuck in a time loop.</p>",
-          articleByline2: "2024-12-04T14:07:00-08:00",
-          startDateWithTime: "2025-12-13T18:00",
-          endDateWithTime: "2025-12-13T21:00",
-          imageCarousel: [
-            {
-              image: [
-                {
-                  id: "3469827",
-                  src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/palm-springs.webp",
-                  height: 1707,
-                  width: 2560,
-                  srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/palm-springs.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/palm-springs.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/palm-springs.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/palm-springs.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/palm-springs.webp 2560w",
-                  alt: null,
-                  focalPoint: [
-                    0.5,
-                    0.5
-                  ]
-                }
-              ],
-              creditText: null
-            }
-          ]
-        }
-      ]
-    },
-    {
-      id: "3754284",
-      typeHandle: "internalContent",
-      contentLink: [
-        {
-          id: "3469809",
-          contentType: "ftvaEvent",
-          to: "events/walking-a-cat-08-01-25",
-          title: "Walking a Cat 08-01-25",
-          eventDescription: "<p>Leash-walking is also great because it provides an extra dose of exercise for your cat—and when they are outside, with all of the Raw Cat senses in high gear, they come home tired in a 360 degree way. It’s a great way to change things up, stave off “play boredom,” and just provide an extra complimentary dose of play along with interactive daily sessions.</p>",
-          articleByline2: "2024-12-04T14:00:00-08:00",
-          startDateWithTime: "2025-08-01T21:00",
-          endDateWithTime: "2025-08-01T23:00",
-          imageCarousel: [
-            {
-              image: [
-                {
-                  id: "3469813",
-                  src: "https://static.library.ucla.edu/craftassetstest/FTVA/a-beginner-s-guide-to-walking-your-cat.avif",
-                  height: null,
-                  width: null,
-                  srcset: "",
-                  alt: null,
-                  focalPoint: [
-                    0.5,
-                    0.5
-                  ]
-                }
-              ],
-              creditText: null
-            }
-          ]
-        }
-      ]
-    }
-  ]
+    id: '3699997',
+    typeHandle: 'cardWithImage',
+    sectionTitle: 'Associated Topics / Card with Image - National Archives of Finland',
+    sectionSummary: '<p>Archives <em>official documents</em> of the <strong>Finnish state</strong> and municipalities. It consists of three locations in the capital <a href="https://en.wikipedia.org/wiki/Helsinki" title="Helsinki">Helsinki</a> and seven former regional archives.<br /></p>',
+    cardWithImage: [
+      {
+        id: '3754181',
+        typeHandle: 'internalContent',
+        contentLink: [
+          {
+            id: '2870869',
+            contentType: 'serviceOrResource',
+            to: 'help/services-resources/digital-printing',
+            title: 'Digital Printing',
+            text: '<p>Digital printing is the process of printing digital-based images directly onto a variety of media substrates. There is no need for a printing plate, unlike with offset printing.</p>',
+            articleByline2: '2024-02-27T21:35:00-08:00'
+          }
+        ]
+      },
+      {
+        id: '3754182',
+        typeHandle: 'externalContent',
+        title: 'Helsinki',
+        image: [],
+        byline1: 'Finns',
+        byline2: null,
+        category: null,
+        text: 'Helsinki is the capital and most populous city in Finland. It is on the shore of the Gulf of Finland and is the seat of southern Finland\'s Uusimaa region.',
+        to: 'https://en.wikipedia.org/wiki/Helsinki'
+      },
+      {
+        id: '3754282',
+        typeHandle: 'internalContent',
+        contentLink: [
+          {
+            id: '3469834',
+            contentType: 'ftvaEvent',
+            to: 'events/mother-india-12-01-24',
+            title: 'Mother India 12-01-24',
+            eventDescription: '<p>In this melodrama, a poverty-stricken woman raises her sons through many trials and tribulations. But no matter the struggles, she always sticks to her own moral code.</p>',
+            articleByline2: '2024-12-04T14:11:00-08:00',
+            startDateWithTime: '2024-12-01T00:00',
+            endDateWithTime: '2024-12-01T00:00',
+            imageCarousel: [
+              {
+                image: [
+                  {
+                    id: '3469872',
+                    src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg',
+                    height: 3602,
+                    width: 2560,
+                    srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/MV5BYWFhM2EzZDctZGJhMi00ZWEwLTgyYWYtOTE3NWFiNTM4YThhXkEyXkFqcGc@._V1_FMjpg_UY3166.jpg 2560w',
+                    alt: null,
+                    focalPoint: [
+                      0.5,
+                      0.5
+                    ]
+                  }
+                ],
+                creditText: null
+              },
+              {
+                image: [
+                  {
+                    id: '3469876',
+                    src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg',
+                    height: 3587,
+                    width: 2560,
+                    srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/MV5BNTQ0YjMyOGQtMzJjOS00MTMyLWEzMDEtMTI4YTY3MzA2N2ZmXkEyXkFqcGc@._V1_FMjpg_UY2549.jpg 2560w',
+                    alt: null,
+                    focalPoint: [
+                      0.5,
+                      0.5
+                    ]
+                  }
+                ],
+                creditText: null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: '3754283',
+        typeHandle: 'internalContent',
+        contentLink: [
+          {
+            id: '3469824',
+            contentType: 'ftvaEvent',
+            to: 'events/palm-springs-12-13-25',
+            title: 'Palm Springs 12-13-25',
+            eventDescription: '<p>Palm Springs is a 2020 American science fiction romantic comedy film directed by Max Barbakow (in his feature directorial debut) from a screenplay by Andy Siara, based on a story by Barbakow and Siara. Starring Andy Samberg (who also produced the film), Cristin Milioti, and J. K. Simmons, it focuses on two strangers who meet at a wedding in Palm Springs only to find themselves stuck in a time loop.</p>',
+            articleByline2: '2024-12-04T14:07:00-08:00',
+            startDateWithTime: '2025-12-13T18:00',
+            endDateWithTime: '2025-12-13T21:00',
+            imageCarousel: [
+              {
+                image: [
+                  {
+                    id: '3469827',
+                    src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/palm-springs.webp',
+                    height: 1707,
+                    width: 2560,
+                    srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/palm-springs.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/palm-springs.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/palm-springs.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/palm-springs.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/palm-springs.webp 2560w',
+                    alt: null,
+                    focalPoint: [
+                      0.5,
+                      0.5
+                    ]
+                  }
+                ],
+                creditText: null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: '3754284',
+        typeHandle: 'internalContent',
+        contentLink: [
+          {
+            id: '3469809',
+            contentType: 'ftvaEvent',
+            to: 'events/walking-a-cat-08-01-25',
+            title: 'Walking a Cat 08-01-25',
+            eventDescription: '<p>Leash-walking is also great because it provides an extra dose of exercise for your cat—and when they are outside, with all of the Raw Cat senses in high gear, they come home tired in a 360 degree way. It’s a great way to change things up, stave off “play boredom,” and just provide an extra complimentary dose of play along with interactive daily sessions.</p>',
+            articleByline2: '2024-12-04T14:00:00-08:00',
+            startDateWithTime: '2025-08-01T21:00',
+            endDateWithTime: '2025-08-01T23:00',
+            imageCarousel: [
+              {
+                image: [
+                  {
+                    id: '3469813',
+                    src: 'https://static.library.ucla.edu/craftassetstest/FTVA/a-beginner-s-guide-to-walking-your-cat.avif',
+                    height: null,
+                    width: null,
+                    srcset: '',
+                    alt: null,
+                    focalPoint: [
+                      0.5,
+                      0.5
+                    ]
+                  }
+                ],
+                creditText: null
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -1,6 +1,6 @@
-import ScrollWrapper from '../lib-components/ScrollWrapper.vue';
-import SectionTeaserCard from '../lib-components/SectionTeaserCard.vue';
-import { computed } from 'vue';
+import { computed } from 'vue'
+import ScrollWrapper from '../lib-components/ScrollWrapper.vue'
+import SectionTeaserCard from '../lib-components/SectionTeaserCard.vue'
 import { parsedFTVABlogSeries } from './mock/FTVAMedia'
 
 export default {

@@ -5,26 +5,27 @@ import { useTheme } from '@/composables/useTheme'
 // THEME
 const theme = useTheme()
 const classes = computed(() => {
-    return ['scroll-wrapper', theme?.value || '']
+  return ['scroll-wrapper', theme?.value || '']
 })
 </script>
-<template>
-    <div :class="classes">
-        <v-sheet class="mx-auto">
-            <v-slide-group :show-arrows="true">
-                <v-slide-group-item>
-                    <slot></slot>
-                </v-slide-group-item>
-            </v-slide-group>
-        </v-sheet>
-    </div>
-</template>
-<style lang="scss" scoped>
 
+<template>
+  <div :class="classes">
+    <v-sheet class="mx-auto">
+      <v-slide-group :show-arrows="true">
+        <v-slide-group-item>
+          <slot /> 
+        </v-slide-group-item>
+      </v-slide-group>
+    </v-sheet>
+  </div>
+</template>
+
+<style lang="scss" scoped>
 .scroll-wrapper {
     // move arrows on top of content
     position: relative;
-    :deep(.v-slide-group__prev) { 
+    :deep(.v-slide-group__prev) {
         height: 100%;
         position: absolute;
         z-index: 1;
@@ -56,7 +57,7 @@ const classes = computed(() => {
             // remove this if icon updated
             transform: scale(2, 2.5);
             filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
-            padding-top: 1px; 
+            padding-top: 1px;
         }
     }
 

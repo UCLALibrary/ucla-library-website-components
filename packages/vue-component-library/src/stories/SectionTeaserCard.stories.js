@@ -1,11 +1,11 @@
 import { computed } from 'vue'
 
 // Import component
+import { parsedFTVABlogSeries } from './mock/FTVAMedia'
 import SectionTeaserCard from '@/lib-components/SectionTeaserCard'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
-import { parsedFTVABlogSeries } from './mock/FTVAMedia'
 
 // Storybook default settings
 export default {

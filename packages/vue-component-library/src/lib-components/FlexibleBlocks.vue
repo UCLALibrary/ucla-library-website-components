@@ -183,11 +183,12 @@ function getComponent(name) {
 
 function getWrapperComponent(name) {
   // if not ftva, never use scroll wrapper
-  if (theme?.value !== 'ftva') return 'template'
+  if (theme?.value !== 'ftva')
+    return 'template'
 
   // if ftva, add scroll wrapper to specific components
   return name === 'flexible-card-with-image'
-    ? ScrollWrapper 
+    ? ScrollWrapper
     : 'template'
 }
 </script>
@@ -203,13 +204,17 @@ function getWrapperComponent(name) {
         <DividerWayFinder />
       </SectionWrapper>
 
-      <SectionWrapper :theme="block.theme" :section-title="sectionTitle(block)"
-        :section-summary="sectionSummary(block)">
+      <SectionWrapper
+        :theme="block.theme" :section-title="sectionTitle(block)"
+        :section-summary="sectionSummary(block)"
+      >
         <component :is="getWrapperComponent(block.componentName)">
-          <component :is="getComponent(block.componentName)" :block="block.mediaGalleryStyle === 'halfWidth'
-            ? block
-            : omit(block, ['sectionTitle', 'sectionSummary'])
-          " class="flexible-block" />
+          <component
+            :is="getComponent(block.componentName)" :block="block.mediaGalleryStyle === 'halfWidth'
+              ? block
+              : omit(block, ['sectionTitle', 'sectionSummary'])
+            " class="flexible-block"
+          />
         </component>
       </SectionWrapper>
     </div>
