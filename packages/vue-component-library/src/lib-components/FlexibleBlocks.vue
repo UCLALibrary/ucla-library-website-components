@@ -191,6 +191,7 @@ function getComponent(name) {
     <div
       v-for="(block, index) in parsedBlocks"
       :key="`flexibleblocks-${index}`"
+      class="block-wrapper"
     >
       <SectionWrapper
         v-if="block.needsDivider"
@@ -224,6 +225,12 @@ function getComponent(name) {
 .flexible-blocks {
   .more-information {
     @include visually-hidden;
+  }
+}
+
+.ftva.flexible-blocks {
+  .block-wrapper:not(:last-of-type) {
+    margin-bottom: 24px
   }
 }
 </style>
