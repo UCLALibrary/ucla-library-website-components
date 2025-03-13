@@ -7,6 +7,7 @@ import { computed } from 'vue'
 
 // COMPONENTS
 import BlockMediaWithText from '@/lib-components/BlockMediaWithText.vue'
+import DividerGeneral from '@/lib-components/DividerGeneral.vue'
 
 // TYPESCRPT
 import type { FlexibleMediaWithText } from '@/types/flexible_types'
@@ -74,7 +75,7 @@ const parsedContent = computed(() => {
           class="flexible-media-with-text"
         />
 
-        <divider-general class="divider" />
+        <DividerGeneral class="divider" />
       </div>
     </div>
   </div>
