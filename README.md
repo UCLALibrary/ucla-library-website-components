@@ -150,7 +150,7 @@ import { ButtonLink } from '@ucla-library-monorepo/ucla-library-website-componen
 - if adding a package to component library
 
 ```
-pnpm --filter@ucla-library-monorepo/ucla-library-website-components add lodash
+pnpm --filter @ucla-library-monorepo/ucla-library-website-components add lodash
 ```
 
 - if adding package to root use
