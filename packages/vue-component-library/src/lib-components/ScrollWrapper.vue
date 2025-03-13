@@ -39,7 +39,7 @@ const classes = computed(() => {
         height: 100%;
         position: absolute;
         z-index: 1;
-        right: 0px; // TODO OR 52px? figure this out
+        right: 0px;
         i.v-icon {
                 &::before {
                     // todo updated icon from serena?
