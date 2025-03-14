@@ -8,6 +8,11 @@ export default {
   component: ScrollWrapper,
 }
 
+/**
+ * A component to wrap other components in slide-show like scrollable list.
+ * Uses vuetify's `v-slide-group` and a singular `v-slide-group-item` to wrap all scrollable items.
+ * This allows a section like `SectionTeaserCard` or list of individual cards like `FlexibleCardWithImage` to be slotted in
+ */
 export function Default() {
   return {
     data() {
@@ -24,7 +29,7 @@ export function Default() {
         <section-teaser-card
         :items="items"
         />
-      <scroll-wrapper/>
+      </scroll-wrapper>
   `,
   }
 }
@@ -45,7 +50,7 @@ export function SixItems() {
         <section-teaser-card
         :items="items"
         />
-      <scroll-wrapper/>
+      </scroll-wrapper>
   `,
   }
 }
