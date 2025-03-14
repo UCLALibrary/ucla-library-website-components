@@ -18,7 +18,21 @@ export default defineConfig({
         },
       },
     }),
-    svgLoader({ svgo: false }),
+    svgLoader({
+      svgo: true, // Enables SVGO optimization
+      svgoConfig: {
+        plugins: [
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                removeViewBox: false,
+              },
+            },
+          },
+        ]
+      }
+    }),
     dts({
       tsconfigPath: './tsconfig.json',
       outDir: 'dist',
