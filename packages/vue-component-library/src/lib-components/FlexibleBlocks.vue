@@ -70,6 +70,9 @@ const FlexibleRichText = defineAsyncComponent(() =>
 const FlexibleSimpleCards = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/SimpleCards.vue')
 )
+const ScrollWrapper = defineAsyncComponent(() =>
+  import('@/lib-components/ScrollWrapper.vue')
+)
 
 const components = {
   'flexible-associated-topic-cards': FlexibleAssociatedTopicCards,
@@ -177,41 +180,42 @@ function sectionSummary(block) {
 function getComponent(name) {
   return components[name]
 }
+
+function getWrapperComponent(name) {
+  // if not ftva, never use scroll wrapper
+  if (theme?.value !== 'ftva')
+    return 'template'
+
+  // if ftva, add scroll wrapper to specific components
+  return name === 'flexible-card-with-image'
+    ? ScrollWrapper
+    : 'template'
+}
 </script>
 
 <template>
-  <SectionWrapper
-    :class="classes"
-    :no-margins="true"
-  >
+  <SectionWrapper :class="classes" :no-margins="true">
     <SectionHeader class="more-information">
       More Information
     </SectionHeader>
 
-    <div
-      v-for="(block, index) in parsedBlocks"
-      :key="`flexibleblocks-${index}`"
-    >
-      <SectionWrapper
-        v-if="block.needsDivider"
-        theme="divider"
-      >
+    <div v-for="(block, index) in parsedBlocks" :key="`flexibleblocks-${index}`">
+      <SectionWrapper v-if="block.needsDivider" theme="divider">
         <DividerWayFinder />
       </SectionWrapper>
 
       <SectionWrapper
-        :theme="block.theme"
-        :section-title="sectionTitle(block)"
+        :theme="block.theme" :section-title="sectionTitle(block)"
         :section-summary="sectionSummary(block)"
       >
-        <component
-          :is="getComponent(block.componentName)"
-          :block="block.mediaGalleryStyle === 'halfWidth'
-            ? block
-            : omit(block, ['sectionTitle', 'sectionSummary'])
-          "
-          class="flexible-block"
-        />
+        <component :is="getWrapperComponent(block.componentName)">
+          <component
+            :is="getComponent(block.componentName)" :block="block.mediaGalleryStyle === 'halfWidth'
+              ? block
+              : omit(block, ['sectionTitle', 'sectionSummary'])
+            " class="flexible-block"
+          />
+        </component>
       </SectionWrapper>
     </div>
   </SectionWrapper>
