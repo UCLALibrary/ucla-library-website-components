@@ -64,6 +64,7 @@
 
 <script setup lang="ts">
 import { provideTheme } from '@/composables/provideTheme'
+
 provideTheme()
 const mockFtvaEventDetailData = {
   id: '2847944',
