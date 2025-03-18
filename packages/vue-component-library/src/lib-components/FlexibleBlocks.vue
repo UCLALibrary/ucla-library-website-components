@@ -9,8 +9,8 @@ import omit from 'lodash/omit'
 import SectionWrapper from './SectionWrapper.vue'
 import DividerWayFinder from './DividerWayFinder.vue'
 import SectionHeader from './SectionHeader.vue'
-import { useTheme } from '@/composables/useTheme'
 import Fragment from './Fragment.vue'
+import { useTheme } from '@/composables/useTheme'
 
 const props = defineProps({
   blocks: {
@@ -185,9 +185,8 @@ function getComponent(name) {
 
 function getWrapperComponent(name) {
   // if not ftva, never use scroll wrapper
-  if (theme?.value !== 'ftva') {
+  if (theme?.value !== 'ftva')
     return Fragment
-  }
 
   // else if ftva, add scroll wrapper to specific components
   return name === 'flexible-card-with-image'
