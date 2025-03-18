@@ -54,10 +54,17 @@ const classes = computed(() => {
         background-color: $navy-blue;
         border-radius: 6px;
         &::before {
-            // remove this if icon updated
+            // TODO remove this if icon updated
             transform: scale(2, 2.5);
             filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
             padding-top: 1px;
+        }
+    }
+
+    // hide arrow icons on mobile screens
+    @media #{$small} {
+        :deep(i.v-icon) {
+            display: none;
         }
     }
 
