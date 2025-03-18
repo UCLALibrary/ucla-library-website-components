@@ -10,6 +10,7 @@ import SectionWrapper from './SectionWrapper.vue'
 import DividerWayFinder from './DividerWayFinder.vue'
 import SectionHeader from './SectionHeader.vue'
 import { useTheme } from '@/composables/useTheme'
+import Fragment from './Fragment.vue'
 
 const props = defineProps({
   blocks: {
@@ -85,7 +86,7 @@ const components = {
   'flexible-horizontal-divider': FlexibleHorizontalDivider,
   'flexible-impact-number-cards': FlexibleImpactNumberCards,
   'flexible-impact-numbers-carousel': FlexibleImpactNumbersCarousel,
-  'flexible-info': FlexibleInfo,
+  'flexible-info-block': FlexibleInfo,
   'flexible-media-gallery': FlexibleMediaGallery,
   'flexible-media-with-text': FlexibleMediaWithText,
   'flexible-pull-quote': FlexiblePullQuote,
@@ -178,18 +179,20 @@ function sectionSummary(block) {
 }
 
 function getComponent(name) {
+  console.log('gettung component', name)
   return components[name]
 }
 
 function getWrapperComponent(name) {
   // if not ftva, never use scroll wrapper
-  if (theme?.value !== 'ftva')
-    return 'template'
+  if (theme?.value !== 'ftva') {
+    return Fragment
+  }
 
-  // if ftva, add scroll wrapper to specific components
+  // else if ftva, add scroll wrapper to specific components
   return name === 'flexible-card-with-image'
     ? ScrollWrapper
-    : 'template'
+    : Fragment
 }
 </script>
 

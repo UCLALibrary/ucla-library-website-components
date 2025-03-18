@@ -430,5 +430,22 @@ export const mockFlexibleBlocks = [
         ]
       }
     ]
-  }
+  },
+  {
+    id: '2930617',
+    typeHandle: 'callToAction',
+    callToAction: [
+      {
+        id: '2930618',
+        titleCta: 'Tamogotchi Competition',
+        summary:
+                    'Chō puriti! Nanbā 1 tama petto kettei-sen!) is episode 13 of Tamagotchi! Yume Kira Dream and episode 156 overall. It aired on December 10, 2012. The writer of the episode is Yamaguchi Hiroshi.',
+        icon: 'svg-call-to-action-find',
+        buttonText: 'Sign Up Here',
+        buttonUrl:
+                    'https://tamagotchi.fandom.com/wiki/Super_Pretty!_No.1_Tamapet_Competition',
+        backgroundColor: 'false',
+      },
+    ],
+  },
 ]
