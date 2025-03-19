@@ -195,28 +195,31 @@ function getWrapperComponent(name) {
 </script>
 
 <template>
-  <SectionWrapper :class="classes" :no-margins="true">
+  <SectionWrapper
+    :class="classes"
+    :no-margins="true"
+  >
     <SectionHeader class="more-information">
       More Information
     </SectionHeader>
 
-    <div 
-      v-for="(block, index) in parsedBlocks" 
+    <div
+      v-for="(block, index) in parsedBlocks"
       :key="`flexibleblocks-${index}`"
     >
-      <SectionWrapper 
-        v-if="block.needsDivider" 
+      <SectionWrapper
+        v-if="block.needsDivider"
         theme="divider"
       >
         <DividerWayFinder />
       </SectionWrapper>
 
       <SectionWrapper
-        :theme="block.theme" 
+        :theme="block.theme"
         :section-title="sectionTitle(block)"
         :section-summary="sectionSummary(block)"
       >
-        <component 
+        <component
           :is="getWrapperComponent(block.componentName)"
         >
           <component
