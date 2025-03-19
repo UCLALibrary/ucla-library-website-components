@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.3.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.3.0...@ucla-library-monorepo/ucla-library-website-components-v1.3.1) (2025-03-19)
+
+
+### Bug Fixes
+
+* APPS-3263 Fix FTVA PageAnchor alignment ([#711](https://github.com/UCLALibrary/ucla-library-website-components/issues/711)) ([33b1088](https://github.com/UCLALibrary/ucla-library-website-components/commit/33b1088ea3765a0aaaba0d65ab3de4a3f5f00dfb))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.3.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.2.0...@ucla-library-monorepo/ucla-library-website-components-v1.3.0) (2025-03-19)
 
 
