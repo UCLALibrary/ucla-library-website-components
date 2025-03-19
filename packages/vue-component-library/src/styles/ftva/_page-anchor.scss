@@ -5,6 +5,7 @@
     }
 
     .dropdown-button {
+        
         span.caret {
             position: relative;
             top: 5px;
@@ -15,7 +16,6 @@
         @include ftva-subtitle-2;
         color: var(--ftva-medium-blue);
         text-transform: unset;
-        align-self: flex-start;
         justify-content: flex-start;
         letter-spacing: normal;
     }
@@ -36,7 +36,7 @@
       }
     }
     .page-anchor-list {
-        padding-left: 4px;
+        padding-left: 8px;
         padding-right: 4px;
 
         li.link {
@@ -47,6 +47,7 @@
                     padding-left: 0px;
                 }
                 margin-top: 8px;
+                margin-left: -4px;
                 padding-left: 0px;
                 
             }
