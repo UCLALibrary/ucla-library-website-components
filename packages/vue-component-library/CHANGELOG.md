@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.3.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.2.0...@ucla-library-monorepo/ucla-library-website-components-v1.3.0) (2025-03-19)
+
+
+### Features
+
+* add section-title and section-summary ([#713](https://github.com/UCLALibrary/ucla-library-website-components/issues/713)) ([d04b031](https://github.com/UCLALibrary/ucla-library-website-components/commit/d04b031b0da07679a6de54f62786400599443d3b))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.2.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.1.2...@ucla-library-monorepo/ucla-library-website-components-v1.2.0) (2025-03-18)
 
 
