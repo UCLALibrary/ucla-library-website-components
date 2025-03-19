@@ -179,7 +179,6 @@ function sectionSummary(block) {
 }
 
 function getComponent(name) {
-  console.log('gettung component', name)
   return components[name]
 }
 
@@ -201,16 +200,25 @@ function getWrapperComponent(name) {
       More Information
     </SectionHeader>
 
-    <div v-for="(block, index) in parsedBlocks" :key="`flexibleblocks-${index}`">
-      <SectionWrapper v-if="block.needsDivider" theme="divider">
+    <div 
+      v-for="(block, index) in parsedBlocks" 
+      :key="`flexibleblocks-${index}`"
+    >
+      <SectionWrapper 
+        v-if="block.needsDivider" 
+        theme="divider"
+      >
         <DividerWayFinder />
       </SectionWrapper>
 
       <SectionWrapper
-        :theme="block.theme" :section-title="sectionTitle(block)"
+        :theme="block.theme" 
+        :section-title="sectionTitle(block)"
         :section-summary="sectionSummary(block)"
       >
-        <component :is="getWrapperComponent(block.componentName)">
+        <component 
+          :is="getWrapperComponent(block.componentName)"
+        >
           <component
             :is="getComponent(block.componentName)" :block="block.mediaGalleryStyle === 'halfWidth'
               ? block
