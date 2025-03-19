@@ -1,16 +1,4 @@
 .ftva.section-wrapper {
-    // ftva section-header & section-summary styling
-    .section-header { 
-        .section-title { 
-          @include ftva-h5;
-          color: $accent-blue;
-        }
-        .section-summary {
-          @include ftva-body;
-          color: $medium-grey;
-        }
-    }
-
     // remove max-width from rich-text inside flexible-blocks for ftva
     &.flexible-blocks {
         :deep(.rich-text) {
@@ -19,7 +7,6 @@
         }
     }
 
-    // section header specific styling for section teaser card
     .section-header:has(+ ul.section-teaser-card.ftva) {
         // Set to zero to remove margin under Section Title
         // Explore Other Series or Events or Related Collections and Recent Posts
