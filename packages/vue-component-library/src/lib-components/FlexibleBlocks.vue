@@ -222,7 +222,6 @@ function getComponent(name) {
   lang="scss"
   scoped
 >
-
 // default theme
 .flexible-blocks {
   .more-information {
@@ -244,7 +243,6 @@ function getComponent(name) {
         color: $medium-grey;
       }
     }
-  } 
+  }
 }
-
 </style>
