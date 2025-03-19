@@ -234,6 +234,7 @@ function getComponent(name) {
   .flexible-block-section-wrapper {
     // sections within flexible blocks have bold titles and medium grey summaries
     :deep(.section-header) {
+      margin-bottom: 12px;
       .section-title {
           @include ftva-h5;
           color: $accent-blue;
