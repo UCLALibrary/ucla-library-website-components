@@ -124,6 +124,7 @@ const parsedBlocks = computed(() => {
     if (theme?.value === 'ftva') {
       block.theme = 'white' // Force theme to white
       block.needsDivider = false // No dividers in ftva theme
+      return // This ensures that no additional logic (like checking previous block themes for dividers) affects the needsDivider property.
     }
     else {
       // Normal theme logic for other themes
@@ -193,7 +194,7 @@ function getComponent(name) {
       :key="`flexibleblocks-${index}`"
     >
       <SectionWrapper
-        v-if="block.needsDivider"
+        v-if="block.needsDivider && theme !== 'ftva'"
         theme="divider"
       >
         <DividerWayFinder />
@@ -209,7 +210,7 @@ function getComponent(name) {
           :block="block.mediaGalleryStyle === 'halfWidth'
             ? block
             : omit(block, ['sectionTitle', 'sectionSummary'])
-          "
+            "
           class="flexible-block"
         />
       </SectionWrapper>
@@ -217,10 +218,7 @@ function getComponent(name) {
   </SectionWrapper>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .flexible-blocks {
   .more-information {
     @include visually-hidden;
