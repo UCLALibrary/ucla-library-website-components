@@ -31,8 +31,7 @@ const classes = computed(() => {
         z-index: 1;
         i.v-icon {
             &::before {
-                // todo updated icon from serena?
-                content: url('ucla-library-design-tokens/assets/svgs/icon-caret-left.svg');
+                content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-left_icon.svg');
             }
         }
     }
@@ -43,22 +42,9 @@ const classes = computed(() => {
         right: 0px;
         i.v-icon {
                 &::before {
-                    // todo updated icon from serena?
-                    content: url('ucla-library-design-tokens/assets/svgs/icon-caret-right.svg');
+                    content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-right_icon.svg');
                 }
             }
-    }
-    :deep(i.v-icon) {
-        height: 54px;
-        width: 43px;
-        background-color: $navy-blue;
-        border-radius: 6px;
-        &::before {
-            // TODO remove this if icon updated
-            transform: scale(2, 2.5);
-            filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
-            padding-top: 1px;
-        }
     }
 
     // hide arrow icons on mobile screens
