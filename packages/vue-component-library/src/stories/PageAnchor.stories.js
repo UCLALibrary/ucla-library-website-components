@@ -129,6 +129,7 @@ FTVATheme.args = {
     'Research at UCLA',
     'Acknowledgements',
     'Additional materials',
+    'A Longer Headline for Testing: National Archives of Finland'
   ],
   color: 'default',
 }
