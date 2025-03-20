@@ -60,6 +60,9 @@ const classes = computed(() => {
     // when card-with-image is in a scroll-wrapper, it should not wrap horizontally but scroll instead
     :deep(.card-with-image) {
         max-width: unset;
+        @media #{$large} {
+            margin-left: 0px; // ensure no margin on left side of card when within scroll-wrapper
+        }
 
         .section-header {
             display: none;
