@@ -218,6 +218,7 @@ function getWrapperComponent(name) {
         :theme="block.theme"
         :section-title="sectionTitle(block)"
         :section-summary="sectionSummary(block)"
+        class="flexible-block-section-wrapper"
       >
         <component
           :is="getWrapperComponent(block.componentName)"
@@ -238,9 +239,28 @@ function getWrapperComponent(name) {
   lang="scss"
   scoped
 >
+// default theme
 .flexible-blocks {
   .more-information {
     @include visually-hidden;
+  }
+}
+
+// ftva theme
+.ftva.flexible-blocks {
+  .flexible-block-section-wrapper {
+    // sections within flexible blocks have bold titles and medium grey summaries
+    :deep(.section-header) {
+      margin-bottom: 12px;
+      .section-title {
+          @include ftva-h5;
+          color: $accent-blue;
+        }
+      .section-summary {
+        @include ftva-body;
+        color: $medium-grey;
+      }
+    }
   }
 }
 </style>
