@@ -61,7 +61,7 @@ const classes = computed(() => {
     :deep(.card-with-image) {
         max-width: unset;
         margin-left: 0px; // ensure no margin on left side of card when within scroll-wrapper
-        
+
         .section-header {
             display: none;
         }
