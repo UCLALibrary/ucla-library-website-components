@@ -1,3 +1,10 @@
+# [@ucla-library/component-library-nuxt-module-v1.2.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.1.3...@ucla-library/component-library-nuxt-module-v1.2.0) (2025-03-25)
+
+
+### Features
+
+* fix flexibleinfo export ([#716](https://github.com/UCLALibrary/ucla-library-website-components/issues/716)) ([1c553b3](https://github.com/UCLALibrary/ucla-library-website-components/commit/1c553b3c17186eac25e12616240badfd3f605f89))
+
 # [@ucla-library/component-library-nuxt-module-v1.1.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.1.2...@ucla-library/component-library-nuxt-module-v1.1.3) (2025-03-20)
 
 # [@ucla-library/component-library-nuxt-module-v1.1.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.1.1...@ucla-library/component-library-nuxt-module-v1.1.2) (2025-03-19)
