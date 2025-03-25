@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.5.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.4.0...@ucla-library-monorepo/ucla-library-website-components-v1.5.0) (2025-03-25)
+
+
+### Features
+
+* fix flexibleinfo export ([#716](https://github.com/UCLALibrary/ucla-library-website-components/issues/716)) ([1c553b3](https://github.com/UCLALibrary/ucla-library-website-components/commit/1c553b3c17186eac25e12616240badfd3f605f89))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.4.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.3.1...@ucla-library-monorepo/ucla-library-website-components-v1.4.0) (2025-03-20)
 
 
