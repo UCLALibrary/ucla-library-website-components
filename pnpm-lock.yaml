@@ -226,6 +226,9 @@ importers:
       vite:
         specifier: 'catalog:'
         version: 5.4.14(@types/node@18.19.80)(sass@1.85.1)(terser@5.39.0)
+      vite-plugin-css-injected-by-js:
+        specifier: ^3.5.2
+        version: 3.5.2(vite@5.4.14(@types/node@18.19.80)(sass@1.85.1)(terser@5.39.0))
       vite-plugin-dts:
         specifier: ^4.5.0
         version: 4.5.3(@types/node@18.19.80)(rollup@4.35.0)(typescript@5.8.2)(vite@5.4.14(@types/node@18.19.80)(sass@1.85.1)(terser@5.39.0))
@@ -9033,6 +9036,11 @@ packages:
         optional: true
       vue-tsc:
         optional: true
+
+  vite-plugin-css-injected-by-js@3.5.2:
+    resolution: {integrity: sha512-2MpU/Y+SCZyWUB6ua3HbJCrgnF0KACAsmzOQt1UvRVJCGF6S8xdA3ZUhWcWdM9ivG4I5az8PnQmwwrkC2CAQrQ==}
+    peerDependencies:
+      vite: '>2.0.0-0'
 
   vite-plugin-dts@4.5.3:
     resolution: {integrity: sha512-P64VnD00dR+e8S26ESoFELqc17+w7pKkwlBpgXteOljFyT0zDwD8hH4zXp49M/kciy//7ZbVXIwQCekBJjfWzA==}
@@ -19746,6 +19754,10 @@ snapshots:
       optionator: 0.9.4
       typescript: 5.8.2
       vue-tsc: 2.2.8(typescript@5.8.2)
+
+  vite-plugin-css-injected-by-js@3.5.2(vite@5.4.14(@types/node@18.19.80)(sass@1.85.1)(terser@5.39.0)):
+    dependencies:
+      vite: 5.4.14(@types/node@18.19.80)(sass@1.85.1)(terser@5.39.0)
 
   vite-plugin-dts@4.5.3(@types/node@18.19.80)(rollup@4.35.0)(typescript@5.8.2)(vite@5.4.14(@types/node@18.19.80)(sass@1.85.1)(terser@5.39.0)):
     dependencies:

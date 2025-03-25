@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import svgLoader from 'vite-svg-loader'
 import dts from 'vite-plugin-dts'
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -39,6 +40,7 @@ export default defineConfig({
       insertTypesEntry: true,
       rollupTypes: true,
     }),
+    cssInjectedByJsPlugin()
   ],
   build: {
     lib: {
@@ -72,6 +74,7 @@ export default defineConfig({
     preprocessorOptions: {
       // Additional Sass options go here
       scss: {
+        silenceDeprecations: ['legacy-js-api'],
         additionalData: `
                   @import "ucla-library-design-tokens/scss/fonts.scss";
                   @import "ucla-library-design-tokens/scss/_tokens-ftva";
