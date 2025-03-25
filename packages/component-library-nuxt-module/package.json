@@ -40,10 +40,10 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.15.4"
+    "@nuxt/kit": "^3.15.4",
+    "@ucla-library-monorepo/ucla-library-website-components": "workspace:^"
   },
   "devDependencies": {
-    "@ucla-library-monorepo/ucla-library-website-components": "workspace:^",
     "@nuxt/devtools": "^1.7.0",
     "@nuxt/eslint-config": "^0.7.6",
     "@nuxt/module-builder": "^0.8.4",
@@ -56,9 +56,6 @@
     "typescript": "^5.7.3",
     "vitest": "^3.0.6",
     "vue-tsc": "catalog:"
-  },
-  "peerDependencies": {
-    "@ucla-library-monorepo/ucla-library-website-components": "workspace:^"
   },
   "engines": {
     "pnpm": "^9.12.1"

@@ -53,6 +53,9 @@ importers:
       '@nuxt/kit':
         specifier: ^3.15.4
         version: 3.16.0(magicast@0.3.5)
+      '@ucla-library-monorepo/ucla-library-website-components':
+        specifier: workspace:^
+        version: link:../vue-component-library
     devDependencies:
       '@nuxt/devtools':
         specifier: ^1.7.0
@@ -72,9 +75,6 @@ importers:
       '@types/node':
         specifier: latest
         version: 22.13.10
-      '@ucla-library-monorepo/ucla-library-website-components':
-        specifier: workspace:^
-        version: link:../vue-component-library
       changelogen:
         specifier: ^0.5.7
         version: 0.5.7(magicast@0.3.5)
