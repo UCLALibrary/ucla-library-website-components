@@ -180,7 +180,15 @@ const classes = computed(() => {
                 offset="10"
                 opacity="0"
               >
-                <v-card width="320" style="overflow: hidden; z-index: initial" :hover="false" :link="true" :to="selectedEventObj.to">
+                <v-card
+                  v-ripple="false"
+                  width="320"
+                  style="overflow: hidden; z-index: initial"
+                  :hover="false"
+                  :link="true"
+                  :to="selectedEventObj.to"
+                  variant="text"
+                >
                   <!-- Default Event Calendar -->
                   <div v-if="defaultEventCalendar" class="calendar-event-popup-wrapper">
                     <BlockCardWithImage
