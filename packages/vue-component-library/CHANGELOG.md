@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.6.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.5.0...@ucla-library-monorepo/ucla-library-website-components-v1.6.0) (2025-03-27)
+
+
+### Features
+
+* revert svgo changes ([#717](https://github.com/UCLALibrary/ucla-library-website-components/issues/717)) ([f3b4668](https://github.com/UCLALibrary/ucla-library-website-components/commit/f3b466831722177fcf54006a592f4359dab86ff4))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.5.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.4.0...@ucla-library-monorepo/ucla-library-website-components-v1.5.0) (2025-03-25)
 
 
