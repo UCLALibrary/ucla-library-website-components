@@ -19,6 +19,22 @@
     color: white;
   }
 
+  .v-calendar-header > button:nth-of-type(2) {
+    i.v-icon {
+      &::before {
+          content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-left_icon.svg');
+      }
+    }
+  }
+
+  .v-calendar-header > button:nth-of-type(3) {
+    i.v-icon {
+      &::before {
+          content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-right_icon.svg');
+      }
+    }
+  }
+
   // Current date
   .v-calendar-weekly__day-label .v-btn.v-calendar-weekly__day-label__today {
     background-color: $grey-blue !important;
