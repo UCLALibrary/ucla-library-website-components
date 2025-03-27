@@ -6,8 +6,7 @@
     color: #{$accent-blue};
     border-color: #{$accent-blue};
 
-    &:hover,
-    .hover {
+    &:hover {
       background-color: #{$accent-blue};
       color: #{$pure-white};
     }
