@@ -19,19 +19,19 @@ export default defineConfig({
       },
     }),
     svgLoader({
-      svgo: true, // Enables SVGO optimization
-      svgoConfig: {
-        plugins: [
-          {
-            name: 'preset-default',
-            params: {
-              overrides: {
-                removeViewBox: false,
-              },
-            },
-          },
-        ]
-      }
+      svgo: false, // Enables SVGO optimization
+      // svgoConfig: {
+      //   plugins: [
+      //     {
+      //       name: 'preset-default',
+      //       params: {
+      //         overrides: {
+      //           removeViewBox: false,
+      //         },
+      //       },
+      //     },
+      //   ]
+      // }
     }),
     dts({
       tsconfigPath: './tsconfig.json',
