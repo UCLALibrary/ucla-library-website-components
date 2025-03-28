@@ -12,7 +12,7 @@ export default defineNuxtModule<ModuleOptions>({
   setup(_options, _nuxt) {
     const logger = useLogger('@ucla-library/component-library-nuxt-module')
 
-    _nuxt.options.css.push('@ucla-library-monorepo/ucla-library-website-components/style.css')
+    // _nuxt.options.css.push('@ucla-library-monorepo/ucla-library-website-components/style.css')
     Object.keys(VueComponentLibrary)
       .forEach((component) => {
         logger.info(`Adding component: ${component}`)
