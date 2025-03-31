@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       alphabet: [
-        /*{
+        /* {
           letter: 'All',
         },
         */
