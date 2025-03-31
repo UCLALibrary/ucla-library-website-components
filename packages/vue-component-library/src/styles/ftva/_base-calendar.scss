@@ -6,8 +6,7 @@
     color: #{$accent-blue};
     border-color: #{$accent-blue};
 
-    &:hover,
-    .hover {
+    &:hover {
       background-color: #{$accent-blue};
       color: #{$pure-white};
     }
@@ -17,6 +16,22 @@
   .v-calendar-header > button:nth-of-type(3) {
     background-color: $navy-blue;
     color: white;
+  }
+
+  .v-calendar-header > button:nth-of-type(2) {
+    i.v-icon {
+      &::before {
+          content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-left_icon.svg');
+      }
+    }
+  }
+
+  .v-calendar-header > button:nth-of-type(3) {
+    i.v-icon {
+      &::before {
+          content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-right_icon.svg');
+      }
+    }
   }
 
   // Current date

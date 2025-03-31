@@ -1,7 +1,5 @@
-import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import { VCalendar } from 'vuetify/labs/VCalendar'
-import '@mdi/font/css/materialdesignicons.css'
 import { VCard, VList, VListItem, VMenu, VSheet, VSlideGroup, VSlideGroupItem } from 'vuetify/lib/components/index.mjs'
 
 export const vuetify = createVuetify({

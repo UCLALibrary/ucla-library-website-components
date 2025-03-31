@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.6.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.6.0...@ucla-library-monorepo/ucla-library-website-components-v1.6.1) (2025-03-27)
+
+
+### Bug Fixes
+
+* APPS 3265 Update Vuetify plugin config ([#718](https://github.com/UCLALibrary/ucla-library-website-components/issues/718)) ([08e5892](https://github.com/UCLALibrary/ucla-library-website-components/commit/08e58925a412823287d4012247ac4044c01f5d8f))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.6.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.5.0...@ucla-library-monorepo/ucla-library-website-components-v1.6.0) (2025-03-27)
 
 
