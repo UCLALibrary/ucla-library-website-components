@@ -1,0 +1,53 @@
+.card-with-image {
+  max-width: $container-l-main + px;
+  margin: 0 auto;
+
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-title {
+    @include step-3;
+    color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-m);
+  }
+
+  .section-summary {
+    @include step-0;
+
+    :deep(p) {
+      margin: 0;
+    }
+  }
+
+  .block-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 32px 16px;
+
+    .block {
+      width: calc((100% - 32px) / 3);
+    }
+  }
+
+  // Breakpoints
+  @media #{$medium} {
+    align-items: flex-start;
+
+    .block-group {
+      .block {
+        width: calc((100% - 16px) / 2);
+      }
+    }
+  }
+
+  @media #{$small} {
+    .block-group {
+      .block {
+        width: 100%;
+      }
+    }
+  }
+}
