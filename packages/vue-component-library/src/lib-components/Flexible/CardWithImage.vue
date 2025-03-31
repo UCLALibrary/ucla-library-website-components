@@ -7,6 +7,9 @@ import _get from 'lodash/get'
 import formatDates from '@/utils/formatEventDates'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
+// THEME
+import { useTheme } from '@/composables/useTheme'
+
 // COMPONENTS
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
@@ -161,12 +164,18 @@ const parsedItems = computed(() => {
       }
     })
 })
+
+const theme = useTheme()
+
+const classes = computed(() => {
+  return ['card-with-image', theme?.value || '']
+})
 </script>
 
 <template>
   <div
     v-if="block.cardWithImage"
-    class="card-with-image"
+    class="classes"
   >
     <div class="section-header">
       <h2
