@@ -58,7 +58,8 @@ packages/*/cypress/fixtures
 packages/*/cypress/screenshots
 packages/*/cypress/e2e/1-getting-started
 packages/*/cypress/e2e/2-advanced-examples
-
+packages/vue-component-library/src/stories/TestStaffSearch.stories.js
+packages/vue-component-library/src/lib-components/TestStaffSearch.vue
 packages/*/serve
 packages/*/vite.config.serve.ts
 packages/*/src/App.vue
