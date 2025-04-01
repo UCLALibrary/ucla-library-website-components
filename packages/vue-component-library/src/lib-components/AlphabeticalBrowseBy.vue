@@ -12,6 +12,7 @@ export default {
     },
   },
   emits: ['selectedLetter'],
+  inject: ['theme'],
   data() {
     return {
       alphabet: [
@@ -152,7 +153,10 @@ export default {
 
 <template>
   <div class="alphabetical-browse-by">
-    <h2 class="title">
+    <h2
+      class="title"
+      v-if="theme === ''"
+    >
       Browse by Last Name
     </h2>
     <ul class="alphabet-list">
