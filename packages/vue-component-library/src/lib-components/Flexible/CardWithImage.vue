@@ -50,7 +50,7 @@ const parsedItems = computed(() => {
         console.log("FTVA OBJ", obj.imageCarousel)
         return {
           ...obj,
-          parsedImage: obj.imageCarousel[0].image[0]
+          parsedImage: (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage
         }
 
       })
