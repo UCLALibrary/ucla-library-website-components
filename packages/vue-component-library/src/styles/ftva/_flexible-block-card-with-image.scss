@@ -1,37 +1,19 @@
 .ftva.card-with-image {
-  // flex-wrap: nowrap;
-  // max-width: 100%; // 100% of the parent container
-  // align-items: flex-start;
-  // overflow-y: auto;
-  // padding-top: 25px;
-  // gap: var(--space-xl) 20px;
-  // scrollbar-color: $grey-blue $white;
-
-  // &:has(> :last-child:nth-child(3)) {
-  //   /* if section has 3 elements */
-  //   justify-content: space-between;
-  //   gap: var(--space-xl) 16px;
-  // }
-
-  // .card {
-  //   flex-basis: calc((100% / 3) - 22px);
-  //   min-width: 280px;
-  //   margin-bottom: 15px;
-  //   min-height: 350px;
-
-  //   :deep(.ftvaItemInCollection) {
-  //     min-height: 60px;
-  //   }
-  // }
 
   :deep(.card-meta) {
     background-color: $page-blue;
     border-radius: 10px;
+
+    .title,
+    .title-no-link {
+      @include step-1;
+      line-height: $line-height--1;
+      color: $heading-grey;
+      margin: var(--space-s) 0;
+    }
+
+    .date-time {
+      color: $accent-blue;
+    }
   }
 }
-
-// .ftva.section-teaser-card-title {
-//   @include ftva-card-title-1;
-//   padding-top: 60px;
-//   color: $accent-blue;
-// }

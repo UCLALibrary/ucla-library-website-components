@@ -50,7 +50,8 @@ const parsedItems = computed(() => {
         console.log("FTVA OBJ", obj.imageCarousel)
         return {
           ...obj,
-          parsedImage: (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage
+          parsedImage: (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage,
+          title: obj.title || obj.eventTitle || obj.titleGeneral
         }
 
       })
@@ -228,57 +229,60 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.card-with-image {
-  max-width: $container-l-main + px;
-  margin: 0 auto;
+@import "@/styles/default/_flexible-block-card-with-image.scss";
+@import "@/styles/ftva/_flexible-block-card-with-image.scss";
 
-  .section-header {
-    margin-bottom: var(--space-xl);
-  }
+// .card-with-image {
+//   max-width: $container-l-main + px;
+//   margin: 0 auto;
 
-  .section-title {
-    @include step-3;
-    color: var(--color-primary-blue-03);
-    margin-bottom: var(--space-m);
-  }
+//   .section-header {
+//     margin-bottom: var(--space-xl);
+//   }
 
-  .section-summary {
-    @include step-0;
+//   .section-title {
+//     @include step-3;
+//     color: var(--color-primary-blue-03);
+//     margin-bottom: var(--space-m);
+//   }
 
-    :deep(p) {
-      margin: 0;
-    }
-  }
+//   .section-summary {
+//     @include step-0;
 
-  .block-group {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 32px 16px;
+//     :deep(p) {
+//       margin: 0;
+//     }
+//   }
 
-    .block {
-      width: calc((100% - 32px) / 3);
-    }
-  }
+//   .block-group {
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     justify-content: flex-start;
+//     gap: 32px 16px;
 
-  // Breakpoints
-  @media #{$medium} {
-    align-items: flex-start;
+//     .block {
+//       width: calc((100% - 32px) / 3);
+//     }
+//   }
 
-    .block-group {
-      .block {
-        width: calc((100% - 16px) / 2);
-      }
-    }
-  }
+//   // Breakpoints
+//   @media #{$medium} {
+//     align-items: flex-start;
 
-  @media #{$small} {
-    .block-group {
-      .block {
-        width: 100%;
-      }
-    }
-  }
-}
+//     .block-group {
+//       .block {
+//         width: calc((100% - 16px) / 2);
+//       }
+//     }
+//   }
+
+//   @media #{$small} {
+//     .block-group {
+//       .block {
+//         width: 100%;
+//       }
+//     }
+//   }
+// }
 </style>
