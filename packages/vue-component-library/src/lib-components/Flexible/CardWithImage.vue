@@ -1,3 +1,5 @@
+NOW
+
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import { computed } from 'vue'
@@ -39,6 +41,56 @@ const parsedList = computed(() => {
   }
   return items
 })
+
+// ftvaEvent
+// ftvaEventSeries
+// ftvaArticle
+// ftvaGeneralContentPage
+// generalContentPage
+// article
+// externalContent
+
+// const parsedFtvaTo = computed(() => {
+//   if contentType == "ftvaEvent" || "ftvaEventSeries" || "ftvaArticle"
+//     to: uri
+//   if contentType: "ftvaGeneralContentPage"
+//   to: slug
+
+// })
+
+// const parsedFtvaImage = computed(() => {
+//   if contentType == "ftvaEvent" || "ftvaEventSeries" || "ftvaArticle"
+//     image: ftvaImage[0] || imageCarousel[0].image
+// })
+
+// const parsedFtvaTitle = computed(() => {
+//   if contentType == "ftvaEvent"
+//     title: eventTitle
+//   if contentType == "ftvaEventSeries"
+//     title: "title" || "titleGeneral"
+//   if contentType == "ftvaEvent" || "ftvaEventSeries" || "ftvaArticle"
+// })
+
+// const parsedFtvaDate = computed(() => {
+
+// })
+
+// const parsedFtvaList = computed(() => {
+//   const items = []
+//   for (const indexProperty in block.cardWithImage) {
+//     // console.log("card with image loop, property:", indexProperty)
+//     // console.log("block.cardWithImage[indexProperty].typeHandle", block.cardWithImage[indexProperty].typeHandle)
+//     if (
+//       block.cardWithImage[indexProperty].typeHandle === 'internalContent'
+//       && block.cardWithImage[indexProperty].contentLink
+//       && block.cardWithImage[indexProperty].contentLink.length > 0
+//     )
+//       items.push(block.cardWithImage[indexProperty].contentLink[0])
+//     else if (block.cardWithImage[indexProperty].typeHandle !== 'internalContent')
+//       items.push(block.cardWithImage[indexProperty])
+//   }
+//   return items
+// })
 
 const parsedItems = computed(() => {
   // Maps values based on content type and external or internal content
@@ -286,11 +338,22 @@ const parsedItems = computed(() => {
               undefined
             ),
             to: stripMeapFromURI(obj.to),
+            title: parsedTitle,
           }
         }
       })
   }
 })
+
+// const parsedFtvaImage = computed(() => {
+//   parsedImage: _get(
+//     obj,
+//     'imageCarousel[0]?.image[0]',
+//     ftvaImage[0]
+//   ),
+// })
+
+
 
 // THEME
 const theme = useTheme()
@@ -302,8 +365,10 @@ const classes = computed(() => {
 <template>
   <div
     v-if="block.cardWithImage"
-    :class="classes"
+    class="card-with-image"
   >
+
+    <h3>parsedList.value -- {{ parsedList }}</h3>
     <div class="section-header">
       <h2
         v-if="block.sectionTitle"
@@ -328,7 +393,7 @@ const classes = computed(() => {
         :category="item.parsedCategory"
         :byline-one="item.byline1"
         :byline-two="item.byline2"
-        :title="item.title"
+        :title="item.eventTitle || item.formattedTitle || item.title || item.titleGeneral"
         :text="item.text"
         :locations="item.parsedLocation"
         :image-aspect-ratio="60"
@@ -344,6 +409,60 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_flexible-block-card-with-image.scss";
-@import "@/styles/ftva/_flexible-block-card-with-image.scss";
+// @import "@/styles/default/_flexible-block-card-with-image.scss";
+// @import "@/styles/ftva/_flexible-block-card-with-image.scss";
+
+.card-with-image {
+  max-width: $container-l-main + px;
+  margin: 0 auto;
+
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-title {
+    @include step-3;
+    color: var(--color-primary-blue-03);
+    margin-bottom: var(--space-m);
+  }
+
+  .section-summary {
+    @include step-0;
+
+    :deep(p) {
+      margin: 0;
+    }
+  }
+
+  .block-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 32px 16px;
+
+    .block {
+      width: calc((100% - 32px) / 3);
+    }
+  }
+
+  // Breakpoints
+  @media #{$medium} {
+    align-items: flex-start;
+
+    .block-group {
+      .block {
+        width: calc((100% - 16px) / 2);
+      }
+    }
+  }
+
+  @media #{$small} {
+    .block-group {
+      .block {
+        width: 100%;
+      }
+    }
+  }
+}
 </style>
