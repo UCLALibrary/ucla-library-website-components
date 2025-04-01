@@ -6,15 +6,18 @@ export default {
       type: String,
       default: 'All',
     },
+    displayAll: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: ['selectedLetter'],
   data() {
     return {
       alphabet: [
-        /* {
+        {
           letter: 'All',
         },
-        */
         {
           letter: 'A',
         },
@@ -100,7 +103,7 @@ export default {
   computed: {
     parsedAlphabet: {
       get() {
-        return this.alphabet.map((item) => {
+        return this.alphabet.filter(item => (item.letter !== 'All') || (item.letter === 'All' && this.displayAll)).map((item) => {
           let letterClass = 'letter'
           // Set the class for the letter when initially loaded
           if (

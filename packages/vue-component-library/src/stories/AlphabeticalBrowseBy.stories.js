@@ -18,3 +18,10 @@ export function CIsSelected() {
     template: '<alphabetical-browse-by selectedLetterProp="C"/>',
   }
 }
+
+export function NoAll() {
+  return {
+    components: { AlphabeticalBrowseBy },
+    template: '<alphabetical-browse-by :displayAll="false"/>',
+  }
+}
