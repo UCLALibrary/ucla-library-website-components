@@ -53,5 +53,3 @@ export function FTVA() {
     template: '<alphabetical-browse-by />',
   }
 }
-
-

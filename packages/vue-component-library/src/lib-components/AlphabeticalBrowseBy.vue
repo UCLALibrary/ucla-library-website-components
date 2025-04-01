@@ -1,6 +1,7 @@
 <script>
 export default {
   name: 'AlphabeticalBrowseBy',
+  inject: ['theme'],
   props: {
     selectedLetterProp: {
       type: String,
@@ -12,7 +13,6 @@ export default {
     },
   },
   emits: ['selectedLetter'],
-  inject: ['theme'],
   data() {
     return {
       alphabet: [
@@ -154,8 +154,8 @@ export default {
 <template>
   <div class="alphabetical-browse-by">
     <h2
-      class="title"
       v-if="theme === ''"
+      class="title"
     >
       Browse by Last Name
     </h2>
