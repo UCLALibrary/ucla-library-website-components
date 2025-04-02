@@ -107,6 +107,10 @@ export default {
         return this.alphabet.filter(item => (item.letter !== 'All') || (item.letter === 'All' && this.displayAll)).map((item) => {
           let letterClass = 'letter'
           // Set the class for the letter when initially loaded
+
+          if (this.selectedLetterProp === '')
+            this.selectedLetter = ''
+
           if (
             item.letter === this.selectedLetterProp
             && this.selectedLetter === ''
