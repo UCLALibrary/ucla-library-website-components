@@ -2,7 +2,7 @@
 
   :deep(.card-meta) {
     background-color: $page-blue;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
 
     .title,
     .title-no-link {
@@ -15,5 +15,12 @@
     .date-time {
       color: $accent-blue;
     }
+
+    .byline-group {
+      @include ftva-emphasized-subtitle;
+      color: $accent-blue;
+      letter-spacing: .04px;
+    }
+
   }
 }
