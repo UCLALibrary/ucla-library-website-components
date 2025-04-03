@@ -54,26 +54,7 @@ const parsedList = computed(() => {
 })
 
 
-// format(new Date(startDate), 'MMMM d, Y')
 
-
-// const parsedDate = computed(() => {
-//   let dateParsed = ''
-//   let formattedDate = ''
-//   if (
-//     block.cardWithImage
-//     && block.cardWithImage[0].contentLink
-//     && block.cardWithImage[0].contentLink[0].startDateWithTime
-//   )
-//     if (obj.contentType.includes('ftvaEvent')) {
-//       return dateParsed = format(new Date("startDateWithTime"), 'MMMM d, Y')
-//     }
-//   if (obj.ftvaEventSeries) { dateParsed = "ongoing" || "startDateWithTime" }
-//   if (obj.ftvaArticle) { dateParsed = "postDate" }
-//   if (obj.ftvaGeneralContentPage) { dateParsed = null }
-
-//   return dateParsed
-// })
 
 // const parsedLink = computed(() => {
 //   let to = ''
@@ -86,7 +67,7 @@ const parsedList = computed(() => {
 // })
 
 
-
+// heroImage[0].image[0]
 
 const parsedItems = computed(() => {
   // Maps values based on content type and external or internal content
@@ -98,9 +79,9 @@ const parsedItems = computed(() => {
         return {
           ...obj,
           to: (obj.sectionHandle === "ftvaGeneralContentPage" && obj.slug) || obj.uri,
-          parsedImage: (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage,
+          //parsedImage: (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage,
+          parsedImage: ((obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage) || ((obj.sectionHandle === "article" || obj.sectionHandle === "generalContentPage") && obj.heroImage[0].image[0]),
           title: obj.eventTitle || obj.title || obj.titleGeneral,
-          //startDate: (obj.contentType === "ftvaArticle" || obj.contentType === "ftvaEvent") ? obj.startDateWithTime : null,
           postDate: (obj.contentType === "ftvaArticle") ? "obj.postDate" : null,
           byline2: parsedFtvaArticleAndEventDate(obj),
         }
@@ -242,7 +223,6 @@ const classes = computed(() => {
     v-if="block.cardWithImage"
     :class="classes"
   >
-    <h3>{{ parsedList }}</h3>
     <div class="section-header">
       <h2
         v-if="block.sectionTitle"

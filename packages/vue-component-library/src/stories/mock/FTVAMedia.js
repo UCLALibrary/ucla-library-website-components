@@ -156,7 +156,7 @@ export const mockFTVABlogSeries = [
         ]
       }
     ],
-    postDate: '2024-07-02T05:08:00-07:00',
+    postDate: '2027-11-17T05:08:00-07:00',
   },
   {
     id: '3266907',
@@ -483,9 +483,9 @@ export const mockFlexibleBlocks = [
             ],
             title: "4 Givings 09-07-24",
             eventTitle: "4 Givings",
-            startDateWithTime: "2024-09-07T19:30",
-            endDateWithTime: "2024-12-17T21:30",
-            postDate: "2024-12-17T12:31"
+            startDateWithTime:"2024-09-07PST19:30",
+            endDateWithTime: "2024-12-17PST12:00",
+            postDate: "2024-08-17"
           }
         ]
       },
@@ -533,9 +533,9 @@ export const mockFlexibleBlocks = [
               }
             ],
             title: "Films of Ericka beckman",
-            startDate: "2024-08-03T00:00",
-            endDate: "2024-08-24T00:00",
-            postDate: "2024-12-17T12:36",
+            startDate: "2024-08-03",
+            endDate: "2024-08-24",
+            postDate: "2024-12-17",
             ongoing: false
           }
         ]
@@ -633,7 +633,7 @@ export const mockFlexibleBlocks = [
             ],
             title: "TEST - Hot Air Balloons",
             formattedTitle: null,
-            postDate: "2024-09-20T10:50"
+            postDate: "2024-09-20"
           }
         ]
       },
@@ -669,7 +669,7 @@ export const mockFlexibleBlocks = [
             ],
             title: "Daffodil Days",
             formattedTitle: "<em>Daffodil Days Formatted Title</em>",
-            postDate: "2025-02-05T16:18"
+            postDate: "2025-02-05"
           }
         ]
       },
@@ -707,40 +707,40 @@ export const mockFlexibleBlocks = [
           }
         ]
       },
-      // {
-      //   id: "3807262",
-      //   typeHandle: "internalContent",
-      //   contentLink: [
-      //     {
-      //       id: "2930588",
-      //       typeHandle: "article",
-      //       sectionHandle: "article",
-      //       contentType: "article",
-      //       uri: "about/news/test-article-squirrel-guinea-pig-garden-in-japan",
-      //       slug: "test-article-squirrel-guinea-pig-garden-in-japan",
-      //       heroImage: [
-      //         {
-      //           image: [
-      //             {
-      //               id: "2930586",
-      //               src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg",
-      //               height: 1953,
-      //               width: 2560,
-      //               srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 2560w",
-      //               alt: null,
-      //               focalPoint: [
-      //                 0.5,
-      //                 0.5
-      //               ]
-      //             }
-      //           ]
-      //         }
-      //       ],
-      //       title: "Test - Article - Squirrel & Guinea Pig Garden in Japan",
-      //       postDate: "2024-03-22T15:21"
-      //     }
-      //   ]
-      // },
+      {
+        id: "3807262",
+        typeHandle: "internalContent",
+        contentLink: [
+          {
+            id: "2930588",
+            typeHandle: "article",
+            sectionHandle: "article",
+            contentType: "article",
+            uri: "about/news/test-article-squirrel-guinea-pig-garden-in-japan",
+            slug: "test-article-squirrel-guinea-pig-garden-in-japan",
+            heroImage: [
+              {
+                image: [
+                  {
+                    id: "2930586",
+                    src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg",
+                    height: 1953,
+                    width: 2560,
+                    srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/guinea-pi-squirrel_2024-03-22-221716_nvfk.jpeg 2560w",
+                    alt: null,
+                    focalPoint: [
+                      0.5,
+                      0.5
+                    ]
+                  }
+                ]
+              }
+            ],
+            title: "Test - Article - Squirrel & Guinea Pig Garden in Japan",
+            postDate: "2024-03-22T15:21"
+          }
+        ]
+      },
     ]
   },
   // EXTERNAL CARDSWITHIMAGE

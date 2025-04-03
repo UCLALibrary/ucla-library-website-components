@@ -134,11 +134,17 @@ const parsedDateFormat = computed(() => {
         :aspect-ratio="imageAspectRatio"
         class="image"
       >
-        <template v-if="$slots.toptext" #toptext>
+        <template
+          v-if="$slots.toptext"
+          #toptext
+        >
           <slot name="toptext" />
         </template>
       </ResponsiveImage>
-      <div v-else class="molecule-no-image">
+      <div
+        v-else
+        class="molecule-no-image"
+      >
         <MoleculePlaceholder
           class="molecule"
           aria-hidden="true"
@@ -146,16 +152,34 @@ const parsedDateFormat = computed(() => {
       </div>
     </div>
     <CardMeta
-      class="card-meta-items" :to="to" :category="category" :title="title" :start-date="startDate"
-      :end-date="endDate" :date-format="parsedDateFormat" :ongoing="ongoing" :text="text" :byline-one="bylineOne"
-      :byline-two="bylineTwo" :locations="locations" :alternative-full-name="alternativeFullName" :language="language"
-      :section-handle="sectionHandle" :date-created="dateCreated"
+      class="card-meta-items"
+      :to="to"
+      :category="category"
+      :title="title"
+      :start-date="startDate"
+      :end-date="endDate"
+      :date-format="parsedDateFormat"
+      :ongoing="ongoing"
+      :text="text"
+      :byline-one="bylineOne"
+      :byline-two="bylineTwo"
+      :locations="locations"
+      :alternative-full-name="alternativeFullName"
+      :language="language"
+      :section-handle="sectionHandle"
+      :date-created="dateCreated"
     >
-      <template v-if="$slots.customTitle" #customTitle>
+      <template
+        v-if="$slots.customTitle"
+        #customTitle
+      >
         <slot name="customTitle" />
       </template>
 
-      <template v-if="$slots.customDescription" #customDescription>
+      <template
+        v-if="$slots.customDescription"
+        #customDescription
+      >
         <slot name="customDescription" />
       </template>
     </CardMeta>
