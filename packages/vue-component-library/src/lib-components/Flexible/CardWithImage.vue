@@ -25,6 +25,17 @@ const { block } = defineProps({
   },
 })
 
+function parsedFtvaArticleAndEventDate(obj) {
+  if (obj.contentType === "ftvaEvent") {
+    return format(new Date(obj.startDateWithTime), 'MMMM d, Y')
+  }
+  else if (obj.contentType === "ftvaArticle") {
+    return format(new Date(obj.postDate), 'MMMM d, Y')
+  } else {
+    return ''
+  }
+}
+
 const parsedList = computed(() => {
   const items = []
   for (const indexProperty in block.cardWithImage) {
@@ -74,6 +85,9 @@ const parsedList = computed(() => {
 //   return to
 // })
 
+
+
+
 const parsedItems = computed(() => {
   // Maps values based on content type and external or internal content
   // filter out null objects
@@ -88,13 +102,7 @@ const parsedItems = computed(() => {
           title: obj.eventTitle || obj.title || obj.titleGeneral,
           //startDate: (obj.contentType === "ftvaArticle" || obj.contentType === "ftvaEvent") ? obj.startDateWithTime : null,
           postDate: (obj.contentType === "ftvaArticle") ? "obj.postDate" : null,
-          //dateFormat: obj.contentType === "ftvaArticle" || obj.contentType === "ftvaEvent" ? obj.startDate : null
-          // articleByline2: Long Date with no Time
-          // articleByline2: obj.contentType === "ftvaArticle" ? obj.startDateWithTime : null,
-          byline2:
-            obj.contentType === "ftvaEvent"
-              ? format(new Date(obj.startDateWithTime), 'MMMM d, Y')
-              : '',
+          byline2: parsedFtvaArticleAndEventDate(obj),
         }
 
       })
