@@ -188,7 +188,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          title: 'JEN',
+          title: titleGeneral,
           parsedImage: _get(obj, 'image[0]', undefined),
           to: obj.to,
         }
