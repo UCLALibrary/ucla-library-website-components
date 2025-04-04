@@ -234,7 +234,7 @@ const classes = computed(() => {
         v-html="block.sectionSummary"
       />
     </div>
-    <h3>{{ parsedItems }}</h3>
+
     <ul class="block-group">
       <BlockCardWithImage
         v-for="(item, index) in parsedItems"
