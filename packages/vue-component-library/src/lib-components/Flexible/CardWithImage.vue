@@ -1,9 +1,15 @@
+FIXED
+
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import { computed } from 'vue'
+import format from 'date-fns/format'
+
+// THEME
+import _get from 'lodash/get'
+import { useTheme } from '@/composables/useTheme'
 
 // UTILS
-import _get from 'lodash/get'
 import formatDates from '@/utils/formatEventDates'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
@@ -11,14 +17,24 @@ import stripMeapFromURI from '@/utils/stripMeapFromURI'
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
 // TYPESCRIPT
-import type { FlexibleCardsWithImage } from '@/types/flexible_types'
+import type { FlexibleCardWithImage } from '@/types/flexible_types'
 
 const { block } = defineProps({
   block: {
-    type: Object as PropType<FlexibleCardsWithImage>,
+    type: Object as PropType<FlexibleCardWithImage>,
     default: () => { },
   },
 })
+
+function parsedFtvaArticleAndEventDate(obj) {
+  if (obj.contentType === 'ftvaEvent')
+    return format(new Date(obj.startDateWithTime), 'MMMM d, Y')
+
+  else if (obj.contentType === 'ftvaArticle')
+    return format(new Date(obj.postDate), 'MMMM d, Y')
+  else
+    return ''
+}
 
 const parsedList = computed(() => {
   const items = []
@@ -43,8 +59,25 @@ const parsedItems = computed(() => {
   return parsedList.value
     .filter(e => e !== null)
     .map((obj) => {
-      // Article
+      // FTVA
       if (
+        obj.typeHandle !== 'externalContent'
+        && (theme.value === 'ftva')
+      ) {
+        return {
+          ...obj,
+          to: (obj.sectionHandle === 'ftvaGeneralContentPage' && obj.slug) || obj.uri,
+          parsedImage: ((obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage) || ((obj.sectionHandle === 'article' || obj.sectionHandle === 'generalContentPage') && obj.heroImage[0].image[0]),
+          title: obj.eventTitle || obj.title || obj.titleGeneral,
+          postDate: (obj.contentType === 'ftvaArticle') ? 'obj.postDate' : null,
+          // byline2 Formats the date to April 3, 2025
+          byline2: parsedFtvaArticleAndEventDate(obj),
+        }
+      }
+
+      // OLD
+      // Article
+      else if (
         obj.typeHandle !== 'externalContent'
         && obj.contentType.includes('article')
       ) {
@@ -148,6 +181,19 @@ const parsedItems = computed(() => {
           parsedCategory: _get(obj, 'category', ''),
         }
       }
+      // FTVA EXTERNAL
+      else if (
+        obj.typeHandle === 'externalContent'
+        && (theme.value === 'ftva')
+      ) {
+        return {
+          ...obj,
+          title: titleGeneral,
+          parsedImage: _get(obj, 'image[0]', undefined),
+          to: obj.to,
+        }
+      }
+
       else {
         return {
           ...obj,
@@ -161,12 +207,18 @@ const parsedItems = computed(() => {
       }
     })
 })
+
+// THEME
+const theme = useTheme()
+const classes = computed(() => {
+  return ['card-with-image', theme?.value || '']
+})
 </script>
 
 <template>
   <div
     v-if="block.cardWithImage"
-    class="card-with-image"
+    :class="classes"
   >
     <div class="section-header">
       <h2
@@ -208,57 +260,6 @@ const parsedItems = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.card-with-image {
-  max-width: $container-l-main + px;
-  margin: 0 auto;
-
-  .section-header {
-    margin-bottom: var(--space-xl);
-  }
-
-  .section-title {
-    @include step-3;
-    color: var(--color-primary-blue-03);
-    margin-bottom: var(--space-m);
-  }
-
-  .section-summary {
-    @include step-0;
-
-    :deep(p) {
-      margin: 0;
-    }
-  }
-
-  .block-group {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 32px 16px;
-
-    .block {
-      width: calc((100% - 32px) / 3);
-    }
-  }
-
-  // Breakpoints
-  @media #{$medium} {
-    align-items: flex-start;
-
-    .block-group {
-      .block {
-        width: calc((100% - 16px) / 2);
-      }
-    }
-  }
-
-  @media #{$small} {
-    .block-group {
-      .block {
-        width: 100%;
-      }
-    }
-  }
-}
+@import "@/styles/default/_flexible-block-card-with-image.scss";
+@import "@/styles/ftva/_flexible-block-card-with-image.scss";
 </style>

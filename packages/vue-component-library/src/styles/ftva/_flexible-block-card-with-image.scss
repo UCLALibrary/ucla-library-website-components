@@ -1,0 +1,26 @@
+.ftva.card-with-image {
+
+  :deep(.card-meta) {
+    background-color: $page-blue;
+    border-radius: 0 0 10px 10px;
+
+    .title,
+    .title-no-link {
+      @include step-1;
+      line-height: $line-height--1;
+      color: $heading-grey;
+      margin: var(--space-s) 0;
+    }
+
+    .date-time {
+      color: $accent-blue;
+    }
+
+    .byline-group {
+      @include ftva-emphasized-subtitle;
+      color: $accent-blue;
+      letter-spacing: .04px;
+    }
+
+  }
+}
