@@ -1,14 +1,15 @@
+FIXED
+
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import { computed } from 'vue'
 import format from 'date-fns/format'
 
 // THEME
+import _get from 'lodash/get'
 import { useTheme } from '@/composables/useTheme'
 
-
 // UTILS
-import _get from 'lodash/get'
 import formatDates from '@/utils/formatEventDates'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
@@ -26,14 +27,13 @@ const { block } = defineProps({
 })
 
 function parsedFtvaArticleAndEventDate(obj) {
-  if (obj.contentType === "ftvaEvent") {
+  if (obj.contentType === 'ftvaEvent')
     return format(new Date(obj.startDateWithTime), 'MMMM d, Y')
-  }
-  else if (obj.contentType === "ftvaArticle") {
+
+  else if (obj.contentType === 'ftvaArticle')
     return format(new Date(obj.postDate), 'MMMM d, Y')
-  } else {
+  else
     return ''
-  }
 }
 
 const parsedList = computed(() => {
@@ -53,162 +53,159 @@ const parsedList = computed(() => {
   return items
 })
 
-
-
-
-// const parsedLink = computed(() => {
-//   let to = ''
-//   if (obj.contentType === "ftvaGeneralContentPage") {
-//     to = obj.slug
-//   } else {
-//     to = obj.uri
-//   }
-//   return to
-// })
-
-
-// heroImage[0].image[0]
-
 const parsedItems = computed(() => {
   // Maps values based on content type and external or internal content
   // filter out null objects
-  if (theme.value === 'ftva') {
-    return parsedList.value
-      .map((obj) => {
-        console.log("FTVA OBJ", obj)
+  return parsedList.value
+    .filter(e => e !== null)
+    .map((obj) => {
+      // FTVA
+      if (
+        obj.typeHandle !== 'externalContent'
+        && (theme.value === 'ftva')
+      ) {
         return {
           ...obj,
-          to: (obj.sectionHandle === "ftvaGeneralContentPage" && obj.slug) || obj.uri,
-          //parsedImage: (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage,
-          parsedImage: ((obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage) || ((obj.sectionHandle === "article" || obj.sectionHandle === "generalContentPage") && obj.heroImage[0].image[0]),
+          to: (obj.sectionHandle === 'ftvaGeneralContentPage' && obj.slug) || obj.uri,
+          parsedImage: ((obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage) || ((obj.sectionHandle === 'article' || obj.sectionHandle === 'generalContentPage') && obj.heroImage[0].image[0]),
           title: obj.eventTitle || obj.title || obj.titleGeneral,
-          postDate: (obj.contentType === "ftvaArticle") ? "obj.postDate" : null,
+          postDate: (obj.contentType === 'ftvaArticle') ? 'obj.postDate' : null,
+          // byline2 Formats the date to April 3, 2025
           byline2: parsedFtvaArticleAndEventDate(obj),
         }
+      }
 
-      })
-  } else {
-    return parsedList.value
-      .filter(e => e !== null)
-      .map((obj) => {
-        // Article
-        if (
-          obj.typeHandle !== 'externalContent'
-          && obj.contentType.includes('article')
-        ) {
-          return {
-            ...obj,
-            to: stripMeapFromURI(obj.to),
-            parsedImage: _get(
-              obj,
-              'heroImage[0].image[0]',
-              undefined
-            ),
-            parsedLocation: _get(
-              obj,
-              'associatedLocations',
-              []
-            ),
-            parsedCategory: _get(
-              obj,
-              'articleCategory[0].title',
-              ''
-            ),
-            byline1: _get(obj, 'articleByline1[0].title', ''),
-            byline2:
-              obj.articleByline2 !== null
-                ? formatDates(
-                  obj.articleByline2,
-                  obj.articleByline2
-                )
-                : '',
-          }
+      // OLD
+      // Article
+      else if (
+        obj.typeHandle !== 'externalContent'
+        && obj.contentType.includes('article')
+      ) {
+        return {
+          ...obj,
+          to: stripMeapFromURI(obj.to),
+          parsedImage: _get(
+            obj,
+            'heroImage[0].image[0]',
+            undefined
+          ),
+          parsedLocation: _get(
+            obj,
+            'associatedLocations',
+            []
+          ),
+          parsedCategory: _get(
+            obj,
+            'articleCategory[0].title',
+            ''
+          ),
+          byline1: _get(obj, 'articleByline1[0].title', ''),
+          byline2:
+            obj.articleByline2 !== null
+              ? formatDates(
+                obj.articleByline2,
+                obj.articleByline2
+              )
+              : '',
         }
+      }
 
-        // Project
-        else if (
-          obj.typeHandle !== 'externalContent'
-          && obj.contentType.includes('meapProject')
-        ) {
-          return {
-            ...obj,
-            to: stripMeapFromURI(obj.to),
-            parsedImage: _get(
-              obj,
-              'heroImage[0].image[0]',
-              undefined
-            ),
-            parsedLocation: _get(obj, 'projectLocations', []),
-            parsedCategory: _get(obj, 'projectCategory', ''),
-            byline1: _get(obj, 'projectByline1[0].title', ''),
-          }
+      // Project
+      else if (
+        obj.typeHandle !== 'externalContent'
+        && obj.contentType.includes('meapProject')
+      ) {
+        return {
+          ...obj,
+          to: stripMeapFromURI(obj.to),
+          parsedImage: _get(
+            obj,
+            'heroImage[0].image[0]',
+            undefined
+          ),
+          parsedLocation: _get(obj, 'projectLocations', []),
+          parsedCategory: _get(obj, 'projectCategory', ''),
+          byline1: _get(obj, 'projectByline1[0].title', ''),
         }
-        else if (
-          obj.typeHandle !== 'externalContent'
-          && obj.contentType === 'event'
-        ) {
-          return {
-            ...obj,
-            to: stripMeapFromURI(obj.to),
-            parsedImage: _get(
-              obj,
-              'heroImage[0].image[0]',
-              undefined
-            ),
-            parsedLocation: _get(
-              obj,
-              'associatedLocations',
-              []
-            ),
-            parsedCategory: _get(obj, 'eventType.title', ''),
-            startDate: _get(obj, 'startDateWithTime', ''),
-            endDate: _get(obj, 'endDateWithTime', ''),
-            text: _get(obj, 'eventDescription', ''),
-          }
+      }
+      else if (
+        obj.typeHandle !== 'externalContent'
+        && obj.contentType === 'event'
+      ) {
+        return {
+          ...obj,
+          to: stripMeapFromURI(obj.to),
+          parsedImage: _get(
+            obj,
+            'heroImage[0].image[0]',
+            undefined
+          ),
+          parsedLocation: _get(
+            obj,
+            'associatedLocations',
+            []
+          ),
+          parsedCategory: _get(obj, 'eventType.title', ''),
+          startDate: _get(obj, 'startDateWithTime', ''),
+          endDate: _get(obj, 'endDateWithTime', ''),
+          text: _get(obj, 'eventDescription', ''),
         }
-        else if (
-          obj.typeHandle !== 'externalContent'
-          && (obj.contentType === 'exhibition'
-            || 'workshopOrEventSeries')
-        ) {
-          return {
-            ...obj,
-            to: stripMeapFromURI(obj.to),
-            parsedImage: _get(
-              obj,
-              'heroImage[0].image[0]',
-              undefined
-            ),
-            parsedLocation: _get(
-              obj,
-              'associatedLocations',
-              []
-            ),
-            startDate: _get(obj, 'startDate', ''),
-            endDate: _get(obj, 'endDate', ''),
-          }
+      }
+      else if (
+        obj.typeHandle !== 'externalContent'
+        && (obj.contentType === 'exhibition'
+          || 'workshopOrEventSeries')
+      ) {
+        return {
+          ...obj,
+          to: stripMeapFromURI(obj.to),
+          parsedImage: _get(
+            obj,
+            'heroImage[0].image[0]',
+            undefined
+          ),
+          parsedLocation: _get(
+            obj,
+            'associatedLocations',
+            []
+          ),
+          startDate: _get(obj, 'startDate', ''),
+          endDate: _get(obj, 'endDate', ''),
         }
-        else if (obj.typeHandle === 'externalContent') {
-          return {
-            ...obj,
-            parsedImage: _get(obj, 'image[0]', undefined),
-            // parsedLocation:  obj.location !== null ? [obj.location] : [],
-            parsedCategory: _get(obj, 'category', ''),
-          }
+      }
+      else if (obj.typeHandle === 'externalContent') {
+        return {
+          ...obj,
+          parsedImage: _get(obj, 'image[0]', undefined),
+          // parsedLocation:  obj.location !== null ? [obj.location] : [],
+          parsedCategory: _get(obj, 'category', ''),
         }
-        else {
-          return {
-            ...obj,
-            parsedImage: _get(
-              obj,
-              'heroImage[0].image[0]',
-              undefined
-            ),
-            to: stripMeapFromURI(obj.to),
-          }
+      }
+      // FTVA EXTERNAL
+      else if (
+        obj.typeHandle === 'externalContent'
+        && (theme.value === 'ftva')
+      ) {
+        return {
+          ...obj,
+          title: 'JEN',
+          parsedImage: _get(obj, 'image[0]', undefined),
+          to: obj.to,
         }
-      })
-  }
+      }
+
+      else {
+        return {
+          ...obj,
+          parsedImage: _get(
+            obj,
+            'heroImage[0].image[0]',
+            undefined
+          ),
+          to: stripMeapFromURI(obj.to),
+        }
+      }
+    })
 })
 
 // THEME
@@ -237,7 +234,7 @@ const classes = computed(() => {
         v-html="block.sectionSummary"
       />
     </div>
-
+    <h3>{{ parsedItems }}</h3>
     <ul class="block-group">
       <BlockCardWithImage
         v-for="(item, index) in parsedItems"
@@ -256,7 +253,6 @@ const classes = computed(() => {
         :end-date="item.endDate"
         :section-handle="item.contentType"
         :ongoing="item.ongoing"
-        :date-format="parsedDateFormat"
         class="block"
       />
     </ul>
