@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.7.0...@ucla-library-monorepo/ucla-library-website-components-v1.8.0) (2025-04-02)
+
+
+### Features
+
+* selcted letter needs to reset to empty string after the filter is removed from search-generic search filters ([#721](https://github.com/UCLALibrary/ucla-library-website-components/issues/721)) ([1167b3a](https://github.com/UCLALibrary/ucla-library-website-components/commit/1167b3a94ac9c7bf3447cf9075feccb68ab5523b))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.7.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.6.1...@ucla-library-monorepo/ucla-library-website-components-v1.7.0) (2025-04-01)
+
+
+### Features
+
+* Add configuration prop for  All filter from alphabet browse by and add watcher to SearchGeneric component  ([#719](https://github.com/UCLALibrary/ucla-library-website-components/issues/719)) ([4fd264f](https://github.com/UCLALibrary/ucla-library-website-components/commit/4fd264fe5d938140d7b40ed651221cc7c2228c0d))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.6.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.6.0...@ucla-library-monorepo/ucla-library-website-components-v1.6.1) (2025-03-27)
 
 

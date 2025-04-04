@@ -3,7 +3,7 @@ import type { PropType } from 'vue'
 
 // components and SVG's
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import SearchGenericFilters from './SearchGenericFilters.vue'
 import SearchInput from './SearchInput.vue'
 
@@ -52,6 +52,10 @@ const emit = defineEmits(['search-ready'])
 const searchWords = ref(searchGenericQuery ? searchGenericQuery.queryText : '') // this.$route.query.q
 const selectedFilters = ref(searchGenericQuery ? searchGenericQuery.queryFilters : {})
 
+watch(() => searchGenericQuery, (newQueryFilters) => {
+  selectedFilters.value = newQueryFilters.queryFilters
+  searchWords.value = newQueryFilters.queryText
+}, { deep: true, immediate: true })
 /* watch: {
 
   "searchGenericQuery.queryText"(newVal, oldVal) {
@@ -102,7 +106,6 @@ function doSearch() {
       {{ searchGenericQuery }}
       <h4>filters for the page</h4>
       {{ filters }} -->
-
     <form
       name="searchHome"
       @submit.prevent=""

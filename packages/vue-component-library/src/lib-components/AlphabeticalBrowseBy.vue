@@ -1,10 +1,15 @@
 <script>
 export default {
   name: 'AlphabeticalBrowseBy',
+  inject: ['theme'],
   props: {
     selectedLetterProp: {
       type: String,
       default: 'All',
+    },
+    displayAll: {
+      type: Boolean,
+      default: true,
     },
   },
   emits: ['selectedLetter'],
@@ -99,12 +104,16 @@ export default {
   computed: {
     parsedAlphabet: {
       get() {
-        return this.alphabet.map((item) => {
+        return this.alphabet.filter(item => (item.letter !== 'All') || (item.letter === 'All' && this.displayAll)).map((item) => {
           let letterClass = 'letter'
           // Set the class for the letter when initially loaded
+
+          if (this.selectedLetterProp === '')
+            this.selectedLetter = ''
+
           if (
             item.letter === this.selectedLetterProp
-                        && this.selectedLetter === ''
+            && this.selectedLetter === ''
           )
             letterClass = `${letterClass} is-selected`
 
@@ -148,7 +157,10 @@ export default {
 
 <template>
   <div class="alphabetical-browse-by">
-    <h2 class="title">
+    <h2
+      v-if="theme === ''"
+      class="title"
+    >
       Browse by Last Name
     </h2>
     <ul class="alphabet-list">
@@ -166,60 +178,63 @@ export default {
 
 <style lang="scss" scoped>
 .alphabetical-browse-by {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .title {
+    @include step-3;
+    margin-bottom: 24px;
+    font-family: var(--font-primary);
+    color: var(--color-primary-blue-03);
+  }
+
+  .is-selected {
+    @include link-hover;
+    font-weight: $font-weight-semibold;
+    color: var(--color-primary-blue-03);
+  }
+
+  .alphabet-list {
+    @include step-1;
+    max-width: 928px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    color: var(--color-primary-blue-03);
 
-    .title {
-        @include step-3;
-        margin-bottom: 24px;
-        font-family: var(--font-primary);
-        color: var(--color-primary-blue-03);
-    }
+    .letter {
+      padding: 0 10px;
+      margin-bottom: 24px;
+      width: 44px;
+      text-align: center;
 
-    .is-selected {
+      &:hover {
         @include link-hover;
+        cursor: pointer;
         font-weight: $font-weight-semibold;
         color: var(--color-primary-blue-03);
+      }
     }
 
-    .alphabet-list {
-        @include step-1;
-        max-width: 928px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        list-style: none;
-        list-style-type: none;
-        padding: 0;
-        color: var(--color-primary-blue-03);
+    @media #{$medium} {
+      // max-height: 140px;
+      justify-content: start;
+      flex-wrap: wrap;
+      margin-top: 0;
+      margin-right: 0px;
 
-        .letter {
-            padding: 0 10px;
-            margin-bottom: 24px;
-            width: 44px;
-            text-align: center;
-
-            &:hover {
-                @include link-hover;
-                cursor: pointer;
-                font-weight: $font-weight-semibold;
-                color: var(--color-primary-blue-03);
-            }
-        }
-        @media #{$medium} {
-            // max-height: 140px;
-            justify-content: start;
-            flex-wrap: wrap;
-            margin-top: 0;
-            margin-right: 0px;
-            .letter {
-                width: 44px;
-            }
-        }
-        @media #{$small} {
-            // max-height: 180px;
-        }
+      .letter {
+        width: 44px;
+      }
     }
+
+    @media #{$small} {
+      // max-height: 180px;
+    }
+  }
 }
 </style>
