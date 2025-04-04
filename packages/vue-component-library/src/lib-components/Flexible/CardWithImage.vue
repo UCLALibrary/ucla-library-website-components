@@ -17,11 +17,11 @@ import stripMeapFromURI from '@/utils/stripMeapFromURI'
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 
 // TYPESCRIPT
-import type { FlexibleCardsWithImage } from '@/types/flexible_types'
+import type { FlexibleCardWithImage } from '@/types/flexible_types'
 
 const { block } = defineProps({
   block: {
-    type: Object as PropType<FlexibleCardsWithImage>,
+    type: Object as PropType<FlexibleCardWithImage>,
     default: () => { },
   },
 })
