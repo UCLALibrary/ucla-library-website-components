@@ -36,6 +36,21 @@ function parsedFtvaArticleAndEventDate(obj) {
     return ''
 }
 
+function parsedFtvaImage(obj) {
+  if (obj.contentType === 'ftvaEvent' ||
+    obj.contentType === 'ftvaEventSeries' ||
+    obj.contentType === 'ftvaArticle' ||
+    obj.contentType === 'ftvaGeneralContentPage'
+  )
+    return (obj.imageCarousel[0].image[0]) || obj.ftvaImage
+  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage')
+    return obj.heroImage[0].image[0] || ''
+  else if (obj.typeHandle === 'externalContent')
+    return obj.image[0] || ''
+  else
+    return ''
+}
+
 const parsedList = computed(() => {
   const items = []
   for (const indexProperty in block.cardWithImage) {
@@ -64,8 +79,8 @@ const parsedItems = computed(() => {
         return {
           ...obj,
           to: (obj.sectionHandle === 'ftvaGeneralContentPage' && obj.slug) || obj.uri,
-          parsedImage: ((obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage) || ((obj.sectionHandle === 'article' || obj.sectionHandle === 'generalContentPage') && obj.heroImage[0].image[0]) || obj.image[0],
           title: obj.eventTitle || obj.title || obj.titleGeneral,
+          parsedImage: parsedFtvaImage(obj),
           postDate: (obj.contentType === 'ftvaArticle') ? 'obj.postDate' : null,
           // byline2 Formats the date to April 3, 2025
           byline2: parsedFtvaArticleAndEventDate(obj),
