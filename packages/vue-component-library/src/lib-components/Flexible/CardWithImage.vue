@@ -3,6 +3,8 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
+import 'ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg'
+
 // THEME
 import _get from 'lodash/get'
 import { useTheme } from '@/composables/useTheme'
@@ -28,6 +30,14 @@ const { block } = defineProps({
 const theme = useTheme()
 const classes = computed(() => {
   return ['card-with-image', theme?.value || '']
+})
+
+const parsedBlock = computed((obj) => {
+  if (obj.typeHandle === 'generalContentPage' ||
+    obj.typeHandle === 'externalContent' ||
+    obj.typeHandle === 'article')
+    return 'block externalLink'
+  else return 'block'
 })
 
 function parsedFtvaLink(obj: any) {
@@ -276,7 +286,7 @@ const parsedItems = computed(() => {
         :end-date="item.endDate"
         :section-handle="item.contentType"
         :ongoing="item.ongoing"
-        class="block"
+        class="parsedBlock"
       />
     </ul>
   </div>

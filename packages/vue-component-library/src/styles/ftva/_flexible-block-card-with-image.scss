@@ -20,5 +20,13 @@
       color: $accent-blue;
       letter-spacing: .04px;
     }
+
+    .externalLink {
+
+      .title:after,
+      .title-no-link:after {
+        content: url("ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg");
+      }
+    }
   }
 }
