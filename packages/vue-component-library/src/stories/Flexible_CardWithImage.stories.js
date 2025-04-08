@@ -1,8 +1,9 @@
 // TEST ARTICLE - ALL FPB - So Many Squirrels
 import { computed } from 'vue'
+import router from '@/router'
 import { mockExternal, mockInternalArticle, mockInternalCollection, mockInternalEndowment, mockInternalEvent, mockInternalExhibition, mockInternalSeries, mockInternalWorkshop } from './mock/Flexible_CardWithImage'
 import FlexibleCardWithImage from '@/lib-components/Flexible/CardWithImage'
-import { mockFlexibleBlocks } from '@/stories/mock/FTVAMedia.js'
+import { mockFlexibleblock } from '@/stories/mock/FTVAMedia.js'
 
 export default {
   title: 'FLEXIBLE / Card With Image',
@@ -14,6 +15,11 @@ export function Default() {
   return {
     data() {
       return { block: mockExternal }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'default'),
+      }
     },
     components: { FlexibleCardWithImage },
     template: `
@@ -30,6 +36,11 @@ export function InternalContentEvent() {
     data() {
       return {
         block: mockInternalEvent,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'default'),
       }
     },
     components: { FlexibleCardWithImage },
@@ -49,6 +60,11 @@ export function InternalContentExhibiton() {
         block: mockInternalExhibition
       }
     },
+    provide() {
+      return {
+        theme: computed(() => 'default'),
+      }
+    },
     components: { FlexibleCardWithImage },
     template: `
         <flexible-card-with-image
@@ -64,6 +80,11 @@ export function InternalWorkshop() {
     data() {
       return {
         block: mockInternalWorkshop,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'default'),
       }
     },
     components: { FlexibleCardWithImage },
@@ -83,6 +104,11 @@ export function InternalSeries() {
         block: mockInternalSeries,
       }
     },
+    provide() {
+      return {
+        theme: computed(() => 'default'),
+      }
+    },
     components: { FlexibleCardWithImage },
     template: `
         <flexible-card-with-image
@@ -98,6 +124,11 @@ export function InternalArticle() {
     data() {
       return {
         block: mockInternalArticle,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'default'),
       }
     },
     components: { FlexibleCardWithImage },
@@ -117,6 +148,11 @@ export function InternalEndowment() {
         block: mockInternalEndowment,
       }
     },
+    provide() {
+      return {
+        theme: computed(() => 'default'),
+      }
+    },
     components: { FlexibleCardWithImage },
     template: `
         <flexible-card-with-image
@@ -132,6 +168,11 @@ export function InternalCollection() {
     data() {
       return {
         block: mockInternalCollection,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'default'),
       }
     },
     components: { FlexibleCardWithImage },
@@ -541,11 +582,13 @@ export function InternalCollection() {
     ]
   }
 
+
+
 export function FtvaEvent() {
   return {
     data() {
       return {
-        blocks: mockFtvaInternal[0],
+        block: mockFtvaInternal[0],
       }
     },
     provide() {
@@ -566,7 +609,7 @@ export function FtvaEventSeries() {
   return {
     data() {
       return {
-        blocks: mockFtvaInternal[1],
+        block: mockFtvaInternal[1],
       }
     },
     provide() {
@@ -587,7 +630,7 @@ export function FtvaArticle() {
   return {
     data() {
       return {
-        blocks: mockFtvaInternal[2],
+        block: mockFtvaInternal[2],
       }
     },
     provide() {
@@ -608,7 +651,7 @@ export function FtvaGeneralContentPage() {
   return {
     data() {
       return {
-        blocks: mockFtvaInternal[3],
+        block: mockFtvaInternal[3],
       }
     },
     provide() {
@@ -629,7 +672,7 @@ export function GeneralContentPage() {
   return {
     data() {
       return {
-        blocks: mockFtvaInternal[4],
+        block: mockFtvaInternal[4],
       }
     },
     provide() {
@@ -650,7 +693,7 @@ export function Article() {
   return {
     data() {
       return {
-        blocks: mockFtvaInternal[5],
+        block: mockFtvaInternal[5],
       }
     },
     provide() {
@@ -671,7 +714,7 @@ export function ExternalContent() {
   return {
     data() {
       return {
-        blocks: mockFtvaExternal[0],
+        block: mockFtvaExternal[0],
       }
     },
     provide() {
