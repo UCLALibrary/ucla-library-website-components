@@ -90,6 +90,11 @@ interface FlexibleCardWithImage {
   contentType: string
   parsedLocation: LocationItemType[]
   parsedCategory: string
+  sectionHandle: string
+  slug: string
+  uri: string
+  eventTitle: string
+  titleGeneral: string
 }
 
 interface FlexibleBannerContent {
