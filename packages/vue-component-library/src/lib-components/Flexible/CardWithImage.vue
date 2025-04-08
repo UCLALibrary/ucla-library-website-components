@@ -30,6 +30,17 @@ const classes = computed(() => {
   return ['card-with-image', theme?.value || '']
 })
 
+function parsedFtvaLink(obj: any) {
+  if (obj.typeHandle === 'externalContent')
+    return obj.to
+  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage')
+    return 'https://www.library.ucla.edu/' + obj.uri
+  else if (obj.contentType === 'ftvaGeneralContentPage')
+    return obj.slug
+  else
+    obj.uri
+}
+
 function parsedFtvaArticleAndEventDate(obj: any) {
   if (theme.value === 'ftva' && obj.contentType === 'ftvaEvent')
     return format(new Date(obj.startDateWithTime), 'MMMM d, Y')
@@ -83,7 +94,7 @@ const parsedItems = computed(() => {
       if (theme.value === 'ftva') {
         return {
           ...obj,
-          to: (obj.sectionHandle === 'ftvaGeneralContentPage' && obj.slug) || obj.uri,
+          to: parsedFtvaLink(obj),
           title: obj.eventTitle || obj.title || obj.titleGeneral,
           parsedImage: parsedFtvaImage(obj),
           postDate: (obj.contentType === 'ftvaArticle') ? 'obj.postDate' : null,
