@@ -30,7 +30,7 @@ const classes = computed(() => {
   return ['card-with-image', theme?.value || '']
 })
 
-function parsedFtvaArticleAndEventDate(obj) {
+function parsedFtvaArticleAndEventDate(obj: any) {
   if (theme.value === 'ftva' && obj.contentType === 'ftvaEvent')
     return format(new Date(obj.startDateWithTime), 'MMMM d, Y')
 
@@ -40,7 +40,7 @@ function parsedFtvaArticleAndEventDate(obj) {
     return ''
 }
 
-function parsedFtvaImage(obj) {
+function parsedFtvaImage(obj: any) {
   if (theme.value === 'ftva'
     && (obj.contentType === 'ftvaEvent'
       || obj.contentType === 'ftvaEventSeries'
@@ -206,7 +206,7 @@ const parsedItems = computed(() => {
       ) {
         return {
           ...obj,
-          title: titleGeneral,
+          title: obj.titleGeneral,
           parsedImage: _get(obj, 'image[0]', undefined),
           to: obj.to,
         }
