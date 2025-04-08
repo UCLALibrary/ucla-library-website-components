@@ -1,8 +1,6 @@
-FIXED
-
 <script setup lang="ts">
-import type { PropType } from 'vue'
 import { computed } from 'vue'
+import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
 // THEME
@@ -24,6 +22,12 @@ const { block } = defineProps({
     type: Object as PropType<FlexibleCardWithImage>,
     default: () => { },
   },
+})
+
+// THEME
+const theme = useTheme()
+const classes = computed(() => {
+  return ['card-with-image', theme?.value || '']
 })
 
 function parsedFtvaArticleAndEventDate(obj) {
@@ -220,12 +224,6 @@ const parsedItems = computed(() => {
         }
       }
     })
-})
-
-// THEME
-const theme = useTheme()
-const classes = computed(() => {
-  return ['card-with-image', theme?.value || '']
 })
 </script>
 
