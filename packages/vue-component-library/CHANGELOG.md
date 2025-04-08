@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.9.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.8.0...@ucla-library-monorepo/ucla-library-website-components-v1.9.0) (2025-04-08)
+
+
+### Features
+
+* Add slots to SearchResults.vue to support new requirement to show date time for events, series and workshops after title ([#722](https://github.com/UCLALibrary/ucla-library-website-components/issues/722)) ([208ecd7](https://github.com/UCLALibrary/ucla-library-website-components/commit/208ecd77eeeeaa4e92848e2ffb630cb233bee471))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.8.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.7.0...@ucla-library-monorepo/ucla-library-website-components-v1.8.0) (2025-04-02)
 
 
