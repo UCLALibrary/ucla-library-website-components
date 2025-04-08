@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import router from '@/router'
 import { mockExternal, mockInternalArticle, mockInternalCollection, mockInternalEndowment, mockInternalEvent, mockInternalExhibition, mockInternalSeries, mockInternalWorkshop } from './mock/Flexible_CardWithImage'
 import FlexibleCardWithImage from '@/lib-components/Flexible/CardWithImage'
-import { mockFlexibleblock } from '@/stories/mock/FTVAMedia.js'
 
 export default {
   title: 'FLEXIBLE / Card With Image',
@@ -498,6 +497,27 @@ export function InternalCollection() {
     ]
   }
 
+export function FtvaInternal() {
+  return {
+    data() {
+      return {
+        block: mockFtvaInternal,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { FlexibleCardWithImage },
+    template: `
+        <flexible-card-with-image
+            :block="block"
+        />
+    `,
+  }
+}
+
   // EXTERNAL CARDSWITHIMAGE
   const mockFtvaExternal = {
     id: '3754183',
@@ -545,176 +565,14 @@ export function InternalCollection() {
         ],
         to: 'https://en.wikipedia.org/wiki/Helsinki'
       },
-      {
-        id: '3834973',
-        typeHandle: 'internalContent',
-        contentLink: [
-          // {
-          //   id: "769145",
-          //   typeHandle: "article",
-          //   sectionHandle: "article",
-          //   contentType: "article",
-          //   uri: "about/news/testnews",
-          //   slug: "testnews",
-          //   heroImage: [
-          //     {
-          //       image: [
-          //         {
-          //           id: "2900571",
-          //           src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/fox-squirrel.jpeg",
-          //           height: 1699,
-          //           width: 2560,
-          //           srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/fox-squirrel.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/fox-squirrel.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/fox-squirrel.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/fox-squirrel.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/fox-squirrel.jpeg 2560w",
-          //           alt: "Fox squirrel",
-          //           focalPoint: [
-          //             0.5,
-          //             0.5
-          //           ]
-          //         }
-          //       ]
-          //     }
-          //   ],
-          //   title: "TEST ARTICLE - ALL FPB - So Many Squirrels",
-          //   postDate: "2023-01-31T11:54"
-          // }
-        ]
-      }
     ]
   }
 
-
-
-export function FtvaEvent() {
+export function FtvaExternal() {
   return {
     data() {
       return {
-        block: mockFtvaInternal[0],
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { FlexibleCardWithImage },
-    template: `
-        <flexible-card-with-image
-            :block="block"
-        />
-    `,
-  }
-}
-
-export function FtvaEventSeries() {
-  return {
-    data() {
-      return {
-        block: mockFtvaInternal[1],
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { FlexibleCardWithImage },
-    template: `
-        <flexible-card-with-image
-            :block="block"
-        />
-    `,
-  }
-}
-
-export function FtvaArticle() {
-  return {
-    data() {
-      return {
-        block: mockFtvaInternal[2],
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { FlexibleCardWithImage },
-    template: `
-        <flexible-card-with-image
-            :block="block"
-        />
-    `,
-  }
-}
-
-export function FtvaGeneralContentPage() {
-  return {
-    data() {
-      return {
-        block: mockFtvaInternal[3],
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { FlexibleCardWithImage },
-    template: `
-        <flexible-card-with-image
-            :block="block"
-        />
-    `,
-  }
-}
-
-export function GeneralContentPage() {
-  return {
-    data() {
-      return {
-        block: mockFtvaInternal[4],
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { FlexibleCardWithImage },
-    template: `
-        <flexible-card-with-image
-            :block="block"
-        />
-    `,
-  }
-}
-
-export function Article() {
-  return {
-    data() {
-      return {
-        block: mockFtvaInternal[5],
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { FlexibleCardWithImage },
-    template: `
-        <flexible-card-with-image
-            :block="block"
-        />
-    `,
-  }
-}
-
-export function ExternalContent() {
-  return {
-    data() {
-      return {
-        block: mockFtvaExternal[0],
+        block: mockFtvaExternal,
       }
     },
     provide() {
