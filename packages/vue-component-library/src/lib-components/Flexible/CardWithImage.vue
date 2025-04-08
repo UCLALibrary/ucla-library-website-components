@@ -61,7 +61,7 @@ function parsedFtvaArticleAndEventDate(obj: any) {
     return ''
 }
 
-function parsedFtvaImage(obj) {
+function parsedFtvaImage(obj: any | undefined[]) {
   if (theme.value === 'ftva'
     && (obj.contentType === 'ftvaEvent'
       || obj.contentType === 'ftvaEventSeries'
