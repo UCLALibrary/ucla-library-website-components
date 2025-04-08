@@ -230,7 +230,7 @@ export interface FlexibleCallToAction extends FlexibleBlock {
   callToAction: FlexibleCallToActionItem[]
 }
 
-export interface FlexibleCardWithImage extends FlexibleBlock {
+export interface FlexibleCardsWithImage extends FlexibleBlock {
   cardWithImage: FlexibleCardWithImage[]
 }
 
