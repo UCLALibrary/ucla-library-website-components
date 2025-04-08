@@ -69,6 +69,11 @@ interface ContentLink {
 interface FlexibleCardWithImageContentLink extends ContentLink {
   parsedLocation: LocationItemType[]
   parsedCategory: string
+  sectionHandle: string
+  slug: string
+  uri: string
+  eventTitle: string
+  titleGeneral: string
 }
 
 interface FlexibleCardWithImage {
@@ -90,11 +95,6 @@ interface FlexibleCardWithImage {
   contentType: string
   parsedLocation: LocationItemType[]
   parsedCategory: string
-  sectionHandle: string
-  slug: string
-  uri: string
-  eventTitle: string
-  titleGeneral: string
 }
 
 interface FlexibleBannerContent {
