@@ -60,14 +60,11 @@ const parsedItems = computed(() => {
     .filter(e => e !== null)
     .map((obj) => {
       // FTVA
-      if (
-        obj.typeHandle !== 'externalContent'
-        && (theme.value === 'ftva')
-      ) {
+      if (theme.value === 'ftva') {
         return {
           ...obj,
           to: (obj.sectionHandle === 'ftvaGeneralContentPage' && obj.slug) || obj.uri,
-          parsedImage: ((obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage) || ((obj.sectionHandle === 'article' || obj.sectionHandle === 'generalContentPage') && obj.heroImage[0].image[0]),
+          parsedImage: ((obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage) || ((obj.sectionHandle === 'article' || obj.sectionHandle === 'generalContentPage') && obj.heroImage[0].image[0]) || obj.image[0],
           title: obj.eventTitle || obj.title || obj.titleGeneral,
           postDate: (obj.contentType === 'ftvaArticle') ? 'obj.postDate' : null,
           // byline2 Formats the date to April 3, 2025
