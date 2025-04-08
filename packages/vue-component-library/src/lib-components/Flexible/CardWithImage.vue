@@ -19,6 +19,15 @@ import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 // TYPESCRIPT
 import type { FlexibleCardsWithImage } from '@/types/flexible_types'
 
+type ParsedCardItem = {
+  contentType?: string
+  typeHandle?: string
+  imageCarousel?: { image?: any[] }[]
+  heroImage?: { image?: any[] }[]
+  ftvaImage?: any
+  image?: any[]
+}
+
 const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleCardsWithImage>,
@@ -30,14 +39,6 @@ const { block } = defineProps({
 const theme = useTheme()
 const classes = computed(() => {
   return ['card-with-image', theme?.value || '']
-})
-
-const parsedBlock = computed((obj) => {
-  if (obj.typeHandle === 'generalContentPage'
-    || obj.typeHandle === 'externalContent'
-    || obj.typeHandle === 'article')
-    return 'block externalLink'
-  else return 'block'
 })
 
 function parsedFtvaLink(obj: any) {
@@ -61,7 +62,7 @@ function parsedFtvaArticleAndEventDate(obj: any) {
     return ''
 }
 
-function parsedFtvaImage(obj: any | undefined[]) {
+function parsedFtvaImage(obj) {
   if (theme.value === 'ftva'
     && (obj.contentType === 'ftvaEvent'
       || obj.contentType === 'ftvaEventSeries'
@@ -76,6 +77,26 @@ function parsedFtvaImage(obj: any | undefined[]) {
   else
     return undefined
 }
+
+// const parsedBlock = computed(() => {
+//   if (typeHandle.value === 'generalContentPage' ||
+//     typeHandle.value === 'externalContent' ||
+//     typeHandle.value === 'article')
+//     return 'block block externalLink'
+//   else return 'block'
+// })
+
+//function parsedBlock(item: any) {
+//   if (
+//     item.typeHandle === 'generalContentPage' ||
+//     item.typeHandle === 'externalContent' ||
+//     item.typeHandle === 'article'
+//   ) {
+//     return 'block externalLink'
+//   }
+//   return 'block'
+// }
+
 
 const parsedList = computed(() => {
   const items = []
@@ -100,6 +121,21 @@ const parsedItems = computed(() => {
   return parsedList.value
     .filter(e => e !== null)
     .map((obj) => {
+      console.log("Checking object:", obj)
+      const parsedClass = ['block']
+      // if (
+      //   obj.typeHandle === 'generalContentPage' ||
+      //   obj.typeHandle === 'externalContent' ||
+      //   obj.typeHandle === 'article'
+      // ) {
+      //   parsedClass.push('externalLink')
+      // }
+
+      // const base = {
+      //   ...obj,
+      //   parsedClass,
+      // }
+
       // FTVA
       if (theme.value === 'ftva') {
         return {
@@ -286,7 +322,7 @@ const parsedItems = computed(() => {
         :end-date="item.endDate"
         :section-handle="item.contentType"
         :ongoing="item.ongoing"
-        class="parsedBlock"
+        class="block"
       />
     </ul>
   </div>

@@ -21,12 +21,25 @@
       letter-spacing: .04px;
     }
 
-    .externalLink {
+    .block-group {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 32px 16px;
 
-      .title:after,
-      .title-no-link:after {
-        content: url("ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg");
+      .block {
+        width: calc((100% - 32px) / 3);
+      }
+
+      .externalLink {
+
+        .title:after,
+        .title-no-link:after {
+          content: url("ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg");
+        }
       }
     }
+
   }
 }
