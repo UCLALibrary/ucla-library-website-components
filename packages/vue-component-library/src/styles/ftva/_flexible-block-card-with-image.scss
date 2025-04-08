@@ -11,6 +11,16 @@
       margin: var(--space-s) 0;
     }
 
+    .title a[target="_blank"]::after,
+    .title-no-link a[target="_blank"]::after {
+      content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg');
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
     .date-time {
       color: $accent-blue;
     }
@@ -40,6 +50,5 @@
         }
       }
     }
-
   }
 }

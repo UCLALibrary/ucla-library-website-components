@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
-// import 'ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg'
+import 'ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg'
 
 // THEME
 import _get from 'lodash/get'
