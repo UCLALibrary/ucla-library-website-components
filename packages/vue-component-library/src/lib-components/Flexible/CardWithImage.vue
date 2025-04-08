@@ -40,7 +40,7 @@ function parsedFtvaLink(obj: any) {
   else if (obj.contentType === 'ftvaGeneralContentPage')
     return obj.slug
   else
-    obj.uri
+    return obj.uri
 }
 
 function parsedFtvaArticleAndEventDate(obj: any) {
