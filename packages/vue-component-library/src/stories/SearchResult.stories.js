@@ -125,7 +125,6 @@ export function EventSeriesOngoing() {
   }
 }
 
-
 const mockEventSeries = {
   category: 'Event Series',
   to: '/visit/events-exhibitions/series2',

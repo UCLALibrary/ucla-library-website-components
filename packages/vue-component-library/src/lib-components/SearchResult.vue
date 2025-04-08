@@ -3,7 +3,6 @@ import { computed } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
-import RichText from './RichText.vue'
 
 const { to, category, title, summary } = defineProps({
   to: {
@@ -43,7 +42,7 @@ const parsedText = computed(() => {
       />
     </slot>
 
-    <template v-if="$slots['mid']">
+    <template v-if="$slots.mid">
       <slot name="mid" />
     </template>
     <slot name="bottom">
@@ -52,10 +51,9 @@ const parsedText = computed(() => {
         class="summary"
       >
         {{ parsedText }}
-        <!--RichText :rich-text-content="parsedText" /-->
+        <!-- RichText :rich-text-content="parsedText" / -->
       </div>
     </slot>
-
   </li>
 </template>
 
