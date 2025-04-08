@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
-import 'ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg'
+// import 'ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg'
 
 // THEME
 import _get from 'lodash/get'
@@ -68,25 +68,6 @@ function parsedFtvaImage(obj: any) {
   else
     return undefined
 }
-
-// const parsedBlock = computed(() => {
-//   if (typeHandle.value === 'generalContentPage' ||
-//     typeHandle.value === 'externalContent' ||
-//     typeHandle.value === 'article')
-//     return 'block block externalLink'
-//   else return 'block'
-// })
-
-// function parsedBlock(item: any) {
-//   if (
-//     item.typeHandle === 'generalContentPage' ||
-//     item.typeHandle === 'externalContent' ||
-//     item.typeHandle === 'article'
-//   ) {
-//     return 'block externalLink'
-//   }
-//   return 'block'
-// }
 
 const parsedList = computed(() => {
   const items = []
