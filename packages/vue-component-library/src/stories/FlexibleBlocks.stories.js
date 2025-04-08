@@ -48,16 +48,16 @@ const mockData = [
 
     cardWithImage: [
       {
-        id: "3826943",
-        typeHandle: "externalContent",
-        titleGeneral: "Helsinki",
+        id: '3826943',
+        typeHandle: 'externalContent',
+        titleGeneral: 'Helsinki',
         image: [
           {
-            id: "3807469",
-            src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Helsinki.jpg",
+            id: '3807469',
+            src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Helsinki.jpg',
             height: 2306,
             width: 2560,
-            srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Helsinki.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Helsinki.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Helsinki.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Helsinki.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Helsinki.jpg 2560w",
+            srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Helsinki.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Helsinki.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Helsinki.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Helsinki.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Helsinki.jpg 2560w',
             alt: null,
             focalPoint: [
               0.5,
@@ -65,26 +65,26 @@ const mockData = [
             ]
           }
         ],
-        to: "https://en.wikipedia.org/wiki/Helsinki"
+        to: 'https://en.wikipedia.org/wiki/Helsinki'
       },
       {
-        id: "3803130",
-        typeHandle: "internalContent",
+        id: '3803130',
+        typeHandle: 'internalContent',
         contentLink: [
           {
-            id: "3512384",
-            typeHandle: "ftvaEvent",
-            sectionHandle: "ftvaEvent",
-            contentType: "ftvaEvent",
-            uri: "events/4-givings-09-07-24",
-            slug: "4-givings-09-07-24",
+            id: '3512384',
+            typeHandle: 'ftvaEvent',
+            sectionHandle: 'ftvaEvent',
+            contentType: 'ftvaEvent',
+            uri: 'events/4-givings-09-07-24',
+            slug: '4-givings-09-07-24',
             ftvaImage: [
               {
-                id: "3512388",
-                src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Screenshot-2024-12-13-at-8.00.38-AM.png",
+                id: '3512388',
+                src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Screenshot-2024-12-13-at-8.00.38-AM.png',
                 height: 1663,
                 width: 2560,
-                srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 2560w",
+                srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 2560w',
                 alt: null,
                 focalPoint: [
                   0.5,
@@ -96,11 +96,11 @@ const mockData = [
               {
                 image: [
                   {
-                    id: "3807065",
-                    src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/PXL_20250309_163035600.jpg",
+                    id: '3807065',
+                    src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/PXL_20250309_163035600.jpg',
                     height: 1440,
                     width: 2560,
-                    srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 2560w",
+                    srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 2560w',
                     alt: null,
                     focalPoint: [
                       0.5,
@@ -110,32 +110,32 @@ const mockData = [
                 ]
               }
             ],
-            title: "4 Givings 09-07-24",
-            eventTitle: "4 Givings",
-            startDateWithTime: "2026-09-07T19:30",
-            endDateWithTime: "2026-12-17T21:30",
-            postDate: "2026-12-17T12:31"
+            title: '4 Givings 09-07-24',
+            eventTitle: '4 Givings',
+            startDateWithTime: '2026-09-07T19:30',
+            endDateWithTime: '2026-12-17T21:30',
+            postDate: '2026-12-17T12:31'
           }
         ]
       },
       {
-        id: "3803131",
-        typeHandle: "internalContent",
+        id: '3803131',
+        typeHandle: 'internalContent',
         contentLink: [
           {
-            id: "3512397",
-            typeHandle: "eventSeries",
-            sectionHandle: "ftvaEventSeries",
-            contentType: "ftvaEventSeries",
-            uri: "series/films-of-ericka-beckman",
-            slug: "films-of-ericka-beckman",
+            id: '3512397',
+            typeHandle: 'eventSeries',
+            sectionHandle: 'ftvaEventSeries',
+            contentType: 'ftvaEventSeries',
+            uri: 'series/films-of-ericka-beckman',
+            slug: 'films-of-ericka-beckman',
             ftvaImage: [
               {
-                id: "3512401",
-                src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg",
+                id: '3512401',
+                src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg',
                 height: 1748,
                 width: 2560,
-                srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 2560w",
+                srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 2560w',
                 alt: null,
                 focalPoint: [
                   0.5,
@@ -147,11 +147,11 @@ const mockData = [
               {
                 image: [
                   {
-                    id: "3512399",
-                    src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg",
+                    id: '3512399',
+                    src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg',
                     height: 1748,
                     width: 2560,
-                    srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 2560w",
+                    srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 2560w',
                     alt: null,
                     focalPoint: [
                       0.5,
@@ -161,10 +161,10 @@ const mockData = [
                 ]
               }
             ],
-            title: "Films of Ericka beckman",
-            startDate: "2024-08-03T00:00",
-            endDate: "2024-08-24T00:00",
-            postDate: "2024-12-17T12:36",
+            title: 'Films of Ericka beckman',
+            startDate: '2024-08-03T00:00',
+            endDate: '2024-08-24T00:00',
+            postDate: '2024-12-17T12:36',
             ongoing: false
           }
         ]

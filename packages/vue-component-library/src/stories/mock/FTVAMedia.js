@@ -479,7 +479,7 @@ export const mockFlexibleBlocks = [
             ],
             title: 'TEST - Hot Air Balloons',
             formattedTitle: null,
-            postDate: "2026-10-20T10:50"
+            postDate: '2026-10-20T10:50'
           }
         ]
       },

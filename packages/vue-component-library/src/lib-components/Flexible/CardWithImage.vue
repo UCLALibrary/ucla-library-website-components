@@ -37,11 +37,11 @@ function parsedFtvaArticleAndEventDate(obj) {
 }
 
 function parsedFtvaImage(obj) {
-  if (theme.value === 'ftva' &&
-    (obj.contentType === 'ftvaEvent' ||
-      obj.contentType === 'ftvaEventSeries' ||
-      obj.contentType === 'ftvaArticle' ||
-      obj.contentType === 'ftvaGeneralContentPage')
+  if (theme.value === 'ftva'
+    && (obj.contentType === 'ftvaEvent'
+      || obj.contentType === 'ftvaEventSeries'
+      || obj.contentType === 'ftvaArticle'
+      || obj.contentType === 'ftvaGeneralContentPage')
   )
     return (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage || undefined
   else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage')
@@ -91,8 +91,8 @@ const parsedItems = computed(() => {
       // OLD
       // Article
       else if (
-        theme.value !== 'ftva' &&
-        obj.typeHandle !== 'externalContent'
+        theme.value !== 'ftva'
+        && obj.typeHandle !== 'externalContent'
         && obj.contentType.includes('article')
       ) {
         return {
