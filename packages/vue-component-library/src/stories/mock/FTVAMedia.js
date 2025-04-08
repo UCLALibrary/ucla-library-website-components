@@ -329,9 +329,9 @@ export const mockFlexibleBlocks = [
             ],
             title: '4 Givings 09-07-24',
             eventTitle: '4 Givings',
-            startDateWithTime: '2024-09-07PST19:30',
-            endDateWithTime: '2024-12-17PST12:00',
-            postDate: '2024-08-17'
+            startDateWithTime: '2027-09-07PST19:30',
+            endDateWithTime: '2027-12-17PST12:00',
+            postDate: '2027-08-17'
           }
         ]
       },
@@ -379,9 +379,9 @@ export const mockFlexibleBlocks = [
               }
             ],
             title: 'Films of Ericka beckman',
-            startDate: '2024-08-03',
-            endDate: '2024-08-24',
-            postDate: '2024-12-17',
+            startDate: '2026-08-03',
+            endDate: '2026-08-24',
+            postDate: '2026-12-17',
             ongoing: false
           }
         ]
@@ -479,7 +479,7 @@ export const mockFlexibleBlocks = [
             ],
             title: 'TEST - Hot Air Balloons',
             formattedTitle: null,
-            postDate: '2024-09-20'
+            postDate: "2026-10-20T10:50"
           }
         ]
       },

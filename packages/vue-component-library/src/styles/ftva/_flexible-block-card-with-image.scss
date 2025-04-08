@@ -1,5 +1,4 @@
 .ftva.card-with-image {
-
   :deep(.card-meta) {
     background-color: $page-blue;
     border-radius: 0 0 10px 10px;
@@ -21,6 +20,5 @@
       color: $accent-blue;
       letter-spacing: .04px;
     }
-
   }
 }

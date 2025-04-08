@@ -27,7 +27,7 @@ const { block } = defineProps({
 })
 
 function parsedFtvaArticleAndEventDate(obj) {
-  if (obj.contentType === 'ftvaEvent')
+  if (theme.value === 'ftva' && obj.contentType === 'ftvaEvent')
     return format(new Date(obj.startDateWithTime), 'MMMM d, Y')
 
   else if (obj.contentType === 'ftvaArticle')
@@ -37,18 +37,19 @@ function parsedFtvaArticleAndEventDate(obj) {
 }
 
 function parsedFtvaImage(obj) {
-  if (obj.contentType === 'ftvaEvent' ||
-    obj.contentType === 'ftvaEventSeries' ||
-    obj.contentType === 'ftvaArticle' ||
-    obj.contentType === 'ftvaGeneralContentPage'
+  if (theme.value === 'ftva' &&
+    (obj.contentType === 'ftvaEvent' ||
+      obj.contentType === 'ftvaEventSeries' ||
+      obj.contentType === 'ftvaArticle' ||
+      obj.contentType === 'ftvaGeneralContentPage')
   )
-    return (obj.imageCarousel[0].image[0]) || obj.ftvaImage
+    return (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage || undefined
   else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage')
-    return obj.heroImage[0].image[0] || ''
+    return obj.heroImage[0].image[0] || undefined
   else if (obj.typeHandle === 'externalContent')
-    return obj.image[0] || ''
+    return obj.image[0] || undefined
   else
-    return ''
+    return undefined
 }
 
 const parsedList = computed(() => {
@@ -90,6 +91,7 @@ const parsedItems = computed(() => {
       // OLD
       // Article
       else if (
+        theme.value !== 'ftva' &&
         obj.typeHandle !== 'externalContent'
         && obj.contentType.includes('article')
       ) {

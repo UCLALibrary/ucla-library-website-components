@@ -45,73 +45,131 @@ const mockData = [
     sectionTitle: 'Card with Image testing for background',
     sectionSummary:
             '<p><span><strong>Using the Image Card</strong> module you can <em>easily add a beautiful image</em> card with extra information like title, content, customized read more button, and an icon on the webpage. Moreover, can create <a href="https://diviextended.com/documentation/divi-plus/image-card/" target="_blank" rel="noreferrer noopener">Divi blurb layouts</a> using an image and icon together.</span></p>',
+
     cardWithImage: [
       {
-        id: '58868',
-        typeHandle: 'internalContent',
+        id: "3826943",
+        typeHandle: "externalContent",
+        titleGeneral: "Helsinki",
+        image: [
+          {
+            id: "3807469",
+            src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Helsinki.jpg",
+            height: 2306,
+            width: 2560,
+            srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Helsinki.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Helsinki.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Helsinki.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Helsinki.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Helsinki.jpg 2560w",
+            alt: null,
+            focalPoint: [
+              0.5,
+              0.5
+            ]
+          }
+        ],
+        to: "https://en.wikipedia.org/wiki/Helsinki"
+      },
+      {
+        id: "3803130",
+        typeHandle: "internalContent",
         contentLink: [
           {
-            id: '39641',
-            contentType: 'collection',
-            to: 'collections/explore/vintage-clock-collection',
-            title: 'Vintage Clock Collection',
-            text: '<p>Seth Thomas Regulator, an E. Howard Regulator, an Ithaca Double-Dial Calendar, a big Waterbury Jeweler\'s Regulator, a Longcase, Tallcase or "Grandfather\'s" Clock</p>',
-            articleByline2: '2022-09-20T17:07:00-07:00',
-            heroImage: [
+            id: "3512384",
+            typeHandle: "ftvaEvent",
+            sectionHandle: "ftvaEvent",
+            contentType: "ftvaEvent",
+            uri: "events/4-givings-09-07-24",
+            slug: "4-givings-09-07-24",
+            ftvaImage: [
               {
-                id: '48296',
+                id: "3512388",
+                src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Screenshot-2024-12-13-at-8.00.38-AM.png",
+                height: 1663,
+                width: 2560,
+                srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 2560w",
+                alt: null,
+                focalPoint: [
+                  0.5,
+                  0.5
+                ]
+              }
+            ],
+            imageCarousel: [
+              {
                 image: [
                   {
-                    id: '48295',
-                    src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/clock1.jpg',
-                    height: 1920,
+                    id: "3807065",
+                    src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/PXL_20250309_163035600.jpg",
+                    height: 1440,
                     width: 2560,
-                    srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/clock1.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/clock1.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/clock1.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/clock1.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/clock1.jpg 2560w',
+                    srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 2560w",
                     alt: null,
-                    focalPoint: [0.5, 0.5],
-                  },
-                ],
-              },
+                    focalPoint: [
+                      0.5,
+                      0.5
+                    ]
+                  }
+                ]
+              }
             ],
-          },
-        ],
+            title: "4 Givings 09-07-24",
+            eventTitle: "4 Givings",
+            startDateWithTime: "2026-09-07T19:30",
+            endDateWithTime: "2026-12-17T21:30",
+            postDate: "2026-12-17T12:31"
+          }
+        ]
       },
       {
-        id: '58869',
-        typeHandle: 'internalContent',
+        id: "3803131",
+        typeHandle: "internalContent",
         contentLink: [
           {
-            id: '43197',
-            contentType: 'article',
-            to: 'about/news/test-news-title-test-for-bannertext',
-            title: 'Test - News Title - Test for BannerText',
-            text: '<p>Test Summary is a short sentence describing the article</p>',
-            articleCategory: [
+            id: "3512397",
+            typeHandle: "eventSeries",
+            sectionHandle: "ftvaEventSeries",
+            contentType: "ftvaEventSeries",
+            uri: "series/films-of-ericka-beckman",
+            slug: "films-of-ericka-beckman",
+            ftvaImage: [
               {
-                title: 'Announcement',
-              },
-              {
-                title: 'Collections',
-              },
+                id: "3512401",
+                src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg",
+                height: 1748,
+                width: 2560,
+                srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists_2024-12-17-203818_myzi.jpg 2560w",
+                alt: null,
+                focalPoint: [
+                  0.5,
+                  0.5
+                ]
+              }
             ],
-            articleByline2: '2022-10-12T10:22:00-07:00',
-            associatedLocations: [
+            imageCarousel: [
               {
-                id: '11612',
-                title: 'UCLA Film & Television Archive',
-                to: 'visit/locations/film-television-archive',
-              },
+                image: [
+                  {
+                    id: "3512399",
+                    src: "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg",
+                    height: 1748,
+                    width: 2560,
+                    srcset: "https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Ericka-Beckman-Hiatus-1999.-Image-courtesy-the-artists.jpg 2560w",
+                    alt: null,
+                    focalPoint: [
+                      0.5,
+                      0.5
+                    ]
+                  }
+                ]
+              }
             ],
-            heroImage: [],
-          },
-        ],
+            title: "Films of Ericka beckman",
+            startDate: "2024-08-03T00:00",
+            endDate: "2024-08-24T00:00",
+            postDate: "2024-12-17T12:36",
+            ongoing: false
+          }
+        ]
       },
-      {
-        id: '58870',
-        typeHandle: 'internalContent',
-        contentLink: [],
-      },
-    ],
+    ]
   },
   {
     id: '58914',
@@ -273,7 +331,7 @@ export function GrayBackgrounds() {
           {
             typeHandle: 'rich-text',
             richText:
-                            '<h4>But the final block is always white</h4>',
+              '<h4>But the final block is always white</h4>',
           },
           mockRichText,
         ],
