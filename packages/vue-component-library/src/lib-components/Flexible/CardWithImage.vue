@@ -19,15 +19,6 @@ import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 // TYPESCRIPT
 import type { FlexibleCardsWithImage } from '@/types/flexible_types'
 
-type ParsedCardItem = {
-  contentType?: string
-  typeHandle?: string
-  imageCarousel?: { image?: any[] }[]
-  heroImage?: { image?: any[] }[]
-  ftvaImage?: any
-  image?: any[]
-}
-
 const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleCardsWithImage>,
@@ -86,7 +77,7 @@ function parsedFtvaImage(obj) {
 //   else return 'block'
 // })
 
-//function parsedBlock(item: any) {
+// function parsedBlock(item: any) {
 //   if (
 //     item.typeHandle === 'generalContentPage' ||
 //     item.typeHandle === 'externalContent' ||
@@ -96,7 +87,6 @@ function parsedFtvaImage(obj) {
 //   }
 //   return 'block'
 // }
-
 
 const parsedList = computed(() => {
   const items = []
@@ -121,20 +111,6 @@ const parsedItems = computed(() => {
   return parsedList.value
     .filter(e => e !== null)
     .map((obj) => {
-      console.log("Checking object:", obj)
-      const parsedClass = ['block']
-      // if (
-      //   obj.typeHandle === 'generalContentPage' ||
-      //   obj.typeHandle === 'externalContent' ||
-      //   obj.typeHandle === 'article'
-      // ) {
-      //   parsedClass.push('externalLink')
-      // }
-
-      // const base = {
-      //   ...obj,
-      //   parsedClass,
-      // }
 
       // FTVA
       if (theme.value === 'ftva') {
@@ -149,7 +125,7 @@ const parsedItems = computed(() => {
         }
       }
 
-      // OLD
+      // ORIGINAL
       // Article
       else if (
         theme.value !== 'ftva'
