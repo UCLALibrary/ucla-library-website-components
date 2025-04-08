@@ -33,9 +33,9 @@ const classes = computed(() => {
 })
 
 const parsedBlock = computed((obj) => {
-  if (obj.typeHandle === 'generalContentPage' ||
-    obj.typeHandle === 'externalContent' ||
-    obj.typeHandle === 'article')
+  if (obj.typeHandle === 'generalContentPage'
+    || obj.typeHandle === 'externalContent'
+    || obj.typeHandle === 'article')
     return 'block externalLink'
   else return 'block'
 })
@@ -44,7 +44,7 @@ function parsedFtvaLink(obj: any) {
   if (obj.typeHandle === 'externalContent')
     return obj.to
   else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage')
-    return 'https://www.library.ucla.edu/' + obj.uri
+    return `https://www.library.ucla.edu/${obj.uri}`
   else if (obj.contentType === 'ftvaGeneralContentPage')
     return obj.slug
   else
