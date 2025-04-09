@@ -98,8 +98,8 @@ interface FlexibleCardWithImage {
   // sectionHandle: string
   // slug: string
   // uri: string
-  // eventTitle: string
-  // titleGeneral: string
+  eventTitle: string
+  titleGeneral: string
 }
 
 interface FlexibleBannerContent {
