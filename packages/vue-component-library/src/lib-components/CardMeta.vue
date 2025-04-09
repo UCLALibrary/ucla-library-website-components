@@ -185,6 +185,7 @@ const classes = computed(() => {
       <slot name="customTitle" />
     </h3>
 
+    <!-- eslint-disable-next-line vue/no-useless-template-attributes -->
     <template v-if="to" @click.stop>
     <SmartLink
       :link-target="parsedTarget"
