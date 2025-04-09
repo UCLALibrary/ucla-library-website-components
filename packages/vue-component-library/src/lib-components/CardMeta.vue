@@ -185,8 +185,8 @@ const classes = computed(() => {
       <slot name="customTitle" />
     </h3>
 
+    <template v-if="to" @click.stop>
     <SmartLink
-      v-if="to"
       :link-target="parsedTarget"
       :to="to"
       class="title"
@@ -199,6 +199,7 @@ const classes = computed(() => {
         v-html="alternativeFullName"
       />
     </SmartLink>
+    </template>
 
     <h3
       v-else

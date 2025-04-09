@@ -23,9 +23,11 @@ const classes = computed(() => {
 
 <style lang="scss" scoped>
 .scroll-wrapper {
+    pointer-events: none;
     // move arrows on top of content
     position: relative;
     :deep(.v-slide-group__prev) {
+        pointer-events: auto;
         height: 100%;
         position: absolute;
         z-index: 1;
@@ -36,6 +38,7 @@ const classes = computed(() => {
         }
     }
     :deep(.v-slide-group__next) {
+        pointer-events: auto;
         height: 100%;
         position: absolute;
         z-index: 1;
