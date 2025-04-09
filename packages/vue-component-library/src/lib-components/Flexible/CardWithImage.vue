@@ -3,8 +3,6 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
 
-import 'ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg'
-
 // THEME
 import _get from 'lodash/get'
 import { useTheme } from '@/composables/useTheme'
@@ -212,11 +210,14 @@ const parsedItems = computed(() => {
           parsedCategory: _get(obj, 'category', ''),
         }
       }
+
+      // TODO THIS LOGIC LIKELY NEVER FIRES, move it
       // FTVA EXTERNAL
       else if (
         obj.typeHandle === 'externalContent'
         && (theme.value === 'ftva')
       ) {
+        console.log('FTVA EXTERNAL')
         return {
           ...obj,
           title: obj.titleGeneral,
@@ -225,6 +226,7 @@ const parsedItems = computed(() => {
         }
       }
 
+      // END NEW LOGIC TO MOVE
       else {
         return {
           ...obj,

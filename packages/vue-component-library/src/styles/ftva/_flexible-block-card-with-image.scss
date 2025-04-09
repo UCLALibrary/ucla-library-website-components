@@ -5,20 +5,16 @@
 
     .title,
     .title-no-link {
+      position: relative;
       @include step-1;
       line-height: $line-height--1;
       color: $heading-grey;
       margin: var(--space-s) 0;
     }
 
-    .title a[target="_blank"]::after,
-    .title-no-link a[target="_blank"]::after {
+    .title[target="_blank"]::after, .title-no-link[target="_blank"]::after {
       content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg');
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      margin-left: 4px;
-      vertical-align: middle;
+      position: relative;
     }
 
     .date-time {
@@ -40,14 +36,6 @@
 
       .block {
         width: calc((100% - 32px) / 3);
-      }
-
-      .externalLink {
-
-        .title:after,
-        .title-no-link:after {
-          content: url("ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg");
-        }
       }
     }
   }
