@@ -211,22 +211,6 @@ const parsedItems = computed(() => {
         }
       }
 
-      // TODO THIS LOGIC LIKELY NEVER FIRES, move it
-      // FTVA EXTERNAL
-      else if (
-        obj.typeHandle === 'externalContent'
-        && (theme.value === 'ftva')
-      ) {
-        console.log('FTVA EXTERNAL')
-        return {
-          ...obj,
-          title: obj.titleGeneral,
-          parsedImage: _get(obj, 'image[0]', undefined),
-          to: obj.to,
-        }
-      }
-
-      // END NEW LOGIC TO MOVE
       else {
         return {
           ...obj,
