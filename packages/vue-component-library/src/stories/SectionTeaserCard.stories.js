@@ -8,6 +8,21 @@ import ScrollWrapper from '@/lib-components/ScrollWrapper'
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 
+/**
+ * A wrapper component for `BlockCardWithImage`. 
+ * 
+ * For Library, default display is a grid layout.
+ * 
+ * For FTVA, default display is a horizontal scroll.
+ *
+ * Props:
+ * - items: (array of objects)
+ * - sectionTitle (string)
+ * - gridLayout: (boolean)
+ *  - false (default)
+ *  - true (Removes 'nowrap' on flexed parent container)
+ */
+
 // Storybook default settings
 export default {
   title: 'SECTION / Teaser / Card',
