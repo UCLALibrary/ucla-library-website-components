@@ -1,11 +1,8 @@
 .ftva.section-teaser-card {
-    flex-wrap: nowrap;
     max-width: 100%; // 100% of the parent container
     align-items: flex-start;
-    overflow-y: auto;
     padding-top: 25px;
     gap: var(--space-xl) 20px;
-    scrollbar-color: $grey-blue $white;
     &:has(> :last-child:nth-child(3)) {
         /* if section has 3 elements */
         justify-content: space-between;
@@ -20,6 +17,29 @@
 
         :deep(.ftvaItemInCollection) {
             min-height: 60px;
+        }
+    }
+
+    @media #{$small} {
+        .card {
+            flex-basis: 100%;
+        }
+    }
+}
+
+.ftva.section-teaser-card.no-grid-layout {
+    overflow-y: auto;
+    scrollbar-color: $grey-blue $white;
+
+    @media #{$medium} {
+        .card {
+            flex-basis: calc((100% / 3) - 22px);
+        }
+    }
+
+    @media #{small} {
+        .card {
+            flex-basis: calc((100% / 3) - 22px);
         }
     }
 }

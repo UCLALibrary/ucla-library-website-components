@@ -9,18 +9,22 @@ import ScrollWrapper from '@/lib-components/ScrollWrapper'
 import * as API from '@/stories/mock-api.json'
 
 /**
+<<<<<<< HEAD
  * A wrapper component for `BlockCardWithImage`. 
  * 
  * For Library, default display is a grid layout.
  * 
  * For FTVA, default display is a horizontal scroll.
+=======
+ * A wrapper component for `BlockCardWithImage`.
+>>>>>>> 290ac754 (Refactor to code, styles, storybook to make gridLayout default)
  *
  * Props:
  * - items: (array of objects)
  * - sectionTitle (string)
  * - gridLayout: (boolean)
- *  - false (default)
- *  - true (Removes 'nowrap' on flexed parent container)
+ *  - true (default)
+ *  - false (Removes 'nowrap' on flexed parent container)
  */
 
 // Storybook default settings
@@ -257,6 +261,7 @@ export function FTVAEventDetail() {
       <section-teaser-card
         :items="items"
         section-title="section title here"
+        :grid-layout="false"
       />
   `,
   }
@@ -276,6 +281,7 @@ export function FTVAEventSeries() {
     template: `
       <section-teaser-card
         :items="items"
+        :grid-layout="false"
       />
   `,
   }
@@ -295,6 +301,7 @@ export function FTVABlogSeries() {
     template: `
       <section-teaser-card
         :items="items"
+        :grid-layout="false"
       />
   `,
   }
@@ -385,6 +392,7 @@ export function FTVAMoreCollectionItems() {
     template: `
       <section-teaser-card
         :items="items"
+        :grid-layout="false"
       />
   `,
   }

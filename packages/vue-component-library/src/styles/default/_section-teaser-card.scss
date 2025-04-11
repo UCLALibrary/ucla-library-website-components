@@ -11,6 +11,7 @@
     .white-icon > :deep(path) {
         fill: white;
     }
+    
     .card {
         width: calc((100% - 32px) / 3);
     }
@@ -31,6 +32,10 @@
             width: 100%;
         }
     }
+}
+
+.section-teaser-card.no-grid-layout { // Horizontal scroll
+    flex-wrap: nowrap;
 }
 
 .section-teaser-card-title {

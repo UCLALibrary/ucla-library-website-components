@@ -12,7 +12,7 @@ import { useTheme } from '@/composables/useTheme'
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 import BlockTag from '@/lib-components/BlockTag.vue'
 
-const { items } = defineProps({
+const { items, gridLayout, sectionTitle } = defineProps({
   items: {
     type: Array as PropType<BlockCardMetaType[] & EventItemType[] & CollectionItemType[]>,
     default: () => [],
@@ -21,12 +21,16 @@ const { items } = defineProps({
     type: String,
     required: false
   },
+  gridLayout: {
+    type: Boolean,
+    default: true
+  }
 })
 
 const theme = useTheme()
 
 const classes = computed(() => {
-  return ['section-teaser-card', theme?.value || '']
+  return ['section-teaser-card', theme?.value || '', { 'no-grid-layout': !gridLayout }]
 })
 
 const parsedAspectRatio = computed(() => {
