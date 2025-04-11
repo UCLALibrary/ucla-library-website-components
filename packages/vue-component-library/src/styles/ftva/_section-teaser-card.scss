@@ -36,12 +36,6 @@
             flex-basis: calc((100% / 3) - 22px);
         }
     }
-
-    @media #{small} {
-        .card {
-            flex-basis: calc((100% / 3) - 22px);
-        }
-    }
 }
 
 .ftva.section-teaser-card-title {
