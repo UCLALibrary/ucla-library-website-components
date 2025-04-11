@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.10.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.9.0...@ucla-library-monorepo/ucla-library-website-components-v1.10.0) (2025-04-11)
+
+
+### Features
+
+* APPS-3236 create component request for flexible card with image ftva variation ([#720](https://github.com/UCLALibrary/ucla-library-website-components/issues/720)) ([86e081f](https://github.com/UCLALibrary/ucla-library-website-components/commit/86e081f08d42993e4ca12aa2c07bcacb556b0bad))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.9.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.8.0...@ucla-library-monorepo/ucla-library-website-components-v1.9.0) (2025-04-08)
 
 
