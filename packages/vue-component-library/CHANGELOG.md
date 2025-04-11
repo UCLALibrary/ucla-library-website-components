@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.11.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.10.0...@ucla-library-monorepo/ucla-library-website-components-v1.11.0) (2025-04-11)
+
+
+### Features
+
+* APPS-3291 Update SectionTeaserCard for Collection Listings Types ([#724](https://github.com/UCLALibrary/ucla-library-website-components/issues/724)) ([8c6e80d](https://github.com/UCLALibrary/ucla-library-website-components/commit/8c6e80d6bf10002385ad27e37053b71f2dee0f35))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.10.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.9.0...@ucla-library-monorepo/ucla-library-website-components-v1.10.0) (2025-04-11)
 
 
