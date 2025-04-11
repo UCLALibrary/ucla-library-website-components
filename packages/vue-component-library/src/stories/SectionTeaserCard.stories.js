@@ -3,6 +3,7 @@ import { computed } from 'vue'
 // Import component
 import { parsedFTVABlogSeries } from './mock/FTVAMedia'
 import SectionTeaserCard from '@/lib-components/SectionTeaserCard'
+import ScrollWrapper from '@/lib-components/ScrollWrapper'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -368,6 +369,27 @@ export function FTVAMoreCollectionItems() {
       <section-teaser-card
         :items="items"
       />
+  `,
+  }
+}
+
+export function TestScrollWrapper() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionItems }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard, ScrollWrapper },
+    template: `
+    <scroll-wrapper>
+      <section-teaser-card
+        :items="items"
+      />
+    </scroll-wrapper>
   `,
   }
 }

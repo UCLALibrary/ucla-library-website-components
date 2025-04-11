@@ -273,7 +273,7 @@ export function GrayBackgrounds() {
           {
             typeHandle: 'rich-text',
             richText:
-                            '<h4>But the final block is always white</h4>',
+              '<h4>But the final block is always white</h4>',
           },
           mockRichText,
         ],

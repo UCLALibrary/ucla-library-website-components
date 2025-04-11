@@ -1,0 +1,49 @@
+.ftva.card-with-image {
+  :deep(.block-highlight) {
+    max-width: 250px;
+    background-color: $page-blue;
+    &:hover {
+      box-shadow: 0 0px 4px 0 rgba(51, 51, 51, 0.2);
+    }
+  }
+  :deep(.card-meta) {
+    border-radius: 0 0 10px 10px;
+
+    .title,
+    .title-no-link {
+      position: relative;
+      @include step-1;
+      line-height: $line-height--1;
+      color: $heading-grey;
+      margin: 0 0 var(--space-s) 0;
+      pointer-events: auto;
+    }
+
+    .title[target="_blank"]::after, .title-no-link[target="_blank"]::after {
+      content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg');
+      position: relative;
+    }
+
+    .date-time {
+      color: $accent-blue;
+    }
+
+    .byline-group {
+      @include ftva-emphasized-subtitle;
+      color: $accent-blue;
+      letter-spacing: .04px;
+    }
+
+    .block-group {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 32px 16px;
+
+      .block {
+        width: calc((100% - 32px) / 3);
+      }
+    }
+  }
+}

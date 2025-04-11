@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
 import { computed } from 'vue'
+import type { PropType } from 'vue'
+import format from 'date-fns/format'
+
+// THEME
+import _get from 'lodash/get'
+import { useTheme } from '@/composables/useTheme'
 
 // UTILS
-import _get from 'lodash/get'
 import formatDates from '@/utils/formatEventDates'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
@@ -19,6 +23,51 @@ const { block } = defineProps({
     default: () => { },
   },
 })
+
+// THEME
+const theme = useTheme()
+const currentTheme = theme?.value || '' // since we want to the use the theme for script logic, we need to set a backup value for non-themed sites
+const classes = computed(() => {
+  return ['card-with-image', theme?.value || '']
+})
+
+function parsedFtvaLink(obj: any) {
+  if (obj.typeHandle === 'externalContent')
+    return obj.to
+  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage')
+    return `https://www.library.ucla.edu/${obj.uri}`
+  else if (obj.contentType === 'ftvaGeneralContentPage')
+    return obj.slug
+  else
+    return obj.uri
+}
+
+function parsedFtvaArticleAndEventDate(obj: any) {
+  if ((currentTheme === 'ftva') && obj.contentType === 'ftvaEvent')
+    return format(new Date(obj.startDateWithTime), 'MMMM d, Y')
+
+  else if (obj.contentType === 'ftvaArticle')
+    return format(new Date(obj.postDate), 'MMMM d, Y')
+  else
+    return ''
+}
+
+function parsedFtvaImage(obj: any) {
+  if ((currentTheme === 'ftva')
+    && (obj.contentType === 'ftvaEvent'
+      || obj.contentType === 'ftvaEventSeries'
+      || obj.contentType === 'ftvaArticle'
+      || obj.contentType === 'ftvaGeneralContentPage')
+  )
+    return (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage || undefined
+  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage' || obj.contentType === 'collection')
+    return ((obj.heroImage.length > 0) && obj.heroImage[0].image[0]) || undefined
+
+  else if (obj.typeHandle === 'externalContent')
+    return obj.image[0] || undefined
+  else
+    return undefined
+}
 
 const parsedList = computed(() => {
   const items = []
@@ -43,8 +92,20 @@ const parsedItems = computed(() => {
   return parsedList.value
     .filter(e => e !== null)
     .map((obj) => {
-      // Article
-      if (
+      // FTVA
+      if (currentTheme === 'ftva') {
+        return {
+          ...obj,
+          to: parsedFtvaLink(obj),
+          title: obj.eventTitle || obj.title || obj.titleGeneral,
+          parsedImage: parsedFtvaImage(obj),
+          postDate: (obj.contentType === 'ftvaArticle') ? 'obj.postDate' : null,
+          // byline2 Formats the date to April 3, 2025
+          byline2: parsedFtvaArticleAndEventDate(obj),
+        }
+      }
+
+      else if (
         obj.typeHandle !== 'externalContent'
         && obj.contentType.includes('article')
       ) {
@@ -148,6 +209,7 @@ const parsedItems = computed(() => {
           parsedCategory: _get(obj, 'category', ''),
         }
       }
+
       else {
         return {
           ...obj,
@@ -166,7 +228,7 @@ const parsedItems = computed(() => {
 <template>
   <div
     v-if="block.cardWithImage"
-    class="card-with-image"
+    :class="classes"
   >
     <div class="section-header">
       <h2
@@ -208,57 +270,6 @@ const parsedItems = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.card-with-image {
-  max-width: $container-l-main + px;
-  margin: 0 auto;
-
-  .section-header {
-    margin-bottom: var(--space-xl);
-  }
-
-  .section-title {
-    @include step-3;
-    color: var(--color-primary-blue-03);
-    margin-bottom: var(--space-m);
-  }
-
-  .section-summary {
-    @include step-0;
-
-    :deep(p) {
-      margin: 0;
-    }
-  }
-
-  .block-group {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 32px 16px;
-
-    .block {
-      width: calc((100% - 32px) / 3);
-    }
-  }
-
-  // Breakpoints
-  @media #{$medium} {
-    align-items: flex-start;
-
-    .block-group {
-      .block {
-        width: calc((100% - 16px) / 2);
-      }
-    }
-  }
-
-  @media #{$small} {
-    .block-group {
-      .block {
-        width: 100%;
-      }
-    }
-  }
-}
+@import "@/styles/default/_flexible-block-card-with-image.scss";
+@import "@/styles/ftva/_flexible-block-card-with-image.scss";
 </style>
