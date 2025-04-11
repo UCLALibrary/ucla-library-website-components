@@ -20,6 +20,12 @@
         }
     }
 
+    @media #{$medium} {
+        .card {
+            flex-basis: calc((100% / 2) - 22px);
+        }
+    }
+
     @media #{$small} {
         .card {
             flex-basis: 100%;
