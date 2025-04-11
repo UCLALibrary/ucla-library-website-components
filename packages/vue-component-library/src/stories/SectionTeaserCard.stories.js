@@ -24,7 +24,7 @@ import * as API from '@/stories/mock-api.json'
  * - sectionTitle (string)
  * - gridLayout: (boolean)
  *  - true (default)
- *  - false (Adds 'nowrap' to flexed parent container)
+ *  - false (Adds 'nowrap' to flexed parent container, and cards scroll horizontally)
  */
 
 // Storybook default settings
