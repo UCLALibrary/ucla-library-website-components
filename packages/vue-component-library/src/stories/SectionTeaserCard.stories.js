@@ -24,7 +24,7 @@ import * as API from '@/stories/mock-api.json'
  * - sectionTitle (string)
  * - gridLayout: (boolean)
  *  - true (default)
- *  - false (Removes 'nowrap' on flexed parent container)
+ *  - false (Adds 'nowrap' to flexed parent container)
  */
 
 // Storybook default settings
