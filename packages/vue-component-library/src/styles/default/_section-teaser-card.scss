@@ -11,6 +11,7 @@
     .white-icon > :deep(path) {
         fill: white;
     }
+    
     .card {
         width: calc((100% - 32px) / 3);
     }
@@ -31,6 +32,12 @@
             width: 100%;
         }
     }
+}
+
+// Horizontal scroll, if needed
+// Used on FTVA theme
+.section-teaser-card.no-grid-layout { 
+    flex-wrap: nowrap;
 }
 
 .section-teaser-card-title {

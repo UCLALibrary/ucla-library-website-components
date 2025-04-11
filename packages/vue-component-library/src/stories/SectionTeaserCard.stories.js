@@ -8,6 +8,17 @@ import ScrollWrapper from '@/lib-components/ScrollWrapper'
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 
+/**
+ * A wrapper component for `BlockCardWithImage`.
+ *
+ * Props:
+ * - items: (array of objects)
+ * - sectionTitle (string)
+ * - gridLayout: (boolean)
+ *  - true (default)
+ *  - false (Adds 'nowrap' to flexed parent container, and cards scroll horizontally)
+ */
+
 // Storybook default settings
 export default {
   title: 'SECTION / Teaser / Card',
@@ -242,6 +253,7 @@ export function FTVAEventDetail() {
       <section-teaser-card
         :items="items"
         section-title="section title here"
+        :grid-layout="false"
       />
   `,
   }
@@ -261,6 +273,7 @@ export function FTVAEventSeries() {
     template: `
       <section-teaser-card
         :items="items"
+        :grid-layout="false"
       />
   `,
   }
@@ -280,6 +293,7 @@ export function FTVABlogSeries() {
     template: `
       <section-teaser-card
         :items="items"
+        :grid-layout="false"
       />
   `,
   }
@@ -347,6 +361,7 @@ const mockCollectionItems = [
     sectionHandle: 'ftvaItemInCollection'
   }
 ]
+
 const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
   return {
     ...item,
@@ -354,7 +369,8 @@ const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
     image: item.ftvaImage[0]
   }
 })
-export function FTVAMoreCollectionItems() {
+
+export function FTVACollectionItems() {
   return {
     data() {
       return { items: parsedFTVACollectionItems }
@@ -368,6 +384,7 @@ export function FTVAMoreCollectionItems() {
     template: `
       <section-teaser-card
         :items="items"
+        :grid-layout="false"
       />
   `,
   }
@@ -390,6 +407,175 @@ export function TestScrollWrapper() {
         :items="items"
       />
     </scroll-wrapper>
+  `,
+  }
+}
+
+const mockCollectionListings = [
+  {
+    title: 'Latin American Institute',
+    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
+    text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
+    ftvaCollectionType: [
+      'motionPicture',
+      'television',
+      'watchAndListenOnline'
+    ],
+    ftvaImage: [
+      {
+        id: '3156835',
+        src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/TomReed_MalcolmX.webp',
+        height: 1813,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 2560w',
+        alt: 'Tom Reed hosting an episode exploring the teachings of Malcolm X',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Native American, American, Indian and First Nations Film and Television',
+    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
+    text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
+    ftvaCollectionType: [
+      'motionPicture',
+      'television',
+    ],
+    ftvaImage: [
+      {
+        id: '3280534',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/kpil7j-21cut1large.webp',
+        height: 1664,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 2560w',
+        alt: 'many hot air balloons in the air',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Robert Abel & Associates',
+    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2',
+    text: 'During their most prolific period, RA&A’s unique design aesthetic and innovative Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    ftvaCollectionType: [
+      'motionPicture',
+      'watchAndListenOnline'
+    ],
+    ftvaImage: [
+      {
+        id: '3701680',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/PXL_20240323_163248504.jpg',
+        height: 1920,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 2560w',
+        alt: 'Image alt text here',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+  },
+  {
+    title: 'Test Collection Listing Item 4 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    ftvaCollectionType: [
+      'motionPicture',
+      'watchAndListenOnline',
+    ],
+    ftvaImage: [
+      {
+        id: '3280534',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Todd-Solondz_2024-07-04-073854_jbqd.jpg',
+        height: 1664,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 2560w',
+        alt: 'Todd Solondz',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Test Collection Listing Item 5 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    ftvaCollectionType: [
+      'television'
+    ],
+    ftvaImage: [
+      {
+        id: '3701680',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/pinkcloud-crop.png',
+        height: 1920,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/pinkcloud-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/pinkcloud-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/pinkcloud-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/pinkcloud-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/pinkcloud-crop.png 2560w',
+        alt: 'A woman writing on a window.',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+  },
+]
+
+const parsedFTVACollectionListings = mockCollectionListings.map((item) => {
+  return {
+    ...item,
+    to: item.uri,
+    image: item.ftvaImage[0]
+  }
+})
+
+export function FTVACollectionListings() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionListings }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <component is="style" type="text/css">
+        .ftva.block-highlight.is-vertical.card,
+        .ftva.block-highlight.is-vertical.card .media {
+          border-radius: 0;
+        }
+
+        .ftva.block-highlight.is-vertical.card:hover {
+          box-shadow: none;
+        }
+
+        .ftva.block-highlight .card-meta.card-meta-items:hover > a.title  {
+            text-decoration: underline;
+            text-decoration-color: #2C91FF;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 3px;
+;
+        }
+
+        @media(min-width: 991px){
+          .ftva.block-highlight.is-vertical.card {
+            height: 550px;
+          }
+        }
+      </component>
+      <section-teaser-card
+        :items="items"
+      />
   `,
   }
 }
