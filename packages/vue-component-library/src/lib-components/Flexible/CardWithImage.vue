@@ -60,9 +60,9 @@ function parsedFtvaImage(obj: any) {
       || obj.contentType === 'ftvaGeneralContentPage')
   )
     return (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage || undefined
-  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage' || obj.contentType === 'collection') {
+  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage' || obj.contentType === 'collection')
     return ((obj.heroImage.length > 0) && obj.heroImage[0].image[0]) || undefined
-  }
+
   else if (obj.typeHandle === 'externalContent')
     return obj.image[0] || undefined
   else
