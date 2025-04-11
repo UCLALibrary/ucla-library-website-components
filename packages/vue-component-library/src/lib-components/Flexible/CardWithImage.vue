@@ -26,6 +26,7 @@ const { block } = defineProps({
 
 // THEME
 const theme = useTheme()
+const currentTheme = theme?.value || '' // since we want to the use the theme for script logic, we need to set a backup value for non-themed sites
 const classes = computed(() => {
   return ['card-with-image', theme?.value || '']
 })
@@ -42,7 +43,7 @@ function parsedFtvaLink(obj: any) {
 }
 
 function parsedFtvaArticleAndEventDate(obj: any) {
-  if (theme.value === 'ftva' && obj.contentType === 'ftvaEvent')
+  if ((currentTheme === 'ftva') && obj.contentType === 'ftvaEvent')
     return format(new Date(obj.startDateWithTime), 'MMMM d, Y')
 
   else if (obj.contentType === 'ftvaArticle')
@@ -52,15 +53,16 @@ function parsedFtvaArticleAndEventDate(obj: any) {
 }
 
 function parsedFtvaImage(obj: any) {
-  if (theme.value === 'ftva'
+  if ((currentTheme === 'ftva')
     && (obj.contentType === 'ftvaEvent'
       || obj.contentType === 'ftvaEventSeries'
       || obj.contentType === 'ftvaArticle'
       || obj.contentType === 'ftvaGeneralContentPage')
   )
     return (obj.imageCarousel && obj.imageCarousel[0] && obj.imageCarousel[0].image[0]) || obj.ftvaImage || undefined
-  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage')
-    return obj.heroImage[0].image[0] || undefined
+  else if (obj.contentType === 'article' || obj.contentType === 'generalContentPage' || obj.contentType === 'collection') {
+    return ((obj.heroImage.length > 0) && obj.heroImage[0].image[0]) || undefined
+  }
   else if (obj.typeHandle === 'externalContent')
     return obj.image[0] || undefined
   else
@@ -91,7 +93,7 @@ const parsedItems = computed(() => {
     .filter(e => e !== null)
     .map((obj) => {
       // FTVA
-      if (theme.value === 'ftva') {
+      if (currentTheme === 'ftva') {
         return {
           ...obj,
           to: parsedFtvaLink(obj),
@@ -103,11 +105,8 @@ const parsedItems = computed(() => {
         }
       }
 
-      // ORIGINAL
-      // Article
       else if (
-        theme.value !== 'ftva'
-        && obj.typeHandle !== 'externalContent'
+        obj.typeHandle !== 'externalContent'
         && obj.contentType.includes('article')
       ) {
         return {

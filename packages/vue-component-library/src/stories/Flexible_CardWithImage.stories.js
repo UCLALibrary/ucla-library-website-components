@@ -14,11 +14,6 @@ export function Default() {
     data() {
       return { block: mockExternal }
     },
-    provide() {
-      return {
-        theme: computed(() => 'default'),
-      }
-    },
     components: { FlexibleCardWithImage },
     template: `
         <flexible-card-with-image
@@ -34,11 +29,6 @@ export function InternalContentEvent() {
     data() {
       return {
         block: mockInternalEvent,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'default'),
       }
     },
     components: { FlexibleCardWithImage },
@@ -58,11 +48,6 @@ export function InternalContentExhibiton() {
         block: mockInternalExhibition
       }
     },
-    provide() {
-      return {
-        theme: computed(() => 'default'),
-      }
-    },
     components: { FlexibleCardWithImage },
     template: `
         <flexible-card-with-image
@@ -78,11 +63,6 @@ export function InternalWorkshop() {
     data() {
       return {
         block: mockInternalWorkshop,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'default'),
       }
     },
     components: { FlexibleCardWithImage },
@@ -102,11 +82,6 @@ export function InternalSeries() {
         block: mockInternalSeries,
       }
     },
-    provide() {
-      return {
-        theme: computed(() => 'default'),
-      }
-    },
     components: { FlexibleCardWithImage },
     template: `
         <flexible-card-with-image
@@ -122,11 +97,6 @@ export function InternalArticle() {
     data() {
       return {
         block: mockInternalArticle,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'default'),
       }
     },
     components: { FlexibleCardWithImage },
@@ -146,11 +116,6 @@ export function InternalEndowment() {
         block: mockInternalEndowment,
       }
     },
-    provide() {
-      return {
-        theme: computed(() => 'default'),
-      }
-    },
     components: { FlexibleCardWithImage },
     template: `
         <flexible-card-with-image
@@ -166,11 +131,6 @@ export function InternalCollection() {
     data() {
       return {
         block: mockInternalCollection,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'default'),
       }
     },
     components: { FlexibleCardWithImage },
