@@ -347,6 +347,7 @@ const mockCollectionItems = [
     sectionHandle: 'ftvaItemInCollection'
   }
 ]
+
 const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
   return {
     ...item,
@@ -354,6 +355,7 @@ const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
     image: item.ftvaImage[0]
   }
 })
+
 export function FTVAMoreCollectionItems() {
   return {
     data() {
