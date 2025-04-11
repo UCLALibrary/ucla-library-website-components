@@ -150,7 +150,7 @@ export interface CollectionItemType {
   title: string
   to: string
   videoEmbed: string
-  ftvaCollectionType?:string[]
+  ftvaCollectionType?: string[]
 }
 
 export interface DepartmentItemType {

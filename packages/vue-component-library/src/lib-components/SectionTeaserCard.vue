@@ -70,7 +70,7 @@ const currentTheme = computed(() => {
         <BlockTag v-if="item.videoEmbed && item.videoEmbed !== null">
           <IconFTVAVideo class="white-icon" />
         </BlockTag>
-        <IconFTVAWatchOnline v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')"/>
+        <IconFTVAWatchOnline v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')" />
       </template>
     </BlockCardWithImage>
   </ul>
