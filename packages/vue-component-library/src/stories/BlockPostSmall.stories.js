@@ -48,6 +48,12 @@ const mockLongText = {
   title: 'Six Stupendous Reasons to Appreciate the Heck Out of these surprisingly brainy, aerodynamic, nut-crazed squirrels',
 }
 
+const mockFtva = {
+  image: API.image,
+  to: '/about',
+  title: 'Donating Materials',
+}
+
 // Variations of stories below
 export function Default() {
   return {
@@ -128,6 +134,29 @@ export function LongText() {
         item: {
           ...mockLongText,
         },
+      }
+    },
+    components: { BlockPostSmall },
+    template: `
+      <block-post-small
+        v-bind="item"
+      />
+  `,
+  }
+}
+
+export function Ftva() {
+  return {
+    data() {
+      return {
+        item: {
+          ...mockFtva,
+        },
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     components: { BlockPostSmall },
