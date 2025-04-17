@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 import BlockPostSmall from '@/lib-components/BlockPostSmall'
@@ -67,8 +68,19 @@ export function Default() {
     components: { BlockPostSmall },
     template: `
       <block-post-small
-        v-bind="item"
-      />
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #category>
+          <div class="category">{{ item.categoryName }}</div>
+        </template>
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+        <template #author>
+          <div class="author">By {{ item.author }}</div>
+        </template>
+      </block-post-small>
   `,
   }
 }
@@ -85,8 +97,19 @@ export function Visit() {
     components: { BlockPostSmall },
     template: `
       <block-post-small
-        v-bind="item"
-      />
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #category>
+          <div class="category">{{ item.categoryName }}</div>
+        </template>
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+        <template #author>
+          <div class="author">By {{ item.author }}</div>
+        </template>
+      </block-post-small>
   `,
   }
 }
@@ -103,8 +126,19 @@ export function About() {
     components: { BlockPostSmall },
     template: `
       <block-post-small
-        v-bind="item"
-      />
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #category>
+          <div class="category">{{ item.categoryName }}</div>
+        </template>
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+        <template #author>
+          <div class="author">By {{ item.author }}</div>
+        </template>
+      </block-post-small>
   `,
   }
 }
@@ -121,8 +155,19 @@ export function Help() {
     components: { BlockPostSmall },
     template: `
       <block-post-small
-        v-bind="item"
-      />
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #category>
+          <div class="category">{{ item.categoryName }}</div>
+        </template>
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+        <template #author>
+          <div class="author">By {{ item.author }}</div>
+        </template>
+      </block-post-small>
   `,
   }
 }
@@ -139,8 +184,19 @@ export function LongText() {
     components: { BlockPostSmall },
     template: `
       <block-post-small
-        v-bind="item"
-      />
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #category>
+          <div class="category">{{ item.categoryName }}</div>
+        </template>
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+        <template #author>
+          <div class="author">By {{ item.author }}</div>
+        </template>
+      </block-post-small>
   `,
   }
 }
@@ -162,8 +218,13 @@ export function Ftva() {
     components: { BlockPostSmall },
     template: `
       <block-post-small
-        v-bind="item"
-      />
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+      </block-post-small>
   `,
   }
 }

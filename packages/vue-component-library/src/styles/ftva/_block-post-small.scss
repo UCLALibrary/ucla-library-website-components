@@ -12,4 +12,56 @@
     color: coral;
     margin: 15px 0 0 0;
   }
+
+
+  display: block;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .card-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  .image {
+    width: 120px;
+    height: auto;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+
+  .meta {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    ::v-deep(.title) {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+      color: #222;
+    }
+
+    ::v-deep(.category) {
+      font-size: 0.875rem;
+      color: #888;
+      margin-bottom: 0.25rem;
+    }
+
+    ::v-deep(.author) {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.5rem;
+    }
+  }
+
 }
