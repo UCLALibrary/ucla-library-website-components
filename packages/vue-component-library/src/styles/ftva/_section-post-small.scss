@@ -1,0 +1,16 @@
+.ftva.section-post-small {
+  .section-title {
+    @include step-3;
+    color: $body-grey;
+    margin-bottom: var(--space-m);
+  }
+
+  .section-summary {
+    @include step-0;
+    color: $body-grey;
+
+    :deep(p) {
+      margin: 0;
+    }
+  }
+}

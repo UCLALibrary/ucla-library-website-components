@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  gap: 5px;
   align-content: space-between;
   align-items: center;
 
-  width: 320px;
+  background-color: white;
+  width: 50%;
+  min-width: 280px;
   min-height: 150px;
   padding: 25px;
   border-radius: var(--rounded-slightly-all);
@@ -14,13 +16,14 @@
   transition-duration: 400ms;
   transition-timing-function: ease-in-out;
 
+
   .image {
     width: 100px;
     flex-shrink: 0;
   }
 
   .meta {
-    max-width: 150px;
+    max-width: 100%;
     margin-left: 20px;
   }
 

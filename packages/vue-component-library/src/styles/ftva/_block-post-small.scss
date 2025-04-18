@@ -1,27 +1,13 @@
 .ftva.block-post-small {
-  background-color: aqua;
-  padding: 0px;
-  border-radius: 8px;
-
-  .title {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 120%;
-    letter-spacing: 0.01em;
-    color: var(--color-primary-blue-03);
-    color: coral;
-    margin: 15px 0 0 0;
-  }
-
-
-  display: block;
-  background-color: white;
+  //gap: 10px;
+  padding: 0px 10px 0px 0px;
   border-radius: 12px;
   overflow: hidden;
   transition: box-shadow 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
   &:hover {
+    background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   }
 
@@ -31,37 +17,25 @@
   }
 
   .image {
-    width: 120px;
+    width: 150px;
     height: auto;
     flex-shrink: 0;
     object-fit: cover;
   }
 
   .meta {
-    padding: 1rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
     ::v-deep(.title) {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: 0;
-      color: #222;
-    }
-
-    ::v-deep(.category) {
-      font-size: 0.875rem;
-      color: #888;
-      margin-bottom: 0.25rem;
-    }
-
-    ::v-deep(.author) {
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 0.5rem;
+      @include ftva-card-title-1;
+      color: $heading-grey;
+      //margin-left: 10px;
     }
   }
 
+  // Hovers
+  @media #{$has-hover} {
+    &:hover {
+      background-color: white;
+      box-shadow: 0px 10px 17px rgba(0, 0, 0, 0.04);
+    }
+  }
 }

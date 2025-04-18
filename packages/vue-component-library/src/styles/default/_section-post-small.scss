@@ -1,0 +1,26 @@
+.section-post-small {
+  padding: 0 var(--unit-gutter);
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: stretch;
+
+    max-width: var(--unit-content-width);
+    margin: 0 auto;
+    gap: var(--unit-gutter);
+    gap: 28px;
+  }
+
+  .block {
+    flex: 1 1 300px;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  :deep(.block-post-small) {
+    width: 100%;
+  }
+}
