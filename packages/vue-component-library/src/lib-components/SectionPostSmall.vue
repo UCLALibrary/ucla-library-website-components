@@ -7,7 +7,6 @@ import type { MediaItemType } from '@/types/types'
 import BlockPostSmall from '@/lib-components/BlockPostSmall.vue'
 
 // UTILS
-import getSectionName from '@/utils/getSectionName'
 
 // THEME
 import { useTheme } from '@/composables/useTheme'
