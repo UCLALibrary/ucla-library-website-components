@@ -74,19 +74,24 @@ const classes = computed(() => [
         class="block"
       >
         <template #category>
-          <div class="category">{{ item.categoryName }}</div>
+          <div class="category">
+            {{ item.categoryName }}
+          </div>
         </template>
 
         <template #title>
-          <h3 class="title">{{ item.title }}</h3>
+          <h3 class="title">
+            {{ item.title }}
+          </h3>
         </template>
 
         <template #author>
-          <div class="author">{{ item.author }}</div>
+          <div class="author">
+            {{ item.author }}
+          </div>
         </template>
       </BlockPostSmall>
     </div>
-
   </section>
 </template>
 

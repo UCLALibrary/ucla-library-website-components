@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 import SectionPostSmall from '@/lib-components/SectionPostSmall'
@@ -56,7 +57,6 @@ export function Default() {
   }
 }
 
-
 const mockFtva = [
   {
     image: API.image,
@@ -100,4 +100,3 @@ export function Ftva() {
   `,
   }
 }
-
