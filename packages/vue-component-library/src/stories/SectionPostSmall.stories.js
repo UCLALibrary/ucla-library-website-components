@@ -92,7 +92,7 @@ export function Ftva() {
     },
     components: { SectionPostSmall },
     template: `
-      <section-post-small
+      <SectionPostSmall
         :items="items"
         sectionTitle="About Our Collections"
         sectionSummary="<p>With over 350,00 motion pictures and 170,000 television programs, and 27 million feet of newsreel footage, the <em>UCLA Film & Television Archive</em> is the largest university-held collection of motion pictures and broadcast programming.</p><p>For more information on our collections or to arrange research viewing please contact the <strong>Archive Research and Study Center</strong> (ARSC).</p>"

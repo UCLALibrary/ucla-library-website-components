@@ -38,7 +38,6 @@ const { items, sectionTitle, sectionSummary } = defineProps({
 
 // THEME & SECTION COLOR
 const theme = useTheme()
-const sectionName = computed(() => getSectionName(props.to))
 
 const classes = computed(() => [
   'section-post-small',

@@ -68,7 +68,7 @@ export function Default() {
     },
     components: { BlockPostSmall },
     template: `
-      <block-post-small
+      <BlockPostSmall
         :image="item.image"
         :to="item.to"
       >
@@ -81,7 +81,7 @@ export function Default() {
         <template #author>
           <div class="author">By {{ item.author }}</div>
         </template>
-      </block-post-small>
+      </BlockPostSmall>
   `,
   }
 }
@@ -97,7 +97,7 @@ export function Visit() {
     },
     components: { BlockPostSmall },
     template: `
-      <block-post-small
+      <BlockPostSmall
         :image="item.image"
         :to="item.to"
       >
@@ -110,7 +110,7 @@ export function Visit() {
         <template #author>
           <div class="author">By {{ item.author }}</div>
         </template>
-      </block-post-small>
+      </BlockPostSmall>
   `,
   }
 }
@@ -126,7 +126,7 @@ export function About() {
     },
     components: { BlockPostSmall },
     template: `
-      <block-post-small
+      <BlockPostSmall
         :image="item.image"
         :to="item.to"
       >
@@ -139,7 +139,7 @@ export function About() {
         <template #author>
           <div class="author">By {{ item.author }}</div>
         </template>
-      </block-post-small>
+      </BlockPostSmall>
   `,
   }
 }
@@ -155,7 +155,7 @@ export function Help() {
     },
     components: { BlockPostSmall },
     template: `
-      <block-post-small
+      <BlockPostSmall
         :image="item.image"
         :to="item.to"
       >
@@ -168,7 +168,7 @@ export function Help() {
         <template #author>
           <div class="author">By {{ item.author }}</div>
         </template>
-      </block-post-small>
+      </BlockPostSmall>
   `,
   }
 }
@@ -184,7 +184,7 @@ export function LongText() {
     },
     components: { BlockPostSmall },
     template: `
-      <block-post-small
+      <BlockPostSmall
         :image="item.image"
         :to="item.to"
       >
@@ -197,7 +197,7 @@ export function LongText() {
         <template #author>
           <div class="author">By {{ item.author }}</div>
         </template>
-      </block-post-small>
+      </BlockPostSmall>
   `,
   }
 }
@@ -218,14 +218,14 @@ export function Ftva() {
     },
     components: { BlockPostSmall },
     template: `
-      <block-post-small
+      <BlockPostSmall
         :image="item.image"
         :to="item.to"
       >
         <template #title>
           <h3 class="title">{{ item.title }}</h3>
         </template>
-      </block-post-small>
+      </BlockPostSmall>
   `,
   }
 }

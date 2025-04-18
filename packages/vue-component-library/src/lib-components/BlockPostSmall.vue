@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import type { PropType } from 'vue'
+import getSectionName from '@/utils/getSectionName'
 
 // TYPES
 import type { MediaItemType } from '@/types/types'
@@ -26,17 +27,18 @@ const { to, image } = defineProps({
 
 // THEME & SECTION COLOR
 const theme = useTheme()
+const sectionName = computed(() => getSectionName(to))
 
-const classes = computed(() => [
-  'block-post-small',
-  `color-${sectionName.value}`,
-  theme?.value || '',
-])
+const classes = computed(() => {
+  return theme?.value === 'ftva'
+    ? ['block-post-small', 'ftva']
+    : ['block-post-small', `color-${sectionName.value}`]
+})
 </script>
 
 <template>
   <div>
-    <smart-link
+    <SmartLink
       :to="to"
       :class="classes"
     >
@@ -60,7 +62,7 @@ const classes = computed(() => [
           <slot name="author" />
         </div>
       </div>
-    </smart-link>
+    </SmartLink>
   </div>
 </template>
 
