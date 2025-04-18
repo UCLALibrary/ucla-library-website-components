@@ -6,7 +6,6 @@ import type { PropType } from 'vue'
 import type { MediaItemType } from '@/types/types'
 
 // UTILS
-import getSectionName from '@/utils/getSectionName'
 
 // THEME
 import { useTheme } from '@/composables/useTheme'
