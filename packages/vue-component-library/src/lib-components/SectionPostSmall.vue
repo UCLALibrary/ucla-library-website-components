@@ -66,24 +66,33 @@ const classes = computed(() => [
 
       <BlockPostSmall
         v-for="item in items"
-        :key="`block-post-${item.title}`"
+        :key="`block-post-${item.title || item.to}`"
         :image="item.image"
         :to="item.to"
         class="block"
       >
-        <template #category>
+        <template
+          v-if="item.categoryName"
+          #category
+        >
           <div class="category">
             {{ item.categoryName }}
           </div>
         </template>
 
-        <template #title>
+        <template
+          v-if="item.title"
+          #title
+        >
           <h3 class="title">
             {{ item.title }}
           </h3>
         </template>
 
-        <template #author>
+        <template
+          v-if="item.author"
+          #author
+        >
           <div class="author">
             {{ item.author }}
           </div>
