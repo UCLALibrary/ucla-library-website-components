@@ -1,13 +1,15 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
+import { computed } from 'vue'
 import type { PropType } from 'vue'
 import type { MediaItemType } from '@/types/types'
 
 // COMPONENTS
 import BlockPostSmall from '@/lib-components/BlockPostSmall.vue'
-import ButtonMore from '@/lib-components/ButtonMore.vue'
+
+// UTILS
+
+// THEME
+import { useTheme } from '@/composables/useTheme'
 
 // TYPES
 interface PostSmallItemType {
@@ -18,72 +20,89 @@ interface PostSmallItemType {
   to: string
 }
 
-const { items } = defineProps({
+const { items, sectionTitle, sectionSummary } = defineProps({
   items: {
     type: Array as PropType<PostSmallItemType[]>,
     default: () => [],
   },
-  to: {
+  sectionTitle: {
+    type: String,
+    default: '',
+  },
+  sectionSummary: {
     type: String,
     default: '',
   },
 })
+
+// THEME & SECTION COLOR
+const theme = useTheme()
+
+const classes = computed(() => [
+  'section-post-small',
+  theme?.value || '',
+])
 </script>
 
 <template>
-  <section class="section-post-small">
+  <section :class="classes">
     <div class="grid">
+      <div
+        v-if="sectionTitle || sectionSummary"
+        class="section-header"
+      >
+        <h2
+          v-if="sectionTitle"
+          id="cards-with-illustration-title"
+          class="section-title"
+          v-html="sectionTitle"
+        />
+        <div
+          v-if="sectionSummary"
+          class="section-summary"
+          v-html="sectionSummary"
+        />
+      </div>
+
       <BlockPostSmall
         v-for="item in items"
-        :key="`block-post-${item.title}`"
-        :category-name="item.categoryName"
-        :author="item.author"
-        :title="item.title"
+        :key="`block-post-${item.title || item.to}`"
         :image="item.image"
         :to="item.to"
         class="block"
-      />
-    </div>
+      >
+        <template
+          v-if="item.categoryName"
+          #category
+        >
+          <div class="category">
+            {{ item.categoryName }}
+          </div>
+        </template>
 
-    <smart-link
-      v-if="to"
-      class="more"
-      :to="to"
-    >
-      <ButtonMore />
-    </smart-link>
+        <template
+          v-if="item.title"
+          #title
+        >
+          <h3 class="title">
+            {{ item.title }}
+          </h3>
+        </template>
+
+        <template
+          v-if="item.author"
+          #author
+        >
+          <div class="author">
+            {{ item.author }}
+          </div>
+        </template>
+      </BlockPostSmall>
+    </div>
   </section>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
-.section-post-small {
-  background-color: var(--color-white);
-  padding: 0 var(--unit-gutter);
-
-  .grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-
-    max-width: var(--unit-content-width);
-    margin: 0 auto;
-  }
-
-  .block {
-    margin-bottom: 10px;
-  }
-
-  .more {
-    display: block;
-    padding: 30px 40px;
-    margin: 0 auto;
-    width: max-content;
-  }
-}
+<style lang="scss" scoped>
+@import "@/styles/default/_section-post-small.scss";
+@import "@/styles/ftva/_section-post-small.scss";
 </style>
