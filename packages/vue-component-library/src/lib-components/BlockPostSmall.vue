@@ -14,7 +14,7 @@ import { useTheme } from '@/composables/useTheme'
 // COMPONENTS
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
-const props = defineProps({
+const { to, image } = defineProps({
   to: {
     type: String,
     required: true,
@@ -27,7 +27,6 @@ const props = defineProps({
 
 // THEME & SECTION COLOR
 const theme = useTheme()
-const sectionName = computed(() => getSectionName(props.to))
 
 const classes = computed(() => [
   'block-post-small',

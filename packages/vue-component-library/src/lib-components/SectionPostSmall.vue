@@ -21,7 +21,7 @@ interface PostSmallItemType {
   to: string
 }
 
-const { items } = defineProps({
+const { items, sectionTitle, sectionSummary } = defineProps({
   items: {
     type: Array as PropType<PostSmallItemType[]>,
     default: () => [],
