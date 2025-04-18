@@ -6,11 +6,17 @@
   }
 
   .section-summary {
-    @include step-0;
+    @include ftva-body-2;
     color: $body-grey;
+  }
 
-    :deep(p) {
-      margin: 0;
+  @media #{$medium} {
+    .grid {
+      gap: 12px;
+    }
+
+    .section-summary {
+      margin-bottom: 12px;
     }
   }
 }

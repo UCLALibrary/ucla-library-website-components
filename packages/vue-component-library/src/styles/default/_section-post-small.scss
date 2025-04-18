@@ -7,20 +7,33 @@
     justify-content: center;
     align-content: center;
     align-items: stretch;
+    gap: 20px;
 
-    max-width: var(--unit-content-width);
     margin: 0 auto;
-    gap: var(--unit-gutter);
-    gap: 28px;
+    max-width: var(--unit-content-width);
   }
 
   .block {
     flex: 1 1 300px;
     max-width: 100%;
-    margin-bottom: 10px;
   }
 
   :deep(.block-post-small) {
     width: 100%;
+  }
+
+  @media #{$medium} {
+    .grid {
+      gap: 12px;
+    }
+  }
+
+  @media #{$medium} {
+    .meta {
+      ::v-deep(.title) {
+        @include ftva-card-title-1;
+        color: $heading-grey;
+      }
+    }
   }
 }
