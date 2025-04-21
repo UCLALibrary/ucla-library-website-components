@@ -24,10 +24,10 @@
   }
 
   .meta {
-    ::v-deep(.title) {
+    :deep(.title) {
       @include ftva-card-title-1;
+      font-size: 24px;
       color: $heading-grey;
-
     }
   }
 
