@@ -109,3 +109,53 @@ export function Microsite() {
     template: '<nav-secondary :items="parsedItems" isMicrosite="true" />',
   }
 }
+
+export function WithSearch() {
+  return {
+    data() {
+      return {
+        items: [
+          {
+            id: '843',
+            name: 'Locations & Hours',
+            to: '/locations',
+            classes: '',
+          },
+          {
+            id: '844',
+            name: 'Ask a Librarian',
+            to: 'https://external.url/research-teaching-support/research-help',
+            classes: null,
+          },
+          {
+            id: '25315',
+            name: 'Support Us',
+            to: 'https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463',
+            classes: 'support-link',
+            target: '0',
+          },
+          {
+            id: '845',
+            name: 'My Account',
+            to: 'https://search.library.ucla.edu/discovery/login?vid=01UCS_LAL:UCLA',
+            classes: 'account-button',
+            target: '1',
+          },
+        ],
+      }
+    },
+    components: { NavSecondary },
+    computed: {
+      parsedItems() {
+        // Restructuring item to support text key
+        return this.items.map((obj) => {
+          return {
+            ...obj,
+            text: obj.name,
+          }
+        })
+      },
+    },
+    template: '<nav-secondary :items="parsedItems"/>',
+  }
+}
