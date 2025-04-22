@@ -1,59 +1,59 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 import type { PropType } from 'vue'
-import SvgFilterIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-filter.svg'
-import SvgCheck from 'ucla-library-design-tokens/assets/svgs/icon-ftva-dropdown_check.svg'
 import { useWindowSize } from '@vueuse/core'
-import ButtonLink from './ButtonLink.vue'
 import MobileDrawer from './MobileDrawer.vue'
 import { useTheme } from '@/composables/useTheme'
 
-// PROPS
-interface SingleSelectGroup {
-  name: string
-  searchField: string
-  options: string[]
-}
-const { filterGroups } = defineProps({
-  filterGroups: {
-    type: Array as PropType<SingleSelectGroup[]>,
-    default: () => [],
+const props = defineProps({
+  options: {
+    // Dropdown Array
+    // options: [
+    // { label: 'Option Animal',
+    //   value: 'Squirrel' }, ...
+    // ]
+    type: Array as PropType<{ label: string; value: string | number }[]>,
+    default: () => []
+  },
+  modelValue: {
+    type: [String, Number],
+    default: ''
+  },
+  label: {
+    type: String,
+    default: 'Filter by topic'
+  },
+  disabled: {
+    type: Boolean,
+    default: false
   }
 })
-const emit = defineEmits(['update-display'])
 
-// V-MODEL DATA
-interface SelectedSingleFilter {
-  [key: string]: string
-}
-const selectedFilters = defineModel('selectedFilters', {
-  type: Object as PropType<SelectedSingleFilter>,
-  required: true,
-  default: () => ({}),
-})
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string | number): void
+  (e: 'selectionChanged', value: string | number): void
+}>()
 
-// Clear selected filters
-function clearFilters() {
-  for (const group of filterGroups)
-    selectedFilters.value[group.searchField] = ''
-}
-
-// Emit selected filters to parent
-// function onDoneClick() {
-//   emit('update-display', selectedFilters.value)
-// }
-
-// Helpers
-function isSelected(searchField: string, option: string) {
-  return selectedFilters.value[searchField] === option
-}
-
-// THEME
-const theme = useTheme()
 const isMobile = ref(false)
+const theme = useTheme()
+
 const parsedClasses = computed(() => {
-  return ['filters-dropdown dropdown-single-select', theme?.value || '']
+  return ['single-select-dropdown', theme?.value || '']
 })
+
+const selected = computed({
+  get: () => props.modelValue,
+  set: (value: string | number) => {
+    emit('update:modelValue', value)
+    emit('selectionChanged', value)
+  }
+})
+
+const selectedLabel = computed(() => {
+  const found = props.options.find(opt => opt.value === selected.value)
+  return found?.label || '(none selected)'
+})
+
 onMounted(() => {
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
@@ -67,111 +67,73 @@ onMounted(() => {
     <MobileDrawer>
       <template #buttonLabel>
         <div class="filter-summary">
-          <template v-if="!isMobile">
-            Filters
-          </template>
-          <template v-else>
-            Filters
-          </template>
+          <span v-if="!isMobile">
+            {{ label }}<span v-if="selectedLabel">: {{ selectedLabel }}</span>
+          </span>
+          <span v-else>
+            {{ label }}
+          </span>
         </div>
-
       </template>
+
       <template #dropdownItems="{ removeOverlay }">
-        <div class="dropdown-filter">
-          <div
-            v-for="group in filterGroups"
-            :key="group.name"
-            class="filter-group"
+        <label
+          v-if="label"
+          :for="label"
+          class="select-label"
+        >{{ label }}</label>
+        <select
+          :id="label"
+          class="select-input"
+          v-model="selected"
+          :disabled="disabled"
+          @change="removeOverlay"
+        >
+          <option
+            disabled
+            value=""
+          >-- Select an option --</option>
+          <option
+            v-for="option in options"
+            :key="option.value"
+            :value="option.value"
           >
-            <div class="pills">
-              <label
-                v-for="option in group.options"
-                :key="option"
-                class="pill-label"
-              >
-                <input
-                  type="radio"
-                  class="pill-radio"
-                  :name="group.searchField"
-                  :value="option"
-                  v-model="selectedFilters[group.searchField]"
-                />
-                <span class="pill-content">
-                  {{ option }}
-                  <SvgCheck
-                    v-if="isSelected(group.searchField, option)"
-                    class="check-icon"
-                  />
-                </span>
-              </label>
-            </div>
-          </div>
-          <div class="action-row">
-            <ButtonLink
-              class="action-row-button clear-button"
-              label="Clear"
-              icon-name="icon-close"
-              @click="clearFilters"
-            />
-          </div>
-        </div>
+            {{ option.label }}
+          </option>
+        </select>
       </template>
     </MobileDrawer>
   </div>
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/default/_filters-dropdown.scss";
-@import "@/styles/ftva/_filters-dropdown.scss";
+.single-select-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 
-.dropdown-single-select {
+  .select-label {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .select-input {
+    padding: 0.5rem;
+    border: 1px solid var(--color-border, #ccc);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+    appearance: none;
+  }
+
+  .select-input:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+  }
+
   .filter-summary {
     @include ftva-button;
-    color: $medium-grey;
-  }
-
-  .pills {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pill-radio {
-    display: none;
-  }
-
-  .pill-label {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 5px;
-
-    &:hover {
-      background-color: #ddd;
-      ;
-    }
-  }
-
-  .pill-content {
-    @include ftva-button;
-    color: $medium-grey;
-    gap: 0.5rem;
-    padding-right: 1.5rem;
-  }
-
-  .check-icon {
-    position: absolute;
-    right: 0.25rem;
-    width: 1rem;
-    height: 1rem;
-  }
-
-  .clear-button {
-    width: 100%;
-    padding-top: 0;
-  }
-
-  :deep(.action-row) {
-    padding-top: 0;
+    color: var(--gray-dark, #555);
   }
 }
 </style>

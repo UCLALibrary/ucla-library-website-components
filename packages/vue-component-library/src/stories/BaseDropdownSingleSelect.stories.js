@@ -1,12 +1,10 @@
-import { computed, ref } from 'vue'
+import { ref, computed } from 'vue'
 import BaseDropdownSingleSelect from '@/lib-components/BaseDropdownSingleSelect.vue'
 
 /**
- * This component is used in filter UIs to display a single-select dropdown for filtering content on the page. It supports binding a selected value via v-model, and emits an event when the selected option changes. This component is responsive and can integrate with a MobileDrawer implementation for mobile use.
- *
- * Props:
- *
- * 1.
+ * This component is used in filter UIs to display a single-select dropdown for filtering content on the page.
+ * It supports binding a selected value via v-model, and emits an event when the selected option changes.
+ * This component is responsive and can integrate with a MobileDrawer implementation for mobile use.
  */
 
 export default {
@@ -15,30 +13,31 @@ export default {
 }
 
 // MOCK DATA
-const singleFilterGroup = [
-  {
-    name: 'Topic',
-    searchField: 'topic',
-    options: ['Current Events', 'Politics', 'Economy', 'Social Impact'],
-  },
+const singleOptions = [
+  { label: 'Current Events', value: 'current-events' },
+  { label: 'Politics', value: 'politics' },
+  { label: 'Economy', value: 'economy' },
+  { label: 'Social Impact', value: 'social-impact' },
 ]
 
-const mockSelectedFilter = ref({ topic: '' })
+const mockModelValue = ref('')
 
 export function Default() {
   return {
     components: { BaseDropdownSingleSelect },
     data() {
       return {
-        selectedFilter: mockSelectedFilter,
-        filterGroups: singleFilterGroup,
+        selected: mockModelValue,
+        options: singleOptions,
+        label: 'Filter by topic',
       }
     },
     template: `
       <div style="width:400px">
         <BaseDropdownSingleSelect
-          v-model:selectedFilters="selectedFilter"
-          :filterGroups="filterGroups"
+          v-model="selected"
+          :label="label"
+          :options="options"
         />
       </div>
     `,
@@ -50,8 +49,9 @@ export function FTVA() {
     components: { BaseDropdownSingleSelect },
     data() {
       return {
-        selectedFilter: mockSelectedFilter,
-        filterGroups: singleFilterGroup,
+        selected: mockModelValue,
+        options: singleOptions,
+        label: 'Filter by topic',
       }
     },
     provide() {
@@ -62,8 +62,9 @@ export function FTVA() {
     template: `
       <div style="width:400px">
         <BaseDropdownSingleSelect
-          v-model:selectedFilters="selectedFilter"
-          :filterGroups="filterGroups"
+          v-model="selected"
+          :label="label"
+          :options="options"
         />
       </div>
     `,
