@@ -39,9 +39,9 @@ function clearFilters() {
 }
 
 // Emit selected filters to parent
-function onDoneClick() {
-  emit('update-display', selectedFilters.value)
-}
+// function onDoneClick() {
+//   emit('update-display', selectedFilters.value)
+// }
 
 // Helpers
 function isSelected(searchField: string, option: string) {
@@ -52,7 +52,7 @@ function isSelected(searchField: string, option: string) {
 const theme = useTheme()
 const isMobile = ref(false)
 const parsedClasses = computed(() => {
-  return ['filters-dropdown single-select', theme?.value || '']
+  return ['filters-dropdown dropdown-single-select', theme?.value || '']
 })
 onMounted(() => {
   const { width } = useWindowSize()
@@ -74,9 +74,7 @@ onMounted(() => {
             Filters
           </template>
         </div>
-        <span class="icon-svg">
-          <SvgFilterIcon aria-hidden="true" />
-        </span>
+
       </template>
       <template #dropdownItems="{ removeOverlay }">
         <div class="dropdown-filter">
@@ -85,7 +83,6 @@ onMounted(() => {
             :key="group.name"
             class="filter-group"
           >
-            <h3>{{ group.name }}</h3>
             <div class="pills">
               <label
                 v-for="option in group.options"
@@ -110,12 +107,12 @@ onMounted(() => {
             </div>
           </div>
           <div class="action-row">
-            <ButtonLink
+            <!-- <ButtonLink
               class="action-row-button select-button"
               label="Done"
               icon-name="none"
               @click="onDoneClick(); removeOverlay();"
-            />
+            /> -->
             <ButtonLink
               class="action-row-button clear-button"
               label="Clear"
@@ -133,7 +130,18 @@ onMounted(() => {
 @import "@/styles/default/_filters-dropdown.scss";
 @import "@/styles/ftva/_filters-dropdown.scss";
 
-.single-select {
+.dropdown-single-select {
+  .filter-summary {
+    @include ftva-button;
+    color: $medium-grey;
+    background-color: $pure-white;
+  }
+
+  .pills {
+    display: flex;
+    flex-direction: column;
+  }
+
   .pill-radio {
     display: none;
   }
@@ -146,9 +154,8 @@ onMounted(() => {
   }
 
   .pill-content {
-    position: relative;
-    display: flex;
-    align-items: center;
+    @include ftva-button;
+    color: $medium-grey;
     gap: 0.5rem;
     padding-right: 1.5rem;
   }
@@ -158,6 +165,10 @@ onMounted(() => {
     right: 0.25rem;
     width: 1rem;
     height: 1rem;
+  }
+
+  .clear-button {
+    width: 100%;
   }
 }
 </style>

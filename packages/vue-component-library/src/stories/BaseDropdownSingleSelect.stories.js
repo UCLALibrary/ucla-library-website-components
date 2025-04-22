@@ -1,6 +1,14 @@
 import { computed, ref } from 'vue'
 import BaseDropdownSingleSelect from '@/lib-components/BaseDropdownSingleSelect.vue'
 
+/**
+ * This component is used in filter UIs to display a single-select dropdown for filtering content on the page. It supports binding a selected value via v-model, and emits an event when the selected option changes. This component is responsive and can integrate with a MobileDrawer implementation for mobile use.
+ *
+ * Props:
+ *
+ * 1.
+ */
+
 export default {
   title: 'Base Dropdown Single Select',
   component: BaseDropdownSingleSelect,
@@ -28,7 +36,6 @@ export function Default() {
     },
     template: `
       <div style="width:400px">
-        <span>Selected topic: {{ selectedFilter.topic }}</span>
         <BaseDropdownSingleSelect
           v-model:selectedFilters="selectedFilter"
           :filterGroups="filterGroups"
@@ -54,7 +61,6 @@ export function FTVA() {
     },
     template: `
       <div style="width:400px">
-        <span>Selected topic: {{ selectedFilter.topic }}</span>
         <BaseDropdownSingleSelect
           v-model:selectedFilters="selectedFilter"
           :filterGroups="filterGroups"
