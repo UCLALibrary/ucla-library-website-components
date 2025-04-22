@@ -107,12 +107,6 @@ onMounted(() => {
             </div>
           </div>
           <div class="action-row">
-            <!-- <ButtonLink
-              class="action-row-button select-button"
-              label="Done"
-              icon-name="none"
-              @click="onDoneClick(); removeOverlay();"
-            /> -->
             <ButtonLink
               class="action-row-button clear-button"
               label="Clear"
@@ -134,7 +128,6 @@ onMounted(() => {
   .filter-summary {
     @include ftva-button;
     color: $medium-grey;
-    background-color: $pure-white;
   }
 
   .pills {
@@ -150,7 +143,12 @@ onMounted(() => {
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-    margin: 0.25rem;
+    padding: 5px;
+
+    &:hover {
+      background-color: #ddd;
+      ;
+    }
   }
 
   .pill-content {
@@ -169,6 +167,11 @@ onMounted(() => {
 
   .clear-button {
     width: 100%;
+    padding-top: 0;
+  }
+
+  :deep(.action-row) {
+    padding-top: 0;
   }
 }
 </style>
