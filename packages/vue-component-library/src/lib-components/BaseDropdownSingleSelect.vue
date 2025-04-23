@@ -143,7 +143,6 @@ const selectedLabel = computed(() => {
   .pills {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     padding: 1px
   }
 
@@ -163,6 +162,7 @@ const selectedLabel = computed(() => {
 
       &:hover {
         background-color: #f1f1f1; //off-white
+        cursor: pointer;
       }
 
       // text
@@ -195,6 +195,7 @@ const selectedLabel = computed(() => {
 
   .pill-content {
     @include ftva-button;
+    line-height: 1.5;
     color: $medium-grey;
     gap: 0.5rem;
     padding: 2px 10px;
