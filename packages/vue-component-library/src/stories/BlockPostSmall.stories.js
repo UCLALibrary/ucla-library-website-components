@@ -1,3 +1,5 @@
+import { computed } from 'vue'
+
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 import BlockPostSmall from '@/lib-components/BlockPostSmall'
@@ -48,6 +50,12 @@ const mockLongText = {
   title: 'Six Stupendous Reasons to Appreciate the Heck Out of these surprisingly brainy, aerodynamic, nut-crazed squirrels',
 }
 
+const mockFtva = {
+  image: API.image,
+  to: '/about',
+  title: 'Donating Materials',
+}
+
 // Variations of stories below
 export function Default() {
   return {
@@ -60,9 +68,20 @@ export function Default() {
     },
     components: { BlockPostSmall },
     template: `
-      <block-post-small
-        v-bind="item"
-      />
+      <BlockPostSmall
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #category>
+          <div class="category">{{ item.categoryName }}</div>
+        </template>
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+        <template #author>
+          <div class="author">By {{ item.author }}</div>
+        </template>
+      </BlockPostSmall>
   `,
   }
 }
@@ -78,9 +97,20 @@ export function Visit() {
     },
     components: { BlockPostSmall },
     template: `
-      <block-post-small
-        v-bind="item"
-      />
+      <BlockPostSmall
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #category>
+          <div class="category">{{ item.categoryName }}</div>
+        </template>
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+        <template #author>
+          <div class="author">By {{ item.author }}</div>
+        </template>
+      </BlockPostSmall>
   `,
   }
 }
@@ -96,9 +126,20 @@ export function About() {
     },
     components: { BlockPostSmall },
     template: `
-      <block-post-small
-        v-bind="item"
-      />
+      <BlockPostSmall
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #category>
+          <div class="category">{{ item.categoryName }}</div>
+        </template>
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+        <template #author>
+          <div class="author">By {{ item.author }}</div>
+        </template>
+      </BlockPostSmall>
   `,
   }
 }
@@ -114,9 +155,20 @@ export function Help() {
     },
     components: { BlockPostSmall },
     template: `
-      <block-post-small
-        v-bind="item"
-      />
+      <BlockPostSmall
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #category>
+          <div class="category">{{ item.categoryName }}</div>
+        </template>
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+        <template #author>
+          <div class="author">By {{ item.author }}</div>
+        </template>
+      </BlockPostSmall>
   `,
   }
 }
@@ -132,9 +184,48 @@ export function LongText() {
     },
     components: { BlockPostSmall },
     template: `
-      <block-post-small
-        v-bind="item"
-      />
+      <BlockPostSmall
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #category>
+          <div class="category">{{ item.categoryName }}</div>
+        </template>
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+        <template #author>
+          <div class="author">By {{ item.author }}</div>
+        </template>
+      </BlockPostSmall>
+  `,
+  }
+}
+
+export function Ftva() {
+  return {
+    data() {
+      return {
+        item: {
+          ...mockFtva,
+        },
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockPostSmall },
+    template: `
+      <BlockPostSmall
+        :image="item.image"
+        :to="item.to"
+      >
+        <template #title>
+          <h3 class="title">{{ item.title }}</h3>
+        </template>
+      </BlockPostSmall>
   `,
   }
 }

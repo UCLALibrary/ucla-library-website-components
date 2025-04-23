@@ -1,6 +1,7 @@
 // default styles correspond to old library-website-nuxt styles formerly in components
 
 @import "default/_block-event-detail";
+@import "default/_block-post-small.scss";
 @import "default/_block-remove-search-filter";
 @import "default/_block-tag";
 @import "default/_button-dropdown";
@@ -15,5 +16,6 @@
 @import "default/_section-teaser-card";
 @import "default/_section-teaser-list";
 @import "default/_block-staff-article-item";
+@import "default/section-post-small";
 @import "default/_section-staff-article-list";
 @import "default/_flexible-block-card-with-image.scss";
