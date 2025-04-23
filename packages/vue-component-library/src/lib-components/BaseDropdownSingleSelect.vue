@@ -7,11 +7,11 @@ import { useTheme } from '@/composables/useTheme'
 
 const props = defineProps({
   options: {
-    type: Array as PropType<{ label: string; value: string | number }[]>,
+    type: Array as PropType<{ label: string; value: string }[]>,
     default: () => [],
   },
   modelValue: {
-    type: [String, Number],
+    type: String,
     default: '',
   },
   label: {
@@ -25,11 +25,11 @@ const props = defineProps({
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string | number): void
-  (e: 'selectionChanged', value: string | number): void
+  (e: 'update:modelValue', value: string): void
+  (e: 'selectionChanged', value: string): void
 }>()
 
-function onSelect(value: string | number) {
+function onSelect(value: string) {
   emit('update:modelValue', value)
   emit('selectionChanged', value)
 }

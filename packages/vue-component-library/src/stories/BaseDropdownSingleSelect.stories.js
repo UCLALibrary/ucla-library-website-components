@@ -5,6 +5,17 @@ import BaseDropdownSingleSelect from '@/lib-components/BaseDropdownSingleSelect.
  * This component is used in filter UIs to display a single-select dropdown for filtering content on the page.
  * It supports binding a selected value via v-model, and emits an event when the selected option changes.
  * This component is responsive and can integrate with a MobileDrawer implementation for mobile use.
+ *
+ * Props:
+ *
+ * 1. options: Array of Strings
+ * - These are options to filter the content by
+ * 2. modelValue: String
+ * - for v-model binding
+ * 3. label: String
+ * - The heading of the Dropdown ie: Filter by topic or Sort by
+ * 4. disabled: Boolean
+ * - disables the Dropdown
  */
 
 export default {
@@ -12,12 +23,11 @@ export default {
   component: BaseDropdownSingleSelect,
 }
 
-// MOCK DATA
-const singleOptions = [
-  { label: 'Current Events', value: 'current-events' },
-  { label: 'Politics', value: 'politics' },
-  { label: 'Economy', value: 'economy' },
-  { label: 'Social Impact', value: 'social-impact' },
+// MOCK DATA DEFAULT
+const OptionsDefault = [
+  { label: 'Smokey the Bear', value: 'fire-prevention' },
+  { label: 'Woodsey the Owl', value: 'pollution' },
+  { label: 'Lester the Lightbulb', value: 'energy-saving' },
 ]
 
 export function Default() {
@@ -25,9 +35,14 @@ export function Default() {
     components: { BaseDropdownSingleSelect },
     data() {
       return {
-        selected: '', // ⬅️ Starts with nothing selected
-        options: singleOptions,
-        label: 'Filter by topic',
+        selected: '',
+        options: OptionsDefault,
+        label: 'Filter',
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
       }
     },
     template: `
@@ -42,14 +57,55 @@ export function Default() {
   }
 }
 
-export function FTVA() {
+// MOCK DATA FILTER
+const FilterOptionsDefault = [
+  { label: 'Current Events', value: 'current-events' },
+  { label: 'Politics', value: 'politics' },
+  { label: 'Economy', value: 'economy' },
+  { label: 'Social Impact', value: 'social-impact' },
+]
+
+export function FTVAFilterByTopic() {
   return {
     components: { BaseDropdownSingleSelect },
     data() {
       return {
         selected: '',
-        options: singleOptions,
+        options: FilterOptionsDefault,
         label: 'Filter by topic',
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    template: `
+      <div>
+        <BaseDropdownSingleSelect
+          v-model="selected"
+          :label="label"
+          :options="options"
+        />
+      </div>
+    `,
+  }
+}
+
+// MOCK DATA SORT
+const FilterOptionsSort = [
+  { label: 'Date (oldest)', value: 'oldest-date' },
+  { label: 'Date (newest)', value: 'newest-date' },
+]
+
+export function FTVASortBy() {
+  return {
+    components: { BaseDropdownSingleSelect },
+    data() {
+      return {
+        selected: '',
+        options: FilterOptionsSort,
+        label: 'Sort by',
       }
     },
     provide() {
