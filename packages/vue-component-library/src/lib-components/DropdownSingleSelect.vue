@@ -128,7 +128,7 @@ const selectedLabel = computed(() => {
 // @import "@/styles/default/_filters-dropdown.scss";
 // @import "@/styles/ftva/_filters-dropdown.scss";
 
-.single-select-dropdown {
+.dropdown-single-select {
   width: 380px;
 
   :deep(.dropdown-wrapper) {
