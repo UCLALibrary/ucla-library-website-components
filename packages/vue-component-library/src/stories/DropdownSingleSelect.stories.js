@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import BaseDropdownSingleSelect from '@/lib-components/BaseDropdownSingleSelect.vue'
+import DropdownSingleSelect from '@/lib-components/DropdownSingleSelect.vue'
 
 /**
  * This component is used in filter UIs to display a single-select dropdown for filtering content on the page.
@@ -19,8 +19,8 @@ import BaseDropdownSingleSelect from '@/lib-components/BaseDropdownSingleSelect.
  */
 
 export default {
-  title: 'Base Dropdown Single Select',
-  component: BaseDropdownSingleSelect,
+  title: 'Dropdown Single Select',
+  component: DropdownSingleSelect,
 }
 
 // MOCK DATA DEFAULT
@@ -32,7 +32,7 @@ const OptionsDefault = [
 
 export function Default() {
   return {
-    components: { BaseDropdownSingleSelect },
+    components: { DropdownSingleSelect },
     data() {
       return {
         selected: '',
@@ -47,7 +47,7 @@ export function Default() {
     },
     template: `
       <div>
-        <BaseDropdownSingleSelect
+        <DropdownSingleSelect
           v-model="selected"
           :label="label"
           :options="options"
@@ -67,7 +67,7 @@ const FilterOptionsDefault = [
 
 export function FTVAFilterByTopic() {
   return {
-    components: { BaseDropdownSingleSelect },
+    components: { DropdownSingleSelect },
     data() {
       return {
         selected: '',
@@ -82,7 +82,7 @@ export function FTVAFilterByTopic() {
     },
     template: `
       <div>
-        <BaseDropdownSingleSelect
+        <DropdownSingleSelect
           v-model="selected"
           :label="label"
           :options="options"
@@ -100,7 +100,7 @@ const FilterOptionsSort = [
 
 export function FTVASortBy() {
   return {
-    components: { BaseDropdownSingleSelect },
+    components: { DropdownSingleSelect },
     data() {
       return {
         selected: '',
@@ -115,7 +115,7 @@ export function FTVASortBy() {
     },
     template: `
       <div>
-        <BaseDropdownSingleSelect
+        <DropdownSingleSelect
           v-model="selected"
           :label="label"
           :options="options"
