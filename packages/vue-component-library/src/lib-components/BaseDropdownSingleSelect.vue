@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch, PropType } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import SvgCheck from 'ucla-library-design-tokens/assets/svgs/icon-ftva-dropdown_check.svg'
 import MobileDrawer from './MobileDrawer.vue'
 import { useTheme } from '@/composables/useTheme'
 
+type Option = { label: string; value: string }
+
 const props = defineProps({
   options: {
-    type: Array as PropType<{ label: string; value: string }[]>,
+    type: Array as PropType<Option[]>,
     default: () => [],
   },
   modelValue: {
@@ -52,9 +54,8 @@ onMounted(() => {
   )
 })
 
-// SELECTED LABEL DISPLAY
 const selectedLabel = computed(() => {
-  const match = props.options.find(opt => opt.value === props.modelValue)
+  const match = props.options.find((opt: Option) => opt.value === props.modelValue)
   return match ? `: ${match.label}` : '(none selected)'
 })
 </script>
