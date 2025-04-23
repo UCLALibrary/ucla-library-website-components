@@ -190,6 +190,7 @@ const selectedLabel = computed(() => {
 
     &:hover {
       background-color: #f1f1f1; //off-white
+      cursor: pointer;
     }
   }
 
@@ -204,10 +205,8 @@ const selectedLabel = computed(() => {
   .pill-option {
     display: flex;
     justify-content: space-between;
-  }
-
-  :deep(.single-select-dropdown .check-icon) {
-    margin-right: 28px;
+    align-items: center;
+    padding-right: 10px;
   }
 
   .check-icon {
@@ -219,6 +218,14 @@ const selectedLabel = computed(() => {
     border-top: 1px solid #e0e0e0;
     margin-top: 10px;
     padding-top: 10px;
+
+    &:hover {
+      background-color: white;
+    }
+
+    .pill-option:hover {
+      background-color: #f1f1f1;
+    }
   }
 
   @media #{$small} {
