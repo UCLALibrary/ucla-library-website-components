@@ -20,7 +20,7 @@ const mock = [
   },
   {
     image: API.image,
-    to: ' ',
+    to: '/visit/fizz',
     categoryName: 'wild pets',
     author: 'Dexter Diamond',
     title: 'Introducing Mammals to Young Naturalists',

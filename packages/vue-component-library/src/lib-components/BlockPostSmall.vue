@@ -3,6 +3,9 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 import getSectionName from '@/utils/getSectionName'
 
+// Child components
+import SmartLink from '@/lib-components/SmartLink.vue'
+
 // TYPES
 import type { MediaItemType } from '@/types/types'
 
