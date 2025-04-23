@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import BaseDropdownSingleSelect from '@/lib-components/BaseDropdownSingleSelect.vue'
 
 /**
@@ -68,4 +68,3 @@ export function FTVA() {
     `,
   }
 }
-

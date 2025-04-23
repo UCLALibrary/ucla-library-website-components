@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
+import SvgCheck from 'ucla-library-design-tokens/assets/svgs/icon-ftva-dropdown_check.svg'
 import MobileDrawer from './MobileDrawer.vue'
 import { useTheme } from '@/composables/useTheme'
-import SvgCheck from 'ucla-library-design-tokens/assets/svgs/icon-ftva-dropdown_check.svg'
 
 const props = defineProps({
   options: {
@@ -54,7 +54,7 @@ onMounted(() => {
 
 // SELECTED LABEL DISPLAY
 const selectedLabel = computed(() => {
-  const match = props.options.find((opt) => opt.value === props.modelValue)
+  const match = props.options.find(opt => opt.value === props.modelValue)
   return match ? `: ${match.label}` : '(none selected)'
 })
 </script>
@@ -80,9 +80,9 @@ const selectedLabel = computed(() => {
               class="pill-radio"
               :value="option.value"
               :checked="modelValue === option.value"
-              @change="() => { onSelect(option.value); removeOverlay() }"
               :disabled="disabled"
-            />
+              @change="() => { onSelect(option.value); removeOverlay() }"
+            >
             <div class="pill-option">
               <span class="pill-content">
                 {{ option.label }}
@@ -101,9 +101,9 @@ const selectedLabel = computed(() => {
               class="pill-radio"
               value=""
               :checked="modelValue === ''"
-              @change="() => { onSelect(''); removeOverlay() }"
               :disabled="disabled"
-            />
+              @change="() => { onSelect(''); removeOverlay() }"
+            >
             <div class="pill-option">
               <span class="pill-content">View All</span>
               <SvgCheck
