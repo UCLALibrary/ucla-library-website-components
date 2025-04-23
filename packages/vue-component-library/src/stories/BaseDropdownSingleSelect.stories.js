@@ -20,20 +20,18 @@ const singleOptions = [
   { label: 'Social Impact', value: 'social-impact' },
 ]
 
-const mockModelValue = ref('')
-
 export function Default() {
   return {
     components: { BaseDropdownSingleSelect },
     data() {
       return {
-        selected: mockModelValue,
+        selected: '', // ⬅️ Starts with nothing selected
         options: singleOptions,
         label: 'Filter by topic',
       }
     },
     template: `
-      <div style="width:400px">
+      <div>
         <BaseDropdownSingleSelect
           v-model="selected"
           :label="label"
@@ -49,7 +47,7 @@ export function FTVA() {
     components: { BaseDropdownSingleSelect },
     data() {
       return {
-        selected: mockModelValue,
+        selected: '',
         options: singleOptions,
         label: 'Filter by topic',
       }
@@ -60,7 +58,7 @@ export function FTVA() {
       }
     },
     template: `
-      <div style="width:400px">
+      <div>
         <BaseDropdownSingleSelect
           v-model="selected"
           :label="label"
@@ -70,3 +68,4 @@ export function FTVA() {
     `,
   }
 }
+

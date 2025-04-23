@@ -1,32 +1,27 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
-import type { PropType } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import MobileDrawer from './MobileDrawer.vue'
 import { useTheme } from '@/composables/useTheme'
+import SvgCheck from 'ucla-library-design-tokens/assets/svgs/icon-ftva-dropdown_check.svg'
 
 const props = defineProps({
   options: {
-    // Dropdown Array
-    // options: [
-    // { label: 'Option Animal',
-    //   value: 'Squirrel' }, ...
-    // ]
     type: Array as PropType<{ label: string; value: string | number }[]>,
-    default: () => []
+    default: () => [],
   },
   modelValue: {
     type: [String, Number],
-    default: ''
+    default: '',
   },
   label: {
     type: String,
-    default: 'Filter by topic'
+    default: '',
   },
   disabled: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const emit = defineEmits<{
@@ -34,31 +29,33 @@ const emit = defineEmits<{
   (e: 'selectionChanged', value: string | number): void
 }>()
 
-const isMobile = ref(false)
-const theme = useTheme()
+function onSelect(value: string | number) {
+  emit('update:modelValue', value)
+  emit('selectionChanged', value)
+}
 
+// THEME
+const theme = useTheme()
+const isMobile = ref(false)
 const parsedClasses = computed(() => {
   return ['single-select-dropdown', theme?.value || '']
 })
 
-const selected = computed({
-  get: () => props.modelValue,
-  set: (value: string | number) => {
-    emit('update:modelValue', value)
-    emit('selectionChanged', value)
-  }
-})
-
-const selectedLabel = computed(() => {
-  const found = props.options.find(opt => opt.value === selected.value)
-  return found?.label || '(none selected)'
-})
-
 onMounted(() => {
   const { width } = useWindowSize()
-  watch(width, (newWidth) => {
-    isMobile.value = newWidth <= 750
-  }, { immediate: true })
+  watch(
+    width,
+    (newWidth) => {
+      isMobile.value = newWidth <= 750
+    },
+    { immediate: true }
+  )
+})
+
+// SELECTED LABEL DISPLAY
+const selectedLabel = computed(() => {
+  const match = props.options.find((opt) => opt.value === props.modelValue)
+  return match ? `: ${match.label}` : '(none selected)'
 })
 </script>
 
@@ -67,73 +64,166 @@ onMounted(() => {
     <MobileDrawer>
       <template #buttonLabel>
         <div class="filter-summary">
-          <span v-if="!isMobile">
-            {{ label }}<span v-if="selectedLabel">: {{ selectedLabel }}</span>
-          </span>
-          <span v-else>
-            {{ label }}
-          </span>
+          {{ label }} {{ selectedLabel }}
         </div>
       </template>
 
       <template #dropdownItems="{ removeOverlay }">
-        <label
-          v-if="label"
-          :for="label"
-          class="select-label"
-        >{{ label }}</label>
-        <select
-          :id="label"
-          class="select-input"
-          v-model="selected"
-          :disabled="disabled"
-          @change="removeOverlay"
-        >
-          <option
-            disabled
-            value=""
-          >-- Select an option --</option>
-          <option
+        <div class="pills">
+          <label
             v-for="option in options"
             :key="option.value"
-            :value="option.value"
+            class="pill-label"
           >
-            {{ option.label }}
-          </option>
-        </select>
+            <input
+              type="radio"
+              class="pill-radio"
+              :value="option.value"
+              :checked="modelValue === option.value"
+              @change="() => { onSelect(option.value); removeOverlay() }"
+              :disabled="disabled"
+            />
+            <div class="pill-option">
+              <span class="pill-content">
+                {{ option.label }}
+
+              </span>
+              <SvgCheck
+                v-if="modelValue === option.value"
+                class="check-icon"
+              />
+            </div>
+          </label>
+          <!-- View All option -->
+          <label class="pill-label view-all-option">
+            <input
+              type="radio"
+              class="pill-radio"
+              value=""
+              :checked="modelValue === ''"
+              @change="() => { onSelect(''); removeOverlay() }"
+              :disabled="disabled"
+            />
+            <div class="pill-option">
+              <span class="pill-content">View All</span>
+              <SvgCheck
+                v-if="modelValue === ''"
+                class="check-icon"
+              />
+            </div>
+          </label>
+        </div>
       </template>
     </MobileDrawer>
   </div>
 </template>
 
 <style scoped lang="scss">
+// @import "@/styles/default/_filters-dropdown.scss";
+// @import "@/styles/ftva/_filters-dropdown.scss";
+
 .single-select-dropdown {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  width: 380px;
 
-  .select-label {
-    font-weight: 600;
-    font-size: 1rem;
-  }
-
-  .select-input {
-    padding: 0.5rem;
-    border: 1px solid var(--color-border, #ccc);
-    border-radius: 4px;
-    font-size: 1rem;
-    background-color: white;
-    appearance: none;
-  }
-
-  .select-input:disabled {
-    background-color: #f0f0f0;
-    cursor: not-allowed;
+  :deep(.dropdown-wrapper) {
+    width: 100%;
   }
 
   .filter-summary {
     @include ftva-button;
-    color: var(--gray-dark, #555);
+    color: $medium-grey;
+  }
+
+  .pills {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1px
+  }
+
+  .pill-radio {
+    display: none;
+  }
+
+  :deep(.mobile-drawer) {
+    @include ftva-button;
+
+    .mobile-button {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 5px;
+      border: none;
+
+      &:hover {
+        background-color: #f1f1f1; //off-white
+      }
+
+      // text
+      .button-inner-wrapper {
+        margin: 16px 0 16px 28px;
+      }
+    }
+  }
+
+  :deep(.toggle-triangle-icon) {
+    margin-right: 28px;
+  }
+
+  // dropdown
+  :deep(.mobile-drawer .button-dropdown-modal-wrapper) {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #f1f1f1; //off-white
+    margin: 0;
+    padding: 25px 30px;
+  }
+
+  // dropdown text
+  label {
+
+    &:hover {
+      background-color: #f1f1f1; //off-white
+    }
+  }
+
+  .pill-content {
+    @include ftva-button;
+    color: $medium-grey;
+    gap: 0.5rem;
+    padding: 2px 10px;
+  }
+
+  .pill-option {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  :deep(.single-select-dropdown .check-icon) {
+    margin-right: 28px;
+  }
+
+  .check-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .view-all-option {
+    border-top: 1px solid #e0e0e0;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+  @media #{$small} {
+    width: 100%;
+
+    :deep(.svg__icon-close.svg-glyph-close) {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+
+      z-index: 1;
+    }
   }
 }
 </style>
