@@ -70,7 +70,7 @@ const mockFtva = [
   },
   {
     image: API.image,
-    to: '/donating-materials',
+    to: 'https://www.cinema.ucla.edu/donating-materials',
     title: 'Donating Materials',
   },
   {
