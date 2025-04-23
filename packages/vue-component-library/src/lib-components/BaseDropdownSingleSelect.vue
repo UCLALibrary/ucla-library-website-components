@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch, PropType } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import SvgCheck from 'ucla-library-design-tokens/assets/svgs/icon-ftva-dropdown_check.svg'
 import MobileDrawer from './MobileDrawer.vue'
 import { useTheme } from '@/composables/useTheme'
+import type { PropType } from 'vue'
 
 type Option = { label: string; value: string }
 
@@ -54,11 +55,13 @@ onMounted(() => {
   )
 })
 
+// SELECTED LABEL DISPLAY
 const selectedLabel = computed(() => {
   const match = props.options.find((opt: Option) => opt.value === props.modelValue)
   return match ? `: ${match.label}` : '(none selected)'
 })
 </script>
+
 
 <template>
   <div :class="parsedClasses">
