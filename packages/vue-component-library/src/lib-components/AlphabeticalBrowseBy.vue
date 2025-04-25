@@ -156,7 +156,7 @@ export default {
 </script>
 
 <template>
-  <div class="alphabetical-browse-by">
+  <div :class="theme === '' ? `alphabetical-browse-by` : `alphabetical-browse-by ${theme}`">
     <h2
       v-if="theme === ''"
       class="title"
