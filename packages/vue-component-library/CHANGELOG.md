@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.12.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.11.0...@ucla-library-monorepo/ucla-library-website-components-v1.12.0) (2025-04-23)
+
+
+### Features
+
+* APPS-3292 theme PostSmall component to match about our collections items ([#725](https://github.com/UCLALibrary/ucla-library-website-components/issues/725)) ([f60095d](https://github.com/UCLALibrary/ucla-library-website-components/commit/f60095d077c5626ba1ce277c1bedd5065283f9c1))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.11.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.10.0...@ucla-library-monorepo/ucla-library-website-components-v1.11.0) (2025-04-11)
 
 
