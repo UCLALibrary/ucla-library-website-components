@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { ref, computed, nextTick } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
-import SearchInput from '@/lib-components/SearchInput.vue'
 import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
+import { useRoute, useRouter } from 'vue-router'
+import SearchInput from '@/lib-components/SearchInput.vue'
 import { useTheme } from '@/composables/useTheme'
-import { useRouter, useRoute } from 'vue-router'
-
 
 const isOpen = ref(false)
-const searchQuery = ref('')
 const inputEl = ref<HTMLInputElement | null>(null)
 
 const route = useRoute()
@@ -38,7 +36,7 @@ const themeSettings = computed(() => {
   }
 })
 
-const toggleSearch = async () => {
+async function toggleSearch() {
   isOpen.value = !isOpen.value
   if (isOpen.value) {
     await nextTick()
@@ -46,25 +44,20 @@ const toggleSearch = async () => {
   }
 }
 
-const closeSearch = () => {
+function closeSearch() {
   isOpen.value = false
-  searchQuery.value = ''
 }
 
 const router = useRouter()
 
-
-const submitSearch = () => {
-  if (searchQuery.value.trim()) {
-    router.push({
-      path: themeSettings.value.url,
-      query: { [themeSettings.value.queryParam as string]: searchWords.value },
-    })
-  }
-  closeSearch()
+function submitSearch() {
+  router.push({
+    path: themeSettings.value.url,
+    query: { [themeSettings.value.queryParam as string]: searchWords.value },
+  })
 }
-
 </script>
+
 <template>
   <div class="search-dropdown">
     <!-- Trigger Button -->
@@ -77,18 +70,15 @@ const submitSearch = () => {
       <IconSearch class="icon-search" />
     </ButtonLink>
 
-
-
     <!-- Overlay Container -->
     <div
       v-if="isOpen"
       class="search-box"
     >
-
       <button
-        @click="closeSearch"
         class="close-btn"
         aria-label="Close search"
+        @click="closeSearch"
       >
         <SvgGlyphClose class="svg-glyph-close" />
       </button>
@@ -112,14 +102,13 @@ const submitSearch = () => {
           >
             <IconSearch class="icon" />
           </button>
-
         </div>
         <div class="divider" />
       </form>
-
     </div>
   </div>
 </template>
+
 <style scoped lang="scss">
 .search-dropdown {
   position: relative;
@@ -184,7 +173,6 @@ const submitSearch = () => {
     }
   }
 
-
   .search-input {
     flex-grow: 1;
   }
@@ -205,8 +193,6 @@ const submitSearch = () => {
   border-bottom: 2px solid var(--color-default-cyan-03);
   height: 1px;
 }
-
-
 
 .close-btn {
   background: transparent;
