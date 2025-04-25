@@ -111,7 +111,8 @@ function toggleMenu() {
   goBack.value = !goBack.value
 }
 const route = useRoute()
-const searchWords = ref(route.query.q)
+const searchWords = ref<string>(Array.isArray(route.query.q) ? route.query.q[0] || '' : route.query.q || '')
+
 const router = useRouter()
 
 function submitSearch() {

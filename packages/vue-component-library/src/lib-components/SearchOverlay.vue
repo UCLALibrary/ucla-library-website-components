@@ -10,7 +10,7 @@ const isOpen = ref(false)
 const inputEl = ref<HTMLInputElement | null>(null)
 
 const route = useRoute()
-const searchWords = ref(route.query.q)
+const searchWords = ref<string>(Array.isArray(route.query.q) ? route.query.q[0] || '' : route.query.q || '')
 const theme = useTheme()
 
 const themeSettings = computed(() => {
