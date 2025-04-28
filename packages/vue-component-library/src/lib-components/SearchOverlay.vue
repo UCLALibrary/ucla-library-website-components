@@ -61,14 +61,14 @@ function submitSearch() {
 <template>
   <div class="search-dropdown">
     <!-- Trigger Button -->
-    <ButtonLink
+    <button
       class="search-trigger"
-      icon-name="none"
+      role="button"
       aria-label="Search"
       @click="toggleSearch"
     >
       <IconSearch class="icon-search" />
-    </ButtonLink>
+    </button>
 
     <!-- Overlay Container -->
     <div
@@ -146,19 +146,18 @@ function submitSearch() {
   padding-bottom: 10px;
 }
 
-.svg__icon-close.svg-glyph-close {
+.close-btn {
   position: absolute;
-  right: 24px;
-  width: 20px;
-  top: 10px;
+  right: 15px;
+  top: 0px;
   z-index: 1;
+  height: 10px;
 }
 
-/*.search-input {
-  flex: 1;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #ddd;
-}*/
+.svg-glyph-close {
+  width: 20px;
+}
+
 .input-container {
   display: flex;
   background-color: var(--color-primary-blue-01);
