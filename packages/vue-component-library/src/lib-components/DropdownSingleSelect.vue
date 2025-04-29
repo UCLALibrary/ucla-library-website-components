@@ -43,7 +43,7 @@ function onSelect(value: string) {
 // THEME
 const theme = useTheme()
 const parsedClasses = computed(() => {
-  return ['single-select-dropdown', theme?.value || '']
+  return ['dropdown-single-select', theme?.value || '']
 })
 
 const isMobile = ref(false)
@@ -126,7 +126,7 @@ const selectedLabel = computed(() => {
 </template>
 
 <style scoped lang="scss">
-.single-select-dropdown {
+.dropdown-single-select {
   width: 380px;
 
   :deep(.dropdown-wrapper) {
