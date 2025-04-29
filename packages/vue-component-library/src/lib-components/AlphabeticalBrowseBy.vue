@@ -132,6 +132,9 @@ export default {
         this.alphabet = alphabet
       },
     },
+    classes() {
+      return this.theme === '' ? 'alphabetical-browse-by' : `alphabetical-browse-by ${this.theme}`
+    }
   },
   methods: {
     checkIfLetterIsSelected() {
@@ -156,7 +159,7 @@ export default {
 </script>
 
 <template>
-  <div :class="theme === '' ? `alphabetical-browse-by` : `alphabetical-browse-by ${theme}`">
+  <div :class="classes">
     <h2
       v-if="theme === ''"
       class="title"
