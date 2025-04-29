@@ -53,3 +53,14 @@ export function FTVA() {
     template: '<alphabetical-browse-by />',
   }
 }
+export function FTVAAisSelected() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { AlphabeticalBrowseBy },
+    template: '<alphabetical-browse-by selectedLetterProp="A"/>',
+  }
+}

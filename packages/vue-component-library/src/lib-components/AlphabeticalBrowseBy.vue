@@ -1,160 +1,67 @@
-<script>
-export default {
-  name: 'AlphabeticalBrowseBy',
-  inject: ['theme'],
-  props: {
-    selectedLetterProp: {
-      type: String,
-      default: 'All',
-    },
-    displayAll: {
-      type: Boolean,
-      default: true,
-    },
+<script lang="ts" setup>
+import { computed, ref, watch } from 'vue'
+import { useTheme } from '@/composables/useTheme'
+
+const props = defineProps({
+  selectedLetterProp: {
+    type: String,
+    default: 'All',
   },
-  emits: ['selectedLetter'],
-  data() {
-    return {
-      alphabet: [
-        {
-          letter: 'All',
-        },
-        {
-          letter: 'A',
-        },
-        {
-          letter: 'B',
-        },
-        {
-          letter: 'C',
-        },
-        {
-          letter: 'D',
-        },
-        {
-          letter: 'E',
-        },
-        {
-          letter: 'F',
-        },
-        {
-          letter: 'G',
-        },
-        {
-          letter: 'H',
-        },
-        {
-          letter: 'I',
-        },
-        {
-          letter: 'J',
-        },
-        {
-          letter: 'K',
-        },
-        {
-          letter: 'L',
-        },
-        {
-          letter: 'M',
-        },
-        {
-          letter: 'N',
-        },
-        {
-          letter: 'O',
-        },
-        {
-          letter: 'P',
-        },
-        {
-          letter: 'Q',
-        },
-        {
-          letter: 'R',
-        },
-        {
-          letter: 'S',
-        },
-        {
-          letter: 'T',
-        },
-        {
-          letter: 'U',
-        },
-        {
-          letter: 'V',
-        },
-        {
-          letter: 'W',
-        },
-        {
-          letter: 'X',
-        },
-        {
-          letter: 'Y',
-        },
-        {
-          letter: 'Z',
-        },
-      ],
-      selectedLetter: '',
-    }
+  displayAll: {
+    type: Boolean,
+    default: true,
   },
-  computed: {
-    parsedAlphabet: {
-      get() {
-        return this.alphabet.filter(item => (item.letter !== 'All') || (item.letter === 'All' && this.displayAll)).map((item) => {
-          let letterClass = 'letter'
-          // Set the class for the letter when initially loaded
+})
 
-          if (this.selectedLetterProp === '')
-            this.selectedLetter = ''
+const emit = defineEmits(['selectedLetter'])
 
-          if (
-            item.letter === this.selectedLetterProp
-            && this.selectedLetter === ''
-          )
-            letterClass = `${letterClass} is-selected`
+// Injected theme (from app-level provide)
+const theme = useTheme()
 
-          // Set the class for the letter when clicked
-          if (item.letter === this.selectedLetter)
-            letterClass = `${letterClass} is-selected`
+// Alphabet list
+const alphabet = ref([
+  { letter: 'All' },
+  ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => ({ letter }))
+])
 
-          // Set the class for the letter when not clicked
-          return {
-            ...item,
-            class: letterClass,
-          }
-        })
-      },
-      set(alphabet) {
-        this.alphabet = alphabet
-      },
-    },
-    classes() {
-      return this.theme === '' ? 'alphabetical-browse-by' : `alphabetical-browse-by ${this.theme}`
-    }
-  },
-  methods: {
-    checkIfLetterIsSelected() {
-      this.parsedAlphabet = this.alphabet.map((item) => {
-        let letterClass = 'letter'
-        if (this.selectedLetter === item.letter)
-          letterClass = `${letterClass} is-selected`
+// Selected letter (local state but resets when prop changes)
+const selectedLetter = ref('')
 
-        return {
-          ...item,
-          class: letterClass,
-        }
-      })
-    },
-    handleSelectedLetter(letter) {
-      this.selectedLetter = letter.letter
-      this.checkIfLetterIsSelected()
-      this.$emit('selectedLetter', this.selectedLetter)
-    },
-  },
+// Sync selectedLetter with prop on prop change
+watch(() => props.selectedLetterProp, (val) => {
+  selectedLetter.value = ''
+})
+
+// Computed list with `is-selected` class applied
+const parsedAlphabet = computed(() =>
+  // Filter out the 'All' option if displayAll is false:
+  // - If props.displayAll === true → include all letters including 'All'
+  // - If props.displayAll === false → exclude 'All', show only A–Z
+  alphabet.value
+    .filter(item => props.displayAll || item.letter !== 'All')
+    .map((item) => {
+      // Determine if the current letter should be marked as selected:
+      // - If the user has clicked a letter (selectedLetter is set), use it.
+      // - Otherwise, fall back to the prop value (selectedLetterProp), which may be set via route or initial state.
+      const isSelected = item.letter === (selectedLetter.value || props.selectedLetterProp)
+      return {
+        ...item,
+        class: `letter${isSelected ? ' is-selected' : ''}`,
+      }
+    })
+)
+
+// Dynamic classes from theme
+const classes = computed(() =>
+
+  theme?.value === '' ? 'alphabetical-browse-by' : `alphabetical-browse-by ${theme?.value}`
+
+)
+
+// Handle letter click
+function handleSelectedLetter(letter: { letter: string }) {
+  selectedLetter.value = letter.letter
+  emit('selectedLetter', selectedLetter.value)
 }
 </script>
 
