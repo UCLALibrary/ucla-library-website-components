@@ -212,7 +212,23 @@ const selectedLabel = computed(() => {
   }
 
   @media #{$small} {
-    width: 100%;
+    // width: 100%;
+
+    :deep(.mobile-button) {
+      width: 166px;
+      min-width: unset;
+      padding: 6px;
+
+      :deep(.dropdown-wrapper) {
+        background-color: aqua;
+      }
+
+      // border: none;
+      .button-inner-wrapper {
+        flex-direction: row-reverse;
+        justify-content: center;
+      }
+    }
 
     :deep(.svg__icon-close.svg-glyph-close) {
       position: absolute;
