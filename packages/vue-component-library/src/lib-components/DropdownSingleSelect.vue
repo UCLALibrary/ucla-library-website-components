@@ -42,10 +42,11 @@ function onSelect(value: string) {
 
 // THEME
 const theme = useTheme()
-const isMobile = ref(false)
 const parsedClasses = computed(() => {
   return ['single-select-dropdown', theme?.value || '']
 })
+
+const isMobile = ref(false)
 
 onMounted(() => {
   const { width } = useWindowSize()
@@ -69,9 +70,9 @@ const selectedLabel = computed(() => {
   <div :class="parsedClasses">
     <MobileDrawer>
       <template #buttonLabel>
-        <div class="filter-summary">
+        <span class="filter-summary">
           {{ label }} {{ selectedLabel }}
-        </div>
+        </span>
       </template>
 
       <template #dropdownItems="{ removeOverlay }">
@@ -92,7 +93,6 @@ const selectedLabel = computed(() => {
             <div class="pill-option">
               <span class="pill-content">
                 {{ option.label }}
-
               </span>
               <SvgCheck
                 v-if="modelValue === option.value"
@@ -100,6 +100,7 @@ const selectedLabel = computed(() => {
               />
             </div>
           </label>
+
           <!-- View All option -->
           <label class="pill-label view-all-option">
             <input
@@ -125,10 +126,7 @@ const selectedLabel = computed(() => {
 </template>
 
 <style scoped lang="scss">
-// @import "@/styles/default/_filters-dropdown.scss";
-// @import "@/styles/ftva/_filters-dropdown.scss";
-
-.dropdown-single-select {
+.single-select-dropdown {
   width: 380px;
 
   :deep(.dropdown-wrapper) {
@@ -138,60 +136,26 @@ const selectedLabel = computed(() => {
   .filter-summary {
     @include ftva-button;
     color: $medium-grey;
+    display: flex;
+    align-items: center;
+    padding: 10px;
   }
 
   .pills {
     display: flex;
     flex-direction: column;
-    padding: 1px
+    padding: 1px;
   }
 
   .pill-radio {
     display: none;
   }
 
-  :deep(.mobile-drawer) {
-    @include ftva-button;
-
-    .mobile-button {
-      display: inline-flex;
-      align-items: center;
-      cursor: pointer;
-      padding: 5px;
-      border: none;
-
-      &:hover {
-        background-color: #f1f1f1; //off-white
-        cursor: pointer;
-      }
-
-      // text
-      .button-inner-wrapper {
-        margin: 16px 0 16px 28px;
-      }
-    }
-  }
-
-  :deep(.toggle-triangle-icon) {
-    margin-right: 28px;
-  }
-
-  // dropdown
-  :deep(.mobile-drawer .button-dropdown-modal-wrapper) {
-    width: 100%;
-    border: none;
-    border-top: 1px solid #f1f1f1; //off-white
-    margin: 0;
-    padding: 25px 30px;
-  }
-
-  // dropdown text
-  label {
-
-    &:hover {
-      background-color: #f1f1f1; //off-white
-      cursor: pointer;
-    }
+  .pill-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
   }
 
   .pill-content {
@@ -200,13 +164,6 @@ const selectedLabel = computed(() => {
     color: $medium-grey;
     gap: 0.5rem;
     padding: 2px 10px;
-  }
-
-  .pill-option {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 10px;
   }
 
   .check-icon {
@@ -228,6 +185,32 @@ const selectedLabel = computed(() => {
     }
   }
 
+  :deep(.mobile-drawer .mobile-button) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include ftva-button;
+    color: $medium-grey;
+    padding: 10px;
+    border: 1px solid $medium-grey;
+    width: 100%;
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  }
+
+  :deep(.toggle-triangle-icon) {
+    margin-right: 28px;
+  }
+
+  :deep(.mobile-drawer .button-dropdown-modal-wrapper) {
+    width: 100%;
+    border-top: 1px solid #f1f1f1;
+    padding: 25px 30px;
+    margin: 0;
+  }
+
   @media #{$small} {
     width: 100%;
 
@@ -235,8 +218,12 @@ const selectedLabel = computed(() => {
       position: absolute;
       right: 5px;
       top: 5px;
-
       z-index: 1;
+    }
+
+    .filter-summary {
+      background-color: #fff;
+      border: 2px solid $accent-blue;
     }
   }
 }
