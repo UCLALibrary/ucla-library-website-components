@@ -71,7 +71,10 @@ const selectedLabel = computed(() => {
     <MobileDrawer>
       <template #buttonLabel>
         <span class="filter-summary">
-          {{ label }} {{ selectedLabel }}
+          {{ label }}
+          <template v-if="!isMobile">
+            {{ selectedLabel }}
+          </template>
         </span>
       </template>
 
@@ -185,21 +188,6 @@ const selectedLabel = computed(() => {
     }
   }
 
-  :deep(.mobile-drawer .mobile-button) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    @include ftva-button;
-    color: $medium-grey;
-    padding: 10px;
-    border: 1px solid $medium-grey;
-    width: 100%;
-
-    &:hover {
-      background-color: #f1f1f1;
-    }
-  }
-
   :deep(.toggle-triangle-icon) {
     margin-right: 28px;
   }
@@ -211,19 +199,29 @@ const selectedLabel = computed(() => {
     margin: 0;
   }
 
-  @media #{$small} {
-    // width: 100%;
+  @media (min-width: 1024px) {
+    :deep(.mobile-drawer .mobile-button) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include ftva-button;
+      color: $medium-grey;
+      padding: 10px;
+      border: 1px solid $medium-grey;
+      width: 100%;
 
+      &:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+
+  @media #{$small} {
     :deep(.mobile-button) {
       width: 166px;
       min-width: unset;
       padding: 6px;
 
-      :deep(.dropdown-wrapper) {
-        background-color: aqua;
-      }
-
-      // border: none;
       .button-inner-wrapper {
         flex-direction: row-reverse;
         justify-content: center;
@@ -235,11 +233,6 @@ const selectedLabel = computed(() => {
       right: 5px;
       top: 5px;
       z-index: 1;
-    }
-
-    .filter-summary {
-      background-color: #fff;
-      border: 2px solid $accent-blue;
     }
   }
 }
