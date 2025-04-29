@@ -28,7 +28,7 @@ const alphabet = ref([
 const selectedLetter = ref('')
 
 // Sync selectedLetter with prop on prop change
-watch(() => props.selectedLetterProp, (val) => {
+watch(() => props.selectedLetterProp, (/* newVal,  oldVal */) => {
   selectedLetter.value = ''
 })
 
