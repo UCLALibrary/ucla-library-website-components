@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.13.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.12.0...@ucla-library-monorepo/ucla-library-website-components-v1.13.0) (2025-04-29)
+
+
+### Features
+
+* APPS-3309 Update AlphabeticalBrowseBy with FTVA variant ([#727](https://github.com/UCLALibrary/ucla-library-website-components/issues/727)) ([a686e78](https://github.com/UCLALibrary/ucla-library-website-components/commit/a686e78d5dabe5521af1c53e04d8a7f04ed38627))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.12.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.11.0...@ucla-library-monorepo/ucla-library-website-components-v1.12.0) (2025-04-23)
 
 
