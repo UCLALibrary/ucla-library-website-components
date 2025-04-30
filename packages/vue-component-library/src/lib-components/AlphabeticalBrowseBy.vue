@@ -28,9 +28,10 @@ const alphabet = ref([
 const selectedLetter = ref('')
 
 // Sync selectedLetter with prop on prop change
-watch(() => props.selectedLetterProp, (/* newVal,  oldVal */) => {
-  selectedLetter.value = ''
-})
+watch(() => props.selectedLetterProp, (newVal, oldVal) => {
+  console.log('selectedLetterProp changed', newVal, oldVal)
+  selectedLetter.value = newVal
+}, { immediate: true })
 
 // Computed list with `is-selected` class applied
 const parsedAlphabet = computed(() =>
@@ -43,7 +44,9 @@ const parsedAlphabet = computed(() =>
       // Determine if the current letter should be marked as selected:
       // - If the user has clicked a letter (selectedLetter is set), use it.
       // - Otherwise, fall back to the prop value (selectedLetterProp), which may be set via route or initial state.
-      const isSelected = item.letter === (selectedLetter.value || props.selectedLetterProp)
+      const isSelected = item.letter === selectedLetter.value
+      console.log('isSelected, item.letter, selectedLetter.value', isSelected, item.letter, selectedLetter.value)
+      // Return the item with a class based on whether it's selected
       return {
         ...item,
         class: `letter${isSelected ? ' is-selected' : ''}`,
@@ -73,6 +76,10 @@ function handleSelectedLetter(letter: { letter: string }) {
     >
       Browse by Last Name
     </h2>
+    <br>
+    selectedLetter {{ selectedLetter }}
+    <br>
+    selectedLetterProp {{ selectedLetterProp }}
     <ul class="alphabet-list">
       <li
         v-for="letter in parsedAlphabet"
