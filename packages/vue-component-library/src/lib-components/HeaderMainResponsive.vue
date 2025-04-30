@@ -1,17 +1,14 @@
 <script lang="ts" setup>
 // Components
-import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
 import IconCloseLarge from 'ucla-library-design-tokens/assets/svgs/icon-close-large.svg'
 import Molecule3d from 'ucla-library-design-tokens/assets/svgs/molecule-3d.svg'
 import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
 import LogoLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
 import { computed, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 import type { PropType } from 'vue'
 import NavMenuItemResponsive from '@/lib-components/NavMenuItemResponsive.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
-import SearchInput from '@/lib-components/SearchInput.vue'
 
 // types
 import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
@@ -110,17 +107,6 @@ function toggleMenu() {
   isOpened.value = !isOpened.value
   goBack.value = !goBack.value
 }
-const route = useRoute()
-const searchWords = ref<string>(Array.isArray(route.query.q) ? route.query.q[0] || '' : route.query.q || '')
-
-const router = useRouter()
-
-function submitSearch() {
-  router.push({
-    path: '/search-site',
-    query: { q: searchWords.value },
-  })
-}
 </script>
 
 <template>
@@ -157,28 +143,18 @@ function submitSearch() {
           role="button"
         />
       </SmartLink>
-      <div class="more-menu">
-        <button
-          class="search-button"
-          role="button"
-          aria-label="Search button"
-          @click="toggleMenu"
-        >
-          <IconSearch class="icon-search" />
-        </button>
-        <button
-          role="button"
-          class="open-menu"
-          aria-label="Open menu"
-          :is-opened="isOpened"
-          @click="toggleMenu"
-        >
-          <component
-            :is="IconMenu"
-            class="hamburguer"
-          />
-        </button>
-      </div>
+      <button
+        role="button"
+        class="open-menu"
+        aria-label="Open menu"
+        :is-opened="isOpened"
+        @click="toggleMenu"
+      >
+        <component
+          :is="IconMenu"
+          class="hamburguer"
+        />
+      </button>
     </div>
     <div
       v-show="isOpened"
@@ -224,30 +200,6 @@ function submitSearch() {
             class="close-svg"
           />
         </button>
-      </div>
-      <div class="search-box">
-        <form
-          class="input-container-wrapper"
-          name="searchHome"
-          @submit.prevent=""
-        >
-          <div class="input-container">
-            <SearchInput
-              v-model="searchWords"
-              class="search-input"
-              @clear="submitSearch"
-              @keyup.enter="submitSearch"
-            />
-            <button
-              class="button-submit"
-              type="submit"
-              @click="submitSearch"
-            >
-              <IconSearch class="icon" />
-            </button>
-          </div>
-          <div class="divider" />
-        </form>
       </div>
       <ul class="nav-menu-primary">
         <NavMenuItemResponsive
@@ -352,20 +304,6 @@ function submitSearch() {
     justify-content: space-between;
     align-items: center;
 
-    .more-menu {
-      display: flex;
-      flex-direction: row;
-      align-self: flex-end;
-
-    }
-
-    .search-button {
-      background: none;
-      border: none;
-      padding: unset;
-      padding-top: 5px;
-    }
-
     .hamburguer {
       cursor: pointer;
     }
@@ -382,50 +320,6 @@ function submitSearch() {
 
   .expanded-menu-container {
     overflow-y: auto;
-  }
-
-  .search-box {
-    display: flex;
-    justify-content: center;
-  }
-
-  .input-container-wrapper {
-    width: 90%
-  }
-
-  .input-container {
-    display: flex;
-    background-color: var(--color-primary-blue-01);
-    border-color: transparent;
-    height: 60px;
-
-    .icon {
-      &:hover {
-        :deep(.svg__fill--primary-blue-03) {
-          fill: var(--color-default-cyan-03);
-        }
-      }
-    }
-
-    .search-input {
-      flex-grow: 1;
-    }
-
-    :deep(.search-input-wrapper input[data-search-input=true]) {
-      padding: 15px 20px;
-    }
-
-    .button-submit {
-      display: flex;
-      align-items: center;
-      padding: 0 24px;
-    }
-  }
-
-  .divider {
-    margin-top: 16px;
-    border-bottom: 2px solid var(--color-default-cyan-03);
-    height: 1px;
   }
 
   .expanded-menu {
