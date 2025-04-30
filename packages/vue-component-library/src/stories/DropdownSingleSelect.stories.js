@@ -18,6 +18,10 @@ import DropdownSingleSelect from '@/lib-components/DropdownSingleSelect.vue'
  * - disables the Dropdown
  */
 
+
+// There are no particular styles for default.
+// Right now they are the same as the FTVA styles.
+// They can be changed in the future
 export default {
   title: 'Dropdown Single Select',
   component: DropdownSingleSelect,

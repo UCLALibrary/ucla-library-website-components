@@ -228,6 +228,14 @@ const selectedLabel = computed(() => {
       }
     }
 
+    .filter-summary {
+      color: $accent-blue;
+    }
+
+    :deep(.mobile-drawer .mobile-button) {
+      border-color: $accent-blue;
+    }
+
     :deep(.svg__icon-close.svg-glyph-close) {
       position: absolute;
       right: 5px;
