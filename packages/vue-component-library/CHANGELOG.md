@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.14.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.13.0...@ucla-library-monorepo/ucla-library-website-components-v1.14.0) (2025-04-30)
+
+
+### Features
+
+* fix hydration issue with sectionpostsmall and have single source of truth and refactor to script setup AlphabeticalBrowseBy component ([#730](https://github.com/UCLALibrary/ucla-library-website-components/issues/730)) ([1c49d4e](https://github.com/UCLALibrary/ucla-library-website-components/commit/1c49d4e6703862926e5204a5180942fdb58c42e8))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.13.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.12.0...@ucla-library-monorepo/ucla-library-website-components-v1.13.0) (2025-04-29)
 
 
