@@ -159,6 +159,10 @@ const selectedLabel = computed(() => {
     justify-content: space-between;
     align-items: center;
     padding-right: 10px;
+
+    &:hover {
+      background-color: #f1f1f1;
+    }
   }
 
   .pill-content {
@@ -178,14 +182,6 @@ const selectedLabel = computed(() => {
     border-top: 1px solid #e0e0e0;
     margin-top: 10px;
     padding-top: 10px;
-
-    &:hover {
-      background-color: white;
-    }
-
-    .pill-option:hover {
-      background-color: #f1f1f1;
-    }
   }
 
   :deep(.toggle-triangle-icon) {
