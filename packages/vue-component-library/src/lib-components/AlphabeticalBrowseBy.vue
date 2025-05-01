@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 const props = defineProps({
   selectedLetterProp: {
     type: String,
-    default: '',
+    default: 'All',
   },
   displayAll: {
     type: Boolean,
@@ -27,16 +27,13 @@ const alphabet = ref([
 // Selected letter (local state but resets when prop changes)
 const selectedLetter = ref('')
 
-// Sync selectedLetter with prop on prop change
-watch(() => props.selectedLetterProp, (newVal, oldVal) => {
-  console.log('selectedLetterProp changed', newVal, oldVal)
-  selectedLetter.value = newVal
-}, { immediate: true })
+// ADDED
+onMounted(() => {
+  selectedLetter.value = props.selectedLetterProp
+})
 
 // Computed list with `is-selected` class applied
 const parsedAlphabet = computed(() => {
-  console.log('parsedAlphabet', selectedLetter.value)
-  const current = selectedLetter.value // force reactive dependency
   // Filter out the 'All' option if displayAll is false:
   // - If props.displayAll === true → include all letters including 'All'
   // - If props.displayAll === false → exclude 'All', show only A–Z
@@ -45,23 +42,19 @@ const parsedAlphabet = computed(() => {
     .map((item) => {
       // Determine if the current letter should be marked as selected:
       // - If the user has clicked a letter (selectedLetter is set), use it.
-      const isSelected = item.letter === current
-      // console.log('isSelected, item.letter, current', isSelected, item.letter, current)
+      const isSelected = item.letter === selectedLetter.value
+
       // Return the item with a class based on whether it's selected
       return {
         letter: item.letter,
         class: `letter${isSelected ? ' is-selected' : ''}`,
       }
     })
-}
-
-)
+})
 
 // Dynamic classes from theme
 const classes = computed(() =>
-
   theme?.value === '' ? 'alphabetical-browse-by' : `alphabetical-browse-by ${theme?.value}`
-
 )
 
 // Handle letter click
@@ -87,11 +80,6 @@ function handleSelectedLetter(letter: { letter: string }) {
         @click="handleSelectedLetter(letter)"
       >
         <a>{{ letter.letter }}</a>
-        <span
-          v-if="letter.class === 'is-selected'"
-          style="display: none;"
-          class="selected-letter"
-        > test {{ letter.letter }} </span>
       </li>
     </ul>
   </div>
