@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 const props = defineProps({
@@ -27,35 +27,34 @@ const alphabet = ref([
 // Selected letter (local state but resets when prop changes)
 const selectedLetter = ref('')
 
-// Sync selectedLetter with prop on prop change
-watch(() => props.selectedLetterProp, (/* newVal,  oldVal */) => {
-  selectedLetter.value = ''
+// ADDED
+onMounted(() => {
+  selectedLetter.value = props.selectedLetterProp
 })
 
 // Computed list with `is-selected` class applied
-const parsedAlphabet = computed(() =>
+const parsedAlphabet = computed(() => {
   // Filter out the 'All' option if displayAll is false:
   // - If props.displayAll === true → include all letters including 'All'
   // - If props.displayAll === false → exclude 'All', show only A–Z
-  alphabet.value
+  return alphabet.value
     .filter(item => props.displayAll || item.letter !== 'All')
     .map((item) => {
       // Determine if the current letter should be marked as selected:
       // - If the user has clicked a letter (selectedLetter is set), use it.
-      // - Otherwise, fall back to the prop value (selectedLetterProp), which may be set via route or initial state.
-      const isSelected = item.letter === (selectedLetter.value || props.selectedLetterProp)
+      const isSelected = item.letter === selectedLetter.value
+
+      // Return the item with a class based on whether it's selected
       return {
-        ...item,
+        letter: item.letter,
         class: `letter${isSelected ? ' is-selected' : ''}`,
       }
     })
-)
+})
 
 // Dynamic classes from theme
 const classes = computed(() =>
-
   theme?.value === '' ? 'alphabetical-browse-by' : `alphabetical-browse-by ${theme?.value}`
-
 )
 
 // Handle letter click

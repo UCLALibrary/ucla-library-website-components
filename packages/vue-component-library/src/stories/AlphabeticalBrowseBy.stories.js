@@ -14,7 +14,7 @@ export function Default() {
       }
     },
     components: { AlphabeticalBrowseBy },
-    template: '<alphabetical-browse-by/>',
+    template: '<alphabetical-browse-by />',
   }
 }
 

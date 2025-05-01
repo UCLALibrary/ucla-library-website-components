@@ -1,9 +1,6 @@
 <!-- The VideoEmbed component creates an iframe with a youtube video embed
  it has an optional custom posterImage and icon -->
-<script
-  lang='ts'
-  setup
->
+<script lang='ts' setup>
 import type { PropType } from 'vue'
 import SvgIconPlayFilled from 'ucla-library-design-tokens/assets/svgs/icon-ftva-playvideo.svg'
 import { computed, defineProps } from 'vue'
@@ -25,8 +22,14 @@ const classes = computed(() => {
   const src = posterImage?.src
   return ['video-embed', src ? 'has-poster' : 'no-poster']
 })
+// Updated trailer parsing to use a regex for safer and more reliable extraction of the `src` value.
+// This handles cases where `trailer` may be undefined, null, or missing the expected `src="..."` pattern.
 const parsedTrailer = computed(() => {
-  return trailer.split('src=\"')[1].split('\"')[0]
+  if (!trailer || typeof trailer !== 'string')
+    return ''
+
+  const match = trailer.match(/src="([^"]+)"/)
+  return match ? match[1] : ''
 })
 </script>
 
@@ -65,10 +68,7 @@ const parsedTrailer = computed(() => {
   </div>
 </template>
 
-<style
-  lang='scss'
-  scoped
->
+<style lang='scss' scoped>
 .video-embed {
   position: relative;
   width: 100%;
