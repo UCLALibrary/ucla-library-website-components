@@ -28,9 +28,9 @@ export default {
 
 // MOCK DATA DEFAULT
 const OptionsDefault = [
-  { label: 'Smokey the Bear', value: 'fire-prevention' },
-  { label: 'Woodsey the Owl', value: 'pollution' },
-  { label: 'Lester the Lightbulb', value: 'energy-saving' },
+  { label: 'Fire Prevention', value: 'fire-prevention' },
+  { label: 'Pollution', value: 'pollution' },
+  { label: 'Energy Saving', value: 'energy-saving' },
 ]
 
 export function Default() {
@@ -50,6 +50,8 @@ export function Default() {
     },
     template: `
       <div>
+        <span>Selected dropdown value display:{{selected}}</span>
+        <br><br>
         <DropdownSingleSelect
           v-model="selected"
           :label="label"
@@ -85,6 +87,8 @@ export function FTVAFilterByTopic() {
     },
     template: `
       <div>
+        <span>Selected dropdown value display:{{selected}}</span>
+        <br><br>
         <DropdownSingleSelect
           v-model="selected"
           :label="label"
@@ -118,6 +122,8 @@ export function FTVASortBy() {
     },
     template: `
       <div>
+        <span>Selected dropdown value display:{{selected}}</span>
+        <br><br>
         <DropdownSingleSelect
           v-model="selected"
           :label="label"
