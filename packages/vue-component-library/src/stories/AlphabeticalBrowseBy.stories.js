@@ -14,7 +14,7 @@ export function Default() {
       }
     },
     components: { AlphabeticalBrowseBy },
-    template: '<alphabetical-browse-by/>',
+    template: '<alphabetical-browse-by selectedLetterProp="All"/>',
   }
 }
 
@@ -50,7 +50,7 @@ export function FTVA() {
       }
     },
     components: { AlphabeticalBrowseBy },
-    template: '<alphabetical-browse-by />',
+    template: '<alphabetical-browse-by selectedLetterProp="All"/>',
   }
 }
 export function FTVAAisSelected() {

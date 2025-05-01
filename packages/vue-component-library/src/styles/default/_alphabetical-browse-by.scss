@@ -10,11 +10,7 @@
     color: var(--color-primary-blue-03);
   }
 
-  .is-selected {
-    @include link-hover;
-    font-weight: $font-weight-semibold;
-    color: var(--color-primary-blue-03);
-  }
+  
 
   .alphabet-list {
     @include step-1;
@@ -27,11 +23,19 @@
     padding: 0;
     color: var(--color-primary-blue-03);
 
+   
+
     .letter {
       padding: 0 10px;
       margin-bottom: 24px;
       width: 44px;
       text-align: center;
+
+      &.is-selected {
+        @include link-hover;
+        font-weight: $font-weight-semibold;
+        color: var(--color-primary-blue-03);
+      }
 
       &:hover {
         @include link-hover;
