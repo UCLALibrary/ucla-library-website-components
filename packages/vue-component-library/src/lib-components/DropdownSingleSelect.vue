@@ -34,9 +34,7 @@ interface SelectedFiltersTypes {
 }
 const selectedFilters = defineModel('selectedFilters', { type: Object as PropType<SelectedFiltersTypes>, required: true, default: {} })
 
-function onSelect(/* string: value */) {
-  // emit('update:modelValue', value)
-  // selectedFilters.value[props.fieldName] = value
+function onSelect() {
   emit('update-display', selectedFilters.value)
 }
 
@@ -91,7 +89,7 @@ const selectedLabel = computed(() => {
               class="pill-radio"
               :value="option.value"
               :disabled="props.disabled"
-              @change="() => { onSelect(/*option.value*/); removeOverlay() }"
+              @change="() => { onSelect(); removeOverlay() }"
             >
             <div class="pill-option">
               <span class="pill-content">
