@@ -27,13 +27,6 @@ const props = defineProps({
   },
 })
 
-// Set up the emit function with two supported events:
-// 1. 'update:modelValue' — used for v-model binding
-// 2. 'selectionChanged' — custom event for additional tracking
-// The `as` cast ensures TypeScript enforces correct usage:
-// - Only these two events can be emitted
-// - The payload must always be a string
-// const emit = defineEmits(['update:modelValue', 'selectionChanged']) as (event: 'update:modelValue' | 'selectionChanged', value: string) => void
 const emit = defineEmits(['update-display'])
 // V-MODEL DATA
 interface SelectedFiltersTypes {
