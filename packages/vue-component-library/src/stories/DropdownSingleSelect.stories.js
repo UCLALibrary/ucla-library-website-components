@@ -10,8 +10,8 @@ import DropdownSingleSelect from '@/lib-components/DropdownSingleSelect.vue'
  *
  * 1. options: Array of Strings
  * - These are options to filter the content by
- * 2. modelValue: String
- * - for v-model binding
+ * 2. fieldName: String
+ * - for search for sort field name for a Search API
  * 3. label: String
  * - The heading of the Dropdown ie: Filter by topic or Sort by
  * 4. disabled: Boolean
@@ -38,9 +38,10 @@ export function Default() {
     components: { DropdownSingleSelect },
     data() {
       return {
-        selected: '',
+        selectedFilters: { esFieldName: '' },
         options: OptionsDefault,
         label: 'Filter',
+        fieldName: 'esFieldName',
       }
     },
     provide() {
@@ -50,12 +51,13 @@ export function Default() {
     },
     template: `
       <div>
-        <span>Selected dropdown value display:{{selected}}</span>
+        <span>Selected dropdown value display:{{selectedFilters}}</span>
         <br><br>
         <DropdownSingleSelect
-          v-model="selected"
-          :label="label"
-          :options="options"
+          v-model:selectedFilters='selectedFilters'
+          :label='label'
+          :options='options'
+          :field-name='fieldName'
         />
       </div>
     `,
@@ -75,9 +77,10 @@ export function FTVAFilterByTopic() {
     components: { DropdownSingleSelect },
     data() {
       return {
-        selected: '',
+        selectedFilters: { esFieldName: '' },
         options: FilterOptionsDefault,
         label: 'Filter by topic',
+        fieldName: 'esFieldName',
       }
     },
     provide() {
@@ -87,12 +90,44 @@ export function FTVAFilterByTopic() {
     },
     template: `
       <div>
-        <span>Selected dropdown value display:{{selected}}</span>
+        <span>Selected dropdown value display:{{selectedFilters}}</span>
         <br><br>
         <DropdownSingleSelect
-          v-model="selected"
-          :label="label"
-          :options="options"
+          v-model:selectedFilters='selectedFilters'
+          :label='label'
+          :options='options'
+          :field-name='fieldName'
+        />
+      </div>
+    `,
+  }
+}
+
+export function FTVAFilterByTopicIntialSelection() {
+  return {
+    components: { DropdownSingleSelect },
+    data() {
+      return {
+        selectedFilters: { esFieldName: 'politics' },
+        options: FilterOptionsDefault,
+        label: 'Filter by topic',
+        fieldName: 'esFieldName',
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    template: `
+      <div>
+        <span>Selected dropdown value display:{{selectedFilters}}</span>
+        <br><br>
+        <DropdownSingleSelect
+          v-model:selectedFilters='selectedFilters'
+          :label='label'
+          :options='options'
+          :field-name='fieldName'
         />
       </div>
     `,
@@ -101,8 +136,8 @@ export function FTVAFilterByTopic() {
 
 // MOCK DATA SORT
 const FilterOptionsSort = [
-  { label: 'Date (oldest)', value: 'oldest-date' },
-  { label: 'Date (newest)', value: 'newest-date' },
+  { label: 'Date (oldest)', value: 'asc' },
+  { label: 'Date (newest)', value: 'desc' },
 ]
 
 export function FTVASortBy() {
@@ -110,9 +145,10 @@ export function FTVASortBy() {
     components: { DropdownSingleSelect },
     data() {
       return {
-        selected: '',
+        selectedFilters: { esFieldName: '' },
         options: FilterOptionsSort,
         label: 'Sort by',
+        fieldName: 'esFieldName',
       }
     },
     provide() {
@@ -122,12 +158,13 @@ export function FTVASortBy() {
     },
     template: `
       <div>
-        <span>Selected dropdown value display:{{selected}}</span>
+        <span>Selected dropdown value display:{{selectedFilters}}</span>
         <br><br>
         <DropdownSingleSelect
-          v-model="selected"
-          :label="label"
-          :options="options"
+          v-model:selectedFilters='selectedFilters'
+          :label='label'
+          :options='options'
+          :field-name='fieldName'
         />
       </div>
     `,

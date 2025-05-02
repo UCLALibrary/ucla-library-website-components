@@ -13,7 +13,7 @@ const props = defineProps({
     type: Array as PropType<Option[]>,
     default: () => [],
   },
-  modelValue: {
+  fieldName: { // name of field which will be used to sort or search on
     type: String,
     default: '',
   },
@@ -33,11 +33,18 @@ const props = defineProps({
 // The `as` cast ensures TypeScript enforces correct usage:
 // - Only these two events can be emitted
 // - The payload must always be a string
-const emit = defineEmits(['update:modelValue', 'selectionChanged']) as (event: 'update:modelValue' | 'selectionChanged', value: string) => void
+// const emit = defineEmits(['update:modelValue', 'selectionChanged']) as (event: 'update:modelValue' | 'selectionChanged', value: string) => void
+const emit = defineEmits(['update-display'])
+// V-MODEL DATA
+interface SelectedFiltersTypes {
+  [key: string]: string
+}
+const selectedFilters = defineModel('selectedFilters', { type: Object as PropType<SelectedFiltersTypes>, required: true, default: {} })
 
-function onSelect(value: string) {
-  emit('update:modelValue', value)
-  emit('selectionChanged', value)
+function onSelect(/* string: value */) {
+  // emit('update:modelValue', value)
+  // selectedFilters.value[props.fieldName] = value
+  emit('update-display', selectedFilters.value)
 }
 
 // THEME
@@ -61,7 +68,7 @@ onMounted(() => {
 
 // SELECTED LABEL DISPLAY
 const selectedLabel = computed(() => {
-  const match = props.options.find((opt: Option) => opt.value === props.modelValue)
+  const match = props.options.find((opt: Option) => opt.value === selectedFilters.value[props.fieldName])
   return match ? `: ${match.label}` : '(none selected)'
 })
 </script>
@@ -86,19 +93,19 @@ const selectedLabel = computed(() => {
             class="pill-label"
           >
             <input
+              v-model="selectedFilters[props.fieldName]"
               type="radio"
               class="pill-radio"
               :value="option.value"
-              :checked="modelValue === option.value"
-              :disabled="disabled"
-              @change="() => { onSelect(option.value); removeOverlay() }"
+              :disabled="props.disabled"
+              @change="() => { onSelect(/*option.value*/); removeOverlay() }"
             >
             <div class="pill-option">
               <span class="pill-content">
                 {{ option.label }}
               </span>
               <SvgCheck
-                v-if="modelValue === option.value"
+                v-if="selectedFilters[props.fieldName] === option.value"
                 class="check-icon"
               />
             </div>
@@ -110,14 +117,14 @@ const selectedLabel = computed(() => {
               type="radio"
               class="pill-radio"
               value=""
-              :checked="modelValue === ''"
-              :disabled="disabled"
-              @change="() => { onSelect(''); removeOverlay() }"
+              :checked="selectedFilters[props.fieldName] === ''"
+              :disabled="props.disabled"
+              @change="() => { onSelect(); removeOverlay() }"
             >
             <div class="pill-option">
               <span class="pill-content">View All</span>
               <SvgCheck
-                v-if="modelValue === ''"
+                v-if="selectedFilters[props.fieldName] === ''"
                 class="check-icon"
               />
             </div>
