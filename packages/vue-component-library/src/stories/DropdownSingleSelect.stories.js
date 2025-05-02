@@ -58,6 +58,7 @@ export function Default() {
           :label='label'
           :options='options'
           :field-name='fieldName'
+          :show-view-all='true'
         />
       </div>
     `,
@@ -97,6 +98,7 @@ export function FTVAFilterByTopic() {
           :label='label'
           :options='options'
           :field-name='fieldName'
+          :show-view-all='true'
         />
       </div>
     `,
@@ -128,6 +130,7 @@ export function FTVAFilterByTopicIntialSelection() {
           :label='label'
           :options='options'
           :field-name='fieldName'
+          :show-view-all='true'
         />
       </div>
     `,
@@ -145,7 +148,7 @@ export function FTVASortBy() {
     components: { DropdownSingleSelect },
     data() {
       return {
-        selectedFilters: { esFieldName: '' },
+        selectedFilters: { esFieldName: 'asc' },
         options: FilterOptionsSort,
         label: 'Sort by',
         fieldName: 'esFieldName',

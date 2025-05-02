@@ -25,6 +25,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  showViewAll: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const emit = defineEmits(['update-display'])
@@ -103,12 +107,15 @@ const selectedLabel = computed(() => {
           </label>
 
           <!-- View All option -->
-          <label class="pill-label view-all-option">
+          <label
+            v-if="props.showViewAll"
+            class="pill-label view-all-option"
+          >
             <input
+              v-model="selectedFilters[props.fieldName]"
               type="radio"
               class="pill-radio"
               value=""
-              :checked="selectedFilters[props.fieldName] === ''"
               :disabled="props.disabled"
               @change="() => { onSelect(); removeOverlay() }"
             >
