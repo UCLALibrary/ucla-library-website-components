@@ -84,9 +84,7 @@ const classes = computed(() => [
           v-if="item.title"
           #title
         >
-          <h3 class="title">
-            {{ item.title }}
-          </h3>
+          {{ item.title }}
         </template>
 
         <template

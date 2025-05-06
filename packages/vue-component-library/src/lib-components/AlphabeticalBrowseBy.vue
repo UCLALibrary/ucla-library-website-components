@@ -1,162 +1,71 @@
-<script>
-export default {
-  name: 'AlphabeticalBrowseBy',
-  inject: ['theme'],
-  props: {
-    selectedLetterProp: {
-      type: String,
-      default: 'All',
-    },
-    displayAll: {
-      type: Boolean,
-      default: true,
-    },
+<script lang="ts" setup>
+import { computed, onMounted, ref } from 'vue'
+import { useTheme } from '@/composables/useTheme'
+
+const props = defineProps({
+  selectedLetterProp: {
+    type: String,
+    default: 'All',
   },
-  emits: ['selectedLetter'],
-  data() {
-    return {
-      alphabet: [
-        {
-          letter: 'All',
-        },
-        {
-          letter: 'A',
-        },
-        {
-          letter: 'B',
-        },
-        {
-          letter: 'C',
-        },
-        {
-          letter: 'D',
-        },
-        {
-          letter: 'E',
-        },
-        {
-          letter: 'F',
-        },
-        {
-          letter: 'G',
-        },
-        {
-          letter: 'H',
-        },
-        {
-          letter: 'I',
-        },
-        {
-          letter: 'J',
-        },
-        {
-          letter: 'K',
-        },
-        {
-          letter: 'L',
-        },
-        {
-          letter: 'M',
-        },
-        {
-          letter: 'N',
-        },
-        {
-          letter: 'O',
-        },
-        {
-          letter: 'P',
-        },
-        {
-          letter: 'Q',
-        },
-        {
-          letter: 'R',
-        },
-        {
-          letter: 'S',
-        },
-        {
-          letter: 'T',
-        },
-        {
-          letter: 'U',
-        },
-        {
-          letter: 'V',
-        },
-        {
-          letter: 'W',
-        },
-        {
-          letter: 'X',
-        },
-        {
-          letter: 'Y',
-        },
-        {
-          letter: 'Z',
-        },
-      ],
-      selectedLetter: '',
-    }
+  displayAll: {
+    type: Boolean,
+    default: true,
   },
-  computed: {
-    parsedAlphabet: {
-      get() {
-        return this.alphabet.filter(item => (item.letter !== 'All') || (item.letter === 'All' && this.displayAll)).map((item) => {
-          let letterClass = 'letter'
-          // Set the class for the letter when initially loaded
+})
 
-          if (this.selectedLetterProp === '')
-            this.selectedLetter = ''
+const emit = defineEmits(['selectedLetter'])
 
-          if (
-            item.letter === this.selectedLetterProp
-            && this.selectedLetter === ''
-          )
-            letterClass = `${letterClass} is-selected`
+// Injected theme (from app-level provide)
+const theme = useTheme()
 
-          // Set the class for the letter when clicked
-          if (item.letter === this.selectedLetter)
-            letterClass = `${letterClass} is-selected`
+// Alphabet list
+const alphabet = ref([
+  { letter: 'All' },
+  ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => ({ letter }))
+])
 
-          // Set the class for the letter when not clicked
-          return {
-            ...item,
-            class: letterClass,
-          }
-        })
-      },
-      set(alphabet) {
-        this.alphabet = alphabet
-      },
-    },
-  },
-  methods: {
-    checkIfLetterIsSelected() {
-      this.parsedAlphabet = this.alphabet.map((item) => {
-        let letterClass = 'letter'
-        if (this.selectedLetter === item.letter)
-          letterClass = `${letterClass} is-selected`
+// Selected letter (local state but resets when prop changes)
+const selectedLetter = ref('')
 
-        return {
-          ...item,
-          class: letterClass,
-        }
-      })
-    },
-    handleSelectedLetter(letter) {
-      this.selectedLetter = letter.letter
-      this.checkIfLetterIsSelected()
-      this.$emit('selectedLetter', this.selectedLetter)
-    },
-  },
+// ADDED
+onMounted(() => {
+  selectedLetter.value = props.selectedLetterProp
+})
+
+// Computed list with `is-selected` class applied
+const parsedAlphabet = computed(() => {
+  // Filter out the 'All' option if displayAll is false:
+  // - If props.displayAll === true → include all letters including 'All'
+  // - If props.displayAll === false → exclude 'All', show only A–Z
+  return alphabet.value
+    .filter(item => props.displayAll || item.letter !== 'All')
+    .map((item) => {
+      // Determine if the current letter should be marked as selected:
+      // - If the user has clicked a letter (selectedLetter is set), use it.
+      const isSelected = item.letter === selectedLetter.value
+
+      // Return the item with a class based on whether it's selected
+      return {
+        letter: item.letter,
+        class: `letter${isSelected ? ' is-selected' : ''}`,
+      }
+    })
+})
+
+// Dynamic classes from theme
+const classes = computed(() =>
+  theme?.value === '' ? 'alphabetical-browse-by' : `alphabetical-browse-by ${theme?.value}`
+)
+
+// Handle letter click
+function handleSelectedLetter(letter: { letter: string }) {
+  selectedLetter.value = letter.letter
+  emit('selectedLetter', selectedLetter.value)
 }
 </script>
 
 <template>
-  <div class="alphabetical-browse-by">
+  <div :class="classes">
     <h2
       v-if="theme === ''"
       class="title"
@@ -177,64 +86,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.alphabetical-browse-by {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  .title {
-    @include step-3;
-    margin-bottom: 24px;
-    font-family: var(--font-primary);
-    color: var(--color-primary-blue-03);
-  }
-
-  .is-selected {
-    @include link-hover;
-    font-weight: $font-weight-semibold;
-    color: var(--color-primary-blue-03);
-  }
-
-  .alphabet-list {
-    @include step-1;
-    max-width: 928px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    list-style: none;
-    list-style-type: none;
-    padding: 0;
-    color: var(--color-primary-blue-03);
-
-    .letter {
-      padding: 0 10px;
-      margin-bottom: 24px;
-      width: 44px;
-      text-align: center;
-
-      &:hover {
-        @include link-hover;
-        cursor: pointer;
-        font-weight: $font-weight-semibold;
-        color: var(--color-primary-blue-03);
-      }
-    }
-
-    @media #{$medium} {
-      // max-height: 140px;
-      justify-content: start;
-      flex-wrap: wrap;
-      margin-top: 0;
-      margin-right: 0px;
-
-      .letter {
-        width: 44px;
-      }
-    }
-
-    @media #{$small} {
-      // max-height: 180px;
-    }
-  }
-}
+@import "@/styles/default/_alphabetical-browse-by.scss";
+@import "@/styles/ftva/_alphabetical-browse-by.scss";
 </style>

@@ -1,0 +1,15 @@
+.ftva.alphabetical-browse-by {
+  .alphabet-list {
+    @include ftva-card-title-2;
+    color: $navy-blue;
+
+    .letter {
+      &.is-selected {
+        color: $bright-blue;
+      }
+      &:hover {
+        color: $bright-blue;
+      }
+    }
+  }
+}

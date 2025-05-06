@@ -1,3 +1,31 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.15.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.14.1...@ucla-library-monorepo/ucla-library-website-components-v1.15.0) (2025-05-06)
+
+
+### Features
+
+* APPS-3298 Build new DropdownSingleSelect Component ([#726](https://github.com/UCLALibrary/ucla-library-website-components/issues/726)) ([6a2afe5](https://github.com/UCLALibrary/ucla-library-website-components/commit/6a2afe5f4e9bda7883d25689b2c7ec1c76aad61e))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.14.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.14.0...@ucla-library-monorepo/ucla-library-website-components-v1.14.1) (2025-05-01)
+
+
+### Bug Fixes
+
+* Replace watcher with onMounted and fix videoembed undefined error on ftva when trailer is not an iframe code from craft ([#731](https://github.com/UCLALibrary/ucla-library-website-components/issues/731)) ([218a8a1](https://github.com/UCLALibrary/ucla-library-website-components/commit/218a8a184f17a59e7422ecbd568a17ed42704594))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.14.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.13.0...@ucla-library-monorepo/ucla-library-website-components-v1.14.0) (2025-04-30)
+
+
+### Features
+
+* fix hydration issue with sectionpostsmall and have single source of truth and refactor to script setup AlphabeticalBrowseBy component ([#730](https://github.com/UCLALibrary/ucla-library-website-components/issues/730)) ([1c49d4e](https://github.com/UCLALibrary/ucla-library-website-components/commit/1c49d4e6703862926e5204a5180942fdb58c42e8))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.13.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.12.0...@ucla-library-monorepo/ucla-library-website-components-v1.13.0) (2025-04-29)
+
+
+### Features
+
+* APPS-3309 Update AlphabeticalBrowseBy with FTVA variant ([#727](https://github.com/UCLALibrary/ucla-library-website-components/issues/727)) ([a686e78](https://github.com/UCLALibrary/ucla-library-website-components/commit/a686e78d5dabe5521af1c53e04d8a7f04ed38627))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.12.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.11.0...@ucla-library-monorepo/ucla-library-website-components-v1.12.0) (2025-04-23)
 
 
