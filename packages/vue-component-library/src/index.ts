@@ -104,6 +104,7 @@ export { default as SearchGenericFilterButtons } from './lib-components/SearchGe
 export { default as SearchGeneric } from './lib-components/SearchGeneric.vue'
 export { default as SearchGenericViewModes } from './lib-components/SearchGenericViewModes.vue'
 export { default as SearchHome } from './lib-components/SearchHome.vue'
+export { default as SearchMenuItem } from './lib-components/SearchMenuItem.vue'
 export { default as SearchResult } from './lib-components/SearchResult.vue'
 export { default as SectionCardsWithIllustrations } from './lib-components/SectionCardsWithIllustrations.vue'
 export { default as SectionDualMasonry } from './lib-components/SectionDualMasonry.vue'

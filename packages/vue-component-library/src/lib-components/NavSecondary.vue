@@ -5,7 +5,7 @@ import { computed, onMounted, ref, toRefs, watch } from 'vue'
 import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
-import SearchOverlay from '@/lib-components/SearchOverlay.vue'
+import SearchMenuItem from '@/lib-components/SearchMenuItem.vue'
 import { useTheme } from '@/composables/useTheme'
 
 // types
@@ -152,9 +152,9 @@ const accountLink = computed(() => {
           </li>
         </ul>
         <!-- 🔍 Add the new search overlay component -->
-        <SearchOverlay
+        <SearchMenuItem
           v-if="themeSettings.showSearch"
-          class="search-down"
+          class="search-dropdown"
         />
       </div>
     </div>
