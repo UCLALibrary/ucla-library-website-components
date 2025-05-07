@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.15.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.14.1...@ucla-library-monorepo/ucla-library-website-components-v1.15.0) (2025-05-06)
+
+
+### Features
+
+* APPS-3298 Build new DropdownSingleSelect Component ([#726](https://github.com/UCLALibrary/ucla-library-website-components/issues/726)) ([6a2afe5](https://github.com/UCLALibrary/ucla-library-website-components/commit/6a2afe5f4e9bda7883d25689b2c7ec1c76aad61e))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.14.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.14.0...@ucla-library-monorepo/ucla-library-website-components-v1.14.1) (2025-05-01)
 
 
