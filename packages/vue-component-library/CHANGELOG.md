@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.15.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.15.0...@ucla-library-monorepo/ucla-library-website-components-v1.15.1) (2025-05-07)
+
+
+### Bug Fixes
+
+* APPS-3302 make cards within ScrollWrapper clickable ([#732](https://github.com/UCLALibrary/ucla-library-website-components/issues/732)) ([40c9d95](https://github.com/UCLALibrary/ucla-library-website-components/commit/40c9d951d61846b5b319500a437653f80853f3a3))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.15.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.14.1...@ucla-library-monorepo/ucla-library-website-components-v1.15.0) (2025-05-06)
 
 
