@@ -277,7 +277,7 @@ export const mockFlexibleBlocks = [
     horizontalDivider: true
   },
 
-  // INTERNAL CARDWITHIMAGE
+  // CARD WITH IMAGE - Typehandle: internalContent
   {
     id: '3754183',
     typeHandle: 'cardWithImage',
@@ -589,7 +589,8 @@ export const mockFlexibleBlocks = [
       },
     ]
   },
-  // EXTERNAL CARDSWITHIMAGE
+
+  // CARD WITH IMAGE - Typehandle: externalContent
   {
     id: '3754183',
     typeHandle: 'cardWithImage',
@@ -635,43 +636,120 @@ export const mockFlexibleBlocks = [
           }
         ],
         to: 'https://en.wikipedia.org/wiki/Helsinki'
+      }
+    ]
+  },
+
+  // CARD WITH IMAGE - Typehandle mix: internalContent, externalContent
+  {
+    id: '3754183',
+    typeHandle: 'cardWithImage',
+    sectionTitle: 'Card with Image / Associated Topics - INTERNAL & EXTERNAL CONTENT',
+    sectionSummary: null,
+    cardWithImage: [
+      // External
+      {
+        id: '3754187',
+        typeHandle: 'externalContent',
+        titleGeneral: 'Peacocks - External content, No image',
+        image: [],
+        to: 'https://www.birdnote.org/podcasts/birdnote-daily/peacocks-tail-more-meets-eye'
       },
+      {
+        id: '3826943',
+        typeHandle: 'externalContent',
+        titleGeneral: 'Helsinki',
+        image: [
+          {
+            id: '3807469',
+            src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Helsinki.jpg',
+            height: 2306,
+            width: 2560,
+            srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Helsinki.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Helsinki.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Helsinki.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Helsinki.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Helsinki.jpg 2560w',
+            alt: null,
+            focalPoint: [
+              0.5,
+              0.5
+            ]
+          }
+        ],
+        to: 'https://en.wikipedia.org/wiki/Helsinki'
+      },
+      // Internal
       {
         id: '3834973',
         typeHandle: 'internalContent',
         contentLink: [
-          // {
-          //   id: "769145",
-          //   typeHandle: "article",
-          //   sectionHandle: "article",
-          //   contentType: "article",
-          //   uri: "about/news/testnews",
-          //   slug: "testnews",
-          //   heroImage: [
-          //     {
-          //       image: [
-          //         {
-          //           id: "2900571",
-          //           src: "https://static.library.ucla.edu/craftassetstest/images/_fullscreen/fox-squirrel.jpeg",
-          //           height: 1699,
-          //           width: 2560,
-          //           srcset: "https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/fox-squirrel.jpeg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/fox-squirrel.jpeg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/fox-squirrel.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/fox-squirrel.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/fox-squirrel.jpeg 2560w",
-          //           alt: "Fox squirrel",
-          //           focalPoint: [
-          //             0.5,
-          //             0.5
-          //           ]
-          //         }
-          //       ]
-          //     }
-          //   ],
-          //   title: "TEST ARTICLE - ALL FPB - So Many Squirrels",
-          //   postDate: "2023-01-31T11:54"
-          // }
+          {
+            id: '3357337',
+            typeHandle: 'ftvaArticle',
+            sectionHandle: 'ftvaArticle',
+            contentType: 'ftvaArticle',
+            uri: 'ftva/daffodil-days',
+            slug: 'daffodil-days',
+            ftvaImage: [],
+            imageCarousel: [],
+            title: 'Daffodil Days - Internal content, no image',
+            formattedTitle: '<em>Daffodil Days Formatted Title</em>',
+            postDate: '2025-02-05'
+          }
         ]
-      }
+      },
+      {
+        id: '3803130',
+        typeHandle: 'internalContent',
+        contentLink: [
+          {
+            id: '3512384',
+            typeHandle: 'ftvaEvent',
+            sectionHandle: 'ftvaEvent',
+            contentType: 'ftvaEvent',
+            uri: 'events/4-givings-09-07-24',
+            slug: '4-givings-09-07-24',
+            ftvaImage: [
+              {
+                id: '3512388',
+                src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Screenshot-2024-12-13-at-8.00.38-AM.png',
+                height: 1663,
+                width: 2560,
+                srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 2560w',
+                alt: null,
+                focalPoint: [
+                  0.5,
+                  0.5
+                ]
+              }
+            ],
+            imageCarousel: [
+              {
+                image: [
+                  {
+                    id: '3807065',
+                    src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/PXL_20250309_163035600.jpg',
+                    height: 1440,
+                    width: 2560,
+                    srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 2560w',
+                    alt: null,
+                    focalPoint: [
+                      0.5,
+                      0.5
+                    ]
+                  }
+                ]
+              }
+            ],
+            title: '4 Givings 09-07-24',
+            eventTitle: '4 Givings',
+            startDateWithTime: '2027-09-07PST19:30',
+            endDateWithTime: '2027-12-17PST12:00',
+            postDate: '2027-08-17'
+          }
+        ]
+      },
     ]
   },
+
+  // CALL TO ACTION
   {
     id: '2930617',
     typeHandle: 'callToAction',
