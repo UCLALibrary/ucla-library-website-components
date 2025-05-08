@@ -696,53 +696,34 @@ export const mockFlexibleBlocks = [
         ]
       },
       {
-        id: '3803130',
+        id: '3878810',
         typeHandle: 'internalContent',
         contentLink: [
           {
-            id: '3512384',
-            typeHandle: 'ftvaEvent',
-            sectionHandle: 'ftvaEvent',
-            contentType: 'ftvaEvent',
-            uri: 'events/4-givings-09-07-24',
-            slug: '4-givings-09-07-24',
+            id: '3357337',
+            typeHandle: 'ftvaArticle',
+            sectionHandle: 'ftvaArticle',
+            contentType: 'ftvaArticle',
+            uri: 'blog/meet-the-filmmaker-fox-maxy',
+            slug: 'meet-the-filmmaker-fox-maxy',
             ftvaImage: [
               {
-                id: '3512388',
-                src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Screenshot-2024-12-13-at-8.00.38-AM.png',
-                height: 1663,
+                id: '3878933',
+                src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/fox-maxy.jpeg',
+                height: 3396,
                 width: 2560,
-                srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Screenshot-2024-12-13-at-8.00.38-AM.png 2560w',
-                alt: null,
+                srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/fox-maxy.jpeg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/fox-maxy.jpeg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/fox-maxy.jpeg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/fox-maxy.jpeg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/fox-maxy.jpeg 2560w',
+                alt: 'Fox May',
                 focalPoint: [
-                  0.5,
-                  0.5
+                  0.5229,
+                  0.1897
                 ]
               }
             ],
-            imageCarousel: [
-              {
-                image: [
-                  {
-                    id: '3807065',
-                    src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/PXL_20250309_163035600.jpg',
-                    height: 1440,
-                    width: 2560,
-                    srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/PXL_20250309_163035600.jpg 2560w',
-                    alt: null,
-                    focalPoint: [
-                      0.5,
-                      0.5
-                    ]
-                  }
-                ]
-              }
-            ],
-            title: '4 Givings 09-07-24',
-            eventTitle: '4 Givings',
-            startDateWithTime: '2027-09-07PST19:30',
-            endDateWithTime: '2027-12-17PST12:00',
-            postDate: '2027-08-17'
+            imageCarousel: [],
+            title: 'Meet the Filmmaker: Fox Maxy',
+            formattedTitle: null,
+            postDate: '2023-05-17'
           }
         ]
       },
