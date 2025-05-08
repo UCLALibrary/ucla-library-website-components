@@ -1,14 +1,17 @@
 <script lang="ts" setup>
 // Components
+import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
 import IconCloseLarge from 'ucla-library-design-tokens/assets/svgs/icon-close-large.svg'
 import Molecule3d from 'ucla-library-design-tokens/assets/svgs/molecule-3d.svg'
 import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
 import LogoLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
 import { computed, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import type { PropType } from 'vue'
 import NavMenuItemResponsive from '@/lib-components/NavMenuItemResponsive.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
+import SearchInput from '@/lib-components/SearchInput.vue'
 
 // types
 import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
@@ -107,68 +110,211 @@ function toggleMenu() {
   isOpened.value = !isOpened.value
   goBack.value = !goBack.value
 }
+const route = useRoute()
+const searchWords = ref<string>(Array.isArray(route.query.q) ? route.query.q[0] || '' : route.query.q || '')
+
+const router = useRouter()
+
+function submitSearch() {
+  router.push({
+    path: '/search-site',
+    query: { q: searchWords.value },
+  })
+}
 </script>
 
 <template>
-  <nav role="navigation" aria-label="Menu" :class="classes">
-    <div v-show="!isOpened" class="collapsed-menu">
-      <SmartLink class="clickable-parent" to="/" :aria-label="parseAriaLabel">
-        <div v-if="title" class="title">
+  <nav
+    role="navigation"
+    aria-label="Menu"
+    :class="classes"
+  >
+    <div
+      v-show="!isOpened"
+      class="collapsed-menu"
+    >
+      <SmartLink
+        class="clickable-parent"
+        to="/"
+        :aria-label="parseAriaLabel"
+      >
+        <div
+          v-if="title"
+          class="title"
+        >
           <span class="full-title"> {{ title }} </span>
-          <span v-if="acronym" class="acronym"> {{ acronym }} </span>
+          <span
+            v-if="acronym"
+            class="acronym"
+          > {{ acronym }} </span>
         </div>
-        <component :is="LogoLibrary" v-else width="155" height="55" class="logo-ucla" role="button" />
+        <component
+          :is="LogoLibrary"
+          v-else
+          width="155"
+          height="55"
+          class="logo-ucla"
+          role="button"
+        />
       </SmartLink>
-      <button role="button" class="open-menu" aria-label="Open menu" :is-opened="isOpened" @click="toggleMenu">
-        <component :is="IconMenu" class="hamburguer" />
-      </button>
+      <div class="more-menu">
+        <button
+          class="search-button"
+          role="button"
+          aria-label="Search button"
+          @click="toggleMenu"
+        >
+          <IconSearch class="icon-search" />
+        </button>
+        <button
+          role="button"
+          class="open-menu"
+          aria-label="Open menu"
+          :is-opened="isOpened"
+          @click="toggleMenu"
+        >
+          <component
+            :is="IconMenu"
+            class="hamburguer"
+          />
+        </button>
+      </div>
     </div>
-    <div v-show="isOpened" class="expanded-menu-container">
+    <div
+      v-show="isOpened"
+      class="expanded-menu-container"
+    >
       <div class="expanded-menu">
-        <SmartLink class="clickable-parent" to="/" :aria-label="parseAriaLabel" @click="toggleMenu">
-          <div v-if="title" class="title opened-title">
+        <SmartLink
+          class="clickable-parent"
+          to="/"
+          :aria-label="parseAriaLabel"
+          @click="toggleMenu"
+        >
+          <div
+            v-if="title"
+            class="title opened-title"
+          >
             <span class="full-title"> {{ title }} </span>
-            <span v-if="acronym" class="acronym">
+            <span
+              v-if="acronym"
+              class="acronym"
+            >
               {{ acronym }}
             </span>
           </div>
-          <component :is="LogoLibrary" v-else width="155" height="55" class="expanded-logo" @click="toggleMenu" />
+          <component
+            :is="LogoLibrary"
+            v-else
+            width="155"
+            height="55"
+            class="expanded-logo"
+            @click="toggleMenu"
+          />
         </SmartLink>
 
-        <button role="button" class="close-menu" aria-label="Close menu" @click="handleCloseOrReturn">
-          <component :is="parsedSvgName" class="close-svg" />
+        <button
+          role="button"
+          class="close-menu"
+          aria-label="Close menu"
+          @click="handleCloseOrReturn"
+        >
+          <component
+            :is="parsedSvgName"
+            class="close-svg"
+          />
         </button>
+      </div>
+      <div class="search-box">
+        <form
+          class="input-container-wrapper"
+          name="searchHome"
+          @submit.prevent=""
+        >
+          <div class="input-container">
+            <SearchInput
+              v-model="searchWords"
+              class="search-input"
+              @clear="submitSearch"
+              @keyup.enter="submitSearch"
+            />
+            <button
+              class="button-submit"
+              type="submit"
+              @click="submitSearch"
+            >
+              <IconSearch class="icon" />
+            </button>
+          </div>
+          <div class="divider" />
+        </form>
       </div>
       <ul class="nav-menu-primary">
         <NavMenuItemResponsive
-          v-for="(item, index) in parsedPrimaryMenuItems" :key="item.name" :item="item"
-          :index="index" :go-back="goBack" @should-open="shouldOpen" @item-opened-color="itemOpenedColor"
+          v-for="(item, index) in parsedPrimaryMenuItems"
+          :key="item.name"
+          :item="item"
+          :index="index"
+          :go-back="goBack"
+          @should-open="shouldOpen"
+          @item-opened-color="itemOpenedColor"
           @close-main-menu="toggleMenu"
         />
-        <li v-for="item in noChildren" :key="`nochildren-${item.name}`" class="nochildren-links">
-          <SmartLink class="nochildren-link" :to="item.to">
+        <li
+          v-for="item in noChildren"
+          :key="`nochildren-${item.name}`"
+          class="nochildren-links"
+        >
+          <SmartLink
+            class="nochildren-link"
+            :to="item.to"
+          >
             {{ item.name }}
           </SmartLink>
         </li>
       </ul>
-      <div v-if="isOpened && !title" class="nav-menu-secondary">
+      <div
+        v-if="isOpened && !title"
+        class="nav-menu-secondary"
+      >
         <ul class="list">
-          <li v-for="item in parsedSecondaryMenuItems" :key="item.name" class="list-item" @click="toggleMenu">
-            <SmartLink class="link underline-hover" :to="item.to" :link-target="item.target">
+          <li
+            v-for="item in parsedSecondaryMenuItems"
+            :key="item.name"
+            class="list-item"
+            @click="toggleMenu"
+          >
+            <SmartLink
+              class="link underline-hover"
+              :to="item.to"
+              :link-target="item.target"
+            >
               {{ item.name }}
             </SmartLink>
           </li>
         </ul>
       </div>
-      <div v-if="!title" class="support-us-container">
+      <div
+        v-if="!title"
+        class="support-us-container"
+      >
         <ButtonLink
-          v-if="supportLinks.length" :label="supportLinks[0].name" :is-secondary="true" class="button"
-          :to="supportLinks[0].to" icon-name="none" @click="toggleMenu"
+          v-if="supportLinks.length"
+          :label="supportLinks[0].name"
+          :is-secondary="true"
+          class="button"
+          :to="supportLinks[0].to"
+          icon-name="none"
+          @click="toggleMenu"
         />
       </div>
       <!-- moleculeColor class on this svg component does not do anything ask Axa -->
       <component
-        :is="Molecule3d" width="150" height="247" viewBox="50 57 50 250" class="molecule"
+        :is="Molecule3d"
+        width="150"
+        height="247"
+        viewBox="50 57 50 250"
+        class="molecule"
         :class="moleculeColor"
       />
     </div>
@@ -206,6 +352,20 @@ function toggleMenu() {
     justify-content: space-between;
     align-items: center;
 
+    .more-menu {
+      display: flex;
+      flex-direction: row;
+      align-self: flex-end;
+
+    }
+
+    .search-button {
+      background: none;
+      border: none;
+      padding: unset;
+      padding-top: 5px;
+    }
+
     .hamburguer {
       cursor: pointer;
     }
@@ -222,6 +382,50 @@ function toggleMenu() {
 
   .expanded-menu-container {
     overflow-y: auto;
+  }
+
+  .search-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .input-container-wrapper {
+    width: 90%
+  }
+
+  .input-container {
+    display: flex;
+    background-color: var(--color-primary-blue-01);
+    border-color: transparent;
+    height: 60px;
+
+    .icon {
+      &:hover {
+        :deep(.svg__fill--primary-blue-03) {
+          fill: var(--color-default-cyan-03);
+        }
+      }
+    }
+
+    .search-input {
+      flex-grow: 1;
+    }
+
+    :deep(.search-input-wrapper input[data-search-input=true]) {
+      padding: 15px 20px;
+    }
+
+    .button-submit {
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+    }
+  }
+
+  .divider {
+    margin-top: 16px;
+    border-bottom: 2px solid var(--color-default-cyan-03);
+    height: 1px;
   }
 
   .expanded-menu {

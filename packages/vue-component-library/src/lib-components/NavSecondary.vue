@@ -5,6 +5,8 @@ import { computed, onMounted, ref, toRefs, watch } from 'vue'
 import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
+import SearchMenuItem from '@/lib-components/SearchMenuItem.vue'
+import { useTheme } from '@/composables/useTheme'
 
 // types
 import type { NavSecondaryItemType } from '@/types/types'
@@ -18,6 +20,21 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+})
+
+const theme = useTheme()
+const themeSettings = computed(() => {
+  switch (theme?.value) {
+    case 'meap':
+      return {
+        showSearch: false
+
+      }
+    default:
+      return {
+        showSearch: true
+      }
+  }
 })
 
 const { items, isMicrosite } = toRefs(props)
@@ -134,6 +151,11 @@ const accountLink = computed(() => {
             </SmartLink>
           </li>
         </ul>
+        <!-- 🔍 Add the new search overlay component -->
+        <SearchMenuItem
+          v-if="themeSettings.showSearch"
+          class="search-dropdown"
+        />
       </div>
     </div>
   </nav>
@@ -192,6 +214,10 @@ const accountLink = computed(() => {
   .support-link {
     font-weight: $font-weight-medium;
     color: var(--color-primary-blue-04);
+  }
+
+  .search-dropdown {
+    margin-left: 40px;
   }
 
   :deep(.account-button) {

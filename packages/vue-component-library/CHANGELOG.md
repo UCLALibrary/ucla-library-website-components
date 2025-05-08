@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.15.1...@ucla-library-monorepo/ucla-library-website-components-v1.16.0) (2025-05-08)
+
+
+### Features
+
+* APPS-1976 Add search Main library website navigation ([#728](https://github.com/UCLALibrary/ucla-library-website-components/issues/728)) ([a472633](https://github.com/UCLALibrary/ucla-library-website-components/commit/a47263328efefc148d056956e0466a5a1bcf9402))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.15.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.15.0...@ucla-library-monorepo/ucla-library-website-components-v1.15.1) (2025-05-07)
 
 
