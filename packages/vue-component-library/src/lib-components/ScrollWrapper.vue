@@ -23,6 +23,21 @@ const classes = computed(() => {
 
 <style lang="scss" scoped>
 .scroll-wrapper {
+    // ensure links are clickable
+    :deep(.block-highlight) {
+        .card-meta {
+        a.title {
+            display: contents; // links in a flexbox that are partially scrolled offscreen will still work
+            // overwrite styles from @include card-clickable-area to prevent after element from blocking the link
+            &::after {
+              top: auto;
+              right: auto;
+              bottom: auto;
+              left: auto
+            }
+        }
+      }
+    }
     // move arrows on top of content
     position: relative;
     :deep(.v-slide-group__prev) {
