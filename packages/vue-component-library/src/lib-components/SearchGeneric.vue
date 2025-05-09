@@ -65,7 +65,7 @@ watch(() => searchGenericQuery, (newQueryFilters) => {
   searchWords.value = newQueryFilters.queryText
 }, { deep: true, immediate: true })
 
-watch(() => () => route.query, (newRouteQuery) => {
+watch(() => route.query, (newRouteQuery) => {
   console.log(' watcher route.query', newRouteQuery)
   // selectedFilters.value = newQueryFilters.queryFilters
   if (searchGenericQuery.queryText === route.query.q)
@@ -147,7 +147,7 @@ function doSearch() {
     />
     <div style="margin: 20px;display:none">
       <h4>SearhWords</h4>
-      {{ searchWords }}
+      <h5>heello {{ searchWords }}</h5>
       <h4>router query</h4>
       {{ searchGenericQuery }}
       <h4>filters for the page</h4>
