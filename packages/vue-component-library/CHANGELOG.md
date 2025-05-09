@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.0...@ucla-library-monorepo/ucla-library-website-components-v1.16.1) (2025-05-09)
+
+
+### Bug Fixes
+
+* APPS-3305 Fix missing FTVA FlexBlock CardWithImage default image ([#733](https://github.com/UCLALibrary/ucla-library-website-components/issues/733)) ([542b601](https://github.com/UCLALibrary/ucla-library-website-components/commit/542b601cceec14b1ab6a41d79fad91d26840020c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.16.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.15.1...@ucla-library-monorepo/ucla-library-website-components-v1.16.0) (2025-05-08)
 
 
