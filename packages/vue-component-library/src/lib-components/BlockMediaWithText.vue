@@ -56,8 +56,8 @@ const SvgIconPlayFilled = defineAsyncComponent(() =>
   import(
     'ucla-library-design-tokens/assets/svgs/icon-play-filled.svg'
   ))
-// const SmartLink = defineAsyncComponent(() =>
-// import('@/lib-components/SmartLink.vue'))
+const SmartLink = defineAsyncComponent(() =>
+  import('@/lib-components/SmartLink.vue'))
 const ButtonLink = defineAsyncComponent(() =>
   import('@/lib-components/ButtonLink.vue'))
 const MediaItem = defineAsyncComponent(() =>
@@ -148,7 +148,6 @@ const parsedIsDownload = computed(() => {
         v-html="shortDescription"
       />
 
-      <!-- Condition for FTVA -->
       <ButtonLink
         v-if="buttonUrl && theme !== 'ftva'"
         class="button"

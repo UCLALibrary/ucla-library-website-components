@@ -137,10 +137,21 @@ export function NoImage() {
   }
 }
 
+const parsedFTVAData = computed(() => {
+  const imageKind = { kind: 'image' }
+
+  const parsedFTVAImage = [{ ...mockFTVA.ftvaImage[0], ...imageKind }]
+
+  return {
+    ...mockFTVA,
+    ftvaImage: parsedFTVAImage
+  }
+})
+
 export function FTVADefault() {
   return {
     data() {
-      return { ...mockFTVA }
+      return { parsedFTVAData }
     },
     provide() {
       return {
@@ -150,12 +161,11 @@ export function FTVADefault() {
     components: { BlockMediaWithText },
     template: `
         <block-media-with-text
-            :section-header="mediaWithText[0].titleLink"
-            :short-description="mediaWithText[0].description"
-            :button-text="mediaWithText[0].buttonText"
-            :button-url="mediaWithText[0].buttonUrl"
-            :item="mediaWithText[0].coverImage"
-            :type-media="mediaWithText[0].typeMedia"
+            :section-header="parsedFTVAData.title"
+            :short-description="parsedFTVAData.description"
+            button-text="Linked Text"
+            :button-url="parsedFTVAData.uri"
+            :item="parsedFTVAData.ftvaImage"
         />
     `,
   }
