@@ -1,4 +1,6 @@
-import { mock } from './mock/BlockMediaWithText'
+import { computed } from 'vue'
+
+import { mock, mockFTVA } from './mock/BlockMediaWithText'
 import * as MEDIA from './mock/Media'
 import BlockMediaWithText from '@/lib-components/BlockMediaWithText'
 
@@ -129,6 +131,30 @@ export function NoImage() {
             :short-description="mediaWithText[0].description"
             :button-text="mediaWithText[0].buttonText"
             :button-url="mediaWithText[0].buttonUrl"
+            :type-media="mediaWithText[0].typeMedia"
+        />
+    `,
+  }
+}
+
+export function FTVADefault() {
+  return {
+    data() {
+      return { ...mockFTVA }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockMediaWithText },
+    template: `
+        <block-media-with-text
+            :section-header="mediaWithText[0].titleLink"
+            :short-description="mediaWithText[0].description"
+            :button-text="mediaWithText[0].buttonText"
+            :button-url="mediaWithText[0].buttonUrl"
+            :item="mediaWithText[0].coverImage"
             :type-media="mediaWithText[0].typeMedia"
         />
     `,

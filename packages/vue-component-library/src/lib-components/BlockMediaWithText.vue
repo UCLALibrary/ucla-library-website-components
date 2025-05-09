@@ -147,14 +147,23 @@ const parsedIsDownload = computed(() => {
         class="short-description"
         v-html="shortDescription"
       />
+
+      <!-- Condition for FTVA -->
       <ButtonLink
-        v-if="buttonUrl"
+        v-if="buttonUrl && theme !== 'ftva'"
         class="button"
         :to="buttonUrl"
         :label="buttonText"
         :is-secondary="true"
         :is-download="parsedIsDownload"
       />
+      <SmartLink
+        v-else
+        :to="buttonUrl"
+        class="text-link"
+      >
+        {{ buttonText }}
+      </SmartLink>
     </div>
 
     <MediaItem

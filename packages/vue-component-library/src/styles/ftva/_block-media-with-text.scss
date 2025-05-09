@@ -1,1 +1,63 @@
-.ftva.media-with-text {}
+.ftva.media-with-text {
+  align-items: stretch;
+
+  .media-item {
+    order: 1;
+    flex-basis: 51%;
+
+    :deep(.media-image) {
+      -o-object-fit: cover;
+      object-fit: cover !important;
+    }
+  }
+  
+  .text-grouping {
+    order: 2;
+    flex-basis: 49%;
+    margin-right: 0;
+    padding: 40px;
+  }
+
+  .section-header {
+    @include ftva-card-title-1;
+    color: $heading-grey;
+  }
+
+  .short-description {
+    @include ftva-body;
+    @include truncate(3);
+    color: $body-grey;
+  }
+
+  .text-link {
+    @include ftva-button-link;
+    color: #{$medium-grey};
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    -webkit-text-decoration-color: #{$grey-blue};
+    text-decoration-color: #{$grey-blue};
+    text-underline-offset: 4px;
+
+    &:hover {
+      -webkit-text-decoration-color: #{$bright-blue};
+      text-decoration-color: #{$bright-blue};
+    }
+  }
+
+    @media #{$medium} {
+      .media, .no-media {
+        width: 100%;
+      }
+    }
+
+  @media #{$small} {
+    .meta {
+      display: block;
+      flex-basis: 100%;
+    }
+
+    .meta-mobile {
+      display: none;
+    }
+  }
+}
