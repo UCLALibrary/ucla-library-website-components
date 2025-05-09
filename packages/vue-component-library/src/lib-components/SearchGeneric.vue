@@ -3,7 +3,8 @@ import type { PropType } from 'vue'
 
 // components and SVG's
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import SearchGenericFilters from './SearchGenericFilters.vue'
 import SearchInput from './SearchInput.vue'
 
@@ -48,13 +49,27 @@ const { filters, searchGenericQuery, placeholder } = defineProps({
 })
 
 const emit = defineEmits(['search-ready'])
-
-const searchWords = ref(searchGenericQuery ? searchGenericQuery.queryText : '') // this.$route.query.q
+const route = useRoute()
+const searchWords = ref<string>(Array.isArray(route.query.q) ? route.query.q[0] || '' : route.query.q || '') // this.$route.query.q
 const selectedFilters = ref(searchGenericQuery ? searchGenericQuery.queryFilters : {})
 
+onMounted(() => {
+  console.log('On mOunted searchGenericQuery', searchGenericQuery)
+  console.log('searchWords', searchWords.value)
+  console.log('selectedFilters', selectedFilters.value)
+  searchWords.value = searchGenericQuery.queryText
+})
 watch(() => searchGenericQuery, (newQueryFilters) => {
+  console.log(' watcher searchGenericQuery', newQueryFilters)
   selectedFilters.value = newQueryFilters.queryFilters
   searchWords.value = newQueryFilters.queryText
+}, { deep: true, immediate: true })
+
+watch(() => () => route.query, (newRouteQuery) => {
+  console.log(' watcher route.query', newRouteQuery)
+  // selectedFilters.value = newQueryFilters.queryFilters
+  if (searchGenericQuery.queryText === route.query.q)
+    searchWords.value = route.query.q
 }, { deep: true, immediate: true })
 /* watch: {
 
@@ -102,10 +117,6 @@ function doSearch() {
   <!-- TODO Need to create a BaseCalendarGroup Component -->
   <!-- TODO Need to style this for Mobile -->
   <div class="search-generic">
-    <!-- <h4>router query</h4>
-      {{ searchGenericQuery }}
-      <h4>filters for the page</h4>
-      {{ filters }} -->
     <form
       name="searchHome"
       @submit.prevent=""
@@ -134,6 +145,14 @@ function doSearch() {
       @update:query-filters="updateQueryFilters"
       @filters-selection-action="doSearch"
     />
+    <div style="margin: 20px;display:none">
+      <h4>SearhWords</h4>
+      {{ searchWords }}
+      <h4>router query</h4>
+      {{ searchGenericQuery }}
+      <h4>filters for the page</h4>
+      {{ filters }}
+    </div>
   </div>
 </template>
 
