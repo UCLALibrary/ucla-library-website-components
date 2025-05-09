@@ -64,6 +64,15 @@ watch(() => searchGenericQuery, (newQueryFilters) => {
   selectedFilters.value = newQueryFilters.queryFilters
   searchWords.value = newQueryFilters.queryText
 }, { deep: true, immediate: true })
+
+watch(() => () => route.query, (newRouteQuery) => {
+  console.log(' watcher route.query', newRouteQuery)
+  // selectedFilters.value = newQueryFilters.queryFilters
+  if (searchGenericQuery.queryText === route.query.q) {
+    searchWords.value = route.query.q
+  }
+
+}, { deep: true, immediate: true })
 /* watch: {
 
   "searchGenericQuery.queryText"(newVal, oldVal) {
