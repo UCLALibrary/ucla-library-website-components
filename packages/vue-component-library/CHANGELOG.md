@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.1...@ucla-library-monorepo/ucla-library-website-components-v1.16.2) (2025-05-09)
+
+
+### Bug Fixes
+
+* nav search issue ([#735](https://github.com/UCLALibrary/ucla-library-website-components/issues/735)) ([559cd23](https://github.com/UCLALibrary/ucla-library-website-components/commit/559cd2397f5c254bf8b91c922fab29ae0312dc9a))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.16.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.0...@ucla-library-monorepo/ucla-library-website-components-v1.16.1) (2025-05-09)
 
 
