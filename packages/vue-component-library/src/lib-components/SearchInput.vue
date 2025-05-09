@@ -88,6 +88,8 @@ const showClearIcon = computed(() => {
 })
 
 onMounted(() => {
+  console.log('props.modelValue', props.modelValue)
+  console.log('searchInputModelValue', searchInputModelValue.value)
   window.document.addEventListener('keydown', onDocumentKeydown)
 })
 
