@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.2...@ucla-library-monorepo/ucla-library-website-components-v1.16.3) (2025-05-09)
+
+
+### Bug Fixes
+
+*  watcher argument  ([#736](https://github.com/UCLALibrary/ucla-library-website-components/issues/736)) ([7ccfa48](https://github.com/UCLALibrary/ucla-library-website-components/commit/7ccfa48b5c5aeedd52e98e02f9d95492ba351b03))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.16.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.1...@ucla-library-monorepo/ucla-library-website-components-v1.16.2) (2025-05-09)
 
 
