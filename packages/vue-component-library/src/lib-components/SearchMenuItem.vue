@@ -51,6 +51,7 @@ function closeSearch() {
 const router = useRouter()
 
 function submitSearch() {
+  closeSearch()
   router.push({
     path: themeSettings.value.url,
     query: { [themeSettings.value.queryParam as string]: searchWords.value },
