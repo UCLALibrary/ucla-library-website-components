@@ -4,6 +4,7 @@
 >
 import type { PropType } from 'vue'
 import { computed } from 'vue'
+import { useTheme } from '@/composables/useTheme'
 
 // COMPONENTS
 import BlockMediaWithText from '@/lib-components/BlockMediaWithText.vue'
@@ -37,10 +38,16 @@ const parsedContent = computed(() => {
     }
   })
 })
+
+const theme = useTheme()
+
+const classes = computed(() => {
+  return ['section-media-with-text', theme?.value || '']
+})
 </script>
 
 <template>
-  <div class="section-media-with-text">
+  <div :class="classes">
     <div class="flexible-page-block-container">
       <h2 class="visually-hidden">
         Resources
