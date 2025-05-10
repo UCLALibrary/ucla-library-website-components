@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref, useAttrs } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, useAttrs, watch } from 'vue'
 
 defineOptions({
   inheritAttrs: true,
@@ -92,6 +92,14 @@ onMounted(() => {
   console.log('searchInputModelValue', searchInputModelValue.value)
   window.document.addEventListener('keydown', onDocumentKeydown)
 })
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    console.log('in search input watch', newVal)
+    searchInputModelValue.value = newVal
+  },
+  { immediate: true }
+)
 
 onBeforeUnmount(() => {
   window.document.removeEventListener('keydown', onDocumentKeydown)
