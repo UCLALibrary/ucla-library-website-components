@@ -1,3 +1,24 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.3...@ucla-library-monorepo/ucla-library-website-components-v1.16.4) (2025-05-10)
+
+
+### Bug Fixes
+
+* add a watcher to searchinput ([#738](https://github.com/UCLALibrary/ucla-library-website-components/issues/738)) ([4f156d8](https://github.com/UCLALibrary/ucla-library-website-components/commit/4f156d8e9d70accf05a7dd8b96534cc6ef447a13))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.2...@ucla-library-monorepo/ucla-library-website-components-v1.16.3) (2025-05-09)
+
+
+### Bug Fixes
+
+*  watcher argument  ([#736](https://github.com/UCLALibrary/ucla-library-website-components/issues/736)) ([7ccfa48](https://github.com/UCLALibrary/ucla-library-website-components/commit/7ccfa48b5c5aeedd52e98e02f9d95492ba351b03))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.1...@ucla-library-monorepo/ucla-library-website-components-v1.16.2) (2025-05-09)
+
+
+### Bug Fixes
+
+* nav search issue ([#735](https://github.com/UCLALibrary/ucla-library-website-components/issues/735)) ([559cd23](https://github.com/UCLALibrary/ucla-library-website-components/commit/559cd2397f5c254bf8b91c922fab29ae0312dc9a))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.16.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.0...@ucla-library-monorepo/ucla-library-website-components-v1.16.1) (2025-05-09)
 
 
