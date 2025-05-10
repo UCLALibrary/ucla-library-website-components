@@ -105,11 +105,6 @@ const parsedIsDownload = computed(() => {
         v-html="sectionHeader"
       />
       <div class="meta-mobile">
-        <!-- <smart-link
-          v-if="mediaLink"
-          :to="mediaLink"
-          class="media-link"
-        > -->
         <MediaItem
           v-if="item || coverImage"
           :item="item"
@@ -118,7 +113,6 @@ const parsedIsDownload = computed(() => {
           class="media-mobile"
           @click="showLightbox = true"
         />
-        <!-- </smart-link> -->
         <div
           v-if="!(item || coverImage)"
           class="no-media-mobile"
