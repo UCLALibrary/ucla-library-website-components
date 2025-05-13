@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import _uniq from 'lodash/uniq'
 import SvgIconCheckbox from 'ucla-library-design-tokens/assets/svgs/icon-checkbox.svg'
@@ -27,6 +27,12 @@ watch(() => props.selected, (newSelected) => {
   parsedSelected.value = _uniq([...newSelected])
   console.log('BaseCheckboxGroup parsedSelected', parsedSelected.value)
 }, { immediate: true })
+
+onMounted(() => {
+  console.log('BaseCheckboxGroup mounted')
+  parsedSelected.value = _uniq([...props.selected])
+  console.log('BaseCheckboxGroup parsedSelected', parsedSelected.value)
+})
 
 function onChange(itemName: string) {
   const index = parsedSelected.value.indexOf(itemName)

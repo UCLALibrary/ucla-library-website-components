@@ -24,6 +24,8 @@ const filteredFilters = ref<Item>({})
 
 watch(() => filters, (newFilters) => {
   console.log('SectionRemoveSearchFilters filters', newFilters)
+  if (newFilters === null || newFilters === undefined || Object.keys(newFilters).length === 0)
+    filteredFilters.value = {}
   Object.entries(newFilters).forEach(([key, value]) => {
     filteredFilters.value[key] = value
   })
