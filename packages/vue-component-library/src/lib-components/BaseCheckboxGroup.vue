@@ -1,8 +1,5 @@
-<script
-  lang="ts"
-  setup
->
-import { ref } from 'vue'
+<script lang="ts" setup>
+import { ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import _uniq from 'lodash/uniq'
 import SvgIconCheckbox from 'ucla-library-design-tokens/assets/svgs/icon-checkbox.svg'
@@ -24,6 +21,12 @@ const props = defineProps({
 
 const emit = defineEmits(['update:selected', 'input-selected'])
 const parsedSelected = ref<string[]>(_uniq([...props.selected]))
+
+watch(() => props.selected, (newSelected) => {
+  console.log('BaseCheckboxGroup selected', newSelected)
+  parsedSelected.value = _uniq([...newSelected])
+  console.log('BaseCheckboxGroup parsedSelected', parsedSelected.value)
+}, { immediate: true })
 
 function onChange(itemName: string) {
   const index = parsedSelected.value.indexOf(itemName)
@@ -61,10 +64,7 @@ function onChange(itemName: string) {
   </fieldset>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .base-checkbox-group {
   font-size: 18px;
   color: var(--color-white);
