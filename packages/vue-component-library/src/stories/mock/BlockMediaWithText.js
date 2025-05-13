@@ -33,10 +33,9 @@ export const mock = {
 
 export const mockFTVA = {
   id: '13670',
-  title: 'FTVA Media with Text',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-  uri: 'events/la-région-centrale-03-08-24',
-  ftvaImage: [
+  titleLink: 'FTVA Media with Text',
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  coverImage: [
     {
       id: '3701680',
       src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/pinkcloud-crop.png',
@@ -49,5 +48,7 @@ export const mockFTVA = {
         0.5
       ],
     }
-  ]
+  ],
+  buttonText: 'Linked destination',
+  buttonUrl: 'events/la-région-centrale-03-08-24'
 }

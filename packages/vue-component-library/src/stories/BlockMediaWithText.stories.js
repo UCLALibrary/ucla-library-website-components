@@ -137,22 +137,10 @@ export function NoImage() {
   }
 }
 
-// The 'kind' key appears to be needed by the MediaItem component that renders images in this component; without there's an empty space where the image should be. But this key is not a part of the data structure for images in FTVA; it will have to be added manually when MediaWithText is used for the theme.
-const parsedFTVAData = computed(() => {
-  const imageKind = { kind: 'image' }
-
-  const parsedFTVAImage = [{ ...mockFTVA.ftvaImage[0], ...imageKind }]
-
-  return {
-    ...mockFTVA,
-    ftvaImage: parsedFTVAImage
-  }
-})
-
 export function FTVADefault() {
   return {
     data() {
-      return { parsedFTVAData }
+      return { ...mockFTVA }
     },
     provide() {
       return {
@@ -162,11 +150,11 @@ export function FTVADefault() {
     components: { BlockMediaWithText },
     template: `
         <block-media-with-text
-            :section-header="parsedFTVAData.title"
-            :short-description="parsedFTVAData.description"
-            button-text="Linked Text"
-            :button-url="parsedFTVAData.uri"
-            :item="parsedFTVAData.ftvaImage"
+            :section-header="titleLink"
+            :short-description="description"
+            :button-text="buttonText"
+            :button-url="buttonUrl"
+            :cover-image="coverImage"
         />
     `,
   }
