@@ -23,9 +23,11 @@ const theme = useTheme()
 const filteredFilters = ref<Item>({})
 
 watch(() => filters, (newFilters) => {
+  console.log('SectionRemoveSearchFilters filters', newFilters)
   Object.entries(newFilters).forEach(([key, value]) => {
     filteredFilters.value[key] = value
   })
+  console.log('SectionRemoveSearchFilters filters', filteredFilters.value)
 }, { deep: true, immediate: true })
 
 const parsedFilters = computed(() => {
@@ -63,7 +65,7 @@ function closeBlockFilter(esfieldName: string, label: string | boolean) {
             filter.name,
             filter.value,
           )
-        "
+          "
       />
     </div>
   </div>
