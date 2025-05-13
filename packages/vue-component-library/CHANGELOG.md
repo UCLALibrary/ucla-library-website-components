@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.6...@ucla-library-monorepo/ucla-library-website-components-v1.16.7) (2025-05-13)
+
+
+### Bug Fixes
+
+* reset remove filter list and add onmounted in basecheckboxgroup ([#741](https://github.com/UCLALibrary/ucla-library-website-components/issues/741)) ([ab8c4d9](https://github.com/UCLALibrary/ucla-library-website-components/commit/ab8c4d98695f128a4696c77ad03646d6190a6c6d))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.16.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.5...@ucla-library-monorepo/ucla-library-website-components-v1.16.6) (2025-05-13)
 
 
