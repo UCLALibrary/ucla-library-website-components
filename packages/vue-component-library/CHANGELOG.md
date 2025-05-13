@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.4...@ucla-library-monorepo/ucla-library-website-components-v1.16.5) (2025-05-13)
+
+
+### Bug Fixes
+
+* reset querydropdownqueryFilterButtonDropDownStates when newQueryFilters is empty ([#739](https://github.com/UCLALibrary/ucla-library-website-components/issues/739)) ([55f1c6e](https://github.com/UCLALibrary/ucla-library-website-components/commit/55f1c6e07303d29098c124672845b294b328a479))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.16.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.3...@ucla-library-monorepo/ucla-library-website-components-v1.16.4) (2025-05-10)
 
 
