@@ -730,6 +730,59 @@ export const mockFlexibleBlocks = [
     ]
   },
 
+  // MEDIA WITH TEXT
+  {
+    id: '3726206',
+    typeHandle: 'mediaWithText',
+    sectionTitle: 'FTVA Media with Text',
+    sectionSummary: null,
+    mediaWithText: [
+      {
+        id: '13670',
+        titleLink: 'FTVA Media with Text',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        buttonText: 'Linked Destination',
+        buttonUrl: 'events/la-région-centrale-03-08-24',
+        coverImage: [
+          {
+            id: '3701680',
+            src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/pinkcloud-crop.png',
+            height: 1920,
+            width: 2560,
+            srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/pinkcloud-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/pinkcloud-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/pinkcloud-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/pinkcloud-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/pinkcloud-crop.png 2560w',
+            alt: 'A woman writing on a window.',
+            // kind: 'image',
+            focalPoint: [
+              0.5,
+              0.5
+            ],
+          }
+        ]
+      },
+      {
+        id: '13670',
+        titleLink: 'FTVA Media with Text',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        buttonText: 'Linked Destination',
+        buttonUrl: 'events/la-région-centrale-03-08-24',
+        coverImage: [
+          {
+            id: '3701680',
+            src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/pinkcloud-crop.png',
+            height: 1920,
+            width: 2560,
+            srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/pinkcloud-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/pinkcloud-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/pinkcloud-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/pinkcloud-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/pinkcloud-crop.png 2560w',
+            alt: 'A woman writing on a window.',
+            focalPoint: [
+              0.5,
+              0.5
+            ],
+          }
+        ]
+      }
+    ]
+  },
+
   // CALL TO ACTION
   {
     id: '2930617',
