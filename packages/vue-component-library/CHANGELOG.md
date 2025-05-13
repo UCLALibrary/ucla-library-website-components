@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.5...@ucla-library-monorepo/ucla-library-website-components-v1.16.6) (2025-05-13)
+
+
+### Bug Fixes
+
+* Reset filters part1 ([#740](https://github.com/UCLALibrary/ucla-library-website-components/issues/740)) ([c2f6af8](https://github.com/UCLALibrary/ucla-library-website-components/commit/c2f6af88add4f81c37373766068956ab1402524c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.16.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.4...@ucla-library-monorepo/ucla-library-website-components-v1.16.5) (2025-05-13)
 
 
