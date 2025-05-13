@@ -181,10 +181,7 @@ onClickOutside(clickOutsideTarget,
     </div>
     <div style="margin: 20px;display:none">
       <h4>Filters</h4>
-
       {{ queryFilterButtonDropDownStates }}
-      <h4>filters for the page</h4>
-      {{ filters }}
     </div>
 
     <!-- SectionRemoveSearchFilter

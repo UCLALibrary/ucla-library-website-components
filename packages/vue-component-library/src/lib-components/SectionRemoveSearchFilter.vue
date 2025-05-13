@@ -65,7 +65,7 @@ function closeBlockFilter(esfieldName: string, label: string | boolean) {
             filter.name,
             filter.value,
           )
-          "
+        "
       />
     </div>
   </div>
