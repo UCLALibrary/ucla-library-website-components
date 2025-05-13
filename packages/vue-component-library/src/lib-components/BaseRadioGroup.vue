@@ -22,12 +22,12 @@ const emit = defineEmits(['update:selected', 'input-selected'])
 
 const parsedSelected = ref<string>(selected && selected.length > 0 ? selected[0] : '')
 watch(() => selected, (newSelected) => {
-  console.log('BaseRadioGroup selected', newSelected)
+  // console.log('BaseRadioGroup selected', newSelected)
   parsedSelected.value = newSelected && newSelected.length > 0 ? newSelected[0] : ''
-  console.log('BaseRadioGroup parsedSelected', parsedSelected.value)
+  // console.log('BaseRadioGroup parsedSelected', parsedSelected.value)
 }, { immediate: true })
 function onChange(value: string) {
-  console.log('what is slected', value)
+  // console.log('what is slected', value)
   emit('update:selected', [value])
   emit('input-selected')
 }

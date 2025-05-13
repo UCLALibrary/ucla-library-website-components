@@ -179,16 +179,6 @@ onClickOutside(clickOutsideTarget,
         />
       </transition>
     </div>
-    <div style="margin: 20px;display:none">
-      <h4>Filters</h4>
-      {{ queryFilterButtonDropDownStates }}
-    </div>
-
-    <!-- SectionRemoveSearchFilter
-      v-model:filters="queryFilterButtonDropDownStates"
-      class="section-remove-container"
-      @remove-selected="doSearch"
-    / -->
     <SectionRemoveSearchFilter
       :filters="queryFilterButtonDropDownStates"
       class="section-remove-container"
