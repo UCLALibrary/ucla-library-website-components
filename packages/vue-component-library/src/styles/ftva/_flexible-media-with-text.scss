@@ -1,0 +1,23 @@
+.ftva.section-media-with-text{
+  .flexible-page-block-container {
+    max-width: inherit;
+  }
+
+  .section-title {
+    @include ftva-h3;
+    color: $body-grey;
+    margin-bottom: 0;
+  }
+
+  @media #{$medium} {
+    .flexible-page-block-container {
+      padding: 0;
+    }
+  }
+
+    @media #{$small} {
+    .flexible-page-block-container {
+      padding: 0;
+    }
+  }
+}

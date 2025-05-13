@@ -51,17 +51,6 @@ WithControls.args = {
   block: mock,
 }
 
-const parsedFTVAData = computed(() => {
-  // const imageKind = { kind: 'image' }
-
-  // const parsedFTVAImage = [{ ...mockFTVA.ftvaImage[0], ...imageKind }]
-
-  // return {
-  //   ...mockFTVA,
-  //   ftvaImage: parsedFTVAImage
-  // }
-})
-
 export function FTVADefault() {
   return {
     data() {
