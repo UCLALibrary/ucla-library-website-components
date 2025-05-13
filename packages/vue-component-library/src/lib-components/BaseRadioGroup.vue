@@ -1,8 +1,5 @@
-<script
-  lang="ts"
-  setup
->
-import { ref } from 'vue'
+<script lang="ts" setup>
+import { ref, watch } from 'vue'
 import type { PropType } from 'vue'
 import SvgIconRadioButton from 'ucla-library-design-tokens/assets/svgs/icon-radio-button.svg'
 
@@ -24,7 +21,11 @@ const { items, selected } = defineProps({
 const emit = defineEmits(['update:selected', 'input-selected'])
 
 const parsedSelected = ref<string>(selected && selected.length > 0 ? selected[0] : '')
-
+watch(() => selected, (newSelected) => {
+  console.log('BaseRadioGroup selected', newSelected)
+  parsedSelected.value = newSelected && newSelected.length > 0 ? newSelected[0] : ''
+  console.log('BaseRadioGroup parsedSelected', parsedSelected.value)
+}, { immediate: true })
 function onChange(value: string) {
   console.log('what is slected', value)
   emit('update:selected', [value])
@@ -58,10 +59,7 @@ function onChange(value: string) {
   </fieldset>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .base-radio-group {
   font-size: 18px;
   color: var(--color-white);

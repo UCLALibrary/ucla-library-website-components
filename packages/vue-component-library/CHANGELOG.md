@@ -1,3 +1,24 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.6...@ucla-library-monorepo/ucla-library-website-components-v1.16.7) (2025-05-13)
+
+
+### Bug Fixes
+
+* reset remove filter list and add onmounted in basecheckboxgroup ([#741](https://github.com/UCLALibrary/ucla-library-website-components/issues/741)) ([ab8c4d9](https://github.com/UCLALibrary/ucla-library-website-components/commit/ab8c4d98695f128a4696c77ad03646d6190a6c6d))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.5...@ucla-library-monorepo/ucla-library-website-components-v1.16.6) (2025-05-13)
+
+
+### Bug Fixes
+
+* Reset filters part1 ([#740](https://github.com/UCLALibrary/ucla-library-website-components/issues/740)) ([c2f6af8](https://github.com/UCLALibrary/ucla-library-website-components/commit/c2f6af88add4f81c37373766068956ab1402524c))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.4...@ucla-library-monorepo/ucla-library-website-components-v1.16.5) (2025-05-13)
+
+
+### Bug Fixes
+
+* reset querydropdownqueryFilterButtonDropDownStates when newQueryFilters is empty ([#739](https://github.com/UCLALibrary/ucla-library-website-components/issues/739)) ([55f1c6e](https://github.com/UCLALibrary/ucla-library-website-components/commit/55f1c6e07303d29098c124672845b294b328a479))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.16.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.3...@ucla-library-monorepo/ucla-library-website-components-v1.16.4) (2025-05-10)
 
 
