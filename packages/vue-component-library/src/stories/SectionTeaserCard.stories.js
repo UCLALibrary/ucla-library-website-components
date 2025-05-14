@@ -390,8 +390,6 @@ export function FTVACollectionItems() {
   }
 }
 
-// TODO get gql for cardwithimage set with new style data
-// mock that data here
 export function FTVAHorizontalScrollCardWithImage() {
   return {
     data() {

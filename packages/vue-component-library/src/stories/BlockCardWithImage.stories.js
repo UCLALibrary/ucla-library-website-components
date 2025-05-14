@@ -430,8 +430,50 @@ WhiteBackgroundStyle.args = {
   theme: 'ftva',
 }
 
-export const NoBackgroundStyle = Template.bind({})
-NoBackgroundStyle.args = {
-  color: 'noBackground',
-  theme: 'ftva',
+export function NoBackgroundStyle() {
+  return {
+    data() {
+      return {
+        ...mock,
+        color: 'noBackground',
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockCardWithImage },
+    template: `
+      <component is="style" type="text/css">
+    .white-icon > path {
+      fill: white;
+    }
+      .colored-background {
+        background-color: #e7edf2;
+        padding: 20px;
+        height: 100%;
+        width: 100vw;
+      }
+    </component>
+    <div class="colored-background">
+    <block-card-with-image
+        :image="image"
+        :to="to"
+        :category="category"
+        :title="title"
+        :text="text"
+        :image-aspect-ratio="imageAspectRatio"
+        :locations="locations"
+        :alternativeFullName="alternativeFullName"
+        :language="language"
+        :section-handle="sectionHandle"
+        :date-created="dateCreated"
+        :byline-one="bylineOne"
+        :byline-two="bylineTwo"
+        :color="color"
+    />
+      </div>
+    `,
+  }
 }

@@ -117,10 +117,6 @@
     // Colors
     // - use the 'color' prop to use these styles
     // - do not add css rules below this section or it could overwrite these colors
-
-    // &.horizontalScroll {
-    // }
-
     &.blueBackground {
         background: $page-blue;
     }
@@ -130,6 +126,9 @@
     }
 
     &.noBackground {
-        background: transparent;
+        background: transparent !important; // required to override the white background color set by the flexibleblocks 'theme'
+        :deep(.media), :deep(.image-container > .molecule-no-image) {
+            border-radius: 10px 10px 10px 10px;   
+        }
     }
 }
