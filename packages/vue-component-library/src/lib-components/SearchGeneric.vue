@@ -54,40 +54,22 @@ const searchWords = ref<string>(Array.isArray(route.query.q) ? route.query.q[0] 
 const selectedFilters = ref(searchGenericQuery ? searchGenericQuery.queryFilters : {})
 
 onMounted(() => {
-  console.log('On mOunted searchGenericQuery', searchGenericQuery)
-  console.log('searchWords', searchWords.value)
-  console.log('selectedFilters', selectedFilters.value)
+  // console.log('On mOunted searchGenericQuery', searchGenericQuery)
+  // console.log('searchWords', searchWords.value)
+  // console.log('selectedFilters', selectedFilters.value)
   searchWords.value = searchGenericQuery.queryText
 })
 watch(() => searchGenericQuery, (newQueryFilters) => {
-  console.log(' watcher searchGenericQuery', newQueryFilters)
+  // console.log(' watcher searchGenericQuery', newQueryFilters)
   selectedFilters.value = newQueryFilters.queryFilters
   searchWords.value = newQueryFilters.queryText
 }, { deep: true, immediate: true })
 
-watch(() => route.query, (newRouteQuery) => {
-  console.log(' watcher route.query', newRouteQuery)
-  // selectedFilters.value = newQueryFilters.queryFilters
+watch(() => route.query, (/* newRouteQuery */) => {
+  // console.log(' watcher route.query', newRouteQuery)
   if (searchGenericQuery.queryText === route.query.q)
     searchWords.value = route.query.q
 }, { deep: true, immediate: true })
-/* watch: {
-
-  "searchGenericQuery.queryText"(newVal, oldVal) {
-    /*console.log(
-        "in search-genric component searchGenericQuery.queryText watch: " +
-            newVal
-    ) */
-//  this.searchWords = newVal
-// },
-// "searchGenericQuery.queryFilters"(newVal, oldVal) {
-/* console.log(
-    "in search-genric component searchGenericQuery.queryFilters watch: " +
-        JSON.stringify(newVal)
-) */
-//   this.selectedFilters = newVal
-// },
-// },
 
 function updateQueryFilters(newVal: QueryFilters) {
   console.log('In updateQueryFilters', newVal)
@@ -145,14 +127,6 @@ function doSearch() {
       @update:query-filters="updateQueryFilters"
       @filters-selection-action="doSearch"
     />
-    <div style="margin: 20px;display:none">
-      <h4>SearhWords</h4>
-      <h5>heello {{ searchWords }}</h5>
-      <h4>router query</h4>
-      {{ searchGenericQuery }}
-      <h4>filters for the page</h4>
-      {{ filters }}
-    </div>
   </div>
 </template>
 

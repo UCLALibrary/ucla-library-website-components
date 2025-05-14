@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, ref } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
 import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 import { useRoute, useRouter } from 'vue-router'
@@ -10,9 +10,13 @@ const isOpen = ref(false)
 const inputEl = ref<HTMLInputElement | null>(null)
 
 const route = useRoute()
-const searchWords = ref<string>(Array.isArray(route.query.q) ? route.query.q[0] || '' : route.query.q || '')
+const searchWords = ref<string>('')
 const theme = useTheme()
 
+watch(() => route.query.q, (newVal) => {
+  if (newVal)
+    searchWords.value = Array.isArray(newVal) ? (newVal[0] || '') : (newVal || '')
+}, { immediate: true })
 const themeSettings = computed(() => {
   switch (theme?.value) {
     case 'ftva':
