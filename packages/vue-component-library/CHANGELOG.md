@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.7...@ucla-library-monorepo/ucla-library-website-components-v1.16.8) (2025-05-14)
+
+
+### Bug Fixes
+
+* Search words reset ([#742](https://github.com/UCLALibrary/ucla-library-website-components/issues/742)) ([99036bb](https://github.com/UCLALibrary/ucla-library-website-components/commit/99036bb0a3ad5d0ebe92094bedc60e61af3d66bd))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.16.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.6...@ucla-library-monorepo/ucla-library-website-components-v1.16.7) (2025-05-13)
 
 
