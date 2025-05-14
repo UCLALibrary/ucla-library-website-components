@@ -182,13 +182,16 @@ function getComponent(name) {
   return components[name]
 }
 
-function getWrapperComponent(name) {
+function getWrapperComponent(block) {
   // if not ftva, never use scroll wrapper
   if (theme?.value !== 'ftva')
     return Fragment
 
   // else if ftva, add scroll wrapper to specific components
-  return name === 'flexible-card-with-image'
+  // TODO we now need to know if the component has 'horizontalScroll' set or not
+  // TODO TEST WITHOUT TYPE SET for graceful fail
+  console.log('block', block)
+  return (block.componentName === 'flexible-card-with-image' && block.cardWithImageType === 'horizontalScroll')
     ? ScrollWrapper
     : Fragment
 }
@@ -221,7 +224,7 @@ function getWrapperComponent(name) {
         class="flexible-block-section-wrapper"
       >
         <component
-          :is="getWrapperComponent(block.componentName)"
+          :is="getWrapperComponent(block)"
         >
           <component
             :is="getComponent(block.componentName)" :block="block.mediaGalleryStyle === 'halfWidth'

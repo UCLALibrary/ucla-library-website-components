@@ -2,12 +2,8 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
-
-// THEME
 import _get from 'lodash/get'
 import { useTheme } from '@/composables/useTheme'
-
-// UTILS
 import formatDates from '@/utils/formatEventDates'
 import stripMeapFromURI from '@/utils/stripMeapFromURI'
 
@@ -21,14 +17,18 @@ const { block } = defineProps({
   block: {
     type: Object as PropType<FlexibleCardsWithImage>,
     default: () => { },
-  },
+  }
 })
 
-// THEME
+// THEME + (optional) COLOR
 const theme = useTheme()
 const currentTheme = theme?.value || '' // since we want to the use the theme for script logic, we need to set a backup value for non-themed sites
+const currentCardWithImageType = block.cardWithImageType || ''
 const classes = computed(() => {
-  return ['card-with-image', theme?.value || '']
+  return ['card-with-image', theme?.value || '', currentCardWithImageType]
+    .filter(Boolean)
+    .join(' ')
+    .trim()
 })
 
 function parsedFtvaLink(obj: any) {
@@ -265,6 +265,7 @@ const parsedItems = computed(() => {
         :end-date="item.endDate"
         :section-handle="item.contentType"
         :ongoing="item.ongoing"
+        :color="currentCardWithImageType"
         class="block"
       />
     </ul>
