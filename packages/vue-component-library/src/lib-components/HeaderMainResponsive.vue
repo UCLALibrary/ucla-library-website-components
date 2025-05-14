@@ -116,6 +116,7 @@ const searchWords = ref<string>(Array.isArray(route.query.q) ? route.query.q[0] 
 const router = useRouter()
 
 function submitSearch() {
+  toggleMenu()
   router.push({
     path: '/search-site',
     query: { q: searchWords.value },

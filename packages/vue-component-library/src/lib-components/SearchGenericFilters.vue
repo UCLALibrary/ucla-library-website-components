@@ -56,6 +56,9 @@ const openItemIndex = ref(-1) // -1 indicates that no item is open
 watch(() => props.queryFilters, (newQueryFilters) => {
   // Assuming newQueryFilters is always an object as per your default prop definition.
   console.log('In watch function props.queryFilters updated', JSON.stringify(newQueryFilters), JSON.stringify(props.filters))
+  if (newQueryFilters === null || newQueryFilters === undefined || Object.keys(newQueryFilters).length === 0)
+    queryFilterButtonDropDownStates.value = {}
+
   Object.entries(newQueryFilters).forEach(([key, value]) => {
     queryFilterButtonDropDownStates.value[key] = value
   })
@@ -176,12 +179,6 @@ onClickOutside(clickOutsideTarget,
         />
       </transition>
     </div>
-
-    <!-- SectionRemoveSearchFilter
-      v-model:filters="queryFilterButtonDropDownStates"
-      class="section-remove-container"
-      @remove-selected="doSearch"
-    / -->
     <SectionRemoveSearchFilter
       :filters="queryFilterButtonDropDownStates"
       class="section-remove-container"

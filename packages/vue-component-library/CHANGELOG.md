@@ -1,3 +1,59 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.8...@ucla-library-monorepo/ucla-library-website-components-v1.16.9) (2025-05-14)
+
+
+### Bug Fixes
+
+* Search words reset part1 ([#743](https://github.com/UCLALibrary/ucla-library-website-components/issues/743)) ([c665ed5](https://github.com/UCLALibrary/ucla-library-website-components/commit/c665ed5b9d9b802299fff459843287244a11e49c))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.7...@ucla-library-monorepo/ucla-library-website-components-v1.16.8) (2025-05-14)
+
+
+### Bug Fixes
+
+* Search words reset ([#742](https://github.com/UCLALibrary/ucla-library-website-components/issues/742)) ([99036bb](https://github.com/UCLALibrary/ucla-library-website-components/commit/99036bb0a3ad5d0ebe92094bedc60e61af3d66bd))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.6...@ucla-library-monorepo/ucla-library-website-components-v1.16.7) (2025-05-13)
+
+
+### Bug Fixes
+
+* reset remove filter list and add onmounted in basecheckboxgroup ([#741](https://github.com/UCLALibrary/ucla-library-website-components/issues/741)) ([ab8c4d9](https://github.com/UCLALibrary/ucla-library-website-components/commit/ab8c4d98695f128a4696c77ad03646d6190a6c6d))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.5...@ucla-library-monorepo/ucla-library-website-components-v1.16.6) (2025-05-13)
+
+
+### Bug Fixes
+
+* Reset filters part1 ([#740](https://github.com/UCLALibrary/ucla-library-website-components/issues/740)) ([c2f6af8](https://github.com/UCLALibrary/ucla-library-website-components/commit/c2f6af88add4f81c37373766068956ab1402524c))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.4...@ucla-library-monorepo/ucla-library-website-components-v1.16.5) (2025-05-13)
+
+
+### Bug Fixes
+
+* reset querydropdownqueryFilterButtonDropDownStates when newQueryFilters is empty ([#739](https://github.com/UCLALibrary/ucla-library-website-components/issues/739)) ([55f1c6e](https://github.com/UCLALibrary/ucla-library-website-components/commit/55f1c6e07303d29098c124672845b294b328a479))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.3...@ucla-library-monorepo/ucla-library-website-components-v1.16.4) (2025-05-10)
+
+
+### Bug Fixes
+
+* add a watcher to searchinput ([#738](https://github.com/UCLALibrary/ucla-library-website-components/issues/738)) ([4f156d8](https://github.com/UCLALibrary/ucla-library-website-components/commit/4f156d8e9d70accf05a7dd8b96534cc6ef447a13))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.2...@ucla-library-monorepo/ucla-library-website-components-v1.16.3) (2025-05-09)
+
+
+### Bug Fixes
+
+*  watcher argument  ([#736](https://github.com/UCLALibrary/ucla-library-website-components/issues/736)) ([7ccfa48](https://github.com/UCLALibrary/ucla-library-website-components/commit/7ccfa48b5c5aeedd52e98e02f9d95492ba351b03))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.16.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.1...@ucla-library-monorepo/ucla-library-website-components-v1.16.2) (2025-05-09)
+
+
+### Bug Fixes
+
+* nav search issue ([#735](https://github.com/UCLALibrary/ucla-library-website-components/issues/735)) ([559cd23](https://github.com/UCLALibrary/ucla-library-website-components/commit/559cd2397f5c254bf8b91c922fab29ae0312dc9a))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.16.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.0...@ucla-library-monorepo/ucla-library-website-components-v1.16.1) (2025-05-09)
 
 
