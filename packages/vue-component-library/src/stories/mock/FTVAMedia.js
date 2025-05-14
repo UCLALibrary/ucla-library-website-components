@@ -283,6 +283,7 @@ export const mockFlexibleBlocks = [
     typeHandle: 'cardWithImage',
     sectionTitle: 'Card with Image / Associated Topics - INTERNAL CONTENT',
     sectionSummary: null,
+    cardWithImageType: 'horizontalScroll',
     cardWithImage: [
       {
         id: '3803130',
@@ -596,6 +597,7 @@ export const mockFlexibleBlocks = [
     typeHandle: 'cardWithImage',
     sectionTitle: 'Card with Image / Associated Topics - EXTERNAL CONTENT',
     sectionSummary: null,
+    // cardWithImageType: '' // TODO test w/o  & other values
     cardWithImage: [
       {
         id: '3754187',

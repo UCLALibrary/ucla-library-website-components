@@ -13,13 +13,13 @@ import BlockCardWithImage from '@/lib-components/BlockCardWithImage.vue'
 // TYPESCRIPT
 import type { FlexibleCardsWithImage } from '@/types/flexible_types'
 
-const { block, styleType } = defineProps({
+const { block, cardWithImageType } = defineProps({
   block: {
     type: Object as PropType<FlexibleCardsWithImage>,
     default: () => { },
   },
-  styleType: {
-    type: String as PropType<'horizontal-scroll' | 'blue-background' | 'white-background' | 'no-background' | ''>,
+  cardWithImageType: {
+    type: String as PropType<'horizontalScroll' | 'blueBackground' | 'whiteBackground' | 'noBackground' | ''>,
     default: '',
   },
 })
@@ -28,16 +28,7 @@ const { block, styleType } = defineProps({
 const theme = useTheme()
 const currentTheme = theme?.value || '' // since we want to the use the theme for script logic, we need to set a backup value for non-themed sites
 const classes = computed(() => {
-  return ['card-with-image', theme?.value || '', styleType]
-    .filter(Boolean)
-    .join(' ')
-    .trim()
-    .replace(/\s+/g, ' ')
-    .toLowerCase()
-    .replace(/ /g, '-')
-    .replace(/--/g, '-')
-    .replace(/-$/, '')
-    .replace(/^-/, '')
+  return ['card-with-image', theme?.value || '', cardWithImageType]
 })
 
 function parsedFtvaLink(obj: any) {

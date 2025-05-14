@@ -79,8 +79,8 @@ const props = defineProps({
     default: '',
   },
   color: {
-    type: String,
-    default: '', // This will be "visit", "about", "help".
+    type: String as PropType<'visit' | 'about' | 'help' | 'horizontalScroll' | 'blueBackground' | 'whiteBackground' | 'noBackground' | ''>,
+    default: '',
   },
   sectionHandle: {
     type: String,
@@ -113,7 +113,8 @@ const classes = computed(() => {
   return [
     'block-highlight', // legacy name already used in library-website-nuxt and MEAP styles, do not change
     { 'is-vertical': props.isVertical },
-    theme?.value || ''
+    theme?.value || '',
+    props.color
   ]
 })
 // dates are formatted in the short format for ftva only

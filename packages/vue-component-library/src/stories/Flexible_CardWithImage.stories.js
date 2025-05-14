@@ -149,6 +149,7 @@ const mockFtvaInternal = {
   typeHandle: 'cardWithImage',
   sectionTitle: 'Card with Image / Associated Topics - INTERNAL CONTENT',
   sectionSummary: null,
+  cardWithImageType: 'horizontalScroll', // 'ftvaFlexibilePageBlockCardWithImageType' was added to craft 05/2025
   cardWithImage: [
     {
       id: '3803130',
@@ -483,6 +484,7 @@ const mockFtvaExternal = {
   typeHandle: 'cardWithImage',
   sectionTitle: 'Card with Image / Associated Topics - EXTERNAL CONTENT',
   sectionSummary: null,
+  ftvaFlexibilePageBlockCardWithImageType: 'horizontalScroll', // this field was added to craft 05/2025
   cardWithImage: [
     {
       id: '3754187',
@@ -543,93 +545,6 @@ export function FtvaExternal() {
     template: `
         <flexible-card-with-image
             :block="block"
-        />
-    `,
-  }
-}
-export function HorizontalScrollStyle() {
-  return {
-    data() {
-      return {
-        block: mockFtvaExternal,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { FlexibleCardWithImage },
-    template: `
-        <flexible-card-with-image
-            :block="block"
-            style-type="horizontal-scroll"
-        />
-    `,
-  }
-}
-
-export function BlueBackgroundStyle() {
-  return {
-    data() {
-      return {
-        block: mockFtvaExternal,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { FlexibleCardWithImage },
-    template: `
-        <flexible-card-with-image
-            :block="block"
-            style-type="blue-background"
-        />
-    `,
-  }
-}
-
-export function WhiteBackgroundStyle() {
-  return {
-    data() {
-      return {
-        block: mockFtvaExternal,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { FlexibleCardWithImage },
-    template: `
-        <flexible-card-with-image
-            :block="block"
-            style-type="white-background"
-        />
-    `,
-  }
-}
-
-export function NoBackgroundStyle() {
-  return {
-    data() {
-      return {
-        block: mockFtvaExternal,
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { FlexibleCardWithImage },
-    template: `
-        <flexible-card-with-image
-            :block="block"
-            style-type="no-background"
         />
     `,
   }

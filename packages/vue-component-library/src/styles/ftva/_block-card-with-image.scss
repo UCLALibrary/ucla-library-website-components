@@ -1,5 +1,4 @@
 // TODO refactor this component to get rid of position absolute for the date/byline
-
 .ftva.block-highlight {
     position: relative;
 
@@ -113,5 +112,24 @@
         &:hover {
             box-shadow: 0 4px 4px rgb(51 51 51 / 0.2);
         }
+    }
+
+    // Colors
+    // - use the 'color' prop to use these styles
+    // - do not add css rules below this section or it could overwrite these colors
+
+    // &.horizontalScroll {
+    // }
+
+    &.blueBackground {
+        background: $page-blue;
+    }
+
+    &.whiteBackground {
+        background: white;
+    }
+
+    &.noBackground {
+        background: transparent;
     }
 }

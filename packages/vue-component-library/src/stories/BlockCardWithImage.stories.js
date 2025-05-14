@@ -65,6 +65,7 @@ function Template(args) {
         :date-created="dateCreated"
         :byline-one="bylineOne"
         :byline-two="bylineTwo"
+        :color="color"
     />
 `,
   }
@@ -410,3 +411,27 @@ function TemplateFTVAMoreCollectionItems(args) {
   }
 }
 export const FTVAMoreCollectionItems = TemplateFTVAMoreCollectionItems.bind({})
+
+export const HorizontalScrollStyle = Template.bind({})
+HorizontalScrollStyle.args = {
+  color: 'horizontalScroll',
+  theme: 'ftva',
+}
+
+export const BlueBackgroundStyle = Template.bind({})
+BlueBackgroundStyle.args = {
+  color: 'blueBackground',
+  theme: 'ftva',
+}
+
+export const WhiteBackgroundStyle = Template.bind({})
+WhiteBackgroundStyle.args = {
+  color: 'whiteBackground',
+  theme: 'ftva',
+}
+
+export const NoBackgroundStyle = Template.bind({})
+NoBackgroundStyle.args = {
+  color: 'noBackground',
+  theme: 'ftva',
+}
