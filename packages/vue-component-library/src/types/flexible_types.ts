@@ -231,6 +231,7 @@ export interface FlexibleCallToAction extends FlexibleBlock {
 }
 
 export interface FlexibleCardsWithImage extends FlexibleBlock {
+  cardWithImageType: '' | 'horizontalScroll' | 'blueBackground' | 'whiteBackground' | 'noBackground'
   cardWithImage: FlexibleCardWithImage[]
 }
 
