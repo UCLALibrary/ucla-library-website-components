@@ -1,14 +1,10 @@
 .ftva.media-with-text {
   align-items: stretch;
+  max-height: 293px;
 
   .media-item {
     order: 1;
     flex-basis: 51%;
-
-    :deep(.media-image) {
-      -o-object-fit: cover;
-      object-fit: cover !important;
-    }
   }
   
   .text-grouping {
@@ -51,6 +47,8 @@
     }
 
   @media #{$small} {
+    max-height: unset;
+    
     .meta {
       display: block;
       flex-basis: 100%;

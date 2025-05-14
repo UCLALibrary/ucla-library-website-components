@@ -164,6 +164,7 @@ const parsedIsDownload = computed(() => {
       :item="item"
       :cover-image="coverImage"
       :cover-only="true"
+      :object-fit="theme === 'ftva' ? 'cover' : 'contain'"
       class="meta media"
       @click="isAudio || isVideo ? showLightbox = true : showLightbox = false"
     >
