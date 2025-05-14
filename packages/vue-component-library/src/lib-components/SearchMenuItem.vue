@@ -14,9 +14,11 @@ const searchWords = ref<string>('')
 const theme = useTheme()
 
 watch(() => route.query.q, (newVal) => {
-  if (newVal)
+  console.log('searchWords', newVal)
+  if (route.path.includes('search-site') && newVal)
     searchWords.value = Array.isArray(newVal) ? (newVal[0] || '') : (newVal || '')
 }, { immediate: true })
+
 const themeSettings = computed(() => {
   switch (theme?.value) {
     case 'ftva':
