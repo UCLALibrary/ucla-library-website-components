@@ -23,9 +23,9 @@ const emit = defineEmits(['update:selected', 'input-selected'])
 const parsedSelected = ref<string[]>(_uniq([...props.selected]))
 
 watch(() => props.selected, (newSelected) => {
-  console.log('BaseCheckboxGroup selected', newSelected)
+  // console.log('BaseCheckboxGroup selected', newSelected)
   parsedSelected.value = _uniq([...newSelected])
-  console.log('BaseCheckboxGroup parsedSelected', parsedSelected.value)
+  // console.log('BaseCheckboxGroup parsedSelected', parsedSelected.value)
 }, { immediate: true })
 
 onMounted(() => {
