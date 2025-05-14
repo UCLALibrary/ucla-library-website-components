@@ -1,0 +1,39 @@
+.ftva.section-media-with-text{
+  padding-top: 0;
+
+  .flexible-page-block-container {
+    max-width: inherit;
+
+    .flexible-media-with-text {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      @include ftva-h3;
+      color: $body-grey;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 991px){
+      padding: 0;
+      
+      .media-with-text {
+        flex-direction: column;
+        max-height: unset;
+
+        :deep(.media-item) {
+          max-width: unset;
+          width: 100%;
+        }
+
+        :deep(.text-grouping) {
+          padding-inline: 0;
+          flex-basis: 100%;
+        }
+      }
+    }
+  
+    @media #{$medium} {
+      padding: 0;
+    }
+  }
+}
