@@ -1,10 +1,13 @@
 .ftva.media-with-text {
   align-items: stretch;
+  justify-content: unset;
   max-height: 263px;
 
   .media-item {
     order: 1;
-    flex-basis: 51%;
+    min-width: 400px;
+    max-width: 400px;
+    width: 100%;
   }
   
   .text-grouping {
@@ -40,15 +43,15 @@
     }
   }
 
-    @media #{$medium} {
-      .media, .no-media {
-        width: 100%;
-      }
+  @media #{$small} {
+    .media-item {
+      max-width: unset;
     }
 
-  @media #{$small} {
-    max-height: unset;
-    
+    .text-grouping {
+      padding-inline: 0;
+    }
+
     .meta {
       display: block;
       flex-basis: 100%;
