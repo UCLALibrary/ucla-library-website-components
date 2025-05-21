@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.17.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.9...@ucla-library-monorepo/ucla-library-website-components-v1.17.0) (2025-05-15)
+
+
+### Features
+
+* APPS-3320 Create MediaWithText FTVA variants ([#737](https://github.com/UCLALibrary/ucla-library-website-components/issues/737)) ([23c9817](https://github.com/UCLALibrary/ucla-library-website-components/commit/23c98172f319700fa08eefd7a132868f41e9c5a8))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.16.9](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.8...@ucla-library-monorepo/ucla-library-website-components-v1.16.9) (2025-05-14)
 
 
