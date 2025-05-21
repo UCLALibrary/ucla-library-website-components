@@ -130,5 +130,20 @@
         :deep(.media), :deep(.image-container > .molecule-no-image) {
             border-radius: 10px 10px 10px 10px;   
         }
+        :deep(.card-meta) {
+            .title {
+                @include ftva-h5;
+            }
+            .text {
+                @include truncate(2);
+            } 
+        }
+
+        &:hover {
+            box-shadow: none;
+            :deep(.card-meta > .title) {
+                @include link-hover;
+            }
+        }
     }
 }

@@ -460,17 +460,9 @@ export function NoBackgroundStyle() {
     <block-card-with-image
         :image="image"
         :to="to"
-        :category="category"
         :title="title"
         :text="text"
         :image-aspect-ratio="imageAspectRatio"
-        :locations="locations"
-        :alternativeFullName="alternativeFullName"
-        :language="language"
-        :section-handle="sectionHandle"
-        :date-created="dateCreated"
-        :byline-one="bylineOne"
-        :byline-two="bylineTwo"
         :color="color"
     />
       </div>
