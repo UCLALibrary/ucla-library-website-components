@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
 import { useTheme } from '@/composables/useTheme'
 
