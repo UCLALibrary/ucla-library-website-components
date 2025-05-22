@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.18.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.17.0...@ucla-library-monorepo/ucla-library-website-components-v1.18.0) (2025-05-22)
+
+
+### Features
+
+* update route path and searchwords with route.query.q ([#744](https://github.com/UCLALibrary/ucla-library-website-components/issues/744)) ([bc2ab32](https://github.com/UCLALibrary/ucla-library-website-components/commit/bc2ab322990684d41ae3df6a5eabfe7e5051753b))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.17.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.16.9...@ucla-library-monorepo/ucla-library-website-components-v1.17.0) (2025-05-15)
 
 

@@ -23,7 +23,7 @@ const themeSettings = computed(() => {
   switch (theme?.value) {
     case 'ftva':
       return {
-        url: '/search-site',
+        url: '/search',
         queryParam: 'q',
         placeholder: 'Enter keywords to search this website',
       }
