@@ -1,9 +1,6 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
 import { useTheme } from '@/composables/useTheme'
 
@@ -19,6 +16,7 @@ const { placeholder } = defineProps({
 })
 const theme = useTheme()
 const router = useRouter()
+const route = useRoute()
 
 // DEFAULT CONTENT
 // if this component ever needs to be reused with different content,
@@ -33,10 +31,14 @@ const classes = computed(() => {
 })
 
 // SEARCH
-const searchWords = ref('')
+const searchWords = ref<string>(
+  Array.isArray(route.query.q)
+    ? route.query.q[0] || ''
+    : route.query.q || ''
+)
 function doSearch() {
   router.push({
-    path: '/search-site',
+    path: '/search',
     query: { q: searchWords.value },
   })
 }
@@ -74,10 +76,7 @@ function doSearch() {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 @import "@/styles/default/_nav-search.scss";
 @import "@/styles/ftva/_nav-search.scss";
 </style>
