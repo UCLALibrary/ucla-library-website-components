@@ -122,11 +122,11 @@
     }
 
     &.whiteBackground {
-        background: white;
+        background: white !important; // required to override the cardwithimage container styles
     }
 
     &.noBackground {
-        background: transparent !important; // required to override the white background color set by the flexibleblocks 'theme'
+        background: transparent !important; // required to override the cardwithimage container styles
         :deep(.media), :deep(.image-container > .molecule-no-image) {
             border-radius: 10px 10px 10px 10px;   
         }
