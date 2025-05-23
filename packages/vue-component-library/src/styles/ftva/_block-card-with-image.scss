@@ -120,13 +120,12 @@
     &.blueBackground {
         background: $page-blue;
     }
-
     &.whiteBackground {
-        background: white !important; // required to override the cardwithimage container styles
+        background: white;
     }
 
     &.noBackground {
-        background: transparent !important; // required to override the cardwithimage container styles
+        background: transparent;
         :deep(.media), :deep(.image-container > .molecule-no-image) {
             border-radius: 10px 10px 10px 10px;   
         }
