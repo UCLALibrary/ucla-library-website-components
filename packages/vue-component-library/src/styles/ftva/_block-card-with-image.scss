@@ -1,5 +1,4 @@
 // TODO refactor this component to get rid of position absolute for the date/byline
-
 .ftva.block-highlight {
     position: relative;
 
@@ -112,6 +111,38 @@
     @media #{$has-hover} {
         &:hover {
             box-shadow: 0 4px 4px rgb(51 51 51 / 0.2);
+        }
+    }
+
+    // Colors
+    // - use the 'color' prop to use these styles
+    // - do not add css rules below this section or it could overwrite these colors
+    &.blueBackground {
+        background: $page-blue;
+    }
+    &.whiteBackground {
+        background: white;
+    }
+
+    &.noBackground {
+        background: transparent;
+        :deep(.media), :deep(.image-container > .molecule-no-image) {
+            border-radius: 10px 10px 10px 10px;   
+        }
+        :deep(.card-meta) {
+            .title {
+                @include ftva-h5;
+            }
+            .text {
+                @include truncate(2);
+            } 
+        }
+
+        &:hover {
+            box-shadow: none;
+            :deep(.card-meta > .title) {
+                @include link-hover;
+            }
         }
     }
 }

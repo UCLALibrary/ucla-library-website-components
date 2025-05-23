@@ -390,7 +390,7 @@ export function FTVACollectionItems() {
   }
 }
 
-export function TestScrollWrapper() {
+export function FTVAHorizontalScrollCardWithImage() {
   return {
     data() {
       return { items: parsedFTVACollectionItems }

@@ -1,7 +1,9 @@
 .ftva.card-with-image {
   :deep(.block-highlight) {
     max-width: 250px;
-    background-color: $page-blue;
+    &:not(.whiteBackground):not(.noBackground) {
+      background-color: $page-blue;
+    }
     &:hover {
       box-shadow: 0 0px 4px 0 rgba(51, 51, 51, 0.2);
     }
