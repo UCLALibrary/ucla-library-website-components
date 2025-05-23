@@ -187,10 +187,7 @@ function getWrapperComponent(block) {
   if (theme?.value !== 'ftva')
     return Fragment
 
-  // else if ftva, add scroll wrapper to specific components
-  // TODO we now need to know if the component has 'horizontalScroll' set or not
-  // TODO TEST WITHOUT TYPE SET for graceful fail
-  console.log('block', block)
+  // else if ftva, add scroll wrapper to specific components in specific cases
   return (block.componentName === 'flexible-card-with-image' && block.cardWithImageType === 'horizontalScroll')
     ? ScrollWrapper
     : Fragment
