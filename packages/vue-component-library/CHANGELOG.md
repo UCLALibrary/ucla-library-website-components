@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.19.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.18.0...@ucla-library-monorepo/ucla-library-website-components-v1.19.0) (2025-05-27)
+
+
+### Features
+
+* APPS-3321 add flexible-cardWithImage additional style options ([#734](https://github.com/UCLALibrary/ucla-library-website-components/issues/734)) ([5bf7124](https://github.com/UCLALibrary/ucla-library-website-components/commit/5bf712492ae030532f8ed9d72e915fb995d71d3f))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.18.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.17.0...@ucla-library-monorepo/ucla-library-website-components-v1.18.0) (2025-05-22)
 
 
