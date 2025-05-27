@@ -149,6 +149,7 @@ const mockFtvaInternal = {
   typeHandle: 'cardWithImage',
   sectionTitle: 'Card with Image / Associated Topics - INTERNAL CONTENT',
   sectionSummary: null,
+  cardWithImageType: 'horizontalScroll', // 'ftvaFlexibilePageBlockCardWithImageType' was added to craft 05/2025
   cardWithImage: [
     {
       id: '3803130',
@@ -483,6 +484,7 @@ const mockFtvaExternal = {
   typeHandle: 'cardWithImage',
   sectionTitle: 'Card with Image / Associated Topics - EXTERNAL CONTENT',
   sectionSummary: null,
+  ftvaFlexibilePageBlockCardWithImageType: 'horizontalScroll', // this field was added to craft 05/2025
   cardWithImage: [
     {
       id: '3754187',

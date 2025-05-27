@@ -65,6 +65,7 @@ function Template(args) {
         :date-created="dateCreated"
         :byline-one="bylineOne"
         :byline-two="bylineTwo"
+        :color="color"
     />
 `,
   }
@@ -410,3 +411,61 @@ function TemplateFTVAMoreCollectionItems(args) {
   }
 }
 export const FTVAMoreCollectionItems = TemplateFTVAMoreCollectionItems.bind({})
+
+export const HorizontalScrollStyle = Template.bind({})
+HorizontalScrollStyle.args = {
+  color: 'horizontalScroll',
+  theme: 'ftva',
+}
+
+export const BlueBackgroundStyle = Template.bind({})
+BlueBackgroundStyle.args = {
+  color: 'blueBackground',
+  theme: 'ftva',
+}
+
+export const WhiteBackgroundStyle = Template.bind({})
+WhiteBackgroundStyle.args = {
+  color: 'whiteBackground',
+  theme: 'ftva',
+}
+
+export function NoBackgroundStyle() {
+  return {
+    data() {
+      return {
+        ...mock,
+        color: 'noBackground',
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockCardWithImage },
+    template: `
+      <component is="style" type="text/css">
+    .white-icon > path {
+      fill: white;
+    }
+      .colored-background {
+        background-color: #e7edf2;
+        padding: 20px;
+        height: 100%;
+        width: 100vw;
+      }
+    </component>
+    <div class="colored-background">
+    <block-card-with-image
+        :image="image"
+        :to="to"
+        :title="title"
+        :text="text"
+        :image-aspect-ratio="imageAspectRatio"
+        :color="color"
+    />
+      </div>
+    `,
+  }
+}

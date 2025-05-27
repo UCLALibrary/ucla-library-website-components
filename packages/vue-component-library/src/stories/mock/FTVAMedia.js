@@ -281,8 +281,9 @@ export const mockFlexibleBlocks = [
   {
     id: '3754183',
     typeHandle: 'cardWithImage',
-    sectionTitle: 'Card with Image / Associated Topics - INTERNAL CONTENT',
+    sectionTitle: 'Card with Image INTERNAL CONTENT / horizontalScroll',
     sectionSummary: null,
+    cardWithImageType: 'horizontalScroll',
     cardWithImage: [
       {
         id: '3803130',
@@ -594,8 +595,9 @@ export const mockFlexibleBlocks = [
   {
     id: '3754183',
     typeHandle: 'cardWithImage',
-    sectionTitle: 'Card with Image / Associated Topics - EXTERNAL CONTENT',
+    sectionTitle: 'Card with Image EXTERNAL CONTENT / no style set',
     sectionSummary: null,
+    // cardWithImageType: '' // deliberately not set to test default
     cardWithImage: [
       {
         id: '3754187',
@@ -644,8 +646,9 @@ export const mockFlexibleBlocks = [
   {
     id: '3754183',
     typeHandle: 'cardWithImage',
-    sectionTitle: 'Card with Image / Associated Topics - INTERNAL & EXTERNAL CONTENT',
+    sectionTitle: 'Card with Image INTERNAL & EXTERNAL CONTENT \ no background style set',
     sectionSummary: null,
+    cardWithImageType: 'noBackground',
     cardWithImage: [
       // External
       {
