@@ -72,15 +72,10 @@ const mockFtva = [
     image: API.image,
     to: 'https://www.cinema.ucla.edu/donating-materials',
     title: 'Donating Materials',
-  },
-  {
-    image: API.image,
-    to: '/media-loans',
-    title: 'Media Loans',
   }
 ]
 
-export function Ftva() {
+export function FTVADefault() {
   return {
     data() {
       return { items: mockFtva }
@@ -95,7 +90,100 @@ export function Ftva() {
       <SectionPostSmall
         :items="items"
         sectionTitle="About Our Collections"
-        sectionSummary="<p>With over 350,00 motion pictures and 170,000 television programs, and 27 million feet of newsreel footage, the <em>UCLA Film & Television Archive</em> is the largest university-held collection of motion pictures and broadcast programming.</p><p>For more information on our collections or to arrange research viewing please contact the <strong>Archive Research and Study Center</strong> (ARSC).</p>"
+        sectionSummary="<p>With over 350,00 motion pictures and 170,000 television programs, and 27 million feet of newsreel footage, the <em>UCLA Film & Television Archive</em> is the largest university-held collection of motion pictures and broadcast programming.</p> <p>For more information on our collections or to arrange research viewing please contact the <strong>Archive Research and Study Center</strong> (ARSC).</p>"
+      />
+  `,
+  }
+}
+
+export function FTVANoSummary() {
+  return {
+    data() {
+      return { items: mockFtva }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionPostSmall },
+    template: `
+      <SectionPostSmall
+        :items="items"
+        sectionTitle="About Our Collections"
+      />
+  `,
+  }
+}
+
+const mockFtva2 = [
+  {
+    image: API.image,
+    to: '/collection-policy',
+    title: 'Collection Policy',
+  }
+]
+
+export function FTVAOneItem() {
+  return {
+    data() {
+      return { items: mockFtva2 }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionPostSmall },
+    template: `
+      <SectionPostSmall
+        :items="items"
+        sectionTitle="About Our Collections"
+        sectionSummary="<p>With over 350,00 motion pictures and 170,000 television programs, and 27 million feet of newsreel footage, the <em>UCLA Film & Television Archive</em> is the largest university-held collection of motion pictures and broadcast programming.</p> <p>For more information on our collections or to arrange research viewing please contact the <strong>Archive Research and Study Center</strong> (ARSC).</p>"
+      />
+  `,
+  }
+}
+
+export function FTVAOneItemFullWidth() {
+  return {
+    data() {
+      return { items: mockFtva2 }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionPostSmall },
+    template: `
+      <SectionPostSmall
+        :items="items"
+        :full-width=true
+        sectionTitle="About Our Collections"
+        sectionSummary="<p>With over 350,00 motion pictures and 170,000 television programs, and 27 million feet of newsreel footage, the <em>UCLA Film & Television Archive</em> is the largest university-held collection of motion pictures and broadcast programming.</p> <p>For more information on our collections or to arrange research viewing please contact the <strong>Archive Research and Study Center</strong> (ARSC).</p>"
+      />
+  `,
+  }
+}
+
+export function FTVAMultipleFullWidth() {
+  return {
+    data() {
+      return { items: mockFtva }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionPostSmall },
+    template: `
+      <SectionPostSmall
+        :items="items"
+        :full-width=true
+        sectionTitle="About Our Collections"
+        sectionSummary="<p>With over 350,00 motion pictures and 170,000 television programs, and 27 million feet of newsreel footage, the <em>UCLA Film & Television Archive</em> is the largest university-held collection of motion pictures and broadcast programming.</p> <p>For more information on our collections or to arrange research viewing please contact the <strong>Archive Research and Study Center</strong> (ARSC).</p>"
       />
   `,
   }
