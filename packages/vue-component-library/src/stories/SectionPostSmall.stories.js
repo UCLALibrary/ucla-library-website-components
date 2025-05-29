@@ -4,6 +4,22 @@ import { computed } from 'vue'
 import * as API from '@/stories/mock-api.json'
 import SectionPostSmall from '@/lib-components/SectionPostSmall'
 
+/**
+ * Section / wrapper component for BlockPostSmall.
+ *
+ * `fullWidth` prop set to `false` (default) displays blocks at standard width:
+ * - Library: max width of 300px
+ * - FTVA: 49% of wrapper
+ *
+ * `fullWidth` prop set to `true`, items span the width of the wrapper
+ *
+ * Props:
+ * - items: (array)
+ * - sectionTitle (string)
+ * - sectionSummary (string)
+ * - fullWidth: (boolean)
+ */
+
 // Storybook default settings
 export default {
   title: 'Section / Post Small',
@@ -51,6 +67,22 @@ export function Default() {
     template: `
       <section-post-small
         :items="items"
+        to="/visit/foo/bar/"
+      />
+  `,
+  }
+}
+
+export function DefaultFullWidth() {
+  return {
+    data() {
+      return { items: mock }
+    },
+    components: { SectionPostSmall },
+    template: `
+      <section-post-small
+        :items="items"
+        :full-width=true
         to="/visit/foo/bar/"
       />
   `,

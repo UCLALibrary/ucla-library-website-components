@@ -32,14 +32,19 @@
     .grid-wrapper {
       gap: 12px;
     }
-  }
 
-  @media #{$medium} {
     .meta {
       ::v-deep(.title) {
         @include ftva-card-title-1;
         color: $heading-grey;
       }
     }
+  }
+}
+
+// Full Width
+.section-post-small.full-width {
+  .block {
+    flex-basis: 100%;
   }
 }
