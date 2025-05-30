@@ -1,15 +1,9 @@
 .ftva.block-post-small {
-  //gap: 10px;
-  padding: 0px 10px 0px 0px;
+  width: 100%;
+  padding: 0;
   border-radius: 12px;
   overflow: hidden;
   transition: box-shadow 0.2s ease;
-  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-
-  &:hover {
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-  }
 
   .card-inner {
     display: flex;
@@ -19,8 +13,6 @@
   .image {
     width: 150px;
     height: auto;
-    flex-shrink: 0;
-    object-fit: cover;
   }
 
   .meta {
@@ -35,7 +27,7 @@
   @media #{$has-hover} {
     &:hover {
       background-color: white;
-      box-shadow: 0px 10px 17px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
     }
   }
 }

@@ -20,7 +20,7 @@ interface PostSmallItemType {
   to: string
 }
 
-const { items, sectionTitle, sectionSummary } = defineProps({
+const { items, sectionTitle, sectionSummary, fullWidth } = defineProps({
   items: {
     type: Array as PropType<PostSmallItemType[]>,
     default: () => [],
@@ -33,6 +33,10 @@ const { items, sectionTitle, sectionSummary } = defineProps({
     type: String,
     default: '',
   },
+  fullWidth: {
+    type: Boolean,
+    default: false
+  }
 })
 
 // THEME & SECTION COLOR
@@ -40,30 +44,29 @@ const theme = useTheme()
 
 const classes = computed(() => [
   'section-post-small',
+  { 'full-width': fullWidth },
   theme?.value || '',
 ])
 </script>
 
 <template>
   <section :class="classes">
-    <div class="grid">
+    <div
+      v-if="sectionTitle || sectionSummary"
+      class="section-header"
+    >
+      <h2
+        v-if="sectionTitle"
+        class="section-title"
+        v-html="sectionTitle"
+      />
       <div
-        v-if="sectionTitle || sectionSummary"
-        class="section-header"
-      >
-        <h2
-          v-if="sectionTitle"
-          id="cards-with-illustration-title"
-          class="section-title"
-          v-html="sectionTitle"
-        />
-        <div
-          v-if="sectionSummary"
-          class="section-summary"
-          v-html="sectionSummary"
-        />
-      </div>
-
+        v-if="sectionSummary"
+        class="section-summary"
+        v-html="sectionSummary"
+      />
+    </div>
+    <div class="grid-wrapper">
       <BlockPostSmall
         v-for="item in items"
         :key="`block-post-${item.title || item.to}`"

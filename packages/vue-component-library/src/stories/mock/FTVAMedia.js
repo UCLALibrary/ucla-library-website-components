@@ -281,7 +281,7 @@ export const mockFlexibleBlocks = [
   {
     id: '3754183',
     typeHandle: 'cardWithImage',
-    sectionTitle: 'Card with Image INTERNAL CONTENT / horizontalScroll',
+    sectionTitle: 'Card with Image INTERNAL CONTENT / horizontalScroll style',
     sectionSummary: null,
     cardWithImageType: 'horizontalScroll',
     cardWithImage: [
@@ -642,11 +642,62 @@ export const mockFlexibleBlocks = [
     ]
   },
 
+  // CARD WITH IMAGE - Typehandle: externalContent
+  {
+    id: '3754183',
+    typeHandle: 'cardWithImage',
+    sectionTitle: 'Card with Image EXTERNAL CONTENT / whiteBackground style',
+    sectionSummary: null,
+    cardWithImageType: 'whiteBackground',
+    cardWithImage: [
+      {
+        id: '3754187',
+        typeHandle: 'externalContent',
+        titleGeneral: 'Peacocks',
+        image: [
+          {
+            id: '3754131',
+            src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/PXL_20250224_234728720_2025-02-28-191656_idqw.jpg',
+            height: 4551,
+            width: 2560,
+            srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/PXL_20250224_234728720_2025-02-28-191656_idqw.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/PXL_20250224_234728720_2025-02-28-191656_idqw.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/PXL_20250224_234728720_2025-02-28-191656_idqw.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/PXL_20250224_234728720_2025-02-28-191656_idqw.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/PXL_20250224_234728720_2025-02-28-191656_idqw.jpg 2560w',
+            alt: null,
+            focalPoint: [
+              0.5,
+              0.5
+            ]
+          }
+        ],
+        to: 'https://www.birdnote.org/podcasts/birdnote-daily/peacocks-tail-more-meets-eye'
+      },
+      {
+        id: '3826943',
+        typeHandle: 'externalContent',
+        titleGeneral: 'Helsinki',
+        image: [
+          {
+            id: '3807469',
+            src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/Helsinki.jpg',
+            height: 2306,
+            width: 2560,
+            srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/Helsinki.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/Helsinki.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/Helsinki.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/Helsinki.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/Helsinki.jpg 2560w',
+            alt: null,
+            focalPoint: [
+              0.5,
+              0.5
+            ]
+          }
+        ],
+        to: 'https://en.wikipedia.org/wiki/Helsinki'
+      }
+    ]
+  },
+
   // CARD WITH IMAGE - Typehandle mix: internalContent, externalContent
   {
     id: '3754183',
     typeHandle: 'cardWithImage',
-    sectionTitle: 'Card with Image INTERNAL & EXTERNAL CONTENT \ no background style set',
+    sectionTitle: 'Card with Image INT & EXT CONTENT / noBackground style',
     sectionSummary: null,
     cardWithImageType: 'noBackground',
     cardWithImage: [
@@ -744,7 +795,7 @@ export const mockFlexibleBlocks = [
         id: '13670',
         titleLink: 'FTVA Media with Text',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        buttonText: 'Linked Destination',
+        buttonText: 'Linked Destination Lorem Ipsum Dolor Sit Amet',
         buttonUrl: 'events/la-région-centrale-03-08-24',
         coverImage: [
           {
@@ -754,7 +805,7 @@ export const mockFlexibleBlocks = [
             width: 2560,
             srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/pinkcloud-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/pinkcloud-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/pinkcloud-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/pinkcloud-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/pinkcloud-crop.png 2560w',
             alt: 'A woman writing on a window.',
-            // kind: 'image',
+            kind: 'image',
             focalPoint: [
               0.5,
               0.5

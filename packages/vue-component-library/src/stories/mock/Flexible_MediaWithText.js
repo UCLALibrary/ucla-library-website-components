@@ -299,7 +299,7 @@ export const mockFTVA = {
       id: '13670',
       titleLink: 'FTVA Media with Text',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      buttonText: 'Linked Destination',
+      buttonText: 'Linked Destination Lorem Ipsum Dolor Sit Amet',
       buttonUrl: 'events/la-région-centrale-03-08-24',
       coverImage: [
         {

@@ -14,7 +14,7 @@
     order: 2;
     flex-basis: 49%;
     margin-right: 0;
-    padding: 40px;
+    padding: 10px 10px 10px 40px;
   }
 
   .section-header {
@@ -30,6 +30,7 @@
 
   .text-link {
     @include ftva-button-link;
+    line-height: 1.5;
     color: #{$medium-grey};
     text-decoration: underline;
     text-decoration-thickness: 3px;

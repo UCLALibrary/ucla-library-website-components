@@ -1,16 +1,22 @@
 .section-post-small {
   padding: 0 var(--unit-gutter);
 
-  .grid {
+  .section-header,
+  .grid-wrapper{
+    margin: 0 auto;
+    max-width: var(--unit-content-width);
+  }
+
+  .section-header{
+    margin-bottom: 30px;
+  }
+
+  .grid-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    align-items: stretch;
     gap: 20px;
-
-    margin: 0 auto;
-    max-width: var(--unit-content-width);
   }
 
   .block {
@@ -23,17 +29,22 @@
   }
 
   @media #{$medium} {
-    .grid {
+    .grid-wrapper {
       gap: 12px;
     }
-  }
 
-  @media #{$medium} {
     .meta {
       ::v-deep(.title) {
         @include ftva-card-title-1;
         color: $heading-grey;
       }
     }
+  }
+}
+
+// Full Width
+.section-post-small.full-width {
+  .block {
+    flex-basis: 100%;
   }
 }
