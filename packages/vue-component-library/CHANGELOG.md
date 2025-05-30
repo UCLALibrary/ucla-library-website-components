@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.19.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.19.0...@ucla-library-monorepo/ucla-library-website-components-v1.19.1) (2025-05-30)
+
+
+### Bug Fixes
+
+* APPS-3356 Component Fixes for Storytelling Page ([#745](https://github.com/UCLALibrary/ucla-library-website-components/issues/745)) ([0c4be0c](https://github.com/UCLALibrary/ucla-library-website-components/commit/0c4be0c0a92ba9fc27cd6de1e60ccc9e05eeb9aa))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.19.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.18.0...@ucla-library-monorepo/ucla-library-website-components-v1.19.0) (2025-05-27)
 
 
