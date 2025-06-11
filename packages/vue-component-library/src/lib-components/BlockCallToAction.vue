@@ -62,6 +62,9 @@ const SvgCallToActionChat = defineAsyncComponent(() =>
 const SvgCallToActionFind = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/call-to-action-find.svg')
 )
+const SvgCallToActionQuestion = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-ftva-question.svg')
+)
 
 const SvgCallToActionMail = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/call-to-action-mail.svg')
@@ -91,6 +94,10 @@ const iconMapping = {
   'svg-call-to-action-find': {
     icon: SvgCallToActionFind,
     label: 'CTA Find'
+  },
+  'svg-call-to-action-question': {
+    icon: SvgCallToActionQuestion,
+    label: 'CTA Question'
   },
   'svg-call-to-action-ftva-external-link-dark': {
     icon: SvgCallToActionFTVAExternalLinkDark,

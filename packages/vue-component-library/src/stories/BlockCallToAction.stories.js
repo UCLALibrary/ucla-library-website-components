@@ -89,6 +89,25 @@ FTVA_CTA_Default.args = {
   ...mockFTVA,
   svgName: 'svg-call-to-action-chat'
 }
+export const FTVA_CTA_Question = TemplateFTVAQuestion.bind({})
+FTVA_CTA_Question.args = {
+  ...mockFTVA,
+  svgName: 'svg-call-to-action-question'
+}
+function TemplateFTVAQuestion(args) {
+  return {
+    setup() {
+      return { args }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockCallToAction },
+    template: '<block-call-to-action v-bind="args"/>',
+  }
+}
 
 function TemplateFTVASlim(args) {
   return {
