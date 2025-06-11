@@ -1,5 +1,9 @@
 import { computed } from 'vue'
 
+// UTILS
+import formatDates from '@/utils/formatEventDates'
+import formatSeriesDates from '@/utils/formatEventSeriesDates'
+
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
 import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList'
@@ -19,36 +23,6 @@ const mock = {
   authors: [{ title: 'Justo Magna', id: 123 }],
   description:
         'Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Egestas integer eget aliquet nibh praesent tristique. Quis imperdiet massa tincidunt nunc pulvinar sapien. Quis imperdiet massa tincidunt nunc pulvinar sapien.',
-}
-
-const mockDateRange = {
-  to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
-  title: 'A Film Series for You: Celebrating Giant Robot‚Äôs 30th Anniversary',
-  image: API.image,
-  description: 'This deep into the post-print era it may be hard for some to understand how something as ephemeral as a magazine could change the world. That may be especially true when the magazine hasn‚Äôt been in print for over a decade. But from its first issue as a Xeroxed zine in 1994 to its final run as a full-page glossy in 2011, Giant Robot did just that.',
-  startDate: '2024-11-01T19:30:00',
-  endDate: '2024-11-17T19:30:00',
-  ongoing: false
-}
-
-const mockDateRange2 = {
-  to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
-  title: 'A Film Series for You',
-  image: API.image,
-  description: 'This deep into the post-print era it may be hard for some to understand.',
-  startDate: '2024-11-01T19:30:00',
-  endDate: '2024-11-01T19:30:00',
-  ongoing: false
-}
-
-const mockOngoing = {
-  to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
-  title: 'An Ongoing Film Series for You',
-  image: API.image,
-  description: 'This deep into the post-print era it may be hard for some to understand. Someday, if you study hard enough you might be able to inderstand. Unless that it, you are particularly dense.',
-  startDate: '2024-11-01T19:30:00',
-  endDate: null,
-  ongoing: true
 }
 
 // Variations of stories below
@@ -196,11 +170,36 @@ export function NoAuthorOrDate() {
   `,
   }
 }
+const mockDateRange2 = {
+  to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
+  title: 'A Film Series for You',
+  image: API.image,
+  description: 'This deep into the post-print era it may be hard for some to understand.',
+  startDate: '2024-11-01T19:30:00',
+  endDate: '2024-11-17T19:30:00',
+  ongoing: false,
+  sectionHandle: 'ftvaEventSeries',
+}
 
 export function FtvaDateRange() {
   return {
+
     data() {
       return { ...mockDateRange2 }
+    },
+    methods: {
+      parseDate(sectionHandle, startDate, endDate, ongoing) {
+        console.log(sectionHandle, startDate, endDate, ongoing)
+
+        if (ongoing)
+          return 'Ongoing'
+        if (sectionHandle === 'ftvaEvent')
+          return formatDates(startDate, startDate, 'shortWithYear')
+        if (sectionHandle === 'ftvaEventSeries')
+          return formatSeriesDates(startDate, endDate, 'shortWithYear')
+
+        return null
+      }
     },
     provide() {
       return {
@@ -214,10 +213,17 @@ export function FtvaDateRange() {
           :to="to"
           :title="title"
           :description="description"
-          startDate="2024-11-01T19:30:00"
-          endDate="2024-11-17T19:30:00"
-          :ongoing="ongoing"
-      />
+          
+      >
+      <template
+            v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
+            #customFTVADate
+          >
+            <span class="ftva-date">
+              {{ parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false) }}
+            </span>
+          </template>
+      </block-staff-article-list>
   `,
   }
 }
@@ -226,6 +232,20 @@ export function FtvaSameStartEndDate() {
   return {
     data() {
       return { ...mockDateRange2 }
+    },
+    methods: {
+      parseDate(sectionHandle, startDate, endDate, ongoing) {
+        console.log(sectionHandle, startDate, endDate, ongoing)
+
+        if (ongoing)
+          return 'Ongoing'
+        if (sectionHandle === 'ftvaEvent')
+          return formatDates(startDate, startDate, 'shortWithYear')
+        if (sectionHandle === 'ftvaEventSeries')
+          return formatSeriesDates(startDate, endDate, 'shortWithYear')
+
+        return null
+      }
     },
     provide() {
       return {
@@ -242,11 +262,29 @@ export function FtvaSameStartEndDate() {
           startDate="2024-11-01T19:30:00"
           endDate="2024-11-01T19:30:00"
           :ongoing="ongoing"
-      />
+     >
+      <template
+            v-if="parseDate(sectionHandle ?? '', '2024-11-01T19:30:00', '2024-11-01T19:30:00', ongoing ?? false)"
+            #customFTVADate
+          >
+            <span class="ftva-date">
+              {{ parseDate(sectionHandle ?? '', '2024-11-01T19:30:00', '2024-11-01T19:30:00', ongoing ?? false) }}
+            </span>
+          </template>
+      </block-staff-article-list>
   `,
   }
 }
-
+const mockOngoing = {
+  to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
+  title: 'An Ongoing Film Series for You',
+  image: API.image,
+  description: 'This deep into the post-print era it may be hard for some to understand. Someday, if you study hard enough you might be able to inderstand. Unless that it, you are particularly dense.',
+  startDate: '2024-11-01T19:30:00',
+  endDate: null,
+  ongoing: true,
+  sectionHandle: 'ftvaEventSeries',
+}
 export function FtvaOngoing() {
   return {
     data() {
@@ -257,6 +295,20 @@ export function FtvaOngoing() {
         theme: computed(() => 'ftva'),
       }
     },
+    methods: {
+      parseDate(sectionHandle, startDate, endDate, ongoing) {
+        console.log(sectionHandle, startDate, endDate, ongoing)
+
+        if (ongoing)
+          return 'Ongoing'
+        if (sectionHandle === 'ftvaEvent')
+          return formatDates(startDate, startDate, 'shortWithYear')
+        if (sectionHandle === 'ftvaEventSeries')
+          return formatSeriesDates(startDate, endDate, 'shortWithYear')
+
+        return null
+      }
+    },
     components: { BlockStaffArticleList },
     template: `
       <block-staff-article-list
@@ -264,10 +316,17 @@ export function FtvaOngoing() {
           :to="to"
           :title="title"
           :description="description"
-          :startDate="startDate"
-          :endDate="endDate"
-          :ongoing="ongoing"
-      />
+
+      >
+      <template
+            v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
+            #customFTVADate
+          >
+            <span class="ftva-date">
+              {{ parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false) }}
+            </span>
+          </template>
+      </block-staff-article-list>
   `,
   }
 }

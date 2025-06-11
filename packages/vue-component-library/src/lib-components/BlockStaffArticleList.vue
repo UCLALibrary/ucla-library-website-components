@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 
@@ -16,7 +13,6 @@ import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 
 // UTILITY FUNCTIONS
 import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
-import formatSeriesDates from '@/utils/formatEventSeriesDates'
 
 // THEME
 import { useTheme } from '@/composables/useTheme'
@@ -58,17 +54,7 @@ const props = defineProps({
   imageAspectRatio: {
     type: Number,
     default: 0,
-  },
-  startDate: {
-    type: String,
-  },
-  endDate: {
-    type: String,
-  },
-  ongoing: {
-    type: Boolean,
-    default: false,
-  },
+  }
 })
 
 const theme = useTheme()
@@ -95,22 +81,6 @@ const parsedTextAll = computed(() => {
   return props.description
     ? removeHtmlTruncate(props.description, 250)
     : ''
-})
-
-// If the component is in the FTVA site the field ongoing with exist
-// Ongoing will only be true if the event is Ongoing
-// If the event is not Ongoing
-// it will be displayed as a date range: Nov 1, 2024 - Nov 17, 2024
-// or and individual date (Nov 1, 2024)if all events in the series are on the same date
-const parsedDateDisplay = computed(() => {
-  if (theme?.value !== 'ftva')
-    return null
-  if (props.ongoing)
-    return 'Ongoing'
-  else if (props.startDate && props.endDate)
-    return formatSeriesDates(props.startDate, props.endDate, 'shortWithYear')
-  else
-    return null
 })
 </script>
 
@@ -157,10 +127,10 @@ const parsedDateDisplay = computed(() => {
         </div>
 
         <div
-          v-if="parsedDateDisplay"
+          v-if="$slots.customFTVADate"
           class="date"
         >
-          {{ parsedDateDisplay }}
+          <slot name="customFTVADate" />
         </div>
       </div>
 
@@ -194,10 +164,7 @@ const parsedDateDisplay = computed(() => {
   </li>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 @import "@/styles/default/_block-staff-article-item.scss";
 @import "@/styles/ftva/_block-staff-article-item.scss";
 </style>
