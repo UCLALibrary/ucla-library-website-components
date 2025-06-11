@@ -72,7 +72,8 @@ const mockCurrentEntriesWithDates = [
     description: 'This deep into the post-print era it may be hard for some to understand how something as ephemeral as a magazine could change the world. That may be especially true when the magazine hasn‚Äôt been in print for over a decade. But from its first issue as a Xeroxed zine in 1994 to its final run as a full-page glossy in 2011, Giant Robot did just that.',
     startDate: '2024-11-01T19:30:00',
     endDate: '2024-11-17T19:30:00',
-    ongoing: false
+    ongoing: false,
+    sectionHandle: 'ftvaEventSeries',
   },
   {
     to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
@@ -81,7 +82,8 @@ const mockCurrentEntriesWithDates = [
     description: 'This deep into the post-print era it may be hard for some to understand.',
     startDate: '2024-08-17T19:30:00',
     endDate: '2024-08-17T19:30:00',
-    ongoing: false
+    ongoing: false,
+    sectionHandle: 'ftvaEventSeries',
   },
   {
     to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
@@ -90,7 +92,8 @@ const mockCurrentEntriesWithDates = [
     description: 'This deep into the post-print era it may be hard for some to understand. Someday, if you study hard enough you might be able to inderstand. Unless that it, you are particularly dense.',
     startDate: '2024-05-07T19:30:00',
     endDate: null,
-    ongoing: true
+    ongoing: true,
+    sectionHandle: 'ftvaEventSeries',
   }
 ]
 
