@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.20.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.19.1...@ucla-library-monorepo/ucla-library-website-components-v1.20.0) (2025-06-11)
+
+
+### Features
+
+* Replace date logic with slot in Block and Section StaffArticleList ([#746](https://github.com/UCLALibrary/ucla-library-website-components/issues/746)) ([79dea1c](https://github.com/UCLALibrary/ucla-library-website-components/commit/79dea1ca0228693ea77a6c48658af421db7822c5))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.19.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.19.0...@ucla-library-monorepo/ucla-library-website-components-v1.19.1) (2025-05-30)
 
 
