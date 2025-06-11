@@ -8,6 +8,10 @@ import type { BlockStaffArticleListItemType } from '@/types/types'
 // THEME
 import { useTheme } from '@/composables/useTheme'
 
+// UTILS
+import formatDates from '@/utils/formatEventDates'
+import formatSeriesDates from '@/utils/formatEventSeriesDates'
+
 // CHILD COMPONENTS
 import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList.vue'
 
@@ -28,6 +32,19 @@ const theme = useTheme()
 const classes = computed(() => {
   return ['section-staff-article-list', theme?.value || '']
 })
+
+function parseDate(sectionHandle: string, startDate: string, endDate: string, ongoing: boolean) {
+  if (theme?.value !== 'ftva')
+    return null
+  if (ongoing)
+    return 'Ongoing'
+  if (sectionHandle === 'ftvaEvent')
+    return formatDates(startDate, startDate, 'shortWithYear')
+  if (sectionHandle === 'ftvaEventSeries')
+    return formatSeriesDates(startDate, endDate, 'shortWithYear')
+
+  return null
+}
 </script>
 
 <template>
@@ -51,10 +68,20 @@ const classes = computed(() => {
           :authors="item.authors"
           :description="item.description"
           :external-resource-url="item.externalResourceUrl"
-          :start-date="item.startDate"
+        >
+          <template
+            v-if="parseDate(item.sectionHandle ?? '', item.startDate ?? '', item.endDate ?? '', item.ongoing ?? false)"
+            #customFTVADate
+          >
+            <span class="ftva-date">
+              {{ parseDate(item.sectionHandle ?? '', item.startDate ?? '', item.endDate ?? '', item.ongoing ?? false) }}
+            </span>
+          </template>
+        </BlockStaffArticleList>
+
+        <!-- :start-date="item.startDate"
           :end-date="item.endDate"
-          :ongoing="item.ongoing"
-        />
+          :ongoing="item.ongoing" -->
       </ul>
     </div>
   </section>

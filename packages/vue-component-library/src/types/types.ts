@@ -116,6 +116,7 @@ export interface BlockStaffArticleListItemType {
   startDate?: string
   endDate?: string
   ongoing?: boolean
+  sectionHandle?: string
 }
 
 export interface StaffLocationItemType {
