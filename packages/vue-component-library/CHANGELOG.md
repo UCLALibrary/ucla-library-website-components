@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.21.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.20.0...@ucla-library-monorepo/ucla-library-website-components-v1.21.0) (2025-06-12)
+
+
+### Features
+
+* use and logic instead of or logic operator ([#747](https://github.com/UCLALibrary/ucla-library-website-components/issues/747)) ([9d9949d](https://github.com/UCLALibrary/ucla-library-website-components/commit/9d9949d0f1f0092ea2285945ea0fec86f52f3ef1))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.20.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.19.1...@ucla-library-monorepo/ucla-library-website-components-v1.20.0) (2025-06-11)
 
 
