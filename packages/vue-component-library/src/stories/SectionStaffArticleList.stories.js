@@ -2,6 +2,7 @@ import { computed } from 'vue'
 
 import SectionStaffArticleList from '@/lib-components/SectionStaffArticleList'
 import * as API from '@/stories/mock-api.json'
+import { mockArticles, mockCollections, mockGeneralContent } from '@/stories/mock/FTVASearchResultsData.js'
 
 // Storybook default settings
 export default {
@@ -121,6 +122,63 @@ export function FtvaNoSectionTitle() {
   return {
     data() {
       return { items: mockCurrentEntriesWithDates }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionStaffArticleList },
+    template: `
+      <section-staff-article-list
+        :items="items"
+      />
+  `,
+  }
+}
+
+export function FtvaSearchResultsArticle() {
+  return {
+    data() {
+      return { items: mockArticles }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionStaffArticleList },
+    template: `
+      <section-staff-article-list
+        :items="items"
+      />
+  `,
+  }
+}
+
+export function FtvaSearchResultsCollections() {
+  return {
+    data() {
+      return { items: mockCollections }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionStaffArticleList },
+    template: `
+      <section-staff-article-list
+        :items="items"
+      />
+  `,
+  }
+}
+
+export function FtvaSearchResultsGC() {
+  return {
+    data() {
+      return { items: mockGeneralContent }
     },
     provide() {
       return {
