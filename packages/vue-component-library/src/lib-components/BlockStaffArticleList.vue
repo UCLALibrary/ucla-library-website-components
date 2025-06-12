@@ -117,7 +117,7 @@ const parsedTextAll = computed(() => {
       />
 
       <!-- SUMMARY ONLY -->
-      <div v-if="props.authors.length < 1 || !props.date">
+      <div v-if="props.authors.length < 1 && !props.date">
         <!-- If there is no author or date - increase max-length for truncation -->
         <div
           v-if="props.description"
