@@ -16,6 +16,7 @@ A vertical stack of buttons, likely for grouped filter or action options.
 - onClick: Function(index: number)
 
 [] ButtonDropdown (Svebor)
+
 Button paired with a dropdown menu indicator (carat or arrow).
 
 - label: string  
