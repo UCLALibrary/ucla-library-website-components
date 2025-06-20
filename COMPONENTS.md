@@ -15,7 +15,7 @@ A vertical stack of buttons, likely for grouped filter or action options.
 - buttons: Array<{ label: string, isActive: boolean }>  
 - onClick: Function(index: number)
 
-[] ButtonDropdown  
+[] ButtonDropdown (Svebor)
 Button paired with a dropdown menu indicator (carat or arrow).
 
 - label: string  
