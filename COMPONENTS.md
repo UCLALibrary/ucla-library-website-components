@@ -404,7 +404,7 @@ Primary site navigation including logo, main links, and utility search bar.
 
 ## Footer 
 
-[] Footer (Svebor)
+[] Footer
 Main site footer for UCLA Library, assembling social links, navigation, and newsletter signup.
 
 - socialLinks: Array<{ label: string, href: string }>  
