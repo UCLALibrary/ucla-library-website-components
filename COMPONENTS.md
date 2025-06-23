@@ -15,7 +15,7 @@ A vertical stack of buttons, likely for grouped filter or action options.
 - buttons: Array<{ label: string, isActive: boolean }>  
 - onClick: Function(index: number)
 
-[] ButtonDropdown (Svebor)
+[] ButtonDropdown
 
 Button paired with a dropdown menu indicator (carat or arrow).
 
@@ -157,7 +157,7 @@ Expandable side menu category pod with grouped buttons and optional metadata (e.
 - categories: Array<{ label: string, buttons: Array<{ title: string, count: number }> }>  
 - onSelect: Function(buttonTitle: string)
 
-[] ButtonDropdownSearch  
+[] ButtonDropdownSearch
 Set of dropdowns to filter/search content by fields like “Title” or “Subject.”
 
 - label: string  
@@ -404,7 +404,7 @@ Primary site navigation including logo, main links, and utility search bar.
 
 ## Footer 
 
-[] Footer  
+[] Footer (Svebor)
 Main site footer for UCLA Library, assembling social links, navigation, and newsletter signup.
 
 - socialLinks: Array<{ label: string, href: string }>  
