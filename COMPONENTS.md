@@ -2,12 +2,15 @@
 
 ## Buttons and Interface
 
-[] ButtonText  
+[] ButtonText (Svebor)  
 A minimal button with just text, possibly with variants like underline or subtle.
 
 - label: string  
 - variant?: 'default' | 'underline' | 'subtle'  
 - onClick: Function
+
+[] ButtonPageView (Svebor)
+ A button that displayes items as a grid with more or less info
 
 [] ButtonStacked  
 A vertical stack of buttons, likely for grouped filter or action options.
@@ -728,7 +731,7 @@ Behavior:
 - Displays a molecule stroke graphic and a right arrow icon.
 - Designed for compact, centered layouts.
 
-[] DividerGeneral  
+[x] DividerGeneral  
 A horizontal divider element with optional style modifiers.
 
 - isBold: boolean  
@@ -1102,8 +1105,10 @@ Behavior:
 
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
-| ButtonText                 |           | ☐ Complete  |   [ ]   |                                |
+| ButtonText                 |Svebor     | ☐ Complete  |   [x]   | Needs a font change            |
+| DividerGeneral             |Svebor     | ☐ Complete  |   [x]   |                                |
 | ButtonStacked              |           | ☐ Complete  |   [ ]   |                                |
+| ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonDropdown             |           | ☐ Complete  |   [ ]   |                                |
 | ButtonTag                  |           | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbPill             |           | ☐ Complete  |   [ ]   |                                |
