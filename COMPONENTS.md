@@ -2,12 +2,15 @@
 
 ## Buttons and Interface
 
-[] ButtonText  
+[] ButtonText (Svebor)  
 A minimal button with just text, possibly with variants like underline or subtle.
 
 - label: string  
 - variant?: 'default' | 'underline' | 'subtle'  
 - onClick: Function
+
+[] ButtonPageView (Svebor)
+ A button that displayes items as a grid with more or less info
 
 [] ButtonStacked  
 A vertical stack of buttons, likely for grouped filter or action options.
@@ -15,7 +18,8 @@ A vertical stack of buttons, likely for grouped filter or action options.
 - buttons: Array<{ label: string, isActive: boolean }>  
 - onClick: Function(index: number)
 
-[] ButtonDropdown  
+[] ButtonDropdown
+
 Button paired with a dropdown menu indicator (carat or arrow).
 
 - label: string  
@@ -156,7 +160,7 @@ Expandable side menu category pod with grouped buttons and optional metadata (e.
 - categories: Array<{ label: string, buttons: Array<{ title: string, count: number }> }>  
 - onSelect: Function(buttonTitle: string)
 
-[] ButtonDropdownSearch  
+[] ButtonDropdownSearch
 Set of dropdowns to filter/search content by fields like “Title” or “Subject.”
 
 - label: string  
@@ -403,7 +407,7 @@ Primary site navigation including logo, main links, and utility search bar.
 
 ## Footer 
 
-[] Footer  
+[] Footer
 Main site footer for UCLA Library, assembling social links, navigation, and newsletter signup.
 
 - socialLinks: Array<{ label: string, href: string }>  
@@ -727,7 +731,7 @@ Behavior:
 - Displays a molecule stroke graphic and a right arrow icon.
 - Designed for compact, centered layouts.
 
-[] DividerGeneral  
+[x] DividerGeneral  
 A horizontal divider element with optional style modifiers.
 
 - isBold: boolean  
@@ -1101,8 +1105,10 @@ Behavior:
 
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
-| ButtonText                 |           | ☐ Complete  |   [ ]   |                                |
+| ButtonText                 |Svebor     | ☐ Complete  |   [x]   | Needs a font change            |
+| DividerGeneral             |Svebor     | ☐ Complete  |   [x]   |                                |
 | ButtonStacked              |           | ☐ Complete  |   [ ]   |                                |
+| ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonDropdown             |           | ☐ Complete  |   [ ]   |                                |
 | ButtonTag                  |           | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbPill             |           | ☐ Complete  |   [ ]   |                                |
