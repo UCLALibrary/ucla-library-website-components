@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineAsyncComponent, useSlots } from 'vue'
+import { computed, useSlots } from 'vue'
 // Components
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
 
