@@ -79,7 +79,7 @@ Secondary inline button or link, often used for minimal navigation or contextual
 - variant?: 'default' | 'subtle'  
 - icon?: string
 
-[] LibraryLogoButton  
+[] LibraryLogoButton (austin)
 Branded button or label pairing logo with text.
 
 - logoSrc: string  
@@ -1117,7 +1117,7 @@ Behavior:
 | PaginationControl          |Svebor     | ☐ Complete  |   [x]   | Needs a slight style/functionlity change |
 | SectionLabel               |           | ☐ Complete  |   [ ]   |                                |
 | ButtonSubLink              |           | ☐ Complete  |   [ ]   |                                |
-| LibraryLogoButton          |           | ☐ Complete  |   [ ]   |                                |
+| LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
 | PaginationNav              |Svebor     | ☐ Complete  |   [x]   |Adjusted the styles and a little bit of logic |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [x]   |Exists, ready to use            |
 | SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |WIP                             |
