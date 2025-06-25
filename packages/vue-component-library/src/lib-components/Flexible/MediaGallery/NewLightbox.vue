@@ -63,9 +63,24 @@ const parsedObjectFit = computed(() => {
 
 const lightbox = ref<HTMLElement | null>(null) // replacing this.$refs.lightbox
 
+const prevBtnRef = ref()
+const nextBtnRef = ref()
+const paginationCounterRef = ref()
+
 onMounted(() => {
   lightbox.value?.focus()
+
+  setFTVAHomepageNavigationArrows()
 })
+
+// For FTVA Homepage Inline Lightbox
+// Offset placement of navigation arrows based on width of pagination counter
+function setFTVAHomepageNavigationArrows() {
+  const coordinates = paginationCounterRef.value.getBoundingClientRect()
+
+  prevBtnRef.value.style.setProperty('--counterWidth', `${coordinates.width}px`)
+  nextBtnRef.value.style.setProperty('--counterWidth', `${coordinates.width}px`)
+}
 
 function closeModal() {
   emit('closeModal')
@@ -74,10 +89,6 @@ function closeModal() {
 function setCurrentSlide(currentSlide: number) {
   selectionIndex.value = currentSlide
 }
-
-const prevBtnRef = ref()
-const nextBtnRef = ref()
-const paginationWidth = ref()
 </script>
 
 <template>
@@ -112,7 +123,7 @@ const paginationWidth = ref()
 
     <!-- Pagination -->
     <div class="caption-block">
-      <div v-if="items.length > 1" ref="paginationWidth" class="media-counter" role="tablist">
+      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="tablist">
         <button
           v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex"
           class="media-counter-item" @click="setCurrentSlide(index - 1)"

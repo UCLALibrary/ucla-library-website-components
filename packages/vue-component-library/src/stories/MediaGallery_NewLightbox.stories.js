@@ -95,9 +95,21 @@ export function FTVA_InlineCarousel() {
   }
 }
 
+const mockFTVAGalleryComputedData2 = computed(() => {
+  // map image to item, map creditText to credit
+  return mockFTVAGalleryRawData.map((rawItem) => {
+    return {
+      item: rawItem.image[0],
+      credit: rawItem.creditText,
+      captionText: 'This short is a compilation of two Swedish commercials shown in Stockholm theaters, showing Garbo (still Gustafsson at the time) modeling hats for a department store and eating pastries at a café.', // TODO get homepage carousel data sample to make more accurate
+      captionTitle: 'The Saga of Gösta Berling If the Title Continues to the Second Line' // TODO get homepage carousel data sample to make more accurate
+    }
+  })
+})
+
 // TODO finish example showing homepage implementation with slots
 // mockdata for blocktags in parent
-const mockTags = ['tag1', 'tag2', 'tag3']
+const mockTags = ['taglabel1', 'tag2', 'tag3']
 // TODO: for part 2 of carousel homepage styling
 export function FTVA_HomepageCarousel() {
   return {
@@ -108,7 +120,7 @@ export function FTVA_HomepageCarousel() {
     },
     data() {
       return {
-        items: mockFTVAGalleryComputedData
+        items: mockFTVAGalleryComputedData2
       }
     },
     provide() {
@@ -117,6 +129,6 @@ export function FTVA_HomepageCarousel() {
       }
     },
     components: { FlexibleMediaGalleryNewLightbox, BlockTag },
-    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="mockTags[slotProps.selectionIndex]" /></template></ flexible-media-gallery-new-lightbox>',
+    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="mockTags[slotProps.selectionIndex]" /> Text Random </template></ flexible-media-gallery-new-lightbox>',
   }
 }

@@ -220,17 +220,18 @@
 
   .button-prev, .button-next {
     z-index: 1;
-    bottom: 25px;
-    top: unset;
-    transform: unset;
+    bottom: -16px;
+    top: 50%;
+    transform: translate(50%, -50%);
   }
 
   .button-prev {
-    left: 35%;
+    left: unset;
+    right: calc(50% + var(--counterWidth));
   }
   
   .button-next {
-    right: 35%;
+    right: calc(50% - var(--counterWidth));
   }
 
   @media #{$medium} {
