@@ -324,7 +324,7 @@ Vertical or horizontal list of buttons linking to specific tools or resources.
 
 ## Search
 
-[] SearchField  
+[] SearchField (Luka)
 Composed search input and submit button. Likely wraps `EntryField` and `ButtonSubmit`.
 
 - modelValue: string  
@@ -1145,7 +1145,7 @@ Behavior:
 | BlockButtonList            |           | ☐ Complete  |   [ ]   |                                |
 | GridAssets                 |           | ☐ Complete  |   [ ]   |                                |
 | GridCollections            |           | ☐ Complete  |   [ ]   |                                |
-| SearchField                |           | ☐ Complete  |   [x]   |                                |
+| SearchField                |Luka       | ☐ Complete  |   [x]   |                                |
 | EntryField                 |           | ☐ Complete  |   [ ]   |                                |
 | ButtonSubmit               |Luka       | ☐ Complete  |   [ ]   |                                |
 | Flash                      |           | ☐ Complete  |   [ ]   |                                |
