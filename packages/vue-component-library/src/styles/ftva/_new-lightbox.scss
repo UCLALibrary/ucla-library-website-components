@@ -173,6 +173,8 @@
     flex-direction: column-reverse;
     align-items: center;
     width: 100%;
+
+    background: linear-gradient(0deg, rgba(0, 0, 0, .75) 0%, rgba(255, 255, 255, 0) 100%);
     
     .caption-content {
       display: grid;
@@ -212,6 +214,7 @@
     }
   }
 
+  // Disables bottom-right credit text
   // .media-container {
   //   .credit-text {
   //     display: none;
@@ -223,6 +226,17 @@
     bottom: -16px;
     top: 50%;
     transform: translate(50%, -50%);
+
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+
+    :deep(.svg__fill--primary-blue-03) {
+      fill: var(--color-white);
+    }
+  
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: var(--color-white);
+    }
   }
 
   .button-prev {
@@ -245,6 +259,7 @@
   @media #{$small} {
     .caption-block {
       flex-direction: column;
+      background: none;
 
       .caption-content {
         position: absolute;
