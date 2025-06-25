@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, nextTick, computed } from "vue"
+import { onMounted, onUnmounted, ref, computed } from "vue"
 
 const props = defineProps<{
     count: number
@@ -68,7 +68,7 @@ onUnmounted(() => {
         <span class="parsed-results">
             {{ parsedResults }}
         </span>
-        <div class="count">
+        <div class="count" aria-live="polite">
             <span>{{ animatedCount }}</span>
         </div>
     </div>
