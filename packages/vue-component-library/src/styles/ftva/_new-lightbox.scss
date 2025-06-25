@@ -171,30 +171,55 @@
   .caption-block {
     display: flex;
     flex-direction: column-reverse;
-    // flex-direction: column;
     align-items: center;
     width: 100%;
-
-    .media-counter {
-      // display: inline-flex;
-    }
     
     .caption-content {
-      display: block;
-      background-color: blue;
-      max-width: 928px; // find var-container width
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      grid-template-rows: auto 1fr;
+      grid-template-areas: 'label caption'
+      'title caption';
+      gap: 16px 36px;
+      max-width: 1160px;
       width: 100%;
-      padding-bottom: 60px;
+      padding: 0 16px 60px 16px;
+    }
+
+    .media-object-title {
+      @include ftva-h1;
+      @include truncate(3);
+      grid-area: title;
+    }
+
+    .media-object-caption {
+      @include ftva-body;
+      grid-area: caption;
+      align-self: center;
+    }
+
+    .media-object-caption-slot {
+      grid-area: label;
+      display: flex;
+      -moz-column-gap: 12px;
+          column-gap: 12px;
+      align-items: center;
+      @include ftva-body;
+
+      :deep(.label) {
+        text-transform: uppercase;
+      }
     }
   }
 
-  .media-container {
-    .credit-text {
-      display: none;
-    }
-  }
+  // .media-container {
+  //   .credit-text {
+  //     display: none;
+  //   }
+  // }
 
   .button-prev, .button-next {
+    z-index: 1;
     bottom: 25px;
     top: unset;
     transform: unset;
@@ -219,16 +244,19 @@
   @media #{$small} {
     .caption-block {
       flex-direction: column;
-      // width: 100%;
-      // background: red;
 
       .caption-content {
         position: absolute;
         top: 48px;
-        background-color: red;
-        // width: inherit;
-        padding-top: 20px;
-        padding-bottom: 16px;
+        padding-top: 32px;
+        padding-bottom: 28px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 'label'
+        'title'
+        'caption';
+        -moz-column-gap: 0;
+            column-gap: 0;
       }
     }
 

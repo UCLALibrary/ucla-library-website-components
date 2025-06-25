@@ -74,6 +74,10 @@ function closeModal() {
 function setCurrentSlide(currentSlide: number) {
   selectionIndex.value = currentSlide
 }
+
+const prevBtnRef = ref()
+const nextBtnRef = ref()
+const paginationWidth = ref()
 </script>
 
 <template>
@@ -96,11 +100,11 @@ function setCurrentSlide(currentSlide: number) {
     </Carousel>
 
     <!-- Navigation -->
-    <button v-if="items.length > 1" class="button-prev" :disabled="selectionIndex <= 0" @click="selectionIndex -= 1">
+    <button v-if="items.length > 1" ref="prevBtnRef" class="button-prev" :disabled="selectionIndex <= 0" @click="selectionIndex -= 1">
       <SvgIconCaretLeft aria-label="Show previous image" />
     </button>
     <button
-      v-if="items.length > 1" class="button-next" :disabled="selectionIndex >= items.length - 1"
+      v-if="items.length > 1" ref="nextBtnRef" class="button-next" :disabled="selectionIndex >= items.length - 1"
       @click="selectionIndex += 1"
     >
       <SvgIconCaretRight aria-label="Show next image" />
@@ -108,7 +112,7 @@ function setCurrentSlide(currentSlide: number) {
 
     <!-- Pagination -->
     <div class="caption-block">
-      <div v-if="items.length > 1" class="media-counter" role="tablist">
+      <div v-if="items.length > 1" ref="paginationWidth" class="media-counter" role="tablist">
         <button
           v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex"
           class="media-counter-item" @click="setCurrentSlide(index - 1)"
@@ -118,12 +122,15 @@ function setCurrentSlide(currentSlide: number) {
       </div>
       <!-- Captions -->
       <div class="caption-content">
-        <slot :selection-index="selectionIndex" /><!-- additional blocktags etc, can be slotted in here by parent -->
+        <div class="media-object-caption-slot">
+          <slot :selection-index="selectionIndex" />
+          <!-- additional blocktags/labels/simple elements can be slotted in here by parent -->
+        </div>
         <h4 v-if="captionTitle" class="media-object-title" v-text="captionTitle[selectionIndex]" />
         <p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" />
-        <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
+        <!-- <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
           {{ items[selectionIndex].credit }}
-        </p>
+        </p> -->
         <SmartLink
           v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
             && items[selectionIndex].linkText
