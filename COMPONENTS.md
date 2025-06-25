@@ -94,7 +94,7 @@ Interactive pagination component with numbered buttons, previous/next navigation
 - showEdges?: boolean (e.g. show first/last page)  
 - siblingCount?: number (how many pages around current to show)
 
-[] CTAHexButton  
+[x] CTAHexButton (svebor) 
 Prominent hex-shaped call-to-action button with icon and label.
 
 - label: string  
@@ -1119,7 +1119,7 @@ Behavior:
 | ButtonSubLink              |           | ☐ Complete  |   [ ]   |                                |
 | LibraryLogoButton          |           | ☐ Complete  |   [ ]   |                                |
 | PaginationNav              |Svebor     | ☐ Complete  |   [x]   |Adjusted the styles and a little bit of logic |
-| CTAHexButton               |           | ☐ Complete  |   [ ]   |                                |
+| CTAHexButton               |Svebor     | ☐ Complete  |   [x]   |Exists, ready to use            |
 | SearchResultsCount         |           | ☐ Complete  |   [ ]   |                                |
 | RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
 | FiltersDropdown            |           | ☐ Complete  |   [x]   |                                |
