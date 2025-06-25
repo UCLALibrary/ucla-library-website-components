@@ -332,7 +332,7 @@ Composed search input and submit button. Likely wraps `EntryField` and `ButtonSu
 - onSearch: Function(value: string)  
 - autoFocus?: boolean
 
-[] EntryField  
+[] EntryField(Luka)
 Basic labeled input field for user entry. Can be reused for search or other forms.
 
 - label: string  
@@ -1146,7 +1146,7 @@ Behavior:
 | GridAssets                 |           | ☐ Complete  |   [ ]   |                                |
 | GridCollections            |           | ☐ Complete  |   [ ]   |                                |
 | SearchField                |Luka       | ☐ Complete  |   [x]   |                                |
-| EntryField                 |           | ☐ Complete  |   [ ]   |                                |
+| EntryField                 |Luka       | ☐ Complete  |   [ ]   |                                |
 | ButtonSubmit               |Luka       | ☐ Complete  |   [ ]   |                                |
 | Flash                      |           | ☐ Complete  |   [ ]   |                                |
 | BentoBoxResult             |           | ☐ Complete  |   [ ]   |                                |
