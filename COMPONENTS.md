@@ -340,7 +340,7 @@ Basic labeled input field for user entry. Can be reused for search or other form
 - placeholder?: string  
 - onInput: Function(value: string)
 
-[] ButtonSubmit  
+[] ButtonSubmit(Luka)
 Search submit button, typically displayed as a magnifying glass icon.
 
 - onClick: Function  
@@ -1147,7 +1147,7 @@ Behavior:
 | GridCollections            |           | ☐ Complete  |   [ ]   |                                |
 | SearchField                |           | ☐ Complete  |   [x]   |                                |
 | EntryField                 |           | ☐ Complete  |   [ ]   |                                |
-| ButtonSubmit               |           | ☐ Complete  |   [ ]   |                                |
+| ButtonSubmit               |Luka       | ☐ Complete  |   [ ]   |                                |
 | Flash                      |           | ☐ Complete  |   [ ]   |                                |
 | BentoBoxResult             |           | ☐ Complete  |   [ ]   |                                |
 | Dragger                    |           | ☐ Complete  |   [ ]   |                                |
