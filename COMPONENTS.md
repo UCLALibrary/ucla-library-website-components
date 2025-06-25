@@ -58,7 +58,7 @@ Just an icon button, used for tooltips, mobile actions, etc.
 - ariaLabel: string  
 - onClick: Function
 
-[] PaginationControl  
+[x] PaginationControl (svebor) 
 Numbered pagination UI with previous/next arrows.
 
 - currentPage: number  
@@ -1114,7 +1114,7 @@ Behavior:
 | BreadcrumbPill             |           | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |Austin     | ☐ Complete  |   [ ]   |                                |
 | ButtonIconOnly             |           | ☐ Complete  |   [ ]   |                                |
-| PaginationControl          |           | ☐ Complete  |   [ ]   |                                |
+| PaginationControl          |Svebor     | ☐ Complete  |   [x]   | Needs a slight style/functionlity change |
 | SectionLabel               |           | ☐ Complete  |   [ ]   |                                |
 | ButtonSubLink              |           | ☐ Complete  |   [ ]   |                                |
 | LibraryLogoButton          |           | ☐ Complete  |   [ ]   |                                |
