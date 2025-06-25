@@ -102,7 +102,7 @@ Prominent hex-shaped call-to-action button with icon and label.
 - to: string  
 - variant?: 'primary' | 'secondary'
 
-[] SearchResultsCount  
+[] SearchResultsCount  (svebor)
 Displays the number of results returned in a search.
 
 - count: number  
@@ -1120,7 +1120,7 @@ Behavior:
 | LibraryLogoButton          |           | ☐ Complete  |   [ ]   |                                |
 | PaginationNav              |Svebor     | ☐ Complete  |   [x]   |Adjusted the styles and a little bit of logic |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [x]   |Exists, ready to use            |
-| SearchResultsCount         |           | ☐ Complete  |   [ ]   |                                |
+| SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |WIP                             |
 | RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
 | FiltersDropdown            |           | ☐ Complete  |   [x]   |                                |
 | ResultsList                |           | ☐ Complete  |   [ ]   | aka: CategoryList              |
