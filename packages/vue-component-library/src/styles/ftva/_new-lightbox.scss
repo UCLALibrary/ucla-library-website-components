@@ -41,29 +41,30 @@
   grid-gap: 0px;
 
   .media-container {
-      grid-column: col 1 / span 3;
-      // todo make these styles a mixin?
-      .credit-text {
-          display: inline-block;
-          position: absolute;
-          font-family: var(--font-secondary);
-          bottom: 0;
-          right: 0;
-          color: var(--color-white);
-          font-size: 16px;
-          max-width: 100%;
-          overflow: hidden;
-          text-overflow: ellipsis;
-  
-          span {
-              background-color: rgba(0, 0, 0, 0.64);
-              padding: 4px 23px 4px 18px;
-              // enforce 1 line, 50 char limit
-              height: 32px;
-              max-width: 385px;
-              white-space: pre;
-          }
+    grid-column: col 1 / span 3;
+    
+    // todo make these styles a mixin?
+    .credit-text {
+      display: inline-block;
+      position: absolute;
+      font-family: var(--font-secondary);
+      bottom: 0;
+      right: 0;
+      color: var(--color-white);
+      font-size: 16px;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      span {
+        background-color: rgba(0, 0, 0, 0.64);
+        padding: 4px 23px 4px 18px;
+        // enforce 1 line, 50 char limit
+        height: 32px;
+        max-width: 385px;
+        white-space: pre;
       }
+    }
   }
 
   .caption-block {
@@ -71,17 +72,19 @@
     // unset grid positioning from default theme
     grid-row: unset;
     grid-column: unset;
-
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
+
     .media-counter {
       background-color: $heading-grey;
       border-radius: 20px;
       padding: 0px 15px;
+
       .media-counter-item {
         padding: 1px;
         margin: 0 -5px;
+
         svg {
           height: 22px;
           width: 27px;
@@ -90,69 +93,158 @@
     }
   }
 
-    // hide captions beneath images and close button
-    .caption-content, .button-close {
-      display: none;
-    } 
-    .button-prev, .button-next {
-      top: 50%;
-      transform: translateY(-50%);
-      width: 43px;
+  // hide captions beneath images and close button
+  .caption-content, .button-close {
+    display: none;
+  }
 
-      background-color: $navy-blue;
-      border: 1px solid $grey-blue;
-      border-radius: 8px;
-      padding: 2px 0px;
-      // unset grid positioning from default theme
-      grid-row: unset;
-      grid-column: unset;
-      justify-self: auto;
-      :deep(.svg__fill--primary-blue-03) {
-        fill: $grey-blue;
-      }
-      :deep(.svg__stroke--primary-blue-03) {
-        stroke: $grey-blue;
-      }
+  .button-prev, .button-next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 43px;
+    background-color: $navy-blue;
+    border: 1px solid $grey-blue;
+    border-radius: 8px;
+    padding: 2px 0px;
+    // unset grid positioning from default theme
+    grid-row: unset;
+    grid-column: unset;
+    justify-self: auto;
+
+    :deep(.svg__fill--primary-blue-03) {
+      fill: $grey-blue;
     }
-    .button-prev {
-      left: 30px;
-      svg {
-        margin-left: -4px;  
-      }
+    
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: $grey-blue;
     }
-    .button-next {
-      right: 35px;
-      svg {
-        margin-left: -2px;
-      }
+  }
+
+  .button-prev {
+    left: 30px;
+
+    svg {
+      margin-left: -4px;  
     }
+  }
+
+  .button-next {
+    right: 35px;
+
+    svg {
+      margin-left: -2px;
+    }
+  }
+
+  // // Homepage Lightbox Theme
+  // &.homepage {
+  //   .caption-block {
+  //     display: flex;
+  //     flex-direction: column-reverse;
+  //     align-items: center;
+
+  //     div.media-counter {
+  //       display: inline-flex;
+  //     }
+      
+  //     div.caption-content {
+  //       display: block;
+  //     }
+  //   }
+
+  //   .media-container {
+  //     .credit-text {
+  //       display: none;
+  //     }
+  //   }
+
+  //   .button-prev, .button-next {
+  //     bottom: 25px;
+  //     top: unset;
+  //     transform: unset;
+  //   }
+  // }
+} 
 
   // Homepage Lightbox Theme
-    &.homepage {
-      .caption-block {
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
-  
-            div.media-counter {
-                display: inline-flex;
-            }
-            div.caption-content {
-                display: block;
-            }
-      }
+.ftva.inline.lightbox.homepage {
+  .caption-block {
+    display: flex;
+    flex-direction: column-reverse;
+    // flex-direction: column;
+    align-items: center;
+    width: 100%;
 
+    .media-counter {
+      // display: inline-flex;
+    }
+    
+    .caption-content {
+      display: block;
+      background-color: blue;
+      max-width: 928px; // find var-container width
+      width: 100%;
+      padding-bottom: 60px;
+    }
+  }
+
+  .media-container {
+    .credit-text {
+      display: none;
+    }
+  }
+
+  .button-prev, .button-next {
+    bottom: 25px;
+    top: unset;
+    transform: unset;
+  }
+
+  .button-prev {
+    left: 35%;
+  }
   
-      .media-container {
-        .credit-text {
-          display: none;
-        }
+  .button-next {
+    right: 35%;
+  }
+
+  @media #{$medium} {
+    .caption-block {
+      .caption-content {
+        padding: 0 16px 60px 16px;
       }
-      .button-prev,
-      .button-next {
-        bottom: 25px;
-        top: unset;
-        transform: unset;
+    }
+  }
+
+  @media #{$small} {
+    .caption-block {
+      flex-direction: column;
+      // width: 100%;
+      // background: red;
+
+      .caption-content {
+        position: absolute;
+        top: 48px;
+        background-color: red;
+        // width: inherit;
+        padding-top: 20px;
+        padding-bottom: 16px;
       }
-   }
-  } 
+    }
+
+    .button-prev {
+      left: 8%;
+    }
+  
+    .button-next {
+      right: 8%;
+    }
+
+    .button-prev, .button-next {
+      display: block;
+      top: 50%;
+      bottom: unset;
+      transform: translateY(-50%);
+    }
+  }
+}

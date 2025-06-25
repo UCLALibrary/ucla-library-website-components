@@ -78,7 +78,7 @@ export function FTVA_DefaultLightbox() {
   }
 }
 
-export function FTVA_EventDetailCarousel() {
+export function FTVA_InlineCarousel() {
   return {
     data() {
       return {
@@ -99,7 +99,7 @@ export function FTVA_EventDetailCarousel() {
 // mockdata for blocktags in parent
 const mockTags = ['tag1', 'tag2', 'tag3']
 // TODO: for part 2 of carousel homepage styling
-export function FTVA_Homepage() {
+export function FTVA_HomepageCarousel() {
   return {
     setup() {
       return {
