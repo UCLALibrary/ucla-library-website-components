@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // Imports
-import { computed, onBeforeUnmount, onMounted, ref, useAttrs, watch } from "vue"
+import { useEventListener } from "@/composables/useEventListener"
+import { computed, ref, useAttrs } from "vue"
 
 const emit = defineEmits(["update:modelValue", "clear"])
 const attrs = useAttrs()
@@ -28,7 +29,6 @@ const props = withDefaults(defineProps<EntryFieldProps>(), {
 
 // Data
 const inputRef = ref<HTMLInputElement | null>(null)
-const internalValue = ref(props.modelValue)
 
 // Methods
 function filterAttributes(
@@ -43,13 +43,12 @@ function filterAttributes(
     )
 }
 function clear() {
-    internalValue.value = ""
     emit("update:modelValue", "")
     emit("clear")
 }
 function onInput(event: Event) {
     const target = event.target as HTMLInputElement
-    internalValue.value = target.value
+
     emit("update:modelValue", target.value)
 }
 function onKeydown(event: KeyboardEvent) {
@@ -98,31 +97,19 @@ const attrsStyles = computed(() => ({
     class: attrs.class ?? props.wrapperClass,
 }))
 const showClearIcon = computed(
-    () => props.clearIcon && internalValue.value.length > 0
+    () => props.clearIcon && props.modelValue.length > 0
 )
 
-// Lifecycle Hooks
-onMounted(() => {
-    window.document.addEventListener("keydown", onDocumentKeydown)
-})
-onBeforeUnmount(() => {
-    window.document.removeEventListener("keydown", onDocumentKeydown)
-})
-
-watch(
-    () => props.modelValue,
-    (val) => {
-        internalValue.value = val
-    },
-    { immediate: true }
-)
+// Event Listeners
+useEventListener<KeyboardEvent>(window.document, "keydown", onDocumentKeydown)
 </script>
 
 <template>
     <div v-bind="attrsStyles">
         <input
             ref="inputRef"
-            v-model="internalValue"
+            :value="modelValue"
+            @update:modelValue="onInput"
             type="search"
             data-search-input="true"
             v-bind="attrsWithoutStyles"
@@ -132,7 +119,7 @@ watch(
         <button
             v-show="showClearIcon"
             class="clear-icon clear"
-            aria-label="Clear"
+            aria-label="Clear input"
             @mousedown.prevent="clear"
             @keydown.space.prevent.enter.prevent="clear"
         />
@@ -154,8 +141,6 @@ $active-color: #1ea7fd;
         padding: 24px 24px 24px 16px;
 
         font-family: var(--font-primary);
-        font-style: normal;
-        font-weight: normal;
         font-size: 20px;
         line-height: 100%;
         letter-spacing: 0.01em;
