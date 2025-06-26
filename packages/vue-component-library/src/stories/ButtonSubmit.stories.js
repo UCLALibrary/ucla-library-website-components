@@ -2,7 +2,7 @@ import ButtonSubmit from '@/lib-components/ButtonSubmit'
 import SvgIconLocker from 'ucla-library-design-tokens/assets/svgs/icon-locker.svg'
 
 export default {
-  title: 'FUNKAUS / ButtonSubmit',
+  title: 'Funkhaus / ButtonSubmit',
   component: ButtonSubmit,
 }
 
