@@ -66,13 +66,13 @@ const lightbox = ref<HTMLElement | null>(null) // replacing this.$refs.lightbox
 onMounted(() => {
   lightbox.value?.focus()
 
-  // Conditional to prevent getBoundingClientRect error when there is no pagination counter, i.e., only single item in the carousel
-  // Function sets placement of arrows for FTVA Homepage Inline Lightbox
+  // Function sets placement of arrows for FTVA Homepage Carousel; conditional to prevent getBoundingClientRect error when there is no pagination counter, i.e., only single item in the carousel
+
   if (items.length > 1 && theme.value === 'ftva')
     setFTVAHomepageNavigationArrows()
 })
 
-// For FTVA Homepage Inline Lightbox:
+// For FTVA Homepage Carousel:
 // Offset placement of navigation arrows based on width of pagination counter
 const prevBtnRef = ref()
 const nextBtnRef = ref()

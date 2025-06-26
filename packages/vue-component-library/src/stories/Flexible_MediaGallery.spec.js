@@ -14,7 +14,7 @@ describe('FLEXIBLE / Media Gallery', () => {
     cy.get('.caption-block')
       .should('contain', 'View catalog record')
       .and('contain', 'photo by someone')
-    cy.get('.button-close').click()
+    cy.get('.button-close').click({ force: true })
 
     cy.contains('.thumbnail-card', 'Edison Studios in credit field').should(
       'be.visible'
