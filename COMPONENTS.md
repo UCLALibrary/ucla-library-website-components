@@ -213,7 +213,7 @@ Displays a summary of a library or collection and a list of associated assets. I
 - onToggle: Function
 
 
-[] NotesAccordion  
+[] NotesAccordion(svebor)  
 Expandable section for showing grouped text content like notes and captions. Can optionally display an excerpt pod.
 
 - sections: Array<{  
@@ -1120,7 +1120,7 @@ Behavior:
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
 | PaginationNav              |Svebor     | ☐ Complete  |   [x]   |Adjusted the styles and a little bit of logic |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [x]   |Exists, ready to use            |
-| SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |WIP                             |
+| SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
 | RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
 | FiltersDropdown            |           | ☐ Complete  |   [x]   |                                |
 | ResultsList                |           | ☐ Complete  |   [ ]   | aka: CategoryList              |
@@ -1131,7 +1131,7 @@ Behavior:
 | ButtonUCLALibrariesDropdown|           | ☐ Complete  |   [ ]   |                                |
 | YearRangeFilter            |           | ☐ Complete  |   [x]   | aka DateFilter?                |
 | BentoPod                   |           | ☐ Complete  |   [ ]   |                                |
-| NotesAccordion             |           | ☐ Complete  |   [ ]   |                                |
+| NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | WIP                            |
 | ExcerptPod                 |           | ☐ Complete  |   [ ]   |                                |
 | AssetFeaturedImage         |           | ☐ Complete  |   [ ]   |                                |
 | AssetPod                   |           | ☐ Complete  |   [ ]   |                                |
