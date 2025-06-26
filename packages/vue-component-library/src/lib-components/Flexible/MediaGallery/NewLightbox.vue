@@ -9,8 +9,6 @@ import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret
 import SvgIconClose from 'ucla-library-design-tokens/assets/svgs/icon-close-large.svg'
 import SvgIconMoleculeBullet from 'ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg'
 import SmartLink from '../../SmartLink.vue'
-
-// import RichText from '../RichText.vue'
 import type { MediaGalleryItemType } from '@/types/types'
 import MediaItem from '@/lib-components/Media/Item.vue'
 

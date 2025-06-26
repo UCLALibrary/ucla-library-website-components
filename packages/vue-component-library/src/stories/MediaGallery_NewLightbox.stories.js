@@ -1,10 +1,11 @@
 import { computed } from 'vue'
+import format from 'date-fns/format'
 import * as FTVAMedia from './mock/FTVAMedia'
 import FlexibleMediaGalleryNewLightbox from '@/lib-components/Flexible/MediaGallery/NewLightbox.vue'
 import BlockTag from '@/lib-components/BlockTag.vue'
 import { Gallery as MEDIA_GALLERY_MOCK } from '@/stories/mock/Media'
-
-// import { mockFTVAHomepageCarousel } from '@/stories/mock/FTVAMedia'
+import formatEventDates from '@/utils/formatEventDates'
+import formatSeriesDates from '@/utils/formatEventSeriesDates'
 
 // Storybook default settings
 export default {
@@ -105,6 +106,7 @@ function parseFTVACarouselImage(imgObj) {
   }]
 }
 
+// Add extra typehandles as needed
 function parseFTVATypeHandles(str) {
   switch (str) {
     case 'ftvaEvent':
@@ -118,6 +120,22 @@ function parseFTVATypeHandles(str) {
   }
 }
 
+function formatEventTime(date) {
+  const formattedTime = format(new Date(date), 'h:mm aaa')
+  return formattedTime.toUpperCase()
+}
+
+function parseDatesAndTimes(typeHandle, startDate, endDate, startDateWithTime, ongoing) {
+  if (ongoing)
+    return 'Ongoing'
+  if (typeHandle === 'ftvaEvent')
+    return `${formatEventDates(startDateWithTime, startDateWithTime, 'longWithYear')} - ${formatEventTime(startDateWithTime)}`
+  if (typeHandle === 'eventSeries')
+    return formatSeriesDates(startDate, endDate, 'longWithYear')
+
+  return null
+}
+
 const parsedMockHomepagCarousel = computed(() => {
   return FTVAMedia.mockFTVAHomepageCarousel.map((rawItem) => {
     return {
@@ -125,9 +143,8 @@ const parsedMockHomepagCarousel = computed(() => {
       credit: rawItem.creditText,
       tag: parseFTVATypeHandles(rawItem.typeHandle),
       captionText: rawItem.ftvaHomepageDescription,
-      captionTitle: rawItem.ftvaHomepageTitle
-      // eventDate
-      // eventTime
+      captionTitle: rawItem.ftvaHomepageTitle,
+      itemDate: parseDatesAndTimes(rawItem.typeHandle, rawItem.startDate, rawItem.endDate, rawItem.startDateWithTime, rawItem.ongoing)
     }
   })
 })
@@ -145,6 +162,6 @@ export function FTVA_HomepageCarousel() {
       }
     },
     components: { FlexibleMediaGalleryNewLightbox, BlockTag },
-    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> Text Random </template></ flexible-media-gallery-new-lightbox>',
+    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></ flexible-media-gallery-new-lightbox>',
   }
 }
