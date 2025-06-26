@@ -42,19 +42,16 @@ function filterAttributes(
         )
     )
 }
-
 function clear() {
     internalValue.value = ""
     emit("update:modelValue", "")
     emit("clear")
 }
-
 function onInput(event: Event) {
     const target = event.target as HTMLInputElement
     internalValue.value = target.value
     emit("update:modelValue", target.value)
 }
-
 function onKeydown(event: KeyboardEvent) {
     if (event.key === "Escape") {
         event.preventDefault()
@@ -62,7 +59,6 @@ function onKeydown(event: KeyboardEvent) {
         if (props.blurOnEsc) inputRef.value?.blur()
     }
 }
-
 function onDocumentKeydown(event: KeyboardEvent) {
     if (
         event.key === props.shortcutKey &&
@@ -101,7 +97,6 @@ const attrsStyles = computed(() => ({
     >),
     class: attrs.class ?? props.wrapperClass,
 }))
-
 const showClearIcon = computed(
     () => props.clearIcon && internalValue.value.length > 0
 )
