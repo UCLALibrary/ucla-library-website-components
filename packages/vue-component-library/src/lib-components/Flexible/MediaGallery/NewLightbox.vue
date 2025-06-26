@@ -9,6 +9,8 @@ import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret
 import SvgIconClose from 'ucla-library-design-tokens/assets/svgs/icon-close-large.svg'
 import SvgIconMoleculeBullet from 'ucla-library-design-tokens/assets/svgs/icon-molecule-bullet-filled.svg'
 import SmartLink from '../../SmartLink.vue'
+
+// import RichText from '../RichText.vue'
 import type { MediaGalleryItemType } from '@/types/types'
 import MediaItem from '@/lib-components/Media/Item.vue'
 
@@ -63,18 +65,21 @@ const parsedObjectFit = computed(() => {
 
 const lightbox = ref<HTMLElement | null>(null) // replacing this.$refs.lightbox
 
+onMounted(() => {
+  lightbox.value?.focus()
+
+  // Conditional to prevent getBoundingClientRect error when there is no pagination counter, i.e., only single item in the carousel
+  // Function sets placement of arrows for FTVA Homepage Inline Lightbox
+  if (items.length > 1 && theme.value === 'ftva')
+    setFTVAHomepageNavigationArrows()
+})
+
+// For FTVA Homepage Inline Lightbox:
+// Offset placement of navigation arrows based on width of pagination counter
 const prevBtnRef = ref()
 const nextBtnRef = ref()
 const paginationCounterRef = ref()
 
-onMounted(() => {
-  lightbox.value?.focus()
-
-  setFTVAHomepageNavigationArrows()
-})
-
-// For FTVA Homepage Inline Lightbox
-// Offset placement of navigation arrows based on width of pagination counter
 function setFTVAHomepageNavigationArrows() {
   const coordinates = paginationCounterRef.value.getBoundingClientRect()
 
@@ -138,12 +143,12 @@ function setCurrentSlide(currentSlide: number) {
           <!-- additional blocktags/labels/simple elements can be slotted in here by parent -->
         </div>
         <h4 v-if="captionTitle" class="media-object-title" v-text="captionTitle[selectionIndex]" />
+
         <p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" />
 
-        <!-- Credit text as part of caption area -->
-        <!-- <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
+        <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
           {{ items[selectionIndex].credit }}
-        </p> -->
+        </p>
         <SmartLink
           v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
             && items[selectionIndex].linkText

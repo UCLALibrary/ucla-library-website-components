@@ -4,6 +4,8 @@ import FlexibleMediaGalleryNewLightbox from '@/lib-components/Flexible/MediaGall
 import BlockTag from '@/lib-components/BlockTag.vue'
 import { Gallery as MEDIA_GALLERY_MOCK } from '@/stories/mock/Media'
 
+// import { mockFTVAHomepageCarousel } from '@/stories/mock/FTVAMedia'
+
 // Storybook default settings
 export default {
   title: 'Media Gallery / New Lightbox',
@@ -39,7 +41,7 @@ export function SingleItem() {
 const mockFTVAGalleryRawData = [
   {
     image: [MEDIA_GALLERY_MOCK.mediaGallery[0].item],
-    creditText: 'Credit text'
+    creditText: 'Credit text 1'
   },
   {
     image: [MEDIA_GALLERY_MOCK.mediaGallery[1].item],
@@ -95,32 +97,46 @@ export function FTVA_InlineCarousel() {
   }
 }
 
-const mockFTVAGalleryComputedData2 = computed(() => {
-  // map image to item, map creditText to credit
-  return mockFTVAGalleryRawData.map((rawItem) => {
+function parseFTVACarouselImage(imgObj) {
+  return [{
+    ...imgObj[0],
+    src: imgObj[0]?.url,
+    kind: 'image', // This key is expected by the Media component
+  }]
+}
+
+function parseFTVATypeHandles(str) {
+  switch (str) {
+    case 'ftvaEvent':
+      return 'Event'
+    case 'ftvaArticle':
+      return 'Article'
+    case 'eventSeries':
+      return 'Series'
+    default:
+      return null
+  }
+}
+
+const parsedMockHomepagCarousel = computed(() => {
+  return FTVAMedia.mockFTVAHomepageCarousel.map((rawItem) => {
     return {
-      item: rawItem.image[0],
+      item: parseFTVACarouselImage(rawItem.ftvaImage),
       credit: rawItem.creditText,
-      captionText: 'This short is a compilation of two Swedish commercials shown in Stockholm theaters, showing Garbo (still Gustafsson at the time) modeling hats for a department store and eating pastries at a café.', // TODO get homepage carousel data sample to make more accurate
-      captionTitle: 'The Saga of Gösta Berling If the Title Continues to the Second Line' // TODO get homepage carousel data sample to make more accurate
+      tag: parseFTVATypeHandles(rawItem.typeHandle),
+      captionText: rawItem.ftvaHomepageDescription,
+      captionTitle: rawItem.ftvaHomepageTitle
+      // eventDate
+      // eventTime
     }
   })
 })
 
-// TODO finish example showing homepage implementation with slots
-// mockdata for blocktags in parent
-const mockTags = ['taglabel1', 'tag2', 'tag3']
-// TODO: for part 2 of carousel homepage styling
 export function FTVA_HomepageCarousel() {
   return {
-    setup() {
-      return {
-        mockTags
-      }
-    },
     data() {
       return {
-        items: mockFTVAGalleryComputedData2
+        items: parsedMockHomepagCarousel
       }
     },
     provide() {
@@ -129,6 +145,6 @@ export function FTVA_HomepageCarousel() {
       }
     },
     components: { FlexibleMediaGalleryNewLightbox, BlockTag },
-    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="mockTags[slotProps.selectionIndex]" /> Text Random </template></ flexible-media-gallery-new-lightbox>',
+    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> Text Random </template></ flexible-media-gallery-new-lightbox>',
   }
 }

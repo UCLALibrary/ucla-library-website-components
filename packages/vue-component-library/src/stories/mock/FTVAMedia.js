@@ -857,7 +857,7 @@ export const mockFlexibleBlocks = [
   },
 ]
 
-export const mockHomepageCarousel = [
+export const mockFTVAHomepageCarousel = [
   {
     uri: 'events/la-région-centrale-03-08-24',
     typeHandle: 'ftvaEvent',
@@ -890,16 +890,9 @@ export const mockHomepageCarousel = [
         ]
       }
     ],
-    ftvaHomepageTitle: null,
-    ftvaHomepageDescription: null,
+    ftvaHomepageTitle: 'The Saga of Gösta Berling If the Title Continues to the Second Line',
+    ftvaHomepageDescription: 'This short is a compilation of two Swedish commercials shown in Stockholm theaters, showing Garbo (still Gustafsson at the time) modeling hats for a department store and eating pastries at a café.',
     startDateWithTime: '2025-07-19T07:00:00+00:00'
-  },
-  {
-    uri: 'collections/test-get-used-to-it',
-    typeHandle: 'ftvaCollection',
-    ftvaImage: [],
-    ftvaHomepageTitle: null,
-    ftvaHomepageDescription: null
   },
   {
     uri: 'articles/test-tom-reeds-for-members-only-black-perspectives-on-local-l-a-tv',
