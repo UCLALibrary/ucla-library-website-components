@@ -1,10 +1,11 @@
 <script setup>
 import { computed, useSlots } from 'vue'
+
 // Components
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-search.svg'
 
-const slots = useSlots()
 const emit = defineEmits(['click'])
+const slots = useSlots()
 
 // Computeds
 const hasSlot = computed(() => {
@@ -18,14 +19,14 @@ function handleClick() {
 </script>
 
 <template>
-    <button
-      class="button-submit"
-      type="submit"
-      @click="handleClick"
-    >
-      <slot v-if="hasSlot" />
-      <IconSearch v-else  />
-    </button>
+  <button
+    class="button-submit"
+    type="submit"
+    @click="handleClick"
+  >
+    <slot v-if="hasSlot" />
+    <IconSearch v-else />
+  </button>
 </template>
 
 <style lang="scss" scoped>
@@ -33,7 +34,7 @@ function handleClick() {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   height: 74px;
   width: 74px;
   padding: 0;
@@ -51,6 +52,18 @@ function handleClick() {
       :deep(svg path) {
         fill: var(--color-primary-blue-02);
       }
+    }
+  }
+  // Breakpoints
+  @media #{$medium} {
+    height: 53px;
+  }
+  @media #{$small} {
+    height: 60px;
+
+    // Target SVG elements
+    :deep(svg path){
+      fill: var(--color-primary-blue-03);
     }
   }
 }
