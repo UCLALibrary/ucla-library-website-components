@@ -2,10 +2,6 @@
 // Imports
 import { computed, onBeforeUnmount, onMounted, ref, useAttrs, watch } from "vue"
 
-defineOptions({
-    inheritAttrs: true,
-})
-
 const emit = defineEmits(["update:modelValue", "clear"])
 const attrs = useAttrs()
 
@@ -201,8 +197,10 @@ $active-color: #1ea7fd;
             outline: none;
             cursor: pointer;
 
+            transition: background-color 0.3s ease-in-out;
+
             &:focus {
-                background: darken($input-background, 4%);
+                background-color: darken($input-background, 10%);
             }
         }
 
@@ -225,6 +223,15 @@ $active-color: #1ea7fd;
 
         &.clear::after {
             transform: rotate(-45deg);
+        }
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        .clear-icon:hover {
+            &.clear {
+                background-color: darken($input-background, 10%);
+            }
         }
     }
 }
