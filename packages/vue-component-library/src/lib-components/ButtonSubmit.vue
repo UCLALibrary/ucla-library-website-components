@@ -30,14 +30,21 @@ function handleClick() {
 
 <style lang="scss" scoped>
 .button-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  height: 74px;
+  width: 74px;
   padding: 0;
+  background-color:  var(--color-primary-blue-01);
 
-  // Target SVGs
+  // Target SVG elements
   :deep(svg path){
-    fill: var(--color-primary-blue-03);
+    fill: var(--color-primary-blue-04);
     transition: fill 0.3s ease-in-out;
   }
-  
+
   // Hovers
   @media #{$has-hover} {
     &:hover {
