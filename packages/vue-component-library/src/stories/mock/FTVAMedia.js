@@ -856,3 +856,106 @@ export const mockFlexibleBlocks = [
     ],
   },
 ]
+
+export const mockHomepageCarousel = [
+  {
+    uri: 'events/la-région-centrale-03-08-24',
+    typeHandle: 'ftvaEvent',
+    ftvaImage: [
+      {
+        id: '3131255',
+        url: 'https://static.library.ucla.edu/craftassetstest/FTVA/laregioncentrale-crop_0.jpeg',
+        altText: 'Upside down of a rocky landscape.',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+    ftvaHomepageTitle: 'La région centrale',
+    ftvaHomepageDescription: '<p>Snow had the idea in 1964 to create a film where a camera moved "in every direction and on every plane of a sphere".</p>',
+    startDateWithTime: '2024-03-09T03:30:00+00:00'
+  },
+  {
+    uri: 'events/step-up-3-07-19-25',
+    typeHandle: 'ftvaEvent',
+    ftvaImage: [
+      {
+        id: '3144389',
+        url: 'https://static.library.ucla.edu/craftassetstest/FTVA/TheSalesman_Image6_0.jpg',
+        altText: 'The Salesman',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+    ftvaHomepageTitle: null,
+    ftvaHomepageDescription: null,
+    startDateWithTime: '2025-07-19T07:00:00+00:00'
+  },
+  {
+    uri: 'collections/test-get-used-to-it',
+    typeHandle: 'ftvaCollection',
+    ftvaImage: [],
+    ftvaHomepageTitle: null,
+    ftvaHomepageDescription: null
+  },
+  {
+    uri: 'articles/test-tom-reeds-for-members-only-black-perspectives-on-local-l-a-tv',
+    typeHandle: 'ftvaArticle',
+    ftvaImage: [
+      {
+        id: '3144386',
+        url: 'https://static.library.ucla.edu/craftassetstest/FTVA/guzman.jpg',
+        altText: 'Patricio Guzmán (2010)',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+    ftvaHomepageTitle: 'TEST - Tom Reed’s “For Members Only”',
+    ftvaHomepageDescription: '<p>The UCLA Film &amp; Television Archive is pleased to announce a preservation and access initiative to offer free online research viewing of the African American news and magazine television program For Members Only.</p>'
+  },
+  {
+    uri: 'series/test-series',
+    typeHandle: 'eventSeries',
+    ftvaImage: [
+      {
+        id: '3144388',
+        url: 'https://static.library.ucla.edu/craftassetstest/FTVA/fop2011.jpg',
+        altText: 'UCLA Festival of Preservation (2011)',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+    ftvaHomepageTitle: '舞',
+    ftvaHomepageDescription: '<p>脇によって</p>',
+    startDate: null,
+    endDate: null,
+    ongoing: true
+  },
+  {
+    uri: 'series/todd-solondz-series',
+    typeHandle: 'eventSeries',
+    ftvaImage: [
+      {
+        id: '3157237',
+        url: 'https://static.library.ucla.edu/craftassetstest/FTVA/Todd-Solondz_2024-07-04-073854_jbqd.jpg',
+        altText: null,
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+    ftvaHomepageTitle: null,
+    ftvaHomepageDescription: null,
+    startDate: '2025-11-06T08:00:00+00:00',
+    endDate: '2025-12-13T08:00:00+00:00',
+    ongoing: false
+  }
+]
