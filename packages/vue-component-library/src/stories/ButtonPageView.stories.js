@@ -1,9 +1,8 @@
 import ButtonPageView from '@/lib-components/ButtonPageView'
-import SvgDiscord from './assets/discord.svg'
-import SvgYoutube from './assets/youtube.svg'
+
 
 export default {
-  title: 'BUTTON / PageView',
+  title: 'Funkhaus / PageView',
   component: ButtonPageView,
 }
 
@@ -16,37 +15,12 @@ export function Default() {
       }
     },
     components: { ButtonPageView },
-    template: '<button-page-view :page-view="pageView" @update:page-view="onUpdate" />',
+    template: '<div>Active page view: <b>{{pageView}}</b> <button-page-view :page-view="pageView" @update:page-view="onUpdate" /> </div>',
     methods: {
       onUpdate(value) {
-        this.pageView = value
+        this.pageView = value.toUpperCase()
       },
     },
   }
 }
 
-export function PlaceholderIconInSlot() {
-  return {
-    components: { ButtonPageView, SvgDiscord, SvgYoutube },
-    data() {
-      return {
-        pageView: 'list',
-      }
-    },
-    template: `
-    <button-page-view :page-view="pageView" @update:page-view="onUpdate">
-      <template #grid>
-        <SvgYoutube />
-      </template>
-      <template #list>
-        <SvgDiscord />
-      </template>
-    </button-page-view>
-    `,
-    methods: {
-      onUpdate(value) {
-        this.pageView = value
-      },
-    },
-  }
-}
