@@ -18,7 +18,7 @@ export function Default() {
     template: '<div>Active page view: <b>{{pageView}}</b> <button-page-view :page-view="pageView" @update:page-view="onUpdate" /> </div>',
     methods: {
       onUpdate(value) {
-        this.pageView = value.toUpperCase()
+        this.pageView = value
       },
     },
   }
