@@ -63,6 +63,11 @@ const parsedObjectFit = computed(() => {
 
 const lightbox = ref<HTMLElement | null>(null) // replacing this.$refs.lightbox
 
+// For FTVA Homepage Carousel:
+const prevBtnRef = ref()
+const nextBtnRef = ref()
+const paginationCounterRef = ref()
+
 onMounted(() => {
   lightbox.value?.focus()
 
@@ -74,10 +79,6 @@ onMounted(() => {
 
 // For FTVA Homepage Carousel:
 // Offset placement of navigation arrows based on width of pagination counter
-const prevBtnRef = ref()
-const nextBtnRef = ref()
-const paginationCounterRef = ref()
-
 function setFTVAHomepageNavigationArrows() {
   const coordinates = paginationCounterRef.value.getBoundingClientRect()
 
