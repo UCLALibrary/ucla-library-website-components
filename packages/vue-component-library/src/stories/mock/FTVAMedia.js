@@ -872,8 +872,9 @@ export const mockFTVAHomepageCarousel = [
         ]
       }
     ],
+    creditText: 'Lorem ipsum dolor sit amet',
     ftvaHomepageTitle: 'La région centrale',
-    ftvaHomepageDescription: '<p>Snow had the idea in 1964 to create a film where a camera moved "in every direction and on every plane of a sphere".</p>',
+    ftvaHomepageDescription: 'Snow had the idea in 1964 to create a film where a camera moved "in every direction and on every plane of a sphere".',
     startDateWithTime: '2024-03-09T03:30:00+00:00'
   },
   {
@@ -890,6 +891,7 @@ export const mockFTVAHomepageCarousel = [
         ]
       }
     ],
+    creditText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     ftvaHomepageTitle: 'The Saga of Gösta Berling If the Title Continues to the Second Line',
     ftvaHomepageDescription: 'This short is a compilation of two Swedish commercials shown in Stockholm theaters, showing Garbo (still Gustafsson at the time) modeling hats for a department store and eating pastries at a café.',
     startDateWithTime: '2025-07-19T07:00:00+00:00'
@@ -908,8 +910,9 @@ export const mockFTVAHomepageCarousel = [
         ]
       }
     ],
+    creditText: 'Lorem ipsum dolor sit amet',
     ftvaHomepageTitle: 'TEST - Tom Reed’s “For Members Only”',
-    ftvaHomepageDescription: '<p>The UCLA Film &amp; Television Archive is pleased to announce a preservation and access initiative to offer free online research viewing of the African American news and magazine television program For Members Only.</p>'
+    ftvaHomepageDescription: 'The UCLA Film & Television Archive is pleased to announce a preservation and access initiative to offer free online research viewing of the African American news and magazine television program For Members Only.'
   },
   {
     uri: 'series/test-series',
@@ -925,8 +928,9 @@ export const mockFTVAHomepageCarousel = [
         ]
       }
     ],
+    creditText: 'Lorem ipsum dolor sit amet',
     ftvaHomepageTitle: '舞',
-    ftvaHomepageDescription: '<p>脇によって</p>',
+    ftvaHomepageDescription: '脇によって',
     startDate: null,
     endDate: null,
     ongoing: true
@@ -945,6 +949,7 @@ export const mockFTVAHomepageCarousel = [
         ]
       }
     ],
+    creditText: 'Lorem ipsum dolor sit amet',
     ftvaHomepageTitle: null,
     ftvaHomepageDescription: null,
     startDate: '2025-11-06T08:00:00+00:00',

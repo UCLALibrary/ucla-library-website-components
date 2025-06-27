@@ -147,6 +147,7 @@ function setCurrentSlide(currentSlide: number) {
         <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
           {{ items[selectionIndex].credit }}
         </p>
+
         <SmartLink
           v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
             && items[selectionIndex].linkText
