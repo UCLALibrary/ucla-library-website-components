@@ -9,10 +9,9 @@
  *
  * @example
  * ```ts
- * const button = ref<HTMLElement | null>(null)
  *
- * useEventListener<MouseEvent>(button, 'click', (e) => {
- *   console.log('Button clicked!', e)
+ * useEventListener<KeyboardEvent>(window, 'keydown', (e) => {
+ *   console.log('Key pressed:', e.key)
  * })
  * ```
  */
