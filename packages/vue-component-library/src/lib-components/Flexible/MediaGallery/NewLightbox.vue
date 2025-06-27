@@ -71,15 +71,17 @@ const paginationCounterRef = ref()
 onMounted(() => {
   lightbox.value?.focus()
 
-  // Function sets placement of arrows for FTVA Homepage Carousel; conditional to prevent getBoundingClientRect error when there is no pagination counter, i.e., only single item in the carousel
-
-  if (items.length > 1 && theme.value === 'ftva')
-    setFTVAHomepageNavigationArrows()
+  // Sets placement of arrows for FTVA Homepage Carousel
+  setFTVAHomepageNavigationArrows()
 })
 
 // For FTVA Homepage Carousel:
 // Offset placement of navigation arrows based on width of pagination counter
 function setFTVAHomepageNavigationArrows() {
+  // Prevent getBoundingClientRect error when there is no pagination counter, i.e., only single item in the carousel
+  if (items.length < 2)
+    return null
+
   const coordinates = paginationCounterRef.value.getBoundingClientRect()
 
   prevBtnRef.value.style.setProperty('--counterWidth', `${coordinates.width}px`)
