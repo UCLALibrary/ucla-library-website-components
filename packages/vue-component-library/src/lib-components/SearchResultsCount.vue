@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, computed } from "vue"
 
-const props = defineProps<{
-    count: number
-    label?: string
-    prefix?: string
-    animate?: boolean
-}>()
+const props = withDefaults(
+    defineProps<{
+        count: number
+        label?: string
+        prefix?: string
+        animate?: boolean
+    }>(),
+    {
+        animate: false,
+    }
+)
 
 const parsedResults = computed(() => {
     if (props.prefix && props.label) {
