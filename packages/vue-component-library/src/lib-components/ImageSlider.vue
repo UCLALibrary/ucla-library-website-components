@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import ResponsiveImage from './ResponsiveImage.vue';
+import { ref, watch } from 'vue';
 
 const { beforeImage, afterImage } = defineProps({
     beforeImage: {
@@ -12,11 +13,23 @@ const { beforeImage, afterImage } = defineProps({
     }
 })
 
-// const container = document.querySelector('.container');
-// document.querySelector('.slider').addEventListener('input', (e) => {
-//     container.style.setProperty('--position', `${e.target.value}%`);
-// })
+
 const sliderContainer = ref<HTMLElement | null>(null);
+const slider = ref<HTMLInputElement | null>(null);
+
+function handleSliderInput(event: Event) {
+    const target = event.target as HTMLInputElement;
+    console.log('Slider input event:', target.value);
+    if (sliderContainer.value) {
+        sliderContainer.value.style.setProperty('--position', `${target.value}%`);
+    }
+}
+// watch(() => slider.value?._value, (newValue) => {
+//     console.log('Slider value changed:', newValue);
+//     if (sliderContainer.value) {
+//         sliderContainer.value.style.setProperty('--position', `${newValue}%`);
+//     }
+// });
 
 </script>
 <template>
@@ -29,7 +42,16 @@ const sliderContainer = ref<HTMLElement | null>(null);
                 <span class="after-label"><slot name="afterLabel">After</slot></span>
             </div> -->
         </div>
-        <input type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown" class="slider" />
+        <input
+            ref="slider"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            aria-label="Percentage of before photo shown"
+            class="slider"
+            @input="(e) => handleSliderInput(e)"
+        />
         <div class="slider-line" aria-hidden="true"></div>
         <div class="slider-button" aria-hidden="true">
             <span class="button-text">Slide to Compare</span>
