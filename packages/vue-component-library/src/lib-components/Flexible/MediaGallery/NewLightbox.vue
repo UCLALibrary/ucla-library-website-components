@@ -139,9 +139,9 @@ function setCurrentSlide(currentSlide: number) {
         </div>
         <h4 v-if="captionTitle" class="media-object-title" v-text="captionTitle[selectionIndex]" />
         <p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" />
-        <!-- <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
+        <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
           {{ items[selectionIndex].credit }}
-        </p> -->
+        </p>
         <SmartLink
           v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
             && items[selectionIndex].linkText
