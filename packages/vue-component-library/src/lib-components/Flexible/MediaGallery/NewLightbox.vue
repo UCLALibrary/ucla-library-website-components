@@ -37,6 +37,8 @@ const emit = defineEmits<{
   (e: 'closeModal'): void
 }>()
 
+console.log(items.values)
+
 const theme = useTheme()
 
 const SvgExternalLink = defineAsyncComponent(() =>
