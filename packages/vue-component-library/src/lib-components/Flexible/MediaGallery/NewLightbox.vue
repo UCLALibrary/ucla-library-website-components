@@ -70,7 +70,8 @@ const paginationCounterRef = ref()
 onMounted(() => {
   lightbox.value?.focus()
 
-  setFTVAHomepageNavigationArrows()
+  if (items.length > 1 && theme.value === 'ftva')
+    setFTVAHomepageNavigationArrows()
 })
 
 // For FTVA Homepage Inline Lightbox
