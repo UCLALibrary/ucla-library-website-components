@@ -64,7 +64,7 @@ const mockFTVAGalleryComputedData = computed(() => {
   })
 })
 
-export function FTVA_DefaultLightbox() {
+export function FTVA_Default() {
   return {
     data() {
       return {
@@ -98,6 +98,7 @@ export function FTVA_InlineCarousel() {
   }
 }
 
+// Helper functions to parse data for FTVA Homepage Carousel
 function parseFTVACarouselImage(imgObj) {
   return [{
     ...imgObj[0],
@@ -106,8 +107,8 @@ function parseFTVACarouselImage(imgObj) {
   }]
 }
 
-// Add extra typehandles as needed
 function parseFTVATypeHandles(str) {
+  // Add extra typehandles as needed
   switch (str) {
     case 'ftvaEvent':
       return 'Event'
