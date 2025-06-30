@@ -1,5 +1,5 @@
 import EntryField from "@/lib-components/EntryField"
-import { defineModel, ref } from "vue"
+import { ref } from "vue"
 
 export default {
     title: "Funkhaus / EntryField",
@@ -15,7 +15,7 @@ export function Default() {
 
             return {
                 value,
-                placeholder: "Search",
+                placeholder: "Search Library",
             }
         },
 
@@ -31,7 +31,7 @@ export function WithoutClearIcon() {
 
             return {
                 value,
-                placeholder: "Search",
+                placeholder: "Search Archives",
             }
         },
 
@@ -48,7 +48,7 @@ export function WithoutClearOnEsc() {
 
             return {
                 value,
-                placeholder: "Search",
+                placeholder: "Search Catalog",
             }
         },
 

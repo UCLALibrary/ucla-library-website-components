@@ -1,20 +1,13 @@
 <script setup lang="ts">
 // Imports
-import { useEventListener } from "@/composables/useEventListener"
 import { computed, ref, useAttrs } from "vue"
+import type { EntryFieldProps } from "@/types/types"
+
+import { useEventListener } from "@/composables/useEventListener"
+import { filterAttributes } from "@/utils/filterAttributes"
 
 const emit = defineEmits(["update:modelValue", "clear"])
 const attrs = useAttrs()
-
-type EntryFieldProps = {
-    modelValue?: string
-    wrapperClass?: string
-    clearIcon?: boolean
-    clearOnEsc?: boolean
-    blurOnEsc?: boolean
-    selectOnFocus?: boolean
-    shortcutKey?: string
-}
 
 // Props
 const props = withDefaults(defineProps<EntryFieldProps>(), {
@@ -31,17 +24,6 @@ const props = withDefaults(defineProps<EntryFieldProps>(), {
 const inputRef = ref<HTMLInputElement | null>(null)
 
 // Methods
-function filterAttributes(
-    obj: Record<string, unknown>,
-    keys: string[],
-    exclude = true
-) {
-    return Object.fromEntries(
-        Object.entries(obj).filter(([key]) =>
-            exclude ? !keys.includes(key) : keys.includes(key)
-        )
-    )
-}
 function clear() {
     emit("update:modelValue", "")
     emit("clear")
@@ -86,6 +68,11 @@ function onDocumentKeydown(event: KeyboardEvent) {
 }
 
 // Computeds
+const classes = computed(() => [
+    "search-input-wrapper",
+    props.clearIcon ? "has-clear-icon" : "",
+    attrs.class ?? props.wrapperClass,
+])
 const attrsWithoutStyles = computed(() =>
     filterAttributes(attrs, ["class", "style"])
 )
@@ -94,10 +81,10 @@ const attrsStyles = computed(() => ({
         string,
         unknown
     >),
-    class: attrs.class ?? props.wrapperClass,
+    class: classes.value,
 }))
-const showClearIcon = computed(
-    () => props.clearIcon && props.modelValue.length > 0
+const isClearIconShown = computed(
+    () => props.clearIcon && !!props.modelValue && props.modelValue.length > 0
 )
 
 // Event Listeners
@@ -117,7 +104,7 @@ useEventListener<KeyboardEvent>(window.document, "keydown", onDocumentKeydown)
             @keydown="onKeydown"
         />
         <button
-            v-show="showClearIcon"
+            v-show="isClearIconShown"
             class="clear-icon clear"
             aria-label="Clear input"
             @mousedown.prevent="clear"
@@ -138,7 +125,8 @@ $active-color: #1ea7fd;
     input[data-search-input="true"] {
         display: block;
         width: 100%;
-        padding: 24px 24px 24px 16px;
+        padding: 24px 16px;
+        height: 74px;
 
         font-family: var(--font-primary);
         font-size: 20px;
@@ -160,9 +148,9 @@ $active-color: #1ea7fd;
         color: $icon-color;
 
         &.clear {
-            z-index: 10;
-            right: 15px;
-            bottom: 22px;
+            top: 50%;
+            right: 16px;
+            transform: translateY(-50%);
 
             display: block;
             width: 24px;
@@ -171,7 +159,7 @@ $active-color: #1ea7fd;
             box-sizing: border-box;
 
             border: 2px solid transparent;
-            border-radius: 40px;
+            border-radius: 50%;
 
             background: none;
             outline: none;
@@ -206,12 +194,31 @@ $active-color: #1ea7fd;
         }
     }
 
+    // With clear icon
+    &.has-clear-icon {
+        input[data-search-input="true"] {
+            padding-right: 50px; // Adjust padding to accommodate clear icon
+        }
+    }
+
     // Hovers
     @media #{$has-hover} {
         .clear-icon:hover {
             &.clear {
                 background-color: darken($input-background, 10%);
             }
+        }
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+        input[data-search-input="true"] {
+            height: 53px;
+        }
+    }
+    @media #{$small} {
+        input[data-search-input="true"] {
+            height: 60px;
         }
     }
 }
