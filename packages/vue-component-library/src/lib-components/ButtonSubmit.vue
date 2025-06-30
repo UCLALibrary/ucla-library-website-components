@@ -41,7 +41,7 @@ function handleClick() {
     @media #{$has-hover} {
         &:hover {
             :deep(svg path) {
-                fill: var(--color-primary-blue-02);
+                fill: var(--color-default-cyan-03);
             }
         }
     }
@@ -54,7 +54,7 @@ function handleClick() {
 
         // Target SVG elements
         :deep(svg path) {
-            fill: var(--color-primary-blue-03);
+            fill: var(--color-default-cyan-03);
         }
     }
 }
