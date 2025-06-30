@@ -5,13 +5,13 @@ import SvgGrid from "ucla-library-design-tokens/assets/svgs/icon-card.svg"
 import { defineEmits, defineProps } from "vue"
 
 // Props
-const props = defineProps({
-    pageView: {
-        type: String,
-        default: "list",
-        validator: (value) => ["grid", "list"].includes(value),
-    },
-})
+const props = withDefaults(defineProps<{
+        pageView?: "list" | "grid"
+    }>(),
+    {
+        pageView: "list"
+    }
+)
 
 // Emits
 const emit = defineEmits(["update:pageView"])
