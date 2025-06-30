@@ -36,11 +36,7 @@ const submitSearch = () => {
         name="searchField"
         @submit.prevent="submitSearch"
     >
-        <EntryField
-            v-model="searchValue"
-            v-bind="props"
-            class="search-input-wrapper"
-        />
+        <EntryField v-model="searchValue" v-bind="props" />
         <ButtonSubmit class="button-submit" />
     </form>
 </template>
