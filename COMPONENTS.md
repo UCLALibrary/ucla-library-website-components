@@ -86,7 +86,7 @@ Branded button or label pairing logo with text.
 - label: string  
 - to?: string
 
-[x] PaginationNav (svebor) 
+[x] SectionPagination (svebor) 
 Interactive pagination component with numbered buttons, previous/next navigation, and ellipsis for long ranges.
 
 - currentPage: number  
@@ -1046,7 +1046,7 @@ Child components:
 - `SmartLink` – Used for navigable breadcrumb segments.
 - `SvgIconCaretRight` – Shown between breadcrumb segments.
 
-[x] PaginationNav (svebor)  
+[x] SectionPagination (svebor)  
 A responsive, theme-aware pagination component that supports legacy navigation links or dynamically generated page buttons. Works with route query parameters and can be customized with a callback.
 
 - nextTo?: string  
@@ -1118,7 +1118,7 @@ Behavior:
 | SectionLabel               |           | ☐ Complete  |   [ ]   |                                |
 | ButtonSubLink              |           | ☐ Complete  |   [ ]   |                                |
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
-| PaginationNav              |Svebor     | ☐ Complete  |   [x]   |Adjusted the styles and a little bit of logic |
+| SectionPagination              |Svebor     | ☐ Complete  |   [x]   |Adjusted the styles and a little bit of logic |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [x]   |Exists, ready to use            |
 | SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
 | RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
