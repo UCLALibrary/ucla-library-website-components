@@ -28,7 +28,7 @@ Button paired with a dropdown menu indicator (carat or arrow).
 - options: string[]  
 - onSelect: Function(option: string)
 
-[] ButtonTag  
+[] ButtonTag (Luka)
 Used as labeled categories or tags, possibly dismissible.
 
 - label: string  
