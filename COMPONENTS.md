@@ -1110,7 +1110,7 @@ Behavior:
 | ButtonStacked              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonDropdown             |Luka       | ☐ Complete  |   [ ]   |                                |
-| ButtonTag                  |           | ☐ Complete  |   [ ]   |                                |
+| ButtonTag                  |Luka       | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbPill             |           | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |Austin     | ☐ Complete  |   [ ]   |                                |
 | ButtonIconOnly             |           | ☐ Complete  |   [ ]   |                                |
