@@ -407,7 +407,7 @@ Primary site navigation including logo, main links, and utility search bar.
 
 ## Footer 
 
-[] Footer
+[x] Footer
 Main site footer for UCLA Library, assembling social links, navigation, and newsletter signup.
 
 - socialLinks: Array<{ label: string, href: string }>  
@@ -415,7 +415,7 @@ Main site footer for UCLA Library, assembling social links, navigation, and news
 - copyright?: string
 - newsletter
 
-[] NewsletterSignup  
+[x] NewsletterSignup  
 Standalone newsletter form for email subscription.
 
 - headline: string  
@@ -879,7 +879,7 @@ Behavior:
 Child components:
 - `SmartLink` – Used for all link rendering.
 
-[] FooterMain  
+[x] FooterMain  
 The primary footer container that conditionally renders sponsor sections, link groups, subscription forms, and legal text based on theme context.
 
 Behavior:
@@ -897,7 +897,7 @@ Child components:
 - `FooterLinks` (optional)
 - `FooterSock`
 
-[] FooterSponsor  
+[x] FooterSponsor  
 Displays a sponsor acknowledgment message and a list of supporting organizations, pulled from global store data.
 
 Behavior:
@@ -914,7 +914,7 @@ Behavior:
 Child components:
 - `BlockSponsor` – Rendered once per funder in the list.
 
-[] FooterPrimary  
+[x] FooterPrimary  
 The primary content area of the site footer. Displays a logo, social media links, press links, and a Mailchimp-powered newsletter signup form. Appearance and content vary by theme.
 
 - form: boolean  
@@ -936,7 +936,7 @@ Child components:
 - `SmartLink` – Used for internal routing.
 - `component :is` – Dynamically renders SVG icons for logos and buttons.
 
-[] FooterSock  
+[x] FooterSock  
 The bottom-most section of the site footer, displaying copyright and 
 additional legal or policy-related links.
 
@@ -1153,7 +1153,7 @@ Behavior:
 | Dragger                    |           | ☐ Complete  |   [ ]   |                                |
 | Banner                     |           | ☐ Complete  |   [ ]   |                                |
 | Header                     |           | ☐ Complete  |   [x]   | aka: HeaderSite                |
-| Footer                     |           | ☐ Complete  |   [ ]   |                                |
+| Footer                     |           | ☐ Complete  |   [x]   |                                |
 | NewsletterSignup           |           | ☐ Complete  |   [ ]   |                                |
 | DetailHeader               |           | ☐ Complete  |   [ ]   | aka: ItemHeaderBar             |
 | DetailMedia                |           | ☐ Complete  |   [ ]   | aka: ViewerMedia               |
