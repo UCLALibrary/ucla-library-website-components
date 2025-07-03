@@ -63,9 +63,30 @@ const parsedObjectFit = computed(() => {
 
 const lightbox = ref<HTMLElement | null>(null) // replacing this.$refs.lightbox
 
+// For FTVA Homepage Carousel:
+const prevBtnRef = ref()
+const nextBtnRef = ref()
+const paginationCounterRef = ref()
+
 onMounted(() => {
   lightbox.value?.focus()
+
+  // Sets placement of arrows for FTVA Homepage Carousel
+  setFTVAHomepageNavigationArrows()
 })
+
+// For FTVA Homepage Carousel:
+// Offset placement of navigation arrows based on width of pagination counter
+function setFTVAHomepageNavigationArrows() {
+  // Prevent getBoundingClientRect error when there is no pagination counter, i.e., only single item in the carousel
+  if (items.length < 2)
+    return null
+
+  const coordinates = paginationCounterRef.value.getBoundingClientRect()
+
+  prevBtnRef.value.style.setProperty('--counterWidth', `${coordinates.width}px`)
+  nextBtnRef.value.style.setProperty('--counterWidth', `${coordinates.width}px`)
+}
 
 function closeModal() {
   emit('closeModal')
@@ -96,11 +117,11 @@ function setCurrentSlide(currentSlide: number) {
     </Carousel>
 
     <!-- Navigation -->
-    <button v-if="items.length > 1" class="button-prev" :disabled="selectionIndex <= 0" @click="selectionIndex -= 1">
+    <button v-if="items.length > 1" ref="prevBtnRef" class="button-prev" :disabled="selectionIndex <= 0" @click="selectionIndex -= 1">
       <SvgIconCaretLeft aria-label="Show previous image" />
     </button>
     <button
-      v-if="items.length > 1" class="button-next" :disabled="selectionIndex >= items.length - 1"
+      v-if="items.length > 1" ref="nextBtnRef" class="button-next" :disabled="selectionIndex >= items.length - 1"
       @click="selectionIndex += 1"
     >
       <SvgIconCaretRight aria-label="Show next image" />
@@ -108,7 +129,7 @@ function setCurrentSlide(currentSlide: number) {
 
     <!-- Pagination -->
     <div class="caption-block">
-      <div v-if="items.length > 1" class="media-counter" role="tablist">
+      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="tablist">
         <button
           v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex"
           class="media-counter-item" @click="setCurrentSlide(index - 1)"
@@ -118,12 +139,18 @@ function setCurrentSlide(currentSlide: number) {
       </div>
       <!-- Captions -->
       <div class="caption-content">
-        <slot :selection-index="selectionIndex" /><!-- additional blocktags etc, can be slotted in here by parent -->
+        <div class="media-object-caption-slot">
+          <slot :selection-index="selectionIndex" />
+          <!-- additional blocktags/labels/simple elements can be slotted in here by parent -->
+        </div>
         <h4 v-if="captionTitle" class="media-object-title" v-text="captionTitle[selectionIndex]" />
+
         <p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" />
+
         <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
           {{ items[selectionIndex].credit }}
         </p>
+
         <SmartLink
           v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl
             && items[selectionIndex].linkText

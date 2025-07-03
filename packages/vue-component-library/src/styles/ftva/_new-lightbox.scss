@@ -41,29 +41,30 @@
   grid-gap: 0px;
 
   .media-container {
-      grid-column: col 1 / span 3;
-      // todo make these styles a mixin?
-      .credit-text {
-          display: inline-block;
-          position: absolute;
-          font-family: var(--font-secondary);
-          bottom: 0;
-          right: 0;
-          color: var(--color-white);
-          font-size: 16px;
-          max-width: 100%;
-          overflow: hidden;
-          text-overflow: ellipsis;
-  
-          span {
-              background-color: rgba(0, 0, 0, 0.64);
-              padding: 4px 23px 4px 18px;
-              // enforce 1 line, 50 char limit
-              height: 32px;
-              max-width: 385px;
-              white-space: pre;
-          }
+    grid-column: col 1 / span 3;
+    
+    // todo make these styles a mixin?
+    .credit-text {
+      display: inline-block;
+      position: absolute;
+      font-family: var(--font-secondary);
+      bottom: 0;
+      right: 0;
+      color: var(--color-white);
+      font-size: 16px;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      span {
+        background-color: rgba(0, 0, 0, 0.64);
+        padding: 4px 23px 4px 18px;
+        // enforce 1 line, 50 char limit
+        height: 32px;
+        max-width: 385px;
+        white-space: pre;
       }
+    }
   }
 
   .caption-block {
@@ -71,17 +72,19 @@
     // unset grid positioning from default theme
     grid-row: unset;
     grid-column: unset;
-
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
+
     .media-counter {
       background-color: $heading-grey;
       border-radius: 20px;
       padding: 0px 15px;
+
       .media-counter-item {
         padding: 1px;
         margin: 0 -5px;
+
         svg {
           height: 22px;
           width: 27px;
@@ -90,69 +93,185 @@
     }
   }
 
-    // hide captions beneath images and close button
-    .caption-content, .button-close {
+  // hide captions beneath images and close button
+  .caption-content, .button-close {
+    display: none;
+  }
+
+  .button-prev, .button-next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 43px;
+    background-color: $navy-blue;
+    border: 1px solid $grey-blue;
+    border-radius: 8px;
+    padding: 2px 0px;
+    // unset grid positioning from default theme
+    grid-row: unset;
+    grid-column: unset;
+    justify-self: auto;
+
+    :deep(.svg__fill--primary-blue-03) {
+      fill: $grey-blue;
+    }
+    
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: $grey-blue;
+    }
+  }
+
+  .button-prev {
+    left: 30px;
+
+    svg {
+      margin-left: -4px;  
+    }
+  }
+
+  .button-next {
+    right: 35px;
+
+    svg {
+      margin-left: -2px;
+    }
+  }
+} 
+
+  // Homepage Carousel Theme
+.ftva.inline.lightbox.homepage {
+  .caption-block {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 100%;
+
+    max-height: 300px;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 100%);
+    
+    .caption-content {
+      position: absolute;
+      top: 10%;
+
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      grid-template-rows: auto 1fr;
+      grid-template-areas: 'label label'
+      'title caption';
+      gap: 4px 36px;
+      max-width: 1160px;
+      width: 100%;
+      padding: 0 16px 0 40px;
+    }
+
+    .media-counter {
+      margin-bottom: 32px;
+    }
+
+    .media-object-title {
+      @include ftva-h1;
+      @include truncate(3);
+      grid-area: title;
+      margin-bottom: 0;
+    }
+
+    .media-object-caption {
+      @include ftva-body;
+      grid-area: caption;
+    }
+
+    .media-object-caption-slot {
+      grid-area: label;
+      display: flex;
+      -moz-column-gap: 12px;
+          column-gap: 12px;
+      align-items: center;
+      @include ftva-body;
+      font-weight: 600;
+
+      :deep(.label) {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+
+    // Caption-box credit text
+    .media-object-credit {
       display: none;
-    } 
-    .button-prev, .button-next {
-      top: 50%;
-      transform: translateY(-50%);
-      width: 43px;
+    }
+  }
 
-      background-color: $navy-blue;
-      border: 1px solid $grey-blue;
-      border-radius: 8px;
-      padding: 2px 0px;
-      // unset grid positioning from default theme
-      grid-row: unset;
-      grid-column: unset;
-      justify-self: auto;
-      :deep(.svg__fill--primary-blue-03) {
-        fill: $grey-blue;
+  // Bottom-right credit text
+  .media-container {
+    .credit-text {
+      display: block
+    }
+  }
+
+  .button-prev, .button-next {
+    z-index: 1;
+    bottom: -8px;
+    top: 50%;
+    transform: translate(50%, -50%);
+
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+
+    :deep(.svg__fill--primary-blue-03) {
+      fill: var(--color-white);
+    }
+  
+    :deep(.svg__stroke--primary-blue-03) {
+      stroke: var(--color-white);
+    }
+  }
+
+  .button-prev {
+    left: unset;
+    right: calc(50% + var(--counterWidth));
+  }
+  
+  .button-next {
+    right: calc(50% - var(--counterWidth));
+  }
+
+  @media (max-width: 900px) {
+    .caption-block {
+      flex-direction: column;
+      background: none;
+      max-height: unset;
+      height: unset;
+
+      .caption-content {
+        top: 48px;
+        padding-top: 32px;
+        padding-bottom: 28px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 'label'
+        'title'
+        'caption';
+        gap: 10px 0;
       }
-      :deep(.svg__stroke--primary-blue-03) {
-        stroke: $grey-blue;
+
+      .media-object-caption-slot {
+        font-weight: 400;
       }
     }
+
     .button-prev {
-      left: 30px;
-      svg {
-        margin-left: -4px;  
-      }
+      left: 8%;
     }
+  
     .button-next {
-      right: 35px;
-      svg {
-        margin-left: -2px;
-      }
+      right: 8%;
     }
 
-  // Homepage Lightbox Theme
-    &.homepage {
-      .caption-block {
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
-  
-            div.media-counter {
-                display: inline-flex;
-            }
-            div.caption-content {
-                display: block;
-            }
-      }
-
-  
-      .media-container {
-        .credit-text {
-          display: none;
-        }
-      }
-      .button-prev,
-      .button-next {
-        bottom: 25px;
-        top: unset;
-        transform: unset;
-      }
-   }
-  } 
+    .button-prev, .button-next {
+      display: block;
+      top: 50%;
+      bottom: unset;
+      transform: translateY(-50%);
+    }
+  }
+}

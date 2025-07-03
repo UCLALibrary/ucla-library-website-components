@@ -1,8 +1,11 @@
 import { computed } from 'vue'
+import format from 'date-fns/format'
 import * as FTVAMedia from './mock/FTVAMedia'
 import FlexibleMediaGalleryNewLightbox from '@/lib-components/Flexible/MediaGallery/NewLightbox.vue'
 import BlockTag from '@/lib-components/BlockTag.vue'
 import { Gallery as MEDIA_GALLERY_MOCK } from '@/stories/mock/Media'
+import formatEventDates from '@/utils/formatEventDates'
+import formatSeriesDates from '@/utils/formatEventSeriesDates'
 
 // Storybook default settings
 export default {
@@ -39,7 +42,7 @@ export function SingleItem() {
 const mockFTVAGalleryRawData = [
   {
     image: [MEDIA_GALLERY_MOCK.mediaGallery[0].item],
-    creditText: 'Credit text'
+    creditText: 'Credit text 1'
   },
   {
     image: [MEDIA_GALLERY_MOCK.mediaGallery[1].item],
@@ -61,7 +64,7 @@ const mockFTVAGalleryComputedData = computed(() => {
   })
 })
 
-export function FTVA_DefaultLightbox() {
+export function FTVA_Default() {
   return {
     data() {
       return {
@@ -78,7 +81,7 @@ export function FTVA_DefaultLightbox() {
   }
 }
 
-export function FTVA_EventDetailCarousel() {
+export function FTVA_InlineCarousel() {
   return {
     data() {
       return {
@@ -95,20 +98,63 @@ export function FTVA_EventDetailCarousel() {
   }
 }
 
-// TODO finish example showing homepage implementation with slots
-// mockdata for blocktags in parent
-const mockTags = ['tag1', 'tag2', 'tag3']
-// TODO: for part 2 of carousel homepage styling
-export function FTVA_Homepage() {
+// Helper functions to parse data for FTVA Homepage Carousel
+function parseFTVACarouselImage(imgObj) {
+  return [{
+    ...imgObj[0],
+    src: imgObj[0]?.url,
+    kind: 'image', // This key is expected by the Media component
+  }]
+}
+
+function parseFTVATypeHandles(str) {
+  // Add extra typehandles as needed
+  switch (str) {
+    case 'ftvaEvent':
+      return 'Event'
+    case 'ftvaArticle':
+      return 'Article'
+    case 'eventSeries':
+      return 'Series'
+    default:
+      return null
+  }
+}
+
+function formatEventTime(date) {
+  const formattedTime = format(new Date(date), 'h:mm aaa')
+  return formattedTime.toUpperCase()
+}
+
+function parseDatesAndTimes(typeHandle, startDate, endDate, startDateWithTime, ongoing) {
+  if (ongoing)
+    return 'Ongoing'
+  if (typeHandle === 'ftvaEvent')
+    return `${formatEventDates(startDateWithTime, startDateWithTime, 'longWithYear')} - ${formatEventTime(startDateWithTime)}`
+  if (typeHandle === 'eventSeries')
+    return formatSeriesDates(startDate, endDate, 'longWithYear')
+
+  return null
+}
+
+const parsedMockHomepagCarousel = computed(() => {
+  return FTVAMedia.mockFTVAHomepageCarousel.map((rawItem) => {
+    return {
+      item: parseFTVACarouselImage(rawItem.ftvaImage),
+      credit: rawItem.creditText,
+      tag: parseFTVATypeHandles(rawItem.typeHandle),
+      captionText: rawItem.ftvaHomepageDescription,
+      captionTitle: rawItem.ftvaHomepageTitle,
+      itemDate: parseDatesAndTimes(rawItem.typeHandle, rawItem.startDate, rawItem.endDate, rawItem.startDateWithTime, rawItem.ongoing)
+    }
+  })
+})
+
+export function FTVA_HomepageCarousel() {
   return {
-    setup() {
-      return {
-        mockTags
-      }
-    },
     data() {
       return {
-        items: mockFTVAGalleryComputedData
+        items: parsedMockHomepagCarousel
       }
     },
     provide() {
@@ -117,6 +163,6 @@ export function FTVA_Homepage() {
       }
     },
     components: { FlexibleMediaGalleryNewLightbox, BlockTag },
-    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="mockTags[slotProps.selectionIndex]" /></template></ flexible-media-gallery-new-lightbox>',
+    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></ flexible-media-gallery-new-lightbox>',
   }
 }
