@@ -25,9 +25,6 @@ function handleSliderInput(event: Event) {
   // console.log('Slider input event:', target.value)
   if (sliderContainer.value && slider.value && afterImageElement.value) {
     sliderContainer.value.style.setProperty('--position', `${target.value}%`)
-    // NOT NEEDED
-    // slider.value.value = target.value // Update the slider value
-    // afterImageElement.value.style.clipPath = `polygon(0 0, ${target.value}% 0, ${target.value}% 100%, 0 100%);`;
   }
 }
 </script>
@@ -37,10 +34,14 @@ function handleSliderInput(event: Event) {
     <div class="image-container">
       <img class="before-image slider-image" :src="beforeImage.src" alt="color photo" />
       <img ref="afterImageElement" class="after-image slider-image" :src="afterImage.src" alt="black and white" />
-      <!-- <div class="image-labels">
-                <span class="before-label"><slot name="beforeLabel">Before</slot></span>
-                <span class="after-label"><slot name="afterLabel">After</slot></span>
-            </div> -->
+      <div class="image-labels">
+        <span class="before-label slider-label">
+          <slot name="beforeLabel">Before</slot>
+        </span>
+        <span class="after-label slider-label">
+          <slot name="afterLabel">After</slot>
+        </span>
+      </div>
     </div>
     <input ref="slider" type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown"
       class="slider" @input="(e) => handleSliderInput(e)">
@@ -52,6 +53,7 @@ function handleSliderInput(event: Event) {
       </span>
     </div>
   </div>
+  <div class="caption"><slot name="captionText"></slot></div>
 </template>
 
 <style lang="scss" scoped>
@@ -89,6 +91,23 @@ function handleSliderInput(event: Event) {
       }
 }
 
+.image-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 9;
+  padding: 1rem;
+  span.slider-label {
+    text-transform: uppercase;
+    color: black;
+    background-color: white;
+    padding: .25rem .5rem;
+  }
+}
+
 .slider-image {
   position: absolute;
     top: 0;
@@ -101,11 +120,6 @@ function handleSliderInput(event: Event) {
     object-position: center; // was left
 }
 
-// TODO remove and make actual grey scale version of the image
-.before-image {
-    filter: grayscale(100%)
-}
-
 .after-image {
   position: absolute;
   top: 0;
@@ -113,6 +127,14 @@ function handleSliderInput(event: Event) {
   width: 100%;
   clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%);
   /* Adjust the width of the visible area */
+}
+
+.caption {
+  @include ftva-caption;
+  padding-top: 15px;
+  width: 100%;
+  text-align: center;
+  color: #737373;
 }
 
 .slider {
