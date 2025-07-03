@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import ResponsiveImage from './ResponsiveImage.vue'
 
 const { beforeImage, afterImage } = defineProps({
   beforeImage: {
@@ -30,12 +29,16 @@ function handleSliderInput(event: Event) {
 <template>
   <div ref="sliderContainer" class="image-slider">
     <div class="image-container">
-      <img class="before-image slider-image"
+      <img
+        class="before-image slider-image"
         src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-        alt="color photo" />
-      <img ref="afterImageElement" class="after-image slider-image"
+        alt="color photo"
+      >
+      <img
+        ref="afterImageElement" class="after-image slider-image"
         src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-        alt="black and white" />
+        alt="black and white"
+      >
       <!-- <ResponsiveImage :media="beforeImage" class="slider-image before-image" />
       <ResponsiveImage :media="afterImage" class="slider-image after-image" /> -->
       <!-- <div class="image-labels">
@@ -43,8 +46,10 @@ function handleSliderInput(event: Event) {
                 <span class="after-label"><slot name="afterLabel">After</slot></span>
             </div> -->
     </div>
-    <input ref="slider" type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown"
-      class="slider" @input="(e) => handleSliderInput(e)">
+    <input
+      ref="slider" type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown"
+      class="slider" @input="(e) => handleSliderInput(e)"
+    >
     <div class="slider-line" aria-hidden="true" />
     <div class="slider-button" aria-hidden="true">
       <span class="button-text">Slide to Compare</span>
@@ -84,7 +89,7 @@ function handleSliderInput(event: Event) {
         overflow: hidden;
         aspect-ratio: 2/1;
         // padding-bottom: 25%;
-    
+
         :deep(img) {
           display: block;
           max-width: 100%;
