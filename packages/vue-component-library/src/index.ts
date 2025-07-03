@@ -81,6 +81,7 @@ export { default as HeaderMainResponsive } from './lib-components/HeaderMainResp
 export { default as HeaderSmart } from './lib-components/HeaderSmart.vue'
 export { default as HeaderSticky } from './lib-components/HeaderSticky.vue'
 export { default as IconWithLink } from './lib-components/IconWithLink.vue'
+export { default as ImageSlider } from './lib-components/ImageSlider.vue'
 export { default as ImpactNumberCard } from './lib-components/ImpactNumberCard.vue'
 export { default as ImpactNumbersCarousel } from './lib-components/ImpactNumbersCarousel.vue'
 export { default as ImpactRichText } from './lib-components/ImpactRichText.vue'
