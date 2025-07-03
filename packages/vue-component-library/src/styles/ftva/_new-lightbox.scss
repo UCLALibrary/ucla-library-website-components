@@ -236,16 +236,29 @@
   }
 
   @media (max-width: 900px) {
+
+    
     .caption-block {
+      position: relative;
+      grid-column: col 1 / span 3;
+      grid-row: row 3;
+      min-height: -webkit-max-content;
+      min-height: -moz-max-content;
+      min-height: max-content;
       flex-direction: column;
       background: none;
-      max-height: unset;
-      height: unset;
+      
+      .media-counter {
+        position: relative;
+        top: -58px;
+        margin-bottom: 0;
+      }
 
       .caption-content {
-        top: 48px;
-        padding-top: 32px;
-        padding-bottom: 28px;
+        position: relative;
+        top: 0;
+        padding-top: 16px;
+        padding-bottom: 32px;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: 'label'
@@ -269,7 +282,7 @@
 
     .button-prev, .button-next {
       display: block;
-      top: 50%;
+      top: var(--counterWidth);
       bottom: unset;
       transform: translateY(-50%);
     }
