@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.22.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.21.0...@ucla-library-monorepo/ucla-library-website-components-v1.22.0) (2025-07-03)
+
+
+### Features
+
+* APPS-2805 Update Lightbox Theme for FTVA Homepage ([#748](https://github.com/UCLALibrary/ucla-library-website-components/issues/748)) ([4d538ec](https://github.com/UCLALibrary/ucla-library-website-components/commit/4d538eca832f81f3ced2b67dd6b39c396b222dea))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.21.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.20.0...@ucla-library-monorepo/ucla-library-website-components-v1.21.0) (2025-06-12)
 
 
