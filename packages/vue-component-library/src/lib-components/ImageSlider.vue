@@ -14,8 +14,6 @@ const { beforeImage, afterImage } = defineProps({
   }
 })
 
-
-
 const sliderContainer = ref<HTMLElement | null>(null)
 const slider = ref<HTMLInputElement | null>(null)
 const afterImageElement = ref<HTMLImageElement | null>(null)
@@ -23,17 +21,16 @@ const afterImageElement = ref<HTMLImageElement | null>(null)
 function handleSliderInput(event: Event) {
   const target = event.target as HTMLInputElement
   // console.log('Slider input event:', target.value)
-  if (sliderContainer.value && slider.value && afterImageElement.value) {
+  if (sliderContainer.value && slider.value && afterImageElement.value)
     sliderContainer.value.style.setProperty('--position', `${target.value}%`)
-  }
 }
 </script>
 
 <template>
   <div ref="sliderContainer" class="image-slider">
     <div class="image-container">
-      <img class="before-image slider-image" :src="beforeImage.src" alt="color photo" />
-      <img ref="afterImageElement" class="after-image slider-image" :src="afterImage.src" alt="black and white" />
+      <img class="before-image slider-image" :src="beforeImage.src" alt="color photo">
+      <img ref="afterImageElement" class="after-image slider-image" :src="afterImage.src" alt="black and white">
       <div class="image-labels">
         <span class="before-label slider-label">
           <slot name="beforeLabel">Before</slot>
@@ -43,8 +40,10 @@ function handleSliderInput(event: Event) {
         </span>
       </div>
     </div>
-    <input ref="slider" type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown"
-      class="slider" @input="(e) => handleSliderInput(e)">
+    <input
+      ref="slider" type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown"
+      class="slider" @input="(e) => handleSliderInput(e)"
+    >
     <div class="slider-line" aria-hidden="true" />
     <div class="slider-button" aria-hidden="true">
       <span class="button-text">
@@ -53,7 +52,9 @@ function handleSliderInput(event: Event) {
       </span>
     </div>
   </div>
-  <div class="caption"><slot name="captionText"></slot></div>
+  <div class="caption">
+    <slot name="captionText" />
+  </div>
 </template>
 
 <style lang="scss" scoped>

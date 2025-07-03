@@ -1,5 +1,6 @@
 // import { computed } from 'vue'
 import ImageSlider from '../lib-components/ImageSlider'
+
 // import ScrollWrapper from '../lib-components/ScrollWrapper'
 
 export default {
