@@ -34,6 +34,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  category: {
+    type: String,
+    default: '',
+  },
   title: {
     type: String,
     default: '',
@@ -128,6 +132,7 @@ const parsedDateFormat = computed(() => {
       <CardMeta
         class="card-meta-items"
         :to="to"
+        :category="category"
         :title="title"
         :start-date="startDate"
         :end-date="endDate"
@@ -237,6 +242,11 @@ const parsedDateFormat = computed(() => {
         margin: 0;
       }
 
+      .category {
+        @include ftva-subtitle-1;
+        color: $subtitle-grey;
+      }
+
       .title {
         @include ftva-card-title-2;
         color: $heading-grey;
@@ -306,8 +316,13 @@ const parsedDateFormat = computed(() => {
       :deep(.card-meta) {
         min-height: 0;
 
-        .title {
+        .category {
           order: 2;
+          align-self: flex-start;
+        }
+
+        .title {
+          order: 3;
           align-self: flex-start;
           padding-top: 10px;
         }
