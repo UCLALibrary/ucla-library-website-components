@@ -41,7 +41,7 @@ const mockBeforeAfterImageCarousel = [{
   id: '37072',
   caption: 'Before and After Image Slider caption #1',
   beforeImage: mockBeforeImage[0],
-  afterImage: mockImage[0]
+  afterImage: mockBeforeImage[0]
 }]
 
 export function Default() {
