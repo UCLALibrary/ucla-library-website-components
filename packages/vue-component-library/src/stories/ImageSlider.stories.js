@@ -53,11 +53,13 @@ export function Default() {
     },
     components: { ImageSlider },
     template: `
+        <div style="padding: 1rem; max-width: 1160px;">
         <image-slider
             :before-image="beforeImage"
             :after-image="afterImage"
             :caption="caption"
         />
+        </div>
     `,
   }
 }
