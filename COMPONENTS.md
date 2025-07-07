@@ -224,6 +224,7 @@ Expandable section for showing grouped text content like notes and captions. Can
 - onToggle: Function
 
 [] ExcerptPod (Svebor)
+
 Highlighted or emphasized snippet of text content within another component (like Notes). Often includes links and formatted text.
 
 - content: string (HTML or rich text)  
