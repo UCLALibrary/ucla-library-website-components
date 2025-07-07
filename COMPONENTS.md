@@ -65,7 +65,7 @@ Numbered pagination UI with previous/next arrows.
 - totalPages: number  
 - onPageChange: Function(newPage: number)
 
-[] SectionLabel  
+[] SectionLabel   (austin)
 Non-interactive text element that might be grouped with buttons (e.g. “RESEARCH”).
 
 - text: string  
@@ -1113,10 +1113,10 @@ Behavior:
 | ButtonDropdown             |Luka       | ☐ Complete  |   [ ]   |                                |
 | ButtonTag                  |Luka       | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbPill             |           | ☐ Complete  |   [ ]   |                                |
-| BreadcrumbBar              |Austin     | ☐ Complete  |   [ ]   |                                |
+| BreadcrumbBar              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonIconOnly             |           | ☐ Complete  |   [ ]   |                                |
 | PaginationControl          |Svebor     | ☐ Complete  |   [x]   | Needs a slight style/functionlity change |
-| SectionLabel               |           | ☐ Complete  |   [ ]   |                                |
+| SectionLabel               |Austin     | ☐ Complete  |   [ ]   |                                |
 | ButtonSubLink              |           | ☐ Complete  |   [ ]   |                                |
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
 | SectionPagination              |Svebor     | ☐ Complete  |   [x]   |Adjusted the styles and a little bit of logic |
