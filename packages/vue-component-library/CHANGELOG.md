@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.22.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.22.0...@ucla-library-monorepo/ucla-library-website-components-v1.22.1) (2025-07-07)
+
+
+### Bug Fixes
+
+* APPS-3379 Fix FTVA Homepage Carousel mobile layout ([#753](https://github.com/UCLALibrary/ucla-library-website-components/issues/753)) ([b58bc6b](https://github.com/UCLALibrary/ucla-library-website-components/commit/b58bc6b38ac7252aeb8b8411d4ef8f3b8f89029e))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.22.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.21.0...@ucla-library-monorepo/ucla-library-website-components-v1.22.0) (2025-07-03)
 
 
