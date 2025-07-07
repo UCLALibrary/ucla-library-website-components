@@ -8,7 +8,7 @@ import {
 } from "@/types/components/buttonTag.types"
 const SvgArrowRight = defineAsyncComponent(
     () => import("ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg")
-)
+) // TODO: use the correct icon for this component
 
 type ButtonTagProps = {
     label?: string | Array<string>
