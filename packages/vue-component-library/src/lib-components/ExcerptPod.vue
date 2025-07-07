@@ -1,0 +1,123 @@
+<script setup lang="ts">
+// Imports
+import { defineProps, computed } from "vue"
+import NotesAccordion from "@/lib-components/NotesAccordion.vue"
+
+// Props
+type ExcerptPodProps = {
+    title: string
+    subtitle: string
+    text: string
+    accordions: Array<{
+        title: string
+        text: string
+    }>
+    labelOpen: string
+    labelClose: string
+}
+
+const props = withDefaults(defineProps<ExcerptPodProps>(), {
+    title: "",
+    subtitle: "",
+    text: "",
+    accordions: () => [
+        {
+            title: "",
+            text: "",
+        },
+    ],
+    labelOpen: "",
+    labelClose: "",
+})
+
+// Data
+
+// Computed
+const showAccordion = computed(() => {
+    return (
+        props.accordions.length > 0 &&
+        props.accordions.some((accordion) => accordion.title || accordion.text)
+    )
+})
+</script>
+
+<template>
+    <div class="excerpt-pod">
+        <h5 class="title" v-html="title" />
+        <div class="info">
+            <h6 class="subtitle" v-html="subtitle" />
+            <div class="text-excerpt">
+                <div class="text" v-html="text" />
+                <NotesAccordion
+                    v-if="showAccordion"
+                    :items="accordions"
+                    :labelOpen="labelOpen"
+                    :labelClose="labelClose"
+                />
+            </div>
+        </div>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+.excerpt-pod {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .info {
+        display: flex;
+        gap: 10vw;
+    }
+
+    .title {
+        margin: 0;
+
+        font-family: var(--font-primary);
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 120%; /* 25.2px */
+    }
+
+    .subtitle {
+        min-width: 200px;
+        margin: 0;
+
+        font-family: var(--font-secondary);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 160%; /* 25.6px */
+        letter-spacing: 0.16px;
+    }
+
+    .text-excerpt {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+    }
+
+    .text {
+        font-family: var(--font-secondary);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 150%; /* 24px */
+    }
+
+    // Hovers
+    @media #{has-hover} {
+    }
+
+    // Breakpoints
+    @media #{$extra-large} {
+    }
+    @media #{$medium} {
+    }
+    @media #{$small} {
+        .info {
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+}
+</style>

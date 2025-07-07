@@ -4,28 +4,20 @@ export default {
   title: 'Funkhaus / NotesAccordion',
   component: NotesAccordion,
   argTypes: {
-    title: { control: 'text', description: 'Accordion title (HTML allowed)' },
-    text: { control: 'text', description: 'Accordion content (HTML allowed)' },
+    items: { control: 'object', description: 'Array of accordion sections' },
     labelOpen: { control: 'text', description: 'Label when open' },
     labelClose: { control: 'text', description: 'Label when closed' },
-  },
-  args: {
-    title: 'Accordion Title',
-    text: 'This is the <b>accordion</b> content. You can use <i>HTML</i> here.',
-    labelOpen: 'Show Less',
-    labelClose: 'Show More',
-  },
+  }
 }
 
-const Template = (args, { updateArgs }) => ({
+const Template = (args) => ({
   components: { NotesAccordion },
   setup() {
     return { args }
   },
   template: `
     <NotesAccordion
-      :title="args.title"
-      :text="args.text"
+      :items="args.items"
       :labelOpen="args.labelOpen"
       :labelClose="args.labelClose"
     />
@@ -34,14 +26,30 @@ const Template = (args, { updateArgs }) => ({
 
 export const Default = Template.bind({})
 Default.args = {
-  labelOpen: 'Show Less',
-  labelClose: 'Show More',
-  text: 'This is the <b>accordion</b> content. You can use <i>HTML</i> here.',
-} 
+  items: [
+    {
+      title: 'Background',
+      text: 'IInani oratio numquam ea ius, per nihil mollis percipitur te. Mundi omittam fastidii ius ex. Mel ex everti consequat, sit equidem corrumpit adversarium cu. Sed an facer utroque. Pro dictas praesent delicatissimi in, ceteros nostrum blandit cu nec. Audire iisque id vis, sea cu omnes democritum temporibus.Eu vel dicam soluta, id omnis impetus pro. Error vocibus tacimates vim ut. Est in eirmod oblique.Inani oratio numquam ea ius, per nihil mollis percipitur te. Mundi omittam fastidii ius ex. Mel ex everti consequat, sit equidem corrumpit adversarium cu. Sed an facer utroque. Pro dictas praesent delicatissimi in, ceteros nostrum blandit cu nec. Audire iisque id vis, sea cu omnes democritum temporibus.Eu vel dicam soluta, id omnis impetus pro. Error vocibus tacimates vim ut. Est in eirmod oblique.',
+    },
+  ]
+}
 
-export const MoreText = Template.bind({})
-MoreText.args = {
-  labelOpen: 'Show Less',
-  labelClose: 'Show More',
-  text: 'IInani oratio numquam ea ius, per nihil mollis percipitur te. Mundi omittam fastidii ius ex. Mel ex everti consequat, sit equidem corrumpit adversarium cu. Sed an facer utroque. Pro dictas praesent delicatissimi in, ceteros nostrum blandit cu nec. Audire iisque id vis, sea cu omnes democritum temporibus.Eu vel dicam soluta, id omnis impetus pro. Error vocibus tacimates vim ut. Est in eirmod oblique.Inani oratio numquam ea ius, per nihil mollis percipitur te. Mundi omittam fastidii ius ex. Mel ex everti consequat, sit equidem corrumpit adversarium cu. Sed an facer utroque. Pro dictas praesent delicatissimi in, ceteros nostrum blandit cu nec. Audire iisque id vis, sea cu omnes democritum temporibus.Eu vel dicam soluta, id omnis impetus pro. Error vocibus tacimates vim ut. Est in eirmod <b>oblique</b>.',
-} 
+export const MoreSections = Template.bind({})
+MoreSections.args = {
+  items: [
+    {
+      title: 'Section 1',
+      text: 'First section content.',
+    },
+    {
+      title: 'Section 2',
+      text: 'Second section content.',
+    },
+    {
+      title: 'Section 3',
+      text: 'Third section content.',
+    },
+  ],
+  labelOpen: 'Collapse All',
+  labelClose: 'Expand All',
+}
