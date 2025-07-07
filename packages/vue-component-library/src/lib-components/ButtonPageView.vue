@@ -5,9 +5,10 @@ import SvgGrid from "ucla-library-design-tokens/assets/svgs/icon-card.svg"
 import { defineEmits, defineProps } from "vue"
 
 // Props
-const props = withDefaults(defineProps<{
-        pageView?: "list" | "grid"
-    }>(),
+type PageViewToggleProps = {
+    pageView?: "list" | "grid"
+}
+const props = withDefaults(defineProps<PageViewToggleProps>(),
     {
         pageView: "list"
     }
