@@ -36,6 +36,14 @@ Used as labeled categories or tags, possibly dismissible.
 - onClick: Function  
 - onRemove?: Function
 
+[] ButtonRemoveSearchFilter (Luka)
+Wraps ButtonTag, adds X icon on the right which invokes onRemove
+
+- title: string  
+- isSelected: boolean  
+- iconName: string;
+- onRemove?: Function
+
 [] Breadcrumb  
 
 [] BreadcrumbPill  
