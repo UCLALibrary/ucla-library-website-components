@@ -36,14 +36,6 @@ Used as labeled categories or tags, possibly dismissible.
 - onClick: Function  
 - onRemove?: Function
 
-[] ButtonRemoveSearchFilter (Luka)
-Wraps ButtonTag, adds X icon on the right which invokes onRemove
-
-- title: string  
-- isSelected: boolean  
-- iconName: string;
-- onRemove?: Function
-
 [] Breadcrumb  
 
 [] BreadcrumbPill  
@@ -203,8 +195,7 @@ Range selector with start and end year inputs and a confirm button.
 
 ## Accordions
 
-[] BentoPod (Svebor)
-
+[] BentoPod  
 Displays a summary of a library or collection and a list of associated assets. Includes a collapsible "More/Less Results" toggle.
 
 - title: string  
@@ -259,7 +250,7 @@ Vertical media block representing a digital library asset. Contains metadata, li
 - thumbnails: Array<string>  
 - isCondensed?: boolean
 
-[] BlockAsset  
+[] BlockAsset (austin)
 Card for an individual digital library asset.
 
 - image: string  
@@ -326,7 +317,7 @@ Vertical or horizontal list of buttons linking to specific tools or resources.
 
 ## Grids
 
-[] GridAssets
+[] GridAssets (austin)
 - items: [BlockAsset]
 
 [] GridCollections
@@ -1120,8 +1111,7 @@ Behavior:
 | ButtonStacked              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonDropdown             |Luka       | ☐ Complete  |   [ ]   |                                |
-| ButtonTag                  |Luka       | ☐ Complete  |   [x]   | aka: BlockTag                  |
-| ButtonRemoveSearchFilter   |Luka       | ☐ Complete  |   [x]   | aka: BlockRemoveSearchFilter   |
+| ButtonTag                  |Luka       | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbPill             |           | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonIconOnly             |           | ☐ Complete  |   [ ]   |                                |
@@ -1141,12 +1131,12 @@ Behavior:
 | ButtonSubCategoryPod       |           | ☐ Complete  |   [ ]   |                                |
 | ButtonUCLALibrariesDropdown|           | ☐ Complete  |   [ ]   |                                |
 | YearRangeFilter            |           | ☐ Complete  |   [x]   | aka DateFilter?                |
-| BentoPod                   |Svebor     | ☐ Complete  |   [ ]   | WIP                            |
-| NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | in a PR                        |
+| BentoPod                   |           | ☐ Complete  |   [ ]   |                                |
+| NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | WIP                            |
 | ExcerptPod                 |           | ☐ Complete  |   [ ]   |                                |
 | AssetFeaturedImage         |           | ☐ Complete  |   [ ]   |                                |
 | AssetPod                   |           | ☐ Complete  |   [ ]   |                                |
-| BlockAsset                 |           | ☐ Complete  |   [ ]   |                                |
+| BlockAsset                 |Austin     | ☐ Complete  |   [ ]   |                                |
 | SearchResult               |           | ☐ Complete  |   [x]   |                                |
 | BlockCollection            |           | ☐ Complete  |   [ ]   |                                |
 | MetadataTable              |           | ☐ Complete  |   [ ]   |                                |
@@ -1154,7 +1144,7 @@ Behavior:
 | BlockRichText              |           | ☐ Complete  |   [ ]   |                                |
 | SectionHeader              |           | ☐ Complete  |   [x]   |                                |
 | BlockButtonList            |           | ☐ Complete  |   [ ]   |                                |
-| GridAssets                 |           | ☐ Complete  |   [ ]   |                                |
+| GridAssets                 |Austin     | ☐ Complete  |   [ ]   |                                |
 | GridCollections            |           | ☐ Complete  |   [ ]   |                                |
 | SearchField                |Luka       | ☐ Complete  |   [x]   |                                |
 | EntryField                 |Luka       | ☐ Complete  |   [ ]   |                                |
