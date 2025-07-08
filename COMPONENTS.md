@@ -1120,7 +1120,8 @@ Behavior:
 | ButtonStacked              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonDropdown             |Luka       | ☐ Complete  |   [ ]   |                                |
-| ButtonTag                  |Luka       | ☐ Complete  |   [ ]   |                                |
+| ButtonTag                  |Luka       | ☐ Complete  |   [x]   | aka: BlockTag                  |
+| ButtonRemoveSearchFilter   |Luka       | ☐ Complete  |   [x]   | aka: BlockRemoveSearchFilter   |
 | BreadcrumbPill             |           | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonIconOnly             |           | ☐ Complete  |   [ ]   |                                |
