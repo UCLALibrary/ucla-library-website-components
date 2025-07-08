@@ -20,7 +20,6 @@ const afterImageElement = ref<HTMLImageElement | null>(null)
 
 function handleSliderInput(event: Event) {
   const target = event.target as HTMLInputElement
-  // console.log('Slider input event:', target.value)
   if (sliderContainer.value && slider.value && afterImageElement.value)
     sliderContainer.value.style.setProperty('--position', `${target.value}%`)
 }
@@ -118,7 +117,7 @@ function handleSliderInput(event: Event) {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center; // was left
+    object-position: center;
 }
 
 .after-image {
@@ -126,8 +125,7 @@ function handleSliderInput(event: Event) {
   top: 0;
   left: 0;
   width: 100%;
-  clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%);
-  /* Adjust the width of the visible area */
+  clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%); // Adjust the width of the visible area
 }
 
 .caption {
