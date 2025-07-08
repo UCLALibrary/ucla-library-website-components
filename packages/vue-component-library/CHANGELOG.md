@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.23.0...@ucla-library-monorepo/ucla-library-website-components-v1.24.0) (2025-07-08)
+
+
+### Features
+
+* add alt text ([#754](https://github.com/UCLALibrary/ucla-library-website-components/issues/754)) ([230b570](https://github.com/UCLALibrary/ucla-library-website-components/commit/230b570854a0f6138d23837b3dfae4ac12125a2c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.23.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.22.1...@ucla-library-monorepo/ucla-library-website-components-v1.23.0) (2025-07-08)
 
 
