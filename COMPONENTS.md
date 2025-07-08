@@ -36,6 +36,14 @@ Used as labeled categories or tags, possibly dismissible.
 - onClick: Function  
 - onRemove?: Function
 
+[] ButtonRemoveSearchFilter (Luka)
+Wraps ButtonTag, adds X icon on the right which invokes onRemove
+
+- title: string  
+- isSelected: boolean  
+- iconName: string;
+- onRemove?: Function
+
 [] Breadcrumb  
 
 [] BreadcrumbPill  
@@ -195,7 +203,7 @@ Range selector with start and end year inputs and a confirm button.
 
 ## Accordions
 
-[] BentoPod  
+[] BentoPod (Svebor)
 Displays a summary of a library or collection and a list of associated assets. Includes a collapsible "More/Less Results" toggle.
 
 - title: string  
@@ -1111,7 +1119,8 @@ Behavior:
 | ButtonStacked              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonDropdown             |Luka       | ☐ Complete  |   [ ]   |                                |
-| ButtonTag                  |Luka       | ☐ Complete  |   [ ]   |                                |
+| ButtonTag                  |Luka       | ☐ Complete  |   [x]   | aka: BlockTag                  |
+| ButtonRemoveSearchFilter   |Luka       | ☐ Complete  |   [x]   | aka: BlockRemoveSearchFilter   |
 | BreadcrumbPill             |           | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonIconOnly             |           | ☐ Complete  |   [ ]   |                                |
@@ -1131,8 +1140,8 @@ Behavior:
 | ButtonSubCategoryPod       |           | ☐ Complete  |   [ ]   |                                |
 | ButtonUCLALibrariesDropdown|           | ☐ Complete  |   [ ]   |                                |
 | YearRangeFilter            |           | ☐ Complete  |   [x]   | aka DateFilter?                |
-| BentoPod                   |           | ☐ Complete  |   [ ]   |                                |
-| NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | WIP                            |
+| BentoPod                   |Svebor     | ☐ Complete  |   [ ]   | WIP                            |
+| NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | in a PR                        |
 | ExcerptPod                 |           | ☐ Complete  |   [ ]   |                                |
 | AssetFeaturedImage         |           | ☐ Complete  |   [ ]   |                                |
 | AssetPod                   |           | ☐ Complete  |   [ ]   |                                |
