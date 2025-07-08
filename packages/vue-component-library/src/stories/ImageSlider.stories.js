@@ -76,10 +76,10 @@ export function WithCustomLabels() {
             :after-image="afterImage"
         >
             <template #beforeLabel>
-               Color
+               Black and White
             </template>
             <template #afterLabel>
-              Black and White
+              Color
             </template>
         </image-slider>
         </div>
