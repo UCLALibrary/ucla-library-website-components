@@ -115,7 +115,10 @@ onUnmounted(() => {
                 :ref="(el) => getItemRef(index)(el as HTMLElement | null)"
             >
                 <smart-link :to="item.to" class="item-link">
-                    <h5 class="item-title" v-html="item.title" />
+                    <h5
+                        class="item-title underline-hover"
+                        v-html="item.title"
+                    />
                 </smart-link>
                 <div class="item-details">
                     <span class="item-type">
@@ -151,6 +154,9 @@ onUnmounted(() => {
 .bento-pod {
     padding: 20px;
     box-sizing: border-box;
+
+    border-radius: 4px;
+    border: 1px solid var(--color-primary-blue-05, #032d5b);
     .title {
         font-family: var(--font-primary);
         font-size: 36px;
@@ -196,6 +202,11 @@ onUnmounted(() => {
         position: relative;
 
         &:nth-child(3) {
+            .divider {
+                opacity: 0;
+            }
+        }
+        &:last-child {
             .divider {
                 opacity: 0;
             }
