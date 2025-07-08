@@ -195,7 +195,8 @@ Range selector with start and end year inputs and a confirm button.
 
 ## Accordions
 
-[] BentoPod  
+[] BentoPod (Svebor)
+
 Displays a summary of a library or collection and a list of associated assets. Includes a collapsible "More/Less Results" toggle.
 
 - title: string  
@@ -1131,8 +1132,8 @@ Behavior:
 | ButtonSubCategoryPod       |           | ☐ Complete  |   [ ]   |                                |
 | ButtonUCLALibrariesDropdown|           | ☐ Complete  |   [ ]   |                                |
 | YearRangeFilter            |           | ☐ Complete  |   [x]   | aka DateFilter?                |
-| BentoPod                   |           | ☐ Complete  |   [ ]   |                                |
-| NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | WIP                            |
+| BentoPod                   |Svebor     | ☐ Complete  |   [ ]   | WIP                            |
+| NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | in a PR                        |
 | ExcerptPod                 |           | ☐ Complete  |   [ ]   |                                |
 | AssetFeaturedImage         |           | ☐ Complete  |   [ ]   |                                |
 | AssetPod                   |           | ☐ Complete  |   [ ]   |                                |
