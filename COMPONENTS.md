@@ -47,6 +47,7 @@ Wraps ButtonTag, adds X icon on the right which invokes onRemove
 [] Breadcrumb  
 
 [] BreadcrumbPill (Luka)
+
 Pill-shaped breadcrumb element, possibly for filter chips or nav breadcrumbs.
 
 - label: string  
