@@ -156,7 +156,8 @@ onUnmounted(() => {
     box-sizing: border-box;
 
     border-radius: 4px;
-    border: 1px solid var(--color-primary-blue-05, #032d5b);
+    border: 1px solid var(--color-primary-blue-05);
+
     .title {
         font-family: var(--font-primary);
         font-size: 36px;
@@ -265,6 +266,7 @@ onUnmounted(() => {
         line-height: 150%; /* 24px */
         text-transform: capitalize;
     }
+
     .caret-icon {
         transition: transform 0.5s ease-in-out;
         width: 30px;
@@ -280,6 +282,7 @@ onUnmounted(() => {
         border-radius: 4px;
 
         background-color: transparent;
+
         color: var(--color-primary-blue-03);
         font-family: var(--font-secondary); // Proxima Nova
         font-size: 16px;
@@ -291,6 +294,7 @@ onUnmounted(() => {
         cursor: pointer;
         transition: background-color 0.3s ease, color 0.3s ease;
     }
+
     .caret-icon {
         ::v-deep(path) {
             transition: stroke 0.3s ease;
@@ -351,16 +355,12 @@ onUnmounted(() => {
         }
     }
     // Breakpoints
-    @media #{$extra-large} {
-    }
     @media #{$medium} {
         .item-details {
             display: flex;
             flex-direction: column;
             gap: 5px;
         }
-    }
-    @media #{$small} {
     }
 }
 // Transitions
