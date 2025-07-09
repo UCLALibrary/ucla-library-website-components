@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.0...@ucla-library-monorepo/ucla-library-website-components-v1.24.1) (2025-07-09)
+
+
+### Bug Fixes
+
+* APPS-3342 Update cardThreeColumn to include category/series title above the main title ([#752](https://github.com/UCLALibrary/ucla-library-website-components/issues/752)) ([3dec01c](https://github.com/UCLALibrary/ucla-library-website-components/commit/3dec01c057632e4cb85d2dfec3047af9de4bd0f1))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.24.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.23.0...@ucla-library-monorepo/ucla-library-website-components-v1.24.0) (2025-07-08)
 
 
