@@ -873,7 +873,7 @@ Child components:
 - `SvgLogoUcla` (conditionally rendered)
 - `ButtonLink` (conditionally rendered)
 
-[] FooterLinks  
+[x] FooterLinks  
 A themed footer section that renders grouped navigation links fetched from global store state.
 
 Behavior:
