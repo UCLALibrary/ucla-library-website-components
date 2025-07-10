@@ -73,8 +73,17 @@ const classes = computed(() => [
     theme?.value || "",
     `is-${props.variant}`,
     { "is-highlighted": props.isHighlighted },
-    { "has-on-click": props.onClick },
+    { "has-on-click": props.onClick || hasLinkInLabel.value },
 ])
+
+const hasLinkInLabel = computed(() => {
+    if (typeof props.label === "string") {
+        return props.label.includes("<a")
+    } else if (Array.isArray(props.label)) {
+        return props.label.some((item) => item.includes("<a"))
+    }
+    return false
+})
 
 const isLabelArray = computed(() => {
     return Array.isArray(props.label)
@@ -86,16 +95,15 @@ const isLabelArray = computed(() => {
         <component
             v-if="iconName"
             :is="iconMap[iconName]"
-            class="svg"
+            class="icon-left"
             aria-hidden="true"
         />
 
-        <span v-if="!isLabelArray" class="label">{{ label }}</span>
+        <div v-if="!isLabelArray" class="label" v-html="label" />
         <template v-else>
             <template v-for="(item, index) in label" :key="item">
-                <span class="label">
-                    {{ item }}
-                </span>
+                <div class="label" v-html="item" />
+
                 <component
                     v-if="index !== label.length - 1"
                     :is="SvgArrowRight"
@@ -111,6 +119,123 @@ const isLabelArray = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_button-tag.scss";
-@import "@/styles/ftva/_button-tag.scss";
+.button-tag {
+    --transition-duration: 0.2s;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 2px solid var(--color-secondary-grey-02);
+    background-color: transparent;
+
+    height: 36px;
+    width: fit-content;
+
+    transition: background-color var(--transition-duration) ease-in-out,
+        border-color var(--transition-duration) ease-in-out;
+
+    // Custom icon on the left
+    .icon-left {
+        height: 15px;
+        width: 15px;
+
+        :deep(path) {
+            fill: $subtitle-grey;
+
+            transition: fill var(--transition-duration) ease-in-out;
+        }
+    }
+
+    .label {
+        font-family: var(--font-primary);
+        font-size: 15px;
+        font-weight: 700;
+        color: $subtitle-grey;
+
+        transition: color var(--transition-duration) ease-in-out;
+    }
+    // Arrow between label items
+    .icon-arrow {
+        :deep(path) {
+            stroke: $subtitle-grey;
+
+            transition: stroke var(--transition-duration) ease-in-out;
+        }
+    }
+
+    // Add pointer cursor for clickable tags
+    &.has-on-click {
+        cursor: pointer;
+
+        :deep(a) {
+            text-decoration: underline;
+        }
+    }
+
+    // Highlight styles
+    &.is-highlighted {
+        background-color: $subtitle-grey;
+        border: none;
+        height: 32px;
+
+        .label {
+            color: var(--color-white);
+        }
+    }
+
+    // FTVA Styles
+    &.ftva {
+        @include ftva-tags;
+
+        border: 1.5px solid $subtitle-grey;
+        height: 32px;
+        gap: 8px;
+
+        .label {
+            font-weight: 500;
+        }
+
+        &.is-primary {
+            background-color: $accent-blue;
+            border: none;
+
+            .icon-left {
+                :deep(path) {
+                    fill: $pure-white;
+                }
+            }
+
+            .label {
+                color: $pure-white;
+            }
+
+            .icon-arrow {
+                :deep(path) {
+                    stroke: $pure-white;
+                }
+            }
+        }
+
+        &.is-highlighted {
+            background-color: $page-blue;
+
+            .label {
+                color: $subtitle-grey;
+            }
+        }
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        &.is-highlighted.has-on-click:hover {
+            border-color: var(--color-secondary-blue-01);
+            background-color: var(--color-secondary-blue-01);
+        }
+    }
+}
 </style>

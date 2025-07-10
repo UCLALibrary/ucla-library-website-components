@@ -101,12 +101,81 @@ export function DefaultWithOnClick() {
     }
 }
 
+export function DefaultWithLink() {
+    return {
+        data() {
+            return {
+                props: {
+                    label: "<a href='https://www.google.com'>Link to Google</a>",
+                    isHighlighted: true,
+                },
+            }
+        },
+        components: { ButtonTag },
+        template: `
+    <button-tag
+        v-bind="props"
+    />
+  `,
+    }
+}
+
+export function PrimaryFTVAWithMultipleLabels() {
+    return {
+        data() {
+            return {
+                props: {
+                    label: ["Genre", "Black and White Photographs"],
+                    iconName: ButtonTagIcons.SvgIconFilmreel,
+                    variant: ButtonTagVariants.Primary,
+                },
+            }
+        },
+        provide() {
+            return {
+                theme: computed(() => "ftva"),
+            }
+        },
+        components: { ButtonTag },
+        template: `
+    <button-tag
+        v-bind="props"
+    />
+  `,
+    }
+}
+
+export function SecondaryFTVAWithMultipleLabels() {
+    return {
+        data() {
+            return {
+                props: {
+                    label: ["Genre", "Black and White Photographs"],
+                    iconName: ButtonTagIcons.SvgIconFilmreel,
+                    variant: ButtonTagVariants.Secondary,
+                },
+            }
+        },
+        provide() {
+            return {
+                theme: computed(() => "ftva"),
+            }
+        },
+        components: { ButtonTag },
+        template: `
+    <button-tag
+        v-bind="props"
+    />
+  `,
+    }
+}
+
 export function PrimaryFTVA() {
     return {
         data() {
             return {
                 props: {
-                    label: "ftva primary label",
+                    label: "ftva label text",
                     variant: ButtonTagVariants.Primary,
                 },
             }
@@ -130,7 +199,7 @@ export function SecondaryFTVA() {
         data() {
             return {
                 props: {
-                    label: "ftva secondary label",
+                    label: "ftva label text",
                     iconName: ButtonTagIcons.SvgIconGuest,
                     variant: ButtonTagVariants.Secondary,
                 },
@@ -155,7 +224,7 @@ export function SecondaryFTVANoIcon() {
         data() {
             return {
                 props: {
-                    label: "ftva secondary no icon label",
+                    label: "ghost tag",
                     variant: ButtonTagVariants.Secondary,
                 },
             }
@@ -179,7 +248,7 @@ export function SecondaryFTVAHighlighted() {
         data() {
             return {
                 props: {
-                    label: "ftva secondary highlighted label",
+                    label: "ftva label text",
                     variant: ButtonTagVariants.Secondary,
                     isHighlighted: true,
                 },
