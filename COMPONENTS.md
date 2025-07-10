@@ -288,7 +288,7 @@ Visual card for a digital collection or category.
 - description: string  
 - href: string
 
-[] MetadataTable  
+[] MetadataTable (Svebor) 
 Tabular list of metadata key-value pairs (e.g. Rights Contact, Rights Holder).
 
 - items: Array<{ label: string, value: string | string[] }>  
