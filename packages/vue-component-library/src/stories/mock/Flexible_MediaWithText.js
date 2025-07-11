@@ -314,7 +314,9 @@ export const mockFTVA = {
             0.5
           ],
         }
-      ]
+      ],
+      item: [],
+      typeMedia: null
     },
     {
       id: '13670',
@@ -335,7 +337,9 @@ export const mockFTVA = {
             0.5
           ],
         }
-      ]
+      ],
+      item: [],
+      typeMedia: 'other'
     }
   ]
 }

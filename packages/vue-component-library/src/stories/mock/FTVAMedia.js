@@ -811,7 +811,9 @@ export const mockFlexibleBlocks = [
               0.5
             ],
           }
-        ]
+        ],
+        item: [],
+        typeMedia: null
       },
       {
         id: '13670',
@@ -832,7 +834,9 @@ export const mockFlexibleBlocks = [
               0.5
             ],
           }
-        ]
+        ],
+        item: [],
+        typeMedia: 'other'
       }
     ]
   },
