@@ -248,7 +248,7 @@ Responsive image grid for displaying key visuals of an asset. May allow selectio
 - images: Array<string>  
 - aspectRatio?: number  
 
-[] AssetPod (Luka)
+[] BlockAssetPod (Luka)
 Vertical media block representing a digital library asset. Contains metadata, linked collection name, and optional image gallery.
 
 - title: string  
@@ -1145,7 +1145,7 @@ Behavior:
 | NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | in a PR                        |
 | ExcerptPod                 |           | ☐ Complete  |   [ ]   |                                |
 | AssetFeaturedImage         |           | ☐ Complete  |   [ ]   |                                |
-| AssetPod                   |           | ☐ Complete  |   [ ]   |                                |
+| BlockAssetPod              |Luka       | ☐ Complete  |   [ ]   |                                |
 | BlockAsset                 |Austin     | ☐ Complete  |   [ ]   |                                |
 | SearchResult               |           | ☐ Complete  |   [x]   |                                |
 | BlockCollection            |           | ☐ Complete  |   [ ]   |                                |
