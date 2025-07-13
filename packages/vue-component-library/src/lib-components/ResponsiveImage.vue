@@ -67,6 +67,7 @@ const classes = computed(() => {
 
 <template>
     <figure v-if="props.media && props.media.src" :class="classes">
+        <!-- TODO:  width and height are swapped here, why? is it a mistake or there's a reason behind it? -->
         <img
             :src="props.media.src || props.src"
             :height="props.media.width || props.width"
