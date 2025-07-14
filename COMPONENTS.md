@@ -2,7 +2,7 @@
 
 ## Buttons and Interface
 
-[] ButtonText (Svebor)  
+[] ButtonText   
 A minimal button with just text, possibly with variants like underline or subtle.
 
 - label: string  
@@ -364,9 +364,16 @@ Placeholder or quick-access UI element — possibly for suggestions or previous 
 
 
 ## Bento Box
-
-[] BentoBoxResult  
-Horizontal scrollable container of `BentoPod` items, grouped under a title like "More search results." Includes optional draggable scrollbar.
+[] BentoBoxBlock (Svebor)
+A block type component, lives inside the `BentoBoxResult`.
+  - image: string,  
+  - count: number,  
+  - title: string,  
+  - description: string,  
+  - to: string
+    
+[] BentoBoxResult (Svebor) 
+Horizontal scrollable container of `BentoPod`(Aka: BentoBoxBlock - new addition to he list) items, grouped under a title like "More search results." Includes optional draggable scrollbar.
 
 - title: string  
 - items: Array<{  
@@ -1115,8 +1122,8 @@ Behavior:
 
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
-| ButtonText                 |Svebor     | ☐ Complete  |   [x]   | Needs a font change            |
-| DividerGeneral             |Svebor     | ☐ Complete  |   [x]   |                                |
+| ButtonText                 |           | ☐ Complete  |   [x]   | Needs a font change            |
+| DividerGeneral             |           | ☐ Complete  |   [x]   |                                |
 | ButtonStacked              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonDropdown             |Luka       | ☐ Complete  |   [ ]   |                                |
@@ -1125,11 +1132,11 @@ Behavior:
 | BreadcrumbPill             |           | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonIconOnly             |           | ☐ Complete  |   [ ]   |                                |
-| PaginationControl          |Svebor     | ☐ Complete  |   [x]   | Needs a slight style/functionlity change |
+| PaginationControl          |Svebor     | ☐ Complete  |   [x]   |                                |
 | SectionLabel               |Austin     | ☐ Complete  |   [ ]   |                                |
 | ButtonSubLink              |           | ☐ Complete  |   [ ]   |                                |
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
-| SectionPagination              |Svebor     | ☐ Complete  |   [x]   |Adjusted the styles and a little bit of logic |
+| SectionPagination          |Svebor     | ☐ Complete  |   [x]   |Adjusted the styles and a little bit of logic |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [x]   |Exists, ready to use            |
 | SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
 | RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
@@ -1141,15 +1148,15 @@ Behavior:
 | ButtonSubCategoryPod       |           | ☐ Complete  |   [ ]   |                                |
 | ButtonUCLALibrariesDropdown|           | ☐ Complete  |   [ ]   |                                |
 | YearRangeFilter            |           | ☐ Complete  |   [x]   | aka DateFilter?                |
-| BentoPod                   |Svebor     | ☐ Complete  |   [ ]   | WIP                            |
-| NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | in a PR                        |
-| ExcerptPod                 |           | ☐ Complete  |   [ ]   |                                |
+| BentoPod                   |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
+| NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
+| ExcerptPod                 |Svebor     | ☐ Complete  |   [ ]   | In the notes-accordion PR      |
 | AssetFeaturedImage         |           | ☐ Complete  |   [ ]   |                                |
 | BlockAssetPod              |Luka       | ☐ Complete  |   [ ]   |                                |
 | BlockAsset                 |Austin     | ☐ Complete  |   [ ]   |                                |
 | SearchResult               |           | ☐ Complete  |   [x]   |                                |
 | BlockCollection            |           | ☐ Complete  |   [ ]   |                                |
-| MetadataTable              |           | ☐ Complete  |   [ ]   |                                |
+| MetadataTable              |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | BlockMediaViewer           |           | ☐ Complete  |   [ ]   |                                |
 | BlockRichText              |           | ☐ Complete  |   [ ]   |                                |
 | SectionHeader              |           | ☐ Complete  |   [x]   |                                |
@@ -1160,12 +1167,12 @@ Behavior:
 | EntryField                 |Luka       | ☐ Complete  |   [ ]   |                                |
 | ButtonSubmit               |Luka       | ☐ Complete  |   [ ]   |                                |
 | Flash                      |           | ☐ Complete  |   [ ]   |                                |
-| BentoBoxResult             |           | ☐ Complete  |   [ ]   |                                |
+| BentoBoxBlock              |Svebor     | ☐ Complete  |   [ ]   |WIP                             |
+| BentoBoxResult             |Svebor     | ☐ Complete  |   [ ]   |WIP                             |
 | Dragger                    |           | ☐ Complete  |   [ ]   |                                |
 | Banner                     |           | ☐ Complete  |   [ ]   |                                |
 | Header                     |           | ☐ Complete  |   [x]   | aka: HeaderSite                |
-| Footer                     |           | ☐ Complete  |   [x]   |                                |
-| NewsletterSignup           |           | ☐ Complete  |   [ ]   |                                |
+| NewsletterSignup           |           | ☐ Complete  |   [x]   | Exists in footer-primary       |
 | DetailHeader               |           | ☐ Complete  |   [ ]   | aka: ItemHeaderBar             |
 | DetailMedia                |           | ☐ Complete  |   [ ]   | aka: ViewerMedia               |
 | DetailOverview             |           | ☐ Complete  |   [ ]   | aka: MetadataSplitPanel        |
@@ -1177,4 +1184,4 @@ Behavior:
 | BlockButtons               |           | ☐ Complete  |   [ ]   |                                |
 | ContentSection             |           | ☐ Complete  |   [ ]   |                                |
 | BlockAnchorNav             |           | ☐ Complete  |   [ ]   | aka: In-page TOC               |
-|AlphabeticalBrowseBy        |           | ☐ Complete  |   [x]   |                                | 
+| AlphabeticalBrowseBy       |           | ☐ Complete  |   [x]   |                                | 
