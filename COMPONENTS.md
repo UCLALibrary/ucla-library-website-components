@@ -332,6 +332,9 @@ Vertical or horizontal list of buttons linking to specific tools or resources.
 [] GridCollections
 - items: [BlockCollection]
 
+[] GridAssetPod (Luka)
+- items: [BlockAssetPod]
+
 ## Search
 
 [] SearchField (Luka)
@@ -1163,6 +1166,7 @@ Behavior:
 | BlockButtonList            |           | ☐ Complete  |   [ ]   |                                |
 | GridAssets                 |Austin     | ☐ Complete  |   [ ]   |                                |
 | GridCollections            |           | ☐ Complete  |   [ ]   |                                |
+| GridAssetPod               |Luka       | ☐ Complete  |   [ ]   |                                |
 | SearchField                |Luka       | ☐ Complete  |   [x]   |                                |
 | EntryField                 |Luka       | ☐ Complete  |   [ ]   |                                |
 | ButtonSubmit               |Luka       | ☐ Complete  |   [ ]   |                                |
