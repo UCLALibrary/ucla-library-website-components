@@ -69,6 +69,22 @@
         }
     }
 
+    &.is-senary {
+        --button-text-color: #{$primary-blue-03};
+
+        background-color: transparent;
+        border: none;
+
+        width: max-content;
+
+        padding: 0;
+
+        .hover {
+            display: none;
+            width: max-content;
+        }
+    }
+
     // General Styling
     box-sizing: border-box;
     position: relative;
