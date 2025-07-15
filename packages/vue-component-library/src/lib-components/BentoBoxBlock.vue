@@ -25,24 +25,31 @@ const parsedCount = computed(() => {
 
 <template>
     <div class="bento-box-block">
-        <ResponsiveImage class="image" :media="image" :aspect-ratio="72" />
-        <div class="content">
-            <span class="count" v-html="parsedCount" />
-            <span class="title" v-html="title" />
-            <div class="text" v-html="text" />
-            <ButtonLink
-                :is-senary="true"
-                :to="to"
-                label="View Results"
-                icon-name="svg-external-link"
-            />
+        <div class="wrapper">
+            <ResponsiveImage class="image" :media="image" :aspect-ratio="72" />
+            <div class="content">
+                <span class="count" v-html="parsedCount" />
+                <span class="title" v-html="title" />
+                <div class="text" v-html="text" />
+                <ButtonLink
+                    :is-senary="true"
+                    :to="to"
+                    label="View Results"
+                    icon-name="svg-external-link"
+                />
+            </div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .bento-box-block {
-    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    .wrapper {
+        border-radius: 5px;
+        overflow: hidden;
+    }
 
     .image {
         width: 100%;
@@ -81,17 +88,14 @@ const parsedCount = computed(() => {
         font-size: 16px;
         font-weight: 400;
         line-height: 150%; /* 24px */
-    }
-
-    // Hovers
-    @media #{$has-hover} {
-    }
-    // Breakpoints
-    @media #{$extra-large} {
-    }
-    @media #{$medium} {
-    }
-    @media #{$small} {
+        // Huge text block handling
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        // 4 lines
+        max-height: calc(24px * 4);
     }
 }
 </style>

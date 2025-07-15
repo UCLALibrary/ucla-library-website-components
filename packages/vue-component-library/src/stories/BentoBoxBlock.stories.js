@@ -125,3 +125,4 @@ export function NoLink() {
     template: `<bento-box-block :to="link" :image="image" :title="title" :text="summary" :count="count" />`,
   }
 }
+
