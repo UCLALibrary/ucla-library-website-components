@@ -73,7 +73,8 @@ function setTextRef(idx: number, el: HTMLElement | null) {
     textRefs.value[idx] = el
 }
 
-// Lifecycle Hooks
+// Lifecycle Hook
+
 onMounted(() => {
     measureTextHeight()
     window.addEventListener("resize", measureTextHeight)
