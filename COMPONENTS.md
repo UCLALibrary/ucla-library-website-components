@@ -1132,8 +1132,8 @@ Behavior:
 | ButtonDropdown             |Luka       | ☐ Complete  |   [ ]   |                                |
 | ButtonTag                  |Luka       | ☐ Complete  |   [x]   | aka: BlockTag                  |
 | ButtonRemoveSearchFilter   |Luka       | ☐ Complete  |   [x]   | aka: BlockRemoveSearchFilter   |
-| BreadcrumbPill             |           | ☐ Complete  |   [ ]   |                                |
-| BreadcrumbBar              |           | ☐ Complete  |   [ ]   |                                |
+| BreadcrumbPill             |Luka       | ☐ Complete  |   [ ]   |                                |
+| BreadcrumbBar              |Luka       | ☐ Complete  |   [ ]   |                                |
 | ButtonIconOnly             |           | ☐ Complete  |   [ ]   |                                |
 | PaginationControl          |Svebor     | ☐ Complete  |   [x]   |                                |
 | SectionLabel               |Austin     | ☐ Complete  |   [ ]   |                                |
