@@ -118,6 +118,11 @@ const itemsMeta = computed(() => {
         display: flex;
         gap: 10px;
         margin-bottom: 5px;
+
+        // Remove last-child margin
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
     .item-title {
         width: 130px;
