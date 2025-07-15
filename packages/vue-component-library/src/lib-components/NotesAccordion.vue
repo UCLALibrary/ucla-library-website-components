@@ -40,7 +40,7 @@ const textHeight = ref(0)
 const classes = computed(() => ["notes-accordion", { "is-open": isOpen.value }])
 
 const dynamicLabel = computed(() =>
-    isOpen.value ? props.labelOpen || "Less" : props.labelClose || "More"
+    isOpen.value ? props.labelOpen : props.labelClose
 )
 
 const wrapperStyles = computed(() => ({
