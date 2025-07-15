@@ -5,7 +5,7 @@ type BentoPodProps = {
     description: string
     buttonLabel?: string
     buttonLink?: string
-    items?: Array<{
+    items: Array<{
         title: string
         type: string
         date: string
@@ -15,7 +15,16 @@ type BentoPodProps = {
     labelOpen?: string
     labelClose?: string
 }
-const props = defineProps<BentoPodProps>()
+const props = withDefaults(defineProps<BentoPodProps>(), {
+    title: "",
+    description: "",
+    buttonLabel: "",
+    buttonLink: "",
+    items: () => [],
+    labelOpen: "Less",
+    labelClose: "More",
+})
+
 // Imports
 import { ref, computed, onMounted, onUnmounted, nextTick } from "vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
@@ -39,7 +48,7 @@ const classes = computed(() => [
     },
 ])
 const dynamicLabel = computed(() =>
-    isExpanded.value ? props.labelOpen || "Less" : props.labelClose || "More"
+    isExpanded.value ? props.labelOpen : props.labelClose
 )
 
 const showButton = computed(() => (props.items?.length || 0) > 3)
@@ -123,10 +132,7 @@ onUnmounted(() => {
                 :ref="(el) => getItemRef(index)(el as HTMLElement | null)"
             >
                 <smart-link :to="item.to" class="item-link">
-                    <h5
-                        class="item-title underline-hover"
-                        v-html="item.title"
-                    />
+                    <h5 class="item-title" v-html="item.title" />
                 </smart-link>
                 <div class="item-details">
                     <span class="item-type">
