@@ -62,7 +62,7 @@ function onThumbMousedown(e: MouseEvent) {
 }
 
 function onThumbMousemove(e: MouseEvent) {
-    if (!dragging || !itemsRef.value || !thumbRef.value) return
+    if (!dragging.value || !itemsRef.value || !thumbRef.value) return
     const items = itemsRef.value
     const thumb = thumbRef.value
     const { scrollWidth, clientWidth } = items
