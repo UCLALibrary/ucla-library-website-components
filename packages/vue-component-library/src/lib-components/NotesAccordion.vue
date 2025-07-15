@@ -21,12 +21,7 @@ type NotesAccordionItem = {
     labelClose?: string
 }
 const props = withDefaults(defineProps<NotesAccordionItem>(), {
-    items: () => [
-        {
-            title: "",
-            text: "",
-        },
-    ],
+    items: () => [],
     labelOpen: "Less",
     labelClose: "More",
 })
@@ -74,7 +69,6 @@ function setTextRef(idx: number, el: HTMLElement | null) {
 }
 
 // Lifecycle Hook
-
 onMounted(() => {
     measureTextHeight()
     window.addEventListener("resize", measureTextHeight)

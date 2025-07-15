@@ -20,12 +20,7 @@ const props = withDefaults(defineProps<ExcerptPodProps>(), {
     title: "",
     subtitle: "",
     text: "",
-    accordions: () => [
-        {
-            title: "",
-            text: "",
-        },
-    ],
+    accordions: () => [],
     labelOpen: "",
     labelClose: "",
 })
