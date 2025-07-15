@@ -29,6 +29,7 @@ const itemsWrapper = ref<HTMLElement | null>(null)
 const itemRefs = ref<(HTMLElement | null)[]>([])
 const collapsedHeight = ref(0)
 const expandedHeight = ref(0)
+const debounceTimeout = ref<number | undefined>(undefined)
 
 // Computed
 const classes = computed(() => [
@@ -70,9 +71,16 @@ function measureHeights() {
     })
 }
 
+function debounceMeasureHeights() {
+    clearTimeout(debounceTimeout.value)
+    debounceTimeout.value = window.setTimeout(() => {
+        measureHeights()
+    }, 100)
+}
+
 function toggle() {
     isExpanded.value = !isExpanded.value
-    measureHeights()
+    debounceMeasureHeights()
 }
 
 function getItemRef(idx: number) {
@@ -84,11 +92,11 @@ function setItemRef(idx: number, el: HTMLElement | null) {
 
 // Lifecycle Hooks
 onMounted(() => {
-    measureHeights()
-    window.addEventListener("resize", measureHeights)
+    debounceMeasureHeights()
+    window.addEventListener("resize", debounceMeasureHeights)
 })
 onUnmounted(() => {
-    window.removeEventListener("resize", measureHeights)
+    window.removeEventListener("resize", debounceMeasureHeights)
 })
 </script>
 
@@ -103,7 +111,7 @@ onUnmounted(() => {
             v-if="buttonLabel && buttonLink"
         >
             <span class="button-label underline-hover" v-html="buttonLabel" />
-            <SvgExternalLink />
+            <SvgExternalLink aria-hidden="true" />
         </smart-link>
 
         <div class="items" :style="wrapperStyles" ref="itemsWrapper">
@@ -145,7 +153,7 @@ onUnmounted(() => {
             <transition name="fade-label" mode="out-in">
                 <span :key="dynamicLabel" class="label" v-html="dynamicLabel" />
             </transition>
-            <SvgArrowDown class="caret-icon" />
+            <SvgArrowDown aria-hidden="true" class="caret-icon" />
         </button>
     </div>
 </template>
@@ -231,6 +239,7 @@ onUnmounted(() => {
     }
 
     .item-title {
+        text-align: left;
         font-size: 24px;
         font-family: var(--font-primary); // Karbon
         font-weight: 700;
