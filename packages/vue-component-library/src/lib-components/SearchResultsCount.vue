@@ -2,8 +2,8 @@
 import { onMounted, onUnmounted, ref, computed } from "vue"
 type SearchResultsCountProps = {
     count: number
-    label?: string
-    prefix?: string
+    label: string
+    prefix: string
     animate?: boolean
 }
 const props = withDefaults(defineProps<SearchResultsCountProps>(), {
