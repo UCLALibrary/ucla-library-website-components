@@ -490,6 +490,8 @@ Introductory section for a collection page with title, summary text, and preview
 - ctaHref: string
 
 [] CollectionFind
+This component seems like it should be MetadataTable as well. Please let's talk about this component before someone decides to take it.
+
 Displays linked metadata for locating a collection, including identifiers and URLs.
 
 - title?: string (default: "Find this Collection")  
