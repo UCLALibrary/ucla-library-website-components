@@ -1178,8 +1178,8 @@ Behavior:
 | CollectionOverview         |           | ☐ Complete  |   [ ]   |                                |
 | CollectionFind             |           | ☐ Complete  |   [ ]   | aka: CollectionReferencePanel  |
 | BannerFeatured             |Luka       | ☐ Complete  |   [x]   |                                |
-| BlockTitle                 |           | ☐ Complete  |   [ ]   |                                |
-| BlockButtons               |           | ☐ Complete  |   [ ]   |                                |
-| ContentSection             |           | ☐ Complete  |   [ ]   |                                |
+| BlockTitle                 |Luka       | ☐ Complete  |   [ ]   |                                |
+| BlockButtons               |Luka       | ☐ Complete  |   [ ]   |                                |
+| ContentSection             |Luka       | ☐ Complete  |   [ ]   |                                |
 | BlockAnchorNav             |           | ☐ Complete  |   [ ]   | aka: In-page TOC               |
 | AlphabeticalBrowseBy       |           | ☐ Complete  |   [x]   |                                | 
