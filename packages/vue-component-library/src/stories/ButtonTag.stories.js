@@ -117,7 +117,6 @@ export function DefaultWithMultipleBreadcrumbs() {
                         { text: "Another Label", to: "https://facebook.com" },
                         { text: "And Another", to: "https://twitter.com" },
                     ],
-                    iconName: ButtonTagIcons.SvgIconFilmreel,
                 },
             }
         },
