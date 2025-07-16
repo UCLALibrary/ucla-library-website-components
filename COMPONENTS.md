@@ -463,12 +463,15 @@ Large asset viewer for images or media, with zoom/download/fullscreen buttons.
 - allowFullscreen?: boolean
 
 [] DetailOverview  
+note: This seem like a grid component containing "MetadataTable" as blocks. It seeem like this grid can have a complex layout so let's talk about it before someone decides to take this component.
+
 Two-column layout for structured metadata. Used for "Item Overview" and "Find this Item."
 
 - left: Array<{ label: string, value: string | VNode }>  
 - right: Array<{ label: string, value: string | VNode }>
 
 [] SectionKeywords  
+This seem like a redundant - we already have this component named "MetadaTable". Delete this component definition ("SectionKeyword") after checking if MetadataTable has everything needed for displaying "Keywords" 
 Displays a list of linked subjects, genres, and related tags.
 
 - title?: string  
