@@ -508,7 +508,7 @@ Has a la
 - direction?: 'left' | 'right'
 - decoration?: boolean (e.g. angled stripes or shapes)
 
-[] BlockTitle  
+[] BlockTitle (Luka)
 Standalone heading block.
 
 - text: string  
@@ -517,13 +517,13 @@ Standalone heading block.
 - align?: 'left' | 'center'
 
 
-[] BlockButtons  
+[] BlockButtons (Luka)
 One or more call-to-action buttons in a horizontal or vertical stack.
 
 - buttons: Array<{ label: string, href: string, variant?: 'primary' | 'secondary' }>
 - align?: 'left' | 'center'
 
-[] ContentSection  
+[] ContentSection (Luka)
 Flexible container that wraps image, title, text, and buttons in various arrangements.
 
 - image?: BannerFeatured  
