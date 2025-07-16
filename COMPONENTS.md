@@ -54,7 +54,7 @@ Pill-shaped breadcrumb element, possibly for filter chips or nav breadcrumbs.
 - onRemove?: Function  
 - to?: string
 
-[] BreadcrumbBar  
+[] BreadcrumbBar (Luka)
 Full breadcrumb bar with one or more breadcrumb items.
 
 - crumbs: Array<{ label: string, to?: string }>  
