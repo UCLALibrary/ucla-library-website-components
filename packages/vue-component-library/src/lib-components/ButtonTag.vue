@@ -6,12 +6,13 @@ import {
     ButtonTagIcons,
     ButtonTagVariants,
 } from "@/types/components/buttonTag.types"
+import SmartLink from "@/lib-components/SmartLink.vue"
 const SvgArrowRight = defineAsyncComponent(
     () => import("ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg")
 ) // TODO: use the correct icon for this component
 
 type ButtonTagProps = {
-    label?: string | Array<string>
+    label?: string | Array<string> | Array<{ text: string; to?: string }>
     valueText?: string
     iconName?: ButtonTagIcons
     variant?: ButtonTagVariants
@@ -80,7 +81,14 @@ const hasLinkInLabel = computed(() => {
     if (typeof props.label === "string") {
         return props.label.includes("<a")
     } else if (Array.isArray(props.label)) {
-        return props.label.some((item) => item.includes("<a"))
+        return props.label.some((item) => {
+            if (typeof item === "string") {
+                return item.includes("<a")
+            } else if (typeof item === "object" && item.text) {
+                return item.text.includes("<a")
+            }
+            return false
+        })
     }
     return false
 })
@@ -102,7 +110,16 @@ const isLabelArray = computed(() => {
         <div v-if="!isLabelArray" class="label" v-html="label" />
         <template v-else>
             <template v-for="(item, index) in label" :key="item">
-                <div class="label" v-html="item" />
+                <!-- Breadcrumb variant -->
+                <smart-link
+                    v-if="typeof item === 'object'"
+                    :to="item.to"
+                    class="label"
+                >
+                    {{ item.text }}
+                </smart-link>
+                <!-- Regular text or HTML content -->
+                <span v-else class="label" v-html="item" />
 
                 <component
                     v-if="index !== label.length - 1"
@@ -188,6 +205,16 @@ const isLabelArray = computed(() => {
         }
     }
 
+    .label {
+        &:is(button) {
+            cursor: default;
+        }
+
+        &.is-link {
+            transition: color var(--transition-duration) ease-in-out;
+        }
+    }
+
     // FTVA Styles
     &.ftva {
         @include ftva-tags;
@@ -235,6 +262,9 @@ const isLabelArray = computed(() => {
         &.is-highlighted.has-on-click:hover {
             border-color: var(--color-secondary-blue-01);
             background-color: var(--color-secondary-blue-01);
+        }
+        .is-link:hover {
+            color: var(--color-secondary-blue-01);
         }
     }
 }

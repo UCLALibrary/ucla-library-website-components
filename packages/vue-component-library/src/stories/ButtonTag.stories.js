@@ -60,12 +60,63 @@ export function DefaultHighlighted() {
     }
 }
 
-export function DefaultWithMultipleLabels() {
+export function DefaultWithTwoLabels() {
     return {
         data() {
             return {
                 props: {
                     label: ["Genre", "Black and White Photographs"],
+                    iconName: ButtonTagIcons.SvgIconFilmreel,
+                },
+            }
+        },
+        components: { ButtonTag },
+        template: `
+    <button-tag
+        v-bind="props"
+    />
+  `,
+    }
+}
+
+export function DefaultWithMultipleLabels() {
+    return {
+        data() {
+            return {
+                props: {
+                    label: [
+                        "Genre",
+                        "Black and White Photographs",
+                        "Another Label",
+                        "And Another",
+                    ],
+                    iconName: ButtonTagIcons.SvgIconFilmreel,
+                },
+            }
+        },
+        components: { ButtonTag },
+        template: `
+    <button-tag
+        v-bind="props"
+    />
+  `,
+    }
+}
+
+export function DefaultWithMultipleBreadcrumbs() {
+    return {
+        data() {
+            return {
+                props: {
+                    label: [
+                        { text: "Genre" },
+                        {
+                            text: "Black and White Photographs",
+                            to: "https://google.com",
+                        },
+                        { text: "Another Label", to: "https://facebook.com" },
+                        { text: "And Another", to: "https://twitter.com" },
+                    ],
                     iconName: ButtonTagIcons.SvgIconFilmreel,
                 },
             }
