@@ -541,7 +541,8 @@ Flexible container that wraps image, title, text, and buttons in various arrange
 - backgroundColor?: string
 
 
-[] BlockAnchorNav  
+[] BlockAnchorNav (Luka)
+
 Sidebar or inline nav with jump links to sections on the same page.
 
 - title?: string (e.g. "Topics Covered")  
