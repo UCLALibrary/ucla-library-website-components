@@ -443,7 +443,7 @@ Standalone newsletter form for email subscription.
 
 # Detail Pages
 
-[] DetailHeader  
+[] DetailHeader (Luka)
 Top navigation bar for asset pages, including pagination, collection name, and back-to-search link.
 
 - currentIndex: number  
@@ -1171,7 +1171,7 @@ Behavior:
 | Banner                     |           | ☐ Complete  |   [ ]   |                                |
 | Header                     |           | ☐ Complete  |   [x]   | aka: HeaderSite                |
 | NewsletterSignup           |           | ☐ Complete  |   [x]   | Exists in footer-primary       |
-| DetailHeader               |           | ☐ Complete  |   [ ]   | aka: ItemHeaderBar             |
+| DetailHeader               |Luka       | ☐ Complete  |   [ ]   | aka: ItemHeaderBar             |
 | DetailMedia                |           | ☐ Complete  |   [ ]   | aka: ViewerMedia               |
 | DetailOverview             |           | ☐ Complete  |   [ ]   | aka: MetadataSplitPanel        |
 | SectionKeywords            |           | ☐ Complete  |   [ ]   |                                |
