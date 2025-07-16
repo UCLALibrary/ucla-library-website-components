@@ -471,7 +471,7 @@ Two-column layout for structured metadata. Used for "Item Overview" and "Find th
 - right: Array<{ label: string, value: string | VNode }>
 
 [] SectionKeywords  
-This seem like a redundant - we already have this component named "MetadaTable". Delete this component definition ("SectionKeyword") after checking if MetadataTable has everything needed for displaying "Keywords" 
+This seem redundant - we already have this component named "MetadaTable". Delete this component definition ("SectionKeyword") after checking if MetadataTable has everything needed for displaying "SectionKeywords" 
 Displays a list of linked subjects, genres, and related tags.
 
 - title?: string  
