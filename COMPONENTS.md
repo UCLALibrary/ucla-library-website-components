@@ -242,11 +242,6 @@ Highlighted or emphasized snippet of text content within another component (like
 
 ## Blocks
 
-[] AssetFeaturedImage  
-Responsive image grid for displaying key visuals of an asset. May allow selection or highlight.
-
-- images: Array<string>  
-- aspectRatio?: number  
 
 [] BlockAssetPod (Luka)
 Vertical media block representing a digital library asset. Contains metadata, linked collection name, and optional image gallery.
@@ -1154,7 +1149,6 @@ Behavior:
 | BentoPod                   |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ExcerptPod                 |Svebor     | ☐ Complete  |   [ ]   | In the notes-accordion PR      |
-| AssetFeaturedImage         |           | ☐ Complete  |   [ ]   |                                |
 | BlockAssetPod              |Luka       | ☐ Complete  |   [ ]   |                                |
 | BlockAsset                 |Austin     | ☐ Complete  |   [ ]   |                                |
 | SearchResult               |           | ☐ Complete  |   [x]   |                                |
