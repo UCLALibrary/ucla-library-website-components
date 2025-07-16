@@ -519,6 +519,7 @@ Standalone heading block.
 
 
 [] BlockButtons (Luka)
+
 One or more call-to-action buttons in a horizontal or vertical stack.
 
 - buttons: Array<{ label: string, href: string, variant?: 'primary' | 'secondary' }>
