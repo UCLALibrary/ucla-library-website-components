@@ -498,7 +498,7 @@ Displays linked metadata for locating a collection, including identifiers and UR
 
 # Pages
 
-[] BannerFeatured  
+[] BannerFeatured (Luka)
 Displays a full-width or responsive image, possibly with optional alt text or caption.
 Has a la
 
@@ -1177,7 +1177,7 @@ Behavior:
 | SectionKeywords            |           | ☐ Complete  |   [ ]   |                                |
 | CollectionOverview         |           | ☐ Complete  |   [ ]   |                                |
 | CollectionFind             |           | ☐ Complete  |   [ ]   | aka: CollectionReferencePanel  |
-| BannerFeatured             |           | ☐ Complete  |   [x]   |                                |
+| BannerFeatured             |Luka       | ☐ Complete  |   [x]   |                                |
 | BlockTitle                 |           | ☐ Complete  |   [ ]   |                                |
 | BlockButtons               |           | ☐ Complete  |   [ ]   |                                |
 | ContentSection             |           | ☐ Complete  |   [ ]   |                                |
