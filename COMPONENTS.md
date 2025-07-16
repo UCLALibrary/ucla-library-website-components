@@ -475,7 +475,8 @@ Displays a list of linked subjects, genres, and related tags.
 - keywords: Array<{ label: string, href?: string }>
 
 
-[] CollectionOverview
+[] CollectionOverview (Luka)
+
 Introductory section for a collection page with title, summary text, and preview image.
 
 - title: string  
@@ -1175,7 +1176,7 @@ Behavior:
 | DetailMedia                |           | ☐ Complete  |   [ ]   | aka: ViewerMedia               |
 | DetailOverview             |           | ☐ Complete  |   [ ]   | aka: MetadataSplitPanel        |
 | SectionKeywords            |           | ☐ Complete  |   [ ]   |                                |
-| CollectionOverview         |           | ☐ Complete  |   [ ]   |                                |
+| CollectionOverview         |Luka       | ☐ Complete  |   [ ]   |                                |
 | CollectionFind             |           | ☐ Complete  |   [ ]   | aka: CollectionReferencePanel  |
 | BannerFeatured             |Luka       | ☐ Complete  |   [x]   |                                |
 | BlockTitle                 |Luka       | ☐ Complete  |   [ ]   |                                |
