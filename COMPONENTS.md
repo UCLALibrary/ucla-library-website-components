@@ -14,6 +14,7 @@ A minimal button with just text, possibly with variants like underline or subtle
 - onClick: Function
 
 [] ButtonPageView (Svebor)
+
  A button that displayes items as a grid with more or less info
 
 [] ButtonStacked  
