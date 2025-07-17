@@ -1,27 +1,19 @@
 <script setup lang="ts">
 /**
  * ButtonLinkRefactored.vue
- * This component is a refactored version of ButtonLink.vue, designed to provide a more flexible and maintainable button link component.
- * The main difference is in usage of enums
+ * This component is a refactored version of ButtonLink.vue.
+ * NOTE: The focus here was on defining props in a TypeScript-friendly way. Template and styles remained unchanged.
  */
 // Imports
 import { computed, defineAsyncComponent } from "vue"
 import { useTheme } from "@/composables/useTheme"
 import isInternalLink from "@/utils/isInternalLink"
 import SmartLink from "@/lib-components/SmartLink.vue"
-
 import {
     ButtonLinkIcons,
     ButtonLinkVariants,
     type ButtonLinkRefactoredProps,
 } from "@/types/components/buttonLink.types"
-
-const theme = useTheme()
-
-// Data
-const props = withDefaults(defineProps<ButtonLinkRefactoredProps>(), {
-    variant: ButtonLinkVariants.PRIMARY,
-})
 
 const SvgExternalLink = defineAsyncComponent(
     () =>
@@ -39,6 +31,13 @@ const SvgArrowDownload = defineAsyncComponent(
 const IconClose = defineAsyncComponent(
     () => import("ucla-library-design-tokens/assets/svgs/icon-close.svg")
 )
+
+const theme = useTheme()
+
+// Props
+const props = withDefaults(defineProps<ButtonLinkRefactoredProps>(), {
+    variant: ButtonLinkVariants.PRIMARY,
+})
 
 // Computeds
 const classes = computed(() => {
