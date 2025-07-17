@@ -119,12 +119,8 @@ defineProps<MetaDataTableProps>()
         width: 100%;
         height: 100%;
     }
-    // Hovers
-    @media #{$has-hover} {
-    }
+
     // Breakpoints
-    @media #{$extra-large} {
-    }
     @media #{$medium} {
         .list-item {
             margin: 0;
@@ -134,8 +130,6 @@ defineProps<MetaDataTableProps>()
         .values {
             flex-direction: column;
         }
-    }
-    @media #{$small} {
     }
 }
 </style>
