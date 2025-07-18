@@ -1,12 +1,13 @@
 <script setup lang="ts">
 // Imports
 import { computed } from "vue"
-import ButtonLink from "@/lib-components/ButtonLink.vue"
+import ButtonLink from "@/lib-components/ButtonLinkRefactored.vue"
 import {
     BlockButtonDirection,
     BlockButtonsAlign,
     type BlockButtonsProps,
 } from "@/types/components/blockButtons.types"
+import { ButtonLinkIcons } from "@/types/components/buttonLink.types"
 
 // Data
 const props = withDefaults(defineProps<BlockButtonsProps>(), {
@@ -31,7 +32,7 @@ const classes = computed(() => {
             :key="button.label"
             :to="button.to"
             :label="button.label"
-            icon-name="none"
+            :icon-name="button?.iconName ?? ButtonLinkIcons.NONE"
             class="block-button"
         />
     </div>
