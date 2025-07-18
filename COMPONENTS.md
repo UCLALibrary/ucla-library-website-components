@@ -18,7 +18,7 @@ A vertical stack of buttons, likely for grouped filter or action options.
 - buttons: Array<{ label: string, isActive: boolean }>  
 - onClick: Function(index: number)
 
-[] ButtonDropdown
+[] ButtonDropdown (Luka)
 
 Button paired with a dropdown menu indicator (carat or arrow).
 
@@ -1109,7 +1109,7 @@ Behavior:
 | DividerGeneral             |Svebor     | ☐ Complete  |   [x]   |                                |
 | ButtonStacked              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
-| ButtonDropdown             |           | ☐ Complete  |   [ ]   |                                |
+| ButtonDropdown             |Luka       | ☐ Complete  |   [ ]   |                                |
 | ButtonTag                  |           | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbPill             |           | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |Austin     | ☐ Complete  |   [ ]   |                                |
