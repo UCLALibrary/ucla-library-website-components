@@ -280,7 +280,7 @@ Horizontal row layout for a single digital asset, including image, metadata fiel
 - onClick?: Function
 
 
-[] BlockCollection
+[] BlockCollection (Svebor)
 Visual card for a digital collection or category.
 
 - image: string  
