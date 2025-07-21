@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.3...@ucla-library-monorepo/ucla-library-website-components-v1.24.4) (2025-07-21)
+
+
+### Bug Fixes
+
+* APPS-3105 Fix getBoundingClientRect error in Pagination component ([#757](https://github.com/UCLALibrary/ucla-library-website-components/issues/757)) ([476fcd7](https://github.com/UCLALibrary/ucla-library-website-components/commit/476fcd73b6cf86f6e888b6868c6491be9e973691))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.24.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.2...@ucla-library-monorepo/ucla-library-website-components-v1.24.3) (2025-07-21)
 
 
