@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.2...@ucla-library-monorepo/ucla-library-website-components-v1.24.3) (2025-07-21)
+
+
+### Bug Fixes
+
+* clear filters when clear btn is clicked ([#756](https://github.com/UCLALibrary/ucla-library-website-components/issues/756)) ([95d6c4a](https://github.com/UCLALibrary/ucla-library-website-components/commit/95d6c4a096dc814dd14cf01073f84aed31a03ae4))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.24.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.1...@ucla-library-monorepo/ucla-library-website-components-v1.24.2) (2025-07-11)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "@ucla-library-monorepo/ucla-library-website-components",
   "type": "module",
-  "version": "1.24.2",
+  "version": "1.24.3",
   "homepage": "https://ucla-library-storybook.netlify.app/?path=/docs/configure-your-project--docs",
   "repository": {
     "type": "git",
