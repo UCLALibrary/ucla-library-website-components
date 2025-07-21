@@ -3,6 +3,7 @@ import { computed, onBeforeUnmount, onMounted } from 'vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import * as API from '@/stories/mock-api.json'
 import HeaderSticky from '@/lib-components/HeaderSticky'
+import SiteBrandBar from '@/lib-components/SiteBrandBar'
 
 // Storybook default settings
 export default {
@@ -114,6 +115,50 @@ export function FTVAVersion() {
         <header-sticky
             :primary-items="FTVAprimaryItems"
         />
+    `,
+  }
+}
+
+
+export function FTVASticky() {
+  return {
+    setup() {
+      onMounted(() => {
+        const globalStore = useGlobalStore()
+
+        const updateWinWidth = () => {
+          globalStore.winWidth = window.innerWidth
+        }
+
+        // Set initial winWidth
+        updateWinWidth()
+
+        window.addEventListener('resize', updateWinWidth)
+
+        // Clean up
+        onBeforeUnmount(() => {
+          window.removeEventListener('resize', updateWinWidth)
+        })
+      })
+    },
+    data() {
+      return {
+        FTVAprimaryItems,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { HeaderSticky, SiteBrandBar },
+    template: `
+        <site-brand-bar/>
+        <header-sticky
+            :style="{ position: 'sticky', willChange: 'top' }"
+            :primary-items="FTVAprimaryItems"
+        />
+        <h1>RANDOM TEXT TO SHOW OVERLAY</h1>
     `,
   }
 }
