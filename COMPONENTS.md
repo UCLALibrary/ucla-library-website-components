@@ -391,6 +391,7 @@ Horizontal scrollable container of `BentoPod`(Aka: BentoBoxBlock - new addition 
 
 
 [] Dragger  
+NOTE: This seems like it's the `BentoBoxResult` component, that components has the dragger built into it.
 A draggable horizontal scrollbar component. Should be synced with scroll container state and optionally labeled with a property.
 
 - trackWidth: number  
