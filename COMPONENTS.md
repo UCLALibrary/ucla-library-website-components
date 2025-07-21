@@ -329,7 +329,7 @@ Vertical or horizontal list of buttons linking to specific tools or resources.
 [] GridAssets (austin)
 - items: [BlockAsset]
 
-[] GridCollections
+[] GridCollections (svebor)
 - items: [BlockCollection]
 
 [] GridAssetPod (Luka)
@@ -1165,14 +1165,14 @@ Behavior:
 | BlockAssetPod              |Luka       | ☐ Complete  |   [ ]   |                                |
 | BlockAsset                 |Austin     | ☐ Complete  |   [ ]   |                                |
 | SearchResult               |           | ☐ Complete  |   [x]   |                                |
-| BlockCollection            |           | ☐ Complete  |   [ ]   |                                |
+| BlockCollection            |Svebor     | ☐ Complete  |   [ ]   |                                |
 | MetadataTable              |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | BlockMediaViewer           |           | ☐ Complete  |   [ ]   |                                |
 | BlockRichText              |           | ☐ Complete  |   [ ]   |                                |
 | SectionHeader              |           | ☐ Complete  |   [x]   |                                |
 | BlockButtonList            |           | ☐ Complete  |   [ ]   |                                |
 | GridAssets                 |Austin     | ☐ Complete  |   [ ]   |                                |
-| GridCollections            |           | ☐ Complete  |   [ ]   |                                |
+| GridCollections            |Svebor     | ☐ Complete  |   [ ]   |                                |
 | GridAssetPod               |Luka       | ☐ Complete  |   [ ]   |                                |
 | SearchField                |Luka       | ☐ Complete  |   [x]   |                                |
 | EntryField                 |Luka       | ☐ Complete  |   [ ]   |                                |
