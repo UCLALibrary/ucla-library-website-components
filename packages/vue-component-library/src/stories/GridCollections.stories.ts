@@ -38,21 +38,21 @@ const defaultItems = [
     description: 'Handwritten letters, diaries, and documents from notable figures.'
   },
   {
-    id: 'collection-1',
+    id: 'collection-4',
     href: 'https://www.example.com/1',
     image: baseImage,
     title: 'Rare Books',
     description: 'A curated selection of rare and antique books from our archives.'
   },
   {
-    id: 'collection-2',
+    id: 'collection-5',
     href: 'https://www.example.com/2',
     image: baseImage,
     title: 'Historical Photos',
     description: 'Photographs documenting Los Angeles history from the 19th and 20th centuries.'
   },
   {
-    id: 'collection-3',
+    id: 'collection-6',
     href: 'https://www.example.com/3',
     image: baseImage,
     title: 'Manuscripts',
@@ -76,9 +76,6 @@ const longTextItems = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '.repeat(15)
   },
 ]
-
-
-const emptyItems = []
 
 export function Default() {
   return {

@@ -8,7 +8,7 @@ type GridCollectionsProps = {
     items: Array<{
         id: string
         href: string
-        image: MediaItemType[]
+        image: MediaItemType
         title: string
         description: string
     }>
