@@ -253,6 +253,6 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/default/_tab-list.scss";
-@import "@/styles/ftva/_tab-list.scss";
+@use "@/styles/default/_tab-list.scss";
+@use "@/styles/ftva/_tab-list.scss";
 </style>

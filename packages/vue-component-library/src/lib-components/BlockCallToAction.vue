@@ -238,6 +238,6 @@ const classes = computed(() => [
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_block-call-to-action.scss";
-@import "@/styles/ftva/_block-call-to-action.scss";
+@use "@/styles/default/_block-call-to-action.scss";
+@use "@/styles/ftva/_block-call-to-action.scss";
 </style>

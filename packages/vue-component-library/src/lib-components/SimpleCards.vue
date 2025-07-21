@@ -82,6 +82,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_simple-cards.scss";
-@import "@/styles/ftva/_simple-cards.scss";
+@use "@/styles/default/_simple-cards.scss";
+@use "@/styles/ftva/_simple-cards.scss";
 </style>

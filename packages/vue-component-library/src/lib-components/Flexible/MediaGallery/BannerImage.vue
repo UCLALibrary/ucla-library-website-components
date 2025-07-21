@@ -130,6 +130,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_media-gallery-banner-image.scss";
-@import "@/styles/ftva/_media-gallery-banner-image.scss";
+@use "@/styles/default/_media-gallery-banner-image.scss";
+@use "@/styles/ftva/_media-gallery-banner-image.scss";
 </style>

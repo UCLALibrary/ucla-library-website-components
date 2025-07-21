@@ -37,6 +37,6 @@ const classes = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/default/_block-info.scss";
-@import "@/styles/ftva/_block-info.scss";
+@use "@/styles/default/_block-info.scss";
+@use "@/styles/ftva/_block-info.scss";
 </style>

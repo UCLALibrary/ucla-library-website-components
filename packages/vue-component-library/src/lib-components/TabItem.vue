@@ -38,6 +38,6 @@ const classes = computed(() => {
 </template>
 
 <style scoped lang="scss">
-@import "@/styles/default/_tab-item.scss";
-@import "@/styles/ftva/_tab-item.scss";
+@use "@/styles/default/_tab-item.scss";
+@use "@/styles/ftva/_tab-item.scss";
 </style>

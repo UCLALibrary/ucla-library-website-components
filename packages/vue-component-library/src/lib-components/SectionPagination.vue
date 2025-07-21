@@ -234,6 +234,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_section-pagination.scss";
-@import "@/styles/ftva/_section-pagination.scss";
+@use "@/styles/default/_section-pagination.scss";
+@use "@/styles/ftva/_section-pagination.scss";
 </style>

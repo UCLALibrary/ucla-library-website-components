@@ -381,6 +381,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_nav-primary.scss";
-@import "@/styles/ftva/_nav-primary.scss";
+@use "@/styles/default/_nav-primary.scss";
+@use "@/styles/ftva/_nav-primary.scss";
 </style>

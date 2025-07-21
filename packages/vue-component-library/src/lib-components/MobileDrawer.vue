@@ -84,6 +84,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_mobile-drawer.scss";
-@import "@/styles/ftva/_mobile-drawer.scss";
+@use "@/styles/default/_mobile-drawer.scss";
+@use "@/styles/ftva/_mobile-drawer.scss";
 </style>

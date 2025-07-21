@@ -208,6 +208,6 @@ const parsedIsDownload = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_block-media-with-text.scss";
-@import "@/styles/ftva/_block-media-with-text.scss";
+@use "@/styles/default/_block-media-with-text.scss";
+@use "@/styles/ftva/_block-media-with-text.scss";
 </style>

@@ -188,6 +188,6 @@ const parsedDateFormat = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_block-card-with-image.scss";
-@import "@/styles/ftva/_block-card-with-image.scss";
+@use "@/styles/default/_block-card-with-image.scss";
+@use "@/styles/ftva/_block-card-with-image.scss";
 </style>

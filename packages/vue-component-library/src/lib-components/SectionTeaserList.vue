@@ -86,6 +86,6 @@ const classes = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/default/_section-teaser-list.scss";
-@import "@/styles/ftva/_section-teaser-list.scss";
+@use "@/styles/default/_section-teaser-list.scss";
+@use "@/styles/ftva/_section-teaser-list.scss";
 </style>

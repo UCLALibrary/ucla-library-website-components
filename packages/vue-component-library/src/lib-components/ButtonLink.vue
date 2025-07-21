@@ -136,6 +136,6 @@ const parsedIconName = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/default/_button-link.scss";
-@import "@/styles/ftva/_button-link.scss";
+@use "@/styles/default/_button-link.scss";
+@use "@/styles/ftva/_button-link.scss";
 </style>

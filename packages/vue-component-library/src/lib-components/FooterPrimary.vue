@@ -261,6 +261,6 @@ function formatTarget(target: string) {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_footer-primary.scss";
-@import "@/styles/ftva/_footer-primary.scss";
+@use "@/styles/default/_footer-primary.scss";
+@use "@/styles/ftva/_footer-primary.scss";
 </style>

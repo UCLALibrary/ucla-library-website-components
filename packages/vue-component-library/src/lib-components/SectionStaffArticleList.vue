@@ -88,6 +88,6 @@ function parseDate(sectionHandle: string, startDate: string, endDate: string, on
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_section-staff-article-list.scss";
-@import "@/styles/ftva/_section-staff-article-list.scss";
+@use "@/styles/default/_section-staff-article-list.scss";
+@use "@/styles/ftva/_section-staff-article-list.scss";
 </style>

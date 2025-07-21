@@ -96,6 +96,6 @@ const getId = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_section-wrapper.scss";
-@import "@/styles/ftva/_section-wrapper.scss";
+@use "@/styles/default/_section-wrapper.scss";
+@use "@/styles/ftva/_section-wrapper.scss";
 </style>

@@ -104,6 +104,6 @@ const classes = computed(() => [
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_section-post-small.scss";
-@import "@/styles/ftva/_section-post-small.scss";
+@use "@/styles/default/_section-post-small.scss";
+@use "@/styles/ftva/_section-post-small.scss";
 </style>

@@ -92,6 +92,6 @@ const classes = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/default/_flexible-media-with-text.scss";
-@import "@/styles/ftva/_flexible-media-with-text.scss";
+@use "@/styles/default/_flexible-media-with-text.scss";
+@use "@/styles/ftva/_flexible-media-with-text.scss";
 </style>

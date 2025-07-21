@@ -43,6 +43,6 @@ const parsedContent = computed(() => {
     lang="scss"
     scoped
 >
-@import "@/styles/default/_rich-text.scss";
-@import "@/styles/ftva/_rich-text.scss";
+@use "@/styles/default/_rich-text.scss";
+@use "@/styles/ftva/_rich-text.scss";
 </style>

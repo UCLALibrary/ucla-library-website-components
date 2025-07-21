@@ -19,6 +19,6 @@ const parsedClasses = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_media-badge.scss";
-@import "@/styles/ftva/_media-badge.scss";
+@use "@/styles/default/_media-badge.scss";
+@use "@/styles/ftva/_media-badge.scss";
 </style>

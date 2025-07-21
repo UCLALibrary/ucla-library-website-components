@@ -84,5 +84,5 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/ftva/_flexible-info.scss";
+@use "@/styles/ftva/_flexible-info.scss";
 </style>

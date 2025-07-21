@@ -47,6 +47,6 @@ const parsedHeaderThemeSettings = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_site-brand-bar.scss";
-@import "@/styles/ftva/_site-brand-bar.scss";
+@use "@/styles/default/_site-brand-bar.scss";
+@use "@/styles/ftva/_site-brand-bar.scss";
 </style>

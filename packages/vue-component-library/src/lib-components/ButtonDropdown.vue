@@ -238,6 +238,6 @@ const parsedClasses = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_button-dropdown.scss";
-@import "@/styles/ftva/_button-dropdown.scss";
+@use "@/styles/default/_button-dropdown.scss";
+@use "@/styles/ftva/_button-dropdown.scss";
 </style>

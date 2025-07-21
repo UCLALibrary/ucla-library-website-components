@@ -55,6 +55,6 @@ const year = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_footer-sock.scss";
-@import "@/styles/ftva/_footer-sock.scss";
+@use "@/styles/default/_footer-sock.scss";
+@use "@/styles/ftva/_footer-sock.scss";
 </style>

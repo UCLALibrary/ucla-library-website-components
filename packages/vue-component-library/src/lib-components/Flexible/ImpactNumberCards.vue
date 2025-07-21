@@ -47,6 +47,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_impact-number-cards.scss";
-@import "@/styles/ftva/_impact-number-cards.scss";
+@use "@/styles/default/_impact-number-cards.scss";
+@use "@/styles/ftva/_impact-number-cards.scss";
 </style>

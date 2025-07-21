@@ -68,6 +68,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_nav-menu-item.scss";
-@import "@/styles/ftva/_nav-menu-item.scss";
+@use "@/styles/default/_nav-menu-item.scss";
+@use "@/styles/ftva/_nav-menu-item.scss";
 </style>

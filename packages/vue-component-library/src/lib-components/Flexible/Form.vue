@@ -54,6 +54,6 @@ const parsedClasses = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_block-form.scss";
-@import "@/styles/ftva/_block-form.scss";
+@use "@/styles/default/_block-form.scss";
+@use "@/styles/ftva/_block-form.scss";
 </style>

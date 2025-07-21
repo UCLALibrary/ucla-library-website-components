@@ -50,6 +50,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_divider-way-finder.scss";
-@import "@/styles/ftva/_divider-way-finder.scss";
+@use "@/styles/default/_divider-way-finder.scss";
+@use "@/styles/ftva/_divider-way-finder.scss";
 </style>

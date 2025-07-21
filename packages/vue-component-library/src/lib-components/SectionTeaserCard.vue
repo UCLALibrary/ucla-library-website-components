@@ -80,6 +80,6 @@ const currentTheme = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/default/_section-teaser-card.scss";
-@import "@/styles/ftva/_section-teaser-card.scss";
+@use "@/styles/default/_section-teaser-card.scss";
+@use "@/styles/ftva/_section-teaser-card.scss";
 </style>

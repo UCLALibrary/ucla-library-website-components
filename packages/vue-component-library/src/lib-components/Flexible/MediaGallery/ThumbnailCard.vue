@@ -88,6 +88,6 @@ const parsedClasses = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_media-gallery-thumbnail-card.scss";
-@import "@/styles/ftva/_media-gallery-thumbnail-card.scss";
+@use "@/styles/default/_media-gallery-thumbnail-card.scss";
+@use "@/styles/ftva/_media-gallery-thumbnail-card.scss";
 </style>

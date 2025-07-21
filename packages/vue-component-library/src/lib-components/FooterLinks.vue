@@ -53,6 +53,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_footer-links.scss";
-@import "@/styles/ftva/_footer-links.scss";
+@use "@/styles/default/_footer-links.scss";
+@use "@/styles/ftva/_footer-links.scss";
 </style>

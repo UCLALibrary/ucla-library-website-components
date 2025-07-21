@@ -132,6 +132,6 @@ function selectItem(itemIndex: number) {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_media-gallery.scss";
-@import "@/styles/ftva/_media-gallery.scss";
+@use "@/styles/default/_media-gallery.scss";
+@use "@/styles/ftva/_media-gallery.scss";
 </style>

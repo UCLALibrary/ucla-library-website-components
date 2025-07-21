@@ -273,6 +273,6 @@ const parsedItems = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_flexible-block-card-with-image.scss";
-@import "@/styles/ftva/_flexible-block-card-with-image.scss";
+@use "@/styles/default/_flexible-block-card-with-image.scss";
+@use "@/styles/ftva/_flexible-block-card-with-image.scss";
 </style>

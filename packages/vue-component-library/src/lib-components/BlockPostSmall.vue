@@ -70,6 +70,6 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_block-post-small.scss";
-@import "@/styles/ftva/_block-post-small.scss";
+@use "@/styles/default/_block-post-small.scss";
+@use "@/styles/ftva/_block-post-small.scss";
 </style>

@@ -72,6 +72,6 @@ const parsedText = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_block-simple-card.scss";
-@import "@/styles/ftva/_block-simple-card.scss";
+@use "@/styles/default/_block-simple-card.scss";
+@use "@/styles/ftva/_block-simple-card.scss";
 </style>

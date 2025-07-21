@@ -151,6 +151,6 @@ const parsedDateDisplay = computed(() => {
   lang="scss"
   scoped
 >
-@import "@/styles/default/_block-event-detail.scss";
-@import "@/styles/ftva/_block-event-detail.scss";
+@use "@/styles/default/_block-event-detail.scss";
+@use "@/styles/ftva/_block-event-detail.scss";
 </style>
