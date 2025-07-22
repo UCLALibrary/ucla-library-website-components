@@ -1,26 +1,40 @@
-import ButtonPageView from '@/lib-components/ButtonPageView'
-
+import ButtonPageView from '@/lib-components/ButtonPageView.vue'
 
 export default {
-  title: 'Funkhaus / PageView',
+  title: 'Funkhaus / Button Page View',
   component: ButtonPageView,
 }
 
-// Variations of stories below
-export function Default() {
-  return {
-    data() {
-      return {
-        pageView: 'list',
-      }
-    },
-    components: { ButtonPageView },
-    template: '<div>Active page view: <b>{{pageView}}</b> <button-page-view :page-view="pageView" @update:page-view="onUpdate" /> </div>',
-    methods: {
-      onUpdate(value) {
-        this.pageView = value
-      },
-    },
-  }
-}
+export const Default = () => ({
+  components: { ButtonPageView },
+  data() {
+    return {
+      pageView: 'list',
+    }
+  },
+  template: `
+    <div style="padding: 40px; background: #f5f5f5;">
+      <button-page-view :page-view="pageView" @update:pageView="pageView = $event" />
+      <div style="margin-top: 20px;">
+        <strong>Current view:</strong> {{ pageView }}
+      </div>
+    </div>
+  `,
+})
 
+export const GridActive = () => ({
+  components: { ButtonPageView },
+  data() {
+    return {
+      pageView: 'grid',
+    }
+  },
+  template: `
+    <div style="padding: 40px; background: #f5f5f5;">
+      <button-page-view :page-view="pageView" @update:pageView="pageView = $event" />
+      <div style="margin-top: 20px;">
+        <strong>Current view:</strong> {{ pageView }}
+      </div>
+    </div>
+  `,
+})

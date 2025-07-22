@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // Imports
 import SvgList from "ucla-library-design-tokens/assets/svgs/icon-list.svg"
 import SvgGrid from "ucla-library-design-tokens/assets/svgs/icon-card.svg"
@@ -8,23 +8,21 @@ import { defineEmits, defineProps } from "vue"
 type PageViewToggleProps = {
     pageView?: "list" | "grid"
 }
-const props = withDefaults(defineProps<PageViewToggleProps>(),
-    {
-        pageView: "list"
-    }
-)
+const props = withDefaults(defineProps<PageViewToggleProps>(), {
+    pageView: "list",
+})
 
 // Emits
 const emit = defineEmits(["update:pageView"])
 
 // Methods
-function setView(view) {
+function setView(view: "list" | "grid") {
     if (view !== props.pageView) emit("update:pageView", view)
 }
 </script>
 
 <template>
-    <div class="button-page-view-toggle">
+    <div class="button-page-view">
         <button
             class="button-page-view"
             :class="{ active: pageView === 'list' }"
@@ -49,7 +47,7 @@ function setView(view) {
 </template>
 
 <style lang="scss" scoped>
-.button-page-view-toggle {
+.button-page-view {
     display: flex;
     gap: 2px;
 
