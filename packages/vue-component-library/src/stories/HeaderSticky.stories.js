@@ -119,7 +119,6 @@ export function FTVAVersion() {
   }
 }
 
-
 export function FTVASticky() {
   return {
     setup() {
