@@ -1,5 +1,5 @@
 import EntryField from "@/lib-components/EntryField"
-import { ref } from "vue"
+import { computed, ref } from "vue"
 
 export default {
     title: "Funkhaus / EntryField",
@@ -10,6 +10,11 @@ export default {
 export function Default() {
     return {
         components: { EntryField },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         data() {
             const value = ref("")
 
@@ -26,6 +31,11 @@ export function Default() {
 export function WithoutClearIcon() {
     return {
         components: { EntryField },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         data() {
             const value = ref("")
 
@@ -43,6 +53,11 @@ export function WithoutClearIcon() {
 export function WithoutClearOnEsc() {
     return {
         components: { EntryField },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         data() {
             const value = ref("")
 
