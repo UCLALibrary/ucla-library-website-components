@@ -1,0 +1,60 @@
+.excerpt-pod {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .info {
+        display: flex;
+        gap: 10vw;
+    }
+
+    .title {
+        margin: 0;
+
+        font-family: var(--font-primary);
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 120%; /* 25.2px */
+    }
+
+    .subtitle {
+        min-width: 200px;
+        margin: 0;
+
+        font-family: var(--font-secondary);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 160%; /* 25.6px */
+        letter-spacing: 0.16px;
+    }
+
+    .text-excerpt {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+    }
+
+    .text {
+        font-family: var(--font-secondary);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 150%; /* 24px */
+    }
+
+    // Hovers
+    @media #{has-hover} {
+    }
+
+    // Breakpoints
+    @media #{$extra-large} {
+    }
+    @media #{$medium} {
+    }
+    @media #{$small} {
+        .info {
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+}
