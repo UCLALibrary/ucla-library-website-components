@@ -48,6 +48,9 @@ export function WithoutButtons() {
                 props: {
                     title: "Collection Overview",
                     itemsCount: 150,
+                    description:
+                        "This is a collection overview without any buttons. It is used to demonstrate the component's basic functionality.",
+                    image: API.image,
                 },
             }
         },
