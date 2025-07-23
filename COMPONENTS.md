@@ -42,6 +42,7 @@ Used as labeled categories or tags, possibly dismissible.
 - onRemove?: Function
 
 [] ButtonRemoveSearchFilter (Luka)
+
 Wraps ButtonTag, adds X icon on the right which invokes onRemove
 
 - title: string  
@@ -60,6 +61,7 @@ Pill-shaped breadcrumb element, possibly for filter chips or nav breadcrumbs.
 - to?: string
 
 [] BreadcrumbBar (Luka)
+
 Full breadcrumb bar with one or more breadcrumb items.
 
 - crumbs: Array<{ label: string, to?: string }>  
@@ -244,6 +246,7 @@ Highlighted or emphasized snippet of text content within another component (like
 ## Blocks
 
 [] BlockAssetPod (Luka)
+
 Vertical media block representing a digital library asset. Contains metadata, linked collection name, and optional image gallery.
 
 - title: string  
@@ -326,11 +329,13 @@ Vertical or horizontal list of buttons linking to specific tools or resources.
 - items: [BlockCollection]
 
 [] GridAssetPod (Luka)
+
 - items: [BlockAssetPod]
 
 ## Search
 
 [] SearchField (Luka)
+
 Composed search input and submit button. Likely wraps `EntryField` and `ButtonSubmit`.
 
 - modelValue: string  
@@ -339,6 +344,7 @@ Composed search input and submit button. Likely wraps `EntryField` and `ButtonSu
 - autoFocus?: boolean
 
 [] EntryField(Luka)
+
 Basic labeled input field for user entry. Can be reused for search or other forms.
 
 - label: string  
@@ -347,6 +353,7 @@ Basic labeled input field for user entry. Can be reused for search or other form
 - onInput: Function(value: string)
 
 [] ButtonSubmit(Luka)
+
 Search submit button, typically displayed as a magnifying glass icon.
 
 - onClick: Function  
@@ -439,6 +446,7 @@ Standalone newsletter form for email subscription.
 # Detail Pages
 
 [] DetailHeader (Luka)
+
 Top navigation bar for asset pages, including pagination, collection name, and back-to-search link.
 
 - currentIndex: number  
@@ -499,6 +507,7 @@ Displays linked metadata for locating a collection, including identifiers and UR
 # Pages
 
 [] BannerFeatured (Luka)
+
 Displays a full-width or responsive image, possibly with optional alt text or caption.
 Has a la
 
@@ -509,6 +518,7 @@ Has a la
 - decoration?: boolean (e.g. angled stripes or shapes)
 
 [] BlockTitle (Luka)
+
 Standalone heading block.
 
 - text: string  
@@ -517,12 +527,14 @@ Standalone heading block.
 - align?: 'left' | 'center'
 
 [] BlockButtons (Luka)
+
 One or more call-to-action buttons in a horizontal or vertical stack.
 
 - buttons: Array<{ label: string, href: string, variant?: 'primary' | 'secondary' }>
 - align?: 'left' | 'center'
 
 [] ContentSection (Luka)
+
 Flexible container that wraps image, title, text, and buttons in various arrangements.
 
 - image?: BannerFeatured  
@@ -533,6 +545,7 @@ Flexible container that wraps image, title, text, and buttons in various arrange
 - backgroundColor?: string
 
 [] BlockAnchorNav (Luka)
+
 Sidebar or inline nav with jump links to sections on the same page.
 
 - title?: string (e.g. "Topics Covered")  
