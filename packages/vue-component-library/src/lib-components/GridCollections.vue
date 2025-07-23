@@ -31,31 +31,5 @@ defineProps<GridCollectionsProps>()
 </template>
 
 <style lang="scss" scoped>
-.grid-collections {
-    --columns: 3;
-    --gap-row: 40px;
-    --gap-col: 16px;
-    --block-width: calc(
-        (100% - (var(--columns) - 1) * var(--gap-col)) / calc(var(--columns))
-    );
-
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--gap-row) var(--gap-col);
-    .block {
-        padding: 0;
-        width: var(--block-width);
-    }
-    // Hovers
-    @media #{$has-hover} {
-    }
-    // Breakpoints
-    @media #{$extra-large} {
-    }
-    @media #{$medium} {
-    }
-    @media #{$small} {
-        --block-width: 100%;
-    }
-}
+@import "@/styles/dlc/_grid-collections.scss";
 </style>

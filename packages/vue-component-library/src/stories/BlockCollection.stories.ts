@@ -22,8 +22,6 @@ const mockDefault = {
   description: 'This is a default block collection with all fields filled.',
   image: baseImage,
   href: 'https://www.example.com',
-  text: 'Default text',
-  count: 345
 }
 
 const mockLongText = {
@@ -32,7 +30,6 @@ const mockLongText = {
   description: 'This is a very long description. '.repeat(10),
   image: baseImage,
   href: 'https://www.example.com',
-  text: 'Long text',
 }
 
 // STORIES
@@ -42,7 +39,7 @@ export function Default() {
       return { ...mockDefault }
     },
     components: { BlockCollection },
-    template: `<block-collection :href="href" :image="image" :title="title" :description="description" :text="text" :count="count" />`,
+    template: `<block-collection :href="href" :image="image" :title="title" :description="description"/>`,
   }
 }
 
@@ -52,7 +49,7 @@ export function LongText() {
       return { ...mockLongText }
     },
     components: { BlockCollection },
-    template: `<block-collection :href="href" :image="image" :title="title" :description="description" :text="text" :count="count" />`,
+    template: `<block-collection :href="href" :image="image" :title="title" :description="description"/>`,
   }
 }
 
