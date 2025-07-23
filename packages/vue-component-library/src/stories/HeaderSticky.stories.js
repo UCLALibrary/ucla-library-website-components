@@ -122,23 +122,27 @@ export function FTVAVersion() {
 export function FTVASticky() {
   return {
     setup() {
+      const globalStore = useGlobalStore()
+
+      const updateWinWidth = () => {
+        globalStore.winWidth = window.innerWidth
+      }
+
       onMounted(() => {
-        const globalStore = useGlobalStore()
-
-        const updateWinWidth = () => {
-          globalStore.winWidth = window.innerWidth
-        }
-
-        // Set initial winWidth
         updateWinWidth()
-
         window.addEventListener('resize', updateWinWidth)
-
-        // Clean up
-        onBeforeUnmount(() => {
-          window.removeEventListener('resize', updateWinWidth)
-        })
       })
+
+      onBeforeUnmount(() => {
+        window.removeEventListener('resize', updateWinWidth)
+      })
+
+      const showBrandBar = computed(() => globalStore.winWidth > 750) // mobile breakpoint
+
+      return {
+        showBrandBar,
+        globalStore,
+      }
     },
     data() {
       return {
@@ -152,12 +156,12 @@ export function FTVASticky() {
     },
     components: { HeaderSticky, SiteBrandBar },
     template: `
-        <site-brand-bar/>
-        <header-sticky
-            :style="{ position: 'sticky', willChange: 'top' }"
-            :primary-items="FTVAprimaryItems"
-        />
-        <h1>RANDOM TEXT TO SHOW OVERLAY</h1>
+      <site-brand-bar v-if="showBrandBar" />
+      <header-sticky
+          :style="{ position: 'sticky', willChange: 'top' }"
+          :primary-items="FTVAprimaryItems"
+      />
+      <h1>RANDOM TEXT TO SHOW OVERLAY</h1>
     `,
   }
 }

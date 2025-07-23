@@ -260,6 +260,7 @@
             display: none;
             grid-column: 1 / span 3;
             width: 100%;
+            position: relative;
 
             :deep(.nav-menu-item),
             :deep(.nav-menu-item.is-opened) {
