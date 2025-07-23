@@ -2,8 +2,7 @@
 
 ## Buttons and Interface
 [] ButtonIIIf ()
-- need to add this svg to their svg repo
-  
+- need to add this svg to The UCLA svg repo
 A single svg button, changes the color of letter svgs on hover
 
 [] ButtonText   
@@ -15,7 +14,7 @@ A minimal button with just text, possibly with variants like underline or subtle
 
 [] ButtonPageView (Svebor)
 
- A button that displayes items as a grid with more or less info
+ A button that displayes items as a grid or list
 
 [] ButtonStacked  
 A vertical stack of buttons, likely for grouped filter or action options.
@@ -108,7 +107,7 @@ Interactive pagination component with numbered buttons, previous/next navigation
 - showEdges?: boolean (e.g. show first/last page)  
 - siblingCount?: number (how many pages around current to show)
 
-[x] CTAHexButton (svebor) 
+[x] CTAHexButton
 Prominent hex-shaped call-to-action button with icon and label.
 
 - label: string  
@@ -140,11 +139,12 @@ Collapsible panel of dropdown filters for refining search results.
 Collapsible panel of dropdown filters for refining search results with multiple options
 
 - name: string
--  searchField: string
+- searchField: string
 - default: string
 - options: string[]
 - onFilterChange: Function(label: string, selected: string | string[])  
 - defaultOpen?: string[] (filters to open by default)
+  
 [] ResultsList  
 Displays a list of categories with associated result counts.
 
@@ -195,17 +195,13 @@ Dropdown for selecting from multiple library collections. Appears in tag-chip fo
 - libraries: Array<string>  
 - onSelect: Function(library: string)
 
-[] YearRangeFilter  or DateFilter
+[] YearRangeFilter or DateFilter
 Range selector with start and end year inputs and a confirm button.
 
 - minYear: number  
 - maxYear: number  
 - selectedRange: { start: number, end: number }  
 - onConfirm: Function(range: { start: number, end: number })
-
-
-
-
 
 ## Accordions
 
@@ -226,7 +222,6 @@ Displays a summary of a library or collection and a list of associated assets. I
 - isExpanded: boolean  
 - onToggle: Function
 
-
 [] NotesAccordion(svebor)  
 Expandable section for showing grouped text content like notes and captions. Can optionally display an excerpt pod.
 
@@ -246,7 +241,6 @@ Highlighted or emphasized snippet of text content within another component (like
 - background?: boolean  
 
 ## Blocks
-
 
 [] BlockAssetPod (Luka)
 Vertical media block representing a digital library asset. Contains metadata, linked collection name, and optional image gallery.
@@ -278,7 +272,6 @@ Horizontal row layout for a single digital asset, including image, metadata fiel
 - collection: { name: string, href: string }  
 - image: string  
 - onClick?: Function
-
 
 [] BlockCollection (Svebor)
 Visual card for a digital collection or category.
@@ -323,7 +316,6 @@ Vertical or horizontal list of buttons linking to specific tools or resources.
 
 - buttons: Array<{ label: string, href: string, variant?: string }>
 
-
 ## Grids
 
 [] GridAssets (austin)
@@ -365,8 +357,8 @@ Placeholder or quick-access UI element — possibly for suggestions or previous 
 - content?: string | slot  
 - onClick?: Function
 
-
 ## Bento Box
+
 [] BentoBoxBlock (Svebor)
 A block type component, lives inside the `BentoBoxResult`.
   - image: string,  
@@ -389,7 +381,6 @@ Horizontal scrollable container of `BentoPod`(Aka: BentoBoxBlock - new addition 
 - showDragger: boolean  
 - onScroll?: Function
 
-
 [] Dragger  
 NOTE: This seems like it's the `BentoBoxResult` component, that components has the dragger built into it.
 A draggable horizontal scrollbar component. Should be synced with scroll container state and optionally labeled with a property.
@@ -399,7 +390,6 @@ A draggable horizontal scrollbar component. Should be synced with scroll contain
 - position: number  
 - label?: string  
 - onDrag: Function(newPosition: number)
-
 
 ## Header
 
@@ -412,7 +402,6 @@ Universal top banner with UCLA branding. Often pinned to the top of all pages, m
 - textColor?: string  
 - isSticky?: boolean
 
-
 [] Header        
 Primary site navigation including logo, main links, and utility search bar.
 
@@ -424,7 +413,6 @@ Primary site navigation including logo, main links, and utility search bar.
 - searchFilters?: Array<string>  
 - selectedFilter?: string  
 - onFilterChange?: Function
-
 
 ## Footer 
 
@@ -483,7 +471,6 @@ Displays a list of linked subjects, genres, and related tags.
 - title?: string  
 - keywords: Array<{ label: string, href?: string }>
 
-
 [] CollectionOverview (Luka)
 
 Introductory section for a collection page with title, summary text, and preview image.
@@ -528,9 +515,7 @@ Standalone heading block.
 - color?: string  
 - align?: 'left' | 'center'
 
-
 [] BlockButtons (Luka)
-
 One or more call-to-action buttons in a horizontal or vertical stack.
 
 - buttons: Array<{ label: string, href: string, variant?: 'primary' | 'secondary' }>
@@ -546,16 +531,12 @@ Flexible container that wraps image, title, text, and buttons in various arrange
 - reverse?: boolean  
 - backgroundColor?: string
 
-
 [] BlockAnchorNav (Luka)
-
 Sidebar or inline nav with jump links to sections on the same page.
 
 - title?: string (e.g. "Topics Covered")  
 - items: Array<{ label: string, href: string }>  
 - sticky?: boolean
-
-
 
 # Missing: 
 Filters
@@ -566,22 +547,17 @@ MediaGallery
 TableWithHeader
 TabToggle
 
-
 [] SearchFilterButtons  
 A component that renders a list of toggle buttons for filter categories, and conditionally includes a single checkbox. Emits events on interaction.
 
 - items: Item[]  
   Array of filter items. Each item should have `inputType`, `label`, `esFieldName`, `isVisible`, and optional `class`.
-
 - singleCheckboxState: boolean  
   Controls the checked state of the optional single checkbox filter.
-
 - toggle(index: number): void  
   Emitted when a toggleable item is clicked.
-
 - update:single-checkbox-state(state: boolean): void  
   Syncs the single checkbox's state with external state.
-
 - single-checkbox-checked(esFieldName: string): void  
   Emitted when the single checkbox is checked or unchecked.
 
@@ -590,27 +566,20 @@ A stylized checkbox component with internal state syncing and emit behavior for 
 
 - label: string  
   The visible label displayed next to the checkbox.
-
 - selected: boolean  
   Controls the checked state of the checkbox (v-model compatible).
-
 - update:selected(state: boolean): void  
   Emitted when the checkbox is toggled, for two-way binding.
-
 - input-selected(): void  
   Emitted on user interaction with the checkbox, useful for analytics or additional logic.
-
-
 
 [] SectionRemoveSearchFilters  
 Displays a list of active search filters with an option to remove them. Filters are parsed from a keyed object of arrays and rendered using `BlockRemoveSearchFilter`.
 
 - filters: { [key: string]: string[] }  
   Object of active filters, where each key maps to an array of selected values.
-
 - update:filters(filters: object): void  
   Emitted when a filter is removed, passing the updated filters object.
-
 - remove-selected(): void  
   Emitted when any filter is removed, useful for triggering external updates.
 
@@ -619,16 +588,12 @@ A tabbed navigation component with animated glider, keyboard support, dynamic ic
 
 - alignment: 'left' | 'center' | 'right'  
   Controls alignment of the tab buttons. Default is `'left'`.
-
 - initialTab: number  
   Sets the initially active tab index. Default is `0`.
-
 - <slot name="filters">  
   Optional slot for rendering filter controls above the tab list.
-
 - <slot>  
   Default slot for tab panel content. Each tab is determined by the slot’s `title`, `icon`, and `content` props.
-
 - Tab Items (passed via default slot) must define:
   - title: string – Label for the tab button and used in `aria` attributes.
   - icon: 'icon-calendar' | 'icon-list' – Optional. Maps to a predefined icon.
@@ -641,27 +606,21 @@ A tabbed navigation component with animated glider, keyboard support, dynamic ic
 - The component uses the `useTheme` composable to style tabs.
 - Provides `activeTabTitle` via Vue `provide`.
 
-
-
 [] BlockEventDetail  
 Displays date, time, and location details for an event. Supports theming logic and formatting utilities for flexible display.
 
 - startDate?: string  
   The event's start date. Used in formatted display.
-
 - endDate?: string  
   The event's end date. If provided, creates a date range.
-
 - time?: string  
   The event start time (e.g., '13:00'). Formatted for display.
-
 - ongoing: boolean  
   If true, shows 'Ongoing' instead of a specific date.
-
 - locations: BlockEventDetailLocation[]  
   A list of event locations. Each location may include `title`, `url`, `uri`, or `publicUrl`.
-
- BlockEventDetailLocation object:
+  
+ [] BlockEventDetailLocation object:
   - title: string – Required display label.
   - url/publicUrl/uri?: string – Destination URL for SmartLink.
 
@@ -670,23 +629,18 @@ Behavior:
 - Supports themed conditional logic (e.g., showing "Multiple Locations" under the `ftva` theme).
 - Opens links in new tabs for `ftva` theme.
 - Integrates with `SmartLink` for routing compatibility.
-
 🔌 Slots:
 - `<slot>` — Optional slot to render additional content under the main layout.
-
 
 [] BlockTag  
 A compact label or pill-style tag component that optionally displays an icon and supports primary/secondary and highlighted visual states.
 
 - label: string  
   Text displayed within the tag. Defaults to an empty string.
-
 - iconName?: string  
   Optional key for one of the predefined FTVA icons. Maps to an internal icon lookup table.
-
 - isSecondary: boolean  
   Applies secondary styling when true. Defaults to false (primary style).
-
 - isHighlighted: boolean  
   Applies a "highlighted" visual treatment when true. Defaults to false.
 
@@ -694,13 +648,11 @@ Behavior:
 - Uses the current theme via `useTheme` to apply scoped styling classes.
 - Supports a fixed set of icons (e.g., `SvgIconFilm`, `SvgIconTV`, etc.) mapped via `iconName`.
 
-
 [] ButtonHide  
 A vertically-stacked button that displays an icon above a label. Commonly used for "See Less" or collapse actions. Styled with theme colors and hover transitions.
 
 - text: string  
   Label text displayed under the icon. Defaults to `'See Less'`.
-
 Behavior:
 - Renders a decorative molecule stroke behind a centered collapse icon.
 - Uses scoped `scss` for positioning, transitions, and hover color changes.
@@ -711,25 +663,18 @@ A styled anchor/button component that renders a labeled link with optional icons
 
 - to: string  
   The destination URL or route.
-
 - label: string  
   The button's visible text label.
-
 - iconName?: string  
   Used to specify a particular icon. Ignored for internal links. Supports values like `'svg-external-link'`, `'svg-download'`, `'icon-close'`.
-
 - isSecondary: boolean  
   Applies secondary button styling. Default is false.
-
 - isTertiary: boolean  
   Applies tertiary button styling. Default is false.
-
 - isQuaternary: boolean  
   Applies quaternary button styling. Default is false.
-
 - isDownload: boolean  
   If true, adds a `download` attribute to the link and uses a download icon.
-
 - linkTarget?: string  
   Optional target for the link (e.g. `_blank`).
 
@@ -742,7 +687,7 @@ Behavior:
   - `IconClose` if `iconName` is `'icon-close'`
 - Applies themed classes from `useTheme`.
 - Contains a `.hover` span to manage animated or transition-based hover states.
-
+  
 Slots:
 - `<slot>` — Optional custom content inside the link (e.g. additional icon or badge).
 
@@ -751,7 +696,6 @@ A compact call-to-action button with a right arrow icon and decorative backgroun
 
 - text: string  
   Text label for the button. Defaults to `'See More'`.
-
 - to: string  
   Destination URL or route for the `SmartLink`.
 
@@ -765,7 +709,6 @@ A horizontal divider element with optional style modifiers.
 
 - isBold: boolean  
   Adds a thicker or more prominent visual weight to the divider. Defaults to false.
-
 - isTertiary: boolean  
   Applies an alternate tertiary style variant. Defaults to false.
 
@@ -783,7 +726,7 @@ Behavior:
 - Delegates rendering to the `DividerWayFinder` component.
 - Commonly used in page builders or dynamic content regions where dividers are optional.
 
-[] DividerWayFinder  
+[x] DividerWayFinder  
 A themed horizontal divider that adjusts color and style based on either a passed prop or the current route path.
 
 - color?: string  
@@ -800,7 +743,6 @@ A branded header section featuring the UCLA Library logo and a search interface.
 
 - linkItems: SearchLinkItemType[]  
   List of quick search links passed to the `SearchHome` component.
-
 - advancedSearchLink: SearchLinkItemType  
   Link configuration for the advanced search option, also passed to `SearchHome`.
 
@@ -814,16 +756,12 @@ A flexible masthead component that supports optional hero imagery, title, rich t
 
 - hasMolecules: boolean  
   Controls whether a background molecule graphic is shown (only if no hero image). Default is true.
-
 - title: string (required)  
   The main heading text, rendered as HTML inside an `<h1>` tag.
-
 - text?: string  
   Optional rich text content displayed below the title.
-
 - theme?: string  
   Used to apply specific visual variants (e.g., `'meap'` applies the `theme-meap` class).
-
 - heroImage?: MediaItemType  
   Optional image object to render as a responsive hero image.
 
@@ -855,7 +793,6 @@ The primary desktop header layout, including navigation, search, and optional th
 
 - primaryItems: NavPrimaryItemType[]  
   List of items for the primary navigation menu, passed to `NavPrimary`.
-
 - secondaryItems: NavSecondaryItemType[]  
   List of items for the secondary navigation menu, passed to `NavSecondary`.
 
@@ -884,7 +821,6 @@ Behavior:
     - Adds a "Donate" button linking to `/donate`.
   - For other themes:
     - Defaults to rendering the UCLA logo.
-
 - Always links to the UCLA homepage (`https://www.ucla.edu`) in a new tab.
 - Includes visually hidden text for accessibility.
 
@@ -935,7 +871,6 @@ Behavior:
   - funderName: string
   - funderLogo: object (media asset)
   - funderUrl: string
-
 - If no sponsor data is present, logs a message and renders nothing.
 - Always displays static supporting text:
   "The UCLA Library Modern Endangered Archives Program is supported by Arcadia."
@@ -948,7 +883,6 @@ The primary content area of the site footer. Displays a logo, social media links
 
 - form: boolean  
   Controls whether the newsletter subscription form is displayed. Defaults to true.
-
 - isMicrosite: boolean  
   If true, links the logo to the external UCLA Library homepage. If false, links internally to the root path. Defaults to false.
 
@@ -993,13 +927,11 @@ Behavior:
 Child components:
 - `RichText`
 
-
 [] BlockPullQuote  
 A stylized block for displaying a quoted passage with optional attribution. Styled according to the current theme.
 
 - text: string  
   Rich text content representing the quote body. Rendered via the `RichText` component.
-
 - attribution?: string  
   Optional attribution text (e.g., author or source). Rendered with a preceding em dash.
 
@@ -1025,10 +957,9 @@ An interactive lightbox-style carousel for displaying a gallery of media items w
   - linkUrl?: string
   - coverImage?: object
   - embedCode?: string
-
+    
 - selectedItem?: number  
   Index of the initially selected slide. Defaults to `0`.
-
 - inline?: boolean  
   If true, the component is rendered inline; otherwise it appears as a modal overlay. Defaults to false.
 
@@ -1054,10 +985,8 @@ A flexible, responsive breadcrumb component that supports both a legacy prop-bas
 
 - to?: string  
   Optional legacy-mode parent route link. Used in conjunction with `parentTitle`.
-
 - parentTitle?: string  
   Optional legacy-mode parent breadcrumb title. Used in conjunction with `to`.
-
 - title?: string  
   Optional final breadcrumb label. Used as the current page label if no route-based title is available.
 
@@ -1075,21 +1004,17 @@ Child components:
 - `SmartLink` – Used for navigable breadcrumb segments.
 - `SvgIconCaretRight` – Shown between breadcrumb segments.
 
-[x] SectionPagination (svebor)  
+[x] SectionPagination  
 A responsive, theme-aware pagination component that supports legacy navigation links or dynamically generated page buttons. Works with route query parameters and can be customized with a callback.
 
 - nextTo?: string  
   Optional static link for the "Next" button. If provided, disables dynamic logic.
-
 - previousTo?: string  
   Optional static link for the "Previous" button. If provided, disables dynamic logic.
-
 - pages?: number  
   Total number of pages.
-
 - initialCurrentPage?: number  
   The current active page. Defaults to 1 if not specified.
-
 - generateLinkCallback?: Function  
   Optional callback for generating the `to` link for each page number. Receives `(pageNumber, queryParams)` as arguments.
 
@@ -1124,10 +1049,6 @@ Behavior:
 - Does not render cells if `numCells` is `0`.
 
 
-
-
-
-
 # Checklist: 
 
 # 📋 Component Checklist
@@ -1144,12 +1065,12 @@ Behavior:
 | BreadcrumbPill             |Luka       | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |Luka       | ☐ Complete  |   [ ]   |                                |
 | ButtonIconOnly             |           | ☐ Complete  |   [ ]   |                                |
-| PaginationControl          |Svebor     | ☐ Complete  |   [x]   |                                |
+| PaginationControl          |Svebor     | ☐ Complete  |   [ ]   |                                |
 | SectionLabel               |Austin     | ☐ Complete  |   [ ]   |                                |
 | ButtonSubLink              |           | ☐ Complete  |   [ ]   |                                |
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
-| SectionPagination          |Svebor     | ☐ Complete  |   [x]   |Adjusted the styles and a little bit of logic |
-| CTAHexButton               |Svebor     | ☐ Complete  |   [x]   |Exists, ready to use            |
+| SectionPagination          |Svebor     | ☐ Complete  |   [ ]   |Adjusted the styles and a little bit of logic |
+| CTAHexButton               |Svebor     | ☐ Complete  |   [ ]   |Exists, ready to use            |
 | SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
 | RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
 | FiltersDropdown            |           | ☐ Complete  |   [x]   |                                |
@@ -1166,21 +1087,21 @@ Behavior:
 | BlockAssetPod              |Luka       | ☐ Complete  |   [ ]   |                                |
 | BlockAsset                 |Austin     | ☐ Complete  |   [ ]   |                                |
 | SearchResult               |           | ☐ Complete  |   [x]   |                                |
-| BlockCollection            |Svebor     | ☐ Complete  |   [ ]   |                                |
+| BlockCollection            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | MetadataTable              |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | BlockMediaViewer           |           | ☐ Complete  |   [ ]   |                                |
 | BlockRichText              |           | ☐ Complete  |   [ ]   |                                |
 | SectionHeader              |           | ☐ Complete  |   [x]   |                                |
 | BlockButtonList            |           | ☐ Complete  |   [ ]   |                                |
 | GridAssets                 |Austin     | ☐ Complete  |   [ ]   |                                |
-| GridCollections            |Svebor     | ☐ Complete  |   [ ]   |                                |
+| GridCollections            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | GridAssetPod               |Luka       | ☐ Complete  |   [ ]   |                                |
 | SearchField                |Luka       | ☐ Complete  |   [x]   |                                |
 | EntryField                 |Luka       | ☐ Complete  |   [ ]   |                                |
 | ButtonSubmit               |Luka       | ☐ Complete  |   [ ]   |                                |
 | Flash                      |           | ☐ Complete  |   [ ]   |                                |
-| BentoBoxBlock              |Svebor     | ☐ Complete  |   [ ]   |WIP                             |
-| BentoBoxResult             |Svebor     | ☐ Complete  |   [ ]   |WIP                             |
+| BentoBoxBlock              |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
+| BentoBoxResult             |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
 | Dragger                    |           | ☐ Complete  |   [ ]   |                                |
 | Banner                     |           | ☐ Complete  |   [ ]   |                                |
 | Header                     |           | ☐ Complete  |   [x]   | aka: HeaderSite                |
