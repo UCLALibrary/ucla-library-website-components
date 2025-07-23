@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.4...@ucla-library-monorepo/ucla-library-website-components-v1.24.5) (2025-07-23)
+
+
+### Bug Fixes
+
+* update nav bar to overlay in all positions ([#759](https://github.com/UCLALibrary/ucla-library-website-components/issues/759)) ([ec28ea1](https://github.com/UCLALibrary/ucla-library-website-components/commit/ec28ea1619903a0410ed82e922e79431c8fe0284))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.24.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.3...@ucla-library-monorepo/ucla-library-website-components-v1.24.4) (2025-07-21)
 
 
