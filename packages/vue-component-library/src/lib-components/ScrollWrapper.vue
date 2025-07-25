@@ -108,6 +108,12 @@ onMounted(() => {
     background: none;
     border: none;
     box-shadow: none;
+    
+    .v-btn__overlay,
+    .v-btn__underlay,
+    .v-ripple__container {
+      display: none;
+    }
 
     i.v-icon {
       &::before {
@@ -133,7 +139,13 @@ onMounted(() => {
     background: none;
     border: none;
     box-shadow: none;
-
+    
+    .v-btn__overlay,
+    .v-btn__underlay,
+    .v-ripple__container {
+      display: none;
+    }
+    
     i.v-icon {
       &::before {
         content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-right_icon.svg');
