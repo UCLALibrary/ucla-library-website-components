@@ -1,17 +1,6 @@
 <script lang="ts" setup>
-import { computed, ref, onMounted, useSlots } from 'vue'
+import { computed, onMounted, ref, useSlots } from 'vue'
 import { useTheme } from '@/composables/useTheme'
-
-// Refs for singleItem mode
-const slots = useSlots()
-const numSlides = ref(0)
-const currentSlide = ref(1)
-
-// THEME
-const theme = useTheme()
-const classes = computed(() => {
-  return ['scroll-wrapper', theme?.value || '']
-})
 
 const { singleItem, initialSlide } = defineProps({
   // display a single card in the carousel at a time instead of a continuous list of cards
@@ -25,32 +14,40 @@ const { singleItem, initialSlide } = defineProps({
     default: 1
   }
 })
+// Refs for singleItem mode
+const slots = useSlots()
+const numSlides = ref(0)
+const currentSlide = ref(1)
+
+// THEME
+const theme = useTheme()
+const classes = computed(() => {
+  return ['scroll-wrapper', theme?.value || '']
+})
 
 // Set initial index when component mounts
 onMounted(() => {
   // Count the number of item slots provided
   if (slots && singleItem) {
-    let slotCount = Object.keys(slots).length
-    if (slotCount > 0) {
+    const slotCount = Object.keys(slots).length
+    if (slotCount > 0)
       numSlides.value = slotCount
-    }
   }
-  
-  currentSlide.value = initialSlide - 1;
+
+  currentSlide.value = initialSlide - 1
 })
 </script>
 
 <template>
   <div :class="classes">
     <template v-if="singleItem">
-      <v-window class="v-window-container" v-model="currentSlide" show-arrows>
+      <v-window v-model="currentSlide" class="v-window-container" show-arrows>
         <v-window-item v-for="n in numSlides" :key="`card-${n}`">
           <v-card class="padded-card" elevation="2">
             <slot :name="`item-${n}`" />
           </v-card>
         </v-window-item>
       </v-window>
-
     </template>
     <template v-else>
       <v-sheet class="mx-auto">
@@ -108,7 +105,7 @@ onMounted(() => {
     background: none;
     border: none;
     box-shadow: none;
-    
+
     .v-btn__overlay,
     .v-btn__underlay,
     .v-ripple__container {
@@ -139,13 +136,13 @@ onMounted(() => {
     background: none;
     border: none;
     box-shadow: none;
-    
+
     .v-btn__overlay,
     .v-btn__underlay,
     .v-ripple__container {
       display: none;
     }
-    
+
     i.v-icon {
       &::before {
         content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-right_icon.svg');
