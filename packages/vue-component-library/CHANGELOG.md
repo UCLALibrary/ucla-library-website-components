@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.5...@ucla-library-monorepo/ucla-library-website-components-v1.24.6) (2025-07-24)
+
+
+### Bug Fixes
+
+*  APPS-3346 navbar reacts properly when screen size is small ([#761](https://github.com/UCLALibrary/ucla-library-website-components/issues/761)) ([a144e37](https://github.com/UCLALibrary/ucla-library-website-components/commit/a144e370d23404471973ec40879efc35bd8b0187))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.24.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.4...@ucla-library-monorepo/ucla-library-website-components-v1.24.5) (2025-07-23)
 
 

@@ -258,6 +258,7 @@
         .menu {
             // closed menu
             display: none;
+            position: relative; 
             grid-column: 1 / span 3;
             width: 100%;
 
