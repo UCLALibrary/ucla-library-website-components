@@ -1,3 +1,31 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.5...@ucla-library-monorepo/ucla-library-website-components-v1.24.6) (2025-07-24)
+
+
+### Bug Fixes
+
+*  APPS-3346 navbar reacts properly when screen size is small ([#761](https://github.com/UCLALibrary/ucla-library-website-components/issues/761)) ([a144e37](https://github.com/UCLALibrary/ucla-library-website-components/commit/a144e370d23404471973ec40879efc35bd8b0187))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.4...@ucla-library-monorepo/ucla-library-website-components-v1.24.5) (2025-07-23)
+
+
+### Bug Fixes
+
+* update nav bar to overlay in all positions ([#759](https://github.com/UCLALibrary/ucla-library-website-components/issues/759)) ([ec28ea1](https://github.com/UCLALibrary/ucla-library-website-components/commit/ec28ea1619903a0410ed82e922e79431c8fe0284))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.3...@ucla-library-monorepo/ucla-library-website-components-v1.24.4) (2025-07-21)
+
+
+### Bug Fixes
+
+* APPS-3105 Fix getBoundingClientRect error in Pagination component ([#757](https://github.com/UCLALibrary/ucla-library-website-components/issues/757)) ([476fcd7](https://github.com/UCLALibrary/ucla-library-website-components/commit/476fcd73b6cf86f6e888b6868c6491be9e973691))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.2...@ucla-library-monorepo/ucla-library-website-components-v1.24.3) (2025-07-21)
+
+
+### Bug Fixes
+
+* clear filters when clear btn is clicked ([#756](https://github.com/UCLALibrary/ucla-library-website-components/issues/756)) ([95d6c4a](https://github.com/UCLALibrary/ucla-library-website-components/commit/95d6c4a096dc814dd14cf01073f84aed31a03ae4))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.24.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.1...@ucla-library-monorepo/ucla-library-website-components-v1.24.2) (2025-07-11)
 
 
