@@ -136,6 +136,13 @@ function clearActive() {
   activeMenuIndex.value = currentPathActiveIndex.value
 }
 
+// CLOSE SLOT
+function closeSlot() {
+  slotIsOpened.value = false
+}
+// expose if needed elsewhere too
+defineExpose({ closeSlot })
+
 // Replace globalStore logic for window width with useWindowSize
 const { width } = useWindowSize()
 
@@ -297,7 +304,7 @@ onMounted(() => {
         class="slot-container"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
       >
-        <slot name="additional-menu" />
+        <slot name="additional-menu" :close-slot="closeSlot" />
       </div>
     </div>
 
