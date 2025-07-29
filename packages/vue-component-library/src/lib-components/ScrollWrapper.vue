@@ -86,7 +86,8 @@ onMounted(() => {
 
   // padded card for single item
   .padded-card {
-    padding: 0 80px;
+    // padding: 0 80px;
+    background-color: transparent;
   }
 
   // custom prev arrow for v-window and v-slide-group
