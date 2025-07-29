@@ -152,10 +152,13 @@ onMounted(() => {
 
   // hide arrow icons on mobile screens
   @media #{$small} {
+  .v-slide-group {
     :deep(i.v-icon) {
       display: none;
+      }
     }
   }
+  
 
   // set the widths of cards that appear within scrollwrapper
   --card-max-width: 450px;
