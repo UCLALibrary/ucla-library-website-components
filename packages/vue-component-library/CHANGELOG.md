@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.6...@ucla-library-monorepo/ucla-library-website-components-v1.24.7) (2025-07-28)
+
+
+### Bug Fixes
+
+* APPS-3382 search bar disappears after search event occurs ([#762](https://github.com/UCLALibrary/ucla-library-website-components/issues/762)) ([deeb321](https://github.com/UCLALibrary/ucla-library-website-components/commit/deeb3218fb5d9ee4540754f3df3bcbf8a219e724))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.24.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.5...@ucla-library-monorepo/ucla-library-website-components-v1.24.6) (2025-07-24)
 
 
