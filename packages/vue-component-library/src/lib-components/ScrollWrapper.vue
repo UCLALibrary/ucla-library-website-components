@@ -158,7 +158,6 @@ onMounted(() => {
       }
     }
   }
-  
 
   // set the widths of cards that appear within scrollwrapper
   --card-max-width: 450px;
