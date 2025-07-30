@@ -228,6 +228,54 @@ export function FtvaDateRange() {
   }
 }
 
+export function FtvaCategory() {
+  return {
+
+    data() {
+      return { ...mockDateRange2 }
+    },
+    methods: {
+      parseDate(sectionHandle, startDate, endDate, ongoing) {
+        console.log(sectionHandle, startDate, endDate, ongoing)
+
+        if (ongoing)
+          return 'Ongoing'
+        if (sectionHandle === 'ftvaEvent')
+          return formatDates(startDate, startDate, 'shortWithYear')
+        if (sectionHandle === 'ftvaEventSeries')
+          return formatSeriesDates(startDate, endDate, 'shortWithYear')
+
+        return null
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockStaffArticleList },
+    template: `
+      <block-staff-article-list
+          :image="image"
+          :to="to"
+          category=ULLAMCO
+          :title="title"
+          :description="description"
+          
+      >
+      <template
+            v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
+            #customFTVADate
+          >
+            <span class="ftva-date">
+              {{ parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false) }}
+            </span>
+          </template>
+      </block-staff-article-list>
+  `,
+  }
+}
+
 export function FtvaSameStartEndDate() {
   return {
     data() {
