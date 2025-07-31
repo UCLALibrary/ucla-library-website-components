@@ -174,6 +174,7 @@ const mockDateRange2 = {
   to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
   title: 'A Film Series for You',
   image: API.image,
+  category: 'Ullamco',
   description: 'This deep into the post-print era it may be hard for some to understand.',
   startDate: '2024-11-01T19:30:00',
   endDate: '2024-11-17T19:30:00',
@@ -258,7 +259,7 @@ export function FtvaCategory() {
       <block-staff-article-list
           :image="image"
           :to="to"
-          category=ULLAMCO
+          :category="category"
           :title="title"
           :description="description"
           
