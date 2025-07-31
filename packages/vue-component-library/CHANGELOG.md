@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.7...@ucla-library-monorepo/ucla-library-website-components-v1.24.8) (2025-07-31)
+
+
+### Bug Fixes
+
+* APPS-3031 Update category color and font-size for staff-article-list ([#764](https://github.com/UCLALibrary/ucla-library-website-components/issues/764)) ([7385528](https://github.com/UCLALibrary/ucla-library-website-components/commit/738552896a016fa3c9f4dcfee22fef58c3471dcd))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.24.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.6...@ucla-library-monorepo/ucla-library-website-components-v1.24.7) (2025-07-28)
 
 
