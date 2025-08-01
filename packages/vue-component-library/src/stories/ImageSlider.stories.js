@@ -1,4 +1,5 @@
 import ImageSlider from '../lib-components/ImageSlider'
+import ScrollWrapper from '../lib-components/ScrollWrapper'
 
 export default {
   title: 'Image Slider',
@@ -82,6 +83,46 @@ export function WithCustomLabels() {
               Color
             </template>
         </image-slider>
+        </div>
+    `,
+  }
+}
+
+export function WithScrollWrapperCarousel() {
+  return {
+    data() {
+      return {
+        ...mockBeforeAfterImageCarousel[0],
+      }
+    },
+    components: { ImageSlider, ScrollWrapper },
+    template: `
+        <component is="style" type="text/css">
+.before-image {
+    filter: grayscale(100%)
+}
+    </component>
+        <div style="padding: 1rem; max-width: 1160px;">
+          <ScrollWrapper :single-item="true" :initial-slide="1">
+            <template #item-1>
+              <image-slider
+                  :before-image="beforeImage"
+                  :after-image="afterImage"
+              />
+            </template>
+            <template #item-2>
+              <image-slider
+                  :before-image="beforeImage"
+                  :after-image="afterImage"
+              />
+            </template>
+            <template #item-3>
+              <image-slider
+                  :before-image="beforeImage"
+                  :after-image="afterImage"
+              />
+            </template>
+             </ScrollWrapper>
         </div>
     `,
   }
