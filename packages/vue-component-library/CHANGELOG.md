@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.8...@ucla-library-monorepo/ucla-library-website-components-v1.25.0) (2025-08-01)
+
+
+### Features
+
+* APPS-3378 add SingleItem mode to ScrollWrapper ([#763](https://github.com/UCLALibrary/ucla-library-website-components/issues/763)) ([f599df2](https://github.com/UCLALibrary/ucla-library-website-components/commit/f599df2718796a58be650bde1460791ed91d1d75))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.24.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.7...@ucla-library-monorepo/ucla-library-website-components-v1.24.8) (2025-07-31)
 
 
