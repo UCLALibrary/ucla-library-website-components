@@ -19,7 +19,7 @@ export const mockArticles = [
     startDate: '',
     enddate: '',
     ongoing: false,
-    description: '',
+    description: 'Test Description for Article',
     to: '/blog/animation-symposium-at-fiaf'
   },
   {
@@ -42,7 +42,7 @@ export const mockArticles = [
     startDate: '',
     enddate: '',
     ongoing: false,
-    description: '',
+    description: 'In the spring of 2022, UCLA-trained filmmaker Betty Yao-Jung Chen (November 5, 1943–April 26, 2022) died in Florida.',
     to: '/blog/saving-wildlife-through-cinema'
   },
   {
@@ -88,7 +88,12 @@ export const mockArticles = [
     startDate: '',
     enddate: '',
     ongoing: false,
-    description: '',
+    description: `<p>
+  Animation has evolved into a powerful storytelling medium, captivating audiences of all ages.<br>
+  From traditional hand-drawn techniques to cutting-edge computer-generated imagery, the art form continues to push creative boundaries.<br>
+  Animators blend technology and imagination to bring characters and worlds to life, making the impossible possible.<br>
+  Whether in feature films, television, or digital media, animation remains a vital force in visual culture.
+</p>`,
     to: '/blog/watch-classic-animation-by-the-fleischers-ub-iwerks-and-george-pal'
   },
   {
@@ -478,6 +483,106 @@ export const mockGeneralContent = [
     ongoing: false,
     description: '',
     to: '/ftva/about/test-gcp',
+    image: {
+      id: '3699607',
+      src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/archive.jpg',
+      height: 1924,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/archive.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/archive.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/archive.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/archive.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/archive.jpg 2560w',
+      alt: 'Archive',
+      focalPoint: [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  {
+    id: '3734947',
+    uri: '/archive-research-study-center',
+    sectionHandle: 'ftvaGeneralContentPage',
+    postDate: '2025-02-18T11:44:00-08:00',
+    slug: 'archive-research-study-center',
+    title: 'archive research study center',
+    formattedTitle: null,
+    ftvaHomepageDescription: null,
+    imageCarousel: [
+      {
+        image: [
+          {
+            id: '3699607',
+            src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/archive.jpg',
+            height: 1924,
+            width: 2560,
+            srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/archive.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/archive.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/archive.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/archive.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/archive.jpg 2560w',
+            alt: 'Archive',
+            focalPoint: [
+              0.5,
+              0.5
+            ]
+          }
+        ],
+        creditText: null
+      }
+    ],
+    blocks: [],
+    groupName: 'General Content',
+    category: 'General Content',
+    date: '2025-02-18T11:44:00-08:00',
+    startDate: '',
+    enddate: '',
+    ongoing: false,
+    description: 'Serving the UCLA community and an international constituency of academic faculty, scholars, students, writers, and professionals, the Archive Research and Study Center (ARSC) provides a vital access point to UCLA Film & Television Archive\'s collection of over 350,000 films and television programs, over 100,000 News and Public Affairs (NAPA) programs, and over 2,000 radio programs. ARSC coordinates individual viewing appointments, facilitating access to the Archive\'s rare collections through the Powell Library Media Lab at UCLA. With ARSC\'s assistance, visitors conduct scholarly and professional research for hundreds of class assignments, dissertations, publications and film and television productions.',
+    to: '/archive-research-study-center/',
+    image: {
+      id: '3699607',
+      src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/archive.jpg',
+      height: 1924,
+      width: 2560,
+      srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/archive.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/archive.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/archive.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/archive.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/archive.jpg 2560w',
+      alt: 'Archive',
+      focalPoint: [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  {
+    id: '3734947',
+    uri: '/instructional-media-collections-services',
+    sectionHandle: 'ftvaGeneralContentPage',
+    postDate: '2025-02-18T11:44:00-08:00',
+    slug: 'instructional-media-collections-services',
+    title: 'Instructional Media Collections and Services',
+    formattedTitle: null,
+    ftvaHomepageDescription: null,
+    imageCarousel: [
+      {
+        image: [
+          {
+            id: '3699607',
+            src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/archive.jpg',
+            height: 1924,
+            width: 2560,
+            srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/archive.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/archive.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/archive.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/archive.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/archive.jpg 2560w',
+            alt: 'Archive',
+            focalPoint: [
+              0.5,
+              0.5
+            ]
+          }
+        ],
+        creditText: null
+      }
+    ],
+    blocks: [],
+    groupName: 'General Content',
+    category: 'General Content',
+    date: '2025-02-18T11:44:00-08:00',
+    startDate: '',
+    enddate: '',
+    ongoing: false,
+    description: 'Test Summary',
+    to: '/instructional-media-collections-services/',
     image: {
       id: '3699607',
       src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/archive.jpg',

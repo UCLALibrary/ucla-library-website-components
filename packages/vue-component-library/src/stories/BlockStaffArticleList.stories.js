@@ -213,16 +213,22 @@ export function FtvaDateRange() {
           :image="image"
           :to="to"
           :title="title"
-          :description="description"
-          
       >
+      <template
+            v-if="description"
+            #customFTVADescription
+          >
+
+            {{ description }}
+
+      </template>
       <template
             v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
             #customFTVADate
           >
-            <span class="ftva-date">
+            
               {{ parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false) }}
-            </span>
+            
           </template>
       </block-staff-article-list>
   `,
@@ -260,10 +266,16 @@ export function FtvaCategory() {
           :image="image"
           :to="to"
           :category="category"
-          :title="title"
-          :description="description"
-          
+          :title="title" 
       >
+       <template
+            v-if="description"
+            #customFTVADescription
+          >
+
+            {{ description }}
+
+      </template>
       <template
             v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
             #customFTVADate
@@ -307,18 +319,26 @@ export function FtvaSameStartEndDate() {
           :image="image"
           :to="to"
           title="The Pink Cloud + Shorts"
-          description="Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt."
-          startDate="2024-11-01T19:30:00"
-          endDate="2024-11-01T19:30:00"
-          :ongoing="ongoing"
      >
+      <template
+            #customFTVADescription
+          >
+
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+
+      </template>
       <template
             v-if="parseDate(sectionHandle ?? '', '2024-11-01T19:30:00', '2024-11-01T19:30:00', ongoing ?? false)"
             #customFTVADate
           >
-            <span class="ftva-date">
+           
               {{ parseDate(sectionHandle ?? '', '2024-11-01T19:30:00', '2024-11-01T19:30:00', ongoing ?? false) }}
-            </span>
+            
           </template>
       </block-staff-article-list>
   `,
@@ -364,9 +384,15 @@ export function FtvaOngoing() {
           :image="image"
           :to="to"
           :title="title"
-          :description="description"
-
       >
+      <template
+            v-if="description"
+            #customFTVADescription
+          >
+
+            {{ description }}
+
+      </template>
       <template
             v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
             #customFTVADate
