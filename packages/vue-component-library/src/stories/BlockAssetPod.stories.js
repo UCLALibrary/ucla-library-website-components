@@ -26,6 +26,12 @@ const mock = {
     image: API.image,
 }
 
+const template = `
+    <block-asset-pod
+        v-bind="props"
+    />
+`
+
 export const Default = {
     render: () => ({
         data() {
@@ -36,11 +42,7 @@ export const Default = {
             }
         },
         components: { BlockAssetPod },
-        template: `
-        <block-asset-pod
-            v-bind="props"
-        />
-    `,
+        template,
     }),
 }
 
@@ -55,11 +57,7 @@ export const WithoutResourceType = {
             }
         },
         components: { BlockAssetPod },
-        template: `
-        <block-asset-pod
-            v-bind="props"
-        />
-    `,
+        template,
     }),
 }
 
@@ -74,11 +72,7 @@ export const WithoutCollection = {
             }
         },
         components: { BlockAssetPod },
-        template: `
-        <block-asset-pod
-            v-bind="props"
-        />
-    `,
+        template,
     }),
 }
 
@@ -93,11 +87,7 @@ export const WithoutDate = {
             }
         },
         components: { BlockAssetPod },
-        template: `
-        <block-asset-pod
-            v-bind="props"
-        />
-    `,
+        template,
     }),
 }
 
@@ -112,11 +102,7 @@ export const WithoutDescription = {
             }
         },
         components: { BlockAssetPod },
-        template: `
-        <block-asset-pod
-            v-bind="props"
-        />
-    `,
+        template,
     }),
 }
 
@@ -131,11 +117,7 @@ export const WithoutTitle = {
             }
         },
         components: { BlockAssetPod },
-        template: `
-        <block-asset-pod
-            v-bind="props"
-        />
-    `,
+        template,
     }),
 }
 
@@ -150,10 +132,21 @@ export const WithoutImage = {
             }
         },
         components: { BlockAssetPod },
-        template: `
-        <block-asset-pod
-            v-bind="props"
-        />
-    `,
+        template,
+    }),
+}
+
+export const WithoutMeta = {
+    render: () => ({
+        data() {
+            return {
+                props: {
+                    image: API.image,
+                    to: "https://www.google.com",
+                },
+            }
+        },
+        components: { BlockAssetPod },
+        template,
     }),
 }

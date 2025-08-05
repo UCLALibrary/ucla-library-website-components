@@ -1,34 +1,28 @@
 <script setup lang="ts">
 // Imports
-import type { MediaItemType } from "@/types/types"
+import { computed } from "vue"
 import BlockAssetPod from "@/lib-components/BlockAssetPod.vue"
+import type { BlockAssetPodProps } from "@/types/components/blockAssetPods.types"
 
-// TODO: add types in seperate file
-type LinkItem = {
-    to: string
-    text: string
-}
-
-type GridAsssetPodProps = {
-    items: {
-        title: string
-        to: string
-        date?: string
-        description?: string
-        resourceType?: LinkItem[]
-        collection?: LinkItem[]
-        image: MediaItemType
-    }[]
+interface GridAssetPodProps {
+    readonly items: readonly BlockAssetPodProps[]
 }
 
 // Props
-defineProps<GridAsssetPodProps>()
+const props = defineProps<GridAssetPodProps>()
+
+// Computeds
+const hasItems = computed(() => props.items.length > 0)
 </script>
 
 <template>
-    <div class="grid-asset-pod">
+    <div
+        v-if="hasItems"
+        class="grid-asset-pod"
+        :aria-label="`Asset grid with ${items.length} items`"
+    >
         <div class="block-container" v-for="item in items" :key="item.title">
-            <block-asset-pod
+            <BlockAssetPod
                 :title="item.title"
                 :to="item.to"
                 :date="item.date"
@@ -36,7 +30,6 @@ defineProps<GridAsssetPodProps>()
                 :resource-type="item.resourceType"
                 :collection="item.collection"
                 :image="item.image"
-                class="block-asset-pod"
             />
         </div>
     </div>
