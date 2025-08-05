@@ -393,12 +393,12 @@ onMounted(() => {
       </div>
     </div>
     <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
-    <!-- <div
+    <div
       v-if="isMobile && mobileMenuIsOpened"
       class="mobile-menu-slot"
     >
       <slot name="additional-mobile-menu-items" />
-    </div> -->
+    </div>
     <div class="background-white" />
     <div
       v-if="isOpened || slotIsOpened"
