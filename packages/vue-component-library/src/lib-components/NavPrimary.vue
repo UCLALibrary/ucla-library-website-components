@@ -313,7 +313,7 @@ onMounted(() => {
       class="menu"
       :class="[{ 'is-opened-mobile': mobileMenuIsOpened }]"
     >
-      <NavMenuItem
+      <!-- <NavMenuItem
         v-for="(item, index) in parsedItems"
         :key="`NavMenuItem-${item.name}`"
         :item="item"
@@ -322,9 +322,9 @@ onMounted(() => {
         @click="() => toggleMenuOrSubmenus(index)"
         @mouseover="isMobile ? '' : setActive(index)"
         @mouseleave="isMobile ? '' : clearActive"
-      >
+      > -->
         <!-- insert caret icon into NavMenuItem slot if theme calls for it -->
-        <span
+        <!-- <span
           v-if="themeSettings.horizontalMobileMenu && isMobile"
           class="caret"
           :class="{ 'is-active': item.isActive }"
@@ -333,7 +333,7 @@ onMounted(() => {
             <SvgIconCaretDown class="caret-down-svg" />
           </span>
         </span>
-      </NavMenuItem>
+      </NavMenuItem> -->
       <li
         v-for="item in noChildren"
         :key="`nav-primary-${item.name}`"
@@ -367,12 +367,12 @@ onMounted(() => {
       </div>
     </div>
     <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
-    <div
+    <!-- <div
       v-if="isMobile && mobileMenuIsOpened"
       class="mobile-menu-slot"
     >
       <slot name="additional-mobile-menu-items" />
-    </div>
+    </div> -->
     <div class="background-white" />
     <div
       v-if="isOpened || slotIsOpened"
