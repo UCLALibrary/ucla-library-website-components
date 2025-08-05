@@ -174,6 +174,7 @@ const mockDateRange2 = {
   to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
   title: 'A Film Series for You',
   image: API.image,
+  category: 'Ullamco',
   description: 'This deep into the post-print era it may be hard for some to understand.',
   startDate: '2024-11-01T19:30:00',
   endDate: '2024-11-17T19:30:00',
@@ -211,6 +212,54 @@ export function FtvaDateRange() {
       <block-staff-article-list
           :image="image"
           :to="to"
+          :title="title"
+          :description="description"
+          
+      >
+      <template
+            v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
+            #customFTVADate
+          >
+            <span class="ftva-date">
+              {{ parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false) }}
+            </span>
+          </template>
+      </block-staff-article-list>
+  `,
+  }
+}
+
+export function FtvaCategory() {
+  return {
+
+    data() {
+      return { ...mockDateRange2 }
+    },
+    methods: {
+      parseDate(sectionHandle, startDate, endDate, ongoing) {
+        console.log(sectionHandle, startDate, endDate, ongoing)
+
+        if (ongoing)
+          return 'Ongoing'
+        if (sectionHandle === 'ftvaEvent')
+          return formatDates(startDate, startDate, 'shortWithYear')
+        if (sectionHandle === 'ftvaEventSeries')
+          return formatSeriesDates(startDate, endDate, 'shortWithYear')
+
+        return null
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockStaffArticleList },
+    template: `
+      <block-staff-article-list
+          :image="image"
+          :to="to"
+          :category="category"
           :title="title"
           :description="description"
           
