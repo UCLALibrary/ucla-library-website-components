@@ -196,7 +196,7 @@
             flex-direction: column;
             align-self: flex-end;
             gap: 12px;
-
+            
             .search-button,
             .close-button,
             .more-menu-button {
@@ -227,7 +227,10 @@
             }
 
             .close-button {
-                position: fixed;
+                // position: fixed;
+                position: -webkit-sticky;
+                position: sticky;
+                top: auto;
                 right: 23px;
 
                 svg {
@@ -242,7 +245,7 @@
 
             .slot-container {
                 transition-duration: 0s; // no transition on mobile
-                padding-top: 64px; // height of top bar
+                // padding-top: 64px; // height of top bar
             }
 
             .slot-container.is-opened-mobile {
@@ -363,12 +366,12 @@
 
         .mobile-menu-slot {
             display: block;
-            // position: fixed;
+            position: fixed;
             padding-top: 30px; // elements will appear to scroll behind this slot 30px above slot content
-            // z-index: 25;
-            // bottom: 0;
-            // width: calc(100% - 60px);
-            width: 100%;
+            z-index: 25;
+            bottom: 0;
+            width: calc(100% - 60px);
+            // width: 100%;
             background-color: $navy-blue;
         }
     }
