@@ -247,26 +247,6 @@ Highlighted or emphasized snippet of text content within another component (like
 
 [] BlockAssetPod (Luka)
 
-Vertical media block representing a digital library asset. Contains metadata, linked collection name, and optional image gallery.
-
-- title: string  
-- date: string  
-- resourceType: string  
-- description: string  
-- collection: [{ name: string, href: string }]  
-- thumbnails: Array<string>  
-- isCondensed?: boolean
-
-[] BlockAsset (austin)
-Card for an individual digital library asset.
-
-- image: string  
-- title: string  
-- date: string  
-- description: string  
-- href: string
-
-[] SearchResult  
 Horizontal row layout for a single digital asset, including image, metadata fields, and links.
 
 - title: string  
@@ -276,6 +256,15 @@ Horizontal row layout for a single digital asset, including image, metadata fiel
 - collection: { name: string, href: string }  
 - image: string  
 - onClick?: Function
+
+[] BlockAsset (austin)
+Card for an individual digital library asset.
+
+- image: string  
+- title: string  
+- date: string  
+- description: string  
+- href: string
 
 [] BlockCollection (Svebor)
 Visual card for a digital collection or category.
@@ -1100,7 +1089,6 @@ Behavior:
 | ExcerptPod                 |Svebor     | ☐ Complete  |   [ ]   | In the notes-accordion PR      |
 | BlockAssetPod              |Luka       | ☐ Complete  |   [ ]   |                                |
 | BlockAsset                 |Austin     | ☐ Complete  |   [ ]   |                                |
-| SearchResult               |           | ☐ Complete  |   [x]   |                                |
 | BlockCollection            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | MetadataTable              |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | BlockMediaViewer           |           | ☐ Complete  |   [ ]   |                                |
