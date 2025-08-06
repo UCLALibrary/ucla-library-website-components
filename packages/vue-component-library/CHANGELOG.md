@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.25.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.25.0...@ucla-library-monorepo/ucla-library-website-components-v1.25.1) (2025-08-06)
+
+
+### Bug Fixes
+
+* APPS-3324 dropdown matches width of share button ([#769](https://github.com/UCLALibrary/ucla-library-website-components/issues/769)) ([3b5b69d](https://github.com/UCLALibrary/ucla-library-website-components/commit/3b5b69dadf6e15bd54fbad0558a5df4a3eb51ef1))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.8...@ucla-library-monorepo/ucla-library-website-components-v1.25.0) (2025-08-01)
 
 
