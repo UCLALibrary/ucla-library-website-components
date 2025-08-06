@@ -12,6 +12,7 @@ import { useTheme } from '@/composables/useTheme'
 // UTILS
 import formatDates from '@/utils/formatEventDates'
 import formatSeriesDates from '@/utils/formatEventSeriesDates'
+import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 // CHILD COMPONENTS
 import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList.vue'
@@ -48,6 +49,11 @@ function parseDate(sectionHandle: string, startDate: string, endDate: string, on
     return format(new Date(date), 'MMMM d, Y')
   return null
 }
+function parsedTextAll(description: string) {
+  return description
+    ? removeHtmlTruncate(description, 250)
+    : ''
+}
 </script>
 
 <template>
@@ -76,7 +82,7 @@ function parseDate(sectionHandle: string, startDate: string, endDate: string, on
             v-if="theme === 'ftva' && item.description"
             #customFTVADescription
           >
-            <div v-html="item.description" />
+            {{ parsedTextAll(item.description) }}
           </template>
           <template
             v-if="theme === 'ftva' && parseDate(item.sectionHandle ?? '', item.startDate ?? '', item.endDate ?? '', item.ongoing ?? false, item.date ?? '')"
@@ -86,10 +92,6 @@ function parseDate(sectionHandle: string, startDate: string, endDate: string, on
                          item.date ?? '') }}
           </template>
         </BlockStaffArticleList>
-
-        <!-- :start-date="item.startDate"
-          :end-date="item.endDate"
-          :ongoing="item.ongoing" -->
       </ul>
     </div>
   </section>

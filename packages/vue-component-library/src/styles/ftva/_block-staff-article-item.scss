@@ -84,6 +84,10 @@
     border-radius: 10px;
     padding: 0;
 
+    .title {
+      @include truncate(2);
+    }
+    
     :deep(.media) {
       border-radius: 10px 10px 0 0;
     }
