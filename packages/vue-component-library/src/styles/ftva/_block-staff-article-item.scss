@@ -15,6 +15,12 @@
 
   }
 
+  .category {
+    @include ftva-subtitle-1;
+    font-size: 20px;
+    color: $accent-blue;
+  }
+
   .title {
     @include ftva-card-title-1;
     color: $heading-grey;
