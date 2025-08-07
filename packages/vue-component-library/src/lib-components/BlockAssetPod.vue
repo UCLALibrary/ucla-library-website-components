@@ -12,6 +12,7 @@ import type {
 interface MetaItem {
     readonly title: string
     readonly value: string | readonly LinkItem[]
+    readonly class?: string
 }
 
 // Props with defaults
@@ -46,6 +47,7 @@ const itemsMeta = computed((): readonly MetaItem[] => {
         items.push({
             title: "Date",
             value: props.date,
+            class: "date",
         })
     }
 
@@ -93,25 +95,27 @@ const handleLinkMouseLeave = (): void => {
             <h3 class="title">{{ title }}</h3>
 
             <ul class="items" v-if="itemsMeta.length">
-                <li v-for="item in itemsMeta" :key="item.title" class="item">
-                    <span class="item-title">{{ item.title }}</span>
-                    <span class="item-value">
-                        <template v-if="Array.isArray(item.value)">
-                            <SmartLink
-                                v-for="link in item.value"
-                                :key="link.text"
-                                :to="link.to"
-                                class="links"
-                                @mouseenter="handleLinkMouseEnter"
-                                @mouseleave="handleLinkMouseLeave"
-                                :aria-label="`Go to ${link.text}`"
-                            >
-                                {{ link.text }}
-                            </SmartLink>
-                        </template>
-                        <span v-else>{{ item.value }}</span>
-                    </span>
-                </li>
+                <template v-for="item in itemsMeta" :key="item.title">
+                    <li :class="['item', item.class]">
+                        <span class="item-title">{{ item.title }}</span>
+                        <span class="item-value">
+                            <template v-if="Array.isArray(item.value)">
+                                <SmartLink
+                                    v-for="link in item.value"
+                                    :key="link.text"
+                                    :to="link.to"
+                                    class="links"
+                                    @mouseenter="handleLinkMouseEnter"
+                                    @mouseleave="handleLinkMouseLeave"
+                                    :aria-label="`Go to ${link.text}`"
+                                >
+                                    {{ link.text }}
+                                </SmartLink>
+                            </template>
+                            <span v-else>{{ item.value }}</span>
+                        </span>
+                    </li>
+                </template>
             </ul>
         </div>
     </SmartLink>

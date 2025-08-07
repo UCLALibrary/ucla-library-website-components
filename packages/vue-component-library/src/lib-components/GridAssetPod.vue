@@ -6,19 +6,29 @@ import type { BlockAssetPodProps } from "@/types/components/blockAssetPods.types
 
 interface GridAssetPodProps {
     readonly items: readonly BlockAssetPodProps[]
+    readonly isGridLayout?: boolean
+    readonly hasTransition?: boolean
 }
 
 // Props
 const props = defineProps<GridAssetPodProps>()
 
 // Computeds
+const classes = computed(() =>
+    [
+        "grid-asset-pod",
+        "dlc",
+        props.isGridLayout && "is-grid-layout",
+        props.hasTransition && "has-transition",
+    ].filter(Boolean)
+)
 const hasItems = computed(() => props.items.length > 0)
 </script>
 
 <template>
     <div
         v-if="hasItems"
-        class="grid-asset-pod dlc"
+        :class="classes"
         :aria-label="`Asset grid with ${items.length} items`"
     >
         <div class="block-container" v-for="item in items" :key="item.title">

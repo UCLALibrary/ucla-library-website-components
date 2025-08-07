@@ -1,13 +1,79 @@
 .grid-asset-pod.dlc {
+    --columns-count: 1;
+    --row-gap: 24px;
+    --column-gap: 24px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--row-gap) var(--column-gap);
+
     .block-container {
+        --total-gutters: calc(
+            var(--columns-count) * var(--column-gap) - var(--column-gap)
+        );
+
+        width: calc(
+            (100% / var(--columns-count)) -
+                (var(--total-gutters) / var(--columns-count))
+        );
+
+        // Add divider
         border-bottom: 2px dotted var(--color-secondary-grey-03);
-        padding-bottom: 24px;
-        margin-bottom: 24px;
+        padding-bottom: var(--row-gap);
 
         &:last-child {
             border-bottom: none;
-            margin-bottom: 0;
             padding-bottom: 0;
+        }
+    }
+
+    &.has-transition {
+        .block-container {
+            transition: all 0.4s ease-in-out;
+        }
+    }
+
+    // Change layout based on isGridLayout prop
+    &.is-grid-layout {
+        --columns-count: 4;
+
+        :deep(.block-asset-pod) {
+            flex-direction: column;
+
+            .image {
+                width: 100%;
+            }
+
+            .item:not(.date) {
+                display: none;
+            }
+            .item.date .item-title {
+                display: none;
+            }
+        }
+
+        // Remove divider
+        .block-container {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+        --row-gap: 20px;
+        --column-gap: 20px;
+
+        &.is-grid-layout {
+            --columns-count: 3;
+        }
+    }
+    @media #{$small} {
+        --row-gap: 16px;
+        --column-gap: 16px;
+
+        &.is-grid-layout {
+            --columns-count: 2;
         }
     }
 }
