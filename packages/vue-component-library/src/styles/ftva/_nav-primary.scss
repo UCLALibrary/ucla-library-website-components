@@ -365,13 +365,11 @@
 
         .mobile-menu-slot {
             display: block;
-            // position: fixed;
             position: absolute;
             z-index: 25;
             bottom: 0;
             width: calc(100% - 60px);
             background-color: $navy-blue;
-            background-color: red;
         }
     }
 }
