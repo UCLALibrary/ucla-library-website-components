@@ -1,6 +1,7 @@
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
 import GridAssetPod from "@/lib-components/GridAssetPod.vue"
+import { computed } from "vue"
 
 export default {
     title: "Funkhaus / GridAssetPod",
@@ -168,6 +169,11 @@ export const Default = {
             },
         },
         components: { GridAssetPod },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         template: `
             <div>
                 <button @click="handleChangeLayout" style="margin-bottom: 20px; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
@@ -198,6 +204,11 @@ export const WithTransition = {
             },
         },
         components: { GridAssetPod },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         template: `
             <div>
                 <button @click="handleChangeLayout" style="margin-bottom: 20px; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">

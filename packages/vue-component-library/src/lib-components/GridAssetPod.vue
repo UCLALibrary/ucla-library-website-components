@@ -3,7 +3,11 @@
 import { computed } from "vue"
 import BlockAssetPod from "@/lib-components/BlockAssetPod.vue"
 import type { BlockAssetPodProps } from "@/types/components/blockAssetPods.types"
+import { useTheme } from "@/composables/useTheme"
 
+const theme = useTheme()
+
+// Types
 interface GridAssetPodProps {
     readonly items: readonly BlockAssetPodProps[]
     readonly isGridLayout?: boolean
@@ -11,13 +15,17 @@ interface GridAssetPodProps {
 }
 
 // Props
-const props = defineProps<GridAssetPodProps>()
+const props = withDefaults(defineProps<GridAssetPodProps>(), {
+    items: () => [],
+    isGridLayout: false,
+    hasTransition: false,
+})
 
 // Computeds
 const classes = computed(() =>
     [
         "grid-asset-pod",
-        "dlc",
+        theme?.value || "",
         props.isGridLayout && "is-grid-layout",
         props.hasTransition && "has-transition",
     ].filter(Boolean)

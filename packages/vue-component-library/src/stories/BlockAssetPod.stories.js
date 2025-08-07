@@ -1,6 +1,7 @@
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
 import BlockAssetPod from "@/lib-components/BlockAssetPod.vue"
+import { computed } from "vue"
 
 export default {
     title: "Funkhaus / BlockAssetPod",
@@ -42,6 +43,11 @@ export const Default = {
             }
         },
         components: { BlockAssetPod },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         template,
     }),
 }
@@ -57,6 +63,11 @@ export const WithoutResourceType = {
             }
         },
         components: { BlockAssetPod },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         template,
     }),
 }
@@ -72,6 +83,11 @@ export const WithoutCollection = {
             }
         },
         components: { BlockAssetPod },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         template,
     }),
 }
@@ -87,6 +103,11 @@ export const WithoutDate = {
             }
         },
         components: { BlockAssetPod },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         template,
     }),
 }
@@ -102,6 +123,11 @@ export const WithoutDescription = {
             }
         },
         components: { BlockAssetPod },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         template,
     }),
 }
@@ -117,6 +143,11 @@ export const WithoutTitle = {
             }
         },
         components: { BlockAssetPod },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         template,
     }),
 }
@@ -132,6 +163,11 @@ export const WithoutImage = {
             }
         },
         components: { BlockAssetPod },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         template,
     }),
 }
@@ -147,6 +183,11 @@ export const WithoutMeta = {
             }
         },
         components: { BlockAssetPod },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         template,
     }),
 }

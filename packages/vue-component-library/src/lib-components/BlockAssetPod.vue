@@ -7,6 +7,9 @@ import type {
     BlockAssetPodProps,
     LinkItem,
 } from "@/types/components/blockAssetPods.types"
+import { useTheme } from "@/composables/useTheme"
+
+const theme = useTheme()
 
 // Types
 interface MetaItem {
@@ -17,8 +20,6 @@ interface MetaItem {
 
 // Props with defaults
 const props = withDefaults(defineProps<BlockAssetPodProps>(), {
-    date: undefined,
-    description: undefined,
     resourceType: () => [],
     collection: () => [],
 })
@@ -29,7 +30,7 @@ const isHoveringLink = ref(false)
 // Computed
 const classes = computed(() => [
     "block-asset-pod",
-    "dlc",
+    theme?.value || "",
     { "is-hovering-link": isHoveringLink.value },
 ])
 
