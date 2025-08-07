@@ -1,4 +1,5 @@
 import SearchField from "@/lib-components/SearchField"
+import { computed } from "vue"
 
 export default {
     title: "Funkhaus / SearchField",
@@ -27,6 +28,11 @@ const methods = {
 export function Default() {
     return {
         components: { SearchField },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         data() {
             return {
                 props: { placeholder: "Search Library" },
@@ -41,6 +47,11 @@ export function Default() {
 export function WithoutClearIcon() {
     return {
         components: { SearchField },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         data() {
             return {
                 props: { placeholder: "Search Archives", clearIcon: false },
@@ -55,6 +66,11 @@ export function WithoutClearIcon() {
 export function WithoutClearOnEsc() {
     return {
         components: { SearchField },
+        provide() {
+            return {
+                theme: computed(() => "dlc"),
+            }
+        },
         data() {
             return {
                 props: { placeholder: "Search Catalog", clearOnEsc: false },

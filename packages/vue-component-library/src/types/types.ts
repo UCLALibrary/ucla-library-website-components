@@ -299,7 +299,7 @@ export interface TopicsItemType {
     title: string
 }
 
-export type EntryFieldProps = {
+export interface EntryFieldProps {
     modelValue?: string
     wrapperClass?: string
     clearIcon?: boolean

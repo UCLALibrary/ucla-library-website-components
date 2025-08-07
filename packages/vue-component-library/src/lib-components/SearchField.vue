@@ -1,12 +1,16 @@
 <script setup lang="ts">
 // Imports
-import { ref } from "vue"
+import { computed, ref } from "vue"
 import type { EntryFieldProps } from "@/types/types"
 
 import ButtonSubmit from "./ButtonSubmit.vue"
 import EntryField from "./EntryField.vue"
+import { useTheme } from "@/composables/useTheme"
 
 const emit = defineEmits(["submit"])
+const theme = useTheme()
+
+// Types
 type SearchFieldProps = Omit<EntryFieldProps, "modelValue"> & {
     placeholder?: string
 }
@@ -24,6 +28,11 @@ const props = withDefaults(defineProps<SearchFieldProps>(), {
 // Data
 const searchValue = ref<string>("")
 
+// Computed
+const classes = computed(() => {
+    return ["search-field", theme?.value || ""]
+})
+
 // Methods
 const submitSearch = () => {
     emit("submit", searchValue.value)
@@ -31,22 +40,12 @@ const submitSearch = () => {
 </script>
 
 <template>
-    <form
-        class="search-field"
-        name="searchField"
-        @submit.prevent="submitSearch"
-    >
+    <form :class="classes" name="searchField" @submit.prevent="submitSearch">
         <EntryField v-model="searchValue" v-bind="props" />
         <ButtonSubmit class="button-submit" />
     </form>
 </template>
 
 <style lang="scss" scoped>
-.search-field {
-    display: flex;
-
-    .search-input-wrapper {
-        flex: 1;
-    }
-}
+@import "@/styles/dlc/_search-field.scss";
 </style>
