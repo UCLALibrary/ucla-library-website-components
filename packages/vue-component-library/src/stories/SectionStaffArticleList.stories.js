@@ -151,22 +151,34 @@ export function FtvaSearchResultsArticle() {
     template: `
         <component is="style" type="text/css">
     .stories-ftva-search-articles .ftva.block-staff-article-item {
-       .image { width:500px;}
+       .image { width:240px; height: 224px;}
       .molecule-no-image {
-        width: 500px;
-        height: 213px;
-        aspect-ratio: 3 / 1;
+        width: 240px;
+        height: 224px;
       }
       .ftva-date {
-        @include ftva-subtitle-2;
-        color: $subtitle-grey;
+        font-family: $font-primary;
+        font-size: 18px;
+        font-weight: $font-weight-medium;
+        color: #676767;
       }
     }
       @media only screen and (max-width: 750px) {
       .stories-ftva-search-articles.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
       margin-bottom: 20px;
       .meta{
-            height: 255px;
+            height: unset;
+            .ftva-description {
+              margin-bottom: 12px;
+              overflow: hidden;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+            }
+            .ftva-date{
+              position: unset;
+              bottom: unset;
+            }
           }
       }
      .ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item{
@@ -205,22 +217,27 @@ export function FtvaSearchResultsCollections() {
     template: `
         <component is="style" type="text/css">
     .stories-ftva-search-collections .ftva.block-staff-article-item {
-     .image { width:500px;}
+      .image { width:240px; height: 224px;}
       .molecule-no-image {
-        width: 500px;
-        height: 213px;
-        aspect-ratio: 3 / 1;
+        width: 240px;
+        height: 224px;
       }
       .ftva-date {
-        @include ftva-subtitle-2;
-        color: $subtitle-grey;
+       display: none;
       }
     }
       @media only screen and (max-width: 750px) {
-      .stories-ftva-search-collections.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
+       .stories-ftva-search-collections.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
       margin-bottom: 20px;
       .meta{
-            height: 255px;
+            height: unset;
+            .ftva-description {
+              margin-bottom: 12px;
+              overflow: hidden;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+            }
           }
       }
      .ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item{
@@ -258,23 +275,27 @@ export function FtvaSearchResultsGC() {
     template: `
     <component is="style" type="text/css">
     .stories-ftva-general-content .ftva.block-staff-article-item {
-      .image { width:500px;}
-     
+      .image { width:240px; height: 224px;}
       .molecule-no-image {
-        width: 500px;
-        height: 213px;
-        aspect-ratio: 3 / 1;
+        width: 240px;
+        height: 224px;
       }
       .ftva-date {
-        @include ftva-subtitle-2;
-        color: $subtitle-grey;
+       display: none;
       }
     }
      @media only screen and (max-width: 750px) {
-     .stories-ftva-general-content.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
+     .stories-ftva-search-articles.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
       margin-bottom: 20px;
       .meta{
-            height: 255px;
+            height: unset;
+            .ftva-description {
+              margin-bottom: 12px;
+              overflow: hidden;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+            }
           }
       }
      .ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item{
