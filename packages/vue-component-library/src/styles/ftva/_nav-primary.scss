@@ -165,6 +165,7 @@
 
         &.is-opened-mobile {
             height: 100vh;
+            overflow-y: scroll;
             overflow-x: hidden;
             padding-bottom: 110px; //offset for space behind floating donate button
         }
@@ -364,11 +365,13 @@
 
         .mobile-menu-slot {
             display: block;
-            position: fixed;
+            // position: fixed;
+            position: absolute;
             z-index: 25;
             bottom: 0;
             width: calc(100% - 60px);
             background-color: $navy-blue;
+            background-color: red;
         }
     }
 }
