@@ -165,9 +165,8 @@
 
         &.is-opened-mobile {
             height: 100vh;
-            // overflow-y: scroll;
+            overflow-y: scroll;
             overflow-x: hidden;
-            padding-bottom: 110px; //offset for space behind floating donate button
         }
 
         .item-top-mobile {
