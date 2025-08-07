@@ -118,7 +118,7 @@ function handleActbExpandedStyle(e) {
 - Show "Copied Link" icon for 4secs
 */
 function handleCopiedLink() {
-  navigator.clipboard.writeText(route.fullPath)
+  navigator.clipboard.writeText(window.location.origin + route.fullPath)
   isLinkCopied.value = true
 
   setTimeout(() => {
