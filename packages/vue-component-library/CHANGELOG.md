@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.26.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.25.1...@ucla-library-monorepo/ucla-library-website-components-v1.26.0) (2025-08-07)
+
+
+### Features
+
+* APPS-3221 APPS-3219 change max width and text, text image ([#770](https://github.com/UCLALibrary/ucla-library-website-components/issues/770)) ([1b666b8](https://github.com/UCLALibrary/ucla-library-website-components/commit/1b666b82c4d4a72a175867b3d568969ef9f66e66))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.25.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.25.0...@ucla-library-monorepo/ucla-library-website-components-v1.25.1) (2025-08-06)
 
 
