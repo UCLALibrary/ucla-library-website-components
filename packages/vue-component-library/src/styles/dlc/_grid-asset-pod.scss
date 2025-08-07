@@ -1,0 +1,13 @@
+.grid-asset-pod.dlc {
+    .block-container {
+        border-bottom: 2px dotted var(--color-secondary-grey-03);
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+
+        &:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+}

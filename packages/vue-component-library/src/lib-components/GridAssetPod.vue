@@ -18,7 +18,7 @@ const hasItems = computed(() => props.items.length > 0)
 <template>
     <div
         v-if="hasItems"
-        class="grid-asset-pod"
+        class="grid-asset-pod dlc"
         :aria-label="`Asset grid with ${items.length} items`"
     >
         <div class="block-container" v-for="item in items" :key="item.title">
@@ -36,17 +36,5 @@ const hasItems = computed(() => props.items.length > 0)
 </template>
 
 <style lang="scss" scoped>
-.grid-asset-pod {
-    .block-container {
-        border-bottom: 2px dotted var(--color-secondary-grey-03);
-        padding-bottom: 24px;
-        margin-bottom: 24px;
-
-        &:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-    }
-}
+@import "@/styles/dlc/_grid-asset-pod.scss";
 </style>
