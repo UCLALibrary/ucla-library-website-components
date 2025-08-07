@@ -28,6 +28,25 @@
         position: absolute;
         display: flex;
 
+        // add css 'wings' to fill sides of large screen with menu bg color
+        &::after,
+        &::before {
+            display: block;
+            overflow: visible;
+            position: absolute;
+            left: -500px;
+            bottom: 0px;
+            content: '';
+            height: 100%;
+            max-height: 400px;
+            width: 500px;
+            background-color: $navy-blue;
+        }
+
+        &::after {
+            left: 100%;
+        }
+
         .section-name {
             font-size: 20px;
         }
@@ -103,6 +122,25 @@
             transition-duration: .2s;
             transition-timing-function: ease-in-out;
 
+            // add css 'wings' to fill sides of large screen with menu bg color
+            &::after,
+            &::before {
+                display: block;
+                overflow: visible;
+                position: absolute;
+                left: -500px;
+                bottom: 0px;
+                content: '';
+                height: 100%;
+                max-height: 400px;
+                width: 500px;
+                background-color: $navy-blue;
+            }
+
+            &::after {
+                left: 100%;
+            }
+            
             &.is-opened {
                 transform: scaleY(1);
             }
