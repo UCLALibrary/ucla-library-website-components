@@ -3,9 +3,10 @@
   background-color: white;
 
   .image {
-    width: 284px;
-    height: 213px;
-    aspect-ratio: 4/3;
+    min-width: 240px; // variable based on page template and aspect ratio
+    width: unset; // unset default styling
+    height: unset; // allows aspect ratio to determine height
+    aspect-ratio: 4/3; // variable based on page template
     margin-right: var(--space-xl);
   }
 
