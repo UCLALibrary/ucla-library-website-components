@@ -2,6 +2,7 @@
  
   background-color: white;
 
+  .molecule-no-image,
   .image {
     min-width: 240px; // variable based on page template and aspect ratio
     width: unset; // unset default styling
@@ -69,6 +70,7 @@
     letter-spacing: .04px;
     position: absolute;
     bottom: 0;
+    margin-top: auto;
   }
 
   // Breakpoints
