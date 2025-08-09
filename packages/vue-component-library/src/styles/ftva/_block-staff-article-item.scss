@@ -1,5 +1,5 @@
 .ftva.block-staff-article-item {
-  --image-min-width: 400px;
+  --image-min-width: 384px;
   --image-aspect-ratio: 4/3;
  
   background-color: white;
@@ -77,8 +77,6 @@
   }
 
   &.articles-listing {
-    --image-min-width: 400px;
-    
     .ftva-date {
       color: $subtitle-grey;
       font-family: var(--font-secondary);
@@ -90,8 +88,6 @@
   }
 
   &.event-series-listing {
-    --image-min-width: 400px;
-
     .meta {
       margin: 36px 0;
     }
