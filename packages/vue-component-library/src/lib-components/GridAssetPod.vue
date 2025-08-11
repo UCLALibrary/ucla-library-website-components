@@ -4,6 +4,7 @@ import { computed } from "vue"
 import BlockAssetPod from "@/lib-components/BlockAssetPod.vue"
 import type { BlockAssetPodProps } from "@/types/components/blockAssetPods.types"
 import { useTheme } from "@/composables/useTheme"
+import DividerGeneral from "./DividerGeneral.vue"
 
 const theme = useTheme()
 
@@ -31,6 +32,14 @@ const classes = computed(() =>
     ].filter(Boolean)
 )
 const hasItems = computed(() => props.items.length > 0)
+
+// Methods
+const isLastItem = (
+    item: BlockAssetPodProps,
+    items: readonly BlockAssetPodProps[]
+) => {
+    return items.indexOf(item) === items.length - 1
+}
 </script>
 
 <template>
@@ -48,6 +57,12 @@ const hasItems = computed(() => props.items.length > 0)
                 :resource-type="item.resourceType"
                 :collection="item.collection"
                 :image="item.image"
+            />
+
+            <DividerGeneral
+                v-if="!isLastItem(item, items)"
+                class="divider-general"
+                is-bold
             />
         </div>
     </div>

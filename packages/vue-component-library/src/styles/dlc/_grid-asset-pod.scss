@@ -1,4 +1,4 @@
-.grid-asset-pod.dlc {
+.dlc.grid-asset-pod {
     --columns-count: 1;
     --row-gap: 24px;
     --column-gap: 24px;
@@ -16,15 +16,13 @@
             (100% / var(--columns-count)) -
                 (var(--total-gutters) / var(--columns-count))
         );
-
-        // Add divider
-        border-bottom: 2px dotted var(--color-secondary-grey-03);
+    }
+    // Add divider
+    .divider-general {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
         padding-bottom: var(--row-gap);
-
-        &:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
     }
 
     &.has-transition {
@@ -53,9 +51,8 @@
         }
 
         // Remove divider
-        .block-container {
-            border-bottom: none;
-            padding-bottom: 0;
+        .divider-general {
+            display: none;
         }
     }
 
