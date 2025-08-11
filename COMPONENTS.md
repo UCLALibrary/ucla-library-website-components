@@ -135,11 +135,6 @@ Reusable dropdown with configurable button label and menu options.
 - selected: string  
 - onSelect: Function(option: string)
 
-[] SideMenuAccordionPod  
-Expandable side menu category pod with grouped buttons and optional metadata (e.g. counts).
-
-- categories: Array<{ label: string, buttons: Array<{ title: string, count: number }> }>  
-- onSelect: Function(buttonTitle: string)
 
 [] ButtonDropdownSearch
 Set of dropdowns to filter/search content by fields like “Title” or “Subject.”
@@ -148,12 +143,6 @@ Set of dropdowns to filter/search content by fields like “Title” or “Subje
 - options: Array<string>  
 - selected: string  
 - onSelect: Function(option: string)
-
-[] ButtonSubCategoryPod  
-Grouped buttons with category tags and close/removal options.
-
-- items: Array<{ title: string, count: number, removable?: boolean }>  
-- onRemove: Function(item: string)
 
 [] ButtonUCLALibrariesDropdown  
 Dropdown for selecting from multiple library collections. Appears in tag-chip format.
@@ -268,11 +257,6 @@ Reused section heading (also already defined under `BlockTitle`).
 - level?: 'h2' | 'h3'  
 - id?: string (used for anchor targets)
 
-[] BlockButtonList  
-Vertical or horizontal list of buttons linking to specific tools or resources.
-
-- buttons: Array<{ label: string, href: string, variant?: string }>
-
 ## Grids
 
 [] GridAssets (austin)
@@ -312,12 +296,6 @@ Search submit button, typically displayed as a magnifying glass icon.
 - onClick: Function  
 - icon?: string (defaults to magnifying glass)
 
-[] Flash  
-Placeholder or quick-access UI element — possibly for suggestions or previous searches.
-
-- content?: string | slot  
-- onClick?: Function
-
 ## Bento Box
 
 [] BentoBoxBlock (Svebor)
@@ -342,15 +320,6 @@ Horizontal scrollable container of `BentoPod`(Aka: BentoBoxBlock - new addition 
 - showDragger: boolean  
 - onScroll?: Function
 
-[] Dragger  
-NOTE: This seems like it's the `BentoBoxResult` component, that components has the dragger built into it.
-A draggable horizontal scrollbar component. Should be synced with scroll container state and optionally labeled with a property.
-
-- trackWidth: number  
-- thumbWidth: number  
-- position: number  
-- label?: string  
-- onDrag: Function(newPosition: number)
 
 ## Header
 
@@ -418,20 +387,6 @@ Large asset viewer for images or media, with zoom/download/fullscreen buttons.
 - allowDownload?: boolean  
 - allowFullscreen?: boolean
 
-[] DetailOverview  
-note: This seem like a grid component containing "MetadataTable" as blocks. It seeem like this grid can have a complex layout so let's talk about it before someone decides to take this component.
-
-Two-column layout for structured metadata. Used for "Item Overview" and "Find this Item."
-
-- left: Array<{ label: string, value: string | VNode }>  
-- right: Array<{ label: string, value: string | VNode }>
-
-[] SectionKeywords  
-This seem redundant - we already have this component named "MetadaTable". Delete this component definition ("SectionKeyword") after checking if MetadataTable has everything needed for displaying "SectionKeywords" 
-Displays a list of linked subjects, genres, and related tags.
-
-- title?: string  
-- keywords: Array<{ label: string, href?: string }>
 
 [] CollectionOverview (Luka)
 
@@ -443,19 +398,6 @@ Introductory section for a collection page with title, summary text, and preview
 - image: string  
 - ctaLabel: string  
 - ctaHref: string
-
-[] CollectionFind
-This component seems like it should be MetadataTable as well. Please let's talk about this component before someone decides to take it.
-
-Displays linked metadata for locating a collection, including identifiers and URLs.
-
-- title?: string (default: "Find this Collection")  
-- repository: { label: string, href: string }  
-- localId: string  
-- ark: string  
-- opacUrl?: string  
-- findingAidUrl?: string  
-- manifestUrl?: { icon?: string, href: string, copyButtonLabel?: string }
 
 # Pages
 
@@ -1022,7 +964,7 @@ Behavior:
 
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
-| Button                     |           | ☐ Complete  |   [x]   | Needs a font change            |
+| Button                     |           | ☐ Complete  |   [x]   |                                |
 | DividerGeneral             |           | ☐ Complete  |   [x]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonTag                  |Luka       | ☐ Complete  |   [x]   | aka: BlockTag                  |
@@ -1038,9 +980,7 @@ Behavior:
 | RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
 | FiltersDropdown            |           | ☐ Complete  |   [x]   |                                |
 | DropdownSingleSelect       |           | ☐ Complete  |   [x]   |                                |
-| SideMenuAccordionPod       |           | ☐ Complete  |   [ ]   |                                |
 | ButtonDropdownSearch       |           | ☐ Complete  |   [ ]   |                                |
-| ButtonSubCategoryPod       |           | ☐ Complete  |   [ ]   |                                |
 | ButtonUCLALibrariesDropdown|           | ☐ Complete  |   [ ]   |                                |
 | YearRangeFilter            |           | ☐ Complete  |   [x]   | aka DateFilter?                |
 | BentoPod                   |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
@@ -1060,19 +1000,14 @@ Behavior:
 | SearchField                |Luka       | ☐ Complete  |   [x]   |                                |
 | EntryField                 |Luka       | ☐ Complete  |   [ ]   |                                |
 | ButtonSubmit               |Luka       | ☐ Complete  |   [ ]   |                                |
-| Flash                      |           | ☐ Complete  |   [ ]   |                                |
 | BentoBoxBlock              |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
 | BentoBoxResult             |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
-| Dragger                    |           | ☐ Complete  |   [ ]   |                                |
 | Banner                     |           | ☐ Complete  |   [ ]   |                                |
 | Header                     |           | ☐ Complete  |   [x]   | aka: HeaderSite                |
 | NewsletterSignup           |           | ☐ Complete  |   [x]   | Exists in footer-primary       |
 | DetailHeader               |Luka       | ☐ Complete  |   [ ]   | aka: ItemHeaderBar             |
 | DetailMedia                |           | ☐ Complete  |   [ ]   | aka: ViewerMedia               |
-| DetailOverview             |           | ☐ Complete  |   [ ]   | aka: MetadataSplitPanel        |
-| SectionKeywords            |           | ☐ Complete  |   [ ]   |                                |
 | CollectionOverview         |Luka       | ☐ Complete  |   [ ]   |                                |
-| CollectionFind             |           | ☐ Complete  |   [ ]   | aka: CollectionReferencePanel  |
 | BannerFeatured             |Luka       | ☐ Complete  |   [x]   |                                |
 | BlockTitle                 |Luka       | ☐ Complete  |   [ ]   |                                |
 | BlockButtons               |Luka       | ☐ Complete  |   [ ]   |                                |
