@@ -1,8 +1,8 @@
-.button-page-view {
+.button-page-view.dlc {
     display: flex;
     gap: 2px;
 
-    .button-page-view {
+    .button-wrapper {
         display: flex;
         align-items: center;
         position: relative;
@@ -49,7 +49,7 @@
 
     // Hover states
     @media #{$has-hover} {
-        .button-page-view:hover {
+        .button-wrapper:hover {
             background-color: var(--color-primary-blue-03);
             :deep(svg) {
                 rect {

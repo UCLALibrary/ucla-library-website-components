@@ -2,7 +2,9 @@
 // Imports
 import SvgList from "ucla-library-design-tokens/assets/svgs/icon-list.svg"
 import SvgGrid from "ucla-library-design-tokens/assets/svgs/icon-card.svg"
-import { defineEmits, defineProps } from "vue"
+import { defineEmits, defineProps, computed } from "vue"
+import { useTheme } from "@/composables/useTheme"
+const theme = useTheme()
 
 // Props
 type PageViewToggleProps = {
@@ -15,6 +17,10 @@ const props = withDefaults(defineProps<PageViewToggleProps>(), {
 // Emits
 const emit = defineEmits(["update:pageView"])
 
+// Computed
+const classes = computed(() => ["button-page-view", theme?.value || ""])
+const isListView = computed(() => props.pageView === "list")
+const isGridView = computed(() => props.pageView === "grid")
 // Methods
 function setView(view: "list" | "grid") {
     if (view !== props.pageView) emit("update:pageView", view)
@@ -22,22 +28,23 @@ function setView(view: "list" | "grid") {
 </script>
 
 <template>
-    <div class="button-page-view">
+    <div :class="classes">
         <button
-            class="button-page-view"
-            :class="{ active: pageView === 'list' }"
+            class="button-wrapper"
+            :class="{ active: isListView }"
             type="button"
-            :aria-pressed="pageView === 'list'"
+            :aria-pressed="isListView"
             aria-label="List view"
             @click="setView('list')"
         >
             <SvgList class="icon" />
         </button>
+
         <button
-            class="button-page-view"
-            :class="{ active: pageView === 'grid' }"
+            class="button-wrapper"
+            :class="{ active: isGridView }"
             type="button"
-            :aria-pressed="pageView === 'grid'"
+            :aria-pressed="isGridView"
             aria-label="Grid view"
             @click="setView('grid')"
         >
