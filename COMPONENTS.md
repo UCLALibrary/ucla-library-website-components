@@ -993,7 +993,6 @@ Behavior:
 | BlockMediaViewer           |           | ☐ Complete  |   [ ]   |                                |
 | BlockRichText              |           | ☐ Complete  |   [ ]   |                                |
 | SectionHeader              |           | ☐ Complete  |   [x]   |                                |
-| BlockButtonList            |           | ☐ Complete  |   [ ]   |                                |
 | GridAssets                 |Austin     | ☐ Complete  |   [ ]   |                                |
 | GridCollections            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | GridAssetPod               |Luka       | ☐ Complete  |   [ ]   |                                |
