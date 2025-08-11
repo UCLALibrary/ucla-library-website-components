@@ -109,18 +109,45 @@ function generateLeftPages() {
       leftPages.value.push(i)
   }
 }
+
 function setPaginationMaxPages(width: number) {
   // fail gracefully with 10 as a the default
   if (!initialCurrentPage || !pages)
     return 10
 
+  // Conditional checks needed when using getBoundingClientRect() and getComputedStyle() to ensure that referenced/calculated elements exist in the DOM on mount/load, otherwise set initial value(s) to zero or null to avoid console errors
+
   // get width of buttons
   const button = document.getElementsByClassName('pButton')[0]
-  const buttonWidth = Math.ceil(button.getBoundingClientRect().width)
-  const buttonMargin = getComputedStyle(button).marginRight
+  let buttonWidth
+  let buttonMargin
+
+  if (button) {
+    buttonWidth = Math.ceil(button.getBoundingClientRect().width)
+    buttonMargin = getComputedStyle(button).marginRight
+  }
+  else {
+    buttonWidth = 0
+    buttonMargin = '0'
+  }
+
   const itemWidth = Math.ceil(buttonWidth + (Number.parseInt(buttonMargin) * 2) + 1) // we add 1 to give us a little leeway
-  const prevButtonWidth = Math.ceil(document.getElementsByClassName('previous')[0].getBoundingClientRect().width + 10)
-  const nextButtonWidth = Math.ceil(document.getElementsByClassName('next')[0].getBoundingClientRect().width + 10)
+
+  const prevBtn = document.getElementsByClassName('previous')[0]
+  const nextBtn = document.getElementsByClassName('next')[0]
+  let prevButtonWidth
+  let nextButtonWidth
+
+  if (prevBtn)
+    prevButtonWidth = Math.ceil(document.getElementsByClassName('previous')[0].getBoundingClientRect().width + 10)
+  else
+    prevButtonWidth = 0
+
+  if (nextBtn)
+    nextButtonWidth = Math.ceil(document.getElementsByClassName('next')[0].getBoundingClientRect().width + 10)
+  else
+    nextButtonWidth = 0
+
   // calc # of buttons that can fit
   // take width minus the width of: 2 page buttons (last button and '...'), 2 prev/next buttons
   const MaxButtons = Math.max(0, Math.floor(+((width - (prevButtonWidth + nextButtonWidth + (itemWidth * 2))) / itemWidth).toFixed(2)))

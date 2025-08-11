@@ -1,3 +1,94 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.8...@ucla-library-monorepo/ucla-library-website-components-v1.25.0) (2025-08-01)
+
+
+### Features
+
+* APPS-3378 add SingleItem mode to ScrollWrapper ([#763](https://github.com/UCLALibrary/ucla-library-website-components/issues/763)) ([f599df2](https://github.com/UCLALibrary/ucla-library-website-components/commit/f599df2718796a58be650bde1460791ed91d1d75))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.8](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.7...@ucla-library-monorepo/ucla-library-website-components-v1.24.8) (2025-07-31)
+
+
+### Bug Fixes
+
+* APPS-3031 Update category color and font-size for staff-article-list ([#764](https://github.com/UCLALibrary/ucla-library-website-components/issues/764)) ([7385528](https://github.com/UCLALibrary/ucla-library-website-components/commit/738552896a016fa3c9f4dcfee22fef58c3471dcd))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.6...@ucla-library-monorepo/ucla-library-website-components-v1.24.7) (2025-07-28)
+
+
+### Bug Fixes
+
+* APPS-3382 search bar disappears after search event occurs ([#762](https://github.com/UCLALibrary/ucla-library-website-components/issues/762)) ([deeb321](https://github.com/UCLALibrary/ucla-library-website-components/commit/deeb3218fb5d9ee4540754f3df3bcbf8a219e724))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.5...@ucla-library-monorepo/ucla-library-website-components-v1.24.6) (2025-07-24)
+
+
+### Bug Fixes
+
+*  APPS-3346 navbar reacts properly when screen size is small ([#761](https://github.com/UCLALibrary/ucla-library-website-components/issues/761)) ([a144e37](https://github.com/UCLALibrary/ucla-library-website-components/commit/a144e370d23404471973ec40879efc35bd8b0187))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.4...@ucla-library-monorepo/ucla-library-website-components-v1.24.5) (2025-07-23)
+
+
+### Bug Fixes
+
+* update nav bar to overlay in all positions ([#759](https://github.com/UCLALibrary/ucla-library-website-components/issues/759)) ([ec28ea1](https://github.com/UCLALibrary/ucla-library-website-components/commit/ec28ea1619903a0410ed82e922e79431c8fe0284))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.3...@ucla-library-monorepo/ucla-library-website-components-v1.24.4) (2025-07-21)
+
+
+### Bug Fixes
+
+* APPS-3105 Fix getBoundingClientRect error in Pagination component ([#757](https://github.com/UCLALibrary/ucla-library-website-components/issues/757)) ([476fcd7](https://github.com/UCLALibrary/ucla-library-website-components/commit/476fcd73b6cf86f6e888b6868c6491be9e973691))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.2...@ucla-library-monorepo/ucla-library-website-components-v1.24.3) (2025-07-21)
+
+
+### Bug Fixes
+
+* clear filters when clear btn is clicked ([#756](https://github.com/UCLALibrary/ucla-library-website-components/issues/756)) ([95d6c4a](https://github.com/UCLALibrary/ucla-library-website-components/commit/95d6c4a096dc814dd14cf01073f84aed31a03ae4))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.1...@ucla-library-monorepo/ucla-library-website-components-v1.24.2) (2025-07-11)
+
+
+### Bug Fixes
+
+* APPS-3358 Fix typeMedia parsing error in FlexMediaWithText ([#755](https://github.com/UCLALibrary/ucla-library-website-components/issues/755)) ([9542074](https://github.com/UCLALibrary/ucla-library-website-components/commit/954207414ee0852f44255c66a66da380654fd240))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.0...@ucla-library-monorepo/ucla-library-website-components-v1.24.1) (2025-07-09)
+
+
+### Bug Fixes
+
+* APPS-3342 Update cardThreeColumn to include category/series title above the main title ([#752](https://github.com/UCLALibrary/ucla-library-website-components/issues/752)) ([3dec01c](https://github.com/UCLALibrary/ucla-library-website-components/commit/3dec01c057632e4cb85d2dfec3047af9de4bd0f1))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.24.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.23.0...@ucla-library-monorepo/ucla-library-website-components-v1.24.0) (2025-07-08)
+
+
+### Features
+
+* add alt text ([#754](https://github.com/UCLALibrary/ucla-library-website-components/issues/754)) ([230b570](https://github.com/UCLALibrary/ucla-library-website-components/commit/230b570854a0f6138d23837b3dfae4ac12125a2c))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.23.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.22.1...@ucla-library-monorepo/ucla-library-website-components-v1.23.0) (2025-07-08)
+
+
+### Features
+
+* APPS-3376 create image slider component ([#751](https://github.com/UCLALibrary/ucla-library-website-components/issues/751)) ([2cac84f](https://github.com/UCLALibrary/ucla-library-website-components/commit/2cac84f000a8b1952ec8bdd9011f1dcf3899fbc6))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.22.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.22.0...@ucla-library-monorepo/ucla-library-website-components-v1.22.1) (2025-07-07)
+
+
+### Bug Fixes
+
+* APPS-3379 Fix FTVA Homepage Carousel mobile layout ([#753](https://github.com/UCLALibrary/ucla-library-website-components/issues/753)) ([b58bc6b](https://github.com/UCLALibrary/ucla-library-website-components/commit/b58bc6b38ac7252aeb8b8411d4ef8f3b8f89029e))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.22.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.21.0...@ucla-library-monorepo/ucla-library-website-components-v1.22.0) (2025-07-03)
+
+
+### Features
+
+* APPS-2805 Update Lightbox Theme for FTVA Homepage ([#748](https://github.com/UCLALibrary/ucla-library-website-components/issues/748)) ([4d538ec](https://github.com/UCLALibrary/ucla-library-website-components/commit/4d538eca832f81f3ced2b67dd6b39c396b222dea))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.21.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.20.0...@ucla-library-monorepo/ucla-library-website-components-v1.21.0) (2025-06-12)
 
 
