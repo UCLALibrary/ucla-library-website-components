@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.26.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.0...@ucla-library-monorepo/ucla-library-website-components-v1.26.1) (2025-08-08)
+
+
+### Bug Fixes
+
+* APPS-3027 Fix mobile nav icon ([#767](https://github.com/UCLALibrary/ucla-library-website-components/issues/767)) ([a000c97](https://github.com/UCLALibrary/ucla-library-website-components/commit/a000c9774c55c2e678bc9e6eca802f2d470260f6))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.26.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.25.1...@ucla-library-monorepo/ucla-library-website-components-v1.26.0) (2025-08-07)
 
 
