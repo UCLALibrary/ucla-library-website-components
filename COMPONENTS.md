@@ -5,24 +5,19 @@
 - need to add this svg to The UCLA svg repo
 A single svg button, changes the color of letter svgs on hover
 
-[] ButtonText   
-A minimal button with just text, possibly with variants like underline or subtle.
+[] Button   
 
 - label: string  
-- variant?: 'default' | 'underline' | 'subtle'  
+- variant?: 'primary' | 'secondary' | 'tertiary'
+- outline?: true/false  
 - onClick: Function
 
 [] ButtonPageView (Svebor)
 
  A button that displayes items as a grid or list
 
-[] ButtonStacked  
-A vertical stack of buttons, likely for grouped filter or action options.
 
-- buttons: Array<{ label: string, isActive: boolean }>  
-- onClick: Function(index: number)
-
-[] ButtonDropdown (Luka)
+[] ButtonDropdown ()
 
 Button paired with a dropdown menu indicator (carat or arrow).
 
@@ -67,13 +62,6 @@ Full breadcrumb bar with one or more breadcrumb items.
 - crumbs: Array<{ label: string, to?: string }>  
 - current: string
 
-[] ButtonIconOnly  
-Just an icon button, used for tooltips, mobile actions, etc.
-
-- icon: string  
-- ariaLabel: string  
-- onClick: Function
-
 [x] PaginationControl (svebor) 
 Numbered pagination UI with previous/next arrows.
 
@@ -87,13 +75,6 @@ Non-interactive text element that might be grouped with buttons (e.g. “RESEARC
 - text: string  
 - tag?: string ('h2', 'span', etc.)
 
-[] ButtonSubLink  
-Secondary inline button or link, often used for minimal navigation or contextual actions.
-
-- label: string  
-- href: string  
-- variant?: 'default' | 'subtle'  
-- icon?: string
 
 [] LibraryLogoButton (austin)
 Branded button or label pairing logo with text.
