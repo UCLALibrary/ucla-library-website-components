@@ -5,7 +5,7 @@
 - need to add this svg to The UCLA svg repo
 A single svg button, changes the color of letter svgs on hover
 
-[] Button   
+[] Button()
 
 - label: string  
 - variant?: 'primary' | 'secondary'
