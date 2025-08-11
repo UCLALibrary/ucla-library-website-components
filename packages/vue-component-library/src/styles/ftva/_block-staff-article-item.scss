@@ -72,18 +72,12 @@
     @include ftva-emphasized-subtitle;
     line-height: 1;
     color: $accent-blue;
-    letter-spacing: .04px;
     margin-top: auto;
   }
 
   &.articles-listing {
     .ftva-date {
-      color: $subtitle-grey;
-      font-family: var(--font-secondary);
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      text-transform: unset;
+      @include ftva-date-muted;
     }
   }
 
@@ -110,12 +104,7 @@
     }
     
     .ftva-date {
-      color: $subtitle-grey;
-      font-family: var(--font-secondary);
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      text-transform: unset;
+      @include ftva-date-muted;
     }
   }
 
