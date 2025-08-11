@@ -62,28 +62,18 @@ const { title, eventDescription, startDateWithTime, endTime, location, isEvent, 
 
 const route = useRoute()
 
-// const currentFullUrl = ref('')
-
-// onMounted(() => {
-//   currentFullUrl.value = window.location.origin + route.fullPath
-// })
-
-const currentFullUrl = computed(() => {
-  if (typeof window === 'undefined') return ''
-  return window.location.origin + route.fullPath
-})
-
-const encodedUrl = encodeURIComponent(currentFullUrl.value)
-
-// const getItemTo = (url) => {
-//   return `${url}${currentFullUrl.value}`
-// }
-
 const isLinkCopied = ref(false)
 
 const isLinkCopiedClass = computed(() => [
   { 'is-link-copied': isLinkCopied.value },
 ])
+
+const currentFullUrl = computed(() => {
+  if (typeof window === 'undefined')
+    return ''
+
+  return window.location.origin + route.fullPath
+})
 
 // Event data computations
 const parsedLocation = computed(() => {
