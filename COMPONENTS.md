@@ -13,19 +13,8 @@ A single svg button, changes the color of letter svgs on hover
 - onClick: Function
 
 [] ButtonPageView (Svebor)
-
  A button that displayes items as a grid or list
 
-
-[] ButtonDropdown ()
-
-Button paired with a dropdown menu indicator (carat or arrow).
-
-- label: string  
-- isOpen: boolean  
-- onToggle: Function  
-- options: string[]  
-- onSelect: Function(option: string)
 
 [] ButtonTag (Luka)
 
@@ -129,12 +118,6 @@ Collapsible panel of dropdown filters for refining search results with multiple 
 - onFilterChange: Function(label: string, selected: string | string[])  
 - defaultOpen?: string[] (filters to open by default)
   
-[] ResultsList  
-Displays a list of categories with associated result counts.
-
-- items: Array<{ label: string, count: number, href?: string }>  
-- highlight?: string[] (optional: bold or emphasize certain terms)  
-- onClick?: Function(label: string)
 
 [] AlphabeticalBrowseBy
 Interactive list to sort results Alphabetically
@@ -1039,26 +1022,21 @@ Behavior:
 
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
-| ButtonText                 |           | ☐ Complete  |   [x]   | Needs a font change            |
+| Button                     |           | ☐ Complete  |   [x]   | Needs a font change            |
 | DividerGeneral             |           | ☐ Complete  |   [x]   |                                |
-| ButtonStacked              |           | ☐ Complete  |   [ ]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
-| ButtonDropdown             |Luka       | ☐ Complete  |   [ ]   |                                |
 | ButtonTag                  |Luka       | ☐ Complete  |   [x]   | aka: BlockTag                  |
 | ButtonRemoveSearchFilter   |Luka       | ☐ Complete  |   [x]   | aka: BlockRemoveSearchFilter   |
 | BreadcrumbPill             |Luka       | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |Luka       | ☐ Complete  |   [ ]   |                                |
-| ButtonIconOnly             |           | ☐ Complete  |   [ ]   |                                |
 | PaginationControl          |Svebor     | ☐ Complete  |   [ ]   |                                |
 | SectionLabel               |Austin     | ☐ Complete  |   [ ]   |                                |
-| ButtonSubLink              |           | ☐ Complete  |   [ ]   |                                |
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
 | SectionPagination          |Svebor     | ☐ Complete  |   [ ]   |Adjusted the styles and a little bit of logic |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [ ]   |Exists, ready to use            |
 | SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
 | RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
 | FiltersDropdown            |           | ☐ Complete  |   [x]   |                                |
-| ResultsList                |           | ☐ Complete  |   [ ]   | aka: CategoryList              |
 | DropdownSingleSelect       |           | ☐ Complete  |   [x]   |                                |
 | SideMenuAccordionPod       |           | ☐ Complete  |   [ ]   |                                |
 | ButtonDropdownSearch       |           | ☐ Complete  |   [ ]   |                                |
