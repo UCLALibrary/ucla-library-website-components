@@ -50,5 +50,7 @@ export const mockFTVA = {
     }
   ],
   buttonText: 'Linked Destination Lorem Ipsum Dolor Sit Amet',
-  buttonUrl: 'events/la-région-centrale-03-08-24'
+  buttonUrl: 'events/la-région-centrale-03-08-24',
+  item: [],
+  typeMedia: null
 }
