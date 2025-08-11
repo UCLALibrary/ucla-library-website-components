@@ -8,7 +8,7 @@ A single svg button, changes the color of letter svgs on hover
 [] Button   
 
 - label: string  
-- variant?: 'primary' | 'secondary' | 'tertiary'
+- variant?: 'primary' | 'secondary'
 - outline?: true/false  
 - onClick: Function
 
