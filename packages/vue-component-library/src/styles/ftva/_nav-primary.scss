@@ -46,6 +46,7 @@
         &::after {
             left: 100%;
         }
+
         .section-name {
             font-size: 20px;
         }
@@ -139,7 +140,7 @@
             &::after {
                 left: 100%;
             }
-
+            
             &.is-opened {
                 transform: scaleY(1);
             }
@@ -166,7 +167,6 @@
             height: 100vh;
             overflow-y: scroll;
             overflow-x: hidden;
-            padding-bottom: 110px; //offset for space behind floating donate button
         }
 
         .item-top-mobile {
@@ -196,7 +196,7 @@
             flex-direction: column;
             align-self: flex-end;
             gap: 12px;
-
+            
             .search-button,
             .close-button,
             .more-menu-button {
@@ -227,8 +227,10 @@
             }
 
             .close-button {
-                position: fixed;
-                right: 23px;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                right: 0;
 
                 svg {
                     width: auto;
@@ -242,7 +244,6 @@
 
             .slot-container {
                 transition-duration: 0s; // no transition on mobile
-                padding-top: 64px; // height of top bar
             }
 
             .slot-container.is-opened-mobile {
@@ -363,11 +364,9 @@
 
         .mobile-menu-slot {
             display: block;
-            position: fixed;
-            padding-top: 30px; // elements will appear to scroll behind this slot 30px above slot content
+            padding-top: 40px;
             z-index: 25;
-            bottom: 0;
-            width: calc(100% - 60px);
+            width: calc(100% - 20px);
             background-color: $navy-blue;
         }
     }
