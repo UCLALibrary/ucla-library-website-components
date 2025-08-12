@@ -1,5 +1,5 @@
-import { computed } from "vue"
 import Button from "@/lib-components/Button.vue"
+import { ButtonColor, ButtonVariant } from "@/types/components/button.types"
 
 // Storybook default settings
 export default {
@@ -43,7 +43,6 @@ function Template(args) {
 export const Primary = Template.bind({})
 Primary.args = {
     text: "Primary Button",
-    variant: "primary",
     onClick: () => {
         alert("Primary Button Clicked!")
     },
@@ -52,7 +51,6 @@ Primary.args = {
 export const PrimaryOutlined = Template.bind({})
 PrimaryOutlined.args = {
     text: "Primary Outlined Button",
-    variant: "primary",
     isOutlined: true,
     onClick: () => {
         alert("Primary Button Clicked!")
@@ -62,7 +60,6 @@ PrimaryOutlined.args = {
 export const PrimaryDisabled = Template.bind({})
 PrimaryDisabled.args = {
     text: "Primary Disabled Button",
-    variant: "primary",
     isDisabled: true,
     onClick: () => {
         alert("Primary Button Clicked!")
@@ -72,8 +69,7 @@ PrimaryDisabled.args = {
 export const PrimaryGray = Template.bind({})
 PrimaryGray.args = {
     text: "Primary Gray Button",
-    variant: "primary",
-    isGrey: true,
+    color: ButtonColor.Grey,
     onClick: () => {
         alert("Primary Button Clicked!")
     },
@@ -82,9 +78,8 @@ PrimaryGray.args = {
 export const PrimaryOutlinedGray = Template.bind({})
 PrimaryOutlinedGray.args = {
     text: "Primary Outlined Gray Button",
-    variant: "primary",
     isOutlined: true,
-    isGrey: true,
+    color: ButtonColor.Grey,
     onClick: () => {
         alert("Primary Button Clicked!")
     },
@@ -93,14 +88,13 @@ PrimaryOutlinedGray.args = {
 export const PrimaryLink = Template.bind({})
 PrimaryLink.args = {
     text: "External Link Button",
-    variant: "primary",
     to: "https://www.google.com",
 }
 
 export const Secondary = Template.bind({})
 Secondary.args = {
     text: "Secondary Button",
-    variant: "secondary",
+    variant: ButtonVariant.Secondary,
     onClick: () => {
         alert("Secondray Button Clicked!")
     },
@@ -109,7 +103,7 @@ Secondary.args = {
 export const SecondaryOutlined = Template.bind({})
 SecondaryOutlined.args = {
     text: "Secondary Outlined Button",
-    variant: "secondary",
+    variant: ButtonVariant.Secondary,
     isOutlined: true,
     onClick: () => {
         alert("Secondray Button Clicked!")
@@ -119,8 +113,8 @@ SecondaryOutlined.args = {
 export const SecondaryGray = Template.bind({})
 SecondaryGray.args = {
     text: "Secondary Gray Button",
-    variant: "secondary",
-    isGrey: true,
+    variant: ButtonVariant.Secondary,
+    color: ButtonColor.Grey,
     onClick: () => {
         alert("Secondray Button Clicked!")
     },
@@ -129,9 +123,9 @@ SecondaryGray.args = {
 export const SecondaryOutlinedGray = Template.bind({})
 SecondaryOutlinedGray.args = {
     text: "Secondary Outlined Gray Button",
-    variant: "secondary",
+    variant: ButtonVariant.Secondary,
     isOutlined: true,
-    isGrey: true,
+    color: ButtonColor.Grey,
     onClick: () => {
         alert("Secondray Button Clicked!")
     },
@@ -140,7 +134,7 @@ SecondaryOutlinedGray.args = {
 export const SecondaryDisabled = Template.bind({})
 SecondaryDisabled.args = {
     text: "Secondary Disabled Button",
-    variant: "secondary",
+    variant: ButtonVariant.Secondary,
     isDisabled: true,
     onClick: () => {
         alert("Secondray Button Clicked!")
@@ -150,6 +144,6 @@ SecondaryDisabled.args = {
 export const SecondaryLink = Template.bind({})
 SecondaryLink.args = {
     text: "External Link Button",
-    variant: "secondary",
+    variant: ButtonVariant.Secondary,
     to: "https://www.google.com",
 }

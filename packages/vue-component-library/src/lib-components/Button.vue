@@ -1,28 +1,13 @@
 <script setup lang="ts">
 import { computed } from "vue"
+import type { ButtonProps } from "@/types/components/button.types"
+import { ButtonColor, ButtonVariant } from "@/types/components/button.types"
 import SmartLink from "./SmartLink.vue"
-
-// Emits
-const emit = defineEmits<{
-    click: [event: MouseEvent]
-}>()
-
-// Types
-interface ButtonProps {
-    text: string
-    to?: string
-    variant?: "primary" | "secondary"
-    type?: "button" | "submit" | "reset"
-    isOutlined?: boolean
-    isDisabled?: boolean
-    isGrey?: boolean
-    linkTarget?: string
-    isDownload?: boolean
-}
 
 // Props
 const props = withDefaults(defineProps<ButtonProps>(), {
-    variant: "primary",
+    variant: ButtonVariant.Primary,
+    color: ButtonColor.Default,
     type: "button",
     isDisabled: false,
     isOutlined: false,
@@ -31,13 +16,18 @@ const props = withDefaults(defineProps<ButtonProps>(), {
     isDownload: false,
 })
 
+// Emits
+const emit = defineEmits<{
+    click: [event: MouseEvent]
+}>()
+
 // Computeds
 const classes = computed(() => [
     "button",
     props.variant,
+    props.color ? `color-${props.color}` : "",
     { "is-outlined": props.isOutlined },
     { "is-disabled": props.isDisabled },
-    { "is-grey": props.isGrey },
 ])
 
 // Methods
@@ -69,5 +59,5 @@ function handleClick(event: MouseEvent) {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/default/_button.scss";
+@import "../styles/default/_button.scss";
 </style>

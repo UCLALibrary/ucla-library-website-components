@@ -4,28 +4,30 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 15px;
-    border-radius: 30px;
-    background-color: var(--color-secondary-blue-01);
-
-    font-size: 18px;
-    font-family: var(--font-secondary);
-    font-weight: 400;
-    line-height: 1;
-    color: var(--color-white);
+    cursor: pointer;
 
     transition: background-color var(--transition-duration),
         color var(--transition-duration),
         border-color var(--transition-duration);
 
-    cursor: pointer;
-
     // Primary variant
-    &.is-outlined {
-        padding-block: 9px;
-        background-color: transparent;
-        border: 1px solid var(--color-secondary-blue-01);
-        color: var(--color-secondary-blue-01);
+    &.primary {
+        padding: 10px 15px;
+        border-radius: 30px;
+        background-color: var(--color-secondary-blue-01);
+
+        font-size: 18px;
+        font-family: var(--font-secondary);
+        font-weight: 400;
+        line-height: 1;
+        color: var(--color-white);
+
+        &.is-outlined {
+            padding-block: 9px;
+            background-color: transparent;
+            border: 1px solid var(--color-secondary-blue-01);
+            color: var(--color-secondary-blue-01);
+        }
     }
 
     // Secondary variant
@@ -37,6 +39,8 @@
         font-size: 18px;
         font-family: var(--font-primary);
         font-weight: 600;
+        line-height: 1;
+        color: var(--color-white);
 
         &.is-outlined {
             padding-block: 8px;
@@ -53,7 +57,7 @@
         pointer-events: none;
     }
 
-    &.is-grey {
+    &.color-grey {
         background-color: $subtitle-grey;
         color: var(--color-white);
 
@@ -75,7 +79,7 @@
                 color: var(--color-white);
             }
 
-            &.is-grey {
+            &.color-grey {
                 background-color: var(--color-secondary-blue-01);
                 color: var(--color-white);
 
@@ -97,13 +101,13 @@
                 }
 
                 // Grey variant
-                &.is-grey {
-                    background-color: var(--color-secondary-blue-01);
+                &.color-grey {
+                    background-color: $accent-blue;
                     color: var(--color-white);
 
                     &.is-outlined {
-                        background-color: var(--color-secondary-blue-01);
-                        border-color: var(--color-secondary-blue-01);
+                        background-color: $accent-blue;
+                        border-color: $accent-blue;
                         color: var(--color-white);
                     }
                 }
