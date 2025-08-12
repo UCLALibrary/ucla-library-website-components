@@ -1,4 +1,4 @@
-.block-asset-pod.dlc {
+.dlc.block-asset-pod {
     display: flex;
     align-items: flex-start;
     gap: 24px;
@@ -55,12 +55,12 @@
         line-height: 1.5;
         color: #222; // TODO: add color variable
     }
-    .links {
+    .smart-link {
         padding: 0;
+        font-family: var(--font-primary);
+        font-size: 18px;
 
         &.is-link {
-            font-family: var(--font-primary);
-            font-size: 18px;
             font-weight: 700;
             color: var(--color-primary-blue-04);
         }
@@ -68,13 +68,13 @@
 
     // Hovers
     @media #{$has-hover} {
-        // only apply hover on block asset pod when not hovering a link
+        // Only apply hover on block asset pod when not hovering a link
         &:not(.is-hovering-link):hover {
             .title {
                 text-decoration: underline;
             }
         }
-        .links.is-link:hover {
+        .smart-link.is-link:hover {
             text-decoration: underline;
         }
     }

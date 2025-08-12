@@ -70,12 +70,16 @@ const itemsMeta = computed((): readonly MetaItem[] => {
 })
 
 // Methods
-const handleLinkMouseEnter = (): void => {
-    isHoveringLink.value = true
+const handleLinkMouseEnter = (event: MouseEvent): void => {
+    if ((event.currentTarget as HTMLElement)?.classList.contains("is-link")) {
+        isHoveringLink.value = true
+    }
 }
 
-const handleLinkMouseLeave = (): void => {
-    isHoveringLink.value = false
+const handleLinkMouseLeave = (event: MouseEvent): void => {
+    if ((event.currentTarget as HTMLElement)?.classList.contains("is-link")) {
+        isHoveringLink.value = false
+    }
 }
 </script>
 
@@ -105,7 +109,7 @@ const handleLinkMouseLeave = (): void => {
                                     v-for="link in item.value"
                                     :key="link.text"
                                     :to="link.to"
-                                    class="links"
+                                    class="smart-link"
                                     @mouseenter="handleLinkMouseEnter"
                                     @mouseleave="handleLinkMouseLeave"
                                     :aria-label="`Go to ${link.text}`"
