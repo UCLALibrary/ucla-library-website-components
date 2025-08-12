@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.26.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.2...@ucla-library-monorepo/ucla-library-website-components-v1.26.3) (2025-08-12)
+
+
+### Bug Fixes
+
+* APPS-3159 fix z-score so that buttons disappear behind nav-bar ([#772](https://github.com/UCLALibrary/ucla-library-website-components/issues/772)) ([6fc9698](https://github.com/UCLALibrary/ucla-library-website-components/commit/6fc96984b09746e49eb2b7d01b7579cfb8a705f6))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.26.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.1...@ucla-library-monorepo/ucla-library-website-components-v1.26.2) (2025-08-12)
+
+
+### Bug Fixes
+
+* APPS-3282 update copy link url ([#771](https://github.com/UCLALibrary/ucla-library-website-components/issues/771)) ([d4b0131](https://github.com/UCLALibrary/ucla-library-website-components/commit/d4b013161f116fe934e771f815f4c1c089db4ee5))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.26.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.0...@ucla-library-monorepo/ucla-library-website-components-v1.26.1) (2025-08-08)
 
 
