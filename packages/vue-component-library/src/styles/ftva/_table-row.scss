@@ -1,20 +1,34 @@
 .ftva.table-row {
-    gap: var(--space-m);
     align-items: center;
+    td {
+        vertical-align: middle;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        padding-right: calc(var(--space-m) + 1px);
+        border-bottom: 2px dotted var(--color-secondary-grey-02);
+        &:last-of-type {
+            padding-right: 0px;
+        }
+    }
     &:last-child {
-      padding-bottom: 0px;
+      td {
+        border-bottom: none;
+        padding-bottom: 0px;
+      }
     }
     .column-1 {
         display: table-cell;
         flex: unset;
-        flex-grow: 2;
-        max-width: 287px; 
+        max-width: calc(287px + var(--space-m)); 
     }
     .column-2 {
         display: table-cell;
         flex: unset;
         max-width: 500px;
         flex-grow: 3;
+        align-content: center;
+        align-items: center;
+
     }
     .column-3 {
         display: table-cell;
@@ -23,8 +37,7 @@
         flex-grow: 1;
     }
     .column-4 {
-        display: table-cell;
-        justify-self: flex-end;
+        text-align: right;
     }
 
     :deep(*){
@@ -50,5 +63,11 @@
     @media #{$small} {
         align-items: flex-start;
         gap: 0px;
+        td {
+                padding-top: 1px;
+                padding-bottom: 1px;
+                padding-right: 0px;
+                border-bottom: none;
+        }
     }
  }

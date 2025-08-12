@@ -1,46 +1,49 @@
 .table-component {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-m);
-
     max-width: $container-l-main + px;
     margin: 0 auto var(--space-2xl);
+    border-collapse: collapse; // necessary for continues border lines in table rows
+    width:100%;
 
     caption {
         @include visually-hidden;
     }
 
     thead tr {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        gap: var(--space-xl);
-
-        width: 100%;
         color: var(--color-primary-blue-05);
         @include step-0;
         font-weight: normal;
         border-bottom: 2px dotted var(--color-secondary-grey-02);
-        padding-bottom: 10px;
 
         th {
-            display: flex;
-            flex: 1 1 0px;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-            align-content: flex-start;
-            align-items: flex-start;
-
+            text-align: left;
+            padding: 1px 0px 11px 1px;
             font-weight: 500;
+            white-space: nowrap;
+            &:not(:last-of-type) {
+                padding-right: calc(var(--space-xl) + 1px);
+            }
+            &:first-of-type {
+                width: 35%; // first column takes up 1/3 of the table on default
+            }
+            &:nth-of-type(3) {
+                width: fit-content;
+            }
         }
     }
 
-    tbody :deep(tr) {
-        border-bottom: 2px dotted var(--color-secondary-grey-02);
+    @media #{$medium} {
+        thead th {
+            &:first-of-type {
+                width: 37%; // first column takes up 1/3 of the table on default
+            }
+            &:nth-of-type(2) {
+                width: 37%; // second column takes up 1/4 of the table on default
+            }
+        }
     }
 
     @media #{$small} {
+        // hide table headers on mobile
         thead {
             height: 1px;
             width: 1px;
