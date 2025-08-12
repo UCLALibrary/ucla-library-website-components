@@ -3,9 +3,15 @@
     overflow: visible; //allows the search button menu to overflow the container
     // this theme refactors to grid layout so we can place menu items over top of each other w/o absolute positioning
     display: grid;
-    grid-template-columns: auto auto 64px;
-    justify-content: unset;
-    grid-auto-flow: dense;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    background-color: $navy-blue;
+
+    &.is-opened {
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    }
 
     .support-links {
         .item-top {
@@ -14,8 +20,7 @@
     }
 
     .background-blue {
-        background-color: $navy-blue;
-        border-bottom: none;
+        width: 0;
     }
 
     ul {
@@ -23,29 +28,7 @@
     }
 
     .menu {
-        left: 20px;
-        right: 80px;
-        position: absolute;
         display: flex;
-
-        // add css 'wings' to fill sides of large screen with menu bg color
-        &::after,
-        &::before {
-            display: block;
-            overflow: visible;
-            position: absolute;
-            left: -500px;
-            bottom: 0px;
-            content: '';
-            height: 100%;
-            max-height: 400px;
-            width: 500px;
-            background-color: $navy-blue;
-        }
-
-        &::after {
-            left: 100%;
-        }
 
         .section-name {
             font-size: 20px;
@@ -54,7 +37,7 @@
 
     .more-menu {
         display: block;
-        grid-column: 3;
+        order: 1;
 
         button:focus, a:focus {
             outline: none;
@@ -106,43 +89,29 @@
         .search-button {
             position: relative; // required for z-index to work
             z-index: 1000;
-          }
+        }
 
         .slot-container {
             display: block;
             position: absolute;
-            z-index: 1;
             width: 100%;
-            margin: 0;
-            padding: 0;
+            margin: 0 auto;
+            left: 0;
             right: 0;
+            padding: 0;
             background-color: $navy-blue;
             transform: scaleY(0);
             transform-origin: top;
-            transition-duration: .2s;
             transition-timing-function: ease-in-out;
-
-            // add css 'wings' to fill sides of large screen with menu bg color
-            &::after,
-            &::before {
-                display: block;
-                overflow: visible;
-                position: absolute;
-                left: -500px;
-                bottom: 0px;
-                content: '';
-                height: 100%;
-                max-height: 400px;
-                width: 500px;
-                background-color: $navy-blue;
-            }
-
-            &::after {
-                left: 100%;
-            }
             
             &.is-opened {
                 transform: scaleY(1);
+                transition-duration: .1s;
+            }
+
+            :deep(.nav-search) {
+                max-width: var(--ftva-container-max-width);
+                width: 100%;
             }
         }
 
@@ -152,7 +121,9 @@
     }
     &.slot-is-opened > .more-menu { 
         .search-button {
-            ::after {opacity: 1;}
+            ::after {
+                opacity: 1;
+            }
         }
     }
 
@@ -161,21 +132,24 @@
         display: flex;
         flex-direction: column;
         grid-auto-flow: unset;
+        justify-content: unset;
         padding: 0 30px;
 
         &.is-opened-mobile {
             height: 100vh;
-            overflow-y: scroll;
             overflow-x: hidden;
+
+            .more-menu {
+                padding-inline: 16px;
+            }
         }
 
         .item-top-mobile {
             position: fixed; 
-            top: 0px;
+            top: 0;
             color: white;
             line-height: 64px;
             font-size: 22px;
-            margin-left: -10px;
             z-index: 25;
         }
         
@@ -196,6 +170,7 @@
             flex-direction: column;
             align-self: flex-end;
             gap: 12px;
+            order: 0;
             
             .search-button,
             .close-button,
@@ -244,6 +219,10 @@
 
             .slot-container {
                 transition-duration: 0s; // no transition on mobile
+
+                :deep(.nav-search) {
+                    width: unset;
+                }
             }
 
             .slot-container.is-opened-mobile {
@@ -338,7 +317,7 @@
 
             // open menu
             &.is-opened-mobile {
-                display: unset;
+                display: block;
 
                 :deep(.nav-menu-item) {
                     .section-name::after {

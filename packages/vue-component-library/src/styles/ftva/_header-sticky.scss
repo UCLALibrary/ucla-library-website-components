@@ -4,7 +4,6 @@
 
     .primary {
         width: 100%;
-        max-width: var(--ftva-container-max-width);
         margin: 0 auto;
 
         .donate-button {
@@ -16,6 +15,11 @@
             font-size: 20px;
             font-weight: 500;
             line-height: normal;
+        }
+    }
+    @media #{$small} {
+        .primary {
+            padding-inline: 18px;
         }
     }
 }
