@@ -64,6 +64,10 @@
 
 .v-overlay-container {
 
+  .v-menu > .v-overlay__content {
+    border-radius: 8px;
+  }
+
   .calendar-event-popup-wrapper {
     background-color: $page-blue;
 
