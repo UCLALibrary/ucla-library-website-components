@@ -347,9 +347,9 @@ onMounted(() => {
           {{ item.name }}
         </SmartLink>
       </li>
-      <!-- Add search icon to nav menu list on desktop -->
+      <!-- Add search icon to nav menu list on desktop for FTVA -->
       <ButtonLink
-        v-if="!isMobile"
+        v-if="!isMobile && theme === 'ftva'"
         class="search-button"
         icon-name="none"
         aria-label="Search"

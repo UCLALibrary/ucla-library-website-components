@@ -117,15 +117,12 @@
 
         &.is-opened-mobile {
             height: 100vh;
-
-            .more-menu {
-                padding-inline: 16px;
-            }
+            overflow-y: scroll;
         }
 
         .item-top-mobile {
             position: fixed; 
-            top: 0;
+            // top: 0;
             color: white;
             line-height: 64px;
             font-size: 22px;
@@ -149,7 +146,6 @@
             flex-direction: column;
             align-self: flex-end;
             gap: 12px;
-            order: 0;
             
             .search-button,
             .close-button,
