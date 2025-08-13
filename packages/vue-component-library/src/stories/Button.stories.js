@@ -68,7 +68,7 @@ PrimaryDisabled.args = {
 
 export const PrimaryGray = Template.bind({})
 PrimaryGray.args = {
-    text: "Primary Gray Button",
+    text: "Primary Grey Button",
     color: ButtonColor.Grey,
     onClick: () => {
         alert("Primary Button Clicked!")
@@ -77,7 +77,7 @@ PrimaryGray.args = {
 
 export const PrimaryOutlinedGray = Template.bind({})
 PrimaryOutlinedGray.args = {
-    text: "Primary Outlined Gray Button",
+    text: "Primary Outlined Grey Button",
     isOutlined: true,
     color: ButtonColor.Grey,
     onClick: () => {
@@ -112,7 +112,7 @@ SecondaryOutlined.args = {
 
 export const SecondaryGray = Template.bind({})
 SecondaryGray.args = {
-    text: "Secondary Gray Button",
+    text: "Secondary Grey Button",
     variant: ButtonVariant.Secondary,
     color: ButtonColor.Grey,
     onClick: () => {
@@ -122,7 +122,7 @@ SecondaryGray.args = {
 
 export const SecondaryOutlinedGray = Template.bind({})
 SecondaryOutlinedGray.args = {
-    text: "Secondary Outlined Gray Button",
+    text: "Secondary Outlined Grey Button",
     variant: ButtonVariant.Secondary,
     isOutlined: true,
     color: ButtonColor.Grey,
