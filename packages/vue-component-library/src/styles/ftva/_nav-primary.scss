@@ -50,11 +50,11 @@
             background-color: $navy-blue;
             transform: scaleY(0);
             transform-origin: top;
+            transition-duration: .2s;
             transition-timing-function: ease-in-out;
             
             &.is-opened {
                 transform: scaleY(1);
-                transition-duration: .1s;
             }
 
             :deep(.nav-search) {
@@ -122,7 +122,7 @@
 
         .item-top-mobile {
             position: fixed; 
-            // top: 0;
+            top: 0;
             color: white;
             line-height: 64px;
             font-size: 22px;
