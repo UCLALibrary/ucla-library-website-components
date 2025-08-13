@@ -93,6 +93,18 @@ SingleResult.args = {
     },
 }
 
+export const BigResultNumber = Template.bind({})
+BigResultNumber.args = {
+    totalResults: 1234567,
+    tag: {
+        name: "Subject",
+        value: {
+            label: "History of Art",
+            to: "/subjects/history-of-art",
+        },
+    },
+}
+
 export const WithNavigationOnly = Template.bind({})
 WithNavigationOnly.args = {
     totalResults: 0,
