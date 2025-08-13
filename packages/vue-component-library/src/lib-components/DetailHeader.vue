@@ -4,8 +4,8 @@ import SmartLink from "@/lib-components/SmartLink.vue"
 import SvgIconArrowRight from "ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg"
 import Button from "./Button.vue"
 import { ButtonColor } from "@/types/components/button.types"
-import { pluralize, pluralizeWithCount } from "@/utils/pluralize"
-import { formatNumber } from "@/utils/formatNumber"
+import { formatNumber } from "@/utils/formatNumber.ts"
+import { pluralize } from "@/utils/pluralize.ts"
 
 // Types
 interface DetailHeaderProps {
@@ -42,7 +42,10 @@ const props = defineProps<DetailHeaderProps>()
                     <SvgIconArrowRight class="next-svg" />
                 </SmartLink>
 
-                <div v-if="totalResults" class="results-number">
+                <div
+                    v-if="typeof totalResults === 'number'"
+                    class="results-number"
+                >
                     {{
                         formatNumber(totalResults) +
                         " " +
@@ -51,10 +54,10 @@ const props = defineProps<DetailHeaderProps>()
                 </div>
             </div>
 
-            <div class="tag" v-if="tag.name">
+            <div class="tag" v-if="tag?.name">
                 <span class="tag-name">{{ tag.name }}:</span>
-                <SmartLink :to="tag.value.to" class="tag-value"
-                    >{{ tag.value.label }}
+                <SmartLink :to="tag?.value?.to" class="tag-value">
+                    {{ tag?.value?.label }}
                 </SmartLink>
             </div>
         </div>
