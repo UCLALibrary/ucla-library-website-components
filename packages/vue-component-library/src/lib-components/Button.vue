@@ -11,7 +11,6 @@ const props = withDefaults(defineProps<ButtonProps>(), {
     type: "button",
     isDisabled: false,
     isOutlined: false,
-    isGrey: false,
     linkTarget: "",
     isDownload: false,
 })

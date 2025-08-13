@@ -96,7 +96,7 @@ Secondary.args = {
     text: "Secondary Button",
     variant: ButtonVariant.Secondary,
     onClick: () => {
-        alert("Secondray Button Clicked!")
+        alert("Secondary Button Clicked!")
     },
 }
 
@@ -106,7 +106,7 @@ SecondaryOutlined.args = {
     variant: ButtonVariant.Secondary,
     isOutlined: true,
     onClick: () => {
-        alert("Secondray Button Clicked!")
+        alert("Secondary Button Clicked!")
     },
 }
 
@@ -116,7 +116,7 @@ SecondaryGray.args = {
     variant: ButtonVariant.Secondary,
     color: ButtonColor.Grey,
     onClick: () => {
-        alert("Secondray Button Clicked!")
+        alert("Secondary Button Clicked!")
     },
 }
 
@@ -127,7 +127,7 @@ SecondaryOutlinedGray.args = {
     isOutlined: true,
     color: ButtonColor.Grey,
     onClick: () => {
-        alert("Secondray Button Clicked!")
+        alert("Secondary Button Clicked!")
     },
 }
 
@@ -137,7 +137,7 @@ SecondaryDisabled.args = {
     variant: ButtonVariant.Secondary,
     isDisabled: true,
     onClick: () => {
-        alert("Secondray Button Clicked!")
+        alert("Secondary Button Clicked!")
     },
 }
 
