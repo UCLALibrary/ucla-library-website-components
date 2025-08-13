@@ -2,9 +2,6 @@
     position: relative; //absolutely positioned children will be relative to this
     overflow: visible; //allows the search button menu to overflow the container
     // this theme refactors to grid layout so we can place menu items over top of each other w/o absolute positioning
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: center;
     background-color: $navy-blue;
 
     &.is-opened {
@@ -29,6 +26,9 @@
 
     .menu {
         display: flex;
+        position: absolute;
+        justify-content: center;
+        width: 100%;
 
         .section-name {
             font-size: 20px;
@@ -37,7 +37,7 @@
 
     .more-menu {
         display: block;
-        order: 1;
+        width: 100%;
 
         button:focus, a:focus {
             outline: none;
