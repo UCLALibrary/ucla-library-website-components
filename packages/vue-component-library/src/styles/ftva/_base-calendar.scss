@@ -70,6 +70,10 @@
     .ftva.block-highlight {
       border-radius: 0;
 
+      .media {
+        border-radius: 4px 4px 0 0; //overwrrite card meta styles that interfere with event pop-up border-radius
+      }
+
       @media #{$has-hover} {
         &:hover {
             box-shadow: unset;
