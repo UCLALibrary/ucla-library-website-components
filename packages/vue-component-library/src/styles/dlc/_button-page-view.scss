@@ -24,23 +24,8 @@
         display: block;
     }
 
-    // Specific styling for list icon
-    .icon.list {
-        :deep() {
-            rect {
-                fill: var(--color-primary-blue-05);
-                stroke: var(--color-primary-blue-05);
-                transition: stroke 0.2s ease-out, fill 0.2s ease-out;
-            }
-            path {
-                fill: var(--color-primary-blue-05);
-                stroke: var(--color-primary-blue-05);
-                transition: stroke 0.2s ease-out, fill 0.2s ease-out;
-            }
-        }
-    }
-
-    // Specific styling for grid icon
+    // Unified styling for both list and grid icons
+    .icon.list,
     .icon.grid {
         :deep() {
             rect {
@@ -56,21 +41,8 @@
         }
     }
 
-    // Active state for list icon
-    .button-wrapper.active .icon.list {
-        :deep() {
-            rect {
-                fill: var(--color-white);
-                stroke: var(--color-white);
-            }
-            path {
-                fill: var(--color-white);
-                stroke: var(--color-white);
-            }
-        }
-    }
-
-    // Active state for grid icon
+    // Active state for both icons
+    .button-wrapper.active .icon.list,
     .button-wrapper.active .icon.grid {
         :deep() {
             rect {
@@ -89,21 +61,8 @@
         .button-wrapper:hover {
             background-color: var(--color-primary-blue-03);
 
-            // Hover state for list icon
-            .icon.list {
-                :deep() {
-                    rect {
-                        fill: var(--color-white);
-                        stroke: var(--color-white);
-                    }
-                    path {
-                        fill: var(--color-white);
-                        stroke: var(--color-white);
-                    }
-                }
-            }
-
-            // Hover state for grid icon
+            // Hover state for both icons
+            .icon.list,
             .icon.grid {
                 :deep() {
                     rect {

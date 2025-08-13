@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Imports
-import SvgList from 'ucla-library-design-tokens/assets/svgs/icon-list.svg'
+import SvgList from 'ucla-library-design-tokens/assets/svgs/icon-list-view.svg'
 import SvgGrid from 'ucla-library-design-tokens/assets/svgs/icon-gallery.svg'
 import { computed, defineEmits, defineProps } from 'vue'
 import { useTheme } from '@/composables/useTheme'
