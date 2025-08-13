@@ -40,7 +40,7 @@ function setView(view: 'list' | 'grid') {
       aria-label="List view"
       @click="setView('list')"
     >
-      <SvgList class="icon" />
+      <SvgList class="icon list" />
     </button>
 
     <button
@@ -51,7 +51,7 @@ function setView(view: 'list' | 'grid') {
       aria-label="Grid view"
       @click="setView('grid')"
     >
-      <SvgGrid class="icon" />
+      <SvgGrid class="icon grid" />
     </button>
   </div>
 </template>

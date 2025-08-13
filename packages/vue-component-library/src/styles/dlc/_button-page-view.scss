@@ -16,16 +16,6 @@
 
         &.active {
             background-color: var(--color-primary-blue-05);
-            :deep(svg) {
-                rect {
-                    fill: var(--color-white);
-                    stroke: var(--color-white);
-                }
-                path {
-                    fill: var(--color-white);
-                    stroke: var(--color-white);
-                }
-            }
         }
     }
     .icon {
@@ -34,16 +24,63 @@
         display: block;
     }
 
-    :deep(svg) {
-        rect {
-            fill: var(--color-primary-blue-05);
-            stroke: var(--color-primary-blue-05);
-            transition: stroke 0.2s ease-out, fill 0.2s ease-out;
+    // Specific styling for list icon
+    .icon.list {
+        :deep() {
+            rect {
+                fill: var(--color-primary-blue-05);
+                stroke: var(--color-primary-blue-05);
+                transition: stroke 0.2s ease-out, fill 0.2s ease-out;
+            }
+            path {
+                fill: var(--color-primary-blue-05);
+                stroke: var(--color-primary-blue-05);
+                transition: stroke 0.2s ease-out, fill 0.2s ease-out;
+            }
         }
-        path {
-            fill: var(--color-primary-blue-05);
-            stroke: var(--color-primary-blue-05);
-            transition: stroke 0.2s ease-out, fill 0.2s ease-out;
+    }
+
+    // Specific styling for grid icon
+    .icon.grid {
+        :deep() {
+            rect {
+                fill: transparent;
+                stroke: transparent;
+                transition: stroke 0.2s ease-out, fill 0.2s ease-out;
+            }
+            path {
+                fill: var(--color-primary-blue-05);
+                stroke: var(--color-primary-blue-05);
+                transition: stroke 0.2s ease-out, fill 0.2s ease-out;
+            }
+        }
+    }
+
+    // Active state for list icon
+    .button-wrapper.active .icon.list {
+        :deep() {
+            rect {
+                fill: var(--color-white);
+                stroke: var(--color-white);
+            }
+            path {
+                fill: var(--color-white);
+                stroke: var(--color-white);
+            }
+        }
+    }
+
+    // Active state for grid icon
+    .button-wrapper.active .icon.grid {
+        :deep() {
+            rect {
+                fill: transparent;
+                stroke: transparent;
+            }
+            path {
+                fill: var(--color-white);
+                stroke: var(--color-white);
+            }
         }
     }
 
@@ -51,14 +88,32 @@
     @media #{$has-hover} {
         .button-wrapper:hover {
             background-color: var(--color-primary-blue-03);
-            :deep(svg) {
-                rect {
-                    fill: var(--color-white);
-                    stroke: var(--color-white);
+
+            // Hover state for list icon
+            .icon.list {
+                :deep() {
+                    rect {
+                        fill: var(--color-white);
+                        stroke: var(--color-white);
+                    }
+                    path {
+                        fill: var(--color-white);
+                        stroke: var(--color-white);
+                    }
                 }
-                path {
-                    fill: var(--color-white);
-                    stroke: var(--color-white);
+            }
+
+            // Hover state for grid icon
+            .icon.grid {
+                :deep() {
+                    rect {
+                        fill: transparent;
+                        stroke: transparent;
+                    }
+                    path {
+                        fill: var(--color-white);
+                        stroke: var(--color-white);
+                    }
                 }
             }
         }
