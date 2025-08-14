@@ -123,7 +123,7 @@ const parsedTextAll = computed(() => {
       />
 
       <!-- SUMMARY ONLY -->
-      <div v-if="props.authors.length === 0 && !props.date && props.description">
+      <div v-if="props.authors.length === 0 && props.date === '' && props.description">
         <!-- If there is no author or date - increase max-length for truncation -->
         <div
           v-if="props.description"
@@ -134,9 +134,8 @@ const parsedTextAll = computed(() => {
       </div>
 
       <!-- AUTHOR(S) - DATE - SUMMARY -->
-
       <div
-        v-if="(props.authors && props.authors.length > 0) || props.date"
+        v-if="(props.authors && props.authors.length > 0) || props.date !== ''"
         class="byline"
       >
         <div
@@ -150,13 +149,12 @@ const parsedTextAll = computed(() => {
           class="date"
           v-html="parsedDate"
         />
-      </div>
-
-      <div
-        v-if="props.description"
-        class="description"
-      >
-        {{ parsedTextTruncated }}
+        <div
+          v-if="props.description"
+          class="description"
+        >
+          {{ parsedTextTruncated }}
+        </div>
       </div>
 
       <div
