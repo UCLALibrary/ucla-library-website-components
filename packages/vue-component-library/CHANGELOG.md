@@ -1,3 +1,38 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.26.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.2...@ucla-library-monorepo/ucla-library-website-components-v1.26.3) (2025-08-12)
+
+
+### Bug Fixes
+
+* APPS-3159 fix z-score so that buttons disappear behind nav-bar ([#772](https://github.com/UCLALibrary/ucla-library-website-components/issues/772)) ([6fc9698](https://github.com/UCLALibrary/ucla-library-website-components/commit/6fc96984b09746e49eb2b7d01b7579cfb8a705f6))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.26.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.1...@ucla-library-monorepo/ucla-library-website-components-v1.26.2) (2025-08-12)
+
+
+### Bug Fixes
+
+* APPS-3282 update copy link url ([#771](https://github.com/UCLALibrary/ucla-library-website-components/issues/771)) ([d4b0131](https://github.com/UCLALibrary/ucla-library-website-components/commit/d4b013161f116fe934e771f815f4c1c089db4ee5))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.26.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.0...@ucla-library-monorepo/ucla-library-website-components-v1.26.1) (2025-08-08)
+
+
+### Bug Fixes
+
+* APPS-3027 Fix mobile nav icon ([#767](https://github.com/UCLALibrary/ucla-library-website-components/issues/767)) ([a000c97](https://github.com/UCLALibrary/ucla-library-website-components/commit/a000c9774c55c2e678bc9e6eca802f2d470260f6))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.26.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.25.1...@ucla-library-monorepo/ucla-library-website-components-v1.26.0) (2025-08-07)
+
+
+### Features
+
+* APPS-3221 APPS-3219 change max width and text, text image ([#770](https://github.com/UCLALibrary/ucla-library-website-components/issues/770)) ([1b666b8](https://github.com/UCLALibrary/ucla-library-website-components/commit/1b666b82c4d4a72a175867b3d568969ef9f66e66))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.25.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.25.0...@ucla-library-monorepo/ucla-library-website-components-v1.25.1) (2025-08-06)
+
+
+### Bug Fixes
+
+* APPS-3324 dropdown matches width of share button ([#769](https://github.com/UCLALibrary/ucla-library-website-components/issues/769)) ([3b5b69d](https://github.com/UCLALibrary/ucla-library-website-components/commit/3b5b69dadf6e15bd54fbad0558a5df4a3eb51ef1))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.25.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.24.8...@ucla-library-monorepo/ucla-library-website-components-v1.25.0) (2025-08-01)
 
 
