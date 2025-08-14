@@ -5,7 +5,7 @@
 - need to add this svg to The UCLA svg repo
 A single svg button, changes the color of letter svgs on hover
 
-[] Button()
+[] Button(Luka)
 
 - label: string  
 - variant?: 'primary' | 'secondary'
@@ -458,7 +458,7 @@ Sidebar or inline nav with jump links to sections on the same page.
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
 | ButtonIIIF                 |           | ☐ Complete  |   [ ]   |                                |
-| Button                     |           | ☐ Complete  |   [x]   |                                |
+| Button                     |Luka       | ☐ Complete  |   []   |                                |
 | DividerGeneral             |           | ☐ Complete  |   [x]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonTag                  |Luka       | ☐ Complete  |   [x]   | aka: BlockTag                  |
