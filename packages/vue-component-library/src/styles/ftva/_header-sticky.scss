@@ -6,6 +6,7 @@
         width: 100%;
         margin: 0 auto;
         padding: 0;
+        margin-inline: 18px;
 
         .donate-button {
             display: flex;
@@ -21,6 +22,7 @@
     @media #{$small} {
         .primary {
             padding-inline: 18px;
+            margin-inline: 0;
         }
     }
 }
