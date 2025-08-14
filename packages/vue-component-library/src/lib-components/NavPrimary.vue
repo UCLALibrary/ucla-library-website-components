@@ -136,6 +136,13 @@ function clearActive() {
   activeMenuIndex.value = currentPathActiveIndex.value
 }
 
+// CLOSE SLOT
+function closeSlot() {
+  slotIsOpened.value = false
+}
+// expose if needed elsewhere too
+defineExpose({ closeSlot })
+
 // Replace globalStore logic for window width with useWindowSize
 const { width } = useWindowSize()
 
@@ -297,7 +304,7 @@ onMounted(() => {
         class="slot-container"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
       >
-        <slot name="additional-menu" />
+        <slot name="additional-menu" :close-slot="closeSlot" />
       </div>
     </div>
 
@@ -340,6 +347,13 @@ onMounted(() => {
           {{ item.name }}
         </SmartLink>
       </li>
+      <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
+      <div
+        v-if="isMobile && mobileMenuIsOpened"
+        class="mobile-menu-slot"
+      >
+        <slot name="additional-mobile-menu-items" />
+      </div>
     </ul>
 
     <div
@@ -358,13 +372,6 @@ onMounted(() => {
           {{ item.name }}
         </SmartLink>
       </div>
-    </div>
-    <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
-    <div
-      v-if="isMobile && mobileMenuIsOpened"
-      class="mobile-menu-slot"
-    >
-      <slot name="additional-mobile-menu-items" />
     </div>
     <div class="background-white" />
     <div

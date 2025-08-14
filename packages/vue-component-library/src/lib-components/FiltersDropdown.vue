@@ -50,6 +50,7 @@ function isSelected(searchField: string, option: string) {
 function clearFilters() {
   for (const group of filterGroups)
     selectedFilters.value[group.searchField] = []
+  emit('update-display', selectedFilters.value)
 }
 // Done Button Click / emit selected filters to parent
 function onDoneClick() {

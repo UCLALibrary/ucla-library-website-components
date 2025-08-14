@@ -23,9 +23,29 @@
     }
 
     .menu {
-        grid-column-start: 1;
-        grid-column-end: 2;
+        left: 20px;
+        right: 80px;
+        position: absolute;
         display: flex;
+
+        // add css 'wings' to fill sides of large screen with menu bg color
+        &::after,
+        &::before {
+            display: block;
+            overflow: visible;
+            position: absolute;
+            left: -500px;
+            bottom: 0px;
+            content: '';
+            height: 100%;
+            max-height: 400px;
+            width: 500px;
+            background-color: $navy-blue;
+        }
+
+        &::after {
+            left: 100%;
+        }
 
         .section-name {
             font-size: 20px;
@@ -83,6 +103,11 @@
             }
         }
 
+        .search-button {
+            position: relative; // required for z-index to work
+            z-index: 1000;
+          }
+
         .slot-container {
             display: block;
             position: absolute;
@@ -115,7 +140,7 @@
             &::after {
                 left: 100%;
             }
-
+            
             &.is-opened {
                 transform: scaleY(1);
             }
@@ -142,7 +167,6 @@
             height: 100vh;
             overflow-y: scroll;
             overflow-x: hidden;
-            padding-bottom: 110px; //offset for space behind floating donate button
         }
 
         .item-top-mobile {
@@ -172,7 +196,7 @@
             flex-direction: column;
             align-self: flex-end;
             gap: 12px;
-
+            
             .search-button,
             .close-button,
             .more-menu-button {
@@ -203,8 +227,10 @@
             }
 
             .close-button {
-                position: fixed;
-                right: 23px;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                right: 0;
 
                 svg {
                     width: auto;
@@ -218,7 +244,6 @@
 
             .slot-container {
                 transition-duration: 0s; // no transition on mobile
-                padding-top: 64px; // height of top bar
             }
 
             .slot-container.is-opened-mobile {
@@ -234,6 +259,7 @@
         .menu {
             // closed menu
             display: none;
+            position: relative; 
             grid-column: 1 / span 3;
             width: 100%;
 
@@ -338,11 +364,9 @@
 
         .mobile-menu-slot {
             display: block;
-            position: fixed;
-            padding-top: 30px; // elements will appear to scroll behind this slot 30px above slot content
+            padding-top: 40px;
             z-index: 25;
-            bottom: 0;
-            width: calc(100% - 60px);
+            width: calc(100% - 20px);
             background-color: $navy-blue;
         }
     }
