@@ -197,8 +197,10 @@ jobs:
       - name: Download storybook artifact
         uses: actions/download-artifact@v4
         with:
-          name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
-          path: storybook-static
+          name:
+            storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
+            # ⬇️ put files into the package folder
+          path: packages/vue-component-library
 
       # 2) Verify Cypress is installed (devDependency) in the filtered package
       - name: Verify Cypress Installation
