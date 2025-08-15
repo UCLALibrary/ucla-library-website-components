@@ -234,3 +234,28 @@ jobs:
           working-directory: packages/vue-component-library
           start: pnpm  exec http-server ./storybook-static -p 6006
           wait-on: http://localhost:6006
+
+  cleanup-artifact:
+    # wait for *all* possible jobs to finish (they may be "skipped"—that's fine)
+    needs:
+      - percy-instructions
+      - eslint
+      - vite
+      - storybook-build
+      - storybook-merged-deploy
+      - storybook-preview-internal
+      - storybook-preview-fork
+      - storybook-cypress
+    if: always() # still run if any prior job failed/skipped
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Compute artifact name
+        id: art
+        run: echo "name=storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}" >> $GITHUB_OUTPUT
+
+      - name: Delete artifact (after all dependents finished)
+        uses: GeekyEggo/delete-artifact@v5
+        with:
+          name: ${{ steps.art.outputs.name }}
