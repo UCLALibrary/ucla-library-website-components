@@ -1,0 +1,54 @@
+name: Dump some data to test
+
+on:
+  workflow_dispatch: {} # manual trigger only
+
+permissions:
+  contents: read # minimal; artifact upload doesn't need extra scopes
+
+jobs:
+  # 1) Repo-level values
+  dump_repo_secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write selected secrets from REPO to file
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 177                  # create files as 600 (rw-------)
+          {
+            echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN }}"
+            echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}"
+            echo "PERCY_TOKEN=${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}"
+          } > secrets--repo.txt
+
+      - name: Upload repo secrets file (plaintext)
+        uses: actions/upload-artifact@v4
+        with:
+          name: secrets--repo
+          path: secrets--repo.txt
+          retention-days: 1
+
+  # 2) Environment-level values (override if same keys exist)
+  dump_env_secrets:
+    runs-on: ubuntu-latest
+    needs: dump_repo_secrets
+    # Attach the job to your environment so environment secrets are provided
+    environment: netlify-preview # <-- change to your env name if needed
+    steps:
+      - name: Write selected secrets from ENV (netlify-preview) to file
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 177
+          {
+            echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN }}"
+            echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}"
+          } > secrets--env--netlify-preview.txt
+
+      - name: Upload environment secrets file (plaintext)
+        uses: actions/upload-artifact@v4
+        with:
+          name: secrets--env--netlify-preview
+          path: secrets--env--netlify-preview.txt
+          retention-days: 1
