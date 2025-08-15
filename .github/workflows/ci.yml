@@ -66,19 +66,12 @@ jobs:
         with:
           path: storybook-static
           key: storybook-${{ github.sha }}
-
-      - name: Build Storybook
-        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
-
-      # (optional) sanity check so you can see the files
-      - name: List Storybook output
-        run: ls -la packages/vue-component-library/storybook-static || true
-
-      # ✅ Upload from inside the package so the artifact is flat
-      - name: Upload storybook artifact (flat)
+      - run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
+      - name: Upload storybook artifact
         uses: actions/upload-artifact@v4
         with:
-          name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
+          # Works for PRs (has PR number) and pushes (falls back to run_id)
+          name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
           path: packages/vue-component-library/storybook-static
           if-no-files-found: error
           retention-days: 3
@@ -98,15 +91,15 @@ jobs:
       - name: Download storybook artifact
         uses: actions/download-artifact@v4
         with:
-          name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
-          path: packages/vue-component-library
+          name: storybook-static-${{ github.run_id }}-${{ github.sha }}
+          path: storybook-static
       - name: Deploy to Netlify (merged)
         uses: nwtgck/actions-netlify@v2 # v1.2.3
         with:
           production-deploy: true
           deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/commit/${{ github.sha }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          publish-dir: "./packages/vue-component-library/storybook-static"
+          publish-dir: "./storybook-static"
           fails-without-credentials: true
           github-deployment-environment: test
         env:
@@ -130,7 +123,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
-          path: packages/vue-component-library
+          path: storybook-static
       - name: Deploy to Netlify (preview, internal)
         uses: nwtgck/actions-netlify@v2 # v1.2.3
         with:
@@ -139,7 +132,7 @@ jobs:
           alias: deploy-preview-${{ github.event.pull_request.number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           overwrites-pull-request-comment: true
-          publish-dir: "./packages/vue-component-library/storybook-static"
+          publish-dir: "./storybook-static"
           fails-without-credentials: true
           github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
         env:
@@ -171,7 +164,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
-          path: packages/vue-component-library
+          path: storybook-static
 
       - name: Deploy to Netlify (preview, fork - gated)
         id: netlify
@@ -182,7 +175,7 @@ jobs:
           alias: deploy-preview-${{ github.event.pull_request.number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           overwrites-pull-request-comment: true
-          publish-dir: "./packages/vue-component-library/storybook-static"
+          publish-dir: "./storybook-static"
           fails-without-credentials: true
           github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
         env:
@@ -204,14 +197,36 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
-          path: packages/vue-component-library
+          path: packages/vue-component-library/_artifact
 
-      # Verify Cypress is installed (devDependency) in the filtered package
+      - name: Normalize to packages/vue-component-library/storybook-static
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd packages/vue-component-library/_artifact
+
+          target="../storybook-static"
+          rm -rf "$target"
+          # no dir; maybe files are at root of the artifact → move all contents
+          mkdir -p "$target"
+          shopt -s dotglob nullglob
+          # Only move if there is something to move to avoid errors
+          files=( * )
+          if (( ${#files[@]} )); then
+            mv "${files[@]}" "$target"/
+          fi
+
+          cd ..
+          rm -rf _artifact
+          echo "Normalized contents:"
+          ls -la storybook-static
+
+      # 2) Verify Cypress is installed (devDependency) in the filtered package
       - name: Verify Cypress Installation
         shell: bash
         run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec cypress --version
 
-      # Run Cypress against the static Storybook
+      # 3) Run Cypress against the static Storybook
       - name: Cypress test for Storybook Components
         uses: cypress-io/github-action@v5
         with:
