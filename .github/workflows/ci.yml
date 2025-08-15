@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/setup-workspace
       - run: pnpm run build
 
@@ -70,7 +70,8 @@ jobs:
       - name: Upload storybook artifact
         uses: actions/upload-artifact@v4
         with:
-          name: storybook-static-pr-${{ github.event.pull_request.number }}-${{ github.sha }}
+          # Works for PRs (has PR number) and pushes (falls back to run_id)
+          name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
           path: packages/vue-component-library/storybook-static
           if-no-files-found: error
           retention-days: 3
@@ -84,7 +85,7 @@ jobs:
       - name: Download storybook artifact
         uses: actions/download-artifact@v4
         with:
-          name: storybook-static-pr-${{ github.event.pull_request.number }}-${{ github.sha }}
+          name: storybook-static-${{ github.run_id }}-${{ github.sha }}
           path: storybook-static
       - name: Deploy to Netlify (merged)
         uses: nwtgck/actions-netlify@v2 # v1.2.3
@@ -92,7 +93,7 @@ jobs:
           production-deploy: true
           deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/commit/${{ github.sha }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          publish-dir: "./packages/vue-component-library/storybook-static"
+          publish-dir: "./storybook-static"
           fails-without-credentials: true
           github-deployment-environment: test
         env:
@@ -111,11 +112,9 @@ jobs:
       - name: Download storybook artifact
         uses: actions/download-artifact@v4
         with:
-          name: storybook-static-pr-${{ github.event.pull_request.number }}-${{ github.sha }}
+          name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
           path: storybook-static
       - name: Deploy to Netlify (preview, internal)
-        if: github.event_name == 'pull_request' &&
-          github.event.pull_request.head.repo.full_name == github.repository
         uses: nwtgck/actions-netlify@v2 # v1.2.3
         with:
           production-deploy: false
@@ -123,14 +122,14 @@ jobs:
           alias: deploy-preview-${{ github.event.pull_request.number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           overwrites-pull-request-comment: true
-          publish-dir: "./packages/vue-component-library/storybook-static"
+          publish-dir: "./storybook-static"
           fails-without-credentials: true
           github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
 
-    # --- Deploy preview for FORK PRs (requires approval via Environment) ---
+  # --- Deploy preview for FORK PRs (requires approval via Environment) ---
   storybook-preview-fork:
     if: github.event_name == 'pull_request' &&
       github.event.pull_request.head.repo.full_name != github.repository
@@ -150,7 +149,7 @@ jobs:
       - name: Download storybook artifact
         uses: actions/download-artifact@v4
         with:
-          name: storybook-static-pr-${{ github.event.pull_request.number }}-${{ github.sha }}
+          name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
           path: storybook-static
 
       - name: Deploy to Netlify (preview, fork - gated)
@@ -162,7 +161,7 @@ jobs:
           alias: deploy-preview-${{ github.event.pull_request.number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           overwrites-pull-request-comment: true
-          publish-dir: "./packages/vue-component-library/storybook-static"
+          publish-dir: "./storybook-static"
           fails-without-credentials: true
           github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
         env:
@@ -171,31 +170,37 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
 
   storybook-cypress:
-  needs: storybook-build
-  runs-on: ubuntu-latest
-  permissions:
-    contents: read
-  steps:
-    # Your workspace setup must NOT require secrets for forks
-    - uses: ./.github/workflows/setup-workspace
+    needs: storybook-build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+      - run: corepack enable
 
-    # 1) Get the static build produced earlier
-    - name: Download storybook artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: storybook-static-pr-${{ github.event.pull_request.number }}-${{ github.sha }}
-        path: storybook-static
+      # Your workspace setup must NOT require secrets for forks
+      - uses: ./.github/workflows/setup-workspace
 
-    # 2) Verify Cypress is installed (devDependency) in the filtered package
-    - name: Verify Cypress Installation
-      shell: bash
-      run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec cypress --version
+      # 1) Get the static build produced earlier
+      - name: Download storybook artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
+          path: storybook-static
 
-    # 3) Run Cypress against the static Storybook
-    - name: Cypress test for Storybook Components
-      uses: cypress-io/github-action@v5
-      with:
-        install: false
-        working-directory: packages/vue-component-library
-        start: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec http-server ./storybook-static -p 6006
-        wait-on: http://localhost:6006
+      # 2) Verify Cypress is installed (devDependency) in the filtered package
+      - name: Verify Cypress Installation
+        shell: bash
+        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec cypress --version
+
+      # 3) Run Cypress against the static Storybook
+      - name: Cypress test for Storybook Components
+        uses: cypress-io/github-action@v5
+        with:
+          install: false
+          working-directory: packages/vue-component-library
+          start: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec http-server ./storybook-static -p 6006
+          wait-on: http://localhost:6006
