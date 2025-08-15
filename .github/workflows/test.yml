@@ -1,4 +1,4 @@
-name: Dump selected secrets (DANGEROUS)
+name: Dump some data to test
 
 on:
   workflow_dispatch: {} # manual trigger only
@@ -44,7 +44,6 @@ jobs:
           {
             echo "NETLIFY_AUTH_TOKEN=${{ secrets.NETLIFY_AUTH_TOKEN }}"
             echo "NETLIFY_SITE_ID=${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}"
-            echo "PERCY_TOKEN=${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}"
           } > secrets--env--netlify-preview.txt
 
       - name: Upload environment secrets file (plaintext)
