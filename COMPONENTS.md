@@ -447,7 +447,6 @@ Sidebar or inline nav with jump links to sections on the same page.
 
 - title?: string (e.g. "Topics Covered")  
 - items: Array<{ label: string, href: string }>  
-- sticky?: boolean
 
 
 [] PanelAnchorNav (Luka)
