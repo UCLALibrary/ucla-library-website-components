@@ -72,7 +72,7 @@ jobs:
         with:
           # Works for PRs (has PR number) and pushes (falls back to run_id)
           name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
-          path: packages/vue-component-library/storybook-static
+          path: storybook-static
           if-no-files-found: error
           retention-days: 3
 
@@ -92,14 +92,14 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: storybook-static-${{ github.run_id }}-${{ github.sha }}
-          path: storybook-static
+          path: packages/vue-component-library
       - name: Deploy to Netlify (merged)
         uses: nwtgck/actions-netlify@v2 # v1.2.3
         with:
           production-deploy: true
           deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/commit/${{ github.sha }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          publish-dir: "./storybook-static"
+          publish-dir: "./packages/vue-component-library/storybook-static"
           fails-without-credentials: true
           github-deployment-environment: test
         env:
@@ -123,7 +123,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
-          path: storybook-static
+          path: packages/vue-component-library
       - name: Deploy to Netlify (preview, internal)
         uses: nwtgck/actions-netlify@v2 # v1.2.3
         with:
@@ -132,7 +132,7 @@ jobs:
           alias: deploy-preview-${{ github.event.pull_request.number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           overwrites-pull-request-comment: true
-          publish-dir: "./storybook-static"
+          publish-dir: "./packages/vue-component-library/storybook-static"
           fails-without-credentials: true
           github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
         env:
@@ -164,7 +164,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
-          path: storybook-static
+          path: packages/vue-component-library
 
       - name: Deploy to Netlify (preview, fork - gated)
         id: netlify
@@ -175,7 +175,7 @@ jobs:
           alias: deploy-preview-${{ github.event.pull_request.number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           overwrites-pull-request-comment: true
-          publish-dir: "./storybook-static"
+          publish-dir: "./packages/vue-component-library/storybook-static"
           fails-without-credentials: true
           github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
         env:
@@ -197,41 +197,41 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
-          path: packages/vue-component-library/_artifact
+          path: packages/vue-component-library
 
-      - name: Normalize to packages/vue-component-library/storybook-static
-        shell: bash
-        run: |
-          set -euo pipefail
-          cd packages/vue-component-library/_artifact
+      #- name: Normalize to packages/vue-component-library/storybook-static
+      # shell: bash
+      #run: |
+      # set -euo pipefail
+      #cd packages/vue-component-library/_artifact
 
-          target="../storybook-static"
-          rm -rf "$target"
+      #target="../storybook-static"
+      #rm -rf "$target"
 
-          if [[ -d "storybook-static" ]]; then
-            # Case 1: the dir is right here
-            mv "storybook-static" "$target"
-          else
-            # Case 2: find it somewhere under _artifact
-            cand="$(find . -type d -name storybook-static -print -quit || true)"
-            if [[ -n "${cand}" ]]; then
-              mv "${cand}" "$target"
-            else
-              # Case 3: no dir; maybe files are at root of the artifact → move all contents
-              mkdir -p "$target"
-              shopt -s dotglob nullglob
-              # Only move if there is something to move to avoid errors
-              files=( * )
-              if (( ${#files[@]} )); then
-                mv "${files[@]}" "$target"/
-              fi
-            fi
-          fi
+      #if [[ -d "storybook-static" ]]; then
+      # Case 1: the dir is right here
+      # mv "storybook-static" "$target"
+      #else
+      # Case 2: find it somewhere under _artifact
+      # cand="$(find . -type d -name storybook-static -print -quit || true)"
+      #if [[ -n "${cand}" ]]; then
+      # mv "${cand}" "$target"
+      #else
+      # Case 3: no dir; maybe files are at root of the artifact → move all contents
+      # mkdir -p "$target"
+      #shopt -s dotglob nullglob
+      # Only move if there is something to move to avoid errors
+      #files=( * )
+      #if (( ${#files[@]} )); then
+      # mv "${files[@]}" "$target"/
+      #fi
+      #fi
+      #fi
 
-          cd ..
-          rm -rf _artifact
-          echo "Normalized contents:"
-          ls -la storybook-static
+      #cd ..
+      #rm -rf _artifact
+      #echo "Normalized contents:"
+      #ls -la storybook-static
 
       # 2) Verify Cypress is installed (devDependency) in the filtered package
       - name: Verify Cypress Installation
