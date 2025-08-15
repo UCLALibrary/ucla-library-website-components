@@ -205,58 +205,64 @@ onMounted(() => {
 <template>
   <div ref="pageButtons" :class="classes" role="navigation" aria-label="page list navigation">
     <!-- if legacy attribute previousTo is supplied, use that for Prev button instead of handlePageChange -->
-    <SmartLink v-if="previousTo" :to="previousTo" class="previous">
-      <SvgIconArrowRight class="previous-svg" />
-      <div class="underline-hover">
-        Previous
-      </div>
-    </SmartLink>
-    <SmartLink v-else-if="isNotFirstPage" class="previous" :to="generateLink(parsedPrevTo)" @click="handlePageChange(parsedPrevTo)">
-      <SvgIconArrowRight class="previous-svg" />
-      <div class="underline-hover">
-        Previous
-      </div>
-    </SmartLink>
-    <div v-if="initialCurrentPage && pages" class="pagination-numbers-container">
-      <div class="pagination-numbers">
-        <span v-if="currPage > maxPages" class="page-list-first">
+    <div class="previous-wrapper">
+      <SmartLink v-if="previousTo" :to="previousTo" class="previous">
+        <SvgIconArrowRight class="previous-svg" />
+        <div class="underline-hover">
+          Previous
+        </div>
+      </SmartLink>
+      <SmartLink v-else-if="isNotFirstPage" class="previous" :to="generateLink(parsedPrevTo)" @click="handlePageChange(parsedPrevTo)">
+        <SvgIconArrowRight class="previous-svg" />
+        <div class="underline-hover">
+          Previous
+        </div>
+      </SmartLink>
+    </div>
+    <div class="pagination-wrapper">
+      <div v-if="initialCurrentPage && pages" class="pagination-numbers-container">
+        <div class="pagination-numbers">
+          <span v-if="currPage > maxPages" class="page-list-first">
+            <SmartLink
+              :class="`pButton${1 === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === 1"
+              :to="generateLink(1)"
+              @click="handlePageChange(1)"
+            >{{ 1 }}</SmartLink>
+          </span>
+          <span v-if="currPage > maxPages" class="page-list-truncate">...</span>
           <SmartLink
-            :class="`pButton${1 === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === 1"
-            :to="generateLink(1)"
-            @click="handlePageChange(1)"
-          >{{ 1 }}</SmartLink>
-        </span>
-        <span v-if="currPage > maxPages" class="page-list-truncate">...</span>
-        <SmartLink
-          v-for="item in leftPages" :key="item"
-          :class="`pButton${item === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === item"
-          :to="generateLink(item)"
-          @click="handlePageChange(item)"
-        >
-          {{ item }}
-        </SmartLink>
-        <span v-if="leftPages.length < pages && leftPages.indexOf(pages) === -1" class="page-list-truncate">...</span>
-        <span v-if="leftPages.length < pages && leftPages.indexOf(pages) === -1" class="page-list-right">
-          <SmartLink
-            :class="`pButton${pages === currPage ? ' ' + 'pButton-selected' : ''}`"
-            :active="currPage === pages" :to="generateLink(pages)" @click="handlePageChange(pages)"
-          >{{ pages }}</SmartLink>
-        </span>
+            v-for="item in leftPages" :key="item"
+            :class="`pButton${item === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === item"
+            :to="generateLink(item)"
+            @click="handlePageChange(item)"
+          >
+            {{ item }}
+          </SmartLink>
+          <span v-if="leftPages.length < pages && leftPages.indexOf(pages) === -1" class="page-list-truncate">...</span>
+          <span v-if="leftPages.length < pages && leftPages.indexOf(pages) === -1" class="page-list-right">
+            <SmartLink
+              :class="`pButton${pages === currPage ? ' ' + 'pButton-selected' : ''}`"
+              :active="currPage === pages" :to="generateLink(pages)" @click="handlePageChange(pages)"
+            >{{ pages }}</SmartLink>
+          </span>
+        </div>
       </div>
     </div>
     <!-- if legacy attribute nextTo is supplied, use that for Next button instead of handlePageChange -->
-    <SmartLink v-if="nextTo" :to="nextTo" class="next">
-      <div class="underline-hover">
-        Next
-      </div>
-      <SvgIconArrowRight class="next-svg" />
-    </SmartLink>
-    <SmartLink v-else-if="isNotLastPage" class="next" :to="generateLink(parsedNextTo)" @click="handlePageChange(parsedNextTo)">
-      <div class="underline-hover">
-        Next
-      </div>
-      <SvgIconArrowRight class="next-svg" />
-    </SmartLink>
+    <div class="next-wrapper">
+      <SmartLink v-if="nextTo" :to="nextTo" class="next">
+        <div class="underline-hover">
+          Next
+        </div>
+        <SvgIconArrowRight class="next-svg" />
+      </SmartLink>
+      <SmartLink v-else-if="isNotLastPage" class="next" :to="generateLink(parsedNextTo)" @click="handlePageChange(parsedNextTo)">
+        <div class="underline-hover">
+          Next
+        </div>
+        <SvgIconArrowRight class="next-svg" />
+      </SmartLink>
+    </div>
   </div>
 </template>
 

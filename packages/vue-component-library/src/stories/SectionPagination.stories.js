@@ -43,9 +43,43 @@ export function LastPage() {
 
 // this story uses the generateLinkCallback prop
 // to generate the links in the library-website-nuxt format instead of the default format
-export function WithPagesAndCurrentPage() {
+export function _5PagesAndCurrentPage() {
   // mock a library site page where someone has searched 'new' like this:
   // https://www.library.ucla.edu/search-site?q=new&from=10'
+  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
+  return {
+    setup() {
+      // sample callback to generate the link
+      const sampleCallback = (pageNumber, queryParams) => {
+        return `/search-site?${queryParams}`
+      }
+
+      return { sampleCallback }
+    },
+    components: { SectionPagination },
+    template: '<section-pagination :pages="5" :initialCurrentPage="4" :generateLinkCallback="sampleCallback"/>',
+  }
+}
+
+export function _10PagesAndCurrentPage() {
+  // mock a library site page where someone has searched 'new' like this:
+  // https://www.library.ucla.edu/search-site?q=new&from=10'
+  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
+  return {
+    setup() {
+      // sample callback to generate the link
+      const sampleCallback = (pageNumber, queryParams) => {
+        return `/search-site?${queryParams}`
+      }
+
+      return { sampleCallback }
+    },
+    components: { SectionPagination },
+    template: '<section-pagination :pages="10" :initialCurrentPage="4" :generateLinkCallback="sampleCallback"/>',
+  }
+}
+
+export function _23PagesAndCurrentPage() {
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
   return {
     setup() {
