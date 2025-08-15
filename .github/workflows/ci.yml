@@ -202,6 +202,13 @@ jobs:
             # ⬇️ put files into the package folder
           path: packages/vue-component-library
 
+          # (Optional) sanity check
+      - name: List served files
+        working-directory: packages/vue-component-library
+        run: |
+          pwd
+          ls -la storybook-static | sed 's/^/storybook-static: /'
+
       # 2) Verify Cypress is installed (devDependency) in the filtered package
       - name: Verify Cypress Installation
         shell: bash
@@ -213,5 +220,5 @@ jobs:
         with:
           install: false
           working-directory: packages/vue-component-library
-          start: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec http-server ./storybook-static -p 6006
+          start: pnpm  exec http-server ./storybook-static -p 6006
           wait-on: http://localhost:6006
