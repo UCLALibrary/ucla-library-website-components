@@ -67,11 +67,17 @@ jobs:
           path: storybook-static
           key: storybook-${{ github.sha }}
       - run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
-      - name: Upload storybook artifact
+
+      # (optional) sanity check so you can see the files
+      - name: List Storybook output
+        run: ls -la packages/vue-component-library/storybook-static || true
+
+      # ✅ Upload from inside the package so the artifact is flat
+      - name: Upload storybook artifact (flat)
+        working-directory: packages/vue-component-library
         uses: actions/upload-artifact@v4
         with:
-          # Works for PRs (has PR number) and pushes (falls back to run_id)
-          name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
+          name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
           path: storybook-static
           if-no-files-found: error
           retention-days: 3
@@ -91,7 +97,7 @@ jobs:
       - name: Download storybook artifact
         uses: actions/download-artifact@v4
         with:
-          name: storybook-static-${{ github.run_id }}-${{ github.sha }}
+          name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
           path: packages/vue-component-library
       - name: Deploy to Netlify (merged)
         uses: nwtgck/actions-netlify@v2 # v1.2.3
