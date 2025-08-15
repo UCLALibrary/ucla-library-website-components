@@ -193,28 +193,32 @@ jobs:
       # Your workspace setup must NOT require secrets for forks
       - uses: ./.github/workflows/setup-workspace
 
-      # 1) Get the static build produced earlier
-      - name: Download storybook artifact
+      - name: Download Storybook artifact
         uses: actions/download-artifact@v4
         with:
-          name:
-            storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
-            # ⬇️ put files into the package folder
-          path: packages/vue-component-library
+          name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
+          path: packages/vue-component-library/_artifact
 
-          # (Optional) sanity check
-      - name: List served files
-        working-directory: packages/vue-component-library
+      - name: Normalize to packages/vue-component-library/storybook-static
+        shell: bash
         run: |
-          pwd
-          ls -la storybook-static | sed 's/^/storybook-static: /'
-
-      - name: Find Storybook path
-        id: find_storybook
-        run: |
-          dir=$(find packages/vue-component-library -type d -name storybook-static | head -n1)
-          echo "Found Storybook path: $dir"   # This will print to console
-          echo "dir=$dir" >> $GITHUB_OUTPUT   # This will set the step output
+          set -euo pipefail
+          cd packages/vue-component-library/_artifact
+          target="../storybook-static"
+          rm -rf "$target"
+          if [[ -d storybook-static ]]; then
+            mv storybook-static "$target"
+          elif cand=$(find . -type d -name storybook-static -print -quit); then
+            mv "$cand" "$target"
+          else
+            mkdir -p "$target"
+            shopt -s dotglob
+            mv * "$target"/ || true
+          fi
+          cd ..
+          rm -rf _artifact
+          echo "Normalized:"
+          ls -la storybook-static
 
       # 2) Verify Cypress is installed (devDependency) in the filtered package
       - name: Verify Cypress Installation
@@ -227,5 +231,5 @@ jobs:
         with:
           install: false
           working-directory: ${{ steps.find_storybook.outputs.dir }}
-          start: pnpm  exec http-server . -p 6006
+          start: pnpm  exec http-server ./storybook-static -p 6006
           wait-on: http://localhost:6006
