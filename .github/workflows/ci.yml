@@ -204,20 +204,33 @@ jobs:
         run: |
           set -euo pipefail
           cd packages/vue-component-library/_artifact
+
           target="../storybook-static"
           rm -rf "$target"
-          if [[ -d storybook-static ]]; then
-            mv storybook-static "$target"
-          elif cand=$(find . -type d -name storybook-static -print -quit); then
-            mv "$cand" "$target"
+
+          if [[ -d "storybook-static" ]]; then
+            # Case 1: the dir is right here
+            mv "storybook-static" "$target"
           else
-            mkdir -p "$target"
-            shopt -s dotglob
-            mv * "$target"/ || true
+            # Case 2: find it somewhere under _artifact
+            cand="$(find . -type d -name storybook-static -print -quit || true)"
+            if [[ -n "${cand}" ]]; then
+              mv "${cand}" "$target"
+            else
+              # Case 3: no dir; maybe files are at root of the artifact → move all contents
+              mkdir -p "$target"
+              shopt -s dotglob nullglob
+              # Only move if there is something to move to avoid errors
+              files=( * )
+              if (( ${#files[@]} )); then
+                mv "${files[@]}" "$target"/
+              fi
+            fi
           fi
+
           cd ..
           rm -rf _artifact
-          echo "Normalized:"
+          echo "Normalized contents:"
           ls -la storybook-static
 
       # 2) Verify Cypress is installed (devDependency) in the filtered package
@@ -230,6 +243,6 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           install: false
-          working-directory: ${{ steps.find_storybook.outputs.dir }}
+          working-directory: packages/vue-component-library
           start: pnpm  exec http-server ./storybook-static -p 6006
           wait-on: http://localhost:6006
