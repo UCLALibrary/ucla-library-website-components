@@ -80,6 +80,11 @@ jobs:
   storybook-merged-deploy:
     if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'vue3.x')
     needs: storybook-build
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      statuses: write
     runs-on: ubuntu-latest
     steps:
       - name: Download storybook artifact
@@ -107,7 +112,10 @@ jobs:
     needs: storybook-build
     runs-on: ubuntu-latest
     permissions:
+      contents: write
       pull-requests: write
+      issues: write
+      statuses: write
     steps:
       - name: Download storybook artifact
         uses: actions/download-artifact@v4
@@ -143,7 +151,10 @@ jobs:
       url: ${{ steps.netlify.outputs.NETLIFY_URL }}
 
     permissions:
+      contents: write
       pull-requests: write
+      issues: write
+      statuses: write
 
     steps:
       - name: Download storybook artifact
