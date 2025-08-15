@@ -165,7 +165,18 @@ jobs:
         with:
           name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
           path: storybook-static
-
+      - name: Show environment info
+        run: |
+          echo "Environment name: ${{ github.job }} is using '${{ github.environment }}'"
+      - name: Check secret presence (masked)
+        shell: bash
+        run: |
+          mask() { if [ -n "$1" ]; then echo "set (len=${#1})"; else echo "EMPTY"; fi; }
+          echo "NETLIFY_AUTH_TOKEN is $(mask "${NETLIFY_AUTH_TOKEN:-}")"
+          echo "NETLIFY_SITE_ID is $(mask "${NETLIFY_SITE_ID:-}")"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
       - name: Deploy to Netlify (preview, fork - gated)
         id: netlify
         uses: nwtgck/actions-netlify@v2
