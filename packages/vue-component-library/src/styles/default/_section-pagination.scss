@@ -3,20 +3,42 @@
 
     font-family: var(--font-secondary);
     font-size: 18px;
-    padding-left: 13px;
+    // padding-left: 13px;
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
+    display: grid;
+    // grid-template-columns: 150px minmax(min-content, 690px) 150px;
+    grid-template-columns: minmax(-webkit-min-content, 120px) minmax(-webkit-min-content, 750px) minmax(-webkit-min-content, 120px);
+    grid-template-columns: minmax(min-content, 120px) minmax(min-content, 750px) minmax(min-content, 120px);
 
-    .previous {
+    // flex-direction: row;
+    // flex-wrap: nowrap;
+    // justify-content: space-between;
+    // align-content: center;
+    // align-items: center;
+
+    // WIP
+    .previous-wrapper,
+    .next-wrapper {
         display: flex;
-        align-items: center;
     }
 
+    .previous-wrapper {
+        background: gold;
+        justify-content: flex-start;
+    }
+
+    .next-wrapper {
+        background: goldenrod;
+        justify-content: flex-end;
+        
+    }
+
+    .pagination-wrapper {
+        background-color: gainsboro;
+    }
+    // WIP
+
+    .previous,
     .next {
         display: flex;
         align-items: center;
@@ -31,24 +53,23 @@
         margin-left: 5px;
     }
 
-    &.first-page {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        align-content: stretch;
-        align-items: center;
-    }
-
+    &.first-page,
     &.last-page {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: flex-start;
         align-content: stretch;
         align-items: center;
     }
 
+    &.first-page {
+        justify-content: flex-end;
+    }
+
+    &.last-page {
+        justify-content: flex-start;
+    }
+    
     .pagination-numbers-container {
         width: 100%;
         display: flex;
@@ -61,7 +82,6 @@
             text-align: center;
             white-space: nowrap;
             vertical-align: middle;
-            -ms-touch-action: manipulation;
             touch-action: manipulation;
             cursor: pointer;
             -webkit-user-select: none;
