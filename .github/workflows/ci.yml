@@ -211,7 +211,10 @@ jobs:
 
       - name: Find Storybook path
         id: find_storybook
-        run: echo "dir=$(find packages/vue-component-library -type d -name storybook-static | head -n1)" >> $GITHUB_OUTPUT
+        run: |
+          dir=$(find packages/vue-component-library -type d -name storybook-static | head -n1)
+          echo "Found Storybook path: $dir"   # This will print to console
+          echo "dir=$dir" >> $GITHUB_OUTPUT   # This will set the step output
 
       # 2) Verify Cypress is installed (devDependency) in the filtered package
       - name: Verify Cypress Installation
@@ -224,5 +227,5 @@ jobs:
         with:
           install: false
           working-directory: ${{ steps.find_storybook.outputs.dir }}
-          start: pnpm  exec http-server ./storybook-static -p 6006
+          start: pnpm  exec http-server . -p 6006
           wait-on: http://localhost:6006
