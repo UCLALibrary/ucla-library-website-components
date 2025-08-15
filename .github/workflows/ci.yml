@@ -85,6 +85,7 @@ jobs:
       pull-requests: write
       issues: write
       statuses: write
+      deployments: write
     runs-on: ubuntu-latest
     steps:
       - name: Download storybook artifact
@@ -116,6 +117,7 @@ jobs:
       pull-requests: write
       issues: write
       statuses: write
+      deployments: write
     steps:
       - name: Download storybook artifact
         uses: actions/download-artifact@v4
@@ -155,6 +157,7 @@ jobs:
       pull-requests: write
       issues: write
       statuses: write
+      deployments: write
 
     steps:
       - name: Download storybook artifact
@@ -186,12 +189,6 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "pnpm"
-      - run: corepack enable
-
       # Your workspace setup must NOT require secrets for forks
       - uses: ./.github/workflows/setup-workspace
 
