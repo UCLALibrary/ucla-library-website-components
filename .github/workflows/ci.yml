@@ -66,6 +66,8 @@ jobs:
         with:
           path: storybook-static
           key: storybook-${{ github.sha }}
+
+      - name: Build Storybook
       - run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
 
       # (optional) sanity check so you can see the files
@@ -74,11 +76,10 @@ jobs:
 
       # ✅ Upload from inside the package so the artifact is flat
       - name: Upload storybook artifact (flat)
-        working-directory: packages/vue-component-library
         uses: actions/upload-artifact@v4
         with:
           name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
-          path: storybook-static
+          path: packages/vue-component-library/storybook-static
           if-no-files-found: error
           retention-days: 3
 
@@ -205,46 +206,12 @@ jobs:
           name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
           path: packages/vue-component-library
 
-      #- name: Normalize to packages/vue-component-library/storybook-static
-      # shell: bash
-      #run: |
-      # set -euo pipefail
-      #cd packages/vue-component-library/_artifact
-
-      #target="../storybook-static"
-      #rm -rf "$target"
-
-      #if [[ -d "storybook-static" ]]; then
-      # Case 1: the dir is right here
-      # mv "storybook-static" "$target"
-      #else
-      # Case 2: find it somewhere under _artifact
-      # cand="$(find . -type d -name storybook-static -print -quit || true)"
-      #if [[ -n "${cand}" ]]; then
-      # mv "${cand}" "$target"
-      #else
-      # Case 3: no dir; maybe files are at root of the artifact → move all contents
-      # mkdir -p "$target"
-      #shopt -s dotglob nullglob
-      # Only move if there is something to move to avoid errors
-      #files=( * )
-      #if (( ${#files[@]} )); then
-      # mv "${files[@]}" "$target"/
-      #fi
-      #fi
-      #fi
-
-      #cd ..
-      #rm -rf _artifact
-      #echo "Normalized contents:"
-      #ls -la storybook-static
-
-      # 2) Verify Cypress is installed (devDependency) in the filtered package
+      # Verify Cypress is installed (devDependency) in the filtered package
       - name: Verify Cypress Installation
         shell: bash
         run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec cypress --version
 
-      # 3) Run Cypress against the static Storybook
+      # Run Cypress against the static Storybook
       - name: Cypress test for Storybook Components
         uses: cypress-io/github-action@v5
         with:
