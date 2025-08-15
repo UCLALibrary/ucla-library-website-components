@@ -450,6 +450,16 @@ Sidebar or inline nav with jump links to sections on the same page.
 - sticky?: boolean
 
 
+[] PanelAnchorNav (Luka)
+
+A floating anchor navigation panel that appears after the user scrolls one full viewport height (100vh).
+An icon is shown on the right side of the screen; clicking it opens a side panel with jump links to sections on the same page.
+
+- title?: string (e.g. "Topics Covered")  
+- items: Array<{ label: string, href: string }>  
+
+
+
 
 # Checklist: 
 
@@ -507,3 +517,4 @@ Sidebar or inline nav with jump links to sections on the same page.
 | BlockButtons               |Luka       | ☐ Complete  |   [ ]   |                                |
 | ContentSection             |Luka       | ☐ Complete  |   [ ]   |                                |
 | BlockAnchorNav             |           | ☐ Complete  |   [ ]   | aka: In-page TOC               |
+| PanelAnchorNav             |           | ☐ Complete  |   [ ]   | aka: In-page TOC               |
