@@ -515,5 +515,5 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | BlockTitle                 |Luka       | ☐ Complete  |   [ ]   |                                |
 | BlockButtons               |Luka       | ☐ Complete  |   [ ]   |                                |
 | ContentSection             |Luka       | ☐ Complete  |   [ ]   |                                |
-| BlockAnchorNav             |           | ☐ Complete  |   [ ]   | aka: In-page TOC               |
-| PanelAnchorNav             |           | ☐ Complete  |   [ ]   | aka: In-page TOC               |
+| BlockAnchorNav             |Luka       | ☐ Complete  |   [ ]   |                                |
+| PanelAnchorNav             |Luka       | ☐ Complete  |   [ ]   |                                |
