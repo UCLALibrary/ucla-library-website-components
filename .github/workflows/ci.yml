@@ -68,7 +68,7 @@ jobs:
           key: storybook-${{ github.sha }}
 
       - name: Build Storybook
-      - run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
+        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
 
       # (optional) sanity check so you can see the files
       - name: List Storybook output
