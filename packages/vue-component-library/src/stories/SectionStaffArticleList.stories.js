@@ -340,6 +340,10 @@ export function FtvaFilmMakers() {
          .stories-ftva-film-makers .ftva.block-staff-article-item {
            --image-min-width: 180px;
            --image-aspect-ratio: 1;
+           
+           .image {
+              height: var(--image-min-width);
+           }
 
           .ftva-description {
             overflow: hidden;
