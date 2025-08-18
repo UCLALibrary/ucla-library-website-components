@@ -24,6 +24,8 @@ jobs:
           ref: refs/pull/${{ github.event.number }}/merge
 
       - uses: ./.github/workflows/setup-workspace
+        with:
+          do_checkout: "false" # keep the PR merge ref
 
       - name: Build Storybook (again)
         run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
