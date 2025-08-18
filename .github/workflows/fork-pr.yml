@@ -1,0 +1,43 @@
+# separate workflow or an extra job in a pr_target workflow
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+
+jobs:
+  storybook-preview-fork:
+    if: github.event.pull_request.head.repo.fork && github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    environment:
+      name: netlify-preview
+      url: ${{ steps.netlify.outputs.NETLIFY_URL }}
+
+    steps:
+      - uses: actions/checkout@v4
+        # with:
+        # use the PR's code, but workflow comes from base repo
+        # ref: refs/pull/${{ github.event.number }}/merge
+
+      - uses: ./.github/workflows/setup-workspace
+
+      - name: Build Storybook (again)
+        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
+
+      - name: Deploy to Netlify (gated)
+        id: netlify
+        uses: nwtgck/actions-netlify@v2
+        with:
+          production-deploy: false
+          deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/pull/${{ github.event.pull_request.number }}
+          alias: deploy-preview-${{ github.event.pull_request.number }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          overwrites-pull-request-comment: true
+          publish-dir: "./packages/vue-component-library/storybook-static"
+          fails-without-credentials: true
+          github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
