@@ -24,9 +24,9 @@
         display: block;
     }
 
-    // Unified styling for both list and grid icons
+    // Unified styling for both list and gallery icons
     .icon.list,
-    .icon.grid {
+    .icon.gallery {
         :deep() {
             rect {
                 fill: transparent;
@@ -43,7 +43,7 @@
 
     // Active state for both icons
     .button-wrapper.active .icon.list,
-    .button-wrapper.active .icon.grid {
+    .button-wrapper.active .icon.gallery {
         :deep() {
             rect {
                 fill: transparent;
@@ -63,7 +63,7 @@
 
             // Hover state for both icons
             .icon.list,
-            .icon.grid {
+            .icon.gallery {
                 :deep() {
                     rect {
                         fill: transparent;

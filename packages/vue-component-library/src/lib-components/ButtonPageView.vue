@@ -1,58 +1,65 @@
 <script setup lang="ts">
 // Imports
 import SvgList from 'ucla-library-design-tokens/assets/svgs/icon-list-view.svg'
-import SvgGrid from 'ucla-library-design-tokens/assets/svgs/icon-gallery.svg'
-import { computed, defineEmits, defineProps } from 'vue'
+import SvgGallery from 'ucla-library-design-tokens/assets/svgs/icon-gallery.svg'
+import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
 import { useTheme } from '@/composables/useTheme'
 
-// Props
-interface PageViewToggleProps {
-  pageView?: 'list' | 'grid'
-}
-const props = withDefaults(defineProps<PageViewToggleProps>(), {
-  pageView: 'list',
-})
+// CHILD COMPONENTS
+import SmartLink from '@/lib-components/SmartLink.vue'
 
-// Emits
-const emit = defineEmits(['update:pageView'])
 // Theme
 const theme = useTheme()
 
+// Router
+const route = useRoute()
+const router = useRouter()
+
 // Computed
 const classes = computed(() => ['button-page-view', theme?.value || ''])
-const isListView = computed(() => props.pageView === 'list')
-const isGridView = computed(() => props.pageView === 'grid')
 
-// Methods
-function setView(view: 'list' | 'grid') {
-  if (view !== props.pageView)
-    emit('update:pageView', view)
+// Get current view from route query parameter, default to 'list'
+const currentView = computed(() => {
+  const viewParam = route.query.view as string
+  return viewParam === 'gallery' ? 'gallery' : 'list'
+})
+
+const isListView = computed(() => currentView.value === 'list')
+const isGalleryView = computed(() => currentView.value === 'gallery')
+
+// Function to update the view in the URL
+function updateView(view: 'list' | 'gallery') {
+  router.push({
+    query: { ...route.query, view }
+  })
 }
 </script>
 
 <template>
   <div :class="classes">
-    <button
+    <SmartLink
       class="button-wrapper"
       :class="{ active: isListView }"
       type="button"
       :aria-pressed="isListView"
       aria-label="List view"
-      @click="setView('list')"
+      @click="updateView('list')"
     >
       <SvgList class="icon list" />
-    </button>
+    </SmartLink>
 
-    <button
+    <SmartLink
       class="button-wrapper"
-      :class="{ active: isGridView }"
+      :class="{ active: isGalleryView }"
       type="button"
-      :aria-pressed="isGridView"
-      aria-label="Grid view"
-      @click="setView('grid')"
+      :aria-pressed="isGalleryView"
+      aria-label="Card view"
+      @click="updateView('gallery')"
     >
-      <SvgGrid class="icon grid" />
-    </button>
+      <SvgGallery class="icon gallery" />
+    </SmartLink>
   </div>
 </template>
 

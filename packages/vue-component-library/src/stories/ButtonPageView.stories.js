@@ -2,71 +2,44 @@ import ButtonPageView from "@/lib-components/ButtonPageView.vue"
 import { computed } from "vue"
 
 export default {
-    title: "Funkhaus / Button Page View",
-    component: ButtonPageView,
+  title: "Funkhaus / Button Page View",
+  component: ButtonPageView,
+  decorators: [
+    (story) => ({
+      components: { story },
+      template: '<story />',
+    }),
+  ],
 }
 
-export const Default = () => ({
+export function Default() {
+  return {
     components: { ButtonPageView },
     provide() {
-        return {
-            theme: computed(() => "dlc"),
-        }
-    },
-    data() {
-        return {
-            pageView: "list",
-        }
+      return {
+        theme: computed(() => "dlc"),
+      }
     },
     template: `
-    <div style="padding: 40px; background: #f5f5f5;">
-      <button-page-view :page-view="pageView" @update:pageView="pageView = $event" />
-      <div style="margin-top: 20px;">
-        <strong>Current view:</strong> {{ pageView }}
-      </div>
-    </div>
-  `,
-})
-export const NoTheme = () => ({
-    components: { ButtonPageView },
-    provide() {
-        return {
-            theme: computed(() => ""),
-        }
-    },
-    data() {
-        return {
-            pageView: "list",
-        }
-    },
-    template: `
-    <div style="padding: 40px; background: #f5f5f5;">
-      <button-page-view :page-view="pageView" @update:pageView="pageView = $event" />
-      <div style="margin-top: 20px;">
-        <strong>Current view:</strong> {{ pageView }}
-      </div>
-    </div>
-  `,
-})
+  <div style="padding: 40px; background: #f5f5f5;">
+    <button-page-view />
+  </div>
+`,
+  }
+}
 
-export const GridActive = () => ({
+export function NoTheme() {
+  return {
     components: { ButtonPageView },
     provide() {
-        return {
-            theme: computed(() => "dlc"),
-        }
-    },
-    data() {
-        return {
-            pageView: "grid",
-        }
+      return {
+        theme: computed(() => ""),
+      }
     },
     template: `
-    <div style="padding: 40px; background: #f5f5f5;">
-      <button-page-view :page-view="pageView" @update:pageView="pageView = $event" />
-      <div style="margin-top: 20px;">
-        <strong>Current view:</strong> {{ pageView }}
-      </div>
-    </div>
-  `,
-})
+  <div style="padding: 40px; background: #f5f5f5;">
+    <button-page-view />
+  </div>
+`,
+  }
+}
