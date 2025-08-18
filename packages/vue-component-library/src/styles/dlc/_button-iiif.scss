@@ -9,6 +9,7 @@
         :deep() {
             path {
                 transition: fill 0.3s ease-out;
+                fill: var(--color-dark-grey);
             }
         }
     }
@@ -19,11 +20,11 @@
             :deep() {
                 path:nth-child(1),
                 path:nth-child(3) {
-                    fill: var(--button-iiif-red, #f02333);
+                    fill: var(--color-button-iiif-red);
                 }
                 path:nth-child(2),
                 path:nth-child(4) {
-                    fill: var(--button-iiif-blue, #0075a4);
+                    fill: var(--color-button-iiif-blue);
                 }
             }
         }

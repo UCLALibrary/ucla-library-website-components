@@ -5,18 +5,17 @@ import IconIiif from 'ucla-library-design-tokens/assets/svgs/icon-iiif.svg'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import { useTheme } from '@/composables/useTheme'
 
+defineProps<ButtonIiifProps>()
+
 // Theme
 const theme = useTheme()
 
 // Props
-type ButtonIiifProps = {
+interface ButtonIiifProps {
   to: string
 }
-
 // Computed
 const classes = computed(() => (['button-iiif', theme?.value || '']))
-
-defineProps<ButtonIiifProps>()
 </script>
 
 <template>
