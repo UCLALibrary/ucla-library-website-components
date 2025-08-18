@@ -9,7 +9,6 @@ jobs:
     if: github.event.pull_request.head.repo.fork && github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     permissions:
-      permissions:
       contents: write # needed for commit comment
       pull-requests: write # needed for PR comment
       deployments: write # you already have this
