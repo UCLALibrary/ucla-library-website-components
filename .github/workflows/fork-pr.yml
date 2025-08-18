@@ -19,9 +19,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        # with:
-        # use the PR's code, but workflow comes from base repo
-        # ref: refs/pull/${{ github.event.number }}/merge
+        with:
+          # use the PR's code, but workflow comes from base repo
+          ref: refs/pull/${{ github.event.number }}/merge
 
       - uses: ./.github/workflows/setup-workspace
 
