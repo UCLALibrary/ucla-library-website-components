@@ -49,9 +49,11 @@ function handleCustomAction(button: any) {
         <div class="values">
           <template v-if="Array.isArray(item.value)">
             <div class="buttons">
-              <Button v-for="(button, btnIdx) in item.value" :key="btnIdx" :text="button.label"
+              <Button
+                v-for="(button, btnIdx) in item.value" :key="btnIdx" :text="button.label"
                 :variant="button.variant || ButtonVariant.Secondary" :is-outlined="button.isOutlined ?? true"
-                @click="button.onClick ? button.onClick : () => { }" />
+                @click="button.onClick ? button.onClick : () => { }"
+              />
             </div>
           </template>
           <template v-else-if="typeof item.value === 'object' && item.value !== null">
