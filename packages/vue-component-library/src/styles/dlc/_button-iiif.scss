@@ -1,0 +1,31 @@
+.button-iiif.dlc {
+    display: inline-block;
+    width: 60px;
+    height: auto;
+
+    .icon-iiif {
+        width: 100%;
+        height: auto;
+        :deep() {
+            path {
+                transition: fill 0.3s ease-out;
+            }
+        }
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        &:hover {
+            :deep() {
+                path:nth-child(1),
+                path:nth-child(3) {
+                    fill: var(--color-button-iiif-red);
+                }
+                path:nth-child(2),
+                path:nth-child(4) {
+                    fill: var(--color-button-iiif-blue);
+                }
+            }
+        }
+    }
+}
