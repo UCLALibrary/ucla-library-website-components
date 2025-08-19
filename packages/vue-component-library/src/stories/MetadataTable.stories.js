@@ -1,4 +1,5 @@
 import MetadataTable from "@/lib-components/MetadataTable.vue"
+import { computed } from "vue"
 
 // Import mock api data
 import * as API from "@/stories/mock-api.json"
@@ -6,6 +7,16 @@ import * as API from "@/stories/mock-api.json"
 export default {
     title: "Funkhaus / MetadataTable",
     component: MetadataTable,
+    decorators: [
+        () => ({
+            provide() {
+                return {
+                    theme: computed(() => "dlc"),
+                }
+            },
+            template: "<story />",
+        }),
+    ],
 }
 
 const baseItems = [
@@ -34,18 +45,22 @@ const baseItems = [
     },
     {
         label: "Manifest URL",
+        showButtonIiif: true,
+        buttonIiifTo: "https://www.figma.com/design/CDhWDARLb36ftkQce1LyLC/Breakpoints?node-id=75-12920&m=dev",
         value: [
             {
                 label: "Download",
-                variant: "primary",
+                variant: "secondary",
                 isOutlined: true,
-                onClick: () => alert("Download clicked"),
+                to: "https://example.com/file.pdf",
+                isDownload: true,
             },
             {
                 label: "Copy URL",
                 variant: "secondary",
                 isOutlined: true,
-                onClick: () => alert("Copy URL clicked"),
+                copyOnClick: true,
+                copyUrl: "https://example.com/resource/123?ref=storybook",
             },
         ],
     },

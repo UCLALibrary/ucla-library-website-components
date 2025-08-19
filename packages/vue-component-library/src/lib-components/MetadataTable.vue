@@ -1,9 +1,16 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { MediaItemType } from '@/types/types'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import Button from '@/lib-components/Button.vue'
+import ButtonIiif from '@/lib-components/ButtonIiif.vue'
 import { ButtonVariant } from '@/types/components/button.types'
+import { useTheme } from '@/composables/useTheme'
+
+defineProps<MetaDataTableProps>()
+
+const theme = useTheme()
 
 // Props
 interface MetaDataTableProps {
@@ -16,46 +23,44 @@ interface MetaDataTableProps {
       label: string
       variant?: ButtonVariant
       isOutlined?: boolean
+      to?: string
+      isDownload?: boolean
+      copyOnClick?: boolean
+      copyUrl?: string
       onClick?: () => void
     }>
     image?: MediaItemType
+    showButtonIiif?: boolean
+    buttonIiifTo?: string
   }>
 }
-defineProps<MetaDataTableProps>()
-
-// Methods
-function handleDownload() {
-  // Handle download functionality
-  console.log('Download clicked')
-}
-
-function handleCopyUrl() {
-  // Handle copy URL functionality
-  console.log('Copy URL clicked')
-}
-
-function handleCustomAction(button: any) {
-  // Handle custom button actions
-  console.log('Custom action clicked:', button)
-}
+const classes = computed(() => (['metadata-table', theme?.value || '']))
 </script>
 
 <template>
-  <div class="metadata-table">
+  <div :class="classes">
     <h3 class="title" v-html="title" />
     <ul class="items">
       <li v-for="(item, index) in items" :key="index" class="list-item">
         <span class="label" v-html="item.label" />
         <div class="values">
-          <template v-if="Array.isArray(item.value)">
+          <!-- Buttons -->
+          <template v-if="Array.isArray(item.value) ">
             <div class="buttons">
-              <Button
-                v-for="(button, btnIdx) in item.value" :key="btnIdx" :text="button.label"
-                :variant="button.variant || ButtonVariant.Secondary" :is-outlined="button.isOutlined ?? true"
-                @click="button.onClick ? button.onClick : () => { }"
-              />
+              <ButtonIiif v-if="item.showButtonIiif && item.buttonIiifTo" :to="item.buttonIiifTo" />
+              <div class="action-buttons">
+                <Button
+                  v-for="(button, btnIdx) in item.value" :key="btnIdx" :text="button.label"
+                  :variant="button.variant || ButtonVariant.Secondary" :is-outlined="button.isOutlined ?? true"
+                  :to="button.to"
+                  :is-download="button.isDownload"
+                  :copy-on-click="button.copyOnClick"
+                  :copy-url="button.copyUrl"
+                />
+              </div>
             </div>
           </template>
+
           <template v-else-if="typeof item.value === 'object' && item.value !== null">
             <template v-if="item.image">
               <ResponsiveImage class="icon" :media="item.image" object-fit="cover" />

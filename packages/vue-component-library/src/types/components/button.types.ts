@@ -19,4 +19,13 @@ export interface ButtonProps {
     color?: ButtonColor
     linkTarget?: string
     isDownload?: boolean
+    /**
+     * If true, clicking the button will copy a URL to the clipboard instead of navigating/submitting.
+     * The URL copied is resolved as: `copyUrl` || `to` || current window location.
+     */
+    copyOnClick?: boolean
+    /**
+     * Explicit URL to copy when `copyOnClick` is true. If not provided, falls back to `to`.
+     */
+    copyUrl?: string
 }
