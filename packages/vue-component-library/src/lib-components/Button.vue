@@ -66,7 +66,7 @@ async function handleClick(event: MouseEvent) {
 
   if (props.copyOnClick) {
     event.preventDefault()
-    const urlToCopy = props.copyUrl || props.to || (typeof window !== 'undefined' ? window.location.href : '')
+    const urlToCopy = props.copyUrl || (typeof window !== 'undefined' ? window.location.href : '')
     if (urlToCopy)
       await copyToClipboard(urlToCopy)
   }
