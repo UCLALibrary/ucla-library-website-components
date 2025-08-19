@@ -166,3 +166,34 @@ export function FTVA_HomepageCarousel() {
     template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></ flexible-media-gallery-new-lightbox>',
   }
 }
+
+const parsedMockHomepagCarouselURL = computed(() => {
+  return FTVAMedia.mockFTVAHomepageCarousel.map((rawItem) => {
+    return {
+      item: parseFTVACarouselImage(rawItem.ftvaImage),
+      credit: rawItem.creditText,
+      tag: parseFTVATypeHandles(rawItem.typeHandle),
+      captionText: rawItem.ftvaHomepageDescription,
+      captionTitle: rawItem.ftvaHomepageTitle,
+      itemDate: parseDatesAndTimes(rawItem.typeHandle, rawItem.startDate, rawItem.endDate, rawItem.startDateWithTime, rawItem.ongoing),
+      linkUrl: 'google.com',
+    }
+  })
+})
+
+export function FTVA_HomepageCarouselURL() {
+  return {
+    data() {
+      return {
+        items: parsedMockHomepagCarouselURL
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { FlexibleMediaGalleryNewLightbox, BlockTag },
+    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></ flexible-media-gallery-new-lightbox>',
+  }
+}
