@@ -149,16 +149,3 @@ SecondaryLink.args = {
     variant: ButtonVariant.Secondary,
     to: "https://www.google.com",
 }
-
-export const CopyCurrentUrl = Template.bind({})
-CopyCurrentUrl.args = {
-    text: "Copy Current URL",
-    copyOnClick: true,
-}
-
-export const CopyExplicitUrl = Template.bind({})
-CopyExplicitUrl.args = {
-    text: "Copy Explicit URL",
-    copyOnClick: true,
-    copyUrl: "https://www.example.com/path?a=1",
-}

@@ -46,13 +46,14 @@ const baseItems = [
     {
         label: "Manifest URL",
         showButtonIiif: true,
-        buttonIiifTo: "https://www.figma.com/design/CDhWDARLb36ftkQce1LyLC/Breakpoints?node-id=75-12920&m=dev",
+        buttonIiifTo:
+            "https://www.figma.com/design/CDhWDARLb36ftkQce1LyLC/Breakpoints?node-id=75-12920&m=dev",
         value: [
             {
                 label: "Download",
                 variant: "secondary",
                 isOutlined: true,
-                to: "https://example.com/file.pdf",
+                to: "/src/assets/vue.svg",
                 isDownload: true,
             },
             {

@@ -26,14 +26,28 @@ interface MetaDataTableProps {
       to?: string
       isDownload?: boolean
       copyOnClick?: boolean
-      copyUrl?: string
     }>
     image?: MediaItemType
     showButtonIiif?: boolean
     buttonIiifTo?: string
   }>
 }
+
 const classes = computed(() => (['metadata-table', theme?.value || '']))
+
+
+// Functions
+const handleButtonClick = (button: any) => {
+  if (button.copyOnClick) {
+    // Copy current URL to clipboard
+    if (typeof window !== 'undefined' && window.location) {
+      navigator.clipboard.writeText(window.location.href)
+        .catch(err => {
+          console.error('Failed to copy URL:', err);
+        });
+    }
+  }
+}
 </script>
 
 <template>
@@ -44,18 +58,13 @@ const classes = computed(() => (['metadata-table', theme?.value || '']))
         <span class="label" v-html="item.label" />
         <div class="values">
           <!-- Buttons -->
-          <template v-if="Array.isArray(item.value) ">
+          <template v-if="Array.isArray(item.value)">
             <div class="buttons">
               <ButtonIiif v-if="item.showButtonIiif && item.buttonIiifTo" :to="item.buttonIiifTo" />
               <div class="action-buttons">
-                <Button
-                  v-for="(button, btnIdx) in item.value" :key="btnIdx" :text="button.label"
+                <Button v-for="(button, btnIdx) in item.value" :key="btnIdx" :text="button.label"
                   :variant="button.variant || ButtonVariant.Secondary" :is-outlined="button.isOutlined ?? true"
-                  :to="button.to"
-                  :is-download="button.isDownload"
-                  :copy-on-click="button.copyOnClick"
-                  :copy-url="button.copyUrl"
-                />
+                  :to="button.to" :is-download="button.isDownload" @click="handleButtonClick(button)" />
               </div>
             </div>
           </template>
