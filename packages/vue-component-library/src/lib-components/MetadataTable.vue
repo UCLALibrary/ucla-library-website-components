@@ -27,7 +27,6 @@ interface MetaDataTableProps {
       isDownload?: boolean
       copyOnClick?: boolean
       copyUrl?: string
-      onClick?: () => void
     }>
     image?: MediaItemType
     showButtonIiif?: boolean
