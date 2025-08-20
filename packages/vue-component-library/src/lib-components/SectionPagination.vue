@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import type { Ref } from 'vue'
-import { useWindowSize } from '@vueuse/core'
+
+// import { useWindowSize } from '@vueuse/core'
 import SvgIconArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
 import { useRoute } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
@@ -91,8 +92,9 @@ function generatePageNumbers() {
     }
     else {
       // Calculate how many middle pages to show
-      // We need 8 middle pages (10 total - 2 for first and last)
-      const middlePagesCount = 8
+      // We need 8 middle pages (10 total - 2 for First and Last)
+      // First and Last displayed via template code logic
+      const middlePagesCount = maxDisplayPages - 2
 
       // Calculate the range of middle pages to show
       let middleStart = Math.max(2, currPage.value - Math.floor(middlePagesCount / 2))
@@ -107,6 +109,10 @@ function generatePageNumbers() {
       // Add middle pages
       for (let i = middleStart; i <= middleEnd; i++)
         fixedWidthPages.value.push(i)
+
+      console.log('Fixed Pages Array: ', fixedWidthPages.value)
+      console.log('Current Page: ', currPage.value)
+      console.log('Max Pages: ', maxPages.value)
     }
   }
 }
@@ -146,6 +152,7 @@ onMounted(() => {
     return
 
   currPage.value = initialCurrentPage
+  generatePageNumbers()
 })
 </script>
 
@@ -176,22 +183,22 @@ onMounted(() => {
               @click="handlePageChange(1)"
             >{{ 1 }}</SmartLink>
           </span>
-          <span v-if="fixedWidthPages.length > 0 && fixedWidthPages[0] === 1 && fixedWidthPages[1] > 2" class="page-list-truncate">...</span>
+          <span v-if="fixedWidthPages.indexOf(2) === -1" class="page-list-truncate">...</span>
           <SmartLink
-            v-for="item in fixedWidthPages" :key="`fixed-${item}`"
+            v-for="item in fixedWidthPages" :key="item"
             :class="`pButton${item === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === item"
             :to="generateLink(item)"
             @click="handlePageChange(item)"
           >
             {{ item }}
           </SmartLink>
+          <span v-if="fixedWidthPages.indexOf(pages - 1) === -1" class="page-list-truncate">...</span>
           <span v-if="pages > maxPages" class="page-list-right">
             <SmartLink
               :class="`pButton${pages === currPage ? ' ' + 'pButton-selected' : ''}`"
               :active="currPage === pages" :to="generateLink(pages)" @click="handlePageChange(pages)"
             >{{ pages }}</SmartLink>
           </span>
-          <span v-if="fixedWidthPages.length > 0 && fixedWidthPages[fixedWidthPages.length - 1] === pages && fixedWidthPages[fixedWidthPages.length - 2] < pages - 1" class="page-list-truncate">...</span>
         </div>
       </div>
     </div>
