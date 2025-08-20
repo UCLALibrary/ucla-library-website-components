@@ -33,6 +33,18 @@ const { nextTo, previousTo, pages, initialCurrentPage, generateLinkCallback } = 
   generateLinkCallback: {
     type: Function,
     required: false
+  },
+  //
+  //
+  maxPageWidthMode: {
+    type: Boolean,
+    default: false,
+    required: false
+  },
+  maxPageWidthNum: {
+    type: Number,
+    default: 10,
+    required: false
   }
 })
 
@@ -42,7 +54,7 @@ const route = useRoute()
 const parsedQuery = computed(() => ({ ...route.query }))
 
 const maxPages = ref(10) // default/max # of buttons to fit in container
-const fixedWidthPages = ref<number[]>([]) // an array of numbers representing the page buttons (always 10 pages)
+const generatedMiddlePages = ref<number[]>([]) // an array of numbers representing the middle page buttons (excludes first and last)
 
 const currPage = ref(1) // current page, defaults to 1
 const pageButtons: Ref<HTMLElement | null> = ref(null)
@@ -79,7 +91,7 @@ function generateLink(pageNumber: number) {
 
 function generatePageNumbers() {
   if (pages) {
-    fixedWidthPages.value = []
+    generatedMiddlePages.value = []
 
     // Show exactly 10 page numbers (or all pages if less than 10)
     const maxDisplayPages = maxPages.value
@@ -88,7 +100,7 @@ function generatePageNumbers() {
     if (totalPages <= maxDisplayPages) {
       // If total pages is 10 or less, show all pages
       for (let i = 1; i <= totalPages; i++)
-        fixedWidthPages.value.push(i)
+        generatedMiddlePages.value.push(i)
     }
     else {
       // Calculate how many middle pages to show
@@ -108,11 +120,7 @@ function generatePageNumbers() {
 
       // Add middle pages
       for (let i = middleStart; i <= middleEnd; i++)
-        fixedWidthPages.value.push(i)
-
-      console.log('Fixed Pages Array: ', fixedWidthPages.value)
-      console.log('Current Page: ', currPage.value)
-      console.log('Max Pages: ', maxPages.value)
+        generatedMiddlePages.value.push(i)
     }
   }
 }
@@ -183,16 +191,16 @@ onMounted(() => {
               @click="handlePageChange(1)"
             >{{ 1 }}</SmartLink>
           </span>
-          <span v-if="fixedWidthPages.indexOf(2) === -1" class="page-list-truncate">...</span>
+          <span v-if="generatedMiddlePages.indexOf(2) === -1" class="page-list-truncate">...</span>
           <SmartLink
-            v-for="item in fixedWidthPages" :key="item"
+            v-for="item in generatedMiddlePages" :key="item"
             :class="`pButton${item === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === item"
             :to="generateLink(item)"
             @click="handlePageChange(item)"
           >
             {{ item }}
           </SmartLink>
-          <span v-if="fixedWidthPages.indexOf(pages - 1) === -1" class="page-list-truncate">...</span>
+          <span v-if="generatedMiddlePages.indexOf(pages - 1) === -1" class="page-list-truncate">...</span>
           <span v-if="pages > maxPages" class="page-list-right">
             <SmartLink
               :class="`pButton${pages === currPage ? ' ' + 'pButton-selected' : ''}`"

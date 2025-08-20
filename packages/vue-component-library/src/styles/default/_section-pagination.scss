@@ -3,18 +3,10 @@
 
     font-family: var(--font-secondary);
     font-size: 18px;
-    // padding-left: 13px;
 
     display: grid;
-    // grid-template-columns: 150px minmax(min-content, 690px) 150px;
     grid-template-columns: minmax(-webkit-min-content, 120px) minmax(-webkit-min-content, 750px) minmax(-webkit-min-content, 120px);
     grid-template-columns: minmax(min-content, 120px) minmax(min-content, 750px) minmax(min-content, 120px);
-
-    // flex-direction: row;
-    // flex-wrap: nowrap;
-    // justify-content: space-between;
-    // align-content: center;
-    // align-items: center;
 
     // WIP
     .previous-wrapper,
@@ -75,34 +67,33 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        // general functional styles for page-buttons
-        .pButton {
-            display: inline-block;
-            margin-bottom: 0;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            touch-action: manipulation;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            background-image: none;
-            background-color: transparent;
-            color: var(--color-secondary-grey-04);
-            font-size: 18px;
-            // padding: 0 12px;
-            padding-inline: 10px;
-            border: none;
-            border-radius: 4px;
-            // margin: 0 6px;
-            margin-inline: 4px;
-        }
+    }
 
-        .pButton-selected {
-            background-color: var(--color-primary-blue-01);
-        }
+     // general functional styles for page-buttons
+    .pButton {
+        display: inline-block;
+        margin-bottom: 0;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        background-color: transparent;
+        color: var(--color-secondary-grey-04);
+        font-size: 18px;
+        padding-inline: 10px;
+        border: none;
+        border-radius: 4px;
+        margin-inline: 4px;
+    }
+
+    .pButton-selected {
+        background-color: var(--color-primary-blue-01);
     }
 
     // Hover states

@@ -91,7 +91,7 @@ export function _23PagesAndCurrentPage() {
       return { sampleCallback }
     },
     components: { SectionPagination },
-    template: '<section-pagination :pages="23" :initialCurrentPage="6" :generateLinkCallback="sampleCallback"/>',
+    template: '<section-pagination :pages="23" :initialCurrentPage="6" :generateLinkCallback="sampleCallback" :maxPagesMode="true" :maxPagesToDisplay="6" />',
   }
 }
 
