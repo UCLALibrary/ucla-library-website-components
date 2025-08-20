@@ -113,9 +113,54 @@ export function FtvaCurrentEntriesWithDates() {
     <component is="style" type="text/css">
       .stories-ftva-current-entries .ftva.block-staff-article-item {
       .meta {
-          margin: 36px 0;
+          margin: 0;
         }
   }
+        @media screen and (max-width: 834px) {
+          .stories-ftva-current-entries .ftva.block-staff-article-item .image, .stories-ftva-articles .ftva.block-staff-article-item .molecule-no-image {
+            --image-min-width: 240px;
+          }
+            .stories-ftva-current-entries .ftva.block-staff-article-item .title {
+            -webkit-line-clamp: 2;
+            }
+          }
+          @media screen and (max-width: 750px) {
+      .stories-ftva-current-entries.ftva.section-staff-article-list { 
+        background-color: #e7edf2; 
+        padding: 0 16px;
+
+        .ftva.block-staff-article-item {
+          margin-bottom: 16px;
+        }
+
+        .ftva.block-staff-article-item .image {
+          --image-aspect-ratio: 16/9;
+          aspect-ratio: 16/9;
+          height: auto;
+          margin-bottom: 0;
+          
+          .sizer {
+            padding-bottom: 0 !important;
+          }
+        }
+        
+        .meta {
+          margin: 0;
+          padding: 20px;
+
+          .title {
+            font-size: 21px;
+          }
+
+          .ftva-description {
+            display: none;
+          }
+          
+          .ftva-date {
+            font-size: 20px;
+          }
+        }
+      }
         </component>
       <section-staff-article-list
         :items="items"
@@ -138,7 +183,59 @@ export function FtvaNoSectionTitle() {
     },
     components: { SectionStaffArticleList },
     template: `
-      <section-staff-article-list
+    <component is="style" type="text/css">
+    .stories-ftva-event-series .ftva.block-staff-article-item {
+      .meta {
+          margin: 0;
+        }
+  }
+    @media screen and (max-width: 834px) {
+      .stories-ftva-event-series .ftva.block-staff-article-item .image, .stories-ftva-articles .ftva.block-staff-article-item .molecule-no-image {
+        --image-min-width: 240px;
+      }
+        .stories-ftva-event-series .ftva.block-staff-article-item .title {
+            -webkit-line-clamp: 2;
+            }
+    }
+    @media screen and (max-width: 750px) {
+      .stories-ftva-event-series.ftva.section-staff-article-list { 
+        background-color: #e7edf2; 
+        padding: 0 16px;
+
+        .ftva.block-staff-article-item {
+          margin-bottom: 16px;
+        }
+
+        .ftva.block-staff-article-item .image {
+          --image-aspect-ratio: 16/9;
+          aspect-ratio: 16/9;
+          height: auto;
+          margin-bottom: 0;
+          
+          .sizer {
+            padding-bottom: 0 !important;
+          }
+        }
+        
+        .meta {
+          margin: 0;
+          padding: 20px;
+
+          .title {
+            font-size: 21px;
+          }
+
+          .ftva-description {
+            display: none;
+          }
+          
+          .ftva-date {
+            font-size: 20px;
+          }
+        }
+      }
+    </component>
+      <section-staff-article-list class="stories-ftva-event-series"
         :items="items"
       />
   `,
@@ -173,23 +270,48 @@ export function FtvaSearchResultsArticle() {
           text-transform: unset;
       }
     }
+      @media screen and (max-width: 834px) {
+      
+        .stories-ftva-search-articles .ftva.block-staff-article-item .title {
+            -webkit-line-clamp: 2;
+            }
+    }
       @media only screen and (max-width: 750px) {
+      .stories-ftva-search-articles.ftva.section-staff-article-list .block-staff-article-list {
+     padding: 16px; }
       .stories-ftva-search-articles.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
-      margin-bottom: 20px;
+      border-radius: 0;
       .meta{
-           
+           padding: 0;
+        gap: 8px;
+        .category {
+      font-size: 18px;
+      }
+      .title {
+      -webkit-line-clamp: unset;
+      }
             .ftva-description {
-              margin-bottom: 12px;
+              margin-bottom: 0;
               overflow: hidden;
               display: -webkit-box;
               -webkit-box-orient: vertical;
               -webkit-line-clamp: 3;
+              font-size: 16px;
+              line-height: 1.5;
             }
+              .ftva-date {
+              font-size: 18px;
+              font-weight: 500;
+              font-family: Karbon;
+              margin-top: 4px;
+              }
           }
       }
      .ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item{
       &:not(:last-child) {
             border-bottom: 1px solid #e7edf2;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
           }
       }
         .stories-ftva-search-articles .ftva.block-staff-article-item {
@@ -201,6 +323,7 @@ export function FtvaSearchResultsArticle() {
           }
         }
       }
+        
         </component>
       <section-staff-article-list class="stories-ftva-search-articles"
         :items="items"
@@ -233,21 +356,32 @@ export function FtvaSearchResultsCollections() {
       }
     }
       @media only screen and (max-width: 750px) {
+      .stories-ftva-search-collections.ftva.section-staff-article-list .block-staff-article-list {
+     padding: 16px; }
        .stories-ftva-search-collections.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
-      margin-bottom: 20px;
+       border-radius: 0;
       .meta{
+        padding: 0;
+        gap: 8px;
+        .category {
+      font-size: 18px;
+      }
             .ftva-description {
-              margin-bottom: 12px;
+              margin-bottom: 0;
               overflow: hidden;
               display: -webkit-box;
               -webkit-box-orient: vertical;
               -webkit-line-clamp: 3;
+              font-size: 16px;
+              line-height: 1.5;
             }
           }
       }
      .ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item{
       &:not(:last-child) {
             border-bottom: 1px solid #e7edf2;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
           }
       }
         .stories-ftva-search-collections .ftva.block-staff-article-item {
@@ -290,21 +424,31 @@ export function FtvaSearchResultsGC() {
       }
     }
      @media only screen and (max-width: 750px) {
-     .stories-ftva-search-articles.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
-      margin-bottom: 20px;
+     .stories-ftva-general-content.ftva.section-staff-article-list .block-staff-article-list {
+     padding: 16px; }
+     .stories-ftva-general-content.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
       .meta{
+      padding: 0;
+      gap: 8px;
+      .category {
+      font-size: 18px;
+      }
             .ftva-description {
-              margin-bottom: 12px;
+              margin-bottom: 0;
               overflow: hidden;
               display: -webkit-box;
               -webkit-box-orient: vertical;
               -webkit-line-clamp: 3;
+              font-size: 16px;
+              line-height: 1.5;
             }
           }
       }
      .ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item{
       &:not(:last-child) {
             border-bottom: 1px solid #e7edf2;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
           }
       }
         .stories-ftva-general-content .ftva.block-staff-article-item {
@@ -354,7 +498,8 @@ export function FtvaFilmMakers() {
         }
         @media screen and (max-width: 750px) {
           .stories-ftva-film-makers.ftva.section-staff-article-list {
-            
+            padding: 16px;
+
             .ftva.block-staff-article-item {
               flex-direction: row;
               border-bottom: 1px solid #e7edf2;
@@ -368,9 +513,6 @@ export function FtvaFilmMakers() {
                 max-width: 100px;
                 height: 100px;
                 margin-right: var(--space-l);
-              }
-
-              .molecule-no-image {
                 margin-bottom: 0;
               }
 
@@ -381,6 +523,16 @@ export function FtvaFilmMakers() {
               .meta {
                 width: calc(60% - var(--space-xl));
                 padding: 0;
+                height: unset;
+              }
+              
+              .title {
+                font-size: 21px;
+                line-height: 1.2;
+              }
+
+              .ftva-description {
+                display: none;
               }
             }
           }
@@ -415,21 +567,54 @@ export function FtvaBlogList() {
           text-transform: unset;
         }
   }
-        @media screen and (max-width: 749px) {
-        .stories-ftva-articles.ftva.section-staff-article-list{ background-color: #e7edf2; }
+        @media screen and (max-width: 450px) {
+          .stories-ftva-articles .ftva.block-staff-article-item .image,
+          .molecule-no-image {
+            --image-aspect-ratio: 16/9;
+            aspect-ratio: 16/9;
+
+            .sizer {
+            padding-bottom: 0 !important;
+            }
+          }
+        }
+        @media screen and (max-width: 750px) {
+        .stories-ftva-articles.ftva.section-staff-article-list { 
+          background-color: #e7edf2; 
+          padding: 0 16px;
+        }
+        .stories-ftva-articles.ftva.section-staff-article-list .block-staff-article-list .block-staff-article-item {
+          overflow: hidden;
+          margin-bottom: 16px;
+        }
           .stories-ftva-articles .ftva.block-staff-article-item .image, .stories-ftva-articles .ftva.block-staff-article-item .molecule-no-image {
-          
             min-width: 100%;
             height: auto;
-           
+            margin: 0;
           }
           .stories-ftva-articles .ftva.block-staff-article-item .meta {
             height: auto;
+            padding: 30px;
+            margin: 0;
+          }
+          .stories-ftva-articles .ftva.block-staff-article-item .category {
+            font-size: 18px;
+            margin-bottom: -14px;
+            line-height: 1.4;
+          }
+          .stories-ftva-articles .ftva.block-staff-article-item .title {
+            font-size: 21px;
+            line-height: 1.2;
           }
           .stories-ftva-articles .ftva.block-staff-article-item .meta .ftva-description {
             display:none;
           }
         }
+          @media screen and (max-width: 834px) {
+          .stories-ftva-articles .ftva.block-staff-article-item .image, .stories-ftva-articles .ftva.block-staff-article-item .molecule-no-image {
+            --image-min-width: 240px;
+          }
+          }
         @media screen and (max-width: 1024px) {
          .stories-ftva-articles .ftva.block-staff-article-item .meta .ftva-description {
             display:none;
