@@ -1,5 +1,5 @@
 import DropdownSingleSelectFunkhaus from "@/lib-components/DropdownSingleSelectFunkhaus.vue"
-import { ref } from "vue"
+import { ref, computed } from "vue"
 
 export default {
     title: "Funkhaus / DropdownSingleSelectFunkhaus",
@@ -15,6 +15,11 @@ const Template = (args) => ({
     setup() {
         const selected = ref(args.modelValue)
         return { args, selected }
+    },
+    provide() {
+        return {
+            theme: computed(() => "dlc"),
+        }
     },
     template: `
     <DropdownSingleSelectFunkhaus
