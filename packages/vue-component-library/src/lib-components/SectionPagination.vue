@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import type { Ref } from 'vue'
-
 import { useWindowSize } from '@vueuse/core'
 import SvgIconArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
 import { useRoute } from 'vue-router'
@@ -28,19 +27,19 @@ const { nextTo, previousTo, pages, initialCurrentPage, generateLinkCallback, fix
     type: Number,
     required: false,
   },
-  // callback function to generate link for each page
-  // if not provided, will generate a link based on FTVA Elastic Search pattern
+  // Callback function to generate link for each page
+  // If not provided, will generate a link based on FTVA Elastic Search pattern
   generateLinkCallback: {
     type: Function,
     required: false
   },
-  //
-  //
+  // Flag to generate a fixed amount of numbered buttons in the pagination container
   fixedPageWidthMode: {
     type: Boolean,
     default: false,
     required: false
   },
+  // Number of fixed page buttons to generate
   fixedPageWidthNum: {
     type: Number,
     default: 10,
@@ -53,10 +52,12 @@ const emit = defineEmits(['changePage'])
 const route = useRoute()
 const parsedQuery = computed(() => ({ ...route.query }))
 
-const maxPages = ref(10) // default # of buttons to fit in container for dynamic width/display of buttons
-const generatedMiddlePages = ref<number[]>([]) // an array of numbers representing the middle page buttons (excludes first and last)
+const dynamicMaxPages = ref(10) // Default # of buttons to fit pagination container for dynamic calc/display of buttons
 
-const currPage = ref(1) // current page, defaults to 1
+const generatedMiddlePages = ref<number[]>([]) // Array of numbers representing the middle page buttons (excludes first and last pages)
+
+const currPage = ref(1) // Current page, defaults to 1
+
 const pageButtons: Ref<HTMLElement | null> = ref(null)
 
 const theme = useTheme()
@@ -101,8 +102,7 @@ function generatePageNumbers() {
   if (fixedPageWidthMode) {
     maxDisplayPages = fixedPageWidthNum
 
-    if (totalPages <= maxDisplayPages) {
-    // If total pages is 10 or less, show all pages
+    if (totalPages < maxDisplayPages) {
       for (let i = 1; i <= totalPages; i++)
         generatedMiddlePages.value.push(i)
     }
@@ -130,71 +130,30 @@ function generatePageNumbers() {
   }
 
   if (!fixedPageWidthMode) {
-    ////
+    const middlePagesCount = dynamicMaxPages.value - 2
 
-    if (totalPages <= maxPages.value) {
-      // If total pages is 10 or less, show all pages
-      for (let i = 1; i <= totalPages; i++)
-        generatedMiddlePages.value.push(i)
+    let middleStart = Math.max(2, currPage.value - Math.floor(middlePagesCount / 2))
+    let middleEnd = middleStart + middlePagesCount - 1
+
+    if (middleEnd >= totalPages) {
+      middleEnd = totalPages - 1
+      middleStart = Math.max(2, middleEnd - middlePagesCount + 1)
     }
-    else {
-      const middlePagesCount = maxPages.value - 2
-      // let start = 2
-      // stop at either maxPages or total pages, whichever is lesser
-      // let stop = Math.min(maxPages.value, pages)
 
-      // if (currPage.value > maxPages.value) {
-      //   // let newMaxPages = maxPages.value - 4 // subtract 4 for '...' first/last number buttons
-      //   let newMaxPages = middlePagesCount
-      //   start = Math.max(1, currPage.value - Math.floor(newMaxPages / 2))
-      //   stop = start + newMaxPages
-
-      //   // if current page is very near the last page,
-      //   // we need to remove the truncation button near the end
-      //   if (stop > pages) {
-      //     newMaxPages = newMaxPages + 1 // add 1 back for missing '...' button
-      //     if (currPage.value === pages)
-      //       newMaxPages = newMaxPages + 1 // add another 1 back because 'next' button is hidden
-
-      //     stop = pages
-      //     start = Math.max(1, stop - newMaxPages)
-      //   }
-      // }
-
-      // if we're on first page
-      // if (currPage.value === 1) {
-      //   // add 1 more button to the end because 'prev' button is hidden, unless thay would exceed total pages
-      //   stop = Math.min(stop + 2, pages)
-      // }
-
-      let middleStart = Math.max(2, currPage.value - Math.floor(middlePagesCount / 2))
-      let middleEnd = middleStart + middlePagesCount - 1
-
-      if (middleEnd >= totalPages) {
-        middleEnd = totalPages - 1
-        middleStart = Math.max(2, middleEnd - middlePagesCount + 1)
-      }
-
-      generatedMiddlePages.value = []
-      // for (let i = start; i <= stop; i++)
-      //   generatedMiddlePages.value.push(i)
-
-      for (let i = middleStart; i <= middleEnd; i++)
-        generatedMiddlePages.value.push(i)
-      console.log('Dynamic Generated Middle Pages: ', generatedMiddlePages.value)
-      ////
-    }
+    for (let i = middleStart; i <= middleEnd; i++)
+      generatedMiddlePages.value.push(i)
+    console.log('Dynamic Generated Middle Pages: ', generatedMiddlePages.value)
   }
 }
-//
-function setPaginationMaxPages(width: number) {
-  // fail gracefully with 10 as a the default
+
+function setPaginationDynamicMaxPages(width: number) {
+  // Fail gracefully with 10 as the default
   if (!initialCurrentPage || !pages)
     return 10
 
   // Conditional checks needed when using getBoundingClientRect() and getComputedStyle() to ensure that referenced/calculated elements exist in the DOM on mount/load, otherwise set initial value(s) to zero or null to avoid console errors
 
-  // get width of buttons
+  // Get width of buttons
   const button = document.getElementsByClassName('pButton')[0]
   let buttonWidth
   let buttonMargin
@@ -208,7 +167,7 @@ function setPaginationMaxPages(width: number) {
     buttonMargin = '0'
   }
 
-  const itemWidth = Math.ceil(buttonWidth + (Number.parseInt(buttonMargin) * 2) + 1) // we add 1 to give us a little leeway
+  const itemWidth = Math.ceil(buttonWidth + (Number.parseInt(buttonMargin) * 2) + 1) // Add 1 for a little leeway
 
   const prevBtn = document.getElementsByClassName('previous')[0]
   const nextBtn = document.getElementsByClassName('next')[0]
@@ -225,12 +184,11 @@ function setPaginationMaxPages(width: number) {
   else
     nextButtonWidth = 0
 
-  // calc # of buttons that can fit
-  // take width minus the width of: 2 page buttons (last button and '...'), 2 prev/next buttons
+  // Calculate # of buttons that can fit
+  // Take width minus the width of: 2 page buttons (last button and '...'), 2 prev/next buttons
   const MaxButtons = Math.max(0, Math.floor(+((width - (prevButtonWidth + nextButtonWidth + (itemWidth * 2))) / itemWidth).toFixed(2)))
   return MaxButtons
 }
-//
 
 // COMPUTED
 const classes = computed(() => {
@@ -249,8 +207,8 @@ const isNotLastPage = computed(() => {
   return (initialCurrentPage && pages) && currPage?.value !== pages
 })
 
-// WATCHERS - we use watch instead of computed because we are using variables derived from props during render
-// note: this ensures the component will update when props change
+// WATCHERS - We use watch instead of computed because we are using variables derived from props during render
+// Note: This ensures the component will update when props change
 watch(() => pages, () => {
   // regenerate pages when pages change
   generatePageNumbers()
@@ -262,21 +220,24 @@ watch(() => initialCurrentPage, (newVal) => {
 }, { immediate: true })
 
 onMounted(() => {
-  // legacy implementation does not require any onMounted logic
+  // Legacy implementation does not require any onMounted logic
   if (!initialCurrentPage || !pages)
     return
 
   currPage.value = initialCurrentPage
-  // generatePageNumbers()
 
   const { width } = useWindowSize()
-  // wait for next tick to ensure children are rendered and width is correct
+
+  // Wait for next tick to ensure children are rendered and width is correct
   nextTick(() => {
-    // watch for width changes and update # of buttons that will fit
+    // Watch for width changes and update # of buttons that will fit
     watch([width], () => {
       const paginationWidth = pageButtons.value!.clientWidth
-      maxPages.value = setPaginationMaxPages(paginationWidth) as number
-      generatePageNumbers() // then generate buttons representing pages
+
+      dynamicMaxPages.value = setPaginationDynamicMaxPages(paginationWidth) as number
+
+      // Generate buttons representing pages
+      generatePageNumbers()
     }, { immediate: true })
   })
 })
@@ -284,7 +245,7 @@ onMounted(() => {
 
 <template>
   <div ref="pageButtons" :class="classes" role="navigation" aria-label="page list navigation">
-    <!-- if legacy attribute previousTo is supplied, use that for Prev button instead of handlePageChange -->
+    <!-- If legacy attribute previousTo is supplied, use that for Prev button instead of handlePageChange -->
     <div class="previous-wrapper">
       <SmartLink v-if="previousTo" :to="previousTo" class="previous">
         <SvgIconArrowRight class="previous-svg" />
@@ -302,7 +263,7 @@ onMounted(() => {
     <div class="pagination-wrapper">
       <div v-if="initialCurrentPage && pages" class="pagination-numbers-container">
         <div class="pagination-numbers">
-          <span v-if="pages > fixedPageWidthNum" class="page-list-first">
+          <span class="page-list-first">
             <SmartLink
               :class="`pButton${1 === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === 1"
               :to="generateLink(1)"
@@ -319,7 +280,7 @@ onMounted(() => {
             {{ item }}
           </SmartLink>
           <span v-if="generatedMiddlePages.indexOf(pages - 1) === -1" class="page-list-truncate">...</span>
-          <span v-if="pages > fixedPageWidthNum" class="page-list-right">
+          <span class="page-list-right">
             <SmartLink
               :class="`pButton${pages === currPage ? ' ' + 'pButton-selected' : ''}`"
               :active="currPage === pages" :to="generateLink(pages)" @click="handlePageChange(pages)"
@@ -328,7 +289,7 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <!-- if legacy attribute nextTo is supplied, use that for Next button instead of handlePageChange -->
+    <!-- If legacy attribute nextTo is supplied, use that for Next button instead of handlePageChange -->
     <div class="next-wrapper">
       <SmartLink v-if="nextTo" :to="nextTo" class="next">
         <div class="underline-hover">

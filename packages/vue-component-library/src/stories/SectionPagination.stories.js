@@ -43,7 +43,7 @@ export function LastPage() {
 
 // this story uses the generateLinkCallback prop
 // to generate the links in the library-website-nuxt format instead of the default format
-export function _5PagesAndCurrentPage() {
+export function _DynamicWidth_5Pgs() {
   // mock a library site page where someone has searched 'new' like this:
   // https://www.library.ucla.edu/search-site?q=new&from=10'
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
@@ -57,11 +57,11 @@ export function _5PagesAndCurrentPage() {
       return { sampleCallback }
     },
     components: { SectionPagination },
-    template: '<section-pagination :pages="5" :initialCurrentPage="4" :generateLinkCallback="sampleCallback"/>',
+    template: '<section-pagination :pages="5" :initialCurrentPage="3" :generateLinkCallback="sampleCallback"/>',
   }
 }
 
-export function _10PagesAndCurrentPage() {
+export function _DynamicWidth_10Pgs() {
   // mock a library site page where someone has searched 'new' like this:
   // https://www.library.ucla.edu/search-site?q=new&from=10'
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
@@ -79,7 +79,7 @@ export function _10PagesAndCurrentPage() {
   }
 }
 
-export function _23PagesAndCurrentPage() {
+export function _DynamicWidth_25pgs() {
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
   return {
     setup() {
@@ -91,13 +91,61 @@ export function _23PagesAndCurrentPage() {
       return { sampleCallback }
     },
     components: { SectionPagination },
-    template: '<section-pagination :pages="23" :initialCurrentPage="6" :generateLinkCallback="sampleCallback" :maxPagesMode="true" :maxPagesToDisplay="6" />',
+    template: '<section-pagination :pages="25" :initialCurrentPage="6" :generateLinkCallback="sampleCallback" />',
+  }
+}
+
+export function _DynamicWidth_40pgs() {
+  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
+  return {
+    setup() {
+      // sample callback to generate the link
+      const sampleCallback = (pageNumber, queryParams) => {
+        return `/search-site?${queryParams}`
+      }
+
+      return { sampleCallback }
+    },
+    components: { SectionPagination },
+    template: '<section-pagination :pages="40" :initialCurrentPage="6" :generateLinkCallback="sampleCallback" />',
+  }
+}
+
+export function _FixedWidth_6Pgs() {
+  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
+  return {
+    setup() {
+      // sample callback to generate the link
+      const sampleCallback = (pageNumber, queryParams) => {
+        return `/search-site?${queryParams}`
+      }
+
+      return { sampleCallback }
+    },
+    components: { SectionPagination },
+    template: '<section-pagination :pages="24" :initialCurrentPage="1" :generateLinkCallback="sampleCallback" :fixedPageWidthMode="true" :fixedPageWidthNum="6" />',
+  }
+}
+
+export function _FixedWidth_12Pgs() {
+  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
+  return {
+    setup() {
+      // sample callback to generate the link
+      const sampleCallback = (pageNumber, queryParams) => {
+        return `/search-site?${queryParams}`
+      }
+
+      return { sampleCallback }
+    },
+    components: { SectionPagination },
+    template: '<section-pagination :pages="24" :initialCurrentPage="10" :generateLinkCallback="sampleCallback" :fixedPageWidthMode="true" :fixedPageWidthNum="12" />',
   }
 }
 
 // this story uses an async fetch to get the total number of pages
 // like the FTVA event listing page
-export function FTVA() {
+export function FTVAFixed_10Pgs() {
   return {
     components: { SectionPagination },
     provide() {
@@ -124,6 +172,6 @@ export function FTVA() {
 
       return { totalPages }
     },
-    template: '<section-pagination :pages="totalPages" :initialCurrentPage="6" />'
+    template: '<section-pagination :pages="totalPages" :initialCurrentPage="6" :fixedPageWidthMode="true" :fixedPageWidthNum="10" />'
   }
 }
