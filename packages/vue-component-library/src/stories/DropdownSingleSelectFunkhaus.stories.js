@@ -1,25 +1,26 @@
-import DropdownSingleSelectFunkhaus from "@/lib-components/DropdownSingleSelectFunkhaus.vue"
-import { ref, computed } from "vue"
+import { computed, ref } from 'vue'
+import DropdownSingleSelectFunkhaus from '@/lib-components/DropdownSingleSelectFunkhaus.vue'
 
 export default {
-    title: "Funkhaus / DropdownSingleSelectFunkhaus",
-    component: DropdownSingleSelectFunkhaus,
-    argTypes: {
-        modelValue: { control: "text" },
-        options: { control: "array" },
-    },
+  title: 'Funkhaus / DropdownSingleSelectFunkhaus',
+  component: DropdownSingleSelectFunkhaus,
+  argTypes: {
+    modelValue: { control: 'text' },
+    options: { control: 'array' },
+  },
 }
 
-const Template = (args) => ({
+function Template(args) {
+  return {
     components: { DropdownSingleSelectFunkhaus },
     setup() {
-        const selected = ref(args.modelValue)
-        return { args, selected }
+      const selected = ref(args.modelValue)
+      return { args, selected }
     },
     provide() {
-        return {
-            theme: computed(() => "dlc"),
-        }
+      return {
+        theme: computed(() => 'dlc'),
+      }
     },
     template: `
     <DropdownSingleSelectFunkhaus
@@ -28,33 +29,34 @@ const Template = (args) => ({
     />
     <div style="margin-top: 1em;">Selected: {{ selected }}</div>
   `,
-})
+  }
+}
 
 export const Default = Template.bind({})
 Default.args = {
-    options: ["Apple", "Banana", "Cherry"],
-    modelValue: "Banana",
+  options: ['Apple', 'Banana', 'Cherry'],
+  modelValue: 'Banana',
 }
 
 export const EmptyOptions = Template.bind({})
 EmptyOptions.args = {
-    options: [],
-    modelValue: "",
+  options: [],
+  modelValue: '',
 }
 
 export const SingleOption = Template.bind({})
 SingleOption.args = {
-    options: ["Only Option"],
-    modelValue: "Only Option",
+  options: ['Only Option'],
+  modelValue: 'Only Option',
 }
 
 export const LongOptions = Template.bind({})
 LongOptions.args = {
-    options: [
-        "Short",
-        "A much longer option that should wrap or truncate",
-        "Another option",
-        "Yet another option with a really, really, really long label",
-    ],
-    modelValue: "Short",
+  options: [
+    'Short',
+    'A much longer option that should wrap or truncate',
+    'Another option',
+    'Yet another option with a really, really, really long label',
+  ],
+  modelValue: 'Short',
 }
