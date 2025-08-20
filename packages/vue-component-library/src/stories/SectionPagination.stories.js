@@ -75,7 +75,7 @@ export function _10PagesAndCurrentPage() {
       return { sampleCallback }
     },
     components: { SectionPagination },
-    template: '<section-pagination :pages="10" :initialCurrentPage="4" :generateLinkCallback="sampleCallback"/>',
+    template: '<section-pagination :pages="10" :initialCurrentPage="5" :generateLinkCallback="sampleCallback"/>',
   }
 }
 
@@ -91,7 +91,7 @@ export function _23PagesAndCurrentPage() {
       return { sampleCallback }
     },
     components: { SectionPagination },
-    template: '<section-pagination :pages="23" :initialCurrentPage="4" :generateLinkCallback="sampleCallback"/>',
+    template: '<section-pagination :pages="23" :initialCurrentPage="14" :generateLinkCallback="sampleCallback"/>',
   }
 }
 

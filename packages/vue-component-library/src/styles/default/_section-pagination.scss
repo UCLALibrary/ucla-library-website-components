@@ -92,10 +92,12 @@
             background-color: transparent;
             color: var(--color-secondary-grey-04);
             font-size: 18px;
-            padding: 0 12px;
+            // padding: 0 12px;
+            padding-inline: 10px;
             border: none;
             border-radius: 4px;
-            margin: 0 6px;
+            // margin: 0 6px;
+            margin-inline: 4px;
         }
 
         .pButton-selected {
