@@ -9,7 +9,7 @@ import router from '@/router'
  *
  * 1. Legacy mode: With previous page and next page string values passed to the component, and no numbered buttons shown
  *  - Required props: `nextTo`, `previousTo`
- * 2. Dynamic Width mode: With the page buttons displayed and dynamically calculated by the number of pages and the size of the pagination containe; a number representing the initial current page is required
+ * 2. Dynamic Width mode: With the page buttons displayed and dynamically calculated by the number of pages and the size of the pagination container
  *  - Required props: `pages`, `initialCurrentPage`
  * 3. Fixed Width mode: With a specific number of page buttons displayed in the pagination container
  *  - Required props: `pages`, `initialCurrentPage`, `fixedPageWidthMode` (true), `fixedPageWidthNum`
