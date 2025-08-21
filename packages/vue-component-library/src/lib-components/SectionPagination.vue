@@ -33,7 +33,7 @@ const { nextTo, previousTo, pages, initialCurrentPage, generateLinkCallback, fix
     type: Function,
     required: false
   },
-  // Flag to generate a fixed amount of numbered buttons in the pagination container
+  // Flag to generate a fixed amount of numbered buttons in the pagination container; when false, page numbers are generated dynamically
   fixedPageWidthMode: {
     type: Boolean,
     default: false,
@@ -52,7 +52,7 @@ const emit = defineEmits(['changePage'])
 const route = useRoute()
 const parsedQuery = computed(() => ({ ...route.query }))
 
-const dynamicMaxPages = ref(10) // Default # of buttons to fit pagination container for dynamic calc/display of buttons
+const dynamicMaxPages = ref(10) // Default # of buttons to fit pagination container for dynamic display/calculation of buttons
 
 const generatedMiddlePages = ref<number[]>([]) // Array of numbers representing the middle page buttons (excludes first and last pages)
 
@@ -68,7 +68,7 @@ function handlePageChange(item: number) {
     if (currPage.value !== item) {
       currPage.value = item
       generatePageNumbers()
-      emit('changePage', item) // let parent component know when page changes
+      emit('changePage', item) // Let parent component know when page changes
     }
   }
 }
@@ -94,56 +94,49 @@ function generatePageNumbers() {
   if (!pages)
     return null
 
-  generatedMiddlePages.value = []
-
-  let maxDisplayPages
   const totalPages = pages
 
   if (fixedPageWidthMode) {
-    maxDisplayPages = fixedPageWidthNum
+    const maxDisplayPages = fixedPageWidthNum
 
     if (totalPages < maxDisplayPages) {
       for (let i = 1; i <= totalPages; i++)
         generatedMiddlePages.value.push(i)
     }
     else {
-    // Calculate how many middle pages to show
-    // We need 8 middle pages (10 total - 2 for First and Last)
-    // First and Last displayed via template code logic
-      const middlePagesCount = maxDisplayPages - 2
-
-      // Calculate the range of middle pages to show
-      let middleStart = Math.max(2, currPage.value - Math.floor(middlePagesCount / 2))
-      let middleEnd = middleStart + middlePagesCount - 1
-
-      // Adjust if we're going beyond the last page
-      if (middleEnd >= totalPages) {
-        middleEnd = totalPages - 1
-        middleStart = Math.max(2, middleEnd - middlePagesCount + 1)
-      }
-
-      // Add middle pages
-      for (let i = middleStart; i <= middleEnd; i++)
-        generatedMiddlePages.value.push(i)
-      console.log('Fixed Generated Middle Pages: ', generatedMiddlePages.value)
+      generatedMiddlePages.value = calculateMiddlePages(maxDisplayPages, pages)
     }
   }
 
   if (!fixedPageWidthMode) {
-    const middlePagesCount = dynamicMaxPages.value - 2
+    const maxDisplayPages = dynamicMaxPages.value
 
-    let middleStart = Math.max(2, currPage.value - Math.floor(middlePagesCount / 2))
-    let middleEnd = middleStart + middlePagesCount - 1
-
-    if (middleEnd >= totalPages) {
-      middleEnd = totalPages - 1
-      middleStart = Math.max(2, middleEnd - middlePagesCount + 1)
-    }
-
-    for (let i = middleStart; i <= middleEnd; i++)
-      generatedMiddlePages.value.push(i)
-    console.log('Dynamic Generated Middle Pages: ', generatedMiddlePages.value)
+    generatedMiddlePages.value = calculateMiddlePages(maxDisplayPages, pages)
   }
+}
+
+function calculateMiddlePages(maxDisplayPages: number, totalPages: number) {
+  const middlePagesArray = []
+
+  // Calculate how many middle pages to show
+  // First and Last displayed by default in template code
+  const middlePagesCount = maxDisplayPages - 2
+
+  // Calculate the range of middle pages to show
+  let middleStart = Math.max(2, currPage.value - Math.floor(middlePagesCount / 2))
+  let middleEnd = middleStart + middlePagesCount - 1
+
+  // Adjust if we're going beyond the last page
+  if (middleEnd >= totalPages) {
+    middleEnd = totalPages - 1
+    middleStart = Math.max(2, middleEnd - middlePagesCount + 1)
+  }
+
+  // Add middle pages
+  for (let i = middleStart; i <= middleEnd; i++)
+    middlePagesArray.push(i)
+
+  return middlePagesArray
 }
 
 function setPaginationDynamicMaxPages(width: number) {
@@ -260,9 +253,11 @@ onMounted(() => {
         </div>
       </SmartLink>
     </div>
+    <!-- Pagination numbers -->
     <div class="pagination-wrapper">
       <div v-if="initialCurrentPage && pages" class="pagination-numbers-container">
         <div class="pagination-numbers">
+          <!-- First page -->
           <span class="page-list-first">
             <SmartLink
               :class="`pButton${1 === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === 1"
@@ -271,6 +266,7 @@ onMounted(() => {
             >{{ 1 }}</SmartLink>
           </span>
           <span v-if="generatedMiddlePages.indexOf(2) === -1" class="page-list-truncate">...</span>
+          <!-- Middle pages -->
           <SmartLink
             v-for="item in generatedMiddlePages" :key="item"
             :class="`pButton${item === currPage ? ' ' + 'pButton-selected' : ''}`" :active="currPage === item"
@@ -280,6 +276,7 @@ onMounted(() => {
             {{ item }}
           </SmartLink>
           <span v-if="generatedMiddlePages.indexOf(pages - 1) === -1" class="page-list-truncate">...</span>
+          <!-- Last page -->
           <span class="page-list-last">
             <SmartLink
               :class="`pButton${pages === currPage ? ' ' + 'pButton-selected' : ''}`"
