@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.27.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.5...@ucla-library-monorepo/ucla-library-website-components-v1.27.0) (2025-08-21)
+
+
+### Features
+
+* APPS-3220 refactor styles to use classic table styles ([#775](https://github.com/UCLALibrary/ucla-library-website-components/issues/775)) ([82ac0de](https://github.com/UCLALibrary/ucla-library-website-components/commit/82ac0de7209aca175c9de3d6cb797a97d72afb29))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.26.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.4...@ucla-library-monorepo/ucla-library-website-components-v1.26.5) (2025-08-19)
 
 
