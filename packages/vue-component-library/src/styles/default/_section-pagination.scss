@@ -1,34 +1,23 @@
 .section-pagination {
     max-width: 990px;
-
     font-family: var(--font-secondary);
     font-size: 18px;
-
     display: grid;
     grid-template-columns: 125px minmax(-webkit-min-content, 740px) 125px;
     grid-template-columns: 125px minmax(min-content, 740px) 125px;
 
-    // WIP
     .previous-wrapper,
     .next-wrapper {
         display: flex;
     }
 
     .previous-wrapper {
-        background: gold;
         justify-content: flex-start;
     }
 
     .next-wrapper {
-        background: goldenrod;
         justify-content: flex-end;
-        
     }
-
-    .pagination-wrapper {
-        background-color: gainsboro;
-    }
-    // WIP
 
     .previous,
     .next {
@@ -69,7 +58,6 @@
         align-items: center;
     }
 
-     // general functional styles for page-buttons
     .pButton {
         display: inline-block;
         margin-bottom: 0;
@@ -96,7 +84,6 @@
         background-color: var(--color-primary-blue-01);
     }
 
-    // Hover states
     @media #{$has-hover} {
 
         .previous:hover,
