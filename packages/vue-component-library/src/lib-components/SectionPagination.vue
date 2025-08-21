@@ -280,7 +280,7 @@ onMounted(() => {
             {{ item }}
           </SmartLink>
           <span v-if="generatedMiddlePages.indexOf(pages - 1) === -1" class="page-list-truncate">...</span>
-          <span class="page-list-right">
+          <span class="page-list-last">
             <SmartLink
               :class="`pButton${pages === currPage ? ' ' + 'pButton-selected' : ''}`"
               :active="currPage === pages" :to="generateLink(pages)" @click="handlePageChange(pages)"

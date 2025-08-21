@@ -5,8 +5,8 @@
     font-size: 18px;
 
     display: grid;
-    grid-template-columns: minmax(-webkit-min-content, 120px) minmax(-webkit-min-content, 750px) minmax(-webkit-min-content, 120px);
-    grid-template-columns: minmax(min-content, 120px) minmax(min-content, 750px) minmax(min-content, 120px);
+    grid-template-columns: 125px minmax(-webkit-min-content, 740px) 125px;
+    grid-template-columns: 125px minmax(min-content, 740px) 125px;
 
     // WIP
     .previous-wrapper,
