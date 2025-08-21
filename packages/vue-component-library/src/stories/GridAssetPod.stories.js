@@ -10,148 +10,219 @@ export default {
 
 const items = [
     {
+        media: API.image,
         to: "https://www.google.com",
         title: "1/2 length portrait of comedian Danny Thomas with pills he takes for his voice, 1963",
-        description:
-            "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
-        date: "November 1, 1963",
-        resourceType: [
-            { text: "Still Image" },
-            { text: "Photograph", to: "https://www.instagram.com" },
-        ],
-        collection: [
+        metadata: [
             {
-                text: "Los Angeles Times Photographic Collection OpenUCLA Collections",
+                key: "Description",
+                value: "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
+            },
+            {
+                key: "Date",
+                value: "November 1, 1963",
+            },
+            {
+                key: "Resource type",
+                value: "Still Image",
+            },
+            {
+                key: "Collection",
+                value: "Los Angeles Times Photographic Collection OpenUCLA Collections",
                 to: "https://www.facebook.com",
             },
         ],
-        image: API.image,
     },
     {
+        media: API.image,
         to: "https://www.google.com",
         title: "1/2 length portrait",
-        description:
-            "SPEAKS OUT-Dr. Lewis Yablonsky, VSC, attacks value of heroin curb.",
-        date: "November 7, 1965",
-
-        collection: [
+        metadata: [
             {
-                text: "Los Angeles Times Photographic Collection OpenUCLA Collections",
+                key: "Description",
+                value: "SPEAKS OUT-Dr. Lewis Yablonsky, VSC, attacks value of heroin curb.",
+            },
+            {
+                key: "Date",
+                value: "November 7, 1965",
+            },
+            {
+                key: "Collection",
+                value: "Los Angeles Times Photographic Collection OpenUCLA Collections",
                 to: "https://www.facebook.com",
             },
         ],
-        image: API.image,
     },
     {
+        media: API.image,
         to: "https://www.google.com",
         title: "5th grade boy pinning diaper on baby doll in family life class at Steele Elementary School, Torrance, Calif., 1965 on baby doll in family life class at Steele Elementary School, Torrance, Calif., 1965",
-        description: "Lionel Richie: He'll headline the Closing Ceremony",
-        date: "August 10, 1984",
-        resourceType: [
-            { text: "Still Image", to: "https://www.instagram.com" },
+        metadata: [
+            {
+                key: "Description",
+                value: "Lionel Richie: He'll headline the Closing Ceremony",
+            },
+            {
+                key: "Date",
+                value: "August 10, 1984",
+            },
+            {
+                key: "Resource type",
+                value: "Still Image",
+                to: "https://www.instagram.com",
+            },
         ],
-
-        image: API.image,
     },
     {
+        media: API.image,
         to: "https://www.google.com",
         title: "3,500 pound industrial robot, Unimate, pouring coffee for a woman at Biltmore Hotel in Los Angeles, Calif., 1961",
-        description:
-            "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
-        date: "November 1, 1963",
-
-        image: API.image,
+        metadata: [
+            {
+                key: "Description",
+                value: "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
+            },
+            {
+                key: "Date",
+                value: "November 1, 1963",
+            },
+        ],
     },
     {
+        media: API.image,
         to: "https://www.google.com",
         title: "5th grade boy pinning diaper on baby doll in family life class at Steele Elementary School, Torrance, Calif., 1965",
-        description:
-            "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
-
-        resourceType: [
-            { text: "Still Image" },
-            { text: "Photograph", to: "https://www.instagram.com" },
-        ],
-        collection: [
+        metadata: [
             {
-                text: "Los Angeles Times Photographic Collection OpenUCLA Collections",
+                key: "Description",
+                value: "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
+            },
+            {
+                key: "Resource type",
+                value: "Still Image",
+            },
+            {
+                key: "Collection",
+                value: "Los Angeles Times Photographic Collection OpenUCLA Collections",
                 to: "https://www.facebook.com",
             },
         ],
-        image: API.image,
     },
     {
+        media: API.image,
         to: "https://www.google.com",
         title: "3/4 length portrait of singer Lionel Richie, 1984",
-        description: "Lionel Richie: He'll headline the Closing Ceremony",
-        date: "August 10, 1984",
-        resourceType: [
-            { text: "Still Image", to: "https://www.instagram.com" },
+        metadata: [
+            {
+                key: "Description",
+                value: "Lionel Richie: He'll headline the Closing Ceremony",
+            },
+            {
+                key: "Date",
+                value: "August 10, 1984",
+            },
+            {
+                key: "Resource type",
+                value: "Still Image",
+                to: "https://www.instagram.com",
+            },
         ],
-
-        image: API.image,
     },
     {
+        media: API.image,
         to: "https://www.google.com",
         title: "3,500 pound industrial robot, Unimate, pouring coffee for",
-        description:
-            "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
-        date: "November 1, 1963",
-        resourceType: [
-            { text: "Still Image" },
-            { text: "Photograph", to: "https://www.instagram.com" },
-        ],
-        collection: [
+        metadata: [
             {
-                text: "Los Angeles Times Photographic Collection OpenUCLA Collections",
+                key: "Description",
+                value: "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
+            },
+            {
+                key: "Date",
+                value: "November 1, 1963",
+            },
+            {
+                key: "Resource type",
+                value: "Still Image",
+            },
+            {
+                key: "Collection",
+                value: "Los Angeles Times Photographic Collection OpenUCLA Collections",
                 to: "https://www.facebook.com",
             },
         ],
-        image: API.image,
     },
     {
+        media: API.image,
         to: "https://www.google.com",
         title: "1/2 length",
-        description:
-            "SPEAKS OUT-Dr. Lewis Yablonsky, VSC, attacks value of heroin curb.",
-        date: "November 7, 1965",
-
-        collection: [
+        metadata: [
             {
-                text: "Los Angeles Times Photographic Collection OpenUCLA Collections",
+                key: "Description",
+                value: "SPEAKS OUT-Dr. Lewis Yablonsky, VSC, attacks value of heroin curb.",
+            },
+            {
+                key: "Date",
+                value: "November 7, 1965",
+            },
+            {
+                key: "Collection",
+                value: "Los Angeles Times Photographic Collection OpenUCLA Collections",
                 to: "https://www.facebook.com",
             },
         ],
-        image: API.image,
     },
     {
+        media: API.image,
         to: "https://www.google.com",
         title: "3,500 pound industrial robot, Unimate, pouring coffee for",
-        description:
-            "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
-        date: "November 1, 1963",
-        resourceType: [
-            { text: "Still Image" },
-            { text: "Photograph", to: "https://www.instagram.com" },
-        ],
-        collection: [
+        metadata: [
             {
-                text: "Los Angeles Times Photographic Collection OpenUCLA Collections",
+                key: "Description",
+                value: "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
+            },
+            {
+                key: "Date",
+                value: "November 1, 1963",
+            },
+            {
+                key: "Resource type",
+                value: "Still Image",
+            },
+            {
+                key: "Collection",
+                value: "Los Angeles Times Photographic Collection OpenUCLA Collections",
                 to: "https://www.facebook.com",
             },
         ],
-        image: API.image,
     },
     {
+        media: API.image,
         to: "https://www.google.com",
         title: "3,500 pound industrial robot, Unimate, pouring coffee for a woman at Biltmore Hotel in Los Angeles, Calif., 1961",
-        description:
-            "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
-        date: "November 1, 1963",
-
-        image: API.image,
+        metadata: [
+            {
+                key: "Description",
+                value: "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
+            },
+            {
+                key: "Date",
+                value: "November 1, 1963",
+            },
+        ],
     },
 ]
+
+const template = `
+                    <div>
+                        <button @click="handleChangeLayout" style="margin-bottom: 20px; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+                            Change Layout
+                        </button>
+                        <grid-asset-pod
+                            v-bind="props"
+                        />
+                    </div>
+                `
 
 export const Default = {
     render: () => ({
@@ -174,16 +245,7 @@ export const Default = {
                 theme: computed(() => "dlc"),
             }
         },
-        template: `
-            <div>
-                <button @click="handleChangeLayout" style="margin-bottom: 20px; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-                    Change Layout
-                </button>
-                <grid-asset-pod
-                    v-bind="props"
-                />
-            </div>
-        `,
+        template,
     }),
 }
 
@@ -209,15 +271,6 @@ export const WithTransition = {
                 theme: computed(() => "dlc"),
             }
         },
-        template: `
-            <div>
-                <button @click="handleChangeLayout" style="margin-bottom: 20px; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-                    Change Layout
-                </button>
-                <grid-asset-pod
-                    v-bind="props"
-                />
-            </div>
-        `,
+        template,
     }),
 }

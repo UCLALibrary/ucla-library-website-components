@@ -52,11 +52,8 @@ const isLastItem = (
             <BlockAssetPod
                 :title="item.title"
                 :to="item.to"
-                :date="item.date"
-                :description="item.description"
-                :resource-type="item.resourceType"
-                :collection="item.collection"
-                :image="item.image"
+                :media="item.media"
+                :metadata="item.metadata"
             />
 
             <DividerGeneral

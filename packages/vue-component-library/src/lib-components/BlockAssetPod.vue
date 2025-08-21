@@ -3,26 +3,13 @@
 import { computed, ref } from "vue"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
-import type {
-    BlockAssetPodProps,
-    LinkItem,
-} from "@/types/components/blockAssetPods.types"
+import type { BlockAssetPodProps } from "@/types/components/blockAssetPods.types"
 import { useTheme } from "@/composables/useTheme"
 
 const theme = useTheme()
 
-// Types
-interface MetaItem {
-    readonly title: string
-    readonly value: string | readonly LinkItem[]
-    readonly class?: string
-}
-
 // Props with defaults
-const props = withDefaults(defineProps<BlockAssetPodProps>(), {
-    resourceType: () => [],
-    collection: () => [],
-})
+defineProps<BlockAssetPodProps>()
 
 // Data
 const isHoveringLink = ref(false)
@@ -33,41 +20,6 @@ const classes = computed(() => [
     theme?.value || "",
     { "is-hovering-link": isHoveringLink.value },
 ])
-
-const itemsMeta = computed((): readonly MetaItem[] => {
-    const items: MetaItem[] = []
-
-    if (props.description) {
-        items.push({
-            title: "Description",
-            value: props.description,
-        })
-    }
-
-    if (props.date) {
-        items.push({
-            title: "Date",
-            value: props.date,
-            class: "date",
-        })
-    }
-
-    if (props.resourceType?.length) {
-        items.push({
-            title: "Resource Type",
-            value: props.resourceType,
-        })
-    }
-
-    if (props.collection?.length) {
-        items.push({
-            title: "Collection",
-            value: props.collection,
-        })
-    }
-
-    return items
-})
 
 // Methods
 const handleLinkMouseEnter = (event: MouseEvent): void => {
@@ -81,6 +33,11 @@ const handleLinkMouseLeave = (event: MouseEvent): void => {
         isHoveringLink.value = false
     }
 }
+
+// Get the class for the metadata item
+const getMetadataItemClass = (key: string): string => {
+    return key.toLowerCase().replace(/\s+/g, "-")
+}
 </script>
 
 <template>
@@ -91,7 +48,7 @@ const handleLinkMouseLeave = (event: MouseEvent): void => {
         :aria-label="`View ${title}`"
     >
         <ResponsiveImage
-            :media="image"
+            :media="media"
             class="image"
             :alt="`${title} preview`"
         />
@@ -99,24 +56,21 @@ const handleLinkMouseLeave = (event: MouseEvent): void => {
         <div class="meta">
             <h3 class="title">{{ title }}</h3>
 
-            <ul class="items" v-if="itemsMeta.length">
-                <template v-for="item in itemsMeta" :key="item.title">
-                    <li :class="['item', item.class]">
-                        <span class="item-title">{{ item.title }}</span>
+            <ul class="items" v-if="metadata?.length">
+                <template v-for="item in metadata" :key="item.key">
+                    <li :class="['item', getMetadataItemClass(item.key)]">
+                        <span class="item-title">{{ item.key }}</span>
                         <span class="item-value">
-                            <template v-if="Array.isArray(item.value)">
-                                <SmartLink
-                                    v-for="link in item.value"
-                                    :key="link.text"
-                                    :to="link.to"
-                                    class="smart-link"
-                                    @mouseenter="handleLinkMouseEnter"
-                                    @mouseleave="handleLinkMouseLeave"
-                                    :aria-label="`Go to ${link.text}`"
-                                >
-                                    {{ link.text }}
-                                </SmartLink>
-                            </template>
+                            <SmartLink
+                                v-if="item.to"
+                                :to="item.to"
+                                class="smart-link"
+                                @mouseenter="handleLinkMouseEnter"
+                                @mouseleave="handleLinkMouseLeave"
+                                :aria-label="`Go to ${item.value}`"
+                            >
+                                {{ item.value }}
+                            </SmartLink>
                             <span v-else>{{ item.value }}</span>
                         </span>
                     </li>

@@ -1,16 +1,14 @@
 import type { MediaItemType } from "@/types/types"
 
-export interface LinkItem {
-    readonly to: string
-    readonly text: string
+export interface MetadataItem {
+    readonly key: string // termKey like "Resource type"
+    readonly value: string // text
+    readonly to?: string // url (optional)
 }
 
 export interface BlockAssetPodProps {
-    readonly title: string
+    readonly media: MediaItemType
     readonly to: string
-    readonly image: MediaItemType
-    readonly date?: string
-    readonly description?: string
-    readonly resourceType?: readonly LinkItem[]
-    readonly collection?: readonly LinkItem[]
+    readonly title: string
+    readonly metadata?: readonly MetadataItem[]
 }
