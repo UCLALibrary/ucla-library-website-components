@@ -3,10 +3,20 @@ import SectionPagination from '@/lib-components/SectionPagination'
 import router from '@/router'
 
 /**
- * A component to provide pagination for a list of items. It can be used in 2 ways:
+ * A component to provide pagination for a list of items. In _non-legacy mode_, the component will show numbered buttons. It will hide the previous and next buttons if the current page is the first or last page, respectively.
  *
- * 1. With a previous and next page string, and no # buttons. In this mode the props determine if the buttons are shown or not
- * 2. With a number of pages and a number representing the initial current page. In this mode the component will show the # buttons, and it will only hide the previous and next buttons if the current page is the first or last page
+ * The component can be used in the following ways:
+ *
+ * 1. Legacy mode: With previous page and next page string values passed to the component, and no numbered buttons shown
+ *  - Required props: `nextTo`, `previousTo`
+ * 2. Dynamic Width mode: With the page buttons displayed and dynamically calculated by the number of pages and the size of the pagination containe; a number representing the initial current page is required
+ *  - Required props: `pages`, `initialCurrentPage`
+ * 3. Fixed Width mode: With a specific number of page buttons displayed in the pagination container
+ *  - Required props: `pages`, `initialCurrentPage`, `fixedPageWidthMode` (true), `fixedPageWidthNum`
+ * 4. No Truncation: Display all page buttons without truncation
+ *  - Same props as Fixed Width mode
+ *  - Set `fixedPageWidthMode` to `true` and `fixedPageWidthNum` to the same numerical value as `pages`
+ *
  *
  * Props:
  * - nextTo: A string representing the URL to the next page
@@ -14,7 +24,10 @@ import router from '@/router'
  * - pages: A number representing the total number of pages we need to show all content (added 2024-10-29)
  * - initialCurrentPage: A number representing the page we are starting on (added 2024-10-29)
  * - generateLinkCallback: A function that generates the link for the page number. It receives the page number as a parameter (added 2024-11-26)
+ * - fixedPageWidthMode: A boolean to generate a fixed number of buttons to display in the pagination container; default value is `false`
+ * - fixedPageWidthNum: The number of page buttons to generate when `fixedPageWidthMode` is `true`; if a value is not provide, default number of page buttons to show is 10
  */
+
 export default {
   title: 'SECTION / Pagination',
   component: SectionPagination,
@@ -43,7 +56,7 @@ export function LastPage() {
 
 // this story uses the generateLinkCallback prop
 // to generate the links in the library-website-nuxt format instead of the default format
-export function _DynamicWidth_5Pgs() {
+export function DynamicWidth_5Pgs() {
   // mock a library site page where someone has searched 'new' like this:
   // https://www.library.ucla.edu/search-site?q=new&from=10'
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
@@ -61,7 +74,7 @@ export function _DynamicWidth_5Pgs() {
   }
 }
 
-export function _DynamicWidth_10Pgs() {
+export function DynamicWidth_10Pgs() {
   // mock a library site page where someone has searched 'new' like this:
   // https://www.library.ucla.edu/search-site?q=new&from=10'
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
@@ -79,7 +92,7 @@ export function _DynamicWidth_10Pgs() {
   }
 }
 
-export function _DynamicWidth_25pgs() {
+export function DynamicWidth_25pgs() {
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
   return {
     setup() {
@@ -95,7 +108,7 @@ export function _DynamicWidth_25pgs() {
   }
 }
 
-export function _DynamicWidth_40pgs() {
+export function DynamicWidth_40pgs() {
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
   return {
     setup() {
@@ -111,7 +124,7 @@ export function _DynamicWidth_40pgs() {
   }
 }
 
-export function _FixedWidth_6Pgs() {
+export function FixedWidth_6Pgs() {
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
   return {
     setup() {
@@ -127,7 +140,7 @@ export function _FixedWidth_6Pgs() {
   }
 }
 
-export function _FixedWidth_12Pgs() {
+export function FixedWidth_12Pgs() {
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
   return {
     setup() {
@@ -143,6 +156,21 @@ export function _FixedWidth_12Pgs() {
   }
 }
 
+export function No_Truncation() {
+  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
+  return {
+    setup() {
+      // sample callback to generate the link
+      const sampleCallback = (pageNumber, queryParams) => {
+        return `/search-site?${queryParams}`
+      }
+
+      return { sampleCallback }
+    },
+    components: { SectionPagination },
+    template: '<section-pagination :pages="40" :initialCurrentPage="10" :generateLinkCallback="sampleCallback" :fixedPageWidthMode="true" :fixedPageWidthNum="40" />',
+  }
+}
 // this story uses an async fetch to get the total number of pages
 // like the FTVA event listing page
 export function FTVAFixed_10Pgs() {
