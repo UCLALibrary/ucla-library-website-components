@@ -4,7 +4,7 @@ import GridAssetPod from "@/lib-components/GridAssetPod.vue"
 import { computed } from "vue"
 
 export default {
-    title: "Funkhaus / GridAssetPod",
+    title: "Funkhaus / Grid Asset Pod",
     component: GridAssetPod,
 }
 

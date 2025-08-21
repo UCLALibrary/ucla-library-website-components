@@ -4,7 +4,7 @@ import BlockAssetPod from "@/lib-components/BlockAssetPod.vue"
 import { computed } from "vue"
 
 export default {
-    title: "Funkhaus / BlockAssetPod",
+    title: "Funkhaus / Block Asset Pod",
     component: BlockAssetPod,
 }
 
