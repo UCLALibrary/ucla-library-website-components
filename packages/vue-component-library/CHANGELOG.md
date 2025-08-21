@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.28.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.27.0...@ucla-library-monorepo/ucla-library-website-components-v1.28.0) (2025-08-21)
+
+
+### Features
+
+* APPS-3390 Refactor SectionStaffArticleList and BlockStaffArticleList  ([#768](https://github.com/UCLALibrary/ucla-library-website-components/issues/768)) ([4b17cd9](https://github.com/UCLALibrary/ucla-library-website-components/commit/4b17cd981fc34a3702017b94a06ca0bb27df1678))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.27.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.5...@ucla-library-monorepo/ucla-library-website-components-v1.27.0) (2025-08-21)
 
 

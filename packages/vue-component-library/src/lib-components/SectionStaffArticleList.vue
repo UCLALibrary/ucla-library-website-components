@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import type { PropType } from 'vue'
 
 // TYPESCRIPT
+import format from 'date-fns/format'
 import type { BlockStaffArticleListItemType } from '@/types/types'
 
 // THEME
@@ -11,6 +12,7 @@ import { useTheme } from '@/composables/useTheme'
 // UTILS
 import formatDates from '@/utils/formatEventDates'
 import formatSeriesDates from '@/utils/formatEventSeriesDates'
+import removeHtmlTruncate from '@/utils/removeHtmlTruncate'
 
 // CHILD COMPONENTS
 import BlockStaffArticleList from '@/lib-components/BlockStaffArticleList.vue'
@@ -33,7 +35,8 @@ const classes = computed(() => {
   return ['section-staff-article-list', theme?.value || '']
 })
 
-function parseDate(sectionHandle: string, startDate: string, endDate: string, ongoing: boolean) {
+function parseDate(sectionHandle: string, startDate: string, endDate: string, ongoing: boolean, date: string) {
+  // Eventually move this logic to templates in the ftva nuxt/main library muxt repo
   if (theme?.value !== 'ftva')
     return null
   if (ongoing)
@@ -42,8 +45,14 @@ function parseDate(sectionHandle: string, startDate: string, endDate: string, on
     return formatDates(startDate, startDate, 'shortWithYear')
   if (sectionHandle === 'ftvaEventSeries')
     return formatSeriesDates(startDate, endDate, 'shortWithYear')
-
+  if (date)
+    return format(new Date(date), 'MMMM d, Y')
   return null
+}
+function parsedTextAll(description: string) {
+  return description
+    ? removeHtmlTruncate(description, 250)
+    : ''
 }
 </script>
 
@@ -64,24 +73,25 @@ function parseDate(sectionHandle: string, startDate: string, endDate: string, on
           :to="item.to"
           :category="item.category"
           :title="item.title"
-          :date="item.date"
+          :date="theme === 'ftva' ? '' : item.date"
           :authors="item.authors"
-          :description="item.description"
+          :description="theme === 'ftva' ? '' : item.description"
           :external-resource-url="item.externalResourceUrl"
         >
           <template
-            v-if="parseDate(item.sectionHandle ?? '', item.startDate ?? '', item.endDate ?? '', item.ongoing ?? false)"
+            v-if="theme === 'ftva' && item.description"
+            #customFTVADescription
+          >
+            {{ parsedTextAll(item.description) }}
+          </template>
+          <template
+            v-if="theme === 'ftva' && parseDate(item.sectionHandle ?? '', item.startDate ?? '', item.endDate ?? '', item.ongoing ?? false, item.date ?? '')"
             #customFTVADate
           >
-            <span class="ftva-date">
-              {{ parseDate(item.sectionHandle ?? '', item.startDate ?? '', item.endDate ?? '', item.ongoing ?? false) }}
-            </span>
+            {{ parseDate(item.sectionHandle ?? '', item.startDate ?? '', item.endDate ?? '', item.ongoing ?? false,
+                         item.date ?? '') }}
           </template>
         </BlockStaffArticleList>
-
-        <!-- :start-date="item.startDate"
-          :end-date="item.endDate"
-          :ongoing="item.ongoing" -->
       </ul>
     </div>
   </section>
