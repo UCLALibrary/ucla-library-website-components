@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.28.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.0...@ucla-library-monorepo/ucla-library-website-components-v1.28.1) (2025-08-21)
+
+
+### Bug Fixes
+
+* APPS-3187 Fix Shifting Pagination Numbers ([#780](https://github.com/UCLALibrary/ucla-library-website-components/issues/780)) ([f8019a4](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8019a49f37b1c415d566d37172b37e4c8f7ff4b))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.28.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.27.0...@ucla-library-monorepo/ucla-library-website-components-v1.28.0) (2025-08-21)
 
 
