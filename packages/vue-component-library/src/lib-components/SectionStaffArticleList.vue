@@ -97,7 +97,7 @@ function getNonFTVADate(date: string) {
             #customFTVADate
           >
             {{ parseDate(item.sectionHandle ?? '', item.startDate ?? '', item.endDate ?? '', item.ongoing ?? false,
-              item.date ?? '') }}
+                         item.date ?? '') }}
           </template>
         </BlockStaffArticleList>
       </ul>
