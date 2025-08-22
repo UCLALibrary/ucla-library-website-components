@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.28.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.1...@ucla-library-monorepo/ucla-library-website-components-v1.28.2) (2025-08-22)
+
+
+### Bug Fixes
+
+* APPS-3397 title on homepage carousel is clickable ([#792](https://github.com/UCLALibrary/ucla-library-website-components/issues/792)) ([a98d990](https://github.com/UCLALibrary/ucla-library-website-components/commit/a98d9903f39f6a52a02a2ffe592307de1bf59f9a))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.28.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.0...@ucla-library-monorepo/ucla-library-website-components-v1.28.1) (2025-08-21)
 
 
