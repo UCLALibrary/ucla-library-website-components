@@ -1,4 +1,4 @@
-.excerpt-pod {
+.excerpt-pod.dlc {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -11,10 +11,7 @@
     .title {
         margin: 0;
 
-        font-family: var(--font-primary);
-        font-size: 21px;
-        font-weight: 700;
-        line-height: 120%; /* 25.2px */
+        @include ftva-card-title-2;
     }
 
     .subtitle {
@@ -36,21 +33,10 @@
     }
 
     .text {
-        font-family: var(--font-secondary);
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 150%; /* 24px */
-    }
-
-    // Hovers
-    @media #{has-hover} {
+        @include ftva-body-2;
     }
 
     // Breakpoints
-    @media #{$extra-large} {
-    }
-    @media #{$medium} {
-    }
     @media #{$small} {
         .info {
             flex-direction: column;

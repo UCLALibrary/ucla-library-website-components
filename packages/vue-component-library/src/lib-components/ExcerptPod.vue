@@ -2,6 +2,9 @@
 // Imports
 import { defineProps, computed } from "vue"
 import NotesAccordion from "@/lib-components/NotesAccordion.vue"
+import { useTheme } from "@/composables/useTheme"
+
+const theme = useTheme()
 
 // Props
 type ExcerptPodProps = {
@@ -25,9 +28,9 @@ const props = withDefaults(defineProps<ExcerptPodProps>(), {
     labelClose: "",
 })
 
-// Data
-
 // Computed
+const classes = computed(() => ["excerpt-pod", theme?.value || ""])
+
 const showAccordion = computed(() => {
     return (
         props.accordions.length > 0 &&
@@ -37,7 +40,7 @@ const showAccordion = computed(() => {
 </script>
 
 <template>
-    <div class="excerpt-pod">
+    <div :class="classes">
         <h5 class="title" v-html="title" />
         <div class="info">
             <h6 class="subtitle" v-html="subtitle" />

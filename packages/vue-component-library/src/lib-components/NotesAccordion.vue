@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Imports
 import {
     computed,
     defineProps,
@@ -7,9 +8,10 @@ import {
     ref,
     nextTick,
 } from "vue"
-
-// Imports
+import { useTheme } from "@/composables/useTheme"
 import SvgArrowDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
+
+const theme = useTheme()
 
 // Props
 type NotesAccordionItem = {
@@ -32,7 +34,11 @@ const textRefs = ref<(HTMLElement | null)[]>([])
 const textHeight = ref(0)
 
 // Computed
-const classes = computed(() => ["notes-accordion", { "is-open": isOpen.value }])
+const classes = computed(() => [
+    "notes-accordion",
+    theme?.value || "",
+    { "is-open": isOpen.value },
+])
 
 const dynamicLabel = computed(() =>
     isOpen.value ? props.labelOpen : props.labelClose

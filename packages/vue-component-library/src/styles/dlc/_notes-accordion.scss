@@ -1,4 +1,4 @@
-.notes-accordion {
+.notes-accordion.dlc {
     position: relative;
 
     font-family: var(--font-primary);
@@ -41,9 +41,7 @@
         line-height: 150%; /* 24px */
     }
     .text {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 150%; /* 24px */
+        @include ftva-body-2;
         color: var(--color-text-primary);
     }
 
