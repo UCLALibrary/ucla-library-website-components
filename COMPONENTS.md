@@ -142,7 +142,7 @@ Reusable dropdown with configurable button label and menu options.
 - onSelect: Function(option: string)
 
 
-[] ButtonDropdownSearch ()
+[] ButtonDropdownSearch (Svebor)
 
 Set of dropdowns to filter/search content by fields like “Title” or “Subject.”
 
@@ -480,7 +480,7 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
 | ButtonIIIF                 |           | ☐ Complete  |   [ ]   |                                |
-| Button                     |Luka       | ☐ Complete  |   []   |                                |
+| Button                     |Luka       | ☐ Complete  |   [ ]   |                                |
 | DividerGeneral             |           | ☐ Complete  |   [x]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonTag                  |Luka       | ☐ Complete  |   [x]   | aka: BlockTag                  |
@@ -496,8 +496,8 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
 | FiltersDropdown            |           | ☐ Complete  |   [x]   |                                |
 | AlphabeticalBrowseBy       |           | ☐ Complete  |   [x]   |                                | 
-| DropdownSingleSelect       |           | ☐ Complete  |   [x]   |                                |
-| ButtonDropdownSearch       |           | ☐ Complete  |   [ ]   |                                |
+| DropdownSingleSelect       |Svebor     | ☐ Complete  |   [ ]   |                                |
+| ButtonDropdownSearch       |Svebor     | ☐ Complete  |   [ ]   |                                |
 | ButtonUCLALibrariesDropdown|           | ☐ Complete  |   [ ]   |                                |
 | YearRangeFilter            |           | ☐ Complete  |   [x]   | aka DateFilter?                |
 | BentoPod                   |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
