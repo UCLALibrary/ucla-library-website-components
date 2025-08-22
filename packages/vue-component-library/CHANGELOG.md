@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.28.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.2...@ucla-library-monorepo/ucla-library-website-components-v1.28.3) (2025-08-22)
+
+
+### Bug Fixes
+
+* APPS-3399 make sitebrand route to correct URL for ftva ([#793](https://github.com/UCLALibrary/ucla-library-website-components/issues/793)) ([b3ca002](https://github.com/UCLALibrary/ucla-library-website-components/commit/b3ca002084fac2ea2145bc4e71cc423082e30c38))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.28.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.1...@ucla-library-monorepo/ucla-library-website-components-v1.28.2) (2025-08-22)
 
 
