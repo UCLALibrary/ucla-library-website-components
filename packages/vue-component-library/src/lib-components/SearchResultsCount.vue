@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, computed } from "vue"
+import { useTheme } from "@/composables/useTheme"
+
+const theme = useTheme()
+
 type SearchResultsCountProps = {
     count: number
     label: string
@@ -22,6 +26,10 @@ const parsedResults = computed(() => {
         return props.label
     }
     return ""
+})
+
+const classes = computed(() => {
+    return ["search-results-count", theme?.value || ""]
 })
 
 const animatedCount = ref(0)
@@ -69,7 +77,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="search-results-count">
+    <div :class="classes">
         <span class="parsed-results">
             {{ parsedResults }}
         </span>
