@@ -55,12 +55,12 @@ function parsedTextAll(description: string) {
     : ''
 }
 function getNonFTVADescription(description: string) {
-  console.log('theme', theme.value)
-  return theme.value === 'ftva' ? '' : description
+  console.log('theme', theme?.value)
+  return theme?.value === 'ftva' ? '' : description
 }
 function getNonFTVADate(date: string) {
-  console.log('theme', theme.value)
-  return theme.value === 'ftva' ? '' : date
+  console.log('theme', theme?.value)
+  return theme?.value === 'ftva' ? '' : date
 }
 </script>
 
@@ -97,7 +97,7 @@ function getNonFTVADate(date: string) {
             #customFTVADate
           >
             {{ parseDate(item.sectionHandle ?? '', item.startDate ?? '', item.endDate ?? '', item.ongoing ?? false,
-                         item.date ?? '') }}
+              item.date ?? '') }}
           </template>
         </BlockStaffArticleList>
       </ul>
