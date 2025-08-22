@@ -54,6 +54,14 @@ function parsedTextAll(description: string) {
     ? removeHtmlTruncate(description, 250)
     : ''
 }
+function getNonFTVADescription(description: string) {
+  console.log('theme', theme?.value)
+  return theme?.value === 'ftva' ? '' : description
+}
+function getNonFTVADate(date: string) {
+  console.log('theme', theme?.value)
+  return theme?.value === 'ftva' ? '' : date
+}
 </script>
 
 <template>
@@ -73,9 +81,9 @@ function parsedTextAll(description: string) {
           :to="item.to"
           :category="item.category"
           :title="item.title"
-          :date="theme === 'ftva' ? '' : item.date"
+          :date="getNonFTVADate(item.date ?? '')"
           :authors="item.authors"
-          :description="theme === 'ftva' ? '' : item.description"
+          :description="getNonFTVADescription(item.description ?? '')"
           :external-resource-url="item.externalResourceUrl"
         >
           <template
