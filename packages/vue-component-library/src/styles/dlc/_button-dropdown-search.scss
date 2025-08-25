@@ -95,8 +95,12 @@
         transition: opacity 0.2s;
     }
 
-    // Opened state
-    &.open {
+    // States
+    &.is-long {
+        width: 345px;
+        .dropdown-field {
+            padding: 15px;
+        }
     }
 
     // Hovers
