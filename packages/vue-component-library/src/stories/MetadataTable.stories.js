@@ -7,16 +7,6 @@ import * as API from "@/stories/mock-api.json"
 export default {
     title: "Funkhaus / MetadataTable",
     component: MetadataTable,
-    decorators: [
-        () => ({
-            provide() {
-                return {
-                    theme: computed(() => "dlc"),
-                }
-            },
-            template: "<story />",
-        }),
-    ],
 }
 
 const baseItems = [
@@ -66,157 +56,97 @@ const baseItems = [
         ],
     },
 ]
-export function WithButtons() {
+
+function Template(args) {
     return {
         components: { MetadataTable },
-        data() {
+        provide() {
             return {
-                title: "Metadata with Buttons",
-                items: baseItems,
+                theme: computed(() => "dlc"),
             }
         },
+        setup() {
+            return { args }
+        },
         template: `
-      <MetadataTable :title="title" :items="items" />
-    `,
+          <MetadataTable :title="args.title" :items="args.items" />
+        `,
     }
 }
 
-export function Default() {
+function TemplateNoTheme(args) {
     return {
         components: { MetadataTable },
-        data() {
-            return {
-                title: "Access Condition",
-                items: baseItems,
-            }
+        setup() {
+            return { args }
         },
         template: `
-      <MetadataTable :title="title" :items="items" />
-    `,
+          <MetadataTable :title="args.title" :items="args.items" />
+        `,
     }
 }
 
-export function WithImage() {
-    return {
-        components: { MetadataTable },
-        data() {
-            return {
-                title: "Metadata with Image",
-                items: [
-                    ...baseItems,
-                    {
-                        label: "Logo",
-                        value: { text: "" },
-                        image: API.image,
-                    },
-                ],
-            }
-        },
-        template: `
-      <MetadataTable :title="title" :items="items" />
-    `,
-    }
+export const WithButtons = Template.bind({})
+WithButtons.args = { title: "Metadata with Buttons", items: baseItems }
+
+export const Default = Template.bind({})
+Default.args = { title: "Access Condition", items: baseItems }
+
+export const WithImage = Template.bind({})
+WithImage.args = {
+    title: "Metadata with Image",
+    items: [
+        ...baseItems,
+        { label: "Logo", value: { text: "" }, image: API.image },
+    ],
 }
 
-export function ImageAndText() {
-    return {
-        components: { MetadataTable },
-        data() {
-            return {
-                title: "Image and Text",
-                items: [
-                    {
-                        label: "Collection",
-                        value: { text: "UCLA Digital Library" },
-                        image: API.image,
-                    },
-                ],
-            }
+export const ImageAndText = Template.bind({})
+ImageAndText.args = {
+    title: "Image and Text",
+    items: [
+        {
+            label: "Collection",
+            value: { text: "UCLA Digital Library" },
+            image: API.image,
         },
-        template: `
-      <MetadataTable :title="title" :items="items" />
-    `,
-    }
+    ],
 }
 
-export function ImageTextAndLink() {
-    return {
-        components: { MetadataTable },
-        data() {
-            return {
-                title: "Image, Text, and Link",
-                items: [
-                    {
-                        label: "Resource",
-                        value: {
-                            text: "<a href='https://ucla.edu'>UCLA Homepage</a>",
-                        },
-                        image: API.image,
-                    },
-                ],
-            }
+export const ImageTextAndLink = Template.bind({})
+ImageTextAndLink.args = {
+    title: "Image, Text, and Link",
+    items: [
+        {
+            label: "Resource",
+            value: { text: "<a href='https://ucla.edu'>UCLA Homepage</a>" },
+            image: API.image,
         },
-        template: `
-      <MetadataTable :title="title" :items="items" />
-    `,
-    }
+    ],
 }
 
-export function OnlyImage() {
-    return {
-        components: { MetadataTable },
-        data() {
-            return {
-                title: "Only Image",
-                items: [
-                    {
-                        label: "Logo",
-                        value: { text: "" },
-                        image: API.image,
-                    },
-                ],
-            }
-        },
-        template: `
-      <MetadataTable :title="title" :items="items" />
-    `,
-    }
+export const OnlyImage = Template.bind({})
+OnlyImage.args = {
+    title: "Only Image",
+    items: [{ label: "Logo", value: { text: "" }, image: API.image }],
 }
 
-export function Empty() {
-    return {
-        components: { MetadataTable },
-        data() {
-            return {
-                title: "Empty Metadata",
-                items: [],
-            }
+export const Empty = Template.bind({})
+Empty.args = { title: "Empty Metadata", items: [] }
+
+export const ImageTextWithHtmlLink = Template.bind({})
+ImageTextWithHtmlLink.args = {
+    title: "Image, Text with HTML Link",
+    items: [
+        {
+            label: "Resource",
+            value: {
+                text: 'See the <a href="https://ucla.edu" target="_blank">UCLA Homepage</a> for more info.',
+            },
+            image: API.image,
         },
-        template: `
-      <MetadataTable :title="title" :items="items" />
-    `,
-    }
+    ],
 }
 
-export function ImageTextWithHtmlLink() {
-    return {
-        components: { MetadataTable },
-        data() {
-            return {
-                title: "Image, Text with HTML Link",
-                items: [
-                    {
-                        label: "Resource",
-                        value: {
-                            text: 'See the <a href="https://ucla.edu" target="_blank">UCLA Homepage</a> for more info.',
-                        },
-                        image: API.image,
-                    },
-                ],
-            }
-        },
-        template: `
-      <MetadataTable :title="title" :items="items" />
-    `,
-    }
-}
+export const NoTheme = TemplateNoTheme.bind({})
+NoTheme.args = { title: "Access Condition", items: baseItems }
