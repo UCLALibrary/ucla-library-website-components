@@ -3,6 +3,10 @@
 import type { MediaItemType } from "@/types/types"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import SmartLink from "@/lib-components/SmartLink.vue"
+import { computed } from "vue"
+import { useTheme } from "@/composables/useTheme"
+
+const theme = useTheme()
 
 // Props
 type BlockCollectionProps = {
@@ -12,10 +16,15 @@ type BlockCollectionProps = {
     description: string
 }
 defineProps<BlockCollectionProps>()
+
+// Computed
+const classes = computed(() => {
+    return ["block-collection", "dlc", theme?.value || ""]
+})
 </script>
 
 <template>
-    <SmartLink class="block-collection" :to="href">
+    <SmartLink :class="classes" :to="href">
         <ResponsiveImage class="image" :media="image" :aspect-ratio="108" />
         <div class="content">
             <h5 class="title" v-html="title" />

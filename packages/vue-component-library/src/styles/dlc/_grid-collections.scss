@@ -1,4 +1,4 @@
-.grid-collections {
+.grid-collections.dlc {
     --columns: 3;
     --gap-row: 40px;
     --gap-col: 16px;
@@ -13,14 +13,8 @@
         padding: 0;
         width: var(--block-width);
     }
-    // Hovers
-    @media #{$has-hover} {
-    }
+
     // Breakpoints
-    @media #{$extra-large} {
-    }
-    @media #{$medium} {
-    }
     @media #{$small} {
         --block-width: 100%;
     }

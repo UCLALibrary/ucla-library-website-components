@@ -2,6 +2,10 @@
 // Imports
 import BlockCollection from "@/lib-components/BlockCollection.vue"
 import type { MediaItemType } from "@/types/types"
+import { computed } from "vue"
+import { useTheme } from "@/composables/useTheme"
+
+const theme = useTheme()
 
 // Props
 type GridCollectionsProps = {
@@ -14,10 +18,15 @@ type GridCollectionsProps = {
     }>
 }
 defineProps<GridCollectionsProps>()
+
+// Compputed
+const classes = computed(() => {
+    return ["grid-collections", theme?.value || ""]
+})
 </script>
 
 <template>
-    <div class="grid-collections">
+    <div :class="classes">
         <BlockCollection
             class="block"
             v-for="collection in items"
