@@ -31,6 +31,9 @@ import SmartLink from "@/lib-components/SmartLink.vue"
 import DividerGeneral from "./DividerGeneral.vue"
 import SvgExternalLink from "ucla-library-design-tokens/assets/svgs/icon-external-link.svg"
 import SvgArrowDown from "ucla-library-design-tokens/assets/svgs/icon-caret-down.svg"
+import { useTheme } from "@/composables/useTheme"
+
+const theme = useTheme()
 
 // Data
 const isExpanded = ref(false)
@@ -43,6 +46,7 @@ const debounceTimeout = ref<number | undefined>(undefined)
 // Computed
 const classes = computed(() => [
     "bento-pod",
+    theme?.value || "",
     {
         "is-expanded": isExpanded.value,
     },

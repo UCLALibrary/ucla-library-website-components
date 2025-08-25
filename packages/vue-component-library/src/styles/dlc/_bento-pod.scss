@@ -1,4 +1,4 @@
-.bento-pod {
+.bento-pod.dlc {
     padding: 20px;
     box-sizing: border-box;
 
@@ -36,7 +36,8 @@
 
     .items {
         overflow: hidden;
-        transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        // transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        @include animate-normal;
     }
 
     .item {
@@ -108,11 +109,8 @@
 
     .detail {
         color: var(--color-primary-blue-03);
-        font-family: var(--font-secondary); // Proxima Nova
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 150%; /* 24px */
-        text-transform: capitalize;
+
+        @include ftva-body-2;
     }
 
     .caret-icon {
