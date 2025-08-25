@@ -26,11 +26,7 @@
 
     .selected-option,
     .dropdown-option {
-        font-family: var(--font-secondary);
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%; /* 24px */
+        @include ftva-body-2;
     }
 
     .arrow {
@@ -97,10 +93,7 @@
         }
     }
 
-    // Breakpoints
-    @media #{$small} {
-    }
-
+    // Transitions
     // Dropdown Animation
     .dropdown-enter-active,
     .dropdown-leave-active {
