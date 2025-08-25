@@ -1,8 +1,11 @@
 <script setup lang="ts">
 // Imports
 import BentoBoxBlock from "@/lib-components/BentoBoxBlock.vue"
-import { ref, onMounted, onBeforeUnmount, nextTick } from "vue"
+import { ref, onMounted, onBeforeUnmount, nextTick, computed } from "vue"
 import type { MediaItemType } from "@/types/types"
+import { useTheme } from "@/composables/useTheme"
+
+const theme = useTheme()
 // Props
 type BentoBoxResultProps = {
     title: string
@@ -24,6 +27,11 @@ let dragging = ref(false)
 let dragStartX = ref(0)
 let startScrollLeft = ref(0)
 let thumbStartLeft = ref(0)
+
+// Computed
+const classes = computed(() => {
+    return ["bento-box-result", theme?.value || ""]
+})
 
 // Methods
 function updateThumb() {
@@ -99,7 +107,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div class="bento-box-result">
+    <div :class="classes">
         <h5 class="title" v-html="title" />
         <div class="items" ref="itemsRef">
             <div

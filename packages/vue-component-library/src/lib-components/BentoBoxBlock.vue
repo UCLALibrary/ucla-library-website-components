@@ -4,6 +4,9 @@ import { computed } from "vue"
 import type { MediaItemType } from "@/types/types"
 import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
 import ButtonLink from "@/lib-components/ButtonLink.vue"
+import { useTheme } from "@/composables/useTheme"
+
+const theme = useTheme()
 
 // Props
 type BentoBoxBlockProps = {
@@ -21,10 +24,13 @@ const props = withDefaults(defineProps<BentoBoxBlockProps>(), {
 const parsedCount = computed(() => {
     return `${props.count} Results`
 })
+const classes = computed(() => {
+    return ["bento-box-block", theme?.value || ""]
+})
 </script>
 
 <template>
-    <div class="bento-box-block">
+    <div :class="classes">
         <div class="wrapper">
             <ResponsiveImage class="image" :media="image" :aspect-ratio="72" />
             <div class="content">
