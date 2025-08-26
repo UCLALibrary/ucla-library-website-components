@@ -1,9 +1,6 @@
 <script setup lang="ts">
 // Imports
 import { computed } from 'vue'
-import DividerGeneral from './DividerGeneral.vue'
-import BlockAssetPod from '@/lib-components/BlockAssetPod.vue'
-import type { BlockAssetPodProps } from '@/types/components/blockAssetPods.types'
 import { useTheme } from '@/composables/useTheme'
 
 // Props
@@ -17,7 +14,7 @@ const theme = useTheme()
 
 // Types
 interface GridAssetPodProps {
-  readonly items: readonly BlockAssetPodProps[]
+  readonly items: any[]
   readonly isGridLayout?: boolean
   readonly hasTransition?: boolean
 }
@@ -32,12 +29,6 @@ const classes = computed(() =>
   ].filter(Boolean)
 )
 const hasItems = computed(() => props.items.length > 0)
-
-// Methods
-function isLastItem(item: BlockAssetPodProps,
-  items: readonly BlockAssetPodProps[]) {
-  return items.indexOf(item) === items.length - 1
-}
 </script>
 
 <template>
@@ -46,19 +37,12 @@ function isLastItem(item: BlockAssetPodProps,
     :class="classes"
     :aria-label="`Asset grid with ${items.length} items`"
   >
-    <div v-for="item in items" :key="item.title" class="block-container">
-      <BlockAssetPod
-        :title="item.title"
-        :to="item.to"
-        :media="item.media"
-        :metadata="item.metadata"
-      />
-
-      <DividerGeneral
-        v-if="!isLastItem(item, items)"
-        class="divider-general"
-        is-bold
-      />
+    <div
+      v-for="(item, index) in items"
+      :key="index"
+      class="block-container"
+    >
+      <slot :item="item" />
     </div>
   </div>
 </template>

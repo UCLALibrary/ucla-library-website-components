@@ -1,276 +1,107 @@
 // Import mock api data
-import { computed } from 'vue'
-import * as API from '@/stories/mock-api.json'
-import GridAssetPod from '@/lib-components/GridAssetPod.vue'
+import { computed } from "vue"
+import * as API from "@/stories/mock-api.json"
+import GridAssetPod from "@/lib-components/GridAssetPod.vue"
+import BlockCardWithImage from "@/lib-components/BlockCardWithImage"
 
 export default {
-  title: 'Funkhaus / Grid Asset Pod',
-  component: GridAssetPod,
+    title: "Funkhaus / Grid Asset Pod",
+    component: GridAssetPod,
 }
 
-const items = [
-  {
-    media: API.image,
-    to: 'https://www.google.com',
-    title: '1/2 length portrait of comedian Danny Thomas with pills he takes for his voice, 1963',
-    metadata: [
-      {
-        key: 'Description',
-        value: 'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
-      },
-      {
-        key: 'Date',
-        value: 'November 1, 1963',
-      },
-      {
-        key: 'Resource type',
-        value: 'Still Image',
-      },
-      {
-        key: 'Collection',
-        value: 'Los Angeles Times Photographic Collection OpenUCLA Collections',
-        to: 'https://www.facebook.com',
-      },
-    ],
-  },
-  {
-    media: API.image,
-    to: 'https://www.google.com',
-    title: '1/2 length portrait',
-    metadata: [
-      {
-        key: 'Description',
-        value: 'SPEAKS OUT-Dr. Lewis Yablonsky, VSC, attacks value of heroin curb.',
-      },
-      {
-        key: 'Date',
-        value: 'November 7, 1965',
-      },
-      {
-        key: 'Collection',
-        value: 'Los Angeles Times Photographic Collection OpenUCLA Collections',
-        to: 'https://www.facebook.com',
-      },
-    ],
-  },
-  {
-    media: API.image,
-    to: 'https://www.google.com',
-    title: '5th grade boy pinning diaper on baby doll in family life class at Steele Elementary School, Torrance, Calif., 1965 on baby doll in family life class at Steele Elementary School, Torrance, Calif., 1965',
-    metadata: [
-      {
-        key: 'Description',
-        value: 'Lionel Richie: He\'ll headline the Closing Ceremony',
-      },
-      {
-        key: 'Date',
-        value: 'August 10, 1984',
-      },
-      {
-        key: 'Resource type',
-        value: 'Still Image',
-        to: 'https://www.instagram.com',
-      },
-    ],
-  },
-  {
-    media: API.image,
-    to: 'https://www.google.com',
-    title: '3,500 pound industrial robot, Unimate, pouring coffee for a woman at Biltmore Hotel in Los Angeles, Calif., 1961',
-    metadata: [
-      {
-        key: 'Description',
-        value: 'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
-      },
-      {
-        key: 'Date',
-        value: 'November 1, 1963',
-      },
-    ],
-  },
-  {
-    media: API.image,
-    to: 'https://www.google.com',
-    title: '5th grade boy pinning diaper on baby doll in family life class at Steele Elementary School, Torrance, Calif., 1965',
-    metadata: [
-      {
-        key: 'Description',
-        value: 'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
-      },
-      {
-        key: 'Resource type',
-        value: 'Still Image',
-      },
-      {
-        key: 'Collection',
-        value: 'Los Angeles Times Photographic Collection OpenUCLA Collections',
-        to: 'https://www.facebook.com',
-      },
-    ],
-  },
-  {
-    media: API.image,
-    to: 'https://www.google.com',
-    title: '3/4 length portrait of singer Lionel Richie, 1984',
-    metadata: [
-      {
-        key: 'Description',
-        value: 'Lionel Richie: He\'ll headline the Closing Ceremony',
-      },
-      {
-        key: 'Date',
-        value: 'August 10, 1984',
-      },
-      {
-        key: 'Resource type',
-        value: 'Still Image',
-        to: 'https://www.instagram.com',
-      },
-    ],
-  },
-  {
-    media: API.image,
-    to: 'https://www.google.com',
-    title: '3,500 pound industrial robot, Unimate, pouring coffee for',
-    metadata: [
-      {
-        key: 'Description',
-        value: 'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
-      },
-      {
-        key: 'Date',
-        value: 'November 1, 1963',
-      },
-      {
-        key: 'Resource type',
-        value: 'Still Image',
-      },
-      {
-        key: 'Collection',
-        value: 'Los Angeles Times Photographic Collection OpenUCLA Collections',
-        to: 'https://www.facebook.com',
-      },
-    ],
-  },
-  {
-    media: API.image,
-    to: 'https://www.google.com',
-    title: '1/2 length',
-    metadata: [
-      {
-        key: 'Description',
-        value: 'SPEAKS OUT-Dr. Lewis Yablonsky, VSC, attacks value of heroin curb.',
-      },
-      {
-        key: 'Date',
-        value: 'November 7, 1965',
-      },
-      {
-        key: 'Collection',
-        value: 'Los Angeles Times Photographic Collection OpenUCLA Collections',
-        to: 'https://www.facebook.com',
-      },
-    ],
-  },
-  {
-    media: API.image,
-    to: 'https://www.google.com',
-    title: '3,500 pound industrial robot, Unimate, pouring coffee for',
-    metadata: [
-      {
-        key: 'Description',
-        value: 'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
-      },
-      {
-        key: 'Date',
-        value: 'November 1, 1963',
-      },
-      {
-        key: 'Resource type',
-        value: 'Still Image',
-      },
-      {
-        key: 'Collection',
-        value: 'Los Angeles Times Photographic Collection OpenUCLA Collections',
-        to: 'https://www.facebook.com',
-      },
-    ],
-  },
-  {
-    media: API.image,
-    to: 'https://www.google.com',
-    title: '3,500 pound industrial robot, Unimate, pouring coffee for a woman at Biltmore Hotel in Los Angeles, Calif., 1961',
-    metadata: [
-      {
-        key: 'Description',
-        value: 'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
-      },
-      {
-        key: 'Date',
-        value: 'November 1, 1963',
-      },
-    ],
-  },
-]
+const createCardWithImageItems = (count = 5) => {
+    return Array.from({ length: count }, (_, i) => ({
+        image: API.image,
+        to: "/visit/foo/bar/",
+        category: "Ullamco",
+        title: "Seven seas of the ancient world",
+        alternativeFullName: "陳餘敏卿纪念基金",
+        language: "zh",
+        startDate: "2022-03-31T07:00:00+00:00",
+        endDate: "2021-11-26T11:00:00-08:00",
+        text: "<p>In Greek literature (which is where the phrase entered Western literature), the Seven Seas were the Aegean, Adriatic, Mediterranean, Black, Red, and Caspian seas, with the Persian Gulf</p>",
+        imageAspectRatio: 60,
+        ...(i === 0 && {
+            locations: [
+                { title: "Powellarium", to: "/location/bar" },
+                {
+                    title: "Research Library (Charles E. Young)",
+                    to: "/location/baz",
+                },
+            ],
+        }),
+        bylineOne: null,
+        bylineTwo: null,
+        sectionHandle: "event",
+    }))
+}
 
-const template = `
-                    <div>
-                        <button @click="handleChangeLayout" style="margin-bottom: 20px; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-                            Change Layout
-                        </button>
-                        <grid-asset-pod
-                            v-bind="props"
+function Template(args) {
+    return {
+        data() {
+            return {
+                props: {
+                    items: args.items || createCardWithImageItems(10),
+                    isGridLayout: args.isGridLayout || false,
+                    hasTransition: args.hasTransition || false,
+                },
+            }
+        },
+        methods: {
+            handleChangeLayout() {
+                this.props.isGridLayout = !this.props.isGridLayout
+            },
+        },
+        components: { GridAssetPod, BlockCardWithImage },
+        provide() {
+            return {
+                theme: computed(() => args.theme || "dlc"),
+            }
+        },
+        template: `
+            <div> 
+                <button @click="handleChangeLayout" style="margin-bottom: 20px; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+                    Change Layout
+                </button>
+                <grid-asset-pod v-bind="props">
+                    <template #default="{ item }">
+                        <block-card-with-image
+                            :image="item.image"
+                            :to="item.to"
+                            :category="item.category"
+                            :title="item.title"
+                            :start-date="item.startDate"
+                            :end-date="item.endDate"
+                            :text="item.text"
+                            :image-aspect-ratio="item.imageAspectRatio"
+                            :locations="item.locations"
+                            :alternativeFullName="item.alternativeFullName"
+                            :language="item.language"
+                            :section-handle="item.sectionHandle"
+                            :date-created="item.dateCreated"
+                            :byline-one="item.bylineOne"
+                            :byline-two="item.bylineTwo"
+                            :color="item.color"
                         />
-                    </div>
-                `
-
-export const Default = {
-  render: () => ({
-    data() {
-      return {
-        props: {
-          items,
-          isGridLayout: false,
-        },
-      }
-    },
-    methods: {
-      handleChangeLayout() {
-        this.props.isGridLayout = !this.props.isGridLayout
-      },
-    },
-    components: { GridAssetPod },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    template,
-  }),
+                    </template>
+                </grid-asset-pod>
+            </div>
+        `,
+    }
 }
 
-export const WithTransition = {
-  render: () => ({
-    data() {
-      return {
-        props: {
-          items,
-          isGridLayout: false,
-          hasTransition: true,
-        },
-      }
-    },
-    methods: {
-      handleChangeLayout() {
-        this.props.isGridLayout = !this.props.isGridLayout
-      },
-    },
-    components: { GridAssetPod },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    template,
-  }),
+export const Default = Template.bind({})
+Default.args = {
+    items: createCardWithImageItems(10),
+    isGridLayout: false,
+    hasTransition: false,
+    theme: "dlc",
+}
+
+export const WithTransition = Template.bind({})
+WithTransition.args = {
+    items: createCardWithImageItems(10),
+    isGridLayout: false,
+    hasTransition: true,
+    theme: "dlc",
 }

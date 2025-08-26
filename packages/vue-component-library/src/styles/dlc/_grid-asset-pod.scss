@@ -1,3 +1,4 @@
+.grid-asset-pod,
 .dlc.grid-asset-pod {
     --columns-count: 1;
     --row-gap: 24px;
@@ -17,13 +18,6 @@
                 (var(--total-gutters) / var(--columns-count))
         );
     }
-    // Add divider
-    .divider-general {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding-bottom: var(--row-gap);
-    }
 
     &.has-transition {
         .block-container {
@@ -34,29 +28,6 @@
     // Change layout based on isGridLayout prop
     &.is-grid-layout {
         --columns-count: 4;
-
-        :deep(.block-asset-pod) {
-            flex-direction: column;
-
-            .image {
-                width: 100%;
-            }
-
-            .item:not(.date) {
-                display: none;
-            }
-            .item.date .item-title {
-                display: none;
-            }
-            .item-value {
-                width: 100%;
-            }
-        }
-
-        // Remove divider
-        .divider-general {
-            display: none;
-        }
     }
 
     // Breakpoints
