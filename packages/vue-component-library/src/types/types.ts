@@ -1,4 +1,4 @@
-export interface ResponsiveImage {
+export interface ResponsiveImageType {
   media: MediaItemType
   src?: string
   height?: number

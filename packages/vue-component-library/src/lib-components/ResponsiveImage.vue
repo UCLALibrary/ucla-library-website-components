@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 
 import type {
   MediaItemType,
-  ResponsiveImage as ResponsiveImagepProps,
+  ResponsiveImageType as ResponsiveImagepProps,
 } from '@/types/types'
 
 // Props
