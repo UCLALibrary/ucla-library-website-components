@@ -39,33 +39,80 @@ Default.args = {
     items: [
         {
             title: "Item 1",
-            type: "Type A",
-            date: "2025-07-08",
-            program: "Program X",
+            to: "/item-1",
+            meta: {
+                type: "Type A",
+                date: "2025-07-08",
+                program: "Program X",
+            },
         },
         {
             title: "Item 2",
-            type: "Type B",
-            date: "2025-07-09",
-            program: "Program Y",
+            to: "/item-2",
+            meta: {
+                type: "Type B",
+                date: "2025-07-09",
+                program: "Program Y",
+            },
         },
         {
             title: "Item 3",
-            type: "Type C",
-            date: "2025-07-10",
-            program: "Program Z",
+            to: "/item-3",
+            meta: {
+                type: "Type C",
+                date: "2025-07-10",
+                program: "Program Z",
+            },
         },
         {
             title: "Item 4",
-            type: "Type D",
-            date: "2025-07-11",
-            program: "Program W",
+            to: "/item-4",
+            meta: {
+                type: "Type D",
+                date: "2025-07-11",
+                program: "Program W",
+            },
         },
         {
             title: "Item 5",
-            type: "Type E",
-            date: "2025-07-12",
-            program: "Program V",
+            to: "/item-5",
+            meta: {
+                type: "Type E",
+                date: "2025-07-12",
+                program: "Program V",
+            },
+        },
+    ],
+}
+
+// Story: Some items missing data
+export const ItemsWithMissingData = Template.bind({})
+ItemsWithMissingData.args = {
+    ...Default.args,
+    items: [
+        {
+            title: "Item with only title",
+            meta: {},
+        },
+        {
+            meta: {
+                type: "Type and date Only",
+                date: "2025-08-01",
+            },
+        },
+        {
+            title: "Item with link",
+            to: "/item-link",
+            meta: {},
+        },
+        {
+            title: "Full Item",
+            to: "/item-full",
+            meta: {
+                type: "Type F",
+                date: "2025-08-02",
+                program: "Program Q",
+            },
         },
     ],
 }
@@ -76,15 +123,19 @@ LessThanThreeItems.args = {
     items: [
         {
             title: "Item 1",
-            type: "Type A",
-            date: "2025-07-08",
-            program: "Program X",
+            meta: {
+                type: "Type A",
+                date: "2025-07-08",
+                program: "Program X",
+            },
         },
         {
             title: "Item 2",
-            type: "Type B",
-            date: "2025-07-09",
-            program: "Program Y",
+            meta: {
+                type: "Type B",
+                date: "2025-07-09",
+                program: "Program Y",
+            },
         },
     ],
 }
@@ -95,21 +146,27 @@ ExactlyThreeItems.args = {
     items: [
         {
             title: "Item 1",
-            type: "Type A",
-            date: "2025-07-08",
-            program: "Program X",
+            meta: {
+                type: "Type A",
+                date: "2025-07-08",
+                program: "Program X",
+            },
         },
         {
             title: "Item 2",
-            type: "Type B",
-            date: "2025-07-09",
-            program: "Program Y",
+            meta: {
+                type: "Type B",
+                date: "2025-07-09",
+                program: "Program Y",
+            },
         },
         {
             title: "Item 3",
-            type: "Type C",
-            date: "2025-07-10",
-            program: "Program Z",
+            meta: {
+                type: "Type C",
+                date: "2025-07-10",
+                program: "Program Z",
+            },
         },
     ],
 }
@@ -139,39 +196,51 @@ RealContent.args = {
     items: [
         {
             title: "Los Angeles Times Photographic Archive",
-            type: "Photographs",
-            date: "January 01, 2039",
-            program: "News & Media",
+            meta: {
+                type: "Photographs",
+                date: "January 01, 2039",
+                program: "News & Media",
+            },
         },
         {
             title: "Charles E. Young Research Library",
-            type: "Library",
-            date: "February 15, 2039",
-            program: "Research",
+            meta: {
+                type: "Library",
+                date: "February 15, 2039",
+                program: "Research",
+            },
         },
         {
             title: "Oral History Collection",
-            type: "Audio",
-            date: "March 10, 2039",
-            program: "History",
+            meta: {
+                type: "Audio",
+                date: "March 10, 2039",
+                program: "History",
+            },
         },
         {
             title: "Medieval Manuscripts",
-            type: "Manuscripts",
-            date: "April 22, 2039",
-            program: "Rare Books",
+            meta: {
+                type: "Manuscripts",
+                date: "April 22, 2039",
+                program: "Rare Books",
+            },
         },
         {
             title: "LGBTQIA+ Activism Papers",
-            type: "Archives",
-            date: "May 30, 2039",
-            program: "Social Movements",
+            meta: {
+                type: "Archives",
+                date: "May 30, 2039",
+                program: "Social Movements",
+            },
         },
         {
             title: "Japanese American Incarceration Materials",
-            type: "Documents",
-            date: "June 18, 2039",
-            program: "History",
+            meta: {
+                type: "Documents",
+                date: "June 18, 2039",
+                program: "History",
+            },
         },
     ],
 }

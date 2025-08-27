@@ -56,11 +56,6 @@
                 opacity: 0;
             }
         }
-        &:last-child {
-            .divider {
-                opacity: 0;
-            }
-        }
     }
 
     .divider {
@@ -88,11 +83,6 @@
         color: var(--color-primary-blue-03);
     }
 
-    .item-details {
-        display: flex;
-        gap: 15px;
-    }
-
     .item-type,
     .item-date,
     .item-program {
@@ -102,6 +92,12 @@
         line-height: 160%; /* 25.6px */
         letter-spacing: 1.6px;
         text-transform: uppercase;
+    }
+    .item-type {
+        padding: 0 15px 15px 0;
+    }
+    .item-date {
+        padding: 0 0 15px;
     }
 
     .item-program {
@@ -150,7 +146,7 @@
 
     // Expanded state
     &.is-expanded {
-        .item:last-child {
+        .item.extra:last-child {
             .divider {
                 opacity: 0;
             }

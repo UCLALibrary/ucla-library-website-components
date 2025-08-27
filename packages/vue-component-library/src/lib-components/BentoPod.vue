@@ -5,13 +5,7 @@ type BentoPodProps = {
     description: string
     buttonLabel?: string
     buttonLink?: string
-    items: Array<{
-        title: string
-        type: string
-        date: string
-        program: string
-        to: string
-    }>
+    items: Array<Record<string, any>>
     labelOpen?: string
     labelClose?: string
 }
@@ -39,11 +33,6 @@ const theme = useTheme()
 const isExpanded = ref(false)
 const itemsWrapper = ref<HTMLElement | null>(null)
 const itemRefs = ref<(HTMLElement | null)[]>([])
-// Show only first 3 items when collapsed, all when expanded
-const visibleItems = computed(() => {
-    return isExpanded.value ? props.items : props.items.slice(0, 3)
-})
-const collapsedHeight = ref(0)
 const expandedHeight = ref(0)
 const debounceTimeout = ref<number | undefined>(undefined)
 
@@ -55,30 +44,26 @@ const classes = computed(() => [
         "is-expanded": isExpanded.value,
     },
 ])
+
 const dynamicLabel = computed(() =>
     isExpanded.value ? props.labelOpen : props.labelClose
 )
 
-const showButton = computed(() => (props.items?.length || 0) > 3)
+const firstItems = computed(() => props.items.slice(0, 3))
+const extraItems = computed(() => props.items.slice(3))
+
+const showButton = computed(() => extraItems.value.length > 0)
 
 const wrapperStyles = computed(() => ({
-    height: isExpanded.value
-        ? `${expandedHeight.value}px`
-        : `${collapsedHeight.value}px`,
+    height: isExpanded.value ? `${expandedHeight.value}px` : "0px",
+    overflow: "hidden",
+    transition: "height 0.3s",
 }))
 
 // Methods
 function measureHeights() {
     nextTick(() => {
-        if (!props.items) return
-        // Measure collapsed height (first 3 items)
-        let collapsed = 0
-        for (let i = 0; i < Math.min(3, itemRefs.value.length); i++) {
-            const el = itemRefs.value[i]
-            if (el) collapsed += el.getBoundingClientRect().height
-        }
-        collapsedHeight.value = collapsed
-        // Measure expanded height (all items)
+        // Only measure the expandable section
         let expanded = 0
         for (let i = 0; i < itemRefs.value.length; i++) {
             const el = itemRefs.value[i]
@@ -131,30 +116,71 @@ onUnmounted(() => {
             <SvgExternalLink aria-hidden="true" />
         </smart-link>
 
-        <div class="items" :style="wrapperStyles" ref="itemsWrapper">
-            <div
-                :to="item.to"
-                class="item"
-                v-for="(item, index) in visibleItems"
-                :key="item.title + index"
-                :ref="(el) => getItemRef(index)(el as HTMLElement | null)"
-            >
-                <smart-link :to="item.to" class="item-link">
-                    <h5 class="item-title" v-html="item.title" />
-                </smart-link>
-                <div class="item-details">
-                    <span class="item-type" v-if="item.type">
-                        Resource Type:
-                        <span class="detail" v-html="item.type" />
-                    </span>
-                    <span class="item-date" v-if="item.date">
-                        Date: <span class="detail" v-html="item.date" />
-                    </span>
+        <div>
+            <!-- Always visible first 3 items -->
+            <div class="items">
+                <div
+                    class="item"
+                    v-for="(item, index) in firstItems"
+                    :key="item.title ? item.title + index : index"
+                >
+                    <smart-link v-if="item.to" :to="item.to" class="item-link">
+                        <h5
+                            v-if="item.title"
+                            class="item-title"
+                            v-html="item.title"
+                        />
+                    </smart-link>
+                    <h5
+                        v-else-if="item.title"
+                        class="item-title"
+                        v-html="item.title"
+                    />
+                    <div class="item-details">
+                        <span
+                            v-for="(value, key) in item.meta"
+                            :key="key"
+                            :class="'item-' + key"
+                        >
+                            <strong>{{ key }}:</strong>
+                            <span class="detail" v-html="value" />
+                        </span>
+                    </div>
+                    <DividerGeneral class="divider" />
                 </div>
-                <span class="item-program" v-if="item.program">
-                    Program: <span class="detail" v-html="item.program" />
-                </span>
-                <DividerGeneral class="divider" />
+            </div>
+            <!-- Expandable extra items -->
+            <div class="items" :style="wrapperStyles" ref="itemsWrapper">
+                <div
+                    class="item extra"
+                    v-for="(item, index) in extraItems"
+                    :key="item.title ? item.title + (index + 3) : index + 3"
+                    :ref="(el) => getItemRef(index)(el as HTMLElement | null)"
+                >
+                    <smart-link v-if="item.to" :to="item.to" class="item-link">
+                        <h5
+                            v-if="item.title"
+                            class="item-title"
+                            v-html="item.title"
+                        />
+                    </smart-link>
+                    <h5
+                        v-else-if="item.title"
+                        class="item-title"
+                        v-html="item.title"
+                    />
+                    <div class="item-details">
+                        <span
+                            v-for="(value, key) in item.meta"
+                            :key="key"
+                            :class="'item-' + key"
+                        >
+                            <strong>{{ key }}:</strong>
+                            <span class="detail" v-html="value" />
+                        </span>
+                    </div>
+                    <DividerGeneral class="divider" />
+                </div>
             </div>
         </div>
 
