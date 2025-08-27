@@ -3,8 +3,6 @@ name: Submit screenshots to Percy for visual regression testing.
 on:
   push:
     branches: [main]
-  workflow_dispatch:
-    inputs: {}
 
 jobs:
   percy:
