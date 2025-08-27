@@ -12,7 +12,7 @@ describe('Funkhaus / ExcerptPod', () => {
 
   it('Renders NotesAccordion when accordions are present', () => {
     cy.visit(
-      '/iframe.html?id=funkhaus-excerptpod--moresections&args=&viewMode=story'
+      '/iframe.html?id=funkhaus-excerptpod--more-sections&args=&viewMode=story'
     )
     cy.get('.excerpt-pod .notes-accordion').should('exist')
     cy.get('.notes-accordion .btn').should('exist')
