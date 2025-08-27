@@ -9,6 +9,7 @@ import {
   ref,
 } from 'vue'
 import SvgArrowDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
+import type { ComponentPublicInstance } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 const props = withDefaults(defineProps<NotesAccordionItem>(), {
@@ -55,6 +56,7 @@ function measureTextHeight() {
     if (ref)
       totalHeight += ref.getBoundingClientRect().height
   }
+
   textHeight.value = totalHeight
 }
 
@@ -66,11 +68,14 @@ function toggle() {
 }
 
 function getTextRef(idx: number) {
-  return (el: HTMLElement | null) => setTextRef(idx, el)
+  return (el: Element | ComponentPublicInstance | null) => setTextRef(idx, el)
 }
 
-function setTextRef(idx: number, el: HTMLElement | null) {
-  textRefs.value[idx] = el
+function setTextRef(idx: number, el: Element | ComponentPublicInstance | null) {
+  // If it's a Vue component instance, get its $el property
+  const element
+        = el && '$el' in el ? (el.$el as HTMLElement) : (el as HTMLElement | null)
+  textRefs.value[idx] = element
 }
 
 // Lifecycle Hook

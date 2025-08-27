@@ -1,3 +1,4 @@
+.notes-accordion,
 .notes-accordion.dlc {
     position: relative;
 
@@ -16,9 +17,10 @@
         align-items: center;
     }
     .caret-icon {
-        transition: transform 0.5s ease-in-out;
         width: 30px;
         height: auto;
+
+        @include animate-normal;
     }
 
     .wrapper {
@@ -28,7 +30,8 @@
 
         overflow: hidden;
         height: 0;
-        transition: height 0.5s ease-in-out, margin-bottom 0.5s ease-in-out;
+
+        @include animate-normal;
     }
     .text-wrapper {
         display: flex;
@@ -41,8 +44,9 @@
         line-height: 150%; /* 24px */
     }
     .text {
-        @include ftva-body-2;
         color: var(--color-text-primary);
+
+        @include ftva-body-2;
     }
 
     &.is-open {
@@ -58,7 +62,7 @@
 // Transitions
 .fade-label-enter-active,
 .fade-label-leave-active {
-    transition: opacity 0.15s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
 }
 .fade-label-enter-from,
 .fade-label-leave-to {
