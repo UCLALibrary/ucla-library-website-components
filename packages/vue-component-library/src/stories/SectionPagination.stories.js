@@ -56,6 +56,42 @@ export function LastPage() {
 
 // this story uses the generateLinkCallback prop
 // to generate the links in the library-website-nuxt format instead of the default format
+export function DynamicWidth_SinglePg() {
+  // mock a library site page where someone has searched 'new' like this:
+  // https://www.library.ucla.edu/search-site?q=new&from=10'
+  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
+  return {
+    setup() {
+      // sample callback to generate the link
+      const sampleCallback = (pageNumber, queryParams) => {
+        return `/search-site?${queryParams}`
+      }
+
+      return { sampleCallback }
+    },
+    components: { SectionPagination },
+    template: '<section-pagination :pages="1" :initialCurrentPage="1" :generateLinkCallback="sampleCallback"/>',
+  }
+}
+
+export function DynamicWidth_2Pgs() {
+  // mock a library site page where someone has searched 'new' like this:
+  // https://www.library.ucla.edu/search-site?q=new&from=10'
+  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
+  return {
+    setup() {
+      // sample callback to generate the link
+      const sampleCallback = (pageNumber, queryParams) => {
+        return `/search-site?${queryParams}`
+      }
+
+      return { sampleCallback }
+    },
+    components: { SectionPagination },
+    template: '<section-pagination :pages="2" :initialCurrentPage="1" :generateLinkCallback="sampleCallback"/>',
+  }
+}
+
 export function DynamicWidth_5Pgs() {
   // mock a library site page where someone has searched 'new' like this:
   // https://www.library.ucla.edu/search-site?q=new&from=10'
@@ -121,6 +157,38 @@ export function DynamicWidth_40pgs() {
     },
     components: { SectionPagination },
     template: '<section-pagination :pages="40" :initialCurrentPage="6" :generateLinkCallback="sampleCallback" />',
+  }
+}
+
+export function FixedWidth_SinglePg() {
+  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
+  return {
+    setup() {
+      // sample callback to generate the link
+      const sampleCallback = (pageNumber, queryParams) => {
+        return `/search-site?${queryParams}`
+      }
+
+      return { sampleCallback }
+    },
+    components: { SectionPagination },
+    template: '<section-pagination :pages="1" :initialCurrentPage="1" :generateLinkCallback="sampleCallback" :fixedPageWidthMode="true" :fixedPageWidthNum="6" />',
+  }
+}
+
+export function FixedWidth_2pgs() {
+  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
+  return {
+    setup() {
+      // sample callback to generate the link
+      const sampleCallback = (pageNumber, queryParams) => {
+        return `/search-site?${queryParams}`
+      }
+
+      return { sampleCallback }
+    },
+    components: { SectionPagination },
+    template: '<section-pagination :pages="2" :initialCurrentPage="1" :generateLinkCallback="sampleCallback" :fixedPageWidthMode="true" :fixedPageWidthNum="6" />',
   }
 }
 
