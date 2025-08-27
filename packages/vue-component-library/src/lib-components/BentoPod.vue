@@ -39,6 +39,10 @@ const theme = useTheme()
 const isExpanded = ref(false)
 const itemsWrapper = ref<HTMLElement | null>(null)
 const itemRefs = ref<(HTMLElement | null)[]>([])
+// Show only first 3 items when collapsed, all when expanded
+const visibleItems = computed(() => {
+    return isExpanded.value ? props.items : props.items.slice(0, 3)
+})
 const collapsedHeight = ref(0)
 const expandedHeight = ref(0)
 const debounceTimeout = ref<number | undefined>(undefined)
@@ -131,7 +135,7 @@ onUnmounted(() => {
             <div
                 :to="item.to"
                 class="item"
-                v-for="(item, index) in props.items"
+                v-for="(item, index) in visibleItems"
                 :key="item.title + index"
                 :ref="(el) => getItemRef(index)(el as HTMLElement | null)"
             >
@@ -139,15 +143,15 @@ onUnmounted(() => {
                     <h5 class="item-title" v-html="item.title" />
                 </smart-link>
                 <div class="item-details">
-                    <span class="item-type">
+                    <span class="item-type" v-if="item.type">
                         Resource Type:
                         <span class="detail" v-html="item.type" />
                     </span>
-                    <span class="item-date">
+                    <span class="item-date" v-if="item.date">
                         Date: <span class="detail" v-html="item.date" />
                     </span>
                 </div>
-                <span class="item-program">
+                <span class="item-program" v-if="item.program">
                     Program: <span class="detail" v-html="item.program" />
                 </span>
                 <DividerGeneral class="divider" />
