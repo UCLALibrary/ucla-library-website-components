@@ -129,5 +129,6 @@ jobs:
           wait-on: ${{ github.event.inputs.preview_url }}
           command-prefix: "percy exec -- pnpx"
         env:
+          CYPRESS_baseUrl: ${{ github.event.inputs.preview_url }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
           PERCY_TARGET_BRANCH: main
