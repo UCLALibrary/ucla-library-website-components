@@ -1,5 +1,5 @@
 import { setup } from "@storybook/vue3"
-import "ucla-library-design-tokens/scss/app-global.scss"
+// import "ucla-library-design-tokens/scss/app-global.scss"
 import "@/styles/global.scss"
 import router from "@/router"
 import { createPinia } from 'pinia';
