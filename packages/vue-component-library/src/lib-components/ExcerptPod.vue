@@ -41,7 +41,9 @@ const showAccordion = computed(() => {
 
 <template>
   <div :class="classes">
+    <!-- Title -->
     <h5 class="title" v-html="title" />
+    <!-- Info -->
     <div class="info">
       <h6 class="subtitle" v-html="subtitle" />
       <div class="text-excerpt">
