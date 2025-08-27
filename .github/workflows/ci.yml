@@ -18,6 +18,9 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      pull-requests: write
+      issues: write
     steps:
       - name: Comment with percy instructions
         uses: bubkoo/auto-comment@v1
@@ -35,32 +38,27 @@ jobs:
   eslint:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }} # non-github token Parinita's personal access token will expire ever 90 days
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/setup-workspace
       - run: pnpm -r run lint
-      - uses: EndBug/add-and-commit@v9
-        with:
-          message: "chore: linter autofixes"
-          default_author: github_actions
 
   vite:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/setup-workspace
       - run: pnpm run build
 
-  storybook:
+  # --- Build Storybook once (no secrets) and publish artifact ---
+  storybook-build:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/setup-workspace
       - name: Cache Storybook Build
         id: cache-storybook
@@ -69,21 +67,64 @@ jobs:
           path: storybook-static
           key: storybook-${{ github.sha }}
       - run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
+      - name: Upload storybook artifact
+        uses: actions/upload-artifact@v4
+        with:
+          # Works for PRs (has PR number) and pushes (falls back to run_id)
+          name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
+          path: packages/vue-component-library/storybook-static
+          if-no-files-found: error
+          retention-days: 3
+
+  # --- Deploy (merged) on main/vue3.x pushes (uses secrets) ---
+  storybook-merged-deploy:
+    if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'vue3.x')
+    needs: storybook-build
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      statuses: write
+      deployments: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download storybook artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: storybook-static-${{ github.run_id }}-${{ github.sha }}
+          path: storybook-static
       - name: Deploy to Netlify (merged)
-        if: github.ref_name == 'main' || github.ref_name == 'vue3.x'
         uses: nwtgck/actions-netlify@v2 # v1.2.3
         with:
           production-deploy: true
           deploy-message: https://github.com/UCLALibrary/ucla-library-website-component/commit/${{ github.sha }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          publish-dir: "./packages/vue-component-library/storybook-static"
+          publish-dir: "./storybook-static"
           fails-without-credentials: true
           github-deployment-environment: test
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
-      - name: Deploy to Netlify (preview)
-        if: github.event_name == 'pull_request'
+
+  # --- Deploy preview for INTERNAL PRs (no approval needed) ---
+  storybook-preview-internal:
+    if: github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    needs: storybook-build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      statuses: write
+      deployments: write
+    steps:
+      - name: Download storybook artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: storybook-static-${{ github.event.pull_request.number }}-${{ github.sha }}
+          path: storybook-static
+      - name: Deploy to Netlify (preview, internal)
         uses: nwtgck/actions-netlify@v2 # v1.2.3
         with:
           production-deploy: false
@@ -91,23 +132,85 @@ jobs:
           alias: deploy-preview-${{ github.event.pull_request.number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           overwrites-pull-request-comment: true
-          publish-dir: "./packages/vue-component-library/storybook-static"
+          publish-dir: "./storybook-static"
           fails-without-credentials: true
           github-deployment-environment: storybook--${{ github.event_name }}-${{ github.event.number }}
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STORYBOOK_VUE3X }}
 
+  storybook-cypress:
+    needs: storybook-build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      # Your workspace setup must NOT require secrets for forks
+      - uses: ./.github/workflows/setup-workspace
+
+      - name: Download Storybook artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}
+          path: packages/vue-component-library/_artifact
+
+      - name: Normalize to packages/vue-component-library/storybook-static
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd packages/vue-component-library/_artifact
+
+          target="../storybook-static"
+          rm -rf "$target"
+          # no dir; maybe files are at root of the artifact → move all contents
+          mkdir -p "$target"
+          shopt -s dotglob nullglob
+          # Only move if there is something to move to avoid errors
+          files=( * )
+          if (( ${#files[@]} )); then
+            mv "${files[@]}" "$target"/
+          fi
+
+          cd ..
+          rm -rf _artifact
+          echo "Normalized contents:"
+          ls -la storybook-static
+
+      # 2) Verify Cypress is installed (devDependency) in the filtered package
       - name: Verify Cypress Installation
         shell: bash
         run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec cypress --version
 
+      # 3) Run Cypress against the static Storybook
       - name: Cypress test for Storybook Components
         uses: cypress-io/github-action@v5
         with:
           install: false
           working-directory: packages/vue-component-library
-          start: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec http-server ./storybook-static -p 6006
+          start: pnpm  exec http-server ./storybook-static -p 6006
           wait-on: http://localhost:6006
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
+
+  cleanup-artifact:
+    # wait for *all* possible jobs to finish (they may be "skipped"—that's fine)
+    needs:
+      - percy-instructions
+      - eslint
+      - vite
+      - storybook-build
+      - storybook-merged-deploy
+      - storybook-preview-internal
+      - storybook-cypress
+    if: always() # still run if any prior job failed/skipped
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Compute artifact name
+        id: art
+        run: echo "name=storybook-static-${{ github.event.pull_request.number || github.run_id }}-${{ github.sha }}" >> $GITHUB_OUTPUT
+
+      - name: Delete artifact (after all dependents finished)
+        uses: GeekyEggo/delete-artifact@v5
+        with:
+          name: ${{ steps.art.outputs.name }}

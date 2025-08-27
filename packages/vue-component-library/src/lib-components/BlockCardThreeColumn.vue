@@ -34,6 +34,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  category: {
+    type: String,
+    default: '',
+  },
   title: {
     type: String,
     default: '',
@@ -128,6 +132,7 @@ const parsedDateFormat = computed(() => {
       <CardMeta
         class="card-meta-items"
         :to="to"
+        :category="category"
         :title="title"
         :start-date="startDate"
         :end-date="endDate"
@@ -174,12 +179,8 @@ const parsedDateFormat = computed(() => {
   }
 
   .day {
-    font-weight: 400;
-    font-family: var(--font-secondary);
-    font-size: 16px;
+    @include ftva-subtitle-1;
     color: $body-grey;
-    letter-spacing: 1.5%;
-    text-transform: uppercase;
   }
 
   .month-date {
@@ -231,10 +232,17 @@ const parsedDateFormat = computed(() => {
       grid-template-rows: min-content 1fr;
 
       padding: 20px;
+      padding-top: 2px;
+      padding-bottom: 0px;
       min-height: $large-height;
 
       * {
         margin: 0;
+      }
+
+      .category {
+        @include ftva-subtitle-1;
+        color: $subtitle-grey;
       }
 
       .title {
@@ -304,10 +312,17 @@ const parsedDateFormat = computed(() => {
       border-radius: 0 0 12px 12px;
 
       :deep(.card-meta) {
+        padding-top: 20px;
         min-height: 0;
 
-        .title {
+        .category {
           order: 2;
+          align-self: flex-start;
+          padding-top: 10px;
+        }
+
+        .title {
+          order: 3;
           align-self: flex-start;
           padding-top: 10px;
         }
@@ -350,6 +365,10 @@ const parsedDateFormat = computed(() => {
     }
 
     .meta {
+      :deep(.card-meta) {
+        padding-top: 20px;
+      }
+
       .title {
         @include truncate(2);
       }
