@@ -147,7 +147,7 @@ function createBreadcrumbLinks(arr) {
       // Identify if breadcrumb item will be truncated
       let isTruncatedGroup
       // If breadcrumb pattern has more than four levels, identify the `...` (collapsed levels) from the breadcrumbs array
-      if (arr.length > 3) {
+      if (arr.length > 4) {
         if (collapseBreadcrumbs.value) {
           isExpanded.value === false && index === 1
             ? (isTruncatedGroup = true)
