@@ -78,6 +78,17 @@ function Template5(args) {
 }
 
 export const CollapsedLevelsWithRouteTitle = Template5.bind({})
+CollapsedLevelsWithRouteTitle.args = {
+  testOverride: [{
+    level: 1,
+    title: 'Jackieee'
+  },
+  {
+    level: 3,
+    title: 'KTLA COLLECTION'
+  }
+  ]
+}
 
 export const CollapsedLevelsWithPropTitle = Template5.bind({})
 CollapsedLevelsWithPropTitle.args = {

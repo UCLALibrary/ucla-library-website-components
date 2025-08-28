@@ -16,7 +16,7 @@ import SmartLink from '@/lib-components/SmartLink.vue'
   For non-legacy behavior/use cases (FTVA, et al), breadcrumbs are parsed from the route; with the option to set the final breadcrumb title from route data or at page-level with the 'title' prop.
   */
 
-const { to, parentTitle, title } = defineProps({
+const { to, parentTitle, title, testOverride } = defineProps({
   to: {
     type: String,
     default: '',
@@ -28,6 +28,12 @@ const { to, parentTitle, title } = defineProps({
   title: {
     type: String,
     default: '',
+  },
+  testOverride: {
+    type: Array,
+    default: () => ([])
+    // array of objects
+    // { level: number, overrideTitle: string}
   }
 })
 
@@ -68,6 +74,7 @@ const parsedBreadcrumbs = computed(() => {
 
   const pagePathArray = pathWithNoTrailingDates.split('/')
 
+  console.log('Page path array: ', pagePathArray)
   return pagePathArray
 })
 
@@ -103,6 +110,9 @@ const parsedBreadcrumbLinks = computed(() => {
     }
   }
 
+  // const test = createBreadcrumbLinks(breadcrumbsList)
+
+  // console.log('Breadcrumb Links: ', test)
   return createBreadcrumbLinks(breadcrumbsList)
 })
 
@@ -138,7 +148,22 @@ function createBreadcrumbLinks(arr) {
       // Recreate a link for the item
       const linkTo = route.path.substring(0, linkLength + linkIndex)
 
-      const linkTitle = item.replaceAll('-', ' ')
+      // ??????????
+      // ??????????
+      // const linkTitle = item.replaceAll('-', ' ')
+      let linkTitle = item.replaceAll('-', ' ')
+      console.log(linkTitle)
+
+      // Figure out how to persist this title value on collapse and expanded
+      // Check Override Object
+      if (testOverride.length > 0 && isExpanded.value) {
+        const testIndex = index + 1
+        // if override has an index that matches this index, then replace title with tile in the Object
+        const test = testOverride.find(obj => obj.level === testIndex)
+        if (test)
+          linkTitle = test.title
+          // console.log(test.title)
+      }
 
       let isLastItem
       index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
@@ -158,6 +183,7 @@ function createBreadcrumbLinks(arr) {
         isLastItem,
       })
     })
+    console.log('Breadcrumb objs: ', breadCrumbObjects)
     return breadCrumbObjects
   }
 }
