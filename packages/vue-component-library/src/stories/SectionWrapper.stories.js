@@ -17,6 +17,8 @@ import TableComponent from '@/lib-components/TableComponent.vue'
 import TableRow from '@/lib-components/TableRow.vue'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import RichText from '@/lib-components/RichText.vue'
+import ScrollWrapper from '@/lib-components/ScrollWrapper.vue'
+import ImageSlider from '@/lib-components/ImageSlider.vue'
 
 const propsForMediaWithText = {
   sectionHeader: mockMediaWithText.mediaWithText[0].titleLink,
@@ -265,6 +267,86 @@ export function FtvaUpcomingEvents() {
 
           :items="parsedFtvaEventSeries"
         />
+      </SectionWrapper>
+  `,
+  }
+}
+
+const mockBeforeImage = [
+  {
+    id: '3280520',
+    src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/hot_air_balloon.jpg',
+    height: 1748,
+    width: 2560,
+    srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/hot_air_balloon.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/hot_air_balloon.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/hot_air_balloon.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/hot_air_balloon.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/hot_air_balloon.jpg 2560w',
+    alt: 'Hot air balloon',
+    focalPoint: [
+      0.5,
+      0.5
+    ]
+  }
+]
+// Mock data for the ImageSlider carousel, which is a carousel of ImageSlider components
+const mockBeforeAfterImageCarousel = [{
+  id: '37072',
+  caption: 'Before and After Image Slider caption #1',
+  beforeImage: mockBeforeImage[0],
+  afterImage: mockBeforeImage[0]
+}]
+
+export function FtvaHomepagePartial() {
+  return {
+    data() {
+      return {
+        parsedFtvaEventSeries: mockFtva,
+        ...mockBeforeAfterImageCarousel[0]
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionWrapper, ScrollWrapper, SectionTeaserCard, ImageSlider },
+    template: `
+        <component is="style" type="text/css">
+.before-image {
+    filter: grayscale(100%)
+}
+    </component>
+      <SectionWrapper
+        section-title="Upcoming events in this series"
+        theme="paleblue"
+      >
+        <SectionTeaserCard
+
+          :items="parsedFtvaEventSeries"
+        />
+      </SectionWrapper>
+      <SectionWrapper
+        section-title="Preservation and Restoration"
+        theme="paleblue"
+      >
+        <ScrollWrapper :single-item="true" :initial-slide="1">
+            <template #item-1>
+              <image-slider
+                  :before-image="beforeImage"
+                  :after-image="afterImage"
+              />
+            </template>
+            <template #item-2>
+              <image-slider
+                  :before-image="beforeImage"
+                  :after-image="afterImage"
+              />
+            </template>
+            <template #item-3>
+              <image-slider
+                  :before-image="beforeImage"
+                  :after-image="afterImage"
+              />
+            </template>
+             </ScrollWrapper>
       </SectionWrapper>
   `,
   }

@@ -27,6 +27,7 @@ export function Default() {
     template: `
       <scroll-wrapper>
         <section-teaser-card
+        :grid-layout="false"
         :items="items"
         />
       </scroll-wrapper>
@@ -48,6 +49,7 @@ export function SixItems() {
     template: `
       <scroll-wrapper>
         <section-teaser-card
+        :grid-layout="false"
         :items="items"
         />
       </scroll-wrapper>
