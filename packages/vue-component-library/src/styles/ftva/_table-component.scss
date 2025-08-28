@@ -1,38 +1,41 @@
+.ftva.table-wrapper {
+    padding: 3%;
+    margin: 0 auto var(--space-2xl);
+    max-width: 928px;
+    border-radius: 8px;
+    &.paleblue {
+        --color-theme: #{$page-blue};
+        background-color: var(--color-theme);
+        max-width: 100%;
+    }
+}
+
 .ftva.table-component {
     background-color: #fff;
     border-radius: 8px;
-    padding: 3%;
-    gap: 5px;
+    margin: 0;
 
     thead tr {
-        padding-top: 25px;
-        padding-bottom: 10px;
         border-bottom: 1px dashed #555555;
-        gap: var(--space-m);
 
         th {
             &:first-of-type {
                 min-width: 287px;
-                flex-grow: 2;
             }
 
             @include ftva-card-title-2;
             color: #2f2f2f;
+            border-bottom: 1px dashed #555555;
+            padding-top: 25px;
+            padding-bottom: 10px;
 
             &:nth-of-type(2) {
-                max-width: 500px;
                 flex-grow: 3;
             }
 
             &:nth-of-type(3) {
                 justify-content: flex-start;
                 flex-grow: 1;
-                // padding-left: var(--space-xl);
-
-                @media #{$medium} {
-                    margin-left: -100px;
-                    padding-left: var(--space-xl);
-                }
             }
 
             &:nth-of-type(4) {
@@ -52,6 +55,10 @@
             margin-bottom: 0px;
             padding-bottom: 0px;
             border-bottom: none;
+        }
+
+        td {
+            color: $body-grey;
         }
     }
 
