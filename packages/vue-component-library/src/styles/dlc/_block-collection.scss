@@ -30,9 +30,11 @@
         line-height: 120%; /* 28.8px */
         color: var(--color-primary-blue-03);
 
-        text-decoration: underline transparent;
+        text-decoration: underline;
+        text-decoration-color: transparent;
 
-        transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+        transition: color 0.2s ease-in-out,
+            text-decoration-color 0.2s ease-in-out;
     }
 
     .description {
