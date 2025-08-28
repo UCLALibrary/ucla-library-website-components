@@ -273,7 +273,7 @@ onMounted(() => {
       class="more-menu"
     >
       <ButtonLink
-        v-if="!mobileMenuIsOpened"
+        v-if="isMobile && !mobileMenuIsOpened"
         class="search-button"
         icon-name="none"
         aria-label="Search"
@@ -347,6 +347,23 @@ onMounted(() => {
           {{ item.name }}
         </SmartLink>
       </li>
+      <!-- Add search icon to nav menu list on desktop for FTVA -->
+      <ButtonLink
+        v-if="!isMobile && theme === 'ftva'"
+        class="search-button"
+        icon-name="none"
+        aria-label="Search"
+        @click="searchClick"
+      >
+        <IconSearch class="icon-search" />
+      </ButtonLink>
+      <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
+      <div
+        v-if="isMobile && mobileMenuIsOpened"
+        class="mobile-menu-slot"
+      >
+        <slot name="additional-mobile-menu-items" />
+      </div>
     </ul>
 
     <div
@@ -365,13 +382,6 @@ onMounted(() => {
           {{ item.name }}
         </SmartLink>
       </div>
-    </div>
-    <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
-    <div
-      v-if="isMobile && mobileMenuIsOpened"
-      class="mobile-menu-slot"
-    >
-      <slot name="additional-mobile-menu-items" />
     </div>
     <div class="background-white" />
     <div
