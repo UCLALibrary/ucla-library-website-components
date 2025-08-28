@@ -2,13 +2,22 @@ import { computed } from 'vue'
 import router from '@/router'
 import NavBreadcrumb from '@/lib-components/NavBreadcrumb'
 
+/**
+ * Component description
+ *
+ * Modes/Usage
+ *
+ * Props:
+ *
+ */
+
 // Storybook default settings
 export default {
   title: 'NAV / Breadcrumb',
   component: NavBreadcrumb,
 }
 
-function Template(args) {
+function LegacyModeTemplate(args) {
   return {
     setup() {
       return { args }
@@ -19,37 +28,13 @@ function Template(args) {
 }
 
 // Legacy breadcrumbs (Values entered at page-level)
-export const DefaultSingleLevelWithPageProps = Template.bind({})
+export const DefaultModePageProps = LegacyModeTemplate.bind({})
 
 // Breadcrumbs generated from route with option to use title from route or set at page-level
-function Template2(args) {
-  router.push('/parent-1/parent-2/final-breadcrumb/')
-  return {
-    setup() {
-      return { args }
-    },
-    components: { NavBreadcrumb },
-    template: '<nav-breadcrumb />',
-  }
-}
+// NOTE
 
-export const MultipleLevelsRouteWithSlashEnding = Template2.bind({})
-
-function Template3(args) {
-  router.push('/parent-1/parent-2/final-breadcrumb')
-  return {
-    setup() {
-      return { args }
-    },
-    components: { NavBreadcrumb },
-    template: '<nav-breadcrumb />',
-  }
-}
-
-export const MultipleLevelsRouteNoSlashEnding = Template3.bind({})
-
-function Template4(args) {
-  router.push('/events/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24')
+function DynamicModeTemplate(args) {
+  router.push(args.route)
   return {
     setup() {
       return { args }
@@ -59,61 +44,81 @@ function Template4(args) {
   }
 }
 
-export const MultipleLevelsWithRouteTitle = Template4.bind({})
+export const MultiLevelFinalTitleByRoute = DynamicModeTemplate.bind({})
+MultiLevelFinalTitleByRoute.args = {
+  route: '/events/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24'
+}
 
-export const MultipleLevelsWithPropTitle = Template4.bind({})
-MultipleLevelsWithPropTitle.args = {
+export const MultiLevelFinalTitleByProp = DynamicModeTemplate.bind({})
+MultiLevelFinalTitleByProp.args = {
+  route: '/events/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24/',
+  title: 'Breadcrumb Title Passed by Prop'
+}
+
+const testTitlesOverride1 = [{
+  titleLevel: 1,
+  updatedTitle: 'Override Level 1'
+},
+{
+  titleLevel: 2,
+  updatedTitle: 'Override Level 2'
+},
+{
+  titleLevel: 3,
+  updatedTitle: 'Override Level 3'
+}]
+
+export const OverrideTitlesManually1 = DynamicModeTemplate.bind({})
+OverrideTitlesManually1.args = {
+  route: '/events/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24',
+  overrideTitleGroup: testTitlesOverride1
+}
+
+export const CollapsedFinalRouteByTitle = DynamicModeTemplate.bind({})
+CollapsedFinalRouteByTitle.args = {
+  route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article',
+}
+
+export const CollapsedFinalPropByTitle = DynamicModeTemplate.bind({})
+CollapsedFinalPropByTitle.args = {
+  route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article',
   title: 'Breadcrumb Title Passed by Prop',
 }
 
-function Template5(args) {
-  router.push('/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article')
-  return {
-    setup() {
-      return { args }
-    },
-    components: { NavBreadcrumb },
-    template: '<nav-breadcrumb v-bind="args" />',
-  }
+const testTitlesOverride2 = [{
+  titleLevel: 1,
+  updatedTitle: '👽 Collections 👽'
+},
+{
+  titleLevel: 3,
+  updatedTitle: 'KTLA Collection...'
+}]
+
+export const OverrideTitlesManually2 = DynamicModeTemplate.bind({})
+OverrideTitlesManually2.args = {
+  route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article',
+  overrideTitleGroup: testTitlesOverride2
 }
 
-export const CollapsedLevelsWithRouteTitle = Template5.bind({})
-CollapsedLevelsWithRouteTitle.args = {
-  testOverride: [{
-    level: 1,
-    title: 'Jackieee'
-  },
-  {
-    level: 3,
-    title: 'KTLA COLLECTION'
-  }
-  ]
-}
+// function Template6(args) {
+//   router.push('/watch-and-listen-online/senator-john-f.-kennedy-gives-press-conference-in-los-angeles')
+//   return {
+//     provide() {
+//       return {
+//         theme: computed(() => 'ftva'),
+//       }
+//     },
+//     setup() {
+//       return { args }
+//     },
+//     components: { NavBreadcrumb },
+//     template: '<nav-breadcrumb v-bind="args" />',
+//   }
+// }
 
-export const CollapsedLevelsWithPropTitle = Template5.bind({})
-CollapsedLevelsWithPropTitle.args = {
-  title: 'Breadcrumb Title Passed by Prop',
-}
+// export const FTVATheme = Template6.bind({})
 
-function Template6(args) {
-  router.push('/watch-and-listen-online/senator-john-f.-kennedy-gives-press-conference-in-los-angeles')
-  return {
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    setup() {
-      return { args }
-    },
-    components: { NavBreadcrumb },
-    template: '<nav-breadcrumb v-bind="args" />',
-  }
-}
-
-export const FTVATheme = Template6.bind({})
-
-export const FTVAThemeWithPropTitle = Template6.bind({})
-FTVAThemeWithPropTitle.args = {
-  title: 'Breadcrumb Title Passed by Prop',
-}
+// export const FTVAThemeWithPropTitle = Template6.bind({})
+// FTVAThemeWithPropTitle.args = {
+//   title: 'Breadcrumb Title Passed by Prop',
+// }
