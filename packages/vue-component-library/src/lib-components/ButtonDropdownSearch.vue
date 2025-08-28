@@ -84,7 +84,7 @@ onBeforeUnmount(() => {
         tabindex="-1"
         role="listbox"
         aria-label="Button dropdown search"
-        :aria-expanded="isOpen.toString()"
+        :aria-expanded="isOpen"
     >
         <div
             class="dropdown-field"
@@ -95,7 +95,6 @@ onBeforeUnmount(() => {
                     ? `Selected: ${selected}`
                     : 'Select an option for search field'
             "
-            :aria-expanded="isOpen.toString()"
             @click="toggleDropdown"
         >
             <span class="selected-option" v-html="selected" />
@@ -128,5 +127,5 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/styles/dlc/_button-dropdown-search.scss";
+@import "../styles/dlc/_button-dropdown-search.scss";
 </style>
