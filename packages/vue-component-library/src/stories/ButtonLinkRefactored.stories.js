@@ -7,7 +7,7 @@ import {
 
 // Storybook default settings
 export default {
-    title: "Funkhaus / ButtonLinkRefactored",
+    title: "Funkhaus / Button Link Refactored",
     component: ButtonLinkRefactored,
 }
 
