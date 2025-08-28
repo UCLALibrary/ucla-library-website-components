@@ -216,7 +216,8 @@
       }
 
       .card-meta {
-        height: unset;
+        height: unset; 
+        min-height: unset;
         padding: 28px;
 
         .block-tags {

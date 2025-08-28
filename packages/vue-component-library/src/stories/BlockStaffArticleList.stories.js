@@ -172,10 +172,10 @@ export function NoAuthorOrDate() {
 }
 const mockDateRange2 = {
   to: 'series/a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',
-  title: 'A Film Series for You',
+  title: 'Restored Animation Classics, but With a Title That Goes Into the Second Line',
   image: API.image,
   category: 'Ullamco',
-  description: 'This deep into the post-print era it may be hard for some to understand.',
+  description: 'After receiving her B.A. from Mount Holyoke College, Gay Abel-Bey earned her M.F.A. in Film from UCLA. She was granted The Dorothy Arzner Award for high recognition of a dramatic piece by a woman for her thesis film, Fragrance (1991).',
   startDate: '2024-11-01T19:30:00',
   endDate: '2024-11-17T19:30:00',
   ongoing: false,
@@ -213,16 +213,22 @@ export function FtvaDateRange() {
           :image="image"
           :to="to"
           :title="title"
-          :description="description"
-          
       >
+      <template
+            v-if="description"
+            #customFTVADescription
+          >
+
+            {{ description }}
+
+      </template>
       <template
             v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
             #customFTVADate
           >
-            <span class="ftva-date">
+            
               {{ parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false) }}
-            </span>
+            
           </template>
       </block-staff-article-list>
   `,
@@ -257,13 +263,18 @@ export function FtvaCategory() {
     components: { BlockStaffArticleList },
     template: `
       <block-staff-article-list
-          :image="image"
           :to="to"
           :category="category"
-          :title="title"
-          :description="description"
-          
+          :title="title" 
       >
+       <template
+            v-if="description"
+            #customFTVADescription
+          >
+
+            {{ description }}
+
+      </template>
       <template
             v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
             #customFTVADate
@@ -307,18 +318,26 @@ export function FtvaSameStartEndDate() {
           :image="image"
           :to="to"
           title="The Pink Cloud + Shorts"
-          description="Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt."
-          startDate="2024-11-01T19:30:00"
-          endDate="2024-11-01T19:30:00"
-          :ongoing="ongoing"
      >
+      <template
+            #customFTVADescription
+          >
+
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+            Two friends hike amidst a stunning coastal backdrop, conversations are had, things are felt.
+
+      </template>
       <template
             v-if="parseDate(sectionHandle ?? '', '2024-11-01T19:30:00', '2024-11-01T19:30:00', ongoing ?? false)"
             #customFTVADate
           >
-            <span class="ftva-date">
+           
               {{ parseDate(sectionHandle ?? '', '2024-11-01T19:30:00', '2024-11-01T19:30:00', ongoing ?? false) }}
-            </span>
+            
           </template>
       </block-staff-article-list>
   `,
@@ -364,9 +383,272 @@ export function FtvaOngoing() {
           :image="image"
           :to="to"
           :title="title"
-          :description="description"
-
       >
+      <template
+            v-if="description"
+            #customFTVADescription
+          >
+
+            {{ description }}
+
+      </template>
+      <template
+            v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
+            #customFTVADate
+          >
+            <span class="ftva-date">
+              {{ parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false) }}
+            </span>
+          </template>
+      </block-staff-article-list>
+  `,
+  }
+}
+
+export function FtvaArticlesListing() {
+  return {
+
+    data() {
+      return { ...mockDateRange2 }
+    },
+    methods: {
+      parseDate(sectionHandle, startDate, endDate, ongoing) {
+        console.log(sectionHandle, startDate, endDate, ongoing)
+
+        if (ongoing)
+          return 'Ongoing'
+        if (sectionHandle === 'ftvaEvent')
+          return formatDates(startDate, startDate, 'shortWithYear')
+        if (sectionHandle === 'ftvaEventSeries')
+          return formatSeriesDates(startDate, endDate, 'shortWithYear')
+
+        return null
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockStaffArticleList },
+    template: `
+     <component is="style" type="text/css">
+      .articles-listing.ftva.block-staff-article-item {
+        .ftva-date {
+          color: #676767;
+          font-family: "proxima-nova", Helvetica, Arial, sans-serif;;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          text-transform: unset;
+        }
+      }
+     </component>
+      <block-staff-article-list
+          :image="image"
+          :to="to"
+          :category="category"
+          :title="title" 
+          class="articles-listing"
+      >
+       <template
+            v-if="description"
+            #customFTVADescription
+          >
+
+            {{ description }}
+
+      </template>
+      <template
+            v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
+            #customFTVADate
+          >
+            <span class="ftva-date">
+              {{ parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false) }}
+            </span>
+          </template>
+      </block-staff-article-list>
+  `,
+  }
+}
+export function FtvaEventSeriesListing() {
+  return {
+
+    data() {
+      return { ...mockDateRange2 }
+    },
+    methods: {
+      parseDate(sectionHandle, startDate, endDate, ongoing) {
+        console.log(sectionHandle, startDate, endDate, ongoing)
+
+        if (ongoing)
+          return 'Ongoing'
+        if (sectionHandle === 'ftvaEvent')
+          return formatDates(startDate, startDate, 'shortWithYear')
+        if (sectionHandle === 'ftvaEventSeries')
+          return formatSeriesDates(startDate, endDate, 'shortWithYear')
+
+        return null
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockStaffArticleList },
+    template: `
+    <component is="style" type="text/css">
+      .event-series-listing.ftva.block-staff-article-item {
+        .meta {
+          margin: 36px 0;
+        }
+      }
+     </component>
+      <block-staff-article-list
+          :image="image"
+          :to="to"
+          :title="title" 
+          class="event-series-listing"
+      >
+       <template
+            v-if="description"
+            #customFTVADescription
+          >
+
+            {{ description }}
+
+      </template>
+      <template
+            v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
+            #customFTVADate
+          >
+            <span class="ftva-date">
+              {{ parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false) }}
+            </span>
+          </template>
+      </block-staff-article-list>
+  `,
+  }
+}
+export function FtvaFilmmakersListing() {
+  return {
+
+    data() {
+      return { ...mockDateRange2 }
+    },
+    methods: {
+      parseDate(sectionHandle, startDate, endDate, ongoing) {
+        console.log(sectionHandle, startDate, endDate, ongoing)
+
+        if (ongoing)
+          return 'Ongoing'
+        if (sectionHandle === 'ftvaEvent')
+          return formatDates(startDate, startDate, 'shortWithYear')
+        if (sectionHandle === 'ftvaEventSeries')
+          return formatSeriesDates(startDate, endDate, 'shortWithYear')
+
+        return null
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockStaffArticleList },
+    template: `
+    <component is="style" type="text/css">
+      .filmmakers-listing.ftva.block-staff-article-item {
+        --image-min-width: 180px;
+        --image-aspect-ratio: 1;
+
+        .ftva-description {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+        }
+      }
+     </component>
+      <block-staff-article-list
+          :image="image"
+          :to="to"
+          :title="title" 
+          class="filmmakers-listing"
+      >
+       <template
+            v-if="description"
+            #customFTVADescription
+          >
+
+            {{ description }}
+
+      </template>
+      </block-staff-article-list>
+  `,
+  }
+}
+export function FtvaSearchResults() {
+  return {
+
+    data() {
+      return { ...mockDateRange2 }
+    },
+    methods: {
+      parseDate(sectionHandle, startDate, endDate, ongoing) {
+        console.log(sectionHandle, startDate, endDate, ongoing)
+
+        if (ongoing)
+          return 'Ongoing'
+        if (sectionHandle === 'ftvaEvent')
+          return formatDates(startDate, startDate, 'shortWithYear')
+        if (sectionHandle === 'ftvaEventSeries')
+          return formatSeriesDates(startDate, endDate, 'shortWithYear')
+
+        return null
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockStaffArticleList },
+    template: `
+    <component is="style" type="text/css">
+      .search-results.ftva.block-staff-article-item {
+        --image-min-width: 240px;
+
+        .meta {
+          margin: 0;
+        }
+
+        .ftva-date {
+          color: #676767;
+          font-family: "proxima-nova", Helvetica, Arial, sans-serif;;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          text-transform: unset;
+        }
+      }
+     </component>
+      <block-staff-article-list
+          :image="image"
+          :to="to"
+          :category="category"
+          :title="title" 
+          class="search-results"
+      >
+       <template
+            v-if="description"
+            #customFTVADescription
+          >
+
+            {{ description }}
+
+      </template>
       <template
             v-if="parseDate(sectionHandle ?? '', startDate ?? '', endDate ?? '', ongoing ?? false)"
             #customFTVADate
