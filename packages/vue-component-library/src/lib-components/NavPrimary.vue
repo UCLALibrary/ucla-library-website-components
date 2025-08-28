@@ -136,6 +136,13 @@ function clearActive() {
   activeMenuIndex.value = currentPathActiveIndex.value
 }
 
+// CLOSE SLOT
+function closeSlot() {
+  slotIsOpened.value = false
+}
+// expose if needed elsewhere too
+defineExpose({ closeSlot })
+
 // Replace globalStore logic for window width with useWindowSize
 const { width } = useWindowSize()
 
@@ -266,7 +273,7 @@ onMounted(() => {
       class="more-menu"
     >
       <ButtonLink
-        v-if="!mobileMenuIsOpened"
+        v-if="isMobile && !mobileMenuIsOpened"
         class="search-button"
         icon-name="none"
         aria-label="Search"
@@ -297,7 +304,7 @@ onMounted(() => {
         class="slot-container"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
       >
-        <slot name="additional-menu" />
+        <slot name="additional-menu" :close-slot="closeSlot" />
       </div>
     </div>
 
@@ -340,6 +347,23 @@ onMounted(() => {
           {{ item.name }}
         </SmartLink>
       </li>
+      <!-- Add search icon to nav menu list on desktop for FTVA -->
+      <ButtonLink
+        v-if="!isMobile && theme === 'ftva'"
+        class="search-button"
+        icon-name="none"
+        aria-label="Search"
+        @click="searchClick"
+      >
+        <IconSearch class="icon-search" />
+      </ButtonLink>
+      <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
+      <div
+        v-if="isMobile && mobileMenuIsOpened"
+        class="mobile-menu-slot"
+      >
+        <slot name="additional-mobile-menu-items" />
+      </div>
     </ul>
 
     <div
@@ -358,13 +382,6 @@ onMounted(() => {
           {{ item.name }}
         </SmartLink>
       </div>
-    </div>
-    <!-- slot for additional buttons that stick to the bottom of the mobile menu (like donate on ftva mobile) -->
-    <div
-      v-if="isMobile && mobileMenuIsOpened"
-      class="mobile-menu-slot"
-    >
-      <slot name="additional-mobile-menu-items" />
     </div>
     <div class="background-white" />
     <div

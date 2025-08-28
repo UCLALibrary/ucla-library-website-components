@@ -2,10 +2,13 @@
     position: relative; //absolutely positioned children will be relative to this
     overflow: visible; //allows the search button menu to overflow the container
     // this theme refactors to grid layout so we can place menu items over top of each other w/o absolute positioning
-    display: grid;
-    grid-template-columns: auto auto 64px;
-    justify-content: unset;
-    grid-auto-flow: dense;
+    background-color: $navy-blue;
+
+    &.is-opened {
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+    }
 
     .support-links {
         .item-top {
@@ -14,8 +17,7 @@
     }
 
     .background-blue {
-        background-color: $navy-blue;
-        border-bottom: none;
+        width: 0;
     }
 
     ul {
@@ -23,9 +25,11 @@
     }
 
     .menu {
-        grid-column-start: 1;
-        grid-column-end: 2;
         display: flex;
+        position: absolute;
+        justify-content: center;
+        width: 100%;
+        padding-inline: 18px;
 
         .section-name {
             font-size: 20px;
@@ -34,101 +38,78 @@
 
     .more-menu {
         display: block;
-        grid-column: 3;
+        width: 100%;
 
         button:focus, a:focus {
             outline: none;
         }
 
-        .search-button,
-        .close-button,
-        .more-menu-button {
-            background: none;
-            border: none;
-            height: 64px;
-            width: 65px;
-            padding: unset;
-
-            ::after {
-                content: '';
-                position: absolute;
-                left: 0;
-                bottom: -1px;
-                opacity: 0; // use opacity to hide so we can animate it
-                width: 100%;
-                height: 5px;
-                background-color: var(--ftva-medium-blue);
-                margin-top: 5px;
-                transition-property: opacity;
-                transition-duration: $transition-timing-slow;
-                transition-timing-function: ease-in-out;
-            }
-
-            &:hover, &:focus {
-                ::after {
-                    opacity: 1;
-                }
-            }
-
-            :deep(.hover) {
-                display: none;
-            }
-
-            :deep(.svg__fill--dark-navy) {
-                fill: white;
-            }
-
-            :deep(.svg__stroke--primary-blue-03) {
-                stroke: white;
-            }
-        }
-
         .slot-container {
             display: block;
             position: absolute;
-            z-index: 1;
             width: 100%;
-            margin: 0;
-            padding: 0;
-            right: 0;
             background-color: $navy-blue;
             transform: scaleY(0);
             transform-origin: top;
             transition-duration: .2s;
             transition-timing-function: ease-in-out;
-
-            // add css 'wings' to fill sides of large screen with menu bg color
-            &::after,
-            &::before {
-                display: block;
-                overflow: visible;
-                position: absolute;
-                left: -500px;
-                bottom: 0px;
-                content: '';
-                height: 100%;
-                max-height: 400px;
-                width: 500px;
-                background-color: $navy-blue;
-            }
-
-            &::after {
-                left: 100%;
-            }
-
+            
             &.is-opened {
                 transform: scaleY(1);
             }
-        }
 
-        .mobile-only {
-            display: none;
+            :deep(.nav-search) {
+                max-width: var(--ftva-container-max-width);
+                width: 100%;
+            }
         }
     }
-    &.slot-is-opened > .more-menu { 
-        .search-button {
-            ::after {opacity: 1;}
+
+    .search-button,
+    .close-button,
+    .more-menu-button {
+        background: none;
+        border: none;
+        height: 64px;
+        width: 65px;
+        padding: unset;
+
+        ::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            opacity: 0; // use opacity to hide so we can animate it
+            width: 100%;
+            height: 5px;
+            background-color: var(--ftva-medium-blue);
+            margin-top: 5px;
+            transition-property: opacity;
+            transition-duration: $transition-timing-slow;
+            transition-timing-function: ease-in-out;
         }
+
+        &:hover, &:focus {
+            ::after {
+                opacity: 1;
+            }
+        }
+
+        :deep(.hover) {
+            display: none;
+        }
+
+        :deep(.svg__fill--dark-navy) {
+            fill: white;
+        }
+
+        :deep(.svg__stroke--primary-blue-03) {
+            stroke: white;
+        }
+    }
+
+    .search-button {
+        margin-left: 1px;
     }
 
     // MOBILE MENU STYLES
@@ -136,22 +117,20 @@
         display: flex;
         flex-direction: column;
         grid-auto-flow: unset;
+        justify-content: unset;
         padding: 0 30px;
 
         &.is-opened-mobile {
             height: 100vh;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            padding-bottom: 110px; //offset for space behind floating donate button
+            overflow-y: auto;
         }
 
         .item-top-mobile {
             position: fixed; 
-            top: 0px;
+            top: 0;
             color: white;
             line-height: 64px;
             font-size: 22px;
-            margin-left: -10px;
             z-index: 25;
         }
         
@@ -172,7 +151,7 @@
             flex-direction: column;
             align-self: flex-end;
             gap: 12px;
-
+            
             .search-button,
             .close-button,
             .more-menu-button {
@@ -203,8 +182,10 @@
             }
 
             .close-button {
-                position: fixed;
-                right: 23px;
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                right: 0;
 
                 svg {
                     width: auto;
@@ -218,7 +199,10 @@
 
             .slot-container {
                 transition-duration: 0s; // no transition on mobile
-                padding-top: 64px; // height of top bar
+
+                :deep(.nav-search) {
+                    width: unset;
+                }
             }
 
             .slot-container.is-opened-mobile {
@@ -234,6 +218,7 @@
         .menu {
             // closed menu
             display: none;
+            position: relative; 
             grid-column: 1 / span 3;
             width: 100%;
 
@@ -312,7 +297,8 @@
 
             // open menu
             &.is-opened-mobile {
-                display: unset;
+                display: block;
+                padding-inline: 0;
 
                 :deep(.nav-menu-item) {
                     .section-name::after {
@@ -338,11 +324,7 @@
 
         .mobile-menu-slot {
             display: block;
-            position: fixed;
-            padding-top: 30px; // elements will appear to scroll behind this slot 30px above slot content
-            z-index: 25;
-            bottom: 0;
-            width: calc(100% - 60px);
+            padding-top: 40px;
             background-color: $navy-blue;
         }
     }
