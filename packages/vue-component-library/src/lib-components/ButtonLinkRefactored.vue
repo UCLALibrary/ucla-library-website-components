@@ -5,91 +5,92 @@
  * NOTE: The focus here was on defining props in a TypeScript-friendly way. Template and styles remained unchanged.
  */
 // Imports
-import { computed, defineAsyncComponent } from "vue"
-import { useTheme } from "@/composables/useTheme"
-import isInternalLink from "@/utils/isInternalLink"
-import SmartLink from "@/lib-components/SmartLink.vue"
+import { computed, defineAsyncComponent } from 'vue'
+import { useTheme } from '@/composables/useTheme'
+import isInternalLink from '@/utils/isInternalLink'
+import SmartLink from '@/lib-components/SmartLink.vue'
 import {
-    ButtonLinkIcons,
-    ButtonLinkVariants,
-    type ButtonLinkRefactoredProps,
-} from "@/types/components/buttonLink.types"
+  ButtonLinkIcons,
+  type ButtonLinkRefactoredProps,
+  ButtonLinkVariants,
+} from '@/types/components/buttonLink.types'
+
+// Props
+const props = withDefaults(defineProps<ButtonLinkRefactoredProps>(), {
+  variant: ButtonLinkVariants.PRIMARY,
+})
 
 const SvgExternalLink = defineAsyncComponent(
-    () =>
-        import("ucla-library-design-tokens/assets/svgs/icon-external-link.svg")
+  () =>
+    import('ucla-library-design-tokens/assets/svgs/icon-external-link.svg')
 )
 
 const SvgArrowRight = defineAsyncComponent(
-    () => import("ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg")
+  () => import('ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg')
 )
 
 const SvgArrowDownload = defineAsyncComponent(
-    () => import("ucla-library-design-tokens/assets/svgs/icon-download.svg")
+  () => import('ucla-library-design-tokens/assets/svgs/icon-download.svg')
 )
 
 const IconClose = defineAsyncComponent(
-    () => import("ucla-library-design-tokens/assets/svgs/icon-close.svg")
+  () => import('ucla-library-design-tokens/assets/svgs/icon-close.svg')
 )
 
 const theme = useTheme()
 
-// Props
-const props = withDefaults(defineProps<ButtonLinkRefactoredProps>(), {
-    variant: ButtonLinkVariants.PRIMARY,
-})
-
 // Computeds
 const classes = computed(() => {
-    return ["button-link", theme?.value || "", `is-${props.variant}`]
+  return ['button-link', theme?.value || '', `is-${props.variant}`]
 })
 const parsedIconName = computed(() => {
-    switch (true) {
-        case props.iconName === ButtonLinkIcons.DOWNLOAD:
-            return SvgArrowDownload
-        case props.iconName === ButtonLinkIcons.NONE:
-            return ""
-        case isInternalLink(props.to):
-            return SvgArrowRight
-        case props.linkTarget === "_blank" ||
-            props.iconName === ButtonLinkIcons.EXTERNAL_LINK:
-            return SvgExternalLink
-        case props.iconName === ButtonLinkIcons.CLOSE:
-            return IconClose
-        default:
-            return SvgExternalLink
-    }
+  switch (true) {
+    case props.variant === ButtonLinkVariants.DOWNLOAD:
+    case props.iconName === ButtonLinkIcons.DOWNLOAD:
+      return SvgArrowDownload
+    case props.iconName === ButtonLinkIcons.NONE:
+      return ''
+    case isInternalLink(props.to):
+      return SvgArrowRight
+    case props.linkTarget === '_blank'
+            || props.iconName === ButtonLinkIcons.EXTERNAL_LINK:
+      return SvgExternalLink
+    case props.iconName === ButtonLinkIcons.CLOSE:
+      return IconClose
+    default:
+      return SvgExternalLink
+  }
 })
 const isDownload = computed(() => {
-    return props.iconName === ButtonLinkIcons.DOWNLOAD
+  return props.iconName === ButtonLinkIcons.DOWNLOAD
 })
 </script>
 
 <template>
-    <smart-link
-        :to="to"
-        :class="classes"
-        :is-download="isDownload"
-        :link-target="linkTarget"
-    >
-        <span class="label">{{ label }}</span>
-        <slot />
-        <component
-            :is="parsedIconName"
-            v-if="parsedIconName !== ''"
-            class="arrow"
-            aria-hidden="true"
-        />
-        <div class="hover">
-            <span class="label">{{ label }}</span>
-            <component
-                :is="parsedIconName"
-                v-if="parsedIconName !== ''"
-                class="arrow"
-                aria-hidden="true"
-            />
-        </div>
-    </smart-link>
+  <SmartLink
+    :to="to"
+    :class="classes"
+    :is-download="isDownload"
+    :link-target="linkTarget"
+  >
+    <span class="label">{{ label }}</span>
+    <slot />
+    <component
+      :is="parsedIconName"
+      v-if="parsedIconName !== ''"
+      class="arrow"
+      aria-hidden="true"
+    />
+    <div class="hover">
+      <span class="label">{{ label }}</span>
+      <component
+        :is="parsedIconName"
+        v-if="parsedIconName !== ''"
+        class="arrow"
+        aria-hidden="true"
+      />
+    </div>
+  </SmartLink>
 </template>
 
 <style lang="scss" scoped>
