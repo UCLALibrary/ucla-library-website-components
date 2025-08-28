@@ -44,8 +44,8 @@ jobs:
             core.setOutput('merge_ref', `refs/pull/${pr.number}/merge`);
             core.info(`PR #${pr.number}: ${pr.head.repo.full_name}@${pr.head.ref} (fork=${isFork})`);
 
-      - name: Checkout PR merge ref (internal manual)
-        if: ${{ github.event_name == 'workflow_dispatch' && steps.info.outputs.is_fork == 'false' }}
+      - name: Checkout PR merge ref (internal manual or forked pr)
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.info.outputs.merge_ref }}
@@ -53,24 +53,24 @@ jobs:
           persist-credentials: false
 
       - name: Setup PNPM
-        if: ${{ github.event_name == 'workflow_dispatch' && steps.info.outputs.is_fork == 'false' }}
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: pnpm/action-setup@v4
         with:
           version: 9
           run_install: false
 
       - name: Setup Node
-        if: ${{ github.event_name == 'workflow_dispatch' && steps.info.outputs.is_fork == 'false' }}
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: actions/setup-node@v4
         with:
           node-version: 18.18.2
           cache: pnpm
 
       - name: Install deps (PR code)
-        if: ${{ github.event_name == 'workflow_dispatch' && steps.info.outputs.is_fork == 'false' }}
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
-      - name: Percy via Cypress (manual internal PR vs Netlify)
+      - name: Percy via Cypress (manual internal PR with Netlify)
         if: ${{ github.event_name == 'workflow_dispatch' && steps.info.outputs.is_fork == 'false' }}
         uses: cypress-io/github-action@v5
         with:
@@ -83,6 +83,23 @@ jobs:
         env:
           CYPRESS_baseUrl: ${{ github.event.inputs.preview_url }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
+          PERCY_TARGET_BRANCH: main
+
+      - name: Percy via Cypress (forked PR with Netlify)
+        if: ${{ github.event_name == 'workflow_dispatch' && steps.info.outputs.is_fork == 'true' }}
+        environment:
+          name: percy-secrets # <-- gated environment
+        uses: cypress-io/github-action@v5
+        with:
+          working-directory: packages/vue-component-library
+          install: false
+          start: "" # using remote Netlify URL
+          wait-on: ${{ github.event.inputs.preview_url }}
+          wait-on-timeout: 180
+          command-prefix: "percy exec -- pnpx"
+        env:
+          CYPRESS_baseUrl: ${{ github.event.inputs.preview_url }}
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
           PERCY_TARGET_BRANCH: main
 
       # --- Optional: keep your old push-to-main behavior (local build) ---
