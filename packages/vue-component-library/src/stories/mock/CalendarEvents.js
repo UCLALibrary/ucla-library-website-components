@@ -49,7 +49,25 @@ export const mockCalendarEvents = {
       image: null
     },
     {
-      imageCarousel: [],
+      imageCarousel: [
+        {
+          image: [
+            {
+              src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Michael-Snow-old.jpg',
+              width: 2560,
+              alt: 'Michael Snow',
+              id: '3203248',
+              srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Michael-Snow-old.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Michael-Snow-old.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Michael-Snow-old.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Michael-Snow-old.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Michael-Snow-old.jpg 2560w',
+              focalPoint: [
+                0.5,
+                0.5
+              ],
+              height: 1955
+            }
+          ],
+          creditText: null
+        }
+      ],
       typeHandle: 'ftvaEvent',
       title: 'Ministry of Ungentlemanly Warfare',
       uri: 'events/',
@@ -72,7 +90,25 @@ export const mockCalendarEvents = {
       image: null
     },
     {
-      imageCarousel: [],
+      imageCarousel: [
+        {
+          image: [
+            {
+              src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/stick_it_ver2.jpg',
+              width: 2560,
+              alt: null,
+              id: '3370311',
+              srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/stick_it_ver2.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/stick_it_ver2.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/stick_it_ver2.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/stick_it_ver2.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/stick_it_ver2.jpg 2560w',
+              focalPoint: [
+                0.5,
+                0.5
+              ],
+              height: 1924
+            }
+          ],
+          creditText: null
+        }
+      ],
       typeHandle: 'ftvaEvent',
       title: 'A Quiet Place: Day One',
       uri: 'events/',
