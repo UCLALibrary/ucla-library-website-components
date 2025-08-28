@@ -74,13 +74,13 @@ OverrideTitlesManually1.args = {
   overrideTitleGroup: testTitlesOverride1
 }
 
-export const CollapsedFinalRouteByTitle = DynamicModeTemplate.bind({})
-CollapsedFinalRouteByTitle.args = {
+export const CollapsedFinalTitleByRoute = DynamicModeTemplate.bind({})
+CollapsedFinalTitleByRoute.args = {
   route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article',
 }
 
-export const CollapsedFinalPropByTitle = DynamicModeTemplate.bind({})
-CollapsedFinalPropByTitle.args = {
+export const CollapsedFinalTitleByProp = DynamicModeTemplate.bind({})
+CollapsedFinalTitleByProp.args = {
   route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article',
   title: 'Breadcrumb Title Passed by Prop',
 }
@@ -100,25 +100,20 @@ OverrideTitlesManually2.args = {
   overrideTitleGroup: testTitlesOverride2
 }
 
-// function Template6(args) {
-//   router.push('/watch-and-listen-online/senator-john-f.-kennedy-gives-press-conference-in-los-angeles')
-//   return {
-//     provide() {
-//       return {
-//         theme: computed(() => 'ftva'),
-//       }
-//     },
-//     setup() {
-//       return { args }
-//     },
-//     components: { NavBreadcrumb },
-//     template: '<nav-breadcrumb v-bind="args" />',
-//   }
-// }
+function FTVATemplate(args) {
+  router.push('/watch-and-listen-online/senator-john-f.-kennedy-gives-press-conference-in-los-angeles')
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    setup() {
+      return { args }
+    },
+    components: { NavBreadcrumb },
+    template: '<nav-breadcrumb v-bind="args" />',
+  }
+}
 
-// export const FTVATheme = Template6.bind({})
-
-// export const FTVAThemeWithPropTitle = Template6.bind({})
-// FTVAThemeWithPropTitle.args = {
-//   title: 'Breadcrumb Title Passed by Prop',
-// }
+export const FTVATheme = FTVATemplate.bind({})
