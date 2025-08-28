@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.28.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.3...@ucla-library-monorepo/ucla-library-website-components-v1.28.4) (2025-08-28)
+
+
+### Bug Fixes
+
+* APPS 3414 Fix Double Pagination Numbers ([#796](https://github.com/UCLALibrary/ucla-library-website-components/issues/796)) ([d0ee682](https://github.com/UCLALibrary/ucla-library-website-components/commit/d0ee68243ff366975357f456896b9b9e82124df3))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.28.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.2...@ucla-library-monorepo/ucla-library-website-components-v1.28.3) (2025-08-22)
 
 
