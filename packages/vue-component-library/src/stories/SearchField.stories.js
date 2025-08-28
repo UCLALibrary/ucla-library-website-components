@@ -1,9 +1,9 @@
-import SearchField from "@/lib-components/SearchField"
-import { computed } from "vue"
+import { computed } from 'vue'
+import SearchField from '@/lib-components/SearchField'
 
 export default {
-    title: "Funkhaus / SearchField",
-    component: SearchField,
+  title: 'Funkhaus / SearchField',
+  component: SearchField,
 }
 
 const template = `
@@ -19,65 +19,65 @@ const template = `
 `
 
 const methods = {
-    handleSubmit(value) {
-        this.searchValue = value
-    },
+  handleSubmit(value) {
+    this.searchValue = value
+  },
 }
 
 // Variations of stories below
 export function Default() {
-    return {
-        components: { SearchField },
-        provide() {
-            return {
-                theme: computed(() => "dlc"),
-            }
-        },
-        data() {
-            return {
-                props: { placeholder: "Search Library" },
-                searchValue: "",
-            }
-        },
-        methods,
-        template,
-    }
+  return {
+    components: { SearchField },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        props: { placeholder: 'Search Library' },
+        searchValue: '',
+      }
+    },
+    methods,
+    template,
+  }
 }
 
 export function WithoutClearIcon() {
-    return {
-        components: { SearchField },
-        provide() {
-            return {
-                theme: computed(() => "dlc"),
-            }
-        },
-        data() {
-            return {
-                props: { placeholder: "Search Archives", clearIcon: false },
-                searchValue: "",
-            }
-        },
-        methods,
-        template,
-    }
+  return {
+    components: { SearchField },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        props: { placeholder: 'Search Archives', clearIcon: false },
+        searchValue: '',
+      }
+    },
+    methods,
+    template,
+  }
 }
 
 export function WithoutClearOnEsc() {
-    return {
-        components: { SearchField },
-        provide() {
-            return {
-                theme: computed(() => "dlc"),
-            }
-        },
-        data() {
-            return {
-                props: { placeholder: "Search Catalog", clearOnEsc: false },
-                searchValue: "",
-            }
-        },
-        methods,
-        template,
-    }
+  return {
+    components: { SearchField },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        props: { placeholder: 'Search Catalog', clearOnEsc: false },
+        searchValue: '',
+      }
+    },
+    methods,
+    template,
+  }
 }
