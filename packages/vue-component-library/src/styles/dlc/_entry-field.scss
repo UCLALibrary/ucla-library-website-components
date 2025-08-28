@@ -18,19 +18,26 @@ $icon-color: darken($input-background, 30%);
         color: $body-grey;
 
         background-color: var(--color-primary-blue-01);
-        border: none;
-        outline-color: transparent;
+        border: 2px solid transparent;
+        outline: none;
 
-        transition: outline-color 0.3s ease-in-out;
+        transition: border-color 0.3s ease-in-out,
+            border-radius 0s ease-in-out 0.3s;
 
+        // Placeholder text
         &::placeholder {
             text-transform: uppercase;
             font-family: var(--font-primary);
             text-overflow: ellipsis;
         }
 
+        // Add border when focused
         &:focus {
-            outline-color: var(--color-secondary-grey-03);
+            border-color: var(--color-secondary-grey-03);
+            border-radius: 4px;
+
+            transition: border-color 0.3s ease-in-out,
+                border-radius 0s ease-in-out 0s;
         }
     }
 

@@ -72,6 +72,9 @@ function onDocumentKeydown(event: KeyboardEvent) {
 }
 
 // Computeds
+const isClearIconShown = computed(
+  () => props.clearIcon && !!props.modelValue && props.modelValue.length > 0
+)
 const classes = computed(() => [
   'search-input-wrapper',
   isClearIconShown.value ? 'is-clear-icon-shown' : '',
@@ -88,9 +91,6 @@ const attrsStyles = computed(() => ({
     >),
   class: classes.value,
 }))
-const isClearIconShown = computed(
-  () => props.clearIcon && !!props.modelValue && props.modelValue.length > 0
-)
 
 // Event Listeners
 useEventListener<KeyboardEvent>(window.document, 'keydown', onDocumentKeydown)
