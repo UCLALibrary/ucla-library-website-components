@@ -16,7 +16,7 @@ import SmartLink from '@/lib-components/SmartLink.vue'
   For non-legacy behavior/use cases (FTVA, et al), breadcrumbs are parsed from the route; with the option to set the final breadcrumb title from route data or at page-level with the 'title' prop.
   */
 
-const { to, parentTitle, title, testOverride } = defineProps({
+const { to, parentTitle, title, overrideTitleGroup } = defineProps({
   to: {
     type: String,
     default: '',
@@ -29,11 +29,11 @@ const { to, parentTitle, title, testOverride } = defineProps({
     type: String,
     default: '',
   },
-  testOverride: {
+  overrideTitleGroup: {
     type: Array,
     default: () => ([])
     // array of objects
-    // { level: number, overrideTitle: string}
+    // { titleLevel: number, updatedTitle: string}
   }
 })
 
@@ -74,7 +74,7 @@ const parsedBreadcrumbs = computed(() => {
 
   const pagePathArray = pathWithNoTrailingDates.split('/')
 
-  console.log('Page path array: ', pagePathArray)
+  // console.log('Page path array: ', pagePathArray)
   return pagePathArray
 })
 
@@ -83,7 +83,7 @@ const parsedBreadcrumbLinks = computed(() => {
 
   const breadcrumbListLength = breadcrumbsList.length
 
-  if (breadcrumbListLength > 4)
+  if (breadcrumbListLength > 4 && !isExpanded.value)
     setCollapseBreadcrumbs()
 
   if (isMobile.value) {
@@ -94,97 +94,90 @@ const parsedBreadcrumbLinks = computed(() => {
     // Display parent item only
     return mobileBreadcrumb.splice(0, 1)
   }
-  else if (!isMobile.value) {
-    if (breadcrumbListLength > 4 && !isExpanded.value) {
-      setLinkExpansion()
 
-      // Keep 1st and last 2 items in breadcrumbs array
-      // Replace deleted items with `...`
-      const truncatedBreadcrumbsList = breadcrumbsList.toSpliced(
-        1,
-        breadcrumbListLength - 3,
-        '...'
-      )
-
-      return createBreadcrumbLinks(truncatedBreadcrumbsList)
-    }
-  }
-
-  // const test = createBreadcrumbLinks(breadcrumbsList)
-
-  // console.log('Breadcrumb Links: ', test)
   return createBreadcrumbLinks(breadcrumbsList)
 })
 
 // METHODS
 function createBreadcrumbLinks(arr) {
-  const breadCrumbObjects = []
+  const breadcrumbObjects = []
 
-  // if all props are present, use the legacy single-level breadcrumb pattern
+  // If all props are present, use the legacy, single-level breadcrumb pattern
   if (to && parentTitle && title) {
     // Set the parent
-    breadCrumbObjects.push({
+    breadcrumbObjects.push({
       to,
       title: parentTitle,
       isLastItem: false,
       isTruncatedGroup: false
     })
     // Set the child, no url
-    breadCrumbObjects.push({
+    breadcrumbObjects.push({
       to: '',
       title,
       isLastItem: true,
       isTruncatedGroup: false
     })
-    return breadCrumbObjects
+    return breadcrumbObjects
   }
+  // Otherwise format breadcrumbs based on route
   else {
-    // otherwise format breadcrumbs based on route
     arr.forEach((item, index) => {
+      // Recreate a link for the breadcrumb item
       const linkLength = item.length
-
       const linkIndex = route.path.indexOf(item)
-
-      // Recreate a link for the item
       const linkTo = route.path.substring(0, linkLength + linkIndex)
 
-      // ??????????
-      // ??????????
-      // const linkTitle = item.replaceAll('-', ' ')
+      // Replace hyphens
       let linkTitle = item.replaceAll('-', ' ')
-      console.log(linkTitle)
 
-      // Figure out how to persist this title value on collapse and expanded
-      // Check Override Object
-      if (testOverride.length > 0 && isExpanded.value) {
+      // Notes
+      // if override has an index that matches this index, then replace title with tile in the Object
+      if (overrideTitleGroup.length > 0) {
         const testIndex = index + 1
-        // if override has an index that matches this index, then replace title with tile in the Object
-        const test = testOverride.find(obj => obj.level === testIndex)
+        const test = overrideTitleGroup.find(obj => obj.titleLevel === testIndex)
         if (test)
-          linkTitle = test.title
-          // console.log(test.title)
+          linkTitle = test.updatedTitle
       }
 
+      // Identify if breadcrumb item is the last item
       let isLastItem
       index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
 
-      // If breadcrumb pattern has more than four levels, identify the `...` (collapsed levels) from the breadcrumbs array
+      // Identify if breadcrumb item will be truncated
       let isTruncatedGroup
-      if (collapseBreadcrumbs.value) {
-        isExpanded.value === false && index === 1
-          ? (isTruncatedGroup = true)
-          : (isTruncatedGroup = false)
+      // If breadcrumb pattern has more than four levels, identify the `...` (collapsed levels) from the breadcrumbs array
+      if (arr.length > 3) {
+        if (collapseBreadcrumbs.value) {
+          isExpanded.value === false && index === 1
+            ? (isTruncatedGroup = true)
+            : (isTruncatedGroup = false)
+        }
       }
 
-      breadCrumbObjects.push({
+      breadcrumbObjects.push({
         to: linkTo,
         title: linkTitle,
         isTruncatedGroup,
         isLastItem,
       })
     })
-    console.log('Breadcrumb objs: ', breadCrumbObjects)
-    return breadCrumbObjects
+
+    // NOTE
+    // Handle truncation
+    if (collapseBreadcrumbs.value) {
+      const test = breadcrumbObjects.toSpliced(
+        1,
+        breadcrumbObjects.length - 3,
+        { title: '...', isTruncatedGroup: true, isLastItem: false }
+      )
+      console.log('Collapsed breadcrumb objs: ', test)
+      return test
+    }
+    else {
+      console.log('Expanded breadcrumb objs: ', breadcrumbObjects)
+      return breadcrumbObjects
+    }
   }
 }
 
@@ -193,16 +186,13 @@ function handleSetRouteTitle() {
   setRouteTitle.value = true
 }
 
-function setLinkExpansion() {
-  isExpanded.value = false
-}
-
 function setCollapseBreadcrumbs() {
   collapseBreadcrumbs.value = true
 }
 
 function toggleLinksExpansion() {
-  isExpanded.value = !isExpanded.value
+  isExpanded.value = true
+  collapseBreadcrumbs.value = false
   collapsedBreadcrumbsBtn.value[0].classList.remove('collapsed-url')
 }
 
