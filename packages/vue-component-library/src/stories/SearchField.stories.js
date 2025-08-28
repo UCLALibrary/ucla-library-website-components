@@ -2,7 +2,7 @@ import { computed } from 'vue'
 import SearchField from '@/lib-components/SearchField'
 
 export default {
-  title: 'Funkhaus / SearchField',
+  title: 'Funkhaus / Search Field',
   component: SearchField,
 }
 
@@ -74,6 +74,110 @@ export function WithoutClearOnEsc() {
     data() {
       return {
         props: { placeholder: 'Search Catalog', clearOnEsc: false },
+        searchValue: '',
+      }
+    },
+    methods,
+    template,
+  }
+}
+
+export function WithValue() {
+  return {
+    components: { SearchField },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        props: {
+          placeholder: 'Search Collections',
+          initialValue: 'Initial search text',
+        },
+        searchValue: '',
+      }
+    },
+    methods,
+    template,
+  }
+}
+
+export function Disabled() {
+  return {
+    components: { SearchField },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        props: { placeholder: 'Search (disabled)', disabled: true },
+        searchValue: '',
+      }
+    },
+    methods,
+    template,
+  }
+}
+
+export function WithoutBlurOnEsc() {
+  return {
+    components: { SearchField },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        props: {
+          placeholder: 'Search with focus retained on Esc',
+          blurOnEsc: false,
+        },
+        searchValue: '',
+      }
+    },
+    methods,
+    template,
+  }
+}
+
+export function WithoutSelectOnFocus() {
+  return {
+    components: { SearchField },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        props: {
+          placeholder: 'Search without auto-select on focus',
+          selectOnFocus: false,
+        },
+        searchValue: '',
+      }
+    },
+    methods,
+    template,
+  }
+}
+
+export function WithCustomShortcutKey() {
+  return {
+    components: { SearchField },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        props: { placeholder: 'Press \'f\' to focus', shortcutKey: 'f' },
         searchValue: '',
       }
     },

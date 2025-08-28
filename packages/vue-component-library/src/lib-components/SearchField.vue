@@ -7,6 +7,13 @@ import EntryField from './EntryField.vue'
 import type { EntryFieldProps } from '@/types/types'
 import { useTheme } from '@/composables/useTheme'
 
+// Types
+type SearchFieldProps = Omit<EntryFieldProps, 'modelValue'> & {
+  placeholder?: string
+  initialValue?: string
+  disabled?: boolean
+}
+
 // Props
 const props = withDefaults(defineProps<SearchFieldProps>(), {
   wrapperClass: 'search-input-wrapper',
@@ -15,17 +22,13 @@ const props = withDefaults(defineProps<SearchFieldProps>(), {
   blurOnEsc: true,
   selectOnFocus: true,
   shortcutKey: '/',
+  initialValue: '',
 })
 const emit = defineEmits(['submit'])
 const theme = useTheme()
 
-// Types
-type SearchFieldProps = Omit<EntryFieldProps, 'modelValue'> & {
-  placeholder?: string
-}
-
 // Data
-const searchValue = ref<string>('')
+const searchValue = ref<string>(props.initialValue || '')
 
 // Computed
 const classes = computed(() => {
