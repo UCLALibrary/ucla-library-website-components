@@ -12,21 +12,57 @@ on:
       preview_url:
         description: "Netlify preview URL"
         required: true
+        type: string
 
 permissions:
   contents: read
   pull-requests: read
 
 jobs:
-  percy:
+  # ---------- PUSH (main) path: build & run locally ----------
+  percy-push:
+    if: github.event_name == 'push'
     name: Percy - Storybook Components 3.x
     runs-on: ubuntu-latest
     timeout-minutes: 20
-
     steps:
-      # --- Manual INTERNAL PR path (only when triggered manually) ---
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/workflows/setup-workspace
+
+      - name: Use cached storybook build
+        id: cache-storybook
+        uses: actions/cache@v3
+        with:
+          path: storybook-static
+          key: storybook-${{ github.sha }}
+
+      - name: Build Storybook
+        if: steps.cache-storybook.outputs.cache-hit != 'true'
+        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
+
+      - name: Percy via Cypress (local storybook)
+        uses: cypress-io/github-action@v5
+        with:
+          working-directory: packages/vue-component-library
+          start: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec http-server ./storybook-static -p 6006
+          install: false
+          command-prefix: "percy exec -- pnpx"
+          wait-on: http://localhost:6006
+          wait-on-timeout: 180
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
+          PERCY_TARGET_BRANCH: main
+
+  # ---------- MANUAL path: look up PR + branch type ----------
+  get-pr-info:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    outputs:
+      is_fork: ${{ steps.info.outputs.is_fork }}
+      merge_ref: ${{ steps.info.outputs.merge_ref }}
+    steps:
       - id: info
-        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -38,40 +74,41 @@ jobs:
               repo: context.repo.repo,
               pull_number: prNum,
             });
-            // internal PR if head repo == base repo
             const isFork = pr.head.repo?.fork ? 'true' : 'false';
             core.setOutput('is_fork', isFork);
             core.setOutput('merge_ref', `refs/pull/${pr.number}/merge`);
             core.info(`PR #${pr.number}: ${pr.head.repo.full_name}@${pr.head.ref} (fork=${isFork})`);
 
-      - name: Checkout PR merge ref (internal manual or forked pr)
-        if: ${{ github.event_name == 'workflow_dispatch' }}
+  # ---------- MANUAL: internal PR (no environment gate) ----------
+  percy-internal:
+    if: github.event_name == 'workflow_dispatch' && needs.get-pr-info.outputs.is_fork == 'false'
+    needs: get-pr-info
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout PR merge ref (internal)
         uses: actions/checkout@v4
         with:
-          ref: ${{ steps.info.outputs.merge_ref }}
+          ref: ${{ needs.get-pr-info.outputs.merge_ref }}
           fetch-depth: 1
           persist-credentials: false
 
       - name: Setup PNPM
-        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: pnpm/action-setup@v4
         with:
           version: 9
           run_install: false
 
       - name: Setup Node
-        if: ${{ github.event_name == 'workflow_dispatch' }}
         uses: actions/setup-node@v4
         with:
           node-version: 18.18.2
           cache: pnpm
 
       - name: Install deps (PR code)
-        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: pnpm install --frozen-lockfile --strict-peer-dependencies
 
-      - name: Percy via Cypress (manual internal PR with Netlify)
-        if: ${{ github.event_name == 'workflow_dispatch' && steps.info.outputs.is_fork == 'false' }}
+      - name: Percy via Cypress (internal, Netlify preview)
         uses: cypress-io/github-action@v5
         with:
           working-directory: packages/vue-component-library
@@ -85,54 +122,48 @@ jobs:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
           PERCY_TARGET_BRANCH: main
 
-      - name: Percy via Cypress (forked PR with Netlify)
-        if: ${{ github.event_name == 'workflow_dispatch' && steps.info.outputs.is_fork == 'true' }}
-        environment:
-          name: percy-secrets # <-- gated environment
-        uses: cypress-io/github-action@v5
-        with:
-          working-directory: packages/vue-component-library
-          install: false
-          start: "" # using remote Netlify URL
-          wait-on: ${{ github.event.inputs.preview_url }}
-          wait-on-timeout: 180
-          command-prefix: "percy exec -- pnpx"
-        env:
-          CYPRESS_baseUrl: ${{ github.event.inputs.preview_url }}
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
-          PERCY_TARGET_BRANCH: main
-
-      # --- Optional: keep your old push-to-main behavior (local build) ---
-      - name: Checkout (push path)
-        if: ${{ github.event_name == 'push' }}
+  # ---------- MANUAL: forked PR (gated environment) ----------
+  percy-fork:
+    if: github.event_name == 'workflow_dispatch' && needs.get-pr-info.outputs.is_fork == 'true'
+    needs: get-pr-info
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: percy-secrets # configure required reviewers in Settings → Environments
+    steps:
+      - name: Checkout PR merge ref (fork)
         uses: actions/checkout@v4
-
-      - name: Setup workspace (push path)
-        if: ${{ github.event_name == 'push' }}
-        uses: ./.github/workflows/setup-workspace
-
-      - name: Use cached storybook build
-        if: ${{ github.event_name == 'push' }}
-        id: cache-storybook
-        uses: actions/cache@v3
         with:
-          path: storybook-static
-          key: storybook-${{ github.sha }}
+          ref: ${{ needs.get-pr-info.outputs.merge_ref }}
+          fetch-depth: 1
+          persist-credentials: false
 
-      - name: Build Storybook
-        if: ${{ github.event_name == 'push' && steps.cache-storybook.outputs.cache-hit != 'true' }}
-        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
 
-      - name: Percy via Cypress (push path, local storybook)
-        if: ${{ github.event_name == 'push' }}
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.18.2
+          cache: pnpm
+
+      - name: Install deps (PR code)
+        run: pnpm install --frozen-lockfile --strict-peer-dependencies
+
+      - name: Percy via Cypress (fork, Netlify preview)
         uses: cypress-io/github-action@v5
         with:
           working-directory: packages/vue-component-library
-          start: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec http-server ./storybook-static -p 6006
           install: false
-          command-prefix: "percy exec -- pnpx"
-          wait-on: http://localhost:6006
+          start: "" # using remote Netlify URL
+          wait-on: ${{ github.event.inputs.preview_url }}
           wait-on-timeout: 180
+          command-prefix: "percy exec -- pnpx"
         env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
+          CYPRESS_baseUrl: ${{ github.event.inputs.preview_url }}
+          # NOTE: uses your fork secret name from your earlier snippet
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
           PERCY_TARGET_BRANCH: main
