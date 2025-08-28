@@ -31,7 +31,7 @@ jobs:
 
             In order to conserve our percy screenshot allowance, percy is not configured to run automatically. Please make sure the PR is ready and all other checks are passing, then start it manually:
 
-            1. Visit https://github.com/UCLALibrary/ucla-library-website-components/actions/workflows/percy-both.yml
+            1. Visit https://github.com/UCLALibrary/ucla-library-website-components/actions/workflows/percy.yml
             2. Click the 'Run workflow' button in the blue bar.
             3. Select the correct branch for this PR and click 'Run workflow' again to confirm.
 
