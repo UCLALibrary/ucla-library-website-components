@@ -41,7 +41,7 @@ function easeOutQuad(t: number) {
 
 function animateCount(to: number) {
     // Dynamic duration: longer for bigger numbers
-    const duration = to > 1000 ? 1000 : 600 // ms
+    const duration = to > 1000 ? 1000 : 600
     const start = animatedCount.value
     const startTime = performance.now()
 
