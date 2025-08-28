@@ -19,13 +19,13 @@
  * => { email: 'alice@example.com' }
  */
 export function filterAttributes(
-    obj: Record<string, unknown>,
-    keys: string[],
-    exclude = true
+  obj: Record<string, unknown>,
+  keys: string[],
+  exclude = true
 ): Record<string, unknown> {
-    return Object.fromEntries(
-        Object.entries(obj).filter(([key]) =>
-            exclude ? !keys.includes(key) : keys.includes(key)
-        )
+  return Object.fromEntries(
+    Object.entries(obj).filter(([key]) =>
+      exclude ? !keys.includes(key) : keys.includes(key)
     )
+  )
 }
