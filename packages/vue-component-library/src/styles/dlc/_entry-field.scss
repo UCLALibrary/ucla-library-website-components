@@ -1,8 +1,7 @@
-$input-color: #333;
 $input-background: #f6f9fc;
 $icon-color: darken($input-background, 30%);
-$active-color: #1ea7fd;
 
+.search-input-wrapper,
 .dlc.search-input-wrapper {
     position: relative;
 
@@ -16,14 +15,22 @@ $active-color: #1ea7fd;
         font-size: 20px;
         line-height: 100%;
         letter-spacing: 0.01em;
+        color: $body-grey;
 
         background-color: var(--color-primary-blue-01);
-        border-color: transparent;
+        border: none;
+        outline-color: transparent;
+
+        transition: outline-color 0.3s ease-in-out;
 
         &::placeholder {
             text-transform: uppercase;
             font-family: var(--font-primary);
             text-overflow: ellipsis;
+        }
+
+        &:focus {
+            outline-color: var(--color-secondary-grey-03);
         }
     }
 
@@ -31,33 +38,32 @@ $active-color: #1ea7fd;
         position: absolute;
         color: $icon-color;
 
-        &.clear {
-            top: 50%;
-            right: 16px;
-            transform: translateY(-50%);
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
 
-            display: block;
-            width: 24px;
-            height: 24px;
-            padding: 0px;
-            box-sizing: border-box;
+        display: block;
+        width: 24px;
+        height: 24px;
+        padding: 0px;
+        box-sizing: border-box;
 
-            border: 2px solid transparent;
-            border-radius: 50%;
+        border: 2px solid transparent;
+        border-radius: 50%;
 
-            background: none;
-            outline: none;
-            cursor: pointer;
+        background: none;
+        outline: none;
+        cursor: pointer;
 
-            transition: background-color 0.3s ease-in-out;
+        opacity: 0;
+        transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
-            &:focus {
-                background-color: darken($input-background, 10%);
-            }
+        &:focus {
+            background-color: darken($input-background, 10%);
         }
 
-        &.clear::after,
-        &.clear::before {
+        &::after,
+        &::before {
             content: "";
             position: absolute;
             top: 9px;
@@ -73,13 +79,17 @@ $active-color: #1ea7fd;
             border-radius: 5px;
         }
 
-        &.clear::after {
+        &::after {
             transform: rotate(-45deg);
         }
     }
 
     // With clear icon
-    &.has-clear-icon {
+    &.is-clear-icon-shown {
+        .clear-icon {
+            opacity: 1;
+        }
+
         input[data-search-input="true"] {
             padding-right: 50px; // Adjust padding to accommodate clear icon
         }
@@ -88,9 +98,7 @@ $active-color: #1ea7fd;
     // Hovers
     @media #{$has-hover} {
         .clear-icon:hover {
-            &.clear {
-                background-color: darken($input-background, 10%);
-            }
+            background-color: darken($input-background, 10%);
         }
     }
 

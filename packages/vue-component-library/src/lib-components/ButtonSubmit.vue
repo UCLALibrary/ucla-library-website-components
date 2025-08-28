@@ -14,7 +14,7 @@ const classes = computed(() => ['button-submit', theme?.value || ''])
 
 // Methods
 function handleClick() {
-    emit("click")
+  emit('click')
 }
 </script>
 
