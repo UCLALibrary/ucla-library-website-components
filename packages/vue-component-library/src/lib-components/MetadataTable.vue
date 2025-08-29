@@ -52,42 +52,78 @@ const handleButtonClick = (button: any) => {
 
 <template>
   <div :class="classes">
-    <h3 class="title" v-html="title" />
+    <h3
+      class="title"
+      v-html="title"
+    />
     <ul class="items">
-      <li v-for="(item, index) in items" :key="index" class="list-item">
-        <span class="label" v-html="item.label" />
+      <li
+        v-for="(item, index) in items"
+        :key="index"
+        class="list-item"
+      >
+        <span
+          class="label"
+          v-html="item.label"
+        />
         <div class="values">
           <!-- Buttons -->
           <template v-if="Array.isArray(item.value)">
             <div class="buttons">
-              <ButtonIiif v-if="item.showButtonIiif && item.buttonIiifTo" :to="item.buttonIiifTo" />
+              <ButtonIiif
+                v-if="item.showButtonIiif && item.buttonIiifTo"
+                :to="item.buttonIiifTo"
+              />
               <div class="action-buttons">
-                <Button v-for="(button, btnIdx) in item.value" :key="btnIdx" :text="button.label"
-                  :variant="button.variant || ButtonVariant.Secondary" :is-outlined="button.isOutlined ?? true"
-                  :to="button.to" :is-download="button.isDownload" @click="handleButtonClick(button)" />
+                <Button
+                  v-for="(button, btnIdx) in item.value"
+                  :key="btnIdx"
+                  :text="button.label"
+                  :variant="button.variant || ButtonVariant.Secondary"
+                  :is-outlined="button.isOutlined ?? true"
+                  :to="button.to"
+                  :is-download="button.isDownload"
+                  @click="handleButtonClick(button)"
+                />
               </div>
             </div>
           </template>
 
           <template v-else-if="typeof item.value === 'object' && item.value !== null">
             <template v-if="item.image">
-              <ResponsiveImage class="icon" :media="item.image" object-fit="cover" />
+              <ResponsiveImage
+                class="icon"
+                :media="item.image"
+                object-fit="cover"
+              />
             </template>
             <template v-if="'href' in item.value && item.value.href && !item.image">
-              <SmartLink class="link value" :to="item.value.href">
+              <SmartLink
+                class="link value"
+                :to="item.value.href"
+              >
                 <span v-html="item.value.text" />
               </SmartLink>
             </template>
             <template v-else-if="'href' in item.value && item.value.href && item.image">
-              <SmartLink class="link value" :to="item.value.href">
+              <SmartLink
+                class="link value"
+                :to="item.value.href"
+              >
                 <span v-html="item.value.text" />
               </SmartLink>
             </template>
             <template v-else-if="item.image && 'text' in item.value && item.value.text">
-              <span class="value" v-html="item.value.text" />
+              <span
+                class="value"
+                v-html="item.value.text"
+              />
             </template>
             <template v-else-if="'text' in item.value && item.value.text">
-              <span class="value" v-html="item.value.text" />
+              <span
+                class="value"
+                v-html="item.value.text"
+              />
             </template>
           </template>
         </div>
