@@ -23,15 +23,15 @@ function LegacyModeTemplate(args) {
       return { args }
     },
     components: { NavBreadcrumb },
-    template: '<nav-breadcrumb to="/about/news" title="Jane Doe" parentTitle="Parent"/>',
+    template: '<nav-breadcrumb to="/about/news" title="Child" parentTitle="Parent"/>',
   }
 }
 
 // Legacy breadcrumbs (Values entered at page-level)
-export const DefaultModePageProps = LegacyModeTemplate.bind({})
+export const DefaultLegacyModeWithProps = LegacyModeTemplate.bind({})
 
 // Breadcrumbs generated from route with option to use title from route or set at page-level
-// NOTE
+// UPDATE NOTE
 
 function DynamicModeTemplate(args) {
   router.push(args.route)
@@ -44,15 +44,35 @@ function DynamicModeTemplate(args) {
   }
 }
 
-export const MultiLevelFinalTitleByRoute = DynamicModeTemplate.bind({})
-MultiLevelFinalTitleByRoute.args = {
+export const CrumbsByRoute1Level = DynamicModeTemplate.bind({})
+CrumbsByRoute1Level.args = {
+  route: '/la-région-centrale-10-20-23-screening-03-08-24'
+}
+
+export const CrumbsByRoute2Levels = DynamicModeTemplate.bind({})
+CrumbsByRoute2Levels.args = {
+  route: '/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24'
+}
+
+export const CrumbsByRoute3Levels = DynamicModeTemplate.bind({})
+CrumbsByRoute3Levels.args = {
   route: '/events/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24'
 }
 
-export const MultiLevelFinalTitleByProp = DynamicModeTemplate.bind({})
-MultiLevelFinalTitleByProp.args = {
+export const Collapsed5Levels = DynamicModeTemplate.bind({})
+Collapsed5Levels.args = {
+  route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article',
+}
+
+export const Collapsed8Levels = DynamicModeTemplate.bind({})
+Collapsed8Levels.args = {
+  route: '/shop/products/electronics/mobile-phones/samsung/galaxy/z-series/sale',
+}
+
+export const OverrideFinalTitleByTitleProp = DynamicModeTemplate.bind({})
+OverrideFinalTitleByTitleProp.args = {
   route: '/events/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24/',
-  title: 'Breadcrumb Title Passed by Prop'
+  title: 'Final Title Passed by Prop'
 }
 
 const testTitlesOverride1 = [{
@@ -68,21 +88,10 @@ const testTitlesOverride1 = [{
   updatedTitle: 'Override Level 3'
 }]
 
-export const OverrideTitlesManually1 = DynamicModeTemplate.bind({})
-OverrideTitlesManually1.args = {
+export const OverrideTitlesByOverrideProp1 = DynamicModeTemplate.bind({})
+OverrideTitlesByOverrideProp1.args = {
   route: '/events/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24',
   overrideTitleGroup: testTitlesOverride1
-}
-
-export const CollapsedFinalTitleByRoute = DynamicModeTemplate.bind({})
-CollapsedFinalTitleByRoute.args = {
-  route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article',
-}
-
-export const CollapsedFinalTitleByProp = DynamicModeTemplate.bind({})
-CollapsedFinalTitleByProp.args = {
-  route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article',
-  title: 'Breadcrumb Title Passed by Prop',
 }
 
 const testTitlesOverride2 = [{
@@ -91,11 +100,16 @@ const testTitlesOverride2 = [{
 },
 {
   titleLevel: 3,
-  updatedTitle: 'KTLA Collection...'
-}]
+  updatedTitle: 'KTLA Collection... 🎉'
+},
+{
+  titleLevel: 5,
+  updatedTitle: 'Demo Article 🎉'
+}
+]
 
-export const OverrideTitlesManually2 = DynamicModeTemplate.bind({})
-OverrideTitlesManually2.args = {
+export const OverrideTitlesByOverrideProp2 = DynamicModeTemplate.bind({})
+OverrideTitlesByOverrideProp2.args = {
   route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article',
   overrideTitleGroup: testTitlesOverride2
 }

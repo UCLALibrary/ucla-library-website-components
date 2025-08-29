@@ -9,12 +9,14 @@ import { useTheme } from '@/composables/useTheme'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 /* Note:
-  Setting all props at page-level defaults to the legacy pattern of a single-level breadcrumb.
+  Setting the to, parentTitle and title props at page-level defaults to the legacy pattern of a single-level breadcrumb.
 
   The library website currently uses the legacy pattern.
 
   For non-legacy behavior/use cases (FTVA, et al), breadcrumbs are parsed from the route; with the option to set the final breadcrumb title from route data or at page-level with the 'title' prop.
   */
+
+// UPDATE LAST POINT
 
 const { to, parentTitle, title, overrideTitleGroup } = defineProps({
   to: {
@@ -32,7 +34,7 @@ const { to, parentTitle, title, overrideTitleGroup } = defineProps({
   overrideTitleGroup: {
     type: Array,
     default: () => ([])
-    // array of objects
+    // Array of objects:
     // { titleLevel: number, updatedTitle: string}
   }
 })
@@ -50,13 +52,14 @@ const collapsedBreadcrumbsBtn = ref()
 const setRouteTitle = ref(false)
 
 onMounted(() => {
-  // Watch for changes in window width only after the component is mounted
+  // Watch for changes in window width after component is mounted
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
     isMobile.value = newWidth <= 1200
   }, { immediate: true })
 })
 
+// Get breadcrumb items from route; clean up strings
 const parsedBreadcrumbs = computed(() => {
   let path = route.path
 
@@ -74,7 +77,6 @@ const parsedBreadcrumbs = computed(() => {
 
   const pagePathArray = pathWithNoTrailingDates.split('/')
 
-  // console.log('Page path array: ', pagePathArray)
   return pagePathArray
 })
 
@@ -102,6 +104,7 @@ const parsedBreadcrumbLinks = computed(() => {
 function createBreadcrumbLinks(arr) {
   const breadcrumbObjects = []
 
+  // UPDATE NOTES
   // If all props are present, use the legacy, single-level breadcrumb pattern
   if (to && parentTitle && title) {
     // Set the parent
@@ -109,14 +112,14 @@ function createBreadcrumbLinks(arr) {
       to,
       title: parentTitle,
       isLastItem: false,
-      isTruncatedGroup: false
+      isTruncated: false
     })
     // Set the child, no url
     breadcrumbObjects.push({
       to: '',
       title,
       isLastItem: true,
-      isTruncatedGroup: false
+      isTruncated: false
     })
     return breadcrumbObjects
   }
@@ -131,7 +134,7 @@ function createBreadcrumbLinks(arr) {
       // Replace hyphens
       let linkTitle = item.replaceAll('-', ' ')
 
-      // Notes
+      // ADD NOTES
       // if override has an index that matches this index, then replace title with tile in the Object
       if (overrideTitleGroup.length > 0) {
         const testIndex = index + 1
@@ -144,32 +147,32 @@ function createBreadcrumbLinks(arr) {
       let isLastItem
       index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
 
-      // Identify if breadcrumb item will be truncated
-      let isTruncatedGroup
-      // If breadcrumb pattern has more than four levels, identify the `...` (collapsed levels) from the breadcrumbs array
+      // CONFIRM LOGIC
+      // If breadcrumb pattern has more than four levels, identify if breadcrumb item will be truncated
+      let isTruncated
       if (arr.length > 4) {
         if (collapseBreadcrumbs.value) {
           isExpanded.value === false && index === 1
-            ? (isTruncatedGroup = true)
-            : (isTruncatedGroup = false)
+            ? (isTruncated = true)
+            : (isTruncated = false)
         }
       }
 
       breadcrumbObjects.push({
         to: linkTo,
         title: linkTitle,
-        isTruncatedGroup,
+        isTruncated,
         isLastItem,
       })
     })
 
-    // NOTE
+    // ADD NOTES
     // Handle truncation
     if (collapseBreadcrumbs.value) {
       const test = breadcrumbObjects.toSpliced(
         1,
         breadcrumbObjects.length - 3,
-        { title: '...', isTruncatedGroup: true, isLastItem: false }
+        { title: '...', isTruncated: true, isLastItem: false }
       )
       console.log('Collapsed breadcrumb objs: ', test)
       return test
@@ -181,6 +184,7 @@ function createBreadcrumbLinks(arr) {
   }
 }
 
+// NOTES: WILL THIS STILL BE NEEDED?
 // Event handler for parent breadcrumbs; if title prop is passed at page level as the final breadcrumb title, prevent it from from overriding a preceding parent title.
 function handleSetRouteTitle() {
   setRouteTitle.value = true
@@ -224,7 +228,7 @@ const parsedClasses = computed(() => {
       class="breadcrumb-wrapper"
     >
       <SmartLink
-        v-if="!linkObj.isLastItem && !linkObj.isTruncatedGroup"
+        v-if="!linkObj.isLastItem && !linkObj.isTruncated"
         :to="linkObj.to"
         class="parent-page-url"
         @click="handleSetRouteTitle()"
@@ -232,7 +236,7 @@ const parsedClasses = computed(() => {
       />
       <!-- Collapsed group should not link; set with button rather than SmartLink -->
       <button
-        v-else-if="!linkObj.isLastItem && linkObj.isTruncatedGroup"
+        v-else-if="!linkObj.isLastItem && linkObj.isTruncated"
         ref="collapsedBreadcrumbsBtn"
         class="parent-page-url collapsed-url"
         tabindex="0"
