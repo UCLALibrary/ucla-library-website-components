@@ -77,7 +77,9 @@ jobs:
             const isFork = pr.head.repo?.fork ? 'true' : 'false';
             core.setOutput('is_fork', isFork);
             core.setOutput('merge_ref', `refs/pull/${pr.number}/merge`);
-            core.info(`PR #${pr.number}: ${pr.head.repo.full_name}@${pr.head.ref} (fork=${isFork})`);
+            core.setOutput('head_ref', pr.head.ref);  // PR branch (source)
+            core.setOutput('base_ref', pr.base.ref);  // Base branch (target)
+            core.setOutput('pr_sha',  pr.head.sha);
 
   # ---------- MANUAL: internal PR (no environment gate) ----------
   percy-internal:
@@ -167,3 +169,6 @@ jobs:
           # NOTE: uses your fork secret name from your earlier snippet
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
           PERCY_TARGET_BRANCH: main
+          PERCY_BRANCH: pr-${{ github.event.inputs.pr_number }}-${{ needs.get-pr-info.outputs.head_ref }}
+          PERCY_PULL_REQUEST: ${{ github.event.inputs.pr_number }}
+          PERCY_COMMIT: ${{ needs.get-pr-info.outputs.pr_sha }}
