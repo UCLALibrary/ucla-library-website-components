@@ -14,6 +14,10 @@ const { placeholder } = defineProps({
     default: 'Enter keywords to search this website',
   },
 })
+
+// Emitting events
+const emit = defineEmits(['search-complete'])
+
 const theme = useTheme()
 const router = useRouter()
 const route = useRoute()
@@ -41,6 +45,7 @@ function doSearch() {
     path: '/search',
     query: { q: searchWords.value },
   })
+  emit('search-complete')
 }
 </script>
 
