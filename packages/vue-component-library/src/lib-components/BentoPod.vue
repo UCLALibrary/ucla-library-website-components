@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Props
 // Imports
 import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
 import SvgExternalLink from 'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
@@ -8,15 +7,6 @@ import DividerGeneral from './DividerGeneral.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import { useTheme } from '@/composables/useTheme'
 
-interface BentoPodProps {
-  title: string
-  description: string
-  buttonLabel?: string
-  buttonLink?: string
-  items: Array<Record<string, any>>
-  labelOpen?: string
-  labelClose?: string
-}
 const props = withDefaults(defineProps<BentoPodProps>(), {
   title: '',
   description: '',
@@ -29,6 +19,16 @@ const props = withDefaults(defineProps<BentoPodProps>(), {
 
 const theme = useTheme()
 
+// Props
+interface BentoPodProps {
+  title: string
+  description: string
+  buttonLabel?: string
+  buttonLink?: string
+  items: Array<Record<string, any>>
+  labelOpen?: string
+  labelClose?: string
+}
 // Data
 const isExpanded = ref(false)
 const itemsWrapper = ref<HTMLElement | null>(null)
@@ -105,15 +105,26 @@ onUnmounted(() => {
 
 <template>
   <div :class="classes">
-    <h4 v-if="title" class="title" v-html="title" />
-    <div v-if="description" class="description" v-html="description" />
+    <h4
+      v-if="title"
+      class="title"
+      v-html="title"
+    />
+    <div
+      v-if="description"
+      class="description"
+      v-html="description"
+    />
 
     <SmartLink
       v-if="buttonLabel && buttonLink"
       class="pod-button"
       :to="buttonLink"
     >
-      <span class="button-label underline-hover" v-html="buttonLabel" />
+      <span
+        class="button-label underline-hover"
+        v-html="buttonLabel"
+      />
       <SvgExternalLink aria-hidden="true" />
     </SmartLink>
 
@@ -125,7 +136,11 @@ onUnmounted(() => {
           :key="item.title ? item.title + index : index"
           class="item"
         >
-          <SmartLink v-if="item.to" :to="item.to" class="item-link">
+          <SmartLink
+            v-if="item.to"
+            :to="item.to"
+            class="item-link"
+          >
             <h5
               v-if="item.title"
               class="item-title"
@@ -144,21 +159,32 @@ onUnmounted(() => {
               :class="`item-${key}`"
             >
               <strong>{{ key }}:</strong>
-              <span class="detail" v-html="value" />
+              <span
+                class="detail"
+                v-html="value"
+              />
             </span>
           </div>
           <DividerGeneral class="divider" />
         </div>
       </div>
       <!-- Expandable extra items -->
-      <div ref="itemsWrapper" class="items" :style="wrapperStyles">
+      <div
+        ref="itemsWrapper"
+        class="items"
+        :style="wrapperStyles"
+      >
         <div
           v-for="(item, index) in extraItems"
           :key="item.title ? item.title + (index + 3) : index + 3"
           :ref="(el) => getItemRef(index)(el as HTMLElement | null)"
           class="item extra"
         >
-          <SmartLink v-if="item.to" :to="item.to" class="item-link">
+          <SmartLink
+            v-if="item.to"
+            :to="item.to"
+            class="item-link"
+          >
             <h5
               v-if="item.title"
               class="item-title"
@@ -177,7 +203,10 @@ onUnmounted(() => {
               :class="`item-${key}`"
             >
               <strong>{{ key }}:</strong>
-              <span class="detail" v-html="value" />
+              <span
+                class="detail"
+                v-html="value"
+              />
             </span>
           </div>
           <DividerGeneral class="divider" />
@@ -191,10 +220,20 @@ onUnmounted(() => {
       :aria-expanded="isExpanded"
       @click="toggle"
     >
-      <transition name="fade-label" mode="out-in">
-        <span :key="dynamicLabel" class="label" v-html="dynamicLabel" />
+      <transition
+        name="fade-label"
+        mode="out-in"
+      >
+        <span
+          :key="dynamicLabel"
+          class="label"
+          v-html="dynamicLabel"
+        />
       </transition>
-      <SvgArrowDown aria-hidden="true" class="caret-icon" />
+      <SvgArrowDown
+        aria-hidden="true"
+        class="caret-icon"
+      />
     </button>
   </div>
 </template>
