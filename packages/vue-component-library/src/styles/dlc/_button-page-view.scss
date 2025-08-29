@@ -1,0 +1,81 @@
+.button-page-view,
+.button-page-view.dlc {
+    display: flex;
+    gap: 2px;
+
+    .button-wrapper {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        padding: 0;
+
+        background-color: var(--color-primary-blue-01);
+        transition: background-color 0.2s ease-out;
+
+        cursor: pointer;
+
+        &.active {
+            background-color: var(--color-primary-blue-05);
+        }
+    }
+    .icon {
+        width: 40px;
+        height: 40px;
+        display: block;
+    }
+
+    // Unified styling for both list and gallery icons
+    .icon.list,
+    .icon.gallery {
+        :deep() {
+            rect {
+                fill: transparent;
+                stroke: transparent;
+                transition: stroke 0.2s ease-out, fill 0.2s ease-out;
+            }
+            path {
+                fill: var(--color-primary-blue-05);
+                stroke: var(--color-primary-blue-05);
+                transition: stroke 0.2s ease-out, fill 0.2s ease-out;
+            }
+        }
+    }
+
+    // Active state for both icons
+    .button-wrapper.active .icon.list,
+    .button-wrapper.active .icon.gallery {
+        :deep() {
+            rect {
+                fill: transparent;
+                stroke: transparent;
+            }
+            path {
+                fill: var(--color-white);
+                stroke: var(--color-white);
+            }
+        }
+    }
+
+    // Hover states
+    @media #{$has-hover} {
+        .button-wrapper:hover {
+            background-color: var(--color-primary-blue-03);
+
+            // Hover state for both icons
+            .icon.list,
+            .icon.gallery {
+                :deep() {
+                    rect {
+                        fill: transparent;
+                        stroke: transparent;
+                    }
+                    path {
+                        fill: var(--color-white);
+                        stroke: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+}
