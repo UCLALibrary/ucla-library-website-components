@@ -1,7 +1,7 @@
 # UCLA Components list 
 
 ## Buttons and Interface
-[] ButtonIIIf ()
+[] ButtonIIIf (Svebor)
 - need to add this svg to The UCLA svg repo
 A single svg button, changes the color of letter svgs on hover
 
@@ -98,7 +98,8 @@ Displays the number of results returned in a search.
 - prefix?: string (e.g. "Catalog")  
 - animate?: boolean
 
-[] RefineSearchPanel  
+[] RefineSearchPanel ()
+
 Collapsible panel of dropdown filters for refining search results.
 
 - filters: Array<{  
@@ -110,7 +111,8 @@ Collapsible panel of dropdown filters for refining search results.
 - onFilterChange: Function(label: string, selected: string | string[])  
 - defaultOpen?: string[] (filters to open by default)
 
-[] FiltersDropdown  
+[] FiltersDropdown ()
+
 Collapsible panel of dropdown filters for refining search results with multiple options
 
 - name: string
@@ -121,7 +123,8 @@ Collapsible panel of dropdown filters for refining search results with multiple 
 - defaultOpen?: string[] (filters to open by default)
   
 
-[] AlphabeticalBrowseBy
+[] AlphabeticalBrowseBy ()
+
 Interactive list to sort results Alphabetically
 
 - selectedLetterProp: String,
@@ -129,7 +132,8 @@ Interactive list to sort results Alphabetically
 
 ## Dropdowns
 
-[] DropdownSingleSelect  
+[] DropdownSingleSelect(Svebor)
+
 Reusable dropdown with configurable button label and menu options.
 
 - label: string  
@@ -138,7 +142,8 @@ Reusable dropdown with configurable button label and menu options.
 - onSelect: Function(option: string)
 
 
-[] ButtonDropdownSearch
+[] ButtonDropdownSearch (Svebor)
+
 Set of dropdowns to filter/search content by fields like “Title” or “Subject.”
 
 - label: string  
@@ -146,14 +151,16 @@ Set of dropdowns to filter/search content by fields like “Title” or “Subje
 - selected: string  
 - onSelect: Function(option: string)
 
-[] ButtonUCLALibrariesDropdown  
+[] ButtonUCLALibrariesDropdown ()
+
 Dropdown for selecting from multiple library collections. Appears in tag-chip format.
 
 - label: string  
 - libraries: Array<string>  
 - onSelect: Function(library: string)
 
-[] YearRangeFilter or DateFilter
+[] YearRangeFilter or DateFilter ()
+
 Range selector with start and end year inputs and a confirm button.
 
 - minYear: number  
@@ -230,12 +237,13 @@ Visual card for a digital collection or category.
 - href: string
 
 [] MetadataTable (Svebor) 
+
 Tabular list of metadata key-value pairs (e.g. Rights Contact, Rights Holder).
 
 - items: Array<{ label: string, value: string | string[] }>  
 - title?: string
 
-[] BlockMediaViewer  
+[] BlockMediaViewer ()
 Embeds an IIIF viewer, image, or video with optional caption.
 
 - title?: string  
@@ -325,7 +333,8 @@ Horizontal scrollable container of `BentoPod`(Aka: BentoBoxBlock - new addition 
 
 ## Header
 
-[] Banner  
+[] Banner ()
+
 Universal top banner with UCLA branding. Often pinned to the top of all pages, may contain global notices or links.
 
 - label: string  
@@ -334,7 +343,8 @@ Universal top banner with UCLA branding. Often pinned to the top of all pages, m
 - textColor?: string  
 - isSticky?: boolean
 
-[] Header        
+[] Header ()
+
 Primary site navigation including logo, main links, and utility search bar.
 
 - logo: { label: string, href: string }  
@@ -348,7 +358,8 @@ Primary site navigation including logo, main links, and utility search bar.
 
 ## Footer 
 
-[x] Footer
+[x] Footer ()
+
 Main site footer for UCLA Library, assembling social links, navigation, and newsletter signup.
 
 - socialLinks: Array<{ label: string, href: string }>  
@@ -356,7 +367,8 @@ Main site footer for UCLA Library, assembling social links, navigation, and news
 - copyright?: string
 - newsletter
 
-[x] NewsletterSignup  
+[x] NewsletterSignup ()
+
 Standalone newsletter form for email subscription.
 
 - headline: string  
@@ -380,7 +392,8 @@ Top navigation bar for asset pages, including pagination, collection name, and b
 - onNext: Function  
 - onPrev: Function
 
-[] DetailMedia  
+[] DetailMedia ()
+
 Large asset viewer for images or media, with zoom/download/fullscreen buttons.
 
 - title: string  
@@ -447,7 +460,16 @@ Sidebar or inline nav with jump links to sections on the same page.
 
 - title?: string (e.g. "Topics Covered")  
 - items: Array<{ label: string, href: string }>  
-- sticky?: boolean
+
+
+[] PanelAnchorNav (Luka)
+
+A floating anchor navigation panel that appears after the user scrolls one full viewport height (100vh).
+An icon is shown on the right side of the screen; clicking it opens a side panel with jump links to sections on the same page.
+
+- title?: string (e.g. "Topics Covered")  
+- items: Array<{ label: string, href: string }>  
+
 
 
 
@@ -458,7 +480,7 @@ Sidebar or inline nav with jump links to sections on the same page.
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
 | ButtonIIIF                 |           | ☐ Complete  |   [ ]   |                                |
-| Button                     |Luka       | ☐ Complete  |   []   |                                |
+| Button                     |Luka       | ☐ Complete  |   [ ]   |                                |
 | DividerGeneral             |           | ☐ Complete  |   [x]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonTag                  |Luka       | ☐ Complete  |   [x]   | aka: BlockTag                  |
@@ -474,8 +496,8 @@ Sidebar or inline nav with jump links to sections on the same page.
 | RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
 | FiltersDropdown            |           | ☐ Complete  |   [x]   |                                |
 | AlphabeticalBrowseBy       |           | ☐ Complete  |   [x]   |                                | 
-| DropdownSingleSelect       |           | ☐ Complete  |   [x]   |                                |
-| ButtonDropdownSearch       |           | ☐ Complete  |   [ ]   |                                |
+| DropdownSingleSelect       |Svebor     | ☐ Complete  |   [ ]   |                                |
+| ButtonDropdownSearch       |Svebor     | ☐ Complete  |   [ ]   |                                |
 | ButtonUCLALibrariesDropdown|           | ☐ Complete  |   [ ]   |                                |
 | YearRangeFilter            |           | ☐ Complete  |   [x]   | aka DateFilter?                |
 | BentoPod                   |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
@@ -506,4 +528,5 @@ Sidebar or inline nav with jump links to sections on the same page.
 | BlockTitle                 |Luka       | ☐ Complete  |   [ ]   |                                |
 | BlockButtons               |Luka       | ☐ Complete  |   [ ]   |                                |
 | ContentSection             |Luka       | ☐ Complete  |   [ ]   |                                |
-| BlockAnchorNav             |           | ☐ Complete  |   [ ]   | aka: In-page TOC               |
+| BlockAnchorNav             |Luka       | ☐ Complete  |   [ ]   |                                |
+| PanelAnchorNav             |Luka       | ☐ Complete  |   [ ]   |                                |
