@@ -155,6 +155,7 @@ export function FTVADefault() {
             :button-text="buttonText"
             :button-url="buttonUrl"
             :cover-image="coverImage"
+            :type-media="typeMedia"
         />
     `,
   }
