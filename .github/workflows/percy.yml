@@ -61,28 +61,38 @@ jobs:
     outputs:
       is_fork: ${{ steps.info.outputs.is_fork }}
       merge_ref: ${{ steps.info.outputs.merge_ref }}
-      head_ref: ${{ steps.info.outputs.head_ref }} # <-- add
-      base_ref: ${{ steps.info.outputs.base_ref }} # <-- add
-      pr_sha: ${{ steps.info.outputs.pr_sha }} # <-- add
+      head_ref: ${{ steps.info.outputs.head_ref }}
+      head_ref_sanitized: ${{ steps.info.outputs.head_ref_sanitized }} # <-- add
+      base_ref: ${{ steps.info.outputs.base_ref }}
+      pr_sha: ${{ steps.info.outputs.pr_sha }}
     steps:
       - id: info
+        # actions/github-script lets us compute and set outputs
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const prNum = Number('${{ github.event.inputs.pr_number }}');
             if (!Number.isInteger(prNum)) core.setFailed(`Invalid pr_number: "${prNum}"`);
+
             const { data: pr } = await github.rest.pulls.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: prNum,
             });
-            const isFork = pr.head.repo?.fork ? 'true' : 'false';
+
+            const isFork  = pr.head.repo?.fork ? 'true' : 'false';
+            const headRef = pr.head.ref;   // e.g. "feat/buttons/page-view"
+            const baseRef = pr.base.ref;   // e.g. "main"
+
+            // Sanitize for use in env/labels: replace anything not [A-Za-z0-9_.-] with '-'
+            const sanitized = headRef.replace(/[^\w.-]+/g, '-');
+
             core.setOutput('is_fork', isFork);
             core.setOutput('merge_ref', `refs/pull/${pr.number}/merge`);
-            core.setOutput('head_ref', pr.head.ref);
-            core.setOutput('base_ref', pr.base.ref);
-            core.setOutput('pr_sha',  pr.head.sha);
+            core.setOutput('head_ref', headRef);
+            core.setOutput('head_ref_sanitized', sanitized);  // <-- new
+            core.setOutput('base_ref', baseRef);
 
   # ---------- MANUAL: internal PR (no environment gate) ----------
   percy-internal:
@@ -172,6 +182,6 @@ jobs:
           # NOTE: uses your fork secret name from your earlier snippet
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK }}
           PERCY_TARGET_BRANCH: main
-          PERCY_BRANCH: pr-${{ github.event.inputs.pr_number }}-${{ replace(needs.get-pr-info.outputs.head_ref, '/', '-') }}
+          PERCY_BRANCH: pr-${{ github.event.inputs.pr_number }}-${{ needs.get-pr-info.outputs.head_ref_sanitized }}
           PERCY_PULL_REQUEST: ${{ github.event.inputs.pr_number }}
           PERCY_COMMIT: ${{ github.sha }}
