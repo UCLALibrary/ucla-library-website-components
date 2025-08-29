@@ -86,20 +86,9 @@ function TemplateNoTheme(args) {
     }
 }
 
-export const WithButtons = Template.bind({})
-WithButtons.args = { title: "Metadata with Buttons", items: baseItems }
-
 export const Default = Template.bind({})
 Default.args = { title: "Access Condition", items: baseItems }
 
-export const WithImage = Template.bind({})
-WithImage.args = {
-    title: "Metadata with Image",
-    items: [
-        ...baseItems,
-        { label: "Logo", value: { text: "" }, image: API.image },
-    ],
-}
 
 export const ImageAndText = Template.bind({})
 ImageAndText.args = {
