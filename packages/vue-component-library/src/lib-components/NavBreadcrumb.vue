@@ -9,14 +9,16 @@ import { useTheme } from '@/composables/useTheme'
 import SmartLink from '@/lib-components/SmartLink.vue'
 
 /* Note:
-  Setting all props at page-level defaults to the legacy pattern of a single-level breadcrumb.
+  Setting the to, parentTitle and title props at page-level defaults to the legacy pattern of a single-level breadcrumb.
 
   The library website currently uses the legacy pattern.
 
   For non-legacy behavior/use cases (FTVA, et al), breadcrumbs are parsed from the route; with the option to set the final breadcrumb title from route data or at page-level with the 'title' prop.
   */
 
-const { to, parentTitle, title } = defineProps({
+// UPDATE LAST POINT
+
+const { to, parentTitle, title, overrideTitleGroup } = defineProps({
   to: {
     type: String,
     default: '',
@@ -28,6 +30,12 @@ const { to, parentTitle, title } = defineProps({
   title: {
     type: String,
     default: '',
+  },
+  overrideTitleGroup: {
+    type: Array,
+    default: () => ([])
+    // Array of objects:
+    // { titleLevel: number, updatedTitle: string}
   }
 })
 
@@ -44,13 +52,14 @@ const collapsedBreadcrumbsBtn = ref()
 const setRouteTitle = ref(false)
 
 onMounted(() => {
-  // Watch for changes in window width only after the component is mounted
+  // Watch for changes in window width after component is mounted
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
     isMobile.value = newWidth <= 1200
   }, { immediate: true })
 })
 
+// Get breadcrumb items from route; clean up strings
 const parsedBreadcrumbs = computed(() => {
   let path = route.path
 
@@ -76,7 +85,7 @@ const parsedBreadcrumbLinks = computed(() => {
 
   const breadcrumbListLength = breadcrumbsList.length
 
-  if (breadcrumbListLength > 4)
+  if (breadcrumbListLength > 4 && !isExpanded.value)
     setCollapseBreadcrumbs()
 
   if (isMobile.value) {
@@ -87,88 +96,98 @@ const parsedBreadcrumbLinks = computed(() => {
     // Display parent item only
     return mobileBreadcrumb.splice(0, 1)
   }
-  else if (!isMobile.value) {
-    if (breadcrumbListLength > 4 && !isExpanded.value) {
-      setLinkExpansion()
-
-      // Keep 1st and last 2 items in breadcrumbs array
-      // Replace deleted items with `...`
-      const truncatedBreadcrumbsList = breadcrumbsList.toSpliced(
-        1,
-        breadcrumbListLength - 3,
-        '...'
-      )
-
-      return createBreadcrumbLinks(truncatedBreadcrumbsList)
-    }
-  }
 
   return createBreadcrumbLinks(breadcrumbsList)
 })
 
 // METHODS
 function createBreadcrumbLinks(arr) {
-  const breadCrumbObjects = []
+  const breadcrumbObjects = []
 
-  // if all props are present, use the legacy single-level breadcrumb pattern
+  // UPDATE NOTES
+  // If all props are present, use the legacy, single-level breadcrumb pattern
   if (to && parentTitle && title) {
     // Set the parent
-    breadCrumbObjects.push({
+    breadcrumbObjects.push({
       to,
       title: parentTitle,
       isLastItem: false,
-      isTruncatedGroup: false
+      isTruncated: false
     })
     // Set the child, no url
-    breadCrumbObjects.push({
+    breadcrumbObjects.push({
       to: '',
       title,
       isLastItem: true,
-      isTruncatedGroup: false
+      isTruncated: false
     })
-    return breadCrumbObjects
+    return breadcrumbObjects
   }
+  // Otherwise format breadcrumbs based on route
   else {
-    // otherwise format breadcrumbs based on route
     arr.forEach((item, index) => {
+      // Recreate a link for the breadcrumb item
       const linkLength = item.length
-
       const linkIndex = route.path.indexOf(item)
-
-      // Recreate a link for the item
       const linkTo = route.path.substring(0, linkLength + linkIndex)
 
-      const linkTitle = item.replaceAll('-', ' ')
+      // Replace hyphens
+      let linkTitle = item.replaceAll('-', ' ')
 
+      // ADD NOTES
+      // if override has an index that matches this index, then replace title with tile in the Object
+      if (overrideTitleGroup.length > 0) {
+        const testIndex = index + 1
+        const test = overrideTitleGroup.find(obj => obj.titleLevel === testIndex)
+        if (test)
+          linkTitle = test.updatedTitle
+      }
+
+      // Identify if breadcrumb item is the last item
       let isLastItem
       index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
 
-      // If breadcrumb pattern has more than four levels, identify the `...` (collapsed levels) from the breadcrumbs array
-      let isTruncatedGroup
-      if (collapseBreadcrumbs.value) {
-        isExpanded.value === false && index === 1
-          ? (isTruncatedGroup = true)
-          : (isTruncatedGroup = false)
+      // CONFIRM LOGIC
+      // If breadcrumb pattern has more than four levels, identify if breadcrumb item will be truncated
+      let isTruncated
+      if (arr.length > 4) {
+        if (collapseBreadcrumbs.value) {
+          isExpanded.value === false && index === 1
+            ? (isTruncated = true)
+            : (isTruncated = false)
+        }
       }
 
-      breadCrumbObjects.push({
+      breadcrumbObjects.push({
         to: linkTo,
         title: linkTitle,
-        isTruncatedGroup,
+        isTruncated,
         isLastItem,
       })
     })
-    return breadCrumbObjects
+
+    // ADD NOTES
+    // Handle truncation
+    if (collapseBreadcrumbs.value) {
+      const test = breadcrumbObjects.toSpliced(
+        1,
+        breadcrumbObjects.length - 3,
+        { title: '...', isTruncated: true, isLastItem: false }
+      )
+      console.log('Collapsed breadcrumb objs: ', test)
+      return test
+    }
+    else {
+      console.log('Expanded breadcrumb objs: ', breadcrumbObjects)
+      return breadcrumbObjects
+    }
   }
 }
 
+// NOTES: WILL THIS STILL BE NEEDED?
 // Event handler for parent breadcrumbs; if title prop is passed at page level as the final breadcrumb title, prevent it from from overriding a preceding parent title.
 function handleSetRouteTitle() {
   setRouteTitle.value = true
-}
-
-function setLinkExpansion() {
-  isExpanded.value = false
 }
 
 function setCollapseBreadcrumbs() {
@@ -176,7 +195,8 @@ function setCollapseBreadcrumbs() {
 }
 
 function toggleLinksExpansion() {
-  isExpanded.value = !isExpanded.value
+  isExpanded.value = true
+  collapseBreadcrumbs.value = false
   collapsedBreadcrumbsBtn.value[0].classList.remove('collapsed-url')
 }
 
@@ -208,7 +228,7 @@ const parsedClasses = computed(() => {
       class="breadcrumb-wrapper"
     >
       <SmartLink
-        v-if="!linkObj.isLastItem && !linkObj.isTruncatedGroup"
+        v-if="!linkObj.isLastItem && !linkObj.isTruncated"
         :to="linkObj.to"
         class="parent-page-url"
         @click="handleSetRouteTitle()"
@@ -216,7 +236,7 @@ const parsedClasses = computed(() => {
       />
       <!-- Collapsed group should not link; set with button rather than SmartLink -->
       <button
-        v-else-if="!linkObj.isLastItem && linkObj.isTruncatedGroup"
+        v-else-if="!linkObj.isLastItem && linkObj.isTruncated"
         ref="collapsedBreadcrumbsBtn"
         class="parent-page-url collapsed-url"
         tabindex="0"
