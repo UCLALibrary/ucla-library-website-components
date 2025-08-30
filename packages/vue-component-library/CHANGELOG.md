@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.4...@ucla-library-monorepo/ucla-library-website-components-v1.29.0) (2025-08-30)
+
+
+### Features
+
+* Add ButtonPageView ([#774](https://github.com/UCLALibrary/ucla-library-website-components/issues/774)) ([2f32157](https://github.com/UCLALibrary/ucla-library-website-components/commit/2f321574666403bb5ba80463438bd2bca203f9bf))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.28.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.3...@ucla-library-monorepo/ucla-library-website-components-v1.28.4) (2025-08-28)
 
 
