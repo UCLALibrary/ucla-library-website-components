@@ -93,6 +93,7 @@ jobs:
             core.setOutput('head_ref', headRef);
             core.setOutput('head_ref_sanitized', sanitized);  // <-- new
             core.setOutput('base_ref', baseRef);
+            core.setOutput('pr_sha', pr.head.sha);
 
   # ---------- MANUAL: internal PR (no environment gate) ----------
   percy-internal:
@@ -184,4 +185,4 @@ jobs:
           PERCY_TARGET_BRANCH: main
           PERCY_BRANCH: pr-${{ github.event.inputs.pr_number }}-${{ needs.get-pr-info.outputs.head_ref_sanitized }}
           PERCY_PULL_REQUEST: ${{ github.event.inputs.pr_number }}
-          PERCY_COMMIT: ${{ github.sha }}
+          PERCY_COMMIT: ${{ needs.get-pr-info.outputs.pr_sha }}
