@@ -29,7 +29,7 @@ export function Default() {
               iconName: ButtonLinkIcons.ARROW_RIGHT,
             },
             {
-              label: 'Contact Us',
+              label: 'Contact Us ',
               to: 'https://google.com',
               variant: ButtonLinkVariants.TERTIARY,
             },
