@@ -244,10 +244,10 @@ const parsedClasses = computed(() => {
           @click="toggleLinksExpansion()"
           v-text="linkObj.title"
         />
-        <SvgIconCaretRight
+        <!-- <SvgIconCaretRight
           v-if="!linkObj.isLastItem"
           aria-hidden="true"
-        />
+        /> -->
 
         <!-- Final Breadcrumb Logic -->
 
@@ -257,10 +257,10 @@ const parsedClasses = computed(() => {
           class="parent-page-url"
           v-text="linkObj.title"
         />
-        <SvgIconCaretRight
+        <!-- <SvgIconCaretRight
           v-if="linkObj.isLastItem && setRouteTitle"
           aria-hidden="true"
-        />
+        /> -->
         <!-- Set final breadcrumb with prop title if available -->
         <span
           v-else-if="linkObj.isLastItem && title"

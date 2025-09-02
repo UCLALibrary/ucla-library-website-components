@@ -31,16 +31,24 @@
         align-items: center;
     }
 
+    li+li::before {
+        // content: '$';
+        content: url('ucla-library-design-tokens/assets/svgs/icon-caret-right.svg');
+        position: relative;
+        top: 5px;
+    }
+
     .parent-page-url {
         @include step-1;
         color: var(--color-primary-blue-03);
         flex-shrink: 0;
     }
 
-    .svg__icon-caret-right,
-    .svg__icon-caret-left {
-        flex-shrink: 0;
-    }
+    // .svg__icon-caret-right,
+    // .svg__icon-caret-left 
+    // {
+        // flex-shrink: 0;
+    // }
 
     .collapsed-url {
         padding: 0;
@@ -65,14 +73,25 @@
     }
 
     @media (max-width: 1199px) {
-        padding-left: calc(var(--unit-gutter) - 8px);
+        // padding-left: calc(var(--unit-gutter) - 8px);
 
-        .svg__icon-caret-right {
-            order: 1;
-            transform: rotate(180deg);
-            position: relative;
-            top: 2px;
+        // .svg__icon-caret-right {
+        //     order: 1;
+        //     transform: rotate(180deg);
+        //     position: relative;
+        //     top: 2px;
+        // }
+        ol {
+            padding-left: calc(var(--unit-gutter) - 8px);
         }
+
+            li::after {
+        // content: '$';
+        content: url('ucla-library-design-tokens/assets/svgs/icon-caret-left.svg');
+        position: relative;
+        top: 5px;
+    }
+
 
         .current-page-title {
             display: none;
