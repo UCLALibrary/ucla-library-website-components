@@ -228,7 +228,7 @@ export function LongLabels() {
               iconName: ButtonLinkIcons.EXTERNAL_LINK,
             },
             {
-              label: 'Another very long label to ensure the component handles multiple oversized buttons without breaking the grid or alignment',
+              label: 'Short label',
               to: 'https://google.com',
               iconName: ButtonLinkIcons.NONE,
             },
