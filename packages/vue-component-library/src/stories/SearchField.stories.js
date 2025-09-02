@@ -12,7 +12,7 @@ const template = `
         v-bind="props"
         @submit="handleSubmit" 
     />
-
+ 
     <i>This string is not part of the component, but is used to demonstrate the functionality of the <strong>SearchField</strong> component.</i>
     <br>You submitted: {{ searchValue }}
 </div>
