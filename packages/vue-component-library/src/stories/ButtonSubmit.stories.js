@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import ButtonSubmit from '@/lib-components/ButtonSubmit'
 
 export default {
-  title: 'Funkhaus / ButtonSubmit',
+  title: 'Funkhaus / Button Submit',
   component: ButtonSubmit,
 }
 
