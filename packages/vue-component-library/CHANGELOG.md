@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.4...@ucla-library-monorepo/ucla-library-website-components-v1.29.0) (2025-08-30)
+
+
+### Features
+
+* Add ButtonPageView ([#774](https://github.com/UCLALibrary/ucla-library-website-components/issues/774)) ([2f32157](https://github.com/UCLALibrary/ucla-library-website-components/commit/2f321574666403bb5ba80463438bd2bca203f9bf))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.28.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.3...@ucla-library-monorepo/ucla-library-website-components-v1.28.4) (2025-08-28)
+
+
+### Bug Fixes
+
+* APPS 3414 Fix Double Pagination Numbers ([#796](https://github.com/UCLALibrary/ucla-library-website-components/issues/796)) ([d0ee682](https://github.com/UCLALibrary/ucla-library-website-components/commit/d0ee68243ff366975357f456896b9b9e82124df3))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.28.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.2...@ucla-library-monorepo/ucla-library-website-components-v1.28.3) (2025-08-22)
 
 
