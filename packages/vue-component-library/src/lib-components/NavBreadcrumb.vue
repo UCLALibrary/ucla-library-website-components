@@ -221,58 +221,62 @@ const parsedClasses = computed(() => {
 </script>
 
 <template>
-  <div :class="parsedClasses">
-    <span
-      v-for="linkObj in parsedBreadcrumbLinks"
-      :key="linkObj.title"
-      class="breadcrumb-wrapper"
-    >
-      <SmartLink
-        v-if="!linkObj.isLastItem && !linkObj.isTruncated"
-        :to="linkObj.to"
-        class="parent-page-url"
-        @click="handleSetRouteTitle()"
-        v-text="linkObj.title"
-      />
-      <!-- Collapsed group should not link; set with button rather than SmartLink -->
-      <button
-        v-else-if="!linkObj.isLastItem && linkObj.isTruncated"
-        ref="collapsedBreadcrumbsBtn"
-        class="parent-page-url collapsed-url"
-        tabindex="0"
-        @click="toggleLinksExpansion()"
-        v-text="linkObj.title"
-      />
-      <SvgIconCaretRight
-        v-if="!linkObj.isLastItem"
-        aria-hidden="true"
-      />
+  <div :class="parsedClasses" aria-label="breadcrumbs">
+    <ol>
+      <li
+        v-for="linkObj in parsedBreadcrumbLinks"
+        :key="linkObj.title"
+        class="breadcrumb-wrapper"
+      >
+        <SmartLink
+          v-if="!linkObj.isLastItem && !linkObj.isTruncated"
+          :to="linkObj.to"
+          class="parent-page-url"
+          @click="handleSetRouteTitle()"
+          v-text="linkObj.title"
+        />
+        <!-- Collapsed group should not link; set with button rather than SmartLink -->
+        <button
+          v-else-if="!linkObj.isLastItem && linkObj.isTruncated"
+          ref="collapsedBreadcrumbsBtn"
+          class="parent-page-url collapsed-url"
+          tabindex="0"
+          @click="toggleLinksExpansion()"
+          v-text="linkObj.title"
+        />
+        <SvgIconCaretRight
+          v-if="!linkObj.isLastItem"
+          aria-hidden="true"
+        />
 
-      <!-- Final Breadcrumb Logic -->
+        <!-- Final Breadcrumb Logic -->
 
-      <!-- Prevent final [prop] title/breadcrumb from overriding a parent title -->
-      <span
-        v-if="linkObj.isLastItem && setRouteTitle"
-        class="parent-page-url"
-        v-text="linkObj.title"
-      />
-      <SvgIconCaretRight
-        v-if="linkObj.isLastItem && setRouteTitle"
-        aria-hidden="true"
-      />
-      <!-- Set final breadcrumb with prop title if available -->
-      <span
-        v-else-if="linkObj.isLastItem && title"
-        class="current-page-title"
-        v-text="title"
-      />
-      <!-- Set final breadcrumb with route title if prop title is unavailable -->
-      <span
-        v-else-if="linkObj.isLastItem"
-        class="current-page-title"
-        v-text="linkObj.title"
-      />
-    </span>
+        <!-- Prevent final [prop] title/breadcrumb from overriding a parent title -->
+        <span
+          v-if="linkObj.isLastItem && setRouteTitle"
+          class="parent-page-url"
+          v-text="linkObj.title"
+        />
+        <SvgIconCaretRight
+          v-if="linkObj.isLastItem && setRouteTitle"
+          aria-hidden="true"
+        />
+        <!-- Set final breadcrumb with prop title if available -->
+        <span
+          v-else-if="linkObj.isLastItem && title"
+          class="current-page-title"
+          aria-current="page"
+          v-text="title"
+        />
+        <!-- Set final breadcrumb with route title if prop title is unavailable -->
+        <span
+          v-else-if="linkObj.isLastItem"
+          class="current-page-title"
+          aria-current="page"
+          v-text="linkObj.title"
+        />
+      </li>
+    </ol>
   </div>
 </template>
 
