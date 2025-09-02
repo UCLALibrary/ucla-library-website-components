@@ -1,8 +1,8 @@
 $input-background: #f6f9fc;
 $icon-color: darken($input-background, 30%);
 
-.search-input-wrapper,
-.dlc.search-input-wrapper {
+.entry-field,
+.dlc.entry-field {
     position: relative;
 
     input[data-search-input="true"] {
