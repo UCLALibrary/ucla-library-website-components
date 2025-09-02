@@ -76,7 +76,7 @@ const isClearIconShown = computed(
   () => props.clearIcon && !!props.modelValue && props.modelValue.length > 0
 )
 const classes = computed(() => [
-  'search-input-wrapper',
+  'entry-field',
   isClearIconShown.value ? 'is-clear-icon-shown' : '',
   attrs.class ?? props.wrapperClass,
   theme?.value || '',
