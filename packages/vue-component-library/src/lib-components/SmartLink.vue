@@ -29,14 +29,19 @@ export default {
     },
     parsedTo() {
       if (this.isRelative && !this.isDownload && !this.parsedTarget) {
-        if (this.to !== '/' && !this.to.endsWith('/') && !this.to.includes('q=') && !this.to.includes('&filters='))
-
+        if (
+          this.to !== '/'
+                    && !this.to.endsWith('/')
+                    && !this.to.includes('q=')
+                    && !this.to.includes('&filters=')
+                    && !this.to.includes('?view=')
+        )
           return `${this.to}/`
 
         return this.to
       }
       return this.to
-    }
+    },
   },
 }
 </script>
@@ -50,12 +55,7 @@ export default {
     <slot />
   </router-link>
 
-  <a
-    v-else-if="isDownload"
-    :href="to"
-    class="smart-link is-link"
-    download
-  >
+  <a v-else-if="isDownload" :href="to" class="smart-link is-link" download>
     <slot />
   </a>
 
@@ -68,18 +68,15 @@ export default {
     <slot />
   </a>
 
-  <button
-    v-else
-    class="smart-link is-link"
-  >
+  <button v-else class="smart-link is-link">
     <slot />
   </button>
 </template>
 
 <style lang="scss" scoped>
 .link-icon {
-  &:hover {
-    @include link-hover;
-  }
+    &:hover {
+        @include link-hover;
+    }
 }
 </style>
