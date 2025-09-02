@@ -27,8 +27,6 @@ const config: StorybookConfig = {
                         additionalData: `
                             @import "ucla-library-design-tokens/scss/fonts.scss";
                             @import "ucla-library-design-tokens/scss/_tokens-ftva";
-                            @import "ucla-library-design-tokens/scss/_tokens-dlc.scss";
-                            @import "ucla-library-design-tokens/scss/_tokens-css-dlc.scss";
                             @import "ucla-library-design-tokens/scss/app.scss";
                         `,
                     },
