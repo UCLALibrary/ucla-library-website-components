@@ -1,7 +1,7 @@
 {
   "name": "@ucla-library-monorepo/ucla-library-website-components",
   "type": "module",
-  "version": "1.28.3",
+  "version": "1.29.0",
   "homepage": "https://ucla-library-storybook.netlify.app/?path=/docs/configure-your-project--docs",
   "repository": {
     "type": "git",
@@ -106,5 +106,6 @@
   },
   "engines": {
     "pnpm": "^9.12.1"
-  }
+  },
+  "packageManager": "pnpm@9.12.1"
 }

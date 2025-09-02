@@ -94,23 +94,14 @@ function generatePageNumbers() {
   if (!pages)
     return null
 
-  const totalPages = pages
+  let maxDisplayPages
 
   if (fixedPageWidthMode) {
-    const maxDisplayPages = fixedPageWidthNum
-
-    if (totalPages < maxDisplayPages) {
-      for (let i = 1; i <= totalPages; i++)
-        generatedMiddlePages.value.push(i)
-    }
-    else {
-      generatedMiddlePages.value = calculateMiddlePages(maxDisplayPages, pages)
-    }
+    maxDisplayPages = fixedPageWidthNum
+    generatedMiddlePages.value = calculateMiddlePages(maxDisplayPages, pages)
   }
-
-  if (!fixedPageWidthMode) {
-    const maxDisplayPages = dynamicMaxPages.value
-
+  else {
+    maxDisplayPages = dynamicMaxPages.value
     generatedMiddlePages.value = calculateMiddlePages(maxDisplayPages, pages)
   }
 }
@@ -265,7 +256,7 @@ onMounted(() => {
               @click="handlePageChange(1)"
             >{{ 1 }}</SmartLink>
           </span>
-          <span v-if="generatedMiddlePages.indexOf(2) === -1" class="page-list-truncate">...</span>
+          <span v-if="generatedMiddlePages.indexOf(2) === -1 && pages > 2" class="page-list-truncate">...</span>
           <!-- Middle pages -->
           <SmartLink
             v-for="item in generatedMiddlePages" :key="item"
@@ -275,9 +266,9 @@ onMounted(() => {
           >
             {{ item }}
           </SmartLink>
-          <span v-if="generatedMiddlePages.indexOf(pages - 1) === -1" class="page-list-truncate">...</span>
+          <span v-if="generatedMiddlePages.indexOf(pages - 1) === -1 && pages > 2" class="page-list-truncate">...</span>
           <!-- Last page -->
-          <span class="page-list-last">
+          <span v-if="pages > 1" class="page-list-last">
             <SmartLink
               :class="`pButton${pages === currPage ? ' ' + 'pButton-selected' : ''}`"
               :active="currPage === pages" :to="generateLink(pages)" @click="handlePageChange(pages)"

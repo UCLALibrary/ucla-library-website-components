@@ -34,6 +34,7 @@ export default {
                     && !this.to.endsWith('/')
                     && !this.to.includes('q=')
                     && !this.to.includes('&filters=')
+                    && !this.to.includes('?view=')
         )
           return `${this.to}/`
 
