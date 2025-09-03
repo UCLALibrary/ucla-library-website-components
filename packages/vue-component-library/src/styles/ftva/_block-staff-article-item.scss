@@ -1,24 +1,36 @@
 .ftva.block-staff-article-item {
+  --image-min-width: 384px;
+  --image-aspect-ratio: 4/3;
+
   background-color: white;
 
+  .molecule-no-image,
   .image {
-    width: 284px;
-    height: 213px;
-    aspect-ratio: 4/3;
+    min-width: var(--image-min-width);
+    width: unset;
+    height: auto;
+    aspect-ratio: var(--image-aspect-ratio);
     margin-right: var(--space-xl);
   }
-
+  
   .meta {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-self: stretch;
+    gap: 16px;
     width: 100%;
-    height: 213px;
-    margin-top: 6px;
-
+    height: auto;
+    margin: 16px 0;
   }
 
   .category {
     @include ftva-subtitle-1;
     font-size: 20px;
+    line-height: 1;
     color: $accent-blue;
+    margin-bottom: unset
   }
 
   .title {
@@ -26,17 +38,16 @@
     color: $heading-grey;
     @include truncate(3);
     @include card-clickable-area;
-    margin-bottom: var(--space-s);
-    margin-bottom: 8px;
+    margin-bottom: unset
   }
 
   .description-summary-only {
     @include ftva-body;
     color: $body-grey;
     @include truncate(2);
-    margin-bottom: 16px;
+    margin-top: 8px;
   }
-
+/* TODO Remove .date css rules for ftva as we are using ftva-date class where this component is used on the different templates*/
   .date {
     position: absolute;
     bottom: var(--space-s);
@@ -49,6 +60,19 @@
 
     height: 70px;
     overflow: hidden;
+  }
+  /* TODO end */
+  .ftva-description {
+    @include ftva-body;
+    color: $body-grey;
+    @include truncate(2);
+  }
+  .ftva-date{
+    @include ftva-emphasized-subtitle;
+    color: $accent-blue;
+    line-height: 1;
+    letter-spacing: .04px;
+    margin-top: auto;
   }
 
   // Breakpoints
@@ -64,6 +88,10 @@
     // both the media border radius and this one are necessary
     border-radius: 10px;
     padding: 0;
+
+    .title {
+      @include truncate(2);
+    }
 
     :deep(.media) {
       border-radius: 10px 10px 0 0;
