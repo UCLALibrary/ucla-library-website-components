@@ -160,7 +160,7 @@ Dropdown for selecting from multiple library collections. Appears in tag-chip fo
 - libraries: Array<string>  
 - onSelect: Function(library: string)
 
-[] YearRangeFilter or DateFilter ()
+[] YearRangeFilter or DateFilter (Svebor)
 
 Range selector with start and end year inputs and a confirm button.
 
