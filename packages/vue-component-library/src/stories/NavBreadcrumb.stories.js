@@ -54,26 +54,21 @@ function DynamicModeTemplate(args) {
 
 export const CrumbsByRoute1Level = DynamicModeTemplate.bind({})
 CrumbsByRoute1Level.args = {
-  route: '/la-région-centrale-10-20-23-screening-03-08-24'
+  route: '/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24'
 }
 
 export const CrumbsByRoute2Levels = DynamicModeTemplate.bind({})
 CrumbsByRoute2Levels.args = {
-  route: '/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24'
-}
-
-export const CrumbsByRoute3Levels = DynamicModeTemplate.bind({})
-CrumbsByRoute3Levels.args = {
   route: '/events/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24'
 }
 
-export const Collapsed5Levels = DynamicModeTemplate.bind({})
-Collapsed5Levels.args = {
+export const Collapsed4Levels = DynamicModeTemplate.bind({})
+Collapsed4Levels.args = {
   route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article',
 }
 
-export const Collapsed8Levels = DynamicModeTemplate.bind({})
-Collapsed8Levels.args = {
+export const Collapsed7Levels = DynamicModeTemplate.bind({})
+Collapsed7Levels.args = {
   route: '/shop/products/electronics/mobile-phones/samsung/galaxy/z-series/sale',
 }
 
@@ -93,7 +88,7 @@ const titlesOverride1 = [{
 },
 {
   titleLevel: 3,
-  updatedTitle: 'Override Level 3'
+  updatedTitle: 'Override Level 3 (Final Title)'
 }]
 
 export const OverrideTitlesByOverrideProp1 = DynamicModeTemplate.bind({})
