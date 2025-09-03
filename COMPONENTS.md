@@ -151,8 +151,9 @@ Set of dropdowns to filter/search content by fields like “Title” or “Subje
 - selected: string  
 - onSelect: Function(option: string)
 
-[] ButtonUCLALibrariesDropdown ()
 
+[] ButtonUCLALibrariesDropdown (Svebor) 
+- this is a version of the above component - ButtonDropdownSearch
 Dropdown for selecting from multiple library collections. Appears in tag-chip format.
 
 - label: string  
