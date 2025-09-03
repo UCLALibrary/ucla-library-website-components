@@ -151,15 +151,16 @@ Set of dropdowns to filter/search content by fields like “Title” or “Subje
 - selected: string  
 - onSelect: Function(option: string)
 
-[] ButtonUCLALibrariesDropdown ()
 
+[] ButtonUCLALibrariesDropdown (Svebor) 
+- this is a version of the above component - ButtonDropdownSearch
 Dropdown for selecting from multiple library collections. Appears in tag-chip format.
 
 - label: string  
 - libraries: Array<string>  
 - onSelect: Function(library: string)
 
-[] YearRangeFilter or DateFilter ()
+[] YearRangeFilter or DateFilter (Svebor)
 
 Range selector with start and end year inputs and a confirm button.
 

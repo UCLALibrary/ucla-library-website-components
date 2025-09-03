@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.29.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.29.0...@ucla-library-monorepo/ucla-library-website-components-v1.29.1) (2025-09-02)
+
+
+### Bug Fixes
+
+* APPS-3396 change text below search bar ([#812](https://github.com/UCLALibrary/ucla-library-website-components/issues/812)) ([d680deb](https://github.com/UCLALibrary/ucla-library-website-components/commit/d680debc22121c8664ac3fcf8ebc38ec14c4cf02))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.4...@ucla-library-monorepo/ucla-library-website-components-v1.29.0) (2025-08-30)
 
 
