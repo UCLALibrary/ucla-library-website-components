@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import Button from '@/lib-components/Button.vue'
 import { ButtonColor, ButtonVariant } from '@/types/components/button.types'
 
@@ -16,6 +17,10 @@ export default {
       control: 'select',
       options: ['button', 'submit', 'reset'],
     },
+    color: {
+      control: 'select',
+      options: ['default', 'grey'],
+    },
     isDisabled: { control: 'boolean' },
     isOutlined: { control: 'boolean' },
     linkTarget: { control: 'text' },
@@ -33,6 +38,11 @@ function Template(args) {
   return {
     setup() {
       return { args }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
     },
     components: { Button },
     template: '<Button v-bind="args" @click="args.click" />',

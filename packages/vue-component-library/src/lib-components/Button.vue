@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import SmartLink from './SmartLink.vue'
 import type { ButtonProps } from '@/types/components/button.types'
 import { ButtonColor, ButtonVariant } from '@/types/components/button.types'
+import { useTheme } from '@/composables/useTheme'
 
 // Props
 const props = withDefaults(defineProps<ButtonProps>(), {
@@ -20,9 +21,12 @@ const emit = defineEmits<{
   click: [event: MouseEvent]
 }>()
 
+const theme = useTheme()
+
 // Computeds
 const classes = computed(() => [
   'button',
+  theme?.value || '',
   props.variant,
   props.color ? `color-${props.color}` : '',
   { 'is-outlined': props.isOutlined },
