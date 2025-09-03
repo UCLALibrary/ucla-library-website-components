@@ -1,11 +1,18 @@
 <script setup lang="ts">
 // Imports
 import SvgIconArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
+import { computed } from 'vue'
 import Button from './Button.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import { ButtonColor } from '@/types/components/button.types'
 import { formatNumber } from '@/utils/formatNumber.ts'
 import { pluralize } from '@/utils/pluralize.ts'
+import { useTheme } from '@/composables/useTheme'
+
+// Props
+defineProps<DetailHeaderProps>()
+
+const theme = useTheme()
 
 // Types
 interface DetailHeaderProps {
@@ -22,12 +29,12 @@ interface DetailHeaderProps {
   backTo?: string
 }
 
-// Props
-const props = defineProps<DetailHeaderProps>()
+// Computeds
+const classes = computed(() => ['detail-header', theme?.value || ''])
 </script>
 
 <template>
-  <div class="detail-header">
+  <div :class="classes">
     <div class="left">
       <div class="prev-next-container">
         <SmartLink v-if="previousTo" :to="previousTo" class="previous">
@@ -51,9 +58,10 @@ const props = defineProps<DetailHeaderProps>()
           class="results-number"
         >
           {{
-            `${formatNumber(totalResults)
-            } ${
-              pluralize(totalResults, "result")}`
+            `${formatNumber(totalResults)} ${pluralize(
+              totalResults,
+              "result",
+            )}`
           }}
         </div>
       </div>
@@ -68,8 +76,8 @@ const props = defineProps<DetailHeaderProps>()
 
     <div class="right">
       <Button
-        v-if="props.backTo"
-        :to="props.backTo"
+        v-if="backTo"
+        :to="backTo"
         class="back-button"
         :color="ButtonColor.Grey"
         text="Back to Search Results"

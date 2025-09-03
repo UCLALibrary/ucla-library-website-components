@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import DetailHeader from '@/lib-components/DetailHeader'
 
 /**
@@ -47,6 +48,11 @@ function Template(args) {
   return {
     setup() {
       return { args }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
     },
     components: { DetailHeader },
     template: '<DetailHeader v-bind="args" />',
