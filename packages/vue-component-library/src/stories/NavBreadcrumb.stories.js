@@ -3,12 +3,22 @@ import router from '@/router'
 import NavBreadcrumb from '@/lib-components/NavBreadcrumb'
 
 /**
- * Component description
+ * A component for navigational breadcrumbs
  *
- * Modes/Usage
+ * The component can be used in the following ways:
+ *
+ * 1. Legacy mode: Creates a single level breadcrumb of a parent title and child title; set with the `parentTitle`, `title`, `to` props at the page-level
+ * - Setting all three props initiates the legacy pattern
+ *
+ * 2. Dynamic/Route-based mode: Parse breadcrumb titles from a url route; with options to:
+ * - Override the final breadcrumb with the `title` prop
+ * - Override any nested breadcrumb title by using the `overrideTitleGroup` prop
  *
  * Props:
- *
+ * - to: A string url for the parentTitle in the legacy breadcrumb pattern
+ * - parentTitle: A string value for legacy breadcrumb pattern
+ * - title: A string value for setting the final breadcrumb title for either the legacy or route-based pattern
+ * - overrideTitleGroup: An array of objects to manually override breadcrumb titles; each object represents a breadcrumb to be overriden, and contains the breadcrumb's nested level (`titleLevel`: number) and the new title (`updatedTitle`: string)
  */
 
 // Storybook default settings
@@ -17,6 +27,7 @@ export default {
   component: NavBreadcrumb,
 }
 
+// Legacy breadcrumbs pattern
 function LegacyModeTemplate(args) {
   return {
     setup() {
@@ -27,12 +38,9 @@ function LegacyModeTemplate(args) {
   }
 }
 
-// Legacy breadcrumbs (Values entered at page-level)
 export const DefaultLegacyModeWithProps = LegacyModeTemplate.bind({})
 
-// Breadcrumbs generated from route with option to use title from route or set at page-level
-// UPDATE NOTE
-
+// Breadcrumbs generated from route
 function DynamicModeTemplate(args) {
   router.push(args.route)
   return {
@@ -75,7 +83,7 @@ OverrideFinalTitleByTitleProp.args = {
   title: 'Final Title Passed by Prop'
 }
 
-const testTitlesOverride1 = [{
+const titlesOverride1 = [{
   titleLevel: 1,
   updatedTitle: 'Override Level 1'
 },
@@ -91,10 +99,10 @@ const testTitlesOverride1 = [{
 export const OverrideTitlesByOverrideProp1 = DynamicModeTemplate.bind({})
 OverrideTitlesByOverrideProp1.args = {
   route: '/events/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24',
-  overrideTitleGroup: testTitlesOverride1
+  overrideTitleGroup: titlesOverride1
 }
 
-const testTitlesOverride2 = [{
+const titlesOverride2 = [{
   titleLevel: 1,
   updatedTitle: '👽 Collections 👽'
 },
@@ -111,7 +119,7 @@ const testTitlesOverride2 = [{
 export const OverrideTitlesByOverrideProp2 = DynamicModeTemplate.bind({})
 OverrideTitlesByOverrideProp2.args = {
   route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/ktla-news-demo-article',
-  overrideTitleGroup: testTitlesOverride2
+  overrideTitleGroup: titlesOverride2
 }
 
 function FTVATemplate(args) {

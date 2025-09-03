@@ -20,7 +20,7 @@
         align-items: center;
     }
 
-    li+li::before {
+    .breadcrumb-wrapper:not(:last-of-type)::after {
         content: url('ucla-library-design-tokens/assets/svgs/icon-caret-right.svg');
         position: relative;
         top: 5px;
@@ -59,7 +59,7 @@
             padding-left: calc(var(--unit-gutter) - 8px);
         }
 
-        li::after {
+        .breadcrumb-wrapper:last-of-type::before {
             content: url('ucla-library-design-tokens/assets/svgs/icon-caret-left.svg');
             position: relative;
             top: 5px;
