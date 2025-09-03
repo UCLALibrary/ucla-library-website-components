@@ -1,7 +1,6 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-right.svg'
 import { useWindowSize } from '@vueuse/core'
 import { useTheme } from '@/composables/useTheme'
 
@@ -235,6 +234,7 @@ const parsedClasses = computed(() => {
           @click="handleSetRouteTitle()"
           v-text="linkObj.title"
         />
+
         <!-- Collapsed group should not link; set with button rather than SmartLink -->
         <button
           v-else-if="!linkObj.isLastItem && linkObj.isTruncated"
@@ -244,23 +244,14 @@ const parsedClasses = computed(() => {
           @click="toggleLinksExpansion()"
           v-text="linkObj.title"
         />
-        <!-- <SvgIconCaretRight
-          v-if="!linkObj.isLastItem"
-          aria-hidden="true"
-        /> -->
 
         <!-- Final Breadcrumb Logic -->
-
         <!-- Prevent final [prop] title/breadcrumb from overriding a parent title -->
         <span
           v-if="linkObj.isLastItem && setRouteTitle"
           class="parent-page-url"
           v-text="linkObj.title"
         />
-        <!-- <SvgIconCaretRight
-          v-if="linkObj.isLastItem && setRouteTitle"
-          aria-hidden="true"
-        /> -->
         <!-- Set final breadcrumb with prop title if available -->
         <span
           v-else-if="linkObj.isLastItem && title"
