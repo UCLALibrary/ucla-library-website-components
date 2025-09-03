@@ -12,7 +12,7 @@ import DetailHeader from '@/lib-components/DetailHeader'
  * - <b>backTo</b>: A string representing the URL to go back to search results
  */
 export default {
-  title: 'Funkhaus / DetailHeader',
+  title: 'Funkhaus / Detail Header',
   component: DetailHeader,
   argTypes: {
     totalResults: {
