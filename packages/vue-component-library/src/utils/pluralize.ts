@@ -6,14 +6,14 @@
  * @returns The appropriate form based on count
  */
 export function pluralize(
-    count: number,
-    singular: string,
-    plural?: string
+  count: number,
+  singular: string,
+  plural?: string
 ): string {
-    if (count === 1) {
-        return singular
-    }
-    return plural || `${singular}s`
+  if (count === 1)
+    return singular
+
+  return plural || `${singular}s`
 }
 
 /**
@@ -24,9 +24,9 @@ export function pluralize(
  * @returns The count with appropriate form (e.g., "1 result", "42 results")
  */
 export function pluralizeWithCount(
-    count: number,
-    singular: string,
-    plural?: string
+  count: number,
+  singular: string,
+  plural?: string
 ): string {
-    return `${count} ${pluralize(count, singular, plural)}`
+  return `${count} ${pluralize(count, singular, plural)}`
 }

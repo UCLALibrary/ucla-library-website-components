@@ -9,11 +9,10 @@
  * formatNumber(1234.56) // "1,234.56"
  */
 export function formatNumber(num: number): string {
-    if (typeof num !== "number" || Number.isNaN(num)) {
-        return "0"
-    }
+  if (typeof num !== 'number' || Number.isNaN(num))
+    return '0'
 
-    return num.toLocaleString("en-US")
+  return num.toLocaleString('en-US')
 }
 
 // Add more utility functions for number formatting as needed
