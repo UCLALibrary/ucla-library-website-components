@@ -35,10 +35,7 @@ const { to, parentTitle, title, overrideTitleGroup } = defineProps({
     type: Array,
     default: () => ([])
     // Array of objects:
-    // {
-    //   titleLevel: number,
-    //   updatedTitle: string
-    // }
+    // { titleLevel: number, updatedTitle: string }
   }
 })
 
@@ -107,7 +104,7 @@ const parsedBreadcrumbLinks = computed(() => {
 function createBreadcrumbLinks(arr) {
   const breadcrumbObjects = []
 
-  // If all props are present, use the legacy, single-level breadcrumb pattern
+  // If `parentTitle`, `title` and `to` props are present, set the legacy, single-level breadcrumb pattern
   if (to && parentTitle && title) {
     // Set the parent
     breadcrumbObjects.push({

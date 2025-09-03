@@ -9,8 +9,9 @@ import NavBreadcrumb from '@/lib-components/NavBreadcrumb'
  *
  * 1. Legacy mode: Creates a single level breadcrumb of a parent title and child title; set with the `parentTitle`, `title`, `to` props at the page-level
  * - Setting all three props initiates the legacy pattern
+ * - `to` prop is the URL for the parent title
  *
- * 2. Dynamic/Route-based mode: Parse breadcrumb titles from a url route; with options to:
+ * 2. Dynamic/Route-based mode: Parses breadcrumb titles from a url route; with options to:
  * - Override the final breadcrumb with the `title` prop
  * - Override any nested breadcrumb title by using the `overrideTitleGroup` prop
  *
