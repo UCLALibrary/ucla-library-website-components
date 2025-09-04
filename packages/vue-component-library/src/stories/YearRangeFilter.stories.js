@@ -92,13 +92,3 @@ Disabled.args = {
   step: 1,
   disabled: true,
 }
-
-export const SmallRange = Template.bind({})
-SmallRange.args = {
-  min: 1,
-  max: 10,
-  minValue: 3,
-  maxValue: 7,
-  step: 0.5,
-  disabled: false,
-}

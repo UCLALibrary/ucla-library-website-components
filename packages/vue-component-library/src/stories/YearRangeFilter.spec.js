@@ -101,29 +101,6 @@ describe('YearRangeFilter', () => {
     })
   })
 
-  describe('SmallRange', () => {
-    beforeEach(() => {
-      cy.visit('/iframe.html?id=funkhaus-yearrangefilter--small-range')
-    })
-
-    it('renders the component', () => {
-      cy.get('.year-range-filter').should('exist')
-      cy.percySnapshot('YearRangeFilter: SmallRange')
-    })
-
-    it('displays the correct small range values', () => {
-      cy.get('.range-input--min').should('have.value', '3')
-      cy.get('.range-input--max').should('have.value', '7')
-    })
-
-    it('has the correct step size for small range', () => {
-      cy.get('.range-input--min').should('have.attr', 'step', '0.5')
-      cy.get('.range-input--max').should('have.attr', 'step', '0.5')
-      cy.get('.range-slider--min').should('have.attr', 'step', '0.5')
-      cy.get('.range-slider--max').should('have.attr', 'step', '0.5')
-    })
-  })
-
   describe('Accessibility', () => {
     beforeEach(() => {
       cy.visit('/iframe.html?id=funkhaus-yearrangefilter--default')
