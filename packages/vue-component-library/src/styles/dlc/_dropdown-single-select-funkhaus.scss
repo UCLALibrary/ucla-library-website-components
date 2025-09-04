@@ -1,3 +1,4 @@
+.dropdown-single-select-funkhaus,
 .dropdown-single-select-funkhaus.dlc {
     position: absolute;
     top: -50%;
@@ -22,6 +23,10 @@
 
         position: relative;
         z-index: 20;
+    }
+
+    .selected-option {
+        @include truncate(2);
     }
 
     .selected-option,
