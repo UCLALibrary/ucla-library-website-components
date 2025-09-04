@@ -7,15 +7,15 @@ import router from '@/router'
  *
  * The component can be used in the following ways:
  *
- * 1. Legacy mode: With previous page and next page string values passed to the component, and no numbered buttons shown
+ * 1. Legacy mode: Previous page and next page string values passed to the component, and no numbered buttons shown
  *  - Required props: `nextTo`, `previousTo`
- * 2. Dynamic Width mode: With the page buttons displayed and dynamically calculated by the number of pages and the size of the pagination container
+ * 2. Dynamic Width mode: Page buttons displayed and dynamically calculated by the number of pages and the size of the pagination container
  *  - Required props: `pages`, `initialCurrentPage`
- * 3. Fixed Width mode: With a specific number of page buttons displayed in the pagination container
+ * 3. Fixed Width mode: A specific number of page buttons displayed in the pagination container
  *  - Required props: `pages`, `initialCurrentPage`, `fixedPageWidthMode` (true), `fixedPageWidthNum`
  * 4. No Truncation: Display all page buttons without truncation
  *  - Same props as Fixed Width mode
- *  - Set `fixedPageWidthMode` to `true` and `fixedPageWidthNum` to the same numerical value as `pages`
+ *  - No truncation will show when `fixedPageWidthNum` is the same value as `pages`
  *
  *
  * Props:
@@ -56,7 +56,8 @@ export function LastPage() {
 
 // this story uses the generateLinkCallback prop
 // to generate the links in the library-website-nuxt format instead of the default format
-export function DynamicWidth_5Pgs() {
+
+function DynamicWidthTemplate(args) {
   // mock a library site page where someone has searched 'new' like this:
   // https://www.library.ucla.edu/search-site?q=new&from=10'
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
@@ -67,16 +68,50 @@ export function DynamicWidth_5Pgs() {
         return `/search-site?${queryParams}`
       }
 
-      return { sampleCallback }
+      return { sampleCallback, args }
     },
     components: { SectionPagination },
-    template: '<section-pagination :pages="5" :initialCurrentPage="3" :generateLinkCallback="sampleCallback"/>',
+    template: '<section-pagination v-bind="args" :generateLinkCallback="sampleCallback"/>',
   }
 }
 
-export function DynamicWidth_10Pgs() {
-  // mock a library site page where someone has searched 'new' like this:
-  // https://www.library.ucla.edu/search-site?q=new&from=10'
+export const DynamicWidth_1Pg = DynamicWidthTemplate.bind({})
+DynamicWidth_1Pg.args = {
+  pages: 1,
+  initialCurrentPage: 1
+}
+
+export const DynamicWidth_2Pgs = DynamicWidthTemplate.bind({})
+DynamicWidth_2Pgs.args = {
+  pages: 2,
+  initialCurrentPage: 1
+}
+
+export const DynamicWidth_5Pgs = DynamicWidthTemplate.bind({})
+DynamicWidth_5Pgs.args = {
+  pages: 5,
+  initialCurrentPage: 3
+}
+
+export const DynamicWidth_10Pgs = DynamicWidthTemplate.bind({})
+DynamicWidth_10Pgs.args = {
+  pages: 10,
+  initialCurrentPage: 5
+}
+
+export const DynamicWidth_25Pgs = DynamicWidthTemplate.bind({})
+DynamicWidth_25Pgs.args = {
+  pages: 25,
+  initialCurrentPage: 6
+}
+
+export const DynamicWidth_40Pgs = DynamicWidthTemplate.bind({})
+DynamicWidth_40Pgs.args = {
+  pages: 40,
+  initialCurrentPage: 6
+}
+
+function FixedWidthTemplate(args) {
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
   return {
     setup() {
@@ -85,92 +120,48 @@ export function DynamicWidth_10Pgs() {
         return `/search-site?${queryParams}`
       }
 
-      return { sampleCallback }
+      return { sampleCallback, args }
     },
     components: { SectionPagination },
-    template: '<section-pagination :pages="10" :initialCurrentPage="5" :generateLinkCallback="sampleCallback"/>',
+    template: '<section-pagination :generateLinkCallback="sampleCallback" v-bind="args" :fixedPageWidthMode="true" />',
   }
 }
 
-export function DynamicWidth_25pgs() {
-  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
-  return {
-    setup() {
-      // sample callback to generate the link
-      const sampleCallback = (pageNumber, queryParams) => {
-        return `/search-site?${queryParams}`
-      }
-
-      return { sampleCallback }
-    },
-    components: { SectionPagination },
-    template: '<section-pagination :pages="25" :initialCurrentPage="6" :generateLinkCallback="sampleCallback" />',
-  }
+export const FixedWidth_1Pg = FixedWidthTemplate.bind({})
+FixedWidth_1Pg.args = {
+  pages: 1,
+  initialCurrentPage: 1,
+  fixedPageWidthNum: 6
 }
 
-export function DynamicWidth_40pgs() {
-  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
-  return {
-    setup() {
-      // sample callback to generate the link
-      const sampleCallback = (pageNumber, queryParams) => {
-        return `/search-site?${queryParams}`
-      }
-
-      return { sampleCallback }
-    },
-    components: { SectionPagination },
-    template: '<section-pagination :pages="40" :initialCurrentPage="6" :generateLinkCallback="sampleCallback" />',
-  }
+export const FixedWidth_2Pgs = FixedWidthTemplate.bind({})
+FixedWidth_2Pgs.args = {
+  pages: 2,
+  initialCurrentPage: 1,
+  fixedPageWidthNum: 6
 }
 
-export function FixedWidth_6Pgs() {
-  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
-  return {
-    setup() {
-      // sample callback to generate the link
-      const sampleCallback = (pageNumber, queryParams) => {
-        return `/search-site?${queryParams}`
-      }
-
-      return { sampleCallback }
-    },
-    components: { SectionPagination },
-    template: '<section-pagination :pages="24" :initialCurrentPage="1" :generateLinkCallback="sampleCallback" :fixedPageWidthMode="true" :fixedPageWidthNum="6" />',
-  }
+export const FixedWidth_6Pgs = FixedWidthTemplate.bind({})
+FixedWidth_6Pgs.args = {
+  pages: 24,
+  initialCurrentPage: 3,
+  fixedPageWidthNum: 6
 }
 
-export function FixedWidth_12Pgs() {
-  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
-  return {
-    setup() {
-      // sample callback to generate the link
-      const sampleCallback = (pageNumber, queryParams) => {
-        return `/search-site?${queryParams}`
-      }
-
-      return { sampleCallback }
-    },
-    components: { SectionPagination },
-    template: '<section-pagination :pages="24" :initialCurrentPage="10" :generateLinkCallback="sampleCallback" :fixedPageWidthMode="true" :fixedPageWidthNum="12" />',
-  }
+export const FixedWidth_12Pgs = FixedWidthTemplate.bind({})
+FixedWidth_12Pgs.args = {
+  pages: 24,
+  initialCurrentPage: 10,
+  fixedPageWidthNum: 12
 }
 
-export function No_Truncation() {
-  router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
-  return {
-    setup() {
-      // sample callback to generate the link
-      const sampleCallback = (pageNumber, queryParams) => {
-        return `/search-site?${queryParams}`
-      }
-
-      return { sampleCallback }
-    },
-    components: { SectionPagination },
-    template: '<section-pagination :pages="40" :initialCurrentPage="10" :generateLinkCallback="sampleCallback" :fixedPageWidthMode="true" :fixedPageWidthNum="40" />',
-  }
+export const NoTruncation = FixedWidthTemplate.bind({})
+NoTruncation.args = {
+  pages: 40,
+  initialCurrentPage: 10,
+  fixedPageWidthNum: 40
 }
+
 // this story uses an async fetch to get the total number of pages
 // like the FTVA event listing page
 export function FTVAFixed_10Pgs() {
