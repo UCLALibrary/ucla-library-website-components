@@ -68,7 +68,7 @@ export default {
     <slot />
   </a>
 
-  <button v-else class="smart-link is-link">
+  <button v-else class="smart-link">
     <slot />
   </button>
 </template>
