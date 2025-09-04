@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.29.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.29.1...@ucla-library-monorepo/ucla-library-website-components-v1.29.2) (2025-09-03)
+
+
+### Bug Fixes
+
+* APPS-3208 make block card with image clickable ([#811](https://github.com/UCLALibrary/ucla-library-website-components/issues/811)) ([8f43076](https://github.com/UCLALibrary/ucla-library-website-components/commit/8f43076e426778f0043f0c607be0272732a6f110))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.29.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.29.0...@ucla-library-monorepo/ucla-library-website-components-v1.29.1) (2025-09-02)
 
 
