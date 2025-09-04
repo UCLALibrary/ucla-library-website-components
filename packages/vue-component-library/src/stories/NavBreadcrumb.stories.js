@@ -29,7 +29,7 @@ export default {
 }
 
 // Legacy breadcrumbs pattern
-function LegacyModeTemplate(args) {
+const LegacyModeTemplate = (args) => {
   return {
     setup() {
       return { args }
@@ -42,7 +42,7 @@ function LegacyModeTemplate(args) {
 export const DefaultLegacyModeWithProps = LegacyModeTemplate.bind({})
 
 // Breadcrumbs generated from route
-function DynamicModeTemplate(args) {
+const DynamicModeTemplate = (args) => {
   router.push(args.route)
   return {
     setup() {
@@ -118,7 +118,7 @@ OverrideTitlesByOverrideProp2.args = {
   overrideTitleGroup: titlesOverride2
 }
 
-function FTVATemplate(args) {
+const FTVATemplate = (args) => {
   router.push('/watch-and-listen-online/senator-john-f.-kennedy-gives-press-conference-in-los-angeles')
   return {
     provide() {
