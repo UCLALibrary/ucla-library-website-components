@@ -141,7 +141,7 @@ function createBreadcrumbLinks(arr) {
         // If an object in the overrideTitleGroup array prop has a `titleLevel` that matches `updatedIndex`, then replace the breadcrumb item title with the new title from the object
         const overrideObject = overrideTitleGroup.find(obj => obj.titleLevel === updatedIndex)
         if (overrideObject)
-          linkTitle = overrideObject.updatedTitle
+          linkTitle = overrideObject.updatedTitle || linkTitle
       }
 
       // Identify if breadcrumb item is the last item

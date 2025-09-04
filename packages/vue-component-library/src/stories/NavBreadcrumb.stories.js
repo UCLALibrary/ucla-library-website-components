@@ -19,7 +19,7 @@ import NavBreadcrumb from '@/lib-components/NavBreadcrumb'
  * - to: A string url for the parentTitle in the legacy breadcrumb pattern
  * - parentTitle: A string value for legacy breadcrumb pattern
  * - title: A string value for setting the final breadcrumb title for either the legacy or route-based pattern
- * - overrideTitleGroup: An array of objects to manually override breadcrumb titles; each object represents a breadcrumb to be overriden, and contains the breadcrumb's nested level (`titleLevel`: number) and the new title (`updatedTitle`: string)
+ * - overrideTitleGroup: An array of objects to manually override breadcrumb titles; each object represents a breadcrumb to be overriden, and contains the breadcrumb's nested level (`titleLevel`: number; starts at 1) and the new title (`updatedTitle`: string)
  */
 
 // Storybook default settings
