@@ -6,7 +6,6 @@ export default {
   component: BentoPod,
   argTypes: {
     title: { control: 'text' },
-    description: { control: 'text' },
     buttonLabel: { control: 'text' },
     buttonLink: { control: 'text' },
     labelOpen: { control: 'text' },
@@ -33,7 +32,6 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   title: 'Bento Pod Title',
-  description: 'This is a description for the Bento Pod.',
   buttonLabel: 'Go to Link',
   buttonLink: '/somewhere',
   labelOpen: 'Show Less',
@@ -189,8 +187,6 @@ CustomLabels.args = {
 export const RealContent = Template.bind({})
 RealContent.args = {
   title: 'UCLA Library Special Collections',
-  description:
-        'Explore a curated selection of rare books, manuscripts, photographs, and archives from the UCLA Library. These resources are available for research, teaching, and learning.',
   buttonLabel: 'Browse All Collections',
   buttonLink: '/collections',
   labelOpen: 'Show Fewer Items',

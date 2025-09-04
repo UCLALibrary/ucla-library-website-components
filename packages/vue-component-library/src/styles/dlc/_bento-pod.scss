@@ -14,16 +14,9 @@
         color: var(--color-primary-blue-05);
     }
 
-    .description {
-        font-family: var(--font-secondary); // Proxima Nova
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 160%; /* 25.6px */
-        letter-spacing: 0.16px;
-        color: var(--color-primary-blue-05);
-    }
-
     .pod-button {
+        margin-top: 20px;
+
         display: flex;
         align-items: center;
 
@@ -33,11 +26,11 @@
         font-size: 18px;
         font-weight: 400;
         line-height: normal;
+        color: var(--color-primary-blue-03);
     }
 
     .items {
         overflow: hidden;
-        // transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         @include animate-normal;
     }
 
@@ -63,7 +56,7 @@
         width: 100%;
         bottom: 0;
 
-        transition: opacity 0.3s ease-out;
+        @include animate-normal;
 
         ::v-deep() {
             margin: 0;
@@ -86,7 +79,10 @@
     .item-type,
     .item-date,
     .item-program {
+        display: inline-flex;
+        gap: 5px;
         font-family: var(--font-primary); // Karbon
+        color: var(--color-primary-blue-05);
         font-size: 16px;
         font-weight: 700;
         line-height: 160%; /* 25.6px */
@@ -101,7 +97,7 @@
     }
 
     .item-program {
-        display: block;
+        display: flex;
     }
 
     .detail {
@@ -111,9 +107,9 @@
     }
 
     .caret-icon {
-        transition: transform 0.5s ease-in-out;
         width: 30px;
         height: auto;
+        @include animate-normal;
     }
 
     .btn {
@@ -135,12 +131,12 @@
 
         border: 1px solid var(--color-primary-blue-03);
         cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
+        @include animate-normal;
     }
 
     .caret-icon {
         ::v-deep(path) {
-            transition: stroke 0.3s ease;
+            @include animate-normal;
         }
     }
 

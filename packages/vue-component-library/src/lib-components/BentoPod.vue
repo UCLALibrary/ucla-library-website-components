@@ -110,11 +110,6 @@ onUnmounted(() => {
       class="title"
       v-html="title"
     />
-    <div
-      v-if="description"
-      class="description"
-      v-html="description"
-    />
 
     <SmartLink
       v-if="buttonLabel && buttonLink"
