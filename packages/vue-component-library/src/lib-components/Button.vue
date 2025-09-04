@@ -20,7 +20,7 @@ const emit = defineEmits<{
   click: [event: MouseEvent]
 }>()
 
-// Computeds 
+// Computeds
 const classes = computed(() => [
   'button',
   props.variant,

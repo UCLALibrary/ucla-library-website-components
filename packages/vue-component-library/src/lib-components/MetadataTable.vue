@@ -35,16 +35,15 @@ interface MetaDataTableProps {
 
 const classes = computed(() => (['metadata-table', theme?.value || '']))
 
-
 // Functions
-const handleButtonClick = (button: any) => {
+function handleButtonClick(button: any) {
   if (button.copyOnClick) {
     // Copy current URL to clipboard
     if (typeof window !== 'undefined' && window.location) {
       navigator.clipboard.writeText(window.location.href)
-        .catch(err => {
-          console.error('Failed to copy URL:', err);
-        });
+        .catch((err) => {
+          console.error('Failed to copy URL:', err)
+        })
     }
   }
 }
