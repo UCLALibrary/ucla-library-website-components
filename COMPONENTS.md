@@ -35,8 +35,7 @@ Wraps ButtonTag, adds X icon on the right which invokes onRemove
 - isSelected: boolean  
 - iconName: string;
 - onRemove?: Function
-
-[] Breadcrumb  
+  
 
 [] BreadcrumbPill (Luka)
 
@@ -53,13 +52,6 @@ Full breadcrumb bar with one or more breadcrumb items.
 - crumbs: Array<{ label: string, to?: string }>  
 - current: string
 
-[x] PaginationControl (svebor) 
-Numbered pagination UI with previous/next arrows.
-
-- currentPage: number  
-- totalPages: number  
-- onPageChange: Function(newPage: number)
-
 [] SectionLabel   (austin)
 Non-interactive text element that might be grouped with buttons (e.g. “RESEARCH”).
 
@@ -73,14 +65,6 @@ Branded button or label pairing logo with text.
 - logoSrc: string  
 - label: string  
 - to?: string
-
-[x] SectionPagination (svebor) 
-Interactive pagination component with numbered buttons, previous/next navigation, and ellipsis for long ranges.
-
-- currentPage: number  
-- totalPages: number  
-- showEdges?: boolean (e.g. show first/last page)  
-- siblingCount?: number (how many pages around current to show)
 
 [x] CTAHexButton
 Prominent hex-shaped call-to-action button with icon and label.
@@ -123,7 +107,7 @@ Collapsible panel of dropdown filters for refining search results with multiple 
 - defaultOpen?: string[] (filters to open by default)
   
 
-[] AlphabeticalBrowseBy ()
+[x] AlphabeticalBrowseBy (Exists)
 
 Interactive list to sort results Alphabetically
 
@@ -142,7 +126,7 @@ Reusable dropdown with configurable button label and menu options.
 - onSelect: Function(option: string)
 
 
-[] ButtonDropdownSearch ()
+[] ButtonDropdownSearch (Svebor)
 
 Set of dropdowns to filter/search content by fields like “Title” or “Subject.”
 
@@ -151,15 +135,8 @@ Set of dropdowns to filter/search content by fields like “Title” or “Subje
 - selected: string  
 - onSelect: Function(option: string)
 
-[] ButtonUCLALibrariesDropdown ()
 
-Dropdown for selecting from multiple library collections. Appears in tag-chip format.
-
-- label: string  
-- libraries: Array<string>  
-- onSelect: Function(library: string)
-
-[] YearRangeFilter or DateFilter ()
+[] YearRangeFilter or DateFilter (Svebor)
 
 Range selector with start and end year inputs and a confirm button.
 
@@ -480,26 +457,23 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
 | ButtonIIIF                 |           | ☐ Complete  |   [ ]   |                                |
-| Button                     |Luka       | ☐ Complete  |   []   |                                |
-| DividerGeneral             |           | ☐ Complete  |   [x]   |                                |
+| Button                     |Luka       | ☐ Complete  |   [ ]   |                                |
+| DividerGeneral             |Exists     | ☐ Complete  |   [x]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonTag                  |Luka       | ☐ Complete  |   [x]   | aka: BlockTag                  |
 | ButtonRemoveSearchFilter   |Luka       | ☐ Complete  |   [x]   | aka: BlockRemoveSearchFilter   |
 | BreadcrumbPill             |Luka       | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |Luka       | ☐ Complete  |   [ ]   |                                |
-| PaginationControl          |Svebor     | ☐ Complete  |   [ ]   |                                |
 | SectionLabel               |Austin     | ☐ Complete  |   [ ]   |                                |
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
-| SectionPagination          |Svebor     | ☐ Complete  |   [ ]   |Adjusted the styles and a little bit of logic |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [ ]   |Exists, ready to use            |
 | SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
 | RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
-| FiltersDropdown            |           | ☐ Complete  |   [x]   |                                |
-| AlphabeticalBrowseBy       |           | ☐ Complete  |   [x]   |                                | 
-| DropdownSingleSelect       |           | ☐ Complete  |   [x]   |                                |
-| ButtonDropdownSearch       |           | ☐ Complete  |   [ ]   |                                |
-| ButtonUCLALibrariesDropdown|           | ☐ Complete  |   [ ]   |                                |
-| YearRangeFilter            |           | ☐ Complete  |   [x]   | aka DateFilter?                |
+| FiltersDropdown            |           | ☐ Complete  |   [ ]   |                                |
+| AlphabeticalBrowseBy       |Exists     | ☐ Complete  |   [x]   |                                | 
+| DropdownSingleSelect       |Svebor     | ☐ Complete  |   [ ]   |                                |
+| ButtonDropdownSearch       |Svebor     | ☐ Complete  |   [ ]   |                                |
+| YearRangeFilter            |Svebor     | ☐ Complete  |   [x]   |                                |
 | BentoPod                   |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ExcerptPod                 |Svebor     | ☐ Complete  |   [ ]   | In the notes-accordion PR      |

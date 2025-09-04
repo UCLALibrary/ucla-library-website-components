@@ -1,3 +1,21 @@
+# [@ucla-library/component-library-nuxt-module-v1.2.57](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.56...@ucla-library/component-library-nuxt-module-v1.2.57) (2025-09-02)
+
+# [@ucla-library/component-library-nuxt-module-v1.2.56](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.55...@ucla-library/component-library-nuxt-module-v1.2.56) (2025-08-30)
+
+# [@ucla-library/component-library-nuxt-module-v1.2.55](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.54...@ucla-library/component-library-nuxt-module-v1.2.55) (2025-08-28)
+
+# [@ucla-library/component-library-nuxt-module-v1.2.54](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.53...@ucla-library/component-library-nuxt-module-v1.2.54) (2025-08-22)
+
+# [@ucla-library/component-library-nuxt-module-v1.2.53](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.52...@ucla-library/component-library-nuxt-module-v1.2.53) (2025-08-22)
+
+# [@ucla-library/component-library-nuxt-module-v1.2.52](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.51...@ucla-library/component-library-nuxt-module-v1.2.52) (2025-08-21)
+
+# [@ucla-library/component-library-nuxt-module-v1.2.51](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.50...@ucla-library/component-library-nuxt-module-v1.2.51) (2025-08-21)
+
+# [@ucla-library/component-library-nuxt-module-v1.2.50](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.49...@ucla-library/component-library-nuxt-module-v1.2.50) (2025-08-21)
+
+# [@ucla-library/component-library-nuxt-module-v1.2.49](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.48...@ucla-library/component-library-nuxt-module-v1.2.49) (2025-08-19)
+
 # [@ucla-library/component-library-nuxt-module-v1.2.48](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.47...@ucla-library/component-library-nuxt-module-v1.2.48) (2025-08-14)
 
 # [@ucla-library/component-library-nuxt-module-v1.2.47](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.46...@ucla-library/component-library-nuxt-module-v1.2.47) (2025-08-12)

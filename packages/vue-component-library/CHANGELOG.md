@@ -1,3 +1,66 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.29.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.29.0...@ucla-library-monorepo/ucla-library-website-components-v1.29.1) (2025-09-02)
+
+
+### Bug Fixes
+
+* APPS-3396 change text below search bar ([#812](https://github.com/UCLALibrary/ucla-library-website-components/issues/812)) ([d680deb](https://github.com/UCLALibrary/ucla-library-website-components/commit/d680debc22121c8664ac3fcf8ebc38ec14c4cf02))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.29.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.4...@ucla-library-monorepo/ucla-library-website-components-v1.29.0) (2025-08-30)
+
+
+### Features
+
+* Add ButtonPageView ([#774](https://github.com/UCLALibrary/ucla-library-website-components/issues/774)) ([2f32157](https://github.com/UCLALibrary/ucla-library-website-components/commit/2f321574666403bb5ba80463438bd2bca203f9bf))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.28.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.3...@ucla-library-monorepo/ucla-library-website-components-v1.28.4) (2025-08-28)
+
+
+### Bug Fixes
+
+* APPS 3414 Fix Double Pagination Numbers ([#796](https://github.com/UCLALibrary/ucla-library-website-components/issues/796)) ([d0ee682](https://github.com/UCLALibrary/ucla-library-website-components/commit/d0ee68243ff366975357f456896b9b9e82124df3))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.28.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.2...@ucla-library-monorepo/ucla-library-website-components-v1.28.3) (2025-08-22)
+
+
+### Bug Fixes
+
+* APPS-3399 make sitebrand route to correct URL for ftva ([#793](https://github.com/UCLALibrary/ucla-library-website-components/issues/793)) ([b3ca002](https://github.com/UCLALibrary/ucla-library-website-components/commit/b3ca002084fac2ea2145bc4e71cc423082e30c38))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.28.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.1...@ucla-library-monorepo/ucla-library-website-components-v1.28.2) (2025-08-22)
+
+
+### Bug Fixes
+
+* APPS-3397 title on homepage carousel is clickable ([#792](https://github.com/UCLALibrary/ucla-library-website-components/issues/792)) ([a98d990](https://github.com/UCLALibrary/ucla-library-website-components/commit/a98d9903f39f6a52a02a2ffe592307de1bf59f9a))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.28.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.28.0...@ucla-library-monorepo/ucla-library-website-components-v1.28.1) (2025-08-21)
+
+
+### Bug Fixes
+
+* APPS-3187 Fix Shifting Pagination Numbers ([#780](https://github.com/UCLALibrary/ucla-library-website-components/issues/780)) ([f8019a4](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8019a49f37b1c415d566d37172b37e4c8f7ff4b))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.28.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.27.0...@ucla-library-monorepo/ucla-library-website-components-v1.28.0) (2025-08-21)
+
+
+### Features
+
+* APPS-3390 Refactor SectionStaffArticleList and BlockStaffArticleList  ([#768](https://github.com/UCLALibrary/ucla-library-website-components/issues/768)) ([4b17cd9](https://github.com/UCLALibrary/ucla-library-website-components/commit/4b17cd981fc34a3702017b94a06ca0bb27df1678))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.27.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.5...@ucla-library-monorepo/ucla-library-website-components-v1.27.0) (2025-08-21)
+
+
+### Features
+
+* APPS-3220 refactor styles to use classic table styles ([#775](https://github.com/UCLALibrary/ucla-library-website-components/issues/775)) ([82ac0de](https://github.com/UCLALibrary/ucla-library-website-components/commit/82ac0de7209aca175c9de3d6cb797a97d72afb29))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.26.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.4...@ucla-library-monorepo/ucla-library-website-components-v1.26.5) (2025-08-19)
+
+
+### Bug Fixes
+
+* APPS-3033 Remove Nav Menu Page Overflow ([#776](https://github.com/UCLALibrary/ucla-library-website-components/issues/776)) ([76bebb4](https://github.com/UCLALibrary/ucla-library-website-components/commit/76bebb4e35e56b5ef42dafa56f0d76082165d698))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.26.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.26.3...@ucla-library-monorepo/ucla-library-website-components-v1.26.4) (2025-08-14)
 
 
