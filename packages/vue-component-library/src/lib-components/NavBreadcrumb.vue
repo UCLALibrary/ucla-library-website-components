@@ -1,5 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
+import type { PropType } from 'vue'
 import { useRoute } from 'vue-router'
 import { useWindowSize } from '@vueuse/core'
 import { useTheme } from '@/composables/useTheme'
@@ -18,6 +19,11 @@ import SmartLink from '@/lib-components/SmartLink.vue'
   - override route-based breadcrumb titles with the `overrideTitleGroup` prop
   */
 
+interface OverrideObj {
+  titleLevel: number
+  updatedTitle: string
+}
+
 const { to, parentTitle, title, overrideTitleGroup } = defineProps({
   to: {
     type: String,
@@ -32,8 +38,8 @@ const { to, parentTitle, title, overrideTitleGroup } = defineProps({
     default: '',
   },
   overrideTitleGroup: {
-    type: Array,
-    default: () => ([])
+    type: Array as PropType<OverrideObj[]>,
+    default: () => [],
     // Array of objects:
     // { titleLevel: number, updatedTitle: string }
   }
@@ -100,9 +106,16 @@ const parsedBreadcrumbLinks = computed(() => {
   return createBreadcrumbLinks(breadcrumbsList)
 })
 
+interface BreadcrumbObj {
+  to?: string
+  title: string
+  isTruncated: boolean
+  isLastItem: boolean
+}
+
 // METHODS
-function createBreadcrumbLinks(arr) {
-  const breadcrumbObjects = []
+function createBreadcrumbLinks(arr: string[]) {
+  const breadcrumbObjects: BreadcrumbObj[] = []
 
   // If `parentTitle`, `title` and `to` props are present, set the legacy, single-level breadcrumb pattern
   if (to && parentTitle && title) {
@@ -131,7 +144,8 @@ function createBreadcrumbLinks(arr) {
       const linkTo = route.path.substring(0, linkLength + linkIndex)
 
       // Replace hyphens
-      let linkTitle = item.replaceAll('-', ' ')
+      const regex = /-/gi
+      let linkTitle = item.replace(regex, ' ')
 
       // Determine if breadcrumb title should be overridden by data in `overrideTitleGroup` prop
       if (overrideTitleGroup.length > 0) {
@@ -139,7 +153,7 @@ function createBreadcrumbLinks(arr) {
         const updatedIndex = index + 1
 
         // If an object in the overrideTitleGroup array prop has a `titleLevel` that matches `updatedIndex`, then replace the breadcrumb item title with the new title from the object
-        const overrideObject = overrideTitleGroup.find(obj => obj.titleLevel === updatedIndex)
+        const overrideObject = overrideTitleGroup.find((obj: OverrideObj) => obj.titleLevel === updatedIndex)
         if (overrideObject)
           linkTitle = overrideObject.updatedTitle || linkTitle
       }
@@ -149,7 +163,7 @@ function createBreadcrumbLinks(arr) {
       index === arr.length - 1 ? (isLastItem = true) : (isLastItem = false)
 
       // If breadcrumb pattern has more than four levels, identify if breadcrumb item will be truncated
-      let isTruncated
+      let isTruncated = false
       if (arr.length > 4) {
         if (collapseBreadcrumbs.value) {
           isExpanded.value === false && index === 1
@@ -170,15 +184,15 @@ function createBreadcrumbLinks(arr) {
     // Handle truncation
     if (collapseBreadcrumbs.value) {
       // Replace all but the 1st and last 2 breadcrumb items with `...`
-      const truncatedBreadcrumbs = breadcrumbObjects.toSpliced(
-        1,
-        breadcrumbObjects.length - 3,
+      const truncatedBreadcrumbs = [
+        breadcrumbObjects[0],
         {
           title: '...',
           isTruncated: true,
           isLastItem: false
-        }
-      )
+        },
+        ...breadcrumbObjects.slice(-2)
+      ]
       return truncatedBreadcrumbs
     }
     else {
@@ -202,7 +216,7 @@ function toggleLinksExpansion() {
   collapsedBreadcrumbsBtn.value[0].classList.remove('collapsed-url')
 }
 
-function stripUrlDate(str) {
+function stripUrlDate(str: string) {
   // Find the last occurrence of date pattern 00-00-00 in a string
   const pattern = /([0-9][0-9])-([0-9][0-9])-([0-9][0-9])(?!.\w)/
 
