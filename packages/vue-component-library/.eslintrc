@@ -9,6 +9,7 @@
         "n/prefer-global/process": "off",
         "no-console": "warn",
         "@typescript-eslint/quotes": "warn",
-        "vue/custom-event-name-casing": "warn"
+        "vue/custom-event-name-casing": "warn",
+        "antfu/top-level-function":"warn"
     }
 }
