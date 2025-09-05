@@ -5,7 +5,7 @@
         font-family: var(--font-primary);
         font-size: 21px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 500;
         line-height: 120%; /* 25.2px */
     }
     .list-item {
@@ -48,7 +48,7 @@
             font-family: var(--font-primary);
             font-size: 18px;
             font-style: normal;
-            font-weight: 700;
+            font-weight: 500;
             line-height: 125%; /* 22.5px */
         }
     }
@@ -56,12 +56,13 @@
     .buttons {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 10px;
     }
 
     .action-buttons {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
 
         gap: 5px;
     }

@@ -40,19 +40,20 @@ const baseItems = [
             'https://www.figma.com/design/CDhWDARLb36ftkQce1LyLC/Breakpoints?node-id=75-12920&m=dev',
     value: [
       {
-        label: 'Download',
-        variant: 'secondary',
-        isOutlined: true,
-        to: '/src/assets/vue.svg',
-        isDownload: true,
-      },
-      {
         label: 'Copy URL',
         variant: 'secondary',
         isOutlined: true,
         copyOnClick: true,
         copyUrl: 'https://example.com/resource/123?ref=storybook',
       },
+      {
+        label: 'Download',
+        variant: 'secondary',
+        isOutlined: true,
+        to: '/src/assets/vue.svg',
+        isDownload: true,
+      },
+     
     ],
   },
 ]
