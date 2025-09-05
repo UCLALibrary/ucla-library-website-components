@@ -78,7 +78,7 @@ const classes = computed(() => {
     { 'is-tertiary': props.isTertiary },
     { 'is-quaternary': props.isQuaternary },
     { 'is-senary': props.isSenary },
-    { 'is-download': props.isDownload },
+    { 'is-download': props.isDownload }
   ]
 })
 
@@ -95,12 +95,12 @@ const parsedIconName = computed(() => {
     case isInternalLink(props.to):
       return SvgArrowRight
     case props.linkTarget === '_blank'
-            || props.iconName === 'svg-external-link':
+      || props.iconName === 'svg-external-link':
       return SvgExternalLink
     case props.iconName === 'icon-close':
       return IconClose
-      // case props.iconName:
-      //     return props.iconName
+    // case props.iconName:
+    //     return props.iconName
     default:
       return SvgExternalLink
   }
