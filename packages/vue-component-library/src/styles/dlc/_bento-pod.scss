@@ -9,7 +9,7 @@
     .title {
         font-family: var(--font-primary);
         font-size: 36px;
-        font-weight: 600;
+        font-weight: 400;
         line-height: 100%; /* 36px */
         color: var(--color-primary-blue-05);
     }
@@ -71,29 +71,45 @@
         text-align: left;
         font-size: 24px;
         font-family: var(--font-primary); // Karbon
-        font-weight: 700;
+        font-weight: 500;
         line-height: 120%; /* 28.8px */
         color: var(--color-primary-blue-03);
+
+        position: relative;
+        &:after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: #{$default-cyan-03};
+            bottom: 1px;
+            left: 0px;
+            transform: scaleX(0);
+            transform-origin: bottom left;
+            @include animate-normal;
+        }
     }
 
     .item-type,
     .item-date,
     .item-program {
         display: inline-flex;
+        align-items: center;
         gap: 5px;
         font-family: var(--font-primary); // Karbon
         color: var(--color-primary-blue-05);
         font-size: 16px;
-        font-weight: 700;
-        line-height: 160%; /* 25.6px */
+        font-weight: 600;
+        line-height: 1;
         letter-spacing: 1.6px;
         text-transform: uppercase;
     }
+
     .item-type {
-        padding: 0 15px 15px 0;
+        padding: 0 15px 0 0;
     }
     .item-date {
-        padding: 0 0 15px;
+        padding: 0 0 0;
     }
 
     .item-program {
@@ -104,6 +120,21 @@
         color: var(--color-primary-blue-03);
 
         @include ftva-body-2;
+
+        // TODO: Add after checking if the type-detail is a link or not.
+        // position: relative;
+        // &:after {
+        //     position: absolute;
+        //     content: "";
+        //     width: 100%;
+        //     height: 2px;
+        //     background-color: #{$default-cyan-03};
+        //     bottom: 1px;
+        //     left: 0px;
+        //     transform: scaleX(0);
+        //     transform-origin: bottom left;
+        //     @include animate-normal;
+        // }
     }
 
     .caret-icon {
@@ -170,6 +201,18 @@
 
     // Hovers
     @media #{$has-hover} {
+        // TODO: Add after checking if the type-detail is a link or not.
+        // .detail:hover {
+        //     &:after {
+        //         transform: scaleX(1);
+        //     }
+        // }
+        .item-title:hover {
+            &:after {
+                transform: scaleX(1);
+            }
+        }
+
         .btn:hover {
             background-color: var(--color-primary-blue-03);
             color: var(--color-white);
@@ -193,6 +236,7 @@
             }
         }
     }
+
     // Breakpoints
     @media #{$medium} {
         .item-details {
@@ -201,17 +245,18 @@
             gap: 5px;
         }
     }
-}
-// Transitions
-.fade-label-enter-active,
-.fade-label-leave-active {
-    transition: opacity 0.15s ease-in-out;
-}
-.fade-label-enter-from,
-.fade-label-leave-to {
-    opacity: 0;
-}
-.fade-label-enter-to,
-.fade-label-leave-from {
-    opacity: 1;
+
+    // Transitions
+    .fade-label-enter-active,
+    .fade-label-leave-active {
+        transition: opacity 0.15s ease-in-out;
+    }
+    .fade-label-enter-from,
+    .fade-label-leave-to {
+        opacity: 0;
+    }
+    .fade-label-enter-to,
+    .fade-label-leave-from {
+        opacity: 1;
+    }
 }
