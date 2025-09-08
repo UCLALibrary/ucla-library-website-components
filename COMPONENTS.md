@@ -456,7 +456,7 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
-| ButtonIIIF                 |           | ☐ Complete  |   [ ]   |                                |
+| ButtonIIIF                 |Svebor     | ☐ Complete  |   [ ]   |                                |
 | Button                     |Luka       | ☐ Complete  |   [ ]   |                                |
 | DividerGeneral             |Exists     | ☐ Complete  |   [x]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
