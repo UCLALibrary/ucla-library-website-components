@@ -1,24 +1,40 @@
 <template>
-  <div class="filter-dropdown">
+  <div :class="classes">
     <h2 class="filter-title">{{ title }}</h2>
     <div class="filter-list">
       <EffectSlideToggle
         v-for="filter in props.filters"
         :key="filter.name"
+        ref="toggleRefs"
         class="filter-item"
         :duration="300"
         :easing="'cubic-bezier(0.4, 0, 0.2, 1)'"
         :opened="false"
+        :prevent-close="hasSelectedOptions(filter.slotName || filter.name)"
+        @opened="() => onToggleOpened(filter.slotName || filter.name)"
+        @closed="() => onToggleClosed(filter.slotName || filter.name)"
       >
+
+        <!-- SUMMARY -->
         <template #summary>
-          <div class="filter-summary">
+          <div
+            class="filter-summary"
+            :class="{ 'is-filtered': filteredStates[filter.slotName || filter.name] }"
+            @click="() => onSummaryClick(filter.slotName || filter.name)"
+          >
             <span class="filter-name">{{ filter.name || filter.slotName }}</span>
             <span class="filter-chevron">
               <SvgFilterIcon aria-hidden="true" />
             </span>
           </div>
         </template>
-        <div class="filter-content">
+
+        <!-- CONTENT -->
+        <TransitionGroup
+          name="filter-content"
+          class="filter-content"
+          tag="div"
+        >
           <slot
             :name="filter.slotName || filter.name"
             :filter="filter"
@@ -30,31 +46,37 @@
               v-if="filter.options && filter.options.length > 0"
               class="filter-options"
             >
-              <label
-                v-for="option in filter.options || []"
-                :key="option.value"
-                class="filter-option"
-                :class="{ 'is-selected': isOptionSelected(filter.slotName || filter.name, option.value) }"
+              <TransitionGroup
+                name="filter-option"
+                tag="div"
+                class="filter-options-list"
               >
-                <input
-                  type="checkbox"
-                  :value="option.value"
-                  :checked="isOptionSelected(filter.slotName || filter.name, option.value)"
-                  @change="toggleOption(filter.slotName || filter.name, option)"
-                  class="option-checkbox"
+                <label
+                  v-for="option in getFilterOptions(filter)"
+                  :key="option.value"
+                  class="filter-option"
+                  :class="{ 'is-selected': isOptionSelected(filter.slotName || filter.name, option.value) }"
                 >
-                <span class="option-name">{{ option.label }}</span>
-                <div class="option-right">
-                  <span class="option-count">{{ option.count }}</span>
-                  <span
-                    v-if="isOptionSelected(filter.slotName || filter.name, option.value)"
-                    class="option-remove"
-                    @click.stop="toggleOption(filter.slotName || filter.name, option)"
+                  <input
+                    type="checkbox"
+                    :value="option.value"
+                    :checked="isOptionSelected(filter.slotName || filter.name, option.value)"
+                    @change="toggleOption(filter.slotName || filter.name, option)"
+                    class="option-checkbox"
                   >
-                    ×
-                  </span>
-                </div>
-              </label>
+                  <span class="option-name">{{ option.label }}</span>
+                  <div class="option-right">
+                    <span class="option-count">{{ option.count }}</span>
+                    <span
+                      v-if="isOptionSelected(filter.slotName || filter.name, option.value)"
+                      class="option-remove"
+                      @click.stop="toggleOption(filter.slotName || filter.name, option)"
+                    >
+                      ×
+                    </span>
+                  </div>
+                </label>
+              </TransitionGroup>
               <div
                 v-if="filter.showAll"
                 class="filter-option see-all"
@@ -63,16 +85,17 @@
               </div>
             </div>
           </slot>
-        </div>
+        </TransitionGroup>
       </EffectSlideToggle>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, computed, nextTick } from 'vue'
 import EffectSlideToggle from './EffectSlideToggle.vue'
 import SvgFilterIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-filter.svg'
+import { useTheme } from '@/composables/useTheme'
 
 type FilterProps = {
   title: string,
@@ -90,6 +113,12 @@ type FilterProps = {
 
 const props = defineProps<FilterProps>()
 
+// THEME
+const theme = useTheme()
+const classes = computed(() => {
+  return ['filter-dropdown', theme?.value || '']
+})
+
 // Emit events for selection changes
 const emit = defineEmits<{
   'selection-change': [selectedOptions: Record<string, string[]>]
@@ -99,6 +128,9 @@ const emit = defineEmits<{
 
 // Track selected options for each filter
 const selectedOptions = ref<Record<string, string[]>>({})
+const toggleRefs = ref<InstanceType<typeof EffectSlideToggle>[]>([])
+const toggleStates = ref<Record<string, boolean>>({})
+const filteredStates = ref<Record<string, boolean>>({})
 
 // Initialize selected options for each filter
 const initializeSelectedOptions = () => {
@@ -106,6 +138,12 @@ const initializeSelectedOptions = () => {
     const filterKey = filter.slotName || filter.name
     if (!selectedOptions.value[filterKey]) {
       selectedOptions.value[filterKey] = []
+    }
+    if (toggleStates.value[filterKey] === undefined) {
+      toggleStates.value[filterKey] = false
+    }
+    if (filteredStates.value[filterKey] === undefined) {
+      filteredStates.value[filterKey] = false
     }
   })
 }
@@ -124,8 +162,57 @@ const isOptionSelected = (filterName: string, optionValue: string): boolean => {
   return selectedOptions.value[filterKey]?.includes(optionValue) || false
 }
 
+// Check if a filter has any selected options
+const hasSelectedOptions = (filterName: string): boolean => {
+  const filterKey = filterName
+  return (selectedOptions.value[filterKey]?.length || 0) > 0
+}
+
+// Handle toggle opened event
+const onToggleOpened = (filterName: string) => {
+  const filterKey = filterName
+  toggleStates.value[filterKey] = true
+}
+
+// Handle toggle closed event
+const onToggleClosed = (filterName: string) => {
+  const filterKey = filterName
+  toggleStates.value[filterKey] = false
+  // Reset filtered state when toggle closes
+  filteredStates.value[filterKey] = false
+}
+
+// Handle summary click - toggle filtering when there are selections
+const onSummaryClick = (filterName: string) => {
+  const filterKey = filterName
+  const hasSelections = hasSelectedOptions(filterKey)
+
+  if (hasSelections) {
+    // Toggle filtered state
+    filteredStates.value[filterKey] = !filteredStates.value[filterKey]
+  }
+}
+
+// Get options to display for a filter (only selected when in filtered mode)
+const getFilterOptions = (filter: any) => {
+  if (!filter.options) return []
+
+  const filterKey = filter.slotName || filter.name
+  const isFiltered = filteredStates.value[filterKey]
+
+  // Show only selected options when in filtered mode
+  if (isFiltered) {
+    return filter.options.filter((option: any) =>
+      selectedOptions.value[filterKey]?.includes(option.value)
+    )
+  }
+
+  // Show all options when not filtered
+  return filter.options
+}
+
 // Toggle option selection
-const toggleOption = (filterName: string, option: { label: string, value: string, count: number }) => {
+const toggleOption = async (filterName: string, option: { label: string, value: string, count: number }) => {
   const filterKey = filterName
 
   if (!selectedOptions.value[filterKey]) {
@@ -139,6 +226,17 @@ const toggleOption = (filterName: string, option: { label: string, value: string
     // Option is selected, remove it
     currentSelection.splice(optionIndex, 1)
     emit('option-deselected', filterName, option)
+
+    // If no more options are selected, close the toggle and reset filtered state
+    if (currentSelection.length === 0) {
+      await nextTick()
+      const filterIndex = props.filters.findIndex(f => (f.slotName || f.name) === filterKey)
+      if (filterIndex >= 0 && toggleRefs.value[filterIndex]) {
+        toggleRefs.value[filterIndex].close()
+      }
+      // Reset filtered state
+      filteredStates.value[filterKey] = false
+    }
   } else {
     // Option is not selected, add it
     currentSelection.push(option.value)
@@ -166,140 +264,5 @@ defineExpose({
 </script>
 
 <style scoped>
-.filter-dropdown {
-  background: #f5f5f5;
-  border-radius: 8px;
-
-  max-width: 300px;
-
-  .filter-title {
-    color: #1a365d;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin: 0 0 16px 0;
-    letter-spacing: 0.5px;
-  }
-
-  .filter-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .filter-item {
-    border-bottom: 1px solid #e0e0e0;
-  }
-
-  .filter-item:last-child {
-    border-bottom: none;
-  }
-
-  .filter-summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 7px 15px;
-    cursor: pointer;
-    color: #4a5568;
-    font-weight: 500;
-  }
-
-  .filter-name {
-    flex: 1;
-  }
-
-  .filter-chevron {
-    font-size: 12px;
-    transition: transform 0.2s ease;
-  }
-
-  .effect-slide-toggle.is-opened .filter-chevron {
-    transform: rotate(180deg);
-  }
-
-  .filter-content {
-    padding: 0 0 16px 0;
-  }
-
-  .filter-options {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .filter-option {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 7px 15px;
-    color: var(--color-grey-05);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.05);
-    }
-
-    &.is-selected {
-      background-color: var(--color-primary-blue-03);
-      color: var(--color-white);
-
-      .option-name {
-        font-weight: 500;
-      }
-
-      .option-count {
-        color: var(--color-primary-blue-02);
-        font-weight: 500;
-      }
-    }
-  }
-
-  .option-checkbox {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .option-name {
-    flex: 1;
-    cursor: pointer;
-  }
-
-  .option-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .option-count {
-    color: var(--color-grey-03);
-    font-size: 14px;
-  }
-
-  .option-remove {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    color: var(--color-white);
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    pointer-events: none;
-    transition: background-color 0.2s ease;
-
-  }
-
-  .see-all {
-    font-weight: 500;
-    color: #2d3748;
-    cursor: pointer;
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.05);
-    }
-  }
-}
+@import "@/styles/dlc/_filter-dropdown.scss";
 </style>

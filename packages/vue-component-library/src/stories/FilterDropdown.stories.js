@@ -1,5 +1,6 @@
 import { computed, ref } from 'vue'
 import FilterDropdown from '@/lib-components/FilterDropdown.vue'
+import YearRangeFilter from '@/lib-components/YearRangeFilter.vue'
 
 export default {
   title: 'Funkhaus / FilterDropdown',
@@ -160,6 +161,11 @@ export function Default() {
     data() {
       return { filters: defaultFilters }
     },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
     template: `
       <div style="max-width: 400px; margin: 20px;">
         <FilterDropdown title='REFINE SEARCH' :filters="filters" />
@@ -174,9 +180,224 @@ export function Long() {
     data() {
       return { filters: longFilters }
     },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
     template: `
       <div style="max-width: 500px; margin: 20px;">
         <FilterDropdown title='REFINE LONG SEARCH' :filters="filters" />
+      </div>
+    `
+  }
+}
+
+// Sample filters including a date filter that will use the YearRangeFilter
+const filtersWithDateRange = [
+  { 
+    name: 'Subject', 
+    slotName: 'subject',
+    options: [
+      { label: 'History', value: 'history', count: 15420 },
+      { label: 'Literature', value: 'literature', count: 8930 },
+      { label: 'Science', value: 'science', count: 12650 },
+      { label: 'Art', value: 'art', count: 7820 },
+      { label: 'Philosophy', value: 'philosophy', count: 4560 }
+    ],
+    showAll: true
+  },
+  { 
+    name: 'Resource Type', 
+    slotName: 'resourceType', 
+    options: [
+      { label: 'Still Image', value: 'still-image', count: 21958 },
+      { label: 'Moving Image', value: 'moving-image', count: 8012 },
+      { label: 'Text', value: 'text', count: 33486 },
+      { label: 'Sound Recording', value: 'sound-recording', count: 12796 },
+      { label: 'Cartographic', value: 'cartographic', count: 3615 }
+    ], 
+    showAll: true 
+  },
+  { 
+    name: 'Date Range', 
+    slotName: 'dateRange',
+    // No options - this will use the slot
+  },
+  { 
+    name: 'Genre', 
+    slotName: 'genre',
+    options: [
+      { label: 'Fiction', value: 'fiction', count: 12340 },
+      { label: 'Non-fiction', value: 'non-fiction', count: 18760 },
+      { label: 'Biography', value: 'biography', count: 8920 },
+      { label: 'Academic', value: 'academic', count: 15680 },
+      { label: 'Reference', value: 'reference', count: 5430 }
+    ],
+    showAll: true
+  }
+]
+
+export function WithYearRangeFilter() {
+  return {
+    components: { FilterDropdown, YearRangeFilter },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return { 
+        filters: filtersWithDateRange,
+        selectedOptions: {},
+        dateRange: {
+          min: 1900,
+          max: 2024,
+          minValue: 1950,
+          maxValue: 2000
+        }
+      }
+    },
+    methods: {
+      onSelectionChange(selections) {
+        this.selectedOptions = selections
+        console.log('Selection changed:', selections)
+      },
+      onOptionSelected(filterName, option) {
+        console.log('Option selected:', filterName, option)
+      },
+      onOptionDeselected(filterName, option) {
+        console.log('Option deselected:', filterName, option)
+      },
+      onDateRangeChange(range) {
+        console.log('Date range changed:', range)
+        // You could emit this or store it in a parent component
+        this.dateRange.minValue = range.min
+        this.dateRange.maxValue = range.max
+      }
+    },
+    template: `
+      <div style="max-width: 400px; margin: 20px;">
+       
+        <FilterDropdown 
+          title='REFINE SEARCH' 
+          :filters="filters"
+          @selection-change="onSelectionChange"
+          @option-selected="onOptionSelected"
+          @option-deselected="onOptionDeselected"
+        >
+          <!-- Custom slot for the date range filter -->
+          <template #dateRange="{ filter, selectedOptions, toggleOption }">
+              <YearRangeFilter
+                :min="dateRange.min"
+                :max="dateRange.max"
+                :min-value="dateRange.minValue"
+                :max-value="dateRange.maxValue"
+                :step="1"
+                :disabled="false"
+                @change="onDateRangeChange"
+              />
+          </template>
+        </FilterDropdown>
+        <div style="margin-top: 20px; padding: 10px; background: #f0f0f0; border-radius: 4px; font-size: 12px;">
+          <strong>Selected Options:</strong>
+          <pre style="margin: 5px 0; white-space: pre-wrap;">{{ JSON.stringify(selectedOptions, null, 2) }}</pre>
+          <div style="margin-top: 10px;">
+            <strong>Date Range:</strong> {{ dateRange.minValue }} - {{ dateRange.maxValue }}
+          </div>
+        </div>
+      </div>
+    `
+  }
+}
+
+export function MultipleCustomSlots() {
+  return {
+    components: { FilterDropdown, YearRangeFilter },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return { 
+        filters: [
+          { 
+            name: 'Date Range', 
+            slotName: 'dateRange',
+          },
+          { 
+            name: 'Price Range', 
+            slotName: 'priceRange',
+          },
+          { 
+            name: 'Subject', 
+            slotName: 'subject',
+            options: [
+              { label: 'History', value: 'history', count: 15420 },
+              { label: 'Literature', value: 'literature', count: 8930 },
+              { label: 'Science', value: 'science', count: 12650 }
+            ],
+            showAll: true
+          }
+        ],
+        selectedOptions: {},
+        dateRange: { min: 1900, max: 2024, minValue: 1950, maxValue: 2000 },
+        priceRange: { min: 0, max: 1000, minValue: 100, maxValue: 500 }
+      }
+    },
+    methods: {
+      onSelectionChange(selections) {
+        this.selectedOptions = selections
+      },
+      onDateRangeChange(range) {
+        this.dateRange.minValue = range.min
+        this.dateRange.maxValue = range.max
+      },
+      onPriceRangeChange(range) {
+        this.priceRange.minValue = range.min
+        this.priceRange.maxValue = range.max
+      }
+    },
+    template: `
+      <div style="max-width: 400px; margin: 20px;">
+        <FilterDropdown 
+          title='ADVANCED FILTERS' 
+          :filters="filters"
+          @selection-change="onSelectionChange"
+        >
+          <!-- Date Range Slot -->
+          <template #dateRange="{ filter, selectedOptions, toggleOption }">
+            <div style="padding: 15px;">
+              <YearRangeFilter
+                :min="dateRange.min"
+                :max="dateRange.max"
+                :min-value="dateRange.minValue"
+                :max-value="dateRange.maxValue"
+                :step="1"
+                @change="onDateRangeChange"
+              />
+            </div>
+          </template>
+
+          <!-- Price Range Slot -->
+          <template #priceRange="{ filter, selectedOptions, toggleOption }">
+            <div style="padding: 15px;">
+              <YearRangeFilter
+                :min="priceRange.min"
+                :max="priceRange.max"
+                :min-value="priceRange.minValue"
+                :max-value="priceRange.maxValue"
+                :step="10"
+                @change="onPriceRangeChange"
+              />
+            </div>
+          </template>
+        </FilterDropdown>
+        <div style="margin-top: 20px; padding: 10px; background: #f0f0f0; border-radius: 4px; font-size: 12px;">
+          <div><strong>Date Range:</strong> {{ dateRange.minValue }} - {{ dateRange.maxValue }}</div>
+          <div><strong>Price Range:</strong> {{ priceRange.minValue }} - {{ priceRange.maxValue }}</div>
+        </div>
       </div>
     `
   }

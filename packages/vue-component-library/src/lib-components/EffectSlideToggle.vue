@@ -27,12 +27,14 @@ interface Props {
   duration?: number
   easing?: string
   opened?: boolean
+  preventClose?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   duration: 400,
   easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-  opened: false
+  opened: false,
+  preventClose: false
 })
 
 const emit = defineEmits<{
@@ -73,7 +75,9 @@ const onClick = (): void => {
     open()
   }
   else if (isExpanding.value || isOpened.value) {
-    close()
+    if (!props.preventClose) {
+      close()
+    }
   }
 }
 
@@ -132,8 +136,19 @@ const onAnimationFinish = (open: boolean): void => {
   isClosing.value = false
   isExpanding.value = false
   height.value = 'auto'
-  emit(open ? 'opened' : 'closed')
+  if (open) {
+    emit('opened')
+  } else {
+    emit('closed')
+  }
 }
+
+// Expose methods for parent components
+defineExpose({
+  open,
+  close,
+  isOpened: computed(() => isOpened.value)
+})
 </script>
 
 <style scoped>

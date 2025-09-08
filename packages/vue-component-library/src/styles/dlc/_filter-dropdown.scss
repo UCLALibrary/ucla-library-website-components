@@ -1,0 +1,199 @@
+.filter-dropdown,
+.filter-dropdown.dlc {
+    background: #f5f5f5;
+    border-radius: 8px;
+
+    max-width: 300px;
+
+    .filter-title {
+        color: #1a365d;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0 0 16px 0;
+        letter-spacing: 0.5px;
+    }
+
+    .filter-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .filter-item {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .filter-item:last-child {
+        border-bottom: none;
+    }
+
+    .filter-summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 15px;
+        cursor: pointer;
+        color: #4a5568;
+        font-weight: 500;
+        transition: background-color 0.2s ease;
+
+        &.is-filtered {
+        }
+    }
+
+    .filter-name {
+        flex: 1;
+    }
+
+    .filter-chevron {
+        font-size: 12px;
+        transition: transform 0.2s ease;
+    }
+
+    .effect-slide-toggle.is-opened .filter-chevron {
+        transform: rotate(180deg);
+    }
+
+    .filter-content {
+        padding: 0 0 16px 0;
+    }
+
+    .filter-options {
+        display: flex;
+        flex-direction: column;
+
+        position: relative;
+    }
+
+    .filter-options-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filter-option {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 15px;
+        color: var(--color-grey-05);
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        &.is-selected {
+            background-color: var(--color-primary-blue-03);
+            color: var(--color-white);
+
+            .option-name {
+                font-weight: 500;
+            }
+
+            .option-count {
+                color: var(--color-primary-blue-02);
+                font-weight: 500;
+            }
+        }
+    }
+
+    .option-checkbox {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .option-name {
+        flex: 1;
+        cursor: pointer;
+    }
+
+    .option-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .option-count {
+        color: var(--color-grey-03);
+        font-size: 14px;
+    }
+
+    .option-remove {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        color: var(--color-white);
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        pointer-events: none;
+        transition: background-color 0.2s ease;
+    }
+
+    .see-all {
+        font-weight: 500;
+        color: #2d3748;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    // TransitionGroup animations for filter content
+    .filter-content-move,
+    .filter-content-enter-active,
+    .filter-content-leave-active {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .filter-content-enter-from,
+    .filter-content-enter-to,
+    .filter-content-leave-to {
+        opacity: 0;
+    }
+
+    .filter-content-leave-active {
+        position: absolute;
+    }
+
+    .filter-content-leave-to {
+        transform: translateY(10px);
+        position: absolute;
+        width: 100%;
+    }
+
+    .filter-content-enter-to {
+        transform: translateY(0);
+        position: relative;
+    }
+
+    // Staggered fade-out animation for filter options
+    .filter-option-move,
+    .filter-option-enter-active,
+    .filter-option-leave-active {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .filter-option-enter-from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    .filter-option-leave-to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    // Ensure leaving items are taken out of layout flow so that moving
+    // animations can be calculated correctly
+    .filter-option-leave-active {
+        position: absolute;
+        width: 100%;
+    }
+}
