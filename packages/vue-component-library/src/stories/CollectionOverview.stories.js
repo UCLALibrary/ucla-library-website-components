@@ -17,7 +17,7 @@ export function Default() {
     data() {
       return {
         props: {
-          title: 'Los Angeles Times Photographic Collection',
+          title: 'Los Angeles Times Photographic Collection ',
           subtitle: 'About this Collection',
           itemsCount: 21963,
 
