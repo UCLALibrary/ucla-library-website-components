@@ -143,8 +143,17 @@ function setCurrentSlide(currentSlide: number) {
           <slot :selection-index="selectionIndex" />
           <!-- additional blocktags/labels/simple elements can be slotted in here by parent -->
         </div>
-        <h4 v-if="captionTitle" class="media-object-title" v-text="captionTitle[selectionIndex]" />
-
+        <!-- if a url is provided make the title clickable -->
+        <h4 v-if="captionTitle[selectionIndex]" class="media-object-title">
+          <template v-if="items && items[selectionIndex] && items[selectionIndex].linkUrl">
+            <SmartLink :to="items[selectionIndex].linkUrl">
+              {{ captionTitle[selectionIndex] }}
+            </SmartLink>
+          </template>
+          <template v-else>
+            {{ captionTitle[selectionIndex] }}
+          </template>
+        </h4>
         <p v-if="captionText" class="media-object-caption" v-text="captionText[selectionIndex]" />
 
         <p v-if="items && items[selectionIndex] && items[selectionIndex].credit" class="media-object-credit">
