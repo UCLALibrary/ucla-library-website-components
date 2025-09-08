@@ -1,103 +1,103 @@
 <script setup lang="ts">
-import { computed, ref } from "vue"
+import { computed, ref } from 'vue'
 
 import type {
-    MediaItemType,
-    ResponsiveImage as ResponsiveImagepProps,
-} from "@/types/types"
+  MediaItemType,
+  ResponsiveImageType as ResponsiveImagepProps,
+} from '@/types/types'
 
 // Props
 const props = withDefaults(defineProps<ResponsiveImagepProps>(), {
-    media: () => ({} as MediaItemType),
-    src: "",
-    height: 0,
-    width: 0,
-    alt: "",
-    srcset: "",
-    sizes: "",
-    caption: "",
-    aspectRatio: 0,
-    objectFit: "",
+  media: () => ({} as MediaItemType),
+  src: '',
+  height: 0,
+  width: 0,
+  alt: '',
+  srcset: '',
+  sizes: '',
+  caption: '',
+  aspectRatio: 0,
+  objectFit: '',
 })
 
 const hasLoaded = ref(false)
 const hasErrored = ref(false)
 
 function onLoad() {
-    hasLoaded.value = true
+  hasLoaded.value = true
 }
 
 function onError() {
-    hasErrored.value = true
+  hasErrored.value = true
 }
 
 const parsedFocalPoint = computed(() => {
-    let objectPosition = ""
-    if (props.media.focalPoint && props.media.focalPoint.length > 0) {
-        const points = props.media.focalPoint.map((obj) => {
-            return `${obj * 100}%`
-        })
-        objectPosition = `object-position:${points.join(" ")}`
-    }
-    return objectPosition
+  let objectPosition = ''
+  if (props.media.focalPoint && props.media.focalPoint.length > 0) {
+    const points = props.media.focalPoint.map((obj) => {
+      return `${obj * 100}%`
+    })
+    objectPosition = `object-position:${points.join(' ')}`
+  }
+  return objectPosition
 })
 
 const parsedAspectRatio = computed(() => {
-    const height = props.media.height || props.height
-    const width = props.media.width || props.width
-    return props.aspectRatio || (height / width) * 100
+  const height = props.media.height || props.height
+  const width = props.media.width || props.width
+  return props.aspectRatio || (height / width) * 100
 })
 
 const styles = computed(() => {
-    return {
-        paddingBottom: `${parsedAspectRatio.value}%`,
-    }
+  return {
+    paddingBottom: `${parsedAspectRatio.value}%`,
+  }
 })
 
 const classes = computed(() => {
-    return [
-        "responsive-image",
+  return [
+    'responsive-image',
         `object-fit-${props.objectFit}`,
-        { "has-loaded": hasLoaded },
-        { "has-errored": hasErrored },
-    ]
+        { 'has-loaded': hasLoaded },
+        { 'has-errored': hasErrored },
+  ]
 })
 </script>
 
 <template>
-    <figure v-if="props.media && props.media.src" :class="classes">
-        <!-- TODO:  width and height are swapped here, why? is it a mistake or there's a reason behind it? -->
-        <img
-            :src="props.media.src || props.src"
-            :height="props.media.width || props.width"
-            :width="props.media.height || props.height"
-            :alt="props.media.alt || props.alt"
-            :srcset="props.media.srcset || props.srcset"
-            :sizes="props.media.sizes || props.sizes"
-            :object-fit="props.objectFit"
-            :style="parsedFocalPoint"
-            class="media"
-            @load="onLoad"
-            @error="onError"
-        />
-        <figcaption
-            v-if="props.media.caption || props.caption"
-            class="caption"
-            v-html="props.media.caption || props.caption"
-        />
-        <div class="sizer" :style="styles" />
-        <slot />
-        <div v-if="$slots.toptext" class="toptext">
-            <div class="image-top-text">
-                <slot name="toptext" />
-            </div>
-        </div>
-        <div v-if="$slots.credit" class="credit">
-            <div class="credit-text">
-                <slot name="credit" />
-            </div>
-        </div>
-    </figure>
+  <figure v-if="props.media && props.media.src" :class="classes">
+    <!-- TODO:  width and height are swapped here, why? is it a mistake or there's a reason behind it? -->
+    <img
+      :src="props.media.src || props.src"
+      :height="props.media.width || props.width"
+      :width="props.media.height || props.height"
+      :alt="props.media.alt || props.alt"
+      :srcset="props.media.srcset || props.srcset"
+      :sizes="props.media.sizes || props.sizes"
+      :object-fit="props.objectFit"
+      :style="parsedFocalPoint"
+      class="media"
+      @load="onLoad"
+      @error="onError"
+    >
+    <figcaption
+      v-if="props.media.caption || props.caption"
+      class="caption"
+      v-html="props.media.caption || props.caption"
+    />
+    <div class="sizer" :style="styles" />
+    <slot />
+    <div v-if="$slots.toptext" class="toptext">
+      <div class="image-top-text">
+        <slot name="toptext" />
+      </div>
+    </div>
+    <div v-if="$slots.credit" class="credit">
+      <div class="credit-text">
+        <slot name="credit" />
+      </div>
+    </div>
+  </figure>
 </template>
 
 <style lang="scss" scoped>

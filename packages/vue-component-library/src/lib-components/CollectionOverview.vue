@@ -1,19 +1,19 @@
 <script setup lang="ts">
 // Imports
-import type { BlockButtonsProps } from "@/types/components/blockButtons.types"
-import type { MediaItemType } from "@/types/types"
-import SearchResultsCount from "@/lib-components/SearchResultsCount.vue"
-import BlockButtons from "@/lib-components/BlockButtons.vue"
-import ResponsiveImage from "@/lib-components/ResponsiveImage.vue"
-import { computed } from "vue"
+import { computed } from 'vue'
+import type { BlockButtonsProps } from '@/types/components/blockButtons.types'
+import type { MediaItemType } from '@/types/types'
+import SearchResultsCount from '@/lib-components/SearchResultsCount.vue'
+import BlockButtons from '@/lib-components/BlockButtons.vue'
+import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 
-type CollectionOverviewProps = {
-    title: string
-    subtitle?: string
-    itemsCount?: number
-    description?: string
-    image: MediaItemType
-    blockButtons?: BlockButtonsProps
+interface CollectionOverviewProps {
+  title: string
+  subtitle?: string
+  itemsCount?: number
+  description?: string
+  image: MediaItemType
+  blockButtons?: BlockButtonsProps
 }
 
 // Props
@@ -21,64 +21,70 @@ const props = defineProps<CollectionOverviewProps>()
 
 // Computed
 const labelParsed = computed(() => {
-    if (props.itemsCount) {
-        return props.itemsCount > 1 ? "items" : "item"
-    }
-    return ""
+  if (props.itemsCount)
+    return props.itemsCount > 1 ? 'items' : 'item'
+
+  return ''
 })
 
 const hasButtons = computed(() => {
-    return (
-        props.blockButtons &&
-        props.blockButtons.buttons &&
-        props.blockButtons.buttons.length > 0
-    )
+  return (
+    props.blockButtons
+        && props.blockButtons.buttons
+        && props.blockButtons.buttons.length > 0
+  )
 })
 </script>
 
 <template>
-    <section class="collection-overview">
-        <template class="phone">
-            <h2 class="title">{{ title }}</h2>
+  <section class="collection-overview">
+    <template class="phone">
+      <h2 class="title">
+        {{ title }}
+      </h2>
 
-            <search-results-count
-                v-if="itemsCount"
-                :count="itemsCount"
-                prefix=""
-                :label="labelParsed"
-                :animate="true"
-                class="search-results-count"
-            />
+      <SearchResultsCount
+        v-if="itemsCount"
+        :count="itemsCount"
+        prefix=""
+        :label="labelParsed"
+        :animate="true"
+        class="search-results-count"
+      />
+    </template>
+
+    <div class="layout-container">
+      <div class="meta">
+        <template class="desktop">
+          <h2 class="title">
+            {{ title }}
+          </h2>
+
+          <SearchResultsCount
+            v-if="itemsCount"
+            :count="itemsCount"
+            prefix=""
+            :label="labelParsed"
+            :animate="true"
+            class="search-results-count"
+          />
         </template>
 
-        <div class="layout-container">
-            <div class="meta">
-                <template class="desktop">
-                    <h2 class="title">{{ title }}</h2>
+        <h3 v-if="subtitle" class="subtitle">
+          {{ subtitle }}
+        </h3>
+        <div class="description" v-html="description" />
 
-                    <search-results-count
-                        v-if="itemsCount"
-                        :count="itemsCount"
-                        prefix=""
-                        :label="labelParsed"
-                        :animate="true"
-                        class="search-results-count"
-                    />
-                </template>
-
-                <h3 v-if="subtitle" class="subtitle">{{ subtitle }}</h3>
-                <div class="description" v-html="description" />
-
-                <block-buttons
-                    v-if="blockButtons && hasButtons"
-                    :buttons="blockButtons.buttons"
-                    :align="blockButtons.align"
-                    :direction="blockButtons.direction"
-                />
-            </div>
-            <responsive-image :media="image" class="image" />
-        </div>
-    </section>
+        <BlockButtons
+          v-if="blockButtons && hasButtons"
+          :buttons="blockButtons.buttons"
+          :align="blockButtons.align"
+          :direction="blockButtons.direction"
+        />
+      </div>
+      <ResponsiveImage :media="image" class="image" />
+    </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
