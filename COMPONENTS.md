@@ -322,6 +322,8 @@ Universal top banner with UCLA branding. Often pinned to the top of all pages, m
 
 [] Header ()
 
+NOTE - Something similar exists, but it needs some tweaks.
+
 Primary site navigation including logo, main links, and utility search bar.
 
 - logo: { label: string, href: string }  
