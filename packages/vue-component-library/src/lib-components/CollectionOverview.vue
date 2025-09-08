@@ -6,6 +6,7 @@ import type { MediaItemType } from '@/types/types'
 import SearchResultsCount from '@/lib-components/SearchResultsCount.vue'
 import BlockButtons from '@/lib-components/BlockButtons.vue'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
+import { useTheme } from '@/composables/useTheme'
 
 interface CollectionOverviewProps {
   title: string
@@ -18,6 +19,8 @@ interface CollectionOverviewProps {
 
 // Props
 const props = defineProps<CollectionOverviewProps>()
+
+const theme = useTheme()
 
 // Computed
 const labelParsed = computed(() => {
@@ -34,10 +37,14 @@ const hasButtons = computed(() => {
         && props.blockButtons.buttons.length > 0
   )
 })
+
+const classes = computed(() => {
+  return ['collection-overview', theme?.value]
+})
 </script>
 
 <template>
-  <section class="collection-overview">
+  <section :class="classes">
     <template class="phone">
       <h2 class="title">
         {{ title }}
@@ -88,97 +95,5 @@ const hasButtons = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.collection-overview {
-    .layout-container {
-        display: flex;
-        align-items: flex-start;
-        gap: 48px;
-    }
-
-    .meta,
-    .image {
-        width: 50%;
-    }
-
-    .title {
-        margin: 0 0 8px;
-
-        font-family: var(--font-primary);
-        font-size: 48px;
-        font-weight: 400;
-        line-height: 1.1;
-        color: var(--color-black);
-    }
-
-    .search-results-count {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        gap: 8px;
-
-        width: fit-content;
-        margin: 0 0 48px;
-
-        // Custom label styles
-        :deep(.parsed-results),
-        :deep(.count) {
-            font-family: var(--font-primary);
-            font-size: 24px;
-            font-weight: 400;
-        }
-    }
-
-    .subtitle {
-        margin: 0 0 18px;
-
-        font-family: var(--font-primary);
-        font-size: 32px;
-        font-weight: 400;
-        line-height: 1.2;
-        color: var(--color-primary-blue-03);
-    }
-    .description {
-        margin: 0 0 20px;
-
-        font-family: var(--font-secondary);
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 1.5;
-        color: var(--color-gray-800);
-    }
-
-    // Show/Hide mobile/desktop elements
-    .phone {
-        display: none;
-    }
-    .desktop {
-        display: block;
-    }
-
-    // Breakpoints
-    @media #{$medium} {
-        .layout-container {
-            gap: 24px;
-        }
-
-        // Show/Hide mobile/desktop elements
-        .phone {
-            display: block;
-        }
-        .desktop {
-            display: none;
-        }
-    }
-    @media #{$small} {
-        .layout-container {
-            flex-direction: column-reverse;
-            gap: 48px;
-        }
-
-        .meta,
-        .image {
-            width: 100%;
-        }
-    }
-}
+@import "@/styles/dlc/_collection-overview.scss";
 </style>
