@@ -25,7 +25,7 @@ const route = useRoute()
 // DEFAULT CONTENT
 // if this component ever needs to be reused with different content,
 // we can pass these as default props instead
-const defaultBottomText = 'Looking for something else? Search the Film & Television Archive Catalog at '
+const defaultBottomText = 'Looking for a specific collection item? Search the UCLA Film & Television Archive Catalog at '
 const defaultBottomLink = {
   label: 'UC LIBRARY SEARCH >',
   to: 'https://search.library.ucla.edu/discovery/search?vid=01UCS_LAL:UCLA&tab=Articles_books_more_slot&search_scope=ArticlesBooksMore&lang=en&query=any,contains,',
