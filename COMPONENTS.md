@@ -95,7 +95,7 @@ Collapsible panel of dropdown filters for refining search results.
 - onFilterChange: Function(label: string, selected: string | string[])  
 - defaultOpen?: string[] (filters to open by default)
 
-[] FiltersDropdown ()
+[] FiltersDropdown (Svebor)
 
 Collapsible panel of dropdown filters for refining search results with multiple options
 
