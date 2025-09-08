@@ -1,4 +1,4 @@
-.search-results-count {
+.search-results-count.dlc {
     color: var(--color-primary-blue-05);
 
     .parsed-results {
@@ -6,7 +6,7 @@
 
         font-size: 16px;
         font-weight: 400;
-        line-height: 1; /* 25.6px */
+        line-height: 1;
         letter-spacing: 0.16px;
     }
 
@@ -16,6 +16,6 @@
         font-style: normal;
 
         font-weight: 600;
-        line-height: 1; /* 38.4px */
+        line-height: 1;
     }
 }
