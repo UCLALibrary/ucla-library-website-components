@@ -310,7 +310,7 @@ Horizontal scrollable container of `BentoPod`(Aka: BentoBoxBlock - new addition 
 
 ## Header
 
-[] Banner ()
+[] Banner (SiteBrandBar - Already exists, should we refactor it + introduce TS?)
 
 Universal top banner with UCLA branding. Often pinned to the top of all pages, may contain global notices or links.
 
@@ -335,7 +335,7 @@ Primary site navigation including logo, main links, and utility search bar.
 
 ## Footer 
 
-[x] Footer ()
+[x] Footer (FooterPrimary - Already exists, should we refactor it + introduce TS?)
 
 Main site footer for UCLA Library, assembling social links, navigation, and newsletter signup.
 
