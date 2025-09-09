@@ -18,7 +18,7 @@ import {
 import './MainLandingPage.scss'
 
 export default {
-  title: 'Pages/MainLandingPage',
+  title: 'Funkhaus / Pages / Main Landing Page',
   component: {},
   parameters: {
     layout: 'fullscreen',
