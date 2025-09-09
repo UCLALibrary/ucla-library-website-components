@@ -1,0 +1,38 @@
+.main-landing-page {
+    --gutters: 48px;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--color-white, #ffffff);
+
+    .main-content {
+        flex: 1;
+        padding: 200px var(--gutters) 48px;
+    }
+
+    .header-collection {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    .grid-collections {
+        max-width: 1200px;
+        margin: 0 auto;
+
+        padding-block: 48px 40px;
+    }
+
+    // Breakpoints
+    @media #{$extra-large} {
+        .grid-collections {
+            max-width: 1600px;
+        }
+    }
+    @media #{$medium} {
+    }
+    @media #{$small} {
+        --gutters: 24px;
+    }
+}

@@ -119,7 +119,6 @@ const parsedFooterThemeSettings: ComputedRef<FooterThemeSettings> = computed(
 const globalStore = useGlobalStore()
 const parsedSocialItems: ComputedRef<FooterItem[]> = computed(() => {
   if (Object.keys(globalStore.footerPrimary).length !== 0) {
-    console.log('globalStore.footerPrimary', globalStore.footerPrimary)
     return globalStore.footerPrimary.nodes[0].children
   }
   else {
