@@ -76,13 +76,16 @@
                     </span>
                   </div>
                 </label>
+
+                <!-- See All button as part of the transition group -->
+                <div
+                  v-if="filter.showAll && (!hasSelectedOptions(filter.slotName || filter.name) || !filteredStates[filter.slotName || filter.name])"
+                  key="see-all"
+                  class="filter-option see-all"
+                >
+                  <span class="option-name">See All</span>
+                </div>
               </TransitionGroup>
-              <div
-                v-if="filter.showAll"
-                class="filter-option see-all"
-              >
-                <span class="option-name">See All</span>
-              </div>
             </div>
           </slot>
         </TransitionGroup>
