@@ -1,6 +1,7 @@
 import { computed, ref } from 'vue'
 import FilterDropdown from '@/lib-components/FilterDropdown.vue'
 import YearRangeFilter from '@/lib-components/YearRangeFilter.vue'
+import './FilterDropdown.stories.css'
 
 export default {
   title: 'Funkhaus / FilterDropdown',
@@ -13,50 +14,56 @@ export default {
   }
 }
 
+// Shared filter data
+const subjectFilter = { 
+  name: 'Subject', 
+  slotName: 'subject',
+  options: [
+    { label: 'History', value: 'history', count: 15420 },
+    { label: 'Literature', value: 'literature', count: 8930 },
+    { label: 'Science', value: 'science', count: 12650 },
+    { label: 'Art', value: 'art', count: 7820 },
+    { label: 'Philosophy', value: 'philosophy', count: 4560 }
+  ],
+  showAll: true
+}
+
+const resourceTypeFilter = { 
+  name: 'Resource Type', 
+  slotName: 'resourceType', 
+  options: [
+    { label: 'Still Image', value: 'still-image', count: 21958 },
+    { label: 'Moving Image', value: 'moving-image', count: 8012 },
+    { label: 'Text', value: 'text', count: 33486 },
+    { label: 'Sound Recording', value: 'sound-recording', count: 12796 },
+    { label: 'Cartographic', value: 'cartographic', count: 3615 },
+    { label: 'Notated Music', value: 'notated-music', count: 744 },
+    { label: 'Sound Recording-Nonmusical', value: 'sound-recording-nonmusical', count: 528 },
+    { label: 'Sound Recording-Musical', value: 'sound-recording-musical', count: 388 },
+    { label: 'Mixed Material', value: 'mixed-material', count: 104 },
+    { label: 'Three Dimensional Object', value: 'three-dimensional-object', count: 68 }
+  ], 
+  showAll: true 
+}
+
+const genreFilter = { 
+  name: 'Genre', 
+  slotName: 'genre',
+  options: [
+    { label: 'Fiction', value: 'fiction', count: 12340 },
+    { label: 'Non-fiction', value: 'non-fiction', count: 18760 },
+    { label: 'Biography', value: 'biography', count: 8920 },
+    { label: 'Academic', value: 'academic', count: 15680 },
+    { label: 'Reference', value: 'reference', count: 5430 }
+  ],
+  showAll: true
+}
+
 // Default filters with options for all filters
 const defaultFilters = [
-  { 
-
-    name: 'Subject', 
-    slotName: 'subject',
-    options: [
-      { label: 'History', value: 'history', count: 15420 },
-      { label: 'Literature', value: 'literature', count: 8930 },
-      { label: 'Science', value: 'science', count: 12650 },
-      { label: 'Art', value: 'art', count: 7820 },
-      { label: 'Philosophy', value: 'philosophy', count: 4560 }
-    ],
-    showAll: true
-  },
-  { 
-    name: 'Resource Type', 
-    slotName: 'resourceType', 
-    options: [
-      { label: 'Still Image', value: 'still-image', count: 21958 },
-      { label: 'Moving Image', value: 'moving-image', count: 8012 },
-      { label: 'Text', value: 'text', count: 33486 },
-      { label: 'Sound Recording', value: 'sound-recording', count: 12796 },
-      { label: 'Cartographic', value: 'cartographic', count: 3615 },
-      { label: 'Notated Music', value: 'notated-music', count: 744 },
-      { label: 'Sound Recording-Nonmusical', value: 'sound-recording-nonmusical', count: 528 },
-      { label: 'Sound Recording-Musical', value: 'sound-recording-musical', count: 388 },
-      { label: 'Mixed Material', value: 'mixed-material', count: 104 },
-      { label: 'Three Dimensional Object', value: 'three-dimensional-object', count: 68 }
-    ], 
-    showAll: true 
-  },
-  { 
-    name: 'Genre', 
-    slotName: 'genre',
-    options: [
-      { label: 'Fiction', value: 'fiction', count: 12340 },
-      { label: 'Non-fiction', value: 'non-fiction', count: 18760 },
-      { label: 'Biography', value: 'biography', count: 8920 },
-      { label: 'Academic', value: 'academic', count: 15680 },
-      { label: 'Reference', value: 'reference', count: 5430 }
-    ],
-    showAll: true
-  },
+  subjectFilter,
+  resourceTypeFilter,
+  genreFilter,
   { 
     name: 'Location', 
     slotName: 'location',
@@ -82,15 +89,8 @@ const defaultFilters = [
     showAll: true
   },
   { 
-    name: 'Date', 
-    slotName: 'date',
-    options: [
-      { label: '2020-2024', value: '2020-2024', count: 12340 },
-      { label: '2015-2019', value: '2015-2019', count: 18760 },
-      { label: '2010-2014', value: '2010-2014', count: 15680 },
-      { label: '2005-2009', value: '2005-2009', count: 12340 },
-      { label: 'Before 2005', value: 'before-2005', count: 45670 }
-    ],
+    name: 'Date Range', 
+    slotName: 'dateRange',
     showAll: true
   },
   { 
@@ -157,18 +157,107 @@ const longFilters = [
 
 export function Default() {
   return {
-    components: { FilterDropdown },
+    components: { FilterDropdown, YearRangeFilter },
     data() {
-      return { filters: defaultFilters }
+      return { 
+        filters: defaultFilters,
+        selectedOptions: {},
+        dateRange: {
+          min: 1900,
+          max: 2024,
+          minValue: 1950,
+          maxValue: 2000
+        },
+        eventLog: []
+      }
     },
     provide() {
       return {
         theme: computed(() => 'dlc'),
       }
     },
+    methods: {
+      onSelectionChange(selections) {
+        this.selectedOptions = selections
+        const totalSelections = Object.values(selections).reduce((sum, arr) => sum + arr.length, 0)
+        this.addToLog('📊 Selection Changed', `Total selections: ${totalSelections}`)
+      },
+      onOptionSelected(filterName, option) {
+        this.addToLog('✅ Option Selected', `${filterName} → ${option.label}`)
+      },
+      onOptionDeselected(filterName, option) {
+        this.addToLog('❌ Option Deselected', `${filterName} → ${option.label}`)
+      },
+      onDateRangeChange(range) {
+        this.addToLog('📅 Date Range Changed', `${range.min} - ${range.max}`)
+        this.dateRange.minValue = range.min
+        this.dateRange.maxValue = range.max
+      },
+      addToLog(type, message) {
+        const timestamp = new Date().toLocaleTimeString()
+        this.eventLog.unshift({ type, message, timestamp })
+        // Keep only last 10 events
+        if (this.eventLog.length > 10) {
+          this.eventLog = this.eventLog.slice(0, 10)
+        }
+      }
+    },
     template: `
-      <div style="max-width: 400px; margin: 20px;">
-        <FilterDropdown title='REFINE SEARCH' :filters="filters" />
+      <div class="story-container">
+        <FilterDropdown 
+          title='REFINE SEARCH' 
+          :filters="filters"
+          @selection-change="onSelectionChange"
+          @option-selected="onOptionSelected"
+          @option-deselected="onOptionDeselected"
+        >
+          <!-- Custom slot for the date range filter -->
+          <template #dateRange="{ filter, selectedOptions, toggleOption }">
+            <div class="slot-content">
+              <YearRangeFilter
+                :min="dateRange.min"
+                :max="dateRange.max"
+                :min-value="dateRange.minValue"
+                :max-value="dateRange.maxValue"
+                :step="1"
+                :disabled="false"
+                @change="onDateRangeChange"
+              />
+            </div>
+          </template>
+        </FilterDropdown>
+        
+        <!-- Display selected options -->
+        <div class="selected-options-container">
+          <h4 class="selected-options-title">Selected Options Object:</h4>
+          <pre class="selected-options-json">{{ JSON.stringify(selectedOptions, null, 2) }}</pre>
+          <div class="date-range-display">
+            <strong class="date-range-label">Date Range:</strong> 
+            <span class="date-range-value">{{ dateRange.minValue }} - {{ dateRange.maxValue }}</span>
+          </div>
+        </div>
+
+        <!-- Event Log -->
+        <div class="event-log-container">
+          <h4 class="event-log-title">
+            <span class="event-log-icon">📋</span>
+            Event Log
+            <span class="event-log-counter">{{ eventLog.length }} events</span>
+          </h4>
+          <div class="event-log-content">
+            <div v-for="(event, index) in eventLog" :key="index" class="event-item">
+              <div class="event-header">
+                <span class="event-type">{{ event.type }}</span>
+                <span class="event-timestamp">{{ event.timestamp }}</span>
+              </div>
+              <div class="event-message">{{ event.message }}</div>
+            </div>
+            <div v-if="eventLog.length === 0" class="event-log-empty">
+              <div class="event-log-empty-icon">🎯</div>
+              <div class="event-log-empty-text">No events yet. Interact with the filters to see events here.</div>
+            </div>
+          </div>
+        </div>
       </div>
     `
   }
@@ -186,7 +275,7 @@ export function Long() {
       }
     },
     template: `
-      <div style="max-width: 500px; margin: 20px;">
+      <div class="story-container-wide">
         <FilterDropdown title='REFINE LONG SEARCH' :filters="filters" />
       </div>
     `
@@ -195,28 +284,11 @@ export function Long() {
 
 // Sample filters including a date filter that will use the YearRangeFilter
 const filtersWithDateRange = [
-  { 
-    name: 'Subject', 
-    slotName: 'subject',
-    options: [
-      { label: 'History', value: 'history', count: 15420 },
-      { label: 'Literature', value: 'literature', count: 8930 },
-      { label: 'Science', value: 'science', count: 12650 },
-      { label: 'Art', value: 'art', count: 7820 },
-      { label: 'Philosophy', value: 'philosophy', count: 4560 }
-    ],
-    showAll: true
-  },
+  subjectFilter,
   { 
     name: 'Resource Type', 
     slotName: 'resourceType', 
-    options: [
-      { label: 'Still Image', value: 'still-image', count: 21958 },
-      { label: 'Moving Image', value: 'moving-image', count: 8012 },
-      { label: 'Text', value: 'text', count: 33486 },
-      { label: 'Sound Recording', value: 'sound-recording', count: 12796 },
-      { label: 'Cartographic', value: 'cartographic', count: 3615 }
-    ], 
+    options: resourceTypeFilter.options.slice(0, 5), // Use first 5 options
     showAll: true 
   },
   { 
@@ -224,18 +296,7 @@ const filtersWithDateRange = [
     slotName: 'dateRange',
     // No options - this will use the slot
   },
-  { 
-    name: 'Genre', 
-    slotName: 'genre',
-    options: [
-      { label: 'Fiction', value: 'fiction', count: 12340 },
-      { label: 'Non-fiction', value: 'non-fiction', count: 18760 },
-      { label: 'Biography', value: 'biography', count: 8920 },
-      { label: 'Academic', value: 'academic', count: 15680 },
-      { label: 'Reference', value: 'reference', count: 5430 }
-    ],
-    showAll: true
-  }
+  genreFilter
 ]
 
 export function WithYearRangeFilter() {
@@ -261,24 +322,21 @@ export function WithYearRangeFilter() {
     methods: {
       onSelectionChange(selections) {
         this.selectedOptions = selections
-        console.log('Selection changed:', selections)
       },
       onOptionSelected(filterName, option) {
-        console.log('Option selected:', filterName, option)
+        // Option selected event
       },
       onOptionDeselected(filterName, option) {
-        console.log('Option deselected:', filterName, option)
+        // Option deselected event
       },
       onDateRangeChange(range) {
-        console.log('Date range changed:', range)
         // You could emit this or store it in a parent component
         this.dateRange.minValue = range.min
         this.dateRange.maxValue = range.max
       }
     },
     template: `
-      <div style="max-width: 400px; margin: 20px;">
-       
+      <div class="story-container">
         <FilterDropdown 
           title='REFINE SEARCH' 
           :filters="filters"
@@ -288,6 +346,7 @@ export function WithYearRangeFilter() {
         >
           <!-- Custom slot for the date range filter -->
           <template #dateRange="{ filter, selectedOptions, toggleOption }">
+            <div class="slot-content">
               <YearRangeFilter
                 :min="dateRange.min"
                 :max="dateRange.max"
@@ -297,13 +356,15 @@ export function WithYearRangeFilter() {
                 :disabled="false"
                 @change="onDateRangeChange"
               />
+            </div>
           </template>
         </FilterDropdown>
-        <div style="margin-top: 20px; padding: 10px; background: #f0f0f0; border-radius: 4px; font-size: 12px;">
-          <strong>Selected Options:</strong>
-          <pre style="margin: 5px 0; white-space: pre-wrap;">{{ JSON.stringify(selectedOptions, null, 2) }}</pre>
-          <div style="margin-top: 10px;">
-            <strong>Date Range:</strong> {{ dateRange.minValue }} - {{ dateRange.maxValue }}
+        <div class="selected-options-container">
+          <h4 class="selected-options-title">Selected Options Object:</h4>
+          <pre class="selected-options-json">{{ JSON.stringify(selectedOptions, null, 2) }}</pre>
+          <div class="date-range-display">
+            <strong class="date-range-label">Date Range:</strong> 
+            <span class="date-range-value">{{ dateRange.minValue }} - {{ dateRange.maxValue }}</span>
           </div>
         </div>
       </div>
@@ -360,7 +421,7 @@ export function MultipleCustomSlots() {
       }
     },
     template: `
-      <div style="max-width: 400px; margin: 20px;">
+      <div class="story-container">
         <FilterDropdown 
           title='ADVANCED FILTERS' 
           :filters="filters"
@@ -368,7 +429,7 @@ export function MultipleCustomSlots() {
         >
           <!-- Date Range Slot -->
           <template #dateRange="{ filter, selectedOptions, toggleOption }">
-            <div style="padding: 15px;">
+            <div class="slot-content">
               <YearRangeFilter
                 :min="dateRange.min"
                 :max="dateRange.max"
@@ -382,7 +443,7 @@ export function MultipleCustomSlots() {
 
           <!-- Price Range Slot -->
           <template #priceRange="{ filter, selectedOptions, toggleOption }">
-            <div style="padding: 15px;">
+            <div class="slot-content">
               <YearRangeFilter
                 :min="priceRange.min"
                 :max="priceRange.max"
@@ -394,9 +455,13 @@ export function MultipleCustomSlots() {
             </div>
           </template>
         </FilterDropdown>
-        <div style="margin-top: 20px; padding: 10px; background: #f0f0f0; border-radius: 4px; font-size: 12px;">
-          <div><strong>Date Range:</strong> {{ dateRange.minValue }} - {{ dateRange.maxValue }}</div>
-          <div><strong>Price Range:</strong> {{ priceRange.minValue }} - {{ priceRange.maxValue }}</div>
+        <div class="simple-info-container">
+          <div class="simple-info-item">
+            <span class="simple-info-label">Date Range:</span> {{ dateRange.minValue }} - {{ dateRange.maxValue }}
+          </div>
+          <div class="simple-info-item">
+            <span class="simple-info-label">Price Range:</span> {{ priceRange.minValue }} - {{ priceRange.maxValue }}
+          </div>
         </div>
       </div>
     `

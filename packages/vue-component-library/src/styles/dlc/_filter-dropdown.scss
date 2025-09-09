@@ -1,18 +1,20 @@
 .filter-dropdown,
 .filter-dropdown.dlc {
-    background: #f5f5f5;
+    border: 1px solid var(--color-secondary-grey-02);
     border-radius: 8px;
+    overflow: hidden;
 
     max-width: 300px;
 
     .filter-title {
-        margin: 0 0 16px 0;
+        margin: 0;
+        padding: 8px 16px;
 
-        color: #1a365d;
-        font-size: 14px;
-        font-weight: 700;
+        color: var(--color-primary-blue-05);
+        font-size: 16px;
+        font-weight: medium;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        font-family: var(--font-primary);
     }
 
     .filter-list {
@@ -22,41 +24,13 @@
     }
 
     .filter-item {
-        border-bottom: 1px solid #e0e0e0;
+        cursor: not-allowed;
 
         &.is-opened {
             .filter-summary {
                 background-color: var(--color-primary-blue-01);
             }
         }
-    }
-
-    .filter-item:last-child {
-        border-bottom: none;
-    }
-
-    .filter-summary {
-        padding: 7px 15px;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        background-color: var(--color-white);
-
-        color: var(--color-grey-05);
-        font-weight: 500;
-
-        cursor: pointer;
-
-        @include animate-normal;
-
-        &.is-filtered {
-        }
-    }
-
-    .filter-name {
-        flex: 1;
     }
 
     .filter-chevron {
@@ -69,8 +43,34 @@
         transform: rotate(180deg);
     }
 
-    .filter-content {
-        // padding: 0 0 16px 0;
+    .filter-summary {
+        padding: 7px 15px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background-color: var(--color-white);
+
+        color: var(--color-secondary-grey-05);
+        font-weight: 500;
+        font-size: 18px;
+        font-family: var(--font-secondary);
+        font-weight: 400;
+
+        cursor: pointer;
+
+        @include animate-normal;
+
+        &.is-filtered {
+            .filter-chevron {
+                transform: rotate(0deg);
+            }
+        }
+    }
+
+    .filter-name {
+        flex: 1;
     }
 
     .filter-options {
@@ -92,20 +92,19 @@
         justify-content: space-between;
         align-items: center;
 
-        color: var(--color-grey-05);
-        background-color: var(--color-white);
+        color: var(--color-secondary-grey-05);
+        font-weight: 500;
+        font-size: 18px;
+        font-family: var(--font-secondary);
+        font-weight: 400;
 
         cursor: pointer;
         @include animate-normal;
 
         &.is-selected {
-            background-color: var(--color-primary-blue-03);
+            background-color: var(--color-secondary-blue-02);
             color: var(--color-white);
             z-index: 10;
-
-            .option-name {
-                font-weight: 500;
-            }
 
             .option-count {
                 color: var(--color-primary-blue-02);
@@ -124,8 +123,6 @@
 
     .option-name {
         flex: 1;
-
-        cursor: pointer;
     }
 
     .option-right {
@@ -135,8 +132,12 @@
     }
 
     .option-count {
-        color: var(--color-grey-03);
-        font-size: 14px;
+        color: var(--color-secondary-grey-03);
+        font-size: 16px;
+        font-family: var(--font-secondary);
+        font-weight: 400;
+
+        @include animate-normal;
     }
 
     .option-remove {
@@ -151,17 +152,32 @@
         font-size: 30px;
         font-weight: light;
 
-        cursor: pointer;
         pointer-events: none;
 
         @include animate-normal;
     }
 
     .see-all {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+
         font-weight: 500;
-        color: #2d3748;
+        color: var(--color-secondary-grey-05);
 
         cursor: pointer;
+
+        .option-name {
+            flex: unset;
+        }
+
+        .see-all-arrow {
+            translate: 0 -3px;
+            font-size: 22px;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
     }
 
     // Hovers
@@ -170,18 +186,22 @@
             background-color: var(--color-primary-blue-01);
         }
 
-        .filter-option:hover {
+        .filter-option:hover,
+        .see-all:hover {
             background-color: var(--color-secondary-blue-02);
             color: var(--color-white);
-        }
 
-        .see-all:hover {
-            background-color: rgba(0, 0, 0, 0.05);
+            .see-all-arrow {
+                transform: translateX(4px);
+            }
+
+            .option-count {
+                color: var(--color-primary-blue-02);
+            }
         }
     }
 
     // TransitionGroup animations for filter options
-
     .filter-option-move,
     .filter-option-leave-active,
     .filter-option-enter-active {
