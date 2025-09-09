@@ -51,6 +51,7 @@ const parsedIconName = computed(() => {
     case props.iconName === ButtonLinkIcons.NONE:
       return ''
     case isInternalLink(props.to):
+    case props.iconName === ButtonLinkIcons.ARROW_RIGHT:
       return SvgArrowRight
     case props.linkTarget === '_blank'
             || props.iconName === ButtonLinkIcons.EXTERNAL_LINK:
@@ -72,6 +73,7 @@ const isDownload = computed(() => {
     :class="classes"
     :is-download="isDownload"
     :link-target="linkTarget"
+    @click="onClick"
   >
     <span class="label">{{ label }}</span>
     <slot />

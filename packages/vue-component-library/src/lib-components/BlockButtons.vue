@@ -8,9 +8,7 @@ import {
   type BlockButtonsProps,
 } from '@/types/components/blockButtons.types'
 import { useTheme } from '@/composables/useTheme'
-import {
-  ButtonLinkVariants,
-} from '@/types/components/buttonLink.types'
+import { ButtonLinkVariants } from '@/types/components/buttonLink.types'
 
 // Data
 const props = withDefaults(defineProps<BlockButtonsProps>(), {
@@ -36,10 +34,11 @@ const classes = computed(() => {
     <ButtonLinkRefactored
       v-for="button in buttons"
       :key="button.label"
-      :to="button.to"
+      :to="button?.to"
       :label="button.label"
       :icon-name="button?.iconName"
       :variant="button?.variant ?? ButtonLinkVariants.PRIMARY"
+      :on-click="button?.onClick"
       class="block-button"
     />
   </div>

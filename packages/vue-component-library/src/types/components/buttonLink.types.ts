@@ -15,9 +15,10 @@ export enum ButtonLinkIcons {
 }
 
 export interface ButtonLinkRefactoredProps {
-  to: string
+  to?: string
   label: string
   iconName?: ButtonLinkIcons
   variant?: ButtonLinkVariants
   linkTarget?: string
+  onClick?: () => void
 }
