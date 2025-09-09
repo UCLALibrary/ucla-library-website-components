@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // UTILS
-import { computed } from 'vue'
+import { type ComputedRef, computed } from 'vue'
 
 // SVGs
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
@@ -19,22 +19,57 @@ import { useTheme } from '@/composables/useTheme'
 // CHILD COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
 
+// TYPES
+interface FooterItem {
+  id: string
+  name: string
+  to: string
+  target: string
+}
+
+interface FooterThemeSettings {
+  statement: string
+  label: string
+  icon: any
+  socialMediaIcons: boolean
+}
+
+interface FormIcons {
+  arrowRight: any
+  caretRight: any
+}
+
+interface SocialMediaIcons {
+  youtube: any
+  Youtube: any
+  YouTube: any
+  instagram: any
+  Instagram: any
+  twitter: any
+  Twitter: any
+  x: any
+  X: any
+  facebook: any
+  Facebook: any
+}
+
+interface Props {
+  form: boolean
+  isMicrosite: boolean
+}
+
 // PROPS
-const props = defineProps({
-  form: {
-    type: Boolean,
-    default: true,
-  },
-  isMicrosite: {
-    type: Boolean,
-    default: false,
-  },
+const props = withDefaults(defineProps<Props>(), {
+  form: true,
+  isMicrosite: false,
 })
-const formIcons = {
+
+const formIcons: FormIcons = {
   arrowRight: SvgArrowRight,
   caretRight: SvgCaretRight,
 }
-const socialMediaIcons = {
+
+const socialMediaIcons: SocialMediaIcons = {
   youtube: SvgYtIcon,
   Youtube: SvgYtIcon,
   YouTube: SvgYtIcon, // handle edge case
@@ -45,63 +80,71 @@ const socialMediaIcons = {
   x: SvgXIcon,
   X: SvgXIcon, // handle either X or Twitter
   facebook: SvgFbIcon,
-  Facebook: SvgFbIcon
+  Facebook: SvgFbIcon,
 }
 
 // THEME
 const theme = useTheme()
-const wrapperClasses = computed(() => ['footer-primary', theme?.value || ''])
-const classes = computed(() => {
+const wrapperClasses: ComputedRef<string[]> = computed(() => [
+  'footer-primary',
+  theme?.value || '',
+])
+const classes: ComputedRef<string[]> = computed(() => {
   return props.form ? ['container'] : ['container no-form']
 })
-const parsedFooterThemeSettings = computed(() => {
-  // ftva
-  if (theme?.value === 'ftva') {
+const parsedFooterThemeSettings: ComputedRef<FooterThemeSettings> = computed(
+  () => {
+    // ftva
+    if (theme?.value === 'ftva') {
+      return {
+        statement:
+                    'Subscribe to receive the latest updates on what\'s happening at the Film & Television Archive.',
+        label: 'Submit',
+        icon: formIcons.caretRight,
+        socialMediaIcons: true,
+      }
+    }
+    // defaults
     return {
-      statement: 'Subscribe to receive the latest updates on what\'s happening at the Film & Television Archive.',
-      label: 'Submit',
-      icon: formIcons.caretRight,
-      socialMediaIcons: true
+      statement:
+                'Subscribe to get the latest updates on what\'s happening with UCLA Library.',
+      label: 'Subscribe',
+      icon: formIcons.arrowRight,
+      socialMediaIcons: false,
     }
   }
-  // defaults
-  return {
-    statement: 'Subscribe to get the latest updates on what\'s happening with UCLA Library.',
-    label: 'Subscribe',
-    icon: formIcons.arrowRight,
-    socialMediaIcons: false
-  }
-})
+)
 
 // GLOBALSTORE DATA
 const globalStore = useGlobalStore()
-const parsedSocialItems = computed(() => {
+const parsedSocialItems: ComputedRef<FooterItem[]> = computed(() => {
   if (Object.keys(globalStore.footerPrimary).length !== 0) {
+    console.log('globalStore.footerPrimary', globalStore.footerPrimary)
     return globalStore.footerPrimary.nodes[0].children
   }
   else {
     // eslint-disable-next-line no-console
     console.log(
-      // @ts-expect-error
-      `Pinia state data not present: is it client side:${process.client}`
+            // @ts-expect-error
+            `Pinia state data not present: is it client side:${process.client}`
     )
   }
   return []
 })
-const parsedPressItems = computed(() => {
+const parsedPressItems: ComputedRef<FooterItem[]> = computed(() => {
   if (Object.keys(globalStore.footerPrimary).length !== 0) {
     return globalStore.footerPrimary.nodes[1].children
   }
   else {
     // eslint-disable-next-line no-console
     console.log(
-      // @ts-expect-error
-      `Pinia state data not present: is it client side:${process.client}`
+            // @ts-expect-error
+            `Pinia state data not present: is it client side:${process.client}`
     )
   }
   return []
 })
-const parsedFooterLogo = computed(() => {
+const parsedFooterLogo: ComputedRef<any> = computed(() => {
   if (theme?.value === 'ftva')
     return SvgLogoFTVA
 
@@ -109,7 +152,7 @@ const parsedFooterLogo = computed(() => {
 })
 
 // METHODS
-function formatTarget(target: string) {
+function formatTarget(target: string): string {
   return formatLinkTarget(target)
 }
 </script>
@@ -132,11 +175,7 @@ function formatTarget(target: string) {
           <component :is="parsedFooterLogo" class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
         </a>
-        <SmartLink
-          v-else
-          to="/"
-          class="logo-ucla"
-        >
+        <SmartLink v-else to="/" class="logo-ucla">
           <component :is="parsedFooterLogo" class="logo-svg" />
           <span class="visually-hidden">UCLA Library Home</span>
         </SmartLink>
@@ -146,29 +185,25 @@ function formatTarget(target: string) {
             :key="item.id"
             class="social-item"
           >
-            <a
-              :href="item.to"
-              :target="formatTarget(item.target)"
-            >
-              <component :is="(socialMediaIcons as any)[item.name]" v-if="parsedFooterThemeSettings?.socialMediaIcons" />
+            <a :href="item.to" :target="formatTarget(item.target)">
+              <component
+                :is="(socialMediaIcons as any)[item.name]"
+                v-if="
+                  parsedFooterThemeSettings?.socialMediaIcons
+                "
+              />
               <template v-else>{{ item.name }}</template>
             </a>
           </li>
         </ul>
 
-        <ul
-          v-if="parsedPressItems"
-          class="press-links"
-        >
+        <ul v-if="parsedPressItems" class="press-links">
           <li
             v-for="item in parsedPressItems"
             :key="item.id"
             class="press-item"
           >
-            <SmartLink
-              :to="item.to"
-              :link-target="item.target"
-            >
+            <SmartLink :to="item.to" :link-target="item.target">
               {{ item.name }}
             </SmartLink>
           </li>
@@ -185,10 +220,7 @@ function formatTarget(target: string) {
         target="_blank"
         novalidate
       >
-        <div
-          id="mc_embed_signup_scroll"
-          class="form-header"
-        >
+        <div id="mc_embed_signup_scroll" class="form-header">
           <h2 class="title">
             Stay updated
           </h2>
@@ -209,18 +241,12 @@ function formatTarget(target: string) {
               class="input-email"
               required
             >
-            <label
-              for="mce-EMAIL"
-              class="label"
-            >
+            <label for="mce-EMAIL" class="label">
               Email Address
             </label>
           </div>
 
-          <div
-            id="mce-responses"
-            class="clear"
-          >
+          <div id="mce-responses" class="clear">
             <div
               id="mce-error-response"
               class="response"
@@ -252,7 +278,10 @@ function formatTarget(target: string) {
             type="submit"
           >
             {{ parsedFooterThemeSettings.label }}
-            <component :is="parsedFooterThemeSettings.icon" class="arrow-svg" />
+            <component
+              :is="parsedFooterThemeSettings.icon"
+              class="arrow-svg"
+            />
           </button>
         </div>
       </form>
