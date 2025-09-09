@@ -143,9 +143,8 @@ const initializeSelectedOptions = () => {
     if (toggleStates.value[filterKey] === undefined) {
       toggleStates.value[filterKey] = false
     }
-    if (filteredStates.value[filterKey] === undefined) {
-      filteredStates.value[filterKey] = false
-    }
+    // Ensure filteredStates is explicitly set to false
+    filteredStates.value[filterKey] = false
   })
 }
 
@@ -156,6 +155,7 @@ initializeSelectedOptions()
 watch(selectedOptions, (newOptions) => {
   emit('selection-change', { ...newOptions })
 }, { deep: true })
+
 
 // Check if an option is selected
 const isOptionSelected = (filterName: string, optionValue: string): boolean => {
@@ -190,17 +190,23 @@ const onSummaryClick = async (filterName: string) => {
   const hasSelections = hasSelectedOptions(filterKey)
 
   if (hasSelections) {
-    // Toggle filtered state
-    filteredStates.value[filterKey] = !filteredStates.value[filterKey]
-
-    // Animate to new height
-    await nextTick()
     const filterIndex = props.filters.findIndex(f => (f.slotName || f.name) === filterKey)
     if (filterIndex >= 0 && toggleRefs.value[filterIndex]) {
+      // Get current height before changing content
+      const currentHeight = toggleRefs.value[filterIndex].$el.offsetHeight
+
+      // Calculate target height by temporarily switching to filtered state
+      const wasFiltered = filteredStates.value[filterKey]
+      filteredStates.value[filterKey] = !wasFiltered
+
+      // Wait for DOM to update to get the new height
+      await nextTick()
       const contentElement = toggleRefs.value[filterIndex].$el?.querySelector('.filter-content')
       if (contentElement) {
         const targetHeight = contentElement.offsetHeight + toggleRefs.value[filterIndex].$el.querySelector('.summary').offsetHeight
-        toggleRefs.value[filterIndex].animateToHeight(targetHeight)
+
+        // Start the animation immediately
+        toggleRefs.value[filterIndex].animateToHeight(targetHeight, currentHeight)
       }
     }
   }

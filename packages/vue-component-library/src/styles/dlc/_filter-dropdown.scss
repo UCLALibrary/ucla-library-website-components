@@ -101,6 +101,7 @@
         &.is-selected {
             background-color: var(--color-primary-blue-03);
             color: var(--color-white);
+            z-index: 10;
 
             .option-name {
                 font-weight: 500;
@@ -182,22 +183,19 @@
     // TransitionGroup animations for filter options
 
     .filter-option-move,
-    .filter-option-enter-active,
-    .filter-option-leave-active {
+    .filter-option-leave-active,
+    .filter-option-enter-active {
         @include animate-normal;
     }
 
     .filter-option-enter-from {
-        transform: translateY(-20px);
-
         opacity: 0;
     }
 
     .filter-option-leave-to {
         opacity: 0;
-        z-index: -1;
+        z-index: 1;
         position: absolute;
-        transform: translateY(20px);
     }
 
     // Ensure leaving items are taken out of layout flow so that moving

@@ -144,16 +144,20 @@ const onAnimationFinish = (open: boolean): void => {
 }
 
 // Animate to a specific height (useful for content changes)
-const animateToHeight = (targetHeight: number): void => {
-  if (!detailsRef.value || !summaryRef.value) return
+const animateToHeight = (targetHeight: number, startHeight?: number): void => {
+  if (!detailsRef.value || !summaryRef.value) {
+    return
+  }
 
-  const startHeight = `${detailsRef.value.offsetHeight}px`
+  const startHeightPx = startHeight ? `${startHeight}px` : `${detailsRef.value.offsetHeight}px`
   const endHeight = `${targetHeight}px`
 
-  if (animation.value) animation.value.cancel()
+  if (animation.value) {
+    animation.value.cancel()
+  }
 
   animation.value = detailsRef.value.animate(
-    { height: [startHeight, endHeight] },
+    { height: [startHeightPx, endHeight] },
     { duration: props.duration, easing: props.easing }
   )
 
@@ -161,7 +165,9 @@ const animateToHeight = (targetHeight: number): void => {
     height.value = endHeight
     animation.value = null
   }
-  animation.value.oncancel = () => (animation.value = null)
+  animation.value.oncancel = () => {
+    animation.value = null
+  }
 }
 
 // Expose methods for parent components
