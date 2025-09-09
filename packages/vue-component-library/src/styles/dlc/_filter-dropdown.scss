@@ -6,11 +6,12 @@
     max-width: 300px;
 
     .filter-title {
+        margin: 0 0 16px 0;
+
         color: #1a365d;
         font-size: 14px;
         font-weight: 700;
         text-transform: uppercase;
-        margin: 0 0 16px 0;
         letter-spacing: 0.5px;
     }
 
@@ -22,6 +23,12 @@
 
     .filter-item {
         border-bottom: 1px solid #e0e0e0;
+
+        &.is-opened {
+            .filter-summary {
+                background-color: var(--color-primary-blue-01);
+            }
+        }
     }
 
     .filter-item:last-child {
@@ -29,14 +36,20 @@
     }
 
     .filter-summary {
+        padding: 7px 15px;
+
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 7px 15px;
-        cursor: pointer;
-        color: #4a5568;
+
+        background-color: var(--color-white);
+
+        color: var(--color-grey-05);
         font-weight: 500;
-        transition: background-color 0.2s ease;
+
+        cursor: pointer;
+
+        @include animate-normal;
 
         &.is-filtered {
         }
@@ -48,6 +61,7 @@
 
     .filter-chevron {
         font-size: 12px;
+
         transition: transform 0.2s ease;
     }
 
@@ -60,10 +74,10 @@
     }
 
     .filter-options {
+        position: relative;
+
         display: flex;
         flex-direction: column;
-
-        position: relative;
     }
 
     .filter-options-list {
@@ -72,17 +86,17 @@
     }
 
     .filter-option {
+        padding: 7px 15px;
+
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 7px 15px;
-        color: var(--color-grey-05);
-        cursor: pointer;
-        transition: background-color 0.2s ease;
 
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-        }
+        color: var(--color-grey-05);
+        background-color: var(--color-white);
+
+        cursor: pointer;
+        @include animate-normal;
 
         &.is-selected {
             background-color: var(--color-primary-blue-03);
@@ -101,12 +115,15 @@
 
     .option-checkbox {
         position: absolute;
+
         opacity: 0;
+
         pointer-events: none;
     }
 
     .option-name {
         flex: 1;
+
         cursor: pointer;
     }
 
@@ -125,69 +142,62 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
         width: 20px;
         height: 20px;
+
         color: var(--color-white);
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 30px;
+        font-weight: light;
+
         cursor: pointer;
         pointer-events: none;
-        transition: background-color 0.2s ease;
+
+        @include animate-normal;
     }
 
     .see-all {
         font-weight: 500;
         color: #2d3748;
-        cursor: pointer;
 
-        &:hover {
+        cursor: pointer;
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        .filter-summary:hover {
+            background-color: var(--color-primary-blue-01);
+        }
+
+        .filter-option:hover {
+            background-color: var(--color-secondary-blue-02);
+            color: var(--color-white);
+        }
+
+        .see-all:hover {
             background-color: rgba(0, 0, 0, 0.05);
         }
     }
 
-    // TransitionGroup animations for filter content
-    .filter-content-move,
-    .filter-content-enter-active,
-    .filter-content-leave-active {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    // TransitionGroup animations for filter options
 
-    .filter-content-enter-from,
-    .filter-content-enter-to,
-    .filter-content-leave-to {
-        opacity: 0;
-    }
-
-    .filter-content-leave-active {
-        position: absolute;
-    }
-
-    .filter-content-leave-to {
-        transform: translateY(10px);
-        position: absolute;
-        width: 100%;
-    }
-
-    .filter-content-enter-to {
-        transform: translateY(0);
-        position: relative;
-    }
-
-    // Staggered fade-out animation for filter options
     .filter-option-move,
     .filter-option-enter-active,
     .filter-option-leave-active {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        @include animate-normal;
     }
 
     .filter-option-enter-from {
+        transform: translateY(-20px);
+
         opacity: 0;
-        transform: translateY(-10px);
     }
 
     .filter-option-leave-to {
         opacity: 0;
-        transform: translateY(10px);
+        z-index: -1;
+        position: absolute;
+        transform: translateY(20px);
     }
 
     // Ensure leaving items are taken out of layout flow so that moving

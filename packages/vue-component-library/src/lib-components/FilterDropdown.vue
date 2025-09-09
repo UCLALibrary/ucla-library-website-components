@@ -30,11 +30,7 @@
         </template>
 
         <!-- CONTENT -->
-        <TransitionGroup
-          name="filter-content"
-          class="filter-content"
-          tag="div"
-        >
+        <div class="filter-content">
           <slot
             :name="filter.slotName || filter.name"
             :filter="filter"
@@ -85,10 +81,12 @@
                 >
                   <span class="option-name">See All</span>
                 </div>
+
               </TransitionGroup>
+
             </div>
           </slot>
-        </TransitionGroup>
+        </div>
       </EffectSlideToggle>
     </div>
   </div>
@@ -177,6 +175,7 @@ const onToggleOpened = (filterName: string) => {
   toggleStates.value[filterKey] = true
 }
 
+
 // Handle toggle closed event
 const onToggleClosed = (filterName: string) => {
   const filterKey = filterName
@@ -186,13 +185,24 @@ const onToggleClosed = (filterName: string) => {
 }
 
 // Handle summary click - toggle filtering when there are selections
-const onSummaryClick = (filterName: string) => {
+const onSummaryClick = async (filterName: string) => {
   const filterKey = filterName
   const hasSelections = hasSelectedOptions(filterKey)
 
   if (hasSelections) {
     // Toggle filtered state
     filteredStates.value[filterKey] = !filteredStates.value[filterKey]
+
+    // Animate to new height
+    await nextTick()
+    const filterIndex = props.filters.findIndex(f => (f.slotName || f.name) === filterKey)
+    if (filterIndex >= 0 && toggleRefs.value[filterIndex]) {
+      const contentElement = toggleRefs.value[filterIndex].$el?.querySelector('.filter-content')
+      if (contentElement) {
+        const targetHeight = contentElement.offsetHeight + toggleRefs.value[filterIndex].$el.querySelector('.summary').offsetHeight
+        toggleRefs.value[filterIndex].animateToHeight(targetHeight)
+      }
+    }
   }
 }
 

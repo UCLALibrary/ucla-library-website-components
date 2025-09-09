@@ -143,10 +143,32 @@ const onAnimationFinish = (open: boolean): void => {
   }
 }
 
+// Animate to a specific height (useful for content changes)
+const animateToHeight = (targetHeight: number): void => {
+  if (!detailsRef.value || !summaryRef.value) return
+
+  const startHeight = `${detailsRef.value.offsetHeight}px`
+  const endHeight = `${targetHeight}px`
+
+  if (animation.value) animation.value.cancel()
+
+  animation.value = detailsRef.value.animate(
+    { height: [startHeight, endHeight] },
+    { duration: props.duration, easing: props.easing }
+  )
+
+  animation.value.onfinish = () => {
+    height.value = endHeight
+    animation.value = null
+  }
+  animation.value.oncancel = () => (animation.value = null)
+}
+
 // Expose methods for parent components
 defineExpose({
   open,
   close,
+  animateToHeight,
   isOpened: computed(() => isOpened.value)
 })
 </script>
