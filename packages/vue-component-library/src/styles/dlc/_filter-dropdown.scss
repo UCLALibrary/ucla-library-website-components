@@ -1,31 +1,6 @@
 .filter-dropdown,
 .filter-dropdown.dlc {
-    border: 1px solid var(--color-secondary-grey-02);
-    border-radius: 8px;
-    overflow: hidden;
-
-    max-width: 300px;
-
-    .filter-title {
-        margin: 0;
-        padding: 8px 16px;
-
-        color: var(--color-primary-blue-05);
-        font-size: 16px;
-        font-weight: medium;
-        text-transform: uppercase;
-        font-family: var(--font-primary);
-    }
-
-    .filter-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
-
     .filter-item {
-        cursor: not-allowed;
-
         &.is-opened {
             .filter-summary {
                 background-color: var(--color-primary-blue-01);
@@ -36,7 +11,7 @@
     .filter-chevron {
         font-size: 12px;
 
-        transition: transform 0.2s ease;
+        @include animate-normal;
     }
 
     .effect-slide-toggle.is-opened .filter-chevron {
@@ -69,20 +44,8 @@
         }
     }
 
-    .filter-name {
-        flex: 1;
-    }
-
     .filter-options {
         position: relative;
-
-        display: flex;
-        flex-direction: column;
-    }
-
-    .filter-options-list {
-        display: flex;
-        flex-direction: column;
     }
 
     .filter-option {
@@ -121,10 +84,6 @@
         pointer-events: none;
     }
 
-    .option-name {
-        flex: 1;
-    }
-
     .option-right {
         display: flex;
         align-items: center;
@@ -152,8 +111,6 @@
         font-size: 30px;
         font-weight: light;
 
-        pointer-events: none;
-
         @include animate-normal;
     }
 
@@ -166,17 +123,11 @@
         font-weight: 500;
         color: var(--color-secondary-grey-05);
 
-        cursor: pointer;
-
-        .option-name {
-            flex: unset;
-        }
-
         .see-all-arrow {
             translate: 0 -3px;
             font-size: 22px;
             line-height: 1;
-            transition: transform 0.2s ease;
+            @include animate-normal;
         }
     }
 

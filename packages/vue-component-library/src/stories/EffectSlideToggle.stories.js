@@ -118,7 +118,7 @@ export function WithFormContent() {
         email: '',
         message: ''
       })
-      
+
       return { formData }
     },
     template: `
@@ -213,18 +213,17 @@ export function EventHandlers() {
     components: { EffectSlideToggle },
     setup() {
       const events = ref([])
-      
+
       const logEvent = (eventName) => {
         events.value.unshift({
           event: eventName,
           timestamp: new Date().toLocaleTimeString()
         })
         // Keep only last 10 events
-        if (events.value.length > 10) {
+        if (events.value.length > 10)
           events.value = events.value.slice(0, 10)
-        }
       }
-      
+
       return { events, logEvent }
     },
     template: `

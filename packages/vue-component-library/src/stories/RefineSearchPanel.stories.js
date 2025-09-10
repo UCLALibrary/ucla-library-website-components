@@ -1,11 +1,11 @@
 import { computed } from 'vue'
-import FilterDropdown from '@/lib-components/FilterDropdown.vue'
-import YearRangeFilter from '@/lib-components/YearRangeFilter.vue'
+import RefineSearchPanel from '../lib-components/RefineSearchPanel.vue'
+import YearRangeFilter from '../lib-components/YearRangeFilter.vue'
 import './FilterDropdown.stories.css'
 
 export default {
-  title: 'Funkhaus / FilterDropdown',
-  component: FilterDropdown,
+  title: 'Funkhaus / RefineSearchPanel',
+  component: RefineSearchPanel,
   argTypes: {
     filters: {
       control: 'object',
@@ -157,7 +157,7 @@ const longFilters = [
 
 export function Default() {
   return {
-    components: { FilterDropdown, YearRangeFilter },
+    components: { RefineSearchPanel, YearRangeFilter },
     data() {
       return {
         filters: defaultFilters,
@@ -203,7 +203,7 @@ export function Default() {
     },
     template: `
       <div class="story-container">
-        <FilterDropdown 
+        <RefineSearchPanel 
           title='REFINE SEARCH' 
           :filters="filters"
           @selection-change="onSelectionChange"
@@ -224,7 +224,7 @@ export function Default() {
               />
             </div>
           </template>
-        </FilterDropdown>
+        </RefineSearchPanel>
         
         <!-- Display selected options -->
         <div class="selected-options-container">
@@ -264,7 +264,7 @@ export function Default() {
 
 export function Long() {
   return {
-    components: { FilterDropdown },
+    components: { RefineSearchPanel },
     data() {
       return { filters: longFilters }
     },
@@ -275,7 +275,7 @@ export function Long() {
     },
     template: `
       <div class="story-container-wide">
-        <FilterDropdown title='REFINE LONG SEARCH' :filters="filters" />
+        <RefineSearchPanel title='REFINE LONG SEARCH' :filters="filters" />
       </div>
     `
   }
@@ -300,7 +300,7 @@ const filtersWithDateRange = [
 
 export function WithYearRangeFilter() {
   return {
-    components: { FilterDropdown, YearRangeFilter },
+    components: { RefineSearchPanel, YearRangeFilter },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -336,7 +336,7 @@ export function WithYearRangeFilter() {
     },
     template: `
       <div class="story-container">
-        <FilterDropdown 
+        <RefineSearchPanel 
           title='REFINE SEARCH' 
           :filters="filters"
           @selection-change="onSelectionChange"
@@ -357,7 +357,7 @@ export function WithYearRangeFilter() {
               />
             </div>
           </template>
-        </FilterDropdown>
+        </RefineSearchPanel>
         <div class="selected-options-container">
           <h4 class="selected-options-title">Selected Options Object:</h4>
           <pre class="selected-options-json">{{ JSON.stringify(selectedOptions, null, 2) }}</pre>
@@ -373,7 +373,7 @@ export function WithYearRangeFilter() {
 
 export function MultipleCustomSlots() {
   return {
-    components: { FilterDropdown, YearRangeFilter },
+    components: { RefineSearchPanel, YearRangeFilter },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -421,7 +421,7 @@ export function MultipleCustomSlots() {
     },
     template: `
       <div class="story-container">
-        <FilterDropdown 
+        <RefineSearchPanel 
           title='ADVANCED FILTERS' 
           :filters="filters"
           @selection-change="onSelectionChange"
@@ -453,7 +453,7 @@ export function MultipleCustomSlots() {
               />
             </div>
           </template>
-        </FilterDropdown>
+        </RefineSearchPanel>
         <div class="simple-info-container">
           <div class="simple-info-item">
             <span class="simple-info-label">Date Range:</span> {{ dateRange.minValue }} - {{ dateRange.maxValue }}

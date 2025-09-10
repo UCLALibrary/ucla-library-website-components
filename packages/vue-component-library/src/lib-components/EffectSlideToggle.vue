@@ -1,27 +1,5 @@
-<template>
-  <details
-    ref="detailsRef"
-    :class="classes"
-    :open="isOpened"
-  >
-    <summary
-      ref="summaryRef"
-      class="summary"
-      @click.prevent="onClick"
-    >
-      <slot name="summary" />
-    </summary>
-    <div
-      ref="contentRef"
-      class="content"
-    >
-      <slot />
-    </div>
-  </details>
-</template>
-
 <script setup lang="ts">
-import { ref, computed, watch, nextTick } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 
 interface Props {
   duration?: number
@@ -62,27 +40,26 @@ const classes = computed(() => [
 ])
 
 watch(() => props.opened, (newVal: boolean) => {
-  if (newVal) {
+  if (newVal)
     open()
-  }
-  else {
+
+  else
     close()
-  }
 })
 
-const onClick = (): void => {
+function onClick(): void {
   if (isClosing.value || !isOpened.value) {
     open()
   }
   else if (isExpanding.value || isOpened.value) {
-    if (!props.preventClose) {
+    if (!props.preventClose)
       close()
-    }
   }
 }
 
-const close = (): void => {
-  if (!detailsRef.value || !summaryRef.value) return
+function close(): void {
+  if (!detailsRef.value || !summaryRef.value)
+    return
 
   isClosing.value = true
   emit('closing')
@@ -90,7 +67,8 @@ const close = (): void => {
   const startHeight = `${detailsRef.value.offsetHeight}px`
   const endHeight = `${summaryRef.value.offsetHeight}px`
 
-  if (animation.value) animation.value.cancel()
+  if (animation.value)
+    animation.value.cancel()
 
   animation.value = detailsRef.value.animate(
     { height: [startHeight, endHeight] },
@@ -101,8 +79,9 @@ const close = (): void => {
   animation.value.oncancel = () => (isClosing.value = false)
 }
 
-const open = async (): Promise<void> => {
-  if (!detailsRef.value) return
+async function open(): Promise<void> {
+  if (!detailsRef.value)
+    return
 
   height.value = `${detailsRef.value.offsetHeight}px`
   isOpened.value = true
@@ -112,14 +91,16 @@ const open = async (): Promise<void> => {
   expand()
 }
 
-const expand = (): void => {
-  if (!detailsRef.value || !summaryRef.value || !contentRef.value) return
+function expand(): void {
+  if (!detailsRef.value || !summaryRef.value || !contentRef.value)
+    return
 
   isExpanding.value = true
   const startHeight = `${detailsRef.value.offsetHeight}px`
   const endHeight = `${summaryRef.value.offsetHeight + contentRef.value.offsetHeight}px`
 
-  if (animation.value) animation.value.cancel()
+  if (animation.value)
+    animation.value.cancel()
 
   animation.value = detailsRef.value.animate(
     { height: [startHeight, endHeight] },
@@ -130,31 +111,28 @@ const expand = (): void => {
   animation.value.oncancel = () => (isExpanding.value = false)
 }
 
-const onAnimationFinish = (open: boolean): void => {
+function onAnimationFinish(open: boolean): void {
   isOpened.value = open
   animation.value = null
   isClosing.value = false
   isExpanding.value = false
   height.value = 'auto'
-  if (open) {
+  if (open)
     emit('opened')
-  } else {
+  else
     emit('closed')
-  }
 }
 
 // Animate to a specific height (useful for content changes)
-const animateToHeight = (targetHeight: number, startHeight?: number): void => {
-  if (!detailsRef.value || !summaryRef.value) {
+function animateToHeight(targetHeight: number, startHeight?: number): void {
+  if (!detailsRef.value || !summaryRef.value)
     return
-  }
 
   const startHeightPx = startHeight ? `${startHeight}px` : `${detailsRef.value.offsetHeight}px`
   const endHeight = `${targetHeight}px`
 
-  if (animation.value) {
+  if (animation.value)
     animation.value.cancel()
-  }
 
   animation.value = detailsRef.value.animate(
     { height: [startHeightPx, endHeight] },
@@ -178,6 +156,28 @@ defineExpose({
   isOpened: computed(() => isOpened.value)
 })
 </script>
+
+<template>
+  <details
+    ref="detailsRef"
+    :class="classes"
+    :open="isOpened"
+  >
+    <summary
+      ref="summaryRef"
+      class="summary"
+      @click.prevent="onClick"
+    >
+      <slot name="summary" />
+    </summary>
+    <div
+      ref="contentRef"
+      class="content"
+    >
+      <slot />
+    </div>
+  </details>
+</template>
 
 <style scoped>
 .effect-slide-toggle {
