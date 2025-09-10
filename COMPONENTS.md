@@ -82,7 +82,7 @@ Displays the number of results returned in a search.
 - prefix?: string (e.g. "Catalog")  
 - animate?: boolean
 
-[] RefineSearchPanel ()
+[] RefineSearchPanel (Svebor)
 
 Collapsible panel of dropdown filters for refining search results.
 
@@ -470,8 +470,8 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [ ]   |Exists, ready to use            |
 | SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
-| RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
-| FiltersDropdown            |           | ☐ Complete  |   [ ]   |                                |
+| RefineSearchPanel          |Svebor     | ☐ Complete  |   [ ]   |                                |
+| FiltersDropdown            |Svebor     | ☐ Complete  |   [ ]   |                                |
 | AlphabeticalBrowseBy       |Exists     | ☐ Complete  |   [x]   |                                | 
 | DropdownSingleSelect       |Svebor     | ☐ Complete  |   [ ]   |                                |
 | ButtonDropdownSearch       |Svebor     | ☐ Complete  |   [ ]   |                                |
