@@ -82,7 +82,7 @@ Displays the number of results returned in a search.
 - prefix?: string (e.g. "Catalog")  
 - animate?: boolean
 
-[] RefineSearchPanel ()
+[] RefineSearchPanel (Svebor)
 
 Collapsible panel of dropdown filters for refining search results.
 
@@ -95,7 +95,7 @@ Collapsible panel of dropdown filters for refining search results.
 - onFilterChange: Function(label: string, selected: string | string[])  
 - defaultOpen?: string[] (filters to open by default)
 
-[] FiltersDropdown ()
+[] FiltersDropdown (Svebor)
 
 Collapsible panel of dropdown filters for refining search results with multiple options
 
@@ -310,7 +310,7 @@ Horizontal scrollable container of `BentoPod`(Aka: BentoBoxBlock - new addition 
 
 ## Header
 
-[] Banner ()
+[] Banner (SiteBrandBar - Already exists, should we refactor it + introduce TS?)
 
 Universal top banner with UCLA branding. Often pinned to the top of all pages, may contain global notices or links.
 
@@ -321,6 +321,8 @@ Universal top banner with UCLA branding. Often pinned to the top of all pages, m
 - isSticky?: boolean
 
 [] Header ()
+
+NOTE - Something similar exists, but it needs some tweaks.
 
 Primary site navigation including logo, main links, and utility search bar.
 
@@ -335,7 +337,7 @@ Primary site navigation including logo, main links, and utility search bar.
 
 ## Footer 
 
-[x] Footer ()
+[x] Footer (FooterPrimary - Already exists, should we refactor it + introduce TS?)
 
 Main site footer for UCLA Library, assembling social links, navigation, and newsletter signup.
 
@@ -456,7 +458,7 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
-| ButtonIIIF                 |           | ☐ Complete  |   [ ]   |                                |
+| ButtonIIIF                 |Svebor     | ☐ Complete  |   [ ]   |                                |
 | Button                     |Luka       | ☐ Complete  |   [ ]   |                                |
 | DividerGeneral             |Exists     | ☐ Complete  |   [x]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
@@ -468,8 +470,8 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [ ]   |Exists, ready to use            |
 | SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
-| RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
-| FiltersDropdown            |           | ☐ Complete  |   [ ]   |                                |
+| RefineSearchPanel          |Svebor     | ☐ Complete  |   [ ]   |                                |
+| FiltersDropdown            |Svebor     | ☐ Complete  |   [ ]   |                                |
 | AlphabeticalBrowseBy       |Exists     | ☐ Complete  |   [x]   |                                | 
 | DropdownSingleSelect       |Svebor     | ☐ Complete  |   [ ]   |                                |
 | ButtonDropdownSearch       |Svebor     | ☐ Complete  |   [ ]   |                                |
