@@ -1,3 +1,15 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.30.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.29.2...@ucla-library-monorepo/ucla-library-website-components-v1.30.0) (2025-09-11)
+
+
+### Bug Fixes
+
+* APPS-3410 Mobile filters not visible with overlay ([#813](https://github.com/UCLALibrary/ucla-library-website-components/issues/813)) ([9737291](https://github.com/UCLALibrary/ucla-library-website-components/commit/9737291f0e566c6c1d0cba925b1146b58e9865b2))
+
+
+### Features
+
+* APPS-3216 Refactor Breadcrumbs to Support Manual Titles ([#797](https://github.com/UCLALibrary/ucla-library-website-components/issues/797)) ([c3bc23b](https://github.com/UCLALibrary/ucla-library-website-components/commit/c3bc23b73e5ecca9bcacd0ae88d440da9301e366))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.29.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.29.1...@ucla-library-monorepo/ucla-library-website-components-v1.29.2) (2025-09-03)
 
 
