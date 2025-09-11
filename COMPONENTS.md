@@ -52,7 +52,7 @@ Full breadcrumb bar with one or more breadcrumb items.
 - crumbs: Array<{ label: string, to?: string }>  
 - current: string
 
-[] SectionLabel   (austin)
+[] SectionLabel   ()
 Non-interactive text element that might be grouped with buttons (e.g. “RESEARCH”).
 
 - text: string  
@@ -196,7 +196,7 @@ Horizontal row layout for a single digital asset, including image, metadata fiel
 - image: string  
 - onClick?: Function
 
-[] BlockAsset (austin)
+[] BlockAsset ()
 Card for an individual digital library asset.
 
 - image: string  
@@ -466,7 +466,7 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | ButtonRemoveSearchFilter   |Luka       | ☐ Complete  |   [x]   | aka: BlockRemoveSearchFilter   |
 | BreadcrumbPill             |Luka       | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |Luka       | ☐ Complete  |   [ ]   |                                |
-| SectionLabel               |Austin     | ☐ Complete  |   [ ]   |                                |
+| SectionLabel               |           | ☐ Complete  |   [ ]   |                                |
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [ ]   |Exists, ready to use            |
 | SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
@@ -480,13 +480,13 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ExcerptPod                 |Svebor     | ☐ Complete  |   [ ]   | In the notes-accordion PR      |
 | BlockAssetPod              |Luka       | ☐ Complete  |   [ ]   |                                |
-| BlockAsset                 |Austin     | ☐ Complete  |   [ ]   |                                |
+| BlockAsset                 |           | ☐ Complete  |   [ ]   |                                |
 | BlockCollection            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | MetadataTable              |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | BlockMediaViewer           |           | ☐ Complete  |   [ ]   |                                |
 | BlockRichText              |           | ☐ Complete  |   [ ]   |                                |
 | SectionHeader              |           | ☐ Complete  |   [x]   |                                |
-| GridAssets                 |Austin     | ☐ Complete  |   [ ]   |                                |
+| GridAssets                 |           | ☐ Complete  |   [ ]   |                                |
 | GridCollections            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | GridAssetPod               |Luka       | ☐ Complete  |   [ ]   |                                |
 | SearchField                |Luka       | ☐ Complete  |   [x]   |                                |
