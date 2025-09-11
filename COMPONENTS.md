@@ -66,7 +66,8 @@ Branded button or label pairing logo with text.
 - label: string  
 - to?: string
 
-[x] CTAHexButton
+[x] CTAHexButton ()
+
 Prominent hex-shaped call-to-action button with icon and label.
 
 - label: string  
