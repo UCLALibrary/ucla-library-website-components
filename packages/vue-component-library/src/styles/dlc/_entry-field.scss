@@ -1,0 +1,143 @@
+$input-background: #f6f9fc;
+$icon-color: darken($input-background, 30%);
+
+.entry-field,
+.dlc.entry-field {
+    position: relative;
+
+    input[data-search-input="true"] {
+        display: block;
+        width: 100%;
+        padding: 24px 16px;
+        height: 74px;
+
+        font-family: var(--font-primary);
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: 0.01em;
+        color: $body-grey;
+
+        background-color: var(--color-primary-blue-01);
+        border: 2px solid transparent;
+        outline: none;
+
+        transition: border-color 0.3s ease-in-out,
+            border-radius 0s ease-in-out 0.3s;
+
+        // Placeholder text
+        &::placeholder {
+            text-transform: uppercase;
+            font-family: var(--font-primary);
+            text-overflow: ellipsis;
+        }
+
+        // Add border when focused
+        &:focus {
+            border-color: var(--color-secondary-grey-03);
+            border-radius: 4px;
+
+            transition: border-color 0.3s ease-in-out,
+                border-radius 0s ease-in-out 0s;
+        }
+    }
+
+    .clear-icon {
+        position: absolute;
+        color: $icon-color;
+
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+
+        display: block;
+        width: 24px;
+        height: 24px;
+        padding: 0px;
+        box-sizing: border-box;
+
+        border: 2px solid transparent;
+        border-radius: 50%;
+
+        background: none;
+        outline: none;
+        cursor: pointer;
+
+        opacity: 0;
+        transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+        &:focus {
+            background-color: darken($input-background, 10%);
+        }
+
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            top: 9px;
+            left: 2px;
+
+            display: block;
+            width: 16px;
+            height: 2px;
+
+            transform: rotate(45deg);
+            box-sizing: border-box;
+            background: $icon-color;
+            border-radius: 5px;
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    // With clear icon
+    &.is-clear-icon-shown {
+        .clear-icon {
+            opacity: 1;
+        }
+
+        input[data-search-input="true"] {
+            padding-right: 50px; // Adjust padding to accommodate clear icon
+        }
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        .clear-icon:hover {
+            background-color: darken($input-background, 10%);
+        }
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+        input[data-search-input="true"] {
+            height: 53px;
+        }
+    }
+    @media #{$small} {
+        input[data-search-input="true"] {
+            height: 60px;
+        }
+    }
+}
+
+/* Fix the X appearing in search field on Chrome and IE */
+input[type="search"]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type="search"]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
