@@ -371,7 +371,7 @@ Top navigation bar for asset pages, including pagination, collection name, and b
 - onNext: Function  
 - onPrev: Function
 
-[] DetailMedia ()
+[] DetailMedia (Svebor)
 
 Large asset viewer for images or media, with zoom/download/fullscreen buttons.
 
@@ -498,7 +498,7 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | Header                     |           | ☐ Complete  |   [x]   | aka: HeaderSite                |
 | NewsletterSignup           |           | ☐ Complete  |   [x]   | Exists in footer-primary       |
 | DetailHeader               |Luka       | ☐ Complete  |   [ ]   | aka: ItemHeaderBar             |
-| DetailMedia                |           | ☐ Complete  |   [ ]   | aka: ViewerMedia               |
+| DetailMedia                |Svebor     | ☐ Complete  |   [ ]   | aka: ViewerMedia               |
 | CollectionOverview         |Luka       | ☐ Complete  |   [ ]   |                                |
 | BannerFeatured             |Luka       | ☐ Complete  |   [x]   |                                |
 | BlockTitle                 |Luka       | ☐ Complete  |   [ ]   |                                |
