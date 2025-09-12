@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.30.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.0...@ucla-library-monorepo/ucla-library-website-components-v1.30.1) (2025-09-12)
+
+
+### Bug Fixes
+
+* APPS-3304 ([#815](https://github.com/UCLALibrary/ucla-library-website-components/issues/815)) ([e1e731e](https://github.com/UCLALibrary/ucla-library-website-components/commit/e1e731e20e97f6d5567f4d8b35783240824a15aa))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.30.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.29.2...@ucla-library-monorepo/ucla-library-website-components-v1.30.0) (2025-09-11)
 
 
