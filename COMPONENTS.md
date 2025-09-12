@@ -221,18 +221,7 @@ Tabular list of metadata key-value pairs (e.g. Rights Contact, Rights Holder).
 - items: Array<{ label: string, value: string | string[] }>  
 - title?: string
 
-[] BlockMediaViewer ()
-Embeds an IIIF viewer, image, or video with optional caption.
-
-- title?: string  
-- type: 'iiif' | 'image' | 'video'  
-- src: string  
-- caption?: string  
-- alt?: string  
-- fullscreen?: boolean  
-- zoomable?: boolean
-
-[] BlockRichText  
+[] BlockRichText (Exists - needs changes?)
 (Already defined previously — reused here for body copy.)
 
 - content: string (HTML or PortableText)  
@@ -484,8 +473,6 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | BlockAsset                 |           | ☐ Complete  |   [ ]   |                                |
 | BlockCollection            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | MetadataTable              |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
-| BlockMediaViewer           |           | ☐ Complete  |   [ ]   |                                |
-| BlockRichText              |           | ☐ Complete  |   [ ]   |                                |
 | SectionHeader              |           | ☐ Complete  |   [x]   |                                |
 | GridAssets                 |           | ☐ Complete  |   [ ]   |                                |
 | GridCollections            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
@@ -499,7 +486,7 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | Header                     |           | ☐ Complete  |   [x]   | aka: HeaderSite                |
 | NewsletterSignup           |           | ☐ Complete  |   [x]   | Exists in footer-primary       |
 | DetailHeader               |Luka       | ☐ Complete  |   [ ]   | aka: ItemHeaderBar             |
-| DetailMedia                |Svebor     | ☐ Complete  |   [ ]   | aka: ViewerMedia               |
+| DetailMedia                |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | CollectionOverview         |Luka       | ☐ Complete  |   [ ]   |                                |
 | BannerFeatured             |Luka       | ☐ Complete  |   [x]   |                                |
 | BlockTitle                 |Luka       | ☐ Complete  |   [ ]   |                                |
