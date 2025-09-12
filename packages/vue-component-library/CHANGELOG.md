@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.30.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.1...@ucla-library-monorepo/ucla-library-website-components-v1.30.2) (2025-09-12)
+
+
+### Bug Fixes
+
+* APPS-3433 Fix FTVA mobile menu logic ([#814](https://github.com/UCLALibrary/ucla-library-website-components/issues/814)) ([4186f71](https://github.com/UCLALibrary/ucla-library-website-components/commit/4186f71c5912ccfa2893d5982446da34575dcb86))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.30.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.0...@ucla-library-monorepo/ucla-library-website-components-v1.30.1) (2025-09-12)
 
 
