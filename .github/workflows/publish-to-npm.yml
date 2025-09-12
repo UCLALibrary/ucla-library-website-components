@@ -3,12 +3,6 @@ on:
   push:
     branches:
       - main
-permissions:
-  contents: write # create releases, push tags/commits
-  issues: write # comment on issues if needed by semantic-release
-  pull-requests: write # comment on PRs if needed by semantic-release
-  id-token: write # optional (for provenance)
-  packages: write # optional (if you ever publish to GitHub Packages)
 
 jobs:
   release:
@@ -19,10 +13,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Git identity for commits
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          persist-credentials: false
+          token: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
       - name: Detect Changed Packages
         id: filter
         uses: dorny/paths-filter@v3
@@ -47,13 +39,13 @@ jobs:
         run: pnpm install --save-dev @semantic-release/changelog @semantic-release/git -w
       - name: Release
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec -- semantic-release -e semantic-release-monorepo
       # 🔴 Manually publish vue-component-library using pnpm
       - name: Publish Vue Component Library
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
@@ -85,14 +77,14 @@ jobs:
       - name: Release Nuxt Module
         # if: steps.filter.outputs.component-library == 'true' || steps.filter.outputs.nuxt-module == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm --filter @ucla-library/component-library-nuxt-module exec -- semantic-release -e semantic-release-monorepo
       # 🔴 Manually publish Nuxt Module using pnpm
       - name: Publish Nuxt Module
         # if: steps.filter.outputs.component-library == 'true' || steps.filter.outputs.nuxt-module == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
