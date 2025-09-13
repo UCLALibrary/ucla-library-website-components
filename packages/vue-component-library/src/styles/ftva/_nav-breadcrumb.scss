@@ -1,4 +1,11 @@
 .ftva.nav-breadcrumb {
+    .breadcrumb-wrapper:not(:last-of-type)::after {
+        content: url('ucla-library-design-tokens/assets/svgs/icon-right-carat.svg');
+        margin-inline: 16px;
+        zoom: 75%;
+        top: 4px;
+    }
+
     .parent-page-url {
         @include ftva-breadcrumb-inactive;
         color: $heading-grey;
@@ -12,5 +19,9 @@
     .current-page-title {
         @include ftva-breadcrumb-active;
         color: $accent-blue;
+    }
+
+    @media (max-width: 1199px) {
+        content: url('ucla-library-design-tokens/assets/svgs/icon-caret-left.svg');
     }
 }
