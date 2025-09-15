@@ -66,7 +66,7 @@ Branded button or label pairing logo with text.
 - label: string  
 - to?: string
 
-[x] CTAHexButton ()
+[x] CTAHexButton (Exists - ButtonMore)
 
 Prominent hex-shaped call-to-action button with icon and label.
 
@@ -197,7 +197,7 @@ Horizontal row layout for a single digital asset, including image, metadata fiel
 - image: string  
 - onClick?: Function
 
-[] BlockAsset ()
+[] BlockAsset (Svebor)
 Card for an individual digital library asset.
 
 - image: string  
@@ -236,7 +236,7 @@ Reused section heading (also already defined under `BlockTitle`).
 
 ## Grids
 
-[] GridAssets (austin)
+[] GridAssets (Svebor)
 - items: [BlockAsset]
 
 [] GridCollections (svebor)
@@ -336,7 +336,7 @@ Main site footer for UCLA Library, assembling social links, navigation, and news
 - copyright?: string
 - newsletter
 
-[x] NewsletterSignup ()
+[x] NewsletterSignup (Already exists as a part of the FooterPrimary)
 
 Standalone newsletter form for email subscription.
 
@@ -470,7 +470,7 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ExcerptPod                 |Svebor     | ☐ Complete  |   [ ]   | In the notes-accordion PR      |
 | BlockAssetPod              |Luka       | ☐ Complete  |   [ ]   |                                |
-| BlockAsset                 |           | ☐ Complete  |   [ ]   |                                |
+| BlockAsset                 |Svebor     | ☐ Complete  |   [ ]   |                                |
 | BlockCollection            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | MetadataTable              |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | SectionHeader              |           | ☐ Complete  |   [x]   |                                |
