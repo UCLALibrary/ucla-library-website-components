@@ -52,7 +52,7 @@ Full breadcrumb bar with one or more breadcrumb items.
 - crumbs: Array<{ label: string, to?: string }>  
 - current: string
 
-[] SectionLabel   (austin)
+[] SectionLabel   ()
 Non-interactive text element that might be grouped with buttons (e.g. “RESEARCH”).
 
 - text: string  
@@ -66,7 +66,8 @@ Branded button or label pairing logo with text.
 - label: string  
 - to?: string
 
-[x] CTAHexButton
+[x] CTAHexButton ()
+
 Prominent hex-shaped call-to-action button with icon and label.
 
 - label: string  
@@ -196,7 +197,7 @@ Horizontal row layout for a single digital asset, including image, metadata fiel
 - image: string  
 - onClick?: Function
 
-[] BlockAsset (austin)
+[] BlockAsset ()
 Card for an individual digital library asset.
 
 - image: string  
@@ -220,18 +221,7 @@ Tabular list of metadata key-value pairs (e.g. Rights Contact, Rights Holder).
 - items: Array<{ label: string, value: string | string[] }>  
 - title?: string
 
-[] BlockMediaViewer ()
-Embeds an IIIF viewer, image, or video with optional caption.
-
-- title?: string  
-- type: 'iiif' | 'image' | 'video'  
-- src: string  
-- caption?: string  
-- alt?: string  
-- fullscreen?: boolean  
-- zoomable?: boolean
-
-[] BlockRichText  
+[] BlockRichText (Exists - needs changes?)
 (Already defined previously — reused here for body copy.)
 
 - content: string (HTML or PortableText)  
@@ -371,7 +361,7 @@ Top navigation bar for asset pages, including pagination, collection name, and b
 - onNext: Function  
 - onPrev: Function
 
-[] DetailMedia ()
+[] DetailMedia (Svebor)
 
 Large asset viewer for images or media, with zoom/download/fullscreen buttons.
 
@@ -466,7 +456,7 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | ButtonRemoveSearchFilter   |Luka       | ☐ Complete  |   [x]   | aka: BlockRemoveSearchFilter   |
 | BreadcrumbPill             |Luka       | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |Luka       | ☐ Complete  |   [ ]   |                                |
-| SectionLabel               |Austin     | ☐ Complete  |   [ ]   |                                |
+| SectionLabel               |           | ☐ Complete  |   [ ]   |                                |
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [ ]   |Exists, ready to use            |
 | SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
@@ -480,13 +470,11 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ExcerptPod                 |Svebor     | ☐ Complete  |   [ ]   | In the notes-accordion PR      |
 | BlockAssetPod              |Luka       | ☐ Complete  |   [ ]   |                                |
-| BlockAsset                 |Austin     | ☐ Complete  |   [ ]   |                                |
+| BlockAsset                 |           | ☐ Complete  |   [ ]   |                                |
 | BlockCollection            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | MetadataTable              |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
-| BlockMediaViewer           |           | ☐ Complete  |   [ ]   |                                |
-| BlockRichText              |           | ☐ Complete  |   [ ]   |                                |
 | SectionHeader              |           | ☐ Complete  |   [x]   |                                |
-| GridAssets                 |Austin     | ☐ Complete  |   [ ]   |                                |
+| GridAssets                 |           | ☐ Complete  |   [ ]   |                                |
 | GridCollections            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | GridAssetPod               |Luka       | ☐ Complete  |   [ ]   |                                |
 | SearchField                |Luka       | ☐ Complete  |   [x]   |                                |
@@ -498,7 +486,7 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | Header                     |           | ☐ Complete  |   [x]   | aka: HeaderSite                |
 | NewsletterSignup           |           | ☐ Complete  |   [x]   | Exists in footer-primary       |
 | DetailHeader               |Luka       | ☐ Complete  |   [ ]   | aka: ItemHeaderBar             |
-| DetailMedia                |           | ☐ Complete  |   [ ]   | aka: ViewerMedia               |
+| DetailMedia                |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | CollectionOverview         |Luka       | ☐ Complete  |   [ ]   |                                |
 | BannerFeatured             |Luka       | ☐ Complete  |   [x]   |                                |
 | BlockTitle                 |Luka       | ☐ Complete  |   [ ]   |                                |
