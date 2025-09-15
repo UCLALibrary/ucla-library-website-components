@@ -474,7 +474,7 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | BlockCollection            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | MetadataTable              |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | SectionHeader              |           | ☐ Complete  |   [x]   |                                |
-| GridAssets                 |           | ☐ Complete  |   [ ]   |                                |
+| GridAssets                 |Svebor     | ☐ Complete  |   [ ]   |                                |
 | GridCollections            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | GridAssetPod               |Luka       | ☐ Complete  |   [ ]   |                                |
 | SearchField                |Luka       | ☐ Complete  |   [x]   |                                |
@@ -484,7 +484,7 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | BentoBoxResult             |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
 | Banner                     |           | ☐ Complete  |   [ ]   |                                |
 | Header                     |           | ☐ Complete  |   [x]   | aka: HeaderSite                |
-| NewsletterSignup           |           | ☐ Complete  |   [x]   | Exists in footer-primary       |
+| NewsletterSignup           |Exists     | ☐ Complete  |   [x]   | Exists in footer-primary       |
 | DetailHeader               |Luka       | ☐ Complete  |   [ ]   | aka: ItemHeaderBar             |
 | DetailMedia                |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | CollectionOverview         |Luka       | ☐ Complete  |   [ ]   |                                |
