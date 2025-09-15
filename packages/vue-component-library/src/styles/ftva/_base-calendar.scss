@@ -16,9 +16,12 @@
   .v-calendar-header > button:nth-of-type(3) {
     background-color: $navy-blue;
     color: white;
+    position: absolute;
   }
 
   .v-calendar-header > button:nth-of-type(2) {
+    margin-left: -20px;
+
     i.v-icon {
       &::before {
           content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-left_icon.svg');
@@ -27,6 +30,8 @@
   }
 
   .v-calendar-header > button:nth-of-type(3) {
+    margin-left: 20px;
+
     i.v-icon {
       &::before {
           content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-right_icon.svg');
