@@ -4,6 +4,7 @@ import SearchField from './SearchField.vue'
 import ButtonDropdownSearch from './ButtonDropdownSearch.vue'
 import ResponsiveImage from './ResponsiveImage.vue'
 import DividerGeneral from './DividerGeneral.vue'
+import { useTheme } from '@/composables/useTheme'
 import type { MediaItemType } from '@/types/types'
 
 interface SearchFieldCompositeProps {
@@ -51,6 +52,10 @@ const emit = defineEmits<{
   dropdownChange: [value: string]
 }>()
 
+// Theme
+const theme = useTheme()
+
+// Data
 const dropdownValue = ref(props.dropdownModelValue)
 
 // Methods
@@ -80,6 +85,7 @@ const hasBackgroundImage = computed(() => {
 const classes = computed(() => {
   return [
     'search-field-composite',
+    theme?.value || '',
 
     {
       'has-dropdown': hasDropdownOptions.value,
@@ -138,120 +144,5 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.search-field-composite {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    .background-image {
-        z-index: 10;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        pointer-events: none;
-    }
-    .background-text {
-        z-index: 20;
-        position: absolute;
-        top: unset;
-        left: 0;
-        right: 0;
-        bottom: 10px;
-
-        font-family: var(--font-secondary);
-        color: var(--color-white);
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 160%;
-        text-align: center;
-        letter-spacing: 0.16px;
-    }
-
-    .search-components {
-        position: relative;
-        z-index: 20;
-        display: flex;
-        align-items: center;
-        width: 100%;
-
-        flex-direction: row;
-    }
-    .search-field {
-        flex: 1;
-    }
-    .divider-general {
-        margin-block: 14px;
-        max-width: unset;
-        width: 100%;
-
-        &.is-tertiary {
-            border-color: var(--color-default-cyan-03);
-        }
-    }
-
-    // With background image
-    &.has-background {
-        height: 50vh;
-
-        .search-components,
-        .divider-general,
-        .background-text {
-            max-width: min(80%, 1200px);
-            width: 100%;
-            margin: 0 auto;
-            padding-inline: 32px;
-        }
-    }
-
-    @media #{$medium} {
-        .button-dropdown-search {
-            :deep(.dropdown-field) {
-                height: 53px;
-            }
-        }
-    }
-
-    @media #{$small} {
-        .search-components {
-            flex-direction: column;
-            gap: 12px;
-        }
-        .button-dropdown-search {
-            width: 100%;
-
-            :deep(.dropdown-field) {
-                height: 45px;
-            }
-        }
-        .search-field {
-            width: 100%;
-        }
-
-        .background-text {
-            bottom: 50px;
-        }
-
-        // With background image
-        &.has-background {
-            height: 100vh;
-
-            .search-components,
-            .divider-general,
-            .background-text {
-                max-width: 100%;
-                width: 100%;
-                margin: 0 auto;
-                padding-inline: 24px;
-            }
-        }
-    }
-}
+@import "@/styles/dlc/_search-field-composite.scss";
 </style>
