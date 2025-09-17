@@ -298,3 +298,13 @@ export interface TopicsItemType {
   id: string
   title: string
 }
+
+export interface EntryFieldProps {
+  modelValue?: string
+  wrapperClass?: string
+  clearIcon?: boolean
+  clearOnEsc?: boolean
+  blurOnEsc?: boolean
+  selectOnFocus?: boolean
+  shortcutKey?: string
+}
