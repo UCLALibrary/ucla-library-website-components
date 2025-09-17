@@ -3,7 +3,8 @@
         content: url('ucla-library-design-tokens/assets/svgs/icon-right-carat.svg');
         margin-inline: 16px;
         zoom: 75%;
-        top: 4px;
+        height: 40px;
+        top: 10px;
     }
 
     .parent-page-url {
@@ -22,6 +23,12 @@
     }
 
     @media (max-width: 1199px) {
-        content: url('ucla-library-design-tokens/assets/svgs/icon-caret-left.svg');
+        .breadcrumb-wrapper:last-of-type::before {
+            content: url('ucla-library-design-tokens/assets/svgs/icon-right-carat.svg');
+            margin-inline: 16px;
+            zoom: 75%;
+            top: 0;
+            transform: rotate(180deg);
+        }
     }
 }

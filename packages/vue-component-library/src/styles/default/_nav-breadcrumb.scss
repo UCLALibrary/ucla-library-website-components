@@ -59,6 +59,10 @@
             padding-left: calc(var(--unit-gutter) - 8px);
         }
 
+        .breadcrumb-wrapper:not(:last-of-type)::after {
+            content: unset;
+        }
+
         .breadcrumb-wrapper:last-of-type::before {
             content: url('ucla-library-design-tokens/assets/svgs/icon-caret-left.svg');
             position: relative;
@@ -67,10 +71,6 @@
 
         .current-page-title {
             display: none;
-        }
-
-        .parent-page-url {
-            order: 2;
         }
     }
 }
