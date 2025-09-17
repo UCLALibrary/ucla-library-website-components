@@ -102,6 +102,7 @@ export { default as ResponsiveVideo } from './lib-components/ResponsiveVideo.vue
 export { default as RichText } from './lib-components/RichText.vue'
 export { default as ScrollWrapper } from './lib-components/ScrollWrapper.vue'
 export { default as SearchInput } from './lib-components/SearchInput.vue'
+export { default as SearchFieldComposite } from './lib-components/SearchFieldComposite.vue'
 export { default as SearchGenericFilters } from './lib-components/SearchGenericFilters.vue'
 export { default as SearchGenericFilterButtons } from './lib-components/SearchGenericFilterButtons.vue'
 export { default as SearchGeneric } from './lib-components/SearchGeneric.vue'
