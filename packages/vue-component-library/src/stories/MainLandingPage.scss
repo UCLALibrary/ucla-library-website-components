@@ -5,25 +5,33 @@
     display: flex;
     flex-direction: column;
 
+    overflow: hidden;
     background-color: var(--color-white, #ffffff);
 
     .main-content {
         flex: 1;
-        padding: 200px var(--gutters) 48px;
+        padding: 65px 0 48px;
+    }
+
+    .search-field-composite {
+        margin-bottom: 48px;
     }
 
     .header-collection {
         max-width: 1600px;
         margin: 0 auto;
+        padding: 0 var(--gutters);
     }
 
     .grid-collections {
         max-width: 1200px;
         margin: 0 auto;
         padding-block: 48px 40px;
+        padding-inline: var(--gutters);
     }
     .button-show {
         margin: 0 auto;
+        padding-inline: var(--gutters);
     }
 
     // Breakpoints
@@ -36,5 +44,9 @@
     }
     @media #{$small} {
         --gutters: 24px;
+
+        .main-content {
+            padding-top: 0px;
+        }
     }
 }

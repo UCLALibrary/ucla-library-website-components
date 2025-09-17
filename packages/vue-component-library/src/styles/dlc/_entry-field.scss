@@ -33,7 +33,7 @@ $icon-color: darken($input-background, 30%);
 
         transition: border-color 0.3s ease-in-out,
             border-radius 0.3s ease-in-out;
-        
+
         // Add border when focused
         &:focus {
             border-color: var(--color-secondary-grey-03);

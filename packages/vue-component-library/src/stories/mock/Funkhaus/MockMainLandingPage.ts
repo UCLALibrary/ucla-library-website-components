@@ -3,6 +3,23 @@ export const mockDigitalCollections = {
   searchForm: {
     placeholder: 'Search digital collections...',
     text: '<p>Poster celebrating the 100 years of the legal abolition of three centuries of slavery in Brazil (1888-1988)</p> <br> <p>Collections: Soweto Black Organization, Modern Endangered Archives Program</p>',
+    dropdownOptions: [
+      'All Collections',
+      'Books & E-books',
+      'Articles & Journals',
+      'Databases',
+    ],
+    backgroundImage: {
+      id: 'meap-001',
+      src: 'https://static.library.ucla.edu/craftassetsprod/images/_1280xAUTO_crop_center-center_none/default_2025-05-07-203406_apbl.jpg',
+      height: 1200,
+      width: 1920,
+
+      alt: 'Modern Endangered Archives Program',
+      focalPoint: [0.5, 0.5],
+    },
+    backgroundText:
+            'Poster celebrating the 100 years of the legal abolition of three centuries of slavery in Brazil (1888-1988) <br> Collections: Soweto Black Organization, Modern Endangered Archives Program',
   },
   featuredCollections: {
     subtitle: 'Welcome to the',
