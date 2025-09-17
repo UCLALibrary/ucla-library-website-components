@@ -23,12 +23,13 @@
     }
 
     @media (max-width: 1199px) {
-        .breadcrumb-wrapper:last-of-type::before {
+        .breadcrumb-wrapper :not(.current-page-title):last-of-type::before
+        {
             content: url('ucla-library-design-tokens/assets/svgs/icon-right-carat.svg');
+            // content: url('ucla-library-design-tokens/assets/svgs/icon-caret-left.svg');
             margin-inline: 16px;
             zoom: 75%;
             top: 0;
-            transform: rotate(180deg);
         }
     }
 }

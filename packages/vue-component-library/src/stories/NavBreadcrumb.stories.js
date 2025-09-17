@@ -136,7 +136,7 @@ const titlesOverride3 = [
 ]
 
 const FTVATemplate = (args) => {
-  router.push('/watch-and-listen-online/ktla-collection/senator-john-f.-kennedy-gives-press-conference-in-los-angeles')
+  router.push(args.route)
   return {
     provide() {
       return {
@@ -153,5 +153,11 @@ const FTVATemplate = (args) => {
 
 export const FTVATheme = FTVATemplate.bind({})
 FTVATheme.args = {
+  route: '/watch-and-listen-online/ktla-collection/senator-john-f.-kennedy-gives-press-conference-in-los-angeles',
   overrideTitleGroup: titlesOverride3
+}
+
+export const FTVAThemeRootLevel = FTVATemplate.bind({})
+FTVAThemeRootLevel.args = {
+  route: '/about-page'
 }
