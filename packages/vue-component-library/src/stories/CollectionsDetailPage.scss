@@ -1,0 +1,23 @@
+.collections-detail-page {
+    --gutters: 48px;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--color-white, #ffffff);
+
+    .main-content {
+        flex: 1;
+        padding: 200px var(--gutters) 48px;
+    }
+
+    // Breakpoints
+    @media #{$extra-large} {
+    }
+    @media #{$medium} {
+    }
+    @media #{$small} {
+        --gutters: 24px;
+    }
+}

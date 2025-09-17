@@ -26,6 +26,23 @@ const props = defineProps({
     type: String,
     default: '',
   },
+
+  /**
+   * TODO: this is a bad way to define button variants. We need to define a ButtonLinkVariant enum and use it here.
+   *  e.g.
+   * enum ButtonLinkVariant {
+   *   Primary = 'primary',
+   *   Secondary = 'secondary',
+   *   Tertiary = 'tertiary',
+   *   Quaternary = 'quaternary',
+   *   Senary = 'senary',
+   *   Download = 'download',
+   * }
+   *
+   *
+   * and then we would define variant prop like this:
+   * variant: ButtonLinkVariant
+   */
   isSecondary: {
     type: Boolean,
     default: false,
@@ -93,12 +110,12 @@ const parsedIconName = computed(() => {
     case isInternalLink(props.to):
       return SvgArrowRight
     case props.linkTarget === '_blank'
-      || props.iconName === 'svg-external-link':
+            || props.iconName === 'svg-external-link':
       return SvgExternalLink
     case props.iconName === 'icon-close':
       return IconClose
-    // case props.iconName:
-    //     return props.iconName
+      // case props.iconName:
+      //     return props.iconName
     default:
       return SvgExternalLink
   }
@@ -132,10 +149,7 @@ const parsedIconName = computed(() => {
   </SmartLink>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 @import "@/styles/default/_button-link.scss";
 @import "@/styles/ftva/_button-link.scss";
 </style>
