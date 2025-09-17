@@ -5,20 +5,20 @@
     font-family: inherit;
 
     .dropdown-field {
-        background-color: var(--color-secondary-blue-02);
-        padding: 30px 15px;
-        cursor: pointer;
+        position: relative;
+        z-index: 20;
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 8px;
 
+        height: 74px;
+        padding: 24px 15px;
+        background-color: var(--color-secondary-blue-02);
+
         user-select: none;
-
+        cursor: pointer;
         transition: background-color 0.2s;
-
-        position: relative;
-        z-index: 20;
     }
 
     .selected-option,
@@ -99,7 +99,9 @@
     // States
     &.is-long {
         width: 345px;
+
         .dropdown-field {
+            height: 45px;
             padding: 15px;
         }
     }
@@ -117,10 +119,6 @@
                 }
             }
         }
-    }
-
-    // Breakpoints
-    @media #{$small} {
     }
 
     // Dropdown Animation
