@@ -18,12 +18,18 @@
         flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
 
     .breadcrumb-wrapper:not(:last-of-type)::after {
-        content: url('ucla-library-design-tokens/assets/svgs/icon-caret-right.svg');
+        content: '';
         position: relative;
-        top: 5px;
+        display: inline-flex;
+        background-image: url('ucla-library-design-tokens/assets/svgs/icon-caret-right.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 33px;
+        width: 32px;
     }
 
     .parent-page-url {
@@ -61,9 +67,21 @@
 
         .breadcrumb-wrapper :not(.current-page-title):last-of-type::before
         {
-            content: url('ucla-library-design-tokens/assets/svgs/icon-caret-left.svg');
+            content: '';
             position: relative;
-            top: 9px;
+            display: inline-flex;
+            background-image: url('ucla-library-design-tokens/assets/svgs/icon-caret-left.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 33px;
+            width: 32px;
+            top: 3px;
+            vertical-align: bottom;
+        }
+
+        .parent-page-url{
+            position: relative;
+            top: -2px;
         }
 
         .current-page-title {
