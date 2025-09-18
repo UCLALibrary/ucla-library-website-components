@@ -133,18 +133,14 @@
             opacity: 1;
         }
     }
-
-    // underline on hover
-    @media (hover: hover) {
-        &:hover {
-        .section-name::after {
-            opacity: 1;
-        }
-        }
-    }
     
     // Hover
     @media #{$has-hover} {
+        // underline on hover
+        .nav-menu-item:hover .section-name::after {
+            opacity: 1;
+        }
+
         .sub-menu-item:hover {
             background-color: rgba(#ffffff, 0.1);
             text-decoration: underline;
