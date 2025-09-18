@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.30.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.2...@ucla-library-monorepo/ucla-library-website-components-v1.30.3) (2025-09-17)
+
+
+### Bug Fixes
+
+* APPS-3193 make arrows on calendar 20 pixels from calendar edges ([#819](https://github.com/UCLALibrary/ucla-library-website-components/issues/819)) ([1cffca2](https://github.com/UCLALibrary/ucla-library-website-components/commit/1cffca28615ead8b95900c04791a1b728c4ef1be))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.30.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.1...@ucla-library-monorepo/ucla-library-website-components-v1.30.2) (2025-09-12)
 
 
