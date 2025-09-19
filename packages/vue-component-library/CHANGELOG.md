@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.30.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.5...@ucla-library-monorepo/ucla-library-website-components-v1.30.6) (2025-09-19)
+
+
+### Bug Fixes
+
+* APPS-3462 Correct FTVA Footer components variable syntax ([#823](https://github.com/UCLALibrary/ucla-library-website-components/issues/823)) ([35508e2](https://github.com/UCLALibrary/ucla-library-website-components/commit/35508e2513b955ea4391f419f77a941d24fa0f20))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.30.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.4...@ucla-library-monorepo/ucla-library-website-components-v1.30.5) (2025-09-19)
 
 
