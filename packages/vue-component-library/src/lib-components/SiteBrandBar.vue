@@ -17,7 +17,8 @@ const parsedHeaderThemeSettings = computed(() => {
       headerText: 'UCLA Film & Television Archive',
       buttonText: 'Donate',
       buttonLink: '/donate',
-      homepage: '/'
+      homepage: '/',
+      linkTarget: '_self'
     }
   }
   // default
@@ -29,7 +30,7 @@ const parsedHeaderThemeSettings = computed(() => {
   <div :class="classes">
     <a
       :href="parsedHeaderThemeSettings.homepage || 'https://www.ucla.edu'"
-      target="_blank"
+      :target="parsedHeaderThemeSettings.linkTarget || '_blank'"
     >
       <span v-if="!parsedHeaderThemeSettings?.useLogo && parsedHeaderThemeSettings.headerText" class="ucla-text">{{
         parsedHeaderThemeSettings.headerText }}</span>
