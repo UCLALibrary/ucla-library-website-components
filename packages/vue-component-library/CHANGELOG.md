@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.30.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.3...@ucla-library-monorepo/ucla-library-website-components-v1.30.4) (2025-09-19)
+
+
+### Bug Fixes
+
+* APPS-3428 update URL to UC library search in nav bar ([#822](https://github.com/UCLALibrary/ucla-library-website-components/issues/822)) ([5739d89](https://github.com/UCLALibrary/ucla-library-website-components/commit/5739d89f6efe5af7603e15c37dcfe4ffc5f7a68b))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.30.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.2...@ucla-library-monorepo/ucla-library-website-components-v1.30.3) (2025-09-17)
 
 
