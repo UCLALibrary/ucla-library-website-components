@@ -1,6 +1,6 @@
 {
   "name": "@ucla-library/component-library-nuxt-module",
-  "version": "1.2.63",
+  "version": "1.2.64",
   "publishConfig": {
     "access": "public"
   },
