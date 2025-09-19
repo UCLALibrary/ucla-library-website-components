@@ -18,7 +18,7 @@ const parsedHeaderThemeSettings = computed(() => {
       buttonText: 'Donate',
       buttonLink: '/donate',
       homepage: '/',
-      linkTarget: '_self'
+      homepageLinkTarget: '_self'
     }
   }
   // default
@@ -30,7 +30,7 @@ const parsedHeaderThemeSettings = computed(() => {
   <div :class="classes">
     <a
       :href="parsedHeaderThemeSettings.homepage || 'https://www.ucla.edu'"
-      :target="parsedHeaderThemeSettings.linkTarget || '_blank'"
+      :target="parsedHeaderThemeSettings.homepageLinkTarget || '_blank'"
     >
       <span v-if="!parsedHeaderThemeSettings?.useLogo && parsedHeaderThemeSettings.headerText" class="ucla-text">{{
         parsedHeaderThemeSettings.headerText }}</span>
