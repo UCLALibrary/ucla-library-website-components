@@ -53,6 +53,11 @@ const DynamicModeTemplate = (args) => {
   }
 }
 
+export const CrumbsByRouteRootLevel = DynamicModeTemplate.bind({})
+CrumbsByRouteRootLevel.args = {
+  route: '/about-page'
+}
+
 export const CrumbsByRoute1Level = DynamicModeTemplate.bind({})
 CrumbsByRoute1Level.args = {
   route: '/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24'
@@ -61,6 +66,11 @@ CrumbsByRoute1Level.args = {
 export const CrumbsByRoute2Levels = DynamicModeTemplate.bind({})
 CrumbsByRoute2Levels.args = {
   route: '/events/upcoming-events/la-région-centrale-10-20-23-screening-03-08-24'
+}
+
+export const CrumbsByRoute3Levels = DynamicModeTemplate.bind({})
+CrumbsByRoute3Levels.args = {
+  route: '/explore-collections/watch-and-listen-online/ktla-collection/national-and-local-politics/',
 }
 
 export const Collapsed4Levels = DynamicModeTemplate.bind({})
@@ -118,8 +128,15 @@ OverrideTitlesByOverrideProp2.args = {
   overrideTitleGroup: titlesOverride2
 }
 
+const titlesOverride3 = [
+  {
+    titleLevel: 2,
+    updatedTitle: 'KTLA Collection'
+  }
+]
+
 const FTVATemplate = (args) => {
-  router.push('/watch-and-listen-online/senator-john-f.-kennedy-gives-press-conference-in-los-angeles')
+  router.push(args.route)
   return {
     provide() {
       return {
@@ -135,3 +152,12 @@ const FTVATemplate = (args) => {
 }
 
 export const FTVATheme = FTVATemplate.bind({})
+FTVATheme.args = {
+  route: '/watch-and-listen-online/ktla-collection/senator-john-f.-kennedy-gives-press-conference-in-los-angeles',
+  overrideTitleGroup: titlesOverride3
+}
+
+export const FTVAThemeRootLevel = FTVATemplate.bind({})
+FTVAThemeRootLevel.args = {
+  route: '/about-page'
+}
