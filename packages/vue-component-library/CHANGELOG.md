@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.30.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.4...@ucla-library-monorepo/ucla-library-website-components-v1.30.5) (2025-09-19)
+
+
+### Bug Fixes
+
+* APPS-3395 make underline on menu only occur during hover and menu open ([#821](https://github.com/UCLALibrary/ucla-library-website-components/issues/821)) ([2eba1c4](https://github.com/UCLALibrary/ucla-library-website-components/commit/2eba1c450db8a2802dc6bdfb06e36db440463059))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.30.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.3...@ucla-library-monorepo/ucla-library-website-components-v1.30.4) (2025-09-19)
 
 
