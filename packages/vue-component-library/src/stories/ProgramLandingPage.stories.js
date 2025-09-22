@@ -5,6 +5,8 @@ import HeaderSticky from '../lib-components/HeaderSticky.vue'
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 import CollectionOverview from '../lib-components/CollectionOverview.vue'
+import GridAssets from '../lib-components/GridAssets.vue'
+import ButtonMore from '../lib-components/ButtonMore.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
@@ -42,6 +44,8 @@ function Template(args) {
       FooterPrimary,
       SearchFieldComposite,
       CollectionOverview,
+      GridAssets,
+      ButtonMore,
     },
     provide() {
       return {
@@ -54,6 +58,11 @@ function Template(args) {
       )
 
       const searchValue = ref('')
+
+      const showMoreFeaturedProjects = () => {
+        window.location.href
+                    = 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-collections-detail-page--default'
+      }
 
       const handleSearchSubmit = (value) => {
         searchValue.value = value
@@ -75,9 +84,22 @@ function Template(args) {
         dropdownValue,
         handleSearchSubmit,
         handleDropdownUpdate,
+        showMoreFeaturedProjects,
       }
     },
-    computed: {},
+    computed: {
+      gridItems() {
+        const parsedItems
+                    = mockProgramLandingPage?.gridAssets?.items?.map((item) => {
+                      return {
+                        ...item,
+                        href: 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-collections-detail-page--default',
+                      }
+                    }) || []
+
+        return parsedItems
+      },
+    },
     template: `
        <div class="program-landing-page">
          <!-- Header -->
@@ -98,13 +120,24 @@ function Template(args) {
             @update:dropdown-model-value="handleDropdownUpdate"
           />
           <CollectionOverview
+            class="collection-overview"
             :title="mockProgramLandingPage.collectionOverview.title"
             :subtitle="mockProgramLandingPage.collectionOverview.subtitle"
             :block-buttons="mockProgramLandingPage.collectionOverview.blockButtons"
             :description="mockProgramLandingPage.collectionOverview.description"
             :image="mockProgramLandingPage.collectionOverview.image"
+            class="collection-overview"
           />
 
+          <h2 class="title-grid-assets">
+            {{ mockProgramLandingPage.gridAssets.title }}
+          </h2>
+          <GridAssets :items="gridItems" class="grid-assets" />
+          <ButtonMore
+              class="button-more"
+              text="Browse more projects"
+              @click="showMoreFeaturedProjects"
+          />
         
         </main>
          

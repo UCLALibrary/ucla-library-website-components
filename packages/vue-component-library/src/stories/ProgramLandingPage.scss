@@ -17,6 +17,24 @@
         margin-top: 14px;
     }
 
+    .collection-overview {
+        margin-bottom: 48px;
+    }
+
+    .title-grid-assets {
+        margin-bottom: 32px;
+        @include step-4;
+        margin: 0 0 var(--space-m);
+    }
+    .grid-assets {
+        margin: 0 auto;
+    }
+    .button-more {
+        margin: 0 auto;
+        max-width: unset;
+        padding-inline: var(--gutters);
+    }
+
     // Breakpoints
     @media #{$extra-large} {
     }
