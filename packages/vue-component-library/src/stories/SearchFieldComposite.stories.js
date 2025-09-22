@@ -32,12 +32,12 @@ function Template(args) {
 
       const handleSearchSubmit = (value) => {
         submittedValue.value = value
-        console.log('Search submitted:', value)
+        // Search submitted
       }
 
       const handleDropdownUpdate = (value) => {
         dropdownValue.value = value
-        console.log('Dropdown updated:', value)
+        // Dropdown updated
       }
 
       return {

@@ -8,13 +8,13 @@ import CollectionOverview from '../lib-components/CollectionOverview.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
-import { mockCollectionsDataPage } from './mock/Funkhaus/MockCollectionsDataPage'
+import { mockProgramLandingPage } from './mock/Funkhaus/MockProgramLandingPage'
 
 // Import styles
-import './CollectionsDetailPage.scss'
+import './ProgramLandingPage.scss'
 
 export default {
-  title: 'Funkhaus / Pages / Collections Detail Page',
+  title: 'Funkhaus / Pages / Program Landing Page',
   component: {},
   parameters: {
     layout: 'fullscreen',
@@ -49,25 +49,37 @@ function Template(args) {
       }
     },
     setup() {
+      const dropdownValue = ref(
+        mockProgramLandingPage.searchForm.dropdownOptions[0]
+      )
+
       const searchValue = ref('')
 
       const handleSearchSubmit = (value) => {
         searchValue.value = value
-        alert(`Search submitted: "${value}"`)
+        alert(
+                    `Search submitted: "${value}" \nwith dropdown: "${dropdownValue.value}"`
+        )
+      }
+
+      const handleDropdownUpdate = (value) => {
+        dropdownValue.value = value
       }
 
       return {
         args,
         primaryItems,
         secondaryItems,
-        mockCollectionsDataPage,
+        mockProgramLandingPage,
         searchValue,
+        dropdownValue,
         handleSearchSubmit,
+        handleDropdownUpdate,
       }
     },
     computed: {},
     template: `
-       <div class="collections-detail-page">
+       <div class="program-landing-page">
          <!-- Header -->
          <HeaderSticky
             :primary-items="primaryItems"
@@ -78,21 +90,22 @@ function Template(args) {
           <SearchFieldComposite
             class="search-field-composite"
             v-model:initial-value="searchValue"
-            placeholder="Search digital collections..."
+            :placeholder="mockProgramLandingPage.searchForm.placeholder"
+            :dropdown-options="mockProgramLandingPage.searchForm.dropdownOptions"
             :show-divider="true"
+            v-model:dropdown-model-value="dropdownValue"
             @submit="handleSearchSubmit"
+            @update:dropdown-model-value="handleDropdownUpdate"
           />
           <CollectionOverview
-            :title="mockCollectionsDataPage.collectionOverview.title"
-            :subtitle="mockCollectionsDataPage.collectionOverview.subtitle"
-            :items-count="mockCollectionsDataPage.collectionOverview.itemsCount"
-            :block-buttons="mockCollectionsDataPage.collectionOverview.blockButtons"
-            :description="mockCollectionsDataPage.collectionOverview.description"
-            :image="mockCollectionsDataPage.collectionOverview.image"
+            :title="mockProgramLandingPage.collectionOverview.title"
+            :subtitle="mockProgramLandingPage.collectionOverview.subtitle"
+            :block-buttons="mockProgramLandingPage.collectionOverview.blockButtons"
+            :description="mockProgramLandingPage.collectionOverview.description"
+            :image="mockProgramLandingPage.collectionOverview.image"
           />
 
-          
-          
+        
         </main>
          
          <!-- Footer -->
