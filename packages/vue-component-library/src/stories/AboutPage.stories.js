@@ -6,20 +6,20 @@ import FooterPrimary from "../lib-components/FooterPrimary.vue"
 
 // Import mock data
 import { primaryItems, secondaryItems } from "./mock/Funkhaus/MockGlobal"
-import { mockCollectionsDataPage } from "./mock/Funkhaus/MockCollectionsDataPage"
+import { mockAboutPage } from "./mock/Funkhaus/MockAboutPage"
 
 // Import styles
-import "./CollectionsDetailPage.scss"
+import "./AboutPage.scss"
 
 export default {
-    title: "Funkhaus / Pages / Collections Detail Page",
+    title: "Funkhaus / Pages / About Page",
     component: {},
     parameters: {
         layout: "fullscreen",
         docs: {
             description: {
                 component:
-                    "A single page layout with header, main content area, and footer. This serves as a template for collections detail pages.",
+                    "A single page layout with header, main content area, and footer. This serves as a template for about pages.",
             },
         },
     },
@@ -49,12 +49,12 @@ function Template(args) {
                 args,
                 primaryItems,
                 secondaryItems,
-                mockCollectionsDataPage,
+                mockAboutPage,
             }
         },
         computed: {},
         template: `
-       <div class="collections-detail-page">
+       <div class="about-page">
          <!-- Header -->
          <HeaderSticky
             :primary-items="primaryItems"
@@ -62,8 +62,8 @@ function Template(args) {
         />
 
         <main class="main-content">
-            This is going to be the collections detail page
-            <pre>{{ mockCollectionsDataPage }}</pre>
+            This is going to be the about page
+            <pre>{{ mockAboutPage }}</pre>
         </main>
          
          <!-- Footer -->
