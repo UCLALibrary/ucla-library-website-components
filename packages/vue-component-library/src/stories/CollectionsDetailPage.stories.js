@@ -1,8 +1,9 @@
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 // Import components
 import HeaderSticky from '../lib-components/HeaderSticky.vue'
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
+import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
@@ -38,6 +39,7 @@ function Template(args) {
     components: {
       HeaderSticky,
       FooterPrimary,
+      SearchFieldComposite,
     },
     provide() {
       return {
@@ -45,11 +47,20 @@ function Template(args) {
       }
     },
     setup() {
+      const searchValue = ref('')
+
+      const handleSearchSubmit = (value) => {
+        searchValue.value = value
+        alert(`Search submitted: "${value}"`)
+      }
+
       return {
         args,
         primaryItems,
         secondaryItems,
         mockCollectionsDataPage,
+        searchValue,
+        handleSearchSubmit,
       }
     },
     computed: {},
@@ -62,8 +73,16 @@ function Template(args) {
         />
 
         <main class="main-content">
-            This is going to be the collections detail page
-            <pre>{{ mockCollectionsDataPage }}</pre>
+          <SearchFieldComposite
+            class="search-field-composite"
+            v-model:initial-value="searchValue"
+            placeholder="Search digital collections..."
+            :show-divider="true"
+            @submit="handleSearchSubmit"
+          />
+
+          This is going to be the collections detail page
+          <pre>{{ mockCollectionsDataPage }}</pre>
         </main>
          
          <!-- Footer -->
