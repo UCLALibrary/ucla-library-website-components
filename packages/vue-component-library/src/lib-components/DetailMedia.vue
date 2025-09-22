@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 const props = withDefaults(defineProps<DetailMediaProps>(), {
@@ -23,23 +23,26 @@ const isLoading = ref(true)
 const hasError = ref(false)
 const errorMessage = ref('')
 
-// Computed
-const viewerUrl = computed(() => {
-  if (!props.manifestUrl) {
-    hasError.value = true
-    errorMessage.value = 'No manifest URL provided'
-    return ''
-  }
-
-  // Basic URL validation
+// Helper function to validate URL without side effects
+function isValidUrl(url: string): boolean {
   try {
-    new URL(props.manifestUrl)
+    // eslint-disable-next-line no-new
+    new URL(url)
+    return true
   }
   catch {
-    hasError.value = true
-    errorMessage.value = 'Invalid manifest URL format'
-    return ''
+    return false
   }
+}
+
+// Computed
+const viewerUrl = computed(() => {
+  if (!props.manifestUrl)
+    return ''
+
+  // Basic URL validation
+  if (!isValidUrl(props.manifestUrl))
+    return ''
 
   const baseUrl = 'https://universalviewer.io/uv.html'
   const params = new URLSearchParams({
@@ -47,6 +50,29 @@ const viewerUrl = computed(() => {
   })
   return `${baseUrl}?${params.toString()}`
 })
+
+// Watch for manifest URL changes to validate and set error state
+watch(
+  () => props.manifestUrl,
+  (newUrl) => {
+    if (!newUrl) {
+      hasError.value = true
+      errorMessage.value = 'No manifest URL provided'
+      return
+    }
+
+    // Basic URL validation
+    if (isValidUrl(newUrl)) {
+      hasError.value = false
+      errorMessage.value = ''
+    }
+    else {
+      hasError.value = true
+      errorMessage.value = 'Invalid manifest URL format'
+    }
+  },
+  { immediate: true }
+)
 
 const containerClasses = computed(() => {
   return [
@@ -71,15 +97,9 @@ function handleIframeError() {
 </script>
 
 <template>
-  <div
-    :class="containerClasses"
-    :style="{ height }"
-  >
+  <div :class="containerClasses" :style="{ height }">
     <!-- Error State -->
-    <div
-      v-if="hasError"
-      class="viewer-error"
-    >
+    <div v-if="hasError" class="viewer-error">
       <div class="error-icon">
         ⚠️
       </div>
@@ -92,15 +112,9 @@ function handleIframeError() {
     </div>
 
     <!-- IIIF Viewer with Loading Overlay -->
-    <div
-      v-else
-      class="viewer-container"
-    >
+    <div v-else class="viewer-container">
       <!-- Loading State Overlay -->
-      <div
-        v-if="isLoading"
-        class="viewer-loading"
-      >
+      <div v-if="isLoading" class="viewer-loading">
         <div class="loading-spinner" />
         <p>Loading IIIF viewer...</p>
       </div>
@@ -120,5 +134,5 @@ function handleIframeError() {
 </template>
 
 <style lang="scss" scoped>
-@import '@/styles/dlc/_detail-media.scss';
+@import "@/styles/dlc/_detail-media.scss";
 </style>

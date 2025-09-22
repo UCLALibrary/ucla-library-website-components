@@ -6,6 +6,7 @@ import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 import CollectionOverview from '../lib-components/CollectionOverview.vue'
 import DetailHeader from '../lib-components/DetailHeader.vue'
+import DetailMedia from '../lib-components/DetailMedia.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
@@ -44,6 +45,7 @@ function Template(args) {
       SearchFieldComposite,
       CollectionOverview,
       DetailHeader,
+      DetailMedia,
     },
     provide() {
       return {
@@ -111,6 +113,12 @@ function Template(args) {
           />
 
           <h1 class="title">{{ mockAssetDetailDataPage.title }}</h1>
+
+          <DetailMedia
+            :manifest-url="mockAssetDetailDataPage.detailMedia.manifestUrl"
+            :title="mockAssetDetailDataPage.detailMedia.title"
+            :description="mockAssetDetailDataPage.detailMedia.description"
+          />
          
         </main>
          

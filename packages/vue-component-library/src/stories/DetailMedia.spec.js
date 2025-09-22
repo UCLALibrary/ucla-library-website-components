@@ -9,5 +9,4 @@ describe('Funkhaus / DetailMedia', () => {
     cy.get('.viewer-iframe').should('have.attr', 'src').and('include', 'universalviewer.io')
     cy.get('.viewer-iframe').should('have.attr', 'src').and('include', 'manifest=')
   })
-
 })
