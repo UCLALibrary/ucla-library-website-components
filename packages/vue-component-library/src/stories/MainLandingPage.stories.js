@@ -116,6 +116,10 @@ function Template(args) {
     template: `
        <div class="main-landing-page">
          <!-- Header -->
+         <HeaderSticky
+            :primary-items="primaryItems"
+            :secondary-items="secondaryItems"
+        />
 
 
          <!-- Main Content Area -->
