@@ -6,7 +6,7 @@ import FooterPrimary from "../lib-components/FooterPrimary.vue"
 
 // Import mock data
 import { primaryItems, secondaryItems } from "./mock/Funkhaus/MockGlobal"
-import { mockCollectionBrowsePage } from "./mock/Funkhaus/MockCollectionBrowsePage"
+import { mockCollectionsBrowsePage } from "./mock/Funkhaus/MockCollectionsBrowsePage"
 
 // Import styles
 import "./CollectionBrowsePage.scss"
@@ -49,7 +49,7 @@ function Template(args) {
                 args,
                 primaryItems,
                 secondaryItems,
-                mockCollectionBrowsePage,
+                mockCollectionsBrowsePage,
             }
         },
         computed: {},
@@ -63,7 +63,7 @@ function Template(args) {
 
         <main class="main-content">
             This is going to be the collection browse page
-            <pre>{{ mockCollectionBrowsePage }}</pre>
+            <pre>{{ mockCollectionsBrowsePage }}</pre>
         </main>
          
          <!-- Footer -->
