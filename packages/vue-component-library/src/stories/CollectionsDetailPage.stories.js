@@ -5,6 +5,8 @@ import HeaderSticky from '../lib-components/HeaderSticky.vue'
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 import CollectionOverview from '../lib-components/CollectionOverview.vue'
+import GridAssets from '../lib-components/GridAssets.vue'
+import ButtonMore from '../lib-components/ButtonMore.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
@@ -42,6 +44,8 @@ function Template(args) {
       FooterPrimary,
       SearchFieldComposite,
       CollectionOverview,
+      GridAssets,
+      ButtonMore,
     },
     provide() {
       return {
@@ -50,22 +54,50 @@ function Template(args) {
     },
     setup() {
       const searchValue = ref('')
+      const dropdownValue = ref(
+        mockCollectionsDataPage.searchForm.dropdownOptions[0]
+      )
+
+      const showMoreFeaturedCollections = () => {
+        window.location.href
+                    = 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-collections-detail-page--default'
+      }
 
       const handleSearchSubmit = (value) => {
         searchValue.value = value
-        alert(`Search submitted: "${value}"`)
+        alert(
+                    `Search submitted: "${value}" \nwith dropdown: "${dropdownValue.value}"`
+        )
       }
 
+      const handleDropdownUpdate = (value) => {
+        dropdownValue.value = value
+      }
       return {
         args,
         primaryItems,
         secondaryItems,
         mockCollectionsDataPage,
         searchValue,
+        dropdownValue,
         handleSearchSubmit,
+        handleDropdownUpdate,
+        showMoreFeaturedCollections,
       }
     },
-    computed: {},
+    computed: {
+      gridItems() {
+        const parsedItems
+                    = mockCollectionsDataPage?.gridAssets?.items?.map((item) => {
+                      return {
+                        ...item,
+                        href: 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-collections-detail-page--default',
+                      }
+                    }) || []
+
+        return parsedItems
+      },
+    },
     template: `
        <div class="collections-detail-page">
          <!-- Header -->
@@ -76,11 +108,14 @@ function Template(args) {
 
         <main class="main-content">
           <SearchFieldComposite
-            class="search-field-composite"
+             class="search-field-composite"
             v-model:initial-value="searchValue"
-            placeholder="Search digital collections..."
+            :placeholder="mockCollectionsDataPage.searchForm.placeholder"
+            :dropdown-options="mockCollectionsDataPage.searchForm.dropdownOptions"
             :show-divider="true"
+            v-model:dropdown-model-value="dropdownValue"
             @submit="handleSearchSubmit"
+            @update:dropdown-model-value="handleDropdownUpdate"
           />
           <CollectionOverview
             :title="mockCollectionsDataPage.collectionOverview.title"
@@ -91,6 +126,22 @@ function Template(args) {
             :image="mockCollectionsDataPage.collectionOverview.image"
           />
 
+          
+
+
+          <ButtonMore
+              class="button-more"
+              text="Browse Items From Collection"
+              @click="showMoreFeaturedCollections"
+          />
+
+          <span class="subtitle-grid-assets">
+            {{ mockCollectionsDataPage.gridAssets.subtitle }}
+          </span>
+          <h2 class="title-grid-assets">
+            {{ mockCollectionsDataPage.gridAssets.title }}
+          </h2>
+          <GridAssets :items="gridItems" class="grid-assets" />
           
           
         </main>

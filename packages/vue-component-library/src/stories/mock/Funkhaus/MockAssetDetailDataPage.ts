@@ -16,12 +16,12 @@ export const mockAssetDetailDataPage = {
       name: 'Collection',
       value: {
         label: 'Los Angeles Times Photographic Collection',
-        to: '/collections/latimes-photographic',
+        to: 'https://www.google.com',
       },
     },
-    previousTo: '/collections/latimes-photographic/previous-item',
-    nextTo: '/collections/latimes-photographic/next-item',
-    backTo: '/search?collection=latimes-photographic',
+    previousTo: 'https://www.google.com',
+    nextTo: 'https://www.google.com',
+    backTo: 'https://www.google.com',
   },
   detailMedia: {
     manifestUrl: 'https://wellcomelibrary.org/iiif/b18035723/manifest',

@@ -11,10 +11,29 @@
     .main-content {
         flex: 1;
         padding: 65px var(--gutters) 48px;
+        max-width: 1600px;
+        margin: 0 auto;
     }
 
     .search-field-composite {
         margin-top: 14px;
+    }
+
+    .subtitle-grid-assets {
+        font-size: 22px;
+        font-weight: 500;
+        margin: 0 0 var(--space-m);
+    }
+    .title-grid-assets {
+        @include step-4;
+        margin: 0 0 var(--space-xl);
+        color: var(--color-primary-blue-03);
+    }
+
+    .button-more {
+        margin: 300px auto 90px;
+        max-width: unset;
+        padding-inline: var(--gutters);
     }
 
     // Breakpoints
