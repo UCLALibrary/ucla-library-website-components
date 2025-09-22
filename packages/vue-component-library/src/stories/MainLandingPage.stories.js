@@ -4,7 +4,7 @@ import { computed, ref } from 'vue'
 import HeaderSticky from '../lib-components/HeaderSticky.vue'
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import GridCollections from '../lib-components/GridCollections.vue'
-import ButtonShow from '../lib-components/ButtonShow.vue'
+import ButtonMore from '../lib-components/ButtonMore.vue'
 import HeaderCollection from '../lib-components/HeaderCollection.vue'
 import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 
@@ -45,7 +45,7 @@ function Template(args) {
       GridCollections,
       HeaderCollection,
       SearchFieldComposite,
-      ButtonShow,
+      ButtonMore,
     },
     provide() {
       return {
@@ -145,8 +145,8 @@ function Template(args) {
                 :buttons="headerItems.buttons"
             />
             <GridCollections :items="gridItems" class="grid-collections" />
-            <ButtonShow
-                class="button-show"
+            <ButtonMore
+                class="button-more"
                 @click="showMoreCollections"
             />
          </main>

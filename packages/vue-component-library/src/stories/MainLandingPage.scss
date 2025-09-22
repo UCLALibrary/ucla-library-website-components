@@ -29,8 +29,9 @@
         padding-block: 48px 40px;
         padding-inline: var(--gutters);
     }
-    .button-show {
+    .button-more {
         margin: 0 auto;
+        max-width: unset;
         padding-inline: var(--gutters);
     }
 
