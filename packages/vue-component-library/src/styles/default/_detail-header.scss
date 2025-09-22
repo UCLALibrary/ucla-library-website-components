@@ -1,10 +1,12 @@
 .detail-header,
 .dlc.detail-header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 16px 14px;
+    .top-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 16px 14px;
+    }
 
     .left {
         display: flex;
@@ -80,6 +82,14 @@
         transition: color 0.3s ease-in-out;
     }
 
+    .divider-general {
+        max-width: unset;
+        width: 100%;
+        margin: 14px auto;
+        padding-inline: 32px;
+        border-width: 1px;
+    }
+
     // Hovers
     @media #{$has-hover} {
         .previous:hover,
@@ -95,7 +105,9 @@
     }
     // Breakpoints
     @media #{$small} {
-        column-gap: 24px;
+        .top-container {
+            column-gap: 24px;
+        }
 
         .prev-next-container {
             margin: 0 auto;

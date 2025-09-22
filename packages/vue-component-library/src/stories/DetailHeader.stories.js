@@ -1,17 +1,6 @@
 import { computed } from 'vue'
 import DetailHeader from '@/lib-components/DetailHeader'
 
-/**
- * A component to display navigation controls for detail pages with previous/next links,
- * results count, tag information, and optional back button.
- *
- * Props:
- * - <b>totalResults</b>: A number representing the total number of results (defaults to 0)
- * - <b>tag</b>: An object containing tag information with name and value (label and to)
- * - <b>previousTo</b>: A string representing the URL for the previous item
- * - <b>nextTo</b>: A string representing the URL for the next item
- * - <b>backTo</b>: A string representing the URL to go back to search results
- */
 export default {
   title: 'Funkhaus / Detail Header',
   component: DetailHeader,
@@ -73,6 +62,22 @@ Default.args = {
   previousTo: '/collections/latimes-photographic/previous-item',
   nextTo: '/collections/latimes-photographic/next-item',
   backTo: '/search?collection=latimes-photographic',
+}
+
+export const WithDivider = Template.bind({})
+WithDivider.args = {
+  totalResults: 42,
+  tag: {
+    name: 'Collection',
+    value: {
+      label: 'Los Angeles Times Photographic Collection',
+      to: '/collections/latimes-photographic',
+    },
+  },
+  previousTo: '/collections/latimes-photographic/previous-item',
+  nextTo: '/collections/latimes-photographic/next-item',
+  backTo: '/search?collection=latimes-photographic',
+  showDivider: true,
 }
 
 export const WithResultsOnly = Template.bind({})
