@@ -126,7 +126,6 @@ function Template(args) {
             :block-buttons="mockProgramLandingPage.collectionOverview.blockButtons"
             :description="mockProgramLandingPage.collectionOverview.description"
             :image="mockProgramLandingPage.collectionOverview.image"
-            class="collection-overview"
           />
 
           <h2 class="title-grid-assets">
