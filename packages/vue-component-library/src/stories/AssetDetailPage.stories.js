@@ -98,7 +98,6 @@ function Template(args) {
             :dropdown-options="mockAssetDetailDataPage.searchForm.dropdownOptions"
             :show-divider="true"
             v-model:dropdown-model-value="dropdownValue"
-            :show-divider="true"
             @submit="handleSearchSubmit"
             @update:dropdown-model-value="handleDropdownUpdate"
           />
