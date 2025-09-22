@@ -1,3 +1,16 @@
+export interface ResponsiveImageType {
+  media: MediaItemType
+  src?: string
+  height?: number
+  width?: number
+  alt?: string
+  srcset?: string
+  sizes?: string
+  caption?: string
+  aspectRatio?: number
+  objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down' | ''
+}
+
 // custom types
 export interface ResponsiveImageType {
   media: MediaItemType
