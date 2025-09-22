@@ -1,3 +1,24 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.30.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.5...@ucla-library-monorepo/ucla-library-website-components-v1.30.6) (2025-09-19)
+
+
+### Bug Fixes
+
+* APPS-3462 Correct FTVA Footer components variable syntax ([#823](https://github.com/UCLALibrary/ucla-library-website-components/issues/823)) ([35508e2](https://github.com/UCLALibrary/ucla-library-website-components/commit/35508e2513b955ea4391f419f77a941d24fa0f20))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.30.5](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.4...@ucla-library-monorepo/ucla-library-website-components-v1.30.5) (2025-09-19)
+
+
+### Bug Fixes
+
+* APPS-3395 make underline on menu only occur during hover and menu open ([#821](https://github.com/UCLALibrary/ucla-library-website-components/issues/821)) ([2eba1c4](https://github.com/UCLALibrary/ucla-library-website-components/commit/2eba1c450db8a2802dc6bdfb06e36db440463059))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.30.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.3...@ucla-library-monorepo/ucla-library-website-components-v1.30.4) (2025-09-19)
+
+
+### Bug Fixes
+
+* APPS-3428 update URL to UC library search in nav bar ([#822](https://github.com/UCLALibrary/ucla-library-website-components/issues/822)) ([5739d89](https://github.com/UCLALibrary/ucla-library-website-components/commit/5739d89f6efe5af7603e15c37dcfe4ffc5f7a68b))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.30.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.2...@ucla-library-monorepo/ucla-library-website-components-v1.30.3) (2025-09-17)
 
 
