@@ -140,6 +140,12 @@
 
     // Hover
     @media #{$has-hover} {
+        .sub-menu-item:hover {
+            background-color: rgba(#ffffff, 0.1);
+            text-decoration: underline;
+            text-decoration-color: var(--color-primary-yellow-01);
+        }
+        
         &:hover {
             .section-name::after {
                 opacity: 1;
