@@ -3,6 +3,7 @@
 import SvgLibraryLogo from 'ucla-library-design-tokens/assets/svgs/logo-library-digital-collections.svg'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import GlobalHamburger from '@/lib-components/GlobalHamburger.vue'
+import SiteBrandBar from '@/lib-components/SiteBrandBar'
 
 import { useTheme } from '@/composables/useTheme'
 import { computed } from 'vue'
@@ -36,25 +37,28 @@ const toggleMenu = () => {
 
 <template>
   <div :class="classes">
-    <SmartLink
-      to="/"
-      class="ucla-dlc-logo-link"
-    >
-      <SvgLibraryLogo
-        class="ucla-dlc-logo"
-        alt="UCLA Library Digital Collections logo"
+    <SiteBrandBar class="brand-bar" />
+    <div class="container">
+      <SmartLink
+        to="/"
+        class="ucla-dlc-logo-link"
+      >
+        <SvgLibraryLogo
+          class="ucla-dlc-logo"
+          alt="UCLA Library Digital Collections logo"
+        />
+      </SmartLink>
+
+      <div class="header-links show-desktop">
+        <slot name="header-links" />
+      </div>
+
+      <GlobalHamburger
+        class="hamburger show-mobile"
+        :is-opened="menuOpened"
+        @toggle-menu="toggleMenu"
       />
-    </SmartLink>
-
-    <div class="header-links show-desktop">
-      <slot name="header-links" />
     </div>
-
-    <GlobalHamburger
-      class="hamburger show-mobile"
-      :is-opened="menuOpened"
-      @toggle-menu="toggleMenu"
-    />
   </div>
 </template>
 
