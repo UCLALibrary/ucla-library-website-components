@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.31.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.7...@ucla-library-monorepo/ucla-library-website-components-v1.31.0) (2025-09-24)
+
+
+### Features
+
+* APPS-3429 make link target configurable ([#824](https://github.com/UCLALibrary/ucla-library-website-components/issues/824)) ([51e0134](https://github.com/UCLALibrary/ucla-library-website-components/commit/51e01344c817bbf96dfd8124e40d9f27fd593beb))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.30.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.6...@ucla-library-monorepo/ucla-library-website-components-v1.30.7) (2025-09-24)
 
 
