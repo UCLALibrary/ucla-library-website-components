@@ -1,7 +1,7 @@
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 // Import components
-import HeaderSticky from '../lib-components/HeaderSticky.vue'
+import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
 import FooterMain from '../lib-components/FooterMain.vue'
 
 // Import mock data
@@ -36,7 +36,7 @@ export default {
 function Template(args) {
   return {
     components: {
-      HeaderSticky,
+      HeaderMainFunkhaus,
       FooterMain,
     },
     provide() {
@@ -45,7 +45,15 @@ function Template(args) {
       }
     },
     setup() {
+      const menuOpened = ref(false)
+      
+      const toggleMenu = () => {
+        menuOpened.value = !menuOpened.value
+      }
+      
       return {
+        menuOpened,
+        toggleMenu,
         args,
         primaryItems,
         secondaryItems,
@@ -56,10 +64,23 @@ function Template(args) {
     template: `
        <div class="about-page">
          <!-- Header -->
-         <HeaderSticky
-            :primary-items="primaryItems"
-            :secondary-items="secondaryItems"
-        />
+         <HeaderMainFunkhaus 
+        :menu-opened="menuOpened"
+        @toggle-menu="toggleMenu"
+        :class="menuOpened ? 'menu-opened' : ''"
+      >
+        <template #header-links>
+          <SmartLink to="/digital-collections" class="header-link">
+            Using digital collections content
+          </SmartLink>
+          <SmartLink to="/about" class="header-link">
+            About
+          </SmartLink>
+          <SmartLink to="/feedback" class="header-link">
+            Give us feedback
+          </SmartLink>
+        </template>
+      </HeaderMainFunkhaus>
 
         <main class="main-content">
             This is going to be the about page
