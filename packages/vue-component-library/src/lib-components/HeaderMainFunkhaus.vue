@@ -58,6 +58,11 @@ const toggleMenu = () => {
         :is-opened="menuOpened"
         @toggle-menu="toggleMenu"
       />
+
+      <slot
+        name="search-bar"
+        v-if="$slots.searchBar"
+      />
     </div>
   </div>
 </template>
