@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.31.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.31.0...@ucla-library-monorepo/ucla-library-website-components-v1.31.1) (2025-09-24)
+
+
+### Bug Fixes
+
+* APPS-3439 missing diamond ([#826](https://github.com/UCLALibrary/ucla-library-website-components/issues/826)) ([f27f8f0](https://github.com/UCLALibrary/ucla-library-website-components/commit/f27f8f0027abea729925f44e83e45595b7f323be))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.31.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.7...@ucla-library-monorepo/ucla-library-website-components-v1.31.0) (2025-09-24)
 
 
