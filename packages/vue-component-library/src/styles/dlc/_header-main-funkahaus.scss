@@ -1,8 +1,9 @@
 .header-main-funkahus,
 .header-main-funkahus.dlc {
-    --gap: 30px;
+    --vertical-gap: 30px;
+    --horizontal-gap: 64px;
     .container {
-        padding: var(--gap) 64px;
+        padding: var(--vertical-gap) var(--horizontal-gap);
         // box-sizing: border-box;
 
         display: flex;
@@ -68,7 +69,7 @@
             &:after {
                 content: "";
                 position: absolute;
-                bottom: calc(var(--gap) * -1);
+                bottom: calc(var(--vertical-gap) * -1);
 
                 transform: translateY(150%);
                 transform-origin: bottom;
@@ -81,6 +82,17 @@
 
                 @include animate-normal;
             }
+        }
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 var(--horizontal-gap);
+
+        :deep(input) {
+            margin: 0;
         }
     }
 
@@ -113,7 +125,7 @@
             > * {
                 &:hover {
                     &:after {
-                        transform: translateY(50%);
+                        transform: translateY(0);
                     }
                 }
             }
@@ -135,11 +147,13 @@
     }
 
     @media #{$small} {
-        --gap: 25px;
+        --vertical-gap: 25px;
+        --horizontal-gap: 10px;
         .container {
             gap: 5px;
 
-            padding: var(--gap) 10px var(--gap) var(--gap);
+            padding: var(--vertical-gap) var(--horizontal-gap)
+                var(--vertical-gap) var(--horizontal-gap);
         }
     }
 }
