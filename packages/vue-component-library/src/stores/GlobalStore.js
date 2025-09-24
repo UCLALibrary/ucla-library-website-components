@@ -1,5 +1,12 @@
 import { defineStore } from 'pinia'
-import { mockFooterLinks, mockFooterPrimary, mockFooterSock, mockFooterSponsor, mockPrimary, mockSecondary } from '@/stores/mock.js'
+import {
+  mockFooterLinks,
+  mockFooterPrimary,
+  mockFooterSock,
+  mockFooterSponsor,
+  mockPrimary,
+  mockSecondary,
+} from '@/stores/mock.js'
 
 export const useGlobalStore = defineStore('GlobalStore', {
   state: () => ({
@@ -11,7 +18,7 @@ export const useGlobalStore = defineStore('GlobalStore', {
         id: '7322',
         askALibrarianTitle: 'Have further questions?',
         askALibrarianText:
-          '<p>We\'re here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.</p>',
+                    '<p>We\'re here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.</p>',
         buttonUrl: [
           {
             buttonText: 'Contact us',
@@ -33,12 +40,12 @@ export const useGlobalStore = defineStore('GlobalStore', {
       },
       ftvaViewingInformation: {
         title: 'View information',
-        text: '<p>For more information, or to arrange on-site research viewing, please contact the <a href="https://www.cinema.ucla.edu/archive-research-study-center" target="_blank" rel="noreferrer noopener">Archive Research and Study Center (ARSC)</a></p>'
-      }
+        text: '<p>For more information, or to arrange on-site research viewing, please contact the <a href="https://www.cinema.ucla.edu/archive-research-study-center" target="_blank" rel="noreferrer noopener">Archive Research and Study Center (ARSC)</a></p>',
+      },
     },
     header: {
       primary: mockPrimary,
-      secondary: mockSecondary
+      secondary: mockSecondary,
     },
     footerPrimary: {
       nodes: [
@@ -50,11 +57,21 @@ export const useGlobalStore = defineStore('GlobalStore', {
         },
       ],
     },
+    footerPrimaryDlc: {
+      nodes: [
+        {
+          children: mockFooterPrimary.socialItemsDlc,
+        },
+        {
+          children: mockFooterPrimary.pressItemsDlc,
+        },
+      ],
+    },
     footerSock: {
-      nodes: mockFooterSock.nodes
+      nodes: mockFooterSock.nodes,
     },
     footerSponsor: {
-      funders: mockFooterSponsor.funders
+      funders: mockFooterSponsor.funders,
     },
     footerLinks: {
       nodes: [
@@ -77,7 +94,5 @@ export const useGlobalStore = defineStore('GlobalStore', {
       ],
     },
   }),
-  getters: {
-
-  },
+  getters: {},
 })

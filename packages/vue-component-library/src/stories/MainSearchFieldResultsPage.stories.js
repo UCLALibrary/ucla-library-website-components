@@ -2,7 +2,7 @@ import { computed } from 'vue'
 
 // Import components
 import HeaderSticky from '../lib-components/HeaderSticky.vue'
-import FooterPrimary from '../lib-components/FooterPrimary.vue'
+import FooterMain from '../lib-components/FooterMain.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
@@ -37,7 +37,7 @@ function Template(args) {
   return {
     components: {
       HeaderSticky,
-      FooterPrimary,
+      FooterMain,
     },
     provide() {
       return {
@@ -67,7 +67,7 @@ function Template(args) {
         </main>
          
          <!-- Footer -->
-         <FooterPrimary />
+         <FooterMain />
        </div>
      `,
   }

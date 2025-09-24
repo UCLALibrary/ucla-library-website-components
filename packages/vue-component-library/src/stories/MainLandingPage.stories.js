@@ -2,7 +2,7 @@ import { computed, ref } from 'vue'
 
 // Import components
 import HeaderSticky from '../lib-components/HeaderSticky.vue'
-import FooterPrimary from '../lib-components/FooterPrimary.vue'
+import FooterMain from '../lib-components/FooterMain.vue'
 import GridCollections from '../lib-components/GridCollections.vue'
 import ButtonMore from '../lib-components/ButtonMore.vue'
 import HeaderCollection from '../lib-components/HeaderCollection.vue'
@@ -41,7 +41,7 @@ function Template(args) {
   return {
     components: {
       HeaderSticky,
-      FooterPrimary,
+      FooterMain,
       GridCollections,
       HeaderCollection,
       SearchFieldComposite,
@@ -152,7 +152,7 @@ function Template(args) {
          </main>
          
          <!-- Footer -->
-         <FooterPrimary />
+         <FooterMain />
        </div>
      `,
   }

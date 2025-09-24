@@ -2,7 +2,7 @@ import { computed, ref } from 'vue'
 
 // Import components
 import HeaderSticky from '../lib-components/HeaderSticky.vue'
-import FooterPrimary from '../lib-components/FooterPrimary.vue'
+import FooterMain from '../lib-components/FooterMain.vue'
 import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 import CollectionOverview from '../lib-components/CollectionOverview.vue'
 import DetailHeader from '../lib-components/DetailHeader.vue'
@@ -41,7 +41,7 @@ function Template(args) {
   return {
     components: {
       HeaderSticky,
-      FooterPrimary,
+      FooterMain,
       SearchFieldComposite,
       CollectionOverview,
       DetailHeader,
@@ -122,7 +122,7 @@ function Template(args) {
         </main>
          
          <!-- Footer -->
-         <FooterPrimary />
+         <FooterMain />
        </div>
      `,
   }

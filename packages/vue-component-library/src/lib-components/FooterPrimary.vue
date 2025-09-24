@@ -115,9 +115,20 @@ const parsedFooterThemeSettings: ComputedRef<FooterThemeSettings> = computed(
   }
 )
 
+const hasSvgMoleculeHalf = computed(() => {
+  const themes = [undefined, 'dlc']
+
+  return themes.includes(theme?.value)
+})
+
 // GLOBALSTORE DATA
 const globalStore = useGlobalStore()
 const parsedSocialItems: ComputedRef<FooterItem[]> = computed(() => {
+  if (theme?.value === 'dlc') {
+    if (Object.keys(globalStore.footerPrimaryDlc).length !== 0)
+      return globalStore.footerPrimaryDlc.nodes[0].children
+  }
+
   if (Object.keys(globalStore.footerPrimary).length !== 0) {
     return globalStore.footerPrimary.nodes[0].children
   }
@@ -131,6 +142,11 @@ const parsedSocialItems: ComputedRef<FooterItem[]> = computed(() => {
   return []
 })
 const parsedPressItems: ComputedRef<FooterItem[]> = computed(() => {
+  if (theme?.value === 'dlc') {
+    if (Object.keys(globalStore.footerPrimaryDlc).length !== 0)
+      return globalStore.footerPrimaryDlc.nodes[1].children
+  }
+
   if (Object.keys(globalStore.footerPrimary).length !== 0) {
     return globalStore.footerPrimary.nodes[1].children
   }
@@ -159,7 +175,7 @@ function formatTarget(target: string): string {
 <template>
   <div :class="wrapperClasses">
     <SvgMoleculeHalf
-      v-if="!theme"
+      v-if="hasSvgMoleculeHalf"
       class="molecule-half-svg"
       aria-hidden="true"
     />
@@ -291,4 +307,5 @@ function formatTarget(target: string): string {
 <style lang="scss" scoped>
 @import "@/styles/default/_footer-primary.scss";
 @import "@/styles/ftva/_footer-primary.scss";
+@import "@/styles/dlc/_footer-primary.scss";
 </style>

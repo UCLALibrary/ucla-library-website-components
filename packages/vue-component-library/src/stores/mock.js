@@ -132,6 +132,50 @@ export const mockFooterPrimary = {
       target: '1',
     },
   ],
+  socialItemsDlc: [
+    {
+      id: '11777',
+      name: 'Bluesky',
+      to: 'https://bsky.app/',
+      classes: null,
+      target: '1',
+    },
+    {
+      id: '11778',
+      name: 'Facebook',
+      to: 'https://www.facebook.com/',
+      classes: null,
+      target: '1',
+    },
+    {
+      id: '11779',
+      name: 'Instagram',
+      to: 'https://www.instagram.com/',
+      classes: null,
+      target: '1',
+    },
+    {
+      id: '11780',
+      name: 'LinkedIn',
+      to: 'https://www.linkedin.com/',
+      classes: null,
+      target: '1',
+    },
+    {
+      id: '11781',
+      name: 'Threads',
+      to: 'https://www.threads.net/',
+      classes: null,
+      target: '1',
+    },
+    {
+      id: '11782',
+      name: 'YouTube',
+      to: 'https://www.youtube.com/',
+      classes: null,
+      target: '1',
+    },
+  ],
 
   pressItems: [
     {
@@ -144,6 +188,29 @@ export const mockFooterPrimary = {
     {
       id: '11782',
       name: 'Careers at USC',
+      to: 'https://test-craft.library.ucla.edu/careers-at-ucla',
+      classes: null,
+      target: '',
+    },
+  ],
+  pressItemsDlc: [
+    {
+      id: '11783',
+      name: 'Jobs At UCLA Library',
+      to: 'https://test-craft.library.ucla.edu/careers-at-ucla',
+      classes: null,
+      target: '',
+    },
+    {
+      id: '11784',
+      name: 'Give Us Feedback',
+      to: 'https://test-craft.library.ucla.edu/careers-at-ucla',
+      classes: null,
+      target: '',
+    },
+    {
+      id: '11785',
+      name: 'Library Status Updates',
       to: 'https://test-craft.library.ucla.edu/careers-at-ucla',
       classes: null,
       target: '',
@@ -198,8 +265,7 @@ export const mockFooterSponsor = {
         },
       ],
       funderName: 'Arcadiaaaaaa',
-      funderUrl:
-        'https://www.hostesscakes.com/produ        colate/',
+      funderUrl: 'https://www.hostesscakes.com/produ        colate/',
     },
     {
       id: '28259',
