@@ -59,10 +59,13 @@ const toggleMenu = () => {
         @toggle-menu="toggleMenu"
       />
 
-      <slot
-        name="search-bar"
-        v-if="$slots.searchBar"
-      />
+    </div>
+
+    <div
+      class="search-bar"
+      v-if="$slots.default"
+    >
+      <slot />
     </div>
   </div>
 </template>
