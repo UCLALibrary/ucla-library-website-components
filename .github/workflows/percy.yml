@@ -114,11 +114,13 @@ jobs:
         with:
           do_checkout: "false" # already checked out above
 
-      - name: Install Cypress binary (pkg)
-        working-directory: packages/vue-component-library
-        run: pnpx cypress install
+      - name: Debug Cypress cache
+        run: |
+          npx cypress --version || true
+          npx cypress cache path || true
+          ls -la "$(npx cypress cache path)" || true
         env:
-          CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
+          CYPRESS_CACHE_FOLDER: $HOME/.cache/Cypress
 
       - name: Percy via Cypress (internal, Netlify preview)
         uses: cypress-io/github-action@v5
@@ -155,11 +157,13 @@ jobs:
         with:
           do_checkout: "false" # already checked out above
 
-      - name: Install Cypress binary (pkg)
-        working-directory: packages/vue-component-library
-        run: pnpx cypress install
+      - name: Debug Cypress cache
+        run: |
+          npx cypress --version || true
+          npx cypress cache path || true
+          ls -la "$(npx cypress cache path)" || true
         env:
-          CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
+          CYPRESS_CACHE_FOLDER: $HOME/.cache/Cypress
 
       - name: Percy via Cypress (fork, Netlify preview)
         uses: cypress-io/github-action@v5
