@@ -104,8 +104,8 @@ function Template(args) {
             Give us feedback
           </SmartLink>
         </template>
+      
         <template #default>
-
           <SearchFieldComposite
             :initial-value="args.searchInitialValue"
             :placeholder="args.searchPlaceholder"
@@ -116,8 +116,8 @@ function Template(args) {
             @submit="handleSearchSubmit"
             @update:dropdown-model-value="handleDropdownUpdate"
           />
-
       </template>
+      
       </HeaderMainFunkhaus>
       
       
