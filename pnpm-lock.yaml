@@ -215,8 +215,8 @@ importers:
         specifier: 'catalog:'
         version: 5.8.2
       ucla-library-design-tokens:
-        specifier: ^5.38.0
-        version: 5.38.0
+        specifier: ^5.45.0
+        version: 5.45.0
       video.js:
         specifier: ^8.5.2
         version: 8.21.0
@@ -8671,8 +8671,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  ucla-library-design-tokens@5.38.0:
-    resolution: {integrity: sha512-o7DplCv5KQBAmX+fqit6fXZ112CeTWilmXLs9p448RzwCiV2FcimU5VZSecR7scvHNqdHVb3aQ0imMey7ewAsw==}
+  ucla-library-design-tokens@5.45.0:
+    resolution: {integrity: sha512-A4wHtN5jgj8HoGrT/BSqUcRgiLOjffIQCuc3dSxoqsYGDUNpYKEDpX/kyJwqvaZLS8U0XzREXWKMWX9/g9YbQw==}
 
   ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
@@ -9186,8 +9186,8 @@ packages:
   vue-bundle-renderer@2.1.1:
     resolution: {integrity: sha512-+qALLI5cQncuetYOXp4yScwYvqh8c6SMXee3B+M7oTZxOgtESP0l4j/fXdEJoZ+EdMxkGWIj+aSEyjXkOdmd7g==}
 
-  vue-component-type-helpers@3.0.6:
-    resolution: {integrity: sha512-6CRM8X7EJqWCJOiKPvSLQG+hJPb/Oy2gyJx3pLjUEhY7PuaCthQu3e0zAGI1lqUBobrrk9IT0K8sG2GsCluxoQ==}
+  vue-component-type-helpers@3.0.8:
+    resolution: {integrity: sha512-WyR30Eq15Y/+odrUUMax6FmPbZwAp/HnC7qgR1r3lVFAcqwQ4wUoV79Mbh4SxDy3NiqDa+G4TOKD5xXSgBHo5A==}
 
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
@@ -12902,7 +12902,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.13(typescript@5.8.2)
-      vue-component-type-helpers: 3.0.6
+      vue-component-type-helpers: 3.0.8
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -19350,7 +19350,7 @@ snapshots:
 
   typescript@5.8.2: {}
 
-  ucla-library-design-tokens@5.38.0: {}
+  ucla-library-design-tokens@5.45.0: {}
 
   ufo@1.5.4: {}
 
@@ -19932,7 +19932,7 @@ snapshots:
     dependencies:
       ufo: 1.5.4
 
-  vue-component-type-helpers@3.0.6: {}
+  vue-component-type-helpers@3.0.8: {}
 
   vue-demi@0.14.10(vue@3.5.13(typescript@5.8.2)):
     dependencies:
