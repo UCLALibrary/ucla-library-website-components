@@ -1,6 +1,7 @@
 import BannerFeatured from '@/lib-components/BannerFeatured'
 import HeadingArrow from '@/lib-components/HeadingArrow'
 import BlockFormData from '@/stories/mock/BlockFormData.json'
+import { computed } from 'vue'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -45,6 +46,11 @@ const mock = {
 
 export function Default() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         ...mock,
@@ -69,6 +75,11 @@ export function Default() {
 
 export function LeftAligned() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         ...mock,
@@ -95,6 +106,11 @@ export function LeftAligned() {
 
 export function NotOnline() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         ...mock,
@@ -120,6 +136,11 @@ export function NotOnline() {
 
 export function Slot() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         image: API.image,
@@ -159,6 +180,11 @@ export function Slot() {
 
 export function LongHeading() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         image: API.image,
@@ -198,6 +224,11 @@ export function LongHeading() {
 
 export function WideImage() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         ...mock,
@@ -224,6 +255,11 @@ export function WideImage() {
 
 export function WideImageLeftAligned() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         ...mock,
@@ -251,6 +287,11 @@ export function WideImageLeftAligned() {
 
 export function NoButton() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         ...mock,
@@ -275,6 +316,11 @@ export function NoButton() {
 
 export function WithDescription() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         ...mock,
@@ -296,6 +342,11 @@ export function WithDescription() {
 
 export function Video() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         ...mock,
@@ -318,6 +369,11 @@ export function Video() {
 
 export function WithBlockForm() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         ...mock,
@@ -368,8 +424,21 @@ const mock2 = {
   alignRight: true,
 }
 
+const mockDLC = {
+  image: API.image,
+  to: '/help/foo/bar/',
+  title: 'Our Mission',
+  description:
+        'The UCLA Digital Library Program works collaboratively within the UCLA Library, across campus, and with a broad range of partners to preserve and provide enhanced access to local and global cultural heritage materials in support of the University’s teaching, learning, research and service mission.UCLA Digital Library Collections follow ethical and inclusive approaches to descriptive practices as outlined in Toward Ethical and Inclusive Descriptive Practices in UCLA Library Special Collections.',
+}
+
 export function LinkedTitle() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
     data() {
       return {
         ...mock2,
@@ -387,6 +456,99 @@ export function LinkedTitle() {
             :byline="byline"
             :prompt="prompt"
             :locations="locations"
+        />
+    `,
+  }
+}
+
+export function DLC() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        ...mockDLC,
+      }
+    },
+    components: { BannerFeatured },
+    template: `
+        <banner-featured
+            :media="image"
+
+            :title="title"
+            :description="description"
+        />
+    `,
+  }
+}
+
+export function DLCLeftAligned() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        ...mockDLC,
+      }
+    },
+    components: { BannerFeatured },
+    template: `
+        <banner-featured
+            :media="image"
+            :title="title"
+            :description="description"
+            :align-right="false"
+        />
+    `,
+  }
+}
+
+const mockHelpSection = {
+  image: API.image,
+  title: 'Have other Questions?',
+  description: 'We\'re here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.',
+  prompt: 'Click Here for UCLA Library Locations',
+  alignRight: true,
+  secondaryButtons: [
+    {
+      label: 'UCLA Library Locations',
+      to: '/visit/locations/'
+    },
+    {
+      label: 'Contact Us',
+      to: '/contact/'
+    }
+  ],
+}
+
+export function HelpSection() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        ...mockHelpSection,
+      }
+    },
+    components: { BannerFeatured },
+    template: `
+        <banner-featured
+            :media="image"
+            :to="to"
+            :title="title"
+            :description="description"
+            :prompt="prompt"
+            :align-right="alignRight"
+            :secondary-buttons="secondaryButtons"
         />
     `,
   }
