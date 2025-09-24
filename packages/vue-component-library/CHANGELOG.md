@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.31.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.31.2...@ucla-library-monorepo/ucla-library-website-components-v1.31.3) (2025-09-24)
+
+
+### Bug Fixes
+
+* APPS-3453 add tel to contact info block ([#827](https://github.com/UCLALibrary/ucla-library-website-components/issues/827)) ([7ead5c3](https://github.com/UCLALibrary/ucla-library-website-components/commit/7ead5c311ef519e6e0cb36da76c46f5012e766f5))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.31.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.31.1...@ucla-library-monorepo/ucla-library-website-components-v1.31.2) (2025-09-24)
 
 
