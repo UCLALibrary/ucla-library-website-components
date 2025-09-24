@@ -1,3 +1,7 @@
+# [@ucla-library/component-library-nuxt-module-v1.2.66](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.65...@ucla-library/component-library-nuxt-module-v1.2.66) (2025-09-24)
+
+# [@ucla-library/component-library-nuxt-module-v1.2.65](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.64...@ucla-library/component-library-nuxt-module-v1.2.65) (2025-09-24)
+
 # [@ucla-library/component-library-nuxt-module-v1.2.64](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.63...@ucla-library/component-library-nuxt-module-v1.2.64) (2025-09-19)
 
 # [@ucla-library/component-library-nuxt-module-v1.2.63](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library/component-library-nuxt-module-v1.2.62...@ucla-library/component-library-nuxt-module-v1.2.63) (2025-09-19)
