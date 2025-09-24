@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.30.7](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.6...@ucla-library-monorepo/ucla-library-website-components-v1.30.7) (2025-09-24)
+
+
+### Bug Fixes
+
+* APPS-3459 Minor breadcrumb components update ([#818](https://github.com/UCLALibrary/ucla-library-website-components/issues/818)) ([f14202f](https://github.com/UCLALibrary/ucla-library-website-components/commit/f14202fdb5bb15e4401bf6e2cbfcf5f4c974c7d6))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.30.6](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.30.5...@ucla-library-monorepo/ucla-library-website-components-v1.30.6) (2025-09-19)
 
 
