@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.31.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.31.1...@ucla-library-monorepo/ucla-library-website-components-v1.31.2) (2025-09-24)
+
+
+### Bug Fixes
+
+* add back in underline on hover ([#825](https://github.com/UCLALibrary/ucla-library-website-components/issues/825)) ([4974b38](https://github.com/UCLALibrary/ucla-library-website-components/commit/4974b38210f3089ca76c13fe9a7447f3ea7879ed))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.31.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.31.0...@ucla-library-monorepo/ucla-library-website-components-v1.31.1) (2025-09-24)
 
 
