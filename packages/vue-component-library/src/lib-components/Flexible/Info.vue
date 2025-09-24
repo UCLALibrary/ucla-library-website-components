@@ -58,9 +58,9 @@ const classes = computed(() => {
         <ul class="contact-info">
           <li>
             <IconWithLink
-              :text="parsedItems.phone || ''"
-              icon-name="svg-icon-ftva-phone"
-              :to="parsedItems.phone"
+            :text="`tel: ${parsedItems.phone || ''}`"
+            icon-name="svg-icon-ftva-phone"
+            :to="`tel:${parsedItems.phone || ''}`"
             />
           </li>
           <li>
