@@ -11,6 +11,15 @@
     .main-content {
         flex: 1;
         padding: 65px 0 48px;
+
+        .search-section {
+            padding: 0 var(--gutters);
+            margin-bottom: 48px;
+        }
+
+        .content-section {
+            padding: 0 var(--gutters);
+        }
     }
 
     // Breakpoints

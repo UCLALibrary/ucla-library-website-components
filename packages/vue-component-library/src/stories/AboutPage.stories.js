@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 // Import components
 import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
 import FooterMain from '../lib-components/FooterMain.vue'
+import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
@@ -29,6 +30,12 @@ export default {
       options: ['default', 'dlc'],
       description: 'Theme variant for the page',
     },
+    searchInitialValue: { control: 'text' },
+    searchPlaceholder: { control: 'text' },
+    searchDropdownValue: { control: 'text' },
+    searchDropdownOptions: { control: 'array' },
+    searchDropdownPlaceholder: { control: 'text' },
+    searchShowDivider: { control: 'boolean' },
   },
 }
 
@@ -38,6 +45,7 @@ function Template(args) {
     components: {
       HeaderMainFunkhaus,
       FooterMain,
+      SearchFieldComposite,
     },
     provide() {
       return {
@@ -46,14 +54,30 @@ function Template(args) {
     },
     setup() {
       const menuOpened = ref(false)
+      const dropdownValue = ref(args.searchDropdownValue)
+      const submittedValue = ref('')
       
       const toggleMenu = () => {
         menuOpened.value = !menuOpened.value
+      }
+
+      const handleSearchSubmit = (value) => {
+        submittedValue.value = value
+        // Search submitted
+      }
+
+      const handleDropdownUpdate = (value) => {
+        dropdownValue.value = value
+        // Dropdown updated
       }
       
       return {
         menuOpened,
         toggleMenu,
+        dropdownValue,
+        submittedValue,
+        handleSearchSubmit,
+        handleDropdownUpdate,
         args,
         primaryItems,
         secondaryItems,
@@ -80,11 +104,31 @@ function Template(args) {
             Give us feedback
           </SmartLink>
         </template>
+        <template #default>
+
+          <SearchFieldComposite
+            :initial-value="args.searchInitialValue"
+            :placeholder="args.searchPlaceholder"
+            :dropdown-model-value="dropdownValue"
+            :dropdown-options="args.searchDropdownOptions"
+            :dropdown-placeholder="args.searchDropdownPlaceholder"
+            :show-divider="args.searchShowDivider"
+            @submit="handleSearchSubmit"
+            @update:dropdown-model-value="handleDropdownUpdate"
+          />
+
+      </template>
       </HeaderMainFunkhaus>
+      
+      
 
         <main class="main-content">
-            This is going to be the about page
-            <pre>{{ mockAboutPage }}</pre>
+            
+            
+            <div class="content-section">
+              This is going to be the about page
+              <pre>{{ mockAboutPage }}</pre>
+            </div>
         </main>
          
          <!-- Footer -->
@@ -98,4 +142,17 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
+  searchInitialValue: '',
+  searchPlaceholder: 'Search in...',
+  searchDropdownValue: 'All Collections',
+  searchDropdownOptions: [
+    'All Collections',
+    'Books & E-books',
+    'Articles & Journals',
+    'Databases',
+    'Digital Collections',
+    'Archives & Special Collections',
+  ],
+  searchDropdownPlaceholder: 'Select category',
+  searchShowDivider: false,
 }
