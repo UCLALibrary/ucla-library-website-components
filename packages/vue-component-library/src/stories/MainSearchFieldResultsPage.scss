@@ -1,0 +1,24 @@
+.main-search-field-results-page {
+    --gutters: 48px;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+    background-color: var(--color-white);
+
+    .main-content {
+        flex: 1;
+        padding: 65px 0 48px;
+    }
+
+    // Breakpoints
+    @media #{$extra-large} {
+    }
+    @media #{$medium} {
+    }
+    @media #{$small} {
+        --gutters: 24px;
+    }
+}

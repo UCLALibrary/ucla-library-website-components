@@ -22,15 +22,19 @@ const showSponsor = computed(() => {
   return false
 })
 const showLinks = computed(() => {
-  if (theme?.value === undefined) {
+  const themes = [undefined, 'dlc']
+
+  if (themes.includes(theme?.value)) {
     // if no theme, DO NOT show links as default behavior
     return false
   }
   return true
 })
 const showForm = computed(() => {
-  if (theme?.value === 'ftva') {
-    // if ftva theme, show newletter subscribe form
+  const themes = ['ftva', 'dlc']
+
+  if (themes.includes(theme?.value)) {
+    // if ftva or dlc theme, show newletter subscribe form
     return true
   }
   return false
@@ -49,8 +53,10 @@ const showForm = computed(() => {
 
 <style lang="scss" scoped>
 .footer-main {
-  @media #{$small} {
-  .links { display: none;}
-  }
+    @media #{$small} {
+        .links {
+            display: none;
+        }
+    }
 }
 </style>
