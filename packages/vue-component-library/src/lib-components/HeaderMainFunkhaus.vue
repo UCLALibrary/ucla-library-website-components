@@ -49,8 +49,11 @@ const toggleMenu = () => {
         />
       </SmartLink>
 
-      <div class="header-links show-desktop">
-        <slot name="header-links" />
+      <div
+        class="header-links show-desktop"
+        v-if="$slots.default"
+      >
+        <slot />
       </div>
 
       <GlobalHamburger
@@ -63,9 +66,12 @@ const toggleMenu = () => {
 
     <div
       class="search-bar"
-      v-if="$slots.default"
+      v-if="$slots.searchBar"
     >
-      <slot />
+      <slot
+        class="content"
+        name="searchBar"
+      />
     </div>
   </div>
 </template>

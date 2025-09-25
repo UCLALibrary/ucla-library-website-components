@@ -36,7 +36,7 @@ export function Default() {
         @toggle-menu="toggleMenu"
         :class="menuOpened ? 'menu-opened' : ''"
       >
-        <template #header-links>
+        <template #default>
           <SmartLink to="/digital-collections" class="header-link">
             Using digital collections content
           </SmartLink>
@@ -46,6 +46,51 @@ export function Default() {
           <SmartLink to="/feedback" class="header-link">
             Give us feedback
           </SmartLink>
+        </template>
+      </HeaderMainFunkhaus>
+    `,
+  }
+}
+export function WithDefaultSlotFIlled() {
+  provide(() => {
+    return {
+      theme: computed(() => 'dlc'),
+    }
+  })
+  
+  return {
+    components: { HeaderMainFunkhaus, SmartLink },
+    setup() {
+      const menuOpened = ref(false)
+      
+      const toggleMenu = () => {
+        menuOpened.value = !menuOpened.value
+      }
+      
+      return {
+        menuOpened,
+        toggleMenu
+      }
+    },
+    template: `
+      <HeaderMainFunkhaus 
+        :menu-opened="menuOpened"
+        @toggle-menu="toggleMenu"
+        :class="menuOpened ? 'menu-opened' : ''"
+      >
+        <template #default>
+          <SmartLink to="/digital-collections" class="header-link">
+            Using digital collections content
+          </SmartLink>
+          <SmartLink to="/about" class="header-link">
+            About
+          </SmartLink>
+          <SmartLink to="/feedback" class="header-link">
+            Give us feedback
+          </SmartLink>
+        </template>
+        <template #searchBar>
+          <div>This is a search bar</div>
         </template>
       </HeaderMainFunkhaus>
     `,
