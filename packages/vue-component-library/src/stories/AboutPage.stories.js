@@ -132,7 +132,7 @@ function Template(args) {
           class="header"
           :class="menuOpened ? 'menu-opened' : ''"
         >
-          <template #header-links>
+          <template #default>
             <SmartLink to="/digital-collections" class="header-link">
               Using digital collections content
             </SmartLink>
@@ -144,7 +144,7 @@ function Template(args) {
             </SmartLink>
           </template>
           
-          <template #default>
+          <template #searchBar>
             <SearchFieldComposite
               :initial-value="args.searchInitialValue"
               :placeholder="args.searchPlaceholder"
@@ -161,6 +161,7 @@ function Template(args) {
         <main class="main-content">
           <!-- Our Mission Section -->
           <BannerFeatured
+            class="mission-section"
             :media="missionData.image"
             :title="missionData.title"
             :description="missionData.description"
@@ -169,6 +170,7 @@ function Template(args) {
 
           <!-- About UCLA Library Section -->
           <BannerFeatured
+            class="about-section"
             :media="aboutData.image"
             :title="aboutData.title"
             :description="aboutData.description"
@@ -177,6 +179,7 @@ function Template(args) {
 
           <!-- Have Other Questions Section -->
           <BannerFeatured
+            class="questions-section"
             :media="questionsData.image"
             :title="questionsData.title"
             :description="questionsData.description"
