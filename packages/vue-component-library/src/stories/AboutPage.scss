@@ -4,29 +4,30 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-
     overflow: hidden;
     background-color: var(--color-white);
+    padding-top: 165px;
+
+    .header {
+        // Height is 165px
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+    }
 
     .main-content {
         flex: 1;
-        padding: 65px 0 48px;
+        padding: 0;
 
         .search-section {
             padding: 0 var(--gutters);
             margin-bottom: 48px;
         }
-
-        .content-section {
-            padding: 0 var(--gutters);
-        }
     }
 
     // Breakpoints
-    @media #{$extra-large} {
-    }
-    @media #{$medium} {
-    }
     @media #{$small} {
         --gutters: 24px;
     }

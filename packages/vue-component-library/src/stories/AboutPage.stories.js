@@ -4,10 +4,13 @@ import { computed, ref } from 'vue'
 import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
 import FooterMain from '../lib-components/FooterMain.vue'
 import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
+import SmartLink from '../lib-components/SmartLink.vue'
+import BannerFeatured from '../lib-components/BannerFeatured.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
 import { mockAboutPage } from './mock/Funkhaus/MockAboutPage'
+import * as API from './mock-api.json'
 
 // Import styles
 import './AboutPage.scss'
@@ -20,7 +23,7 @@ export default {
     docs: {
       description: {
         component:
-                    'A single page layout with header, main content area, and footer. This serves as a template for about pages.',
+          'A single page layout with header, main content area, and footer. This serves as a template for about pages.',
       },
     },
   },
@@ -46,6 +49,8 @@ function Template(args) {
       HeaderMainFunkhaus,
       FooterMain,
       SearchFieldComposite,
+      SmartLink,
+      BannerFeatured,
     },
     provide() {
       return {
@@ -56,7 +61,7 @@ function Template(args) {
       const menuOpened = ref(false)
       const dropdownValue = ref(args.searchDropdownValue)
       const submittedValue = ref('')
-      
+
       const toggleMenu = () => {
         menuOpened.value = !menuOpened.value
       }
@@ -70,7 +75,38 @@ function Template(args) {
         dropdownValue.value = value
         // Dropdown updated
       }
-      
+      // Mock data for banner featured sections
+      const missionData = {
+        image: API.image,
+        title: 'Our Mission',
+        description: 'The UCLA Digital Library Program works collaboratively within the UCLA Library, across campus, and with a broad range of partners to preserve and provide enhanced access to local and global cultural heritage materials in support of the University\'s teaching, learning, research and service mission. UCLA Digital Library Collections follow ethical and inclusive approaches to descriptive practices as outlined in Toward Ethical and Inclusive Descriptive Practices in UCLA Library Special Collections.',
+        alignRight: true,
+      }
+
+      const aboutData = {
+        image: API.image,
+        title: 'About UCLA Library',
+        description: 'The UCLA Library system is among the top academic research libraries in the United States, with a collection of more than 12 million volumes and 100,000 serials. The library system consists of 12 libraries and 11 other units, serving more than 50,000 students and faculty. With an annual budget of more than $50 million, the UCLA Library is one of the largest academic research libraries in the world and serves as a depository library for federal and state government documents.',
+        alignRight: false,
+      }
+
+      const questionsData = {
+        image: API.image,
+        title: 'Have Other Questions?',
+        description: 'We\'re here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.',
+        secondaryButtons: [
+          {
+            label: 'UCLA Library Locations',
+            to: '/visit/locations/'
+          },
+          {
+            label: 'Contact Us',
+            to: '/contact/'
+          }
+        ],
+        alignRight: true,
+      }
+
       return {
         menuOpened,
         toggleMenu,
@@ -82,59 +118,77 @@ function Template(args) {
         primaryItems,
         secondaryItems,
         mockAboutPage,
+        missionData,
+        aboutData,
+        questionsData,
       }
     },
-    computed: {},
     template: `
-       <div class="about-page">
-         <!-- Header -->
-         <HeaderMainFunkhaus 
-        :menu-opened="menuOpened"
-        @toggle-menu="toggleMenu"
-        :class="menuOpened ? 'menu-opened' : ''"
-      >
-        <template #header-links>
-          <SmartLink to="/digital-collections" class="header-link">
-            Using digital collections content
-          </SmartLink>
-          <SmartLink to="/about" class="header-link">
-            About
-          </SmartLink>
-          <SmartLink to="/feedback" class="header-link">
-            Give us feedback
-          </SmartLink>
-        </template>
-      
-        <template #default>
-          <SearchFieldComposite
-            :initial-value="args.searchInitialValue"
-            :placeholder="args.searchPlaceholder"
-            :dropdown-model-value="dropdownValue"
-            :dropdown-options="args.searchDropdownOptions"
-            :dropdown-placeholder="args.searchDropdownPlaceholder"
-            :show-divider="args.searchShowDivider"
-            @submit="handleSearchSubmit"
-            @update:dropdown-model-value="handleDropdownUpdate"
-          />
-      </template>
-      
-      </HeaderMainFunkhaus>
-      
-      
+      <div class="about-page">
+        <!-- Header -->
+        <HeaderMainFunkhaus
+          :menu-opened="menuOpened"
+          @toggle-menu="toggleMenu"
+          class="header"
+          :class="menuOpened ? 'menu-opened' : ''"
+        >
+          <template #header-links>
+            <SmartLink to="/digital-collections" class="header-link">
+              Using digital collections content
+            </SmartLink>
+            <SmartLink to="/about" class="header-link">
+              About
+            </SmartLink>
+            <SmartLink to="/feedback" class="header-link">
+              Give us feedback
+            </SmartLink>
+          </template>
+          
+          <template #default>
+            <SearchFieldComposite
+              :initial-value="args.searchInitialValue"
+              :placeholder="args.searchPlaceholder"
+              :dropdown-model-value="dropdownValue"
+              :dropdown-options="args.searchDropdownOptions"
+              :dropdown-placeholder="args.searchDropdownPlaceholder"
+              :show-divider="args.searchShowDivider"
+              @submit="handleSearchSubmit"
+              @update:dropdown-model-value="handleDropdownUpdate"
+            />
+          </template>
+        </HeaderMainFunkhaus>
 
         <main class="main-content">
-            
-            
-            <div class="content-section">
-              This is going to be the about page
-              <pre>{{ mockAboutPage }}</pre>
-            </div>
+          <!-- Our Mission Section -->
+          <BannerFeatured
+            :media="missionData.image"
+            :title="missionData.title"
+            :description="missionData.description"
+            :align-right="missionData.alignRight"
+          />
+
+          <!-- About UCLA Library Section -->
+          <BannerFeatured
+            :media="aboutData.image"
+            :title="aboutData.title"
+            :description="aboutData.description"
+            :align-right="aboutData.alignRight"
+          />
+
+          <!-- Have Other Questions Section -->
+          <BannerFeatured
+            :media="questionsData.image"
+            :title="questionsData.title"
+            :description="questionsData.description"
+            :secondary-buttons="questionsData.secondaryButtons"
+            :align-right="questionsData.alignRight"
+          />
         </main>
-         
-         <!-- Footer -->
-         <FooterMain />
-       </div>
-     `,
+
+        <!-- Footer -->
+        <FooterMain />
+      </div>
+    `,
   }
 }
 
