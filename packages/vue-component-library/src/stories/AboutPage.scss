@@ -2,6 +2,7 @@
     --gutters: 48px;
     --horizontal-gap: 64px;
     --header-height: 121px;
+    --search-bar-height: 118px;
 
     position: relative;
 
@@ -38,7 +39,7 @@
 
     .search-field-composite-wrapper {
         position: fixed;
-        top: 121px;
+        top: var(--header-height);
         left: 0;
         z-index: 100;
 
@@ -62,7 +63,7 @@
     .main-content {
         flex: 1;
         padding: 0;
-        margin-top: 239px;
+        margin-top: calc(var(--header-height) + var(--search-bar-height));
 
         display: flex;
         flex-direction: column;
@@ -79,9 +80,14 @@
     }
 
     // Breakpoints
+    @media #{$medium} {
+        --search-bar-height: 97px;
+        --header-height: 113px;
+    }
     @media #{$small} {
         --header-height: 103px;
         --gutters: 24px;
         --horizontal-gap: 10px;
+        --search-bar-height: 164px;
     }
 }
