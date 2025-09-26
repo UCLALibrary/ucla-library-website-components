@@ -6,7 +6,8 @@
     flex-direction: column;
     gap: 54px;
 
-    min-height: 100dvh;
+    // Min height is the height of the screen minus the header height - need the header height variable to be passed in
+    min-height: calc(100dvh - var(--unit-header-height, 103px));
 
     background-color: var(--color-primary-blue-03);
 
