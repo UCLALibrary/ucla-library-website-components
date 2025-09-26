@@ -187,20 +187,21 @@ function Template(args) {
               Give us feedback
             </SmartLink>
           </template>
-          
-          <template #searchBar>
-            <SearchFieldComposite
-              :initial-value="args.searchInitialValue"
-              :placeholder="args.searchPlaceholder"
-              :dropdown-model-value="dropdownValue"
-              :dropdown-options="args.searchDropdownOptions"
-              :dropdown-placeholder="args.searchDropdownPlaceholder"
-              :show-divider="args.searchShowDivider"
-              @submit="handleSearchSubmit"
-              @update:dropdown-model-value="handleDropdownUpdate"
-            />
-          </template>
         </HeaderMainFunkhaus>
+
+        <div class="search-field-composite-wrapper">
+          <SearchFieldComposite
+            class='search-bar'
+            :initial-value="args.searchInitialValue"
+            :placeholder="args.searchPlaceholder"
+            :dropdown-model-value="dropdownValue"
+            :dropdown-options="args.searchDropdownOptions"
+            :dropdown-placeholder="args.searchDropdownPlaceholder"
+            :show-divider="args.searchShowDivider"
+            @submit="handleSearchSubmit"
+            @update:dropdown-model-value="handleDropdownUpdate"
+          />
+        </div>
 
         <main class="main-content">
           <!-- Our Mission Section -->

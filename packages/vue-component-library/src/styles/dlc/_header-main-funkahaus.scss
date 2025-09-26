@@ -87,24 +87,6 @@
         }
     }
 
-    // .search-bar {
-    //     width: 100%;
-    //     max-width: 100%;
-    //     margin: 0 auto;
-    //     padding: 14px var(--horizontal-gap);
-    //     box-sizing: border-box;
-
-    //     // Gives the search bar slot item the bottom border
-    //     :deep(> *:first-child) {
-    //         padding-bottom: 14px;
-    //         border-bottom: 2px solid var(--color-default-cyan-03);
-    //     }
-
-    //     :deep(input) {
-    //         margin: 0;
-    //     }
-    // }
-
     .show-mobile {
         display: none;
     }

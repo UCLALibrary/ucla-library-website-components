@@ -1,5 +1,7 @@
 .about-page {
     --gutters: 48px;
+    --horizontal-gap: 64px;
+    --header-height: 121px;
 
     position: relative;
 
@@ -11,7 +13,7 @@
 
     .global-menu-panel {
         position: fixed;
-        top: 0;
+        top: var(--header-height);
         left: 0;
         width: 100%;
         z-index: 200;
@@ -26,6 +28,35 @@
         z-index: 100;
 
         background-color: var(--color-white);
+
+        &.menu-opened {
+            .container {
+                border-bottom: 2px solid var(--color-primary-blue-03);
+            }
+        }
+    }
+
+    .search-field-composite-wrapper {
+        position: fixed;
+        top: 121px;
+        left: 0;
+        z-index: 100;
+
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 14px var(--horizontal-gap);
+        box-sizing: border-box;
+
+        // Gives the search bar slot item the bottom border
+        .search-bar {
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--color-default-cyan-03);
+        }
+
+        :deep(input) {
+            margin: 0;
+        }
     }
 
     .main-content {
@@ -49,6 +80,8 @@
 
     // Breakpoints
     @media #{$small} {
+        --header-height: 103px;
         --gutters: 24px;
+        --horizontal-gap: 10px;
     }
 }
