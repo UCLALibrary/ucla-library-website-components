@@ -8,14 +8,13 @@
     flex-direction: column;
     overflow: hidden;
     background-color: var(--color-white);
-    padding-top: 239px;
 
     .global-menu-panel {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 100;
+        z-index: 200;
     }
 
     .header {
@@ -32,6 +31,7 @@
     .main-content {
         flex: 1;
         padding: 0;
+        margin-top: 239px;
 
         display: flex;
         flex-direction: column;
