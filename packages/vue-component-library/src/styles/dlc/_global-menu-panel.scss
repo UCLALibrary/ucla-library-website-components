@@ -1,6 +1,6 @@
 .dlc.global-menu-panel,
 .global-menu-panel {
-    position: relative;
+    position: fixed;
 
     display: flex;
     flex-direction: column;
@@ -125,13 +125,12 @@
     }
 
     // Breakpoints
-    @media #{$extra-large} {
-    }
-
     @media #{$medium} {
         display: flex;
+        padding: 43px 10px 0 64px;
     }
 
     @media #{$small} {
+        padding: 25px 10px 0 25px;
     }
 }
