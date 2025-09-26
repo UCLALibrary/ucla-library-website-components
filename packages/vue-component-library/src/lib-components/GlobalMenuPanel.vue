@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Imports
 import Molecule3d from 'ucla-library-design-tokens/assets/svgs/molecule-3d.svg'
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import { useTheme } from '@/composables/useTheme'
 
@@ -19,6 +19,7 @@ const theme = useTheme()
 // Emits
 const emit = defineEmits<{
   'item-opened-color': [itemIndex: number]
+  'close': []
 }>()
 
 // Data
@@ -41,7 +42,17 @@ function itemOpenedColor(itemIndex: number) {
 
 function handleAccountButtonClick() {
   console.log('Should do something with the users account');
+  emit('close')
+}
 
+function handleMenuClick() {
+  emit('close')
+}
+
+function handleKeydown(event: KeyboardEvent) {
+  if (event.key === 'Escape' && props.isOpened) {
+    emit('close')
+  }
 }
 
 // Expose methods for parent component
@@ -65,6 +76,15 @@ const parsedSubMenuItems = computed(() => {
     }
   })
 })
+
+// Lifecycle Hooks
+onMounted(() => {
+  document.addEventListener('keydown', handleKeydown)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeydown)
+})
 </script>
 
 <template>
@@ -78,6 +98,7 @@ const parsedSubMenuItems = computed(() => {
         <SmartLink
           :to="item.to"
           class="menu-link"
+          @click="handleMenuClick"
         >
           {{ item.label }}
         </SmartLink>
@@ -94,6 +115,7 @@ const parsedSubMenuItems = computed(() => {
           :to="item.to"
           :class="item.classes"
           class="menu-link"
+          @click="handleMenuClick"
         >
           {{ item.label }}
         </SmartLink>

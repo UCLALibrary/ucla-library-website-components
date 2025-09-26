@@ -72,6 +72,10 @@ export function Default() {
       handleItemOpenedColor(index) {
         console.log('Item opened color changed:', index)
       },
+      handleClose() {
+        this.isOpened = false
+        console.log('Panel closed')
+      },
     },
     template: `
         <button 
@@ -85,6 +89,7 @@ export function Default() {
           :menu-items="menuItems"
           :sub-menu-items="subMenuItems"
           @item-opened-color="handleItemOpenedColor"
+          @close="handleClose"
         />
     `,
   }
