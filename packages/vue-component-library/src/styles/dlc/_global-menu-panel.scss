@@ -1,0 +1,137 @@
+.dlc.global-menu-panel,
+.global-menu-panel {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+
+    min-height: 100dvh;
+
+    background-color: var(--color-primary-blue-03);
+
+    //TODO: Have to add this variable somehow.
+    padding: calc(55px + var(--unit-header-height, 165px)) 17px 0 25px;
+    box-sizing: border-box;
+
+    display: none;
+
+    transform: translateY(100%);
+
+    @include animate-normal;
+
+    .menu-items {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        list-style: none;
+        margin: 0;
+
+        li {
+            font-size: 28px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: var(--color-white);
+        }
+    }
+
+    .sub-menu-items {
+        list-style: none;
+        margin: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .menu-item {
+            font-family: var(--font-primary);
+            font-weight: 400;
+            line-height: 1;
+            color: var(--color-white);
+        }
+
+        &.support-us {
+            margin-top: 24px;
+
+            font-family: var(--font-primary);
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1;
+        }
+    }
+
+    .account-button {
+        padding: 2px 12px;
+        box-sizing: border-box;
+        border-radius: 4px;
+
+        max-width: max-content;
+
+        font-family: var(--font-primary);
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.6;
+        color: var(--color-primary-blue-03);
+
+        background-color: var(--color-white);
+    }
+
+    .molecule {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 0;
+
+        -moz-transform: scaleY(-1);
+        -o-transform: scaleY(-1);
+        -webkit-transform: scaleY(-1);
+        transform: scaleY(-1);
+        filter: FlipV;
+        -ms-filter: "FlipV";
+    }
+
+    .cyan {
+        :deep(.svg__stroke--default-cyan-03) {
+            stroke: var(--color-default-cyan-02);
+        }
+    }
+
+    .green {
+        :deep(.svg__stroke--default-cyan-03) {
+            stroke: var(--color-help-green-02);
+        }
+    }
+
+    .pink {
+        :deep(.svg__stroke--default-cyan-03) {
+            stroke: var(--color-visit-fushia-02);
+        }
+    }
+
+    .purple {
+        :deep(.svg__stroke--default-cyan-03) {
+            stroke: var(--color-about-purple-03);
+        }
+    }
+
+    // Opened
+    &.is-opened {
+        transform: translateY(0);
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+    }
+
+    // Breakpoints
+    @media #{$extra-large} {
+    }
+
+    @media #{$medium} {
+        display: flex;
+    }
+
+    @media #{$small} {
+    }
+}

@@ -2,6 +2,8 @@
 // Imports
 import Molecule3d from 'ucla-library-design-tokens/assets/svgs/molecule-3d.svg'
 import { computed, ref } from 'vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
+import { useTheme } from '@/composables/useTheme'
 
 // Props
 type GlobalMenuPanelProps = {
@@ -10,6 +12,9 @@ type GlobalMenuPanelProps = {
   subMenuItems: any[]
 }
 const props = defineProps<GlobalMenuPanelProps>()
+
+// Theme
+const theme = useTheme()
 
 // Emits
 const emit = defineEmits<{
@@ -46,10 +51,10 @@ defineExpose({
 
 // Computed
 const classes = computed(() => {
-  return ['global-menu-panel', props.isOpened ? 'is-opened' : 'is-closed']
+  return ['global-menu-panel', theme?.value || '', { 'is-opened': props.isOpened }]
 })
 
-// Parsed Sub Menu Items - to give classes
+// Parsed Sub Menu Items - to add classes
 const parsedSubMenuItems = computed(() => {
   return props.subMenuItems.map((item) => {
     const supportUsClass = item.label?.toLowerCase() === 'support us' ? ' support-us' : ''
@@ -64,47 +69,43 @@ const parsedSubMenuItems = computed(() => {
 
 <template>
   <div :class="classes">
-    <div class="menu-items">
-      <ul>
-        <li
-          v-for="item in menuItems"
-          :key="item.label"
-          class="menu-item"
+    <ul class="menu-items">
+      <li
+        v-for="item in menuItems"
+        :key="item.label"
+        class="menu-item"
+      >
+        <SmartLink
+          :to="item.to"
+          class="menu-link"
         >
-          <SmartLink
-            :to="item.to"
-            class="menu-link"
-          >
-            {{ item.label }}
-          </SmartLink>
-        </li>
-      </ul>
-    </div>
+          {{ item.label }}
+        </SmartLink>
+      </li>
+    </ul>
 
-    <div class="sub-menu-items">
-      <ul>
-        <li
-          v-for="item in parsedSubMenuItems"
-          :key="item.label"
-          class="menu-item"
+    <ul class="sub-menu-items">
+      <li
+        v-for="item in parsedSubMenuItems"
+        :key="item.label"
+        class="menu-item"
+      >
+        <SmartLink
+          :to="item.to"
+          :class="item.classes"
+          class="menu-link"
         >
-          <SmartLink
-            :to="item.to"
-            :class="item.classes"
-            class="menu-link"
-          >
-            {{ item.label }}
-          </SmartLink>
-        </li>
+          {{ item.label }}
+        </SmartLink>
+      </li>
 
-        <button
-          class="account-button"
-          @click="handleAccountButtonClick"
-        >
-          My Account
-        </button>
-      </ul>
-    </div>
+      <button
+        class="account-button"
+        @click="handleAccountButtonClick"
+      >
+        My Account
+      </button>
+    </ul>
 
     <component
       :is="Molecule3d"
@@ -118,123 +119,5 @@ const parsedSubMenuItems = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-.global-menu-panel {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  gap: 54px;
-
-  min-height: 100dvh;
-
-  background-color: var(--color-primary-blue-03);
-
-  .menu-items {
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    li {
-      font-size: 28px;
-      font-weight: 500;
-      text-transform: uppercase;
-      color: var(--color-white);
-    }
-  }
-
-  .sub-menu-items {
-    ul {
-
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .menu-item {
-      font-family: var(--font-primary);
-      font-weight: 400;
-      line-height: 1;
-      color: var(--color-white);
-    }
-
-    &.support-us {
-      margin-top: 24px;
-
-      font-family: var(--font-primary);
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 1;
-    }
-  }
-
-  .account-button {
-    padding: 2px 12px;
-    box-sizing: border-box;
-    border-radius: 4px;
-
-    max-width: max-content;
-
-    font-family: var(--font-primary);
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.6;
-    color: var(--color-primary-blue-03);
-
-    background-color: var(--color-white);
-  }
-
-  .molecule {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 0;
-
-    -moz-transform: scaleY(-1);
-    -o-transform: scaleY(-1);
-    -webkit-transform: scaleY(-1);
-    transform: scaleY(-1);
-    filter: FlipV;
-    -ms-filter: "FlipV";
-  }
-
-  .cyan {
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-default-cyan-02);
-    }
-  }
-
-  .green {
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-help-green-02);
-    }
-  }
-
-  .pink {
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-visit-fushia-02);
-    }
-  }
-
-  .purple {
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-about-purple-03);
-    }
-  }
-
-  // Hovers
-  @media #{$has-hover} {}
-
-  // Breakpoints
-  @media #{$extra-large} {}
-
-  @media #{$medium} {}
-
-  @media #{$small} {}
-}
+@import "@/styles/dlc/_global-menu-panel.scss";
 </style>
