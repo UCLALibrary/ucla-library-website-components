@@ -64,7 +64,7 @@ const toggleMenu = () => {
 
     </div>
 
-    <div
+    <!-- <div
       class="search-bar"
       v-if="$slots.searchBar"
     >
@@ -72,7 +72,7 @@ const toggleMenu = () => {
         class="content"
         name="searchBar"
       />
-    </div>
+    </div> -->
   </div>
 </template>
 
