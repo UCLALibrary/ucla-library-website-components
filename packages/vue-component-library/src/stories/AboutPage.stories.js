@@ -6,6 +6,7 @@ import FooterMain from '../lib-components/FooterMain.vue'
 import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 import BannerFeatured from '../lib-components/BannerFeatured.vue'
+import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
@@ -51,6 +52,7 @@ function Template(args) {
       SearchFieldComposite,
       SmartLink,
       BannerFeatured,
+      GlobalMenuPanel,
     },
     provide() {
       return {
@@ -75,6 +77,40 @@ function Template(args) {
         dropdownValue.value = value
         // Dropdown updated
       }
+
+      // Sample menu items data
+      const sampleMenuItems = [
+        {
+          label: 'Using Digital Collections Content',
+          to: '/using-digital-collections-content',
+        },
+        {
+          label: 'About',
+          to: '/about',
+        },
+        {
+          label: 'Give Us Feedback',
+          to: '/give-us-feedback',
+        },
+      ]
+
+      const sampleSubMenuItems = [
+        {
+          label: 'Locations & Hours',
+          to: '/help',
+          classes: '',
+        },
+        {
+          label: 'Ask a Librarian',
+          to: '/visit',
+          classes: '',
+        },
+        {
+          label: 'Support Us',
+          to: '/support',
+          classes: '',
+        },
+      ]
       // Mock data for banner featured sections
       const missionData = {
         image: API.image,
@@ -115,7 +151,8 @@ function Template(args) {
         handleSearchSubmit,
         handleDropdownUpdate,
         args,
-        primaryItems,
+        sampleMenuItems,
+        sampleSubMenuItems,
         secondaryItems,
         mockAboutPage,
         missionData,
@@ -125,6 +162,13 @@ function Template(args) {
     },
     template: `
       <div class="about-page">
+        <!-- Global Menu Panel -->
+        <GlobalMenuPanel
+          :menu-items="sampleMenuItems"
+          :sub-menu-items="sampleSubMenuItems"
+          :is-opened="menuOpened"
+          class="global-menu-panel"
+        />
         <!-- Header -->
         <HeaderMainFunkhaus
           :menu-opened="menuOpened"

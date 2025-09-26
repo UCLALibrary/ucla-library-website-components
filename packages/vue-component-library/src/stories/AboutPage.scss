@@ -1,6 +1,8 @@
 .about-page {
     --gutters: 48px;
 
+    position: relative;
+
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -8,8 +10,16 @@
     background-color: var(--color-white);
     padding-top: 239px;
 
+    .global-menu-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+    }
+
     .header {
-        // Height is 239px
+        // Header height plus search bar is 239px
         position: fixed;
         top: 0;
         left: 0;
