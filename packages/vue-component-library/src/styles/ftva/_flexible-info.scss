@@ -1,5 +1,11 @@
 .ftva.flexible-info {
 
+  .block-call-to-action {
+    &.full-width {
+    --block-width: 100%;
+  }
+}
+
   .contact-info {
     list-style-type: none;
   }
