@@ -1,162 +1,71 @@
-<script setup>
-import { computed, onBeforeUnmount, onMounted, ref, useAttrs, watch } from 'vue'
+<script setup lang="ts">
+// Imports
+import { computed, ref, useAttrs } from 'vue'
+import type { SearchInputProps } from '@/types/types'
+
+import { useEventListener } from '@/composables/useEventListener'
+import { filterAttributes } from '@/utils/filterAttributes'
+import { useTheme } from '@/composables/useTheme'
 
 defineOptions({
   inheritAttrs: true,
 })
 
-const props = defineProps({
-  type: {
-    type: String,
-    default: 'search',
-  },
-  modelValue: {
-    type: String,
-    default: '',
-  },
-  wrapperClass: {
-    type: String,
-    default: 'search-input-wrapper',
-  },
-  clearIcon: {
-    type: Boolean,
-    default: true,
-  },
-  clearOnEsc: {
-    type: Boolean,
-    default: true,
-  },
-  blurOnEsc: {
-    type: Boolean,
-    default: true,
-  },
-  selectOnFocus: {
-    type: Boolean,
-    default: true,
-  },
-  shortcutKey: {
-    type: String,
-    default: '/',
-  },
+// Props
+const props = withDefaults(defineProps<SearchInputProps>(), {
+  modelValue: '',
+  clearIcon: true,
+  clearOnEsc: true,
+  blurOnEsc: true,
+  selectOnFocus: true,
+  shortcutKey: '/',
 })
-//
 const emit = defineEmits(['update:modelValue', 'clear'])
-// console.log('modelValue', props.modelValue)
 const attrs = useAttrs()
+const theme = useTheme()
 
-const hasFocus = ref(false)
-const inputRef = ref(null)
-const searchInputModelValue = ref(props.modelValue)
+// Data
+const inputRef = ref<HTMLInputElement | null>(null)
 
-function filterObject(obj, properties, remove = true) {
-  const res = {}
-
-  if (properties && properties.length > 0) {
-    Object.keys(obj).forEach((objAttr) => {
-      const condition = remove
-        ? !properties.includes(objAttr)
-        : properties.includes(objAttr)
-
-      if (condition)
-        res[objAttr] = obj[objAttr]
-    })
-  }
-  return res
-}
-
-const attrsWithoutStyles = computed(() => {
-  const res = filterObject(attrs, ['class', 'style'])
-  return res
-})
-
-const attrsStyles = computed(() => {
-  const res = filterObject(attrs, ['class', 'style'])
-
-  if (!res.class)
-    res.class = props.wrapperClass
-
-  return res
-})
-
-const showClearIcon = computed(() => {
-  // console.log(
-  //   'in show clear icon',
-  //   props.clearIcon,
-  //   searchInputModelValue.value.length
-  // )
-  return props.clearIcon && searchInputModelValue.value.length > 0
-})
-
-onMounted(() => {
-  // console.log('props.modelValue', props.modelValue)
-  // console.log('searchInputModelValue', searchInputModelValue.value)
-  window.document.addEventListener('keydown', onDocumentKeydown)
-})
-watch(
-  () => props.modelValue,
-  (newVal) => {
-    // console.log('in search input watch', newVal)
-    searchInputModelValue.value = newVal
-  },
-  { immediate: true }
-)
-
-onBeforeUnmount(() => {
-  window.document.removeEventListener('keydown', onDocumentKeydown)
-})
-
+// Methods
 function clear() {
-  // console.log('in clear')
-  searchInputModelValue.value = ''
   emit('update:modelValue', '')
   emit('clear')
 }
+function onInput(event: Event) {
+  const target = event.target as HTMLInputElement
 
-function onInput(e) {
-  searchInputModelValue.value = e.target.value
-  emit('update:modelValue', e.target.value)
+  emit('update:modelValue', target.value)
 }
-
-function onKeydown(e) {
-  if (e.key === 'Escape') {
+function onKeydown(event: KeyboardEvent) {
+  if (event.key === 'Escape') {
+    event.preventDefault()
     if (props.clearOnEsc)
       clear()
-    if (props.blurOnEsc) {
-      const el = inputRef.value
-      if (el)
-        el.blur()
-    }
+    if (props.blurOnEsc)
+      inputRef.value?.blur()
   }
 }
-
-function onDocumentKeydown(e) {
+function onDocumentKeydown(event: KeyboardEvent) {
   if (
-    e.key === props.shortcutKey
-    && e.target !== inputRef.value
-    && window.document.activeElement !== inputRef.value
-    && !(e.target instanceof HTMLInputElement)
-    && !(e.target instanceof HTMLSelectElement)
-    && !(e.target instanceof HTMLTextAreaElement)
+    event.key === props.shortcutKey
+        && event.target !== inputRef.value
+        && document.activeElement !== inputRef.value
+        && !['INPUT', 'SELECT', 'TEXTAREA'].includes(
+          (event.target as Element).tagName
+        )
   ) {
-    e.preventDefault()
-    const allVisibleSearchInputs = [].slice
-      .call(
-        document.querySelectorAll(
-          '[data-search-input="true"]:not([data-shortcut-enabled="false"])'
-        )
+    event.preventDefault()
+    const visibleInputs = Array.from(
+      document.querySelectorAll<HTMLInputElement>(
+        '[data-search-input="true"]:not([data-shortcut-enabled="false"])'
       )
-      .filter((el) => {
-        return !!(
-          el.offsetWidth
-          || el.offsetHeight
-          || el.getClientRects().length
-        )
-      })
+    ).filter(
+      el =>
+        el.offsetWidth || el.offsetHeight || el.getClientRects().length
+    )
     const elToFocus
-      = allVisibleSearchInputs.length > 1
-        ? allVisibleSearchInputs[0]
-        : inputRef.value
-
+            = visibleInputs.length > 1 ? visibleInputs[0] : inputRef.value
     if (elToFocus) {
       elToFocus.focus()
       if (props.selectOnFocus)
@@ -164,130 +73,55 @@ function onDocumentKeydown(e) {
     }
   }
 }
+
+// Computeds
+const isClearIconShown = computed(() => {
+  console.log('props.clearIcon', props.clearIcon)
+  console.log('props.modelValue', props.modelValue)
+  return props.clearIcon && !!props.modelValue && props.modelValue.length > 0
+})
+const classes = computed(() => [
+  'search-input-wrapper',
+  isClearIconShown.value ? 'is-clear-icon-shown' : '',
+  attrs.class || '',
+  theme?.value || '',
+])
+const attrsWithoutStyles = computed(() =>
+  filterAttributes(attrs, ['class', 'style'])
+)
+const attrsStyles = computed(() => ({
+  ...(filterAttributes(attrs, ['class', 'style'], false) as Record<
+        string,
+        unknown
+    >),
+  class: classes.value,
+}))
+
+// Event Listeners
+useEventListener<KeyboardEvent>(window.document, 'keydown', onDocumentKeydown)
 </script>
 
 <template>
   <div v-bind="attrsStyles">
     <input
       ref="inputRef"
-      v-model="searchInputModelValue"
+      :value="modelValue"
       type="search"
       data-search-input="true"
       v-bind="attrsWithoutStyles"
       @input="onInput"
-      @focus="hasFocus = true"
-      @blur="hasFocus = false"
       @keydown="onKeydown"
     >
     <button
-      v-show="showClearIcon"
-      class="clear-icon clear"
-      aria-label="Clear"
-      @mousedown="clear"
-      @keydown.space.enter="clear"
+      class="clear-icon"
+      aria-label="Clear input"
+      @mousedown.prevent="clear"
+      @keydown.space.prevent.enter.prevent="clear"
     />
   </div>
 </template>
 
 <style lang="scss" scoped>
-$input-color: #333;
-$input-background: #f6f9fc;
-$icon-color: darken($input-background, 30%);
-$active-color: #1ea7fd;
-
-.search-input-wrapper {
-  position: relative;
-
-  input[data-search-input="true"] {
-    display: block;
-    font-family: var(--font-primary);
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 100%;
-    letter-spacing: 0.01em;
-    background-color: var(--color-primary-blue-01);
-    border-color: transparent;
-    padding: 24px 24px 24px 16px;
-    width: 100%;
-
-    &::placeholder {
-      text-transform: uppercase;
-      font-family: var(--font-primary);
-      text-overflow: ellipsis;
-    }
-
-    /*
-      &:focus {
-          background-color: var(--color-primary-blue-01);
-          border-color: $active-color;
-          outline: 0;
-          box-shadow: none;
-      }*/
-  }
-
-  .clear-icon {
-    color: $icon-color;
-    position: absolute;
-
-    &.clear {
-      right: 15px;
-      bottom: 22px;
-      cursor: pointer;
-      z-index: 10;
-      box-sizing: border-box;
-      display: block;
-      width: 24px;
-      height: 24px;
-      border: 2px solid transparent;
-      border-radius: 40px;
-      background: none;
-      padding: 0px;
-      outline: none;
-
-      &:focus {
-        background: darken($input-background, 4%);
-      }
-    }
-
-    &.clear::after,
-    &.clear::before {
-      content: "";
-      display: block;
-      box-sizing: border-box;
-      position: absolute;
-      width: 16px;
-      height: 2px;
-      background: $icon-color;
-      transform: rotate(45deg);
-      border-radius: 5px;
-      top: 9px;
-      left: 2px;
-    }
-
-    &.clear::after {
-      transform: rotate(-45deg);
-    }
-  }
-}
-
-/* Fix the X appearing in search field on Chrome and IE */
-input[type="search"]::-ms-clear {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-input[type="search"]::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0;
-}
-
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
-  display: none;
-}
+@import "@/styles/default/_search-input.scss";
+@import "@/styles/dlc/_search-input.scss";
 </style>
