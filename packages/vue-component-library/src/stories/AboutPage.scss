@@ -49,6 +49,8 @@
         padding: 14px var(--horizontal-gap);
         box-sizing: border-box;
 
+        background-color: var(--color-white);
+
         // Gives the search bar slot item the bottom border
         .search-bar {
             padding-bottom: 14px;
