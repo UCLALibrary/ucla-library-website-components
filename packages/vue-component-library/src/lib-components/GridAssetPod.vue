@@ -39,7 +39,7 @@ const hasItems = computed(() => props.items.length > 0)
   >
     <div
       v-for="(item, index) in items"
-      :key="index"
+      :key="`grid-asset-pod-${index}`"
       class="block-container"
     >
       <slot :item="item" />
