@@ -52,6 +52,10 @@ $active-color: #1ea7fd;
         padding: 0px;
         outline: none;
 
+        // Not clickable by default
+        pointer-events: none;
+        opacity: 0;
+
         &:focus {
             background: darken($input-background, 4%);
         }
@@ -73,6 +77,13 @@ $active-color: #1ea7fd;
 
         &::after {
             transform: rotate(-45deg);
+        }
+    }
+
+    &.is-clear-icon-shown {
+        .clear-icon {
+            pointer-events: auto;
+            opacity: 1;
         }
     }
 }
