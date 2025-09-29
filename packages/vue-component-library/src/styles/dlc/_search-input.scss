@@ -1,8 +1,7 @@
 $input-background: #f6f9fc;
 $icon-color: darken($input-background, 30%);
 
-.entry-field,
-.dlc.entry-field {
+.dlc.search-input-wrapper {
     position: relative;
 
     input[data-search-input="true"] {
@@ -33,7 +32,7 @@ $icon-color: darken($input-background, 30%);
 
         transition: border-color 0.3s ease-in-out,
             border-radius 0.3s ease-in-out;
-        
+
         // Add border when focused
         &:focus {
             border-color: var(--color-secondary-grey-03);
@@ -62,6 +61,8 @@ $icon-color: darken($input-background, 30%);
         outline: none;
         cursor: pointer;
 
+        // Not clickable by default
+        pointer-events: none;
         opacity: 0;
         transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
@@ -95,6 +96,8 @@ $icon-color: darken($input-background, 30%);
     &.is-clear-icon-shown {
         .clear-icon {
             opacity: 1;
+            // Clickable when clear icon is shown
+            pointer-events: auto;
         }
 
         input[data-search-input="true"] {

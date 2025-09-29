@@ -1,15 +1,15 @@
 import { computed, ref } from 'vue'
-import EntryField from '@/lib-components/EntryField'
+import SearchInput from '@/lib-components/SearchInput'
 
 export default {
-  title: 'Funkhaus / Entry Field',
-  component: EntryField,
+  title: 'Funkhaus / Search Input',
+  component: SearchInput,
 }
 
 // Variations of stories below
 export function Default() {
   return {
-    components: { EntryField },
+    components: { SearchInput },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -24,13 +24,13 @@ export function Default() {
       }
     },
 
-    template: '<entry-field v-model=\'value\' :placeholder=\'placeholder\' />',
+    template: '<search-input v-model=\'value\' :placeholder=\'placeholder\' />',
   }
 }
 
 export function WithoutClearIcon() {
   return {
-    components: { EntryField },
+    components: { SearchInput },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -46,13 +46,13 @@ export function WithoutClearIcon() {
     },
 
     template:
-            '<entry-field v-model=\'value\' :placeholder=\'placeholder\' :clear-icon=\'false\' />',
+            '<search-input v-model=\'value\' :placeholder=\'placeholder\' :clear-icon=\'false\' />',
   }
 }
 
 export function WithoutClearOnEsc() {
   return {
-    components: { EntryField },
+    components: { SearchInput },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -68,13 +68,13 @@ export function WithoutClearOnEsc() {
     },
 
     template:
-            '<entry-field v-model=\'value\' :placeholder=\'placeholder\' :clear-on-esc=\'false\' />',
+            '<search-input v-model=\'value\' :placeholder=\'placeholder\' :clear-on-esc=\'false\' />',
   }
 }
 
 export function WithValue() {
   return {
-    components: { EntryField },
+    components: { SearchInput },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -89,13 +89,13 @@ export function WithValue() {
       }
     },
 
-    template: '<entry-field v-model=\'value\' :placeholder=\'placeholder\' />',
+    template: '<search-input v-model=\'value\' :placeholder=\'placeholder\' />',
   }
 }
 
 export function Disabled() {
   return {
-    components: { EntryField },
+    components: { SearchInput },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -111,13 +111,13 @@ export function Disabled() {
     },
 
     template:
-            '<entry-field v-model=\'value\' :placeholder=\'placeholder\' disabled />',
+            '<search-input v-model=\'value\' :placeholder=\'placeholder\' disabled />',
   }
 }
 
 export function WithoutBlurOnEsc() {
   return {
-    components: { EntryField },
+    components: { SearchInput },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -133,13 +133,13 @@ export function WithoutBlurOnEsc() {
     },
 
     template:
-            '<entry-field v-model=\'value\' :placeholder=\'placeholder\' :blur-on-esc=\'false\' />',
+            '<search-input v-model=\'value\' :placeholder=\'placeholder\' :blur-on-esc=\'false\' />',
   }
 }
 
 export function WithoutSelectOnFocus() {
   return {
-    components: { EntryField },
+    components: { SearchInput },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -155,13 +155,13 @@ export function WithoutSelectOnFocus() {
     },
 
     template:
-            '<entry-field v-model=\'value\' :placeholder=\'placeholder\' :select-on-focus=\'false\' />',
+            '<search-input v-model=\'value\' :placeholder=\'placeholder\' :select-on-focus=\'false\' />',
   }
 }
 
 export function WithCustomShortcutKey() {
   return {
-    components: { EntryField },
+    components: { SearchInput },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -177,6 +177,6 @@ export function WithCustomShortcutKey() {
     },
 
     template:
-            '<entry-field v-model=\'value\' :placeholder=\'placeholder\' shortcut-key=\'s\' />',
+            '<search-input v-model=\'value\' :placeholder=\'placeholder\' shortcut-key=\'s\' />',
   }
 }

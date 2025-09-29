@@ -299,9 +299,8 @@ export interface TopicsItemType {
   title: string
 }
 
-export interface EntryFieldProps {
+export interface SearchInputProps {
   modelValue?: string
-  wrapperClass?: string
   clearIcon?: boolean
   clearOnEsc?: boolean
   blurOnEsc?: boolean
