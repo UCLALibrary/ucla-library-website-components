@@ -180,3 +180,45 @@ export function WithCustomShortcutKey() {
             '<search-input v-model=\'value\' :placeholder=\'placeholder\' shortcut-key=\'s\' />',
   }
 }
+
+export function DefaultTheme() {
+  return {
+    components: { SearchInput },
+    provide() {
+      return {
+        theme: computed(() => ''),
+      }
+    },
+    data() {
+      const value = ref('')
+
+      return {
+        value,
+        placeholder: 'Search Library',
+      }
+    },
+
+    template: '<search-input v-model=\'value\' :placeholder=\'placeholder\' />',
+  }
+}
+
+export function FTVATheme() {
+  return {
+    components: { SearchInput },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    data() {
+      const value = ref('')
+
+      return {
+        value,
+        placeholder: 'Search Library',
+      }
+    },
+
+    template: '<search-input v-model=\'value\' :placeholder=\'placeholder\' />',
+  }
+}
