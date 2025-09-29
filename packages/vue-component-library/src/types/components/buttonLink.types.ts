@@ -3,7 +3,6 @@ export enum ButtonLinkVariants {
   SECONDARY = 'secondary',
   TERTIARY = 'tertiary',
   QUATERNARY = 'quaternary',
-  DOWNLOAD = 'download',
 }
 
 export enum ButtonLinkIcons {
@@ -19,5 +18,6 @@ export interface ButtonLinkRefactoredProps {
   label: string
   iconName?: ButtonLinkIcons
   variant?: ButtonLinkVariants
+  isDownload?: boolean
   linkTarget?: string
 }

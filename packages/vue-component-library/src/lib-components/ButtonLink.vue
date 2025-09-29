@@ -27,22 +27,6 @@ const props = defineProps({
     default: '',
   },
 
-  /**
-   * TODO: this is a bad way to define button variants. We need to define a ButtonLinkVariant enum and use it here.
-   *  e.g.
-   * enum ButtonLinkVariant {
-   *   Primary = 'primary',
-   *   Secondary = 'secondary',
-   *   Tertiary = 'tertiary',
-   *   Quaternary = 'quaternary',
-   *   Senary = 'senary',
-   *   Download = 'download',
-   * }
-   *
-   *
-   * and then we would define variant prop like this:
-   * variant: ButtonLinkVariant
-   */
   isSecondary: {
     type: Boolean,
     default: false,

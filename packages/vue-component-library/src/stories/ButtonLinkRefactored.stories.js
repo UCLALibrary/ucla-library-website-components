@@ -118,6 +118,26 @@ export function SecondaryExternal() {
   }
 }
 
+export function IsDownload() {
+  return {
+    components: { ButtonLinkRefactored },
+    template:
+            '<button-link-refactored label="Etiam et Ultrices" is-download to="/help/more" />',
+
+    data() {
+      return {
+        props: {
+          label: 'Etiam et Ultrices',
+          isDownload: true,
+          to: 'https://pdfobject.com/pdf/sample.pdf',
+          linkTarget: '_blank',
+        },
+      }
+    },
+    template: '<button-link-refactored v-bind="props" />',
+  }
+}
+
 export function LongLabel() {
   return {
     components: { ButtonLinkRefactored },

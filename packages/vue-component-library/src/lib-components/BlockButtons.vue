@@ -8,9 +8,7 @@ import {
   type BlockButtonsProps,
 } from '@/types/components/blockButtons.types'
 import { useTheme } from '@/composables/useTheme'
-import {
-  ButtonLinkVariants,
-} from '@/types/components/buttonLink.types'
+import { ButtonLinkVariants } from '@/types/components/buttonLink.types'
 
 // Data
 const props = withDefaults(defineProps<BlockButtonsProps>(), {
@@ -40,6 +38,7 @@ const classes = computed(() => {
       :label="button.label"
       :icon-name="button?.iconName"
       :variant="button?.variant ?? ButtonLinkVariants.PRIMARY"
+      :is-download="button?.isDownload"
       class="block-button"
     />
   </div>

@@ -45,7 +45,7 @@ const classes = computed(() => {
 })
 const parsedIconName = computed(() => {
   switch (true) {
-    case props.variant === ButtonLinkVariants.DOWNLOAD:
+    case props.isDownload:
     case props.iconName === ButtonLinkIcons.DOWNLOAD:
       return SvgArrowDownload
     case props.iconName === ButtonLinkIcons.NONE:
@@ -62,7 +62,7 @@ const parsedIconName = computed(() => {
   }
 })
 const isDownload = computed(() => {
-  return props.iconName === ButtonLinkIcons.DOWNLOAD
+  return props.iconName === ButtonLinkIcons.DOWNLOAD || props.isDownload
 })
 </script>
 
