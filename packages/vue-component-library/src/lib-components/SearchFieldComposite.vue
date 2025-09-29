@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import SearchField from './SearchField.vue'
 import ButtonDropdownSearch from './ButtonDropdownSearch.vue'
 import ResponsiveImage from './ResponsiveImage.vue'
 import DividerGeneral from './DividerGeneral.vue'
+import SearchInput from './SearchInput.vue'
+import ButtonSubmit from './ButtonSubmit.vue'
 import { useTheme } from '@/composables/useTheme'
 import type { MediaItemType } from '@/types/types'
 
@@ -12,7 +13,6 @@ interface SearchFieldCompositeProps {
   initialValue?: string
   placeholder?: string
   disabled?: boolean
-  wrapperClass?: string
   clearIcon?: boolean
   clearOnEsc?: boolean
   blurOnEsc?: boolean
@@ -35,7 +35,7 @@ const props = withDefaults(defineProps<SearchFieldCompositeProps>(), {
   initialValue: '',
   placeholder: 'Search...',
   disabled: false,
-  wrapperClass: 'search-input-wrapper',
+
   clearIcon: true,
   clearOnEsc: true,
   blurOnEsc: true,
@@ -57,10 +57,11 @@ const theme = useTheme()
 
 // Data
 const dropdownValue = ref(props.dropdownModelValue)
+const searchValue = ref<string>(props.initialValue || '')
 
 // Methods
-function handleSearchSubmit(value: string) {
-  emit('submit', value)
+function handleSearchSubmit() {
+  emit('submit', searchValue.value)
 }
 
 function handleDropdownChange(value: string) {
@@ -111,19 +112,25 @@ const classes = computed(() => {
     />
 
     <div class="search-components">
-      <SearchField
-        :initial-value="initialValue"
-        :placeholder="placeholder"
-        :disabled="disabled"
-        :wrapper-class="wrapperClass"
-        :clear-icon="clearIcon"
-        :clear-on-esc="clearOnEsc"
-        :blur-on-esc="blurOnEsc"
-        :select-on-focus="selectOnFocus"
-        :shortcut-key="shortcutKey"
+      <form
         class="search-field"
-        @submit="handleSearchSubmit"
-      />
+        name="searchField"
+        @submit.prevent="handleSearchSubmit"
+      >
+        <SearchInput
+          v-model="searchValue"
+          :placeholder="placeholder"
+          :disabled="disabled"
+          :clear-icon="clearIcon"
+          :clear-on-esc="clearOnEsc"
+          :blur-on-esc="blurOnEsc"
+          :select-on-focus="selectOnFocus"
+          :shortcut-key="shortcutKey"
+          class="search-input-wrapper"
+        />
+
+        <ButtonSubmit class="button-submit" />
+      </form>
 
       <ButtonDropdownSearch
         v-if="hasDropdownOptions"
