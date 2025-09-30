@@ -17,7 +17,7 @@ const parsedSockItems = computed(() => {
   else {
     // eslint-disable-next-line no-console
     console.log(
-      `Pinia state data for footer sock not present if navigation is not setup for the website: is it client side:${process.client}`
+            `Pinia state data for footer sock not present if navigation is not setup for the website: is it client side:${process.client}`
     )
   }
   return []
@@ -45,7 +45,11 @@ const year = computed(() => {
 
       <ul class="links">
         <li v-for="item in parsedSockItems" :key="item.id" class="item">
-          <SmartLink class="link" :to="item.to" :link-target="item.target">
+          <SmartLink
+            class="link"
+            :to="item.to"
+            :link-target="item.target"
+          >
             {{ item.name }}
           </SmartLink>
         </li>
@@ -57,4 +61,5 @@ const year = computed(() => {
 <style lang="scss" scoped>
 @import "@/styles/default/_footer-sock.scss";
 @import "@/styles/ftva/_footer-sock.scss";
+@import "@/styles/dlc/_footer-sock.scss";
 </style>
