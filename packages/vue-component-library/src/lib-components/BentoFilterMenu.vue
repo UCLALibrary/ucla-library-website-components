@@ -22,11 +22,6 @@ const theme = useTheme()
 const classes = computed(() => {
   return ['bento-filter-menu', theme?.value || '']
 })
-// Methods
-
-// Watchers
-
-// Lifecycle Hooks
 </script>
 
 <template>
