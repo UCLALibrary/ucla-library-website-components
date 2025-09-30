@@ -1,12 +1,14 @@
 import { computed, ref } from 'vue'
 
 // Import components
-import HeaderSticky from '../lib-components/HeaderSticky.vue'
+import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
 import FooterMain from '../lib-components/FooterMain.vue'
 import GridCollections from '../lib-components/GridCollections.vue'
 import ButtonMore from '../lib-components/ButtonMore.vue'
 import HeaderCollection from '../lib-components/HeaderCollection.vue'
 import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
+import SmartLink from '../lib-components/SmartLink.vue'
+import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
@@ -33,6 +35,12 @@ export default {
       options: ['default', 'dlc'],
       description: 'Theme variant for the page',
     },
+    searchInitialValue: { control: 'text' },
+    searchPlaceholder: { control: 'text' },
+    searchDropdownValue: { control: 'text' },
+    searchDropdownOptions: { control: 'array' },
+    searchDropdownPlaceholder: { control: 'text' },
+    searchShowDivider: { control: 'boolean' },
   },
 }
 
@@ -40,12 +48,14 @@ export default {
 function Template(args) {
   return {
     components: {
-      HeaderSticky,
+      HeaderMainFunkhaus,
       FooterMain,
       GridCollections,
       HeaderCollection,
       SearchFieldComposite,
       ButtonMore,
+      SmartLink,
+      GlobalMenuPanel,
     },
     provide() {
       return {
@@ -54,10 +64,15 @@ function Template(args) {
     },
 
     setup() {
+      const menuOpened = ref(false)
       const dropdownValue = ref(
         mockDigitalCollections.searchForm.dropdownOptions[0]
       )
       const searchValue = ref('')
+
+      const toggleMenu = () => {
+        menuOpened.value = !menuOpened.value
+      }
 
       const showMoreCollections = () => {
         window.location.href
@@ -73,8 +88,44 @@ function Template(args) {
         dropdownValue.value = value
       }
 
+      // Sample menu items data
+      const sampleMenuItems = [
+        {
+          label: 'Using Digital Collections Content',
+          to: '/using-digital-collections-content',
+        },
+        {
+          label: 'About',
+          to: '/about',
+        },
+        {
+          label: 'Give Us Feedback',
+          to: '/give-us-feedback',
+        },
+      ]
+
+      const sampleSubMenuItems = [
+        {
+          label: 'Locations & Hours',
+          to: '/help',
+          classes: '',
+        },
+        {
+          label: 'Ask a Librarian',
+          to: '/visit',
+          classes: '',
+        },
+        {
+          label: 'Support Us',
+          to: '/support',
+          classes: '',
+        },
+      ]
+
       return {
         args,
+        menuOpened,
+        toggleMenu,
         dropdownValue,
         searchValue,
         primaryItems,
@@ -83,6 +134,8 @@ function Template(args) {
         showMoreCollections,
         handleSearchSubmit,
         handleDropdownUpdate,
+        sampleMenuItems,
+        sampleSubMenuItems,
       }
     },
 
@@ -115,29 +168,49 @@ function Template(args) {
     },
     template: `
        <div class="main-landing-page">
+         <!-- Global Menu Panel -->
+         <GlobalMenuPanel
+           :menu-items="sampleMenuItems"
+           :sub-menu-items="sampleSubMenuItems"
+           :is-opened="menuOpened"
+           class="global-menu-panel"
+         />
          <!-- Header -->
-         <HeaderSticky
-            :primary-items="primaryItems"
-            :secondary-items="secondaryItems"
-        />
+         <HeaderMainFunkhaus
+           :menu-opened="menuOpened"
+           @toggle-menu="toggleMenu"
+           class="header"
+           :class="menuOpened ? 'menu-opened' : ''"
+         >
+           <template #default>
+             <SmartLink to="/digital-collections" class="header-link">
+               Using digital collections content
+             </SmartLink>
+             <SmartLink to="/about" class="header-link">
+               About
+             </SmartLink>
+             <SmartLink to="/feedback" class="header-link">
+               Give us feedback
+             </SmartLink>
+           </template>
+         </HeaderMainFunkhaus>
 
+           <SearchFieldComposite
+             class='search-bar'
+             :initial-value="args.searchInitialValue || searchValue"
+             :placeholder="args.searchPlaceholder || mockDigitalCollections.searchForm.placeholder"
+             :dropdown-model-value="dropdownValue"
+             :dropdown-options="args.searchDropdownOptions || mockDigitalCollections.searchForm.dropdownOptions"
+             :dropdown-placeholder="args.searchDropdownPlaceholder"
+             :show-divider="args.searchShowDivider"
+             :background-image="mockDigitalCollections.searchForm.backgroundImage"
+             :background-text="mockDigitalCollections.searchForm.backgroundText"
+             @submit="handleSearchSubmit"
+             @update:dropdown-model-value="handleDropdownUpdate"
+           />
 
          <!-- Main Content Area -->
          <main class="main-content">
-            <SearchFieldComposite
-                class="search-field-composite"
-                v-model:initial-value="searchValue"
-                v-model:dropdown-model-value="dropdownValue"
-
-                :placeholder="mockDigitalCollections.searchForm.placeholder"
-                :dropdown-options="mockDigitalCollections.searchForm.dropdownOptions"
-                :background-image="mockDigitalCollections.searchForm.backgroundImage"
-                :background-text="mockDigitalCollections.searchForm.backgroundText"
-                @submit="handleSearchSubmit"
-                @update:dropdown-model-value="handleDropdownUpdate"
-            />
-
-
             <HeaderCollection 
                 :subtitle="headerItems.subtitle"
                 :title="headerItems.title"
@@ -162,4 +235,17 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
+  searchInitialValue: '',
+  searchPlaceholder: 'Search in...',
+  searchDropdownValue: 'All Collections',
+  searchDropdownOptions: [
+    'All Collections',
+    'Books & E-books',
+    'Articles & Journals',
+    'Databases',
+    'Digital Collections',
+    'Archives & Special Collections',
+  ],
+  searchDropdownPlaceholder: 'Select category',
+  searchShowDivider: false,
 }

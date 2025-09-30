@@ -1,24 +1,72 @@
 .main-search-field-results-page {
     --gutters: 48px;
+    --horizontal-gap: 64px;
+    --header-height: 121px;
+    --search-bar-height: 118px;
+
+    position: relative;
 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-
     overflow: hidden;
     background-color: var(--color-white);
 
+    .global-menu-panel {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        z-index: 200;
+    }
+
+    .header {
+        // Header height plus search bar is 239px
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+
+        background-color: var(--color-white);
+
+        &.menu-opened {
+            .container {
+                border-bottom: 2px solid var(--color-primary-blue-03);
+            }
+        }
+    }
+
+    .search-field-composite-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin: var(--header-height) auto 0;
+        padding: 14px var(--horizontal-gap);
+        box-sizing: border-box;
+
+        background-color: var(--color-white);
+
+        :deep(input) {
+            margin: 0;
+        }
+    }
+
     .main-content {
         flex: 1;
-        padding: 65px 0 48px;
+        padding: 0;
     }
 
     // Breakpoints
     @media #{$extra-large} {
     }
     @media #{$medium} {
+        --search-bar-height: 97px;
+        --header-height: 113px;
     }
     @media #{$small} {
+        --horizontal-gap: 24px;
         --gutters: 24px;
+        --search-bar-height: 97px;
+        --header-height: 103px;
     }
 }

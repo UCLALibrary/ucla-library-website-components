@@ -197,7 +197,7 @@ function Template(args) {
             :dropdown-model-value="dropdownValue"
             :dropdown-options="args.searchDropdownOptions"
             :dropdown-placeholder="args.searchDropdownPlaceholder"
-            :show-divider="args.searchShowDivider"
+            :show-divider="true"
             @submit="handleSearchSubmit"
             @update:dropdown-model-value="handleDropdownUpdate"
           />
