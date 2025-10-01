@@ -248,21 +248,24 @@ export const parsedFTVABlogSeries = mockFTVABlogSeries.map((item) => {
 })
 
 export const mockFlexibleBlocks = [
+  // RICH TEXT
   {
     id: '3761985',
     typeHandle: 'richText',
     richText: '<p>Serving the UCLA community and an international constituency of academic faculty, scholars, students, writers, and professionals, the Archive Research and Study Center (ARSC) provides a vital access point to UCLA Film &amp; Television Archive\'s collection of over 350,000 films and television programs, over 100,000 News and Public Affairs (NAPA) programs, and over 2,000 radio programs. ARSC coordinates individual viewing appointments, facilitating access to the Archive\'s rare collections through the Powell Library Media Lab at UCLA. With ARSC\'s assistance, visitors conduct scholarly and professional research for hundreds of class assignments, dissertations, publications and film and television productions.</p>',
     sectionTitle: null
   },
+  // DIVIDER
   {
     id: '3761986',
     typeHandle: 'horizontalDivider',
     horizontalDivider: true
   },
+  // INFOBLOCK
   {
     id: '3761987',
     typeHandle: 'infoBlock',
-    sectionTitle: 'Info Block Title',
+    sectionTitle: 'Info Block Section Title',
     sectionSummary: 'Info Block Section Summary',
     infoBlock: [
       {
@@ -273,6 +276,7 @@ export const mockFlexibleBlocks = [
       }
     ]
   },
+  // DIVIDER
   {
     id: '3761989',
     typeHandle: 'horizontalDivider',
