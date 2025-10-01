@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.32.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.32.0...@ucla-library-monorepo/ucla-library-website-components-v1.32.1) (2025-09-30)
+
+
+### Bug Fixes
+
+* APPS-3455 Update FlexibleInfoBlock max-width ([#828](https://github.com/UCLALibrary/ucla-library-website-components/issues/828)) ([6668c7f](https://github.com/UCLALibrary/ucla-library-website-components/commit/6668c7f1ff45784d12f71c85d40ea248127af331))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.32.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.31.3...@ucla-library-monorepo/ucla-library-website-components-v1.32.0) (2025-09-30)
+
+
+### Features
+
+* Add GridAssetPod  ([#766](https://github.com/UCLALibrary/ucla-library-website-components/issues/766)) ([6bf401a](https://github.com/UCLALibrary/ucla-library-website-components/commit/6bf401ad58b852b6d34d7a9c6370d50e01b73459))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.31.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.31.2...@ucla-library-monorepo/ucla-library-website-components-v1.31.3) (2025-09-24)
 
 
