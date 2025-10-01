@@ -6,10 +6,12 @@ import FooterMain from '../lib-components/FooterMain.vue'
 import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
+import GridBentoPod from '../lib-components/GridBentoPod.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
 import * as API from './mock-api.json'
+import { bentoBoxResultsData } from './mock/BentoBoxResultsPageMockData.js'
 
 // Import styles
 import './BentoBoxResultsPage.scss'
@@ -50,6 +52,7 @@ function Template(args) {
       SearchFieldComposite,
       SmartLink,
       GlobalMenuPanel,
+      GridBentoPod,
     },
     provide() {
       return {
@@ -135,6 +138,7 @@ function Template(args) {
         sampleMenuItems,
         sampleSubMenuItems,
         sampleSecondaryItems,
+        bentoBoxResultsData,
       }
     },
     template: `
@@ -172,7 +176,8 @@ function Template(args) {
         </div>
 
         <main class="main-content">
-          <!-- Main content area - ready for bento box components -->
+          <!-- Bento Box Results -->
+          <GridBentoPod :items="bentoBoxResultsData" />
         </main>
 
         <!-- Footer -->

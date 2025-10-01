@@ -55,14 +55,15 @@
 
     .main-content {
         flex: 1;
-        padding: 0 0 var(--gutters);
-
-        // flex-direction: column;
-        // gap: 64px;
+        padding: 0 var(--horizontal-gap) var(--gutters);
 
         .search-section {
             padding: 0 var(--gutters);
             margin-bottom: var(--gutters);
+        }
+
+        .grid-bento-pod {
+            margin-top: 32px;
         }
     }
 
@@ -76,5 +77,13 @@
         --gutters: 24px;
         --horizontal-gap: 10px;
         --search-bar-height: 164px;
+
+        .main-content {
+            padding: 0 var(--horizontal-gap) var(--gutters);
+
+            .grid-bento-pod {
+                margin-top: 24px;
+            }
+        }
     }
 }
