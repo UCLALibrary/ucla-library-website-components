@@ -43,13 +43,11 @@
     @include ftva-body-2;
     color: $medium-grey;
 
-    :not(:first-child) {
-      .date-created::before {
-        content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
-        margin: 0 8px;
-        padding-top: -10px;
-        filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
-      }
+    .date-created:not(:first-child)::before {
+      content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-diamond.svg');
+      margin: 0 8px;
+      padding-top: -10px;
+      filter: invert(98%) sepia(131%) saturate(1029%) hue-rotate(196deg) brightness(130%) contrast(68%);
     }
   }
 
@@ -73,6 +71,19 @@
         @include ftva-h3;
       }
     }
+  }
+  .custom-title{
+    :deep(.smart-link::after){
+      bottom: 0;
+      content: "";
+      left: 0;
+      min-height: 44px;
+      min-width: 44px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    
   }
 
   .custom-description {
