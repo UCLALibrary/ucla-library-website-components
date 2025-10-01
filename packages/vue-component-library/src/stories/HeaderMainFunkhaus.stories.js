@@ -24,10 +24,26 @@ export function Default() {
       const toggleMenu = () => {
         menuOpened.value = !menuOpened.value
       }
+
+      const menuItems = [
+        {
+          label: 'Using digital collections content',
+          to: '/digital-collections',
+        },
+        {
+          label: 'About',
+          to: '/about',
+        },
+        {
+          label: 'Give us feedback',
+          to: '/feedback',
+        }
+      ]
       
       return {
         menuOpened,
-        toggleMenu
+        toggleMenu,
+        menuItems
       }
     },
     template: `
@@ -35,19 +51,8 @@ export function Default() {
         :menu-opened="menuOpened"
         @toggle-menu="toggleMenu"
         :class="menuOpened ? 'menu-opened' : ''"
-      >
-        <template #default>
-          <SmartLink to="/digital-collections" class="header-link">
-            Using digital collections content
-          </SmartLink>
-          <SmartLink to="/about" class="header-link">
-            About
-          </SmartLink>
-          <SmartLink to="/feedback" class="header-link">
-            Give us feedback
-          </SmartLink>
-        </template>
-      </HeaderMainFunkhaus>
+        :menu-items="menuItems"
+      />
     `,
   }
 }
@@ -67,9 +72,41 @@ export function WithDefaultSlotFIlled() {
         menuOpened.value = !menuOpened.value
       }
       
+      const secondaryItems = [
+        {
+          label: 'Locations & Hours',
+          to: '/locations',
+        },
+        {
+          label: 'Ask a Librarian',
+          to: '/my-account',
+        },
+        {
+          label: 'Support Us',
+          to: '/support-us',
+        }
+      ]
+
+      const menuItems = [
+        {
+          label: 'Using digital collections content',
+          to: '/digital-collections',
+        },
+        {
+          label: 'About',
+          to: '/about',
+        },
+        {
+          label: 'Give us feedback',
+          to: '/feedback',
+        }
+      ]
+
       return {
         menuOpened,
-        toggleMenu
+        toggleMenu,
+        secondaryItems,
+        menuItems
       }
     },
     template: `
@@ -77,22 +114,10 @@ export function WithDefaultSlotFIlled() {
         :menu-opened="menuOpened"
         @toggle-menu="toggleMenu"
         :class="menuOpened ? 'menu-opened' : ''"
-      >
-        <template #default>
-          <SmartLink to="/digital-collections" class="header-link">
-            Using digital collections content
-          </SmartLink>
-          <SmartLink to="/about" class="header-link">
-            About
-          </SmartLink>
-          <SmartLink to="/feedback" class="header-link">
-            Give us feedback
-          </SmartLink>
-        </template>
-        <template #searchBar>
-          <div>This is a search bar</div>
-        </template>
-      </HeaderMainFunkhaus>
+        :show-secondary="true"
+        :secondary-items="secondaryItems"
+        :menu-items="menuItems"
+      />
     `,
   }
 }
