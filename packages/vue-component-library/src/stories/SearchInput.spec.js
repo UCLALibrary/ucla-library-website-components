@@ -3,7 +3,7 @@ describe('Funkhaus / Search Input', () => {
     cy.visit(
       '/iframe.html?id=funkhaus-search-input--default&args=&viewMode=story'
     )
-    cy.get('.search-input').should('exist')
+    cy.get('.search-input-wrapper').should('exist')
     cy.percySnapshot('Funkhaus / Search Input')
   })
 })
