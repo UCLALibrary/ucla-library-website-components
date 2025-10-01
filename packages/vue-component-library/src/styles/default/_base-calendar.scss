@@ -4,7 +4,7 @@
 
   .calendar-wrapper {
     display: grid;
-    grid-template-columns: 40px 1fr 40px;
+    grid-template-columns: 76px 1fr 76px;
   }
 
   .calendar-body {
@@ -54,7 +54,7 @@
   }
 
   .v-calendar-header > button:nth-of-type(2) {
-    left: 0%;
+    left: 36px;
 
     i.v-icon {
       z-index: 1;
@@ -65,7 +65,7 @@
   }
 
   .v-calendar-header > button:nth-of-type(3) {
-    left: 100%;
+    right: 0;
 
     i.v-icon {
       z-index: 1;
@@ -273,4 +273,3 @@
    // Slot styles
   .calendar-slot-wrapper{}
 }
-

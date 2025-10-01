@@ -3,7 +3,7 @@ import type { StorybookConfig } from "@storybook/vue3-vite"
 import path from "path"
 import { mergeConfig } from "vite"
 
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from "url"
 
 const config: StorybookConfig = {
     stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -27,8 +27,8 @@ const config: StorybookConfig = {
                         additionalData: `
                             @import "ucla-library-design-tokens/scss/fonts.scss";
                             @import "ucla-library-design-tokens/scss/_tokens-ftva";
-                            @import "ucla-library-design-tokens/scss/_tokens-dlc.scss";
-                            @import "ucla-library-design-tokens/scss/_tokens-css-dlc.scss";
+                            @import "ucla-library-design-tokens/scss/_tokens-dlc";
+                            @import "ucla-library-design-tokens/scss/_tokens-css-dlc";
                             @import "ucla-library-design-tokens/scss/app.scss";
                         `,
                     },
@@ -36,7 +36,10 @@ const config: StorybookConfig = {
             },
             resolve: {
                 alias: {
-                    "@": path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../src/"),
+                    "@": path.resolve(
+                        path.dirname(fileURLToPath(import.meta.url)),
+                        "../src/"
+                    ),
                 },
                 extensions: [".vue", ".js", ".json"],
             },
