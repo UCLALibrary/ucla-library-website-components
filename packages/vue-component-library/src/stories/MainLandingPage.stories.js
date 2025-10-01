@@ -91,16 +91,16 @@ function Template(args) {
       // Sample menu items data
       const sampleMenuItems = [
         {
-          label: 'Using Digital Collections Content',
-          to: '/using-digital-collections-content',
+          label: 'Using digital collections content',
+          to: '/digital-collections',
         },
         {
           label: 'About',
           to: '/about',
         },
         {
-          label: 'Give Us Feedback',
-          to: '/give-us-feedback',
+          label: 'Give us feedback',
+          to: '/feedback',
         },
       ]
 
@@ -181,19 +181,8 @@ function Template(args) {
            @toggle-menu="toggleMenu"
            class="header"
            :class="menuOpened ? 'menu-opened' : ''"
-         >
-           <template #default>
-             <SmartLink to="/digital-collections" class="header-link">
-               Using digital collections content
-             </SmartLink>
-             <SmartLink to="/about" class="header-link">
-               About
-             </SmartLink>
-             <SmartLink to="/feedback" class="header-link">
-               Give us feedback
-             </SmartLink>
-           </template>
-         </HeaderMainFunkhaus>
+           :menu-items="sampleMenuItems"
+         />
 
            <SearchFieldComposite
              class='search-bar'
