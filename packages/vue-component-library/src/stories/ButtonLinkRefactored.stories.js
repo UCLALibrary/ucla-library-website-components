@@ -121,9 +121,6 @@ export function SecondaryExternal() {
 export function IsDownload() {
   return {
     components: { ButtonLinkRefactored },
-    template:
-            '<button-link-refactored label="Etiam et Ultrices" is-download to="/help/more" />',
-
     data() {
       return {
         props: {
