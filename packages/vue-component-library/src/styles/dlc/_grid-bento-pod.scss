@@ -1,0 +1,34 @@
+.grid-bento-pod,
+.dlc.grid-bento-pod {
+    column-count: 2;
+    column-gap: 32px;
+
+    .bento-pod {
+        break-inside: avoid;
+        margin-bottom: 32px;
+        display: inline-block;
+        width: 100%;
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+    }
+
+    // Breakpoints
+    @media #{$extra-large} {
+    }
+
+    @media #{$medium} {
+        column-count: 1;
+        column-gap: 0;
+    }
+
+    @media #{$small} {
+        column-count: 1;
+        column-gap: 0;
+
+        .bento-pod {
+            margin-bottom: 16px;
+        }
+    }
+}
