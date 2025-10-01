@@ -262,6 +262,8 @@ export const mockFlexibleBlocks = [
   {
     id: '3761987',
     typeHandle: 'infoBlock',
+    sectionTitle: 'Info Block Title',
+    sectionSummary: 'Info Block Section Summary',
     infoBlock: [
       {
         typeHandle: 'infoBlock',
