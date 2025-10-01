@@ -3,7 +3,8 @@
 import SvgLibraryLogo from 'ucla-library-design-tokens/assets/svgs/logo-library-digital-collections.svg'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import GlobalHamburger from '@/lib-components/GlobalHamburger.vue'
-import SiteBrandBar from '@/lib-components/SiteBrandBar'
+import SiteBrandBar from '@/lib-components/SiteBrandBar.vue'
+
 
 import { useTheme } from '@/composables/useTheme'
 import { computed } from 'vue'
@@ -11,7 +12,11 @@ import { computed } from 'vue'
 // Props
 type HeaderMainFunkhausProps = {
   menuOpened: boolean
+  showSecondary: boolean
+  menuItems: any[]
+  secondaryItems: any[]
 }
+
 const props = defineProps<HeaderMainFunkhausProps>()
 
 // Emits
@@ -25,19 +30,56 @@ const classes = computed(() => {
   return ['header-main-funkahus', theme?.value || '', { 'menu-opened': props.menuOpened }]
 })
 
+const parsedSubMenuItems = computed(() => {
+  return props.secondaryItems.map((item) => {
+    const supportUsClass = item.label?.toLowerCase() === 'support us' ? ' support-us' : ''
+
+    return {
+      ...item,
+      classes: supportUsClass
+    }
+  })
+})
+
 // Methods
 const toggleMenu = () => {
   emit('toggle-menu')
 }
 
-// Watchers
-
-// Lifecycle Hooks
+const handleAccountButtonClick = () => {
+  console.log('handleAccountButtonClick')
+}
 </script>
 
 <template>
   <div :class="classes">
     <SiteBrandBar class="brand-bar" />
+
+    <ul
+      class="container-secondary show-desktop"
+      v-if="showSecondary"
+    >
+      <li
+        v-for="item in parsedSubMenuItems"
+        :key="item.label"
+        class="menu-item"
+      >
+        <SmartLink
+          :to="item.to"
+          :class="item.classes"
+          class="menu-link"
+        >
+          {{ item.label }}
+        </SmartLink>
+      </li>
+
+      <button
+        class="account-button"
+        @click="handleAccountButtonClick"
+      >
+        My Account
+      </button>
+    </ul>
     <div class="container">
       <SmartLink
         to="/"
@@ -49,12 +91,22 @@ const toggleMenu = () => {
         />
       </SmartLink>
 
-      <div
-        class="header-links show-desktop"
-        v-if="$slots.default"
-      >
-        <slot />
-      </div>
+
+      <ul class="header-links show-desktop">
+        <li
+          v-for="item in menuItems"
+          :key="item.label"
+          class="menu-item"
+        >
+          <SmartLink
+            :to="item.to"
+            :class="item.classes"
+            class="menu-link"
+          >
+            {{ item.label }}
+          </SmartLink>
+        </li>
+      </ul>
 
       <GlobalHamburger
         class="hamburger show-mobile"
@@ -63,16 +115,6 @@ const toggleMenu = () => {
       />
 
     </div>
-
-    <!-- <div
-      class="search-bar"
-      v-if="$slots.searchBar"
-    >
-      <slot
-        class="content"
-        name="searchBar"
-      />
-    </div> -->
   </div>
 </template>
 
