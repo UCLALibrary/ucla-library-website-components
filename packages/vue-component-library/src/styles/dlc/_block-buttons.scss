@@ -1,0 +1,37 @@
+.block-buttons,
+.dlc.block-buttons {
+    display: flex;
+    gap: 24px;
+
+    .block-button {
+        width: fit-content;
+    }
+
+    // Directions
+    &.direction-horizontal {
+        flex-direction: row;
+
+        &.align-left {
+            justify-content: flex-start;
+        }
+        &.align-center {
+            justify-content: center;
+        }
+        &.align-right {
+            justify-content: flex-end;
+        }
+    }
+    &.direction-vertical {
+        flex-direction: column;
+
+        &.align-left {
+            align-items: flex-start;
+        }
+        &.align-center {
+            align-items: center;
+        }
+        &.align-right {
+            align-items: flex-end;
+        }
+    }
+}
