@@ -28,8 +28,8 @@ interface MetaDataTableProps {
       copyOnClick?: boolean
     }>
     image?: MediaItemType
-    showButtonIiif?: boolean
-    buttonIiifTo?: string
+    showButtonIIIF?: boolean
+    buttonIIIFTo?: string
   }>
 }
 
@@ -37,16 +37,17 @@ const classes = computed(() => (['metadata-table', theme?.value || '']))
 
 // Functions
 function handleButtonClick(button: any) {
-  if (button.copyOnClick) {
-    // Copy current URL to clipboard
-    if (typeof window !== 'undefined' && window.location) {
-      navigator.clipboard.writeText(window.location.href)
-        .catch((err) => {
-          console.error('Failed to copy URL:', err)
-        })
-    }
+  // Copy provided URL or current URL to clipboard
+  if (typeof window !== 'undefined' && window.location) {
+    const urlToCopy = button.copyUrl && typeof button.copyUrl === 'string' && button.copyUrl.length > 0
+      ? button.copyUrl
+      : window.location.href;
+    navigator.clipboard.writeText(urlToCopy).catch((err) => {
+      console.error('Failed to copy URL:', err)
+    })
   }
 }
+
 </script>
 
 <template>
@@ -70,8 +71,8 @@ function handleButtonClick(button: any) {
           <template v-if="Array.isArray(item.value)">
             <div class="buttons">
               <ButtonIiif
-                v-if="item.showButtonIiif && item.buttonIiifTo"
-                :to="item.buttonIiifTo"
+                v-if="item.showButtonIIIF && item.buttonIIIFTo"
+                :to="item.buttonIIIFTo"
               />
               <div class="action-buttons">
                 <Button
