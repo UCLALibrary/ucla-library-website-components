@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.33.1...@ucla-library-monorepo/ucla-library-website-components-v1.34.0) (2025-10-02)
+
+
+### Features
+
+* Add dlc theme to SearchInput ([#808](https://github.com/UCLALibrary/ucla-library-website-components/issues/808)) ([5f7ae9e](https://github.com/UCLALibrary/ucla-library-website-components/commit/5f7ae9eb150e863724eededf8b24a8041415df16))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.33.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.33.0...@ucla-library-monorepo/ucla-library-website-components-v1.33.1) (2025-10-02)
 
 
