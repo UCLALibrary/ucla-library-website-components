@@ -33,7 +33,7 @@ interface SearchFieldCompositeProps {
 
 const props = withDefaults(defineProps<SearchFieldCompositeProps>(), {
   initialValue: '',
-  placeholder: 'Search...',
+  placeholder: 'Search',
   disabled: false,
 
   clearIcon: true,
