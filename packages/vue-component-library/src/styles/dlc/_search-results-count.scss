@@ -19,4 +19,10 @@
         font-weight: 500;
         line-height: 1;
     }
+
+    &.horizontal {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }
