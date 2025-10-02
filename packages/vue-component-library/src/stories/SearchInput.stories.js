@@ -12,7 +12,7 @@ export function Default() {
     components: { SearchInput },
     provide() {
       return {
-        theme: computed(() => 'dlc'),
+        theme: computed(() => ''),
       }
     },
     data() {
@@ -33,7 +33,7 @@ export function WithoutClearIcon() {
     components: { SearchInput },
     provide() {
       return {
-        theme: computed(() => 'dlc'),
+        theme: computed(() => ''),
       }
     },
     data() {
@@ -55,7 +55,7 @@ export function WithoutClearOnEsc() {
     components: { SearchInput },
     provide() {
       return {
-        theme: computed(() => 'dlc'),
+        theme: computed(() => ''),
       }
     },
     data() {
@@ -77,7 +77,7 @@ export function WithValue() {
     components: { SearchInput },
     provide() {
       return {
-        theme: computed(() => 'dlc'),
+        theme: computed(() => ''),
       }
     },
     data() {
@@ -98,7 +98,7 @@ export function Disabled() {
     components: { SearchInput },
     provide() {
       return {
-        theme: computed(() => 'dlc'),
+        theme: computed(() => ''),
       }
     },
     data() {
@@ -120,7 +120,7 @@ export function WithoutBlurOnEsc() {
     components: { SearchInput },
     provide() {
       return {
-        theme: computed(() => 'dlc'),
+        theme: computed(() => ''),
       }
     },
     data() {
@@ -142,7 +142,7 @@ export function WithoutSelectOnFocus() {
     components: { SearchInput },
     provide() {
       return {
-        theme: computed(() => 'dlc'),
+        theme: computed(() => ''),
       }
     },
     data() {
@@ -164,7 +164,7 @@ export function WithCustomShortcutKey() {
     components: { SearchInput },
     provide() {
       return {
-        theme: computed(() => 'dlc'),
+        theme: computed(() => ''),
       }
     },
     data() {
@@ -181,12 +181,12 @@ export function WithCustomShortcutKey() {
   }
 }
 
-export function DefaultTheme() {
+export function DLCTheme() {
   return {
     components: { SearchInput },
     provide() {
       return {
-        theme: computed(() => ''),
+        theme: computed(() => 'dlc'),
       }
     },
     data() {
