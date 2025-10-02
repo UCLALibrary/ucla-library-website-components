@@ -1,29 +1,18 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useTheme } from '@/composables/useTheme'
-
-export enum SearchResultCountVariants {
-  VERTICAL = 'primary',
-  HORIZONTAL = "secondary"
-}
+import { SearchResultsCountVariants, type SearchResultsCountProps } from '@/types/components/SearchResultsCountTypes'
 
 const props = withDefaults(defineProps<SearchResultsCountProps>(), {
   animate: false,
   count: 0,
   label: '',
   prefix: '',
-  variant: SearchResultCountVariants.VERTICAL,
+  variant: SearchResultsCountVariants.VERTICAL,
+  suffixLabel: '',
 })
 
 const theme = useTheme()
-
-interface SearchResultsCountProps {
-  count: number
-  label: string
-  prefix: string
-  animate?: boolean
-  variant?: SearchResultCountVariants
-}
 
 const parsedResults = computed(() => {
   if (props.prefix && props.label)
@@ -87,7 +76,10 @@ onUnmounted(() => {
 
 <template>
   <div :class="classes">
-    <span class="parsed-results">
+    <span
+      class="parsed-results"
+      v-if="props.variant === SearchResultsCountVariants.VERTICAL"
+    >
       {{ parsedResults }}
     </span>
     <div
@@ -96,6 +88,10 @@ onUnmounted(() => {
     >
       <span>{{ animatedCount }}</span>
     </div>
+    <span
+      class="parsed-results"
+      v-if="props.variant === SearchResultsCountVariants.HORIZONTAL"
+    >{{ suffixLabel }}</span>
   </div>
 </template>
 

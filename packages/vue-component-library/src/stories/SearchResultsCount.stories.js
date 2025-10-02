@@ -1,6 +1,7 @@
 // Storybook default settings
 import { computed } from 'vue'
-import SearchResultsCount, { SearchResultCountVariants } from '@/lib-components/SearchResultsCount.vue'
+import SearchResultsCount from '@/lib-components/SearchResultsCount.vue'
+import { SearchResultsCountVariants } from '@/types/components/SearchResultsCountTypes'
 
 export default {
   title: 'Funkhaus / SearchResultsCount',
@@ -24,9 +25,9 @@ export default {
     },
     variant: {
       control: 'select',
-      options: Object.values(SearchResultCountVariants),
+      options: Object.values(SearchResultsCountVariants),
       description: 'Visual variant of the component',
-      mapping: SearchResultCountVariants,
+      mapping: SearchResultsCountVariants,
     },
   },
 }
@@ -49,6 +50,7 @@ function Template(args) {
           :label="args.label"
           :animate="args.animate"
           :variant="args.variant"
+          :suffix-label="args.suffixLabel"
         />
     `,
   }
@@ -68,7 +70,8 @@ Horizontal.args = {
   prefix: 'Catalogue',
   label: 'Results',
   animate: true,
-  variant: SearchResultCountVariants.HORIZONTAL,
+  variant: SearchResultsCountVariants.HORIZONTAL,
+  suffixLabel: 'Results',
 }
 
 export const LotsOfResults = Template.bind({})
@@ -109,40 +112,4 @@ NotAnimated.args = {
   prefix: 'Catalogue',
   label: 'Results',
   animate: false,
-}
-
-export const VariantComparison = {
-  components: { SearchResultsCount },
-  provide() {
-    return {
-      theme: computed(() => 'dlc'),
-    }
-  },
-  template: `
-    <div style="display: flex; flex-direction: column; gap: 20px;">
-      <div>
-        <h3>Vertical Variant (Default)</h3>
-        <search-results-count
-          :count="110"
-          prefix="Catalogue"
-          label="Results"
-          :animate="true"
-          :variant="SearchResultCountVariants.VERTICAL"
-        />
-      </div>
-      <div>
-        <h3>Horizontal Variant</h3>
-        <search-results-count
-          :count="110"
-          prefix="Catalogue"
-          label="Results"
-          :animate="true"
-          :variant="SearchResultCountVariants.HORIZONTAL"
-        />
-      </div>
-    </div>
-  `,
-  setup() {
-    return { SearchResultCountVariants }
-  }
 }
