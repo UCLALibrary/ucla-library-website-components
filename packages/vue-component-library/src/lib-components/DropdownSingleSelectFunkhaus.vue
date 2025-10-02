@@ -45,8 +45,8 @@ function selectOption(option: string) {
 function handleClickOutside(event: MouseEvent) {
   if (
     isOpen.value
-        && dropdownRef.value
-        && !dropdownRef.value.contains(event.target as Node)
+    && dropdownRef.value
+    && !dropdownRef.value.contains(event.target as Node)
   )
     isOpen.value = false
 }
@@ -54,8 +54,8 @@ function handleClickOutside(event: MouseEvent) {
 function handleFocusOut(event: FocusEvent) {
   if (
     isOpen.value
-        && dropdownRef.value
-        && !dropdownRef.value.contains(event.relatedTarget as Node)
+    && dropdownRef.value
+    && !dropdownRef.value.contains(event.relatedTarget as Node)
   )
     isOpen.value = false
 }
@@ -80,20 +80,25 @@ onBeforeUnmount(() => {
     tabindex="-1"
     role="listbox"
     aria-label="Dropdown single select"
-    :aria-expanded="isOpen.toString()"
+    :aria-expanded="isOpen"
   >
     <div
       class="dropdown-field"
       role="button"
       aria-haspopup="listbox"
-      :aria-label="
-        selected ? `Selected: ${selected}` : 'Select an option'
-      "
-      :aria-expanded="isOpen.toString()"
+      :aria-label="selected ? `Selected: ${selected}` : 'Select an option'
+        "
+      :aria-expanded="isOpen"
       @click="toggleDropdown"
     >
-      <span class="selected-option" v-html="selected" />
-      <IconCaretDown class="arrow" :class="{ open: isOpen }" />
+      <span
+        class="selected-option"
+        v-html="selected"
+      />
+      <IconCaretDown
+        class="arrow"
+        :class="{ open: isOpen }"
+      />
     </div>
     <transition name="dropdown">
       <ul
@@ -111,7 +116,10 @@ onBeforeUnmount(() => {
           :aria-selected="option === selected"
           @click="selectOption(option as string)"
         >
-          <span class="option-content" v-html="option" />
+          <span
+            class="option-content"
+            v-html="option"
+          />
         </li>
       </ul>
     </transition>
