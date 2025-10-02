@@ -179,14 +179,14 @@ const classes = computed(() => {
 
     <!-- Named slot for custom title -->
     <h3
-      v-if="$slots.customTitle"
+      v-if="$slots.customTitle && !to && !title"
       class="custom-title"
     >
       <slot name="customTitle" />
     </h3>
 
     <SmartLink
-      v-if="to"
+      v-else-if="to && title && !$slots.customTitle"
       :link-target="parsedTarget"
       :to="to"
       class="title"

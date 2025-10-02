@@ -109,20 +109,18 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v4
+      # 👇 Reuse the same setup that works on push (installs & caches Cypress)
+      - uses: ./.github/workflows/setup-workspace
         with:
-          version: 9
-          run_install: false
+          do_checkout: "false" # already checked out above
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.18.2
-          cache: pnpm
-
-      - name: Install deps (PR code)
-        run: pnpm install --frozen-lockfile --strict-peer-dependencies
+      - name: Debug Cypress cache
+        run: |
+          npx cypress --version || true
+          npx cypress cache path || true
+          ls -la "$(npx cypress cache path)" || true
+        env:
+          CYPRESS_CACHE_FOLDER: $HOME/.cache/Cypress
 
       - name: Percy via Cypress (internal, Netlify preview)
         uses: cypress-io/github-action@v5
@@ -154,20 +152,18 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v4
+      # 👇 Reuse the same setup that works on push (installs & caches Cypress)
+      - uses: ./.github/workflows/setup-workspace
         with:
-          version: 9
-          run_install: false
+          do_checkout: "false" # already checked out above
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.18.2
-          cache: pnpm
-
-      - name: Install deps (PR code)
-        run: pnpm install --frozen-lockfile --strict-peer-dependencies
+      - name: Debug Cypress cache
+        run: |
+          npx cypress --version || true
+          npx cypress cache path || true
+          ls -la "$(npx cypress cache path)" || true
+        env:
+          CYPRESS_CACHE_FOLDER: $HOME/.cache/Cypress
 
       - name: Percy via Cypress (fork, Netlify preview)
         uses: cypress-io/github-action@v5
