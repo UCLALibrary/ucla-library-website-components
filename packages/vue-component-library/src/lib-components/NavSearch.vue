@@ -28,7 +28,7 @@ const route = useRoute()
 const defaultBottomText = 'Looking for a specific collection item? Search the UCLA Film & Television Archive Catalog at '
 const defaultBottomLink = {
   label: 'UC LIBRARY SEARCH >',
-  to: 'https://search.library.ucla.edu/discovery/search?vid=01UCS_LAL:UCLA&tab=Articles_books_more_slot&search_scope=ArticlesBooksMore&lang=en&query=any,contains,',
+  to: 'https://search.library.ucla.edu/discovery/search?vid=01UCS_LAL:UCLA&mode=advanced',
 }
 const classes = computed(() => {
   return ['nav-search', theme?.value || '']
