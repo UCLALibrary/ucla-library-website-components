@@ -10,7 +10,7 @@
     &:focus-within:not(.is-opened)>.section-name::after {
         opacity: 1;
     }
-
+    
     &:focus-within:not(.is-opened)>.sub-menu {
         opacity: 0.9;
         max-height: 100vh;
@@ -118,10 +118,10 @@
         outline-style: solid;
     }
 
-    // States
-    &.is-active {
+    // underline only on active and open item
+    &.is-opened.is-active {
         .section-name::after {
-            opacity: 1;
+        opacity: 1;
         }
     }
 
@@ -144,6 +144,12 @@
             background-color: rgba(#ffffff, 0.1);
             text-decoration: underline;
             text-decoration-color: var(--color-primary-yellow-01);
+        }
+        
+        &:hover {
+            .section-name::after {
+                opacity: 1;
+            }
         }
     }
 }
