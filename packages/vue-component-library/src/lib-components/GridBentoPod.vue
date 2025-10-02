@@ -13,31 +13,48 @@ type GridBentoPodProps = {
     items: Array<Record<string, any>>
   }>
 }
-defineProps<GridBentoPodProps>()
+const props = defineProps<GridBentoPodProps>()
 
 // Data
 const { theme } = useTheme()
+
 // Computed
 const classes = computed(() => {
   return ['grid-bento-pod', theme?.value || '']
 })
-// Methods
 
-// Watchers
+// Split items into two columns fairly
+const leftColumnItems = computed(() => {
+  return props.items.filter((_, index) => index % 2 === 0)
+})
 
-// Lifecycle Hooks
+const rightColumnItems = computed(() => {
+  return props.items.filter((_, index) => index % 2 === 1)
+})
 </script>
 
 <template>
   <div :class="classes">
-    <BentoPod
-      v-for="item in items"
-      :key="item.id"
-      :title="item.title"
-      :description="item.description"
-      :items="item.items"
-      class="bento-pod"
-    />
+    <div class="grid-column">
+      <BentoPod
+        v-for="item in leftColumnItems"
+        :key="item.id"
+        :title="item.title"
+        :description="item.description"
+        :items="item.items"
+        class="bento-pod"
+      />
+    </div>
+    <div class="grid-column">
+      <BentoPod
+        v-for="item in rightColumnItems"
+        :key="item.id"
+        :title="item.title"
+        :description="item.description"
+        :items="item.items"
+        class="bento-pod"
+      />
+    </div>
   </div>
 </template>
 

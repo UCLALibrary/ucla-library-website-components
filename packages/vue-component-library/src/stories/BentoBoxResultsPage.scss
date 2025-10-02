@@ -43,7 +43,7 @@
         width: 100%;
         max-width: 100%;
         margin: var(--header-height) auto 0;
-        padding: 14px var(--horizontal-gap);
+        padding: 14px var(--gutters);
         box-sizing: border-box;
 
         background-color: var(--color-white);
@@ -53,9 +53,16 @@
         }
     }
 
+    .filter-menu-wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 var(--gutters);
+        box-sizing: border-box;
+    }
+
     .main-content {
         flex: 1;
-        padding: 0 var(--horizontal-gap) var(--gutters);
+        padding: 0 var(--gutters) var(--gutters);
 
         .search-section {
             padding: 0 var(--gutters);
@@ -68,6 +75,13 @@
     }
 
     // Breakpoints
+    @media #{$extra-large} {
+        --gutters: 200px;
+
+        .main-content {
+            padding: 0 var(--gutters) var(--gutters);
+        }
+    }
     @media #{$medium} {
         --search-bar-height: 97px;
         --header-height: 113px;
@@ -79,7 +93,7 @@
         --search-bar-height: 164px;
 
         .main-content {
-            padding: 0 var(--horizontal-gap) var(--gutters);
+            padding: 0 var(--gutters) var(--gutters);
 
             .grid-bento-pod {
                 margin-top: 24px;

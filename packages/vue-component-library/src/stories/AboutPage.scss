@@ -52,8 +52,9 @@
     }
 
     .main-content {
+        max-width: 1500px;
         flex: 1;
-        padding: 0 0 48px;
+        padding: 0 0 var(--gutters);
 
         flex-direction: column;
         gap: 64px;
@@ -69,6 +70,13 @@
     }
 
     // Breakpoints
+    @media #{$extra-large} {
+        --gutters: 200px;
+
+        .main-content {
+            padding: 0 var(--gutters) var(--gutters);
+        }
+    }
     @media #{$medium} {
         --search-bar-height: 97px;
         --header-height: 113px;

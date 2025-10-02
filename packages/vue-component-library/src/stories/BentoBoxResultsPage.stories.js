@@ -7,10 +7,9 @@ import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
 import GridBentoPod from '../lib-components/GridBentoPod.vue'
+import BentoFilterMenu from '../lib-components/BentoFilterMenu.vue'
 
 // Import mock data
-import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
-import * as API from './mock-api.json'
 import { bentoBoxResultsData } from './mock/BentoBoxResultsPageMockData.js'
 
 // Import styles
@@ -53,6 +52,7 @@ function Template(args) {
       SmartLink,
       GlobalMenuPanel,
       GridBentoPod,
+      BentoFilterMenu,
     },
     provide() {
       return {
@@ -127,6 +127,17 @@ function Template(args) {
         },
       ]
 
+      // Filter menu items
+      const filterMenuItems = [
+        { label: 'Everything', to: '/search?q=ucla' },
+        { label: 'Images', to: '/search?q=ucla&type=images' },
+        { label: 'Videos', to: '/search?q=ucla&type=videos' },
+        { label: 'Articles', to: '/search?q=ucla&type=articles' },
+        { label: 'Books', to: '/search?q=ucla&type=books' },
+        { label: 'Audio', to: '/search?q=ucla&type=audio' },
+        { label: 'Artwork', to: '/search?q=ucla&type=artwork' },
+      ]
+
       return {
         menuOpened,
         toggleMenu,
@@ -138,6 +149,7 @@ function Template(args) {
         sampleMenuItems,
         sampleSubMenuItems,
         sampleSecondaryItems,
+        filterMenuItems,
         bentoBoxResultsData,
       }
     },
@@ -175,6 +187,11 @@ function Template(args) {
           />
         </div>
 
+        <!-- Filter Menu -->
+        <div class="filter-menu-wrapper">
+          <BentoFilterMenu :items="filterMenuItems" />
+        </div>
+
         <main class="main-content">
           <!-- Bento Box Results -->
           <GridBentoPod :items="bentoBoxResultsData" />
@@ -196,7 +213,7 @@ Default.args = {
   searchDropdownValue: 'All Collections',
   searchDropdownOptions: [
     'All Collections',
-    'Books & E-books',
+    'Books & E-books', 
     'Articles & Journals',
     'Databases',
     'Digital Collections',

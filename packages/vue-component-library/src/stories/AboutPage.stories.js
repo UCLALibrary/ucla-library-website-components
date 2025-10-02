@@ -9,8 +9,6 @@ import BannerFeatured from '../lib-components/BannerFeatured.vue'
 import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
 
 // Import mock data
-import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
-import { mockAboutPage } from './mock/Funkhaus/MockAboutPage'
 import * as API from './mock-api.json'
 
 // Import styles
@@ -153,7 +151,6 @@ function Template(args) {
         args,
         sampleMenuItems,
         sampleSubMenuItems,
-        mockAboutPage,
         missionData,
         aboutData,
         questionsData,
