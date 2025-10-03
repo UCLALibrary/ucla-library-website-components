@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import SvgIconCaretLeft from 'ucla-library-design-tokens/assets/svgs/icon-caret-left.svg'
 import SvgIconCaretRight from 'ucla-library-design-tokens/assets/svgs/icon-caret-right.svg'
 
@@ -18,6 +18,13 @@ const sliderContainer = ref<HTMLElement | null>(null)
 const slider = ref<HTMLInputElement | null>(null)
 const beforeImageElement = ref<HTMLImageElement | null>(null)
 
+// sets height of slider based on image aspect ratio
+const parsedSliderAspectRatio = computed(() => {
+  // calculate aspect ratio
+  const aspectRatio = beforeImage?.width / beforeImage?.height
+  return `${aspectRatio}`
+})
+
 function handleSliderInput(event: Event) {
   const target = event.target as HTMLInputElement
   if (sliderContainer.value && slider.value && beforeImageElement.value)
@@ -26,8 +33,8 @@ function handleSliderInput(event: Event) {
 </script>
 
 <template>
-  <div ref="sliderContainer" class="image-slider">
-    <div class="image-container">
+  <div ref="sliderContainer" class="image-slider" :style="{ aspectRatio: parsedSliderAspectRatio }">
+    <div class="image-container" :style="{ aspectRatio: parsedSliderAspectRatio }">
       <img class="after-image slider-image" :src="afterImage.src" :alt="afterImage.alt">
       <img ref="beforeImageElement" class="before-image slider-image" :src="beforeImage.src" :alt="beforeImage.alt">
       <div class="image-labels">
@@ -70,7 +77,7 @@ function handleSliderInput(event: Event) {
     position: relative;
     display: grid;
     width: 100%;
-    height: 400px;
+    // height: 400px;
     max-width: 1160px;
     place-content: center;
     position: relative;
@@ -79,14 +86,13 @@ function handleSliderInput(event: Event) {
     .image-container {
         width: 100%;
         max-width: 1160px;
-        max-height: 90vh;
+        // max-height: 90vh;
         overflow: hidden;
-        aspect-ratio: 2/1;
+        // aspect-ratio: 2/1;
 
         :deep(img) {
           display: block;
           max-width: 100%;
-
         }
       }
 }
@@ -116,7 +122,7 @@ function handleSliderInput(event: Event) {
     resize: horizontal;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    // object-fit: cover;
     object-position: center;
 }
 
