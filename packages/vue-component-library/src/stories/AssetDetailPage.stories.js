@@ -7,8 +7,10 @@ import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 import CollectionOverview from '../lib-components/CollectionOverview.vue'
 import DetailHeader from '../lib-components/DetailHeader.vue'
 import DetailMedia from '../lib-components/DetailMedia.vue'
+import GridMetadata from '../lib-components/GridMetadata.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
+import Button from '../lib-components/Button.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
@@ -54,8 +56,10 @@ function Template(args) {
       CollectionOverview,
       DetailHeader,
       DetailMedia,
+      GridMetadata,
       SmartLink,
       GlobalMenuPanel,
+      Button,
     },
     provide() {
       return {
@@ -134,9 +138,13 @@ function Template(args) {
         sampleSubMenuItems,
       }
     },
-    computed: {},
+    computed: {
+      gridMetadataItems() {
+        return mockAssetDetailDataPage?.gridMetadata?.items || []
+      },
+    },
     template: `
-       <div class="collections-detail-page">
+       <div class="asset-detail-page">
          <!-- Global Menu Panel -->
          <GlobalMenuPanel
            :menu-items="sampleMenuItems"
@@ -177,13 +185,24 @@ function Template(args) {
             :show-divider="true"
           />
 
-          <h1 class="title">{{ mockAssetDetailDataPage.title }}</h1>
+          <h1 class="page-title">{{ mockAssetDetailDataPage.title }}</h1>
 
           <DetailMedia
             :manifest-url="mockAssetDetailDataPage.detailMedia.manifestUrl"
             :title="mockAssetDetailDataPage.detailMedia.title"
             :description="mockAssetDetailDataPage.detailMedia.description"
+            class="detail-media"
           />
+
+          <GridMetadata :items="gridMetadataItems" class="grid-metadata" />
+
+          <div class="button-wrapper">
+            <Button
+              text="Back to Search Results"
+              to="https://www.google.com"
+              color="grey"
+            />
+          </div>
          
         </main>
          

@@ -20,8 +20,6 @@ const emit = defineEmits<{
   click: [event: MouseEvent]
 }>()
 
-const theme = useTheme()
-
 // Computeds
 const classes = computed(() => [
   'button',
