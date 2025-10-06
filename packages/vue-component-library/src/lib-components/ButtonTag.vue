@@ -13,7 +13,9 @@ const props = withDefaults(defineProps<ButtonTagProps>(), {
   label: '',
   variant: ButtonTagVariants.Primary,
   isHighlighted: false,
-}); const SvgArrowRight = defineAsyncComponent(
+})
+
+const SvgArrowRight = defineAsyncComponent(
   () => import('ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg')
 ) // TODO: use the correct icon for this component
 
@@ -68,14 +70,6 @@ const iconMap = {
 const theme = useTheme()
 
 // Computeds
-const classes = computed(() => [
-  'button-tag',
-  theme?.value || '',
-    `is-${props.variant}`,
-    { 'is-highlighted': props.isHighlighted },
-    { 'has-on-click': props.onClick || hasLinkInLabel.value },
-])
-
 const hasLinkInLabel = computed(() => {
   if (typeof props.label === 'string') {
     return props.label.includes('<a')
@@ -92,6 +86,14 @@ const hasLinkInLabel = computed(() => {
   }
   return false
 })
+
+const classes = computed(() => [
+  'button-tag',
+  theme?.value || '',
+    `is-${props.variant}`,
+    { 'is-highlighted': props.isHighlighted },
+    { 'has-on-click': props.onClick || hasLinkInLabel.value },
+])
 
 const isLabelArray = computed(() => {
   return Array.isArray(props.label)

@@ -17,13 +17,13 @@ const theme = useTheme()
 
 const isOpen = ref(false)
 const dropdownRef = ref<HTMLElement | null>(null)
-const parsedOptions = computed(() => {
-  return props.options.filter(option => option !== selected.value)
-})
 const selected = computed(() => {
   if (!props.options || props.options.length === 0)
     return ''
   return props.modelValue ?? props.options[0]
+})
+const parsedOptions = computed(() => {
+  return props.options.filter(option => option !== selected.value)
 })
 const classes = computed(() => {
   return [
@@ -45,8 +45,8 @@ function selectOption(option: string) {
 function handleClickOutside(event: MouseEvent) {
   if (
     isOpen.value
-    && dropdownRef.value
-    && !dropdownRef.value.contains(event.target as Node)
+        && dropdownRef.value
+        && !dropdownRef.value.contains(event.target as Node)
   )
     isOpen.value = false
 }
@@ -54,8 +54,8 @@ function handleClickOutside(event: MouseEvent) {
 function handleFocusOut(event: FocusEvent) {
   if (
     isOpen.value
-    && dropdownRef.value
-    && !dropdownRef.value.contains(event.relatedTarget as Node)
+        && dropdownRef.value
+        && !dropdownRef.value.contains(event.relatedTarget as Node)
   )
     isOpen.value = false
 }
@@ -86,19 +86,14 @@ onBeforeUnmount(() => {
       class="dropdown-field"
       role="button"
       aria-haspopup="listbox"
-      :aria-label="selected ? `Selected: ${selected}` : 'Select an option'
+      :aria-label="
+        selected ? `Selected: ${selected}` : 'Select an option'
       "
       :aria-expanded="isOpen"
       @click="toggleDropdown"
     >
-      <span
-        class="selected-option"
-        v-html="selected"
-      />
-      <IconCaretDown
-        class="arrow"
-        :class="{ open: isOpen }"
-      />
+      <span class="selected-option" v-html="selected" />
+      <IconCaretDown class="arrow" :class="{ open: isOpen }" />
     </div>
     <transition name="dropdown">
       <ul
@@ -116,10 +111,7 @@ onBeforeUnmount(() => {
           :aria-selected="option === selected"
           @click="selectOption(option as string)"
         >
-          <span
-            class="option-content"
-            v-html="option"
-          />
+          <span class="option-content" v-html="option" />
         </li>
       </ul>
     </transition>
