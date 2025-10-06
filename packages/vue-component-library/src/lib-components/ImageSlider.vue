@@ -177,6 +177,6 @@ function handleSliderInput(event: Event) {
     left: var(--position);
     transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 1;
+    z-index: 100;
 }
 </style>

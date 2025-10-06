@@ -68,13 +68,6 @@ const isLinkCopiedClass = computed(() => [
   { 'is-link-copied': isLinkCopied.value },
 ])
 
-const currentFullUrl = computed(() => {
-  if (typeof window === 'undefined')
-    return ''
-
-  return window.location.origin + route.fullPath
-})
-
 // Event data computations
 const parsedLocation = computed(() => {
   const evtUrl = location[0]?.publicUrl
@@ -125,7 +118,7 @@ function handleActbExpandedStyle(e) {
 - Show "Copied Link" icon for 4secs
 */
 function handleCopiedLink() {
-  navigator.clipboard.writeText(currentFullUrl.value)
+  navigator.clipboard.writeText(route.fullPath)
   isLinkCopied.value = true
 
   setTimeout(() => {
@@ -200,7 +193,7 @@ const parsedClasses = computed(() => {
         >
           <!-- "Send to Email" -->
           <span v-if="item.dropdownItemTitle === 'Email'"><a
-            :href="`mailto:?&body=${currentFullUrl}`"
+            :href="`mailto:?&body=${route.fullPath}`"
             class="email-icon"
           >
             <IconWithLink
@@ -220,7 +213,7 @@ const parsedClasses = computed(() => {
               :text="item.dropdownItemTitle"
               :icon-name="item.iconName"
               class="not-smart-link"
-              @click="handleCopiedLink()"
+              @click="handleCopiedLink(route.fullPath)"
             />
 
             <IconWithLink
@@ -236,7 +229,7 @@ const parsedClasses = computed(() => {
             v-else
             :text="item.dropdownItemTitle"
             :icon-name="item.iconName"
-            :to="`${item.dropdownItemUrl}${currentFullUrl}`"
+            :to="`${item.dropdownItemUrl}${route.fullPath}`"
           />
         </div>
       </template>
