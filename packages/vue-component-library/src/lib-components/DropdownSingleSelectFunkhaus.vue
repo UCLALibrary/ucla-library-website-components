@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
       role="button"
       aria-haspopup="listbox"
       :aria-label="selected ? `Selected: ${selected}` : 'Select an option'
-        "
+      "
       :aria-expanded="isOpen"
       @click="toggleDropdown"
     >

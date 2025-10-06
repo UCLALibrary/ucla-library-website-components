@@ -30,7 +30,7 @@ function Template(args) {
     <div style="margin-top: 1em;">Selected: {{ selected }}</div>
   `,
   }
-} 
+}
 
 export const Default = Template.bind({})
 Default.args = {
