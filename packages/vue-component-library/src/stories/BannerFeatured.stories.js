@@ -1,7 +1,7 @@
+import { computed } from 'vue'
 import BannerFeatured from '@/lib-components/BannerFeatured'
 import HeadingArrow from '@/lib-components/HeadingArrow'
 import BlockFormData from '@/stories/mock/BlockFormData.json'
-import { computed } from 'vue'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'

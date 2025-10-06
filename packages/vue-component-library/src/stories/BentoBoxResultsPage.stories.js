@@ -213,7 +213,7 @@ Default.args = {
   searchDropdownValue: 'All Collections',
   searchDropdownOptions: [
     'All Collections',
-    'Books & E-books', 
+    'Books & E-books',
     'Articles & Journals',
     'Databases',
     'Digital Collections',

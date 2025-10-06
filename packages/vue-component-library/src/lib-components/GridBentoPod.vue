@@ -5,7 +5,7 @@ import BentoPod from './BentoPod.vue'
 import { useTheme } from '@/composables/useTheme'
 
 // Props
-type GridBentoPodProps = {
+interface GridBentoPodProps {
   items: Array<{
     id: string
     title: string

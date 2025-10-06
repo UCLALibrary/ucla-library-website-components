@@ -7,7 +7,7 @@ describe('Funkhaus / Bento Filter Menu', () => {
     cy.get('.bento-filter-menu').should('have.class', 'dlc')
     cy.get('.bento-filter-menu-item').should('have.length', 7)
     cy.get('.bento-filter-menu-link').should('have.length', 7)
-    
+
     // Check specific items
     cy.get('.bento-filter-menu-link').first().should('contain.text', 'Everything')
     cy.get('.bento-filter-menu-link').eq(1).should('contain.text', 'Images')
@@ -38,4 +38,3 @@ describe('Funkhaus / Bento Filter Menu', () => {
     cy.get('.bento-filter-menu-link').should('be.visible')
   })
 })
-
