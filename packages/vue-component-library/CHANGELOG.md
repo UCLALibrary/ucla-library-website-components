@@ -1,3 +1,24 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.33.1...@ucla-library-monorepo/ucla-library-website-components-v1.34.0) (2025-10-02)
+
+
+### Features
+
+* Add dlc theme to SearchInput ([#808](https://github.com/UCLALibrary/ucla-library-website-components/issues/808)) ([5f7ae9e](https://github.com/UCLALibrary/ucla-library-website-components/commit/5f7ae9eb150e863724eededf8b24a8041415df16))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.33.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.33.0...@ucla-library-monorepo/ucla-library-website-components-v1.33.1) (2025-10-02)
+
+
+### Bug Fixes
+
+* APPS-3452 Update FlexibleInfoBlock mock data ([#830](https://github.com/UCLALibrary/ucla-library-website-components/issues/830)) ([dc81648](https://github.com/UCLALibrary/ucla-library-website-components/commit/dc8164850c395c845f528905b652ea248476626d))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.33.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.32.1...@ucla-library-monorepo/ucla-library-website-components-v1.33.0) (2025-10-01)
+
+
+### Features
+
+* Add BlockButtons ([#810](https://github.com/UCLALibrary/ucla-library-website-components/issues/810)) ([b179221](https://github.com/UCLALibrary/ucla-library-website-components/commit/b179221d32fbfc7f366d7331a25992a21e66abe1))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.32.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.32.0...@ucla-library-monorepo/ucla-library-website-components-v1.32.1) (2025-09-30)
 
 
