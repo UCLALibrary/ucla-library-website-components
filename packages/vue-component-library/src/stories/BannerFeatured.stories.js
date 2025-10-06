@@ -372,6 +372,11 @@ export function WithBlockForm() {
     provide() {
       return {
         theme: computed(() => ''),
+        // explicitly provide a computed property
+        eventId: '9383207',
+        blockFormData: BlockFormData.mock0,
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        registrationType: 'in-person',
       }
     },
     data() {
@@ -379,13 +384,6 @@ export function WithBlockForm() {
         ...mock,
         ...BlockFormData,
       }
-    },
-    provide: {
-      // explicitly provide a computed property
-      eventId: '9383207',
-      blockFormData: BlockFormData.mock0,
-      libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
-      registrationType: 'in-person',
     },
     components: { BannerFeatured },
     template: `
@@ -512,18 +510,19 @@ export function DLCLeftAligned() {
 const mockHelpSection = {
   image: API.image,
   title: 'Have other Questions?',
-  description: 'We\'re here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.',
+  description:
+        'We\'re here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.',
   prompt: 'Click Here for UCLA Library Locations',
   alignRight: true,
   secondaryButtons: [
     {
       label: 'UCLA Library Locations',
-      to: '/visit/locations/'
+      to: '/visit/locations/',
     },
     {
       label: 'Contact Us',
-      to: '/contact/'
-    }
+      to: '/contact/',
+    },
   ],
 }
 
