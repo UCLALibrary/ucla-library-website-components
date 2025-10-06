@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useTheme } from '@/composables/useTheme'
-import { SearchResultsCountVariants, type SearchResultsCountProps } from '@/types/components/SearchResultsCountTypes'
+import { type SearchResultsCountProps, SearchResultsCountVariants } from '@/types/components/SearchResultsCountTypes'
 
 const props = withDefaults(defineProps<SearchResultsCountProps>(), {
   animate: false,
@@ -77,8 +77,8 @@ onUnmounted(() => {
 <template>
   <div :class="classes">
     <span
-      class="parsed-results"
       v-if="props.variant === SearchResultsCountVariants.VERTICAL"
+      class="parsed-results"
     >
       {{ parsedResults }}
     </span>
@@ -89,8 +89,8 @@ onUnmounted(() => {
       <span>{{ animatedCount }}</span>
     </div>
     <span
-      class="parsed-results"
       v-if="props.variant === SearchResultsCountVariants.HORIZONTAL"
+      class="parsed-results"
     >{{ suffixLabel }}</span>
   </div>
 </template>

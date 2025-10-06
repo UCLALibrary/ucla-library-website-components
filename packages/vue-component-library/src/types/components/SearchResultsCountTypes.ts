@@ -1,6 +1,6 @@
 export enum SearchResultsCountVariants {
   VERTICAL = 'primary',
-  HORIZONTAL = "secondary"
+  HORIZONTAL = 'secondary'
 }
 
 export interface SearchResultsCountProps {
