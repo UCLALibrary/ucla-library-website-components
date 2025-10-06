@@ -1,7 +1,7 @@
 describe('Funkhaus / Search Field Composite', () => {
   it('Default', () => {
     cy.visit(
-      '/iframe.html?id=funkhaus-searchfieldcomposite--default&args=&viewMode=story'
+      '/iframe.html?id=funkhaus-search-field-composite--default&args=&viewMode=story'
     )
     cy.get('.search-field-composite').should('exist')
 
