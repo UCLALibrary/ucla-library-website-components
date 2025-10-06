@@ -26,16 +26,21 @@ const theme = useTheme()
 
 // Computed
 const classes = computed(() => {
-  return ['header-main-funkahus', theme?.value || '', { 'menu-opened': props.menuOpened }]
+  return [
+    'header-main-funkahus',
+    theme?.value || '',
+    { 'menu-opened': props.menuOpened },
+  ]
 })
 
 const parsedSubMenuItems = computed(() => {
   return props.secondaryItems.map((item) => {
-    const supportUsClass = item.label?.toLowerCase() === 'support us' ? ' support-us' : ''
+    const supportUsClass
+            = item.label?.toLowerCase() === 'support us' ? ' support-us' : ''
 
     return {
       ...item,
-      classes: supportUsClass
+      classes: supportUsClass,
     }
   })
 })
@@ -54,10 +59,7 @@ function handleAccountButtonClick() {
   <div :class="classes">
     <SiteBrandBar class="brand-bar" />
 
-    <ul
-      v-if="showSecondary"
-      class="container-secondary show-desktop"
-    >
+    <ul v-if="showSecondary" class="container-secondary show-desktop">
       <li
         v-for="item in parsedSubMenuItems"
         :key="item.label"
@@ -72,18 +74,12 @@ function handleAccountButtonClick() {
         </SmartLink>
       </li>
 
-      <button
-        class="account-button"
-        @click="handleAccountButtonClick"
-      >
+      <button class="account-button" @click="handleAccountButtonClick">
         My Account
       </button>
     </ul>
     <div class="container">
-      <SmartLink
-        to="/"
-        class="ucla-dlc-logo-link"
-      >
+      <SmartLink to="/" class="ucla-dlc-logo-link">
         <SvgLibraryLogo
           class="ucla-dlc-logo"
           alt="UCLA Library Digital Collections logo"
