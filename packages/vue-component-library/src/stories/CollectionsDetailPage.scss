@@ -51,12 +51,20 @@
         }
     }
 
+    .collection-overview {
+        margin-bottom: 48px;
+    }
+
     .main-content {
         flex: 1;
         padding: 0 var(--gutters) 48px;
         max-width: 1600px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .grid-metadata {
+        margin-bottom: 48px;
     }
 
     .search-field-composite {
@@ -75,7 +83,7 @@
     }
 
     .button-more {
-        margin: 300px auto 90px;
+        margin: 0 auto 90px;
         max-width: unset;
         padding-inline: var(--gutters);
     }

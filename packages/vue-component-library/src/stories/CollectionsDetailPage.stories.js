@@ -6,13 +6,14 @@ import FooterMain from '../lib-components/FooterMain.vue'
 import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 import CollectionOverview from '../lib-components/CollectionOverview.vue'
 import GridAssets from '../lib-components/GridAssets.vue'
+import GridMetadata from '../lib-components/GridMetadata.vue'
 import ButtonMore from '../lib-components/ButtonMore.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
-import { mockCollectionsDataPage } from './mock/Funkhaus/MockCollectionsDataPage'
+import { mockCollectionsDataPage } from './mock/Funkhaus/MockCollectionsDetailPage'
 
 // Import styles
 import './CollectionsDetailPage.scss'
@@ -53,6 +54,7 @@ function Template(args) {
       SearchFieldComposite,
       CollectionOverview,
       GridAssets,
+      GridMetadata,
       ButtonMore,
       SmartLink,
       GlobalMenuPanel,
@@ -151,6 +153,9 @@ function Template(args) {
 
         return parsedItems
       },
+      gridMetadataItems() {
+        return mockCollectionsDataPage?.gridMetadata?.items || []
+      },
     },
     template: `
        <div class="collections-detail-page">
@@ -192,10 +197,10 @@ function Template(args) {
             :block-buttons="mockCollectionsDataPage.collectionOverview.blockButtons"
             :description="mockCollectionsDataPage.collectionOverview.description"
             :image="mockCollectionsDataPage.collectionOverview.image"
+            class="collection-overview"
           />
 
-          
-
+          <GridMetadata :items="gridMetadataItems" class="grid-metadata" />
 
           <ButtonMore
               class="button-more"

@@ -1,5 +1,5 @@
-import * as API from '../../../stories/mock-api.json'
-import { ButtonLinkIcons } from './../../../types/components/buttonLink.types'
+import * as API from '../../mock-api.json'
+import { ButtonLinkIcons } from '../../../types/components/buttonLink.types'
 
 // Mock collections single page
 export const mockCollectionsDataPage = {
@@ -162,6 +162,100 @@ export const mockCollectionsDataPage = {
         description:
                     'HOME AGAIN-Margaret O\'Brien, 11-year-old film star returns to Southland from 22 days of travel abroad. She holds a doll which was given her on visit to Paris.',
         date: 'May 24, 1948',
+      },
+    ],
+  },
+  gridMetadata: {
+    items: [
+      {
+        title: 'Access Information',
+        items: [
+          {
+            label: 'Access Condition',
+            value: { text: 'copyrighted' },
+          },
+          {
+            label: 'Rights Statement',
+            value: {
+              text: 'UCLA Library Special Collections, A1713',
+            },
+          },
+          {
+            label: 'Rights Contact',
+            value: {
+              text: 'Charles E. Young Research Library, Box 951575, Los Angeles, CA 90095-1575.<br>Email: <a href="mailto:spec-coll@library.ucla.edu">spec-coll@library.ucla.edu</a>. Phone: <a href="tel:310 825-4988">(310) 825-4988</a>',
+            },
+          },
+        ],
+      },
+      {
+        title: 'Technical Details',
+        items: [
+          {
+            label: 'License',
+            image: API.image,
+            value: {
+              text: 'This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International</a>',
+            },
+          },
+          {
+            label: 'Manifest URL',
+            showButtonIiif: true,
+            buttonIiifTo:
+                            'https://www.figma.com/design/CDhWDARLb36ftkQce1LyLC/Breakpoints?node-id=75-12920&m=dev',
+            value: [
+              {
+                label: 'Copy URL',
+                variant: 'secondary',
+                isOutlined: true,
+                copyOnClick: true,
+                copyUrl:
+                                    'https://example.com/resource/123?ref=storybook',
+              },
+              {
+                label: 'Download',
+                variant: 'secondary',
+                isOutlined: true,
+                to: '/src/assets/vue.svg',
+                isDownload: true,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: 'Collection Information',
+        items: [
+          {
+            label: 'Collection',
+            value: { text: 'UCLA Digital Library' },
+            image: API.image,
+          },
+          {
+            label: 'Resource',
+            value: {
+              text: '<a href=\'https://ucla.edu\'>UCLA Homepage</a>',
+            },
+            image: API.image,
+          },
+        ],
+      },
+      {
+        title: 'Publication Details',
+        items: [
+          {
+            label: 'Publisher',
+            value: { text: 'UCLA Press' },
+          },
+          {
+            label: 'Publication Date',
+            value: { text: '2024' },
+          },
+          {
+            label: 'ISBN',
+            value: { text: '978-0-123456-78-9' },
+          },
+        ],
       },
     ],
   },
