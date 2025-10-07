@@ -175,7 +175,10 @@ function Template(args) {
            :menu-items="sampleMenuItems"
          />
 
-         <div class="search-field-composite-wrapper">
+
+
+        <main class="main-content">
+          <div class="search-field-composite-wrapper">
            <SearchFieldComposite
              class='search-bar'
              :initial-value="args.searchInitialValue || searchValue"
@@ -187,9 +190,9 @@ function Template(args) {
              @submit="handleSearchSubmit"
              @update:dropdown-model-value="handleDropdownUpdate"
            />
-         </div>
+          </div>
 
-        <main class="main-content">
+
           <CollectionOverview
             :title="mockCollectionsDataPage.collectionOverview.title"
             :subtitle="mockCollectionsDataPage.collectionOverview.subtitle"

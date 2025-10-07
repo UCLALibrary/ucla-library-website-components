@@ -23,7 +23,7 @@ export default {
     docs: {
       description: {
         component:
-          'A single page layout with header, main content area, and footer. This serves as a template for bento box results pages.',
+                    'A single page layout with header, main content area, and footer. This serves as a template for bento box results pages.',
       },
     },
   },
@@ -173,26 +173,28 @@ function Template(args) {
           :menu-items="sampleMenuItems"
         />
 
-        <div class="search-field-composite-wrapper">
-          <SearchFieldComposite
-            class='search-bar'
-            :initial-value="args.searchInitialValue"
-            :placeholder="args.searchPlaceholder"
-            :dropdown-model-value="dropdownValue"
-            :dropdown-options="args.searchDropdownOptions"
-            :dropdown-placeholder="args.searchDropdownPlaceholder"
-            :show-divider="true"
-            @submit="handleSearchSubmit"
-            @update:dropdown-model-value="handleDropdownUpdate"
-          />
-        </div>
 
-        <!-- Filter Menu -->
-        <div class="filter-menu-wrapper">
-          <BentoFilterMenu :items="filterMenuItems" />
-        </div>
 
         <main class="main-content">
+          <div class="search-field-composite-wrapper">
+            <SearchFieldComposite
+              class='search-bar'
+              :initial-value="args.searchInitialValue"
+              :placeholder="args.searchPlaceholder"
+              :dropdown-model-value="dropdownValue"
+              :dropdown-options="args.searchDropdownOptions"
+              :dropdown-placeholder="args.searchDropdownPlaceholder"
+              :show-divider="true"
+              @submit="handleSearchSubmit"
+              @update:dropdown-model-value="handleDropdownUpdate"
+            />
+          </div>
+
+          <!-- Filter Menu -->
+          <div class="filter-menu-wrapper">
+            <BentoFilterMenu :items="filterMenuItems" />
+          </div>
+
           <!-- Bento Box Results -->
           <GridBentoPod :items="bentoBoxResultsData" />
         </main>

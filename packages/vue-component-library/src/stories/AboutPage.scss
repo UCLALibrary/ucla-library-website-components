@@ -1,6 +1,5 @@
 .about-page {
     --gutters: 48px;
-    --horizontal-gap: 64px;
     --header-height: 121px;
     --search-bar-height: 118px;
 
@@ -37,44 +36,35 @@
         }
     }
 
-    .search-field-composite-wrapper {
+    .main-content {
+        max-width: 1600px;
+        flex: 1;
         width: 100%;
-        max-width: 100%;
+        padding-bottom: 48px;
         margin: var(--header-height) auto 0;
-        padding: 14px var(--horizontal-gap);
-        box-sizing: border-box;
-
-        background-color: var(--color-white);
-
-        :deep(input) {
-            margin: 0;
-        }
     }
 
-    .main-content {
-        max-width: 1500px;
-        flex: 1;
-        padding: 0 0 var(--gutters);
+    .search-field-composite-wrapper {
+        padding: 0 var(--gutters);
+    }
 
-        flex-direction: column;
-        gap: 64px;
+    .search-field-composite {
+        margin-top: 14px;
+    }
 
-        .search-section {
-            padding: 0 var(--gutters);
-            margin-bottom: 48px;
-        }
-
-        .questions-section {
-            padding-bottom: 64px;
-        }
+    .mission-section,
+    .about-section,
+    .questions-section {
+        padding-bottom: var(--space-2xl);
     }
 
     // Breakpoints
     @media #{$extra-large} {
-        --gutters: 200px;
-
         .main-content {
-            padding: 0 var(--gutters) var(--gutters);
+            padding: 0 var(--gutters);
+        }
+        .search-field-composite-wrapper {
+            padding: 0;
         }
     }
     @media #{$medium} {
@@ -84,7 +74,6 @@
     @media #{$small} {
         --header-height: 103px;
         --gutters: 24px;
-        --horizontal-gap: 10px;
         --search-bar-height: 164px;
     }
 }

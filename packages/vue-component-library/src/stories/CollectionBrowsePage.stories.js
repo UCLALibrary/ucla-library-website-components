@@ -143,21 +143,23 @@ function Template(args) {
            :menu-items="sampleMenuItems"
          />
 
-         <div class="search-field-composite-wrapper">
-           <SearchFieldComposite
-             class='search-bar'
-             :initial-value="args.searchInitialValue"
-             :placeholder="args.searchPlaceholder"
-             :dropdown-model-value="dropdownValue"
-             :dropdown-options="args.searchDropdownOptions"
-             :dropdown-placeholder="args.searchDropdownPlaceholder"
-             :show-divider="args.searchShowDivider"
-             @submit="handleSearchSubmit"
-             @update:dropdown-model-value="handleDropdownUpdate"
-           />
-         </div>
+
 
         <main class="main-content">
+            <div class="search-field-composite-wrapper">
+              <SearchFieldComposite
+                class='search-bar'
+                :initial-value="args.searchInitialValue"
+                :placeholder="args.searchPlaceholder"
+                :dropdown-model-value="dropdownValue"
+                :dropdown-options="args.searchDropdownOptions"
+                :dropdown-placeholder="args.searchDropdownPlaceholder"
+                :show-divider="args.searchShowDivider"
+                @submit="handleSearchSubmit"
+                @update:dropdown-model-value="handleDropdownUpdate"
+              />
+            </div>
+
             This is going to be the collection browse page
             <pre>{{ mockCollectionsBrowsePage }}</pre>
         </main>
