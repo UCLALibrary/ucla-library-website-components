@@ -15,10 +15,14 @@ interface FilterGroupsTypes {
   searchField: string
   options: string[]
 }
-const { filterGroups } = defineProps({
+const { filterGroups, limitOptions } = defineProps({
   filterGroups: {
     type: Array as PropType<FilterGroupsTypes[]>,
     default: () => [],
+  },
+  limitOptions: {
+    type: Boolean,
+    default: false
   }
 })
 const emit = defineEmits(['update-display'])
@@ -28,6 +32,7 @@ interface SelectedFiltersTypes {
 }
 const selectedFilters = defineModel('selectedFilters', { type: Object as PropType<SelectedFiltersTypes>, required: true, default: {} })
 // FUNCTIONS
+
 // calc # for UI '# selected' display
 const numOfSelectedFilters = computed(() => {
   let count = 0
@@ -38,6 +43,19 @@ const numOfSelectedFilters = computed(() => {
   }
   return count
 })
+
+// Limit options for each filter group if limitOptions is true
+const limitedFilterGroups = computed(() => {
+  if (!limitOptions) {
+    return filterGroups
+  }
+
+  return filterGroups.map(group => ({
+    ...group,
+    options: group.options.slice(0, 10)
+  }))
+})
+
 // check if option is selected so we can display 'x' SVG
 function isSelected(searchField: string, option: string) {
   // check if selectedFilter object has any keys, fail gracefully if it doesn't
@@ -46,12 +64,14 @@ function isSelected(searchField: string, option: string) {
 
   return selectedFilters.value[searchField].includes(option)
 }
+
 // Clear Button Click / clear all selected filters
 function clearFilters() {
-  for (const group of filterGroups)
+  for (const group of limitedFilterGroups.value)
     selectedFilters.value[group.searchField] = []
   emit('update-display', selectedFilters.value)
 }
+
 // Done Button Click / emit selected filters to parent
 function onDoneClick() {
   emit('update-display', selectedFilters.value)
@@ -89,18 +109,33 @@ onMounted(() => {
       </template>
       <template #dropdownItems="{ removeOverlay }">
         <div class="dropdown-filter">
-          <div v-for="group in filterGroups" :key="group.name" class="filter-group">
+          <div
+            v-for="group in limitedFilterGroups"
+            :key="group.name"
+            class="filter-group"
+          >
             <h3>{{ group.name }}</h3>
             <div class="pills">
               <!-- <label> must wrap <input> for accessbility fuctionality -->
-              <label v-for="option in group.options" :key="option" class="pill-label">
+              <label
+                v-for="option in group.options"
+                :key="option"
+                class="pill-label"
+              >
                 <!-- Hidden checkbox for managing selection & screen-reader user interaction -->
                 <input
-                  :id="option" v-model="selectedFilters[group.searchField]" type="checkbox" class="pill-checkbox"
-                  :name="option" :value="option"
+                  :id="option"
+                  v-model="selectedFilters[group.searchField]"
+                  type="checkbox"
+                  class="pill-checkbox"
+                  :name="option"
+                  :value="option"
                 >
                 <!-- BlockTag component for display -->
-                <BlockTag :label="option" :is-secondary="true">
+                <BlockTag
+                  :label="option"
+                  :is-secondary="true"
+                >
                   <!-- 'x' SVG only shows when selected -->
                   <template v-if="isSelected(group.searchField, option)">
                     <SvgGlyphX class="close-icon" />
@@ -111,11 +146,15 @@ onMounted(() => {
           </div>
           <div class="action-row">
             <ButtonLink
-              class="action-row-button select-button" label="Done" icon-name="none"
+              class="action-row-button select-button"
+              label="Done"
+              icon-name="none"
               @click="onDoneClick(); removeOverlay();"
             />
             <ButtonLink
-              class="action-row-button clear-button" label="Clear" icon-name="icon-close"
+              class="action-row-button clear-button"
+              label="Clear"
+              icon-name="icon-close"
               @click="clearFilters"
             />
           </div>

@@ -19,11 +19,13 @@ interface FilterProps {
   }>
   opened?: boolean
   preventClose?: boolean
+  limitOptions?: boolean
 }
 
 withDefaults(defineProps<FilterProps>(), {
   opened: true,
-  preventClose: false
+  preventClose: false,
+  limitOptions: false
 })
 
 // Emit events
@@ -67,6 +69,7 @@ const classes = computed(() => ['refine-search-panel', theme?.value || ''])
     <FilterDropdown
       title=""
       :filters="filters"
+      :limit-options="limitOptions"
       @selection-change="$emit('selection-change', $event)"
       @option-selected="(filterName, option) => $emit('option-selected', filterName, option)"
       @option-deselected="(filterName, option) => $emit('option-deselected', filterName, option)"

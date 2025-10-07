@@ -466,3 +466,225 @@ export function MultipleCustomSlots() {
     `
   }
 }
+
+// Create filters with many options to demonstrate the limiting feature
+const filtersWithManyOptions = [
+  {
+    name: 'Subject',
+    slotName: 'subject',
+    options: Array.from({ length: 25 }, (_, i) => ({
+      label: `Subject ${i + 1}`,
+      value: `subject-${i + 1}`,
+      count: Math.floor(Math.random() * 10000) + 1000
+    })),
+    showAll: true
+  },
+  {
+    name: 'Resource Type',
+    slotName: 'resourceType',
+    options: Array.from({ length: 15 }, (_, i) => ({
+      label: `Resource Type ${i + 1}`,
+      value: `resource-${i + 1}`,
+      count: Math.floor(Math.random() * 5000) + 500
+    })),
+    showAll: true
+  },
+  {
+    name: 'Genre',
+    slotName: 'genre',
+    options: Array.from({ length: 20 }, (_, i) => ({
+      label: `Genre ${i + 1}`,
+      value: `genre-${i + 1}`,
+      count: Math.floor(Math.random() * 8000) + 200
+    })),
+    showAll: true
+  }
+]
+
+export function WithLimitedOptions() {
+  return {
+    components: { RefineSearchPanel },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        filters: filtersWithManyOptions,
+        selectedOptions: {},
+        eventLog: []
+      }
+    },
+    methods: {
+      onSelectionChange(selections) {
+        this.selectedOptions = selections
+        const totalSelections = Object.values(selections).reduce((sum, arr) => sum + arr.length, 0)
+        this.addToLog('📊 Selection Changed', `Total selections: ${totalSelections}`)
+      },
+      onOptionSelected(filterName, option) {
+        this.addToLog('✅ Option Selected', `${filterName} → ${option.label}`)
+      },
+      onOptionDeselected(filterName, option) {
+        this.addToLog('❌ Option Deselected', `${filterName} → ${option.label}`)
+      },
+      addToLog(type, message) {
+        const timestamp = new Date().toLocaleTimeString()
+        this.eventLog.unshift({ type, message, timestamp })
+        // Keep only last 10 events
+        if (this.eventLog.length > 10)
+          this.eventLog = this.eventLog.slice(0, 10)
+      }
+    },
+    template: `
+      <div class="story-container">
+        <div class="story-description">
+          <h3>Limited Options Demo</h3>
+          <p>This story demonstrates the <code>limitOptions</code> prop functionality. Each filter is limited to showing only the first 10 options, even though the data contains more options.</p>
+          <p><strong>Note:</strong> Each filter has 15-25 options in the data, but only the first 10 are displayed when <code>limitOptions</code> is enabled.</p>
+        </div>
+        
+        <RefineSearchPanel 
+          title='REFINE SEARCH (Limited Options)' 
+          :filters="filters"
+          :limit-options="true"
+          @selection-change="onSelectionChange"
+          @option-selected="onOptionSelected"
+          @option-deselected="onOptionDeselected"
+        />
+        
+        <!-- Display selected options -->
+        <div class="selected-options-container">
+          <h4 class="selected-options-title">Selected Options Object:</h4>
+          <pre class="selected-options-json">{{ JSON.stringify(selectedOptions, null, 2) }}</pre>
+        </div>
+
+        <!-- Event Log -->
+        <div class="event-log-container">
+          <h4 class="event-log-title">
+            <span class="event-log-icon">📋</span>
+            Event Log
+            <span class="event-log-counter">{{ eventLog.length }} events</span>
+          </h4>
+          <div class="event-log-content">
+            <div v-for="(event, index) in eventLog" :key="index" class="event-item">
+              <div class="event-header">
+                <span class="event-type">{{ event.type }}</span>
+                <span class="event-timestamp">{{ event.timestamp }}</span>
+              </div>
+              <div class="event-message">{{ event.message }}</div>
+            </div>
+            <div v-if="eventLog.length === 0" class="event-log-empty">
+              <div class="event-log-empty-icon">🎯</div>
+              <div class="event-log-empty-text">No events yet. Interact with the filters to see events here.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+  }
+}
+
+export function ComparisonUnlimitedVsLimited() {
+  return {
+    components: { RefineSearchPanel },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        filters: filtersWithManyOptions,
+        selectedOptionsUnlimited: {},
+        selectedOptionsLimited: {},
+        eventLog: []
+      }
+    },
+    methods: {
+      onSelectionChangeUnlimited(selections) {
+        this.selectedOptionsUnlimited = selections
+        this.addToLog('📊 Unlimited Selection Changed', `Total selections: ${Object.values(selections).reduce((sum, arr) => sum + arr.length, 0)}`)
+      },
+      onSelectionChangeLimited(selections) {
+        this.selectedOptionsLimited = selections
+        this.addToLog('📊 Limited Selection Changed', `Total selections: ${Object.values(selections).reduce((sum, arr) => sum + arr.length, 0)}`)
+      },
+      onOptionSelected(filterName, option) {
+        this.addToLog('✅ Option Selected', `${filterName} → ${option.label}`)
+      },
+      onOptionDeselected(filterName, option) {
+        this.addToLog('❌ Option Deselected', `${filterName} → ${option.label}`)
+      },
+      addToLog(type, message) {
+        const timestamp = new Date().toLocaleTimeString()
+        this.eventLog.unshift({ type, message, timestamp })
+        // Keep only last 15 events
+        if (this.eventLog.length > 15)
+          this.eventLog = this.eventLog.slice(0, 15)
+      }
+    },
+    template: `
+      <div class="story-container-wide">
+        <div class="story-description">
+          <h3>Comparison: Unlimited vs Limited Options</h3>
+          <p>This story shows a side-by-side comparison of the same filter data with and without the <code>limitOptions</code> prop enabled.</p>
+        </div>
+        
+        <div class="comparison-container">
+          <div class="comparison-panel">
+            <h4>Unlimited Options (All Options Shown)</h4>
+            <RefineSearchPanel 
+              title='UNLIMITED OPTIONS' 
+              :filters="filters"
+              :limit-options="false"
+              @selection-change="onSelectionChangeUnlimited"
+              @option-selected="onOptionSelected"
+              @option-deselected="onOptionDeselected"
+            />
+            <div class="selection-summary">
+              <strong>Selected:</strong> {{ Object.values(selectedOptionsUnlimited).reduce((sum, arr) => sum + arr.length, 0) }} options
+            </div>
+          </div>
+          
+          <div class="comparison-panel">
+            <h4>Limited Options (Max 10 per Filter)</h4>
+            <RefineSearchPanel 
+              title='LIMITED OPTIONS' 
+              :filters="filters"
+              :limit-options="true"
+              @selection-change="onSelectionChangeLimited"
+              @option-selected="onOptionSelected"
+              @option-deselected="onOptionDeselected"
+            />
+            <div class="selection-summary">
+              <strong>Selected:</strong> {{ Object.values(selectedOptionsLimited).reduce((sum, arr) => sum + arr.length, 0) }} options
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Log -->
+        <div class="event-log-container">
+          <h4 class="event-log-title">
+            <span class="event-log-icon">📋</span>
+            Event Log
+            <span class="event-log-counter">{{ eventLog.length }} events</span>
+          </h4>
+          <div class="event-log-content">
+            <div v-for="(event, index) in eventLog" :key="index" class="event-item">
+              <div class="event-header">
+                <span class="event-type">{{ event.type }}</span>
+                <span class="event-timestamp">{{ event.timestamp }}</span>
+              </div>
+              <div class="event-message">{{ event.message }}</div>
+            </div>
+            <div v-if="eventLog.length === 0" class="event-log-empty">
+              <div class="event-log-empty-icon">🎯</div>
+              <div class="event-log-empty-text">No events yet. Interact with the filters to see events here.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `
+  }
+}
