@@ -6,6 +6,11 @@ import FooterMain from '../lib-components/FooterMain.vue'
 import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
+import ButtonTag from '../lib-components/ButtonTag.vue'
+import DropdownSingleSelectFunkhaus from '../lib-components/DropdownSingleSelectFunkhaus.vue'
+import ButtonPageView from '../lib-components/ButtonPageView.vue'
+import SearchResultsCount from '../lib-components/SearchResultsCount.vue'
+import router from '@/router'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
@@ -50,6 +55,10 @@ function Template(args) {
       SearchFieldComposite,
       SmartLink,
       GlobalMenuPanel,
+      ButtonTag,
+      DropdownSingleSelectFunkhaus,
+      ButtonPageView,
+      SearchResultsCount,
     },
     provide() {
       return {
@@ -74,6 +83,53 @@ function Template(args) {
         dropdownValue.value = value
         // Dropdown updated
       }
+
+      // Sample breadcrumb data for search filters
+      const breadcrumbData = ref([
+        { text: 'All Collections', to: '/search?category=all' },
+        { text: 'Books & E-books', to: '/search?category=books' },
+        { text: 'Fiction', to: '/search?category=books&type=fiction' },
+        { text: 'Mystery', to: '/search?category=books&type=fiction&genre=mystery' }
+      ])
+
+      const clearAllFilters = () => {
+        breadcrumbData.value = []
+        // Reset search and filters
+        submittedValue.value = ''
+        dropdownValue.value = 'All Collections'
+        // You could also emit an event or call a parent method to reset the search
+        console.log('All filters cleared')
+      }
+
+      // Search results data
+      const searchResultsCount = ref(1247)
+      const searchResultsPrefix = ref('Catalogue')
+      const searchResultsLabel = ref('Results')
+      const searchResultsAnimate = ref(true)
+
+      // Sort dropdown data
+      const sortOptions = ref([
+        'Relevance',
+        'Date (Newest First)',
+        'Date (Oldest First)',
+        'Title (A-Z)',
+        'Title (Z-A)',
+        'Author (A-Z)',
+        'Author (Z-A)'
+      ])
+      const selectedSort = ref('Relevance')
+
+      // Filter dropdown data
+      const filterOptions = ref([
+        'All Formats',
+        'Books',
+        'Articles',
+        'Videos',
+        'Images',
+        'Audio',
+        'Archives'
+      ])
+      const selectedFilter = ref('All Formats')
 
       // Sample menu items data
       const sampleMenuItems = [
@@ -117,6 +173,16 @@ function Template(args) {
         submittedValue,
         handleSearchSubmit,
         handleDropdownUpdate,
+        breadcrumbData,
+        clearAllFilters,
+        searchResultsCount,
+        searchResultsPrefix,
+        searchResultsLabel,
+        searchResultsAnimate,
+        sortOptions,
+        selectedSort,
+        filterOptions,
+        selectedFilter,
         primaryItems,
         secondaryItems,
         mockSearchFieldResultsPage,
@@ -157,6 +223,43 @@ function Template(args) {
            />
          </div>
 
+         <div class="breadcrumbs-wrapper">
+          <div class="breadcrumbs-container">
+            <span class="breadcrumbs-label">Your Search</span>
+            <ButtonTag 
+              v-if="breadcrumbData.length > 0"
+              :label="breadcrumbData"
+              variant="primary"
+            />
+            <ButtonTag 
+              v-if="breadcrumbData.length > 0"
+              label="Clear All Filters"
+              :is-highlighted="true"
+              :on-click="clearAllFilters"
+            />
+          </div>
+         </div>
+
+          <div class="search-results-sort-wrapper">
+           <SearchResultsCount
+             :count="searchResultsCount"
+             :prefix="searchResultsPrefix"
+             :label="searchResultsLabel"
+             :animate="searchResultsAnimate"
+           />
+           <div class="sort-container">
+             <DropdownSingleSelectFunkhaus
+               :options="sortOptions"
+               v-model="selectedSort"
+             />
+             <DropdownSingleSelectFunkhaus
+               :options="filterOptions"
+               v-model="selectedFilter"
+             />
+             <ButtonPageView/>
+           </div>
+          </div>
+
         <main class="main-content">
             This is going to be the main search field results page
             <pre>{{ mockSearchFieldResultsPage }}</pre>
@@ -171,6 +274,7 @@ function Template(args) {
 
 // Default story
 export const Default = Template.bind({})
+router.push({ path: '/search', query: { view: 'gallery' } })
 Default.args = {
   theme: 'dlc',
   searchInitialValue: '',
