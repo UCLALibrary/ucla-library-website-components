@@ -12,9 +12,7 @@ import ButtonPageView from '../lib-components/ButtonPageView.vue'
 import SearchResultsCount from '../lib-components/SearchResultsCount.vue'
 import RefineSearchPanel from '../lib-components/RefineSearchPanel.vue'
 import GridAssetPod from '../lib-components/GridAssetPod.vue'
-import ResponsiveImage from '../lib-components/ResponsiveImage.vue'
-import DefinitionList from '../lib-components/DefinitionList.vue'
-import DividerGeneral from '../lib-components/DividerGeneral.vue'
+import BlockCardWithImage from '../lib-components/BlockCardWithImage.vue'
 import router from '@/router'
 
 // Import mock data
@@ -68,9 +66,7 @@ function Template(args) {
       SearchResultsCount,
       RefineSearchPanel,
       GridAssetPod,
-      ResponsiveImage,
-      DefinitionList,
-      DividerGeneral,
+      BlockCardWithImage
     },
     provide() {
       return {
@@ -327,39 +323,17 @@ function Template(args) {
                 :has-transition="true"
               >
                 <template #default="{ item }">
-                  <SmartLink
+                  <BlockCardWithImage
+                    :image="item.media"
                     :to="item.to"
-                    role="article"
-                    :aria-label="'View ' + item.title"
-                    class="dlc block-asset-pod"
-                  >
-                    <ResponsiveImage
-                      :media="item.media"
-                      :alt="item.title + ' preview'"
-                      class="image"
-                    />
-
-                    <div class="meta">
-                      <h3 class="title">
-                        {{ item.title }}
-                      </h3>
-
-                      <DefinitionList
-                        v-if="item.metadata && Object.keys(item.metadata).length > 0"
-                        :meta-data-object="item.metadata"
-                        orientation="horizontal"
-                        class="metadata-list"
-                      />
-
-                      <p class="date">
-                        {{ item.date }}
-                      </p>
-                    </div>
-                  </SmartLink>
-
-                  <DividerGeneral
-                    class="divider-general"
-                    is-bold
+                    :category="item.metadata?.resourceType || ''"
+                    :title="item.title"
+                    :start-date="item.date"
+                    :text="item.metadata?.description || ''"
+                    :image-aspect-ratio="60"
+                    :locations="item.metadata?.locations ? item.metadata.locations.map(loc => ({ title: loc, to: '#' })) : []"
+                    :section-handle="'search-results'"
+                    :date-created="item.date"
                   />
                 </template>
               </GridAssetPod>
