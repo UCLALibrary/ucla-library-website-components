@@ -1,7 +1,6 @@
 .bento-box-results-page {
     --gutters: 48px;
     --header-height: 198px;
-    --search-bar-height: 118px;
 
     position: relative;
 
@@ -72,13 +71,11 @@
         }
     }
     @media #{$medium} {
-        --search-bar-height: 97px;
         --header-height: 113px;
     }
     @media #{$small} {
         --header-height: 103px;
         --gutters: 24px;
-        --search-bar-height: 164px;
 
         .main-content {
             padding: 0 var(--gutters) var(--gutters);

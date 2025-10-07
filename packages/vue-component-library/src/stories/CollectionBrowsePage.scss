@@ -1,7 +1,6 @@
 .collection-browse-page {
     --gutters: 48px;
     --header-height: 121px;
-    --search-bar-height: 118px;
 
     position: relative;
 
@@ -52,12 +51,11 @@
     @media #{$extra-large} {
     }
     @media #{$medium} {
-        --search-bar-height: 97px;
         --header-height: 113px;
     }
     @media #{$small} {
         --gutters: 24px;
-        --search-bar-height: 97px;
+
         --header-height: 103px;
     }
 }
