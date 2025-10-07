@@ -1,5 +1,8 @@
 import { computed, ref, watch } from 'vue'
 
+// Import mock API data
+import * as API from '@/stories/mock-api.json'
+
 // Import components
 import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
 import FooterMain from '../lib-components/FooterMain.vue'
@@ -12,17 +15,40 @@ import ButtonPageView from '../lib-components/ButtonPageView.vue'
 import SearchResultsCount from '../lib-components/SearchResultsCount.vue'
 import RefineSearchPanel from '../lib-components/RefineSearchPanel.vue'
 import GridAssetPod from '../lib-components/GridAssetPod.vue'
-import BlockCardWithImage from '../lib-components/BlockCardWithImage.vue'
-import router from '@/router'
+import SectionPagination from '../lib-components/SectionPagination.vue'
+import ResponsiveImage from '../lib-components/ResponsiveImage.vue'
+import DefinitionList from '../lib-components/DefinitionList.vue'
+import DividerGeneral from '../lib-components/DividerGeneral.vue'
+import router from '@/router' 
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
 import { mockSearchFieldResultsPage } from './mock/Funkhaus/MockSearchFieldResultsPage'
-import { mockRefineSearchPanel, mockGridAssetPod } from './mock/Funkhaus/MockRefineSearchPanel'
+import { mockRefineSearchPanel } from './mock/Funkhaus/MockRefineSearchPanel'
 
 // Import styles
 import './MainSearchFieldResultsPage.scss'
 import './GridAssetPod.scss'
+
+function createBlockAssetPodItems(count = 5) {
+  return Array.from({ length: count }, (_, i) => ({
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Seven seas of the ancient world',
+
+    date: 'November 1, 1949',
+    metadata: {
+      description:
+                'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
+      date: 'November 1, 1949',
+      resourceType: 'Book',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  }))
+}
 
 export default {
   title: 'Funkhaus / Pages / Main Search Field Results Page',
@@ -66,7 +92,10 @@ function Template(args) {
       SearchResultsCount,
       RefineSearchPanel,
       GridAssetPod,
-      BlockCardWithImage
+      SectionPagination,
+      ResponsiveImage,
+      DefinitionList,
+      DividerGeneral
     },
     provide() {
       return {
@@ -95,9 +124,7 @@ function Template(args) {
       // Sample breadcrumb data for search filters
       const breadcrumbData = ref([
         { text: 'All Collections', to: '/search?category=all' },
-        { text: 'Books & E-books', to: '/search?category=books' },
-        { text: 'Fiction', to: '/search?category=books&type=fiction' },
-        { text: 'Mystery', to: '/search?category=books&type=fiction&genre=mystery' }
+        { text: 'Books & E-books', to: '/search?category=books' }
       ])
 
       const clearAllFilters = () => {
@@ -165,6 +192,28 @@ function Template(args) {
         // Handle individual option deselection
       }
 
+      // Generate items for GridAssetPod
+      // const gridAssetPodItems = createCardWithImageItems(12)
+      const gridAssetPodItems = createBlockAssetPodItems(12)
+
+      // Pagination data
+      const totalPages = ref(150)
+      const currentPage = ref(1)
+      
+      // Callback function to generate pagination links
+      const generatePaginationLink = (pageNumber, queryParams) => {
+        const params = new URLSearchParams(queryParams)
+        params.set('page', pageNumber.toString())
+        return `/search?${params.toString()}`
+      }
+
+      // Handle page change
+      const handlePageChange = (pageNumber) => {
+        currentPage.value = pageNumber
+        console.log(`Page changed to: ${pageNumber}`)
+        // You can add logic here to fetch new data for the page
+      }
+
       // Sample menu items data
       const sampleMenuItems = [
         {
@@ -221,93 +270,140 @@ function Template(args) {
         secondaryItems,
         mockSearchFieldResultsPage,
         mockRefineSearchPanel,
-        mockGridAssetPod,
+        gridAssetPodItems,
         isGridLayout,
         handleFilterSelectionChange,
         handleOptionSelected,
         handleOptionDeselected,
         sampleMenuItems,
         sampleSubMenuItems,
+        totalPages,
+        currentPage,
+        generatePaginationLink,
+        handlePageChange,
       }
     },
     computed: {},
     template: `
        <div class="main-search-field-results-page">
-         <!-- Global Menu Panel -->
-         <GlobalMenuPanel
-           :menu-items="sampleMenuItems"
-           :sub-menu-items="sampleSubMenuItems"
-           :is-opened="menuOpened"
-           class="global-menu-panel"
-         />
-         <!-- Header -->
-         <HeaderMainFunkhaus
-           :menu-opened="menuOpened"
-           @toggle-menu="toggleMenu"
-           class="header"
-           :class="menuOpened ? 'menu-opened' : ''"
-           :menu-items="sampleMenuItems"
-         />
-
-         <div class="search-field-composite-wrapper">
-           <SearchFieldComposite
-             class='search-bar'
-             :initial-value="args.searchInitialValue"
-             :placeholder="args.searchPlaceholder"
-             :dropdown-model-value="dropdownValue"
-             :dropdown-options="args.searchDropdownOptions"
-             :dropdown-placeholder="args.searchDropdownPlaceholder"
-             :show-divider="args.searchShowDivider"
-             @submit="handleSearchSubmit"
-             @update:dropdown-model-value="handleDropdownUpdate"
-           />
-         </div>
-
-         <div class="breadcrumbs-wrapper">
-          <div class="breadcrumbs-container">
-            <span class="breadcrumbs-label"
-              v-if="breadcrumbData.length > 0"
-            >
-              Your Search
-            </span>
-            <ButtonTag 
-              v-if="breadcrumbData.length > 0"
-              :label="breadcrumbData"
-              variant="primary"
-            />
-            <ButtonTag 
-              v-if="breadcrumbData.length > 0"
-              label="Clear All Filters"
-              :is-highlighted="true"
-              :on-click="clearAllFilters"
-            />
-          </div>
-         </div>
-
-          <div class="search-results-sort-wrapper">
-           <SearchResultsCount
-             :count="searchResultsCount"
-             :prefix="searchResultsPrefix"
-             :label="searchResultsLabel"
-             :animate="searchResultsAnimate"
-           />
-           <div class="sort-container">
-             <DropdownSingleSelectFunkhaus
-               :options="sortOptions"
-               v-model="selectedSort"
-             />
-             <DropdownSingleSelectFunkhaus
-               :options="filterOptions"
-               v-model="selectedFilter"
-             />
-             <ButtonPageView/>
-           </div>
-          </div>
+        <!-- Global Menu Panel -->
+        <GlobalMenuPanel
+          :menu-items="sampleMenuItems"
+          :sub-menu-items="sampleSubMenuItems"
+          :is-opened="menuOpened"
+          class="global-menu-panel"
+        />
+        <!-- Header -->
+        <HeaderMainFunkhaus
+          :menu-opened="menuOpened"
+          @toggle-menu="toggleMenu"
+          class="header"
+          :class="menuOpened ? 'menu-opened' : ''"
+          :menu-items="sampleMenuItems"
+        />
 
         <main class="main-content">
-          <div class="search-results-layout">
-            <aside class="refine-search-sidebar">
+          <div class="search-field-composite-wrapper">
+            <SearchFieldComposite
+              class='search-bar'
+              :initial-value="args.searchInitialValue"
+              :placeholder="args.searchPlaceholder"
+              :dropdown-model-value="dropdownValue"
+              :dropdown-options="args.searchDropdownOptions"
+              :dropdown-placeholder="args.searchDropdownPlaceholder"
+              :show-divider="true"
+              @submit="handleSearchSubmit"
+              @update:dropdown-model-value="handleDropdownUpdate"
+            />
+          </div>
+
+          <div class="breadcrumbs-wrapper">
+            <div class="breadcrumbs-container">
+              <span class="breadcrumbs-label"
+                v-if="breadcrumbData.length > 0"
+              >
+                Your Search
+              </span>
+              <ButtonTag 
+                v-if="breadcrumbData.length > 0"
+                :label="breadcrumbData"
+                variant="primary"
+              />
+              <ButtonTag 
+                v-if="breadcrumbData.length > 0"
+                label="Clear All Filters"
+                :is-highlighted="true"
+                :on-click="clearAllFilters"
+              />
+            </div>
+            <DividerGeneral
+              class="divider-general"
+              :is-tertiary="true"
+            :/>
+          </div>
+
+          <div class="search-results-sort-wrapper show-desktop">
+            <SearchResultsCount
+              :count="searchResultsCount"
+              :prefix="searchResultsPrefix"
+              :label="searchResultsLabel"
+              :animate="searchResultsAnimate"
+            />
+            <div class="sort-container">
+              <DropdownSingleSelectFunkhaus
+                :options="sortOptions"
+                v-model="selectedSort"
+              />
+              <DropdownSingleSelectFunkhaus
+                :options="filterOptions"
+                v-model="selectedFilter"
+              />
+              <ButtonPageView/>
+            </div>
+          </div>
+
+          <div class="search-results-sort-wrapper show-mobile">
+            <div class="count-view-wrapper">
+              <SearchResultsCount
+                :count="searchResultsCount"
+                :prefix="searchResultsPrefix"
+                :label="searchResultsLabel"
+                :animate="searchResultsAnimate"
+                
+              />
+              <ButtonPageView/>
+            </div>
+
+            <div class="sort-container">
+              <div class="sort-options-wrapper">
+                <DropdownSingleSelectFunkhaus
+                  :options="sortOptions"
+                  v-model="selectedSort"
+                />
+                <DropdownSingleSelectFunkhaus
+                  :options="filterOptions"
+                  v-model="selectedFilter"
+                />
+              </div>
               <RefineSearchPanel
+                :opened="false"
+                :limit-options="true"
+                class="refine-search-panel"
+                :title="mockRefineSearchPanel.title"
+                :filters="mockRefineSearchPanel.filters"
+                @selection-change="handleFilterSelectionChange"
+                @option-selected="handleOptionSelected"
+                @option-deselected="handleOptionDeselected"
+
+              />
+            </div>
+
+          </div>
+
+          <div class="search-results-layout">
+            <aside class="refine-search-sidebar show-desktop">
+              <RefineSearchPanel
+                :limit-options="true"
                 :title="mockRefineSearchPanel.title"
                 :filters="mockRefineSearchPanel.filters"
                 @selection-change="handleFilterSelectionChange"
@@ -317,23 +413,54 @@ function Template(args) {
             </aside>
             
             <div class="search-results-main">
+              <SectionPagination
+                :pages="totalPages"
+                :initial-current-page="5"
+                :generate-link-callback="generatePaginationLink"
+                :fixed-page-width-mode="false"
+                :fixed-page-width-num="10"
+                @change-page="handlePageChange"
+                class="search-results-pagination"
+              />
               <GridAssetPod
-                :items="mockGridAssetPod.items"
+                :items="gridAssetPodItems"
                 :is-grid-layout="isGridLayout"
                 :has-transition="true"
               >
                 <template #default="{ item }">
-                  <BlockCardWithImage
-                    :image="item.media"
+                  <SmartLink
                     :to="item.to"
-                    :category="item.metadata?.resourceType || ''"
-                    :title="item.title"
-                    :start-date="item.date"
-                    :text="item.metadata?.description || ''"
-                    :image-aspect-ratio="60"
-                    :locations="item.metadata?.locations ? item.metadata.locations.map(loc => ({ title: loc, to: '#' })) : []"
-                    :section-handle="'search-results'"
-                    :date-created="item.date"
+                    role="article"
+                    :aria-label="\`View \${item.title}\`"
+                    class="dlc block-asset-pod"
+                  >
+                      <ResponsiveImage
+                        :media="item.media"
+                        :alt="\`\${item.title} preview\`"
+                        class="image"
+                      />
+
+                      <div class="meta">
+                        <h3 class="title">
+                            {{ item.title }}
+                        </h3>
+
+                        <DefinitionList
+                            v-if="item.metadata && Object.keys(item.metadata).length > 0"
+                            :meta-data-object="item.metadata"
+                            orientation="horizontal"
+                            class="metadata-list"
+                        />
+
+                        <p class="date">
+                            {{ item.date }}
+                        </p>
+                      </div>
+                  </SmartLink>
+
+                  <DividerGeneral
+                    class="divider-general"
+                    is-bold
                   />
                 </template>
               </GridAssetPod>

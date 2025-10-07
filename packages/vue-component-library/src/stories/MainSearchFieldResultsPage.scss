@@ -26,7 +26,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 500;
+        z-index: 700;
 
         background-color: var(--color-white);
 
@@ -45,7 +45,7 @@
         width: 100%;
         max-width: 100%;
         margin: var(--header-height) auto 0;
-        padding: 14px var(--horizontal-gap);
+        // padding: 14px var(--horizontal-gap);
         box-sizing: border-box;
 
         background-color: var(--color-white);
@@ -60,39 +60,39 @@
         position: relative;
 
         margin-top: 0;
-
-        .breadcrumbs-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            align-items: center;
-
-            .breadcrumbs-label {
-                padding: 10px 10px 10px 0;
-                box-sizing: border-box;
-                font-family: var(--font-secondary);
-                font-size: 16px;
-                font-weight: 600;
-                color: var(--color-primary-blue-05);
-                text-transform: uppercase;
-            }
-        }
+    }
+    .breadcrumbs-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+    }
+    .breadcrumbs-label {
+        padding: 10px 10px 10px 0;
+        box-sizing: border-box;
+        font-family: var(--font-secondary);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--color-primary-blue-05);
+        text-transform: uppercase;
     }
 
     .search-results-sort-wrapper {
-        padding: 14px var(--horizontal-gap);
-        box-sizing: border-box;
-
         display: flex;
-        gap: 12px;
+        gap: 15px;
         justify-content: space-between;
         align-items: center;
+    }
 
-        .sort-container {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
+    .divider-general {
+        margin: 15px 0;
+        max-width: 100%;
+    }
+
+    .sort-container {
+        display: flex;
+        gap: 15px;
+        align-items: center;
     }
 
     .main-content {
@@ -102,25 +102,33 @@
 
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        // gap: 12px;
+    }
+    .search-results-layout {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 40px;
+        // max-width: 1400px;
+        margin: 0 auto;
+    }
 
-        .search-results-layout {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    .refine-search-sidebar {
+        position: sticky;
+        top: 20px;
+        height: fit-content;
+    }
 
-        .refine-search-sidebar {
-            position: sticky;
-            top: 20px;
-            height: fit-content;
-        }
+    .search-results-main {
+        margin-top: 24px;
+        min-width: 0; // Prevents grid overflow
 
-        .search-results-main {
-            min-width: 0; // Prevents grid overflow
-        }
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .show-mobile {
+        display: none;
     }
 
     // Breakpoints
@@ -129,12 +137,42 @@
     @media #{$medium} {
         --search-bar-height: 97px;
         --header-height: 113px;
+        --horizontal-gap: 32px;
+
+        .show-desktop {
+            display: none;
+        }
+        .show-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
         .main-content {
             .search-results-layout {
-                grid-template-columns: 280px 1fr;
-                gap: 30px;
+                display: block;
             }
+        }
+
+        .count-view-wrapper,
+        .sort-container {
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .sort-options-wrapper {
+            max-width: 370px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .refine-search-panel {
+            flex: 1;
         }
     }
     @media #{$small} {
@@ -159,6 +197,20 @@
             .search-results-main {
                 order: 1;
             }
+        }
+
+        .sort-options-wrapper {
+            max-width: 100%;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .sort-container {
+            display: block;
+        }
+        .refine-search-panel {
+            margin-top: 24px;
+            width: auto;
         }
     }
 }

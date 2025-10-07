@@ -1079,9 +1079,9 @@ export const mockGridAssetPod = {
       },
       to: '/asset-1',
       title: 'Digital Collection Item 1',
-      date: '2024-01-15',
+      date: '',
       metadata: {
-        description: 'This is a sample description for the first digital collection item.',
+        description: '',
         date: '2024-01-15',
         resourceType: 'Article',
         collection: ['Digital Collections'],
@@ -1100,7 +1100,7 @@ export const mockGridAssetPod = {
       date: '2024-01-20',
       metadata: {
         description: 'This is a sample description for the second digital collection item.',
-        date: '2024-01-20',
+        date: '',
         resourceType: 'Book',
         collection: ['Digital Collections'],
         locations: ['UCLA Library Digital Collections']
@@ -1117,11 +1117,11 @@ export const mockGridAssetPod = {
       title: 'Digital Collection Item 3',
       date: '2024-01-25',
       metadata: {
-        description: 'This is a sample description for the third digital collection item.',
+        description: '',
         date: '2024-01-25',
         resourceType: 'Image',
-        collection: ['Digital Collections'],
-        locations: ['UCLA Library Digital Collections']
+        collection: [],
+        locations: []
       }
     },
     {
@@ -1172,7 +1172,7 @@ export const mockGridAssetPod = {
       date: 'August 10, 1984',
       metadata: {
         description: 'Lionel Richie: He\'ll headline the Closing Ceremony',
-        date: 'August 10, 1984',
+        date: '',
         resourceType: 'Photograph',
         collection: ['Los Angeles Times Photographic Collection'],
         locations: ['OpenUCLA Collections']
@@ -1189,7 +1189,7 @@ export const mockGridAssetPod = {
       title: '3/4 length portrait of Walburga Oesterreich, circa 1930',
       date: '1930',
       metadata: {
-        description: 'Handwriting on negative states \'Mrs. Walburga Oesterreich\' In 1922 Walburga Oesterreich\'s husband Fred Oesterreich was shot and killed supposedly by a burglar in their Los Angeles, Calif. home.',
+        description: '',
         date: '1930',
         resourceType: 'Photograph',
         collection: ['Los Angeles Times Photographic Collection'],
