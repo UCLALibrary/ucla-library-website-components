@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 // Import components
 import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
@@ -10,14 +10,21 @@ import ButtonTag from '../lib-components/ButtonTag.vue'
 import DropdownSingleSelectFunkhaus from '../lib-components/DropdownSingleSelectFunkhaus.vue'
 import ButtonPageView from '../lib-components/ButtonPageView.vue'
 import SearchResultsCount from '../lib-components/SearchResultsCount.vue'
+import RefineSearchPanel from '../lib-components/RefineSearchPanel.vue'
+import GridAssetPod from '../lib-components/GridAssetPod.vue'
+import ResponsiveImage from '../lib-components/ResponsiveImage.vue'
+import DefinitionList from '../lib-components/DefinitionList.vue'
+import DividerGeneral from '../lib-components/DividerGeneral.vue'
 import router from '@/router'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
 import { mockSearchFieldResultsPage } from './mock/Funkhaus/MockSearchFieldResultsPage'
+import { mockRefineSearchPanel, mockGridAssetPod } from './mock/Funkhaus/MockRefineSearchPanel'
 
 // Import styles
 import './MainSearchFieldResultsPage.scss'
+import './GridAssetPod.scss'
 
 export default {
   title: 'Funkhaus / Pages / Main Search Field Results Page',
@@ -59,6 +66,11 @@ function Template(args) {
       DropdownSingleSelectFunkhaus,
       ButtonPageView,
       SearchResultsCount,
+      RefineSearchPanel,
+      GridAssetPod,
+      ResponsiveImage,
+      DefinitionList,
+      DividerGeneral,
     },
     provide() {
       return {
@@ -129,7 +141,33 @@ function Template(args) {
         'Audio',
         'Archives'
       ])
+
       const selectedFilter = ref('All Formats')
+
+      // Grid layout state tied to route query
+      const isGridLayout = ref(false)
+
+      // Watch for view changes in URL and update grid layout
+      watch(() => router.currentRoute.value.query.view, (newView) => {
+        isGridLayout.value = newView === 'gallery'
+        console.log(`Layout changed to: ${isGridLayout.value ? 'grid' : 'list'} view`)
+      }, { immediate: true })
+
+      // Refine search panel event handlers
+      const handleFilterSelectionChange = (selectedOptions) => {
+        console.log('Filter selection changed:', selectedOptions)
+        // You can update search results based on selected filters here
+      }
+
+      const handleOptionSelected = (filterName, option) => {
+        console.log(`Option selected in ${filterName}:`, option)
+        // Handle individual option selection
+      }
+
+      const handleOptionDeselected = (filterName, option) => {
+        console.log(`Option deselected in ${filterName}:`, option)
+        // Handle individual option deselection
+      }
 
       // Sample menu items data
       const sampleMenuItems = [
@@ -186,6 +224,12 @@ function Template(args) {
         primaryItems,
         secondaryItems,
         mockSearchFieldResultsPage,
+        mockRefineSearchPanel,
+        mockGridAssetPod,
+        isGridLayout,
+        handleFilterSelectionChange,
+        handleOptionSelected,
+        handleOptionDeselected,
         sampleMenuItems,
         sampleSubMenuItems,
       }
@@ -225,7 +269,11 @@ function Template(args) {
 
          <div class="breadcrumbs-wrapper">
           <div class="breadcrumbs-container">
-            <span class="breadcrumbs-label">Your Search</span>
+            <span class="breadcrumbs-label"
+              v-if="breadcrumbData.length > 0"
+            >
+              Your Search
+            </span>
             <ButtonTag 
               v-if="breadcrumbData.length > 0"
               :label="breadcrumbData"
@@ -261,8 +309,62 @@ function Template(args) {
           </div>
 
         <main class="main-content">
-            This is going to be the main search field results page
-            <pre>{{ mockSearchFieldResultsPage }}</pre>
+          <div class="search-results-layout">
+            <aside class="refine-search-sidebar">
+              <RefineSearchPanel
+                :title="mockRefineSearchPanel.title"
+                :filters="mockRefineSearchPanel.filters"
+                @selection-change="handleFilterSelectionChange"
+                @option-selected="handleOptionSelected"
+                @option-deselected="handleOptionDeselected"
+              />
+            </aside>
+            
+            <div class="search-results-main">
+              <GridAssetPod
+                :items="mockGridAssetPod.items"
+                :is-grid-layout="isGridLayout"
+                :has-transition="true"
+              >
+                <template #default="{ item }">
+                  <SmartLink
+                    :to="item.to"
+                    role="article"
+                    :aria-label="'View ' + item.title"
+                    class="dlc block-asset-pod"
+                  >
+                    <ResponsiveImage
+                      :media="item.media"
+                      :alt="item.title + ' preview'"
+                      class="image"
+                    />
+
+                    <div class="meta">
+                      <h3 class="title">
+                        {{ item.title }}
+                      </h3>
+
+                      <DefinitionList
+                        v-if="item.metadata && Object.keys(item.metadata).length > 0"
+                        :meta-data-object="item.metadata"
+                        orientation="horizontal"
+                        class="metadata-list"
+                      />
+
+                      <p class="date">
+                        {{ item.date }}
+                      </p>
+                    </div>
+                  </SmartLink>
+
+                  <DividerGeneral
+                    class="divider-general"
+                    is-bold
+                  />
+                </template>
+              </GridAssetPod>
+            </div>
+          </div>
         </main>
          
          <!-- Footer -->

@@ -17,7 +17,7 @@
         top: var(--header-height);
         left: 0;
         width: 100%;
-        z-index: 200;
+        z-index: 600;
     }
 
     .header {
@@ -97,7 +97,30 @@
 
     .main-content {
         flex: 1;
-        padding: 0;
+        padding: 14px var(--horizontal-gap);
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .search-results-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .refine-search-sidebar {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .search-results-main {
+            min-width: 0; // Prevents grid overflow
+        }
     }
 
     // Breakpoints
@@ -106,11 +129,36 @@
     @media #{$medium} {
         --search-bar-height: 97px;
         --header-height: 113px;
+
+        .main-content {
+            .search-results-layout {
+                grid-template-columns: 280px 1fr;
+                gap: 30px;
+            }
+        }
     }
     @media #{$small} {
         --horizontal-gap: 24px;
         --gutters: 24px;
         --search-bar-height: 97px;
         --header-height: 103px;
+
+        .main-content {
+            padding: 16px var(--horizontal-gap);
+
+            .search-results-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .refine-search-sidebar {
+                position: static;
+                order: 2;
+            }
+
+            .search-results-main {
+                order: 1;
+            }
+        }
     }
 }
