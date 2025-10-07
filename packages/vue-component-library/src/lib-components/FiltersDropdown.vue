@@ -46,9 +46,8 @@ const numOfSelectedFilters = computed(() => {
 
 // Limit options for each filter group if limitOptions is true
 const limitedFilterGroups = computed(() => {
-  if (!limitOptions) {
+  if (!limitOptions)
     return filterGroups
-  }
 
   return filterGroups.map(group => ({
     ...group,

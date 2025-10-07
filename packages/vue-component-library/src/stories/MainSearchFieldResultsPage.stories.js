@@ -1,298 +1,298 @@
-import { computed, ref, watch } from "vue"
+import { computed, ref, watch } from 'vue'
 
 // Import mock API data
-import * as API from "@/stories/mock-api.json"
 
 // Import components
-import HeaderMainFunkhaus from "../lib-components/HeaderMainFunkhaus.vue"
-import FooterMain from "../lib-components/FooterMain.vue"
-import SearchFieldComposite from "../lib-components/SearchFieldComposite.vue"
-import SmartLink from "../lib-components/SmartLink.vue"
-import GlobalMenuPanel from "../lib-components/GlobalMenuPanel.vue"
-import ButtonTag from "../lib-components/ButtonTag.vue"
-import DropdownSingleSelectFunkhaus from "../lib-components/DropdownSingleSelectFunkhaus.vue"
-import ButtonPageView from "../lib-components/ButtonPageView.vue"
-import SearchResultsCount from "../lib-components/SearchResultsCount.vue"
-import RefineSearchPanel from "../lib-components/RefineSearchPanel.vue"
-import GridAssetPod from "../lib-components/GridAssetPod.vue"
-import SectionPagination from "../lib-components/SectionPagination.vue"
-import ResponsiveImage from "../lib-components/ResponsiveImage.vue"
-import DefinitionList from "../lib-components/DefinitionList.vue"
-import DividerGeneral from "../lib-components/DividerGeneral.vue"
-import router from "@/router"
+import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
+import FooterMain from '../lib-components/FooterMain.vue'
+import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
+import SmartLink from '../lib-components/SmartLink.vue'
+import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
+import ButtonTag from '../lib-components/ButtonTag.vue'
+import DropdownSingleSelectFunkhaus from '../lib-components/DropdownSingleSelectFunkhaus.vue'
+import ButtonPageView from '../lib-components/ButtonPageView.vue'
+import SearchResultsCount from '../lib-components/SearchResultsCount.vue'
+import RefineSearchPanel from '../lib-components/RefineSearchPanel.vue'
+import GridAssetPod from '../lib-components/GridAssetPod.vue'
+import SectionPagination from '../lib-components/SectionPagination.vue'
+import ResponsiveImage from '../lib-components/ResponsiveImage.vue'
+import DefinitionList from '../lib-components/DefinitionList.vue'
+import DividerGeneral from '../lib-components/DividerGeneral.vue'
 
 // Import mock data
-import { primaryItems, secondaryItems } from "./mock/Funkhaus/MockGlobal"
-import { mockSearchFieldResultsPage } from "./mock/Funkhaus/MockSearchFieldResultsPage"
-import { mockRefineSearchPanel } from "./mock/Funkhaus/MockRefineSearchPanel"
+import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
+import { mockSearchFieldResultsPage } from './mock/Funkhaus/MockSearchFieldResultsPage'
+import { mockRefineSearchPanel } from './mock/Funkhaus/MockRefineSearchPanel'
+import router from '@/router'
+import * as API from '@/stories/mock-api.json'
 
 // Import styles
-import "./MainSearchFieldResultsPage.scss"
-import "./GridAssetPod.scss"
+import './MainSearchFieldResultsPage.scss'
+import './GridAssetPod.scss'
 
 function createBlockAssetPodItems(count = 5) {
-    return Array.from({ length: count }, (_, i) => ({
-        media: API.image,
-        to: "/visit/foo/bar/",
-        title: "Seven seas of the ancient world",
+  return Array.from({ length: count }, (_, i) => ({
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Seven seas of the ancient world',
 
-        date: "November 1, 1949",
-        metadata: {
-            description:
-                "PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.",
-            date: "November 1, 1949",
-            resourceType: "Book",
-            collection: ["Still Image"],
-            locations: [
-                "Los Angeles Times Photographic Collection OpenUCLA Collections",
-            ],
-        },
-    }))
+    date: 'November 1, 1949',
+    metadata: {
+      description:
+                'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
+      date: 'November 1, 1949',
+      resourceType: 'Book',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  }))
 }
 
 export default {
-    title: "Funkhaus / Pages / Main Search Field Results Page",
-    component: {},
-    parameters: {
-        layout: "fullscreen",
-        docs: {
-            description: {
-                component:
-                    "A single page layout with header, main content area, and footer. This serves as a template for main search field results pages.",
-            },
-        },
+  title: 'Funkhaus / Pages / Main Search Field Results Page',
+  component: {},
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component:
+                    'A single page layout with header, main content area, and footer. This serves as a template for main search field results pages.',
+      },
     },
-    argTypes: {
-        theme: {
-            control: { type: "select" },
-            options: ["default", "dlc"],
-            description: "Theme variant for the page",
-        },
-        searchInitialValue: { control: "text" },
-        searchPlaceholder: { control: "text" },
-        searchDropdownValue: { control: "text" },
-        searchDropdownOptions: { control: "array" },
-        searchDropdownPlaceholder: { control: "text" },
-        searchShowDivider: { control: "boolean" },
+  },
+  argTypes: {
+    theme: {
+      control: { type: 'select' },
+      options: ['default', 'dlc'],
+      description: 'Theme variant for the page',
     },
+    searchInitialValue: { control: 'text' },
+    searchPlaceholder: { control: 'text' },
+    searchDropdownValue: { control: 'text' },
+    searchDropdownOptions: { control: 'array' },
+    searchDropdownPlaceholder: { control: 'text' },
+    searchShowDivider: { control: 'boolean' },
+  },
 }
 
 // Template function for the main landing page
 function Template(args) {
-    return {
-        components: {
-            HeaderMainFunkhaus,
-            FooterMain,
-            SearchFieldComposite,
-            SmartLink,
-            GlobalMenuPanel,
-            ButtonTag,
-            DropdownSingleSelectFunkhaus,
-            ButtonPageView,
-            SearchResultsCount,
-            RefineSearchPanel,
-            GridAssetPod,
-            SectionPagination,
-            ResponsiveImage,
-            DefinitionList,
-            DividerGeneral,
-        },
-        provide() {
-            return {
-                theme: computed(() => args.theme),
-            }
-        },
-        setup() {
-            const menuOpened = ref(false)
-            const dropdownValue = ref(args.searchDropdownValue)
-            const submittedValue = ref("")
+  return {
+    components: {
+      HeaderMainFunkhaus,
+      FooterMain,
+      SearchFieldComposite,
+      SmartLink,
+      GlobalMenuPanel,
+      ButtonTag,
+      DropdownSingleSelectFunkhaus,
+      ButtonPageView,
+      SearchResultsCount,
+      RefineSearchPanel,
+      GridAssetPod,
+      SectionPagination,
+      ResponsiveImage,
+      DefinitionList,
+      DividerGeneral,
+    },
+    provide() {
+      return {
+        theme: computed(() => args.theme),
+      }
+    },
+    setup() {
+      const menuOpened = ref(false)
+      const dropdownValue = ref(args.searchDropdownValue)
+      const submittedValue = ref('')
 
-            const toggleMenu = () => {
-                menuOpened.value = !menuOpened.value
-            }
+      const toggleMenu = () => {
+        menuOpened.value = !menuOpened.value
+      }
 
-            const handleSearchSubmit = (value) => {
-                submittedValue.value = value
-                // Search submitted
-            }
+      const handleSearchSubmit = (value) => {
+        submittedValue.value = value
+        // Search submitted
+      }
 
-            const handleDropdownUpdate = (value) => {
-                dropdownValue.value = value
-                // Dropdown updated
-            }
+      const handleDropdownUpdate = (value) => {
+        dropdownValue.value = value
+        // Dropdown updated
+      }
 
-            // Sample breadcrumb data for search filters
-            const breadcrumbData = ref([
-                { text: "All Collections", to: "/search?category=all" },
-                { text: "Books & E-books", to: "/search?category=books" },
-            ])
+      // Sample breadcrumb data for search filters
+      const breadcrumbData = ref([
+        { text: 'All Collections', to: '/search?category=all' },
+        { text: 'Books & E-books', to: '/search?category=books' },
+      ])
 
-            const clearAllFilters = () => {
-                breadcrumbData.value = []
-                // Reset search and filters
-                submittedValue.value = ""
-                dropdownValue.value = "All Collections"
-                // You could also emit an event or call a parent method to reset the search
-                console.log("All filters cleared")
-            }
+      const clearAllFilters = () => {
+        breadcrumbData.value = []
+        // Reset search and filters
+        submittedValue.value = ''
+        dropdownValue.value = 'All Collections'
+        // You could also emit an event or call a parent method to reset the search
+        console.log('All filters cleared')
+      }
 
-            // Search results data
-            const searchResultsCount = ref(1247)
-            const searchResultsPrefix = ref("Catalogue")
-            const searchResultsLabel = ref("Results")
-            const searchResultsAnimate = ref(true)
+      // Search results data
+      const searchResultsCount = ref(1247)
+      const searchResultsPrefix = ref('Catalogue')
+      const searchResultsLabel = ref('Results')
+      const searchResultsAnimate = ref(true)
 
-            // Sort dropdown data
-            const sortOptions = ref([
-                "Relevance",
-                "Date (Newest First)",
-                "Date (Oldest First)",
-                "Title (A-Z)",
-                "Title (Z-A)",
-                "Author (A-Z)",
-                "Author (Z-A)",
-            ])
-            const selectedSort = ref("Relevance")
+      // Sort dropdown data
+      const sortOptions = ref([
+        'Relevance',
+        'Date (Newest First)',
+        'Date (Oldest First)',
+        'Title (A-Z)',
+        'Title (Z-A)',
+        'Author (A-Z)',
+        'Author (Z-A)',
+      ])
+      const selectedSort = ref('Relevance')
 
-            // Filter dropdown data
-            const filterOptions = ref([
-                "All Formats",
-                "Books",
-                "Articles",
-                "Videos",
-                "Images",
-                "Audio",
-                "Archives",
-            ])
+      // Filter dropdown data
+      const filterOptions = ref([
+        'All Formats',
+        'Books',
+        'Articles',
+        'Videos',
+        'Images',
+        'Audio',
+        'Archives',
+      ])
 
-            const selectedFilter = ref("All Formats")
+      const selectedFilter = ref('All Formats')
 
-            // Grid layout state tied to route query
-            const isGridLayout = ref(false)
+      // Grid layout state tied to route query
+      const isGridLayout = ref(false)
 
-            // Watch for view changes in URL and update grid layout
-            watch(
-                () => router.currentRoute.value.query.view,
-                (newView) => {
-                    isGridLayout.value = newView === "gallery"
-                    console.log(
+      // Watch for view changes in URL and update grid layout
+      watch(
+        () => router.currentRoute.value.query.view,
+        (newView) => {
+          isGridLayout.value = newView === 'gallery'
+          console.log(
                         `Layout changed to: ${
-                            isGridLayout.value ? "grid" : "list"
+                            isGridLayout.value ? 'grid' : 'list'
                         } view`
-                    )
-                },
-                { immediate: true }
-            )
-
-            // Refine search panel event handlers
-            const handleFilterSelectionChange = (selectedOptions) => {
-                console.log("Filter selection changed:", selectedOptions)
-                // You can update search results based on selected filters here
-            }
-
-            const handleOptionSelected = (filterName, option) => {
-                console.log(`Option selected in ${filterName}:`, option)
-                // Handle individual option selection
-            }
-
-            const handleOptionDeselected = (filterName, option) => {
-                console.log(`Option deselected in ${filterName}:`, option)
-                // Handle individual option deselection
-            }
-
-            // Generate items for GridAssetPod
-            // const gridAssetPodItems = createCardWithImageItems(12)
-            const gridAssetPodItems = createBlockAssetPodItems(12)
-
-            // Pagination data
-            const totalPages = ref(150)
-            const currentPage = ref(1)
-
-            // Callback function to generate pagination links
-            const generatePaginationLink = (pageNumber, queryParams) => {
-                const params = new URLSearchParams(queryParams)
-                params.set("page", pageNumber.toString())
-                return `/search?${params.toString()}`
-            }
-
-            // Handle page change
-            const handlePageChange = (pageNumber) => {
-                currentPage.value = pageNumber
-                console.log(`Page changed to: ${pageNumber}`)
-                // You can add logic here to fetch new data for the page
-            }
-
-            // Sample menu items data
-            const sampleMenuItems = [
-                {
-                    label: "Using digital collections content",
-                    to: "/digital-collections",
-                },
-                {
-                    label: "About",
-                    to: "/about",
-                },
-                {
-                    label: "Give us feedback",
-                    to: "/feedback",
-                },
-            ]
-
-            const sampleSubMenuItems = [
-                {
-                    label: "Locations & Hours",
-                    to: "/help",
-                    classes: "",
-                },
-                {
-                    label: "Ask a Librarian",
-                    to: "/visit",
-                    classes: "",
-                },
-                {
-                    label: "Support Us",
-                    to: "/support",
-                    classes: "",
-                },
-            ]
-
-            return {
-                args,
-                menuOpened,
-                toggleMenu,
-                dropdownValue,
-                submittedValue,
-                handleSearchSubmit,
-                handleDropdownUpdate,
-                breadcrumbData,
-                clearAllFilters,
-                searchResultsCount,
-                searchResultsPrefix,
-                searchResultsLabel,
-                searchResultsAnimate,
-                sortOptions,
-                selectedSort,
-                filterOptions,
-                selectedFilter,
-                primaryItems,
-                secondaryItems,
-                mockSearchFieldResultsPage,
-                mockRefineSearchPanel,
-                gridAssetPodItems,
-                isGridLayout,
-                handleFilterSelectionChange,
-                handleOptionSelected,
-                handleOptionDeselected,
-                sampleMenuItems,
-                sampleSubMenuItems,
-                totalPages,
-                currentPage,
-                generatePaginationLink,
-                handlePageChange,
-            }
+          )
         },
-        computed: {},
-        template: `
+        { immediate: true }
+      )
+
+      // Refine search panel event handlers
+      const handleFilterSelectionChange = (selectedOptions) => {
+        console.log('Filter selection changed:', selectedOptions)
+        // You can update search results based on selected filters here
+      }
+
+      const handleOptionSelected = (filterName, option) => {
+        console.log(`Option selected in ${filterName}:`, option)
+        // Handle individual option selection
+      }
+
+      const handleOptionDeselected = (filterName, option) => {
+        console.log(`Option deselected in ${filterName}:`, option)
+        // Handle individual option deselection
+      }
+
+      // Generate items for GridAssetPod
+      // const gridAssetPodItems = createCardWithImageItems(12)
+      const gridAssetPodItems = createBlockAssetPodItems(12)
+
+      // Pagination data
+      const totalPages = ref(150)
+      const currentPage = ref(1)
+
+      // Callback function to generate pagination links
+      const generatePaginationLink = (pageNumber, queryParams) => {
+        const params = new URLSearchParams(queryParams)
+        params.set('page', pageNumber.toString())
+        return `/search?${params.toString()}`
+      }
+
+      // Handle page change
+      const handlePageChange = (pageNumber) => {
+        currentPage.value = pageNumber
+        console.log(`Page changed to: ${pageNumber}`)
+        // You can add logic here to fetch new data for the page
+      }
+
+      // Sample menu items data
+      const sampleMenuItems = [
+        {
+          label: 'Using digital collections content',
+          to: '/digital-collections',
+        },
+        {
+          label: 'About',
+          to: '/about',
+        },
+        {
+          label: 'Give us feedback',
+          to: '/feedback',
+        },
+      ]
+
+      const sampleSubMenuItems = [
+        {
+          label: 'Locations & Hours',
+          to: '/help',
+          classes: '',
+        },
+        {
+          label: 'Ask a Librarian',
+          to: '/visit',
+          classes: '',
+        },
+        {
+          label: 'Support Us',
+          to: '/support',
+          classes: '',
+        },
+      ]
+
+      return {
+        args,
+        menuOpened,
+        toggleMenu,
+        dropdownValue,
+        submittedValue,
+        handleSearchSubmit,
+        handleDropdownUpdate,
+        breadcrumbData,
+        clearAllFilters,
+        searchResultsCount,
+        searchResultsPrefix,
+        searchResultsLabel,
+        searchResultsAnimate,
+        sortOptions,
+        selectedSort,
+        filterOptions,
+        selectedFilter,
+        primaryItems,
+        secondaryItems,
+        mockSearchFieldResultsPage,
+        mockRefineSearchPanel,
+        gridAssetPodItems,
+        isGridLayout,
+        handleFilterSelectionChange,
+        handleOptionSelected,
+        handleOptionDeselected,
+        sampleMenuItems,
+        sampleSubMenuItems,
+        totalPages,
+        currentPage,
+        generatePaginationLink,
+        handlePageChange,
+      }
+    },
+    computed: {},
+    template: `
        <div class="main-search-field-results-page">
         <!-- Global Menu Panel -->
         <GlobalMenuPanel
@@ -490,25 +490,25 @@ function Template(args) {
          <FooterMain />
        </div>
      `,
-    }
+  }
 }
 
 // Default story
 export const Default = Template.bind({})
-router.push({ path: "/search", query: { view: "gallery" } })
+router.push({ path: '/search', query: { view: 'gallery' } })
 Default.args = {
-    theme: "dlc",
-    searchInitialValue: "",
-    searchPlaceholder: "Search in...",
-    searchDropdownValue: "All Collections",
-    searchDropdownOptions: [
-        "All Collections",
-        "Books & E-books",
-        "Articles & Journals",
-        "Databases",
-        "Digital Collections",
-        "Archives & Special Collections",
-    ],
-    searchDropdownPlaceholder: "Select category",
-    searchShowDivider: false,
+  theme: 'dlc',
+  searchInitialValue: '',
+  searchPlaceholder: 'Search in...',
+  searchDropdownValue: 'All Collections',
+  searchDropdownOptions: [
+    'All Collections',
+    'Books & E-books',
+    'Articles & Journals',
+    'Databases',
+    'Digital Collections',
+    'Archives & Special Collections',
+  ],
+  searchDropdownPlaceholder: 'Select category',
+  searchShowDivider: false,
 }
