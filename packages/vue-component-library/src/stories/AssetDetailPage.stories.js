@@ -161,21 +161,22 @@ function Template(args) {
            :menu-items="sampleMenuItems"
          />
 
-         <div class="search-field-composite-wrapper">
-           <SearchFieldComposite
-             class='search-bar'
-             :initial-value="args.searchInitialValue || searchValue"
-             :placeholder="args.searchPlaceholder || mockAssetDetailDataPage.searchForm.placeholder"
-             :dropdown-model-value="dropdownValue"
-             :dropdown-options="args.searchDropdownOptions || mockAssetDetailDataPage.searchForm.dropdownOptions"
-             :dropdown-placeholder="args.searchDropdownPlaceholder"
-             :show-divider="args.searchShowDivider !== undefined ? args.searchShowDivider : true"
-             @submit="handleSearchSubmit"
-             @update:dropdown-model-value="handleDropdownUpdate"
-           />
-         </div>
 
         <main class="main-content">
+          <div class="search-field-composite-wrapper">
+            <SearchFieldComposite
+              class='search-bar'
+              :initial-value="args.searchInitialValue || searchValue"
+              :placeholder="args.searchPlaceholder || mockAssetDetailDataPage.searchForm.placeholder"
+              :dropdown-model-value="dropdownValue"
+              :dropdown-options="args.searchDropdownOptions || mockAssetDetailDataPage.searchForm.dropdownOptions"
+              :dropdown-placeholder="args.searchDropdownPlaceholder"
+              :show-divider="args.searchShowDivider !== undefined ? args.searchShowDivider : true"
+              @submit="handleSearchSubmit"
+              @update:dropdown-model-value="handleDropdownUpdate"
+            />
+          </div>
+         
           <DetailHeader
             :total-results="mockAssetDetailDataPage.detailHeader.totalResults"
             :tag="mockAssetDetailDataPage.detailHeader.tag"

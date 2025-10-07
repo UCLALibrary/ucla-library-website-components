@@ -1,6 +1,5 @@
 .bento-box-results-page {
     --gutters: 48px;
-    --horizontal-gap: 64px;
     --header-height: 198px;
     --search-bar-height: 118px;
 
@@ -39,18 +38,15 @@
         }
     }
 
-    .search-field-composite-wrapper {
-        width: 100%;
-        max-width: 100%;
+    .main-content {
+        flex: 1;
+        padding: 0 var(--gutters) var(--gutters);
         margin: var(--header-height) auto 0;
-        padding: 14px var(--gutters);
-        box-sizing: border-box;
+        max-width: 1600px;
+    }
 
-        background-color: var(--color-white);
-
-        :deep(input) {
-            margin: 0;
-        }
+    .search-field-composite {
+        margin-top: 14px;
     }
 
     .filter-menu-wrapper {
@@ -60,24 +56,17 @@
         box-sizing: border-box;
     }
 
-    .main-content {
-        flex: 1;
-        padding: 0 var(--gutters) var(--gutters);
+    .search-section {
+        padding: 0 var(--gutters);
+        margin-bottom: var(--gutters);
+    }
 
-        .search-section {
-            padding: 0 var(--gutters);
-            margin-bottom: var(--gutters);
-        }
-
-        .grid-bento-pod {
-            margin-top: 32px;
-        }
+    .grid-bento-pod {
+        margin-top: 32px;
     }
 
     // Breakpoints
     @media #{$extra-large} {
-        --gutters: 200px;
-
         .main-content {
             padding: 0 var(--gutters) var(--gutters);
         }
@@ -89,7 +78,6 @@
     @media #{$small} {
         --header-height: 103px;
         --gutters: 24px;
-        --horizontal-gap: 10px;
         --search-bar-height: 164px;
 
         .main-content {

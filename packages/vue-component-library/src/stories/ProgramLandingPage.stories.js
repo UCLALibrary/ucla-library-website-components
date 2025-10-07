@@ -171,21 +171,23 @@ function Template(args) {
            :menu-items="sampleMenuItems"
          />
 
-         <div class="search-field-composite-wrapper">
-           <SearchFieldComposite
-             class='search-bar'
-             :initial-value="args.searchInitialValue || searchValue"
-             :placeholder="args.searchPlaceholder || mockProgramLandingPage.searchForm.placeholder"
-             :dropdown-model-value="dropdownValue"
-             :dropdown-options="args.searchDropdownOptions || mockProgramLandingPage.searchForm.dropdownOptions"
-             :dropdown-placeholder="args.searchDropdownPlaceholder"
-             :show-divider="args.searchShowDivider !== undefined ? args.searchShowDivider : true"
-             @submit="handleSearchSubmit"
-             @update:dropdown-model-value="handleDropdownUpdate"
-           />
-         </div>
+
 
         <main class="main-content">
+          <div class="search-field-composite-wrapper">
+            <SearchFieldComposite
+              class='search-bar'
+              :initial-value="args.searchInitialValue || searchValue"
+              :placeholder="args.searchPlaceholder || mockProgramLandingPage.searchForm.placeholder"
+              :dropdown-model-value="dropdownValue"
+              :dropdown-options="args.searchDropdownOptions || mockProgramLandingPage.searchForm.dropdownOptions"
+              :dropdown-placeholder="args.searchDropdownPlaceholder"
+              :show-divider="args.searchShowDivider !== undefined ? args.searchShowDivider : true"
+              @submit="handleSearchSubmit"
+              @update:dropdown-model-value="handleDropdownUpdate"
+            />
+          </div>
+
           <CollectionOverview
             class="collection-overview"
             :title="mockProgramLandingPage.collectionOverview.title"

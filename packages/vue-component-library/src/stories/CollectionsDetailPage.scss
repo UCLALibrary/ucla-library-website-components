@@ -1,6 +1,5 @@
 .collections-detail-page {
     --gutters: 48px;
-    --horizontal-gap: 64px;
     --header-height: 121px;
     --search-bar-height: 118px;
 
@@ -37,30 +36,15 @@
         }
     }
 
-    .search-field-composite-wrapper {
-        width: 100%;
-        max-width: 100%;
+    .main-content {
+        flex: 1;
+        max-width: 1600px;
+        padding: 0 var(--gutters) 48px;
         margin: var(--header-height) auto 0;
-        padding: 14px var(--horizontal-gap);
-        box-sizing: border-box;
-
-        background-color: var(--color-white);
-
-        :deep(input) {
-            margin: 0;
-        }
     }
 
     .collection-overview {
         margin-bottom: 48px;
-    }
-
-    .main-content {
-        flex: 1;
-        padding: 0 var(--gutters) 48px;
-        max-width: 1600px;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .grid-metadata {
