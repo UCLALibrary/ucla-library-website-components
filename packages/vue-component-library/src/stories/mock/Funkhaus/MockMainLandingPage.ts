@@ -1,8 +1,7 @@
 // Mock data for digital collections
 export const mockDigitalCollections = {
   searchForm: {
-    placeholder: 'Search digital collections...',
-    text: '<p>Poster celebrating the 100 years of the legal abolition of three centuries of slavery in Brazil (1888-1988)</p> <br> <p>Collections: Soweto Black Organization, Modern Endangered Archives Program</p>',
+    placeholder: 'Search',
     dropdownOptions: [
       'All Collections',
       'Books & E-books',
@@ -18,8 +17,8 @@ export const mockDigitalCollections = {
       alt: 'Modern Endangered Archives Program',
       focalPoint: [0.5, 0.5],
     },
-    backgroundText:
-            'Poster celebrating the 100 years of the legal abolition of three centuries of slavery in Brazil (1888-1988) <br> Collections: Soweto Black Organization, Modern Endangered Archives Program',
+    text: 'Poster celebrating the 100 years of the legal abolition of three centuries of slavery in Brazil (1888-1988) <br> Collections: Soweto Black Organization, Modern Endangered Archives Program',
+    link: 'https://www.google.com',
   },
   featuredCollections: {
     subtitle: 'Welcome to the',

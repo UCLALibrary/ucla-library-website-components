@@ -35,12 +35,6 @@ export default {
       options: ['default', 'dlc'],
       description: 'Theme variant for the page',
     },
-    searchInitialValue: { control: 'text' },
-    searchPlaceholder: { control: 'text' },
-    searchDropdownValue: { control: 'text' },
-    searchDropdownOptions: { control: 'array' },
-    searchDropdownPlaceholder: { control: 'text' },
-    searchShowDivider: { control: 'boolean' },
   },
 }
 
@@ -184,22 +178,24 @@ function Template(args) {
            :menu-items="sampleMenuItems"
          />
 
-           <SearchFieldComposite
-             class='search-bar'
-             :initial-value="args.searchInitialValue || searchValue"
-             :placeholder="args.searchPlaceholder || mockDigitalCollections.searchForm.placeholder"
-             :dropdown-model-value="dropdownValue"
-             :dropdown-options="args.searchDropdownOptions || mockDigitalCollections.searchForm.dropdownOptions"
-             :dropdown-placeholder="args.searchDropdownPlaceholder"
-             :show-divider="args.searchShowDivider"
-             :background-image="mockDigitalCollections.searchForm.backgroundImage"
-             :background-text="mockDigitalCollections.searchForm.backgroundText"
-             @submit="handleSearchSubmit"
-             @update:dropdown-model-value="handleDropdownUpdate"
-           />
-
-         <!-- Main Content Area -->
+       <!-- Main Content Area -->
          <main class="main-content">
+            <SearchFieldComposite
+                class="search-field-composite"
+                v-model:initial-value="searchValue"
+                v-model:dropdown-model-value="dropdownValue"
+
+                :placeholder="mockDigitalCollections.searchForm.placeholder"
+                :dropdown-options="mockDigitalCollections.searchForm.dropdownOptions"
+                :background-image="mockDigitalCollections.searchForm.backgroundImage"
+                :text="mockDigitalCollections.searchForm.text"
+                :link="mockDigitalCollections.searchForm.link"
+                @submit="handleSearchSubmit"
+                @update:dropdown-model-value="handleDropdownUpdate"
+            />
+
+
+            
             <HeaderCollection 
                 :subtitle="headerItems.subtitle"
                 :title="headerItems.title"
@@ -224,17 +220,4 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
-  searchInitialValue: '',
-  searchPlaceholder: 'Search in...',
-  searchDropdownValue: 'All Collections',
-  searchDropdownOptions: [
-    'All Collections',
-    'Books & E-books',
-    'Articles & Journals',
-    'Databases',
-    'Digital Collections',
-    'Archives & Special Collections',
-  ],
-  searchDropdownPlaceholder: 'Select category',
-  searchShowDivider: false,
 }
