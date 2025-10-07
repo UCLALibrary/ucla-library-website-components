@@ -59,6 +59,9 @@
     .grid-metadata {
         margin-bottom: 24px;
     }
+    .button-wrapper {
+        text-align: center;
+    }
 
     // Breakpoints
     @media #{$extra-large} {
