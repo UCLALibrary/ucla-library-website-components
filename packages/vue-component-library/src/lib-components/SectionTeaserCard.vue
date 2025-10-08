@@ -68,7 +68,7 @@ const currentTheme = computed(() => {
     >
       <template #toptext>
         <BlockTag v-if="item.videoEmbed && item.videoEmbed !== null">
-          <IconFTVAVideo class="white-icon" />
+          <IconFTVAVideo class="white-icon" />HELLO
         </BlockTag>
         <IconFTVAWatchOnline v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')" />
       </template>
