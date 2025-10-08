@@ -277,71 +277,7 @@ export function ManyItems() {
       return {
         props: {
           isOpen: true,
-          items: generateSampleItems(500),
-        },
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    template: `
-        <div style="padding: 40px; position: relative; background: #f5f5f5;">
-            <button @click="props.isOpen = true">Open Modal</button>
-            <modal-filter v-bind="props" @close="handleClose" />
-        </div>
-        `,
-    methods: {
-      handleClose() {
-        this.props.isOpen = false
-      },
-    },
-  }
-}
-
-export function HighNumberItems() {
-  // Show items with higher numbers to demonstrate variety
-  const highNumberItems = realItems.filter(item => item.number > 100)
-  return {
-    components: { ModalFilter },
-    data() {
-      return {
-        props: {
-          isOpen: true,
-          items: highNumberItems,
-        },
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    template: `
-        <div style="padding: 40px; position: relative; background: #f5f5f5;">
-            <button @click="props.isOpen = true">Open Modal</button>
-            <modal-filter v-bind="props" @close="handleClose" />
-        </div>
-        `,
-    methods: {
-      handleClose() {
-        this.props.isOpen = false
-      },
-    },
-  }
-}
-
-export function TopCategories() {
-  // Show only the highest count categories
-  const topCategories = realItems.filter(item => item.number > 1000)
-  return {
-    components: { ModalFilter },
-    data() {
-      return {
-        props: {
-          isOpen: true,
-          items: topCategories,
+          items: generateSampleItems(21963),
         },
       }
     },
@@ -370,7 +306,6 @@ export function EmptyItems() {
     data() {
       return {
         props: {
-          title: 'No Results Found',
           isOpen: true,
           items: [],
         },

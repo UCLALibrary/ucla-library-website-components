@@ -145,6 +145,23 @@ const paginatedNumericalItems = computed(() => {
   return numericalItems.value.slice(start, end)
 })
 
+// Split items into two columns for even distribution
+function splitIntoColumns(items: FilterItem[]) {
+  const midPoint = Math.ceil(items.length / 2)
+  return {
+    leftColumn: items.slice(0, midPoint),
+    rightColumn: items.slice(midPoint),
+  }
+}
+
+const alphabeticalColumns = computed(() => {
+  return splitIntoColumns(paginatedAlphabeticalItems.value)
+})
+
+const numericalColumns = computed(() => {
+  return splitIntoColumns(paginatedNumericalItems.value)
+})
+
 // Parsed title
 const parsedTitle = computed(() => {
   if (props.title)
@@ -155,9 +172,9 @@ const parsedTitle = computed(() => {
   return `Search Category Name (${props.items.length} ${plural})`
 })
 
-// Watchers
-
-// Lifecycle Hooks
+const hasItems = computed(() => {
+  return props.items.length > 0
+})
 </script>
 
 <template>
@@ -182,19 +199,52 @@ const parsedTitle = computed(() => {
           @selected-letter="handleSelectedLetter"
         />
 
-        <ul class="result-list-items">
-          <li
-            v-for="item in paginatedAlphabeticalItems"
-            :key="item.title"
-          >
-            <SmartLink :to="item.to" class="result-title">
-              {{ item.title }}
-            </SmartLink>
-            <span class="result-count">{{
-              `(${item.number})`
-            }}</span>
-          </li>
-        </ul>
+        <div v-if="hasItems" class="result-list-items">
+          <div class="column">
+            <ul>
+              <li
+                v-for="item in alphabeticalColumns.leftColumn"
+                :key="item.title"
+              >
+                <SmartLink
+                  :to="item.to"
+                  class="result-title"
+                  @click="handleClose"
+                >
+                  {{ item.title }}
+                </SmartLink>
+                <span class="result-count">{{
+                  `(${item.number})`
+                }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="column">
+            <ul>
+              <li
+                v-for="item in alphabeticalColumns.rightColumn"
+                :key="item.title"
+              >
+                <SmartLink
+                  :to="item.to"
+                  class="result-title"
+                  @click="handleClose"
+                >
+                  {{ item.title }}
+                </SmartLink>
+                <span class="result-count">{{
+                  `(${item.number})`
+                }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div v-else>
+          <p class="no-results">
+            No results found.
+          </p>
+        </div>
 
         <SectionPagination
           :pages="alphabeticalTotalPages"
@@ -213,19 +263,52 @@ const parsedTitle = computed(() => {
           @submit="handleNumericalSearch"
         />
 
-        <ul class="result-list-items">
-          <li
-            v-for="item in paginatedNumericalItems"
-            :key="item.title"
-          >
-            <SmartLink :to="item.to" class="result-title">
-              {{ item.title }}
-            </SmartLink>
-            <span class="result-count">{{
-              `(${item.number})`
-            }}</span>
-          </li>
-        </ul>
+        <div v-if="hasItems" class="result-list-items">
+          <div class="column">
+            <ul>
+              <li
+                v-for="item in numericalColumns.leftColumn"
+                :key="item.title"
+              >
+                <SmartLink
+                  :to="item.to"
+                  class="result-title"
+                  @click="handleClose"
+                >
+                  {{ item.title }}
+                </SmartLink>
+                <span class="result-count">{{
+                  `(${item.number})`
+                }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="column">
+            <ul>
+              <li
+                v-for="item in numericalColumns.rightColumn"
+                :key="item.title"
+              >
+                <SmartLink
+                  :to="item.to"
+                  class="result-title"
+                  @click="handleClose"
+                >
+                  {{ item.title }}
+                </SmartLink>
+                <span class="result-count">{{
+                  `(${item.number})`
+                }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div v-else>
+          <p class="no-results">
+            No results found.
+          </p>
+        </div>
 
         <SectionPagination
           :pages="numericalTotalPages"

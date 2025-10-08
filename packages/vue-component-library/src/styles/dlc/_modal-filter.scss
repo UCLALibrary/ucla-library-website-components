@@ -52,40 +52,46 @@
     }
 
     .result-list-items {
-        list-style: none;
-        padding: 0;
-        margin: 0 auto 40px;
-
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px 48px;
-
+        display: flex;
+        gap: 48px;
+        margin: 30px auto 40px;
         user-select: none;
 
-        li {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
+        .column {
+            flex: 1;
 
-        .result-title {
-            @include step-0;
-            color: var(--color-primary-blue-03);
-            font-weight: 900;
-            line-height: 1.2;
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
 
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-            text-underline-offset: 4px;
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 10px;
+                    margin-bottom: 10px;
+                }
+            }
 
-            text-decoration-color: transparent;
-            transition: text-decoration-color 0.3s ease-in-out;
-        }
+            .result-title {
+                @include step-0;
+                color: var(--color-primary-blue-03);
+                font-weight: 900;
+                line-height: 1.2;
 
-        .result-count {
-            @include step-0;
-            color: var(--color-black);
-            line-height: 1.2;
+                text-decoration: underline;
+                text-decoration-thickness: 2px;
+                text-underline-offset: 4px;
+
+                text-decoration-color: transparent;
+                transition: text-decoration-color 0.3s ease-in-out;
+            }
+
+            .result-count {
+                @include step-0;
+                color: var(--color-black);
+                line-height: 1.2;
+            }
         }
     }
 
@@ -94,6 +100,13 @@
         max-width: 840px;
         width: fit-content;
         user-select: none;
+    }
+
+    .no-results {
+        @include step-1;
+        color: var(--color-black);
+        text-align: center;
+        margin: 60px auto 0;
     }
 
     // When modal is open
@@ -108,7 +121,7 @@
                 stroke: var(--color-primary-blue-03);
             }
         }
-        .result-title:hover {
+        .column .result-title:hover {
             text-decoration-color: var(--color-primary-blue-03);
         }
     }
@@ -117,19 +130,22 @@
     }
     @media #{$medium} {
         padding: 34px 32px;
-
-        .result-list-items {
-            grid-template-columns: 1fr;
-        }
     }
     @media #{$small} {
         padding: 70px 24px 55px;
+
+        .svg-glyph-close {
+            top: 12px;
+            right: 12px;
+        }
+
         .search-results-pagination {
             max-width: 100%;
         }
 
         .result-list-items {
-            grid-template-columns: 1fr;
+            flex-direction: column;
+            gap: 0;
         }
     }
 }
