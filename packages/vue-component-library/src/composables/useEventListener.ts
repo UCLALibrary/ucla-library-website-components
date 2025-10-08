@@ -87,7 +87,6 @@ import { type Ref, onBeforeUnmount, onMounted, unref } from 'vue'
  * - Always prefer passing `() => document` instead of `document` directly in SSR apps.
  */
 
-
 type TargetLike =
   | EventTarget
   | Ref<EventTarget | null | undefined>
@@ -109,12 +108,14 @@ export function useEventListener<T extends Event>(
   let stopped = false
 
   const resolve = (): EventTarget | null | undefined => {
-    if (typeof target === 'function') return target()
+    if (typeof target === 'function')
+      return target()
     return unref(target as Ref<EventTarget | null | undefined>) ?? (target as EventTarget)
   }
 
   const add = () => {
-    if (stopped) return
+    if (stopped)
+      return
     el = resolve()
     el?.addEventListener(event, handler as EventListener, options)
   }
@@ -126,7 +127,8 @@ export function useEventListener<T extends Event>(
 
   // ✅ Only attach on client
   onMounted(() => {
-    if (typeof window === 'undefined') return
+    if (typeof window === 'undefined')
+      return
     add()
   })
 
