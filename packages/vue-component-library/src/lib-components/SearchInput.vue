@@ -99,7 +99,7 @@ const attrsStyles = computed(() => ({
 
 // Event Listeners
 // ✅ lazy + SSR-safe
-const stopDocKeydown = useEventListener<KeyboardEvent>(() => document, 'keydown', onDocumentKeydown)
+useEventListener<KeyboardEvent>(() => document, 'keydown', onDocumentKeydown)
 </script>
 
 <template>
