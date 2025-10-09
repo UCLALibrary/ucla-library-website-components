@@ -186,7 +186,7 @@ const hasItems = computed(() => {
     <h2 class="title">
       {{ parsedTitle }}
     </h2>
-    <TabList alignment="center" class="tab-list">
+    <TabList alignment="center" class="tab-list" :sync-with-url="false">
       <TabItem class="tab-item" title="Alphabetical Sort">
         <SearchFieldComposite
           class="search-field-composite"
