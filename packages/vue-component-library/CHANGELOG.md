@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.34.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.34.0...@ucla-library-monorepo/ucla-library-website-components-v1.34.1) (2025-10-08)
+
+
+### Bug Fixes
+
+* add ssr guard when using window or document in searchinput ([#834](https://github.com/UCLALibrary/ucla-library-website-components/issues/834)) ([1a19802](https://github.com/UCLALibrary/ucla-library-website-components/commit/1a198027b2b39a11ca8dfc082077947fe9ab1686))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.33.1...@ucla-library-monorepo/ucla-library-website-components-v1.34.0) (2025-10-02)
 
 
