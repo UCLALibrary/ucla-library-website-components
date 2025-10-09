@@ -304,6 +304,7 @@ const mockCollectionItems = [
     title: 'Tom Reed Hosting an Episode Exploring the Teachings of Malcolm X',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
     text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
+    ftvaDate: 'March 19, 2025',
     ftvaImage: [
       {
         id: '3156835',
@@ -326,10 +327,7 @@ const mockCollectionItems = [
     title: 'Native American, American, Indian and First Nations Film and Television',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
     text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
-    ftvaCollectionType: [
-      'motionPicture',
-      'television',
-    ],
+    ftvaDate: 'June 19, 2023',
     ftvaImage: [
       {
         id: '3280534',
@@ -379,6 +377,7 @@ const mockCollectionItems = [
       'motionPicture',
       'watchAndListenOnline',
     ],
+    ftvaDate: null,
     ftvaImage: [
       {
         id: '3280534',
@@ -405,6 +404,7 @@ const mockCollectionItems = [
     ftvaCollectionType: [
       'television'
     ],
+    ftvaDate: null,
     ftvaImage: [
       {
         id: '3701680',
@@ -432,17 +432,32 @@ const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
   }
 })
 
+const parsedFTVACollectionItemsNoDate = parsedFTVACollectionItems.map((item) => {
+  return {
+    ...item,
+    ftvaDate: '',
+  }
+})
+
 const parsedFTVACollectionItemsNoText = parsedFTVACollectionItems.map((item) => {
   return {
     ...item,
-    text: ''
+    text: '',
+  }
+})
+
+const parsedFTVACollectionItemsNoTextNoDate = parsedFTVACollectionItems.map((item) => {
+  return {
+    ...item,
+    text: '',
+    ftvaDate: '',
   }
 })
 
 export function FTVACollectionItems() {
   return {
     data() {
-      return { items: parsedFTVACollectionItemsNoText.slice(0, 3) }
+      return { items: parsedFTVACollectionItemsNoTextNoDate.slice(0, 3) }
     },
     provide() {
       return {
@@ -459,10 +474,35 @@ export function FTVACollectionItems() {
   }
 }
 
+export function FTVACollectionItemsWithDate() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionItemsNoText.slice(0, 3) }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <component is="style" type="text/css">
+        .ftva.block-highlight .card-meta .byline-group {
+          position: static !important;
+        }
+      </component>
+      <section-teaser-card
+        :items="items"
+        :grid-layout="false"
+      />
+  `,
+  }
+}
+
 export function FTVACollectionItemsWithText() {
   return {
     data() {
-      return { items: parsedFTVACollectionItems.slice(0, 3) }
+      return { items: parsedFTVACollectionItemsNoDate.slice(0, 3) }
     },
     provide() {
       return {
@@ -482,7 +522,7 @@ export function FTVACollectionItemsWithText() {
 export function FTVACollectionItemsHorzScroll() {
   return {
     data() {
-      return { items: parsedFTVACollectionItemsNoText }
+      return { items: parsedFTVACollectionItemsNoTextNoDate }
     },
     provide() {
       return {
@@ -502,7 +542,7 @@ export function FTVACollectionItemsHorzScroll() {
 export function FTVACollectionItemsSlider() {
   return {
     data() {
-      return { items: parsedFTVACollectionItemsNoText }
+      return { items: parsedFTVACollectionItemsNoTextNoDate }
     },
     provide() {
       return {
@@ -524,7 +564,7 @@ export function FTVACollectionItemsSlider() {
 export function FTVACollectionItemsGrid() {
   return {
     data() {
-      return { items: parsedFTVACollectionItemsNoText }
+      return { items: parsedFTVACollectionItemsNoTextNoDate }
     },
     provide() {
       return {
@@ -553,7 +593,7 @@ export function FTVACollectionItemsGrid() {
 
         @media(min-width: 991px){
           .ftva.block-highlight.is-vertical.card {
-            height: 550px;
+            // height: 550px;
           }
         }
       </component>
