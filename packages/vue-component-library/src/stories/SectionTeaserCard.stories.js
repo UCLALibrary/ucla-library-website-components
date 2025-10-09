@@ -301,126 +301,9 @@ export function FTVABlogSeries() {
 
 const mockCollectionItems = [
   {
-    title: 'Test Collection Item: \'Event Audio Recordings\' item w/ Video',
-    slug: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
-    ftvaImage: [
-      {
-        id: '3156835',
-        src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/TomReed_MalcolmX.webp',
-        height: 1813,
-        width: 2560,
-        srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 2560w',
-        alt: 'Tom Reed hosting an episode exploring the teachings of Malcolm X',
-        focalPoint: [
-          0.5,
-          0.5
-        ]
-      }
-    ],
-    videoEmbed: null,
-    sectionHandle: 'ftvaItemInCollection'
-  },
-  {
-    title: 'Test Collection Item 4: Another \'Event Audio Recordings\' item w/ Video',
-    slug: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
-    ftvaImage: [
-      {
-        id: '3280534',
-        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/kpil7j-21cut1large.webp',
-        height: 1664,
-        width: 2560,
-        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 2560w',
-        alt: 'many hot air balloons in the air',
-        focalPoint: [
-          0.5,
-          0.5
-        ]
-      }
-    ],
-    videoEmbed: '<figure><iframe style="width:500px;height:281px;" src="//www.youtube.com/embed/C5osK7kvRGk" frameborder="0"></iframe></figure>',
-    sectionHandle: 'ftvaItemInCollection'
-  },
-  {
-    title: 'Test Collection Item 2: \'Event Audio Recordings\' item w/ Image, No video',
-    slug: 'test-collection-item-for-archive-events-audio-recordings-2-2',
-    ftvaImage: [
-      {
-        id: '3701680',
-        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/PXL_20240323_163248504.jpg',
-        height: 1920,
-        width: 2560,
-        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 2560w',
-        alt: 'Image alt text here',
-        focalPoint: [
-          0.5,
-          0.5
-        ]
-      }
-    ],
-    videoEmbed: null,
-    sectionHandle: 'ftvaItemInCollection'
-  }
-]
-
-const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
-  return {
-    ...item,
-    to: item.slug, // might be item.uri in actual data
-    image: item.ftvaImage[0]
-  }
-})
-
-export function FTVACollectionItems() {
-  return {
-    data() {
-      return { items: parsedFTVACollectionItems }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        :grid-layout="false"
-      />
-  `,
-  }
-}
-
-export function FTVAHorizontalScrollCardWithImage() {
-  return {
-    data() {
-      return { items: parsedFTVACollectionItems }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { SectionTeaserCard, ScrollWrapper },
-    template: `
-    <scroll-wrapper>
-      <section-teaser-card
-        :items="items"
-      />
-    </scroll-wrapper>
-  `,
-  }
-}
-
-const mockCollectionListings = [
-  {
-    title: 'Latin American Institute',
+    title: 'Tom Reed Hosting an Episode Exploring the Teachings of Malcolm X',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
     text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
-    ftvaCollectionType: [
-      'motionPicture',
-      'television',
-      'watchAndListenOnline'
-    ],
     ftvaImage: [
       {
         id: '3156835',
@@ -434,8 +317,11 @@ const mockCollectionListings = [
           0.5
         ]
       }
-    ]
+    ],
+    videoEmbed: null,
+    sectionHandle: 'ftvaItemInCollection'
   },
+
   {
     title: 'Native American, American, Indian and First Nations Film and Television',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
@@ -457,16 +343,15 @@ const mockCollectionListings = [
           0.5
         ]
       }
-    ]
+    ],
+    videoEmbed: '<figure><iframe style="width:500px;height:281px;" src="//www.youtube.com/embed/C5osK7kvRGk" frameborder="0"></iframe></figure>',
+    sectionHandle: 'ftvaItemInCollection'
   },
+
   {
     title: 'Robert Abel & Associates',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2',
     text: 'During their most prolific period, RA&A’s unique design aesthetic and innovative Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    ftvaCollectionType: [
-      'motionPicture',
-      'watchAndListenOnline'
-    ],
     ftvaImage: [
       {
         id: '3701680',
@@ -481,9 +366,13 @@ const mockCollectionListings = [
         ]
       }
     ],
+    videoEmbed: null,
+    sectionHandle: 'ftvaItemInCollection'
   },
+
+  // ftvaCollectionType
   {
-    title: 'Test Collection Listing Item 4 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+    title: 'Testing Long Title: Incididunt ut labore et dolore magna aliqua ut enim ad minim veniam incididunt ut labore et dolore magna aliqua ut enim ad minim veniam incididunt ut labore et dolore magna aliqua ut enim ad minim veniam Ut enim ad minim veniam',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     ftvaCollectionType: [
@@ -503,10 +392,14 @@ const mockCollectionListings = [
           0.5
         ]
       }
-    ]
+    ],
+    videoEmbed: null,
+    sectionHandle: 'ftvaItemInCollection'
   },
+
+  // ftvaCollectionType
   {
-    title: 'Test Collection Listing Item 5 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+    title: 'The Pink Cloud + shorts',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     ftvaCollectionType: [
@@ -526,21 +419,112 @@ const mockCollectionListings = [
         ]
       }
     ],
-  },
+    videoEmbed: null,
+    sectionHandle: 'ftvaItemInCollection'
+  }
 ]
 
-const parsedFTVACollectionListings = mockCollectionListings.map((item) => {
+const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
   return {
     ...item,
-    to: item.uri,
+    to: item.slug ? item.slug : item.uri,
     image: item.ftvaImage[0]
   }
 })
 
-export function FTVACollectionListings() {
+const parsedFTVACollectionItemsNoText = parsedFTVACollectionItems.map((item) => {
+  return {
+    ...item,
+    text: ''
+  }
+})
+
+export function FTVACollectionItems() {
   return {
     data() {
-      return { items: parsedFTVACollectionListings }
+      return { items: parsedFTVACollectionItemsNoText.slice(0, 3) }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <section-teaser-card
+        :items="items"
+        :grid-layout="false"
+      />
+  `,
+  }
+}
+
+export function FTVACollectionItemsWithText() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionItems.slice(0, 3) }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <section-teaser-card
+        :items="items"
+        :grid-layout="false"
+      />
+  `,
+  }
+}
+
+export function FTVACollectionItemsHorzScroll() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionItemsNoText }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <section-teaser-card
+        :items="items"
+        :grid-layout="false"
+      />
+  `,
+  }
+}
+
+export function FTVACollectionItemsSlider() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionItemsNoText }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard, ScrollWrapper },
+    template: `
+    <scroll-wrapper>
+      <section-teaser-card
+        :items="items"
+        :grid-layout="false"
+      />
+    </scroll-wrapper>
+  `,
+  }
+}
+
+export function FTVACollectionItemsGrid() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionItemsNoText }
     },
     provide() {
       return {

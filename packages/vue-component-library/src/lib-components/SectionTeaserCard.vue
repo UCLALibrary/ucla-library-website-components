@@ -43,6 +43,24 @@ const parsedAspectRatio = computed(() => {
 const currentTheme = computed(() => {
   return theme?.value || ''
 })
+
+interface CardItem {
+  sectionHandle?: string
+  ftvaDate?: string
+  postDate?: string
+}
+
+function parseCardItemDate(item: CardItem) {
+  if (currentTheme.value === 'ftva') {
+    if (item.sectionHandle === 'ftvaItemInCollection')
+      return item.ftvaDate
+
+    else
+      return item.postDate
+  }
+
+  return ''
+}
 </script>
 
 <template>
@@ -63,12 +81,12 @@ const currentTheme = computed(() => {
       :byline-two="item.bylineTwo"
       :section-handle="item.sectionHandle"
       :ongoing="item.ongoing"
-      :date-created="currentTheme === 'ftva' ? item.postDate : ''"
+      :date-created="parseCardItemDate(item)"
       class="card"
     >
       <template #toptext>
         <BlockTag v-if="item.videoEmbed && item.videoEmbed !== null">
-          <IconFTVAVideo class="white-icon" />HELLO
+          <IconFTVAVideo class="white-icon" />
         </BlockTag>
         <IconFTVAWatchOnline v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')" />
       </template>
