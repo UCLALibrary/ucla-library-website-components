@@ -20227,15 +20227,15 @@ snapshots:
       '@poppinss/exception': 1.2.1
       error-stack-parser-es: 1.0.5
 
-  youch@4.1.0-beta.6:
-    dependencies:
-      '@poppinss/dumper': 0.6.3
-      '@speed-highlight/core': 1.2.7
-      cookie: 1.0.2
-      youch-core: 0.3.2
+    youch@4.1.0-beta.6:
+        dependencies:
+            "@poppinss/dumper": 0.6.3
+            "@speed-highlight/core": 1.2.7
+            cookie: 1.0.2
+            youch-core: 0.3.2
 
-  zip-stream@6.0.1:
-    dependencies:
-      archiver-utils: 5.0.2
-      compress-commons: 6.0.2
-      readable-stream: 4.7.0
+    zip-stream@6.0.1:
+        dependencies:
+            archiver-utils: 5.0.2
+            compress-commons: 6.0.2
+            readable-stream: 4.7.0
