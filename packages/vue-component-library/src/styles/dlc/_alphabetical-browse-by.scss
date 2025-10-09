@@ -34,6 +34,11 @@
         }
     }
 
+    .alphabet-list {
+        max-width: unset;
+        flex-wrap: wrap;
+    }
+
     // Hovers
     @media #{$has-hover} {
         .letter:hover {
