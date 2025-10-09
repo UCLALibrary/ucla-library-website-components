@@ -306,6 +306,7 @@ const mockCollectionItems = [
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
     text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
     ftvaDate: 'March 19, 2025',
+    postDate: '2025-02-21T09:46:00-08:00',
     ftvaImage: [
       {
         id: '3156835',
@@ -330,6 +331,7 @@ const mockCollectionItems = [
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
     text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
     releaseDate: 'June 19, 2023',
+    postDate: '2025-03-21T09:46:00-08:00',
     ftvaImage: [
       {
         id: '3280534',
@@ -353,7 +355,8 @@ const mockCollectionItems = [
     title: 'Robert Abel & Associates',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2',
     text: 'During their most prolific period, RA&A’s unique design aesthetic and innovative Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    episodeAirDate: 'September 19, 2025',
+    episodeAirDate: 'September 19, 2024',
+    postDate: '2025-04-21T09:46:00-08:00',
     ftvaImage: [
       {
         id: '3701680',
@@ -382,6 +385,7 @@ const mockCollectionItems = [
       'watchAndListenOnline',
     ],
     ftvaDate: null,
+    postDate: '2025-02-21T09:46:00-08:00',
     ftvaImage: [
       {
         id: '3280534',
@@ -409,6 +413,7 @@ const mockCollectionItems = [
       'television'
     ],
     ftvaDate: null,
+    postDate: '2025-03-21T09:46:00-08:00',
     ftvaImage: [
       {
         id: '3701680',

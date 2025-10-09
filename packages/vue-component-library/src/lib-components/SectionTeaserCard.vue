@@ -61,6 +61,7 @@ function parseCardItemDate(item: CardItem) {
         return item.episodeAirDate
       else if (item.releaseDate)
         return item.releaseDate
+      else return ''
     }
 
     else {
