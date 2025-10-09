@@ -299,8 +299,9 @@ export function FTVABlogSeries() {
   }
 }
 
+// Mocking collection items with sectionHandle 'ftvaItemInCollection'
 const mockCollectionItems = [
-  // ftvaDate
+  // Testing metadata: ftvaDate
   {
     title: 'Tom Reed Hosting an Episode Exploring the Teachings of Malcolm X',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
@@ -325,7 +326,7 @@ const mockCollectionItems = [
     sectionHandle: 'ftvaItemInCollection'
   },
 
-  // releaseDate
+  // Testing metadata: releaseDate
   {
     title: 'Native American, American, Indian and First Nations Film and Television',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
@@ -350,7 +351,7 @@ const mockCollectionItems = [
     sectionHandle: 'ftvaItemInCollection'
   },
 
-  // episodeAirDate
+  // Testing metadata: episodeAirDate
   {
     title: 'Robert Abel & Associates',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2',
@@ -433,9 +434,22 @@ const mockCollectionItems = [
   }
 ]
 
+function parseCardItemDate(item) {
+  if (item.sectionHandle === 'ftvaItemInCollection') {
+    if (item.ftvaDate)
+      return item.ftvaDate
+    else if (item.episodeAirDate)
+      return item.episodeAirDate
+    else if (item.releaseDate)
+      return item.releaseDate
+    else return null
+  }
+}
+
 const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
   return {
     ...item,
+    postDate: parseCardItemDate(item),
     to: item.slug ? item.slug : item.uri,
     image: item.ftvaImage[0]
   }
@@ -444,26 +458,28 @@ const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
 const parsedFTVACollectionItemsNoDate = parsedFTVACollectionItems.map((item) => {
   return {
     ...item,
-    ftvaDate: '',
-    episodeAirDate: '',
-    releaseDate: ''
+    ftvaDate: null,
+    episodeAirDate: null,
+    releaseDate: null,
+    postDate: null
   }
 })
 
 const parsedFTVACollectionItemsNoText = parsedFTVACollectionItems.map((item) => {
   return {
     ...item,
-    text: '',
+    text: null,
   }
 })
 
 const parsedFTVACollectionItemsNoTextNoDate = parsedFTVACollectionItems.map((item) => {
   return {
     ...item,
-    text: '',
-    ftvaDate: '',
-    episodeAirDate: '',
-    releaseDate: ''
+    text: null,
+    ftvaDate: null,
+    episodeAirDate: null,
+    releaseDate: null,
+    postDate: null
   }
 })
 

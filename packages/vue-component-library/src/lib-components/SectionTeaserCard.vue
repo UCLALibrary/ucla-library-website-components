@@ -43,34 +43,6 @@ const parsedAspectRatio = computed(() => {
 const currentTheme = computed(() => {
   return theme?.value || ''
 })
-
-interface CardItem {
-  sectionHandle?: string
-  ftvaDate?: string
-  postDate?: string
-  releaseDate?: string
-  episodeAirDate?: string
-}
-
-function parseCardItemDate(item: CardItem) {
-  if (currentTheme.value === 'ftva') {
-    if (item.sectionHandle === 'ftvaItemInCollection') {
-      if (item.ftvaDate)
-        return item.ftvaDate
-      else if (item.episodeAirDate)
-        return item.episodeAirDate
-      else if (item.releaseDate)
-        return item.releaseDate
-      else return ''
-    }
-
-    else {
-      return item.postDate
-    }
-  }
-
-  return ''
-}
 </script>
 
 <template>
@@ -91,7 +63,7 @@ function parseCardItemDate(item: CardItem) {
       :byline-two="item.bylineTwo"
       :section-handle="item.sectionHandle"
       :ongoing="item.ongoing"
-      :date-created="parseCardItemDate(item)"
+      :date-created="currentTheme === 'ftva' ? item.postDate : ''"
       class="card"
     >
       <template #toptext>
