@@ -300,6 +300,7 @@ export function FTVABlogSeries() {
 }
 
 const mockCollectionItems = [
+  // ftvaDate
   {
     title: 'Tom Reed Hosting an Episode Exploring the Teachings of Malcolm X',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
@@ -323,11 +324,12 @@ const mockCollectionItems = [
     sectionHandle: 'ftvaItemInCollection'
   },
 
+  // releaseDate
   {
     title: 'Native American, American, Indian and First Nations Film and Television',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
     text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
-    ftvaDate: 'June 19, 2023',
+    releaseDate: 'June 19, 2023',
     ftvaImage: [
       {
         id: '3280534',
@@ -346,10 +348,12 @@ const mockCollectionItems = [
     sectionHandle: 'ftvaItemInCollection'
   },
 
+  // episodeAirDate
   {
     title: 'Robert Abel & Associates',
     uri: 'test-collection-item-for-archive-events-audio-recordings-2-2',
     text: 'During their most prolific period, RA&A’s unique design aesthetic and innovative Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    episodeAirDate: 'September 19, 2025',
     ftvaImage: [
       {
         id: '3701680',
@@ -436,6 +440,8 @@ const parsedFTVACollectionItemsNoDate = parsedFTVACollectionItems.map((item) => 
   return {
     ...item,
     ftvaDate: '',
+    episodeAirDate: '',
+    releaseDate: ''
   }
 })
 
@@ -451,6 +457,8 @@ const parsedFTVACollectionItemsNoTextNoDate = parsedFTVACollectionItems.map((ite
     ...item,
     text: '',
     ftvaDate: '',
+    episodeAirDate: '',
+    releaseDate: ''
   }
 })
 
