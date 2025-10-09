@@ -25,18 +25,25 @@ interface FilterProps {
 withDefaults(defineProps<FilterProps>(), {
   opened: true,
   preventClose: false,
-  limitOptions: false
+  limitOptions: false,
 })
 
 // Emit events
 defineEmits<{
-  'opening': []
-  'opened': []
-  'closing': []
-  'closed': []
+  opening: []
+  opened: []
+  closing: []
+  closed: []
   'selection-change': [selectedOptions: Record<string, string[]>]
-  'option-selected': [filterName: string, option: { label: string; value: string; count: number }]
-  'option-deselected': [filterName: string, option: { label: string; value: string; count: number }]
+  'option-selected': [
+        filterName: string,
+        option: { label: string; value: string; count: number }
+  ]
+  'option-deselected': [
+        filterName: string,
+        option: { label: string; value: string; count: number }
+  ]
+  'see-all': [filterName: string]
 }>()
 // THEME
 const theme = useTheme()
@@ -71,8 +78,15 @@ const classes = computed(() => ['refine-search-panel', theme?.value || ''])
       :filters="filters"
       :limit-options="limitOptions"
       @selection-change="$emit('selection-change', $event)"
-      @option-selected="(filterName, option) => $emit('option-selected', filterName, option)"
-      @option-deselected="(filterName, option) => $emit('option-deselected', filterName, option)"
+      @option-selected="
+        (filterName, option) =>
+          $emit('option-selected', filterName, option)
+      "
+      @option-deselected="
+        (filterName, option) =>
+          $emit('option-deselected', filterName, option)
+      "
+      @see-all="(filterName) => $emit('see-all', filterName)"
     >
       <!-- Pass through all slots to FilterDropdown -->
       <template
@@ -80,10 +94,7 @@ const classes = computed(() => ['refine-search-panel', theme?.value || ''])
         :key="slotName"
         #[slotName]="slotProps"
       >
-        <slot
-          :name="slotName"
-          v-bind="slotProps"
-        />
+        <slot :name="slotName" v-bind="slotProps" />
       </template>
     </FilterDropdown>
   </EffectSlideToggle>

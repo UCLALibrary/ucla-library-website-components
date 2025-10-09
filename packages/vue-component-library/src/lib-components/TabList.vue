@@ -8,11 +8,11 @@ import {
   useSlots,
   watch,
 } from 'vue'
-import { useWindowSize } from '@vueuse/core'
 import { useRoute, useRouter } from 'vue-router'
+import { useWindowSize } from '@vueuse/core'
 import { useTheme } from '@/composables/useTheme'
 
-const { alignment, initialTab } = defineProps({
+const { alignment, initialTab, syncWithUrl } = defineProps({
   alignment: {
     type: String,
     default: 'left',
@@ -20,6 +20,10 @@ const { alignment, initialTab } = defineProps({
   initialTab: {
     type: Number,
     default: 0,
+  },
+  syncWithUrl: {
+    type: Boolean,
+    default: true,
   },
 })
 
@@ -63,20 +67,25 @@ const iconMapping = {
 }
 
 onMounted(() => {
-  // Only check URL for initial tab if not in Storybook
-  let initialTabFromUrl = null
-  if (!window.location.pathname.includes('iframe.html'))
-    initialTabFromUrl = route.query.view
+  if (syncWithUrl) {
+    // Check URL for initial tab if syncWithUrl is enabled
+    const initialTabFromUrl = route.query.view
 
-  const tabIndex = tabItems.value.findIndex(
-    tab => tab?.title.toLowerCase() === initialTabFromUrl
-  )
+    const tabIndex = tabItems.value.findIndex(
+      tab => tab?.title.toLowerCase() === initialTabFromUrl
+    )
 
-  if (tabIndex !== -1) {
-    activeTabIndex.value = tabIndex
-    activeTabTitle.value = tabItems.value[tabIndex]?.title
+    if (tabIndex !== -1) {
+      activeTabIndex.value = tabIndex
+      activeTabTitle.value = tabItems.value[tabIndex]?.title
+    }
+    else {
+      activeTabIndex.value = initialTab
+      activeTabTitle.value = tabItems.value[initialTab]?.title
+    }
   }
   else {
+    // Use prop value only when URL sync is disabled
     activeTabIndex.value = initialTab
     activeTabTitle.value = tabItems.value[initialTab]?.title
   }
@@ -161,8 +170,8 @@ function switchTab(tabName: string) {
   activeTabTitle.value = tabName
   activeTabIndex.value = tabIndex
 
-  // Only update URL with query parameter if not in Storybook
-  if (!window.location.pathname.includes('iframe.html')) {
+  // Only update URL with query parameter if syncWithUrl is enabled and not in Storybook
+  if (syncWithUrl && !window.location.pathname.includes('iframe.html')) {
     router.push({
       query: {
         ...route.query,

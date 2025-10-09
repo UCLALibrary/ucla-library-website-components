@@ -18,6 +18,7 @@ import SectionPagination from '../lib-components/SectionPagination.vue'
 import ResponsiveImage from '../lib-components/ResponsiveImage.vue'
 import DefinitionList from '../lib-components/DefinitionList.vue'
 import DividerGeneral from '../lib-components/DividerGeneral.vue'
+import ModalFilter from '../lib-components/ModalFilter.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
@@ -96,6 +97,7 @@ function Template(args) {
       ResponsiveImage,
       DefinitionList,
       DividerGeneral,
+      ModalFilter,
     },
     provide() {
       return {
@@ -106,6 +108,7 @@ function Template(args) {
       const menuOpened = ref(false)
       const dropdownValue = ref(args.searchDropdownValue)
       const submittedValue = ref('')
+      const isModalFilterOpened = ref(false)
 
       const toggleMenu = () => {
         menuOpened.value = !menuOpened.value
@@ -221,6 +224,9 @@ function Template(args) {
         console.log(`Page changed to: ${pageNumber}`)
         // You can add logic here to fetch new data for the page
       }
+      const handleModalFilterClose = () => {
+        isModalFilterOpened.value = false
+      }
 
       // Sample menu items data
       const sampleMenuItems = [
@@ -256,6 +262,15 @@ function Template(args) {
         },
       ]
 
+      const handleSeeAll = (filterName) => {
+        console.log(`See all clicked for ${filterName}`)
+        console.log(
+          'mockRefineSearchPanel',
+          mockRefineSearchPanel.modalFilterItems
+        )
+        isModalFilterOpened.value = true
+      }
+
       return {
         args,
         menuOpened,
@@ -289,6 +304,9 @@ function Template(args) {
         currentPage,
         generatePaginationLink,
         handlePageChange,
+        isModalFilterOpened,
+        handleSeeAll,
+        handleModalFilterClose,
       }
     },
     computed: {},
@@ -402,6 +420,7 @@ function Template(args) {
                 @selection-change="handleFilterSelectionChange"
                 @option-selected="handleOptionSelected"
                 @option-deselected="handleOptionDeselected"
+                @see-all="handleSeeAll"
 
               />
             </div>
@@ -417,6 +436,7 @@ function Template(args) {
                 @selection-change="handleFilterSelectionChange"
                 @option-selected="handleOptionSelected"
                 @option-deselected="handleOptionDeselected"
+                @see-all="handleSeeAll"
               />
             </aside>
             
@@ -485,6 +505,11 @@ function Template(args) {
             </div>
           </div>
         </main>
+          <ModalFilter
+            :is-open="isModalFilterOpened"
+            :items="mockRefineSearchPanel.modalFilterItems"
+            @close="handleModalFilterClose"
+          />
          
          <!-- Footer -->
          <FooterMain />

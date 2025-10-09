@@ -20,14 +20,21 @@ interface FilterProps {
 }
 
 const props = withDefaults(defineProps<FilterProps>(), {
-  limitOptions: false
+  limitOptions: false,
 })
 
 // Emit events for selection changes
 const emit = defineEmits<{
   'selection-change': [selectedOptions: Record<string, string[]>]
-  'option-selected': [filterName: string, option: { label: string; value: string; count: number }]
-  'option-deselected': [filterName: string, option: { label: string; value: string; count: number }]
+  'option-selected': [
+        filterName: string,
+        option: { label: string; value: string; count: number }
+  ]
+  'option-deselected': [
+        filterName: string,
+        option: { label: string; value: string; count: number }
+  ]
+  'see-all': [filterName: string]
 }>()
 // THEME
 const theme = useTheme()
@@ -40,7 +47,9 @@ const filteredStates = ref<Record<string, boolean>>({})
 
 // Helper functions
 const getFilterKey = (filter: any) => filter.slotName || filter.name
-const getFilterIndex = (filterKey: string) => props.filters.findIndex(f => getFilterKey(f) === filterKey)
+function getFilterIndex(filterKey: string) {
+  return props.filters.findIndex(f => getFilterKey(f) === filterKey)
+}
 
 // Animate height change as the filter options change
 async function animateHeightChange(filterIndex: number) {
@@ -50,10 +59,17 @@ async function animateHeightChange(filterIndex: number) {
   const currentHeight = toggleRefs.value[filterIndex].$el.offsetHeight
   await nextTick()
 
-  const contentElement = toggleRefs.value[filterIndex].$el?.querySelector('.filter-content')
+  const contentElement
+        = toggleRefs.value[filterIndex].$el?.querySelector('.filter-content')
   if (contentElement) {
-    const targetHeight = contentElement.offsetHeight + toggleRefs.value[filterIndex].$el.querySelector('.summary').offsetHeight
-    toggleRefs.value[filterIndex].animateToHeight(targetHeight, currentHeight)
+    const targetHeight
+            = contentElement.offsetHeight
+            + toggleRefs.value[filterIndex].$el.querySelector('.summary')
+              .offsetHeight
+    toggleRefs.value[filterIndex].animateToHeight(
+      targetHeight,
+      currentHeight
+    )
   }
 }
 
@@ -61,7 +77,8 @@ async function animateHeightChange(filterIndex: number) {
 function initializeSelectedOptions() {
   props.filters.forEach((filter) => {
     const filterKey = getFilterKey(filter)
-    selectedOptions.value[filterKey] = selectedOptions.value[filterKey] || []
+    selectedOptions.value[filterKey]
+            = selectedOptions.value[filterKey] || []
     filteredStates.value[filterKey] = false
   })
 }
@@ -69,9 +86,13 @@ function initializeSelectedOptions() {
 initializeSelectedOptions()
 
 // Watch for changes in selected filter options and emit
-watch(selectedOptions, (newOptions) => {
-  emit('selection-change', { ...newOptions })
-}, { deep: true })
+watch(
+  selectedOptions,
+  (newOptions) => {
+    emit('selection-change', { ...newOptions })
+  },
+  { deep: true }
+)
 
 // Option selection helpers
 function isOptionSelected(filterName: string, optionValue: string) {
@@ -95,6 +116,10 @@ async function onSummaryClick(filterName: string) {
   await animateHeightChange(filterIndex)
 }
 
+function onSeeAllClick(filterName: string) {
+  emit('see-all', filterName)
+}
+
 // Get options to display for a filter (only selected when in filtered mode)
 function getFilterOptions(filter: any) {
   if (!filter.options)
@@ -104,7 +129,9 @@ function getFilterOptions(filter: any) {
   const isFiltered = filteredStates.value[filterKey]
 
   let options = isFiltered
-    ? filter.options.filter((option: any) => selectedOptions.value[filterKey]?.includes(option.value))
+    ? filter.options.filter((option: any) =>
+      selectedOptions.value[filterKey]?.includes(option.value)
+    )
     : filter.options
 
   // Apply limit if limitOptions is enabled
@@ -115,7 +142,10 @@ function getFilterOptions(filter: any) {
 }
 
 // Toggle option selection
-async function toggleOption(filterName: string, option: { label: string; value: string; count: number }) {
+async function toggleOption(
+  filterName: string,
+  option: { label: string; value: string; count: number }
+) {
   const currentSelection = selectedOptions.value[filterName] || []
   const optionIndex = currentSelection.indexOf(option.value)
 
@@ -143,7 +173,11 @@ async function toggleOption(filterName: string, option: { label: string; value: 
     else {
       // Animate height if needed
       const filterIndex = getFilterIndex(filterName)
-      if (filterIndex >= 0 && toggleRefs.value[filterIndex]?.isOpened && filteredStates.value[filterName])
+      if (
+        filterIndex >= 0
+                && toggleRefs.value[filterIndex]?.isOpened
+                && filteredStates.value[filterName]
+      )
         await animateHeightChange(filterIndex)
     }
   }
@@ -169,10 +203,14 @@ async function toggleOption(filterName: string, option: { label: string; value: 
         <template #summary>
           <div
             class="filter-summary"
-            :class="{ 'is-filtered': filteredStates[getFilterKey(filter)] }"
+            :class="{
+              'is-filtered': filteredStates[getFilterKey(filter)],
+            }"
             @click="() => onSummaryClick(getFilterKey(filter))"
           >
-            <span class="filter-name">{{ filter.name || filter.slotName }}</span>
+            <span class="filter-name">{{
+              filter.name || filter.slotName
+            }}</span>
             <span class="filter-chevron">
               <SvgFilterIcon aria-hidden="true" />
             </span>
@@ -184,7 +222,9 @@ async function toggleOption(filterName: string, option: { label: string; value: 
           <slot
             :name="getFilterKey(filter)"
             :filter="filter"
-            :selected-options="selectedOptions[getFilterKey(filter)] || []"
+            :selected-options="
+              selectedOptions[getFilterKey(filter)] || []
+            "
             :toggle-option="(option: { label: string, value: string, count: number }) => toggleOption(getFilterKey(filter), option)"
           >
             <!-- Default content if no slot is provided -->
@@ -201,20 +241,44 @@ async function toggleOption(filterName: string, option: { label: string; value: 
                   v-for="option in getFilterOptions(filter)"
                   :key="option.value"
                   class="filter-option"
-                  :class="{ 'is-selected': isOptionSelected(getFilterKey(filter), option.value) }"
+                  :class="{
+                    'is-selected': isOptionSelected(
+                      getFilterKey(filter),
+                      option.value,
+                    ),
+                  }"
                 >
                   <input
                     type="checkbox"
                     :value="option.value"
-                    :checked="isOptionSelected(getFilterKey(filter), option.value)"
+                    :checked="
+                      isOptionSelected(
+                        getFilterKey(filter),
+                        option.value,
+                      )
+                    "
                     class="option-checkbox"
-                    @change="toggleOption(getFilterKey(filter), option)"
+                    @change="
+                      toggleOption(
+                        getFilterKey(filter),
+                        option,
+                      )
+                    "
                   >
-                  <span class="option-name">{{ option.label }}</span>
+                  <span class="option-name">{{
+                    option.label
+                  }}</span>
                   <div class="option-right">
-                    <span class="option-count">{{ option.count }}</span>
+                    <span class="option-count">{{
+                      option.count
+                    }}</span>
                     <span
-                      v-if="isOptionSelected(getFilterKey(filter), option.value)"
+                      v-if="
+                        isOptionSelected(
+                          getFilterKey(filter),
+                          option.value,
+                        )
+                      "
                       class="option-remove"
                     >
                       ×
@@ -224,9 +288,21 @@ async function toggleOption(filterName: string, option: { label: string; value: 
 
                 <!-- See All button as part of the transition group -->
                 <div
-                  v-if="filter.showAll && (!hasSelectedOptions(getFilterKey(filter)) || !filteredStates[getFilterKey(filter)])"
+                  v-if="
+                    filter.showAll
+                      && (!hasSelectedOptions(
+                        getFilterKey(filter),
+                      )
+                        || !filteredStates[
+                          getFilterKey(filter)
+                        ])
+                  "
                   key="see-all"
                   class="filter-option see-all"
+                  @click="
+                    () =>
+                      onSeeAllClick(getFilterKey(filter))
+                  "
                 >
                   <span class="option-name">See All</span>
                   <span class="see-all-arrow">→</span>
