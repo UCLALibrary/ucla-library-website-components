@@ -1,3 +1,24 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.36.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.35.0...@ucla-library-monorepo/ucla-library-website-components-v1.36.0) (2025-10-10)
+
+
+### Features
+
+* Creates SearchResultCount component ([#805](https://github.com/UCLALibrary/ucla-library-website-components/issues/805)) ([e93fffb](https://github.com/UCLALibrary/ucla-library-website-components/commit/e93fffb83c3cb0d8be892375943f2bab35f17ba4))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.35.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.34.2...@ucla-library-monorepo/ucla-library-website-components-v1.35.0) (2025-10-09)
+
+
+### Features
+
+* APPS-3475 add dynamic aspect ratio to imageSlider ([#833](https://github.com/UCLALibrary/ucla-library-website-components/issues/833)) ([f68f5f4](https://github.com/UCLALibrary/ucla-library-website-components/commit/f68f5f4affbddd4cf611ed4e42681d726e1c2179))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.34.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.34.1...@ucla-library-monorepo/ucla-library-website-components-v1.34.2) (2025-10-09)
+
+
+### Bug Fixes
+
+* APPS_3447 override image style media gallery ([#829](https://github.com/UCLALibrary/ucla-library-website-components/issues/829)) ([59dd322](https://github.com/UCLALibrary/ucla-library-website-components/commit/59dd3220519f253c1a032ac41e078bf872cd137b))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.34.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.34.0...@ucla-library-monorepo/ucla-library-website-components-v1.34.1) (2025-10-08)
 
 
