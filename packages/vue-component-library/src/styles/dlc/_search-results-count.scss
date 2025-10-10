@@ -1,0 +1,40 @@
+.search-results-count,
+.search-results-count.dlc {
+    color: var(--color-primary-blue-05);
+
+    .parsed-results {
+        font-family: var(--font-secondary);
+
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0.16px;
+    }
+
+    .count {
+        font-family: var(--font-primary);
+        font-size: 32px;
+        font-style: normal;
+
+        font-weight: 500;
+        line-height: 1;
+    }
+
+    &.secondary {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        gap: 10px;
+
+        .parsed-results,
+        .count {
+            font-family: var(--font-primary);
+
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 0.16px;
+        }
+    }
+}
