@@ -1,7 +1,5 @@
 import { computed, ref, watch } from 'vue'
 
-// Import mock API data
-
 // Import components
 import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
 import FooterMain from '../lib-components/FooterMain.vue'
@@ -19,37 +17,29 @@ import ResponsiveImage from '../lib-components/ResponsiveImage.vue'
 import DefinitionList from '../lib-components/DefinitionList.vue'
 import DividerGeneral from '../lib-components/DividerGeneral.vue'
 import ModalFilter from '../lib-components/ModalFilter.vue'
+import BentoBoxResult from '../lib-components/BentoBoxResult.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
-import { mockSearchFieldResultsPage } from './mock/Funkhaus/MockSearchFieldResultsPage'
-import { mockRefineSearchPanel } from './mock/Funkhaus/MockRefineSearchPanel'
+import { 
+  mockSearchFieldResultsPage, 
+  mockBentoBoxResult,
+  mockGridAssetPodItems,
+  mockBreadcrumbData,
+  mockSearchResults,
+  mockSortOptions,
+  mockFilterOptions,
+  mockPagination,
+  mockMenuItems,
+  mockSubMenuItems,
+  mockRefineSearchPanel
+} from './mock/Funkhaus/MockSearchFieldResultsPage'
 import router from '@/router'
-import * as API from '@/stories/mock-api.json'
 
 // Import styles
 import './MainSearchFieldResultsPage.scss'
 import './GridAssetPod.scss'
 
-function createBlockAssetPodItems(count = 5) {
-  return Array.from({ length: count }, (_, i) => ({
-    media: API.image,
-    to: '/visit/foo/bar/',
-    title: 'Seven seas of the ancient world',
-
-    date: 'November 1, 1949',
-    metadata: {
-      description:
-                'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
-      date: 'November 1, 1949',
-      resourceType: 'Book',
-      collection: ['Still Image'],
-      locations: [
-        'Los Angeles Times Photographic Collection OpenUCLA Collections',
-      ],
-    },
-  }))
-}
 
 export default {
   title: 'Funkhaus / Pages / Main Search Field Results Page',
@@ -98,6 +88,7 @@ function Template(args) {
       DefinitionList,
       DividerGeneral,
       ModalFilter,
+      BentoBoxResult,
     },
     provide() {
       return {
@@ -125,10 +116,7 @@ function Template(args) {
       }
 
       // Sample breadcrumb data for search filters
-      const breadcrumbData = ref([
-        { text: 'All Collections', to: '/search?category=all' },
-        { text: 'Books & E-books', to: '/search?category=books' },
-      ])
+      const breadcrumbData = ref([...mockBreadcrumbData])
 
       const clearAllFilters = () => {
         breadcrumbData.value = []
@@ -140,34 +128,17 @@ function Template(args) {
       }
 
       // Search results data
-      const searchResultsCount = ref(1247)
-      const searchResultsPrefix = ref('Catalogue')
-      const searchResultsLabel = ref('Results')
-      const searchResultsAnimate = ref(true)
+      const searchResultsCount = ref(mockSearchResults.count)
+      const searchResultsPrefix = ref(mockSearchResults.prefix)
+      const searchResultsLabel = ref(mockSearchResults.label)
+      const searchResultsAnimate = ref(mockSearchResults.animate)
 
       // Sort dropdown data
-      const sortOptions = ref([
-        'Relevance',
-        'Date (Newest First)',
-        'Date (Oldest First)',
-        'Title (A-Z)',
-        'Title (Z-A)',
-        'Author (A-Z)',
-        'Author (Z-A)',
-      ])
+      const sortOptions = ref([...mockSortOptions])
       const selectedSort = ref('Relevance')
 
       // Filter dropdown data
-      const filterOptions = ref([
-        'All Formats',
-        'Books',
-        'Articles',
-        'Videos',
-        'Images',
-        'Audio',
-        'Archives',
-      ])
-
+      const filterOptions = ref([...mockFilterOptions])
       const selectedFilter = ref('All Formats')
 
       // Grid layout state tied to route query
@@ -204,12 +175,11 @@ function Template(args) {
       }
 
       // Generate items for GridAssetPod
-      // const gridAssetPodItems = createCardWithImageItems(12)
-      const gridAssetPodItems = createBlockAssetPodItems(12)
+      const gridAssetPodItems = mockGridAssetPodItems
 
       // Pagination data
-      const totalPages = ref(150)
-      const currentPage = ref(1)
+      const totalPages = ref(mockPagination.totalPages)
+      const currentPage = ref(mockPagination.currentPage)
 
       // Callback function to generate pagination links
       const generatePaginationLink = (pageNumber, queryParams) => {
@@ -229,38 +199,8 @@ function Template(args) {
       }
 
       // Sample menu items data
-      const sampleMenuItems = [
-        {
-          label: 'Using digital collections content',
-          to: '/digital-collections',
-        },
-        {
-          label: 'About',
-          to: '/about',
-        },
-        {
-          label: 'Give us feedback',
-          to: '/feedback',
-        },
-      ]
-
-      const sampleSubMenuItems = [
-        {
-          label: 'Locations & Hours',
-          to: '/help',
-          classes: '',
-        },
-        {
-          label: 'Ask a Librarian',
-          to: '/visit',
-          classes: '',
-        },
-        {
-          label: 'Support Us',
-          to: '/support',
-          classes: '',
-        },
-      ]
+      const sampleMenuItems = mockMenuItems
+      const sampleSubMenuItems = mockSubMenuItems
 
       const handleSeeAll = (filterName) => {
         console.log(`See all clicked for ${filterName}`)
@@ -293,6 +233,7 @@ function Template(args) {
         secondaryItems,
         mockSearchFieldResultsPage,
         mockRefineSearchPanel,
+        mockBentoBoxResult,
         gridAssetPodItems,
         isGridLayout,
         handleFilterSelectionChange,
@@ -311,7 +252,7 @@ function Template(args) {
     },
     computed: {},
     template: `
-       <div class="main-search-field-results-page">
+      <div class="main-search-field-results-page">
         <!-- Global Menu Panel -->
         <GlobalMenuPanel
           :menu-items="sampleMenuItems"
@@ -319,6 +260,7 @@ function Template(args) {
           :is-opened="menuOpened"
           class="global-menu-panel"
         />
+
         <!-- Header -->
         <HeaderMainFunkhaus
           :menu-opened="menuOpened"
@@ -328,10 +270,12 @@ function Template(args) {
           :menu-items="sampleMenuItems"
         />
 
+        <!-- Main Content -->
         <main class="main-content">
+          <!-- Search Field Section -->
           <div class="search-field-composite-wrapper">
             <SearchFieldComposite
-              class='search-bar'
+              class="search-bar"
               :initial-value="args.searchInitialValue"
               :placeholder="args.searchPlaceholder"
               :dropdown-model-value="dropdownValue"
@@ -343,10 +287,12 @@ function Template(args) {
             />
           </div>
 
+          <!-- Breadcrumbs Section -->
           <div class="breadcrumbs-wrapper">
             <div class="breadcrumbs-container">
-              <span class="breadcrumbs-label"
+              <span 
                 v-if="breadcrumbData.length > 0"
+                class="breadcrumbs-label"
               >
                 Your Search
               </span>
@@ -365,9 +311,10 @@ function Template(args) {
             <DividerGeneral
               class="divider-general"
               :is-tertiary="true"
-            :/>
+            />
           </div>
 
+          <!-- Search Results Controls - Desktop -->
           <div class="search-results-sort-wrapper show-desktop">
             <SearchResultsCount
               :count="searchResultsCount"
@@ -384,10 +331,11 @@ function Template(args) {
                 :options="filterOptions"
                 v-model="selectedFilter"
               />
-              <ButtonPageView/>
+              <ButtonPageView />
             </div>
           </div>
 
+          <!-- Search Results Controls - Mobile -->
           <div class="search-results-sort-wrapper show-mobile">
             <div class="count-view-wrapper">
               <SearchResultsCount
@@ -395,9 +343,8 @@ function Template(args) {
                 :prefix="searchResultsPrefix"
                 :label="searchResultsLabel"
                 :animate="searchResultsAnimate"
-                
               />
-              <ButtonPageView/>
+              <ButtonPageView />
             </div>
 
             <div class="sort-container">
@@ -421,13 +368,13 @@ function Template(args) {
                 @option-selected="handleOptionSelected"
                 @option-deselected="handleOptionDeselected"
                 @see-all="handleSeeAll"
-
               />
             </div>
-
           </div>
 
+          <!-- Search Results Layout -->
           <div class="search-results-layout">
+            <!-- Refine Search Sidebar - Desktop -->
             <aside class="refine-search-sidebar show-desktop">
               <RefineSearchPanel
                 :limit-options="true"
@@ -440,7 +387,9 @@ function Template(args) {
               />
             </aside>
             
+            <!-- Search Results Main Content -->
             <div class="search-results-main">
+              <!-- Top Pagination -->
               <SectionPagination
                 :pages="totalPages"
                 :initial-current-page="5"
@@ -450,6 +399,8 @@ function Template(args) {
                 @change-page="handlePageChange"
                 class="search-results-pagination"
               />
+
+              <!-- Grid Asset Pod -->
               <GridAssetPod
                 :items="gridAssetPodItems"
                 :is-grid-layout="isGridLayout"
@@ -463,28 +414,28 @@ function Template(args) {
                     :aria-label="\`View \${item.title}\`"
                     class="dlc block-asset-pod"
                   >
-                      <ResponsiveImage
-                        :media="item.media"
-                        :alt="\`\${item.title} preview\`"
-                        class="image"
+                    <ResponsiveImage
+                      :media="item.media"
+                      :alt="\`\${item.title} preview\`"
+                      class="image"
+                    />
+
+                    <div class="meta">
+                      <h3 class="title">
+                        {{ item.title }}
+                      </h3>
+
+                      <DefinitionList
+                        v-if="item.metadata && Object.keys(item.metadata).length > 0"
+                        :meta-data-object="item.metadata"
+                        orientation="horizontal"
+                        class="metadata-list"
                       />
 
-                      <div class="meta">
-                        <h3 class="title">
-                            {{ item.title }}
-                        </h3>
-
-                        <DefinitionList
-                            v-if="item.metadata && Object.keys(item.metadata).length > 0"
-                            :meta-data-object="item.metadata"
-                            orientation="horizontal"
-                            class="metadata-list"
-                        />
-
-                        <p class="date">
-                            {{ item.date }}
-                        </p>
-                      </div>
+                      <p class="date">
+                        {{ item.date }}
+                      </p>
+                    </div>
                   </SmartLink>
 
                   <DividerGeneral
@@ -493,6 +444,8 @@ function Template(args) {
                   />
                 </template>
               </GridAssetPod>
+
+              <!-- Bottom Pagination -->
               <SectionPagination
                 :pages="totalPages"
                 :initial-current-page="5"
@@ -504,17 +457,27 @@ function Template(args) {
               />
             </div>
           </div>
-        </main>
-          <ModalFilter
-            :is-open="isModalFilterOpened"
-            :items="mockRefineSearchPanel.modalFilterItems"
-            @close="handleModalFilterClose"
-          />
+
+          </main>
+          <!-- Bento Box Results Section -->
+          <div class="bento-box-results-section">
+            <BentoBoxResult
+              :title="mockBentoBoxResult.title"
+              :items="mockBentoBoxResult.items"
+            />
+          </div>
+
+        <!-- Modal Filter -->
+        <ModalFilter
+          :is-open="isModalFilterOpened"
+          :items="mockRefineSearchPanel.modalFilterItems"
+          @close="handleModalFilterClose"
+        />
          
-         <!-- Footer -->
-         <FooterMain />
-       </div>
-     `,
+        <!-- Footer -->
+        <FooterMain />
+      </div>
+    `,
   }
 }
 
