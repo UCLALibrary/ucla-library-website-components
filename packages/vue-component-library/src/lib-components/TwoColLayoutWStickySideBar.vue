@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { onMounted, ref, watch } from 'vue'
 import type { Ref } from 'vue'
+import { computed } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
-import { computed } from 'vue'
 
 // Track height of sidebars and ensure main content is at least as tall
 const isMobile: Ref<boolean> = ref(false)
@@ -30,11 +30,11 @@ onMounted(() => {
     // PageAnchor goes mobile below 1024px
     isPageAnchorMobile.value = newWidth <= 1024
 
-    if (isMobile.value === true) {
-      primaryCol.value!.style!.minHeight = 'auto'  // on mobile, reset height
-    } else {
+    if (isMobile.value === true)
+      primaryCol.value!.style!.minHeight = 'auto' // on mobile, reset height
+
+    else
       setMainMinHeight()
-    }
   }, { immediate: true })
 })
 </script>
@@ -44,10 +44,10 @@ onMounted(() => {
     <!-- main column -->
     <div
       ref="primaryCol"
-      :class="['primary-column', 'top', { 'primary-with-page-anchor': isPageAnchorMobile }]"
+      class="primary-column top"
+      :class="{ 'primary-with-page-anchor': isPageAnchorMobile }"
     >
       <SectionWrapper class="primary-section-wrapper">
-
         <!-- PageAnchor moves above primaryTop for tablet/mobile -->
         <div v-if="isPageAnchorMobile" class="sidebar-mobile-top" :class="pageAnchorStickyClass">
           <slot name="sidebarPageAnchor" />
@@ -167,8 +167,8 @@ onMounted(() => {
       margin-right: var(--unit-gutter);
     }
 
-    .sidebar-page-anchor { 
-      margin-right: 0; 
+    .sidebar-page-anchor {
+      margin-right: 0;
     }
 
   }

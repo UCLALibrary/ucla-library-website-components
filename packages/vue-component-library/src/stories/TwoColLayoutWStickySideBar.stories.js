@@ -596,8 +596,7 @@ export function FTVAPageAnchor() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { TwoColLayoutWStickySideBar, CardMeta, SectionWrapper, RichText, PageAnchor, FooterPrimary
-    },
+    components: { TwoColLayoutWStickySideBar, CardMeta, SectionWrapper, RichText, PageAnchor, FooterPrimary },
     template: `<div>
                 <SectionWrapper theme='paleblue'>Previous Section Content</SectionWrapper>
                 <TwoColLayoutWStickySideBar>
