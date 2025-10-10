@@ -2,6 +2,7 @@
 
     .page-anchor-content {
         padding: 4px;
+        display: inline-block;
     }
 
     .dropdown-button {
@@ -36,20 +37,19 @@
       }
     }
     .page-anchor-list {
-        padding-left: 8px;
+        padding-left: 0;
         padding-right: 4px;
+        position: relative;
+        top: 0;
 
         li.link {
             padding: 4px;
+            padding-left: 0;
             &:last-child {
                 a {
                     color: var(--ftva-medium-blue);
                     padding-left: 0px;
                 }
-                margin-top: 8px;
-                margin-left: -4px;
-                padding-left: 0px;
-                
             }
         }
     }
