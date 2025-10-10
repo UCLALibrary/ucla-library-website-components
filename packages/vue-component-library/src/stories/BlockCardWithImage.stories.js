@@ -2,6 +2,7 @@ import { computed } from 'vue'
 import IconFTVAVideo from 'ucla-library-design-tokens/assets/svgs/icon-ftva-video.svg'
 import BlockCardWithImage from '@/lib-components/BlockCardWithImage'
 import RichText from '@/lib-components/RichText.vue'
+import SmartLink from '@/lib-components/SmartLink.vue'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
 import BlockTag from '@/lib-components/BlockTag.vue'
 
@@ -165,19 +166,20 @@ function TemplateFTVACustomTitleDescription(args) {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { BlockCardWithImage, RichText },
+    components: { BlockCardWithImage, RichText, SmartLink },
     template: `
       <block-card-with-image
         class="block-highlight"
         :image="image"
-        :to="uri"
         :category="category"
         :dateCreated="postDate"
         :image-aspect-ratio="imageAspectRatio"
         >
 
         <template #customTitle>
+        <smart-link :to="uri" class="custom-title">
           <rich-text v-html="title" />
+        </smart-link>
         </template>
 
         <template #customDescription>
@@ -293,7 +295,7 @@ function TemplateFTVAArticleBlogListing(args) {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { SectionWrapper, BlockCardWithImage, RichText },
+    components: { SectionWrapper, BlockCardWithImage, RichText, SmartLink },
     template: `
 
     <section-wrapper
@@ -307,12 +309,13 @@ function TemplateFTVAArticleBlogListing(args) {
         "
         :image="mockArticles[0].ftvaImage[0]"
         :image-aspect-ratio="imageAspectRatio"
-        :to="mockArticles[0].uri"
         category="Interview, People"
         :dateCreated="mockArticles[0].postDate"
         >
         <template #customTitle>
-          <RichText :rich-text-content="mockArticles[0].ftvaAlternativeTitle" />
+          <smart-link :to="mockArticles[0].uri" class="custom-title">
+            <RichText :rich-text-content="mockArticles[0].ftvaAlternativeTitle" />
+          </smart-link>
         </template>
 
         <template #customDescription>
@@ -334,12 +337,13 @@ function TemplateFTVAArticleBlogListing(args) {
             style="background-color:white; flex:1;"
             :image="mockArticles[1].ftvaImage[0]"
             :image-aspect-ratio="imageAspectRatio"
-            :to="mockArticles[1].uri"
             category="Interview, People"
             :dateCreated="mockArticles[1].postDate"
             >
             <template #customTitle>
-              <RichText :rich-text-content="mockArticles[1].ftvaAlternativeTitle" />
+              <smart-link :to="mockArticles[1].uri" class="custom-title">
+                <RichText :rich-text-content="mockArticles[1].ftvaAlternativeTitle" />
+              </smart-link>
             </template>
 
             <template #customDescription>
@@ -352,12 +356,13 @@ function TemplateFTVAArticleBlogListing(args) {
             style="background-color:white;  flex:1;"
             :image="mockArticles[2].ftvaImage[0]"
             :image-aspect-ratio="imageAspectRatio"
-            :to="mockArticles[2].uri"
             category="Interview, People"
             :dateCreated="mockArticles[2].postDate"
             >
             <template #customTitle>
-              <RichText :rich-text-content="mockArticles[2].ftvaAlternativeTitle" />
+              <smart-link :to="mockArticles[2].uri" class="custom-title">
+                <RichText :rich-text-content="mockArticles[2].ftvaAlternativeTitle" />
+              </smart-link>
             </template>
 
             <template #customDescription>
