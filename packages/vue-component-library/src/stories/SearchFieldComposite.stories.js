@@ -14,7 +14,8 @@ export default {
     dropdownOptions: { control: 'array' },
     showDivider: { control: 'boolean' },
     backgroundImage: { control: 'object' },
-    backgroundText: { control: 'text' },
+    text: { control: 'text' },
+    link: { control: 'text' },
   },
 }
 
@@ -116,8 +117,9 @@ WithBackgroundImage.args = {
   ],
   showDivider: true,
   backgroundImage: API.image,
-  backgroundText: `Poster celebrating the 100 years of the legal abolition of three centuries of slavery in Brazil (1888-1988) <br>
+  text: `Poster celebrating the 100 years of the legal abolition of three centuries of slavery in Brazil (1888-1988) <br>
 Collections: Soweto Black Organization, Modern Endangered Archives Program`,
+  link: 'https://library.ucla.edu',
 }
 
 export const WithBackgroundImageNoText = Template.bind({})

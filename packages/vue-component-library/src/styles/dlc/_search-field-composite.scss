@@ -34,6 +34,12 @@
         line-height: 160%;
         text-align: center;
         letter-spacing: 0.16px;
+
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-decoration-thickness: 2px;
+
+        transition: text-decoration-color 0.3s ease-in-out;
     }
 
     .search-components {
@@ -76,6 +82,14 @@
         }
     }
 
+    // Hovers
+    @media #{$has-hover} {
+        &.has-link .background-text:hover {
+            text-decoration-color: var(--color-white);
+        }
+    }
+
+    // Breakpoints
     @media #{$medium} {
         .button-dropdown-search {
             :deep(.dropdown-field) {

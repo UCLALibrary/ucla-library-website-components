@@ -5,6 +5,7 @@ import ResponsiveImage from './ResponsiveImage.vue'
 import DividerGeneral from './DividerGeneral.vue'
 import SearchInput from './SearchInput.vue'
 import ButtonSubmit from './ButtonSubmit.vue'
+import SmartLink from './SmartLink.vue'
 import { useTheme } from '@/composables/useTheme'
 import type { MediaItemType } from '@/types/types'
 
@@ -28,7 +29,8 @@ interface SearchFieldCompositeProps {
 
   // Background image props
   backgroundImage?: MediaItemType
-  backgroundText?: string
+  text?: string
+  link?: string
 }
 
 const props = withDefaults(defineProps<SearchFieldCompositeProps>(), {
@@ -92,6 +94,7 @@ const classes = computed(() => {
       'has-dropdown': hasDropdownOptions.value,
       'has-divider': props.showDivider && !hasBackgroundImage.value,
       'has-background': hasBackgroundImage.value,
+      'has-link': hasBackgroundImage.value && props.link,
     },
   ]
 })
@@ -105,11 +108,13 @@ const classes = computed(() => {
       :media="backgroundImage!"
       class="background-image"
     />
-    <p
-      v-if="hasBackgroundImage && backgroundText"
+    <SmartLink
+      v-if="hasBackgroundImage && text"
+      :to="link"
       class="background-text"
-      v-html="backgroundText"
-    />
+    >
+      <div v-html="text" />
+    </SmartLink>
 
     <div class="search-components">
       <form
