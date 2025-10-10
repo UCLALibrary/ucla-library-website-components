@@ -609,8 +609,10 @@ export function FTVAPageAnchor() {
                     </template>
                     <template v-slot:primaryMid>
                       <RichText
-                          v-if="page?.richText"
-                          :rich-text-content="page?.richText"
+                        v-for="(i, index) in 3"
+                        :key="index"
+                        v-if="page?.richText"
+                        :rich-text-content="page.richText"
                       />
                     </template>
                     <template v-slot:sidebarPageAnchor>
