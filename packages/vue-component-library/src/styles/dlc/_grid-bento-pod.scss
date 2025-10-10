@@ -1,0 +1,43 @@
+.grid-bento-pod,
+.dlc.grid-bento-pod {
+    display: flex;
+    gap: 32px;
+    align-items: start;
+
+    .grid-column {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        width: 50%;
+    }
+
+    .bento-pod {
+        width: 100%;
+        height: auto;
+    }
+
+    // Breakpoints
+
+    @media #{$medium} {
+        flex-direction: column;
+        gap: 24px;
+
+        .grid-column {
+            width: 100%;
+            gap: 24px;
+        }
+    }
+
+    @media #{$small} {
+        gap: 16px;
+
+        .grid-column {
+            gap: 16px;
+        }
+
+        .bento-pod {
+            margin-bottom: 0;
+        }
+    }
+}

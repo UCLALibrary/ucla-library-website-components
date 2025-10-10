@@ -1,0 +1,85 @@
+.collections-detail-page {
+    --gutters: 48px;
+    --header-height: 121px;
+
+    position: relative;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--color-white);
+
+    .global-menu-panel {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        z-index: 200;
+    }
+
+    .header {
+        // Header height plus search bar is 239px
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+
+        background-color: var(--color-white);
+
+        &.menu-opened {
+            .container {
+                border-bottom: 2px solid var(--color-primary-blue-03);
+            }
+        }
+    }
+
+    .main-content {
+        flex: 1;
+        max-width: 1600px;
+        padding: 0 var(--gutters) 48px;
+        margin: var(--header-height) auto 0;
+    }
+
+    .collection-overview {
+        margin-bottom: 48px;
+    }
+
+    .grid-metadata {
+        margin-bottom: 48px;
+    }
+
+    .search-field-composite {
+        margin-top: 14px;
+    }
+
+    .subtitle-grid-assets {
+        font-size: 22px;
+        font-weight: 500;
+        margin: 0 0 var(--space-m);
+    }
+    .title-grid-assets {
+        @include step-4;
+        margin: 0 0 var(--space-xl);
+        color: var(--color-primary-blue-03);
+    }
+
+    .button-more {
+        margin: 0 auto 90px;
+        max-width: unset;
+        padding-inline: var(--gutters);
+    }
+
+    // Breakpoints
+    @media #{$extra-large} {
+    }
+    @media #{$medium} {
+        --header-height: 113px;
+    }
+    @media #{$small} {
+        --gutters: 24px;
+
+        --header-height: 103px;
+    }
+}

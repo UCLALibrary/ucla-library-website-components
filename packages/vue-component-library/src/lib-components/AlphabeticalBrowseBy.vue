@@ -21,7 +21,7 @@ const theme = useTheme()
 // Alphabet list
 const alphabet = ref([
   { letter: 'All' },
-  ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => ({ letter }))
+  ...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => ({ letter })),
 ])
 
 // Selected letter (local state but resets when prop changes)
@@ -54,7 +54,9 @@ const parsedAlphabet = computed(() => {
 
 // Dynamic classes from theme
 const classes = computed(() =>
-  theme?.value === '' ? 'alphabetical-browse-by' : `alphabetical-browse-by ${theme?.value}`
+  theme?.value === ''
+    ? 'alphabetical-browse-by'
+    : `alphabetical-browse-by ${theme?.value}`
 )
 
 // Handle letter click
@@ -66,10 +68,7 @@ function handleSelectedLetter(letter: { letter: string }) {
 
 <template>
   <div :class="classes">
-    <h2
-      v-if="theme === ''"
-      class="title"
-    >
+    <h2 v-if="theme === ''" class="title">
       Browse by Last Name
     </h2>
     <ul class="alphabet-list">
@@ -88,4 +87,5 @@ function handleSelectedLetter(letter: { letter: string }) {
 <style lang="scss" scoped>
 @import "@/styles/default/_alphabetical-browse-by.scss";
 @import "@/styles/ftva/_alphabetical-browse-by.scss";
+@import "@/styles/dlc/_alphabetical-browse-by.scss";
 </style>
