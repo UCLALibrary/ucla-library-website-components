@@ -296,13 +296,19 @@ const classes = computed(() => {
     />
 
     <!-- SHARE BUTTON -->
-    <div class="sharebutton-slot">
+    <div
+      v-if="$slots.sharebutton"
+      class="sharebutton-slot"
+    >
       <slot name="sharebutton" />
     </div>
 
     <!-- USED FOR BLOCKTAG SLOT -->
     <!-- MOVES BASED ON DESKTOP OR MOBILE -->
-    <div class="floating-slot">
+    <div
+      v-if="$slots.floatingslot"
+      class="floating-slot"
+    >
       <slot name="floatingslot" />
     </div>
 

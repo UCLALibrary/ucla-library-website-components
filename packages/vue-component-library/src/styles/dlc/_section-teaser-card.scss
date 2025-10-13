@@ -1,0 +1,116 @@
+.section-teaser-card {
+    position: relative;
+    max-width: $container-l-main + px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--space-xl) 16px;
+
+    .white-icon > :deep(path) {
+        fill: white;
+    }
+
+    .card {
+        width: calc((100% - 32px) / 3);
+    }
+}
+
+// DLC Theme specific styling for SectionTeaserCard
+.section-teaser-card.dlc {
+    :deep(.card) {
+        height: 100%;
+        cursor: pointer;
+
+        .block-highlight {
+            height: 100%;
+            width: 100%;
+
+            border-radius: 5px;
+
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .image-container {
+            .image {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .card-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            margin: 0;
+        }
+        .title,
+        .title-no-link {
+            margin: 25px 0 0;
+
+            text-align: left;
+            font-family: var(--font-primary);
+            font-size: 24px;
+            font-weight: medium;
+            line-height: 120%; /* 28.8px */
+            color: var(--color-primary-blue-03);
+
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 2px;
+
+            transition: color 0.2s ease-in-out,
+                text-decoration-color 0.2s ease-in-out;
+        }
+
+        .text {
+            margin: 0;
+
+            text-align: left;
+            font-family: var(--font-secondary);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 150%; /* 24px */
+        }
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        :deep(.card):hover {
+            .title,
+            .title-no-link {
+                color: var(--color-black);
+                text-decoration-color: var(--color-secondary-blue-03);
+            }
+        }
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+    }
+
+    @media #{$small} {
+        align-items: center;
+        gap: 40px;
+
+        .card {
+            width: 100%;
+        }
+    }
+}
+
+// Horizontal scroll, if needed
+// Used on FTVA theme
+.section-teaser-card.no-grid-layout {
+    flex-wrap: nowrap;
+}
+
+.section-teaser-card-title {
+    position: relative;
+    max-width: $container-l-main + px;
+    margin: 0 auto;
+}
