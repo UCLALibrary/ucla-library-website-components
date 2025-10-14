@@ -135,13 +135,13 @@ const titlesOverride3 = [
   }
 ]
 
-export const LongBreadcrumbChild = DynamicModeTemplate.bind({})
-LongBreadcrumbChild.args = {
+export const TruncatedTitleLongChild = DynamicModeTemplate.bind({})
+TruncatedTitleLongChild.args = {
   route: '/collections/ktla-news-project-tom-bradley-mayor-of-los-angeles/kenneth-hahn-and-tom-bradley-discuss-the-legacy-of-supreme-court-chief-justice-earl-warren/',
 }
 
-export const LongBreadcrumbParent = DynamicModeTemplate.bind({})
-LongBreadcrumbParent.args = {
+export const TruncatedTitleLongParent = DynamicModeTemplate.bind({})
+TruncatedTitleLongParent.args = {
   route: '/collections/kenneth-hahn-and-tom-bradley-discuss-the-legacy-of-supreme-court-chief-justice-earl-warren/ktla-news-project-tom-bradley-mayor-of-los-angeles/',
 }
 
