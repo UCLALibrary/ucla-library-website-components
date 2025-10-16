@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.36.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.0...@ucla-library-monorepo/ucla-library-website-components-v1.36.1) (2025-10-15)
+
+
+### Bug Fixes
+
+* page anchor is now algined on the left side and is not sticky when it hits footer of ftva page ([#836](https://github.com/UCLALibrary/ucla-library-website-components/issues/836)) ([ddb3ccf](https://github.com/UCLALibrary/ucla-library-website-components/commit/ddb3ccfea4ce602b75831f4086bc24d8604580a7))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.36.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.35.0...@ucla-library-monorepo/ucla-library-website-components-v1.36.0) (2025-10-10)
 
 
