@@ -130,7 +130,8 @@ jobs:
           key: storybook-${{ github.sha }}
 
       - name: Build Storybook
-      - run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
+        if: steps.cache-storybook.outputs.cache-hit != 'true'
+        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
 
       - name: Percy via Cypress (internal, Netlify preview)
         uses: cypress-io/github-action@v5
