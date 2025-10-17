@@ -44,7 +44,7 @@ onMounted(() => {
     <div
       ref="primaryCol"
       class="primary-column top"
-      :class="{ 'primary-with-page-anchor': isPageAnchorMobile }"
+      :class="{ 'primary-with-page-anchor': isPageAnchorMobile && $slots.sidebarPageAnchor }"
     >
       <SectionWrapper class="primary-section-wrapper">
         <!-- PageAnchor moves above primaryTop for tablet/mobile -->
@@ -72,7 +72,7 @@ onMounted(() => {
     </div>
 
     <!-- main sidebar column -->
-    <div class="sidebar-column sidebar-main">
+    <div v-if="$slots.sidebarTop || $slots.sidebarBottom" class="sidebar-column sidebar-main">
       <div ref="sidebar" class="sidebar-content-wrapper">
         <slot v-if="!isMobile" name="sidebarTop" />
         <slot v-if="!isMobile" name="sidebarBottom" />
@@ -80,7 +80,7 @@ onMounted(() => {
     </div>
 
     <!-- pageAnchor sidebar column -->
-    <div class="sidebar-column sidebar-page-anchor">
+    <div v-if="$slots.sidebarPageAnchor" class="sidebar-column sidebar-page-anchor">
       <div ref="pageAnchorSidebar" class="sidebar-content-wrapper">
         <slot v-if="!isPageAnchorMobile" name="sidebarPageAnchor" />
       </div>
