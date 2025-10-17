@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.36.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.2...@ucla-library-monorepo/ucla-library-website-components-v1.36.3) (2025-10-17)
+
+
+### Bug Fixes
+
+* APPS-3517 update font color on caption on ImageSlider ([#838](https://github.com/UCLALibrary/ucla-library-website-components/issues/838)) ([6ee2317](https://github.com/UCLALibrary/ucla-library-website-components/commit/6ee23175efcf178718405aba717a220c6ac35a8e))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.36.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.1...@ucla-library-monorepo/ucla-library-website-components-v1.36.2) (2025-10-17)
 
 
