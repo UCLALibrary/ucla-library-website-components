@@ -1,3 +1,52 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.36.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.0...@ucla-library-monorepo/ucla-library-website-components-v1.36.1) (2025-10-15)
+
+
+### Bug Fixes
+
+* page anchor is now algined on the left side and is not sticky when it hits footer of ftva page ([#836](https://github.com/UCLALibrary/ucla-library-website-components/issues/836)) ([ddb3ccf](https://github.com/UCLALibrary/ucla-library-website-components/commit/ddb3ccfea4ce602b75831f4086bc24d8604580a7))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.36.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.35.0...@ucla-library-monorepo/ucla-library-website-components-v1.36.0) (2025-10-10)
+
+
+### Features
+
+* Creates SearchResultCount component ([#805](https://github.com/UCLALibrary/ucla-library-website-components/issues/805)) ([e93fffb](https://github.com/UCLALibrary/ucla-library-website-components/commit/e93fffb83c3cb0d8be892375943f2bab35f17ba4))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.35.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.34.2...@ucla-library-monorepo/ucla-library-website-components-v1.35.0) (2025-10-09)
+
+
+### Features
+
+* APPS-3475 add dynamic aspect ratio to imageSlider ([#833](https://github.com/UCLALibrary/ucla-library-website-components/issues/833)) ([f68f5f4](https://github.com/UCLALibrary/ucla-library-website-components/commit/f68f5f4affbddd4cf611ed4e42681d726e1c2179))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.34.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.34.1...@ucla-library-monorepo/ucla-library-website-components-v1.34.2) (2025-10-09)
+
+
+### Bug Fixes
+
+* APPS_3447 override image style media gallery ([#829](https://github.com/UCLALibrary/ucla-library-website-components/issues/829)) ([59dd322](https://github.com/UCLALibrary/ucla-library-website-components/commit/59dd3220519f253c1a032ac41e078bf872cd137b))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.34.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.34.0...@ucla-library-monorepo/ucla-library-website-components-v1.34.1) (2025-10-08)
+
+
+### Bug Fixes
+
+* add ssr guard when using window or document in searchinput ([#834](https://github.com/UCLALibrary/ucla-library-website-components/issues/834)) ([1a19802](https://github.com/UCLALibrary/ucla-library-website-components/commit/1a198027b2b39a11ca8dfc082077947fe9ab1686))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.34.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.33.1...@ucla-library-monorepo/ucla-library-website-components-v1.34.0) (2025-10-02)
+
+
+### Features
+
+* Add dlc theme to SearchInput ([#808](https://github.com/UCLALibrary/ucla-library-website-components/issues/808)) ([5f7ae9e](https://github.com/UCLALibrary/ucla-library-website-components/commit/5f7ae9eb150e863724eededf8b24a8041415df16))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.33.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.33.0...@ucla-library-monorepo/ucla-library-website-components-v1.33.1) (2025-10-02)
+
+
+### Bug Fixes
+
+* APPS-3452 Update FlexibleInfoBlock mock data ([#830](https://github.com/UCLALibrary/ucla-library-website-components/issues/830)) ([dc81648](https://github.com/UCLALibrary/ucla-library-website-components/commit/dc8164850c395c845f528905b652ea248476626d))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.33.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.32.1...@ucla-library-monorepo/ucla-library-website-components-v1.33.0) (2025-10-01)
 
 
