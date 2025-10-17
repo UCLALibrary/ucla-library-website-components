@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
 import type { PropType } from 'vue'
 
@@ -102,10 +99,7 @@ function toggleOpen(index: number) {
   </div>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 .search-generic-filter-buttons {
   width: 100%;
   font-family: var(--font-secondary);

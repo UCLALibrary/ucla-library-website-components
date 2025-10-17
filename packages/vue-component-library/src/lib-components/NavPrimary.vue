@@ -314,7 +314,10 @@ onMounted(() => {
         class="slot-container"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
       >
-        <slot name="additional-menu" :close-slot="closeSlot" />
+        <slot
+          name="additional-menu"
+          :close-slot="closeSlot"
+        />
       </div>
     </div>
 

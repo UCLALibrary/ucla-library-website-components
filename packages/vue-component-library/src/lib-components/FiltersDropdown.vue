@@ -89,18 +89,33 @@ onMounted(() => {
       </template>
       <template #dropdownItems="{ removeOverlay }">
         <div class="dropdown-filter">
-          <div v-for="group in filterGroups" :key="group.name" class="filter-group">
+          <div
+            v-for="group in filterGroups"
+            :key="group.name"
+            class="filter-group"
+          >
             <h3>{{ group.name }}</h3>
             <div class="pills">
               <!-- <label> must wrap <input> for accessbility fuctionality -->
-              <label v-for="option in group.options" :key="option" class="pill-label">
+              <label
+                v-for="option in group.options"
+                :key="option"
+                class="pill-label"
+              >
                 <!-- Hidden checkbox for managing selection & screen-reader user interaction -->
                 <input
-                  :id="option" v-model="selectedFilters[group.searchField]" type="checkbox" class="pill-checkbox"
-                  :name="option" :value="option"
+                  :id="option"
+                  v-model="selectedFilters[group.searchField]"
+                  type="checkbox"
+                  class="pill-checkbox"
+                  :name="option"
+                  :value="option"
                 >
                 <!-- BlockTag component for display -->
-                <BlockTag :label="option" :is-secondary="true">
+                <BlockTag
+                  :label="option"
+                  :is-secondary="true"
+                >
                   <!-- 'x' SVG only shows when selected -->
                   <template v-if="isSelected(group.searchField, option)">
                     <SvgGlyphX class="close-icon" />
@@ -111,11 +126,15 @@ onMounted(() => {
           </div>
           <div class="action-row">
             <ButtonLink
-              class="action-row-button select-button" label="Done" icon-name="none"
+              class="action-row-button select-button"
+              label="Done"
+              icon-name="none"
               @click="onDoneClick(); removeOverlay();"
             />
             <ButtonLink
-              class="action-row-button clear-button" label="Clear" icon-name="icon-close"
+              class="action-row-button clear-button"
+              label="Clear"
+              icon-name="icon-close"
               @click="clearFilters"
             />
           </div>
