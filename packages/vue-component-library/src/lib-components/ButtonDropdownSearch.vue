@@ -35,7 +35,7 @@ const classes = computed(() => {
     'button-dropdown-search',
     { 'is-long': props.isLong },
     { open: isOpen.value },
-    theme.value,
+    theme?.value || '',
   ]
 })
 
@@ -51,8 +51,8 @@ function selectOption(option: string) {
 function handleClickOutside(event: MouseEvent) {
   if (
     isOpen.value
-    && dropdownRef.value
-    && !dropdownRef.value.contains(event.target as Node)
+        && dropdownRef.value
+        && !dropdownRef.value.contains(event.target as Node)
   )
     isOpen.value = false
 }
@@ -60,8 +60,8 @@ function handleClickOutside(event: MouseEvent) {
 function handleFocusOut(event: FocusEvent) {
   if (
     isOpen.value
-    && dropdownRef.value
-    && !dropdownRef.value.contains(event.relatedTarget as Node)
+        && dropdownRef.value
+        && !dropdownRef.value.contains(event.relatedTarget as Node)
   )
     isOpen.value = false
 }
@@ -92,20 +92,15 @@ onBeforeUnmount(() => {
       class="dropdown-field"
       role="button"
       aria-haspopup="listbox"
-      :aria-label="selected
-        ? `Selected: ${selected}`
-        : 'Select an option for search field'
+      :aria-label="
+        selected
+          ? `Selected: ${selected}`
+          : 'Select an option for search field'
       "
       @click="toggleDropdown"
     >
-      <span
-        class="selected-option"
-        v-html="selected"
-      />
-      <IconCaretDown
-        class="arrow"
-        :class="{ open: isOpen }"
-      />
+      <span class="selected-option" v-html="selected" />
+      <IconCaretDown class="arrow" :class="{ open: isOpen }" />
     </div>
     <transition name="dropdown">
       <ul
@@ -125,10 +120,7 @@ onBeforeUnmount(() => {
         >
           <SvgIconCheck class="icon-check" />
           <div class="option-wrapper">
-            <span
-              class="option-content"
-              v-html="option"
-            />
+            <span class="option-content" v-html="option" />
           </div>
         </li>
       </ul>

@@ -1,0 +1,218 @@
+.dlc.nav-search {
+    position: relative;
+    padding: 14px 48px 0;
+
+    .background-image {
+        z-index: 10;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        pointer-events: none;
+    }
+
+    .top-row {
+        z-index: 30;
+        position: relative;
+    }
+    .bottom-row,
+    .divider-general {
+        z-index: 20;
+        position: relative;
+    }
+
+    .top-row {
+        gap: 0;
+
+        :deep(.search-input-wrapper.search-input) {
+            flex-grow: 1;
+
+            input[data-search-input="true"] {
+                padding-left: 16px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    .icon-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 74px;
+        width: 74px;
+        padding: 0;
+        background-color: var(--color-primary-blue-01);
+    }
+    .icon {
+        background-color: var(--color-primary-blue-01);
+        position: relative;
+        left: unset;
+        top: unset;
+
+        height: 32px;
+        width: 32px;
+
+        :deep(path) {
+            fill: var(--color-primary-blue-04);
+            transition: fill 0.3s ease-in-out;
+        }
+    }
+
+    .bottom-row,
+    .bottom-row a.bottom-link {
+        margin: 0;
+
+        font-family: var(--font-secondary);
+        color: var(--color-black);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 160%;
+        text-align: center;
+        letter-spacing: 0.16px;
+
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-decoration-thickness: 2px;
+
+        transition: text-decoration-color 0.3s ease-in-out;
+    }
+
+    .bottom-row a.bottom-link {
+        font-weight: 500;
+    }
+
+    .divider-general {
+        margin-block: 14px;
+        max-width: unset;
+        width: 100%;
+
+        &.is-tertiary {
+            border-color: var(--color-default-cyan-03);
+        }
+    }
+
+    // With background image
+    &.has-background {
+        height: 50vh;
+        padding: 0;
+
+        .top-row,
+        .bottom-row,
+        .divider-general {
+            max-width: min(80%, 1200px);
+            width: 100%;
+            margin: 0 auto;
+            padding-inline: 32px;
+        }
+
+        .bottom-row {
+            position: absolute;
+            top: unset;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+        }
+        .has-background {
+            .bottom-row,
+            .bottom-row a.bottom-link {
+                color: var(--color-white);
+            }
+        }
+    }
+
+    &.has-divider {
+        .top-row {
+            margin-bottom: 0;
+        }
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        .icon-button:hover {
+            .icon:deep(path) {
+                fill: var(--color-default-cyan-03);
+            }
+        }
+
+        .bottom-row a.bottom-link:hover {
+            text-decoration-color: var(--color-black);
+        }
+        .has-background {
+            .bottom-row a.bottom-link:hover {
+                text-decoration-color: var(--color-white);
+            }
+        }
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+        padding-inline: 32px;
+
+        .icon-button {
+            height: 53px;
+            width: 53px;
+        }
+        .icon {
+            height: 24px;
+            width: 24px;
+        }
+        .button-dropdown-search {
+            :deep(.dropdown-field) {
+                height: 53px;
+            }
+        }
+    }
+    @media #{$small} {
+        padding-inline: 24px;
+
+        .icon-button {
+            height: 60px;
+            width: 40px;
+        }
+        .icon {
+            height: 24px;
+            width: 24px;
+
+            // Target SVG elements
+            :deep(path) {
+                fill: var(--color-default-cyan-03);
+            }
+        }
+
+        .top-row {
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            width: calc(100% - 40px);
+        }
+
+        .button-dropdown-search {
+            width: 100%;
+            margin-top: 12px;
+
+            :deep(.dropdown-field) {
+                height: 45px;
+            }
+        }
+
+        // With background image
+        &.has-background {
+            height: 100vh;
+
+            .top-row,
+            .divider-general,
+            .bottom-row {
+                max-width: 100%;
+                width: 100%;
+                margin: 0 auto;
+                padding-inline: 24px;
+            }
+        }
+    }
+}
