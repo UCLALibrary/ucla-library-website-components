@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import type { Ref } from 'vue'
+import { computed } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
 
