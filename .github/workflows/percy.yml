@@ -122,17 +122,27 @@ jobs:
         env:
           CYPRESS_CACHE_FOLDER: $HOME/.cache/Cypress
 
+      - name: Cache Storybook Build
+        id: cache-storybook
+        uses: actions/cache@v3
+        with:
+          path: storybook-static
+          key: storybook-${{ github.sha }}
+
+      - name: Build Storybook
+        if: steps.cache-storybook.outputs.cache-hit != 'true'
+        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
+
       - name: Percy via Cypress (internal, Netlify preview)
         uses: cypress-io/github-action@v5
         with:
           working-directory: packages/vue-component-library
           install: false
-          start: "" # using remote Netlify URL
-          wait-on: ${{ github.event.inputs.preview_url }}
-          wait-on-timeout: 180
+          start: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec http-server ./storybook-static -p 6006
+          wait-on: http://localhost:6006
+          wait-on-timeout: 600
           command-prefix: "percy exec -- pnpx"
         env:
-          CYPRESS_baseUrl: ${{ github.event.inputs.preview_url }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
           PERCY_TARGET_BRANCH: main
 
