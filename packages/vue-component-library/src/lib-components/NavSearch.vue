@@ -50,7 +50,7 @@ const theme = useTheme()
 const router = useRouter()
 const route = useRoute()
 
-// DEFAULT CONTENT
+// DEFAULT  CONTENT
 // if this component ever needs to be reused with different content,
 // we can pass these as default props instead
 const hasDropdownOptions = computed(() => {
