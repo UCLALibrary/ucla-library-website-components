@@ -48,7 +48,7 @@ onMounted(() => {
     >
       <SectionWrapper class="primary-section-wrapper">
         <!-- PageAnchor moves above primaryTop for tablet/mobile -->
-        <div v-if="isPageAnchorMobile" class="sidebar-mobile-top" :class="pageAnchorStickyClass">
+        <div v-if="isPageAnchorMobile && $slots.sidebarPageAnchor" class="sidebar-mobile-top" :class="pageAnchorStickyClass">
           <slot name="sidebarPageAnchor" />
         </div>
 
