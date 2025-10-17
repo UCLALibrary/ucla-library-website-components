@@ -48,63 +48,6 @@ export function DLC() {
   }
 }
 
-export function WithDropdown() {
-  return {
-    data() {
-      return {
-        dropdownOptions: [
-          'All Collections',
-          'Books & Articles',
-          'Digital Collections',
-          'Archives & Manuscripts',
-          'Images & Media',
-          'Databases',
-        ],
-        dropdownValue: 'All Collections',
-        placeholder: 'Search the Library',
-      }
-    },
-    components: { NavSearch },
-    template: `
-            <nav-search 
-                :placeholder="placeholder"
-                :dropdown-options="dropdownOptions"
-                v-model:dropdown-model-value="dropdownValue"
-            />
-        `,
-  }
-}
-export function FTVAWithDropdown() {
-  return {
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    data() {
-      return {
-        dropdownOptions: [
-          'All Content',
-          'Digital Collections',
-          'Archives',
-          'Research Guides',
-          'Databases',
-        ],
-        dropdownValue: 'All Content',
-        placeholder: 'Search Digital Library Collections',
-      }
-    },
-    components: { NavSearch },
-    template: `
-            <nav-search 
-                :placeholder="placeholder"
-                :dropdown-options="dropdownOptions"
-                v-model:dropdown-model-value="dropdownValue"
-            />
-        `,
-  }
-}
-
 export function DLCWithDropdown() {
   return {
     provide() {
