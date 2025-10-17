@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.36.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.3...@ucla-library-monorepo/ucla-library-website-components-v1.36.4) (2025-10-17)
+
+
+### Bug Fixes
+
+* APPS-3471 Truncate long breadcrumb titles ([#837](https://github.com/UCLALibrary/ucla-library-website-components/issues/837)) ([b367f9f](https://github.com/UCLALibrary/ucla-library-website-components/commit/b367f9fdf07486183f83b028dbed88a25e5f019c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.36.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.2...@ucla-library-monorepo/ucla-library-website-components-v1.36.3) (2025-10-17)
 
 
