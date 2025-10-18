@@ -299,10 +299,15 @@ export function FTVABlogSeries() {
   }
 }
 
+// Mocking collection items with sectionHandle 'ftvaItemInCollection'
 const mockCollectionItems = [
+  // Testing metadata: ftvaDate
   {
-    title: 'Test Collection Item: \'Event Audio Recordings\' item w/ Video',
-    slug: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
+    title: 'Tom Reed Hosting an Episode Exploring the Teachings of Malcolm X',
+    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
+    text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
+    ftvaDate: 'March 19, 2025',
+    postDate: '2025-02-21T09:46:00-08:00',
     ftvaImage: [
       {
         id: '3156835',
@@ -320,9 +325,14 @@ const mockCollectionItems = [
     videoEmbed: null,
     sectionHandle: 'ftvaItemInCollection'
   },
+
+  // Testing metadata: releaseDate
   {
-    title: 'Test Collection Item 4: Another \'Event Audio Recordings\' item w/ Video',
-    slug: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
+    title: 'Native American, American, Indian and First Nations Film and Television',
+    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
+    text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
+    releaseDate: 'June 19, 2023',
+    postDate: '2025-03-21T09:46:00-08:00',
     ftvaImage: [
       {
         id: '3280534',
@@ -340,9 +350,14 @@ const mockCollectionItems = [
     videoEmbed: '<figure><iframe style="width:500px;height:281px;" src="//www.youtube.com/embed/C5osK7kvRGk" frameborder="0"></iframe></figure>',
     sectionHandle: 'ftvaItemInCollection'
   },
+
+  // Testing metadata: episodeAirDate
   {
-    title: 'Test Collection Item 2: \'Event Audio Recordings\' item w/ Image, No video',
-    slug: 'test-collection-item-for-archive-events-audio-recordings-2-2',
+    title: 'Robert Abel & Associates',
+    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2',
+    text: 'During their most prolific period, RA&A’s unique design aesthetic and innovative Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    episodeAirDate: 'September 19, 2024',
+    postDate: '2025-04-21T09:46:00-08:00',
     ftvaImage: [
       {
         id: '3701680',
@@ -359,21 +374,119 @@ const mockCollectionItems = [
     ],
     videoEmbed: null,
     sectionHandle: 'ftvaItemInCollection'
+  },
+
+  // ftvaCollectionType
+  {
+    title: 'Testing Long Title: Incididunt ut labore et dolore magna aliqua ut enim ad minim veniam incididunt ut labore et dolore magna aliqua ut enim ad minim veniam incididunt ut labore et dolore magna aliqua ut enim ad minim veniam Ut enim ad minim veniam',
+    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    ftvaCollectionType: [
+      'motionPicture',
+      'watchAndListenOnline',
+    ],
+    ftvaDate: null,
+    postDate: '2025-02-21T09:46:00-08:00',
+    ftvaImage: [
+      {
+        id: '3280534',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Todd-Solondz_2024-07-04-073854_jbqd.jpg',
+        height: 1664,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 2560w',
+        alt: 'Todd Solondz',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+    videoEmbed: null,
+    sectionHandle: 'ftvaItemInCollection'
+  },
+
+  // ftvaCollectionType
+  {
+    title: 'The Pink Cloud + shorts',
+    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    ftvaCollectionType: [
+      'television'
+    ],
+    ftvaDate: null,
+    postDate: '2025-03-21T09:46:00-08:00',
+    ftvaImage: [
+      {
+        id: '3701680',
+        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/pinkcloud-crop.png',
+        height: 1920,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/pinkcloud-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/pinkcloud-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/pinkcloud-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/pinkcloud-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/pinkcloud-crop.png 2560w',
+        alt: 'A woman writing on a window.',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+    videoEmbed: null,
+    sectionHandle: 'ftvaItemInCollection'
   }
 ]
+
+function parseCardItemDate(item) {
+  if (item.sectionHandle === 'ftvaItemInCollection') {
+    if (item.ftvaDate)
+      return item.ftvaDate
+    else if (item.episodeAirDate)
+      return item.episodeAirDate
+    else if (item.releaseDate)
+      return item.releaseDate
+    else return null
+  }
+}
 
 const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
   return {
     ...item,
-    to: item.slug, // might be item.uri in actual data
+    postDate: parseCardItemDate(item),
+    to: item.slug ? item.slug : item.uri,
     image: item.ftvaImage[0]
+  }
+})
+
+const parsedFTVACollectionItemsNoDate = parsedFTVACollectionItems.map((item) => {
+  return {
+    ...item,
+    ftvaDate: null,
+    episodeAirDate: null,
+    releaseDate: null,
+    postDate: null
+  }
+})
+
+const parsedFTVACollectionItemsNoText = parsedFTVACollectionItems.map((item) => {
+  return {
+    ...item,
+    text: null,
+  }
+})
+
+const parsedFTVACollectionItemsNoTextNoDate = parsedFTVACollectionItems.map((item) => {
+  return {
+    ...item,
+    text: null,
+    ftvaDate: null,
+    episodeAirDate: null,
+    releaseDate: null,
+    postDate: null
   }
 })
 
 export function FTVACollectionItems() {
   return {
     data() {
-      return { items: parsedFTVACollectionItems }
+      return { items: parsedFTVACollectionItemsNoTextNoDate.slice(0, 3) }
     },
     provide() {
       return {
@@ -390,10 +503,75 @@ export function FTVACollectionItems() {
   }
 }
 
-export function FTVAHorizontalScrollCardWithImage() {
+export function FTVACollectionItemsWithDate() {
   return {
     data() {
-      return { items: parsedFTVACollectionItems }
+      return { items: parsedFTVACollectionItemsNoText.slice(0, 3) }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <component is="style" type="text/css">
+        .ftva.block-highlight .card-meta .byline-group {
+          position: static !important;
+        }
+      </component>
+      <section-teaser-card
+        :items="items"
+        :grid-layout="false"
+      />
+  `,
+  }
+}
+
+export function FTVACollectionItemsWithText() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionItemsNoDate.slice(0, 3) }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <section-teaser-card
+        :items="items"
+        :grid-layout="false"
+      />
+  `,
+  }
+}
+
+export function FTVACollectionItemsHorzScroll() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionItemsNoTextNoDate }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <section-teaser-card
+        :items="items"
+        :grid-layout="false"
+      />
+  `,
+  }
+}
+
+export function FTVACollectionItemsSlider() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionItemsNoTextNoDate }
     },
     provide() {
       return {
@@ -405,142 +583,17 @@ export function FTVAHorizontalScrollCardWithImage() {
     <scroll-wrapper>
       <section-teaser-card
         :items="items"
+        :grid-layout="false"
       />
     </scroll-wrapper>
   `,
   }
 }
 
-const mockCollectionListings = [
-  {
-    title: 'Latin American Institute',
-    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
-    text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
-    ftvaCollectionType: [
-      'motionPicture',
-      'television',
-      'watchAndListenOnline'
-    ],
-    ftvaImage: [
-      {
-        id: '3156835',
-        src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/TomReed_MalcolmX.webp',
-        height: 1813,
-        width: 2560,
-        srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 2560w',
-        alt: 'Tom Reed hosting an episode exploring the teachings of Malcolm X',
-        focalPoint: [
-          0.5,
-          0.5
-        ]
-      }
-    ]
-  },
-  {
-    title: 'Native American, American, Indian and First Nations Film and Television',
-    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
-    text: 'A complex history of representations related to Indigenous peoples within the commercial mainstream media spanning from the 1800s till now.',
-    ftvaCollectionType: [
-      'motionPicture',
-      'television',
-    ],
-    ftvaImage: [
-      {
-        id: '3280534',
-        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/kpil7j-21cut1large.webp',
-        height: 1664,
-        width: 2560,
-        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 2560w',
-        alt: 'many hot air balloons in the air',
-        focalPoint: [
-          0.5,
-          0.5
-        ]
-      }
-    ]
-  },
-  {
-    title: 'Robert Abel & Associates',
-    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2',
-    text: 'During their most prolific period, RA&A’s unique design aesthetic and innovative Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    ftvaCollectionType: [
-      'motionPicture',
-      'watchAndListenOnline'
-    ],
-    ftvaImage: [
-      {
-        id: '3701680',
-        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/PXL_20240323_163248504.jpg',
-        height: 1920,
-        width: 2560,
-        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 2560w',
-        alt: 'Image alt text here',
-        focalPoint: [
-          0.5,
-          0.5
-        ]
-      }
-    ],
-  },
-  {
-    title: 'Test Collection Listing Item 4 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2-2',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    ftvaCollectionType: [
-      'motionPicture',
-      'watchAndListenOnline',
-    ],
-    ftvaImage: [
-      {
-        id: '3280534',
-        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/Todd-Solondz_2024-07-04-073854_jbqd.jpg',
-        height: 1664,
-        width: 2560,
-        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/Todd-Solondz_2024-07-04-073854_jbqd.jpg 2560w',
-        alt: 'Todd Solondz',
-        focalPoint: [
-          0.5,
-          0.5
-        ]
-      }
-    ]
-  },
-  {
-    title: 'Test Collection Listing Item 5 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
-    uri: 'test-collection-item-for-archive-events-audio-recordings-2-2',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    ftvaCollectionType: [
-      'television'
-    ],
-    ftvaImage: [
-      {
-        id: '3701680',
-        src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/pinkcloud-crop.png',
-        height: 1920,
-        width: 2560,
-        srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/pinkcloud-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/pinkcloud-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/pinkcloud-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/pinkcloud-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/pinkcloud-crop.png 2560w',
-        alt: 'A woman writing on a window.',
-        focalPoint: [
-          0.5,
-          0.5
-        ]
-      }
-    ],
-  },
-]
-
-const parsedFTVACollectionListings = mockCollectionListings.map((item) => {
-  return {
-    ...item,
-    to: item.uri,
-    image: item.ftvaImage[0]
-  }
-})
-
-export function FTVACollectionListings() {
+export function FTVACollectionItemsGrid() {
   return {
     data() {
-      return { items: parsedFTVACollectionListings }
+      return { items: parsedFTVACollectionItemsNoTextNoDate }
     },
     provide() {
       return {
@@ -569,7 +622,7 @@ export function FTVACollectionListings() {
 
         @media(min-width: 991px){
           .ftva.block-highlight.is-vertical.card {
-            height: 550px;
+            // height: 550px;
           }
         }
       </component>
