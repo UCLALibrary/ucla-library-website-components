@@ -1,0 +1,59 @@
+.dlc.definition-list {
+    .definition-list-item-wrapper {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        dt,
+        dd {
+            padding: 8px;
+        }
+        dt {
+            font-family: var(--font-primary);
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: var(--color-black);
+            text-align: left;
+            padding: 0;
+            border-bottom: none;
+        }
+        dd {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            gap: 8px;
+
+            font-family: var(--font-secondary);
+            font-size: 16px;
+            font-weight: 400;
+            padding: 0;
+            border-bottom: none;
+        }
+        dd.white-space-wrap {
+            white-space: pre-wrap;
+        }
+    }
+
+    .list-top-wrapper {
+        text-align: center;
+        padding-bottom: 40px;
+    }
+    .list-bottom-wrapper {
+        text-align: center;
+        padding-top: 40px;
+    }
+}
+// horizontal mode
+.horizontal {
+    display: flex;
+    gap: 10px;
+}
+.horizontal dt,
+.horizontal dd {
+    flex: 1;
+    border-bottom: 1.5px solid $subtitle-grey;
+}
