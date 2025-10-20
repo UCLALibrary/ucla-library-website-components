@@ -139,7 +139,7 @@ function handleSliderInput(event: Event) {
   padding-top: 15px;
   width: 100%;
   text-align: center;
-  color: #737373;
+  color: $medium-grey;
 }
 
 .slider {
