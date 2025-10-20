@@ -32,7 +32,7 @@ const classes = computed(() => {
 
 const windowWidth = ref(window.innerWidth)
 
-// If the screen is Desktop and FTVA have pageAnchor default to open 
+// If the screen is Desktop and FTVA have pageAnchor default to open
 const isDropdownOpen = ref(theme?.value === 'ftva' && windowWidth.value > 1024)
 
 // Computed
