@@ -30,9 +30,11 @@ const classes = computed(() => {
   return ['page-anchor', theme?.value || '']
 })
 
-const isDropdownOpen = ref(theme?.value === 'ftva')
-
 const windowWidth = ref(window.innerWidth)
+
+// If the screen is Desktop and FTVA have pageAnchor default to open
+const isDropdownOpen = ref(theme?.value === 'ftva' && windowWidth.value > 1024)
+
 // Computed
 const sectionName = computed(() => {
   return color || getSectionName(route?.path)

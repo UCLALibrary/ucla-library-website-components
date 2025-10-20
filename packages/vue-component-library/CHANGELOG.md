@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.37.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.37.0...@ucla-library-monorepo/ucla-library-website-components-v1.37.1) (2025-10-20)
+
+
+### Bug Fixes
+
+* only add primary-with-page-anchor when pageanchor present ([#842](https://github.com/UCLALibrary/ucla-library-website-components/issues/842)) ([04eaa4c](https://github.com/UCLALibrary/ucla-library-website-components/commit/04eaa4cc02e81e53daf0a40838da67113f52feb1))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.37.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.4...@ucla-library-monorepo/ucla-library-website-components-v1.37.0) (2025-10-17)
+
+
+### Features
+
+* add slot to card meta ([#841](https://github.com/UCLALibrary/ucla-library-website-components/issues/841)) ([79eeea8](https://github.com/UCLALibrary/ucla-library-website-components/commit/79eeea85b3e84f7e28054fc5f1d9717e17f624c2))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.36.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.3...@ucla-library-monorepo/ucla-library-website-components-v1.36.4) (2025-10-17)
 
 
