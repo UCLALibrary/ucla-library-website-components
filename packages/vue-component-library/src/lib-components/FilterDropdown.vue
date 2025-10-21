@@ -4,16 +4,18 @@ import SvgFilterIcon from 'ucla-library-design-tokens/assets/svgs/icon-down-cara
 import EffectSlideToggle from './EffectSlideToggle.vue'
 import { useTheme } from '@/composables/useTheme'
 
+interface FilterOption {
+  label: string
+  value: string
+  count: number
+}
+
 interface FilterProps {
   title: string
   filters: Array<{
     name: string
     slotName: string
-    options?: Array<{
-      label: string
-      value: string
-      count: number
-    }>
+    options?: Array<FilterOption>
     showAll?: boolean
   }>
   limitOptions?: boolean
@@ -26,8 +28,8 @@ const props = withDefaults(defineProps<FilterProps>(), {
 // Emit events for selection changes
 const emit = defineEmits<{
   'selection-change': [selectedOptions: Record<string, string[]>]
-  'option-selected': [filterName: string, option: { label: string; value: string; count: number }]
-  'option-deselected': [filterName: string, option: { label: string; value: string; count: number }]
+  'option-selected': [filterName: string, option: FilterOption]
+  'option-deselected': [filterName: string, option: FilterOption]
 }>()
 // THEME
 const theme = useTheme()
@@ -114,8 +116,13 @@ function getFilterOptions(filter: any) {
   return options
 }
 
+// Helper function for template binding
+function createToggleOptionHandler(filterName: string) {
+  return (option: FilterOption) => toggleOption(filterName, option)
+}
+
 // Toggle option selection
-async function toggleOption(filterName: string, option: { label: string; value: string; count: number }) {
+async function toggleOption(filterName: string, option: FilterOption) {
   const currentSelection = selectedOptions.value[filterName] || []
   const optionIndex = currentSelection.indexOf(option.value)
 
@@ -185,7 +192,7 @@ async function toggleOption(filterName: string, option: { label: string; value: 
             :name="getFilterKey(filter)"
             :filter="filter"
             :selected-options="selectedOptions[getFilterKey(filter)] || []"
-            :toggle-option="(option: { label: string, value: string, count: number }) => toggleOption(getFilterKey(filter), option)"
+            :toggle-option="createToggleOptionHandler(getFilterKey(filter))"
           >
             <!-- Default content if no slot is provided -->
             <div

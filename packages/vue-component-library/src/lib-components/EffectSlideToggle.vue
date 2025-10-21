@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, ref, watch } from 'vue'
 
-interface Props {
+export interface Props {
   duration?: number
   easing?: string
   opened?: boolean
