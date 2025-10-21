@@ -26,20 +26,6 @@ const emit = defineEmits<{
 const moleculeColor = ref('cyan')
 
 // Methods
-function itemOpenedColor(itemIndex: number) {
-  if (itemIndex === 0)
-    moleculeColor.value = 'green'
-  else if (itemIndex === 1)
-    moleculeColor.value = 'pink'
-  else if (itemIndex === 2)
-    moleculeColor.value = 'purple'
-
-  if (props.isOpened === false)
-    moleculeColor.value = 'cyan'
-
-  emit('item-opened-color', itemIndex)
-}
-
 function handleAccountButtonClick() {
   console.log('Should do something with the users account');
   emit('close')
@@ -54,11 +40,6 @@ function handleKeydown(event: KeyboardEvent) {
     emit('close')
   }
 }
-
-// Expose methods for parent component
-defineExpose({
-  itemOpenedColor
-})
 
 // Computed
 const classes = computed(() => {
