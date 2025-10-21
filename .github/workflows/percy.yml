@@ -109,32 +109,40 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v4
+      # 👇 Reuse the same setup that works on push (installs & caches Cypress)
+      - uses: ./.github/workflows/setup-workspace
         with:
-          version: 9
-          run_install: false
+          do_checkout: "false" # already checked out above
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Debug Cypress cache
+        run: |
+          npx cypress --version || true
+          npx cypress cache path || true
+          ls -la "$(npx cypress cache path)" || true
+        env:
+          CYPRESS_CACHE_FOLDER: $HOME/.cache/Cypress
+
+      - name: Cache Storybook Build
+        id: cache-storybook
+        uses: actions/cache@v3
         with:
-          node-version: 18.18.2
-          cache: pnpm
+          path: storybook-static
+          key: storybook-${{ github.sha }}
 
-      - name: Install deps (PR code)
-        run: pnpm install --frozen-lockfile --strict-peer-dependencies
+      - name: Build Storybook
+        if: steps.cache-storybook.outputs.cache-hit != 'true'
+        run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook
 
       - name: Percy via Cypress (internal, Netlify preview)
         uses: cypress-io/github-action@v5
         with:
           working-directory: packages/vue-component-library
           install: false
-          start: "" # using remote Netlify URL
-          wait-on: ${{ github.event.inputs.preview_url }}
-          wait-on-timeout: 180
+          start: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec http-server ./storybook-static -p 6006
+          wait-on: http://localhost:6006
+          wait-on-timeout: 600
           command-prefix: "percy exec -- pnpx"
         env:
-          CYPRESS_baseUrl: ${{ github.event.inputs.preview_url }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_STORYBOOK_VUE3X }}
           PERCY_TARGET_BRANCH: main
 
@@ -154,20 +162,18 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v4
+      # 👇 Reuse the same setup that works on push (installs & caches Cypress)
+      - uses: ./.github/workflows/setup-workspace
         with:
-          version: 9
-          run_install: false
+          do_checkout: "false" # already checked out above
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.18.2
-          cache: pnpm
-
-      - name: Install deps (PR code)
-        run: pnpm install --frozen-lockfile --strict-peer-dependencies
+      - name: Debug Cypress cache
+        run: |
+          npx cypress --version || true
+          npx cypress cache path || true
+          ls -la "$(npx cypress cache path)" || true
+        env:
+          CYPRESS_CACHE_FOLDER: $HOME/.cache/Cypress
 
       - name: Percy via Cypress (fork, Netlify preview)
         uses: cypress-io/github-action@v5

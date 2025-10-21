@@ -57,7 +57,7 @@ export function LastPage() {
 // this story uses the generateLinkCallback prop
 // to generate the links in the library-website-nuxt format instead of the default format
 
-function DynamicWidthTemplate(args) {
+const DynamicWidthTemplate = (args) => {
   // mock a library site page where someone has searched 'new' like this:
   // https://www.library.ucla.edu/search-site?q=new&from=10'
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
@@ -111,7 +111,7 @@ DynamicWidth_40Pgs.args = {
   initialCurrentPage: 6
 }
 
-function FixedWidthTemplate(args) {
+const FixedWidthTemplate = (args) => {
   router.push({ path: 'search-site', query: { q: 'new', from: 10 } })
   return {
     setup() {
