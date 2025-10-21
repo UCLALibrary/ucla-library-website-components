@@ -68,9 +68,9 @@ onMounted(() => {
 // SELECTED LABEL DISPLAY
 const selectedLabel = computed(() => {
   const match = props.options.find((opt: Option) => opt.value === selectedFilters.value[props.fieldName])
-  if (dlcTheme.value) {
+  if (dlcTheme.value)
     return match ? match.label : '(none selected)'
-  }
+
   return match ? `: ${match.label}` : '(none selected)'
 })
 </script>
@@ -79,28 +79,27 @@ const selectedLabel = computed(() => {
   <div :class="parsedClasses">
     <MobileDrawer>
       <template
-        #toggleIcon
         v-if="dlcTheme"
+        #toggleIcon
       >
         <IconCaretDown />
       </template>
       <template #buttonLabel>
         <span
-          class="filter-summary"
           v-if="dlcTheme"
+          class="filter-summary"
         >
           {{ selectedLabel }}
         </span>
         <span
-          class="filter-summary"
           v-else
+          class="filter-summary"
         >
           {{ label }}
           <template v-if="!isMobile">
             {{ selectedLabel }}
           </template>
         </span>
-
       </template>
 
       <template #dropdownItems="{ removeOverlay }">

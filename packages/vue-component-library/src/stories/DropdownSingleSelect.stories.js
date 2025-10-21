@@ -25,7 +25,7 @@ export default {
   title: 'Dropdown Single Select',
   component: DropdownSingleSelect,
 }
- 
+
 // MOCK DATA DEFAULT
 const OptionsDefault = [
   { label: 'Fire Prevention', value: 'fire-prevention' },
