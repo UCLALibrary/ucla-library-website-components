@@ -343,26 +343,6 @@ export function DLCEdgeCases() {
   }
 }
 
-export function DLCEventDetail() {
-  return {
-    data() {
-      return { items: mockFtva }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    components: { SectionTeaserCard },
-    template: `
-      <section-teaser-card
-        :items="items"
-        section-title="section title here"
-        :grid-layout="false"
-      />
-  `,
-  }
-}
 export function FTVAEventDetail() {
   return {
     data() {
