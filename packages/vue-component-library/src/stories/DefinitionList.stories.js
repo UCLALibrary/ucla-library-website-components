@@ -53,7 +53,7 @@ const mockDefinitions = {
     {
       nameFirst: 'Patricia Bentley King',
       nameLast: null,
-    }
+    },
   ],
   associatedIndividuals: [
     {
@@ -98,15 +98,19 @@ export function Horizontal() {
     data() {
       return { mockDefinitions }
     },
-    template: '<DefinitionList :metaDataObject="mockDefinitions" orientation="horizontal"/>',
+    template:
+            '<DefinitionList :metaDataObject="mockDefinitions" orientation="horizontal"/>',
   }
 }
 
 // Sample method to remove the 'ftva' prefix from the keys
-const newDefinitions = Object.entries(mockDefinitions).reduce((acc, item) => ({
-  ...acc,
-  [item[0].replace(/ftva/g, '')]: item[1]
-}), {})
+const newDefinitions = Object.entries(mockDefinitions).reduce(
+  (acc, item) => ({
+    ...acc,
+    [item[0].replace(/ftva/g, '')]: item[1],
+  }),
+  {}
+)
 
 export function FTVAWithCustomMetaDataAndButton() {
   return {
@@ -153,6 +157,37 @@ export function FTVAWithCustomMetaDataAndButton() {
       <template #list-bottom>
         <ButtonLink label="View Catalog Record" to="https://search.library.ucla.edu/permalink/01UCS_LAL/17p22dp/alma99734033506533" :isSecondary="true" icon-name="none" class="centered-button"/>
       </template>
-    </DefinitionList>`
+    </DefinitionList>`,
+  }
+}
+
+export function DLC() {
+  return {
+    components: { DefinitionList },
+    data() {
+      return { mockDefinitions }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    template: '<DefinitionList :metaDataObject="mockDefinitions" />',
+  }
+}
+
+export function DLCHorizontal() {
+  return {
+    components: { DefinitionList },
+    data() {
+      return { mockDefinitions }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    template:
+            '<DefinitionList :metaDataObject="mockDefinitions" orientation="horizontal"/>',
   }
 }

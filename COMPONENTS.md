@@ -35,8 +35,7 @@ Wraps ButtonTag, adds X icon on the right which invokes onRemove
 - isSelected: boolean  
 - iconName: string;
 - onRemove?: Function
-
-[] Breadcrumb  
+  
 
 [] BreadcrumbPill (Luka)
 
@@ -53,14 +52,7 @@ Full breadcrumb bar with one or more breadcrumb items.
 - crumbs: Array<{ label: string, to?: string }>  
 - current: string
 
-[x] PaginationControl (svebor) 
-Numbered pagination UI with previous/next arrows.
-
-- currentPage: number  
-- totalPages: number  
-- onPageChange: Function(newPage: number)
-
-[] SectionLabel   (austin)
+[] SectionLabel   ()
 Non-interactive text element that might be grouped with buttons (e.g. “RESEARCH”).
 
 - text: string  
@@ -74,15 +66,8 @@ Branded button or label pairing logo with text.
 - label: string  
 - to?: string
 
-[x] SectionPagination (svebor) 
-Interactive pagination component with numbered buttons, previous/next navigation, and ellipsis for long ranges.
+[x] CTAHexButton (Exists - ButtonMore)
 
-- currentPage: number  
-- totalPages: number  
-- showEdges?: boolean (e.g. show first/last page)  
-- siblingCount?: number (how many pages around current to show)
-
-[x] CTAHexButton
 Prominent hex-shaped call-to-action button with icon and label.
 
 - label: string  
@@ -98,7 +83,7 @@ Displays the number of results returned in a search.
 - prefix?: string (e.g. "Catalog")  
 - animate?: boolean
 
-[] RefineSearchPanel ()
+[] RefineSearchPanel (Svebor)
 
 Collapsible panel of dropdown filters for refining search results.
 
@@ -111,7 +96,7 @@ Collapsible panel of dropdown filters for refining search results.
 - onFilterChange: Function(label: string, selected: string | string[])  
 - defaultOpen?: string[] (filters to open by default)
 
-[] FiltersDropdown ()
+[] FiltersDropdown (Svebor)
 
 Collapsible panel of dropdown filters for refining search results with multiple options
 
@@ -123,7 +108,7 @@ Collapsible panel of dropdown filters for refining search results with multiple 
 - defaultOpen?: string[] (filters to open by default)
   
 
-[] AlphabeticalBrowseBy ()
+[x] AlphabeticalBrowseBy (Exists)
 
 Interactive list to sort results Alphabetically
 
@@ -151,14 +136,6 @@ Set of dropdowns to filter/search content by fields like “Title” or “Subje
 - selected: string  
 - onSelect: Function(option: string)
 
-
-[] ButtonUCLALibrariesDropdown (Svebor) 
-- this is a version of the above component - ButtonDropdownSearch
-Dropdown for selecting from multiple library collections. Appears in tag-chip format.
-
-- label: string  
-- libraries: Array<string>  
-- onSelect: Function(library: string)
 
 [] YearRangeFilter or DateFilter (Svebor)
 
@@ -220,7 +197,7 @@ Horizontal row layout for a single digital asset, including image, metadata fiel
 - image: string  
 - onClick?: Function
 
-[] BlockAsset (austin)
+[] BlockAsset (Svebor)
 Card for an individual digital library asset.
 
 - image: string  
@@ -244,18 +221,7 @@ Tabular list of metadata key-value pairs (e.g. Rights Contact, Rights Holder).
 - items: Array<{ label: string, value: string | string[] }>  
 - title?: string
 
-[] BlockMediaViewer ()
-Embeds an IIIF viewer, image, or video with optional caption.
-
-- title?: string  
-- type: 'iiif' | 'image' | 'video'  
-- src: string  
-- caption?: string  
-- alt?: string  
-- fullscreen?: boolean  
-- zoomable?: boolean
-
-[] BlockRichText  
+[] BlockRichText (Exists - needs changes?)
 (Already defined previously — reused here for body copy.)
 
 - content: string (HTML or PortableText)  
@@ -270,7 +236,7 @@ Reused section heading (also already defined under `BlockTitle`).
 
 ## Grids
 
-[] GridAssets (austin)
+[] GridAssets (Svebor)
 - items: [BlockAsset]
 
 [] GridCollections (svebor)
@@ -334,7 +300,7 @@ Horizontal scrollable container of `BentoPod`(Aka: BentoBoxBlock - new addition 
 
 ## Header
 
-[] Banner ()
+[] Banner (SiteBrandBar - Already exists, should we refactor it + introduce TS?)
 
 Universal top banner with UCLA branding. Often pinned to the top of all pages, may contain global notices or links.
 
@@ -345,6 +311,8 @@ Universal top banner with UCLA branding. Often pinned to the top of all pages, m
 - isSticky?: boolean
 
 [] Header ()
+
+NOTE - Something similar exists, but it needs some tweaks.
 
 Primary site navigation including logo, main links, and utility search bar.
 
@@ -359,7 +327,7 @@ Primary site navigation including logo, main links, and utility search bar.
 
 ## Footer 
 
-[x] Footer ()
+[x] Footer (FooterPrimary - Already exists, should we refactor it + introduce TS?)
 
 Main site footer for UCLA Library, assembling social links, navigation, and newsletter signup.
 
@@ -368,7 +336,7 @@ Main site footer for UCLA Library, assembling social links, navigation, and news
 - copyright?: string
 - newsletter
 
-[x] NewsletterSignup ()
+[x] NewsletterSignup (Already exists as a part of the FooterPrimary)
 
 Standalone newsletter form for email subscription.
 
@@ -393,7 +361,7 @@ Top navigation bar for asset pages, including pagination, collection name, and b
 - onNext: Function  
 - onPrev: Function
 
-[] DetailMedia ()
+[] DetailMedia (Svebor)
 
 Large asset viewer for images or media, with zoom/download/fullscreen buttons.
 
@@ -480,38 +448,33 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 
 | Component Name             | Developer | Status      | exists? | Notes                          |
 |----------------------------|-----------|-------------|---------|--------------------------------|
-| ButtonIIIF                 |           | ☐ Complete  |   [ ]   |                                |
+| ButtonIIIF                 |Svebor     | ☐ Complete  |   [ ]   |                                |
 | Button                     |Luka       | ☐ Complete  |   [ ]   |                                |
-| DividerGeneral             |           | ☐ Complete  |   [x]   |                                |
+| DividerGeneral             |Exists     | ☐ Complete  |   [x]   |                                |
 | ButtonPageView             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ButtonTag                  |Luka       | ☐ Complete  |   [x]   | aka: BlockTag                  |
 | ButtonRemoveSearchFilter   |Luka       | ☐ Complete  |   [x]   | aka: BlockRemoveSearchFilter   |
 | BreadcrumbPill             |Luka       | ☐ Complete  |   [ ]   |                                |
 | BreadcrumbBar              |Luka       | ☐ Complete  |   [ ]   |                                |
-| PaginationControl          |Svebor     | ☐ Complete  |   [ ]   |                                |
-| SectionLabel               |Austin     | ☐ Complete  |   [ ]   |                                |
+| SectionLabel               |           | ☐ Complete  |   [ ]   |                                |
 | LibraryLogoButton          |Austin     | ☐ Complete  |   [ ]   |                                |
-| SectionPagination          |Svebor     | ☐ Complete  |   [ ]   |Adjusted the styles and a little bit of logic |
 | CTAHexButton               |Svebor     | ☐ Complete  |   [ ]   |Exists, ready to use            |
 | SearchResultsCount         |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
-| RefineSearchPanel          |           | ☐ Complete  |   [ ]   |                                |
-| FiltersDropdown            |           | ☐ Complete  |   [x]   |                                |
-| AlphabeticalBrowseBy       |           | ☐ Complete  |   [x]   |                                | 
+| RefineSearchPanel          |Svebor     | ☐ Complete  |   [ ]   |                                |
+| FiltersDropdown            |Svebor     | ☐ Complete  |   [ ]   |                                |
+| AlphabeticalBrowseBy       |Exists     | ☐ Complete  |   [x]   |                                | 
 | DropdownSingleSelect       |Svebor     | ☐ Complete  |   [ ]   |                                |
 | ButtonDropdownSearch       |Svebor     | ☐ Complete  |   [ ]   |                                |
-| ButtonUCLALibrariesDropdown|           | ☐ Complete  |   [ ]   |                                |
-| YearRangeFilter            |           | ☐ Complete  |   [x]   | aka DateFilter?                |
+| YearRangeFilter            |Svebor     | ☐ Complete  |   [x]   |                                |
 | BentoPod                   |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | NotesAccordion             |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | ExcerptPod                 |Svebor     | ☐ Complete  |   [ ]   | In the notes-accordion PR      |
 | BlockAssetPod              |Luka       | ☐ Complete  |   [ ]   |                                |
-| BlockAsset                 |Austin     | ☐ Complete  |   [ ]   |                                |
+| BlockAsset                 |Svebor     | ☐ Complete  |   [ ]   |                                |
 | BlockCollection            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | MetadataTable              |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
-| BlockMediaViewer           |           | ☐ Complete  |   [ ]   |                                |
-| BlockRichText              |           | ☐ Complete  |   [ ]   |                                |
 | SectionHeader              |           | ☐ Complete  |   [x]   |                                |
-| GridAssets                 |Austin     | ☐ Complete  |   [ ]   |                                |
+| GridAssets                 |Svebor     | ☐ Complete  |   [ ]   |                                |
 | GridCollections            |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | GridAssetPod               |Luka       | ☐ Complete  |   [ ]   |                                |
 | SearchField                |Luka       | ☐ Complete  |   [x]   |                                |
@@ -521,9 +484,9 @@ An icon is shown on the right side of the screen; clicking it opens a side panel
 | BentoBoxResult             |Svebor     | ☐ Complete  |   [ ]   |Made a PR                       |
 | Banner                     |           | ☐ Complete  |   [ ]   |                                |
 | Header                     |           | ☐ Complete  |   [x]   | aka: HeaderSite                |
-| NewsletterSignup           |           | ☐ Complete  |   [x]   | Exists in footer-primary       |
+| NewsletterSignup           |Exists     | ☐ Complete  |   [x]   | Exists in footer-primary       |
 | DetailHeader               |Luka       | ☐ Complete  |   [ ]   | aka: ItemHeaderBar             |
-| DetailMedia                |           | ☐ Complete  |   [ ]   | aka: ViewerMedia               |
+| DetailMedia                |Svebor     | ☐ Complete  |   [ ]   | Made a PR                      |
 | CollectionOverview         |Luka       | ☐ Complete  |   [ ]   |                                |
 | BannerFeatured             |Luka       | ☐ Complete  |   [x]   |                                |
 | BlockTitle                 |Luka       | ☐ Complete  |   [ ]   |                                |
