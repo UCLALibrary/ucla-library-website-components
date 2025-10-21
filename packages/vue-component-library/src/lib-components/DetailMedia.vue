@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 const props = withDefaults(defineProps<DetailMediaProps>(), {
@@ -24,22 +24,23 @@ const hasError = ref(false)
 const errorMessage = ref('')
 
 // Computed
-const viewerUrl = computed(() => {
-  if (!props.manifestUrl) {
-    hasError.value = true
-    errorMessage.value = 'No manifest URL provided'
-    return ''
-  }
+const isValidUrl = computed(() => {
+  if (!props.manifestUrl)
+    return false
 
-  // Basic URL validation
   try {
+    // eslint-disable-next-line no-new
     new URL(props.manifestUrl)
+    return true
   }
   catch {
-    hasError.value = true
-    errorMessage.value = 'Invalid manifest URL format'
-    return ''
+    return false
   }
+})
+
+const viewerUrl = computed(() => {
+  if (!isValidUrl.value)
+    return ''
 
   const baseUrl = 'https://universalviewer.io/uv.html'
   const params = new URLSearchParams({
@@ -57,6 +58,21 @@ const containerClasses = computed(() => {
     hasError.value ? 'error' : '',
   ].filter(Boolean)
 })
+
+// Watch for URL validation changes and update error state
+watch(isValidUrl, (isValid) => {
+  if (!isValid) {
+    hasError.value = true
+    if (!props.manifestUrl)
+      errorMessage.value = 'No manifest URL provided'
+    else
+      errorMessage.value = 'Invalid manifest URL format'
+  }
+  else {
+    hasError.value = false
+    errorMessage.value = ''
+  }
+}, { immediate: true })
 
 // Methods
 function handleIframeLoad() {
