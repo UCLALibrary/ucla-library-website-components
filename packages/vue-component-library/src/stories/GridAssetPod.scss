@@ -1,0 +1,125 @@
+// Styles for BlockAssetPod
+.dlc.grid-asset-pod {
+    .block-asset-pod {
+        display: flex;
+        align-items: flex-start;
+        gap: 24px;
+
+        .image {
+            aspect-ratio: 1;
+            min-width: 200px;
+            width: 20%;
+        }
+
+        .meta {
+            flex: 1;
+            min-width: 0; // Prevents flex item from overflowing
+        }
+        .title {
+            margin: 0 0 8px;
+
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 120%;
+            color: var(--color-primary-blue-04);
+
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            transition: text-decoration-color 0.3s ease-in-out;
+        }
+
+        .metadata-list {
+            dt {
+                flex: 0;
+                min-width: 130px;
+            }
+
+            dd {
+                width: calc(100% - 140px);
+            }
+        }
+
+        .date {
+            display: none;
+
+            width: calc(100% - 140px);
+            font-family: var(--font-secondary);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            padding: 0;
+            border-bottom: none;
+        }
+
+        // Hovers
+        @media #{$has-hover} {
+            &:not(.is-hovering-link):hover {
+                .title {
+                    text-decoration-color: var(--color-primary-blue-04);
+                }
+            }
+            .smart-link.is-link:hover {
+                text-decoration-color: var(--color-primary-blue-04);
+            }
+        }
+
+        // Breakpoints
+        @media #{$small} {
+            flex-direction: column;
+            gap: 16px;
+
+            .image {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .meta {
+                width: 100%;
+            }
+            .metadata-list {
+                dt {
+                    display: none;
+                }
+                dd {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .block-container {
+        &:last-child {
+            .divider-general {
+                display: none;
+            }
+        }
+    }
+
+    .divider-general {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-bottom: 24px;
+    }
+
+    &.is-grid-layout {
+        .divider-general {
+            display: none;
+        }
+
+        .block-asset-pod {
+            flex-direction: column;
+
+            .image {
+                width: 100%;
+            }
+
+            .definition-list-item-wrapper {
+                display: none;
+            }
+            .date {
+                display: block;
+            }
+        }
+    }
+}
