@@ -1,3 +1,45 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.37.1...@ucla-library-monorepo/ucla-library-website-components-v1.38.0) (2025-10-20)
+
+
+### Features
+
+* creates ButtonIiif component ([#806](https://github.com/UCLALibrary/ucla-library-website-components/issues/806)) ([957c9be](https://github.com/UCLALibrary/ucla-library-website-components/commit/957c9be9064dd755eb37e8d86371f63fc14ea01d))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.37.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.37.0...@ucla-library-monorepo/ucla-library-website-components-v1.37.1) (2025-10-20)
+
+
+### Bug Fixes
+
+* only add primary-with-page-anchor when pageanchor present ([#842](https://github.com/UCLALibrary/ucla-library-website-components/issues/842)) ([04eaa4c](https://github.com/UCLALibrary/ucla-library-website-components/commit/04eaa4cc02e81e53daf0a40838da67113f52feb1))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.37.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.4...@ucla-library-monorepo/ucla-library-website-components-v1.37.0) (2025-10-17)
+
+
+### Features
+
+* add slot to card meta ([#841](https://github.com/UCLALibrary/ucla-library-website-components/issues/841)) ([79eeea8](https://github.com/UCLALibrary/ucla-library-website-components/commit/79eeea85b3e84f7e28054fc5f1d9717e17f624c2))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.36.4](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.3...@ucla-library-monorepo/ucla-library-website-components-v1.36.4) (2025-10-17)
+
+
+### Bug Fixes
+
+* APPS-3471 Truncate long breadcrumb titles ([#837](https://github.com/UCLALibrary/ucla-library-website-components/issues/837)) ([b367f9f](https://github.com/UCLALibrary/ucla-library-website-components/commit/b367f9fdf07486183f83b028dbed88a25e5f019c))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.36.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.2...@ucla-library-monorepo/ucla-library-website-components-v1.36.3) (2025-10-17)
+
+
+### Bug Fixes
+
+* APPS-3517 update font color on caption on ImageSlider ([#838](https://github.com/UCLALibrary/ucla-library-website-components/issues/838)) ([6ee2317](https://github.com/UCLALibrary/ucla-library-website-components/commit/6ee23175efcf178718405aba717a220c6ac35a8e))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.36.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.1...@ucla-library-monorepo/ucla-library-website-components-v1.36.2) (2025-10-17)
+
+
+### Bug Fixes
+
+* percy and eslint issues ([#839](https://github.com/UCLALibrary/ucla-library-website-components/issues/839)) ([430626f](https://github.com/UCLALibrary/ucla-library-website-components/commit/430626f6acdd67fc550240680e0e812a5f9e12e2))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.36.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.36.0...@ucla-library-monorepo/ucla-library-website-components-v1.36.1) (2025-10-15)
 
 
