@@ -44,8 +44,14 @@ onMounted(() => {
 
 <template>
   <div :class="parsedClasses">
-    <div v-on-click-outside="closeDropdownOnClickOutside" class="dropdown-wrapper">
-      <div class="dropdown-overlay" :class="isDropdownExpandedClass" />
+    <div
+      v-on-click-outside="closeDropdownOnClickOutside"
+      class="dropdown-wrapper"
+    >
+      <div
+        class="dropdown-overlay"
+        :class="isDropdownExpandedClass"
+      />
       <button
         class="mobile-button"
         :class="isDropdownExpandedClass"
@@ -57,15 +63,23 @@ onMounted(() => {
           <slot name="buttonLabel" />
         </span>
 
-        <span
+        <!-- <span
           :class="isDropdownExpandedClass"
           class="toggle-triangle-icon"
         >
-          <SvgIconFtvaDropTriangle />
-        </span>
+      </span> -->
+        <slot name="toggleIcon">
+          <SvgIconFtvaDropTriangle
+            :class="isDropdownExpandedClass"
+            class="toggle-triangle-icon"
+          />
+        </slot>
       </button>
 
-      <div v-if="isDropdownExpanded" class="button-dropdown-modal">
+      <div
+        v-if="isDropdownExpanded"
+        class="button-dropdown-modal"
+      >
         <SvgGlyphClose
           v-if="isMobile"
           class="svg-glyph-close"
@@ -76,7 +90,10 @@ onMounted(() => {
           :class="isDropdownExpandedClass"
         >
           <!-- Dropdown Items slot in here -->
-          <slot name="dropdownItems" :remove-overlay="removeOverlay" />
+          <slot
+            name="dropdownItems"
+            :remove-overlay="removeOverlay"
+          />
         </div>
       </div>
     </div>

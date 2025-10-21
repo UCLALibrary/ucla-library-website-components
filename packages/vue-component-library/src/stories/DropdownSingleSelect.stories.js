@@ -25,7 +25,7 @@ export default {
   title: 'Dropdown Single Select',
   component: DropdownSingleSelect,
 }
-
+ 
 // MOCK DATA DEFAULT
 const OptionsDefault = [
   { label: 'Fire Prevention', value: 'fire-prevention' },
@@ -47,6 +47,38 @@ export function Default() {
     provide() {
       return {
         theme: computed(() => 'ftva'),
+      }
+    },
+    template: `
+      <div>
+        <span>Selected dropdown value display:{{selectedFilters}}</span>
+        <br><br>
+        <DropdownSingleSelect
+          v-model:selectedFilters='selectedFilters'
+          :label='label'
+          :options='options'
+          :field-name='fieldName'
+          :show-view-all='true'
+        />
+      </div>
+    `,
+  }
+}
+
+export function DLCTheme() {
+  return {
+    components: { DropdownSingleSelect },
+    data() {
+      return {
+        selectedFilters: { esFieldName: '' },
+        options: OptionsDefault,
+        label: 'Filter',
+        fieldName: 'esFieldName',
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
       }
     },
     template: `
