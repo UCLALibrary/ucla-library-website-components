@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.39.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.38.0...@ucla-library-monorepo/ucla-library-website-components-v1.39.0) (2025-10-21)
+
+
+### Features
+
+* creates GridCollections /w BlockCollection components ([#803](https://github.com/UCLALibrary/ucla-library-website-components/issues/803)) ([b598dd5](https://github.com/UCLALibrary/ucla-library-website-components/commit/b598dd5042a6b27eedfe35076219b36dd5355b6c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.37.1...@ucla-library-monorepo/ucla-library-website-components-v1.38.0) (2025-10-20)
 
 
