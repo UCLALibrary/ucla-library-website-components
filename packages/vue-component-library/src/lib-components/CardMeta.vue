@@ -177,7 +177,9 @@ const classes = computed(() => {
       v-html="category"
     />
 
-    <!-- Named slot for custom title -->
+    <!-- Slot for injecting a title with any tags / styles (useful to substitute h1 tags for accessibility) -->
+    <slot name="anyTitle" />
+    <!-- Named slots for custom title with H3 tags -->
     <h3
       v-if="$slots.customTitle && !to && !title"
       class="custom-title"
