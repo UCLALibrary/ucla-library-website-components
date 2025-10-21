@@ -24,7 +24,14 @@ const route = useRoute()
 // typify valid route color strings
 type routeColors = 'about' | 'help' | 'visit' | 'default' | ''
 
-const isDropdownOpen = ref(false)
+// Theme
+const theme = useTheme()
+const classes = computed(() => {
+  return ['page-anchor', theme?.value || '']
+})
+
+const isDropdownOpen = ref(theme?.value === 'ftva')
+
 const windowWidth = ref(window.innerWidth)
 // Computed
 const sectionName = computed(() => {
@@ -52,12 +59,6 @@ const isDesktop = computed(() => {
 function toggleDropdown() {
   isDropdownOpen.value = !isDropdownOpen.value
 }
-
-// Theme
-const theme = useTheme()
-const classes = computed(() => {
-  return ['page-anchor', theme?.value || '']
-})
 </script>
 
 <template>
