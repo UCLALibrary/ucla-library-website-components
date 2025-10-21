@@ -108,9 +108,8 @@ function getFilterOptions(filter: any) {
     : filter.options
 
   // Apply limit if limitOptions is enabled
-  if (props.limitOptions && !isFiltered) {
+  if (props.limitOptions && !isFiltered)
     options = options.slice(0, 10)
-  }
 
   return options
 }
