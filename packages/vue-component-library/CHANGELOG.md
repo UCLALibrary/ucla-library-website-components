@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.38.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.37.1...@ucla-library-monorepo/ucla-library-website-components-v1.38.0) (2025-10-20)
+
+
+### Features
+
+* creates ButtonIiif component ([#806](https://github.com/UCLALibrary/ucla-library-website-components/issues/806)) ([957c9be](https://github.com/UCLALibrary/ucla-library-website-components/commit/957c9be9064dd755eb37e8d86371f63fc14ea01d))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.37.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.37.0...@ucla-library-monorepo/ucla-library-website-components-v1.37.1) (2025-10-20)
 
 
