@@ -97,10 +97,7 @@ function onClick(slug) {
   </div>
 </template>
 
-<style
-  scoped
-  lang="scss"
->
+<style scoped lang="scss">
 .search-generic-view-modes {
   position: relative;
 
