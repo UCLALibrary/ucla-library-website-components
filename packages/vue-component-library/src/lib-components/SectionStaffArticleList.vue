@@ -43,7 +43,7 @@ function parseDate(sectionHandle: string, startDate: string, endDate: string, on
     return 'Ongoing'
   if (sectionHandle === 'ftvaEvent')
     return formatDates(startDate, startDate, 'shortWithYear')
-  if (sectionHandle === 'ftvaEventSeries')
+  if (sectionHandle === 'ftvaEventSeries' || sectionHandle === 'ftvaTouringSeries')
     return formatSeriesDates(startDate, endDate, 'shortWithYear')
   if (date)
     return format(new Date(date), 'MMMM d, Y')
@@ -55,11 +55,11 @@ function parsedTextAll(description: string) {
     : ''
 }
 function getNonFTVADescription(description: string) {
-  console.log('theme', theme?.value)
+  // console.log('theme', theme?.value)
   return theme?.value === 'ftva' ? '' : description
 }
 function getNonFTVADate(date: string) {
-  console.log('theme', theme?.value)
+  // console.log('theme', theme?.value)
   return theme?.value === 'ftva' ? '' : date
 }
 </script>
