@@ -369,6 +369,24 @@ const selectedLabel = computed(() => {
       }
     }
 
+    &.dlc {
+      width: 100%;
+
+
+
+      &:deep() {
+        .mobile-drawer {
+          .mobile-button {
+            padding: 15px;
+          }
+
+          .dropdown-overlay {
+            display: none;
+          }
+        }
+      }
+    }
+
     .filter-summary {
       color: $accent-blue;
     }
