@@ -1,0 +1,192 @@
+.year-range-filter,
+.year-range-filter.dlc {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 10px 8px 7px 13px;
+
+    // Number Range inputs
+    .range-inputs {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .range-number-input {
+        width: 70px;
+        padding: 8px 0;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background-color: var(--color-secondary-grey-01);
+        color: var(--color-secondary-blue-01);
+        font-family: var(--font-primary);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1;
+        text-align: center;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: var(--color-default-blue-03);
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        // Remove number input spinners
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    .range-separator {
+        background-color: var(--color-secondary-blue-01);
+        width: 11px;
+        height: 2px;
+        border-radius: 2px;
+    }
+
+    .limit-button {
+        margin-left: 4px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 30px;
+        background-color: var(--color-secondary-blue-01);
+        color: var(--color-white);
+        font-family: var(--font-secondary);
+        font-size: 18px;
+        line-height: 1;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:focus {
+            outline: 2px solid var(--color-secondary-blue-02);
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+    }
+
+    .range-slider-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        max-width: 100%;
+    }
+
+    .range-track {
+        position: relative;
+        width: 100%;
+        height: 10px;
+        background-color: var(--color-secondary-grey-01);
+        border-radius: 5px;
+        touch-action: none;
+    }
+
+    .range-slider {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        cursor: pointer;
+        transform: translateY(-50%);
+        -webkit-appearance: none;
+        appearance: none;
+        pointer-events: none;
+
+        &:focus {
+            outline: none;
+        }
+
+        // Webkit slider thumb
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--color-secondary-grey-03);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            pointer-events: auto;
+        }
+
+        // Firefox slider thumb
+        &::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--color-secondary-grey-03);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            pointer-events: auto;
+        }
+
+        // Webkit slider track
+        &::-webkit-slider-track {
+            background: transparent;
+            height: 4px;
+        }
+
+        // Firefox slider track
+        &::-moz-range-track {
+            background: transparent;
+            height: 4px;
+            border: none;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+
+            &::-moz-range-thumb {
+                cursor: not-allowed;
+            }
+            &::-webkit-slider-thumb {
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    // Ensure min slider is always below max slider to prevent visual overlap
+    .range-slider--min {
+        z-index: 1;
+    }
+
+    .range-slider--max {
+        z-index: 2;
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        .limit-button {
+            &:hover:not(:disabled) {
+                background-color: var(--color-secondary-blue-02);
+            }
+        }
+
+        .range-slider {
+            &::-webkit-slider-thumb:hover {
+                transform: scale(1.1);
+                border: 2px solid var(--color-secondary-blue-03);
+            }
+
+            &::-moz-range-thumb:hover {
+                transform: scale(1.1);
+                border: 2px solid var(--color-secondary-blue-03);
+            }
+        }
+    }
+}
