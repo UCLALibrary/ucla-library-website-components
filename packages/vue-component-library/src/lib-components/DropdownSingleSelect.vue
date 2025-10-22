@@ -157,7 +157,7 @@ const selectedLabel = computed(() => {
 
 <style scoped lang="scss">
 .dropdown-single-select {
-  // width: 380px;
+  width: 380px;
 
   :deep(.dropdown-wrapper) {
     width: 100%;

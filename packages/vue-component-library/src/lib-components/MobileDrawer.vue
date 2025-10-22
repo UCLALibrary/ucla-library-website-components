@@ -63,16 +63,13 @@ onMounted(() => {
           <slot name="buttonLabel" />
         </span>
 
-        <!-- <span
-          :class="isDropdownExpandedClass"
-          class="toggle-triangle-icon"
-        >
-      </span> -->
         <slot name="toggleIcon">
-          <SvgIconFtvaDropTriangle
+          <span
             :class="isDropdownExpandedClass"
             class="toggle-triangle-icon"
-          />
+          >
+            <SvgIconFtvaDropTriangle />
+          </span>
         </slot>
       </button>
 
