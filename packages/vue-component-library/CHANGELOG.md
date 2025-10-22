@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.40.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.39.0...@ucla-library-monorepo/ucla-library-website-components-v1.40.0) (2025-10-22)
+
+
+### Features
+
+* create ButtonDropdownSearch ([#831](https://github.com/UCLALibrary/ucla-library-website-components/issues/831)) ([4ca8a42](https://github.com/UCLALibrary/ucla-library-website-components/commit/4ca8a4245418d78f33a4bbae1c9305bec90ec370))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.39.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.38.0...@ucla-library-monorepo/ucla-library-website-components-v1.39.0) (2025-10-21)
 
 
