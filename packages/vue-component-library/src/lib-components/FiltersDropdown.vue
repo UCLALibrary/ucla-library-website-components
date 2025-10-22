@@ -15,10 +15,14 @@ interface FilterGroupsTypes {
   searchField: string
   options: string[]
 }
-const { filterGroups } = defineProps({
+const { filterGroups, limitOptions } = defineProps({
   filterGroups: {
     type: Array as PropType<FilterGroupsTypes[]>,
     default: () => [],
+  },
+  limitOptions: {
+    type: Boolean,
+    default: false
   }
 })
 const emit = defineEmits(['update-display'])
@@ -28,6 +32,7 @@ interface SelectedFiltersTypes {
 }
 const selectedFilters = defineModel('selectedFilters', { type: Object as PropType<SelectedFiltersTypes>, required: true, default: {} })
 // FUNCTIONS
+
 // calc # for UI '# selected' display
 const numOfSelectedFilters = computed(() => {
   let count = 0
@@ -38,6 +43,18 @@ const numOfSelectedFilters = computed(() => {
   }
   return count
 })
+
+// Limit options for each filter group if limitOptions is true
+const limitedFilterGroups = computed(() => {
+  if (!limitOptions)
+    return filterGroups
+
+  return filterGroups.map(group => ({
+    ...group,
+    options: group.options.slice(0, 10)
+  }))
+})
+
 // check if option is selected so we can display 'x' SVG
 function isSelected(searchField: string, option: string) {
   // check if selectedFilter object has any keys, fail gracefully if it doesn't
@@ -46,12 +63,14 @@ function isSelected(searchField: string, option: string) {
 
   return selectedFilters.value[searchField].includes(option)
 }
+
 // Clear Button Click / clear all selected filters
 function clearFilters() {
-  for (const group of filterGroups)
+  for (const group of limitedFilterGroups.value)
     selectedFilters.value[group.searchField] = []
   emit('update-display', selectedFilters.value)
 }
+
 // Done Button Click / emit selected filters to parent
 function onDoneClick() {
   emit('update-display', selectedFilters.value)
@@ -90,7 +109,7 @@ onMounted(() => {
       <template #dropdownItems="{ removeOverlay }">
         <div class="dropdown-filter">
           <div
-            v-for="group in filterGroups"
+            v-for="group in limitedFilterGroups"
             :key="group.name"
             class="filter-group"
           >
