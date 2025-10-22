@@ -372,8 +372,6 @@ const selectedLabel = computed(() => {
     &.dlc {
       width: 100%;
 
-
-
       &:deep() {
         .mobile-drawer {
           .mobile-button {
