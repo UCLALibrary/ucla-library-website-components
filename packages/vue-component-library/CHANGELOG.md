@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.40.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.40.0...@ucla-library-monorepo/ucla-library-website-components-v1.40.1) (2025-10-23)
+
+
+### Bug Fixes
+
+* APPS-3540 Add Touring Series SectionHandle to SectionStaffArticleList ([#847](https://github.com/UCLALibrary/ucla-library-website-components/issues/847)) ([42ddf37](https://github.com/UCLALibrary/ucla-library-website-components/commit/42ddf37a09df7104ff420b79e767f413b8b72ff4))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.40.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.39.0...@ucla-library-monorepo/ucla-library-website-components-v1.40.0) (2025-10-22)
 
 
