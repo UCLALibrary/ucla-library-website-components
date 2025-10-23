@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.40.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.40.1...@ucla-library-monorepo/ucla-library-website-components-v1.40.2) (2025-10-23)
+
+
+### Bug Fixes
+
+* APPS-3529 p3 remove h3 if not used ([#849](https://github.com/UCLALibrary/ucla-library-website-components/issues/849)) ([815e60e](https://github.com/UCLALibrary/ucla-library-website-components/commit/815e60e1ca23e592525748c376bceccbd7ea66e3))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.40.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.40.0...@ucla-library-monorepo/ucla-library-website-components-v1.40.1) (2025-10-23)
 
 
