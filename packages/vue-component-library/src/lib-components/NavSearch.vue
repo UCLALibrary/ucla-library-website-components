@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, defineAsyncComponent, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import DropdownSingleSelect from './DropdownSingleSelect.vue'
 import DividerGeneral from './DividerGeneral.vue'
@@ -14,7 +14,7 @@ import type { MediaItemType } from '@/types/types'
 const props = withDefaults(defineProps<NavSearchProps>(), {
   placeholder: 'Enter keywords to search this website',
   dropdownOptions: () => [] as Option[],
-  dropdownModelValue: '',
+  dropdownDefaultValue: '',
   showDivider: false,
   bottomText:
         'Looking for a specific collection item? Search the UCLA Film & Television Archive Catalog at ',
@@ -24,7 +24,7 @@ const props = withDefaults(defineProps<NavSearchProps>(), {
   }),
 })
 // Emitting events
-const emit = defineEmits(['search-complete', 'update:dropdownModelValue'])
+const emit = defineEmits(['search-complete'])
 // Async import icons based on theme
 const IconSearch = defineAsyncComponent(
   () => import('ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg')
@@ -42,7 +42,7 @@ interface NavSearchProps {
   placeholder?: string
   backgroundImage?: MediaItemType
   dropdownOptions?: Option[]
-  dropdownModelValue?: string
+  dropdownDefaultValue?: string
   showDivider?: boolean
   bottomText?: string
   bottomLink?: {
@@ -95,38 +95,19 @@ const isDlcTheme = computed(() => {
 const searchWords = ref<string>(
   Array.isArray(route.query.q) ? route.query.q[0] || '' : route.query.q || ''
 )
-const dropdownValue = computed({
-  get: () => props.dropdownModelValue,
-  set: (value: string) => {
-    emit('update:dropdownModelValue', value)
-  },
-})
 
 // Selected filters for dropdown - this is what DropdownSingleSelect expects
 const selectedFilters = ref<{ [key: string]: string }>({
-  scope: props.dropdownModelValue || '',
+  scope: props.dropdownDefaultValue || '',
 })
 
-// Watch for changes in dropdownModelValue prop to update selectedFilters
-watch(
-  () => props.dropdownModelValue,
-  (newValue) => {
-    selectedFilters.value.scope = newValue || ''
-  }
-)
-
-// Handle dropdown selection changes
-function onDropdownUpdate() {
-  const selectedValue = selectedFilters.value.scope
-  emit('update:dropdownModelValue', selectedValue)
-}
-
 function doSearch() {
-  console.log('dropdownValue', dropdownValue.value)
-  if (dropdownValue.value) {
+  const scopeValue = selectedFilters.value?.scope || ''
+
+  if (scopeValue) {
     router.push({
       path: '/search',
-      query: { q: searchWords.value, scope: dropdownValue.value },
+      query: { q: searchWords.value, scope: scopeValue },
     })
   }
   else {
@@ -167,7 +148,6 @@ function doSearch() {
         field-name="scope"
         label="Search Scope"
         class="dropdown-single-select"
-        @update-display="onDropdownUpdate"
       />
       <ButtonLink
         v-if="!isDlcTheme"
