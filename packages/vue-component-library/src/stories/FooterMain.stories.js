@@ -81,22 +81,22 @@ export function FTVAFooter() {
       }
     },
     setup() {
-    const store = useGlobalStore()
+      const store = useGlobalStore()
 
-    // Replace only the piece you need for this story
-    store.$patch({
-      footerPrimary: {
-        ...store.footerPrimary,
-        nodes: [
-          { children: mockFTVAFooterPrimary.socialItems },
-          { children: mockFTVAFooterPrimary.pressItems },
-        ],
-          },
-        })
-          // If your component loops multiple groups, but FTVA only has socials,
-          // that's fine—there just won't be a "press" group in this story.
-          return {}
+      // Replace only the piece you need for this story
+      store.$patch({
+        footerPrimary: {
+          ...store.footerPrimary,
+          nodes: [
+            { children: mockFTVAFooterPrimary.socialItems },
+            { children: mockFTVAFooterPrimary.pressItems },
+          ],
         },
+      })
+      // If your component loops multiple groups, but FTVA only has socials,
+      // that's fine—there just won't be a "press" group in this story.
+      return {}
+    },
     template: `
         <footer-main />`,
   }
