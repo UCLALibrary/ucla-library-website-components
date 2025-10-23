@@ -58,13 +58,16 @@ export function DLCWithDropdown() {
     data() {
       return {
         dropdownOptions: [
-          'All Content',
-          'Digital Collections',
-          'Archives',
-          'Research Guides',
-          'Databases',
+          { label: 'All Content', value: 'all-content' },
+          {
+            label: 'Digital Collections',
+            value: 'digital-collections',
+          },
+          { label: 'Archives', value: 'archives' },
+          { label: 'Research Guides', value: 'research-guides' },
+          { label: 'Databases', value: 'databases' },
         ],
-        dropdownValue: 'All Content',
+        selectedFilters: { esFieldName: 'all-content' },
         placeholder: 'Search Digital Library Collections',
       }
     },
@@ -73,7 +76,7 @@ export function DLCWithDropdown() {
             <nav-search 
                 :placeholder="placeholder"
                 :dropdown-options="dropdownOptions"
-                v-model:dropdown-model-value="dropdownValue"
+                v-model:selectedFilters="selectedFilters"
                 bottom-text=""
                 :bottom-link="null"
             />
@@ -99,14 +102,20 @@ export function DLCWithDividerAndDropdown() {
     data() {
       return {
         dropdownOptions: [
-          'All Collections',
-          'Books & Articles',
-          'Digital Collections',
-          'Archives & Manuscripts',
-          'Images & Media',
-          'Databases',
+          { label: 'All Collections', value: 'all-collections' },
+          { label: 'Books & Articles', value: 'books-articles' },
+          {
+            label: 'Digital Collections',
+            value: 'digital-collections',
+          },
+          {
+            label: 'Archives & Manuscripts',
+            value: 'archives-manuscripts',
+          },
+          { label: 'Images & Media', value: 'images-media' },
+          { label: 'Databases', value: 'databases' },
         ],
-        dropdownValue: 'All Collections',
+        dropdownValue: 'all-collections',
       }
     },
     provide() {
@@ -162,14 +171,20 @@ export function DLCWithBackgroundImageAndDropdown() {
     data() {
       return {
         dropdownOptions: [
-          'All Collections',
-          'Books & Articles',
-          'Digital Collections',
-          'Archives & Manuscripts',
-          'Images & Media',
-          'Databases',
+          { label: 'All Collections', value: 'all-collections' },
+          { label: 'Books & Articles', value: 'books-articles' },
+          {
+            label: 'Digital Collections',
+            value: 'digital-collections',
+          },
+          {
+            label: 'Archives & Manuscripts',
+            value: 'archives-manuscripts',
+          },
+          { label: 'Images & Media', value: 'images-media' },
+          { label: 'Databases', value: 'databases' },
         ],
-        dropdownValue: 'All Collections',
+        dropdownValue: 'all-collections',
         backgroundImage: API.image,
         bottomText: '',
         bottomLink: {

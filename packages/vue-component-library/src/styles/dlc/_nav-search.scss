@@ -96,6 +96,13 @@
         }
     }
 
+    .dropdown-single-select {
+        :deep(.mobile-button) {
+            padding: 5px 15px;
+            height: 74px;
+        }
+    }
+
     // With background image
     &.has-background {
         height: 50vh;
@@ -161,8 +168,8 @@
             height: 24px;
             width: 24px;
         }
-        .button-dropdown-search {
-            :deep(.dropdown-field) {
+        .dropdown-single-select {
+            :deep(.mobile-button) {
                 height: 53px;
             }
         }
@@ -192,11 +199,11 @@
             width: calc(100% - 40px);
         }
 
-        .button-dropdown-search {
+        .dropdown-single-select {
             width: 100%;
             margin-top: 12px;
 
-            :deep(.dropdown-field) {
+            :deep(.mobile-button) {
                 height: 45px;
             }
         }

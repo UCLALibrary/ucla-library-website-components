@@ -46,20 +46,6 @@
         }
     }
 
-    .button-dropdown-search {
-        :deep(.dropdown-field) {
-            height: 58px;
-            background-color: $accent-blue;
-        }
-        :deep(.dropdown-option),
-        :deep(.selected-option) {
-            font-family: var(--font-primary);
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 1;
-        }
-    }
-
     .button-link {
         @include ftva-button;
     }

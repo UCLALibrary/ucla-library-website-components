@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { computed, defineAsyncComponent, ref } from 'vue'
+import { computed, defineAsyncComponent, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import ButtonDropdownSearch from './ButtonDropdownSearch.vue'
+import DropdownSingleSelect from './DropdownSingleSelect.vue'
 import DividerGeneral from './DividerGeneral.vue'
 import ResponsiveImage from './ResponsiveImage.vue'
 import { useTheme } from '@/composables/useTheme'
@@ -13,7 +13,7 @@ import type { MediaItemType } from '@/types/types'
 
 const props = withDefaults(defineProps<NavSearchProps>(), {
   placeholder: 'Enter keywords to search this website',
-  dropdownOptions: () => [],
+  dropdownOptions: () => [] as Option[],
   dropdownModelValue: '',
   showDivider: false,
   bottomText:
@@ -33,10 +33,15 @@ const IconSearchDlc = defineAsyncComponent(
   () => import('ucla-library-design-tokens/assets/svgs/icon-search.svg')
 )
 
+interface Option {
+  label: string
+  value: string
+}
+
 interface NavSearchProps {
   placeholder?: string
   backgroundImage?: MediaItemType
-  dropdownOptions?: string[]
+  dropdownOptions?: Option[]
   dropdownModelValue?: string
   showDivider?: boolean
   bottomText?: string
@@ -54,7 +59,6 @@ const route = useRoute()
 // if this component ever needs to be reused with different content,
 // we can pass these as default props instead
 const hasDropdownOptions = computed(() => {
-  console.log('hasDropdownOptions', props.dropdownOptions)
   return props.dropdownOptions && props.dropdownOptions.length > 0
 })
 
@@ -98,7 +102,27 @@ const dropdownValue = computed({
   },
 })
 
+// Selected filters for dropdown - this is what DropdownSingleSelect expects
+const selectedFilters = ref<{ [key: string]: string }>({
+  scope: props.dropdownModelValue || '',
+})
+
+// Watch for changes in dropdownModelValue prop to update selectedFilters
+watch(
+  () => props.dropdownModelValue,
+  (newValue) => {
+    selectedFilters.value.scope = newValue || ''
+  }
+)
+
+// Handle dropdown selection changes
+function onDropdownUpdate() {
+  const selectedValue = selectedFilters.value.scope
+  emit('update:dropdownModelValue', selectedValue)
+}
+
 function doSearch() {
+  console.log('dropdownValue', dropdownValue.value)
   if (dropdownValue.value) {
     router.push({
       path: '/search',
@@ -136,12 +160,14 @@ function doSearch() {
         <IconSearchDlc class="icon" />
       </button>
 
-      <ButtonDropdownSearch
+      <DropdownSingleSelect
         v-if="hasDropdownOptions"
-        v-model="dropdownValue"
+        v-model:selected-filters="selectedFilters"
         :options="dropdownOptions"
-        :is-long="false"
-        class="button-dropdown-search"
+        field-name="scope"
+        label="Search Scope"
+        class="dropdown-single-select"
+        @update-display="onDropdownUpdate"
       />
       <ButtonLink
         v-if="!isDlcTheme"
