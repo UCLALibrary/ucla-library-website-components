@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.40.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.40.2...@ucla-library-monorepo/ucla-library-website-components-v1.40.3) (2025-10-24)
+
+
+### Bug Fixes
+
+* APPS-3515 add new social icons for FTVA footer primary ([#848](https://github.com/UCLALibrary/ucla-library-website-components/issues/848)) ([05f17e6](https://github.com/UCLALibrary/ucla-library-website-components/commit/05f17e66067f8fb7796a13c2dd17536167fe12e4))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.40.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.40.1...@ucla-library-monorepo/ucla-library-website-components-v1.40.2) (2025-10-23)
 
 
