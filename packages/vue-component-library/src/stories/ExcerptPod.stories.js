@@ -50,7 +50,7 @@ export const Default = Template.bind({})
 Default.args = {
   title: 'Notes',
   subtitle: 'Subtitle goes hereeee',
-  text: 'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
+  text: 'This digital collection is comprised of selected digitized photographic negatives from the analog photographic archive. Digitization and description of this collection is ongoing. The analog collection consists of photonegatives documenting events and people in Southern California and photographic prints documenting events and people in Southern California, the U.S., and the world. The material originates from the Los Angeles Times newspaper and includes glass negatives (ca. 1918-1932), nitrate negatives (ca. 1925-45), and safety negatives (ca. 1935-present). Also includes prints and negatives from the Los Angeles Times Orange County and San Diego bureaus.',
   accordions: [
     {
       title: 'Accordion Section',
