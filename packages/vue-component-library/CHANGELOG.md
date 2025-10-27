@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.41.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.40.3...@ucla-library-monorepo/ucla-library-website-components-v1.41.0) (2025-10-27)
+
+
+### Features
+
+* Add DLC theme for NavSearch ([#840](https://github.com/UCLALibrary/ucla-library-website-components/issues/840)) ([0a80b3a](https://github.com/UCLALibrary/ucla-library-website-components/commit/0a80b3a865474353b232433f8ef780a436b442b0))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.40.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.40.2...@ucla-library-monorepo/ucla-library-website-components-v1.40.3) (2025-10-24)
 
 
