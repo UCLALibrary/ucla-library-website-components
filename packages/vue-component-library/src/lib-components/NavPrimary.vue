@@ -107,6 +107,7 @@ const parsedItems = computed(() =>
 
 // METHODS
 function toggleMenu() {
+  console.log('toggleMenu')
   // if slot menu is open, close it first
   if (slotIsOpened.value)
     slotIsOpened.value = false
@@ -147,6 +148,20 @@ function closeSlot() {
   slotIsOpened.value = false
 }
 
+function handleLinkClick() {
+  // Close all menus when a link is clicked
+  if (isOpened.value)
+    isOpened.value = false
+
+  if (mobileMenuIsOpened.value)
+    mobileMenuIsOpened.value = false
+
+  if (slotIsOpened.value)
+    slotIsOpened.value = false
+
+  clearActive()
+}
+
 // expose if needed elsewhere too
 defineExpose({ closeSlot })
 
@@ -158,6 +173,7 @@ const isMobile = computed(() => width.value <= 750) // Use 750px for mobile brea
 
 // toggle Mobile-only menu
 function toggleMobileMenu() {
+  console.log('toggleMobileMenu')
   // close others
   slotIsOpened.value = false
   isOpened.value = false
@@ -168,6 +184,7 @@ function toggleMobileMenu() {
 
 // toggle submenus on mobile
 function toggleMenuOrSubmenus(index: number) {
+  console.log('toggleMenuOrSubmenus', index)
   if (themeSettings.value?.horizontalMobileMenu && (isMobile.value === true)) {
     // toggle clicked submenu only
     if (index === activeMenuIndex.value) {
@@ -335,6 +352,7 @@ onMounted(() => {
         @click="() => toggleMenuOrSubmenus(index)"
         @mouseover="isMobile ? '' : setActive(index)"
         @mouseleave="isMobile ? '' : clearActive"
+        @link-click="handleLinkClick"
       >
         <!-- insert caret icon into NavMenuItem slot if theme calls for it -->
         <span

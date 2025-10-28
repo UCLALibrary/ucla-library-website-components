@@ -25,10 +25,17 @@ export default {
       default: true,
     },
   },
-  setup() {
+  emits: ['linkClick'],
+  setup(props, { emit }) {
     const theme = useTheme()
+
+    const handleLinkClick = () => {
+      emit('linkClick')
+    }
+
     return {
-      theme
+      theme,
+      handleLinkClick
     }
   },
   computed: {
@@ -59,7 +66,7 @@ export default {
     <slot /> <!-- can be used to insert '>' icons etc, into the row -->
     <ul class="sub-menu">
       <li v-for="child in parsedChildren" :key="child.id" class="sub-menu-item">
-        <SmartLink :class="child.classes" :to="child.to" :link-target="child.target">
+        <SmartLink :class="child.classes" :to="child.to" :link-target="child.target" @click="handleLinkClick">
           {{ child.name }}
         </SmartLink>
       </li>
