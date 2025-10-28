@@ -15,7 +15,6 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   linkTarget: '',
   isDownload: false,
 })
-
 // Emits
 const emit = defineEmits<{
   click: [event: MouseEvent]
