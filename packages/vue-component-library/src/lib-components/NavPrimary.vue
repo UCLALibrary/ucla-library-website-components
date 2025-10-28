@@ -60,6 +60,7 @@ const classes = computed(() => [
   { 'is-opened-mobile': mobileMenuIsOpened.value },
   theme?.value || ''
 ])
+
 const themeSettings = computed(() => {
   switch (theme?.value) {
     case 'ftva':
@@ -77,7 +78,9 @@ const themeSettings = computed(() => {
       }
   }
 })
+
 const shouldRenderSmartLink = computed(() => titleRef.value || acronymRef.value)
+
 const noChildren = computed(() => {
   if (!titleRef.value)
     return []
@@ -115,6 +118,7 @@ function toggleMenu() {
     document.body.removeAttribute('tabindex')
   }
 }
+
 // Toggle slot menu (used to render search bar)
 function toggleSlot() {
   // if menu is open, close it first & clear active
@@ -129,9 +133,11 @@ function toggleSlot() {
   // otherwise, just open slot menu
   else { slotIsOpened.value = !slotIsOpened.value }
 }
+
 function setActive(index: number) {
   activeMenuIndex.value = index
 }
+
 function clearActive() {
   activeMenuIndex.value = currentPathActiveIndex.value
 }
@@ -140,6 +146,7 @@ function clearActive() {
 function closeSlot() {
   slotIsOpened.value = false
 }
+
 // expose if needed elsewhere too
 defineExpose({ closeSlot })
 
@@ -158,6 +165,7 @@ function toggleMobileMenu() {
   // toggle mobile menu
   mobileMenuIsOpened.value = !mobileMenuIsOpened.value
 }
+
 // toggle submenus on mobile
 function toggleMenuOrSubmenus(index: number) {
   if (themeSettings.value?.horizontalMobileMenu && (isMobile.value === true)) {
@@ -174,6 +182,7 @@ function toggleMenuOrSubmenus(index: number) {
     toggleMenu()
   }
 }
+
 watch(isMobile, (oldVal, newVal) => {
   // close menus on resize
   if (newVal !== oldVal) {
@@ -182,6 +191,7 @@ watch(isMobile, (oldVal, newVal) => {
     mobileMenuIsOpened.value = false
   }
 })
+
 function searchClick() {
   isMobile.value === true ? toggleMobileMenu() : toggleSlot()
 }
@@ -273,7 +283,7 @@ onMounted(() => {
       class="more-menu"
     >
       <ButtonLink
-        v-if="isMobile && !mobileMenuIsOpened"
+        v-if="!mobileMenuIsOpened"
         class="search-button"
         icon-name="none"
         aria-label="Search"
@@ -304,7 +314,10 @@ onMounted(() => {
         class="slot-container"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
       >
-        <slot name="additional-menu" :close-slot="closeSlot" />
+        <slot
+          name="additional-menu"
+          :close-slot="closeSlot"
+        />
       </div>
     </div>
 

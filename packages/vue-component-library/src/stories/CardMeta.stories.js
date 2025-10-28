@@ -302,6 +302,7 @@ export function FtvaCustomTitleAndDesription() {
         ftvaFeaturedArticles: [
           {
             title: 'Preserving <em>In Transit</em>: <a href=#>The Chinese</a> in California',
+            to: '/article/preserving-in-transit-the-chinese-in-california',
             ftvaHomepageDescription: '<strong>In the summer</strong> of 2023, <a href=#>I had the chance</a> to select and restore a student film as part of the UCLA Student Film Initiative Internship: The Present Preserving the Past.',
             articleCategories: 'People, Places',
             postDate: '2024-10-09T09:00:00-07:00'
@@ -314,20 +315,53 @@ export function FtvaCustomTitleAndDesription() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { CardMeta, RichText },
+    components: { CardMeta, RichText, SmartLink },
     template: `
       <card-meta
        :category= "ftvaFeaturedArticles[0].articleCategories"
        :dateCreated="ftvaFeaturedArticles[0].postDate"
       >
         <template #customTitle>
-          <rich-text
-            :rich-text-content="ftvaFeaturedArticles[0].title" />
+         <smart-link :to="ftvaFeaturedArticles[0].to" class="custom-title">
+            <rich-text
+              :rich-text-content="ftvaFeaturedArticles[0].title" />
+          </smart-link>
         </template>
 
         <template #customDescription>
           <rich-text
           :rich-text-content="ftvaFeaturedArticles[0].ftvaHomepageDescription" />
+        </template>
+      </card-meta>
+    `,
+  }
+}
+
+export function FtvaH1Title() {
+  return {
+    data() {
+      return {
+        ftvaFeaturedArticles: [
+          {
+            articleCategories: 'category',
+            postDate: '2024-10-09T09:00:00-07:00'
+          }
+        ]
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta, RichText, SmartLink },
+    template: `
+      <card-meta
+       :category= "ftvaFeaturedArticles[0].articleCategories"
+       :dateCreated="ftvaFeaturedArticles[0].postDate"
+      >
+        <template #anyTitle>
+          <h1>Preserving <em>In Transit</em>: <a href=#>The Chinese</a> in California</h1>
         </template>
       </card-meta>
     `,

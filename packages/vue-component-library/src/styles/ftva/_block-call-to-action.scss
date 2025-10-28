@@ -5,6 +5,7 @@
 
   .title {
     color: $heading-grey;
+    max-width: 100%;
   }
 
   // Color Themes
@@ -84,6 +85,7 @@
     color: $heading-grey;
     line-height: 1.2;
     margin-bottom: 4px;
+    max-width: 100%;
   }
 
   :deep(.rich-text.text) {

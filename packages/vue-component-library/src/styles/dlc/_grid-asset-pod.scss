@@ -1,0 +1,50 @@
+.grid-asset-pod,
+.dlc.grid-asset-pod {
+    --columns-count: 1;
+    --row-gap: 24px;
+    --column-gap: 24px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--row-gap) var(--column-gap);
+
+    .block-container {
+        --total-gutters: calc(
+            var(--columns-count) * var(--column-gap) - var(--column-gap)
+        );
+
+        width: calc(
+            (100% / var(--columns-count)) -
+                (var(--total-gutters) / var(--columns-count))
+        );
+    }
+
+    &.has-transition {
+        .block-container {
+            transition: all 0.4s ease-in-out;
+        }
+    }
+
+    // Change layout based on isGridLayout prop
+    &.is-grid-layout {
+        --columns-count: 4;
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+        --row-gap: 20px;
+        --column-gap: 20px;
+
+        &.is-grid-layout {
+            --columns-count: 3;
+        }
+    }
+    @media #{$small} {
+        --row-gap: 16px;
+        --column-gap: 16px;
+
+        &.is-grid-layout {
+            --columns-count: 2;
+        }
+    }
+}
