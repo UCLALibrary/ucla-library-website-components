@@ -1,20 +1,30 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 
 // Props
 interface YearRangeFilterProps {
-  min: number
-  max: number
   minValue: number
   maxValue: number
   step: number
   disabled: boolean
+  minParam?: string
+  maxParam?: string
+  clearPagination?: boolean
 }
-const props = defineProps<YearRangeFilterProps>()
+const props = withDefaults(defineProps<YearRangeFilterProps>(), {
+  minParam: 'year_gte',
+  maxParam: 'year_lte',
+  clearPagination: true
+})
 
 // Emits
 const emit = defineEmits(['update:minValue', 'update:maxValue', 'change'])
+
+// Router
+const route = useRoute()
+const router = useRouter()
 
 // THEME
 const theme = useTheme()
@@ -41,8 +51,8 @@ function handleMinInput(event: Event) {
   if (!target)
     return
 
-  const value = Number.parseInt(target.value) || props.min
-  const clampedValue = Math.max(props.min, Math.min(value, localMaxValue.value - props.step))
+  const value = Number.parseInt(target.value) || props.minValue
+  const clampedValue = Math.max(props.minValue, Math.min(value, localMaxValue.value - props.step))
   localMinValue.value = clampedValue
   emit('update:minValue', clampedValue)
   emit('change', { min: clampedValue, max: localMaxValue.value })
@@ -53,8 +63,8 @@ function handleMaxInput(event: Event) {
   if (!target)
     return
 
-  const value = Number.parseInt(target.value) || props.max
-  const clampedValue = Math.min(props.max, Math.max(value, localMinValue.value + props.step))
+  const value = Number.parseInt(target.value) || props.maxValue
+  const clampedValue = Math.min(props.maxValue, Math.max(value, localMinValue.value + props.step))
   localMaxValue.value = clampedValue
   emit('update:maxValue', clampedValue)
   emit('change', { min: localMinValue.value, max: clampedValue })
@@ -70,7 +80,7 @@ function handleSliderChange(event: Event) {
 
   if (target.dataset.handle === 'min') {
     // Prevent min slider from going beyond max slider
-    const clampedValue = Math.max(props.min, Math.min(value, localMaxValue.value - props.step))
+    const clampedValue = Math.max(props.minValue, Math.min(value, localMaxValue.value - props.step))
     localMinValue.value = clampedValue
     // Update the slider value to match the clamped value
     target.value = clampedValue.toString()
@@ -79,7 +89,7 @@ function handleSliderChange(event: Event) {
 
   else {
     // Prevent max slider from going below min slider
-    const clampedValue = Math.min(props.max, Math.max(value, localMinValue.value + props.step))
+    const clampedValue = Math.min(props.maxValue, Math.max(value, localMinValue.value + props.step))
     localMaxValue.value = clampedValue
     // Update the slider value to match the clamped value
     target.value = clampedValue.toString()
@@ -104,8 +114,8 @@ function handleSliderMouseDown(event: Event) {
   const percentage = x / width
 
   // Determine which slider is closer to the click position
-  const minPosition = (localMinValue.value - props.min) / (props.max - props.min)
-  const maxPosition = (localMaxValue.value - props.min) / (props.max - props.min)
+  const minPosition = (localMinValue.value - props.minValue) / (props.maxValue - props.minValue)
+  const maxPosition = (localMaxValue.value - props.minValue) / (props.maxValue - props.minValue)
 
   const minDistance = Math.abs(percentage - minPosition)
   const maxDistance = Math.abs(percentage - maxPosition)
@@ -126,13 +136,28 @@ function handleSliderMouseDown(event: Event) {
 
 // Handle limit button click
 function handleLimitClick() {
+  // Preserve existing query parameters
+  const query = { ...route.query }
+
+  // Set year range parameters
+  query[props.minParam] = localMinValue.value.toString()
+  query[props.maxParam] = localMaxValue.value.toString()
+
+  // Optionally clear pagination
+  if (props.clearPagination && 'page' in query)
+    delete query.page
+
+  // Navigate with updated query
+  router.push({ query })
+
+  // Emit change event for parent components
   emit('change', { min: localMinValue.value, max: localMaxValue.value })
 }
 
 // Computed styles for the range track
 const trackStyle = computed(() => {
-  const minPercent = ((localMinValue.value - props.min) / (props.max - props.min)) * 100
-  const maxPercent = ((localMaxValue.value - props.min) / (props.max - props.min)) * 100
+  const minPercent = ((localMinValue.value - props.minValue) / (props.maxValue - props.minValue)) * 100
+  const maxPercent = ((localMaxValue.value - props.minValue) / (props.maxValue - props.minValue)) * 100
   return {
     background: `linear-gradient(to right, 
       var(--color-secondary-grey-02) 0%, 
@@ -152,8 +177,8 @@ const trackStyle = computed(() => {
       <input
         v-model.number="localMinValue"
         type="number"
-        :min="min"
-        :max="max"
+        :min="minValue"
+        :max="maxValue"
         :step="step"
         :disabled="disabled"
         class="range-number-input range-input--min"
@@ -163,8 +188,8 @@ const trackStyle = computed(() => {
       <input
         v-model.number="localMaxValue"
         type="number"
-        :min="min"
-        :max="max"
+        :min="minValue"
+        :max="maxValue"
         :step="step"
         :disabled="disabled"
         class="range-number-input range-input--max"
@@ -189,8 +214,8 @@ const trackStyle = computed(() => {
       >
         <input
           type="range"
-          :min="min"
-          :max="max"
+          :min="minValue"
+          :max="maxValue"
           :step="step"
           :value="localMinValue"
           :disabled="disabled"
@@ -200,8 +225,8 @@ const trackStyle = computed(() => {
         >
         <input
           type="range"
-          :min="min"
-          :max="max"
+          :min="minValue"
+          :max="maxValue"
           :step="step"
           :value="localMaxValue"
           :disabled="disabled"
