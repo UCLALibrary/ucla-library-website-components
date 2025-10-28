@@ -39,7 +39,7 @@
         flex-wrap: wrap;
     }
 
-    // Hovers
+    // Hovers 
     @media #{$has-hover} {
         .letter:hover {
             background-color: var(--color-primary-blue-03);
