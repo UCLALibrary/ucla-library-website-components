@@ -35,6 +35,38 @@
 
     .text {
         @include ftva-body-2;
+
+        .summary-content {
+            // display: flex;
+            // flex-direction: column;
+            // gap: 5px;
+        }
+    }
+
+    .btn {
+        padding: 5px 5px 5px 0;
+        box-sizing: border-box;
+
+        font-size: 18px;
+        font-weight: 400;
+        line-height: normal;
+
+        display: flex;
+        align-items: center;
+    }
+
+    .caret-icon {
+        @include animate-normal;
+    }
+
+    &.is-open {
+        // .wrapper {
+        //     margin-bottom: 25px;
+        // }
+        .caret-icon {
+            transform: rotate(180deg);
+            translate: 0 3px;
+        }
     }
 
     // Breakpoints
@@ -43,5 +75,19 @@
             flex-direction: column;
             gap: 16px;
         }
+    }
+
+    // Transitions
+    .fade-label-enter-active,
+    .fade-label-leave-active {
+        transition: opacity 0.1s ease-in-out;
+    }
+    .fade-label-enter-from,
+    .fade-label-leave-to {
+        opacity: 0;
+    }
+    .fade-label-enter-to,
+    .fade-label-leave-from {
+        opacity: 1;
     }
 }
