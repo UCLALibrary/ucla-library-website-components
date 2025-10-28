@@ -5,7 +5,7 @@ import { computed } from 'vue'
 import Button from './Button.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import { ButtonColor } from '@/types/components/button.types'
-import { formatNumber } from '@/utils/formatNumber.ts'
+import { formatNumberWithCommas } from '@/utils/formatters'
 import { pluralize } from '@/utils/pluralize.ts'
 import { useTheme } from '@/composables/useTheme'
 
@@ -58,7 +58,7 @@ const classes = computed(() => ['detail-header', theme?.value || ''])
           class="results-number"
         >
           {{
-            `${formatNumber(totalResults)} ${pluralize(
+            `${formatNumberWithCommas(totalResults)} ${pluralize(
               totalResults,
               "result",
             )}`
