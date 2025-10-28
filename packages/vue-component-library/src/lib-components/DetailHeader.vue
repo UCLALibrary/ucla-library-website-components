@@ -11,7 +11,6 @@ import { useTheme } from '@/composables/useTheme'
 
 // Props
 defineProps<DetailHeaderProps>()
-
 const theme = useTheme()
 
 // Types
