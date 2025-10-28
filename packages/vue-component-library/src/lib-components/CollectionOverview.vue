@@ -38,7 +38,6 @@ const hasButtons = computed(() => {
         && props.blockButtons.buttons.length > 0
   )
 })
-
 const classes = computed(() => {
   return ['collection-overview', theme?.value]
 })
