@@ -143,9 +143,10 @@ function createBreadcrumbLinks(arr: string[]) {
       const linkIndex = route.path.indexOf(item)
       const linkTo = route.path.substring(0, linkLength + linkIndex)
 
-      // Replace hyphens
+      // Replace hyphens and truncate long text if necessary
       const regex = /-/gi
       let linkTitle = item.replace(regex, ' ')
+      linkTitle = truncateTitle(linkTitle)
 
       // Determine if breadcrumb title should be overridden by data in `overrideTitleGroup` prop
       if (overrideTitleGroup.length > 0) {
@@ -199,6 +200,17 @@ function createBreadcrumbLinks(arr: string[]) {
       return breadcrumbObjects
     }
   }
+}
+
+// Handle title truncation over 40 (mobile), 60 (desktop) characters
+function truncateTitle(str: string): string {
+  const strCount = str.length
+  if (strCount > 40 && isMobile.value)
+    return str.substring(0, 30).padEnd(33, '.')
+  else if (strCount > 60)
+    return str.substring(0, 47).padEnd(50, '.')
+  else
+    return str
 }
 
 // Event handler for parent breadcrumbs; if title prop is passed at page level as the final breadcrumb title, prevent it from from overriding a preceding parent title.
