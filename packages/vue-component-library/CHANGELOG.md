@@ -1,3 +1,24 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.41.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.41.1...@ucla-library-monorepo/ucla-library-website-components-v1.41.2) (2025-10-28)
+
+
+### Bug Fixes
+
+* override prettier for yaml files and add percy yml for reducing snapshots ([#856](https://github.com/UCLALibrary/ucla-library-website-components/issues/856)) ([cadbe43](https://github.com/UCLALibrary/ucla-library-website-components/commit/cadbe437824e2aebf7c23e75eff91ad67a74663d))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.41.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.41.0...@ucla-library-monorepo/ucla-library-website-components-v1.41.1) (2025-10-28)
+
+
+### Bug Fixes
+
+* APPS-3521  Add clock icon in info block in FPB BlockCallToAction ([#850](https://github.com/UCLALibrary/ucla-library-website-components/issues/850)) ([92ed909](https://github.com/UCLALibrary/ucla-library-website-components/commit/92ed909d03c566c365e05c228b963c7cd80dd779))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.41.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.40.3...@ucla-library-monorepo/ucla-library-website-components-v1.41.0) (2025-10-27)
+
+
+### Features
+
+* Add DLC theme for NavSearch ([#840](https://github.com/UCLALibrary/ucla-library-website-components/issues/840)) ([0a80b3a](https://github.com/UCLALibrary/ucla-library-website-components/commit/0a80b3a865474353b232433f8ef780a436b442b0))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.40.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.40.2...@ucla-library-monorepo/ucla-library-website-components-v1.40.3) (2025-10-24)
 
 
