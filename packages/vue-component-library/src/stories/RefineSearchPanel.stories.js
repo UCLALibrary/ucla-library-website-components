@@ -4,7 +4,6 @@ import YearRangeFilter from '../lib-components/YearRangeFilter.vue'
 import './FilterDropdown.stories.css'
 import router from '@/router'
 
-
 export default {
   title: 'Funkhaus / RefineSearchPanel',
   component: RefineSearchPanel,
@@ -402,8 +401,8 @@ export function MultipleCustomSlots() {
           }
         ],
         selectedOptions: {},
-          dateRange: { minValue: 1950, maxValue: 2000 },
-          priceRange: { minValue: 100, maxValue: 500 }
+        dateRange: { minValue: 1950, maxValue: 2000 },
+        priceRange: { minValue: 100, maxValue: 500 }
       }
     },
     methods: {
@@ -456,4 +455,3 @@ export function MultipleCustomSlots() {
     `
   }
 }
-
