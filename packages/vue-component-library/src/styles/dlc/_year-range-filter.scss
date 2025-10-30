@@ -36,13 +36,6 @@
             opacity: 0.6;
             cursor: not-allowed;
         }
-
-        // Remove number input spinners
-        &::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
     }
 
     .range-separator {
@@ -120,7 +113,7 @@
             border-radius: 50%;
             background-color: var(--color-secondary-grey-03);
             cursor: pointer;
-            transition: transform 0.2s ease;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
             pointer-events: auto;
         }
 
@@ -131,7 +124,7 @@
             border-radius: 50%;
             background-color: var(--color-secondary-grey-03);
             cursor: pointer;
-            transition: transform 0.2s ease;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
             pointer-events: auto;
         }
 
@@ -169,6 +162,64 @@
         z-index: 2;
     }
 
+    // When the user explicitly targets a handle, raise that handle above the other
+    .range-track.active-min {
+        .range-slider--min {
+            z-index: 3;
+            &::-webkit-slider-thumb {
+                transform: scale(1.25);
+                box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+            }
+            &::-moz-range-thumb {
+                transform: scale(1.25);
+                box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+            }
+        }
+        .range-slider--max {
+            z-index: 2;
+        }
+    }
+
+    .range-track.active-max {
+        .range-slider--max {
+            z-index: 3;
+            &::-webkit-slider-thumb {
+                transform: scale(1.25);
+                box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+            }
+            &::-moz-range-thumb {
+                transform: scale(1.25);
+                box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+            }
+        }
+        .range-slider--min {
+            z-index: 2;
+        }
+    }
+
+    // When thumbs are overlapping (close range), nudge the active thumb horizontally
+    .range-track.overlap-min {
+        .range-slider--min {
+            &::-webkit-slider-thumb {
+                transform: scale(1.25) translateX(-10px);
+            }
+            &::-moz-range-thumb {
+                transform: scale(1.25) translateX(-10px);
+            }
+        }
+    }
+
+    .range-track.overlap-max {
+        .range-slider--max {
+            &::-webkit-slider-thumb {
+                transform: scale(1.25) translateX(10px);
+            }
+            &::-moz-range-thumb {
+                transform: scale(1.25) translateX(10px);
+            }
+        }
+    }
+
     // Hovers
     @media #{$has-hover} {
         .limit-button {
@@ -186,6 +237,20 @@
             &::-moz-range-thumb:hover {
                 transform: scale(1.1);
                 border: 2px solid var(--color-secondary-blue-03);
+            }
+
+            &:focus::-webkit-slider-thumb {
+                transform: scale(1.2);
+            }
+            &:focus::-moz-range-thumb {
+                transform: scale(1.2);
+            }
+
+            &:active::-webkit-slider-thumb {
+                transform: scale(1.25);
+            }
+            &:active::-moz-range-thumb {
+                transform: scale(1.25);
             }
         }
     }
