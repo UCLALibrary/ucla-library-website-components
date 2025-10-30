@@ -49,10 +49,6 @@ const filteredStates = ref<Record<string, boolean>>({})
 // Helper functions
 const getFilterKey = (filter: any) => filter.slotName || filter.name
 const getFilterIndex = (filterKey: string) => props.filters.findIndex(f => getFilterKey(f) === filterKey)
-function getFacetFieldByKey(filterKey: string): string | undefined {
-  const filter = props.filters.find(f => getFilterKey(f) === filterKey)
-  return filter?.facetField || undefined
-}
 
 // Animate height change as the filter options change
 async function animateHeightChange(filterIndex: number) {
