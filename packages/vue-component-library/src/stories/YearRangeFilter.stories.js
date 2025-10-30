@@ -60,13 +60,6 @@ function Template(args) {
     template: `
     <div style="width: 280px;">
       <YearRangeFilter v-bind="args" />
-      <div style="margin-top: 20px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
-        <h4 style="margin: 0 0 10px 0;">Mock Query Parameters:</h4>
-        <pre style="margin: 0; font-size: 12px;">{{ JSON.stringify(mockQuery, null, 2) }}</pre>
-        <p style="margin: 10px 0 0 0; font-size: 12px; color: #666;">
-          Click "Limit" to see how the component would update these parameters.
-        </p>
-      </div>
     </div>
   `,
   }
