@@ -1,15 +1,30 @@
 import { computed } from 'vue'
-import FilterDropdown from '@/lib-components/FilterDropdown.vue'
+import FilterSelections from '@/lib-components/FilterSelections.vue'
 import YearRangeFilter from '@/lib-components/YearRangeFilter.vue'
 import './FilterDropdown.stories.css'
 
 export default {
-  title: 'Funkhaus / FilterDropdown',
-  component: FilterDropdown,
+  title: 'Funkhaus / FilterSelections',
+  component: FilterSelections,
   argTypes: {
+    title: {
+      control: 'text',
+      description: 'Title of the filter selections'
+    },
     filters: {
       control: 'object',
       description: 'Array of filter objects with name, slotName, and optional options'
+    },
+    selectedOptions: {
+      control: 'object',
+      description: 'Selected options object'
+    }
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'FilterSelections is a component that displays a list of filters and allows the user to select options.'
+      }
     }
   }
 }
@@ -157,14 +172,12 @@ const longFilters = [
 
 export function Default() {
   return {
-    components: { FilterDropdown, YearRangeFilter },
+    components: { FilterSelections, YearRangeFilter },
     data() {
       return {
         filters: defaultFilters,
         selectedOptions: {},
         dateRange: {
-          min: 1900,
-          max: 2024,
           minValue: 1950,
           maxValue: 2000
         },
@@ -189,9 +202,8 @@ export function Default() {
         this.addToLog('❌ Option Deselected', `${filterName} → ${option.label}`)
       },
       onDateRangeChange(range) {
+        // For the story, only log; do not mutate props
         this.addToLog('📅 Date Range Changed', `${range.min} - ${range.max}`)
-        this.dateRange.minValue = range.min
-        this.dateRange.maxValue = range.max
       },
       addToLog(type, message) {
         const timestamp = new Date().toLocaleTimeString()
@@ -203,7 +215,7 @@ export function Default() {
     },
     template: `
       <div class="story-container">
-        <FilterDropdown 
+        <FilterSelections 
           title='REFINE SEARCH' 
           :filters="filters"
           @selection-change="onSelectionChange"
@@ -214,8 +226,6 @@ export function Default() {
           <template #dateRange="{ filter, selectedOptions, toggleOption }">
             <div class="slot-content">
               <YearRangeFilter
-                :min="dateRange.min"
-                :max="dateRange.max"
                 :min-value="dateRange.minValue"
                 :max-value="dateRange.maxValue"
                 :step="1"
@@ -224,16 +234,13 @@ export function Default() {
               />
             </div>
           </template>
-        </FilterDropdown>
+        </FilterSelections>
         
         <!-- Display selected options -->
         <div class="selected-options-container">
           <h4 class="selected-options-title">Selected Options Object:</h4>
           <pre class="selected-options-json">{{ JSON.stringify(selectedOptions, null, 2) }}</pre>
-          <div class="date-range-display">
-            <strong class="date-range-label">Date Range:</strong> 
-            <span class="date-range-value">{{ dateRange.minValue }} - {{ dateRange.maxValue }}</span>
-          </div>
+          <!-- Rely on URL Query display in panel stories; nothing to persist here -->
         </div>
 
         <!-- Event Log -->
@@ -264,7 +271,7 @@ export function Default() {
 
 export function Long() {
   return {
-    components: { FilterDropdown },
+    components: { FilterSelections },
     data() {
       return { filters: longFilters }
     },
@@ -275,7 +282,7 @@ export function Long() {
     },
     template: `
       <div class="story-container-wide">
-        <FilterDropdown title='REFINE LONG SEARCH' :filters="filters" />
+        <FilterSelections title='REFINE LONG SEARCH' :filters="filters" />
       </div>
     `
   }
@@ -300,7 +307,7 @@ const filtersWithDateRange = [
 
 export function WithYearRangeFilter() {
   return {
-    components: { FilterDropdown, YearRangeFilter },
+    components: { FilterSelections, YearRangeFilter },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -311,8 +318,6 @@ export function WithYearRangeFilter() {
         filters: filtersWithDateRange,
         selectedOptions: {},
         dateRange: {
-          min: 1900,
-          max: 2024,
           minValue: 1950,
           maxValue: 2000
         }
@@ -329,14 +334,12 @@ export function WithYearRangeFilter() {
         // Option deselected event
       },
       onDateRangeChange(range) {
-        // You could emit this or store it in a parent component
-        this.dateRange.minValue = range.min
-        this.dateRange.maxValue = range.max
+        // In this story, do not feed back into props; just handle externally
       }
     },
     template: `
       <div class="story-container">
-        <FilterDropdown 
+        <FilterSelections 
           title='REFINE SEARCH' 
           :filters="filters"
           @selection-change="onSelectionChange"
@@ -347,8 +350,6 @@ export function WithYearRangeFilter() {
           <template #dateRange="{ filter, selectedOptions, toggleOption }">
             <div class="slot-content">
               <YearRangeFilter
-                :min="dateRange.min"
-                :max="dateRange.max"
                 :min-value="dateRange.minValue"
                 :max-value="dateRange.maxValue"
                 :step="1"
@@ -357,7 +358,7 @@ export function WithYearRangeFilter() {
               />
             </div>
           </template>
-        </FilterDropdown>
+        </FilterSelections>
         <div class="selected-options-container">
           <h4 class="selected-options-title">Selected Options Object:</h4>
           <pre class="selected-options-json">{{ JSON.stringify(selectedOptions, null, 2) }}</pre>
@@ -373,7 +374,7 @@ export function WithYearRangeFilter() {
 
 export function MultipleCustomSlots() {
   return {
-    components: { FilterDropdown, YearRangeFilter },
+    components: { FilterSelections, YearRangeFilter },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -402,8 +403,8 @@ export function MultipleCustomSlots() {
           }
         ],
         selectedOptions: {},
-        dateRange: { min: 1900, max: 2024, minValue: 1950, maxValue: 2000 },
-        priceRange: { min: 0, max: 1000, minValue: 100, maxValue: 500 }
+        dateRange: { minValue: 1950, maxValue: 2000 },
+        priceRange: { minValue: 100, maxValue: 500 }
       }
     },
     methods: {
@@ -411,17 +412,15 @@ export function MultipleCustomSlots() {
         this.selectedOptions = selections
       },
       onDateRangeChange(range) {
-        this.dateRange.minValue = range.min
-        this.dateRange.maxValue = range.max
+        // Only log/handle externally
       },
       onPriceRangeChange(range) {
-        this.priceRange.minValue = range.min
-        this.priceRange.maxValue = range.max
+        // Only log/handle externally
       }
     },
     template: `
       <div class="story-container">
-        <FilterDropdown 
+        <FilterSelections 
           title='ADVANCED FILTERS' 
           :filters="filters"
           @selection-change="onSelectionChange"
@@ -430,8 +429,6 @@ export function MultipleCustomSlots() {
           <template #dateRange="{ filter, selectedOptions, toggleOption }">
             <div class="slot-content">
               <YearRangeFilter
-                :min="dateRange.min"
-                :max="dateRange.max"
                 :min-value="dateRange.minValue"
                 :max-value="dateRange.maxValue"
                 :step="1"
@@ -444,8 +441,6 @@ export function MultipleCustomSlots() {
           <template #priceRange="{ filter, selectedOptions, toggleOption }">
             <div class="slot-content">
               <YearRangeFilter
-                :min="priceRange.min"
-                :max="priceRange.max"
                 :min-value="priceRange.minValue"
                 :max-value="priceRange.maxValue"
                 :step="10"
@@ -453,15 +448,8 @@ export function MultipleCustomSlots() {
               />
             </div>
           </template>
-        </FilterDropdown>
-        <div class="simple-info-container">
-          <div class="simple-info-item">
-            <span class="simple-info-label">Date Range:</span> {{ dateRange.minValue }} - {{ dateRange.maxValue }}
-          </div>
-          <div class="simple-info-item">
-            <span class="simple-info-label">Price Range:</span> {{ priceRange.minValue }} - {{ priceRange.maxValue }}
-          </div>
-        </div>
+        </FilterSelections>
+        <!-- No additional state shown; rely on interactions/logs -->
       </div>
     `
   }

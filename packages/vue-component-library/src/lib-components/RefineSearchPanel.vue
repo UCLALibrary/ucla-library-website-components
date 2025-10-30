@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import SvgFilterIcon from 'ucla-library-design-tokens/assets/svgs/icon-down-carat.svg'
 import EffectSlideToggle from './EffectSlideToggle.vue'
-import FilterDropdown from './FilterDropdown.vue'
+import FilterSelections from './FilterSelections.vue'
 import { useTheme } from '@/composables/useTheme'
 
 interface FilterProps {
@@ -10,6 +10,7 @@ interface FilterProps {
   filters: Array<{
     name: string
     slotName: string
+    facetField?: string
     options?: Array<{
       label: string
       value: string
@@ -19,13 +20,11 @@ interface FilterProps {
   }>
   opened?: boolean
   preventClose?: boolean
-  limitOptions?: boolean
 }
 
 withDefaults(defineProps<FilterProps>(), {
   opened: true,
   preventClose: false,
-  limitOptions: false
 })
 
 // Emit events
@@ -66,15 +65,14 @@ const classes = computed(() => ['refine-search-panel', theme?.value || ''])
     </template>
 
     <!-- CONTENT -->
-    <FilterDropdown
+    <FilterSelections
       title=""
       :filters="filters"
-      :limit-options="limitOptions"
       @selection-change="$emit('selection-change', $event)"
       @option-selected="(filterName, option) => $emit('option-selected', filterName, option)"
       @option-deselected="(filterName, option) => $emit('option-deselected', filterName, option)"
     >
-      <!-- Pass through all slots to FilterDropdown -->
+      <!-- Pass through all slots to FilterSelections -->
       <template
         v-for="(_, slotName) in $slots"
         :key="slotName"
@@ -85,7 +83,7 @@ const classes = computed(() => ['refine-search-panel', theme?.value || ''])
           v-bind="slotProps"
         />
       </template>
-    </FilterDropdown>
+    </FilterSelections>
   </EffectSlideToggle>
 </template>
 

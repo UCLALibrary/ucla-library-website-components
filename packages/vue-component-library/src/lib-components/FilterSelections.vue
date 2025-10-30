@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import SvgFilterIcon from 'ucla-library-design-tokens/assets/svgs/icon-down-carat.svg'
 import EffectSlideToggle from './EffectSlideToggle.vue'
 import { useTheme } from '@/composables/useTheme'
@@ -15,6 +16,7 @@ interface FilterProps {
   filters: Array<{
     name: string
     slotName: string
+    facetField?: string
     options?: Array<FilterOption>
     showAll?: boolean
   }>
@@ -33,7 +35,11 @@ const emit = defineEmits<{
 }>()
 // THEME
 const theme = useTheme()
-const classes = computed(() => ['filter-dropdown', theme?.value || ''])
+const classes = computed(() => ['filter-selections', theme?.value || ''])
+
+// Router
+const route = useRoute()
+const router = useRouter()
 
 // Track selected options for each filter
 const selectedOptions = ref<Record<string, string[]>>({})
@@ -43,6 +49,10 @@ const filteredStates = ref<Record<string, boolean>>({})
 // Helper functions
 const getFilterKey = (filter: any) => filter.slotName || filter.name
 const getFilterIndex = (filterKey: string) => props.filters.findIndex(f => getFilterKey(f) === filterKey)
+function getFacetFieldByKey(filterKey: string): string | undefined {
+  const filter = props.filters.find(f => getFilterKey(f) === filterKey)
+  return filter?.facetField || undefined
+}
 
 // Animate height change as the filter options change
 async function animateHeightChange(filterIndex: number) {
@@ -159,6 +169,29 @@ async function toggleOption(filterName: string, option: FilterOption) {
     currentSelection.push(option.value)
     emit('option-selected', filterName, option)
   }
+
+  // Update router query parameters based on current selections
+  const nextQuery: Record<string, any> = { ...route.query }
+
+  // For each filter, map selections to its facetField in query
+  props.filters.forEach((filter) => {
+    const key = getFilterKey(filter)
+    const facet = filter.facetField
+    if (!facet)
+      return
+
+    const selections = selectedOptions.value[key] || []
+    if (selections.length > 0)
+      nextQuery[facet] = selections
+    else
+      delete nextQuery[facet]
+  })
+
+  // Reset pagination param if present
+  if ('page' in nextQuery)
+    delete nextQuery.page
+
+  router.push({ query: nextQuery })
 }
 </script>
 
@@ -248,5 +281,5 @@ async function toggleOption(filterName: string, option: FilterOption) {
 </template>
 
 <style scoped>
-@import "@/styles/dlc/_filter-dropdown.scss";
+@import "@/styles/dlc/_filter-selections.scss";
 </style>
