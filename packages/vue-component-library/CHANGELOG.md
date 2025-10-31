@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.41.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.41.2...@ucla-library-monorepo/ucla-library-website-components-v1.41.3) (2025-10-31)
+
+
+### Bug Fixes
+
+* APPS-3574 emit link click event ([#857](https://github.com/UCLALibrary/ucla-library-website-components/issues/857)) ([01388a4](https://github.com/UCLALibrary/ucla-library-website-components/commit/01388a41ea0e83ec77d27a1d078733bdb9f30c3a))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.41.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.41.1...@ucla-library-monorepo/ucla-library-website-components-v1.41.2) (2025-10-28)
+
+
+### Bug Fixes
+
+* override prettier for yaml files and add percy yml for reducing snapshots ([#856](https://github.com/UCLALibrary/ucla-library-website-components/issues/856)) ([cadbe43](https://github.com/UCLALibrary/ucla-library-website-components/commit/cadbe437824e2aebf7c23e75eff91ad67a74663d))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.41.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.41.0...@ucla-library-monorepo/ucla-library-website-components-v1.41.1) (2025-10-28)
 
 
