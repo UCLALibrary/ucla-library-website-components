@@ -223,7 +223,7 @@ const classes = computed(() => {
     />
 
     <div
-      v-if="(bylineOne || bylineTwo) || dateCreated"
+      v-if="(bylineOne || bylineTwo) || (dateCreated || $slots.customDateTime)"
       class="byline-group"
     >
       <div
@@ -241,6 +241,9 @@ const classes = computed(() => {
         class="schedule-item date-created"
       >
         {{ parsedDateCreated }}
+      </div>
+      <div v-if="$slots.customDateTime" class="schedule-item date-created">
+        <slot name="customDateTime" />
       </div>
     </div>
 
