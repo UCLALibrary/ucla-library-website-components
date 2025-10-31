@@ -159,7 +159,6 @@ const isMobile = computed(() => width.value <= 750) // Use 750px for mobile brea
 
 // toggle Mobile-only menu
 function toggleMobileMenu() {
-  console.log('toggleMobileMenu')
   // close others
   slotIsOpened.value = false
   isOpened.value = false
@@ -170,7 +169,6 @@ function toggleMobileMenu() {
 
 // toggle submenus on mobile
 function toggleMenuOrSubmenus(index: number) {
-  console.log('toggleMenuOrSubmenus', index)
   if (themeSettings.value?.horizontalMobileMenu && (isMobile.value === true)) {
     // toggle clicked submenu only
     if (index === activeMenuIndex.value) {
@@ -214,7 +212,6 @@ onMounted(() => {
     { deep: true }
   )
   watch(route, (newRoute, oldRoute) => {
-    console.log('route change watch', newRoute)
     // force mobile menu to close on navigatiion change
     // without messing with the complex click handling waterfall for submenus
     mobileMenuIsOpened.value = false
