@@ -203,7 +203,7 @@ const classes = computed(() => {
     </SmartLink>
 
     <h3
-      v-else
+      v-else-if="title"
       class="title-no-link"
       v-html="title"
     />

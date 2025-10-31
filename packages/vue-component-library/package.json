@@ -1,7 +1,7 @@
 {
   "name": "@ucla-library-monorepo/ucla-library-website-components",
   "type": "module",
-  "version": "1.40.0",
+  "version": "1.41.2",
   "homepage": "https://ucla-library-storybook.netlify.app/?path=/docs/configure-your-project--docs",
   "repository": {
     "type": "git",
@@ -80,7 +80,7 @@
     "sass": "^1.79.5",
     "storybook": "^7.4.1",
     "typescript": "catalog:",
-    "ucla-library-design-tokens": "^5.44.0",
+    "ucla-library-design-tokens": "^5.51.0",
     "video.js": "^8.5.2",
     "vite": "catalog:",
     "vite-plugin-dts": "^4.5.0",
