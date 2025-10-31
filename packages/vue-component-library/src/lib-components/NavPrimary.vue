@@ -154,7 +154,8 @@ defineExpose({ closeSlot })
 const { width } = useWindowSize()
 
 // Use computed to check if it's mobile based on window width
-const isMobile = computed(() => width.value <= 750) // Use 750px for mobile breakpoint
+const mobileBreakpoint = 850 // change scss breakpoints in ftva _header-sticky.scss, _nav-primary.scss, _site-brand-bar.scss
+const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 800px for mobile breakpoint
 
 // toggle Mobile-only menu
 function toggleMobileMenu() {
