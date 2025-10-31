@@ -61,39 +61,39 @@ const mock = {
 const mockFTVAFooterPrimary = {
   socialItems: [
     {
-      id: "4343807",
-      name: "Facebook",
-      to: "https://www.facebook.com/UCLAFTVArchive/",
+      id: '4343807',
+      name: 'Facebook',
+      to: 'https://www.facebook.com/UCLAFTVArchive/',
       classes: null,
-      target: "1"
+      target: '1'
     },
     {
-      id: "4343808",
-      name: "Instagram",
-      to: "https://www.instagram.com/uclaftvarchive/",
+      id: '4343808',
+      name: 'Instagram',
+      to: 'https://www.instagram.com/uclaftvarchive/',
       classes: null,
-      target: "1"
+      target: '1'
     },
     {
-      id: "4343809",
-      name: "Bluesky",
-      to: "https://bsky.app/profile/uclaftvarchive.bsky.social",
+      id: '4343809',
+      name: 'Bluesky',
+      to: 'https://bsky.app/profile/uclaftvarchive.bsky.social',
       classes: null,
-      target: "1"
+      target: '1'
     },
     {
-      id: "4343810",
-      name: "YouTube",
-      to: "https://www.youtube.com/channel/UCKwx-Ugwnha7SvfyiHBV9iQ",
-      classes: "",
-      target: "1"
+      id: '4343810',
+      name: 'YouTube',
+      to: 'https://www.youtube.com/channel/UCKwx-Ugwnha7SvfyiHBV9iQ',
+      classes: '',
+      target: '1'
     },
     {
-      id: "4343811",
-      name: "Letterboxd",
-      to: "https://letterboxd.com/uclaftvarchive/",
+      id: '4343811',
+      name: 'Letterboxd',
+      to: 'https://letterboxd.com/uclaftvarchive/',
       classes: null,
-      target: "1"
+      target: '1'
     },
   ],
 
