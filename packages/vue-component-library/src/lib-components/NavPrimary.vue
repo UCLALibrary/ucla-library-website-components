@@ -148,20 +148,6 @@ function closeSlot() {
   slotIsOpened.value = false
 }
 
-function handleLinkClick() {
-  // Close all menus when a link is clicked
-  if (isOpened.value)
-    isOpened.value = false
-
-  if (mobileMenuIsOpened.value)
-    mobileMenuIsOpened.value = false
-
-  if (slotIsOpened.value)
-    slotIsOpened.value = false
-
-  clearActive()
-}
-
 // expose if needed elsewhere too
 defineExpose({ closeSlot })
 
@@ -227,6 +213,12 @@ onMounted(() => {
     },
     { deep: true }
   )
+  watch(route, (newRoute, oldRoute) => {
+    console.log('route change watch', newRoute)
+    // force mobile menu to close on navigatiion change
+    // without messing with the complex click handling waterfall for submenus
+    mobileMenuIsOpened.value = false
+  })
   activeMenuIndex.value = currentPathActiveIndex.value
 })
 </script>
@@ -352,7 +344,6 @@ onMounted(() => {
         @click="() => toggleMenuOrSubmenus(index)"
         @mouseover="isMobile ? '' : setActive(index)"
         @mouseleave="isMobile ? '' : clearActive"
-        @link-click="handleLinkClick"
       >
         <!-- insert caret icon into NavMenuItem slot if theme calls for it -->
         <span
