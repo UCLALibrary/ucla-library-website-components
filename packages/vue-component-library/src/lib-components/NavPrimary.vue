@@ -107,7 +107,6 @@ const parsedItems = computed(() =>
 
 // METHODS
 function toggleMenu() {
-  console.log('toggleMenu')
   // if slot menu is open, close it first
   if (slotIsOpened.value)
     slotIsOpened.value = false
