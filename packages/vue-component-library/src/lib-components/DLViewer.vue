@@ -1,12 +1,3 @@
-<template>
-  <div class="dl-viewer">
-    <component
-      :is="viewerComponents[viewer]"
-      :options="options"
-    />
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
 
@@ -67,6 +58,11 @@ interface ViewerOptions {
 // Async components - using component names as strings to resolve dynamically
 type ViewerComponentName = 'ImageTag' | 'Mirador' | 'MiradorPalimpsest' | 'VideoJS' | 'UniversalViewer' | 'UniversalViewer3'
 
+const props = withDefaults(defineProps<Props>(), {
+  site: '',
+  viewerBaseUrl: 'https://p-w-dl-viewer01.library.ucla.edu',
+})
+
 const viewerComponents: Record<ViewerComponentName, ReturnType<typeof defineAsyncComponent>> = {
   ImageTag: defineAsyncComponent(() => import('./DLMediaTypes/ImageTag.vue')),
   Mirador: defineAsyncComponent(() => import('./DLMediaTypes/Mirador.vue')),
@@ -83,11 +79,6 @@ interface Props {
   viewerBaseUrl?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  site: '',
-  viewerBaseUrl: 'https://p-w-dl-viewer01.library.ucla.edu',
-})
-
 // State
 const iiif_manifest = ref<IIIFManifest | null>(null)
 
@@ -95,9 +86,9 @@ const iiif_manifest = ref<IIIFManifest | null>(null)
 const isV3Manifest = computed(() => {
   const v3_context = 'http://iiif.io/api/presentation/3/context.json'
   const context = iiif_manifest.value?.['@context']
-  if (Array.isArray(context)) {
+  if (Array.isArray(context))
     return context.includes(v3_context)
-  }
+
   return context === v3_context
 })
 
@@ -106,24 +97,26 @@ const firstItemType = computed(() => {
     // Non-image content currently only uses IIIF v3
     const body = iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body
     let firstItem: IIIFBody | undefined
-    if (Array.isArray(body)) {
+    if (Array.isArray(body))
       firstItem = body[0]
-    } else if (typeof body === 'object' && body !== null) {
+    else if (typeof body === 'object' && body !== null)
       firstItem = body as IIIFBody
-    }
+
     return firstItem?.type
   }
   return 'Image'
 })
 
+const isChoice = computed(() => firstItemType.value === 'Choice')
+
 const firstItemTypeFromChoice = computed(() => {
-  if (!isChoice.value || !iiif_manifest.value?.items) {
+  if (!isChoice.value || !iiif_manifest.value?.items)
     return undefined
-  }
+
   const body = iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body
-  if (Array.isArray(body) && body[0]?.items?.[0] && typeof body[0].items[0] === 'object' && body[0].items[0] !== null) {
+  if (Array.isArray(body) && body[0]?.items?.[0] && typeof body[0].items[0] === 'object' && body[0].items[0] !== null)
     return (body[0].items[0] as IIIFBody).type
-  }
+
   if (typeof body === 'object' && body !== null && 'items' in body && Array.isArray(body.items) && body.items[0]) {
     const firstItem = body.items[0]
     return typeof firstItem === 'object' && firstItem !== null ? firstItem.type : undefined
@@ -132,22 +125,20 @@ const firstItemTypeFromChoice = computed(() => {
 })
 
 const hasIiifService = computed(() => {
-  if (!iiif_manifest.value) {
+  if (!iiif_manifest.value)
     return false
-  }
+
   if (isV3Manifest.value) {
     return !!(
-      iiif_manifest.value.items?.[0]?.items?.[0]?.items?.[0]?.body &&
-      (Array.isArray(iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body)
+      iiif_manifest.value.items?.[0]?.items?.[0]?.items?.[0]?.body
+      && (Array.isArray(iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body)
         ? iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body?.[0]?.service
-        : typeof iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body === 'object' &&
-        iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body?.service)
+        : typeof iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body === 'object'
+        && iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body?.service)
     )
   }
   return !!iiif_manifest.value.sequences?.[0]?.canvases?.[0]?.images?.[0]?.resource?.service
 })
-
-const isChoice = computed(() => firstItemType.value === 'Choice')
 
 const isCollection = computed(() => {
   const manifestType = iiif_manifest.value?.['@type'] || iiif_manifest.value?.type || ''
@@ -167,65 +158,65 @@ const isVideo = computed(() => firstItemType.value === 'Video' || firstItemTypeF
 const isAppleOrIOS = computed(() => /(Apple|iOS)/.test(navigator.userAgent))
 
 const videoSources = computed(() => {
-  if (!isVideo.value || !iiif_manifest.value?.items) {
+  if (!isVideo.value || !iiif_manifest.value?.items)
     return null
-  }
+
   if (isChoice.value) {
     const body = iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body
-    if (Array.isArray(body)) {
+    if (Array.isArray(body))
       return body
-    }
-    if (typeof body === 'object' && body !== null && 'items' in body && Array.isArray(body.items)) {
+
+    if (typeof body === 'object' && body !== null && 'items' in body && Array.isArray(body.items))
       return body.items
-    }
+
     return null
   }
   return iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body
 })
 
 const viewer = computed((): ViewerComponentName => {
-  if (isSinaiPalimpsest.value) {
+  if (isSinaiPalimpsest.value)
     return 'MiradorPalimpsest'
-  }
-  if (isSinai.value) {
+
+  if (isSinai.value)
     return 'Mirador'
-  }
-  if (isCollection.value) {
+
+  if (isCollection.value)
     return 'UniversalViewer'
-  }
-  if (isVideo.value) {
+
+  if (isVideo.value)
     return 'VideoJS'
-  }
-  if (isSound.value) {
+
+  if (isSound.value)
     return 'UniversalViewer3'
-  }
-  if (isImage.value && hasIiifService.value) {
+
+  if (isImage.value && hasIiifService.value)
     return 'UniversalViewer'
-  }
-  if (isImage.value && !hasIiifService.value) {
+
+  if (isImage.value && !hasIiifService.value)
     return 'ImageTag'
-  }
+
   return 'UniversalViewer'
 })
 
 const options = computed((): ViewerOptions => {
-  if (!iiif_manifest.value) {
+  if (!iiif_manifest.value)
     return {}
-  }
+
   if (isVideo.value && videoSources.value) {
-    const filteredSources =
-      Array.isArray(videoSources.value)
+    const filteredSources
+      = Array.isArray(videoSources.value)
         ? videoSources.value.filter(
-          (source) =>
-            (isAppleOrIOS.value && source.format === 'application/vnd.apple.mpegurl') ||
-            (!isAppleOrIOS.value && source.format === 'application/dash+xml'),
+          source =>
+            (isAppleOrIOS.value && source.format === 'application/vnd.apple.mpegurl')
+            || (!isAppleOrIOS.value && source.format === 'application/dash+xml'),
         )
         : []
     return {
       autoplay: false,
       controls: true,
       fill: true,
-      sources: filteredSources.map((source) => ({
+      sources: filteredSources.map(source => ({
         src: source.id || '',
         type: source.format || '',
       })),
@@ -257,15 +248,25 @@ const options = computed((): ViewerOptions => {
 onMounted(async () => {
   try {
     const response = await fetch(props.iiif_manifest_url)
-    if (!response.ok) {
+    if (!response.ok)
       throw new Error(`Failed to fetch manifest: ${response.statusText}`)
-    }
+
     iiif_manifest.value = await response.json()
-  } catch (error) {
+  }
+  catch (error) {
     console.warn('Error fetching IIIF manifest:', error)
   }
 })
 </script>
+
+<template>
+  <div class="dl-viewer">
+    <component
+      :is="viewerComponents[viewer]"
+      :options="options"
+    />
+  </div>
+</template>
 
 <style scoped>
 .dl-viewer {

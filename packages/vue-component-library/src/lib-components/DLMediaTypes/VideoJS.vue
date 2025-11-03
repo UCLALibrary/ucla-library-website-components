@@ -1,15 +1,3 @@
-<template>
-  <div class="video-js-container">
-    <div class="video-player">
-      <video
-        ref="videoPlayer"
-        class="video-js vjs-big-play-centered"
-        poster="https://static.library.ucla.edu/video_icon.svg"
-      ></video>
-    </div>
-  </div>
-</template>
-
 <script>
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
@@ -30,19 +18,28 @@ export default {
     }
   },
   mounted() {
-
-    this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady() {
+    this.player = videojs(this.$refs.videoPlayer, this.options, () => {
       // console.log('onPlayerReady', this)
     })
   },
   beforeUnmount() {
-    if (this.player) {
+    if (this.player)
       this.player.dispose()
-    }
-
   },
 }
 </script>
+
+<template>
+  <div class="video-js-container">
+    <div class="video-player">
+      <video
+        ref="videoPlayer"
+        class="video-js vjs-big-play-centered"
+        poster="https://static.library.ucla.edu/video_icon.svg"
+      />
+    </div>
+  </div>
+</template>
 
 <style>
 .video-js-container {

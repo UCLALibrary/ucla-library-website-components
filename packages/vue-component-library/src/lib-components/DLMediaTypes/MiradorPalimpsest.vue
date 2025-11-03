@@ -1,16 +1,4 @@
-<template>
-  <iframe
-    class="mirador"
-    :src="iframe_target_url"
-    id="mirador-iframe"
-    allowfullscreen
-    frameborder="0"
-  />
-</template>
-
 <script>
-/* eslint-disable */
-
 export default {
   props: {
     options: {
@@ -32,15 +20,24 @@ export default {
       const fixed_url = new URL(window.location.toString().replace('#?', '?'))
       const manifestParam = fixed_url.searchParams.get('manifest')
 
-      if (manifestParam) {
+      if (manifestParam)
         return `${baseUrl}/palimpsest/viewer.html?manifest=${encodeURIComponent(manifestParam)}`
-      }
 
       return `${baseUrl}/palimpsest/viewer.html${fixed_url.search}`
     },
   },
 }
 </script>
+
+<template>
+  <iframe
+    id="mirador-iframe"
+    class="mirador"
+    :src="iframe_target_url"
+    allowfullscreen
+    frameborder="0"
+  />
+</template>
 
 <style scoped>
 .mirador {

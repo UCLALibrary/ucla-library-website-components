@@ -1,16 +1,4 @@
-<template>
-  <iframe
-    class="universalviewer"
-    :src="iframe_target_url"
-    id="universalviewer-iframe"
-    allowfullscreen
-    frameborder="0"
-  />
-</template>
-
 <script>
-/* eslint-disable */
-
 export default {
   props: {
     options: {
@@ -32,15 +20,24 @@ export default {
       const fixed_url = new URL(window.location.toString().replace('#?', '?'))
       const manifestParam = fixed_url.searchParams.get('manifest')
 
-      if (manifestParam) {
+      if (manifestParam)
         return `${baseUrl}/uv3.html#?manifest=${encodeURIComponent(manifestParam)}`
-      }
 
       return `${baseUrl}/uv3.html${fixed_url.search}`
     },
   },
 }
 </script>
+
+<template>
+  <iframe
+    id="universalviewer-iframe"
+    class="universalviewer"
+    :src="iframe_target_url"
+    allowfullscreen
+    frameborder="0"
+  />
+</template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

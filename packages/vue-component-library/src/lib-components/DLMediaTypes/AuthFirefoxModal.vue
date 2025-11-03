@@ -1,7 +1,37 @@
+<script>
+export default {
+  name: 'AuthFirefoxModal',
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    message: {
+      type: String,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      show: true,
+      collapsed: true,
+    }
+  },
+  methods: {
+    closeModal() {
+      this.show = false
+    },
+    toggleCollapse() {
+      this.collapsed = !this.collapsed
+    },
+  },
+}
+</script>
+
 <template>
   <div
-    class="modal-overlay"
     v-if="show"
+    class="modal-overlay"
   >
     <div class="modal">
       <div class="close-container">
@@ -20,7 +50,9 @@
           </svg>
         </button>
       </div>
-      <h3 class="modal-title">{{ title }}</h3>
+      <h3 class="modal-title">
+        {{ title }}
+      </h3>
 
       <button
         class="collapse-button"
@@ -60,36 +92,6 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'AuthFirefoxModal',
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    message: {
-      type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      show: true,
-      collapsed: true,
-    }
-  },
-  methods: {
-    closeModal() {
-      this.show = false
-    },
-    toggleCollapse() {
-      this.collapsed = !this.collapsed
-    },
-  },
-}
-</script>
 
 <style>
 .modal-overlay {

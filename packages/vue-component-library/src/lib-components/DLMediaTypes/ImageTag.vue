@@ -1,17 +1,3 @@
-<template>
-  <img
-    v-if="options.src"
-    v-bind="options"
-    class="image-tag"
-  />
-  <div
-    v-else
-    class="image-tag"
-  >
-    <!-- CSS Placeholder w/o broken image icon -->
-  </div>
-</template>
-
 <script>
 export default {
   name: 'ImageTag',
@@ -24,6 +10,20 @@ export default {
   },
 }
 </script>
+
+<template>
+  <img
+    v-if="options.src"
+    v-bind="options"
+    class="image-tag"
+  >
+  <div
+    v-else
+    class="image-tag"
+  >
+    <!-- CSS Placeholder w/o broken image icon -->
+  </div>
+</template>
 
 <style>
 .image-tag {
