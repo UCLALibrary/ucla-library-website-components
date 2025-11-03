@@ -11,6 +11,15 @@ export default {
   component: CollectionOverview,
 }
 
+const pageTemplate = `
+<div class="page">
+    
+    <collection-overview v-bind="props" />
+    <div class="content-below" style="height: 80vh;" />
+    
+</div>
+`
+
 // Variations of stories below
 export function Default() {
   return {
@@ -43,7 +52,7 @@ export function Default() {
         theme: computed(() => 'dlc'),
       }
     },
-    template: '<collection-overview v-bind="props" />',
+    template: pageTemplate,
   }
 }
 
@@ -66,7 +75,7 @@ export function WithoutButtons() {
         theme: computed(() => 'dlc'),
       }
     },
-    template: '<collection-overview v-bind="props" />',
+    template: pageTemplate,
   }
 }
 
@@ -127,7 +136,7 @@ export function LongTextContent() {
         theme: computed(() => 'dlc'),
       }
     },
-    template: '<collection-overview v-bind="props" />',
+    template: pageTemplate,
   }
 }
 
@@ -147,7 +156,7 @@ export function MinimalContent() {
         theme: computed(() => 'dlc'),
       }
     },
-    template: '<collection-overview v-bind="props" />',
+    template: pageTemplate,
   }
 }
 
@@ -179,7 +188,7 @@ export function NoSubtitle() {
         theme: computed(() => 'dlc'),
       }
     },
-    template: '<collection-overview v-bind="props" />',
+    template: pageTemplate,
   }
 }
 
@@ -210,7 +219,7 @@ export function VeryLongTitle() {
         theme: computed(() => 'dlc'),
       }
     },
-    template: '<collection-overview v-bind="props" />',
+    template: pageTemplate,
   }
 }
 
@@ -236,6 +245,6 @@ export function EdgeCaseEmptyStrings() {
         theme: computed(() => 'dlc'),
       }
     },
-    template: '<collection-overview v-bind="props" />',
+    template: pageTemplate,
   }
 }

@@ -1,14 +1,23 @@
 .dlc.collection-overview,
 .collection-overview {
+    position: relative;
+
     .layout-container {
         display: flex;
         align-items: flex-start;
         gap: 48px;
     }
 
-    .meta,
-    .image {
+    .meta {
         width: 50%;
+    }
+    .image {
+        position: sticky;
+        top: 10px;
+
+        aspect-ratio: 592 / 576;
+        width: 50%;
+        height: 100%;
     }
 
     .title {
@@ -75,6 +84,10 @@
         .meta,
         .image {
             width: 100%;
+        }
+        .image {
+            position: relative;
+            top: unset;
         }
     }
 }
