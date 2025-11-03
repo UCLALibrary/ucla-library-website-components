@@ -210,6 +210,11 @@ onMounted(() => {
     },
     { deep: true }
   )
+  watch(route, () => {
+    // force mobile menu to close on navigatiion change
+    // without messing with the complex click handling waterfall for submenus
+    mobileMenuIsOpened.value = false
+  })
   activeMenuIndex.value = currentPathActiveIndex.value
 })
 </script>
