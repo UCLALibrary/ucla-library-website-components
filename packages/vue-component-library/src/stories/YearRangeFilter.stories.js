@@ -55,11 +55,39 @@ function Template(args) {
     },
     setup() {
       // Mock router for Storybook demonstration
-      return { args }
+      // reactively read the router query
+      const currentQuery = computed(() => router.currentRoute.value.query)
+
+      // make a canonical querystring to display (sorted for stability)
+      const queryString = computed(() => {
+        const params = new URLSearchParams()
+        // sort keys for consistent output
+        const entries = Object.entries(currentQuery.value).sort(([a], [b]) => a.localeCompare(b))
+        for (const [key, val] of entries) {
+          if (Array.isArray(val))
+            for (const v of val) params.append(key, String(v))
+          else if (val != null)
+            params.set(key, String(val))
+        }
+        const s = params.toString()
+        return s ? `?${s}` : ''
+      })
+
+      return { args, currentQuery, queryString }
     },
     template: `
     <div style="width: 280px;">
       <YearRangeFilter v-bind="args" />
+      <!-- Debug panel that updates the moment the Limit button pushes to router -->
+      <div style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; border: 1px solid #eee; border-radius: 8px; padding: 8px; margin-top: 1rem;">
+        <div style="margin-bottom: 6px;"><strong>Router querystring</strong></div>
+        <div style="padding: 6px 8px; background: #fafafa; border-radius: 6px; overflow:auto;">
+          {{ queryString }}
+        </div>
+
+        <div style="margin: 8px 0 6px;"><strong>Router query (JSON)</strong></div>
+        <pre style="margin: 0; white-space: pre-wrap;">{{ currentQuery }}</pre>
+      </div>
     </div>
   `,
   }

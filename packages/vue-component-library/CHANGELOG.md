@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.42.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.41.3...@ucla-library-monorepo/ucla-library-website-components-v1.42.0) (2025-11-03)
+
+
+### Features
+
+* create YearRangeFilter component ([#844](https://github.com/UCLALibrary/ucla-library-website-components/issues/844)) ([0d1c1f4](https://github.com/UCLALibrary/ucla-library-website-components/commit/0d1c1f490e523c583d849571ef5362f155f57cd3))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.41.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.41.2...@ucla-library-monorepo/ucla-library-website-components-v1.41.3) (2025-10-31)
+
+
+### Bug Fixes
+
+* APPS-3574 emit link click event ([#857](https://github.com/UCLALibrary/ucla-library-website-components/issues/857)) ([01388a4](https://github.com/UCLALibrary/ucla-library-website-components/commit/01388a41ea0e83ec77d27a1d078733bdb9f30c3a))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.41.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.41.1...@ucla-library-monorepo/ucla-library-website-components-v1.41.2) (2025-10-28)
 
 
