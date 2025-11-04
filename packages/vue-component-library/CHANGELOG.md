@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.43.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.42.0...@ucla-library-monorepo/ucla-library-website-components-v1.43.0) (2025-11-04)
+
+
+### Features
+
+* APPS-3527 change breakpoints from standard small to 850px ([#858](https://github.com/UCLALibrary/ucla-library-website-components/issues/858)) ([a40a506](https://github.com/UCLALibrary/ucla-library-website-components/commit/a40a50688824defff4606c1b8886aa8695d76a33))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.42.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.41.3...@ucla-library-monorepo/ucla-library-website-components-v1.42.0) (2025-11-03)
 
 
