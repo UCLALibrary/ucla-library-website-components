@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.45.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.44.0...@ucla-library-monorepo/ucla-library-website-components-v1.45.0) (2025-11-05)
+
+
+### Features
+
+* Add DLC theme for TabList ([#854](https://github.com/UCLALibrary/ucla-library-website-components/issues/854)) ([8bd9f90](https://github.com/UCLALibrary/ucla-library-website-components/commit/8bd9f90fcc6fa0ac155d5a23c48a5e02e12593ee))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.44.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.43.0...@ucla-library-monorepo/ucla-library-website-components-v1.44.0) (2025-11-04)
 
 
