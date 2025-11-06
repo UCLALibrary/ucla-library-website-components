@@ -12,7 +12,7 @@ export default {
 const mockContent = {
   text1: 'Nordic classic hand-crafted Marylebone elegant soft power bespoke signature punctual pintxos handsome discerning Asia-Pacific global international. Exquisite Asia-Pacific Washlet sharp. Exquisite Lufthansa hub, concierge cosy bureaux finest joy global iconic Nordic Singapore. Hand-crafted joy alluring intricate.',
   text2: 'Cat ipsum dolor sit amet, bengal for donskoy, savannah. Birman. Russian blue british shorthair for donskoy bombay. American bobtail cheetah turkish angora yet british shorthair russian blue. Siamese jaguar, yet birman so persian and singapura. Siberian lynx ragdoll birman for egyptian mau. Munchkin ocicat tabby, yet ocicat, tiger puma panther. Jaguar panther so tomcat and siamese and bengal mouser.',
-  text3: 'Thundercats hexagon pork belly kinfolk. Paleo franzen cornhole tote bag. Art party leggings green juice, before they sold out blackbird spyplane craft beer forage yes plz. Wolf mixtape neutral milk hotel skateboard coloring book.'
+  text3: 'Thundercats hexagon pork belly kinfolk. Paleo franzen cornhole tote bag. Art party leggings green juice, before they sold out blackbird spyplane craft beer forage yes plz. Wolf mixtape neutral milk hotel skateboard coloring book.',
 }
 
 const mockComponentContent1 = [
@@ -45,7 +45,7 @@ const mockComponentContent1 = [
     endDate: '2021-10-08T07:10:00+00:00',
     sectionHandle: 'event',
     text: 'Eu ultrices vitae auctor eu augue. Dolor morbi non arcu risus quis varius quam. Augue lacus viverra vitae congue eu consequat.',
-  }
+  },
 ]
 
 const mockComponentContent2 = [
@@ -73,7 +73,7 @@ const mockComponentContent2 = [
 
 export function Default() {
   router.push({
-    query: {}
+    query: {},
   })
 
   return {
@@ -94,13 +94,13 @@ export function Default() {
         </tab-item>
       
       </tab-list>
-    </div>`
+    </div>`,
   }
 }
 
 export function SetInitialTab() {
   router.push({
-    query: {}
+    query: {},
   })
 
   return {
@@ -121,13 +121,13 @@ export function SetInitialTab() {
         </tab-item>
       
       </tab-list>
-    </div>`
+    </div>`,
   }
 }
 
 export function FTVACentered() {
   router.push({
-    query: {}
+    query: {},
   })
 
   return {
@@ -153,20 +153,20 @@ export function FTVACentered() {
         </tab-item>
       
       </tab-list>
-    </div>`
+    </div>`,
   }
 }
 
 export function ToggledComponentsRight() {
   router.push({
-    query: {}
+    query: {},
   })
 
   return {
     data() {
       return {
         items1: mockComponentContent1,
-        items2: mockComponentContent2
+        items2: mockComponentContent2,
       }
     },
     components: { SectionTeaserList, TabItem, TabList },
@@ -186,6 +186,31 @@ export function ToggledComponentsRight() {
         </tab-item>
 
       </tab-list>
-    </div>`
+    </div>`,
+  }
+}
+
+export function DLCTheme() {
+  return {
+    components: { TabItem, TabList },
+    data() {
+      return { ...mockContent }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    template: `
+          <div class="wrapper">
+            <tab-list alignment="center">
+              <tab-item title="Alphabetical Sort" :content="text1">
+              </tab-item>
+
+              <tab-item title="Numerical Sort" :content="text2">
+              </tab-item>
+            </tab-list>
+          </div>
+        `,
   }
 }
