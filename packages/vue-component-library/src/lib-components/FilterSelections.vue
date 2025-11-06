@@ -20,12 +20,9 @@ interface FilterProps {
     options?: Array<FilterOption>
     showAll?: boolean
   }>
-  limitOptions?: boolean
 }
 
-const props = withDefaults(defineProps<FilterProps>(), {
-  limitOptions: false
-})
+const props = defineProps<FilterProps>()
 
 // Emit events for selection changes
 const emit = defineEmits<{
@@ -114,11 +111,6 @@ function getFilterOptions(filter: any) {
   let options = isFiltered
     ? filter.options.filter((option: any) => selectedOptions.value[filterKey]?.includes(option.value))
     : filter.options
-
-  // Apply limit if limitOptions is enabled
-  if (props.limitOptions && !isFiltered)
-    options = options.slice(0, 10)
-
   return options
 }
 
