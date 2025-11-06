@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.46.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.45.0...@ucla-library-monorepo/ucla-library-website-components-v1.46.0) (2025-11-06)
+
+
+### Features
+
+* APPS-3545 add a date slot to cardmeta ([#859](https://github.com/UCLALibrary/ucla-library-website-components/issues/859)) ([05d6f41](https://github.com/UCLALibrary/ucla-library-website-components/commit/05d6f41add44a109a7a7ebd5bfbe519671aacf60))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.45.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.44.0...@ucla-library-monorepo/ucla-library-website-components-v1.45.0) (2025-11-05)
 
 
