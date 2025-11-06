@@ -78,6 +78,9 @@ const currentTheme = computed(() => {
           v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')"
         />
       </template>
+      <template v-if="item.customDateTime" #customDateTime>
+        {{ item.customDateTime }}
+      </template>
     </BlockCardWithImage>
   </ul>
 </template>
