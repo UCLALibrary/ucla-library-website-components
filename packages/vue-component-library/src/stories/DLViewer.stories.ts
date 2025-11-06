@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import DLViewer from '@/lib-components/DLViewer.vue'
 
 const meta: Meta<typeof DLViewer> = {
-  title: 'DLViewer / Media Types',
+  title: 'Funkhaus / DLViewer',
   component: DLViewer,
   tags: ['autodocs'],
   parameters: {
