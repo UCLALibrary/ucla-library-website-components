@@ -684,3 +684,31 @@ export function FTVACollectionListings() {
   `,
   }
 }
+
+const parsedFTVACollectionListingsCustomDate = mockCollectionListings.map((item) => {
+  return {
+    title: item.title,
+    to: item.uri,
+    image: item.ftvaImage[0],
+    customDateTime: 'c. 1942' // random number?
+  }
+})
+
+export function FTVACollectionListingsCustomDate() {
+  return {
+    data() {
+      return { items: parsedFTVACollectionListingsCustomDate }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { SectionTeaserCard },
+    template: `
+      <section-teaser-card
+        :items="items"
+      />
+  `,
+  }
+}
