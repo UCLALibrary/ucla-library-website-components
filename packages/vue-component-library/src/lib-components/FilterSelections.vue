@@ -108,7 +108,7 @@ function getFilterOptions(filter: any) {
   const filterKey = getFilterKey(filter)
   const isFiltered = filteredStates.value[filterKey]
 
-  let options = isFiltered
+  const options = isFiltered
     ? filter.options.filter((option: any) => selectedOptions.value[filterKey]?.includes(option.value))
     : filter.options
   return options
