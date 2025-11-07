@@ -115,7 +115,6 @@ const mockFTVAFooterPrimary = {
   ],
 }
 
-// Library Website Nuxt Stories
 export function Default() {
   return {
     data() {
@@ -152,28 +151,97 @@ export function MicroSite() {
   }
 }
 
-export const FTVAFooter = () => ({
-  components: { FooterPrimary },
-  setup() {
-    const store = useGlobalStore()
+const FTVATemplate = (args) => {
+  return {
+    components: { FooterPrimary },
+    setup() {
+      const store = useGlobalStore()
 
-    // Replace only the piece you need for this story
-    store.$patch({
-      footerPrimary: {
-        ...store.footerPrimary,
-        nodes: [
-          { children: mockFTVAFooterPrimary.socialItems },
-          { children: mockFTVAFooterPrimary.pressItems },
-        ],
-      },
-    })
-    // If your component loops multiple groups, but FTVA only has socials,
-    // that's fine—there just won't be a "press" group in this story.
-    return {}
-  },
-  provide() {
+      // Replace only the piece you need for this story
+      store.$patch({
+        footerPrimary: {
+          ...store.footerPrimary,
+          nodes: [
+            { children: mockFTVAFooterPrimary.socialItems },
+            { children: mockFTVAFooterPrimary.pressItems },
+          ],
+        },
+      })
+      // If your component loops multiple groups, but FTVA only has socials,
+      // that's fine—there just won't be a "press" group in this story.
+      return { args }
+    },
+    provide() {
     // Your theme injection
-    return { theme: computed(() => 'ftva') }
-  },
-  template: '<footer-primary :form="true" />',
-})
+      return { theme: computed(() => 'ftva') }
+    },
+    template: '<footer-primary v-bind="args" />',
+  }
+}
+
+// export const FTVATheme = FTVATemplate.bind({})
+// FTVATheme.args = {
+//   form: false
+// }
+
+export const FTVAFooterForm = FTVATemplate.bind({})
+FTVAFooterForm.args = {
+  form: true
+}
+
+export const FTVAFooterNoForm = FTVATemplate.bind({})
+FTVAFooterNoForm.args = {
+  form: false
+}
+
+// export const FTVAFooterForm = () => ({
+//   components: { FooterPrimary },
+//   setup() {
+//     const store = useGlobalStore()
+
+//     // Replace only the piece you need for this story
+//     store.$patch({
+//       footerPrimary: {
+//         ...store.footerPrimary,
+//         nodes: [
+//           { children: mockFTVAFooterPrimary.socialItems },
+//           { children: mockFTVAFooterPrimary.pressItems },
+//         ],
+//       },
+//     })
+//     // If your component loops multiple groups, but FTVA only has socials,
+//     // that's fine—there just won't be a "press" group in this story.
+//     return {}
+//   },
+//   provide() {
+//     // Your theme injection
+//     return { theme: computed(() => 'ftva') }
+//   },
+//   template: '<footer-primary :form="true" />',
+// })
+
+// export const FTVAFooterNoForm = () => ({
+//   components: { FooterPrimary },
+//   setup() {
+//     const store = useGlobalStore()
+
+//     // Replace only the piece you need for this story
+//     store.$patch({
+//       footerPrimary: {
+//         ...store.footerPrimary,
+//         nodes: [
+//           { children: mockFTVAFooterPrimary.socialItems },
+//           { children: mockFTVAFooterPrimary.pressItems },
+//         ],
+//       },
+//     })
+//     // If your component loops multiple groups, but FTVA only has socials,
+//     // that's fine—there just won't be a "press" group in this story.
+//     return {}
+//   },
+//   provide() {
+//     // Your theme injection
+//     return { theme: computed(() => 'ftva') }
+//   },
+//   template: '<footer-primary :form="false" />',
+// })

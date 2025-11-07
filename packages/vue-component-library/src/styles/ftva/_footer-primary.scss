@@ -6,7 +6,12 @@
     .container {
         flex-direction: row-reverse;
 
-        .form {
+        &.no-form {
+            justify-content: space-between;
+        }
+
+        .form,
+        .ftva-no-form-inner-container {
             h2.title {
                 font-size: 50px;
             }
@@ -16,7 +21,13 @@
                 -webkit-text-stroke: .25px $navy-blue;
                 padding-top: 5px;
             }
+        }
 
+        .ftva-no-form-inner-container {
+            color: var(--color-white);
+        }
+
+        .form {
             input:not(:placeholder-shown)+label,
             input:focus+label { 
                 color: $grey-blue;
@@ -64,6 +75,7 @@
             flex-direction: column;
             gap: 5px;
             padding-bottom: 20px;
+            
             .footer-links {
                 padding-top: 0px
             }

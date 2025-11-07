@@ -32,10 +32,12 @@ const props = defineProps({
     default: false,
   },
 })
+
 const formIcons = {
   arrowRight: SvgArrowRight,
   caretRight: SvgCaretRight,
 }
+
 const socialMediaIcons = {
   youtube: SvgYtIcon,
   Youtube: SvgYtIcon,
@@ -56,15 +58,18 @@ const socialMediaIcons = {
 
 // THEME
 const theme = useTheme()
+
 const wrapperClasses = computed(() => ['footer-primary', theme?.value || ''])
+
 const classes = computed(() => {
   return props.form ? ['container'] : ['container no-form']
 })
+
 const parsedFooterThemeSettings = computed(() => {
   // ftva
   if (theme?.value === 'ftva') {
     return {
-      statement: 'Subscribe to receive the latest updates on what\'s happening at the Film & Television Archive.',
+      statement: 'Receive the latest news on what\'s happening at the UCLA Film & Television Archive.',
       label: 'Submit',
       icon: formIcons.caretRight,
       socialMediaIcons: true
@@ -81,6 +86,7 @@ const parsedFooterThemeSettings = computed(() => {
 
 // GLOBALSTORE DATA
 const globalStore = useGlobalStore()
+
 const parsedSocialItems = computed(() => {
   if (Object.keys(globalStore.footerPrimary).length !== 0) {
     return globalStore.footerPrimary.nodes[0].children
@@ -94,6 +100,7 @@ const parsedSocialItems = computed(() => {
   }
   return []
 })
+
 const parsedPressItems = computed(() => {
   if (Object.keys(globalStore.footerPrimary).length !== 0) {
     return globalStore.footerPrimary.nodes[1].children
@@ -107,6 +114,7 @@ const parsedPressItems = computed(() => {
   }
   return []
 })
+
 const parsedFooterLogo = computed(() => {
   if (theme?.value === 'ftva')
     return SvgLogoFTVA
@@ -181,6 +189,19 @@ function formatTarget(target: string) {
         </ul>
       </div>
 
+      <!-- Current FTVA implementation omits the form -->
+      <div
+        v-if="theme === 'ftva' && !form"
+        class="ftva-no-form-inner-container"
+      >
+        <h2 class="title">
+          Stay updated
+        </h2>
+
+        <p class="statement">
+          {{ parsedFooterThemeSettings.statement }}
+        </p>
+      </div>
       <form
         v-if="form"
         id="mc-embedded-subscribe-form"
