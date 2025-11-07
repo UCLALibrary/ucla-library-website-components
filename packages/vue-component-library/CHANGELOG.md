@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.50.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.49.1...@ucla-library-monorepo/ucla-library-website-components-v1.50.0) (2025-11-07)
+
+
+### Features
+
+* creates DetailMedia component ([#846](https://github.com/UCLALibrary/ucla-library-website-components/issues/846)) ([8891ff4](https://github.com/UCLALibrary/ucla-library-website-components/commit/8891ff4d21ffd7f0eb2e4699ac3c393df36ef43c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.49.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.49.0...@ucla-library-monorepo/ucla-library-website-components-v1.49.1) (2025-11-07)
 
 
