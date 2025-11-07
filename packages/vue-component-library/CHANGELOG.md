@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.49.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.49.0...@ucla-library-monorepo/ucla-library-website-components-v1.49.1) (2025-11-07)
+
+
+### Bug Fixes
+
+* APPS-3579 add homepage link to mobile text in header ([#860](https://github.com/UCLALibrary/ucla-library-website-components/issues/860)) ([03c57a8](https://github.com/UCLALibrary/ucla-library-website-components/commit/03c57a8135f39244cd957a8314c524d64084781f))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.49.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.48.0...@ucla-library-monorepo/ucla-library-website-components-v1.49.0) (2025-11-07)
 
 
