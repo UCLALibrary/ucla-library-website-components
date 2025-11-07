@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.49.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.48.0...@ucla-library-monorepo/ucla-library-website-components-v1.49.0) (2025-11-07)
+
+
+### Features
+
+* APPS-3516 Add No-Form Option to FTVA Footer Primary ([#861](https://github.com/UCLALibrary/ucla-library-website-components/issues/861)) ([037fd94](https://github.com/UCLALibrary/ucla-library-website-components/commit/037fd94c1c3c3bcfb37f7fda8ff2e47b6d1597db))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.48.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.47.0...@ucla-library-monorepo/ucla-library-website-components-v1.48.0) (2025-11-06)
 
 
