@@ -20,6 +20,7 @@ import { useTheme } from '@/composables/useTheme'
 
 // CHILD COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
+import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 // PROPS
 const props = defineProps({
@@ -82,6 +83,13 @@ const parsedFooterThemeSettings = computed(() => {
     icon: formIcons.arrowRight,
     socialMediaIcons: false
   }
+})
+
+const noFtvaForm = computed(() => {
+  if (theme?.value === 'ftva' && !props.form)
+    return true
+
+  return false
 })
 
 // GLOBALSTORE DATA
@@ -191,16 +199,16 @@ function formatTarget(target: string) {
 
       <!-- Current FTVA implementation omits the form -->
       <div
-        v-if="theme === 'ftva' && !form"
-        class="ftva-no-form-inner-container"
+        v-if="noFtvaForm"
+        class="no-ftva-form-inner-container"
       >
         <h2 class="title">
           Stay updated
         </h2>
-
         <p class="statement">
           {{ parsedFooterThemeSettings.statement }}
         </p>
+        <ButtonLink label="Sign Up" to="/signup" />
       </div>
       <form
         v-if="form"
@@ -219,7 +227,6 @@ function formatTarget(target: string) {
           <h2 class="title">
             Stay updated
           </h2>
-
           <p class="statement">
             {{ parsedFooterThemeSettings.statement }}
           </p>

@@ -11,7 +11,7 @@
         }
 
         .form,
-        .ftva-no-form-inner-container {
+        .no-ftva-form-inner-container {
             h2.title {
                 font-size: 50px;
             }
@@ -19,15 +19,23 @@
             .statement {
                 @include ftva-body;
                 -webkit-text-stroke: .25px $navy-blue;
-                padding-top: 5px;
             }
         }
 
-        .ftva-no-form-inner-container {
+        .no-ftva-form-inner-container {
             color: var(--color-white);
+
+            .statement {
+                padding-top: 0;
+                margin-bottom: 24px;
+            }
         }
 
         .form {
+            .statement {
+                padding-top: 5px;
+            }
+
             input:not(:placeholder-shown)+label,
             input:focus+label { 
                 color: $grey-blue;
