@@ -83,6 +83,14 @@
         }
     }
 
+    @media (min-width: 1024px) and (max-width: 1212px){
+        .container {
+            &.no-form {
+                flex-wrap: nowrap;
+            }
+        }
+    }
+
     @media #{$small} {
         .container {
             flex-direction: column;
