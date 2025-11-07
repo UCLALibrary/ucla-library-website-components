@@ -85,7 +85,7 @@ const parsedFooterThemeSettings = computed(() => {
   }
 })
 
-const noFtvaForm = computed(() => {
+const omitFtvaForm = computed(() => {
   if (theme?.value === 'ftva' && !props.form)
     return true
 
@@ -199,7 +199,7 @@ function formatTarget(target: string) {
 
       <!-- Current FTVA implementation omits the form -->
       <div
-        v-if="noFtvaForm"
+        v-if="omitFtvaForm"
         class="no-ftva-form-inner-container"
       >
         <h2 class="title">
