@@ -2,12 +2,12 @@
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import format from 'date-fns/format'
-import { useTheme } from '@/composables/useTheme'
 
 // SVGs
 import SvgMoleculeHalfFaceted from 'ucla-library-design-tokens/assets/svgs/molecule-half-overlay.svg'
 import SvgHatchRight from 'ucla-library-design-tokens/assets/svgs/graphic-hatch-lines.svg'
 import SvgHeadingVector from 'ucla-library-design-tokens/assets/svgs/graphic-category-slash.svg'
+import { useTheme } from '@/composables/useTheme'
 
 // Components
 import ButtonLink from '@/lib-components/ButtonLink.vue'
@@ -25,8 +25,6 @@ import formatEventTimes from '@/utils/formatEventTimes'
 import formatEventDates from '@/utils/formatEventDates'
 import getSectionName from '@/utils/getSectionName'
 import fixURI from '@/utils/fixURI'
-
-const theme = useTheme()
 
 const props = defineProps({
   media: {
@@ -100,10 +98,12 @@ const props = defineProps({
     default: '',
   },
   secondaryButtons: {
-    type: Array as PropType<Array<{ label: string, to: string }>>,
+    type: Array as PropType<Array<{ label: string; to: string }>>,
     default: () => [],
   },
 })
+
+const theme = useTheme()
 
 // Video & Image
 const isVideo = computed(() => {

@@ -1,7 +1,7 @@
+import { computed } from 'vue'
 import BannerFeatured from '@/lib-components/BannerFeatured'
 import HeadingArrow from '@/lib-components/HeadingArrow'
 import BlockFormData from '@/stories/mock/BlockFormData.json'
-import { computed } from 'vue'
 
 // Import mock api data
 import * as API from '@/stories/mock-api.json'
@@ -372,6 +372,11 @@ export function WithBlockForm() {
     provide() {
       return {
         theme: computed(() => ''),
+        // explicitly provide a computed property
+        eventId: '9383207',
+        blockFormData: BlockFormData.mock0,
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        registrationType: 'in-person',
       }
     },
     data() {
@@ -379,13 +384,6 @@ export function WithBlockForm() {
         ...mock,
         ...BlockFormData,
       }
-    },
-    provide: {
-      // explicitly provide a computed property
-      eventId: '9383207',
-      blockFormData: BlockFormData.mock0,
-      libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
-      registrationType: 'in-person',
     },
     components: { BannerFeatured },
     template: `
