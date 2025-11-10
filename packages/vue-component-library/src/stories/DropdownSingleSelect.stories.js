@@ -65,6 +65,38 @@ export function Default() {
   }
 }
 
+export function DLCTheme() {
+  return {
+    components: { DropdownSingleSelect },
+    data() {
+      return {
+        selectedFilters: { esFieldName: '' },
+        options: OptionsDefault,
+        label: 'Filter',
+        fieldName: 'esFieldName',
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    template: `
+      <div>
+        <span>Selected dropdown value display:{{selectedFilters}}</span>
+        <br><br>
+        <DropdownSingleSelect
+          v-model:selectedFilters='selectedFilters'
+          :label='label'
+          :options='options'
+          :field-name='fieldName'
+          :show-view-all='true'
+        />
+      </div>
+    `,
+  }
+}
+
 // MOCK DATA FILTER
 const FilterOptionsDefault = [
   { label: 'Current Events', value: 'current-events' },
