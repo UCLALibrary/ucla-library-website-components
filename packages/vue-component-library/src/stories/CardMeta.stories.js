@@ -367,3 +367,35 @@ export function FtvaH1Title() {
     `,
   }
 }
+
+export function FtvaCustomDateTimeSlot() {
+  return {
+    data() {
+      return {
+        ftvaFeaturedArticles: [
+          {
+            articleCategories: 'category',
+            postDate: 'c. 1942',
+            title: 'Card Meta Title'
+          }
+        ]
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { CardMeta, RichText, SmartLink },
+    template: `
+      <card-meta
+       :category= "ftvaFeaturedArticles[0].articleCategories"
+       :title="ftvaFeaturedArticles[0].title"
+      >
+        <template #customDateTime>
+          {{ ftvaFeaturedArticles[0].postDate }}
+        </template>
+      </card-meta>
+    `,
+  }
+}
