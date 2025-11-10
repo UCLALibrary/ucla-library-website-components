@@ -474,31 +474,3 @@ export function NoBackgroundStyle() {
     `,
   }
 }
-
-export function FTVACustomDateTimeSlot() {
-  return {
-    data() {
-      return {
-        ...mockMoreCollectionItem,
-        customDateTime: 'c. 1942'
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { BlockCardWithImage },
-    template: `
-    <block-card-with-image
-        :image="image"
-        :to="to"
-        :title="title"
-    >
-      <template #customDateTime>
-        {{ customDateTime }}
-      </template>
-    </block-card-with-image>
-`,
-  }
-}

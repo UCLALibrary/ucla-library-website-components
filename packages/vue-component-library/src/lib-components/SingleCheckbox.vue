@@ -45,7 +45,10 @@ function onChange() {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 .single-checkbox {
   min-width: 300px;
   // padding: 18px 16px 18px 16px;

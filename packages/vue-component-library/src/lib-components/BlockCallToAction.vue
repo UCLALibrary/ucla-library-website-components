@@ -82,10 +82,6 @@ const SvgCallToActionFTVAInfo = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-ftva-info.svg')
 )
 
-const SvgCallToActionFTVAClock = defineAsyncComponent(() =>
-  import('ucla-library-design-tokens/assets/svgs/icon-ftva-clock.svg')
-)
-
 const SvgCallToActionFTVAPDF = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-ftva-pdf.svg')
 )
@@ -110,10 +106,6 @@ const iconMapping = {
   'svg-call-to-action-ftva-info': {
     icon: SvgCallToActionFTVAInfo,
     label: 'CTA FTVA Info'
-  },
-  'svg-call-to-action-ftva-clock': {
-    icon: SvgCallToActionFTVAClock,
-    label: 'CTA FTVA Clock'
   },
   'svg-call-to-action-ftva-pdf': {
     icon: SvgCallToActionFTVAPDF,

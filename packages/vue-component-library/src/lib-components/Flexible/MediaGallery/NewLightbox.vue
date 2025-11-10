@@ -57,7 +57,6 @@ const classes = computed(() => {
   return ['lightbox', theme?.value || '', inline ? 'inline' : '']
 })
 // if ftva, pass cover as object fit, otherwise contain
-// note: this is overwritten with css styles for ftva media gallery carousels
 const parsedObjectFit = computed(() => {
   return theme?.value === 'ftva' ? 'cover' : 'contain'
 })
@@ -109,7 +108,6 @@ function setCurrentSlide(currentSlide: number) {
         <MediaItem
           :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item"
           :cover-image="item.coverImage" :embed-code="item.embedCode"
-          class="library-media-item"
         >
           <div v-if="item.credit" class="credit-text">
             <span v-text="item.credit" />

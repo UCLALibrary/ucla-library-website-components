@@ -11,8 +11,6 @@ import FlexibleBlocks from '@/lib-components/FlexibleBlocks.vue'
 import RichText from '@/lib-components/RichText.vue'
 import SectionWrapper from '@/lib-components/SectionWrapper.vue'
 import TwoColLayoutWStickySideBar from '@/lib-components/TwoColLayoutWStickySideBar.vue'
-import PageAnchor from '@/lib-components/PageAnchor.vue'
-import FooterPrimary from '@/lib-components/FooterPrimary.vue'
 
 // Storybook default settings
 export default {
@@ -25,7 +23,6 @@ const reallyLongRichText = 'Lorem ipsum dolor sit amet, consectetur adipiscing e
 const mockSeriesPageData = {
   title: 'Page.Title',
   eventDescription: 'Page.eventDescription, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.',
-  collectionDescription: `Page.collectionDescription.${reallyLongRichText}`.repeat(4),
   ftvaEventIntroduction: 'Page.ftvaEventIntroduction, Shorter intro text here.',
   guestSpeaker: 'Page.guestSpeaker, Guest Speaker Name',
   richText: `page.richText, page rich-text content here on some pages.${reallyLongRichText}`,
@@ -563,66 +560,6 @@ export function FTVASlimCTA() {
                     </template>
                 </TwoColLayoutWStickySideBar>
                 <SectionWrapper theme='paleblue'>Next Section Content</SectionWrapper>
-                </div>`
-  }
-}
-
-const pageAnchorData = {
-  sectionTitles: [
-    'The story',
-    'Endeavors of the initiative',
-    'Filmmakers & filmography',
-    'Watch online',
-    'Exhibitions & symposia',
-    'Touring films',
-    'Research at UCLA',
-    'Acknowledgements',
-    'Additional materials',
-    'A Longer Headline for Testing: National Archives of Finland'
-  ],
-  color: 'default'
-}
-
-export function FTVAPageAnchor() {
-  return {
-    data() {
-      return {
-        page: mockSeriesPageData,
-        pageAnchorData
-      }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { TwoColLayoutWStickySideBar, CardMeta, SectionWrapper, RichText, PageAnchor, FooterPrimary },
-    template: `<div>
-                <SectionWrapper theme='paleblue'>Previous Section Content</SectionWrapper>
-                <TwoColLayoutWStickySideBar>
-                    <template v-slot:primaryTop>
-                      <CardMeta
-                          category="Collection"
-                          :title="page?.title"
-                          :text="page?.collectionDescription"
-                      />
-                    </template>
-                    <template v-slot:primaryMid>
-                      <RichText
-                        v-for="(i, index) in 3"
-                        :key="index"
-                        v-if="page?.richText"
-                        :rich-text-content="page.richText"
-                      />
-                    </template>
-                    <template v-slot:sidebarPageAnchor>
-                      <PageAnchor
-                        v-if="pageAnchorData.sectionTitles.length >= 3"
-                        :section-titles="pageAnchorData.sectionTitles"
-                      />
-                    </template>
-                </TwoColLayoutWStickySideBar>
-                <FooterPrimary :form="true" />
                 </div>`
   }
 }

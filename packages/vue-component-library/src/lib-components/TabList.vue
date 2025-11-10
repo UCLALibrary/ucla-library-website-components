@@ -1,37 +1,25 @@
 <script setup lang="ts">
-import {
-  computed,
-  defineAsyncComponent,
-  onMounted,
-  provide,
-  ref,
-  useSlots,
-  watch,
-} from 'vue'
+import { computed, defineAsyncComponent, onMounted, provide, ref, useSlots, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { useRoute, useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 
-const { alignment, initialTab, syncWithUrl } = defineProps({
+const { alignment, initialTab } = defineProps({
   alignment: {
     type: String,
     default: 'left',
   },
   initialTab: {
     type: Number,
-    default: 0,
-  },
-  syncWithUrl: {
-    type: Boolean,
-    default: true,
-  },
+    default: 0
+  }
 })
 
-const SvgIconCalendar = defineAsyncComponent(
-  () => import('ucla-library-design-tokens/assets/svgs/icon-calendar.svg')
+const SvgIconCalendar = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-calendar.svg')
 )
-const SvgIconList = defineAsyncComponent(
-  () => import('ucla-library-design-tokens/assets/svgs/icon-list.svg')
+const SvgIconList = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-list.svg')
 )
 
 const tabSlots = useSlots()?.default?.()
@@ -57,35 +45,27 @@ provide('activeTabTitle', activeTabTitle)
 const iconMapping = {
   'icon-calendar': {
     icon: SvgIconCalendar,
-    label: 'Calendar',
+    label: 'Calendar'
   },
 
   'icon-list': {
     icon: SvgIconList,
-    label: 'List',
+    label: 'List'
   },
 }
 
 onMounted(() => {
-  if (syncWithUrl) {
-    // Check URL for initial tab if syncWithUrl is enabled
-    const initialTabFromUrl = route.query.view
+  const initialTabFromUrl = route.query.view
 
-    const tabIndex = tabItems.value.findIndex(
-      tab => tab?.title.toLowerCase() === initialTabFromUrl
-    )
+  const tabIndex = tabItems.value.findIndex(
+    tab => tab?.title.toLowerCase() === initialTabFromUrl
+  )
 
-    if (tabIndex !== -1) {
-      activeTabIndex.value = tabIndex
-      activeTabTitle.value = tabItems.value[tabIndex]?.title
-    }
-    else {
-      activeTabIndex.value = initialTab
-      activeTabTitle.value = tabItems.value[initialTab]?.title
-    }
+  if (tabIndex !== -1) {
+    activeTabIndex.value = tabIndex
+    activeTabTitle.value = tabItems.value[tabIndex]?.title
   }
   else {
-    // Use prop value only when URL sync is disabled
     activeTabIndex.value = initialTab
     activeTabTitle.value = tabItems.value[initialTab]?.title
   }
@@ -149,14 +129,16 @@ function keydownHandler(e: KeyboardEvent) {
     case 'ArrowLeft':
       if (activeIndex - 1 < 0)
         targetTab = tabTitleList[tabTitleList.length - 1]
-      else targetTab = tabTitleList[activeIndex - 1]
+      else
+        targetTab = tabTitleList[activeIndex - 1]
 
       switchTab(targetTab)
       break
     case 'ArrowRight':
       if (activeIndex + 1 > tabTitleList.length - 1)
         targetTab = tabTitleList[0]
-      else targetTab = tabTitleList[activeIndex + 1]
+      else
+        targetTab = tabTitleList[activeIndex + 1]
 
       switchTab(targetTab)
       break
@@ -170,16 +152,14 @@ function switchTab(tabName: string) {
   activeTabTitle.value = tabName
   activeTabIndex.value = tabIndex
 
-  // Only update URL with query parameter if syncWithUrl is enabled and not in Storybook
-  if (syncWithUrl && !window.location.pathname.includes('iframe.html')) {
-    router.push({
-      query: {
-        ...route.query,
-        view: tabName.split(' ')[0].toLowerCase(),
-        page: 1,
-      },
-    })
-  }
+  // Update URL with query parameter
+  router.push({
+    query: {
+      ...route.query,
+      view: tabName.split(' ')[0].toLowerCase(),
+      page: 1
+    }
+  })
 
   const tabElem: HTMLElement = tabRefs.value[tabIndex]
 
@@ -215,14 +195,27 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
 </script>
 
 <template>
-  <div :class="[classes, alignment]" role="tabs" v-bind="$attrs">
+  <div
+    :class="[classes, alignment]"
+    role="tabs"
+    v-bind="$attrs"
+  >
     <!-- Slot: Dropdown Filters -->
-    <div v-if="$slots.filters" class="filters">
+    <div
+      v-if="$slots.filters"
+      class="filters"
+    >
       <slot name="filters" />
     </div>
 
-    <div class="tab-list-header" role="tablist">
-      <span ref="tabGliderRef" class="tab-glider" />
+    <div
+      class="tab-list-header"
+      role="tablist"
+    >
+      <span
+        ref="tabGliderRef"
+        class="tab-glider"
+      />
       <button
         v-for="(tab, index) in tabItems"
         :id="setTabId(tab?.title)"
@@ -262,5 +255,4 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
 <style scoped lang="scss">
 @import "@/styles/default/_tab-list.scss";
 @import "@/styles/ftva/_tab-list.scss";
-@import "@/styles/dlc/_tab-list.scss";
 </style>

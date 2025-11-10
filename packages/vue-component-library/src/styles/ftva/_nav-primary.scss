@@ -113,7 +113,7 @@
     }
 
     // MOBILE MENU STYLES
-    @media (max-width: 850px) {
+    @media #{$small} {
         display: flex;
         flex-direction: column;
         grid-auto-flow: unset;

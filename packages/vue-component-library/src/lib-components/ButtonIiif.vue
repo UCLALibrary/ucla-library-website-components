@@ -19,10 +19,7 @@ const classes = computed(() => (['button-iiif', theme?.value || '']))
 </script>
 
 <template>
-  <SmartLink
-    :to="to"
-    :class="classes"
-  >
+  <SmartLink :to="to" :class="classes">
     <IconIiif class="icon-iiif" />
   </SmartLink>
 </template>

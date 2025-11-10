@@ -64,27 +64,3 @@ export function FTVAAisSelected() {
     template: '<alphabetical-browse-by selectedLetterProp="A"/>',
   }
 }
-
-export function DLC() {
-  return {
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    components: { AlphabeticalBrowseBy },
-    template: '<alphabetical-browse-by />',
-  }
-}
-
-export function DLCAisSelected() {
-  return {
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    components: { AlphabeticalBrowseBy },
-    template: '<alphabetical-browse-by selectedLetterProp="A"/>',
-  }
-}

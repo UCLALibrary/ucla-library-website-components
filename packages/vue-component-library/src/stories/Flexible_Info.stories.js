@@ -43,38 +43,6 @@ export function FTVAInfoBlock() {
   }
 }
 
-const mockInfoBlockClock = {
-  id: '3700149',
-  typeHandle: 'infoBlock',
-  infoBlock: [
-    {
-      typeHandle: 'infoBlock',
-      icon: 'svg-call-to-action-ftva-clock',
-      text: '<p>Hours opened</p>',
-      heading: '9AM to 6PM'
-    }
-  ]
-}
-
-export function FTVAInfoBlockClock() {
-  return {
-    data() {
-      return { block: mockInfoBlockClock }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { FlexibleInfo },
-    template: `
-        <flexible-info
-            :block="block"
-        />
-    `,
-  }
-}
-
 const mockContactInfoBlock = {
   id: '3726206',
   typeHandle: 'infoBlock',

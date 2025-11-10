@@ -154,8 +154,7 @@ defineExpose({ closeSlot })
 const { width } = useWindowSize()
 
 // Use computed to check if it's mobile based on window width
-const mobileBreakpoint = 850 // change scss breakpoints in ftva _header-sticky.scss, _nav-primary.scss, _site-brand-bar.scss
-const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 850px for mobile breakpoint
+const isMobile = computed(() => width.value <= 750) // Use 750px for mobile breakpoint
 
 // toggle Mobile-only menu
 function toggleMobileMenu() {
@@ -211,11 +210,6 @@ onMounted(() => {
     },
     { deep: true }
   )
-  watch(route, () => {
-    // force mobile menu to close on navigatiion change
-    // without messing with the complex click handling waterfall for submenus
-    mobileMenuIsOpened.value = false
-  })
   activeMenuIndex.value = currentPathActiveIndex.value
 })
 </script>
@@ -320,10 +314,7 @@ onMounted(() => {
         class="slot-container"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
       >
-        <slot
-          name="additional-menu"
-          :close-slot="closeSlot"
-        />
+        <slot name="additional-menu" :close-slot="closeSlot" />
       </div>
     </div>
 

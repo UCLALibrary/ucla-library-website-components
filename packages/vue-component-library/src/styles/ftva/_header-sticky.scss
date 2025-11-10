@@ -18,7 +18,7 @@
             line-height: normal;
         }
     }
-    @media (max-width: 850px) {
+    @media #{$small} {
         .primary {
             padding-inline: 18px;
         }
