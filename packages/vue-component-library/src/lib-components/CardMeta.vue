@@ -177,16 +177,18 @@ const classes = computed(() => {
       v-html="category"
     />
 
-    <!-- Named slot for custom title -->
+    <!-- Slot for injecting a title with any tags / styles (useful to substitute h1 tags for accessibility) -->
+    <slot name="anyTitle" />
+    <!-- Named slots for custom title with H3 tags -->
     <h3
-      v-if="$slots.customTitle"
+      v-if="$slots.customTitle && !to && !title"
       class="custom-title"
     >
       <slot name="customTitle" />
     </h3>
 
     <SmartLink
-      v-if="to"
+      v-else-if="to && title && !$slots.customTitle"
       :link-target="parsedTarget"
       :to="to"
       class="title"
@@ -201,7 +203,7 @@ const classes = computed(() => {
     </SmartLink>
 
     <h3
-      v-else
+      v-else-if="title"
       class="title-no-link"
       v-html="title"
     />
@@ -221,7 +223,7 @@ const classes = computed(() => {
     />
 
     <div
-      v-if="(bylineOne || bylineTwo) || dateCreated"
+      v-if="(bylineOne || bylineTwo) || (dateCreated || $slots.customDateTime)"
       class="byline-group"
     >
       <div
@@ -239,6 +241,9 @@ const classes = computed(() => {
         class="schedule-item date-created"
       >
         {{ parsedDateCreated }}
+      </div>
+      <div v-if="$slots.customDateTime" class="schedule-item date-created">
+        <slot name="customDateTime" />
       </div>
     </div>
 
@@ -296,13 +301,19 @@ const classes = computed(() => {
     />
 
     <!-- SHARE BUTTON -->
-    <div class="sharebutton-slot">
+    <div
+      v-if="$slots.sharebutton"
+      class="sharebutton-slot"
+    >
       <slot name="sharebutton" />
     </div>
 
     <!-- USED FOR BLOCKTAG SLOT -->
     <!-- MOVES BASED ON DESKTOP OR MOBILE -->
-    <div class="floating-slot">
+    <div
+      v-if="$slots.floatingslot"
+      class="floating-slot"
+    >
       <slot name="floatingslot" />
     </div>
 
