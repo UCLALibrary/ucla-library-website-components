@@ -286,7 +286,7 @@ onMounted(() => {
             class="event-dots"
           >
             <template
-              v-for=" index in dateFrequency[date.toLocaleDateString()]"
+              v-for="index in dateFrequency[date.toLocaleDateString()]"
               :key="index"
             >
               <!-- limit display to 3 events dots -->
@@ -403,7 +403,7 @@ onMounted(() => {
                 class="event-dots"
               >
                 <template
-                  v-for=" index in dateFrequency[date.toLocaleDateString()]"
+                  v-for="index in dateFrequency[date.toLocaleDateString()]"
                   :key="index"
                 >
                   <!-- limit display to 3 events dots -->
@@ -482,9 +482,12 @@ onMounted(() => {
       font-size: 18px;
       color: $medium-grey;
       border-radius: 8px;
-      &:hover, &:focus {
+
+      &:hover,
+      &:focus {
         border-color: #ddd;
       }
+
       &:hover {
         background-color: #f1f1f1;
       }

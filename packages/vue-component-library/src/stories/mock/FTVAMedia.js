@@ -35,11 +35,10 @@ export const Gallery = {
       item: [
         {
           id: '46054',
-          src: 'https://static.library.ucla.edu/craftassetstest/images/pine-needles_2022-10-18-005212_jcjf.jpg',
-          srcset:
-      'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 2560w',
+          src: 'https://placehold.co/100x400',
+          srcset: 'https://placehold.co/100x400.jpg 375w, https://placehold.co/100x400.jpg 960w, https://placehold.co/100x400.jpg',
           height: 1918,
-          width: 2560,
+          width: 560,
           title: 'Pine needles',
           focalPoint: [0.5, 0.5],
           kind: 'image',
@@ -248,20 +247,25 @@ export const parsedFTVABlogSeries = mockFTVABlogSeries.map((item) => {
 })
 
 export const mockFlexibleBlocks = [
+  // RICH TEXT
   {
     id: '3761985',
     typeHandle: 'richText',
     richText: '<p>Serving the UCLA community and an international constituency of academic faculty, scholars, students, writers, and professionals, the Archive Research and Study Center (ARSC) provides a vital access point to UCLA Film &amp; Television Archive\'s collection of over 350,000 films and television programs, over 100,000 News and Public Affairs (NAPA) programs, and over 2,000 radio programs. ARSC coordinates individual viewing appointments, facilitating access to the Archive\'s rare collections through the Powell Library Media Lab at UCLA. With ARSC\'s assistance, visitors conduct scholarly and professional research for hundreds of class assignments, dissertations, publications and film and television productions.</p>',
     sectionTitle: null
   },
+  // DIVIDER
   {
     id: '3761986',
     typeHandle: 'horizontalDivider',
     horizontalDivider: true
   },
+  // INFOBLOCK
   {
     id: '3761987',
     typeHandle: 'infoBlock',
+    sectionTitle: 'Info Block Section Title',
+    sectionSummary: 'Info Block Section Summary',
     infoBlock: [
       {
         typeHandle: 'infoBlock',
@@ -271,6 +275,7 @@ export const mockFlexibleBlocks = [
       }
     ]
   },
+  // DIVIDER
   {
     id: '3761989',
     typeHandle: 'horizontalDivider',

@@ -165,6 +165,7 @@ export interface CollectionItemType {
   to: string
   videoEmbed: string
   ftvaCollectionType?: string[]
+  customDateTime?: string
 }
 
 export interface DepartmentItemType {
@@ -310,4 +311,13 @@ export interface StylesItemType {
 export interface TopicsItemType {
   id: string
   title: string
+}
+
+export interface SearchInputProps {
+  modelValue?: string
+  clearIcon?: boolean
+  clearOnEsc?: boolean
+  blurOnEsc?: boolean
+  selectOnFocus?: boolean
+  shortcutKey?: string
 }
