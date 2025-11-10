@@ -11,4 +11,3 @@ describe('Funkhaus / Global Menu Panel', () => {
     cy.percySnapshot('Funkhaus / Global Menu Panel: Default')
   })
 })
-
