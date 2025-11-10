@@ -7,4 +7,3 @@ describe('Funkhaus / Header Main Funkhaus', () => {
     cy.percySnapshot('Funkhaus / Header Main Funkhaus: Default')
   })
 })
-
