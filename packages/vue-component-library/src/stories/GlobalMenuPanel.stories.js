@@ -1,5 +1,5 @@
-import GlobalMenuPanel from '@/lib-components/GlobalMenuPanel.vue'
 import { computed } from 'vue'
+import GlobalMenuPanel from '@/lib-components/GlobalMenuPanel.vue'
 
 /**
  * A global menu panel component that displays main menu items, sub-menu items, and includes an account button.

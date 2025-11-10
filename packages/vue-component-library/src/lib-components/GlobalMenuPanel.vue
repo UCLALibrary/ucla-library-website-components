@@ -1,20 +1,17 @@
 <script setup lang="ts">
 // Imports
 import Molecule3d from 'ucla-library-design-tokens/assets/svgs/molecule-3d.svg'
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import { useTheme } from '@/composables/useTheme'
 
 // Props
-type GlobalMenuPanelProps = {
+interface GlobalMenuPanelProps {
   isOpened: boolean
   menuItems: any[]
   subMenuItems: any[]
 }
 const props = defineProps<GlobalMenuPanelProps>()
-
-// Theme
-const theme = useTheme()
 
 // Emits
 const emit = defineEmits<{
@@ -22,12 +19,15 @@ const emit = defineEmits<{
   'close': []
 }>()
 
+// Theme
+const theme = useTheme()
+
 // Data
 const moleculeColor = ref('cyan')
 
 // Methods
 function handleAccountButtonClick() {
-  console.log('Should do something with the users account');
+  console.log('Should do something with the users account')
   emit('close')
 }
 
@@ -36,9 +36,8 @@ function handleMenuClick() {
 }
 
 function handleKeydown(event: KeyboardEvent) {
-  if (event.key === 'Escape' && props.isOpened) {
+  if (event.key === 'Escape' && props.isOpened)
     emit('close')
-  }
 }
 
 // Computed
