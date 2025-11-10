@@ -35,11 +35,10 @@ export const Gallery = {
       item: [
         {
           id: '46054',
-          src: 'https://static.library.ucla.edu/craftassetstest/images/pine-needles_2022-10-18-005212_jcjf.jpg',
-          srcset:
-      'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/pine-needles_2022-10-18-005212_jcjf.jpg 2560w',
+          src: 'https://placehold.co/100x400',
+          srcset: 'https://placehold.co/100x400.jpg 375w, https://placehold.co/100x400.jpg 960w, https://placehold.co/100x400.jpg',
           height: 1918,
-          width: 2560,
+          width: 560,
           title: 'Pine needles',
           focalPoint: [0.5, 0.5],
           kind: 'image',

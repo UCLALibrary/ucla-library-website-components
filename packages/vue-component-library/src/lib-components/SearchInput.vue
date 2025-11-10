@@ -49,11 +49,11 @@ function onKeydown(event: KeyboardEvent) {
 function onDocumentKeydown(event: KeyboardEvent) {
   if (
     event.key === props.shortcutKey
-        && event.target !== inputRef.value
-        && document.activeElement !== inputRef.value
-        && !['INPUT', 'SELECT', 'TEXTAREA'].includes(
-          (event.target as Element).tagName
-        )
+    && event.target !== inputRef.value
+    && document.activeElement !== inputRef.value
+    && !['INPUT', 'SELECT', 'TEXTAREA'].includes(
+      (event.target as Element).tagName
+    )
   ) {
     event.preventDefault()
     const visibleInputs = Array.from(
@@ -65,7 +65,7 @@ function onDocumentKeydown(event: KeyboardEvent) {
         el.offsetWidth || el.offsetHeight || el.getClientRects().length
     )
     const elToFocus
-            = visibleInputs.length > 1 ? visibleInputs[0] : inputRef.value
+      = visibleInputs.length > 1 ? visibleInputs[0] : inputRef.value
     if (elToFocus) {
       elToFocus.focus()
       if (props.selectOnFocus)
@@ -91,14 +91,15 @@ const attrsWithoutStyles = computed(() =>
 )
 const attrsStyles = computed(() => ({
   ...(filterAttributes(attrs, ['class', 'style'], false) as Record<
-        string,
-        unknown
-    >),
+    string,
+    unknown
+  >),
   class: classes.value,
 }))
 
 // Event Listeners
-useEventListener<KeyboardEvent>(window.document, 'keydown', onDocumentKeydown)
+// ✅ lazy + SSR-safe
+useEventListener<KeyboardEvent>(() => document, 'keydown', onDocumentKeydown)
 </script>
 
 <template>
