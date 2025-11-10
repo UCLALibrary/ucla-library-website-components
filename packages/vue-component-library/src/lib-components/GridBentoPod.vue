@@ -24,9 +24,9 @@ const classes = computed(() => {
 })
 
 const sortedColumns = computed(() => {
-  if (props.items.length <= 1) {
+  if (props.items.length <= 1)
     return [props.items]
-  }
+
   return sortColumns(props.items, 2)
 })
 </script>
