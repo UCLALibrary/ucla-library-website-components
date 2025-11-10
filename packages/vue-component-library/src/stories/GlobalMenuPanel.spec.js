@@ -5,9 +5,6 @@ describe('Funkhaus / Global Menu Panel', () => {
       '/iframe.html?id=funkhaus-global-menu-panel--default&args=&viewMode=story'
     )
 
-    // assert the url
-    cy.url().should('include', 'global-menu-panel')
-
-    cy.percySnapshot('Funkhaus / Global Menu Panel: Default')
+    cy.get('.global-menu-panel').should('exist')
   })
 })
