@@ -100,7 +100,7 @@ const longTextItems = [
     to: '/item-1',
     image: baseImage,
     title: 'This is a very long title that should wrap or truncate properly in the UI to avoid layout breaking',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '.repeat(
+    text: 'This text Truncated to 4 lines '.repeat(
       8
     ),
     count: 9999,
