@@ -12,12 +12,15 @@ import SvgYtIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_y
 import SvgIgIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_ig.svg'
 import SvgXIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_x.svg'
 import SvgFbIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-footer_fb.svg'
+import SvgLbIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-social_letterboxd.svg'
+import SvgBsIcon from 'ucla-library-design-tokens/assets/svgs/icon-ftva-social_bluesky.svg'
 import formatLinkTarget from '@/utils/formatLinkTarget'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { useTheme } from '@/composables/useTheme'
 
 // CHILD COMPONENTS
 import SmartLink from '@/lib-components/SmartLink.vue'
+import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 // PROPS
 const props = defineProps({
@@ -30,10 +33,12 @@ const props = defineProps({
     default: false,
   },
 })
+
 const formIcons = {
   arrowRight: SvgArrowRight,
   caretRight: SvgCaretRight,
 }
+
 const socialMediaIcons = {
   youtube: SvgYtIcon,
   Youtube: SvgYtIcon,
@@ -45,20 +50,27 @@ const socialMediaIcons = {
   x: SvgXIcon,
   X: SvgXIcon, // handle either X or Twitter
   facebook: SvgFbIcon,
-  Facebook: SvgFbIcon
+  Facebook: SvgFbIcon,
+  letterboxd: SvgLbIcon,
+  Letterboxd: SvgLbIcon,
+  bluesky: SvgBsIcon,
+  Bluesky: SvgBsIcon
 }
 
 // THEME
 const theme = useTheme()
+
 const wrapperClasses = computed(() => ['footer-primary', theme?.value || ''])
+
 const classes = computed(() => {
   return props.form ? ['container'] : ['container no-form']
 })
+
 const parsedFooterThemeSettings = computed(() => {
   // ftva
   if (theme?.value === 'ftva') {
     return {
-      statement: 'Subscribe to receive the latest updates on what\'s happening at the Film & Television Archive.',
+      statement: 'Receive the latest news on what\'s happening at the UCLA Film & Television Archive.',
       label: 'Submit',
       icon: formIcons.caretRight,
       socialMediaIcons: true
@@ -73,8 +85,16 @@ const parsedFooterThemeSettings = computed(() => {
   }
 })
 
+const omitFtvaForm = computed(() => {
+  if (theme?.value === 'ftva' && !props.form)
+    return true
+
+  return false
+})
+
 // GLOBALSTORE DATA
 const globalStore = useGlobalStore()
+
 const parsedSocialItems = computed(() => {
   if (Object.keys(globalStore.footerPrimary).length !== 0) {
     return globalStore.footerPrimary.nodes[0].children
@@ -88,6 +108,7 @@ const parsedSocialItems = computed(() => {
   }
   return []
 })
+
 const parsedPressItems = computed(() => {
   if (Object.keys(globalStore.footerPrimary).length !== 0) {
     return globalStore.footerPrimary.nodes[1].children
@@ -101,6 +122,7 @@ const parsedPressItems = computed(() => {
   }
   return []
 })
+
 const parsedFooterLogo = computed(() => {
   if (theme?.value === 'ftva')
     return SvgLogoFTVA
@@ -175,6 +197,19 @@ function formatTarget(target: string) {
         </ul>
       </div>
 
+      <!-- Current FTVA implementation omits the form -->
+      <div
+        v-if="omitFtvaForm"
+        class="no-ftva-form-inner-container"
+      >
+        <h2 class="title">
+          Stay updated
+        </h2>
+        <p class="statement">
+          {{ parsedFooterThemeSettings.statement }}
+        </p>
+        <ButtonLink label="Sign Up" to="/signup" />
+      </div>
       <form
         v-if="form"
         id="mc-embedded-subscribe-form"
@@ -192,7 +227,6 @@ function formatTarget(target: string) {
           <h2 class="title">
             Stay updated
           </h2>
-
           <p class="statement">
             {{ parsedFooterThemeSettings.statement }}
           </p>

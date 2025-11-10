@@ -26,6 +26,7 @@ const props = defineProps({
     type: String,
     default: '',
   },
+
   isSecondary: {
     type: Boolean,
     default: false,
@@ -93,12 +94,12 @@ const parsedIconName = computed(() => {
     case isInternalLink(props.to):
       return SvgArrowRight
     case props.linkTarget === '_blank'
-      || props.iconName === 'svg-external-link':
+            || props.iconName === 'svg-external-link':
       return SvgExternalLink
     case props.iconName === 'icon-close':
       return IconClose
-    // case props.iconName:
-    //     return props.iconName
+      // case props.iconName:
+      //     return props.iconName
     default:
       return SvgExternalLink
   }
