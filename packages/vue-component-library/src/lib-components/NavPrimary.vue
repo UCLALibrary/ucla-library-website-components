@@ -277,7 +277,7 @@ onMounted(() => {
       v-else-if="isMobile && themeSettings.headerText"
       class="item-top-mobile"
     >
-      {{ themeSettings.headerText }}
+      <a href="/" target="_self">{{ themeSettings.headerText }}</a>
     </div>
 
     <div class="nav-background-fill" />
