@@ -1,6 +1,6 @@
+import { computed, provide, ref } from 'vue'
 import HeaderMainFunkhaus from '@/lib-components/HeaderMainFunkhaus.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
-import { provide, computed, ref } from 'vue'
 
 // Storybook default settings
 export default {
@@ -15,12 +15,12 @@ export function Default() {
       theme: computed(() => 'dlc'),
     }
   })
-  
+
   return {
     components: { HeaderMainFunkhaus, SmartLink },
     setup() {
       const menuOpened = ref(false)
-      
+
       const toggleMenu = () => {
         menuOpened.value = !menuOpened.value
       }
@@ -39,7 +39,7 @@ export function Default() {
           to: '/feedback',
         }
       ]
-      
+
       return {
         menuOpened,
         toggleMenu,
@@ -62,16 +62,16 @@ export function WithDefaultSlotFIlled() {
       theme: computed(() => 'dlc'),
     }
   })
-  
+
   return {
     components: { HeaderMainFunkhaus, SmartLink },
     setup() {
       const menuOpened = ref(false)
-      
+
       const toggleMenu = () => {
         menuOpened.value = !menuOpened.value
       }
-      
+
       const secondaryItems = [
         {
           label: 'Locations & Hours',

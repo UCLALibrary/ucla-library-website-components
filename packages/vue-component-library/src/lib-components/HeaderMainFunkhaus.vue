@@ -1,16 +1,15 @@
 <script setup lang="ts">
 // Imports
 import SvgLibraryLogo from 'ucla-library-design-tokens/assets/svgs/logo-library-digital-collections.svg'
+import { computed } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import GlobalHamburger from '@/lib-components/GlobalHamburger.vue'
 import SiteBrandBar from '@/lib-components/SiteBrandBar.vue'
 
-
 import { useTheme } from '@/composables/useTheme'
-import { computed } from 'vue'
 
 // Props
-type HeaderMainFunkhausProps = {
+interface HeaderMainFunkhausProps {
   menuOpened: boolean
   showSecondary: boolean
   menuItems: any[]
@@ -42,11 +41,11 @@ const parsedSubMenuItems = computed(() => {
 })
 
 // Methods
-const toggleMenu = () => {
+function toggleMenu() {
   emit('toggle-menu')
 }
 
-const handleAccountButtonClick = () => {
+function handleAccountButtonClick() {
   console.log('handleAccountButtonClick')
 }
 </script>
@@ -56,8 +55,8 @@ const handleAccountButtonClick = () => {
     <SiteBrandBar class="brand-bar" />
 
     <ul
-      class="container-secondary show-desktop"
       v-if="showSecondary"
+      class="container-secondary show-desktop"
     >
       <li
         v-for="item in parsedSubMenuItems"
@@ -91,7 +90,6 @@ const handleAccountButtonClick = () => {
         />
       </SmartLink>
 
-
       <ul class="header-links show-desktop">
         <li
           v-for="item in menuItems"
@@ -113,7 +111,6 @@ const handleAccountButtonClick = () => {
         :is-opened="menuOpened"
         @toggle-menu="toggleMenu"
       />
-
     </div>
   </div>
 </template>
