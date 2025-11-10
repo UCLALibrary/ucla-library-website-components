@@ -6,14 +6,12 @@ export default {
   component: ButtonIiif,
 }
 
-export function Default() {
-  return {
-    components: { ButtonIiif },
-    provide() {
-      return {
-        theme: computed(() => 'dlc'),
-      }
-    },
-    template: '<ButtonIiif to="https://iiif.io/" />',
-  }
-}
+export const Default = () => ({
+  components: { ButtonIiif },
+  provide() {
+    return {
+      theme: computed(() => 'dlc'),
+    }
+  },
+  template: '<ButtonIiif to="https://iiif.io/" />',
+})

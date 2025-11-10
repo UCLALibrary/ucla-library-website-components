@@ -35,8 +35,8 @@ const baseItems = [
   },
   {
     label: 'Manifest URL',
-    showButtonIiif: true,
-    buttonIiifTo:
+    showButtonIIIF: true,
+    buttonIIIFTo:
             'https://www.figma.com/design/CDhWDARLb36ftkQce1LyLC/Breakpoints?node-id=75-12920&m=dev',
     value: [
       {
