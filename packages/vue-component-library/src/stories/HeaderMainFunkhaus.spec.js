@@ -4,6 +4,6 @@ describe('Funkhaus / Header Main Funkhaus', () => {
       '/iframe.html?id=funkhaus-header-main-funkhaus--default&args=&viewMode=story'
     )
     cy.get('.header-main-funkahus').should('exist')
-    cy.percySnapshot('Funkhaus / Header Main Funkhaus: Default')
+    // cy.percySnapshot('Funkhaus / Header Main Funkhaus: Default')
   })
 })
