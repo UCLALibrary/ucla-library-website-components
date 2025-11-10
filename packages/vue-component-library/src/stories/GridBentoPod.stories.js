@@ -29,82 +29,24 @@ Default.args = {
   items: [
     {
       id: '1',
-      title: 'Bento Pod Title',
-      description: 'Description for the first pod',
-      items: [
-        {
-          title: 'Item 1',
-          to: '/item-1',
-          meta: {
-            type: 'Type A',
-            date: '2025-07-08',
-            program: 'Program X',
-          },
-        },
-        {
-          title: 'Item 2',
-          to: '/item-2',
-          meta: {
-            type: 'Type B',
-            date: '2025-07-09',
-            program: 'Program Y',
-          },
-        },
-        {
-          title: 'Item 3',
-          to: '/item-3',
-          meta: {
-            type: 'Type C',
-            date: '2025-07-10',
-            program: 'Program Z',
-          },
-        },
-        {
-          title: 'Item 4',
-          to: '/item-4',
-          meta: {
-            type: 'Type D',
-            date: '2025-07-11',
-            program: 'Program W',
-          },
-        },
-        {
-          title: 'Item 5',
-          to: '/item-5',
-          meta: {
-            type: 'Type E',
-            date: '2025-07-12',
-            program: 'Program V',
-          },
-        },
-      ],
-    },
-  ],
-}
-
-export const SinglePod = Template.bind({})
-SinglePod.args = {
-  items: [
-    {
-      id: '1',
       title: 'Featured Collections',
-      description: 'Highlighted collections and resources',
+      description: 'Explore our most significant and frequently accessed collections',
       items: [
         {
           title: 'Los Angeles Times Photographic Archive',
           to: '/collections/lat-photos',
           meta: {
             type: 'Photographs',
-            date: 'January 01, 2039',
+            date: 'January 15, 2024',
             program: 'News & Media',
           },
         },
         {
-          title: 'Charles E. Young Research Library',
+          title: 'Charles E. Young Research Library Papers',
           to: '/collections/young-library',
           meta: {
-            type: 'Library',
-            date: 'February 15, 2039',
+            type: 'Archives',
+            date: 'February 20, 2024',
             program: 'Research',
           },
         },
@@ -113,7 +55,7 @@ SinglePod.args = {
           to: '/collections/oral-history',
           meta: {
             type: 'Audio',
-            date: 'March 10, 2039',
+            date: 'March 10, 2024',
             program: 'History',
           },
         },
@@ -122,7 +64,7 @@ SinglePod.args = {
           to: '/collections/medieval',
           meta: {
             type: 'Manuscripts',
-            date: 'April 22, 2039',
+            date: 'April 5, 2024',
             program: 'Rare Books',
           },
         },
@@ -131,7 +73,7 @@ SinglePod.args = {
           to: '/collections/lgbtq-activism',
           meta: {
             type: 'Archives',
-            date: 'May 30, 2039',
+            date: 'May 18, 2024',
             program: 'Social Movements',
           },
         },
@@ -140,87 +82,291 @@ SinglePod.args = {
           to: '/collections/japanese-american',
           meta: {
             type: 'Documents',
-            date: 'June 18, 2039',
+            date: 'June 2, 2024',
             program: 'History',
           },
         },
+        {
+          title: 'UCLA Yearbooks Collection',
+          to: '/collections/yearbooks',
+          meta: {
+            type: 'Publications',
+            date: 'July 12, 2024',
+            program: 'University Archives',
+          },
+        },
+        {
+          title: 'Westwood Village Historical Records',
+          to: '/collections/westwood',
+          meta: {
+            type: 'Documents',
+            date: 'August 8, 2024',
+            program: 'Local History',
+          },
+        },
       ],
-    },
-  ],
-}
-
-export const EmptyPods = Template.bind({})
-EmptyPods.args = {
-  items: [
-    {
-      id: '1',
-      title: 'Empty Collection',
-      description: 'This collection has no items',
-      items: [],
     },
     {
       id: '2',
-      title: 'Another Empty Collection',
-      description: 'This collection also has no items',
-      items: [],
-    },
-  ],
-}
-
-export const MixedContent = Template.bind({})
-MixedContent.args = {
-  items: [
-    {
-      id: '1',
-      title: 'Full Collection',
-      description: 'A collection with multiple items',
+      title: 'Digital Archives',
+      description: 'Digitized materials and born-digital collections available online',
       items: [
         {
-          title: 'Item 1',
-          to: '/item-1',
+          title: 'California Digital Newspaper Collection',
+          to: '/digital/newspapers',
           meta: {
-            type: 'Type A',
-            date: '2025-07-08',
-            program: 'Program X',
+            type: 'Newspapers',
+            date: 'September 1, 2024',
+            program: 'Digital Collections',
           },
         },
         {
-          title: 'Item 2',
-          to: '/item-2',
+          title: 'UCLA Film & Television Archive',
+          to: '/digital/film-tv',
           meta: {
-            type: 'Type B',
-            date: '2025-07-09',
-            program: 'Program Y',
+            type: 'Moving Images',
+            date: 'September 15, 2024',
+            program: 'Media Archives',
+          },
+        },
+        {
+          title: 'Ethnomusicology Archive Recordings',
+          to: '/digital/ethnomusicology',
+          meta: {
+            type: 'Audio',
+            date: 'October 3, 2024',
+            program: 'Music',
+          },
+        },
+        {
+          title: 'Map Collections',
+          to: '/digital/maps',
+          meta: {
+            type: 'Maps',
+            date: 'October 20, 2024',
+            program: 'Geography',
+          },
+        },
+        {
+          title: 'Historical Photographs',
+          to: '/digital/photographs',
+          meta: {
+            type: 'Photographs',
+            date: 'November 5, 2024',
+            program: 'Visual Resources',
+          },
+        },
+        {
+          title: 'Rare Book Digital Library',
+          to: '/digital/rare-books',
+          meta: {
+            type: 'Books',
+            date: 'November 18, 2024',
+            program: 'Special Collections',
           },
         },
       ],
-    },
-    {
-      id: '2',
-      title: 'Empty Collection',
-      description: 'This collection is empty',
-      items: [],
     },
     {
       id: '3',
-      title: 'Single Item Collection',
-      description: 'A collection with just one item',
+      title: 'Research Resources',
+      description: 'Essential tools and databases for academic research',
       items: [
         {
-          title: 'Single Item',
-          to: '/single-item',
+          title: 'Academic Search Complete',
+          to: '/resources/academic-search',
           meta: {
-            type: 'Type C',
-            date: '2025-07-10',
-            program: 'Program Z',
+            type: 'Database',
+            date: 'December 1, 2024',
+            program: 'General Research',
+          },
+        },
+        {
+          title: 'JSTOR Digital Library',
+          to: '/resources/jstor',
+          meta: {
+            type: 'Database',
+            date: 'December 5, 2024',
+            program: 'Scholarly Articles',
+          },
+        },
+        {
+          title: 'ProQuest Historical Newspapers',
+          to: '/resources/proquest',
+          meta: {
+            type: 'Database',
+            date: 'December 10, 2024',
+            program: 'Historical Research',
+          },
+        },
+        {
+          title: 'ScienceDirect',
+          to: '/resources/sciencedirect',
+          meta: {
+            type: 'Database',
+            date: 'December 15, 2024',
+            program: 'STEM',
+          },
+        },
+        {
+          title: 'Artstor Digital Library',
+          to: '/resources/artstor',
+          meta: {
+            type: 'Database',
+            date: 'December 20, 2024',
+            program: 'Arts & Humanities',
+          },
+        },
+        {
+          title: 'LexisNexis Academic',
+          to: '/resources/lexisnexis',
+          meta: {
+            type: 'Database',
+            date: 'December 25, 2024',
+            program: 'Law & Politics',
+          },
+        },
+        {
+          title: 'PubMed Central',
+          to: '/resources/pubmed',
+          meta: {
+            type: 'Database',
+            date: 'January 1, 2025',
+            program: 'Medicine',
+          },
+        },
+      ],
+    },
+    {
+      id: '4',
+      title: 'Research Resources',
+      description: 'Essential tools and databases for academic research',
+      items: [
+        {
+          title: 'Academic Search Complete',
+          to: '/resources/academic-search',
+          meta: {
+            type: 'Database',
+            date: 'December 1, 2024',
+            program: 'General Research',
+          },
+        },
+        {
+          title: 'JSTOR Digital Library',
+          to: '/resources/jstor',
+          meta: {
+            type: 'Database',
+            date: 'December 5, 2024',
+            program: 'Scholarly Articles',
+          },
+        },
+        {
+          title: 'ProQuest Historical Newspapers',
+          to: '/resources/proquest',
+          meta: {
+            type: 'Database',
+            date: 'December 10, 2024',
+            program: 'Historical Research',
+          },
+        },
+        {
+          title: 'ScienceDirect',
+          to: '/resources/sciencedirect',
+          meta: {
+            type: 'Database',
+            date: 'December 15, 2024',
+            program: 'STEM',
+          },
+        },
+        {
+          title: 'Artstor Digital Library',
+          to: '/resources/artstor',
+          meta: {
+            type: 'Database',
+            date: 'December 20, 2024',
+            program: 'Arts & Humanities',
+          },
+        },
+        {
+          title: 'LexisNexis Academic',
+          to: '/resources/lexisnexis',
+          meta: {
+            type: 'Database',
+            date: 'December 25, 2024',
+            program: 'Law & Politics',
+          },
+        },
+        {
+          title: 'PubMed Central',
+          to: '/resources/pubmed',
+          meta: {
+            type: 'Database',
+            date: 'January 1, 2025',
+            program: 'Medicine',
+          },
+        },
+      ],
+    },
+    {
+      id: '5',
+      title: 'Digital Archives',
+      description: 'Digitized materials and born-digital collections available online',
+      items: [
+        {
+          title: 'California Digital Newspaper Collection',
+          to: '/digital/newspapers',
+          meta: {
+            type: 'Newspapers',
+            date: 'September 1, 2024',
+            program: 'Digital Collections',
+          },
+        },
+        {
+          title: 'UCLA Film & Television Archive',
+          to: '/digital/film-tv',
+          meta: {
+            type: 'Moving Images',
+            date: 'September 15, 2024',
+            program: 'Media Archives',
+          },
+        },
+        {
+          title: 'Ethnomusicology Archive Recordings',
+          to: '/digital/ethnomusicology',
+          meta: {
+            type: 'Audio',
+            date: 'October 3, 2024',
+            program: 'Music',
+          },
+        },
+        {
+          title: 'Map Collections',
+          to: '/digital/maps',
+          meta: {
+            type: 'Maps',
+            date: 'October 20, 2024',
+            program: 'Geography',
+          },
+        },
+        {
+          title: 'Historical Photographs',
+          to: '/digital/photographs',
+          meta: {
+            type: 'Photographs',
+            date: 'November 5, 2024',
+            program: 'Visual Resources',
+          },
+        },
+        {
+          title: 'Rare Book Digital Library',
+          to: '/digital/rare-books',
+          meta: {
+            type: 'Books',
+            date: 'November 18, 2024',
+            program: 'Special Collections',
           },
         },
       ],
     },
   ],
-}
-
-export const NoItems = Template.bind({})
-NoItems.args = {
-  items: [],
 }
