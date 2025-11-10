@@ -10,14 +10,7 @@
         width: 100%;
     }
 
-    // Hovers
-    @media #{$has-hover} {
-    }
-
     // Breakpoints
-    @media #{$extra-large} {
-    }
-
     @media #{$medium} {
         column-count: 1;
         column-gap: 0;
