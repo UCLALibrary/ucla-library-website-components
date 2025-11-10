@@ -183,6 +183,10 @@ const parsedDateFormat = computed(() => {
       >
         <slot name="customDescription" />
       </template>
+
+      <template v-if="$slots.customDateTime" #customDateTime>
+        <slot name="customDateTime" />
+      </template>
     </CardMeta>
   </li>
 </template>
