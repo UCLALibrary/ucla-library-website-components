@@ -41,13 +41,12 @@ function handleButtonClick(button: any) {
   if (typeof window !== 'undefined' && window.location) {
     const urlToCopy = button.copyUrl && typeof button.copyUrl === 'string' && button.copyUrl.length > 0
       ? button.copyUrl
-      : window.location.href;
+      : window.location.href
     navigator.clipboard.writeText(urlToCopy).catch((err) => {
       console.error('Failed to copy URL:', err)
     })
   }
 }
-
 </script>
 
 <template>
