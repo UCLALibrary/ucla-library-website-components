@@ -1,0 +1,93 @@
+.dlc.collection-overview,
+.collection-overview {
+    position: relative;
+
+    .layout-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 48px;
+    }
+
+    .meta {
+        width: 50%;
+    }
+    .image {
+        position: sticky;
+        top: 10px;
+
+        aspect-ratio: 592 / 576;
+        width: 50%;
+        height: 100%;
+    }
+
+    .title {
+        margin: 0 0 8px;
+
+        font-family: var(--font-primary);
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 1.1;
+        color: var(--color-black);
+    }
+
+    .search-results-count {
+        margin-bottom: 48px;
+    }
+
+    .subtitle {
+        margin: 0 0 18px;
+
+        font-family: var(--font-primary);
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 1.2;
+        color: var(--color-primary-blue-03);
+    }
+    .description {
+        margin: 0 0 20px;
+
+        font-family: var(--font-secondary);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--color-gray-800);
+    }
+
+    // Show/Hide mobile/desktop elements
+    .phone {
+        display: none;
+    }
+    .desktop {
+        display: block;
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+        .layout-container {
+            gap: 24px;
+        }
+
+        // Show/Hide mobile/desktop elements
+        .phone {
+            display: block;
+        }
+        .desktop {
+            display: none;
+        }
+    }
+    @media #{$small} {
+        .layout-container {
+            flex-direction: column-reverse;
+            gap: 48px;
+        }
+
+        .meta,
+        .image {
+            width: 100%;
+        }
+        .image {
+            position: relative;
+            top: unset;
+        }
+    }
+}
