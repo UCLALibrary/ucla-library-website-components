@@ -3,6 +3,7 @@
 import { computed } from 'vue'
 import BentoPod from './BentoPod.vue'
 import { useTheme } from '@/composables/useTheme'
+import sortColumns from '@/utils/sortColumns'
 
 // Props
 interface GridBentoPodProps {
@@ -13,7 +14,7 @@ interface GridBentoPodProps {
     items: Array<Record<string, any>>
   }>
 }
-defineProps<GridBentoPodProps>()
+const props = defineProps<GridBentoPodProps>()
 
 // Data
 const { theme } = useTheme()
@@ -21,23 +22,31 @@ const { theme } = useTheme()
 const classes = computed(() => {
   return ['grid-bento-pod', theme?.value || '']
 })
-// Methods
 
-// Watchers
-
-// Lifecycle Hooks
+const sortedColumns = computed(() => {
+  if (props.items.length <= 1) {
+    return [props.items]
+  }
+  return sortColumns(props.items, 2)
+})
 </script>
 
 <template>
   <div :class="classes">
-    <BentoPod
-      v-for="item in items"
-      :key="item.id"
-      :title="item.title"
-      :description="item.description"
-      :items="item.items"
-      class="bento-pod"
-    />
+    <div
+      v-for="(column, columnIndex) in sortedColumns"
+      :key="columnIndex"
+      class="bento-pod-column"
+    >
+      <BentoPod
+        v-for="item in column"
+        :key="item.id"
+        :title="item.title"
+        :description="item.description"
+        :items="item.items"
+        class="bento-pod"
+      />
+    </div>
   </div>
 </template>
 

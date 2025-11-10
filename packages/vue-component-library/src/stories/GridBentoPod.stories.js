@@ -146,25 +146,7 @@ Default.args = {
             date: 'October 20, 2024',
             program: 'Geography',
           },
-        },
-        {
-          title: 'Historical Photographs',
-          to: '/digital/photographs',
-          meta: {
-            type: 'Photographs',
-            date: 'November 5, 2024',
-            program: 'Visual Resources',
-          },
-        },
-        {
-          title: 'Rare Book Digital Library',
-          to: '/digital/rare-books',
-          meta: {
-            type: 'Books',
-            date: 'November 18, 2024',
-            program: 'Special Collections',
-          },
-        },
+        }
       ],
     },
     {
@@ -173,68 +155,41 @@ Default.args = {
       description: 'Essential tools and databases for academic research',
       items: [
         {
-          title: 'Academic Search Complete',
-          to: '/resources/academic-search',
+          title: 'California Digital Newspaper Collection',
+          to: '/digital/newspapers',
           meta: {
-            type: 'Database',
-            date: 'December 1, 2024',
-            program: 'General Research',
+            type: 'Newspapers',
+            date: 'September 1, 2024',
+            program: 'Digital Collections',
           },
         },
         {
-          title: 'JSTOR Digital Library',
-          to: '/resources/jstor',
+          title: 'UCLA Film & Television Archive',
+          to: '/digital/film-tv',
           meta: {
-            type: 'Database',
-            date: 'December 5, 2024',
-            program: 'Scholarly Articles',
+            type: 'Moving Images',
+            date: 'September 15, 2024',
+            program: 'Media Archives',
           },
         },
         {
-          title: 'ProQuest Historical Newspapers',
-          to: '/resources/proquest',
+          title: 'Ethnomusicology Archive Recordings',
+          to: '/digital/ethnomusicology',
           meta: {
-            type: 'Database',
-            date: 'December 10, 2024',
-            program: 'Historical Research',
+            type: 'Audio',
+            date: 'October 3, 2024',
+            program: 'Music',
           },
         },
         {
-          title: 'ScienceDirect',
-          to: '/resources/sciencedirect',
+          title: 'Map Collections',
+          to: '/digital/maps',
           meta: {
-            type: 'Database',
-            date: 'December 15, 2024',
-            program: 'STEM',
+            type: 'Maps',
+            date: 'October 20, 2024',
+            program: 'Geography',
           },
-        },
-        {
-          title: 'Artstor Digital Library',
-          to: '/resources/artstor',
-          meta: {
-            type: 'Database',
-            date: 'December 20, 2024',
-            program: 'Arts & Humanities',
-          },
-        },
-        {
-          title: 'LexisNexis Academic',
-          to: '/resources/lexisnexis',
-          meta: {
-            type: 'Database',
-            date: 'December 25, 2024',
-            program: 'Law & Politics',
-          },
-        },
-        {
-          title: 'PubMed Central',
-          to: '/resources/pubmed',
-          meta: {
-            type: 'Database',
-            date: 'January 1, 2025',
-            program: 'Medicine',
-          },
-        },
+        }
       ],
     },
     {
@@ -243,68 +198,41 @@ Default.args = {
       description: 'Essential tools and databases for academic research',
       items: [
         {
-          title: 'Academic Search Complete',
-          to: '/resources/academic-search',
+          title: 'California Digital Newspaper Collection',
+          to: '/digital/newspapers',
           meta: {
-            type: 'Database',
-            date: 'December 1, 2024',
-            program: 'General Research',
+            type: 'Newspapers',
+            date: 'September 1, 2024',
+            program: 'Digital Collections',
           },
         },
         {
-          title: 'JSTOR Digital Library',
-          to: '/resources/jstor',
+          title: 'UCLA Film & Television Archive',
+          to: '/digital/film-tv',
           meta: {
-            type: 'Database',
-            date: 'December 5, 2024',
-            program: 'Scholarly Articles',
+            type: 'Moving Images',
+            date: 'September 15, 2024',
+            program: 'Media Archives',
           },
         },
         {
-          title: 'ProQuest Historical Newspapers',
-          to: '/resources/proquest',
+          title: 'Ethnomusicology Archive Recordings',
+          to: '/digital/ethnomusicology',
           meta: {
-            type: 'Database',
-            date: 'December 10, 2024',
-            program: 'Historical Research',
+            type: 'Audio',
+            date: 'October 3, 2024',
+            program: 'Music',
           },
         },
         {
-          title: 'ScienceDirect',
-          to: '/resources/sciencedirect',
+          title: 'Map Collections',
+          to: '/digital/maps',
           meta: {
-            type: 'Database',
-            date: 'December 15, 2024',
-            program: 'STEM',
+            type: 'Maps',
+            date: 'October 20, 2024',
+            program: 'Geography',
           },
-        },
-        {
-          title: 'Artstor Digital Library',
-          to: '/resources/artstor',
-          meta: {
-            type: 'Database',
-            date: 'December 20, 2024',
-            program: 'Arts & Humanities',
-          },
-        },
-        {
-          title: 'LexisNexis Academic',
-          to: '/resources/lexisnexis',
-          meta: {
-            type: 'Database',
-            date: 'December 25, 2024',
-            program: 'Law & Politics',
-          },
-        },
-        {
-          title: 'PubMed Central',
-          to: '/resources/pubmed',
-          meta: {
-            type: 'Database',
-            date: 'January 1, 2025',
-            program: 'Medicine',
-          },
-        },
+        }
       ],
     },
     {

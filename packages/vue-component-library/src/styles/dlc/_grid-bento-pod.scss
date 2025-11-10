@@ -1,24 +1,33 @@
 .grid-bento-pod,
 .dlc.grid-bento-pod {
-    column-count: 2;
-    column-gap: 32px;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+
+    .bento-pod-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
 
     .bento-pod {
-        break-inside: avoid;
         margin-bottom: 32px;
-        display: inline-block;
         width: 100%;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     // Breakpoints
     @media #{$medium} {
-        column-count: 1;
-        column-gap: 0;
+        flex-direction: column;
+        gap: 0;
     }
 
     @media #{$small} {
-        column-count: 1;
-        column-gap: 0;
+        flex-direction: column;
+        gap: 0;
 
         .bento-pod {
             margin-bottom: 16px;
