@@ -18,8 +18,8 @@ const { title, iconName, isSelected, removeIconName } = defineProps({
   },
   isSelected: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const emit = defineEmits(['removeBlockFilter'])
@@ -38,15 +38,18 @@ const route = useRoute()
 const theme = useTheme()
 
 const sectionName = computed(() => {
-  return (
-    route !== undefined && route.path
-      ? getSectionName(route.path)
-      : 'default'
-  )
+  return route !== undefined && route.path
+    ? getSectionName(route.path)
+    : 'default'
 })
 
 const classes = computed(() => {
-  return ['block-remove-search-filter', theme?.value || '', `color-${sectionName.value}`, (isSelected && theme?.value) ? 'selected' : '']
+  return [
+    'block-remove-search-filter',
+    theme?.value || '',
+        `color-${sectionName.value}`,
+        isSelected && theme?.value ? 'selected' : '',
+  ]
 })
 
 // compute remove icon based on theme
@@ -65,11 +68,7 @@ function closeBlockFilter() {
 </script>
 
 <template>
-  <button
-    type="button"
-    :class="classes"
-    @click="closeBlockFilter"
-  >
+  <button type="button" :class="classes" @click="closeBlockFilter">
     <BlockTag
       :label="title"
       :icon-name="iconName"
