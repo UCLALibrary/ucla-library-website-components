@@ -85,9 +85,7 @@ const currentTheme = computed(() => {
           <IconFTVAVideo class="white-icon" />
         </BlockTag>
         <IconFTVAWatchOnline
-          v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')"
-        />
-        />
+          v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')" />
       </template>
       <template
         v-if="item.customDateTime"
