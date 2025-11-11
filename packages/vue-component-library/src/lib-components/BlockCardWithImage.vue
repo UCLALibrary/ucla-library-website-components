@@ -50,6 +50,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  date: {
+    type: String,
+    default: '',
+  },
   ongoing: {
     type: Boolean,
     default: false,
@@ -169,6 +173,7 @@ const parsedDateFormat = computed(() => {
       :language="language"
       :section-handle="sectionHandle"
       :date-created="dateCreated"
+      :date="date"
     >
       <template
         v-if="$slots.customTitle"

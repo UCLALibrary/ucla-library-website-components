@@ -1,7 +1,4 @@
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import { computed } from 'vue'
 import type { PropType } from 'vue'
 import IconFTVAVideo from 'ucla-library-design-tokens/assets/svgs/icon-ftva-video.svg'
@@ -36,8 +33,16 @@ const classes = computed(() => {
 const parsedAspectRatio = computed(() => {
   if (items[0].sectionHandle === 'ftvaItemInCollection')
     return 75
+  if (theme?.value === 'dlc' && hasDate.value)
+    return 100
+  else if (theme?.value === 'dlc')
+    return 108
 
   return 60
+})
+
+const hasDate = computed(() => {
+  return items.some(item => item.date)
 })
 
 const currentTheme = computed(() => {
@@ -46,7 +51,10 @@ const currentTheme = computed(() => {
 </script>
 
 <template>
-  <ul :class="classes" :data-header="sectionTitle ? sectionTitle : null">
+  <ul
+    :class="classes"
+    :data-header="sectionTitle ? sectionTitle : null"
+  >
     <BlockCardWithImage
       v-for="(item, index) in items"
       :key="`Card${index}`"
@@ -57,9 +65,12 @@ const currentTheme = computed(() => {
       :alternative-full-name="item.alternativeFullName"
       :language="item.language"
       :start-date="item.startDate"
-      :end-date="item.endDate" :text="item.text"
+      :end-date="item.endDate"
+      :text="item.text"
+      :date="item.date"
       :image-aspect-ratio="parsedAspectRatio"
-      :is-vertical="true" :byline-one="item.bylineOne"
+      :is-vertical="true"
+      :byline-one="item.bylineOne"
       :byline-two="item.bylineTwo"
       :section-handle="item.sectionHandle"
       :ongoing="item.ongoing"
@@ -70,16 +81,14 @@ const currentTheme = computed(() => {
         <BlockTag v-if="item.videoEmbed && item.videoEmbed !== null">
           <IconFTVAVideo class="white-icon" />
         </BlockTag>
-        <IconFTVAWatchOnline v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')" />
+        <IconFTVAWatchOnline
+          v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')" />
       </template>
     </BlockCardWithImage>
   </ul>
 </template>
 
-<style
-  lang="scss"
-  scoped
->
+<style lang="scss" scoped>
 @import "@/styles/default/_section-teaser-card.scss";
 @import "@/styles/ftva/_section-teaser-card.scss";
 </style>

@@ -38,6 +38,7 @@ export interface BlockCallToActionTwoUpType {
 }
 
 export interface BlockCardMetaType {
+  date: string
   to: string
   category: string
   title: string

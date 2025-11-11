@@ -22,7 +22,7 @@ const mock = [
     text: 'Ultricies leo integer malesuada nunc vel risus commodo viverra.',
   },
   {
-    image: API.image,
+    image: API.image, 
     to: '/visit/foo/bat/',
     category: 'Aliquam Varius',
     title: 'Pretium magna eget dignissim placerat arcu velit et metus',

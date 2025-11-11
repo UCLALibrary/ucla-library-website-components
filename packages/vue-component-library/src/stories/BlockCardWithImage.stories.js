@@ -31,7 +31,7 @@ const mock = {
   ],
   bylineOne: null,
   bylineTwo: null,
-  sectionHandle: 'event',
+  sectionHandle: 'event', 
 }
 
 function Template(args) {
