@@ -6,14 +6,38 @@
     .container {
         flex-direction: row-reverse;
 
-        .form {
+        &.no-form {
+            justify-content: space-between;
+        }
+
+        .form,
+        .no-ftva-form-inner-container {
             h2.title {
                 font-size: 50px;
             }
 
             .statement {
+                padding-top: 5px;
                 @include ftva-body;
                 -webkit-text-stroke: .25px $navy-blue;
+            }
+        }
+
+        .no-ftva-form-inner-container {
+            color: var(--color-white);
+
+            .title {
+                @include step-3;
+            }
+            
+            .statement {
+                @include step-0;
+                margin-bottom: 24px;
+            }
+        }
+
+        .form {
+            .statement {
                 padding-top: 5px;
             }
 
@@ -59,11 +83,20 @@
         }
     }
 
+    @media (min-width: 1024px) and (max-width: 1212px){
+        .container {
+            &.no-form {
+                flex-wrap: nowrap;
+            }
+        }
+    }
+
     @media #{$small} {
         .container {
             flex-direction: column;
             gap: 5px;
             padding-bottom: 20px;
+            
             .footer-links {
                 padding-top: 0px
             }
