@@ -2,9 +2,8 @@
 // Imports
 import SvgIconArrowRight from 'ucla-library-design-tokens/assets/svgs/icon-arrow-right.svg'
 import { computed } from 'vue'
-import Button from './Button.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
-import { ButtonColor } from '@/types/components/button.types'
+import ButtonLink from '@/lib-components/ButtonLink.vue'
 import { formatNumberWithCommas } from '@/utils/formatters'
 import { pluralize } from '@/utils/pluralize.ts'
 import { useTheme } from '@/composables/useTheme'
@@ -74,12 +73,11 @@ const classes = computed(() => ['detail-header', theme?.value || ''])
     </div>
 
     <div class="right">
-      <Button
+      <ButtonLink
         v-if="backTo"
         :to="backTo"
         class="back-button"
-        :color="ButtonColor.Grey"
-        text="Back to Search Results"
+        label="Back to Search Results"
       />
     </div>
   </div>
