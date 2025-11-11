@@ -3,7 +3,7 @@ https://www.figma.com/design/CDhWDARLb36ftkQce1LyLC/Breakpoints?node-id=1-25&m=d
 
 https://www.figma.com/design/CDhWDARLb36ftkQce1LyLC/Breakpoints?node-id=1-26&p=f&m=dev
 
-Read in Recording: 
+Read in Recording:
 https://drive.google.com/file/d/17tiGmE4aax-faoo5Rjue2Idbx3OGCFGa/view?usp=sharing
 
 Relevant Links

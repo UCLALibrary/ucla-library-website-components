@@ -1,0 +1,61 @@
+.dlc.button-link {
+    --transition-duration: 0.3s;
+    .hover {
+        display: none;
+    }
+    .arrow {
+        display: none;
+    }
+
+    padding: 10px 15px;
+    border-radius: 30px;
+    background-color: $subtitle-grey;
+
+    font-size: 15px;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-white);
+    outline: none;
+    border: 1px solid $subtitle-grey;
+    min-height: 38px;
+
+    transition: background-color var(--transition-duration) ease-out,
+        color var(--transition-duration) ease-out,
+        border-color var(--transition-duration) ease-out;
+
+    // Remove padding from first child
+    *:not(:only-child):first-child {
+        padding-left: 0px;
+    }
+
+    // Secondary variant
+    &.is-secondary {
+        padding: 8px 20px;
+        border-radius: 5px;
+
+        background-color: transparent;
+        border: 1px solid $accent-blue;
+        color: $accent-blue;
+
+        font-size: 18px;
+        font-family: var(--font-primary);
+        font-weight: 600;
+        line-height: 1;
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        &:hover {
+            background-color: var(--color-secondary-blue-01);
+            border-color: var(--color-secondary-blue-01);
+
+            // Secondary variant hover
+            &.is-secondary {
+                background-color: $accent-blue;
+                border-color: $accent-blue;
+                color: var(--color-white);
+            }
+        }
+    }
+}
