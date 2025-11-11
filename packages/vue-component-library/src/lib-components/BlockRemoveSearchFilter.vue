@@ -56,6 +56,7 @@ const classes = computed(() => {
 const removeIcon = computed(() => {
   switch (theme?.value) {
     case 'ftva':
+    case 'dlc': // TODO: add DLC close icon
       return 'SvgGlyphX'
     default:
       return 'SvgGlyphClose'
@@ -88,4 +89,5 @@ function closeBlockFilter() {
 <style lang="scss" scoped>
 @import "@/styles/default/_block-remove-search-filter.scss";
 @import "@/styles/ftva/_block-remove-search-filter.scss";
+@import "@/styles/dlc/_block-remove-search-filter.scss";
 </style>
