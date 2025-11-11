@@ -60,6 +60,7 @@ const classes = computed(() => [
   { 'is-opened-mobile': mobileMenuIsOpened.value },
   theme?.value || ''
 ])
+
 const themeSettings = computed(() => {
   switch (theme?.value) {
     case 'ftva':
@@ -77,7 +78,9 @@ const themeSettings = computed(() => {
       }
   }
 })
+
 const shouldRenderSmartLink = computed(() => titleRef.value || acronymRef.value)
+
 const noChildren = computed(() => {
   if (!titleRef.value)
     return []
@@ -115,6 +118,7 @@ function toggleMenu() {
     document.body.removeAttribute('tabindex')
   }
 }
+
 // Toggle slot menu (used to render search bar)
 function toggleSlot() {
   // if menu is open, close it first & clear active
@@ -129,9 +133,11 @@ function toggleSlot() {
   // otherwise, just open slot menu
   else { slotIsOpened.value = !slotIsOpened.value }
 }
+
 function setActive(index: number) {
   activeMenuIndex.value = index
 }
+
 function clearActive() {
   activeMenuIndex.value = currentPathActiveIndex.value
 }
@@ -140,6 +146,7 @@ function clearActive() {
 function closeSlot() {
   slotIsOpened.value = false
 }
+
 // expose if needed elsewhere too
 defineExpose({ closeSlot })
 
@@ -147,7 +154,8 @@ defineExpose({ closeSlot })
 const { width } = useWindowSize()
 
 // Use computed to check if it's mobile based on window width
-const isMobile = computed(() => width.value <= 750) // Use 750px for mobile breakpoint
+const mobileBreakpoint = 850 // change scss breakpoints in ftva _header-sticky.scss, _nav-primary.scss, _site-brand-bar.scss
+const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 850px for mobile breakpoint
 
 // toggle Mobile-only menu
 function toggleMobileMenu() {
@@ -158,6 +166,7 @@ function toggleMobileMenu() {
   // toggle mobile menu
   mobileMenuIsOpened.value = !mobileMenuIsOpened.value
 }
+
 // toggle submenus on mobile
 function toggleMenuOrSubmenus(index: number) {
   if (themeSettings.value?.horizontalMobileMenu && (isMobile.value === true)) {
@@ -174,6 +183,7 @@ function toggleMenuOrSubmenus(index: number) {
     toggleMenu()
   }
 }
+
 watch(isMobile, (oldVal, newVal) => {
   // close menus on resize
   if (newVal !== oldVal) {
@@ -182,6 +192,7 @@ watch(isMobile, (oldVal, newVal) => {
     mobileMenuIsOpened.value = false
   }
 })
+
 function searchClick() {
   isMobile.value === true ? toggleMobileMenu() : toggleSlot()
 }
@@ -200,6 +211,11 @@ onMounted(() => {
     },
     { deep: true }
   )
+  watch(route, () => {
+    // force mobile menu to close on navigatiion change
+    // without messing with the complex click handling waterfall for submenus
+    mobileMenuIsOpened.value = false
+  })
   activeMenuIndex.value = currentPathActiveIndex.value
 })
 </script>
@@ -261,7 +277,7 @@ onMounted(() => {
       v-else-if="isMobile && themeSettings.headerText"
       class="item-top-mobile"
     >
-      {{ themeSettings.headerText }}
+      <a href="/" target="_self">{{ themeSettings.headerText }}</a>
     </div>
 
     <div class="nav-background-fill" />
@@ -273,7 +289,7 @@ onMounted(() => {
       class="more-menu"
     >
       <ButtonLink
-        v-if="isMobile && !mobileMenuIsOpened"
+        v-if="!mobileMenuIsOpened"
         class="search-button"
         icon-name="none"
         aria-label="Search"
@@ -304,7 +320,10 @@ onMounted(() => {
         class="slot-container"
         :class="[{ 'is-opened': slotIsOpened, 'is-opened-mobile': mobileMenuIsOpened }]"
       >
-        <slot name="additional-menu" :close-slot="closeSlot" />
+        <slot
+          name="additional-menu"
+          :close-slot="closeSlot"
+        />
       </div>
     </div>
 

@@ -36,7 +36,8 @@ const parsedAspectRatio = computed(() => {
   if (theme?.value === 'dlc' && hasDate.value)
     return 100
   else if (theme?.value === 'dlc')
-    return 108
+    if (theme?.value === 'dlc')
+      return 108
 
   return 60
 })
@@ -83,6 +84,13 @@ const currentTheme = computed(() => {
         </BlockTag>
         <IconFTVAWatchOnline
           v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')" />
+        />
+      </template>
+      <template
+        v-if="item.customDateTime"
+        #customDateTime
+      >
+        {{ item.customDateTime }}
       </template>
     </BlockCardWithImage>
   </ul>
@@ -90,5 +98,6 @@ const currentTheme = computed(() => {
 
 <style lang="scss" scoped>
 @import "@/styles/default/_section-teaser-card.scss";
+@import "@/styles/dlc/_section-teaser-card.scss";
 @import "@/styles/ftva/_section-teaser-card.scss";
 </style>

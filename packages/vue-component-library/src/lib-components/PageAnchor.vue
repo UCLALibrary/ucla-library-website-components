@@ -24,8 +24,17 @@ const route = useRoute()
 // typify valid route color strings
 type routeColors = 'about' | 'help' | 'visit' | 'default' | ''
 
-const isDropdownOpen = ref(false)
+// Theme
+const theme = useTheme()
+const classes = computed(() => {
+  return ['page-anchor', theme?.value || '']
+})
+
 const windowWidth = ref(window.innerWidth)
+
+// If the screen is Desktop and FTVA have pageAnchor default to open
+const isDropdownOpen = ref(theme?.value === 'ftva' && windowWidth.value > 1024)
+
 // Computed
 const sectionName = computed(() => {
   return color || getSectionName(route?.path)
@@ -52,12 +61,6 @@ const isDesktop = computed(() => {
 function toggleDropdown() {
   isDropdownOpen.value = !isDropdownOpen.value
 }
-
-// Theme
-const theme = useTheme()
-const classes = computed(() => {
-  return ['page-anchor', theme?.value || '']
-})
 </script>
 
 <template>
