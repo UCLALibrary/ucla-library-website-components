@@ -30,20 +30,22 @@ const classes = computed(() => {
   return ['section-teaser-card', theme?.value || '', { 'no-grid-layout': !gridLayout }]
 })
 
+const hasDate = computed(() => {
+  return items.some(item => item.date)
+})
+
 const parsedAspectRatio = computed(() => {
   if (items[0].sectionHandle === 'ftvaItemInCollection')
     return 75
-  if (theme?.value === 'dlc' && hasDate.value)
+  if (theme?.value === 'dlc' && hasDate.value) {
     return 100
-  else if (theme?.value === 'dlc')
+  }
+  else if (theme?.value === 'dlc') {
     if (theme?.value === 'dlc')
       return 108
+  }
 
   return 60
-})
-
-const hasDate = computed(() => {
-  return items.some(item => item.date)
 })
 
 const currentTheme = computed(() => {
@@ -83,7 +85,8 @@ const currentTheme = computed(() => {
           <IconFTVAVideo class="white-icon" />
         </BlockTag>
         <IconFTVAWatchOnline
-          v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')" />
+          v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')"
+        />
         />
       </template>
       <template

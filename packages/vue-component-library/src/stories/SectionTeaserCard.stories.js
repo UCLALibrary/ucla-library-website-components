@@ -415,7 +415,7 @@ export function DLCEdgeCases() {
   return {
     data() {
       return { items: mockDLCEdgeCases }
-    }, 
+    },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -436,7 +436,7 @@ export function DLCEdgeCasesWithDate() {
   return {
     data() {
       return { items: mockDLCEdgeCasesWithDate }
-    }, 
+    },
     provide() {
       return {
         theme: computed(() => 'dlc'),
@@ -452,7 +452,6 @@ export function DLCEdgeCasesWithDate() {
   `,
   }
 }
-
 
 export function FTVAEventDetail() {
   return {
