@@ -81,9 +81,9 @@ const selectedLabel = computed(() => {
 
 // FILTER OPTIONS - exclude selected option when dlc theme and isSearch is true
 const parsedOptions = computed(() => {
-  if (dlcTheme.value && !props.isSearch) {
+  if (dlcTheme.value && !props.isSearch)
     return props.options.filter(option => option.value !== selectedFilters.value[props.fieldName])
-  }
+
   return props.options
 })
 </script>
@@ -91,17 +91,9 @@ const parsedOptions = computed(() => {
 <template>
   <div :class="parsedClasses">
     <MobileDrawer>
-      <template
-        v-if="dlcTheme && isSearch"
-        #toggleIcon
-      >
-        <IconDropDownIndicator />
-      </template>
-      <template
-        v-if="dlcTheme && !isSearch"
-        #toggleIcon
-      >
-        <IconCaretDown />
+      <template #toggleIcon>
+        <IconDropDownIndicator v-if="dlcTheme && isSearch" />
+        <IconCaretDown v-if="dlcTheme && !isSearch" />
       </template>
       <template #buttonLabel>
         <span
