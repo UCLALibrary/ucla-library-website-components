@@ -21,9 +21,29 @@ export const mockCalendarEvents = {
               title: '35mm'
             }],
         }],
+      ftvaScreeningFormatFilters: [
+        {
+          id: '3439018',
+          title: '35mm'
+        },
+        {
+          id: '3439017',
+          title: '16mm'
+        }
+      ],
+      ftvaEventTypeFilters: [
+        {
+          title: 'Guest Speaker',
+          id: '2847996'
+        },
+        {
+          title: 'Television',
+          id: '4001432'
+        },
+      ],
       startDate: '2024-10-06T03:30:00',
       to: '/events/',
-      image: null
+      image: null,
     },
     {
       imageCarousel: [],
@@ -44,6 +64,26 @@ export const mockCalendarEvents = {
               title: '35mm'
             }],
         }],
+      ftvaScreeningFormatFilters: [
+        {
+          id: '3439018',
+          title: '35mm'
+        },
+        {
+          id: '3439017',
+          title: '16mm'
+        }
+      ],
+      ftvaEventTypeFilters: [
+        {
+          title: 'Guest Speaker',
+          id: '2847996'
+        },
+        {
+          title: 'Television',
+          id: '4001432'
+        },
+      ],
       startDate: '2024-10-06T03:30:00',
       to: '/events/',
       image: null
@@ -85,6 +125,26 @@ export const mockCalendarEvents = {
               title: '35mm'
             }],
         }],
+      ftvaScreeningFormatFilters: [
+        {
+          id: '3439018',
+          title: '35mm'
+        },
+        {
+          id: '3439017',
+          title: '16mm'
+        }
+      ],
+      ftvaEventTypeFilters: [
+        {
+          title: 'Guest Speaker',
+          id: '2847996'
+        },
+        {
+          title: 'Television',
+          id: '4001432'
+        },
+      ],
       startDate: '2024-10-06T03:30:00',
       to: '/events/',
       image: null
@@ -126,6 +186,26 @@ export const mockCalendarEvents = {
               title: '35mm'
             }],
         }],
+      ftvaScreeningFormatFilters: [
+        {
+          id: '3439018',
+          title: '35mm'
+        },
+        {
+          id: '3439017',
+          title: '16mm'
+        }
+      ],
+      ftvaEventTypeFilters: [
+        {
+          title: 'Guest Speaker',
+          id: '2847996'
+        },
+        {
+          title: 'Television',
+          id: '4001432'
+        },
+      ],
       startDate: '2024-10-06T03:30:00',
       to: '/events/',
       image: null
@@ -154,12 +234,21 @@ export const mockCalendarEvents = {
       ],
       typeHandle: 'ftvaEvent',
       ftvaTicketInformation: [],
-      ftvaScreeningFormatFilters: [],
+      ftvaScreeningFormatFilters: [
+        {
+          id: '3439018',
+          title: '35mm'
+        },
+        {
+          id: '3439017',
+          title: '16mm'
+        }
+      ],
       guestSpeaker: null,
       title: 'Stick It',
       uri: 'events/stick-it-02-05-23',
       acknowledements: null,
-      startDateWithTime: '2024-11-05T19:00:00',
+      startDateWithTime: '2025-11-05T19:00:00',
       eventDescription: '<p>(2006) A tale of a rebellious gymnast who learns to channel her talents as she trains for the National Gymnastics Competition, overcoming personal struggles and learning valuable life lessons.</p>',
       startTime: '2024-11-05T19:00:00',
       location: [],
@@ -170,11 +259,12 @@ export const mockCalendarEvents = {
           country: null,
           image: [],
           tagLabels: [{
-            title: 'Guest speaker',
+            title: 'DCP',
             isHighlighted: true
           },
           {
-            title: '35mm'
+            title: 'Color',
+            isHighlighted: false
           }],
           year: null,
           runtime: null,
@@ -185,7 +275,16 @@ export const mockCalendarEvents = {
           title: 'A Gymnastics Coming-Of-Age Story'
         }
       ],
-      ftvaEventTypeFilters: [],
+      ftvaEventTypeFilters: [
+        {
+          title: 'Guest Speaker',
+          id: '2847996'
+        },
+        {
+          title: 'Television',
+          id: '4001432'
+        },
+      ],
       ftvaEventRegistration: [
         {
           registrationText: null,
@@ -195,7 +294,7 @@ export const mockCalendarEvents = {
       sectionHandle: 'ftvaEvent',
       slug: 'stick-it-02-05-23',
       introduction: '<p>Andrea Molnar</p>',
-      startDate: '2024-11-05T19:00:00'
+      startDate: '2024-11-05T19:00:00',
     },
 
     {
@@ -311,12 +410,8 @@ export const mockCalendarEvents = {
         }
       ],
       typeHandle: 'ftvaEvent',
-      ftvaTicketInformation: [
-
-      ],
-      ftvaScreeningFormatFilters: [
-
-      ],
+      ftvaTicketInformation: [],
+      ftvaScreeningFormatFilters: [],
       guestSpeaker: null,
       title: 'Pi / Tetsuo: The Iron Man Admission is free again and again and again and again',
       uri: 'events/pi-tetsuo-the-iron-man-08-03-24',
@@ -337,22 +432,14 @@ export const mockCalendarEvents = {
         }
       ],
       id: '3260126',
-      ftvaEventScreeningDetails: [
-
-      ],
-      ftvaEventTypeFilters: [
-
-      ],
-      ftvaEventRegistration: [
-
-      ],
+      ftvaEventScreeningDetails: [],
+      ftvaEventTypeFilters: [],
+      ftvaEventRegistration: [],
       sectionHandle: 'ftvaEvent',
       slug: 'pi-tetsuo-the-iron-man-08-03-24',
       introduction: null,
       startDate: '2024-11-29T19:30:00',
-      tagLabels: [
-
-      ],
+      tagLabels: [],
       to: '/events/pi-tetsuo-the-iron-man-08-03-24',
       image: null
     },

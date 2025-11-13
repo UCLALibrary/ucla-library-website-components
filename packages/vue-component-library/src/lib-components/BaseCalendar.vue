@@ -21,8 +21,14 @@ interface TagLabels {
   isHighlighted?: boolean
 }
 
+interface FiltersFields {
+  title: string
+}
+
 interface CalendarEvent extends Event {
   ftvaEventScreeningDetails: { tagLabels: TagLabels[] }[]
+  ftvaScreeningFormatFilters: FiltersFields[]
+  ftvaEventTypeFilters: FiltersFields[]
   imageCarousel: { image: MediaItemType[] }[]
 }
 
@@ -90,6 +96,26 @@ function handleSelectedEventItemDeselect() {
     selectedEventElement.value.classList.remove('selected-event')
 }
 
+function getEventFilterLabels(obj: CalendarEvent) {
+  if (!obj)
+    return []
+  if (!obj.ftvaEventTypeFilters && !obj.ftvaScreeningFormatFilters)
+    return []
+
+  const parsedTagLabels: FiltersFields[] = []
+
+  const eventTypeFilters = obj.ftvaEventTypeFilters
+  const screeningFormatFilters = obj.ftvaScreeningFormatFilters
+
+  if (eventTypeFilters.length)
+    eventTypeFilters.forEach(obj => parsedTagLabels.push({ title: obj.title }))
+
+  if (screeningFormatFilters.length)
+    screeningFormatFilters.forEach(obj => parsedTagLabels.push({ title: obj.title }))
+
+  return parsedTagLabels
+}
+
 const parsedEvents = computed(() => {
   if (events.length === 0)
     return []
@@ -106,7 +132,8 @@ const parsedEvents = computed(() => {
       // All other event data
       id: obj.id,
       startDateWithTime: obj.startDateWithTime,
-      tagLabels: obj.ftvaEventScreeningDetails[0]?.tagLabels,
+      tagLabels: getEventFilterLabels(obj),
+      // tagLabels: obj.ftvaEventScreeningDetails[0]?.tagLabels,
       image: obj.imageCarousel[0]?.image[0],
       location: obj.location,
       to: obj.to
