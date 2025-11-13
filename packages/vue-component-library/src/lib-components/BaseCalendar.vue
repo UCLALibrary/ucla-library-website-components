@@ -93,6 +93,7 @@ function handleSelectedEventItemDeselect() {
     selectedEventElement.value.classList.remove('selected-event')
 }
 
+// Get EventType and ScreeningFormat filters
 function getFilterLabels(obj: CalendarEvent) {
   if (!obj)
     return []
@@ -113,7 +114,7 @@ function getFilterLabels(obj: CalendarEvent) {
   return parsedLabels
 }
 
-// Parse image
+// Parse Image
 function parseImage(obj: CalendarEvent) {
   if (!obj)
     return null
