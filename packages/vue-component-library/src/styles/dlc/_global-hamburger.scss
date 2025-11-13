@@ -1,0 +1,50 @@
+.global-hamburger,
+.global-hamburger.dlc {
+    display: none;
+    cursor: pointer;
+
+    /* Breakpoints */
+    @media #{$medium} {
+        display: block;
+
+        .hamburger-lines {
+            position: relative;
+            width: 24px;
+            height: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .line {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: var(--color-primary-blue-03);
+            border-radius: 1px;
+            transform-origin: center;
+
+            @include animate-normal;
+        }
+
+        // States
+        &.is-opened {
+            .line {
+                background-color: var(--color-white);
+            }
+
+            .line-1 {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .line-2 {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            .line-3 {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    }
+}
