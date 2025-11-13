@@ -24,7 +24,8 @@ interface FiltersFields {
 interface CalendarEvent extends Event {
   ftvaScreeningFormatFilters: FiltersFields[]
   ftvaEventTypeFilters: FiltersFields[]
-  image: MediaItemType[]
+  image?: MediaItemType[]
+  ftvaImage?: MediaItemType[]
   imageCarousel: { image: MediaItemType[] }[]
 }
 
@@ -113,6 +114,25 @@ function getFilterLabels(obj: CalendarEvent) {
 }
 
 // Parse image
+function parseImage(obj: CalendarEvent) {
+  if (!obj)
+    return null
+
+  const listingImage = obj.image || obj.ftvaImage
+  const carouselImage = obj.imageCarousel
+
+  if (listingImage !== undefined && listingImage.length === 1) {
+    // Use Listing Image
+    return listingImage[0]
+  }
+  else if (carouselImage !== undefined && carouselImage.length >= 1) {
+    // Use ImageCarousel
+    return carouselImage[0].image[0]
+  }
+  else {
+    return null
+  }
+}
 
 const parsedEvents = computed(() => {
   if (events.length === 0)
@@ -127,11 +147,12 @@ const parsedEvents = computed(() => {
       start: new Date(rawDate),
       end: new Date(rawDate),
       time: formatEventTime(rawDate),
+
       // All other event data
       id: obj.id,
       startDateWithTime: obj.startDateWithTime,
       filterLabels: getFilterLabels(obj),
-      image: obj.imageCarousel[0]?.image[0],
+      image: parseImage(obj),
       location: obj.location,
       to: obj.to
     }
