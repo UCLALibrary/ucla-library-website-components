@@ -16,17 +16,18 @@ interface Event {
   location?: { title: string; publicUrl?: string }[]
 }
 
-interface TagLabels {
-  title?: string
-  isHighlighted?: boolean
-}
+// interface TagLabels {
+//   title?: string
+//   isHighlighted?: boolean
+// }
 
 interface FiltersFields {
+  id?: string
   title: string
 }
 
 interface CalendarEvent extends Event {
-  ftvaEventScreeningDetails: { tagLabels: TagLabels[] }[]
+  // ftvaEventScreeningDetails: { tagLabels: TagLabels[] }[]
   ftvaScreeningFormatFilters: FiltersFields[]
   ftvaEventTypeFilters: FiltersFields[]
   imageCarousel: { image: MediaItemType[] }[]
@@ -36,7 +37,8 @@ interface SelectedCalendarEvent extends Event {
   start: Date
   end: Date
   time: string
-  tagLabels?: TagLabels[]
+  // tagLabels?: TagLabels[]
+  filterLabels: FiltersFields[]
   image: MediaItemType
 }
 
@@ -96,24 +98,24 @@ function handleSelectedEventItemDeselect() {
     selectedEventElement.value.classList.remove('selected-event')
 }
 
-function getEventFilterLabels(obj: CalendarEvent) {
+function getFilterLabels(obj: CalendarEvent) {
   if (!obj)
     return []
   if (!obj.ftvaEventTypeFilters && !obj.ftvaScreeningFormatFilters)
     return []
 
-  const parsedTagLabels: FiltersFields[] = []
+  const parsedLabels: FiltersFields[] = []
 
   const eventTypeFilters = obj.ftvaEventTypeFilters
   const screeningFormatFilters = obj.ftvaScreeningFormatFilters
 
   if (eventTypeFilters.length)
-    eventTypeFilters.forEach(obj => parsedTagLabels.push({ title: obj.title }))
+    eventTypeFilters.forEach(obj => parsedLabels.push({ title: obj.title }))
 
   if (screeningFormatFilters.length)
-    screeningFormatFilters.forEach(obj => parsedTagLabels.push({ title: obj.title }))
+    screeningFormatFilters.forEach(obj => parsedLabels.push({ title: obj.title }))
 
-  return parsedTagLabels
+  return parsedLabels
 }
 
 const parsedEvents = computed(() => {
@@ -132,8 +134,8 @@ const parsedEvents = computed(() => {
       // All other event data
       id: obj.id,
       startDateWithTime: obj.startDateWithTime,
-      tagLabels: getEventFilterLabels(obj),
-      // tagLabels: obj.ftvaEventScreeningDetails[0]?.tagLabels,
+      // tagLabels: getFilterLabels(obj),
+      filterLabels: getFilterLabels(obj),
       image: obj.imageCarousel[0]?.image[0],
       location: obj.location,
       to: obj.to
@@ -224,7 +226,7 @@ const classes = computed(() => {
                     />
                     <div class="block-tag-wrapper">
                       <BlockTag
-                        v-for="tag in selectedEventObj.tagLabels"
+                        v-for="tag in selectedEventObj.filterLabels"
                         :key="`tag-${tag.title}`"
                         :label="tag.title"
                         :is-secondary="true"
