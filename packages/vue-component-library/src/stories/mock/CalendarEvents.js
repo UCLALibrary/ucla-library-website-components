@@ -6,15 +6,16 @@ export const mockCalendarEvents = {
       typeHandle: 'ftvaEvent',
       title: 'Everything Everywhere All at Once',
       uri: 'events/',
-      startDateWithTime: '2024-10-06T03:30:00',
-      startTime: '2024-10-06T03:30:00',
+      startDateWithTime: '2025-10-06T03:30:00',
+      startTime: '2025-10-06T03:30:00',
       location: [],
       id: '3370198',
+      ftvaTicketInformation: [],
       ftvaEventScreeningDetails: [
         {
           tagLabels: [
             {
-              title: 'Guest speaker',
+              title: 'Sound',
               isHighlighted: true
             },
             {
@@ -25,10 +26,6 @@ export const mockCalendarEvents = {
         {
           id: '3439018',
           title: '35mm'
-        },
-        {
-          id: '3439017',
-          title: '16mm'
         }
       ],
       ftvaEventTypeFilters: [
@@ -37,41 +34,40 @@ export const mockCalendarEvents = {
           id: '2847996'
         },
         {
-          title: 'Television',
+          title: 'Film',
+          id: '4001432'
+        },
+        {
+          title: 'Foreign Language',
           id: '4001432'
         },
       ],
-      startDate: '2024-10-06T03:30:00',
+      startDate: '2025-10-06T03:30:00',
       to: '/events/',
       image: null,
     },
+
     {
       imageCarousel: [],
       typeHandle: 'ftvaEvent',
       title: '3000 Years of Longing',
       uri: 'events/',
-      startDateWithTime: '2024-10-06T03:30:00',
-      startTime: '2024-10-06T03:30:00',
+      startDateWithTime: '2025-10-06T03:30:00',
+      startTime: '2025-10-06T03:30:00',
       location: [],
       id: '3370199',
+      ftvaTicketInformation: [],
       ftvaEventScreeningDetails: [
         {
           tagLabels: [
             {
-              title: 'Guest speaker'
-            },
-            {
-              title: '35mm'
+              title: 'Digital Presentation'
             }],
         }],
       ftvaScreeningFormatFilters: [
         {
           id: '3439018',
-          title: '35mm'
-        },
-        {
-          id: '3439017',
-          title: '16mm'
+          title: 'Digital'
         }
       ],
       ftvaEventTypeFilters: [
@@ -84,10 +80,11 @@ export const mockCalendarEvents = {
           id: '4001432'
         },
       ],
-      startDate: '2024-10-06T03:30:00',
+      startDate: '2025-10-06T03:30:00',
       to: '/events/',
       image: null
     },
+
     {
       imageCarousel: [
         {
@@ -111,28 +108,27 @@ export const mockCalendarEvents = {
       typeHandle: 'ftvaEvent',
       title: 'Ministry of Ungentlemanly Warfare',
       uri: 'events/',
-      startDateWithTime: '2024-10-06T03:30:00',
-      startTime: '2024-10-06T03:30:00',
+      startDateWithTime: '2025-10-06T03:30:00',
+      startTime: '2025-10-06T03:30:00',
       location: [],
       id: '3370200',
+      ftvaTicketInformation: [],
       ftvaEventScreeningDetails: [
         {
           tagLabels: [
             {
-              title: 'Guest speaker'
+              title: 'Technicolor',
+              isHighlighted: false
             },
             {
-              title: '35mm'
+              title: '35mm',
+              isHighlighted: true
             }],
         }],
       ftvaScreeningFormatFilters: [
         {
           id: '3439018',
           title: '35mm'
-        },
-        {
-          id: '3439017',
-          title: '16mm'
         }
       ],
       ftvaEventTypeFilters: [
@@ -141,14 +137,15 @@ export const mockCalendarEvents = {
           id: '2847996'
         },
         {
-          title: 'Television',
+          title: 'Film',
           id: '4001432'
         },
       ],
-      startDate: '2024-10-06T03:30:00',
+      startDate: '2025-10-06T03:30:00',
       to: '/events/',
       image: null
     },
+
     {
       imageCarousel: [
         {
@@ -172,41 +169,34 @@ export const mockCalendarEvents = {
       typeHandle: 'ftvaEvent',
       title: 'A Quiet Place: Day One',
       uri: 'events/',
-      startDateWithTime: '2024-10-06T03:30:00',
-      startTime: '2024-09-06T03:30:00',
+      startDateWithTime: '2025-10-06T03:30:00',
+      startTime: '2025-10-06T03:30:00',
       location: [],
       id: '3370201',
+      ftvaTicketInformation: [],
       ftvaEventScreeningDetails: [
         {
           tagLabels: [
             {
-              title: 'Guest speaker'
+              title: 'Silent'
             },
             {
-              title: '35mm'
+              title: 'Digital'
             }],
         }],
       ftvaScreeningFormatFilters: [
         {
           id: '3439018',
-          title: '35mm'
-        },
-        {
-          id: '3439017',
-          title: '16mm'
+          title: 'Digital'
         }
       ],
       ftvaEventTypeFilters: [
         {
-          title: 'Guest Speaker',
-          id: '2847996'
-        },
-        {
-          title: 'Television',
+          title: 'Film',
           id: '4001432'
         },
       ],
-      startDate: '2024-10-06T03:30:00',
+      startDate: '2025-10-06T03:30:00',
       to: '/events/',
       image: null
     },
@@ -238,21 +228,8 @@ export const mockCalendarEvents = {
         {
           id: '3439018',
           title: '35mm'
-        },
-        {
-          id: '3439017',
-          title: '16mm'
         }
       ],
-      guestSpeaker: null,
-      title: 'Stick It',
-      uri: 'events/stick-it-02-05-23',
-      acknowledements: null,
-      startDateWithTime: '2025-11-05T19:00:00',
-      eventDescription: '<p>(2006) A tale of a rebellious gymnast who learns to channel her talents as she trains for the National Gymnastics Competition, overcoming personal struggles and learning valuable life lessons.</p>',
-      startTime: '2024-11-05T19:00:00',
-      location: [],
-      id: '3370302',
       ftvaEventScreeningDetails: [
         {
           trailer: null,
@@ -291,6 +268,16 @@ export const mockCalendarEvents = {
           registrationUrlLink: null
         }
       ],
+      guestSpeaker: null,
+      title: 'Stick It',
+      uri: 'events/stick-it-02-05-23',
+      acknowledements: null,
+      startDateWithTime: '2025-11-05T19:00:00',
+      eventDescription: '<p>(2006) A tale of a rebellious gymnast who learns to channel her talents as she trains for the National Gymnastics Competition, overcoming personal struggles and learning valuable life lessons.</p>',
+      startTime: '2024-11-05T19:00:00',
+      location: [],
+      id: '3370302',
+
       sectionHandle: 'ftvaEvent',
       slug: 'stick-it-02-05-23',
       introduction: '<p>Andrea Molnar</p>',
@@ -320,6 +307,14 @@ export const mockCalendarEvents = {
       typeHandle: 'ftvaEvent',
       ftvaTicketInformation: [],
       ftvaScreeningFormatFilters: [],
+      ftvaEventScreeningDetails: [],
+      ftvaEventTypeFilters: [],
+      ftvaEventRegistration: [
+        {
+          registrationText: null,
+          registrationUrlLink: null
+        }
+      ],
       guestSpeaker: null,
       title: 'Jaane Bhi Do Yaaro',
       uri: 'events/jaane-bhi-do-yaaro-06-14-24',
@@ -329,14 +324,6 @@ export const mockCalendarEvents = {
       startTime: '2024-11-05T00:00:00',
       location: [],
       id: '3197304',
-      ftvaEventScreeningDetails: [],
-      ftvaEventTypeFilters: [],
-      ftvaEventRegistration: [
-        {
-          registrationText: null,
-          registrationUrlLink: null
-        }
-      ],
       sectionHandle: 'ftvaEvent',
       slug: 'jaane-bhi-do-yaaro-06-10-24',
       introduction: null,
@@ -366,6 +353,14 @@ export const mockCalendarEvents = {
       typeHandle: 'ftvaEvent',
       ftvaTicketInformation: [],
       ftvaScreeningFormatFilters: [],
+      ftvaEventScreeningDetails: [],
+      ftvaEventTypeFilters: [],
+      ftvaEventRegistration: [
+        {
+          registrationText: null,
+          registrationUrlLink: null
+        }
+      ],
       guestSpeaker: null,
       title: 'Andhadhun',
       uri: 'events/andhadhun-06-18-24',
@@ -375,14 +370,6 @@ export const mockCalendarEvents = {
       startTime: '2024-11-18T00:00:00',
       location: [],
       id: '3197312',
-      ftvaEventScreeningDetails: [],
-      ftvaEventTypeFilters: [],
-      ftvaEventRegistration: [
-        {
-          registrationText: null,
-          registrationUrlLink: null
-        }
-      ],
       sectionHandle: 'ftvaEvent',
       slug: 'andhadhun-06-18-24',
       introduction: null,
@@ -412,6 +399,9 @@ export const mockCalendarEvents = {
       typeHandle: 'ftvaEvent',
       ftvaTicketInformation: [],
       ftvaScreeningFormatFilters: [],
+      ftvaEventScreeningDetails: [],
+      ftvaEventTypeFilters: [],
+      ftvaEventRegistration: [],
       guestSpeaker: null,
       title: 'Pi / Tetsuo: The Iron Man Admission is free again and again and again and again',
       uri: 'events/pi-tetsuo-the-iron-man-08-03-24',
@@ -432,14 +422,10 @@ export const mockCalendarEvents = {
         }
       ],
       id: '3260126',
-      ftvaEventScreeningDetails: [],
-      ftvaEventTypeFilters: [],
-      ftvaEventRegistration: [],
       sectionHandle: 'ftvaEvent',
       slug: 'pi-tetsuo-the-iron-man-08-03-24',
       introduction: null,
       startDate: '2024-11-29T19:30:00',
-      tagLabels: [],
       to: '/events/pi-tetsuo-the-iron-man-08-03-24',
       image: null
     },
@@ -467,6 +453,25 @@ export const mockCalendarEvents = {
       typeHandle: 'ftvaEvent',
       ftvaTicketInformation: [],
       ftvaScreeningFormatFilters: [],
+      ftvaEventScreeningDetails: [
+        {
+          tagLabels: [
+            {
+              title: 'Sepia'
+            },
+            {
+              title: '35mm',
+              isHighlighted: true
+            }],
+        }
+      ],
+      ftvaEventTypeFilters: [],
+      ftvaEventRegistration: [
+        {
+          registrationText: null,
+          registrationUrlLink: null
+        }
+      ],
       guestSpeaker: null,
       title: 'TEST - Past Event Michael Snow Death',
       uri: 'events/past-event-michael-snow-death-12-10-28',
@@ -485,25 +490,6 @@ export const mockCalendarEvents = {
         }
       ],
       id: '3203241',
-      ftvaEventScreeningDetails: [
-        {
-          tagLabels: [
-            {
-              title: 'Guest speaker'
-            },
-            {
-              title: '35mm',
-              isHighlighted: true
-            }],
-        }
-      ],
-      ftvaEventTypeFilters: [],
-      ftvaEventRegistration: [
-        {
-          registrationText: null,
-          registrationUrlLink: null
-        }
-      ],
       sectionHandle: 'ftvaEvent',
       slug: 'past-event-michael-snow-death-12-10-28',
       introduction: null,
@@ -515,6 +501,9 @@ export const mockCalendarEvents = {
       typeHandle: 'ftvaEvent',
       ftvaTicketInformation: [],
       ftvaScreeningFormatFilters: [],
+      ftvaEventScreeningDetails: [],
+      ftvaEventTypeFilters: [],
+      ftvaEventRegistration: [],
       guestSpeaker: null,
       title: 'Run Lola Run',
       uri: 'events/run-lola-run-12-16-23',
@@ -524,9 +513,6 @@ export const mockCalendarEvents = {
       startTime: '2024-12-16T03:30:00',
       location: [],
       id: '3201163',
-      ftvaEventScreeningDetails: [],
-      ftvaEventTypeFilters: [],
-      ftvaEventRegistration: [],
       sectionHandle: 'ftvaEvent',
       slug: 'run-lola-run-12-16-23',
       introduction: null,
