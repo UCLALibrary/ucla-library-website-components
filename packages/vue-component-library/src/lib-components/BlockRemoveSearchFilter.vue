@@ -30,9 +30,13 @@ const SvgGlyphClose = defineAsyncComponent(() =>
 const SvgGlyphX = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-ftva-xtag.svg')
 )
+const SvgTinyClose = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-tiny-close.svg')
+)
 const removeIcons = {
   SvgGlyphClose,
   SvgGlyphX,
+  SvgTinyClose,
 }
 const route = useRoute()
 const theme = useTheme()
@@ -56,8 +60,9 @@ const classes = computed(() => {
 const removeIcon = computed(() => {
   switch (theme?.value) {
     case 'ftva':
-    case 'dlc': // TODO: add DLC close icon
       return 'SvgGlyphX'
+    case 'dlc':
+      return 'SvgTinyClose'
     default:
       return 'SvgGlyphClose'
   }
