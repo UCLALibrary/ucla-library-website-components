@@ -16,20 +16,15 @@ interface Event {
   location?: { title: string; publicUrl?: string }[]
 }
 
-// interface TagLabels {
-//   title?: string
-//   isHighlighted?: boolean
-// }
-
 interface FiltersFields {
   id?: string
   title: string
 }
 
 interface CalendarEvent extends Event {
-  // ftvaEventScreeningDetails: { tagLabels: TagLabels[] }[]
   ftvaScreeningFormatFilters: FiltersFields[]
   ftvaEventTypeFilters: FiltersFields[]
+  image: MediaItemType[]
   imageCarousel: { image: MediaItemType[] }[]
 }
 
@@ -37,7 +32,6 @@ interface SelectedCalendarEvent extends Event {
   start: Date
   end: Date
   time: string
-  // tagLabels?: TagLabels[]
   filterLabels: FiltersFields[]
   image: MediaItemType
 }
@@ -118,6 +112,8 @@ function getFilterLabels(obj: CalendarEvent) {
   return parsedLabels
 }
 
+// Parse image
+
 const parsedEvents = computed(() => {
   if (events.length === 0)
     return []
@@ -134,7 +130,6 @@ const parsedEvents = computed(() => {
       // All other event data
       id: obj.id,
       startDateWithTime: obj.startDateWithTime,
-      // tagLabels: getFilterLabels(obj),
       filterLabels: getFilterLabels(obj),
       image: obj.imageCarousel[0]?.image[0],
       location: obj.location,

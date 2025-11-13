@@ -2,7 +2,25 @@ export const mockCalendarEvents = {
   events: [
     // Test Same-Day Events
     {
-      imageCarousel: [],
+      imageCarousel: [
+        {
+          image: [
+            {
+              src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/owl-50267_150.jpg',
+              width: 2560,
+              alt: 'Owl Face',
+              id: '3203248',
+              srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/owl-50267_150.jpg 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/owl-50267_150.jpg 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/owl-50267_150.jpg 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/owl-50267_150.jpg 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/owl-50267_150.jpg 2560w',
+              focalPoint: [
+                0.5,
+                0.5
+              ],
+              height: 1955
+            }
+          ],
+          creditText: null
+        }
+      ],
       typeHandle: 'ftvaEvent',
       title: 'Everything Everywhere All at Once',
       uri: 'events/',
@@ -44,7 +62,17 @@ export const mockCalendarEvents = {
       ],
       startDate: '2025-10-06T03:30:00',
       to: '/events/',
-      image: null,
+      image: [
+        {
+          alt: 'The Night Mayor (1932)',
+          focalPoint: [0.5, 0.5],
+          height: 1881,
+          id: '3144332',
+          src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/night-mayor-1932_0.jpg',
+          srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/night-mayor-1932_0.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/night-mayor-1932_0.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/night-mayor-1932_0.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/night-mayor-1932_0.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/night-mayor-1932_0.jpg 2560w',
+          width: 2560
+        }
+      ],
     },
 
     {
@@ -82,7 +110,17 @@ export const mockCalendarEvents = {
       ],
       startDate: '2025-10-06T03:30:00',
       to: '/events/',
-      image: null
+      image: [
+        {
+          alt: 'A woman writing on a window.',
+          focalPoint: [0.5, 0.5],
+          height: 1920,
+          id: '3131261',
+          src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/pinkcloud-crop.png',
+          srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/pinkcloud-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/pinkcloud-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/pinkcloud-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/pinkcloud-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/pinkcloud-crop.png 2560w',
+          width: 2560
+        }
+      ]
     },
 
     {
@@ -277,7 +315,6 @@ export const mockCalendarEvents = {
       startTime: '2024-11-05T19:00:00',
       location: [],
       id: '3370302',
-
       sectionHandle: 'ftvaEvent',
       slug: 'stick-it-02-05-23',
       introduction: '<p>Andrea Molnar</p>',
@@ -327,7 +364,8 @@ export const mockCalendarEvents = {
       sectionHandle: 'ftvaEvent',
       slug: 'jaane-bhi-do-yaaro-06-10-24',
       introduction: null,
-      startDate: '2024-11-05T00:00:00'
+      startDate: '2024-11-05T00:00:00',
+      image: null
     },
 
     {
@@ -373,7 +411,8 @@ export const mockCalendarEvents = {
       sectionHandle: 'ftvaEvent',
       slug: 'andhadhun-06-18-24',
       introduction: null,
-      startDate: '2024-11-18T00:00:00'
+      startDate: '2024-11-18T00:00:00',
+      image: null
     },
 
     {
@@ -516,7 +555,8 @@ export const mockCalendarEvents = {
       sectionHandle: 'ftvaEvent',
       slug: 'run-lola-run-12-16-23',
       introduction: null,
-      startDate: '2024-12-16T03:30:00'
+      startDate: '2024-12-16T03:30:00',
+      image: null
     }
   ]
 }
