@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.52.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.51.0...@ucla-library-monorepo/ucla-library-website-components-v1.52.0) (2025-11-13)
+
+
+### Features
+
+* Add ftva logo ([#872](https://github.com/UCLALibrary/ucla-library-website-components/issues/872)) ([b2b28b2](https://github.com/UCLALibrary/ucla-library-website-components/commit/b2b28b2827b5b9cf3bd372581d753936fcf0183f))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.51.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.50.1...@ucla-library-monorepo/ucla-library-website-components-v1.51.0) (2025-11-13)
 
 
