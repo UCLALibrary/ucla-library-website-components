@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.51.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.50.1...@ucla-library-monorepo/ucla-library-website-components-v1.51.0) (2025-11-13)
+
+
+### Features
+
+* Add DLC theme for ButtonLink ([#851](https://github.com/UCLALibrary/ucla-library-website-components/issues/851)) ([24956eb](https://github.com/UCLALibrary/ucla-library-website-components/commit/24956eb3368b0227f6cb2504333d3e8e2d217a08))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.50.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.50.0...@ucla-library-monorepo/ucla-library-website-components-v1.50.1) (2025-11-12)
 
 
