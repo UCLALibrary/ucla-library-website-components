@@ -22,7 +22,7 @@ const { label, iconName, isSecondary, isHighlighted } = defineProps({
   },
 })
 
-// THEME
+//  THEME
 const theme = useTheme()
 
 // Async import all FTVA icons that can appear here
