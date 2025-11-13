@@ -76,3 +76,32 @@ export function FTVA() {
     `,
   }
 }
+
+const mockDLC = {
+  searchFilters: [
+    ['Genre', 'Black and White Photographs'],
+    ['Genre', 'Film Stills'],
+    ['Genre', 'Fantasy'],
+    ['Genre', 'Film Stills'],
+    ['Collection', 'Los Angeles Times Photographic Collection'],
+  ],
+}
+export function DLC() {
+  return {
+    data() {
+      return { mockDLC }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    setup() {
+      return {
+        mock,
+      }
+    },
+    components: { SectionRemoveSearchFilter },
+    template: '<section-remove-search-filter :filters="mockDLC" />',
+  }
+}
