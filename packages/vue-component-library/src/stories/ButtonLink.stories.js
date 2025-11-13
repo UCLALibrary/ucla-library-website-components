@@ -174,3 +174,29 @@ export function FTVATertiary() {
             '<button-link label="FTVA Tertiary" :isTertiary="true" icon-name="none" to=\'www.google.com\'/>',
   }
 }
+
+export function DLCPrimary() {
+  return {
+    components: { ButtonLink },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    template:
+            '<button-link label="Back to Search Results" icon-name="none" to=\'https://www.google.com\'/>',
+  }
+}
+
+export function DLCSecondary() {
+  return {
+    components: { ButtonLink },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    template:
+            '<button-link label="Available for Download" :isSecondary="true"  :is-download="true" to=\'/help/more\'/>',
+  }
+}
