@@ -47,10 +47,8 @@ const selectedOptions = ref<Record<string, string[]>>({})
 const effectSlideToggleRef = ref<InstanceType<typeof EffectSlideToggle>[]>([])
 const filteredStates = ref<Record<string, boolean>>({})
 
-// Helper functions
-
-// The summary of each filter, when an option is selected.
-function summaryClasses(filterKey: string) {
+// The header of each filter, when it's in filtered mode.
+function filterClasses(filterKey: string) {
   return {
     'is-filtered': filteredStates.value[filterKey],
   }
@@ -59,13 +57,12 @@ function summaryClasses(filterKey: string) {
 // The options of each filter, when an option is selected. - used for styling
 function optionClasses(filterKey: string, optionValue: string) {
   return {
-
     'is-selected': optionSelected(filterKey, optionValue),
   }
 }
 
-// Should show the "See All" button if the filter has the showAll property and there are no selected options or the filter is not filtered.
-function shouldShowSeeAll(filter: any) {
+// Show the "See All" button if the filter has the showAll property and there are no selected options or the filter is not in filtered mode.
+function showButton(filter: any) {
   const key = getFilterKey(filter)
   return (
     filter.showAll
@@ -247,7 +244,7 @@ async function toggleOption(filterName: string, option: FilterOption) {
         <template #summary>
           <div
             class="filter-summary"
-            :class="summaryClasses(getFilterKey(filter))"
+            :class="filterClasses(getFilterKey(filter))"
             @click="() => onSummaryClick(getFilterKey(filter))"
           >
             <span class="filter-name">{{ filter.name || filter.slotName }}</span>
@@ -303,7 +300,7 @@ async function toggleOption(filterName: string, option: FilterOption) {
 
                 <!-- See All button as part of the transition group -->
                 <div
-                  v-if="shouldShowSeeAll(filter)"
+                  v-if="showButton(filter)"
                   key="see-all"
                   class="filter-option see-all"
                 >
