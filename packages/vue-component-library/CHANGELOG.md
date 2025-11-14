@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.52.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.52.0...@ucla-library-monorepo/ucla-library-website-components-v1.52.1) (2025-11-14)
+
+
+### Bug Fixes
+
+* APPS-3576 Pull Correct Fields for Event Calendar Pills ([#873](https://github.com/UCLALibrary/ucla-library-website-components/issues/873)) ([eca5933](https://github.com/UCLALibrary/ucla-library-website-components/commit/eca593346357cdd4a97d4718d00f6d5b85ab334e))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.52.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.51.0...@ucla-library-monorepo/ucla-library-website-components-v1.52.0) (2025-11-13)
 
 
