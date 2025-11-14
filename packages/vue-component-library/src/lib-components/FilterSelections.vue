@@ -72,8 +72,14 @@ function shouldShowSeeAll(filter: any) {
     && (!hasSelectedOptions(key) || !filteredStates.value[key])
   )
 }
-const getFilterKey = (filter: any) => filter.slotName || filter.name
-const getFilterIndex = (filterKey: string) => props.filters.findIndex(f => getFilterKey(f) === filterKey)
+// This function is used to get the key of a filter.
+function getFilterKey(filter: any) {
+  return filter.slotName || filter.name
+}
+// This function is used to get the index of a filter.
+function getFilterIndex(filterKey: string) {
+  return props.filters.findIndex(f => getFilterKey(f) === filterKey)
+}
 
 // Animate height change as the filter options change
 async function animateHeightChange(filterIndex: number) {
