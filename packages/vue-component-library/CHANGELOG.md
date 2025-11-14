@@ -1,3 +1,31 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.52.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.52.0...@ucla-library-monorepo/ucla-library-website-components-v1.52.1) (2025-11-14)
+
+
+### Bug Fixes
+
+* APPS-3576 Pull Correct Fields for Event Calendar Pills ([#873](https://github.com/UCLALibrary/ucla-library-website-components/issues/873)) ([eca5933](https://github.com/UCLALibrary/ucla-library-website-components/commit/eca593346357cdd4a97d4718d00f6d5b85ab334e))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.52.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.51.0...@ucla-library-monorepo/ucla-library-website-components-v1.52.0) (2025-11-13)
+
+
+### Features
+
+* Add ftva logo ([#872](https://github.com/UCLALibrary/ucla-library-website-components/issues/872)) ([b2b28b2](https://github.com/UCLALibrary/ucla-library-website-components/commit/b2b28b2827b5b9cf3bd372581d753936fcf0183f))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.51.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.50.1...@ucla-library-monorepo/ucla-library-website-components-v1.51.0) (2025-11-13)
+
+
+### Features
+
+* Add DLC theme for ButtonLink ([#851](https://github.com/UCLALibrary/ucla-library-website-components/issues/851)) ([24956eb](https://github.com/UCLALibrary/ucla-library-website-components/commit/24956eb3368b0227f6cb2504333d3e8e2d217a08))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.50.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.50.0...@ucla-library-monorepo/ucla-library-website-components-v1.50.1) (2025-11-12)
+
+
+### Bug Fixes
+
+* accessibility title showing up for icons after recent update to design token package ([#870](https://github.com/UCLALibrary/ucla-library-website-components/issues/870)) ([1d3e6c8](https://github.com/UCLALibrary/ucla-library-website-components/commit/1d3e6c8c8a930fb1ea28dc2ea7977443bf590141))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.50.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.49.1...@ucla-library-monorepo/ucla-library-website-components-v1.50.0) (2025-11-07)
 
 
