@@ -59,6 +59,11 @@ const props = defineProps({
     type: String,
     default: 'long',
   },
+  // used to display a single date for collections
+  date: {
+    type: String,
+    default: '',
+  },
   ongoing: {
     type: Boolean,
     default: false,
@@ -206,6 +211,12 @@ const classes = computed(() => {
       v-else-if="title"
       class="title-no-link"
       v-html="title"
+    />
+
+    <div
+      v-if="date"
+      class="date"
+      v-html="date"
     />
 
     <!-- Named slot for custom description -->
