@@ -2,6 +2,7 @@
 import { computed, nextTick, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import SvgIconCarat from 'ucla-library-design-tokens/assets/svgs/icon-down-carat.svg'
+
 // Used for the sliding animation of the filter options
 import EffectSlideToggle from './EffectSlideToggle.vue'
 import { useTheme } from '@/composables/useTheme'
@@ -67,8 +68,8 @@ function optionClasses(filterKey: string, optionValue: string) {
 function shouldShowSeeAll(filter: any) {
   const key = getFilterKey(filter)
   return (
-    filter.showAll &&
-    (!hasSelectedOptions(key) || !filteredStates.value[key])
+    filter.showAll
+    && (!hasSelectedOptions(key) || !filteredStates.value[key])
   )
 }
 const getFilterKey = (filter: any) => filter.slotName || filter.name
@@ -98,9 +99,9 @@ function initializeSelectedOptions() {
   props.filters.forEach((filter) => {
     const filterKey = getFilterKey(filter)
     // If the filter key is not in the selected options, initialize it as an empty array.
-    if (!selectedOptions.value[filterKey]) {
+    if (!selectedOptions.value[filterKey])
       selectedOptions.value[filterKey] = []
-    }
+
     // Initialize the filtered state of the filter as false.
     filteredStates.value[filterKey] = false
   })
