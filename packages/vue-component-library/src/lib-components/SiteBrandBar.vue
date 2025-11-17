@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import SvgLogoUcla from 'ucla-library-design-tokens/assets/svgs/logo-ucla.svg'
+import SvgLogoFtva from 'ucla-library-design-tokens/assets/svgs/logo-ftva.svg'
 import { computed } from 'vue'
 import ButtonLink from './ButtonLink.vue'
 import { useTheme } from '@/composables/useTheme'
@@ -13,8 +14,6 @@ const parsedHeaderThemeSettings = computed(() => {
   // ftva
   if (theme?.value === 'ftva') {
     return {
-      useLogo: false,
-      headerText: 'UCLA Film & Television Archive',
       buttonText: 'Donate',
       buttonLink: '/donate',
       homepage: '/',
@@ -32,12 +31,19 @@ const parsedHeaderThemeSettings = computed(() => {
       :href="parsedHeaderThemeSettings.homepage || 'https://www.ucla.edu'"
       :target="parsedHeaderThemeSettings.homepageLinkTarget || '_blank'"
     >
-      <span v-if="!parsedHeaderThemeSettings?.useLogo && parsedHeaderThemeSettings.headerText" class="ucla-text">{{
-        parsedHeaderThemeSettings.headerText }}</span>
-      <SvgLogoUcla v-else class="svg ucla-logo" />
+
+      <SvgLogoFtva v-if="theme === 'ftva'" />
+
+      <SvgLogoUcla
+        v-else
+        class="svg ucla-logo"
+      />
       <span class="visually-hidden">UCLA Home</span>
     </a>
-    <span v-if="parsedHeaderThemeSettings.buttonLink && parsedHeaderThemeSettings.buttonText" class="button-container">
+    <span
+      v-if="parsedHeaderThemeSettings.buttonLink && parsedHeaderThemeSettings.buttonText"
+      class="button-container"
+    >
       <ButtonLink
         :label="parsedHeaderThemeSettings.buttonText"
         icon-name="none"
