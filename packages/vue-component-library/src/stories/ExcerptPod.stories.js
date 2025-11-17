@@ -30,21 +30,22 @@ function Template(args) {
     setup() {
       // Split text for slots
       const splitText = (text, sentenceCount) => {
-        if (!text) return { truncated: '', remaining: '' }
+        if (!text)
+          return { truncated: '', remaining: '' }
         const sentenceRegex = /\.\s+(?=[A-Z])/g
         const sentences = text.split(sentenceRegex)
-        
-        if (sentences.length <= sentenceCount) {
+
+        if (sentences.length <= sentenceCount)
           return { truncated: text, remaining: '' }
-        }
-        
+
         let truncated = sentences.slice(0, sentenceCount).join('. ')
-        if (!truncated.endsWith('.')) truncated += '.'
+        if (!truncated.endsWith('.'))
+          truncated += '.'
         const remaining = ` ${sentences.slice(sentenceCount).join('.')}`
-        
+
         return { truncated, remaining }
       }
-      
+
       return { args, splitText }
     },
     template: `
@@ -78,21 +79,22 @@ function TemplateNoContent(args) {
     setup() {
       // Split text for slots
       const splitText = (text, sentenceCount) => {
-        if (!text) return { truncated: '', remaining: '' }
+        if (!text)
+          return { truncated: '', remaining: '' }
         const sentenceRegex = /\.\s+(?=[A-Z])/g
         const sentences = text.split(sentenceRegex)
-        
-        if (sentences.length <= sentenceCount) {
+
+        if (sentences.length <= sentenceCount)
           return { truncated: text, remaining: '' }
-        }
-        
+
         let truncated = sentences.slice(0, sentenceCount).join('. ')
-        if (!truncated.endsWith('.')) truncated += '.'
+        if (!truncated.endsWith('.'))
+          truncated += '.'
         const remaining = ` ${sentences.slice(sentenceCount).join('.')}`
-        
+
         return { truncated, remaining }
       }
-      
+
       return { args, splitText }
     },
     template: `
@@ -131,4 +133,3 @@ NoContentSlot.args = {
   labelClose: 'Show More',
   sentenceSplitCount: 1,
 }
-
