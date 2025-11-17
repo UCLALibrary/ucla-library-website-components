@@ -1,5 +1,6 @@
 import { computed } from 'vue'
 import ExcerptPod from '@/lib-components/ExcerptPod.vue'
+import RichText from '@/lib-components/RichText.vue'
 
 export default {
   title: 'Funkhaus / ExcerptPod',
@@ -20,14 +21,31 @@ export default {
 
 function Template(args) {
   return {
-    components: { ExcerptPod },
+    components: { ExcerptPod, RichText },
     provide() {
       return {
         theme: computed(() => 'dlc'),
       }
     },
     setup() {
-      return { args }
+      // Split text for slots
+      const splitText = (text, sentenceCount) => {
+        if (!text) return { truncated: '', remaining: '' }
+        const sentenceRegex = /\.\s+(?=[A-Z])/g
+        const sentences = text.split(sentenceRegex)
+        
+        if (sentences.length <= sentenceCount) {
+          return { truncated: text, remaining: '' }
+        }
+        
+        let truncated = sentences.slice(0, sentenceCount).join('. ')
+        if (!truncated.endsWith('.')) truncated += '.'
+        const remaining = ` ${sentences.slice(sentenceCount).join('.')}`
+        
+        return { truncated, remaining }
+      }
+      
+      return { args, splitText }
     },
     template: `
     <ExcerptPod
@@ -37,7 +55,59 @@ function Template(args) {
         :labelOpen="args.labelOpen"
         :labelClose="args.labelClose"
         :sentenceSplitCount="args.sentenceSplitCount"
-    />
+    >
+      <template #default>
+        <RichText :rich-text-content="splitText(args.text, args.sentenceSplitCount).truncated" />
+      </template>
+      <template #content>
+        <RichText :rich-text-content="splitText(args.text, args.sentenceSplitCount).remaining" />
+      </template>
+    </ExcerptPod>
+  `,
+  }
+}
+
+function TemplateNoContent(args) {
+  return {
+    components: { ExcerptPod, RichText },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    setup() {
+      // Split text for slots
+      const splitText = (text, sentenceCount) => {
+        if (!text) return { truncated: '', remaining: '' }
+        const sentenceRegex = /\.\s+(?=[A-Z])/g
+        const sentences = text.split(sentenceRegex)
+        
+        if (sentences.length <= sentenceCount) {
+          return { truncated: text, remaining: '' }
+        }
+        
+        let truncated = sentences.slice(0, sentenceCount).join('. ')
+        if (!truncated.endsWith('.')) truncated += '.'
+        const remaining = ` ${sentences.slice(sentenceCount).join('.')}`
+        
+        return { truncated, remaining }
+      }
+      
+      return { args, splitText }
+    },
+    template: `
+    <ExcerptPod
+        :title="args.title"
+        :text="args.text"
+        :subtitle="args.subtitle"
+        :labelOpen="args.labelOpen"
+        :labelClose="args.labelClose"
+        :sentenceSplitCount="args.sentenceSplitCount"
+    >
+      <template #default>
+        <RichText :rich-text-content="splitText(args.text, args.sentenceSplitCount).truncated" />
+      </template>
+    </ExcerptPod>
   `,
   }
 }
@@ -45,21 +115,20 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   title: 'Notes',
-  subtitle: 'Subtitle goes hereeee',
+  subtitle: 'Subtitle goes here',
   text: 'This digital collection is comprised of selected digitized photographic negatives from the analog photographic archive. Digitization and description of this collection is ongoing. The analog collection consists of photonegatives documenting events and people in Southern California and photographic prints documenting events and people in Southern California, the U.S., and the world. The material originates from the Los Angeles Times newspaper and includes glass negatives (ca. 1918-1932), nitrate negatives (ca. 1925-45), and safety negatives (ca. 1935-present). Also includes prints and negatives from the Los Angeles Times Orange County and San Diego bureaus.',
   labelOpen: 'Show Less',
   labelClose: 'Show More',
   sentenceSplitCount: 1,
 }
-export const EmptyProps = Template.bind({})
-EmptyProps.args = {
-  ...Default.args,
+
+export const NoContentSlot = TemplateNoContent.bind({})
+NoContentSlot.args = {
+  title: 'Brief Summary',
+  subtitle: 'Short description',
+  text: 'This is the first sentence of the text. This is the second sentence. This is the third sentence that would normally be hidden.',
+  labelOpen: 'Show Less',
+  labelClose: 'Show More',
+  sentenceSplitCount: 1,
 }
 
-export const MoreSections = Template.bind({})
-MoreSections.args = {
-  ...Default.args,
-  sentenceSplitCount: 1,
-  labelOpen: 'Collapse',
-  labelClose: 'Expand',
-}
