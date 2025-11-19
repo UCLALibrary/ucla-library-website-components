@@ -46,11 +46,6 @@ const mock = {
 
 export function Default() {
   return {
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     data() {
       return {
         ...mock,
@@ -75,11 +70,6 @@ export function Default() {
 
 export function LeftAligned() {
   return {
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     data() {
       return {
         ...mock,
@@ -106,11 +96,6 @@ export function LeftAligned() {
 
 export function NotOnline() {
   return {
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     data() {
       return {
         ...mock,
@@ -136,11 +121,6 @@ export function NotOnline() {
 
 export function Slot() {
   return {
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     data() {
       return {
         image: API.image,
@@ -180,11 +160,6 @@ export function Slot() {
 
 export function LongHeading() {
   return {
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     data() {
       return {
         image: API.image,
@@ -224,11 +199,6 @@ export function LongHeading() {
 
 export function WideImage() {
   return {
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     data() {
       return {
         ...mock,
@@ -255,11 +225,6 @@ export function WideImage() {
 
 export function WideImageLeftAligned() {
   return {
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     data() {
       return {
         ...mock,
@@ -287,11 +252,6 @@ export function WideImageLeftAligned() {
 
 export function NoButton() {
   return {
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     data() {
       return {
         ...mock,
@@ -316,11 +276,6 @@ export function NoButton() {
 
 export function WithDescription() {
   return {
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     data() {
       return {
         ...mock,
@@ -342,11 +297,6 @@ export function WithDescription() {
 
 export function Video() {
   return {
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     data() {
       return {
         ...mock,
@@ -432,11 +382,6 @@ const mockDLC = {
 
 export function LinkedTitle() {
   return {
-    provide() {
-      return {
-        theme: computed(() => ''),
-      }
-    },
     data() {
       return {
         ...mock2,
