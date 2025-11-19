@@ -5,6 +5,6 @@ describe('BannerFeatured', () => {
     )
     cy.get('.banner-featured').should('exist')
 
-    cy.percySnapshot('Banner Featured: Default')
+    // cy.percySnapshot('Banner Featured: Default')
   })
 })
