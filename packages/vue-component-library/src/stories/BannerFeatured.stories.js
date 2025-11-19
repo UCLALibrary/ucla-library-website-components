@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import BannerFeatured from '@/lib-components/BannerFeatured'
 import HeadingArrow from '@/lib-components/HeadingArrow'
 import BlockFormData from '@/stories/mock/BlockFormData.json'
@@ -318,18 +319,21 @@ export function Video() {
 
 export function WithBlockForm() {
   return {
+    provide() {
+      return {
+        theme: computed(() => ''),
+        // explicitly provide a computed property
+        eventId: '9383207',
+        blockFormData: BlockFormData.mock0,
+        libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
+        registrationType: 'in-person',
+      }
+    },
     data() {
       return {
         ...mock,
         ...BlockFormData,
       }
-    },
-    provide: {
-      // explicitly provide a computed property
-      eventId: '9383207',
-      blockFormData: BlockFormData.mock0,
-      libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
-      registrationType: 'in-person',
     },
     components: { BannerFeatured },
     template: `
@@ -368,6 +372,14 @@ const mock2 = {
   alignRight: true,
 }
 
+const mockDLC = {
+  image: API.image,
+  to: '/help/foo/bar/',
+  title: 'Our Mission',
+  description:
+        'The UCLA Digital Library Program works collaboratively within the UCLA Library, across campus, and with a broad range of partners to preserve and provide enhanced access to local and global cultural heritage materials in support of the University’s teaching, learning, research and service mission.UCLA Digital Library Collections follow ethical and inclusive approaches to descriptive practices as outlined in Toward Ethical and Inclusive Descriptive Practices in UCLA Library Special Collections.',
+}
+
 export function LinkedTitle() {
   return {
     data() {
@@ -387,6 +399,99 @@ export function LinkedTitle() {
             :byline="byline"
             :prompt="prompt"
             :locations="locations"
+        />
+    `,
+  }
+}
+
+export function DLC() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        ...mockDLC,
+      }
+    },
+    components: { BannerFeatured },
+    template: `
+        <banner-featured
+            :media="image"
+
+            :title="title"
+            :description="description"
+        />
+    `,
+  }
+}
+
+export function DLCLeftAligned() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        ...mockDLC,
+      }
+    },
+    components: { BannerFeatured },
+    template: `
+        <banner-featured
+            :media="image"
+            :title="title"
+            :description="description"
+            :align-right="false"
+        />
+    `,
+  }
+}
+
+const mockHelpSection = {
+  image: API.image,
+  title: 'Have other Questions?',
+  description: 'We\'re here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.',
+  prompt: 'Click Here for UCLA Library Locations',
+  alignRight: true,
+  secondaryButtons: [
+    {
+      label: 'UCLA Library Locations',
+      to: '/visit/locations/'
+    },
+    {
+      label: 'Contact Us',
+      to: '/contact/'
+    }
+  ],
+}
+
+export function HelpSection() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    data() {
+      return {
+        ...mockHelpSection,
+      }
+    },
+    components: { BannerFeatured },
+    template: `
+        <banner-featured
+            :media="image"
+            :to="to"
+            :title="title"
+            :description="description"
+            :prompt="prompt"
+            :align-right="alignRight"
+            :secondary-buttons="secondaryButtons"
         />
     `,
   }
