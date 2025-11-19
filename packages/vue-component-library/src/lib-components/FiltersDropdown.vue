@@ -28,6 +28,7 @@ interface SelectedFiltersTypes {
 }
 const selectedFilters = defineModel('selectedFilters', { type: Object as PropType<SelectedFiltersTypes>, required: true, default: {} })
 // FUNCTIONS
+
 // calc # for UI '# selected' display
 const numOfSelectedFilters = computed(() => {
   let count = 0
@@ -38,6 +39,7 @@ const numOfSelectedFilters = computed(() => {
   }
   return count
 })
+
 // check if option is selected so we can display 'x' SVG
 function isSelected(searchField: string, option: string) {
   // check if selectedFilter object has any keys, fail gracefully if it doesn't
@@ -46,12 +48,14 @@ function isSelected(searchField: string, option: string) {
 
   return selectedFilters.value[searchField].includes(option)
 }
+
 // Clear Button Click / clear all selected filters
 function clearFilters() {
   for (const group of filterGroups)
     selectedFilters.value[group.searchField] = []
   emit('update-display', selectedFilters.value)
 }
+
 // Done Button Click / emit selected filters to parent
 function onDoneClick() {
   emit('update-display', selectedFilters.value)
