@@ -30,11 +30,12 @@
             .byline-group {
                 margin: 0;
 
-                font-family: var(--font-secondary);
+                margin-bottom: 4px;
+                color: var(--ftva-off-black);
                 font-size: 16px;
                 font-weight: 400;
-                line-height: 150%; /* 24px */
-                color: var(--ftva-off-black);
+                line-height: 1;
+                font-family: var(--font-secondary);
             }
         }
         .title,
