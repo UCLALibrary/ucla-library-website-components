@@ -1,4 +1,4 @@
-.section-teaser-card.dlc{
+.section-teaser-card.dlc {
     :deep(.card) {
         height: 100%;
         cursor: pointer;
@@ -26,6 +26,16 @@
             gap: 5px;
 
             margin: 0;
+
+            .byline-group {
+                margin: 0;
+
+                font-family: var(--font-secondary);
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 150%; /* 24px */
+                color: var(--ftva-off-black);
+            }
         }
         .title,
         .title-no-link {

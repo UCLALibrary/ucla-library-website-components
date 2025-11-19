@@ -50,10 +50,6 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  date: {
-    type: String,
-    default: '',
-  },
   ongoing: {
     type: Boolean,
     default: false,
@@ -173,7 +169,6 @@ const parsedDateFormat = computed(() => {
       :language="language"
       :section-handle="sectionHandle"
       :date-created="dateCreated"
-      :date="date"
     >
       <template
         v-if="$slots.customTitle"
@@ -189,7 +184,10 @@ const parsedDateFormat = computed(() => {
         <slot name="customDescription" />
       </template>
 
-      <template v-if="$slots.customDateTime" #customDateTime>
+      <template
+        v-if="$slots.customDateTime"
+        #customDateTime
+      >
         <slot name="customDateTime" />
       </template>
     </CardMeta>

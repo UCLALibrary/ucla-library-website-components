@@ -31,7 +31,7 @@ const classes = computed(() => {
 })
 
 const hasDate = computed(() => {
-  return items.some(item => item.date)
+  return items.some(item => item.customDateTime)
 })
 
 const parsedAspectRatio = computed(() => {
@@ -70,7 +70,6 @@ const currentTheme = computed(() => {
       :start-date="item.startDate"
       :end-date="item.endDate"
       :text="item.text"
-      :date="item.date"
       :image-aspect-ratio="parsedAspectRatio"
       :is-vertical="true"
       :byline-one="item.bylineOne"
@@ -85,8 +84,7 @@ const currentTheme = computed(() => {
           <IconFTVAVideo class="white-icon" />
         </BlockTag>
         <IconFTVAWatchOnline
-          v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')"
-        />
+          v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')" />
       </template>
       <template
         v-if="item.customDateTime"

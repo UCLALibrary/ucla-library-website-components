@@ -246,7 +246,7 @@ const mockDLCEdgeCasesWithDate = [
     text: 'Explore our extensive collection of digitized materials including manuscripts, photographs, and historical documents spanning over 200 years of UCLA history.',
     image: API.image,
     sectionHandle: 'collection',
-    date: 'November 1, 1963'
+    customDateTime: 'November 1, 1963'
   },
   {
     id: 'dlc-2',
@@ -263,7 +263,7 @@ const mockDLCEdgeCasesWithDate = [
       focalPoint: [0.5, 0.5]
     },
     sectionHandle: 'collection',
-    date: 'November 1, 1963'
+    customDateTime: 'November 1, 1963'
   },
   {
     id: 'dlc-3',
@@ -280,7 +280,7 @@ const mockDLCEdgeCasesWithDate = [
       focalPoint: [0.5, 0.5]
     },
     sectionHandle: 'collection',
-    date: 'November 1, 1963'
+    customDateTime: 'November 1, 1963'
   },
   {
     id: 'dlc-4',
@@ -297,7 +297,7 @@ const mockDLCEdgeCasesWithDate = [
       focalPoint: [0.5, 0.5]
     },
     sectionHandle: 'collection',
-    date: 'November 1, 1963'
+    customDateTime: 'November 1, 1963'
   },
   {
     id: 'dlc-5',
@@ -306,7 +306,7 @@ const mockDLCEdgeCasesWithDate = [
     text: 'Comprehensive collection of maps, atlases, and geospatial data supporting research in geography, urban planning, environmental studies, and related fields.',
     image: API.image,
     sectionHandle: 'collection',
-    date: 'November 1, 1963'
+    customDateTime: 'November 1, 1963'
   },
   {
     id: 'dlc-6',
@@ -323,7 +323,7 @@ const mockDLCEdgeCasesWithDate = [
       focalPoint: [0.5, 0.5]
     },
     sectionHandle: 'collection',
-    date: 'November 1, 1963'
+    customDateTime: 'November 1, 1963'
   }
 ]
 

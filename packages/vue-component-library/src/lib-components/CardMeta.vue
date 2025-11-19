@@ -59,11 +59,6 @@ const props = defineProps({
     type: String,
     default: 'long',
   },
-  // used to display a single date for collections
-  date: {
-    type: String,
-    default: '',
-  },
   ongoing: {
     type: Boolean,
     default: false,
@@ -213,12 +208,6 @@ const classes = computed(() => {
       v-html="title"
     />
 
-    <div
-      v-if="date"
-      class="date"
-      v-html="date"
-    />
-
     <!-- Named slot for custom description -->
     <p
       v-if="$slots.customDescription"
@@ -253,7 +242,10 @@ const classes = computed(() => {
       >
         {{ parsedDateCreated }}
       </div>
-      <div v-if="$slots.customDateTime" class="schedule-item date-created">
+      <div
+        v-if="$slots.customDateTime"
+        class="schedule-item date-created"
+      >
         <slot name="customDateTime" />
       </div>
     </div>
