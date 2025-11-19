@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.52.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.52.1...@ucla-library-monorepo/ucla-library-website-components-v1.52.2) (2025-11-14)
+
+
+### Bug Fixes
+
+* APPS-3625 Update the design token to v5.55.0 to update the footer logo ([#874](https://github.com/UCLALibrary/ucla-library-website-components/issues/874)) ([5bf3aaf](https://github.com/UCLALibrary/ucla-library-website-components/commit/5bf3aaf3d28130b902febcef07c6627a0626d017))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.52.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.52.0...@ucla-library-monorepo/ucla-library-website-components-v1.52.1) (2025-11-14)
 
 
