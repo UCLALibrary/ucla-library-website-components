@@ -82,6 +82,13 @@ function toggleDropdown() {
 
   isDropdownOpen.value = !isDropdownOpen.value
 }
+
+function handleListClick() {
+  if (isDesktop.value)
+    return
+
+  toggleDropdown()
+}
 </script>
 
 <template>
@@ -106,7 +113,7 @@ function toggleDropdown() {
       <ul
         v-if="isDropdownOpen"
         class="dropdown-menu page-anchor-list"
-        @click="!isDesktop ? toggleDropdown() : undefined"
+        @click="handleListClick"
       >
         <li
           v-for="(title, index) in sectionTitles"
