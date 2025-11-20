@@ -39,40 +39,6 @@ const dynamicLabel = computed(() =>
   isOpen.value ? props.labelOpen : props.labelClose
 )
 
-// Split text into first two sentences and the rest
-const textParts = computed(() => {
-  if (!props.text)
-    return { truncatedText: '', remainingText: '', hasMore: false }
-
-  // Simple sentence splitting - splits on period followed by space and capital letter
-  const sentenceRegex = /\.\s+(?=[A-Z])/g
-  const sentences = props.text.split(sentenceRegex)
-
-  if (sentences.length <= props.sentenceSplitCount) {
-    return {
-      truncatedText: props.text,
-      remainingText: '',
-      hasMore: false
-    }
-  }
-
-  // First X sentences
-  let truncatedText = sentences.slice(0, props.sentenceSplitCount).join('. ')
-
-  // Add period if not present
-  if (!truncatedText.endsWith('.'))
-    truncatedText += '.'
-
-  // Remaining text - rejoin with periods
-  const remainingText = ` ${sentences.slice(props.sentenceSplitCount).join('.')}`
-
-  return {
-    truncatedText,
-    remainingText,
-    hasMore: true,
-  }
-})
-
 // Methods
 function toggle() {
   isOpen.value = !isOpen.value
@@ -100,14 +66,16 @@ function toggle() {
           <!-- summary -->
           <template #summary>
             <div class="summary-content">
-              <span v-html="textParts.truncatedText" />
+              <!-- <span v-html="textParts.truncatedText" />  -->
+              <slot />
             </div>
           </template>
           <!-- content -->
-          <div v-html="textParts.remainingText" />
+          <!-- <div v-html="textParts.remainingText" /> -->
+          <slot name="content" />
         </EffectSlideToggle>
         <button
-          v-if="textParts.hasMore"
+          v-if="$slots.content"
           class="btn"
           :aria-expanded="isOpen"
           @click.stop="toggle"
