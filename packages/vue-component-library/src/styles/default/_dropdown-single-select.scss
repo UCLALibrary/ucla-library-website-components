@@ -92,4 +92,18 @@
             }
         }
     }
+    .filter-summary {
+        color: $accent-blue;
+    }
+
+    :deep(.mobile-drawer .mobile-button) {
+        border-color: $accent-blue;
+    }
+
+    :deep(.svg__icon-close.svg-glyph-close) {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        z-index: 1;
+    }
 }

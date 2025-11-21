@@ -79,7 +79,7 @@ const selectedLabel = computed(() => {
   return match ? `: ${match.label}` : '(none selected)'
 })
 
-// FILTER OPTIONS - exclude selected option when dlc theme and isSearch is true
+// FILTER OPTIONS - exclude selected filter from the filter list when it's DLC themed and is not a search filter
 const parsedOptions = computed(() => {
   if (dlcTheme.value && !props.isSearch)
     return props.options.filter(option => option.value !== selectedFilters.value[props.fieldName])
