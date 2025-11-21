@@ -234,11 +234,14 @@
 
     .block-tag-wrapper {
       display: flex;
+      flex-wrap: wrap;
       padding-left: 28px;
-      gap: 8px;
+      -moz-column-gap: 8px;
+           column-gap: 8px;
+      margin-bottom: 14px;
 
       .block-tag {
-        margin-bottom: 28px;
+        margin-bottom: 8px;
 
         &.highlighted { 
           background-color: var(--color-default-cyan-03);
