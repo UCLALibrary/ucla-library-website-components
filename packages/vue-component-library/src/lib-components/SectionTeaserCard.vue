@@ -30,11 +30,20 @@ const classes = computed(() => {
   return ['section-teaser-card', theme?.value || '', { 'no-grid-layout': !gridLayout }]
 })
 
+const hasDate = computed(() => {
+  return items.some(item => item.customDateTime)
+})
+
 const parsedAspectRatio = computed(() => {
   if (items[0].sectionHandle === 'ftvaItemInCollection')
     return 75
-  if (theme?.value === 'dlc')
-    return 108
+  if (theme?.value === 'dlc' && hasDate.value) {
+    return 100
+  }
+  else if (theme?.value === 'dlc') {
+    if (theme?.value === 'dlc')
+      return 108
+  }
 
   return 60
 })
@@ -78,7 +87,10 @@ const currentTheme = computed(() => {
           v-if="item.ftvaCollectionType && item.ftvaCollectionType.includes('watchAndListenOnline')"
         />
       </template>
-      <template v-if="item.customDateTime" #customDateTime>
+      <template
+        v-if="item.customDateTime"
+        #customDateTime
+      >
         {{ item.customDateTime }}
       </template>
     </BlockCardWithImage>
