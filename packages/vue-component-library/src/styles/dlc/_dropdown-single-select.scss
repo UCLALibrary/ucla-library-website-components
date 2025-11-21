@@ -1,0 +1,267 @@
+.dropdown-single-select.dlc {
+    .pill-radio {
+        display: none;
+    }
+    // DEFULT SINGLE SELECT SEARCH
+    width: 240px;
+    position: relative;
+    font-family: inherit;
+    border-radius: 0;
+
+    &:deep() {
+        .mobile-drawer .mobile-button {
+            border-radius: 0;
+
+            background-color: var(--color-primary-blue-01);
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+
+            border: none;
+
+            user-select: none;
+
+            @include animate-normal;
+
+            position: relative;
+            z-index: 20;
+
+            .svg__icon-caret-down {
+                @include animate-normal;
+            }
+
+            &.is-expanded {
+                .svg__icon-caret-down {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .mobile-drawer {
+            border-radius: 8px;
+
+            @include animate-normal;
+
+            &.is-expanded {
+                .mobile-button {
+                    background-color: var(--color-white);
+                }
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        .button-dropdown-modal-wrapper {
+            padding: 0;
+            border: none;
+            background-color: var(--color-primary-blue-01);
+            @include animate-normal;
+
+            &.is-expanded {
+                background-color: var(--color-white);
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+                padding: 0;
+            }
+        }
+
+        .pills {
+            padding: 0;
+        }
+
+        .pill-option {
+            width: 100%;
+            padding: 0;
+
+            position: relative;
+            cursor: pointer;
+
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+
+            .pill-content {
+                padding: 0;
+                @include ftva-body-2;
+            }
+
+            .check-icon {
+                display: none;
+            }
+
+            // DLC Theme Hover Styles
+            @media #{$has-hover} {
+                &:hover {
+                    background-color: var(--color-primary-blue-01);
+                }
+            }
+        }
+        .filter-summary {
+            padding: 0;
+            @include ftva-body-2;
+        }
+    }
+    // DLC Theme Search Style Overrides
+    &.is-search {
+        width: 200px;
+        border-radius: 0;
+
+        &:deep() {
+            .mobile-drawer .mobile-button {
+                position: relative;
+                z-index: 20;
+
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                border-radius: 0;
+                padding: 30px 15px;
+
+                background-color: var(--color-secondary-blue-02);
+            }
+
+            .toggle-triangle-icon {
+                margin-right: 0;
+                max-height: max-content;
+
+                path {
+                    fill: var(--color-white);
+                }
+            }
+
+            .button-dropdown-modal {
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                z-index: 21;
+                width: calc(100% - 10px);
+            }
+
+            .button-dropdown-modal-wrapper {
+                padding: 8px 5px 8px 30px;
+                box-sizing: border-box;
+
+                min-width: 100%;
+
+                background-color: var(--color-primary-blue-01);
+                border-radius: 8px;
+                border: none;
+
+                .pills {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                }
+
+                .pill-option {
+                    padding: 0;
+
+                    position: relative;
+                    cursor: pointer;
+
+                    .pill-content {
+                        padding: 8px 15px;
+                        border-radius: 4px;
+                        background-color: var(--color-secondary-blue-02);
+
+                        font-family: var(--font-secondary);
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 160%;
+                        color: var(--color-white);
+
+                        transition: background-color 0.2s;
+                    }
+
+                    .check-icon {
+                        display: block;
+
+                        position: absolute;
+                        left: -24px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    // DLC Theme Hover Styles
+                    @media #{$has-hover} {
+                        &:hover {
+                            background-color: var(--color-primary-blue-01);
+
+                            .pill-content {
+                                background-color: var(
+                                    --color-secondary-blue-01
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .filter-summary {
+            padding: 0;
+
+            font-family: var(--font-secondary);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 160%;
+            color: var(--color-white);
+        }
+    }
+
+    // States
+    &.is-long {
+        width: 345px;
+
+        &.is-search {
+            &:deep() {
+                .mobile-drawer .mobile-button {
+                    width: 100%;
+                }
+            }
+        }
+
+        :deep(.mobile-drawer .mobile-button) {
+            height: 45px;
+            padding: 15px;
+        }
+    }
+
+    @media #{$small} {
+        &.is-search {
+            width: 100%;
+
+            &:deep() {
+                .mobile-drawer {
+                    .mobile-button {
+                        // width: 200px;
+                        padding: 15px;
+                    }
+                    .button-dropdown-modal {
+                        position: absolute;
+                    }
+
+                    .dropdown-overlay {
+                        display: none;
+                    }
+                }
+            }
+        }
+        &:deep() {
+            .mobile-drawer {
+                .mobile-button {
+                    padding: 15px 9px;
+                    width: 100%;
+                }
+                .button-dropdown-modal {
+                    position: relative;
+                }
+            }
+        }
+    }
+}
