@@ -137,6 +137,28 @@ WithTagOnly.args = {
   },
 }
 
+export const WithoutTag = Template.bind({})
+WithoutTag.args = {
+  totalResults: 51,
+  previousTo: '/articles/previous-article',
+  nextTo: '/articles/next-article',
+  backTo: '/search?q=research+papers',
+}
+
+export const TagWithoutName = Template.bind({})
+TagWithoutName.args = {
+  totalResults: 51,
+  previousTo: '/articles/previous-article',
+  nextTo: '/articles/next-article',
+  backTo: '/search?q=research+papers',
+  tag: {
+    value: {
+      label: 'Computer Science',
+      to: '/subjects/computer-science',
+    },
+  },
+}
+
 export const WithBackButtonOnly = Template.bind({})
 WithBackButtonOnly.args = {
   totalResults: 0,
