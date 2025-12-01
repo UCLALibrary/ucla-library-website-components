@@ -15,11 +15,11 @@ const theme = useTheme()
 // Types
 interface DetailHeaderProps {
   totalResults?: number
-  tag: {
-    name: string
-    value: {
-      label: string
-      to: string
+  tag?: {
+    name?: string
+    value?: {
+      label?: string
+      to?: string
     }
   }
   previousTo?: string
