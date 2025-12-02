@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
+import SvgLibraryLogoDlc from 'ucla-library-design-tokens/assets/svgs/logo-library-digital-collections.svg'
 import SvgLogoFtva from 'ucla-library-design-tokens/assets/svgs/logo-ftva.svg'
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
 import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
@@ -81,8 +82,18 @@ const themeSettings = computed(() => {
 
 const shouldRenderSmartLink = computed(() => titleRef.value || acronymRef.value)
 
+const linkClasses = computed(() => {
+  return theme?.value !== 'dlc' ?
+    [
+      'nochildren-link',
+      'underline-hover',
+    ] : [
+      'nochildren-link-dlc',
+    ]
+})
 const noChildren = computed(() => {
-  if (!titleRef.value)
+  // For DLC theme, show items without children even without a title
+  if (!titleRef.value && theme?.value !== 'dlc')
     return []
   return primaryItems.value.filter(item => !item.children || !item.children.length)
 })
@@ -156,6 +167,19 @@ const { width } = useWindowSize()
 // Use computed to check if it's mobile based on window width
 const mobileBreakpoint = 850 // change scss breakpoints in ftva _header-sticky.scss, _nav-primary.scss, _site-brand-bar.scss
 const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 850px for mobile breakpoint
+
+// Parsed logo for the header
+const parsedLogo = computed(() => {
+  return theme?.value === 'dlc' ? {
+    width: undefined,
+    height: '20px',
+    svg: SvgLibraryLogoDlc,
+  } : {
+    width: undefined,
+    height: '23px',
+    svg: SvgLogoUclaLibrary,
+  }
+})
 
 // toggle Mobile-only menu
 function toggleMobileMenu() {
@@ -266,8 +290,12 @@ onMounted(() => {
             class="acronym"
           > {{ acronymRef }} </span>
         </div>
-        <SvgLogoUclaLibrary
+        <component
           v-else
+          :is="parsedLogo.svg"
+          :width="parsedLogo.width"
+          :height="parsedLogo.height"
+          role="button"
           class="svg logo-ucla"
           alt="UCLA Library logo blue"
         />
@@ -364,7 +392,7 @@ onMounted(() => {
         class="nochildren-links"
       >
         <SmartLink
-          class="nochildren-link underline-hover"
+          :class="linkClasses"
           :to="item.to"
           :link-target="item.target"
         >
@@ -424,4 +452,5 @@ onMounted(() => {
 <style lang="scss" scoped>
 @import "@/styles/default/_nav-primary.scss";
 @import "@/styles/ftva/_nav-primary.scss";
+@import "@/styles/dlc/_nav-primary.scss";
 </style>

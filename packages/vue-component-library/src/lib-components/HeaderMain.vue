@@ -54,10 +54,12 @@ const parseTitle = computed(() => {
 <template>
   <header class="header-main">
     <NavSecondary
+      v-if="secondaryNavRef.length > 0"
       :items="secondaryNavRef"
       :is-microsite="parseTitle"
     />
     <NavPrimary
+      v-if="primaryNavRef.length > 0"
       class="primary"
       :items="primaryNavRef"
       :title="titleRef"

@@ -1,10 +1,38 @@
 // Storybook default settings
 import { useGlobalStore } from '@/stores/GlobalStore'
 import HeaderSmart from '@/lib-components/HeaderSmart'
+import { computed, ref } from 'vue'
 
 export default {
   title: 'GLOBAL / Header Smart',
   component: HeaderSmart,
+}
+
+const mockDLC = {
+  primary: [
+    {
+      id: '843',
+      name: 'Using digital collections content',
+      to: '/digital-collections',
+      classes: '',
+      target: '',
+    },
+    {
+      id: '844',
+      name: 'About',
+      to: '/about',
+      classes: '',
+      target: '',
+    },
+    {
+      id: '845',
+      name: 'Give us feedback',
+      to: '/feedback',
+      classes: '',
+      target: '',
+    },
+  ],
+  secondary: [],
 }
 
 const mock = {
@@ -288,5 +316,31 @@ export function DefaultMicrosite() {
     components: { HeaderSmart },
 
     template: '<header-smart title="Modern Endangered Archives Program"/>',
+  }
+}
+
+export function DLC() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    setup() {
+      const menuOpened = ref(false)
+      const globalStore = useGlobalStore()
+      globalStore.header.primary = mockDLC.primary
+      globalStore.header.secondary = mockDLC.secondary
+      // To simulate mobile header just resize the storybook window
+      return {
+        menuOpened,
+        toggleMenu: () => {
+          menuOpened.value = !menuOpened.value
+          console.log('toggleMenu - from DLC stories', menuOpened.value);
+        },
+      }
+    },
+    components: { HeaderSmart },
+    template: '<header-smart :menu-opened="menuOpened" @toggle-menu="toggleMenu" />',
   }
 }

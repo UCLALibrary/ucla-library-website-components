@@ -1,19 +1,28 @@
 <script setup>
-import { markRaw, onMounted, ref, watch } from 'vue'
+import { markRaw, onMounted, ref, watch, computed } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import SiteBrandBar from '@/lib-components/SiteBrandBar'
 import HeaderMainResponsive from '@/lib-components/HeaderMainResponsive'
 import HeaderMain from '@/lib-components/HeaderMain'
+import { useTheme } from '@/composables/useTheme'
 
+const theme = useTheme()
 // Props
 const props = defineProps({
   title: {
     type: String,
     default: '',
   },
+  menuOpened: {
+    type: Boolean,
+    default: false,
+  },
 })
+
+// Emits
+const emit = defineEmits(['toggle-menu'])
 
 // Access the global store
 const globalStore = useGlobalStore()
@@ -27,14 +36,23 @@ const secondaryMenuItems = ref(header.value.secondary || [])
 const currentHeader = ref(markRaw(HeaderMain))
 
 const isMobile = ref(false)
+
+const controlWidth = computed(() => {
+  return theme.value === 'dlc' ? 1024 : 1200
+})
+
+const classes = computed(() => {
+  return ['header-smart', theme.value || '']
+})
+
 onMounted(() => {
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
     // console.log('newWidth', newWidth)
-    isMobile.value = newWidth <= 1200
+    isMobile.value = newWidth <= controlWidth.value
     currentHeader.value = markRaw(isMobile.value ? HeaderMainResponsive : HeaderMain)
   },
-  { immediate: true })
+    { immediate: true })
 
   watch(
     header,
@@ -46,26 +64,51 @@ onMounted(() => {
     { deep: true }
   )
 })
+
+function toggleMenu() {
+  emit('toggle-menu')
+}
 </script>
 
 <template>
-  <header class="header-smart">
+  <header :class="classes">
     <SiteBrandBar class="brand-bar" />
     <component
       :is="currentHeader"
       :class="isMobile ? 'mobile-header' : 'desktop-header'"
       :primary-nav="primaryMenuItems"
       :secondary-nav="secondaryMenuItems"
+      :menu-opened="menuOpened"
       :title="title"
+      @toggle-menu="toggleMenu"
     />
   </header>
 </template>
 
 <style lang="scss" scoped>
-@media #{$medium} {
-  .brand-bar {
-    position: absolute;
-    width: 100%;
+.header-smart {
+  @media #{$medium} {
+    .brand-bar {
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  &.dlc {
+    @media #{$medium} {
+      .brand-bar {
+        position: relative;
+        width: auto;
+        padding: 0 50px;
+      }
+    }
+
+    @media #{$small} {
+      .brand-bar {
+
+        padding: 0 25px;
+      }
+    }
   }
 }
 </style>

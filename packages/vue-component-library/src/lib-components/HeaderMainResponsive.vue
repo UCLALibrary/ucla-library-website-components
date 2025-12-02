@@ -5,20 +5,25 @@ import IconCloseLarge from 'ucla-library-design-tokens/assets/svgs/icon-close-la
 import Molecule3d from 'ucla-library-design-tokens/assets/svgs/molecule-3d.svg'
 import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
 import LogoLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
-import { computed, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import type { PropType } from 'vue'
 import NavMenuItemResponsive from '@/lib-components/NavMenuItemResponsive.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 import SearchInput from '@/lib-components/SearchInput.vue'
+// DLC
+import SvgLibraryLogoDlc from 'ucla-library-design-tokens/assets/svgs/logo-library-digital-collections.svg'
+import GlobalHamburger from '@/lib-components/GlobalHamburger.vue'
+
+// Vue
+import { computed, ref } from 'vue'
+import type { PropType } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { useTheme } from '@/composables/useTheme'
 
 // types
 import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
 
 const props = defineProps(
   {
-
     primaryNav: {
       // This is an array of objects, with each object shaped like {name, url, items:[{text, to, target}]}
       type: Array as PropType<NavPrimaryItemType[]>,
@@ -36,8 +41,16 @@ const props = defineProps(
       type: String,
       default: '',
     },
+    menuOpened: {
+      type: Boolean,
+      default: false,
+    },
   },
 )
+
+const emit = defineEmits(['toggle-menu'])
+
+const theme = useTheme()
 
 const isOpened = ref(false)
 const isItemOpened = ref(false)
@@ -50,8 +63,22 @@ const classes = computed(() => {
     isOpened.value ? 'fullHeight' : 'collapsedHeight',
     { 'has-title': props.title },
     { 'has-acronym': props.acronym },
+    theme?.value || '',
   ]
 })
+
+const parsedLogo = computed(() => {
+  return theme?.value === 'dlc' ? {
+    width: undefined,
+    height: '20',
+    svg: SvgLibraryLogoDlc,
+  } : {
+    width: '155',
+    height: '55',
+    svg: LogoLibrary,
+  }
+})
+
 const parseAriaLabel = computed(() => {
   return props.title ? props.title : 'UCLA Library home page'
 })
@@ -68,7 +95,8 @@ const parsedSecondaryMenuItems = computed(() => {
   return props.secondaryNav
 })
 const noChildren = computed(() => {
-  if (!props.title)
+  // For DLC theme, show items without children even without a title
+  if (!props.title && theme?.value !== 'dlc')
     return []
 
   return props.primaryNav.filter((obj) => {
@@ -106,10 +134,16 @@ function itemOpenedColor(itemIndex: number) {
   if (isItemOpened.value === false)
     moleculeColor.value = 'cyan'
 }
+
 function toggleMenu() {
-  isOpened.value = !isOpened.value
-  goBack.value = !goBack.value
+  if (theme?.value === 'dlc') {
+    emit('toggle-menu')
+  } else {
+    isOpened.value = !isOpened.value
+    goBack.value = !goBack.value
+  }
 }
+
 const route = useRoute()
 const searchWords = ref<string>(Array.isArray(route.query.q) ? route.query.q[0] || '' : route.query.q || '')
 
@@ -150,16 +184,17 @@ function submitSearch() {
           > {{ acronym }} </span>
         </div>
         <component
-          :is="LogoLibrary"
+          :is="parsedLogo.svg"
           v-else
-          width="155"
-          height="55"
+          :width="parsedLogo.width"
+          :height="parsedLogo.height"
           class="logo-ucla"
           role="button"
         />
       </SmartLink>
       <div class="more-menu">
         <button
+          v-if="theme !== 'dlc'"
           class="search-button"
           role="button"
           aria-label="Search button"
@@ -167,7 +202,15 @@ function submitSearch() {
         >
           <IconSearch class="icon-search" />
         </button>
+
+        <GlobalHamburger
+          v-if="theme === 'dlc'"
+          class="hamburger show-mobile"
+          :is-opened="menuOpened"
+          @toggle-menu="toggleMenu"
+        />
         <button
+          v-else
           role="button"
           class="open-menu"
           aria-label="Open menu"
@@ -179,6 +222,7 @@ function submitSearch() {
             class="hamburguer"
           />
         </button>
+
       </div>
     </div>
     <div
@@ -323,290 +367,6 @@ function submitSearch() {
 </template>
 
 <style lang="scss" scoped>
-.fullHeight {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 400;
-}
-
-.collapsedHeight {
-  height: 100%;
-  box-shadow: 0px 2px 8px rgba(113, 113, 113, 0.08);
-}
-
-.header-main-responsive {
-  width: 100vw;
-  height: 100%;
-  background-color: var(--color-primary-blue-03);
-  display: flex;
-  flex-direction: column;
-
-  .collapsed-menu {
-    width: 100vw;
-    height: 100%;
-    padding: 32px var(--unit-gutter) 0;
-    background-color: var(--color-white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .more-menu {
-      display: flex;
-      flex-direction: row;
-      align-self: flex-end;
-
-    }
-
-    .search-button {
-      background: none;
-      border: none;
-      padding: unset;
-      padding-top: 5px;
-    }
-
-    .hamburguer {
-      cursor: pointer;
-    }
-
-    .clickable-parent,
-    .hamburguer {
-      display: inherit;
-    }
-
-    .open-menu {
-      padding: 0;
-    }
-  }
-
-  .expanded-menu-container {
-    overflow-y: auto;
-  }
-
-  .search-box {
-    display: flex;
-    justify-content: center;
-  }
-
-  .input-container-wrapper {
-    width: 90%
-  }
-
-  .input-container {
-    display: flex;
-    background-color: var(--color-primary-blue-01);
-    border-color: transparent;
-    height: 60px;
-
-    .icon {
-      &:hover {
-        :deep(.svg__fill--primary-blue-03) {
-          fill: var(--color-default-cyan-03);
-        }
-      }
-    }
-
-    .search-input {
-      flex-grow: 1;
-    }
-
-    :deep(.search-input-wrapper input[data-search-input=true]) {
-      padding: 15px 20px;
-    }
-
-    .button-submit {
-      display: flex;
-      align-items: center;
-      padding: 0 24px;
-    }
-  }
-
-  .divider {
-    margin-top: 16px;
-    border-bottom: 2px solid var(--color-default-cyan-03);
-    height: 1px;
-  }
-
-  .expanded-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-
-    padding: 0 var(--unit-gutter);
-    margin: 32px 0;
-    background-color: var(--color-primary-blue-03);
-
-    :deep(.svg__logo-library) {
-
-      .svg__fill--primary-blue-03,
-      .svg__fill--black {
-        fill: var(--color-white);
-      }
-    }
-
-    .close-menu {
-      padding: 0;
-    }
-
-    .close-svg {
-      cursor: pointer;
-
-      :deep(.svg__fill--primary-blue-01) {
-        fill: transparent;
-      }
-    }
-
-    .go-back-svg {
-      cursor: pointer;
-      height: 48px;
-
-      :deep(.svg__fill--primary-blue-01) {
-        fill: transparent;
-      }
-
-      :deep(.svg__fill--primary-blue-03) {
-        fill: var(--color-default-cyan-02);
-      }
-    }
-  }
-
-  ul {
-    list-style-type: none;
-  }
-
-  .nav-menu-primary {
-    margin: 64px var(--unit-gutter);
-    z-index: 10;
-    position: relative;
-  }
-
-  &.has-acronym .acronym {
-    display: none;
-  }
-
-  &.has-title {
-    .clickable-parent {
-      position: relative;
-    }
-
-    .title {
-      font-family: "Karbon", Helvetica, Arial, sans-serif;
-      font-size: var(--step-1);
-      font-weight: 500;
-      line-height: 1.2;
-      color: var(--color-primary-blue-03);
-      text-transform: initial;
-      letter-spacing: normal;
-      @include min-clickable-area;
-
-      &.opened-title {
-        color: white;
-      }
-    }
-
-    .nochildren-link {
-      margin-bottom: 24px;
-      line-height: 28px;
-      font-size: 28px;
-      font-weight: 600;
-      text-align: left;
-      display: block;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      position: relative;
-      color: white;
-      cursor: pointer;
-      @include min-clickable-area;
-    }
-  }
-
-  .nav-menu-secondary {
-    margin: 64px var(--unit-gutter);
-
-    .list {
-      color: white;
-
-      .list-item {
-        margin-bottom: 24px;
-        font-family: var(--font-primary);
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 1;
-
-        .link {
-          @include min-clickable-area;
-        }
-      }
-    }
-  }
-
-  .support-us-container {
-    margin: 64px var(--unit-gutter);
-
-    .button {
-      margin: 0px;
-      border: 1.5px solid var(--color-primary-blue-02);
-    }
-  }
-
-  .cyan {
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-default-cyan-02);
-    }
-  }
-
-  .green {
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-help-green-02);
-    }
-  }
-
-  .pink {
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-visit-fushia-02);
-    }
-  }
-
-  .purple {
-    :deep(.svg__stroke--default-cyan-03) {
-      stroke: var(--color-about-purple-03);
-    }
-  }
-
-  .molecule {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 0;
-
-    -moz-transform: scaleY(-1);
-    -o-transform: scaleY(-1);
-    -webkit-transform: scaleY(-1);
-    transform: scaleY(-1);
-    filter: FlipV;
-    -ms-filter: "FlipV";
-  }
-
-  @media #{$medium} {
-    &.has-acronym {
-      .full-title {
-        display: none;
-      }
-
-      .acronym {
-        display: block;
-      }
-    }
-  }
-
-  @media #{$small} {
-    .support-us-container {
-      padding-top: 0px;
-    }
-  }
-}
+@import "@/styles/default/_header-main-responsive.scss";
+@import "@/styles/dlc/_header-main-responsive.scss";
 </style>
