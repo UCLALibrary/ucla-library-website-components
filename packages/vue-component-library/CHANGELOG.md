@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.55.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.54.0...@ucla-library-monorepo/ucla-library-website-components-v1.55.0) (2025-12-01)
+
+
+### Features
+
+* Add DetailHeader ([#855](https://github.com/UCLALibrary/ucla-library-website-components/issues/855)) ([f618704](https://github.com/UCLALibrary/ucla-library-website-components/commit/f61870452ffefc7463bdfe12efa0e77b3b8d0cd3))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.54.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.53.0...@ucla-library-monorepo/ucla-library-website-components-v1.54.0) (2025-11-21)
 
 
