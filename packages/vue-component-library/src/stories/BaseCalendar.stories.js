@@ -93,7 +93,7 @@ export function SameDayEvents() {
     data() {
       return {
         ...mockCalendarEvents,
-        mockCalendarStart: [new Date('October 01, 2024 00:00:00')],
+        mockCalendarStart: [new Date('October 01, 2025 00:00:00')],
       }
     },
     provide() {
