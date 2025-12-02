@@ -1,7 +1,7 @@
 // Storybook default settings
+import { computed, ref } from 'vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import HeaderSmart from '@/lib-components/HeaderSmart'
-import { computed, ref } from 'vue'
 
 export default {
   title: 'GLOBAL / Header Smart',
@@ -336,7 +336,7 @@ export function DLC() {
         menuOpened,
         toggleMenu: () => {
           menuOpened.value = !menuOpened.value
-          console.log('toggleMenu - from DLC stories', menuOpened.value);
+          console.log('toggleMenu - from DLC stories', menuOpened.value)
         },
       }
     },

@@ -5,18 +5,19 @@ import IconCloseLarge from 'ucla-library-design-tokens/assets/svgs/icon-close-la
 import Molecule3d from 'ucla-library-design-tokens/assets/svgs/molecule-3d.svg'
 import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
 import LogoLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
+import SvgLibraryLogoDlc from 'ucla-library-design-tokens/assets/svgs/logo-library-digital-collections.svg'
+import { computed, ref } from 'vue'
+import type { PropType } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import NavMenuItemResponsive from '@/lib-components/NavMenuItemResponsive.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 import SearchInput from '@/lib-components/SearchInput.vue'
+
 // DLC
-import SvgLibraryLogoDlc from 'ucla-library-design-tokens/assets/svgs/logo-library-digital-collections.svg'
 import GlobalHamburger from '@/lib-components/GlobalHamburger.vue'
 
 // Vue
-import { computed, ref } from 'vue'
-import type { PropType } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
 
 // types
@@ -68,15 +69,17 @@ const classes = computed(() => {
 })
 
 const parsedLogo = computed(() => {
-  return theme?.value === 'dlc' ? {
-    width: undefined,
-    height: '20',
-    svg: SvgLibraryLogoDlc,
-  } : {
-    width: '155',
-    height: '55',
-    svg: LogoLibrary,
-  }
+  return theme?.value === 'dlc'
+    ? {
+        width: undefined,
+        height: '20',
+        svg: SvgLibraryLogoDlc,
+      }
+    : {
+        width: '155',
+        height: '55',
+        svg: LogoLibrary,
+      }
 })
 
 const parseAriaLabel = computed(() => {
@@ -138,7 +141,8 @@ function itemOpenedColor(itemIndex: number) {
 function toggleMenu() {
   if (theme?.value === 'dlc') {
     emit('toggle-menu')
-  } else {
+  }
+  else {
     isOpened.value = !isOpened.value
     goBack.value = !goBack.value
   }
@@ -222,7 +226,6 @@ function submitSearch() {
             class="hamburguer"
           />
         </button>
-
       </div>
     </div>
     <div

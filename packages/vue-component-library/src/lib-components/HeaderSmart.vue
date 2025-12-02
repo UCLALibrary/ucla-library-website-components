@@ -1,5 +1,5 @@
 <script setup>
-import { markRaw, onMounted, ref, watch, computed } from 'vue'
+import { computed, markRaw, onMounted, ref, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { useGlobalStore } from '@/stores/GlobalStore'
@@ -8,7 +8,6 @@ import HeaderMainResponsive from '@/lib-components/HeaderMainResponsive'
 import HeaderMain from '@/lib-components/HeaderMain'
 import { useTheme } from '@/composables/useTheme'
 
-const theme = useTheme()
 // Props
 const props = defineProps({
   title: {
@@ -20,10 +19,9 @@ const props = defineProps({
     default: false,
   },
 })
-
 // Emits
 const emit = defineEmits(['toggle-menu'])
-
+const theme = useTheme()
 // Access the global store
 const globalStore = useGlobalStore()
 const { header } = storeToRefs(globalStore)
@@ -52,7 +50,7 @@ onMounted(() => {
     isMobile.value = newWidth <= controlWidth.value
     currentHeader.value = markRaw(isMobile.value ? HeaderMainResponsive : HeaderMain)
   },
-    { immediate: true })
+  { immediate: true })
 
   watch(
     header,

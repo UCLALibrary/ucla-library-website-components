@@ -83,13 +83,14 @@ const themeSettings = computed(() => {
 const shouldRenderSmartLink = computed(() => titleRef.value || acronymRef.value)
 
 const linkClasses = computed(() => {
-  return theme?.value !== 'dlc' ?
-    [
-      'nochildren-link',
-      'underline-hover',
-    ] : [
-      'nochildren-link-dlc',
-    ]
+  return theme?.value !== 'dlc'
+    ? [
+        'nochildren-link',
+        'underline-hover',
+      ]
+    : [
+        'nochildren-link-dlc',
+      ]
 })
 const noChildren = computed(() => {
   // For DLC theme, show items without children even without a title
@@ -170,15 +171,17 @@ const isMobile = computed(() => width.value <= mobileBreakpoint) // Use 850px fo
 
 // Parsed logo for the header
 const parsedLogo = computed(() => {
-  return theme?.value === 'dlc' ? {
-    width: undefined,
-    height: '20px',
-    svg: SvgLibraryLogoDlc,
-  } : {
-    width: undefined,
-    height: '23px',
-    svg: SvgLogoUclaLibrary,
-  }
+  return theme?.value === 'dlc'
+    ? {
+        width: undefined,
+        height: '20px',
+        svg: SvgLibraryLogoDlc,
+      }
+    : {
+        width: undefined,
+        height: '23px',
+        svg: SvgLogoUclaLibrary,
+      }
 })
 
 // toggle Mobile-only menu
@@ -291,8 +294,8 @@ onMounted(() => {
           > {{ acronymRef }} </span>
         </div>
         <component
-          v-else
           :is="parsedLogo.svg"
+          v-else
           :width="parsedLogo.width"
           :height="parsedLogo.height"
           role="button"

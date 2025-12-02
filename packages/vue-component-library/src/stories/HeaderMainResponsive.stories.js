@@ -1,7 +1,7 @@
 // Import mock api data
+import { computed } from 'vue'
 import * as API from '@/stories/mock-api.json'
 import HeaderMainResponsive from '@/lib-components/HeaderMainResponsive'
-import { computed } from 'vue'
 
 // Storybook default settings
 export default {
