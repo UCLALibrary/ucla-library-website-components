@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.54.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.53.0...@ucla-library-monorepo/ucla-library-website-components-v1.54.0) (2025-11-21)
+
+
+### Features
+
+* Adjusts the BlockCardWIthImage to look like GridAssets/BlockAssets components ([#868](https://github.com/UCLALibrary/ucla-library-website-components/issues/868)) ([ef64e96](https://github.com/UCLALibrary/ucla-library-website-components/commit/ef64e96175e823de5135a2c20f7dc94a8766e92b))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.53.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.52.2...@ucla-library-monorepo/ucla-library-website-components-v1.53.0) (2025-11-19)
+
+
+### Features
+
+* Adjust BannerFeatured for new designs. ([#864](https://github.com/UCLALibrary/ucla-library-website-components/issues/864)) ([c93a416](https://github.com/UCLALibrary/ucla-library-website-components/commit/c93a41668c656359585b76787e44b4a0867dc130))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.52.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.52.1...@ucla-library-monorepo/ucla-library-website-components-v1.52.2) (2025-11-14)
 
 
