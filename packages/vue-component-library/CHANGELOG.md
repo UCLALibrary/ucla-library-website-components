@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.56.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.55.0...@ucla-library-monorepo/ucla-library-website-components-v1.56.0) (2025-12-02)
+
+
+### Features
+
+* add DLC theme for BlockTag & BlockRemoveSearchFilter & SectionRemoveSearchFilter ([#871](https://github.com/UCLALibrary/ucla-library-website-components/issues/871)) ([2f7a882](https://github.com/UCLALibrary/ucla-library-website-components/commit/2f7a882e79be85495d2167633f123a71a4a6b552))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.55.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.54.0...@ucla-library-monorepo/ucla-library-website-components-v1.55.0) (2025-12-01)
 
 
