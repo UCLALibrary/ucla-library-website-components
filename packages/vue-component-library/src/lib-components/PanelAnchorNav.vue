@@ -15,7 +15,7 @@ interface PanelAnchorNavProps {
   showOpenIconAlways?: boolean
 }
 
-// Props
+//  Props
 const props = withDefaults(defineProps<PanelAnchorNavProps>(), {
   color: '' as routeColors,
   hasBackToTop: true,
