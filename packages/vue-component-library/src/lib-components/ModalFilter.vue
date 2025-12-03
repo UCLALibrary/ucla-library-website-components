@@ -34,7 +34,7 @@ interface ModalFilterProps {
   itemsPerPage?: number
 }
 
-// Data
+//  Data
 const theme = useTheme()
 const route = useRoute()
 const alphabeticalCurrentPage = ref(1)
@@ -100,8 +100,7 @@ watch(
         : newQuery || ''
       if (isAlphabeticalSearch.value)
         alphabeticalSearchQuery.value = query
-      else
-        numericalSearchQuery.value = query
+      else numericalSearchQuery.value = query
     }
   }
 )
