@@ -1,0 +1,63 @@
+.dlc.page-anchor {
+    position: relative;
+
+    .page-anchor-content {
+        justify-content: flex-start;
+        padding: 0;
+    }
+
+    .title {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+        color: var(--color-dark-grey);
+    }
+
+    .divider {
+        width: 100%;
+        max-width: unset;
+        margin: 8px 0 10px;
+    }
+
+    .page-anchor-list {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        top: unset;
+        font-size: unset;
+        font-weight: unset;
+        line-height: unset;
+        letter-spacing: unset;
+        text-transform: unset;
+        text-align: unset;
+        text-decoration-thickness: unset;
+        text-decoration-color: unset;
+        text-underline-offset: unset;
+    }
+
+    :deep(.button-link .label) {
+        white-space: normal;
+        text-align: left;
+    }
+
+    .link {
+        padding: 0;
+        a {
+            letter-spacing: unset;
+            text-transform: unset;
+            text-align: unset;
+        }
+    }
+    .link a:hover {
+        text-decoration-line: unset;
+    }
+}

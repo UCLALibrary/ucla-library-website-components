@@ -1,0 +1,199 @@
+.panel-anchor-nav {
+    --transition-duration: 0.4s;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transform: translateX(100%);
+    transition: transform 0s ease-in-out var(--transition-duration);
+
+    .icon-open {
+        z-index: 10;
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%) translateX(-100%);
+
+        // Open Icon hidden by default (when not show-open-icon)
+        opacity: 0;
+        transition: opacity var(--transition-duration) ease-in-out
+            var(--transition-duration);
+
+        cursor: pointer;
+
+        :deep(path) {
+            fill: var(--color-black);
+            transition: fill var(--transition-duration) ease-in-out;
+        }
+    }
+
+    .bg-color {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background-color: var(--color-black);
+        opacity: 0;
+        transform: translateX(100%);
+        transition: opacity var(--transition-duration) ease-in-out,
+            transform var(--transition-duration) ease-in-out
+                var(--transition-duration);
+    }
+    .panel {
+        z-index: 20;
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 50vw;
+        height: 100vh;
+
+        background-color: $white;
+
+        padding: 150px 64px 32px 100px;
+
+        transform: translateX(200%);
+        transition: transform var(--transition-duration) ease-in-out;
+
+        // Add scrolling for content that exceeds viewport height
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        // Ensure smooth scrolling
+        scroll-behavior: smooth;
+
+        // Custom scrollbar styling for better UX
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    .page-anchor {
+        width: 100%;
+
+        :deep(.page-anchor-content) {
+            width: 100%;
+        }
+    }
+
+    .icon-close {
+        z-index: 30;
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+
+        width: 37.5px;
+        height: 37.5px;
+
+        transform: translateX(100vw);
+        opacity: 0;
+        transition: transform var(--transition-duration) ease-in-out,
+            opacity var(--transition-duration) ease-in-out;
+
+        cursor: pointer;
+
+        circle {
+            fill: $secondary-grey-01;
+        }
+
+        :deep(path) {
+            stroke: var(--color-black);
+            transition: stroke var(--transition-duration) ease-in-out;
+        }
+    }
+
+    // Show open icon when show-open-icon class is present
+    &.show-open-icon .icon-open {
+        opacity: 1;
+    }
+
+    // When panel is opened
+    &.is-opened {
+        transform: translateX(0);
+        transition: transform 0s ease-in-out 0s;
+
+        .icon-open {
+            opacity: 0;
+        }
+
+        .bg-color {
+            transform: translateX(0);
+            opacity: 0.5;
+
+            transition: opacity var(--transition-duration) ease-in-out;
+        }
+
+        .icon-close {
+            transform: translateX(0) translateY(-50%);
+            opacity: 1;
+        }
+
+        .panel {
+            transform: translateX(100%);
+        }
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        .icon-close {
+            &:hover {
+                :deep(path) {
+                    stroke: $accent-blue;
+                }
+            }
+        }
+        .icon-open {
+            &:hover {
+                :deep(path) {
+                    fill: $accent-blue;
+                }
+            }
+        }
+    }
+    // Breakpoints
+    @media #{$extra-large} {
+    }
+    @media #{$medium} {
+        .panel {
+            width: 75vw;
+            padding: 100px 64px 32px 50px;
+        }
+
+        &.is-opened {
+            .panel {
+                transform: translateX(25vw);
+            }
+        }
+    }
+    @media #{$small} {
+        .panel {
+            width: 100vw;
+            padding: 50px 64px 32px 32px;
+        }
+
+        &.is-opened {
+            .panel {
+                transform: translateX(0);
+            }
+        }
+    }
+}

@@ -129,7 +129,40 @@ FTVATheme.args = {
     'Research at UCLA',
     'Acknowledgements',
     'Additional materials',
-    'A Longer Headline for Testing: National Archives of Finland'
+    'A Longer Headline for Testing: National Archives of Finland',
+  ],
+  color: 'default',
+}
+
+// DLC Theme
+function DLCThemeTemplate(args) {
+  return {
+    components: { PageAnchor },
+    setup() {
+      return { args }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    template: '<page-anchor v-bind="args" />',
+  }
+}
+
+export const DLCTheme = DLCThemeTemplate.bind({})
+DLCTheme.args = {
+  sectionTitles: [
+    'The story',
+    'Endeavors of the initiaive',
+    'Filmmakers & filmography',
+    'Watch online',
+    'Exhibitions & symposia',
+    'Touring films',
+    'Research at UCLA',
+    'Acknowledgements',
+    'Additional materials',
+    'A Longer Headline for Testing: National Archives of Finland',
   ],
   color: 'default',
 }
