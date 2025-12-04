@@ -1,0 +1,40 @@
+.dlc.block-tag {
+    --transition-duration: 0.2s;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 2px solid var(--color-secondary-grey-02);
+    background-color: transparent;
+
+    height: 36px;
+    width: fit-content;
+
+    transition: background-color var(--transition-duration) ease-in-out,
+        border-color var(--transition-duration) ease-in-out;
+
+    .label {
+        font-family: var(--font-primary);
+        font-size: 15px;
+        font-weight: 700;
+        color: $subtitle-grey;
+
+        transition: color var(--transition-duration) ease-in-out;
+    }
+
+    // Arrow between label items
+    .icon-arrow {
+        height: 13.5px;
+
+        :deep(path) {
+            stroke: $subtitle-grey;
+
+            transition: stroke var(--transition-duration) ease-in-out;
+        }
+    }
+}
