@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.59.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.58.0...@ucla-library-monorepo/ucla-library-website-components-v1.59.0) (2025-12-04)
+
+
+### Features
+
+* create BentoFilterMenu ([#866](https://github.com/UCLALibrary/ucla-library-website-components/issues/866)) ([f929fa6](https://github.com/UCLALibrary/ucla-library-website-components/commit/f929fa6125a72b6f1229127aa50e97172ba57c77))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.58.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.57.0...@ucla-library-monorepo/ucla-library-website-components-v1.58.0) (2025-12-04)
 
 
