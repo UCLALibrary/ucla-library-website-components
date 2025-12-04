@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import SvgLogoUclaLibrary from 'ucla-library-design-tokens/assets/svgs/logo-library.svg'
+import SvgLogoFtva from 'ucla-library-design-tokens/assets/svgs/logo-ftva.svg'
 import IconSearch from 'ucla-library-design-tokens/assets/svgs/icon-ftva-search.svg'
 import IconMenu from 'ucla-library-design-tokens/assets/svgs/icon-menu.svg'
 import IconMenuClose from 'ucla-library-design-tokens/assets/svgs/icon-ftva-circle-x.svg'
@@ -68,7 +69,6 @@ const themeSettings = computed(() => {
         renderItemTop: false,
         showSearch: true,
         horizontalMobileMenu: true,
-        headerText: 'UCLA Film & Television Archive',
       }
     default:
       return {
@@ -274,10 +274,15 @@ onMounted(() => {
       </a>
     </div>
     <div
-      v-else-if="isMobile && themeSettings.headerText"
+      v-else-if="isMobile && theme === 'ftva'"
       class="item-top-mobile"
     >
-      {{ themeSettings.headerText }}
+      <a
+        href="/"
+        target="_self"
+      >
+        <SvgLogoFtva />
+      </a>
     </div>
 
     <div class="nav-background-fill" />

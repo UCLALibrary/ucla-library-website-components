@@ -242,7 +242,10 @@ const classes = computed(() => {
       >
         {{ parsedDateCreated }}
       </div>
-      <div v-if="$slots.customDateTime" class="schedule-item date-created">
+      <div
+        v-if="$slots.customDateTime"
+        class="schedule-item date-created"
+      >
         <slot name="customDateTime" />
       </div>
     </div>
