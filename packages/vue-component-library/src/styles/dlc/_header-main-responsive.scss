@@ -45,6 +45,251 @@
             }
         }
 
+        .expanded-menu-container {
+            background-color: var(--color-primary-blue-03);
+            height: 100dvh;
+        }
+
+        .expanded-menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+
+            :deep(.svg__logo-library) {
+                .svg__fill--primary-blue-03,
+                .svg__fill--black {
+                    fill: var(--color-white);
+                }
+            }
+
+            .smart-link {
+                display: block;
+            }
+
+            .close-menu {
+                padding: 0;
+            }
+
+            .close-svg {
+                cursor: pointer;
+                height: auto;
+                display: block;
+
+                :deep(.svg__fill--primary-blue-01) {
+                    fill: transparent;
+                }
+            }
+
+            .go-back-svg {
+                cursor: pointer;
+                height: auto;
+
+                :deep(.svg__fill--primary-blue-01) {
+                    fill: transparent;
+                }
+
+                :deep(.svg__fill--primary-blue-03) {
+                    fill: var(--color-default-cyan-02);
+                }
+            }
+        }
+        ul {
+            list-style-type: none;
+        }
+
+        .nav-menu-primary {
+            margin: 64px var(--unit-gutter);
+            z-index: 10;
+            position: relative;
+
+            li {
+                margin-bottom: 24px;
+                padding: 5px 0;
+
+                font-family: var(--font-primary);
+                font-size: 28px;
+                font-weight: 600;
+                line-height: 1;
+                color: var(--color-white);
+                text-transform: uppercase;
+            }
+        }
+
+        &.has-acronym .acronym {
+            display: none;
+        }
+
+        &.has-title {
+            .clickable-parent {
+                position: relative;
+            }
+
+            .title {
+                font-family: "Karbon", Helvetica, Arial, sans-serif;
+                font-size: var(--step-1);
+                font-weight: 500;
+                line-height: 1.2;
+                color: var(--color-primary-blue-03);
+                text-transform: initial;
+                letter-spacing: normal;
+                @include min-clickable-area;
+
+                &.opened-title {
+                    color: white;
+                }
+            }
+
+            .nochildren-link {
+                margin-bottom: 24px;
+                line-height: 28px;
+                font-size: 28px;
+                font-weight: 600;
+                text-align: left;
+                display: block;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                position: relative;
+                color: white;
+                cursor: pointer;
+                @include min-clickable-area;
+            }
+        }
+
+        .nav-menu-secondary {
+            margin: 64px var(--unit-gutter);
+
+            .list {
+                color: white;
+
+                .list-item {
+                    margin-bottom: 24px;
+                    font-family: var(--font-primary);
+                    font-size: 20px;
+                    font-weight: 400;
+                    line-height: 1;
+
+                    .link {
+                        @include min-clickable-area;
+                    }
+                }
+            }
+        }
+
+        .nav-menu-info {
+            margin: 64px var(--unit-gutter);
+            z-index: 10;
+            position: relative;
+
+            .list {
+                color: var(--color-white);
+
+                .list-item {
+                    margin-bottom: 24px;
+                    font-family: var(--font-primary);
+                    font-size: 20px;
+                    font-weight: 400;
+                    line-height: 1;
+
+                    .link {
+                        color: var(--color-white);
+                        @include min-clickable-area;
+
+                        &.support-link {
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+
+        .account-button {
+            padding: 8px 12px;
+            box-sizing: border-box;
+            border-radius: 4px;
+
+            max-width: max-content;
+
+            background-color: var(--color-white);
+        }
+        .account-button-text {
+            display: inline-block;
+
+            font-family: var(--font-primary);
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.6;
+            color: var(--color-primary-blue-03);
+        }
+
+        .support-us-container {
+            margin: 64px var(--unit-gutter);
+
+            .button {
+                margin: 0px;
+                border: 1.5px solid var(--color-primary-blue-02);
+            }
+        }
+
+        .cyan {
+            :deep(.svg__stroke--default-cyan-03) {
+                stroke: var(--color-default-cyan-02);
+            }
+        }
+
+        .green {
+            :deep(.svg__stroke--default-cyan-03) {
+                stroke: var(--color-help-green-02);
+            }
+        }
+
+        .pink {
+            :deep(.svg__stroke--default-cyan-03) {
+                stroke: var(--color-visit-fushia-02);
+            }
+        }
+
+        .purple {
+            :deep(.svg__stroke--default-cyan-03) {
+                stroke: var(--color-about-purple-03);
+            }
+        }
+
+        .molecule {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: 0;
+
+            -moz-transform: scaleY(-1);
+            -o-transform: scaleY(-1);
+            -webkit-transform: scaleY(-1);
+            transform: scaleY(-1);
+            filter: FlipV;
+            -ms-filter: "FlipV";
+        }
+
+        &.fullHeight {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: 400;
+
+            .expanded-logo {
+                :deep(path) {
+                    fill: var(--color-white);
+                }
+            }
+        }
+
+        &.collapsedHeight {
+            height: 100%;
+            box-shadow: 0px 2px 8px rgba(113, 113, 113, 0.08);
+        }
+
         .logo-ucla {
             height: 20px;
             width: auto;
@@ -57,6 +302,9 @@
         // Breakpoints
         @media #{$medium} {
             --horizontal-gap: 50px;
+            .expanded-menu {
+                padding: 62px 50px;
+            }
             .show-mobile {
                 display: block;
             }
@@ -69,6 +317,10 @@
         @media #{$small} {
             --vertical-gap: 30px;
             --horizontal-gap: 25px;
+
+            .expanded-menu {
+                padding: 62px 25px 0;
+            }
             .collapsed-menu {
                 gap: 5px;
                 padding: var(--vertical-gap) var(--horizontal-gap)

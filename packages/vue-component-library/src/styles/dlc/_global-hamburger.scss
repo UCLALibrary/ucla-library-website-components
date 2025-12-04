@@ -29,9 +29,9 @@
 
         // States
         &.is-opened {
-            // .line {
-            //     background-color: var(--color-white);
-            // }
+            .line {
+                background-color: var(--color-white);
+            }
 
             .line-1 {
                 transform: translateY(8px) rotate(45deg);

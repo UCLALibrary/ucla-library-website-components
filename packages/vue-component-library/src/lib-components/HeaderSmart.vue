@@ -29,6 +29,7 @@ const { header } = storeToRefs(globalStore)
 // Use refs for primary, secondary menu items, and header type
 const primaryMenuItems = ref(header.value.primary || [])
 const secondaryMenuItems = ref(header.value.secondary || [])
+const accountButton = ref(header.value.accountButton || null)
 
 // Mark components as raw to prevent them from being reactive
 const currentHeader = ref(markRaw(HeaderMain))
@@ -36,11 +37,12 @@ const currentHeader = ref(markRaw(HeaderMain))
 const isMobile = ref(false)
 
 const controlWidth = computed(() => {
-  return theme.value === 'dlc' ? 1024 : 1200
+  if (theme?.value === 'dlc') return 1024
+  return 1200
 })
 
 const classes = computed(() => {
-  return ['header-smart', theme.value || '']
+  return ['header-smart', theme?.value || '']
 })
 
 onMounted(() => {
@@ -50,14 +52,17 @@ onMounted(() => {
     isMobile.value = newWidth <= controlWidth.value
     currentHeader.value = markRaw(isMobile.value ? HeaderMainResponsive : HeaderMain)
   },
-  { immediate: true })
+    { immediate: true })
 
   watch(
     header,
     (newVal, oldVal) => {
       // console.log('Header updated from parent page', newVal, oldVal)
-      primaryMenuItems.value = newVal.primary
-      secondaryMenuItems.value = newVal.secondary
+      if (newVal) {
+        primaryMenuItems.value = newVal.primary || []
+        secondaryMenuItems.value = newVal.secondary || []
+        accountButton.value = newVal.accountButton || null
+      }
     },
     { deep: true }
   )
@@ -76,6 +81,7 @@ function toggleMenu() {
       :class="isMobile ? 'mobile-header' : 'desktop-header'"
       :primary-nav="primaryMenuItems"
       :secondary-nav="secondaryMenuItems"
+      :account-button="accountButton"
       :menu-opened="menuOpened"
       :title="title"
       @toggle-menu="toggleMenu"
@@ -84,29 +90,6 @@ function toggleMenu() {
 </template>
 
 <style lang="scss" scoped>
-.header-smart {
-  @media #{$medium} {
-    .brand-bar {
-      position: absolute;
-      width: 100%;
-    }
-  }
-
-  &.dlc {
-    @media #{$medium} {
-      .brand-bar {
-        position: relative;
-        width: auto;
-        padding: 0 50px;
-      }
-    }
-
-    @media #{$small} {
-      .brand-bar {
-
-        padding: 0 25px;
-      }
-    }
-  }
-}
+@import "@/styles/dlc/_header-smart.scss";
+@import "@/styles/default/_header-smart.scss";
 </style>

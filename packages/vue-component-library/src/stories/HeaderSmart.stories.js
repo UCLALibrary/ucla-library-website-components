@@ -32,7 +32,33 @@ const mockDLC = {
       target: '',
     },
   ],
-  secondary: [],
+  secondary: [
+    {
+      id: '846',
+      name: 'Locations & Hours',
+      to: '/locations',
+      classes: '',
+      target: '',
+    },
+    {
+      id: '847',
+      name: 'Ask a Librarian',
+      to: '/research-teaching-support/research-help',
+      classes: '',
+      target: '',
+    },
+    {
+      id: '848',
+      name: 'Support Us',
+      to: 'https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463',
+      classes: '',
+      target: '1',
+    },
+  ],
+  accountButton: {
+    text: 'My Account',
+    to: 'https://catalog.library.ucla.edu/vwebv/login',
+  },
 }
 
 const mock = {
@@ -327,20 +353,12 @@ export function DLC() {
       }
     },
     setup() {
-      const menuOpened = ref(false)
       const globalStore = useGlobalStore()
       globalStore.header.primary = mockDLC.primary
       globalStore.header.secondary = mockDLC.secondary
-      // To simulate mobile header just resize the storybook window
-      return {
-        menuOpened,
-        toggleMenu: () => {
-          menuOpened.value = !menuOpened.value
-          console.log('toggleMenu - from DLC stories', menuOpened.value)
-        },
-      }
+      globalStore.header.accountButton = mockDLC.accountButton
     },
     components: { HeaderSmart },
-    template: '<header-smart :menu-opened="menuOpened" @toggle-menu="toggleMenu" />',
+    template: '<header-smart />',
   }
 }

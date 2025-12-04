@@ -34,6 +34,10 @@ const props = defineProps(
       type: Array as PropType<NavSecondaryItemType[]>,
       default: () => [],
     },
+    accountButton: {
+      type: Object as PropType<{ text: string; to: string }>,
+      default: () => null,
+    },
     title: {
       type: String,
       default: '',
@@ -41,11 +45,7 @@ const props = defineProps(
     acronym: {
       type: String,
       default: '',
-    },
-    menuOpened: {
-      type: Boolean,
-      default: false,
-    },
+    }
   },
 )
 
@@ -71,15 +71,15 @@ const classes = computed(() => {
 const parsedLogo = computed(() => {
   return theme?.value === 'dlc'
     ? {
-        width: undefined,
-        height: '20',
-        svg: SvgLibraryLogoDlc,
-      }
+      width: undefined,
+      height: '20',
+      svg: SvgLibraryLogoDlc,
+    }
     : {
-        width: '155',
-        height: '55',
-        svg: LogoLibrary,
-      }
+      width: '155',
+      height: '55',
+      svg: LogoLibrary,
+    }
 })
 
 const parseAriaLabel = computed(() => {
@@ -97,6 +97,9 @@ const parsedPrimaryMenuItems = computed(() => {
 const parsedSecondaryMenuItems = computed(() => {
   return props.secondaryNav
 })
+function isSupportUsItem(item: NavSecondaryItemType): boolean {
+  return item.name?.toLowerCase().includes('support') || false
+}
 const noChildren = computed(() => {
   // For DLC theme, show items without children even without a title
   if (!props.title && theme?.value !== 'dlc')
@@ -139,13 +142,8 @@ function itemOpenedColor(itemIndex: number) {
 }
 
 function toggleMenu() {
-  if (theme?.value === 'dlc') {
-    emit('toggle-menu')
-  }
-  else {
-    isOpened.value = !isOpened.value
-    goBack.value = !goBack.value
-  }
+  isOpened.value = !isOpened.value
+  goBack.value = !goBack.value
 }
 
 const route = useRoute()
@@ -197,6 +195,7 @@ function submitSearch() {
         />
       </SmartLink>
       <div class="more-menu">
+
         <button
           v-if="theme !== 'dlc'"
           class="search-button"
@@ -210,9 +209,10 @@ function submitSearch() {
         <GlobalHamburger
           v-if="theme === 'dlc'"
           class="hamburger show-mobile"
-          :is-opened="menuOpened"
+          :is-opened="isOpened"
           @toggle-menu="toggleMenu"
         />
+
         <button
           v-else
           role="button"
@@ -252,10 +252,10 @@ function submitSearch() {
             </span>
           </div>
           <component
-            :is="LogoLibrary"
+            :is="parsedLogo.svg"
             v-else
-            width="155"
-            height="55"
+            :width="parsedLogo.width"
+            :height="parsedLogo.height"
             class="expanded-logo"
             @click="toggleMenu"
           />
@@ -266,14 +266,24 @@ function submitSearch() {
           class="close-menu"
           aria-label="Close menu"
           @click="handleCloseOrReturn"
+          v-if="theme !== 'dlc'"
         >
           <component
             :is="parsedSvgName"
             class="close-svg"
           />
         </button>
+        <GlobalHamburger
+          v-if="theme === 'dlc'"
+          class="hamburger show-mobile"
+          :is-opened="isOpened"
+          @toggle-menu="toggleMenu"
+        />
       </div>
-      <div class="search-box">
+      <div
+        class="search-box"
+        v-if="theme !== 'dlc'"
+      >
         <form
           class="input-container-wrapper"
           name="searchHome"
@@ -322,7 +332,7 @@ function submitSearch() {
         </li>
       </ul>
       <div
-        v-if="isOpened && !title"
+        v-if="isOpened && !title && theme !== 'dlc'"
         class="nav-menu-secondary"
       >
         <ul class="list">
@@ -343,7 +353,42 @@ function submitSearch() {
         </ul>
       </div>
       <div
-        v-if="!title"
+        v-if="theme === 'dlc' && (parsedSecondaryMenuItems.length || accountButton)"
+        class="nav-menu-info"
+      >
+        <ul class="list">
+          <li
+            v-for="item in parsedSecondaryMenuItems"
+            :key="item.name"
+            :class="['list-item', { 'support-item': isSupportUsItem(item) }]"
+            @click="toggleMenu"
+          >
+            <SmartLink
+              :class="['link', { 'support-link': isSupportUsItem(item) }]"
+              :to="item.to"
+              :link-target="item.target"
+            >
+              {{ item.name }}
+            </SmartLink>
+          </li>
+          <li
+            v-if="accountButton"
+            class="list-item"
+            @click="toggleMenu"
+          >
+            <SmartLink
+              class="link account-button"
+              :to="accountButton.to"
+            >
+              <div class="account-button-text">
+                {{ accountButton.text }}
+              </div>
+            </SmartLink>
+          </li>
+        </ul>
+      </div>
+      <div
+        v-if="!title && theme !== 'dlc'"
         class="support-us-container"
       >
         <ButtonLink
