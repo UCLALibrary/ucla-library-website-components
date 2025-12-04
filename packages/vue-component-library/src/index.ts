@@ -87,6 +87,8 @@ export { default as ImpactNumbersCarousel } from './lib-components/ImpactNumbers
 export { default as ImpactRichText } from './lib-components/ImpactRichText.vue'
 export { default as MastheadPrimary } from './lib-components/MastheadPrimary.vue'
 export { default as MastheadSecondary } from './lib-components/MastheadSecondary.vue'
+export { default as MetadataTable } from './lib-components/MetadataTable.vue'
+export { default as GridMetadata } from './lib-components/GridMetadata.vue'
 export { default as MediaBadge } from './lib-components/MediaBadge.vue'
 export { default as MediaItem } from './lib-components/Media/Item.vue'
 export { default as NavBreadcrumb } from './lib-components/NavBreadcrumb.vue'
