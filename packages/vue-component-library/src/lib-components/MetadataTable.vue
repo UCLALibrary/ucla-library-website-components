@@ -30,10 +30,20 @@ function handleButtonClick(button: any) {
 
 <template>
   <div :class="classes">
-    <h3 class="title" v-html="title" />
+    <h3
+      class="title"
+      v-html="title"
+    />
     <ul class="items">
-      <li v-for="(item, index) in items" :key="index" class="list-item">
-        <span class="label" v-html="item.label" />
+      <li
+        v-for="(item, index) in items"
+        :key="index"
+        class="list-item"
+      >
+        <span
+          class="label"
+          v-html="item.label"
+        />
         <div class="values">
           <!-- Buttons -->
           <template v-if="Array.isArray(item.value)">
@@ -47,10 +57,9 @@ function handleButtonClick(button: any) {
                   v-for="(button, btnIdx) in item.value"
                   :key="btnIdx"
                   :text="button.label"
-                  :variant="
-                    button.variant
-                      || ButtonVariant.Secondary
-                  "
+                  :variant="button.variant
+                    || ButtonVariant.Secondary
+                    "
                   :is-outlined="button.isOutlined ?? true"
                   :to="button.to"
                   :is-download="button.isDownload"
@@ -60,12 +69,10 @@ function handleButtonClick(button: any) {
             </div>
           </template>
 
-          <template
-            v-else-if="
-              typeof item.value === 'object'
-                && item.value !== null
-            "
-          >
+          <template v-else-if="
+            typeof item.value === 'object'
+            && item.value !== null
+          ">
             <template v-if="item.image">
               <ResponsiveImage
                 class="icon"
@@ -73,41 +80,45 @@ function handleButtonClick(button: any) {
                 object-fit="cover"
               />
             </template>
-            <template
-              v-if="
-                'href' in item.value
-                  && item.value.href
-                  && !item.image
-              "
-            >
-              <SmartLink class="link value" :to="item.value.href">
+            <template v-if="
+              'href' in item.value
+              && item.value.href
+              && !item.image
+            ">
+              <SmartLink
+                class="link value"
+                :to="item.value.href"
+              >
                 <span v-html="item.value.text" />
               </SmartLink>
             </template>
-            <template
-              v-else-if="
-                'href' in item.value
-                  && item.value.href
-                  && item.image
-              "
-            >
-              <SmartLink class="link value" :to="item.value.href">
+            <template v-else-if="
+              'href' in item.value
+              && item.value.href
+              && item.image
+            ">
+              <SmartLink
+                class="link value"
+                :to="item.value.href"
+              >
                 <span v-html="item.value.text" />
               </SmartLink>
             </template>
-            <template
-              v-else-if="
-                item.image
-                  && 'text' in item.value
-                  && item.value.text
-              "
-            >
-              <span class="value" v-html="item.value.text" />
+            <template v-else-if="
+              item.image
+              && 'text' in item.value
+              && item.value.text
+            ">
+              <span
+                class="value"
+                v-html="item.value.text"
+              />
             </template>
-            <template
-              v-else-if="'text' in item.value && item.value.text"
-            >
-              <span class="value" v-html="item.value.text" />
+            <template v-else-if="'text' in item.value && item.value.text">
+              <span
+                class="value"
+                v-html="item.value.text"
+              />
             </template>
           </template>
         </div>
