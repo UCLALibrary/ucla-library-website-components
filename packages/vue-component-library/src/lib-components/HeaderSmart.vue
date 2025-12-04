@@ -37,7 +37,8 @@ const currentHeader = ref(markRaw(HeaderMain))
 const isMobile = ref(false)
 
 const controlWidth = computed(() => {
-  if (theme?.value === 'dlc') return 1024
+  if (theme?.value === 'dlc')
+    return 1024
   return 1200
 })
 
@@ -52,7 +53,7 @@ onMounted(() => {
     isMobile.value = newWidth <= controlWidth.value
     currentHeader.value = markRaw(isMobile.value ? HeaderMainResponsive : HeaderMain)
   },
-    { immediate: true })
+  { immediate: true })
 
   watch(
     header,

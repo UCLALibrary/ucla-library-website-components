@@ -71,15 +71,15 @@ const classes = computed(() => {
 const parsedLogo = computed(() => {
   return theme?.value === 'dlc'
     ? {
-      width: undefined,
-      height: '20',
-      svg: SvgLibraryLogoDlc,
-    }
+        width: undefined,
+        height: '20',
+        svg: SvgLibraryLogoDlc,
+      }
     : {
-      width: '155',
-      height: '55',
-      svg: LogoLibrary,
-    }
+        width: '155',
+        height: '55',
+        svg: LogoLibrary,
+      }
 })
 
 const parseAriaLabel = computed(() => {
@@ -195,7 +195,6 @@ function submitSearch() {
         />
       </SmartLink>
       <div class="more-menu">
-
         <button
           v-if="theme !== 'dlc'"
           class="search-button"
@@ -262,11 +261,11 @@ function submitSearch() {
         </SmartLink>
 
         <button
+          v-if="theme !== 'dlc'"
           role="button"
           class="close-menu"
           aria-label="Close menu"
           @click="handleCloseOrReturn"
-          v-if="theme !== 'dlc'"
         >
           <component
             :is="parsedSvgName"
@@ -281,8 +280,8 @@ function submitSearch() {
         />
       </div>
       <div
-        class="search-box"
         v-if="theme !== 'dlc'"
+        class="search-box"
       >
         <form
           class="input-container-wrapper"
@@ -360,11 +359,11 @@ function submitSearch() {
           <li
             v-for="item in parsedSecondaryMenuItems"
             :key="item.name"
-            :class="['list-item', { 'support-item': isSupportUsItem(item) }]"
+            class="list-item" :class="[{ 'support-item': isSupportUsItem(item) }]"
             @click="toggleMenu"
           >
             <SmartLink
-              :class="['link', { 'support-link': isSupportUsItem(item) }]"
+              class="link" :class="[{ 'support-link': isSupportUsItem(item) }]"
               :to="item.to"
               :link-target="item.target"
             >

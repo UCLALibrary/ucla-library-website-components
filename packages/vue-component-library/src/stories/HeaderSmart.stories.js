@@ -1,5 +1,5 @@
 // Storybook default settings
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import HeaderSmart from '@/lib-components/HeaderSmart'
 

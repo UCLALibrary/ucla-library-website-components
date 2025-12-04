@@ -8,11 +8,6 @@ import { useTheme } from '@/composables/useTheme'
 // types
 import type { NavPrimaryItemType, NavSecondaryItemType } from '@/types/types'
 
-const theme = useTheme()
-const classes = computed(() => {
-  return ['header-main', theme?.value || '']
-})
-
 // Define props and destructure them
 const props = defineProps({
   primaryNav: {
@@ -27,6 +22,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+})
+const theme = useTheme()
+const classes = computed(() => {
+  return ['header-main', theme?.value || '']
 })
 
 // Use `toRefs` to make each prop reactive individually
