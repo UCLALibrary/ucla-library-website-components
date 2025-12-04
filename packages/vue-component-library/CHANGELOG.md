@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.57.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.56.0...@ucla-library-monorepo/ucla-library-website-components-v1.57.0) (2025-12-04)
+
+
+### Features
+
+* adjusts the DropdownSingleSelect component ([#869](https://github.com/UCLALibrary/ucla-library-website-components/issues/869)) ([eaa19c5](https://github.com/UCLALibrary/ucla-library-website-components/commit/eaa19c5bf1364591e8df05e0a2c4cfa010be5850))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.56.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.55.0...@ucla-library-monorepo/ucla-library-website-components-v1.56.0) (2025-12-02)
 
 
