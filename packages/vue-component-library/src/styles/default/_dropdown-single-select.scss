@@ -1,0 +1,110 @@
+.dropdown-single-select {
+    width: 380px;
+
+    :deep(.dropdown-wrapper) {
+        width: 100%;
+    }
+
+    .filter-summary {
+        @include ftva-button;
+        color: $medium-grey;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .pills {
+        display: flex;
+        flex-direction: column;
+        padding: 1px;
+    }
+
+    .pill-radio {
+        display: none;
+    }
+
+    .pill-option {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 10px;
+
+        &:hover {
+            background-color: #f1f1f1;
+        }
+    }
+
+    .pill-content {
+        @include ftva-button;
+        line-height: 1.5;
+        color: $medium-grey;
+        gap: 0.5rem;
+        padding: 2px 10px;
+    }
+
+    .check-icon {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .view-all-option {
+        border-top: 1px solid #e0e0e0;
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    :deep(.toggle-triangle-icon) {
+        margin-right: 28px;
+    }
+
+    :deep(.mobile-drawer .button-dropdown-modal-wrapper) {
+        width: 100%;
+        border-top: 1px solid #f1f1f1;
+        padding: 25px 30px;
+        margin: 0;
+    }
+
+    @media (min-width: 1024px) {
+        :deep(.mobile-drawer .mobile-button) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @include ftva-button;
+            color: $medium-grey;
+            padding: 10px;
+            border: 1px solid $medium-grey;
+            width: 100%;
+
+            &:hover {
+                background-color: #f1f1f1;
+            }
+        }
+    }
+    @media #{$small} {
+        :deep(.mobile-button) {
+            width: 166px;
+            min-width: unset;
+            padding: 6px;
+
+            .button-inner-wrapper {
+                flex-direction: row-reverse;
+                justify-content: center;
+            }
+        }
+
+        .filter-summary {
+            color: $accent-blue;
+        }
+
+        :deep(.mobile-drawer .mobile-button) {
+            border-color: $accent-blue;
+        }
+
+        :deep(.svg__icon-close.svg-glyph-close) {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            z-index: 1;
+        }
+    }
+}
