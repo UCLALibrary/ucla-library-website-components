@@ -49,7 +49,7 @@ onMounted(() => {
     isMobile.value = newWidth <= controlWidth.value
     currentHeader.value = markRaw(isMobile.value ? HeaderMainResponsive : HeaderMain)
   },
-    { immediate: true })
+  { immediate: true })
 
   watch(
     header,
