@@ -14,7 +14,7 @@ export default {
   props: {
     item: {
       type: Object,
-      default: () => {},
+      default: () => { },
     },
     isActive: {
       type: Boolean,
@@ -55,11 +55,22 @@ export default {
 
 <template>
   <li :class="classes">
-    <button class="section-name" v-html="item.name" />
+    <button
+      class="section-name"
+      v-html="item.name"
+    />
     <slot /> <!-- can be used to insert '>' icons etc, into the row -->
     <ul class="sub-menu">
-      <li v-for="child in parsedChildren" :key="child.id" class="sub-menu-item">
-        <SmartLink :class="child.classes" :to="child.to" :link-target="child.target">
+      <li
+        v-for="child in parsedChildren"
+        :key="child.id"
+        class="sub-menu-item"
+      >
+        <SmartLink
+          :class="child.classes"
+          :to="child.to"
+          :link-target="child.target"
+        >
           {{ child.name }}
         </SmartLink>
       </li>

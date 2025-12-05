@@ -1,0 +1,17 @@
+.header-smart {
+    &.dlc {
+        @media #{$medium} {
+            .brand-bar {
+                position: relative;
+                width: auto;
+                padding: 0 50px;
+            }
+        }
+
+        @media #{$small} {
+            .brand-bar {
+                padding: 0 25px;
+            }
+        }
+    }
+}

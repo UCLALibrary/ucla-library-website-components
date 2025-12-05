@@ -1,0 +1,95 @@
+.nav-primary {
+    &.dlc {
+        --vertical-gap: 30px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            align-content: flex-end;
+            align-items: flex-end;
+            gap: 50px;
+
+            > * {
+                position: relative;
+
+                height: 100%;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                font-family: var(--font-primary);
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 1;
+                text-transform: uppercase;
+                color: var(--color-black, #0f0f0f);
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    bottom: calc(var(--vertical-gap) * -1);
+
+                    transform: translateY(150%);
+                    transform-origin: bottom;
+
+                    left: 0;
+                    width: 100%;
+                    height: 4px;
+
+                    background-color: var(--color-secondary-yellow-01);
+
+                    @include animate-normal;
+                }
+                &.active-link,
+                &.exact-active-link,
+                &.router-link-active {
+                    &:after {
+                        transform: translateY(0);
+                    }
+                }
+
+                :deep(.sub-menu) {
+                    position: absolute;
+                    top: 100%;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100vh;
+                    z-index: 1000;
+                    background-color: forestgreen;
+                }
+            }
+        }
+
+        // Hovers
+        @media #{$has-hover} {
+            .menu {
+                // Hover on any direct child (NavMenuItem or nochildren-links)
+                > *:hover {
+                    &:after {
+                        transform: translateY(0);
+                    }
+                }
+            }
+
+            .account-button {
+                &:hover {
+                    color: var(--color-secondary-yellow-01);
+                }
+            }
+        }
+    }
+}
