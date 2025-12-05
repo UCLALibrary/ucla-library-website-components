@@ -13,11 +13,7 @@ const props = defineProps({
   title: {
     type: String,
     default: '',
-  },
-  menuOpened: {
-    type: Boolean,
-    default: false,
-  },
+  }
 })
 // Emits
 const emit = defineEmits(['toggle-menu'])
@@ -53,7 +49,7 @@ onMounted(() => {
     isMobile.value = newWidth <= controlWidth.value
     currentHeader.value = markRaw(isMobile.value ? HeaderMainResponsive : HeaderMain)
   },
-  { immediate: true })
+    { immediate: true })
 
   watch(
     header,
@@ -83,7 +79,6 @@ function toggleMenu() {
       :primary-nav="primaryMenuItems"
       :secondary-nav="secondaryMenuItems"
       :account-button="accountButton"
-      :menu-opened="menuOpened"
       :title="title"
       @toggle-menu="toggleMenu"
     />
