@@ -67,15 +67,15 @@ const classes = computed(() => {
 const parsedLogo = computed(() => {
   return theme?.value === 'dlc'
     ? {
-      width: undefined,
-      height: '20',
-      svg: SvgLibraryLogoDlc,
-    }
+        width: undefined,
+        height: '20',
+        svg: SvgLibraryLogoDlc,
+      }
     : {
-      width: '155',
-      height: '55',
-      svg: LogoLibrary,
-    }
+        width: '155',
+        height: '55',
+        svg: LogoLibrary,
+      }
 })
 
 const parseAriaLabel = computed(() => {
