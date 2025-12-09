@@ -31,16 +31,15 @@
         flex-direction: column;
         gap: 5px;
         width: 100%;
+
+        &:deep(.parsed-content) {
+            @include ftva-body-2;
+            margin-bottom: 0;
+        }
     }
 
     .text {
         @include ftva-body-2;
-
-        .summary-content {
-            // display: flex;
-            // flex-direction: column;
-            // gap: 5px;
-        }
     }
 
     .btn {

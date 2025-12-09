@@ -14,7 +14,7 @@ export default {
 }
 
 const mock = {
-  title: ' Default Amenities'
+  title: ' Default Amenities',
 }
 
 // Variations of stories below
@@ -105,5 +105,30 @@ export const FTVASelected = FTVATemplate.bind({})
 FTVASelected.args = {
   title: 'FTVA',
   iconName: 'SvgIconGuest',
-  isSelected: 'true'
+  isSelected: 'true',
+}
+
+function DLCTemplate(args) {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    setup() {
+      return { args }
+    },
+    components: { BlockRemoveSearchFilter },
+    template: '<block-remove-search-filter v-bind="args" />',
+  }
+}
+
+export const DLC = DLCTemplate.bind({})
+DLC.args = {
+  title: 'Genre',
+}
+
+export const DLCWithMultipleLabels = DLCTemplate.bind({})
+DLCWithMultipleLabels.args = {
+  title: ['Collection', 'Los Angeles Times Photographic Collection'],
 }
