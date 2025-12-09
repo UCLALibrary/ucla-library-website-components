@@ -51,16 +51,16 @@ const { items } = defineProps({
   gap: var(--space-xl) 32px;
 
   .block {
-      width: calc((100% - 32px) / 2);
+    width: calc((100% - 32px) / 2);
   }
 
   // Breakpoints
   @media #{$small} {
-      padding: 0;
+    padding: 0;
 
-      .block {
-          width: 100%;
-      }
+    .block {
+      width: 100%;
+    }
   }
 }
 </style>

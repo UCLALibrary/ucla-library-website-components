@@ -1,3 +1,87 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.59.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.58.0...@ucla-library-monorepo/ucla-library-website-components-v1.59.0) (2025-12-04)
+
+
+### Features
+
+* create BentoFilterMenu ([#866](https://github.com/UCLALibrary/ucla-library-website-components/issues/866)) ([f929fa6](https://github.com/UCLALibrary/ucla-library-website-components/commit/f929fa6125a72b6f1229127aa50e97172ba57c77))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.58.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.57.0...@ucla-library-monorepo/ucla-library-website-components-v1.58.0) (2025-12-04)
+
+
+### Features
+
+* Notes accordion change ([#875](https://github.com/UCLALibrary/ucla-library-website-components/issues/875)) ([c493de1](https://github.com/UCLALibrary/ucla-library-website-components/commit/c493de1a7844ff4166c7465217eaad106ea886ac))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.57.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.56.0...@ucla-library-monorepo/ucla-library-website-components-v1.57.0) (2025-12-04)
+
+
+### Features
+
+* adjusts the DropdownSingleSelect component ([#869](https://github.com/UCLALibrary/ucla-library-website-components/issues/869)) ([eaa19c5](https://github.com/UCLALibrary/ucla-library-website-components/commit/eaa19c5bf1364591e8df05e0a2c4cfa010be5850))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.56.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.55.0...@ucla-library-monorepo/ucla-library-website-components-v1.56.0) (2025-12-02)
+
+
+### Features
+
+* add DLC theme for BlockTag & BlockRemoveSearchFilter & SectionRemoveSearchFilter ([#871](https://github.com/UCLALibrary/ucla-library-website-components/issues/871)) ([2f7a882](https://github.com/UCLALibrary/ucla-library-website-components/commit/2f7a882e79be85495d2167633f123a71a4a6b552))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.55.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.54.0...@ucla-library-monorepo/ucla-library-website-components-v1.55.0) (2025-12-01)
+
+
+### Features
+
+* Add DetailHeader ([#855](https://github.com/UCLALibrary/ucla-library-website-components/issues/855)) ([f618704](https://github.com/UCLALibrary/ucla-library-website-components/commit/f61870452ffefc7463bdfe12efa0e77b3b8d0cd3))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.54.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.53.0...@ucla-library-monorepo/ucla-library-website-components-v1.54.0) (2025-11-21)
+
+
+### Features
+
+* Adjusts the BlockCardWIthImage to look like GridAssets/BlockAssets components ([#868](https://github.com/UCLALibrary/ucla-library-website-components/issues/868)) ([ef64e96](https://github.com/UCLALibrary/ucla-library-website-components/commit/ef64e96175e823de5135a2c20f7dc94a8766e92b))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.53.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.52.2...@ucla-library-monorepo/ucla-library-website-components-v1.53.0) (2025-11-19)
+
+
+### Features
+
+* Adjust BannerFeatured for new designs. ([#864](https://github.com/UCLALibrary/ucla-library-website-components/issues/864)) ([c93a416](https://github.com/UCLALibrary/ucla-library-website-components/commit/c93a41668c656359585b76787e44b4a0867dc130))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.52.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.52.1...@ucla-library-monorepo/ucla-library-website-components-v1.52.2) (2025-11-14)
+
+
+### Bug Fixes
+
+* APPS-3625 Update the design token to v5.55.0 to update the footer logo ([#874](https://github.com/UCLALibrary/ucla-library-website-components/issues/874)) ([5bf3aaf](https://github.com/UCLALibrary/ucla-library-website-components/commit/5bf3aaf3d28130b902febcef07c6627a0626d017))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.52.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.52.0...@ucla-library-monorepo/ucla-library-website-components-v1.52.1) (2025-11-14)
+
+
+### Bug Fixes
+
+* APPS-3576 Pull Correct Fields for Event Calendar Pills ([#873](https://github.com/UCLALibrary/ucla-library-website-components/issues/873)) ([eca5933](https://github.com/UCLALibrary/ucla-library-website-components/commit/eca593346357cdd4a97d4718d00f6d5b85ab334e))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.52.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.51.0...@ucla-library-monorepo/ucla-library-website-components-v1.52.0) (2025-11-13)
+
+
+### Features
+
+* Add ftva logo ([#872](https://github.com/UCLALibrary/ucla-library-website-components/issues/872)) ([b2b28b2](https://github.com/UCLALibrary/ucla-library-website-components/commit/b2b28b2827b5b9cf3bd372581d753936fcf0183f))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.51.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.50.1...@ucla-library-monorepo/ucla-library-website-components-v1.51.0) (2025-11-13)
+
+
+### Features
+
+* Add DLC theme for ButtonLink ([#851](https://github.com/UCLALibrary/ucla-library-website-components/issues/851)) ([24956eb](https://github.com/UCLALibrary/ucla-library-website-components/commit/24956eb3368b0227f6cb2504333d3e8e2d217a08))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.50.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.50.0...@ucla-library-monorepo/ucla-library-website-components-v1.50.1) (2025-11-12)
+
+
+### Bug Fixes
+
+* accessibility title showing up for icons after recent update to design token package ([#870](https://github.com/UCLALibrary/ucla-library-website-components/issues/870)) ([1d3e6c8](https://github.com/UCLALibrary/ucla-library-website-components/commit/1d3e6c8c8a930fb1ea28dc2ea7977443bf590141))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.50.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.49.1...@ucla-library-monorepo/ucla-library-website-components-v1.50.0) (2025-11-07)
 
 
