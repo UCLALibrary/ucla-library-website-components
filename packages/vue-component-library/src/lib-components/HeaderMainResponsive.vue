@@ -34,10 +34,6 @@ const props = defineProps(
       type: Array as PropType<NavSecondaryItemType[]>,
       default: () => [],
     },
-    accountButton: {
-      type: Object as PropType<{ text: string; to: string }>,
-      default: () => null,
-    },
     title: {
       type: String,
       default: '',
@@ -71,15 +67,15 @@ const classes = computed(() => {
 const parsedLogo = computed(() => {
   return theme?.value === 'dlc'
     ? {
-        width: undefined,
-        height: '20',
-        svg: SvgLibraryLogoDlc,
-      }
+      width: undefined,
+      height: '20',
+      svg: SvgLibraryLogoDlc,
+    }
     : {
-        width: '155',
-        height: '55',
-        svg: LogoLibrary,
-      }
+      width: '155',
+      height: '55',
+      svg: LogoLibrary,
+    }
 })
 
 const parseAriaLabel = computed(() => {
@@ -94,9 +90,7 @@ const parsedPrimaryMenuItems = computed(() => {
     return obj.children && obj.children.length
   })
 })
-const parsedSecondaryMenuItems = computed(() => {
-  return props.secondaryNav
-})
+
 function isSupportUsItem(item: NavSecondaryItemType): boolean {
   return item.name?.toLowerCase().includes('support') || false
 }
@@ -122,8 +116,6 @@ function shouldOpen() {
   goBack.value = false
 }
 function handleCloseOrReturn() {
-  // console.log("Close clicked")
-
   goBack.value = !goBack.value
   moleculeColor.value = 'cyan'
 
@@ -336,7 +328,7 @@ function submitSearch() {
       >
         <ul class="list">
           <li
-            v-for="item in parsedSecondaryMenuItems"
+            v-for="item in secondaryNav"
             :key="item.name"
             class="list-item"
             @click="toggleMenu"
@@ -351,37 +343,25 @@ function submitSearch() {
           </li>
         </ul>
       </div>
+
       <div
-        v-if="theme === 'dlc' && (parsedSecondaryMenuItems.length || accountButton)"
+        v-if="theme === 'dlc' && secondaryNav.length"
         class="nav-menu-info"
       >
         <ul class="list">
           <li
-            v-for="item in parsedSecondaryMenuItems"
+            v-for="item in secondaryNav"
             :key="item.name"
-            class="list-item" :class="[{ 'support-item': isSupportUsItem(item) }]"
-            @click="toggleMenu"
-          >
-            <SmartLink
-              class="link" :class="[{ 'support-link': isSupportUsItem(item) }]"
-              :to="item.to"
-              :link-target="item.target"
-            >
-              {{ item.name }}
-            </SmartLink>
-          </li>
-          <li
-            v-if="accountButton"
             class="list-item"
             @click="toggleMenu"
           >
             <SmartLink
-              class="link account-button"
-              :to="accountButton.to"
+              class="link"
+              :class="[{ 'support-link': isSupportUsItem(item) }]"
+              :to="item.to"
+              :link-target="item.target"
             >
-              <div class="account-button-text">
-                {{ accountButton.text }}
-              </div>
+              {{ item.name }}
             </SmartLink>
           </li>
         </ul>

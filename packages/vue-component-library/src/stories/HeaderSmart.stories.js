@@ -54,11 +54,14 @@ const mockDLC = {
       classes: '',
       target: '1',
     },
+    {
+      id: '849',
+      name: 'My Account',
+      to: 'https://catalog.library.ucla.edu/vwebv/login',
+      classes: '',
+      target: '1',
+    },
   ],
-  accountButton: {
-    text: 'My Account',
-    to: 'https://catalog.library.ucla.edu/vwebv/login',
-  },
 }
 
 const mock = {
@@ -356,7 +359,6 @@ export function DLC() {
       const globalStore = useGlobalStore()
       globalStore.header.primary = mockDLC.primary
       globalStore.header.secondary = mockDLC.secondary
-      globalStore.header.accountButton = mockDLC.accountButton
     },
     components: { HeaderSmart },
     template: '<header-smart />',

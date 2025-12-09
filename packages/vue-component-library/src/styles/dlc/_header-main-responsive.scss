@@ -201,26 +201,24 @@
                         }
                     }
                 }
+
+                // Style the last item as account button when accountButton prop is provided
+                .list-item:last-child .link {
+                    padding: 8px 12px;
+                    box-sizing: border-box;
+                    border-radius: 4px;
+                    max-width: max-content;
+                    background-color: var(--color-white);
+
+                    display: inline-block;
+
+                    font-family: var(--font-primary);
+                    font-size: 20px;
+                    font-weight: 600;
+                    line-height: 1.6;
+                    color: var(--color-primary-blue-03);
+                }
             }
-        }
-
-        .account-button {
-            padding: 8px 12px;
-            box-sizing: border-box;
-            border-radius: 4px;
-
-            max-width: max-content;
-
-            background-color: var(--color-white);
-        }
-        .account-button-text {
-            display: inline-block;
-
-            font-family: var(--font-primary);
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 1.6;
-            color: var(--color-primary-blue-03);
         }
 
         .support-us-container {

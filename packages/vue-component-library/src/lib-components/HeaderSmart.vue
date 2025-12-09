@@ -15,8 +15,7 @@ const props = defineProps({
     default: '',
   }
 })
-// Emits
-const emit = defineEmits(['toggle-menu'])
+
 const theme = useTheme()
 // Access the global store
 const globalStore = useGlobalStore()
@@ -25,7 +24,6 @@ const { header } = storeToRefs(globalStore)
 // Use refs for primary, secondary menu items, and header type
 const primaryMenuItems = ref(header.value.primary || [])
 const secondaryMenuItems = ref(header.value.secondary || [])
-const accountButton = ref(header.value.accountButton || null)
 
 // Mark components as raw to prevent them from being reactive
 const currentHeader = ref(markRaw(HeaderMain))
@@ -49,7 +47,7 @@ onMounted(() => {
     isMobile.value = newWidth <= controlWidth.value
     currentHeader.value = markRaw(isMobile.value ? HeaderMainResponsive : HeaderMain)
   },
-  { immediate: true })
+    { immediate: true })
 
   watch(
     header,
@@ -58,16 +56,11 @@ onMounted(() => {
       if (newVal) {
         primaryMenuItems.value = newVal.primary || []
         secondaryMenuItems.value = newVal.secondary || []
-        accountButton.value = newVal.accountButton || null
       }
     },
     { deep: true }
   )
 })
-
-function toggleMenu() {
-  emit('toggle-menu')
-}
 </script>
 
 <template>
@@ -78,9 +71,7 @@ function toggleMenu() {
       :class="isMobile ? 'mobile-header' : 'desktop-header'"
       :primary-nav="primaryMenuItems"
       :secondary-nav="secondaryMenuItems"
-      :account-button="accountButton"
       :title="title"
-      @toggle-menu="toggleMenu"
     />
   </header>
 </template>
