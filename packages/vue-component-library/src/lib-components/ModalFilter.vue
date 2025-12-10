@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // Imports
-import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import ModalGeneric from './ModalGeneric.vue'
 import SectionPagination from './SectionPagination.vue'
 import AlphabeticalBrowseBy from './AlphabeticalBrowseBy.vue'
 import SmartLink from './SmartLink.vue'
@@ -45,10 +45,6 @@ const numericalSearchQuery = ref('')
 const isAlphabeticalSearch = ref(true) // Track which search is active
 
 // Methods
-function handleClose() {
-  emit('close')
-}
-
 function handleAlphabeticalPageChange(page: number) {
   alphabeticalCurrentPage.value = page
 }
@@ -206,11 +202,11 @@ const hasItems = computed(() => {
 </script>
 
 <template>
-  <div :class="classes">
-    <button class="svg-glyph-close" @click="handleClose">
-      <SvgGlyphClose />
-    </button>
-
+  <ModalGeneric
+    :class="classes"
+    :prevent-content-close="true"
+    @close="emit('close')"
+  >
     <h2 class="title">
       {{ parsedTitle }}
     </h2>
@@ -240,7 +236,7 @@ const hasItems = computed(() => {
                 <SmartLink
                   :to="item.to"
                   class="result-title"
-                  @click="handleClose"
+                  @click="emit('close')"
                 >
                   {{ item.title }}
                 </SmartLink>
@@ -259,7 +255,7 @@ const hasItems = computed(() => {
                 <SmartLink
                   :to="item.to"
                   class="result-title"
-                  @click="handleClose"
+                  @click="emit('close')"
                 >
                   {{ item.title }}
                 </SmartLink>
@@ -307,7 +303,7 @@ const hasItems = computed(() => {
                 <SmartLink
                   :to="item.to"
                   class="result-title"
-                  @click="handleClose"
+                  @click="emit('close')"
                 >
                   {{ item.title }}
                 </SmartLink>
@@ -326,7 +322,7 @@ const hasItems = computed(() => {
                 <SmartLink
                   :to="item.to"
                   class="result-title"
-                  @click="handleClose"
+                  @click="emit('close')"
                 >
                   {{ item.title }}
                 </SmartLink>
@@ -355,7 +351,7 @@ const hasItems = computed(() => {
         />
       </TabItem>
     </TabList>
-  </div>
+  </ModalGeneric>
 </template>
 
 <style lang="scss" scoped>
