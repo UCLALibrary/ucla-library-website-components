@@ -6,19 +6,21 @@
         padding: 0;
     }
 
-    .title {
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 1;
-        letter-spacing: 1.6px;
-        text-transform: uppercase;
-        color: var(--color-dark-grey);
-    }
+    :deep(.title-container) {
+        .title {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: var(--color-dark-grey);
+        }
 
-    .divider {
-        width: 100%;
-        max-width: unset;
-        margin: 8px 0 10px;
+        .divider {
+            width: 100%;
+            max-width: unset;
+            margin: 8px 0 10px;
+        }
     }
 
     .page-anchor-list {

@@ -6,9 +6,6 @@ import { useWindowSize } from '@vueuse/core'
 import SvgIconCaretDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
 import { useTheme } from '@/composables/useTheme'
 
-import ButtonLink from '@/lib-components/ButtonLink.vue'
-import DividerGeneral from '@/lib-components/DividerGeneral.vue'
-
 // Helpers
 import getSectionName from '@/utils/getSectionName'
 
@@ -72,14 +69,9 @@ const kebabCaseTitles = computed(() => {
 const isDesktop = computed(() => {
   return width.value > 1024
 })
-const isDlcTheme = computed(() => {
-  return theme?.value === 'dlc'
-})
+
 // Methods
 function toggleDropdown() {
-  if (isDlcTheme.value)
-    return
-
   isDropdownOpen.value = !isDropdownOpen.value
 }
 
@@ -94,20 +86,23 @@ function handleListClick() {
 <template>
   <div :class="classes">
     <div class="page-anchor-content">
-      <div v-if="isDlcTheme" class="title-container">
-        <h3 class="title">
-          Topics covered:
-        </h3>
-        <DividerGeneral class="divider" />
-      </div>
-      <button v-else class="dropdown-button" @click="toggleDropdown">
-        On this page
-        <span class="caret" :class="{ 'is-active': isDropdownOpen }">
-          <span class="chevron">
-            <SvgIconCaretDown class="caret-down-svg" />
+      <slot
+        name="header"
+        :is-dropdown-open="isDropdownOpen"
+        :toggle-dropdown="toggleDropdown"
+      >
+        <button class="dropdown-button" @click="toggleDropdown">
+          On this page
+          <span
+            class="caret"
+            :class="{ 'is-active': isDropdownOpen }"
+          >
+            <span class="chevron">
+              <SvgIconCaretDown class="caret-down-svg" />
+            </span>
           </span>
-        </span>
-      </button>
+        </button>
+      </slot>
 
       <!-- Desktop - Page Anchor remains open when link is clicked -->
       <ul
@@ -120,24 +115,20 @@ function handleListClick() {
           :key="`${title}-${index}`"
           :class="listClasses"
         >
-          <ButtonLink
-            v-if="isDlcTheme"
-            :label="title"
-            :to="`#${kebabCaseTitles[index]}`"
-            :is-secondary="true"
-          />
-          <a v-else :href="`#${kebabCaseTitles[index]}`">{{
-            title
-          }}</a>
+          <slot
+            name="link"
+            :title="title"
+            :href="`#${kebabCaseTitles[index]}`"
+            :index="index"
+            :kebab-title="kebabCaseTitles[index]"
+          >
+            <a :href="`#${kebabCaseTitles[index]}`">{{ title }}</a>
+          </slot>
         </li>
         <li v-if="hasBackToTop" :class="listClasses">
-          <ButtonLink
-            v-if="isDlcTheme"
-            label="Back to Top"
-            to="#"
-            :is-secondary="true"
-          />
-          <a v-else href="#">Back to Top</a>
+          <slot name="back-to-top">
+            <a href="#">Back to Top</a>
+          </slot>
         </li>
       </ul>
     </div>

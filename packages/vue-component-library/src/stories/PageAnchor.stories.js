@@ -2,6 +2,8 @@ import { computed } from 'vue'
 
 // A sticky list/menu on the right side of the page. It displays section-titles from the current page that create anchor links to those section-titles. It also always has a Back to Top link as the final element.
 import PageAnchor from '../lib-components/PageAnchor.vue'
+import ButtonLink from '../lib-components/ButtonLink.vue'
+import DividerGeneral from '../lib-components/DividerGeneral.vue'
 
 export default {
   title: 'PageAnchor',
@@ -137,7 +139,7 @@ FTVATheme.args = {
 // DLC Theme
 function DLCThemeTemplate(args) {
   return {
-    components: { PageAnchor },
+    components: { PageAnchor, ButtonLink, DividerGeneral },
     setup() {
       return { args }
     },
@@ -146,7 +148,34 @@ function DLCThemeTemplate(args) {
         theme: computed(() => 'dlc'),
       }
     },
-    template: '<page-anchor v-bind="args" />',
+    template: `
+      <page-anchor v-bind="args">
+        <template #header>
+          <div class="title-container">
+            <h3 class="title">
+              Topics covered:
+            </h3>
+            <DividerGeneral class="divider" />
+          </div>
+        </template>
+
+        <template #link="{ title, href, kebabTitle }">
+          <ButtonLink
+            :label="title"
+            :to="href"
+            :is-secondary="true"
+          />
+        </template>
+
+        <template #back-to-top>
+          <ButtonLink
+            label="Back to Top"
+            to="#"
+            :is-secondary="true"
+          />
+        </template>
+      </page-anchor>
+    `,
   }
 }
 
