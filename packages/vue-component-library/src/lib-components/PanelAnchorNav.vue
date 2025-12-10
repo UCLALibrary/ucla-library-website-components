@@ -4,16 +4,8 @@ import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import SvgIconClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg'
 import SvgIconFilter from 'ucla-library-design-tokens/assets/svgs/icon-dlc-filter.svg'
 import PageAnchor from './PageAnchor.vue'
-
-type routeColors = 'about' | 'help' | 'visit' | 'default' | ''
-
-interface PanelAnchorNavProps {
-  sectionTitles: string[]
-  color?: routeColors
-  hasBackToTop?: boolean
-  isOpened: boolean
-  showOpenIconAlways?: boolean
-}
+import ButtonLink from './ButtonLink.vue'
+import DividerGeneral from './DividerGeneral.vue'
 
 //  Props
 const props = withDefaults(defineProps<PanelAnchorNavProps>(), {
@@ -25,6 +17,16 @@ const props = withDefaults(defineProps<PanelAnchorNavProps>(), {
 
 // Emits
 const emit = defineEmits(['closePanel', 'openPanel'])
+
+type routeColors = 'about' | 'help' | 'visit' | 'default' | ''
+
+interface PanelAnchorNavProps {
+  sectionTitles: string[]
+  color?: routeColors
+  hasBackToTop?: boolean
+  isOpened: boolean
+  showOpenIconAlways?: boolean
+}
 
 // Data
 const hasScrolled = ref(false)
@@ -96,7 +98,32 @@ const classes = computed(() => [
         :color="color"
         :has-back-to-top="hasBackToTop"
         class="page-anchor"
-      />
+      >
+        <template #header>
+          <div class="title-container">
+            <h3 class="title">
+              Topics covered:
+            </h3>
+            <DividerGeneral class="divider" />
+          </div>
+        </template>
+
+        <template #link="{ title, href }">
+          <ButtonLink
+            :label="title"
+            :to="href"
+            :is-secondary="true"
+          />
+        </template>
+
+        <template #back-to-top>
+          <ButtonLink
+            label="Back to Top"
+            to="#"
+            :is-secondary="true"
+          />
+        </template>
+      </PageAnchor>
     </div>
 
     <SvgIconClose class="icon-close" @click="closePanel" />
