@@ -1,10 +1,67 @@
 // Storybook default settings
+import { computed } from 'vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import HeaderSmart from '@/lib-components/HeaderSmart'
 
 export default {
   title: 'GLOBAL / Header Smart',
   component: HeaderSmart,
+}
+
+const mockDLC = {
+  primary: [
+    {
+      id: '843',
+      name: 'Using digital collections content',
+      to: '/digital-collections',
+      classes: '',
+      target: '',
+    },
+    {
+      id: '844',
+      name: 'About',
+      to: '/about',
+      classes: '',
+      target: '',
+    },
+    {
+      id: '845',
+      name: 'Give us feedback',
+      to: '/feedback',
+      classes: '',
+      target: '',
+    },
+  ],
+  secondary: [
+    {
+      id: '846',
+      name: 'Locations & Hours',
+      to: '/locations',
+      classes: '',
+      target: '',
+    },
+    {
+      id: '847',
+      name: 'Ask a Librarian',
+      to: '/research-teaching-support/research-help',
+      classes: '',
+      target: '',
+    },
+    {
+      id: '848',
+      name: 'Support Us',
+      to: 'https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463',
+      classes: '',
+      target: '1',
+    },
+    {
+      id: '849',
+      name: 'My Account',
+      to: 'https://catalog.library.ucla.edu/vwebv/login',
+      classes: '',
+      target: '1',
+    },
+  ],
 }
 
 const mock = {
@@ -288,5 +345,22 @@ export function DefaultMicrosite() {
     components: { HeaderSmart },
 
     template: '<header-smart title="Modern Endangered Archives Program"/>',
+  }
+}
+
+export function DLC() {
+  return {
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    setup() {
+      const globalStore = useGlobalStore()
+      globalStore.header.primary = mockDLC.primary
+      globalStore.header.secondary = mockDLC.secondary
+    },
+    components: { HeaderSmart },
+    template: '<header-smart />',
   }
 }
