@@ -7,7 +7,7 @@ permissions:
   pull-requests: write
   issues: write
 
-jobs:
+jobs: 
   label-by-title:
     runs-on: ubuntu-latest
     steps:
