@@ -1,0 +1,8 @@
+.header-smart {
+    @media #{$medium} {
+        .brand-bar {
+            position: absolute;
+            width: 100%;
+        }
+    }
+}
