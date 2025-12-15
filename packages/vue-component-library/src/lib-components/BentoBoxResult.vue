@@ -96,35 +96,37 @@ function onThumbMousedown(e: MouseEvent) {
 }
 
 function onThumbMousemove(e: MouseEvent) {
-  if (!dragging.value) return
+  if (!dragging.value)
+    return
   e.preventDefault()
   handleDrag(e.clientX)
 }
 
 function onThumbMouseup() {
-  if (!dragging.value) return
+  if (!dragging.value)
+    return
   endDrag()
 }
 
 function onThumbTouchstart(e: TouchEvent) {
   e.preventDefault()
   const touch = e.touches[0]
-  if (touch) {
+  if (touch)
     startDrag(touch.clientX)
-  }
 }
 
 function onThumbTouchmove(e: TouchEvent) {
-  if (!dragging.value) return
+  if (!dragging.value)
+    return
   e.preventDefault()
   const touch = e.touches[0]
-  if (touch) {
+  if (touch)
     handleDrag(touch.clientX)
-  }
 }
 
 function onThumbTouchend() {
-  if (!dragging.value) return
+  if (!dragging.value)
+    return
   endDrag()
 }
 
