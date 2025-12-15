@@ -152,13 +152,13 @@ const parsedClasses = computed(() => {
   <div :class="parsedClasses">
     <div v-if="isEvent">
       <!-- Add to Calendar Button plugin component
-  
+
         - https://add-to-calendar-button.com/configuration
-  
+
         - plugin's debug attribute is bound to the component's debugModeEnabled prop; set to 'true' at page-level for troubleshooting
-  
+
         - Plugin's attributes must be camelCased
-  
+
         - eslint flag to prevent attribute hyphenation -->
 
       <!-- eslint-disable -->
@@ -208,15 +208,15 @@ const parsedClasses = computed(() => {
         >
           <!-- "Send to Email" -->
           <span v-if="item.dropdownItemTitle === 'Email'"><a
-              :href="`mailto:?&body=${currentFullUrl}`"
-              class="email-icon"
-            >
-              <IconWithLink
-                :text="item.dropdownItemTitle"
-                :icon-name="item.iconName"
-                class="not-smart-link"
-              />
-            </a></span>
+            :href="`mailto:?&body=${currentFullUrl}`"
+            class="email-icon"
+          >
+            <IconWithLink
+              :text="item.dropdownItemTitle"
+              :icon-name="item.iconName"
+              class="not-smart-link"
+            />
+          </a></span>
 
           <!-- "Copy URL/Link" -->
           <span v-else-if="item.dropdownItemTitle === 'Copy Link'">
