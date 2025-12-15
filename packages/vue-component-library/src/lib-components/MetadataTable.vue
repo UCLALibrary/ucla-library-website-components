@@ -72,7 +72,7 @@ function handleButtonClick(button: any) {
                   :text="button.label"
                   :variant="button.variant
                     || ButtonVariant.Secondary
-                    "
+                  "
                   :is-outlined="button.isOutlined ?? true"
                   :to="button.to"
                   :is-download="button.isDownload"
@@ -82,10 +82,12 @@ function handleButtonClick(button: any) {
             </div>
           </template>
 
-          <template v-else-if="
-            typeof item.value === 'object'
-            && item.value !== null
-          ">
+          <template
+            v-else-if="
+              typeof item.value === 'object'
+                && item.value !== null
+            "
+          >
             <template v-if="item.image">
               <ResponsiveImage
                 class="icon"
