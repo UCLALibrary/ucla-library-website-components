@@ -1,0 +1,117 @@
+.button {
+    --transition-duration: 0.3s;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    transition: background-color var(--transition-duration),
+        color var(--transition-duration),
+        border-color var(--transition-duration);
+
+    // Primary variant
+    &.primary {
+        padding: 10px 15px;
+        border-radius: 30px;
+        background-color: var(--color-secondary-blue-01);
+
+        font-size: 18px;
+        font-family: var(--font-secondary);
+        font-weight: 400;
+        line-height: 1;
+        color: var(--color-white);
+
+        &.is-outlined {
+            padding-block: 9px;
+            background-color: transparent;
+            border: 1px solid var(--color-secondary-blue-01);
+            color: var(--color-secondary-blue-01);
+        }
+    }
+
+    // Secondary variant
+    &.secondary {
+        padding: 9px 20px;
+        border-radius: 5px;
+        background-color: $accent-blue;
+
+        font-size: 18px;
+        font-family: var(--font-primary);
+        font-weight: 600;
+        line-height: 1;
+        color: var(--color-white);
+
+        &.is-outlined {
+            padding-block: 8px;
+            background-color: transparent;
+            border: 1px solid var(--color-secondary-blue-01);
+            color: var(--color-secondary-blue-01);
+        }
+    }
+
+    // When disabled
+    &.is-disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    &.color-grey {
+        background-color: $subtitle-grey;
+        color: var(--color-white);
+
+        &.is-outlined {
+            background-color: transparent;
+            border: 1px solid $subtitle-grey;
+            color: $subtitle-grey;
+        }
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        &:hover:not(.is-disabled) {
+            background-color: var(--color-primary-blue-05);
+
+            &.is-outlined {
+                background-color: var(--color-secondary-blue-01);
+                border-color: var(--color-secondary-blue-01);
+                color: var(--color-white);
+            }
+
+            &.color-grey {
+                background-color: var(--color-secondary-blue-01);
+                color: var(--color-white);
+
+                &.is-outlined {
+                    background-color: var(--color-secondary-blue-01);
+                    border-color: var(--color-secondary-blue-01);
+                    color: var(--color-white);
+                }
+            }
+
+            // Secondary variant
+            &.secondary {
+                background-color: var(--color-primary-blue-05);
+
+                &.is-outlined {
+                    background-color: $accent-blue;
+                    border-color: $accent-blue;
+                    color: var(--color-white);
+                }
+
+                // Grey variant
+                &.color-grey {
+                    background-color: $accent-blue;
+                    color: var(--color-white);
+
+                    &.is-outlined {
+                        background-color: $accent-blue;
+                        border-color: $accent-blue;
+                        color: var(--color-white);
+                    }
+                }
+            }
+        }
+    }
+}
