@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import type { MetadataTableProps } from '@/types/components/metadata-table.types'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
+import RichText from '@/lib-components/RichText.vue'
 import Button from '@/lib-components/Button.vue'
 import ButtonIiif from '@/lib-components/ButtonIiif.vue'
 import { ButtonVariant } from '@/types/components/button.types'
@@ -14,6 +15,20 @@ defineProps<MetadataTableProps>()
 const theme = useTheme()
 
 const classes = computed(() => ['metadata-table', theme?.value || ''])
+
+// Helper functions
+function hasHref(value: { text: string; href?: string }): boolean {
+  return 'href' in value && !!value.href
+}
+
+function hasText(value: { text: string; href?: string }): boolean {
+  return 'text' in value && !!value.text
+}
+
+function containsHtml(text: string): boolean {
+  // Simple check for HTML tags
+  return /<[a-z][\s\S]*>/i.test(text)
+}
 
 // Functions
 function handleButtonClick(button: any) {
@@ -30,20 +45,18 @@ function handleButtonClick(button: any) {
 
 <template>
   <div :class="classes">
-    <h3
-      class="title"
-      v-html="title"
-    />
+    <h3 class="title">
+      {{ title }}
+    </h3>
     <ul class="items">
       <li
         v-for="(item, index) in items"
         :key="index"
         class="list-item"
       >
-        <span
-          class="label"
-          v-html="item.label"
-        />
+        <span class="label">
+          {{ item.label }}
+        </span>
         <div class="values">
           <!-- Buttons -->
           <template v-if="Array.isArray(item.value)">
@@ -59,7 +72,7 @@ function handleButtonClick(button: any) {
                   :text="button.label"
                   :variant="button.variant
                     || ButtonVariant.Secondary
-                  "
+                    "
                   :is-outlined="button.isOutlined ?? true"
                   :to="button.to"
                   :is-download="button.isDownload"
@@ -69,12 +82,10 @@ function handleButtonClick(button: any) {
             </div>
           </template>
 
-          <template
-            v-else-if="
-              typeof item.value === 'object'
-                && item.value !== null
-            "
-          >
+          <template v-else-if="
+            typeof item.value === 'object'
+            && item.value !== null
+          ">
             <template v-if="item.image">
               <ResponsiveImage
                 class="icon"
@@ -82,51 +93,35 @@ function handleButtonClick(button: any) {
                 object-fit="cover"
               />
             </template>
-            <template
-              v-if="
-                'href' in item.value
-                  && item.value.href
-                  && !item.image
-              "
-            >
+            <template v-if="hasHref(item.value)">
               <SmartLink
                 class="link value"
                 :to="item.value.href"
               >
-                <span v-html="item.value.text" />
+                <RichText
+                  v-if="hasText(item.value) && containsHtml(item.value.text)"
+                  :rich-text-content="item.value.text"
+                />
+                <span
+                  v-else-if="hasText(item.value)"
+                  class="value"
+                >
+                  {{ item.value.text }}
+                </span>
               </SmartLink>
             </template>
-            <template
-              v-else-if="
-                'href' in item.value
-                  && item.value.href
-                  && item.image
-              "
-            >
-              <SmartLink
-                class="link value"
-                :to="item.value.href"
+            <template v-else-if="hasText(item.value)">
+              <RichText
+                v-if="containsHtml(item.value.text)"
+                :rich-text-content="item.value.text"
+                class="value"
+              />
+              <span
+                v-else
+                class="value"
               >
-                <span v-html="item.value.text" />
-              </SmartLink>
-            </template>
-            <template
-              v-else-if="
-                item.image
-                  && 'text' in item.value
-                  && item.value.text
-              "
-            >
-              <span
-                class="value"
-                v-html="item.value.text"
-              />
-            </template>
-            <template v-else-if="'text' in item.value && item.value.text">
-              <span
-                class="value"
-                v-html="item.value.text"
-              />
+                {{ item.value.text }}
+              </span>
             </template>
           </template>
         </div>
