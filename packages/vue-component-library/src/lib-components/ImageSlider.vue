@@ -33,10 +33,26 @@ function handleSliderInput(event: Event) {
 </script>
 
 <template>
-  <div ref="sliderContainer" class="image-slider" :style="{ aspectRatio: parsedSliderAspectRatio }">
-    <div class="image-container" :style="{ aspectRatio: parsedSliderAspectRatio }">
-      <img class="after-image slider-image" :src="afterImage.src" :alt="afterImage.alt">
-      <img ref="beforeImageElement" class="before-image slider-image" :src="beforeImage.src" :alt="beforeImage.alt">
+  <div
+    ref="sliderContainer"
+    class="image-slider"
+    :style="{ aspectRatio: parsedSliderAspectRatio }"
+  >
+    <div
+      class="image-container"
+      :style="{ aspectRatio: parsedSliderAspectRatio }"
+    >
+      <img
+        class="after-image slider-image"
+        :src="afterImage.src"
+        :alt="afterImage.alt"
+      >
+      <img
+        ref="beforeImageElement"
+        class="before-image slider-image"
+        :src="beforeImage.src"
+        :alt="beforeImage.alt"
+      >
       <div class="image-labels">
         <span class="before-label slider-label">
           <slot name="beforeLabel">Before</slot>
@@ -47,11 +63,23 @@ function handleSliderInput(event: Event) {
       </div>
     </div>
     <input
-      ref="slider" type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown"
-      class="slider" @input="(e) => handleSliderInput(e)"
+      ref="slider"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+      aria-label="Percentage of before photo shown"
+      class="slider"
+      @input="(e) => handleSliderInput(e)"
     >
-    <div class="slider-line" aria-hidden="true" />
-    <div class="slider-button" aria-hidden="true">
+    <div
+      class="slider-line"
+      aria-hidden="true"
+    />
+    <div
+      class="slider-button"
+      aria-hidden="true"
+    >
       <span class="button-text">
         <SvgIconCaretLeft class="button-icon" />
         <SvgIconCaretRight class="button-icon" />
@@ -68,33 +96,34 @@ function handleSliderInput(event: Event) {
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .image-slider {
-    position: relative;
-    display: grid;
-    width: 100%;
-    // height: 400px;
-    max-width: 1160px;
-    place-content: center;
-    position: relative;
-    overflow: hidden;
-    --position: 50%; // Initial position of the slider
-    .image-container {
-        width: 100%;
-        max-width: 1160px;
-        // max-height: 90vh;
-        overflow: hidden;
-        // aspect-ratio: 2/1;
+  position: relative;
+  display: grid;
+  width: 100%;
+  // height: 400px;
+  max-width: 1160px;
+  place-content: center;
+  position: relative;
+  overflow: hidden;
+  --position: 50%; // Initial position of the slider
 
-        :deep(img) {
-          display: block;
-          max-width: 100%;
-        }
-      }
+  .image-container {
+    width: 100%;
+    max-width: 1160px;
+    // max-height: 90vh;
+    overflow: hidden;
+    // aspect-ratio: 2/1;
+
+    :deep(img) {
+      display: block;
+      max-width: 100%;
+    }
+  }
 }
 
 .image-labels {
@@ -106,6 +135,7 @@ function handleSliderInput(event: Event) {
   justify-content: space-between;
   z-index: 9;
   padding: 1rem;
+
   span.slider-label {
     text-transform: uppercase;
     color: black;
@@ -116,14 +146,14 @@ function handleSliderInput(event: Event) {
 
 .slider-image {
   position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    resize: horizontal;
-    width: 100%;
-    height: 100%;
-    // object-fit: cover;
-    object-position: center;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  resize: horizontal;
+  width: 100%;
+  height: 100%;
+  // object-fit: cover;
+  object-position: center;
 }
 
 .before-image {
@@ -143,46 +173,46 @@ function handleSliderInput(event: Event) {
 }
 
 .slider {
-    position: absolute;
-    inset: 0;
-    cursor: pointer;
-    opacity: 0;
-    z-index: 10; // keep this element on top of the images
-    /* for Firefox */
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 10; // keep this element on top of the images
+  /* for Firefox */
+  width: 100%;
+  height: 100%;
 }
 
 .slider:focus-visible~.slider-button {
-    outline: 5px solid black;
-    outline-offset: 3px;
+  outline: 5px solid black;
+  outline-offset: 3px;
 }
 
 .slider-line {
-    position: absolute;
-    inset: 0;
-    width: .2rem;
-    height: 100%;
-    background-color: #fff;
-    z-index: 10;
-    left: var(--position);
-    transform: translateX(-50%);
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  width: .2rem;
+  height: 100%;
+  background-color: #fff;
+  z-index: 10;
+  left: var(--position);
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 
 .slider-button {
-    position: absolute;
-    background-color: #fff;
-    color: black;
-    border-radius: 100vw;
-    min-width: 75px; // set minimum width to prevent icons wrapping near slider edges
-    padding: .25rem 0 0 0;
-    display: grid;
-    place-items: center;
-    top: 50%;
-    left: var(--position);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 100;
+  position: absolute;
+  background-color: #fff;
+  color: black;
+  border-radius: 100vw;
+  min-width: 75px; // set minimum width to prevent icons wrapping near slider edges
+  padding: .25rem 0 0 0;
+  display: grid;
+  place-items: center;
+  top: 50%;
+  left: var(--position);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
 }
 </style>

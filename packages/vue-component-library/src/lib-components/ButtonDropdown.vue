@@ -68,6 +68,13 @@ const isLinkCopiedClass = computed(() => [
   { 'is-link-copied': isLinkCopied.value },
 ])
 
+const currentFullUrl = computed(() => {
+  if (typeof window === 'undefined')
+    return ''
+
+  return window.location.origin + route.fullPath
+})
+
 // Event data computations
 const parsedLocation = computed(() => {
   const evtUrl = location[0]?.publicUrl
@@ -108,7 +115,7 @@ const parsedEventDescription = computed(() => {
 function handleActbExpandedStyle(e) {
   const style = document.createElement('style')
   style.innerHTML
-        = '.atcb-button.atcb-click.atcb-active { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; } .atcb-active .atcb-text::after { transform: rotate(180deg); } #atcb-bgoverlay.atcb-click:hover {  cursor: unset; }'
+    = '.atcb-button.atcb-click.atcb-active { border-bottom-left-radius: 0 !important; border-bottom-right-radius: 0 !important; } .atcb-active .atcb-text::after { transform: rotate(180deg); } #atcb-bgoverlay.atcb-click:hover {  cursor: unset; }'
 
   e.target.shadowRoot.appendChild(style)
 }
@@ -118,7 +125,7 @@ function handleActbExpandedStyle(e) {
 - Show "Copied Link" icon for 4secs
 */
 function handleCopiedLink() {
-  navigator.clipboard.writeText(route.fullPath)
+  navigator.clipboard.writeText(currentFullUrl.value)
   isLinkCopied.value = true
 
   setTimeout(() => {
@@ -145,14 +152,14 @@ const parsedClasses = computed(() => {
   <div :class="parsedClasses">
     <div v-if="isEvent">
       <!-- Add to Calendar Button plugin component
-
-      - https://add-to-calendar-button.com/configuration
-
-      - plugin's debug attribute is bound to the component's debugModeEnabled prop; set to 'true' at page-level for troubleshooting
-
-      - Plugin's attributes must be camelCased
-
-      - eslint flag to prevent attribute hyphenation -->
+  
+        - https://add-to-calendar-button.com/configuration
+  
+        - plugin's debug attribute is bound to the component's debugModeEnabled prop; set to 'true' at page-level for troubleshooting
+  
+        - Plugin's attributes must be camelCased
+  
+        - eslint flag to prevent attribute hyphenation -->
 
       <!-- eslint-disable -->
       <add-to-calendar-button
@@ -171,7 +178,8 @@ const parsedClasses = computed(() => {
         hideIconButton="true"
         listStyle="dropdown-static"
         :debug="debugModeEnabled"
-        @click="handleActbExpandedStyle"></add-to-calendar-button>
+        @click="handleActbExpandedStyle"
+      ></add-to-calendar-button>
       <!-- eslint-enable -->
     </div>
 
@@ -179,8 +187,15 @@ const parsedClasses = computed(() => {
     <MobileDrawer v-else>
       <template #buttonLabel>
         <!-- Optional Button Icon -->
-        <span v-if="hasIcon" class="icon-svg">
-          <component :is="SvgIconFtvaShare" class="button-svg" aria-hidden="true" />
+        <span
+          v-if="hasIcon"
+          class="icon-svg"
+        >
+          <component
+            :is="SvgIconFtvaShare"
+            class="button-svg"
+            aria-hidden="true"
+          />
         </span>
 
         <span class="button-text">{{ buttonTitle }}</span>
@@ -193,27 +208,25 @@ const parsedClasses = computed(() => {
         >
           <!-- "Send to Email" -->
           <span v-if="item.dropdownItemTitle === 'Email'"><a
-            :href="`mailto:?&body=${route.fullPath}`"
-            class="email-icon"
-          >
-            <IconWithLink
-              :text="item.dropdownItemTitle"
-              :icon-name="item.iconName"
-              class="not-smart-link"
-            />
-          </a></span>
+              :href="`mailto:?&body=${currentFullUrl}`"
+              class="email-icon"
+            >
+              <IconWithLink
+                :text="item.dropdownItemTitle"
+                :icon-name="item.iconName"
+                class="not-smart-link"
+              />
+            </a></span>
 
           <!-- "Copy URL/Link" -->
-          <span
-            v-else-if="item.dropdownItemTitle === 'Copy Link'"
-          >
+          <span v-else-if="item.dropdownItemTitle === 'Copy Link'">
             <!-- Swap on click -->
             <IconWithLink
               v-if="!isLinkCopied"
               :text="item.dropdownItemTitle"
               :icon-name="item.iconName"
               class="not-smart-link"
-              @click="handleCopiedLink(route.fullPath)"
+              @click="handleCopiedLink()"
             />
 
             <IconWithLink
@@ -229,7 +242,7 @@ const parsedClasses = computed(() => {
             v-else
             :text="item.dropdownItemTitle"
             :icon-name="item.iconName"
-            :to="`${item.dropdownItemUrl}${route.fullPath}`"
+            :to="`${item.dropdownItemUrl}${currentFullUrl}`"
           />
         </div>
       </template>

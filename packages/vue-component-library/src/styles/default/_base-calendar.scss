@@ -1,174 +1,175 @@
 .base-calendar {
-  position: relative;
-  height: 1100px;
+    position: relative;
+    height: 1100px;
 
-  .calendar-wrapper {
-    display: grid;
-    grid-template-columns: 76px 1fr 76px;
-  }
-
-  .calendar-body {
-    grid-column: 2/3;
-  }
-
-  .v-calendar {
-    .v-btn__overlay {
-      background: transparent;
+    .calendar-wrapper {
+        display: grid;
+        grid-template-columns: 76px 1fr 76px;
     }
 
-    .v-ripple__container {
-      display: none;
+    .calendar-body {
+        grid-column: 2/3;
     }
-  }
 
-  .v-calendar-header {
-    justify-content: space-between;
-  }
+    .v-calendar {
+        .v-btn__overlay {
+            background: transparent;
+        }
 
-  .v-calendar-header__title,
-  .v-calendar-header__today {
-    margin-inline: 0;
-  }
-
-  .v-calendar-header__title {
-    font-size: 40px;
-    font-weight: 800;
-    color: $heading-grey;
-  }
-
-  .v-calendar-header__today {
-    order: 1;
-  }
-
-  .v-btn.v-calendar-header__today:hover {
-      background-color: #f0f0f0;
-  }
-
-  // Reposition calendar navigation
-  .v-calendar-header > button:nth-of-type(2),
-  .v-calendar-header > button:nth-of-type(3) {
-    top: 50%;
-    border-radius: 4px;
-    transform: translate(-50%, -300%);
-    position: absolute;
-  }
-
-  .v-calendar-header > button:nth-of-type(2) {
-    left: 36px;
-
-    i.v-icon {
-      z-index: 1;
-      &::before {
-          content: url('ucla-library-design-tokens/assets/svgs/icon-caret-circle-left.svg');
-      }
+        .v-ripple__container {
+            display: none;
+        }
     }
-  }
 
-  .v-calendar-header > button:nth-of-type(3) {
-    right: 0;
-
-    i.v-icon {
-      z-index: 1;
-      &::before {
-          content: url('ucla-library-design-tokens/assets/svgs/icon-caret-circle-right.svg');
-      }
+    .v-calendar-header {
+        justify-content: space-between;
     }
-  }
 
-  .v-btn.v-btn--icon.v-theme--light.v-btn--density-comfortable.v-btn--size-default.v-btn--variant-text:focus-visible{
-    outline: 4px solid $accent-blue;
-  }
+    .v-calendar-header__title,
+    .v-calendar-header__today {
+        margin-inline: 0;
+    }
 
-  // Hide default Vuetify calendar numbering
-  .v-calendar-weekly__head-weeknumber,
-  .v-calendar-month__weeknumber {
-    display: none;
-  }
+    .v-calendar-header__title {
+        font-size: 40px;
+        font-weight: 800;
+        color: $heading-grey;
+    }
 
-  .v-calendar-weekly__head.days__7.v-calendar-weekly__head-weeknumbers {
-    grid-template-columns: repeat(7, 1fr);
-  }
+    .v-calendar-header__today {
+        order: 1;
+    }
 
-  .v-calendar-weekly__head-weekday-with-weeknumber {
-    background-color: #fcfcfc;
-    border-bottom: 1px solid #ccc;
-  }
+    .v-btn.v-calendar-header__today:hover {
+        background-color: #f0f0f0;
+    }
 
-  .v-calendar-weekly__head-weekday-with-weeknumber {
-    font-size: 16px;
-    color: $subtitle-grey;
-    font-weight: 500;
-    text-transform: none;
-  }
+    // Reposition calendar navigation
+    .v-calendar-header > button:nth-of-type(2),
+    .v-calendar-header > button:nth-of-type(3) {
+        top: 50%;
+        border-radius: 4px;
+        transform: translate(-50%, -300%);
+        position: absolute;
+    }
 
-  /* Calendar Day Cells */
+    .v-calendar-header > button:nth-of-type(2) {
+        left: 36px;
 
-  .v-calendar-month__day {
-    justify-content: space-between;
-  }
+        i.v-icon {
+            z-index: 1;
+            &::before {
+                content: url("ucla-library-design-tokens/assets/svgs/icon-caret-circle-left.svg");
+            }
+        }
+    }
 
-  .v-calendar-month__days.days-with-weeknumbers__7.v-calendar-month__weeknumbers{
-    grid-template-columns: repeat(7, minmax(1px, 150px));
-  }
+    .v-calendar-header > button:nth-of-type(3) {
+        right: 0;
 
-  .v-calendar-weekly__day-label {
-    text-align: right;
-  }
+        i.v-icon {
+            z-index: 1;
+            &::before {
+                content: url("ucla-library-design-tokens/assets/svgs/icon-caret-circle-right.svg");
+            }
+        }
+    }
 
-  // Reset border color that's showing up darker in Nuxt
-  .v-calendar-month__days.days-with-weeknumbers__7>.v-calendar-month__day:nth-child(7n) {
-    border-right-color: #e0e0e0;
-  }
+    .v-btn.v-btn--icon.v-theme--light.v-btn--density-comfortable.v-btn--size-default.v-btn--variant-text:focus-visible {
+        outline: 4px solid $accent-blue;
+    }
 
-  .v-calendar-weekly__day-label .v-btn {
-    color: $subtitle-grey;
-    font-size: 16px; // confirm size
-    margin-top: 2px;
-    margin-right: 4px;
-  }
+    // Hide default Vuetify calendar numbering
+    .v-calendar-weekly__head-weeknumber,
+    .v-calendar-month__weeknumber {
+        display: none;
+    }
 
-  // Current date
-  .v-calendar-weekly__day-label .v-btn.v-calendar-weekly__day-label__today {
-    background-color: #ccc !important;
-    color: $body-grey !important;
-    width: 26px;
-    height: 26px;
-    box-shadow: unset;
-  }
+    .v-calendar-weekly__head.days__7.v-calendar-weekly__head-weeknumbers {
+        grid-template-columns: repeat(7, 1fr);
+    }
 
-  .v-calendar-weekly__day-label,
-  .v-calendar-weekly__day-label .v-btn {
-    cursor: default;
-  }
-  
-  .calendar-event-item {
-    background-color: #eee;
-    margin: 0px 4px 3px 4px;
-    padding: 4px 6px;
-    border-radius: 0;
-    width: -webkit-fill-available;
-    text-align: left;
-  }
+    .v-calendar-weekly__head-weekday-with-weeknumber {
+        background-color: #fcfcfc;
+        border-bottom: 1px solid #ccc;
+    }
 
-  .selected-event.calendar-event-item {
-    background-color: #ccc;
-  }
+    .v-calendar-weekly__head-weekday-with-weeknumber {
+        font-size: 16px;
+        color: $subtitle-grey;
+        font-weight: 500;
+        text-transform: none;
+    }
 
-  .calendar-event-item:hover {
-    background-color: #ccc;
-    cursor: pointer;
-  }
+    /* Calendar Day Cells */
 
-  .calendar-event-title {
-    @include truncate(2);
-    font-size: 14px;
-    line-height: 1.4;
-    font-weight: 600;
-  }
+    .v-calendar-month__day {
+        justify-content: space-between;
+    }
 
-  .calendar-event-time {
-    font-size: 14px;
-  }
+    .v-calendar-month__days.days-with-weeknumbers__7.v-calendar-month__weeknumbers {
+        grid-template-columns: repeat(7, minmax(1px, 150px));
+    }
+
+    .v-calendar-weekly__day-label {
+        text-align: right;
+    }
+
+    // Reset border color that's showing up darker in Nuxt
+    .v-calendar-month__days.days-with-weeknumbers__7
+        > .v-calendar-month__day:nth-child(7n) {
+        border-right-color: #e0e0e0;
+    }
+
+    .v-calendar-weekly__day-label .v-btn {
+        color: $subtitle-grey;
+        font-size: 16px; // confirm size
+        margin-top: 2px;
+        margin-right: 4px;
+    }
+
+    // Current date
+    .v-calendar-weekly__day-label .v-btn.v-calendar-weekly__day-label__today {
+        background-color: #ccc !important;
+        color: $body-grey !important;
+        width: 26px;
+        height: 26px;
+        box-shadow: unset;
+    }
+
+    .v-calendar-weekly__day-label,
+    .v-calendar-weekly__day-label .v-btn {
+        cursor: default;
+    }
+
+    .calendar-event-item {
+        background-color: #eee;
+        margin: 0px 4px 3px 4px;
+        padding: 4px 6px;
+        border-radius: 0;
+        width: -webkit-fill-available;
+        text-align: left;
+    }
+
+    .selected-event.calendar-event-item {
+        background-color: #ccc;
+    }
+
+    .calendar-event-item:hover {
+        background-color: #ccc;
+        cursor: pointer;
+    }
+
+    .calendar-event-title {
+        @include truncate(2);
+        font-size: 14px;
+        line-height: 1.4;
+        font-weight: 600;
+    }
+
+    .calendar-event-time {
+        font-size: 14px;
+    }
 }
 
 /*********************************/
@@ -180,99 +181,98 @@
 */
 
 .v-overlay-container {
-
-  .v-card {
-    opacity: 1;
-    color: transparent;
-  }
-
-  .v-card:hover {
-    color: rgba(0, 0, 0, 0.05);
-  }
-
-  .v-menu .v-card {
-    border-radius: 8px;
-  }
-
-  .calendar-event-popup-wrapper {
-
-    .block-highlight {
-      border-radius: 0;
-      background-color: transparent;
+    .v-card {
+        opacity: 1;
+        color: transparent;
     }
 
-    .block-highlight.is-vertical {
-      
-      .image-container {
-        aspect-ratio: unset;
-
-        .sizer {
-          padding-bottom: 0 !important;
-        }
-      }
-    
-      .image {
-        height: 150px;
-      }
-
-      .card-meta {
-        height: unset;
-        padding: 28px;
-
-        .block-tags {
-          margin-bottom: 0;
-        }
-
-        .title-no-link {
-          font-size: 30px;
-          font-weight: 500;
-          margin-bottom: 0;
-        }
-      }
+    .v-card:hover {
+        color: rgba(0, 0, 0, 0.05);
     }
 
-    .block-tag-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      padding-left: 28px;
-      -moz-column-gap: 8px;
-           column-gap: 8px;
-      margin-bottom: 14px;
+    .v-menu .v-card {
+        border-radius: 8px;
+    }
 
-      .block-tag {
-        margin-bottom: 8px;
-
-        &.highlighted { 
-          background-color: var(--color-default-cyan-03);
+    .calendar-event-popup-wrapper {
+        .block-highlight {
+            border-radius: 0;
+            background-color: transparent;
         }
-      }
+
+        .block-highlight.is-vertical {
+            .image-container {
+                aspect-ratio: unset;
+
+                .sizer {
+                    padding-bottom: 0 !important;
+                }
+            }
+
+            .image {
+                height: 150px;
+            }
+
+            .card-meta {
+                height: unset;
+                min-height: unset;
+                padding: 28px;
+
+                .block-tags {
+                    margin-bottom: 0;
+                }
+
+                .title-no-link {
+                    font-size: 30px;
+                    font-weight: 500;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .block-tag-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            padding-left: 28px;
+            -moz-column-gap: 8px;
+            column-gap: 8px;
+            margin-bottom: 14px;
+
+            .block-tag {
+                margin-bottom: 8px;
+
+                &.highlighted {
+                    background-color: var(--color-default-cyan-03);
+                }
+            }
+        }
+
+        .block-event-detail {
+            padding: 0px 28px 28px 28px;
+
+            .event-list:last-of-type {
+                margin-bottom: 0;
+            }
+
+            .location button.smart-link {
+                padding: 0;
+                border-radius: 0;
+            }
+
+            .location .smart-link {
+                text-decoration: none;
+                text-align: left;
+
+                @media #{$has-hover} {
+                    &:hover {
+                        color: unset;
+                    }
+                }
+            }
+        }
     }
 
-    .block-event-detail {
-      padding: 0px 28px 28px 28px;
-
-      .event-list:last-of-type {
-        margin-bottom: 0;
-      }
-
-      .location button.smart-link {
-        padding: 0;
-        border-radius: 0;
-      }
-      
-      .location .smart-link {
-        text-decoration: none;
-        text-align: left;
-
-        @media #{$has-hover} {
-          &:hover {
-              color: unset;
-          }
-      }
-      }
+    // Slot styles
+    .calendar-slot-wrapper {
     }
-  }
-
-   // Slot styles
-  .calendar-slot-wrapper{}
 }
