@@ -61,16 +61,14 @@ function onScroll() {
   updateThumb()
 }
 
-function onThumbMousedown(e: MouseEvent) {
+function startDrag(clientX: number) {
   dragging.value = true
-  dragStartX.value = e.clientX
+  dragStartX.value = clientX
   startScrollLeft.value = itemsRef.value?.scrollLeft || 0
   thumbStartLeft.value = thumbRef.value?.offsetLeft || 0
-  document.addEventListener('mousemove', onThumbMousemove)
-  document.addEventListener('mouseup', onThumbMouseup)
 }
 
-function onThumbMousemove(e: MouseEvent) {
+function handleDrag(clientX: number) {
   if (!dragging.value || !itemsRef.value || !thumbRef.value)
     return
   const items = itemsRef.value
@@ -79,7 +77,7 @@ function onThumbMousemove(e: MouseEvent) {
   const thumbWidth = thumb.offsetWidth
   const maxThumbLeft = clientWidth - thumbWidth
   const maxScrollLeft = scrollWidth - clientWidth
-  const deltaX = e.clientX - dragStartX.value
+  const deltaX = clientX - dragStartX.value
   const newThumbLeft = Math.min(
     Math.max(thumbStartLeft.value + deltaX, 0),
     maxThumbLeft
@@ -88,10 +86,46 @@ function onThumbMousemove(e: MouseEvent) {
   items.scrollLeft = newScrollLeft
 }
 
-function onThumbMouseup() {
+function endDrag() {
   dragging.value = false
-  document.removeEventListener('mousemove', onThumbMousemove)
-  document.removeEventListener('mouseup', onThumbMouseup)
+}
+
+function onThumbMousedown(e: MouseEvent) {
+  e.preventDefault()
+  startDrag(e.clientX)
+}
+
+function onThumbMousemove(e: MouseEvent) {
+  if (!dragging.value) return
+  e.preventDefault()
+  handleDrag(e.clientX)
+}
+
+function onThumbMouseup() {
+  if (!dragging.value) return
+  endDrag()
+}
+
+function onThumbTouchstart(e: TouchEvent) {
+  e.preventDefault()
+  const touch = e.touches[0]
+  if (touch) {
+    startDrag(touch.clientX)
+  }
+}
+
+function onThumbTouchmove(e: TouchEvent) {
+  if (!dragging.value) return
+  e.preventDefault()
+  const touch = e.touches[0]
+  if (touch) {
+    handleDrag(touch.clientX)
+  }
+}
+
+function onThumbTouchend() {
+  if (!dragging.value) return
+  endDrag()
 }
 
 // Lifecycle Hooks
@@ -100,11 +134,19 @@ onMounted(() => {
     updateThumb()
     itemsRef.value?.addEventListener('scroll', onScroll)
     window.addEventListener('resize', updateThumb)
+    document.addEventListener('mousemove', onThumbMousemove)
+    document.addEventListener('mouseup', onThumbMouseup)
+    document.addEventListener('touchmove', onThumbTouchmove, { passive: false })
+    document.addEventListener('touchend', onThumbTouchend)
   })
 })
 onBeforeUnmount(() => {
   itemsRef.value?.removeEventListener('scroll', onScroll)
   window.removeEventListener('resize', updateThumb)
+  document.removeEventListener('mousemove', onThumbMousemove)
+  document.removeEventListener('mouseup', onThumbMouseup)
+  document.removeEventListener('touchmove', onThumbTouchmove)
+  document.removeEventListener('touchend', onThumbTouchend)
 })
 </script>
 
@@ -138,6 +180,7 @@ onBeforeUnmount(() => {
         ref="thumbRef"
         class="custom-scrollbar-thumb"
         @mousedown="onThumbMousedown"
+        @touchstart="onThumbTouchstart"
       />
     </div>
   </div>

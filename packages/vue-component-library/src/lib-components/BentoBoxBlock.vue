@@ -5,6 +5,7 @@ import type { MediaItemType } from '@/types/types'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 import { useTheme } from '@/composables/useTheme'
+import RichText from '@/lib-components/RichText.vue'
 
 const props = withDefaults(defineProps<BentoBoxBlockProps>(), {
   count: 0,
@@ -38,17 +39,17 @@ const classes = computed(() => {
         :aspect-ratio="72"
       />
       <div class="content">
-        <span
+        <RichText
+          :rich-text-content="parsedCount"
           class="count"
-          v-html="parsedCount"
         />
-        <span
+        <RichText
+          :rich-text-content="title"
           class="title"
-          v-html="title"
         />
-        <div
+        <RichText
+          :rich-text-content="text"
           class="text"
-          v-html="text"
         />
         <ButtonLink
           :is-senary="true"
