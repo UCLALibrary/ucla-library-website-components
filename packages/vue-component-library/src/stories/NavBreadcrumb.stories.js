@@ -171,3 +171,8 @@ export const FTVAThemeRootLevel = FTVATemplate.bind({})
 FTVAThemeRootLevel.args = {
   route: '/about-page'
 }
+
+export const TruncatedTitleLongParent2 = FTVATemplate.bind({})
+TruncatedTitleLongParent2.args = {
+  route: '/collections/kenneth-hahn-and-tom-bradley-discuss-the-legacy-of-supreme-court-chief-justice-earl-warren/ktla-news-project-tom-bradley-mayor-of-los-angeles/',
+}

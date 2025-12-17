@@ -49,7 +49,8 @@ const route = useRoute()
 
 const isExpanded = ref(false)
 
-const isMobile = ref(false)
+const isMediumDevice = ref(false)
+const isSmallDevice = ref(false)
 
 const collapseBreadcrumbs = ref(false)
 
@@ -61,7 +62,8 @@ onMounted(() => {
   // Watch for changes in window width after component is mounted
   const { width } = useWindowSize()
   watch(width, (newWidth) => {
-    isMobile.value = newWidth <= 1200
+    isMediumDevice.value = newWidth < 1200
+    isSmallDevice.value = newWidth < 768
   }, { immediate: true })
 })
 
@@ -94,8 +96,8 @@ const parsedBreadcrumbLinks = computed(() => {
   if (breadcrumbListLength > 4 && !isExpanded.value)
     setCollapseBreadcrumbs()
 
-  if (isMobile.value) {
-    // For mobile display, get last 2 items
+  if (isMediumDevice.value) {
+    // For medium devices and smaller, get last 2 items
     const mobileBreadcrumb
       = createBreadcrumbLinks(breadcrumbsList).slice(-2)
 
@@ -156,7 +158,7 @@ function createBreadcrumbLinks(arr: string[]) {
         // If an object in the overrideTitleGroup array prop has a `titleLevel` that matches `updatedIndex`, then replace the breadcrumb item title with the new title from the object
         const overrideObject = overrideTitleGroup.find((obj: OverrideObj) => obj.titleLevel === updatedIndex)
         if (overrideObject)
-          linkTitle = overrideObject.updatedTitle || linkTitle
+          linkTitle = truncateTitle(overrideObject.updatedTitle) || linkTitle
       }
 
       // Identify if breadcrumb item is the last item
@@ -205,7 +207,7 @@ function createBreadcrumbLinks(arr: string[]) {
 // Handle title truncation over 40 (mobile), 60 (desktop) characters
 function truncateTitle(str: string): string {
   const strCount = str.length
-  if (strCount > 40 && isMobile.value)
+  if (strCount > 40 && isSmallDevice.value)
     return str.substring(0, 30).padEnd(33, '.')
   else if (strCount > 60)
     return str.substring(0, 47).padEnd(50, '.')
@@ -213,7 +215,7 @@ function truncateTitle(str: string): string {
     return str
 }
 
-// Event handler for parent breadcrumbs; if title prop is passed at page level as the final breadcrumb title, prevent it from from overriding a preceding parent title.
+// Event handler for parent breadcrumbs; if title prop is passed at page level as the final breadcrumb title, prevent it from overriding a preceding parent title.
 function handleSetRouteTitle() {
   setRouteTitle.value = true
 }
@@ -282,11 +284,12 @@ const parsedClasses = computed(() => {
           v-text="linkObj.title"
         />
         <!-- Set final breadcrumb with `title` prop if available -->
+        <!-- Truncate the `title` prop value to prevent overcrowding/overflow -->
         <span
           v-else-if="linkObj.isLastItem && title"
           class="current-page-title"
           aria-current="page"
-          v-text="title"
+          v-text="truncateTitle(title)"
         />
         <!-- Set final breadcrumb with route if `title` prop is unavailable -->
         <span
