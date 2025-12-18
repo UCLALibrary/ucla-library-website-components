@@ -89,6 +89,12 @@ OverrideFinalTitleByTitleProp.args = {
   title: 'Final Title Passed by Prop'
 }
 
+export const OverrideFinalTitleByTitleProp_Long = DynamicModeTemplate.bind({})
+OverrideFinalTitleByTitleProp_Long.args = {
+  route: '/collections/ktla-news-project/tom-bradley-mayor-of-los-angeles',
+  title: '"Mayor Tom Bradley and Councilman Edmund D. Edelman file petition with Supreme Court regarding use of gas tax funds"'
+}
+
 const titlesOverride1 = [{
   titleLevel: 1,
   updatedTitle: 'Override Level 1'
@@ -131,18 +137,18 @@ OverrideTitlesByOverrideProp2.args = {
 const titlesOverride3 = [
   {
     titleLevel: 2,
-    updatedTitle: 'KTLA Collection'
+    updatedTitle: 'KTLA News Collection'
   }
 ]
 
 export const TruncatedTitleLongChild = DynamicModeTemplate.bind({})
 TruncatedTitleLongChild.args = {
-  route: '/collections/ktla-news-project-tom-bradley-mayor-of-los-angeles/kenneth-hahn-and-tom-bradley-discuss-the-legacy-of-supreme-court-chief-justice-earl-warren/',
+  route: '/collections/ktla-news-project/kenneth-hahn-and-tom-bradley-discuss-the-legacy-of-supreme-court-chief-justice-earl-warren/',
 }
 
 export const TruncatedTitleLongParent = DynamicModeTemplate.bind({})
 TruncatedTitleLongParent.args = {
-  route: '/collections/kenneth-hahn-and-tom-bradley-discuss-the-legacy-of-supreme-court-chief-justice-earl-warren/ktla-news-project-tom-bradley-mayor-of-los-angeles/',
+  route: '/collections/immigrant-workers-freedom-ride-documentary-project-collection/edge-of-america/',
 }
 
 const FTVATemplate = (args) => {
@@ -163,16 +169,11 @@ const FTVATemplate = (args) => {
 
 export const FTVATheme = FTVATemplate.bind({})
 FTVATheme.args = {
-  route: '/watch-and-listen-online/ktla-collection/senator-john-f.-kennedy-gives-press-conference-in-los-angeles',
+  route: '/watch-and-listen-online/ktla-news-collection/senator-john-f.-kennedy-gives-press-conference-in-los-angeles',
   overrideTitleGroup: titlesOverride3
 }
 
 export const FTVAThemeRootLevel = FTVATemplate.bind({})
 FTVAThemeRootLevel.args = {
   route: '/about-page'
-}
-
-export const TruncatedTitleLongParent2 = FTVATemplate.bind({})
-TruncatedTitleLongParent2.args = {
-  route: '/collections/kenneth-hahn-and-tom-bradley-discuss-the-legacy-of-supreme-court-chief-justice-earl-warren/ktla-news-project-tom-bradley-mayor-of-los-angeles/',
 }

@@ -49,8 +49,8 @@ const route = useRoute()
 
 const isExpanded = ref(false)
 
-const isMediumDevice = ref(false)
-const isSmallDevice = ref(false)
+const isMediumDevice = ref(false) // Breakpoint ref to reduce crumbs to last two items
+const isSmallDevice = ref(false) // Breakpoint ref to truncate text for small devices
 
 const collapseBreadcrumbs = ref(false)
 
