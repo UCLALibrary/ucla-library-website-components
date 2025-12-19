@@ -14,7 +14,7 @@ interface ExcerptPodProps {
   labelClose: string
   sentenceSplitCount: number
 }
-const props = withDefaults(defineProps<ExcerptPodProps>(), {
+withDefaults(defineProps<ExcerptPodProps>(), {
   title: '',
   subtitle: '',
   text: '',
