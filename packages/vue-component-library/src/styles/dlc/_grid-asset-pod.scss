@@ -30,6 +30,51 @@
         --columns-count: 4;
     }
 
+    // Two-column layout variant (for BentoPod)
+    &.layout-two-column {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+
+        .column-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .block-container {
+            width: 100%;
+            margin-bottom: 32px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        // Breakpoints
+        @media #{$medium} {
+            flex-direction: column;
+            gap: 0;
+
+            .block-container {
+                margin-bottom: 0;
+            }
+        }
+
+        @media #{$small} {
+            flex-direction: column;
+            gap: 0;
+
+            .block-container {
+                margin-bottom: 16px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
     // Breakpoints
     @media #{$medium} {
         --row-gap: 20px;
