@@ -1,9 +1,9 @@
 <script setup lang="ts">
 // Imports
-import { computed, defineProps, ref } from 'vue'
-import SvgArrowDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
+import { computed, ref } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 import EffectSlideToggle from '@/lib-components/EffectSlideToggle.vue'
+import ButtonShowDynamic from '@/lib-components/ButtonShowDynamic.vue'
 
 // Props
 interface ExcerptPodProps {
@@ -34,10 +34,6 @@ const classes = computed(() => [
   theme?.value || '',
   { 'is-open': isOpen.value },
 ])
-
-const dynamicLabel = computed(() =>
-  isOpen.value ? props.labelOpen : props.labelClose
-)
 
 // Methods
 function toggle() {
@@ -74,24 +70,17 @@ function toggle() {
           <!-- <div v-html="textParts.remainingText" /> -->
           <slot name="content" />
         </EffectSlideToggle>
-        <button
-          v-if="$slots.content"
-          class="btn"
-          :aria-expanded="isOpen"
-          @click.stop="toggle"
-        >
-          <transition
-            name="fade-label"
-            mode="out-in"
-          >
-            <span
-              :key="dynamicLabel"
-              class="label"
-              v-html="dynamicLabel"
-            />
-          </transition>
-          <SvgArrowDown class="caret-icon" />
-        </button>
+        <ButtonShowDynamic
+          :is-expanded="isOpen"
+          :label-open="labelOpen"
+          :label-close="labelClose"
+          :show="!!$slots.content"
+          :stop-propagation="true"
+          :aria-hidden="false"
+          variant="minimal"
+          transition-speed="fast"
+          @click="toggle"
+        />
       </div>
     </div>
   </div>

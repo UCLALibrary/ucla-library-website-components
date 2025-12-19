@@ -2,9 +2,9 @@
 // Imports
 import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
 import SvgExternalLink from 'ucla-library-design-tokens/assets/svgs/icon-external-link.svg'
-import SvgArrowDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
 import DividerGeneral from './DividerGeneral.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
+import ButtonShowDynamic from '@/lib-components/ButtonShowDynamic.vue'
 import { useTheme } from '@/composables/useTheme'
 
 const props = withDefaults(defineProps<BentoPodProps>(), {
@@ -31,7 +31,6 @@ interface BentoPodProps {
 }
 // Data
 const isExpanded = ref(false)
-const itemsWrapper = ref<HTMLElement | null>(null)
 const itemRefs = ref<(HTMLElement | null)[]>([])
 const expandedHeight = ref(0)
 const debounceTimeout = ref<number | undefined>(undefined)
@@ -44,10 +43,6 @@ const classes = computed(() => [
     'is-expanded': isExpanded.value,
   },
 ])
-
-const dynamicLabel = computed(() =>
-  isExpanded.value ? props.labelOpen : props.labelClose
-)
 
 const firstItems = computed(() => props.items.slice(0, 3))
 const extraItems = computed(() => props.items.slice(3))
@@ -165,7 +160,6 @@ onUnmounted(() => {
       </div>
       <!-- Expandable extra items -->
       <div
-        ref="itemsWrapper"
         class="items"
         :style="wrapperStyles"
       >
@@ -209,27 +203,14 @@ onUnmounted(() => {
       </div>
     </div>
 
-    <button
-      v-if="showButton"
-      class="btn"
-      :aria-expanded="isExpanded"
+    <ButtonShowDynamic
+      :is-expanded="isExpanded"
+      :label-open="labelOpen"
+      :label-close="labelClose"
+      :show="showButton"
+      variant="default"
       @click="toggle"
-    >
-      <transition
-        name="fade-label"
-        mode="out-in"
-      >
-        <span
-          :key="dynamicLabel"
-          class="label"
-          v-html="dynamicLabel"
-        />
-      </transition>
-      <SvgArrowDown
-        aria-hidden="true"
-        class="caret-icon"
-      />
-    </button>
+    />
   </div>
 </template>
 

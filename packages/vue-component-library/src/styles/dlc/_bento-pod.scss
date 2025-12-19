@@ -137,40 +137,6 @@
         // }
     }
 
-    .caret-icon {
-        width: 30px;
-        height: auto;
-        @include animate-normal;
-    }
-
-    .btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 5px 10px;
-        border-radius: 4px;
-
-        background-color: transparent;
-
-        color: var(--color-primary-blue-03);
-        font-family: var(--font-secondary); // Proxima Nova
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1; /* 24px */
-
-        border: 1px solid var(--color-primary-blue-03);
-        cursor: pointer;
-        @include animate-normal;
-    }
-
-    .caret-icon {
-        ::v-deep(path) {
-            @include animate-normal;
-        }
-    }
-
     // Expanded state
     &.is-expanded {
         .item.extra:last-child {
@@ -182,18 +148,6 @@
             &:nth-child(3) {
                 .divider {
                     opacity: 1;
-                }
-            }
-        }
-
-        .btn {
-            background-color: var(--color-primary-blue-03);
-            color: var(--color-white);
-
-            .caret-icon {
-                transform: rotate(180deg);
-                ::v-deep(path) {
-                    stroke: var(--color-white);
                 }
             }
         }
@@ -212,29 +166,6 @@
                 transform: scaleX(1);
             }
         }
-
-        .btn:hover {
-            background-color: var(--color-primary-blue-03);
-            color: var(--color-white);
-
-            .caret-icon {
-                ::v-deep(path) {
-                    stroke: var(--color-white);
-                }
-            }
-        }
-
-        &.is-expanded .btn:hover {
-            background-color: transparent;
-            color: var(--color-primary-blue-05);
-
-            .caret-icon {
-                transform: rotate(180deg);
-                ::v-deep(path) {
-                    stroke: var(--color-primary-blue-05);
-                }
-            }
-        }
     }
 
     // Breakpoints
@@ -244,19 +175,5 @@
             flex-direction: column;
             gap: 5px;
         }
-    }
-
-    // Transitions
-    .fade-label-enter-active,
-    .fade-label-leave-active {
-        transition: opacity 0.15s ease-in-out;
-    }
-    .fade-label-enter-from,
-    .fade-label-leave-to {
-        opacity: 0;
-    }
-    .fade-label-enter-to,
-    .fade-label-leave-from {
-        opacity: 1;
     }
 }
