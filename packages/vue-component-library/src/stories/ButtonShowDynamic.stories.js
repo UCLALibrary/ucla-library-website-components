@@ -19,7 +19,7 @@ export default {
   },
 }
 
-const Template = (args) => ({
+const Template = args => ({
   components: { ButtonShowDynamic },
   setup() {
     const isExpanded = ref(args.isExpanded)
@@ -33,7 +33,8 @@ const Template = (args) => ({
 
     const handleClick = (event) => {
       isExpanded.value = !isExpanded.value
-      if (args.onClick) args.onClick(event)
+      if (args.onClick)
+        args.onClick(event)
     }
 
     return { args, isExpanded, handleClick }
