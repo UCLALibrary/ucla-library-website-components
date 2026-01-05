@@ -4,13 +4,15 @@ import { computed } from 'vue'
 import type { MediaItemType } from '@/types/types'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import { useTheme } from '@/composables/useTheme'
+
+defineProps<BentoBoxBlockProps>()
+
 const theme = useTheme()
 
 // Props
 interface BentoBoxBlockProps {
   image?: MediaItemType | null
 }
-defineProps<BentoBoxBlockProps>()
 // Computed
 // const parsedCount = computed(() => {
 //   if (props.count === undefined || props.count === null)
