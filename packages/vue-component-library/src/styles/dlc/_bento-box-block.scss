@@ -20,11 +20,12 @@
         flex-direction: column;
         gap: 10px;
 
-        .count {
+        :deep(.count),
+        :deep(.eyebrow) {
             margin: 0;
             padding: 0;
 
-            :deep(.parsed-content) {
+            .parsed-content {
                 margin: 0;
 
                 font-family: var(--font-primary);
@@ -37,10 +38,10 @@
             }
         }
 
-        .title {
+        :deep(.title) {
             margin: 0;
             padding: 0;
-            :deep(.parsed-content) {
+            .parsed-content {
                 margin: 0;
 
                 font-family: var(--font-primary);
@@ -51,10 +52,10 @@
             }
         }
 
-        .text {
+        :deep(.text) {
             margin: 0;
             padding: 0;
-            :deep(.parsed-content) {
+            .parsed-content {
                 margin: 0;
 
                 font-family: var(--font-secondary);

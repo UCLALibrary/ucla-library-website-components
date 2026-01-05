@@ -1,16 +1,20 @@
 <script setup lang="ts">
 // Imports
-import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import BentoBoxBlock from '@/lib-components/BentoBoxBlock.vue'
 import type { MediaItemType } from '@/types/types'
 import { useTheme } from '@/composables/useTheme'
+import RichText from '@/lib-components/RichText.vue'
+import ButtonLink from '@/lib-components/ButtonLink.vue'
 
-defineProps<BentoBoxResultProps>()
+const props = withDefaults(defineProps<BentoBoxResultProps>(), {
+  items: () => [],
+})
 const theme = useTheme()
 // Props
 interface BentoBoxResultProps {
   title: string
-  items: Array<{
+  items?: Array<{
     to: string
     image: MediaItemType
     title: string
@@ -150,32 +154,66 @@ onBeforeUnmount(() => {
   document.removeEventListener('touchmove', onThumbTouchmove)
   document.removeEventListener('touchend', onThumbTouchend)
 })
+
+watch(
+  () => props.items,
+  () => nextTick(() => updateThumb()),
+  { deep: true }
+)
 </script>
 
 <template>
   <div :class="classes">
     <h5
       class="title"
-      v-html="title"
+      v-html="props.title"
     />
     <div
       ref="itemsRef"
       class="items"
     >
-      <div
-        v-for="(item, index) in items"
-        :key="item.title + index"
-        class="item"
-      >
-        <BentoBoxBlock
-          class="block"
-          :to="item.to"
-          :image="item.image"
-          :title="item.title"
-          :text="item.text"
-          :count="item.count"
-        />
-      </div>
+      <slot>
+        <div
+          v-for="(item, index) in props.items"
+          :key="(item.title || 'item') + index"
+          class="item"
+        >
+          <BentoBoxBlock
+            :image="item.image"
+            :to="item.to"
+          >
+            <template
+              v-if="item.count !== undefined"
+              #eyebrow
+            >
+              <RichText :rich-text-content="`${item.count} Results`" />
+            </template>
+            <template
+              v-if="item.title"
+              #title
+            >
+              <RichText :rich-text-content="item.title" />
+            </template>
+            <template
+              v-if="item.text"
+              #text
+            >
+              <RichText :rich-text-content="item.text" />
+            </template>
+            <template
+              v-if="item.to"
+              #button
+            >
+              <ButtonLink
+                :is-senary="true"
+                :to="item.to"
+                label="View Results"
+                icon-name="svg-external-link"
+              />
+            </template>
+          </BentoBoxBlock>
+        </div>
+      </slot>
     </div>
     <div class="custom-scrollbar">
       <div

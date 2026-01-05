@@ -3,28 +3,25 @@
 import { computed } from 'vue'
 import type { MediaItemType } from '@/types/types'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
-import ButtonLink from '@/lib-components/ButtonLink.vue'
 import { useTheme } from '@/composables/useTheme'
-import RichText from '@/lib-components/RichText.vue'
 
-const props = withDefaults(defineProps<BentoBoxBlockProps>(), {
-  count: 0,
-})
+// Props
+const props = defineProps<BentoBoxBlockProps>()
 
 const theme = useTheme()
 
-// Props
 interface BentoBoxBlockProps {
-  to: string
-  image: MediaItemType
-  title: string
-  text: string
-  count?: number
+  image?: MediaItemType | null
 }
 // Computed
-const parsedCount = computed(() => {
-  return `${props.count} Results`
-})
+// const parsedCount = computed(() => {
+//   if (props.count === undefined || props.count === null)
+//     return ''
+//   return `${props.count} Results`
+// })
+// const showEyebrow = computed(() => {
+//   return props.count !== undefined && props.count !== null
+// })
 const classes = computed(() => {
   return ['bento-box-block', theme?.value || '']
 })
@@ -34,29 +31,62 @@ const classes = computed(() => {
   <div :class="classes">
     <div class="wrapper">
       <ResponsiveImage
+        v-if="image"
         class="image"
         :media="image"
         :aspect-ratio="72"
       />
       <div class="content">
-        <RichText
-          :rich-text-content="parsedCount"
-          class="count"
-        />
-        <RichText
-          :rich-text-content="title"
+        <div
+          v-if="$slots.eyebrow"
+          class="eyebrow"
+        >
+          <slot name="eyebrow">
+            <!-- <RichText
+            v-if="showEyebrow"
+            :rich-text-content="parsedCount"
+            class="eyebrow count"
+            /> -->
+          </slot>
+        </div>
+        <div
+          v-if="$slots.title"
           class="title"
-        />
-        <RichText
-          :rich-text-content="text"
+        >
+          <slot name="title">
+            <!-- <RichText
+              v-if="title"
+              :rich-text-content="title"
+              class="title"
+            /> -->
+          </slot>
+        </div>
+        <div
+          v-if="$slots.text"
           class="text"
-        />
-        <ButtonLink
-          :is-senary="true"
-          :to="to"
-          label="View Results"
-          icon-name="svg-external-link"
-        />
+        >
+          <slot name="text">
+            <!-- <RichText
+            v-if="text"
+            :rich-text-content="text"
+            class="text"
+            /> -->
+          </slot>
+        </div>
+        <div
+          v-if="$slots.button"
+          class="button"
+        >
+          <slot name="button">
+            <!-- <ButtonLink
+            v-if="to"
+            :is-senary="true"
+            :to="to"
+            label="View Results"
+            icon-name="svg-external-link"
+            /> -->
+          </slot>
+        </div>
       </div>
     </div>
   </div>

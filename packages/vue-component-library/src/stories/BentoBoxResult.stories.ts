@@ -75,7 +75,7 @@ const defaultItems = [
   {
     to: 'https://static.library.ucla.edu',
     image: baseImage,
-    title: 'Another Long Text Block',
+    title: 'Another Long Text Block Another Long Text Block Another Long Text Block',
     text:
             `${'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '.repeat(
               30
@@ -126,6 +126,51 @@ const missingCountItems = [
   },
 ]
 
+const customSlotItems = [
+  {
+    title: 'Library Workshop',
+    detail: 'Hands-on session: Digital Archives 101',
+    cta: 'Register',
+    to: '/events/workshop',
+    items: ['Archival basics', 'Metadata overview', 'Q&A'],
+  },
+  {
+    title: 'Staff Picks',
+    detail: 'Curated reading list for spring quarter',
+    cta: 'View List',
+    to: '/staff-picks',
+    items: ['Fiction: Sci-Fi', 'Non-fiction: History', 'Poetry'],
+  },
+  {
+    title: 'Student Spotlight',
+    detail: 'Interview with a student researcher',
+    cta: 'Read Story',
+    to: '/spotlight',
+    items: ['Project overview', 'Methods', 'Findings'],
+  },
+  {
+    title: 'Library Workshop',
+    detail: 'Hands-on session: Digital Archives 101',
+    cta: 'Register',
+    to: '/events/workshop',
+    items: ['Archival basics', 'Metadata overview', 'Q&A'],
+  },
+  {
+    title: 'Staff Picks',
+    detail: 'Curated reading list for spring quarter',
+    cta: 'View List',
+    to: '/staff-picks',
+    items: ['Fiction: Sci-Fi', 'Non-fiction: History', 'Poetry'],
+  },
+  {
+    title: 'Student Spotlight',
+    detail: 'Interview with a student researcher',
+    cta: 'Read Story',
+    to: '/spotlight',
+    items: ['Project overview', 'Methods', 'Findings'],
+  },
+]
+
 function Template(args: any) {
   return {
     components: { BentoBoxResult },
@@ -134,18 +179,6 @@ function Template(args: any) {
         theme: computed(() => 'dlc'),
       }
     },
-    setup() {
-      return { args }
-    },
-    template: `
-      <bento-box-result :title="args.title" :items="args.items" />
-    `,
-  }
-}
-
-function TemplateNoTheme(args: any) {
-  return {
-    components: { BentoBoxResult },
     setup() {
       return { args }
     },
@@ -170,26 +203,6 @@ export const Default = Template.bind({})
 Default.args = { title: 'Default Results', items: defaultItems }
 Default.decorators = [themeDecorator]
 
-export const NoItems = Template.bind({})
-NoItems.args = { title: 'No Results', items: [] }
-NoItems.decorators = [themeDecorator]
-
-export const OneItem = Template.bind({})
-OneItem.args = { title: 'One Result', items: oneItem }
-OneItem.decorators = [themeDecorator]
-
-export const LongText = Template.bind({})
-LongText.args = { title: 'Long Text Result', items: longTextItems }
-LongText.decorators = [themeDecorator]
-
-export const MissingImage = Template.bind({})
-MissingImage.args = { title: 'Missing Image', items: missingImageItems }
-MissingImage.decorators = [themeDecorator]
-
-export const MissingCount = Template.bind({})
-MissingCount.args = { title: 'Missing Count', items: missingCountItems }
-MissingCount.decorators = [themeDecorator]
-
 export const AllEdgeCases = Template.bind({})
 AllEdgeCases.args = {
   title: 'All Edge Cases',
@@ -203,5 +216,39 @@ AllEdgeCases.args = {
 }
 AllEdgeCases.decorators = [themeDecorator]
 
-export const NoTheme = TemplateNoTheme.bind({})
-NoTheme.args = { title: 'Default Results', items: defaultItems }
+function CustomSlotTemplate(args: any) {
+  return {
+    components: { BentoBoxResult },
+    provide() {
+      return {
+        theme: computed(() => 'dlc'),
+      }
+    },
+    setup() {
+      return { args }
+    },
+    template: `
+      <bento-box-result :title="args.title">
+        <template #default>
+          <div
+            v-for="(item, index) in args.items"
+            :key="item.title + index"
+            class="custom-slot-item"
+            style="min-width: 240px; padding: 16px; border-radius: 6px; background: white; display: flex; flex-direction: column; gap: 8px;"
+          >
+            <h4 style="margin: 0; font-size: 18px;">{{ item.title }}</h4>
+            <p style="margin: 0; font-size: 14px; line-height: 1.4;">{{ item.detail }}</p>
+            <a :href="item.to" style="font-weight: 600; color: #0047bb;">{{ item.cta }}</a>
+            <ul v-if="item.items?.length" style="margin: 4px 0 0; padding-left: 18px; line-height: 1.5; font-size: 13px;">
+              <li v-for="(entry, i) in item.items" :key="entry + i">{{ entry }}</li>
+            </ul>
+          </div>
+        </template>
+      </bento-box-result>
+    `,
+  }
+}
+
+export const CustomSlotContent = CustomSlotTemplate.bind({})
+CustomSlotContent.args = { title: 'Custom Slot Content', items: customSlotItems }
+CustomSlotContent.decorators = [themeDecorator]

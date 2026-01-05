@@ -1,5 +1,7 @@
 import { computed } from 'vue'
 import BentoBoxBlock from '@/lib-components/BentoBoxBlock.vue'
+import RichText from '@/lib-components/RichText.vue'
+import ButtonLink from '@/lib-components/ButtonLink.vue'
 
 // STORIES
 
@@ -70,41 +72,114 @@ const mockNoLink = {
 
 function Template(args) {
   return {
-    components: { BentoBoxBlock },
+    components: { BentoBoxBlock, RichText, ButtonLink },
     provide() {
       return {
         theme: computed(() => 'dlc'),
       }
     },
     setup() {
-      return { args }
+      const parsedCount = computed(() => args.count !== undefined ? `${args.count} Results` : '')
+      return { args, parsedCount }
     },
     template: `
       <bento-box-block
-        :to="args.link"
         :image="args.image"
-        :title="args.title"
-        :text="args.summary"
-        :count="args.count"
-      />
+      >
+        <template
+          v-if="parsedCount"
+          #eyebrow
+        >
+          <RichText
+            :rich-text-content="parsedCount"
+            class="count"
+          />
+        </template>
+        <template
+          v-if="args.title"
+          #title
+        >
+          <RichText
+            :rich-text-content="args.title"
+            class="title"
+          />
+        </template>
+        <template
+          v-if="args.summary"
+          #text
+        >
+          <RichText
+            :rich-text-content="args.summary"
+            class="text"
+          />
+        </template>
+        <template
+          v-if="args.link"
+          #button
+        >
+          <ButtonLink
+            :is-senary="true"
+            :to="args.link"
+            label="View Results"
+            icon-name="svg-external-link"
+          />
+        </template>
+      </bento-box-block>
     `,
   }
 }
 
 function TemplateNoTheme(args) {
   return {
-    components: { BentoBoxBlock },
+    components: { BentoBoxBlock, RichText, ButtonLink },
     setup() {
-      return { args }
+      const parsedCount = computed(() => args.count !== undefined ? `${args.count} Results` : '')
+      return { args, parsedCount }
     },
     template: `
       <bento-box-block
-        :to="args.link"
         :image="args.image"
-        :title="args.title"
-        :text="args.summary"
-        :count="args.count"
-      />
+        :to="args.link"
+      >
+        <template
+          v-if="parsedCount"
+          #eyebrow
+        >
+          <RichText
+            :rich-text-content="parsedCount"
+            class="count"
+          />
+        </template>
+        <template
+          v-if="args.title"
+          #title
+        >
+          <RichText
+            :rich-text-content="args.title"
+            class="title"
+          />
+        </template>
+        <template
+          v-if="args.summary"
+          #text
+        >
+          <RichText
+            :rich-text-content="args.summary"
+            class="text"
+          />
+        </template>
+        <template
+          v-if="args.link"
+          #button
+        >
+          <ButtonLink
+            :is-senary="true"
+            :to="args.link"
+            label="View Results"
+            icon-name="svg-external-link"
+          />
+        </template>
+      </bento-box-block>
     `,
   }
 }
@@ -143,6 +218,3 @@ NoSummary.decorators = [themeDecorator]
 export const NoLink = Template.bind({})
 NoLink.args = { ...mockNoLink }
 NoLink.decorators = [themeDecorator]
-
-export const NoTheme = TemplateNoTheme.bind({})
-NoTheme.args = { ...mockDefault }
