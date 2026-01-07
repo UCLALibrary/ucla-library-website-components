@@ -185,7 +185,7 @@ function Template(args) {
         <header-smart/>
         <main class="main-content">
           // <div class="search-field-composite-wrapper">
-          // TODO: Add SearchFieldComposite back in
+          // TODO: Add (new and updated) SearchFieldComposite back in
           //   <SearchFieldComposite
           //     class='search-bar'
           //     :initial-value="args.searchInitialValue"
