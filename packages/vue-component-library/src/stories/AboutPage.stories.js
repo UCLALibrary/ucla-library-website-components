@@ -4,7 +4,7 @@ import { computed, ref } from 'vue'
 import FooterMain from '../lib-components/FooterMain.vue'
 // import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 // import SmartLink from '../lib-components/SmartLink.vue'
-// import BannerFeatured from '../lib-components/BannerFeatured.vue'
+import BannerFeatured from '../lib-components/BannerFeatured.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 // import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
@@ -50,7 +50,7 @@ function Template(args) {
       FooterMain,
       // SearchFieldComposite,
       // SmartLink,
-      // BannerFeatured,
+      BannerFeatured,
       HeaderSmart,
     },
     provide() {
@@ -169,20 +169,64 @@ function Template(args) {
       }
 
       return {
-        // dropdownValue,
-        // submittedValue,
-        // handleSearchSubmit,
-        // handleDropdownUpdate,
-        // args,
-        // missionData,
-        // aboutData,
-        // questionsData,
+        dropdownValue,
+        submittedValue,
+        handleSearchSubmit,
+        handleDropdownUpdate,
+        args,
+        missionData,
+        aboutData,
+        questionsData,
       }
     },
     template: `
       <div class="about-page">
         <!-- Header -->
         <header-smart/>
+        <main class="main-content">
+          // <div class="search-field-composite-wrapper">
+          // TODO: Add SearchFieldComposite back in
+          //   <SearchFieldComposite
+          //     class='search-bar'
+          //     :initial-value="args.searchInitialValue"
+          //     :placeholder="args.searchPlaceholder"
+          //     :dropdown-model-value="dropdownValue"
+          //     :dropdown-options="args.searchDropdownOptions"
+          //     :dropdown-placeholder="args.searchDropdownPlaceholder"
+          //     :show-divider="true"
+          //     @submit="handleSearchSubmit"
+          //     @update:dropdown-model-value="handleDropdownUpdate"
+          //   />
+          // </div>
+
+          <!-- Our Mission Section -->
+          <BannerFeatured
+            class="mission-section"
+            :media="missionData.image"
+            :title="missionData.title"
+            :description="missionData.description"
+            :align-right="missionData.alignRight"
+          />
+
+          <!-- About UCLA Library Section -->
+          <BannerFeatured
+            class="about-section"
+            :media="aboutData.image"
+            :title="aboutData.title"
+            :description="aboutData.description"
+            :align-right="aboutData.alignRight"
+          />
+
+          <!-- Have Other Questions Section -->
+          <BannerFeatured
+            class="questions-section"
+            :media="questionsData.image"
+            :title="questionsData.title"
+            :description="questionsData.description"
+            :secondary-buttons="questionsData.secondaryButtons"
+            :align-right="questionsData.alignRight"
+          />
+        </main>
         <!-- Footer -->
         <FooterMain />
       </div>
