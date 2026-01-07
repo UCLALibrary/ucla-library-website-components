@@ -98,7 +98,7 @@ async function animateHeightChange(filterIndex: number) {
 }
 
 // Initialize selected options for each filter
-function initializeSelectedOptions() {
+function setInitialState() {
   props.filters.forEach((filter) => {
     const filterKey = getFilterKey(filter)
     // If the filter key is not in the selected options, initialize it as an empty array.
@@ -112,7 +112,7 @@ function initializeSelectedOptions() {
 
 // Watch for changes in props.filters and re-initialize
 watch(() => props.filters, () => {
-  initializeSelectedOptions()
+  setInitialState()
 }, { immediate: true, deep: true })
 
 // Watch for changes in selected filter options and emit
