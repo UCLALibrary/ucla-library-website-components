@@ -50,6 +50,18 @@
         margin-bottom: 48px;
     }
 
+    .excerpt-pod-wrapper {
+        margin: 24px 0 0;
+        padding: 24px 0;
+        border-top: 2px dotted var(--color-secondary-grey-03);
+        border-bottom: 2px dotted var(--color-secondary-grey-03);
+    }
+
+    .button-more {
+        margin: 0 auto 48px;
+        max-width: unset;
+    }
+
     .search-field-composite {
         margin-top: 14px;
     }
@@ -57,7 +69,7 @@
     .subtitle-grid-assets {
         font-size: 22px;
         font-weight: 500;
-        margin: 0 0 var(--space-m);
+        margin: 0 0 8px;
     }
     .title-grid-assets {
         @include step-4;
@@ -65,10 +77,8 @@
         color: var(--color-primary-blue-03);
     }
 
-    .button-more {
-        margin: 0 auto 90px;
-        max-width: unset;
-        padding-inline: var(--gutters);
+    .section-teaser-card-wrapper {
+        margin-bottom: 48px;
     }
 
     // Breakpoints
