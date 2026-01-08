@@ -1,19 +1,19 @@
 import { computed, ref } from 'vue'
 
 // Import components
-import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
 import FooterMain from '../lib-components/FooterMain.vue'
-import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
+// import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
+import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import CollectionOverview from '../lib-components/CollectionOverview.vue'
-import GridAssets from '../lib-components/GridAssets.vue'
-import GridMetadata from '../lib-components/GridMetadata.vue'
-import ButtonMore from '../lib-components/ButtonMore.vue'
-import SmartLink from '../lib-components/SmartLink.vue'
-import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
+// import GridMetadata from '../lib-components/GridMetadata.vue'
+// import ButtonMore from '../lib-components/ButtonMore.vue'
+import SectionTeaserCard from '../lib-components/SectionTeaserCard.vue'
+// import SmartLink from '../lib-components/SmartLink.vue'
+// import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
 
 // Import mock data
-import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
-import { mockCollectionsDataPage } from './mock/Funkhaus/MockCollectionsDetailPage'
+// import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
+import { mockCollectionsDataPage } from './mock/Funkhaus/MockCollectionsDetailPage.json'
 import { useGlobalStore } from '@/stores/GlobalStore'
 
 // Import styles
@@ -26,8 +26,7 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component:
-                    'A single page layout with header, main content area, and footer. This serves as a template for collections detail pages.',
+        component: 'A single page layout with header, main content area, and footer. This serves as a template for collections detail pages.',
       },
     },
   },
@@ -50,15 +49,15 @@ export default {
 function Template(args) {
   return {
     components: {
-      HeaderMainFunkhaus,
+      HeaderSmart,
       FooterMain,
-      SearchFieldComposite,
+      // SearchFieldComposite,
       CollectionOverview,
-      GridAssets,
-      GridMetadata,
-      ButtonMore,
-      SmartLink,
-      GlobalMenuPanel,
+      // GridMetadata,
+      // ButtonMore,
+      // SectionTeaserCard,
+      // SmartLink,
+      // GlobalMenuPanel,
     },
     provide() {
       return {
@@ -66,15 +65,10 @@ function Template(args) {
       }
     },
     setup() {
-      const menuOpened = ref(false)
       const searchValue = ref('')
       const dropdownValue = ref(
         mockCollectionsDataPage.searchForm.dropdownOptions[0]
       )
-
-      const toggleMenu = () => {
-        menuOpened.value = !menuOpened.value
-      }
 
       const showMoreFeaturedCollections = () => {
         window.location.href
@@ -155,10 +149,6 @@ function Template(args) {
 
       return {
         args,
-        menuOpened,
-        toggleMenu,
-        primaryItems,
-        secondaryItems,
         mockCollectionsDataPage,
         searchValue,
         dropdownValue,
@@ -167,6 +157,94 @@ function Template(args) {
         showMoreFeaturedCollections,
         sampleMenuItems,
         sampleSubMenuItems,
+        dlcEdgeCasesWithDate: [
+          {
+            id: 'dlc-1',
+            to: '/collections/digital-archives',
+            title: 'Digital Archives Collection',
+            text: 'Explore our extensive collection of digitized materials including manuscripts, photographs, and historical documents spanning over 200 years of UCLA history.',
+            image: API.image,
+            sectionHandle: 'collection',
+            customDateTime: 'November 1, 1963',
+          },
+          {
+            id: 'dlc-2',
+            to: '/collections/special-collections',
+            title: 'Special Collections & Rare Books',
+            text: 'Discover rare books, manuscripts, and unique materials that form the cornerstone of our research collections. These items provide invaluable insights into various academic disciplines.',
+            image: {
+              id: '3156835',
+              src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/TomReed_MalcolmX.webp',
+              height: 1813,
+              width: 2560,
+              srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 2560w',
+              alt: 'Tom Reed hosting an episode exploring the teachings of Malcolm X',
+              focalPoint: [0.5, 0.5],
+            },
+            sectionHandle: 'collection',
+            customDateTime: 'November 1, 1963',
+          },
+          {
+            id: 'dlc-3',
+            to: '/collections/ethnographic-materials',
+            title: 'Ethnographic Materials & Cultural Artifacts',
+            text: 'A comprehensive collection of ethnographic materials including audio recordings, photographs, and cultural artifacts from communities around the world. These materials support interdisciplinary research in anthropology, ethnomusicology, and cultural studies.',
+            image: {
+              id: '3280534',
+              src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/kpil7j-21cut1large.webp',
+              height: 1664,
+              width: 2560,
+              srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/kpil7j-21cut1large.webp 2560w',
+              alt: 'many hot air balloons in the air',
+              focalPoint: [0.5, 0.5],
+            },
+            sectionHandle: 'collection',
+            customDateTime: 'November 1, 1963',
+          },
+          {
+            id: 'dlc-4',
+            to: '/collections/art-architecture',
+            title: 'Art & Architecture Collections',
+            text: 'Extensive visual resources including architectural drawings, art slides, and digital images supporting research in art history, architecture, and visual culture studies.',
+            image: {
+              id: '3701680',
+              src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/PXL_20240323_163248504.jpg',
+              height: 1920,
+              width: 2560,
+              srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/PXL_20240323_163248504.jpg 2560w',
+              alt: 'Image alt text here',
+              focalPoint: [0.5, 0.5],
+            },
+            sectionHandle: 'collection',
+            customDateTime: 'November 1, 1963',
+          },
+          {
+            id: 'dlc-5',
+            to: '/collections/geographic-information',
+            title: 'Geographic Information Systems & Maps',
+            text: 'Comprehensive collection of maps, atlases, and geospatial data supporting research in geography, urban planning, environmental studies, and related fields.',
+            image: API.image,
+            sectionHandle: 'collection',
+            customDateTime: 'November 1, 1963',
+          },
+          {
+            id: 'dlc-6',
+            to: '/collections/audio-visual',
+            title: 'Audio-Visual Materials & Media Archives',
+            text: 'Extensive collection of audio recordings, video materials, and digital media including oral histories, documentaries, and multimedia resources for research and instruction.',
+            image: {
+              id: '3151261',
+              src: 'https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/pinkcloud-crop.png',
+              height: 1920,
+              width: 2560,
+              srcset: 'https://static.library.ucla.edu/craftassetstest/FTVA/_375xAUTO_crop_center-center_none/pinkcloud-crop.png 375w, https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/pinkcloud-crop.png 960w, https://static.library.ucla.edu/craftassetstest/FTVA/_1280xAUTO_crop_center-center_none/pinkcloud-crop.png 1280w, https://static.library.ucla.edu/craftassetstest/FTVA/_1920xAUTO_crop_center-center_none/pinkcloud-crop.png 1920w, https://static.library.ucla.edu/craftassetstest/FTVA/_2560xAUTO_crop_center-center_none/pinkcloud-crop.png 2560w',
+              alt: 'A woman writing on a window.',
+              focalPoint: [0.5, 0.5],
+            },
+            sectionHandle: 'collection',
+            customDateTime: 'November 1, 1963',
+          },
+        ],
       }
     },
     computed: {
@@ -203,23 +281,7 @@ function Template(args) {
             class="collection-overview"
           />
 
-          <GridMetadata :items="gridMetadataItems" class="grid-metadata" />
-
-          <ButtonMore 
-              class="button-more"
-              text="Browse Items From Collection"
-              @click="showMoreFeaturedCollections"
-          />
-
-          <span class="subtitle-grid-assets">
-            {{ mockCollectionsDataPage.gridAssets.subtitle }}
-          </span>
-          <h2 class="title-grid-assets">
-            {{ mockCollectionsDataPage.gridAssets.title }}
-          </h2>
-          <GridAssets :items="gridItems" class="grid-assets" />
-          
-          
+         
         </main>
          
          <!-- Footer -->

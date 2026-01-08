@@ -1,0 +1,70 @@
+{
+  "searchForm": {
+    "dropdownOptions": [
+      "All Collections",
+      "Books & E-books",
+      "Articles & Journals",
+      "Databases",
+      "Digital Collections",
+      "Archives & Special Collections"
+    ]
+  },
+  "collectionOverview": {
+    "title": "Los Angeles Times Photographic Collection",
+    "subtitle": "About this Collection",
+    "itemsCount": 21963,
+    "blockButtons": {
+      "buttons": [
+        { "label": "Click Here for UCLA Library Locations", "to": "/help/more" },
+        { "label": "Contact Us", "to": "https://google.com" }
+      ]
+    },
+    "description": "Collection consists of photonegatives documenting events and people in Southern California and photographic prints documenting events and people in Southern California, the US, and the world.",
+    "image": {
+      "id": "mock-image-1",
+      "src": "https://static.library.ucla.edu/craftassetstest/FTVA/_fullscreen/pinkcloud-crop.png",
+      "alt": "Placeholder",
+      "width": 2560,
+      "height": 1920
+    }
+  },
+  "gridMetadata": {
+    "items": [
+      {
+        "label": "Creator",
+        "value": "Los Angeles Times"
+      },
+      {
+        "label": "Date Range",
+        "value": "1918 - 1990"
+      }
+    ]
+  },
+  "gridAssets": {
+    "subtitle": "Featured Items",
+    "title": "Highlights from the Collection",
+    "items": [
+      {
+        "title": "Historic Downtown LA",
+        "description": "Streetscape photography from the 1930s.",
+        "image": {
+          "src": "https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/TomReed_MalcolmX.webp",
+          "alt": "Historic LA",
+          "width": 960,
+          "height": 640
+        }
+      },
+      {
+        "title": "Pacific Coastline",
+        "description": "Aerial photograph of the Pacific coast.",
+        "image": {
+          "src": "https://static.library.ucla.edu/craftassetstest/FTVA/_960xAUTO_crop_center-center_none/kpil7j-21cut1large.webp",
+          "alt": "Pacific Coastline",
+          "width": 960,
+          "height": 640
+        }
+      }
+    ]
+  }
+}
+
