@@ -18,8 +18,8 @@ const { title, iconName, isSelected, removeIconName } = defineProps({
   },
   isSelected: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 const emit = defineEmits(['removeBlockFilter'])
@@ -30,23 +30,30 @@ const SvgGlyphClose = defineAsyncComponent(() =>
 const SvgGlyphX = defineAsyncComponent(() =>
   import('ucla-library-design-tokens/assets/svgs/icon-ftva-xtag.svg')
 )
+const SvgTinyClose = defineAsyncComponent(() =>
+  import('ucla-library-design-tokens/assets/svgs/icon-tiny-close.svg')
+)
 const removeIcons = {
   SvgGlyphClose,
   SvgGlyphX,
+  SvgTinyClose,
 }
 const route = useRoute()
 const theme = useTheme()
 
 const sectionName = computed(() => {
-  return (
-    route !== undefined && route.path
-      ? getSectionName(route.path)
-      : 'default'
-  )
+  return route !== undefined && route.path
+    ? getSectionName(route.path)
+    : 'default'
 })
 
 const classes = computed(() => {
-  return ['block-remove-search-filter', theme?.value || '', `color-${sectionName.value}`, (isSelected && theme?.value) ? 'selected' : '']
+  return [
+    'block-remove-search-filter',
+    theme?.value || '',
+        `color-${sectionName.value}`,
+        isSelected && theme?.value ? 'selected' : '',
+  ]
 })
 
 // compute remove icon based on theme
@@ -54,6 +61,8 @@ const removeIcon = computed(() => {
   switch (theme?.value) {
     case 'ftva':
       return 'SvgGlyphX'
+    case 'dlc':
+      return 'SvgTinyClose'
     default:
       return 'SvgGlyphClose'
   }
@@ -65,11 +74,7 @@ function closeBlockFilter() {
 </script>
 
 <template>
-  <button
-    type="button"
-    :class="classes"
-    @click="closeBlockFilter"
-  >
+  <button type="button" :class="classes" @click="closeBlockFilter">
     <BlockTag
       :label="title"
       :icon-name="iconName"
@@ -89,4 +94,5 @@ function closeBlockFilter() {
 <style lang="scss" scoped>
 @import "@/styles/default/_block-remove-search-filter.scss";
 @import "@/styles/ftva/_block-remove-search-filter.scss";
+@import "@/styles/dlc/_block-remove-search-filter.scss";
 </style>

@@ -69,6 +69,39 @@
         }
     }
 
+    &.is-senary {
+        --button-text-color: #{$primary-blue-03};
+        --button-text-color: #{$primary-blue-03};
+
+        background-color: transparent;
+        border: none;
+
+        width: max-content;
+
+        padding: 0;
+
+        .label {
+            position: relative;
+            &:after {
+                position: absolute;
+                content: "";
+                width: calc(100% - 8px);
+                height: 2px;
+                background-color: #{$default-cyan-03};
+                bottom: 1px;
+                left: 8px;
+                transform: scaleX(0);
+                transform-origin: bottom left;
+                @include animate-normal;
+            }
+        }
+
+        .hover {
+            display: none;
+            width: max-content;
+        }
+    }
+
     // General Styling
     box-sizing: border-box;
     position: relative;
@@ -157,6 +190,14 @@
             .hover {
                 -webkit-clip-path: inset(0% 0% 0% 0%);
                 clip-path: inset(0% 0% 0% 0%);
+            }
+
+            &.is-senary {
+                .label {
+                    &:after {
+                        transform: scaleX(1);
+                    }
+                }
             }
         }
     }

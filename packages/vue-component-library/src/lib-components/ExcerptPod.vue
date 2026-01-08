@@ -1,9 +1,9 @@
 <script setup lang="ts">
 // Imports
-import { computed, defineProps, ref } from 'vue'
-import SvgArrowDown from 'ucla-library-design-tokens/assets/svgs/icon-caret-down.svg'
+import { computed, ref } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 import EffectSlideToggle from '@/lib-components/EffectSlideToggle.vue'
+import ButtonShowDynamic from '@/lib-components/ButtonShowDynamic.vue'
 
 // Props
 interface ExcerptPodProps {
@@ -14,7 +14,7 @@ interface ExcerptPodProps {
   labelClose: string
   sentenceSplitCount: number
 }
-const props = withDefaults(defineProps<ExcerptPodProps>(), {
+withDefaults(defineProps<ExcerptPodProps>(), {
   title: '',
   subtitle: '',
   text: '',
@@ -34,44 +34,6 @@ const classes = computed(() => [
   theme?.value || '',
   { 'is-open': isOpen.value },
 ])
-
-const dynamicLabel = computed(() =>
-  isOpen.value ? props.labelOpen : props.labelClose
-)
-
-// Split text into first two sentences and the rest
-const textParts = computed(() => {
-  if (!props.text)
-    return { truncatedText: '', remainingText: '', hasMore: false }
-
-  // Simple sentence splitting - splits on period followed by space and capital letter
-  const sentenceRegex = /\.\s+(?=[A-Z])/g
-  const sentences = props.text.split(sentenceRegex)
-
-  if (sentences.length <= props.sentenceSplitCount) {
-    return {
-      truncatedText: props.text,
-      remainingText: '',
-      hasMore: false
-    }
-  }
-
-  // First X sentences
-  let truncatedText = sentences.slice(0, props.sentenceSplitCount).join('. ')
-
-  // Add period if not present
-  if (!truncatedText.endsWith('.'))
-    truncatedText += '.'
-
-  // Remaining text - rejoin with periods
-  const remainingText = ` ${sentences.slice(props.sentenceSplitCount).join('.')}`
-
-  return {
-    truncatedText,
-    remainingText,
-    hasMore: true,
-  }
-})
 
 // Methods
 function toggle() {
@@ -100,30 +62,25 @@ function toggle() {
           <!-- summary -->
           <template #summary>
             <div class="summary-content">
-              <span v-html="textParts.truncatedText" />
+              <!-- <span v-html="textParts.truncatedText" />  -->
+              <slot />
             </div>
           </template>
           <!-- content -->
-          <div v-html="textParts.remainingText" />
+          <!-- <div v-html="textParts.remainingText" /> -->
+          <slot name="content" />
         </EffectSlideToggle>
-        <button
-          v-if="textParts.hasMore"
-          class="btn"
-          :aria-expanded="isOpen"
-          @click.stop="toggle"
-        >
-          <transition
-            name="fade-label"
-            mode="out-in"
-          >
-            <span
-              :key="dynamicLabel"
-              class="label"
-              v-html="dynamicLabel"
-            />
-          </transition>
-          <SvgArrowDown class="caret-icon" />
-        </button>
+        <ButtonShowDynamic
+          :is-expanded="isOpen"
+          :label-open="labelOpen"
+          :label-close="labelClose"
+          :show="!!$slots.content"
+          :stop-propagation="true"
+          :aria-hidden="false"
+          variant="minimal"
+          transition-speed="fast"
+          @click="toggle"
+        />
       </div>
     </div>
   </div>
