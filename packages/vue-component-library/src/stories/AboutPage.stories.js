@@ -2,16 +2,18 @@ import { computed, ref } from 'vue'
 
 // Import components
 import FooterMain from '../lib-components/FooterMain.vue'
+
 // import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 // import SmartLink from '../lib-components/SmartLink.vue'
 import BannerFeatured from '../lib-components/BannerFeatured.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
+import * as API from './mock-api.json'
 import { useGlobalStore } from '@/stores/GlobalStore'
+
 // import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
 // import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
 
 // Import mock data
-import * as API from './mock-api.json'
 
 // Import styles
 import './AboutPage.scss'
@@ -19,7 +21,7 @@ import './AboutPage.scss'
 export default {
   title: 'Funkhaus / Pages / About Page',
   component: {},
-  parameters: { 
+  parameters: {
     layout: 'fullscreen',
     docs: {
       description: {

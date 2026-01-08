@@ -1,4 +1,3 @@
-@ -0,0 +1,249 @@
 import { computed, ref } from 'vue'
 
 // Import components
@@ -15,6 +14,7 @@ import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
 import { mockCollectionsDataPage } from './mock/Funkhaus/MockCollectionsDetailPage'
+import { useGlobalStore } from '@/stores/GlobalStore'
 
 // Import styles
 import './CollectionsDetailPage.scss'
@@ -92,66 +92,66 @@ function Template(args) {
         dropdownValue.value = value
       }
 
-         // Sample menu items data
-         const sampleMenuItems = [
-          {
-            id: '843',
-            name: 'Using digital collections content',
-            to: '/digital-collections',
-            classes: '',
-            target: '',
-          },
-          {
-            id: '844',
-            name: 'About',
-            to: '/about',
-            classes: '',
-            target: '',
-          },
-          {
-            id: '845',
-            name: 'Give us feedback',
-            to: '/feedback',
-            classes: '',
-            target: '',
-          },
-        ]
-  
-        const sampleSubMenuItems = [
-          {
-            id: '846',
-            name: 'Locations & Hours',
-            to: '/locations',
-            classes: '',
-            target: '',
-          },
-          {
-            id: '847',
-            name: 'Ask a Librarian',
-            to: '/research-teaching-support/research-help',
-            classes: '',
-            target: '',
-          },
-          {
-            id: '848',
-            name: 'Support Us',
-            to: 'https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463',
-            classes: '',
-            target: '1',
-          },
-          {
-            id: '849',
-            name: 'My Account',
-            to: 'https://catalog.library.ucla.edu/vwebv/login',
-            classes: '',
-            target: '1',
-          },
-        ]
-  
-        // Overwrite header data to mimic HeaderSmart DLC story
-        const globalStore = useGlobalStore()
-        globalStore.header.primary = sampleMenuItems
-        globalStore.header.secondary = sampleSubMenuItems
+      // Sample menu items data
+      const sampleMenuItems = [
+        {
+          id: '843',
+          name: 'Using digital collections content',
+          to: '/digital-collections',
+          classes: '',
+          target: '',
+        },
+        {
+          id: '844',
+          name: 'About',
+          to: '/about',
+          classes: '',
+          target: '',
+        },
+        {
+          id: '845',
+          name: 'Give us feedback',
+          to: '/feedback',
+          classes: '',
+          target: '',
+        },
+      ]
+
+      const sampleSubMenuItems = [
+        {
+          id: '846',
+          name: 'Locations & Hours',
+          to: '/locations',
+          classes: '',
+          target: '',
+        },
+        {
+          id: '847',
+          name: 'Ask a Librarian',
+          to: '/research-teaching-support/research-help',
+          classes: '',
+          target: '',
+        },
+        {
+          id: '848',
+          name: 'Support Us',
+          to: 'https://giving.ucla.edu/Standard/NetDonate.aspx?SiteNum=463',
+          classes: '',
+          target: '1',
+        },
+        {
+          id: '849',
+          name: 'My Account',
+          to: 'https://catalog.library.ucla.edu/vwebv/login',
+          classes: '',
+          target: '1',
+        },
+      ]
+
+      // Overwrite header data to mimic HeaderSmart DLC story
+      const globalStore = useGlobalStore()
+      globalStore.header.primary = sampleMenuItems
+      globalStore.header.secondary = sampleSubMenuItems
 
       return {
         args,
