@@ -8,11 +8,12 @@ import GridMetadata from '../lib-components/GridMetadata.vue'
 import SectionTeaserCard from '../lib-components/SectionTeaserCard.vue'
 import ButtonMore from '../lib-components/ButtonMore.vue'
 import ExcerptPod from '../lib-components/ExcerptPod.vue'
+import NavSearch from '../lib-components/NavSearch.vue'
 
 // Import mock data
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockCollectionsDataPage } from '@/stories/mock/Funkhaus/MockCollectionsDetailPage'
-import { mockGlobalHeaderNavigation } from '@/stories/mock/Funkhaus/MockGlobalComponents'
+import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 
 // Import styles
 import './CollectionsDetailPage.scss'
@@ -54,6 +55,7 @@ function Template(args) {
       SectionTeaserCard,
       ButtonMore,
       ExcerptPod,
+      NavSearch,
     },
     provide() {
       return {
@@ -89,6 +91,7 @@ function Template(args) {
 
       return {
         args,
+        mockGlobalNavSearch,
         collectionOverviewProps,
         gridMetadataItems,
         sectionTeaserCards,
@@ -105,9 +108,22 @@ function Template(args) {
          <!-- Header -->
         <header-smart/>
 
+          <!-- Collection Overview -->
+          <div class="search-field-composite-wrapper">
+            <NavSearch
+              :show-divider="true"
+              :dropdown-options="mockGlobalNavSearch.dropdownOptions"
+              :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
+              :placeholder="mockGlobalNavSearch.placeholder"
+              bottom-text=""
+              :bottom-link="null"
+            />
+          </div>
+
         <main class="main-content">
 
-          <!-- Collection Overview -->
+        
+
           <CollectionOverview v-bind="collectionOverviewProps" />
 
           <!-- Grid Metadata -->

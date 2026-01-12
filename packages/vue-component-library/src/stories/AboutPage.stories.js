@@ -7,8 +7,10 @@ import FooterMain from '../lib-components/FooterMain.vue'
 // import SmartLink from '../lib-components/SmartLink.vue'
 import BannerFeatured from '../lib-components/BannerFeatured.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
+import NavSearch from '../lib-components/NavSearch.vue'
 import * as API from './mock-api.json'
 import { useGlobalStore } from '@/stores/GlobalStore'
+import { mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 
 // import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
 // import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
@@ -54,6 +56,7 @@ function Template(args) {
       // SmartLink,
       BannerFeatured,
       HeaderSmart,
+      NavSearch,
     },
     provide() {
       return {
@@ -176,6 +179,7 @@ function Template(args) {
         handleSearchSubmit,
         handleDropdownUpdate,
         args,
+        mockGlobalNavSearch,
         missionData,
         aboutData,
         questionsData,
@@ -185,21 +189,19 @@ function Template(args) {
       <div class="about-page">
         <!-- Header -->
         <header-smart/>
+
+         <div class="search-field-composite-wrapper">
+            <NavSearch
+              :show-divider="true"
+              :dropdown-options="mockGlobalNavSearch.dropdownOptions"
+              :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
+              :placeholder="mockGlobalNavSearch.placeholder"
+              bottom-text=""
+              :bottom-link="null"
+            />
+          </div>
         <main class="main-content">
-          // <div class="search-field-composite-wrapper">
-          // TODO: Add (new and updated) SearchFieldComposite back in
-          //   <SearchFieldComposite
-          //     class='search-bar'
-          //     :initial-value="args.searchInitialValue"
-          //     :placeholder="args.searchPlaceholder"
-          //     :dropdown-model-value="dropdownValue"
-          //     :dropdown-options="args.searchDropdownOptions"
-          //     :dropdown-placeholder="args.searchDropdownPlaceholder"
-          //     :show-divider="true"
-          //     @submit="handleSearchSubmit"
-          //     @update:dropdown-model-value="handleDropdownUpdate"
-          //   />
-          // </div>
+         
 
           <!-- Our Mission Section -->
           <BannerFeatured

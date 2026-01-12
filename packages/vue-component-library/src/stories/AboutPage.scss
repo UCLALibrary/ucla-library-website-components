@@ -39,16 +39,18 @@
         max-width: 1600px;
         flex: 1;
         width: 100%;
-        padding-bottom: 48px;
-        margin: var(--header-height) auto 0;
+        padding: 0 var(--gutters) 48px;
     }
 
     .search-field-composite-wrapper {
-        padding: 0 var(--gutters);
-    }
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        box-sizing: border-box;
 
-    .search-field-composite {
-        margin-top: 14px;
+        :deep(input) {
+            margin: 0;
+        }
     }
 
     .mission-section,

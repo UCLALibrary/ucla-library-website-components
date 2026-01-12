@@ -39,7 +39,6 @@
         flex: 1;
         max-width: 1600px;
         padding: 0 var(--gutters) 48px;
-        margin: var(--header-height) auto 0;
     }
 
     .collection-overview {
@@ -62,8 +61,15 @@
         max-width: unset;
     }
 
-    .search-field-composite {
-        margin-top: 14px;
+    .search-field-composite-wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+
+        :deep(input) {
+            margin: 0;
+        }
     }
 
     .subtitle-grid-assets {

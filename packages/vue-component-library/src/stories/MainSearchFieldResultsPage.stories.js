@@ -28,11 +28,11 @@ import {
   mockGridAssetPodItems,
   mockPagination,
   mockRefineSearchPanel,
-  mockSearchFieldResultsPage,
   mockSearchFilters,
   mockSearchResults,
   mockSortOptions,
 } from '@/stories/mock/Funkhaus/MockSearchFieldResultsPage'
+import { mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 
 // Import styles
 import './MainSearchFieldResultsPage.scss'
@@ -115,7 +115,7 @@ function Template(args) {
         dropdownFilterValue,
         currentPage,
         isModalFilterOpen,
-        mockSearchFieldResultsPage,
+        mockGlobalNavSearch,
         mockBreadcrumbData,
         mockSearchResults,
         mockSortOptions,
@@ -135,23 +135,30 @@ function Template(args) {
          <!-- Header -->
         <header-smart/>
 
-         <main class="main-content">
-           <!-- Search -->
+         <!-- Search -->
            <div class="search-field-composite-wrapper">
              <NavSearch
                :show-divider="true"
-               :dropdown-options="mockSearchFieldResultsPage.navSearch.dropdownOptions"
-               :dropdown-default-value="mockSearchFieldResultsPage.navSearch.dropdownDefaultValue"
-               :placeholder="mockSearchFieldResultsPage.navSearch.placeholder"
+               :dropdown-options="mockGlobalNavSearch.dropdownOptions"
+               :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
+               :placeholder="mockGlobalNavSearch.placeholder"
                bottom-text=""
                :bottom-link="null"
              />
            </div>
 
+         <main class="main-content">
+          
            <!-- Breadcrumbs / Filters -->
            <div class="breadcrumbs-wrapper">
              <SectionRemoveSearchFilter :filters="mockSearchFilters" />
            </div>
+
+          <DividerGeneral
+            class="divider-general"
+            is-bold
+            is-tertiary
+          />
 
            <!-- Search Results Controls - Desktop -->
            <div class="search-results-sort-wrapper show-desktop">

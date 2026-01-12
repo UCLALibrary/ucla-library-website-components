@@ -53,3 +53,16 @@ export const mockGlobalHeaderNavigation = {
     },
   ],
 }
+
+export const mockGlobalNavSearch = {
+  placeholder: 'Search Digital Library Collections',
+  dropdownOptions: [
+    { label: 'All Collections', value: 'all-collections' },
+    { label: 'Books & Articles', value: 'books-articles' },
+    { label: 'Digital Collections', value: 'digital-collections' },
+    { label: 'Archives & Manuscripts', value: 'archives-manuscripts' },
+    { label: 'Images & Media', value: 'images-media' },
+    { label: 'Databases', value: 'databases' },
+  ],
+  dropdownDefaultValue: 'all-collections',
+}
