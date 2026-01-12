@@ -1,0 +1,68 @@
+.main-landing-page {
+    --gutters: 48px;
+    --header-height: 0px;
+
+    position: relative;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--color-white);
+
+    .main-content {
+        flex: 1;
+        padding: 0;
+        margin-top: calc(var(--header-height));
+    }
+
+    .search-field-composite-wrapper {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        z-index: 100;
+
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .search-field-composite {
+        margin-bottom: 48px;
+    }
+
+    .header-collection {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 0 var(--gutters);
+    }
+
+    .section-teaser-card {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-block: 48px 40px;
+        padding-inline: var(--gutters);
+    }
+    .button-more {
+        margin: 0 auto;
+        max-width: unset;
+        padding: 0 var(--gutters) 48px;
+    }
+
+    // Breakpoints
+    @media #{$extra-large} {
+        .section-teaser-card {
+            max-width: 1600px;
+        }
+    }
+    @media #{$medium} {
+        --header-height: 0px;
+    }
+    @media #{$small} {
+        --gutters: 24px;
+        --header-height: 0px;
+
+        .main-content {
+            padding-top: 0px;
+        }
+    }
+}

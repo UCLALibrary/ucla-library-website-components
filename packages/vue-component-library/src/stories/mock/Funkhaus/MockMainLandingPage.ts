@@ -1,13 +1,15 @@
 // Mock data for digital collections
 export const mockDigitalCollections = {
   searchForm: {
-    placeholder: 'Search',
+    placeholder: 'Search Digital Library Collections',
+    dropdownDefaultValue: 'all-collections',
     dropdownOptions: [
-      'All Collections',
-      'Books & E-books',
-      'Articles & Journals',
-      'Databases',
+      { label: 'All Collections', value: 'all-collections' },
+      { label: 'Books & E-books', value: 'books-e-books' },
+      { label: 'Articles & Journals', value: 'articles-journals' },
+      { label: 'Databases', value: 'databases' },
     ],
+
     backgroundImage: {
       id: 'meap-001',
       src: 'https://static.library.ucla.edu/craftassetsprod/images/_1280xAUTO_crop_center-center_none/default_2025-05-07-203406_apbl.jpg',
@@ -17,7 +19,8 @@ export const mockDigitalCollections = {
       alt: 'Modern Endangered Archives Program',
       focalPoint: [0.5, 0.5],
     },
-    text: 'Poster celebrating the 100 years of the legal abolition of three centuries of slavery in Brazil (1888-1988) <br> Collections: Soweto Black Organization, Modern Endangered Archives Program',
+    text: `Poster celebrating the 100 years of the legal abolition of three centuries of slavery in Brazil (1888-1988)
+                    Collections: Soweto Black Organization, Modern Endangered Archives Program`,
     link: 'https://www.google.com',
   },
   featuredCollections: {
