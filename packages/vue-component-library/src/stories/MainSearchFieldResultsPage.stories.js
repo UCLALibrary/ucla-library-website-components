@@ -19,7 +19,7 @@ import DividerGeneral from '../lib-components/DividerGeneral.vue'
 
 // Import mock data
 import { useGlobalStore } from '@/stores/GlobalStore'
-import { mockGlobalHeaderNavigation } from '@/stories/mock/Funkhaus/MockGlobalComponents'
+import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 import router from '@/router'
 import {
   mockBentoBoxResult,
@@ -32,7 +32,6 @@ import {
   mockSearchResults,
   mockSortOptions,
 } from '@/stories/mock/Funkhaus/MockSearchFieldResultsPage'
-import { mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 
 // Import styles
 import './MainSearchFieldResultsPage.scss'
