@@ -22,21 +22,22 @@ import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockGlobalHeaderNavigation } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 import router from '@/router'
 import {
-  mockSearchFieldResultsPage,
-  mockGridAssetPodItems,
+  mockBentoBoxResult,
   mockBreadcrumbData,
-  mockSearchResults,
-  mockSortOptions,
   mockFilterOptions,
+  mockGridAssetPodItems,
   mockPagination,
   mockRefineSearchPanel,
-  mockBentoBoxResult,
+  mockSearchFieldResultsPage,
   mockSearchFilters,
+  mockSearchResults,
+  mockSortOptions,
 } from '@/stories/mock/Funkhaus/MockSearchFieldResultsPage'
 
 // Import styles
 import './MainSearchFieldResultsPage.scss'
 import './GridAssetPod.scss'
+
 export default {
   title: 'Funkhaus / Pages / Main Search Field Results Page',
   component: {},

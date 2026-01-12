@@ -59,7 +59,7 @@ export const mockGridAssetPodItems = [
     title: '3/4 length portrait of singer Lionel Richie, 1984',
     date: 'August 10, 1984',
     metadata: {
-      description: "Lionel Richie: He'll headline the Closing Ceremony",
+      description: 'Lionel Richie: He\'ll headline the Closing Ceremony',
       date: 'August 10, 1984',
       resourceType: 'Book',
       collection: ['Still Image'],
@@ -107,7 +107,7 @@ export const mockSearchFilters = {
 export const mockSearchResults = {
   count: 1247,
   prefix: 'Catalogue',
-  label: 'Results', 
+  label: 'Results',
   animate: true
 }
 

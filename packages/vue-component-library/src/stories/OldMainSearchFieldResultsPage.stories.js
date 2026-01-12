@@ -2,13 +2,15 @@ import { computed, ref, watch } from 'vue'
 
 // Import components
 import FooterMain from '../lib-components/FooterMain.vue'
+
 // import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 // import SmartLink from '../lib-components/SmartLink.vue'
-import ButtonTag from '../lib-components/ButtonTag.vue'
+// import ButtonTag from '../lib-components/ButtonTag.vue'
 // import DropdownSingleSelectFunkhaus from '../lib-components/DropdownSingleSelectFunkhaus.vue'
 import ButtonPageView from '../lib-components/ButtonPageView.vue'
 import SearchResultsCount from '../lib-components/SearchResultsCount.vue'
-import RefineSearchPanel from '../lib-components/RefineSearchPanel.vue'
+
+// import RefineSearchPanel from "../lib-components/RefineSearchPanel.vue"
 import GridAssetPod from '../lib-components/GridAssetPod.vue'
 import SectionPagination from '../lib-components/SectionPagination.vue'
 import ResponsiveImage from '../lib-components/ResponsiveImage.vue'
@@ -19,18 +21,18 @@ import BentoBoxResult from '../lib-components/BentoBoxResult.vue'
 
 // Import mock data
 import { primaryItems, secondaryItems } from './mock/Funkhaus/MockGlobal'
-import { 
-  mockSearchFieldResultsPage, 
+import {
   mockBentoBoxResult,
-  mockGridAssetPodItems,
   mockBreadcrumbData,
+  mockFilterOptions,
+  mockGridAssetPodItems,
+  mockMenuItems,
+  mockPagination,
+  mockRefineSearchPanel,
+  mockSearchFieldResultsPage,
   mockSearchResults,
   mockSortOptions,
-  mockFilterOptions,
-  mockPagination,
-  mockMenuItems,
   mockSubMenuItems,
-  mockRefineSearchPanel 
 } from './mock/Funkhaus/MockSearchFieldResultsPage'
 import router from '@/router'
 
@@ -45,7 +47,8 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component:'A single page layout with header, main content area, and footer. This serves as a template for main search field results pages.',
+        component:
+                    'A single page layout with header, main content area, and footer. This serves as a template for main search field results pages.',
       },
     },
   },
@@ -72,11 +75,11 @@ function Template(args) {
       // SearchFieldComposite,
       // SmartLink,
       // GlobalMenuPanel,
-      ButtonTag,
+      // ButtonTag,
       // DropdownSingleSelectFunkhaus,
       ButtonPageView,
       SearchResultsCount,
-      RefineSearchPanel,
+      // RefineSearchPanel,
       GridAssetPod,
       SectionPagination,
       ResponsiveImage,
@@ -273,17 +276,17 @@ function Template(args) {
               >
                 Your Search
               </span>
-              <ButtonTag 
-                v-if="breadcrumbData.length > 0"
-                :label="breadcrumbData"
-                variant="primary"
-              />
-              <ButtonTag 
-                v-if="breadcrumbData.length > 0"
-                label="Clear All Filters"
-                :is-highlighted="true"
-                :on-click="clearAllFilters"
-              />
+              // <ButtonTag 
+              //   v-if="breadcrumbData.length > 0"
+              //   :label="breadcrumbData"
+              //   variant="primary"
+              // />
+              // <ButtonTag 
+              //   v-if="breadcrumbData.length > 0"
+              //   label="Clear All Filters"
+              //   :is-highlighted="true"
+              //   :on-click="clearAllFilters"
+              // />
             </div>
             <DividerGeneral
               class="divider-general"

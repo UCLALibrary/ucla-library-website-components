@@ -5,13 +5,13 @@ import { ButtonLinkIcons } from '../../../types/components/buttonLink.types'
 export const mockCollectionsDataPage = {
   title: 'Collections',
   description: 'Collections',
-  searchForm: { 
+  searchForm: {
     placeholder: 'Search',
     dropdownOptions: [
       'All Programs',
       'Books & E-books',
       'Articles & Journals',
-      'Databases', 
+      'Databases',
     ],
   },
   collectionOverview: {
