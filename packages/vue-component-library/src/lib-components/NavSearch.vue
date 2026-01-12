@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<NavSearchProps>(), {
   dropdownDefaultValue: '',
   showDivider: false,
   bottomText:
-        'Looking for a specific collection item? Search the UCLA Film & Television Archive Catalog at ',
+    'Looking for a specific collection item? Search the UCLA Film & Television Archive Catalog at ',
   bottomLink: () => ({
     label: 'UC LIBRARY SEARCH >',
     to: 'https://search.library.ucla.edu/discovery/search?vid=01UCS_LAL:UCLA&mode=advanced',
@@ -65,8 +65,8 @@ const hasDropdownOptions = computed(() => {
 const hasBackgroundImage = computed(() => {
   return (
     props.backgroundImage
-        && typeof props.backgroundImage === 'object'
-        && props.backgroundImage.src
+    && typeof props.backgroundImage === 'object'
+    && props.backgroundImage.src
   )
 })
 
@@ -129,7 +129,10 @@ function doSearch() {
     />
 
     <span class="top-row">
-      <IconSearch v-if="!isDlcTheme" class="icon" />
+      <IconSearch
+        v-if="!isDlcTheme"
+        class="icon"
+      />
       <SearchInput
         v-model="searchWords"
         class="search-input"
@@ -137,7 +140,11 @@ function doSearch() {
         @clear="doSearch"
         @keyup.enter="doSearch"
       />
-      <button v-if="isDlcTheme" class="icon-button" @click="doSearch">
+      <button
+        v-if="isDlcTheme"
+        class="icon-button"
+        @click="doSearch"
+      >
         <IconSearchDlc class="icon" />
       </button>
 
@@ -148,6 +155,7 @@ function doSearch() {
         field-name="scope"
         label="Search Scope"
         class="dropdown-single-select"
+        :is-search="true"
       />
       <ButtonLink
         v-if="!isDlcTheme"
@@ -163,7 +171,10 @@ function doSearch() {
       class="divider-general"
     />
 
-    <span v-if="bottomText || bottomLink?.label" class="bottom-row">
+    <span
+      v-if="bottomText || bottomLink?.label"
+      class="bottom-row"
+    >
       {{ bottomText }}
       <SmartLink
         v-if="bottomLink?.label"
