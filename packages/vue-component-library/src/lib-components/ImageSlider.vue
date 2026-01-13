@@ -27,10 +27,10 @@ const parsedSliderAspectRatio = computed(() => {
 
 // return alt or altText field, whichever is present
 const parsedBeforeImageAltText = computed(() => {
-  return beforeImage.alt || beforeImage.altText || ''
+  return beforeImage.altText || beforeImage.alt || ''
 })
 const parsedAfterImageAltText = computed(() => {
-  return afterImage.alt || afterImage.altText || ''
+  return afterImage.altText || afterImage.alt || ''
 })
 
 function handleSliderInput(event: Event) {
