@@ -25,6 +25,14 @@ const parsedSliderAspectRatio = computed(() => {
   return `${aspectRatio}`
 })
 
+// return alt or altText field, whichever is present
+const parsedBeforeImageAltText = computed(() => {
+  return beforeImage.alt || beforeImage.altText || ''
+})
+const parsedAfterImageAltText = computed(() => {
+  return afterImage.alt || afterImage.altText || ''
+})
+
 function handleSliderInput(event: Event) {
   const target = event.target as HTMLInputElement
   if (sliderContainer.value && slider.value && beforeImageElement.value)
@@ -35,8 +43,8 @@ function handleSliderInput(event: Event) {
 <template>
   <div ref="sliderContainer" class="image-slider" :style="{ aspectRatio: parsedSliderAspectRatio }">
     <div class="image-container" :style="{ aspectRatio: parsedSliderAspectRatio }">
-      <img class="after-image slider-image" :src="afterImage.src" :alt="afterImage.alt">
-      <img ref="beforeImageElement" class="before-image slider-image" :src="beforeImage.src" :alt="beforeImage.alt">
+      <img class="after-image slider-image" :src="afterImage.src" :alt="parsedAfterImageAltText">
+      <img ref="beforeImageElement" class="before-image slider-image" :src="beforeImage.src" :alt="parsedBeforeImageAltText">
       <div class="image-labels">
         <span class="before-label slider-label">
           <slot name="beforeLabel">Before</slot>
