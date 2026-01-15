@@ -198,7 +198,7 @@ const mockCustomDesriptionOnlyExternalLink = {
   category: 'Interview, People',
   title: '<h3>Preserving <em>In <strong>Transit</strong>:</em> The Chinese in California</h3>',
   postDate: '2024-05-07T13:00:00-07:00',
-  ftvaHomepageDescription: '<p>Three alumni student films, made in the <strong>1970s-1980s</strong>, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film & Television Archive staff.</p>',
+  ftvaHomepageDescription: '<p>UCLAs <strong>Hearst Metrotone News Collection</strong> is one of the largest newsreel collections in the world. It contains over 27 million feet of distributed newsreels, unreleased stories and outtakes.</p>',
   uri: 'https://newsreels.net/',
   image: API.image,
 }
