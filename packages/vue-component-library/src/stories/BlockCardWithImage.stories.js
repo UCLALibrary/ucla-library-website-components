@@ -193,7 +193,7 @@ function TemplateFTVACustomTitleAndDescription(args) {
 
 export const FTVACustomTitleAndDescription = TemplateFTVACustomTitleAndDescription.bind({})
 
-// FTVA Custom Description Only
+// FTVA Custom Description Only External Link
 const mockCustomDesriptionOnlyExternalLink = {
   category: 'Interview, People',
   title: '<h3>Preserving <em>In <strong>Transit</strong>:</em> The Chinese in California</h3>',
