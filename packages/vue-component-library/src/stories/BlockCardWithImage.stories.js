@@ -144,7 +144,7 @@ FTVAItemsPostedDate.args = {
   dateCreated: '2022-01-31T07:00:00+00:00',
 }
 
-// FTVA Custom Title Description
+// FTVA Custom Title And Description
 const mockCustomTitleAndDesription = {
   category: 'Interview, People',
   title: '<h3>Preserving <em>In <strong>Transit</strong>:</em> The Chinese in California</h3>',
