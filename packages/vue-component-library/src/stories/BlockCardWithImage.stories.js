@@ -144,6 +144,7 @@ FTVAItemsPostedDate.args = {
   dateCreated: '2022-01-31T07:00:00+00:00',
 }
 
+// FTVA Custom Title Description
 const mockCustomTitleAndDesription = {
   category: 'Interview, People',
   title: '<h3>Preserving <em>In <strong>Transit</strong>:</em> The Chinese in California</h3>',
@@ -153,7 +154,7 @@ const mockCustomTitleAndDesription = {
   image: API.image,
 }
 
-function TemplateFTVACustomTitleDescription(args) {
+function TemplateFTVACustomTitleAndDescription(args) {
   return {
     data() {
       return {
@@ -190,8 +191,54 @@ function TemplateFTVACustomTitleDescription(args) {
   }
 }
 
-export const FTVACustomTitleDescription = TemplateFTVACustomTitleDescription.bind({})
+export const FTVACustomTitleAndDescription = TemplateFTVACustomTitleAndDescription.bind({})
 
+// FTVA Custom Description Only
+const mockCustomDesriptionOnlyExternalLink = {
+  category: 'Interview, People',
+  title: '<h3>Preserving <em>In <strong>Transit</strong>:</em> The Chinese in California</h3>',
+  postDate: '2024-05-07T13:00:00-07:00',
+  ftvaHomepageDescription: '<p>Three alumni student films, made in the <strong>1970s-1980s</strong>, were preserved over a 10-week period by current MLIS student interns, all under the supervision of UCLA Film & Television Archive staff.</p>',
+  uri: 'https://newsreels.net/',
+  image: API.image,
+}
+
+function TemplateFTVACustomDescriptionOnlyExternalLink(args) {
+  return {
+    data() {
+      return {
+        ...mockCustomDesriptionOnlyExternalLink,
+        ...args,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockCardWithImage, RichText, SmartLink },
+    template: `
+
+      <block-card-with-image
+        class="block-highlight"
+        style="cursor: pointer"
+        :image="image"
+        :image-aspect-ratio="imageAspectRatio"
+        :cardIsLink="true"
+        :to="uri"
+        >
+
+        <template #customDescription>
+          <rich-text v-html="ftvaHomepageDescription" />
+        </template>
+      </block-card-with-image>
+    `,
+  }
+}
+
+export const FTVACustomDescriptionOnlyExternalLink = TemplateFTVACustomDescriptionOnlyExternalLink.bind({})
+
+// FTVA Article Blog Listing
 const mockArticles = [
   {
     ftvaAlternativeTitle: '<h3><em>Preserving In Transit:</em> The Chinese in California</h3>',

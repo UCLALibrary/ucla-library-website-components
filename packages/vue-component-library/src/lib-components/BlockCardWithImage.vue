@@ -97,14 +97,22 @@ const props = defineProps({
 })
 
 // TOGGLE CLICKABLE BEHAVIOR
+// check if link is internal or external or card is not meant to be clickable
 const router = useRouter()
 function handleClick() {
-  if (props.cardIsLink && props.to) {
-    router.push({
-      path: props.to
-    })
+  const isClickable = props.cardIsLink && props.to
+
+  if (!isClickable) // if card is not a link, do nothing on click
+    return
+
+  const isExternalLink = /^https?:\/\//.test(props.to) // External links must bypass vue-router
+
+  if (isExternalLink) {
+    window.open(props.to, '_blank', 'noopener,noreferrer')
+    return
   }
-  // if card is not a link, do nothing on click
+
+  router.push(props.to) // Otherwise, treat as internal navigation
 }
 
 // THEME
@@ -114,9 +122,11 @@ const classes = computed(() => {
     'block-highlight', // legacy name already used in library-website-nuxt and MEAP styles, do not change
     { 'is-vertical': props.isVertical },
     theme?.value || '',
-    props.color
+    props.color,
+    { 'is-link': props.cardIsLink }, // if cardIsLink==true then you can use css on the page .is-link { cursor: pointer };
   ]
 })
+
 // dates are formatted in the short format for ftva only
 const parsedDateFormat = computed(() => {
   return theme?.value === 'ftva' ? 'short' : 'long'
@@ -152,6 +162,7 @@ const parsedDateFormat = computed(() => {
         />
       </div>
     </div>
+
     <CardMeta
       class="card-meta-items"
       :to="to"
