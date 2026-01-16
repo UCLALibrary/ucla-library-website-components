@@ -25,6 +25,9 @@
 
   :deep(.icon-with-link .text) {
     color: $accent-blue;
+    @media #{$small} {
+      word-break: break-all;
+    }
   }
 
   .info-address {
