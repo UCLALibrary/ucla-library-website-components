@@ -57,6 +57,42 @@ export function Default() {
   }
 }
 
+export function DefaultWithAltText() {
+  return {
+    data() {
+      return {
+        ...mockBeforeAfterImageCarousel[0],
+        beforeImage: {
+          ...mockBeforeImage[0],
+          altText: 'Before image alt text'
+        },
+        afterImage: {
+          ...mockBeforeImage[0],
+          altText: 'After image alt text'
+        }
+      }
+    },
+    components: { ImageSlider },
+    template: `
+    <component is="style" type="text/css">
+.before-image {
+    filter: grayscale(100%)
+}
+    </component>
+        <div style="padding: 1rem; max-width: 1160px;">
+        <image-slider
+            :before-image="beforeImage"
+            :after-image="afterImage"
+        >
+            <template #captionText>
+               {{ caption }}
+            </template>
+        </image-slider>
+        </div>
+    `,
+  }
+}
+
 const mockSquareImage = [
   {
     id: '3280520',
