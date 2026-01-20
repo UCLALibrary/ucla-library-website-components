@@ -1,0 +1,46 @@
+.bento-box-results-page {
+    --gutters: 48px;
+    --header-height: 121px;
+
+    position: relative;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--color-white);
+
+    .header,
+    .footer {
+        width: 100%;
+    }
+
+    .main-content {
+        width: 100%;
+        max-width: var(--unit-full-width);
+        padding: 0 var(--gutters) 48px;
+    }
+
+    .search-field-composite-wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+
+        :deep(input) {
+            margin: 0;
+        }
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+        --gutters: 32px;
+
+        --header-height: 113px;
+    }
+    @media #{$small} {
+        --gutters: 24px;
+        --header-height: 103px;
+    }
+}

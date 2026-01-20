@@ -2,6 +2,7 @@ import { computed } from 'vue'
 
 // Import components
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
+import FooterSock from '../lib-components/FooterSock.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import CollectionOverview from '../lib-components/CollectionOverview.vue'
 import GridMetadata from '../lib-components/GridMetadata.vue'
@@ -50,6 +51,7 @@ function Template(args) {
     components: {
       HeaderSmart,
       FooterPrimary,
+      FooterSock,
       CollectionOverview,
       GridMetadata,
       SectionTeaserCard,
@@ -171,6 +173,8 @@ function Template(args) {
          
          <!-- Footer -->
          <FooterPrimary />
+         <!-- Footer Sock -->
+         <FooterSock />
        </div>
      `,
   }

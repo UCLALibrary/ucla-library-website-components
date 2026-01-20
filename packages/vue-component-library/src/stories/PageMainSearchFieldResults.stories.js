@@ -2,6 +2,7 @@ import { computed, ref, watch } from 'vue'
 
 // Import components
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
+import FooterSock from '../lib-components/FooterSock.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 import SectionRemoveSearchFilter from '../lib-components/SectionRemoveSearchFilter.vue'
@@ -66,6 +67,7 @@ function Template(args) {
     components: {
       HeaderSmart,
       FooterPrimary,
+      FooterSock,
       NavSearch,
       SectionRemoveSearchFilter,
       SearchResultsCount,
@@ -323,6 +325,8 @@ function Template(args) {
           
          <!-- Footer -->
          <FooterPrimary />
+         <!-- Footer Sock -->
+         <FooterSock />
        </div>
      `,
   }

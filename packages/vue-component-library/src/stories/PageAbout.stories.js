@@ -2,6 +2,7 @@ import { computed, ref } from 'vue'
 
 // Import components
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
+import FooterSock from '../lib-components/FooterSock.vue'
 
 // import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
 // import SmartLink from '../lib-components/SmartLink.vue'
@@ -52,6 +53,7 @@ function Template(args) {
   return {
     components: {
       FooterPrimary,
+      FooterSock,
       // SearchFieldComposite,
       // SmartLink,
       BannerFeatured,
@@ -177,6 +179,8 @@ function Template(args) {
         </main>
         <!-- Footer -->
         <FooterPrimary />
+        <!-- Footer Sock -->
+        <FooterSock />
       </div>
     `,
   }
