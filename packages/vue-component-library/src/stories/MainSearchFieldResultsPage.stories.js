@@ -59,6 +59,8 @@ export default {
 
 // Template function for the main landing page
 function Template(args) {
+  // Initialize router with a path so ButtonPageView can build URLs correctly
+  router.push({ path: '/search', query: router.currentRoute.value.query })
   return {
     components: {
       HeaderSmart,

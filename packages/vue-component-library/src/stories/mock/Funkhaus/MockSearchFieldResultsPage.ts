@@ -75,9 +75,185 @@ export const mockGridAssetPodItems = [
     date: '1930',
     metadata: {
       description:
-        'Handwriting on negative states "Mrs.Walburga Oesterreich" In 1922 Walburga Oesterreich’s husband Fred Oesterreich was shot and killed supposedly by a burglar in their Los Angeles, Calif. home.',
+        'Handwriting on negative states "Mrs.Walburga Oesterreich" In 1922 Walburga Oesterreich',
       date: '1930',
       resourceType: 'Book',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  },
+  {
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Portrait of actress Marilyn Monroe at a press conference, 1956',
+    date: '1956',
+    metadata: {
+      description:
+        'Marilyn Monroe poses for photographers during a press conference promoting her latest film.',
+      date: 'March 15, 1956',
+      resourceType: 'Photograph',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  },
+  {
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Aerial view of downtown Los Angeles skyline, 1970s',
+    date: '1975',
+    metadata: {
+      description:
+        'Panoramic view of the Los Angeles cityscape showing the growth of the urban center.',
+      date: '1975',
+      resourceType: 'Photograph',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  },
+  {
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Group portrait of UCLA basketball team, 1964',
+    date: '1964',
+    metadata: {
+      description:
+        'The UCLA Bruins basketball team poses for a team photo after winning the NCAA championship.',
+      date: 'March 23, 1964',
+      resourceType: 'Photograph',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  },
+  {
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Protest march on Sunset Boulevard during civil rights movement, 1963',
+    date: '1963',
+    metadata: {
+      description:
+        'Demonstrators march peacefully down Sunset Boulevard carrying signs advocating for equal rights.',
+      date: 'August 28, 1963',
+      resourceType: 'Photograph',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  },
+  {
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Hollywood Walk of Fame ceremony for actor James Dean, 1960',
+    date: '1960',
+    metadata: {
+      description:
+        'Posthumous star dedication ceremony honoring the late actor James Dean on Hollywood Boulevard.',
+      date: 'February 8, 1960',
+      resourceType: 'Photograph',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  },
+  {
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Construction of the Los Angeles International Airport terminal, 1961',
+    date: '1961',
+    metadata: {
+      description:
+        'Workers and construction equipment visible during the building of the new LAX terminal.',
+      date: 'June 12, 1961',
+      resourceType: 'Photograph',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  },
+  {
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Portrait of author Ray Bradbury at his home office, 1962',
+    date: '1962',
+    metadata: {
+      description:
+        'Science fiction writer Ray Bradbury sits at his typewriter surrounded by books and manuscripts.',
+      date: 'October 5, 1962',
+      resourceType: 'Photograph',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  },
+  {
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Venice Beach boardwalk scene with street performers, 1978',
+    date: '1978',
+    metadata: {
+      description:
+        'Colorful street performers and vendors line the Venice Beach boardwalk on a sunny afternoon.',
+      date: 'July 22, 1978',
+      resourceType: 'Photograph',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  },
+  {
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Los Angeles Dodgers World Series victory parade, 1981',
+    date: '1981',
+    metadata: {
+      description:
+        'Fans line the streets of downtown Los Angeles to celebrate the Dodgers World Series championship.',
+      date: 'October 28, 1981',
+      resourceType: 'Photograph',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  },
+  {
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Portrait of musician Jimi Hendrix performing at the Hollywood Bowl, 1967',
+    date: '1967',
+    metadata: {
+      description:
+        'Jimi Hendrix performs on stage during his legendary concert at the Hollywood Bowl.',
+      date: 'September 14, 1967',
+      resourceType: 'Photograph',
+      collection: ['Still Image'],
+      locations: [
+        'Los Angeles Times Photographic Collection OpenUCLA Collections',
+      ],
+    },
+  },
+  {
+    media: API.image,
+    to: '/visit/foo/bar/',
+    title: 'Watts Towers under construction, showing detail of mosaic work, 1954',
+    date: '1954',
+    metadata: {
+      description:
+        'Close-up view of Simon Rodia\'s intricate mosaic work on the Watts Towers during construction.',
+      date: '1954',
+      resourceType: 'Photograph',
       collection: ['Still Image'],
       locations: [
         'Los Angeles Times Photographic Collection OpenUCLA Collections',

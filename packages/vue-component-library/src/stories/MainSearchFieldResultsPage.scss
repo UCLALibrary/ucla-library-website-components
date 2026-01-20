@@ -76,6 +76,8 @@
     }
 
     .search-results-sort-wrapper {
+        position: relative;
+        z-index: 10;
         display: flex;
         gap: 15px;
         justify-content: space-between;
