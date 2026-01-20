@@ -1,6 +1,8 @@
 .header-main-responsive:not(.dlc) {
+    position: absolute;
+
     width: 100vw;
-    height: 100%;
+    height: 128px;
     background-color: var(--color-primary-blue-03);
     display: flex;
     flex-direction: column;

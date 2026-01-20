@@ -37,7 +37,8 @@
 
     .main-content {
         flex: 1;
-        max-width: 1600px;
+        max-width: var(--unit-full-width);
+        margin-inline: auto;
         padding: 0 var(--gutters) 48px;
     }
 
@@ -50,6 +51,7 @@
     }
 
     .excerpt-pod-wrapper {
+        width: 100%;
         margin: 24px 0 0;
         padding: 24px 0;
         border-top: 2px dotted var(--color-secondary-grey-03);
@@ -85,6 +87,11 @@
 
     .section-teaser-card-wrapper {
         margin-bottom: 48px;
+        margin-inline: auto;
+        max-width: var(--unit-full-width);
+        .section-teaser-card {
+            max-width: unset;
+        }
     }
 
     // Breakpoints

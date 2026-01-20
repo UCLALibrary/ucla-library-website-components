@@ -75,14 +75,6 @@ const parseTitle = computed(() => {
 <style lang="scss" scoped>
 .header-main {
   z-index: 200;
-
-  position: relative;
-  height: 128px;
-
-  .primary {
-    position: absolute;
-  }
-
   // TODO nav on smaller viewports
 }
 </style>
