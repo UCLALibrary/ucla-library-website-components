@@ -19,7 +19,7 @@ import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/
 import './CollectionsDetailPage.scss'
 
 export default {
-  title: 'Funkhaus / Pages / Collections Detail Page',
+  title: 'Funkhaus / Pages / Page Collections Detail',
   component: {},
   parameters: {
     layout: 'fullscreen',

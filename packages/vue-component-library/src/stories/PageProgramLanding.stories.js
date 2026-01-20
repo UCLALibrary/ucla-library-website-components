@@ -10,13 +10,15 @@ import ButtonMore from '../lib-components/ButtonMore.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 
 // Import mock data
+import { useGlobalStore } from '@/stores/GlobalStore'
+import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 import { mockProgramLandingPage } from './mock/Funkhaus/MockProgramLandingPage'
 
 // Import styles
 import './ProgramLandingPage.scss'
 
 export default {
-  title: 'Funkhaus / Pages / Program Landing Page',
+  title: 'Funkhaus / Pages / Page Program Landing',
   component: {},
   parameters: {
     layout: 'fullscreen',
@@ -60,6 +62,11 @@ function Template(args) {
       }
     },
     setup() {
+      // Overwrite header data to mimic HeaderSmart DLC story
+      const globalStore = useGlobalStore()
+      globalStore.header.primary = mockGlobalHeaderNavigation.primary
+      globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
+
       const dropdownValue = ref(
         mockProgramLandingPage.searchForm.dropdownOptions[0]
       )
@@ -85,6 +92,7 @@ function Template(args) {
       return {
         args,
         mockProgramLandingPage,
+        mockGlobalNavSearch,
         searchValue,
         dropdownValue,
         handleSearchSubmit,
@@ -118,9 +126,9 @@ function Template(args) {
             <NavSearch 
                 class='search-field-composite'
                 :show-divider="true"
-                :placeholder="args.searchPlaceholder || mockProgramLandingPage.searchForm.placeholder"
-                :dropdown-options="args.searchDropdownOptions || mockProgramLandingPage.searchForm.dropdownOptions" 
-                :dropdown-default-value="args.searchDropdownValue || mockProgramLandingPage.searchForm.dropdownDefaultValue"
+                :placeholder="mockGlobalNavSearch.placeholder"
+                :dropdown-options="mockGlobalNavSearch.dropdownOptions" 
+                :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
                 bottom-text=""
                 :bottom-link="null"
             />

@@ -39,7 +39,7 @@ import './MainSearchFieldResultsPage.scss'
 import './GridAssetPod.scss'
 
 export default {
-  title: 'Funkhaus / Pages / Main Search Field Results Page',
+  title: 'Funkhaus / Pages / Page Main Search Field Results',
   component: {},
   parameters: {
     layout: 'fullscreen',

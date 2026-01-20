@@ -11,15 +11,17 @@ import NavSearch from '../lib-components/NavSearch.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 
 // Import mock data
+import { useGlobalStore } from '@/stores/GlobalStore'
+import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 import { mockDigitalCollections } from './mock/Funkhaus/MockMainLandingPage'
 
 // Import styles
 import './MainLandingPage.scss'
 
 export default {
-  title: 'Funkhaus / Pages / Main Landing Page',
+  title: 'Funkhaus / Pages / Page Main Landing',
   component: {},
-  parameters: {
+  parameters: { 
     layout: 'fullscreen',
     docs: {
       description: {
@@ -56,6 +58,11 @@ function Template(args) {
     },
 
     setup() {
+      // Overwrite header data to mimic HeaderSmart DLC story
+      const globalStore = useGlobalStore()
+      globalStore.header.primary = mockGlobalHeaderNavigation.primary
+      globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
+
       const dropdownValue = ref(
         mockDigitalCollections.searchForm.dropdownOptions[0]
       )
@@ -80,6 +87,7 @@ function Template(args) {
         dropdownValue,
         searchValue,
         mockDigitalCollections,
+        mockGlobalNavSearch,
         showMoreCollections,
         handleSearchSubmit,
         handleDropdownUpdate,
@@ -133,9 +141,9 @@ function Template(args) {
             <NavSearch 
                 class='search-field-composite'
                 :show-divider="true"
-                :placeholder="mockDigitalCollections.searchForm.placeholder"
-                :dropdown-options="mockDigitalCollections.searchForm.dropdownOptions"
-                :dropdown-default-value="mockDigitalCollections.searchForm.dropdownDefaultValue"
+                :placeholder="mockGlobalNavSearch.placeholder"
+                :dropdown-options="mockGlobalNavSearch.dropdownOptions"
+                :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
                 :bottom-link="bottomLink"
                 bottom-text=""
                 :background-image="mockDigitalCollections.searchForm.backgroundImage"
