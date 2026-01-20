@@ -268,6 +268,12 @@ async function toggleOption(filterName: string, option: FilterOption) {
               :id="getFilterKey(filter)"
               class="filter-options"
             >
+              <legend
+                class="sr-only legend-label"
+                aria-hidden="true"
+              >
+                {{ filter.name || filter.slotName }}
+              </legend>
               <TransitionGroup
                 name="filter-option"
                 tag="div"
@@ -299,14 +305,14 @@ async function toggleOption(filterName: string, option: FilterOption) {
                 </label>
 
                 <!-- See All button as part of the transition group -->
-                <div
+                <button
                   v-if="showButton(filter)"
                   key="see-all"
                   class="filter-option see-all"
                 >
                   <span class="option-name">See All</span>
                   <span class="see-all-arrow">→</span>
-                </div>
+                </button>
               </TransitionGroup>
             </fieldset>
           </slot>
