@@ -33,7 +33,7 @@ const parsedContent = computed(() => {
   <div :class="classes">
     <div
       class="parsed-content"
-      v-sanitize-html="parsedContent"
+      v-html="parsedContent"
     />
     <slot />
   </div>
