@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 
 // Import components
-import FooterMain from '../lib-components/FooterMain.vue'
+import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import CollectionOverview from '../lib-components/CollectionOverview.vue'
 import GridMetadata from '../lib-components/GridMetadata.vue'
@@ -49,7 +49,7 @@ function Template(args) {
   return {
     components: {
       HeaderSmart,
-      FooterMain,
+      FooterPrimary,
       CollectionOverview,
       GridMetadata,
       SectionTeaserCard,
@@ -170,7 +170,7 @@ function Template(args) {
         </main>
          
          <!-- Footer -->
-         <FooterMain />
+         <FooterPrimary />
        </div>
      `,
   }

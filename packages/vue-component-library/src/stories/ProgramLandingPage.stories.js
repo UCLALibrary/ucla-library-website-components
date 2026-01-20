@@ -2,7 +2,7 @@ import { computed, ref } from 'vue'
 
 // Import components
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
-import FooterMain from '../lib-components/FooterMain.vue'
+import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 import CollectionOverview from '../lib-components/CollectionOverview.vue'
 import SectionTeaserCard from '../lib-components/SectionTeaserCard.vue'
@@ -47,7 +47,7 @@ function Template(args) {
   return {
     components: {
       HeaderSmart,
-      FooterMain,
+      FooterPrimary,
       SectionTeaserCard,
       NavSearch,
       CollectionOverview,
@@ -167,7 +167,7 @@ function Template(args) {
         </main>
          
          <!-- Footer -->
-         <FooterMain />
+         <FooterPrimary />
        </div>
      `,
   }

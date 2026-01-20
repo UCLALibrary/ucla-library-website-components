@@ -318,7 +318,6 @@ function Template(args) {
 
 // Default story
 export const Default = Template.bind({})
-router.push({ path: '/search', query: { view: 'gallery' } })
 Default.args = {
   theme: 'dlc',
   searchInitialValue: '',
