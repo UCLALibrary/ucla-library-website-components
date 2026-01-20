@@ -1,7 +1,7 @@
 import { computed, ref, watch } from 'vue'
 
 // Import components
-import FooterMain from '../lib-components/FooterMain.vue'
+import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 import SectionRemoveSearchFilter from '../lib-components/SectionRemoveSearchFilter.vue'
@@ -16,6 +16,7 @@ import SmartLink from '../lib-components/SmartLink.vue'
 import ResponsiveImage from '../lib-components/ResponsiveImage.vue'
 import DefinitionList from '../lib-components/DefinitionList.vue'
 import DividerGeneral from '../lib-components/DividerGeneral.vue'
+import SvgIconFilter from 'ucla-library-design-tokens/assets/svgs/icon-dlc-filter.svg'
 
 // Import mock data
 import { useGlobalStore } from '@/stores/GlobalStore'
@@ -64,7 +65,7 @@ function Template(args) {
   return {
     components: {
       HeaderSmart,
-      FooterMain,
+      FooterPrimary,
       NavSearch,
       SectionRemoveSearchFilter,
       SearchResultsCount,
@@ -78,6 +79,7 @@ function Template(args) {
       ResponsiveImage,
       DefinitionList,
       DividerGeneral,
+      SvgIconFilter,
     },
     provide() {
       return {
@@ -224,7 +226,15 @@ function Template(args) {
            <!-- Layout -->
            <div class="search-results-layout">
              <aside class="refine-search-placeholder">
-               Refine search panel placeholder
+               <button
+                 type="button"
+                 class="button-filter-modal"
+                 aria-label="Open filter modal"
+                 @click="isModalFilterOpen = true"
+               >
+                 <SvgIconFilter class="icon-filter" />
+                 <span>Refine Search</span>
+               </button>
              </aside>
 
              <div class="search-results-main">
@@ -308,11 +318,11 @@ function Template(args) {
              :is-open="isModalFilterOpen"
              :items="mockRefineSearchPanel.modalFilterItems"
              @close="isModalFilterOpen = false"
-           />
+           /> 
          </main>
           
          <!-- Footer -->
-         <FooterMain />
+         <FooterPrimary />
        </div>
      `,
   }
