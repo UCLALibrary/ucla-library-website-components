@@ -47,10 +47,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
         run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec -- semantic-release -e semantic-release-monorepo
-      # 🔴 Manually publish vue-component-library using pnpm (npm via OIDC)
+      # 🔴 Manually publish vue-component-library using pnpm
       - name: Publish Vue Component Library
         env:
           GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pnpm --filter @ucla-library-monorepo/ucla-library-website-components install
           pnpm --filter @ucla-library-monorepo/ucla-library-website-components publish --no-git-checks --access public
@@ -79,12 +81,13 @@ jobs:
         # if: steps.filter.outputs.component-library == 'true' || steps.filter.outputs.nuxt-module == 'true'
         env:
           GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
-        run: pnpm --filter @ucla-library/component-library-nuxt-module exec -- semantic-release -e semantic-release-monorepo
-      # 🔴 Manually publish Nuxt Module using pnpm (npm via OIDC)
+        run: pnpm --filter @ucla-library/component-library-nuxt-m(npm via OIDC)
       - name: Publish Nuxt Module
         # if: steps.filter.outputs.component-library == 'true' || steps.filter.outputs.nuxt-module == 'true'
         env:
           GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pnpm --filter @ucla-library-monorepo/ucla-library-website-components install
           pnpm --filter @ucla-library-monorepo/ucla-library-website-components build
