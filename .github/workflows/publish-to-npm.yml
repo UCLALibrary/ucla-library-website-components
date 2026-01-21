@@ -75,13 +75,16 @@ jobs:
           # Create a commit to trigger a new release
           git commit -m "chore(nuxt-module): force release after vue-component-library update [skip ci]"
 
+          git remote set-url origin "https://x-access-token:${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}@github.com/${{ github.repository }}"
+
           # Push the commit to trigger CI/CD
           git push origin main
       - name: Release Nuxt Module
         # if: steps.filter.outputs.component-library == 'true' || steps.filter.outputs.nuxt-module == 'true'
         env:
           GH_TOKEN: ${{ secrets.PAT_SEMENTIC_RELEASE_AND_ESLINT }}
-        run: pnpm --filter @ucla-library/component-library-nuxt-m(npm via OIDC)
+        run: pnpm --filter @ucla-library/component-library-nuxt-module exec -- semantic-release -e semantic-release-monorepo
+      # 🔴 Manually publish Nuxt Module using pnpm
       - name: Publish Nuxt Module
         # if: steps.filter.outputs.component-library == 'true' || steps.filter.outputs.nuxt-module == 'true'
         env:
