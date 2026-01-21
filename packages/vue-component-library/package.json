@@ -1,7 +1,7 @@
 {
   "name": "@ucla-library-monorepo/ucla-library-website-components",
   "type": "module",
-  "version": "1.59.0",
+  "version": "1.60.0",
   "homepage": "https://ucla-library-storybook.netlify.app/?path=/docs/configure-your-project--docs",
   "repository": {
     "type": "git",
@@ -53,8 +53,10 @@
     "@antfu/eslint-config": "^0.43.1",
     "@percy/cli": "^1.31.1",
     "@percy/cypress": "^3.1.2",
+    "@radya/nuxt-dompurify": "^1.0.5",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "@storybook/addon-a11y": "^7.1.1",
     "@storybook/addon-essentials": "^7.1.1",
     "@storybook/addon-interactions": "^7.1.1",
     "@storybook/addon-links": "^7.1.1",
