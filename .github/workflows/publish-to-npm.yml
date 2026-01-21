@@ -19,7 +19,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Detect Changed Packages
         id: filter
         uses: dorny/paths-filter@v3
@@ -48,8 +47,6 @@ jobs:
         run: pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec -- semantic-release -e semantic-release-monorepo
       # 🔴 Manually publish vue-component-library using pnpm (npm via OIDC)
       - name: Publish Vue Component Library
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pnpm --filter @ucla-library-monorepo/ucla-library-website-components install
           pnpm --filter @ucla-library-monorepo/ucla-library-website-components publish --no-git-checks --access public
