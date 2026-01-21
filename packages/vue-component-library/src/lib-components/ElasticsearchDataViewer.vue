@@ -11,9 +11,12 @@ const ELASTICSEARCH_CONFIG = {
 const loading = ref(false)
 const error = ref<Error | null>(null)
 const results = ref<any>(null)
+const searchQuery = ref('')
 
-// Auto-fetch on mount
-onMounted(async () => {
+/**
+ * Perform search
+ */
+async function performSearch(queryText: string = '') {
   loading.value = true
   error.value = null
 
@@ -27,11 +30,20 @@ onMounted(async () => {
       headers['Authorization'] = `ApiKey ${ELASTICSEARCH_CONFIG.apiKey}`
     }
 
+    // Build query - use match_all if empty, otherwise use query_string
+    const query = queryText.trim()
+      ? {
+          query_string: {
+            query: queryText,
+          },
+        }
+      : { match_all: {} }
+
     const response = await fetch(url, {
       method: 'POST',
       headers,
       body: JSON.stringify({
-        query: { match_all: {} },
+        query,
         size: 10,
         _source: true,
       }),
@@ -48,6 +60,21 @@ onMounted(async () => {
   } finally {
     loading.value = false
   }
+}
+
+function handleSearch() {
+  performSearch(searchQuery.value)
+}
+
+function handleKeyPress(event: KeyboardEvent) {
+  if (event.key === 'Enter') {
+    handleSearch()
+  }
+}
+
+// Auto-fetch on mount (empty search = match_all)
+onMounted(() => {
+  performSearch('')
 })
 
 /**
@@ -70,6 +97,33 @@ function isComplexValue(value: unknown): boolean {
 <template>
   <div class="elasticsearch-data-viewer">
     <h2>Elasticsearch Data Viewer</h2>
+
+    <!-- Search Input -->
+    <div class="search-section">
+      <input
+        v-model="searchQuery"
+        type="text"
+        placeholder="Search..."
+        class="search-input"
+        @keypress="handleKeyPress"
+      >
+      <button
+        type="button"
+        class="search-button"
+        :disabled="loading"
+        @click="handleSearch"
+      >
+        Search
+      </button>
+      <button
+        v-if="searchQuery"
+        type="button"
+        class="clear-button"
+        @click="searchQuery = ''; performSearch('')"
+      >
+        Clear
+      </button>
+    </div>
 
     <div v-if="loading" class="status loading">
       Loading data...
@@ -166,6 +220,62 @@ function isComplexValue(value: unknown): boolean {
     margin-bottom: 2rem;
     font-size: 2rem;
     color: #212121;
+  }
+
+  .search-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+
+    .search-input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      outline: none;
+
+      &:focus {
+        border-color: #005587;
+      }
+    }
+
+    .search-button,
+    .clear-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.2s;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    .search-button {
+      background-color: #005587;
+      color: white;
+
+      &:hover:not(:disabled) {
+        background-color: #003d6b;
+      }
+    }
+
+    .clear-button {
+      background-color: #757575;
+      color: white;
+
+      &:hover {
+        background-color: #616161;
+      }
+    }
   }
 
   .status {
