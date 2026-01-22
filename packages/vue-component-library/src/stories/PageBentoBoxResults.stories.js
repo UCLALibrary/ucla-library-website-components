@@ -7,6 +7,7 @@ import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 import GridAssetPod from '../lib-components/GridAssetPod.vue'
 import BentoPod from '../lib-components/BentoPod.vue'
+import BentoFilterMenu from '../lib-components/BentoFilterMenu.vue'
 
 // Import mock data
 import { useGlobalStore } from '@/stores/GlobalStore'
@@ -48,6 +49,7 @@ function Template(args) {
       NavSearch,
       GridAssetPod,
       BentoPod,
+      BentoFilterMenu,
     },
     provide() {
       return {
@@ -61,16 +63,31 @@ function Template(args) {
       globalStore.header.primary = mockGlobalHeaderNavigation.primary
       globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
 
+      // Bento filter menu items
+      const bentoFilterItems = [
+        { label: 'Everything', to: '/search' },
+        { label: 'Images', to: '/search?type=images' },
+        { label: 'Videos', to: '/search?type=videos' },
+        { label: 'Manuscripts', to: '/search?type=manuscripts' },
+        { label: 'Books', to: '/search?type=books' },
+        { label: 'Audio', to: '/search?type=audio' },
+        { label: '3D Art', to: '/search?type=3d-art' },
+      ]
+
       return {
         args,
         mockGlobalNavSearch,
         mockBentoBoxResultsPage,
+        bentoFilterItems,
       }
     },
     template: `
       <div class="bento-box-results-page">
         <!-- Header -->
         <header-smart class='header'/>
+
+        <!-- Bento Filter Menu -->
+        <BentoFilterMenu class="bento-filter-menu" :items="bentoFilterItems" />
 
          <div class="search-field-composite-wrapper">
             <NavSearch
