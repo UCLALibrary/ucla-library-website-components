@@ -86,8 +86,7 @@ function Template(args) {
         <!-- Header -->
         <header-smart class='header'/>
 
-        <!-- Bento Filter Menu -->
-        <BentoFilterMenu class="bento-filter-menu" :items="bentoFilterItems" />
+      
 
          <div class="search-field-composite-wrapper">
             <NavSearch
@@ -100,6 +99,9 @@ function Template(args) {
             />
           </div>
         <main class="main-content">
+
+          <!-- Bento Filter Menu -->
+        <BentoFilterMenu class="bento-filter-menu" :items="bentoFilterItems" />
           <!-- Grid Asset Pod with Two Column Layout for Bento Pod -->
           <GridAssetPod 
             class="grid-asset-pod"
