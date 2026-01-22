@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.61.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.60.0...@ucla-library-monorepo/ucla-library-website-components-v1.61.0) (2026-01-21)
+
+
+### Features
+
+* add addon-a11y to storybook ([#882](https://github.com/UCLALibrary/ucla-library-website-components/issues/882)) ([cc2c5ed](https://github.com/UCLALibrary/ucla-library-website-components/commit/cc2c5ed6fe34b13ca13e576aae617801d8929d3f))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.60.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.59.0...@ucla-library-monorepo/ucla-library-website-components-v1.60.0) (2026-01-20)
 
 
