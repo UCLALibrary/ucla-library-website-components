@@ -149,7 +149,7 @@ const isImage = computed(() => firstItemType.value === 'Image')
 
 const isSinai = computed(() => props.site === 'sinai')
 
-const isSinaiPalimpsest = computed(() => props.iiif_manifest_url.includes('sinai-images.library.ucla.edu'))
+const isSinaiPalimpsest = computed(() => props.iiif_manifest_url?.includes('sinai-images.library.ucla.edu') ?? false)
 
 const isSound = computed(() => firstItemType.value === 'Sound' || firstItemTypeFromChoice.value === 'Sound')
 
