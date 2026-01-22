@@ -574,7 +574,7 @@ const mockCollectionItems = [
     ],
     videoEmbed: null,
     sectionHandle: 'ftvaItemInCollection'
-  },
+  }
 ]
 
 const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
