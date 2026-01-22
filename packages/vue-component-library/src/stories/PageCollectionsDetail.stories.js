@@ -17,7 +17,7 @@ import { mockCollectionsDataPage } from '@/stories/mock/Funkhaus/MockCollections
 import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 
 // Import styles
-import './CollectionsDetailPage.scss'
+import './PageCollectionsDetail.scss'
 
 export default {
   title: 'Funkhaus / Pages / Page Collections Detail',
@@ -185,15 +185,18 @@ export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
   searchInitialValue: '',
-  searchPlaceholder: 'Search in...',
-  searchDropdownValue: 'All Collections',
+  searchDropdownValue: 'all-programs',
   searchDropdownOptions: [
-    'All Collections',
-    'Books & E-books',
-    'Articles & Journals',
-    'Databases',
-    'Digital Collections',
-    'Archives & Special Collections',
+    { label: 'All Programs', value: 'all-programs' },
+    {
+      label: 'Books & E-books',
+      value: 'books-e-books',
+    },
+    {
+      label: 'Articles & Journals',
+      value: 'articles-journals',
+    },
+    { label: 'Databases', value: 'databases' },
   ],
   searchDropdownPlaceholder: 'Select category',
   searchShowDivider: true,

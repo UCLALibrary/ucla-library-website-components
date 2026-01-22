@@ -19,7 +19,7 @@ import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/
 // Import mock data
 
 // Import styles
-import './AboutPage.scss'
+import './PageAbout.scss'
 
 export default {
   title: 'Funkhaus / Pages / Page About',
