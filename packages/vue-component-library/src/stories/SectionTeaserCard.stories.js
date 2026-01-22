@@ -574,7 +574,27 @@ const mockCollectionItems = [
     ],
     videoEmbed: null,
     sectionHandle: 'ftvaItemInCollection'
-  }
+  },
+  {
+    title: 'Test Collection Item: \'Event Audio Recordings\' item w/ Video',
+    slug: 'test-collection-item-for-archive-events-audio-recordings-2-2-2-2',
+    ftvaImage: [
+      {
+        id: '3156835',
+        src: 'https://static.library.ucla.edu/craftassetstest/images/_fullscreen/TomReed_MalcolmX.webp',
+        height: 1813,
+        width: 2560,
+        srcset: 'https://static.library.ucla.edu/craftassetstest/images/_375xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 375w, https://static.library.ucla.edu/craftassetstest/images/_960xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 960w, https://static.library.ucla.edu/craftassetstest/images/_1280xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1280w, https://static.library.ucla.edu/craftassetstest/images/_1920xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 1920w, https://static.library.ucla.edu/craftassetstest/images/_2560xAUTO_crop_center-center_none/TomReed_MalcolmX.webp 2560w',
+        alt: 'Tom Reed hosting an episode exploring the teachings of Malcolm X',
+        focalPoint: [
+          0.5,
+          0.5
+        ]
+      }
+    ],
+    videoEmbed: null,
+    sectionHandle: 'ftvaItemInCollection'
+  },
 ]
 
 const parsedFTVACollectionItems = mockCollectionItems.map((item) => {
@@ -772,14 +792,6 @@ export function FTVACollectionListings() {
 
         .ftva.block-highlight.is-vertical.card:hover {
           box-shadow: none;
-        }
-
-        .ftva.block-highlight .card-meta.card-meta-items:hover > a.title  {
-            text-decoration: underline;
-            text-decoration-color: #2C91FF;
-            text-decoration-thickness: 3px;
-            text-underline-offset: 3px;
-;
         }
 
         @media(min-width: 991px){
