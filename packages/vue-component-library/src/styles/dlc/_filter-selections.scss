@@ -1,0 +1,192 @@
+.filter-selections,
+.filter-selections.dlc {
+    .filter-item {
+        &.is-opened {
+            .filter-summary {
+                background-color: var(--color-primary-blue-01);
+            }
+        }
+    }
+
+    .filter-chevron {
+        font-size: 12px;
+
+        @include animate-normal;
+    }
+
+    .effect-slide-toggle.is-opened .filter-chevron {
+        transform: rotate(180deg);
+    }
+
+    .filter-summary {
+        padding: 7px 15px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background-color: var(--color-white);
+
+        color: var(--color-secondary-grey-05);
+        font-weight: 500;
+        font-size: 18px;
+        font-family: var(--font-secondary);
+
+        cursor: pointer;
+
+        @include animate-normal;
+
+        &.is-filtered {
+            .filter-chevron {
+                transform: rotate(0deg);
+            }
+        }
+    }
+
+    .filter-options {
+        position: relative;
+
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .filter-option {
+        padding: 7px 15px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        color: var(--color-secondary-grey-05);
+        font-weight: 500;
+        font-size: 18px;
+        font-family: var(--font-secondary);
+
+        cursor: pointer;
+        @include animate-normal;
+
+        &.is-selected {
+            background-color: var(--color-secondary-blue-02);
+            color: var(--color-white);
+            z-index: 10;
+
+            .option-count {
+                color: var(--color-primary-blue-02);
+                font-weight: 500;
+            }
+        }
+    }
+
+    .legend-label {
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    .option-checkbox {
+        position: absolute;
+
+        opacity: 0;
+
+        pointer-events: none;
+    }
+
+    .option-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .option-count {
+        color: var(--color-secondary-grey-03);
+        font-size: 16px;
+        font-family: var(--font-secondary);
+        font-weight: 400;
+
+        @include animate-normal;
+    }
+
+    .option-remove {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 20px;
+        height: 20px;
+
+        color: var(--color-white);
+        font-size: 30px;
+        font-weight: light;
+
+        @include animate-normal;
+    }
+
+    .see-all {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+
+        font-weight: 500;
+        color: var(--color-secondary-grey-05);
+
+        .see-all-arrow {
+            translate: 0 -3px;
+            font-size: 22px;
+            line-height: 1;
+            @include animate-normal;
+        }
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        .filter-summary:hover {
+            background-color: var(--color-primary-blue-01);
+        }
+
+        .filter-option:hover,
+        .see-all:hover {
+            background-color: var(--color-secondary-blue-02);
+            color: var(--color-white);
+
+            .see-all-arrow {
+                transform: translateX(4px);
+            }
+
+            .option-count {
+                color: var(--color-primary-blue-02);
+            }
+        }
+    }
+
+    // TransitionGroup animations for filter options
+    .filter-option-move,
+    .filter-option-leave-active,
+    .filter-option-enter-active {
+        @include animate-normal;
+    }
+
+    .filter-option-enter-from {
+        opacity: 0;
+    }
+
+    .filter-option-leave-to {
+        opacity: 0;
+        z-index: 1;
+        position: absolute;
+    }
+
+    // Ensure leaving items are taken out of layout flow so that moving
+    // animations can be calculated correctly
+    .filter-option-leave-active {
+        position: absolute;
+        width: 100%;
+    }
+}
