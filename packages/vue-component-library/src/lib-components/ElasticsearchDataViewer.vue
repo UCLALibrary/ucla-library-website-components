@@ -1,69 +1,17 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useElasticsearchSearch } from '@/composables/useElasticsearchSearch'
 
-// Configuration from environment variables
-const ELASTICSEARCH_CONFIG = {
-  host: import.meta.env.VITE_ELASTICSEARCH_HOST || 'https://elastical.library.ucla.edu',
-  index: import.meta.env.VITE_ELASTICSEARCH_INDEX || 'central-search',
-  apiKey: import.meta.env.VITE_ELASTICSEARCH_API_KEY || '',
-}
-
-const loading = ref(false)
-const error = ref<Error | null>(null)
-const results = ref<any>(null)
 const searchQuery = ref('')
 
-/**
- * Perform search
- */
-async function performSearch(queryText: string = '') {
-  loading.value = true
-  error.value = null
-
-  try {
-    const url = `${ELASTICSEARCH_CONFIG.host}/${ELASTICSEARCH_CONFIG.index}/_search`
-    const headers: HeadersInit = {
-      'Content-Type': 'application/json',
-    }
-
-    if (ELASTICSEARCH_CONFIG.apiKey) {
-      headers['Authorization'] = `ApiKey ${ELASTICSEARCH_CONFIG.apiKey}`
-    }
-
-    // Build query - use match_all if empty, otherwise use query_string
-    const query = queryText.trim()
-      ? {
-          query_string: {
-            query: queryText,
-          },
-        }
-      : { match_all: {} }
-
-    const response = await fetch(url, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        query,
-        size: 10,
-        _source: true,
-      }),
-    })
-
-    if (!response.ok) {
-      throw new Error(`API error: ${response.status} ${response.statusText}`)
-    }
-
-    results.value = await response.json()
-  } catch (err) {
-    error.value = err instanceof Error ? err : new Error(String(err))
-    console.error('Error fetching data:', err)
-  } finally {
-    loading.value = false
-  }
-}
+const { loading, error, results, performSearch: performElasticsearchSearch } = useElasticsearchSearch()
 
 function handleSearch() {
-  performSearch(searchQuery.value)
+  performElasticsearchSearch({
+    queryText: searchQuery.value,
+    page: 1,
+    pageSize: 10,
+  })
 }
 
 function handleKeyPress(event: KeyboardEvent) {
@@ -74,7 +22,11 @@ function handleKeyPress(event: KeyboardEvent) {
 
 // Auto-fetch on mount (empty search = match_all)
 onMounted(() => {
-  performSearch('')
+  performElasticsearchSearch({
+    queryText: '',
+    page: 1,
+    pageSize: 10,
+  })
 })
 
 /**
@@ -119,21 +71,30 @@ function isComplexValue(value: unknown): boolean {
         v-if="searchQuery"
         type="button"
         class="clear-button"
-        @click="searchQuery = ''; performSearch('')"
+        @click="searchQuery = ''; performElasticsearchSearch({ queryText: '', page: 1, pageSize: 10 })"
       >
         Clear
       </button>
     </div>
 
-    <div v-if="loading" class="status loading">
+    <div
+      v-if="loading"
+      class="status status--loading"
+    >
       Loading data...
     </div>
 
-    <div v-if="error" class="status error">
+    <div
+      v-if="error"
+      class="status status--error"
+    >
       <strong>Error:</strong> {{ error.message }}
     </div>
 
-    <div v-if="results && !loading" class="data-container">
+    <div
+      v-if="results && !loading"
+      class="data-container"
+    >
       <!-- Response Metadata -->
       <div class="section">
         <h3>Response Metadata</h3>
@@ -161,15 +122,18 @@ function isComplexValue(value: unknown): boolean {
           :key="hit._id"
           class="document"
         >
-          <h4>Document {{ index + 1 }} (ID: {{ hit._id }})</h4>
-          
+          <h4>Document {{ Number(index) + 1 }} (ID: {{ hit._id }})</h4>
+
           <!-- Document Metadata -->
           <div class="key-value-list">
             <div class="key-value-item">
               <span class="key">_index:</span>
               <span class="value">{{ hit._index }}</span>
             </div>
-            <div v-if="hit._score" class="key-value-item">
+            <div
+              v-if="hit._score"
+              class="key-value-item"
+            >
               <span class="key">_score:</span>
               <span class="value">{{ hit._score.toFixed(2) }}</span>
             </div>
@@ -191,7 +155,7 @@ function isComplexValue(value: unknown): boolean {
                 >{{ formatValue(value) }}</span>
                 <pre
                   v-else
-                  class="value complex"
+                  class="value value--complex"
                 >{{ formatValue(value) }}</pre>
               </div>
             </div>
@@ -201,7 +165,9 @@ function isComplexValue(value: unknown): boolean {
 
       <!-- Full JSON Response -->
       <details class="section">
-        <summary><h3>Full JSON Response</h3></summary>
+        <summary>
+          <h3>Full JSON Response</h3>
+        </summary>
         <pre class="json-output">{{ JSON.stringify(results, null, 2) }}</pre>
       </details>
     </div>
@@ -284,12 +250,12 @@ function isComplexValue(value: unknown): boolean {
     border-radius: 8px;
     font-size: 1.1rem;
 
-    &.loading {
+    &--loading {
       background-color: #e3f2fd;
       color: #1565c0;
     }
 
-    &.error {
+    &--error {
       background-color: #ffebee;
       color: #c62828;
     }
@@ -364,7 +330,7 @@ function isComplexValue(value: unknown): boolean {
         word-break: break-word;
         flex: 1;
 
-        &.complex {
+        &--complex {
           background-color: #f5f5f5;
           padding: 1rem;
           border-radius: 4px;

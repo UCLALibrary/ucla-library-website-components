@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 import { type SearchResultsCountProps, SearchResultsCountVariants } from '@/types/components/SearchResultsCountTypes'
 
@@ -55,16 +55,38 @@ function animateCount(to: number) {
   requestAnimationFrame(update)
 }
 
+function updateCount(newCount: number) {
+  if (props.animate) {
+    animateCount(newCount)
+  } else {
+    animatedCount.value = newCount
+  }
+}
+
 let timeoutId: ReturnType<typeof setTimeout> | null = null
+let isMounted = false
 
 onMounted(() => {
+  isMounted = true
   if (props.animate) {
+    // Delay animation on initial mount
     timeoutId = setTimeout(() => {
       animateCount(props.count)
     }, 500)
-  }
-  else {
+  } else {
     animatedCount.value = props.count
+  }
+})
+
+// Watch for changes to count prop and update accordingly
+watch(() => props.count, (newCount) => {
+  if (isMounted) {
+    // On prop changes after mount, animate immediately if animate is enabled
+    if (props.animate) {
+      animateCount(newCount)
+    } else {
+      animatedCount.value = newCount
+    }
   }
 })
 
