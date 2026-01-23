@@ -1,3 +1,4 @@
+// ORIGINAL
 // CardMeta THEME
 
 .ftva.card-meta {
@@ -21,6 +22,10 @@
     @include ftva-h2;
     color: $heading-grey;
     margin: 0 0 24px;
+  }
+
+  .title:hover .link-title {
+    @include ftva-text-link-hover;
   }
 
   .title-no-link {
@@ -72,8 +77,9 @@
       }
     }
   }
-  .custom-title{
-    :deep(.smart-link::after){
+
+  .custom-title {
+    :deep(.smart-link::after) {
       bottom: 0;
       content: "";
       left: 0;
@@ -83,7 +89,7 @@
       right: 0;
       top: 0;
     }
-    
+
   }
 
   .custom-description {
