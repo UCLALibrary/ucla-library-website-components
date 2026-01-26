@@ -12,9 +12,9 @@ import NavSearch from '../lib-components/NavSearch.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 
 // Import mock data
+import { mockDigitalCollections } from './mock/Funkhaus/MockMainLandingPage'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
-import { mockDigitalCollections } from './mock/Funkhaus/MockMainLandingPage'
 
 // Import styles
 import './MainLandingPage.scss'
@@ -22,7 +22,7 @@ import './MainLandingPage.scss'
 export default {
   title: 'Funkhaus / Pages / Page Main Landing',
   component: {},
-  parameters: { 
+  parameters: {
     layout: 'fullscreen',
     docs: {
       description: {

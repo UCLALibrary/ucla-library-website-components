@@ -11,9 +11,9 @@ import ButtonMore from '../lib-components/ButtonMore.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 
 // Import mock data
+import { mockProgramLandingPage } from './mock/Funkhaus/MockProgramLandingPage'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
-import { mockProgramLandingPage } from './mock/Funkhaus/MockProgramLandingPage'
 
 // Import styles
 import './ProgramLandingPage.scss'

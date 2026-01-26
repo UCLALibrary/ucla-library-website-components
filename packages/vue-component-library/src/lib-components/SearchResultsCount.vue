@@ -56,11 +56,10 @@ function animateCount(to: number) {
 }
 
 function updateCount(newCount: number) {
-  if (props.animate) {
+  if (props.animate)
     animateCount(newCount)
-  } else {
+  else
     animatedCount.value = newCount
-  }
 }
 
 let timeoutId: ReturnType<typeof setTimeout> | null = null
@@ -73,7 +72,8 @@ onMounted(() => {
     timeoutId = setTimeout(() => {
       animateCount(props.count)
     }, 500)
-  } else {
+  }
+  else {
     animatedCount.value = props.count
   }
 })
@@ -82,11 +82,10 @@ onMounted(() => {
 watch(() => props.count, (newCount) => {
   if (isMounted) {
     // On prop changes after mount, animate immediately if animate is enabled
-    if (props.animate) {
+    if (props.animate)
       animateCount(newCount)
-    } else {
+    else
       animatedCount.value = newCount
-    }
   }
 })
 

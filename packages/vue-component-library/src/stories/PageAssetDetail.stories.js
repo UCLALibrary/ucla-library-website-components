@@ -9,9 +9,9 @@ import GridMetadata from '../lib-components/GridMetadata.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 
 // Import mock data
+import DLViewer from '../lib-components/DLViewer.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockAssetDetailDataPage } from '@/stories/mock/Funkhaus/MockAssetDetailDataPage'
-import DLViewer from '../lib-components/DLViewer.vue'
 
 import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 
@@ -67,10 +67,8 @@ function Template(args) {
       globalStore.header.primary = mockGlobalHeaderNavigation.primary
       globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
 
-      
       const gridMetadataItems = mockAssetDetailDataPage?.gridMetadata?.items || []
-      
-      
+
       return {
         args,
         mockGlobalNavSearch,

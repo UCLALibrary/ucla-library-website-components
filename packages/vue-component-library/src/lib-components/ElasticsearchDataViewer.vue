@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useElasticsearchSearch } from '@/composables/useElasticsearchSearch'
 
 const searchQuery = ref('')
@@ -15,9 +15,8 @@ function handleSearch() {
 }
 
 function handleKeyPress(event: KeyboardEvent) {
-  if (event.key === 'Enter') {
+  if (event.key === 'Enter')
     handleSearch()
-  }
 }
 
 // Auto-fetch on mount (empty search = match_all)
@@ -33,8 +32,10 @@ onMounted(() => {
  * Format a value for display
  */
 function formatValue(value: unknown): string {
-  if (value === null || value === undefined) return 'null'
-  if (typeof value === 'object') return JSON.stringify(value, null, 2)
+  if (value === null || value === undefined)
+    return 'null'
+  if (typeof value === 'object')
+    return JSON.stringify(value, null, 2)
   return String(value)
 }
 

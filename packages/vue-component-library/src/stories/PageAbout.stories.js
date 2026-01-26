@@ -108,7 +108,7 @@ function Template(args) {
                     'We\'re here to help. Chat with a librarian 24/7, schedule a research consultation or email us your quick questions.',
         secondaryButtons: [
           {
-            label: 'UCLA Library Locations',
+            label: 'Click Here for UCLA Library Locations',
             to: '/visit/locations/',
           },
           {
@@ -151,7 +151,7 @@ function Template(args) {
 
           <!-- Our Mission Section -->
           <BannerFeatured
-            class="mission-section"
+            class="mission-section color-help"
             :media="missionData.image"
             :title="missionData.title"
             :description="missionData.description"
@@ -160,7 +160,7 @@ function Template(args) {
 
           <!-- About UCLA Library Section -->
           <BannerFeatured
-            class="about-section"
+            class="about-section color-visit"
             :media="aboutData.image"
             :title="aboutData.title"
             :description="aboutData.description"

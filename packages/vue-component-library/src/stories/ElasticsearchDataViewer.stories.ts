@@ -12,10 +12,12 @@ export default {
   },
 }
 
-export const Default = () => ({
-  components: { ElasticsearchDataViewer },
-  template: '<elasticsearch-data-viewer />',
-})
+export function Default() {
+  return {
+    components: { ElasticsearchDataViewer },
+    template: '<elasticsearch-data-viewer />',
+  }
+}
 Default.parameters = {
   docs: {
     description: {

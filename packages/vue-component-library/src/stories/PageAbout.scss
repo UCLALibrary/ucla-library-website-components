@@ -1,5 +1,5 @@
 .about-page {
-    --gutters: 48px;
+    --gutters: 0px;
     --header-height: 121px;
 
     position: relative;
@@ -37,6 +37,7 @@
 
     .main-content {
         max-width: 1600px;
+        margin: 0 auto;
         flex: 1;
         width: 100%;
         padding: 0 var(--gutters) 48px;
@@ -61,6 +62,7 @@
 
     // Breakpoints
     @media #{$extra-large} {
+        --gutters: 48px;
         .main-content {
             padding: 0 var(--gutters);
         }
@@ -73,6 +75,6 @@
     }
     @media #{$small} {
         --header-height: 103px;
-        --gutters: 24px;
+        
     }
 }

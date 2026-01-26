@@ -1,6 +1,7 @@
 import { computed, ref, watch } from 'vue'
 
 // Import components
+import SvgIconFilter from 'ucla-library-design-tokens/assets/svgs/icon-dlc-filter.svg'
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import FooterSock from '../lib-components/FooterSock.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
@@ -16,7 +17,6 @@ import BentoBoxResult from '../lib-components/BentoBoxResult.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 import DefinitionList from '../lib-components/DefinitionList.vue'
 import DividerGeneral from '../lib-components/DividerGeneral.vue'
-import SvgIconFilter from 'ucla-library-design-tokens/assets/svgs/icon-dlc-filter.svg'
 
 // Import composables
 import { useElasticsearchSearch } from '../composables/useElasticsearchSearch'
@@ -91,7 +91,7 @@ function Template(args) {
       // ============================================
       // INITIALIZATION
       // ============================================
-      
+
       // Set up global header navigation
       const globalStore = useGlobalStore()
       globalStore.header.primary = mockGlobalHeaderNavigation.primary
@@ -104,20 +104,20 @@ function Template(args) {
       // ============================================
       // REACTIVE STATE
       // ============================================
-      
+
       const isGridLayout = ref(false) // Toggle between grid and list view
       // DropdownSingleSelect components expect objects with fieldName as key
-      const dropdownSortValue = ref({ sort: 'Relevance' })      // Current sort selection
+      const dropdownSortValue = ref({ sort: 'Relevance' }) // Current sort selection
       const dropdownFilterValue = ref({ filter: 'All Formats' }) // Current filter selection
-      const currentPage = ref(mockPagination.currentPage)        // Current page number (1-indexed)
-      const isModalFilterOpen = ref(false)                       // Modal filter open/closed state
-      const searchQuery = ref('')                                // Current search query text
-      const activeFilters = ref({})                              // Active filters from SectionRemoveSearchFilter
+      const currentPage = ref(mockPagination.currentPage) // Current page number (1-indexed)
+      const isModalFilterOpen = ref(false) // Modal filter open/closed state
+      const searchQuery = ref('') // Current search query text
+      const activeFilters = ref({}) // Active filters from SectionRemoveSearchFilter
 
       // ============================================
       // WATCHERS - React to URL and state changes
       // ============================================
-      
+
       // Watch URL query parameter 'q' for search term
       // When user navigates or URL changes, update search query and execute search
       watch(
@@ -152,36 +152,38 @@ function Template(args) {
       // ============================================
       // HELPER FUNCTIONS
       // ============================================
-      
+
       /**
        * Safely extract values from nested objects or arrays
-       * 
+       *
        * Tries multiple field paths and returns the first value found.
        * Handles dot notation (e.g., "metadata.title") and arrays (returns first element).
-       * 
+       *
        * @param obj - The object to search in
        * @param paths - One or more field paths to try (e.g., 'title', 'titles', 'metadata.title')
        * @returns The found value, or null if not found
        */
       function extractValue(obj, ...paths) {
         for (const path of paths) {
-          if (!path) continue
-          
+          if (!path)
+            continue
+
           // Handle dot notation paths (e.g., "metadata.title")
           const keys = path.split('.')
           let value = obj
-          
+
           // Navigate through nested object properties
           for (const key of keys) {
-            if (value == null) break
+            if (value == null)
+              break
             value = value[key]
           }
-          
+
           // If we found a value, return it (handle arrays by taking first element)
           if (value != null) {
-            if (Array.isArray(value) && value.length > 0) {
+            if (Array.isArray(value) && value.length > 0)
               return typeof value[0] === 'string' ? value[0] : value[0]
-            }
+
             return value
           }
         }
@@ -191,19 +193,18 @@ function Template(args) {
       // ============================================
       // COMPUTED PROPERTIES - Transform data for display
       // ============================================
-      
+
       /**
        * Transform Elasticsearch hits to GridAssetPod format
-       * 
+       *
        * Maps Elasticsearch result documents to the format expected by GridAssetPod component.
        * Extracts title, date, URL, description, resourceType, collections, and locations
        * from various possible field names in the Elasticsearch _source.
        */
       const gridAssetPodItems = computed(() => {
         // Return empty array if no results
-        if (!hits.value || hits.value.length === 0) {
+        if (!hits.value || hits.value.length === 0)
           return []
-        }
 
         // Transform each Elasticsearch hit to GridAssetPod item format
         return hits.value.map((hit, index) => {
@@ -225,30 +226,39 @@ function Template(args) {
             'metadata.url',
             'dc.identifier'
           )
-          
+
           let itemUrl = '/'
           if (urlValue) {
             if (typeof urlValue === 'string' && (urlValue.startsWith('http') || urlValue.startsWith('/'))) {
               itemUrl = urlValue
-            } else if (source.url && typeof source.url === 'string') {
+            }
+            else if (source.url && typeof source.url === 'string') {
               itemUrl = source.url
-            } else if (source.ark) {
+            }
+            else if (source.ark) {
               // Use ARK to build URL if available
               itemUrl = source.url || `https://digital.library.ucla.edu/catalog/${source.ark}`
-            } else if (source.slug) {
+            }
+            else if (source.slug) {
               itemUrl = `/${source.slug}`
-            } else if (source.id) {
+            }
+            else if (source.id) {
               itemUrl = `/item/${source.id}`
-            } else {
+            }
+            else {
               itemUrl = `/${String(urlValue)}`
             }
-          } else if (source.url && typeof source.url === 'string') {
+          }
+          else if (source.url && typeof source.url === 'string') {
             itemUrl = source.url
-          } else if (source.ark) {
+          }
+          else if (source.ark) {
             itemUrl = source.url || `https://digital.library.ucla.edu/catalog/${source.ark}`
-          } else if (source.slug) {
+          }
+          else if (source.slug) {
             itemUrl = `/${source.slug}`
-          } else if (source.id) {
+          }
+          else if (source.id) {
             itemUrl = `/item/${source.id}`
           }
 
@@ -270,19 +280,18 @@ function Template(args) {
             'dateCreated',
             'datePublished'
           )
-          
+
           // Normalize date to string format
           let displayDate = ''
           if (dateValue) {
-            if (typeof dateValue === 'string') {
+            if (typeof dateValue === 'string')
               displayDate = dateValue
-            } else if (typeof dateValue === 'number') {
+            else if (typeof dateValue === 'number')
               displayDate = String(dateValue)
-            } else if (dateValue instanceof Date) {
+            else if (dateValue instanceof Date)
               displayDate = dateValue.toISOString().split('T')[0] // Format as YYYY-MM-DD
-            } else {
+            else
               displayDate = String(dateValue)
-            }
           }
 
           // ============================================
@@ -308,17 +317,15 @@ function Template(args) {
             'title.keyword',
             'name.keyword'
           )
-          
+
           // Handle arrays: if we got the whole array, take first element
-          if (Array.isArray(title) && title.length > 0) {
+          if (Array.isArray(title) && title.length > 0)
             title = title[0]
-          }
-          
+
           // Fallback: check source.titles directly if extractValue didn't find it
-          if (!title && source.titles && Array.isArray(source.titles) && source.titles.length > 0) {
+          if (!title && source.titles && Array.isArray(source.titles) && source.titles.length > 0)
             title = source.titles[0]
-          }
-          
+
           title = title || 'Untitled' // Default fallback
 
           // ============================================
@@ -338,19 +345,17 @@ function Template(args) {
             'content',
             'text'
           )
-          
+
           // Handle arrays: take first element if array
-          if (Array.isArray(descriptionValue) && descriptionValue.length > 0) {
+          if (Array.isArray(descriptionValue) && descriptionValue.length > 0)
             descriptionValue = descriptionValue[0]
-          }
-          
+
           // Fallback: check source.descriptions directly
-          if (!descriptionValue && source.descriptions && Array.isArray(source.descriptions) && source.descriptions.length > 0) {
+          if (!descriptionValue && source.descriptions && Array.isArray(source.descriptions) && source.descriptions.length > 0)
             descriptionValue = source.descriptions[0]
-          }
-          
+
           descriptionValue = descriptionValue || ''
-          
+
           // ============================================
           // EXTRACT RESOURCE TYPE
           // ============================================
@@ -366,7 +371,7 @@ function Template(args) {
             'contentType',
             'mediaType'
           ) || ''
-          
+
           // ============================================
           // EXTRACT COLLECTIONS
           // ============================================
@@ -377,13 +382,15 @@ function Template(args) {
             if (Array.isArray(collectionValue)) {
               // Map array items to strings (handle objects by extracting name/title/label)
               collections = collectionValue.map(c => typeof c === 'string' ? c : (c.name || c.title || c.label || String(c)))
-            } else if (typeof collectionValue === 'string') {
+            }
+            else if (typeof collectionValue === 'string') {
               collections = [collectionValue]
-            } else if (typeof collectionValue === 'object') {
+            }
+            else if (typeof collectionValue === 'object') {
               collections = [collectionValue.name || collectionValue.title || collectionValue.label || '']
             }
           }
-          
+
           // ============================================
           // EXTRACT LOCATIONS
           // ============================================
@@ -391,15 +398,14 @@ function Template(args) {
           let locations = []
           const locationValue = extractValue(source, 'locations', 'location', 'place', 'dc.coverage', 'metadata.location')
           if (locationValue) {
-            if (Array.isArray(locationValue)) {
+            if (Array.isArray(locationValue))
               locations = locationValue.map(l => typeof l === 'string' ? l : (l.name || l.title || l.label || String(l)))
-            } else if (typeof locationValue === 'string') {
+            else if (typeof locationValue === 'string')
               locations = [locationValue]
-            } else if (typeof locationValue === 'object') {
+            else if (typeof locationValue === 'object')
               locations = [locationValue.name || locationValue.title || locationValue.label || '']
-            }
           }
-          
+
           // ============================================
           // BUILD METADATA OBJECT
           // ============================================
@@ -409,7 +415,7 @@ function Template(args) {
             date: displayDate,
             resourceType: resourceTypeValue,
             collection: collections,
-            locations: locations,
+            locations,
           }
 
           // ============================================
@@ -417,10 +423,10 @@ function Template(args) {
           // ============================================
           // Return object in format expected by GridAssetPod component
           return {
-            to: itemUrl,        // URL for navigation
-            title,              // Display title
-            date: displayDate,  // Display date
-            metadata,           // Metadata object for DefinitionList
+            to: itemUrl, // URL for navigation
+            title, // Display title
+            date: displayDate, // Display date
+            metadata, // Metadata object for DefinitionList
           }
         })
       })
@@ -430,19 +436,18 @@ function Template(args) {
       // ============================================
       /**
        * Computed property for search results count display
-       * 
+       *
        * Uses total from Elasticsearch if available, otherwise falls back to hits length.
        * Returns object with count, prefix, label, and animate flag for SearchResultsCount component.
        */
       const searchResultsCount = computed(() => {
         // Prioritize total from Elasticsearch, but use hits length if total is 0 but we have hits
         let actualCount = 0
-        if (total.value > 0) {
+        if (total.value > 0)
           actualCount = total.value // Use Elasticsearch total count
-        } else if (hits.value && hits.value.length > 0) {
+        else if (hits.value && hits.value.length > 0)
           actualCount = hits.value.length // Fallback to current page count
-        }
-        
+
         return {
           count: actualCount,
           prefix: 'Found',
@@ -456,11 +461,11 @@ function Template(args) {
       // ============================================
       /**
        * Computed property for pagination
-       * 
+       *
        * IMPORTANT LIMIT: Elasticsearch has a hard limit: from + size <= 10000
        * This means you cannot paginate beyond result 10,000.
        * With pageSize = 10, maximum page = (10000 - 10) / 10 + 1 = 1000
-       * 
+       *
        * The pagination component will show up to 1000 pages maximum,
        * even if there are more results available.
        */
@@ -481,7 +486,7 @@ function Template(args) {
       // ============================================
       /**
        * Execute search with current parameters
-       * 
+       *
        * Builds filters from dropdown selections, merges with active filters,
        * gets sort value, and calls performSearch with all parameters.
        * TODO: get the possible filters and categories to implement filtering and sorting
