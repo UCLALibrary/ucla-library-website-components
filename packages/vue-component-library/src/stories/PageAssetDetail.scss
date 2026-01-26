@@ -1,6 +1,5 @@
 .asset-detail-page {
     --gutters: 48px;
-    --header-height: 0px;
 
     position: relative;
 
@@ -12,7 +11,7 @@
 
     .global-menu-panel {
         position: fixed;
-        top: var(--header-height);
+        top: 0px;
         left: 0;
         width: 100%;
         z-index: 200;
@@ -52,7 +51,7 @@
     .main-content {
         flex: 1;
         max-width: 1600px;
-        margin: var(--header-height) auto 0;
+        margin: 0 auto ;
         padding: 0 var(--gutters) 48px;
     }
 
@@ -84,14 +83,7 @@
     }
 
     // Breakpoints
-    @media #{$extra-large} {
-    }
-    @media #{$medium} {
-        --header-height: 0px;
-    }
     @media #{$small} {
         --gutters: 24px;
-
-        --header-height: 0px;
     }
 }

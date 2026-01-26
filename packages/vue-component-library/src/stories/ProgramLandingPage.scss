@@ -1,6 +1,5 @@
 .program-landing-page {
     --gutters: 48px;
-    --header-height: 0px;
 
     position: relative;
 
@@ -14,7 +13,7 @@
         flex: 1;
         max-width: 1600px;
         padding: 0 var(--gutters) 48px;
-        margin: var(--header-height) auto 0;
+        margin: 0 auto;
     }
 
     .search-field-composite.dlc {
@@ -42,14 +41,7 @@
     }
 
     // Breakpoints
-    @media #{$extra-large} {
-    }
-    @media #{$medium} {
-        --header-height: 0px;
-    }
     @media #{$small} {
         --gutters: 24px;
-
-        --header-height: 0px;
     }
 }

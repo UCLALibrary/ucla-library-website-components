@@ -1,8 +1,6 @@
 .main-search-field-results-page {
     --gutters: 48px;
     --horizontal-gap: 64px;
-    --header-height: 121px;
-    --search-bar-height: 118px;
 
     position: relative;
 
@@ -14,7 +12,7 @@
 
     .global-menu-panel {
         position: fixed;
-        top: var(--header-height);
+        top: 0;
         left: 0;
         width: 100%;
         z-index: 600;
@@ -39,7 +37,6 @@
 
     .search-field-composite-wrapper,
     .breadcrumbs-wrapper {
-        z-index: 500;
         position: relative;
 
         width: 100%;
@@ -189,8 +186,6 @@
     @media #{$extra-large} {
     }
     @media #{$medium} {
-        --search-bar-height: 97px;
-        --header-height: 113px;
         --horizontal-gap: 32px;
 
         .show-desktop {
@@ -232,8 +227,6 @@
     @media #{$small} {
         --horizontal-gap: 24px;
         --gutters: 24px;
-        --search-bar-height: 97px;
-        --header-height: 103px;
 
         .main-content {
             padding: 16px var(--horizontal-gap);
