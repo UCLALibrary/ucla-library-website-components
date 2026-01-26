@@ -160,6 +160,18 @@
         gap: 24px;
     }
 
+    .no-results-message {
+        padding: 48px 0;
+        text-align: center;
+
+        p {
+            font-family: var(--font-secondary);
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--color-primary-blue-05);
+        }
+    }
+
     .search-results-pagination {
         margin: 0 auto;
         max-width: 700px;
