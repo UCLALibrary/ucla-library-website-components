@@ -1,5 +1,5 @@
 // Mock data for digital collections
-export const mockDigitalCollections = {
+export const mockMainLandingPage = {
   searchForm: {
     placeholder: 'Search Digital Library Collections',
     dropdownDefaultValue: 'all-collections',
@@ -26,8 +26,7 @@ export const mockDigitalCollections = {
   featuredCollections: {
     subtitle: 'Welcome to the',
     title: 'UCLA Library Digital Collections',
-    summary:
-            '<p dir="ltr">New to UCLA Library? Get started with our quick start guide.<br /></p>',
+    summary: '<p dir="ltr">New to UCLA Library? Get started with our quick start guide.<br /></p>',
     buttons: [
       {
         label: 'Using Digital Collections Guide',

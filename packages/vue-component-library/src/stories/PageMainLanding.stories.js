@@ -6,13 +6,15 @@ import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import FooterSock from '../lib-components/FooterSock.vue'
 import ButtonMore from '../lib-components/ButtonMore.vue'
 import SectionTeaserCard from '../lib-components/SectionTeaserCard.vue'
+import BlockButtons from '../lib-components/BlockButtons.vue'
+import RichText from '../lib-components/RichText.vue'
 
 // import HeaderCollection from "../lib-components/HeaderCollection.vue"
 import NavSearch from '../lib-components/NavSearch.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 
 // Import mock data
-import { mockDigitalCollections } from './mock/Funkhaus/MockMainLandingPage'
+import { mockMainLandingPage } from './mock/Funkhaus/MockMainLandingPage'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 
@@ -48,10 +50,11 @@ function Template(args) {
       FooterPrimary,
       FooterSock,
       SectionTeaserCard,
-      // HeaderCollection,
       NavSearch,
       ButtonMore,
       SmartLink,
+      BlockButtons,
+      RichText,
     },
     provide() {
       return {
@@ -66,7 +69,7 @@ function Template(args) {
       globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
 
       const dropdownValue = ref(
-        mockDigitalCollections.searchForm.dropdownOptions[0]
+        mockMainLandingPage.searchForm.dropdownOptions[0]
       )
       const searchValue = ref('')
 
@@ -88,7 +91,7 @@ function Template(args) {
         args,
         dropdownValue,
         searchValue,
-        mockDigitalCollections,
+        mockMainLandingPage,
         mockGlobalNavSearch,
         showMoreCollections,
         handleSearchSubmit,
@@ -99,7 +102,7 @@ function Template(args) {
     computed: {
       gridItems() {
         const parsedItems
-                    = mockDigitalCollections?.featuredCollections?.entries?.map(
+                    = mockMainLandingPage?.featuredCollections?.entries?.map(
                       (entry) => {
                         return {
                           title: entry.title,
@@ -115,17 +118,17 @@ function Template(args) {
       headerItems() {
         return {
           subtitle:
-                        mockDigitalCollections?.featuredCollections?.subtitle,
-          title: mockDigitalCollections?.featuredCollections?.title,
-          text: mockDigitalCollections?.featuredCollections?.summary,
+                        mockMainLandingPage?.featuredCollections?.subtitle,
+          title: mockMainLandingPage?.featuredCollections?.title,
+          text: mockMainLandingPage?.featuredCollections?.summary,
           buttons:
-                        mockDigitalCollections?.featuredCollections?.buttons,
+                        mockMainLandingPage?.featuredCollections?.buttons,
         }
       },
       bottomLink() {
         return {
-          label: mockDigitalCollections.searchForm.text,
-          to: mockDigitalCollections.searchForm.link,
+          label: mockMainLandingPage.searchForm.text,
+          to: mockMainLandingPage.searchForm.link,
         }
       },
     },
@@ -148,11 +151,18 @@ function Template(args) {
                 :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
                 :bottom-link="bottomLink"
                 bottom-text=""
-                :background-image="mockDigitalCollections.searchForm.backgroundImage"
+                :background-image="mockMainLandingPage.searchForm.backgroundImage"
 
             />
 
-            
+            <section class="header-collection">
+              <span class="subtitle" v-html="mockMainLandingPage.featuredCollections.subtitle" />
+              <h1 class="title" v-html="mockMainLandingPage.featuredCollections.title" />
+
+              <RichText v-if="mockMainLandingPage.featuredCollections.summary" class="rich-text" :rich-text-content="mockMainLandingPage.featuredCollections.summary" />
+
+              <BlockButtons :buttons="mockMainLandingPage.featuredCollections.buttons" />
+            </section>
 
             <SectionTeaserCard
                 :items="gridItems" 
