@@ -130,11 +130,18 @@ function Template(args) {
       // ============================================
 
       // Watch URL query parameter 'q' for search term
-      // When user navigates or URL changes, update search query and execute search
+      // When user navigates or URL changes, update search query, reset pagination, and execute search
       watch(
         () => router.currentRoute.value.query.q,
-        (newQuery) => {
+        (newQuery, oldQuery) => {
           const queryText = Array.isArray(newQuery) ? newQuery[0] || '' : newQuery || ''
+          const oldQueryText = Array.isArray(oldQuery) ? oldQuery?.[0] || '' : oldQuery || ''
+          
+          // Reset pagination to page 1 if the query has actually changed
+          if (queryText !== oldQueryText) {
+            currentPage.value = 1
+          }
+          
           searchQuery.value = queryText
           executeSearch()
         },
@@ -712,7 +719,11 @@ function Template(args) {
                />
 
                <!-- Grid Asset Pod -->
+               <div v-if="gridAssetPodItems.length === 0" class="no-results-message">
+                 <p>No search results</p>
+               </div>
                <GridAssetPod
+                 v-else
                  :items="gridAssetPodItems"
                  :is-grid-layout="isGridLayout"
                  :has-transition="true"
