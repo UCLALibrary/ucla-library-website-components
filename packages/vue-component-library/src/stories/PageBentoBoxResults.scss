@@ -1,6 +1,5 @@
 .bento-box-results-page {
     --gutters: 48px;
-    --header-height: 121px;
 
     position: relative;
 
@@ -41,10 +40,8 @@
     @media #{$medium} {
         --gutters: 32px;
 
-        --header-height: 113px;
     }
     @media #{$small} {
         --gutters: 24px;
-        --header-height: 103px;
     }
 }

@@ -1,6 +1,5 @@
 .about-page {
     --gutters: 0px;
-    --header-height: 121px;
 
     position: relative;
 
@@ -12,7 +11,7 @@
 
     .global-menu-panel {
         position: fixed;
-        top: var(--header-height);
+        top: 0;
         left: 0;
         width: 100%;
         z-index: 200;
@@ -71,10 +70,8 @@
         }
     }
     @media #{$medium} {
-        --header-height: 113px;
     }
     @media #{$small} {
-        --header-height: 103px;
         
     }
 }
