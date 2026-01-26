@@ -1,3 +1,38 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.62.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.61.0...@ucla-library-monorepo/ucla-library-website-components-v1.62.0) (2026-01-23)
+
+
+### Features
+
+* Creates FilterSelections and RefineSearchPanel ([#845](https://github.com/UCLALibrary/ucla-library-website-components/issues/845)) ([f312eb8](https://github.com/UCLALibrary/ucla-library-website-components/commit/f312eb8114c041e8b567a3a9ef82ad5cf536c117))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.61.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.60.0...@ucla-library-monorepo/ucla-library-website-components-v1.61.0) (2026-01-21)
+
+
+### Features
+
+* add addon-a11y to storybook ([#882](https://github.com/UCLALibrary/ucla-library-website-components/issues/882)) ([cc2c5ed](https://github.com/UCLALibrary/ucla-library-website-components/commit/cc2c5ed6fe34b13ca13e576aae617801d8929d3f))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.60.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.59.0...@ucla-library-monorepo/ucla-library-website-components-v1.60.0) (2026-01-20)
+
+
+### Bug Fixes
+
+* APPS-3623 Truncate breadcrumb override titles and final title ([#881](https://github.com/UCLALibrary/ucla-library-website-components/issues/881)) ([1ae166b](https://github.com/UCLALibrary/ucla-library-website-components/commit/1ae166bee8977764ed08238c57ee312c8a33c8bc))
+* APPS-3626 break-all text on small screens ([#885](https://github.com/UCLALibrary/ucla-library-website-components/issues/885)) ([41db7b9](https://github.com/UCLALibrary/ucla-library-website-components/commit/41db7b9bd1f0d7959eac432aa5679ce4b63d6d17))
+
+
+### Features
+
+* Add ModalFilter ([#878](https://github.com/UCLALibrary/ucla-library-website-components/issues/878)) ([46d0ebd](https://github.com/UCLALibrary/ucla-library-website-components/commit/46d0ebd25b289343720d4d4b0ac838d5359f9edd))
+* Add PageAnchor DLC Theme ([#876](https://github.com/UCLALibrary/ucla-library-website-components/issues/876)) ([d910465](https://github.com/UCLALibrary/ucla-library-website-components/commit/d91046578ecd83516710b3ab83a118f33828f1d8))
+* Add PanelAnchorNav ([#877](https://github.com/UCLALibrary/ucla-library-website-components/issues/877)) ([2a78ee5](https://github.com/UCLALibrary/ucla-library-website-components/commit/2a78ee55b6e8b7921ca06f165e96ad7a74d9bd3b))
+* APPS-3671 add dompurify for safe v-html usage ([#883](https://github.com/UCLALibrary/ucla-library-website-components/issues/883)) ([f8d91c2](https://github.com/UCLALibrary/ucla-library-website-components/commit/f8d91c2587c84f7b560e6fdcccb8e74928367551))
+* APPS-3677 imageslider support altText field in addition to alt ([#884](https://github.com/UCLALibrary/ucla-library-website-components/issues/884)) ([7c9944f](https://github.com/UCLALibrary/ucla-library-website-components/commit/7c9944f3aedf4660840175ef07051fbe86678c69))
+* BentoBoxBlock and BentoBoxResult components ([#863](https://github.com/UCLALibrary/ucla-library-website-components/issues/863)) ([310b1a8](https://github.com/UCLALibrary/ucla-library-website-components/commit/310b1a8add36554da77eaff389555031046831b6))
+* Create BentoPod/GridBentoPod components  ([#862](https://github.com/UCLALibrary/ucla-library-website-components/issues/862)) ([184d054](https://github.com/UCLALibrary/ucla-library-website-components/commit/184d0541561c7bc994606d98ca4ba1432b02a0d4))
+* create MetadataTable and grid components ([#880](https://github.com/UCLALibrary/ucla-library-website-components/issues/880)) ([344de0c](https://github.com/UCLALibrary/ucla-library-website-components/commit/344de0ccc624da1c2557f17bdcdba65fb0cffb22))
+* create the HeaderMainFunkhaus ([#867](https://github.com/UCLALibrary/ucla-library-website-components/issues/867)) ([e803693](https://github.com/UCLALibrary/ucla-library-website-components/commit/e803693c9220b73ead5c6c6d6160de685997cc61))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.59.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.58.0...@ucla-library-monorepo/ucla-library-website-components-v1.59.0) (2025-12-04)
 
 
