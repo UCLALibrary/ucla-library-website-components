@@ -14,7 +14,6 @@ import ButtonLink from '../lib-components/ButtonLink.vue'
 import DLViewer from '../lib-components/DLViewer.vue'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockAssetDetailDataPage } from '@/stories/mock/Funkhaus/MockAssetDetailDataPage'
-
 import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 
 // Import styles
@@ -37,12 +36,6 @@ export default {
       options: ['default', 'dlc'],
       description: 'Theme variant for the page',
     },
-    searchInitialValue: { control: 'text' },
-    searchPlaceholder: { control: 'text' },
-    searchDropdownValue: { control: 'text' },
-    searchDropdownOptions: { control: 'array' },
-    searchDropdownPlaceholder: { control: 'text' },
-    searchShowDivider: { control: 'boolean' },
   },
 }
 
@@ -86,7 +79,7 @@ function Template(args) {
     template: `
        <div class="asset-detail-page">
          <!-- Header -->
-        <header-smart/>
+        <HeaderSmart />
 
         <!-- Search -->
         <div class="search-field-composite-wrapper">
@@ -100,7 +93,6 @@ function Template(args) {
           />
         </div>
 
-
         <DetailHeader
           :current-index="1"
           :total-results="mockAssetDetailDataPage.detailHeader.totalResults"
@@ -112,12 +104,8 @@ function Template(args) {
         />
         <DividerGeneral class="divider" is-tertiary />
 
-
         <main class="main-content">
-
-
           <h1 class="page-title">{{ mockAssetDetailDataPage.title }}</h1>
-
           <DLViewer
             :iiif_manifest_url="mockAssetDetailDataPage.detailMedia.manifestUrl"
             :title="mockAssetDetailDataPage.detailMedia.title"
@@ -125,17 +113,14 @@ function Template(args) {
             class="detail-media"
           />
         
-
           <!-- Grid Metadata -->
           <GridMetadata :items="gridMetadataItems" />
-
           <ButtonLink
             v-if="mockAssetDetailDataPage.detailHeader.backTo"
             :to="mockAssetDetailDataPage.detailHeader.backTo"
             class="back-button"
             label="Back to Search Results"
           />
-
         </main>
          
          <!-- Footer -->
@@ -151,21 +136,4 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
-  searchInitialValue: '',
-  searchPlaceholder: 'Search in...',
-  searchDropdownValue: 'all-programs',
-  searchDropdownOptions: [
-    { label: 'All Programs', value: 'all-programs' },
-    {
-      label: 'Books & E-books',
-      value: 'books-e-books',
-    },
-    {
-      label: 'Articles & Journals',
-      value: 'articles-journals',
-    },
-    { label: 'Databases', value: 'databases' },
-  ],
-  searchDropdownPlaceholder: 'Select category',
-  searchShowDivider: true,
 }

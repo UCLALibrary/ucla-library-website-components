@@ -802,6 +802,4 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
-  searchInitialValue: '',
-  searchPlaceholder: 'Search in...',
 }

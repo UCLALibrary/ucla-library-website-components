@@ -3,20 +3,12 @@ import { computed, ref } from 'vue'
 // Import components
 import FooterPrimary from '../lib-components/FooterPrimary.vue'
 import FooterSock from '../lib-components/FooterSock.vue'
-
-// import SearchFieldComposite from '../lib-components/SearchFieldComposite.vue'
-// import SmartLink from '../lib-components/SmartLink.vue'
 import BannerFeatured from '../lib-components/BannerFeatured.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 import * as API from './mock-api.json'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
-
-// import HeaderMainFunkhaus from '../lib-components/HeaderMainFunkhaus.vue'
-// import GlobalMenuPanel from '../lib-components/GlobalMenuPanel.vue'
-
-// Import mock data
 
 // Import styles
 import './PageAbout.scss'
@@ -38,13 +30,7 @@ export default {
       control: { type: 'select' },
       options: ['default', 'dlc'],
       description: 'Theme variant for the page',
-    },
-    searchInitialValue: { control: 'text' },
-    searchPlaceholder: { control: 'text' },
-    searchDropdownValue: { control: 'text' },
-    searchDropdownOptions: { control: 'array' },
-    searchDropdownPlaceholder: { control: 'text' },
-    searchShowDivider: { control: 'boolean' },
+    }
   },
 }
 
@@ -54,8 +40,6 @@ function Template(args) {
     components: {
       FooterPrimary,
       FooterSock,
-      // SearchFieldComposite,
-      // SmartLink,
       BannerFeatured,
       HeaderSmart,
       NavSearch,
@@ -134,21 +118,20 @@ function Template(args) {
     template: `
       <div class="about-page">
         <!-- Header -->
-        <header-smart/>
+        <HeaderSmart />
 
-         <div class="search-field-composite-wrapper">
-            <NavSearch
-              :show-divider="true"
-              :dropdown-options="mockGlobalNavSearch.dropdownOptions"
-              :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
-              :placeholder="mockGlobalNavSearch.placeholder"
-              bottom-text=""
-              :bottom-link="null"
-            />
-          </div>
+        <div class="search-field-composite-wrapper">
+          <NavSearch
+            :show-divider="true"
+            :dropdown-options="mockGlobalNavSearch.dropdownOptions"
+            :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
+            :placeholder="mockGlobalNavSearch.placeholder"
+            bottom-text=""
+            :bottom-link="null"
+          />
+        </div>
+
         <main class="main-content">
-         
-
           <!-- Our Mission Section -->
           <BannerFeatured
             class="mission-section color-help"
@@ -157,7 +140,6 @@ function Template(args) {
             :description="missionData.description"
             :align-right="missionData.alignRight"
           />
-
           <!-- About UCLA Library Section -->
           <BannerFeatured
             class="about-section color-visit"
@@ -166,7 +148,6 @@ function Template(args) {
             :description="aboutData.description"
             :align-right="aboutData.alignRight"
           />
-
           <!-- Have Other Questions Section -->
           <BannerFeatured
             class="questions-section"
@@ -177,6 +158,7 @@ function Template(args) {
             :align-right="questionsData.alignRight"
           />
         </main>
+        
         <!-- Footer -->
         <FooterPrimary />
         <!-- Footer Sock -->
@@ -190,17 +172,4 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
-  searchInitialValue: '',
-  searchPlaceholder: 'Search in...',
-  searchDropdownValue: 'All Collections',
-  searchDropdownOptions: [
-    'All Collections',
-    'Books & E-books',
-    'Articles & Journals',
-    'Databases',
-    'Digital Collections',
-    'Archives & Special Collections',
-  ],
-  searchDropdownPlaceholder: 'Select category',
-  searchShowDivider: false,
 }

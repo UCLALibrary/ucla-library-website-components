@@ -36,12 +36,6 @@ export default {
       options: ['default', 'dlc'],
       description: 'Theme variant for the page',
     },
-    searchInitialValue: { control: 'text' },
-    searchPlaceholder: { control: 'text' },
-    searchDropdownValue: { control: 'text' },
-    searchDropdownOptions: { control: 'array' },
-    searchDropdownPlaceholder: { control: 'text' },
-    searchShowDivider: { control: 'boolean' },
   },
 }
 
@@ -119,36 +113,21 @@ function Template(args) {
     },
     template: `
        <div class="program-landing-page">
-         <HeaderSmart/>
-
+        <HeaderSmart />
 
         <main class="main-content">
           <div class="search-field-composite-wrapper">
-
             <NavSearch 
-                class='search-field-composite'
-                :show-divider="true"
-                :placeholder="mockGlobalNavSearch.placeholder"
-                :dropdown-options="mockGlobalNavSearch.dropdownOptions" 
-                :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
-                bottom-text=""
-                :bottom-link="null"
+              class='search-field-composite'
+              :show-divider="true"
+              :placeholder="mockGlobalNavSearch.placeholder"
+              :dropdown-options="mockGlobalNavSearch.dropdownOptions" 
+              :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
+              bottom-text=""
+              :bottom-link="null"
             />
-
-
-            <!-- <SearchFieldComposite
-          
-              :initial-value="args.searchInitialValue || searchValue"
-              
-              :dropdown-model-value="dropdownValue"
-              
-              :dropdown-placeholder="args.searchDropdownPlaceholder"
-              :show-divider="args.searchShowDivider !== undefined ? args.searchShowDivider : true"
-              @submit="handleSearchSubmit"
-              @update:dropdown-model-value="handleDropdownUpdate"
-            /> -->
           </div>
-
+          
           <CollectionOverview
             class="collection-overview"
             :title="mockProgramLandingPage.collectionOverview.title"
@@ -161,19 +140,16 @@ function Template(args) {
           <h2 class="title-grid-assets">
             {{ mockProgramLandingPage.gridAssets.title }}
           </h2>
-        <SectionTeaserCard
-            :items="gridItems" 
-            :grid-layout="true"
-            class="section-teaser-card"
-        />
-
-
-          <ButtonMore
-              class="button-more"
-              text="Browse more projects"
-              @click="showMoreFeaturedProjects"
+          <SectionTeaserCard
+              :items="gridItems" 
+              :grid-layout="true"
+              class="section-teaser-card"
           />
-        
+          <ButtonMore
+            class="button-more"
+            text="Browse more projects"
+            @click="showMoreFeaturedProjects"
+          />
         </main>
          
          <!-- Footer -->
@@ -189,21 +165,4 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
-  searchInitialValue: '',
-  searchPlaceholder: 'Search in...',
-  searchDropdownValue: 'all-programs',
-  searchDropdownOptions: [
-    { label: 'All Programs', value: 'all-programs' },
-    {
-      label: 'Books & E-books',
-      value: 'books-e-books',
-    },
-    {
-      label: 'Articles & Journals',
-      value: 'articles-journals',
-    },
-    { label: 'Databases', value: 'databases' },
-  ],
-  searchDropdownPlaceholder: 'Select category',
-  searchShowDivider: true,
 }

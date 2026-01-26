@@ -36,12 +36,6 @@ export default {
       options: ['default', 'dlc'],
       description: 'Theme variant for the page',
     },
-    searchInitialValue: { control: 'text' },
-    searchPlaceholder: { control: 'text' },
-    searchDropdownValue: { control: 'text' },
-    searchDropdownOptions: { control: 'array' },
-    searchDropdownPlaceholder: { control: 'text' },
-    searchShowDivider: { control: 'boolean' },
   },
 }
 
@@ -108,24 +102,21 @@ function Template(args) {
     template: `
        <div class="collections-detail-page">
          <!-- Header -->
-        <header-smart/>
+        <HeaderSmart />
 
-          <!-- Collection Overview -->
-          <div class="search-field-composite-wrapper">
-            <NavSearch
-              :show-divider="true"
-              :dropdown-options="mockGlobalNavSearch.dropdownOptions"
-              :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
-              :placeholder="mockGlobalNavSearch.placeholder"
-              bottom-text=""
-              :bottom-link="null"
-            />
-          </div>
+        <!-- Collection Overview -->
+        <div class="search-field-composite-wrapper">
+          <NavSearch
+            :show-divider="true"
+            :dropdown-options="mockGlobalNavSearch.dropdownOptions"
+            :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
+            :placeholder="mockGlobalNavSearch.placeholder"
+            bottom-text=""
+            :bottom-link="null"
+          />
+        </div>
 
         <main class="main-content">
-
-        
-
           <CollectionOverview v-bind="collectionOverviewProps" />
 
           <!-- Grid Metadata -->
@@ -150,6 +141,7 @@ function Template(args) {
               </div>
             </template>
           </GridMetadata>
+          
           <!-- Button More -->
           <ButtonMore
             class="button-more"
@@ -184,20 +176,4 @@ function Template(args) {
 export const Default = Template.bind({})
 Default.args = {
   theme: 'dlc',
-  searchInitialValue: '',
-  searchDropdownValue: 'all-programs',
-  searchDropdownOptions: [
-    { label: 'All Programs', value: 'all-programs' },
-    {
-      label: 'Books & E-books',
-      value: 'books-e-books',
-    },
-    {
-      label: 'Articles & Journals',
-      value: 'articles-journals',
-    },
-    { label: 'Databases', value: 'databases' },
-  ],
-  searchDropdownPlaceholder: 'Select category',
-  searchShowDivider: true,
 }
