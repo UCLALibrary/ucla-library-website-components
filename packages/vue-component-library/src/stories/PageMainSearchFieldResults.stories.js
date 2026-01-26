@@ -17,7 +17,6 @@ import BentoBoxResult from '../lib-components/BentoBoxResult.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 import DefinitionList from '../lib-components/DefinitionList.vue'
 import DividerGeneral from '../lib-components/DividerGeneral.vue'
-import SvgIconFilter from 'ucla-library-design-tokens/assets/svgs/icon-dlc-filter.svg'
 import RefineSearchPanel from '../lib-components/RefineSearchPanel.vue'
 
 // Import composables
@@ -94,16 +93,15 @@ function Template(args) {
       // ============================================
       // INITIALIZATION
       // ============================================
-      
+
       // Add navigation guard to redirect /search to / while preserving query params
       const removeGuard = router.beforeEach((to, from, next) => {
-        if (to.path === '/search') {
+        if (to.path === '/search')
           next({ path: '/', query: to.query })
-        } else {
+        else
           next()
-        }
       })
-      
+
       // Set up global header navigation
       const globalStore = useGlobalStore()
       globalStore.header.primary = mockGlobalHeaderNavigation.primary
@@ -121,11 +119,11 @@ function Template(args) {
       // DropdownSingleSelect components expect objects with fieldName as key
       const dropdownSortValue = ref({ sort: 'Relevance' }) // Current sort selection
       const dropdownFilterValue = ref({ filter: 'All Formats' }) // Current filter selection
-      const currentPage = ref(mockPagination.currentPage)        // Current page number (1-indexed)
-      const isModalFilterOpen = ref(false)                       // Modal filter open/closed state
-      const searchQuery = ref('')                                // Current search query text
-      const activeFilters = ref({})                              // Active filters from SectionRemoveSearchFilter
-      const refineSearchSelections = ref({})                    // Selected options from RefineSearchPanel
+      const currentPage = ref(mockPagination.currentPage) // Current page number (1-indexed)
+      const isModalFilterOpen = ref(false) // Modal filter open/closed state
+      const searchQuery = ref('') // Current search query text
+      const activeFilters = ref({}) // Active filters from SectionRemoveSearchFilter
+      const refineSearchSelections = ref({}) // Selected options from RefineSearchPanel
 
       // ============================================
       // WATCHERS - React to URL and state changes
