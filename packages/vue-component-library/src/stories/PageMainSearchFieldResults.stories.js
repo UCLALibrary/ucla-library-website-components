@@ -136,12 +136,11 @@ function Template(args) {
         (newQuery, oldQuery) => {
           const queryText = Array.isArray(newQuery) ? newQuery[0] || '' : newQuery || ''
           const oldQueryText = Array.isArray(oldQuery) ? oldQuery?.[0] || '' : oldQuery || ''
-          
+
           // Reset pagination to page 1 if the query has actually changed
-          if (queryText !== oldQueryText) {
+          if (queryText !== oldQueryText)
             currentPage.value = 1
-          }
-          
+
           searchQuery.value = queryText
           executeSearch()
         },
