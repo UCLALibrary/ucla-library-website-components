@@ -624,6 +624,7 @@ function Template(args) {
                  :prefix="searchResultsCount?.prefix || 'Found'"
                  :label="searchResultsCount?.label || 'Results'"
                  :animate="searchResultsCount?.animate || false"
+                 class="search-results-count"
                />
                <button
                  type="button"
