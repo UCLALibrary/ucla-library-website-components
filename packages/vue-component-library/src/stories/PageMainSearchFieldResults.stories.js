@@ -487,7 +487,7 @@ function Template(args) {
        * even if there are more results available.
        */
       const pagination = computed(() => {
-        const pageSize = 10
+        const pageSize = 6
         const actualTotal = total.value || 0
         const maxPages = 1000 // Elasticsearch pagination limit
         const calculatedPages = Math.ceil(actualTotal / pageSize)
@@ -712,7 +712,7 @@ function Template(args) {
                  :pages="mockPagination.totalPages"
                  :initial-current-page="currentPage"
                  :fixed-page-width-mode="true"
-                 :fixed-page-width-num="15"
+                 :fixed-page-width-num="7"
                  @change-page="handlePageChange"
                  class="search-results-pagination"
                />
@@ -765,7 +765,7 @@ function Template(args) {
                  :pages="mockPagination.totalPages"
                  :initial-current-page="currentPage"
                  :fixed-page-width-mode="true"
-                 :fixed-page-width-num="15"
+                 :fixed-page-width-num="7"
                  @change-page="handlePageChange"
                  class="search-results-pagination bottom-pagination"
                />
