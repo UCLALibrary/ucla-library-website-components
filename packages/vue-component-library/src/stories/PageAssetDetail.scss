@@ -35,6 +35,20 @@
         }
     }
 
+    .detail-header {
+        padding-inline: var(--gutters);
+    }
+
+    .divider {
+        width: calc(100% - var(--gutters) * 2);
+        max-width: 100%;
+        margin: 16px var(--gutters);
+
+        &.is-tertiary {
+            border-width: 1px;
+        }
+    }
+
     .main-content {
         flex: 1;
         max-width: 1600px;
@@ -57,6 +71,13 @@
     }
     .grid-metadata {
         margin-bottom: 24px;
+    }
+
+    .back-button {
+        display: block;
+        margin: 0 auto;
+        max-width: fit-content;
+        
     }
     .button-wrapper {
         text-align: center;

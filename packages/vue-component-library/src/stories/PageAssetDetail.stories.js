@@ -7,6 +7,8 @@ import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import DetailHeader from '../lib-components/DetailHeader.vue'
 import GridMetadata from '../lib-components/GridMetadata.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
+import DividerGeneral from '../lib-components/DividerGeneral.vue'
+import ButtonLink from '../lib-components/ButtonLink.vue'
 
 // Import mock data
 import DLViewer from '../lib-components/DLViewer.vue'
@@ -55,6 +57,8 @@ function Template(args) {
       GridMetadata,
       NavSearch,
       DLViewer,
+      DividerGeneral,
+      ButtonLink,
     },
     provide() {
       return {
@@ -84,28 +88,33 @@ function Template(args) {
          <!-- Header -->
         <header-smart/>
 
-          <!-- Search -->
-          <div class="search-field-composite-wrapper">
-            <NavSearch
-              :show-divider="true"
-              :dropdown-options="mockGlobalNavSearch.dropdownOptions"
-              :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
-              :placeholder="mockGlobalNavSearch.placeholder"
-              bottom-text=""
-              :bottom-link="null"
-            />
-          </div>
+        <!-- Search -->
+        <div class="search-field-composite-wrapper">
+          <NavSearch
+            :show-divider="true"
+            :dropdown-options="mockGlobalNavSearch.dropdownOptions"
+            :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
+            :placeholder="mockGlobalNavSearch.placeholder"
+            bottom-text=""
+            :bottom-link="null"
+          />
+        </div>
+
+
+        <DetailHeader
+          :current-index="1"
+          :total-results="mockAssetDetailDataPage.detailHeader.totalResults"
+          :tag="mockAssetDetailDataPage.detailHeader.tag"
+          :previous-to="mockAssetDetailDataPage.detailHeader.previousTo"
+          :next-to="mockAssetDetailDataPage.detailHeader.nextTo"
+          :back-to="mockAssetDetailDataPage.detailHeader.backTo"
+          class="detail-header"
+        />
+        <DividerGeneral class="divider" is-tertiary />
+
 
         <main class="main-content">
 
-          <DetailHeader
-            :current-index="1"
-            :total-results="mockAssetDetailDataPage.detailHeader.totalResults"
-            :tag="mockAssetDetailDataPage.detailHeader.tag"
-            :previous-to="mockAssetDetailDataPage.detailHeader.previousTo"
-            :next-to="mockAssetDetailDataPage.detailHeader.nextTo"
-            :back-to="mockAssetDetailDataPage.detailHeader.backTo"
-          />
 
           <h1 class="page-title">{{ mockAssetDetailDataPage.title }}</h1>
 
@@ -119,6 +128,13 @@ function Template(args) {
 
           <!-- Grid Metadata -->
           <GridMetadata :items="gridMetadataItems" />
+
+          <ButtonLink
+            v-if="mockAssetDetailDataPage.detailHeader.backTo"
+            :to="mockAssetDetailDataPage.detailHeader.backTo"
+            class="back-button"
+            label="Back to Search Results"
+          />
 
         </main>
          
