@@ -119,7 +119,7 @@ function Template(args) {
           <h1 class="page-title">{{ mockAssetDetailDataPage.title }}</h1>
 
           <DLViewer
-            :manifest-url="mockAssetDetailDataPage.detailMedia.manifestUrl"
+            :iiif_manifest_url="mockAssetDetailDataPage.detailMedia.manifestUrl"
             :title="mockAssetDetailDataPage.detailMedia.title"
             :description="mockAssetDetailDataPage.detailMedia.description"
             class="detail-media"

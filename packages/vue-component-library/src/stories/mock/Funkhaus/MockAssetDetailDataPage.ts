@@ -32,7 +32,7 @@ export const mockAssetDetailDataPage = {
     backTo: 'https://www.google.com',
   },
   detailMedia: {
-    manifestUrl: 'https://wellcomelibrary.org/iiif/b18035723/manifest',
+    manifestUrl: 'https://iiif.library.ucla.edu/ark%3A%2F21198%2Fz1kh5nht/manifest',
     title: '1/2 length portrait of comedian Danny Thomas with pills he takes for his voice, 1963',
     description:
             'A self-portrait by Vincent van Gogh from 1888, dedicated to Paul Gauguin',
