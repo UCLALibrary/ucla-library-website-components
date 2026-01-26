@@ -17,6 +17,8 @@ import BentoBoxResult from '../lib-components/BentoBoxResult.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 import DefinitionList from '../lib-components/DefinitionList.vue'
 import DividerGeneral from '../lib-components/DividerGeneral.vue'
+import SvgIconFilter from 'ucla-library-design-tokens/assets/svgs/icon-dlc-filter.svg'
+import RefineSearchPanel from '../lib-components/RefineSearchPanel.vue'
 
 // Import composables
 import { useElasticsearchSearch } from '../composables/useElasticsearchSearch'
@@ -61,8 +63,8 @@ export default {
 
 // Template function for the main landing page
 function Template(args) {
-  // Initialize router with a path so ButtonPageView can build URLs correctly
-  router.push({ path: '/search', query: router.currentRoute.value.query })
+  // Initialize router with query so ButtonPageView can build URLs correctly
+  router.push({ query: router.currentRoute.value.query })
   return {
     components: {
       HeaderSmart,
@@ -81,6 +83,7 @@ function Template(args) {
       DefinitionList,
       DividerGeneral,
       SvgIconFilter,
+      RefineSearchPanel,
     },
     provide() {
       return {
@@ -91,7 +94,16 @@ function Template(args) {
       // ============================================
       // INITIALIZATION
       // ============================================
-
+      
+      // Add navigation guard to redirect /search to / while preserving query params
+      const removeGuard = router.beforeEach((to, from, next) => {
+        if (to.path === '/search') {
+          next({ path: '/', query: to.query })
+        } else {
+          next()
+        }
+      })
+      
       // Set up global header navigation
       const globalStore = useGlobalStore()
       globalStore.header.primary = mockGlobalHeaderNavigation.primary
@@ -109,10 +121,11 @@ function Template(args) {
       // DropdownSingleSelect components expect objects with fieldName as key
       const dropdownSortValue = ref({ sort: 'Relevance' }) // Current sort selection
       const dropdownFilterValue = ref({ filter: 'All Formats' }) // Current filter selection
-      const currentPage = ref(mockPagination.currentPage) // Current page number (1-indexed)
-      const isModalFilterOpen = ref(false) // Modal filter open/closed state
-      const searchQuery = ref('') // Current search query text
-      const activeFilters = ref({}) // Active filters from SectionRemoveSearchFilter
+      const currentPage = ref(mockPagination.currentPage)        // Current page number (1-indexed)
+      const isModalFilterOpen = ref(false)                       // Modal filter open/closed state
+      const searchQuery = ref('')                                // Current search query text
+      const activeFilters = ref({})                              // Active filters from SectionRemoveSearchFilter
+      const refineSearchSelections = ref({})                    // Selected options from RefineSearchPanel
 
       // ============================================
       // WATCHERS - React to URL and state changes
@@ -527,6 +540,16 @@ function Template(args) {
         // Note: The watcher on currentPage will automatically trigger executeSearch()
       }
 
+      /**
+       * Handle selection changes from RefineSearchPanel
+       */
+      const handleRefineSearchSelectionChange = (selections) => {
+        refineSearchSelections.value = selections
+        // Merge refine search selections into activeFilters
+        // This will trigger the watcher and re-execute search
+        Object.assign(activeFilters.value, selections)
+      }
+
       // ============================================
       // INITIALIZATION
       // ============================================
@@ -554,6 +577,7 @@ function Template(args) {
         gridAssetPodItems,
         mockSearchFilters,
         handlePageChange,
+        handleRefineSearchSelectionChange,
       }
     },
     computed: {
@@ -590,12 +614,23 @@ function Template(args) {
 
            <!-- Search Results Controls - Desktop -->
            <div class="search-results-sort-wrapper show-desktop">
-             <SearchResultsCount
-               :count="searchResultsCount?.count || 0"
-               :prefix="searchResultsCount?.prefix || 'Found'"
-               :label="searchResultsCount?.label || 'Results'"
-               :animate="searchResultsCount?.animate || false"
-             />
+             <div class="count-filter-wrapper">
+               <SearchResultsCount
+                 :count="searchResultsCount?.count || 0"
+                 :prefix="searchResultsCount?.prefix || 'Found'"
+                 :label="searchResultsCount?.label || 'Results'"
+                 :animate="searchResultsCount?.animate || false"
+               />
+               <button
+                 type="button"
+                 class="button-filter-modal"
+                 aria-label="Open filter modal"
+                 @click="isModalFilterOpen = true"
+               >
+                 <SvgIconFilter class="icon-filter" />
+                 <span>Refine Search</span>
+               </button>
+             </div>
              <div class="sort-container">
                <DropdownSingleSelect
                  v-model:selectedFilters="dropdownSortValue"
@@ -626,6 +661,15 @@ function Template(args) {
                  :label="searchResultsCount.label"
                  :animate="searchResultsCount.animate"
                />
+               <button
+                 type="button"
+                 class="button-filter-modal"
+                 aria-label="Open filter modal"
+                 @click="isModalFilterOpen = true"
+               >
+                 <SvgIconFilter class="icon-filter" />
+                 <span>Refine Search</span>
+               </button>
               <ButtonPageView />
              </div>
              <div class="sort-container">
@@ -651,15 +695,11 @@ function Template(args) {
            <!-- Layout -->
            <div class="search-results-layout">
              <aside class="refine-search-placeholder">
-               <button
-                 type="button"
-                 class="button-filter-modal"
-                 aria-label="Open filter modal"
-                 @click="isModalFilterOpen = true"
-               >
-                 <SvgIconFilter class="icon-filter" />
-                 <span>Refine Search</span>
-               </button>
+               <RefineSearchPanel
+                 :title="mockRefineSearchPanel.title"
+                 :filters="mockRefineSearchPanel.filters"
+                 @selection-change="handleRefineSearchSelectionChange"
+               />
              </aside>
 
              <div class="search-results-main">

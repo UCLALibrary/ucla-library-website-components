@@ -85,6 +85,38 @@
         margin-bottom: 24px;
     }
 
+    .count-filter-wrapper {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .button-filter-modal {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: transparent;
+        border: 1px solid var(--color-primary-blue-05);
+        color: var(--color-primary-blue-05);
+        cursor: pointer;
+        font-family: var(--font-secondary);
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: var(--color-primary-blue-05);
+            color: var(--color-white);
+        }
+
+        .icon-filter {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
     .divider-general {
         margin: 15px 0;
         max-width: 100%;
@@ -222,14 +254,5 @@
             margin-top: 24px;
             width: auto;
         }
-    }
-
-    .refine-search-placeholder {
-        width: 100%;
-        max-width: 300px;
-        background: red;
-        color: var(--color-white);
-        padding: 16px;
-        box-sizing: border-box;
     }
 }
