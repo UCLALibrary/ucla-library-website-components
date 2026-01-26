@@ -36,6 +36,28 @@
         }
     }
 
+
+    .column-container:first-child {
+        .block-container {
+            &:nth-child(2n+2){
+                .bento-pod {
+                    background-color: var(--color-primary-blue-01);
+                }
+            }
+        }
+    }
+
+    .column-container:last-child {
+        .block-container {
+            &:nth-child(2n+1){
+                .bento-pod {
+                    background-color: var(--color-primary-blue-01);
+                }
+            }
+        }
+    }
+   
+
     // Breakpoints
     @media #{$medium} {
         --gutters: 32px;
