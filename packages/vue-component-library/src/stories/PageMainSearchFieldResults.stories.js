@@ -431,7 +431,9 @@ function Template(args) {
                   : l.name || l.title || l.label || String(l)
               )
             }
-            else if (typeof locationValue === 'string') { locations = [locationValue] }
+            else if (typeof locationValue === 'string') {
+              locations = [locationValue]
+            }
             else if (typeof locationValue === 'object') {
               locations = [
                 locationValue.name
