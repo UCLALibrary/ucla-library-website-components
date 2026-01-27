@@ -10,8 +10,11 @@ import BentoPod from '../lib-components/BentoPod.vue'
 import BentoFilterMenu from '../lib-components/BentoFilterMenu.vue'
 
 // Import mock data
+import {
+  getMockGlobalNavSearch,
+  setupGlobalStore,
+} from './helpers/storyHelpers'
 import { mockBentoBoxResultsPage } from '@/stories/mock/Funkhaus/MockBentoBoxResultsPage'
-import { getMockGlobalNavSearch, setupGlobalStore } from './helpers/storyHelpers'
 
 // Import styles
 import './PageBentoBoxResults.scss'
@@ -24,7 +27,8 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A single page layout with header, main content area, and footer. This serves as a template for bento box results pages.',
+        component:
+                    'A single page layout with header, main content area, and footer. This serves as a template for bento box results pages.',
       },
     },
   },
@@ -83,21 +87,20 @@ function Template(args) {
         <!-- Header -->
         <header-smart class='header'/>
 
-      
-
-         <div class="search-field-composite-wrapper">
-            <NavSearch
-              :show-divider="true"
-              :dropdown-options="mockGlobalNavSearch.dropdownOptions"
-              :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
-              :placeholder="mockGlobalNavSearch.placeholder"
-              bottom-text=""
-              :bottom-link="null"
-            />
-          </div>
+        <!-- Nav Search -->
+        <div class="search-field-composite-wrapper">
+          <NavSearch
+            :show-divider="true"
+            :dropdown-options="mockGlobalNavSearch.dropdownOptions"
+            :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
+            :placeholder="mockGlobalNavSearch.placeholder"
+            bottom-text=""
+            :bottom-link="null"
+          />
+        </div>
+        
         <main class="main-content">
-
-          <!-- Bento Filter Menu -->
+        <!-- Bento Filter Menu -->
         <BentoFilterMenu class="bento-filter-menu" :items="bentoFilterItems" />
           <!-- Grid Asset Pod with Two Column Layout for Bento Pod -->
           <GridAssetPod 

@@ -2,7 +2,7 @@
 
 .main-search-field-results-page {
     @include page-container;
-    --horizontal-gap: 64px;
+    --horizontal-gap: 48px;
 
     .global-menu-panel {
         position: fixed;
@@ -160,10 +160,8 @@
     }
 
     // Breakpoints
-    @media #{$extra-large} {
-    }
     @media #{$medium} {
-        --horizontal-gap: 32px;
+        --horizontal-gap: 24px;
 
         .show-desktop {
             display: none;

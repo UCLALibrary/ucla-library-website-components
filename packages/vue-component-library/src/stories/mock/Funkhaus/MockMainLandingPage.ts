@@ -1,15 +1,6 @@
 // Mock data for digital collections
 export const mockMainLandingPage = {
   searchForm: {
-    placeholder: 'Search Digital Library Collections',
-    dropdownDefaultValue: 'all-collections',
-    dropdownOptions: [
-      { label: 'All Collections', value: 'all-collections' },
-      { label: 'Books & E-books', value: 'books-e-books' },
-      { label: 'Articles & Journals', value: 'articles-journals' },
-      { label: 'Databases', value: 'databases' },
-    ],
-
     backgroundImage: {
       id: 'meap-001',
       src: 'https://static.library.ucla.edu/craftassetsprod/images/_1280xAUTO_crop_center-center_none/default_2025-05-07-203406_apbl.jpg',
@@ -26,7 +17,8 @@ export const mockMainLandingPage = {
   featuredCollections: {
     subtitle: 'Welcome to the',
     title: 'UCLA Library Digital Collections',
-    summary: '<p dir="ltr">New to UCLA Library? Get started with our quick start guide.<br /></p>',
+    summary:
+            '<p dir="ltr">New to UCLA Library? Get started with our quick start guide.<br /></p>',
     buttons: [
       {
         label: 'Using Digital Collections Guide',

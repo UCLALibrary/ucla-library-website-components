@@ -1,23 +1,5 @@
 import * as API from '../../mock-api.json'
 
-// Mock collections single page
-export const mockSearchFieldResultsPage = {
-  title: 'Search Field Results',
-  description: 'Search Field Results',
-  navSearch: {
-    placeholder: 'Search Digital Library Collections',
-    dropdownOptions: [
-      { label: 'All Collections', value: 'all-collections' },
-      { label: 'Books & Articles', value: 'books-articles' },
-      { label: 'Digital Collections', value: 'digital-collections' },
-      { label: 'Archives & Manuscripts', value: 'archives-manuscripts' },
-      { label: 'Images & Media', value: 'images-media' },
-      { label: 'Databases', value: 'databases' },
-    ],
-    dropdownDefaultValue: 'all-collections',
-  },
-}
-
 // Mock data for GridAssetPod items (DLC block asset pod variant)
 export const mockGridAssetPodItems = [
   {
@@ -27,7 +9,7 @@ export const mockGridAssetPodItems = [
     date: '1963',
     metadata: {
       description:
-        'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
+                'PAIN PILLS-These pills Danny Thomas takes for his voice cause pain in one place, his purse.',
       date: 'November 1, 1949',
       resourceType: 'Book',
       collection: ['Still Image'],
@@ -39,12 +21,11 @@ export const mockGridAssetPodItems = [
   {
     media: API.image,
     to: '/visit/foo/bar/',
-    title:
-      '1/2 length portrait of San Fernando Valley State College sociologist Dr. Lewis Yablonsky, 1965',
+    title: '1/2 length portrait of San Fernando Valley State College sociologist Dr. Lewis Yablonsky, 1965',
     date: 'November 7, 1965',
     metadata: {
       description:
-        'SPEAKS OUT-Dr. Lewis Yablonsky, VSC, attacks value of heroin "curb."',
+                'SPEAKS OUT-Dr. Lewis Yablonsky, VSC, attacks value of heroin "curb."',
       date: 'November 7, 1965',
       resourceType: 'Book',
       collection: ['Still Image'],
@@ -75,7 +56,7 @@ export const mockGridAssetPodItems = [
     date: '1930',
     metadata: {
       description:
-        'Handwriting on negative states "Mrs.Walburga Oesterreich" In 1922 Walburga Oesterreich',
+                'Handwriting on negative states "Mrs.Walburga Oesterreich" In 1922 Walburga Oesterreich',
       date: '1930',
       resourceType: 'Book',
       collection: ['Still Image'],
@@ -91,7 +72,7 @@ export const mockGridAssetPodItems = [
     date: '1956',
     metadata: {
       description:
-        'Marilyn Monroe poses for photographers during a press conference promoting her latest film.',
+                'Marilyn Monroe poses for photographers during a press conference promoting her latest film.',
       date: 'March 15, 1956',
       resourceType: 'Photograph',
       collection: ['Still Image'],
@@ -107,7 +88,7 @@ export const mockGridAssetPodItems = [
     date: '1975',
     metadata: {
       description:
-        'Panoramic view of the Los Angeles cityscape showing the growth of the urban center.',
+                'Panoramic view of the Los Angeles cityscape showing the growth of the urban center.',
       date: '1975',
       resourceType: 'Photograph',
       collection: ['Still Image'],
@@ -123,7 +104,7 @@ export const mockGridAssetPodItems = [
     date: '1964',
     metadata: {
       description:
-        'The UCLA Bruins basketball team poses for a team photo after winning the NCAA championship.',
+                'The UCLA Bruins basketball team poses for a team photo after winning the NCAA championship.',
       date: 'March 23, 1964',
       resourceType: 'Photograph',
       collection: ['Still Image'],
@@ -139,7 +120,7 @@ export const mockGridAssetPodItems = [
     date: '1963',
     metadata: {
       description:
-        'Demonstrators march peacefully down Sunset Boulevard carrying signs advocating for equal rights.',
+                'Demonstrators march peacefully down Sunset Boulevard carrying signs advocating for equal rights.',
       date: 'August 28, 1963',
       resourceType: 'Photograph',
       collection: ['Still Image'],
@@ -155,7 +136,7 @@ export const mockGridAssetPodItems = [
     date: '1960',
     metadata: {
       description:
-        'Posthumous star dedication ceremony honoring the late actor James Dean on Hollywood Boulevard.',
+                'Posthumous star dedication ceremony honoring the late actor James Dean on Hollywood Boulevard.',
       date: 'February 8, 1960',
       resourceType: 'Photograph',
       collection: ['Still Image'],
@@ -171,7 +152,7 @@ export const mockGridAssetPodItems = [
     date: '1961',
     metadata: {
       description:
-        'Workers and construction equipment visible during the building of the new LAX terminal.',
+                'Workers and construction equipment visible during the building of the new LAX terminal.',
       date: 'June 12, 1961',
       resourceType: 'Photograph',
       collection: ['Still Image'],
@@ -187,7 +168,7 @@ export const mockGridAssetPodItems = [
     date: '1962',
     metadata: {
       description:
-        'Science fiction writer Ray Bradbury sits at his typewriter surrounded by books and manuscripts.',
+                'Science fiction writer Ray Bradbury sits at his typewriter surrounded by books and manuscripts.',
       date: 'October 5, 1962',
       resourceType: 'Photograph',
       collection: ['Still Image'],
@@ -203,7 +184,7 @@ export const mockGridAssetPodItems = [
     date: '1978',
     metadata: {
       description:
-        'Colorful street performers and vendors line the Venice Beach boardwalk on a sunny afternoon.',
+                'Colorful street performers and vendors line the Venice Beach boardwalk on a sunny afternoon.',
       date: 'July 22, 1978',
       resourceType: 'Photograph',
       collection: ['Still Image'],
@@ -219,7 +200,7 @@ export const mockGridAssetPodItems = [
     date: '1981',
     metadata: {
       description:
-        'Fans line the streets of downtown Los Angeles to celebrate the Dodgers World Series championship.',
+                'Fans line the streets of downtown Los Angeles to celebrate the Dodgers World Series championship.',
       date: 'October 28, 1981',
       resourceType: 'Photograph',
       collection: ['Still Image'],
@@ -235,7 +216,7 @@ export const mockGridAssetPodItems = [
     date: '1967',
     metadata: {
       description:
-        'Jimi Hendrix performs on stage during his legendary concert at the Hollywood Bowl.',
+                'Jimi Hendrix performs on stage during his legendary concert at the Hollywood Bowl.',
       date: 'September 14, 1967',
       resourceType: 'Photograph',
       collection: ['Still Image'],
@@ -251,7 +232,7 @@ export const mockGridAssetPodItems = [
     date: '1954',
     metadata: {
       description:
-        'Close-up view of Simon Rodia\'s intricate mosaic work on the Watts Towers during construction.',
+                'Close-up view of Simon Rodia\'s intricate mosaic work on the Watts Towers during construction.',
       date: '1954',
       resourceType: 'Photograph',
       collection: ['Still Image'],
@@ -284,7 +265,7 @@ export const mockSearchResults = {
   count: 1247,
   prefix: 'Catalogue',
   label: 'Results',
-  animate: true
+  animate: true,
 }
 
 // Mock data for sort options
@@ -312,7 +293,7 @@ export const mockFilterOptions = [
 // Mock data for pagination
 export const mockPagination = {
   totalPages: 150,
-  currentPage: 1
+  currentPage: 1,
 }
 
 // Mock data for menu items
@@ -359,11 +340,11 @@ export const mockBentoBoxResult = {
         src: 'https://picsum.photos/400/300?random=20',
         alt: 'Los Angeles Times Photographic Collection',
         width: 400,
-        height: 300
+        height: 300,
       },
       title: 'Los Angeles Times Photographic Collection',
       text: 'Collection of photonegatives and prints documenting events and people in Southern California, the US, and the world.',
-      count: 21963
+      count: 21963,
     },
     {
       to: '/collections/carteles-de-cine',
@@ -371,11 +352,11 @@ export const mockBentoBoxResult = {
         src: 'https://picsum.photos/400/300?random=21',
         alt: 'Carteles de Cine Collection',
         width: 400,
-        height: 300
+        height: 300,
       },
       title: 'Carteles de Cine',
       text: 'Over 1300 posters from 1960s-2016 designed by Cuban artists for both Cuban and foreign films.',
-      count: 1300
+      count: 1300,
     },
     {
       to: '/collections/modern-endangered-archives',
@@ -383,11 +364,11 @@ export const mockBentoBoxResult = {
         src: 'https://picsum.photos/400/300?random=22',
         alt: 'Modern Endangered Archives Program',
         width: 400,
-        height: 300
+        height: 300,
       },
       title: 'Modern Endangered Archives Program',
       text: 'The Modern Endangered Archive Program funds documentation and digitization to preserve global cultural heritage.',
-      count: 45
+      count: 45,
     },
     {
       to: '/collections/tule-lake-library',
@@ -395,11 +376,11 @@ export const mockBentoBoxResult = {
         src: 'https://picsum.photos/400/300?random=23',
         alt: 'Tule Lake Japanese Language Library',
         width: 400,
-        height: 300
+        height: 300,
       },
       title: 'Material Culture of the Tule Lake Japanese Language Library',
       text: 'The Tule Lake Japanese Language Library was conceptualized, created, and administered by incarcerated Japanese Americans.',
-      count: 7000
+      count: 7000,
     },
     {
       to: '/collections/cashin-collection',
@@ -407,11 +388,11 @@ export const mockBentoBoxResult = {
         src: 'https://picsum.photos/400/300?random=24',
         alt: 'Bonnie Cashin Collection',
         width: 400,
-        height: 300
+        height: 300,
       },
       title: 'Cashin (Bonnie) Collection of Fashion, Theater and Film Costume Design',
       text: 'The collection contains Bonnie Cashin\'s personal archive documenting her design career from 1913-2000.',
-      count: 2500
+      count: 2500,
     },
     {
       to: '/collections/patent-medicine',
@@ -419,13 +400,13 @@ export const mockBentoBoxResult = {
         src: 'https://picsum.photos/400/300?random=25',
         alt: 'Patent Medicine Trade Cards',
         width: 400,
-        height: 300
+        height: 300,
       },
       title: 'Patent Medicine Trade Cards',
       text: 'A collection of 247 patent medicine trade cards with colorful illustrations advertising various medicines.',
-      count: 247
-    }
-  ]
+      count: 247,
+    },
+  ],
 }
 
 export const mockRefineSearchPanel = {
@@ -1686,5 +1667,5 @@ export const mockRefineSearchPanel = {
     { title: 'Disaster', to: '/search/disaster', number: 265 },
     { title: 'Sports', to: '/search/sports', number: 503 },
     { title: 'Business', to: '/search/business', number: 250 },
-  ]
+  ],
 }

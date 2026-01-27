@@ -12,8 +12,11 @@ import ButtonLink from '../lib-components/ButtonLink.vue'
 
 // Import mock data
 import DLViewer from '../lib-components/DLViewer.vue'
+import {
+  getMockGlobalNavSearch,
+  setupGlobalStore,
+} from './helpers/storyHelpers'
 import { mockAssetDetailDataPage } from '@/stories/mock/Funkhaus/MockAssetDetailDataPage'
-import { getMockGlobalNavSearch, setupGlobalStore } from './helpers/storyHelpers'
 
 // Import styles
 import './PageAssetDetail.scss'
@@ -25,7 +28,8 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A single page layout with header, main content area, and footer. This serves as a template for asset detail pages.',
+        component:
+                    'A single page layout with header, main content area, and footer. This serves as a template for asset detail pages.',
       },
     },
   },
@@ -61,14 +65,23 @@ function Template(args) {
       // Set up global store with mock header navigation
       setupGlobalStore()
 
+      // Nav Search
       const mockGlobalNavSearch = getMockGlobalNavSearch()
-      const gridMetadataItems = mockAssetDetailDataPage?.gridMetadata?.items || []
+      // Detail Header
+      const detailHeader = mockAssetDetailDataPage?.detailHeader || {}
+      // Detail Media
+      const detailMedia = mockAssetDetailDataPage?.detailMedia || {}
+      // Grid Metadata
+      const gridMetadataItems
+                = mockAssetDetailDataPage?.gridMetadata?.items || []
 
       return {
         args,
         mockGlobalNavSearch,
         mockAssetDetailDataPage,
         gridMetadataItems,
+        detailHeader,
+        detailMedia,
       }
     },
     template: `
@@ -76,7 +89,7 @@ function Template(args) {
          <!-- Header -->
         <HeaderSmart />
 
-        <!-- Search -->
+        <!-- Nav Search -->
         <div class="search-field-composite-wrapper">
           <NavSearch
             :show-divider="true"
@@ -88,31 +101,33 @@ function Template(args) {
           />
         </div>
 
+        <!-- Detail Header -->
         <DetailHeader
           :current-index="1"
-          :total-results="mockAssetDetailDataPage.detailHeader.totalResults"
-          :tag="mockAssetDetailDataPage.detailHeader.tag"
-          :previous-to="mockAssetDetailDataPage.detailHeader.previousTo"
-          :next-to="mockAssetDetailDataPage.detailHeader.nextTo"
-          :back-to="mockAssetDetailDataPage.detailHeader.backTo"
+          :total-results="detailHeader.totalResults"
+          :tag="detailHeader.tag"
+          :previous-to="detailHeader.previousTo"
+          :next-to="detailHeader.nextTo"
+          :back-to="detailHeader.backTo"
           class="detail-header"
         />
         <DividerGeneral class="divider" is-tertiary />
 
         <main class="main-content">
-          <h1 class="page-title">{{ mockAssetDetailDataPage.title }}</h1>
+          <!-- Detail Media -->
+          <h1 class="page-title">{{ detailMedia.title }}</h1>
           <DLViewer
-            :iiif_manifest_url="mockAssetDetailDataPage.detailMedia.manifestUrl"
-            :title="mockAssetDetailDataPage.detailMedia.title"
-            :description="mockAssetDetailDataPage.detailMedia.description"
+            :iiif_manifest_url="detailMedia.manifestUrl"
+            :title="detailMedia.title"
+            :description="detailMedia.description"
             class="detail-media"
           />
         
           <!-- Grid Metadata -->
           <GridMetadata :items="gridMetadataItems" />
           <ButtonLink
-            v-if="mockAssetDetailDataPage.detailHeader.backTo"
-            :to="mockAssetDetailDataPage.detailHeader.backTo"
+            v-if="detailHeader.backTo"
+            :to="detailHeader.backTo"
             class="back-button"
             label="Back to Search Results"
           />

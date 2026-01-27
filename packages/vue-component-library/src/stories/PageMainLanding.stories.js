@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 
 // Import components
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
@@ -15,8 +15,9 @@ import SmartLink from '../lib-components/SmartLink.vue'
 
 // Import mock data
 import { mockMainLandingPage } from './mock/Funkhaus/MockMainLandingPage'
+import { getMockGlobalNavSearch } from './helpers/storyHelpers'
 import { useGlobalStore } from '@/stores/GlobalStore'
-import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
+import { mockGlobalHeaderNavigation } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 
 // Import styles
 import './MainLandingPage.scss'
@@ -63,39 +64,23 @@ function Template(args) {
     },
 
     setup() {
+      const mockGlobalNavSearch = getMockGlobalNavSearch()
+
       // Overwrite header data to mimic HeaderSmart DLC story
       const globalStore = useGlobalStore()
       globalStore.header.primary = mockGlobalHeaderNavigation.primary
       globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
 
-      const dropdownValue = ref(
-        mockMainLandingPage.searchForm.dropdownOptions[0]
-      )
-      const searchValue = ref('')
-
       const showMoreCollections = () => {
         window.location.href
-                    = 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-collections-detail-page--default'
-      }
-      const handleSearchSubmit = (value) => {
-        searchValue.value = value
-        alert(
-                    `Search submitted: "${value}" \nwith dropdown: "${dropdownValue.value}"`
-        )
-      }
-      const handleDropdownUpdate = (value) => {
-        dropdownValue.value = value
+                    = 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-page-collections-detail--default'
       }
 
       return {
         args,
-        dropdownValue,
-        searchValue,
         mockMainLandingPage,
         mockGlobalNavSearch,
         showMoreCollections,
-        handleSearchSubmit,
-        handleDropdownUpdate,
       }
     },
 
@@ -108,7 +93,7 @@ function Template(args) {
                           title: entry.title,
                           image: entry.heroImage,
                           text: entry.text,
-                          href: 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-collections-detail-page--default',
+                          href: 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-page-collections-detail--default',
                         }
                       }
                     ) || []
@@ -121,8 +106,7 @@ function Template(args) {
                         mockMainLandingPage?.featuredCollections?.subtitle,
           title: mockMainLandingPage?.featuredCollections?.title,
           text: mockMainLandingPage?.featuredCollections?.summary,
-          buttons:
-                        mockMainLandingPage?.featuredCollections?.buttons,
+          buttons: mockMainLandingPage?.featuredCollections?.buttons,
         }
       },
       bottomLink() {
@@ -146,9 +130,9 @@ function Template(args) {
             <NavSearch 
                 class='search-field-composite'
                 :show-divider="true"
-                :placeholder="mockGlobalNavSearch.placeholder"
                 :dropdown-options="mockGlobalNavSearch.dropdownOptions"
                 :dropdown-default-value="mockGlobalNavSearch.dropdownDefaultValue"
+                :placeholder="mockGlobalNavSearch.placeholder"
                 :bottom-link="bottomLink"
                 bottom-text=""
                 :background-image="mockMainLandingPage.searchForm.backgroundImage"

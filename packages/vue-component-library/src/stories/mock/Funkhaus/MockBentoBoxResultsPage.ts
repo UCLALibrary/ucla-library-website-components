@@ -4,7 +4,8 @@ export const mockBentoBoxResultsPage = {
     {
       id: '1',
       title: 'Featured Collections',
-      description: 'Explore our most significant and frequently accessed collections',
+      description:
+                'Explore our most significant and frequently accessed collections',
       items: [
         {
           title: 'Los Angeles Times Photographic Archive',
@@ -83,7 +84,8 @@ export const mockBentoBoxResultsPage = {
     {
       id: '2',
       title: 'Digital Archives',
-      description: 'Digitized materials and born-digital collections available online',
+      description:
+                'Digitized materials and born-digital collections available online',
       items: [
         {
           title: 'California Digital Newspaper Collection',
@@ -169,7 +171,8 @@ export const mockBentoBoxResultsPage = {
     {
       id: '4',
       title: 'Special Collections',
-      description: 'Rare and unique materials from our special collections',
+      description:
+                'Rare and unique materials from our special collections',
       items: [
         {
           title: 'Early California Documents',
@@ -230,7 +233,8 @@ export const mockBentoBoxResultsPage = {
     {
       id: '5',
       title: 'Archival Materials',
-      description: 'Historical documents, papers, and records from notable individuals and organizations',
+      description:
+                'Historical documents, papers, and records from notable individuals and organizations',
       items: [
         {
           title: 'Civil Rights Movement Archives',
@@ -343,7 +347,8 @@ export const mockBentoBoxResultsPage = {
     {
       id: '7',
       title: 'Regional Collections',
-      description: 'Collections focused on specific geographic regions and communities',
+      description:
+                'Collections focused on specific geographic regions and communities',
       items: [
         {
           title: 'Los Angeles History Archive',
@@ -404,7 +409,8 @@ export const mockBentoBoxResultsPage = {
     {
       id: '8',
       title: 'Academic Publications',
-      description: 'Scholarly works, dissertations, and academic publications',
+      description:
+                'Scholarly works, dissertations, and academic publications',
       items: [
         {
           title: 'UCLA Dissertations Collection',

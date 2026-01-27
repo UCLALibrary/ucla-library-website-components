@@ -5,22 +5,6 @@ import * as API from '../../mock-api.json'
 export const mockProgramLandingPage = {
   title: 'Program',
   description: 'Program',
-  searchForm: {
-    placeholder: 'Search',
-
-    dropdownOptions: [
-      { label: 'All Programs', value: 'all-programs' },
-      {
-        label: 'Books & E-books',
-        value: 'books-e-books',
-      },
-      {
-        label: 'Articles & Journals',
-        value: 'articles-journals',
-      },
-      { label: 'Databases', value: 'databases' },
-    ],
-  },
   collectionOverview: {
     title: 'Modern Endangered Archives Program',
     subtitle: 'About the Program',

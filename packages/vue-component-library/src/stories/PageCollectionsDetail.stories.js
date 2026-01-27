@@ -12,8 +12,11 @@ import ExcerptPod from '../lib-components/ExcerptPod.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 
 // Import mock data
+import {
+  getMockGlobalNavSearch,
+  setupGlobalStore,
+} from './helpers/storyHelpers'
 import { mockCollectionsDataPage } from '@/stories/mock/Funkhaus/MockCollectionsDetailPage'
-import { getMockGlobalNavSearch, setupGlobalStore } from './helpers/storyHelpers'
 
 // Import styles
 import './PageCollectionsDetail.scss'
@@ -25,7 +28,8 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A single page layout with header, main content area, and footer. This serves as a template for collections detail pages.',
+        component:
+                    'A single page layout with header, main content area, and footer. This serves as a template for collections detail pages.',
       },
     },
   },
@@ -61,13 +65,18 @@ function Template(args) {
       // Set up global store with mock header navigation
       setupGlobalStore()
 
+      // Nav Search
       const mockGlobalNavSearch = getMockGlobalNavSearch()
-      const collectionOverviewProps = mockCollectionsDataPage.collectionOverview
+      // Collection Overview
+      const collectionOverviewProps
+                = mockCollectionsDataPage.collectionOverview
+      // Grid Metadata
       const gridMetadataItems = mockCollectionsDataPage.gridMetadata.items
-      const sectionTeaserCards = mockCollectionsDataPage.sectionTeaserCards
-      const buttonMore = mockCollectionsDataPage.buttonMore
-      const gridAssets = mockCollectionsDataPage.gridAssets
-      const excerptPod = mockCollectionsDataPage.excerptPod
+      const buttonMore = mockCollectionsDataPage.gridMetadata.buttonMore
+      const excerptPod = mockCollectionsDataPage.gridMetadata.excerptPod
+      // Section Teaser Cards
+      const sectionTeaserCards
+                = mockCollectionsDataPage.sectionTeaserCards
 
       const splitText = (text, sentenceCount) => {
         if (!text)
@@ -90,7 +99,6 @@ function Template(args) {
         gridMetadataItems,
         sectionTeaserCards,
         buttonMore,
-        gridAssets,
         excerptPod,
         splitText,
       }
@@ -146,10 +154,10 @@ function Template(args) {
           />
           <section class="section-teaser-card-wrapper">
             <p class="subtitle-grid-assets">
-              {{ gridAssets.subtitle }}
+              {{ sectionTeaserCards.subtitle }}
             </p>
             <h2 class="title-grid-assets">
-              {{ gridAssets.title }}
+              {{ sectionTeaserCards.title }}
             </h2>
             <SectionTeaserCard
               :items="sectionTeaserCards.items"
