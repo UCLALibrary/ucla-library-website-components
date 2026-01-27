@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.62.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.61.0...@ucla-library-monorepo/ucla-library-website-components-v1.62.0) (2026-01-23)
+
+
+### Features
+
+* Creates FilterSelections and RefineSearchPanel ([#845](https://github.com/UCLALibrary/ucla-library-website-components/issues/845)) ([f312eb8](https://github.com/UCLALibrary/ucla-library-website-components/commit/f312eb8114c041e8b567a3a9ef82ad5cf536c117))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.61.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.60.0...@ucla-library-monorepo/ucla-library-website-components-v1.61.0) (2026-01-21)
 
 
