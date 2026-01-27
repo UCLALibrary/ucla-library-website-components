@@ -12,8 +12,7 @@ import SmartLink from '../lib-components/SmartLink.vue'
 
 // Import mock data
 import { mockProgramLandingPage } from './mock/Funkhaus/MockProgramLandingPage'
-import { useGlobalStore } from '@/stores/GlobalStore'
-import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
+import { getMockGlobalNavSearch, setupGlobalStore } from './helpers/storyHelpers'
 
 // Import styles
 import './ProgramLandingPage.scss'
@@ -25,8 +24,7 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component:
-                    'A single page layout with header, main content area, and footer. This serves as a template for collections detail pages.',
+        component: 'A single page layout with header, main content area, and footer. This serves as a template for collections detail pages.',
       },
     },
   },
@@ -58,10 +56,10 @@ function Template(args) {
       }
     },
     setup() {
-      // Overwrite header data to mimic HeaderSmart DLC story
-      const globalStore = useGlobalStore()
-      globalStore.header.primary = mockGlobalHeaderNavigation.primary
-      globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
+      // Set up global store with mock header navigation
+      setupGlobalStore()
+
+      const mockGlobalNavSearch = getMockGlobalNavSearch()
 
       const dropdownValue = ref(
         mockProgramLandingPage.searchForm.dropdownOptions[0]

@@ -12,9 +12,8 @@ import ButtonLink from '../lib-components/ButtonLink.vue'
 
 // Import mock data
 import DLViewer from '../lib-components/DLViewer.vue'
-import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockAssetDetailDataPage } from '@/stories/mock/Funkhaus/MockAssetDetailDataPage'
-import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
+import { getMockGlobalNavSearch, setupGlobalStore } from './helpers/storyHelpers'
 
 // Import styles
 import './PageAssetDetail.scss'
@@ -59,11 +58,10 @@ function Template(args) {
       }
     },
     setup() {
-      // Overwrite header data to mimic HeaderSmart DLC story
-      const globalStore = useGlobalStore()
-      globalStore.header.primary = mockGlobalHeaderNavigation.primary
-      globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
+      // Set up global store with mock header navigation
+      setupGlobalStore()
 
+      const mockGlobalNavSearch = getMockGlobalNavSearch()
       const gridMetadataItems = mockAssetDetailDataPage?.gridMetadata?.items || []
 
       return {
@@ -71,10 +69,7 @@ function Template(args) {
         mockGlobalNavSearch,
         mockAssetDetailDataPage,
         gridMetadataItems,
-
       }
-    },
-    computed: {
     },
     template: `
        <div class="asset-detail-page">

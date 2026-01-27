@@ -1,0 +1,82 @@
+// Global page styles shared across all story pages
+// These styles define the common layout structure: header, main content, footer
+
+// ============================================
+// PAGE CONTAINER MIXIN
+// ============================================
+// Base styles for all page containers
+@mixin page-container {
+    --gutters: 48px;
+
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--color-white);
+}
+
+// ============================================
+// HEADER MIXINS
+// ============================================
+// Fixed header styles (used by some pages)
+@mixin header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    background-color: var(--color-white);
+
+    &.menu-opened {
+        .container {
+            border-bottom: 2px solid var(--color-primary-blue-03);
+        }
+    }
+}
+
+// Global menu panel (used by some pages)
+@mixin global-menu-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+// ============================================
+// SEARCH FIELD WRAPPER MIXIN
+// ============================================
+// Common styles for search field wrapper
+@mixin search-field-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+
+    :deep(input) {
+        margin: 0;
+    }
+}
+
+// ============================================
+// MAIN CONTENT MIXIN
+// ============================================
+// Base main content styles
+@mixin main-content-base {
+    flex: 1;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 var(--gutters) 48px;
+}
+
+// ============================================
+// RESPONSIVE BREAKPOINTS MIXIN
+// ============================================
+// Common responsive gutters
+@mixin responsive-gutters {
+    @media #{$small} {
+        --gutters: 24px;
+    }
+}

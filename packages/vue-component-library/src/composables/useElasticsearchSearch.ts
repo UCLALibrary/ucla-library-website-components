@@ -1,3 +1,4 @@
+// PLEASE NOTE: This is just a testing composable for the elasticsearch api. - same thing goes for its implementation in the 'PageMainSearchFieldResults.stories.js' story.
 import { ref } from 'vue'
 
 /**

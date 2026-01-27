@@ -12,9 +12,8 @@ import ExcerptPod from '../lib-components/ExcerptPod.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 
 // Import mock data
-import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockCollectionsDataPage } from '@/stories/mock/Funkhaus/MockCollectionsDetailPage'
-import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
+import { getMockGlobalNavSearch, setupGlobalStore } from './helpers/storyHelpers'
 
 // Import styles
 import './PageCollectionsDetail.scss'
@@ -59,11 +58,10 @@ function Template(args) {
       }
     },
     setup() {
-      // Overwrite header data to mimic HeaderSmart DLC story
-      const globalStore = useGlobalStore()
-      globalStore.header.primary = mockGlobalHeaderNavigation.primary
-      globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
+      // Set up global store with mock header navigation
+      setupGlobalStore()
 
+      const mockGlobalNavSearch = getMockGlobalNavSearch()
       const collectionOverviewProps = mockCollectionsDataPage.collectionOverview
       const gridMetadataItems = mockCollectionsDataPage.gridMetadata.items
       const sectionTeaserCards = mockCollectionsDataPage.sectionTeaserCards
@@ -96,8 +94,6 @@ function Template(args) {
         excerptPod,
         splitText,
       }
-    },
-    computed: {
     },
     template: `
        <div class="collections-detail-page">

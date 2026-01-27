@@ -7,8 +7,7 @@ import BannerFeatured from '../lib-components/BannerFeatured.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 import * as API from './mock-api.json'
-import { useGlobalStore } from '@/stores/GlobalStore'
-import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
+import { getMockGlobalNavSearch, setupGlobalStore } from './helpers/storyHelpers'
 
 // Import styles
 import './PageAbout.scss'
@@ -20,8 +19,7 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component:
-                    'A single page layout with header, main content area, and footer. This serves as a template for about pages.',
+        component: 'A single page layout with header, main content area, and footer. This serves as a template for about pages.',
       },
     },
   },
@@ -30,7 +28,7 @@ export default {
       control: { type: 'select' },
       options: ['default', 'dlc'],
       description: 'Theme variant for the page',
-    }
+    },
   },
 }
 
@@ -46,11 +44,15 @@ function Template(args) {
     },
     provide() {
       return {
-        // Mirror HeaderSmart DLC story: force dlc theme
-        theme: computed(() => 'dlc'),
+        theme: computed(() => args.theme || 'dlc'),
       }
     },
     setup() {
+      // Set up global store with mock header navigation
+      setupGlobalStore()
+
+      const mockGlobalNavSearch = getMockGlobalNavSearch()
+
       const dropdownValue = ref(args.searchDropdownValue)
       const submittedValue = ref('')
 
@@ -63,11 +65,6 @@ function Template(args) {
         dropdownValue.value = value
         // Dropdown updated
       }
-
-      // Overwrite header data to mimic HeaderSmart DLC story
-      const globalStore = useGlobalStore()
-      globalStore.header.primary = mockGlobalHeaderNavigation.primary
-      globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
       // Mock data for banner featured sections
       const missionData = {
         image: API.image,

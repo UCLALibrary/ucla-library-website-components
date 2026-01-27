@@ -1,19 +1,10 @@
+@import './GlobalPageStyles.scss';
+
 .program-landing-page {
-    --gutters: 48px;
-
-    position: relative;
-
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background-color: var(--color-white);
+    @include page-container;
 
     .main-content {
-        flex: 1;
-        max-width: 1600px;
-        padding: 0 var(--gutters) 48px;
-        margin: 0 auto;
+        @include main-content-base;
     }
 
     .search-field-composite.dlc {
@@ -41,7 +32,5 @@
     }
 
     // Breakpoints
-    @media #{$small} {
-        --gutters: 24px;
-    }
+    @include responsive-gutters;
 }

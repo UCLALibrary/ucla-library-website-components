@@ -1,14 +1,8 @@
+@import "./GlobalPageStyles.scss";
+
 .main-search-field-results-page {
-    --gutters: 48px;
+    @include page-container;
     --horizontal-gap: 64px;
-
-    position: relative;
-
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background-color: var(--color-white);
 
     .global-menu-panel {
         position: fixed;
@@ -19,35 +13,16 @@
     }
 
     .header {
-        // Header height plus search bar is 239px
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 700;
-
-        background-color: var(--color-white);
-
-        &.menu-opened {
-            .container {
-                border-bottom: 2px solid var(--color-primary-blue-03);
-            }
-        }
+        @include header-fixed;
+        z-index: 700; // Override default z-index for this page
     }
 
     .search-field-composite-wrapper,
     .breadcrumbs-wrapper {
         position: relative;
-
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-
+        z-index: 110;
+        @include search-field-wrapper;
         background-color: var(--color-white);
-
-        :deep(input) {
-            margin: 0;
-        }
     }
 
     .breadcrumbs-wrapper {

@@ -1,14 +1,8 @@
+@import './GlobalPageStyles.scss';
+
 .bento-box-results-page {
-    --gutters: 48px;
-
-    position: relative;
-
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    @include page-container;
     align-items: center;
-    overflow: hidden;
-    background-color: var(--color-white);
 
     .bento-filter-menu {
         margin: 24px 0 32px;
@@ -26,14 +20,7 @@
     }
 
     .search-field-composite-wrapper {
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-        box-sizing: border-box;
-
-        :deep(input) {
-            margin: 0;
-        }
+        @include search-field-wrapper;
     }
 
 

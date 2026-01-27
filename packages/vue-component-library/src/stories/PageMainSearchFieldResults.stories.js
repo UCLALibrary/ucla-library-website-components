@@ -23,8 +23,7 @@ import RefineSearchPanel from '../lib-components/RefineSearchPanel.vue'
 import { useElasticsearchSearch } from '../composables/useElasticsearchSearch'
 
 // Import mock data
-import { useGlobalStore } from '@/stores/GlobalStore'
-import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
+import { getMockGlobalNavSearch, setupGlobalStore } from './helpers/storyHelpers'
 import router from '@/router'
 import {
   mockBentoBoxResult,
@@ -102,10 +101,10 @@ function Template(args) {
           next()
       })
 
-      // Set up global header navigation
-      const globalStore = useGlobalStore()
-      globalStore.header.primary = mockGlobalHeaderNavigation.primary
-      globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
+      // Set up global store with mock header navigation
+      setupGlobalStore()
+
+      const mockGlobalNavSearch = getMockGlobalNavSearch()
 
       // Initialize Elasticsearch search composable
       // This provides: loading state, error handling, total count, hits array, and performSearch function
@@ -583,8 +582,6 @@ function Template(args) {
         handlePageChange,
         handleRefineSearchSelectionChange,
       }
-    },
-    computed: {
     },
     template: `
        <div class="main-search-field-results-page">

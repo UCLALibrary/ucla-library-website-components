@@ -1,37 +1,14 @@
+@import './GlobalPageStyles.scss';
+
 .collections-detail-page {
-    --gutters: 48px;
-
-    position: relative;
-
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background-color: var(--color-white);
+    @include page-container;
 
     .global-menu-panel {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 200;
+        @include global-menu-panel;
     }
 
     .header {
-        // Header height plus search bar is 239px
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 100;
-
-        background-color: var(--color-white);
-
-        &.menu-opened {
-            .container {
-                border-bottom: 2px solid var(--color-primary-blue-03);
-            }
-        }
+        @include header-fixed;
     }
 
     .main-content {
@@ -63,14 +40,7 @@
     }
 
     .search-field-composite-wrapper {
-        width: 100%;
-        max-width: 100%;
-        padding: 0;
-        box-sizing: border-box;
-
-        :deep(input) {
-            margin: 0;
-        }
+        @include search-field-wrapper;
     }
 
     .subtitle-grid-assets {
@@ -94,7 +64,5 @@
     }
 
     // Breakpoints
-    @media #{$small} {
-        --gutters: 24px;
-    }
+    @include responsive-gutters;
 }

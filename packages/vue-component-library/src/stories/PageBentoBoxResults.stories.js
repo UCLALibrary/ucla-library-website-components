@@ -10,9 +10,8 @@ import BentoPod from '../lib-components/BentoPod.vue'
 import BentoFilterMenu from '../lib-components/BentoFilterMenu.vue'
 
 // Import mock data
-import { useGlobalStore } from '@/stores/GlobalStore'
-import { mockGlobalHeaderNavigation, mockGlobalNavSearch } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 import { mockBentoBoxResultsPage } from '@/stories/mock/Funkhaus/MockBentoBoxResultsPage'
+import { getMockGlobalNavSearch, setupGlobalStore } from './helpers/storyHelpers'
 
 // Import styles
 import './PageBentoBoxResults.scss'
@@ -25,8 +24,7 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component:
-          'A single page layout with header, main content area, and footer. This serves as a template for bento box results pages.',
+        component: 'A single page layout with header, main content area, and footer. This serves as a template for bento box results pages.',
       },
     },
   },
@@ -53,15 +51,14 @@ function Template(args) {
     },
     provide() {
       return {
-        // Mirror HeaderSmart DLC story: force dlc theme
-        theme: computed(() => 'dlc'),
+        theme: computed(() => args.theme || 'dlc'),
       }
     },
     setup() {
-      // Overwrite header data to mimic HeaderSmart DLC story
-      const globalStore = useGlobalStore()
-      globalStore.header.primary = mockGlobalHeaderNavigation.primary
-      globalStore.header.secondary = mockGlobalHeaderNavigation.secondary
+      // Set up global store with mock header navigation
+      setupGlobalStore()
+
+      const mockGlobalNavSearch = getMockGlobalNavSearch()
 
       // Bento filter menu items
       const bentoFilterItems = [
