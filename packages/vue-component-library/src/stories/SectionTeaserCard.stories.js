@@ -774,14 +774,6 @@ export function FTVACollectionListings() {
           box-shadow: none;
         }
 
-        .ftva.block-highlight .card-meta.card-meta-items:hover > a.title  {
-            text-decoration: underline;
-            text-decoration-color: #2C91FF;
-            text-decoration-thickness: 3px;
-            text-underline-offset: 3px;
-;
-        }
-
         @media(min-width: 991px){
           .ftva.block-highlight.is-vertical.card {
             height: 550px;
