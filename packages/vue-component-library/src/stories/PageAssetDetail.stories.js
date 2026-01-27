@@ -9,9 +9,9 @@ import GridMetadata from '../lib-components/GridMetadata.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 import DividerGeneral from '../lib-components/DividerGeneral.vue'
 import ButtonLink from '../lib-components/ButtonLink.vue'
+import DLViewer from '../lib-components/DLViewer.vue'
 
 // Import mock data
-import DLViewer from '../lib-components/DLViewer.vue'
 import {
   getMockGlobalNavSearch,
   setupGlobalStore,
