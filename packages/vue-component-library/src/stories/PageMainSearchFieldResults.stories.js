@@ -23,7 +23,10 @@ import RefineSearchPanel from '../lib-components/RefineSearchPanel.vue'
 import { useElasticsearchSearch } from '../composables/useElasticsearchSearch'
 
 // Import mock data
-import { getMockGlobalNavSearch, setupGlobalStore } from './helpers/storyHelpers'
+import {
+  getMockGlobalNavSearch,
+  setupGlobalStore,
+} from './helpers/storyHelpers'
 import router from '@/router'
 import {
   mockBentoBoxResult,
@@ -46,7 +49,8 @@ export default {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'A single page layout with header, main content area, and footer. This serves as a template for collections detail pages.',
+        component:
+                    'A single page layout with header, main content area, and footer. This serves as a template for collections detail pages.',
       },
     },
   },
@@ -59,7 +63,6 @@ export default {
   },
 }
 
-// Template function for the main landing page
 function Template(args) {
   // Initialize router with query so ButtonPageView can build URLs correctly
   router.push({ query: router.currentRoute.value.query })
@@ -89,18 +92,6 @@ function Template(args) {
       }
     },
     setup() {
-      // ============================================
-      // INITIALIZATION
-      // ============================================
-
-      // Add navigation guard to redirect /search to / while preserving query params
-      const removeGuard = router.beforeEach((to, from, next) => {
-        if (to.path === '/search')
-          next({ path: '/', query: to.query })
-        else
-          next()
-      })
-
       // Set up global store with mock header navigation
       setupGlobalStore()
 
@@ -108,33 +99,28 @@ function Template(args) {
 
       // Initialize Elasticsearch search composable
       // This provides: loading state, error handling, total count, hits array, and performSearch function
-      const { loading, error, total, hits, performSearch } = useElasticsearchSearch()
+      const { loading, error, total, hits, performSearch }
+                = useElasticsearchSearch()
 
-      // ============================================
-      // REACTIVE STATE
-      // ============================================
+      const isGridLayout = ref(false)
 
-      const isGridLayout = ref(false) // Toggle between grid and list view
-      // DropdownSingleSelect components expect objects with fieldName as key
-      const dropdownSortValue = ref({ sort: 'Relevance' }) // Current sort selection
-      const dropdownFilterValue = ref({ filter: 'All Formats' }) // Current filter selection
-      const currentPage = ref(mockPagination.currentPage) // Current page number (1-indexed)
-      const isModalFilterOpen = ref(false) // Modal filter open/closed state
-      const searchQuery = ref('') // Current search query text
-      const activeFilters = ref({}) // Active filters from SectionRemoveSearchFilter
-      const refineSearchSelections = ref({}) // Selected options from RefineSearchPanel
+      const dropdownSortValue = ref({ sort: 'Relevance' })
+      const dropdownFilterValue = ref({ filter: 'All Formats' })
+      const currentPage = ref(mockPagination.currentPage)
+      const isModalFilterOpen = ref(false)
+      const searchQuery = ref('')
+      const activeFilters = ref({})
+      const refineSearchSelections = ref({})
 
-      // ============================================
-      // WATCHERS - React to URL and state changes
-      // ============================================
-
-      // Watch URL query parameter 'q' for search term
-      // When user navigates or URL changes, update search query, reset pagination, and execute search
       watch(
         () => router.currentRoute.value.query.q,
         (newQuery, oldQuery) => {
-          const queryText = Array.isArray(newQuery) ? newQuery[0] || '' : newQuery || ''
-          const oldQueryText = Array.isArray(oldQuery) ? oldQuery?.[0] || '' : oldQuery || ''
+          const queryText = Array.isArray(newQuery)
+            ? newQuery[0] || ''
+            : newQuery || ''
+          const oldQueryText = Array.isArray(oldQuery)
+            ? oldQuery?.[0] || ''
+            : oldQuery || ''
 
           // Reset pagination to page 1 if the query has actually changed
           if (queryText !== oldQueryText)
@@ -143,10 +129,9 @@ function Template(args) {
           searchQuery.value = queryText
           executeSearch()
         },
-        { immediate: true } // Execute immediately on mount
+        { immediate: true }
       )
 
-      // Watch URL query parameter 'view' for layout preference
       watch(
         () => router.currentRoute.value.query.view,
         (newView) => {
@@ -158,16 +143,16 @@ function Template(args) {
       // Watch for filter, sort, and page changes
       // When any of these change, re-execute the search
       watch(
-        () => [dropdownFilterValue.value.filter, dropdownSortValue.value.sort, currentPage.value],
+        () => [
+          dropdownFilterValue.value.filter,
+          dropdownSortValue.value.sort,
+          currentPage.value,
+        ],
         () => {
           executeSearch()
         },
-        { deep: true } // Deep watch to catch nested property changes
+        { deep: true }
       )
-
-      // ============================================
-      // HELPER FUNCTIONS
-      // ============================================
 
       /**
        * Safely extract values from nested objects or arrays
@@ -197,18 +182,17 @@ function Template(args) {
 
           // If we found a value, return it (handle arrays by taking first element)
           if (value != null) {
-            if (Array.isArray(value) && value.length > 0)
-              return typeof value[0] === 'string' ? value[0] : value[0]
+            if (Array.isArray(value) && value.length > 0) {
+              return typeof value[0] === 'string'
+                ? value[0]
+                : value[0]
+            }
 
             return value
           }
         }
         return null
       }
-
-      // ============================================
-      // COMPUTED PROPERTIES - Transform data for display
-      // ============================================
 
       /**
        * Transform Elasticsearch hits to GridAssetPod format
@@ -218,7 +202,6 @@ function Template(args) {
        * from various possible field names in the Elasticsearch _source.
        */
       const gridAssetPodItems = computed(() => {
-        // Return empty array if no results
         if (!hits.value || hits.value.length === 0)
           return []
 
@@ -226,9 +209,6 @@ function Template(args) {
         return hits.value.map((hit, index) => {
           const source = hit._source || {} // Elasticsearch stores document data in _source
 
-          // ============================================
-          // EXTRACT URL
-          // ============================================
           // Try multiple possible URL fields (Elasticsearch documents vary)
           const urlValue = extractValue(
             source,
@@ -245,15 +225,24 @@ function Template(args) {
 
           let itemUrl = '/'
           if (urlValue) {
-            if (typeof urlValue === 'string' && (urlValue.startsWith('http') || urlValue.startsWith('/'))) {
+            if (
+              typeof urlValue === 'string'
+                            && (urlValue.startsWith('http')
+                                || urlValue.startsWith('/'))
+            ) {
               itemUrl = urlValue
             }
-            else if (source.url && typeof source.url === 'string') {
+            else if (
+              source.url
+                            && typeof source.url === 'string'
+            ) {
               itemUrl = source.url
             }
             else if (source.ark) {
               // Use ARK to build URL if available
-              itemUrl = source.url || `https://digital.library.ucla.edu/catalog/${source.ark}`
+              itemUrl
+                                = source.url
+                                || `https://digital.library.ucla.edu/catalog/${source.ark}`
             }
             else if (source.slug) {
               itemUrl = `/${source.slug}`
@@ -269,7 +258,9 @@ function Template(args) {
             itemUrl = source.url
           }
           else if (source.ark) {
-            itemUrl = source.url || `https://digital.library.ucla.edu/catalog/${source.ark}`
+            itemUrl
+                            = source.url
+                            || `https://digital.library.ucla.edu/catalog/${source.ark}`
           }
           else if (source.slug) {
             itemUrl = `/${source.slug}`
@@ -278,9 +269,6 @@ function Template(args) {
             itemUrl = `/item/${source.id}`
           }
 
-          // ============================================
-          // EXTRACT DATE
-          // ============================================
           // Try multiple date fields and normalize format
           const dateValue = extractValue(
             source,
@@ -305,14 +293,11 @@ function Template(args) {
             else if (typeof dateValue === 'number')
               displayDate = String(dateValue)
             else if (dateValue instanceof Date)
-              displayDate = dateValue.toISOString().split('T')[0] // Format as YYYY-MM-DD
-            else
-              displayDate = String(dateValue)
+              displayDate = dateValue.toISOString().split('T')[0]
+            // Format as YYYY-MM-DD
+            else displayDate = String(dateValue)
           }
 
-          // ============================================
-          // EXTRACT TITLE
-          // ============================================
           // UCLA Elasticsearch uses plural arrays like "titles" instead of singular "title"
           // Try many possible field names and nested paths
           let title = extractValue(
@@ -339,14 +324,16 @@ function Template(args) {
             title = title[0]
 
           // Fallback: check source.titles directly if extractValue didn't find it
-          if (!title && source.titles && Array.isArray(source.titles) && source.titles.length > 0)
+          if (
+            !title
+                        && source.titles
+                        && Array.isArray(source.titles)
+                        && source.titles.length > 0
+          )
             title = source.titles[0]
 
           title = title || 'Untitled' // Default fallback
 
-          // ============================================
-          // EXTRACT DESCRIPTION
-          // ============================================
           // Similar to titles, descriptions may be plural arrays
           let descriptionValue = extractValue(
             source,
@@ -363,68 +350,98 @@ function Template(args) {
           )
 
           // Handle arrays: take first element if array
-          if (Array.isArray(descriptionValue) && descriptionValue.length > 0)
+          if (
+            Array.isArray(descriptionValue)
+                        && descriptionValue.length > 0
+          )
             descriptionValue = descriptionValue[0]
 
           // Fallback: check source.descriptions directly
-          if (!descriptionValue && source.descriptions && Array.isArray(source.descriptions) && source.descriptions.length > 0)
+          if (
+            !descriptionValue
+                        && source.descriptions
+                        && Array.isArray(source.descriptions)
+                        && source.descriptions.length > 0
+          )
             descriptionValue = source.descriptions[0]
 
           descriptionValue = descriptionValue || ''
 
-          // ============================================
-          // EXTRACT RESOURCE TYPE
-          // ============================================
-          const resourceTypeValue = extractValue(
-            source,
-            'resourceType',
-            'type',
-            'format',
-            'dcType',
-            'dc_type',
-            'dc.type',
-            'itemType',
-            'contentType',
-            'mediaType'
-          ) || ''
+          const resourceTypeValue
+                        = extractValue(
+                          source,
+                          'resourceType',
+                          'type',
+                          'format',
+                          'dcType',
+                          'dc_type',
+                          'dc.type',
+                          'itemType',
+                          'contentType',
+                          'mediaType'
+                        ) || ''
 
-          // ============================================
-          // EXTRACT COLLECTIONS
-          // ============================================
           // Collections can be: array of strings, array of objects, single string, or single object
           let collections = []
-          const collectionValue = extractValue(source, 'collection', 'collections', 'collectionName', 'dc.relation', 'metadata.collection')
+          const collectionValue = extractValue(
+            source,
+            'collection',
+            'collections',
+            'collectionName',
+            'dc.relation',
+            'metadata.collection'
+          )
           if (collectionValue) {
             if (Array.isArray(collectionValue)) {
               // Map array items to strings (handle objects by extracting name/title/label)
-              collections = collectionValue.map(c => typeof c === 'string' ? c : (c.name || c.title || c.label || String(c)))
+              collections = collectionValue.map(c =>
+                typeof c === 'string'
+                  ? c
+                  : c.name || c.title || c.label || String(c)
+              )
             }
             else if (typeof collectionValue === 'string') {
               collections = [collectionValue]
             }
             else if (typeof collectionValue === 'object') {
-              collections = [collectionValue.name || collectionValue.title || collectionValue.label || '']
+              collections = [
+                collectionValue.name
+                                    || collectionValue.title
+                                    || collectionValue.label
+                                    || '',
+              ]
             }
           }
 
-          // ============================================
-          // EXTRACT LOCATIONS
-          // ============================================
           // Same pattern as collections
           let locations = []
-          const locationValue = extractValue(source, 'locations', 'location', 'place', 'dc.coverage', 'metadata.location')
+          const locationValue = extractValue(
+            source,
+            'locations',
+            'location',
+            'place',
+            'dc.coverage',
+            'metadata.location'
+          )
           if (locationValue) {
-            if (Array.isArray(locationValue))
-              locations = locationValue.map(l => typeof l === 'string' ? l : (l.name || l.title || l.label || String(l)))
-            else if (typeof locationValue === 'string')
-              locations = [locationValue]
-            else if (typeof locationValue === 'object')
-              locations = [locationValue.name || locationValue.title || locationValue.label || '']
+            if (Array.isArray(locationValue)) {
+              locations = locationValue.map(l =>
+                typeof l === 'string'
+                  ? l
+                  : l.name || l.title || l.label || String(l)
+              )
+            }
+            else if (typeof locationValue === 'string') { locations = [locationValue] }
+            else if (typeof locationValue === 'object') {
+              locations = [
+                locationValue.name
+                                    || locationValue.title
+                                    || locationValue.label
+                                    || '',
+              ]
+            }
           }
 
-          // ============================================
-          // BUILD METADATA OBJECT
-          // ============================================
           // This object is passed to DefinitionList component for display
           const metadata = {
             description: descriptionValue,
@@ -434,22 +451,15 @@ function Template(args) {
             locations,
           }
 
-          // ============================================
-          // RETURN TRANSFORMED ITEM
-          // ============================================
-          // Return object in format expected by GridAssetPod component
           return {
-            to: itemUrl, // URL for navigation
-            title, // Display title
-            date: displayDate, // Display date
-            metadata, // Metadata object for DefinitionList
+            to: itemUrl,
+            title,
+            date: displayDate,
+            metadata,
           }
         })
       })
 
-      // ============================================
-      // SEARCH RESULTS COUNT
-      // ============================================
       /**
        * Computed property for search results count display
        *
@@ -472,9 +482,6 @@ function Template(args) {
         }
       })
 
-      // ============================================
-      // PAGINATION
-      // ============================================
       /**
        * Computed property for pagination
        *
@@ -497,21 +504,23 @@ function Template(args) {
         }
       })
 
-      // ============================================
-      // SEARCH EXECUTION
-      // ============================================
       /**
        * Execute search with current parameters
        *
        * Builds filters from dropdown selections, merges with active filters,
        * gets sort value, and calls performSearch with all parameters.
-       * TODO: get the possible filters and categories to implement filtering and sorting
        */
       function executeSearch() {
         // Build filters object from dropdownFilterValue
         const filters = {}
-        const filterValue = dropdownFilterValue.value?.filter || dropdownFilterValue.value
-        if (filterValue && filterValue !== 'All Formats' && filterValue !== '') {
+        const filterValue
+                    = dropdownFilterValue.value?.filter
+                    || dropdownFilterValue.value
+        if (
+          filterValue
+                    && filterValue !== 'All Formats'
+                    && filterValue !== ''
+        ) {
           // Map filter option to Elasticsearch field name
           // This is a simplified mapping - adjust based on actual Elasticsearch schema
           filters.resourceType = [filterValue.toLowerCase()]
@@ -521,7 +530,10 @@ function Template(args) {
         Object.assign(filters, activeFilters.value)
 
         // Get sort value from dropdown object
-        const sortValue = dropdownSortValue.value?.sort || dropdownSortValue.value || 'Relevance'
+        const sortValue
+                    = dropdownSortValue.value?.sort
+                    || dropdownSortValue.value
+                    || 'Relevance'
 
         const pageSize = 10
 
@@ -540,7 +552,6 @@ function Template(args) {
        */
       const handlePageChange = (page) => {
         currentPage.value = page
-        // Note: The watcher on currentPage will automatically trigger executeSearch()
       }
 
       /**
@@ -553,9 +564,6 @@ function Template(args) {
         Object.assign(activeFilters.value, selections)
       }
 
-      // ============================================
-      // INITIALIZATION
-      // ============================================
       // Execute initial search when component mounts
       executeSearch()
 
@@ -588,7 +596,7 @@ function Template(args) {
          <!-- Header -->
         <header-smart/>
 
-         <!-- Search -->
+         <!-- Nav Search -->
            <div class="search-field-composite-wrapper">
              <NavSearch
                :show-divider="true"

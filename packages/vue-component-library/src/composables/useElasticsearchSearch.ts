@@ -11,7 +11,7 @@ import { ref } from 'vue'
  * - Sorting
  *
  * ---
- * ### ⚙️ Parameters
+ * ### Parameters
  *
  * @param {string} queryText - The search query text
  * @param {QueryFilters} filters - Object mapping field names to arrays of filter values
@@ -20,7 +20,7 @@ import { ref } from 'vue'
  * @param {string | object[]} sort - Sort option (string for simple sort, array for complex)
  *
  * ---
- * ### 🧩 Returns
+ * ### Returns
  *
  * @returns {object} - Object containing:
  * - loading: Ref<boolean> - Loading state
@@ -105,7 +105,9 @@ function buildFilterClauses(filters: QueryFilters): object[] {
  * @param sort - Sort option string or already-formatted sort array
  * @returns Elasticsearch sort clause array, or empty array for default relevance sort
  */
-function buildSortClause(sort: string | object[] | undefined): object[] | undefined {
+function buildSortClause(
+  sort: string | object[] | undefined
+): object[] | undefined {
   if (!sort)
     return undefined
 
@@ -120,22 +122,22 @@ function buildSortClause(sort: string | object[] | undefined): object[] | undefi
     'Relevance': [], // Empty array = default relevance sorting (by _score)
     'Date (Newest First)': [
       { _score: { order: 'desc' } }, // First by relevance
-      { date: { order: 'desc', missing: '_last' } } // Then by date, newest first
+      { date: { order: 'desc', missing: '_last' } }, // Then by date, newest first
     ],
     'Date (Oldest First)': [
-      { date: { order: 'asc', missing: '_last' } } // Oldest first
+      { date: { order: 'asc', missing: '_last' } }, // Oldest first
     ],
     'Title (A-Z)': [
-      { 'titles.keyword': { order: 'asc', missing: '_last' } } // Sort by title keyword field
+      { 'titles.keyword': { order: 'asc', missing: '_last' } }, // Sort by title keyword field
     ],
     'Title (Z-A)': [
-      { 'titles.keyword': { order: 'desc', missing: '_last' } }
+      { 'titles.keyword': { order: 'desc', missing: '_last' } },
     ],
     'Author (A-Z)': [
-      { 'creators.keyword': { order: 'asc', missing: '_last' } }
+      { 'creators.keyword': { order: 'asc', missing: '_last' } },
     ],
     'Author (Z-A)': [
-      { 'creators.keyword': { order: 'desc', missing: '_last' } }
+      { 'creators.keyword': { order: 'desc', missing: '_last' } },
     ],
   }
 
@@ -143,7 +145,9 @@ function buildSortClause(sort: string | object[] | undefined): object[] | undefi
 
   // If no mapping found, return empty array (default relevance sort)
   if (!sortClause) {
-    console.warn(`Unknown sort option: ${sort}, using default relevance sort`)
+    console.warn(
+            `Unknown sort option: ${sort}, using default relevance sort`
+    )
     return []
   }
 
@@ -254,8 +258,7 @@ export function useElasticsearchSearch(config?: ElasticsearchConfig) {
       // Otherwise, get the exact total count (can be slow for very large result sets)
       if (maxResults)
         requestBody.track_total_hits = maxResults
-      else
-        requestBody.track_total_hits = true // Get exact total count
+      else requestBody.track_total_hits = true // Get exact total count
 
       // Add sorting if specified (empty array = default relevance sort)
       if (sortClause && sortClause.length > 0)
@@ -298,8 +301,7 @@ export function useElasticsearchSearch(config?: ElasticsearchConfig) {
       // Cap the total if maxResults is specified
       if (maxResults && calculatedTotal > maxResults)
         total.value = maxResults
-      else
-        total.value = calculatedTotal
+      else total.value = calculatedTotal
 
       // Store the actual hits (search results)
       hits.value = data.hits?.hits || []
