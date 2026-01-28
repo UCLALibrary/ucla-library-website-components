@@ -70,6 +70,7 @@
     "@types/vue": "^2.0.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vue/tsconfig": "^0.5.1",
+    "chromatic": "^13.3.5",
     "cypress": "^15.0.0",
     "eslint": "^8.49.0",
     "eslint-plugin-cypress": "^2.13.3",
