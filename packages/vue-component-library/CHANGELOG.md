@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.62.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.62.0...@ucla-library-monorepo/ucla-library-website-components-v1.62.1) (2026-01-27)
+
+
+### Bug Fixes
+
+* APPS-3691  Add text underline link styling to title of FTVA Section Teaser Cards ([#890](https://github.com/UCLALibrary/ucla-library-website-components/issues/890)) ([8ce232b](https://github.com/UCLALibrary/ucla-library-website-components/commit/8ce232b19cb10291cf39d1f2a7ddbebc9797dff3))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.62.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.61.0...@ucla-library-monorepo/ucla-library-website-components-v1.62.0) (2026-01-23)
 
 
