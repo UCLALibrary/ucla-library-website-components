@@ -16,7 +16,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
-import { mockCollectionsDataPage } from '@/stories/mock/Funkhaus/MockCollectionsDetailPage'
+import { mockPageCollectionsDetail } from '@/stories/mock/Funkhaus/MockPageCollectionsDetail'
 
 // Import styles
 import './PageCollectionsDetail.scss'
@@ -69,14 +69,15 @@ function Template(args) {
       const mockGlobalNavSearch = getMockGlobalNavSearch()
       // Collection Overview
       const collectionOverviewProps
-                = mockCollectionsDataPage.collectionOverview
+                = mockPageCollectionsDetail.collectionOverview
       // Grid Metadata
-      const gridMetadataItems = mockCollectionsDataPage.gridMetadata.items
-      const buttonMore = mockCollectionsDataPage.gridMetadata.buttonMore
-      const excerptPod = mockCollectionsDataPage.gridMetadata.excerptPod
+      const gridMetadataItems
+                = mockPageCollectionsDetail.gridMetadata.items
+      const buttonMore = mockPageCollectionsDetail.gridMetadata.buttonMore
+      const excerptPod = mockPageCollectionsDetail.gridMetadata.excerptPod
       // Section Teaser Cards
       const sectionTeaserCards
-                = mockCollectionsDataPage.sectionTeaserCards
+                = mockPageCollectionsDetail.sectionTeaserCards
 
       const splitText = (text, sentenceCount) => {
         if (!text)

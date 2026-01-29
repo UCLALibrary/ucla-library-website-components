@@ -14,7 +14,7 @@ import NavSearch from '../lib-components/NavSearch.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 
 // Import mock data
-import { mockMainLandingPage } from './mock/Funkhaus/MockMainLandingPage'
+import { mockPageMainLanding } from './mock/Funkhaus/MockPageMainLanding'
 import { getMockGlobalNavSearch } from './helpers/storyHelpers'
 import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockGlobalHeaderNavigation } from '@/stories/mock/Funkhaus/MockGlobalComponents'
@@ -78,7 +78,7 @@ function Template(args) {
 
       return {
         args,
-        mockMainLandingPage,
+        mockPageMainLanding,
         mockGlobalNavSearch,
         showMoreCollections,
       }
@@ -87,7 +87,7 @@ function Template(args) {
     computed: {
       gridItems() {
         const parsedItems
-                    = mockMainLandingPage?.featuredCollections?.entries?.map(
+                    = mockPageMainLanding?.featuredCollections?.entries?.map(
                       (entry) => {
                         return {
                           title: entry.title,
@@ -103,16 +103,16 @@ function Template(args) {
       headerItems() {
         return {
           subtitle:
-                        mockMainLandingPage?.featuredCollections?.subtitle,
-          title: mockMainLandingPage?.featuredCollections?.title,
-          text: mockMainLandingPage?.featuredCollections?.summary,
-          buttons: mockMainLandingPage?.featuredCollections?.buttons,
+                        mockPageMainLanding?.featuredCollections?.subtitle,
+          title: mockPageMainLanding?.featuredCollections?.title,
+          text: mockPageMainLanding?.featuredCollections?.summary,
+          buttons: mockPageMainLanding?.featuredCollections?.buttons,
         }
       },
       bottomLink() {
         return {
-          label: mockMainLandingPage.searchForm.text,
-          to: mockMainLandingPage.searchForm.link,
+          label: mockPageMainLanding.searchForm.text,
+          to: mockPageMainLanding.searchForm.link,
         }
       },
     },
@@ -135,17 +135,17 @@ function Template(args) {
                 :placeholder="mockGlobalNavSearch.placeholder"
                 :bottom-link="bottomLink"
                 bottom-text=""
-                :background-image="mockMainLandingPage.searchForm.backgroundImage"
+                :background-image="mockPageMainLanding.searchForm.backgroundImage"
 
             />
 
             <section class="header-collection">
-              <span class="subtitle" v-html="mockMainLandingPage.featuredCollections.subtitle" />
-              <h1 class="title" v-html="mockMainLandingPage.featuredCollections.title" />
+              <span class="subtitle" v-html="mockPageMainLanding.featuredCollections.subtitle" />
+              <h1 class="title" v-html="mockPageMainLanding.featuredCollections.title" />
 
-              <RichText v-if="mockMainLandingPage.featuredCollections.summary" class="rich-text" :rich-text-content="mockMainLandingPage.featuredCollections.summary" />
+              <RichText v-if="mockPageMainLanding.featuredCollections.summary" class="rich-text" :rich-text-content="mockPageMainLanding.featuredCollections.summary" />
 
-              <BlockButtons :buttons="mockMainLandingPage.featuredCollections.buttons" />
+              <BlockButtons :buttons="mockPageMainLanding.featuredCollections.buttons" />
             </section>
 
             <SectionTeaserCard

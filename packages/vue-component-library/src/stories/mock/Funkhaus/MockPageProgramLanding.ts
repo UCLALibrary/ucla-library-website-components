@@ -2,7 +2,7 @@ import { ButtonLinkIcons } from '../../../types/components/buttonLink.types'
 import * as API from '../../mock-api.json'
 
 // Mock collections single page
-export const mockProgramLandingPage = {
+export const mockPageProgramLanding = {
   title: 'Program',
   description: 'Program',
   collectionOverview: {

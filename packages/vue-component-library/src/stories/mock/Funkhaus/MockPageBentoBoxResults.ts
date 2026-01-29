@@ -1,5 +1,5 @@
 // Mock data for Bento Box Results Page
-export const mockBentoBoxResultsPage = {
+export const mockPageBentoBoxResults = {
   bentoPodItems: [
     {
       id: '1',

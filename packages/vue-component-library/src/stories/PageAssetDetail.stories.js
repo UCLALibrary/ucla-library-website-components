@@ -16,7 +16,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
-import { mockAssetDetailDataPage } from '@/stories/mock/Funkhaus/MockAssetDetailDataPage'
+import { mockPageAssetDetailData } from '@/stories/mock/Funkhaus/MockPageAssetDetailData'
 
 // Import styles
 import './PageAssetDetail.scss'
@@ -68,17 +68,17 @@ function Template(args) {
       // Nav Search
       const mockGlobalNavSearch = getMockGlobalNavSearch()
       // Detail Header
-      const detailHeader = mockAssetDetailDataPage?.detailHeader || {}
+      const detailHeader = mockPageAssetDetailData?.detailHeader || {}
       // Detail Media
-      const detailMedia = mockAssetDetailDataPage?.detailMedia || {}
+      const detailMedia = mockPageAssetDetailData?.detailMedia || {}
       // Grid Metadata
       const gridMetadataItems
-                = mockAssetDetailDataPage?.gridMetadata?.items || []
+                = mockPageAssetDetailData?.gridMetadata?.items || []
 
       return {
         args,
         mockGlobalNavSearch,
-        mockAssetDetailDataPage,
+        mockPageAssetDetailData,
         gridMetadataItems,
         detailHeader,
         detailMedia,

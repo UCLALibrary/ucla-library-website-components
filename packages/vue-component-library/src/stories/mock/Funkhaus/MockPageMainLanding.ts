@@ -1,5 +1,5 @@
 // Mock data for digital collections
-export const mockMainLandingPage = {
+export const mockPageMainLanding = {
   searchForm: {
     backgroundImage: {
       id: 'meap-001',

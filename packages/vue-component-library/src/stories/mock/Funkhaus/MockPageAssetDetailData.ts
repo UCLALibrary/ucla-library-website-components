@@ -1,7 +1,7 @@
 import * as API from '../../mock-api.json'
 
 // Mock asset detail data page
-export const mockAssetDetailDataPage = {
+export const mockPageAssetDetailData = {
   detailHeader: {
     totalResults: 21963,
     tag: {

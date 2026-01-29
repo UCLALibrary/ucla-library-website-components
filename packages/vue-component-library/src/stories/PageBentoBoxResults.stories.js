@@ -14,7 +14,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
-import { mockBentoBoxResultsPage } from '@/stories/mock/Funkhaus/MockBentoBoxResultsPage'
+import { mockPageBentoBoxResults } from '@/stories/mock/Funkhaus/MockPageBentoBoxResults'
 
 // Import styles
 import './PageBentoBoxResults.scss'
@@ -78,7 +78,7 @@ function Template(args) {
       return {
         args,
         mockGlobalNavSearch,
-        mockBentoBoxResultsPage,
+        mockPageBentoBoxResults,
         bentoFilterItems,
       }
     },
@@ -105,7 +105,7 @@ function Template(args) {
           <!-- Grid Asset Pod with Two Column Layout for Bento Pod -->
           <GridAssetPod 
             class="grid-asset-pod"
-            :items="mockBentoBoxResultsPage.bentoPodItems" 
+            :items="mockPageBentoBoxResults.bentoPodItems" 
             layout="two-column"
           >
             <template #default="{ item }">

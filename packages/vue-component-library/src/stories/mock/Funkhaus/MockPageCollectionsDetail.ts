@@ -2,7 +2,7 @@ import * as API from '../../mock-api.json'
 import { ButtonLinkIcons } from '../../../types/components/buttonLink.types'
 
 // Mock collections single page
-export const mockCollectionsDataPage = {
+export const mockPageCollectionsDetail = {
   collectionOverview: {
     title: 'Los Angeles Times Photographic Collection ',
     subtitle: 'About this Collection',

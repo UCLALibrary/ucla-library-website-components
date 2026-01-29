@@ -36,7 +36,7 @@ import {
   mockRefineSearchPanel,
   mockSearchFilters,
   mockSortOptions,
-} from '@/stories/mock/Funkhaus/MockSearchFieldResultsPage'
+} from '@/stories/mock/Funkhaus/MockPageSearchFieldResults'
 
 // Import styles
 import './PageMainSearchFieldResults.scss'

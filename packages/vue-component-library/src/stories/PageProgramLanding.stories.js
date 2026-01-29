@@ -11,7 +11,7 @@ import ButtonMore from '../lib-components/ButtonMore.vue'
 import SmartLink from '../lib-components/SmartLink.vue'
 
 // Import mock data
-import { mockProgramLandingPage } from './mock/Funkhaus/MockProgramLandingPage'
+import { mockPageProgramLanding } from './mock/Funkhaus/MockPageProgramLanding'
 import {
   getMockGlobalNavSearch,
   setupGlobalStore,
@@ -73,7 +73,7 @@ function Template(args) {
 
       return {
         args,
-        mockProgramLandingPage,
+        mockPageProgramLanding,
         mockGlobalNavSearch,
         showMoreFeaturedProjects,
       }
@@ -81,7 +81,7 @@ function Template(args) {
     computed: {
       gridItems() {
         const parsedItems
-                    = mockProgramLandingPage?.gridAssets?.items?.map((item) => {
+                    = mockPageProgramLanding?.gridAssets?.items?.map((item) => {
                       return {
                         image: item.image,
                         title: item.title,
@@ -112,15 +112,15 @@ function Template(args) {
           
           <CollectionOverview
             class="collection-overview"
-            :title="mockProgramLandingPage.collectionOverview.title"
-            :subtitle="mockProgramLandingPage.collectionOverview.subtitle"
-            :block-buttons="mockProgramLandingPage.collectionOverview.blockButtons"
-            :description="mockProgramLandingPage.collectionOverview.description"
-            :image="mockProgramLandingPage.collectionOverview.image"
+            :title="mockPageProgramLanding.collectionOverview.title"
+            :subtitle="mockPageProgramLanding.collectionOverview.subtitle"
+            :block-buttons="mockPageProgramLanding.collectionOverview.blockButtons"
+            :description="mockPageProgramLanding.collectionOverview.description"
+            :image="mockPageProgramLanding.collectionOverview.image"
           />
 
           <h2 class="title-grid-assets">
-            {{ mockProgramLandingPage.gridAssets.title }}
+            {{ mockPageProgramLanding.gridAssets.title }}
           </h2>
           <SectionTeaserCard
               :items="gridItems" 
