@@ -34,6 +34,26 @@ jobs:
             1. Visit https://github.com/UCLALibrary/ucla-library-website-components/actions/workflows/percy.yml
             2. Click the 'Run workflow' button in the blue bar.
             3. Select the correct branch for this PR and click 'Run workflow' again to confirm.
+  chromatic-instructions:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Comment with Chromatic instructions
+        uses: bubkoo/auto-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          pullRequestOpened: >
+            # Chromatic Screenshots
+
+            In order to conserve our chromatic screenshot allowance, chromatic is not configured to run automatically. Please make sure the PR is ready and all other checks are passing, then start it manually:
+
+            1. Visit https://github.com/UCLALibrary/ucla-library-website-components/actions/workflows/chromatic.yml
+            2. Click the 'Run workflow' button in the blue bar.
+            3. Select the correct branch for this PR and click 'Run workflow' again to confirm.
 
   eslint:
     runs-on: ubuntu-latest

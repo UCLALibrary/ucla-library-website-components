@@ -7,6 +7,7 @@
     "lib:build": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build",
     "lib:percy": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run percy",
     "lib:percy-static": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run percy-static",
+    "lib:chromatic": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec dotenv -e .env.chromatic -- chromatic",
     "lib:cypress": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run cypress",
     "lib:storybook": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run storybook",
     "lib:build-storybook": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "dotenv-cli": "^11.0.0",
     "rimraf": "^6.0.1",
     "semantic-release": "^24.2.2",
     "semantic-release-monorepo": "^8.0.2",
