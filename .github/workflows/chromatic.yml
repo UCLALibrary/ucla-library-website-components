@@ -23,8 +23,15 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: ./.github/workflows/setup-workspace
+        with:
+          do_checkout: "false" # already checked out above
+      # 🔍 DEBUG: confirm full git history
+      - name: Verify git history depth
+        run: git rev-list --count HEAD
 
       - name: Publish vue component library to Chromatic
         uses: chromaui/action@latest
@@ -85,13 +92,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ needs.get-pr-info.outputs.merge_ref }}
-          fetch-depth: 1
+          fetch-depth: 0
           persist-credentials: false
 
       # 👇 Reuse the same setup that works on push (installs & caches Cypress)
       - uses: ./.github/workflows/setup-workspace
         with:
           do_checkout: "false" # already checked out above
+
+      # 🔍 DEBUG: confirm full git history
+      - name: Verify git history depth
+        run: git rev-list --count HEAD
 
       - name: Publish vue component library to Chromatic
         uses: chromaui/action@latest
@@ -113,13 +124,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ needs.get-pr-info.outputs.merge_ref }}
-          fetch-depth: 1
+          fetch-depth: 0
           persist-credentials: false
 
       # 👇 Reuse the same setup that works on push (installs & caches Cypress)
       - uses: ./.github/workflows/setup-workspace
         with:
           do_checkout: "false" # already checked out above
+
+      # 🔍 DEBUG: confirm full git history
+      - name: Verify git history depth
+        run: git rev-list --count HEAD
 
       - name: Publish vue component library to Chromatic
         uses: chromaui/action@latest
