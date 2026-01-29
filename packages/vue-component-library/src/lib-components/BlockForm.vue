@@ -5,11 +5,12 @@ import SvgGlyphClose from 'ucla-library-design-tokens/assets/svgs/icon-close.svg
 
 const ButtonLink = defineAsyncComponent(() => import('@/lib-components/ButtonLink.vue'))
 
-const eventId = inject('eventId')
-const blockFormData = inject('blockFormData')
-const registrationType = inject('registrationType')
-const libcalWaitlist = inject('libcalWaitlist')
-const libcalEndpoint = inject('libcalEndpoint')
+// ✅ Provide safe defaults (so BlockForm can render anywhere, including inside Banner stories)
+const eventId = inject('eventId', ref(''))
+const blockFormData = inject('blockFormData', ref({ questions: [], emailMethod: { status: '' } }))
+const registrationType = inject('registrationType', ref(''))
+const libcalWaitlist = inject('libcalWaitlist', ref('0'))
+const libcalEndpoint = inject('libcalEndpoint', '')
 console.log('BlockForm eventId', eventId.value)
 console.log('BlockForm blockFormData', blockFormData.value)
 console.log('BlockForm registrationType', registrationType.value)
@@ -51,7 +52,7 @@ const parseQuestions = computed(() => {
 })
 
 function handleSubmit() {
-  console.log('registrationTypeInput', registrationTypeInput.value, registrationType.value && registrationType === 'both')
+  console.log('registrationTypeInput', registrationTypeInput.value, registrationType.value && registrationType.value === 'both')
   const data = {
     form: {
       first_name: firstName.value,
@@ -88,7 +89,7 @@ function handleSubmit() {
   else {
     url
       = `${process.env.VUE_APP_CALENDAR_LIBRARY_URL
-      }${eventId}/register`
+      }${eventId.value}/register`
   }
 
   fetch(url, {

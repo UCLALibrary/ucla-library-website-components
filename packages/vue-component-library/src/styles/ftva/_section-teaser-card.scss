@@ -3,6 +3,7 @@
     align-items: flex-start;
     padding-top: 25px;
     gap: var(--space-xl) 20px;
+
     &:has(> :last-child:nth-child(3)) {
         /* if section has 3 elements */
         justify-content: space-between;
@@ -17,6 +18,16 @@
 
         :deep(.ftvaItemInCollection) {
             min-height: 60px;
+        }
+    }
+
+    // For FTVA title rollover
+    :deep(.block-highlight .card-meta.card-meta-items) {
+        &:hover>a.title {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-decoration-color: $bright-blue;
+            text-underline-offset: 2px;
         }
     }
 
