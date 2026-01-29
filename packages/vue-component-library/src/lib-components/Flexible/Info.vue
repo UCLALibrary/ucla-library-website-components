@@ -35,11 +35,13 @@ const { block } = defineProps({
 
 const parsedItems = computed(() => {
   // Guard: block exists
-  if (!block) return null
+  if (!block)
+    return null
 
   // Guard: infoBlock exists and is an array with at least 1 item
   const items = (block as any).infoBlock
-  if (!Array.isArray(items) || items.length === 0) return null
+  if (!Array.isArray(items) || items.length === 0)
+    return null
 
   return items[0] || null
 })
