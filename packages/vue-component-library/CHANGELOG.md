@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.63.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.62.1...@ucla-library-monorepo/ucla-library-website-components-v1.63.0) (2026-01-29)
+
+
+### Features
+
+* APPS-3669 add chromatic ([#894](https://github.com/UCLALibrary/ucla-library-website-components/issues/894)) ([5894fda](https://github.com/UCLALibrary/ucla-library-website-components/commit/5894fda6363e97a5e07578cca40c99c361f81100))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.62.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.62.0...@ucla-library-monorepo/ucla-library-website-components-v1.62.1) (2026-01-27)
 
 
