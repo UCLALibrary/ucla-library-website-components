@@ -1,4 +1,4 @@
-.main-landing-page {
+.page-main-landing {
     --gutters: 48px;
 
     position: relative;
@@ -34,7 +34,7 @@
         padding: 0 var(--gutters);
     }
 
-    .header-collection{
+    .header-collection {
         .subtitle {
             @include step-2;
             margin: 0 0 var(--space-m);

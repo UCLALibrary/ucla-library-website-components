@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 /**
- * useElasticsearchSearch composable
+ * useElasticSearch composable
  * ----------------------------------------
  * A composable for performing Elasticsearch searches with support for:
  * - Query text search
@@ -195,7 +195,7 @@ function buildQuery(queryText: string, filters: QueryFilters): object {
 /**
  * Elasticsearch search composable
  */
-export function useElasticsearchSearch(config?: ElasticsearchConfig) {
+export function useElasticSearch(config?: ElasticsearchConfig) {
   const esConfig = { ...DEFAULT_CONFIG, ...config }
 
   const loading = ref(false)

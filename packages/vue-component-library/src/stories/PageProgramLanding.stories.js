@@ -18,7 +18,7 @@ import {
 } from './helpers/storyHelpers'
 
 // Import styles
-import './ProgramLandingPage.scss'
+import './PageProgramLanding.scss'
 
 export default {
   title: 'Funkhaus / Pages / Page Program Landing',
@@ -94,7 +94,7 @@ function Template(args) {
       },
     },
     template: `
-       <div class="program-landing-page">
+       <div class="page-program-landing">
         <HeaderSmart />
 
         <main class="main-content">

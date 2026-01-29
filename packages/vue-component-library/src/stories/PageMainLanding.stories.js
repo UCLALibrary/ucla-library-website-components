@@ -20,7 +20,7 @@ import { useGlobalStore } from '@/stores/GlobalStore'
 import { mockGlobalHeaderNavigation } from '@/stories/mock/Funkhaus/MockGlobalComponents'
 
 // Import styles
-import './MainLandingPage.scss'
+import './PageMainLanding.scss'
 
 export default {
   title: 'Funkhaus / Pages / Page Main Landing',
@@ -117,7 +117,7 @@ function Template(args) {
       },
     },
     template: `
-       <div class="main-landing-page">
+       <div class="page-main-landing">
          <!-- Global Menu Panel -->
 
          <!-- Header -->

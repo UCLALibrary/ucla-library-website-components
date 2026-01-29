@@ -1,7 +1,7 @@
 import * as API from '../../mock-api.json'
 
 // Mock data for About Page
-export const mockAboutPage = {
+export const mockPageAbout = {
   missionData: {
     image: API.image,
     title: 'Our Mission',

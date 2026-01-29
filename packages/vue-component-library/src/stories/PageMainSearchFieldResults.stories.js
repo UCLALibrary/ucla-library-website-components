@@ -20,7 +20,7 @@ import DividerGeneral from '../lib-components/DividerGeneral.vue'
 import RefineSearchPanel from '../lib-components/RefineSearchPanel.vue'
 
 // Import composables
-import { useElasticsearchSearch } from '../composables/useElasticsearchSearch'
+import { useElasticSearch } from '../composables/useElasticSearch'
 
 // Import mock data
 import {
@@ -39,7 +39,7 @@ import {
 } from '@/stories/mock/Funkhaus/MockSearchFieldResultsPage'
 
 // Import styles
-import './MainSearchFieldResultsPage.scss'
+import './PageMainSearchFieldResults.scss'
 import './GridAssetPod.scss'
 
 export default {
@@ -100,7 +100,7 @@ function Template(args) {
       // Initialize Elasticsearch search composable
       // This provides: loading state, error handling, total count, hits array, and performSearch function
       const { loading, error, total, hits, performSearch }
-                = useElasticsearchSearch()
+                = useElasticSearch()
 
       const isGridLayout = ref(false)
 
@@ -594,7 +594,7 @@ function Template(args) {
       }
     },
     template: `
-       <div class="main-search-field-results-page">
+       <div class="page-main-search-field-results">
          <!-- Header -->
         <header-smart/>
 

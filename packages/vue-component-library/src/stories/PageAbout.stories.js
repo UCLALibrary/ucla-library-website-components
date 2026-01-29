@@ -12,7 +12,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
-import { mockAboutPage } from '@/stories/mock/Funkhaus/MockAboutPage'
+import { mockPageAbout } from '@/stories/mock/Funkhaus/MockPageAbout'
 
 // Import styles
 import './PageAbout.scss'
@@ -59,7 +59,7 @@ function Template(args) {
 
       const mockGlobalNavSearch = getMockGlobalNavSearch()
 
-      const { missionData, aboutData, questionsData } = mockAboutPage
+      const { missionData, aboutData, questionsData } = mockPageAbout
 
       return {
         args,
