@@ -1,4 +1,4 @@
-import ElasticsearchDataViewer from '@/lib-components/ElasticsearchDataViewer.vue'
+import ElasticsearchDataViewer from '../lib-components/ElasticsearchDataViewer.vue'
 
 export default {
   title: 'Examples / Elasticsearch Data Viewer',
@@ -6,7 +6,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Simple component that displays Elasticsearch API response data as key-value pairs. Automatically fetches 10 sample documents on mount.',
+        component:
+                    'Simple component that displays Elasticsearch API response data as key-value pairs. Automatically fetches 10 sample documents on mount.',
       },
     },
   },

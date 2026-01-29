@@ -24,6 +24,15 @@ function handleKeyPress(event: KeyboardEvent) {
     handleSearch()
 }
 
+function handleClear() {
+  searchQuery.value = ''
+  performElasticsearchSearch({
+    queryText: '',
+    page: 1,
+    pageSize: 10,
+  })
+}
+
 // Auto-fetch on mount (empty search = match_all)
 onMounted(() => {
   performElasticsearchSearch({
@@ -77,14 +86,7 @@ function isComplexValue(value: unknown): boolean {
         v-if="searchQuery"
         type="button"
         class="clear-button"
-        @click="
-          searchQuery = ''
-          performElasticsearchSearch({
-            queryText: '',
-            page: 1,
-            pageSize: 10,
-          })
-        "
+        @click="handleClear"
       >
         Clear
       </button>
