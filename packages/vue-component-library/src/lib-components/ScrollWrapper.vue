@@ -68,14 +68,21 @@ onMounted(() => {
   :deep(.block-highlight) {
     .card-meta {
       a.title {
-        display: contents; // links in a flexbox that are partially scrolled offscreen will still work
-
+        display: contents; // links in a flexbox that are
         // overwrite styles from @include card-clickable-area to prevent after element from blocking the link
         &::after {
           top: auto;
           right: auto;
           bottom: auto;
           left: auto
+        }
+        &:hover {
+          color: red;
+          text-decoration: underline !important;
+          text-decoration-thickness: 3px !important;
+          text-decoration-color: $bright-blue !important;
+          text-underline-offset: 2px !important;
+          //@include ftva-text-link-hover;
         }
       }
     }

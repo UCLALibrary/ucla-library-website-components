@@ -645,6 +645,16 @@ export function FTVAHorizontalScrollCardWithImage() {
   `,
   }
 }
+// The hover for the title can be styled with the .link-title:
+/*
+  .title:hover .link-title {
+    // @include ftva-text-link-hover;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: $bright-blue;
+    text-underline-offset: 2px;
+  }
+*/
 
 const mockCollectionListings = [
   {

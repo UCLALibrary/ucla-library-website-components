@@ -193,7 +193,7 @@ const classes = computed(() => {
       :to="to"
       class="title"
     >
-      <span class="link-title">{{ title }}</span>
+      {{ title }}
       <span
         v-if="alternativeFullName"
         :lang="language"
