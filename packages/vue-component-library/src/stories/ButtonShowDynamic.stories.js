@@ -62,6 +62,10 @@ Default.args = {
   transitionSpeed: 'normal',
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const Minimal = Template.bind({})
 Minimal.args = {
   ...Default.args,

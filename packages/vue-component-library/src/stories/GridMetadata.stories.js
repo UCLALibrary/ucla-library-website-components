@@ -221,6 +221,10 @@ Default.args = {
   items: [baseMetadataTable1, baseMetadataTable2],
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const ThreeItems = Template.bind({})
 ThreeItems.args = {
   items: [baseMetadataTable1, baseMetadataTable2, baseMetadataTable3],

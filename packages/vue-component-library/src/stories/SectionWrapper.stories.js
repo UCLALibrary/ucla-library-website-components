@@ -64,6 +64,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 // Mocks UCLA Library Home page News section data
 const mockDefaultHome = [{
   sectionHandle: 'news',

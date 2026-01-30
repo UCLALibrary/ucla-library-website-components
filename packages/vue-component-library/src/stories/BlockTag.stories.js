@@ -52,6 +52,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 // note: currently highlighted styles for default are placeholder styles / not yet implemented
 export function DefaultHighlighted() {
   return {

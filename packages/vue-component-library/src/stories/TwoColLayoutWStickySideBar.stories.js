@@ -93,6 +93,10 @@ export function FTVAEventSeries() {
   }
 }
 
+FTVAEventSeries.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 // Mock data for Event Detail Page components
 const mockEventDetailPageData = {
   id: '2847944',

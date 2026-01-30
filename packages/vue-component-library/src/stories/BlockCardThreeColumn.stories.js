@@ -73,6 +73,10 @@ export function Default(args) {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function SingleDigitDate(args) {
   return {
     data() {
