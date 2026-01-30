@@ -596,7 +596,7 @@ function Template(args) {
     template: `
        <div class="page-main-search-field-results">
          <!-- Header -->
-        <header-smart/>
+        <header-smart class="header-smart" />
 
          <!-- Nav Search -->
            <div class="search-field-composite-wrapper">

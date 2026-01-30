@@ -4,6 +4,17 @@
     @include page-container;
     --horizontal-gap: 48px;
 
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+
     .global-menu-panel {
         position: fixed;
         top: 0;
