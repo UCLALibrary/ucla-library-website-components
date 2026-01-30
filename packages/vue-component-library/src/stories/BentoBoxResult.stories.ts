@@ -1,4 +1,5 @@
 import { computed } from 'vue'
+// @ts-ignore - Component import path resolution
 import BentoBoxResult from '@/lib-components/BentoBoxResult.vue'
 
 export default {
@@ -199,7 +200,7 @@ function themeDecorator() {
   }
 }
 
-export const Default = Template.bind({})
+export const Default = Template.bind({}) as any
 Default.args = { title: 'Default Results', items: defaultItems }
 Default.decorators = [themeDecorator]
 
@@ -207,7 +208,7 @@ Default.parameters = {
   chromatic: { disableSnapshot: false },
 }
 
-export const AllEdgeCases = Template.bind({})
+export const AllEdgeCases = Template.bind({}) as any
 AllEdgeCases.args = {
   title: 'All Edge Cases',
   items: [
@@ -253,6 +254,6 @@ function CustomSlotTemplate(args: any) {
   }
 }
 
-export const CustomSlotContent = CustomSlotTemplate.bind({})
+export const CustomSlotContent = CustomSlotTemplate.bind({}) as any
 CustomSlotContent.args = { title: 'Custom Slot Content', items: customSlotItems }
 CustomSlotContent.decorators = [themeDecorator]

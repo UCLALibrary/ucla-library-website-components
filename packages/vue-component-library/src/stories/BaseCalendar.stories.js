@@ -40,6 +40,10 @@ export function DefaultVuetify() {
   }
 }
 
+DefaultVuetify.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function DefaultEvent() {
   return {
     data() {
