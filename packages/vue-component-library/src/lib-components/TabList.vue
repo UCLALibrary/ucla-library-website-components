@@ -215,13 +215,17 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
 </script>
 
 <template>
-  <div :class="[classes, alignment]" role="tab" v-bind="$attrs">
+  <div :class="[classes, alignment]" v-bind="$attrs">
     <!-- Slot: Dropdown Filters -->
     <div v-if="$slots.filters" class="filters">
       <slot name="filters" />
     </div>
 
-    <div class="tab-list-header" role="tablist">
+    <div
+      class="tab-list-header"
+      role="tablist"
+      aria-orientation="horizontal"
+    >
       <span ref="tabGliderRef" class="tab-glider" />
       <button
         v-for="(tab, index) in tabItems"
@@ -238,8 +242,8 @@ function animateTabGlider(elem: HTMLElement, hasInitialWidth: boolean) {
         @click="switchTab(tab?.title)"
       >
         <component
-          :is="iconMapping[tab.icon as keyof typeof iconMapping].icon"
           v-if="tab?.icon"
+          :is="iconMapping[tab.icon as keyof typeof iconMapping].icon"
           class="svg"
           aria-hidden="true"
         />
