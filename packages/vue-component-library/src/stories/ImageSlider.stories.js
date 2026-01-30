@@ -31,9 +31,6 @@ const mockBeforeAfterImageCarousel = [{
 
 export function Default() {
   return {
-    parameters: {
-      chromatic: { disableSnapshot: false },
-    },
     data() {
       return {
         ...mockBeforeAfterImageCarousel[0],
@@ -58,6 +55,10 @@ export function Default() {
         </div>
     `,
   }
+}
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
 }
 
 export function DefaultWithAltText() {
