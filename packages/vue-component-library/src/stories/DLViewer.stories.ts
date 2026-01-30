@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-// @ts-ignore - Component import path resolution
+
+// @ts-expect-error - Component import path resolution
 import DLViewer from '@/lib-components/DLViewer.vue'
 
 const meta: Meta<typeof DLViewer> = {

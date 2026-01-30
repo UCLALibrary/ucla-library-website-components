@@ -1,5 +1,6 @@
 import { computed } from 'vue'
-// @ts-ignore - Component import path resolution
+
+// @ts-expect-error - Component import path resolution
 import BentoBoxResult from '@/lib-components/BentoBoxResult.vue'
 
 export default {
