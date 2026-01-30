@@ -95,7 +95,7 @@ function Template(args) {
     },
     template: `
        <div class="page-program-landing">
-        <HeaderSmart />
+        <HeaderSmart class="header-smart" />
 
         <main class="main-content">
           <div class="search-field-composite-wrapper">

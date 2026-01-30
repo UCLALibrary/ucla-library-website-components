@@ -3,6 +3,17 @@
 .page-program-landing {
     @include page-container;
 
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+
     .main-content {
         @include main-content-base;
     }
