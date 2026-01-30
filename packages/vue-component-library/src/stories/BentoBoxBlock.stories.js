@@ -199,6 +199,10 @@ export const Default = Template.bind({})
 Default.args = { ...mockDefault }
 Default.decorators = [themeDecorator]
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const NoImage = Template.bind({})
 NoImage.args = { ...mockNoImage }
 NoImage.decorators = [themeDecorator]

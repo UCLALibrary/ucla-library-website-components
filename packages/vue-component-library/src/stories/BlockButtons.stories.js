@@ -47,6 +47,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function AlignCenter() {
   return {
     components: { BlockButtons },

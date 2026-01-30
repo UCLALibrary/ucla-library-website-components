@@ -237,6 +237,10 @@ export function Default() {
   `,
   }
 }
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 // DLC Theme Egde Cases With Date
 const mockDLCEdgeCasesWithDate = [
   {
@@ -802,14 +806,6 @@ export function FTVACollectionListings() {
 
         .ftva.block-highlight.is-vertical.card:hover {
           box-shadow: none;
-        }
-
-        .ftva.block-highlight .card-meta.card-meta-items:hover > a.title  {
-            text-decoration: underline;
-            text-decoration-color: #2C91FF;
-            text-decoration-thickness: 3px;
-            text-underline-offset: 3px;
-;
         }
 
         @media(min-width: 991px){

@@ -35,6 +35,10 @@ Default.args = {
   selected: ['Option 1'],
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const NoSelection = Template.bind({})
 NoSelection.args = {
   items: [

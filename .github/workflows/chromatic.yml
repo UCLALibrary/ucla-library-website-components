@@ -1,0 +1,145 @@
+name: Submit screenshots to Chromatic for visual regression testing.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "PR number to run Chromatic on"
+        required: true
+        type: number
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  # ---------- PUSH (main) path: build & run locally ----------
+  chromatic-push:
+    if: github.event_name == 'push'
+    name: Chromatic - Storybook Components 3.x
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/workflows/setup-workspace
+        with:
+          do_checkout: "false" # already checked out above
+      # 🔍 DEBUG: confirm full git history
+      - name: Verify git history depth
+        run: git rev-list --count HEAD
+
+      - name: Publish vue component library to Chromatic
+        uses: chromaui/action@latest
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/vue-component-library
+          autoAcceptChanges: true
+
+  # ---------- MANUAL path: look up PR + branch type ----------
+  get-pr-info:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    outputs:
+      is_fork: ${{ steps.info.outputs.is_fork }}
+      merge_ref: ${{ steps.info.outputs.merge_ref }}
+      head_ref: ${{ steps.info.outputs.head_ref }}
+      head_ref_sanitized: ${{ steps.info.outputs.head_ref_sanitized }} # <-- add
+      base_ref: ${{ steps.info.outputs.base_ref }}
+      pr_sha: ${{ steps.info.outputs.pr_sha }}
+    steps:
+      - id: info
+        # actions/github-script lets us compute and set outputs
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNum = Number('${{ github.event.inputs.pr_number }}');
+            if (!Number.isInteger(prNum)) core.setFailed(`Invalid pr_number: "${prNum}"`);
+
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNum,
+            });
+
+            const isFork  = pr.head.repo?.fork ? 'true' : 'false';
+            const headRef = pr.head.ref;   // e.g. "feat/buttons/page-view"
+            const baseRef = pr.base.ref;   // e.g. "main"
+
+            // Sanitize for use in env/labels: replace anything not [A-Za-z0-9_.-] with '-'
+            const sanitized = headRef.replace(/[^\w.-]+/g, '-');
+
+            core.setOutput('is_fork', isFork);
+            core.setOutput('merge_ref', `refs/pull/${pr.number}/merge`);
+            core.setOutput('head_ref', headRef);
+            core.setOutput('head_ref_sanitized', sanitized);  // <-- new
+            core.setOutput('base_ref', baseRef);
+            core.setOutput('pr_sha', pr.head.sha);
+
+  # ---------- MANUAL: internal PR (no environment gate) ----------
+  chromatic-internal:
+    if: github.event_name == 'workflow_dispatch' && needs.get-pr-info.outputs.is_fork == 'false'
+    needs: get-pr-info
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout PR merge ref (internal)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.get-pr-info.outputs.merge_ref }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      # 👇 Reuse the same setup that works on push (installs & caches Cypress)
+      - uses: ./.github/workflows/setup-workspace
+        with:
+          do_checkout: "false" # already checked out above
+
+      # 🔍 DEBUG: confirm full git history
+      - name: Verify git history depth
+        run: git rev-list --count HEAD
+
+      - name: Publish vue component library to Chromatic
+        uses: chromaui/action@latest
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/vue-component-library
+
+  # ---------- MANUAL: forked PR (gated environment) ----------
+  chromatic-fork:
+    if: github.event_name == 'workflow_dispatch' && needs.get-pr-info.outputs.is_fork == 'true'
+    needs: get-pr-info
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: chromatic-secrets-forked-pr # configure required reviewers in Settings → Environments
+    steps:
+      - name: Checkout PR merge ref (fork)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.get-pr-info.outputs.merge_ref }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      # 👇 Reuse the same setup that works on push (installs & caches Cypress)
+      - uses: ./.github/workflows/setup-workspace
+        with:
+          do_checkout: "false" # already checked out above
+
+      # 🔍 DEBUG: confirm full git history
+      - name: Verify git history depth
+        run: git rev-list --count HEAD
+
+      - name: Publish vue component library to Chromatic
+        uses: chromaui/action@latest
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/vue-component-library

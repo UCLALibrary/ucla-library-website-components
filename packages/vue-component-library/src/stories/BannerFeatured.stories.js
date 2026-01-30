@@ -68,6 +68,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function LeftAligned() {
   return {
     data() {
@@ -323,10 +327,10 @@ export function WithBlockForm() {
       return {
         theme: computed(() => ''),
         // explicitly provide a computed property
-        eventId: '9383207',
-        blockFormData: BlockFormData.mock0,
+        eventId: computed(() => '9383207'),
+        blockFormData: computed(() => BlockFormData.mock0),
         libcalEndpoint: 'https://proxy.calendar.library.ucla.edu/',
-        registrationType: 'in-person',
+        registrationType: computed(() => 'in-person'),
       }
     },
     data() {

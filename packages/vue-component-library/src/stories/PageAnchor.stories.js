@@ -60,6 +60,10 @@ Default.args = {
   color: 'default',
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const Visit = Template.bind({})
 Visit.args = {
   sectionTitles: [
