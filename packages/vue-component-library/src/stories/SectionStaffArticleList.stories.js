@@ -65,6 +65,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 const mockCurrentEntriesWithDates = [
   {
     to: 'a-film-series-for-you-celebrating-giant-robot-äôs-30th-anniversary',

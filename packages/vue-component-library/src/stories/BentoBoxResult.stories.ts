@@ -203,6 +203,10 @@ export const Default = Template.bind({})
 Default.args = { title: 'Default Results', items: defaultItems }
 Default.decorators = [themeDecorator]
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const AllEdgeCases = Template.bind({})
 AllEdgeCases.args = {
   title: 'All Edge Cases',

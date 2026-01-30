@@ -99,6 +99,10 @@ Default.args = {
   maxValue: 80,
   step: 1,
   disabled: false,
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 }
 
 export const YearRange = Template.bind({})

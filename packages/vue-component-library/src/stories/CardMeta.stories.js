@@ -55,6 +55,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function Ongoing() {
   return {
     data() {
