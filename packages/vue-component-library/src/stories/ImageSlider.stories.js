@@ -31,6 +31,9 @@ const mockBeforeAfterImageCarousel = [{
 
 export function Default() {
   return {
+    parameters: {
+      chromatic: { disableSnapshot: false },
+    },
     data() {
       return {
         ...mockBeforeAfterImageCarousel[0],
