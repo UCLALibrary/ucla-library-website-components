@@ -54,6 +54,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function SecondaryInternal() {
   return {
     components: { ButtonLink },

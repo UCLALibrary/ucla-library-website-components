@@ -24,6 +24,10 @@ export function DefaultWithPlaceholderProp() {
   }
 }
 
+DefaultWithPlaceholderProp.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function FTVA() {
   return {
     provide() {

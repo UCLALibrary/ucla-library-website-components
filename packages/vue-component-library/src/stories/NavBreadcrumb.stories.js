@@ -40,6 +40,9 @@ const LegacyModeTemplate = (args) => {
 }
 
 export const DefaultLegacyModeWithProps = LegacyModeTemplate.bind({})
+DefaultLegacyModeWithProps.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 
 // Breadcrumbs generated from route
 const DynamicModeTemplate = (args) => {

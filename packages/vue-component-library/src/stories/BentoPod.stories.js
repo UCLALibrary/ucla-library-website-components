@@ -30,6 +30,11 @@ function Template(args) {
 }
 
 export const Default = Template.bind({})
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 Default.args = {
   title: 'Bento Pod Title',
   buttonLabel: 'Go to Link',

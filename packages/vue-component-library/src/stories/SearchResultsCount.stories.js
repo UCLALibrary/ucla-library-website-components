@@ -64,6 +64,10 @@ Default.args = {
   animate: true
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const Horizontal = Template.bind({})
 Horizontal.args = {
   count: 110,

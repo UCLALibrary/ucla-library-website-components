@@ -65,6 +65,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function DLCTheme() {
   return {
     components: { DropdownSingleSelect },
