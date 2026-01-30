@@ -40,6 +40,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function FirstPage() {
   return {
     components: { SectionPagination },

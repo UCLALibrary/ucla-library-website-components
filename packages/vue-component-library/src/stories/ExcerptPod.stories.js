@@ -124,6 +124,10 @@ Default.args = {
   sentenceSplitCount: 1,
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const NoContentSlot = TemplateNoContent.bind({})
 NoContentSlot.args = {
   title: 'Brief Summary',

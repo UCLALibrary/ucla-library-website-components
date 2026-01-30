@@ -22,6 +22,10 @@ Default.args = {
   to: '/',
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function ExternalLink() {
   return {
     components: { SmartLink },

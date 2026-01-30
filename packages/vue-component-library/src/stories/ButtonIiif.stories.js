@@ -15,3 +15,7 @@ export const Default = () => ({
   },
   template: '<ButtonIiif to="https://iiif.io/" />',
 })
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}

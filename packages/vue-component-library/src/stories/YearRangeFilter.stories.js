@@ -101,6 +101,10 @@ Default.args = {
   disabled: false,
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const YearRange = Template.bind({})
 YearRange.args = {
   minValue: 1950,

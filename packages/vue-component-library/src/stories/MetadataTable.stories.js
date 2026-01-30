@@ -90,6 +90,10 @@ function TemplateNoTheme(args) {
 export const Default = Template.bind({})
 Default.args = { title: 'Access Condition', items: baseItems }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const ImageAndText = Template.bind({})
 ImageAndText.args = {
   title: 'Image and Text',

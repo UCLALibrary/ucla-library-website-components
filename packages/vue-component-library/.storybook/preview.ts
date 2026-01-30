@@ -2,7 +2,8 @@ import { setup } from "@storybook/vue3"
 import "ucla-library-design-tokens/scss/app-global.scss"
 import "@/styles/global.scss"
 import router from "@/router"
-import { createPinia } from 'pinia';
+import { createPinia } from 'pinia'
+import { allModes } from "../.storybook/modes"
 import type { App } from 'vue'
 
 import { vuetify } from '../src/plugins/vuetify'
@@ -14,6 +15,13 @@ function registerPlugins(app: App) {
 export const parameters = {
     actions: { argTypesRegex: "^on[A-Z].*" },
     layout: "fullscreen",
+    chromatic: {
+      disableSnapshot: true, // ✅ opt-out by default
+      modes: {
+        "mobile": allModes["mobile"],
+        "desktop": allModes["desktop"],
+      },
+    },
     viewport: {
         viewports: {
             extraLarge: {
