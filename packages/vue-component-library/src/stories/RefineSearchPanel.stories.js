@@ -266,6 +266,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function Long() {
   return {
     components: { RefineSearchPanel },

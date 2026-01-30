@@ -28,6 +28,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function WithoutClearIcon() {
   return {
     components: { SearchInput },

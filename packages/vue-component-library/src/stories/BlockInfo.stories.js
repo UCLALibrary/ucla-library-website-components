@@ -59,6 +59,10 @@ export function DefaultInfo() {
   }
 }
 
+DefaultInfo.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function DefaultInfoList() {
   return {
     data() {

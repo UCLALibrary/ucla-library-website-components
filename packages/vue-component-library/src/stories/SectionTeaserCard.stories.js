@@ -237,6 +237,10 @@ export function Default() {
   `,
   }
 }
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 // DLC Theme Egde Cases With Date
 const mockDLCEdgeCasesWithDate = [
   {
