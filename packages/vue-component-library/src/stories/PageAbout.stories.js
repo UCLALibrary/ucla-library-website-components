@@ -72,7 +72,7 @@ function Template(args) {
     template: `
       <div class="about-page">
         <!-- Header -->
-        <HeaderSmart />
+        <HeaderSmart class="header-smart" />
 
         <div class="search-field-composite-wrapper">
           <NavSearch
