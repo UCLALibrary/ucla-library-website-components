@@ -30,6 +30,10 @@ export function Default() {
     template: '<div style="height:509px">Sample Selected Date: <span data-test="selected-date">{{ modelDate }}</span><date-filter @input-selected="updateDate" :eventDates="eventDates" /></div>',
   }
 }
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 /* hideInput prop is not currently used anywhere in the app,
 input is hidden automatically on mobile */
 const mockNoInput = {
