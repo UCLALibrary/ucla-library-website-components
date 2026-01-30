@@ -1,3 +1,24 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.63.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.62.1...@ucla-library-monorepo/ucla-library-website-components-v1.63.0) (2026-01-29)
+
+
+### Features
+
+* APPS-3669 add chromatic ([#894](https://github.com/UCLALibrary/ucla-library-website-components/issues/894)) ([5894fda](https://github.com/UCLALibrary/ucla-library-website-components/commit/5894fda6363e97a5e07578cca40c99c361f81100))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.62.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.62.0...@ucla-library-monorepo/ucla-library-website-components-v1.62.1) (2026-01-27)
+
+
+### Bug Fixes
+
+* APPS-3691  Add text underline link styling to title of FTVA Section Teaser Cards ([#890](https://github.com/UCLALibrary/ucla-library-website-components/issues/890)) ([8ce232b](https://github.com/UCLALibrary/ucla-library-website-components/commit/8ce232b19cb10291cf39d1f2a7ddbebc9797dff3))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.62.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.61.0...@ucla-library-monorepo/ucla-library-website-components-v1.62.0) (2026-01-23)
+
+
+### Features
+
+* Creates FilterSelections and RefineSearchPanel ([#845](https://github.com/UCLALibrary/ucla-library-website-components/issues/845)) ([f312eb8](https://github.com/UCLALibrary/ucla-library-website-components/commit/f312eb8114c041e8b567a3a9ef82ad5cf536c117))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.61.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.60.0...@ucla-library-monorepo/ucla-library-website-components-v1.61.0) (2026-01-21)
 
 

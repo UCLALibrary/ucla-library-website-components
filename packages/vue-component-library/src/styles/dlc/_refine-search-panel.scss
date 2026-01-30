@@ -1,0 +1,51 @@
+.refine-search-panel,
+.refine-search-panel.dlc {
+    max-width: 300px;
+
+    border: 1px solid var(--color-secondary-grey-02);
+    border-radius: 8px;
+
+    .filter-reveal-summary {
+        padding: 7px 15px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        cursor: pointer;
+
+        @include animate-normal;
+
+        .filter-title {
+            margin: 0;
+
+            color: var(--color-primary-blue-05);
+            font-size: 16px;
+            font-weight: medium;
+            text-transform: uppercase;
+            font-family: var(--font-primary);
+        }
+
+        .filter-chevron {
+            font-size: 12px;
+            @include animate-normal;
+        }
+    }
+
+    /* Rotate chevron when opened */
+    &.is-opened .filter-chevron {
+        transform: rotate(180deg);
+    }
+
+    // Hovers
+    @media #{$has-hover} {
+        .filter-reveal-summary:hover {
+            background-color: var(--color-primary-blue-01);
+        }
+    }
+
+    // Breakpoints
+    @media #{$small} {
+        max-width: 100%;
+    }
+}
