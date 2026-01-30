@@ -1,13 +1,16 @@
 .ftva.card-with-image {
   :deep(.block-highlight) {
     max-width: 250px;
+
     &:not(.whiteBackground):not(.noBackground) {
       background-color: $page-blue;
     }
+
     &:hover {
       box-shadow: 0 0px 4px 0 rgba(51, 51, 51, 0.2);
     }
   }
+
   :deep(.card-meta) {
     border-radius: 0 0 10px 10px;
 
@@ -21,9 +24,21 @@
       pointer-events: auto;
     }
 
-    .title[target="_blank"]::after, .title-no-link[target="_blank"]::after {
+    .title[target="_blank"]::after,
+    .title-no-link[target="_blank"]::after {
       content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-external-link-dark.svg');
       position: relative;
+    }
+
+    .smart-link.title {
+      @include ftva-card-title-2;
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-decoration-color: $bright-blue;
+        text-underline-offset: 2px;
+      }
     }
 
     .date-time {
