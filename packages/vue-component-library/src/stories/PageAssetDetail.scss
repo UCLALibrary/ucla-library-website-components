@@ -3,12 +3,15 @@
 .page-asset-detail {
     @include page-container;
 
-    .global-menu-panel {
-        @include global-menu-panel;
-    }
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
 
-    .header {
-        @include header-fixed;
+            .primary {
+                position: relative;
+            }
+        }
     }
 
     .detail-header {

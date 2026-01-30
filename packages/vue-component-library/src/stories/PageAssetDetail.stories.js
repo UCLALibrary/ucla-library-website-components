@@ -87,7 +87,7 @@ function Template(args) {
     template: `
        <div class="page-asset-detail">
          <!-- Header -->
-        <HeaderSmart />
+        <HeaderSmart class="header-smart" />
 
         <!-- Nav Search -->
         <div class="search-field-composite-wrapper">
