@@ -85,7 +85,7 @@ function Template(args) {
     template: `
       <div class="bento-box-results-page">
         <!-- Header -->
-        <header-smart class='header'/>
+        <header-smart class='header-smart'/>
 
         <!-- Nav Search -->
         <div class="search-field-composite-wrapper">

@@ -4,11 +4,22 @@
     @include page-container;
     align-items: center;
 
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+
     .bento-filter-menu {
         margin: 24px 0 32px;
     }
 
-    .header,
+    .header-smart,
     .footer {
         width: 100%;
     }
