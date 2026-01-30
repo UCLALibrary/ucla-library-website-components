@@ -39,6 +39,7 @@ jobs:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: packages/vue-component-library
+          autoAcceptChanges: true
 
   # ---------- MANUAL path: look up PR + branch type ----------
   get-pr-info:

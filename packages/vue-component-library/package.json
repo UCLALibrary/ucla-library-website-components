@@ -48,7 +48,7 @@
     "prebuild": "rimraf ./dist",
     "prepublishOnly": "pnpm run build",
     "release": "semantic-release",
-    "chromatic": "npx chromatic --project-token=chpt_58104245fdd4549 --force-rebuild --only-changed=false"
+    "chromatic": "npx chromatic --project-token=[get it from .env file] --force-rebuild --only-changed=false"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.43.1",
