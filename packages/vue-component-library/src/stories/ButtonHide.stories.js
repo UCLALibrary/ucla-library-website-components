@@ -12,3 +12,7 @@ export function Default() {
     template: '<button-hide/>',
   }
 }
+
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}

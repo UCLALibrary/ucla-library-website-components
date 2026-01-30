@@ -32,6 +32,9 @@ function Template(args) {
 }
 
 export const Default = Template.bind({})
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 
 export const NoText = Template.bind({})
 NoText.args = {

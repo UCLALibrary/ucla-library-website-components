@@ -18,6 +18,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function WithExternalLink() {
   return {
     components: { IconWithLink },

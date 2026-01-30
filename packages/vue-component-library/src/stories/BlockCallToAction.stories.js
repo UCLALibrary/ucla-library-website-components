@@ -31,6 +31,10 @@ Default.args = {
   ...mock,
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const DarkBlue = Template.bind({})
 DarkBlue.args = {
   ...mock,

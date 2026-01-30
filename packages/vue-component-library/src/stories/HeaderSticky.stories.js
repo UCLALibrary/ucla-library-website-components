@@ -61,6 +61,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 const FTVAprimaryItems = [
   { ...API.primaryNavlinks[0] },
   {
