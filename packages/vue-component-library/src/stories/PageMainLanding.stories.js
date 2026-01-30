@@ -122,7 +122,7 @@ function Template(args) {
 
          <!-- Header -->
          <HeaderSmart
-           class="header"
+           class="header-smart"
          />
 
        <!-- Main Content Area -->

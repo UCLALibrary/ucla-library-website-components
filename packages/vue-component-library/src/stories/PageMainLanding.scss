@@ -9,6 +9,17 @@
     overflow: hidden;
     background-color: var(--color-white);
 
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+
     .main-content {
         flex: 1;
         padding: 0;
