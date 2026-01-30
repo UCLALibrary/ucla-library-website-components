@@ -32,6 +32,7 @@
 
     .smart-link.title {
       @include ftva-card-title-2;
+      font-size: var(--step-1);
 
       &:hover {
         text-decoration: underline;
