@@ -240,6 +240,10 @@ Default.args = {
   isOpened: false,
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const Opened = Template.bind({})
 Opened.args = {
   sectionTitles: ['Overview', 'Features', 'Documentation', 'Contact'],

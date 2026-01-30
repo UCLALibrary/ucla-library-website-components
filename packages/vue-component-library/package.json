@@ -1,7 +1,7 @@
 {
   "name": "@ucla-library-monorepo/ucla-library-website-components",
   "type": "module",
-  "version": "1.63.0",
+  "version": "1.63.2",
   "homepage": "https://ucla-library-storybook.netlify.app/?path=/docs/configure-your-project--docs",
   "repository": {
     "type": "git",
@@ -47,7 +47,8 @@
     "percy-static": "percy storybook ./storybook-static",
     "prebuild": "rimraf ./dist",
     "prepublishOnly": "pnpm run build",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "chromatic": "npx chromatic --project-token=[get it from .env file] --force-rebuild --only-changed=false"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.43.1",

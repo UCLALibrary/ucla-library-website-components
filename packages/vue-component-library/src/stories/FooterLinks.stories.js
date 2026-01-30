@@ -14,6 +14,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function FTVAStyleLinks() {
   return {
     components: { FooterLinks },

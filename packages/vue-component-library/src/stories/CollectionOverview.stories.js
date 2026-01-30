@@ -56,6 +56,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function WithoutButtons() {
   return {
     components: { CollectionOverview },

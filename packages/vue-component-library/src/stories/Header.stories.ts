@@ -35,6 +35,9 @@ export const LoggedIn: Story = {
     },
   },
 }
+LoggedIn.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 
 export const LoggedOut: Story = {
   args: {

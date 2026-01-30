@@ -57,6 +57,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function DefaultWithAltText() {
   return {
     data() {
