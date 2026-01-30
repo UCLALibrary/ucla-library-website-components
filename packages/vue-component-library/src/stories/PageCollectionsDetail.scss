@@ -13,13 +13,13 @@
             }
         }
     }
-    .global-menu-panel {
-        @include global-menu-panel;
-    }
+    // .global-menu-panel {
+    //     @include global-menu-panel;
+    // }
 
-    .header {
-        @include header-fixed;
-    }
+    // .header {
+    //     @include header-fixed;
+    // }
 
     .main-content {
         flex: 1;
