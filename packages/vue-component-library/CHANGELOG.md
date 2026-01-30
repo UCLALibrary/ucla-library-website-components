@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.63.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.63.1...@ucla-library-monorepo/ucla-library-website-components-v1.63.2) (2026-01-30)
+
+
+### Bug Fixes
+
+* chromatic github action fit checkout depth issue ([#895](https://github.com/UCLALibrary/ucla-library-website-components/issues/895)) ([a3da1c1](https://github.com/UCLALibrary/ucla-library-website-components/commit/a3da1c1937bc0f3705e209d73410813100ec96ac))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.63.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.63.0...@ucla-library-monorepo/ucla-library-website-components-v1.63.1) (2026-01-30)
+
+
+### Bug Fixes
+
+* APPS-3678 Tab List component needs aria update ([#891](https://github.com/UCLALibrary/ucla-library-website-components/issues/891)) ([b15cadc](https://github.com/UCLALibrary/ucla-library-website-components/commit/b15cadc1f329072f1d195f4d0142630ece47f43b))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.63.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.62.1...@ucla-library-monorepo/ucla-library-website-components-v1.63.0) (2026-01-29)
 
 

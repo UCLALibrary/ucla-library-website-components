@@ -72,6 +72,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function FTVAFooter() {
   return {
     components: { FooterMain },

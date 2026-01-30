@@ -75,6 +75,10 @@ Default.args = {
   backTo: '/search?collection=latimes-photographic',
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export const WithResultsOnly = Template.bind({})
 WithResultsOnly.args = {
   totalResults: 15,

@@ -35,6 +35,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 const mockDark = {
   id: '16983',
   typeHandle: 'callToAction',
