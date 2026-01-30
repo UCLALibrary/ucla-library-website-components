@@ -72,8 +72,9 @@
       }
     }
   }
-  .custom-title{
-    :deep(.smart-link::after){
+
+  .custom-title {
+    :deep(.smart-link::after) {
       bottom: 0;
       content: "";
       left: 0;
@@ -83,7 +84,7 @@
       right: 0;
       top: 0;
     }
-    
+
   }
 
   .custom-description {
