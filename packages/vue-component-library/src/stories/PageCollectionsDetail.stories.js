@@ -107,7 +107,7 @@ function Template(args) {
     template: `
        <div class="collections-detail-page">
          <!-- Header -->
-        <HeaderSmart />
+        <HeaderSmart class="header-smart"/>
 
         <!-- Collection Overview -->
         <div class="search-field-composite-wrapper">

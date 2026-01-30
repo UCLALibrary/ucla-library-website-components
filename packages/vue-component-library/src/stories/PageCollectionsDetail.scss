@@ -3,6 +3,16 @@
 .collections-detail-page {
     @include page-container;
 
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
     .global-menu-panel {
         @include global-menu-panel;
     }
