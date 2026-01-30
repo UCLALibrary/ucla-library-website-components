@@ -29,6 +29,9 @@ export const Default = {
     `,
   })
 }
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 
 // GLOBAL FTVA RICH TEXT - ALL OPTIONS
 export const FtvaRichText = {

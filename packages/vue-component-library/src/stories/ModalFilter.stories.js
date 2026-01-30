@@ -240,6 +240,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function FewItems() {
   return {
     components: { ModalFilter },

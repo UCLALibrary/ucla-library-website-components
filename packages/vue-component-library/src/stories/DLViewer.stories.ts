@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
+
+// @ts-expect-error - Component import path resolution
 import DLViewer from '@/lib-components/DLViewer.vue'
 
 const meta: Meta<typeof DLViewer> = {
@@ -45,6 +47,9 @@ export const StillImage: Story = createStory(
   'Still Image',
   'A still image item from the Digital Library. This example demonstrates how images are displayed with IIIF support.',
 )
+StillImage.parameters = {
+  chromatic: { disableSnapshot: false },
+}
 
 // Sound Recording - ark:/21198/zz000952mk
 export const SoundRecording: Story = createStory(
