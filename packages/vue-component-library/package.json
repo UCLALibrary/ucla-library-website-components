@@ -48,10 +48,12 @@
     "prebuild": "rimraf ./dist",
     "prepublishOnly": "pnpm run build",
     "release": "semantic-release",
-    "chromatic": "npx chromatic --project-token=[get it from .env file] --force-rebuild --only-changed=false"
+    "chromatic": "npx chromatic --project-token=[get it from .env file] --force-rebuild --only-changed=false",
+    "storybook-chromatic": "CHROMATIC_ADDON=true storybook dev -p 6006"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.43.1",
+    "@chromatic-com/storybook": "2",
     "@percy/cli": "^1.31.1",
     "@percy/cypress": "^3.1.2",
     "@radya/nuxt-dompurify": "^1.0.5",
