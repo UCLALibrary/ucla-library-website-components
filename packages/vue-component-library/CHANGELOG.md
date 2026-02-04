@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.64.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.0...@ucla-library-monorepo/ucla-library-website-components-v1.64.1) (2026-02-04)
+
+
+### Bug Fixes
+
+* APPS-3445  Card with Image Flexible Page Block - Size of title is too big ([#903](https://github.com/UCLALibrary/ucla-library-website-components/issues/903)) ([c119074](https://github.com/UCLALibrary/ucla-library-website-components/commit/c11907417bd7751855903add4ccc13e6c3bdc6fb))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.64.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.63.2...@ucla-library-monorepo/ucla-library-website-components-v1.64.0) (2026-02-04)
 
 
