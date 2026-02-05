@@ -187,6 +187,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 const mockFTVAtableHeaders = ['', 'Film', 'Role', 'Year']
 const mockFTVAfilmdata = [
   {

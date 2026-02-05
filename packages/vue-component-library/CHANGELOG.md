@@ -1,3 +1,31 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.64.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.0...@ucla-library-monorepo/ucla-library-website-components-v1.64.1) (2026-02-04)
+
+
+### Bug Fixes
+
+* APPS-3445  Card with Image Flexible Page Block - Size of title is too big ([#903](https://github.com/UCLALibrary/ucla-library-website-components/issues/903)) ([c119074](https://github.com/UCLALibrary/ucla-library-website-components/commit/c11907417bd7751855903add4ccc13e6c3bdc6fb))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.64.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.63.2...@ucla-library-monorepo/ucla-library-website-components-v1.64.0) (2026-02-04)
+
+
+### Features
+
+* add visual test addon for local devlopment if needed to see the changes in storybook ([#904](https://github.com/UCLALibrary/ucla-library-website-components/issues/904)) ([558a0e4](https://github.com/UCLALibrary/ucla-library-website-components/commit/558a0e4e55a1c48f5d5042b6bbaf597d33d13c2b))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.63.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.63.1...@ucla-library-monorepo/ucla-library-website-components-v1.63.2) (2026-01-30)
+
+
+### Bug Fixes
+
+* chromatic github action fit checkout depth issue ([#895](https://github.com/UCLALibrary/ucla-library-website-components/issues/895)) ([a3da1c1](https://github.com/UCLALibrary/ucla-library-website-components/commit/a3da1c1937bc0f3705e209d73410813100ec96ac))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.63.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.63.0...@ucla-library-monorepo/ucla-library-website-components-v1.63.1) (2026-01-30)
+
+
+### Bug Fixes
+
+* APPS-3678 Tab List component needs aria update ([#891](https://github.com/UCLALibrary/ucla-library-website-components/issues/891)) ([b15cadc](https://github.com/UCLALibrary/ucla-library-website-components/commit/b15cadc1f329072f1d195f4d0142630ece47f43b))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.63.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.62.1...@ucla-library-monorepo/ucla-library-website-components-v1.63.0) (2026-01-29)
 
 

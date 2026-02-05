@@ -43,6 +43,10 @@ export function FTVAInfoBlock() {
   }
 }
 
+FTVAInfoBlock.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 const mockInfoBlockClock = {
   id: '3700149',
   typeHandle: 'infoBlock',

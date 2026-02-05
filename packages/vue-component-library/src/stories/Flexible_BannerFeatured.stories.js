@@ -256,6 +256,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function ExternalArticle2() {
   return {
     data() {
