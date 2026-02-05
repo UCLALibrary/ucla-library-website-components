@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref, useSlots } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, useSlots } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 
 const { singleItem, initialSlide } = defineProps({
@@ -18,12 +18,24 @@ const { singleItem, initialSlide } = defineProps({
 const slots = useSlots()
 const numSlides = ref(0)
 const currentSlide = ref(1)
+const rootRef = ref<HTMLElement | null>(null)
 
 // THEME
 const theme = useTheme()
 const classes = computed(() => {
   return ['scroll-wrapper', theme?.value || '']
 })
+
+function onTitleClick(e: MouseEvent) {
+  console.log('onTitleClickCheck', e.target)
+  const link = (e.target as HTMLElement).closest?.('.card-meta a.title')
+  if (link instanceof HTMLAnchorElement) {
+    console.log('onTitleClick', link)
+    requestAnimationFrame(() => {
+      link.click()
+    })
+  }
+}
 
 // Set initial index when component mounts
 onMounted(() => {
@@ -35,11 +47,17 @@ onMounted(() => {
   }
 
   currentSlide.value = initialSlide - 1
+
+  // Fire click twice on a.title so navigation still happens if first click was captured (e.g. by pan)
+  rootRef.value?.addEventListener('click', onTitleClick)
+})
+onBeforeUnmount(() => {
+  rootRef.value?.removeEventListener('click', onTitleClick)
 })
 </script>
 
 <template>
-  <div :class="classes">
+  <div ref="rootRef" :class="classes">
     <template v-if="singleItem">
       <v-window v-model="currentSlide" class="v-window-container" show-arrows>
         <v-window-item v-for="n in numSlides" :key="`card-${n}`">
@@ -63,19 +81,36 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .scroll-wrapper {
+  :deep(ul.section-teaser-card) {
+    background-color: red;
+    pointer-events: none; // whole container: treat taps as taps so link click fires
+  }
 
-  // ensure links are clickable
+  // ensure links are clickable (not captured as pan/scroll by the slide container)
   :deep(.block-highlight) {
+    touch-action: manipulation; // whole card: treat taps as taps so link click fires
     .card-meta {
       a.title {
-        display: contents; // links in a flexbox that are partially scrolled offscreen will still work
+        pointer-events: auto; // allow clicks to reach the link instead of the overlay
+        display: block;// links in a flexbox that are partially scrolled offscreen will still work
+        // touch-action: manipulation; // treat taps as taps so click fires; prevents capture as pan
 
         // overwrite styles from @include card-clickable-area to prevent after element from blocking the link
         &::after {
+          display: none;
           top: auto;
           right: auto;
           bottom: auto;
-          left: auto
+          left: auto;
+          // pointer-events: none; // allow clicks to reach the link instead of the overlay
+        }
+        &:hover {
+          // display: block;
+          color: red !important;
+          text-decoration: underline;
+          text-decoration-color: $accent-blue;
+          text-decoration-thickness: 3px;
+          text-underline-offset: 4px;
         }
       }
     }
@@ -91,11 +126,17 @@ onMounted(() => {
   }
 
   // custom prev arrow for v-window and v-slide-group
+  // arrow containers overlay content; use pointer-events so link clicks pass through to cards
   :deep(.v-slide-group__prev) {
     height: 100%;
     position: absolute;
     z-index: 1;
+    pointer-events: none;
 
+    i.v-icon,
+    .v-icon {
+      pointer-events: auto;
+    }
     i.v-icon {
       &::before {
         content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-left_icon.svg');
@@ -126,7 +167,12 @@ onMounted(() => {
     position: absolute;
     z-index: 1;
     right: 0px;
+    pointer-events: none;
 
+    i.v-icon,
+    .v-icon {
+      pointer-events: auto;
+    }
     i.v-icon {
       &::before {
         content: url('ucla-library-design-tokens/assets/svgs/icon-ftva-right_icon.svg');
@@ -158,6 +204,11 @@ onMounted(() => {
       display: none;
       }
     }
+  }
+
+  // let link taps register inside the scroll area (especially on touch devices)
+  :deep(.v-slide-group__container) {
+    // touch-action: ; // whole container: treat taps as taps so link click fires
   }
 
   // set the widths of cards that appear within scrollwrapper
