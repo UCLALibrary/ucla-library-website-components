@@ -1,0 +1,63 @@
+@import "./GlobalPageStyles.scss";
+
+.page-asset-detail {
+    @include page-container;
+
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+
+    .detail-header {
+        padding-inline: var(--gutters);
+    }
+
+    .divider {
+        width: calc(100% - var(--gutters) * 2);
+        max-width: 100%;
+        margin: 16px var(--gutters);
+
+        &.is-tertiary {
+            border-width: 1px;
+        }
+    }
+
+    .main-content {
+        @include main-content-base;
+    }
+
+    .search-field-composite {
+        margin-top: 14px;
+    }
+
+    .page-title {
+        @include step-3;
+        margin: 0 auto var(--space-m);
+        text-align: center;
+    }
+
+    .detail-media {
+        margin-bottom: 48px;
+    }
+    .grid-metadata {
+        margin-bottom: 24px;
+    }
+
+    .back-button {
+        display: block;
+        margin: 0 auto;
+        max-width: fit-content;
+    }
+    .button-wrapper {
+        text-align: center;
+    }
+
+    // Breakpoints
+    @include responsive-gutters;
+}
