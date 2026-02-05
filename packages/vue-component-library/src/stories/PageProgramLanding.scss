@@ -1,0 +1,47 @@
+@import "./GlobalPageStyles.scss";
+
+.page-program-landing {
+    @include page-container;
+
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+
+    .main-content {
+        @include main-content-base;
+    }
+
+    .search-field-composite.dlc {
+        margin-top: 14px;
+        padding: 0;
+    }
+
+    .collection-overview {
+        margin-bottom: 48px;
+    }
+
+    .title-grid-assets {
+        margin-bottom: 32px;
+        @include step-4;
+        margin: 0 0 var(--space-m);
+    }
+    .section-teaser-card {
+        margin: 0 auto;
+        max-width: unset;
+    }
+    .button-more {
+        margin: 0 auto;
+        max-width: unset;
+        padding-inline: var(--gutters);
+    }
+
+    // Breakpoints
+    @include responsive-gutters;
+}
