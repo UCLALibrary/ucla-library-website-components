@@ -1,0 +1,46 @@
+@import "./GlobalPageStyles.scss";
+
+.about-page {
+    @include page-container;
+    --gutters: 0px;
+
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+
+    .main-content {
+        max-width: 1600px;
+        margin: 0 auto;
+        flex: 1;
+        width: 100%;
+        padding: 0 var(--gutters) 48px;
+    }
+
+    .search-field-composite-wrapper {
+        @include search-field-wrapper;
+    }
+
+    .mission-section,
+    .about-section,
+    .questions-section {
+        padding-bottom: var(--space-2xl);
+    }
+
+    // Breakpoints
+    @media #{$extra-large} {
+        --gutters: 48px;
+        .main-content {
+            padding: 0 var(--gutters);
+        }
+        .search-field-composite-wrapper {
+            padding: 0;
+        }
+    }
+}
