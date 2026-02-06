@@ -143,15 +143,6 @@ const parsedDateMonth = computed(() => {
         :aspect-ratio="imageAspectRatio"
         class="image"
       />
-      <div
-        v-else
-        class="molecule-no-image"
-      >
-        <MoleculePlaceholder
-          class="molecule"
-          aria-hidden="true"
-        />
-      </div>
     </div>
     <CardMeta
       :to="to"

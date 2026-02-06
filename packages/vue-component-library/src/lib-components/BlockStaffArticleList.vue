@@ -93,21 +93,11 @@ const parsedTextAll = computed(() => {
 <template>
   <li :class="classes">
     <ResponsiveImage
-      v-if="imageExists"
       :media="props.image"
       :aspect-ratio="props.imageAspectRatio"
       object-fit="cover"
       class="image"
     />
-    <div
-      v-else
-      class="molecule-no-image"
-    >
-      <MoleculePlaceholder
-        class="molecule"
-        aria-hidden="true"
-      />
-    </div>
 
     <div class="meta">
       <div

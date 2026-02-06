@@ -78,8 +78,6 @@ const classes = computed(() => {
     <img
       v-if="parsedImage"
       :src="props.media?.src || props.src"
-      :height="props.media?.width || props.width"
-      :width="props.media?.height || props.height"
       :alt="props.media?.alt || props.alt"
       :srcset="props.media?.srcset || props.srcset"
       :sizes="props.media?.sizes || props.sizes"

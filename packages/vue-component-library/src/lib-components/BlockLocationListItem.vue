@@ -175,19 +175,9 @@ onMounted(() => {
     <div class="card-container">
       <div class="image-container">
         <ResponsiveImage
-          v-if="imageExists"
           class="image"
           :media="props.image"
         />
-        <div
-          v-else
-          class="molecule-no-image"
-        >
-          <MoleculePlaceholder
-            class="molecule"
-            aria-hidden="true"
-          />
-        </div>
       </div>
       <div class="library">
         <div>

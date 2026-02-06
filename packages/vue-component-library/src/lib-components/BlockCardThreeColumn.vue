@@ -5,7 +5,6 @@
 >
 import { computed } from 'vue'
 import type { PropType } from 'vue'
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import format from 'date-fns/format'
 import { useTheme } from '@/composables/useTheme'
 
@@ -113,19 +112,9 @@ const parsedDateFormat = computed(() => {
 
     <div class="image-block">
       <ResponsiveImage
-        v-if="image"
         :media="image"
         class="image"
       />
-      <div
-        v-else
-        class="molecule-no-image"
-      >
-        <MoleculePlaceholder
-          class="molecule"
-          aria-hidden="true"
-        />
-      </div>
     </div>
 
     <div class="meta">
@@ -203,23 +192,9 @@ const parsedDateFormat = computed(() => {
       width: 100%;
       height: 100%;
     }
-
-    .molecule-no-image {
-      width: 100%;
-      height: 100%;
-      margin-right: var(--space-xl);
-      background: var(--gradient-01);
-      overflow: hidden;
-
-      display: flex;
-      align-items: center;
+    :deep(.responsive-image .molecule-no-image) {
       position: relative;
-
-      .molecule {
-        flex-shrink: 0;
-        position: absolute;
-        opacity: 0.7;
-      }
+      overflow: hidden;
     }
   }
 
@@ -284,6 +259,11 @@ const parsedDateFormat = computed(() => {
   }
 
   // Breakpoints
+  @media #{$large} {
+    :deep(.responsive-image .molecule-no-image) {
+      height: $large-height;
+    }
+  }
   @media #{$medium} {
     flex-direction: column;
 
@@ -291,18 +271,14 @@ const parsedDateFormat = computed(() => {
       display: none;
     }
 
-    :deep(.responsive-image .media) {
+    :deep(.responsive-image .media),
+    :deep(.responsive-image .molecule-no-image) {
       border-radius: 12px 12px 0 0;
     }
 
     .image-block {
       flex: 1;
       width: 100%;
-
-      .molecule-no-image {
-        min-height: $large-height;
-        border-radius: 12px 12px 0 0;
-      }
     }
 
     .meta {
@@ -374,10 +350,8 @@ const parsedDateFormat = computed(() => {
       }
     }
 
-    .image-container {
-      .molecule-no-image {
-        height: 200px;
-      }
+    :deep(.responsive-image .molecule-no-image) {
+      height: 200px;
     }
   }
 }

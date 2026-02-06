@@ -114,20 +114,10 @@ const classes = computed(() => {
   <li :class="classes">
     <div class="image-container">
       <ResponsiveImage
-        v-if="image"
         :media="image"
         :aspect-ratio="imageAspectRatio"
         class="image"
       />
-      <div
-        v-else
-        class="molecule-no-image"
-      >
-        <MoleculePlaceholder
-          class="molecule"
-          aria-hidden="true"
-        />
-      </div>
 
       <div
         v-if="hasTriangle"
