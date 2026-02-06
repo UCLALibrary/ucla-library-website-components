@@ -8,6 +8,11 @@ export default {
   component: ScrollWrapper,
 }
 
+function handleCustomClick() {
+  console.log('Custom click handled')
+  console.log('event target', event.target)
+}
+
 /**
  * A component to wrap other components in slide-show like scrollable list.
  * Uses vuetify's `v-slide-group` and a singular `v-slide-group-item` to wrap all scrollable items.
@@ -23,12 +28,16 @@ export function Default() {
         theme: computed(() => 'ftva'),
       }
     },
+    methods: {
+      handleCustomClick,
+    },
     components: { ScrollWrapper, SectionTeaserCard },
     template: `
       <scroll-wrapper>
         <section-teaser-card
         :grid-layout="false"
         :items="items"
+        @click.stop="handleCustomClick"
         />
       </scroll-wrapper>
   `,
