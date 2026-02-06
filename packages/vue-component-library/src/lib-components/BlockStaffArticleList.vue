@@ -64,10 +64,6 @@ const parsedDate = computed(() => {
   return format(new Date(props.date), 'MMMM d, Y')
 })
 
-const imageExists = computed(() => {
-  return !!(props.image && Object.keys(props.image).length !== 0)
-})
-
 const parsedTextTruncated = computed(() => {
   return props.description
     ? removeHtmlTruncate(props.description, 130)
