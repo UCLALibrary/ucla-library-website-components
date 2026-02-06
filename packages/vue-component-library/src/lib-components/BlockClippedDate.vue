@@ -8,7 +8,6 @@ import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
 
 // COMPONENTS
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
