@@ -5,9 +5,6 @@ import type { PropType } from 'vue'
 // LODASH FUNCTIONS
 import format from 'date-fns/format'
 
-// SVGs
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
-
 // TYPESCRIPT
 import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 

@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
 import type { PropType, Ref } from 'vue'
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import type { AmenitiesType, MediaItemType } from '@/types/types'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
