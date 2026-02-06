@@ -88,7 +88,7 @@ function handleButtonClick(button: any) {
                 && item.value !== null
             "
           >
-            <template v-if="item.image">
+            <template v-if="item.image && item.image.src">
               <ResponsiveImage
                 class="icon"
                 :media="item.image"
