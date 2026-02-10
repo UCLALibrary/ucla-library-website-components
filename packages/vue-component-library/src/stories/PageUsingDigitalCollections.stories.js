@@ -6,7 +6,7 @@ import FooterSock from '../lib-components/FooterSock.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 import RichText from '../lib-components/RichText.vue'
-import TwoColLayoutWStickySideBar from '../lib-components/TwoColLayoutWStickySideBar.vue'
+import DLViewer from '../lib-components/DLViewer.vue'
 import PageAnchor from '../lib-components/PageAnchor.vue'
 import PanelAnchorNav from '../lib-components/PanelAnchorNav.vue'
 import ButtonLink from '../lib-components/ButtonLink.vue'
@@ -51,7 +51,7 @@ function Template(args) {
       HeaderSmart,
       NavSearch,
       RichText,
-      TwoColLayoutWStickySideBar,
+      DLViewer,
       PageAnchor,
       PanelAnchorNav,
       ButtonLink,
@@ -68,8 +68,18 @@ function Template(args) {
       const mockGlobalNavSearch = getMockGlobalNavSearch()
       const isPanelOpened = ref(false)
 
-      const { pageTitle, introContent, sectionTitles, textIntroduction }
-                = mockPageUsingDigitalCollections
+      const {
+        pageTitle,
+        introContent,
+        sectionTitles,
+        sections,
+        textIntroduction,
+      } = mockPageUsingDigitalCollections
+
+      function toKebab(title) {
+        const t = title.replace('&', '').replace(/\s+/g, ' ').trim()
+        return t.toLowerCase().replace(/ /g, '-')
+      }
 
       const handleOpenPanel = () => {
         isPanelOpened.value = true
@@ -84,7 +94,9 @@ function Template(args) {
         pageTitle,
         introContent,
         sectionTitles,
+        sections,
         textIntroduction,
+        toKebab,
         isPanelOpened,
         handleOpenPanel,
         handleClosePanel,
@@ -110,39 +122,63 @@ function Template(args) {
           <h1 class="page-title">{{ pageTitle }}</h1>
 
 
-          <!-- Two columns -->
+          <!-- Two columns: main content (intro + sections) and sidebar (Topics covered) -->
           <div class="two-column">
-            <RichText :rich-text-content="textIntroduction" />
-  
-            <PageAnchor
-              :section-titles="sectionTitles"
-              color="default"
-              :has-back-to-top="true"
-            >
-              <template #header>
-                <div class="title-container">
-                  <h3 class="title">
-                    Topics covered:
-                  </h3>
-                  <DividerGeneral class="divider" />
-                </div>
-              </template>
-              <template #link="{ title, href }">
-                <ButtonLink
-                  :label="title"
-                  :to="href"
-                  :is-secondary="true"
-                />
-              </template>
-              <template #back-to-top>
-                <ButtonLink
-                  label="Back to Top"
-                  to="#"
-                  :is-secondary="true"
-                />
-              </template>
-            </PageAnchor>
-      
+            <div class="content-column">
+              <RichText :rich-text-content="textIntroduction" class="intro-rich-text" />
+            </div>
+            <div class="sidebar-column">
+              <PageAnchor
+                :section-titles="sectionTitles"
+                color="default"
+                :has-back-to-top="true"
+              >
+                <template #header>
+                  <div class="title-container">
+                    <h3 class="title">
+                      Topics covered:
+                    </h3>
+                    <DividerGeneral class="divider" />
+                  </div>
+                </template>
+                <template #link="{ title, href }">
+                  <ButtonLink
+                    :label="title"
+                    :to="href"
+                    :is-secondary="true"
+                  />
+                </template>
+                <template #back-to-top>
+                  <ButtonLink
+                    label="Back to Top"
+                    to="#"
+                    :is-secondary="true"
+                  />
+                </template>
+              </PageAnchor>
+            </div>
+          </div>
+
+          <div class="sections-container">
+            <section
+                v-for="(section, index) in sections"
+                :key="index"
+                :id="toKebab(section.title)"
+                class="page-section"
+              >
+                <DividerGeneral class="section-divider" />
+              
+                <h2 class="section-title">{{ section.title }}</h2>
+                <template v-if="section.dlViewerManifestUrl">
+                  <RichText class="section-rich-text" :rich-text-content="section.introRichText" />
+                  <div class="dl-viewer-wrapper">
+                    <DLViewer :iiif_manifest_url="section.dlViewerManifestUrl" />
+                  </div>
+                  <RichText class="section-rich-text" :rich-text-content="section.captionRichText" class="viewer-caption" />
+                  <RichText class="section-rich-text" :rich-text-content="section.afterRichText" />
+                </template>
+                <RichText class="section-rich-text" v-else :rich-text-content="section.richText" />
+              </section>
           </div>
         </main>
 

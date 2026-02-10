@@ -1,7 +1,4 @@
-<script
-    setup
-    lang="ts"
->
+<script setup lang="ts">
 // UTILITY FUNCTIONS
 import { computed } from 'vue'
 import stripCraftURLFromText from '@/utils/stripCraftURLFromText'
@@ -31,18 +28,13 @@ const parsedContent = computed(() => {
 
 <template>
   <div :class="classes">
-    <div
-      class="parsed-content"
-      v-html="parsedContent"
-    />
+    <div class="parsed-content" v-html="parsedContent" />
     <slot />
   </div>
 </template>
 
-<style
-    lang="scss"
-    scoped
->
+<style lang="scss" scoped>
 @import "@/styles/default/_rich-text.scss";
 @import "@/styles/ftva/_rich-text.scss";
+@import "@/styles/dlc/_rich-text.scss";
 </style>
