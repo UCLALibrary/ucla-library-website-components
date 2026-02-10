@@ -35,6 +35,8 @@ const hasDate = computed(() => {
 })
 
 const parsedAspectRatio = computed(() => {
+  if (items?.[0]?.aspectRatio)
+    return items[0].aspectRatio
   if (items[0].sectionHandle === 'ftvaItemInCollection')
     return 75
   if (theme?.value === 'dlc' && hasDate.value) {
