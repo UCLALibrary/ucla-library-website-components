@@ -1,0 +1,83 @@
+@import "./GlobalPageStyles.scss";
+
+.using-digital-collections-page {
+    @include page-container;
+    --gutters: 48px;
+
+    .panel-anchor-nav {
+        z-index: 1000;
+    }
+
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+
+    .search-field-composite-wrapper {
+        @include search-field-wrapper;
+    }
+
+    .main-content {
+        max-width: 1600px;
+        margin: 0 auto;
+        flex: 1;
+        width: 100%;
+        padding: 0 var(--gutters) 48px;
+    }
+
+    .page-title {
+        margin: 0 0 var(--space-m);
+
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 110%;
+        color: var(--color-dark-grey);
+    }
+
+    .two-column {
+        display: flex;
+        flex-direction: row;
+        gap: 48px;
+    }
+
+    :deep(.title-container) {
+        .title {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: var(--color-dark-grey);
+        }
+
+        .divider {
+            width: 100%;
+            max-width: unset;
+            margin: 8px 0 10px;
+        }
+    }
+
+    @media #{$extra-large} {
+        --gutters: 48px;
+
+        .main-content {
+            padding: 0 var(--gutters);
+        }
+
+        .search-field-composite-wrapper {
+            padding: 0;
+        }
+    }
+    @media #{$medium} {
+        --gutters: 32px;
+    }
+    @media #{$small} {
+        --gutters: 16px;
+    }
+}
