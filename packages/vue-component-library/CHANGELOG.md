@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.64.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.2...@ucla-library-monorepo/ucla-library-website-components-v1.64.3) (2026-02-13)
+
+
+### Bug Fixes
+
+* APPS-3675 make heights min-heights instead ([#908](https://github.com/UCLALibrary/ucla-library-website-components/issues/908)) ([3505a49](https://github.com/UCLALibrary/ucla-library-website-components/commit/3505a49e1073a04e3889ef0c39744e79598252f8))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.64.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.1...@ucla-library-monorepo/ucla-library-website-components-v1.64.2) (2026-02-10)
 
 
