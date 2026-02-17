@@ -25,10 +25,14 @@ const classes = computed(() => {
   return ['scroll-wrapper', theme?.value || '']
 })
 
+const slotChildren = computed(() => {
+  return slots?.default?.()
+})
+
 // Set initial index when component mounts
 onMounted(() => {
   // Count the number of item slots provided
-  if (slots && singleItem) {
+  if (slots) {
     const slotCount = Object.keys(slots).length
     if (slotCount > 0)
       numSlides.value = slotCount
@@ -52,8 +56,8 @@ onMounted(() => {
     <template v-else>
       <v-sheet class="mx-auto">
         <v-slide-group :show-arrows="true">
-          <v-slide-group-item>
-            <slot />
+          <v-slide-group-item v-for="(vnode, index) in slotChildren" :key="index" v-slot="{ isSelected }">
+            <component :is="vnode" :class="['slide-group-item', { 'selected': isSelected, 'not-selected': !isSelected }]" />
           </v-slide-group-item>
         </v-slide-group>
       </v-sheet>
@@ -63,13 +67,33 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .scroll-wrapper {
+  width: 100%;
+  // set the widths of cards that appear within scrollwrapper
+  --card-max-width: 450px;
+  --card-min-width: 280px;
 
-  // ensure links are clickable
-  :deep(.block-highlight) {
+ :deep(.block-highlight) {
+     // START styles to emulate section-teaser-card for BlockCardWithImage
+    padding-top: 25px;
+    margin-right: 22px;
+
+    width: calc((100% / 3) - 22px);
+    min-width: 280px;
+    margin-bottom: 15px;
+    min-height: 350px;
+
+    @media #{$medium} {
+      width: calc((100% / 2) - 22px);
+    }
+
+    @media #{$small} {
+      width: 100%;
+    }
+    // END styles to emulate section-teaser-card for BlockCardWithImage
+
+    // ensure links are clickable
     .card-meta {
       a.title {
-        display: contents; // links in a flexbox that are partially scrolled offscreen will still work
-
         // overwrite styles from @include card-clickable-area to prevent after element from blocking the link
         &::after {
           top: auto;
@@ -86,7 +110,6 @@ onMounted(() => {
 
   // padded card for single item
   .padded-card {
-    // padding: 0 80px;
     background-color: transparent;
   }
 
@@ -160,10 +183,6 @@ onMounted(() => {
     }
   }
 
-  // set the widths of cards that appear within scrollwrapper
-  --card-max-width: 450px;
-  --card-min-width: 280px;
-
   // when card-with-image is in a scroll-wrapper, it should not wrap horizontally but scroll instead
   :deep(.card-with-image) {
     max-width: unset;
@@ -181,13 +200,6 @@ onMounted(() => {
         min-width: var(--card-min-width);
         max-width: var(--card-max-width);
       }
-    }
-  }
-
-  :deep(.section-teaser-card) {
-    .block-highlight {
-      min-width: var(--card-min-width);
-      max-width: var(--card-max-width);
     }
   }
 }
