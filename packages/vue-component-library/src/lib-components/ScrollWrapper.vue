@@ -57,7 +57,7 @@ onMounted(() => {
       <v-sheet class="mx-auto">
         <v-slide-group :show-arrows="true">
           <v-slide-group-item v-for="(vnode, index) in slotChildren" :key="index" v-slot="{ isSelected }">
-            <component :is="vnode" :class="['slide-group-item', { 'selected': isSelected, 'not-selected': !isSelected }]" />
+            <component :is="vnode" class="slide-group-item" :class="[{ 'selected': isSelected, 'not-selected': !isSelected }]" />
           </v-slide-group-item>
         </v-slide-group>
       </v-sheet>
@@ -77,13 +77,13 @@ onMounted(() => {
     padding-top: 25px;
     margin-right: 22px;
 
-    width: calc((100% / 3) - 22px);
+    width: calc((100vw / 3) - 22px);
     min-width: 280px;
     margin-bottom: 15px;
     min-height: 350px;
 
     @media #{$medium} {
-      width: calc((100% / 2) - 22px);
+      width: calc((100vw / 2) - 22px);
     }
 
     @media #{$small} {

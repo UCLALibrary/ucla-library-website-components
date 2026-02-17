@@ -128,7 +128,8 @@ const parsedDateFormat = computed(() => {
 </script>
 
 <template>
-  <component :is="tag"
+  <component
+    :is="tag"
     :class="classes"
     @click="handleClick"
   >
