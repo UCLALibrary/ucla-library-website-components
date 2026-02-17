@@ -261,7 +261,7 @@ const parsedDateFormat = computed(() => {
   // Breakpoints
   @media #{$large} {
     :deep(.responsive-image .molecule-no-image) {
-      height: $large-height;
+      min-height: $large-height;
     }
   }
   @media #{$medium} {
@@ -351,7 +351,7 @@ const parsedDateFormat = computed(() => {
     }
 
     :deep(.responsive-image .molecule-no-image) {
-      height: 200px;
+      min-height: 200px;
     }
   }
 }
