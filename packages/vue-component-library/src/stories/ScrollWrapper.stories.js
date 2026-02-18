@@ -1,6 +1,5 @@
 import { computed } from 'vue'
 import ScrollWrapper from '../lib-components/ScrollWrapper.vue'
-import SectionTeaserCard from '../lib-components/SectionTeaserCard.vue'
 import BlockCardWithImage from '../lib-components/BlockCardWithImage.vue'
 import { parsedFTVABlogSeries } from './mock/FTVAMedia'
 

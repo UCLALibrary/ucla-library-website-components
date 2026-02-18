@@ -44,17 +44,16 @@
     }
 }
 
-// TODO FIX THIS
-// .ftva.section-teaser-card.no-grid-layout {
-//     overflow-y: auto;
-//     scrollbar-color: $grey-blue $white;
+.ftva.section-teaser-card.no-grid-layout {
+    overflow-y: auto;
+    scrollbar-color: $grey-blue $white;
 
-//     @media #{$medium} {
-//         .card {
-//             flex-basis: calc((100% / 3) - 22px);
-//         }
-//     }
-// }
+    @media #{$medium} {
+        .card {
+            flex-basis: calc((100% / 3) - 22px);
+        }
+    }
+}
 
 .ftva.section-teaser-card-title {
     @include ftva-card-title-1;
