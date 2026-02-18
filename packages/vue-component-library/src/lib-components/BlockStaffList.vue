@@ -69,6 +69,7 @@ const lastDepartment = computed(() => {
 <template>
   <li class="block-staff-list">
     <ResponsiveImage
+      v-if="image && image.src"
       :media="image"
       :aspect-ratio="100"
       sizes="300px"

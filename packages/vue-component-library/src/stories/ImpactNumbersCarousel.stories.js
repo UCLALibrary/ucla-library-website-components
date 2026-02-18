@@ -56,3 +56,6 @@ function Template(args) {
 }
 
 export const Default = Template.bind({})
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}

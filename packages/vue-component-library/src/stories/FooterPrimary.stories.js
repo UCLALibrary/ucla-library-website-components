@@ -127,6 +127,10 @@ export function Default() {
   }
 }
 
+Default.parameters = {
+  chromatic: { disableSnapshot: false },
+}
+
 export function NoForm() {
   return {
     data() {
