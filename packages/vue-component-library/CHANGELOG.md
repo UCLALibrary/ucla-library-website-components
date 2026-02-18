@@ -1,3 +1,31 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.64.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.2...@ucla-library-monorepo/ucla-library-website-components-v1.64.3) (2026-02-13)
+
+
+### Bug Fixes
+
+* APPS-3675 make heights min-heights instead ([#908](https://github.com/UCLALibrary/ucla-library-website-components/issues/908)) ([3505a49](https://github.com/UCLALibrary/ucla-library-website-components/commit/3505a49e1073a04e3889ef0c39744e79598252f8))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.64.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.1...@ucla-library-monorepo/ucla-library-website-components-v1.64.2) (2026-02-10)
+
+
+### Bug Fixes
+
+* APPS-3675 image overflow in safari  ([#905](https://github.com/UCLALibrary/ucla-library-website-components/issues/905)) ([47b5b50](https://github.com/UCLALibrary/ucla-library-website-components/commit/47b5b5065b813b45b11ea28eb8408d0fa7dacfb8))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.64.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.0...@ucla-library-monorepo/ucla-library-website-components-v1.64.1) (2026-02-04)
+
+
+### Bug Fixes
+
+* APPS-3445  Card with Image Flexible Page Block - Size of title is too big ([#903](https://github.com/UCLALibrary/ucla-library-website-components/issues/903)) ([c119074](https://github.com/UCLALibrary/ucla-library-website-components/commit/c11907417bd7751855903add4ccc13e6c3bdc6fb))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.64.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.63.2...@ucla-library-monorepo/ucla-library-website-components-v1.64.0) (2026-02-04)
+
+
+### Features
+
+* add visual test addon for local devlopment if needed to see the changes in storybook ([#904](https://github.com/UCLALibrary/ucla-library-website-components/issues/904)) ([558a0e4](https://github.com/UCLALibrary/ucla-library-website-components/commit/558a0e4e55a1c48f5d5042b6bbaf597d33d13c2b))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.63.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.63.1...@ucla-library-monorepo/ucla-library-website-components-v1.63.2) (2026-01-30)
 
 
