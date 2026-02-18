@@ -15,34 +15,10 @@ export default {
  * Can be used to wrap a group of components that needs to scroll horizontally with styled arrows.
  */
 
-// We no longer use grouped components like SectionTeaserCard inside ScrollWrapper, but this story is kept for reference.
-// It is not a11y compliant and should not be used in production.
-export function OldDefault_Deprecated() {
-  return {
-    data() {
-      return { items: parsedFTVABlogSeries }
-    },
-    provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
-    },
-    components: { ScrollWrapper, SectionTeaserCard },
-    template: `
-      <scroll-wrapper>
-        <section-teaser-card
-        :grid-layout="false"
-        :items="items"
-        />
-      </scroll-wrapper>
-  `,
-  }
-}
-
 export function Default() {
   return {
     data() {
-      return { items: parsedFTVABlogSeries.concat(parsedFTVABlogSeries) }
+      return { items: parsedFTVABlogSeries }
     },
     provide() {
       return {
@@ -53,7 +29,7 @@ export function Default() {
     template: `
       <scroll-wrapper>
         <template v-for="item in items" :key="item.id">
-          <block-card-with-image :byline-one="item.bylineOne" :byline-two="item.bylineTwo" :category="item.category" :date-created="item.postDate" :image="item.image" date-format="short" :start-date="item.startDate" :end-date="item.endDate" :title="item.title" :to="item.to" tag="div" :image-aspect-ratio="60" :is-vertical="true" />
+          <block-card-with-image class="card" :byline-one="item.bylineOne" :byline-two="item.bylineTwo" :category="item.category" :date-created="item.postDate" :image="item.image" date-format="short" :start-date="item.startDate" :end-date="item.endDate" :title="item.title" :to="item.to" tag="div" :image-aspect-ratio="60" :is-vertical="true" />
         </template>
       </scroll-wrapper>
   `,
@@ -74,13 +50,12 @@ export function SixItems() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { ScrollWrapper, SectionTeaserCard },
+    components: { ScrollWrapper, BlockCardWithImage },
     template: `
       <scroll-wrapper>
-        <section-teaser-card
-        :grid-layout="false"
-        :items="items"
-        />
+        <template v-for="item in items" :key="item.id">
+          <block-card-with-image class="card" :byline-one="item.bylineOne" :byline-two="item.bylineTwo" :category="item.category" :date-created="item.postDate" :image="item.image" date-format="short" :start-date="item.startDate" :end-date="item.endDate" :title="item.title" :to="item.to" tag="div" :image-aspect-ratio="60" :is-vertical="true" />
+        </template>
       </scroll-wrapper>
   `,
   }
