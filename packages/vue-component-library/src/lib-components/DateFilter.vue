@@ -252,6 +252,7 @@ onMounted(() => {
           <div class="custom-nav-buttons">
             <button
               class="nav-arrow-button"
+              aria-label="Previous month"
               @click="clearTodayBtn(); handleMonthYearChange(false)"
             >
               <SvgIconCaretLeft />
@@ -264,6 +265,7 @@ onMounted(() => {
             </button>
             <button
               class="nav-arrow-button"
+              aria-label="Next month"
               @click="clearTodayBtn(); handleMonthYearChange(true)"
             >
               <SvgIconCaretRight />
@@ -369,6 +371,7 @@ onMounted(() => {
               <div class="custom-nav-buttons">
                 <button
                   class="nav-arrow-button"
+                  aria-label="Previous month"
                   @click="clearTodayBtn(); handleMonthYearChange(false)"
                 >
                   <SvgIconCaretLeft />
@@ -381,6 +384,7 @@ onMounted(() => {
                 </button>
                 <button
                   class="nav-arrow-button"
+                  aria-label="Next month"
                   @click="clearTodayBtn(); handleMonthYearChange(true)"
                 >
                   <SvgIconCaretRight />
