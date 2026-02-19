@@ -127,7 +127,7 @@ function setActiveTab(index: number) {
             :placeholder="placeholder"
             @keyup.enter="doSearch"
           />
-          <button class="button-submit" @click="doSearch">
+          <button class="button-submit" aria-label="Submit search" @click="doSearch">
             <IconSearch class="icon" />
           </button>
         </div>
