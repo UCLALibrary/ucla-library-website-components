@@ -161,8 +161,8 @@ function Template(args) {
 
           <div class="sections-container">
             <section
-                v-for="(section, index) in sections"
-                :key="index"
+                v-for="section in sections"
+                :key="toKebab(section.title)"
                 :id="toKebab(section.title)"
                 class="page-section"
               >
@@ -174,7 +174,7 @@ function Template(args) {
                   <div class="dl-viewer-wrapper">
                     <DLViewer :iiif_manifest_url="section.dlViewerManifestUrl" />
                   </div>
-                  <RichText class="section-rich-text" :rich-text-content="section.captionRichText" class="viewer-caption" />
+                  <RichText class="section-rich-text viewer-caption" :rich-text-content="section.captionRichText" />
                   <RichText class="section-rich-text" :rich-text-content="section.afterRichText" />
                 </template>
                 <RichText class="section-rich-text" v-else :rich-text-content="section.richText" />
