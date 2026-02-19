@@ -64,6 +64,7 @@ export interface BlockCardMetaType {
   ongoing: boolean
   postDate?: string
   customDateTime?: string
+  aspectRatio?: number
 }
 
 export interface BlockImpactNumbersCarouselType {

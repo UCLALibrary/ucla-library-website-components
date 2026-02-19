@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 import type { PropType } from 'vue'
 
 // THEME
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
+// import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import { useTheme } from '@/composables/useTheme'
 
 // SVGs
@@ -130,7 +130,6 @@ const parsedDateFormat = computed(() => {
   >
     <div class="image-container">
       <ResponsiveImage
-        v-if="image"
         :media="image"
         :aspect-ratio="imageAspectRatio"
         class="image"
@@ -142,7 +141,7 @@ const parsedDateFormat = computed(() => {
           <slot name="toptext" />
         </template>
       </ResponsiveImage>
-      <div
+      <!-- <div
         v-else
         class="molecule-no-image"
       >
@@ -150,7 +149,7 @@ const parsedDateFormat = computed(() => {
           class="molecule"
           aria-hidden="true"
         />
-      </div>
+      </div> -->
     </div>
     <CardMeta
       class="card-meta-items"
