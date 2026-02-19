@@ -46,7 +46,7 @@ const classes = computed(() => {
       :class="classes"
     >
       <ResponsiveImage
-        v-if="image"
+        v-if="image && image.src"
         :media="image"
         :aspect-ratio="100"
         class="image"

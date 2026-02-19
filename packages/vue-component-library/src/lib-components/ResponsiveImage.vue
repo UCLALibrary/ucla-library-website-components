@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-
+import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import type {
   MediaItemType,
   ResponsiveImageType as ResponsiveImagepProps,
@@ -31,6 +31,14 @@ function onError() {
   hasErrored.value = true
 }
 
+const parsedImage = computed(() => {
+  if (props.media?.src && props.media.src !== '')
+    return props.media.src
+  if (props.src && props.src !== '')
+    return props.src
+  return null
+})
+
 const parsedFocalPoint = computed(() => {
   let objectPosition = ''
   if (props.media.focalPoint && props.media.focalPoint.length > 0) {
@@ -43,8 +51,8 @@ const parsedFocalPoint = computed(() => {
 })
 
 const parsedAspectRatio = computed(() => {
-  const height = props.media.height || props.height
-  const width = props.media.width || props.width
+  const height = props.media?.height || props.height
+  const width = props.media?.width || props.width
   return props.aspectRatio || (height / width) * 100
 })
 
@@ -65,25 +73,30 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <figure v-if="props.media && props.media.src" :class="classes">
-    <!-- TODO:  width and height are swapped here, why? is it a mistake or there's a reason behind it? -->
+  <figure :class="classes">
     <img
-      :src="props.media.src || props.src"
-      :height="props.media.width || props.width"
-      :width="props.media.height || props.height"
-      :alt="props.media.alt || props.alt"
-      :srcset="props.media.srcset || props.srcset"
-      :sizes="props.media.sizes || props.sizes"
+      v-if="parsedImage"
+      :src="props.media?.src || props.src"
+      :alt="props.media?.alt || props.alt"
+      :srcset="props.media?.srcset || props.srcset"
+      :sizes="props.media?.sizes || props.sizes"
       :object-fit="props.objectFit"
       :style="parsedFocalPoint"
       class="media"
       @load="onLoad"
       @error="onError"
     >
+    <div v-else class="molecule-no-image">
+      <MoleculePlaceholder
+        class="molecule"
+        aria-hidden="true"
+      />
+    </div>
+
     <figcaption
-      v-if="props.media.caption || props.caption"
+      v-if="props.media?.caption || props.caption"
       class="caption"
-      v-html="props.media.caption || props.caption"
+      v-html="props.media?.caption || props.caption"
     />
     <div class="sizer" :style="styles" />
     <slot />
@@ -107,7 +120,7 @@ const classes = computed(() => {
     z-index: 0;
     // opacity: 0; // TODO add this back when we resolve why onload is not firing on craft images in netlify, works locally
     transition: opacity 400ms ease-in-out;
-    .media {
+    .media, .molecule-no-image {
         position: absolute;
         top: 0;
         left: 0;
@@ -115,6 +128,16 @@ const classes = computed(() => {
         height: 100%;
         z-index: 0;
         object-fit: cover;
+    }
+    .molecule-no-image {
+      display: flex;
+      align-items: center;
+      overflow: clip;
+      background: var(--gradient-01);
+    }
+    .molecule {
+      flex-shrink: 0;
+      opacity: 0.7;
     }
     .caption {
         display: none;

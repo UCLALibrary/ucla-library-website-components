@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
 import type { PropType, Ref } from 'vue'
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import type { AmenitiesType, MediaItemType } from '@/types/types'
 import IconWithLink from '@/lib-components/IconWithLink.vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
@@ -160,9 +159,6 @@ const parseLibCalHours = computed(() => {
   else
     return libcalHoursData?.value?.status
 })
-const imageExists = computed(() => {
-  return !!(props.image && Object.keys(props.image).length !== 0)
-})
 
 // Fetch data
 onMounted(() => {
@@ -175,19 +171,9 @@ onMounted(() => {
     <div class="card-container">
       <div class="image-container">
         <ResponsiveImage
-          v-if="imageExists"
           class="image"
           :media="props.image"
         />
-        <div
-          v-else
-          class="molecule-no-image"
-        >
-          <MoleculePlaceholder
-            class="molecule"
-            aria-hidden="true"
-          />
-        </div>
       </div>
       <div class="library">
         <div>
