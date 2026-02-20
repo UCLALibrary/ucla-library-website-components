@@ -124,11 +124,11 @@
   :deep(iframe) {
     &[src*="youtube.com"] {
       height: auto;
-      aspect-ratio: 1;
+      aspect-ratio: 16/9;
     }
     &[src*="newsreels.net"] {
       height: auto;
-      aspect-ratio: 16/9;
+      aspect-ratio: 9/8;
     }
   }
 
