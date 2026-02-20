@@ -10,6 +10,7 @@
     "lib:chromatic": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components exec dotenv -e .env.chromatic -- chromatic",
     "lib:cypress": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run cypress",
     "lib:storybook": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run storybook",
+    "lib:storybook-chromatic": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run storybook-chromatic",
     "lib:build-storybook": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run build-storybook",
     "lib:cypress-run": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run cypress-run",
     "lib:cypress-storybook": "pnpm --filter @ucla-library-monorepo/ucla-library-website-components run cypress-storybook",
