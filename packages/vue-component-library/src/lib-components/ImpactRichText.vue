@@ -31,8 +31,8 @@ const parsedRatio = 60
       :attribution="pullQuote[0].attribution"
     />
     <div v-if="textBlocks[1]" class="text" v-html="textBlocks[1]" />
-    <div v-if="images[0]" class="image-block">
-      <ResponsiveImage v-if="images[0]" class="image" :media="images[0]" :aspect-ratio="parsedRatio" />
+    <div v-if="images[0] && images[0].src" class="image-block">
+      <ResponsiveImage class="image" :media="images[0]" :aspect-ratio="parsedRatio" />
       <div v-if="images[0].caption" class="caption" v-html="images[0].caption" />
     </div>
 
@@ -42,8 +42,8 @@ const parsedRatio = 60
       :attribution="pullQuote[1].attribution"
     />
     <div v-if="textBlocks[3]" class="text" v-html="textBlocks[3]" />
-    <div v-if="images[1]" class="image-block">
-      <ResponsiveImage v-if="images[1]" class="image" :media="images[1]" :aspect-ratio="parsedRatio" />
+    <div v-if="images[1] && images[1].src" class="image-block">
+      <ResponsiveImage class="image" :media="images[1]" :aspect-ratio="parsedRatio" />
       <div v-if="images[1].caption" class="caption" v-html="images[1].caption" />
     </div>
 
@@ -54,8 +54,8 @@ const parsedRatio = 60
       :attribution="pullQuote[2].attribution"
     />
     <div v-if="textBlocks[6]" class="text" v-html="textBlocks[6]" />
-    <div v-if="images[2]" class="image-block">
-      <ResponsiveImage v-if="images[2]" class="image" :media="images[2]" :aspect-ratio="parsedRatio" />
+    <div v-if="images[2] && images[2].src" class="image-block">
+      <ResponsiveImage class="image" :media="images[2]" :aspect-ratio="parsedRatio" />
       <div v-if="images[2].caption" class="caption" v-html="images[2].caption" />
     </div>
     <div v-if="textBlocks[7]" class="text" v-html="textBlocks[7]" />
