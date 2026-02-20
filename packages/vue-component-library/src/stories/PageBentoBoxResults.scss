@@ -1,0 +1,64 @@
+@import "./GlobalPageStyles.scss";
+
+.bento-box-results-page {
+    @include page-container;
+    align-items: center;
+
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+
+    .bento-filter-menu {
+        margin: 24px 0 32px;
+    }
+
+    .header-smart,
+    .footer {
+        width: 100%;
+    }
+
+    .main-content {
+        width: 100%;
+        max-width: var(--unit-full-width);
+        padding: 0 var(--gutters) 48px;
+    }
+
+    .search-field-composite-wrapper {
+        @include search-field-wrapper;
+    }
+
+    .column-container:first-child {
+        .block-container {
+            &:nth-child(2n + 2) {
+                .bento-pod {
+                    background-color: var(--color-primary-blue-01);
+                }
+            }
+        }
+    }
+
+    .column-container:last-child {
+        .block-container {
+            &:nth-child(2n + 1) {
+                .bento-pod {
+                    background-color: var(--color-primary-blue-01);
+                }
+            }
+        }
+    }
+
+    // Breakpoints
+    @media #{$medium} {
+        --gutters: 32px;
+    }
+    @media #{$small} {
+        --gutters: 24px;
+    }
+}
