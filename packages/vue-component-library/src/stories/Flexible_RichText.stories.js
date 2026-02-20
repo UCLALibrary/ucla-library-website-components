@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 
 // Mock Data
-import { mockRichText, ftvaMockRichText } from './mock/RichText'
+import { ftvaMockRichText, mockRichText } from './mock/RichText'
 
 // Component
 import FlexibleRichText from '@/lib-components/Flexible/RichText'
