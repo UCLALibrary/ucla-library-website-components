@@ -1,6 +1,8 @@
 .dlc.page-anchor {
     position: relative;
 
+    background-color: var(--color-white);
+
     .page-anchor-content {
         justify-content: flex-start;
         padding: 0;
@@ -24,6 +26,7 @@
     }
 
     .page-anchor-list {
+        background-color: var(--color-white);
         position: relative;
 
         display: flex;
