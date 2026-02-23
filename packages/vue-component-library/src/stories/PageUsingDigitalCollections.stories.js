@@ -17,7 +17,7 @@ import {
   getMockGlobalNavSearch,
   setupGlobalStore,
 } from './helpers/storyHelpers'
-import { mockPageUsingDigitalCollections } from '@/stories/mock/Funkhaus/MockPageUsingDigitalCollections'
+import { groupedSections, mockPageUsingDigitalCollections } from '@/stories/mock/Funkhaus/MockPageUsingDigitalCollections'
 
 // Import styles
 import './PageUsingDigitalCollections.scss'
@@ -70,11 +70,12 @@ function Template(args) {
 
       const {
         pageTitle,
-        introContent,
-        sectionTitles,
-        sections,
+        contentBlocks,
         textIntroduction,
       } = mockPageUsingDigitalCollections
+
+      const sections = groupedSections(contentBlocks)
+      const sectionTitles = sections.map(s => s.title)
 
       function toKebab(title) {
         const t = title.replace('&', '').replace(/\s+/g, ' ').trim()
@@ -92,7 +93,6 @@ function Template(args) {
         args,
         mockGlobalNavSearch,
         pageTitle,
-        introContent,
         sectionTitles,
         sections,
         textIntroduction,
@@ -169,15 +169,29 @@ function Template(args) {
                 <DividerGeneral class="section-divider" />
               
                 <h2 class="section-title">{{ section.title }}</h2>
-                <template v-if="section.dlViewerManifestUrl">
-                  <RichText class="section-rich-text" :rich-text-content="section.introRichText" />
-                  <div class="dl-viewer-wrapper">
-                    <DLViewer :iiif_manifest_url="section.dlViewerManifestUrl" />
+
+                <template v-for="(block, blockIndex) in section.blocks" :key="block.id">
+                  <div
+                    class="section-block"
+                    :class="{ 'outlined-container': block.hasOutline }"
+                  >
+                    <RichText
+                      v-if="block.typeHandle === 'richText'"
+                      class="section-rich-text"
+                      :rich-text-content="block.richText"
+                    />
+                    <template v-else-if="block.typeHandle === 'dlViewer'">
+                      <div class="dl-viewer-wrapper">
+                        <DLViewer :iiif_manifest_url="block.manifestUrl" />
+                      </div>
+                      <RichText
+                        v-if="block.caption"
+                        class="section-rich-text viewer-caption"
+                        :rich-text-content="block.caption"
+                      />
+                    </template>
                   </div>
-                  <RichText class="section-rich-text viewer-caption" :rich-text-content="section.captionRichText" />
-                  <RichText class="section-rich-text" :rich-text-content="section.afterRichText" />
                 </template>
-                <RichText class="section-rich-text" v-else :rich-text-content="section.richText" />
               </section>
           </div>
         </main>

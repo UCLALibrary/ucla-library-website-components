@@ -86,6 +86,7 @@
     .section-rich-text {
         max-width: 640px;
         margin: 0 auto;
+        padding-right: 0;
     }
 
     .dl-viewer-wrapper {
@@ -97,6 +98,17 @@
         margin-top: var(--space-s, 8px);
         font-size: 14px;
         color: var(--color-dark-grey);
+    }
+
+    .section-block {
+        &.outlined-container {
+            max-width: 700px;
+            margin: 0 auto;
+
+            padding: 32px;
+            border: 1px solid var(--color-secondary-grey-02);
+            border-radius: 15px;
+        }
     }
 
     :deep(.title-container) {
@@ -146,5 +158,11 @@
     }
     @media #{$small} {
         --gutters: 16px;
+
+        .section-block {
+            &.outlined-container {
+                padding: 24px;
+            }
+        }
     }
 }
