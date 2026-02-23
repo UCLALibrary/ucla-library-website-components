@@ -135,9 +135,9 @@ function Template(args) {
               >
                 <template #header>
                   <div class="title-container">
-                    <h3 class="title">
+                    <span class="title">
                       Topics covered:
-                    </h3>
+                    </span>
                     <DividerGeneral class="divider" />
                   </div>
                 </template>

@@ -137,7 +137,12 @@ function doSearch() {
         @clear="doSearch"
         @keyup.enter="doSearch"
       />
-      <button v-if="isDlcTheme" class="icon-button" @click="doSearch">
+      <button
+        v-if="isDlcTheme"
+        class="icon-button"
+        aria-label="Search"
+        @click="doSearch"
+      >
         <IconSearchDlc class="icon" />
       </button>
 
