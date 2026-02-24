@@ -225,8 +225,15 @@ export function useElasticSearch(config?: ElasticsearchConfig) {
     error.value = null
 
     try {
-      // Build the Elasticsearch API URL
-      const url = `${esConfig.host}/${esConfig.index}/_search`
+      // Require host and index so we never send a request to undefined/undefined/_search
+      if (!esConfig.host || !esConfig.index) {
+        throw new Error(
+          'Elasticsearch config missing: set VITE_ELASTICSEARCH_HOST and VITE_ELASTICSEARCH_INDEX in .env (repo root for Storybook, or in the app that uses this composable).'
+        )
+      }
+      // Build the Elasticsearch API URL (normalize host: no trailing slash to avoid double slash)
+      const base = esConfig.host.replace(/\/+$/, '')
+      const url = `${base}/${esConfig.index}/_search`
       const headers: HeadersInit = {
         'Content-Type': 'application/json',
       }
