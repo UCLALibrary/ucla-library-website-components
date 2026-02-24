@@ -71,25 +71,27 @@ onMounted(() => {
 .scroll-wrapper {
   width: 100%;
   // set the widths of cards that appear within scrollwrapper
-  --card-max-width: 450px;
+  --card-max-width: 328px;
   --card-min-width: 322px;
   // START styles to emulate section-teaser-card for BlockCardWithImage inside Scrollwrapper
  :deep(.v-slide-group__content) {
      &:has(.block-highlight) {
-        justify-content: space-between;
         gap: var(--space-xl) 30px;
-        max-width: 1047px;
         margin: 0 auto;
         padding-top: 25px;
         margin-bottom: 15px;
         min-height: 403px;
+
+      @media (min-width: 1047px) {
+        justify-content: center;
+      }
      }
 }
 
  :deep(.block-highlight) {
     flex-basis: calc((100% / 3) - 22px);
     min-width: var(--card-min-width);
-    max-width: 327px;
+    // max-width: 327px !important;
     min-height: 350px;
     // END styles to emulate section-teaser-card for BlockCardWithImage inside Scrollwrapper
 
