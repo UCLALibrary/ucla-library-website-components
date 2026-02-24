@@ -145,6 +145,37 @@
         gap: 24px;
     }
 
+    .search-results-loading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 0;
+        font-family: var(--font-secondary);
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-primary-blue-05);
+
+        &__spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 3px solid var(--color-primary-blue-05);
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: search-results-loading-spin 0.7s linear infinite;
+        }
+
+        &__text {
+            flex: 0 0 auto;
+        }
+    }
+
+    @keyframes search-results-loading-spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
     .no-results-message {
         padding: 48px 0;
         text-align: center;

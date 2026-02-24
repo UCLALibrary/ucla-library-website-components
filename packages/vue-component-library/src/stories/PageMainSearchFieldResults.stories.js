@@ -714,7 +714,22 @@ function Template(args) {
                />
              </aside>
 
-             <div class="search-results-main">
+             <div
+               class="search-results-main"
+               :aria-busy="loading"
+               aria-live="polite"
+             >
+               <!-- Fetch pending indicator -->
+               <div
+                 v-if="loading"
+                 class="search-results-loading"
+                 role="status"
+                 aria-label="Searching"
+               >
+                 <span class="search-results-loading__spinner" aria-hidden="true" />
+                 <span class="search-results-loading__text">Searching…</span>
+               </div>
+
                <!-- Top Pagination -->
                <SectionPagination
                  :pages="mockPagination.totalPages"
