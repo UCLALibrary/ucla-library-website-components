@@ -146,14 +146,20 @@
     }
 
     .search-results-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 12px;
-        padding: 16px 0;
         font-family: var(--font-secondary);
         font-size: 16px;
         font-weight: 500;
         color: var(--color-primary-blue-05);
+        z-index: 1000;
 
         &__spinner {
             display: inline-block;
