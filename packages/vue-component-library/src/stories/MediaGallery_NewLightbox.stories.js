@@ -201,3 +201,55 @@ export function FTVA_HomepageCarouselURL() {
     template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></ flexible-media-gallery-new-lightbox>',
   }
 }
+
+export function FTVA_HomepageCarousel_ScrollTest() {
+  return {
+    data() {
+      return {
+        items: parsedMockHomepagCarousel,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { FlexibleMediaGalleryNewLightbox, BlockTag },
+    template: `
+      <div>
+        <div
+          style="
+            height:10vh;
+            background: #132941;
+            padding:20px;
+            color: white;
+            font-size:24px
+          "
+        >
+          <strong>UCLA Film & Television Archive</strong>
+        </div>
+
+        <flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true>
+          <template v-slot="slotProps">
+            <BlockTag :label="items[slotProps.selectionIndex].tag" />
+            {{ items[slotProps.selectionIndex].itemDate }}
+          </template>
+        </flexible-media-gallery-new-lightbox>
+
+        <div
+          style="
+            height:120vh;
+            background:#e7edf2;
+            padding:20px;
+            color: #2f2f2f;
+            font-size: 36px;
+            font-family: Karbon;
+            font-weight: 400;
+          "
+        >
+          <h2>Now Showing</h2>
+        </div>
+      </div>
+    `,
+  }
+}
