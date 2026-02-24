@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.65.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.3...@ucla-library-monorepo/ucla-library-website-components-v1.65.0) (2026-02-20)
+
+
+### Features
+
+* APPS-3707 add ftva styles for rich text iframes ([#911](https://github.com/UCLALibrary/ucla-library-website-components/issues/911)) ([cdefa26](https://github.com/UCLALibrary/ucla-library-website-components/commit/cdefa2624a28a755c9d850859243f4b3fc38704c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.64.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.2...@ucla-library-monorepo/ucla-library-website-components-v1.64.3) (2026-02-13)
 
 
