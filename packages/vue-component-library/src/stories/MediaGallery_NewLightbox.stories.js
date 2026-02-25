@@ -199,20 +199,24 @@ export function FTVA_HomepageCarouselURL() {
     },
     components: { FlexibleMediaGalleryNewLightbox, BlockTag },
     template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></flexible-media-gallery-new-lightbox>',
+    template: `
+      <flexible-media-gallery-new-lightbox class="homepage" :items="items" inline>
+        <template v-slot="slotProps">
+          <BlockTag :label="items[slotProps.selectionIndex].tag" />
+          {{ items[slotProps.selectionIndex].itemDate }}
+        </template>
+      </flexible-media-gallery-new-lightbox>
+    `,
   }
 }
 
 export function FTVA_HomepageCarousel_ScrollTest() {
   return {
     data() {
-      return {
-        items: parsedMockHomepagCarousel,
-      }
+      return { items: parsedMockHomepagCarousel }
     },
     provide() {
-      return {
-        theme: computed(() => 'ftva'),
-      }
+      return { theme: computed(() => 'ftva') }
     },
     components: { FlexibleMediaGalleryNewLightbox, BlockTag },
     template: `
@@ -220,17 +224,16 @@ export function FTVA_HomepageCarousel_ScrollTest() {
         <div
           style="
             height:10vh;
-            background: #132941;
             background: hotpink;
             padding:20px;
             color: white;
             font-size:24px
           "
         >
-          <strong>Example Navbar area to demonstrate scrolling
+          <strong>Example Navbar area to demonstrate scrolling</strong>
         </div>
 
-        <flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true>
+        <flexible-media-gallery-new-lightbox class="homepage" :items="items" inline>
           <template v-slot="slotProps">
             <BlockTag :label="items[slotProps.selectionIndex].tag" />
             {{ items[slotProps.selectionIndex].itemDate }}
@@ -240,19 +243,13 @@ export function FTVA_HomepageCarousel_ScrollTest() {
         <div
           style="
             height:120vh;
-            background:#e7edf2;
             background: #FFE3E8;
             padding:20px;
             color: #132941;
             font-size: 36px;
           "
         >
-          <h2
-            style="
-            font-family: var(--font-primary);
-            font-weight: 400;
-            "
-          >
+          <h2 style="font-family: var(--font-primary); font-weight: 400;">
             Example Body
           </h2>
           <p>Example text area to demonstrate scrolling.</p>
