@@ -255,7 +255,7 @@ export function FTVA_HomepageCarousel_ScrollTest() {
           >
             Example Body
           </h2>
-          <p>Example text area to demonstrate scrolling</p>
+          <p>Example text area to demonstrate scrolling.</p>
         </div>
       </div>
     `,
