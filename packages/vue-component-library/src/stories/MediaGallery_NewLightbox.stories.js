@@ -221,12 +221,13 @@ export function FTVA_HomepageCarousel_ScrollTest() {
           style="
             height:10vh;
             background: #132941;
+            background: hotpink;
             padding:20px;
             color: white;
             font-size:24px
           "
         >
-          <strong>UCLA Film & Television Archive</strong>
+          <strong>Example Navbar area to demonstrate scrolling
         </div>
 
         <flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true>
@@ -240,14 +241,21 @@ export function FTVA_HomepageCarousel_ScrollTest() {
           style="
             height:120vh;
             background:#e7edf2;
+            background: #FFE3E8;
             padding:20px;
-            color: #2f2f2f;
+            color: #132941;
             font-size: 36px;
-            font-family: Karbon;
-            font-weight: 400;
           "
         >
-          <h2>Now Showing</h2>
+          <h2
+            style="
+            font-family: var(--font-primary);
+            font-weight: 400;
+            "
+          >
+            Example Body
+          </h2>
+          <p>Example text area to demonstrate scrolling</p>
         </div>
       </div>
     `,
