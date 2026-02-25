@@ -167,7 +167,7 @@ export function FTVA_HomepageCarousel() {
       }
     },
     components: { FlexibleMediaGalleryNewLightbox, BlockTag },
-    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></ flexible-media-gallery-new-lightbox>',
+    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></flexible-media-gallery-new-lightbox>',
   }
 }
 
