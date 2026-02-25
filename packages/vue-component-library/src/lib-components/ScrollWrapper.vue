@@ -82,9 +82,13 @@ onMounted(() => {
         margin-bottom: 15px;
         min-height: 403px;
 
-      @media (min-width: 1047px) {
-        justify-content: center;
-      }
+        &:has(.block-highlight:nth-child(4)) {
+          gap: var(--space-xl) 20px;
+        }
+
+        @media (min-width: 1047px) {
+          justify-content: center;
+        }
      }
 }
 
