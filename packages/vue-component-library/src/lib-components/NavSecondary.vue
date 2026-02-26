@@ -20,24 +20,13 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  showSearch: {
+    type: Boolean,
+    default: true, // search displays unless explicitly disabled
+  },
 })
 
-const theme = useTheme()
-const themeSettings = computed(() => {
-  switch (theme?.value) {
-    case 'meap':
-      return {
-        showSearch: false
-
-      }
-    default:
-      return {
-        showSearch: true
-      }
-  }
-})
-
-const { items, isMicrosite } = toRefs(props)
+const { items, isMicrosite, showSearch } = toRefs(props)
 
 const secondaryItems = ref(items.value || [])
 const isMicrositeRef = ref(isMicrosite.value)
@@ -153,7 +142,7 @@ const accountLink = computed(() => {
         </ul>
         <!-- 🔍 Add the new search overlay component -->
         <SearchMenuItem
-          v-if="themeSettings.showSearch"
+          v-if="showSearch"
           class="search-dropdown"
         />
       </div>
