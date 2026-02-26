@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 import ScrollWrapper from '../lib-components/ScrollWrapper.vue'
-import SectionTeaserCard from '../lib-components/SectionTeaserCard.vue'
+import BlockCardWithImage from '../lib-components/BlockCardWithImage.vue'
 import { parsedFTVABlogSeries } from './mock/FTVAMedia'
 
 export default {
@@ -10,9 +10,10 @@ export default {
 
 /**
  * A component to wrap other components in slide-show like scrollable list.
- * Uses vuetify's `v-slide-group` and a singular `v-slide-group-item` to wrap all scrollable items.
- * This allows a section like `SectionTeaserCard` or list of individual cards like `FlexibleCardWithImage` to be slotted in
+ * Uses vuetify's `v-slide-group` and `v-slide-group-item` to wrap all scrollable items.
+ * Can be used to wrap a group of components that needs to scroll horizontally with styled arrows.
  */
+
 export function Default() {
   return {
     data() {
@@ -23,13 +24,12 @@ export function Default() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { ScrollWrapper, SectionTeaserCard },
+    components: { ScrollWrapper, BlockCardWithImage },
     template: `
       <scroll-wrapper>
-        <section-teaser-card
-        :grid-layout="false"
-        :items="items"
-        />
+        <template v-for="item in items" :key="item.id">
+          <block-card-with-image class="card" :byline-one="item.bylineOne" :byline-two="item.bylineTwo" :category="item.category" :date-created="item.postDate" :image="item.image" date-format="short" :start-date="item.startDate" :end-date="item.endDate" :title="item.title" :to="item.to" tag="div" :image-aspect-ratio="60" :is-vertical="true" />
+        </template>
       </scroll-wrapper>
   `,
   }
@@ -49,13 +49,12 @@ export function SixItems() {
         theme: computed(() => 'ftva'),
       }
     },
-    components: { ScrollWrapper, SectionTeaserCard },
+    components: { ScrollWrapper, BlockCardWithImage },
     template: `
       <scroll-wrapper>
-        <section-teaser-card
-        :grid-layout="false"
-        :items="items"
-        />
+        <template v-for="item in items" :key="item.id">
+          <block-card-with-image class="card" :byline-one="item.bylineOne" :byline-two="item.bylineTwo" :category="item.category" :date-created="item.postDate" :image="item.image" date-format="short" :start-date="item.startDate" :end-date="item.endDate" :title="item.title" :to="item.to" tag="div" :image-aspect-ratio="60" :is-vertical="true" />
+        </template>
       </scroll-wrapper>
   `,
   }
