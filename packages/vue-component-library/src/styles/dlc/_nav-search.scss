@@ -124,11 +124,10 @@
             right: 0;
             bottom: 10px;
         }
-        .has-background {
-            .bottom-row,
-            .bottom-row a.bottom-link {
-                color: var(--color-white);
-            }
+
+        .bottom-row,
+        .bottom-row a.bottom-link {
+            color: var(--color-white);
         }
     }
 
@@ -149,7 +148,7 @@
         .bottom-row a.bottom-link:hover {
             text-decoration-color: var(--color-black);
         }
-        .has-background {
+        &.has-background {
             .bottom-row a.bottom-link:hover {
                 text-decoration-color: var(--color-white);
             }
