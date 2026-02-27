@@ -50,7 +50,7 @@ export default {
         <iframe :src="parsedSrc" class="iframe-modal" allowfullscreen />
       </div>
     </ModalGeneric>
-    <button class="title" @click="showModal" />
+    <button class="title" aria-label="Open campus map" @click="showModal" />
     <div class="content">
       <div class="iframe-hover">
         <div class="iframe-container">
