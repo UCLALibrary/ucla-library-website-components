@@ -232,6 +232,15 @@
         }
     }
 
+    @media #{$medium} {
+        &.is-search {
+            &:deep() {
+                .mobile-drawer .mobile-button {
+                    padding: 15px;
+                }
+            }
+        }
+    }
     @media #{$small} {
         &.is-search {
             width: 100%;
