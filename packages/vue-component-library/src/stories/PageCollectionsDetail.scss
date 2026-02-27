@@ -1,0 +1,78 @@
+@import "./GlobalPageStyles.scss";
+
+.collections-detail-page {
+    @include page-container;
+
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+    // .global-menu-panel {
+    //     @include global-menu-panel;
+    // }
+
+    // .header {
+    //     @include header-fixed;
+    // }
+
+    .main-content {
+        flex: 1;
+        max-width: var(--unit-full-width);
+        margin-inline: auto;
+        padding: 0 var(--gutters) 48px;
+    }
+
+    .collection-overview {
+        margin-bottom: 48px;
+    }
+
+    .grid-metadata {
+        margin-bottom: 48px;
+    }
+
+    .excerpt-pod-wrapper {
+        width: 100%;
+        margin: 24px 0 0;
+        padding: 24px 0;
+        border-top: 2px dotted var(--color-secondary-grey-03);
+        border-bottom: 2px dotted var(--color-secondary-grey-03);
+    }
+
+    .button-more {
+        margin: 0 auto 48px;
+        max-width: unset;
+    }
+
+    .search-field-composite-wrapper {
+        @include search-field-wrapper;
+    }
+
+    .subtitle-grid-assets {
+        font-size: 22px;
+        font-weight: 500;
+        margin: 0 0 8px;
+    }
+    .title-grid-assets {
+        @include step-4;
+        margin: 0 0 var(--space-xl);
+        color: var(--color-primary-blue-03);
+    }
+
+    .section-teaser-card-wrapper {
+        margin-bottom: 48px;
+        margin-inline: auto;
+        max-width: var(--unit-full-width);
+        .section-teaser-card {
+            max-width: unset;
+        }
+    }
+
+    // Breakpoints
+    @include responsive-gutters;
+}
