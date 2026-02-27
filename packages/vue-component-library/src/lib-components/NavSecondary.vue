@@ -6,7 +6,6 @@ import type { PropType } from 'vue'
 import SmartLink from '@/lib-components/SmartLink.vue'
 import ButtonLink from '@/lib-components/ButtonLink.vue'
 import SearchMenuItem from '@/lib-components/SearchMenuItem.vue'
-import { useTheme } from '@/composables/useTheme'
 
 // types
 import type { NavSecondaryItemType } from '@/types/types'
