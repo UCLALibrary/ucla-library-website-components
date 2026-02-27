@@ -148,6 +148,7 @@ function doSearch() {
         field-name="scope"
         label="Search Scope"
         class="dropdown-single-select"
+        :is-search="true"
       />
       <ButtonLink
         v-if="!isDlcTheme"
