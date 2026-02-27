@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.66.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.66.0...@ucla-library-monorepo/ucla-library-website-components-v1.66.1) (2026-02-27)
+
+
+### Bug Fixes
+
+* APPS-3711 add aria-labels throughout ([#910](https://github.com/UCLALibrary/ucla-library-website-components/issues/910)) ([0655700](https://github.com/UCLALibrary/ucla-library-website-components/commit/06557001cb098574be7112442400d1a010e8f47a))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.66.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.65.0...@ucla-library-monorepo/ucla-library-website-components-v1.66.0) (2026-02-26)
 
 

@@ -37,6 +37,7 @@ export default {
       <div class="close-container">
         <button
           class="close-button"
+          aria-label="Close"
           @click="closeModal"
         >
           <svg
@@ -56,6 +57,7 @@ export default {
 
       <button
         class="collapse-button"
+        aria-label="Expand or collapse details"
         @click="toggleCollapse"
       >
         <div class="collapse-button-content">
