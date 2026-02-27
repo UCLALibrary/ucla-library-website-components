@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.66.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.65.0...@ucla-library-monorepo/ucla-library-website-components-v1.66.0) (2026-02-26)
+
+
+### Features
+
+* APPS-3705 refactor scrollwrapper for better accessibility ([#909](https://github.com/UCLALibrary/ucla-library-website-components/issues/909)) ([073b3cc](https://github.com/UCLALibrary/ucla-library-website-components/commit/073b3cc3244505ef40e1838ad6116ba8293a4a05))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.65.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.3...@ucla-library-monorepo/ucla-library-website-components-v1.65.0) (2026-02-20)
 
 
