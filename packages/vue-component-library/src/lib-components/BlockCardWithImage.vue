@@ -93,6 +93,10 @@ const props = defineProps({
   dateCreated: {
     type: String,
     default: ''
+  },
+  tag: {
+    type: String,
+    default: 'li',
   }
 })
 
@@ -124,7 +128,8 @@ const parsedDateFormat = computed(() => {
 </script>
 
 <template>
-  <li
+  <component
+    :is="tag"
     :class="classes"
     @click="handleClick"
   >
@@ -141,15 +146,6 @@ const parsedDateFormat = computed(() => {
           <slot name="toptext" />
         </template>
       </ResponsiveImage>
-      <!-- <div
-        v-else
-        class="molecule-no-image"
-      >
-        <MoleculePlaceholder
-          class="molecule"
-          aria-hidden="true"
-        />
-      </div> -->
     </div>
     <CardMeta
       class="card-meta-items"
@@ -190,7 +186,7 @@ const parsedDateFormat = computed(() => {
         <slot name="customDateTime" />
       </template>
     </CardMeta>
-  </li>
+  </component>
 </template>
 
 <style lang="scss" scoped>
