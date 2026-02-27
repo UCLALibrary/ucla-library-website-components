@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 import type { PropType } from 'vue'
 
 // THEME
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
+// import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import { useTheme } from '@/composables/useTheme'
 
 // SVGs
@@ -93,6 +93,10 @@ const props = defineProps({
   dateCreated: {
     type: String,
     default: ''
+  },
+  tag: {
+    type: String,
+    default: 'li',
   }
 })
 
@@ -124,13 +128,13 @@ const parsedDateFormat = computed(() => {
 </script>
 
 <template>
-  <li
+  <component
+    :is="tag"
     :class="classes"
     @click="handleClick"
   >
     <div class="image-container">
       <ResponsiveImage
-        v-if="image"
         :media="image"
         :aspect-ratio="imageAspectRatio"
         class="image"
@@ -142,15 +146,6 @@ const parsedDateFormat = computed(() => {
           <slot name="toptext" />
         </template>
       </ResponsiveImage>
-      <div
-        v-else
-        class="molecule-no-image"
-      >
-        <MoleculePlaceholder
-          class="molecule"
-          aria-hidden="true"
-        />
-      </div>
     </div>
     <CardMeta
       class="card-meta-items"
@@ -191,7 +186,7 @@ const parsedDateFormat = computed(() => {
         <slot name="customDateTime" />
       </template>
     </CardMeta>
-  </li>
+  </component>
 </template>
 
 <style lang="scss" scoped>

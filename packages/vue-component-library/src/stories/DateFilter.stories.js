@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 import DateFilter from '@/lib-components/DateFilter'
 
 export default {
@@ -33,6 +33,32 @@ export function Default() {
 
 Default.parameters = {
   chromatic: { disableSnapshot: false },
+}
+
+export function FilterOpenByDefault() {
+  return {
+    data() {
+      return {
+        ...mock,
+      }
+    },
+    setup() {
+      // Provide a function to update the selected date, and a ref for it
+      // So that the parent page can display / react to the date outside of the component once its selected
+      const modelDate = ref(null)
+      const updateDate = (date) => {
+        modelDate.value = date
+      }
+      return { modelDate, updateDate }
+    },
+    mounted() {
+      nextTick(() => {
+        this.$refs.dateFilterRef?.openDatepicker()
+      })
+    },
+    components: { DateFilter },
+    template: '<div style="height:509px">Sample Selected Date: <span data-test="selected-date">{{ modelDate }}</span><date-filter ref="dateFilterRef" @input-selected="updateDate" :eventDates="eventDates" /></div>',
+  }
 }
 /* hideInput prop is not currently used anywhere in the app,
 input is hidden automatically on mobile */

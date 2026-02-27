@@ -290,6 +290,7 @@ function submitSearch() {
             <button
               class="button-submit"
               type="submit"
+              aria-label="Submit search"
               @click="submitSearch"
             >
               <IconSearch class="icon" />
