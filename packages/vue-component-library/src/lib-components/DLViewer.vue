@@ -56,20 +56,35 @@ interface ViewerOptions {
 }
 
 // Async components - using component names as strings to resolve dynamically
-type ViewerComponentName = 'ImageTag' | 'Mirador' | 'MiradorPalimpsest' | 'VideoJS' | 'UniversalViewer' | 'UniversalViewer3'
+type ViewerComponentName =
+    | 'ImageTag'
+    | 'Mirador'
+    | 'MiradorPalimpsest'
+    | 'VideoJS'
+    | 'UniversalViewer'
+    | 'UniversalViewer3'
 
 const props = withDefaults(defineProps<Props>(), {
   site: '',
   viewerBaseUrl: 'https://p-w-dl-viewer01.library.ucla.edu',
 })
 
-const viewerComponents: Record<ViewerComponentName, ReturnType<typeof defineAsyncComponent>> = {
+const viewerComponents: Record<
+    ViewerComponentName,
+    ReturnType<typeof defineAsyncComponent>
+> = {
   ImageTag: defineAsyncComponent(() => import('./DLMediaTypes/ImageTag.vue')),
   Mirador: defineAsyncComponent(() => import('./DLMediaTypes/Mirador.vue')),
-  MiradorPalimpsest: defineAsyncComponent(() => import('./DLMediaTypes/MiradorPalimpsest.vue')),
+  MiradorPalimpsest: defineAsyncComponent(
+    () => import('./DLMediaTypes/MiradorPalimpsest.vue')
+  ),
   VideoJS: defineAsyncComponent(() => import('./DLMediaTypes/VideoJS.vue')),
-  UniversalViewer: defineAsyncComponent(() => import('./DLMediaTypes/UniversalViewer.vue')),
-  UniversalViewer3: defineAsyncComponent(() => import('./DLMediaTypes/UniversalViewer3.vue')),
+  UniversalViewer: defineAsyncComponent(
+    () => import('./DLMediaTypes/UniversalViewer.vue')
+  ),
+  UniversalViewer3: defineAsyncComponent(
+    () => import('./DLMediaTypes/UniversalViewer3.vue')
+  ),
 }
 
 // Props
@@ -114,12 +129,25 @@ const firstItemTypeFromChoice = computed(() => {
     return undefined
 
   const body = iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body
-  if (Array.isArray(body) && body[0]?.items?.[0] && typeof body[0].items[0] === 'object' && body[0].items[0] !== null)
+  if (
+    Array.isArray(body)
+        && body[0]?.items?.[0]
+        && typeof body[0].items[0] === 'object'
+        && body[0].items[0] !== null
+  )
     return (body[0].items[0] as IIIFBody).type
 
-  if (typeof body === 'object' && body !== null && 'items' in body && Array.isArray(body.items) && body.items[0]) {
+  if (
+    typeof body === 'object'
+        && body !== null
+        && 'items' in body
+        && Array.isArray(body.items)
+        && body.items[0]
+  ) {
     const firstItem = body.items[0]
-    return typeof firstItem === 'object' && firstItem !== null ? firstItem.type : undefined
+    return typeof firstItem === 'object' && firstItem !== null
+      ? firstItem.type
+      : undefined
   }
   return undefined
 })
@@ -131,17 +159,24 @@ const hasIiifService = computed(() => {
   if (isV3Manifest.value) {
     return !!(
       iiif_manifest.value.items?.[0]?.items?.[0]?.items?.[0]?.body
-      && (Array.isArray(iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body)
-        ? iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body?.[0]?.service
-        : typeof iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body === 'object'
-        && iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body?.service)
+            && (Array.isArray(
+              iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body
+            )
+              ? iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]
+                ?.body?.[0]?.service
+              : typeof iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]
+                ?.body === 'object'
+                  && iiif_manifest.value.items[0]?.items?.[0]?.items?.[0]?.body
+                    ?.service)
     )
   }
-  return !!iiif_manifest.value.sequences?.[0]?.canvases?.[0]?.images?.[0]?.resource?.service
+  return !!iiif_manifest.value.sequences?.[0]?.canvases?.[0]?.images?.[0]
+    ?.resource?.service
 })
 
 const isCollection = computed(() => {
-  const manifestType = iiif_manifest.value?.['@type'] || iiif_manifest.value?.type || ''
+  const manifestType
+        = iiif_manifest.value?.['@type'] || iiif_manifest.value?.type || ''
   return String(manifestType).includes('Collection')
 })
 
@@ -149,11 +184,23 @@ const isImage = computed(() => firstItemType.value === 'Image')
 
 const isSinai = computed(() => props.site === 'sinai')
 
-const isSinaiPalimpsest = computed(() => props.iiif_manifest_url.includes('sinai-images.library.ucla.edu'))
+const isSinaiPalimpsest = computed(
+  () =>
+    props.iiif_manifest_url?.includes('sinai-images.library.ucla.edu')
+        ?? false
+)
 
-const isSound = computed(() => firstItemType.value === 'Sound' || firstItemTypeFromChoice.value === 'Sound')
+const isSound = computed(
+  () =>
+    firstItemType.value === 'Sound'
+        || firstItemTypeFromChoice.value === 'Sound'
+)
 
-const isVideo = computed(() => firstItemType.value === 'Video' || firstItemTypeFromChoice.value === 'Video')
+const isVideo = computed(
+  () =>
+    firstItemType.value === 'Video'
+        || firstItemTypeFromChoice.value === 'Video'
+)
 
 const isAppleOrIOS = computed(() => /(Apple|iOS)/.test(navigator.userAgent))
 
@@ -166,7 +213,12 @@ const videoSources = computed(() => {
     if (Array.isArray(body))
       return body
 
-    if (typeof body === 'object' && body !== null && 'items' in body && Array.isArray(body.items))
+    if (
+      typeof body === 'object'
+            && body !== null
+            && 'items' in body
+            && Array.isArray(body.items)
+    )
       return body.items
 
     return null
@@ -204,14 +256,15 @@ const options = computed((): ViewerOptions => {
     return {}
 
   if (isVideo.value && videoSources.value) {
-    const filteredSources
-      = Array.isArray(videoSources.value)
-        ? videoSources.value.filter(
-          source =>
-            (isAppleOrIOS.value && source.format === 'application/vnd.apple.mpegurl')
-            || (!isAppleOrIOS.value && source.format === 'application/dash+xml'),
-        )
-        : []
+    const filteredSources = Array.isArray(videoSources.value)
+      ? videoSources.value.filter(
+        source =>
+          (isAppleOrIOS.value
+                          && source.format === 'application/vnd.apple.mpegurl')
+                      || (!isAppleOrIOS.value
+                          && source.format === 'application/dash+xml')
+      )
+      : []
     return {
       autoplay: false,
       controls: true,
@@ -223,12 +276,17 @@ const options = computed((): ViewerOptions => {
     }
   }
   if (viewer.value === 'ImageTag') {
-    const firstItem = iiif_manifest.value.items?.[0]?.items?.[0]?.items?.[0]?.body
+    const firstItem
+            = iiif_manifest.value.items?.[0]?.items?.[0]?.items?.[0]?.body
     const body = Array.isArray(firstItem) ? firstItem[0] : firstItem
     const label = iiif_manifest.value.label
-    const labelText = typeof label === 'object' && label !== null && 'none' in label && Array.isArray(label.none)
-      ? label.none[0]
-      : ''
+    const labelText
+            = typeof label === 'object'
+            && label !== null
+            && 'none' in label
+            && Array.isArray(label.none)
+              ? label.none[0]
+              : ''
     return {
       src: body?.id || '',
       height: body?.height,
@@ -239,7 +297,9 @@ const options = computed((): ViewerOptions => {
   return {
     iiif_manifest: iiif_manifest.value,
     iiif_manifest_url: props.iiif_manifest_url,
-    uv_config: isSound.value ? 'no-download-uv-config.json' : 'uv-config.json',
+    uv_config: isSound.value
+      ? 'no-download-uv-config.json'
+      : 'uv-config.json',
     viewerBaseUrl: props.viewerBaseUrl,
   }
 })
@@ -261,17 +321,14 @@ onMounted(async () => {
 
 <template>
   <div class="dl-viewer">
-    <component
-      :is="viewerComponents[viewer]"
-      :options="options"
-    />
+    <component :is="viewerComponents[viewer]" :options="options" />
   </div>
 </template>
 
 <style scoped>
 .dl-viewer {
-  aspect-ratio: 16/9;
-  width: 100%;
-  height: 100%;
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: 100%;
 }
 </style>
