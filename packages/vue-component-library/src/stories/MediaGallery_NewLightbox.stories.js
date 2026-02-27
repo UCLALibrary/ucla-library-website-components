@@ -167,7 +167,7 @@ export function FTVA_HomepageCarousel() {
       }
     },
     components: { FlexibleMediaGalleryNewLightbox, BlockTag },
-    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></flexible-media-gallery-new-lightbox>',
+    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></ flexible-media-gallery-new-lightbox>',
   }
 }
 
@@ -198,44 +198,6 @@ export function FTVA_HomepageCarouselURL() {
       }
     },
     components: { FlexibleMediaGalleryNewLightbox, BlockTag },
-    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></flexible-media-gallery-new-lightbox>',
-    template: `
-      <flexible-media-gallery-new-lightbox class="homepage" :items="items" inline>
-        <template v-slot="slotProps">
-          <BlockTag :label="items[slotProps.selectionIndex].tag" />
-          {{ items[slotProps.selectionIndex].itemDate }}
-        </template>
-      </flexible-media-gallery-new-lightbox>
-    `,
-  }
-}
-
-export function FTVA_HomepageCarousel_ScrollTest() {
-  return {
-    data() {
-      return { items: parsedMockHomepagCarousel }
-    },
-    provide() {
-      return { theme: computed(() => 'ftva') }
-    },
-    components: { FlexibleMediaGalleryNewLightbox, BlockTag },
-    template: `
-      <div>
-        <flexible-media-gallery-new-lightbox
-          class="homepage"
-          :items="items"
-          inline
-        >
-          <template v-slot="slotProps">
-            <BlockTag :label="items[slotProps.selectionIndex].tag" />
-            {{ items[slotProps.selectionIndex].itemDate }}
-          </template>
-        </flexible-media-gallery-new-lightbox>
-
-        <div style="height: 2000px; padding: 20px;">
-          Scroll test content below carousel
-        </div>
-      </div>
-    `,
+    template: '<flexible-media-gallery-new-lightbox class="homepage" :items="items" :inline=true><template v-slot="slotProps"><BlockTag :label="items[slotProps.selectionIndex].tag" /> {{items[slotProps.selectionIndex].itemDate}} </template></ flexible-media-gallery-new-lightbox>',
   }
 }

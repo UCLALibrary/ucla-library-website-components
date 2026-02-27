@@ -38,10 +38,6 @@
 .ftva.inline.lightbox {
   position: relative;
   z-index: auto;
-
-  height: auto;
-  overflow: visible;
-  overscroll-behavior: auto;
   grid-template-columns: [col] var(--media-width);
   grid-gap: 0px;
 
@@ -142,10 +138,6 @@
       margin-left: -2px;
     }
   }
-}
-
-.ftva.inline.lightbox .media-container {
-  touch-action: pan-y;
 }
 
 // Homepage Carousel Theme
