@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.66.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.66.1...@ucla-library-monorepo/ucla-library-website-components-v1.66.2) (2026-02-27)
+
+
+### Bug Fixes
+
+* APPS-3692 Unable to scroll vertically when cursor is on top of image carousel  ([#912](https://github.com/UCLALibrary/ucla-library-website-components/issues/912)) ([1d632d4](https://github.com/UCLALibrary/ucla-library-website-components/commit/1d632d433adf4f0fc6d4e56a456b494b8b4351bf))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.66.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.66.0...@ucla-library-monorepo/ucla-library-website-components-v1.66.1) (2026-02-27)
+
+
+### Bug Fixes
+
+* APPS-3711 add aria-labels throughout ([#910](https://github.com/UCLALibrary/ucla-library-website-components/issues/910)) ([0655700](https://github.com/UCLALibrary/ucla-library-website-components/commit/06557001cb098574be7112442400d1a010e8f47a))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.66.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.65.0...@ucla-library-monorepo/ucla-library-website-components-v1.66.0) (2026-02-26)
 
 

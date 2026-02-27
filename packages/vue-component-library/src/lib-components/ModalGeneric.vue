@@ -38,7 +38,7 @@ export default {
 
 <template>
   <div :class="classes" @click="handleModalClick">
-    <button class="svg-glyph-close" @click="close">
+    <button class="svg-glyph-close" aria-label="Close" @click="close">
       <SvgGlyphClose />
     </button>
     <div class="content">
