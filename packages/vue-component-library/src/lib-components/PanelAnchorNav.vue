@@ -101,9 +101,7 @@ const classes = computed(() => [
       >
         <template #header>
           <div class="title-container">
-            <h3 class="title">
-              Topics covered:
-            </h3>
+            <span class="title"> Topics covered: </span>
             <DividerGeneral class="divider" />
           </div>
         </template>

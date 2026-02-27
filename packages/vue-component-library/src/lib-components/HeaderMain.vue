@@ -57,7 +57,7 @@ const parseTitle = computed(() => {
 </script>
 
 <template>
-  <header :class="classes">
+  <div :class="classes">
     <NavSecondary
       v-if="secondaryNavRef.length > 0 && theme !== 'dlc'"
       :items="secondaryNavRef"
@@ -69,20 +69,20 @@ const parseTitle = computed(() => {
       :items="primaryNavRef"
       :title="titleRef"
     />
-  </header>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 .header-main {
-  z-index: 200;
+    z-index: 200;
 
-  position: relative;
-  height: 128px;
+    position: relative;
+    height: 128px;
 
-  .primary {
-    position: absolute;
-  }
+    .primary {
+        position: absolute;
+    }
 
-  // TODO nav on smaller viewports
+    // TODO nav on smaller viewports
 }
 </style>

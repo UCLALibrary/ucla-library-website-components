@@ -13,7 +13,7 @@ const props = defineProps({
   title: {
     type: String,
     default: '',
-  }
+  },
 })
 
 const theme = useTheme()
@@ -42,12 +42,17 @@ const classes = computed(() => {
 
 onMounted(() => {
   const { width } = useWindowSize()
-  watch(width, (newWidth) => {
-    // console.log('newWidth', newWidth)
-    isMobile.value = newWidth <= controlWidth.value
-    currentHeader.value = markRaw(isMobile.value ? HeaderMainResponsive : HeaderMain)
-  },
-  { immediate: true })
+  watch(
+    width,
+    (newWidth) => {
+      // console.log('newWidth', newWidth)
+      isMobile.value = newWidth <= controlWidth.value
+      currentHeader.value = markRaw(
+        isMobile.value ? HeaderMainResponsive : HeaderMain
+      )
+    },
+    { immediate: true }
+  )
 
   watch(
     header,
@@ -64,7 +69,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <header :class="classes">
+  <header :class="classes" aria-label="Main site header">
     <SiteBrandBar class="brand-bar" />
     <component
       :is="currentHeader"
