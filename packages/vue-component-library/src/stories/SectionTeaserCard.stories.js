@@ -35,6 +35,7 @@ const mockDefault = [
     endDate: '2021-02-05T11:00:00-08:00',
     sectionHandle: 'workshopOrEventSeries',
     isOnline: true,
+    aspectRatio: 58.47,
   },
   {
     image: API.image,
