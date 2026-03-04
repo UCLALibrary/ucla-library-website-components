@@ -114,6 +114,7 @@ function doSearch() {
         <button
           class="button-submit"
           type="submit"
+          aria-label="Submit search"
           @click="doSearch"
         >
           <IconSearch class="icon" />
