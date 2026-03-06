@@ -8,6 +8,8 @@ import ButtonMore from '../lib-components/ButtonMore.vue'
 import SectionTeaserCard from '../lib-components/SectionTeaserCard.vue'
 import BlockButtons from '../lib-components/BlockButtons.vue'
 import RichText from '../lib-components/RichText.vue'
+import SectionWrapper from '../lib-components/SectionWrapper.vue'
+import CardMeta from '../lib-components/CardMeta.vue'
 
 // import HeaderCollection from "../lib-components/HeaderCollection.vue"
 import NavSearch from '../lib-components/NavSearch.vue'
@@ -51,6 +53,8 @@ function Template(args) {
       FooterPrimary,
       FooterSock,
       SectionTeaserCard,
+      SectionWrapper,
+      CardMeta,
       NavSearch,
       ButtonMore,
       SmartLink,
@@ -73,7 +77,7 @@ function Template(args) {
 
       const showMoreCollections = () => {
         window.location.href
-                    = 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-page-collections-detail--default'
+                    = 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-page-collections-browse--default'
       }
 
       return {
@@ -93,7 +97,7 @@ function Template(args) {
                           title: entry.title,
                           image: entry.heroImage,
                           text: entry.text,
-                          href: 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-page-collections-detail--default',
+                          href: 'http://localhost:6006/iframe.html?args=&id=funkhaus-pages-page-collections-browse--default',
                         }
                       }
                     ) || []
@@ -139,25 +143,32 @@ function Template(args) {
 
             />
 
-            <section class="header-collection">
-              <span class="subtitle" v-html="mockPageMainLanding.featuredCollections.subtitle" />
-              <h1 class="title" v-html="mockPageMainLanding.featuredCollections.title" />
-
-              <RichText v-if="mockPageMainLanding.featuredCollections.summary" class="rich-text" :rich-text-content="mockPageMainLanding.featuredCollections.summary" />
-
+            <SectionWrapper class="header-collection">
+              <CardMeta :category="mockPageMainLanding.featuredCollections.subtitle">
+                <template #anyTitle>
+                  <h1 class="main-title">{{ mockPageMainLanding.featuredCollections.title }}</h1>
+                </template>
+                <template #customDescription>
+                  <RichText
+                    v-if="mockPageMainLanding.featuredCollections.summary"
+                    :rich-text-content="mockPageMainLanding.featuredCollections.summary"
+                  />
+                </template>
+              </CardMeta>
               <BlockButtons :buttons="mockPageMainLanding.featuredCollections.buttons" />
-            </section>
+            </SectionWrapper>
 
-            <SectionTeaserCard
-                :items="gridItems" 
+            <SectionWrapper class="section-teaser-card-wrapper">
+              <SectionTeaserCard
+                :items="gridItems"
                 :grid-layout="true"
                 class="section-teaser-card"
-            />
-
-            <ButtonMore
+              />
+              <ButtonMore
                 class="button-more"
                 @click="showMoreCollections"
-            />
+              />
+            </SectionWrapper>
          </main>
          
          <!-- Footer -->

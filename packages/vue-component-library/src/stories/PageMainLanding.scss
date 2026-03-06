@@ -39,48 +39,8 @@
         margin-bottom: 48px;
     }
 
-    .header-collection {
-        max-width: 1600px;
-        margin: 0 auto;
-        padding: 0 var(--gutters);
-    }
-
-    .header-collection {
-        .subtitle {
-            @include step-2;
-            margin: 0 0 var(--space-m);
-            color: var(--color-primary-blue-05);
-            font-weight: 400;
-        }
-        .title {
-            @include step-4;
-            margin: 0 0 var(--space-m);
-            color: var(--color-primary-blue-03);
-        }
-
-        .rich-text {
-            margin: 0 0 var(--space-m);
-        }
-    }
-
-    .section-teaser-card {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-block: 48px 40px;
-        padding-inline: var(--gutters);
-    }
-    .button-more {
-        margin: 0 auto;
-        max-width: unset;
-        padding: 0 var(--gutters) 48px;
-    }
-
-    // Breakpoints
-    @media #{$extra-large} {
-        .section-teaser-card {
-            max-width: 1600px;
-        }
-    }
+    // Layout constraints for header-collection and section-teaser-card-wrapper
+    // are in SectionWrapper DLC theme (styles/dlc/_section-wrapper.scss).
     @media #{$small} {
         --gutters: 24px;
 
