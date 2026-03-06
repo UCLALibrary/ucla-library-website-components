@@ -1,3 +1,10 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.67.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.66.2...@ucla-library-monorepo/ucla-library-website-components-v1.67.0) (2026-03-06)
+
+
+### Features
+
+* PageMainLanding ([#900](https://github.com/UCLALibrary/ucla-library-website-components/issues/900)) ([394c93b](https://github.com/UCLALibrary/ucla-library-website-components/commit/394c93b2d2c6b97012dd07fe294b9bfc8fc755ec))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.66.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.66.1...@ucla-library-monorepo/ucla-library-website-components-v1.66.2) (2026-02-27)
 
 
