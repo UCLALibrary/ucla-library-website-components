@@ -6,11 +6,11 @@ import FooterSock from '../lib-components/FooterSock.vue'
 import HeaderSmart from '../lib-components/HeaderSmart.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
 import RichText from '../lib-components/RichText.vue'
-import DLViewer from '../lib-components/DLViewer.vue'
 import PageAnchor from '../lib-components/PageAnchor.vue'
 import PanelAnchorNav from '../lib-components/PanelAnchorNav.vue'
 import ButtonLink from '../lib-components/ButtonLink.vue'
 import DividerGeneral from '../lib-components/DividerGeneral.vue'
+import FlexibleBlocks from '../lib-components/FlexibleBlocks.vue'
 
 // Import mock data
 import {
@@ -51,11 +51,11 @@ function Template(args) {
       HeaderSmart,
       NavSearch,
       RichText,
-      DLViewer,
       PageAnchor,
       PanelAnchorNav,
       ButtonLink,
       DividerGeneral,
+      FlexibleBlocks,
     },
     provide() {
       return {
@@ -77,11 +77,6 @@ function Template(args) {
       const sections = groupedSections(contentBlocks)
       const sectionTitles = sections.map(s => s.title)
 
-      function toKebab(title) {
-        const t = title.replace('&', '').replace(/\s+/g, ' ').trim()
-        return t.toLowerCase().replace(/ /g, '-')
-      }
-
       const handleOpenPanel = () => {
         isPanelOpened.value = true
       }
@@ -93,10 +88,9 @@ function Template(args) {
         args,
         mockGlobalNavSearch,
         pageTitle,
+        contentBlocks,
         sectionTitles,
-        sections,
         textIntroduction,
-        toKebab,
         isPanelOpened,
         handleOpenPanel,
         handleClosePanel,
@@ -158,42 +152,8 @@ function Template(args) {
               </PageAnchor>
             </div>
           </div>
-
-          <div class="sections-container">
-            <section
-                v-for="section in sections"
-                :key="toKebab(section.title)"
-                :id="toKebab(section.title)"
-                class="page-section"
-              >
-                <DividerGeneral class="section-divider" />
-              
-                <h2 class="section-title">{{ section.title }}</h2>
-
-                <template v-for="(block, blockIndex) in section.blocks" :key="block.id">
-                  <div
-                    class="section-block"
-                    :class="{ 'outlined-container': block.hasOutline }"
-                  >
-                    <RichText
-                      v-if="block.typeHandle === 'richText'"
-                      class="section-rich-text"
-                      :rich-text-content="block.richText"
-                    />
-                    <template v-else-if="block.typeHandle === 'dlViewer'">
-                      <div class="dl-viewer-wrapper">
-                        <DLViewer :iiif_manifest_url="block.manifestUrl" />
-                      </div>
-                      <RichText
-                        v-if="block.caption"
-                        class="section-rich-text viewer-caption"
-                        :rich-text-content="block.caption"
-                      />
-                    </template>
-                  </div>
-                </template>
-              </section>
-          </div>
+          <DividerGeneral class="divider-general" />
+          <FlexibleBlocks :blocks="contentBlocks" />
         </main>
 
         <!-- Modal: PanelAnchorNav (same anchors, opens on click) -->

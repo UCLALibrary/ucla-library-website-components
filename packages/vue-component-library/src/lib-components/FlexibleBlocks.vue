@@ -71,6 +71,9 @@ const FlexibleRichText = defineAsyncComponent(() =>
 const FlexibleSimpleCards = defineAsyncComponent(() =>
   import('@/lib-components/Flexible/SimpleCards.vue')
 )
+const FlexibleDLViewer = defineAsyncComponent(() =>
+  import('@/lib-components/Flexible/DLViewer.vue')
+)
 const ScrollWrapper = defineAsyncComponent(() =>
   import('@/lib-components/ScrollWrapper.vue')
 )
@@ -92,13 +95,14 @@ const components = {
   'flexible-pull-quote': FlexiblePullQuote,
   'flexible-rich-text': FlexibleRichText,
   'flexible-simple-cards': FlexibleSimpleCards,
+  'flexible-dl-viewer': FlexibleDLViewer,
   // Add other components here if needed
 }
 
 const NEVER_GRAY = [
   'flexible-associated-topic-cards',
   'flexible-banner-featured',
-  'flexible-divider-general',
+  'flexible-dl-viewer',
   'flexible-form',
   'flexible-impact-numbers-carousel',
   'flexible-pull-quote',
@@ -120,14 +124,25 @@ const parsedBlocks = computed(() => {
     componentName: convertName(obj.typeHandle),
     theme: 'white', // Default theme to white
     needsDivider: false, // Default no divider
+    isFirstInSection: false,
   }))
 
   // Iterate over blocks and set the theme/divider logic
   output.forEach((block, index, arr) => {
+    // First block in section = first block overall, or sectionTitle differs from previous
+    block.isFirstInSection = index === 0 || (block.sectionTitle !== arr[index - 1].sectionTitle)
+
+    // Divider only between sections (not between every block)
+    block.needsDivider = index > 0 && block.sectionTitle !== arr[index - 1].sectionTitle
+
     // Apply specific theming for ftva
     if (theme?.value === 'ftva') {
       block.theme = 'white' // Force theme to white
       block.needsDivider = false // No dividers in ftva theme
+    }
+    else if (theme?.value === 'dlc') {
+      block.theme = 'white' // DLC: all white sections
+      // needsDivider already set above (only between sections)
     }
     else {
       // Normal theme logic for other themes
@@ -140,7 +155,8 @@ const parsedBlocks = computed(() => {
         block.theme = 'gray' // Apply gray theme when needed
 
       if (
-        index > 0
+        theme?.value !== 'dlc'
+        && index > 0
         && block.theme === 'white'
         && arr[index - 1].theme === 'white'
       )
@@ -162,6 +178,12 @@ function isFlexibleMediaGallery(block) {
 }
 
 function sectionTitle(block) {
+  // No section title for divider blocks
+  if (block.componentName === 'flexible-horizontal-divider')
+    return ''
+  // Show section title only on the first block of each section
+  if (!block.isFirstInSection)
+    return ''
   // Use the type guard to narrow down the type
   if (isFlexibleMediaGallery(block)) {
     // TypeScript now knows block is FlexibleMediaGallery, so it's safe to access mediaGalleryStyle
@@ -173,6 +195,11 @@ function sectionTitle(block) {
 }
 
 function sectionSummary(block) {
+  if (block.componentName === 'flexible-horizontal-divider')
+    return ''
+  // Show section summary only on first block of section (optional; can show on all if desired)
+  if (!block.isFirstInSection)
+    return ''
   return block.mediaGalleryStyle === 'halfWidth'
     ? ''
     : block.sectionSummary || block.richTextSimplified
@@ -228,6 +255,7 @@ function getWrapperComponent(block) {
               ? block
               : omit(block, ['sectionTitle', 'sectionSummary'])
             " class="flexible-block"
+            :class="{ 'outlined-container': block.hasOutline }"
           />
         </component>
       </SectionWrapper>
@@ -260,6 +288,50 @@ function getWrapperComponent(block) {
         @include ftva-body;
         color: $medium-grey;
       }
+    }
+  }
+}
+
+// dlc theme – matches PageUsingDigitalCollections (section title, rich text, outline, viewer)
+.dlc.flexible-blocks {
+  .flexible-block-section-wrapper {
+    :deep(.section-header) {
+      .section-title {
+        max-width: 640px;
+        margin: 0 auto 24px;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        color: var(--color-primary-blue-03);
+      }
+    }
+
+    :deep(.flexible-block) {
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 0;
+    }
+
+    /* DL viewer: full width so the viewer is not narrow */
+    :deep(.flexible-block.flexible-dl-viewer) {
+      max-width: 100%;
+    }
+
+    :deep(.flexible-block.outlined-container) {
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 32px;
+      border: 1px solid var(--color-secondary-grey-02);
+      border-radius: 15px;
+    }
+  }
+
+  @media #{$small} {
+    .flexible-block-section-wrapper :deep(.flexible-block.outlined-container) {
+      padding: 24px;
     }
   }
 }
