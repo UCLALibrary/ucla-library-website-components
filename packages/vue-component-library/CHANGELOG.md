@@ -1,3 +1,45 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.67.0...@ucla-library-monorepo/ucla-library-website-components-v1.68.0) (2026-03-11)
+
+
+### Features
+
+* Add PageBentoBoxResults ([#898](https://github.com/UCLALibrary/ucla-library-website-components/issues/898)) ([7ebf6ca](https://github.com/UCLALibrary/ucla-library-website-components/commit/7ebf6cae8817d2ea1d6b65823b75e4a0eec84676))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.67.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.66.2...@ucla-library-monorepo/ucla-library-website-components-v1.67.0) (2026-03-06)
+
+
+### Features
+
+* PageMainLanding ([#900](https://github.com/UCLALibrary/ucla-library-website-components/issues/900)) ([394c93b](https://github.com/UCLALibrary/ucla-library-website-components/commit/394c93b2d2c6b97012dd07fe294b9bfc8fc755ec))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.66.2](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.66.1...@ucla-library-monorepo/ucla-library-website-components-v1.66.2) (2026-02-27)
+
+
+### Bug Fixes
+
+* APPS-3692 Unable to scroll vertically when cursor is on top of image carousel  ([#912](https://github.com/UCLALibrary/ucla-library-website-components/issues/912)) ([1d632d4](https://github.com/UCLALibrary/ucla-library-website-components/commit/1d632d433adf4f0fc6d4e56a456b494b8b4351bf))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.66.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.66.0...@ucla-library-monorepo/ucla-library-website-components-v1.66.1) (2026-02-27)
+
+
+### Bug Fixes
+
+* APPS-3711 add aria-labels throughout ([#910](https://github.com/UCLALibrary/ucla-library-website-components/issues/910)) ([0655700](https://github.com/UCLALibrary/ucla-library-website-components/commit/06557001cb098574be7112442400d1a010e8f47a))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.66.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.65.0...@ucla-library-monorepo/ucla-library-website-components-v1.66.0) (2026-02-26)
+
+
+### Features
+
+* APPS-3705 refactor scrollwrapper for better accessibility ([#909](https://github.com/UCLALibrary/ucla-library-website-components/issues/909)) ([073b3cc](https://github.com/UCLALibrary/ucla-library-website-components/commit/073b3cc3244505ef40e1838ad6116ba8293a4a05))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.65.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.3...@ucla-library-monorepo/ucla-library-website-components-v1.65.0) (2026-02-20)
+
+
+### Features
+
+* APPS-3707 add ftva styles for rich text iframes ([#911](https://github.com/UCLALibrary/ucla-library-website-components/issues/911)) ([cdefa26](https://github.com/UCLALibrary/ucla-library-website-components/commit/cdefa2624a28a755c9d850859243f4b3fc38704c))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.64.3](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.64.2...@ucla-library-monorepo/ucla-library-website-components-v1.64.3) (2026-02-13)
 
 
