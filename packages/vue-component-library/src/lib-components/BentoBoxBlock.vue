@@ -13,15 +13,7 @@ const theme = useTheme()
 interface BentoBoxBlockProps {
   image?: MediaItemType | null
 }
-// Computed
-// const parsedCount = computed(() => {
-//   if (props.count === undefined || props.count === null)
-//     return ''
-//   return `${props.count} Results`
-// })
-// const showEyebrow = computed(() => {
-//   return props.count !== undefined && props.count !== null
-// })
+
 const classes = computed(() => {
   return ['bento-box-block', theme?.value || '']
 })
@@ -31,7 +23,7 @@ const classes = computed(() => {
   <div :class="classes">
     <div class="wrapper">
       <ResponsiveImage
-        v-if="image"
+        v-if="image && image.src"
         class="image"
         :media="image"
         :aspect-ratio="72"

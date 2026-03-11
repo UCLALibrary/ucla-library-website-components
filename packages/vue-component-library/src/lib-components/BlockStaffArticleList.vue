@@ -5,9 +5,6 @@ import type { PropType } from 'vue'
 // LODASH FUNCTIONS
 import format from 'date-fns/format'
 
-// SVGs
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
-
 // TYPESCRIPT
 import type { ArticleStaffItemType, MediaItemType } from '@/types/types'
 
@@ -67,10 +64,6 @@ const parsedDate = computed(() => {
   return format(new Date(props.date), 'MMMM d, Y')
 })
 
-const imageExists = computed(() => {
-  return !!(props.image && Object.keys(props.image).length !== 0)
-})
-
 const parsedTextTruncated = computed(() => {
   return props.description
     ? removeHtmlTruncate(props.description, 130)
@@ -93,21 +86,11 @@ const parsedTextAll = computed(() => {
 <template>
   <li :class="classes">
     <ResponsiveImage
-      v-if="imageExists"
       :media="props.image"
       :aspect-ratio="props.imageAspectRatio"
       object-fit="cover"
       class="image"
     />
-    <div
-      v-else
-      class="molecule-no-image"
-    >
-      <MoleculePlaceholder
-        class="molecule"
-        aria-hidden="true"
-      />
-    </div>
 
     <div class="meta">
       <div

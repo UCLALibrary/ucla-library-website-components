@@ -1,0 +1,15 @@
+.ftva.scroll-wrapper {
+  // styles for FTVA block-highlight within scroll-wrapper
+  :deep(.ftva.block-highlight) {
+    min-width: var(--card-min-width);
+    max-width: var(--card-max-width);
+
+    // ensure card title is underlined on hover
+    .card-meta:hover>a.title {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 2px;
+      text-decoration-color: $bright-blue;
+    }
+  }
+}

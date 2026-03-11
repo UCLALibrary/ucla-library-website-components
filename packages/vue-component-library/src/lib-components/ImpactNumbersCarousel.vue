@@ -58,11 +58,11 @@ function setCurrentSlide(currentSlideIndex: number) {
     </Carousel>
     <!-- navigation -->
     <div class="controls">
-      <button data-glide-dir="<" :disabled="currentSlide <= 0" @click="currentSlide -= 1">
-        <SvgArrowLeft aria-label="Go to previous item" class="prev-control" />
+      <button data-glide-dir="<" aria-label="Go to previous item" :disabled="currentSlide <= 0" @click="currentSlide -= 1">
+        <SvgArrowLeft aria-hidden="true" class="prev-control" />
       </button>
-      <button data-glide-dir=">" :disabled="currentSlide >= blocks.length - 1" @click="currentSlide += 1">
-        <SvgArrowRight aria-label="Go to next item" />
+      <button data-glide-dir=">" aria-label="Go to next item" :disabled="currentSlide >= blocks.length - 1" @click="currentSlide += 1">
+        <SvgArrowRight aria-hidden="true" />
       </button>
     </div>
     <div role="tablist" class="dots" />
