@@ -80,7 +80,7 @@ onMounted(async () => {
 
   // Dynamically load Wicg-inert - only load in browser
   if (typeof window !== 'undefined') {
-    // @ts-ignore
+    // @ts-expect-error
     /* @vite-ignore */
     await import('wicg-inert')
   }
