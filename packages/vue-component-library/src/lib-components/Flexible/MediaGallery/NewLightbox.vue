@@ -119,12 +119,19 @@ function setCurrentSlide(currentSlide: number) {
     </button>
 
     <Carousel v-model="selectionIndex" class="media-container">
-      <Slide v-for="(item, index) in items" :key="`media-container-${index}`" :aria-hidden="index !== selectionIndex" :tabindex="index === selectionIndex ? 0 : -1" >
-        <MediaItem :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item" :cover-image="item.coverImage" :embed-code="item.embedCode" class="library-media-item">
-          <div v-if="item.credit" class="credit-text">
-            <span v-text="item.credit" />
-          </div>
-        </MediaItem>
+      <Slide
+        v-for="(item, index) in items"
+        :key="`media-container-${index}`"
+        :aria-hidden="index !== selectionIndex"
+      >
+        <!-- Wrap slide content in an inert container if not active -->
+        <div :inert="index !== selectionIndex">
+          <MediaItem :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item" :cover-image="item.coverImage" :embed-code="item.embedCode" class="library-media-item">
+            <div v-if="item.credit" class="credit-text">
+              <span v-text="item.credit" />
+            </div>
+          </MediaItem>
+        </div>
       </Slide>
     </Carousel>
 
