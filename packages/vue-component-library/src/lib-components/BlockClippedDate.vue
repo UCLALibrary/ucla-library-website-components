@@ -8,7 +8,6 @@ import { useRoute } from 'vue-router'
 import type { PropType } from 'vue'
 
 // COMPONENTS
-import MoleculePlaceholder from 'ucla-library-design-tokens/assets/svgs/molecule-placeholder.svg'
 import ResponsiveImage from '@/lib-components/ResponsiveImage.vue'
 import CardMeta from '@/lib-components/CardMeta.vue'
 
@@ -143,15 +142,6 @@ const parsedDateMonth = computed(() => {
         :aspect-ratio="imageAspectRatio"
         class="image"
       />
-      <div
-        v-else
-        class="molecule-no-image"
-      >
-        <MoleculePlaceholder
-          class="molecule"
-          aria-hidden="true"
-        />
-      </div>
     </div>
     <CardMeta
       :to="to"

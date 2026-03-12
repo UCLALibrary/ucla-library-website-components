@@ -22,6 +22,7 @@ const classes = computed(() => (['button-iiif', theme?.value || '']))
   <SmartLink
     :to="to"
     :class="classes"
+    aria-label="View in IIIF viewer"
   >
     <IconIiif class="icon-iiif" />
   </SmartLink>

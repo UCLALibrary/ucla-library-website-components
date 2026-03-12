@@ -1,0 +1,51 @@
+.page-main-landing {
+    --gutters: 48px;
+
+    position: relative;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--color-white);
+
+    .header-smart {
+        .header-main {
+            position: unset;
+            height: unset;
+
+            .primary {
+                position: relative;
+            }
+        }
+    }
+
+    .main-content {
+        flex: 1;
+        padding: 0;
+    }
+
+    .search-field-composite-wrapper {
+        position: fixed;
+        top: 0px;
+        left: 0;
+        z-index: 100;
+
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .search-field-composite {
+        margin-bottom: 48px;
+    }
+
+    // Layout constraints for header-collection and section-teaser-card-wrapper
+    // are in SectionWrapper DLC theme (styles/dlc/_section-wrapper.scss).
+    @media #{$small} {
+        --gutters: 24px;
+
+        .main-content {
+            padding-top: 0px;
+        }
+    }
+}
