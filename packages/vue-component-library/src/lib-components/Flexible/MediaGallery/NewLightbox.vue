@@ -69,9 +69,7 @@ const prevBtnRef = ref()
 const nextBtnRef = ref()
 const paginationCounterRef = ref()
 
-/* A11Y FIX
-Announce slide changes to screen readers
-*/
+// A11Y FIX - Announce slide changes to screen readers
 const slideAnnouncement = computed(() => {
   const title = captionTitle.value[selectionIndex.value]
   return `Slide ${selectionIndex.value + 1} of ${items.length}${title ? `: ${title}` : ''}`
@@ -108,34 +106,41 @@ function setCurrentSlide(currentSlide: number) {
 
 <template>
   <div ref="lightbox" :class="classes">
-
     <!-- A11Y FIX: screen reader live region -->
     <p class="sr-only" aria-live="polite" aria-atomic="true">
       {{ slideAnnouncement }}
     </p>
 
+    <!-- Close button -->
     <button class="button-close" aria-label="Close" @click="closeModal">
       <SvgIconClose aria-hidden="true" focusable="false" />
     </button>
 
+    <!-- Carousel -->
     <Carousel v-model="selectionIndex" class="media-container">
       <Slide
         v-for="(item, index) in items"
         :key="`media-container-${index}`"
         :aria-hidden="index !== selectionIndex"
       >
-        <MediaItem
-          :key="`${item.captionTitle}-${index}`"
-          :object-fit="parsedObjectFit"
-          :item="item.item"
-          :cover-image="item.coverImage"
-          :embed-code="item.embedCode"
-          class="library-media-item"
+        <!-- wrapper div for the slide -->
+        <div
+          :inert="index !== selectionIndex"
+          :tabindex="index === selectionIndex ? 0 : -1"
         >
-          <div v-if="item.credit" class="credit-text">
-            <span v-text="item.credit" />
-          </div>
-        </MediaItem>
+          <MediaItem
+            :key="`${item.captionTitle}-${index}`"
+            :object-fit="parsedObjectFit"
+            :item="item.item"
+            :cover-image="item.coverImage"
+            :embed-code="item.embedCode"
+            class="library-media-item"
+          >
+            <div v-if="item.credit" class="credit-text">
+              <span v-text="item.credit" />
+            </div>
+          </MediaItem>
+        </div>
       </Slide>
     </Carousel>
 
@@ -144,7 +149,7 @@ function setCurrentSlide(currentSlide: number) {
       <SvgIconCaretLeft aria-hidden="true" focusable="false" />
     </button>
     <button
-      v-if="items.length > 1" ref="nextBtnRef" class="button-next" aria-label="Show next image" :disabled="selectionIndex >= items.length - 1"
+      v-if="items.length > 1" ref="nextBtnRef" class="button-next" aria-label="Show next image >= items.length - 1" :disabled="selectionIndex >= items.length - 1"
       @click="selectionIndex += 1"
     >
       <SvgIconCaretRight aria-hidden="true" focusable="false" />
@@ -159,7 +164,7 @@ function setCurrentSlide(currentSlide: number) {
           class="media-counter-item"
           :aria-label="`Go to slide ${index}`"
           :aria-current="index - 1 === selectionIndex ? 'true' : undefined"
-          :tabindex="index - 1 === selectionIndex ? -1 : 0"
+          :tabindex="index - 1 === selectionIndex ? 0 : -1"
           @click="setCurrentSlide(index - 1)"
         >
           <SvgIconMoleculeBullet aria-hidden="true" focusable="false" />

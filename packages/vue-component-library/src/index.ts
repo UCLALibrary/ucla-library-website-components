@@ -1,3 +1,4 @@
+import 'wicg-inert'
 import 'ucla-library-design-tokens/scss/app-global.scss'
 import '@/styles/global.scss'
 
