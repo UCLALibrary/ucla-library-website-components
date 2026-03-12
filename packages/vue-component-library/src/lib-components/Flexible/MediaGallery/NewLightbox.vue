@@ -131,16 +131,16 @@ function setCurrentSlide(currentSlide: number) {
 
     <!-- Pagination -->
     <div class="caption-block">
-      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="tablist">
+      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="group" aria-label="Slide navigation">
         <button
           v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex"
-          class="media-counter-item" :aria-label="`Go to slide ${index}`" @click="setCurrentSlide(index - 1)"
+          class="media-counter-item" :aria-label="`Go to slide ${index}`" :aria-current="index - 1 === selectionIndex ? 'true' : undefined" @click="setCurrentSlide(index - 1)"
         >
-          <SvgIconMoleculeBullet />
+          <SvgIconMoleculeBullet aria-hidden="true" />
         </button>
       </div>
       <!-- Captions -->
-      <div class="caption-content">
+      <div class="caption-content" aria-live="polite">
         <div class="media-object-caption-slot">
           <slot :selection-index="selectionIndex" />
           <!-- additional blocktags/labels/simple elements can be slotted in here by parent -->
