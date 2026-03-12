@@ -1,3 +1,17 @@
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.1](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.68.0...@ucla-library-monorepo/ucla-library-website-components-v1.68.1) (2026-03-11)
+
+
+### Bug Fixes
+
+* APPS-3703 Replace MEAP theme with prop to show or hide search in nav secondary component ([#915](https://github.com/UCLALibrary/ucla-library-website-components/issues/915)) ([7838c13](https://github.com/UCLALibrary/ucla-library-website-components/commit/7838c13d4605ae46c46516c3226fe4dea2145642))
+
+# [@ucla-library-monorepo/ucla-library-website-components-v1.68.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.67.0...@ucla-library-monorepo/ucla-library-website-components-v1.68.0) (2026-03-11)
+
+
+### Features
+
+* Add PageBentoBoxResults ([#898](https://github.com/UCLALibrary/ucla-library-website-components/issues/898)) ([7ebf6ca](https://github.com/UCLALibrary/ucla-library-website-components/commit/7ebf6cae8817d2ea1d6b65823b75e4a0eec84676))
+
 # [@ucla-library-monorepo/ucla-library-website-components-v1.67.0](https://github.com/UCLALibrary/ucla-library-website-components/compare/@ucla-library-monorepo/ucla-library-website-components-v1.66.2...@ucla-library-monorepo/ucla-library-website-components-v1.67.0) (2026-03-06)
 
 
