@@ -2,8 +2,8 @@ import SvgLoader from "vite-svg-loader"
 import type { StorybookConfig } from "@storybook/vue3-vite"
 import path from "path"
 import { mergeConfig } from "vite"
-import { fileURLToPath } from 'url'
 
+import { fileURLToPath } from 'url'
 const useChromatic = process.env.CHROMATIC_ADDON === "true"
 
 const config: StorybookConfig = {
@@ -45,14 +45,10 @@ const config: StorybookConfig = {
             },
             build: {
                 rollupOptions: {
-                    external: [
-                        ...(config.build?.rollupOptions?.external || []),
-                        'wicg-inert', // Treat wicg-inert as external so Storybook build doesn't fail
-                    ],
+                external: ['wicg-inert'], // <-- add this to stop Rollup from failing
                 },
             },
         })
     },
 }
-
 export default config
