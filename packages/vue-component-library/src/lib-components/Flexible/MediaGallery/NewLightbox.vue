@@ -125,13 +125,10 @@ function setCurrentSlide(currentSlide: number) {
         :aria-hidden="index !== selectionIndex"
       >
         <!-- Wrap slide content in an inert container if not active -->
-        <div :inert="index !== selectionIndex">
           <MediaItem :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item" :cover-image="item.coverImage" :embed-code="item.embedCode" class="library-media-item">
             <div v-if="item.credit" class="credit-text">
               <span v-text="item.credit" />
             </div>
-          </MediaItem>
-        </div>
       </Slide>
     </Carousel>
 
