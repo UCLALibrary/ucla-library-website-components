@@ -125,14 +125,7 @@ function setCurrentSlide(currentSlide: number) {
         :aria-hidden="index !== selectionIndex"
         :tabindex="index === selectionIndex ? 0 : -1"
       >
-        <MediaItem
-          :key="`${item.captionTitle}-${index}`"
-          :object-fit="parsedObjectFit"
-          :item="item.item"
-          :cover-image="item.coverImage"
-          :embed-code="item.embedCode"
-          class="library-media-item"
-        >
+        <MediaItem :key="`${item.captionTitle}-${index}`" :object-fit="parsedObjectFit" :item="item.item" :cover-image="item.coverImage" :embed-code="item.embedCode" class="library-media-item">
           <div v-if="item.credit" class="credit-text">
             <span v-text="item.credit" />
           </div>
