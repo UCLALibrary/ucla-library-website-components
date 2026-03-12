@@ -43,6 +43,9 @@ const config: StorybookConfig = {
                 },
                 extensions: [".vue", ".js", ".json"],
             },
+            optimizeDeps: {
+                exclude: ['wicg-inert']
+            },
             build: {
                 rollupOptions: {
                 external: ['wicg-inert'], // <-- add this to stop Rollup from failing

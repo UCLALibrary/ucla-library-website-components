@@ -79,8 +79,11 @@ onMounted(async () => {
   lightbox.value?.focus()
 
   // Dynamically load Wicg-inert - only load in browser
-  if (typeof window !== 'undefined')
-    await import(/* @vite-ignore */ 'wicg-inert')
+  if (typeof window !== 'undefined') {
+    // @ts-ignore
+    /* @vite-ignore */
+    await import('wicg-inert')
+  }
 
   setFTVAHomepageNavigationArrows()
 })
