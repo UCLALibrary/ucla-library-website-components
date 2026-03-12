@@ -78,10 +78,11 @@ const slideAnnouncement = computed(() => {
 onMounted(async () => {
   lightbox.value?.focus()
 
-  // dynamically load the inert polyfill
-  await import('wicg-inert')
+  // Dynamically load Wicg-inert - only load in browser
+  if (typeof window !== 'undefined') {
+    await import('wicg-inert')
+  }
 
-  // Sets placement of arrows for FTVA Homepage Carousel
   setFTVAHomepageNavigationArrows()
 })
 
