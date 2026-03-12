@@ -44,11 +44,11 @@ const config: StorybookConfig = {
                 extensions: [".vue", ".js", ".json"],
             },
             optimizeDeps: {
-                exclude: ['wicg-inert']
+                exclude: ['wicg-inert'], // don’t pre-bundle it
             },
             build: {
                 rollupOptions: {
-                external: ['wicg-inert'], // <-- add this to stop Rollup from failing
+                external: ['wicg-inert'], // add this to stop Rollup from failing - don’t try to resolve it
                 },
             },
         })
