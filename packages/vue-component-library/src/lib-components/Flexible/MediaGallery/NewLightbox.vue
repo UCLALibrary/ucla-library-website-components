@@ -69,6 +69,14 @@ const prevBtnRef = ref()
 const nextBtnRef = ref()
 const paginationCounterRef = ref()
 
+/* A11Y FIX
+Announce slide changes to screen readers
+*/
+const slideAnnouncement = computed(() => {
+  const title = captionTitle.value[selectionIndex.value]
+  return `Slide ${selectionIndex.value + 1} of ${items.length}${title ? `: ${title}` : ''}`
+})
+
 onMounted(() => {
   lightbox.value?.focus()
 
@@ -100,8 +108,14 @@ function setCurrentSlide(currentSlide: number) {
 
 <template>
   <div ref="lightbox" :class="classes">
+
+    <!-- A11Y FIX: screen reader live region -->
+    <p class="sr-only" aria-live="polite" aria-atomic="true">
+      {{ slideAnnouncement }}
+    </p>
+
     <button class="button-close" aria-label="Close" @click="closeModal">
-      <SvgIconClose aria-hidden="true" />
+      <SvgIconClose aria-hidden="true" focusable="false" />
     </button>
 
     <Carousel v-model="selectionIndex" class="media-container">
@@ -120,25 +134,31 @@ function setCurrentSlide(currentSlide: number) {
 
     <!-- Navigation -->
     <button v-if="items.length > 1" ref="prevBtnRef" class="button-prev" aria-label="Show previous image" :disabled="selectionIndex <= 0" @click="selectionIndex -= 1">
-      <SvgIconCaretLeft aria-hidden="true" />
+      <SvgIconCaretLeft aria-hidden="true" focusable="false" />
     </button>
     <button
       v-if="items.length > 1" ref="nextBtnRef" class="button-next" aria-label="Show next image" :disabled="selectionIndex >= items.length - 1"
       @click="selectionIndex += 1"
     >
-      <SvgIconCaretRight aria-hidden="true" />
+      <SvgIconCaretRight aria-hidden="true" focusable="false" />
     </button>
 
     <!-- Pagination -->
     <div class="caption-block">
       <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="group" aria-label="Slide navigation">
         <button
-          v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex"
-          class="media-counter-item" :aria-label="`Go to slide ${index}`" :aria-current="index - 1 === selectionIndex ? 'true' : undefined" @click="setCurrentSlide(index - 1)"
+          v-for="index in items.length"
+          :key="`caption-block-${index}`"
+          class="media-counter-item"
+          :aria-label="`Go to slide ${index}`"
+          :aria-current="index - 1 === selectionIndex ? 'true' : undefined"
+          :tabindex="index - 1 === selectionIndex ? -1 : 0"
+          @click="setCurrentSlide(index - 1)"
         >
-          <SvgIconMoleculeBullet aria-hidden="true" />
+          <SvgIconMoleculeBullet aria-hidden="true" focusable="false" />
         </button>
       </div>
+
       <!-- Captions -->
       <div class="caption-content" aria-live="polite">
         <div class="media-object-caption-slot">
@@ -178,4 +198,16 @@ function setCurrentSlide(currentSlide: number) {
 <style lang="scss" scoped>
 @import "@/styles/default/_new-lightbox.scss";
 @import "@/styles/ftva/_new-lightbox.scss";
+// A11Y style for screen reader live region
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
 </style>
