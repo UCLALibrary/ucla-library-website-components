@@ -188,7 +188,7 @@ function setCurrentSlide(currentSlide: number) {
           " class="media-object-caption-link" :to="items[selectionIndex].linkUrl"
         >
           {{ items[selectionIndex].linkText }}
-          <SvgExternalLink />
+          <SvgExternalLink aria-hidden="true" focusable="false" />
         </SmartLink>
       </div>
     </div>
