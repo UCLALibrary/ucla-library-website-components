@@ -81,12 +81,11 @@ onMounted(async () => {
   // Dynamically load Wicg-inert - only load in browser
   if (typeof window !== 'undefined') {
     try {
-      // @ts-expect-error
       /* @vite-ignore */
       await import('wicg-inert')
     }
     catch (err) {
-      // silently ignore — the module isn’t present at build time
+      // silently ignore if the module isn’t available at build time
       console.warn('wicg-inert polyfill not loaded', err)
     }
   }
