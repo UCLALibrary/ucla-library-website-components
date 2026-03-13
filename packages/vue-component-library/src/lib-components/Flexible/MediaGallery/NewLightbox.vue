@@ -79,17 +79,21 @@ onMounted(async () => {
   lightbox.value?.focus()
 
   // Dynamically load Wicg-inert - only load in browser
-  if (typeof window !== 'undefined') {
-    try {
-      // dynamically import, fallback to empty stub if not present
-      const inert = await import('wicg-inert').catch(() => null)
-      if (inert)
-        console.log('wicg-inert polyfill loaded')
+  onMounted(async () => {
+    lightbox.value?.focus()
+
+    if (typeof window !== 'undefined') {
+      try {
+        const moduleName = 'wicg-inert'
+        await import(/* @vite-ignore */ moduleName)
+      }
+      catch {
+        // polyfill not present — ignore
+      }
     }
-    catch (err) {
-      console.warn('wicg-inert polyfill failed to load', err)
-    }
-  }
+
+    setFTVAHomepageNavigationArrows()
+  })
 
   setFTVAHomepageNavigationArrows()
 })
