@@ -38,13 +38,14 @@ const config: StorybookConfig = {
                 },
             },
             resolve: {
-                alias: {
-                    "@": path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../src/"),
-                },
-                extensions: [".vue", ".js", ".json"],
+            alias: {
+                "@": path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../src/"),
+                "wicg-inert": path.resolve(__dirname, "../src/__mocks__/wicg-inert.js"), // mock it for Storybook
+            },
+            extensions: [".vue", ".js", ".json"],
             },
             optimizeDeps: {
-                exclude: ['wicg-inert'], // don’t pre-bundle it
+            exclude: ['wicg-inert'], // don’t pre-bundle
             },
             build: {
                 rollupOptions: {
