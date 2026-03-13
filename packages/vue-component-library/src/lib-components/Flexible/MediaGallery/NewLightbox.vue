@@ -78,22 +78,16 @@ const slideAnnouncement = computed(() => {
 onMounted(async () => {
   lightbox.value?.focus()
 
-  // Dynamically load Wicg-inert - only load in browser
-  onMounted(async () => {
-    lightbox.value?.focus()
-
-    if (typeof window !== 'undefined') {
-      try {
-        const moduleName = 'wicg-inert'
-        await import(/* @vite-ignore */ moduleName)
-      }
-      catch {
-        // polyfill not present — ignore
-      }
+  // Dynamically load Wicg-inert - only load in browser if needed
+  if (typeof window !== 'undefined') {
+    try {
+      const moduleName = 'wicg-inert'
+      await import(/* @vite-ignore */ moduleName)
     }
-
-    setFTVAHomepageNavigationArrows()
-  })
+    catch {
+      // ignore if not available
+    }
+  }
 
   setFTVAHomepageNavigationArrows()
 })
@@ -117,6 +111,18 @@ function closeModal() {
 
 function setCurrentSlide(currentSlide: number) {
   selectionIndex.value = currentSlide
+}
+
+function handleTabKeyNav(event: KeyboardEvent, index: number) {
+  if (event.key === 'ArrowRight') {
+    event.preventDefault()
+    setCurrentSlide((index + 1) % items.length)
+  }
+
+  if (event.key === 'ArrowLeft') {
+    event.preventDefault()
+    setCurrentSlide((index - 1 + items.length) % items.length)
+  }
 }
 </script>
 
@@ -165,7 +171,7 @@ function setCurrentSlide(currentSlide: number) {
       <SvgIconCaretLeft aria-hidden="true" focusable="false" />
     </button>
     <button
-      v-if="items.length > 1" ref="nextBtnRef" class="button-next" aria-label="Show next image >= items.length - 1" :disabled="selectionIndex >= items.length - 1"
+      v-if="items.length > 1" ref="nextBtnRef" class="button-next" aria-label="Show next image" :disabled="selectionIndex >= items.length - 1"
       @click="selectionIndex += 1"
     >
       <SvgIconCaretRight aria-hidden="true" focusable="false" />
@@ -180,9 +186,10 @@ function setCurrentSlide(currentSlide: number) {
           role="tab"
           class="media-counter-item"
           :aria-label="`Go to slide ${index} of ${items.length}`"
-          :aria-selected="index - 1 === selectionIndex ? 'true' : undefined"
+          :aria-selected="index - 1 === selectionIndex"
           :tabindex="index - 1 === selectionIndex ? 0 : -1"
           @click="setCurrentSlide(index - 1)"
+          @keydown="handleTabKeyNav($event, index - 1)"
         >
           <SvgIconMoleculeBullet aria-hidden="true" focusable="false" />
         </button>
