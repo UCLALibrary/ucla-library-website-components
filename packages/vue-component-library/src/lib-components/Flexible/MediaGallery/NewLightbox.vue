@@ -147,8 +147,9 @@ function handleTabKeyNav(event: KeyboardEvent, index: number) {
       >
         <!-- wrapper div for the slide -->
         <div
-          :inert="index !== selectionIndex"
-          :tabindex="index === selectionIndex ? 0 : -1"
+          tabindex="0"
+          :aria-hidden="index !== selectionIndex"
+          class="slide-wrapper"
         >
           <MediaItem
             :key="`${item.captionTitle}-${index}`"
