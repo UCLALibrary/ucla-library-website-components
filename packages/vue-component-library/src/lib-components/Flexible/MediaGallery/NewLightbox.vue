@@ -173,7 +173,7 @@ function setCurrentSlide(currentSlide: number) {
 
     <!-- Pagination -->
     <div class="caption-block">
-      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="group" aria-label="Slide navigation">
+      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="tablist" aria-label="Slide navigation">
         <button
           v-for="index in items.length"
           :key="`caption-block-${index}`"
@@ -182,6 +182,7 @@ function setCurrentSlide(currentSlide: number) {
           :aria-current="index - 1 === selectionIndex ? 'true' : undefined"
           :tabindex="index - 1 === selectionIndex ? 0 : -1"
           @click="setCurrentSlide(index - 1)"
+          role="tab"
         >
           <SvgIconMoleculeBullet aria-hidden="true" focusable="false" />
         </button>
