@@ -177,12 +177,12 @@ function setCurrentSlide(currentSlide: number) {
         <button
           v-for="index in items.length"
           :key="`caption-block-${index}`"
+          role="tab"
           class="media-counter-item"
-          :aria-label="`Go to slide ${index}`"
-          :aria-current="index - 1 === selectionIndex ? 'true' : undefined"
+          :aria-label="`Go to slide ${index} of ${items.length}`"
+          :aria-selected="index - 1 === selectionIndex ? 'true' : undefined"
           :tabindex="index - 1 === selectionIndex ? 0 : -1"
           @click="setCurrentSlide(index - 1)"
-          role="tab"
         >
           <SvgIconMoleculeBullet aria-hidden="true" focusable="false" />
         </button>
