@@ -147,6 +147,7 @@ FTVAItemsPostedDate.args = {
   dateCreated: '2022-01-31T07:00:00+00:00',
 }
 
+// FTVA Custom Title And Description
 const mockCustomTitleAndDesription = {
   category: 'Interview, People',
   title: '<h3>Preserving <em>In <strong>Transit</strong>:</em> The Chinese in California</h3>',
@@ -156,7 +157,7 @@ const mockCustomTitleAndDesription = {
   image: API.image,
 }
 
-function TemplateFTVACustomTitleDescription(args) {
+function TemplateFTVACustomTitleAndDescription(args) {
   return {
     data() {
       return {
@@ -177,24 +178,124 @@ function TemplateFTVACustomTitleDescription(args) {
         :category="category"
         :dateCreated="postDate"
         :image-aspect-ratio="imageAspectRatio"
+        :card-is-link="true"
         >
-
+        // To be able to view the link here in storybook we are using v-html & smart-link
+        // See note below for how to use this on the page
         <template #customTitle>
-        <smart-link :to="uri" class="custom-title">
-          <rich-text v-html="title" />
-        </smart-link>
+          <smart-link :to="uri">
+            <rich-text class="custom-title" v-html="title" />
+          </smart-link>
         </template>
 
+        // To be able to view this here in storybook we are using v-html
+        // See note below for how to use this on the page
         <template #customDescription>
           <rich-text v-html="ftvaHomepageDescription" />
+        </template>
+
+      </block-card-with-image>
+    `,
+  }
+}
+        // ON THE PAGE USE IT THIS WAY
+
+        // <template #customTitle>
+        //   <NuxtLink :to="article.to" class="custom-title">
+        //     <RichText :rich-text-content="article.title" />
+        //   </NuxtLink>
+
+        // <template #customDescription>
+        //   <RichText class="custom-description" :rich-text-content="page.hearstDescription" />
+        // </template>
+
+export const FTVACustomTitleAndDescription = TemplateFTVACustomTitleAndDescription.bind({})
+
+// FTVA Custom Description Only Internal Link
+function TemplateFTVACustomDescriptionOnlyInternalLink(args) {
+  return {
+    data() {
+      return {
+        ...mockCustomTitleAndDesription,
+        ...args,
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockCardWithImage, RichText, SmartLink },
+    template: `
+
+      <block-card-with-image
+        class="block-highlight"
+        style="cursor: pointer"
+        :image="image"
+        :image-aspect-ratio="imageAspectRatio"
+        :card-is-link="true"
+        :to="uri"
+        >
+
+        <template #customDescription>
+          <RichText class="custom-description" v-html="ftvaHomepageDescription" />
+        </template>
+      </block-card-with-image>
+    `,
+  }
+}
+        // ON THE PAGE USE IT THIS WAY
+
+        // <template #customDescription>
+        //   <RichText class="custom-description" v-html="ftvaHomepageDescription" />
+        // </template>
+
+        // // DON't do this:
+        // <smart-link :to="uri">
+        // <template #customDescription>
+        //   <rich-text v-html="ftvaHomepageDescription" />
+        // </template>
+
+export const FTVACustomDescriptionOnlyInternalLink = TemplateFTVACustomDescriptionOnlyInternalLink.bind({})
+
+// FTVA Custom Description Only External Link
+function TemplateFTVACustomDescriptionOnlyExternalLink(args) {
+  return {
+    data() {
+      return {
+        ...mockCustomTitleAndDesription,
+        ...args,
+        uri: "https://newsreels.net/",
+      }
+    },
+    provide() {
+      return {
+        theme: computed(() => 'ftva'),
+      }
+    },
+    components: { BlockCardWithImage, RichText, SmartLink },
+    template: `
+
+      <block-card-with-image
+        class="block-highlight"
+        style="cursor: pointer"
+        :image="image"
+        :image-aspect-ratio="imageAspectRatio"
+        :card-is-link="true"
+        :to="uri"
+        >
+
+        <template #customDescription>
+          <RichText :rich-text-content="ftvaHomepageDescription" />
         </template>
       </block-card-with-image>
     `,
   }
 }
 
-export const FTVACustomTitleDescription = TemplateFTVACustomTitleDescription.bind({})
+export const FTVACustomDescriptionOnlyExternalLink = TemplateFTVACustomDescriptionOnlyExternalLink.bind({})
 
+// FTVA Article Blog Listing
 const mockArticles = [
   {
     ftvaAlternativeTitle: '<h3><em>Preserving In Transit:</em> The Chinese in California</h3>',
