@@ -121,7 +121,6 @@ function setCurrentSlide(currentSlide: number) {
 
     <!-- A11Y FIX: SCREEN READER LIVE REGION -->
     <p
-      class="sr-only"
       aria-live="polite"
       aria-atomic="true"
     >
@@ -161,10 +160,10 @@ function setCurrentSlide(currentSlide: number) {
 
     <!-- PAGINATION -->
     <div class="caption-block">
-      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="group" aria-label="Slide navigation">
+      <div v-if="items.length > 1" ref="paginationCounterRef" class="media-counter" role="group" aria-label="Slide navigation buttons">
         <button
           v-for="index in items.length" :key="`caption-block-${index}`" :disabled="index - 1 === selectionIndex"
-          class="media-counter-item" :aria-label="`Go to slide ${index} of ${items.length}`" :aria-current="index - 1 === selectionIndex ? 'true' : null" @click="setCurrentSlide(index - 1)"
+          class="media-counter-item" :aria-label="`Go to slide ${index} of ${items.length}`" :aria-current="index - 1 === selectionIndex ? 'true' : undefined" @click="setCurrentSlide(index - 1)"
         >
           <SvgIconMoleculeBullet />
         </button>
