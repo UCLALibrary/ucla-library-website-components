@@ -169,7 +169,6 @@ function handleTabKeyNav(event: KeyboardEvent, index: number) {
         <div
           :inert="index !== selectionIndex"
           :tabindex="index === selectionIndex ? 0 : -1"
-          role="tabpanel"
         >
           <MediaItem
             :key="`${item.captionTitle}-${index}`"
@@ -224,13 +223,11 @@ function handleTabKeyNav(event: KeyboardEvent, index: number) {
         v-if="items.length > 1"
         ref="paginationCounterRef"
         class="media-counter"
-        role="tablist"
         aria-label="Slide navigation"
       >
         <button
           v-for="index in items.length"
           :key="`caption-block-${index}`"
-          role="tab"
           class="media-counter-item"
           :aria-label="`Go to slide ${index} of ${items.length}`"
           :aria-selected="index - 1 === selectionIndex"
@@ -315,15 +312,4 @@ function handleTabKeyNav(event: KeyboardEvent, index: number) {
     white-space: nowrap;
     border: 0;
   }
-  .media-counter-item {
-  /* existing styles for unselected/selected state */
-
-  &:focus {
-    outline: 2px solid #0055ff; /* or match your brand focus color */
-    outline-offset: 2px;
-  }
-}
-.media-counter-item[aria-selected="true"] {
-  background-color: #0055ff; /* highlight active dot */
-}
 </style>
