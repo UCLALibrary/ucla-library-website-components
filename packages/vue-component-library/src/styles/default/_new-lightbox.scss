@@ -2,6 +2,19 @@
     display: block;
 }
 
+// A11Y style for screen reader live region
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 .lightbox {
     position: fixed;
     top: 0;
@@ -14,7 +27,7 @@
     --side-column-min-width: 72px;
     --gap-width: var(--space-m);
     --media-width: min(calc(100vw - (2 * var(--side-column-min-width)) - (2 * var(--gap-width))),
-        992px);
+            992px);
     --media-height: calc(var(--media-width) * 9 / 16);
     --side-column-width: calc((100vw - var(--media-width) - 2 * var(--gap-width)) / 2);
 
@@ -50,7 +63,7 @@
         grid-column: col 2 / span 1;
 
         .credit-text {
-          display: none;
+            display: none;
         }
     }
 

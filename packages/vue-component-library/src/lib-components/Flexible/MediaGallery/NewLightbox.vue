@@ -317,4 +317,15 @@
     white-space: nowrap;
     border: 0;
   }
+  .media-counter-item {
+  /* existing styles for unselected/selected state */
+
+  &:focus {
+    outline: 2px solid #0055ff; /* or match your brand focus color */
+    outline-offset: 2px;
+  }
+}
+.media-counter-item[aria-selected="true"] {
+  background-color: #0055ff; /* highlight active dot */
+}
 </style>
