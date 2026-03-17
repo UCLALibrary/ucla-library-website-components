@@ -78,6 +78,9 @@ const slideAnnouncement = computed(() => {
 onMounted(async () => {
   lightbox.value?.focus()
 
+  // Sets placement of arrows for FTVA Homepage Carousel
+  setFTVAHomepageNavigationArrows()
+
   // Dynamically load Wicg-inert - only load in browser if needed
   // wicg-inert is used to make inert work in Chrome
   if (typeof window !== 'undefined') {
@@ -89,9 +92,6 @@ onMounted(async () => {
       // ignore if not available
     }
   }
-
-  // Sets placement of arrows for FTVA Homepage Carousel
-  setFTVAHomepageNavigationArrows()
 })
 
 // For FTVA Homepage Carousel:
