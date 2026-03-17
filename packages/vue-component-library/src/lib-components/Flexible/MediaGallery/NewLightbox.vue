@@ -1,7 +1,4 @@
-<script
-  lang="ts"
-  setup
->
+<script lang="ts" setup>
 import { computed, defineAsyncComponent, onMounted, ref } from 'vue'
 import type { PropType } from 'vue'
 import 'vue3-carousel/dist/carousel.css'
@@ -82,6 +79,7 @@ onMounted(async () => {
   lightbox.value?.focus()
 
   // Dynamically load Wicg-inert - only load in browser if needed
+  // wicg-inert is used to make inert work in Chrome
   if (typeof window !== 'undefined') {
     try {
       const moduleName = 'wicg-inert'
@@ -92,6 +90,7 @@ onMounted(async () => {
     }
   }
 
+  // Sets placement of arrows for FTVA Homepage Carousel
   setFTVAHomepageNavigationArrows()
 })
 
