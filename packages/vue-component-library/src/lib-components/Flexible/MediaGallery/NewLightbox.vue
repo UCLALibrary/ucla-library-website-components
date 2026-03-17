@@ -169,6 +169,7 @@ function handleTabKeyNav(event: KeyboardEvent, index: number) {
         <div
           :inert="index !== selectionIndex"
           :tabindex="index === selectionIndex ? 0 : -1"
+          role="tabpanel"
         >
           <MediaItem
             :key="`${item.captionTitle}-${index}`"
