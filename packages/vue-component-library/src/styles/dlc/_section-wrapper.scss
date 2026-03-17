@@ -46,6 +46,21 @@
         }
     }
 
+    &.collection-overview-wrapper {
+        flex: 1;
+        max-width: var(--unit-full-width);
+        margin-inline: auto;
+        padding: 0 var(--gutters) 48px;
+    }
+
+    &.top-level {
+        > :deep(*) {
+            max-width: var(--unit-full-width);
+            padding: 0;
+            margin-inline: auto;
+        }
+    }
+
     @media #{$extra-large} {
         &.section-teaser-card-wrapper {
             max-width: 1600px;

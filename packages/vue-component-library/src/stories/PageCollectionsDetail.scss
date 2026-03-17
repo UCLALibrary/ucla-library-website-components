@@ -13,20 +13,6 @@
             }
         }
     }
-    // .global-menu-panel {
-    //     @include global-menu-panel;
-    // }
-
-    // .header {
-    //     @include header-fixed;
-    // }
-
-    .main-content {
-        flex: 1;
-        max-width: var(--unit-full-width);
-        margin-inline: auto;
-        padding: 0 var(--gutters) 48px;
-    }
 
     .collection-overview {
         margin-bottom: 48px;
@@ -62,15 +48,6 @@
         @include step-4;
         margin: 0 0 var(--space-xl);
         color: var(--color-primary-blue-03);
-    }
-
-    .section-teaser-card-wrapper {
-        margin-bottom: 48px;
-        margin-inline: auto;
-        max-width: var(--unit-full-width);
-        .section-teaser-card {
-            max-width: unset;
-        }
     }
 
     // Breakpoints

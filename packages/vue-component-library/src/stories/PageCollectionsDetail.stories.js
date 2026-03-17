@@ -10,6 +10,7 @@ import SectionTeaserCard from '../lib-components/SectionTeaserCard.vue'
 import ButtonMore from '../lib-components/ButtonMore.vue'
 import ExcerptPod from '../lib-components/ExcerptPod.vue'
 import NavSearch from '../lib-components/NavSearch.vue'
+import SectionWrapper from '../lib-components/SectionWrapper.vue'
 
 // Import mock data
 import {
@@ -49,6 +50,7 @@ function Template(args) {
       HeaderSmart,
       FooterPrimary,
       FooterSock,
+      SectionWrapper,
       CollectionOverview,
       GridMetadata,
       SectionTeaserCard,
@@ -122,50 +124,53 @@ function Template(args) {
         </div>
 
         <main class="main-content">
-          <CollectionOverview v-bind="collectionOverviewProps" />
+          <SectionWrapper class="collection-overview-wrapper">
+            <CollectionOverview v-bind="collectionOverviewProps" />
 
-          <!-- Grid Metadata -->
-          <GridMetadata :items="gridMetadataItems">
-            <template #after>
-              <div class="excerpt-pod-wrapper">
-                <!-- Excerpt Pod -->
-                <ExcerptPod
-                  :title="excerptPod.title"
-                  :subtitle="excerptPod.subtitle"
-                  :label-open="excerptPod.labelOpen"
-                  :label-close="excerptPod.labelClose"
-                  :sentence-split-count="excerptPod.sentenceSplitCount"
-                >
-                  <template #default>
-                    <p v-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).truncated" />
-                  </template>
-                  <template #content>
-                    <p v-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).remaining" />
-                  </template>
-                </ExcerptPod>
-              </div>
-            </template>
-          </GridMetadata>
-          
-          <!-- Button More -->
-          <ButtonMore
-            class="button-more"
-            :text="buttonMore.text"
-            :to="buttonMore.to"
-          />
-          <section class="section-teaser-card-wrapper">
-            <p class="subtitle-grid-assets">
-              {{ sectionTeaserCards.subtitle }}
-            </p>
-            <h2 class="title-grid-assets">
-              {{ sectionTeaserCards.title }}
-            </h2>
-            <SectionTeaserCard
-              :items="sectionTeaserCards.items"
-              :section-title="sectionTeaserCards.sectionTitle"
-              :grid-layout="true"
+            <!-- Grid Metadata -->
+            <GridMetadata :items="gridMetadataItems">
+              <template #after>
+                <div class="excerpt-pod-wrapper">
+                  <!-- Excerpt Pod -->
+                  <ExcerptPod
+                    :title="excerptPod.title"
+                    :subtitle="excerptPod.subtitle"
+                    :label-open="excerptPod.labelOpen"
+                    :label-close="excerptPod.labelClose"
+                    :sentence-split-count="excerptPod.sentenceSplitCount"
+                  >
+                    <template #default>
+                      <p v-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).truncated" />
+                    </template>
+                    <template #content>
+                      <p v-html="splitText(excerptPod.text, excerptPod.sentenceSplitCount).remaining" />
+                    </template>
+                  </ExcerptPod>
+                </div>
+              </template>
+            </GridMetadata>
+            
+            <!-- Button More -->
+            <ButtonMore
+              class="button-more"
+              :text="buttonMore.text"
+              :to="buttonMore.to"
             />
-          </section>
+          </SectionWrapper>
+
+          <SectionWrapper class="section-teaser-card-wrapper">
+              <p class="subtitle-grid-assets">
+                {{ sectionTeaserCards.subtitle }}
+              </p>
+              <h2 class="title-grid-assets">
+                {{ sectionTeaserCards.title }}
+              </h2>
+              <SectionTeaserCard
+                :items="sectionTeaserCards.items"
+                :section-title="sectionTeaserCards.sectionTitle"
+                :grid-layout="true"
+              />
+          </SectionWrapper>
         </main>
          
          <!-- Footer -->
